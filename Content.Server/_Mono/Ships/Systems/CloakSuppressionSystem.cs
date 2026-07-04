@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Shared._Mono.Company;
 using Content.Shared._Mono.Ships.Components;
@@ -18,12 +12,12 @@ namespace Content.Server._Mono.Ships.Systems;
 /// <summary>
 /// System that handles IFF suppression by ships with CloakHunter capability. Very performant, like everything I make.
 /// </summary>
-public sealed class CloakSuppressionSystem : EntitySystem
+public sealed partial class CloakSuppressionSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedShuttleSystem _shuttle = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedShuttleSystem _shuttle = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     /// <summary>
     /// Range in meters within which CloakHunter ships suppress IFF Hide flags.
@@ -126,9 +120,6 @@ public sealed class CloakSuppressionSystem : EntitySystem
             // Check if ship has IFF Hide flag
             if (!TryComp<IFFComponent>(shipUid, out var iffComp) ||
                 (iffComp.Flags & IFFFlags.Hide) == 0)
-                continue;
-
-            if (HasComp<TemporaryFtlIffStorageComponent>(shipUid))
                 continue;
 
             // Check if the target ship has a matching company

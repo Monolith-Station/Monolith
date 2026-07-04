@@ -1,46 +1,3 @@
-  # SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 F77F
-# SPDX-FileCopyrightText: 2020 Hugal31
-# SPDX-FileCopyrightText: 2020 Hugo Laloge
-# SPDX-FileCopyrightText: 2020 Metal Gear Sloth
-# SPDX-FileCopyrightText: 2020 Swept
-# SPDX-FileCopyrightText: 2020 Vince
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-# SPDX-FileCopyrightText: 2020 ancientpower
-# SPDX-FileCopyrightText: 2020 zumorica
-# SPDX-FileCopyrightText: 2021 Acruid
-# SPDX-FileCopyrightText: 2021 Alex Evgrashin
-# SPDX-FileCopyrightText: 2021 Remie Richards
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2022 Jacob Tong
-# SPDX-FileCopyrightText: 2022 Paul Ritter
-# SPDX-FileCopyrightText: 2022 mirrorcult
-# SPDX-FileCopyrightText: 2023 Chief-Engineer
-# SPDX-FileCopyrightText: 2023 DrSmugleaf
-# SPDX-FileCopyrightText: 2023 Dvir
-# SPDX-FileCopyrightText: 2023 Kara
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2023 ShadowCommander
-# SPDX-FileCopyrightText: 2023 adamsong
-# SPDX-FileCopyrightText: 2023 crazybrain23
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2024 AndresE55
-# SPDX-FileCopyrightText: 2024 Ilya246
-# SPDX-FileCopyrightText: 2024 Leon Friedrich
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2024 slarticodefast
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 Winkarst
-# SPDX-FileCopyrightText: 2025 keronshb
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: Incorporeal
   save: false
@@ -87,7 +44,32 @@
     color: "#fff8"
     layers:
     - state: animated
+      map: [ "ghostVariant" ]
       shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GhostVisuals.Damage:
+        ghostVariant:
+          ghost_Blunt0: { state: ghost_Blunt0 } # this is an icki way of doing this u.u -Thinbug
+          ghost_Blunt1: { state: ghost_Blunt1 }
+          ghost_Blunt2: { state: ghost_Blunt2 }
+          ghost_Slash0: { state: ghost_Slash0 }
+          ghost_Slash1: { state: ghost_Slash1 }
+          ghost_Slash2: { state: ghost_Slash2 }
+          ghost_Piercing0: { state: ghost_Piercing0 }
+          ghost_Piercing1: { state: ghost_Piercing1 }
+          ghost_Piercing2: { state: ghost_Piercing2 }
+          ghost_Heat0: { state: ghost_Heat0 }
+          ghost_Cold0: { state: ghost_Cold0 }
+          ghost_Shock0: { state: ghost_Shock0 }
+          ghost_Radiation0: { state: ghost_Radiation0 }
+          ghost_Cellular0: { state: ghost_Cellular0 }
+          ghost_Poison0: { state: ghost_Poison0 }
+          ghost_Asphyxiation0: { state: ghost_Asphyxiation0 }
+          ghost_Explosion0: { state: ghost_Explosion0 }
+          ghost_Explosion1: { state: ghost_Explosion1 }
+          ghost_Explosion2: { state: ghost_Explosion2 }
   - type: ContentEye
     maxZoom: 1.44,1.44
   - type: Eye
@@ -97,6 +79,19 @@
   - type: Examiner
     skipChecks: true
   - type: Ghost
+  - type: GhostSpriteState
+    damageMap:
+      Blunt: 3
+      Slash: 3
+      Piercing: 3
+      Heat: 1
+      Cold: 1
+      Shock: 1
+      Radiation: 1
+      Cellular: 1
+      Poison: 1
+      Asphyxiation: 1
+    prefix: "ghost_"
   - type: GhostHearing
   - type: ShowElectrocutionHUD
   - type: IntrinsicRadioReceiver
@@ -122,16 +117,18 @@
       enum.RadarConsoleUiKey.Key:
         toggleAction: ActionObserverShowRadar
   - type: RadarConsole
-    maxRange: 768 #256->768 Mono
     followEntity: true
-    maxIffRange: 768 #256->768
     hideCoords: true
+    noRotate: true # Mono
   - type: ComplexInteraction # Needed to interact with innate radar console
   - type: ShipyardSellCondition # Teleport to shipyard console on sale
     preserveOnSale: true
   # End Frontier
   - type: SurgeryTarget
   - type: Sanitized # Mono
+  - type: CollectiveMind
+    hearAll: true
+    seeAllNames: true
 
 # proto for player ghosts specifically
 - type: entity

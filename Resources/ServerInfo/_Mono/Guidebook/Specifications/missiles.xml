@@ -1,0 +1,168 @@
+<Document>
+  # Missile Weapons Specifications
+  Notes:
+  - Munition range & ammo capacity is taken from the standard magazine & ammunition that comes loaded with the weapon.
+  - For munitions that accelerate over time (such as missiles), range is a rough estimate.
+  - For munitions that are fired at a static speed (such as normal weapons), range is simply just the launch velocity * projectile lifetime.
+  - RPS may not be accurate due to it being capped by server tick speed (usually 20 or 30 ticks/second).
+  - Rare guns such as ADS/NT/Syndicate shipguns will not be included.
+
+  ## Specifications (as of 24-Oct-2025)
+  <Table Columns="7">
+    <ColorBox>
+      <Box>
+        Name
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Ammo Capacity
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Firerate
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Munition Range (Estimated)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Max Velocity
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Size Class
+      </Box>
+    </ColorBox>
+    <!--Vanyk-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ASM-302
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        36 (CART.)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.8 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ~945 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        210 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Medium
+      </Box>
+    </ColorBox>
+    <!--Vespera-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ADMP-27 VESPERA
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        84 (CART.)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        16 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ~630 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        180 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Medium
+      </Box>
+    </ColorBox>
+    <!--Tovek-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ADMX-23 TOVEK
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        6 (CART.)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.2 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ~812 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        125 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Medium
+      </Box>
+    </ColorBox>
+    <!--Torps-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ASM-220 (HE TORP)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        4 (CART.)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.1 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ~1747 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        70 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Medium
+      </Box>
+    </ColorBox>
+  </Table>
+
+</Document>

@@ -17,6 +17,8 @@ public sealed class DispenserTest : InteractionTest
         await SpawnTarget("ChemDispenser");
         ToggleNeedPower();
 
+        await RunTicks(20); // Mono
+
         // Insert beaker
         await InteractUsing("Beaker");
         Assert.That(Hands.ActiveHandEntity, Is.Null);

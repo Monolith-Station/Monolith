@@ -1,30 +1,11 @@
-# SPDX-FileCopyrightText: 2023 Alexander Evgrashin
-# SPDX-FileCopyrightText: 2023 Banshee
-# SPDX-FileCopyrightText: 2023 Cheackraze
-# SPDX-FileCopyrightText: 2023 RealIHaveANameOfficial
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 dustylens
-# SPDX-FileCopyrightText: 2025 Alkheemist
-# SPDX-FileCopyrightText: 2025 Honestly101
-# SPDX-FileCopyrightText: 2025 KiraZen_
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 grandalff
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Grid
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/10/2025 14:31:51
-  entityCount: 561
+  time: 08/16/2025 14:36:56
+  entityCount: 558
 maps: []
 grids:
 - 1
@@ -53,7 +34,7 @@ entities:
     - type: MetaData
       name: grid
     - type: Transform
-      pos: -20.46215,-0.3713417
+      pos: -4.615744,8.581796
       parent: invalid
     - type: MapGrid
       chunks:
@@ -93,6 +74,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -437,12 +419,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,-9.5
-      parent: 1
-  - uid: 16
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,-11.5
       parent: 1
   - uid: 17
     components:
@@ -872,6 +848,11 @@ entities:
       parent: 1
 - proto: CableApcExtension
   entities:
+  - uid: 16
+    components:
+    - type: Transform
+      pos: 1.5,-10.5
+      parent: 1
   - uid: 87
     components:
     - type: Transform
@@ -967,11 +948,6 @@ entities:
     - type: Transform
       pos: -4.5,-10.5
       parent: 1
-  - uid: 106
-    components:
-    - type: Transform
-      pos: 1.5,-10.5
-      parent: 1
   - uid: 107
     components:
     - type: Transform
@@ -980,12 +956,12 @@ entities:
   - uid: 108
     components:
     - type: Transform
-      pos: 1.5,-11.5
+      pos: 0.5,-11.5
       parent: 1
   - uid: 109
     components:
     - type: Transform
-      pos: 1.5,-10.5
+      pos: 0.5,-12.5
       parent: 1
   - uid: 110
     components:
@@ -1016,11 +992,6 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-7.5
-      parent: 1
-  - uid: 116
-    components:
-    - type: Transform
-      pos: 1.5,-10.5
       parent: 1
   - uid: 117
     components:
@@ -1371,6 +1342,16 @@ entities:
       parent: 1
 - proto: CableMV
   entities:
+  - uid: 106
+    components:
+    - type: Transform
+      pos: 0.5,-10.5
+      parent: 1
+  - uid: 116
+    components:
+    - type: Transform
+      pos: 1.5,-10.5
+      parent: 1
   - uid: 186
     components:
     - type: Transform
@@ -1380,16 +1361,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-11.5
-      parent: 1
-  - uid: 188
-    components:
-    - type: Transform
-      pos: 1.5,-10.5
-      parent: 1
-  - uid: 189
-    components:
-    - type: Transform
-      pos: 1.5,-11.5
       parent: 1
   - uid: 190
     components:
@@ -1914,7 +1885,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerShuttle
+- proto: ComputerShuttleKPV63RWR
   entities:
   - uid: 277
     components:
@@ -2017,13 +1988,6 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-7.5
-      parent: 1
-- proto: EmergencyRollerBedSpawnFolded
-  entities:
-  - uid: 287
-    components:
-    - type: Transform
-      pos: 2.295912,-8.198383
       parent: 1
 - proto: ExtinguisherCabinetFilled
   entities:
@@ -2456,22 +2420,18 @@ entities:
       startingCharge: 0
     - type: ApcPowerReceiver
       powerLoad: 5
-- proto: Gyroscope
-  entities:
-  - uid: 347
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,-2.5
-      parent: 1
-  - uid: 348
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 2.5,-2.5
-      parent: 1
 - proto: GyroscopeSecurity
   entities:
+  - uid: 188
+    components:
+    - type: Transform
+      pos: 2.5,-2.5
+      parent: 1
+  - uid: 189
+    components:
+    - type: Transform
+      pos: -1.5,-2.5
+      parent: 1
   - uid: 349
     components:
     - type: Transform
@@ -2750,20 +2710,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,0.5
-      parent: 1
-- proto: SpawnPointUSSPCorporal
-  entities:
-  - uid: 388
-    components:
-    - type: Transform
-      pos: 1.5,0.5
-      parent: 1
-- proto: SpawnPointUSSPMedic
-  entities:
-  - uid: 389
-    components:
-    - type: Transform
-      pos: -0.5,-8.5
       parent: 1
 - proto: SpawnPointUSSPRifleman
   entities:

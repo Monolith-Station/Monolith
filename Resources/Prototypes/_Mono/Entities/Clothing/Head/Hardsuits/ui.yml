@@ -1,0 +1,194 @@
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHelmetHardsuitUIEnforcer
+  name: U.I. ENFORCER MKI helmet
+  description: Flash-proof lining, in built night vision system, and looks good as hell. Other than information display port being snapped, what's more to ask for?
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_enforcer.rsi #Ullman sprites
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_enforcer.rsi #Ullman sprites
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: FlashImmunity
+  - type: NightVision
+    flashDurationMultiplier: 0.85
+    isEquipment: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Special
+    - FacialHair
+    - Snout
+    - Head
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ShowMedicalIcons]
+  id: ClothingHelmetHardsuitUIEnforcerMKII
+  name: U.I. ENFORCER MKII Combat helmet
+  description: This top of the line helmet comes with flashproof lining, a mass scanner and an inbuilt medical diagnostic system.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_enforcermkii.rsi #Ullman sprites
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_enforcermkii.rsi #Ullman sprites
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: RadarConsole
+    followEntity: true
+    noRotate: true
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: FlashImmunity
+  - type: NightVision
+    flashDurationMultiplier: 0.85
+    isEquipment: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Special
+    - FacialHair
+    - Snout
+    - Head
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHelmetHardsuitUIEngineer
+  name: U.I. engineering helmet
+  description: A cheap and effective hardsuit helmet, just with an extra black market touch.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_engineer.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_engineer.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: NightVision
+    flashDurationMultiplier: 0.85
+    isEquipment: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Special
+    - FacialHair
+    - Snout
+    - Head
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHelmetHardsuitUIPilot
+  name: U.I. pilot helmet
+  description: A helmet for Ullman Industry pilots.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_pilot.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_pilot.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: NightVision
+    flashDurationMultiplier: 0.85
+    isEquipment: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Radiation: 0.9
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Special
+    - FacialHair
+    - Snout
+    - Head
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ShowSecurityIcons]
+  id: ClothingHelmetHardsuitUIDirector
+  name: U.I. VK-1 experimental helmet
+  description: A purpose built helmet designed by Felix Ullman, for Felix Ullman.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_director.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/ullman_industries_director.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: RadarConsole
+    followEntity: true
+    noRotate: true
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: FlashImmunity
+  - type: NightVision
+    flashDurationMultiplier: 0.85
+    isEquipment: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Radiation: 0.9
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Special
+    - FacialHair
+    - Snout
+    - Head
+    - HeadTop
+    - HeadSide

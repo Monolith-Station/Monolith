@@ -20,6 +20,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Storage.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
@@ -41,27 +42,27 @@ public sealed partial class DisposalDoAfterEvent : SimpleDoAfterEvent
 {
 }
 
-public abstract class SharedDisposalUnitSystem : EntitySystem
+public abstract partial class SharedDisposalUnitSystem : EntitySystem
 {
-    [Dependency] protected readonly ActionBlockerSystem ActionBlockerSystem = default!;
-    [Dependency] private   readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] protected readonly MetaDataSystem Metadata = default!;
-    [Dependency] private   readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] protected readonly IGameTiming GameTiming = default!;
-    [Dependency] private   readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private   readonly ClimbSystem _climb = default!;
-    [Dependency] protected readonly SharedContainerSystem Containers = default!;
-    [Dependency] protected readonly SharedJointSystem Joints = default!;
-    [Dependency] private   readonly SharedPowerReceiverSystem _power = default!;
-    [Dependency] private   readonly SharedDisposalTubeSystem _disposalTubeSystem = default!;
-    [Dependency] private   readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private   readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private   readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
-    [Dependency] private   readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private   readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedDeviceLinkSystem _device = default!; // Goobstation
+    [Dependency] protected ActionBlockerSystem ActionBlockerSystem = default!;
+    [Dependency] private   EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] protected MetaDataSystem Metadata = default!;
+    [Dependency] private   SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] protected IGameTiming GameTiming = default!;
+    [Dependency] private   ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private   ClimbSystem _climb = default!;
+    [Dependency] protected SharedContainerSystem Containers = default!;
+    [Dependency] protected SharedJointSystem Joints = default!;
+    [Dependency] private   SharedPowerReceiverSystem _power = default!;
+    [Dependency] private   SharedDisposalTubeSystem _disposalTubeSystem = default!;
+    [Dependency] private   SharedPopupSystem _popupSystem = default!;
+    [Dependency] private   SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private   SharedHandsSystem _handsSystem = default!;
+    [Dependency] protected SharedTransformSystem TransformSystem = default!;
+    [Dependency] private   SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private   SharedMapSystem _map = default!;
+    [Dependency] private SharedDeviceLinkSystem _device = default!; // Goobstation
     public static readonly ProtoId<SourcePortPrototype> ReadyPort = "DisposalReady"; // Goobstation
 
     protected static TimeSpan ExitAttemptDelay = TimeSpan.FromSeconds(0.5);
@@ -94,6 +95,9 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
         SubscribeLocalEvent<DisposalUnitComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<DisposalUnitComponent, DragDropTargetEvent>(OnDragDropOn);
         SubscribeLocalEvent<DisposalUnitComponent, ContainerRelayMovementEntityEvent>(OnMovement);
+
+        SubscribeLocalEvent<DisposalUnitComponent, GetDumpableVerbEvent>(OnGetDumpableVerb);
+        SubscribeLocalEvent<DisposalUnitComponent, DumpEvent>(OnDump);
     }
 
     private void AddDisposalAltVerbs(Entity<DisposalUnitComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -794,5 +798,24 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
         // create a verb category for "enter"?
         // See also, medical scanner. Also maybe add verbs for entering lockers/body bags?
         args.Verbs.Add(verb);
+    }
+
+    private void OnGetDumpableVerb(Entity<DisposalUnitComponent> ent, ref GetDumpableVerbEvent args)
+    {
+        args.Verb = Loc.GetString("dump-disposal-verb-name", ("unit", ent));
+    }
+
+    private void OnDump(Entity<DisposalUnitComponent> ent, ref DumpEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+        args.PlaySound = true;
+
+        foreach (var entity in args.DumpQueue)
+        {
+            DoInsertDisposalUnit(ent, entity, args.User);
+        }
     }
 }

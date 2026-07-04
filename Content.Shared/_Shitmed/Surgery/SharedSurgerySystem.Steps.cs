@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 ScyronX
-// SPDX-FileCopyrightText: 2025 mikusssssss
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Bed.Sleep;
@@ -186,7 +177,7 @@ public abstract partial class SharedSurgerySystem
             if (!HasComp<SanitizedComponent>(args.User))
             {
                 var sepsis = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Poison"), 15);
-                var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, sepsis, 0.5f);
+                var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, sepsis, 1.0f); // Mono - 0.5->1.0f - Mono Part surgery damage increase
                 RaiseLocalEvent(args.Body, ref ev);
             }
         }
@@ -369,7 +360,7 @@ public abstract partial class SharedSurgerySystem
         foreach (var type in group)
             adjustedDamage.DamageDict[type] -= bonus;
 
-        var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, adjustedDamage, 0.5f);
+        var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, adjustedDamage, 2.5f); // 0.5 -> 2.5f part damage, buffed wound surgery tending - Mono
         RaiseLocalEvent(args.Body, ref ev);
     }
 

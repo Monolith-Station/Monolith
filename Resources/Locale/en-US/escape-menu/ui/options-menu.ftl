@@ -34,12 +34,20 @@ ui-options-ambience-volume = Ambience volume:
 ui-options-lobby-volume = Lobby & Round-end volume:
 ui-options-interface-volume = Interface volume:
 ui-options-ambience-max-sounds = Ambience simultaneous sounds:
+ui-options-combat-music-volume = Combat Music volume:
+ui-options-combat-music-windup = Combat Music activation time:
+ui-options-combat-music-winddown = Combat Music deactivation time:
+ui-options-combat-music-sec-format = { $value } sec
 ui-options-lobby-music = Lobby & Round-end Music
 ui-options-restart-sounds = Round Restart Sounds
 ui-options-event-music = Event Music
 ui-options-admin-sounds = Play Admin Sounds
 ui-options-bwoink-sound = Play AHelp Notification Sound
 ui-options-volume-label = Volume
+
+## Mono Audio menu
+
+ui-options-combat-music = Combat Music
 
 ## Graphics menu
 
@@ -96,6 +104,7 @@ ui-options-vp-vertical-fit-tooltip = When enabled, the main viewport will ignore
                                      will cause the viewport to be cut off on the horizontal axis.
 ui-options-vp-low-res = Low-resolution viewport
 ui-options-parallax-low-quality = Low-quality Parallax (background)
+ui-options-ambient-occlusion = Show Ambient Occlusion
 ui-options-fps-counter = Show FPS counter
 ui-options-vp-width = Viewport width:
 ui-options-hud-layout = HUD layout:
@@ -135,6 +144,8 @@ ui-options-function-camera-reset = Reset
 ui-options-function-zoom-in = Zoom in
 ui-options-function-zoom-out = Zoom out
 ui-options-function-reset-zoom = Reset zoom
+## Mono
+ui-options-function-toggle-focus = Toggle focus
 
 ui-options-function-use = Use
 ui-options-function-use-secondary = Use secondary
@@ -155,7 +166,6 @@ ui-options-static-storage-ui = Lock storage window to hotbar
 
 ui-options-function-smart-equip-backpack = Smart-equip to backpack
 ui-options-function-smart-equip-belt = Smart-equip to belt
-ui-options-function-smart-equip-back = Smart-equip to back slot
 ui-options-function-open-backpack = Open backpack
 ui-options-function-open-belt = Open belt
 ui-options-function-throw-item-in-hand = Throw item
@@ -303,3 +313,44 @@ ui-options-function-target-left-arm = Target left arm
 ui-options-function-target-right-arm = Target right arm
 ui-options-function-target-left-leg = Target left leg
 ui-options-function-target-right-leg = Target right leg
+
+## Accessibility — chat highlights
+ui-options-auto-fill-highlights = Automatically fill highlights with character name and job keywords
+ui-options-highlights-color = Highlight color
+ui-options-highlights-color-example = Example highlighted text
+ui-options-admin-player-panel = Admin Menu Players List
+
+ui-options-admin-player-tab-symbol-setting = Character column antag symbols
+ui-options-admin-player-tab-symbol-setting-off = No antag symbol
+ui-options-admin-player-tab-symbol-setting-basic = Show standard antag symbol
+ui-options-admin-player-tab-symbol-setting-specific = Show specific antag symbol
+
+ui-options-admin-player-tab-role-setting = Role display settings
+ui-options-admin-player-tab-role-setting-roletype = Show role type
+ui-options-admin-player-tab-role-setting-subtype = Show subtype
+ui-options-admin-player-tab-role-setting-roletypesubtype = Show role type and subtype
+ui-options-admin-player-tab-role-setting-subtyperoletype = Show subtype and role type
+
+ui-options-admin-player-tab-color-setting = Color settings
+ui-options-admin-player-tab-color-setting-off = I hate colors
+ui-options-admin-player-tab-color-setting-character = Colorize antag character names
+ui-options-admin-player-tab-color-setting-roletype = Colorize all role types
+ui-options-admin-player-tab-color-setting-both = Colorize both
+
+ui-options-admin-overlay-title = Admin Overlay
+
+ui-options-admin-overlay-antag-format = Antag label style
+ui-options-admin-overlay-antag-format-binary = Show antag status
+ui-options-admin-overlay-antag-format-roletype = Show role type
+ui-options-admin-overlay-antag-format-subtype = Show subtype
+
+ui-options-admin-overlay-antag-symbol = Antag symbol style
+ui-options-admin-overlay-antag-symbol-off = No antag symbol
+ui-options-admin-overlay-antag-symbol-basic = Show standard antag symbol
+ui-options-admin-overlay-antag-symbol-specific = Show specific antag symbol
+
+ui-options-admin-enable-overlay-playtime = Show playtime
+ui-options-admin-enable-overlay-starting-job = Show starting job
+ui-options-admin-overlay-merge-distance = Stack merge distance
+ui-options-admin-overlay-ghost-fade-distance = Ghost overlay fade range from mouse
+ui-options-admin-overlay-ghost-hide-distance = Ghost overlay hide range from mouse

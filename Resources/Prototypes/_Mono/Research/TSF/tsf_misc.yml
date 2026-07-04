@@ -1,163 +1,155 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: technology
   id: TsfForensics
   name: research-technology-tsfmc-forensics
-  icon:
-    sprite: _NF/Objects/Devices/forensic_scanner.rsi
-    state: forensicnew
+  entityIcon: ForensicScanner
   discipline: TsfmcGear
   tier: 1
   cost: 5000
   recipeUnlocks:
   - ForensicsScannerTSF
-
-- type: technology
-  id: TsfPocketCrowbar
-  name: research-technology-tsfmc-pocket-crowbar
-  icon:
-    sprite: _NF/Objects/Tools/crowbar.rsi
-    state: pocket-icon
-  discipline: TsfmcGear
-  tier: 1
-  cost: 6500
-  recipeUnlocks:
-  - CrowbarPocketTSF
-
-- type: technology
-  id: TsfDemag
-  name: research-technology-tsfmc-demag
-  icon:
-    sprite: _NF/Objects/Tools/demag.rsi
-    state: icon
-  discipline: TsfmcGear
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
   - DemagTSF
+  - ClothingEyesNightVisionGoggles
+  - MotionDetectorTSF
+  - CrowbarPocketTSF
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, -1
+
+- type: technology
+  id: TsfmcMopp
+  name: research-technology-tsfmc-mopp-equipment
+  entityIcon: ClothingUniformTsfmcMopp
+  discipline: TsfmcEquipment
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - ClothingUniformTsfmcMoppTsf
+  - ClothingHandsGlovesMoppTsf
+  technologyPrerequisites:
+  - TsfmcAdvancedEquipment
+  position: 13, 7
 
 - type: technology
   id: TsfEshield
   name: research-technology-tsfmc-eshield
-  icon:
-    sprite: _NF/Objects/Weapons/Melee/e_shield.rsi
-    state: eshield-on
+  entityIcon: EnergyShield
   discipline: TsfmcWeaponry
   tier: 2
   cost: 30000
   recipeUnlocks:
   - EnergyShieldTSF
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  position: 12, 9
 
 - type: technology
-  id: TsfFlyssa
-  name: research-technology-tsfmc-flyssa-voucher
-  icon:
-    sprite: _NF/Objects/Misc/shipyard_voucher.rsi
-    state: nfsd
+  id: TsfTierOneVouchers
+  name: research-technology-tsfmc-tier-one-vouchers
+  entityIcon: ShipVoucherTsfT0
+  discipline: TsfmcShipyard
+  tier: 1
+  cost: 40000
+  recipeUnlocks:
+  - ShipVoucherTsfT0Recipe
+  - ShipVoucherTsfT1Recipe
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 11, 1
+
+- type: technology
+  id: TsfTierTwoVouchers
+  name: research-technology-tsfmc-tier-two-vouchers
+  entityIcon: ShipVoucherAndromeda
   discipline: TsfmcShipyard
   tier: 2
-  cost: 100000
+  cost: 60000
+  recipeUnlocks:
+  - ShipVoucherTsfT2Recipe
+  technologyPrerequisites:
+  - TsfTierOneVouchers
+  - UniversalMaterialResearchT2
+  position: 11, 7
+
+- type: technology
+  id: TsfTierThreeVouchers
+  name: research-technology-tsfmc-tier-three-vouchers
+  entityIcon: ShipVoucherFlyssa
+  discipline: TsfmcShipyard
+  tier: 3
+  cost: 80000
   recipeUnlocks:
   - FlyssaVoucherTSF
+  - AltairVoucherTSF
+  - PolarisVoucherTSF
+  technologyPrerequisites:
+  - TsfTierTwoVouchers
+  - UniversalMaterialResearchT3
+  position: 11, 12
 
 - type: technology
   id: TsfMeds
   name: research-technology-tsfmc-advanced-meds
-  icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
-    state: blackkit
+  entityIcon: MedkitCombatFilled
   discipline: TsfmcGear
   tier: 2
   cost: 20000
   recipeUnlocks:
   - SutureTSF
   - MeshTSF
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, -2
 
 - type: technology
   id: TsfNanofoam
   name: research-technology-tsfmc-nanofoam
-  icon:
-    sprite: Objects/Weapons/Grenades/metalfoam.rsi
-    state: icon
+  entityIcon: NanolaminateFoamGrenade
   discipline: TsfmcGear
   tier: 2
-  cost: 10000
+  cost: 15000
   recipeUnlocks:
   - NanolaminateFoamGrenadeTSF
   technologyPrerequisites:
-    - TsfSynthalloy
-
-- type: technology
-  id: TsfSynthalloy
-  name: research-technology-tsfmc-synthalloy
-  icon:
-    sprite: _Mono/Objects/Materials/synthalloy.rsi
-    state: synthalloy
-  discipline: TsfmcGear
-  tier: 3
-  cost: 50000
-  recipeUnlocks:
-    - SynthalloyProductionTsf
-
-- type: technology
-  id: TsfIndustrialStorage
-  name: research-technology-tsfmc-industrial-storage
-  icon:
-    sprite: Structures/Machines/autolathe.rsi
-    state: icon
-  discipline: TsfmcShipyard
-  tier: 1
-  cost: 7500
-  recipeUnlocks:
-    - OreBoxFlatpackTSF
-    - MaterialBoxFlatpackTSF
-
-- type: technology
-  id: TsfIndustrialProcessing
-  name: research-technology-tsfmc-industrial-processing
-  icon:
-    sprite: Structures/Machines/ore_processor_industrial.rsi
-    state: icon
-  discipline: TsfmcShipyard
-  tier: 1
-  cost: 15000
-  recipeUnlocks:
-    - OreProcessorIndustrialMachineCircuitboard
+  - UniversalMaterialResearchT2
+  position: 12, 10
 
 - type: technology
   id: TsfPortableRecharger
   name: research-technology-tsfmc-portable-recharger
-  icon:
-    sprite: Objects/Power/portable_recharger.rsi
-    state: charging
+  entityIcon: PortableRecharger
   discipline: TsfmcGear
   tier: 1
   cost: 15000
   recipeUnlocks:
     - PortableRecharger
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, -3
 
 - type: technology
-  id: TsfNvd
-  name: research-technology-tsfmc-nvd
-  icon:
-    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
-    state: icon
+  id: TSFBasicBorgModule
+  name: research-technology-tsfmc-basic-module
+  entityIcon: BorgModuleTSFStandardWeapon
   discipline: TsfmcGear
   tier: 1
-  cost: 15000
+  cost: 10000
   recipeUnlocks:
-    - ClothingEyesNightVisionGoggles
+  - BasicBorgCombatModuleTSF
+  - BorgIFFTSF
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, -4
 
 - type: technology
-  id: TsfMotionDetector
-  name: research-technology-tsfmc-motion-detector
-  icon:
-    sprite: _RMC14/Objects/Tools/motion_detector.rsi
-    state: detector
+  id: TSFAdvancedBorgModule
+  name: research-technology-tsfmc-advanced-module
+  entityIcon: BorgModuleTSFAdvancedWeapon
   discipline: TsfmcGear
-  tier: 1
-  cost: 20000
+  tier: 3
+  cost: 65000
   recipeUnlocks:
-  - MotionDetectorTSF
+  - AdvancedBorgCombatModuleTSF
+  technologyPrerequisites:
+  - UniversalMaterialResearchT3
+  - TSFBasicBorgModule
+  position: 12, 14

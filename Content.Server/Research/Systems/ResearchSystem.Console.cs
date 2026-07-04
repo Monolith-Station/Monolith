@@ -2,17 +2,17 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Research.Components;
 using Content.Shared.UserInterface;
 using Content.Shared.Access.Components;
-using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
+using Content.Shared._Goobstation.Research; // R&D Console Rework
+using System.Linq; // R&D Console Rework
 
 namespace Content.Server.Research.Systems;
 
 public sealed partial class ResearchSystem
 {
-    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private EmagSystem _emag = default!;
 
     private void InitializeConsole()
     {
@@ -22,11 +22,12 @@ public sealed partial class ResearchSystem
         SubscribeLocalEvent<ResearchConsoleComponent, ResearchRegistrationChangedEvent>(OnConsoleRegistrationChanged);
         SubscribeLocalEvent<ResearchConsoleComponent, TechnologyDatabaseModifiedEvent>(OnConsoleDatabaseModified);
         SubscribeLocalEvent<ResearchConsoleComponent, TechnologyDatabaseSynchronizedEvent>(OnConsoleDatabaseSynchronized);
-        //SubscribeLocalEvent<ResearchConsoleComponent, GotEmaggedEvent>(OnEmagged); // Frontier: unneeded
+        SubscribeLocalEvent<ResearchConsoleComponent, GotEmaggedEvent>(OnEmagged);
     }
 
     private void OnConsoleUnlock(EntityUid uid, ResearchConsoleComponent component, ConsoleUnlockTechnologyMessage args)
     {
+
         var act = args.Actor;
 
         if (!this.IsPowered(uid, EntityManager))
@@ -44,24 +45,6 @@ public sealed partial class ResearchSystem
         if (!UnlockTechnology(uid, args.Id, act))
             return;
 
-        // Frontier: silent R&D computers
-        /*
-        if (!_emag.CheckFlag(uid, EmagType.Interaction))
-        {
-            var getIdentityEvent = new TryGetIdentityShortInfoEvent(uid, act);
-            RaiseLocalEvent(getIdentityEvent);
-
-            var message = Loc.GetString(
-                "research-console-unlock-technology-radio-broadcast",
-                ("technology", Loc.GetString(technologyPrototype.Name)),
-                ("amount", technologyPrototype.Cost),
-                ("approver", getIdentityEvent.Title ?? string.Empty)
-            );
-            _radio.SendRadioMessage(uid, message, component.AnnouncementChannel, uid, escapeMarkup: false);
-        }
-        */
-        // End Frontier
-
         SyncClientWithServer(uid);
         UpdateConsoleInterface(uid, component);
     }
@@ -76,19 +59,41 @@ public sealed partial class ResearchSystem
         if (!Resolve(uid, ref component, ref clientComponent, false))
             return;
 
-        ResearchConsoleBoundInterfaceState state;
+        // R&D Console Rework Start
+        var allTechs = PrototypeManager.EnumeratePrototypes<TechnologyPrototype>(); // Mono
+        Dictionary<string, ResearchAvailability> techList;
+        var points = 0;
 
-        if (TryGetClientServer(uid, out _, out var serverComponent, clientComponent))
+        if (TryGetClientServer(uid, out var serverUid, out var server, clientComponent) &&
+            TryComp<TechnologyDatabaseComponent>(serverUid, out var db))
         {
-            var points = clientComponent.ConnectedToServer ? serverComponent.Points : 0;
-            state = new ResearchConsoleBoundInterfaceState(points);
+            var unlockedTechs = new HashSet<string>(db.UnlockedTechnologies);
+            techList = allTechs.Where(tech => tech.GetAllDisciplines().Any(d => db.SupportedDisciplines.Contains(d))).ToDictionary( // Mono - .Where() filter
+                proto => proto.ID,
+                proto =>
+                {
+                    if (unlockedTechs.Contains(proto.ID))
+                        return ResearchAvailability.Researched;
+
+                    var prereqsMet = proto.TechnologyPrerequisites.All(p => unlockedTechs.Contains(p));
+                    var canAfford = server.Points >= proto.Cost;
+
+                    return prereqsMet ?
+                        (canAfford ? ResearchAvailability.Available : ResearchAvailability.PrereqsMet)
+                        : ResearchAvailability.Unavailable;
+                });
+
+            if (clientComponent != null)
+                points = clientComponent.ConnectedToServer ? server.Points : 0;
         }
         else
         {
-            state = new ResearchConsoleBoundInterfaceState(default);
+            techList = []; // Mono
         }
 
-        _uiSystem.SetUiState(uid, ResearchConsoleUiKey.Key, state);
+        _uiSystem.SetUiState(uid, ResearchConsoleUiKey.Key,
+            new ResearchConsoleBoundInterfaceState(points, techList));
+        // R&D Console Rework End
     }
 
     private void OnPointsChanged(EntityUid uid, ResearchConsoleComponent component, ref ResearchServerPointsChangedEvent args)
@@ -115,8 +120,6 @@ public sealed partial class ResearchSystem
         UpdateConsoleInterface(uid, component);
     }
 
-    // Frontier: unneeded emag call
-    /*
     private void OnEmagged(Entity<ResearchConsoleComponent> ent, ref GotEmaggedEvent args)
     {
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
@@ -127,7 +130,6 @@ public sealed partial class ResearchSystem
 
         args.Handled = true;
     }
-    */
-    // End Frontier: unneeded emag call
-
 }
+
+public sealed partial class ResearchConsoleUnlockEvent : CancellableEntityEventArgs { }

@@ -1,13 +1,6 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Aviu00
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   name: PA Abielle Smart-SMG (.160 smart) # Mono
-  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband]
+  parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineSmart
   description: An experiment in smart-weapon technology that guides bullets towards the target the gun was aimed at when fired. While the tracking functions work fine, the gun is prone to insanely wide spread thanks to its practically non-existant barrel.
   components:
@@ -93,3 +86,7 @@
   - type: SpeedModifiedOnWield # Mono
     walkModifier: 0.95
     sprintModifier: 0.95
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/smartgun_mouse.rsi
+      state: all

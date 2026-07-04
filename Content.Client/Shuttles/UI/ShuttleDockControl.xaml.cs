@@ -17,8 +17,8 @@ namespace Content.Client.Shuttles.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ShuttleDockControl : BaseShuttleControl
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IMapManager _mapManager = default!;
     private readonly DockingSystem _dockSystem;
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _xformSystem;
@@ -91,8 +91,6 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
 
     protected override void Draw(DrawingHandleScreen handle)
     {
-        UseCircleMaskShader(handle); // Mono
-
         base.Draw(handle);
 
         DrawBacking(handle);
@@ -147,7 +145,12 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
 
             var curGridToWorld = _xformSystem.GetWorldMatrix(grid.Owner);
             var curGridToView = curGridToWorld * worldToSelectedDock * selectedDockToView;
-            var color = _shuttles.GetIFFColor(grid.Owner, grid.Owner == GridEntity, component: iffComp);
+
+            // Mono - hide color if needed
+            var hideLabel = iffComp != null && (iffComp.Flags & IFFFlags.HideLabel) != 0x0;
+            var hideColor = hideLabel && iffComp != null && (iffComp.Flags & IFFFlags.AlwaysShowColor) == 0x0;
+            // this has no detection logic but this is probably fine
+            var color = hideColor ? Color.White : _shuttles.GetIFFColor(grid.Owner, grid.Owner == GridEntity, component: iffComp);
 
             DrawGrid(handle, curGridToView, grid, color);
 
@@ -336,8 +339,6 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
         // Draw the dock itself
         handle.DrawRect(ourDock, dockColor.WithAlpha(0.2f));
         handle.DrawRect(ourDock, dockColor, filled: false);
-
-        ClearShader(handle); // Mono
     }
 
     private void HideDocks()

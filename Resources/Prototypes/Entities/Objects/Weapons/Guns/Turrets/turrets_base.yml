@@ -34,6 +34,12 @@
     toggleMouseRotator: false
   - type: Damageable
     damageContainer: Inorganic
+  - type: Repairable # Mono - Repairable turrets
+    fuelCost: 20
+    doAfterDelay: 15
+    qualities:
+    - Welding
+    - Applicating
   - type: Destructible
     thresholds:
     - trigger:
@@ -65,17 +71,19 @@
       task: TurretCompound
     blackboard:
       RotateSpeed: !type:Single
-        3.141
+        1.57 # Mono
       SoundTargetInLOS: !type:SoundPathSpecifier
         path: /Audio/Effects/double_beep.ogg
   - type: MouseRotator
     angleTolerance: 5
-    rotationSpeed: 180
+    rotationSpeed: 90 # Mono
     simple4DirMode: false
   - type: NoRotateOnInteract
   - type: NoRotateOnMove
   - type: Input
     context: "human"
+  - type: StaticPrice
+    price: 100
 
 - type: entity
   parent: BaseWeaponTurret
@@ -84,19 +92,26 @@
   name: ballistic turret
   abstract: true
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
   - type: Gun
     fireRate: 6
     projectileSpeed: 55
+    maxAngle: 15 # Mono
+    minAngle: 4 # Mono
+    angleIncrease: -1.2 # Mono
+    angleDecay: -4 # Mono
     selectedMode: FullAuto
     availableModes:
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: Cartridge6.35x40mmCaseless
+    proto: Cartridge635x40mmCaseless
     fireCost: 25
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -122,6 +137,10 @@
   - type: Gun
     projectileSpeed: 15
     fireRate: 1.5
+    maxAngle: 15 # Mono
+    minAngle: 4 # Mono
+    angleIncrease: -1.2 # Mono
+    angleDecay: -4 # Mono
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider

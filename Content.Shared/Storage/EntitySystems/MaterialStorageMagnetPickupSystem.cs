@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2025 Redrover1760
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Storage.Components;
 using Content.Shared.Materials;
 using Robust.Shared.Physics.Components;
@@ -18,11 +13,11 @@ namespace Content.Shared.Storage.EntitySystems;
 /// <summary>
 /// <see cref="MaterialStorageMagnetPickupComponent"/>
 /// </summary>
-public sealed class MaterialStorageMagnetPickupSystem : EntitySystem
+public sealed partial class MaterialStorageMagnetPickupSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedMaterialStorageSystem _storage = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedMaterialStorageSystem _storage = default!;
 
     private static readonly TimeSpan ScanDelay = TimeSpan.FromSeconds(1);
     private const int MaxEntitiesToInsert = 15; // Mono

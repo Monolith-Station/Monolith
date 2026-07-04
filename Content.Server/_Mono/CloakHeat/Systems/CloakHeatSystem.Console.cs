@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Shuttles.Components;
 using Content.Shared._Mono.CloakHeat;
 using Content.Shared.Examine;
@@ -13,9 +9,9 @@ namespace Content.Server._Mono.CloakHeat.Systems;
 /// <summary>
 /// Adds CloakHeat component to grids that have IFF consoles with Hide capability.
 /// </summary>
-public sealed class CloakHeatServerSystem : EntitySystem
+public sealed partial class CloakHeatServerSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

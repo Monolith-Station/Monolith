@@ -1,12 +1,13 @@
 - type: technology
   id: SyringeGun
   name: research-technology-syringe-gun
-  icon:
-    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    state: syringe_gun
+  entityIcon: LauncherSyringe
   discipline: CivilianServices
   tier: 2
-  cost: 10000
+  cost: 25000
   recipeUnlocks:
     - LauncherSyringe
     - MiniSyringe
+  technologyPrerequisites:
+  - IndustrialMedicine
+  position: -5, 11

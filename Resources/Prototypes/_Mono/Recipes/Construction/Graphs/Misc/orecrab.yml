@@ -1,0 +1,96 @@
+- type: constructionGraph
+  id: OreCrab
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: quartz
+      steps:
+      - material: SpaceQuartz
+        amount: 5
+        doAfter: 5
+      - material: Bluespace
+        amount: 1
+    - to: iron
+      steps:
+      - material: SteelOre
+        amount: 5
+        doAfter: 5
+      - material: Bluespace
+        amount: 1
+    - to: uranium
+      steps:
+      - material: UraniumOre
+        amount: 5
+        doAfter: 5
+      - material: Bluespace
+        amount: 1
+    - to: silver
+      steps:
+      - material: SilverOre
+        amount: 5
+        doAfter: 5
+      - material: Bluespace
+        amount: 1
+    - to: bananium
+      steps:
+      - material: BananiumOre
+        amount: 5
+        doAfter: 5
+      - material: Bluespace
+        amount: 1
+    - to: coal
+      steps:
+      - material: Coal
+        amount: 5
+        doAfter: 5
+      - material: Bluespace
+        amount: 1
+    - to: gold
+      steps:
+      - material: GoldOre
+        amount: 5
+        doAfter: 5
+      - material: Bluespace
+        amount: 1
+    - to: plasma
+      steps:
+      - material: PlasmaOre
+        amount: 5
+        doAfter: 5
+      - material: Bluespace
+        amount: 1
+    - to: salt
+      steps:
+      - material: SaltOre
+        amount: 5
+        doAfter: 5
+      - material: Bluespace
+        amount: 1
+
+  - node: quartz
+    entity: MobQuartzCrabDocile
+
+  - node: iron
+    entity: MobIronCrabDocile
+
+  - node: uranium
+    entity: MobUraniumCrabDocile
+
+  - node: silver
+    entity: MobSilverCrabDocile
+
+  - node: bananium
+    entity: MobBananiumCrabDocile
+
+  - node: coal
+    entity: MobCoalCrabDocile
+
+  - node: gold
+    entity: MobGoldCrabDocile
+
+  - node: plasma
+    entity: MobPlasmaCrabDocile
+
+  - node: salt
+    entity: MobSaltCrabDocile

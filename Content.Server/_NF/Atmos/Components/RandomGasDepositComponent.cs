@@ -17,6 +17,7 @@ public sealed partial class RandomGasDepositComponent : Component
     /// <summary>
     /// A scale factor on the deposit's size.
     /// After each gas is chosen from the deposit prototype, the scale factor is multiplied into the deposit size.
+    /// Mono - Is used as yield for deep deposits. Minimum yield is also multiplied by the square root of this.
     /// </summary>
     [DataField]
     public float Scale = 1.0f;

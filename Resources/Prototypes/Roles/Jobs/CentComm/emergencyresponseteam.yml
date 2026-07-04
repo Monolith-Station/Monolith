@@ -75,8 +75,8 @@
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: Magazine5.56x45mmFMJ
-    pocket2: Magazine5.56x45mmFMJ
+    pocket1: Magazine556x45mmFMJ
+    pocket2: Magazine556x45mmFMJ
   inhand:
   - WeaponRifleLecter
   storage:
@@ -280,7 +280,7 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - Magazine9x19mmPistolFMJ
+    - Magazine45_ACPPistolFMJ
 
 - type: startingGear
   id: ERTSecurityGearEVA
@@ -304,7 +304,7 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - Magazine9x19mmPistolFMJ
+    - Magazine45_ACPPistolFMJ
 
 - type: startingGear
   id: ERTSecurityGearEVALecter
@@ -319,8 +319,8 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: Magazine5.56x45mmFMJ
-    pocket2: Magazine5.56x45mmFMJ
+    pocket1: Magazine556x45mmFMJ
+    pocket2: Magazine556x45mmFMJ
   inhand:
     - WeaponRifleLecter
   storage:
@@ -330,7 +330,6 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - Magazine9x19mmPistolFMJ
 
 # Medical
 - type: job

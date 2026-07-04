@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2022 CommieFlowers
-// SPDX-FileCopyrightText: 2022 DrSmugleaf
-// SPDX-FileCopyrightText: 2022 Kara
-// SPDX-FileCopyrightText: 2022 rolfero
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2023 c4llv07e
-// SPDX-FileCopyrightText: 2024 AJCM-git
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Construction.Components;
 using Content.Server.Stack;
 using Content.Shared.Construction.Components;
@@ -27,13 +12,13 @@ using Content.Shared.Construction.Prototypes;
 
 namespace Content.Server.Construction;
 
-public sealed class MachineFrameSystem : EntitySystem
+public sealed partial class MachineFrameSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly ConstructionSystem _construction = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private ConstructionSystem _construction = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
@@ -109,7 +94,7 @@ public sealed class MachineFrameSystem : EntitySystem
             // Insert the entity, if it hasn't already been inserted
             if (!args.Handled)
             {
-                if (!_container.TryRemoveFromContainer(args.Used))
+                if (!_container.TryRemoveFromContainer(args.Used, false, out var wasInContainer) && wasInContainer) // Goobstation - if it wasn't in container that's fine
                     return;
 
                 args.Handled = true;
@@ -141,7 +126,7 @@ public sealed class MachineFrameSystem : EntitySystem
             // Insert the entity, if it hasn't already been inserted
             if (!args.Handled)
             {
-                if (!_container.TryRemoveFromContainer(args.Used))
+                if (!_container.TryRemoveFromContainer(args.Used, false, out var wasInContainer) && wasInContainer) // Goobstation
                     return;
 
                 args.Handled = true;
@@ -166,7 +151,20 @@ public sealed class MachineFrameSystem : EntitySystem
         if (!TryComp<MachineBoardComponent>(used, out var machineBoard))
             return false;
 
-        if (!_container.TryRemoveFromContainer(used))
+        // Mono - board and frame matching
+        if (machineBoard.FrameSize != null && machineBoard.FrameSize != component.FrameSize)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("machine-frame-board-wrong-size"), uid);
+            return true;
+        }
+
+        if (machineBoard.FrameSize == null && component.FrameSize != null)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("machine-frame-board-wrong-size"), uid);
+            return true;
+        }
+        // End Mono
+        if (!_container.TryRemoveFromContainer(used, false, out var wasInContainer) && wasInContainer) // Goobstation
             return false;
 
         if (!_container.Insert(used, component.BoardContainer))
@@ -255,7 +253,7 @@ public sealed class MachineFrameSystem : EntitySystem
         var count = stack.Count;
         if (count < needed)
         {
-            if (!_container.TryRemoveFromContainer(used))
+            if (!_container.TryRemoveFromContainer(used, false, out var wasInContainer) && wasInContainer) // Goobstation
                 return false;
 
             if (!_container.Insert(used, component.PartContainer))

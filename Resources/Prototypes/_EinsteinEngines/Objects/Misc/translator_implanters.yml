@@ -125,3 +125,11 @@
   components:
   - type: Implanter
     implant: MarishTranslatorImplant
+
+- type: entity
+  id: NewKinPidginTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: ka'rakk translator implant
+  components:
+  - type: Implanter
+    implant: NewKinPidginTranslatorImplant

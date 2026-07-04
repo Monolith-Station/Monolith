@@ -1,16 +1,11 @@
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server._DV.Planet;
 using Content.Server._DV.Station.Components;
 
 namespace Content.Server._DV.Station.Systems;
 
-public sealed class StationPlanetSpawnerSystem : EntitySystem
+public sealed partial class StationPlanetSpawnerSystem : EntitySystem
 {
-    [Dependency] private readonly PlanetSystem _planet = default!;
+    [Dependency] private PlanetSystem _planet = default!;
 
     public override void Initialize()
     {

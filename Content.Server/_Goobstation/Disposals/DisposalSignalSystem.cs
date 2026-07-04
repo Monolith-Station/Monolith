@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.DeviceLinking.Events;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.DeviceLinking;
@@ -13,10 +8,10 @@ using Content.Server.Disposal.Unit;
 
 namespace Content.Server._Goobstation.Disposals;
 
-public sealed class DisposalSignalSystem : EntitySystem
+public sealed partial class DisposalSignalSystem : EntitySystem
 {
-    [Dependency] private readonly DisposalUnitSystem _disposal = default!;
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
+    [Dependency] private DisposalUnitSystem _disposal = default!;
+    [Dependency] private PowerReceiverSystem _power = default!;
 
     public static readonly ProtoId<SinkPortPrototype> FlushPort = "DisposalFlush";
     public static readonly ProtoId<SinkPortPrototype> EjectPort = "DisposalEject";

@@ -1,0 +1,39 @@
+# Author Info
+# GitHub: starch70
+# Discord: _starch_
+
+# Shuttle Notes:
+- type: vessel
+  id: Noble
+  parent: BaseVessel
+  name: SKR Noble
+  description: A salvage vessel outfitted with both a scrap and ore processor, plus 4 mining pulsers. Outside of that, its quite lacking, outside of a highly efficient pinch-fusion generator.
+  price: 52100
+  category: Medium
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/noble.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Plasma # Pinch fusion gen kind, not the pacman kind.
+
+- type: gameMap
+  id: Noble
+  mapName: 'SKR Noble'
+  mapPath: /Maps/_Mono/Shuttles/noble.yml
+  minPlayers: 0
+  stations:
+    Noble:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Noble CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

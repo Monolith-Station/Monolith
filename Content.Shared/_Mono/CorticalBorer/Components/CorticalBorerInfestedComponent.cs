@@ -1,10 +1,7 @@
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
+using Content.Shared._Starlight.CollectiveMind;
 using Robust.Shared.GameStates;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Mono.CorticalBorer;
 
@@ -44,6 +41,23 @@ public sealed partial class CorticalBorerInfestedComponent : Robust.Shared.GameO
     /// Abilities to be removed once host gets control back
     /// </summary>
     public List<EntityUid> RemoveAbilities = new();
+
+    /// <summary>
+    /// Reform action that was removed from the host when borer took control.
+    /// </summary>
+    public EntityUid? RemovedReformAction;
+
+    /// <summary>
+    /// Whether to not remove the hivemind on abandoning direct control.
+    /// </summary>
+    [ViewVariables]
+    public bool HadHivemind = false;
+
+    /// <summary>
+    /// What default hivemind channel to return after abandoning direct control.
+    /// </summary>
+    [ViewVariables]
+    public ProtoId<CollectiveMindPrototype>? OldDefault = null;
 }
 
 [RegisterComponent, NetworkedComponent]

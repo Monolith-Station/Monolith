@@ -1,14 +1,10 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: BasePDA
   id: BaseUSSPPDA
   description: A basic personal computer for access restriction and organization, manufactured in the USSP.
   abstract: true
   components:
+  - type: Pda
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
@@ -17,7 +13,7 @@
     - BountyContractsCartridge
     - AstroNavCartridge
   - type: Sprite
-    sprite: Objects/Devices/pda.rsi
+    sprite: _Mono/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda"
@@ -30,38 +26,7 @@
       shader: "unshaded"
       visible: false
   - type: Icon
-    sprite: Objects/Devices/pda.rsi
-    state: pda
-
-- type: entity
-  parent: BasePDA
-  id: BaseUSSPMedicPDA
-  description: A basic personal computer for access restriction and organization, manufactured in the USSP.
-  abstract: true
-  components:
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - BountyContractsCartridge
-    - AstroNavCartridge
-    - MedTekCartridge
-  - type: Sprite
-    sprite: Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda"
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
-  - type: Icon
-    sprite: Objects/Devices/pda.rsi
+    sprite: _Mono/Objects/Devices/pda.rsi
     state: pda
 
 - type: entity
@@ -73,50 +38,15 @@
     id: USSPRiflemanIDCard
   - type: Appearance
     appearanceDataInit:
-     enum.PdaVisuals.PdaType:
-       !type:String
-       pda-interncadet
-  - type: PdaBorderColor
-    borderColor: "#717059"
-    accentVColor: "#A32D26"
-  - type: Icon
-    state: pda-interncadet
-
-- type: entity
-  parent: BaseUSSPMedicPDA
-  id: USSPMedicPDA
-  name: USSP combat medic PDA
-  components:
-  - type: Pda
-    id: USSPMedicIDCard
-  - type: Appearance
-    appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-brigmedic
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-    accentHColor: "#d7d7d0"
-    accentVColor: "#d7d7d0"
-  - type: Icon
-    state: pda-brigmedic
+        pda-ussprifleman
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
 
-- type: entity
-  parent: BaseUSSPPDA
-  id: USSPCorporalPDA
-  name: USSP efreitor PDA
-  components:
-  - type: Pda
-    id: USSPCorporalIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-security
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-  - type: Icon
-    state: pda-security
 
 - type: entity
   parent: BaseUSSPPDA
@@ -129,12 +59,12 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-seniorofficer
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-    accentVColor: "#DFDFDF"
-  - type: Icon
-    state: pda-seniorofficer
+        pda-usspsergeant
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
 
 - type: entity
   parent: BaseUSSPPDA
@@ -147,12 +77,14 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-hos
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-    accentHColor: "#447987"
-  - type: Icon
-    state: pda-hos
+        pda-usspcommissar
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+
+#TSF
 
 - type: entity
   parent: BaseSecurityPDA
@@ -162,13 +94,6 @@
   components:
   - type: Pda
     id: TsfEngiIDCard
-    bookSlot: # Frontier
-      startingItem: HyperlinkBookNfsdSop
-      priority: -2
-      whitelist:
-        tags:
-        - BookSpaceLaw
-        - BookNfsdSop
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -180,3 +105,277 @@
   - type: Icon
     state: pda-lifesupporttech
   - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+
+- type: entity
+  parent: SheriffPDA
+  id: MarsocFTLPDA
+  name: TSFMC MARSOC fire team leader PDA
+  description: A standard TSFMC personal computer.
+  components:
+  - type: Pda
+    id: TsfMarsocFTLIDCard
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - MedTekCartridge
+    - WantedListCartridge
+    - LogProbeCartridge
+    - AstroNavCartridge
+    - MailMetricsCartridge # Frontier
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+
+- type: entity
+  parent: SheriffPDA
+  id: MarsocPDA
+  name: TSFMC MARSOC operative PDA
+  description: A standard TSFMC personal computer.
+  components:
+  - type: Pda
+    id: TsfMarsocIDCard
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - MedTekCartridge
+    - WantedListCartridge
+    - LogProbeCartridge
+    - AstroNavCartridge
+    - MailMetricsCartridge # Frontier
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+
+- type: entity
+  parent: BasePDA
+  id: BasePDVPDA
+  description: A basic personal computer for access restriction and organization, manufactured in the Phaethon Dynasty.
+  abstract: true
+  components:
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Icon
+    sprite: _Mono/Objects/Devices/pda.rsi
+    state: pda
+
+- type: entity
+  parent: BasePDVPDA
+  id: PDVRakhshanPDA
+  name: PDV rakhshan PDA
+  components:
+  - type: Pda
+    id: PDVRakhshanIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-rakhshan
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: PdaBorderColor
+    borderColor: "#9c8245"
+
+- type: entity
+  parent: BasePDVPDA
+  id: PDVGrandVizierPDA
+  name: PDV grand vizier PDA
+  components:
+  - type: Pda
+    id: PDVGrandVizierIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-grand-vizier
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: CartridgeLoader
+    preinstalled:
+    - LedgerCartridge
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+  - type: PdaBorderColor
+    borderColor: "#533980"
+
+
+- type: entity
+  parent: BasePDVPDA
+  id: PDVAsvaranPDA
+  name: PDV asvaran PDA
+  components:
+  - type: Pda
+    id: PDVAsvaranIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-asvaran
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: PdaBorderColor
+    borderColor: "#9c8245"
+
+
+- type: entity
+  parent: BasePDVPDA
+  id: PDVSpasakaPDA
+  name: PDV spasaka PDA
+  components:
+  - type: Pda
+    id: PDVSpasakaIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-rakhshan
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: PdaBorderColor
+    borderColor: "#9c8245"
+
+- type: entity
+  parent: BasePDVPDA
+  id: PDVDenasvarPDA
+  name: PDV denasvar PDA
+  components:
+  - type: Pda
+    id: PDVDenasvarIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-denasvar
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+
+# Viper Group
+
+- type: entity
+  parent: BasePDA
+  id: BaseVGPDA
+  description: A basic personal computer for access restriction and organization, retrofitted with old Gorlex PDA parts.
+  abstract: true
+  components:
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Icon
+    sprite: _Mono/Objects/Devices/pda.rsi
+    state: pda
+
+- type: entity
+  parent: BaseVGPDA
+  id: VGInfanteerPDA
+  name: VG infanteer PDA
+  components:
+  - type: Pda
+    id: VGInfanteerIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-viperlow
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: PdaBorderColor
+    borderColor: "#6b0000"
+    accentVColor: "#d9a200"
+
+- type: entity
+  parent: BaseVGPDA
+  id: VGLieutenantPDA
+  name: VG Lieutenant PDA
+  components:
+  - type: Pda
+    id: VGLieutenantIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-viperhigh
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: PdaBorderColor
+    borderColor: "#202020"
+    accentVColor: "#6b0000"
+
+- type: entity
+  parent: VGLieutenantPDA
+  id: VGCommanderPDA
+  name: VG commander PDA
+  components:
+  - type: Pda
+    id: VGCommanderIDCard

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Goobstation.Factory.Filters;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Whitelist;
@@ -47,7 +42,7 @@ public abstract partial class AutomationSlot
     [ViewVariables]
     public EntityUid Owner;
 
-    [Dependency] public readonly IEntityManager EntMan = default!;
+    [Dependency] public IEntityManager EntMan = default!;
     protected AutomationFilterSystem _filter;
     protected EntityWhitelistSystem _whitelist;
     protected SharedDeviceLinkSystem _device;

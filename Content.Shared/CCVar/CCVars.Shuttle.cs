@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 GreaseMonk
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Rubeebeebee
-// SPDX-FileCopyrightText: 2025 Simon
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Administration;
 using Content.Shared.CCVar.CVarAccess;
 using Robust.Shared.Configuration;
@@ -219,14 +209,14 @@ public sealed partial class CCVars
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> MinimumImpactInertia =
-        CVarDef.Create("shuttle.impact.minimum_inertia", 5f * 50f, CVar.SERVERONLY); // 100tile grid (cargo shuttle) going at 5 m/s
+        CVarDef.Create("shuttle.impact.minimum_inertia", 300f, CVar.SERVERONLY); //baeg vaporization threshold of >35m/s (2 seconds of acceleration) Previously 5f * 50f: "100tile grid (cargo shuttle) going at 5 m/s". (>14m/s baeg vaporization threshold)
 
     /// <summary>
     /// Minimum velocity difference between 2 bodies for a shuttle impact to be guaranteed to trigger any special behaviors like damage.
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> MinimumImpactVelocity =
-        CVarDef.Create("shuttle.impact.minimum_velocity", 15f, CVar.SERVERONLY); // needed so that random space debris can be rammed
+        CVarDef.Create("shuttle.impact.minimum_velocity", 35f, CVar.SERVERONLY); // needed so that random space debris can be rammed // Also important for baeg vaporization threshold increase. Previously 15f
 
     /// <summary>
     /// Multiplier of Kinetic energy required to dismantle a single tile in relation to its mass
@@ -240,14 +230,14 @@ public sealed partial class CCVars
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactDamageMultiplier =
-        CVarDef.Create("shuttle.impact.damage_multiplier", 0.00005f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.damage_multiplier", 0.00001f, CVar.SERVERONLY);
 
     /// <summary>
     /// Multiplier of additional structural damage to do
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactStructuralDamage =
-        CVarDef.Create("shuttle.impact.structural_damage", 5f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.structural_damage", 2f, CVar.SERVERONLY);
 
     /// <summary>
     /// Kinetic energy required to spawn sparks
@@ -268,7 +258,7 @@ public sealed partial class CCVars
     /// </summary>
     [CVarControl(AdminFlags.VarEdit)]
     public static readonly CVarDef<float> ImpactSlowdown =
-        CVarDef.Create("shuttle.impact.slowdown", 1.6f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.slowdown", 4f, CVar.SERVERONLY); //Previously: 1.6f
 
     /// <summary>
     /// Minimum velocity change from impact for special throw effects (e.g. stuns, beakers breaking) to occur

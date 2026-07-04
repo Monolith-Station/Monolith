@@ -58,6 +58,11 @@
   - type: Sprite
     sprite: Objects/Specific/Security/target.rsi
     state: target_h
+  # Mono
+  - type: Construction
+    graph: ShootingTargets
+    node: TargetHuman
+  # End Mono
 
 - type: entity
   name: syndicate target
@@ -68,6 +73,11 @@
   - type: Sprite
     sprite: Objects/Specific/Security/target.rsi
     state: target_s
+  # Mono
+  - type: Construction
+    graph: ShootingTargets
+    node: TargetSyndicate
+  # End Mono
 
 - type: entity
   name: clown target
@@ -78,6 +88,11 @@
   - type: Sprite
     sprite: Objects/Specific/Security/target.rsi
     state: target_c
+  # Mono
+  - type: Construction
+    graph: ShootingTargets
+    node: TargetClown
+  # End Mono
 
 # put it on a salvage or something
 - type: entity
@@ -104,10 +119,15 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel:
-            min: 10
-            max: 10
+            min: 5
+            max: 5
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  # Mono
+  - type: Construction
+    graph: ShootingTargets
+    node: TargetStrange
+  # End Mono

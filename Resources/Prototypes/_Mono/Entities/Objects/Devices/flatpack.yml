@@ -1,14 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 SRV
-# SPDX-FileCopyrightText: 2025 SarahRaven
-# SPDX-FileCopyrightText: 2025 cheetah1984
-# SPDX-FileCopyrightText: 2025 gus
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: BaseFlatpack
   id: L58Flatpack
@@ -49,9 +38,42 @@
   description: A flatpack used for constructing an M381 CHARON mass driver. How the fuck did they make this into a flatpack?
   components:
   - type: Flatpack
-    entity: WeaponTurretCharon
+    entity: WeaponTurretCharonReload
   - type: StaticPrice
     price: 700
+
+- type: entity
+  parent: BaseFlatpack
+  id: M25Flatpack
+  name: M25 mining pulsar flatpack
+  description: A flatpack used for constructing an M25 mining pulsar. Useful for breaking up rock.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretM25
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  parent: BaseFlatpack
+  id: WeaponTurretShardFlatpack
+  name: Shard flatpack
+  description: A flatpack used for constructing an "Shard"-designation ultralight mass driver.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretShard
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  parent: BaseFlatpack
+  id: WeaponTurretPinholeFlatpack
+  name: Pinhole flatpack
+  description: A flatpack used for constructing an "Pinhole"-designation mass driver.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretPinhole
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: BaseFlatpack
@@ -117,7 +139,7 @@
   - type: Flatpack
     entity: ResearchAndDevelopmentServerUssp
   - type: StaticPrice
-    vendPrice: 1500
+    vendPrice: 105000 #Faction token + 5%
   - type: Sprite
     layers:
     - state: science_server
@@ -159,7 +181,35 @@
   - type: Flatpack
     entity: FactionLathe
   - type: StaticPrice
-    vendPrice: 1500
+    vendPrice: 26250 #1.75x the price of a Mercenary fab.
+  - type: Sprite
+    layers:
+    - state: science_server
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: USSPLatheFlatpack
+  name: ussp field assembler flatpack
+  description: A flatpack used for constructing a techfab for manufacturing USSP-specific recipes.
+  components:
+  - type: Flatpack
+    entity: USSPLathe
+  - type: StaticPrice
+    vendPrice: 26250 #1.75x the price of a Mercenary fab.
+  - type: Sprite
+    layers:
+    - state: science_server
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: ViperLatheFlatpack
+  name: Viper precision flatpack
+  description: A flatpack used for constructing a techfab for manufacturing faction-specific recipes.
+  components:
+  - type: Flatpack
+    entity: FactionLathe
+  - type: StaticPrice
+    vendPrice: 26250 #1.75x the price of a Mercenary fab.
   - type: Sprite
     layers:
     - state: science_server
@@ -193,9 +243,13 @@
   description: A flatpack used for constructing an ore box.
   components:
   - type: Flatpack
-    entity: OreBox
+    entity: NFMagnetBoxOre
   - type: StaticPrice
     price: 500
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Glass: 30
 
 - type: entity
   parent: BaseNFFlatpack
@@ -204,9 +258,28 @@
   description: A flatpack used for constructing a construction box.
   components:
   - type: Flatpack
-    entity: ConstructionBox
+    entity: NFMagnetBoxConstruction
   - type: StaticPrice
     price: 500
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Glass: 30
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: ScrapBoxFlatpack
+  name: scrap box flatpack
+  description: A flatpack used for constructing a scrap box.
+  components:
+  - type: Flatpack
+    entity: NFMagnetBoxRubbish
+  - type: StaticPrice
+    price: 500
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Glass: 30
 
 - type: entity
   parent: BaseNFFlatpack
@@ -231,6 +304,28 @@
     price: 2000
 
 - type: entity
+  parent: BaseNFFlatpack
+  id: GasMiningDrillFlatpack
+  name: gas mining drill flatpack
+  description: A flatpack used for constructing a gas mining drill.
+  components:
+  - type: Flatpack
+    entity: GasMiningDrill
+  - type: StaticPrice
+    price: 300
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: GaslockFrameFlatpack
+  name: portable gaslock flatpack
+  description: A flatpack used for constructing a portable gaslock.
+  components:
+  - type: Flatpack
+    entity: GaslockFrame
+  - type: StaticPrice
+    price: 300
+
+- type: entity
   parent: BaseFlatpack
   id: LaserDrillFlatpack
   name: laser drill flatpack
@@ -242,3 +337,26 @@
     price: 3000
     vendPrice: 20000
 
+- type: entity
+  parent: BaseFlatpack
+  id: ResearchAndDevelopmentServerMercFlatpack
+  name: mercenary R&D server flatpack
+  description: A flatpack used for constructing a mercenary R&D server.
+  components:
+  - type: Flatpack
+    entity: ResearchAndDevelopmentServerMerc
+  - type: StaticPrice
+    price: 4000
+    vendPrice: 10000
+
+- type: entity
+  parent: MedicalTechFabFlatpack
+  id: ChemMasterFilledFlatpack
+  name: filled chemmaster flatpack
+  description: A flatpack used for constructing a pre-filled ChemMaster 4000.
+  components:
+  - type: Flatpack
+    entity: ChemMasterFilled
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 8000

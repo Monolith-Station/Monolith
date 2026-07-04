@@ -1,25 +1,25 @@
-# 6.35x40mmCaseless
+# 635x40mmCaseless
 - type: entity
-  name: box of 6.35x40mm Caseless (rubber) magazines
+  name: box of 635x40mm Caseless (rubber) magazines
   parent: BoxMagazine
-  id: BoxMagazine6.35x40mmCaselessRubber
+  id: BoxMagazine635x40mmCaselessRubber
   description: A box full of
   components:
   - type: StorageFill
     contents:
-      - id: Magazine6.35x40mmCaselessRubber
+      - id: Magazine635x40mmCaselessRubber
         amount: 4
 
-# 7.62x39mm
+# 762x39mm
 - type: entity
-  name: box of 7.62x39mm (rubber) magazines
+  name: box of 762x39mm (rubber) magazines
   parent: BoxMagazine
-  id: BoxMagazine7.62x39mmRubber
-  description: A box full of 7.62x39mm (practice) magazines.
+  id: BoxMagazine762x39mmRubber
+  description: A box full of 762x39mm (practice) magazines.
   components:
   - type: StorageFill
     contents:
-      - id: Magazine7.62x39mmRubber
+      - id: Magazine762x39mmRubber
         amount: 4
 
 # Pistol
@@ -47,12 +47,12 @@
 
 # Rifle
 - type: entity
-  name: box of 5.56x45mm (rubber) magazines
+  name: box of 556x45mm (rubber) magazines
   parent: BoxMagazine
-  id: BoxMagazine5.56x45mmRubber
-  description: A box full of 5.56x45mm (rubber) magazines.
+  id: BoxMagazine556x45mmRubber
+  description: A box full of 556x45mm (rubber) magazines.
   components:
   - type: StorageFill
     contents:
-      - id: Magazine5.56x45mmRubber
+      - id: Magazine556x45mmRubber
         amount: 4

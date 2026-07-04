@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # USSP
 
 - type: entity
@@ -20,7 +14,23 @@
         - id: JetpackVoidFilled
         - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
-    access: [["USSP"]]
+    access: [["Mercenary"]]
+
+- type: entity
+  id: SuitStorageUsspL10
+  parent: SuitStorageBase
+  suffix: USSP L-10
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: NitrogenTankFilled
+        - id: ClothingOuterHardsuitUsspL10
+        - id: ClothingMaskGasSecurity
+        - id: JetpackMiniFilled
+        - id: ClothingShoesBootsMagSecurity
+  - type: AccessReader #USSP Access currently unused
+    access: [["Mercenary"]]
 
 - type: entity
   id: SuitStorageCommissar
@@ -51,7 +61,7 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingOuterHardsuitM82c
-    - id: JetpackSecurityFilled
+    - id: JetpackNfsdFilled
     - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
     access: [["Security"]]
@@ -66,7 +76,7 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingOuterHardsuitM82b
-    - id: JetpackSecurityFilled
+    - id: JetpackNfsdFilled
     - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
     access: [["Security"]]
@@ -81,8 +91,25 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingOuterHardsuitM86
-    - id: JetpackSecurityFilled
+    - id: JetpackNfsdFilled
     - id: ClothingShoesBootsMagSecurity
+  - type: AccessReader
+    access: [["Security"]]
+
+#Colonel hardsuit
+- type: entity
+  id: SuitStorageSheriff
+  parent: SuitStorageBase
+  suffix: TSFMC Colonel
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: NitrogenTankFilled
+        - id: ClothingOuterHardsuitNfsdSheriff # Frontier
+        - id: ClothingMaskGasSheriff
+        - id: JetpackNfsdFilled
+        - id: ClothingShoesBootsMagSecurity # Frontier
   - type: AccessReader
     access: [["Security"]]
 
@@ -117,3 +144,39 @@
         - id: ClothingShoesBootsMagSyndie
         - id: ClothingMaskGasSyndicate
         - id: JetpackBlackFilled # Frontier
+
+# Viper Group
+
+- type: entity
+  id: SuitStorageViperWL
+  parent: SuitStorageBase
+  suffix: Viper Group - BROOD
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitViperGroupInitiate
+    - id: ClothingMaskGasSecurity
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMagSecurity
+    - id: ClothingNeckViperGroupMantle
+  - type: AccessReader
+    access: [ [ "Viper" ] ]
+
+- type: entity
+  id: SuitStorageViperJackal
+  parent: SuitStorageBase
+  suffix: Viper Group - Jackal
+  components:
+  - type: StorageFill
+    contents:
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ClothingOuterHardsuitViperGroupStandard
+      - id: ClothingMaskGasSecurity
+      - id: JetpackMiniFilled
+      - id: ClothingShoesBootsMagSecurity
+      - id: ClothingNeckViperGroupMantle
+  - type: AccessReader
+    access: [ [ "Viper" ] ]

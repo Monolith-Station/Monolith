@@ -1,18 +1,19 @@
 - type: entity
-  id: BaseCartridge6.35x40mmCaseless
+  id: BaseCartridge635x40mmCaseless
   name: cartridge (.25 rifle)
-  parent: [ BaseCartridge, BaseC3SyndicateContrabandNoValue ] # Frontier: BaseSecurityContraband<BaseC3SyndicateContraband
+  parent: BaseCartridge
+  description: Developed during corporate wars for subsonic weapons to keep a low-profile during operations.
   abstract: true
   components:
   - type: Tag
     tags:
       - Cartridge
-      - Cartridge6.35x40mmCaseless
+      - Cartridge635x40mmCaseless
   - type: CartridgeAmmo
     deleteOnSpawn: true
   - type: Sprite
     noRot: false
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/caseless_ammo_casing.rsi
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]
@@ -22,28 +23,28 @@
     price: 1
 
 - type: entity
-  id: Cartridge6.35x40mmCaseless
-  name: cartridge (6.35x40mm Caseless)
-  parent: BaseCartridge6.35x40mmCaseless
+  id: Cartridge635x40mmCaseless
+  name: cartridge (635x40mm Caseless)
+  parent: BaseCartridge635x40mmCaseless
   components:
   - type: CartridgeAmmo
-    proto: Bullet6.35x40mmCaseless
+    proto: Bullet635x40mmCaseless
 
 - type: entity
-  id: Cartridge6.35x40mmCaselessRubber
-  name: cartridge (6.35x40mm Caseless rubber)
-  parent: BaseCartridge6.35x40mmCaseless
+  id: Cartridge635x40mmCaselessRubber
+  name: cartridge (635x40mm Caseless rubber)
+  parent: BaseCartridge635x40mmCaseless
   components:
   - type: CartridgeAmmo
-    proto: Bullet6.35x40mmCaselessRubber
+    proto: Bullet635x40mmCaselessRubber
 
 - type: entity
-  id: Cartridge6.35x40mmCaselessPractice
-  name: cartridge (6.35x40mm Caseless practice)
-  parent: BaseCartridge6.35x40mmCaseless
+  id: Cartridge635x40mmCaselessPractice
+  name: cartridge (635x40mm Caseless practice)
+  parent: BaseCartridge635x40mmCaseless
   components:
   - type: CartridgeAmmo
-    proto: Bullet6.35x40mmCaselessPractice
+    proto: Bullet635x40mmCaselessPractice
   - type: Sprite
     layers:
       - state: base

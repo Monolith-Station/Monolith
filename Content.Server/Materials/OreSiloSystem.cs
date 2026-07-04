@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 cheetah1984
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Pinpointer;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Materials.OreSilo;
@@ -11,12 +7,12 @@ using Robust.Shared.Player;
 namespace Content.Server.Materials;
 
 /// <inheritdoc/>
-public sealed class OreSiloSystem : SharedOreSiloSystem
+public sealed partial class OreSiloSystem : SharedOreSiloSystem
 {
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] private NavMapSystem _navMap = default!;
+    [Dependency] private PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterface = default!;
 
     private const float OreSiloPreloadRangeSquared = 225f; // ~1 screen
 
@@ -24,6 +20,13 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
     private readonly HashSet<(NetEntity, string, string)> _clientInformation = new();
     private readonly HashSet<EntityUid> _silosToAdd = new();
     private readonly HashSet<EntityUid> _silosToRemove = new();
+
+    // Mono
+    private readonly List<Entity<OreSiloClientComponent>> _silos = new();
+
+    // Mono
+    private float _updateAccumulator = 0f;
+    private float _updateInterval = 1f;
 
     protected override void UpdateOreSiloUi(Entity<OreSiloComponent> ent)
     {
@@ -85,22 +88,36 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
     {
         base.Update(frameTime);
 
+        _updateAccumulator += frameTime;
+        if (_updateAccumulator < _updateInterval)
+            return;
+        _updateAccumulator -= _updateInterval;
+
         // Solving an annoying problem: we need to send the silo to people who are near the silo so that
         // Things don't start wildly mispredicting. We do this as cheaply as possible via grid-based local-pos checks.
         // Sloth okay-ed this in the interim until a better solution comes around.
 
-        var actorQuery = EntityQueryEnumerator<ActorComponent, TransformComponent>();
-        while (actorQuery.MoveNext(out _, out var actorComp, out var actorXform))
+        _silos.Clear();
+        var clientQuery = EntityQueryEnumerator<OreSiloClientComponent>();
+        while (clientQuery.MoveNext(out var uid, out var siloComp))
+        {
+            _silos.Add((uid, siloComp));
+        }
+
+        var actorQuery = EntityQueryEnumerator<ActorComponent>();
+        while (actorQuery.MoveNext(out var actorUid, out var actorComp))
         {
             _silosToAdd.Clear();
             _silosToRemove.Clear();
 
-            var clientQuery = EntityQueryEnumerator<OreSiloClientComponent, TransformComponent>();
-            while (clientQuery.MoveNext(out _, out var clientComp, out var clientXform))
+            var actorXform = Transform(actorUid);
+
+            foreach (var (uid, clientComp) in _silos)
             {
                 if (clientComp.Silo == null)
                     continue;
 
+                var clientXform = Transform(uid);
                 // We limit it to same-grid checks only for peak perf
                 if (actorXform.GridUid != clientXform.GridUid)
                     continue;

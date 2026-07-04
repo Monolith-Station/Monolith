@@ -1,38 +1,3 @@
-# SPDX-FileCopyrightText: 2023 AlexMorgan3817
-# SPDX-FileCopyrightText: 2023 Banshee
-# SPDX-FileCopyrightText: 2023 GoodWheatley
-# SPDX-FileCopyrightText: 2023 Kevin Zheng
-# SPDX-FileCopyrightText: 2023 LordEclipse
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 Slava0135
-# SPDX-FileCopyrightText: 2023 Whisper
-# SPDX-FileCopyrightText: 2023 deltanedas
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2023 sTiKyt
-# SPDX-FileCopyrightText: 2024 AndresE55
-# SPDX-FileCopyrightText: 2024 Armok
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba
-# SPDX-FileCopyrightText: 2024 Brandon Hu
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 ScarKy0
-# SPDX-FileCopyrightText: 2024 TsjipTsjip
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 Winkarst
-# SPDX-FileCopyrightText: 2024 checkraze
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2025 John
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 mikusssssss
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   abstract: true
   parent: BaseItem
@@ -66,7 +31,7 @@
     - state: common_label
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseCargoContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyCargo
   name: cargo encryption key
   categories: [ DoNotMap ] # Frontier
@@ -82,7 +47,7 @@
     - state: cargo_label
 
 - type: entity
-  parent: [EncryptionKey, BaseCentcommCommandContraband] # Frontier: Added BaseCentcommCommandContraband, removed BaseCentcommContraband.
+  parent: EncryptionKey
   id: EncryptionKeyCentCom
   name: central command encryption key
   categories: [ DoNotMap ] # Frontier
@@ -98,7 +63,7 @@
     - state: nano_label
 
 - type: entity
-  parent: [EncryptionKey, BaseC2ContrabandUnredeemable] # Frontier: BaseCentcommCommandContraband<BaseC2ContrabandUnredeemable
+  parent: EncryptionKey
   id: EncryptionKeyStationMaster
   name: station master encryption key
   categories: [ DoNotMap ] # Frontier
@@ -123,7 +88,7 @@
     - state: cap_label
 
 - type: entity
-  parent: [EncryptionKey, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  parent: EncryptionKey
   id: EncryptionKeyCommand
   name: TSF command encryption key # mono
   categories: [ DoNotMap ] # Frontier
@@ -141,7 +106,7 @@
     id: EncryptionKeyFaction
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseEngineeringContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyEngineering
   name: engineering encryption key
   categories: [ DoNotMap ] # Frontier
@@ -157,7 +122,7 @@
     - state: eng_label
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseMedicalContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyMedical
   name: medical encryption key
   description: An encryption key used by those who save lives.
@@ -172,7 +137,7 @@
     - state: med_label
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseMedicalScienceContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyMedicalScience
   name: med-sci encryption key
   categories: [ DoNotMap ] # Frontier
@@ -189,7 +154,7 @@
     - state: medsci_label
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseScienceContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyScience
   name: science encryption key
   categories: [ DoNotMap ] # Frontier
@@ -205,7 +170,7 @@
     - state: sci_label
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseScienceContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyRobo
   name: robotech encryption key
   categories: [ DoNotMap ] # Frontier
@@ -221,7 +186,7 @@
     - state: robotics_label
 
 - type: entity
-  parent: [ EncryptionKey, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityLawyerContraband<BaseC2ContrabandUnredeemable
+  parent: EncryptionKey
   id: EncryptionKeySecurity
   name: colonial security encryption key # mono
   categories: [ DoNotMap ] # Frontier
@@ -237,7 +202,7 @@
     - state: sec_label
 
 - type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseCivilianContraband
+  parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyService
   name: colonial staff encryption key # Mono
   categories: [ DoNotMap ] # Frontier
@@ -253,7 +218,7 @@
     - state: service_label
 
 - type: entity
-  parent: [EncryptionKey, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: EncryptionKey
   id: EncryptionKeySyndie
   name: blood-red encryption key
   categories: [ DoNotMap ] # Frontier
@@ -268,42 +233,42 @@
     - state: crypt_red
     - state: synd_label
 
-- type: entity
-  parent: [EncryptionKey, RecyclableItemDeviceTiny] # Frontier: added RecyclableItemDeviceTiny, removed BaseSiliconScienceContraband
-  id: EncryptionKeyBinary
-  name: binary translator key
-  categories: [ DoNotMap ] # Frontier
-  description: An encryption key that translates binary signals used by silicons.
-  components:
-  - type: EncryptionKey
-    channels:
-    - Binary
-    defaultChannel: Binary
-  - type: Sprite
-    layers:
-    - state: crypt_silver
-    - state: ai_label
+#- type: entity
+#  parent: [EncryptionKey, RecyclableItemDeviceTiny]
+#  id: EncryptionKeyBinary
+#  name: binary translator key
+#  categories: [ DoNotMap ] # Frontier
+#  description: An encryption key that translates binary signals used by silicons.
+#  components:
+#  - type: EncryptionKey
+#    channels:
+#    - Binary
+#    defaultChannel: Binary
+#  - type: Sprite
+#    layers:
+#    - state: crypt_silver
+#    - state: ai_label
+
+#- type: entity
+#  parent: EncryptionKey
+#  id: EncryptionKeyBinarySyndicate
+#  name: binary translator key
+#  description: A syndicate encryption key that translates binary signals used by silicons.
+#  components:
+#  - type: EncryptionKey
+#    channels:
+#    - Binary
+#    defaultChannel: Binary
+#  - type: Sprite
+#    layers:
+#    - state: crypt_red
+#    - state: ai_label
 
 - type: entity
-  parent: [ EncryptionKey, BaseC3SyndicateContrabandNoValue ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContrabandNoValue
-  id: EncryptionKeyBinarySyndicate
-  name: binary translator key
-  description: A syndicate encryption key that translates binary signals used by silicons.
-  components:
-  - type: EncryptionKey
-    channels:
-    - Binary
-    defaultChannel: Binary
-  - type: Sprite
-    layers:
-    - state: crypt_red
-    - state: ai_label
-
-- type: entity
-  parent: [EncryptionKey, BaseC3PirateContrabandHighValue] # Frontier: added BaseC3PirateContraband - Mono: Changed to HighValue
+  parent: EncryptionKey
   id: EncryptionKeyFreelance
-  name: insurgency encryption key # mono
-  description: An encryption key used by insurgents. # Mono
+  name: vanguard encryption key # mono
+  description: An encryption key used by imperials. # Mono
   components:
     - type: EncryptionKey
       channels:

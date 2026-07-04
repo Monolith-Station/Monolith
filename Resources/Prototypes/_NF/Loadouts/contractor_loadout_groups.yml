@@ -1,30 +1,3 @@
-# SPDX-FileCopyrightText: 2024 AndresE55
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Hamblinius
-# SPDX-FileCopyrightText: 2024 KyuPolaris
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Tabitha
-# SPDX-FileCopyrightText: 2024 immortalartisan
-# SPDX-FileCopyrightText: 2024 steinhauer.erhard
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Bonaout
-# SPDX-FileCopyrightText: 2025 Havaren
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Maxtone
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 dustylens
-# SPDX-FileCopyrightText: 2025 gixer94
-# SPDX-FileCopyrightText: 2025 starch
-# SPDX-FileCopyrightText: 2025 the-hivequeen
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutGroup
   id: ContractorJumpsuit
   name: loadout-group-contractor-jumpsuit
@@ -243,6 +216,11 @@
   id: ContractorBackpack
   name: loadout-group-contractor-backpack
   loadouts:
+  ## Mono start
+  - ContractorClothingModsuitAtmostechPowerCell
+  - ContractorClothingModsuitCaptainPowerCell
+  - ContractorClothingModsuitEngineerPowerCell
+  ## Mono end
   - ContractorClothingBackpack
   - ContractorClothingBackpackDuffel
   - ContractorClothingBackpackSatchel
@@ -325,6 +303,15 @@
   - ContractorClothingOuterHardsuitEVA
   - ContractorClothingOuterHardsuitBasic
   - ContractorClothingOuterHardsuitVoidParamed
+  - ContractorClothingOuterHardsuitUIEngineer
+  - ContractorClothingOuterHardsuitUIPilot
+  ## Mono start
+  - ContractorClothingOuterHardsuitAtmos
+  - ContractorClothingOuterHardsuitCap
+  - ContractorClothingOuterHardsuitEngineering
+  - ContractorClothingOuterHardsuitSalvage
+  - ContractorClothingOuterHardsuitSpatio
+  ## Mono end
   - ContractorClothingOuterHoodieGrey
   - ContractorClothingOuterVestHazard
   - ContractorClothingOuterApron
@@ -449,6 +436,7 @@
   loadouts:
   - ContractorClothingShoesColorBlack
   - ContractorClothingShoesClothwrap
+  - ContractorClothingShoesClothwrapBlack # Mono
   - ContractorClothingShoesTourist
   - ContractorClothingShoesBootsSalvage
   - ContractorClothingShoesChef
@@ -589,6 +577,8 @@
   - ContractorClothingHeadHatCone
   - ContractorClothingHeadBandGold
   - ContractorClothingHeadHatTophat
+  - ContractorClothingHeadHatUNSABeer
+  - ContractorClothingHeadSanabi # Mono
 
 - type: loadoutGroup
   id: ContractorEars
@@ -611,6 +601,7 @@
   - ContractorClothingHeadsetAltEngineeringCommon
   - ContractorClothingHeadsetAltMedicalCommon
   - ContractorClothingHeadsetAltScienceCommon
+  # - USSPHeadset # Mono
   fallbacks:
   - ContractorClothingHeadsetGreyCommon
 
@@ -656,12 +647,20 @@
   - ContractorClothingNeckLawyerbadge
   - ContractorClothingNeckDrakeIndustriesBadge
   - ContractorClothingNeckHeadphones
+  - ContractorClothingNeckNovaSharksLeatherJacket
   - ContractorClothingNeckCrucifix
-  - ContractorClothingNeckBellCollar
   - ContractorCDDogtags
   - ContractorClothingNeckStethoscope
   - ContractorClothingOuterPoncho
   - ContractorClothingOuterPonchoClassic
+  - ContractorClothingNeckPonchoSmallPurple # Monolith
+  - ContractorClothingNeckPonchoSmallRed # Monolith
+  - ContractorClothingNeckPonchoSmallPink # Monolith
+  - ContractorClothingNeckPonchoSmallOrange # Monolith
+  - ContractorClothingNeckPonchoSmallBlack # Monolith
+  - ContractorClothingNeckPonchoSmallWhite # Monolith
+  - ContractorClothingNeckPonchoBlack # Monolith
+  - ContractorClothingNeckPonchoArctic # Monolith
   - ContractorClothingNeckCloakBlack # Monolith
   - ContractorClothingNeckCloakCOG # Monolith
   - ContractorClothingNeckCloakMiner
@@ -699,6 +698,8 @@
   - ContractorClothingNeckBling
   - ContractorClothingNeckArmbandUNSA
   - ContractorClothingNeckMantleBH # Mono
+  - ContractorClothingNeckCloakSanabi # Mono
+  - ContractorClothingNeckUIOvercoat # Mono
 
 - type: loadoutGroup
   id: ContractorPDA
@@ -799,8 +800,8 @@
   - ContractorAcousticGuitarInstrument
   - ContractorCane
   - ContractorLGBTQHandyFlag
-  - ContractorNTHandyFlag
-  - ContractorBalloonNT
+  #- ContractorNTHandyFlag
+  #- ContractorBalloonNT
   - ContractorPonderingOrb
   - ContractorPlushieRGBee
   - ContractorMysterySpaceBladeBox
@@ -833,6 +834,13 @@
   - ContractorClothingMaskNeckGaiter
   - ContractorClothingMaskNeckGaiterRed
   - ContractorClothingMaskGasSecurity
+  - ClothingMaskJackal
+  - ClothingMaskRat
+  - ClothingMaskRaven
+  - ClothingMaskBear
+  - ClothingMaskBat
+  - ClothingMaskBee
+  - ClothingMaskFox
   fallbacks:
   - ContractorClothingMaskBreath
 
@@ -873,7 +881,7 @@
   - ContractorFootball
   - ContractorBeachBall
   - ContractorCrayonBox
-  - ContractorSoapNT
+  #- ContractorSoapNT
   # Frontier - try to mirror the upstream trinkets here, but only if they arent job role restricted in some weird way
   - PlushieLizard
   - ClothingNeckLGBTPin
@@ -898,7 +906,7 @@
   hidden: true # Mono
   minLimit: 1
   loadouts:
-  - ContractorBoxSurvivalNFOxygenExtended 
+  - ContractorBoxSurvivalNFOxygenExtended
   - ContractorBoxSurvivalNFNitrogenExtended
   fallbacks:
   - ContractorBoxSurvivalNFOxygenExtended
@@ -971,3 +979,12 @@
   - ContractorRubberStampTrader
   - ContractorRubberStampClown
   - ContractorRubberStampMime
+
+- type: loadoutGroup
+  id: ContractorArmorPlates
+  name: loadout-group-contractor-armorplates
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ContractorArmorPlateBlunt_Slash
+  - ContractorArmorPlatePierce

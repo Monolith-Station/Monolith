@@ -7,6 +7,23 @@
   - type: PhysicalComposition # Frontier
     materialComposition: # Frontier
       Paper: 50 # Frontier
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/book_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/book_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/book_drop.ogg
+      params:
+        volume: -4
+  # Goobstation edit end
   - type: Sprite
     sprite: Objects/Misc/books.rsi
     layers:
@@ -232,9 +249,6 @@
     damage:
       types:
         Blunt: 6
-  - type: GuideHelp
-    guides:
-    - Security
     # - Antagonists # Frontier: removed guidebook entry
 
 - type: entity

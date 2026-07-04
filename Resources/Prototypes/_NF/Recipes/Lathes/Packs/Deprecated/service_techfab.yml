@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 tonotom
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # The service techfab made into packs.
 # TODO: Reorganize these into common packs.
 
@@ -89,6 +82,7 @@
     - Holoprojector
     - Shovel
     - FreezerElectronics
+    - CleanerGrenade #Mono
   ## Kitchen
     - DrinkMug
     - DrinkMugMetal
@@ -146,6 +140,7 @@
       - WelderExperimental
       - JawsOfLife
       - PowerDrill
+      - TrayGoggles # Mono
       - JetpackVoid
       - PowerCellHigh
       - PowerCellMicroreactor

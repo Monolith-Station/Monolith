@@ -1,0 +1,20 @@
+- type: guideEntry
+  id: MonoMisc
+  name: guide-entry-misc
+  text: "/ServerInfo/_Mono/Guidebook/Misc.xml"
+  priority: 10
+  children:
+  - GridClaimer
+  - ArmorExplanation
+
+- type: guideEntry
+  id: GridClaimer
+  name: guide-entry-gridclaimer
+  text: "/ServerInfo/_Mono/Guidebook/Misc/GridClaimer.xml"
+  priority: 1
+
+- type: guideEntry
+  id: ArmorExplanation
+  name: guide-entry-armorexplanation
+  text: "/ServerInfo/_Mono/Guidebook/Misc/ArmorExplanation.xml"
+  priority: 1

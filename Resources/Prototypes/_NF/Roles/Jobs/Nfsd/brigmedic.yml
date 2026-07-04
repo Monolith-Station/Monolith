@@ -1,24 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Cheackraze
-# SPDX-FileCopyrightText: 2023 Kesiath
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 Puro
-# SPDX-FileCopyrightText: 2024 AndresE55
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 EctoplasmIsGood
-# SPDX-FileCopyrightText: 2025 Maxtone
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 Your Name
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 mikusssssss
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: job
   id: Brigmedic
   name: job-name-brigmedic
@@ -39,6 +18,7 @@
   supervisors: job-supervisors-bailiff
   weight: 125
   displayWeight: 35
+  assignedCompany: TSF
   canBeAntag: false
   accessGroups:
   - GeneralNfsdBrigmedicAccess
@@ -63,11 +43,11 @@
 
 - type: startingGear
   id: BrigmedicGear
-  equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+#  equipment:
+#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:
     back:
     - EncryptionKeyMedical
-    - Magazine45_ACPPistolFMJ
+#    - Magazine45_ACPPistolFMJ # Mono
     - BaseSecurityUplinkRadioOfficer #Mono: Changed to officer uplink
     - RadioHandheldNF # Mono

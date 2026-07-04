@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Author Info
 # GitHub: UnicornOnLSD
 # Discord: unicornonlsd
@@ -11,7 +7,7 @@
   id: Olympus
   parent: BaseVessel
   name: DIS Olympus
-  description: A ultreaheavy-class cargo freighter, the pride and joy of DIS. Furnished with an 185 tile dedicated cargo space, a 50 type drive and dedicated shield & point defense system. In sum all you need to run smooth, large scale transport operations.
+  description: A massive cargo freighter, the pride and joy of DIS. Furnished with an 185 tile dedicated cargo space, a 50 type drive and dedicated shield & point defense system. In sum all you need to run smooth, large scale transport operations.
   price: 225500
   category: Large
   group: Shipyard
@@ -32,7 +28,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'olympus CIV{1}'
+          mapNameTemplate: 'Olympus CIV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

@@ -1,8 +1,6 @@
 # MARK: USSP
 job-name-ussp-commissar = USSP Commissar
 job-name-ussp-sergeant = USSP Serzhant
-job-name-ussp-corporal = USSP Efreitor
-job-name-ussp-medic = USSP Combat Medic
 job-name-ussp-rifleman = USSP Rifleman
 job-supervisors-ussp-highcomm = the Nova Cygni command.
 job-supervisors-ussp-commissars = the Commissar
@@ -13,3 +11,12 @@ job-name-md-medic = Emergency Responder
 
 # MARK: TSF
 job-name-tsf-engineer = TSFMC Engineer
+job-name-tsf-borg = TSFMC Cyborg
+
+# MARK: PDV
+job-name-pdv-borg = PDV Cyborg
+
+# MARK: Viper Group
+job-name-vg-infanteer = VG Infanteer
+job-name-vg-lieutenant = VG Lieutenant
+job-name-vg-commander = VG Commander

@@ -13,11 +13,16 @@ public sealed class LatheUpdateState : BoundUserInterfaceState
 
     public LatheRecipePrototype? CurrentlyProducing;
 
-    public LatheUpdateState(List<ProtoId<LatheRecipePrototype>> recipes, List<LatheRecipeBatch> queue, LatheRecipePrototype? currentlyProducing = null) // Frontier: change queue type
+    public bool Looping = false; // Mono
+    public bool Skipping = false; // Mono
+
+    public LatheUpdateState(List<ProtoId<LatheRecipePrototype>> recipes, List<LatheRecipeBatch> queue, LatheRecipePrototype? currentlyProducing = null, bool looping = false, bool skipping = false) // Frontier: change queue type // Mono
     {
         Recipes = recipes;
         Queue = queue;
         CurrentlyProducing = currentlyProducing;
+        Looping = looping; // Mono
+        Skipping = skipping; // Mono
     }
 }
 
@@ -42,6 +47,48 @@ public sealed class LatheQueueRecipeMessage : BoundUserInterfaceMessage
     {
         ID = id;
         Quantity = quantity;
+    }
+}
+
+// Mono
+/// <summary>
+///     Sent to the server when a client wants to change whether the lathe should loop.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class LatheSetLoopingMessage : BoundUserInterfaceMessage
+{
+    public readonly bool ShouldLoop;
+    public LatheSetLoopingMessage(bool shouldLoop)
+    {
+        ShouldLoop = shouldLoop;
+    }
+}
+
+// Mono
+/// <summary>
+///     Sent to the server when a client wants to change whether the lathe should skip over unavailable recipes.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class LatheSetSkipMessage : BoundUserInterfaceMessage
+{
+    public readonly bool ShouldSkip;
+    public LatheSetSkipMessage(bool shouldSkip)
+    {
+        ShouldSkip = shouldSkip;
+    }
+}
+
+// Mono
+/// <summary>
+///     Sent to the server when a client wants to de-queue a recipe from the lathe.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class LatheRecipeCancelMessage : BoundUserInterfaceMessage
+{
+    public readonly int Index;
+    public LatheRecipeCancelMessage(int index)
+    {
+        Index = index;
     }
 }
 

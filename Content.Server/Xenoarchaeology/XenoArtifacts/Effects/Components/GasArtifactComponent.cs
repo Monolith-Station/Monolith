@@ -29,7 +29,11 @@ public sealed partial class GasArtifactComponent : Component
         Gas.Tritium,
         Gas.Ammonia,
         Gas.NitrousOxide,
-        Gas.Frezon
+        Gas.Frezon,
+        Gas.BZ, //Funky/Goob
+        Gas.Healium, //Funky/Goob
+		Gas.Nitrium, //Funky/Goob
+		Gas.Pluoxium, //Funky/Goob
     };
 
     /// <summary>

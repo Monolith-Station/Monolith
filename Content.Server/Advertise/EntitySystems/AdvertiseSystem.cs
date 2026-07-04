@@ -1,15 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 Wrexbe (Josh)
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Collections.Generic; // Mono
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Advertise.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
@@ -23,12 +12,12 @@ using Robust.Shared.Timing;
 namespace Content.Server.Advertise.EntitySystems;
 
 // Mono - update delay replaced with priority queue
-public sealed class AdvertiseSystem : EntitySystem
+public sealed partial class AdvertiseSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private ChatSystem _chat = default!;
 
     // Mono
     private PriorityQueue<EntityUid, TimeSpan> _advertQueue = new();
@@ -38,7 +27,7 @@ public sealed class AdvertiseSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<AdvertiseComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<AdvertiseComponent, MapInitEvent>(OnMapInit);
 
         SubscribeLocalEvent<ApcPowerReceiverComponent, AttemptAdvertiseEvent>(OnPowerReceiverAttemptAdvertiseEvent);
         SubscribeLocalEvent<VendingMachineComponent, AttemptAdvertiseEvent>(OnVendingAttemptAdvertiseEvent);
@@ -47,10 +36,14 @@ public sealed class AdvertiseSystem : EntitySystem
     }
 
     // Mono - has to be ComponentInit so it doesn't break when loading again after MapInit
-    private void OnInit(EntityUid uid, AdvertiseComponent advert, ComponentInit args)
+    // Mono - ComponentInit component modifications is a nono, back to mapInit with a check
+    private void OnMapInit(EntityUid uid, AdvertiseComponent advert, MapInitEvent args)
     {
-        var prewarm = advert.Prewarm;
-        RandomizeNextAdvertTime(uid, advert, prewarm);
+        if (advert.NextAdvertisementTime == TimeSpan.Zero)
+        {
+            var prewarm = advert.Prewarm;
+            RandomizeNextAdvertTime(uid, advert, prewarm);
+        }
     }
 
     private void RandomizeNextAdvertTime(EntityUid uid, AdvertiseComponent advert, bool prewarm = false)

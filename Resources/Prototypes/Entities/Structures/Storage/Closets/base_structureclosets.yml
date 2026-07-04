@@ -315,3 +315,8 @@
     stateDoorOpen: base
     stateDoorClosed: door
   - type: LockVisuals
+  # Mono
+  - type: ShipRepairable
+    repairTo: SuitStorageBase
+    repairTime: 2
+    repairCost: 3

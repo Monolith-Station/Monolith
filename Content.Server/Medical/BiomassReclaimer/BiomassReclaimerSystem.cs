@@ -38,24 +38,24 @@ using Content.Shared.Contraband; // Frontier
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
-    public sealed class BiomassReclaimerSystem : EntitySystem
+    public sealed partial class BiomassReclaimerSystem : EntitySystem
     {
-        [Dependency] private readonly IConfigurationManager _configManager = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly MobStateSystem _mobState = default!;
-        [Dependency] private readonly SharedJitteringSystem _jitteringSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
-        [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly PuddleSystem _puddleSystem = default!;
-        [Dependency] private readonly ThrowingSystem _throwing = default!;
-        [Dependency] private readonly IRobustRandom _robustRandom = default!;
-        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly MaterialStorageSystem _material = default!;
-        [Dependency] private readonly SharedMindSystem _minds = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
+        [Dependency] private IConfigurationManager _configManager = default!;
+        [Dependency] private SharedTransformSystem _transform = default!;
+        [Dependency] private MobStateSystem _mobState = default!;
+        [Dependency] private SharedJitteringSystem _jitteringSystem = default!;
+        [Dependency] private SharedAudioSystem _sharedAudioSystem = default!;
+        [Dependency] private SharedAmbientSoundSystem _ambientSoundSystem = default!;
+        [Dependency] private SharedPopupSystem _popup = default!;
+        [Dependency] private PuddleSystem _puddleSystem = default!;
+        [Dependency] private ThrowingSystem _throwing = default!;
+        [Dependency] private IRobustRandom _robustRandom = default!;
+        [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private MaterialStorageSystem _material = default!;
+        [Dependency] private SharedMindSystem _minds = default!;
+        [Dependency] private InventorySystem _inventory = default!;
 
         [ValidatePrototypeId<MaterialPrototype>]
         public const string BiomassPrototype = "Biomass";
@@ -161,8 +161,8 @@ namespace Content.Server.Medical.BiomassReclaimer
             args.Cancel();
         }
         private void OnAfterInteractUsing(Entity<BiomassReclaimerComponent> reclaimer, ref AfterInteractUsingEvent args)
-        {
-            if (!args.CanReach || args.Target == null)
+        {                                             // Mono
+            if (!args.CanReach || args.Target == null || args.Handled)
                 return;
 
             if (!CanGib(reclaimer, args.Used))
@@ -172,7 +172,8 @@ namespace Content.Server.Medical.BiomassReclaimer
                 return;
 
             var delay = reclaimer.Comp.BaseInsertionDelay * physics.FixturesMass;
-            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, delay, new ReclaimerDoAfterEvent(), reclaimer, target: args.Target, used: args.Used)
+            // Mono
+            args.Handled = _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, delay, new ReclaimerDoAfterEvent(), reclaimer, target: args.Target, used: args.Used)
             {
                 NeedHand = true,
                 BreakOnMove = true,

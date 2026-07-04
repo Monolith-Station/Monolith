@@ -4,6 +4,10 @@
   name: airlock
   description: It opens, it closes, and maybe crushes you.
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: StationAiWhitelist
   - type: MeleeSound
     soundGroups:
@@ -107,6 +111,7 @@
     receiveFrequencyId: BasicDevice
   - type: WirelessNetworkConnection
     range: 200
+  - type: NoSignalOnLink # Mono
   - type: DeviceLinkSink
     ports:
       - Open
@@ -159,7 +164,7 @@
   - type: PlacementReplacement
     key: walls
   - type: IconSmooth
-    key: walls
+    key: airlocks # Mono
     mode: NoSprite
   - type: PaintableAirlock
     group: Standard
@@ -179,6 +184,10 @@
     - Airlocks
     - WirePanels
     - Networking
+  # Mono
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 6
   placement:
     mode: SnapgridCenter
 

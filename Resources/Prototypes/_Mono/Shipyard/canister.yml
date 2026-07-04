@@ -1,0 +1,41 @@
+# Author Info
+# GitHub: Rubeebeebee
+# Discord: rubeebee
+
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Canister
+  parent: BaseVessel
+  name: HES Canister
+  description: An entry level gas mining ship, manufactured and fielded by Horizon Energy to send out new gas miners for their first taste of the industry.
+  price: 33000
+  category: Small
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/canister.yml
+  guidebookPage: Null
+  class:
+  - Atmospherics
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Canister
+  mapName: 'HES Phaeron'
+  mapPath: /Maps/_Mono/Shuttles/canister.yml
+  minPlayers: 0
+  stations:
+    Canister:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Canister CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

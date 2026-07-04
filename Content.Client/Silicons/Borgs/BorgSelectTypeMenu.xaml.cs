@@ -1,4 +1,5 @@
-﻿using System.Linq;
+using System.Linq;
+using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.Guidebook;
@@ -19,12 +20,11 @@ namespace Content.Client.Silicons.Borgs;
 [GenerateTypedNameReferences]
 public sealed partial class BorgSelectTypeMenu : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     private BorgTypePrototype? _selectedBorgType;
 
-    public event Action<ProtoId<BorgTypePrototype>>? ConfirmedBorgType;
-
+    public event Action<ProtoId<BorgTypePrototype>, ProtoId<BorgSubtypePrototype>>? ConfirmedBorgType;
     [ValidatePrototypeId<GuideEntryPrototype>]
     private static readonly List<ProtoId<GuideEntryPrototype>> GuidebookEntries = new() { "Cyborgs", "Robotics" };
 
@@ -33,24 +33,36 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        var group = new ButtonGroup();
-        foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName))
+        // Goobstation: Customizable borgs sprites
+        ConfirmTypeButton.OnPressed += ConfirmButtonPressed;
+        HelpGuidebookIds = GuidebookEntries;
+
+        SubtypeSelection.SubtypeSelected += () =>
+            ConfirmTypeButton.Disabled = false;
+    }
+
+    //  foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName))
+    // Mono: Selectable borg whitelist
+    public void Populate(IReadOnlyList<ProtoId<BorgTypePrototype>> whitelist)
+    {
+        IEnumerable<BorgTypePrototype> types = whitelist.Select(id => _prototypeManager.Index(id)).OrderBy(PrototypeName);
+        foreach (var borgType in types)
+        // Mono: Selectable borg whitelist end
         {
-            var button = new Button
+            var chassisList = new EntityPrototypeView
             {
-                Text = PrototypeName(borgType),
-                Group = group,
+                Scale = new Vector2(2, 2),
+                MouseFilter = MouseFilterMode.Stop
             };
-            button.OnPressed += _ =>
+            chassisList.SetPrototype(borgType.DummyPrototype);
+            chassisList.OnMouseEntered += _ =>
             {
                 _selectedBorgType = borgType;
                 UpdateInformation(borgType);
             };
-            SelectionsContainer.AddChild(button);
+            SelectionsContainer.AddChild(chassisList);
         }
-
-        ConfirmTypeButton.OnPressed += ConfirmButtonPressed;
-        HelpGuidebookIds = GuidebookEntries;
+        // Goobstation-End: Customizable borgs sprites
     }
 
     private void UpdateInformation(BorgTypePrototype prototype)
@@ -64,14 +76,20 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         NameLabel.Text = PrototypeName(prototype);
         DescriptionLabel.Text = Loc.GetString($"borg-type-{prototype.ID}-desc");
         ChassisView.SetPrototype(prototype.DummyPrototype);
+
+        // Goobstation: Customizable borgs sprites
+        SubtypeSelection.FillContainer(prototype);
+        ConfirmTypeButton.Disabled = true;
     }
 
     private void ConfirmButtonPressed(BaseButton.ButtonEventArgs obj)
     {
-        if (_selectedBorgType == null)
+        if (_selectedBorgType == null ||
+            SubtypeSelection.SelectedBorgSubtype == null ||
+            SubtypeSelection.SelectedBorgSubtype.ParentBorgType != _selectedBorgType)
             return;
 
-        ConfirmedBorgType?.Invoke(_selectedBorgType);
+        ConfirmedBorgType?.Invoke(_selectedBorgType, SubtypeSelection.SelectedBorgSubtype);
     }
 
     private static string PrototypeName(BorgTypePrototype prototype)

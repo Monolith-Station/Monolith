@@ -28,11 +28,13 @@ namespace Content.Shared.Administration
                 buffer.ReadPadBits();
                 var flags = (AdminFlags) buffer.ReadUInt32();
                 var title = buffer.ReadString();
+                var shortTitle = buffer.ReadString(); // Mono
 
                 Admin = new AdminData
                 {
                     Active = active,
                     Title = title,
+                    ShortTitle = shortTitle, // Mono
                     Flags = flags,
                 };
             }
@@ -56,6 +58,7 @@ namespace Content.Shared.Administration
             buffer.WritePadBits();
             buffer.Write((uint) Admin.Flags);
             buffer.Write(Admin.Title);
+            buffer.Write(Admin.ShortTitle); // Mono
         }
 
         public override NetDeliveryMethod DeliveryMethod => NetDeliveryMethod.ReliableOrdered;

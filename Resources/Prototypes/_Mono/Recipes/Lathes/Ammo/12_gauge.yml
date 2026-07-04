@@ -1,0 +1,109 @@
+#12 gauge drums use Intermediate Magazines cost and boxes use Intermediate Box cost
+#Magazines
+
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateMagazineRecipe
+  id: Magazine12_gaugeBuckshot
+  result: Magazine12_gaugeBuckshot
+
+- type: latheRecipe
+  parent: BaseAmmoRubberIntermediateMagazineRecipe
+  id: Magazine12_gaugeBeanbag
+  result: Magazine12_gaugeBeanbag
+
+- type: latheRecipe
+  parent: BaseAmmoIncendiaryIntermediateMagazineRecipe
+  id: Magazine12_gaugeIncendiary
+  result: Magazine12_gaugeIncendiary
+
+- type: latheRecipe
+  parent: BaseAmmoPracticeIntermediateMagazineRecipe
+  id: Magazine12_gaugePractice
+  result: Magazine12_gaugePractice
+
+- type: latheRecipe
+  parent: BaseAmmoEmptyIntermediateMagazineRecipe
+  id: Magazine12_gaugeEmpty
+  result: Magazine12_gaugeEmpty
+
+- type: latheRecipe
+  parent: BaseAmmoUraniumIntermediateMagazineRecipe
+  id: Magazine12_gaugeUranium
+  result: Magazine12_gaugeUranium
+
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateMagazineRecipe
+  id: Magazine12_gaugeSlug
+  result: Magazine12_gaugeSlug
+
+- type: latheRecipe
+  parent: BaseAmmoPlasteelAPIntermediateMagazineRecipe
+  id: Magazine12_gaugeSlugRIP
+  result: Magazine12_gaugeSlugRIP
+
+- type: latheRecipe
+  parent: BaseAmmoPlasteelAPIntermediateMagazineRecipe
+  id: Magazine12_gaugeSlugAP
+  result: Magazine12_gaugeSlugAP
+
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateMagazineRecipe
+  id: Magazine12_gaugeOOBuckshot
+  result: Magazine12_gaugeOOBuckshot
+
+- type: latheRecipe
+  parent: BaseAmmoPlasteelAPIntermediateMagazineRecipe
+  id: Magazine12_gaugeFlechette
+  result: Magazine12_gaugeFlechette
+
+#Boxes
+
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateAmmoBoxRecipe
+  id: AmmoBox12_gaugeBuckshot
+  result: AmmoBox12_gaugeBuckshot
+
+- type: latheRecipe
+  parent: BaseAmmoRubberIntermediateAmmoBoxRecipe
+  id: AmmoBox12_gaugeBeanbag
+  result: AmmoBox12_gaugeBeanbag
+
+- type: latheRecipe
+  parent: BaseAmmoIncendiaryIntermediateAmmoBoxRecipe
+  id: AmmoBox12_gaugeIncendiary
+  result: AmmoBox12_gaugeIncendiary
+
+- type: latheRecipe
+  parent: BaseAmmoPracticeIntermediateAmmoBoxRecipe
+  id: AmmoBox12_gaugePractice
+  result: AmmoBox12_gaugePractice
+
+- type: latheRecipe
+  parent: BaseAmmoUraniumIntermediateAmmoBoxRecipe
+  id: AmmoBox12_gaugeUranium
+  result: AmmoBox12_gaugeUranium
+
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateAmmoBoxRecipe
+  id: AmmoBox12_gaugeSlug
+  result: AmmoBox12_gaugeSlug
+
+- type: latheRecipe
+  parent: BaseAmmoRIPIntermediateAmmoBoxRecipe
+  id: AmmoBox12_gaugeSlugRIP
+  result: AmmoBox12_gaugeSlugRIP
+
+- type: latheRecipe
+  parent: BaseAmmoPlasteelAPIntermediateAmmoBoxRecipe
+  id: AmmoBox12_gaugeSlugAP
+  result: AmmoBox12_gaugeSlugAP
+
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateAmmoBoxRecipe
+  id: AmmoBox12_gaugeOOBuckshot
+  result: AmmoBox12_gaugeOOBuckshot
+
+- type: latheRecipe
+  parent: BaseAmmoPlasteelAPIntermediateAmmoBoxRecipe
+  id: AmmoBox12_gaugeFlechette
+  result: AmmoBox12_gaugeFlechette

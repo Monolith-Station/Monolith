@@ -1,0 +1,37 @@
+- type: entity
+  parent: BaseGunAttachmentSuppressor
+  id: GunAttachmentSuppressorMulticalPistol
+  name: MULTI-CAL pistol suppressor
+  description: Supports weapons with threaded barrels that fire pistol cartridges.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Attachments/Suppressors/multi_cal.rsi
+    state: multical_pistol
+  - type: ESGunSoundAttachment
+    sound:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/mla_fire.ogg
+      params:
+        maxDistance: 4
+  - type: Tag
+    tags:
+    - MonoSuppressor
+    - MonoSuppressorMulticalPistol
+
+- type: entity
+  parent: BaseGunAttachmentSuppressor
+  id: GunAttachmentSuppressorMulticalRifle
+  name: MULTI-CAL rifle suppressor
+  description: Supports weapons with threaded barrels that fire intermediate cartridges.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Attachments/Suppressors/multi_cal.rsi
+    state: multical_rifle
+  - type: ESGunSoundAttachment
+    sound:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/suppressed.ogg
+      params:
+        maxDistance: 6
+  - type: Tag
+    tags:
+    - MonoSuppressor
+    - MonoSuppressorMulticalRifle

@@ -1,25 +1,3 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2021 Leon Friedrich
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2022 Charlese2
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2023 Boaz1111
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 kerisargit
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: Bullet45_ACPFMJ
   name: bullet (.45 ACP FMJ)
@@ -29,7 +7,9 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 22
+        Piercing: 20
+        Structural: 20
+    armorPenetration: 0.2
 
 - type: entity
   id: Bullet45_ACPPractice
@@ -62,8 +42,9 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 2
-        Heat: 20
+        Piercing: 8
+        Heat: 7
+    armorPenetration: -0.1
 
 - type: entity
   id: Bullet45_ACPUranium
@@ -74,8 +55,10 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 8
-        Piercing: 14
+        Radiation: 9
+        Piercing: 15
+        Structural: 20
+    armorPenetration: -0.075
 
 # Upstream
 - type: entity
@@ -87,4 +70,48 @@
   - type: Projectile
     damage:
       types:
-        Shock: 0
+        Shock: 2
+
+
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  id: Bullet45_ACPHP
+  parent: BaseBullet
+  name: bullet (.45 hollow-point)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 4
+        Piercing: 32
+    armorPenetration: -0.7
+
+- type: entity
+  id: Bullet45_ACPRIP
+  parent: BaseBullet
+  name: bullet (.45 RIP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 7
+        Piercing: 42
+    armorPenetration: -0.95
+
+#armor-piercing:
+
+- type: entity
+  id: Bullet45_ACPPlasteelAP
+  parent: BaseBullet
+  name: bullet (.45 AP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 9
+        Structural: 30
+    armorPenetration: 0.9

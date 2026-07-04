@@ -1,13 +1,15 @@
 - type: entity
   parent: ComputerRadar
   id: ComputerAdvancedRadar # Frontier
-  name: radar computer
+  name: advanced radar computer
   description: This advanced radar lets you detect far away objects for an increased tactical advantage.
   components:
   - type: Computer
     board: AdvancedRadarConsoleCircuitboard
+  - type: DetectionRangeMultiplier
+    infraredMultiplier: 1.2
+    visualMultiplier: 1.5
   - type: RadarConsole
-    maxRange: 768
     maxIffRange: null # Frontier
   - type: Sprite
     layers:
@@ -87,7 +89,7 @@
   suffix: Low
   components:
   - type: MarketModifier
-    mod: 0.75
+    mod: 0.85 # Mono 0.75->0.85
 
 - type: entity
   parent: ComputerPalletConsoleNFMarket
@@ -95,13 +97,13 @@
   suffix: VeryLow
   components:
   - type: MarketModifier
-    mod: 0.50
+    mod: 0.70 # Mono 0.5->0.7
 
 - type: entity
-  name: contraband exchange computer
+  name: technology exchange computer
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseComputer]
   id: ComputerContrabandPalletConsole
-  description: Used to exchange contraband for Federation Military Credits.
+  description: Sends off faction gear in exchange for FMC.
   components:
   - type: Sprite
     sprite: _NF/Structures/Machines/computers.rsi
@@ -208,7 +210,7 @@
   suffix: Low
   components:
   - type: MarketModifier
-    mod: 4
+    mod: 1.5 #Mono: 4 >> 1.5
 
 - type: entity
   name: cargo market computer
@@ -217,7 +219,7 @@
   suffix: Normal
   components:
   - type: MarketModifier
-    mod: 6
+    mod: 2 #Mono: 6 >> 2
 
 - type: entity
   name: cargo market computer
@@ -226,12 +228,12 @@
   suffix: High
   components:
   - type: MarketModifier
-    mod: 8
+    mod: 4 #Mono: 8 >> 4
 
 - type: entity
   id: ComputerPirateBounty
   parent: BaseComputer
-  name: rogue bounty console
+  name: PDV bounty console # Mono
   description: Pull up active contracts, track targets, and get paid in chits.
   components:
   - type: Sprite
@@ -270,10 +272,10 @@
   #   - Pirate # Frontier: eventually?  maybe?
 
 - type: entity
-  name: contraband exchange console
+  name: technology hand-in console
   parent: ComputerContrabandPalletConsole
   id: ComputerContrabandPalletConsolePirate
-  description: Upload contraband and blacklisted tech. Pays well if you know what you're doing.
+  description: Takes faction tech to be sent off to research and grants DC in exchange.
   components:
   - type: Sprite
     sprite: _NF/Structures/Machines/computers.rsi
@@ -399,7 +401,9 @@
   abstract: true
   components:
   - type: RadarConsole
-    maxRange: 768 # Mono 350->768
+  - type: DetectionRangeMultiplier
+    infraredMultiplier: 1
+    visualMultiplier: 3
   - type: Computer
     board: Null
   - type: Sprite

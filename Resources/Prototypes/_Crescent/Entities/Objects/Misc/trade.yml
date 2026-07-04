@@ -1,0 +1,45 @@
+- type: entity
+  # This means that it's not anchored on spawn.
+  id: BaseTradeItem
+  parent: BaseStructureDynamic
+  abstract: true
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite # Mono
+    sprite: _Mono/Objects/TradeGoods/trade.rsi
+  - type: InteractionOutline
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 100 # Mono - increase from 50
+        mask:
+        - CrateMask #this is so they can go under plastic flaps
+        layer:
+        - MachineLayer
+  - type: PlaceableSurface
+    isPlaceable: false # defaults to closed.
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150 # Mono - increase from 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Pullable
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem # Mono
+  - type: StaticPrice # Mono
+    price: 100

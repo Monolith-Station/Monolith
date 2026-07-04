@@ -1,17 +1,18 @@
 - type: entity
-  id: BaseCartridge4.6x30mm
+  id: BaseCartridge46x30mm
   name: cartridge (4.6x30mm FMJ)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseCartridge
+  description: A light AP round developed for PDWs in the 1990s, by an older world.
   abstract: true
   components:
   - type: Tag
     tags:
       - Cartridge
-      - Cartridge4.6x30mmFMJ
+      - Cartridge46x30mmFMJ
   - type: CartridgeAmmo
-    proto: Bullet4.6x30mm
+    proto: Bullet46x30mm
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/pistol_ammo_casing.rsi
     layers:
       - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]
@@ -21,20 +22,20 @@
     price: 1
 
 - type: entity
-  id: Cartridge4.6x30mmFMJ
+  id: Cartridge46x30mmFMJ
   name: cartridge (4.6x30mm FMJ)
-  parent: BaseCartridge4.6x30mm
+  parent: BaseCartridge46x30mm
   components:
   - type: CartridgeAmmo
-    proto: Bullet4.6x30mm
+    proto: Bullet46x30mm
 
 - type: entity
-  id: Cartridge4.6x30mmPractice
+  id: Cartridge46x30mmPractice
   name: cartridge (4.6x30mm practice)
-  parent: BaseCartridge4.6x30mm
+  parent: BaseCartridge46x30mm
   components:
   - type: CartridgeAmmo
-    proto: Bullet4.6x30mmPractice
+    proto: Bullet46x30mmPractice
   -  type: Sprite
      layers:
        - state: base
@@ -44,12 +45,12 @@
          color: "#dbdbdb"
 
 - type: entity
-  id: Cartridge4.6x30mmIncendiary
+  id: Cartridge46x30mmIncendiary
   name: cartridge (4.6x30mm incendiary)
-  parent: BaseCartridge4.6x30mm
+  parent: BaseCartridge46x30mm
   components:
   - type: CartridgeAmmo
-    proto: Bullet4.6x30mmIncendiary
+    proto: Bullet46x30mmIncendiary
   - type: Sprite
     layers:
       - state: base
@@ -59,12 +60,12 @@
         color: "#ff6e52"
 
 - type: entity
-  id: Cartridge4.6x30mmUranium
+  id: Cartridge46x30mmUranium
   name: cartridge (4.6x30mm uranium)
-  parent: BaseCartridge4.6x30mm
+  parent: BaseCartridge46x30mm
   components:
   - type: CartridgeAmmo
-    proto: Bullet4.6x30mmUranium
+    proto: Bullet46x30mmUranium
   - type: Sprite
     layers:
       - state: base
@@ -75,12 +76,12 @@
 
 # Upstream
 - type: entity
-  id: Cartridge4.6x30mmRubber
+  id: Cartridge46x30mmRubber
   name: cartridge (4.6x30mm rubber)
-  parent: BaseCartridge4.6x30mm
+  parent: BaseCartridge46x30mm
   components:
   - type: CartridgeAmmo
-    proto: Bullet4.6x30mmRubber
+    proto: Bullet46x30mmRubber
   - type: Sprite
     layers:
       - state: base
@@ -91,13 +92,62 @@
 
 # Frontier
 - type: entity
-  id: Cartridge4.6x30mmEmp
+  id: Cartridge46x30mmEmp
   name: cartridge (4.6x30mm emp)
-  parent: BaseCartridge4.6x30mm
+  parent: BaseCartridge46x30mm
   components:
   - type: CartridgeAmmo
-    proto: Bullet4.6x30mmEmp
+    proto: Bullet46x30mmEmp
   - type: EmpDescription
     range: 0.3
     energyConsumption: 2700000
     disableDuration: 10
+
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  id: Cartridge46x30mmHP
+  name: cartridge (4.6x30mm hollow-point)
+  parent: BaseCartridge46x30mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet46x30mmHP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#90EE90"
+
+- type: entity
+  id: Cartridge46x30mmRIP
+  name: cartridge (4.6x30mm RIP)
+  parent: BaseCartridge46x30mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet46x30mmRIP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#C04000"
+
+#armor-piercing:
+
+- type: entity
+  id: Cartridge46x30mmPlasteelAP
+  name: cartridge (4.6x30mm AP)
+  parent: BaseCartridge46x30mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet46x30mmPlasteelAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#888888"

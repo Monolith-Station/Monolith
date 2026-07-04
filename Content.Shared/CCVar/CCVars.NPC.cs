@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Simon
-// SPDX-FileCopyrightText: 2025 Whatstone
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 monolith8319
-// SPDX-FileCopyrightText: 2025 sleepyyapril
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
@@ -35,5 +27,5 @@ public sealed partial class CCVars
     /// <summary>
     ///     Mono: Distance threshold for pausing NPCs when no players are in range.
     /// </summary>
-    public static readonly CVarDef<float> NPCPlayerPauseDistance = CVarDef.Create("npc.player_pause_distance", 2000f);
+    public static readonly CVarDef<float> NPCPlayerPauseDistance = CVarDef.Create("npc.player_pause_distance", 32f);
 }

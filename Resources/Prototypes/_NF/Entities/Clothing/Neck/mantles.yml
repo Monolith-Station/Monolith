@@ -50,8 +50,8 @@
 - type: entity
   parent: ClothingNeckMantleHOP
   id: ClothingNeckMantleSr
-  name: colonial liaison's mantle
-  description: This mantle protects the colonial liaison's neck and shoulders from vicious papercuts. This mantle is a symbol of Central Command's trust.
+  name: overseer's mantle
+  description: This mantle protects the overseer's neck and shoulders from vicious papercuts. This mantle is a symbol of Central Command's trust.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Neck/Mantles/sr.rsi
@@ -61,7 +61,7 @@
 - type: entity
   id: ClothingNeckMantleBH
   name: "bounty hunter's mantle"
-  parent: [ BaseC1Contraband, ClothingNeckMantleHOS ]
+  parent: ClothingNeckMantleHOS
   description: "I can bring you in warm or I can bring you in cold. Or you can outbid the bounty."
   components:
   - type: Sprite

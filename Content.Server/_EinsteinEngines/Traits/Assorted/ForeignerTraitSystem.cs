@@ -15,11 +15,11 @@ namespace Content.Server._EinsteinEngines.Traits.Assorted;
 
 public sealed partial class ForeignerTraitSystem : EntitySystem
 {
-    [Dependency] private readonly EntityManager _entMan = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly LanguageSystem _languages = default!;
-    [Dependency] private readonly StorageSystem _storage = default!;
+    [Dependency] private EntityManager _entMan = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private LanguageSystem _languages = default!;
+    [Dependency] private StorageSystem _storage = default!;
 
     public override void Initialize()
     {

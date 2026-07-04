@@ -29,10 +29,10 @@ using Content.Shared._EE.Strip.Components; // EE
 namespace Content.Client.Inventory
 {
     [UsedImplicitly]
-    public sealed class StrippableBoundUserInterface : BoundUserInterface
+    public sealed partial class StrippableBoundUserInterface : BoundUserInterface
     {
-        [Dependency] private readonly IPlayerManager _player = default!;
-        [Dependency] private readonly IUserInterfaceManager _ui = default!;
+        [Dependency] private IPlayerManager _player = default!;
+        [Dependency] private IUserInterfaceManager _ui = default!;
 
         private readonly ExamineSystem _examine;
         private readonly InventorySystem _inv;
@@ -155,7 +155,7 @@ namespace Content.Client.Inventory
             // for now: shit-code
             // this breaks for drones (too many hands, lots of empty vertical space), and looks shit for monkeys and the like.
             // but the window is realizable, so eh.
-            _strippingMenu.SetSize = new Vector2(220, snare?.IsEnsnared == true ? 550 : 530);
+            _strippingMenu.SetSize = new Vector2(300, snare?.IsEnsnared == true ? 550 : 530);
         }
 
         private void AddHandButton(Hand hand)

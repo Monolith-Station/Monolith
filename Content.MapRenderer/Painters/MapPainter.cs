@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Content.IntegrationTests;
+using Content.IntegrationTests.Pair;
 using Content.Server.GameTicking;
 using Content.Server.Maps;
 using Robust.Client.GameObjects;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Log;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.UnitTesting.Pool;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
@@ -27,6 +32,7 @@ namespace Content.MapRenderer.Painters
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
+            var testContext = new ExternalTestContext("Content.MapRenderer", Console.Out);
             await using var pair = await PoolManager.GetServerClient(new PoolSettings
             {
                 DummyTicker = false,
@@ -34,12 +40,76 @@ namespace Content.MapRenderer.Painters
                 Fresh = true,
                 // Seriously whoever made MapPainter use GameMapPrototype I wish you step on a lego one time.
                 Map = map,
-            });
+            }, testContext);
+            pair.ServerLogHandler.FailureLevel = LogLevel.Fatal;
+            pair.ClientLogHandler.FailureLevel = LogLevel.Fatal;
+
+            await foreach (var image in RenderPair(stopwatch, pair))
+                yield return image;
+        }
+
+        // Mono
+        public static async IAsyncEnumerable<RenderedGridImage<Rgba32>> PaintGrid(string path)
+        {
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            var testContext = new ExternalTestContext("Content.MapRenderer", Console.Out);
+            await using var pair = await PoolManager.GetServerClient(new PoolSettings
+            {
+                DummyTicker = false,
+                Connected = true,
+                Fresh = false,
+            }, testContext);
+            pair.ServerLogHandler.FailureLevel = LogLevel.Fatal;
+            pair.ClientLogHandler.FailureLevel = LogLevel.Fatal;
 
             var server = pair.Server;
             var client = pair.Client;
+            var sEntityManager = server.ResolveDependency<IServerEntityManager>();
+            var mapLoader = sEntityManager.System<MapLoaderSystem>();
+            var sMapManager = server.ResolveDependency<IMapManager>();
 
-            Console.WriteLine($"Loaded client and server in {(int) stopwatch.Elapsed.TotalMilliseconds} ms");
+            await server.WaitPost(() =>
+            {
+                var mapId = sEntityManager.System<GameTicker>().DefaultMap;
+
+                foreach (var grid in sMapManager.GetAllGrids(mapId))
+                    sEntityManager.QueueDeleteEntity(grid);
+            });
+
+            await pair.RunTicksSync(10);
+            await Task.WhenAll(client.WaitIdleAsync(), server.WaitIdleAsync());
+
+            await server.WaitPost(() =>
+            {
+                var mapId = sEntityManager.System<GameTicker>().DefaultMap;
+
+                try
+                {
+                    mapLoader.TryLoadGrid(mapId, new(path), out _);
+                }
+                catch (Exception e) // we probably tried to load a map
+                {
+                    Logger.Info($"Failed to load as grid, rendering as map...");
+                    sMapManager.DeleteMap(mapId);
+                    var opts = new DeserializationOptions();
+                    opts.InitializeMaps = true;
+                    mapLoader.TryLoadMapWithId(mapId, new(path), out _, out _, opts);
+                }
+            });
+
+            await foreach (var image in RenderPair(stopwatch, pair))
+                yield return image;
+        }
+
+        // Mono - separate into its own method
+        private static async IAsyncEnumerable<RenderedGridImage<Rgba32>> RenderPair(Stopwatch stopwatch, TestPair pair)
+        {
+            var server = pair.Server;
+            var client = pair.Client;
+
+            Console.WriteLine($"Loaded client and server in {(int)stopwatch.Elapsed.TotalMilliseconds} ms");
 
             stopwatch.Restart();
 
@@ -109,8 +179,8 @@ namespace Content.MapRenderer.Painters
                 var top = bounds.Top;
                 var bottom = bounds.Bottom;
 
-                var w = (int) Math.Ceiling(right - left) * tileXSize;
-                var h = (int) Math.Ceiling(top - bottom) * tileYSize;
+                var w = (int)Math.Ceiling(right - left) * tileXSize;
+                var h = (int)Math.Ceiling(top - bottom) * tileYSize;
 
                 var gridCanvas = new Image<Rgba32>(w, h);
 

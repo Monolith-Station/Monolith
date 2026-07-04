@@ -8,13 +8,15 @@ job-name-nf-detective = Detective
 job-name-ertmailcarrier = ERT Mail Carrier
 job-name-mercenary = Mercenary
 job-name-pilot = Pilot
-job-name-pirate = Rogue Agent
-job-name-pirate-captain = Rogue Commander
-job-name-pirate-first-mate = Rogue Commandant
-job-name-security-guard = Security Guard
+job-name-pdv-infiltrator = PDV Spasaka
+job-name-pirate = PDV Rahkshan
+job-name-pirate-captain = PDV Grand Vizier
+job-name-pirate-first-mate = PDV Asvaran
+job-name-pdv-denasvar = PDV Denasvar
+job-name-security-guard = Judge
 job-name-sheriff = TSFMC Colonel
 job-name-stc = Station Traffic Controller
-job-name-sr = Colonial Liaison
+job-name-sr = Overseer
 job-name-pal = Public Affairs Liaison
 job-name-doc = Director of Care
 
@@ -25,10 +27,12 @@ job-title-ert-mail-carrier = ERT Mail Carrier
 JobERTMailCarrier = ERT Mail Carrier
 JobMercenary = Mercenary
 JobPilot = Pilot
-JobPirate = Rogue Agent
-JobPirateCaptain = Rogue Commander
-JobPirateFirstMate = Rogue Commandant
-JobSecurityGuard = Security Guard
+JobPDVInfiltrator = PDV Spasaka
+JobPirate = PDV Rakhshan
+JobPirateCaptain = PDV Grand Vizier
+JobPirateFirstMate = PDV Asvaran
+JobPirateBoatswain = PDV Denasvar
+JobSecurityGuard = Judge
 JobSTC = Station Traffic Controller
 
 # Upstream Removed

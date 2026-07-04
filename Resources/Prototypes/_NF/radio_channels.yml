@@ -1,11 +1,4 @@
-# SPDX-FileCopyrightText: 2023 Dvir
-# SPDX-FileCopyrightText: 2024 AndresE55
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 monolith8319
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+# Shortband
 
 - type: radioChannel
   id: Traffic
@@ -13,7 +6,9 @@
   keycode: 'd'
   frequency: 1022
   color: "#CC6633"
-  maxRange: 750
+  maxRange: 1500
+
+# TSFMC
 
 - type: radioChannel
   id: Nfsd

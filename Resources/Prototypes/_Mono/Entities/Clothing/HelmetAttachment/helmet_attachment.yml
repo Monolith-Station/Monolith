@@ -1,0 +1,113 @@
+
+- type: entity
+  parent: [ClothingHelmetAttachmentBase, ClothingBackpack]
+  id: ClothingHelmetAttachmentGogglesCoverOlive
+  name: olive goggles cover
+  description: Goggles cover to fit your goggle when not in use, worn in the helmet attachment slot.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetAttachment/goggles_cover_olive.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetAttachment/goggles_cover_olive.rsi
+    clothingVisuals:
+      helmetattachment:
+      - state: equipped-HELMETATTACHMENT
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,1
+
+- type: entity
+  parent: [ClothingHelmetAttachmentBase, ClothingBackpack]
+  id: ClothingHelmetAttachmentGogglesCoverTan
+  name: tan goggles cover
+  description: Goggles cover to fit your goggle when not in use, worn in the helmet attachment slot.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetAttachment/goggles_cover_tan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetAttachment/goggles_cover_tan.rsi
+    clothingVisuals:
+      helmetattachment:
+      - state: equipped-HELMETATTACHMENT
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,1
+
+- type: entity
+  parent: [ClothingHelmetAttachmentBase, ClothingBackpack]
+  id: ClothingHelmetAttachmentGogglesCoverBlack
+  name: black goggles cover
+  description: Goggles cover to fit your goggle when not in use, worn in the helmet attachment slot.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetAttachment/goggles_cover_black.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetAttachment/goggles_cover_black.rsi
+    clothingVisuals:
+      helmetattachment:
+      - state: equipped-HELMETATTACHMENT
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,1
+
+- type: entity
+  parent: [ClothingHelmetAttachmentBase, ClothingBackpack]
+  id: ClothingHelmetAttachmentGogglesCoverRedDigital
+  name: red digital goggles cover
+  description: Goggles cover to fit your goggle when not in use, worn in the helmet attachment slot.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetAttachment/goggles_cover_digital_red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetAttachment/goggles_cover_digital_red.rsi
+    clothingVisuals:
+      helmetattachment:
+      - state: equipped-HELMETATTACHMENT
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,1
+# NVGs and thermals
+
+- type: entity
+  parent: ClothingHelmetAttachmentBase
+  id: ClothingHelmetAttachmentNVGsBasic
+  name: basic night vision goggles
+  description: A pair of basic optoelectronics night vision goggles with high sensibility to flashes, worn in the helmet attachment slot.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetAttachment/basic_optoelectronics_nvgs.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetAttachment/basic_optoelectronics_nvgs.rsi
+    clothingVisuals:
+      helmetattachment:
+      - state: equipped-HELMETATTACHMENT
+  - type: NightVision
+    flashDurationMultiplier: 3
+    isEquipment: true
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
+  parent: ClothingHelmetAttachmentBase
+  id: ClothingHelmetAttachmentInfraredBasic
+  name: basic thermal vision goggles
+  description: A pair of basic thermal vision goggles with high sensibility to flashes, worn in the helmet attachment slot.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetAttachment/basic_optoelectronics_infrared.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetAttachment/basic_optoelectronics_infrared.rsi
+    clothingVisuals:
+      helmetattachment:
+      - state: equipped-HELMETATTACHMENT
+  - type: ThermalVision
+    flashDurationMultiplier: 3
+    pulseTime: 4
+    isEquipment: true
+    toggleAction: PulseThermalVision
+  - type: IdentityBlocker
+    coverage: EYES

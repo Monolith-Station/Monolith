@@ -1,18 +1,7 @@
-// SPDX-FileCopyrightText: 2024 Checkraze
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 SlamBamActionman
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 sleepyyapril
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.Shuttles.Systems;
+using Content.Shared._Mono.Detection;
 using Content.Shared._NF.Shuttles.Components;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
@@ -39,10 +28,11 @@ namespace Content.Client.Shuttles.UI;
 [GenerateTypedNameReferences]
 public sealed partial class MapScreen : BoxContainer
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    private readonly DetectionSystem _detection; // Mono
     private readonly SharedAudioSystem _audio;
     private readonly SharedMapSystem _maps;
     private readonly ShuttleSystem _shuttles;
@@ -61,6 +51,9 @@ public sealed partial class MapScreen : BoxContainer
     private TimeSpan _pingCooldown = TimeSpan.FromSeconds(3);
     private TimeSpan _nextMapDequeue;
 
+    // Mono
+    private bool _autopilotTargeting = false;
+
     private float _minMapDequeue = 0.05f;
     private float _maxMapDequeue = 0.25f;
 
@@ -68,6 +61,9 @@ public sealed partial class MapScreen : BoxContainer
 
     public event Action<MapCoordinates, Angle>? RequestFTL;
     public event Action<NetEntity, Angle>? RequestBeaconFTL;
+
+    // Mono
+    public event Action<MapCoordinates, Angle>? RequestAutopilot;
 
     private readonly Dictionary<MapId, BoxContainer> _mapHeadings = new();
     private readonly Dictionary<MapId, List<IMapObject>> _mapObjects = new();
@@ -85,6 +81,7 @@ public sealed partial class MapScreen : BoxContainer
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
+        _detection = _entManager.System<DetectionSystem>(); // Mono
         _audio = _entManager.System<SharedAudioSystem>();
         _maps = _entManager.System<SharedMapSystem>();
         _shuttles = _entManager.System<ShuttleSystem>();
@@ -95,6 +92,7 @@ public sealed partial class MapScreen : BoxContainer
         OnVisibilityChanged += OnVisChange;
 
         MapFTLButton.OnToggled += FtlPreviewToggled;
+        MapAutopilotButton.OnToggled += AutopilotPreviewToggled; // Mono
 
         _ftlStyle = new StyleBoxFlat(Color.LimeGreen);
         FTLBar.ForegroundStyleBoxOverride = _ftlStyle;
@@ -102,7 +100,15 @@ public sealed partial class MapScreen : BoxContainer
         // Just pass it on up.
         MapRadar.RequestFTL += (coords, angle) =>
         {
-            RequestFTL?.Invoke(coords, angle);
+            if (_autopilotTargeting) // Mono
+            {
+                RequestAutopilot?.Invoke(coords, angle);
+                SetTargeting(false, true);
+            }
+            else
+            {
+                RequestFTL?.Invoke(coords, angle);
+            }
         };
 
         MapRadar.RequestBeaconFTL += (ent, angle) =>
@@ -201,18 +207,38 @@ public sealed partial class MapScreen : BoxContainer
 
     private void FtlPreviewToggled(BaseButton.ButtonToggledEventArgs obj)
     {
-        MapRadar.FtlMode = obj.Pressed;
+        SetTargeting(obj.Pressed, false);
+    }
 
-        // When FTL button is toggled, disable the ShowFTLRangeOnly mode
-        if (obj.Pressed)
+    // Mono
+    private void AutopilotPreviewToggled(BaseButton.ButtonToggledEventArgs obj)
+    {
+        SetTargeting(obj.Pressed, true);
+    }
+
+    // Mono
+    private void SetTargeting(bool pressed, bool isAutopilot)
+    {
+        if (pressed)
         {
+            MapRadar.FtlMode = true;
             MapRadar.ShowFTLRangeOnly = false;
+            MapRadar.ShowFTLRange = !isAutopilot;
+            MapRadar.NoFTLRange = isAutopilot;
+            MapFTLButton.Pressed = !isAutopilot;
+            MapAutopilotButton.Pressed = isAutopilot;
+            _autopilotTargeting = isAutopilot;
+        }
+        else
+        {
+            MapRadar.FtlMode = false;
         }
     }
 
     public void SetConsole(EntityUid? console)
     {
         _console = console;
+        MapRadar.SetConsole(console); // Mono
     }
 
     public void SetShuttle(EntityUid? shuttle)
@@ -355,11 +381,23 @@ public sealed partial class MapScreen : BoxContainer
             {
                 _entManager.TryGetComponent(grid.Owner, out IFFComponent? iffComp);
 
+                // Mono
+                var hideLabel = iffComp != null && (iffComp.Flags & IFFFlags.HideLabel) != 0x0 && grid.Owner != _shuttleEntity; // never hide our own label
+                var detectionLevel = _console == null ? DetectionLevel.Detected : _detection.IsGridDetected(grid.Owner, _console.Value);
+                var detected = detectionLevel != DetectionLevel.Undetected || !hideLabel;
+                if (!detected || iffComp != null && (iffComp.Flags & IFFFlags.Hide) != 0x0)
+                    continue;
+                var name = hideLabel ?
+                    detectionLevel == DetectionLevel.PartialDetected ?
+                        Loc.GetString($"shuttle-console-signature-infrared")
+                        : _detection.HandleUnknownMassLabel(grid.Owner)
+                    : _entManager.GetComponent<MetaDataComponent>(grid.Owner).EntityName;
+
                 var gridObj = new GridMapObject()
                 {
-                    Name = _entManager.GetComponent<MetaDataComponent>(grid.Owner).EntityName,
+                    Name = name, // Mono
                     Entity = grid.Owner,
-                    HideButton = iffComp != null && (iffComp.Flags & IFFFlags.HideLabel) != 0x0,
+                    HideButton = iffComp != null && (iffComp.Flags & IFFFlags.HideLabelAlways) != 0x0,
                 };
 
                 // Always show our shuttle immediately
@@ -370,7 +408,7 @@ public sealed partial class MapScreen : BoxContainer
 
                 // If we can show it then add it to pending.
                 else if (!_shuttles.IsBeaconMap(mapUid) && (iffComp == null ||
-                         (iffComp.Flags & IFFFlags.Hide | iffComp.Flags & IFFFlags.HideLabel) == 0x0) && // Frontier: add HideLabel check
+                         (iffComp.Flags & IFFFlags.Hide) == 0x0) &&
                          !gridObj.HideButton)
                 {
                     _pendingMapObjects.Add((mapComp.MapId, gridObj));

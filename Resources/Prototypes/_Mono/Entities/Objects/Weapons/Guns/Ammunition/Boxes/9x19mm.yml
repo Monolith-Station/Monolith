@@ -1,28 +1,8 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 Paul Ritter
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2023 Boaz1111
-# SPDX-FileCopyrightText: 2023 Dvir
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Moomoobeef
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   abstract: true
   parent: [BaseItem, RecyclableItemCardboard] # Frontier: added RecyclableItemCardboard
   id: BaseAmmoBox9x19mm
+  name: ammunition box (9x19mm FMJ)
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -30,7 +10,7 @@
       tags:
         - Cartridge9x19mmFMJ
     proto: Cartridge9x19mmFMJ
-    capacity: 70 # 60->70 Two mags per box
+    capacity: 80
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -42,33 +22,21 @@
     magState: mag
     steps: 3
     zeroVisible: false
+  - type: Tag
+    tags:
+    - Magazine9x19mmFMJBox
   - type: Appearance
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
 
-# Boxes
-- type: entity # Mono Big Pistol Mags
-  parent: BaseAmmoBox9x19mm
-  id: AmmoBox9x19mmBigFMJ
-  name: big ammunition box (9x19mm FMJ)
-  suffix: Big
-  components:
-  - type: Item
-    shape:
-    - 0,0,1,1
-  - type: BallisticAmmoProvider
-    capacity: 280 # 8 mags per box similar to rifle box
-    proto: Cartridge9x19mmFMJ
-  - type: Sprite
-    layers:
-    - state: base-b # Frontier: base-big<base-b
-      map: ["enum.GunVisualLayers.Base"]
-    - state: magb-1 # Frontier: mag-big-1<magb-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: magb # Frontier: mag-big<magb
-    steps: 4
-    zeroVisible: false
-  - type: Appearance
-
+#small ammo boxes
 - type: entity
   parent: BaseAmmoBox9x19mm
   id: AmmoBox9x19mmFMJ
@@ -159,3 +127,77 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: emp
+
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  parent: BaseAmmoBox9x19mm
+  id: AmmoBox9x19mmHP
+  name: ammunition box (9x19mm hollow-point)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge9x19mmHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: HP
+
+- type: entity
+  parent: BaseAmmoBox9x19mm
+  id: AmmoBox9x19mmRIP
+  name: ammunition box (9x19mm RIP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge9x19mmRIP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: RIP
+
+#armor-piercing:
+
+- type: entity
+  parent: BaseAmmoBox9x19mm
+  id: AmmoBox9x19mmPlasteelAP
+  name: ammunition box (9x19mm AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge9x19mmPlasteelAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: plasteelAP
+
+#big ammo boxes
+- type: entity
+  parent: BaseAmmoBox9x19mm
+  id: AmmoBox9x19mmBigFMJ
+  name: big ammunition box (9x19mm FMJ)
+  suffix: Big
+  components:
+  - type: Item
+    shape:
+    - 0,0,1,1
+  - type: BallisticAmmoProvider
+    capacity: 240 # 3x standard box
+    proto: Cartridge9x19mmFMJ
+  - type: Sprite
+    layers:
+    - state: base-b # Frontier: base-big<base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1 # Frontier: mag-big-1<magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb # Frontier: mag-big<magb
+    steps: 4
+    zeroVisible: false
+  - type: Appearance

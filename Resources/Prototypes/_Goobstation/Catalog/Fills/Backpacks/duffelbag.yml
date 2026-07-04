@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledWSPR
@@ -13,9 +7,9 @@
   - type: StorageFill
     contents:
       - id: WeaponRifleWSPR
-      - id: Magazine7.62x39mmSubsonic
+      - id: Magazine762x39mmSubsonic
         amount: 4 # Mono 2->4
-      - id: AmmoBox7.62x39mmSubsonic # Mono
+      - id: AmmoBox762x39mmSubsonic # Mono
         amount: 2
 
 - type: entity
@@ -27,9 +21,9 @@
   - type: StorageFill
     contents:
       - id: WeaponRifleBurner
-      - id: Magazine12.7x99mmExplosive
-      - id: Magazine12.7x99mm
-      - id: AmmoBox12.7x99mm
+      - id: Magazine127x99mmExplosive
+      - id: Magazine127x99mm
+      - id: AmmoBox127x99mm
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

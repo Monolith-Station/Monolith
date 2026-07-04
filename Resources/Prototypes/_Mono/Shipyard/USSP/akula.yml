@@ -1,24 +1,14 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 grandalff
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-# SPDX-FileCopyrightText: 2025 grandalff
-# discord: grandalff_karkov
-# SPDX-License-Identifier: AGPL-3.0-or-later
+#Author: Grandalff on Github.
 
 - type: vessel
   id: Akula
   parent: BaseVesselAntag
   name: PPU Akula
-  description: A USSP long range harasser, meant for hit and runs. Comes with a charonette (mini charon), two dravons and CTLA-25.
+  description: A USSP long range harasser, meant for hit and runs. Comes with two dravons and CTLA-25.
   price: 64000
   category: Medium
   group: Ussp
-  access: USSPIntermediate
+  access: USSP
   shuttlePath: /Maps/_Mono/Shuttles/USSP/akula.yml
   guidebookPage: Null
   class:
@@ -42,8 +32,5 @@
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            USSPSergeant: [0, 0]
-            USSPCorporal: [0, 0]
-            USSPMedic: [0, 0]
-            USSPRifleman: [0, 0]
-            USSPCommissar: [0, 0]
+            USSPSergeant: [ 0, 0 ]
+            USSPRifleman: [ 0, 0 ]

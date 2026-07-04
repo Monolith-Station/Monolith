@@ -1,52 +1,3 @@
-# SPDX-FileCopyrightText: 2019 DamianX
-# SPDX-FileCopyrightText: 2019 Ephememory
-# SPDX-FileCopyrightText: 2019 Injazz
-# SPDX-FileCopyrightText: 2019 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2019 PrPleGoo
-# SPDX-FileCopyrightText: 2020 FL-OZ
-# SPDX-FileCopyrightText: 2020 Git-Nivrak
-# SPDX-FileCopyrightText: 2020 Rohesie
-# SPDX-FileCopyrightText: 2020 Swept
-# SPDX-FileCopyrightText: 2021 AJCM-git
-# SPDX-FileCopyrightText: 2021 AndrewUnderscore
-# SPDX-FileCopyrightText: 2021 Galactic Chimp
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2022 Moony
-# SPDX-FileCopyrightText: 2022 Morb
-# SPDX-FileCopyrightText: 2022 Pancake
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 brainfood1183
-# SPDX-FileCopyrightText: 2022 wrexbe
-# SPDX-FileCopyrightText: 2023 20kdc
-# SPDX-FileCopyrightText: 2023 Checkraze
-# SPDX-FileCopyrightText: 2023 Emisse
-# SPDX-FileCopyrightText: 2023 I.K
-# SPDX-FileCopyrightText: 2023 Kara
-# SPDX-FileCopyrightText: 2023 Kit0vras
-# SPDX-FileCopyrightText: 2023 NULL882
-# SPDX-FileCopyrightText: 2023 PixelTK
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2023 potato1234_x
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2024 Flareguy
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk
-# SPDX-FileCopyrightText: 2024 MACMAN2003
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 NotSoDamn
-# SPDX-FileCopyrightText: 2024 PECK
-# SPDX-FileCopyrightText: 2024 Ps3Moira
-# SPDX-FileCopyrightText: 2024 TakoDragon
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2024 themias
-# SPDX-FileCopyrightText: 2025 Southbridge
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: tile
   id: FloorSteel
   name: tiles-steel-floor
@@ -659,6 +610,18 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemTechmaint
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorTechMaintDark
+  name: tiles-techmaint-floor-dark
+  sprite: /Textures/Tiles/tech_maint_dark.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemTechmaintDark
   heatCapacity: 10000
 
 - type: tile
@@ -1935,16 +1898,6 @@
   - 1.0
   - 1.0
   - 1.0
-  edgeSpritePriority: 0
-  edgeSprites:
-    SouthEast: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_single_edge_se.png
-    NorthEast: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_single_edge_ne.png
-    NorthWest: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_single_edge_nw.png
-    SouthWest: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_single_edge_sw.png
-    South: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_double_edge_s.png
-    East: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_double_edge_e.png
-    North: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_double_edge_n.png
-    West: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_double_edge_w.png
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Cutting ]
@@ -2023,4 +1976,73 @@
   barestepSounds:
     collection: BarestepWood
   itemDrop: FloorTileItemWoodLarge
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorXeno
+  name: tiles-xeno-floor
+  sprite: /Textures/Tiles/xeno_flooring.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepBlood
+  itemDrop: FloorTileItemXeno
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorXenoSteel
+  name: tiles-xeno-steel
+  sprite: /Textures/Tiles/xeno_steel.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemXenoSteel
+  heatCapacity: 10000
+  allowRotationMirror: true
+
+- type: tile
+  id: FloorXenoSteelCorner
+  name: tiles-xeno-steel-corner
+  sprite: /Textures/Tiles/xeno_steel_corner.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemXenoSteelCorner
+  heatCapacity: 10000
+  allowRotationMirror: true
+
+- type: tile
+  id: FloorDarkSquiggly
+  name: tiles-dark-squiggly
+  sprite: /Textures/Tiles/dark_squiggly.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemDarkSquiggly
+  heatCapacity: 10000
+  allowRotationMirror: true
+
+- type: tile
+  id: FloorXenoMaint
+  name: tiles-xeno-maint
+  sprite: /Textures/Tiles/xeno_maint.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemXenoMaint
   heatCapacity: 10000

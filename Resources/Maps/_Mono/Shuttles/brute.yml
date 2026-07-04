@@ -824,8 +824,8 @@ entities:
       pos: 2.5,-9.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+
+
       deviceLists:
       - 5
   - uid: 24
@@ -860,8 +860,8 @@ entities:
       pos: -0.5,-13.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+
+
       deviceLists:
       - 6
 - proto: APCBasic
@@ -2545,8 +2545,8 @@ entities:
       pos: -0.5,-9.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+
+
       deviceLists:
       - 4
       - 309
@@ -2557,8 +2557,8 @@ entities:
       pos: 7.5,-8.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+
+
       deviceLists:
       - 307
       - 309
@@ -3220,8 +3220,8 @@ entities:
       pos: 0.5,-8.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+
+
       deviceLists:
       - 5
     - type: AtmosPipeColor
@@ -3299,8 +3299,8 @@ entities:
       pos: 2.5,-10.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+
+
       deviceLists:
       - 5
     - type: AtmosPipeColor

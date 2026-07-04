@@ -1,28 +1,14 @@
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Moomoobeef
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Ps3Moira
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   abstract: true
   parent: [BaseItem, RecyclableItemCardboard] # Frontier: added RecyclableItemCardboard
-  id: BaseAmmoBox14.5x114mm
+  id: BaseAmmoBox145x114mm
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - Cartridge14.5x114mm
-    proto: Cartridge14.5x114mm
+        - Cartridge145x114mm
+    proto: Cartridge145x114mm
     capacity: 10
   - type: Item
     size: Small
@@ -36,15 +22,24 @@
     steps: 4
     zeroVisible: false
   - type: Appearance
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
 
 # Boxes
 - type: entity
-  parent: BaseAmmoBox14.5x114mm
-  id: AmmoBox14.5x114mm
+  parent: BaseAmmoBox145x114mm
+  id: AmmoBox145x114mm
   name: ammunition box (14.5x114mm)
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge14.5x114mm
+    proto: Cartridge145x114mm
   - type: Sprite
     layers:
     - state: base
@@ -53,8 +48,8 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  parent: BaseAmmoBox14.5x114mm
-  id: AmmoBox14.5x114mmBig
+  parent: BaseAmmoBox145x114mm
+  id: AmmoBox145x114mmBig
   name: big ammunition box (14.5x114mm)
   suffix: Big (30)
   components:
@@ -63,7 +58,7 @@
     - 0,0,1,1
   - type: BallisticAmmoProvider
     capacity: 30
-    proto: Cartridge14.5x114mm
+    proto: Cartridge145x114mm
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/14.5x114mm.rsi
     layers:

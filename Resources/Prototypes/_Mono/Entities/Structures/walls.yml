@@ -1,5 +1,248 @@
 # sir. These are strong walls. For outposts. Indestructible is too much
 
+- type: entity
+  abstract: true
+  parent: BaseWall
+  id: BaseWallTierOne
+  name: default wall
+  description: Keeps the air in and the chimera out.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 2500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 25
+  - type: ArmorThickness
+    thickness: 3
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 3
+  - type: Tag
+    tags:
+    - Wall
+    - WallT1
+  - type: RadiationBlocker
+    resistance: 2
+
+- type: entity
+  abstract: true
+  parent: BaseWall
+  id: BaseWallTierTwo
+  name: reinforced wall
+  description: Keeps the air in and the chimera out.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 3500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 3000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 25
+  - type: ArmorThickness
+    thickness: 5
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
+  - type: Tag
+    tags:
+    - Wall
+    - WallT2
+  - type: RadiationBlocker
+    resistance: 3
+
+- type: entity
+  abstract: true
+  parent: BaseWall
+  id: BaseWallTierThree
+  name: super reinforced wall
+  description: Keeps the air in and the chimera out.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense3
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 4000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 3500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 50
+  - type: ArmorThickness
+    thickness: 10
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 8
+  - type: Tag
+    tags:
+    - Wall
+    - WallT3
+  - type: RadiationBlocker
+    resistance: 4
+
+- type: entity
+  abstract: true
+  parent: BaseWall
+  id: BaseWallTierFour
+  name: super ultra giga reinforced wall
+  description: Keeps the air in and the chimera out.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense3
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 4500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 4000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 75
+  - type: ArmorThickness
+    thickness: 15
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 12
+  - type: Tag
+    tags:
+    - Wall
+    - WallT4
+  - type: RadiationBlocker
+    resistance: 5
+
+- type: entity
+  abstract: true
+  parent: BaseWall
+  id: BaseWallOutpost
+  name: super ultra giga mega deluxe reinforced wall
+  description: Keeps the air in and the chimera out.
+  suffix: OUTPOST ONLY
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense3
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 15000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 75
+  - type: ArmorThickness
+    thickness: 20
+  - type: RadiationBlocker
+    resistance: 5
 
 - type: entity
   parent: WallReinforced
@@ -13,7 +256,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 55000 # Mono - wall buff - 5x
+        damage: 15100 # Mono - wall buff
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -22,7 +265,7 @@
           collection: MetalSlam
     - trigger:
         !type:DamageTrigger
-        damage: 50000 # Mono - wall buff - 5x
+        damage: 15000 # Mono - wall buff
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -31,7 +274,6 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -54,7 +296,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30500 # Mono - wall buff - 6x
+        damage: 10100 # Mono - wall buff
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -63,7 +305,7 @@
           collection: MetalSlam
     - trigger:
         !type:DamageTrigger
-        damage: 30000 # Mono - wall buff - 6x
+        damage: 10000 # Mono - wall buff
       behaviors:
       - !type:ChangeConstructionNodeBehavior
         node: girder
@@ -79,8 +321,11 @@
   - type: Icon
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 20
 
-# plastitainum
+# plastitanum
 
 - type: entity
   parent: WallPlastitanium
@@ -91,7 +336,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100000
+        damage: 15100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15000
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -100,7 +351,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-
+  - type: ShipRepairable
+    repairTime: 12
+    repairCost: 30
 
 - type: entity
   parent: WallPlastitaniumDiagonal
@@ -116,12 +369,144 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50000
+        damage: 10100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           Girder:
             min: 1
             max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 20
+
+# capital-only plastitainum
+
+- type: entity
+  parent: [ BaseWallTierFour, WallPlastitanium ]
+  id: WallPlastitaniumCapital
+  name: reinforced plastitanium wall
+  suffix: CAPITAL ONLY
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 9000 # No ram-meta
+  - type: Sprite
+    sprite: _Mono/Structures/Walls/rplas.rsi
+  - type: Icon
+    sprite: _Mono/Structures/Walls/rplas.rsi
+
+- type: entity
+  parent: WallPlastitaniumDiagonal
+  id: WallPlastitaniumDiagonalCapital
+  name: reinforced plastitanium wall
+  suffix: diagonal, CAPITAL ONLY
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: _Mono/Structures/Walls/rplas_diagonal.rsi
+    state: state0
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# monolith asteroid walls
+
+- type: entity
+  parent: BaseWallOutpost # Mono
+  id: WallSolidChitinMonolithic
+  name: monolith tenebris
+  suffix: DEPRECATED
+  components:
+  - type: Tag
+    tags:
+    - Wall
+  - type: Sprite
+    sprite: Structures/Walls/xeno.rsi
+  - type: Icon
+    sprite: Structures/Walls/xeno.rsi
+  - type: IconSmooth
+    key: chitin
+    base: solid
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 99999
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseWallOutpost # Mono
+  id: WallReinforcedChitinMonolithic
+  name: monolith tenebris
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Walls/monolithic.rsi
+  - type: Icon
+    sprite: _Mono/Structures/Walls/monolithic.rsi
+    state: rgeneric
+  - type: IconSmooth
+    key: chitin
+    base: reinf_over
+  - type: GenericVisualizer
+    visuals:
+      enum.ReinforcedWallVisuals.DeconstructionStage:
+        ReinforcedWallVisualLayers.Deconstruction:
+          -1: { visible: false }
+          0: { state: reinf_construct-0, visible: true }
+          1: { state: reinf_construct-1, visible: true }
+          2: { state: reinf_construct-2, visible: true }
+          3: { state: reinf_construct-3, visible: true }
+          4: { state: reinf_construct-4, visible: true }
+          5: { state: reinf_construct-5, visible: true }
+  - type: Appearance
+  - type: StaticPrice
+    price: 250
+  - type: RadiationBlocker
+    resistance: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 99999
+      behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

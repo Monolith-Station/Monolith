@@ -1,195 +1,100 @@
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-- type: technology
-  id: RogueEdagger
-  name: research-technology-rogue-energy-dagger
-  icon:
-    sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
-    state: icon
-  discipline: RogueWeaponry
-  tier: 1
-  cost: 25000
-  recipeUnlocks:
-  - EnergyDaggerRogue
-
-- type: technology
-  id: RoguePracticeAmmo
-  name: research-technology-faction-practice-ammo
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/8x65mm_practice.rsi
-    state: base
-  discipline: RogueWeaponry
-  tier: 1
-  cost: 2000
-  recipeUnlocks:
-  - Magazine7.62x39mmPractice
-  - AmmoBox7.62x39mmPractice
-  - Magazine7.62x51mmPractice
-  - AmmoBox7.62x51mmPractice
-  - SpeedLoader45_magnumPractice
-  - AmmoBox45_magnumPractice
-  - Magazine9x19mmSubMachineGunPractice
-  - AmmoBox9x19mmPractice
-  - Magazine5.7x28mmSubMachineGunPractice
-  - AmmoBox5.7x28mmPractice
-  - Magazine4.6x30mmSubMachineGunPractice
-  - AmmoBox4.6x30mmPractice
-  - Magazine12_gaugePractice
-  - AmmoBox12_gaugePractice
-
-- type: technology
-  id: RogueIncendiaryAmmo
-  name: research-technology-faction-incendiary-ammo
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/8x65mm_incendiary.rsi
-    state: base
-  discipline: RogueWeaponry
-  tier: 3
-  cost: 20000
-  recipeUnlocks:
-  - Magazine7.62x39mmIncendiary
-  - AmmoBox7.62x39mmIncendiary
-  - Magazine7.62x51mmIncendiary
-  - AmmoBox7.62x51mmIncendiary
-  - SpeedLoader45_magnumIncendiary
-  - AmmoBox45_magnumIncendiary
-  - Magazine9x19mmSubMachineGunIncendiary
-  - AmmoBox9x19mmIncendiary
-  - Magazine5.7x28mmSubMachineGunIncendiary
-  - AmmoBox5.7x28mmIncendiary
-  - Magazine4.6x30mmSubMachineGunIncendiary
-  - AmmoBox4.6x30mmIncendiary
-  - Magazine12_gaugeIncendiary
-  - AmmoBox12_gaugeIncendiary
-
 - type: technology
   id: RogueEsword
   name: research-technology-rogue-energy-weapon
-  icon:
-    sprite: Objects/Weapons/Melee/e_sword.rsi
-    state: icon
+  entityIcon: EnergySword
   discipline: RogueWeaponry
   tier: 3
-  cost: 75000
+  cost: 25000
   recipeUnlocks:
   - EnergyShieldRogue
   - EnergySwordRogue
+  - EnergyDaggerRogue
   technologyPrerequisites:
-  - RogueEdagger
+  - UniversalMaterialResearchT2
+  position: 12, 9
 
 - type: technology
   id: HFSwordTech
   name: research-technology-rogue-hf-sword
-  icon:
-    sprite: _Mono/Objects/Weapons/Melee/murasama.rsi
-    state: icon
+  entityIcon: WeaponVT7
   discipline: RogueWeaponry
   tier: 3
-  cost: 85000
+  cost: 45000
   recipeUnlocks:
   - HFSwordVT7
   technologyPrerequisites:
   - RogueEsword
+  position: 12, 14
 
 - type: technology
   id: RogueBasicGuns
   name: research-technology-rogue-basic-guns
-  icon:
-    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
-    state: icon
+  entityIcon: WeaponSubMachineGunC20r
   discipline: RogueWeaponry
   tier: 1
-  cost: 20000
+  cost: 15000
   recipeUnlocks:
   - WeaponSubMachineGunC20rRogue
   - WeaponRevolverPythonRogue
-  - SpeedLoader45_magnumFMJ
-  - SpeedLoader45_magnumEmpty
-  - AmmoBox45_magnumFMJ
-  - Magazine9x19mmSubMachineGunFMJ
-  - Magazine9x19mmSubMachineGunEmpty
-  - AmmoBox9x19mmFMJ
+  - WeaponRifleM90Rogue
+  - WeaponShotgunSultanPulsar
+  - PrintableDirtyBomb
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, 2
 
 - type: technology
   id: RogueAdvancedGuns
   name: research-technology-rogue-advanced-guns
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/m90.rsi
-    state: icon
+  entityIcon: WeaponRifleM90
   discipline: RogueWeaponry
   tier: 2
-  cost: 35000
+  cost: 55000
   recipeUnlocks:
-  - WeaponRifleM90Rogue
   - WeaponSubMachineGunWt550Rogue
-  - Magazine7.62x51mmFMJ
-  - Magazine7.62x51mmEmpty
-  - AmmoBox7.62x51mmFMJ
-  - Magazine4.6x30mmSubMachineGunTopMountedFMJ
-  - Magazine4.6x30mmSubMachineGunTopMountedEmpty
-  - AmmoBox4.6x30mmFMJ
-  technologyPrerequisites:
-  - RogueBasicGuns
-
-- type: technology
-  id: RogueCQCGuns
-  name: research-technology-rogue-cqc-guns
-  icon:
-    sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
-    state: icon
-  discipline: RogueWeaponry
-  tier: 2
-  cost: 35000
-  recipeUnlocks:
   - WeaponSubMachineGunAtreidesRogue
   - WeaponShotgunBulldogRogue
-  - Magazine5.7x28mmSubMachineGunFMJ
-  - Magazine5.7x28mmSubMachineGunEmpty
-  - AmmoBox5.7x28mmFMJ
-  - Magazine12_gaugeBuckshot
-  - Magazine12_gaugeSlug
-  - Magazine12_gaugeEmpty
-  - AmmoBox12_gaugeBuckshot
-  - AmmoBox12_gaugeSlug
+  - WeaponLauncherPanzeroRogue
   technologyPrerequisites:
   - RogueBasicGuns
+  - UniversalMaterialResearchT2
+  position: 12, 8
 
 - type: technology
-  id: RogueHristov
-  name: research-technology-rogue-hristov
-  icon:
-    sprite: Objects/Weapons/Guns/Snipers/hristov.rsi
-    state: base
+  id: RogueHeavyWeapons
+  name: research-technology-rogue-heavy-weapons
+  entityIcon: WeaponSniperHristov
   discipline: RogueWeaponry
   tier: 3
-  cost: 35000
+  cost: 55000
   recipeUnlocks:
   - WeaponSniperHristovRogue
+  - AmmoBox145x114mm
   - AmmoBox145x114mmBig
+  - WeaponDEWBasilisk
+  - Magazine10Phz # for basilisk
+  - AmmoBox10Phz # for basilisk
   technologyPrerequisites:
-  - RogueBasicGuns
   - RogueAdvancedGuns
+  - UniversalMaterialResearchT3
+  position: 12, 13
 
 - type: technology
   id: RogueSubsonic
   name: research-technology-rogue-subsonic
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/SMGs/mla73.rsi
-    state: icon
+  entityIcon: WeaponSubMachineGunMla73
   discipline: RogueWeaponry
   tier: 2
-  cost: 25000
+  cost: 35000
   recipeUnlocks:
   - WeaponRifleWSPRRogue
-  - Magazine7.62x39mmSubsonic
-  - AmmoBox7.62x39mmSubsonic
+  - Magazine762x39mmSubsonic
+  - AmmoBox762x39mmSubsonic
   - WeaponSubMachineGunMla73Rogue
   - Magazine635x40mmCaseless
   - AmmoBox635x40mmCaseless
+  - MagazineAsmgtUniversal635x40mm
+  - AmmoBox635x40mmCaselessBig
   technologyPrerequisites:
-  - RogueBasicGuns
   - RogueAdvancedGuns
+  position: 13, 8

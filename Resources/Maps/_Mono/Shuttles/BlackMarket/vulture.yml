@@ -1,29 +1,11 @@
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 Scribbles0
-# SPDX-FileCopyrightText: 2023 TsjipTsjip
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 Mr. 27
-# SPDX-FileCopyrightText: 2024 QueerNB
-# SPDX-FileCopyrightText: 2024 ScarKy0
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Honestly101
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 revoemagcoconut
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Grid
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/10/2025 13:13:52
-  entityCount: 3101
+  time: 12/27/2025 18:43:15
+  entityCount: 3107
 maps: []
 grids:
 - 1
@@ -144,6 +126,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -1029,6 +1012,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -1044,9 +1031,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1118,7 +1113,6 @@ entities:
       parent: 1
     - type: RadarBlip
       enabled: False
-      visibleFromOtherGrids: True
       shape: Ring
       scale: 0
       radarColor: '#00DEFEFF'
@@ -1130,7 +1124,6 @@ entities:
       parent: 1
     - type: RadarBlip
       enabled: False
-      visibleFromOtherGrids: True
       shape: Ring
       scale: 0
       radarColor: '#00DEFEFF'
@@ -1142,7 +1135,6 @@ entities:
       parent: 1
     - type: RadarBlip
       enabled: False
-      visibleFromOtherGrids: True
       shape: Ring
       scale: 0
       radarColor: '#00DEFEFF'
@@ -1154,7 +1146,6 @@ entities:
       parent: 1
     - type: RadarBlip
       enabled: False
-      visibleFromOtherGrids: True
       shape: Ring
       scale: 0
       radarColor: '#00DEFEFF'
@@ -6633,6 +6624,36 @@ entities:
     - type: Transform
       pos: 21.5,31.5
       parent: 1
+  - uid: 3102
+    components:
+    - type: Transform
+      pos: 19.5,45.5
+      parent: 1
+  - uid: 3103
+    components:
+    - type: Transform
+      pos: 19.5,46.5
+      parent: 1
+  - uid: 3104
+    components:
+    - type: Transform
+      pos: 19.5,47.5
+      parent: 1
+  - uid: 3105
+    components:
+    - type: Transform
+      pos: 19.5,48.5
+      parent: 1
+  - uid: 3106
+    components:
+    - type: Transform
+      pos: 19.5,49.5
+      parent: 1
+  - uid: 3107
+    components:
+    - type: Transform
+      pos: 19.5,50.5
+      parent: 1
 - proto: CableHV
   entities:
   - uid: 965
@@ -9281,7 +9302,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerTabletopShuttleAntag
+- proto: ComputerTabletopShuttleKPV63RWR
   entities:
   - uid: 1446
     components:
@@ -9294,18 +9315,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-    - type: DeviceLinkSource
-      linkedPorts: {}
-      lastSignals: {}
-      ports:
-      - device-button-1
-      - device-button-2
-      - device-button-3
-      - device-button-4
-      - device-button-5
-      - device-button-6
-      - device-button-7
-      - device-button-8
 - proto: ConveyorBelt
   entities:
   - uid: 1447
@@ -10695,15 +10704,6 @@ entities:
     - type: Transform
       pos: 22.5,40.5
       parent: 1
-- proto: ExplorersLootRadar
-  entities:
-  - uid: 1690
-    components:
-    - type: MetaData
-      name: Radar Dish
-    - type: Transform
-      pos: 18.5,50.5
-      parent: 1
 - proto: FaxMachineShipAntag
   entities:
   - uid: 1691
@@ -10915,8 +10915,6 @@ entities:
       pos: 4.5,-4.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1693
       - 7
@@ -10929,8 +10927,6 @@ entities:
       pos: 6.5,-3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 9
       - 1695
@@ -10943,8 +10939,6 @@ entities:
       pos: 6.5,0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1694
       - 10
@@ -10967,8 +10961,6 @@ entities:
       pos: 5.5,4.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8
       - 1696
@@ -10979,8 +10971,6 @@ entities:
       pos: 4.5,4.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8
       - 1696
@@ -12410,8 +12400,6 @@ entities:
       pos: 2.5,-0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8
     - type: AtmosPipeColor
@@ -12505,8 +12493,6 @@ entities:
       pos: 2.5,1.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8
     - type: AtmosPipeColor
@@ -13508,7 +13494,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 23.5,49.5
       parent: 1
-- proto: GunneryServerHigh
+- proto: GunneryServerUltra
   entities:
   - uid: 2086
     components:
@@ -13518,7 +13504,7 @@ entities:
     - type: Battery
       startingCharge: 0
     - type: ApcPowerReceiver
-      powerLoad: 20
+      powerLoad: 50
 - proto: GyroscopeSecurity
   entities:
   - uid: 2087
@@ -13592,7 +13578,16 @@ entities:
     - type: Transform
       pos: 5.5,-13.5
       parent: 1
-- proto: Magazine7.62x39mmFMJ
+- proto: MachineSalvageRadar
+  entities:
+  - uid: 1690
+    components:
+    - type: MetaData
+      name: Radar Dish
+    - type: Transform
+      pos: 18.5,50.5
+      parent: 1
+- proto: Magazine762x39mmFMJ
   entities:
   - uid: 2098
     components:
@@ -14565,13 +14560,13 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -1.5,29.5
+      pos: -1.5,28.5
       parent: 1
   - uid: 2219
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -1.5,28.5
+      pos: -1.5,39.5
       parent: 1
   - uid: 2220
     components:
@@ -14625,7 +14620,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -1.5,39.5
+      pos: -1.5,29.5
       parent: 1
   - uid: 2229
     components:
@@ -20696,32 +20691,52 @@ entities:
     - type: Transform
       pos: 7.5,-0.5
       parent: 1
-- proto: WeaponRifleAk
+- proto: WeaponLaserTurretApollo
   entities:
   - uid: 3093
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,8.5
+      parent: 1
+  - uid: 3094
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,8.5
+      parent: 1
+  - uid: 3095
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,7.5
+      parent: 1
+- proto: WeaponRifleAk
+  entities:
+  - uid: 3096
     components:
     - type: Transform
       pos: 13.549298,-4.6064243
       parent: 1
 - proto: WeaponTurretAK570
   entities:
-  - uid: 3094
+  - uid: 3097
     components:
     - type: Transform
       pos: 20.5,-19.5
       parent: 1
-  - uid: 3095
+  - uid: 3098
     components:
     - type: Transform
       pos: 0.5,-19.5
       parent: 1
-  - uid: 3096
+  - uid: 3099
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 25.5,22.5
       parent: 1
-  - uid: 3097
+  - uid: 3100
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -20729,30 +20744,10 @@ entities:
       parent: 1
 - proto: WeaponTurretBofors
   entities:
-  - uid: 3098
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 12.5,8.5
-      parent: 1
-  - uid: 3099
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,8.5
-      parent: 1
-  - uid: 3100
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 10.5,7.5
-      parent: 1
-- proto: WeaponTurretKargil
-  entities:
   - uid: 3101
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 5.5,28.5
+      pos: 5.5,27.5
       parent: 1
 ...

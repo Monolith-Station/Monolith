@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 gus
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Shuttles.Components;
@@ -12,7 +5,6 @@ using Content.Shared.Access.Components;
 using Content.Shared._NF.Shipyard.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Hands.Systems;
-using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
@@ -30,12 +22,12 @@ namespace Content.Server.Shuttles.Systems;
 /// <summary>
 /// Server-side implementation of the shuttle console lock system.
 /// </summary>
-public sealed class ShuttleConsoleLockSystem : SharedShuttleConsoleLockSystem
+public sealed partial class ShuttleConsoleLockSystem : SharedShuttleConsoleLockSystem
 {
-    [Dependency] private readonly ShuttleConsoleSystem _consoleSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly HandsSystem _handsSystem = default!;
-    [Dependency] private readonly ShuttleSystem _shuttleSystem = default!;
+    [Dependency] private ShuttleConsoleSystem _consoleSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private HandsSystem _handsSystem = default!;
+    [Dependency] private ShuttleSystem _shuttleSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -43,7 +35,6 @@ public sealed class ShuttleConsoleLockSystem : SharedShuttleConsoleLockSystem
         base.Initialize();
         SubscribeLocalEvent<ShuttleConsoleLockComponent, ComponentInit>(OnShuttleConsoleLockInit);
         SubscribeLocalEvent<ShuttleConsoleLockComponent, GetVerbsEvent<AlternativeVerb>>(AddUnlockVerb);
-        SubscribeLocalEvent<ShuttleConsoleLockComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<PdaComponent, AfterInteractEvent>(OnPdaAfterInteract);
         SubscribeLocalEvent<ShuttleConsoleLockComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<ShuttleDeedComponent, ComponentInit>(OnShuttleDeedInit);
@@ -540,20 +531,6 @@ public sealed class ShuttleConsoleLockSystem : SharedShuttleConsoleLockSystem
             _consoleSystem.RemovePilot(pilot);
 
         return true;
-    }
-
-    /// <summary>
-    /// Prevents using the console UI if it's locked
-    /// </summary>
-    private void OnUIOpenAttempt(EntityUid uid,
-        ShuttleConsoleLockComponent component,
-        ActivatableUIOpenAttemptEvent args)
-    {
-        if (GetEffectiveLockState(uid, component))
-        {
-            Popup.PopupEntity(Loc.GetString("shuttle-console-locked"), uid, args.User);
-            args.Cancel();
-        }
     }
 
     /// <summary>

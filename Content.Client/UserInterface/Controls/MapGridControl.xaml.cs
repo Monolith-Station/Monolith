@@ -18,17 +18,17 @@ namespace Content.Client.UserInterface.Controls;
 [Virtual]
 public partial class MapGridControl : LayoutContainer
 {
-    [Dependency] protected readonly IEntityManager EntManager = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!; // Mono
-    [Dependency] protected readonly IClyde DisplayManager = default!; // Mono
+    [Dependency] protected IEntityManager EntManager = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected IPrototypeManager PrototypeManager = default!; // Mono
+    [Dependency] protected IClyde DisplayManager = default!; // Mono
 
     protected static readonly Color BackingColor = new Color(0.08f, 0.08f, 0.08f);
 
     private Font _largerFont;
 
     /* Dragging */
-    protected virtual bool Draggable { get; } = false;
+    protected virtual bool Draggable { get; set; } = false; // Mono - make settable
 
     /// <summary>
     /// Control offset from whatever is being tracked.
@@ -40,7 +40,7 @@ public partial class MapGridControl : LayoutContainer
     /// </summary>
     public Vector2 TargetOffset;
 
-    private bool _draggin;
+    protected bool _draggin; // Mono: private -> protected
     protected Vector2 StartDragPosition;
     protected bool Recentering;
 
@@ -75,7 +75,7 @@ public partial class MapGridControl : LayoutContainer
     /// <summary>
     /// Controls the maximum distance that will display.
     /// </summary>
-    public float MaxRadarRange { get; private set; } = 256f * 10f;
+    public float MaxRadarRange { get; private set; } = 256f * 100f; // Mono - 2560m -> 25600m
 
     public Vector2 MaxRadarRangeVector => new Vector2(MaxRadarRange, MaxRadarRange);
 
@@ -271,29 +271,4 @@ public partial class MapGridControl : LayoutContainer
             WorldRangeChanged?.Invoke(WorldRange);
         }
     }
-
-    #region Mono
-    /// <summary>
-    /// Masks everything drawn with the shader enabled by a circle.
-    /// If you don't want it circular, don't use this.
-    /// </summary>
-    protected void UseCircleMaskShader(DrawingHandleScreen handle)
-    {
-        // Simple, just base the radius on the width.
-        _circleMaskShader.SetParameter("radius", PixelWidth * 0.5f);
-
-        // Not nearly as simple, we transform the coordinates from top-left origin (UI space) to bottom-left origin (shader fragment space)
-        _circleMaskShader.SetParameter("center", new Vector2(GlobalPixelPosition.X + PixelWidth * 0.5f, DisplayManager.ScreenSize.Y - GlobalPixelPosition.Y - PixelHeight * 0.5f));
-
-        handle.UseShader(_circleMaskShader);
-    }
-
-    /// <summary>
-    /// Verbose shortcut for handle.UseShader(null)
-    /// </summary>
-    protected void ClearShader(DrawingHandleScreen handle)
-    {
-        handle.UseShader(null);
-    }
-    #endregion Mono
 }

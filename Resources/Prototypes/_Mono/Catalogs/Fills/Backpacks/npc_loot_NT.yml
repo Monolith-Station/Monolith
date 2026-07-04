@@ -1,0 +1,202 @@
+#NT security lootbox
+- type: entity
+  parent: RogueSiliconGiftBox
+  name: NT Security equipement crate
+  id: ClothingBackpackRogueNanotrasenT1
+  description: A Nanotrasen security forces gear crate.
+  suffix: NPC Loot, T1
+  # categories: [ HideSpawnMenu ] #Mono: spawnable for easier testing, why tf wasnt it spawnable anyway
+  components:
+  - type: Sprite
+    state: NTsec-base
+  - type: SpawnItemsOnUse
+    items:
+    #Weapons/ammo/gears
+    - id: WeaponPistolMk58
+      prob: 0.6
+    - id: Magazine45_ACPPistolHighCapacityFMJ
+      prob: 0.2
+      amount: 2
+    - id: Magazine45_ACPPistolFMJ
+      prob: 0.6
+      amount: 2
+    - id: WeaponSubMachineGunVectorNtsfHclm
+      prob: 0.2
+    - id: Magazine45_magnumPistolHighCapacityFMJ
+      prob: 0.2
+      amount: 2
+    - id: WeaponRifleNtsfLtr
+      prob: 0.05
+    - id: Magazine556x45mmPlasteelAP
+      prob: 0.05
+      amount: 2
+    - id: AmmoBox556x45mmPlasteelAP
+      prob: 0.05
+    - id: Magazine556x45mmFMJ
+      prob: 0.1
+      amount: 2
+    - id: AmmoBox556x45mmFMJ
+      prob: 0.1
+    - id: MedkitCombatFilled
+      prob: 0.05
+    - id: MedkitFilled
+      prob: 0.5
+    #Clothings
+    - id: ClothingOuterVestWeb
+      prob: 0.05
+    - id: ClothingHeadHelmetSwat
+      prob: 0.05
+    - id: NTLootT1Clothing
+      amount: 1
+      prob: 0.8
+    - id: NTLootT1Clothing
+      amount: 2
+      prob: 0.1
+    - id: NTLootT1Clothing
+      amount: 3
+      prob: 0.04
+    #NT branded bullshit
+    - id: TowelColorNT
+      prob: 0.33
+    - id: BalloonNT
+      prob: 0.33
+    - id: NTHandyFlag
+      prob: 0.33
+    #Blueprint
+    - id: BlueprintWeaponSubMachineGunVectorNtsfHclm
+      prob: 0.08
+    - id: WeaponRifleNtsfLtr
+      prob: 0.08
+    sound:
+      path: /Audio/Machines/windoor_open.ogg
+
+#NT navy lootbox
+- type: entity
+  parent: RogueSiliconGiftBox
+  name: NT Navy equipement crate
+  id: ClothingBackpackRogueNanotrasenT2
+  description: A Nanotrasen corporate navy gear crate.
+  suffix: NPC Loot, T2
+  # categories: [ HideSpawnMenu ] #Mono: spawnable for easier testing, why tf wasnt it spawnable anyway
+  components:
+  - type: Sprite
+    state: NTnavy-base
+  - type: SpawnItemsOnUse
+    items:
+    #Weapons/ammo/gears
+    - id: WeaponPistolN1984
+      prob: 0.4
+    - id: Magazine45_magnumPistolPlasteelAP
+      prob: 0.2
+      amount: 2
+    - id: Magazine45_magnumPistolFMJ
+      prob: 0.4
+      amount: 2
+    - id: WeaponPulsePistol
+      prob: 0.2
+    - id: WeaponPulseCarbine
+      prob: 0.2
+    - id: ClothingBeltSheathFilledNavy
+      prob: 0.2
+    - id: WeaponEnergyShotgun
+      prob: 0.1
+    #Clothings
+    - id: NTLootT2Clothing
+      amount: 1
+      prob: 0.8
+    - id: NTLootT2Clothing
+      amount: 2
+      prob: 0.1
+    - id: NTLootT2Clothing
+      amount: 3
+      prob: 0.04
+    #NT branded bullshit
+    - id: TowelColorNT
+      prob: 0.33
+    - id: BalloonNT
+      prob: 0.33
+    - id: NTHandyFlag
+      prob: 0.33
+    #Cash
+    - id: SpaceCash5000
+    - id: SpaceCash10000
+      prob: 0.5
+    #Blueprint
+    - id: BlueprintWeaponSubMachineGunVectorNtsfHclm
+      prob: 0.2
+    - id: WeaponRifleNtsfLtr
+      prob: 0.2
+    sound:
+      path: /Audio/Machines/windoor_open.ogg
+
+#NT special operation lootbox
+- type: entity
+  parent: RogueSiliconGiftBox
+  name: NT Spec Ops equipement crate
+  id: ClothingBackpackRogueNanotrasenT3
+  description: A Nanotrasen special operation gear crate.
+  suffix: NPC Loot, T3
+  # categories: [ HideSpawnMenu ] #Mono: spawnable for easier testing, why tf wasnt it spawnable anyway
+  components:
+  - type: Sprite
+    state: NTSpecOps-base
+  - type: SpawnItemsOnUse
+    items:
+    #Weapons/ammo/gears
+    - id: WeaponPulseRifle
+      prob: 0.1
+    - id: WeaponRevolverMateba
+      prob: 0.2
+    - id: AmmoBox45_magnumAP
+      amount: 2
+      prob: 0.2
+    - id: WeaponLRC21PPL
+      prob: 0.08
+    - id: PulsedPlasmaLaserCanister
+      amount: 3
+      prob: 0.1
+    - id: WeaponLauncherMk348
+      prob: 0.005
+    - id: AmmoBox9x19mmPlasteelAP
+      amount: 2
+      prob: 0.2
+    - id: AmmoBox9x19mmEmp
+      prob: 0.1
+    - id: AmmoBox9x19mmBigFMJ
+      prob: 0.08
+    - id: WeaponLauncherMPSSM
+      prob: 0.04
+    - id: CartridgeMPSSMHEAT
+      amount: 3
+      prob: 0.09
+    - id: CartridgeMPSSMMissile
+      amount: 3
+      prob: 0.09
+    - id: WeaponHeavyPulseCannon
+      prob: 0.005
+    - id: MedkitCombatFilled
+      prob: 0.5
+    #Clothings
+    - id: NTLootT3Clothing
+      amount: 1
+      prob: 0.8
+    - id: NTLootT3Clothing
+      amount: 2
+      prob: 0.1
+    - id: NTLootT3Clothing
+      amount: 3
+      prob: 0.04
+    #NT branded bullshit
+    - id: TowelColorNT
+      prob: 0.33
+    - id: BalloonNT
+      prob: 0.33
+    - id: NTHandyFlag
+      prob: 0.33
+    #Blueprint
+    - id: BlueprintAmmoMPSSMMissile
+      prob: 0.01
+    - id: BlueprintAmmoPPLCCell
+      prob: 0.01
+    sound:
+      path: /Audio/Machines/windoor_open.ogg

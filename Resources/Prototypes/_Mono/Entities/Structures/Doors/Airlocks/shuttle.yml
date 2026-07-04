@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 significant harassment
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: AirlockShuttleSyndicate
   id: AirlockExternalShuttleUSSPLocked
@@ -130,3 +123,111 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
+
+- type: entity
+  id: AirlockGlassShuttleNfsdCapital
+  parent: AirlockGlassShuttleNfsd
+  suffix: CAPITAL ONLY, TSFMC, Glass, Docking
+  components:
+  - type: Destructible # Mono - buff docking port health
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 7000 # Almost equal to plastitanium. It doesnt make sense. It just works.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+
+- type: entity
+  id: AirlockShuttleNfsdCapital
+  parent: AirlockShuttleNfsd
+  suffix: CAPITAL ONLY, TSFMC, Docking
+  components:
+  - type: Destructible # Mono - buff docking port health
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 7000 # Almost equal to plastitanium. It doesnt make sense. It just works.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+
+- type: entity
+  parent: AirlockShuttleSyndicateCapital
+  id: AirlockShuttleSyndicateRogueLockedCapital
+  suffix: CAPITAL ONLY, Rogue, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPirate ]
+
+- type: entity
+  parent: AirlockGlassShuttleSyndicateCapital
+  id: AirlockGlassShuttleSyndicateRogueLockedCapital
+  suffix: CAPITAL ONLY, Rogue, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPirate ]
+
+- type: entity
+  id: AirlockGlassShuttleSyndicateCapital
+  parent: AirlockGlassShuttleSyndicate
+  suffix: CAPITAL ONLY, Syndicate, Glass, Docking
+  components:
+  - type: Destructible # Mono - buff docking port health
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 7000 # Almost equal to plastitanium. It doesnt make sense. It just works.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+
+- type: entity
+  id: AirlockShuttleSyndicateCapital
+  parent: AirlockShuttleSyndicate
+  suffix: CAPITAL ONLY, Syndicate, Docking
+  components:
+  - type: Destructible # Mono - buff docking port health
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 7000 # Almost equal to plastitanium. It doesnt make sense. It just works.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+
+- type: entity
+  parent: AirlockShuttleSyndicate
+  id: AirlockExternalShuttleViperLocked
+  suffix: External, Docking, Viper Group, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViper ]
+
+- type: entity
+  parent: AirlockGlassShuttleSyndicate
+  id: AirlockExternalGlassShuttleViperLocked
+  suffix: Viper Group, Locked, Glass
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViper ]

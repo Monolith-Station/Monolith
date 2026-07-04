@@ -1,0 +1,29 @@
+
+- type: entity
+  id: PanzeroRocket
+  name: panzero rocket
+  description: Scheiße!
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/panzero_inhands_32x.rsi
+    layers:
+    - state: projectile
+  - type: ExplodeOnTrigger
+  - type: TimedDespawn
+    lifetime: 7
+  - type: Explosive
+    explosionType: DemolitionCharge
+    maxIntensity: 25
+    intensitySlope: 6
+    totalIntensity: 75
+    canCreateVacuum: false
+  - type: PointLight
+    radius: 4
+    color: orange
+    energy: 1
+  - type: Projectile
+    damage:
+      types:
+        Structural: 1200

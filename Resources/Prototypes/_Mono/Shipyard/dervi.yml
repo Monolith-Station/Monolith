@@ -1,0 +1,38 @@
+# Author Info
+# GitHub: NazrinNya
+# Discord: NazrinNya
+
+- type: vessel
+  id: Dervi
+  parent: BaseVessel
+  name: NEI Dervi
+  description: Unique-shaped medical vessel with two protective shieldings. Comes with basic medbay, chemistry and cloning installation.
+  price: 64300
+  category: Small
+  group: Medical
+  shuttlePath: /Maps/_Mono/Shuttles/dervi.yml
+  guidebookPage: null
+  class:
+  - Medical
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Dervi
+  mapName: 'NEI Dervi'
+  mapPath: /Maps/_Mono/Shuttles/dervi.yml
+  minPlayers: 0
+  stations:
+    Dervi:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Dervi MED{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

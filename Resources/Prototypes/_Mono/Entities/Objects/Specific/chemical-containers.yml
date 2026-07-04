@@ -1,0 +1,16 @@
+- type: entity
+  parent: JerryCan
+  suffix: nanite fuel
+  id: JerryCanNaniteFuel
+  #  categories: [ HideSpawnMenu ] # Frontier
+  components:
+  - type: Label
+    currentLabel: reagent-name-nanite-fuel
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: NaniteFuel
+          Quantity: 250
+  - type: StaticPrice # Frontier
+    vendPrice: 500 # Frontier

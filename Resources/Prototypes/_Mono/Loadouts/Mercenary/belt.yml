@@ -1,57 +1,66 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadout
   id: MercenaryClothingBeltWebbingsBigBase
-  price: 500
+  price: 0
   equipment:
     belt: ClothingBeltWebbingsBigBase
 
 - type: loadout
   id: MercenaryClothingBeltWebbingsNormalBlack
-  price: 500
+  price: 0
   equipment:
     belt: ClothingBeltWebbingsNormalBlack
 
 - type: loadout
   id: MercenaryClothingBeltWebbingsBigBlack
-  price: 500
+  price: 0
   equipment:
     belt: ClothingBeltWebbingsBigBlack
 
 - type: loadout
   id: MercenaryClothingBeltWebbingsNormalTan
-  price: 500
+  price: 0
   equipment:
     belt: ClothingBeltWebbingsNormalTan
 
 - type: loadout
   id: MercenaryClothingBeltWebbingsBigTan
-  price: 500
+  price: 0
   equipment:
     belt: ClothingBeltWebbingsBigTan
 
 - type: loadout
   id: MercenaryClothingBeltWebbingsNormalRangerGreen
-  price: 500
+  price: 0
   equipment:
     belt: ClothingBeltWebbingsNormalRangerGreen
 
 - type: loadout
   id: MercenaryClothingBeltWebbingsBigRangerGreen
-  price: 500
+  price: 0
   equipment:
     belt: ClothingBeltWebbingsBigRangerGreen
 
 - type: loadout
   id: MercenaryClothingBeltWebbingsNormalOlive
-  price: 500
+  price: 0
   equipment:
     belt: ClothingBeltWebbingsNormalOlive
 
 - type: loadout
   id: MercenaryClothingBeltWebbingsBigOlive
-  price: 500
+  price: 0
   equipment:
     belt: ClothingBeltWebbingsBigOlive
+
+- type: loadout
+  id: MercenaryClothingBeltBandolier
+  price: 0
+  equipment:
+    belt: ClothingBeltBandolier
+
+- type: loadout
+  name: security belt (empty)
+  id: MercenaryClothingBeltSecurityEmpty
+  price: 0
+  equipment:
+    belt: ClothingBeltSecurity

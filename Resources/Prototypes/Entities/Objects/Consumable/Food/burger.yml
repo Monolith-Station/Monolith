@@ -26,7 +26,10 @@
         amount: 1
       - id: FoodBreadBunBottom
         amount: 1
-
+  - type: Construction # Frontier - hotdog making
+    graph: NFHotdog # Frontier - hotdog making
+    node: start # Frontier - hotdog making
+        
 - type: entity
   id: FoodBreadBunBottom
   parent: FoodBreadSliceBase
@@ -1037,4 +1040,4 @@
   - type: Tag
     tags:
     - Meat
-    
+ 

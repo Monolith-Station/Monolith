@@ -168,6 +168,16 @@
     Plastic: 100
 
 - type: latheRecipe
+  id: ClothingShoesBootsJump
+  result: ClothingShoesBootsJump
+  completetime: 2
+  materials:
+    Steel: 1400
+    Plastic: 600
+    Silver: 200
+    Plasma: 200
+
+- type: latheRecipe
   parent: BaseFauxTileRecipe
   id: FauxTileAstroGrass
   result: FloorTileItemAstroGrass

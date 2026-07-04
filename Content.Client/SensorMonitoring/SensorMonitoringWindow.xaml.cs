@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Partmedia
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.Computer;
@@ -25,8 +19,8 @@ namespace Content.Client.SensorMonitoring;
 [GenerateTypedNameReferences]
 public sealed partial class SensorMonitoringWindow : FancyWindow, IComputerWindow<ConsoleUIState>
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
 
     private TimeSpan _retentionTime;
     private readonly Dictionary<int, SensorData> _sensorData = new();

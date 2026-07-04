@@ -1,40 +1,3 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 py01
-# SPDX-FileCopyrightText: 2021 Leon Friedrich
-# SPDX-FileCopyrightText: 2021 Peptide90
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2021 Ygg01
-# SPDX-FileCopyrightText: 2022 Charlese2
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Paul Ritter
-# SPDX-FileCopyrightText: 2022 ScalyChimp
-# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2022 themias
-# SPDX-FileCopyrightText: 2023 Admiral-Obvious-001
-# SPDX-FileCopyrightText: 2023 AndresE55
-# SPDX-FileCopyrightText: 2023 Flareguy
-# SPDX-FileCopyrightText: 2023 MendaxxDev
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 kerisargit
-# SPDX-FileCopyrightText: 2023 qwerltaz
-# SPDX-FileCopyrightText: 2023 vanx
-# SPDX-FileCopyrightText: 2023 vanx <vanx#5477>
-# SPDX-FileCopyrightText: 2024 Alzore
-# SPDX-FileCopyrightText: 2024 Arendian
-# SPDX-FileCopyrightText: 2024 Boaz1111
-# SPDX-FileCopyrightText: 2024 FungiFellow
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 RiceMar1244
-# SPDX-FileCopyrightText: 2024 Tayrtahn
-# SPDX-FileCopyrightText: 2024 VividPups
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: Pellet23x75mmSlug
   name: pellet (4 gauge slug)
@@ -47,8 +10,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 80
+        Piercing: 75
+        Blunt: 10
         Structural: 200
+    armorPenetration: 0.1
 
 - type: entity
   id: Pellet23x75mmFlashbang
@@ -80,8 +45,9 @@
     damage:
       types:
         Blunt: 20
+    armorPenetration: -0.2
   - type: StaminaDamageOnCollide
-    damage: 120
+    damage: 95
 
 - type: entity
   id: Pellet23x75mmBuckshot
@@ -95,7 +61,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 20
+        Piercing: 24
+    armorPenetration: -0.2
 
 - type: entity
   id: Pellet23x75mmBuckshotSpread
@@ -119,8 +86,9 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 6
-        Heat: 14
+        Piercing: 14
+        Heat: 6
+    armorPenetration: -0.3
   - type: IgnitionSource
     ignited: true
 
@@ -218,7 +186,9 @@
     damage:
       types:
         Radiation: 10
-        Piercing: 10
+        Piercing: 12
+        Structural: 20
+    armorPenetration: -0.05
 
 - type: entity
   id: Pellet23x75mmUraniumSpread
@@ -242,7 +212,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 7
+        Piercing: 8
+    armorPenetration: -0.2
 
 - type: entity
   id: Pellet23x75mmDozdSpread
@@ -253,3 +224,95 @@
     proto: Pellet23x75mmDozd
     count: 12
     spread: 30
+
+#Mono AP system
+#anti-flesh ammo
+- type: entity
+  id: Pellet23x75mmOOBuckshot
+  name: Pellet23x75mm (4 gauge OO magnum buckshot)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+    armorPenetration: -0.5
+
+- type: entity
+  id: Pellet23x75mmOOBuckshotSpread
+  parent: Pellet23x75mmOOBuckshot
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: Pellet23x75mmOOBuckshot
+    count: 3
+    spread: 6
+
+- type: entity
+  id: Pellet23x75mmSlugRIP
+  name: Pellet23x75mm (4 gauge RIP)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: slug
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 160
+        Structural: 250
+    armorPenetration: -0.9
+
+#armor-piercing ammo
+- type: entity
+  id: Pellet23x75mmSlugAP
+  name: Pellet23x75mm (4 gauge armor-piercing slug)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: slug
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+        Structural: 250
+    armorPenetration: 0.5
+  - type: Tracer
+    color: "#6f7c82ff"
+    length: 3
+
+- type: entity
+  id: Pellet23x75mmFlechette
+  name: Pellet23x75mm (4 gauge flechette)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+        Structural: 40
+    armorPenetration: 0.3
+  - type: Tracer
+    color: "#6f7c82ff"
+    length: 3
+
+- type: entity
+  id: Pellet23x75mmFlechetteSpread
+  parent: Pellet23x75mmFlechette
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: Pellet23x75mmFlechette
+    count: 6
+    spread: 12

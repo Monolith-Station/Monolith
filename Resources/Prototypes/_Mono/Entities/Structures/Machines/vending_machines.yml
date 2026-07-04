@@ -1,19 +1,12 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ark1368
-# SPDX-FileCopyrightText: 2025 gus
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: [VendingMachineAmmo, BaseStructureDisableAnchoring]
   id: VendingMachineAmmoPOIMercenary
+  name: PMC liberation station
   suffix: POI, PMC
   components:
   - type: VendingMachine
     pack: WeaponryWorksVendPOIMercInventory
+    requiresCash: true
   - type: AccessReader
     access: [["Mercenary"], ["Security"]]
 
@@ -94,8 +87,9 @@
     # denyState: deny-unshaded
     ejectDelay: 1.9
     initialStockQuality: 1
+    requiresCash: true
   - type: MarketModifier
-    mod: 8
+    mod: 10
   - type: Advertise
     pack: BaristaAds
   - type: SpeakOnUIClosed
@@ -135,6 +129,7 @@
     ejectDelay: 1.9
     initialStockQuality: 0.35
 
+
 - type: entity
   parent: [VendingMachineAstroVend, BaseStructureDisableAnchoring]
   id: VendingMachinePMCclothingsPOI
@@ -161,3 +156,59 @@
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
   - type: AccessReader
     access: [["Mercenary"], ["Security"]]
+
+- type: entity
+  parent: [VendingMachineAstroVend, BaseStructureDisableAnchoring]
+  id: VendingMachineTraderBaikal
+  name: Camelot Trade Goods Vendor
+  description: Sells various trade goods.
+  suffix: POI
+  components:
+  - type: VendingMachine
+    pack: TraderBaikal
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+  - type: MarketModifier
+    mod: 8
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/robotics.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#B0ADA9"
+
+- type: entity
+  parent: VendingMachineTraderBaikal
+  id: VendingMachineTraderDepot
+  name: Cargo Depot Trade Goods Vendor
+  components:
+  - type: VendingMachine
+    pack: TraderDepot
+
+- type: entity
+  parent: VendingMachineTraderBaikal
+  id: VendingMachineTraderDepotAlt
+  name: Cargo Depot Trade Goods Vendor
+  suffix: POI, Alt
+  components:
+  - type: VendingMachine
+    pack: TraderDepotAlt
+
+- type: entity
+  parent: VendingMachineTraderBaikal
+  id: VendingMachineTraderTradeMall
+  name: Trade Mall Trade Goods Vendor
+  components:
+  - type: VendingMachine
+    pack: TraderTradeMall

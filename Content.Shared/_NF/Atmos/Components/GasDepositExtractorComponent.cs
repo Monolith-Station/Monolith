@@ -31,12 +31,6 @@ public sealed partial class GasDepositExtractorComponent : Component
     public float TargetPressure = Atmospherics.OneAtmosphere;
 
     /// <summary>
-    /// The output temperature, in K.
-    /// </summary>
-    [DataField]
-    public float OutputTemperature = Atmospherics.T20C;
-
-    /// <summary>
     /// The entity to be extracted from.
     /// </summary>
     [DataField]

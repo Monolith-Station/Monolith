@@ -1,0 +1,40 @@
+- type: entity
+  parent: MobAsakim
+  id: MobAsakimGhostrole
+  name: asakim warrior
+  suffix: Asakim
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: True
+  - type: HumanoidAppearance
+    height: 1.2
+    width: 1.2
+  - type: Loadout
+    prototypes: [AsakimGear]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-asakim-name
+    description: ghost-role-information-asakim-description
+    rules: ghost-role-information-asakim-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hrs
+  - type: GhostTakeoverAvailable
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitary
+    - NamesLastMilitary
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Remnants
+  - type: ActiveRadio
+    channels:
+    - Remnants

@@ -1,119 +1,44 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-- type: technology
-  id: UsspBasicGuns
-  name: research-technology-ussp-guns-basic
-  icon:
-    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
-    state: base
-  discipline: UsspWeapons
-  tier: 1
-  cost: 20000
-  recipeUnlocks:
-  - WeaponRifleSVSUSSP
-  - WeaponSniperMosinUSSP
-  - WeaponSubMachineGunAK220USSP
-  - Magazine7.62x54mmRFMJ
-  - SpeedLoader7.62x54mmRFMJ
-  - AmmoBox7.62x54mmRFMJ
-  - Magazine9x19mmSubMachineGunFMJ
-  - Magazine9x19mmSubMachineGunEmpty
-  - AmmoBox9x19mmFMJ
-
-- type: technology
-  id: UsspPracticeAmmo
-  name: research-technology-faction-practice-ammo
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/8x65mm_practice.rsi
-    state: base
-  discipline: UsspWeapons
-  tier: 1
-  cost: 2000
-  recipeUnlocks:
-  - Magazine7.62x39mmPractice
-  - AmmoBox7.62x39mmPractice
-  - Magazine7.62x54mmRPractice
-  - AmmoBox7.62x54mmRPractice
-  - SpeedLoader45_magnumPractice
-  - AmmoBox45_magnumPractice
-  - Magazine9x19mmSubMachineGunPractice
-  - AmmoBox9x19mmPractice
-
-- type: technology
-  id: UsspIncendiaryAmmo
-  name: research-technology-faction-incendiary-ammo
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/8x65mm_incendiary.rsi
-    state: base
-  discipline: UsspWeapons
-  tier: 3
-  cost: 20000
-  recipeUnlocks:
-  - Magazine7.62x39mmIncendiary
-  - AmmoBox7.62x39mmIncendiary
-  - Magazine7.62x54mmRIncendiary
-  - AmmoBox7.62x54mmRIncendiary
-  - SpeedLoader45_magnumIncendiary
-  - AmmoBox45_magnumIncendiary
-  - Magazine9x19mmSubMachineGunIncendiary
-  - AmmoBox9x19mmIncendiary
-
 - type: technology
   id: UsspMediumGuns
   name: research-technology-ussp-guns-medium
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/ak502.rsi
-    state: icon
-  discipline: UsspWeapons
+  entityIcon: WeaponRifleAK502
+  discipline: Ussp
   tier: 2
   cost: 35000
   recipeUnlocks:
   - WeaponRifleAK502USSP
   - WeaponRevolverMatebaUSSP
-  - Magazine7.62x39mmFMJ
-  - SpeedLoader45_magnumFMJ
-  - AmmoBox7.62x39mmFMJ
-  - AmmoBox45_magnumFMJ
-  - Magazine7.62x39mmEmpty
   technologyPrerequisites:
-  - UsspBasicGuns
+  - UniversalMaterialResearchT1
+  position: 12, 2
+
+- type: technology
+  id: UsspAk410
+  name: research-technology-ussp-guns-ak410
+  entityIcon: WeaponRifleAK410
+  discipline: Ussp
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - WeaponRifleAK410USSP
+  - AmmoBox762x39mmSubsonic
+  technologyPrerequisites:
+  - UsspMediumGuns
+  - UniversalMaterialResearchT2
+  position: 12, 8
 
 - type: technology
   id: UsspAdvancedGuns
   name: research-technology-ussp-guns-advanced
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/LMGs/dp29.rsi
-    state: icon
-  discipline: UsspWeapons
+  entityIcon: WeaponDP29
+  discipline: Ussp
   tier: 3
   cost: 80000
   recipeUnlocks:
   - WeaponDP29USSP
   - MagazineDP29
   - WeaponShotgunBigLeadyUSSP
-  - AmmoBox23x75mmBuckshot
-  - AmmoBox23x75mmBeanbag
-  - AmmoBox23x75mmSlug
-  - AmmoBox23x75mmDozd
   technologyPrerequisites:
   - UsspMediumGuns
-
-- type: technology
-  id: UsspAdvancedAmmo
-  name: research-technology-ussp-ammo-advanced
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/45_magnum.rsi
-    state: base
-  discipline: UsspWeapons
-  tier: 3
-  cost: 30000
-  recipeUnlocks:
-  - AmmoBox7.62x39mmSubsonic
-  - AmmoBox45_magnumAP
-  - AmmoBox23x75mmFlashbang
-  technologyPrerequisites:
-  - UsspAdvancedGuns
+  - UniversalMaterialResearchT3
+  position: 12, 13

@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ilya246
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2025 J
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Physics.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Singularity.Components;
@@ -17,10 +11,10 @@ namespace Content.Server.Singularity.EntitySystems;
 /// <summary>
 /// Handles singularity attractors.
 /// </summary>
-public sealed class SingularityAttractorSystem : EntitySystem
+public sealed partial class SingularityAttractorSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     /// <summary>
     /// The minimum range at which the attraction will act.

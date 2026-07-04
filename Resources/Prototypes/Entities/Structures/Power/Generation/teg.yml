@@ -78,6 +78,7 @@
       # due to how power output is handled.
       supplyRampRate: 100000000
       supplyRampTolerance: 10000000000
+    - type: ThermalSignature # Mono
 
     - type: Appearance
     - type: ApcPowerReceiver

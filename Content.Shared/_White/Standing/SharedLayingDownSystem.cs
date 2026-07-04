@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Blu
-// SPDX-FileCopyrightText: 2025 Redrover1760
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
@@ -17,13 +11,12 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Standing;
 
-public abstract class SharedLayingDownSystem : EntitySystem
+public abstract partial class SharedLayingDownSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
-
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
     public override void Initialize()
     {
         CommandBinds.Builder
@@ -34,7 +27,9 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         SubscribeLocalEvent<StandingStateComponent, StandingUpDoAfterEvent>(OnStandingUpDoAfter);
         SubscribeLocalEvent<LayingDownComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeed);
+        SubscribeLocalEvent<LayingDownComponent, RefreshWeightlessModifiersEvent>(OnRefreshWeightlessModifier);
         SubscribeLocalEvent<LayingDownComponent, EntParentChangedMessage>(OnParentChanged);
+
     }
 
     public override void Shutdown()
@@ -48,7 +43,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
     {
         if (session?.AttachedEntity == null ||
             !HasComp<LayingDownComponent>(session.AttachedEntity) ||
-            _gravity.IsWeightless(session.AttachedEntity.Value))
+            !CanLieDown(session.AttachedEntity.Value)) // Mono
         {
             return;
         }
@@ -104,12 +99,20 @@ public abstract class SharedLayingDownSystem : EntitySystem
             args.ModifySpeed(1f, 1f);
     }
 
+    // Mono edit
+    private void OnRefreshWeightlessModifier(EntityUid uid, LayingDownComponent component, ref RefreshWeightlessModifiersEvent args)
+    {
+        if (!_standing.IsDown(uid))
+            return;
+        args.ModifyAcceleration(1f, 0.10f);
+    }
+
     private void OnParentChanged(EntityUid uid, LayingDownComponent component, EntParentChangedMessage args)
     {
         // If the entity is not on a grid, try to make it stand up to avoid issues
         if (!TryComp<StandingStateComponent>(uid, out var standingState)
             || standingState.CurrentState is StandingState.Standing
-            || Transform(uid).GridUid != null)
+            || CanLieDown(uid)) // Mono
         {
             return;
         }
@@ -147,7 +150,8 @@ public abstract class SharedLayingDownSystem : EntitySystem
     {
         if (!Resolve(uid, ref standingState, false) ||
             !Resolve(uid, ref layingDown, false) ||
-            standingState.CurrentState is not StandingState.Standing)
+            standingState.CurrentState is not StandingState.Standing ||
+            !CanLieDown(uid)) // Mono
         {
             if (behavior == DropHeldItemsBehavior.AlwaysDrop)
             {
@@ -159,6 +163,12 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         _standing.Down(uid, true, behavior != DropHeldItemsBehavior.NoDrop, false, standingState);
         return true;
+    }
+
+    // Mono
+    private bool CanLieDown(EntityUid uid)
+    {
+        return _gravity.EntityOnGravitySupportingGridOrMap(uid);
     }
 }
 

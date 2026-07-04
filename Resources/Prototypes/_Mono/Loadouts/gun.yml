@@ -1,11 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #region Civilian
-
-# Sidearms
 
 - type: loadout #MK32 Universal
   id: ContractorMk32Loadout
@@ -16,7 +9,7 @@
 
 - type: loadout #MK32 Universal Ammo
   id: Contractor9x19mmPistolAmmoLoadout
-  price: 5000
+  price: 500
   storage:
     back:
     - BoxMagazine9x19mmFMJ
@@ -28,18 +21,53 @@
     back:
     - WeaponDisabler
 
+- type: loadout #Svalinn
+  id: ContractorSvalinnLoadout
+  price: 2000
+  storage:
+    back:
+    - WeaponLaserSvalinn
+
+- type: loadout #Makeshift Laser
+  id: ContractorLaserLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponMakeshiftLaser
+
+- type: loadout #Argenti
+  id: ContractorArgentiLoadout
+  price: 2000
+  storage:
+    back:
+    - WeaponRevolverArgenti
+
+- type: loadout #Argenti Ammo
+  id: Contractor556x45mmAmmoLoadout
+  price: 1000
+  storage:
+    back:
+    - BoxMagazineSpeedLoader556x45mmFMJ
+
+- type: loadout # Survival Knife
+  id: ContractorSurvivalKnifeLoadout
+  price: 0
+  storage:
+    back:
+    - SurvivalKnife
+
 # Shotguns
 
 - type: loadout #Double Barrel Beanbag
   id: ContractorDoubleBarreledLoadout
-  price: 10000
+  price: 3000
   storage:
     back:
     - WeaponShotgunDoubleBarreledRubber
 
 - type: loadout #Beanbag Shells
   id: ContractorBeanbagAmmoLoadout
-  price: 5000
+  price: 200
   storage:
     back:
     - AmmoBox12_gaugeBeanbag
@@ -56,28 +84,119 @@
     back:
     - WeaponRifleLecterPMC
 
-- type: loadout #Lecter Ammo
-  id: Mercenary5.56x45mmAmmoLoadout
-  price: 2000
+- type: loadout #Iroh
+  id: MercenaryIrohLoadout
+  price: 100000 # Sorry sir, this is premium.
   storage:
     back:
-    - BoxMagazine5.56x45mmFMJ
+    - WeaponRifleIroh
+
+- type: loadout # Prometheus
+  id: MercenaryPrometheusLoadout
+  price: 15000
+  storage:
+    back:
+    - WeaponRiflePrometheus
+
+- type: loadout #Lecter / Prometheus Ammo
+  id: Mercenary556x45mmAmmoLoadout
+  price: 1000
+  storage:
+    back:
+    - BoxMagazine556x45mmFMJ
+
+- type: loadout #Gestio
+  id: MercenaryGestioLoadout
+  price: 5000
+  storage:
+    back:
+    - WeaponRifleGestio
+
+- type: loadout #Gestio Ammo
+  id: Mercenary762x39mmAmmoLoadout
+  price: 1000
+  storage:
+    back:
+    - BoxMagazine762x39mmFMJ
+
+- type: loadout # Novalite
+  id: MercenaryNovaliteLoadout
+  price: 5000
+  storage:
+    back:
+    - WeaponRifleNovaliteC1
+
+- type: loadout #Novalite Ammo
+  id: MercenaryNovaliteAmmoLoadout
+  price: 1000
+  storage:
+    back:
+    - BoxMagazineNovaliteC1
+
+- type: loadout #Vulcan-C
+  id: MercenaryVulcanCLoadout
+  price: 30000
+  storage:
+    back:
+    - WeaponRifleVulcanFCMC
+
+- type: loadout #Lee Enfield
+  id: MercenaryLeeEnfieldLoadout
+  price: 15000
+  storage:
+    back:
+    - WeaponRifleLeeEnfield
+
+- type: loadout #Vulcan-C / Lee Enfield Ammo
+  id: Mercenary762x51mmAmmoLoadout
+  price: 1000
+  storage:
+    back:
+    - BoxMagazine762x51mmFMJ
+
+- type: loadout #Mosin
+  id: MercenaryMosinLoadout
+  price: 5000
+  storage:
+    back:
+    - WeaponSniperMosin
+
+- type: loadout #SVS42
+  id: MercenarySvsLoadout
+  price: 15000
+  storage:
+    back:
+    - WeaponRifleSVS
+
+- type: loadout #Mosin / SVS42 Ammo
+  id: Mercenary762x54mmRAmmoLoadout
+  price: 1000
+  storage:
+    back:
+    - BoxMagazine762x54mmRFMJ
 
 # Shotguns
 
 - type: loadout #Kammerer
   id: MercenaryKammererLoadout
-  price: 15000
+  price: 5000
   storage:
     back:
     - WeaponShotgunKammererPMC
 
 - type: loadout #Enforcer
   id: MercenaryEnforcerLoadout
-  price: 27000
+  price: 12000
+  storage:
+   back:
+    - WeaponShotgunEnforcerPMC
+
+- type: loadout #Helepolis Sidearm
+  id: MercenaryHelepolisLoadout
+  price: 3000
   storage:
     back:
-    - WeaponShotgunEnforcerPMC
+    - WeaponShotgunHelepolis
 
 - type: loadout #Buckshot Shells
   id: MercenaryBuckshotAmmoLoadout
@@ -102,88 +221,116 @@
     back:
     - WeaponSubMachineGunDrozdPMC
 
-- type: loadout #Drozd Ammo
+- type: loadout #Keyboard
+  id: MercenaryKeyboardLoadout
+  price: 5000
+  storage:
+    back:
+    - WeaponSubMachineGunTypewriterPMC
+
+- type: loadout #Drozd / Keyboard  Ammo
   id: MercenaryAcpSubAmmoLoadout
-  price: 2000
+  price: 1000
   storage:
     back:
     - BoxMagazine45_ACPSubMachineGunFMJ
 
 - type: loadout #AK220
   id: MercenaryAk220Loadout
-  price: 14000
+  price: 5000
   storage:
     back:
     - WeaponSubMachineGunAK220
 
 - type: loadout #WT550
   id: MercenaryWt550Loadout
-  price: 32000
+  price: 12000
   storage:
     back:
     - WeaponSubMachineGunWt550PMC
 
 - type: loadout #WT550 Ammo
-  id: Mercenary4.6x30mmTopAmmoLoadout
-  price: 2000
+  id: Mercenary46x30mmTopAmmoLoadout
+  price: 1000
   storage:
     back:
-    - BoxMagazine4.6x30mmSubMachineGunTopMountedFMJ
+    - BoxMagazine46x30mmSubMachineGunTopMountedFMJ
 
 - type: loadout #C20r
   id: MercenaryC20rLoadout
-  price: 44000
+  price: 12000
   storage:
     back:
     - WeaponSubMachineGunC20rPMC
 
 - type: loadout #C20r Ammo
   id: Mercenary9x19SmgAmmoLoadout
-  price: 2000
+  price: 1000
   storage:
     back:
     - BoxMagazine9x19mmSubMachineGunFMJ
+
+- type: loadout # Knallstock
+  id: MercenaryKnallstockLoadout
+  price: 5000
+  storage:
+    back:
+    - WeaponSubMachineGunKnallstock
 
 # Energy
 
 - type: loadout #Energy Gun
   id: MercenaryEnergyGunLoadout
-  price: 18000
+  price: 5000
   storage:
     back:
     - WeaponEnergyGunPMC
 
 - type: loadout #Laser Carbine
   id: MercenaryLaserCarbineLoadout
-  price: 13000
+  price: 5000
   storage:
     back:
-    - WeaponLaserCarbinePMC
+    - WeaponLaserCarbine
 
 - type: loadout #Laser Cannon
   id: MercenaryLaserCannonLoadout
-  price: 21000
+  price: 12000
   storage:
     back:
     - WeaponLaserCannonPMC
 
 - type: loadout #Disabler SMG
   id: MercenaryDisablerSMGLoadout
-  price: 10000
+  price: 2500
   storage:
     back:
     - WeaponDisablerSMGPMC
 
 - type: loadout #Energy Recharger Flatpack
   id: MercenaryRechargerLoadout
-  price: 2000
+  price: 500
   storage:
     back:
     - WeaponCapacitorRechargerFlatpack
 
 #Sidearms
 
-- type: loadout #MK32 Universal / Viper Ammo
+- type: loadout #Pollock
+  id: MercenaryPollockLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponPistolPollock
+
+- type: loadout #Viper
+  id: MercenaryViperLoadout
+  price: 2500
+  storage:
+    back:
+    - WeaponPistolViperPMC
+
+- type: loadout #Pollock / Viper / Knallstock Ammo
   id: Mercenary9x19mmPistolAmmoLoadout
   price: 0
   storage:
@@ -192,49 +339,79 @@
 
 - type: loadout #MK58
   id: MercenaryMk58Loadout
-  price: 2500
+  price: 1500
   storage:
     back:
     - WeaponPistolMk58
 
-- type: loadout #MK58 Ammo
+- type: loadout #MK58 / Knallstock Ammo
   id: MercenaryAcpPistolAmmoLoadout
-  price: 2000
+  price: 500
   storage:
     back:
     - BoxMagazine45_ACPFMJ
 
-- type: loadout #Viper
-  id: MercenaryViperLoadout
-  price: 5000
-  storage:
-    back:
-    - WeaponPistolViperPMC
-
 - type: loadout #Sawn-off
   id: MercenarySawedOffLoadout
-  price: 12000
+  price: 3000
   storage:
     back:
     - WeaponShotgunSawn
+
+- type: loadout #Laser Pistol
+  id: MercenaryLaserPistolLoadout
+  price: 1500
+  storage:
+    back:
+    - WeaponLaserPistolNF
+
+# Melee
+
+- type: loadout # Machete
+  id: MercenaryMacheteLoadout
+  price: 0
+  storage:
+    back:
+    - Machete
+
+- type: loadout # Throwing Knifes Box
+  id: MercenaryThrowingKnifeLoadout
+  price: 0
+  storage:
+    back:
+    - ThrowingKnivesKit
+
+- type: loadout # Kukri Knife
+  id: MercenaryKukriKnifeLoadout
+  price: 0
+  storage:
+    back:
+    - KukriKnife
+
+- type: loadout # Combat Knife
+  id: MercenaryCombatKnifeLoadout
+  price: 0
+  storage:
+    back:
+    - CombatKnife
 
 #region Security Guard
 
 # Rifles
 
-- type: loadout #Lecter
-  id: SecurityGuardLecterLoadout
+- type: loadout #Iroh
+  id: SecurityGuardIrohLoadout
+  name: iroh gun case
   price: 0
-  storage:
-    back:
-    - WeaponRifleLecter
+  inhand:
+  - WeaponCaseLongIrohSecurity
 
-- type: loadout #Lecter Ammo
-  id: SecurityGuard5.56x45mmAmmoLoadout
+- type: loadout #Iroh Ammo
+  id: SecurityGuard556x45mmAmmoLoadout
   price: 0
   storage:
     back:
-    - BoxMagazine5.56x45mmFMJ
+    - BoxMagazine556x45mmFMJ
 
 # Shotguns
 
@@ -261,16 +438,16 @@
 
 # SMGs
 
-- type: loadout #Drozd
-  id: SecurityGuardDrozdLoadout
+- type: loadout #Vector
+  id: SecurityGuardVectorLoadout
   price: 0
   storage:
     back:
-    - WeaponSubMachineGunDrozd
+    - WeaponSubMachineGunVector45_ACPRegistered
 
-- type: loadout #Drozd Rubber Ammo
+- type: loadout #Drozd/Vector Ammo
   id: SecurityGuardAcpSmgAmmoRubberLoadout
-  price: 2000
+  price: 0
   storage:
     back:
     - BoxMagazine45_ACPSubMachineGunFMJ
@@ -307,6 +484,29 @@
     back:
     - BoxMagazine45_ACPRubber
 
+#region Station Rep
+
+- type: loadout #Lecter
+  id: StationRepWeaponEnergyShotgun
+  price: 0
+  storage:
+    back:
+    - WeaponEnergyShotgun
+
+- type: loadout #Lecter
+  id: StationRepWeaponRifleLecter
+  price: 0
+  storage:
+    back:
+    - WeaponRifleLecter
+
+- type: loadout #Lecter
+  id: StationRepWeaponRifleAk
+  price: 0
+  storage:
+    back:
+    - WeaponRifleAk
+
 #region Factions
 
 # Rifles
@@ -319,29 +519,29 @@
     - WeaponRifleLecter
 
 - type: loadout #Lecter Ammo
-  id: Faction5.56x45mmAmmoLoadout
+  id: Faction556x45mmAmmoLoadout
   price: 0
   storage:
     back:
-    - BoxMagazine5.56x45mmFMJ
+    - BoxMagazine556x45mmFMJ
 
 - type: loadout #Vulcan
   id: FactionVulcanLoadout
-  price: 3000
+  price: 0
   storage:
     back:
     - WeaponRifleVulcan
 
 - type: loadout #Vulcan Ammo
-  id: Faction7.62x51mmAmmoLoadout
+  id: Faction762x51mmAmmoLoadout
   price: 0
   storage:
     back:
-    - BoxMagazine7.62x51mmFMJ
+    - BoxMagazine762x51mmFMJ
 
 - type: loadout #Bandit
   id: FactionBanditLoadout
-  price: 3000
+  price: 0
   storage:
     back:
     - WeaponRifleMR3C
@@ -355,7 +555,7 @@
 
 - type: loadout #AKM
   id: FactionAkmLoadout
-  price: 5000
+  price: 0
   storage:
     back:
     - WeaponRifleAk
@@ -368,32 +568,32 @@
     - WeaponRifleAK502
 
 - type: loadout #AKM / AK502 Ammo
-  id: Faction7.62x39mmAmmoLoadout
+  id: Faction762x39mmAmmoLoadout
   price: 0
   storage:
     back:
-    - BoxMagazine7.62x39mmFMJ
+    - BoxMagazine762x39mmFMJ
 
 - type: loadout #Mosin
   id: FactionMosinLoadout
-  price: 5000
+  price: 0
   storage:
     back:
     - WeaponSniperMosin
 
 - type: loadout #SVS42
   id: FactionSvsLoadout
-  price: 5000
+  price: 0
   storage:
     back:
     - WeaponRifleSVS
 
 - type: loadout #Mosin / SVS42 Ammo
-  id: Faction7.62x54mmRAmmoLoadout
+  id: Faction762x54mmRAmmoLoadout
   price: 0
   storage:
     back:
-    - BoxMagazine7.62x54mmRFMJ
+    - BoxMagazine762x54mmRFMJ
 
 # SMGs
 
@@ -413,7 +613,7 @@
 
 - type: loadout #Drozd EMP Ammo
   id: FactionAcpSmgEmpAmmoLoadout
-  price: 100
+  price: 0
   storage:
     back:
     - BoxMagazine45_ACPSubMachineGunEmp
@@ -426,11 +626,11 @@
     - WeaponSubMachineGunWt550
 
 - type: loadout #WT550 Ammo
-  id: Faction4.6x30mmTopAmmo
+  id: Faction46x30mmTopAmmo
   price: 0
   storage:
     back:
-    - BoxMagazine4.6x30mmSubMachineGunTopMountedFMJ
+    - BoxMagazine46x30mmSubMachineGunTopMountedFMJ
 
 - type: loadout #C20r
   id: FactionC20RLoadout
@@ -445,6 +645,13 @@
   storage:
     back:
     - BoxMagazine9x19mmSubMachineGunFMJ
+
+- type: loadout #AK220
+  id: FactionAk220Loadout
+  price: 0
+  storage:
+    back:
+    - WeaponSubMachineGunAK220
 
 # LMGs
 
@@ -514,3 +721,38 @@
   storage:
     back:
     - WeaponPistolHawk4
+
+- type: loadout #Python
+  id: FactionPythonLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRevolverPython
+
+- type: loadout # Inspector Exactly the same as the python why does this even exist
+  id: FactionInspectorLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRevolverInspector
+
+- type: loadout #.45 Magnum Ammo
+  id: FactionMagnum45Loadout
+  price: 0
+  storage:
+    back:
+    - AmmoBox45_magnumFMJ
+
+- type: loadout # Laser Pistol
+  id: FactionLaserPistolLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponLaserPistolNF
+
+- type: loadout #Viper
+  id: FactionViperLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponPistolViper

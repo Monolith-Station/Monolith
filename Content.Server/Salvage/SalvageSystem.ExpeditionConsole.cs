@@ -1,20 +1,5 @@
-// SPDX-FileCopyrightText: 2023 Checkraze
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 MilenVolf
-// SPDX-FileCopyrightText: 2024 SlamBamActionman
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 Wiebe Geertsma
-// SPDX-FileCopyrightText: 2024 checkraze
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 GreaseMonk
-// SPDX-FileCopyrightText: 2025 Redrover1760
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Server.Station.Components;
 using Content.Shared.Popups;
+using Content.Shared.Station.Components;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Salvage.Expeditions;
 using Robust.Shared.Map.Components;
@@ -39,7 +24,7 @@ public sealed partial class SalvageSystem
     private const float ShuttleFTLRange = 256f;
     private const float ShuttleFTLMassThreshold = 100f;
 
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     private void OnSalvageClaimMessage(EntityUid uid, SalvageExpeditionConsoleComponent component, ClaimSalvageMessage args)
     {
@@ -73,7 +58,7 @@ public sealed partial class SalvageSystem
         {
             if (!TryComp<StationDataComponent>(station, out var stationData))
                 return;
-            if (_station.GetLargestGrid(stationData) is not { Valid: true } grid)
+            if (_station.GetLargestGrid((station!.Value, stationData)) is not { Valid: true } grid)
                 return;
             if (!TryComp<MapGridComponent>(grid, out var gridComp))
                 return;
@@ -258,7 +243,7 @@ public sealed partial class SalvageSystem
 
             // Frontier: if we have a lingering FTL component, we cannot start a new mission
             if (!TryComp<StationDataComponent>(station, out var stationData) ||
-                    _station.GetLargestGrid(stationData) is not { Valid: true } grid ||
+                    _station.GetLargestGrid((station!.Value, stationData)) is not { Valid: true } grid ||
                     HasComp<FTLComponent>(grid))
             {
                 state.Cooldown = true; //Hack: disable buttons
@@ -285,7 +270,7 @@ public sealed partial class SalvageSystem
 
         // Frontier: if we have a lingering FTL component, we cannot start a new mission
         if (!TryComp<StationDataComponent>(station, out var stationData) ||
-                _station.GetLargestGrid(stationData) is not { Valid: true } grid ||
+                _station.GetLargestGrid((station!.Value, stationData)) is not { Valid: true } grid ||
                 HasComp<FTLComponent>(grid))
         {
             state.Cooldown = true; //Hack: disable buttons

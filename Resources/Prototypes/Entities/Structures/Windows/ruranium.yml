@@ -37,6 +37,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
+    key: reinforceduraniumwindows # Mono
     base: ruwindow
   - type: Construction
     graph: Window
@@ -48,10 +49,18 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
+  - type: DeltaPressure
+    minPressure: 150000
+    minPressureDelta: 100000
+    scalingType: Linear
+    scalingPower: 0.0001
   - type: StaticPrice
     price: 140 # Frontier: 215<140 - TODO: material value rework
   - type: RadiationBlocker
     resistance: 5
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 6
 
 - type: entity
   id: UraniumReinforcedWindowDirectional
@@ -104,10 +113,17 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: DeltaPressure
+    minPressure: 37500
+    minPressureDelta: 25000
+    scalingType: Threshold
   - type: StaticPrice
     price: 70 # Frontier: 110<70 - TODO: material value rework
   - type: RadiationBlocker
     resistance: 2.5
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 4
 
 - type: entity
   parent: ReinforcedUraniumWindow
@@ -127,7 +143,7 @@
     - Diagonal
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: reinforceduraniumwindows # Mono
     base: state
   - type: Icon
     sprite: Structures/Windows/reinforced_uranium_diagonal.rsi
@@ -144,7 +160,7 @@
         mask:
         - FullTileMask
         layer:
-        - GlassLayer
+        - DiagonalGlassLayer # Mono GlassLayer->DiagonalGlassLayer
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:

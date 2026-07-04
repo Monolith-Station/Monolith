@@ -1,0 +1,43 @@
+- type: vendingMachineInventory
+  id: TraderBaikal
+  startingInventory:
+    #TradeGoodChemicalSupplies: 4294967295 # Infinite
+    #TradeGoodChemicalsVolatile: 4294967295 # Infinite
+    #TradeGoodScrap: 4294967295 # Infinite
+    #TradeGoodComponents: 4294967295 # Infinite
+    PaperWrittenDispenserOutageNote: 4294967295 # Infinite
+
+- type: vendingMachineInventory
+  id: TraderTradeMall
+  startingInventory:
+    #TradeGoodFissionFuel: 4294967295 # Infinite
+    #TradeGoodWeaponParts: 4294967295 # Infinite
+    #TradeGoodLuxuries: 4294967295 # Infinite
+    #TradeGoodEquipment: 4294967295 # Infinite
+    PaperWrittenDispenserOutageNote: 4294967295 # Infinite
+
+- type: vendingMachineInventory
+  id: TraderDepot
+  startingInventory:
+    #TradeGoodAmmo: 4294967295 # Infinite
+    #TradeGoodWeaponParts: 4294967295 # Infinite
+    #TradeGoodFusionFuel: 4294967295 # Infinite
+    #TradeGoodLuxuries: 4294967295 # Infinite
+    #TradeGoodEquipment: 4294967295 # Infinite
+    #TradeGoodFertilizer: 4294967295 # Infinite
+    #TradeGoodShipComponents: 4294967295 # Infinite
+    #TradeGoodFabric: 4294967295 # Infinite
+    PaperWrittenDispenserOutageNote: 4294967295 # Infinite
+
+- type: vendingMachineInventory
+  id: TraderDepotAlt
+  startingInventory:
+    #TradeGoodSupplies: 4294967295 # Infinite
+    #TradeGoodMedicalSupplies: 4294967295 # Infinite
+    #TradeGoodChemicalSupplies: 4294967295 # Infinite
+    #TradeGoodChemicalsVolatile: 4294967295 # Infinite
+    #TradeGoodFusionFuel: 4294967295 # Infinite
+    #TradeGoodEquipment: 4294967295 # Infinite
+    #TradeGoodComponents: 4294967295 # Infinite
+    #TradeGoodMetals: 4294967295 # Infinite
+    PaperWrittenDispenserOutageNote: 4294967295 # Infinite

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Parallax;
 using Content.Shared._DV.Planet;
@@ -15,14 +10,14 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._DV.Planet;
 
-public sealed class PlanetSystem : EntitySystem
+public sealed partial class PlanetSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly BiomeSystem _biome = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private AtmosphereSystem _atmos = default!;
+    [Dependency] private BiomeSystem _biome = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MapLoaderSystem _mapLoader = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     private readonly List<(Vector2i, Tile)> _setTiles = new();
 

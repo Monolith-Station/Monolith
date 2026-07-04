@@ -75,6 +75,10 @@
     anchored: true
   - type: PotentialDeadDrop # Frontier
     hintText: dead-drop-hint-chair # Frontier
+  # Mono
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 1
 
 #Starts unanchored, can be rotated while anchored
 - type: entity
@@ -411,3 +415,11 @@
     price: 45 # Frontier: 50<20, 20<45
   - type: PotentialDeadDrop # Frontier
     hintText: dead-drop-hint-bench # Frontier
+
+- type: entity
+  parent: StoolBase
+  id: ChairXeno
+  name: xeno chair
+  components:
+  - type: Sprite
+    state: xeno-chair

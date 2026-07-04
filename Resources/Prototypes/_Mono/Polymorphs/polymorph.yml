@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 EctoplasmIsGood
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 Your Name
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: polymorph
   id: LetoferolMutation
   configuration:
@@ -13,9 +6,11 @@
     inventory: Drop
     transferName: true
     polymorphTheLiving: false
+    polymorphTheDead: true
     transferDamage: false
     revertOnCrit: false
     revertOnDeath: true
+    cooldown: 60
     polymorphSound: /Audio/Effects/Fluids/splat.ogg
     exitPolymorphSound: /Audio/Effects/Fluids/glug.ogg
     allowRepeatedMorphs: true
@@ -28,9 +23,28 @@
     inventory: Drop
     transferName: true
     polymorphTheLiving: false
+    polymorphTheDead: true
     transferDamage: false
     revertOnCrit: false
     revertOnDeath: false
+    cooldown: 60
+    polymorphSound: /Audio/Effects/Fluids/splat.ogg
+    exitPolymorphSound: /Audio/Effects/Fluids/glug.ogg
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: LetoferolMutationBeastNatural
+  configuration:
+    entity: MobLetoferolBeast
+    forced: true
+    inventory: Drop
+    transferName: true
+    polymorphTheLiving: false
+    polymorphTheDead: true
+    transferDamage: false
+    revertOnCrit: false
+    revertOnDeath: false
+    cooldown: 60
     polymorphSound: /Audio/Effects/Fluids/splat.ogg
     exitPolymorphSound: /Audio/Effects/Fluids/glug.ogg
     allowRepeatedMorphs: true

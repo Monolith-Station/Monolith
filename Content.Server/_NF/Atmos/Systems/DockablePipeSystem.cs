@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Milon
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Whatstone
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server._NF.Atmos.Components;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
@@ -15,11 +9,11 @@ using Robust.Server.GameObjects;
 
 namespace Content.Server._NF.Atmos.Systems;
 
-public sealed class DockablePipeSystem : EntitySystem
+public sealed partial class DockablePipeSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-    [Dependency] private readonly NodeGroupSystem _nodeGroup = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private NodeGroupSystem _nodeGroup = default!;
 
     public override void Initialize()
     {

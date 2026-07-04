@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Deserty0
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 eoineoineoin
-// SPDX-FileCopyrightText: 2025 cheetah1984
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Shared.Materials;
 using Content.Shared.Materials.OreSilo;
@@ -22,7 +15,7 @@ namespace Content.Client.Materials.UI;
 [GenerateTypedNameReferences]
 public sealed partial class MaterialStorageControl : ScrollContainer
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
     private readonly MaterialStorageSystem _materialStorage;
 
     private EntityUid? _owner;

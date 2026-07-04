@@ -1,0 +1,59 @@
+- type: entity
+  abstract: true
+  id: ClothingArmorPlate
+  components:
+  - type: ArmorPlateHolder
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      toggleable-clothing: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+- type: entity
+  abstract: true
+  parent: ClothingArmorPlate
+  id: ClothingArmorPlateBlunt_Slash
+  components:
+  - type: StorageFill
+    contents:
+    - id: ArmorPlateBlunt_Slash
+
+- type: entity
+  abstract: true
+  parent: ClothingArmorPlate
+  id: ClothingArmorPlatePierce
+  components:
+  - type: StorageFill
+    contents:
+    - id: ArmorPlatePierce
+
+- type: entity
+  abstract: true
+  parent: ClothingArmorPlate
+  id: ClothingArmorPlateHeat
+  components:
+  - type: StorageFill
+    contents:
+    - id: ArmorPlateHeat
+
+- type: entity
+  abstract: true
+  parent: ClothingArmorPlate
+  id: ClothingArmorPlateSpeed
+  components:
+  - type: StorageFill
+    contents:
+    - id: ArmorPlateSpeed

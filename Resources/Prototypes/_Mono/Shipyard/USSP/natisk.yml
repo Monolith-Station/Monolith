@@ -1,9 +1,4 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+#Author: Starch(!)
 
 - type: vessel
   id: Natisk
@@ -13,7 +8,7 @@
   price: 53500
   category: Medium
   group: Ussp
-  access: USSPBasic
+  access: USSP
   shuttlePath: /Maps/_Mono/Shuttles/USSP/natisk.yml
   guidebookPage: Null
   class:
@@ -37,7 +32,5 @@
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            USSPSergeant: [0, 0]
-            USSPCorporal: [0, 0]
-            USSPMedic: [0, 0]
-            USSPRifleman: [0, 0]
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]

@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BaseMilitaryPowerCell
   abstract: true
@@ -40,6 +35,7 @@
       Plasma: 40
     chemicalComposition:
       Zinc: 7.5
+      Lead: 2
 
 - type: entity
   id: BaseMilitaryPowerCellSMG

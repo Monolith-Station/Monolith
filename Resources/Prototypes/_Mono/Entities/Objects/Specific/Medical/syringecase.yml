@@ -8,6 +8,7 @@
     sprite: _Mono/Objects/Misc/syringecase.rsi
     layers:
     - state: closed
+      map: ["closeLayer"]
     - state: open
       map: ["openLayer"]
       visible: false
@@ -42,6 +43,9 @@
   - type: Storage
     grid:
     - 0,0,3,1
+    quickInsert: true
+    areaInsert: true
+  - type: Dumpable
   - type: ItemCounter
     count:
       components: [Item]

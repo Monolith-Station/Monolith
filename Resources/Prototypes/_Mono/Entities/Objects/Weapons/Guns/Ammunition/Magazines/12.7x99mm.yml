@@ -1,20 +1,20 @@
 - type: entity
-  id: BaseMagazine12.7x99mm
+  id: BaseMagazine127x99mm
   name: "magazine (12.7x99mm)"
-  parent: [ BaseItem, BaseC3PirateContraband ]
+  parent: BaseItem
   abstract: true
   components:
   - type: Tag
     tags:
-      - Magazine12.7x99mm
+      - Magazine127x99mm
   - type: Item
     size: Small
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - Cartridge12.7x99mm
-    proto: Cartridge12.7x99mm
+        - Cartridge127x99mm
+    proto: Cartridge127x99mm
     capacity: 10
   - type: ContainerContainer
     containers:
@@ -33,28 +33,28 @@
   - type: Appearance
 
 - type: entity
-  id: Magazine12.7x99mmEmpty
+  id: Magazine127x99mmEmpty
   name: "magazine (12.7x99mm empty)"
-  parent: BaseMagazine12.7x99mm
+  parent: BaseMagazine127x99mm
   components:
   - type: BallisticAmmoProvider
     proto: null
 
 - type: entity
-  id: Magazine12.7x99mm
+  id: Magazine127x99mm
   name: "magazine (12.7x99mm anti-material)"
-  parent: BaseMagazine12.7x99mm
+  parent: BaseMagazine127x99mm
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge12.7x99mm
+    proto: Cartridge127x99mm
 
 - type: entity
-  id: Magazine12.7x99mmExplosive
+  id: Magazine127x99mmExplosive
   name: "magazine (12.7x99mm high-explosive)"
-  parent: BaseMagazine12.7x99mm
+  parent: BaseMagazine127x99mm
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge12.7x99mmExplosive
+    proto: Cartridge127x99mmExplosive
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/12.7x99mm/12.7x99mm_mag.rsi
     layers:

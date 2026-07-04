@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Handguns
 - type: entity
   parent: WeaponCaseShort
@@ -36,9 +30,9 @@
     contents:
     - id: WeaponSubMachineGunMla73
       amount: 1
-    - id: Magazine6.35x40mmCaseless
+    - id: Magazine635x40mmCaseless
       amount: 2
-    - id: AmmoBox6.35x40mmCaseless
+    - id: AmmoBox635x40mmCaseless
       amount: 2
 
 - type: entity
@@ -76,9 +70,9 @@
     contents:
     - id: WeaponRifleWSPR
       amount: 1
-    - id: Magazine7.62x39mmSubsonic
+    - id: Magazine762x39mmSubsonic
       amount: 4
-    - id: AmmoBox7.62x39mmSubsonic
+    - id: AmmoBox762x39mmSubsonic
       amount: 2
 
 - type: entity
@@ -90,9 +84,9 @@
     contents:
     - id: WeaponRifleAnnie
       amount: 1
-    - id: Magazine7.62x39mmFMJ
+    - id: Magazine762x39mmFMJ
       amount: 2
-    - id: AmmoBox7.62x39mmBigFMJ
+    - id: AmmoBox762x39mmBigFMJ
       amount: 2
 
 - type: entity

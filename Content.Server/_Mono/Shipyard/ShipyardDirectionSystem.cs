@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 sleepyyapril
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
@@ -17,12 +12,12 @@ namespace Content.Server._Mono.Shipyard;
 /// <summary>
 /// A system that tells players which direction their newly purchased ship is located
 /// </summary>
-public sealed class ShipyardDirectionSystem : EntitySystem
+public sealed partial class ShipyardDirectionSystem : EntitySystem
 {
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
 
     /// <summary>
     /// Sends a message to the player indicating the compass direction of their newly purchased ship
@@ -51,7 +46,7 @@ public sealed class ShipyardDirectionSystem : EntitySystem
 
         // get the angle between the two positions, adjusted for the grid rotation so that
         // we properly preserve north in relation to the grid.
-        var direction = playerPos - shipPos;
+        var direction = shipPos - playerPos;
         var directionAngle = direction.ToWorldAngle();
         var adjustedDir = (directionAngle - gridOffset).GetDir();
         var length = (playerPos - shipPos).LengthSquared();

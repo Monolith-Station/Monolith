@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client.UserInterface.Controls;
 using Content.Shared._Mono.CorticalBorer;
 using JetBrains.Annotations;
@@ -27,7 +23,7 @@ namespace Content.Client._Mono.CorticalBorer
             _window.SetInfoFromEntity(EntMan, Owner);
 
             // Setup static button actions.
-            _window.AmountGrid.OnButtonPressed += s => SendMessage(new CorticalBorerDispenserSetInjectAmountMessage(s));
+            _window.AmountGrid.OnButtonPressed += s => SendMessage(new CorticalBorerDispenserSetInjectAmountMessage(int.Parse(s)));
 
             _window.OnDispenseReagentButtonPressed += id => SendMessage(new CorticalBorerDispenserInjectMessage(id));
         }

@@ -1,19 +1,15 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vessel
   id: Flyssa
   parent: BaseVesselAntag
   name: TSF-SKR Flyssa-K
-  description: Lended over from the TSF navy for you marines. A one-ship fleet on this scale of combat.
+  description: Lended over from the TSFN for you marines. A one-ship fleet on this scale of combat.
   limit: 1
+  hyperwarLimit: 3
   price: 1225950
+  purchasable: false # voucher only
   category: Large
   group: Security
-  access: VoucherFlyssa
+  access: Security
   shuttlePath: /Maps/_Mono/Shuttles/Capitals/flyssa.yml
   guidebookPage: Null
   class:
@@ -21,6 +17,8 @@
   - Destroyer
   - Medical
   - Chemistry
+  - Pursuit
+  - Patrol
   engine:
   - AME
 
@@ -32,6 +30,9 @@
   stations:
     Flyssa:
       stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "The pride and joy of the TSFN, and a shining star in the sector. Sol invictus."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Flyssa TSFN{1}'

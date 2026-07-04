@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: HighSecDoor
   id: HighSecUSSPSecureLocked
@@ -29,3 +24,21 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsUSSP ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecViperLocked
+  suffix: Viper Group, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViper ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecViperCommandLocked
+  suffix: Viper Group Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViperCommand ]

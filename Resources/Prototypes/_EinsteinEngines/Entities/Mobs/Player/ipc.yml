@@ -99,7 +99,7 @@
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true
-    drainPerSecond: 1.5
+    drainPerSecond: 0.65 # 1.5 -> 0.65 - Mono
     chargeThresholdMid: 0.80
     chargeThresholdLow: 0.35
     chargeThresholdCritical: 0.10
@@ -127,6 +127,7 @@
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
   - type: WeldingHealable
+  - type: RetroMonitorView # Mono
 
 - type: entity
   save: false

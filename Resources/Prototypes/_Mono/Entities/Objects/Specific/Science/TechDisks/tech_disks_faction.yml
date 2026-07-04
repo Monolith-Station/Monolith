@@ -1,27 +1,4 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # FACTIONLATHE ONLY TECH DISKS - #454545
-
-- type: entity
-  parent: TechDiskBase
-  id: TechDiskSynthalloy
-  name: pre-fracture synthalloy faction tech disk
-  description: A disk capable of adding early synthalloy production processes to a server's recipes. Less efficient than modern synthalloy methods.
-  components:
-  - type: Sprite
-    layers:
-    - state: icon
-      map: ["enum.DamageStateVisualLayers.Base"]
-      color: "#d4d4d4"
-    - state: label
-    - state: protect
-    - state: dna
-      shader: unshaded
-  - type: TechnologyDisk
-    recipes:
-    - SynthalloyProductionTechDisk
 
 - type: entity
   parent: TechDiskBase
@@ -50,7 +27,7 @@
   parent: TechDiskBase
   id: TechDiskTSFAnnie
   name: TSF Annie faction tech disk
-  description: A disk capable of adding the M-27 Annie and its ammo to a server's recipes, for faction techfabs.
+  description: A disk capable of adding the QBZ-430 Annie and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:
@@ -63,15 +40,15 @@
   - type: TechnologyDisk
     recipes:
     - WeaponRifleAnnieTSF
-    - Magazine7.62x39mmFMJ
-    - Magazine7.62x39mmEmpty
-    - AmmoBox7.62x39mmFMJ
+    - Magazine762x39mmFMJ
+    - Magazine762x39mmEmpty
+    - AmmoBox762x39mmFMJ
 
 - type: entity
   parent: TechDiskBase
   id: TechDiskTSFLecter
   name: TSF Lecter faction tech disk
-  description: A disk capable of adding the M-6 Lecter and its ammo to a server's recipes, for faction techfabs.
+  description: A disk capable of adding the QBZ-410 Lecter and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:
@@ -84,15 +61,12 @@
   - type: TechnologyDisk
     recipes:
     - WeaponRifleLecterTSF
-    - Magazine5.56x45mmFMJ
-    - Magazine5.56x45mmEmpty
-    - AmmoBox5.56x45mmFMJ
 
 - type: entity
   parent: TechDiskBase
   id: TechDiskTSFDrozd
   name: TSF Drozd faction tech disk
-  description: A disk capable of adding the M-5 Drozd and its ammo to a server's recipes, for faction techfabs.
+  description: A disk capable of adding the CS/LR-8 Drozd and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:
@@ -113,7 +87,7 @@
   parent: TechDiskBase
   id: TechDiskTSFBandit
   name: TSF Bandit faction tech disk
-  description: A disk capable of adding the MR-3 Bandit and its ammo to a server's recipes, for faction techfabs.
+  description: A disk capable of adding the QBU-406 Bandit and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:
@@ -133,8 +107,8 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskTSFICWS
-  name: TSF ICWS faction tech disk
-  description: A disk capable of adding the XLR-556 ICWS and its ammo to a server's recipes, for faction techfabs.
+  name: TSF Taotie faction tech disk
+  description: A disk capable of adding the QBZX-281 Taotie and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:
@@ -148,9 +122,9 @@
   - type: TechnologyDisk
     recipes:
     - WeaponRifleXlr556Tsf
-    - Magazine5.56x45mmFMJ
-    - Magazine5.56x45mmEmpty
-    - AmmoBox5.56x45mmFMJ
+    - Magazine556x45mmFMJ
+    - Magazine556x45mmEmpty
+    - AmmoBox556x45mmFMJ
 
 # universal stuff
 
@@ -209,7 +183,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskRogueTools
-  name: ASR equipment faction tech disk
+  name: PDV equipment faction tech disk
   description: A disk capable of adding various tools of Rogues to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -229,7 +203,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskRogueToolsAdvanced
-  name: high-tech ASR equipment faction tech disk
+  name: high-tech PDV equipment faction tech disk
   description: A disk capable of adding the hacking equipment of Rogues to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -249,7 +223,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskC20r
-  name: ASR C-20r faction tech disk
+  name: PDV C-20r faction tech disk
   description: A disk capable of adding the C-20r and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -270,7 +244,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskM90
-  name: ASR M-90 faction tech disk
+  name: PDV M-90 faction tech disk
   description: A disk capable of adding the M-90 and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -284,14 +258,14 @@
   - type: TechnologyDisk
     recipes:
     - WeaponRifleM90Rogue
-    - Magazine7.62x51mmFMJ
-    - Magazine7.62x51mmEmpty
-    - AmmoBox7.62x51mmFMJ
+    - Magazine762x51mmFMJ
+    - Magazine762x51mmEmpty
+    - AmmoBox762x51mmFMJ
 
 - type: entity
   parent: TechDiskBase
   id: TechDiskBulldog
-  name: ASR bulldog faction tech disk
+  name: PDV bulldog faction tech disk
   description: A disk capable of adding the Bulldog and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -314,7 +288,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskHristov
-  name: ASR Hristov faction tech disk
+  name: PDV Hristov faction tech disk
   description: A disk capable of adding the Hristov and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -333,7 +307,7 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskMla73
-  name: ASR MLA-73 faction tech disk
+  name: PDV MLA-73 faction tech disk
   description: A disk capable of adding the MLA-73 and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
@@ -349,3 +323,4 @@
     - WeaponSubMachineGunMla73Rogue
     - Magazine635x40mmCaseless
     - AmmoBox635x40mmCaseless
+    - MagazineAsmgtUniversal635x40mm

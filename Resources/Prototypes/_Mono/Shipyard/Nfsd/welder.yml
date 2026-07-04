@@ -1,16 +1,11 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+#Author:OneZerooo0 on Github, Onezero00 on Discord
 
 - type: vessel
   id: Welder
   parent: BaseVesselAntag
   name: TSF-ENG Welder
   description: A multipurpose, utilitarian but cramped vessel envisioned as an all-in-one multitool for ship repair and resource extraction. Capable of detecting cloaked vessels.
-  price: 70200
+  price: 78200
   category: Small
   group: Security
   access: Security
@@ -41,4 +36,5 @@
       - type: StationJobs
         availableJobs:
           Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
 

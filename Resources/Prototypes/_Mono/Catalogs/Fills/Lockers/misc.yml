@@ -1,9 +1,5 @@
-# SPDX-FileCopyrightText: 2025 tonotom
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entityTable
-  id: MaintenanceLockerLootMono #Tables are in salvmaint_locker.yml
+  id: MaintenanceLockerLootMono #Tables are in _Mono\Catalogs\Fills\Lockers\salvmaint_locker.yml
   table: !type:AllSelector
     children:
     - id: StrangePill

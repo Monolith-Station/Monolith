@@ -2,6 +2,7 @@
 shipyard-console-invalid-vessel = Cannot purchase vessel:
 shipyard-console-menu-title = Shipyard Menu
 shipyard-console-menu-listing-free = Free
+shipyard-console-menu-listing-voucher = Voucher
 shipyard-console-docking = {$owner} shuttle {$vessel} en route.
 shipyard-console-leaving = {$owner} shuttle {$vessel} sold by {$player}.
 shipyard-console-docking-secret = Unregistered vessel detected entering your sector.
@@ -12,6 +13,7 @@ shipyard-console-already-deeded = ID card already has a Deed.
 shipyard-console-invalid-station = Not a valid station.
 shipyard-console-no-bank = No bank account found.
 shipyard-console-no-deed = No ship deed found.
+shipyard-console-no-unassign = Card is restricted from unassigning deed.
 shipyard-console-sale-reqs = Ship must be docked and all crew disembarked.
 shipyard-console-sale-not-docked = Ship must be docked.
 shipyard-console-sale-organic-aboard = All crew must disembark. {$name} is still aboard.
@@ -19,7 +21,7 @@ shipyard-console-sale-organic-aboard = All crew must disembark. {$name} is still
 shipyard-console-sale-invalid-ship = Ship is invalid and cannot be sold.
 shipyard-console-sale-unknown-reason = Ship cannot be sold: {reason}
 shipyard-console-deed-label = Registered Ship:
-shipyard-console-appraisal-label = Shuttle Resale Value:{" "}
+shipyard-console-appraisal-label = Shuttle Resale Value (Taxed):{" "}
 shipyard-console-no-voucher-redemptions = All voucher redemptions have been used.
 shipyard-console-invalid-voucher-type = This voucher cannot be used at this console.
 shipyard-console-denied = You cannot purchase this ship at this time.
@@ -35,6 +37,7 @@ shipyard-console-menu-class-label = Class:{" "}
 shipyard-console-menu-engine-label = Engine:{" "}
 
 shipyard-console-purchase-available = Purchase
+shipyard-console-armament-default = Unspecified
 shipyard-console-guidebook = Manual
 shipyard-console-unassign-deed = Unassign
 shipyard-console-deed-unassigned = Deed unassigned from ID card successfully.
@@ -63,7 +66,7 @@ shipyard-console-class-Civilian = Civilian
 shipyard-console-class-Kitchen = Kitchen
 # Antag
 shipyard-console-class-Syndicate = Syndicate
-shipyard-console-class-Pirate = Rogue
+shipyard-console-class-Pirate = PDV
 # NFSD
 shipyard-console-class-Capital = Capital
 shipyard-console-class-Detainment = Detainment
@@ -76,6 +79,7 @@ shipyard-console-class-Corvette = Corvette
 shipyard-console-class-Frigate = Frigate
 shipyard-console-class-Destroyer = Destroyer
 shipyard-console-class-Cruiser = Cruiser
+# Mono changes end
 
 shipyard-console-engine-All = All
 shipyard-console-engine-AME = AME
@@ -90,3 +94,6 @@ shipyard-console-engine-Welding = Welding Fuel
 shipyard-console-engine-Plasma = Plasma
 shipyard-console-engine-Uranium = Uranium
 shipyard-console-engine-Bananium = Bananium
+# Mono start
+shipyard-console-engine-NFR = NFR
+# Mono end

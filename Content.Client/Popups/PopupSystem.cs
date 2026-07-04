@@ -1,27 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Paul
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 DrSmugleaf
-// SPDX-FileCopyrightText: 2022 Jack Fox
-// SPDX-FileCopyrightText: 2022 Kara
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2022 Visne
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2023 Checkraze
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Vordenburg
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 LordCarve
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 ShadowCommander
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Cooper Wallace
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Shared.CCVar;
@@ -44,18 +20,18 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Popups
 {
-    public sealed class PopupSystem : SharedPopupSystem
+    public sealed partial class PopupSystem : SharedPopupSystem
     {
-        [Dependency] private readonly IConfigurationManager _configManager = default!;
-        [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IOverlayManager _overlay = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IPrototypeManager _prototype = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
-        [Dependency] private readonly IReplayRecordingManager _replayRecording = default!;
-        [Dependency] private readonly ExamineSystemShared _examine = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private IConfigurationManager _configManager = default!;
+        [Dependency] private IInputManager _inputManager = default!;
+        [Dependency] private IOverlayManager _overlay = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IPrototypeManager _prototype = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private IUserInterfaceManager _uiManager = default!;
+        [Dependency] private IReplayRecordingManager _replayRecording = default!;
+        [Dependency] private ExamineSystemShared _examine = default!;
+        [Dependency] private SharedTransformSystem _transform = default!;
 
         public IReadOnlyCollection<WorldPopupLabel> WorldLabels => _aliveWorldLabels.Values;
         public IReadOnlyCollection<CursorPopupLabel> CursorLabels => _aliveCursorLabels.Values;
@@ -234,6 +210,16 @@ namespace Content.Client.Popups
         {
             if (_playerManager.LocalEntity == recipient)
                 PopupCursor(message, type);
+        }
+
+        public override void PopupPredictedCursor(string? message, ICommonSession recipient, PopupType type = PopupType.Small)
+        {
+            PopupCursor(message, recipient, type);
+        }
+
+        public override void PopupPredictedCursor(string? message, EntityUid recipient, PopupType type = PopupType.Small)
+        {
+            PopupCursor(message, recipient, type);
         }
 
         public override void PopupCoordinates(string? message, EntityCoordinates coordinates, Filter filter, bool replayRecord, PopupType type = PopupType.Small)

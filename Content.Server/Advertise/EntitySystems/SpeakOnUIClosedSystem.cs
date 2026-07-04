@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Advertise.Components;
 using Content.Server.Chat.Systems;
 using Content.Shared.Dataset;
@@ -16,9 +10,9 @@ namespace Content.Server.Advertise;
 
 public sealed partial class SpeakOnUIClosedSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private ChatSystem _chat = default!;
 
     public override void Initialize()
     {

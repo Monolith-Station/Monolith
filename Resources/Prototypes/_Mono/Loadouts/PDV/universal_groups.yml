@@ -1,0 +1,107 @@
+- type: loadoutGroup
+  id: PDVJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - PDVClothingJumpsuit
+- type: loadoutGroup
+  id: PDVNeck
+  name: loadout-group-contractor-neck
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - PDVClothingNeckIFFOrange
+- type: loadoutGroup
+  id: PDVCommanderNeck
+  name: loadout-group-contractor-neck
+  minLimit: 1
+  loadouts:
+  - PDVClothingNeckIFFOrange
+  - PDVClothingNeckCloakCommander
+  - PDVClothingNeckCloakVizier
+  - PDVClothingNeckMantleVizier
+  - PDVClothingNeckCloakPdvPurple
+
+- type: loadoutGroup
+  id: PDVOuterClothing
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadouts:
+  - PDVClothingOuterArmorBPVestLight
+  - PDVClothingOuterArmorBPVestMedium
+  fallbacks:
+  - PDVClothingOuterArmorBPVestLight
+- type: loadoutGroup
+  id: PDVGloves
+  name: loadout-group-contractor-gloves
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - PDVCombatGloves
+- type: loadoutGroup
+  id: PDVHud
+  name: loadout-group-contractor-glasses
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - PDVClothingEyesHudSecurity
+  fallbacks:
+  - PDVClothingEyesHudSecurity
+- type: loadoutGroup
+  id: PDVShoes
+  name: loadout-group-contractor-shoes
+  minLimit: 1
+  loadouts:
+  - PDVCombatBoots
+  - PDVJackboots
+  fallbacks:
+  - PDVCombatBoots
+- type: loadoutGroup
+  id: PDVFace
+  name: loadout-group-contractor-face
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PDVGaiter
+  - PDVGasmask
+  fallbacks:
+  - PDVGaiter
+- type: loadoutGroup
+  id: PDVBackpack
+  name: loadout-group-contractor-backpack
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PDVClothingBackpack
+  - PDVClothingSatchel
+  - PDVClothingDuffel
+  fallbacks:
+  - PDVClothingBackpack
+- type: loadoutGroup
+  id: PDVHead
+  name: loadout-group-contractor-head
+  minLimit: 0
+  loadouts:
+  - PDVBeret
+- type: loadoutGroup
+  id: PDVCommanderHead
+  name: loadout-group-contractor-head
+  minLimit: 1
+  loadouts:
+  - PDVCommanderBeret
+  - PDVCapVizier
+  - PDVCapVizierPurple
+  fallbacks:
+  - PDVCommanderBeret
+- type: loadoutGroup
+  id: PDVBelt
+  name: loadout-group-contractor-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PDVClothingBeltWebbingsNormalBlack
+  - PDVClothingBeltWebbingsBigBlack
+  fallbacks:
+  - PDVClothingBeltWebbingsNormalBlack
+

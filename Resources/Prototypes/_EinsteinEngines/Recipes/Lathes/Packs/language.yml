@@ -5,15 +5,18 @@
   - BubblishTranslator
   - NekomimeticTranslator
   - DraconicTranslator
-  - SolCommonTranslator
+  # - SolCommonTranslator
   - RootSpeakTranslator
   - MofficTranslator
   - XenoTranslator
   - AnimalTranslator
   - ValyrianStandardTranslator
   - ChittinTranslator
-  - SiikMaasTranslator
-  - MarishTranslator
+  - GaryTranslator # Mono
+  - NovaCygniTranslator # Mono
+  # - SiikMaasTranslator
+  # - MarishTranslator
+  - NewKinPidginTranslator
 
 - type: latheRecipePack
   id: TranslatorImplanters
@@ -24,10 +27,13 @@
   - BubblishTranslatorImplanter
   - NekomimeticTranslatorImplanter
   - DraconicTranslatorImplanter
-  - SolCommonTranslatorImplanter
+#  - SolCommonTranslatorImplanter
   - RootSpeakTranslatorImplanter
   - MofficTranslatorImplanter
   - ValyrianStandardTranslatorImplanter
   - ChittinTranslatorImplanter
-  - SiikMaasTranslatorImplanter
-  - MarishTranslatorImplanter
+  - GaryTranslatorImplanter # Mono
+  - NovaCygniTranslatorImplanter # Mono
+#  - SiikMaasTranslatorImplanter
+#  - MarishTranslatorImplanter
+  - NewKinPidginTranslatorImplanter

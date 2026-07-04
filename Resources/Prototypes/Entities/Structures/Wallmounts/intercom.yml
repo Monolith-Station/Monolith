@@ -244,7 +244,6 @@
   parent: [BaseStructureIndestructible, BaseIntercomSecure] # Frontier - added BaseStructureIndestructible
   suffix: Command
   description: An intercom. It's been reinforced with metal.
-  categories: [ DoNotMap ] # Frontier
   components:
   - type: ContainerFill
     containers:
@@ -344,7 +343,6 @@
   id: IntercomAll
   parent: [BaseStructureIndestructible, Intercom] # Frontier - added BaseStructureIndestructible
   suffix: All
-  categories: [ DoNotMap ] # Frontier
   components:
   - type: ContainerFill
     containers:

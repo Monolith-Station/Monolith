@@ -1,11 +1,7 @@
-# SPDX-FileCopyrightText: 2025 Avalon
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: construction
   name: Magic Crayon
   id: CrayonMagic
-  graph: magic_crayon
+  graph: MagicCrayonGraph # Mono: change graph id to fit proper naming
   startNode: start
   targetNode: magicCrayon
   category: construction-category-misc

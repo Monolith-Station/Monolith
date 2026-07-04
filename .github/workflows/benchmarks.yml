@@ -1,15 +1,17 @@
-﻿name: Benchmarks
+name: Benchmarks
 on:
   workflow_dispatch:
 
-concurrency: benchmarks
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   benchmark:
     name: Run Benchmarks
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.6.0
+    - uses: actions/checkout@v4.2.2
       with:
         submodules: 'recursive'
     - name: Get Engine version

@@ -38,4 +38,12 @@ public sealed partial class CartridgeAmmoComponent : AmmoComponent
 
     [DataField("soundEject")]
     public SoundSpecifier? EjectSound = new SoundCollectionSpecifier("CasingEject");
+
+    // Mono start
+    /// <summary>
+    /// Whether to addcomp timeddespawn, and dictates the lifetime of spent boolets. Set to 0 to ignore.
+    /// </summary>
+    [DataField]
+    public float AutoTimedDespawn = 30f;
+    // Mono end
 }

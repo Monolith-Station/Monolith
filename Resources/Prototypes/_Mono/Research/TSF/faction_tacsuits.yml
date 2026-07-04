@@ -1,46 +1,42 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: technology
   id: TsfmcBasicEquipment
   name: research-technology-tsfmc-basic-equipment
-  icon:
-    sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82c.rsi
-    state: icon
+  entityIcon: ClothingOuterHardsuitM82c
   discipline: TsfmcEquipment
   tier: 1
   cost: 20000
   recipeUnlocks:
   - ClothingOuterHardsuitM82cTsf
   - ClothingOuterHardsuitM82bTsf
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, 1
 
 - type: technology
   id: TsfmcAdvancedEquipment
   name: research-technology-tsfmc-advanced-equipment
-  icon:
-    sprite: _Mono/Clothing/OuterClothing/Hardsuits/m86.rsi
-    state: icon
+  entityIcon: ClothingOuterHardsuitM86
   discipline: TsfmcEquipment
   tier: 2
   cost: 35000
   recipeUnlocks:
   - ClothingOuterHardsuitM86Tsf
+  - MechIFFTSF
   technologyPrerequisites:
   - TsfmcBasicEquipment
+  - UniversalMaterialResearchT2
+  position: 12, 7
 
 - type: technology
   id: TsfmcExperimentalEquipment
   name: research-technology-tsfmc-experimental-equipment
-  icon:
-    sprite: _Mono/Clothing/OuterClothing/Hardsuits/tsfmc_experimental.rsi
-    state: icon
+  entityIcon: ClothingOuterHardsuitNfsdExperimental
   discipline: TsfmcEquipment
   tier: 3
   cost: 85000
   recipeUnlocks:
-  - ClothingOuterHardsuitM92XTsf # MAYBE THIS WILL GET YOU TO DO RESEARCH BRO
+  - ClothingOuterHardsuitM92XTsf
   technologyPrerequisites:
-  - TsfmcBasicEquipment
   - TsfmcAdvancedEquipment
-  - TsfSynthalloy
+  - UniversalMaterialResearchT3
+  position: 12, 12

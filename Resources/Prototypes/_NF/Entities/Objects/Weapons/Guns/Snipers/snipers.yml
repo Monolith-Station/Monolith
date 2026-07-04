@@ -5,12 +5,12 @@
   suffix: Non-lethal
   components:
   - type: BallisticAmmoProvider # Inherit whitelist, capacity from parent
-    proto: Cartridge7.62x54mmRRubber
+    proto: Cartridge762x54mmRRubber
 
 # Frontier
 - type: entity
   name: N2524 Pattern Repeater (.45 magnum)
-  parent: [ BaseC1Contraband, BaseWeaponSniper, BaseGunWieldable ]
+  parent: [ BaseWeaponSniper, BaseGunWieldable ]
   id: WeaponSniperRepeater
   description: A civilian grade lever action firearm, favored by space cowboys across the Frontier for its reliability and stopping power. Uses .45 magnum ammo.
   components:

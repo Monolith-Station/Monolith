@@ -1,25 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Myctai
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2023 Artjom
-// SPDX-FileCopyrightText: 2023 Kevin Zheng
-// SPDX-FileCopyrightText: 2023 Morb
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 Mervill
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 neuPanda
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 gus
-// SPDX-FileCopyrightText: 2025 sleepyyapril
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server._Mono.Ships.Systems;
 using Content.Server._Mono.Shuttles.Components;
 using Content.Server.Power.EntitySystems;
@@ -52,27 +30,28 @@ using Content.Server.Station.Components;
 using Content.Shared._Mono.FireControl;
 using Content.Shared._Mono.Ships.Components;
 using Content.Shared.Verbs;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Shuttles.Systems;
 
 public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 {
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly TagSystem _tags = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedContentEyeSystem _eyeSystem = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly RadioSystem _radioSystem = default!;
-    [Dependency] private readonly StationJobsSystem _stationJobs = default!;
-    [Dependency] private readonly ILogManager _log = default!;
-    [Dependency] private readonly CrewedShuttleSystem _crewedShuttle = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private AlertsSystem _alertsSystem = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ShuttleSystem _shuttle = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private TagSystem _tags = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private SharedContentEyeSystem _eyeSystem = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private RadioSystem _radioSystem = default!;
+    [Dependency] private StationJobsSystem _stationJobs = default!;
+    [Dependency] private ILogManager _log = default!;
+    [Dependency] private CrewedShuttleSystem _crewedShuttle = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -80,6 +59,8 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     private EntityQuery<TransformComponent> _xformQuery;
 
     private readonly HashSet<Entity<ShuttleConsoleComponent>> _consoles = new();
+
+    private static readonly ProtoId<TagPrototype> CanPilotTag = "CanPilot";
 
     public override void Initialize()
     {
@@ -199,10 +180,10 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     {
         var shuttle = _transform.GetParentUid(uid);
         var uiOpen = _crewedShuttle.AnyGunneryConsoleActiveByPlayer(shuttle, args.User);
-        var hasComp = HasComp<CrewedShuttleComponent>(shuttle);
+        var forceOne = HasComp<CrewedShuttleComponent>(shuttle) && !HasComp<AdvancedPilotComponent>(args.User);
 
         // Crewed shuttles should not allow people to have both gunnery and shuttle consoles open.
-        if (uiOpen && hasComp)
+        if (uiOpen && forceOne)
         {
             args.Cancel();
             _popup.PopupClient(Loc.GetString("shuttle-console-crewed"), args.User);
@@ -224,7 +205,6 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     {
         DockingInterfaceState? dockState = null;
         UpdateState(uid, ref dockState);
-        _shuttle.NfSetPowered(uid, component, args.Powered); // Frontier
 
         // Handle job slots when power changes
         HandleJobSlotsOnPowerChange(uid, component, args.Powered);
@@ -232,7 +212,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
     private bool TryPilot(EntityUid user, EntityUid uid)
     {
-        if (!_tags.HasTag(user, "CanPilot") ||
+        if (!_tags.HasTag(user, CanPilotTag) ||
             !TryComp<ShuttleConsoleComponent>(uid, out var component) ||
             !this.IsPowered(uid, EntityManager) ||
             !Transform(uid).Anchored ||
@@ -315,23 +295,15 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
                 processedMainGrid = true;
             }
 
-            if (TryComp<FTLLockComponent>(dockedEntity, out var ftlLock))
-            {
-                Logger.DebugS("shuttle", $"Setting FTL lock for {ToPrettyString(dockedEntity)} to {args.Enabled}");
-                ftlLock.Enabled = args.Enabled;
-                Dirty(dockedEntity, ftlLock);
-            }
+            SetFTLLock(dockedEntity, args.Enabled);
+            Logger.DebugS("shuttle", $"Setting FTL lock for {ToPrettyString(dockedEntity)} to {args.Enabled}");
         }
 
         // If we didn't process the main grid yet, do it now
         if (!processedMainGrid && shuttleGrid != null)
         {
-            if (TryComp<FTLLockComponent>(shuttleGrid, out var ftlLock))
-            {
-                Logger.DebugS("shuttle", $"Setting FTL lock for main grid {ToPrettyString(shuttleGrid.Value)} to {args.Enabled}");
-                ftlLock.Enabled = args.Enabled;
-                Dirty(shuttleGrid.Value, ftlLock);
-            }
+            SetFTLLock(shuttleGrid.Value, args.Enabled);
+            Logger.DebugS("shuttle", $"Setting FTL lock for main grid {ToPrettyString(shuttleGrid.Value)} to {args.Enabled}");
         }
     }
 
@@ -347,27 +319,26 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         var modified = false;
 
         // Modify the main shuttle if it has the component
-        if (TryComp<FTLLockComponent>(shuttleUid, out var shuttleFtlLock))
-        {
-            shuttleFtlLock.Enabled = enabled;
-            Dirty(shuttleUid, shuttleFtlLock);
-            modified = true;
-        }
+        SetFTLLock(shuttleUid, enabled);
+        modified = true;
 
         // Modify any docked entities if provided
         foreach (var dockedEntityNet in dockedEntities)
         {
             var dockedEntity = GetEntity(dockedEntityNet);
 
-            if (TryComp<FTLLockComponent>(dockedEntity, out var ftlLock))
-            {
-                ftlLock.Enabled = enabled;
-                Dirty(dockedEntity, ftlLock);
-                modified = true;
-            }
+            SetFTLLock(dockedEntity, enabled);
+            modified = true;
         }
 
         return modified;
+    }
+
+    public void SetFTLLock(EntityUid shuttleUid, bool enabled)
+    {
+        var ftlLock = EnsureComp<FTLLockComponent>(shuttleUid);
+        ftlLock.Enabled = enabled;
+        Dirty(shuttleUid, ftlLock);
     }
 
     /// <summary>

@@ -1,15 +1,3 @@
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Qulibly
-# SPDX-FileCopyrightText: 2024 VividPups
-# SPDX-FileCopyrightText: 2025 Dvir
-# SPDX-FileCopyrightText: 2025 FireFoxPhoenix
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # T1: common
 - type: entity
   name: random weapon
@@ -102,11 +90,11 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseShortFireBomb
-    chance: 0.3
+    chance: 1.0
     offset: 0.0
     rarePrototypes:
     - SpawnDungeonLootExplosivesT2
-    rareChance: 0.1
+    rareChance: 0.4
 
 # T2: uncommon
 - type: entity
@@ -160,17 +148,13 @@
     prototypes:
     - WeaponCaseShortViper
     - WeaponCaseShortDeckardExpedition
-    - WeaponCaseShortRevolverPirate
     - WeaponCaseShortPython
     - WeaponCaseShortFitzExpedition
     - WeaponCaseShortLuckyExpedition
-    - WeaponCaseLongGestioExpedition
-    - WeaponCaseLongWeaponRifleNovaliteC1Expedition
     - WeaponCaseLongKammererExpedition
-    - WeaponCaseLongEnergyGunExpedition
     - WeaponCaseLongRepeaterExpedition
-    - WeaponCaseLongSVSExpedition
     - WeaponCaseLongAK220 # Mono
+    - WeaponCaseLongTypewriterExpedition
     - L58Flatpack
     - AK570Flatpack
     chance: 1.0
@@ -198,11 +182,11 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseShortPipeBomb
-    chance: 0.4
+    chance: 1.0
     offset: 0.0
     rarePrototypes:
     - SpawnDungeonLootExplosivesT3
-    rareChance: 0.1
+    rareChance: 0.4
 
 # T3: rare
 - type: entity
@@ -257,11 +241,15 @@
     - WeaponCaseLongWT550Expedition
     - WeaponCaseLongDrozdExpedition
     - WeaponCaseLongLecterExpedition
+    - WeaponCaseLongIrohExpedition # Mono
     - WeaponCaseLongLaserCarbineExpedition
-    - WeaponCaseShortSvalinnExpedition
     - WeaponCaseShortAdvancedLaserExpedition
     - WeaponCaseShortEg4 # Mono
     - WeaponCaseShortAnaconda # Mono
+    - WeaponCaseLongM90Expedition
+    - WeaponCaseLongC20r
+    - WeaponCaseLongBulldog
+    - WeaponCaseLongVulcanExpedition
     - WeaponCaseMla73 # Mono
     - Type35Flatpack
     - AK570Flatpack
@@ -291,11 +279,12 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseShortSeismicCharge
-    chance: 0.5
+    - WeaponCaseShortBombCollar
+    chance: 1.0
     offset: 0.0
     rarePrototypes:
     - SpawnDungeonLootExplosivesT4
-    rareChance: 0.1
+    rareChance: 0.5
 
 # T4: extremely rare
 - type: entity
@@ -347,12 +336,11 @@
     prototypes:
     - WeaponCaseShortN1984Expedition
     - WeaponCaseShortAntiqueLaserExpedition
-    - WeaponCaseLongM90Expedition
-    - WeaponCaseLongC20r
     - WeaponCaseLongAk
     - WeaponCaseLongEnforcerExpedition
     - WeaponCaseLongLaserCannonExpedition
-    - WeaponCaseLongVulcanExpedition
+    - WeaponCaseDP29
+    - WeaponCaseMla34
     - WeaponCaseAbielle # Mono
     - WeaponCaseWspr # Mono
     - WeaponCaseAnnie # Mono
@@ -381,11 +369,11 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseShortExGrenade
-    chance: 0.4
+    chance: 1.0
     offset: 0.0
     rarePrototypes:
     - SpawnDungeonLootExplosivesT5
-    rareChance: 0.01
+    rareChance: 0.4
 
 # T5: next to unobtainable
 - type: entity
@@ -436,10 +424,9 @@
     - WeaponCaseHeavyAsmgtExpeditions
     - WeaponCaseLongXrayCannonExpedition
     - WeaponCaseLongJackdaw
-    - WeaponCaseLongTypewriterExpedition
     - WeaponCaseLongHristovExpedition
     - WeaponCaseMr8c # Mono
-    - WeaponSmartLmg # Mono
+    - WeaponCaseMla79 # Mono
     chance: 1.0
     offset: 0.0
 
@@ -462,7 +449,7 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseShortC4
-    chance: 0.3
+    chance: 1.0
     offset: 0.0
 
 # Ammo

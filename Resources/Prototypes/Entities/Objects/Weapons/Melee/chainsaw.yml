@@ -14,7 +14,7 @@
     sprite: Objects/Weapons/Melee/chainsaw.rsi
     state: icon
   - type: MeleeWeapon
-    heavyStaminaCost: 10 # goob edit
+    heavyStaminaCost: 2 # Mono reduced from 10 to 2 so you no longer hit stamcrit from 2 seconds of using the weapon
     autoAttack: true
     angle: 0
     wideAnimationRotation: -135
@@ -32,7 +32,7 @@
     damage:
       types:
         Slash: 6
-        Structural: 4
+        Structural: 6 # Mono increased damage from 4 to 6 for an even 10 struct, keep in mind a breaching hammer does 300 in one hit and that would be about 30 attacks from this
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/chainsaw.rsi

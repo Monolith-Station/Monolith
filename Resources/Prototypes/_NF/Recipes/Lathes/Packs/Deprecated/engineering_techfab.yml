@@ -54,6 +54,8 @@
     - HolofanProjector
     - FireExtinguisher
     - GasDepositLocator
+    - RPED # Mono
+    - MetalFoamGrenade #Mono
   ## Parts
     - MicroManipulatorStockPart
     - MatterBinStockPart
@@ -79,6 +81,8 @@
     - SolarTrackerElectronics
     - SolarAssemblyFlatpack
     - ShuttleConsoleCircuitboard
+    - ShuttleConsoleCircuitboardTSFN # Mono
+    - ShuttleConsoleCircuitboardKPV63RWR # Mono
     - PortableGeneratorPacmanMachineCircuitboard
     - PortableGeneratorSuperPacmanMachineCircuitboard
     - PortableGeneratorJrPacmanMachineCircuitboard
@@ -89,6 +93,7 @@
   ## Clothing
     - UtilityBelt
     - ConstructionBag
+    - MaterialBoxFlatpack # Mono
   ## EVA
     - ClothingOuterEVASuitEngineer
     - ClothingOuterEVASuitAtmosTech
@@ -113,6 +118,7 @@
     - WelderExperimental
     - JawsOfLife
     - PowerDrill
+    - TrayGoggles # Mono
     - JetpackVoid
     - PowerCellHigh
     - PowerCellMicroreactor
@@ -129,8 +135,10 @@
     - RPED
     - MiningDrill
     - MiningDrillDiamond
-    - RCD # Mono
-    - RCDAmmo # Mono
+    - RCD # Mono start
+    - RCDAmmo
+    - ShipRepairDevice
+    - ShipRepairDeviceAmmo #Mono end
     - SignallerAdvanced
     - ClothingOuterHardsuitBasic
     - ClothingOuterHardsuitAtmos

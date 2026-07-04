@@ -54,4 +54,11 @@ public abstract partial class SharedLightningComponent : Component
     /// </summary>
     [DataField("collisionMask")]
     public int CollisionMask = (int) (CollisionGroup.MobMask | CollisionGroup.MachineMask);
+
+    // Mono
+    /// <summary>
+    /// Entity to spawn on the hit target, if any.
+    /// </summary>
+    [DataField]
+    public EntProtoId? SpawnOnHit = null;
 }

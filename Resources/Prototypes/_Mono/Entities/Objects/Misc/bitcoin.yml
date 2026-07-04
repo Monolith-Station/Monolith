@@ -1,0 +1,81 @@
+- type: entity
+  parent: BaseItem
+  id: BaseBitcoin
+  name: basic bitcoin
+  abstract: true
+  description: A valuable bitcoin, composed of arbitrary data. Definitely a good investment.
+  components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
+      params:
+        volume: -6
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/bitcoin.rsi
+    layers:
+    - state: icon
+    - state: fluffcoin
+  - type: DriftingPrice
+    minInitial: 8000
+    maxInitial: 12000
+    basePrice: 10000
+    stability: 0.4
+    driftRate: 0.025
+
+- type: entity
+  parent: BaseBitcoin
+  id: BitcoinContribcoin
+  name: Contribcoin™
+  description: A weirdly valuable bitcoin composed of many generic definitions, raw data and operating presets. Slightly volatile.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/bitcoin.rsi
+    layers:
+    - state: icon
+    - state: fluffcoin
+
+- type: entity
+  parent: BaseBitcoin
+  id: BitcoinIdeascoin
+  name: Ideascoin™
+  description: A strangely valuable bitcoin composed of raw conceptual data of a multitude of completely hypothetical things. Moderately volatile.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/bitcoin.rsi
+    layers:
+    - state: icon
+    - state: kyrescoin
+  - type: DriftingPrice
+    minInitial: 12000
+    maxInitial: 18000
+    basePrice: 15000
+    stability: 0.2
+    driftRate: 0.05
+
+- type: entity
+  parent: BaseBitcoin
+  id: BitcoinGoidacoin
+  name: Goidacoin™
+  description: An absurdly valuable and rare bitcoin, made up of tons of high(?)-quality code and generic systems. Highly volatile.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/bitcoin.rsi
+    layers:
+    - state: icon
+    - state: spiritcoin
+  - type: DriftingPrice
+    minInitial: 10000
+    maxInitial: 30000
+    basePrice: 20000
+    stability: 0.1
+    driftRate: 0.1

@@ -1,28 +1,7 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 Paul Ritter
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 Winkarst
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BaseMagazine12_gauge
   name: ammo drum (12 gauge shells)
-  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC1Contraband, added RecyclableItemSteelTiny
+  parent: [ BaseItem, RecyclableItemSteelTiny ]
   abstract: true
   components:
   - type: Tag
@@ -143,6 +122,65 @@
   - type: Sprite
     layers:
     - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#Mono AP system
+#anti-flesh ammo
+- type: entity
+  id: Magazine12_gaugeOOBuckshot
+  name: ammo drum (12 gauge OO magnum buckshot)
+  parent: BaseMagazine12_gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgun12_gaugeOOBuckshot
+  - type: Sprite
+    layers:
+    - state: pellets
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine12_gaugeSlugRIP
+  name: ammo drum (12 gauge RIP)
+  parent: BaseMagazine12_gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgun12_gaugeSlugRIP
+  - type: Sprite
+    layers:
+    - state: RIP
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#armor-piercing ammo
+- type: entity
+  id: Magazine12_gaugeSlugAP
+  name: ammo drum (12 gauge armor-piercing slug)
+  parent: BaseMagazine12_gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgun12_gaugeSlugAP
+  - type: Sprite
+    layers:
+    - state: slug-AP
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine12_gaugeFlechette
+  name: ammo drum (12 gauge flechette)
+  parent: BaseMagazine12_gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgun12_gaugeFlechette
+  - type: Sprite
+    layers:
+    - state: flechette
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]

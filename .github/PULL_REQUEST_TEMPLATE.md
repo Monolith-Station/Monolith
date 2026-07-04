@@ -1,4 +1,3 @@
-<!-- Guidelines: https://docs.spacestation14.io/en/getting-started/pr-guideline -->
 
 ## About the PR
 <!-- What did you change? -->
@@ -7,23 +6,23 @@
 ## Why / Balance
 <!-- Discuss how this would affect game balance or explain why it was changed. Link any relevant discussions or issues. -->
 
-## How to test
-<!-- Describe the way it can be tested -->
-
 ## Media
 <!-- Attach media if the PR makes ingame changes (clothing, items, features, etc). 
 Small fixes/refactors are exempt. Media may be used in SS14 progress reports with credit. -->
 
 ## Requirements
 <!-- Confirm the following by placing an X in the brackets [X]: -->
-- [ ] I have read and am following the [Pull Request and Changelog Guidelines](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html).
+- [ ] I have read relevant guidelines/documentation to this PR found on [our devwiki](https://monolith-station.github.io/mono-docs/).
 - [ ] I have added media to this PR or it does not require an ingame showcase.
-- [ ] I can confirm this PR contains no AI-generated content, and did not use any AI-generated content.
+- [ ] I can confirm this PR contains either no AI-generated content, or AI-generated content that meets our guidelines.
 <!-- You should understand that not following the above may get your PR closed at maintainer’s discretion -->
+<!-- When using AI, make sure you are already proficient in creating whatever content you are attempting to generate and that you already have experience contributing to SS14. This means using AI to enhance your preexisting workflow, not vibecoding. -->
+
+## How to test
+<!-- Describe the way it can be tested -->
 
 ## Breaking changes
-<!-- List any breaking changes, including namespaces, public class/method/field changes, prototype renames; and provide instructions for fixing them.
-This will be posted in #codebase-changes. -->
+<!-- List any breaking changes, including namespaces, public class/method/field changes, prototype renames; and provide instructions for fixing them. -->
 
 **Changelog**
 <!-- Add a Changelog entry to make players aware of new features or changes that could affect gameplay.

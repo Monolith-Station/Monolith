@@ -18,7 +18,7 @@ public sealed partial class RadarConsoleComponent : Component
     }
 
     [DataField, AutoNetworkedField]
-    public float MaxRange = 256f;
+    public float MaxRange = 3072f; // Mono - 256->3072
 
     /// <summary>
     /// If true, the radar will be centered on the entity. If not - on the grid on which it is located.
@@ -39,4 +39,31 @@ public sealed partial class RadarConsoleComponent : Component
     [DataField]
     public bool HideCoords = false;
     // End Frontier
+
+    // <Mono>
+    [DataField]
+    public bool Pannable = true;
+
+    /// <summary>
+    /// Whether to still follow the console after being panned.
+    /// </summary>
+    [DataField]
+    public bool RelativePanning = false;
+
+    /// <summary>
+    /// Whether to always face north-up.
+    /// </summary>
+    [DataField]
+    public bool NoRotate = false;
+
+    // supported behavior modes:
+    // |  panned  | unpanned |  panned  | unpanned |   bool   |
+    // | rotation | rotation |  anchor  |  anchor  | settings |
+    // |----------|----------|----------|----------|----------|
+    // | north    | north    | follow   | static   | 00       |
+    // | north    | follow   | static   | follow   | 01       |
+    // | follow   | follow   | follow   | follow   | 10       |
+    // | north    | north    | follow   | follow   | 11       |
+
+    // </Mono>
 }

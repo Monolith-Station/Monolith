@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 Redrover1760
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: CombatMech
   abstract: true
@@ -47,7 +41,7 @@
 # Ripley MK-II
 - type: entity
   id: MechRipley2
-  parent: [ BaseMech, IndustrialMech, BaseCargoContraband ]
+  parent: [ BaseMech, IndustrialMech ]
   name: Ripley APLU MK-II
   description: The "MK-II" has a pressurized cabin for space operations, but the added weight has slowed it down.
   components:
@@ -68,11 +62,12 @@
     baseState: ripleymkii
     openState: ripleymkii-open
     brokenState: ripleymkii-broken
-    mechToPilotDamageMultiplier: 0.4
+    mechToPilotDamageMultiplier: 0.25 # Mono
     airtight: true
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -83,7 +78,9 @@
     baseWalkSpeed: 1
     baseSprintSpeed: 2
   - type: Damageable
-    damageModifierSet: MediumArmorNT
+    damageModifierSet: MechArmorIndustrial # Mono
+  - type: ExplosionResistance
+    damageCoefficient: 0.5 # Mono
   - type: StaticPrice
     price: 1000
   - type: Tag
@@ -92,6 +89,11 @@
     - FootstepSound
     - RipleyMkII
     - CivilianMechBounty # Mono
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechRipley2Battery
@@ -106,7 +108,7 @@
 # Clarke
 - type: entity
   id: MechClarke
-  parent: [ BaseMech, IndustrialMech, BaseCargoContraband ]
+  parent: [ BaseMech, IndustrialMech ]
   name: Clarke
   description: A fast-moving mech for space travel. It has built-in trusts.
   components:
@@ -127,11 +129,12 @@
     baseState: clarke
     openState: clarke-open
     brokenState: clarke-broken
-    mechToPilotDamageMultiplier: 0.5
+    mechToPilotDamageMultiplier: 0.25 # Mono
     airtight: true
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -141,6 +144,11 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 4.5
+    baseWeightlessModifier: 10 # Mono
+  - type: Damageable
+    damageModifierSet: MechArmorIndustrial # Mono
+  - type: ExplosionResistance
+    damageCoefficient: 0.5 # Mono
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: StaticPrice
@@ -151,6 +159,37 @@
     - FootstepSound
     - Clarke
     - CivilianMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 2
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
+  # Mono begin - internal ore storage
+  - type: MagnetPickup
+    magnetEnabled: false
+    range: 2
+  - type: Storage
+    maxItemSize: Normal
+    clickInsert: false
+    openOnActivate: false
+    grid:
+    - 0,0,15,7 # Bigger than standart ore bag but smaller than box
+    whitelist:
+      tags:
+        - ArtifactFragment
+        - Ore
+        - Ingot
+        - Sheet
+      components:
+        - ConstructionMaterials
+  - type: Dumpable
+    multiplier: 2
+  # Mono end
 
 - type: entity
   id: MechClarkeBattery
@@ -178,9 +217,9 @@
 # Gygax
 - type: entity
   id: MechGygax
-  parent: [ BaseMech, CombatMech, BaseRestrictedContraband ]
+  parent: [ BaseMech, CombatMech ]
   name: Gygax
-  description: While lightly armored, the Gygax has incredible mobility thanks to its ability that lets it smash through walls at high speeds.
+  description: While lightly armored, the Gygax has incredible mobility thanks to its ability to punch through walls at high speeds.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -195,15 +234,31 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Mech
     baseState: gygax
     openState: gygax-open
     brokenState: gygax-broken
-    mechToPilotDamageMultiplier: 0.3
+    mechToPilotDamageMultiplier: 0.1 # Mono
+    criticalPowerStateSpeedPenalty: 0.5 # Mono
+    maxIntegrity: 500 # Mono
     airtight: true
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -211,11 +266,14 @@
       types:
         Blunt: 25
         Structural: 180
+  - type: Damageable
+    damageModifierSet: MechArmorMedium # Mono
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 2.6
+  - type: MovementSpeedModifier # Mono
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4.5
+    baseWeightlessModifier: 7.5
   - type: StaticPrice
     price: 3000
   - type: Tag
@@ -224,6 +282,17 @@
     - FootstepSound
     - Gygax
     - MilitaryMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechGygaxBattery
@@ -233,12 +302,12 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - PowerCageMedium # Mono
 
 # Durand
 - type: entity
   id: MechDurand
-  parent: [ BaseMech, CombatMech, BaseRestrictedContraband ]
+  parent: [ BaseMech, CombatMech ]
   name: Durand
   description: A slow but beefy combat exosuit that is extra scary in confined spaces due to its punches. Xenos hate it!
   components:
@@ -255,33 +324,49 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1750
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Mech
     baseState: durand
     openState: durand-open
     brokenState: durand-broken
     mechToPilotDamageMultiplier: 0.25
     airtight: true
-    maxIntegrity: 400
+    maxIntegrity: 1350
+    maxEquipmentAmount: 3
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
     damage:
       types:
-        Blunt: 40
-        Structural: 220
+        Blunt: 60
+        Structural: 250
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.5
     baseSprintSpeed: 2
+    baseWeightlessModifier: 4.5 # Mono
   - type: Damageable
-    damageModifierSet: MediumArmorNT
+    damageModifierSet: MechArmorHeavy
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: Repairable
-    fuelCost: 30
-    doAfterDelay: 15
+    fuelCost: 55
+    doAfterDelay: 20
   - type: StaticPrice
     price: 5000
   - type: Tag
@@ -290,6 +375,16 @@
     - FootstepSound
     - Durand
     - MilitaryMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechDurandBattery
@@ -299,14 +394,14 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHigh
+      - PowerCageMedium # Mono
 
 # Nanotrasen Combat Mechs
 
 # Marauder
 - type: entity
   id: MechMarauder
-  parent: [ BaseMech, CombatMech, BaseCentcommContraband ]
+  parent: [ BaseMech, CombatMech ]
   name: Marauder
   description: Looks like we're all saved. # ERT mech
   components:
@@ -323,17 +418,31 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1600
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Mech
     baseState: marauder
     openState: marauder-open
     brokenState: marauder-broken
     mechToPilotDamageMultiplier: 0.1
     airtight: true
-    maxIntegrity: 500
+    maxIntegrity: 1200
     maxEquipmentAmount: 4
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -344,8 +453,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
     baseSprintSpeed: 1.5
+    baseWeightlessModifier: 4.5 # Mono
   - type: Damageable
-    damageModifierSet: HeavyArmorNT
+    damageModifierSet: MechArmorHeavy
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: Repairable
@@ -358,6 +468,16 @@
     - DoorBumpOpener
     - FootstepSound
     - MilitaryMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechMarauderBattery
@@ -367,7 +487,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHyper
+      - PowerCageMedium # Mono
 
 - type: entity
   id: MechMarauderFilled
@@ -384,7 +504,7 @@
 # Seraph
 - type: entity
   id: MechSeraph
-  parent: [ BaseMech, CombatMech, BaseCentcommContraband ]
+  parent: [ BaseMech, CombatMech ]
   name: Seraph
   description: That's the last thing you'll see. # Death Squad mech
   components:
@@ -401,17 +521,31 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1800
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Mech
     baseState: seraph
     openState: seraph-open
     brokenState: seraph-broken
     mechToPilotDamageMultiplier: 0.05
     airtight: true
-    maxIntegrity: 550
+    maxIntegrity: 1200
     maxEquipmentAmount: 5
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -422,8 +556,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.2
     baseSprintSpeed: 3.7
+    baseWeightlessModifier: 4.5 # Mono
   - type: Damageable
-    damageModifierSet: HeavyArmorNT
+    damageModifierSet: MechArmorHeavy
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: Repairable
@@ -436,6 +571,16 @@
     - DoorBumpOpener
     - FootstepSound
     - MilitaryMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechSeraphBattery
@@ -465,9 +610,9 @@
 # Dark Gygax
 - type: entity
   id: MechGygaxSyndie
-  parent: [ BaseMech, CombatMech, BaseSyndicateContraband ]
+  parent: [ BaseMech, CombatMech ]
   name: Dark Gygax
-  description: A modified Gygax used for nefarious purposes. On the back of the armor plate there is an inscription "Cybersun Inc."
+  description: A modified Gygax used for nefarious purposes.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -482,17 +627,31 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Mech
     baseState: darkgygax
     openState: darkgygax-open
     brokenState: darkgygax-broken
     mechToPilotDamageMultiplier: 0.15
     airtight: true
-    maxIntegrity: 300
+    maxIntegrity: 900
     maxEquipmentAmount: 4
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -501,10 +660,11 @@
         Blunt: 30
         Structural: 200
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.2
-    baseSprintSpeed: 3.7
+    baseWalkSpeed: 3.5 # Mono
+    baseSprintSpeed: 5.5 # Mono
+    baseWeightlessModifier: 10.5 # Mono
   - type: Damageable
-    damageModifierSet: MediumArmorSyndi
+    damageModifierSet: MechArmorLight
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: Repairable
@@ -517,6 +677,16 @@
     - DoorBumpOpener
     - FootstepSound
     - MilitaryMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechGygaxSyndieBattery
@@ -526,7 +696,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHyper
+      - PowerCageMedium # Mono
 
 - type: entity
   id: MechGygaxSyndieFilled
@@ -543,9 +713,9 @@
 # Mauler
 - type: entity
   id: MechMaulerSyndie
-  parent: [ BaseMech, CombatMech, BaseSyndicateContraband ]
+  parent: [ BaseMech, CombatMech ]
   name: Mauler
-  description: A modified Marauder used by the Syndicate that's not as maneuverable as the Dark Gygax, but it makes up for that in armor and sheer firepower. On the back of the armor plate there is an inscription "Cybersun Inc."
+  description: A modified Marauder once used by the Syndicate. Not as maneuverable as the Dark Gygax, but it makes up for its speed in armor and sheer firepower.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -560,29 +730,43 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1800 # Mono
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Mech
     baseState: mauler
     openState: mauler-open
     brokenState: mauler-broken
     mechToPilotDamageMultiplier: 0.1
     airtight: true
-    maxIntegrity: 500
+    maxIntegrity: 1300
     maxEquipmentAmount: 5
     pilotWhitelist:
       components:
         - HumanoidAppearance
+        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
     damage:
       types:
-        Blunt: 50
+        Blunt: 60
         Structural: 400
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
     baseSprintSpeed: 1.5
   - type: Damageable
-    damageModifierSet: HeavyArmorSyndi
+    damageModifierSet: MechArmorHeavy
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: Repairable
@@ -595,6 +779,16 @@
     - DoorBumpOpener
     - FootstepSound
     - MilitaryMechBounty # Mono
+  - type: RadarBlip # Mono
+    radarColor: "#E3E3E3"
+    scale: 1.5
+    requireNoGrid: true
+    shape: square
+  - type: Prying # Mono
+    pryPowered: true
+    speedModifier: 3
+    useSound:
+      path: /Audio/Items/jaws_pry.ogg
 
 - type: entity
   id: MechMaulerSyndieBattery
@@ -604,7 +798,7 @@
   - type: ContainerFill
     containers:
       mech-battery-slot:
-      - PowerCellHyper
+      - PowerCageMedium # Mono
 
 - type: entity
   id: MechMaulerSyndieFilled

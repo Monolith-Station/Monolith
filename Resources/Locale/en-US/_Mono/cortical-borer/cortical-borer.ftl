@@ -22,6 +22,7 @@ cortical-borer-vomit = {$name} vomits out a {$egg}!
 cortical-borer-dispenser-window-cost = {$cost} chemicals
 cortical-borer-ghostrole-name = Cortical Borer
 cortical-borer-ghostrole-desc = A space worm with the sole purpose in life to enter peoples heads and lay its eggs.
+cortical-borer-ghostrole-rules = Lay your eggs and spread your hive, but killing is not top priority. If you kill for no reason, expect retaliation from above. In addition to this, you may [head=3][color=#04bf5e]INFECT[/color][/head] in [color=#e8d905]Colonial Outpost[/color] or [color=#2093b0]Medical Dispatch[/color] but killing in these locations is [head=3][color=#e00d26]FORBIDDEN[/color][/head] (RDM will result in a [color=#e00d26]1 day server ban[/color], often wordlessly, so if you kill someone, there better be a good reason.)
 
 ## Examine Text
 infested-control-examined = You have [color=#d842fc]{$timeremaining}[/color] seconds left controlling this body.

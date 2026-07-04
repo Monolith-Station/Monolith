@@ -10,28 +10,28 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: NFNotDoc
-  price: 20
+  price: 0 # Mono
   storage:
     back:
     - EncryptionKeyMedical
 
 - type: loadout
   id: ContractorEncryptionKeyCargo
-  price: 20
+  price: 0 # Mono
   storage:
     back:
     - EncryptionKeyCargo
 
 - type: loadout
   id: ContractorEncryptionKeyEngineering
-  price: 20
+  price: 0 # Mono
   storage:
     back:
     - EncryptionKeyEngineering
 
 - type: loadout
   id: ContractorEncryptionKeyScience
-  price: 20
+  price: 0 # Mono
   storage:
     back:
     - EncryptionKeyScience

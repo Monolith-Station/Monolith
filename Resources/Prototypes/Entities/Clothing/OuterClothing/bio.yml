@@ -12,7 +12,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Caustic: 0.5
+        Caustic: 0.2 # Mono - buff from 0.5
+        Poison: 0.2 # Mono - buff
+        Blunt: 0.9 # Mono
+        Piercing: 0.9 # Mono
+        Slash: 0.9 # Mono
   - type: StaticPrice
     vendPrice: 400
 

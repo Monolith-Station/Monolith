@@ -1,0 +1,239 @@
+- type: entity
+  parent: BaseTradeItem
+  id: BaseTradeItemVolatile
+  abstract: true
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      # Special behaviour for explosive ammo
+      - !type:ExplodeBehavior
+      - !type:SpawnGasBehavior
+        gasMixture:
+          volume: 1000
+          moles:
+          - 0 # oxygen
+          - 0 # nitrogen
+          - 340.5701689 # carbon dioxide
+          temperature: 373.15
+  - type: Explosive # Special behaviour for explosive ammo
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 2
+    totalIntensity: 50
+
+- type: entity
+  parent: BaseTradeItemVolatile
+  id: TradeGoodAmmo
+  name: ammo crate
+  description: A sealed crate of ammunition. A label on the side indicates it as explosive if damaged.
+  components:
+  - type: Sprite
+    state: ammo
+  - type: StaticPrice
+    vendPrice: 2500
+
+- type: entity
+  parent: BaseTradeItem
+  id: TradeGoodSupplies
+  name: supplies crate
+  description: A sealed crate of generic supplies.
+  components:
+  - type: Sprite
+    state: supplies
+  - type: StaticPrice
+    vendPrice: 1000
+
+- type: entity
+  parent: BaseTradeItem
+  id: TradeGoodMedicalSupplies
+  name: medical supplies crate
+  description: A sealed crate of medical supplies.
+  components:
+  - type: Sprite
+    state: supplies-med
+  - type: StaticPrice
+    vendPrice: 1000
+
+- type: entity
+  parent: BaseTradeItem
+  id: TradeGoodChemicalSupplies
+  name: chemical supplies crate
+  description: A sealed crate of chemical supplies.
+  components:
+  - type: Sprite
+    state: chems
+  - type: StaticPrice
+    vendPrice: 1500
+
+- type: entity
+  parent: BaseTradeItemVolatile
+  id: TradeGoodChemicalsVolatile
+  name: volatile chemical supplies crate
+  description: A sealed crate of volatile chemicals. A label on the side indicates it as explosive if damaged.
+  components:
+  - type: Sprite
+    state: chems-volatile
+  - type: StaticPrice
+    vendPrice: 1200
+
+- type: entity
+  parent: BaseTradeItem
+  id: TradeGoodFissionFuel
+  name: fission reactor fuel crate
+  description: A sealed crate of packaged nuclear fuel rods. Radioactive. Handle with care.
+  components:
+  - type: Sprite
+    state: fission
+  - type: StaticPrice
+    vendPrice: 6000
+  - type: RadiationSource
+    intensity: 3
+
+- type: entity
+  parent: BaseTradeItemVolatile
+  id: TradeGoodFusionFuel
+  name: fusion reactor fuel crate
+  description: A sealed crate of packaged D-T fuel cells for use in large fusion reactors. Radioactive and volatile if damaged. Handle with care.
+  components:
+  - type: Sprite
+    state: fusion
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      # Special behaviour for explosive ammo
+      - !type:ExplodeBehavior
+      - !type:SpawnGasBehavior
+        gasMixture:
+          volume: 1000
+          moles:
+          - 0 # oxygen
+          - 0 # nitrogen
+          - 0 # carbon dioxide
+          - 4 # plasma
+          - 4 # tritium
+          temperature: 1690.15
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 2
+    totalIntensity: 200 # 4x as volatile as ammo
+  - type: StaticPrice
+    vendPrice: 3000
+  - type: RadiationSource
+    intensity: 3
+
+- type: entity
+  parent: BaseTradeItem
+  id: TradeGoodWeaponParts
+  name: weapon parts crate
+  description: A sealed crate of various firearm components.
+  components:
+  - type: Sprite
+    state: weapon-components
+  - type: StaticPrice
+    vendPrice: 3000
+
+- type: entity
+  parent: BaseTradeItem
+  id: TradeGoodScrap
+  name: scrap crate
+  description: A sealed crate of scrap and salvage.
+  components:
+  - type: Sprite
+    state: scrap
+  - type: StaticPrice
+    vendPrice: 1000
+
+- type: entity
+  parent: BaseTradeItem
+  id: TradeGoodLuxuries
+  name: luxury goods crate
+  description: A sealed crate of luxuries.
+  components:
+  - type: Sprite
+    state: luxury
+  - type: StaticPrice
+    vendPrice: 5000
+
+- type: entity
+  parent: BaseTradeItem
+  id: TradeGoodEquipment
+  name: equipment crate
+  description: A sealed crate of various pieces of equipment and gear.
+  components:
+  - type: Sprite
+    state: equipment
+  - type: StaticPrice
+    vendPrice: 1000
+
+- type: entity
+  parent: BaseTradeItem
+  id: TradeGoodComponents
+  name: components crate
+  description: A sealed crate of various machine parts.
+  components:
+  - type: Sprite
+    state: components
+  - type: StaticPrice
+    vendPrice: 750
+
+- type: entity
+  parent: BaseTradeItem
+  id: TradeGoodShipComponents
+  name: ship components crate
+  description: A sealed crate of various ship parts.
+  components:
+  - type: Sprite
+    state: ship-components
+  - type: StaticPrice
+    vendPrice: 2400
+
+- type: entity
+  parent: BaseTradeItemVolatile
+  id: TradeGoodFertilizer
+  name: fertilizer crate
+  description: A sealed crate of fertilizer. A label on the side indicates it as explosive if damaged.
+  components:
+  - type: Sprite
+    state: fertilizer
+  - type: StaticPrice
+    vendPrice: 750
+
+- type: entity
+  parent: BaseTradeItem
+  id: TradeGoodFabric
+  name: fabric crate
+  description: A sealed crate of various fabrics.
+  components:
+  - type: Sprite
+    state: fabric
+  - type: StaticPrice
+    vendPrice: 1000
+
+- type: entity
+  parent: BaseTradeItem
+  id: TradeGoodMetals
+  name: metals crate
+  description: A sealed crate of various metals.
+  components:
+  - type: Sprite
+    state: metal
+  - type: StaticPrice
+    vendPrice: 1000

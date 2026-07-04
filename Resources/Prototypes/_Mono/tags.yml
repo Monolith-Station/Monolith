@@ -1,21 +1,95 @@
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 mikusssssss
-# SPDX-FileCopyrightText: 2025 significant harassment
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-# SPDX-FileCopyrightText: 2025 wewman222
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: Tag
+  id: ADSRepairTool
+
+- type: Tag
+  id: AdvancedLaserPistol
+
+- type: Tag
+  id: CartridgeMachineGun
+
+- type: Tag
+  id: CartridgeRocketEmp
+
+- type: Tag
+  id: CartridgeShell
 
 - type: Tag
   id: CassetteTape
 
 - type: Tag
+  id: IgnoreClawPenalty
+
+- type: Tag
+  id: Mask
+
+- type: Tag
   id: MREFood
+
+- type: Tag
+  id: OatmealBiscuit
+
+- type: Tag
+  id: PointDisk
+
+- type: Tag
+  id: RapidConstructionTool
+
+- type: Tag
+  id: SugarBiscuit
+
+- type: Tag
+  id: SimpleBiscuit
+
+- type: Tag
+  id: ShipRepairTool
+
+- type: Tag # Prevents a crash and makes future cherry-picks hurt less but not actually implemented
+  id: TurretCompatibleWeapon # Used in the construction of sentry turrets
+
+# Weapon attachments
+
+- type: Tag
+  id: MonoSuppressor
+
+- type: Tag
+  id: MonoSuppressorMulticalPistol
+
+- type: Tag
+  id: MonoSuppressorMulticalRifle
+
+- type: Tag
+  id: MonoGrip
+
+- type: Tag
+  id: MonoGripErebusRailmount
+
+- type: Tag
+  id: MonoGripPistolMount
+
+- type: Tag
+  id: MonoGripLAM
+
+- type: Tag
+  id: MonoGripLight
+
+- type: Tag
+  id: MonoGripVFG
+
+- type: Tag
+  id: MonoOptic
+
+- type: Tag
+  id: MonoOpticErebusRailmount
+
+# These are for the different sprite states. Please don't add more zooms, or I'll kill you.
+- type: Tag
+  id: MonoOptic2x
+
+- type: Tag
+  id: MonoOptic4x
+
+- type: Tag
+  id: MonoOptic8x
 
 # Crafting for desert planet
 
@@ -25,75 +99,105 @@
 - type: Tag
   id: SandMaterial
 
-#7.62x51mm tags
+# Heavy airlocks
 
 - type: Tag
-  id: Cartridge7.62x51mmFMJ
+  id: AirlockHeavy
 
 - type: Tag
-  id: Magazine7.62x51mmFMJ
+  id: GlassAirlockHeavy
+
+#AMMO START
+
+#762x51mm tags
 
 - type: Tag
-  id: Magazine7.62x51mmLowCapacityFMJ
+  id: Cartridge762x51mmFMJ
 
 - type: Tag
-  id: Magazine7.62x51mmBox
-
-#7.62x54mmR tags
+  id: Magazine762x51mmFMJ
 
 - type: Tag
-  id: Cartridge7.62x54mmRFMJ
+  id: Magazine762x51mmLowCapacityFMJ
 
 - type: Tag
-  id: Magazine7.62x54mmRFMJ
+  id: Magazine762x51mmBoxSmall
 
 - type: Tag
-  id: Magazine7.62x54mmRBox
+  id: Magazine762x51mmBoxBig
 
-#5.56x45mm tags
-
-- type: Tag
-  id: Cartridge5.56x45mmFMJ
+#762x54mmR tags
 
 - type: Tag
-  id: Magazine5.56x45mmFMJ
+  id: Cartridge762x54mmRFMJ
 
 - type: Tag
-  id: Magazine5.56x45mmBox
-
-#7.62x39mm tags
+  id: Magazine762x54mmRFMJ
 
 - type: Tag
-  id: Cartridge7.62x39mmFMJ
+  id: Magazine762x54mmRBox
+
+#6.8x52mm tags
 
 - type: Tag
-  id: Magazine7.62x39mmFMJ
+  id: Cartridge68x52mmCaseless
 
 - type: Tag
-  id: Magazine7.62x39mmLowCapacityFMJ
+  id: Magazine68x52mmCaseless
 
 - type: Tag
-  id: Magazine7.62x39mmBox
-
-#4.6x30mm tags
+  id: Magazine68x52mmCaselessBoxSmall
 
 - type: Tag
-  id: Cartridge4.6x30mmFMJ
+  id: Magazine68x52mmCaselessBoxBig
+
+#556x45mm tags
 
 - type: Tag
-  id: Magazine4.6x30mmPistolFMJ
+  id: Cartridge556x45mmFMJ
 
 - type: Tag
-  id: Magazine4.6x30mmPistolHighCapacityFMJ
+  id: Magazine556x45mmFMJ
 
 - type: Tag
-  id: Magazine4.6x30mmSubMachineGunFMJ
+  id: Magazine556x45mmBox
+
+#762x39mm tags
 
 - type: Tag
-  id: Magazine4.6x30mmSubMachineGunTopMountedFMJ
+  id: Cartridge762x39mmFMJ
 
 - type: Tag
-  id: Magazine4.6x30mmFMJBox
+  id: Magazine762x39mmFMJ
+
+- type: Tag
+  id: Magazine762x39mmLowCapacityFMJ
+
+- type: Tag
+  id: Magazine762x39mmBox
+
+- type: Tag
+  id: Magazine762x39mmPan
+
+#46x30mm tags
+
+- type: Tag
+  id: Cartridge46x30mmFMJ
+
+- type: Tag
+  id: Magazine46x30mmPistolFMJ
+
+- type: Tag
+  id: Magazine46x30mmPistolHighCapacityFMJ
+
+- type: Tag
+  id: Magazine46x30mmSubMachineGunFMJ
+
+- type: Tag
+  id: Magazine46x30mmSubMachineGunTopMountedFMJ
+
+- type: Tag
+  id: Magazine46x30mmFMJBox
 
 #45 ACP tags
 
@@ -115,6 +219,23 @@
 - type: Tag
   id: Magazine45_ACPFMJBox
 
+#45 magnum tags
+
+- type: Tag
+  id: Cartridge45_magnumFMJ
+
+- type: Tag
+  id: Magazine45_magnumPistolHighCapacityFMJ
+
+- type: Tag
+  id: SpeedLoader45_magnumFMJ
+
+- type: Tag
+  id: Magazine45_magnumPistolFMJ
+
+- type: Tag
+  id: Magazine45_magnumSubMachineGunFMJ
+
 #9x19mm tags
 
 - type: Tag
@@ -135,31 +256,45 @@
 - type: Tag
   id: Magazine9x19mmFMJBox
 
-#5.7x28mm tags
+- type: Tag
+  id: SpeedLoader9x19mmFMJ
+
+#57x28mm tags
 
 - type: Tag
-  id: Cartridge5.7x28mmFMJ
+  id: Cartridge57x28mmFMJ
 
 - type: Tag
-  id: Magazine5.7x28mmPistolFMJ
+  id: Magazine57x28mmPistolFMJ
 
 - type: Tag
-  id: Magazine5.7x28mmPistolHighCapacityFMJ
+  id: Magazine57x28mmPistolHighCapacityFMJ
 
 - type: Tag
-  id: Magazine5.7x28mmSubMachineGunFMJ
+  id: Magazine57x28mmSubMachineGunFMJ
 
 - type: Tag
-  id: Magazine5.7x28mmSubMachineGunTopMountedFMJ
+  id: Magazine57x28mmSubMachineGunTopMountedFMJ
 
 - type: Tag
-  id: Magazine5.7x28mmFMJBox
+  id: Magazine57x28mmFMJBox
+
+# Misc ammo shit
 
 - type: Tag
   id: MilitaryPowerCellMG
 
 - type: Tag
+  id: PPLCell
+
+- type: Tag
   id: MagazineDP29
+
+- type: Tag
+  id: MagazineShenzhen
+
+- type: Tag
+  id: CartridgeShenzhen
 
 #8x65mm SKR tags
 
@@ -186,6 +321,9 @@
 #12 gauge tags
 
 - type: Tag
+  id: WeaponShotgunHelepolis
+
+- type: Tag
   id: Magazine12_gaugeBuckshot
 
 - type: Tag
@@ -200,7 +338,84 @@
   id: WeaponShotgunBigJohnny
 
 - type: Tag
+  id: WeaponShotgunBigBuddy
+
+- type: Tag
+  id: WeaponShotgunJack
+
+- type: Tag
+  id: JackShotgunBackpack
+
+- type: Tag
   id: ShellShotgun23x75mmBuckshot
+
+- type: Tag
+  id: Magazine4Gauge
+
+# 145x114mm tags
+
+- type: Tag
+  id: Cartridge145x114mm
+
+# 635x40mm tags
+- type: Tag
+  id: Cartridge635x40mmCaseless
+
+- type: Tag
+  id: Magazine635x40mmCaseless
+
+- type: Tag
+  id: Magazine635x40mmCaselessPistol
+
+#40mm tags
+
+- type: Tag
+  id: Magazine40mm
+
+- type: Tag
+  id: LessLethalGrenade
+
+#700Thz tags
+
+- type: Tag
+  id: Cartridge700Thz
+
+- type: Tag
+  id: Magazine700Thz
+
+- type: Tag
+  id: MagazineBox700Thz
+
+#10Phz tags
+
+- type: Tag
+  id: Cartridge10Phz
+
+- type: Tag
+  id: Magazine10Phz
+
+- type: Tag
+  id: MagazineBox10Phz
+
+#35mm GL tags
+
+- type: Tag
+  id: Cartridge35mmGrenade
+
+- type: Tag
+  id: Magazine35mmGrenade
+
+# military power cell tags
+
+- type: Tag
+  id: LargeMilitaryPowerCell
+
+# grenade tags
+
+- type: Tag
+  id: GrenadeLaunchable
+
+#AMMO END
 
 #Misc emote tags
 
@@ -297,6 +512,18 @@
 - type: Tag
   id: FlailTargetingControlModule
 
+- type: Tag
+  id: MechIFFTSF
+
+- type: Tag
+  id: MechIFFPDV
+
+- type: Tag
+  id: BorgIFFTSF
+
+- type: Tag
+  id: BorgIFFPDV
+
 # USSP Bounty
 
 - type: Tag
@@ -314,19 +541,10 @@
 - type: Tag
   id: BiomassBounty
 
-# Ship Ammo
+# Man portable rockets :trollface:
 
 - type: Tag
-  id: Asm220Torpedo
-
-- type: Tag
-  id: CharonSlug
-
-- type: Tag
-  id: 150mmShell
-
-- type: Tag
-  id: LightFighterOrdinance
+  id: MPSSMMissile
 
 # Kudzu ignore tag
 
@@ -336,12 +554,129 @@
 - type: Tag
   id: ChimeraFloor
 
-# hhhh
+# Mono tech disks
 
 - type: Tag
   id: TechDiskMono
+
+- type: Tag
+  id: ResearchDisk10000
 
 # survival kit
 
 - type: Tag
   id: SurvivalBox
+
+# for letoferol chimeras
+- type: Tag
+  id: Humanoid
+
+# stamps
+
+- type: Tag
+  id: PaycheckBratvaStamp
+
+- type: Tag
+  id: WinterSolsticeStamp
+
+- type: Tag
+  id: TSFCaptainStamp
+
+- type: Tag
+  id: TSFColonelStamp
+
+- type: Tag
+  id: PDVOverwatchStamp
+
+- type: Tag
+  id: PDVVizierStamp
+
+- type: Tag
+  id: PDVAsvaranStamp
+
+- type: Tag
+  id: PDVSpasakaStamp
+
+- type: Tag
+  id: USSPTaccommStamp
+
+- type: Tag
+  id: USSPStratcommStamp
+
+- type: Tag
+  id: USSPStamp
+
+# books
+
+- type: Tag
+  id: BookUSSPLaw
+
+# Multi-tile lathe board tags
+
+- type: Tag
+  id: MachineBoard2x1
+
+- type: Tag
+  id: MachineBoard2x2
+
+- type: Tag
+  id: MachineBoard3x2
+
+- type: Tag
+  id: MachineBoard3x3
+
+# AI
+
+# makes shuttle AI not target this grid
+- type: Tag
+  id: ShuttleAIIgnore
+
+
+# Vizier stuff
+
+- type: Tag
+  id: Shamshir
+
+- type: Tag
+  id: Dragoon
+
+# Walls
+
+- type: Tag
+  id: WallT1
+
+- type: Tag
+  id: WallT2
+
+- type: Tag
+  id: WallT3
+
+- type: Tag
+  id: WallT4
+# Bomb Collars
+
+- type: Tag
+  id: BombCollar
+
+# Asakim
+
+- type: Tag
+  id: AsakimBrain
+
+# Economy goods
+
+- type: Tag
+  id: EconomyGood
+
+# Static uplinks
+
+- type: Tag
+  id: FactionStaticUplinkTsf
+
+- type: Tag
+  id: FactionStaticUplinkPdv
+
+# Viper Group stuff
+
+- type: Tag
+  id: WhitelistChameleonIdViperSpec

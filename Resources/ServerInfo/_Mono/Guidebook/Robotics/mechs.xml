@@ -1,0 +1,66 @@
+<Document>
+  # Mechs
+
+  Industrial Exoskeletons, Powered Armor, and Combat Frames.
+
+  <Box>
+    <GuideEntityEmbed Entity="MechGygax"/>
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="MechEquipmentGrabber"/>
+    <GuideEntityEmbed Entity="HeavyMechProjector" Caption="RAVAGER Plasma Cannon"/>
+  </Box>
+
+
+  Mechs are giant behemoths of metal designed to carry out a variety of functions respective to their model and equipment. They are piloted by players and require power cells to function.
+
+  Each Mech requires its own set of limbs and parts to create. These are fabricated at the [color=lightblue]Exosuit Fabricator[/color], except for the circuit boards which are made at a [color=tan]Circuit Board Imprinter[/color].
+
+  Mechs within the same Series may share limbs but use a different chassis. For example, an S2 Mech can be constructed with either a Broadsword or Sabre harness, but both use the Broadsword's limbs. The same is true for their circuit boards.
+
+  Once you have printed the harness, begin adding the limbs and follow the instructions by examining the under-construction Mech.
+
+  Once the Mech has finished construction, add whatever equipment you wish to it. Mechs are restricted by their Mounting slots in both capacity and type of equipment that can be mounted. For example, a Ripley cannot mount a RAVAGER-type Plasma Cannon.
+
+  All Mechs operate using their equipped power cell/power cage while in operation. Using equipment and firing weapons induces additional drain. Power cells can be ejected from a mech using a crowbar.
+
+  All Mechs are also easily visible as radar signatures while in space.
+
+  ##Civilian Mechs
+  <Box>
+    <GuideEntityEmbed Entity="MechRipley"/>
+    <GuideEntityEmbed Entity="MechRipley2"/>
+    <GuideEntityEmbed Entity="MechClarke"/>
+    <GuideEntityEmbed Entity="MechHamtr"/>
+    <GuideEntityEmbed Entity="MechVim"/>
+    <GuideEntityEmbed Entity="MechHonker"/>
+  </Box>
+
+  These mechs can mount either Industrial or Clown equipment, or nothing at all.
+
+ The Ripley, Ripley Mk2, and Clarke are designed for cargo and salvage applications, as their Hydraulic Clamp allows carrying crates, lockers, and many other heavy objects with ease, while the Exosuit Drill and Exosuit Proto-Kinetic Accelerator allow self-defense against ore creatures and expedition fauna.
+
+ The Ripley Mk2 is insulated against space, and can supply its operator with an endless supply of breathable atmosphere. Note that construction of a Ripley Mk2 requires an Exosuit Upgrade Kit.
+  <Box>
+    <GuideEntityEmbed Entity="RipleyUpgradeKit" Caption=""/>
+  </Box>
+
+The Clarke has its own construction process, but it is equipped with space insulation, breathable atmosphere, and maneuvering jets for ease of use in space.\n
+
+
+  The Hamtr and Vim are made for the use of animals and critters. The Hamtr is only capable of mounting the Small Hydraulic Clamp.
+
+  The H.O.N.K mech is capable of mounting its associated Clowning implements, such as the Mech Horn, Banana Mortar, and Mousetrap Mortar.
+  <Box>
+    <GuideEntityEmbed Entity="MechEquipmentHorn"/>
+    <GuideEntityEmbed Entity="WeaponMechSpecialBananaMortar"/>
+    <GuideEntityEmbed Entity="WeaponMechSpecialMousetrapMortar"/>
+  </Box>
+
+##Camera Controls and Other Tricks
+- Mechs currently lock their rotation to the ship/station you enter them on, which will cause you to uncontrollably rotate in space. Press your Camera Reset keybind (Default: Numpad 8) to both reset your camera to point towards true North and unanchor it from the ship.
+- Camera Zoom controls can be used in S2/S4 Mechs to scale how far you can see down to normal zoom, when needed.
+- Mechs standing on a ship's lattice/tiles will survive an FTL jump even while exposed to space.
+- Power Cages can be inserted into Mechs instead of standard Power Cells. These are printable at a Mercenary Techfab or Military-Multipurpose Assembler with the applicable researched technology.
+</Document>

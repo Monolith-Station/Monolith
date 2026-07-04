@@ -6,5 +6,5 @@
   components:
   - type: InstantAction
     useDelay: 3.4
-    icon: Objects/Fun/bikehorn.rsi/icon.png
+    icon: { sprite: Objects/Fun/bikehorn.rsi, state: icon }
     event: !type:HonkActionEvent

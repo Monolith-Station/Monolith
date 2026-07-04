@@ -6,26 +6,25 @@ research-discipline-tsfmc-shipyard = TSFMC Heavy Industry
 research-technology-tsfmc-basic-equipment = Basic TSFMC Equipment
 research-technology-tsfmc-advanced-equipment = Advanced TSFMC Equipment
 research-technology-tsfmc-experimental-equipment = Experimental TSFMC Equipment
+research-technology-tsfmc-mopp-equipment = Chemical Protection Gear
 
 # T1 TSFMC
-research-technology-tsfmc-guns = Ballistics Production
-research-technology-tsfmc-forensics = Forensics Analysis
-research-technology-tsfmc-pocket-crowbar = Compact Prying Technology
-research-technology-tsfmc-industrial-storage = Material Storage Solutions
-research-technology-tsfmc-industrial-processing = Industrial Processing
+research-technology-tsfmc-guns = Standard Ballistics Production
+research-technology-tsfmc-forensics = Forensics Analysis Devices
 research-technology-tsfmc-portable-recharger = Portable Recharger
-research-technology-tsfmc-nvd = Night Vision Devices
 research-technology-tsfmc-motion-detector = Biosignature IFF Technology
+research-technology-tsfmc-basic-module = TSFMC Basic Cyborg Module Developpment
+research-technology-tsfmc-tier-one-vouchers = Grade 1 Shipyard Production
 
 # T2 TSFMC
-research-technology-tsfmc-annie = Annie
+research-technology-tsfmc-advanced-weapons = Advanced Portable Weapons Technology
 research-technology-tsfmc-nanofoam = Nanomaterial Growth
-research-technology-tsfmc-demag = System Reset Technology
 research-technology-tsfmc-eshield = Energy Shielding
 research-technology-tsfmc-advanced-meds = Reconstructive Technologies
+research-technology-tsfmc-tier-two-vouchers = Grade 2 Shipyard Production
 
 # T3 TSFMC
-research-technology-tsfmc-flyssa-voucher = Flyssa Procurement License
-research-technology-tsfmc-mr8 = MARSOC Firearms Development
-research-technology-tsfmc-xlr556 = Infantry Combat Weapon System
+research-technology-tsfmc-tier-three-vouchers = Grade 3 Shipyard Production
+research-technology-tsfmc-super-weapons = State-of-the-art Weapons Manufacturing
 research-technology-tsfmc-synthalloy = Experimental Material Science
+research-technology-tsfmc-advanced-module = TSFMC Advanced Cyborg Module Developpment

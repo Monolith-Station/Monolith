@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2022 Chief-Engineer
-// SPDX-FileCopyrightText: 2022 Michael Phillips
-// SPDX-FileCopyrightText: 2022 Morbo
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 namespace Content.Shared.Chat
 {
     /// <summary>
@@ -17,7 +7,7 @@ namespace Content.Shared.Chat
     ///     Maps to <see cref="ChatChannel"/>, giving better names.
     /// </remarks>
     [Flags]
-    public enum ChatSelectChannel : ushort
+    public enum ChatSelectChannel : uint // Goobstation - Starlight collective mind port
     {
         None = 0,
 

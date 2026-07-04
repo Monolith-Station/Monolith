@@ -1,11 +1,12 @@
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes; // Mono
 
 namespace Content.Shared.Weapons.Ranged.Events;
 
 /// <summary>
 /// Raised on a gun when it would like to take the specified amount of ammo.
 /// </summary>
-public sealed class TakeAmmoEvent : EntityEventArgs
+public class TakeAmmoEvent : EntityEventArgs // Mono: unseal
 {
     public readonly EntityUid? User;
     public readonly int Shots;
@@ -26,7 +27,7 @@ public sealed class TakeAmmoEvent : EntityEventArgs
     /// Does this event represent an intent to fire, or to safely remove ammo from an entity?
     /// </summary>
     public bool WillBeFired;
-    // End Frontier
+    // End Frontierull;
 
     public TakeAmmoEvent(int shots, List<(EntityUid? Entity, IShootable Shootable)> ammo, EntityCoordinates coordinates, EntityUid? user, bool willBeFired = false) // Frontier: add willBeFired
     {

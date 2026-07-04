@@ -170,7 +170,8 @@
   suffix: BlackMarket
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerBankATMDeposit]
   id: ComputerBlackMarketBankATM
-  description: Has some sketchy looking modifications and a sticker that says DEPOSIT FEE 20%
+  name: phaethon treasury ATM #mono
+  description: An ATM connected to the Phaethon Dynasties treasury. There is a 5% deposit fee. #mono
   components:
   - type: Sprite
     netsync: false
@@ -189,13 +190,14 @@
         type: BankATMMenuBoundUserInterface
   - type: BankATM
     taxAccounts:
-      BlackMarket: 0.2 # Monolith #STOP-TAXES
+      BlackMarket: 0.02 # Monolith #STOP-TAXES
 
 - type: entity
   suffix: Wallmount, BlackMarket
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, BaseStructureComputerWallmount, ComputerBankATMDeposit]
   id: ComputerWallmountBlackMarketBankATM
-  description: Has some sketchy looking modifications and a sticker that says DEPOSIT FEE 20%
+  name: phaethon treasury ATM #mono
+  description: An ATM connected to the Phaethon Dynasties treasury. There is a 5% deposit fee. #mono
   components:
   - type: Sprite
     netsync: false
@@ -213,7 +215,7 @@
         type: BankATMMenuBoundUserInterface
   - type: BankATM
     taxAccounts:
-      BlackMarket: 0.2 # Monolith #STOP-TAXES
+      BlackMarket: 0.02 # Monolith #STOP-TAXES
 
 - type: entity
   name: station administration console
@@ -258,8 +260,6 @@
     containers:
       board: !type:Container
       station-bank-ATM-cashSlot: !type:ContainerSlot
-  - type: AccessReader
-    access: [["HeadOfPersonnel"], ["HeadOfSecurity"]]
 
 - type: entity
   parent: BaseStationAdminBankATM
@@ -270,7 +270,10 @@
   - type: StationBankATM
     account: Frontier
   - type: CompanyAccessReader
-    requiredCompany: TSF
+    requiredCompanies:
+    - Colonial
+  - type: AccessReader
+    access: [["HeadOfPersonnel"]]
 
 - type: entity
   parent: BaseStationAdminBankATM
@@ -281,7 +284,10 @@
   - type: StationBankATM
     account: Nfsd
   - type: CompanyAccessReader
-    requiredCompany: TSF
+    requiredCompanies:
+    - TSF
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
 
 - type: entity
   parent: BaseStationAdminBankATM
@@ -292,7 +298,10 @@
   - type: StationBankATM
     account: Medical
   - type: CompanyAccessReader
-    requiredCompany: MD
+    requiredCompanies:
+    - MD
+  - type: AccessReader
+    access: [["ChiefMedicalOfficer"]]
 
 - type: entity
   parent: BaseStationAdminBankATM
@@ -320,3 +329,6 @@
     account: BlackMarket
   - type: AccessReader
     access: [["Pirate"]]
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - PDV

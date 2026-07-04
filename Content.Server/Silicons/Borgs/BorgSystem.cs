@@ -5,6 +5,7 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.UserInterface;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
@@ -25,6 +26,8 @@ using Content.Shared.PowerCell.Components;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.StationAi;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
 using Content.Shared.Wires;
@@ -42,29 +45,30 @@ namespace Content.Server.Silicons.Borgs;
 /// <inheritdoc/>
 public sealed partial class BorgSystem : SharedBorgSystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IBanManager _banManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly TriggerSystem _trigger = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly AccessSystem _access = default!; // Frontier
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private IBanManager _banManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetwork = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private TriggerSystem _trigger = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private AccessSystem _access = default!; // Frontier
 
+    [Dependency] private ISharedPlayerManager _player = default!;
 
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     [ValidatePrototypeId<JobPrototype>]
     public const string BorgJobId = "Borg";
@@ -120,9 +124,10 @@ public sealed partial class BorgSystem : SharedBorgSystem
         if (component.BrainEntity == null && brain != null &&
             _whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used))
         {
-            if (_mind.TryGetMind(used, out _, out var mind) && mind.Session != null)
+            if (_mind.TryGetMind(used, out _, out var mind) &&
+                _player.TryGetSessionById(mind.UserId, out var session))
             {
-                if (!CanPlayerBeBorged(mind.Session))
+                if (!CanPlayerBeBorged(session))
                 {
                     Popup.PopupEntity(Loc.GetString("borg-player-not-allowed"), used, args.User);
                     return;
@@ -144,6 +149,21 @@ public sealed partial class BorgSystem : SharedBorgSystem
             args.Handled = true;
             UpdateUI(uid, component);
         }
+
+        // Corvax-Next-AiRemoteControl-Start
+        if (component.BrainEntity == null && HasComp<AiRemoteBrainComponent>(used) &&
+    _whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used))
+        {
+            EnsureComp<AiRemoteControllerComponent>(uid);
+            _container.Insert(used, component.BrainContainer);
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
+                $"{ToPrettyString(args.User):player} installed ai remote brain {ToPrettyString(used)} into borg {ToPrettyString(uid)}");
+            args.Handled = true;
+            BorgActivate(uid, component);
+
+            UpdateUI(uid, component);
+        }
+        // Corvax-Next-AiRemoteControl-End
     }
 
     /// <summary>
@@ -178,11 +198,25 @@ public sealed partial class BorgSystem : SharedBorgSystem
         {
             _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
+
+        // Corvax-Next-AiRemoteControl-Start
+        if (HasComp<AiRemoteBrainComponent>(args.Entity))
+        {
+            BorgDeactivate(uid, component);
+            RemComp<AiRemoteControllerComponent>(uid);
+            RemComp<StationAiVisionComponent>(uid);
+        }
+        // Corvax-Next-AiRemoteControl-End
     }
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
     {
         BorgActivate(uid, component);
+
+        // Goobstation: Customizable borgs sprites
+        if (TryComp<BorgSwitchableTypeComponent>(uid, out var switchable))
+            if (switchable.SelectedBorgType == null)
+                _ui.TryOpenUi(uid, BorgSwitchableTypeUiKey.SelectBorgType, uid);
     }
 
     private void OnMindRemoved(EntityUid uid, BorgChassisComponent component, MindRemovedMessage args)
@@ -255,10 +289,11 @@ public sealed partial class BorgSystem : SharedBorgSystem
             container.ID != chassisComponent.BrainContainerId)
             return;
 
-        if (!_mind.TryGetMind(uid, out var mindId, out var mind) || mind.Session == null)
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind) ||
+            !_player.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        if (!CanPlayerBeBorged(mind.Session))
+        if (!CanPlayerBeBorged(session))
         {
             Popup.PopupEntity(Loc.GetString("borg-player-not-allowed-eject"), uid);
             Container.RemoveEntity(containerEnt, uid);
@@ -304,24 +339,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
         Popup.PopupEntity(Loc.GetString("borg-mind-added", ("name", Identity.Name(uid, EntityManager))), uid);
 
         Toggle.TryActivate(uid);
-
-        // Frontier: add cyborg access
-        if (TryComp<AccessComponent>(uid, out var oldAccess))
-        {
-            var access = oldAccess.Tags.ToList();
-
-            access.Clear();
-            access.Add($"Captain");
-            access.Add($"Maintenance");
-            access.Add($"External");
-            access.Add($"Medical");
-            access.Add($"Pilot");
-            access.Add($"Mercenary");
-
-            _access.TrySetTags(uid, access);
-        }
-        _access.SetAccessEnabled(uid, true);
-        // End Frontier
 
         if (_powerCell.HasDrawCharge(uid))
         {

@@ -1,51 +1,3 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 Hugo Laloge
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2020 Swept
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-# SPDX-FileCopyrightText: 2020 Ygg01
-# SPDX-FileCopyrightText: 2020 py01
-# SPDX-FileCopyrightText: 2021 Galactic Chimp
-# SPDX-FileCopyrightText: 2021 Paul Ritter
-# SPDX-FileCopyrightText: 2021 Tarlan2
-# SPDX-FileCopyrightText: 2021 buletsponge
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 Scribbles0
-# SPDX-FileCopyrightText: 2022 T-Stalker
-# SPDX-FileCopyrightText: 2022 Visne
-# SPDX-FileCopyrightText: 2022 keronshb
-# SPDX-FileCopyrightText: 2023 IProduceWidgets
-# SPDX-FileCopyrightText: 2023 TaralGit
-# SPDX-FileCopyrightText: 2023 and_a
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2024 Doomsdrayk
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Errant
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 Kesiath
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 RiceMar1244
-# SPDX-FileCopyrightText: 2024 SlamBamActionman
-# SPDX-FileCopyrightText: 2024 ThatGuyUSA
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2024 nikthechampiongr
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2025 Eden077
-# SPDX-FileCopyrightText: 2025 K-Dynamic
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 UltimateJester
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   name: BaseSMG
   parent: BaseItem
@@ -109,10 +61,25 @@
   - type: ItemTax # Mono
     taxAccounts:
       nfsd: 0.2
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/pistol_mouse.rsi
+      state: all
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: SMGPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SMGDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: SMGDrop
+  # Goobstation edit end
 
 - type: entity
   name: MA PDW-58 Atreides (5.7x28mm)
-  parent: [BaseWeaponSubMachineGun, BaseC3SyndicateContraband] # Frontier: BaseMajorContraband<BaseC3SyndicateContraband
+  parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunAtreides
   description: Midnight Arms Co. Streamlined SMG that's commonly found use among uprisings and criminals. Uses 5.7x28mm ammo.
   components:
@@ -126,7 +93,7 @@
   - type: Gun
     fireRate: 8.5
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/atreides_fire.ogg
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -138,27 +105,27 @@
     slots:
        gun_magazine:
           name: Magazine
-          startingItem: Magazine5.7x28mmSubMachineGunFMJ
+          startingItem: Magazine57x28mmSubMachineGunFMJ
           insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
           priority: 2
           whitelist:
             tags:
-              - Magazine5.7x28mmSubMachineGunFMJ
+              - Magazine57x28mmSubMachineGunFMJ
           whitelistFailPopup: gun-magazine-whitelist-fail
        gun_chamber:
           name: Chamber
-          startingItem: Cartridge5.7x28mmFMJ
+          startingItem: Cartridge57x28mmFMJ
           priority: 1
           whitelist:
             tags:
-              - Cartridge5.7x28mmFMJ
+              - Cartridge57x28mmFMJ
 
 - type: entity
   name: CS C-20r submachine gun (9x19mm)
-  parent: [BaseWeaponSubMachineGun, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunC20r
-  description: A Corporate-Era SMG, once used by Nuclear Operatives, it now finds purchase among The Ashen Republic. Uses 9x19mm ammo.
+  description: A Corporate-Era SMG, once used by Nuclear Operatives, it now finds purchase among the Phaethon Dynasty. Uses 9x19mm ammo.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
@@ -195,10 +162,10 @@
     price: 625
 
 - type: entity
-  name: TCA M-5 Drozd (.45 ACP)
-  parent: [BaseWeaponSubMachineGun, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  name: TCA CS/LR-8 Drozd (.45 ACP)
+  parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunDrozd
-  description: An SMG that once found use among NT security forces, now has found itself as one of the most reliable boarding and anti-boarding weapons on the market. Uses .45 ACP ammo.
+  description: An SMG that once found use among NT security forces, now has found itself as one of the most reliable boarding and anti-boarding weapons on the market. Uses .45 ACP ammo. The barrel is threaded for suppressors, and an Erebus railmount is on the bottom for grips.
   components:
     - type: Item # Mono
       size: Large
@@ -210,20 +177,22 @@
           map: ["enum.GunVisualLayers.Base"]
         - state: mag-0
           map: ["enum.GunVisualLayers.Mag"]
+        - map: ["gripAttachment"] # Mono
+        - map: ["barrelAttachment"] # Mono
     - type: Clothing
       sprite: _Mono/Objects/Weapons/Guns/SMGs/drozd_inhands_32x.rsi # Mono
     - type: Wieldable
       unwieldOnUse: false
     - type: GunWieldBonus
       minAngle: -19
-      maxAngle: -16
+      maxAngle: -20 # -16 -> -20 - Mono
     - type: ChamberMagazineAmmoProvider # Mono
       soundRack:
         path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
     - type: Gun
       minAngle: 21
       maxAngle: 32
-      fireRate: 6
+      fireRate: 7 # Mono
       burstFireRate: 12
       soundGunshot:
         path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/smg.ogg # Mono
@@ -252,9 +221,77 @@
           whitelist:
             tags:
               - Cartridge45_ACPFMJ
+        # Mono
+        attachment_grip:
+          insertSound: /Audio/Items/screwdriver2.ogg
+          ejectSound: /Audio/Items/screwdriver2.ogg
+          priority: 0
+          whitelist:
+            tags:
+              - MonoGripErebusRailmount
+        # Mono
+        attachment_barrel:
+          insertSound: /Audio/Items/screwdriver.ogg
+          ejectSound: /Audio/Items/screwdriver.ogg
+          priority: 0
+          whitelist:
+            tags:
+              - MonoSuppressorMulticalPistol
+    # Mono start
+    - type: ContainerContainer
+      containers:
+        gun_magazine: !type:ContainerSlot
+        gun_chamber: !type:ContainerSlot
+        attachment_grip: !type:ContainerSlot
+        attachment_barrel: !type:ContainerSlot
+    - type: ESAttachableGun
+      slots:
+      - name: es-gun-attachments-slot-name-barrel
+        containerId: attachment_barrel
+        whitelist:
+          tags:
+          - MonoSuppressorMulticalPistol
+      - name: es-gun-attachments-slot-name-grip
+        containerId: attachment_grip
+        whitelist:
+          tags:
+          - MonoGripErebusRailmount
+    - type: ActivatableUI
+      key: enum.ESAttachableGunUiKey.Key
+      verbOnly: true
+      verbText: es-gun-attachments-verb-text
+    - type: UserInterface
+      interfaces:
+        enum.ESAttachableGunUiKey.Key:
+          type: ESGunAttachmentBui
+    - type: ESItemMapper
+      mappings:
+        gripAttachment:
+        - containerId: attachment_grip
+          state: grip
+          whitelist:
+            tags:
+            - MonoGripVFG
+        - containerId: attachment_grip
+          state: lam
+          whitelist:
+            tags:
+            - MonoGripLAM
+        - containerId: attachment_grip
+          state: light
+          whitelist:
+            tags:
+            - MonoGripLight
+        barrelAttachment:
+        - containerId: attachment_barrel
+          state: suppressed
+          whitelist:
+            tags:
+            - MonoSuppressor
+    # Mono end
     - type: MagazineVisuals
       magState: mag
-      steps: 1
+      steps: 6
       zeroVisible: true
     - type: Appearance
     - type: StaticPrice # Mono
@@ -262,10 +299,9 @@
     - type: PirateBountyItem # Mono
       id: StandardFactionLongarm
 
-
 - type: entity
   name: UI WT550 (4.6x30mm)
-  parent: [ BaseWeaponSubMachineGun, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunWt550
   description: An excellent SMG, produced by a Black Market Arms Company known as Ullman Industries. Uses 4.6x30mm ammo. On the receiver is a label that says 'for authorized use only.'
   components:
@@ -300,25 +336,27 @@
     - Burst
     - FullAuto
     - SemiAuto
+    soundGunshot: # Mono change - Sound for WT
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/wt_fire.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: Magazine4.6x30mmSubMachineGunTopMountedFMJ
+        startingItem: Magazine46x30mmSubMachineGunTopMountedFMJ
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - Magazine4.6x30mmSubMachineGunTopMountedFMJ
+            - Magazine46x30mmSubMachineGunTopMountedFMJ
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: Cartridge4.6x30mmFMJ
+        startingItem: Cartridge46x30mmFMJ
         priority: 1
         whitelist:
           tags:
-            - Cartridge4.6x30mmFMJ
+            - Cartridge46x30mmFMJ
   - type: MagazineVisuals
     magState: mag
     steps: 6

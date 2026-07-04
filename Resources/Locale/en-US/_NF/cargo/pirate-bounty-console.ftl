@@ -1,4 +1,4 @@
-pirate-bounty-console-menu-title = Rogue bounty console
+pirate-bounty-console-menu-title = PDV bounty console
 pirate-bounty-console-accept-button-chest = Summon Chest
 pirate-bounty-console-accept-button-label = Accept
 pirate-bounty-console-skip-button-text = Skip
@@ -15,12 +15,12 @@ pirate-bounty-console-manifest-reward = Reward: {$reward}
 pirate-bounty-console-description-label = [color=gray]{$description}[/color]
 pirate-bounty-console-id-label = {$id}
 
-pirate-bounty-console-flavor-left = Glory to the Rogue Sector.
+pirate-bounty-console-flavor-left = Glory to the Phaethon Dynasty.
 pirate-bounty-console-flavor-right = v0.0.1a
 
-pirate-bounty-chest-name = pirate bounty chest ({$id})
+pirate-bounty-chest-name = PDV bounty chest ({$id})
 pirate-bounty-chest-description-start = On the chest the following words are etched:
 
-pirate-bounty-manifest-name = pirate bounty reminder ({$id})
-pirate-bounty-manifest-header = [font size=14][bold]Rogue bounty request[/bold] ({$id})[/font]
-pirate-bounty-manifest-list-start = Items to plunder:
+pirate-bounty-manifest-name = PDV bounty reminder ({$id})
+pirate-bounty-manifest-header = [font size=14][bold]PDV bounty request[/bold] ({$id})[/font]
+pirate-bounty-manifest-list-start = Items to acquire:

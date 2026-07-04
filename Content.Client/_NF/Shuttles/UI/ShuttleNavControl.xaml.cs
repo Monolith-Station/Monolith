@@ -13,7 +13,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Shuttles.UI
 {
-    public sealed partial class ShuttleNavControl
+    public partial class ShuttleNavControl // Mono
     {
         public InertiaDampeningMode DampeningMode { get; set; }
 

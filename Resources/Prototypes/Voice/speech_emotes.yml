@@ -7,9 +7,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-scream"]
   chatTriggers:
     - scream
@@ -37,9 +34,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
     - laugh
@@ -356,6 +350,10 @@
   category: Vocal
   icon: Interface/Emotes/buzz.png
   chatMessages: ["chat-emote-msg-buzz"]
+  whitelist: # Mono
+    components:
+    - Silicon
+    - BorgChassis
   chatTriggers:
     - buzzing
     - buzz
@@ -368,6 +366,9 @@
   category: Vocal
   icon: Interface/Emotes/weh.png
   chatMessages: ["chat-emote-msg-weh"]
+  blacklist:
+    components:
+      - BorgChassis
 
 - type: emote
   id: Hew

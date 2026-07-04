@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -45,6 +40,12 @@ public sealed partial class ItemMinerComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan Interval = TimeSpan.FromSeconds(10.0f);
+
+    /// <summary>
+    /// Chance to actually spawn the result each interval.
+    /// </summary>
+    [DataField]
+    public float SpawnChance = 1f;
 
     /// <summary>
     /// Whether to need to be anchored to run.

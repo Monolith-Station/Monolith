@@ -89,10 +89,22 @@ public struct FireControllableEntry
     /// </summary>
     public string Name;
 
-    public FireControllableEntry(NetEntity entity, NetCoordinates coordinates, string name)
+    /// <summary>
+    /// Current ammunition count.
+    /// </summary>
+    public int? AmmoCount;
+
+    /// <summary>
+    /// Whether this weapon has manual reload.
+    /// </summary>
+    public bool HasManualReload;
+
+    public FireControllableEntry(NetEntity entity, NetCoordinates coordinates, string name, int? ammoCount = null, bool hasManualReload = false)
     {
         NetEntity = entity;
         Coordinates = coordinates;
         Name = name;
+        AmmoCount = ammoCount;
+        HasManualReload = hasManualReload;
     }
 }

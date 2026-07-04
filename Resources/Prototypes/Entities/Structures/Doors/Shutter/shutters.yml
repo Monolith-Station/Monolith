@@ -7,6 +7,10 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: StationAiWhitelist
   - type: Sprite
     sprite: Structures/Doors/Shutters/shutters.rsi
@@ -77,7 +81,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: IconSmooth
-    key: walls
+    key: airlocks
     mode: NoSprite
   - type: DoorSignalControl
   - type: DeviceNetwork
@@ -101,6 +105,10 @@
     interactSuccessSound:
       collection: FenceRattle
   - type: BlockWeather
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   id: ShuttersNormal

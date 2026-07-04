@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2025 CerberusWolfie
-// SPDX-FileCopyrightText: 2025 FoxxoTrystan
-// SPDX-FileCopyrightText: 2025 GoobBot
-// SPDX-FileCopyrightText: 2025 Mnemotechnican
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client._EinsteinEngines.Language.Systems;
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;

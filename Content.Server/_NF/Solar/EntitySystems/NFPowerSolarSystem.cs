@@ -2,8 +2,12 @@ using System.Linq;
 using Content.Server.Power.Components;
 using Content.Server._NF.Solar.Components;
 using Content.Shared.GameTicking;
+using Content.Shared.Light.Components; // Mono
+using Content.Shared.Light.EntitySystems; // Mono
 using Content.Shared.Physics;
 using JetBrains.Annotations;
+using Robust.Shared.Map; // Mono
+using Robust.Shared.Map.Components; // Mono
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
@@ -17,12 +21,14 @@ namespace Content.Server._NF.Solar.EntitySystems;
 ///     Largely based on upstream's PowerSolarSystem (with many thanks to 20kdc, DrSmugleaf and others)
 /// </summary>
 [UsedImplicitly]
-internal sealed class NFPowerSolarSystem : EntitySystem
+internal sealed partial class NFPowerSolarSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // Frontier
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private SharedPhysicsSystem _physicsSystem = default!;
+    [Dependency] private SharedRoofSystem _roof = default!; // Mono
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!; // Frontier
+    [Dependency] private IMapManager _mapMan = default!; // Mono
 
     /// <summary>
     /// Maximum panel angular velocity range - used to stop people rotating panels fast enough that the lag prevention becomes noticable
@@ -175,6 +181,16 @@ internal sealed class NFPowerSolarSystem : EntitySystem
         // and that's expected behavior.
         float coverage = (float)Math.Max(0, Math.Cos(panelRelativeToSun));
 
+        // Mono
+        var gridUid = xform.GridUid;
+        if (TryComp<RoofComponent>(gridUid, out var roofComp) && TryComp<MapGridComponent>(gridUid, out var gridComp))
+        {
+            var gridCoords = _transformSystem.WithEntityId(xform.Coordinates, gridUid.Value);
+            // drop coverage to 0 if the solar panel is roofed
+            if (_roof.IsRooved((gridUid.Value, gridComp, roofComp), gridCoords.ToVector2i(EntityManager, _mapMan, _transformSystem)))
+                coverage = 0f;
+        }
+
         if (coverage > 0)
         {
             // Determine if the solar panel is occluded, and zero out coverage if so.
@@ -185,7 +201,8 @@ internal sealed class NFPowerSolarSystem : EntitySystem
                 SunOcclusionCheckDistance,
                 e => !xform.Anchored || e == entity);
             if (rayCastResults.Any())
-                coverage = 0;
+                // Mono
+                coverage = MathHelper.Lerp(panel.Comp.ObstructedCoverage, 1f, rayCastResults.First().Distance / SunOcclusionCheckDistance);
         }
 
         // Total coverage calculated; apply it to the panel.

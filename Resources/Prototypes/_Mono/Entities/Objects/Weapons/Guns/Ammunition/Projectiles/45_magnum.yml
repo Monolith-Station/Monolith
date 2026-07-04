@@ -8,6 +8,7 @@
     damage:
       types:
         Piercing: 35
+    armorPenetration: 0.1
 
 - type: entity
   id: Bullet45_magnumPractice
@@ -42,8 +43,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 32
+        Piercing: 20
+        Heat: 10
 
 - type: entity
   id: Bullet45_magnumAP
@@ -68,3 +69,46 @@
       types:
         Radiation: 15
         Piercing: 20
+
+# Mono AP syst
+# + 0.05 base AP
+#anti-flesh:
+- type: entity
+  id: Bullet45_magnumHP
+  parent: BaseBullet
+  name: bullet (.45 magnum hollow-point)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 8
+        Piercing: 37
+    armorPenetration: -0.5
+
+- type: entity
+  id: Bullet45_magnumRIP
+  parent: BaseBullet
+  name: bullet (.45 magnum RIP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 10
+        Piercing: 50
+    armorPenetration: -0.9
+
+#armor-piercing:
+- type: entity
+  id: Bullet45_magnumPlasteelAP
+  parent: BaseBullet
+  name: bullet (.45 magnum AP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+        Structural: 70
+    armorPenetration: 0.6

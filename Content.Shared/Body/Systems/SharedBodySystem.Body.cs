@@ -30,6 +30,9 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Standing;
 using Robust.Shared.Timing;
 
+// Mono
+using Content.Shared._White.Standing;
+
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
@@ -41,11 +44,10 @@ public partial class SharedBodySystem
      * - Each "connection" is a body part (e.g. arm, hand, etc.) and each part can also contain organs.
      */
 
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly GibbingSystem _gibbingSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!; // Shitmed Change
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // Shitmed Change
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private GibbingSystem _gibbingSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!; // Shitmed Change
 
     private const float GibletLaunchImpulse = 8;
     private const float GibletLaunchImpulseVariance = 3;
@@ -462,7 +464,7 @@ public partial class SharedBodySystem
 
     private void OnStandAttempt(Entity<BodyComponent> ent, ref StandAttemptEvent args)
     {
-        if (ent.Comp.LegEntities.Count == 0)
+        if (ent.Comp.LegEntities.Count == 0 && ent.Comp.RequiredLegs > 0) // Mono - fix
             args.Cancel();
     }
 

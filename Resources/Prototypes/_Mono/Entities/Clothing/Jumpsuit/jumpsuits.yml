@@ -1,14 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 Eden077
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 UltimateJester
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformTSFMC
@@ -39,6 +28,61 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformTsfmcMopp
+  name: TSFMC type-49C MOPP suit
+  description: A heavy protective suit. It'll slow you down a bit, but it'll make sure nothing you don't want gets in your body. Be the bane of all Chimeras.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/mopp-tsfmc.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/mopp-tsfmc.rsi
+    equipDelay: 0.3
+    unequipDelay: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Poison: 0.3
+        Radiation: 0.8
+        Caustic: 0.6
+  - type: StaminaDamageResistance
+    coefficient: 0.85 # its pretty thick, i think it'd do something
+  - type: ClothingSpeedModifier
+    walkModifier: 0.925
+    sprintModifier: 0.925
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorVitals
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformCcCBRN
+  name: CBURN Type B Protective Suit
+  description: A heavily modified protective suit. It'll slow you down a bit, but it'll make sure nothing you don't want gets in your body. Also comes with the bonus of flame resistance! Be the bane of all borers!
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/mopp-tsfmc.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/mopp-tsfmc.rsi
+    equipDelay: 0.3
+    unequipDelay: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Poison: 0.6
+        Radiation: 0.8
+        Caustic: 0.6
+        Heat: .85
+  - type: StaminaDamageResistance
+    coefficient: 0.85 # its pretty thick, i think it'd do something
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorVitals
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformTSFMCEngi
   name: TSFMC engineer uniform
   description: A combat uniform in TSF Type-45U urban camouflage. It has high-vis markings for engineers.
@@ -53,14 +97,42 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformTSFMCDress
+  name: TSFMC dress uniform
+  description: A military dress uniform for special occasions, complete with stripes and rank insignia.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/tsfmcdressuni.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/tsfmcdressuni.rsi
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorVitals
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformUSSP
   name: USSP uniform
-  description: Standard fatigues of the USSP military.
+  description: Standard fatigues of the USSP Armed Forces.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Uniforms/Jumpsuit/ussp.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Uniforms/Jumpsuit/ussp.rsi
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorVitals
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformServiceDressUSSP
+  name: USSP Service Dress
+  description: More formal attire for servicemen, styled after the uniforms worn during the struggle against the early TSF.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/ussp_service_dress.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/ussp_service_dress.rsi
   - type: SuitSensor
     randomMode: false
     mode: SensorVitals
@@ -272,6 +344,41 @@
         color: "#cd6b6b"
       - state: equipped-decor-shoulder-patch
         color: "#cd6b6b"
+
+#Viper Group
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitViperGroupUniform
+  name: viper group uniform
+  description: A uniform bearing the colours of the vipers.
+  components:
+  - type: StaticPrice
+    price: 0
+    vendPrice: 1150
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/viper_group_uniform.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/viper_group_uniform.rsi
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorVitals
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitViperGroupTurtleneck
+  name: viper group turtleneck
+  description: A turtleneck bearing the colours of the vipers.
+  components:
+  - type: StaticPrice
+    price: 0
+    vendPrice: 1150
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/viper_group_turtleneck.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/viper_group_turtleneck.rsi
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorVitals
 
 #PMC camo suits
 - type: entity

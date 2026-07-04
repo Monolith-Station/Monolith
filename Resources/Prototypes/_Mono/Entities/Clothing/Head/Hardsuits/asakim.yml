@@ -1,0 +1,47 @@
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ShowMedicalIcons]
+  id: ClothingHelmetHardsuitAsakim
+  name: kasature-pattern combat harness helmet
+  description: Part of an advanced pre-fracture combat harness.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/asakim.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/asakim.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 15
+  - type: ThermalVision
+    pulseTime: 1
+    isEquipment: true
+    toggleAction: PulseThermalVision
+  - type: RadarConsole
+    followEntity: true
+    noRotate: true
+  - type: DetectionRangeMultiplier # upgraded thermal sensors
+    infraredMultiplier: 1.5
+    visualMultiplier: 2
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide

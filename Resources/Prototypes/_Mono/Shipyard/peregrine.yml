@@ -1,0 +1,39 @@
+# Author Info
+# GitHub: starch70
+# Discord: _starch_
+
+# Shuttle Notes:
+- type: vessel
+  id: Peregrine
+  parent: BaseVessel
+  name: SKR Peregrine
+  description: A dedicated salvage vessel w/ 6 mining autopulsers. No defensive armaments outside of that. Comes with an FTL drive.
+  price: 59525
+  category: Medium
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/peregrine.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Plasma # Pinch fusion gen kind, not the pacman kind.
+
+- type: gameMap
+  id: Peregrine
+  mapName: 'SKR Peregrine'
+  mapPath: /Maps/_Mono/Shuttles/peregrine.yml
+  minPlayers: 0
+  stations:
+    Peregrine:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Peregrine CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

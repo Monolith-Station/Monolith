@@ -8,3 +8,45 @@
     providedRecipes:
     - WeaponLauncherRocket
     - CartridgeRocket
+
+# Corpo War Tech
+- type: entity
+  parent: NFBaseBlueprintArmory
+  id: BlueprintWeaponRifleNtsfLtr
+  name: NTSF-LTR-556 Blueprint
+  description: A blueprint for the recipe of the NTSF-LTR-556. It can be inserted into an autolathe or a techfab.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - WeaponRifleNtsfLtr
+
+- type: entity
+  parent: NFBaseBlueprintArmory
+  id: BlueprintWeaponSubMachineGunVectorNtsfHclm
+  name: NTSF-HCLM-45 Blueprint
+  description: A blueprint for the recipe of the NTSF-HCLM-45. It can be inserted into an autolathe or a techfab.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - WeaponSubMachineGunVectorNtsfHclm
+
+- type: entity
+  parent: NFBaseBlueprintArmory
+  id: BlueprintAmmoPPLCCell
+  name: phased plasma laser canister blueprint
+  description: A blueprint for the production of cells for the NT-WS PPLC rifle
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - PulsedPlasmaLaserCanister
+
+- type: entity
+  parent: NFBaseBlueprintArmory
+  id: BlueprintAmmoMPSSMMissile
+  name: MPSSM missile cartridge blueprint
+  description: A blueprint for the production of missiles for the SM-27 MPSSM missile launcher
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - CartridgeMPSSMMissile
+    - CartridgeMPSSMHEAT

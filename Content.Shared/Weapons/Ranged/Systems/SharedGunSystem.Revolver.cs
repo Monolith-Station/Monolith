@@ -27,6 +27,7 @@ public partial class SharedGunSystem
         SubscribeLocalEvent<RevolverAmmoProviderComponent, ComponentHandleState>(OnRevolverHandleState);
         SubscribeLocalEvent<RevolverAmmoProviderComponent, ComponentInit>(OnRevolverInit);
         SubscribeLocalEvent<RevolverAmmoProviderComponent, TakeAmmoEvent>(OnRevolverTakeAmmo);
+        SubscribeLocalEvent<RevolverAmmoProviderComponent, CheckShootPrototypeEvent>(OnRevolverCheckProto); // Mono
         SubscribeLocalEvent<RevolverAmmoProviderComponent, GetVerbsEvent<AlternativeVerb>>(OnRevolverVerbs);
         SubscribeLocalEvent<RevolverAmmoProviderComponent, InteractUsingEvent>(OnRevolverInteractUsing);
         SubscribeLocalEvent<RevolverAmmoProviderComponent, AfterInteractEvent>(OnRevolverAfterInteract); // Frontier: better revolver reloading
@@ -600,6 +601,30 @@ public partial class SharedGunSystem
         UpdateAmmoCount(uid, prediction: false);
         UpdateRevolverAppearance(uid, component);
         Dirty(uid, component);
+    }
+
+    // Mono
+    private void OnRevolverCheckProto(Entity<RevolverAmmoProviderComponent> ent, ref CheckShootPrototypeEvent args)
+    {
+        var currentIndex = ent.Comp.CurrentIndex;
+
+        var index = (currentIndex - 1) % ent.Comp.Capacity;
+        var chamber = ent.Comp.Chambers[index];
+        if (chamber == true)
+        {
+            var ammo = ent.Comp.AmmoSlots[index]!;
+            if (ammo == null)
+            {
+                if (ent.Comp.FillPrototype == null)
+                    return;
+
+                ProtoManager.TryIndex(ent.Comp.FillPrototype, out var proto);
+                args.ShootPrototype = proto;
+                return;
+            }
+
+            args.ShootPrototype = MetaData(ammo.Value).EntityPrototype;
+        }
     }
 
     private void Cycle(RevolverAmmoProviderComponent component, int count = 1)

@@ -1,80 +1,95 @@
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 significant harassment
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: technology
   id: UniversalRailgunAmmo
   name: research-technology-universal-railgun-ammo
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
-    state: railgun_slug
+  entityIcon: CharonSlugAmmo
   discipline: FactionUniversal
   tier: 1
-  cost: 20000
+  cost: 7500
   recipeUnlocks:
   - CharonSlugUniversal
+  technologyPrerequisites:
+  - UniversalPlastitaniumCore
+  position: 7, 8
+
+- type: technology
+  id: UniversalSubnuclearRailgunAmmo
+  name: research-technology-universal-railgun-ammo-subnuclear
+  entityIcon: CharonSubnuclearSlugAmmo
+  discipline: FactionUniversal
+  tier: 3
+  cost: 80000
+  recipeUnlocks:
+  - CharonSubnuclearSlugUniversal
+  technologyPrerequisites:
+  - UniversalRailgunAmmo
+  - UniversalMaterialResearchT3
+  position: 10, 15
 
 - type: technology
   id: UniversalTorpedoAmmo
   name: research-technology-universal-asm220-ammo
-  icon:
-    sprite: _Mono/Objects/ShuttleWeapons/asm220.rsi
-    state: space_artillery
+  entityIcon: Asm220TorpedoHE
   discipline: FactionUniversal
   tier: 2
-  cost: 30000
+  cost: 20000
   recipeUnlocks:
   - ASM220TorpedoHEUniversal
   - ASM220TorpedoECMUniversal
+  technologyPrerequisites:
+  - UniversalPlastitaniumCore
+  position: 8, 8
 
 - type: technology
   id: UniversalTorpedoAmmoAdvanced
   name: research-technology-universal-asm220-advanced
-  icon:
-    sprite: _Mono/Objects/ShuttleWeapons/asm220.rsi
-    state: space_artillery
+  entityIcon: Asm220TorpedoLOSAT
   discipline: FactionUniversal
   tier: 3
   cost: 20000
   recipeUnlocks:
   - ASM220TorpedoLOSATUniversal
+  technologyPrerequisites:
+  - UniversalTorpedoAmmo
+  position: 8, 9
 
 - type: technology
   id: Universal150mmAmmo
   name: research-technology-universal-150mm-ammo
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/150mmtarnyx.rsi
-    state: 150mm_standard
+  entityIcon: 150mmEmpShell
   discipline: FactionUniversal
   tier: 1
-  cost: 15000
+  cost: 5000
   recipeUnlocks:
   - 150mmApShellUniversal
   - 150mmEmpShellUniversal
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 7, 2
 
 - type: technology
   id: UniversalLightFighterOrdinance
   name: research-technology-universal-light-fighter-ordinance
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/GPO.rsi
-    state: GPO
+  entityIcon: LightFighterOrdinanceGPOItem
   discipline: FactionUniversal
   tier: 1
-  cost: 20000
+  cost: 5000
   recipeUnlocks:
   - GPOL50BombUniversal
   - ZenithRocketUniversal
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 6, 2
 
 - type: technology
   id: UniversalAdvancedLightFighterOrdinance
   name: research-technology-universal-advanced-light-fighter-ordinance
-  icon:
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/quasar.rsi
-    state: quasar
+  entityIcon: LightFighterOrdinanceQuasarItem
   discipline: FactionUniversal
   tier: 3
   cost: 40000
   recipeUnlocks:
   - QuasarAcceleratorUniversal
+  technologyPrerequisites:
+  - UniversalLightFighterOrdinance
+  - UniversalPlastitaniumCore
+  position: 6, 5

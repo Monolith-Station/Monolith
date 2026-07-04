@@ -143,8 +143,11 @@ public sealed class EntityPainter
                 .Flip(FlipMode.Vertical)
                 .Rotate(spriteRotation));
 
-            var pointX = (int) entity.X + offsetX - imgX / 2;
-            var pointY = (int) entity.Y + offsetY - imgY / 2;
+            // offset is applied before rotation so apply rotation
+            var offset = new Robust.Shared.Maths.Vector2i(offsetX, offsetY).Rotate(worldRotation);
+
+            var pointX = (int) entity.X + offset.X - imgX / 2;
+            var pointY = (int) entity.Y + offset.Y - imgY / 2;
             canvas.Mutate(o => o.DrawImage(image, new Point(pointX, pointY), 1));
         }
     }

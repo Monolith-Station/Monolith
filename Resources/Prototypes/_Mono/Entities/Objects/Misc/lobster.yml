@@ -1,0 +1,125 @@
+
+- type: entity
+  parent: BasePlushie
+  id: BlueLobster # The memes, Jack!
+  name: blue lobster plushie
+  description: It's him.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Fun/blue_lobster.rsi
+    state: blue_lobster
+    scale: 0.0426, 0.0426
+  - type: Item
+    heldPrefix: blue lobster
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Mono/Items/blue-lobster.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Mono/Items/blue-lobster.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Mono/Items/blue-lobster.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Mono/Items/blue-lobster.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Mono/Items/blue-lobster.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 360
+    soundHit:
+      path: /Audio/_Mono/Items/blue-lobster.ogg
+  - type: UseDelay
+    delay: 7
+   
+- type: entity
+  parent: BlueLobster
+  id: BlueLobsterUncursed
+  suffix: Uncursed  
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Fun/blue_lobster_uncursed.rsi
+    state: blue_lobster_uncursed
+    scale: 1, 1
+
+- type: entity
+  name: Blue Lobster
+  parent: BaseItem
+  suffix: Embeddable Minibomb
+  description: It's him.
+  id: BlueLobsterExploding
+  components:
+  - type: OnUseTimerTrigger
+    delay: 3
+    examinable: false
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 2000
+    intensitySlope: 2000
+    totalIntensity: 2000
+    canCreateVacuum: false
+  - type: ActivateOnPaperOpened
+  - type: ExplodeOnTrigger
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Mono/Items/blue-lobster-fast.ogg
+    handle: false # don't want the sound to stop the explosion from triggering
+  - type: EmbeddableProjectile
+    offset: 0.3,0.0
+    removalTime: 0.0
+  - type: ThrowingAngle
+    angle: 315
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 3
+  - type: Sprite
+    sprite: _Mono/Objects/Fun/blue_lobster.rsi
+    state: blue_lobster
+    scale: 0.0426, 0.0426
+    
+- type: entity
+  id: BlueLobsterImmovable
+  suffix: Keep Tiles, Still
+  name: immovable blue lobster
+  description: It's him.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Fun/blue_lobster.rsi
+    state: blue_lobster
+    scale: 0.0426, 0.0426
+    noRot: true
+  - type: ImmovableRod
+    destroyTiles: false
+    hitSoundProbability: 1.0
+    maxSpeed: 0
+    randomizeVelocity: false
+    hitSound:
+      path: /Audio/_Mono/Items/blue-lobster-fast.ogg
+      params:
+        variation: 0.12
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+  - type: PointLight
+    radius: 3
+    color: red
+    energy: 2.0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 1
+        hard: false
+        layer:
+        - Impassable
+        - Opaque
+ 

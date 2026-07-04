@@ -1,9 +1,4 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
-  parent: BaseC2ContrabandMercenary
   id: WeaponLoadoutRegisteredBase
   categories: [ HideSpawnMenu ]
   components:
@@ -84,3 +79,9 @@
   parent: [WeaponLoadoutRegisteredBase, WeaponRifleMR3C]
   id: WeaponRifleMR3CRegistered
   suffix: Registered
+
+- type: entity
+  parent: [WeaponLoadoutRegisteredBase, WeaponSubMachineGunMalandro]
+  id: WeaponSubMachineGunMalandroRegistered
+  suffix: Registered
+

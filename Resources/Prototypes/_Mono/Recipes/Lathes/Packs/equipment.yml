@@ -1,8 +1,9 @@
-# SPDX-FileCopyrightText: 2025 Ilya246
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: latheRecipePack
   id: VoidBoots
   recipes:
   - ClothingShoesBootsMagVoid
+
+- type: latheRecipePack
+  id: CarpEquipment
+  recipes:
+  - ClothingOuterHardsuitCarp

@@ -11,7 +11,7 @@
 
 - type: entity
   parent: NFBaseBlueprintService
-  id: NFBlueprintPlantAnalyzerEmpty
+  id: NFBlueprintPlantAnalyzer
   name: plant analyzer blueprint
   description: A blueprint with a schematic of a plant analyzer. It can be inserted into an autolathe or a techfab.
   components:

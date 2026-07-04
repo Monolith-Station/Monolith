@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 bluebrouny
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #- type: entity
 #  parent: BaseComputerCircuitboard
 #  id: ShieldControlComputerCircuitboard
@@ -27,6 +19,8 @@
       state: cpu_command
     - type: ComputerBoard
       prototype: ComputerGunneryConsole
+    - type: ComputerTabletopBoard
+      prototype: ComputerTabletopGunneryConsole
 
 - type: entity
   parent: StationAiUploadCircuitboard
@@ -36,6 +30,17 @@
   components:
     - type: ComputerBoard
       prototype: StationAiUploadComputerUnlocked
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: EliteRadarCircuitboard
+  name: elite radar computer board
+  description: A computer printed circuit board for an elite radar computer.
+  components:
+  - type: Sprite
+    state: cpu_command
+  - type: ComputerBoard
+    prototype: ComputerEliteRadar
 
 - type: entity
   parent: BaseComputerCircuitboard

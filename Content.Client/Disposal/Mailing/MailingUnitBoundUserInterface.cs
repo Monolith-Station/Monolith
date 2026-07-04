@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client.Disposal.Unit;
 using Content.Client.Power.EntitySystems;
 using Content.Shared.Disposal;

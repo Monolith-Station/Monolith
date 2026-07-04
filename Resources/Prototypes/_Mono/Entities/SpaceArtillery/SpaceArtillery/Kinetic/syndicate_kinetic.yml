@@ -1,0 +1,322 @@
+
+# Corporate War Era - Syndicate
+
+# Adder Scattercannon
+
+- type: entity
+  id: WeaponTurretAdderScattercannon
+  name: Adder scattercannon
+  suffix: Small, T1
+  parent:
+  - BallisticArtillery
+  - BallisticArtilleryTier1HP
+  description: A large, twin-barrelled scatter cannon, firing bursts of canister shot to shred any incoming missiles or potential boarders. Uses a self loading mechanism similar to the anaconda handgun.
+  components:
+  - type: StaticPrice
+    price: 250
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/adder.rsi
+    layers:
+    - state: space_artillery
+  - type: Battery
+    maxCharge: 20000
+    startingCharge: 20000
+  - type: ExaminableBattery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AutoShootGun
+  - type: GunSignalControl
+  - type: WirelessNetworkConnection
+    range: 700
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+  - type: Gun
+    fireRate: 5
+    recoil: 10 # 2/5x
+    projectileSpeed: 230
+    minAngle: 0
+    maxAngle: 5
+    shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 550
+  - type: SpaceArtillery
+    powerChargeRate: 100
+    powerUsePassive: 100
+  - type: Actions
+  - type: CombatMode
+    isInCombatMode: true
+  - type: Airtight
+  - type: ProjectileBatteryAmmoProvider
+    proto: AdderSpread
+    fireCost: 15
+  - type: RadiationBlocker
+    resistance: 8
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 1
+    visibleFromOtherGrids: true
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Light
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 30
+
+- type: entity
+  id: WeaponTurretFang
+  name: Fang heavy 90mm autocannon
+  suffix: Medium, T3
+  parent:
+  - BallisticArtillery
+  - BallisticArtilleryTier3HP
+  description: A heavy 90mm autocannon of syndicate design, created during the corporate war. Made for shattering opponent destroyers. Uses a self loading mechanism similar to the anaconda handgun.
+  components:
+  - type: StaticPrice
+    price: 2000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/fang.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 2.5
+    recoil: 10 # 2/5x
+    projectileSpeed: 240
+    minAngle: 0
+    maxAngle: 4
+    burstCooldown: 2
+    burstFireRate: 5
+    shotsPerBurst: 5
+    selectedMode: Burst
+    availableModes: Burst
+    shootThermalSignature: 2000000 # ~4.5km signature if firing continuously
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/120mm_mortar.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 125
+  - type: SpaceArtillery
+    powerChargeRate: 125
+    powerUsePassive: 600
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: 90mmBulletHE
+    fireCost: 50
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 1.5
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-1.5,1.5,1.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 80
+
+- type: entity
+  id: WeaponTurretHydra
+  name: Hydra 220mm battery
+  suffix: Large, T3
+  parent: BallisticArtilleryUnanchorable
+  description: A main cannonade of syndicate origin, the hydra is a monstrous tri-barreled battery of 220-millimeter pain, designed to shatter corpations' toughest vessels. Loads with a similar mechanism as the anaconda handgun.
+  components:
+  - type: StaticPrice
+    price: 20000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/hydra.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 12000
+    startingCharge: 12000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6,-0.6,0.6,0.6"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Gun
+    projectileSpeed: 325
+    recoil: 50 # 2x
+    minAngle: 0
+    maxAngle: 3
+    fireRate: 0.2
+    burstCooldown: 10
+    burstFireRate: 2
+    shotsPerBurst: 3
+    selectedMode: Burst
+    availableModes: Burst
+    shootThermalSignature: 48000000 # ~7km after firing
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 12000
+  - type: SpaceArtillery
+    powerChargeRate: 12000
+    powerUsePassive: 1500
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: 220mmBulletHE
+    fireCost: 4000
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 2.5
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-2,-2,2,2"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15000 # Slightly tankier than T4
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: SuperHeavy
+  - type: ShipRepairable
+    repairTime: 40
+    repairCost: 250
+
+- type: entity
+  id: WeaponTurretLeviathan
+  name: LEVIATHAN 520mm howitzer
+  suffix: Capital, T5
+  parent:
+  - BallisticArtilleryUnanchorable
+  - BallisticArtilleryTier5HP
+  description: A heavy artillery gun of syndicate origin, the leviathan is tyrannic testiment of Syndicate ingenuity, designed to send a message. Able to crack NanoTrasen battleships, and small fighters in a single shell. Loads with a similar mechanism as the anaconda handgun.
+  components:
+  - type: StaticPrice
+    price: 35000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/leviathan.rsi
+    layers:
+    - state: space_artillery
+    scale: 1, 1
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 15000
+    startingCharge: 15000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6,-0.6,0.6,0.6"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Gun
+    projectileSpeed: 720
+    recoil: 100 # 4x
+    minAngle: 0
+    maxAngle: 1
+    fireRate: 0.05
+    shootThermalSignature: 48000000 # ~7km after firing
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 15000
+  - type: SpaceArtillery
+    powerChargeRate: 15000
+    powerUsePassive: 2000
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipLeviathanProjectile
+    fireCost: 15000
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 3.5
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-2,-2,2,2"
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: SuperHeavy
+  - type: ShipRepairable
+    repairTime: 40
+    repairCost: 250
+

@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: AirlockSecurityGlass
   id: AirlockUSSPGlass
@@ -37,3 +33,21 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsTsfEngineer ]
+
+- type: entity
+  parent: AirlockSyndicateGlass
+  id: AirlockViperGlass
+  suffix: Viper Group, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViper ]
+
+- type: entity
+  parent: AirlockSyndicateGlass
+  id: AirlockViperCommandGlass
+  suffix: Viper Group Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViperCommand ]

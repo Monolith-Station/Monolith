@@ -1,0 +1,214 @@
+- type: entity
+  save: false
+  name: Urist McAsakim
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobAsakim
+  abstract: true
+  components:
+  - type: HumanoidAppearance
+    species: Asakim
+    hideLayersOnEquip:
+    - Snout
+    #    - HeadTop # WWDP - Because visible horns its cool
+    - HeadSide
+  - type: Hunger
+  - type: Puller
+    needsHands: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 4.65
+    weightlessAcceleration: 1.5 # Slightly more manueverable in space.
+  - type: ClothingSlowResistance
+    modifier: 0.2 # Slowed down by clothing less.
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 275 # Its an abandoned bioweapon species with 4 arms, of course it should be able to fight a Oni.
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Sprite
+    scale: 1.2, 1.2
+  - type: PlayerToolModifier
+    pryTimeMultiplier: 0.7
+  - type: Thirst
+  - type: Icon
+    sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+    state: full
+  - type: Body
+    prototype: Asakim
+    requiredLegs: 2
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatLizard
+      amount: 7
+  - type: LizardAccent
+  - type: Speech
+    speechSounds: Lizard
+    speechVerb: Reptilian
+    allowedEmotes: ['Thump']
+  - type: TypingIndicator
+    proto: lizard
+  - type: Vocal
+    sounds:
+      Male: MaleReptilian
+      Female: FemaleReptilian
+      Unsexed: MaleReptilian
+  - type: LanguageKnowledge
+    speaks:
+    - Draconic
+    - Azaziba
+    understands:
+    - Draconic
+    - Azaziba
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: GenemoddedScale
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 15
+        Structural: 24
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: GastroToxin
+          Quantity: 20
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: GastroToxin
+        Quantity: 20
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 1
+  - type: Temperature
+    heatDamageThreshold: 400
+    coldDamageThreshold: 285
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold : 0.05 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 0.6 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      301: 0.8
+      295: 0.6
+      285: 0.4
+  - type: Wagging
+  - type: NpcFactionMember
+    factions:
+    - Syndicate # Making new AI factions is annoying with all the hostilities I have to add, whatever.
+  - type: Inventory
+    speciesId: asakim
+    # WWDP-Edit-Start
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+  - type: GuideHelp
+    guides:
+    - Asakim
+    # WWDP-Edit-End
+
+- type: entity
+  save: false
+  name: Urist McAsakim
+  suffix: Urisst' MzAsakim
+  parent: BaseMobAsakim
+  id: MobAsakim
+
+- type: entity
+  parent: BaseMobAsakim
+  id: MobAsakimRandom
+  name: Urist McAsakim
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesReptilianMale
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobAsakimDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy Asakim meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Asakim
+    hideLayersOnEquip: # WWDP
+    - Snout
+    #    - HeadTop # WWDP - Because visible horns its cool
+    - HeadSide
+  - type: Inventory
+    speciesId: asakim
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+
+- type: damageModifierSet
+  id: GenemoddedScale # Strong brute-focused scales.
+  coefficients:
+    Cold: 1.2
+    Radiation: 1.2
+    Poison: 1.2
+    Piercing: 0.8
+    Slash: 0.75
+    Blunt: 0.75
+    Heat: 1.1
+    Shock: 1.1

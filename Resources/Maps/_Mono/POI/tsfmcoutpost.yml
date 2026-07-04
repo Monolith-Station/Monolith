@@ -1236,7 +1236,7 @@ entities:
     - type: Transform
       pos: 7.5,-13.5
       parent: 1
-- proto: BoxMagazine7.62x39mmFMJ
+- proto: BoxMagazine762x39mmFMJ
   entities:
   - uid: 352
     components:
@@ -1252,7 +1252,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: BoxMagazine5.56x45mmFMJ
+- proto: BoxMagazine556x45mmFMJ
   entities:
   - uid: 345
     components:

@@ -36,3 +36,166 @@
     soundHit:
       collection: MeatLaserImpact
 
+- type: entity
+  id: HeavyPulse
+  parent: BulletEnergyGunLaser
+  name: Heavy Pulse Bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: heavystun
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 80
+        Structural: 1000 # So it can break cover
+
+- type: entity
+  id: HeavyPulseExp
+  parent: BaseBulletTrigger
+  name: Explosive Pulse Bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: heavystun
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 300
+        Structural: 4500 # So it can break shuttles
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 50
+    intensitySlope: 2
+    maxIntensity: 5
+
+- type: entity
+  id: BulletLaserSlug
+  parent: BulletEnergyGunLaser
+  name: energy slug
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: heavy
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 55
+        Structural: 300
+
+- type: entity
+  id: BulletLaserPellet
+  parent: BulletEnergyGunLaser
+  name: energy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: light
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 15
+        Structural: 12
+
+- type: entity
+  id: BulletLaserSpreadMono
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaserPellet
+  components:
+  - type: ProjectileSpread
+    proto: BulletLaserPellet
+    count: 5
+    spread: 15
+
+# Monolithic projectiles
+
+- type: entity
+  name: gestalt bolt
+  description: Zzz...t?
+  id: BulletMonolithicGestalt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    layers:
+    - state: mediumstun #imp
+      shader: unshaded
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque # Mono
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectOmnilaser #imp
+  - type: StaminaDamageOnCollide
+    damage: 15 # Mono
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Heat: 2
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+# golom ranged crystal attack
+
+- type: entity
+  name: golum spike
+  description: A pristine, nano-particulate weave crystal apparently made out of some sort of hard-light energy. It could probably revolutionize over five different industries if studied. Unfortunately, it seems to have been thrown right at you!
+  id: BulletMonolithicGolomRanged
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/monolith_crystal.rsi
+    layers:
+    - state: crystal_small
+      shader: unshaded
+  - type: Physics
+  - type: Ammo
+    muzzleFlash: null
+  - type: StaminaDamageOnCollide
+    damage: 65
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 5
+        Caustic: 15
+        Cellular: 5
+    soundHit:
+      collection: ExplosionSmall
+    forceSound: true
+

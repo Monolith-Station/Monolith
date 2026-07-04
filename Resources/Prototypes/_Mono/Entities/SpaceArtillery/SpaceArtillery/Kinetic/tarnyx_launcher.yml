@@ -1,14 +1,11 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # inf ammo for ads/station
 
 - type: entity
   id: WeaponTurretTarnyx
   name: ADBX-31 TARNYX 150mm EMP Cannon
-  parent: BallisticArtilleryUnanchorable
+  parent:
+  - BallisticArtilleryUnanchorable
+  - BallisticArtilleryTier3HP
   suffix: Station, Recharging Ammo, EMP
   description: A heavy EMP cannon made by Aetherion Dynamics, designed to disable large sections of enemy ships with a single, powerful shot. Effective in asymmetric combat. Can be remotely activated or linked up to a GCS.
   components:
@@ -27,9 +24,11 @@
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl
   - type: Gun
-    fireRate: 0.1
-    projectileSpeed: 200
+    fireRate: 0.066
+    projectileSpeed: 400
+    shootThermalSignature: 8000000 # ~2.8km after firing - relatively low
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_duster.ogg
     soundEmpty:
@@ -44,14 +43,18 @@
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: ShipTarnyxProjectile
-    fireCost: 15000 # low shot weapon moved back to the original spot
+    fireCost: 150
   - type: RadarBlip
     radarColor: "#035EFC"
     scale: 2.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
-    shipType: Ballistic
+    shipType: Energy
   - type: ShipGunClass
     shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 100
 
 # limited ammo for ships
 
@@ -59,7 +62,7 @@
   id: WeaponTurretTarnyxReload
   name: ADBX-31 TARNYX 150mm EMP Cannon
   parent: BallisticArtilleryUnanchorableCartridge
-  suffix: Ship, Manual Reload
+  suffix: Medium, T2 - Infinite EMP
   description: A heavy EMP cannon made by Aetherion Dynamics, designed to disable large sections of enemy ships with a single, powerful shot. Effective in asymmetric combat. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
@@ -74,9 +77,11 @@
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl
   - type: Gun
-    fireRate: 0.1
-    projectileSpeed: 200
+    fireRate: 0.066
+    projectileSpeed: 400
+    shootThermalSignature: 8000000 # ~2.8km after firing - relatively low
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_duster.ogg
     soundEmpty:
@@ -89,8 +94,9 @@
   - type: RadarBlip
     radarColor: "#035EFC"
     scale: 2.5
+    visibleFromOtherGrids: true
   - type: ShipGunType
-    shipType: Ballistic
+    shipType: Energy
   - type: ShipGunClass
     shipClass: Heavy
   - type: BallisticAmmoProvider
@@ -98,5 +104,10 @@
       tags:
       - 150mmShell
     capacity: 3
+    infiniteUnspawned: true
+    proto: 150mmEmpShell
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 100

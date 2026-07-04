@@ -1,4 +1,4 @@
-﻿# A floating, singular grid, useful for space junk or asteroids
+# A floating, singular grid, useful for space junk or asteroids
 - type: entity
   id: NFBaseDebris
   abstract: true
@@ -11,6 +11,9 @@
   - type: LinkedLifecycleGridParent
   - type: ProtectedGrid
     preventArtifactTriggers: true
-  - type: PreventPilot
+#  - type: PreventPilot # Mono: FUN ALLOWED
   - type: IFF
-    flags: HideLabel
+    flags: HideLabel, HideLabelAlways, AlwaysShowColor
+  - type: ClaimableGrid # Mono
+  - type: DetectedAtRangeMultiplier # Mono
+    visualBias: 1024

@@ -1,0 +1,102 @@
+# Seperate versions of ADS shuttles with different weights and whatnot
+
+- type: entityTable
+  id: DamagedAIShipsTableApocalypse
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: UnknownShuttleZenithApoc
+    - id: UnknownShuttleZenithEApoc
+    - id: UnknownShuttleWyrmApoc
+    - id: UnknownShuttleNebulaApoc
+    - id: UnknownShuttleWyvernApoc
+    - id: UnknownShuttleRazorNApoc
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleZenithApoc
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 7
+    maxOccurrences: 6
+  - type: GameRule
+    minPlayers: 32
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/zenith.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleZenithEApoc
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 7
+    maxOccurrences: 6
+  - type: GameRule
+    minPlayers: 10
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/zenith_e.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleNebulaApoc
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 4
+    maxOccurrences: 4
+  - type: GameRule
+    minPlayers: 10
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/nebula.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleWyrmApoc
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 2 # Its boring to be honest.
+    maxOccurrences: 6
+  - type: GameRule
+    minPlayers: 10
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/wyrm.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleWyvernApoc
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-capital-detected
+    startAudio:
+      path: /Audio/Misc/delta_alt.ogg
+    weight: 3 # Lower since it can spawn at any time in round on apoc, and it can spawn three times max.
+    maxOccurrences: 3
+  - type: GameRule
+    minPlayers: 30
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/wyvern.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleRazorNApoc
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-ai-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 3 # billions must die
+    maxOccurrences: 3
+  - type: GameRule
+    minPlayers: 10
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/razorn.yml

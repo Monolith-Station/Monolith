@@ -1,20 +1,3 @@
-# SPDX-FileCopyrightText: 2023 PECK
-# SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2023 rosieposie
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Flareguy
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 Schepka
-# SPDX-FileCopyrightText: 2025 keronshb
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #SOFTSUITS
 #Basic EVA
 - type: entity
@@ -93,7 +76,7 @@
 - type: entity
   id: SuitStorageEVAPirate
   parent: SuitStorageBase
-  suffix: Pirate EVA
+  suffix: PDV SCAF # Mono
   components:
   - type: StorageFill
     contents:
@@ -102,7 +85,7 @@
         - id: ClothingOuterHardsuitPirateScaf # Mono
 #        - id: ClothingMaskGas # Mono
         - id: JetpackBlackFilled # Frontier
-        - id: ClothingShoesBootsMagSyndie # Mono
+        - id: ClothingShoesBootsMagAshen # Mono
 
 #NTSRA Voidsuit
 - type: entity
@@ -298,17 +281,16 @@
 - type: entity
   id: SuitStoragePirateCap
   parent: SuitStorageBase
-  suffix: Rogue Commander
+  suffix: PDV Command
   components:
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
         - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitPirateScaf # Mono
-        - id: ClothingMaskGasSwat # Mono
-        - id: ClothingNeckCloakPirateCap # Frontier
+        - id: ClothingOuterHardsuitAshen # Mono
+        - id: ClothingMaskGasSyndicate # Mono
         - id: JetpackBlackFilled # Frontier
-        - id: ClothingShoesBootsMagSyndie # Mono
+        - id: ClothingShoesBootsMagAshen # Mono
 
 #Wizard
 - type: entity

@@ -1,0 +1,21 @@
+- type: entity
+  parent: LockerSteel
+  id: LockerVizier
+  name: grand vizier's locker
+  components:
+  - type: AccessReader
+    access: [["GrandVizier"]]
+  - type: StorageFill
+    contents:
+    - id: WeaponVizierShamshir
+    - id: WeaponRevolverDragoon
+    - id: ClothingBeltSheathVizier
+    - id: PDVGrandVizierIDCard
+    - id: ClothingNeckCloakVizier
+    - id: ClothingNeckMantleVizier
+    - id: ClothingHeadHatNfsdBeretCream
+    - id: ClothingShoesBootsMagPDVAdvanced
+    - id: FlippoEngravedLighter
+    - id: CigPackSyndicate
+    - id: PhoneInstrumentHigh
+    - id: BoxID

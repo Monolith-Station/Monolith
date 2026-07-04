@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Server._NF.M_Emp;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Damage;
@@ -27,10 +26,10 @@ namespace Content.Server.Shuttles.Components
 
         // Need to serialize this because RefreshParts isn't called on Init and this will break post-mapinit maps!
         [ViewVariables(VVAccess.ReadWrite), DataField("thrust")]
-        public float Thrust = 150f; // 100f->150f Mono
+        public float Thrust = 200f; // 100f->200f Mono
 
         [DataField("baseThrust"), ViewVariables(VVAccess.ReadWrite)]
-        public float BaseThrust = 150f; // 100f->150f Mono
+        public float BaseThrust = 200f; // 100f->200f Mono
 
         [DataField("thrusterType")]
         public ThrusterType Type = ThrusterType.Linear;
@@ -71,7 +70,7 @@ namespace Content.Server.Shuttles.Components
         public string MachinePartThrust = "Capacitor";
 
         [DataField("partRatingThrustMultiplier")]
-        public float PartRatingThrustMultiplier = 1.15f; // Frontier - PR #1292 1.5f<1.15f
+        public float PartRatingThrustMultiplier = 1.25f; // Mono: 1.15->1.25 (frontier: 1.5->1.15)
 
         /// <summary>
         ///     Frontier - Amount of charge this needs from an APC per second to function.
@@ -90,6 +89,13 @@ namespace Content.Server.Shuttles.Components
         [DataField("togglePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))] // Frontier
         public string TogglePort = "Toggle"; // Frontier
         // End Frontier: upgradeable parts, togglable thrust
+
+        // Mono
+        /// <summary>
+        ///     If we have a <see cref="ThermalSignatureComponent">, heat signature output per thrust while working.
+        /// </summary>
+        [DataField]
+        public float HeatSignatureRatio = 40f;
     }
 
     public enum ThrusterType

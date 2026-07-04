@@ -1,4 +1,44 @@
 - type: entity
+  id: PulsedPlasmaLaserCanister
+  parent: BaseMilitaryPowerCell
+  name: NT PPL magnetic storage container
+  description: A small, advanced magnetic containment unit for the storage of high-energy plasma. Powered off an internal microreactor with iridite electromagnets, it can contain plasma indefinitely. Recharges via using electricity to synthesize plasma from surrounding air.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/ppl.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: icon
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o4
+      shader: unshaded
+  - type: Item
+    size: Normal
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
+  - type: HitscanBatteryAmmoProvider
+    proto: PulsedPlasma
+    fireCost: 3000
+  - type: StaticPrice
+    price: 1000
+  - type: Tag
+    tags:
+    - PPLCell
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 300
+      Gold: 40
+      Glass: 160
+      Plasma: 200
+      Iridite: 50
+      Uranium: 150
+    chemicalComposition:
+      Zinc: 20
+
+# tsf
+
+- type: entity
   id: MilitaryPowerCellMG
   parent: BaseMilitaryPowerCell
   name: EM72 Ashstorm battery cell
@@ -31,3 +71,64 @@
       Plasma: 200
     chemicalComposition:
       Zinc: 20
+
+# 400Thz
+
+- type: entity
+  id: LargePowerCell400Thz
+  parent: BaseMilitaryPowerCell
+  name: DEW-1R 400Thz battery box (large)
+  description: A large and militarized power box for directed energy weapons. Tuned to fire low-frequency lasers with high capacity but low recharge speed. Slightly resistant to EMP.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Power/tsfbattery.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: base
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+      color: "#ff6e6e"
+  - type: Item
+    size: Normal
+  - type: Battery
+    maxCharge: 10000
+    startingCharge: 10000
+  - type: EmpResistance
+    coefficient: 0.002
+  - type: HitscanBatteryAmmoProvider
+    proto: Hitscan400Thz
+    fireCost: 50
+  - type: Tag
+    tags:
+    - LargeMilitaryPowerCell
+
+# 700Thz
+
+- type: entity
+  id: LargePowerCell700Thz
+  parent: BaseMilitaryPowerCell
+  name: DEW-VU 700Thz battery box (large)
+  description: A large and militarized power box for directed energy weapons. Tuned to fire high-frequency lasers with low capacity and low recharge speed. Resistant to EMP.
+  components:
+    - type: Sprite
+      sprite: _Mono/Objects/Power/tsfbattery.rsi
+      layers:
+        - map: [ "enum.PowerCellVisualLayers.Base" ]
+          state: base
+        - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+          state: o2
+          shader: unshaded
+    - type: Item
+      size: Normal
+    - type: Battery
+      maxCharge: 10000
+      startingCharge: 10000
+    - type: EmpResistance
+      coefficient: 0.001
+    - type: HitscanBatteryAmmoProvider
+      proto: Hitscan700Thz
+      fireCost: 250
+    - type: Tag
+      tags:
+        - LargeMilitaryPowerCell

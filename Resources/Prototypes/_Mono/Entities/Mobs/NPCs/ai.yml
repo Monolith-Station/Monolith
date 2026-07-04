@@ -1,0 +1,425 @@
+#region Generic AIs
+
+- type: entity
+  id: NpcStationAiRammer
+  name: rammer core
+  description: You feel like the fact you're looking at this means this isn't safe.
+  suffix: AI
+  parent: [BaseStructure, BaseFactionGearOtherFactionT2]
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.23,-0.45,0.23,0.45"
+        density: 115
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Mono/Mobs/Core/drone.rsi
+    layers:
+    - state: base
+    - state: red_t1
+      shader: unshaded
+  - type: Appearance
+  - type: InteractionPopup
+    interactSuccessString: petting-success-station-ai
+    interactFailureString: petting-failure-station-ai
+    messagePerceivedByOthers: petting-success-station-ai-others
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Anchorable
+  - type: HTN
+    sleepPlayerCheckRangeOverride: 4000
+    sleepMaxGridSpeed: 10 # don't sleep so we can still dodge grids or such if drifting far from players
+    rootTask:
+      task: RammerShuttleCompound
+  - type: StaticPrice
+    price: 40000 # Mono buff, sells for 50k at depots, buffed due to removal of blackbox money
+  - type: ApcPowerReceiver
+    powerLoad: 1000 # suspiciously low power-using AI
+  - type: ExtensionCableReceiver
+  - type: TargetSeekingTarget
+  - type: PassiveThermalSignature # Mono
+    signature: 500000 # vibe number
+  - type: ThermalSignature # Mono
+
+- type: entity
+  id: NpcStationAiApproacher
+  name: approacher core
+  parent: NpcStationAiRammer
+  description: Stands there, menacingly.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t1
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: ApproacherShuttleCompound
+
+- type: entity
+  id: NpcStationAiApproacherDodger
+  name: approacher core
+  parent: NpcStationAiRammer
+  description: Stands there, menacingly. And dodges.
+  suffix: AI, Dodging, Debug
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t2
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: ApproacherShuttleCompoundDodger
+
+- type: entity
+  id: NpcStationAiRammerSmart
+  parent: [NpcStationAiRammer, BaseFactionGearOtherFactionT3]
+  suffix: AI, Smart
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: red_t2
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: RammerShuttleSmartCompound
+
+- type: entity
+  id: NpcStationAiRammerSmartDodging
+  parent: [NpcStationAiRammer, BaseFactionGearOtherFactionT3]
+  suffix: AI, Smart, Dodging
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: red_t2
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: RammerShuttleSmartDodgingCompound
+
+- type: entity
+  id: NpcStationAiRammerStraight
+  parent: NpcStationAiRammer
+  suffix: AI, No Evasion
+  components:
+  - type: HTN
+    rootTask:
+      task: RammerShuttleStraightCompound
+
+- type: entity
+  id: NpcStationAiAttacker
+  name: attacker core
+  parent: NpcStationAiRammer
+  description: Shoots at you.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t1
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: AttackerShuttleCompound
+
+- type: entity
+  id: NpcStationAiShooter
+  name: shooter core
+  parent: NpcStationAiRammer
+  description: Shoots at you. Doesn't move.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t1
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: ShooterShuttleCompound
+
+- type: entity
+  id: NpcStationAiAttackerSmart
+  name: attacker core
+  parent: [NpcStationAiRammer, BaseFactionGearOtherFactionT3]
+  description: Shoots at you. Smart.
+  suffix: AI, Smart
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t2
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: AttackerShuttleSmartCompound
+
+- type: entity
+  id: NpcStationAiAttackerStaticSmart
+  name: attacker core
+  parent: [NpcStationAiAttackerSmart, BaseFactionGearOtherFactionT3]
+  description: Shoots at you. Smart.
+  suffix: AI, Smart, Static
+  components:
+  - type: HTN
+    rootTask:
+      task: AttackerShuttleSmartStaticCompound
+
+- type: entity
+  id: NpcStationAiAttackerBroadside
+  name: attacker core
+  parent: NpcStationAiAttacker
+  description: Shoots at you. Broadside.
+  suffix: AI, Broadside
+  components:
+  - type: HTN
+    rootTask:
+      task: AttackerShuttleBroadsideCompound
+
+#region Drone AIs
+
+- type: entity
+  id: NpcDroneAiMedusa
+  name: attacker core
+  parent: [NpcStationAiAttacker, BaseFactionGearOtherFactionT2]
+  description: Shoots at you.
+  suffix: AI, Drone-Medusa
+  components:
+  - type: HTN
+    rootTask:
+      task: DroneCompoundMedusa
+
+- type: entity
+  id: NpcDroneAiAssembly
+  parent: NpcStationAiAttacker
+  description: Shoots at you. Broadsides.
+  suffix: AI, Drone-Assembly
+  components:
+  - type: HTN
+    rootTask:
+      task: DroneCompoundAssembly
+
+- type: entity
+  id: NpcDroneAiMPulsar
+  name: attacker core
+  parent: [NpcStationAiAttacker, BaseFactionGearOtherFactionT2]
+  description: Shoots at you, up-close.
+  suffix: AI, Drone-MPulsar
+  components:
+  - type: HTN
+    rootTask:
+      task: DroneCompoundMPulsar
+
+- type: entity
+  id: NpcDroneAiLance
+  name: attacker core
+  parent: [NpcStationAiAttacker, BaseFactionGearOtherFactionT2]
+  description: Shoots at you, close-by.
+  suffix: AI, Drone-Lance
+  components:
+  - type: HTN
+    rootTask:
+      task: DroneCompoundLance
+
+- type: entity
+  id: NpcDroneAiQuake
+  name: attacker core
+  parent: [NpcStationAiAttackerSmart, BaseFactionGearOtherFactionT3]
+  description: Shoots at you.
+  suffix: AI, Drone-Quake
+  components:
+  - type: HTN
+    sleepPlayerCheckRangeOverride: 8000
+    rootTask:
+      task: DroneCompoundQuake
+
+#region Spawners
+
+- type: entity
+  name: rammer core spawner
+  id: SpawnMobRammerCore
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: base
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: red_t1
+      shader: unshaded
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiRammer
+
+- type: entity
+  name: smart rammer core spawner
+  id: SpawnMobRammerCoreSmart
+  parent: SpawnMobRammerCore
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: base
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: red_t2
+      shader: unshaded
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiRammerSmart
+
+- type: entity
+  name: smart dodging rammer core spawner
+  id: SpawnMobRammerCoreSmartDodging
+  parent: SpawnMobRammerCoreSmart
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiRammerSmartDodging
+
+- type: entity
+  name: no-evade rammer core spawner
+  id: SpawnMobRammerCoreStraight
+  parent: SpawnMobRammerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiRammerStraight
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobAttackerCore
+  parent: SpawnMobRammerCore
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: base
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: green_t1
+      shader: unshaded
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiAttacker
+
+- type: entity
+  name: smart attacker core spawner
+  id: SpawnMobAttackerCoreSmart
+  parent: SpawnMobRammerCore
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: base
+    - sprite: _Mono/Mobs/Core/drone.rsi
+      state: green_t2
+      shader: unshaded
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiAttackerSmart
+
+- type: entity
+  name: smart static attacker core spawner
+  id: SpawnMobAttackerCoreStaticSmart
+  parent: SpawnMobAttackerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiAttackerStaticSmart
+
+- type: entity
+  name: broadside attacker core spawner
+  id: SpawnMobNpcStationAiAttackerBroadside
+  parent: SpawnMobAttackerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiAttackerBroadside
+
+- type: entity
+  name: approacher core spawner
+  id: SpawnMobApproacherCore
+  parent: SpawnMobAttackerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcStationAiApproacher
+
+#region Drone AI spawners
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiMedusa
+  parent: SpawnMobAttackerCore
+  suffix: Short-Range, Drone-Medusa
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiMedusa
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiAssembly
+  parent: SpawnMobAttackerCore
+  suffix: Broadside, Drone-Assembly
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiAssembly
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiMPulsar
+  parent: SpawnMobAttackerCore
+  suffix: Short-Range, Drone-MPulsar
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiMPulsar
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiLance
+  parent: SpawnMobAttackerCore
+  suffix: Short-Range, Drone-Lance
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiLance
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiQuake
+  parent: SpawnMobAttackerCore
+  suffix: Drone-Quake
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiQuake

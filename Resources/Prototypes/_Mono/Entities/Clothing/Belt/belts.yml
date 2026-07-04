@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: ClothingBeltDrakeIndustries
   name: drake industries webbing
@@ -18,7 +12,7 @@
 #small chest rigs
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC1Contraband]
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsNormalBlack
   name: black chest rig
   description: A set of tactical webbing worn by boarding parties.
@@ -36,7 +30,7 @@
 #small chest rigs
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC2ContrabandUnredeemable]
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsNormalTSFMC
   name: TSFMC chest rig
   description: A set of tactical webbing worn by marines.
@@ -52,7 +46,7 @@
     damageCoefficient: 0.5
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC1Contraband]
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsNormalTan
   name: tan chest rig
   description: A set of tactical webbing worn by boarding parties.
@@ -68,7 +62,7 @@
     damageCoefficient: 0.5
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC1Contraband]
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsNormalRangerGreen
   name: ranger green chest rig
   description: A set of tactical webbing worn by boarding parties.
@@ -84,7 +78,7 @@
     damageCoefficient: 0.5
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC1Contraband]
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsNormalOlive
   name: olive chest rig
   description: A set of tactical webbing worn by boarding parties.
@@ -102,7 +96,7 @@
 #Big chest rigs
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC1Contraband]
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsBigBase
   name: large chest rig
   description: A set of tactical webbing worn by boarding parties.
@@ -123,7 +117,7 @@
     sprintModifier: 0.95
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC1Contraband]
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsBigBlack
   name: black large chest rig
   description: A set of tactical webbing worn by boarding parties.
@@ -144,7 +138,7 @@
     sprintModifier: 0.95
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC2ContrabandUnredeemable]
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsBigTSFMC
   name: TSFMC large chest rig
   description: A set of tactical webbing worn by marines.
@@ -165,7 +159,7 @@
     sprintModifier: 0.95
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC1Contraband]
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsBigTan
   name: tan large chest rig
   description: A set of tactical webbing worn by boarding parties.
@@ -186,7 +180,7 @@
     sprintModifier: 0.95
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC1Contraband]
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsBigRangerGreen
   name: ranger green large chest rig
   description: A set of tactical webbing worn by boarding parties.
@@ -207,7 +201,7 @@
     sprintModifier: 0.95
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC1Contraband]
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsBigOlive
   name: olive large chest rig
   description: A set of tactical webbing worn by boarding parties.
@@ -226,3 +220,49 @@
     - 0,0,11,1
   - type: ClothingSpeedModifier
     sprintModifier: 0.95
+
+# Viz Sheath
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ClothingBeltSheathVizier
+  name: grand vizier's sheath
+  description: A paired sheath and holster, custom made for grand viziers of the PDV to carry the weapons of their office.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Belt/vizier_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Mono/Clothing/Belt/vizier_sheath.rsi
+  - type: ContainerContainer
+    containers:
+      sheath: !type:ContainerSlot
+      holster: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      sheath:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - Shamshir
+      holster:
+        name: Dragoon
+        whitelist:
+          tags:
+          - Dragoon
+  - type: ItemMapper
+    mapLayers:
+      sheath-sword:
+        whitelist:
+          tags:
+          - Shamshir
+      sheath-gun:
+        whitelist:
+          tags:
+          - Dragoon
+    sprite: _Mono/Clothing/Belt/vizier_sheath.rsi
+  - type: Appearance

@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: whythelettuce
+# Discord: whythelettuce
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Velios
+  parent: BaseVessel
+  name: WLV-Velios
+  description: A medical vessel designed for multifunction capabilities. Includes a medbay, cryogenics setup, surgery room, and a rescue supply room. While large in size and reinforced with plastitanium walls, the thrusters still provide enough speed for rapid response to medical calls.
+  price: 76080 # Appraises at 50721 but capabilities are good, + it's replacing the shirokami (112000).
+  category: Medium
+  group: Medical
+  shuttlePath: /Maps/_Mono/Shuttles/velios.yml
+  guidebookPage: null
+  class:
+  - Medical
+  - Chemistry
+  engine:
+  - AME
+
+- type: gameMap
+  id: Velios
+  mapName: 'WLV-Velios'
+  mapPath: /Maps/_Mono/Shuttles/velios.yml
+  minPlayers: 0
+  stations:
+    Velios:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Velios MED{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

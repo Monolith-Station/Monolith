@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden
-// SPDX-FileCopyrightText: 2025 Aviu00
-// SPDX-FileCopyrightText: 2025 Misandry
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 gus
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 // using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared.Interaction;
 using Robust.Shared.Network;
@@ -15,12 +7,12 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._Goobstation.Wizard.Projectiles;
 
-public sealed class HomingProjectileSystem : EntitySystem
+public sealed partial class HomingProjectileSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly RotateToFaceSystem _rotate = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private RotateToFaceSystem _rotate = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private INetManager _net = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
     // private EntityQuery<FrozenComponent> _frozenQuery;

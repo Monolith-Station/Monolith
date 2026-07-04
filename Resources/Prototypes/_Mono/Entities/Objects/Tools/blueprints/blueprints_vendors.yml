@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 HungryCuban
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: BaseBlueprint
   id: BlueprintWarlordSuit
@@ -11,5 +7,19 @@
   - type: Blueprint
     providedRecipes:
     - MonoHardsuitWarlordRecipe
+  - type: StaticPrice
+    vendPrice: 30000
+
+- type: entity
+  parent: BaseBlueprint
+  id: BlueprintMotleyAnneFighters
+  name: motley anne fighter blueprint
+  description: A blueprint containing schematics for each of the Motley Anne's drone-piloted fighters.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - SnakeletVoucherRogue
+    - MockVoucherRogue
+    - InertiaVoucherRogue
   - type: StaticPrice
     vendPrice: 30000

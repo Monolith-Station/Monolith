@@ -1,0 +1,94 @@
+# Its basically just a LMG, but I thought it would be more fitting in launchers.
+
+- type: entity
+  name: NT-WS Mk.348 "Hailstorm" directed kinetic pulse weapon
+  parent: BaseItem
+  id: WeaponLauncherMk348
+  description: A bulky multi-barreled weapon firing 9x19mm. Ammo is fed via boxes, which is moved inside the gun to each respective barrel. Be glad you aren't the one having to maintain this awful mechanism.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/mk348.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/mk348_inhands_32x.rsi
+    size: Ginormous
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/mk348_inhands_32x.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    minAngle: 0
+    maxAngle: 23
+    angleIncrease: 4
+    angleDecay: 32
+    fireRate: 4 # 240 rpm
+    burstFireRate: 600 # Its hilarious.
+    shotsPerBurst: 10
+    burstCooldown: 0.1
+    selectedMode: Burst
+    projectileSpeed: 60
+    availableModes:
+    - Burst
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/m41.ogg
+  - type: MagazineAmmoProvider
+    autoEject: false
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: AmmoBox9x19mmFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/lmg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/lmg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine9x19mmFMJBox
+        whitelistFailPopup: gun-magazine-whitelist-fail
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: StaticPrice
+    price: 2500
+  - type: ClothingSpeedModifier
+    walkModifier: 0.2
+    sprintModifier: 0.2
+  - type: HeldSpeedModifier
+  - type: MultiHandedItem
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/lmg_mouse.rsi
+      state: all
+  - type: WieldDelay
+    baseDelay: 1.4
+    modifiedDelay: 1.4
+    preventFiring: true
+  - type: UseDelay
+    delay: 1
+  - type: ItemTax # Mono
+    taxAccounts:
+      nfsd: 0.2
+  - type: AmmoCounter
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RiflesDrop

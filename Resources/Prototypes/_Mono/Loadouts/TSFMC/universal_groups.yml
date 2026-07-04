@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 RealSchepka
-# SPDX-FileCopyrightText: 2025 Schepka
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutGroup
   id: TsfmcBackpack
   name: loadout-group-contractor-backpack
@@ -42,6 +35,7 @@
   loadouts:
   - TsfmcClothingJumpsuit
   - TsfmcClothingJumpsuitType47D
+  - TsfmcClothingDressUniform
   fallbacks:
   - TsfmcClothingJumpsuit
 
@@ -53,6 +47,7 @@
   - TsfmcEngineeringClothingJumpsuit
   - TsfmcClothingJumpsuit
   - TsfmcClothingJumpsuitType47D
+  - TsfmcClothingDressUniform
   fallbacks:
   - TsfmcEngineeringClothingJumpsuit
 
@@ -97,6 +92,7 @@
   loadouts:
   - TsfmcCombatWebbing
   - TsfmcCombatWebbingLarge
+  - ContractorClothingBeltSheathFilled
   fallbacks:
   - TsfmcCombatWebbing
 
@@ -126,7 +122,7 @@
 - type: loadoutGroup
   id: TsfmcFace
   name: loadout-group-contractor-face
-  minLimit: 1
+  minLimit: 0
   maxLimit: 1
   loadouts:
   - TsfmcGaiter
@@ -151,6 +147,7 @@
   - TsfmcHud
   fallbacks:
   - TsfmcHud
+
 
 - type: loadoutGroup
   id: TsfmcNeck
@@ -195,6 +192,8 @@
   loadouts:
   - TsfmcHelmet
   - TsfmcBeret
+  - TsfmcUtilityCap
+  - TsfmcBeretCommon
 
 - type: loadoutGroup
   id: TsfmcHeadMedic
@@ -204,6 +203,8 @@
   - TsfmcHelmet
   - TsfmcBeret
   - TsfmcBeretMedic
+  - TsfmcUtilityCap
+  - TsfmcBeretCommon
 
 - type: loadoutGroup
   id: TsfmcHeadEngi
@@ -211,6 +212,8 @@
   minLimit: 0
   loadouts:
   - TsfmcBeretEngineer
+  - TsfmcUtilityCap
+  - TsfmcBeretCommon
 
 # Grunt headsets
 - type: loadoutGroup
@@ -240,8 +243,19 @@
   name: loadout-group-contractor-outerclothing
   minLimit: 1
   loadouts:
-  - TsfmcVestSlim
-  - TsfmcVestNormal
+  - TsfmcClothingOuterArmorBPVestLight
+  - TsfmcClothingOuterArmorBPVestMedium
   fallbacks:
-  - TsfmcVestSlim
+  - TsfmcClothingOuterArmorBPVestLight
 
+# armor plates
+- type: loadoutGroup
+  id: FactionArmorPlates
+  name: loadout-group-contractor-armorplates
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - FactionArmorPlatePierce
+  - FactionArmorPlateBlunt_Slash
+  fallbacks:
+  - FactionArmorPlatePierce

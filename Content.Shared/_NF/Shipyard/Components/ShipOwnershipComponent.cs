@@ -31,5 +31,5 @@ public sealed partial class ShipOwnershipComponent : Component
     /// How long to wait after the owner disconnects before deleting their ship (in seconds)
     /// </summary>
     [DataField]
-    public float DeletionTimeoutSeconds = 7200; // 2 hours
+    public float DeletionTimeoutSeconds = 3600; // 1 hour
 }

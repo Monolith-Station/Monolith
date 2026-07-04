@@ -5,10 +5,10 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Instruments;
 
-public sealed class SwappableInstrumentSystem : EntitySystem
+public sealed partial class SwappableInstrumentSystem : EntitySystem
 {
-    [Dependency] private readonly SharedInstrumentSystem _sharedInstrument = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedInstrumentSystem _sharedInstrument = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -24,9 +24,6 @@ public sealed class SwappableInstrumentSystem : EntitySystem
 
         if (!TryComp<InstrumentComponent>(uid, out var instrument))
             return;
-
-        if (component.OnlySetBySelf && uid != args.User) // Frontier: restrict instrument changes
-            return; // Frontier: restrict instrument changes
 
         var priority = 0;
         foreach (var entry in component.InstrumentList)

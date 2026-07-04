@@ -1,19 +1,9 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-# All Static Prices are multiplied by 12
+# All Static Prices are multiplied by 10
 
 # Sidearms
 
 - type: entity #Viper
   parent:
-  - BaseC2ContrabandMercenary
   - WeaponPistolViper
   id: WeaponPistolViperPMC
   suffix: Registered
@@ -25,27 +15,24 @@
 
 - type: entity #WT-550
   parent:
-  - BaseC2ContrabandMercenary
   - WeaponSubMachineGunWt550
   id: WeaponSubMachineGunWt550PMC
   suffix: Registered
   components:
   - type: StaticPrice
-    price: 2200
+    price: 1000
 
 - type: entity #Drozd
   parent:
-  - BaseC2ContrabandMercenary
   - WeaponSubMachineGunDrozd
   id: WeaponSubMachineGunDrozdPMC
   suffix: Registered
   components:
   - type: StaticPrice
-    price: 1350
+    price: 1000
 
 - type: entity #C-20r
   parent:
-  - BaseC2ContrabandMercenary
   - WeaponSubMachineGunC20r
   id: WeaponSubMachineGunC20rPMC
   suffix: Registered
@@ -53,80 +40,73 @@
   - type: PirateBountyItem
     id: StandardFactionLongarm
   - type: StaticPrice
-    price: 2500
+    price: 1000
 
 # Rifles
 
 - type: entity #Lecter
   parent:
-  - BaseC2ContrabandMercenary
   - WeaponRifleLecter
   id: WeaponRifleLecterPMC
   suffix: Registered
   components:
   - type: StaticPrice
-    price: 1500
+    price: 1200
 
 # Shotguns
 
 - type: entity #Kammerer
   parent:
-  - BaseC2ContrabandMercenary
   - WeaponShotgunKammerer
   id: WeaponShotgunKammererPMC
   suffix: Registered
   components:
   - type: StaticPrice
-    price: 800
+    price: 500
 
 - type: entity #Enforcer
   parent:
-  - BaseC2ContrabandMercenary
   - WeaponShotgunEnforcer
   id: WeaponShotgunEnforcerPMC
   suffix: Registered
   components:
   - type: StaticPrice
-    price: 1800
+    price: 1200
 
 # Energy
 
 - type: entity #Energy Gun
   parent:
-  - BaseC2ContrabandMercenary
   - WeaponEnergyGun
   id: WeaponEnergyGunPMC
   suffix: Registered
   components:
   - type: StaticPrice
-    price: 1100
-
-- type: entity #Laser Rifle
-  parent:
-  - BaseC2ContrabandMercenary
-  - WeaponLaserCarbine
-  id: WeaponLaserCarbinePMC
-  suffix: Registered
-  components:
-  - type: StaticPrice
-    price: 750
+    price: 500
 
 - type: entity #Laser Cannon
   parent:
-  - BaseC2ContrabandMercenary
   - WeaponLaserCannon
   id: WeaponLaserCannonPMC
   suffix: Registered
   components:
   - type: StaticPrice
-    price: 1400
+    price: 1000
 
 - type: entity #Disabler SMG
   parent:
-  - BaseC2ContrabandMercenary
   - WeaponDisablerSMG
   id: WeaponDisablerSMGPMC
   suffix: Registered
   components:
   - type: StaticPrice
-    price: 420
+    price: 250
+
+- type: entity #RS-2 Malandro
+  parent:
+  - WeaponSubMachineGunMalandro
+  id: WeaponSubMachineGunMalandroPMC
+  suffix: Registered
+  components:
+  - type: StaticPrice
+    price: 1000

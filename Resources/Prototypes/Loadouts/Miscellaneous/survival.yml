@@ -20,6 +20,7 @@
     - Reptilian
     - Protogen
     - Yowie # Goobstation
+    - Tajaran # Goobstation
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
@@ -33,7 +34,7 @@
   id: EmergencyOxygen
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherNF
   storage:
     back:
     - BoxSurvival
@@ -42,7 +43,7 @@
   id: EmergencyNitrogen
   effects:
   - !type:GroupLoadoutEffect
-    proto: NitrogenBreather
+    proto: NitrogenBreatherNF
   storage:
     back:
     - BoxSurvivalNitrogen
@@ -52,7 +53,7 @@
   id: EmergencyOxygenClown
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherNF
   storage:
     back:
     - BoxHug
@@ -61,7 +62,7 @@
   id: EmergencyNitrogenClown
   effects:
   - !type:GroupLoadoutEffect
-    proto: NitrogenBreather
+    proto: NitrogenBreatherNF
   storage:
     back:
     - BoxHugNitrogen
@@ -71,7 +72,7 @@
   id: EmergencyOxygenMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherNF
   storage:
     back:
     - BoxMime
@@ -80,7 +81,7 @@
   id: EmergencyNitrogenMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: NitrogenBreather
+    proto: NitrogenBreatherNF
   storage:
     back:
     - BoxMimeNitrogen
@@ -91,7 +92,7 @@
   id: EmergencyOxygenExtended
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherNF
   storage:
     back:
     - BoxSurvivalEngineering
@@ -100,7 +101,7 @@
   id: EmergencyNitrogenExtended
   effects:
   - !type:GroupLoadoutEffect
-    proto: NitrogenBreather
+    proto: NitrogenBreatherNF
   storage:
     back:
     - BoxSurvivalEngineeringNitrogen
@@ -110,7 +111,7 @@
   id: EmergencyOxygenMedical
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherNF
   storage:
     back:
     - BoxSurvivalMedical
@@ -119,7 +120,7 @@
   id: EmergencyNitrogenMedical
   effects:
   - !type:GroupLoadoutEffect
-    proto: NitrogenBreather
+    proto: NitrogenBreatherNF
   storage:
     back:
     - BoxSurvivalMedicalNitrogen
@@ -129,7 +130,7 @@
   id: EmergencyOxygenSecurity
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherNF
   storage:
     back:
     - BoxSurvivalSecurity
@@ -138,7 +139,7 @@
   id: EmergencyNitrogenSecurity
   effects:
   - !type:GroupLoadoutEffect
-    proto: NitrogenBreather
+    proto: NitrogenBreatherNF
   storage:
     back:
     - BoxSurvivalSecurityNitrogen
@@ -148,7 +149,7 @@
   id: EmergencyOxygenSyndicate
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherNF
   storage:
     back:
     - BoxSurvivalSyndicate
@@ -157,7 +158,7 @@
   id: EmergencyNitrogenSyndicate
   effects:
   - !type:GroupLoadoutEffect
-    proto: NitrogenBreather
+    proto: NitrogenBreatherNF
   storage:
     back:
     - BoxSurvivalSyndicateNitrogen
@@ -178,7 +179,7 @@
   id: LoadoutSpeciesEVANitrogen
   effects:
   - !type:GroupLoadoutEffect
-    proto: NitrogenBreather
+    proto: NitrogenBreatherNF
   equipment:
     suitstorage: NitrogenTankFilled
 
@@ -186,7 +187,7 @@
   id: LoadoutSpeciesEVAOxygen
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherNF
   equipment:
     suitstorage: OxygenTankFilled
 
@@ -195,7 +196,7 @@
   id: LoadoutSpeciesPocketDoubleNitrogen
   effects:
   - !type:GroupLoadoutEffect
-    proto: NitrogenBreather
+    proto: NitrogenBreatherNF
   equipment:
     pocket1: DoubleEmergencyNitrogenTankFilled
 
@@ -203,7 +204,7 @@
   id: LoadoutSpeciesPocketDoubleOxygen
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherNF
   equipment:
     pocket1: DoubleEmergencyOxygenTankFilled
 

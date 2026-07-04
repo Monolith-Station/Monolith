@@ -1,27 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Rane
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 brainfood1183
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2023 themias
-// SPDX-FileCopyrightText: 2024 Arendian
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 BeeRobynn
-// SPDX-FileCopyrightText: 2025 Blu
-// SPDX-FileCopyrightText: 2025 ScyronX
-// SPDX-FileCopyrightText: 2025 starch
-// SPDX-FileCopyrightText: 2025 wewman222
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.ActionBlocker;
@@ -62,22 +38,23 @@ namespace Content.Shared.Mech.EntitySystems;
 /// <summary>
 /// Handles all of the interactions, UI handling, and items shennanigans for <see cref="MechComponent"/>
 /// </summary>
-public abstract class SharedMechSystem : EntitySystem
+public abstract partial class SharedMechSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!; // Goobstation Change
-    [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
-    [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation Change
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedMoverController _mover = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private SharedHandsSystem _hands = default!; // Goobstation Change
+    [Dependency] private SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
+    [Dependency] private IConfigurationManager _config = default!; // Goobstation Change
+    [Dependency] private SharedContentEyeSystem _eye = default!; // Mono edit - Pilot camera zoom on mech enter
 
     // Goobstation: Local variable for checking if mech guns can be used out of them.
     private bool _canUseMechGunOutside;
@@ -407,6 +384,10 @@ public abstract class SharedMechSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
+        // Mono: Ensures mechs can't be entered if broken
+        if (component.Broken)
+            return false;
+
         return IsEmpty(component) && _actionBlocker.CanMove(toInsert);
     }
 
@@ -442,6 +423,7 @@ public abstract class SharedMechSystem : EntitySystem
         _container.Insert(toInsert.Value, component.PilotSlot);
         UpdateAppearance(uid, component);
         UpdateHands(toInsert.Value, uid, true); // Goobstation
+        UpdateMechZoom(toInsert.Value, component, false); // Mono
         return true;
     }
 
@@ -467,6 +449,7 @@ public abstract class SharedMechSystem : EntitySystem
         _container.RemoveEntity(uid, pilot.Value);
         UpdateAppearance(uid, component);
         UpdateHands(pilot.Value, uid, false); // Goobstation
+        UpdateMechZoom(pilot.Value, component, true); // Mono
         return true;
     }
 
@@ -525,6 +508,7 @@ public abstract class SharedMechSystem : EntitySystem
 
         var weapon = mech.CurrentSelectedEquipment ?? component.Mech;
         args.Weapon = weapon;
+        args.User = component.Mech; // Mono
         args.Handled = true;
     }
 
@@ -588,11 +572,29 @@ public abstract class SharedMechSystem : EntitySystem
         _doAfter.TryStartDoAfter(doAfterEventArgs);
     }
 
+    // Mono edit - Update pilot zoom when inserting/ejecting pilot from mech
+    private void UpdateMechZoom(EntityUid uid, MechComponent component, bool eject)
+    {
+        if (!TryComp<EyeComponent>(uid, out var eye))
+            return;
+
+        if (eject)
+        {
+            _eye.ResetZoom(uid);
+            _eye.SetMaxZoom(uid, eye.Zoom);
+            return;
+        }
+
+        _eye.SetMaxZoom(uid, component.Zoom);
+        _eye.SetZoom(uid, component.Zoom);
+    }
+    // Mono edit end
+
     private void OnCanDragDrop(EntityUid uid, MechComponent component, ref CanDropTargetEvent args)
     {
         args.Handled = true;
 
-        args.CanDrop |= !component.Broken && CanInsert(uid, args.Dragged, component);
+        args.CanDrop |= CanInsert(uid, args.Dragged, component); // Mono: moved mech broken check to CanInsert
     }
     //private void OnEmagged(EntityUid uid, MechComponent component, ref GotEmaggedEvent args) // Goobstation
     //{

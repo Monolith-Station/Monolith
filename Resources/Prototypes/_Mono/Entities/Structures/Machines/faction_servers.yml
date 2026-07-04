@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BaseRdServerFaction
   parent: BaseMachinePowered
@@ -19,7 +14,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: ResearchServer
   - type: ResearchPointSource
-    pointspersecond: 30
+    pointsPerSecond: 30
     active: true
   - type: TechnologyDatabase
     supportedDisciplines:
@@ -27,6 +22,7 @@
     - Arsenal
     - Experimental
     - CivilianServices
+    - MechaEngineering
   - type: ApcPowerReceiver
     powerLoad: 500
   - type: ExtensionCableReceiver
@@ -71,6 +67,13 @@
   name: TSFMC R&D server
   description: Contains the collective knowledge of the TSFMC in this sector.
   components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/server.rsi
+    layers:
+    - state: server
+    - state: variant-tsf
+    - state: server_o
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: TechnologyDatabase
     supportedDisciplines:
     - TsfmcWeaponry
@@ -78,13 +81,25 @@
     - TsfmcEquipment # EQUIPMENT IS ARMOR!!
     - TsfmcShipyard
     - FactionUniversal
+    - Industrial
+    - Arsenal
+    - Experimental
+    - CivilianServices
+    - MechaEngineering
 
 - type: entity
   id: ResearchAndDevelopmentServerRogues
   parent: BaseRdServerFaction
-  name: Rogue R&D server
-  description: Contains the collective knowledge of the Rogues in this sector.
+  name: PDV R&D server
+  description: Contains the collective knowledge of the Phaethon Dynasty.
   components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/server.rsi
+    layers:
+    - state: server
+    - state: variant-rogue
+    - state: server_o
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: TechnologyDatabase
     supportedDisciplines:
     - RogueWeaponry
@@ -92,6 +107,11 @@
     - RogueEquipment # EQUIPMENT IS ARMOR!!
     - RogueShipyard
     - FactionUniversal
+    - Industrial
+    - Arsenal
+    - Experimental
+    - CivilianServices
+    - MechaEngineering
 
 - type: entity
   id: ResearchAndDevelopmentServerUssp
@@ -99,13 +119,23 @@
   name: USSP R&D server
   description: Contains the collective knowledge of the USSP in this sector.
   components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/server.rsi
+    layers:
+    - state: server
+    - state: variant-ussp
+    - state: server_o
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: TechnologyDatabase
     supportedDisciplines:
     - Ussp
-    - UsspShipyard
-    - UsspEquipment
-    - UsspWeapons
+    - ViperGroup
     - FactionUniversal
+    - Industrial
+    - Arsenal
+    - Experimental
+    - CivilianServices
+    - MechaEngineering
 
 - type: entity
   id: ResearchAndDevelopmentServerDebug
@@ -128,10 +158,21 @@
     - RogueEquipment
     - RogueShipyard
     - Ussp
-    - UsspShipyard
-    - UsspEquipment
-    - UsspWeapons
     - FactionUniversal
     - MechaEngineering
-    - DebugPrefracture
 
+- type: entity
+  parent: ResearchAndDevelopmentServer
+  id: ResearchAndDevelopmentServerMerc
+  name: mercenary R&D server
+  description: Contains the collective knowledge of the crew.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/server.rsi
+    layers:
+    - state: server
+    - state: variant-merc
+    - state: server_o
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: StaticPrice
+    price: 4000

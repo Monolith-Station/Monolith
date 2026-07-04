@@ -18,10 +18,10 @@
       - id: GlowstickBase
         orGroup: LightingItem
       # Low-chance items
-      # - id: FoodSnackChocolate # Frontier
-      #  prob: 0.15 # Frontier
-      - id: HarmonicaInstrument
+      - id: FoodSnackChocolate
         prob: 0.15
+      - id: HarmonicaInstrument
+        prob: 0.3 #Mono: 0.15 >> 0.3
  
 - type: entity
   id: ToolboxElectricalFilled
@@ -34,15 +34,16 @@
       - id: Screwdriver
       - id: CrowbarOrange
       - id: Wirecutter
+      - id: Multitool #Mono
       - id: CableApcStack10
       - id: CableMVStack10
       - id: trayScanner
-        prob: 0.9
+#        prob: 0.9 #Mono: always spawn
       - id: ClothingHandsGlovesColorYellow
-        prob: 0.05
-        orGroup: GlovesOrWires
+#        prob: 0.05 #Mono: always spawn
+#        orGroup: GlovesOrWires #Mono
       - id: CableHVStack10
-        orGroup: GlovesOrWires
+#        orGroup: GlovesOrWires #Mono
 
 - type: entity
   id: ToolboxElectricalTurretFilled
@@ -55,15 +56,16 @@
       - id: Screwdriver
       - id: CrowbarOrange
       - id: Wirecutter
+      - id: Multitool #Mono
       - id: CableApcStack10
       - id: CableMVStack10
       - id: trayScanner
-        prob: 0.9
+#        prob: 0.9 #Mono: always spawn
       - id: ClothingHandsGlovesColorYellow
-        prob: 0.05
-        orGroup: GlovesOrWires
+#        prob: 0.05 #Mono: always spawn
+#        orGroup: GlovesOrWires #Mono
       - id: CableHVStack10
-        orGroup: GlovesOrWires
+#        orGroup: GlovesOrWires #Mono
 
 - type: entity
   id: ToolboxArtisticFilled
@@ -98,8 +100,18 @@
       - id: Wrench
       - id: Welder
       - id: Wirecutter
+      - id: ClothingHeadHatWelding #Mono start: add welding protection
+        orGroup: WeldMaskRandom
+      - id: ClothingHeadHatWeldingMaskFlameBlue
+        orGroup: WeldMaskRandom
+      - id: ClothingHeadHatWeldingMaskFlame
+        orGroup: WeldMaskRandom
+      - id: ClothingHeadHatWeldingMaskPainted
+        orGroup: WeldMaskRandom
+      - id: ClothingEyesGlassesMeson
+        orGroup: WeldMaskRandom #Mono end
       - id: Screwdriver
-        prob: 0.5
+#        prob: 0.5 #Mono: always spawn
       - id: FlashlightLantern
         prob: 0.7
       - id: ClothingHeadHatHardhatBlue

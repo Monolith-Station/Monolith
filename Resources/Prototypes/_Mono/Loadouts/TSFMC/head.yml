@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadout
   id: TsfmcHelmet
   equipment:
     head: ClothingHeadHelmetMercenaryBlack
+
+- type: loadout
+  id: TsfmcUtilityCap
+  equipment:
+    head: ClothingHeadHatUtilityTsfmc
 
 - type: loadout
   id: TsfmcBeret
@@ -22,3 +22,8 @@
   id: TsfmcBeretMedic
   equipment:
     head: ClothingHeadHatBeretBrigmedic
+
+- type: loadout
+  id: TsfmcBeretCommon
+  equipment:
+    head: ClothingHeadHatBeretCommon

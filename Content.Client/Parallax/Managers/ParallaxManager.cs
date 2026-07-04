@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2018 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2019 Silver
-// SPDX-FileCopyrightText: 2020 Tyler Young
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 DrSmugleaf
-// SPDX-FileCopyrightText: 2021 wrexbe
-// SPDX-FileCopyrightText: 2022 20kdc
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,11 +8,11 @@ using Robust.Shared.Configuration;
 
 namespace Content.Client.Parallax.Managers;
 
-public sealed class ParallaxManager : IParallaxManager
+public sealed partial class ParallaxManager : IParallaxManager
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IDependencyCollection _deps = null!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private IDependencyCollection _deps = null!;
 
     private ISawmill _sawmill = Logger.GetSawmill("parallax");
 
@@ -110,10 +98,13 @@ public sealed class ParallaxManager : IParallaxManager
             }
             else
             {
-                layers = await Task.WhenAll(
+                // Explicitly allocate params array to avoid sandbox violation since C# 14.
+                var tasks = new[]
+                {
                     LoadParallaxLayers(parallaxPrototype.Layers, loadedLayers, cancel),
-                    LoadParallaxLayers(parallaxPrototype.LayersLQ, loadedLayers, cancel)
-                );
+                    LoadParallaxLayers(parallaxPrototype.LayersLQ, loadedLayers, cancel),
+                };
+                layers = await Task.WhenAll(tasks);
             }
 
             cancel.ThrowIfCancellationRequested();

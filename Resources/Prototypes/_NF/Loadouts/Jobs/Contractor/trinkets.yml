@@ -5,28 +5,28 @@
 #T0
 - type: loadout
   id: ContractorCigPackBlue
-  price: 150
+  price: 0 # Mono
   storage:
     back:
     - CigPackBlue
 
 - type: loadout
   id: ContractorCigPackRed
-  price: 150
+  price: 0 # Mono
   storage:
     back:
     - CigPackRed
 
 - type: loadout
   id: ContractorCigPackBlack
-  price: 150
+  price: 0 # Mono
   storage:
     back:
     - CigPackBlack
 
 - type: loadout
   id: ContractorCigPackGreen
-  price: 150
+  price: 0 # Mono
   storage:
     back:
     - CigPackGreen
@@ -38,7 +38,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   storage:
     back:
     - CigarCase
@@ -48,7 +48,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 200
+  price: 0 # Mono
   storage:
     back:
     - NFAshtray
@@ -59,7 +59,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 600
+  price: 0 # Mono
   storage:
     back:
     - SmokingPipeFilledTobacco
@@ -69,7 +69,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 600
+  price: 0 # Mono
   storage:
     back:
     - TobaccoPouchBrownFilled
@@ -79,7 +79,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 600
+  price: 0 # Mono
   storage:
     back:
     - TobaccoPouchBlueFilled
@@ -89,7 +89,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 800
+  price: 0 # Mono
   storage:
     back:
     - TobaccoPouchRedFilled
@@ -99,7 +99,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 600
+  price: 0 # Mono
   storage:
     back:
     - TobaccoPouchPurpleFilled
@@ -109,7 +109,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 600
+  price: 0 # Mono
   storage:
     back:
     - Vape
@@ -120,7 +120,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 2000
+  price: 5000 # Mono
   storage:
     back:
     - CigarGoldCase
@@ -129,7 +129,7 @@
 #T0
 - type: loadout
   id: ContractorMatchbox
-  price: 100
+  price: 0 # Mono
   storage:
     back:
     - Matchbox
@@ -140,7 +140,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 200
+  price: 0 # Mono
   storage:
     back:
     - Lighter
@@ -151,7 +151,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 500
+  price: 0 # Mono
   storage:
     back:
     - FlippoLighter
@@ -162,7 +162,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 5000
+  price: 5000 # Mono
   storage:
     back:
     - FlippoEngravedLighter
@@ -171,7 +171,7 @@
 #T0
 - type: loadout
   id: ContractorDrinkFlaskOld
-  price: 250
+  price: 0 # Mono
   storage:
     back:
     - DrinkFlaskOld
@@ -182,7 +182,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   storage:
     back:
     - DrinkShinyFlask
@@ -193,7 +193,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1000
+  price: 0 # Mono
   storage:
     back:
     - DrinkFlask
@@ -204,7 +204,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 2000
+  price: 0 # Mono
   storage:
     back:
     - DrinkVacuumFlask
@@ -213,14 +213,14 @@
 #T0
 - type: loadout
   id: ContractorFlashlightLantern
-  price: 100
+  price: 0 # Mono
   storage:
     back:
     - FlashlightLantern
 
 - type: loadout
   id: ContractorWristwatch
-  price: 500
+  price: 0 # Mono
   storage:
     back:
     - Wristwatch
@@ -231,7 +231,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 300
+  price: 0 # Mono
   storage:
     back:
     - Basketball
@@ -241,7 +241,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 300
+  price: 0 # Mono
   storage:
     back:
     - Football
@@ -251,7 +251,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 300
+  price: 0 # Mono
   storage:
     back:
     - BeachBall
@@ -267,22 +267,14 @@
     back:
     - CrayonBox
 
-- type: loadout
-  id: ContractorSoapNT
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  price: 800
-  storage:
-    back:
-    - SoapNT
+# Mono - remove NT soap
 
 - type: loadout
   id: ContractorCardBoxBlack
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 2000
+  price: 0 # Mono0
   storage:
     back:
     - CardBoxBlack

@@ -24,7 +24,7 @@ We provide some scripts shown below to make the job easier.
 ### Build dependencies
 
 > - Git
-> - .NET SDK 9.0.101
+> - .NET SDK 10.0
 
 
 ### Windows
@@ -45,12 +45,22 @@ We provide some scripts shown below to make the job easier.
 
 ### MacOS
 
-> I don't know anybody using MacOS to test this, but it's probably roughly the same steps as Linux
+> 1. Clone this repository
+> 2. Run `Scripts/sh/updateEngine.sh` in a terminal to download the engine
+> 3. Run `Scripts/sh/buildAllDebug.sh` after making any changes to the source
+> 4. Run `Scripts/sh/runQuickAll.sh` to launch the client and the server
+> 5. Connect to localhost in the client and play
 
 ## License
 
+See the REUSE headers for detailed licensing information for each file for the specific licenses contributions are made under. The work as a whole is licensed under GNU Affero General Public License version 3.0.
+
+By default, original code contributed to the Monolith codebase after 04d8ce483f638320d1b85a7aaacdf01442757363 is under Mozilla Public License version 2.0 with Exhibit B removed. See `LICENSE-MPL.txt`.
+
 Content contributed to this repository after commit 2fca06eaba205ae6fe3aceb8ae2a0594f0effee0 is licensed under the GNU Affero General Public License version 3.0, unless otherwise stated. See `LICENSE-AGPLv3.txt`.
+
 Content contributed to this repository before commit 2fca06eaba205ae6fe3aceb8ae2a0594f0effee0 is licensed under the MIT license, unless otherwise stated. See `LICENSE-MIT.txt`.
+
 
 [2fca06eaba205ae6fe3aceb8ae2a0594f0effee0](https://github.com/new-frontiers-14/frontier-station-14/commit/2fca06eaba205ae6fe3aceb8ae2a0594f0effee0) was pushed on July 1, 2024 at 16:04 UTC
 

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Goobstation.Factory;
 using Content.Server.Construction;
 using Content.Shared.Construction.Prototypes;
@@ -11,10 +6,10 @@ using Robust.Shared.Maths;
 
 namespace Content.Server._Goobstation.Factory;
 
-public sealed class ConstructorSystem : SharedConstructorSystem
+public sealed partial class ConstructorSystem : SharedConstructorSystem
 {
-    [Dependency] private readonly ConstructionSystem _construction = default!;
-    [Dependency] private readonly StartableMachineSystem _machine = default!;
+    [Dependency] private ConstructionSystem _construction = default!;
+    [Dependency] private StartableMachineSystem _machine = default!;
 
     private EntityQuery<ActiveDoAfterComponent> _activeQuery;
 

@@ -88,7 +88,7 @@
 
 # region Contraband Crates
 - type: entity
-  parent: CrateTradeBaseSecureContraband
+  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure1
   categories: [ HideSpawnMenu ]
   components:
@@ -113,11 +113,11 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 65000
-    valueElsewhere: 45000
+    valueAtDestination: 30000
+    valueElsewhere: 20000
 
 - type: entity
-  parent: CrateTradeBaseSecureContraband
+  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure2
   categories: [ HideSpawnMenu ]
   components:
@@ -142,14 +142,14 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 90000
-    valueElsewhere: 7500
+    valueAtDestination: 45000
+    valueElsewhere: 4000
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
     expressOnTimeBonus: 10000
-    expressLatePenalty: 75000
+    expressLatePenalty: 30000
 
 - type: entity
-  parent: CrateTradeBaseSecureContraband
+  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure3
   categories: [ HideSpawnMenu ]
   components:
@@ -174,14 +174,14 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 70000
-    valueElsewhere: 4000
+    valueAtDestination: 45000
+    valueElsewhere: 2000
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
-    expressOnTimeBonus: 30000
-    expressLatePenalty: 30000
+    expressOnTimeBonus: 20000
+    expressLatePenalty: 25000
 
 - type: entity
-  parent: CrateTradeBaseSecureContraband
+  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure4
   name: Donk Co. contraband crate
   categories: [ HideSpawnMenu ]
@@ -207,14 +207,14 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 105000
-    valueElsewhere: 5000
+    valueAtDestination: 50000 # 105.000 is psychopathic + 45,000 making it 150,000 which is fucking stupid, 
+    valueElsewhere: 3000
     expressDeliveryDuration: 36000 # one hour, go go (timeout mostly for pirates & NFSD)
-    expressOnTimeBonus: 45000
+    expressOnTimeBonus: 25000
     expressLatePenalty: 30000
 
 - type: entity
-  parent: CrateTradeBaseSecureContraband
+  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT3 ] # the only t3
   id: CrateTradeContrabandSecure5
   name: Cybersun Industries contraband crate
   categories: [ HideSpawnMenu ]
@@ -240,9 +240,9 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 105000
-    valueElsewhere: 6000
+    valueAtDestination: 45000
+    valueElsewhere: 4000
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
-    expressOnTimeBonus: 45000
+    expressOnTimeBonus: 25000
     expressLatePenalty: 30000
 # endregion Contraband Crates

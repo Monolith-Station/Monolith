@@ -1,0 +1,40 @@
+# Author Info
+# GitHub: starch70
+# Discord: _starch_
+
+# Shuttle Notes:
+- type: vessel
+  id: Mudskipper
+  parent: BaseVessel
+  name: SKR Mudskipper
+  description: A heavily modified Peregrine for combat usage. The inner bays have had the outermost layers collapsed for an additional layer of armor, the interior has been rearranged for a shield generator, and the weapon mounts now carry 4 Draupnir rotary cannons.
+  price: 75000
+  category: Medium
+  group: Scrap
+  shuttlePath: /Maps/_Mono/Shuttles/Scrap/mudskipper.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - Plasma # Pinch fusion gen kind, not the pacman kind.
+
+- type: gameMap
+  id: Mudskipper
+  mapName: 'SKR Mudskipper'
+  mapPath: /Maps/_Mono/Shuttles/Scrap/mudskipper.yml
+  minPlayers: 0
+  stations:
+    Mudskipper:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Mudskipper SRP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Maxtone
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: LockerQuarterMasterFilledHardsuit
   suffix: Filled, Hardsuit
@@ -48,12 +39,18 @@
   - type: StorageFill
     contents:
       - id: SrIDCard
-      - id: ClothingHeadsetCentCom # Frontier
+      #- id: ClothingHeadsetCentCom # Frontier - Mono out
+      - id: ClothingHeadsetAltCentComSR #Mono in
       - id: BoxHandcuff # Frontier
       - id: IDComputerCircuitboard
       - id: CommsComputerCircuitboard # Frontier
       - id: MedalCase # Frontier
       - id: Demag # Frontier
+      - id: ShipVoucherRavager # Mono
+      - id: WeaponEnergyShotgunOverseer # Mono
+      - id: WeaponOverseerMace # Mono
+      - id: PhoneInstrumentHigh # Mono
+      - id: WeaponCaseShortBombCollar # Mono
 
 - type: entity
   id: LockerNfsdSheriffFilled
@@ -72,11 +69,13 @@
       - id: SpeedLoader45_magnumFMJ # Mono
       - id: RadioHandheldNF # Mono
       - id: NfsdTechFabFlatpack
+      - id: ClothingEyesTSFOfficerGlasses
+      - id: PhoneInstrumentHigh # Mono
 
 - type: entity
   parent: GunSafe
   id: GunSafeSr
-  name: SR's gun safe
+  name: overseer heavy gun safe # Mono
   suffix: Filled
   components:
   - type: AccessReader
@@ -84,7 +83,9 @@
   - type: StorageFill
     contents:
     - id: WeaponCaseHeavyCdet
-    - id: WeaponPistolMk58
+#    - id: WeaponPistolMk58
+    - id: WeaponCaseHeavyAsmgt # Mono
+    - id: WeaponCaseMla79Registered # Mono - might be so wrong for ts LMAO
       amount: 1
-    - id: Magazine9x19mmPistolFMJ
-      amount: 2
+    # - id: Magazine45_ACPPistolFMJ
+    #   amount: 2

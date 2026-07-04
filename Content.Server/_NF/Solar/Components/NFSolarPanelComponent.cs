@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Whatstone
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server._NF.Solar.EntitySystems;
 
 namespace Content.Server._NF.Solar.Components;
@@ -22,6 +17,13 @@ public sealed partial class NFSolarPanelComponent : Component
     /// </summary>
     [DataField]
     public int MaxSupply = 1500;
+
+    // Mono
+    /// <summary>
+    /// Coverage to still have if there's a wall directly in front of us.
+    /// </summary>
+    [DataField]
+    public float ObstructedCoverage = 0.5f;
 
     /// <summary>
     /// Current coverage of this panel (from 0 to 1).

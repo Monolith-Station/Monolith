@@ -1,0 +1,48 @@
+<Document>
+  # Series 4 Combat Mechs
+
+ The very expensive finale to the Mechanized lineup in the Colossus Sector, S4 Mechs are exclusively usable in microgravity and mount weapons intended for use against ships.
+
+ All S4 Mechs are space insulated, provide breathable atmosphere, and have maneuvering jets. They also all possess improved ocular processors and radar modules, allowing their operators to see further both visually and on the scanner.
+
+  <Box>
+    <GuideEntityEmbed Entity="AFFlail" Scale="0.9"/>
+    <GuideEntityEmbed Entity="AFMace" Scale="0.9"/>
+    <GuideEntityEmbed Entity="AFFlailE" Scale="0.9"/>
+  </Box>
+
+##Flail
+
+ The Flail is an extremely durable, very fast Armored Frame capable of fighting military-grade ships.
+
+##Mace
+
+ The Mace is a variant of the Flail that sacrifices half its Armor and all but one of its weapon mounts to go even faster.
+
+##Spyglass
+
+ The Spyglass is an EWAR variant of the Flail, which sacrifices Armor, Speed, and can only mount "Light" mech weapons in exchange for the ability to also mount EWAR modules.\n
+
+
+##Heavy Mech Weapons
+ All Heavy Mech weapons are incapable of operating while under Gravity.
+  <Box>
+    <GuideEntityEmbed Entity="HeavyMechCannon" Caption="Metronome 220mm"/>
+    <GuideEntityEmbed Entity="HeavyMechProjector" Caption="Ravager Plasma Cannon"/>
+    <GuideEntityEmbed Entity="HeavyMechRPG" Caption="R-3 Bazooka"/>
+  </Box>
+ - The Metronome 220mm Heavy Burst Cannon is a mostly-accurate 3-round burst, long range autocannon. Max Range: ~800m.
+ - The Ravager-type Plasma Cannon is an [italic]extremely[/italic] damaging ship-destroying automatic cannon. Max Range: ~550m.
+ - The R-3 Bazooka is a very slow firing short-ranged missile launcher with minimal target tracking. Max Range: ~256m.
+
+##EWAR Modules
+ Electronic Warfare modules provide screening to other Mechs and small ships by emitting radar signatures that interfere with targeting.
+
+  <Box>
+    <GuideEntityEmbed Entity="EWACMechaJammer"/>
+    <GuideEntityEmbed Entity="EWACMechaFlares"/>
+  </Box>
+  - The E-58 "Blanket" Jammer launches a radar emitter producing a 40m radius radar jamming "blanket", somewhat obscuring Mechs and projectiles from radar observation.
+  - The E-58 "Spark" Jammer launches a series of small emitters that are visible from radar observation.
+
+</Document>

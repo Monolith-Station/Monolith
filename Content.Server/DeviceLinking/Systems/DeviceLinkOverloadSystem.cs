@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Julian Giebel
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2025 slarticodefast
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.DeviceLinking.Components.Overload;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
@@ -12,9 +5,9 @@ using Content.Shared.DeviceLinking.Events;
 
 namespace Content.Server.DeviceLinking.Systems;
 
-public sealed class DeviceLinkOverloadSystem : EntitySystem
+public sealed partial class DeviceLinkOverloadSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<SoundOnOverloadComponent, DeviceLinkOverloadedEvent>(OnOverloadSound);

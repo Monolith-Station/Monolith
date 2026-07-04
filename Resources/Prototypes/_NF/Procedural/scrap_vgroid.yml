@@ -104,10 +104,24 @@
     - !type:OreDunGen
       entityMask:
       - WallRockScrapPile
+      entity: WallSolid
+      count: 200
+      minGroupSize: 5
+      maxGroupSize: 40
+    - !type:OreDunGen
+      entityMask:
+      - WallRockScrapPile
       entity: WallSolidRust
-      count: 70
-      minGroupSize: 6
-      maxGroupSize: 16
+      count: 100
+      minGroupSize: 5
+      maxGroupSize: 25
+    - !type:OreDunGen
+      entityMask:
+      - WallRockScrapPile
+      entity: Girder
+      count: 60
+      minGroupSize: 1
+      maxGroupSize: 5
     - !type:OreDunGen
       entityMask:
       - WallRockScrapPile
@@ -129,6 +143,13 @@
       count: 10
       minGroupSize: 1
       maxGroupSize: 1
+    - !type:OreDunGen
+      tileMask:
+      - Plating
+      entity: SalvageCanisterSpawner # free gas? in this economy?
+      count: 30
+      minGroupSize: 1
+      maxGroupSize: 2
     # Decoration
     # - !type:OreDunGen
       # tileMask:
@@ -152,6 +173,25 @@
       count: 2
       minGroupSize: 1
       maxGroupSize: 1
+    - !type:OreDunGen # turret jumpscare
+      tileMask:
+      - Plating
+      entity: SpawnMobWeaponTurretSyndicate
+      count: 10
+      minGroupSize: 1
+      maxGroupSize: 1
+    # Mono - has less
+    - !type:EntityTableDunGen
+      minCount: 3
+      maxCount: 7
+      table: !type:NestedSelector
+        tableId: VgroidGasDepositTable
+    # but has guaranteed frezon deposit
+    - !type:EntityTableDunGen
+      minCount: 1
+      maxCount: 1
+      table: !type:NestedSelector
+        tableId: DeepGasDepositFrezon
 
 # Configs
 - type: dungeonConfig
@@ -178,7 +218,7 @@
   data:
     tiles:
       FallbackTile: FloorTechMaint3
-      WidenTile: Lattice # Plating
+      WidenTile: Plating
   layers:
   - !type:PrototypeDunGen
     proto: NFVGRoidExteriorDungeonsScrap
@@ -285,31 +325,34 @@
 - type: biomeTemplate
   id: NFVGRoidScrapyard
   layers:
-    - !type:BiomeEntityLayer
-      threshold: 0.97
+    # Fill scrap
+    - !type:BiomeTileLayer
+      threshold: -1
+      tile: Plating
+    # lattice "lakes"
+    - !type:BiomeTileLayer
+      tile: Lattice
+      threshold: -0.15
       noise:
-        frequency: 1
-        seed: 2
-      allowedTiles:
-        - Lattice # Plating
-      entities:
-        - SpawnDungeonCanisterBroken # TODO: replace with light fixture
+        seed: 0
+        noiseType: Cellular
+        frequency: 0.03
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 5
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
     - !type:BiomeEntityLayer
-      threshold: -0.35
+      threshold: 0.5
       noise:
         seed: 1
         noiseType: OpenSimplex2
         frequency: 1
       allowedTiles:
-        - Lattice
+        - Plating
       entities:
-        - ComputerBroken
-        - WeaponTurretSyndicateBroken
         - SpawnDungeonMachineFrame
-        - SpawnDungeonComputerFrame
-        - SolarPanelBroken
         - SpawnDungeonCanisterBroken
-        - SalvageCanisterSpawner
     # Rock formations
     - !type:BiomeEntityLayer
       threshold: -0.2
@@ -322,12 +365,8 @@
         frequency: 0.3
         gain: 0
       allowedTiles:
-        - Lattice # Plating
+        - Plating
       entities:
         - WallRockScrapPile
     - !type:BiomeDummyLayer
       id: Loot
-    # Fill scrap
-    - !type:BiomeTileLayer
-      threshold: -1
-      tile: Lattice # Plating

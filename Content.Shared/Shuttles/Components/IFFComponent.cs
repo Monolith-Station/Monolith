@@ -42,6 +42,7 @@ public enum IFFFlags : byte
 
     /// <summary>
     /// Should the label for this grid be hidden at all ranges.
+    /// Mono - only hides true IFF instead.
     /// </summary>
     HideLabel = 1,
 
@@ -55,6 +56,18 @@ public enum IFFFlags : byte
     /// Frontier - Is this a player shuttle
     /// </summary>
     IsPlayerShuttle = 4,
+
+    // Mono
+    /// <summary>
+    /// If HideLabel is true, whether even detection labels should not be shown.
+    /// </summary>
+    HideLabelAlways = 8,
+
+    // Mono
+    /// <summary>
+    /// If HideLabel is true, whether to show true grid IFF color anyway.
+    /// </summary>
+    AlwaysShowColor = 16,
 
     // TODO: Need one that hides its outline, just replace it with a bunch of triangles or lines or something.
 }

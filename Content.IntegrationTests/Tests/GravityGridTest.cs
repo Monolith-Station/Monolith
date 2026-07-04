@@ -30,7 +30,7 @@ namespace Content.IntegrationTests.Tests
   - type: UserInterface
 ";
         [Test]
-        public async Task Test()
+        public async Task GravityTest() // Test->GravityTest - Mono
         {
             await using var pair = await PoolManager.GetServerClient();
             var server = pair.Server;
@@ -66,7 +66,7 @@ namespace Content.IntegrationTests.Tests
                 powerComponent.NeedsPower = false;
             });
 
-            await server.WaitRunTicks(5);
+            await server.WaitRunTicks(25); // Mono change: increase from 5 due to power update change
 
             await server.WaitAssertion(() =>
             {
@@ -85,7 +85,7 @@ namespace Content.IntegrationTests.Tests
                 powerComponent.NeedsPower = true;
             });
 
-            await server.WaitRunTicks(5);
+            await server.WaitRunTicks(25); // Mono change: increase from 5 due to power update change
 
             await server.WaitAssertion(() =>
             {

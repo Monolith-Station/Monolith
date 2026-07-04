@@ -5,6 +5,17 @@
   description: A thruster that allows a shuttle to move.
   abstract: true
   components:
+    - type: Fixtures #Mono start
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.45,-0.45,0.45,0.45"
+          density: 190
+          mask:
+          - MachineMask
+          layer:
+          - MachineLayer #Mono end
     - type: AmbientSound
       enabled: false
       range: 4
@@ -21,6 +32,7 @@
       damage:
         types:
           Heat: 40
+    - type: ThermalSignature # Mono
     - type: InteractionOutline
     - type: Sprite
     - type: Appearance
@@ -103,9 +115,20 @@
   - type: PirateBountyItem # Frontier
     id: Thruster # Frontier
   - type: RadarBlip # Mono
+    visibleFromOtherGrids: true
     radarColor: "#99FF99"
     scale: 1
     shape: diamond
+    gridConfig:
+      color: "#99FF99"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.5,-0.5,0.5,0.5"
+  # Mono
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 5
 
 - type: entity
   id: ThrusterUnanchored
@@ -154,6 +177,7 @@
     baseThrust: 2000
     thrust: 2000
     machinePartThrust: Manipulator
+    heatSignatureRatio: 0.5 # Mono
   - type: Sprite
     # Listen I'm not the biggest fan of the sprite but it was the most appropriate thing I could find.
     sprite: Structures/Shuttles/gyroscope.rsi
@@ -172,6 +196,16 @@
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
+  - type: DeviceNetwork # Mono
+    deviceNetId: Wireless # Mono
+    receiveFrequencyId: BasicDevice # Mono
+  - type: WirelessNetworkConnection # Mono
+    range: 200 # Mono
+  - type: DeviceLinkSink # Mono
+    ports: # Mono
+    - On # Mono
+    - Off # Mono
+    - Toggle # Mono
   - type: PointLight
     radius: 1.3
     energy: 0.8
@@ -211,6 +245,10 @@
     price: 300 # Frontier - 2000<300
   - type: PirateBountyItem # Frontier
     id: Gyroscope # Frontier
+  # Mono
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 6
 
 - type: entity
   id: GyroscopeUnanchored
@@ -249,3 +287,52 @@
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
+
+- type: entity
+  id: RustedThruster
+  parent: BaseStructureDynamic
+  name: rusted thruster
+  description: An unrepairable thruster, broken down from wear and tear. Only useful for scrapping.
+  components:
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.45,-0.45,0.45,0.45"
+          density: 60
+          mask:
+          - MachineMask
+          layer:
+          - MachineLayer
+    - type: Transform
+      anchored: true
+    - type: Physics
+      bodyType: Static
+    - type: Rotatable
+      rotateWhileAnchored: true
+    - type: Sprite
+      sprite: Structures/Shuttles/old_thruster.rsi
+      state: base
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Electronic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100  # Considering we need a lot of thrusters didn't want to make an individual one too tanky
+        behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+    - type: PhysicalComposition
+      materialComposition:
+        Steel: 1200 # 12 sheets
+    # Mono
+    - type: ShipRepairable
+      repairTo: Thruster
+      repairTime: 6
+      repairCost: 6

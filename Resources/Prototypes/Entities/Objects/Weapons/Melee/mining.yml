@@ -11,6 +11,8 @@
     sprite: Objects/Weapons/Melee/pickaxe.rsi
     state: pickaxe
   - type: MeleeWeapon
+    autoAttack: true #Mono
+    heavyStaminaCost: 0 # Mono
     attackRate: 0.75
     wideAnimationRotation: -135
     soundHit:
@@ -28,7 +30,7 @@
       types:
         Blunt: 15
         Piercing: 5
-        Structural: 25
+        Structural: 35
   - type: Item
     size: Normal
     shape:
@@ -93,7 +95,7 @@
 
 - type: entity
   abstract: true
-  parent: [ BaseItem, BaseC1Contraband ] # Frontier: BaseSecurityCargoContraband<BaseC1Contraband
+  parent: BaseItem
   id: BaseWeaponCrusher # Crusher? But I...
   name: crusher
   description: An early design of the proto-kinetic accelerator.
@@ -106,7 +108,7 @@
     radius: 4
 
 - type: entity
-  parent: [BaseWeaponCrusher, BaseC1Contraband] # Frontier: BaseSecurityCargoContraband<BaseC1Contraband
+  parent: BaseWeaponCrusher
   id: WeaponCrusher
   components:
   - type: Tag
@@ -118,17 +120,20 @@
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
-    delay: 0.9
+    delay: 0.4 # Mono
   - type: LeechOnMarker
     leech:
       groups:
         Brute: -10
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
-    fireRate: 1
+    fireRate: 1.4 # Mono
+    availableModes:
+      - FullAuto # Mono
+    selectedMode: FullAuto # Mono
     useKey: false
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.5
+    rechargeCooldown: 0.2 # Mono
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
@@ -136,6 +141,7 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
+    autoAttack: true #Mono
     attackRate: 1.25
     wideAnimationRotation: -135
     damage:
@@ -152,6 +158,7 @@
         Slash: 5
         Structural: 30
   - type: GunRequiresWield
+  - type: SkipPlayerAccuracyModifier #Mono
   - type: Item
     size: Ginormous
     sprite: Objects/Weapons/Melee/crusher-inhands.rsi
@@ -164,7 +171,7 @@
     - suitStorage # Frontier
 
 - type: entity
-  parent: [ BaseKnife, BaseWeaponCrusher, BaseC1Contraband] # Frontier: BaseSecurityCargoContraband<BaseC1Contraband
+  parent: [ BaseKnife, BaseWeaponCrusher]
   id: WeaponCrusherDagger
   name: crusher dagger
   description: A scaled down version of a proto-kinetic crusher. Uses kinetic energy to vibrate the blade at high speeds.
@@ -194,7 +201,7 @@
 
 # Like a crusher... but better
 - type: entity
-  parent: [ WeaponCrusher, BaseC1Contraband] # Frontier: BaseSecurityCargoContraband<BaseC1Contraband
+  parent: WeaponCrusher
   id: WeaponCrusherGlaive
   name: crusher glaive
   description: An early design of the proto-kinetic accelerator, in glaive form.
@@ -202,7 +209,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher_glaive.rsi
   - type: UseDelay
-    delay: 1.9
+    delay: 1.4 # Mono
   - type: LeechOnMarker
     leech:
       groups:

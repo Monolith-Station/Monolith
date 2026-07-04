@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2025 GreaseMonk
-# SPDX-FileCopyrightText: 2025 Onezero0
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BluespaceSalvage
   parent: BaseStationEventShortDelay
@@ -33,10 +27,12 @@
         - type: IFF
           color: "#AAAAAA"
         - type: LinkedLifecycleGridParent
-        - type: ProtectedGrid
-          preventArtifactTriggers: true
-        - type: PreventPilot
-        paths:
+        # Mono
+        #- type: ProtectedGrid
+        #  preventArtifactTriggers: true
+        #- type: PreventPilot
+        - type: ClaimableGrid # Mono
+        paths: #Mono TODO: Create and add Mono scrap ships.
         - /Maps/_NF/Shuttles/Scrap/bison.yml
 #        - /Maps/_NF/Shuttles/Scrap/canister.yml # Too small
         - /Maps/_NF/Shuttles/Scrap/disciple.yml

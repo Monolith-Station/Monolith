@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: MachineHeavyFTLDriveCore
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, BaseMachinePowered]
@@ -38,6 +33,8 @@
     hyperSpaceTime: 25
     startupTime: 6.4
     driveMassMultiplier: 0.25
+    thermalSignature: 6000000 # ~4900m range
+  - type: ThermalSignature
   - type: ApcPowerReceiver
     powerLoad: 15000
   - type: ExtensionCableReceiver
@@ -48,6 +45,9 @@
     range: 5
     sound:
       path: /Audio/Ambience/Objects/anomaly_generator.ogg
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 120
 
 - type: entity
   id: MachineHeavyFTLDriveConsole
@@ -138,3 +138,6 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 120

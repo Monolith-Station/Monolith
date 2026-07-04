@@ -1,14 +1,14 @@
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutGroup
   id: ContractorFirearm
-  name: loadout-group-pistol
-  minLimit: 1
+  minLimit: 0
+  name: loadout-group-weapon-civilian
   loadouts:
   - ContractorMk32Loadout
+  - ContractorLaserLoadout
+  - ContractorSurvivalKnifeLoadout
   - ContractorDisablerLoadout
+  - ContractorArgentiLoadout
+  - ContractorSvalinnLoadout
   - ContractorDoubleBarreledLoadout
   fallbacks:
   - ContractorMk32Loadout
@@ -19,4 +19,5 @@
   minLimit: 0
   loadouts:
   - Contractor9x19mmPistolAmmoLoadout #MK32 Universal
-  - ContractorBeanbagAmmoLoadout #Beanbag
+  - Contractor556x45mmAmmoLoadout #Argenti
+  - ContractorBeanbagAmmoLoadout #Shotgun Beanbag

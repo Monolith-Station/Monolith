@@ -1,0 +1,70 @@
+- type: entity
+  name: bang, zoom
+  parent: WeaponPistolDebug
+  id: WeaponPistolDebugFast
+  description: zoom
+  suffix: DEBUG
+  components:
+  - type: Gun
+    fireRate: 5
+    projectileSpeed: 500
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolDebugZoom
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - Debug
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeDebugZoom
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge9x19mmFMJ
+
+- type: entity
+  id: MagazinePistolDebugZoom
+  name: bang, zoom mag
+  parent: BaseMagazine9x19mm
+  suffix: DEBUG
+  components:
+  - type: Tag
+    tags:
+      - Debug
+  - type: BallisticAmmoProvider
+    proto: CartridgeDebugZoom
+    capacity: 1000
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/9x19mm/9x19mm_pistol_mag.rsi
+
+- type: entity
+  id: BulletDebugZoom
+  name: bang, zoom bullet
+  parent: BaseBullet
+  categories: [ Debug, HideSpawnMenu ]
+  suffix: DEBUG
+  components:
+  - type: Tag
+    tags:
+      - Debug
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 20
+
+- type: entity
+  id: CartridgeDebugZoom
+  name: bang, zoom cartridge
+  parent: BaseCartridge9x19mm
+  suffix: DEBUG
+  components:
+  - type: Tag
+    tags:
+      - Debug
+  - type: CartridgeAmmo
+    proto: BulletDebugZoom

@@ -2,10 +2,8 @@
   id: ClothingOuterCoatCultJanitor
   name: cult janitor robes
   parent:
-  - BaseC3CultContraband
   - ClothingOuterStorageBase
   - ClothingOuterArmorBulletproof
-  - ContrabandClothing
   description: An unholy custodian's garb. Surprisingly comfortable.
   components:
   - type: Sprite
@@ -17,10 +15,8 @@
   id: ClothingOuterCoatBloodCultRobes
   name: cult robes
   parent:
-  - BaseC3CultContraband
   - ClothingOuterStorageToggleableBase
   - ClothingOuterArmorBasic
-  - ContrabandClothing
   description: There's no cult without classic red/crimson cult robes with bulletproof vests.
   suffix: Frontier
   components:

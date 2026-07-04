@@ -1,0 +1,97 @@
+# Its really annoying how far i have to go in HTN yaml to make a AI that doesnt get stuck trying to pickup a folding chair like a dumbass.
+
+- type: htnCompound
+  id: ChimeraHostileCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: ChimeraMeleeCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: htnCompound
+  id: ChimeraMeleeCombatCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyChimeraMeleeTargets
+    - !type:HTNCompoundTask
+      task: BeforeChimeraMeleeAttackTargetCompound
+
+- type: htnCompound
+  id: BeforeChimeraMeleeAttackTargetCompound
+  branches:
+  - preconditions:
+    - !type:BuckledPrecondition
+      isBuckled: true
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UnbuckleOperator
+        shutdownState: TaskFinished
+  - preconditions:
+    - !type:PulledPrecondition
+      isPulled: true
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UnPullOperator
+        shutdownState: TaskFinished
+  - preconditions:
+    - !type:InContainerPrecondition
+      isInContainer: true
+    tasks:
+    - !type:HTNCompoundTask
+      task: EscapeCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: ChimeraMeleeAttackTargetCompound
+
+# MeleeAttackTargetCompound but also attacks crit
+- type: htnCompound
+  id: ChimeraMeleeAttackTargetCompound
+  branches:
+    - preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            shutdownState: PlanFinished
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            brakeMaxVelocity: null # Monolith - don't try to brake
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
+        - !type:HTNPrimitiveTask
+          operator: !type:MeleeOperator
+            targetKey: Target
+            targetState: Critical
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: Target
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: MeleeRange
+          services:
+            - !type:UtilityService
+              id: MeleeService
+              proto: NearbyChimeraMeleeTargets
+              key: Target
+
+# NearbyMeleeTargets but ignores health
+- type: utilityQuery
+  id: NearbyChimeraMeleeTargets
+  query:
+    - !type:NearbyHostilesQuery
+  considerations:
+    - !type:TargetIsDeadCon
+      curve: !type:InverseBoolCurve
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: TargetDistance
+    - !type:TargetAccessibleCon
+      curve: !type:BoolCurve
+    - !type:TargetInLOSOrCurrentCon
+      curve: !type:BoolCurve

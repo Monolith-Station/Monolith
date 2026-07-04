@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Research.Prototypes;
@@ -45,4 +45,11 @@ public sealed partial class TechDisciplinePrototype : IPrototype
     /// </summary>
     [DataField("lockoutTier")]
     public int LockoutTier = 4;
+
+    /// <summary>
+    /// Goobstation R&D console rework field
+    /// Name that appears on this discipline's button in console
+    /// </summary>
+    [DataField(required: true)]
+    public string UiName = string.Empty;
 }

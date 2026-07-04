@@ -1,15 +1,3 @@
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 GreaseMonk
-# SPDX-FileCopyrightText: 2024 Qulibly
-# SPDX-FileCopyrightText: 2024 VividPups
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 starch
-# SPDX-FileCopyrightText: 2025 Dvir
-# SPDX-FileCopyrightText: 2025 FireFoxPhoenix
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Gun cases with contraband (unregistered) guns for expeditions
 # Pistols
 - type: entity
@@ -21,7 +9,7 @@
     contents:
     - id: WeaponPistolMk58Expedition
       amount: 1
-    - id: Magazine9x19mmPistolFMJ
+    - id: Magazine45_ACPPistolFMJ
       amount: 2
 
 - type: entity
@@ -57,9 +45,9 @@
     contents:
     - id: WeaponPistolCobra
       amount: 1
-    - id: Magazine6.35x40mmCaselessPistol
+    - id: Magazine635x40mmCaselessPistol
       amount: 1
-    - id: AmmoBox6.35x40mmCaseless
+    - id: AmmoBox635x40mmCaseless
       amount: 1
 
 - type: entity
@@ -106,7 +94,7 @@
     contents:
     - id: WeaponRevolverArgentiExpedition
       amount: 1
-    - id: SpeedLoader5.56x45mmFMJ
+    - id: SpeedLoader556x45mmFMJ
       amount: 2
 
 - type: entity
@@ -278,9 +266,9 @@
     contents:
     - id: WeaponSubMachineGunWt550Expedition
       amount: 1
-    - id: Magazine4.6x30mmSubMachineGunTopMountedFMJ
+    - id: Magazine46x30mmSubMachineGunTopMountedFMJ
       amount: 2
-    - id: AmmoBox4.6x30mmFMJ
+    - id: AmmoBox46x30mmFMJ
       amount: 1
 
 - type: entity
@@ -292,9 +280,9 @@
     contents:
     - id: WeaponSubMachineGunAtreidesExpedition
       amount: 1
-    - id: Magazine5.7x28mmSubMachineGunFMJ
+    - id: Magazine57x28mmSubMachineGunFMJ
       amount: 2
-    - id: AmmoBox5.7x28mmFMJ
+    - id: AmmoBox57x28mmFMJ
       amount: 2
 
 - type: entity
@@ -349,7 +337,7 @@
     contents:
     - id: WeaponRifleGestio
       amount: 1
-    - id: Magazine7.62x39mmLowCapacityFMJ
+    - id: Magazine762x39mmLowCapacityFMJ
       amount: 3
 
 - type: entity
@@ -373,7 +361,19 @@
     contents:
     - id: WeaponRifleLecter
       amount: 1
-    - id: Magazine5.56x45mmFMJ
+    - id: Magazine68x52mmCaseless # Mono
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongIrohExpedition
+  suffix: Dungeon, Iroh
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleIroh
+      amount: 1
+    - id: Magazine556x45mmFMJ
       amount: 2
 
 - type: entity
@@ -385,7 +385,7 @@
     contents:
     - id: WeaponRifleAk
       amount: 1
-    - id: Magazine7.62x39mmFMJ
+    - id: Magazine762x39mmFMJ
       amount: 2
 
 - type: entity
@@ -397,7 +397,7 @@
     contents:
     - id: WeaponRifleM90
       amount: 1
-    - id: Magazine7.62x51mmFMJ
+    - id: Magazine762x51mmFMJ
       amount: 2
 
 - type: entity
@@ -409,7 +409,7 @@
     contents:
     - id: WeaponRifleSVS
       amount: 1
-    - id: Magazine7.62x54mmRFMJ
+    - id: Magazine762x54mmRFMJ
       amount: 2
 
 - type: entity
@@ -421,7 +421,7 @@
     contents:
     - id: WeaponRifleVulcanExpedition
       amount: 1
-    - id: Magazine7.62x51mmFMJ
+    - id: Magazine762x51mmFMJ
       amount: 2
 
 - type: entity
@@ -433,7 +433,7 @@
     contents:
     - id: WeaponRifleJackdaw
       amount: 1
-    - id: Magazine6.35x40mmCaseless
+    - id: Magazine635x40mmCaseless
       amount: 2
 
 # Energy
@@ -519,7 +519,7 @@
     contents:
     - id: WeaponSniperMosinExpedition
       amount: 1
-    - id: AmmoBox7.62x39mmFMJ
+    - id: AmmoBox762x39mmFMJ
       amount: 2
 
 - type: entity
@@ -531,7 +531,7 @@
     contents:
     - id: WeaponSniperHristov
       amount: 1
-    - id: AmmoBox14.5x114mm
+    - id: AmmoBox145x114mm
       amount: 2
 
 - type: entity
@@ -555,7 +555,7 @@
     contents:
     - id: WeaponMusketExpedition
       amount: 1
-    - id: AmmoBox14.5x114mm
+    - id: AmmoBox145x114mm
       amount: 2
 
 - type: entity
@@ -567,7 +567,7 @@
     contents:
     - id: WeaponSniperCeremonialExpedition
       amount: 1
-    - id: AmmoBox7.62x39mmFMJ
+    - id: AmmoBox762x39mmFMJ
       amount: 2
 
 # Launchers
@@ -605,7 +605,7 @@
     contents:
     - id: WeaponLightMachineGunL6
       amount: 1
-    - id: Magazine7.62x39mmBox
+    - id: Magazine762x39mmBox
       amount: 2
 
 # Melee
@@ -710,6 +710,19 @@
     - id: C4
       amount: 2
 
+- type: entity # Mono
+  parent: WeaponCaseShortExplosives
+  id: WeaponCaseShortBombCollar
+  suffix: Dungeon, Bomb Collar
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingNeckBombCollar
+      amount: 4
+    - id: RemoteSignaller
+      amount: 2
+    - id: BombCollarSealer
+
 # Turrets
 - type: entity
   parent: WeaponCaseHeavy
@@ -720,11 +733,11 @@
     contents:
     - id: WeaponTurretAsmgtHostileUniversallyPacked
       amount: 1
-    - id: MagazineAsmgtUniversalPistol
+    - id: MagazineAsmgtUniversal9x19mm
       amount: 4
 
 # Ammo
-## 5.56x45mm
+## 556x45mm
 - type: entity
   parent:
   - WeaponCaseShortAmmo
@@ -767,7 +780,7 @@
   - StorageFillAmmoBoxUranium20
   id: WeaponCaseShortAmmoBoxUranium20
 
-## 7.62x39mm
+## 762x39mm
 - type: entity
   parent:
   - WeaponCaseShortAmmo
@@ -841,7 +854,7 @@
   - StorageFillAmmoBoxEmp35
   id: WeaponCaseShortAmmoBoxEmp35
 
-## 6.35x40mm Caseless
+## 635x40mm Caseless
 - type: entity
   parent:
   - WeaponCaseShortAmmo

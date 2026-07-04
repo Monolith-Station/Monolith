@@ -50,4 +50,16 @@ public sealed partial class HTNComponent : NPCComponent
     /// Is this NPC currently planning?
     /// </summary>
     [ViewVariables] public bool Planning => PlanningJob != null;
+
+    /// <summary>
+    /// Monolith - If not null, sleep us when no players are in this range, ignoring the similar CVar.
+    /// </summary>
+    [DataField]
+    public float? SleepPlayerCheckRangeOverride = null;
+
+    /// <summary>
+    /// Monolith - If not null, do not sleep if the grid we're on is moving at least this fast.
+    /// </summary>
+    [DataField]
+    public float? SleepMaxGridSpeed = null;
 }

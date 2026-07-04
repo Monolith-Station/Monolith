@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # USSP bags
 
 - type: entity
@@ -59,3 +55,87 @@
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Back/Satchels/tsfmc.rsi
+
+# PDV bags
+
+- type: entity
+  parent: NFClothingBackpack
+  id: ClothingBackpackPDV
+  name: vanguard tactical backpack
+  description: A tactical backpack developed for the dynast troops of Helios.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Backpacks/pdv.rsi
+
+- type: entity
+  parent: NFClothingDuffel
+  id: ClothingBackpackDuffelPDV
+  name: vanguard tactical duffel
+  description: A tactical duffel bag developed for the dynast troops of Helios.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Duffels/pdv.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelPDV
+  name: vanguard tactical satchel
+  description: A tactical satchel developed for the dynast troops of Helios.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Satchels/pdv.rsi
+
+# Jackhammer
+
+- type: entity
+  parent: [Clothing, ClothingSlotBase]
+  id: ClothingBackpackJack
+  name: GS-004-B Hammer ammo storage
+  description: A heavy backpack made for carrying the GS-004-A's loading system.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Backpacks/jack_backpack.rsi
+    layers:
+    - state: icon
+      visible: false
+    - state: base
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+    zeroNoAmmo: true
+  - type: Clothing
+    slots: BACK
+    sprite: _Mono/Clothing/Back/Backpacks/jack_backpack.rsi
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      - state: equipped-BACKPACK-mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine4_gaugeBuckshot
+        whitelist:
+          tags:
+          - Magazine4Gauge
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: Item
+    size: Ginormous
+  - type: Tag
+    tags:
+    - JackShotgunBackpack
+    - WhitelistChameleon
+  - type: ClothingSpeedModifier
+    walkModifier: 0.55
+    sprintModifier: 0.55
+  - type: HeldSpeedModifier

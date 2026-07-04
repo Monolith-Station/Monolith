@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # T1 scaf
 
 - type: latheRecipe
@@ -9,29 +5,24 @@
   parent: MonoHardsuitT1Recipe
   result: ClothingOuterHardsuitPirateScaf
 
-# T2 VG
+# T2 medic
 
 - type: latheRecipe
-  id: ClothingOuterHardsuitViperGroupStandardRogue
+  id: ClothingOuterHardsuitPDVMedic
   parent: MonoHardsuitT2Recipe
-  result: ClothingOuterHardsuitViperGroupStandard
-
-- type: latheRecipe
-  id: ClothingOuterHardsuitViperGroupMedicRogue
-  parent: MonoHardsuitT2Recipe
-  result: ClothingOuterHardsuitViperGroupMedic
+  result: ClothingOuterHardsuitPDVMedic
 
 # T2 syndie
 
 - type: latheRecipe
   id: ClothingOuterHardsuitSyndieRogue
   parent: MonoHardsuitT2Recipe
-  result: ClothingOuterHardsuitSyndie
+  result: ClothingOuterHardsuitAshen
 
 - type: latheRecipe
   id: ClothingOuterHardsuitSyndieEliteRogue
   parent: MonoHardsuitT2Recipe
-  result: ClothingOuterHardsuitSyndieElite
+  result: ClothingOuterHardsuitAshenElite
 
 # T2 stealthsuit
 
@@ -40,14 +31,7 @@
   parent: MonoHardsuitT3Recipe
   result: ClothingOuterHardsuitCybersunStealth
 
-# T3 modsuit
-
-- type: latheRecipe
-  id: ClothingModsuitRoguePowerCellRogue
-  parent: MonoHardsuitT3Recipe
-  result: ClothingModsuitRoguePowerCell
-
-# T3 synthalloy
+# T3 plastitanium
 
 - type: latheRecipe
   id: ClothingOuterHardsuitJuggernautRogue
@@ -83,7 +67,7 @@
   categories:
   - ClothesNF
   - FactionEquipment
-  result: ClothingShoesBootsMagSyndie
+  result: ClothingShoesBootsMagAshen
   completetime: 5
   materials:
     Steel: 1000

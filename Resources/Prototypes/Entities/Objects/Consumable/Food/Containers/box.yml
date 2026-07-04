@@ -274,7 +274,7 @@
       prob: 0.10
       orGroup: Pizza
     - id: KnifePlastic
-  
+
 - type: entity
   name: pizza box
   parent: FoodBoxPizzaFilled
@@ -503,10 +503,19 @@
     maxItemSize: Normal
     grid:
     - 0,0,3,3
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
   - type: Tag
     tags:
     - Trash
     - HappyHonk
+  - type: Food
+    requiresSpecialDigestion: true
   - type: StorageFill
     contents:
       - id: ToyMouse
@@ -589,7 +598,7 @@
 
 - type: entity
   id: HappyHonkNukie
-  parent: [HappyHonk, BaseC3SyndicateContrabandUnredeemable] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContrabandUnredeemable
+  parent: HappyHonk
   name: robust nukie meal
   description: A sus meal with a potentially explosive surprise.
   suffix: Toy Unsafe

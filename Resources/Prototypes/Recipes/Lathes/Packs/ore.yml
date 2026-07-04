@@ -1,14 +1,9 @@
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 deltanedas
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 ## Static
 
 - type: latheRecipePack
   id: OreSmelting
   recipes:
+  - SteelOre1 # Mono
   - SheetSteel
   - SheetGlass1
   - SheetPlasma1
@@ -18,6 +13,8 @@
   - MaterialBananium1
   - MaterialDiamond
   - BluespaceCrystal # Frontier
+  - SheetLithium # Mono
+  - SheetCopper # Mono
 
 # Mono Start
 - type: latheRecipePack
@@ -27,6 +24,7 @@
   - SheetGlass1
   - IngotGold1
   - IngotSilver1
+  - SheetCopper # Mono
 # Mono End
 
 - type: latheRecipePack

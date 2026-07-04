@@ -1,22 +1,3 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 Checkraze
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Jezithyr
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Morb
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2024 Vasilis
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 monolith8319
-// SPDX-FileCopyrightText: 2025 sleepyyapril
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
@@ -27,8 +8,12 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;
+using Content.Shared.NPC.Systems;
+using Prometheus;
+using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Physics.Components; // Mono
 using Robust.Shared.Player;
 
 namespace Content.Server.NPC.Systems
@@ -38,12 +23,16 @@ namespace Content.Server.NPC.Systems
     /// </summary>
     public sealed partial class NPCSystem : EntitySystem
     {
-        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-        [Dependency] private readonly HTNSystem _htn = default!;
-        [Dependency] private readonly MobStateSystem _mobState = default!;
-        [Dependency] private readonly NPCSteeringSystem _steering = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        private static readonly Gauge ActiveGauge = Metrics.CreateGauge(
+            "npc_active_count",
+            "Amount of NPCs that are actively processing");
+
+        [Dependency] private IConfigurationManager _configurationManager = default!;
+        [Dependency] private HTNSystem _htn = default!;
+        [Dependency] private MobStateSystem _mobState = default!;
+        [Dependency] private NPCSteeringSystem _steering = default!;
+        [Dependency] private SharedTransformSystem _transform = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
 
         /// <summary>
         /// Whether any NPCs are allowed to run at all.
@@ -178,6 +167,8 @@ namespace Content.Server.NPC.Systems
 
             // Add your system here.
             _htn.UpdateNPC(ref _count, _maxUpdates, frameTime);
+
+            ActiveGauge.Set(Count<ActiveNPCComponent>());
         }
 
         private void CheckPlayerDistancesAndPauseNPCs()
@@ -197,30 +188,42 @@ namespace Content.Server.NPC.Systems
                     continue;
 
                 var npcCoords = npcTransform.Coordinates;
-                var isAwake = IsAwake(npcUid, htn);
                 var hasNearbyPlayer = false;
 
+                var minDistance = htn.SleepPlayerCheckRangeOverride ?? _playerPauseDistance; // Mono
+                // Mono
+                if (htn.SleepMaxGridSpeed is { } ms
+                    && TryComp<PhysicsComponent>(npcTransform.GridUid, out var gridBody)
+                    && gridBody.LinearVelocity.Length() > ms
+                    )
+                    hasNearbyPlayer = true;
+
                 // Check distance to all players.
-                var allPlayerData = _playerManager.GetAllPlayerData();
-                foreach (var playerData in allPlayerData)
+                if (!hasNearbyPlayer)
                 {
-                    var exists = _playerManager.TryGetSessionById(playerData.UserId, out var session);
-
-                    if (!exists || session == null
-                        || session.AttachedEntity is not { Valid: true } playerEnt
-                        || HasComp<GhostComponent>(playerEnt)
-                        || TryComp<MobStateComponent>(playerEnt, out var state) && state.CurrentState != MobState.Alive)
-                        continue;
-
-                    var playerCoords = Transform(playerEnt).Coordinates;
-
-                    if (npcCoords.TryDistance(EntityManager, playerCoords, out var distance) &&
-                        distance <= _playerPauseDistance)
+                    var allPlayerData = _playerManager.GetAllPlayerData();
+                    foreach (var playerData in allPlayerData)
                     {
-                        hasNearbyPlayer = true;
-                        break;
+                        var exists = _playerManager.TryGetSessionById(playerData.UserId, out var session);
+
+                        if (!exists || session == null
+                            || session.AttachedEntity is not { Valid: true } playerEnt
+                            || HasComp<GhostComponent>(playerEnt)
+                            || TryComp<MobStateComponent>(playerEnt, out var state) && state.CurrentState != MobState.Alive)
+                            continue;
+
+                        var playerCoords = Transform(playerEnt).Coordinates;
+
+                        if (npcCoords.TryDistance(EntityManager, playerCoords, out var distance) &&
+                            distance <= minDistance)
+                        {
+                            hasNearbyPlayer = true;
+                            break;
+                        }
                     }
                 }
+
+                var isAwake = IsAwake(npcUid, htn);
 
                 if (!hasNearbyPlayer)
                 {

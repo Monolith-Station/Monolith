@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2025 J
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Trigger;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -15,9 +7,9 @@ using Robust.Shared.GameObjects;
 
 namespace Content.Client.Trigger;
 
-public sealed class TimerTriggerVisualizerSystem : VisualizerSystem<TimerTriggerVisualsComponent>
+public sealed partial class TimerTriggerVisualizerSystem : VisualizerSystem<TimerTriggerVisualsComponent>
 {
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
 
     public override void Initialize()
     {

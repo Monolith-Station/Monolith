@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutGroup
   id: UsspFirearm
   name: loadout-group-weapon
@@ -32,11 +27,11 @@
   name: loadout-group-magazine
   minLimit: 1
   loadouts:
-  - Faction7.62x39mmAmmoLoadout #AK502
-  - Faction7.62x54mmRAmmoLoadout #Mosin / SVS42
+  - Faction762x39mmAmmoLoadout #AK502
+  - Faction762x54mmRAmmoLoadout #Mosin / SVS42
   - FactionDp29AmmoLoadout #DP29
   fallbacks:
-  - Faction7.62x39mmAmmoLoadout #AK502
+  - Faction762x39mmAmmoLoadout #AK502
 
 - type: loadoutGroup
   id: UsspMagCommissar
@@ -44,8 +39,8 @@
   minLimit: 1
   loadouts:
   - FactionAk150AmmoLoadout #Ak150
-  - Faction7.62x39mmAmmoLoadout #AK502
-  - Faction7.62x54mmRAmmoLoadout #Mosin / SVS42
+  - Faction762x39mmAmmoLoadout #AK502
+  - Faction762x54mmRAmmoLoadout #Mosin / SVS42
   fallbacks:
   - FactionAk150AmmoLoadout #Ak150
 

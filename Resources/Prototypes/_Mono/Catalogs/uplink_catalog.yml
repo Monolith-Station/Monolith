@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Wearables
 - type: listing
   id: UplinkHardsuitSyndieMedic
@@ -79,6 +74,16 @@
   description: uplink-letoferol-desc
   productEntity: SyringeLetoferol
   cost:
-    Telecrystal: 350
+    Telecrystal: 500
   categories:
   - UplinkDeception
+
+- type: listing
+  id: UplinkSyndicateApplicator
+  name: uplink-syndicate-applicator-name
+  description: uplink-syndicate-applicator-desc
+  productEntity: NaniteApplicatorSyndicate
+  cost:
+    Telecrystal: 35
+  categories:
+  - UplinkDisruption

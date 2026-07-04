@@ -4,7 +4,6 @@ using System.Numerics;
 using Content.Server.Advertise;
 using Content.Server.Advertise.Components;
 using Content.Server.Cargo.Systems;
-//using Content.Server.Emp; // Frontier: Upstream - #28984
 using Content.Server.Cargo.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -12,6 +11,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared._NF.Bank.Components; // Frontier
+using Content.Shared.Cargo;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
@@ -36,30 +36,30 @@ using Content.Server._NF.Contraband.Systems; // Frontier
 using Content.Shared.Stacks; // Frontier
 using Content.Server.Stack;
 using Content.Server._Mono.VendingMachine;
+using Content.Shared._Mono.Traits.Physical;
 using Robust.Shared.Containers; // Frontier
 
 namespace Content.Server.VendingMachines
 {
-    public sealed class VendingMachineSystem : SharedVendingMachineSystem
+    public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-        [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-        [Dependency] private readonly PricingSystem _pricing = default!;
-        [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
-        [Dependency] private readonly SharedPointLightSystem _light = default!;
-        [Dependency] private readonly EmagSystem _emag = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private AccessReaderSystem _accessReader = default!;
+        [Dependency] private AppearanceSystem _appearanceSystem = default!;
+        [Dependency] private PricingSystem _pricing = default!;
+        [Dependency] private ThrowingSystem _throwingSystem = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private SpeakOnUIClosedSystem _speakOnUIClosed = default!;
+        [Dependency] private SharedPointLightSystem _light = default!;
+        [Dependency] private EmagSystem _emag = default!;
 
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // Frontier
-        [Dependency] private readonly SharedAudioSystem _audioSystem = default!; // Frontier
-        [Dependency] private readonly BankSystem _bankSystem = default!; // Frontier
-        [Dependency] private readonly PopupSystem _popupSystem = default!; // Frontier
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!; // Frontier
-        [Dependency] private readonly ContrabandTurnInSystem _contraband = default!; // Frontier
-        [Dependency] private readonly StackSystem _stack = default!; // Frontier
-        [Dependency] private readonly VendingMachinePurchaseSystem _vendingPurchase = default!; // Mono
+        [Dependency] private IPrototypeManager _prototypeManager = default!; // Frontier
+        [Dependency] private SharedAudioSystem _audioSystem = default!; // Frontier
+        [Dependency] private BankSystem _bankSystem = default!; // Frontier
+        [Dependency] private PopupSystem _popupSystem = default!; // Frontier
+        [Dependency] private IAdminLogManager _adminLogger = default!; // Frontier
+        [Dependency] private StackSystem _stack = default!; // Frontier
+        [Dependency] private VendingMachinePurchaseSystem _vendingPurchase = default!; // Mono
 
         private const float WallVendEjectDistanceFromWall = 1f;
 
@@ -71,7 +71,6 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
-            //SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse); // Frontier: Upstream - #28984
             SubscribeLocalEvent<VendingMachineComponent, EntInsertedIntoContainerMessage>(OnEntityInserted); // Frontier
             SubscribeLocalEvent<VendingMachineComponent, EntRemovedFromContainerMessage>(OnEntityRemoved); // Frontier
 
@@ -145,6 +144,7 @@ namespace Content.Server.VendingMachines
         private void OnBreak(EntityUid uid, VendingMachineComponent vendComponent, BreakageEventArgs eventArgs)
         {
             vendComponent.Broken = true;
+            Dirty(uid, vendComponent);
             TryUpdateVisualState(uid, vendComponent);
         }
 
@@ -153,6 +153,7 @@ namespace Content.Server.VendingMachines
             if (!args.DamageIncreased && component.Broken)
             {
                 component.Broken = false;
+                Dirty(uid, component);
                 TryUpdateVisualState(uid, component);
                 return;
             }
@@ -346,17 +347,17 @@ namespace Content.Server.VendingMachines
             if (TryComp<MarketModifierComponent>(component.Owner, out var modifier))
                 price *= modifier.Mod;
 
-            var totalPrice = (int) price;
+            var totalPrice = component.RequiresCash ? (int) price : 0;
 
             // If any price has a vendor price, explicitly use its value - higher OR lower, over others.
             var priceVend = _pricing.GetEstimatedVendPrice(proto);
-            if (priceVend > 0.0) // if vending price exists, overwrite it.
+            if (priceVend > 0.0 && component.RequiresCash) // if vending price exists, overwrite it.
                 totalPrice = (int) priceVend;
 
             if (IsAuthorized(uid, sender, component))
             {
                 int bankBalance = 0;
-                if (TryComp<BankAccountComponent>(sender, out var bank))
+                if (!HasComp<IronmanComponent>(sender) && TryComp<BankAccountComponent>(sender, out var bank))
                     bankBalance = bank.Balance;
 
                 int cashSlotBalance = 0;
@@ -391,10 +392,8 @@ namespace Content.Server.VendingMachines
                         component.CashSlotBalance = newCashSlotBalance;
                         paidFully = true; // Either we paid fully with cash, or we need to withdraw the remainder
                     }
-                    if (totalPrice > cashSlotBalance)
-                    {
+                    if (totalPrice > cashSlotBalance && !HasComp<Content.Shared._Mono.Traits.Physical.IronmanComponent>(sender))
                         paidFully = _bankSystem.TryBankWithdraw(sender, totalPrice - cashSlotBalance);
-                    }
 
                     // If we paid completely, pay our station taxes
                     if (paidFully)
@@ -471,7 +470,7 @@ namespace Content.Server.VendingMachines
             if (vendComponent.Ejecting)
                 return;
 
-            if (vendComponent.EjectRandomCounter <= 0)
+            if (vendComponent.EjectRandomCounter < 1)
             {
                 _audioSystem.PlayPvs(_audioSystem.GetSound(vendComponent.SoundDeny), uid);
                 _popupSystem.PopupEntity(Loc.GetString("vending-machine-component-try-eject-access-abused"), uid, PopupType.MediumCaution);
@@ -494,6 +493,15 @@ namespace Content.Server.VendingMachines
             }
             else
                 TryEjectVendorItem(uid, item.Type, item.ID, throwItem, vendComponent);
+
+            //Mono: revise frontier vend protection, allow max vends below 2, add probability for extra freebies
+            if (_random.Prob(vendComponent.EjectNoCountChance))
+                return;
+
+            if (vendComponent.EjectRandomCounter == vendComponent.EjectRandomMax)
+                vendComponent.EjectNextChargeTime = _timing.CurTime + vendComponent.EjectRechargeDuration;
+            //Mono end
+
             vendComponent.EjectRandomCounter -= 1;
         }
 
@@ -536,8 +544,6 @@ namespace Content.Server.VendingMachines
             }
 
             var ent = Spawn(vendComponent.NextItemToEject, spawnCoordinates);
-
-            _contraband.ClearContrabandValue(ent); // Frontier
 
             // Mono: Track vending machine purchases for pricing modifications
             // Only track if this was a paid purchase (not a random eject or force eject)
@@ -666,16 +672,6 @@ namespace Content.Server.VendingMachines
 
             args.Price += priceSets.Max();
         }
-
-        //private void OnEmpPulse(EntityUid uid, VendingMachineComponent component, ref EmpPulseEvent args) // Frontier: Upstream - #28984
-        //{
-        //    if (!component.Broken && this.IsPowered(uid, EntityManager))
-        //    {
-        //        args.Affected = true;
-        //        args.Disabled = true;
-        //        component.NextEmpEject = _timing.CurTime;
-        //    }
-        //}
 
         // Frontier: cash slot logic
         private void OnEntityInserted(Entity<VendingMachineComponent> ent, ref EntInsertedIntoContainerMessage args)

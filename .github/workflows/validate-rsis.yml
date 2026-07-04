@@ -2,18 +2,22 @@ name: RSI Validator
 
 on:
   push:
-    branches: [ master, staging, stable ]
+    branches: [ main, staging, stable ]
   merge_group:
   pull_request:
     paths:
       - '**.rsi/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate_rsis:
     name: Validate RSIs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.6.0
+      - uses: actions/checkout@v4.2.2
       - name: Setup Submodule
         run: git submodule update --init
       - name: Pull engine updates

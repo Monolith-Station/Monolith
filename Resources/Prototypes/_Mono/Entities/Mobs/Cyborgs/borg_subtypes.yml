@@ -1,0 +1,35 @@
+- type: borgSubtype
+  parentBorgType: pdvassault
+  id: pdvassault_default
+  spritePath: _Mono/Mobs/Silicon/PDV/pdvchassis.rsi
+  dummyPrototype: PDVBorgChassisAssault
+
+- type: borgSubtype
+  parentBorgType: pdvengineer
+  id: pdvengineer_default
+  spritePath: _Mono/Mobs/Silicon/PDV/pdvchassis.rsi
+  dummyPrototype: PDVBorgChassisEngineer
+
+- type: borgSubtype
+  parentBorgType: pdvmedical
+  id: pdvmedical_default
+  spritePath: _Mono/Mobs/Silicon/PDV/pdvchassis.rsi
+  dummyPrototype: PDVBorgChassisMedical
+
+- type: borgSubtype
+  parentBorgType: tsfassault
+  id: tsfassault_default
+  spritePath: _Mono/Mobs/Silicon/TSFMC/tsfchassis.rsi
+  dummyPrototype: TSFBorgChassisAssault
+
+- type: borgSubtype
+  parentBorgType: tsfengineer
+  id: tsfengineer_default
+  spritePath: _Mono/Mobs/Silicon/TSFMC/tsfchassis.rsi
+  dummyPrototype: TSFBorgChassisEngineer
+
+- type: borgSubtype
+  parentBorgType: tsfmedical
+  id: tsfmedical_default
+  spritePath: _Mono/Mobs/Silicon/TSFMC/tsfchassis.rsi
+  dummyPrototype: TSFBorgChassisMedical

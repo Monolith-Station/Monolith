@@ -1,13 +1,6 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadout
   id: PilotClothingOuterHardsuitPilot
-  price: 1200
+  price: 0 # Mono
   equipment:
     outerClothing: ClothingOuterHardsuitPilot
 
@@ -19,6 +12,6 @@
 
 - type: loadout
   id: PilotClothingOuterDrakeIndustriesTruckerPuffyVest
-  price: 500
+  price: 0 # Mono
   equipment:
     outerClothing: ClothingOuterDrakeIndustriesTruckerPuffyVest

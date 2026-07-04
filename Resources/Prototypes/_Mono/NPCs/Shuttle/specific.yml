@@ -1,0 +1,284 @@
+- type: htnCompound
+  id: DroneCompoundMedusa
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleAttackDroneCompoundMedusa
+
+- type: htnCompound
+  id: ShuttleAttackDroneCompoundMedusa
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: PlanFinished
+        removeKeyOnFinish: false
+        inRangeMaxSpeed: null
+        range: 250
+        rangeTolerance: 50
+        brakeThreshold: 1 # braking is for wusses
+        targetKey: TargetCoordinates
+        mode: Orbit
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 0.2
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: DroneCompoundMPulsar
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleAttackDroneCompoundMPulsar
+
+- type: htnCompound
+  id: ShuttleAttackDroneCompoundMPulsar
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: PlanFinished
+        removeKeyOnFinish: false
+        alwaysFaceTarget: true
+        inRangeMaxSpeed: 20
+        avoidProjectiles: true
+        range: 45
+        rangeTolerance: 15
+        targetKey: TargetCoordinates
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 0.7
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: DroneCompoundLance
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleAttackDroneCompoundLance
+
+- type: htnCompound
+  id: ShuttleAttackDroneCompoundLance
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: PlanFinished
+        removeKeyOnFinish: false
+        alwaysFaceTarget: true
+        inRangeMaxSpeed: 50
+        avoidProjectiles: true
+        range: 350
+        rangeTolerance: 50
+        targetKey: TargetCoordinates
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 0.4
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: AttackerShuttleSmartStaticCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleAttackSmartStaticCompound
+
+- type: htnCompound
+  id: ShuttleAttackSmartStaticCompound
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: PlanFinished
+        removeKeyOnFinish: false
+        alwaysFaceTarget: true
+        inRangeMaxSpeed: 4
+        avoidProjectiles: true
+        range: 750
+        rangeTolerance: 150
+        targetKey: TargetCoordinates
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 0.6 # knows how to aim
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: DroneCompoundAssembly
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleAttackDroneCompoundAssembly
+
+- type: htnCompound
+  id: ShuttleAttackDroneCompoundAssembly
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: PlanFinished
+        alwaysFaceTarget: true
+        targetRotation: 90
+        removeKeyOnFinish: false
+        inRangeMaxSpeed: 20
+        range: 200
+        rangeTolerance: 20
+        targetKey: TargetCoordinates
+        mode: OrbitCW
+        orbitOffset: 5 # slow orbit
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 0.2
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: ApproacherShuttleCompoundDodger
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleApproachCompoundDodger
+
+- type: htnCompound
+  id: ShuttleApproachCompoundDodger
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: TaskFinished
+        avoidProjectiles: true
+        removeKeyOnFinish: false
+        inRangeMaxSpeed: 0.1
+        range: 700
+        rangeTolerance: 0
+        alwaysFaceTarget: true
+        evasionSectorDepth: 5
+        evasionSectorCount: 36
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+- type: utilityQuery
+  id: NearbyShuttleTargetsLongRange
+  parent: NearbyShuttleTargets
+  query:
+  - !type:NearbyNpcTargetsQuery
+    range: 8000
+
+- type: htnCompound
+  id: DroneCompoundQuake
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargetsLongRange
+    - !type:HTNCompoundTask
+      task: ShuttleAttackDroneCompoundQuake
+
+- type: htnCompound
+  id: ShuttleAttackDroneCompoundQuake
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: PlanFinished
+        removeKeyOnFinish: false
+        alwaysFaceTarget: true
+        inRangeMaxSpeed: 4
+        avoidProjectiles: true
+        range: 400
+        rangeTolerance: 50
+        targetKey: TargetCoordinates
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 0.6
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargetsLongRange
+        key: Target
+        coordinatesKey: TargetCoordinates

@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: latheRecipe
   parent: BaseToolRecipe
   id: JawsOfLifeRogue
@@ -129,6 +123,64 @@
     Plasma: 600
     Uranium: 200
 
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: BasicBorgCombatModulePDV
+  result: BorgModulePDVStandardWeapon
+  categories:
+  - Tools
+  - FactionEquipment
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: BasicBorgCombatModuleTSF
+  result: BorgModuleTSFStandardWeapon
+  categories:
+  - Tools
+  - FactionEquipment
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AdvancedBorgCombatModulePDV
+  result: BorgModulePDVAdvancedWeapon
+  categories:
+  - Tools
+  - FactionEquipment
+  completetime: 3
+  materials:
+    Steel: 5000
+    Glass: 5000
+    Plastic: 5000
+    Bluespace: 200
+
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AdvancedBorgCombatModuleTSF
+  result: BorgModuleTSFAdvancedWeapon
+  categories:
+  - Tools
+  - FactionEquipment
+  completetime: 3
+  materials:
+    Steel: 5000
+    Glass: 5000
+    Plastic: 5000
+    Bluespace: 200
+
+
 - type: latheRecipe
   parent: BaseToolRecipe
   id: NanolaminateFoamGrenadeTSF
@@ -141,21 +193,8 @@
     Steel: 300
     Glass: 50
     Plastic: 200
-    Synthalloy: 200
+    Plastitanium: 200
     Gold: 50
-
-- type: latheRecipe
-  parent: BaseToolRecipe
-  id: OreBoxFlatpackTSF
-  result: OreBoxFlatpack
-  categories:
-  - Tools
-  - FactionEquipment
-  completetime: 5
-  materials:
-    Steel: 600
-    Glass: 50
-    Plastic: 200
 
 - type: latheRecipe
   parent: BaseToolRecipe
@@ -171,19 +210,6 @@
     Plastic: 200
     Gold: 50
     Silver: 50
-
-- type: latheRecipe
-  parent: BaseToolRecipe
-  id: MaterialBoxFlatpackTSF
-  result: MaterialBoxFlatpack
-  categories:
-  - Tools
-  - FactionEquipment
-  completetime: 5
-  materials:
-    Steel: 600
-    Glass: 50
-    Plastic: 200
 
 - type: latheRecipe
   parent: BaseToolRecipe

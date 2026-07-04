@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: metabolizerType
   id: Chimera
   name: metabolizer-type-chimera
@@ -11,7 +5,7 @@
 - type: entity
   id: BaseChimeraOrgan
   name: chimera organ
-  parent: [BaseItem, BaseC3SyndicateContraband]
+  parent: BaseItem
   abstract: true
   components:
   - type: Sprite
@@ -141,7 +135,9 @@
     onAdd:
     - type: BreathingImmunity
     - type: CollectiveMind
-      channel: Letoferol
+      channels:
+      - Letoferol
+      defaultChannel: Letoferol
   - type: Lung
   - type: Metabolizer
     removeEmpty: true

@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: TechDiskPrinter
   name: tech disk printer
@@ -124,8 +119,8 @@
     - TechDiskTSFDrozd
     - TechDiskC20r
     - TechDiskUniversalShipAmmo
-    - ResearchDisk5000
-    - ResearchDisk10000
+    - ResearchDisk35000
+    - ResearchDisk65000
     chance: 0.95
     offset: 0.0
     rarePrototypes:
@@ -179,7 +174,6 @@
     - TechDiskEnergyWeapons
     - TechDiskHristov
     - TechDiskMla73
-    - TechDiskSynthalloy
     - TechDiskUniversalShipAmmoAdvanced
     chance: 0.95
     offset: 0.0
@@ -203,7 +197,6 @@
   - type: RandomSpawner
     prototypes:
     - TechDiskBluespaceBags
-    - TechDiskSynthalloy
     - TechDiskTranslationPreFracture
     chance: 0.95
     offset: 0.0

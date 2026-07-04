@@ -25,7 +25,7 @@
   - type: Construction
     graph: ResomiSteak
     node: start
-    defaultTarget: cooked resomi
+    defaultTarget: resomi steak
 
 - type: entity
   name: breaded resomi
@@ -135,7 +135,7 @@
   - type: Construction
     graph: ResomiCutlet
     node: start
-    defaultTarget: resomi cutlet cooked
+    defaultTarget: resomi cutlet
 
 - type: entity
   name: cooked resomi cutlet
@@ -164,10 +164,6 @@
           Quantity: 5
         - ReagentId: Protein
           Quantity: 3
-  - type: Construction
-    graph: ResomiCutlet
-    node: cutlet cooked
-    defaultTarget: resomi cutlet cooked
 
 - type: entity
   name: bucket of fried resomi

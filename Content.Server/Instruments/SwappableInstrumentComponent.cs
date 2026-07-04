@@ -11,11 +11,4 @@ public sealed partial class SwappableInstrumentComponent : Component
     /// </summary>
     [DataField("instrumentList", required: true)]
     public Dictionary<string, (byte, byte)> InstrumentList = new();
-
-    // Frontier: harpy instruments
-    /// <summary>
-    /// When true, only the instrument entity itself can swap its sound.
-    /// </summary>
-    [DataField]
-    public bool OnlySetBySelf;
 }

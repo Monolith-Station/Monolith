@@ -1,23 +1,19 @@
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Empty mags
 - type: entity
-  id: BaseMagazine7.62x39mm
+  id: BaseMagazine762x39mm
   name: "magazine (7.62x39mm FMJ)"
-  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC1Contraband added RecyclableItemSteelTiny
+  parent: [ BaseItem, RecyclableItemSteelTiny ]
   abstract: true
   components:
   - type: Tag
     tags:
-      - Magazine7.62x39mmFMJ
+      - Magazine762x39mmFMJ
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - Cartridge7.62x39mmFMJ
-    proto: Cartridge7.62x39mmFMJ
+        - Cartridge762x39mmFMJ
+    proto: Cartridge762x39mmFMJ
     capacity: 30
   - type: Item
     size: Small
@@ -39,15 +35,15 @@
 
 # Magazines
 - type: entity
-  id: Magazine7.62x39mmBox
+  id: Magazine762x39mmBox
   name: "L6 SAW magazine box (7.62x39mm FMJ)"
-  parent: BaseMagazine7.62x39mm
+  parent: BaseMagazine762x39mm
   components:
   - type: Tag
     tags:
-      - Magazine7.62x39mmBox
+      - Magazine762x39mmBox
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmFMJ
+    proto: Cartridge762x39mmFMJ
     capacity: 100
   - type: Item
   - type: Sprite
@@ -59,12 +55,12 @@
   - type: Appearance
 
 - type: entity
-  id: Magazine7.62x39mmFMJ
+  id: Magazine762x39mmFMJ
   name: "magazine (7.62x39mm FMJ)"
-  parent: BaseMagazine7.62x39mm
+  parent: BaseMagazine762x39mm
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmFMJ
+    proto: Cartridge762x39mmFMJ
   - type: Sprite
     layers:
     - state: base
@@ -73,10 +69,10 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine7.62x39mmEmpty
+  id: Magazine762x39mmEmpty
   name: "magazine (7.62x39mm any)"
   suffix: empty
-  parent: Magazine7.62x39mmFMJ
+  parent: Magazine762x39mmFMJ
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -88,12 +84,12 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine7.62x39mmPractice
+  id: Magazine762x39mmPractice
   name: "magazine (7.62x39mm practice)"
-  parent: BaseMagazine7.62x39mm
+  parent: BaseMagazine762x39mm
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmPractice
+    proto: Cartridge762x39mmPractice
   - type: Sprite
     layers:
     - state: practice
@@ -102,12 +98,12 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine7.62x39mmUranium
+  id: Magazine762x39mmUranium
   name: "magazine (7.62x39mm uranium)"
-  parent: BaseMagazine7.62x39mm
+  parent: BaseMagazine762x39mm
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmUranium
+    proto: Cartridge762x39mmUranium
   - type: Sprite
     layers:
     - state: uranium
@@ -116,12 +112,12 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine7.62x39mmIncendiary
+  id: Magazine762x39mmIncendiary
   name: "magazine (7.62x39mm incendiary)"
-  parent: Magazine7.62x39mmFMJ
+  parent: Magazine762x39mmFMJ
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmIncendiary
+    proto: Cartridge762x39mmIncendiary
   - type: Sprite
     layers:
     - state: red
@@ -130,29 +126,29 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine7.62x39mmMaxim
+  id: Magazine762x39mmMaxim
   name: "pan magazine (7.62x39mm FMJ)"
-  parent: BaseMagazine7.62x39mm
+  parent: BaseMagazine762x39mm
   components:
   - type: Tag
     tags:
-      - Magazine7.62x39mmPan
+      - Magazine762x39mmPan
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmFMJ
+    proto: Cartridge762x39mmFMJ
     capacity: 96
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/7.62x39mm/maxim.rsi
 
 - type: entity
-  id: Magazine7.62x39mmPkBox
+  id: Magazine762x39mmPkBox
   name: "PK munitions box (7.62x39mm FMJ)"
-  parent: BaseMagazine7.62x39mm
+  parent: BaseMagazine762x39mm
   components:
   - type: Tag
     tags:
-      - Magazine7.62x39mmBox
+      - Magazine762x39mmBox
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmFMJ
+    proto: Cartridge762x39mmFMJ
     capacity: 80
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/7.62x39mm/pk_box.rsi
@@ -163,12 +159,12 @@
   - type: Appearance
 
 - type: entity
-  id: Magazine7.62x39mmRubber
+  id: Magazine762x39mmRubber
   name: "magazine (7.62x39mm rubber)"
-  parent: Magazine7.62x39mmFMJ
+  parent: Magazine762x39mmFMJ
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmRubber
+    proto: Cartridge762x39mmRubber
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/7.62x39mm/7.62x39mm_mag.rsi
     layers:
@@ -178,14 +174,14 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine7.62x39mmLowCapacityEmpty
+  id: Magazine762x39mmLowCapacityEmpty
   name: "low cap magazine (7.62x39mm any)"
   suffix: empty
-  parent: Magazine7.62x39mmLowCapacityFMJ
+  parent: Magazine762x39mmLowCapacityFMJ
   components:
   - type: Tag
     tags:
-      - Magazine7.62x39mmLowCapacityFMJ
+      - Magazine762x39mmLowCapacityFMJ
   - type: BallisticAmmoProvider
     proto: null
   - type: Item
@@ -199,13 +195,13 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine7.62x39mmLowCapacityFMJ
+  id: Magazine762x39mmLowCapacityFMJ
   name: "low cap magazine (7.62x39mm FMJ)"
-  parent: Magazine7.62x39mmFMJ
+  parent: Magazine762x39mmFMJ
   components:
   - type: Tag
     tags:
-      - Magazine7.62x39mmLowCapacityFMJ
+      - Magazine762x39mmLowCapacityFMJ
   - type: BallisticAmmoProvider
     capacity: 15
   - type: Item
@@ -219,12 +215,12 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine7.62x39mmLowCapacityPractice
+  id: Magazine762x39mmLowCapacityPractice
   name: "low cap magazine (7.62x39mm practice)"
-  parent: Magazine7.62x39mmLowCapacityFMJ
+  parent: Magazine762x39mmLowCapacityFMJ
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmPractice
+    proto: Cartridge762x39mmPractice
   - type: Sprite
     layers:
     - state: practice
@@ -233,12 +229,12 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine7.62x39mmLowCapacityRubber
+  id: Magazine762x39mmLowCapacityRubber
   name: "low cap magazine (7.62x39mm rubber)"
-  parent: Magazine7.62x39mmLowCapacityFMJ
+  parent: Magazine762x39mmLowCapacityFMJ
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmRubber
+    proto: Cartridge762x39mmRubber
   - type: Sprite
     layers:
     - state: rubber
@@ -247,12 +243,12 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine7.62x39mmLowCapacityUranium
+  id: Magazine762x39mmLowCapacityUranium
   name: "low cap magazine (7.62x39mm uranium)"
-  parent: Magazine7.62x39mmLowCapacityFMJ
+  parent: Magazine762x39mmLowCapacityFMJ
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmUranium
+    proto: Cartridge762x39mmUranium
   - type: Sprite
     layers:
     - state: uranium
@@ -261,12 +257,12 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine7.62x39mmLowCapacityIncendiary
+  id: Magazine762x39mmLowCapacityIncendiary
   name: "low cap magazine (7.62x39mm incendiary)"
-  parent: Magazine7.62x39mmLowCapacityFMJ
+  parent: Magazine762x39mmLowCapacityFMJ
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmIncendiary
+    proto: Cartridge762x39mmIncendiary
   - type: Sprite
     layers:
     - state: red
@@ -275,20 +271,20 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine7.62x39mmSubsonic
+  id: Magazine762x39mmSubsonic
   name: "magazine (7.62x39mm subsonic)"
-  parent: BaseMagazine7.62x39mm
+  parent: BaseMagazine762x39mm
   components:
   - type: Tag
     tags:
-      - Magazine7.62x39mmSubsonic
-      - Magazine7.62x39mmFMJ
+      - Magazine762x39mmSubsonic
+      - Magazine762x39mmFMJ
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmSubsonic
+    proto: Cartridge762x39mmSubsonic
     mayTransfer: true
     whitelist:
       tags:
-        - Cartridge7.62x39mmSubsonic
+        - Cartridge762x39mmSubsonic
     capacity: 35
   - type: Sprite
     layers:
@@ -300,16 +296,16 @@
 - type: entity
   id: MagazineDP29
   name: "DP-29 magazine (7.62x39mm)"
-  parent: BaseMagazine7.62x39mm
+  parent: BaseMagazine762x39mm
   components:
   - type: Tag
     tags:
       - MagazineDP29
   - type: BallisticAmmoProvider
-    proto: Cartridge7.62x39mmFMJ
+    proto: Cartridge762x39mmFMJ
     capacity: 48
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/dp29.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/7.62x39mm/dp29.rsi
   - type: MagazineVisuals
     magState: mag
     steps: 8
@@ -318,3 +314,49 @@
   - type: StaticPrice
     price: 50
     vendPrice: 5000
+
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  id: Magazine762x39mmHP
+  name: "magazine (7.62x39mm hollow-point)"
+  parent: BaseMagazine762x39mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge762x39mmHP
+  - type: Sprite
+    layers:
+    - state: HP
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine762x39mmRIP
+  name: "magazine (7.62x39mm RIP)"
+  parent: BaseMagazine762x39mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge762x39mmRIP
+  - type: Sprite
+    layers:
+    - state: RIP
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#armor-piercing:
+
+- type: entity
+  id: Magazine762x39mmPlasteelAP
+  name: "magazine (7.62x39mm AP)"
+  parent: BaseMagazine762x39mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge762x39mmPlasteelAP
+  - type: Sprite
+    layers:
+    - state: plasteelAP
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

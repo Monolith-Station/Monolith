@@ -1,0 +1,63 @@
+- type: job
+  id: PDVInfiltrator
+  name: job-name-pdv-infiltrator
+  description: job-description-pdv-infiltrator
+  playTimeTracker: JobPDVInfiltrator
+  requirements:
+    - !type:OverallPlaytimeRequirement # mono start
+      time: 108000 # 65 hours
+    - !type:RoleTimeRequirement
+      role: JobPirate
+      time: 3600 # 1 hour
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hours # mono end
+  whitelisted: true
+  startingGear: PDVInfiltratorGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  canBeAntag: true
+  icon: "JobIconPDVInfiltrator"
+  supervisors: job-supervisors-pirate
+  weight: 20
+  displayWeight: 20
+  assignedCompany: PDV
+  setPreference: true
+  access:
+  - Pirate
+  - Mercenary
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: MailDisabled
+    - type: SpecialSectorStationRecord
+      recordGeneration: FalseRecord
+    - type: NpcFactionMember
+      factions:
+      - PirateNF
+  - !type:AddImplantSpecial
+    implants: [ FreelanceTrackingImplant ]
+  - !type:AddImplantSpecial
+    implants: [ RadioImplantFreelance ]
+  - !type:AddLanguageSpecial # Monolith - Languages
+    languagesSpoken:
+    - Freespeak
+    languagesUnderstood:
+    - Freespeak
+  - !type:GiveItemOnHolidaySpecial # Even pirates get a piece of cake.
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: PDVInfiltratorGear
+  equipment:
+    ears: ClothingHeadsetAltFreelancer
+    #belt: ClothingBeltUtility
+    pocket1: UndeterminedPDVInfiltratorKit
+    pocket2: WeaponPistolHawk4
+  storage:
+    back:
+    - RadioHandheldNF
+    - RubberStampPDVSpasaka

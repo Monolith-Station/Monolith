@@ -1,0 +1,40 @@
+# Author Info
+# GitHub: Rubeebeebee
+# Discord: rubeebee
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Tiger
+  parent: BaseVessel
+  name: NSK Tiger
+  description: A retired racing ship, the Tiger hull has been found in use by the Nova Sharks as both a hotrod, as well as a ludicriously fast haulcraft. 
+  price: 32000 # race ship tax since its gonna be used for smuggling. 
+  category: Small
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/tiger.yml
+  guidebookPage: Null
+  class:
+  - Cargo
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Tiger
+  mapName: 'NSK Tiger'
+  mapPath: /Maps/_Mono/Shuttles/tiger.yml
+  minPlayers: 0
+  stations:
+    Tiger:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Tiger CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

@@ -9,7 +9,6 @@
     state: mecha_chainsword
   - type: MeleeWeapon
     autoAttack: true
-    angle: 0
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Weapons/chainsaw.ogg"
@@ -17,4 +16,4 @@
     damage:
       types:
         Structural: 52.5 # 35->52.5 - Mono
-        Piercing: 15
+        Piercing: 30 # 15->30 - Mono

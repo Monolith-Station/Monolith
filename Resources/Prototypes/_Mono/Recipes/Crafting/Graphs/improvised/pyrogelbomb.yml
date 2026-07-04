@@ -1,0 +1,29 @@
+- type: constructionGraph
+  id: PyrogelBomb
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pyrogelbombempty
+      steps:
+      - tag: DrinkBottle
+        name: an empty bottle
+        icon:
+          sprite: Objects/Consumable/Drinks/vodkabottle.rsi
+          state: icon
+        doAfter: 1
+
+  - node: pyrogelbombempty
+    entity: PyrogelBombEmpty
+    edges:
+    - to: pyrogelbomb
+      steps:
+      - material: Pyrogel
+        amount: 1
+        doAfter: 2
+      - material: Cloth
+        amount: 1
+        doAfter: 2
+
+  - node: pyrogelbomb
+    entity: PyrogelBomb

@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2025 SarahRaven
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Generic borg
 - type: borgType
   id: generic
@@ -58,6 +53,13 @@
   - Engineering
   - Science
 
+  # Mono: add diagnostic hud
+  addComponents:
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+
   # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: engineer
@@ -85,6 +87,7 @@
     - BorgModuleCargo
 
   defaultModules:
+  - BorgModuleTool # Mono
   - BorgModuleGrapplingGun
   - BorgModuleMining
   - BorgModuleAppraisal
@@ -121,6 +124,7 @@
     - BorgModuleJanitor
 
   defaultModules:
+  - BorgModuleTool # Mono
   - BorgModuleLightReplacer
   - BorgModuleCleaning
 
@@ -156,7 +160,10 @@
     - BorgModuleMedical
 
   defaultModules:
+  - BorgModuleTool # Mono
   - BorgModuleTreatment
+  - BorgModuleSurgery # Mono
+  - BorgModuleDefibrillator # Mono
 
   radioChannels:
   - Science
@@ -203,6 +210,7 @@
     - BorgModuleService
 
   defaultModules:
+  - BorgModuleTool # Mono
   - BorgModuleMusique
   - BorgModuleService
   - BorgModuleClowning

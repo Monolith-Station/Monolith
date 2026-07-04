@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Piping.Binary.Components;
@@ -13,10 +9,10 @@ namespace Content.Shared.Atmos.EntitySystems;
 /// <summary>
 /// Handles all shared interactions with the gas pressure regulator.
 /// </summary>
-public abstract class SharedGasPressureRegulatorSystem : EntitySystem
+public abstract partial class SharedGasPressureRegulatorSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] protected readonly SharedUserInterfaceSystem UserInterfaceSystem = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] protected SharedUserInterfaceSystem UserInterfaceSystem = default!;
 
     public override void Initialize()
     {

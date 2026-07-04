@@ -12,3 +12,46 @@
     - state: green
     - sprite: Mobs/Silicon/chassis.rsi
       state: derelict_icon
+
+- type: entity
+  name: ADS playtime-locked tender spawner
+  id: SpawnRedactedBorgPlaytime
+  parent: MarkerBase
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - PlayerBorgRedactedGhostRolePlaytime
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: derelict_icon
+
+- type: entity
+  name: chimera ghostrole spawner
+  id: SpawnChimeraGhostrole
+  parent: MarkerBase
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - MobLetoferolHorrorGhostrole
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  name: asakim warrior spawner
+  id: SpawnAsakimWarrior
+  parent: MarkerBase
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - MobAsakimGhostrole
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Mono/Mobs/Species/Asakim/parts.rsi
+      state: full

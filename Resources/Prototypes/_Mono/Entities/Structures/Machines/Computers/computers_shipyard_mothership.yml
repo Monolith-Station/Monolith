@@ -1,13 +1,6 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-# SPDX-FileCopyrightText: 2025 crazy1112345
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BaseCarrierComputer
-  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, ComputerShipyard]
+  parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyard]
   suffix: Carrier
   description: Used on carriers to purchase and sell ships without returning to a station.
   abstract: true
@@ -67,11 +60,12 @@
     - QJ490
     - QJ270
     - Zephyr
+    - QJ340
 
 - type: entity
-  id: LedokolAttatchmentComputer
+  id: LedokolAttachmentComputer
   parent: BaseCarrierComputer
-  name: ledokol attatchment console
+  name: ledokol attachment console
   components:
   - type: ShipyardListing
     shuttles:
@@ -89,3 +83,69 @@
     - Antlion
     - StratoRat
 
+- type: entity
+  id: JupiterCarrierComputer
+  parent: BaseCarrierComputer
+  name: jupiter shipyard console
+  description: Lighter shipyard using the Jupiter's internal hangars, doesn't have access to the full roster of Phaethon Dynasty ships.
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Hazel
+    - Tethys
+    - Eris
+  - type: Sprite
+    sprite: _NF/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer_blackmarket
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: shipyard_pdv
+    - map: ["computerLayerKeys"]
+      state: telesci_key
+
+
+- type: entity
+  id: PDVMotleyAnneCarrierComputer
+  parent: BaseCarrierComputer
+  name: motley anne shipyard console
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Snakelet
+    - Inertia
+    - Mock
+  - type: Sprite
+    sprite: _NF/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer_blackmarket
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: shipyard_blackmarket
+    - map: ["computerLayerKeys"]
+      state: blackmarket_key
+
+- type: entity
+  id: RavagerCarrierComputer
+  parent: BaseCarrierComputer
+  name: ravager shipyard console
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Rook
+    - Taser
+    - Hound
+
+- type: entity
+  id: BalorCarrierComputer
+  parent: BaseCarrierComputer
+  name: balor shipyard console
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Rac-Man
+    - Bow-Man

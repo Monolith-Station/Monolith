@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Shuttles.Systems;
 using Robust.Shared.GameStates;
 

@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Arimah Greene
-// SPDX-FileCopyrightText: 2023 Dvir
-// SPDX-FileCopyrightText: 2023 Morb
-// SPDX-FileCopyrightText: 2024 Guilherme Ornel
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Fax;

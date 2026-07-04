@@ -6,7 +6,7 @@
   parent: BaseJumpsuitRecipe
   categories:
   - ClothesNF
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
 
 - type: latheRecipe
   abstract: true
@@ -14,7 +14,7 @@
   parent: BaseCoatRecipe
   categories:
   - ClothesNF
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
 
 - type: latheRecipe
   abstract: true

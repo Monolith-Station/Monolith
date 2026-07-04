@@ -1,0 +1,41 @@
+# Author Info
+# GitHub: Rubeebeebee
+# Discord: rubeebee
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Artemis
+  parent: BaseVessel
+  name: HME Artemis
+  description: The Artemis is a compact ambulance ship, designed to rescue patients quickly, and exfiltrate as fast as they arrived.
+  price: 34000 # Its a barebones med ship, basically acting as a paramedic ship. 
+  category: Small
+  group: Medical
+  shuttlePath: /Maps/_Mono/Shuttles/artemis.yml
+  guidebookPage: null
+  class:
+  - Medical
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Artemis
+  mapName: 'HME Artemis'
+  mapPath: /Maps/_Mono/Shuttles/artemis.yml
+  minPlayers: 0
+  stations:
+    Artemis:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Artemis MED{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

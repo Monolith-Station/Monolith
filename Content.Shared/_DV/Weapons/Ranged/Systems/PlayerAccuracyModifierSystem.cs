@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Avalon
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared._DV.Weapons.Ranged.Components;
 
@@ -18,6 +14,11 @@ public sealed class GunAccuracyModifierSystem : EntitySystem
 
     private void OnGunRefreshModifiers(Entity<PlayerAccuracyModifierComponent> ent, ref GunRefreshModifiersEvent args)
     {
+        // MONO: Content.Shared._Mono.Weapons.Ranged.Components.SkipAccuracyModifierComponent.css
+        // Skip modifications if - type: SkipPlayerAccuracyModifier is present in a weapon
+        if (HasComp<SkipPlayerAccuracyModifierComponent>(args.Gun))
+			return;
+		
         var maxSpread = MathHelper.DegreesToRadians(ent.Comp.MaxSpreadAngle);
         args.MinAngle = Math.Clamp(args.MinAngle * ent.Comp.SpreadMultiplier, 0f, maxSpread);
         args.MaxAngle = Math.Clamp(args.MaxAngle * ent.Comp.SpreadMultiplier, 0f, maxSpread);

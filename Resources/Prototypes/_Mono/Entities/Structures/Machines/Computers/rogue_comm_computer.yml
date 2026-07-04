@@ -1,8 +1,8 @@
 - type: entity
-  parent: [ ComputerComms, BaseC3PirateContrabandHighValue ]
+  parent: ComputerComms
   id: RogueComputerComms
-  name: rogue communications computer
-  description: A computer capable of remotely hacking into the station's communications systems. Using this to make an announcement will alert the station to your presence.
+  name: imperial vanguard communications computer
+  description: The Imperial Vanguard's primary communications computer for issuing announcements.
   components:
   - type: Sprite
     sprite: _Mono/Structures/Machines/computers.rsi
@@ -21,7 +21,7 @@
     access: [[ "Pirate" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-rogue
-    color: "#643535"
+    color: "#D2B48C"
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
     sound: /Audio/Announcements/announce.ogg
@@ -30,4 +30,4 @@
   - type: PointLight
     radius: 1.5
     energy: 1.6
-    color: "#643535"
+    color: "#D2B48C"

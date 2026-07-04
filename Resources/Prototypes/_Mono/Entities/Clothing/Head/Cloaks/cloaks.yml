@@ -1,12 +1,8 @@
-# SPDX-FileCopyrightText: 2025 HungryCuban
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCOG
-  name: depricated cult robe
-  description: A robe resembling the attire of the Cult of the Machine God. It's tarnished beyond repair and has pieces of metal for a mantle designed to attach to the wearers back.
+  name: Old robe
+  description: An ancient crimson draping from a now-defunct cult.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Cloaks/cogcloak.rsi

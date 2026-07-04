@@ -6,13 +6,13 @@ using Content.Shared.Mech.EntitySystems; // Frontier
 
 namespace Content.Shared.NPC.Components;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(NpcFactionSystem), typeof(SharedMechSystem))] // Frontier - Added MechSystem
+[RegisterComponent, NetworkedComponent, Access(typeof(NpcFactionSystem), typeof(SharedMechSystem)), AutoGenerateComponentState] // Frontier - Added MechSystem //Mono - autogeneratecomponentstate to replicate factions 2 clients
 public sealed partial class NpcFactionMemberComponent : Component
 {
     /// <summary>
     /// Factions this entity is a part of.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField] // Mono - needed for clientside music system to know which music to play
     public HashSet<ProtoId<NpcFactionPrototype>> Factions = new();
 
     /// <summary>

@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #T0
 - type: loadout
   id: ContractorClothingMaskBreath
@@ -17,7 +7,7 @@
 
 - type: loadout
   id: ContractorClothingMaskBreathMedical
-  price: 200
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskBreathMedical
@@ -28,7 +18,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 200
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskSterile
@@ -38,7 +28,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 300
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskGas
@@ -49,7 +39,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskPunkHalf
@@ -60,7 +50,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1000
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskGasExplorer
@@ -70,7 +60,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1000
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskCOG
@@ -80,7 +70,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1000
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskGasCaptain
@@ -90,7 +80,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1000
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskGasAtmos
@@ -100,7 +90,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1250
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskDrakeIndustries
@@ -109,7 +99,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1500
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskPlague
@@ -119,7 +109,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1500
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskMime
@@ -129,7 +119,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1500
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskScaredMime
@@ -139,7 +129,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1500
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskSadMime
@@ -149,7 +139,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 2500
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskClown
@@ -159,7 +149,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 2500
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskClownBald
@@ -169,7 +159,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1500
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskNeckGaiter
@@ -179,7 +169,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1500
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskNeckGaiterRed
@@ -189,7 +179,77 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 2500
+  price: 0 # Mono
   storage:
     back:
     - ClothingMaskGasSecurity
+
+- type: loadout
+  id: ClothingMaskJackal
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 0 # Mono
+  storage:
+    back:
+    - ClothingMaskJackal
+
+- type: loadout
+  id: ClothingMaskRat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 0 # Mono
+  storage:
+    back:
+    - ClothingMaskRat
+
+- type: loadout
+  id: ClothingMaskRaven
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 0 # Mono
+  storage:
+    back:
+    - ClothingMaskRaven
+
+- type: loadout
+  id: ClothingMaskBear
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 0 # Mono
+  storage:
+    back:
+    - ClothingMaskBear
+
+- type: loadout
+  id: ClothingMaskBat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 0 # Mono
+  storage:
+    back:
+    - ClothingMaskBat
+
+- type: loadout
+  id: ClothingMaskBee
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 0 # Mono
+  storage:
+    back:
+    - ClothingMaskBee
+
+- type: loadout
+  id: ClothingMaskFox
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 0 # Mono
+  storage:
+    back:
+    - ClothingMaskFox

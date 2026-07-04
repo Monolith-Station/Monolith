@@ -1,32 +1,5 @@
-# SPDX-FileCopyrightText: 2022 Fishfish458
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Leon Friedrich
-# SPDX-FileCopyrightText: 2022 Paul Ritter
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2022 Scribbles0
-# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
-# SPDX-FileCopyrightText: 2023 Errant
-# SPDX-FileCopyrightText: 2023 Helicaste
-# SPDX-FileCopyrightText: 2023 TaralGit
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 brainfood1183
-# SPDX-FileCopyrightText: 2023 chromiumboy
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2023 potato1234_x
-# SPDX-FileCopyrightText: 2024 Boaz1111
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 checkraze
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 K-Dynamic
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # As opposed to AmmoBox these are boxes of magazines so BoxMagazine
-# 6.35x40mmCaseless
+# 635x40mmCaseless
 - type: entity
   name: box of magazines
   parent: BoxCardboard
@@ -39,48 +12,48 @@
       - state: magazine
 
 - type: entity
-  name: box of 6.35x40mm Caseless magazines
+  name: box of 635x40mm Caseless magazines
   parent: BoxMagazine
-  id: BoxMagazine6.35x40mmCaselessPistol
-  description: A box full of 6.35x40mm Caseless magazines.
+  id: BoxMagazine635x40mmCaselessPistol
+  description: A box full of 635x40mm Caseless magazines.
   components:
   - type: StorageFill
     contents:
-      - id: Magazine6.35x40mmCaselessPistol
+      - id: Magazine635x40mmCaselessPistol
         amount: 4
 
 - type: entity
-  name: box of 6.35x40mm Caseless (practice) magazines
+  name: box of 635x40mm Caseless (practice) magazines
   parent: BoxMagazine
-  id: BoxMagazine6.35x40mmCaselessPistolPractice
-  description: A box full of 6.35x40mm Caseless practice magazines.
+  id: BoxMagazine635x40mmCaselessPistolPractice
+  description: A box full of 635x40mm Caseless practice magazines.
   components:
   - type: StorageFill
     contents:
-      - id: Magazine6.35x40mmCaselessPistolPractice
+      - id: Magazine635x40mmCaselessPistolPractice
         amount: 4
 
-# 7.62x39mm
+# 762x39mm
 - type: entity
   name: box of 7.62x39mm magazines
   parent: BoxMagazine
-  id: BoxMagazine7.62x39mmFMJ
+  id: BoxMagazine762x39mmFMJ
   description: A box full of 7.62x39mm magazines.
   components:
   - type: StorageFill
     contents:
-      - id: Magazine7.62x39mmFMJ
+      - id: Magazine762x39mmFMJ
         amount: 4
 
 - type: entity
   name: box of 7.62x39mm (practice) magazines
   parent: BoxMagazine
-  id: BoxMagazine7.62x39mmPractice
+  id: BoxMagazine762x39mmPractice
   description: A box full of 7.62x39mm (practice) magazines.
   components:
   - type: StorageFill
     contents:
-      - id: Magazine7.62x39mmPractice
+      - id: Magazine762x39mmPractice
         amount: 4
 
 #mono edit start
@@ -103,7 +76,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: Magazine7.62x39mmBox
+    - id: Magazine762x39mmBox
       amount: 4
 
 - type: entity
@@ -118,75 +91,99 @@
       amount: 4
 #mono edit end
 
-# 7.62x51mm
+# 762x51mm
 - type: entity
   name: box of 7.62x51mm magazines
   parent: BoxMagazine
-  id: BoxMagazine7.62x51mmFMJ
+  id: BoxMagazine762x51mmFMJ
   description: A box full of 7.62x51mm magazines.
   components:
   - type: StorageFill
     contents:
-      - id: Magazine7.62x51mmFMJ
+      - id: Magazine762x51mmFMJ
         amount: 4
 
 - type: entity
   name: box of 7.62x51mm (rubber) magazines
   parent: BoxMagazine
-  id: BoxMagazine7.62x51mmRubber
+  id: BoxMagazine762x51mmRubber
   description: A box full of 7.62x51mm (rubber) magazines.
   components:
   - type: StorageFill
     contents:
-      - id: Magazine7.62x51mmRubber
+      - id: Magazine762x51mmRubber
         amount: 4
 
 - type: entity
   name: box of 7.62x51mm (practice) magazines
   parent: BoxMagazine
-  id: BoxMagazine7.62x51mmPractice
+  id: BoxMagazine762x51mmPractice
   description: A box full of 7.62x51mm (practice) magazines.
   components:
   - type: StorageFill
     contents:
-      - id: Magazine7.62x51mmPractice
+      - id: Magazine762x51mmPractice
         amount: 4
 
 #mono edit
-# 7.62x54mmRFMJ
+# 762x54mmRFMJ
 - type: entity
   name: box of 7.62x54mmR magazines
   parent: BoxMagazine
-  id: BoxMagazine7.62x54mmRFMJ
+  id: BoxMagazine762x54mmRFMJ
   description: A box full of 7.62x54mmR magazines.
   components:
   - type: StorageFill
     contents:
-      - id: Magazine7.62x54mmRFMJ
+      - id: Magazine762x54mmRFMJ
+        amount: 4
+
+- type: entity
+  name: box of 6.8x52mm magazines
+  parent: BoxMagazine
+  id: BoxMagazine68x52mmFMJ
+  description: A box full of standard TSF 6.8x52mm magazines.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine68x52mmCaseless
+      amount: 4
+#mono edit end
+
+# 556x45mm
+- type: entity
+  name: box of 556x45mm magazines
+  parent: BoxMagazine
+  id: BoxMagazine556x45mmFMJ
+  description: A box full of 556x45mm magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: Magazine556x45mmFMJ
+        amount: 4
+
+#mono edit
+- type: entity
+  name: box of 556x45mm clips
+  parent: BoxMagazine
+  id: BoxMagazineNovaliteC1
+  description: A box full of 556x45mm clips.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineNovaliteC1
         amount: 4
 #mono edit end
 
-# 5.56x45mm
 - type: entity
-  name: box of 5.56x45mm magazines
+  name: box of 556x45mm (practice) magazines
   parent: BoxMagazine
-  id: BoxMagazine5.56x45mmFMJ
-  description: A box full of 5.56x45mm magazines.
+  id: BoxMagazine556x45mmPractice
+  description: A box full of 556x45mm (practice) magazines.
   components:
   - type: StorageFill
     contents:
-      - id: Magazine5.56x45mmFMJ
-        amount: 4
-
-- type: entity
-  name: box of 5.56x45mm (practice) magazines
-  parent: BoxMagazine
-  id: BoxMagazine5.56x45mmPractice
-  description: A box full of 5.56x45mm (practice) magazines.
-  components:
-  - type: StorageFill
-    contents:
-      - id: Magazine5.56x45mmPractice
+      - id: Magazine556x45mmPractice
         amount: 4
 
 # 45_magnum
@@ -212,17 +209,17 @@
       - id: Magazine45_magnumSubMachineGunPractice
         amount: 4
 
-# 4.6x30mmmm
+# 46x30mmmm
 
 - type: entity
-  name: box of WT550 4.6x30mm magazines
+  name: box of WT550 46x30mm magazines
   parent: BoxMagazine
-  id: BoxMagazine4.6x30mmSubMachineGunTopMountedFMJ
-  description: A box full of WT550 4.6x30mm magazines.
+  id: BoxMagazine46x30mmSubMachineGunTopMountedFMJ
+  description: A box full of WT550 46x30mm magazines.
   components:
   - type: StorageFill
     contents:
-      - id: Magazine4.6x30mmSubMachineGunTopMountedFMJ
+      - id: Magazine46x30mmSubMachineGunTopMountedFMJ
         amount: 4
 
 # 9x19mm
@@ -458,10 +455,21 @@
 
 #mono edit
 - type: entity
+  name: box of 556x45mm speedloaders
+  parent: BoxMagazine
+  id: BoxMagazineSpeedLoader556x45mmFMJ
+  description: A box full of 556x45mm speedloaders.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SpeedLoader556x45mmFMJ
+        amount: 4
+
+- type: entity
   name: box of .45 magnum speedloaders
   parent: BoxMagazine
   id: BoxMagazine45_magnumFMJ
-  description: A box full of .45 magnum magazines.
+  description: A box full of .45 magnum speedloaders.
   components:
   - type: StorageFill
     contents:

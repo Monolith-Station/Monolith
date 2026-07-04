@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #chrono/future soldier hardsuit
 
 - type: entity
@@ -65,4 +60,9 @@
   - type: ClothingGrantComponent
     component:
     - type: Stealth
+      minVisibility: 0.15 # Mono: Changed to be not fully invisible
+      maxVisibility: 0.6 # Mono: Changed to be partially invisible
+    - type: StealthOnMove
+      passiveVisibilityRate: -0.4
+      movementVisibilityRate: 0.4
 

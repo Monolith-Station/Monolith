@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2025 slarticodefast
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.DeviceLinking.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Weapons.Ranged.Components;
@@ -12,8 +7,8 @@ namespace Content.Server.DeviceLinking.Systems;
 
 public sealed partial class GunSignalControlSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceLinkSystem _signalSystem = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private DeviceLinkSystem _signalSystem = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
 
     public override void Initialize()
     {

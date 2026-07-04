@@ -1,16 +1,20 @@
-﻿name: Build & Test Map Renderer
+name: Build & Test Map Renderer
 
 on:
   push:
-    branches: [ master, staging, stable ]
+    branches: [ main, staging, stable ]
   merge_group:
   pull_request:
     types: [ opened, reopened, synchronize, ready_for_review ]
-    branches: [ master, staging, stable ]
+    branches: [ main, staging, stable ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
-    if: github.actor != 'PJBot' && github.event.pull_request.draft == false && github.actor != 'FrontierATC' # Frontier
+    if: github.event.pull_request.draft == false
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -19,7 +23,7 @@ jobs:
 
     steps:
       - name: Checkout Master
-        uses: actions/checkout@v3.6.0
+        uses: actions/checkout@v4.2.2
 
       - name: Setup Submodule
         run: |
@@ -34,9 +38,9 @@ jobs:
           git submodule update --init --recursive
 
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v3.2.0
+        uses: actions/setup-dotnet@v4.1.0
         with:
-          dotnet-version: 9.0.x
+          dotnet-version: 10.0.x
 
       - name: Install dependencies
         run: dotnet restore

@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 DVDPlayerOfDiscordFame
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: MuzzleFlashEffect
   id: MuzzleFlashEffectSmall
@@ -67,6 +63,27 @@
       map: ["enum.EffectLayers.Unshaded"]
       sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
       state: energypurp
+
+# Mono Start
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectPlasmaPulser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    color: "#ff0040"
+    radius: 1.4
+    energy: 5.0
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+      state: energyplasma
+# Mono End
 
 - type: entity
   parent: MuzzleFlashEffect

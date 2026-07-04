@@ -1,27 +1,5 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2021 Leon Friedrich
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2022 Charlese2
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2023 Boaz1111
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 kerisargit
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
-  id: Bullet7.62x51mmFMJ
+  id: Bullet762x51mmFMJ
   name: bullet (7.62x51mm FMJ)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -30,9 +8,10 @@
     damage:
       types:
         Piercing: 36
+    armorPenetration: 0.1
 
 - type: entity
-  id: Bullet7.62x51mmPractice
+  id: Bullet762x51mmPractice
   name: bullet (7.62x51mm practice)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
@@ -43,7 +22,7 @@
         Blunt: 4
 
 - type: entity
-  id: Bullet7.62x51mmRubber
+  id: Bullet762x51mmRubber
   name: bullet (7.62x51mm rubber)
   parent: BaseBulletRubber
   categories: [ HideSpawnMenu ]
@@ -54,7 +33,7 @@
         Blunt: 6
 
 - type: entity
-  id: Bullet7.62x51mmIncendiary
+  id: Bullet762x51mmIncendiary
   parent: BaseBulletIncendiary
   name: bullet (7.62x51mm incendiary)
   categories: [ HideSpawnMenu ]
@@ -62,11 +41,11 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 4
-        Heat: 27
+        Piercing: 20
+        Heat: 10
 
 - type: entity
-  id: Bullet7.62x51mmUranium
+  id: Bullet762x51mmUranium
   parent: BaseBulletUranium
   name: bullet (7.62x51mm uranium)
   categories: [ HideSpawnMenu ]
@@ -76,3 +55,60 @@
       types:
         Radiation: 13
         Piercing: 18
+
+# Mono AP syst
+# + 0.05 base AP
+#anti-flesh:
+- type: entity
+  id: Bullet762x51mmHP
+  parent: BaseBullet
+  name: bullet (7.62x51mm hollow-point)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 8
+        Piercing: 37
+    armorPenetration: -0.55
+
+- type: entity
+  id: Bullet762x51mmRIP
+  parent: BaseBullet
+  name: bullet (7.62x51mm Radically Invasive Projectile)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 10
+        Piercing: 50
+    armorPenetration: -0.9
+
+#armor-piercing:
+- type: entity
+  id: Bullet762x51mmPlasteelAP
+  parent: BaseBullet
+  name: bullet (7.62x51mm AP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 13
+        Structural: 40
+    armorPenetration: 0.8
+
+#anti-structure (heavy balistic turrets):
+- type: entity
+  id: Bullet762x51mmAntiMaterial
+  parent: BaseBullet
+  name: bullet (7.62x51mm Anti-Material)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+        Structural: 40
+    armorPenetration: 0.3

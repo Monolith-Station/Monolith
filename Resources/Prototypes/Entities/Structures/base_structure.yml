@@ -4,6 +4,8 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: ExaminableDamage
+    messages: WindowMessages
   - type: Transform
     anchored: true
   - type: Clickable
@@ -25,6 +27,9 @@
   - type: Tag
     tags:
       - Structure
+  - type: Repairable #Mono: Nanite applicator
+    qualities:
+    - Applicating
 
 - type: entity
   # This means that it's not anchored on spawn.

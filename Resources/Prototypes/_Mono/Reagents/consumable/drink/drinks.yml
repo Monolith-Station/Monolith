@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 monolith8319
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: reagent
   id: ChamomileTea
   name: reagent-name-tea-chamomile
@@ -89,7 +84,7 @@
   metamorphicSprite:
     sprite: _Mono/Objects/Consumable/Drinks/syndieteaglass.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 4
+  metamorphicMaxFillLevels: 2
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
 
@@ -104,6 +99,6 @@
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 4
+  metamorphicMaxFillLevels: 2
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false

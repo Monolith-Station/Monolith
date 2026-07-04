@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aviu00
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;

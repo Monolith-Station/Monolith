@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 NotActuallyMarty
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client._Goobstation.Clothing.Components;
 using Content.Client.Clothing;
 using Content.Shared._Goobstation.Clothing;
@@ -14,9 +9,9 @@ using System.Linq;
 
 namespace Content.Client._Goobstation.Clothing.EntitySystems;
 
-public sealed class SealableClothingVisualizerSystem : VisualizerSystem<SealableClothingVisualsComponent>
+public sealed partial class SealableClothingVisualizerSystem : VisualizerSystem<SealableClothingVisualsComponent>
 {
-    [Dependency] private readonly SharedItemSystem _itemSystem = default!;
+    [Dependency] private SharedItemSystem _itemSystem = default!;
 
     public override void Initialize()
     {

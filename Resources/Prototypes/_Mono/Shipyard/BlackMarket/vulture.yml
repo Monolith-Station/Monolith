@@ -1,24 +1,20 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+#Author: Core-Mene on Github,  Core-Mene on Discord.
 
 - type: vessel
   id: Vulture
   parent: BaseVesselAntag
   name: UI Vulture
-  description: A heavy material reclaiming ship manufacted by Ullman industries originally for deep-space mining and planet cracking, but has been up-gunned and sold to the Rogue Insurgency in recent days. Equiped with a full array or PTKs and 3, 255mm Bofors cannons.
+  description: A heavy material reclaiming ship manufacted by Ullman industries originally for deep-space mining and planet cracking, but has been up-gunned and sold to the Phaethon Dynasty in recent days. Equiped with a full array or PTKs and 3, 255mm Bofors cannons.
   limit: 2
-  price: 265580
+  price: 285580
+  purchasable: false # voucher only
   category: Large
   group: BlackMarket
+  access: Pirate
   shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/vulture.yml
   guidebookPage: Null
   class:
   - Pirate
-  - Capital
   - Frigate
   engine:
   - AME
@@ -31,12 +27,16 @@
   stations:
     Vulture:
       stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Its rumored that a Vulture razed a small planet on its own. Now its your turn to find out for yourself."
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Vulture RG{1}'
+          mapNameTemplate: 'Vulture PDV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
             Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

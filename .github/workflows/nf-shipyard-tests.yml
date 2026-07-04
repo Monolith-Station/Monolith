@@ -2,15 +2,16 @@ name: Build & Run Shipyard Tests
 
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
     paths:
-      - "Resources/Maps/_NF/Shuttles/**/*.yml" # Ship grids
-      - "Resources/Prototypes/_NF/Shipyard/**/*.yml" # Shipyard prototypes
+      - "Resources/Maps/_Mono/Shuttles/**/*.yml" # Ship grids, Mono - set to mono files
+      - "Resources/Prototypes/_Mono/Shipyard/**/*.yml" # Shipyard prototypes, Mono - set to mono files
       - "Content.IntegrationTests/Tests/_NF/ShipyardTests.cs" # Shipyard tests
+      - "Resources/Prototypes/Entities/**/*.yml" # Mono Change, run when an entity may have changed price
 
 jobs:
   build:
-    if: github.event.pull_request.draft == false && github.actor != 'FrontierATC'
+    if: github.event.pull_request.draft == false
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -19,7 +20,7 @@ jobs:
 
     steps:
     - name: Checkout Master
-      uses: actions/checkout@v3.6.0
+      uses: actions/checkout@v4.2.2
 
     - name: Setup Submodule
       run: |
@@ -34,9 +35,9 @@ jobs:
         git submodule update --init --recursive
 
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v3.2.0
+      uses: actions/setup-dotnet@v4.1.0
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: 10.0.x
 
     - name: Install Dependencies
       run: dotnet restore

@@ -1,0 +1,68 @@
+- type: entity
+  parent: GrenadeBase
+  id: BottleBomb
+  name: bottle bomb
+  description: Cheap alternative to nukes.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Bombs/bottlebomb.rsi
+    layers:
+    - state: base
+      map: ["enum.TriggerVisualLayers.Base"]
+    - state: wires
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Bombs/bottlebomb.rsi
+  - type: OnUseTimerTrigger
+    delay: 3
+    examinable: false
+  - type: Explosive
+    explosionType: BottleBomb
+    totalIntensity: 25
+    intensitySlope: 5
+    maxIntensity: 3
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
+  - type: Appearance
+  - type: AnimationPlayer
+  - type: TimerTriggerVisuals
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Construction
+    graph: BottleBomb
+    node: bottlebomb
+
+- type: entity
+  parent: DrinkBottleBaseEmpty
+  id: BottleBombEmpty
+  name: bottle bomb
+  suffix: empty
+  description: Cheap alternative to nukes. This one has no fuel.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 15
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/vodkabottle.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "base"}
+          False: {state: "base"}
+  - type: Construction
+    graph: BottleBomb
+    node: bottlebombempty
+    defaultTarget: bottlebomb
+  - type: Tag
+    tags:
+    - Trash

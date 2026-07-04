@@ -1,0 +1,201 @@
+- type: technology
+  id: UniversalPlastitaniumCore
+  name: research-technology-universal-ap-plastitanium
+  entityIcon: SheetPlasteel
+  discipline: FactionUniversal
+  tier: 2
+  cost: 20000
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  position: 8, 6
+  recipeUnlocks:
+  - Magazine762x51mmPlasteelAP
+  - AmmoBox762x51mmPlasteelAP
+  - Magazine762x54mmRPlasteelAP
+  - AmmoBox762x54mmRPlasteelAP
+  - Magazine556x45mmPlasteelAP
+  - AmmoBox556x45mmPlasteelAP
+  - Magazine762x39mmPlasteelAP
+  - AmmoBox762x39mmPlasteelAP
+  - Magazine45_magnumPistolPlasteelAP
+  - AmmoBox45_magnumPlasteelAP
+  - SpeedLoader45_magnumPlasteelAP
+  - Magazine68x52mmPlasteelAP
+  - AmmoBox68x52mmPlasteelAP
+  - Magazine46x30mmPistolPlasteelAP
+  - Magazine46x30mmSubMachineGunPlasteelAP
+  - AmmoBox46x30mmPlasteelAP
+  - Magazine57x28mmPistolPlasteelAP
+  - Magazine57x28mmSubMachineGunPlasteelAP
+  - AmmoBox57x28mmPlasteelAP
+  - Magazine9x19mmPistolPlasteelAP
+  - Magazine9x19mmSubMachineGunPlasteelAP
+  - AmmoBox9x19mmPlasteelAP
+  - Magazine45_ACPPistolPlasteelAP
+  - Magazine45_ACPSubMachineGunPlasteelAP
+  - AmmoBox45_ACPPlasteelAP
+  - AmmoBox23x75mmSlugAP
+  - Magazine12_gaugeSlugAP
+  - AmmoBox12_gaugeSlugAP
+  - AmmoBox23x75mmFlechette
+  - Magazine12_gaugeFlechette
+  - AmmoBox12_gaugeFlechette
+
+#- type: technology
+#  id: UniversalSynthalloyCore
+#  name: research-technology-universal-ap-synthalloy
+#  entityIcon: MaterialSynthalloy
+#  discipline: FactionUniversal
+#  tier: 3
+#  cost: 40000
+#  technologyPrerequisites:
+#  - UniversalPlastitaniumCore
+#  - UniversalMaterialResearchT3
+#  position: 9, 10
+#  recipeUnlocks:
+#  - Magazine762x51mmSynthAP
+#  - AmmoBox762x51mmSynthAP
+#  - Magazine762x54mmRSynthAP
+#  - AmmoBox762x54mmRSynthAP
+#  - Magazine556x45mmSynthAP
+#  - AmmoBox556x45mmSynthAP
+#  - Magazine762x39mmSynthAP
+#  - AmmoBox762x39mmSynthAP
+#  - Magazine45_magnumPistolSynthAP
+#  - AmmoBox45_magnumSynthAP
+#  - SpeedLoader45_magnumSynthAP
+#  - Magazine46x30mmPistolSynthAP
+#  - Magazine46x30mmSubMachineGunSynthAP
+#  - AmmoBox46x30mmSynthAP
+#  - Magazine57x28mmPistolSynthAP
+#  - Magazine57x28mmSubMachineGunSynthAP
+#  - AmmoBox57x28mmSynthAP
+#  - Magazine9x19mmPistolSynthAP
+#  - Magazine9x19mmSubMachineGunSynthAP
+#  - AmmoBox9x19mmSynthAP
+#  - Magazine45_ACPPistolSynthAP
+#  - Magazine45_ACPSubMachineGunSynthAP
+#  - AmmoBox45_ACPSynthAP
+
+- type: technology
+  id: UniversalRIP
+  name: research-technology-universal-ap-rip
+  entityIcon: AmmoBox9x19mmRIP
+  discipline: FactionUniversal
+  tier: 2
+  cost: 30000
+  technologyPrerequisites:
+  - UniversalPlastitaniumCore
+  position: 8, 5
+  recipeUnlocks:
+  - AmmoBox23x75mmSlugRIP
+  - Magazine12_gaugeSlugRIP
+  - AmmoBox12_gaugeSlugRIP
+  - Magazine762x51mmRIP
+  - AmmoBox762x51mmRIP
+  - Magazine762x54mmRRIP
+  - AmmoBox762x54mmRRIP
+  - Magazine556x45mmRIP
+  - AmmoBox556x45mmRIP
+  - Magazine762x39mmRIP
+  - AmmoBox762x39mmRIP
+  - Magazine45_magnumPistolRIP
+  - SpeedLoader45_magnumRIP
+  - AmmoBox45_magnumRIP
+  - Magazine68x52mmRIP
+  - AmmoBox68x52mmRIP
+  - Magazine46x30mmPistolRIP
+  - Magazine46x30mmSubMachineGunRIP
+  - AmmoBox46x30mmRIP
+  - Magazine57x28mmPistolRIP
+  - Magazine57x28mmSubMachineGunRIP
+  - AmmoBox57x28mmRIP
+  - Magazine9x19mmPistolRIP
+  - Magazine9x19mmSubMachineGunRIP
+  - AmmoBox9x19mmRIP
+  - Magazine45_ACPPistolRIP
+  - Magazine45_ACPSubMachineGunRIP
+  - AmmoBox45_ACPRIP
+
+- type: technology
+  id: DraconicMunitions
+  name: research-technology-draconic-munitions
+  entityIcon: AmmoBox9x19mmIncendiary
+  discipline: FactionUniversal
+  tier: 2
+  cost: 30000
+  recipeUnlocks:
+  - AmmoBox23x75mmIncendiary
+  - Magazine12_gaugeIncendiary
+  - AmmoBox12_gaugeIncendiary
+  - Magazine762x51mmIncendiary
+  - AmmoBox762x51mmIncendiary
+  - Magazine762x54mmRIncendiary
+  - AmmoBox762x54mmRIncendiary
+  - Magazine8x65mmSKRIncendiary
+  - AmmoBox8x65mmSKRIncendiary
+  - Magazine556x45mmIncendiary
+  - SpeedLoader556x45mmIncendiary
+  - AmmoBox556x45mmIncendiary
+  - Magazine762x39mmIncendiary
+  - AmmoBox762x39mmIncendiary
+  - Magazine45_magnumPistolIncendiary
+  - SpeedLoader45_magnumIncendiary
+  - AmmoBox45_magnumIncendiary
+  - Magazine46x30mmPistolIncendiary
+  - Magazine46x30mmSubMachineGunIncendiary
+  - AmmoBox46x30mmIncendiary
+  - Magazine57x28mmPistolIncendiary
+  - Magazine57x28mmSubMachineGunIncendiary
+  - AmmoBox57x28mmIncendiary
+  - Magazine9x19mmPistolIncendiary
+  - Magazine9x19mmSubMachineGunIncendiary
+  - SpeedLoader9x19mmIncendiary
+  - AmmoBox9x19mmIncendiary
+  - Magazine45_ACPPistolIncendiary
+  - Magazine45_ACPSubMachineGunIncendiary
+  - AmmoBox45_ACPIncendiary
+  - AmmoBox23x75mmFlashbang
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 9, -1
+
+- type: technology
+  id: UraniumMunitions
+  name: research-technology-uranium-munitions
+  entityIcon: AmmoBox9x19mmUranium
+  discipline: FactionUniversal
+  tier: 2
+  cost: 30000
+  recipeUnlocks:
+  - AmmoBox23x75mmUranium
+  - Magazine12_gaugeUranium
+  - AmmoBox12_gaugeUranium
+  - Magazine762x51mmUranium
+  - AmmoBox762x51mmUranium
+  - Magazine762x54mmRUranium
+  - AmmoBox762x54mmRUranium
+  - Magazine556x45mmUranium
+  - SpeedLoader556x45mmUranium
+  - AmmoBox556x45mmUranium
+  - Magazine762x39mmUranium
+  - AmmoBox762x39mmUranium
+  - Magazine45_magnumPistolUranium
+  - SpeedLoader45_magnumUranium
+  - AmmoBox45_magnumUranium
+  - Magazine46x30mmPistolUranium
+  - Magazine46x30mmSubMachineGunUranium
+  - AmmoBox46x30mmUranium
+  - Magazine57x28mmPistolUranium
+  - Magazine57x28mmSubMachineGunUranium
+  - AmmoBox57x28mmUranium
+  - Magazine9x19mmPistolUranium
+  - Magazine9x19mmSubMachineGunUranium
+  - SpeedLoader9x19mmUranium
+  - AmmoBox9x19mmUranium
+  - Magazine45_ACPPistolUranium
+  - Magazine45_ACPSubMachineGunUranium
+  - AmmoBox45_ACPUranium
+  technologyPrerequisites:
+  - UniversalPlastitaniumCore
+  position: 7, 5

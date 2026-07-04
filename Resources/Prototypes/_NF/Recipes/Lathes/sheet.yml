@@ -7,8 +7,16 @@
   id: BaseMaterialsNoDiscountRecipe
   categories:
   - Materials
-  applyMaterialDiscount: false
-  completetime: 0.06
+  materialDiscountScale: 0
+  completetime: 0.3
+
+#Mono fun installation
+- type: latheRecipe
+  abstract: true
+  id: BaseMaterialsYesDiscountRecipe
+  categories:
+  - Materials
+  completetime: 0.3
 
 # Recipes
 
@@ -76,167 +84,189 @@
 - type: latheRecipe
   id: ScrapCableHVStack1
   result: CableHVStack1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 300 # ~0.3 of steel sheet
+    RawScrap: 4 # ~0.3 of steel sheet #Mono - 300 > 4
 
 - type: latheRecipe
   id: ScrapCableMVStack1
   result: CableMVStack1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 300 # ~0.3 of steel sheet
+    RawScrap: 4 # ~0.3 of steel sheet #Mono - 300 > 4
 
 - type: latheRecipe
   id: ScrapCableApcStack1
   result: CableApcStack1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 300 # ~0.3 of steel sheet
+    RawScrap: 4 # ~0.3 of steel sheet #Mono - 300 > 4
 
 - type: latheRecipe
   id: ScrapPartRodMetal1
   result: PartRodMetal1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 500 # ~0.5 of steel sheet
+    RawScrap: 10 # ~0.5 of steel sheet #Mono - 500 > 10
 
 - type: latheRecipe
   id: ScrapSheetSteel1
   result: SheetSteel1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 900
+    RawScrap: 20 #Mono 900 > 20
 
 - type: latheRecipe
   id: ScrapSheetGlass1
   result: SheetGlass1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 1200
+    RawScrap: 30 #Mono 1200 > 30
+
+#Mono
+- type: latheRecipe
+  id: ScrapWoodPlank1
+  result: MaterialWoodPlank1
+  parent: BaseMaterialsYesDiscountRecipe
+  materials:
+    RawScrap: 30
 
 - type: latheRecipe
   id: ScrapSheetBrass1
   result: SheetBrass1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 1500
+    RawScrap: 30 #Mono 1500 > 30
 
 - type: latheRecipe
   id: ScrapSheetRGlass1
   result: SheetRGlass1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 1300
+    RawScrap: 40 #Mono 1300 > 40
 
 - type: latheRecipe
   id: ScrapSheetPlasteel1
   result: SheetPlasteel1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 4000
+    RawScrap: 120 #Mono 4000 > 120
 
 - type: latheRecipe
   id: ScrapSheetPlastic1
   result: SheetPlastic1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 1500
+    RawScrap: 30 #Mono 1500 > 30
 
 - type: latheRecipe
   id: ScrapSheetPlasma1
   result: SheetPlasma1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 3000
+    RawScrap: 120 #Mono 3000 > 120
 
 - type: latheRecipe
   id: ScrapSheetUranium1
   result: SheetUranium1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 3000
+    RawScrap: 120 #Mono 3000 > 120
 
 - type: latheRecipe
   id: ScrapIngotSilver1
   result: IngotSilver1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 2300
+    RawScrap: 100 #Mono 2300 > 100
 
 - type: latheRecipe
   id: ScrapIngotGold1
   result: IngotGold1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 3000
+    RawScrap: 100 #Mono 3000 > 100
 
 - type: latheRecipe
   id: ScrapMaterialBananium1
   result: MaterialBananium1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 6500
+    RawScrap: 300 #Mono 6500 > 300
 
 - type: latheRecipe
   id: ScrapMaterialCloth1
   result: MaterialCloth1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 800
+    RawScrap: 30 #Mono 800 > 30
 
 - type: latheRecipe
   id: ScrapMaterialDurathread1
   result: MaterialDurathread1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 2300
+    RawScrap: 60 #Mono 2300 > 60
 
 - type: latheRecipe
   id: ScrapSheetUGlass1
   result: SheetUGlass1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 3300
+    RawScrap: 170 #Mono 3300 > 170
 
 - type: latheRecipe
   id: ScrapSheetPGlass1
   result: SheetPGlass1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 3300
+    RawScrap: 170 #Mono 3300 > 170
 
 - type: latheRecipe
   id: ScrapSheetRUGlass1
   result: SheetRUGlass1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 3700
+    RawScrap: 180 #Mono 3700 > 180
 
 - type: latheRecipe
   id: ScrapSheetRPGlass1
   result: SheetRPGlass1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 3700
+    RawScrap: 180 #Mono 3700 > 180
 
 - type: latheRecipe
   id: ScrapSheetClockworkGlass1
   result: SheetClockworkGlass1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 1400
+    RawScrap: 60 #Mono 1400 > 60
 
 - type: latheRecipe
   id: ScrapMaterialBluespace1
   result: MaterialBluespace1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 225000
+    RawScrap: 16000 #Mono 225k >> 16k
 
 - type: latheRecipe
   id: ScrapMaterialDiamond1
   result: MaterialDiamond1
-  parent: BaseMaterialsNoDiscountRecipe
+  parent: BaseMaterialsYesDiscountRecipe
   materials:
-    RawScrap: 300000
+    RawScrap: 16000 #Mono 300k >> 16k
+
+- type: latheRecipe
+  id: ScrapMaterialCopper1
+  result: SheetCopper1
+  parent: BaseMaterialsYesDiscountRecipe
+  materials:
+    RawScrap: 100
+
+- type: latheRecipe
+  id: ScrapMaterialLithium1
+  result: SheetLithium1
+  parent: BaseMaterialsYesDiscountRecipe
+  materials:
+    RawScrap: 100

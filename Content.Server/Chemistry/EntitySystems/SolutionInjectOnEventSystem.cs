@@ -1,3 +1,4 @@
+using Content.Shared.Armor; // Goobstation - Armor resisting syringe gun
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
@@ -9,6 +10,7 @@ using Content.Shared.Projectiles;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Collections;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -16,13 +18,15 @@ namespace Content.Server.Chemistry.EntitySystems;
 /// System for handling the different inheritors of <see cref="BaseSolutionInjectOnEventComponent"/>.
 /// Subscribes to relevent events and performs solution injections when they are raised.
 /// </summary>
-public sealed class SolutionInjectOnCollideSystem : EntitySystem
+public sealed partial class SolutionInjectOnCollideSystem : EntitySystem
 {
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private BloodstreamSystem _bloodstream = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private TagSystem _tag = default!;
+
+    private static readonly ProtoId<TagPrototype> HardsuitTag = "Hardsuit";
 
     public override void Initialize()
     {
@@ -91,15 +95,58 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             if (Deleted(target))
                 continue;
 
+            // Goobstation - Armor resisting syringe gun
             // Yuck, this is way to hardcodey for my tastes
             // TODO blocking injection with a hardsuit should probably done with a cancellable event or something
-            if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit) && _tag.HasTag(suit.Value, "Hardsuit"))
+            if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // no penetrating armor with at least some percentage of piercing resist
             {
-                // Only show popup to attacker
-                if (source != null)
-                    _popup.PopupEntity(Loc.GetString(injector.Comp.BlockedByHardsuitPopupMessage, ("weapon", injector.Owner), ("target", target)), target, source.Value, PopupType.SmallCaution);
+                var blocked = false;
+                if (TryComp<ArmorComponent>(suit, out var armor))
+                {
+                    var maxResistances = injector.Comp.MaxArmorResistances;
+                    var armorCoefficients = armor.Modifiers.Coefficients;
+                    foreach (var coefficient in maxResistances.Coefficients)
+                    {
+                        if (armorCoefficients.ContainsKey(coefficient.Key) && armorCoefficients[coefficient.Key] < coefficient.Value)
+                        {
+                            blocked = true;
+                            break;
+                        }
+                    }
+                }
+                if (blocked)
+                {
+                    // Only show popup to attacker
+                    if (source != null)
+                        _popup.PopupEntity(Loc.GetString(injector.Comp.BlockedByArmorPopupMessage, ("weapon", injector.Owner), ("target", target)), target, source.Value, PopupType.SmallCaution);
 
-                continue;
+                    continue;
+                }
+            }
+            if (!injector.Comp.PierceArmor && _inventory.TryGetSlotEntity(target, "jumpsuit", out var jumpsuit)) // no penetrating armor with at least some percentage of piercing resist
+            {
+                var blocked = false;
+                if (TryComp<ArmorComponent>(jumpsuit, out var armor))
+                {
+                    var maxResistances = injector.Comp.MaxArmorResistances;
+                    var armorCoefficients = armor.Modifiers.Coefficients;
+                    foreach (var coefficient in maxResistances.Coefficients)
+                    {
+                        if (armorCoefficients.ContainsKey(coefficient.Key) && armorCoefficients[coefficient.Key] < coefficient.Value)
+                        {
+                            blocked = true;
+                            break;
+                        }
+                    }
+                }
+                if (blocked)
+                {
+                    // Only show popup to attacker
+                    if (source != null)
+                        _popup.PopupEntity(Loc.GetString(injector.Comp.BlockedByJumpsuitPopupMessage, ("weapon", injector.Owner), ("target", target)), target, source.Value, PopupType.SmallCaution);
+
+                    continue;
+                }
             }
 
             // Check if the target has anything equipped in a slot that would block injection

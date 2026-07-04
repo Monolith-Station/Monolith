@@ -28,6 +28,11 @@
                 collection: GlassBreak
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+    # Mono
+    - type: ShipRepairable
+      repairTo: StationMap
+      repairTime: 3
+      repairCost: 6
 
 - type: entity
   id: StationMap
@@ -88,6 +93,10 @@
       interfaces:
         enum.StationMapUiKey.Key:
           type: StationMapBoundUserInterface
+    # Mono
+    - type: ShipRepairable
+      repairTime: 3
+      repairCost: 6
 
 - type: entity
   id: StationMapAssembly

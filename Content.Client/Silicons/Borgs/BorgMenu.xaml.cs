@@ -14,7 +14,7 @@ namespace Content.Client.Silicons.Borgs;
 [GenerateTypedNameReferences]
 public sealed partial class BorgMenu : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private IEntityManager _entity = default!;
 
     public Action? BrainButtonPressed;
     public Action? EjectBatteryButtonPressed;
@@ -136,7 +136,7 @@ public sealed partial class BorgMenu : FancyWindow
         foreach (var module in chassis.ModuleContainer.ContainedEntities)
         {
             var moduleComponent = _entity.GetComponent<BorgModuleComponent>(module);
-            var control = new BorgModuleControl(module, _entity, !moduleComponent.DefaultModule);
+            var control = new BorgModuleControl(module, _entity, true); // Mono - can remove even if default
             control.RemoveButtonPressed += () =>
             {
                 RemoveModuleButtonPressed?.Invoke(module);

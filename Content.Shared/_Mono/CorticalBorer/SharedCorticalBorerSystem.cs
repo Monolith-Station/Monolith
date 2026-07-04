@@ -1,38 +1,41 @@
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-// SPDX-FileCopyrightText: 2025 Cojoke
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Examine;
-using Content.Shared.MedicalScanner;
-using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
+using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory;
+using Content.Shared.MedicalScanner;
+using Content.Shared.Mind.Components;
+using Content.Shared.Popups;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
+using System.Linq;
 
 namespace Content.Shared._Mono.CorticalBorer;
 
-public partial class SharedCorticalBorerSystem : EntitySystem
+public abstract partial class SharedCorticalBorerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ISerializationManager _serManager = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] protected readonly SharedPopupSystem _popup = default!;
-    [Dependency] protected readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] protected readonly SharedActionsSystem _actions = default!;
-    [Dependency] protected readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedBodySystem _bodySystem = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ISerializationManager _serManager = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] protected SharedPopupSystem _popup = default!;
+    [Dependency] protected SharedUserInterfaceSystem _ui = default!;
+    [Dependency] protected SharedActionsSystem _actions = default!;
+    [Dependency] protected SharedContainerSystem _container = default!;
+
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<CorticalBorerComponent, AttackAttemptEvent>(OnBorerAttackAttempt);
+    }
 
     public bool CanUseAbility(Entity<CorticalBorerComponent> ent, EntityUid target)
     {
@@ -44,6 +47,20 @@ public partial class SharedCorticalBorerSystem : EntitySystem
         }
 
         return true;
+    }
+
+    /// <summary>
+    /// Checks if host has borer protection before allowing attack damage vs hosts
+    /// </summary>
+    private void OnBorerAttackAttempt(EntityUid uid, CorticalBorerComponent component, AttackAttemptEvent args)
+    {
+        if (component.Host is EntityUid host && args.Target == host)
+        {
+            if (!CanUseAbility((uid, component), host))
+            {
+                args.Cancel();
+            }
+        }
     }
 
     public void InfestTarget(Entity<CorticalBorerComponent> ent, EntityUid target)
@@ -166,42 +183,6 @@ public sealed class CorticalBorerDispenserSetInjectAmountMessage : BoundUserInte
     public CorticalBorerDispenserSetInjectAmountMessage(int amount)
     {
         CorticalBorerDispenserDispenseAmount = amount;
-    }
-
-    public CorticalBorerDispenserSetInjectAmountMessage(String s)
-    {
-        switch (s)
-        {
-            case "1":
-                CorticalBorerDispenserDispenseAmount = 1;
-                break;
-            case "5":
-                CorticalBorerDispenserDispenseAmount = 5;
-                break;
-            case "10":
-                CorticalBorerDispenserDispenseAmount = 10;
-                break;
-            case "15":
-                CorticalBorerDispenserDispenseAmount = 15;
-                break;
-            case "20":
-                CorticalBorerDispenserDispenseAmount = 20;
-                break;
-            case "25":
-                CorticalBorerDispenserDispenseAmount = 25;
-                break;
-            case "30":
-                CorticalBorerDispenserDispenseAmount = 30;
-                break;
-            case "50":
-                CorticalBorerDispenserDispenseAmount = 50;
-                break;
-            case "100":
-                CorticalBorerDispenserDispenseAmount = 100;
-                break;
-            default:
-                throw new Exception($"Cannot convert the string `{s}` into a valid DispenseAmount");
-        }
     }
 }
 

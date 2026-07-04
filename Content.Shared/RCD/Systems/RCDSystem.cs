@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 checkraze
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 GreaseMonk
-// SPDX-FileCopyrightText: 2024 Jake Huxell
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 TemporalOroboros
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 Wiebe Geertsma
-// SPDX-FileCopyrightText: 2024 chromiumboy
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2025 Blu
-// SPDX-FileCopyrightText: 2025 Dvir
-// SPDX-FileCopyrightText: 2025 J
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;
@@ -50,32 +29,36 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Robust.Shared.Audio;
 
+// Mono
+using System.Numerics;
+
 namespace Content.Shared.RCD.Systems;
 
 [Virtual]
-public class RCDSystem : EntitySystem
+public partial class RCDSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefMan = default!;
-    [Dependency] private readonly FloorTileSystem _floors = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TagSystem _tags = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private ITileDefinitionManager _tileDefMan = default!;
+    [Dependency] private FloorTileSystem _floors = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedChargesSystem _charges = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TagSystem _tags = default!;
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
     private readonly ProtoId<RCDPrototype> _deconstructTileProto = "DeconstructTile";
     private readonly ProtoId<RCDPrototype> _deconstructLatticeProto = "DeconstructLattice";
+    private static readonly ProtoId<TagPrototype> CatwalkTag = "Catwalk";
 
     private HashSet<EntityUid> _intersectingEntities = new();
 
@@ -90,7 +73,6 @@ public class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, DoAfterAttemptEvent<RCDDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
-        SubscribeLocalEvent<IdCardComponent, AfterInteractEvent>(OnIdCardSwipeHappened); // Frontier
     }
 
     #region Event handling
@@ -149,55 +131,6 @@ public class RCDSystem : EntitySystem
 
         args.PushMarkup(msg);
     }
-
-    /**
-     * Frontier - ability to swipe rcd for authorizations to build on specific grids
-     */
-    private void OnIdCardSwipeHappened(EntityUid uid, IdCardComponent comp, ref AfterInteractEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (args.Target is not { Valid: true } target || !args.CanReach)
-            return;
-
-        var rcdEntityUid = target;
-
-        // Is this id card interacting with a shipyard RCD? If not, ignore it.
-        if (!TryComp<RCDComponent>(rcdEntityUid, out var rcdComponent) || !rcdComponent.IsShipyardRCD)
-            return;
-
-        // RCD found, we're handling this event.
-        args.Handled = true;
-
-        // If the id card has no registered ship we cant continue.
-        if (!TryComp<ShuttleDeedComponent>(comp.Owner, out var shuttleDeedComponent))
-        {
-            _popup.PopupClient(Loc.GetString("rcd-component-missing-id-deed"),
-                uid, args.User, PopupType.Medium);
-            _audio.PlayPredicted(comp.ErrorSound, rcdEntityUid, args.User, AudioParams.Default.WithMaxDistance(0.01f));
-            return;
-        }
-
-        // Swiping it again removes the authorization on it.
-        if (rcdComponent.LinkedShuttleUid != null)
-        {
-            _popup.PopupClient(Loc.GetString("rcd-component-id-card-removed"),
-                uid, args.User, PopupType.Medium);
-            _audio.PlayPredicted(comp.SwipeSound, rcdEntityUid, args.User, AudioParams.Default.WithMaxDistance(0.01f));
-            rcdComponent.LinkedShuttleUid = null;
-        }
-        else
-        {
-            _popup.PopupClient(Loc.GetString("rcd-component-id-card-accepted"),
-                uid, args.User, PopupType.Medium);
-            _audio.PlayPredicted(comp.InsertSound, rcdEntityUid, args.User, AudioParams.Default.WithMaxDistance(0.01f));
-            rcdComponent.LinkedShuttleUid = shuttleDeedComponent.ShuttleUid;
-        }
-
-        Dirty(rcdComponent.Owner, rcdComponent);
-    }
-
     private void OnAfterInteract(EntityUid uid, RCDComponent component, AfterInteractEvent args)
     {
         if (args.Handled || !args.CanReach)
@@ -217,9 +150,6 @@ public class RCDSystem : EntitySystem
         }
 
         if (!IsRCDOperationStillValid(uid, component, mapGridData.Value, args.Target, args.User))
-            return;
-
-        if (!IsAuthorized(mapGridData.Value.GridUid, uid, component, args))
             return;
 
         if (!_net.IsServer)
@@ -252,7 +182,7 @@ public class RCDSystem : EntitySystem
                 else
                 {
                     var deconstructedTile = _mapSystem.GetTileRef(mapGridData.Value.GridUid, mapGridData.Value.Component, mapGridData.Value.Location);
-                    var protoName = !deconstructedTile.IsSpace() ? _deconstructTileProto : _deconstructLatticeProto;
+                    var protoName = !_turf.IsSpace(deconstructedTile) ? _deconstructTileProto : _deconstructLatticeProto;
 
                     if (_protoManager.TryIndex(protoName, out var deconProto))
                     {
@@ -281,10 +211,15 @@ public class RCDSystem : EntitySystem
         #endregion
 
         // Try to start the do after
-        var effect = Spawn(effectPrototype, mapGridData.Value.Location);
+        // <Mono>
+        var gridData = mapGridData.Value;
+        var effect = Spawn(effectPrototype, new EntityCoordinates(gridData.GridUid, Vector2.Zero));
+        _transform.SetParent(effect, gridData.GridUid);
+        _transform.SetLocalPositionNoLerp(effect, gridData.Position + new Vector2(0.5f, 0.5f));
+        // </Mono>
         var ev = new RCDDoAfterEvent(GetNetCoordinates(mapGridData.Value.Location), component.ConstructionDirection, component.ProtoId, cost, EntityManager.GetNetEntity(effect));
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay*component.DelayMultiplier, ev, uid, target: args.Target, used: uid) // Mono - add delay multiplier.
         {
             BreakOnDamage = true,
             BreakOnHandChange = true,
@@ -299,43 +234,6 @@ public class RCDSystem : EntitySystem
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs))
             QueueDel(effect);
-    }
-
-    /**
-     * Frontier - Stops RCD functions if there is a protected grid component on it, and adds shipyard rcd limitations.
-     */
-    private bool IsAuthorized(EntityUid? gridId, EntityUid uid, RCDComponent comp, AfterInteractEvent args)
-    {
-        if (gridId == null)
-        {
-            return true;
-        }
-        var mapGrid = Comp<MapGridComponent>(gridId.Value);
-        var gridUid = mapGrid.Owner;
-
-        // Frontier - Remove all RCD use on outpost.
-        if (TryComp<ProtectedGridComponent>(gridUid, out var prot) && prot.PreventRCDUse)
-        {
-            _popup.PopupClient(Loc.GetString("rcd-component-use-blocked"), uid, args.User);
-            return false;
-        }
-
-        // Frontier - LinkedShuttleUid requirements to use Shipyard RCD.
-        if (comp.IsShipyardRCD)
-        {
-            if (comp.LinkedShuttleUid == null)
-            {
-                _popup.PopupClient(Loc.GetString("rcd-component-no-id-swiped"), uid, args.User);
-                return false;
-            }
-            if (comp.LinkedShuttleUid != gridUid)
-            {
-                _popup.PopupClient(Loc.GetString("rcd-component-can-only-build-authorized-ship"), uid, args.User);
-                return false;
-            }
-        }
-
-        return true;
     }
 
     private void OnDoAfterAttempt(EntityUid uid, RCDComponent component, DoAfterAttemptEvent<RCDDoAfterEvent> args)
@@ -479,7 +377,7 @@ public class RCDSystem : EntitySystem
         }
 
         // Check rule: Must place on subfloor
-        if (component.CachedPrototype.ConstructionRules.Contains(RcdConstructionRule.MustBuildOnSubfloor) && !mapGridData.Tile.Tile.GetContentTileDefinition().IsSubFloor)
+        if (component.CachedPrototype.ConstructionRules.Contains(RcdConstructionRule.MustBuildOnSubfloor) && !_turf.GetContentTileDefinition(mapGridData.Tile).IsSubFloor)
         {
             if (popMsgs)
                 _popup.PopupClient(Loc.GetString("rcd-component-must-build-on-subfloor-message"), uid, user);
@@ -500,7 +398,7 @@ public class RCDSystem : EntitySystem
             }
 
             // Check rule: Tiles can't be identical
-            if (mapGridData.Tile.Tile.GetContentTileDefinition().ID == component.CachedPrototype.Prototype)
+            if (_turf.GetContentTileDefinition(mapGridData.Tile).ID == component.CachedPrototype.Prototype)
             {
                 if (popMsgs)
                     _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-identical-tile"), uid, user);
@@ -526,7 +424,7 @@ public class RCDSystem : EntitySystem
             if (isWindow && HasComp<SharedCanBuildWindowOnTopComponent>(ent))
                 continue;
 
-            if (isCatwalk && _tags.HasTag(ent, "Catwalk"))
+            if (isCatwalk && _tags.HasTag(ent, CatwalkTag))
             {
                 if (popMsgs)
                     _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-on-occupied-tile-message"), uid, user);
@@ -539,7 +437,7 @@ public class RCDSystem : EntitySystem
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
                     // Continue if no collision is possible
-                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int) component.CachedPrototype.CollisionMask) == 0)
+                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int)component.CachedPrototype.CollisionMask) == 0)
                         continue;
 
                     // Continue if our custom collision bounds are not intersected
@@ -564,6 +462,13 @@ public class RCDSystem : EntitySystem
         // Attempt to deconstruct a floor tile
         if (target == null)
         {
+            if (component.IsRpd)
+            {
+                if (popMsgs)
+                    _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
+
+                return false;
+            }
             // The tile is empty
             if (mapGridData.Tile.Tile.IsEmpty)
             {
@@ -583,7 +488,7 @@ public class RCDSystem : EntitySystem
             }
 
             // The tile cannot be destroyed
-            var tileDef = (ContentTileDefinition) _tileDefMan[mapGridData.Tile.Tile.TypeId];
+            var tileDef = _turf.GetContentTileDefinition(mapGridData.Tile);
 
             if (tileDef.Indestructible)
             {
@@ -597,8 +502,17 @@ public class RCDSystem : EntitySystem
         // Attempt to deconstruct an object
         else
         {
+            // The object is not in the RPD whitelist
+            if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible) || !deconstructible.RpdDeconstructable && component.IsRpd) // Goob
+            {
+                if (popMsgs)
+                    _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
+
+                return false;
+            }
+
             // The object is not in the whitelist
-            if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible) || !deconstructible.Deconstructable)
+            if (!deconstructible.Deconstructable)
             {
                 if (popMsgs)
                     _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
@@ -653,7 +567,7 @@ public class RCDSystem : EntitySystem
                 if (target == null)
                 {
                     // Deconstruct tile (either converts the tile to lattice, or removes lattice)
-                    var tile = (mapGridData.Tile.Tile.GetContentTileDefinition().ID != "Lattice") ? new Tile(_tileDefMan["Lattice"].TileId) : Tile.Empty;
+                    var tile = (_turf.GetContentTileDefinition(mapGridData.Tile).ID != "Lattice") ? new Tile(_tileDefMan["Lattice"].TileId) : Tile.Empty;
                     _mapSystem.SetTile(mapGridData.GridUid, mapGridData.Component, mapGridData.Position, tile);
                     _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to set grid: {mapGridData.GridUid} tile: {mapGridData.Position} open to space");
                 }

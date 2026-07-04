@@ -2,8 +2,8 @@
   id: FillSalvageSpecialistHardsuitSpatio
   table: !type:AllSelector
     children:
-    # - id: OxygenTankFilled # Frontier
-    - id: AirTankFilled # Frontier
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled # Mono
     - id: ClothingShoesBootsMag
     - id: ClothingOuterHardsuitSpatio
     - id: ClothingMaskGasExplorer
@@ -19,6 +19,9 @@
     - id: RadioHandheldNF # Frontier - RadioHandheld<RadioHandheldNF
     - id: OreBag # Frontier
     - id: ConstructionBag # Mono
+    - id: MiningDrill # Mono
+    - id: MineralScanner # Mono
+    - id: WeaponGrapplingGun # Mono
     - id: AppraisalTool
     # - id: Flare # Frontier
     #   prob: 0.3 # Frontier

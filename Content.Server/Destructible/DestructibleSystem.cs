@@ -1,27 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin
-// SPDX-FileCopyrightText: 2022 DrSmugleaf
-// SPDX-FileCopyrightText: 2022 Jezithyr
-// SPDX-FileCopyrightText: 2022 Leon Friedrich
-// SPDX-FileCopyrightText: 2022 Mervill
-// SPDX-FileCopyrightText: 2022 Moony
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 Chief-Engineer
-// SPDX-FileCopyrightText: 2023 Emisse
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 Vordenburg
-// SPDX-FileCopyrightText: 2024 Cojoke
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 TemporalOroboros
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
@@ -50,28 +26,33 @@ using System.Linq;
 namespace Content.Server.Destructible
 {
     [UsedImplicitly]
-    public sealed class DestructibleSystem : SharedDestructibleSystem
+    public sealed partial class DestructibleSystem : SharedDestructibleSystem
     {
-        [Dependency] public readonly IRobustRandom Random = default!;
+        [Dependency] public IRobustRandom Random = default!;
         public new IEntityManager EntityManager => base.EntityManager;
 
-        [Dependency] public readonly AtmosphereSystem AtmosphereSystem = default!;
-        [Dependency] public readonly AudioSystem AudioSystem = default!;
-        [Dependency] public readonly BodySystem BodySystem = default!;
-        [Dependency] public readonly ConstructionSystem ConstructionSystem = default!;
-        [Dependency] public readonly ExplosionSystem ExplosionSystem = default!;
-        [Dependency] public readonly StackSystem StackSystem = default!;
-        [Dependency] public readonly TriggerSystem TriggerSystem = default!;
-        [Dependency] public readonly SharedSolutionContainerSystem SolutionContainerSystem = default!;
-        [Dependency] public readonly PuddleSystem PuddleSystem = default!;
-        [Dependency] public readonly SharedContainerSystem ContainerSystem = default!;
-        [Dependency] public readonly IPrototypeManager PrototypeManager = default!;
-        [Dependency] public readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] public AtmosphereSystem AtmosphereSystem = default!;
+        [Dependency] public AudioSystem AudioSystem = default!;
+        [Dependency] public BodySystem BodySystem = default!;
+        [Dependency] public ConstructionSystem ConstructionSystem = default!;
+        [Dependency] public ExplosionSystem ExplosionSystem = default!;
+        [Dependency] public StackSystem StackSystem = default!;
+        [Dependency] public TriggerSystem TriggerSystem = default!;
+        [Dependency] public SharedSolutionContainerSystem SolutionContainerSystem = default!;
+        [Dependency] public PuddleSystem PuddleSystem = default!;
+        [Dependency] public SharedContainerSystem ContainerSystem = default!;
+        [Dependency] public IPrototypeManager PrototypeManager = default!;
+        [Dependency] public IAdminLogManager _adminLogger = default!;
+
+        // Mono
+        private EntityQuery<DestructibleComponent> _destructibleQuery;
 
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<DestructibleComponent, DamageChangedEvent>(Execute);
+
+            _destructibleQuery = GetEntityQuery<DestructibleComponent>();
         }
 
         /// <summary>
@@ -95,12 +76,8 @@ namespace Content.Server.Destructible
                         return b.GetType().Name;
                     }));
 
-                    bool spaceOrigin = false;
                     // Check if the damage is from space (barotrauma)
-                    if (args.Origin != null && EntityManager.TryGetComponent<BarotraumaComponent>(args.Origin.Value, out _))
-                    {
-                        spaceOrigin = true;
-                    }
+                    var spaceOrigin = args.Origin != null && EntityManager.HasComponent<BarotraumaComponent>(args.Origin.Value);
 
                     if (args.Origin != null)
                     {
@@ -120,16 +97,6 @@ namespace Content.Server.Destructible
                 if (EntityManager.IsQueuedForDeletion(uid) || EntityManager.Deleted(uid))
                     return;
             }
-        }
-
-        public void BreakEntity(EntityUid uid)
-        {
-            RaiseLocalEvent(uid, new BreakageEventArgs(), true);
-        }
-
-        public void DestroyEntity(EntityUid uid)
-        {
-            EntityManager.QueueDeleteEntity(uid);
         }
 
         // FFS this shouldn't be this hard. Maybe this should just be a field of the destructible component. Its not
@@ -169,7 +136,7 @@ namespace Content.Server.Destructible
         public bool TryGetDestroyedAt(Entity<DestructibleComponent?> ent, [NotNullWhen(true)] out FixedPoint2? destroyedAt)
         {
             destroyedAt = null;
-            if (!Resolve(ent, ref ent.Comp, false))
+            if (!_destructibleQuery.TryComp(ent, out ent.Comp)) // Mono
                 return false;
 
             destroyedAt = DestroyedAt(ent, ent.Comp);

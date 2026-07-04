@@ -1,17 +1,10 @@
-# SPDX-FileCopyrightText: 2025 starch
-# SPDX-FileCopyrightText: 2025 wewman222
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: technology
-  id: RipleyAPLU
-  name: research-technology-ripley-aplu
-  icon:
-    sprite: Objects/Specific/Mech/mecha.rsi
-    state: ripley
+  id: MechBasic
+  name: research-technology-mechs-base
+  entityIcon: MechRipleyBattery
   discipline: MechaEngineering
   tier: 1
-  cost: 7500
+  cost: 12000
   recipeUnlocks:
   - RipleyHarness
   - RipleyLArm
@@ -21,32 +14,8 @@
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
-
-- type: technology
-  id: Ripley2
-  name: research-technology-ripley-mkii
-  icon:
-    sprite: Objects/Specific/Mech/mecha.rsi
-    state: ripleymkii
-  discipline: MechaEngineering
-  tier: 1
-  cost: 8000
-  recipeUnlocks:
   - RipleyMKIIHarness
   - RipleyUpgradeKit
-  technologyPrerequisites:
-  - RipleyAPLU
-
-- type: technology
-  id: Clarke
-  name: research-technology-clarke
-  icon:
-    sprite: Objects/Specific/Mech/mecha.rsi
-    state: clarke
-  discipline: MechaEngineering
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
   - ClarkeHarness
   - ClarkeHead
   - ClarkeLArm
@@ -55,30 +24,29 @@
   - ClarkeCentralElectronics
   - ClarkePeripheralsElectronics
   technologyPrerequisites:
-  - Ripley2
+  - AdvancedParts
+  position: 2, 10
+
+
+# - type: technology
+#  id: HONKWeapons
+#  name: research-technology-honk-weapons
+#  entityIcon: WeaponMechSpecialBananaMortar
+#  discipline: MechaEngineering
+#  tier: 1
+#  cost: 6000
+#  recipeUnlocks:
+#  - MechEquipmentHonkerBananaMortar
+#  - MechEquipmentHonkerMousetrapMortar
+#  position: -7, 6
 
 - type: technology
-  id: HONKWeapons
-  name: research-technology-honk-weapons
-  icon:
-    sprite: Objects/Specific/Mech/mecha_equipment.rsi
-    state: mecha_bananamrtr
+  id: MechCombat
+  name: research-technology-mechs-combat
+  entityIcon: MechGygaxBattery
   discipline: MechaEngineering
-  tier: 1
-  cost: 6000
-  recipeUnlocks:
-  - MechEquipmentHonkerBananaMortar
-  - MechEquipmentHonkerMousetrapMortar
-
-- type: technology
-  id: Gygax
-  name: research-technology-gygax
-  icon:
-    sprite: Objects/Specific/Mech/mecha.rsi
-    state: gygax
-  discipline: MechaEngineering
-  tier: 1
-  cost: 12000
+  tier: 2
+  cost: 32500
   recipeUnlocks:
   - GygaxHarness
   - GygaxArmor
@@ -91,33 +59,8 @@
   - GygaxPeripheralsElectronics
   - GygaxTargetingElectronics
   - WeaponMechCombatUltraRifle
-  technologyPrerequisites:
-  - Ripley2
-
-- type: technology
-  id: ExplosiveMechAmmunition
-  name: research-technology-explosive-mech-ammunition
-  icon:
-    sprite: Objects/Specific/Mech/mecha_equipment.rsi
-    state: mecha_missilerack
-  discipline: MechaEngineering
-  tier: 1
-  cost: 12000
-  recipeUnlocks:
   - WeaponMechCombatMissileRack8
-  technologyPrerequisites:
-  - ExplosiveTechnology
-
-- type: technology
-  id: Durand
-  name: research-technology-durand
-  icon:
-    sprite: Objects/Specific/Mech/mecha.rsi
-    state: durand
-  discipline: MechaEngineering
-  tier: 1
-  cost: 13000
-  recipeUnlocks:
+  - WeaponMechCombatFlashbangLauncher
   - DurandHarness
   - DurandArmor
   - DurandHead
@@ -130,15 +73,16 @@
   - DurandTargetingElectronics
   - WeaponMechCombatShotgun
   - WeaponMechCombatShotgunIncendiary
+  - WeaponMechChainSword
   technologyPrerequisites:
-  - Gygax
+  - SuperParts
+  - MechBasic
+  position: 2, 11
 
 - type: technology
   id: Broadsword
-  name: research-technology-mech-base
-  icon:
-    sprite: _Mono/Objects/Specific/Mech/mechaS2.rsi
-    state: broadsword
+  name: research-technology-broadsword
+  entityIcon: AFInterceptor
   discipline: MechaEngineering
   tier: 2
   cost: 50000
@@ -156,31 +100,29 @@
   - LightMechaSMG
   - LightMechaShotgun
   - PowerCageMech
-  - IFFMechaBlueSquare
-  - IFFMechaBlueCircle
-  - IFFMechaBlueTriangle
-  - IFFMechaRedSquare
-  - IFFMechaRedCircle
-  - IFFMechaRedTriangle
-  - IFFMechaYellowSquare
-  - IFFMechaYellowCircle
-  - IFFMechaYellowTriangle
-  - IFFMechaGreenSquare
-  - IFFMechaGreenCircle
-  - IFFMechaGreenTriangle
+  #- IFFMechaBlueSquare
+  #- IFFMechaBlueCircle
+  #- IFFMechaBlueTriangle
+  #- IFFMechaRedSquare
+  #- IFFMechaRedCircle
+  #- IFFMechaRedTriangle
+  #- IFFMechaYellowSquare
+  #- IFFMechaYellowCircle
+  #- IFFMechaYellowTriangle
+  #- IFFMechaGreenSquare
+  #- IFFMechaGreenCircle
+  #- IFFMechaGreenTriangle
   technologyPrerequisites:
-  - Gygax
-  - ExplosiveTechnology
+  - MechCombat
+  position: 3, 11
 
 - type: technology
-  id: Halberd
-  name: research-technology-halberd
-  icon:
-    sprite: _Mono/Objects/Specific/Mech/mechaS2.rsi
-    state: broadsword
+  id: BroadswordSubtypes
+  name: research-technology-broadsword-subtypes
+  entityIcon: AFInterceptorM
   discipline: MechaEngineering
   tier: 1
-  cost: 30000
+  cost: 35000
   recipeUnlocks:
   - HalberdHarness
   - MediumMechDMR
@@ -188,35 +130,15 @@
   - MediumMechTOW
   technologyPrerequisites:
   - Broadsword
-  - Gygax
-  - ExplosiveTechnology
-
-- type: technology
-  id: Sabre
-  name: research-technology-sabre
-  icon:
-    sprite: _Mono/Objects/Specific/Mech/mechaS2.rsi
-    state: broadsword
-  discipline: MechaEngineering
-  tier: 2
-  cost: 30000 # gygax+ bro i've seen how fast that shit is in grav
-  recipeUnlocks:
-  - SabreHarness
-  technologyPrerequisites:
-  - Broadsword
-  - Halberd
-  - Durand
-  - Gygax
+  position: 3, 12
 
 - type: technology
   id: Flail
   name: research-technology-flail
-  icon:
-    sprite: _Mono/Objects/Specific/Mech/mechaS4.rsi
-    state: flail
+  entityIcon: AFFlail
   discipline: MechaEngineering
   tier: 3
-  cost: 70000
+  cost: 50000
   recipeUnlocks:
   - FlailHarness
   - FlailHead
@@ -232,33 +154,20 @@
   - HeavyMechProjector
   technologyPrerequisites:
   - Broadsword
+  position: 4, 11
 
 - type: technology
-  id: Spyglass
-  name: research-technology-spyglass
-  icon:
-    sprite: _Mono/Objects/Specific/Mech/mechaS4.rsi
-    state: flail
+  id: FlailSubtypes
+  name: research-technology-flail-subtypes
+  entityIcon: AFFlailE
   discipline: MechaEngineering
-  tier: 2
-  cost: 22500
+  tier: 3
+  cost: 30000
   recipeUnlocks:
+  - MaceHarness
   - SpyglassHarness
   - EWACMechaFlares
   - EWACMechaJammer
   technologyPrerequisites:
   - Flail
-
-- type: technology
-  id: Mace
-  name: research-technology-mace
-  icon:
-    sprite: _Mono/Objects/Specific/Mech/mechaS4.rsi
-    state: flail
-  discipline: MechaEngineering
-  tier: 2
-  cost: 22500
-  recipeUnlocks:
-  - MaceHarness
-  technologyPrerequisites:
-  - Flail
+  position: 4, 12

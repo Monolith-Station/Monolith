@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 gus
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Shuttles.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;

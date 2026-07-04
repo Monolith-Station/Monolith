@@ -7,6 +7,7 @@
   - type: MagnetPickup
     magnetEnabled: false # Frontier
     magnetCanBeEnabled: false # Frontier
+    range: 1.5 # Mono
   - type: Sprite
     sprite: Objects/Specific/Mining/ore_bag.rsi
     # Frontier: layered sprite
@@ -14,7 +15,7 @@
     - state: icon
     - state: icon-on
       visible: False
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
     # End Frontier
   - type: Clothing
     sprite: Objects/Specific/Mining/ore_bag.rsi
@@ -26,7 +27,7 @@
   - type: Storage
     maxItemSize: Normal
     grid:
-    - 0,0,9,3
+    - 0,0,11,5 # Mono.
     quickInsert: true
     areaInsert: true
     whitelist:
@@ -34,6 +35,7 @@
         - ArtifactFragment
         - Ore
   - type: Dumpable
+    multiplier: 0.15 # mono
   - type: NFOreBag # Frontier
   # Begin DeltaV Additions: toggle magnet from White Dream
   - type: ItemToggle
@@ -51,8 +53,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: { visible: True }
           False: { visible: False }
   # End DeltaV Additions

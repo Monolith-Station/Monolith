@@ -1,0 +1,47 @@
+- type: entity
+  id: CharonSlugAmmo
+  name: M381 CHARON 280mm 26.5kg slug cartridge
+  description: An all-in-one package containing plasma gas accelerant and a high-density tungsten slug. Cheap, devastating, and long ranged.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - CharonSlug
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipRailgunProjectile
+    deleteOnSpawn: true
+    muzzleFlash: null
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
+    layers:
+    - state: railgun_slug
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+# Nuclear shells
+
+- type: entity
+  id: CharonSubnuclearSlugAmmo
+  name: M381 CHARON 280mm 1.5kt nuclear slug cartridge
+  description: NUCLEAR. CARNAGE. An all-in-one package containing plasma gas accelerant, and a low-yield fission warhead. May cause public outcry, but you *had* to use this, right?
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - CharonSlug
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipRailgunProjectileSubnuclear
+    deleteOnSpawn: true
+    muzzleFlash: null
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
+    layers:
+    - state: subnuclear
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals

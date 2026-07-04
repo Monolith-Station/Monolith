@@ -1,15 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 dustylens
-# SPDX-FileCopyrightText: 2025 KiraZen_
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 tonotom
-# SPDX-FileCopyrightText: 2025 tonotom1
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # An assortment of randomised dungeon loot spawners to be used instead of static spawns
 # Base
 - type: entity
@@ -309,6 +297,13 @@
     offset: 0.0
     rarePrototypes:
     - SpawnDungeonLootCrateArmoryWeapon
+    # Mono
+    - SpawnDungeonLootCrateArmoryWeapon
+    - SpawnDungeonLootCrateArmoryWeapon
+    - CrateNanotrasenLootFilledT1
+    - CrateNanotrasenLootFilledT2
+    - CrateNanotrasenLootFilledT3
+    # Mono end
     rareChance: 0.05
 
 - type: entity
@@ -704,6 +699,7 @@
     - PortableGeneratorPacmanMachineCircuitboard
     - ReagentGrinderMachineCircuitboard
     - OreProcessorMachineCircuitboard
+    - OreMagnetMachineCircuitboard
     - MicrowaveMachineCircuitboard
     - SurveillanceWirelessCameraMovableCircuitboard
     - PowerComputerCircuitboard
@@ -753,7 +749,7 @@
     rareChance: 0.01
 
 - type: entity
-  name: random spesos
+  name: random credits
   id: SpawnDungeonLootSpesos
   parent: MarkerBasePlaceFree
   suffix: Dungeon
@@ -849,6 +845,7 @@
     offset: 0.0
     rarePrototypes:
     - MaterialDiamond1
+    - MaterialBluespace1 #Mono in
     rareChance: 0.01
 
 - type: entity
@@ -887,7 +884,7 @@
     offset: 0.0
     rarePrototypes:
     - MaterialBananium1
-    - MaterialBones1
+    #- MaterialBones1 #Mono out
     rareChance: 0.01
 
 - type: entity
@@ -918,7 +915,8 @@
     rarePrototypes:
     - MaterialDiamond1
     - MaterialBananium1
-    - MaterialBones1
+    - MaterialBluespace1 #Mono in
+#    - MaterialBones1 #Mono out
     rareChance: 0.01
 
 - type: entity
@@ -979,6 +977,8 @@
     offset: 0.0
     rarePrototypes:
     - BananiumOre1
+    - BluespaceOre1 #Mono in
+    - DiamondOre1 #Mono in
     rareChance: 0.05
 
 - type: entity

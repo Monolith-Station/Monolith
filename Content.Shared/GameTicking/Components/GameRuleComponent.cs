@@ -35,6 +35,12 @@ public sealed partial class GameRuleComponent : Component
     /// </summary>
     [DataField]
     public MinMax? Delay;
+
+    /// <summary>
+    /// Mono: A minimum and maximum number of grids this event affects(if applicable)
+    /// </summary>
+    [DataField]
+    public MinMax NumberOfGrids;
 }
 
 /// <summary>

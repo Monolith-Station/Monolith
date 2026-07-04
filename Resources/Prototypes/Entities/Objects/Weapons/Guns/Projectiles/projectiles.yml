@@ -1,68 +1,3 @@
-# SPDX-FileCopyrightText: 2019 Acruid
-# SPDX-FileCopyrightText: 2019 L.E.D
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 Hugo Laloge
-# SPDX-FileCopyrightText: 2020 ShadowCommander
-# SPDX-FileCopyrightText: 2020 Swept
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-# SPDX-FileCopyrightText: 2021 Galactic Chimp
-# SPDX-FileCopyrightText: 2021 Kara D
-# SPDX-FileCopyrightText: 2021 Leon Friedrich
-# SPDX-FileCopyrightText: 2021 Peptide90
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2021 Visne
-# SPDX-FileCopyrightText: 2021 Ygg01
-# SPDX-FileCopyrightText: 2021 cyclowns
-# SPDX-FileCopyrightText: 2021 drongood12
-# SPDX-FileCopyrightText: 2021 metalgearsloth
-# SPDX-FileCopyrightText: 2021 mirrorcult
-# SPDX-FileCopyrightText: 2022 Charlese2
-# SPDX-FileCopyrightText: 2022 EmoGarbage404
-# SPDX-FileCopyrightText: 2022 Flipp Syder
-# SPDX-FileCopyrightText: 2022 Jacob Tong
-# SPDX-FileCopyrightText: 2022 Moony
-# SPDX-FileCopyrightText: 2022 Paul Ritter
-# SPDX-FileCopyrightText: 2023 AJCM-git
-# SPDX-FileCopyrightText: 2023 Cheackraze
-# SPDX-FileCopyrightText: 2023 Chief-Engineer
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2023 Maxtone
-# SPDX-FileCopyrightText: 2023 OctoRocket
-# SPDX-FileCopyrightText: 2023 Stanislav4ix
-# SPDX-FileCopyrightText: 2023 T-Stalker
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 brainfood1183
-# SPDX-FileCopyrightText: 2023 deltanedas
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2023 vanx
-# SPDX-FileCopyrightText: 2023 vanx <vanx#5477>
-# SPDX-FileCopyrightText: 2024 Arendian
-# SPDX-FileCopyrightText: 2024 Boaz1111
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dae
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2024 Emisse
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 MaloTV
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 Winkarst
-# SPDX-FileCopyrightText: 2024 checkraze
-# SPDX-FileCopyrightText: 2025 DVDPlayerOfDiscordFame
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 cheetah1984
-# SPDX-FileCopyrightText: 2025 chromiumboy
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 keronshb
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: MuzzleFlashEffect
   categories: [ HideSpawnMenu ]
@@ -173,6 +108,10 @@
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: TimedDespawn
     lifetime: 10
+  - type: Tracer # Mono
+    color: "#FFFFFFFF"
+    length: 3
+  - type: LagCompensation
 
 - type: entity
   id: BaseBulletTrigger # Trigger-on-collide bullets
@@ -211,6 +150,9 @@
     damage:
       types:
         Blunt: 1
+  - type: Tracer # Mono
+    color: "#CCCCCCFF"
+    length: 3
 
 - type: entity
   id: BaseBulletIncendiary
@@ -228,7 +170,10 @@
     radius: 2.0
     energy: 7.0
   - type: IgniteOnCollide
-    fireStacks: 0.25
+    fireStacks: 0.4 # Mono
+  - type: Tracer # Mono
+    color: "#D1B479FF"
+    length: 3
 
 - type: entity
   id: BaseBulletAP
@@ -245,6 +190,9 @@
       types:
         Piercing: 11 # 20% decrease
     ignoreResistances: true
+  - type: Tracer # Mono
+    color: "#71C978FF"
+    length: 3
 
 - type: entity
   id: BaseBulletUranium
@@ -260,6 +208,9 @@
     damage:
       types:
         Radiation: 11
+  - type: Tracer # Mono
+    color: "#71C978FF"
+    length: 3
 
 # Energy projectiles
 - type: entity
@@ -500,6 +451,7 @@
     - state: chronobolt
       shader: unshaded
   - type: Projectile
+    noDamageDelete: false # Mono
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
@@ -509,6 +461,7 @@
   - type: TimedDespawn
     lifetime: 0.4
   - type: GatheringProjectile
+    amount: 6 # Mono
   - type: MiningGatheringSoft # Frontier
 
 - type: entity
@@ -527,19 +480,20 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 15 # Frontier 30<0.5, monolith 0.5<15
-        Structural: 15 # Frontier 35<1, monolith 1<15
+        Blunt: 40 # Frontier 30<0.5, monolith 0.5<40
+        Structural: 400 # Frontier 35<1, monolith 1<300
     # Mono start
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 0.65
-    requireNoGrid: true
     shape: triangle
     # Mono end
   - type: Ammo
     muzzleFlash: HitscanEffect
   - type: TimedDespawn
     lifetime: 1.5 # Frontier 1.5<1, Monolith 1<1.5
+  - type: ChunkLoader
+    loadingDistance: 16
   - type: PointLight
     radius: 2.5
     color: "#FF8888" # Frontier: white<FF8888
@@ -547,6 +501,16 @@
   - type: GatheringProjectile
   - type: MiningGatheringSoft # mono
   - type: MiningGatheringHard # mono
+
+- type: entity # Mono, splits exo PKA from ship PKA
+  id: BulletKineticExosuit
+  parent: BulletKineticShuttle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    noDamageDelete: false
+  - type: GatheringProjectile
+    amount: 8
 
 - type: entity
   id: BulletCharge
@@ -789,9 +753,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 2 # max 30 per tile
-    intensitySlope: 1
-    totalIntensity: 4 # 60 total damage to distribute over tiles
+    maxIntensity: 2
+    intensitySlope: 4
+    totalIntensity: 4
     maxTileBreak: 1
   - type: PointLight
     radius: 3.5
@@ -962,6 +926,7 @@
         mask:
         - Impassable
         - BulletImpassable
+      fly-by: *flybyfixture
   - type: Vapor
     active: true
   - type: Appearance
@@ -1007,6 +972,9 @@
       bodyType: Dynamic
       linearDamping: 0
       angularDamping: 0
+    # Mono
+    - type: TileFrictionModifier
+      modifier: 0
     - type: Projectile
       deleteOnCollide: false
       damage:
@@ -1021,8 +989,12 @@
           hard: false
           mask:
             - Impassable
-            - HighImpassable
+            - BulletImpassable # Mono
+        fly-by: *flybyfixture
     - type: GrapplingProjectile
+    # Mono - so you can grapple asteroids
+    - type: ChunkLoader
+      loadingDistance: 32
 
 - type: entity
   name : disabler bolt smg
@@ -1286,8 +1258,8 @@
       shader: unshaded
   - type: EmpOnTrigger
     range: 0.3
-    energyConsumption: 2700000
-    disableDuration: 10
+    energyConsumption: 100000
+    disableDuration: 0
 
 - type: entity
   id: BulletRocketEmp

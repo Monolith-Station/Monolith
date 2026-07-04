@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Made by Onezero0 for Monolith, golom sprites tweaked from ore golem sprite taken from CEV-Eris commit 880e1a48125c971487ff4c79d0fd6aa4977795c2",
+  "states": [
+    {
+      "name": "dead"
+    },
+    {
+      "name": "dead_unshaded"
+    },
+    {
+      "name": "gestalt",
+      "directions": 4,
+      "delays":
+	  [
+        [ 0.5, 0.5 ],
+        [ 0.5, 0.5 ],
+        [ 0.5, 0.5 ],
+        [ 0.5, 0.5 ]
+      ]
+    },
+    {
+      "name": "gestalt_icon"
+    },
+    {
+      "name": "golom",
+      "directions": 4
+    },
+    {
+      "name": "golom_crystals",
+      "directions": 4
+    },
+    {
+      "name": "golom_icon"
+    },
+    {
+      "name": "locust",
+      "directions": 4
+    },
+    {
+      "name": "locust_crystals",
+      "directions": 4
+    },
+    {
+      "name": "locust_icon"
+    }
+  ]
+}

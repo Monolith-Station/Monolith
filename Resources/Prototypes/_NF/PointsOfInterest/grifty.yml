@@ -10,7 +10,7 @@
 # Down at your local saloon
 - type: pointOfInterest
   id: Grifty
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: "Grifty's Gas n Grub"
   minimumDistance: 6250
   maximumDistance: 8600
@@ -20,6 +20,7 @@
   - type: SolarPoweredGrid
     trackOnInit: true
     doNotCull: true
+  - type: StationTransit # Mono
 
 - type: gameMap
   id: Grifty

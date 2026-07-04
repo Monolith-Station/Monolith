@@ -1,54 +1,148 @@
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2023 Ed
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 crazybrain23
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Killerqu00
-# SPDX-FileCopyrightText: 2025 Onezero0
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: BaseItem
   id: ResearchDisk
-  name: research point disk (1000)
-  description: A disk for the R&D server containing 1000 points.
+  name: research point disk (10000)
+  description: A disk for the R&D server containing 10000 points.
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
+      params:
+        volume: -6
+  # Goobstation edit end
   - type: Sprite
     sprite: Objects/Specific/Research/researchdisk.rsi
     state: icon
   - type: ResearchDisk
+    points: 10000
   - type: GuideHelp
     guides:
     - Science
   - type: StaticPrice # Frontier
-    price: 200 # Frontier
+    price: 2000 # Mono
+  - type: Tag #Mono: Exchangeable at commodity crate machine
+    tags:
+      - PointDisk
+
+#Mono start
+- type: entity
+  parent: ResearchDisk
+  id: ResearchDisk35000
+  name: research point disk (35000)
+  description: A disk for the R&D server containing 35000 points.
+  components:
+  - type: ResearchDisk
+    points: 35000
+  - type: StaticPrice
+    price: 7000
+
+- type: entity
+  parent: ResearchDisk
+  id: ResearchDisk65000
+  name: research point disk (65000)
+  description: A disk for the R&D server containing 65000 points.
+  components:
+  - type: ResearchDisk
+    points: 65000
+  - type: StaticPrice
+    price: 13000
+
+#Rogue silicon disks
+- type: entity
+  parent: ResearchDisk
+  id: RogueSiliconResearchDisk50000
+  name: research point disk (50000)
+  description: A rogue silicon data disk for an R&D server containing 50000 points.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Research/researchdisk.rsi
+    state: research-disk-boss
+  - type: ResearchDisk
+    points: 50000
+  - type: StaticPrice
+    price: 10000
+
+- type: entity
+  parent: ResearchDisk
+  id: RogueSiliconResearchDisk25000
+  name: research point disk (25000)
+  description: A rogue silicon data disk for an R&D server containing 25000 points.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Research/researchdisk.rsi
+    state: research-disk-advanced
+  - type: ResearchDisk
+    points: 25000
+  - type: StaticPrice
+    price: 5000
+
+- type: entity
+  parent: ResearchDisk
+  id: RogueSiliconResearchDisk10000
+  name: research point disk (10000)
+  description: A rogue silicon data disk for an R&D server containing 10000 points.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Research/researchdisk.rsi
+    state: research-disk
+  - type: ResearchDisk
+    points: 10000
+  - type: StaticPrice
+    price: 2000
+  - type: Tag
+    tags:
+    - ResearchDisk10000
+
+- type: entity
+  parent: ResearchDisk
+  id: RogueSiliconResearchDisk5000
+  name: research point disk (5000)
+  description: A rogue silicon data disk for an R&D server containing 5000 points.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Research/researchdisk.rsi
+    state: research-disk
+  - type: ResearchDisk
+    points: 5000
+  - type: StaticPrice
+    price: 1000
+#Mono end
 
 - type: entity
   parent: ResearchDisk
   id: ResearchDisk5000
-  name: research point disk (5000)
+  name: research point disk (5000) #old ones
   description: A disk for the R&D server containing 5000 points.
   components:
   - type: ResearchDisk
     points: 5000
   - type: StaticPrice # Frontier
-    price: 1000 # Frontier
+    price: 1000 # Mono
 
 - type: entity
   parent: ResearchDisk
   id: ResearchDisk10000
-  name: research point disk (10000)
+  name: research point disk (10000) #old ones
   description: A disk for the R&D server containing 10000 points.
   components:
   - type: ResearchDisk
     points: 10000
   - type: StaticPrice # Frontier
-    price: 2000 # Frontier
+    price: 2000 # Mono
+  - type: Tag
+    tags:
+    - ResearchDisk10000
 
 - type: entity
   parent: ResearchDisk

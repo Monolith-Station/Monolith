@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2024 AndresE55
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: ThrusterSecurity
   parent: Thruster # Mono - Removed BaseStructureDisableAnchoring
@@ -75,15 +67,10 @@
 
 - type: entity
   id: SmallGyroscopeSecurity
-  parent: GyroscopeSecurity
+  parent: SmallGyroscope
   name: small gyroscope
   suffix: Security
   components:
-  - type: Thruster
-    baseThrust: 250
-    thrust: 250
-  - type: ApcPowerReceiver
-    powerLoad: 200
   - type: Sprite
     scale: 0.8, 0.8
     sprite: _NF/Structures/Shuttles/gyroscope.rsi

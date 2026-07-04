@@ -14,11 +14,22 @@
   name: department-UnionOfSovietSocialistPlanets
   description: department-UnionOfSovietSocialistPlanets-description
   color: "#b2224b"
-  weight: 110
+  weight: 117 # Master Chief!
   roles:
   - USSPCommissar
   - USSPSergeant
-  - USSPCorporal
-  - USSPMedic
   - USSPRifleman
   primary: false
+
+- type: department
+  id: ViperGroup
+  name: department-Viper
+  description: department-Viper-description
+  color: "#6b0000"
+  weight: 0 # I think it's best you pick this on purpose.
+  roles:
+  - VGInfanteer
+  - VGLieutenant
+  - VGCommander
+  primary: false
+  editorHidden: false

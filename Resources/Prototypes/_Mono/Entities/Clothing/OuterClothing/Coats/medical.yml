@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterDavidsJacket
+  name: EMT jacket
+  description: A bright yellow signal jacket, beloved by paramedics of the end of the 21st century.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/david_jacket.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/david_jacket.rsi
+  - type: AddAccentClothing
+    accent: StreetpunkAccent

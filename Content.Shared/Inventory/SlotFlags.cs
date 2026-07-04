@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Paul Ritter
-// SPDX-FileCopyrightText: 2022 Leon Friedrich
-// SPDX-FileCopyrightText: 2022 ShadowCommander
-// SPDX-FileCopyrightText: 2022 ZeroDayDaemon
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 core-mene
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Inventory;

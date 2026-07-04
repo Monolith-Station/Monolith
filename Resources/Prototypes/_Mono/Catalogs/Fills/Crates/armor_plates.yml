@@ -1,0 +1,12 @@
+# Cartridge-Fed
+
+- type: entity
+  parent: CrateMilitaryEquipment
+  id: CratePlateBlunt_Slash
+  name: Blunt/Slash armor plate crate
+  description: Contains two (2) blunt/slash ballistic armor plates.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ArmorPlateBlunt_Slash
+      amount: 2

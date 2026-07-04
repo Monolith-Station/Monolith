@@ -295,3 +295,7 @@
       entity_storage: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+  # Mono
+  - type: ShipRepairable
+    repairTime: 8
+    repairCost: 20

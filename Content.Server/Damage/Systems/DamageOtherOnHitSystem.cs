@@ -16,14 +16,14 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Damage.Systems
 {
-    public sealed class DamageOtherOnHitSystem : EntitySystem
+    public sealed partial class DamageOtherOnHitSystem : EntitySystem
     {
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly GunSystem _guns = default!;
-        [Dependency] private readonly DamageableSystem _damageable = default!;
-        [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
-        [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
-        [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private GunSystem _guns = default!;
+        [Dependency] private DamageableSystem _damageable = default!;
+        [Dependency] private DamageExamineSystem _damageExamine = default!;
+        [Dependency] private SharedCameraRecoilSystem _sharedCameraRecoil = default!;
+        [Dependency] private SharedColorFlashEffectSystem _color = default!;
 
         public override void Initialize()
         {
@@ -48,7 +48,7 @@ namespace Content.Server.Damage.Systems
                 _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.Target }, Filter.Pvs(args.Target, entityManager: EntityManager));
             }
 
-            _guns.PlayImpactSound(args.Target, dmg, null, false);
+            _guns.PlayImpactSound(args.Target, dmg, null, false, null, null);
             if (TryComp<PhysicsComponent>(uid, out var body) && body.LinearVelocity.LengthSquared() > 0f)
             {
                 var direction = body.LinearVelocity.Normalized();

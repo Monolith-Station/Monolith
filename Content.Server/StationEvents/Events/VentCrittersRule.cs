@@ -18,16 +18,15 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
     {
         base.Started(uid, component, gameRule, args);
 
-        if (!TryGetRandomStation(out var station))
-        {
+        if (!TryGetRandomStations(gameRule.NumberOfGrids.Min, gameRule.NumberOfGrids.Max, out var stations)) // mono change
             return;
-        }
 
         var locations = EntityQueryEnumerator<VentCritterSpawnLocationComponent, TransformComponent>();
         var validLocations = new List<EntityCoordinates>();
         while (locations.MoveNext(out _, out _, out var transform))
         {
-            if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station == station)
+            var station = CompOrNull<StationMemberComponent>(transform.GridUid)?.Station;
+            if (station.HasValue && stations.Contains(station.Value))
             {
                 validLocations.Add(transform.Coordinates);
                 foreach (var spawn in EntitySpawnCollection.GetSpawns(component.Entries, RobustRandom))

@@ -1,6 +1,6 @@
 - type: entity
   name: caveman club
-  parent: [BaseItem, BaseC1Contraband]
+  parent: BaseItem
   id: CavemanClub
   description: Big stick make big hurt. # Frontier: changed description
   components:

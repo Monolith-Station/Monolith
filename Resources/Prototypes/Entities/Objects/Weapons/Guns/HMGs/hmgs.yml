@@ -20,12 +20,27 @@
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: StaticPrice
     price: 500
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/lmg_mouse.rsi
+      state: all
   # No chamber because HMG may want its own
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: SnipersPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SnipersDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: SnipersDrop
+  # Goobstation edit end
 
 - type: entity
   name: minigun
   id: WeaponMinigun
-  parent: [ BaseWeaponHeavyMachineGun, BaseC3Contraband ] # Frontier: BaseMajorContraband<BaseC3Contraband
+  parent: BaseWeaponHeavyMachineGun
   description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Uses .10 rifle ammo. Illegal for use in the Frontier sector. # Frontier: edit description
   components:
   - type: Sprite

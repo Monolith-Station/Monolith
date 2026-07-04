@@ -79,14 +79,17 @@
   longRange: true
   showFrequency: true # Frontier
 
-- type: radioChannel
-  id: Binary
-  name: chat-radio-binary
-  keycode: 'b'
-  frequency: 1001
-  color: "#5ed7aa"
-  # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
-  longRange: true
+# Goobstation - replaced with collective mind
+# commented out so anyone trying to use it gets errors and sees this
+# if you ARE one of said anyones, instead go copy yml of anything with collective mind
+#- type: radioChannel
+#  id: Binary
+#  name: chat-radio-binary
+#  keycode: 'b'
+#  frequency: 1001
+#  color: "#5ed7aa"
+#  # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
+#  longRange: true
 
 - type: radioChannel
   id: Freelance
@@ -94,5 +97,14 @@
   keycode: 'f'
   frequency: 1984
   color: "#f6ce64"
+  # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
+  #longRange: true # Frontier - Move to server on cove
+
+- type: radioChannel
+  id: VanguardCommand
+  name: chat-radio-vanguard-command
+  keycode: 'r'
+  frequency: 1985
+  color: "#BF94E4"
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
   #longRange: true # Frontier - Move to server on cove

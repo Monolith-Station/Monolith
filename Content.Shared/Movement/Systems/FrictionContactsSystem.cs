@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 KISS
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
 using Robust.Shared.Physics.Components;
@@ -12,11 +6,11 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.Movement.Systems;
 
-public sealed class FrictionContactsSystem : EntitySystem
+public sealed partial class FrictionContactsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speedModifierSystem = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private MovementSpeedModifierSystem _speedModifierSystem = default!;
 
     // Comment copied from "original" SlowContactsSystem.cs (now SpeedModifierContactsSystem.cs)
     // TODO full-game-save

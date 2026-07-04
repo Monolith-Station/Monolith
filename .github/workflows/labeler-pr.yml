@@ -3,9 +3,12 @@ name: "Labels: PR"
 on:
 - pull_request_target
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   labeler:
-    if: github.actor != 'PJBot' && github.actor != 'FrontierATC' # Frontier
     permissions:
       contents: read
       pull-requests: write

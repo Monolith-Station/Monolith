@@ -1,10 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 NotActuallyMarty
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
+# Mono - modsuits cleanup - see #3733
 - type: entity
   abstract: true
   # Used to put pressureProtection, layers blocker and etc components into ComponentToggler
@@ -12,11 +6,21 @@
   name: base modsuit helmet
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    state: icon
+  - type: Appearance
   - type: Clickable
   - type: InteractionOutline
   - type: GroupExamine
+  - type: Sprite
+    state: icon
+    sprite: _Goobstation/Clothing/Head/Modsuits/standard.rsi
+    layers:
+    - state: helmet
+    - state: helmet-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-helmet
+    sealDownPopup: sealable-clothing-seal-down-helmet
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
@@ -26,6 +30,43 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD
+      head-vox:
+      - state: equipped-HEAD-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-vulpkanin
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD-sealed
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed-vulpkanin
+  - type: ComponentToggler
+    components:
+    - type: BreathMask
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 1000
+    - type: TemperatureProtection
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.01
+    - type: IdentityBlocker
+    - type: IngestionBlocker
+    - type: HideLayerClothing
+      slots:
+      - Hair
+      - Snout
+      - HeadTop
+      - HeadSide
+  - type: Battery
+    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 2
+
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -54,20 +95,8 @@
   description: A special modular suit spaceproof helmet designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/standard.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing # This helmet don't have sprite on unsealed state
-    slots:
-    - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -75,6 +104,8 @@
       - state: equipped-HEAD-sealed
       head-resomi:
       - state: equipped-HEAD-sealed-resomi
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -83,25 +114,9 @@
         Piercing: 0.95
         Heat: 0.90
         Radiation: 0.75
-  - type: ComponentToggler
-    components:
-    - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      heatingCoefficient: 0.01
-      coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 3
@@ -113,6 +128,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -130,12 +146,6 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -144,26 +154,16 @@
   description: A robust brain bucket for holding your brain in place just enough for it to be salvageable.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-HEAD
       head-resomi:
       - state: equipped-HEAD-resomi
+      head-vox:
+      - state: equipped-HEAD-vox
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/security.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing # This helmet don't have sprite on unsealed state
-    slots:
-    - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -171,6 +171,8 @@
       - state: equipped-HEAD-sealed
       head-resomi:
       - state: equipped-HEAD-sealed-resomi
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -179,25 +181,9 @@
         Piercing: 0.85
         Heat: 0.90
         Radiation: 0.75
-  - type: ComponentToggler
-    components:
-    - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      heatingCoefficient: 0.01
-      coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -209,6 +195,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -226,13 +213,6 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
-
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -241,26 +221,16 @@
   description: Put on the HEAD of security.. How do you see out of this thing?
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-HEAD
       head-resomi:
       - state: equipped-HEAD-resomi
+      head-vox:
+      - state: equipped-HEAD-vox
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/headofsecurity.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -268,6 +238,8 @@
       - state: equipped-HEAD-sealed
       head-resomi:
       - state: equipped-HEAD-sealed-resomi
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -276,25 +248,9 @@
         Piercing: 0.85
         Heat: 0.90
         Radiation: 0.75
-  - type: ComponentToggler
-    components:
-    - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      heatingCoefficient: 0.01
-      coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -306,6 +262,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -323,39 +280,16 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
 
 - type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: BaseClothingModsuitHelmetHideIdentity
   id: ClothingModsuitHelmetParamedic
   name: sanitater modsuit helmet
   description: A robust brain bucket for working on barely salvageable brains.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/paramedic.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      head:
-      - state: equipped-HEAD-sealed
   - type: Armor
     modifiers:
       coefficients:
@@ -364,25 +298,9 @@
         Piercing: 0.90
         Heat: 0.90
         Radiation: 0.75
-  - type: ComponentToggler
-    components:
-    - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      heatingCoefficient: 0.01
-      coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -394,6 +312,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -411,12 +330,6 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -425,25 +338,8 @@
   description: A flat plate with cameras allowing your vision. turns you into an aero-cuck, but not like that matters in space.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/engineer.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      head:
-      - state: equipped-HEAD-sealed
   - type: Armor
     modifiers:
       coefficients:
@@ -452,25 +348,9 @@
         Piercing: 0.90
         Heat: 0.90
         Radiation: 0.5
-  - type: ComponentToggler
-    components:
-    - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      heatingCoefficient: 0.01
-      coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -482,6 +362,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -499,12 +380,6 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -513,26 +388,16 @@
   description: A specialised gas helmet to provide oxygen more efficiently.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/atmostech.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-HEAD
       head-resomi:
       - state: equipped-HEAD-resomi
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
+      head-vox:
+      - state: equipped-HEAD-vox
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -540,6 +405,8 @@
       - state: equipped-HEAD-sealed
       head-resomi:
       - state: equipped-HEAD-sealed-resomi
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
   - type: Armor
     modifiers:
       coefficients:
@@ -548,25 +415,9 @@
         Piercing: 0.90
         Heat: 0.8
         Radiation: 0.5
-  - type: ComponentToggler
-    components:
-    - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      heatingCoefficient: 0.01
-      coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -578,6 +429,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -595,12 +447,6 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -609,25 +455,8 @@
   description: A dark dark dark visor protecting your precious face from shrap and blast.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/researchdirector.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      head:
-      - state: equipped-HEAD-sealed
   - type: Armor
     modifiers:
       coefficients:
@@ -636,25 +465,9 @@
         Piercing: 0.90
         Heat: 0.90
         Radiation: 0.5
-  - type: ComponentToggler
-    components:
-    - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      heatingCoefficient: 0.01
-      coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -666,6 +479,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -683,12 +497,6 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -697,26 +505,16 @@
   description: The visor is made from 10,000 year old amythest.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-HEAD
       head-resomi:
       - state: equipped-HEAD-resomi
+      head-vox:
+      - state: equipped-HEAD-vox
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/captain.rsi
-    layers:
-    - state: helmet
-    - state: helmet-sealed
-      visible: false
-      map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -724,6 +522,10 @@
       - state: equipped-HEAD-sealed
       head-resomi:
       - state: equipped-HEAD-sealed-resomi
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed-vulpkanin
   - type: Armor
     modifiers:
       coefficients:
@@ -732,25 +534,9 @@
         Piercing: 0.85
         Heat: 0.8
         Radiation: 0.5
-  - type: ComponentToggler
-    components:
-    - type: BreathMask
-    - type: PressureProtection
-      highPressureMultiplier: 0.3
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      heatingCoefficient: 0.01
-      coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     radius: 5
@@ -762,6 +548,7 @@
     addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
+  - type: ItemTogglePointLight
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour
@@ -779,9 +566,3 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2

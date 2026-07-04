@@ -4,7 +4,7 @@ appraisal-label-name = Item
 appraisal-label-price = Appraised Price
 
 # Ledger cartridge
-ledger-program-name = SpesoFlow Lite
+ledger-program-name = CreditFlow Lite
 ledger-header = Sector Ledger
 ledger-total-income = Total Income
 ledger-no-income = None

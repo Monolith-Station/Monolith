@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Thereisabear
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 deltanedas
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 ## Static
 
 - type: latheRecipePack
@@ -15,6 +7,7 @@
   - PositronicBrain
   - SciFlash
   - CyborgEndoskeleton
+  - AiRemoteBrain
 
 - type: latheRecipePack
   id: BorgModulesStatic
@@ -59,6 +52,8 @@
   id: Robotics
   recipes:
   - ProximitySensor
+  - BorgIFFTSF # _Mono
+  - BorgIFFPDV # _Mono
 
 - type: latheRecipePack
   id: BorgModules
@@ -103,6 +98,9 @@
     - MechEquipmentGrabber
     - MechEquipmentHorn
     - MechEquipmentGrabberSmall
+    - PowerCageSmall
+    - PowerCageMedium
+    - PowerCageHigh
 
 - type: latheRecipePack
   id: Modsuits

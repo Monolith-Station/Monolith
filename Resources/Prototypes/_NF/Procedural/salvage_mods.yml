@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Cheackraze
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 checkraze
-# SPDX-FileCopyrightText: 2025 Dvir
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Biome mods
 - type: salvageBiomeMod
   id: Shadow
@@ -268,6 +259,11 @@
     - 0 # miasma
     - 0 # nitrous oxide
     - 0 # frezon
+    # Mono Start - Funky Station gases
+    - 0 # bz
+    - 0 # healium
+    - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Mix2
@@ -283,6 +279,11 @@
     # - 0 # miasma
     # - 10 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Mix3
@@ -298,6 +299,11 @@
     # - 0 # miasma
     # - 0 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 - type: salvageAirMod
   id: Mix4
@@ -313,6 +319,11 @@
     - 10 # miasma
     - 0 # nitrous oxide
     - 0 # frezon
+    # Mono Start - Funky Station gases
+    - 0 # bz
+    - 0 # healium
+    - 0 # nitrium
+    # Mono End
 
 - type: salvageAirMod
   id: Mix5
@@ -328,6 +339,11 @@
     - 0 # miasma
     - 0 # nitrous oxide
     - 0 # frezon
+    # Mono Start - Funky Station gases
+    - 0 # bz
+    - 0 # healium
+    - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Mix6
@@ -343,6 +359,11 @@
     # - 0 # miasma
     # - 0 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Mix7
@@ -358,6 +379,11 @@
     # - 15 # miasma
     # - 5 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Mix8
@@ -373,6 +399,11 @@
     # - 5 # miasma
     # - 5 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Mix9
@@ -388,6 +419,11 @@
     # - 0 # miasma
     # - 5 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 - type: salvageAirMod
   id: Mix10
@@ -403,6 +439,11 @@
     - 0 # miasma
     - 0 # nitrous oxide
     - 0 # frezon
+    # Mono Start - Funky Station gases
+    - 0 # bz
+    - 0 # healium
+    - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Mix11
@@ -418,21 +459,31 @@
     # - 0 # miasma
     # - 0 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
-- type: salvageAirMod
-  id: Mix12
-  cost: 4
-  desc: salvage-air-mod-12
-  gases:
-    - 0 # oxygen
-    - 0 # nitrogen
-    - 0 # carbon dioxide
-    - 0 # plasma
-    - 0 # tritium
-    - 103.927899 # water vapor
-    - 0 # miasma
-    - 0 # nitrous oxide
-    - 0 # frezon
+# - type: salvageAirMod
+  # id: Mix12
+  # cost: 4
+  # desc: salvage-air-mod-12
+  # gases:
+    # - 0 # oxygen
+    # - 0 # nitrogen
+    # - 0 # carbon dioxide
+    # - 0 # plasma
+    # - 0 # tritium
+    # - 103.927899 # water vapor
+    # - 0 # miasma
+    # - 0 # nitrous oxide
+    # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 - type: salvageAirMod
   id: Mix13
@@ -448,21 +499,31 @@
     - 103.927899 # miasma
     - 0 # nitrous oxide
     - 0 # frezon
+    # Mono Start - Funky Station gases
+    - 0 # bz
+    - 0 # healium
+    - 0 # nitrium
+    # Mono End
 
-# - type: salvageAirMod
-  # id: Mix14
-  # cost: 4
-  # desc: salvage-air-mod-14
-  # gases:
-    # - 0 # oxygen
-    # - 0 # nitrogen
-    # - 0 # carbon dioxide
-    # - 0 # plasma
-    # - 0 # tritium
-    # - 0 # water vapor
-    # - 0 # miasma
-    # - 103.927899 # nitrous oxide
-    # - 0 # frezon
+- type: salvageAirMod
+  id: Mix14
+  cost: 4
+  desc: salvage-air-mod-14
+  gases:
+    - 0 # oxygen
+    - 0 # nitrogen
+    - 0 # carbon dioxide
+    - 0 # plasma
+    - 0 # tritium
+    - 0 # water vapor
+    - 0 # miasma
+    - 103.927899 # nitrous oxide
+    - 0 # frezon
+    # Mono Start - Funky Station gases
+    - 0 # bz
+    - 0 # healium
+    - 0 # nitrium
+    # Mono End
 
 - type: salvageAirMod
   id: Mix15
@@ -478,6 +539,11 @@
     - 0 # miasma
     - 0 # nitrous oxide
     - 0 # frezon
+    # Mono Start - Funky Station gases
+    - 0 # bz
+    - 0 # healium
+    - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Mix16
@@ -493,6 +559,11 @@
     # - 34.642633 # miasma
     # - 34.642633 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Mix17
@@ -508,6 +579,11 @@
     # - 34.642633 # miasma
     # - 34.642633 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Mix18
@@ -523,6 +599,11 @@
     # - 17.321316 # miasma
     # - 34.642633 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Unknown1
@@ -538,6 +619,11 @@
     # - 12.321316 # miasma
     # - 34.642633 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Unknown2
@@ -553,6 +639,11 @@
     # - 0 # miasma
     # - 34.642633 # nitrous oxide
     # - 0.1 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Unknown3
@@ -568,6 +659,11 @@
     # - 15 # miasma
     # - 14.642633 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Unknown4
@@ -583,6 +679,11 @@
     # - 20 # miasma
     # - 14.642633 # nitrous oxide
     # - 0.5 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End
 
 # - type: salvageAirMod
   # id: Unknown5
@@ -598,3 +699,8 @@
     # - 15 # miasma
     # - 14.642633 # nitrous oxide
     # - 0 # frezon
+    # Mono Start - Funky Station gases
+    # - 0 # bz
+    # - 0 # healium
+    # - 0 # nitrium
+    # Mono End

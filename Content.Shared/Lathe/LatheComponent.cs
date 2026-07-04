@@ -1,4 +1,5 @@
 using Content.Shared.Construction.Prototypes;
+using Content.Shared.DeviceLinking; // Mono
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Research.Prototypes;
 using Robust.Shared.Audio;
@@ -92,7 +93,7 @@ namespace Content.Shared.Lathe
         [Access(typeof(SharedLatheSystem))] // Mono
         public float FinalMaterialUseMultiplier = 1;
 
-        public const float DefaultPartRatingMaterialUseMultiplier = 0.85f; // Frontier: restored for machine parts
+        public const float DefaultPartRatingMaterialUseMultiplier = 0.93f; // Frontier: restored for machine parts // Mono - nerf
 
         //Frontier Upgrade Code Restore
         /// <summary>
@@ -129,6 +130,36 @@ namespace Content.Shared.Lathe
         public float? ProductValueModifier = 1.2f; //0.3f->1.2f Mono
         // End Frontier
         #endregion
+
+        // <Mono>
+        /// <summary>
+        /// Whether to add recipes back to the end of the queue after fabricating them.
+        /// </summary>
+        [DataField]
+        public bool Loop = false;
+
+        /// <summary>
+        /// Whether to skip recipes if lacking resources, as opposed to waiting for resources.
+        /// </summary>
+        [DataField]
+        public bool SkipBad = false;
+
+        /// <summary>
+        /// Whether the lathe is paused.
+        /// Will stop it from advancing the queue, but will not stop production of current recipe.
+        /// </summary>
+        [DataField]
+        public bool Paused = false;
+
+        [DataField]
+        public ProtoId<SinkPortPrototype> PausePort = "Pause";
+
+        [DataField]
+        public ProtoId<SinkPortPrototype> ResumePort = "Resume";
+
+        [DataField]
+        public ProtoId<SourcePortPrototype> ProducedPort = "Produced";
+        // </Mono>
     }
 
     public sealed class LatheGetRecipesEvent : EntityEventArgs
@@ -148,17 +179,23 @@ namespace Content.Shared.Lathe
 
     // Frontier: batch lathe recipes
     [Serializable]
-    public sealed partial class LatheRecipeBatch : EntityEventArgs
+    public sealed partial class LatheRecipeBatch
     {
+        private static int NextIndex = 0; // Mono
+        public int Index; // Mono - for de-queuing recipes to work properly
         public LatheRecipePrototype Recipe;
+        public NetEntity? Actor; // Mono - Log the person who queued the recipe.
         public int ItemsPrinted;
         public int ItemsRequested;
 
-        public LatheRecipeBatch(LatheRecipePrototype recipe, int itemsPrinted, int itemsRequested)
+        public LatheRecipeBatch(LatheRecipePrototype recipe, int itemsPrinted, int itemsRequested,
+            NetEntity? actor) // Mono
         {
             Recipe = recipe;
             ItemsPrinted = itemsPrinted;
             ItemsRequested = itemsRequested;
+            Actor = actor; // Mono
+            Index = NextIndex++; // Mono
         }
     }
     // End Frontier

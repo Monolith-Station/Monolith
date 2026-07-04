@@ -31,5 +31,8 @@ namespace Content.Server.Atmos.Piping.Trinary.Components
         /// </summary>
         [DataField]
         public bool StartOnMapInit { get; set; } = false;
+        // Funky Station - Hashset of filtered gases for multifilters
+        [DataField]
+        public HashSet<Gas> FilterGases = new HashSet<Gas>();
     }
 }

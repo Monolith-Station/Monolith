@@ -6,42 +6,45 @@ using Robust.Shared.Physics.Events;
 
 namespace Content.Server.Gatherable;
 
+// Mono - System changes.
 public sealed partial class GatherableSystem
 {
     private void InitializeProjectile()
     {
-        SubscribeLocalEvent<GatheringProjectileComponent, StartCollideEvent>(OnProjectileCollide);
+        SubscribeLocalEvent<GatheringProjectileComponent, ProjectileHitEvent>(OnProjectileHit);
     }
 
-    private void OnProjectileCollide(Entity<GatheringProjectileComponent> gathering, ref StartCollideEvent args)
+    private void OnProjectileHit(Entity<GatheringProjectileComponent> gathering, ref ProjectileHitEvent args)
     {
-        if (!args.OtherFixture.Hard ||
-            args.OurFixtureId != SharedProjectileSystem.ProjectileFixture ||
-            gathering.Comp.Amount <= 0 ||
-            !TryComp<GatherableComponent>(args.OtherEntity, out var gatherable))
-        {
+        if (!TryComp<ProjectileComponent>(gathering, out var _) ||
+            gathering.Comp.Amount <= 0 || !TryComp<GatherableComponent>(args.Target, out var gatherable))
             return;
-        }
 
         // Frontier: gathering changes
         // bad gatherer - not strong enough
         if (_whitelistSystem.IsWhitelistFail(gatherable.ToolWhitelist, gathering.Owner))
-        {
-            QueueDel(gathering);
             return;
-        }
+
         // Too strong (e.g. overpen) - gathers ore but destroys it
-        if (TryComp<OreVeinComponent>(args.OtherEntity, out var oreVein)
+        if (TryComp<OreVeinComponent>(args.Target, out var oreVein)
             && _whitelistSystem.IsWhitelistPass(oreVein.GatherDestructionWhitelist, gathering.Owner))
-        {
             oreVein.PreventSpawning = true;
-        }
         // End Frontier: gathering changes
 
-        Gather(args.OtherEntity, gathering, gatherable);
+        // Mono
+        if (gatherable.Gathered)
+        {
+            args.Handled = true;
+            return;
+        }
+
+        Gather(args.Target, gathering, gatherable);
         gathering.Comp.Amount--;
 
         if (gathering.Comp.Amount <= 0)
-            QueueDel(gathering);
+            return;
+
+
+        args.Handled = true;
     }
 }

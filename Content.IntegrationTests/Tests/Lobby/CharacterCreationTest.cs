@@ -99,7 +99,7 @@ namespace Content.IntegrationTests.Tests.Lobby
                 Assert.That(clientCharacters[1].MemberwiseEquals(profile));
             });
 
-            await PoolManager.WaitUntil(server, () => serverPrefManager.GetPreferences(clientNetId).Characters.Count == 2, maxTicks: 60);
+            await PoolManager.WaitUntil(server, () => serverPrefManager.GetPreferences(clientNetId).Characters.Count == 2, maxTicks: 120); //60->120 - Mono
 
             await server.WaitAssertion(() =>
             {

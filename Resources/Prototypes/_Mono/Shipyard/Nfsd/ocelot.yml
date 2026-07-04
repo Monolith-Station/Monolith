@@ -1,0 +1,40 @@
+#Author: Starch(!)
+
+- type: vessel
+  id: Ocelot
+  parent: BaseVesselAntag
+  name: TSF-SKR Ocelot
+  description: A highly manouverable corvette designed to work in tandem with the jaguar, with the ability to reveal cloaked ships. Armed with 2x cerberus plasma scattercannons, 2x Plasma autopulsers and 2x 20mm PD cannons
+  price: 68500
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/ocelot.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+  cloakHunter: true
+  company:
+  - TSF
+
+- type: gameMap
+  id: Ocelot
+  mapName: 'Ocelot'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/ocelot.yml
+  minPlayers: 0
+  stations:
+    Ocelot:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Ocelot TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

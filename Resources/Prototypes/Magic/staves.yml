@@ -34,7 +34,7 @@
 
 - type: entity
   id: AnimationStaff
-  parent: [ BaseItem, BaseC3WizardContraband ] # Frontier: BaseMagicalContraband<BaseC3WizardContraband
+  parent: BaseItem
   name: staff of animation
   description: Brings inanimate objects to life!
   components:

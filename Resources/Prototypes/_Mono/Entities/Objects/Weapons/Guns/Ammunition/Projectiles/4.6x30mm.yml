@@ -1,27 +1,5 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2021 Leon Friedrich
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2022 Charlese2
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2023 Boaz1111
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 kerisargit
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
-  id: Bullet4.6x30mm
+  id: Bullet46x30mm
   name: bullet (4.6x30mm FMJ)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -30,9 +8,10 @@
     damage:
       types:
         Piercing: 16
+    armorPenetration: 0.075
 
 - type: entity
-  id: Bullet4.6x30mmPractice
+  id: Bullet46x30mmPractice
   name: bullet (4.6x30mm practice)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
@@ -41,9 +20,10 @@
     damage:
       types:
         Blunt: 2
+    armorPenetration: 0.025
 
 - type: entity
-  id: Bullet4.6x30mmRubber
+  id: Bullet46x30mmRubber
   name: bullet (4.6x30mm rubber)
   parent: BaseBulletRubber
   categories: [ HideSpawnMenu ]
@@ -52,9 +32,10 @@
     damage:
       types:
         Blunt: 3
+    armorPenetration: 0.025
 
 - type: entity
-  id: Bullet4.6x30mmIncendiary
+  id: Bullet46x30mmIncendiary
   parent: BaseBulletIncendiary
   name: bullet (4.6x30mm incendiary)
   categories: [ HideSpawnMenu ]
@@ -62,11 +43,12 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 15
+        Piercing: 8
+        Heat: 5
+    armorPenetration: 0.025
 
 - type: entity
-  id: Bullet4.6x30mmUranium
+  id: Bullet46x30mmUranium
   parent: BaseBulletUranium
   name: bullet (4.6x30mm uranium)
   categories: [ HideSpawnMenu ]
@@ -76,10 +58,11 @@
       types:
         Radiation: 6
         Piercing: 10
+    armorPenetration: 0.025
 
 # Upstream
 - type: entity
-  id: Bullet4.6x30mmEmp
+  id: Bullet46x30mmEmp
   name: bullet (4.6x30mm emp)
   parent: BaseBulletEmp
   categories: [ HideSpawnMenu ]
@@ -88,3 +71,48 @@
     damage:
       types:
         Shock: 0
+    armorPenetration: 0.025
+
+# Mono AP syst
+# + 0.05 base AP
+#anti-flesh:
+- type: entity
+  id: Bullet46x30mmHP
+  parent: BaseBullet
+  name: bullet (4.6x30mm hollow-point)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 3
+        Piercing: 24
+    armorPenetration: -0.55
+
+- type: entity
+  id: Bullet46x30mmRIP
+  parent: BaseBullet
+  name: bullet (4.6x30mm RIP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 5
+        Piercing: 30
+    armorPenetration: -0.9
+
+#armor-piercing:
+
+- type: entity
+  id: Bullet46x30mmPlasteelAP
+  parent: BaseBullet
+  name: bullet (4.6x30mm AP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 8
+        Structural: 35
+    armorPenetration: 0.6

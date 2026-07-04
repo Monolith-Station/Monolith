@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Chat.Managers;
@@ -15,13 +10,13 @@ using Robust.Shared.Network;
 
 namespace Content.Server.Discord.DiscordLink;
 
-public sealed class DiscordChatLink : IPostInjectInit
+public sealed partial class DiscordChatLink : IPostInjectInit
 {
-    [Dependency] private readonly DiscordLink _discordLink = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly ITaskManager _taskManager = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private DiscordLink _discordLink = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private ITaskManager _taskManager = default!;
+    [Dependency] private ILogManager _logManager = default!;
 
     private ISawmill _sawmill = default!;
 

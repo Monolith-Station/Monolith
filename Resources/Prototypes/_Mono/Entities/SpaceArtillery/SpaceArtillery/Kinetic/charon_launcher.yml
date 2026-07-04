@@ -1,19 +1,12 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-# Station one w/ infinite ammo
-
 - type: entity
-  id: WeaponTurretCharon
+  id: WeaponTurretCharonBase
+  parent: BallisticArtilleryTier4HP
   name: M381 CHARON mass driver
-  parent: BallisticArtilleryUnanchorable
-  suffix: Station, Recharging Ammo
-  description: A capital-class railgun that fires a massive slug at extreme velocity, capable of catastrophic damage to enemy ships. Heavy linear accelerator, can be remotely activated or linked up to a GCS. This one feeds from an autoloader somewhere, and doesn't need manual reloads.
+  suffix: Capital, T4
+  abstract: true
   components:
   - type: StaticPrice
-    price: 40000
+    price: 30000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/charon.rsi
     layers:
@@ -21,30 +14,25 @@
   - type: Appearance
   - type: FireControlRotate
   - type: AmmoCounter
-  - type: Battery
-    maxCharge: 40000
-    startingCharge: 40000
-  - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
+  - type: GunSignalControl
   - type: Gun
     fireRate: 0.05
-    projectileSpeed: 600
+    recoil: 2500 # 100x
+    minAngle: 0
+    maxAngle: 0
+    projectileSpeed: 700 # projectiles cannot go faster than this
+    shootThermalSignature: 18000000 # ~8.5km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 350
   - type: SpaceArtillery
     powerChargeRate: 350
     powerUsePassive: 1000
     powerUseActive: 7500
   - type: Actions
-  - type: ProjectileBatteryAmmoProvider
-    proto: ShipRailgunProjectile
-    fireCost: 1500
   - type: Fixtures
     fixtures:
       fix1:
@@ -56,89 +44,58 @@
         - MachineMask
         layer:
         - MachineLayer
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 25000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadarBlip
     radarColor: "#CF0E0E"
     scale: 3
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#CF0E0E"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-2.5,1.5,2.5"
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 45
+    repairCost: 300
+
+# Station one w/ infinite ammo
+
+- type: entity
+  id: WeaponTurretCharon
+  name: M381 CHARON mass driver
+  parent: [WeaponTurretCharonBase, BallisticArtilleryUnanchorable]
+  suffix: Station, Recharging Ammo
+  description: A capital-class railgun that fires a massive slug at extreme velocity, capable of catastrophic damage to enemy ships. Heavy linear accelerator, can be remotely activated or linked up to a GCS. This one feeds from an autoloader somewhere, and doesn't need manual reloads.
+  components:
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 350
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipRailgunProjectile
+    fireCost: 1500
 
 # Ship one w/ limited ammo
 
 - type: entity
   id: WeaponTurretCharonReload
   name: M381 CHARON mass driver
-  parent: BallisticArtilleryUnanchorableCartridge
-  suffix: Ship, Manual Reload, No Rotate
+  parent: [WeaponTurretCharonBase, BallisticArtilleryUnanchorableCartridge]
+  suffix: Spinal, T4
   description: A capital-class railgun that fires a massive slug at extreme velocity, capable of catastrophic damage to enemy ships. Heavy linear accelerator, can be remotely activated or linked up to a GCS.
   components:
-  - type: StaticPrice
-    price: 40000
-  - type: Sprite
-    sprite: _Mono/Objects/ShuttleWeapons/charon.rsi
-    layers:
-    - state: space_artillery
-  - type: Appearance
-  - type: AmmoCounter
-  - type: WirelessNetworkConnection
-    range: 500
-  - type: Gun
-    fireRate: 0.05
-    projectileSpeed: 1250
-    soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
-    soundEmpty:
-      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
-  - type: SpaceArtillery
-    powerChargeRate: 350
-    powerUsePassive: 1000
-    powerUseActive: 7500
-  - type: Actions
   - type: BallisticAmmoProvider
     whitelist:
       tags:
       - CharonSlug
     capacity: 1
+    proto: CharonSlugAmmo
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        density: 1500
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 25000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-  - type: RadarBlip
-    radarColor: "#CF0E0E"
-    scale: 3
-  - type: ShipGunType
-    shipType: Ballistic
-  - type: ShipGunClass
-    shipClass: Superheavy

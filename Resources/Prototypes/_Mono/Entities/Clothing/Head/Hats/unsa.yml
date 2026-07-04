@@ -1,0 +1,44 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatUNSABeer
+  name: beer hat
+  description: A true patriot's choice of headwear. Made by the UNSA for enhanced piloting capabilites.
+  components:
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beerhat.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Appearance
+  - type: SolutionAmmoProvider
+    solutionId: tank
+    proto: BulletWaterShot
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 100
+        reagents:
+        - ReagentId: Beer
+          Quantity: 100
+  - type: SolutionTransfer
+    transferAmount: 50
+    maxTransferAmount: 100
+    minTransferAmount: 10
+    canChangeTransferAmount: true
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: DrawableSolution
+    solution: tank
+  - type: RefillableSolution
+    solution: tank
+  - type: DrainableSolution
+    solution: tank
+  - type: ExaminableSolution
+    solution: tank
+  - type: Drink
+    solution: tank

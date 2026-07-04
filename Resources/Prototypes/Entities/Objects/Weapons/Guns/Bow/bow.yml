@@ -1,6 +1,6 @@
 - type: entity
   name: bow
-  parent: [BaseItem, BaseC1Contraband] # Frontier: BaseMinorContraband<BaseC1Contraband
+  parent: BaseItem
   id: BaseBow
   description: The original rooty tooty point and shooty.
   abstract: true
@@ -45,6 +45,13 @@
       projectiles: !type:ContainerSlot
   - type: ContainerAmmoProvider
     container: projectiles
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/rifle_mouse.rsi
+      state: all
+  - type: Tag
+    tags:
+    - IgnoreClawPenalty # Mono
 
 - type: entity
   id: BowImprovised

@@ -9,6 +9,16 @@
     size: Small
   - type: Clothing
     slots: [mask]
+    # Goobstation edit start
+    equipSound:
+      collection: GenericEquip
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/generic_small_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/generic_small_drop.ogg
+  # Goobstation edit end
   - type: StaticPrice
     price: 25
 

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Audio;
 
 namespace Content.Shared._Crescent.ShipShields;
@@ -10,7 +5,10 @@ namespace Content.Shared._Crescent.ShipShields;
 [RegisterComponent]
 public sealed partial class ShipShieldEmitterComponent : Component
 {
+    [ViewVariables]
     public EntityUid? Shield;
+
+    [ViewVariables]
     public EntityUid? Shielded;
 
     [DataField]
@@ -27,6 +25,12 @@ public sealed partial class ShipShieldEmitterComponent : Component
     public float DamageExp = 1.1f;
 
     /// <summary>
+    /// Modifies the total power consumed after damage exponentials are applied.
+    /// </summary>
+    [DataField]
+    public float PowerModifier = 0.5f;
+
+    /// <summary>
     /// Rate at which the emitter heals/reduces its damage per second when powered.
     /// </summary>
     [DataField]
@@ -39,7 +43,7 @@ public sealed partial class ShipShieldEmitterComponent : Component
     public float UnpoweredBonus = 6f;
 
     /// <summary>
-    /// Maximum power consumption limit for the emitter in watts.
+    /// Maximum power consumption limit for additional emitter load in watts.
     /// </summary>
     [DataField]
     public float MaxDraw = 150000f;
@@ -71,7 +75,9 @@ public sealed partial class ShipShieldEmitterComponent : Component
     [DataField]
     public Color ShieldColor = Color.White;
 
+    [ViewVariables]
     public float OverloadAccumulator = 0f;
+
     /// <summary>
     /// On power up, players for all on vessel, pitched down.
     /// </summary>
@@ -80,4 +86,10 @@ public sealed partial class ShipShieldEmitterComponent : Component
 
     [DataField]
     public SoundSpecifier PowerDownSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");
+
+    /// <summary>
+    /// While shield is active, multiplies impact energy to both grids from grid collisions by this much.
+    /// </summary>
+    [DataField]
+    public float CollisionResistanceMultiplier = 1.0f;
 }

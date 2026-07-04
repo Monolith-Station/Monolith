@@ -1,78 +1,128 @@
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: technology
-  id: RogueProwler
-  name: research-technology-rogue-prowler-voucher
-  icon:
-    sprite: _NF/Objects/Misc/shipyard_voucher.rsi
-    state: nfsd
+  id: PdvTierOneVouchers
+  name: research-technology-rogue-tier-one-vouchers
+  entityIcon: ShipVoucherPdvT0
   discipline: RogueShipyard
   tier: 1
-  cost: 50000
+  cost: 40000
   recipeUnlocks:
-  - ProwlerVoucherRogue
+  - ShipVoucherPdvT0Recipe
+  - ShipVoucherPdvT1Recipe
+  - InertiaVoucherRogue
+  - MockVoucherRogue
+  - SnakeletVoucherRogue
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 11, 1
+
+- type: technology
+  id: PdvTierTwoVouchers
+  name: research-technology-rogue-tier-two-vouchers
+  entityIcon: ShipVoucherPdvT2
+  discipline: RogueShipyard
+  tier: 1
+  cost: 60000
+  recipeUnlocks:
+  - ShipVoucherPdvT2Recipe
+  technologyPrerequisites:
+  - PdvTierOneVouchers
+  - UniversalMaterialResearchT2
+  position: 11, 7
+
+- type: technology
+  id: PdvTierThreeVouchers
+  name: research-technology-rogue-tier-three-vouchers
+  entityIcon: ShipVoucherSaturn
+  discipline: RogueShipyard
+  tier: 3
+  cost: 80000
+  recipeUnlocks:
+  - SaintieVoucherRogue
+  - SaturnVoucherRogue
+  technologyPrerequisites:
+  - PdvTierTwoVouchers
+  - UniversalMaterialResearchT3
+  position: 11, 12
 
 - type: technology
   id: RogueJaws
   name: research-technology-rogue-jaws
-  icon:
-    sprite: Objects/Tools/jaws_of_life.rsi
-    state: syn_jaws_pry
+  entityIcon: JawsOfLife
   discipline: RogueGear
   tier: 1
-  cost: 15000
+  cost: 10000
   recipeUnlocks:
   - JawsOfLifeRogue
+  - NaniteApplicatorSyndicate
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, -1
 
 - type: technology
   id: RogueHypospray
   name: research-technology-rogue-hypospray
-  icon:
-    sprite: Objects/Specific/Medical/hypospray.rsi
-    state: hypo
+  entityIcon: Hypospray
   discipline: RogueGear
   tier: 2
-  cost: 25000
+  cost: 10000
   recipeUnlocks:
   - HyposprayRogue
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, -2
 
 - type: technology
   id: RogueEmag
   name: research-technology-rogue-emag
-  icon:
-    sprite: Objects/Tools/emag.rsi
-    state: icon
+  entityIcon: Emag
   discipline: RogueGear
   tier: 2
   cost: 25000
   recipeUnlocks:
   - EmagRogue
-
-- type: technology
-  id: RogueEmag2
-  name: research-technology-rogue-access-breaker
-  icon:
-    sprite: Objects/Tools/access_breaker.rsi
-    state: icon
-  discipline: RogueGear
-  tier: 3
-  cost: 27500
-  recipeUnlocks:
   - AccessBreakerRogue
   technologyPrerequisites:
-  - RogueEmag
+  - UniversalMaterialResearchT2
+  position: 12, 10
 
 - type: technology
   id: RogueThermals
   name: research-technology-rogue-thermals
-  icon:
-    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
-    state: icon
+  entityIcon: ClothingEyesThermalVisionGoggles
   discipline: RogueGear
   tier: 1
   cost: 15000
   recipeUnlocks:
   - ClothingEyesThermalVisionGoggles
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, -3
+
+- type: technology
+  id: PDVBasicBorgModule
+  name: research-technology-pdv-basic-module
+  entityIcon: BorgModulePDVStandardWeapon
+  discipline: RogueGear
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - BasicBorgCombatModulePDV
+  - BorgIFFPDV
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, -4
+
+- type: technology
+  id: PDVAdvancedBorgModule
+  name: research-technology-pdv-advanced-module
+  entityIcon: BorgModulePDVAdvancedWeapon
+  discipline: RogueGear
+  tier: 3
+  cost: 65000
+  recipeUnlocks:
+  - AdvancedBorgCombatModulePDV
+  technologyPrerequisites:
+  - UniversalMaterialResearchT3
+  - PDVBasicBorgModule
+  position: 12, 15

@@ -1,0 +1,101 @@
+- type: entity
+  id: ReptilianClaws
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Claws
+    clawStage: ReptilianTinyClaws
+    clawGrowthNotification: claws-growth
+    claws:
+      -1: ReptilianDeclawed
+      0: ReptilianTinyClaws
+      1: ReptilianSmallClaws
+      2: ReptilianMediumClaws
+      3: ReptilianBigClaws
+      4: ReptilianHugeClaws
+
+- type: claw
+  id: ReptilianDeclawed
+  canGrow: false
+  clawType: !type:Declawed
+    damageOnDeclaw:
+      types:
+        Slash: 20
+    clawsExaminationString: "claws-lizard-declawed"
+
+- type: claw
+  id: ReptilianTinyClaws
+  clawType: !type:SharpClaw
+    damage:
+      types:
+        Slash: 8
+        Blunt: -3
+    clawsExaminationString: "claws-lizard-tiny"
+
+- type: claw
+  id: ReptilianSmallClaws
+  clawType: !type:SharpClaw
+    damage:
+      types:
+        Slash: 11
+        Blunt: -3
+    gunSpreadMultiplier: 1.1
+    meleeDamageModifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+    clawsExaminationString: "claws-lizard-small"
+
+- type: claw
+  id: ReptilianMediumClaws
+  growCooldown: 1500
+  clawType: !type:SharpClaw
+    damage:
+      types:
+        Slash: 13
+        Piercing: 2
+        Blunt: -3
+    gunSpreadMultiplier: 1.25
+    canWideSwing: true
+    meleeDamageModifiers:
+      coefficients:
+        Blunt: 0.87
+        Slash: 0.87
+        Piercing: 0.87
+    clawsExaminationString: "claws-lizard-medium"
+
+- type: claw
+  id: ReptilianBigClaws
+  growCooldown: 1800
+  clawType: !type:SharpClaw
+    damage:
+      types:
+        Slash: 15
+        Piercing: 5
+        Blunt: -3
+    gunSpreadMultiplier: 1.45
+    canWideSwing: true
+    meleeDamageModifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+    clawsExaminationString: "claws-lizard-big"
+
+- type: claw
+  id: ReptilianHugeClaws
+  canGrow: false
+  clawType: !type:SharpClaw
+    damage:
+      types:
+        Slash: 18
+        Piercing: 12
+        Blunt: -3
+    canShoot: false
+    canWideSwing: true
+    meleeDamageModifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+    clawsExaminationString: "claws-lizard-huge"

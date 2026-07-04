@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.GameStates;
@@ -76,6 +68,8 @@ namespace Content.Shared.Movement.Components
         public TimeSpan LerpTarget;
 
         public const float LerpTime = 1.0f;
+        public const float SprintingSoundModifier = 3.5f;
+        public const float WalkingSoundModifier = 1.5f;
 
         public bool Sprinting => (HeldMoveButtons & MoveButtons.Walk) == 0x0;
 

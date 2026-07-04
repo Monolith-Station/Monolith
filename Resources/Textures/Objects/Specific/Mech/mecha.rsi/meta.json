@@ -343,6 +343,62 @@
       ]
     },
     {
+      "name": "tsfdurand",
+      "directions": 4
+    },
+    {
+      "name": "tsfdurand-open",
+      "delays": [
+        [
+          1,
+          0.1,
+          0.1,
+          0.5,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "tsfdurand-broken",
+      "delays": [
+        [
+          0.5,
+          1,
+          0.5,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "pdvdurand",
+      "directions": 4
+    },
+    {
+      "name": "pdvdurand-open",
+      "delays": [
+        [
+          1,
+          0.1,
+          0.1,
+          0.5,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "pdvdurand-broken",
+      "delays": [
+        [
+          0.5,
+          1,
+          0.5,
+          1
+        ]
+      ]
+    },
+    {
       "name": "gygax",
       "directions": 4
     },
@@ -364,6 +420,76 @@
     },
     {
       "name": "gygax-broken",
+      "delays": [
+        [
+          5,
+          0.05,
+          0.05,
+          0.05,
+          0.1,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "tsfgygax",
+      "directions": 4
+    },
+    {
+      "name": "tsfgygax-open",
+      "delays": [
+        [
+          0.1,
+          0.05,
+          0.05,
+          0.05,
+          0.1,
+          0.05,
+          0.05,
+          0.05,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "tsfgygax-broken",
+      "delays": [
+        [
+          5,
+          0.05,
+          0.05,
+          0.05,
+          0.1,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "pdvgygax",
+      "directions": 4
+    },
+    {
+      "name": "pdvgygax-open",
+      "delays": [
+        [
+          0.1,
+          0.05,
+          0.05,
+          0.05,
+          0.1,
+          0.05,
+          0.05,
+          0.05,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "pdvgygax-broken",
       "delays": [
         [
           5,

@@ -21,14 +21,14 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts;
 
 public sealed partial class ArtifactSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly StationSystem _station = default!; // Frontier
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private StationSystem _station = default!; // Frontier
 
 
     public override void Initialize()
@@ -45,12 +45,6 @@ public sealed partial class ArtifactSystem : EntitySystem
     /// Calculates the price of an artifact based on
     /// how many nodes have been unlocked/triggered
     /// </summary>
-    /// <remarks>
-    /// General balancing (for fully unlocked artifacts):
-    /// Simple (1-2 Nodes): 1-2K
-    /// Medium (5-8 Nodes): 6-7K
-    /// Complex (7-12 Nodes): 10-11K
-    /// </remarks>
     private void GetPrice(EntityUid uid, ArtifactComponent component, ref PriceCalculationEvent args)
     {
         args.Price += (GetResearchPointValue(uid, component) + component.ConsumedPoints) * component.PriceMultiplier;
@@ -59,16 +53,6 @@ public sealed partial class ArtifactSystem : EntitySystem
     /// <summary>
     /// Calculates how many research points the artifact is worth
     /// </summary>
-    /// <remarks>
-    /// General balancing (for fully unlocked artifacts):
-    /// Simple (1-2 Nodes): ~10K
-    /// Medium (5-8 Nodes): ~30-40K
-    /// Complex (7-12 Nodes): ~60-80K
-    ///
-    /// Simple artifacts should be enough to unlock a few techs.
-    /// Medium should get you partway through a tree.
-    /// Complex should get you through a full tree and then some.
-    /// </remarks>
     public int GetResearchPointValue(EntityUid uid, ArtifactComponent? component = null, bool getMaxPrice = false)
     {
         if (!Resolve(uid, ref component))
@@ -151,11 +135,11 @@ public sealed partial class ArtifactSystem : EntitySystem
                 return;
         }
 
-        // Science should happen on shuttles or stations.
-        if (_station.GetOwningStation(xform.GridUid) == null)
-        {
-            disintegrateProb += disintegrateProbOffStationGrid;
-        }
+        // Science should happen on shuttles or stations. //MONO: disable anti fun
+        //if (_station.GetOwningStation(xform.GridUid) == null)
+        //{
+        //    disintegrateProb += disintegrateProbOffStationGrid;
+        //}
 
         if (_random.Prob(disintegrateProb))
         {
@@ -175,7 +159,7 @@ public sealed partial class ArtifactSystem : EntitySystem
         {
             // Activate the artifact, but consume any points from newly visited nodes.
             bool oldRemove = artifactComp.RemoveGainedPoints;
-            artifactComp.RemoveGainedPoints = true;
+            artifactComp.RemoveGainedPoints = false; //MONO: true >> false, restore fun
             TryActivateArtifact(uid, uid, artifactComp);
             artifactComp.RemoveGainedPoints = oldRemove;
         }
@@ -270,7 +254,7 @@ public sealed partial class ArtifactSystem : EntitySystem
 
         if (TryComp<BiasedArtifactComponent>(uid, out var bias) &&
             TryComp<TraversalDistorterComponent>(bias.Provider, out var trav) &&
-            _random.Prob(trav.BiasChance) &&
+            _random.Prob(MathF.Min(1.0f,trav.BiasChance)) && //Mono (fix a crash by BiasChance going above 1.0)
             this.IsPowered(bias.Provider, EntityManager))
         {
             switch (trav.BiasDirection)

@@ -1,0 +1,67 @@
+- type: entity
+  name: NT-WS SM-27 MPSSM missile launcher
+  parent: [ BaseWeaponLauncher, BaseGunWieldable ]
+  id: WeaponLauncherMPSSM
+  suffix: HEAT
+  description: A multipurpose man-portable launcher, capable of firing both guided anti-ship and unguided HEAT warheads.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/mpssm.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/mpssm_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/mpssm_inhands_32x.rsi
+  - type: Gun
+    projectileSpeed: 45
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MPSSMMissile
+    proto: CartridgeMPSSMHEAT
+    capacity: 1
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9
+    sprintModifier: 0.75
+  - type: GunRequiresWield
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/explosive_mouse.rsi
+      state: all
+  - type: WieldDelay
+    baseDelay: 3
+    modifiedDelay: 3
+    preventFiring: true
+  - type: StaticPrice
+    price: 7500
+  - type: Appearance
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RiflesDrop
+
+- type: entity
+  parent: WeaponLauncherMPSSM
+  id: WeaponLauncherMPSSMASM
+  suffix: ASM
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMPSSMMissile

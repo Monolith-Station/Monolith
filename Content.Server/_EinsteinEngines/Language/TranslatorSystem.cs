@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
@@ -22,12 +17,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._EinsteinEngines.Language;
 
-public sealed class TranslatorSystem : SharedTranslatorSystem
+public sealed partial class TranslatorSystem : SharedTranslatorSystem
 {
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private LanguageSystem _language = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {

@@ -1,6 +1,4 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+#Author: BoskiYourk on github, [I AM NOT SURE] on Discord.
 
 - type: vessel
   id: Ledokol
@@ -9,9 +7,10 @@
   description: A massive shuttle originally made for ramming through compact debris fields. Trades off fire-power for thrust-power.
   limit: 1
   price: 425000
+  purchasable: false # voucher only
   category: Large
   group: Ussp
-  access: USSPLedokol
+  access: USSP
   shuttlePath: /Maps/_Mono/Shuttles/USSP/Ledokol/ledokol.yml
   guidebookPage: Null
   class:
@@ -30,6 +29,9 @@
   stations:
     Ledokol:
       stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Why did I come to this sector?"
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Ledokol USSP{1}'
@@ -38,8 +40,5 @@
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            USSPSergeant: [0, 0]
-            USSPCorporal: [0, 0]
-            USSPMedic: [0, 0]
-            USSPRifleman: [0, 0]
-            USSPCommissar: [0, 0]
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]

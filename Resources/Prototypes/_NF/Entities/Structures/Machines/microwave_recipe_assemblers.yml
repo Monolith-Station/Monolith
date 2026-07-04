@@ -99,6 +99,17 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Breakage"]
+    - trigger: # Mono - why the fuck was this indestructible?
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: ApcPowerReceiver
     powerLoad: 1000 # Assume the range is off.
   - type: Machine

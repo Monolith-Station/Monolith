@@ -1,56 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Checkraze
-# SPDX-FileCopyrightText: 2023 Doru991
-# SPDX-FileCopyrightText: 2023 DrSmugleaf
-# SPDX-FileCopyrightText: 2023 Emisse
-# SPDX-FileCopyrightText: 2023 Justin Pfeifler
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 M3739
-# SPDX-FileCopyrightText: 2023 Nairod
-# SPDX-FileCopyrightText: 2023 Skye
-# SPDX-FileCopyrightText: 2024 BramvanZijp
-# SPDX-FileCopyrightText: 2024 Cojoke
-# SPDX-FileCopyrightText: 2024 CookieMasterT
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Golden Can
-# SPDX-FileCopyrightText: 2024 Ian
-# SPDX-FileCopyrightText: 2024 Jajsha
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 Keer-Sar
-# SPDX-FileCopyrightText: 2024 Krunklehorn
-# SPDX-FileCopyrightText: 2024 MilenVolf
-# SPDX-FileCopyrightText: 2024 Mr. 27
-# SPDX-FileCopyrightText: 2024 Naive817
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 PopGamer46
-# SPDX-FileCopyrightText: 2024 ScarKy0
-# SPDX-FileCopyrightText: 2024 Simon
-# SPDX-FileCopyrightText: 2024 Tayrtahn
-# SPDX-FileCopyrightText: 2024 The Canned One
-# SPDX-FileCopyrightText: 2024 Verm
-# SPDX-FileCopyrightText: 2024 Winkarst
-# SPDX-FileCopyrightText: 2024 Zachary Yona
-# SPDX-FileCopyrightText: 2024 deltanedas
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2024 plykiya
-# SPDX-FileCopyrightText: 2024 slarticodefast
-# SPDX-FileCopyrightText: 2024 themias
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Errant
-# SPDX-FileCopyrightText: 2025 Honestly101
-# SPDX-FileCopyrightText: 2025 JonahDes
-# SPDX-FileCopyrightText: 2025 Kittygyat
-# SPDX-FileCopyrightText: 2025 Myzumi
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 Theodore Lukin
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 lzk
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: [BaseMob, StripableInventoryBase]
   id: BaseBorgChassis
@@ -59,6 +6,8 @@
   save: false
   abstract: true
   components:
+  - type: SurgerySpeedModifier # Mono
+  - type: Stripping # Mono
   - type: SurgeryTarget # Mono
   - type: Sanitized # Mono
   - type: Reactive
@@ -100,8 +49,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Critical # Monolith
-      250: Dead # Monolith
+      200: Critical # Monolith
+      300: Dead # Monolith
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -128,6 +77,8 @@
       # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
       enum.BorgSwitchableTypeUiKey.SelectBorgType:
         type: BorgSelectTypeUserInterface
+      enum.RadarConsoleUiKey.Key: # Mono
+        type: RadarConsoleBoundUserInterface
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -150,15 +101,17 @@
   - type: IntrinsicRadioTransmitter
     channels:
     - Traffic
-    - Binary
     - Common
     - Science
   - type: ActiveRadio
     channels:
     - Traffic
-    - Binary
     - Common
     - Science
+  - type: CollectiveMind
+    channels:
+    - Binary
+    defaultChannel: Binary
   - type: ZombieImmune
   - type: Repairable
     doAfterDelay: 10
@@ -167,7 +120,6 @@
   - type: LockingWhitelist
     blacklist:
       components:
-      - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
@@ -186,7 +138,9 @@
     onActivate: false # You should not be able to turn off a borg temporarily.
     activated: false # gets activated when a mind is added
     onUse: false # no item-borg toggling sorry
-  - type: ItemTogglePointLight
+  #- type: ItemTogglePointLight # Mono - Light removal PR: Borg Adjustments
+  - type: NightVision # Mono
+    color: "#808080"
   - type: AccessToggle
   # TODO: refactor movement to just be based on toggle like speedboots but for the boots themselves
   # TODO: or just have sentient speedboots be fast idk
@@ -209,10 +163,14 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
+    allowedEmotes: # Goobstation - Cyborg emote sounds
+    - Laugh
+    - Sigh
+    - Crying
+    - Whistle
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
-    screamAction: null
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:
@@ -235,7 +193,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 100 # Monolith
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -244,7 +202,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-         damage: 350 # Monolith
+         damage: 400 # Monolith
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -256,34 +214,34 @@
         - cell_slot
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: HandheldLight
-    toggleOnInteract: false
-    wattage: 0.2
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-    - !type:FadeBehaviour
-      id: radiating
-      maxDuration: 2.0
-      startValue: 3.0
-      endValue: 2.0
-      isLooped: true
-      reverseWhenFinished: true
-    - !type:PulseBehaviour
-      id: blinking
-      interpolate: Nearest
-      maxDuration: 1.0
-      minValue: 0.1
-      maxValue: 2.0
-      isLooped: true
-  - type: ToggleableLightVisuals
-  - type: PointLight
-    enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
-    radius: 4
-    netsync: false
+  #- type: HandheldLight # Mono - Light removal PR: Borg Adjustments
+  #  toggleOnInteract: false
+  #  wattage: 0.2
+  #  blinkingBehaviourId: blinking
+  #  radiatingBehaviourId: radiating
+  #- type: LightBehaviour
+  #  behaviours:
+  #  - !type:FadeBehaviour
+  #    id: radiating
+  #    maxDuration: 2.0
+  #    startValue: 3.0
+  #    endValue: 2.0
+  #    isLooped: true
+  #    reverseWhenFinished: true
+  #  - !type:PulseBehaviour
+  #    id: blinking
+  #    interpolate: Nearest
+  #    maxDuration: 1.0
+  #    minValue: 0.1
+  #    maxValue: 2.0
+  #    isLooped: true
+  #- type: ToggleableVisuals
+  #- type: PointLight
+  #  enabled: false
+  #  mask: /Textures/Effects/LightMasks/cone.png
+  #  autoRot: true
+  #  radius: 4
+  #  netsync: false
   - type: Pullable
   - type: Puller
     needsHands: false
@@ -311,7 +269,28 @@
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
   - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
-  - type: Magboots # Monolith
+  # <Mono>
+  - type: ToggleableSignature
+    blip:
+      radarColor: CornflowerBlue
+      scale: 0.5
+  - type: Magboots
+  - type: AccessGrantable
+  - type: MovementAlwaysTouching
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionObserverShowRadar
+  - type: RadarConsole
+    followEntity: true
+    noRotate: true
+  - type: DetectionRangeMultiplier # same as mass scanner
+    infraredMultiplier: 0.5
+    visualMultiplier: 0.75
+  - type: ShipNpcTarget
+    needGrid: NoGrid
+  - type: RetroMonitorView
+  # </Mono>
 
 - type: entity
   abstract: true
@@ -355,9 +334,12 @@
     factions:
     - NanoTrasen
   - type: Access
+    tags:
+     - External # Mono
+     - Mercenary # Mono
     enabled: false
-    groups:
-    - AllAccess
+#   groups:
+#    - AllAccess # Mono
 #  - type: AccessReader
 #    access: [["Command"], ["Research"]]
   - type: ShowJobIcons
@@ -386,25 +368,34 @@
     channels:
     - Traffic
     - Common
-    - Binary
     - Syndicate
   - type: ActiveRadio
     channels:
     - Common
-    - Binary
     - Traffic
     - Syndicate
+  - type: CollectiveMind
+    channels:
+    - Binary
+    defaultChannel: Binary
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
   - type: Speech
     speechSounds: SyndieBorg
     allowedEmotes:
     - Laugh
+    # Goobstation - Cyborg emote sounds
+    - Sigh
+    - Crying
+    - Whistle
+    # end Goobstation - Cyborg emote sounds
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconSyndicate
-  - type: PointLight
-    color: "#dd200b"
+  #- type: PointLight Mono - Light removal PR: Borg Adjustments
+  #  color: "#dd200b"
+  - type: ExplosionResistance # Mono - Borg buffs
+    damageCoefficient: 0.50
 
 - type: entity
   id: BaseBorgChassisDerelict
@@ -415,9 +406,12 @@
     factions:
     - NanoTrasen #The seemingly best fit. It was a regular NT cyborg once, after all.
   - type: Access
+    tags:
+     - External # Mono
+     - Mercenary # Mono
     enabled: false
-    groups:
-    - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
+  # groups:
+  #   - AllAccess # Mono
   # - type: AccessReader # Frontier
   #   access: [["Command"], ["Research"]] # Frontier
   - type: StartIonStormed

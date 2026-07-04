@@ -918,8 +918,6 @@ entities:
       pos: 5.5,-6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 2
 - proto: AmeController
@@ -4339,8 +4337,6 @@ entities:
       pos: -1.5,13.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4
   - uid: 647
@@ -4357,8 +4353,6 @@ entities:
       pos: 0.5,11.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4
   - uid: 649
@@ -4367,8 +4361,6 @@ entities:
       pos: 4.5,16.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4
       - 5
@@ -5844,8 +5836,6 @@ entities:
       pos: 0.5,13.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4
     - type: AtmosPipeColor
@@ -5869,8 +5859,6 @@ entities:
       pos: 5.5,-7.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 2
   - uid: 852
@@ -5890,8 +5878,6 @@ entities:
       pos: 1.5,13.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4
     - type: AtmosPipeColor

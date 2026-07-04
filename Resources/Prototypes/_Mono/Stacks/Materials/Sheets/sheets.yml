@@ -1,13 +1,9 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: stack
-  id: Synthalloy
-  name: synthalloy
-  icon: { sprite: /Textures/_Mono/Objects/Materials/synthalloy.rsi, state: synthalloy }
-  spawn: MaterialSynthalloy1
-  maxCount: 50
+  id: Pyrogel
+  name: pyrogel
+  icon: { sprite: _Mono/Objects/Materials/pyrogel.rsi, state: icon }
+  spawn: MaterialPyrogel1
+  maxCount: 150
 
 - type: stack
   id: Iridite
@@ -15,3 +11,24 @@
   icon: { sprite: /Textures/_Mono/Objects/Materials/iridite.rsi, state: iridite }
   spawn: SheetIridite1
   maxCount: 100
+
+- type: stack
+  id: Plastitanium
+  name: plastitanium
+  icon: { sprite: /Textures/_Mono/Objects/Materials/plastitanium.rsi, state: plastitanium }
+  spawn: SheetPlastitanium1
+  maxCount: 100
+
+- type: stack
+  id: UraniumFissile
+  name: fissile uranium
+  icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: uranium }
+  spawn: SheetUraniumFissile1
+  maxCount: 5
+
+- type: stack
+  id: UraniumDepleted
+  name: depleted uranium
+  icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: depleted }
+  spawn: SheetUraniumDepleted1
+  maxCount: 5

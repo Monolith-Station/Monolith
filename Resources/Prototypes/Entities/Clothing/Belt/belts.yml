@@ -1,89 +1,3 @@
-# SPDX-FileCopyrightText: 2018 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2019 DamianX
-# SPDX-FileCopyrightText: 2019 dylanstrategie
-# SPDX-FileCopyrightText: 2019 scuffedjays
-# SPDX-FileCopyrightText: 2020 Hugal31
-# SPDX-FileCopyrightText: 2020 Hugo Laloge
-# SPDX-FileCopyrightText: 2020 Paul Ritter
-# SPDX-FileCopyrightText: 2020 Swept
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-# SPDX-FileCopyrightText: 2020 py01
-# SPDX-FileCopyrightText: 2021 DmitriyRubetskoy
-# SPDX-FileCopyrightText: 2021 DrSmugleaf
-# SPDX-FileCopyrightText: 2021 Kara Dinyes
-# SPDX-FileCopyrightText: 2021 Rane
-# SPDX-FileCopyrightText: 2021 ShadowCommander
-# SPDX-FileCopyrightText: 2021 SweptWasTaken
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2021 Visne
-# SPDX-FileCopyrightText: 2021 Ygg01
-# SPDX-FileCopyrightText: 2021 xRiriq
-# SPDX-FileCopyrightText: 2022 Ablankmann
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin
-# SPDX-FileCopyrightText: 2022 Fishfish458
-# SPDX-FileCopyrightText: 2022 Francesco
-# SPDX-FileCopyrightText: 2022 Interrobang01
-# SPDX-FileCopyrightText: 2022 Lamrr
-# SPDX-FileCopyrightText: 2022 Myctai
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2022 corentt
-# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
-# SPDX-FileCopyrightText: 2022 mirrorcult
-# SPDX-FileCopyrightText: 2022 themias
-# SPDX-FileCopyrightText: 2023 AJCM-git
-# SPDX-FileCopyrightText: 2023 Alekshhh
-# SPDX-FileCopyrightText: 2023 Boaz1111
-# SPDX-FileCopyrightText: 2023 Guilherme Ornel
-# SPDX-FileCopyrightText: 2023 Jackal298
-# SPDX-FileCopyrightText: 2023 Julian Giebel
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 MACMAN2003
-# SPDX-FileCopyrightText: 2023 Nairod
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 Sirionaut
-# SPDX-FileCopyrightText: 2023 Velcroboy
-# SPDX-FileCopyrightText: 2023 Whisper
-# SPDX-FileCopyrightText: 2023 brainfood1183
-# SPDX-FileCopyrightText: 2023 c4llv07e
-# SPDX-FileCopyrightText: 2023 crazybrain23
-# SPDX-FileCopyrightText: 2023 deltanedas
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 lapatison
-# SPDX-FileCopyrightText: 2023 lzk228
-# SPDX-FileCopyrightText: 2024 21Melkuu
-# SPDX-FileCopyrightText: 2024 Alzore
-# SPDX-FileCopyrightText: 2024 DenisShvalov
-# SPDX-FileCopyrightText: 2024 DieselMohawk
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Emisse
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 FungiFellow
-# SPDX-FileCopyrightText: 2024 Ghagliiarghii
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Jessica M
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 Killerqu00
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk
-# SPDX-FileCopyrightText: 2024 Magnus Larsen
-# SPDX-FileCopyrightText: 2024 Mr. 27
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Ubaser
-# SPDX-FileCopyrightText: 2024 Vexerot
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 Winkarst
-# SPDX-FileCopyrightText: 2024 checkraze
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 August Sun
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2025 John
-# SPDX-FileCopyrightText: 2025 ScarKy0
-# SPDX-FileCopyrightText: 2025 august-sun
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Belts that need/have visualizers
 
 - type: entity
@@ -547,7 +461,7 @@
   - type: Appearance
 
 - type: entity
-  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltSecurity
   name: security belt
   description: Can hold security gear like handcuffs and flashes.
@@ -599,7 +513,7 @@
   - type: Appearance
 
 - type: entity
-  parent: [ClothingBeltBase, ClothingSlotBase, BaseC1Contraband] # Frontier: BaseCommandContraband<BaseC1Contraband
+  parent: [ClothingBeltBase, ClothingSlotBase]
   id: ClothingBeltSheath
   name: sabre sheath
   description: An ornate sheath designed to hold an officer's blade.
@@ -633,8 +547,8 @@
 # Belts without visualizers
 
 - type: entity
-  parent: [ClothingBeltAmmoProviderBase, BaseC1Contraband] # Frontier: BaseSecurityBartenderContraband<BaseC1Contraband
-  id: ClothingBeltBandolier
+  parent: ClothingBeltAmmoProviderBase
+  id: ClothingBeltBandolierOld # Mono: ClothingBeltBandolierOld<ClothingBeltBandolier
   name: bandolier
   description: A bandolier for holding shotgun ammunition.
   components:
@@ -649,6 +563,35 @@
       tags:
       - ShellShotgun12_gaugeBuckshot
     capacity: 14
+
+# Mono Edit
+
+- type: entity
+  parent: ClothingBeltSecurity
+  id: ClothingBeltBandolier
+  name: bandolier
+  suffix: Mono
+  description: A bandolier for holding ammunition.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/bandolier.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/bandolier.rsi
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,7,7 # 8x8 = 64 Bullets
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+        - Cartridge
+  - type: Dumpable
+  - type: Appearance
+  - type: StaticPrice #Mono, PMC clothing price consistency
+    vendPrice: 500
+
+# Mono End
 
 - type: entity
   parent: ClothingBeltBase
@@ -680,7 +623,7 @@
     # - 0,0,3,1 # Frontier: commented out
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, BaseC3SyndicateContraband, ContrabandClothing] # Frontier: ClothingBeltStorageBase<NFClothingBeltStorageBase, BaseSyndicateContraband<BaseC3SyndicateContraband, added ContrabandClothing as parent
+  parent: [NFClothingBeltStorageBase]
   id: ClothingBeltSyndieHolster
   name: syndicate shoulder holster
   description: A deep shoulder holster capable of holding many types of ballistics.
@@ -713,7 +656,7 @@
     sprite: Clothing/Belt/securitywebbing.rsi
 
 - type: entity
-  parent: NFClothingBeltStorageBase # Frontier: ClothingBeltStorageBase<NFClothingBeltStorageBase, remove BaseSecurityCargoContraband
+  parent: NFClothingBeltStorageBase
   id: ClothingBeltMercenaryWebbing # Frontier: Merc to Mercenary
   name: mercenary webbing
   description: Ideal for storing everything from ammo to weapons and combat essentials.
@@ -735,7 +678,7 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseC1Contraband] # Frontier: ClothingBeltStorageBase<NFClothingBeltStorageBase, BaseSyndicateContraband<BaseC1Contraband
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltMilitaryWebbing
   name: chest rig
   description: A set of tactical webbing worn by boarding parties. # Frontier
@@ -791,7 +734,7 @@
     sprite: Clothing/Belt/suspenders_black.rsi
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, BaseC3WizardContraband, ContrabandClothing] # Frontier: ClothingBeltStorageBase<NFClothingBeltStorageBase, BaseMagicalContraband<BaseC3WizardContraband, ContrabandClothing as parent
+  parent: [NFClothingBeltStorageBase]
   id: ClothingBeltWand
   name: wizard belt # Frontier: changed the name from 'wand belt' -> 'wizard belt'
   description: A belt designed to hold various rods of power. A veritable fanny pack of exotic magic.

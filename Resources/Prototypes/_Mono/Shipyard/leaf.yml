@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: Rubeebeebee
+# Discord: rubeebee
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Leaf
+  parent: BaseVessel
+  name: PTR Leaf
+  description: A retired warship, the majority of it's hull is carved out to live it's twilight years as a botany/chemistry ship.
+  price: 69500
+  category: Medium
+  group: Medical
+  shuttlePath: /Maps/_Mono/Shuttles/leaf.yml
+  guidebookPage: null
+  class:
+  - Botany
+  - Chemistry
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Leaf
+  mapName: 'PTR Leaf'
+  mapPath: /Maps/_Mono/Shuttles/leaf.yml
+  minPlayers: 0
+  stations:
+    Leaf:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Leaf MED{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

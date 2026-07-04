@@ -1,0 +1,63 @@
+- type: job
+  id: TsfMarsocFTL
+  name: ghost-role-information-marsoc-ftl-name
+  description: ghost-role-information-marsoc-description
+  playTimeTracker: JobTsfMarsocFTL
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30 hours
+  startingGear: MarsocFTLGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-ws
+  canBeAntag: false
+  setPreference: false
+  accessGroups:
+  - AllAccess
+  access:
+  - TsfmcEngineering
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSFMC
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - SolCommon
+    languagesUnderstood:
+    - SolCommon
+
+- type: playTimeTracker
+  id: JobTsfMarsocFTL
+
+- type: job
+  id: TsfMarsoc
+  name: ghost-role-information-marsoc-operative-name
+  description: ghost-role-information-marsoc-description
+  playTimeTracker: JobTsfMarsoc
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30 hours
+  startingGear: MarsocOperativeGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-ws
+  canBeAntag: false
+  setPreference: false
+  accessGroups:
+  - AllAccess
+  access:
+  - TsfmcEngineering
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSFMC
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - SolCommon
+    languagesUnderstood:
+    - SolCommon
+
+- type: playTimeTracker
+  id: JobTsfMarsoc

@@ -1,7 +1,7 @@
 - type: entity
   id: BaseSpeedLoader45_magnum
   name: "speed loader (.45 magnum)"
-  parent: [ BaseItem, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseItem
   abstract: true
   components:
   - type: Tag
@@ -87,7 +87,7 @@
 
 - type: entity
   id: SpeedLoader45_magnumAP
-  name: "speed loader (.45 magnum armor-piercing)"
+  name: "speed loader (.45 magnum extreme armor-piercing)"
   parent: BaseSpeedLoader45_magnum
   components:
   - type: BallisticAmmoProvider
@@ -141,6 +141,70 @@
         map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: rubber
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+#Mono AP system
+#anti-flesh ammo
+- type: entity
+  id: SpeedLoader45_magnumHP
+  name: speed loader (.45 magnum hollow-point)
+  parent: BaseSpeedLoader45_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumHP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/45_magnum/45_magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: piercing-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: piercing
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoader45_magnumRIP
+  name: speed loader (.45 magnum RIP)
+  parent: BaseSpeedLoader45_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumRIP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/45_magnum/45_magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: piercing-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: piercing
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+#armor-piercing ammo
+
+- type: entity
+  id: SpeedLoader45_magnumPlasteelAP
+  name: speed loader (.45 magnum AP)
+  parent: BaseSpeedLoader45_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumPlasteelAP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/45_magnum/45_magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: piercing-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: piercing
     steps: 7
     zeroVisible: false
   - type: Appearance

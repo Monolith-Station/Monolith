@@ -2,15 +2,17 @@ using Content.Server.Body.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Mobs; // Mono
+using Content.Shared.Mobs.Components; // Mono
 using Robust.Shared.Timing;
 
 namespace Content.Server.Body.Systems;
 
-public sealed class ThermalRegulatorSystem : EntitySystem
+public sealed partial class ThermalRegulatorSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly TemperatureSystem _tempSys = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSys = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private TemperatureSystem _tempSys = default!;
+    [Dependency] private ActionBlockerSystem _actionBlockerSys = default!;
 
     public override void Initialize()
     {
@@ -51,6 +53,18 @@ public sealed class ThermalRegulatorSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp2, logMissing: false))
             return;
 
+        // mono begin
+        // Check to see if we're disabling thermal temporarily
+        if (ent.Comp1.DisableProcessing)
+            return;
+
+        if (ent.Comp1.ProcessWhileDead == false && TryComp<MobStateComponent>(ent, out var mobComp1) && mobComp1.CurrentState == MobState.Dead)
+            return;
+
+        if (ent.Comp1.ProcessWhileCrit == false && TryComp<MobStateComponent>(ent, out var mobComp2) && mobComp2.CurrentState == MobState.Critical)
+            return;
+        // mono end
+
         var totalMetabolismTempChange = ent.Comp1.MetabolismHeat - ent.Comp1.RadiatedHeat;
 
         // implicit heat regulation
@@ -74,7 +88,7 @@ public sealed class ThermalRegulatorSystem : EntitySystem
 
         // if body temperature is not within comfortable, thermal regulation
         // processes starts
-        if (tempDiff > ent.Comp1.ThermalRegulationTemperatureThreshold)
+        if (tempDiff < ent.Comp1.ThermalRegulationTemperatureThreshold)
             return;
 
         if (ent.Comp2.CurrentTemperature > ent.Comp1.NormalBodyTemperature)

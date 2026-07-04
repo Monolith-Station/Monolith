@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 
 using Robust.Shared.Console;
 using Content.Server.Administration;
@@ -11,7 +7,7 @@ using Content.Shared.Administration;
 namespace Content.Server._Crescent.ShipShields;
 public partial class ShipShieldsSystem
 {
-    [Dependency] private readonly IConsoleHost _conHost = default!;
+    [Dependency] private IConsoleHost _conHost = default!;
 
     public void InitializeCommands()
     {

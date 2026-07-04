@@ -1,0 +1,55 @@
+- type: entity
+  id: AFInterceptorFilled
+  parent: AFInterceptorBattery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+    - LightMechaAutocannon
+    - LightMechaSMG
+
+- type: entity
+  id: AFInterceptorMBattery
+  parent: AFInterceptorM
+  suffix: Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCageHigh
+
+- type: entity
+  id: AFInterceptorMFilled
+  parent: AFInterceptorMBattery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+    - MediumMechDMR
+    - MediumMechTOW
+
+- type: entity
+  name: AF-28 Broadsword Spawner
+  suffix: Filled
+  id: SpawnMechAFInterceptorFilled
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+  - type: ConditionalSpawner
+    prototypes:
+    - AFInterceptorFilled
+
+- type: entity
+  name: AF-28-M Halberd Spawner
+  suffix: Filled
+  id: SpawnMechAFInterceptorMFilled
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+  - type: ConditionalSpawner
+    prototypes:
+    - AFInterceptorMFilled

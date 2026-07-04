@@ -1,9 +1,11 @@
+#Author: Starch(!)
+
 - type: vessel
   id: Zephyr
   parent: BaseVesselAntag
   name: TSF-SKR Zephyr
   description: A fighter refurbished from recovered remnant Razor hulls.
-  price: 14200
+  price: 16400
   category: Small
   group: Custom
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
@@ -11,6 +13,7 @@
   guidebookPage: Null
   class:
   - Pursuit
+  - Fighter
   engine:
   - APU
 

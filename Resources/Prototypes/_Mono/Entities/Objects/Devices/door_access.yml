@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Arcticular1
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsUSSP
@@ -37,8 +32,32 @@
 
 - type: entity
   parent: DoorElectronics
-  id: DoorElectronicsRogueCommander
-  suffix: Rogue Command, Locked
+  id: DoorElectronicsGrandVizier
+  suffix: Grand Vizier, Locked
   components:
   - type: AccessReader
-    access: [["RogueCommander"]]
+    access: [["GrandVizier"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsPdvCommand
+  suffix: PDV Command, Locked
+  components:
+  - type: AccessReader
+    access: [["PDVCommand"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsViper
+  suffix: Viper Group, Locked
+  components:
+  - type: AccessReader
+    access: [["Viper"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsViperCommand
+  suffix: Viper Group Command, Locked
+  components:
+  - type: AccessReader
+    access: [["ViperCommand"]]

@@ -147,6 +147,12 @@
       count: 5
       minGroupSize: 1
       maxGroupSize: 1
+    # Mono
+    - !type:EntityTableDunGen
+      minCount: 5
+      maxCount: 11
+      table: !type:NestedSelector
+        tableId: VgroidGasDepositTable
 
 # Configs
 - type: dungeonConfig

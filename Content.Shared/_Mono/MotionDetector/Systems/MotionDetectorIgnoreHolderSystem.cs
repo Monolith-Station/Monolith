@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Mono.MotionDetector.Components;
 using Content.Shared._Mono.Company;
 using Content.Shared.Hands.Components;
@@ -14,9 +10,9 @@ namespace Content.Shared._Mono.MotionDetector.Systems;
 /// <summary>
 /// Prevents motion detectors from detecting the holder.
 /// </summary>
-public sealed class MotionDetectorIgnoreHolderSystem : EntitySystem
+public sealed partial class MotionDetectorIgnoreHolderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
 
     public override void Initialize()
     {

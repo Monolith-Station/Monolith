@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 sleepyyapril
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 namespace Content.Shared._Mono.Ships.Components;
 
 /// <summary>

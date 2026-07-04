@@ -21,6 +21,11 @@ chat-language-Sign-name = Sign
 chat-language-Marish-name = Marish
 chat-language-Chittin-name = Chittin
 chat-language-Xeeplian-name = Xeeplian
+chat-language-Hydraspeak-name = Hy'drav'tha
+
+# Ported from Floofstation:
+chat-language-NewKinPidgin-name = Ka'rakk
+
 
 # Additional languges
 
@@ -53,3 +58,6 @@ chat-language-Pig-name = Pig
 chat-language-Sheep-name = Sheep
 chat-language-Xeno-name = Xeno
 chat-language-DroneTalk-name = Drone
+
+# Added here by Mono
+chat-language-Blob-name = Blob

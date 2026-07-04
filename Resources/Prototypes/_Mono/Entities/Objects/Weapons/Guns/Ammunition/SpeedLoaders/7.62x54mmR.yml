@@ -1,7 +1,7 @@
 - type: entity
-  id: SpeedLoader7.62x54mmRFMJ
+  id: SpeedLoader762x54mmRFMJ
   name: "speed loader (7.62x54mmR FMJ)"
-  parent: [ BaseItem, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseItem
   components:
   - type: Tag
     tags:
@@ -11,9 +11,9 @@
     mayTransfer: true
     whitelist:
       tags:
-        - Cartridge7.62x54mmRFMJ
+        - Cartridge762x54mmRFMJ
     capacity: 5
-    proto: Cartridge7.62x54mmRFMJ
+    proto: Cartridge762x54mmRFMJ
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/7.62x54mmR/7.62x54mmR_speed_loader.rsi
     layers:

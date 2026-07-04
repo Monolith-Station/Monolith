@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Checkraze
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vendingMachineInventory
   id: ExpeditionaryFlatpackVendInventory
   startingInventory:
@@ -18,4 +9,7 @@
     MercenaryTechFabFlatpack: 4294967295 # Infinite
     NFHolopadShipFlatpack: 4294967295 # Infinite
     # LaserDrillFlatpack: 4294967295 # Infinite - Mono
-    ComputerIFFFlatpack: 1
+    ComputerIFFFlatpack: 4294967295 # Infinite - Mono
+    ResearchAndDevelopmentServerMercFlatpack: 4294967295 # Mono: infinite
+    ComputerResearchAndDevelopmentFlatpack: 4294967295 # Mono: infinite
+    FTLDriveFlatpack: 4294967295 # Infinite

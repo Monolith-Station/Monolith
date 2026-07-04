@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2024 TsjipTsjip
 # SPDX-FileCopyrightText: 2024 Whatstone
 # SPDX-FileCopyrightText: 2025 Ark
+# SPDX-FileCopyrightText: 2025 Avalon
 # SPDX-FileCopyrightText: 2025 Blu
 # SPDX-FileCopyrightText: 2025 Checkraze
 # SPDX-FileCopyrightText: 2025 LukeZurg22
@@ -12,6 +13,7 @@
 # SPDX-FileCopyrightText: 2025 gus
 # SPDX-FileCopyrightText: 2025 starch
 # SPDX-FileCopyrightText: 2025 the-hivequeen
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
 # SPDX-FileCopyrightText: 2025 tonotom1
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -22,8 +24,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/03/2025 00:31:08
-  entityCount: 4984
+  time: 08/25/2025 22:49:30
+  entityCount: 4985
 maps:
 - 1
 grids:
@@ -190,6 +192,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -4470,17 +4473,12 @@ entities:
     - type: IFF
       readOnly: True
     - type: ProtectedGrid
-      hostileMobKillSound: !type:SoundPathSpecifier
-        path: /Audio/Effects/holy.ogg
-      killHostileMobs: True
       preventArtifactTriggers: True
       preventEmpEvents: True
       preventRCDUse: True
-      preventFloorPlacement: True
       preventFloorRemoval: True
     - type: GridGodMode
       protectedEntities: []
-    - type: GridPacifier
     - type: GridRaider
       protectedEntities: []
     - type: ShipGridLock
@@ -4493,7 +4491,6 @@ entities:
       parent: 2
     - type: RadarBlip
       enabled: False
-      visibleFromOtherGrids: True
       shape: Ring
       scale: 52
       radarColor: '#00DEFEFF'
@@ -4505,7 +4502,6 @@ entities:
       parent: 2
     - type: RadarBlip
       enabled: False
-      visibleFromOtherGrids: True
       shape: Ring
       scale: 52
       radarColor: '#00DEFEFF'
@@ -4517,7 +4513,6 @@ entities:
       parent: 2
     - type: RadarBlip
       enabled: False
-      visibleFromOtherGrids: True
       shape: Ring
       scale: 52
       radarColor: '#00DEFEFF'
@@ -4529,7 +4524,6 @@ entities:
       parent: 2
     - type: RadarBlip
       enabled: False
-      visibleFromOtherGrids: True
       shape: Ring
       scale: 52
       radarColor: '#00DEFEFF'
@@ -4541,7 +4535,6 @@ entities:
       parent: 2
     - type: RadarBlip
       enabled: False
-      visibleFromOtherGrids: True
       shape: Ring
       scale: 0
       radarColor: '#00DEFEFF'
@@ -4553,7 +4546,6 @@ entities:
       parent: 2
     - type: RadarBlip
       enabled: False
-      visibleFromOtherGrids: True
       shape: Ring
       scale: 0
       radarColor: '#00DEFEFF'
@@ -4565,7 +4557,6 @@ entities:
       parent: 2
     - type: RadarBlip
       enabled: False
-      visibleFromOtherGrids: True
       shape: Ring
       scale: 0
       radarColor: '#00DEFEFF'
@@ -4577,7 +4568,6 @@ entities:
       parent: 2
     - type: RadarBlip
       enabled: False
-      visibleFromOtherGrids: True
       shape: Ring
       scale: 0
       radarColor: '#00DEFEFF'
@@ -26309,13 +26299,6 @@ entities:
     - type: Transform
       pos: 22.430908,16.071648
       parent: 2
-- proto: MailTeleporter
-  entities:
-  - uid: 3456
-    components:
-    - type: Transform
-      pos: -14.5,25.5
-      parent: 2
 - proto: MaterialCloth
   entities:
   - uid: 299
@@ -26483,6 +26466,13 @@ entities:
     components:
     - type: Transform
       pos: 2.4608297,35.473385
+      parent: 2
+- proto: NFSpawnPointJanitor
+  entities:
+  - uid: 4985
+    components:
+    - type: Transform
+      pos: -28.5,33.5
       parent: 2
 - proto: NFTelecomServerFilled
   entities:
@@ -29538,7 +29528,7 @@ entities:
     - type: Transform
       pos: -14.5,38.5
       parent: 2
-- proto: SpawnPointValet
+- proto: SpawnPointCCServiceWorker
   entities:
   - uid: 4028
     components:
@@ -30962,11 +30952,15 @@ entities:
     - type: Transform
       pos: -25.5,18.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 183.4669255
   - uid: 4184
     components:
     - type: Transform
       pos: 0.5,18.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 192.4669255
 - proto: VendingMachineBarista
   entities:
   - uid: 4185
@@ -30974,6 +30968,8 @@ entities:
     - type: Transform
       pos: -37.5,15.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 394.4669255
 - proto: VendingMachineBluespaceDrive
   entities:
   - uid: 4186
@@ -30981,6 +30977,8 @@ entities:
     - type: Transform
       pos: -25.5,6.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 419.4669255
 - proto: VendingMachineChefvend
   entities:
   - uid: 4187
@@ -30988,6 +30986,8 @@ entities:
     - type: Transform
       pos: -39.5,15.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 339.4669255
 - proto: VendingMachineCigsPOI
   entities:
   - uid: 4188
@@ -30995,6 +30995,8 @@ entities:
     - type: Transform
       pos: 18.5,19.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 501.4669255
 - proto: VendingMachineCiviMedPlus
   entities:
   - uid: 4189
@@ -31002,6 +31004,8 @@ entities:
     - type: Transform
       pos: 19.5,28.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 240.4669255
 - proto: VendingMachineClothing
   entities:
   - uid: 4190
@@ -31009,6 +31013,8 @@ entities:
     - type: Transform
       pos: 22.5,21.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 634.4999295
 - proto: VendingMachineCuddlyCritterVend
   entities:
   - uid: 4191
@@ -31016,11 +31022,15 @@ entities:
     - type: Transform
       pos: 4.5,18.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 256.4669255
   - uid: 4192
     components:
     - type: Transform
       pos: -29.5,18.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 599.4999385
 - proto: VendingMachineDinnerware
   entities:
   - uid: 4193
@@ -31028,6 +31038,8 @@ entities:
     - type: Transform
       pos: -38.5,15.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 640.4669255
 - proto: VendingMachineEngivendPOI
   entities:
   - uid: 4194
@@ -31049,21 +31061,29 @@ entities:
     - type: Transform
       pos: -25.5,13.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 242.4669255
   - uid: 4197
     components:
     - type: Transform
       pos: -29.5,13.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 399.4669255
   - uid: 4198
     components:
     - type: Transform
       pos: 0.5,13.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 308.4669255
   - uid: 4199
     components:
     - type: Transform
       pos: 4.5,13.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 285.4669255
 - proto: VendingMachineJaniDrobe
   entities:
   - uid: 4200
@@ -31071,6 +31091,8 @@ entities:
     - type: Transform
       pos: -28.5,35.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 529.4669255
 - proto: VendingMachineMailDrobe
   entities:
   - uid: 4201
@@ -31078,6 +31100,8 @@ entities:
     - type: Transform
       pos: 21.5,14.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 252.4669255
 - proto: VendingMachineMailVend
   entities:
   - uid: 4202
@@ -31085,6 +31109,8 @@ entities:
     - type: Transform
       pos: 18.5,18.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 352.4669255
 - proto: VendingMachineRestockChefvend
   entities:
   - uid: 4203
@@ -31123,6 +31149,8 @@ entities:
     - type: Transform
       pos: 14.5,24.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 635.4669255
 - proto: VendingMachineTankDispenserEVAPOI
   entities:
   - uid: 4209
@@ -31137,6 +31165,8 @@ entities:
     - type: Transform
       pos: 20.5,14.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 591.4999165
 - proto: VendingMachineVendomatPOI
   entities:
   - uid: 4211
@@ -31144,6 +31174,8 @@ entities:
     - type: Transform
       pos: 16.5,13.5
       parent: 2
+    - type: Advertise
+      nextAdvertisementTime: 713.4998685
 - proto: VendingMachineYouToolPOI
   entities:
   - uid: 4212

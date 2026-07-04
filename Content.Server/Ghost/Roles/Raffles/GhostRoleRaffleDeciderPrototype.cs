@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 no
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Tayrtahn
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Ghost.Roles.Raffles;

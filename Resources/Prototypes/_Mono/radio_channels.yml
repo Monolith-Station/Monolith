@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Coenx-flex
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: radioChannel
   id: Ussp
   name: chat-radio-ussp
@@ -11,13 +6,13 @@
   color: "#b2224b"
   longRange: true
 
-- type: radioChannel
-  id: UsspCommand
-  name: chat-radio-ussp-command
-  keycode: 'i'
-  frequency: 1725
-  color: "#ff0026"
-  longRange: true
+# - type: radioChannel
+#  id: UsspCommand
+#  name: chat-radio-ussp-command
+#  keycode: 'i'
+#  frequency: 1725
+#  color: "#ff0026"
+#  longRange: true
 
 - type: radioChannel
   id: Letoferol
@@ -31,4 +26,27 @@
   name: chat-radio-cortical-borer
   keycode: 'z'
   color: "#d842fc"
+  longRange: true
+
+- type: radioChannel
+  id: Remnants
+  name: chat-radio-remnants
+  keycode: 'j'
+  color: "#21b0a4"
+  longRange: true
+
+- type: radioChannel
+  id: Viper
+  name: chat-radio-viper
+  keycode: 'i'
+  frequency: 1753
+  color: "#ff4242" #Brighter color used for visual clarity.
+  longRange: true
+
+- type: radioChannel
+  id: Freeport
+  name: chat-radio-freeport
+  keycode: 'o'
+  frequency: 1761
+  color: "#b87333"
   longRange: true

@@ -1,134 +1,94 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: npcFaction
+  id: CC
+  hostile:
+  - SimpleHostile
+  - Zombie
+  - Chimera
 
 - type: npcFaction
   id: TSFMC
-  hostile:
-  - SimpleHostile
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - Dragon
-  - AllHostile
-  - Wizard
-  - WizFedFaction # Frontier
-  - BloodCultNF # Frontier
-  - PirateNF # Frontier
-  - ExplorersExpeditionNF # Frontier
-  - ArtifactConstruct # Frontier
-  - StreetGangNF # Frontier
-  - DinosaursNF # Frontier
-  - MercenariesExpeditionNF # Frontier
-  - SiliconsExpeditionNF # Frontier
-  - AberrantFleshExpeditionNF # Frontier
-  - USSP
-  - USSPTurret
+  neutral:
+  - CC
+  - NanoTrasen
+  - SimpleNeutral
+  defaultHostile: true
 
 - type: npcFaction
   id: TSFMCTurret
-  hostile:
-  - SimpleHostile
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - Dragon
-  - AllHostile
-  - Wizard
-  - WizFedFaction # Frontier
-  - BloodCultNF # Frontier
-  - PirateNF # Frontier
-  - ExplorersExpeditionNF # Frontier
-  - ArtifactConstruct # Frontier
-  - StreetGangNF # Frontier
-  - DinosaursNF # Frontier
-  - MercenariesExpeditionNF # Frontier
-  - SiliconsExpeditionNF # Frontier
-  - AberrantFleshExpeditionNF # Frontier
+  friendly:
+  - TSFMC
+  neutral:
+  - CC
+  - NanoTrasen
+  - Cat
   - PetsNT
-  - USSP
-  - USSPTurret
+  - SimpleNeutral
+  - MD
+  - ContrabandDetection
+  - Mouse
+  defaultHostile: true
 
 - type: npcFaction
   id: USSP
-  hostile:
-  ## SS14 factions
-  - Dragon
+  neutral:
+  - CC
+  - NanoTrasen
+  - SimpleNeutral
   - Mouse
-  - Passive
-  - PetsNT
-  - SimpleHostile
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Wizard
-  ## Frontier Factions
-  - SyndicateNF
-  - WizFedFaction
-  - BloodCultNF
-  - PirateNF
-  - ExplorersExpeditionNF
-  - ArtifactConstruct
-  - StreetGangNF
-  - DinosaursNF
-  - MercenariesExpeditionNF
-  - SiliconsExpeditionNF
-  - AberrantFleshExpeditionNF
-  - ContrabandClothing
-  - ContrabandDetection
-  - TSFMC # Mono
-  - TSFMCTurret # Mono
+  defaultHostile: true
 
 - type: npcFaction
   id: USSPTurret
-  hostile:
-  ## SS14 factions
-  - Dragon
-  - Mouse
-  - Passive
+  friendly:
+  - USSP
+  neutral:
+  - NanoTrasen
+  - Cat
   - PetsNT
-  - SimpleHostile
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Wizard
-  ## Frontier Factions
-  - SyndicateNF
-  - WizFedFaction
-  - BloodCultNF
-  - PirateNF
-  - ExplorersExpeditionNF
-  - ArtifactConstruct
-  - StreetGangNF
-  - DinosaursNF
-  - MercenariesExpeditionNF
-  - SiliconsExpeditionNF
-  - AberrantFleshExpeditionNF
-  - TSFMC # Mono
-  - TSFMCTurret # Mono
+  - SimpleNeutral
+  - MD
+  - Mouse
+  defaultHostile: true
 
 - type: npcFaction
   id: MD
-  hostile:
-  - SimpleHostile
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - Dragon
-  - AllHostile
-  - Wizard
-  - WizFedFaction # Frontier
-  - BloodCultNF # Frontier
-  - PirateNF # Frontier
-  - ExplorersExpeditionNF # Frontier
-  - ArtifactConstruct # Frontier
-  - StreetGangNF # Frontier
-  - DinosaursNF # Frontier
-  - MercenariesExpeditionNF # Frontier
-  - SiliconsExpeditionNF # Frontier
-  - AberrantFleshExpeditionNF # Frontier
+  friendly:
+  - CC
+  neutral:
+  - CC
+  - NanoTrasen
+  - SimpleNeutral
+  - Cat
+  - PetsNT
+  - TSFMC
+  - TSFMCTurret
+  - Mouse
+  defaultHostile: true
+
+- type: npcFaction
+  id: Chimera
+  friendly:
+  - AberrantFleshExpeditionNF
+  defaultHostile: true
+
+- type: npcFaction
+  id: VG
+  neutral:
+  - CC
+  - NanoTrasen
+  - SimpleNeutral
+  - Mouse
+  - USSP
+  defaultHostile: true
+
+- type: npcFaction
+  id: VGTurret # Doesn't like intruders.
+  friendly:
+  - VG
+  neutral:
+  - Cat
+  - PetsNT
+  - SimpleNeutral
+  - Mouse
+  - USSP
+  defaultHostile: true

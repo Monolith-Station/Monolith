@@ -1,18 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Maxtone
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Alice "Arimah" Heurlin
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 mikusssssss
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: job
   id: StationRepresentative
   name: job-name-sr
@@ -20,35 +5,40 @@
   playTimeTracker: JobHeadOfPersonnel
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 72000 # 20 hrs
+      time: 360000 # 100 hrs
     - !type:RoleTimeRequirement
       role: JobSecurityGuard
-      time: 7200 # 2 hrs as security guard - mono
-  whitelisted: true
+      time: 18000 # 5 hrs as security guard - mono
+    # Factions are required here because Overseer needs to actually understand how both factions work.
+    - !type:RoleTimeRequirement
+      role: JobPirate
+      time: 36000 # 10 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # 10 hours
+  whitelisted: false
   startingGear: SrGear
   alwaysUseSpawner: true
-  icon: "JobIconHeadOfPersonnel"
+  assignedCompany: Colonial
+  icon: "JobIconHeadOfSecurity" # Mono
   requireAdminNotify: true
   supervisors: job-supervisors-centcom
   weight: 170
   displayWeight: 60 # Top
   canBeAntag: false
   accessGroups:
-  - AllAccess
+  - AllAccessMono #Mono
+  access:
+  - HeadOfPersonnel #Mono
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, TrackingImplant ]
+    implants: [ MindShieldImplant ] # Mono - remove TSFMC implant
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: NpcFactionMember
-        factions:
-        - TSFMC
-  - !type:AddLanguageSpecial
-    languagesSpoken:
-    - SolCommon
-    languagesUnderstood:
-    - SolCommon
+      #- type: NpcFactionMember - Commented out to seperate them from TSFMC.
+      #  factions:
+      #  - TSFMC
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
@@ -56,11 +46,14 @@
 - type: startingGear
   id: SrGear
   equipment:
-    pocket1: WeaponDisabler
+    pocket1: WeaponEnergyGunLawbringer
   storage:
     back:
     - Flash
     - RubberStampSr
     - DoorRemoteCommand
-    - EncryptionKeyCentCom # Mono
-    - EncryptionKeyStationMaster
+    - EncryptionKeyCentCom
+    - EncryptionKeyStationMasterSR #Mono start
+    - EncryptionKeyDiplomacy
+    - ShipVoucherFrontierGuard
+    - PhoneInstrumentHigh

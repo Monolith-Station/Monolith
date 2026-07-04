@@ -1,51 +1,65 @@
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutGroup
   id: MercenaryFirearm
   name: loadout-group-weapon
   minLimit: 0
   loadouts:
+  # - MercenaryEnforcerLoadout
+  # - MercenaryWt550Loadout
+  # - MercenaryC20rLoadout
+  - MercenaryGestioLoadout
+  - MercenaryNovaliteLoadout
+  - MercenaryAk220Loadout
+  - MercenaryKnallstockLoadout
+  - MercenaryKeyboardLoadout
+  - MercenaryPrometheusLoadout
+  - MercenaryIrohLoadout
+  - MercenaryLeeEnfieldLoadout
+  - MercenaryVulcanCLoadout
+  - MercenaryMosinLoadout
+  - MercenarySvsLoadout
   - MercenaryKammererLoadout
-  - MercenaryEnforcerLoadout
-  - MercenaryLecterLoadout
-  - MercenaryDrozdLoadout
-  - MercenaryWt550Loadout
-  - MercenaryC20rLoadout
   - MercenaryDisablerSMGLoadout
   - MercenaryLaserCarbineLoadout
   - MercenaryEnergyGunLoadout
-  - MercenaryLaserCannonLoadout
-  - MercenaryAk220Loadout
 
 - type: loadoutGroup
   id: MercenaryPistol
   name: loadout-group-pistol
-  minLimit: 1
+  minLimit: 0
   loadouts:
-  - ContractorMk32Loadout
+  - MercenaryPollockLoadout
   - MercenaryMk58Loadout
   - MercenaryViperLoadout
+  - ContractorArgentiLoadout
   - MercenarySawedOffLoadout
+  - MercenaryHelepolisLoadout
+  - ContractorDisablerLoadout
+  - MercenaryLaserPistolLoadout
+  - MercenaryCombatKnifeLoadout
+  - MercenaryKukriKnifeLoadout
+  - MercenaryThrowingKnifeLoadout
+  - MercenaryMacheteLoadout
   fallbacks:
-  - ContractorMk32Loadout
+  - MercenaryPollockLoadout
 
 - type: loadoutGroup
   id: MercenaryMag
   name: loadout-group-magazine
-  minLimit: 1
+  minLimit: 0
   loadouts:
-  - Mercenary9x19mmPistolAmmoLoadout #MK32 Universal / Viper Ammo
-  - MercenaryAcpPistolAmmoLoadout #MK58
-  - MercenaryBuckshotAmmoLoadout #Buckshot
-  - MercenarySlugAmmoLoadout #Slugs
-  - Mercenary5.56x45mmAmmoLoadout #Lecter
-  - MercenaryAcpSubAmmoLoadout #Drozd
-  - Mercenary4.6x30mmTopAmmoLoadout #WT550
-  - Mercenary9x19SmgAmmoLoadout #C20r
+  - Mercenary9x19mmPistolAmmoLoadout #Pollock / Viper / Knallstock
+  - MercenaryAcpPistolAmmoLoadout #MK58 / Knallstock
+  - Contractor556x45mmAmmoLoadout #Argenti
+  - Mercenary762x39mmAmmoLoadout #Gestio
+  - MercenaryNovaliteAmmoLoadout #Novalite
+  - Mercenary9x19SmgAmmoLoadout #AK220
+  - MercenaryAcpSubAmmoLoadout #Keyboard
+  - Mercenary556x45mmAmmoLoadout #Prometheus
+  - Mercenary762x51mmAmmoLoadout #Vulcan-C / Lee Enfield
+  - MercenaryBuckshotAmmoLoadout #Kammerer / Sawn Buckshot
+  - MercenarySlugAmmoLoadout #Kammerer / Sawn Slugs
+  # - Mercenary46x30mmTopAmmoLoadout #WT550
+  - Mercenary762x54mmRAmmoLoadout #Mosin / SVS42
   - MercenaryRechargerLoadout #Energy
   fallbacks:
-  - Mercenary9x19mmPistolAmmoLoadout #MK32 Universal / Viper Ammo
+  - Mercenary9x19mmPistolAmmoLoadout #Pollock

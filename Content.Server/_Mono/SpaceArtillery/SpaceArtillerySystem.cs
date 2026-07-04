@@ -1,16 +1,19 @@
 using System.Numerics;
+using Content.Server._Mono.AmmoLoader;
 using Content.Server._Mono.FireControl;
+using Content.Server.Power.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._Mono.AmmoLoader;
 using Content.Shared._Mono.ShipGuns;
 using Content.Shared._Mono.SpaceArtillery;
 using Content.Shared.Camera;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Examine;
 using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Map;
@@ -21,12 +24,13 @@ namespace Content.Server._Mono.SpaceArtillery;
 
 public sealed partial class SpaceArtillerySystem : EntitySystem
 {
-    [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _recoilSystem = default!;
-    [Dependency] private readonly FireControlSystem _fireControl = default!;
+    [Dependency] private GunSystem _gun = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private SharedCameraRecoilSystem _recoilSystem = default!;
+    [Dependency] private FireControlSystem _fireControl = default!;
+    [Dependency] private AmmoLoaderSystem _ammoLoader = default!;
 
     private const float DISTANCE = 100;
     private const float BIG_DAMAGE = 1000;
@@ -51,6 +55,15 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
     {
         if (!TryComp<DeviceLinkSinkComponent>(uid, out var source))
             return;
+
+        if (args.Port == component.SpaceArtilleryLoadPort)
+        {
+            if (TryComp<AmmoLoaderComponent>(args.Trigger, out var loader) && args.Trigger != null)
+            {
+                _ammoLoader.TryTransferAmmoTo(new Entity<AmmoLoaderComponent>(args.Trigger.Value, loader), uid);
+            }
+            return;
+        }
 
         if (args.Port != component.SpaceArtilleryFirePort)
             OnMalfunction(uid, component);
@@ -96,6 +109,12 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
     private void TryFireArtillery(EntityUid uid, TransformComponent xform, SpaceArtilleryComponent component)
     {
         if (xform.GridUid == null && !xform.MapUid.HasValue)
+        {
+            return;
+        }
+
+        var parentGrid = xform.GridUid;
+        if (HasComp<SpaceArtilleryDisabledGridComponent>(parentGrid) || !xform.Anchored)
         {
             return;
         }
@@ -162,8 +181,9 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
                 continue;
 
             var vector = _xform.GetWorldPosition(uid) - _xform.GetWorldPosition(playerEnt);
+            var normalized = float.IsNaN(vector.Normalized().X) ? Vector2.Zero : vector.Normalized();
 
-            _recoilSystem.KickCamera(playerEnt, vector.Normalized() * (float)hitEvent.Damage.GetTotal() / BIG_DAMAGE * BIG_DAMGE_KICK);
+            _recoilSystem.KickCamera(playerEnt, normalized * (float)hitEvent.Damage.GetTotal() / BIG_DAMAGE * BIG_DAMGE_KICK);
         }
     }
 

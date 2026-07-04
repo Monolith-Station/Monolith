@@ -1,0 +1,859 @@
+# practice/empty = TOTAL/10
+# boxes = magazine * 3-ish
+#.45 magnum gonna use intermediate
+
+#Base intermediate ammo magazines for 5.56, 5.45, 762x39mm and potential others
+#Magazines:     [TOTAL = 475]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJIntermediateMagazineRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 475
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPlasteelAPIntermediateMagazineRecipe
+  categories:
+  - PlasteelAPAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 100
+    Plasteel: 375
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRubberIntermediateMagazineRecipe
+  categories:
+  - MiscAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 75
+    Plastic: 400
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoIncendiaryIntermediateMagazineRecipe
+  categories:
+  - IncenAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 75
+    Plastic: 150
+    Plasma: 250
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPracticeIntermediateMagazineRecipe
+  categories:
+  - PracticeAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 47
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoEmptyIntermediateMagazineRecipe
+  categories:
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 47
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoUraniumIntermediateMagazineRecipe
+  categories:
+  - UraniumAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 175
+    UraniumDepleted: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoHPIntermediateMagazineRecipe
+  categories:
+  - HPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 475
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRIPIntermediateMagazineRecipe
+  categories:
+  - RIPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 235
+    Plasteel: 240
+
+#Base intermediate ammo speedloaders for .45 magnum, 5.56, 5.45, 762x39mm and potential others
+#speedloaders:     [TOTAL = 175]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJIntermediateSpeedloaderRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 175
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPlasteelAPIntermediateSpeedloaderRecipe
+  categories:
+  - PlasteelAPAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 35
+    Plasteel: 140
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRubberIntermediateSpeedloaderRecipe
+  categories:
+  - MiscAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 40
+    Plastic: 135
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoIncendiaryIntermediateSpeedloaderRecipe
+  categories:
+  - IncenAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 25
+    Plastic: 50
+    Plasma: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPracticeIntermediateSpeedloaderRecipe
+  categories:
+  - PracticeAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 17
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoEmptyIntermediateSpeedloaderRecipe
+  abstract: true
+  materials:
+    Steel: 17
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoUraniumIntermediateSpeedloaderRecipe
+  categories:
+  - UraniumAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 60
+    UraniumDepleted: 50
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoHPIntermediateSpeedloaderRecipe
+  categories:
+  - HPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 175
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRIPIntermediateSpeedloaderRecipe
+  categories:
+  - RIPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 85
+    Plasteel: 90
+
+#Base intermediate ammo boxes for 5.56, 5.45, 762x39mm and potential others
+#Boxes:     [TOTAL = 1425]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJIntermediateAmmoBoxRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 1425
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPlasteelAPIntermediateAmmoBoxRecipe
+  categories:
+  - PlasteelAPAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 350
+    Plasteel: 1075
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRubberIntermediateAmmoBoxRecipe
+  categories:
+  - MiscAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 570
+    Plastic: 855
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoIncendiaryIntermediateAmmoBoxRecipe
+  categories:
+  - IncenAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 285
+    Plastic: 285
+    Plasma: 855
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPracticeIntermediateAmmoBoxRecipe
+  categories:
+  - PracticeAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 142
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoUraniumIntermediateAmmoBoxRecipe
+  categories:
+  - UraniumAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 570
+    UraniumDepleted: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoHPIntermediateAmmoBoxRecipe
+  categories:
+  - HPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 1425
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRIPIntermediateAmmoBoxRecipe
+  categories:
+  - RIPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 710
+    Plasteel: 715
+
+#Base Fully powered ammo magazines for all the other 7.62 (-762x39mm)
+#Magazines: [TOTAL = 575]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJFullyPoweredMagazineRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 575
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPlasteelAPFullyPoweredMagazineRecipe
+  categories:
+  - PlasteelAPAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 150
+    Plasteel: 425
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRubberFullyPoweredMagazineRecipe
+  categories:
+  - MiscAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 125
+    Plastic: 450
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoIncendiaryFullyPoweredMagazineRecipe
+  categories:
+  - IncenAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 100
+    Plastic: 175
+    Plasma: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPracticeFullyPoweredMagazineRecipe
+  categories:
+  - PracticeAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 57
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoEmptyFullyPoweredMagazineRecipe
+  abstract: true
+  materials:
+    Steel: 57
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoUraniumFullyPoweredMagazineRecipe
+  categories:
+  - UraniumAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 200
+    UraniumDepleted: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoHPFullyPoweredMagazineRecipe
+  categories:
+  - HPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 575
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRIPFullyPoweredMagazineRecipe
+  categories:
+  - RIPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 285
+    Plasteel: 290
+
+#Base Fully powered ammo boxes for all the other 7.62 (-762x39mm)
+#Boxes:     [TOTAL = 1725]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJFullyPoweredAmmoBoxRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 1725
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPlasteelAPFullyPoweredAmmoBoxRecipe
+  categories:
+  - PlasteelAPAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 400
+    Plasteel: 1325
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRubberFullyPoweredAmmoBoxRecipe
+  categories:
+  - MiscAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 345
+    Plastic: 1380
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoIncendiaryFullyPoweredAmmoBoxRecipe
+  categories:
+  - IncenAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 345
+    Plastic: 345
+    Plasma: 1035
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPracticeFullyPoweredAmmoBoxRecipe
+  categories:
+  - PracticeAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 172
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoUraniumFullyPoweredAmmoBoxRecipe
+  categories:
+  - UraniumAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 575
+    UraniumDepleted: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoHPFullyPoweredAmmoBoxRecipe
+  categories:
+  - HPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 1725
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRIPFullyPoweredAmmoBoxRecipe
+  categories:
+  - RIPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 860
+    Plasteel: 865
+
+#Base Fully powered ammo speedloaders for all the other 7.62 (-762x39mm)
+#speedloaders:     [TOTAL = 225]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJFullyPoweredSpeedloaderRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 225
+
+#Base pistol caliber magazines ammo for .45 ACP, 9mm, 5.7mm, 4.6mm
+#Magazines: [TOTAL = 175]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJPistolCaliberPistolMagazineRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 175
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPlasteelAPPistolCaliberPistolMagazineRecipe
+  categories:
+  - PlasteelAPAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 50
+    Plasteel: 125
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRubberPistolCaliberPistolMagazineRecipe
+  categories:
+  - MiscAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 40
+    Plastic: 135
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoIncendiaryPistolCaliberPistolMagazineRecipe
+  categories:
+  - IncenAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 25
+    Plastic: 50
+    Plasma: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPracticePistolCaliberPistolMagazineRecipe
+  categories:
+  - PracticeAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 17
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoEmptyPistolCaliberPistolMagazineRecipe
+  abstract: true
+  materials:
+    Steel: 17
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoUraniumPistolCaliberPistolMagazineRecipe
+  categories:
+  - UraniumAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 50
+    UraniumDepleted: 50
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoHPPistolCaliberPistolMagazineRecipe
+  categories:
+  - HPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 175
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRIPPistolCaliberPistolMagazineRecipe
+  categories:
+  - RIPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 85
+    Plasteel: 90
+
+#Base pistol caliber smg magazines ammo for .45 ACP, 9mm, 5.7mm, 4.6mm
+#Magazines: [TOTAL = 375]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJPistolCaliberSubMachineGunMagazineRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 375
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPlasteelAPPistolCaliberSubMachineGunMagazineRecipe
+  categories:
+  - PlasteelAPAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 50
+    Plasteel: 225
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRubberPistolCaliberSubMachineGunMagazineRecipe
+  categories:
+  - MiscAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 50
+    Plastic: 325
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoIncendiaryPistolCaliberSubMachineGunMagazineRecipe
+  categories:
+  - IncenAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 75
+    Plastic: 100
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPracticePistolCaliberSubMachineGunMagazineRecipe
+  categories:
+  - PracticeAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 37
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoEmptyPistolCaliberSubMachineGunMagazineRecipe
+  abstract: true
+  materials:
+    Steel: 37
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoUraniumPistolCaliberSubMachineGunMagazineRecipe
+  categories:
+  - UraniumAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 125
+    UraniumDepleted: 75
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoHPPistolCaliberSubMachineGunMagazineRecipe
+  categories:
+  - HPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 375
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRIPPistolCaliberSubMachineGunMagazineRecipe
+  categories:
+  - RIPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 185
+    Plasteel: 190
+
+#Base PistolCaliber ammo speedloaders for .45 magnum, 5.56, 5.45, 762x39mm and potential others
+#speedloaders:     [TOTAL = 175]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJPistolCaliberSpeedloaderRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 175
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRubberPistolCaliberSpeedloaderRecipe
+  categories:
+  - MiscAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 40
+    Plastic: 135
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoIncendiaryPistolCaliberSpeedloaderRecipe
+  categories:
+  - IncenAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 25
+    Plastic: 50
+    Plasma: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPracticePistolCaliberSpeedloaderRecipe
+  categories:
+  - PracticeAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 17
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoEmptyPistolCaliberSpeedloaderRecipe
+  abstract: true
+  materials:
+    Steel: 17
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoUraniumPistolCaliberSpeedloaderRecipe
+  categories:
+  - UraniumAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 60
+    UraniumDepleted: 50
+
+#Base pistol caliber ammo boxes for .45 ACP, 9mm, 5.7mm, 4.6mm
+#Boxes:     [TOTAL = 1125]
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJPistolCaliberAmmoBoxRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 1125
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPlasteelAPPistolCaliberAmmoBoxRecipe
+  categories:
+  - PlasteelAPAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 200
+    Plasteel: 925
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRubberPistolCaliberAmmoBoxRecipe
+  categories:
+  - MiscAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 175
+    Plastic: 950
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoIncendiaryPistolCaliberAmmoBoxRecipe
+  categories:
+  - IncenAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 225
+    Plastic: 450
+    Plasma: 675
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoPracticePistolCaliberAmmoBoxRecipe
+  abstract: true
+  materials:
+    Steel: 112
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoUraniumPistolCaliberAmmoBoxRecipe
+  categories:
+  - UraniumAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 375
+    UraniumDepleted: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoHPPistolCaliberAmmoBoxRecipe
+  categories:
+  - HPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 1125
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoRIPPistolCaliberAmmoBoxRecipe
+  categories:
+  - RIPammo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 560
+    Plasteel: 565
+
+#pistol caliber big
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJPistolCaliberBigAmmoBoxRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 3400
+
+#intermediate big
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJIntermediateBigAmmoBoxRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 4300
+
+#fully powered big
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BaseAmmoFMJFullyPoweredBigAmmoBoxRecipe
+  categories:
+  - FMJAmmo
+  - Ammo
+  abstract: true
+  materials:
+    Steel: 5200

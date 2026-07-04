@@ -25,11 +25,11 @@ namespace Content.Server.Station.Systems;
 [PublicAPI]
 public sealed partial class StationJobsSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     /// <summary>
     /// The maximum number of slots allowed for any job.
@@ -257,7 +257,7 @@ public sealed partial class StationJobsSystem : EntitySystem
 
         // Enforce the MaxJobSlots limit
         var clampedAmount = Math.Min(amount, MaxJobSlots);
-        
+
         var jobList = stationJobs.JobList;
 
         switch (jobList.ContainsKey(jobPrototypeId))
@@ -537,7 +537,7 @@ public sealed partial class StationJobsSystem : EntitySystem
                     stationDisplay = new StationDisplayInformation(
                         stationSubtext: extraStationInformation.StationSubtext,
                         stationDescription: extraStationInformation.StationDescription,
-                        stationIcon: extraStationInformation.IconPath,
+                        stationIcon: extraStationInformation.Icon,
                         lobbySortOrder: extraStationInformation.LobbySortOrder
                     );
                 }

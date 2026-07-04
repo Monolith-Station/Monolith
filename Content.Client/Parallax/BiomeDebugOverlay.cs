@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Tayrtahn
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using System.Text;
 using Content.Shared.Parallax.Biomes;
@@ -15,16 +10,16 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Client.Parallax;
 
-public sealed class BiomeDebugOverlay : Overlay
+public sealed partial class BiomeDebugOverlay : Overlay
 {
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IEyeManager _eyeManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IEyeManager _eyeManager = default!;
+    [Dependency] private IInputManager _inputManager = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private ITileDefinitionManager _tileDefManager = default!;
 
     private BiomeSystem _biomes;
     private SharedMapSystem _maps;

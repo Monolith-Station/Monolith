@@ -1,49 +1,35 @@
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 Clyybber
-// SPDX-FileCopyrightText: 2021 Galactic Chimp
-// SPDX-FileCopyrightText: 2021 Paul
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2021 Visne
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin
-// SPDX-FileCopyrightText: 2022 Fishfish458
-// SPDX-FileCopyrightText: 2022 Francesco
-// SPDX-FileCopyrightText: 2022 Jacob Tong
-// SPDX-FileCopyrightText: 2022 Leon Friedrich
-// SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
-// SPDX-FileCopyrightText: 2022 keronshb
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 SlamBamActionman
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 // HEAVILY EDITED
 // if wizden ever does something to this system we're FUCKED
 // regards.
 
+using System.Xml.Schema;
 using Content.Shared._White;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
+using Content.Shared.Projectiles;
 using Content.Shared.Rotation;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Random;
+using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Shared.Standing;
 
-public sealed class StandingStateSystem : EntitySystem
+public sealed partial class StandingStateSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!; // WD EDIT
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!; // WD EDIT
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!; // WD EDIT
+    [Dependency] private SharedBuckleSystem _buckle = default!; // WD EDIT
+    [Dependency] private SharedTransformSystem _transform = default!; // Mono
+    [Dependency] private IRobustRandom _random = default!; // Mono
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
     private const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
@@ -53,6 +39,7 @@ public sealed class StandingStateSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<StandingStateComponent, AttemptMobCollideEvent>(OnMobCollide);
         SubscribeLocalEvent<StandingStateComponent, AttemptMobTargetCollideEvent>(OnMobTargetCollide);
+        SubscribeLocalEvent<StandingStateComponent, PreventCollideEvent>(PreventCollide); // Mono
     }
 
     private void OnMobTargetCollide(Entity<StandingStateComponent> ent, ref AttemptMobTargetCollideEvent args)
@@ -146,6 +133,7 @@ public sealed class StandingStateSystem : EntitySystem
         }
 
         _movement.RefreshMovementSpeedModifiers(uid); // WD EDIT
+        _movement.RefreshWeightlessModifiers(uid); // Mono edit
         return true;
     }
 
@@ -189,8 +177,27 @@ public sealed class StandingStateSystem : EntitySystem
         }
         standingState.ChangedFixtures.Clear();
         _movement.RefreshMovementSpeedModifiers(uid); // WD EDIT
-
+        _movement.RefreshWeightlessModifiers(uid); // Mono edit
         return true;
+    }
+
+    /// Mono Method: Crawling causes some projectiles based on rng to miss you.
+    private void PreventCollide(Entity<StandingStateComponent> ent, ref PreventCollideEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        // ONLY apply collision prevention logic to projectiles
+        // This check must come FIRST to prevent non-projectiles from being affected
+        if (!TryComp<ProjectileComponent>(args.OtherEntity, out var projectile))
+            return;
+
+        // Check distance between shooter and target, if too close, hit always.
+        if (projectile.Shooter is { } shooter && _transform.InRange(shooter, ent.Owner, ent.Comp.HitRange))
+            return;
+
+        if (ent.Comp.CurrentState != StandingState.Standing && _random.Prob(ent.Comp.LyingDodgeChance))
+            args.Cancelled = true;
     }
 }
 

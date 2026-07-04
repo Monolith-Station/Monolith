@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace Content.Shared._White.Overlays;
 
 public abstract partial class BaseVisionOverlayComponent : Component

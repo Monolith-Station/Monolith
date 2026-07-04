@@ -7,6 +7,7 @@
     Bloodpack: 5
     Gauze: 5 # Frontier
     EpinephrineChemistryBottle: 3
+    PillCanisterTricordrazine: 3 # Mono
     Syringe: 5
     BoxBottle: 3
     ClothingEyesHudMedical: 2
@@ -17,5 +18,5 @@
     LightImplanterLabeled: 10 # Frontier
     BoxFolderMedicalDoctor: 4294967295 # Frontier - infinite
     MedTekCartridge: 3 # Frontier
-  # contrabandInventory: # Frontier
-  #   FoodApple: 1 # Frontier
+  contrabandInventory: # Frontier
+    FoodApple: 1

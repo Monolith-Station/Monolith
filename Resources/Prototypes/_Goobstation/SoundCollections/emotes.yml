@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 Redrover1760
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-- type: soundCollection
-  id: Trill
-  files:
-    - /Audio/_Goobstation/Voice/Resomi/trill.ogg
-
 - type: soundCollection
   id: Warble
   files:
@@ -22,3 +12,37 @@
   id: Bagawk
   files:
     - /Audio/_Mono/Voice/bagawk.ogg
+
+- type: soundCollection 
+  id: VoxCough
+  files:
+  - /Audio/_Goobstation/Voice/Vox/vox_cough.ogg
+  - /Audio/_Goobstation/Voice/Vox/vox_cough2.ogg
+  
+- type: soundCollection 
+  id: VoxChitter
+  files:
+  - /Audio/_Goobstation/Voice/Vox/vox_chitter.ogg
+  - /Audio/_Goobstation/Voice/Vox/vox_chitter1.ogg
+  - /Audio/_Goobstation/Voice/Vox/vox_chitter2.ogg
+ 
+- type: soundCollection 
+  id: VoxClick
+  files:
+  - /Audio/_Goobstation/Voice/Vox/vox_click.ogg
+  
+- type: soundCollection 
+  id: VoxHiss
+  files:
+  - /Audio/_Goobstation/Voice/Vox/voxhiss.ogg
+
+- type: soundCollection
+  id: Yip
+  files:
+  - /Audio/_Floofstation/Voice/Reptilian/yip.ogg
+
+- type: soundCollection
+  id: ReptilianHiss
+  files:
+  - /Audio/_Floofstation/Voice/Reptilian/hiss.ogg
+  - /Audio/_Impstation/Voice/Reptillian/reptillian_hiss1.ogg # Imp

@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Qulibly
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Clutter
 - type: entity
   name: random clutter
@@ -429,54 +421,50 @@
         color: red
   - type: RandomSpawner
     prototypes:
+    # Mono - Commented out frontierslop + modified chances heavily
     # Empty crates
-    - CrateSecureMercenary
-    - CrateSecureMercenaryPrivateSec
-    - CrateAmmoGeneric
+    # - CrateSecureMercenary
+    # - CrateSecureMercenaryPrivateSec
+    # - CrateAmmoGeneric
     # Restocks
-    - CrateVendingMachineRestockAmmoFilled
-    - CrateVendingMachineRestockLessLethalVendFilled
-    - CrateVendingMachineRestockNonLethalVendFilled
+    # - CrateVendingMachineRestockAmmoFilled
+    # - CrateVendingMachineRestockLessLethalVendFilled
+    # - CrateVendingMachineRestockNonLethalVendFilled
     # Filled crates
-    - CrateSecureMercenaryHardsuit
-    - CrateSecureMercenaryPrivateSecHardsuit
-    - CrateSecurityArmor
-    - CrateSecurityHelmet
-    - CrateArmoryShotgunExpedition
-    - CrateArmoryPistolsExpedition
-    - CrateArmoryRifleGestioExpedition
-    - CrateArmoryRifleNovaliteC1Expedition
-    - CrateArmoryEnergyGunExpedition
+    # - CrateSecureMercenaryHardsuit
+    # - CrateSecureMercenaryPrivateSecHardsuit
+    # - CrateSecurityArmor
+    # - CrateSecurityHelmet
+    # - CrateArmoryRifleGestioExpedition
+    # - CrateArmoryRifleNovaliteC1Expedition
     # Ammo
-    - CrateAmmoBoxLethal20
-    - CrateAmmoBoxLethal25
-    - CrateAmmoBoxLethal30
-    - CrateAmmoBoxLethal35
-    - CrateAmmoBoxLethal45
-    - CrateAmmoAmmoBox12_gaugeBuckshotgun
-    - CrateAmmoBoxSlugShotgun
-    - CrateAmmoBoxRubber20
-    - CrateAmmoBoxRubber25
-    - CrateAmmoBoxRubber30
-    - CrateAmmoBoxRubber35
-    - CrateAmmoBoxRubber45
-    - CrateAmmoBoxRubberShotgun
-    chance: 0.85
-    offset: 0.0
-    rarePrototypes:
-    - CrateArmorySMGExpedition
-    - CrateArmoryLaserExpedition
-    - CrateArmorySMGExpedition
-    - CrateArmoryLaserExpedition
-    - CrateSecurityNonlethal
-    - CrateSecureMercenaryHardsuitMagBoots
-    - CrateSecureMercenaryPrivateSecHardsuitMagBoots
+    # - CrateAmmoBoxLethal20
+    # - CrateAmmoBoxLethal25
+    # - CrateAmmoBoxLethal30
+    # - CrateAmmoBoxLethal35
+    # - CrateAmmoBoxLethal45
+    # - CrateAmmoAmmoBox12_gaugeBuckshotgun
+    # - CrateAmmoBoxSlugShotgun
+    # - CrateAmmoBoxRubber20
+    # - CrateAmmoBoxRubber25
+    # - CrateAmmoBoxRubber30
+    # - CrateAmmoBoxRubber35
+    # - CrateAmmoBoxRubber45
+    # - CrateAmmoBoxRubberShotgun
     # Ammo
-    - CrateAmmoBoxBigLethal20
-    - CrateAmmoBoxBigLethal25
-    - CrateAmmoBoxBigLethal30
-    - CrateAmmoBoxBigRubber20
-    - CrateAmmoBoxBigRubber25
+    # - CrateAmmoBoxBigLethal20
+    # - CrateAmmoBoxBigLethal25
+    # - CrateAmmoBoxBigLethal30
+    # - CrateAmmoBoxBigRubber20
+    # - CrateAmmoBoxBigRubber25
+    # - CrateAmmoBoxFlareShotgun
+    # - CrateAmmoBoxPractice20
+    # - CrateAmmoBoxPractice25
+    # - CrateAmmoBoxPractice30
+    # - CrateAmmoBoxPractice35
+    # - CrateAmmoBoxPractice45
+    # - CrateAmmoBoxPracticeShotgun
+    # New chances
     - CrateAmmoBoxIncendiary20
     - CrateAmmoBoxIncendiary30
     - CrateAmmoBoxIncendiary35
@@ -487,15 +475,25 @@
     - CrateAmmoBoxUranium35
     - CrateAmmoBoxUranium45
     - CrateAmmoBoxUraniumShotgun
-    - CrateAmmoBoxFlareShotgun
     - CrateAmmoBoxEmp35
-    - CrateAmmoBoxPractice20
-    - CrateAmmoBoxPractice25
-    - CrateAmmoBoxPractice30
-    - CrateAmmoBoxPractice35
-    - CrateAmmoBoxPractice45
-    - CrateAmmoBoxPracticeShotgun
-    rareChance: 0.05
+    rarePrototypes:
+    - CrateArmorySMGExpedition
+    - CrateArmoryLaserExpedition
+    - CrateSecurityNonlethal
+    - CrateSecureMercenaryHardsuitMagBoots
+    - CrateSecureMercenaryPrivateSecHardsuitMagBoots
+    - CrateArmoryShotgunExpedition
+    - CrateArmoryPistolsExpedition
+    - CrateArmoryEnergyGunExpedition
+# Begin Mono Additions
+    - CrateNanotrasenLootFilledT1
+    - CrateNanotrasenLootFilledT1
+    - CrateNanotrasenLootFilledT2
+    - CrateNanotrasenLootFilledT3
+# End Mono Additions
+    rareChance: 0.65
+    chance: 1
+    offset: 0.0
 
 - type: entity
   name: random crate
@@ -515,12 +513,14 @@
     prototypes:
     - CrateSecurityArmor
     - CrateSecurityHelmet
-    chance: 0.85
+    chance: 1 # 0.85- > 1
     offset: 0.0
     rarePrototypes:
-    - CrateSecurityRiot
-    - CrateSecurityBiosuit
-    rareChance: 0.05
+    #remplaced frontier slop with non trash
+    - SpawnDungeonLootCrateArmoryWeapon
+    # - CrateSecurityRiot
+    # - CrateSecurityBiosuit
+    rareChance: 0.3 # 0.05 -> 0.3
 
 - type: entity
   name: random crate (restock)

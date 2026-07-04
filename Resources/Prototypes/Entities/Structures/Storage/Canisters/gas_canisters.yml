@@ -1,53 +1,3 @@
-# SPDX-FileCopyrightText: 2020 20kdc
-# SPDX-FileCopyrightText: 2020 ike709
-# SPDX-FileCopyrightText: 2020 py01
-# SPDX-FileCopyrightText: 2021 Acruid
-# SPDX-FileCopyrightText: 2021 DrSmugleaf
-# SPDX-FileCopyrightText: 2021 Galactic Chimp
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2021 ShadowCommander
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2021 collinlunn
-# SPDX-FileCopyrightText: 2021 metalgearsloth
-# SPDX-FileCopyrightText: 2021 mirrorcult
-# SPDX-FileCopyrightText: 2021 moonheart08
-# SPDX-FileCopyrightText: 2022 Electro <no>
-# SPDX-FileCopyrightText: 2022 Jacob Tong
-# SPDX-FileCopyrightText: 2022 Justin Trotter
-# SPDX-FileCopyrightText: 2022 Mervill
-# SPDX-FileCopyrightText: 2022 Paul Ritter
-# SPDX-FileCopyrightText: 2022 Profane McBane
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 Rinkashikachi
-# SPDX-FileCopyrightText: 2022 TekuNut
-# SPDX-FileCopyrightText: 2023 Cheackraze
-# SPDX-FileCopyrightText: 2023 Kevin Zheng
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2023 potato1234_x
-# SPDX-FileCopyrightText: 2023 terezi4real
-# SPDX-FileCopyrightText: 2023 Łukasz Mędrek
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Flareguy
-# SPDX-FileCopyrightText: 2024 Jeff
-# SPDX-FileCopyrightText: 2024 K-Dynamic
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 MilenVolf
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 TGRCDev
-# SPDX-FileCopyrightText: 2024 Velcroboy
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 lapatison
-# SPDX-FileCopyrightText: 2025 ActiveMammmoth
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   abstract: true
   parent: BaseStructureDynamic
@@ -85,6 +35,9 @@
             1: { state: can-o1, shader: "unshaded" }
             2: { state: can-o2, shader: "unshaded" }
             3: { state: can-o3, shader: "unshaded" }
+    - type: ActivatableUI
+      key: enum.GasCanisterUiKey.Key
+    - type: ActivatableUIRequiresLock
     - type: UserInterface
       interfaces:
         enum.GasCanisterUiKey.Key:
@@ -188,16 +141,6 @@
     - type: GasCanister
       gasMixture:
         volume: 1500
-        moles: # List of gasses for easy reference
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 0 # Tritium
-          - 0 # Water vapor
-          - 0 # Ammonia
-          - 0 # N2O
-          - 0 # Frezon
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -238,8 +181,8 @@
     gasMixture:
       volume: 1500
       moles:
-      - 581.56 # oxygen 21%
-      - 2187.79 # nitrogen 79%
+        Oxygen: 581.56 # oxygen 21%
+        Nitrogen: 2187.79 # nitrogen 79%
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -280,7 +223,7 @@
     gasMixture:
       volume: 1500
       moles:
-      - 2769.36 # oxygen
+        Oxygen: 2769.36 # oxygen
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -321,7 +264,7 @@
     gasMixture:
       volume: 1500
       moles:
-        - 18710.71051 # oxygen
+        Oxygen: 18710.71051 # oxygen
       temperature: 72
 #  - type: AccessReader # Frontier
 #    access: [["Atmospherics"]] # Frontier
@@ -362,8 +305,7 @@
       gasMixture:
         volume: 1500
         moles:
-          - 0 # oxygen
-          - 2769.36 # nitrogen
+          Nitrogen: 2769.36 # nitrogen
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -404,8 +346,7 @@
     gasMixture:
       volume: 1500
       moles:
-        - 0 # oxygen
-        - 18710.71051 # nitrogen
+        Nitrogen: 18710.71051 # nitrogen
       temperature: 72
 #  - type: AccessReader # Frontier
 #    access: [["Atmospherics"]] # Frontier
@@ -446,9 +387,7 @@
       gasMixture:
         volume: 1500
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 2769.36 # CO2
+          CarbonDioxide: 2769.36 # CO2
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -489,9 +428,7 @@
     gasMixture:
       volume: 1500
       moles:
-        - 0 # oxygen
-        - 0 # nitrogen
-        - 18710.71051 # CO2
+        CarbonDioxide: 18710.71051 # CO2
       temperature: 72
 #  - type: AccessReader # Frontier
 #    access: [["Atmospherics"]] # Frontier
@@ -532,10 +469,7 @@
       gasMixture:
         volume: 1500
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # carbon dioxide
-          - 2769.36 # plasma
+          Plasma: 2769.36 # plasma
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -578,11 +512,7 @@
       gasMixture:
         volume: 1500
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 2769.36 # Tritium
+          Tritium: 2769.36 # Tritium
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -623,12 +553,7 @@
       gasMixture:
         volume: 1500
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 0 # Tritium
-          - 2769.36 # Water vapor
+          WaterVapor: 2769.36 # Water vapor
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -667,13 +592,7 @@
       gasMixture:
         volume: 1500
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 0 # Tritium
-          - 0 #  Water vapor
-          - 2769.36 # Ammonia
+          Ammonia: 2769.36 # Ammonia
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -714,14 +633,7 @@
       gasMixture:
         volume: 1500
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 0 # Tritium
-          - 0 #  Water vapor
-          - 0 # Ammonia
-          - 2769.36 # N2O
+          NitrousOxide: 2769.36 # N2O
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -760,15 +672,7 @@
     gasMixture:
       volume: 1500
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 # Water vapor
-      - 0 # Ammonia
-      - 0 # N2O
-      - 2769.36 # Frezon
+        Frezon: 2769.36 # Frezon
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -940,3 +844,4 @@
   components:
   - type: Sprite
     state: frezon-1
+ 

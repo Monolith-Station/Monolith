@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Shared.CCVar;
 using Content.Shared.Movement.Components;
@@ -12,10 +8,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Movement.Systems;
 
-public sealed class MobCollisionSystem : SharedMobCollisionSystem
+public sealed partial class MobCollisionSystem : SharedMobCollisionSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Update(float frameTime)
     {

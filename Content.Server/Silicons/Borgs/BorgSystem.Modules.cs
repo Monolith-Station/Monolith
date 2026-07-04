@@ -322,8 +322,9 @@ public sealed partial class BorgSystem
         Entity<BorgModuleComponent> module,
         EntityUid? user = null)
     {
-        if (module.Comp.DefaultModule)
-            return false;
+        // Mono - can remove even if default
+        //if (module.Comp.DefaultModule)
+        //    return false;
 
         return true;
     }

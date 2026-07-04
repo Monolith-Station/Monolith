@@ -6,10 +6,10 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Clock;
 
-public sealed class ClockSystem : SharedClockSystem
+public sealed partial class ClockSystem : SharedClockSystem
 {
-    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -29,7 +29,6 @@ public sealed class ClockSystem : SharedClockSystem
 
     private void OnMapInit(Entity<GlobalTimeManagerComponent> ent, ref MapInitEvent args)
     {
-        //ent.Comp.TimeOffset = TimeSpan.FromHours(_robustRandom.NextFloat(0, 24)); // Frontier
         ent.Comp.TimeOffset = TimeSpan.Zero; // Frontier: station time, all the time.
         _pvsOverride.AddGlobalOverride(ent);
         Dirty(ent);

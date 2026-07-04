@@ -1,0 +1,52 @@
+# Author Info
+# GitHub: tonotom1
+# Discord: rws
+
+# Shuttle Notes:
+# im reusing this template from the takeaway
+
+# Author info
+# Github: Rubeebeebee
+# Discord: Rubeebee
+
+- type: vessel
+  id: Bratan
+  parent: BaseVessel
+  name: PB Bratan
+  description: A mobile nightclub, cafeteria, hydroponics, and secret drug lab and smuggling ship, all in one package! Brought to you by the Paycheck Bratva. 
+  price: 142000
+  category: Large
+  group: Shipyard
+  shuttlePath: /Maps/_Mono/Shuttles/bratan.yml
+  guidebookPage: Null
+  class:
+  - Civilian
+  - Kitchen
+  - Botany
+  engine:
+  - AME
+  - Solar
+  addComponents:
+  - type: SolarPoweredGrid
+    doNotCull: true
+
+
+- type: gameMap
+  id: Bratan
+  mapName: 'PB Bratan'
+  mapPath: /Maps/_Mono/Shuttles/bratan.yml
+  minPlayers: 0
+  stations:
+    Bratan:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Bratan CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

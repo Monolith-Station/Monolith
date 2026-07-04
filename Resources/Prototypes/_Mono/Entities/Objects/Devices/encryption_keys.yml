@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyUssp
@@ -20,19 +15,17 @@
     layers:
     - state: crypt_rusted
     - state: sec_label
-  - type: PirateBountyItem
-    id: EncryptionKeyFaction
 
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyUsspCommand
   name: USSP command encryption key
-  description: An encryption key for the USSP strategic-level communications channel.
+  description: An encryption key for the USSP command channel. Due to USSP higher-level networking being defunct, it instead provides access to tactical command.
   components:
   - type: EncryptionKey
     channels:
-    - UsspCommand
-    defaultChannel: UsspCommand
+    - Ussp
+    defaultChannel: Ussp
   - type: Item
     sprite: Objects/Devices/encryption_keys.rsi
   - type: Sprite
@@ -40,5 +33,87 @@
     layers:
     - state: crypt_blue
     - state: sec_label
-  - type: PirateBountyItem
-    id: EncryptionKeyFaction
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyVanguardCommand
+  name: vanguard command encryption key # mono
+  description: An encryption key used by officers in the vanguard. # Mono
+  components:
+    - type: EncryptionKey
+      channels:
+        - VanguardCommand
+      defaultChannel: VanguardCommand
+    - type: Sprite
+      layers:
+        - state: crypt_blue
+        - state: pirate_label
+
+# Overseer variant w/ no TSFMC or TSF command radio key
+
+- type: entity
+  parent: EncryptionKeyStationMaster
+  id: EncryptionKeyStationMasterSR
+  components:
+  - type: EncryptionKey
+    channels:
+    - Common
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Traffic
+    defaultChannel: Service
+
+ # Diplomacy with faction heads, seperated from master key to allow toggling off
+- type: entity
+  parent: EncryptionKeyStationMaster
+  id: EncryptionKeyDiplomacy
+  name: diplomatic encryption key
+  description: A direct communications channel to the heads of the sector's warring states.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Command
+    - VanguardCommand
+    #- Nfsd #Deliberately excluded: You don't command them
+    #- Freelance
+    defaultChannel: Command
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyViper
+  name: ViperGroup encryption key
+  description: An encryption key for the Viper Group tactical-level communications channel.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Viper
+    defaultChannel: Viper
+  - type: Item
+    sprite: _Mono/Objects/Devices/encryption_keys.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_red
+    - state: viper_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyFreeport
+  name: Freeport encryption key
+  description: A worn encryption key for Freeport communications, allowing the varied groups of Freeport to engage in diplomacy or yell insults, likely the latter.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Freeport
+    defaultChannel: Freeport
+  - type: Item
+    sprite: Objects/Devices/encryption_keys.rsi
+  - type: Sprite
+    sprite: Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_rusted
+    - state: cargo_label

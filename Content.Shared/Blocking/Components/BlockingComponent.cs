@@ -5,7 +5,7 @@ using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared.Blocking;
+namespace Content.Shared.Blocking.Components;
 
 /// <summary>
 /// This component goes on an item that you want to use to block
@@ -76,4 +76,18 @@ public sealed partial class BlockingComponent : Component
     /// </summary>
     [DataField("activeBlockFraction"), ViewVariables(VVAccess.ReadWrite)]
     public float ActiveBlockFraction = 1.0f;
+
+    // Mono
+    /// <summary>
+    /// Decides if the action is added or not (mostly for clothing w/ shielding).
+    /// </summary>
+    [DataField]
+    public bool BlockAction = false;
+
+    // Mono
+    /// <summary>
+    /// If the shield is handheld or clothing.
+    /// </summary>
+    [DataField]
+    public bool IsClothing = false;
 }

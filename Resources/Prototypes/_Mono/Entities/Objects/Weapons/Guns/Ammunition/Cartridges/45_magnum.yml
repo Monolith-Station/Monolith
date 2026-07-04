@@ -1,7 +1,8 @@
 - type: entity
   id: BaseCartridge45_magnum
   name: cartridge (.45 magnum)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseCartridge
+  description: Heavy magnum round, usually only seen in magnums or manually-cycled rifles.
   abstract: true
   components:
   - type: Tag
@@ -11,7 +12,7 @@
   - type: CartridgeAmmo
     proto: Bullet45_magnumFMJ
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/pistol_ammo_casing_steel.rsi
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]
@@ -102,3 +103,52 @@
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
         color: "#43c4f7"
+
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  id: Cartridge45_magnumHP
+  name: cartridge (.45 magnum hollow-point)
+  parent: BaseCartridge45_magnum
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet45_magnumHP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#90EE90"
+
+- type: entity
+  id: Cartridge45_magnumRIP
+  name: cartridge (.45 magnum RIP)
+  parent: BaseCartridge45_magnum
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet45_magnumRIP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#C04000"
+
+#armor-piercing:
+
+- type: entity
+  id: Cartridge45_magnumPlasteelAP
+  name: cartridge (.45 magnum AP)
+  parent: BaseCartridge45_magnum
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet45_magnumPlasteelAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#888888"

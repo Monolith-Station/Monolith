@@ -756,8 +756,7 @@ entities:
       pos: 4.5,6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+
       deviceLists:
       - 2
       - 3
@@ -768,8 +767,6 @@ entities:
       pos: 0.5,3.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 2
       - 3
@@ -2986,7 +2983,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerShuttle
+- proto: ComputerShuttleTSFNVWS
   entities:
   - uid: 451
     components:
@@ -3273,8 +3270,7 @@ entities:
       pos: 2.5,7.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+
       deviceLists:
       - 3
   - uid: 487

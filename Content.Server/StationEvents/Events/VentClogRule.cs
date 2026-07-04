@@ -12,15 +12,15 @@ using System.Linq;
 namespace Content.Server.StationEvents.Events;
 
 [UsedImplicitly]
-public sealed class VentClogRule : StationEventSystem<VentClogRuleComponent>
+public sealed partial class VentClogRule : StationEventSystem<VentClogRuleComponent>
 {
-    [Dependency] private readonly SmokeSystem _smoke = default!;
+    [Dependency] private SmokeSystem _smoke = default!;
 
     protected override void Started(EntityUid uid, VentClogRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
-        if (!TryGetRandomStation(out var chosenStation))
+        if (!TryGetRandomStations(gameRule.NumberOfGrids.Min, gameRule.NumberOfGrids.Max, out var stations))
             return;
 
         // TODO: "safe random" for chems. Right now this includes admin chemicals.
@@ -30,10 +30,9 @@ public sealed class VentClogRule : StationEventSystem<VentClogRuleComponent>
 
         foreach (var (_, transform) in EntityManager.EntityQuery<GasVentPumpComponent, TransformComponent>())
         {
-            if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != chosenStation)
-            {
+            var station = CompOrNull<StationMemberComponent>(transform.GridUid)?.Station;
+            if (!station.HasValue || !stations.Contains(station.Value))
                 continue;
-            }
 
             var solution = new Solution();
 

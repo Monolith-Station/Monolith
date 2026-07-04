@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 HungryCuban
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 
 - type: latheRecipe
   parent: MonoHardsuitT1Recipe
@@ -66,3 +62,8 @@
     Durathread: 3000
     Silver: 5000
     Plastic: 2500
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: USSPTechfabMachineCircuitboard
+  result: USSPTechfabMachineCircuitboard

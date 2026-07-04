@@ -1,75 +1,23 @@
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 Nim
-# SPDX-FileCopyrightText: 2023 coolmankid12345
-# SPDX-FileCopyrightText: 2024 AverageNotDoingAnythingEnjoyer
-# SPDX-FileCopyrightText: 2024 CaptainMaru
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 GreaseMonk
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 ActiveMammmoth
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+# Mono edit start - Faction system improvements
 
 - type: npcFaction
   id: Dragon
-  hostile:
-  - NanoTrasen
-  - Syndicate
-  - Xeno
-  - PetsNT
-  - Zombie
-  - Revolutionary
-  - AllHostile
-  - Wizard
-  - WizFedFaction # Frontier
-  - BloodCultNF # Frontier
-  - PirateNF # Frontier
-  - ExplorersExpeditionNF # Frontier
-  - ArtifactConstruct # Frontier
-  - StreetGangNF # Frontier
-  - DinosaursNF # Frontier
-  - MercenariesExpeditionNF # Frontier
-  - SiliconsExpeditionNF # Frontier
-  - AberrantFleshExpeditionNF # Frontier
-  - ContrabandClothing # Frontier
-  - ContrabandDetection # Frontier
-  - TSFMC # Mono
-  - TSFMCTurret # Mono
-  - USSP # Mono
-  - USSPTurret # Mono
-  - MD # Mono
+  neutral:
+  - SimpleHostile
+  - Passive
+  defaultHostile: true
 
 - type: npcFaction
   id: NanoTrasen
-  hostile:
-  - SimpleHostile
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - Dragon
-  - AllHostile
-  - Wizard
-  - WizFedFaction # Frontier
-  - BloodCultNF # Frontier
-  - PirateNF # Frontier
-  - ExplorersExpeditionNF # Frontier
-  - ArtifactConstruct # Frontier
-  - StreetGangNF # Frontier
-  - DinosaursNF # Frontier
-  - MercenariesExpeditionNF # Frontier
-  - SiliconsExpeditionNF # Frontier
-  - AberrantFleshExpeditionNF # Frontier
-  - ContrabandClothing # Frontier
-  - USSP # Mono
-  - USSPTurret # Mono
+  neutral:
+  - SimpleNeutral
+  - PetsNT
+  - TSFMC
+  - TSFMCTurret
+  - MD
+  - Passive
+  - ContrabandDetection
+  defaultHostile: true
 
 - type: npcFaction
   id: Mouse
@@ -77,6 +25,7 @@
   - PetsNT
   - AllHostile
   - Wizard
+  defaultHostileIncluded: false # Mono
 
 - type: npcFaction
   id: Passive
@@ -93,32 +42,10 @@
 
 - type: npcFaction
   id: SimpleHostile
-  hostile:
-  - NanoTrasen
-  - Syndicate
+  neutral:
+  - Dragon
   - Passive
-  - PetsNT
-  - Zombie
-  - Revolutionary
-  - AllHostile
-  - Wizard
-  - WizFedFaction # Frontier
-  - BloodCultNF # Frontier
-  - PirateNF # Frontier
-  - ExplorersExpeditionNF # Frontier
-  - ArtifactConstruct # Frontier
-  - StreetGangNF # Frontier
-  - DinosaursNF # Frontier
-  - MercenariesExpeditionNF # Frontier
-  - SiliconsExpeditionNF # Frontier
-  - AberrantFleshExpeditionNF # Frontier
-  - ContrabandClothing # Frontier
-  - ContrabandDetection # Frontier
-  - TSFMC # Mono
-  - TSFMCTurret # Mono
-  - USSP # Mono
-  - USSPTurret # Mono
-  - MD # Mono
+  defaultHostile: true
 
 - type: npcFaction
   id: SimpleNeutral
@@ -127,167 +54,34 @@
   id: Syndicate
   friendly: # Frontier
   - SyndicateNF # Frontier
-  hostile:
-  - NanoTrasen
-  - SimpleHostile
-  - Xeno
-  - PetsNT
-  - Zombie
-  - Dragon
-  - AllHostile
-  - Wizard
-  - WizFedFaction # Frontier
-  - BloodCultNF # Frontier
-  - PirateNF # Frontier
-  - ExplorersExpeditionNF # Frontier
-  - ArtifactConstruct # Frontier
-  - StreetGangNF # Frontier
-  - DinosaursNF # Frontier
-  - MercenariesExpeditionNF # Frontier
-  - SiliconsExpeditionNF # Frontier
-  - AberrantFleshExpeditionNF # Frontier
-  - ContrabandClothing # Frontier
-  - ContrabandDetection # Frontier
-  - TSFMC # Mono
-  - TSFMCTurret # Mono
-  - USSP # Mono
-  - USSPTurret # Mono
-  - MD # Mono
+  - Passive
+  defaultHostile: true
 
 - type: npcFaction
   id: Xeno
-  hostile:
-  - NanoTrasen
-  - Syndicate
-  - Passive
-  - PetsNT
-  - Zombie
-  - Revolutionary
-  - AllHostile
-  - Wizard
-  - WizFedFaction # Frontier
-  - BloodCultNF # Frontier
-  - PirateNF # Frontier
-  - ExplorersExpeditionNF # Frontier
-  - ArtifactConstruct # Frontier
-  - StreetGangNF # Frontier
-  - DinosaursNF # Frontier
-  - MercenariesExpeditionNF # Frontier
-  - SiliconsExpeditionNF # Frontier
-  - AberrantFleshExpeditionNF # Frontier
-  - ContrabandClothing # Frontier
-  - ContrabandDetection # Frontier
-  - TSFMC # Mono
-  - TSFMCTurret # Mono
-  - USSP # Mono
-  - USSPTurret # Mono
-  - MD # Mono
+  defaultHostile: true
 
 - type: npcFaction
   id: Zombie
-  hostile:
-  - NanoTrasen
-  - SimpleNeutral
-  - SimpleHostile
-  - Syndicate
-  - Passive
-  - PetsNT
-  - Revolutionary
-  - AllHostile
-  - Wizard
-  - WizFedFaction # Frontier
-  - BloodCultNF # Frontier
-  - PirateNF # Frontier
-  - ExplorersExpeditionNF # Frontier
-  - ArtifactConstruct # Frontier
-  - StreetGangNF # Frontier
-  - DinosaursNF # Frontier
-  - MercenariesExpeditionNF # Frontier
-  - SiliconsExpeditionNF # Frontier
-  - AberrantFleshExpeditionNF # Frontier
-  - ContrabandClothing # Frontier
-  - ContrabandDetection # Frontier
-  - TSFMC # Mono
-  - TSFMCTurret # Mono
-  - USSP # Mono
-  - USSPTurret # Mono
-  - MD # Mono
+  defaultHostile: true
 
 - type: npcFaction
   id: Revolutionary
-  hostile:
-  - NanoTrasen
-  - Zombie
-  - SimpleHostile
-  - Dragon
-  - AllHostile
-  - Wizard
-  - WizFedFaction # Frontier
-  - BloodCultNF # Frontier
-  - PirateNF # Frontier
-  - ExplorersExpeditionNF # Frontier
-  - ArtifactConstruct # Frontier
-  #- StreetGangNF # Frontier
-  - DinosaursNF # Frontier
-  - MercenariesExpeditionNF # Frontier
-  - SiliconsExpeditionNF # Frontier
-  - AberrantFleshExpeditionNF # Frontier
-  - ContrabandClothing # Frontier
-  - ContrabandDetection # Frontier
-  - TSFMC # Mono
-  - TSFMCTurret # Mono
+  neutral:
+  - Syndicate
+  - SyndicateNF # Frontier
+  defaultHostile: true
 
 - type: npcFaction
   id: AllHostile # Frontier: use HostileUniversally
-  hostile:
-  - NanoTrasen
-  - Dragon
-  - Mouse
-  - Passive
-  - PetsNT
-  - SimpleHostile
-  - SimpleNeutral
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - Wizard
-  - TSFMC # Mono
-  - TSFMCTurret # Mono
-  - PirateNF # Mono
-  - USSP # Mono
-  - USSPTurret # Mono
-  - MD # Mono
+  defaultHostile: true
 
 - type: npcFaction
   id: Wizard
-  hostile:
-  - NanoTrasen
-  - Dragon
-  - Mouse
-  - Passive
-  - PetsNT
-  - SimpleHostile
-  - SimpleNeutral
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - AllHostile
-  # - WizFedFaction # Frontier
-  - BloodCultNF # Frontier
-  - PirateNF # Frontier
-  - ExplorersExpeditionNF # Frontier
-  - ArtifactConstruct # Frontier
-  - StreetGangNF # Frontier
-  - DinosaursNF # Frontier
-  - MercenariesExpeditionNF # Frontier
-  - SiliconsExpeditionNF # Frontier
-  - AberrantFleshExpeditionNF # Frontier
-  - ContrabandClothing # Frontier
-  - ContrabandDetection # Frontier
-  - TSFMC # Mono
-  - TSFMCTurret # Mono
-  - USSP # Mono
-  - USSPTurret # Mono
-  - MD # Mono
+  defaultHostile: true
+
+- type: npcFaction
+  id: Monolithic
+  defaultHostile: true
+
+# Mono edit end.

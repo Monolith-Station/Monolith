@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Rouge2t7
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Server.Movement.Components;
 using Content.Server.Physics.Controllers;
@@ -30,7 +23,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Movement.Systems;
 
-public sealed class PullController : VirtualController
+public sealed partial class PullController : VirtualController
 {
     /*
      * This code is awful. If you try to tweak this without refactoring it I'm gonna revert it.
@@ -62,11 +55,11 @@ public sealed class PullController : VirtualController
     // How much you must move for the puller movement check to actually hit.
     private const float MinimumMovementDistance = 0.005f;
 
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
 
     /// <summary>
     ///     If distance between puller and pulled entity lower that this threshold,
@@ -146,7 +139,7 @@ public sealed class PullController : VirtualController
 
         // Cap the distance
         var range = 2f;
-        var fromUserCoords = coords.WithEntityId(player, EntityManager);
+        var fromUserCoords = _transformSystem.WithEntityId(coords, player);
         var userCoords = new EntityCoordinates(player, Vector2.Zero);
 
         if (!_transformSystem.InRange(coords, userCoords, range))
@@ -164,7 +157,7 @@ public sealed class PullController : VirtualController
             }
 
             fromUserCoords = new EntityCoordinates(player, direction.Normalized() * (range - 0.01f));
-            coords = fromUserCoords.WithEntityId(coords.EntityId);
+            coords = _transformSystem.WithEntityId(fromUserCoords, coords.EntityId);
         }
 
         var moving = EnsureComp<PullMovingComponent>(pulled!.Value);
@@ -255,7 +248,7 @@ public sealed class PullController : VirtualController
             var pullerXform = _xformQuery.Get(puller);
             var pullerPosition = TransformSystem.GetMapCoordinates(pullerXform);
 
-            var movingTo = mover.MovingTo.ToMap(EntityManager, TransformSystem);
+            var movingTo = TransformSystem.ToMapCoordinates(mover.MovingTo);
 
             if (movingTo.MapId != pullerPosition.MapId)
             {

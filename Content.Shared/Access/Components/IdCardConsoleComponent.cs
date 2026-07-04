@@ -1,22 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Kesiath
-// SPDX-FileCopyrightText: 2023 Mnemotechnican
-// SPDX-FileCopyrightText: 2023 Moony
-// SPDX-FileCopyrightText: 2023 Velcroboy
-// SPDX-FileCopyrightText: 2023 moonheart08
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-// SPDX-FileCopyrightText: 2024 Kara
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Salvantrix
-// SPDX-FileCopyrightText: 2024 c4llv07e
-// SPDX-FileCopyrightText: 2024 deltanedas
-// SPDX-FileCopyrightText: 2024 neuPanda
-// SPDX-FileCopyrightText: 2025 HungryCuban
-// SPDX-FileCopyrightText: 2025 Whatstone
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Access.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.GameStates;
@@ -64,45 +45,51 @@ public sealed partial class IdCardConsoleComponent : Component
     [DataField, AutoNetworkedField]
     public List<ProtoId<AccessLevelPrototype>> AccessLevels = new()
     {
-        "Armory",
-        //"Atmospherics",
-        "Bailiff", // Frontier
-        //"Bar",
-        "Brig",
-        "Detective",
-        "Captain",
-        //"Cargo",
-        //"Chapel",
-        //"Chemistry",
-        //"ChiefEngineer",
-        //"ChiefMedicalOfficer",
-        "Command",
-        //"Cryogenics",
-        //"Engineering",
-        "External",
-        "Frontier", // Frontier
-        "HeadOfPersonnel",
-        "HeadOfSecurity",
-        //"Hydroponics",
-        "Janitor",
-        //"Kitchen",
-        "Lawyer",
-        "Mail", // Frontier
-        "Maintenance",
-        "Medical",
-        "Mercenary", // Frontier
-        //"Quartermaster",
-        //"Research",
-        //"ResearchDirector",
-        //"Salvage",
-        "Security",
-        "Sergeant", // Frontier
-        "Service",
-        "StationTrafficController", // Frontier
-        "USSP", // Mono
-        "USSPHigh", // Mono
-        "USSPCommand", // Mono
-        //"Theatre",
+    "Armory", //Used by TSF, unknown purpose
+    //"Atmospherics",
+    //"Bar",
+    "Brig",
+    "Detective",
+    "Captain",
+    //"Cargo",
+    //"Chapel",
+    //"Chemistry",
+    "Chemistry", // DO NOT HIDE, it prevents all cards with chemistry from getting additional access (Ex: TSF Captain)
+    //"ChiefEngineer",
+    //"ChiefMedicalOfficer",
+    "ChiefMedicalOfficer", //DO NOT HIDE, required for DOC
+    "Command",
+    //"Cryogenics",
+    //"Engineering",
+    "External",
+    "HeadOfPersonnel",
+    //"Hydroponics",
+    "Janitor",
+    //"Kitchen",
+    //"Lawyer", //Monolith:  Not used
+    "Mail", // Frontier
+    //"Maintenance", //Monolith: Not used
+    "Medical",
+    "Mercenary", // Frontier
+    //"Quartermaster",
+    //"Research",
+    //"ResearchDirector",
+    //"Salvage",
+    "Security",
+    "Service",
+    "StationTrafficController", // Frontier
+    //"USSP", // Mono
+    //"USSPHigh", // Mono
+    //"USSPCommand", // Mono
+    //"Theatre",
+    "Frontier", // Frontier //TSF Base access
+    "Sergeant", // Frontier //TSF FTL access
+    "Bailiff", // Frontier //TSF Command access
+    "TsfmcEngineering", // Mono, TSF Engineering access
+    "HeadOfSecurity", // TSF Colonel
+    "Pirate", //Frontier //PDV base access
+    "PDVCommand", //Mono, PDV leadership (Denasvar, Asvaran, Vizier)
+    "GrandVizier",//Mono, PDV Vizier
     };
 
     [Serializable, NetSerializable]

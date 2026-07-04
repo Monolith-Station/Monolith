@@ -14,7 +14,7 @@
   id: NFBaseBoxRecipe
   parent: NFBaseToolboxRecipe
   completetime: 1
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   materials:
     Cardboard: 100
 
@@ -73,6 +73,18 @@
   parent: NFBaseToolboxRecipe
   result: WeaponCaseShortAmmo
   name: lathe-recipe-WeaponCaseShortAmmo-name
+
+# Mono start
+
+- type: latheRecipe
+  id: WeaponCaseHeavyAmmo
+  parent: NFBaseToolboxRecipe
+  result: WeaponCaseHeavyAmmo
+  name: lathe-recipe-WeaponCaseHeavyAmmo-name
+  materials:
+    Steel: 1200
+
+# Mono end
 
 - type: latheRecipe
   id: WeaponCaseShortExplosives

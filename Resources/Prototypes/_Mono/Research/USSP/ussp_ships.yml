@@ -1,60 +1,56 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: technology
   id: UsspBasicShips
   name: research-technology-ussp-ships-basic
-  icon:
-    sprite: _Mono/Interface/Misc/research_icons_ussp.rsi
-    state: icon-tier1
-  discipline: UsspShipyard
+  entityIcon: ShipVoucherUSSPT0
+  discipline: Ussp
   tier: 1
   cost: 45000
   recipeUnlocks:
-  - BasicVoucherUssp
+  - ShipVoucherUsspRemontnik
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, 4
 
 - type: technology
   id: UsspMediumShips
   name: research-technology-ussp-ships-medium
-  icon:
-    sprite: _Mono/Interface/Misc/research_icons_ussp.rsi
-    state: icon-tier2
-  discipline: UsspShipyard
+  entityIcon: ShipVoucherDrakon
+  discipline: Ussp
   tier: 2
   cost: 65000
   recipeUnlocks:
-  - IntermediateVoucherUssp
+  - ShipVoucherUsspAkula
+  - ShipVoucherUsspDrakon
+  - ShipVoucherUsspTayfun
   technologyPrerequisites:
   - UsspBasicShips
+  position: 12, 9
 
 - type: technology
   id: UsspAdvancedShips
   name: research-technology-ussp-ships-advanced
-  icon:
-    sprite: _Mono/Interface/Misc/research_icons_ussp.rsi
-    state: icon-tier3
-  discipline: UsspShipyard
+  entityIcon: ShipVoucherBuran
+  discipline: Ussp
   tier: 3
   cost: 95000
   recipeUnlocks:
-  - AdvancedVoucherUssp
+  - ShipVoucherUsspBuran
+  - ShipVoucherUsspSulak
   technologyPrerequisites:
   - UsspMediumShips
+  - UniversalMaterialResearchT3
+  position: 12, 14
 
 - type: technology
   id: UsspLedokol
   name: research-technology-ussp-ships-ledokol
-  icon:
-    sprite: _Mono/Interface/Misc/research_icons_ussp.rsi
-    state: icon-tier4
-  discipline: UsspShipyard
+  entityIcon: ShipVoucherLedokol
+  discipline: Ussp
   tier: 3
   cost: 100000
   recipeUnlocks:
-  - LedokolVoucherUssp
-  - LedokolRamVoucherUssp
+  - ShipVoucherUsspLedokol
+  - ShipVoucherUsspLedokolAttachment
   technologyPrerequisites:
   - UsspAdvancedShips
+  position: 12, 15

@@ -1,0 +1,9 @@
+- type: entity
+  parent: PosterBase
+  id: MonoSectorMap
+  name: sector map
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Guidebook/large_icons/miscres.rsi
+    state: sector_map

@@ -1,7 +1,7 @@
 - type: techDiscipline
   id: Industrial
   name: research-discipline-industrial
-  color: "#eeac34"
+  color: "#69522a"
   icon:
     sprite: Interface/Misc/research_disciplines.rsi
     state: industrial
@@ -9,11 +9,12 @@
     1: 0
     2: 0.75
     3: 0.75
+  uiName: IND  # Goobstation
 
 - type: techDiscipline
   id: Arsenal
   name: research-discipline-arsenal
-  color: "#dc373b"
+  color: "#692a2a"
   icon:
     sprite: Interface/Misc/research_disciplines.rsi
     state: arsenal
@@ -21,11 +22,12 @@
     1: 0
     2: 0.75
     3: 0.75
+  uiName: SEC  # Goobstation
 
 - type: techDiscipline
   id: Experimental
   name: research-discipline-experimental
-  color: "#9a6ef0"
+  color: "#622a69"
   icon:
     sprite: Interface/Misc/research_disciplines.rsi
     state: experimental
@@ -33,11 +35,12 @@
     1: 0
     2: 0.75
     3: 0.75
+  uiName: EXP  # Goobstation
 
 - type: techDiscipline
   id: CivilianServices
   name: research-discipline-civilian-services
-  color: "#7ecd48"
+  color: "#39692a"
   icon:
     sprite: Interface/Misc/research_disciplines.rsi
     state: civilianservices
@@ -45,3 +48,4 @@
     1: 0
     2: 0.75
     3: 0.75
+  uiName: SRV  # Goobstation

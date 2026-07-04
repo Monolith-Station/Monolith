@@ -10,7 +10,7 @@
 # Down at your local saloon
 - type: pointOfInterest
   id: ThePit
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: "The Pit"
   minimumDistance: 5200
   maximumDistance: 6200

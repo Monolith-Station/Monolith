@@ -1,98 +1,61 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: technology
   id: RogueBasicEquipment
   name: research-technology-rogue-basic-equipment
-  icon:
-    sprite: _Mono/Clothing/OuterClothing/Hardsuits/scaf_pirate.rsi
-    state: icon
+  entityIcon: ClothingOuterHardsuitPirateScaf
   discipline: RogueEquipment
   tier: 1
   cost: 20000
   recipeUnlocks:
   - ClothingOuterHardsuitPirateScafRogue
   - ClothingOuterVestWebRogue
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, 1
 
 - type: technology
   id: RogueAdvancedEquipment
   name: research-technology-rogue-advanced-equipment
-  icon:
-    sprite: _Mono/Clothing/OuterClothing/Hardsuits/viper_group_standard.rsi
-    state: icon
+  entityIcon: ClothingOuterHardsuitPDVMedic
   discipline: RogueEquipment
   tier: 2
   cost: 35000
   recipeUnlocks:
-  - ClothingOuterHardsuitViperGroupStandardRogue
-  - ClothingOuterHardsuitViperGroupMedicRogue
+  - ClothingOuterHardsuitPDVMedic
   - ClothingShoesBootsMagSyndieRogue
   - ClothingMaskGasSyndicateRogue
+  - MechIFFPDV
   technologyPrerequisites:
   - RogueBasicEquipment
+  - UniversalMaterialResearchT2
+  position: 12, 7
 
 - type: technology
   id: RogueSyndicateTacsuits
   name: research-technology-rogue-syndicate-tacsuits
-  icon:
-    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
-    state: icon
+  entityIcon: ClothingOuterHardsuitAshen
   discipline: RogueEquipment
   tier: 2
-  cost: 75000
+  cost: 50000
   recipeUnlocks:
   - ClothingOuterHardsuitSyndieRogue
   - ClothingOuterHardsuitSyndieEliteRogue
   technologyPrerequisites:
-  - RogueBasicEquipment
   - RogueAdvancedEquipment
+  - UniversalMaterialResearchT3
+  position: 12, 12
 
 - type: technology
-  id: RogueStealthsuit
-  name: research-technology-rogue-stealthsuit
-  icon:
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi
-    state: icon
+  id: RogueSuperArmor
+  name: research-technology-rogue-super-armor
+  entityIcon: ClothingOuterHardsuitCybersunStealth
   discipline: RogueEquipment
   tier: 2
   cost: 20000
   recipeUnlocks:
   - ClothingOuterHardsuitCybersunStealthRogue
-  technologyPrerequisites:
-  - RogueBasicEquipment
-  - RogueAdvancedEquipment
-  - RogueSyndicateTacsuits
-
-- type: technology
-  id: RogueSyndicateTacsuitsT3
-  name: research-technology-rogue-syndicate-tacsuits-t3
-  icon:
-    sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
-    state: icon
-  discipline: RogueEquipment
-  tier: 3
-  cost: 65000
-  recipeUnlocks:
   - ClothingOuterHardsuitJuggernautRogue
-# - ClothingOuterHardsuitSyndieCommanderRogue
   technologyPrerequisites:
-  - RogueBasicEquipment
-  - RogueAdvancedEquipment
   - RogueSyndicateTacsuits
+  position: 13, 12
 
-- type: technology
-  id: RogueRx01
-  name: research-technology-rogue-rx01
-  icon:
-    sprite: _Mono/Clothing/Back/Modsuits/rogue.rsi
-    state: control
-  discipline: RogueEquipment
-  tier: 3
-  cost: 75000
-  recipeUnlocks:
-  - ClothingModsuitRoguePowerCellRogue
-  technologyPrerequisites:
-  - RogueBasicEquipment
-  - RogueAdvancedEquipment

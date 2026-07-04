@@ -1,16 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Qulibly
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 mikusssssss
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: job
   id: PirateCaptain
   name: job-name-pirate-captain
@@ -18,13 +5,10 @@
   playTimeTracker: JobPirateCaptain
   requirements:
     - !type:OverallPlaytimeRequirement # mono start
-      time: 108000 # 65 hours
+      time: 144000 # 40 hours
     - !type:RoleTimeRequirement
       role: JobPirateFirstMate
-      time: 3600 # 1 hour
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 # 10 hours # mono end
+      time: 18000 # 5 hours - mono
   whitelisted: true
   startingGear: PirateCaptainNFGear
   alwaysUseSpawner: true
@@ -32,20 +16,20 @@
   canBeAntag: true
   icon: "JobIconPirateCaptain"
   supervisors: job-supervisors-nobody
-  weight: 40
-  displayWeight: 40
+  weight: 50
+  displayWeight: 50
+  assignedCompany: PDV
   setPreference: true
   access:
   - Pirate
-  - RogueCommander
+  - GrandVizier
+  - PDVCommand
+  - Mercenary
   accessGroups:
   - GeneralAccess
   special:
   - !type:AddComponentSpecial
     components:
-    - type: MailDisabled
-    - type: SpecialSectorStationRecord
-      recordGeneration: FalseRecord
     - type: NpcFactionMember
       factions:
       - PirateNF
@@ -63,11 +47,12 @@
 - type: startingGear
   id: PirateCaptainNFGear
   equipment:
-    ears: ClothingHeadsetAltFreelancer
-    neck: ClothingNeckCloakRogueCommander
+    ears: ClothingHeadsetAltVanguardCommand
     #belt: ClothingBeltUtility # mono
     pocket1: BasePirateUplinkRadioPirateCaptain
-    pocket2: EnergyCutlass
+    pocket2: EnergySword
   storage:
     back:
     - RadioHandheldNF # mono
+    - PhoneInstrumentHigh
+    - RubberStampPDVVizier # mono

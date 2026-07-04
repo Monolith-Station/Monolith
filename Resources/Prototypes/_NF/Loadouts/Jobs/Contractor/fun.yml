@@ -5,7 +5,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   inhand:
     - BriefcaseBrownFilled
 
@@ -15,7 +15,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   inhand:
     - ToolboxEmergency
 
@@ -25,7 +25,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   inhand:
     - ToolboxMechanical
 
@@ -34,7 +34,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   inhand:
     - PlushieSharkGrey
 
@@ -43,7 +43,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   inhand:
     - PlushieSharkBlue
 
@@ -52,7 +52,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   inhand:
     - PlushieSharkPink
 
@@ -61,7 +61,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   inhand:
     - HarmonicaInstrument
 
@@ -70,7 +70,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   inhand:
     - SaxophoneInstrument
 
@@ -79,7 +79,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   inhand:
     - AcousticGuitarInstrument
 
@@ -89,7 +89,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1000
+  price: 0 # Mono
   inhand:
     - Cane
 
@@ -98,34 +98,18 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1000
+  price: 0 # Mono
   inhand:
     - LGBTQHandyFlag
 
-- type: loadout
-  id: ContractorNTHandyFlag
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  price: 5000
-  inhand:
-    - NTHandyFlag
-
-- type: loadout
-  id: ContractorBalloonNT
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  price: 5000
-  inhand:
-    - BalloonNT
+# Mono - remove NT flags
 
 - type: loadout
   id: ContractorPonderingOrb
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 5000
+  price: 0 # Mono
   inhand:
     - PonderingOrb
 
@@ -135,7 +119,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 10000
+  price: 0 # Mono
   inhand:
     - PlushieRGBee
 
@@ -144,7 +128,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 2400
+  price: 0 # Mono
   inhand:
     - MysterySpaceBladeBox
 
@@ -153,7 +137,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 10000
+  price: 1000 # Mono
   inhand:
     - HoloGraffitiProjector
 
@@ -162,7 +146,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 10000
+  price: 0 # Mono
   inhand:
     - FlashlightUmbrella
 
@@ -171,7 +155,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 20000
+  price: 0 # Mono
   inhand:
     - DawInstrumentFlatpack
 
@@ -180,7 +164,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 35000
+  price: 10000 # Mono
   inhand:
     - HoverbikeFlatpack
 
@@ -190,7 +174,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 10000
+  price: 2000 # Mono
   inhand:
     - PetCarrierNPCEmotionalSupportSafe
 
@@ -199,6 +183,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 30000
+  price: 0 # Mono
   inhand:
     - CrayonMagic

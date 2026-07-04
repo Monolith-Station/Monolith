@@ -4,8 +4,8 @@
   name: small thruster
   components:
   - type: Thruster
-    baseThrust: 49.5
-    thrust: 49.5
+    baseThrust: 67
+    thrust: 67
     damage:
       types:
         Heat: 40
@@ -41,6 +41,10 @@
     price: 100
   - type: Machine
     board: SmallThrusterMachineCircuitboard
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 4
 
 - type: entity
   id: SmallGyroscope
@@ -84,3 +88,6 @@
     price: 100
   - type: Machine
     board: SmallGyroscopeMachineCircuitboard
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 4

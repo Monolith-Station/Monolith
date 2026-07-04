@@ -94,7 +94,6 @@
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
   - type: NightVision # Goobstation - Nigthvision
-    color: "#808080"
     activateSound: null
     deactivateSound: null
 
@@ -189,7 +188,7 @@
     description: ghost-role-information-sentient-carp-description
     rules: ghost-role-information-space-dragon-summoned-carp-rules
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleGhostRoleTeamAntagonistFlock
     raffle:
       settings: short
   - type: GhostTakeoverAvailable

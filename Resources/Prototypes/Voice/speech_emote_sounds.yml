@@ -1,39 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Alekshhh
-# SPDX-FileCopyrightText: 2023 Alex Evgrashin
-# SPDX-FileCopyrightText: 2023 Kara
-# SPDX-FileCopyrightText: 2023 Kevin Zheng
-# SPDX-FileCopyrightText: 2023 Morb
-# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2023 PixelTK
-# SPDX-FileCopyrightText: 2023 Visne
-# SPDX-FileCopyrightText: 2023 brainfood1183
-# SPDX-FileCopyrightText: 2023 justproggramer
-# SPDX-FileCopyrightText: 2023 lzk228
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2024 BorisTakerman
-# SPDX-FileCopyrightText: 2024 Errant
-# SPDX-FileCopyrightText: 2024 Keer-Sar
-# SPDX-FileCopyrightText: 2024 LankLTE
-# SPDX-FileCopyrightText: 2024 MilenVolf
-# SPDX-FileCopyrightText: 2024 Minemoder5000
-# SPDX-FileCopyrightText: 2024 Mr. 27
-# SPDX-FileCopyrightText: 2024 RenQ
-# SPDX-FileCopyrightText: 2024 Wertan
-# SPDX-FileCopyrightText: 2024 Whisper
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2024 no
-# SPDX-FileCopyrightText: 2024 pocl v
-# SPDX-FileCopyrightText: 2024 themias
-# SPDX-FileCopyrightText: 2025 Armok
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 Suyo
-# SPDX-FileCopyrightText: 2025 Tayrtahn
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 keronshb
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # species
 - type: emoteSounds
   id: MaleHuman
@@ -134,6 +98,8 @@
       path: /Audio/Animals/lizard_happy.ogg
     ReptilianHiss: # Imp
       collection: ReptilianHiss # Imp
+    ReptilianSnicker: # Mono
+      path: /Audio/_Mono/Voice/Reptilian/laugh_1.ogg  # Mono
     Honk:
       collection: BikeHorn
     Whistle:
@@ -162,6 +128,8 @@
       path: /Audio/Animals/lizard_happy.ogg
     ReptilianHiss: # Imp
       collection: ReptilianHiss # Imp
+    ReptilianSnicker: # Mono
+      path: /Audio/_Mono/Voice/Reptilian/laugh_1.ogg  # Mono
     Honk:
       collection: BikeHorn
     Whistle:
@@ -301,7 +269,7 @@
     Sneeze:
       path: /Audio/_Goobstation/Voice/Vox/vox_sneeze.ogg
     Cough:
-      path: /Audio/_Goobstation/Voice/Vox/vox_cough.ogg
+      collection: VoxCough #goob
     CatHisses:
       collection: CatHisses
     MonkeyScreeches:
@@ -324,6 +292,12 @@
       path: /Audio/_Goobstation/Voice/Vox/vox_deathgasp.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Click: #imp
+      collection: VoxClick
+    Chitter: #imp
+      collection: VoxChitter
+    Hiss: #imp
+      collection: VoxHiss
   params:
     variation: 0.125
 
@@ -512,6 +486,31 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Boop: # Goobstation - IPC sounds
+      path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+    Whirr: # Goobstation - IPC sounds
+      collection: IPCWhirrs
+      params:
+        variation: 0
+    Scream: # Goobstation - Cyborg Scream
+      path: /Audio/_Goobstation/Voice/Cyborg/borgscream.ogg
+    # Goobstation - Cyborg emote sounds
+    Laugh:
+      path: /Audio/_EinsteinEngines/Voice/IPC/robot-laugh_3.ogg
+      params:
+        variation: 0.125
+    Sigh:
+      path: /Audio/Voice/Talk/pai.ogg
+      params:
+        variation: 0.125
+    Crying:
+      path: /Audio/_EinsteinEngines/Voice/IPC/cry_robot_1.ogg
+      params:
+        variation: 0.125
+    Whistle:
+      path: /Audio/_EinsteinEngines/Voice/IPC/pai_whistle.ogg
+      params:
+        variation: 0.125
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -532,6 +531,20 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Scream: # Goobstation - Cyborg Scream
+      path: /Audio/_Goobstation/Voice/Cyborg/borgscream.ogg
+    Sigh:
+      path: /Audio/Voice/Talk/pai.ogg
+      params:
+        variation: 0.125
+    Crying:
+      path: /Audio/_EinsteinEngines/Voice/IPC/cry_robot_1.ogg
+      params:
+        variation: 0.125
+    Whistle:
+      path: /Audio/_EinsteinEngines/Voice/IPC/pai_whistle.ogg
+      params:
+        variation: 0.125
 
 # body emotes
 - type: emoteSounds

@@ -1,0 +1,22 @@
+- type: cargoProduct
+  id: AtmosphericsBZ
+  icon:
+    sprite: _NF/Structures/Storage/canister.rsi # Frontier: _NF
+    state: mono_bz
+  product: BZCanister
+  cost: 75000 # NO MORE BZ PROFITS
+  category: cargoproduct-category-name-atmospherics
+  group: market
+
+- type: cargoProduct
+  id: AtmosphericsTEGCrate
+  name: "TEG Crate"
+  description: "A full set of flatpacked Thermoelectric Generator components, ready to use"
+  icon:
+    sprite: Structures/Power/Generation/teg.rsi
+    state: teg
+  product: CrateTeg 
+  cost: 30000
+  category: cargoproduct-category-name-atmospherics
+  group: market
+  # Create TegCenter, TegCirculator, TegCirculator

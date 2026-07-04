@@ -1,0 +1,65 @@
+- type: entity
+  id: CrystalMonolithic
+  parent: BaseStructure
+  suffix: small
+  name: small aether crystal
+  description: A mysterious crystalline solid. Seems highly energetic, but fragile.
+  components:
+  - type: Sprite
+    sprite: Structures/Decoration/crystal.rsi
+    state: crystal_grey
+    color: "#e48f9a"
+    noRot: true
+  - type: Reflect
+    reflectProb: 0.5
+    reflects:
+    - Energy
+    spread: 75
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+        - Opaque
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#e48f9a"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MonolithicCrystalSmall:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

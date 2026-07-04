@@ -1,6 +1,6 @@
 - type: entity
   name: kanabou
-  parent: [BaseItem, BaseC2Contraband] # Frontier: added BaseC2Contraband
+  parent: BaseItem
   id: Kanabou
   description: The classic oni weapon, for those that forgo subtlety.
   components:

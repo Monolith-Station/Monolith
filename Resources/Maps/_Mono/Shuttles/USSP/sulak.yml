@@ -1,20 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Cheackraze
-# SPDX-FileCopyrightText: 2023 Checkraze
-# SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 TsjipTsjip
-# SPDX-FileCopyrightText: 2024 checkraze
-# SPDX-FileCopyrightText: 2025 Honestly101
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 significant harassment
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Grid
@@ -827,7 +810,7 @@ entities:
     - type: Transform
       pos: 5.5,2.5
       parent: 1
-- proto: AmmoBox7.62x39mmFMJ
+- proto: AmmoBox762x39mmFMJ
   entities:
   - uid: 35
     components:
@@ -2480,7 +2463,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerShuttle
+- proto: ComputerShuttleKPV63RWR
   entities:
   - uid: 327
     components:
@@ -3275,8 +3258,6 @@ entities:
       pos: -5.5,1.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 5
     - type: AtmosPipeColor
@@ -3333,8 +3314,7 @@ entities:
       pos: -5.5,-1.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+
       deviceLists:
       - 5
     - type: AtmosPipeColor
@@ -3709,7 +3689,7 @@ entities:
     - type: Transform
       pos: -2.5,7.5
       parent: 1
-- proto: Magazine7.62x39mmFMJ
+- proto: Magazine762x39mmFMJ
   entities:
   - uid: 487
     components:
@@ -4132,20 +4112,6 @@ entities:
 - proto: SpawnPointUSSPCommissar
   entities:
   - uid: 547
-    components:
-    - type: Transform
-      pos: -5.5,5.5
-      parent: 1
-- proto: SpawnPointUSSPCorporal
-  entities:
-  - uid: 548
-    components:
-    - type: Transform
-      pos: -5.5,5.5
-      parent: 1
-- proto: SpawnPointUSSPMedic
-  entities:
-  - uid: 549
     components:
     - type: Transform
       pos: -5.5,5.5

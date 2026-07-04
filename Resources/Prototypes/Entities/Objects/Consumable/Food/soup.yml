@@ -8,7 +8,7 @@
   - type: Item
     storedRotation: -90
   - type: Food
-    trash: 
+    trash:
     - FoodBowlBig
     utensil: Spoon
   - type: SolutionContainerManager
@@ -1028,7 +1028,7 @@
     flavors:
       - miso
   - type: Food
-    trash: 
+    trash:
     - FoodBowlFancy
   - type: Sprite
     layers:
@@ -1334,3 +1334,63 @@
     tags:
     - Meat
     - Soup
+
+- type: entity
+  name: buttered grits
+  parent: FoodBowlBase
+  id: FoodPlainGrits
+  description: A savory bowl of grits, topped with a pat of butter.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - savory
+    - corn
+    - butter
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: grits-butter
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Butter
+          Quantity: 5
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Flavorol
+          Quantity: 10
+
+- type: entity
+  name: cheese grits
+  parent: FoodBowlBase
+  id: FoodCheeseGrits
+  description: A thick, savory bowl of cheesy grits.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - savory
+    - corn
+    - cheesy
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: grits-cheese
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Butter
+          Quantity: 5
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Flavorol
+          Quantity: 10
+
+

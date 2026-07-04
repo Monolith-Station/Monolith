@@ -1,12 +1,7 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Redrover1760
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.NPC.Queries.Considerations;
 using Content.Server.NPC.Queries.Queries;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array; // Mono
 
 namespace Content.Server.NPC.Queries;
 
@@ -16,12 +11,22 @@ namespace Content.Server.NPC.Queries;
 /// These results are then run through the considerations.
 /// </summary>
 [Prototype]
-public sealed partial class UtilityQueryPrototype : IPrototype
+public sealed partial class UtilityQueryPrototype : IPrototype, IInheritingPrototype // Mono
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("query")]
+    // <Mono>
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<UtilityQueryPrototype>))]
+    public string[]? Parents { get; private set; }
+
+    /// <inheritdoc />
+    [NeverPushInheritance]
+    [AbstractDataField]
+    public bool Abstract { get; private set; }
+    // </Mono>
+
+    [ViewVariables(VVAccess.ReadWrite), DataField("query"), AlwaysPushInheritance]
     public List<UtilityQuery> Query = new();
 
     [ViewVariables(VVAccess.ReadWrite), DataField("considerations")]

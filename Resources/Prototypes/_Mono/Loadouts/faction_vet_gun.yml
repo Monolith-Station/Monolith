@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutGroup
   id: CivGunCaseSpecial
   name: loadout-group-special-gun
@@ -16,7 +12,7 @@
   - ContractorSpecialGunVector9mm
   - ContractorSpecialGunVector45Acp
   - ContractorSpecialGunBandit
-  # USSP playtime guns
+  # USSP -> MERC/CIV playtime guns
   - ContractorSpecialGunAk502
   - ContractorSpecialGunBigLeady
   # Rogue playtime guns
@@ -27,6 +23,7 @@
   - ContractorSpecialGunSmartSMG
   - ContractorSpecialGunMla34
   - ContractorSpecialGunMla79
+  - ContractorSpecialGunMalandro
 
 # TSF playtime weapons
 
@@ -36,7 +33,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivTSFVet
-  price: 50000
+  price: 25000
   inhand:
   - WeaponCaseShortEg4Registered
 
@@ -46,7 +43,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivTSFVet
-  price: 85000
+  price: 42500
   inhand:
   - WeaponCaseAnnieRegistered
 
@@ -56,7 +53,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivTSFVet
-  price: 50000
+  price: 25000
   inhand:
   - WeaponCaseLongVulcanRegistered
 
@@ -66,7 +63,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivTSFVet
-  price: 50000
+  price: 25000
   inhand:
   - WeaponCaseLongEnforcerRegistered
 
@@ -76,7 +73,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivTSFVet
-  price: 85000
+  price: 42500
   inhand:
   - WeaponCaseVector9mmRegistered
 
@@ -86,7 +83,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivTSFVet
-  price: 85000
+  price: 42500
   inhand:
   - WeaponCaseVector45AcpRegistered
 
@@ -96,19 +93,19 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivTSFVet
-  price: 70000
+  price: 35000
   inhand:
   - WeaponCaseLongMR3CRegistered
 
-# USSP playtime weapons
+# USSP -> MERC/CIV playtime weapons
 
 - type: loadout
   id: ContractorSpecialGunAk502
   name: AK-502 gun case
   effects:
   - !type:GroupLoadoutEffect
-    proto: MonoCivUsspVet
-  price: 75000
+    proto: MonoCivVet
+  price: 37500
   inhand:
   - WeaponCaseAk502Registered
 
@@ -117,10 +114,21 @@
   name: big leady gun case
   effects:
   - !type:GroupLoadoutEffect
-    proto: MonoCivUsspVet
-  price: 65000
+    proto: MonoCivVet
+  price: 32500
   inhand:
   - WeaponCaseBigLeadyRegistered
+
+- type: loadout
+  id: ContractorSpecialGunMalandro
+  name: RS-2 Malandro gun case
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCivVet
+  price: 35000
+  inhand:
+  - WeaponCaseMalandroRegistered
+
 
 # Rogue playtime weapons
 
@@ -130,7 +138,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivRogueDefector
-  price: 50000
+  price: 25000
   inhand:
   - WeaponCaseShortAnacondaRegistered
 
@@ -140,7 +148,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivRogueDefector
-  price: 75000
+  price: 45000
   inhand:
   - WeaponCaseMla73Registered
 
@@ -150,7 +158,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivRogueDefector
-  price: 85000
+  price: 40000
   inhand:
   - WeaponCaseWsprRegistered
 
@@ -162,7 +170,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivSkilled
-  price: 125000
+  price: 50000
   inhand:
   - WeaponCaseAbielleRegistered
 
@@ -172,7 +180,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivSkilled
-  price: 125000
+  price: 50000
   inhand:
   - WeaponCaseMla34Registered
 
@@ -182,6 +190,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MonoCivPro
-  price: 500000
+  price: 250000
   inhand:
   - WeaponCaseMla79Registered

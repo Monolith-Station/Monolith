@@ -1,188 +1,84 @@
-# SPDX-FileCopyrightText: 2023 Emisse
-# SPDX-FileCopyrightText: 2023 FoxxoTrystan
-# SPDX-FileCopyrightText: 2023 HerCoyote23
-# SPDX-FileCopyrightText: 2023 Kevin Zheng
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 Nim
-# SPDX-FileCopyrightText: 2023 RiceMar1244
-# SPDX-FileCopyrightText: 2023 Stanislav4ix
-# SPDX-FileCopyrightText: 2023 T-Stalker
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 Alzore
-# SPDX-FileCopyrightText: 2024 AndresE55
-# SPDX-FileCopyrightText: 2024 Boaz1111
-# SPDX-FileCopyrightText: 2024 Cojoke
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Flareguy
-# SPDX-FileCopyrightText: 2024 Nairod
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 icekot8
-# SPDX-FileCopyrightText: 2024 slarticodefast
-# SPDX-FileCopyrightText: 2024 takemysoult
-# SPDX-FileCopyrightText: 2024 to4no_fix
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 blackknight954
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 deltanedas
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Tier 1
 
-- type: technology
-  id: SalvageWeapons
-  name: research-technology-salvage-weapons
-  icon:
-    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - WeaponProtoKineticAccelerator
-  - ShuttleGunKineticCircuitboard
-  # These are roundstart but not replenishable for salvage
-  - WeaponCrusher
-  - WeaponCrusherDagger
-  # This is not roundstart since its a direct upgrade
-  - WeaponCrusherGlaive
-  - MechEquipmentKineticAccelerator # Goobstation
-
-#Frontier: restricted arsenal research ;Monolith: readded :)
-
-- type: technology
-  id: DraconicMunitions
-  name: research-technology-draconic-munitions
-  icon:
-    sprite: Structures/Storage/tanks.rsi
-    state: fueltank
-  discipline: Arsenal
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - Magazine45_ACPPistolIncendiary
-  - Magazine45_ACPSubMachineGunIncendiary
-  - AmmoBox45_ACPIncendiary
-  - Magazine9x19mmPistolIncendiary
-  - Magazine9x19mmSubMachineGunIncendiary
-  - SpeedLoader9x19mmIncendiary
-  - AmmoBox9x19mmIncendiary
-  - Magazine5.7x28mmPistolIncendiary
-  - Magazine5.7x28mmSubMachineGunIncendiary
-  - AmmoBox5.7x28mmIncendiary
-  - Magazine4.6x30mmPistolIncendiary
-  - Magazine4.6x30mmSubMachineGunIncendiary
-  - AmmoBox4.6x30mmIncendiary
-  - Magazine45_magnumPistolIncendiary
-  - SpeedLoader45_magnumIncendiary
-  - AmmoBox45_magnumIncendiary
-  - Magazine7.62x39mmIncendiary
-  - AmmoBox7.62x39mmIncendiary
-  - Magazine5.56x45mmIncendiary
-  - SpeedLoader5.56x45mmIncendiary
-  - AmmoBox5.56x45mmIncendiary
-  - Magazine7.62x54mmRIncendiary
-  - AmmoBox7.62x54mmRIncendiary
-  - Magazine7.62x51mmIncendiary
-  - AmmoBox7.62x51mmIncendiary
-  - Magazine12_gaugeIncendiary
-  - AmmoBox12_gaugeIncendiary
+# Mono edit - research consolidation
+# - type: technology
+#   id: SalvageWeapons
+#   name: research-technology-salvage-weapons
+#   entityIcon: WeaponProtoKineticAccelerator
+#   discipline: Arsenal
+#   tier: 1
+#   cost: 5000
+#   recipeUnlocks:
+#   - WeaponProtoKineticAccelerator
+#   - ShuttleGunKineticCircuitboard
+#   - WeaponTurretM25Circuitboard # Mono
+#   # These are roundstart but not replenishable for salvage
+#   - WeaponCrusher
+#   - WeaponCrusherDagger
+#   # This is not roundstart since its a direct upgrade
+#   - WeaponCrusherGlaive
+#   - MechEquipmentKineticAccelerator # Goobstation
+#   technologyPrerequisites:
+#   - SalvageEquipment
+#   position: -2, 3
 
 - type: technology
   id: WeaponizedLaserManipulation
   name: research-technology-weaponized-laser-manipulation
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-    state: icon
+  entityIcon: WeaponLaserCarbine
   discipline: Arsenal
   tier: 1
-  cost: 7500
+  cost: 10000
   recipeUnlocks:
   - WeaponLaserCarbine
   - WeaponMechCombatFiredartLaser # Goobstation
+  - WeaponLaserSvalinn # Mono
+  - NFBlueprintWeaponLaserSvalinn # Frontier
+  technologyPrerequisites:
+  - BasicParts
+  position: 2, 3
 
-- type: technology
-  id: NonlethalAmmunition
-  name: research-technology-nonlethal-ammunition
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
-    state: beanbag
-  discipline: Arsenal
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - WeaponDisabler
-  - WeaponMechCombatDisabler # Goobstation
-
-#Frontier: restricted arsenal research ;Monolith: readded :)
-
-- type: technology
-  id: UraniumMunitions
-  name: research-technology-uranium-munitions
-  icon:
-    sprite: Objects/Materials/Sheets/other.rsi
-    state: uranium
-  discipline: Arsenal
-  tier: 2
-  cost: 7500
-  recipeUnlocks:
-  - Magazine45_ACPPistolUranium
-  - Magazine45_ACPSubMachineGunUranium
-  - AmmoBox45_ACPUranium
-  - Magazine9x19mmPistolUranium
-  - Magazine9x19mmSubMachineGunUranium
-  - SpeedLoader9x19mmUranium
-  - AmmoBox9x19mmUranium
-  - Magazine5.7x28mmPistolUranium
-  - Magazine5.7x28mmSubMachineGunUranium
-  - AmmoBox5.7x28mmUranium
-  - Magazine4.6x30mmPistolUranium
-  - Magazine4.6x30mmSubMachineGunUranium
-  - AmmoBox4.6x30mmUranium
-  - Magazine45_magnumPistolUranium
-  - SpeedLoader45_magnumUranium
-  - AmmoBox45_magnumUranium
-  - Magazine7.62x39mmUranium
-  - AmmoBox7.62x39mmUranium
-  - Magazine5.56x45mmUranium
-  - SpeedLoader5.56x45mmUranium
-  - AmmoBox5.56x45mmUranium
-  - Magazine7.62x54mmRUranium
-  - AmmoBox7.62x54mmRUranium
-  - Magazine7.62x51mmUranium
-  - AmmoBox7.62x51mmUranium
-  - Magazine12_gaugeUranium
-  - AmmoBox12_gaugeUranium
+# Mono edit - research consolidation
+# - type: technology
+#   id: NonlethalAmmunition
+#   name: research-technology-nonlethal-ammunition
+#   entityIcon: WeaponDisabler
+#   discipline: Arsenal
+#   tier: 1
+#   cost: 7500
+#   recipeUnlocks:
+#   - WeaponDisabler
+#   - WeaponMechCombatDisabler # Goobstation
+#   technologyPrerequisites:
+#   - AdvancedRiotControl
+#   position: 2, 3
 
 - type: technology
   id: AdvancedRiotControl
   name: research-technology-advanced-riot-control
-  icon:
-    sprite: Objects/Weapons/Melee/truncheon.rsi
-    state: icon
+  entityIcon: Truncheon
   discipline: Arsenal
   tier: 1
-  cost: 8000
+  cost: 10000
   recipeUnlocks:
   - Truncheon
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  - WeaponDisabler # Mono
+  - WeaponMechCombatDisabler # Goobstation
+  - ClothingBackpackElectropack # Mono
+  technologyPrerequisites:
+  - BasicParts
+  position: 2, 2
 
 - type: technology
   id: ExplosiveTechnology
   name: research-technology-explosive-technology
-  icon:
-    sprite: Objects/Devices/payload.rsi
-    state: payload-explosive-armed
+  entityIcon: ExplosivePayload
   discipline: Arsenal
   tier: 1
-  cost: 10000
+  cost: 25000
   recipeUnlocks:
   - SignallerAdvanced
   - SignalTrigger
@@ -192,112 +88,126 @@
   - ExplosivePayload
   - ChemicalPayload
   - NFBlueprintSignallerAdvanced # Frontier
+  technologyPrerequisites:
+  - SuperParts
+  position: 1, 14
 
-- type: technology
-  id: SpecialMeans
-  name: research-technology-special-means
-  icon:
-    sprite: Clothing/Back/Backpacks/electropack.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - ClothingBackpackElectropack
+# Mono edit - research consolidation
+# - type: technology
+#   id: SpecialMeans
+#   name: research-technology-special-means
+#   entityIcon: ClothingBackpackElectropack
+#   discipline: Arsenal
+#   tier: 1
+#   cost: 5000
+#   recipeUnlocks:
+#   - ClothingBackpackElectropack
+#   technologyPrerequisites:
+#   - NonlethalAmmunition
+#   position: 2, 4
 
 # Tier 2
 
 - type: technology
   id: ConcentratedLaserWeaponry
   name: research-technology-concentrated-laser-weaponry
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
-    state: icon
+  entityIcon: WeaponLaserCannon
   discipline: Arsenal
   tier: 2
-  cost: 10000
+  cost: 25000 # Mono
   recipeUnlocks:
   - WeaponLaserCannon
   - WeaponMechCombatSolarisLaser # Goobstation
+  - WeaponXrayCannon # Mono
+  technologyPrerequisites:
+  - WeaponizedLaserManipulation
+  position: 3, 3
 
-- type: technology
-  id: WaveParticleHarnessing
-  name: research-technology-wave-particle-harnessing
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/xray.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - WeaponXrayCannon
+# - type: technology
+#   id: WaveParticleHarnessing
+#   name: research-technology-wave-particle-harnessing
+#   entityIcon: WeaponXrayCannon
+#   discipline: Arsenal
+#   tier: 2
+#   cost: 20000
+#   recipeUnlocks:
+#   - WeaponXrayCannon
+#   technologyPrerequisites:
+#   - ConcentratedLaserWeaponry
+#   - SuperParts
+#   position: 4, 4
 
 - type: technology
   id: BasicShuttleArmament
   name: research-technology-basic-shuttle-armament
-  icon:
-    sprite: Structures/Power/cage_recharger.rsi
-    state: full
+  entityIcon: PowerCageHigh
   discipline: Arsenal
   tier: 2
-  cost: 10500
+  cost: 10000
   recipeUnlocks:
-  - PowerCageRechargerCircuitboard
-  - PowerCageSmall
-  - PowerCageMedium
+  #  - PowerCageRechargerCircuitboard # Mono - moved to industrial
+  #  - PowerCageSmall # Mono
+  #  - PowerCageMedium # Mono
+  #  - PowerCageHigh #frontie # Mono
   - Magazine40mmEmpty
   - 40mmGrenadeFlash
   - 40mmGrenadeThermobaric
   - 40mmGrenadeEMP #Frontier
-  - PowerCageHigh #frontier
   #  - ShuttleGunSvalinnMachineGunCircuitboard # Frontier
   #  - ShuttleGunPerforatorCircuitboard # Frontier
   #  - ShuttleGunFriendshipCircuitboard # Frontier
+  - 40mmGrenadeEMP
+  - PowerCageHigh
   technologyPrerequisites:
-  - SalvageWeapons
+  - ExplosiveTechnology
+  position: -5, 8
 
 # Tier 3
 
 - type: technology
   id: PortableMicrofusionWeaponry
   name: research-technology-portable-microfusion-weaponry
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
-    state: icon
+  entityIcon: WeaponAdvancedLaser
   discipline: Arsenal
   tier: 3
-  cost: 15000
+  cost: 30000
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
   - NFBlueprintPortableRecharger # Frontier
   - WeaponMechCombatImmolationGun # Goobstation
+  technologyPrerequisites:
+  - ConcentratedLaserWeaponry
+  - SuperParts
+  position: 4, 3
 
-- type: technology
-  id: ExperimentalBatteryAmmo
-  name: research-technology-experimental-battery-ammo
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 3
-  cost: 15000
-  recipeUnlocks:
-  - WeaponLaserSvalinn
-  - NFBlueprintWeaponLaserSvalinn # Frontier
+# Mono edit - research consolidation
+# - type: technology
+#   id: ExperimentalBatteryAmmo
+#   name: research-technology-experimental-battery-ammo
+#   entityIcon: WeaponLaserSvalinn
+#   discipline: Arsenal
+#   tier: 3
+#   cost: 2500
+#   recipeUnlocks:
+#   - WeaponLaserSvalinn
+#   - NFBlueprintWeaponLaserSvalinn # Frontier
+#   technologyPrerequisites:
+#   - BasicParts
+#   position: 3, 4
 
-# - type: technology #Frontier
-#  id: AdvancedShuttleWeapon
-#  name: research-technology-advanced-shuttle-weapon
-#  icon:
-#    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/Grenade/40mm_grenade_cartridge.rsi
-#    state: icon
-#  discipline: Arsenal
-#  tier: 3
-#  cost: 15000
-#  recipeUnlocks:
-#  - 40mmGrenadeEMP
-#  - PowerCageHigh
-#  - ShuttleGunDusterCircuitboard # Frontier
-#  technologyPrerequisites:
-#  - BasicShuttleArmament
+# Mono edit - research consolidation
+# - type: technology
+#   id: AdvancedShuttleWeapon
+#   name: research-technology-advanced-shuttle-weapon
+#   entityIcon: 40mmGrenadeEMP
+#   discipline: Arsenal
+#   tier: 3
+#   cost: 25000
+#   recipeUnlocks:
+#   - 40mmGrenadeEMP
+#   - PowerCageHigh
+# #  - ShuttleGunDusterCircuitboard # Mono
+#   technologyPrerequisites:
+#   - BasicShuttleArmament
+#   position: -4, 8

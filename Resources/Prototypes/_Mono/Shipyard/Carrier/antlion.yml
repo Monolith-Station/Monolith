@@ -1,21 +1,16 @@
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-# SPDX-FileCopyrightText: 2025 crazy1112345
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vessel
   id: Antlion
   parent: BaseVessel
   name: DIS Antlion
   description: A mining drone commissioned by Horizon Energy to the DIS. Basically a chunk of metal with a mining pulser slapped onto it. EVA suit and oxygen not included.
-  price: 6250
+  price: 7250
   category: Micro
   group: Custom
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
   shuttlePath: /Maps/_Mono/Shuttles/Carrier/antlion.yml
   guidebookPage: Null
   class:
+  - Fighter
   - Salvage
   engine:
   - APU

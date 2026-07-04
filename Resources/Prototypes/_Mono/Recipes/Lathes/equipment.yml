@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: latheRecipe
   id: MonoHardsuitWarlordRecipe
   parent: NFBaseEVASuitRecipe
@@ -23,6 +17,17 @@
     Gold: 500
 
 - type: latheRecipe
+  id: ClothingOuterHardsuitCarp
+  result: ClothingOuterHardsuitCarp
+  completetime: 20
+  materials:
+    Steel: 2000
+    Plastic: 2000
+    Plasma: 700
+    Durathread: 500
+    Diamond: 100 # carp teeth be sharp
+
+- type: latheRecipe
   id: ClothingShoesBootsMagVoid
   result: ClothingShoesBootsMagVoid
   completetime: 10
@@ -31,3 +36,66 @@
     Plastic: 500
     Plasma: 500
     Silver: 200
+
+#Armor Plates
+- type: latheRecipe
+  id: ArmorPlateBlunt_Slash
+  categories:
+  - ArmorNF
+  result: ArmorPlateBlunt_Slash
+  completetime: 15
+  materials:
+    Plasteel: 2000
+    Durathread: 500
+    Plastic: 1000
+
+- type: latheRecipe
+  id: ArmorPlatePierce
+  categories:
+  - ArmorNF
+  result: ArmorPlatePierce
+  completetime: 15
+  materials:
+    Durathread: 500
+    Plastic: 500
+    Plastitanium: 1500
+
+- type: latheRecipe
+  id: ArmorPlateHeat
+  categories:
+  - ArmorNF
+  result: ArmorPlateHeat
+  completetime: 15
+  materials:
+    Steel: 600
+    Durathread: 500
+    PlasmaGlass: 1500
+    UraniumGlass: 1500
+
+- type: latheRecipe
+  id: ArmorPlateSpeed
+  categories:
+  - ArmorNF
+  result: ArmorPlateSpeed
+  completetime: 15
+  materials:
+    Durathread: 1000
+    Brass: 3000
+    Plastitanium: 1000
+
+# ASMGT
+
+- type: latheRecipe
+  id: WeaponTurretAsmgtNtPacked
+  parent: BaseWeaponRecipeLong
+  result: WeaponTurretAsmgtNtPacked #CSec Exclusive
+  categories:
+  - Weapons
+  materials:
+    Steel: 2000
+    Plasteel: 3000
+    Plastic: 2500
+    Plasma: 1500
+    Gold: 1000
+    Diamond: 150
+

@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BlueHNT
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: guideEntry
   id: MonolithRuleset
   name: guide-entry-monolith-rules
@@ -16,6 +10,8 @@
     - MonolithRuleCoreThreeCheatingExploits
     - MonolithRuleCoreFourAlternativeAccounts
     - MonolithRuleCoreFiveLanguages
+    - MonolithRuleCoreSixAhelp
+    - MonolithRuleCoreSevenThreatenToReport
     - MonolithRuleRoleplayOneBreakCharacter
     - MonolithRuleRoleplayTwoTextChat
     - MonolithRuleRoleplayThreeProperGrammar
@@ -23,12 +19,20 @@
     - MonolithRuleRoleplayFiveEroticRoleplay
     - MonolithRuleRoleplaySixMetagame
     - MonolithRuleRoleplaySevenSafeZones
+    - MonolithRuleRoleplayEightFactionRoles
+    - MonolithRuleRoleplayNineCommandingRoles
     - MonolithRuleConflictOneRandomDeathmatch
     - MonolithRuleConflictTwoNewLife
     - MonolithRuleConflictThreeFairPlay
     - MonolithRuleConflictFourPortStriking
 
 #MARK: Core Rules
+
+- type: guideEntry
+  id: MonolithRuleCoreZeroAgeThreshold
+  name: guide-entry-monolith-rule-core-zero-age-threshold
+  text: "/ServerInfo/_Mono/Guidebook/Rules/Zero_AgeThreshold.xml"
+  ruleEntry: true
 
 - type: guideEntry
   id: MonolithRuleCoreOneCommonSense
@@ -58,6 +62,18 @@
   id: MonolithRuleCoreFiveLanguages
   name: guide-entry-monolith-rule-core-five-languages
   text: "/ServerInfo/_Mono/Guidebook/Rules/Five_Languages.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: MonolithRuleCoreSixAhelp
+  name: guide-entry-monolith-rule-core-six-ahelp
+  text: "/ServerInfo/_Mono/Guidebook/Rules/Six_Ahelp.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: MonolithRuleCoreSevenThreatenToReport
+  name: guide-entry-monolith-rule-core-seven-threaten-to-report
+  text: "/ServerInfo/_Mono/Guidebook/Rules/Seven_ThreatenToReport.xml"
   ruleEntry: true
 
 # /Core Rules
@@ -105,6 +121,19 @@
   name: guide-entry-monolith-rule-roleplay-seven-safe-zones
   text: "/ServerInfo/_Mono/Guidebook/Rules/Roleplay/Seven_SafeZones.xml"
   ruleEntry: true
+
+- type: guideEntry
+  id: MonolithRuleRoleplayEightFactionRoles
+  name: guide-entry-monolith-rule-roleplay-eight-faction-roles
+  text: "/ServerInfo/_Mono/Guidebook/Rules/Roleplay/Eight_FactionRoles.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: MonolithRuleRoleplayNineCommandingRoles
+  name: guide-entry-monolith-rule-conflict-nine-commanding-roles
+  text: "/ServerInfo/_Mono/Guidebook/Rules/Roleplay/Nine_CommandingRoles.xml"
+  ruleEntry: true
+
 
 # /Roleplay Rules
 

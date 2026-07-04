@@ -1,0 +1,33 @@
+- type: entity
+  id: GaryTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: gary translator
+  description: Translates speech between Gary and Andromeda Standard. Haha, Gary!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Gary
+    understood:
+    - TauCetiBasic
+    - Gary
+    requires:
+    - TauCetiBasic
+    - Gary
+
+- type: entity
+  id: NovaCygniTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Nova Cygni translator
+  description: Translates speech between Nova Cygni and Andromeda Standard. You probably already know the word for comrade.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - NovaCygniBasic
+    understood:
+    - TauCetiBasic
+    - NovaCygniBasic
+    requires:
+    - TauCetiBasic
+    - NovaCygniBasic

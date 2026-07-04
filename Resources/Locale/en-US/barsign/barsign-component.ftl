@@ -94,7 +94,7 @@ barsign-prototype-description-emprah = Enjoyed by fanatics, heretics, and brain-
 
 ## Spacebucks
 barsign-prototype-name-spacebucks = Spacebucks
-barsign-prototype-description-spacebucks = You can't get away from them, even in space, and even after we started calling them 'spesos' instead.
+barsign-prototype-description-spacebucks = You can't get away from them, even in space, and even after we started calling them 'credits' instead.
 
 ## Maltroach
 barsign-prototype-name-maltroach = Maltroach

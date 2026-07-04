@@ -1,29 +1,29 @@
 # Tier 2
 
-- type: technology
-  id: RapidPartExchange
-  name: research-technology-rped
-  icon:
-    sprite: _NF/Objects/Specific/Research/rped.rsi
-    state: icon
-  discipline: Experimental
-  tier: 2
-  cost: 7500
-  recipeUnlocks:
-  - RPED
-  - NFBlueprintRped
+# Mono edit - research consolidation
+# - type: technology
+#   id: RapidPartExchange
+#   name: research-technology-rped
+#   entityIcon: RPED
+#   discipline: Experimental
+#   tier: 2
+#   cost: 25000
+#   recipeUnlocks:
+#   - RPED
+#   - NFBlueprintRped
+#   technologyPrerequisites:
+#   - AdvancedParts
+#   position: -1, 8
 
 # Tier 3
 
 - type: technology
   id: SuperParts
   name: research-technology-super-parts
-  icon:
-    sprite: _NF/Objects/Misc/stock_parts.rsi # Frontier
-    state: super_matter_bin
+  entityIcon: SuperCapacitorStockPart
   discipline: Experimental
   tier: 3
-  cost: 15000
+  cost: 25000
   recipeUnlocks:
   - SuperCapacitorStockPart
   - SuperMatterBinStockPart
@@ -31,32 +31,35 @@
   - NFBlueprintSuperCapacitorStockPart
   - NFBlueprintPicoManipulatorStockPart
   - NFBlueprintSuperMatterBinStockPart
+  technologyPrerequisites:
+  - AdvancedParts
+  position: 0, 16
 
 - type: technology
   id: MagnetsTechAdvanced
   name: research-technology-magnets-tech-advanced
-  icon:
-    sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
-    state: icon
-  discipline: Experimental
-  tier: 3
-  cost: 10000
-  recipeUnlocks:
-  - ClothingShoesBootsMagAdv
-  - NFBlueprintClothingShoesBootsMagAdv
-  technologyPrerequisites:
-  - MagnetsTech
-
-- type: technology
-  id: HardsuitsExperimentalRD
-  name: research-technology-hardsuits-experimental-rd
-  icon:
-    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
-    state: icon
+  entityIcon: ClothingShoesBootsMagAdv
   discipline: Experimental
   tier: 3
   cost: 15000
   recipeUnlocks:
-    - ClothingOuterHardsuitRd
+  - ClothingShoesBootsMagAdv
+  - NFBlueprintClothingShoesBootsMagAdv
   technologyPrerequisites:
-  - HardsuitsArmored
+  - MagnetsTechCombat
+  - SuperParts
+  position: -4, -1
+
+# Mono edit - research consolidation
+# - type: technology
+#   id: HardsuitsExperimentalRD
+#   name: research-technology-hardsuits-experimental-rd
+#   entityIcon: ClothingOuterHardsuitRd
+#   discipline: Experimental
+#   tier: 3
+#   cost: 35000
+#   recipeUnlocks:
+#     - ClothingOuterHardsuitRd
+#   technologyPrerequisites:
+#   - HardsuitsAdvanced
+#   position: 3, 6

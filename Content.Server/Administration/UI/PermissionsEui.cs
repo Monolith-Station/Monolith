@@ -13,12 +13,12 @@ using static Content.Shared.Administration.PermissionsEuiMsg;
 
 namespace Content.Server.Administration.UI
 {
-    public sealed class PermissionsEui : BaseEui
+    public sealed partial class PermissionsEui : BaseEui
     {
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IServerDbManager _db = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IServerDbManager _db = default!;
+        [Dependency] private IAdminManager _adminManager = default!;
+        [Dependency] private ILogManager _logManager = default!;
 
         private readonly ISawmill _sawmill;
         private bool _isLoading;
@@ -83,7 +83,8 @@ namespace Content.Server.Administration.UI
                 AdminRanks = _adminRanks.ToDictionary(a => a.Id, a => new PermissionsEuiState.AdminRankData
                 {
                     Flags = AdminFlagsHelper.NamesToFlags(a.Flags.Select(p => p.Flag)),
-                    Name = a.Name
+                    Name = a.Name,
+                    ShortName = a.ShortName
                 })
             };
         }
@@ -178,6 +179,7 @@ namespace Content.Server.Administration.UI
 
             rank.Flags = GenRankFlagList(ur.Flags);
             rank.Name = ur.Name;
+            rank.ShortName = ur.ShortName; // Mono
 
             await _db.UpdateAdminRankAsync(rank);
 
@@ -198,6 +200,7 @@ namespace Content.Server.Administration.UI
             var rank = new DbAdminRank
             {
                 Name = ar.Name,
+                ShortName = ar.ShortName, // Mono
                 Flags = GenRankFlagList(ar.Flags)
             };
 

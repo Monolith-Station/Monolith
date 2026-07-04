@@ -1,0 +1,13 @@
+- type: entity
+  name: bomb collar sealer
+  parent: BaseItem
+  id: BombCollarSealer
+  description: Toggles the lock state of a bomb collar.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Tools/bomb_collar_sealer.rsi
+    state: icon
+  - type: UnremovableClothingRemover
+    whitelist:
+      tags:
+        - BombCollar

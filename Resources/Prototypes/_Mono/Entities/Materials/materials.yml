@@ -1,54 +1,48 @@
-# SPDX-FileCopyrightText: 2025 starch
-# SPDX-FileCopyrightText: 2025 tonotom
-# SPDX-FileCopyrightText: 2025 tonotom1
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-# Synthalloy - high tier mat for T3 faction gear
 
 - type: material
-  id: Synthalloy
-  stackEntity: MaterialSynthalloy1
-  name: materials-synthalloy
+  id: Pyrogel
+  stackEntity: MaterialPyrogel1
+  name: materials-pyrogel
   unit: materials-unit-sheet
-  icon: { sprite: /Textures/_Mono/Objects/Materials/synthalloy.rsi, state: synthalloy }
-  color: "#FFFFFF"
-  price: 5 # 500/sheet
+  icon: { sprite: _Mono/Objects/Materials/pyrogel.rsi, state: icon }
+  color: "#C0C0C0"
+  price: 5
+  properties: # FH edit
+    electrical: 5
+    thermal: 6
+    hard: 1
+    density: 2
+    chemical: 2
+    reflective: 4
+    molitz_bubbles: 1
+    plasma_offgas: 4
 
 - type: entity
   parent: MaterialBase
-  id: MaterialSynthalloy
-  name: synthalloy
-  description: An experimental polymer developed by the TSF for high-stress applications. Reinforced with a plasteel nanoweave, and infused with gaseous plasma.
+  id: MaterialPyrogel
+  name: pyrogel
+  description: Paycheck Bratva's experimental chemical gel.
   suffix: Full
   components:
   - type: Stack
-    stackType: Synthalloy
+    stackType: Pyrogel
     count: 50
   - type: Sprite
-    sprite: _Mono/Objects/Materials/synthalloy.rsi
+    sprite: _Mono/Objects/Materials/pyrogel.rsi
     layers:
-    - state: synthalloy
+    - state: icon
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Synthalloy: 100
+      Pyrogel: 100 # what?
 
 - type: entity
-  parent: MaterialSynthalloy
-  id: MaterialSynthalloy1
+  parent: MaterialPyrogel
+  id: MaterialPyrogel1
   suffix: 1
   components:
   - type: Stack
     count: 1
-
-- type: entity
-  parent: MaterialSynthalloy
-  id: MaterialSynthalloy10
-  suffix: 10
-  components:
-  - type: Stack
-    count: 10
 
 # iridite - money mat from atmos gases
 
@@ -60,6 +54,15 @@
   icon: { sprite: /Textures/_Mono/Objects/Materials/iridite.rsi, state: iridite }
   color: "#252229"
   price: 12.5 # 1250/sheet
+  properties: # FH edit
+    electrical: 12
+    thermal: 8
+    hard: 8
+    density: 2
+    chemical: 9
+    reflective: 1
+    molitz_bubbles: 0
+    plasma_offgas: 0
 
 - type: entity
   parent: MaterialBase
@@ -118,6 +121,77 @@
   - type: Stack
     count: 50
 
+# Plastitanium
+
+- type: material
+  id: Plastitanium
+  stackEntity: SheetPlastitanium1
+  name: materials-plastitanium
+  unit: materials-unit-sheet
+  icon: { sprite: /Textures/_Mono/Objects/Materials/plastitanium.rsi, state: plastitanium }
+  color: "#5c5c5c"
+  price: 6 # 600/sheet
+  properties: # FH edit
+    electrical: 3
+    thermal: 5
+    hard: 12
+    density: 9
+    chemical: 6
+    reflective: 3
+    molitz_bubbles: 0
+    plasma_offgas: 0
+
+- type: entity
+  parent: MaterialBase
+  id: SheetPlastitanium
+  name: plastitanium
+  description: An advanced, high-strength alloy. Even if it's extremely abundant in core sectors, it is hard to find in the Colossus region.
+  suffix: 15
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/plastitanium.rsi
+    state: plastitanium_3
+    layers:
+    - state: plastitanium_3
+      map: ["base"]
+  - type: Tag
+    tags:
+    - Sheet
+  - type: Item
+    sprite: _Mono/Objects/Materials/plastitanium.rsi
+    heldPrefix: plastitanium
+  - type: Stack
+    stackType: Plastitanium
+    count: 15
+    baseLayer: base
+    layerStates:
+    - plastitanium
+    - plastitanium_2
+    - plastitanium_3
+  - type: Material
+  - type: Appearance
+  - type: PhysicalComposition
+    materialComposition:
+      Plastitanium: 100
+
+- type: entity
+  parent: SheetPlastitanium
+  id: SheetPlastitanium1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: SheetPlastitanium
+  id: SheetPlastitanium10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+# Misc
+
 - type: entity
   parent: MaterialDiamond
   id: MaterialDiamond5
@@ -125,3 +199,165 @@
   components:
   - type: Stack
     count: 5
+
+# Enriched uranium products
+
+- type: material
+  id: UraniumFissile
+  stackEntity: SheetUraniumFissile1
+  name: materials-uraniumfissile
+  unit: materials-unit-sheet
+  icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: uranium }
+  color: "#8a8568"
+  price: 250 # 25000/sheet
+  properties: # FH edit
+    electrical: 4
+    thermal: 3
+    hard: 5
+    density: 7
+    chemical: 6
+    radioactive: 9
+    n_radioactive: 8
+
+- type: entity
+  parent: MaterialBase
+  id: SheetUraniumFissile
+  name: fissile uranium
+  description: Ingots of pure, unadulterated weapons-grade uranium isotopes. Expect some trouble with this.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi
+    state: uranium_3
+    layers:
+    - state: uranium_3
+      map: ["base"]
+  - type: Tag
+    tags:
+    - Sheet
+  - type: Item
+    sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi
+    heldPrefix: fissile uranium
+    inhandVisuals:
+      left:
+      - state: uranium-inhand-left
+      right:
+      - state: uranium-inhand-right
+  - type: Stack
+    stackType: UraniumFissile
+    count: 5
+    baseLayer: base
+    layerStates:
+    - uranium
+    - uranium_2
+    - uranium_3
+  - type: Material
+  - type: RadiationReceiver
+  - type: RadiationSource
+    intensity: 0.4
+  - type: ChainRadiation
+    baseIntensity: 0.4
+    coefficient: 0.1 # critical mass at 25
+    explosionThreshold: 10 # let it cook a bit
+    totalIntensity: 15000
+    intensitySlope: 2000
+    maxIntensity: 4000
+  - type: Appearance
+  - type: PhysicalComposition
+    materialComposition:
+      UraniumFissile: 100
+  - type: Explosive
+    explosionType: Radioactive
+    totalIntensity: 20.0
+    intensitySlope: 5
+    maxIntensity: 4
+  - type: ThermalSignature
+  - type: PassiveThermalSignature
+    signature: 1500000
+  - type: PointLight
+    color: "#8a8568"
+    radius: 2
+    energy: 1
+  - type: DamageOnLand
+    damage:
+      types:
+        Radiation: 5
+
+- type: entity
+  parent: SheetUraniumFissile
+  id: SheetUraniumFissile1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+# depleted uranium
+
+- type: material
+  id: UraniumDepleted
+  stackEntity: SheetUraniumDepleted1
+  name: materials-uraniumdepleted
+  unit: materials-unit-sheet
+  icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: depleted }
+  color: "#14211d"
+  price: 20 # 250/sheet
+  properties: # FH edit
+    electrical: 4
+    thermal: 3
+    hard: 12
+    density: 12
+    chemical: 6
+    radioactive: 1
+    n_radioactive: 1
+
+- type: entity
+  parent: MaterialBase
+  id: SheetUraniumDepleted
+  name: depleted uranium
+  description: Ingots of durable, dense and ridiculously heavy depleted uranium, no longer fissile - but nonetheless useful for things unrelated to warcrimes.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi
+    state: depleted_3
+    layers:
+    - state: depleted_3
+      map: ["base"]
+  - type: Tag
+    tags:
+    - Sheet
+  - type: Item
+    sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi
+    heldPrefix: depleted uranium
+    size: Ginormous
+    inhandVisuals:
+      left:
+      - state: depleted-inhand-left
+      right:
+      - state: depleted-inhand-right
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: HeldSpeedModifier
+  - type: Stack
+    stackType: UraniumDepleted
+    count: 5
+    baseLayer: base
+    layerStates:
+    - depleted
+    - depleted_2
+    - depleted_3
+  - type: Material
+  - type: Appearance
+  - type: PhysicalComposition
+    materialComposition:
+      UraniumDepleted: 100
+
+- type: entity
+  parent: SheetUraniumDepleted
+  id: SheetUraniumDepleted1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: GasPressurePump
   id: GasPressurePumpOn
   suffix: On
@@ -184,8 +184,15 @@
   - type: PlacementReplacement
     key: walls # For construction if this eventually supports it.
   - type: IconSmooth
-    key: walls
+    key: airlocks
     mode: NoSprite
+  # Mono
+  - type: Construction
+    graph: AirlockShuttle
+    node: gaslock
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 6
 
 - type: entity
   parent: [BaseStructureDynamic, BasePressurePumpGaslock]
@@ -233,6 +240,7 @@
   - type: StaticPrice
     price: 100
   - type: Docking
+    dockType: Gas
     receiveOnly: true
   - type: DeviceNetwork
     prefix: device-address-prefix-portable-gaslock

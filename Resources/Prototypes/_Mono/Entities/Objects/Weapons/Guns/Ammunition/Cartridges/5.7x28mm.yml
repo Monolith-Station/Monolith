@@ -1,17 +1,18 @@
 - type: entity
-  id: BaseCartridge5.7x28mm
+  id: BaseCartridge57x28mm
   name: cartridge (5.7x28mm FMJ)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  description: A small PDW cartridge. More internal damage than 4.6, but less armor-piercing capabilities. Formerly infamous for its high cost.
+  parent: BaseCartridge
   abstract: true
   components:
   - type: Tag
     tags:
       - Cartridge
-      - Cartridge5.7x28mmFMJ
+      - Cartridge57x28mmFMJ
   - type: CartridgeAmmo
-    proto: Bullet5.7x28mmFMJ
+    proto: Bullet57x28mmFMJ
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/pistol_ammo_casing_steel.rsi
     layers:
       - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]
@@ -21,20 +22,20 @@
     price: 1
 
 - type: entity
-  id: Cartridge5.7x28mmFMJ
+  id: Cartridge57x28mmFMJ
   name: cartridge (5.7x28mm FMJ)
-  parent: BaseCartridge5.7x28mm
+  parent: BaseCartridge57x28mm
   components:
   - type: CartridgeAmmo
-    proto: Bullet5.7x28mmFMJ
+    proto: Bullet57x28mmFMJ
 
 - type: entity
-  id: Cartridge5.7x28mmPractice
+  id: Cartridge57x28mmPractice
   name: cartridge (5.7x28mm practice)
-  parent: BaseCartridge5.7x28mm
+  parent: BaseCartridge57x28mm
   components:
   - type: CartridgeAmmo
-    proto: Bullet5.7x28mmPractice
+    proto: Bullet57x28mmPractice
   -  type: Sprite
      layers:
        - state: base
@@ -44,12 +45,12 @@
          color: "#dbdbdb"
 
 - type: entity
-  id: Cartridge5.7x28mmIncendiary
+  id: Cartridge57x28mmIncendiary
   name: cartridge (5.7x28mm incendiary)
-  parent: BaseCartridge5.7x28mm
+  parent: BaseCartridge57x28mm
   components:
   - type: CartridgeAmmo
-    proto: Bullet5.7x28mmIncendiary
+    proto: Bullet57x28mmIncendiary
   - type: Sprite
     layers:
       - state: base
@@ -59,12 +60,12 @@
         color: "#ff6e52"
 
 - type: entity
-  id: Cartridge5.7x28mmUranium
+  id: Cartridge57x28mmUranium
   name: cartridge (5.7x28mm uranium)
-  parent: BaseCartridge5.7x28mm
+  parent: BaseCartridge57x28mm
   components:
   - type: CartridgeAmmo
-    proto: Bullet5.7x28mmUranium
+    proto: Bullet57x28mmUranium
   - type: Sprite
     layers:
       - state: base
@@ -75,12 +76,12 @@
 
 # Upstream
 - type: entity
-  id: Cartridge5.7x28mmRubber
+  id: Cartridge57x28mmRubber
   name: cartridge (5.7x28mm rubber)
-  parent: BaseCartridge5.7x28mm
+  parent: BaseCartridge57x28mm
   components:
   - type: CartridgeAmmo
-    proto: Bullet5.7x28mmRubber
+    proto: Bullet57x28mmRubber
   - type: Sprite
     layers:
       - state: base
@@ -91,13 +92,62 @@
 
 # Frontier
 - type: entity
-  id: Cartridge5.7x28mmEmp
+  id: Cartridge57x28mmEmp
   name: cartridge (5.7x28mm emp)
-  parent: BaseCartridge5.7x28mm
+  parent: BaseCartridge57x28mm
   components:
   - type: CartridgeAmmo
-    proto: Bullet5.7x28mmEmp
+    proto: Bullet57x28mmEmp
   - type: EmpDescription
     range: 0.3
     energyConsumption: 2700000
     disableDuration: 10
+
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  id: Cartridge57x28mmHP
+  name: cartridge (5.7x28mm hollow-point)
+  parent: BaseCartridge57x28mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet57x28mmHP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#90EE90"
+
+- type: entity
+  id: Cartridge57x28mmRIP
+  name: cartridge (5.7x28mm RIP)
+  parent: BaseCartridge57x28mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet57x28mmRIP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#C04000"
+
+#armor-piercing:
+
+- type: entity
+  id: Cartridge57x28mmPlasteelAP
+  name: cartridge (5.7x28mm AP)
+  parent: BaseCartridge57x28mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet57x28mmPlasteelAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#888888"

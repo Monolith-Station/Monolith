@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Ilya246
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #- type: latheRecipe
 #  parent: BaseGoldCircuitboardRecipe
 #  id: ShieldControlComputerCircuitboard
@@ -86,3 +77,54 @@
   parent: BaseGoldCircuitboardRecipe
   id: ContainmentFieldGeneratorCircuitboard
   result: ContainmentFieldGeneratorCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SmartfridgeCircuitboard
+  result: SmartfridgeCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SmartArmoryCircuitboard
+  result: SmartArmoryCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ShipDrillMachineCircuitboard
+  result: ShipDrillMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: LargeThrusterMachineCircuitboard
+  result: LargeThrusterMachineCircuitboard
+
+# Datafarm
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: DataFarmResearchCircuitboard
+  result: DataFarmResearchCircuitboard
+
+# economy
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: CentrifugeLatheMiniCircuitboard
+  result: CentrifugeLatheMiniCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: OreMagnetMachineCircuitboard
+  result: OreMagnetMachineCircuitboard
+
+# faction-specific RWR shuttle consoles - can be made by anyone because it doesnt do shit gameplay wise
+
+- type: latheRecipe
+  parent: ShuttleConsoleCircuitboard
+  id: ShuttleConsoleCircuitboardTSFN
+  result: ShuttleConsoleCircuitboardTSFN
+
+- type: latheRecipe
+  parent: ShuttleConsoleCircuitboard
+  id: ShuttleConsoleCircuitboardKPV63RWR
+  result: ShuttleConsoleCircuitboardKPV63RWR

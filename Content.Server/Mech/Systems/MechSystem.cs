@@ -1,40 +1,11 @@
-// SPDX-FileCopyrightText: 2022 Nemanja
-// SPDX-FileCopyrightText: 2023 Checkraze
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Slava0135
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 Zoldorf
-// SPDX-FileCopyrightText: 2023 brainfood1183
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 keronshb
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Errant
-// SPDX-FileCopyrightText: 2024 Gorox221
-// SPDX-FileCopyrightText: 2024 Jake Huxell
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 LordCarve
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 Verm
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 BeeRobynn
-// SPDX-FileCopyrightText: 2025 Blu
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Mech.Components;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Emp; // Monolith
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.Emp; // Monolith
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Mech;
@@ -44,6 +15,8 @@ using Content.Shared.Mech.Equipment.Components; // Monolith
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.BUIStates;
+using Content.Shared.Power.Components;
+using Content.Shared.Tools;
 using Content.Shared.Tools.Components;
 using Content.Shared.Verbs;
 using Content.Shared.Wires;
@@ -56,23 +29,26 @@ using Robust.Shared.Player;
 using Content.Shared.Whitelist;
 using Content.Shared.Mobs.Components; // Frontier
 using Content.Shared.NPC.Components; // Frontier
-using Content.Shared.Mobs; // Frontier
+using Content.Shared.Mobs;
+using Content.Shared.Movement.Systems;
+using Content.Shared.PowerCell.Components; // Frontier
 
 namespace Content.Server.Mech.Systems;
 
 /// <inheritdoc/>
 public sealed partial class MechSystem : SharedMechSystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private SharedToolSystem _toolSystem = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -86,14 +62,14 @@ public sealed partial class MechSystem : SharedMechSystem
         SubscribeLocalEvent<MechComponent, MechOpenUiEvent>(OnOpenUi);
         SubscribeLocalEvent<MechComponent, MechOpenRadarEvent>(OnOpenRadar);
         SubscribeLocalEvent<MechComponent, RemoveBatteryEvent>(OnRemoveBattery);
+        SubscribeLocalEvent<MechComponent, PowerCellChangedEvent>(OnPowerCellChanged); // Mono
         SubscribeLocalEvent<MechComponent, MechEntryEvent>(OnMechEntry);
         SubscribeLocalEvent<MechComponent, MechExitEvent>(OnMechExit);
 
         SubscribeLocalEvent<MechComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<MechComponent, EmpAttemptEvent>(OnEmpAttempt);
         SubscribeLocalEvent<MechComponent, MechEquipmentRemoveMessage>(OnRemoveEquipmentMessage);
-
-        SubscribeLocalEvent<MechComponent, UpdateCanMoveEvent>(OnMechCanMoveEvent);
+        SubscribeLocalEvent<MechComponent, RefreshMovementSpeedModifiersEvent>(OnMechRefreshMovementSpeed); // Mono
 
 
         SubscribeLocalEvent<MechPilotComponent, ToolUserAttemptUseEvent>(OnToolUseAttempt);
@@ -109,10 +85,11 @@ public sealed partial class MechSystem : SharedMechSystem
         #endregion
     }
 
-    private void OnMechCanMoveEvent(EntityUid uid, MechComponent component, UpdateCanMoveEvent args)
+    // Mono
+    private void OnMechRefreshMovementSpeed(EntityUid uid, MechComponent component, RefreshMovementSpeedModifiersEvent args)
     {
-        if (component.Broken || component.Integrity <= 0 || component.Energy <= 0)
-            args.Cancel();
+        if (component.CriticalPowerState)
+            args.ModifySpeed(component.CriticalPowerStateSpeedPenalty);
     }
 
     private void OnInteractUsing(EntityUid uid, MechComponent component, InteractUsingEvent args)
@@ -123,7 +100,6 @@ public sealed partial class MechSystem : SharedMechSystem
         if (component.BatterySlot.ContainedEntity == null && TryComp<BatteryComponent>(args.Used, out var battery))
         {
             InsertBattery(uid, args.Used, component, battery);
-            _actionBlocker.UpdateCanMove(uid);
             return;
         }
 
@@ -140,6 +116,24 @@ public sealed partial class MechSystem : SharedMechSystem
         }
     }
 
+    // Mono edit
+    private void OnPowerCellChanged(Entity<MechComponent> ent, ref PowerCellChangedEvent args)
+    {
+        if (!TryComp<BatteryComponent>(ent.Comp.BatterySlot.ContainedEntity, out var battery))
+            return;
+
+        //ent.Comp.CriticalPowerState = battery.CurrentCharge / battery.MaxCharge <= 0.05f;
+        // Mono
+        var criticalState = battery.CurrentCharge / battery.MaxCharge <= 0.05f;
+        if (criticalState == ent.Comp.CriticalPowerState)
+            return;
+
+        ent.Comp.CriticalPowerState = criticalState;
+        // End Mono
+        Dirty(ent);
+        _movementSpeed.RefreshMovementSpeedModifiers(ent);
+    }
+
     private void OnInsertBattery(EntityUid uid, MechComponent component, EntInsertedIntoContainerMessage args)
     {
         if (args.Container != component.BatterySlot || !TryComp<BatteryComponent>(args.Entity, out var battery))
@@ -147,9 +141,10 @@ public sealed partial class MechSystem : SharedMechSystem
 
         component.Energy = battery.CurrentCharge;
         component.MaxEnergy = battery.MaxCharge;
-
+        component.CriticalPowerState = battery.CurrentCharge / battery.MaxCharge <= 0.05f; // Mono
         Dirty(uid, component);
-        _actionBlocker.UpdateCanMove(uid);
+
+        _movementSpeed.RefreshMovementSpeedModifiers(uid); // Mono
     }
 
     private void OnRemoveBattery(EntityUid uid, MechComponent component, RemoveBatteryEvent args)
@@ -158,7 +153,8 @@ public sealed partial class MechSystem : SharedMechSystem
             return;
 
         RemoveBattery(uid, component);
-        _actionBlocker.UpdateCanMove(uid);
+
+        _movementSpeed.RefreshMovementSpeedModifiers(uid); // Mono
 
         args.Handled = true;
     }
@@ -325,8 +321,10 @@ public sealed partial class MechSystem : SharedMechSystem
 
     private void OnEmpAttempt(EntityUid uid, MechComponent comp, EmpAttemptEvent args) // Monolith
     {
-        if (comp.Broken != true)
-            _damageable.TryChangeDamage(uid, comp.EMPdamage);
+        // Mono: Removed EMP damage
+        //if (comp.Broken != true)
+        //    _damageable.TryChangeDamage(uid, comp.EMPdamage);
+        // End mono
 
         if (TryComp<BatteryComponent>(comp.BatterySlot.ContainedEntity, out var battery))
         {
@@ -402,14 +400,15 @@ public sealed partial class MechSystem : SharedMechSystem
         if (!Resolve(uid, ref component))
             return false;
 
-        if (!base.TryChangeEnergy(uid, delta, component))
-            return false;
-
         var battery = component.BatterySlot.ContainedEntity;
         if (battery == null)
             return false;
 
         if (!TryComp<BatteryComponent>(battery, out var batteryComp))
+            return false;
+
+        // Mono
+        if (batteryComp.CurrentCharge + delta.Float() < 0)
             return false;
 
         _battery.SetCharge(battery!.Value, batteryComp.CurrentCharge + delta.Float(), batteryComp);
@@ -418,8 +417,8 @@ public sealed partial class MechSystem : SharedMechSystem
             Log.Debug($"Battery charge was not equal to mech charge. Battery {batteryComp.CurrentCharge}. Mech {component.Energy}");
             component.Energy = batteryComp.CurrentCharge;
             Dirty(uid, component);
+            UpdateUserInterface(uid, component);
         }
-        _actionBlocker.UpdateCanMove(uid);
         return true;
     }
 
@@ -435,8 +434,6 @@ public sealed partial class MechSystem : SharedMechSystem
         component.Energy = battery.CurrentCharge;
         component.MaxEnergy = battery.MaxCharge;
 
-        _actionBlocker.UpdateCanMove(uid);
-
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
     }
@@ -449,8 +446,7 @@ public sealed partial class MechSystem : SharedMechSystem
         _container.EmptyContainer(component.BatterySlot);
         component.Energy = 0;
         component.MaxEnergy = 0;
-
-        _actionBlocker.UpdateCanMove(uid);
+        component.CriticalPowerState = true; // Mono
 
         Dirty(uid, component);
         UpdateUserInterface(uid, component);

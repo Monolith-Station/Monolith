@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Acruid
-// SPDX-FileCopyrightText: 2022 keronshb
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2023 Visne
-// SPDX-FileCopyrightText: 2023 Vordenburg
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2024 eoineoineoin
-// SPDX-FileCopyrightText: 2025 Tayrtahn
-// SPDX-FileCopyrightText: 2025 sleepyyapril
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using System.Threading;
@@ -321,7 +306,7 @@ public sealed partial class PathfindingSystem
         {
             for (var y = Math.Floor(mapGrid.LocalAABB.Bottom); y <= Math.Ceiling(mapGrid.LocalAABB.Top + ChunkSize); y += ChunkSize)
             {
-                DirtyChunk(ev.EntityUid, mapGrid.GridTileToLocal(new Vector2i((int) x, (int) y)));
+                DirtyChunk(ev.EntityUid, _maps.GridTileToLocal(ev.EntityUid, mapGrid, new Vector2i((int)x, (int)y)));
             }
         }
     }
@@ -415,8 +400,8 @@ public sealed partial class PathfindingSystem
 
     private void BuildBreadcrumbs(GridPathfindingChunk chunk, Entity<MapGridComponent> grid)
     {
-        var sw = new Stopwatch();
-        sw.Start();
+        // var sw = new Stopwatch(); // Mono - these are unused
+        // sw.Start();
         var points = chunk.Points;
         var gridOrigin = chunk.Origin * ChunkSize;
         var tileEntities = new ValueList<EntityUid>();
@@ -637,8 +622,7 @@ public sealed partial class PathfindingSystem
                         (Vector2) (poly.TopRight + Vector2i.One) / SubStep + polyOffset);
                     var polyData = points[x * SubStep + poly.Left, y * SubStep + poly.Bottom].Data;
 
-                    var neighbors = new HashSet<PathPoly>();
-                    tilePoly.Add(new PathPoly(grid, chunk.Origin, GetIndex(x, y), box, polyData, neighbors));
+                    tilePoly.Add(new PathPoly(grid, chunk.Origin, GetIndex(x, y), box, polyData)); // Mono - neighbors optional field, don't make it unless necessary
                 }
             }
         }
@@ -665,11 +649,14 @@ public sealed partial class PathfindingSystem
     /// </summary>
     private void ClearPoly(PathPoly poly)
     {
-        foreach (var neighbor in poly.Neighbors)
+        if (poly.HasNeighbors) // Mono - guard check
         {
-            neighbor.Neighbors.Remove(poly);
+            foreach (var neighbor in poly.Neighbors)
+            {
+                neighbor.Neighbors.Remove(poly);
+            }
+            poly.Neighbors.Clear(); // Mono
         }
-
         // If any paths have a ref to it let them know that the class is no longer a valid node.
         poly.Data.Flags = PathfindingBreadcrumbFlag.Invalid;
         poly.Neighbors.Clear();

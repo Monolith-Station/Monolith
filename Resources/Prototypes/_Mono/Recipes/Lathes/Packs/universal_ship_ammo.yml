@@ -1,10 +1,24 @@
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 significant harassment
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # dont bloat up this file type for every ammo u add
+
+- type: latheRecipePack
+  id: RoundstartShipgunAmmo
+  recipes:
+  # Magfed
+  #- Magazine20mmAmmoRecipe
+  #- Magazine30mmAmmoRecipe
+  #- Magazine57mmAmmoRecipe
+  #- Magazine90mmAPHEAmmoRecipe
+  # Individual load
+  #- 120mmCartridgeAPHEDSAmmoRecipe
+  #- 220mmCartridgeAPHEAmmoRecipe
+  #- 255mmCartridgeAPHEAmmoRecipe
+  # Missiles
+  - VanykMagazineAmmoRecipe
+  - MissileMagazine50mmHEAmmoRecipe
+  - R300ShellHEAmmoRecipe
+  - VanquisherMagazineAmmoRecipe
+  - PaladinMagazineAmmoRecipe
+  - PaladinMagazineEMPHEAmmoRecipe
 
 - type: latheRecipePack
   id: UniversalMissileAmmo
@@ -17,6 +31,7 @@
   id: UniversalRailgunAmmo
   recipes:
   - CharonSlugUniversal
+  - CharonSubnuclearSlugUniversal
 
 - type: latheRecipePack
   id: UniversalShellAmmo

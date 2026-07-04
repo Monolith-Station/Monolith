@@ -1,36 +1,23 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 EctoplasmIsGood
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 Your Name
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vendingMachineInventory
   id: USSPVendInventory
   startingInventory:
     MagazineDP29: 4294967295 # Infinite
-    Magazine7.62x39mmFMJ: 4294967295 # Infinite
-    Magazine7.62x39mmLowCapacityFMJ: 4294967295 # Infinite
-    Magazine7.62x54mmRFMJ: 4294967295 # Infinite
+    Magazine762x39mmFMJ: 4294967295 # Infinite
+    Magazine762x39mmLowCapacityFMJ: 4294967295 # Infinite
+    Magazine762x54mmRFMJ: 4294967295 # Infinite
     Magazine9x19mmPistolFMJ: 4294967295 # Infinite
     Magazine9x19mmPistolHighCapacityFMJ: 20
-    SpeedLoader7.62x39mmFMJ: 4294967295 # Infinite
-    SpeedLoader7.62x54mmRFMJ: 4294967295 # Infinite
+    SpeedLoader762x39mmFMJ: 4294967295 # Infinite
+    SpeedLoader762x54mmRFMJ: 4294967295 # Infinite
     AmmoBox23x75mmSlug: 4294967295 # 4 gauge
     AmmoBox23x75mmBuckshot: 4294967295 # 4 gauge
     AmmoBox23x75mmBeanbag: 4294967295 # 4 gauge
     AmmoBox23x75mmDozd: 4294967295 # 4 gauge
     AmmoBox23x75mmFlashbang: 4294967295 # 4 gauge
-    AmmoBox7.62x39mmFMJ: 4294967295 # 7.62x39mm
-    AmmoBox7.62x39mmBigFMJ: 4294967295 # 7.62x39mm
-    AmmoBox7.62x54mmRFMJ: 4294967295 # 7.62x54mmR
-    AmmoBox7.62x54mmRBigFMJ: 4294967295 # 7.62x54mmR
+    AmmoBox762x39mmFMJ: 4294967295 # 762x39mm
+    AmmoBox762x39mmBigFMJ: 4294967295 # 762x39mm
+    AmmoBox762x54mmRFMJ: 4294967295 # 762x54mmR
+    AmmoBox762x54mmRBigFMJ: 4294967295 # 762x54mmR
     AmmoBox9x19mmFMJ: 4294967295 # 9x19mm
     AmmoBox9x19mmBigFMJ: 4294967295 # 9x19mm
     AmmoBox45_magnumFMJ: 4294967295 # .45 magnum
@@ -39,6 +26,8 @@
     CombatKnife: 4294967295 # Infinite
     SurvivalKnife: 4294967295 # Infinite
     ClothingUniformUSSP: 4294967295 # Infinite
+    ClothingHeadsetUSSP: 4294967295 # Infinite
+    EncryptionKeyUssp: 4294967295 # Infinite
     Brutepack: 4294967295 # Infinite
     Ointment: 4294967295 # Infinite
     Gauze: 4294967295 # Infinite
@@ -52,5 +41,6 @@
     WeaponRifleAK502: 4294967295 # Infinite
     WeaponShotgunBigLeady: 4294967295 # Infinite
     WeaponDP29: 4294967295 # Infinite
-    RDServerUSSPFlatpack: 2
-    FactionLatheFlatpack: 2
+    RubberStampUSSP: 4294967295 # Infinite
+    RDServerUSSPFlatpack: 4294967295 # Infinite
+    USSPLatheFlatpack: 4294967295 # Infinite

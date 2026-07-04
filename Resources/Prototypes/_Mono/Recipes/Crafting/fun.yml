@@ -1,0 +1,10 @@
+- type: construction
+  name: googly eyes
+  id: GooglyEyes
+  graph: GooglyEyes
+  startNode: start
+  targetNode: eyes
+  category: construction-category-misc
+  description: The best achievement of humanity.
+  icon: { sprite: _Mono/Objects/Fun/googlyeyes.rsi, state: icon }
+  objectType: Item

@@ -1,37 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2022 Visne
-# SPDX-FileCopyrightText: 2022 keronshb
-# SPDX-FileCopyrightText: 2023 Darkie
-# SPDX-FileCopyrightText: 2023 DrSmugleaf
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 Michael Cu
-# SPDX-FileCopyrightText: 2023 Nim
-# SPDX-FileCopyrightText: 2023 PixelTK
-# SPDX-FileCopyrightText: 2023 Slava0135
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2023 sTiKyt
-# SPDX-FileCopyrightText: 2024 Aviu00
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Elysium206
-# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 Nairod
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 degradka
-# SPDX-FileCopyrightText: 2024 deltanedas
-# SPDX-FileCopyrightText: 2024 liltenhead
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2024 slarticodefast
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2025 DieselMohawk
-# SPDX-FileCopyrightText: 2025 Nox
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 the-hivequeen
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   name: base shield
   parent: BaseItem
@@ -98,7 +64,7 @@
 
 - type: entity
   name: riot shield
-  parent: [ BaseShield, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseShield
   id: RiotShield
   description: A large tower shield. Good for controlling crowds.
   components:
@@ -119,7 +85,7 @@
 
 - type: entity
   name: laser shield
-  parent: [ BaseShield, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseShield
   id: RiotLaserShield
   description: A shield built for withstanding lasers, but not much else.
   components:
@@ -139,7 +105,7 @@
 
 - type: entity
   name: ballistic shield
-  parent: [ BaseShield, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseShield
   id: RiotBulletShield
   description: A shield built for protecting against ballistics, but not much else.
   components:
@@ -402,9 +368,9 @@
 
 - type: entity
   name: energy shield
-  parent: [BaseItem, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: [ BaseItem, BaseFactionGearPDVT2 ] # Mono
   id: EnergyShield
-  description: Exotic energy shield, when folded, can even fit in your pocket.
+  description: An advanced, self-recharging energy shield that can be fit in your pocket when folded. Extremely effective defensive tool against energy weapons. # Mono
   components:
     - type: ItemToggle
       predictable: false # WD EDIT
@@ -442,7 +408,7 @@
       heldPrefix: eshield
     - type: UseDelay
       delay: 0.5
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: shield
       inhandVisuals:
         left:
@@ -459,8 +425,8 @@
       color: "#678AD9" # WD EDIT
     - type: ItemTogglePointLight
     - type: Reflect
-      reflectProb: 1 # WD EDIT
-      damageOnReflectModifier: 1 # Goob edit
+      reflectProb: 0.9 # Mono EDIT
+      damageOnReflectModifier: 0.2 # Mono edit
       reflects:
         - Energy
     - type: Blocking
@@ -493,6 +459,9 @@
       autoRechargeRate: 5
     - type: RechargeableBlocking
       # WD EDIT END
+    - type: ClothingSpeedModifier # Mono
+      sprintModifier: 0.9
+    - type: HeldSpeedModifier
 
 - type: entity
   name: broken energy shield
@@ -512,7 +481,7 @@
 
 - type: entity
   name: telescopic shield
-  parent: [BaseShield, BaseC2ContrabandUnredeemable] # Frontier: BaseC2ContrabandUnredeemable
+  parent: BaseShield
   id: TelescopicShield
   description: An advanced riot shield made of lightweight materials that collapses for easy storage.
   components:
@@ -544,7 +513,7 @@
       heldPrefix: teleriot
     - type: UseDelay
       delay: 0.5
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: shield
       inhandVisuals:
         left:

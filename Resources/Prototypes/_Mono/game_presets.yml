@@ -1,0 +1,156 @@
+- type: gamePreset
+  id: MonoStandard
+  alias:
+    - standard
+    - monostandard
+    - monogreenshift
+    - MonoGreenshift
+  name: mono-standard-title
+  description: mono-standard-description
+  showInVote: false # For admin usage really. Not that boring, but I'd rather just let players choose their main threat instead of choosing no threat.
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
+
+- type: gamePreset
+  id: MonoRogueTSF
+  name: mono-roguetsf-title
+  description: mono-roguetsf-description
+  showInVote: false # For admin usage really. General player opinion is that this was pretty boring.
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
+
+- type: gamePreset
+  id: MonoRogueUSSP
+  name: mono-rogueussp-title
+  description: mono-rogueussp-description
+  showInVote: false # For admin usage really. General player opinion is that this was pretty boring.
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
+
+- type: gamePreset
+  id: MonoTSFUSSP
+  name: mono-tsfussp-title
+  description: mono-tsfussp-description
+  showInVote: false # For admin usage really. General player opinion is that this was pretty boring.
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
+
+- type: gamePreset
+  id: MonoADS
+  name: mono-ads-title
+  description: mono-ads-description
+  showInVote: true
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoAISTCShuttleSpawnerScheduler
+  - MonoAISTCShuttleSpawnerSchedulerTier2
+  - MonoAsakimSTCShuttleSpawnerScheduler
+  - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
+
+- type: gamePreset
+  id: MonoChimera
+  name: mono-chimera-title
+  description: mono-chimera-description
+  showInVote: true
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoChimeraSTCShuttleSpawnerScheduler
+  - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
+
+- type: gamePreset
+  id: MonoMixed
+  name: mono-mixed-title
+  description: mono-mixed-description
+  showInVote: true
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoChimeraSTCShuttleSpawnerSchedulerSlow
+  - MonoAISTCShuttleSpawnerSchedulerSlow
+  - MonoAISTCShuttleSpawnerSchedulerTier2Slow
+  - MonoAsakimSTCShuttleSpawnerSchedulerSlow
+  - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleHour4
+
+- type: gamePreset
+  id: MonoAllAtOnce
+  name: mono-allatonce-title
+  description: mono-allatonce-description
+  showInVote: true # we ball
+  weight: 0.25 # requires 80% votes
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoChimeraSTCShuttleSpawnerSchedulerApocalypse
+  - MonoAISTCShuttleSpawnerSchedulerApocalypse
+  - MonoAsakimSTCShuttleSpawnerSchedulerApocalypse
+  - MonoMonolithicEventsScheduler
+  - RoundEndRuleHour3
+  - PortstrikeAnnounceRuleHour1
+
+- type: gamePreset
+  id: MonoRogueTSFHyperwar
+  name: mono-roguetsf-hyperwar-title
+  description: mono-roguetsf-hyperwar-description
+  showInVote: false # AO
+  rules:
+  - NFAdventure
+  - Hyperwar
+  - RoundEndRuleHour3
+  - PortstrikeAnnounceRuleMinute90

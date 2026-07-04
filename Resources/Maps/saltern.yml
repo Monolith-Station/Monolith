@@ -49138,7 +49138,7 @@ entities:
     - type: Transform
       pos: -14.250454,20.691399
       parent: 31
-- proto: Magazine4.6x30mmSubMachineGunTopMountedFMJ
+- proto: Magazine46x30mmSubMachineGunTopMountedFMJ
   entities:
   - uid: 10123
     components:
@@ -50483,7 +50483,7 @@ entities:
     - type: Transform
       pos: -6.5,-19.5
       parent: 31
-- proto: PosterContrabandLustyExomorph
+- proto: PosterContrabandLurkingExomorph
   entities:
   - uid: 7828
     components:
@@ -51418,7 +51418,6 @@ entities:
       parent: 31
     - type: ApcPowerReceiver
       powerLoad: 0
-    - type: Timer
   - uid: 1324
     components:
     - type: Transform

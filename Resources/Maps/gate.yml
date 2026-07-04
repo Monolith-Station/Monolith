@@ -1,57 +1,3 @@
-# SPDX-FileCopyrightText: 2021 20kdc
-# SPDX-FileCopyrightText: 2021 E F R
-# SPDX-FileCopyrightText: 2021 Elijahrane
-# SPDX-FileCopyrightText: 2021 Mith-randalf
-# SPDX-FileCopyrightText: 2021 Paul Ritter
-# SPDX-FileCopyrightText: 2021 buletsponge
-# SPDX-FileCopyrightText: 2021 wrexbe
-# SPDX-FileCopyrightText: 2022 Cheackraze
-# SPDX-FileCopyrightText: 2022 Jacob Tong
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Moony
-# SPDX-FileCopyrightText: 2022 Morbo
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2022 ShadowCommander
-# SPDX-FileCopyrightText: 2022 TaralGit
-# SPDX-FileCopyrightText: 2022 TimrodDX
-# SPDX-FileCopyrightText: 2022 and_a
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2022 mirrorcult
-# SPDX-FileCopyrightText: 2022 moonheart08
-# SPDX-FileCopyrightText: 2023 Aexxie
-# SPDX-FileCopyrightText: 2023 DerbyX
-# SPDX-FileCopyrightText: 2023 DrSmugleaf
-# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin
-# SPDX-FileCopyrightText: 2023 Errant
-# SPDX-FileCopyrightText: 2023 Kevin Zheng
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 MisterMecky
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 PeterFuto
-# SPDX-FileCopyrightText: 2023 Sailor
-# SPDX-FileCopyrightText: 2023 TsjipTsjip
-# SPDX-FileCopyrightText: 2023 Ubaser
-# SPDX-FileCopyrightText: 2023 eoineoineoin
-# SPDX-FileCopyrightText: 2023 qwerltaz
-# SPDX-FileCopyrightText: 2024 AJCM-git
-# SPDX-FileCopyrightText: 2024 Boaz1111
-# SPDX-FileCopyrightText: 2024 Brandon Hu
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2024 Emisse
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Krunklehorn
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2024 Scribbles0
-# SPDX-FileCopyrightText: 2024 Wiebe Geertsma
-# SPDX-FileCopyrightText: 2024 brainfood1183
-# SPDX-FileCopyrightText: 2024 deltanedas
-# SPDX-FileCopyrightText: 2024 joshepvodka
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 6
   postmapinit: false
@@ -24257,7 +24203,7 @@ entities:
     - type: Transform
       pos: 51.87152,57.657894
       parent: 2
-- proto: BoxMagazine5.56x45mmPractice
+- proto: BoxMagazine556x45mmPractice
   entities:
   - uid: 39924
     components:
@@ -140904,7 +140850,7 @@ entities:
     - type: Transform
       pos: 51.36094,56.594063
       parent: 2
-- proto: Magazine7.62x39mmFMJ
+- proto: Magazine762x39mmFMJ
   entities:
   - uid: 8376
     components:
@@ -140943,7 +140889,7 @@ entities:
     - type: Transform
       pos: 52.681328,57.671314
       parent: 2
-- proto: Magazine4.6x30mmSubMachineGunTopMountedFMJ
+- proto: Magazine46x30mmSubMachineGunTopMountedFMJ
   entities:
   - uid: 1809
     components:
@@ -144379,7 +144325,7 @@ entities:
     - type: Transform
       pos: -79.5,153.5
       parent: 2
-- proto: PosterContrabandLustyExomorph
+- proto: PosterContrabandLurkingExomorph
   entities:
   - uid: 1544
     components:
@@ -145732,7 +145678,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 111.5,57.5
       parent: 2
-    - type: Timer
   - uid: 4982
     components:
     - type: Transform
@@ -145749,14 +145694,12 @@ entities:
     - type: Transform
       pos: 94.5,59.5
       parent: 2
-    - type: Timer
   - uid: 4987
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 94.5,47.5
       parent: 2
-    - type: Timer
   - uid: 4988
     components:
     - type: Transform
@@ -146163,7 +146106,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -3.5,78.5
       parent: 2
-    - type: Timer
   - uid: 11324
     components:
     - type: Transform
@@ -147408,7 +147350,6 @@ entities:
     - type: Transform
       pos: -125.5,60.5
       parent: 2
-    - type: Timer
   - uid: 25386
     components:
     - type: Transform
@@ -147605,7 +147546,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -101.5,26.5
       parent: 2
-    - type: Timer
   - uid: 30456
     components:
     - type: Transform
@@ -148368,7 +148308,6 @@ entities:
     - type: Transform
       pos: -117.5,66.5
       parent: 2
-    - type: Timer
   - uid: 27179
     components:
     - type: Transform
@@ -148532,7 +148471,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,-1.5
       parent: 2
-    - type: Timer
   - uid: 1915
     components:
     - type: Transform
@@ -148606,7 +148544,6 @@ entities:
     - type: Transform
       pos: -82.5,145.5
       parent: 2
-    - type: Timer
   - uid: 4019
     components:
     - type: Transform
@@ -148660,7 +148597,6 @@ entities:
     - type: Transform
       pos: 90.5,61.5
       parent: 2
-    - type: Timer
   - uid: 4965
     components:
     - type: Transform
@@ -149014,7 +148950,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -26.5,73.5
       parent: 2
-    - type: Timer
   - uid: 12171
     components:
     - type: Transform
@@ -149519,13 +149454,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -123.5,102.5
       parent: 2
-    - type: Timer
   - uid: 25338
     components:
     - type: Transform
       pos: -123.5,100.5
       parent: 2
-    - type: Timer
   - uid: 25340
     components:
     - type: Transform
@@ -149640,7 +149573,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -80.5,51.5
       parent: 2
-    - type: Timer
   - uid: 27996
     components:
     - type: Transform

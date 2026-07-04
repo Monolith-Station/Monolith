@@ -1,6 +1,6 @@
 - type: entity
   name: forensic scanner
-  parent: [BaseItem, RecyclableItemDeviceSmall] # Frontier: added RecyclableItemDeviceSmall, removed BaseSecurityContraband
+  parent: [BaseItem, RecyclableItemDeviceSmall]
   id: ForensicScanner
   description: A handheld device that can scan objects for fingerprints and fibers.
   components:
@@ -24,9 +24,6 @@
       enum.ForensicScannerUiKey.Key:
         type: ForensicScannerBoundUserInterface
   - type: ForensicScanner
-  - type: GuideHelp
-    guides:
-    - Forensics
   - type: StealTarget
     stealGroup: ForensicScanner
   - type: Appearance # Frontier
@@ -76,9 +73,6 @@
     backgroundPatchMargin: 6.0, 0.0, 6.0, 0.0
     contentMargin: 12.0, 0.0, 6.0, 0.0
     maxWritableArea: 368.0, 256.0
-  - type: GuideHelp
-    guides:
-    - Forensics
 
 - type: entity
   parent: ForensicReportPaper

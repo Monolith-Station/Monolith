@@ -1,9 +1,5 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: latheCategory
-  id: FmjAmmo
+  id: FMJAmmo
   name: lathe-category-fmj-ammo
 
 - type: latheCategory
@@ -25,3 +21,15 @@
 - type: latheCategory
   id: ShipAmmo
   name: lathe-category-ship-ammo
+
+- type: latheCategory
+  id: PlasteelAPAmmo
+  name: lathe-category-plasteelap-ammo
+
+- type: latheCategory
+  id: HPammo
+  name: lathe-category-hp-ammo
+
+- type: latheCategory
+  id: RIPammo
+  name: lathe-category-rip-ammo

@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 brainfood1183
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Inventory;
@@ -14,10 +8,10 @@ namespace Content.Shared.Clothing.EntitySystems;
 /// <summary>
 /// Changes the friction and acceleration of the wearer and also the damage on impact variables of thew wearer when hitting a static object.
 /// </summary>
-public sealed class SkatesSystem : EntitySystem
+public sealed partial class SkatesSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _move = default!;
-    [Dependency] private readonly DamageOnHighSpeedImpactSystem _impact = default!;
+    [Dependency] private MovementSpeedModifierSystem _move = default!;
+    [Dependency] private DamageOnHighSpeedImpactSystem _impact = default!;
 
     public override void Initialize()
     {

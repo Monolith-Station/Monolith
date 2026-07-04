@@ -1,133 +1,133 @@
-# 5.56x45mm ammo
+# 556x45mm ammo
 - type: entity # Lethal
   abstract: true
   id: StorageFillAmmoBoxLethal20
-  suffix: 5.56x45mm, Lethal, x4 boxes
+  suffix: 556x45mm, Lethal, x4 boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox5.56x45mmFMJ
+    - id: AmmoBox556x45mmFMJ
       amount: 4
 
 - type: entity # Lethal
   abstract: true
   id: StorageFillAmmoBoxBigLethal20
-  suffix: 5.56x45mm, Lethal, x4 big boxes
+  suffix: 556x45mm, Lethal, x4 big boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox5.56x45mmBigFMJ
+    - id: AmmoBox556x45mmBigFMJ
       amount: 4
 
 - type: entity # Rubber
   abstract: true
   id: StorageFillAmmoBoxRubber20
-  suffix: 5.56x45mm, Rubber, x4 boxes
+  suffix: 556x45mm, Rubber, x4 boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox5.56x45mmRubber
+    - id: AmmoBox556x45mmRubber
       amount: 4
 
 - type: entity # Rubber
   abstract: true
   id: StorageFillAmmoBoxBigRubber20
-  suffix: 5.56x45mm, Rubber, x4 big boxes
+  suffix: 556x45mm, Rubber, x4 big boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox5.56x45mmBigRubber
+    - id: AmmoBox556x45mmBigRubber
       amount: 4
 
 - type: entity # Practice
   abstract: true
   id: StorageFillAmmoBoxPractice20
-  suffix: 5.56x45mm, Practice, x4 boxes
+  suffix: 556x45mm, Practice, x4 boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox5.56x45mmPractice
+    - id: AmmoBox556x45mmPractice
       amount: 4
 
 - type: entity # Incendiary
   abstract: true
   id: StorageFillAmmoBoxIncendiary20
-  suffix: 5.56x45mm, Incendiary, x4 boxes
+  suffix: 556x45mm, Incendiary, x4 boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox5.56x45mmIncendiary
+    - id: AmmoBox556x45mmIncendiary
       amount: 4
 
 - type: entity # Uranium
   abstract: true
   id: StorageFillAmmoBoxUranium20
-  suffix: 5.56x45mm, Uranium, x4 boxes
+  suffix: 556x45mm, Uranium, x4 boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox5.56x45mmUranium
+    - id: AmmoBox556x45mmUranium
       amount: 4
 
-# 7.62x39mm ammo
+# 762x39mm ammo
 - type: entity # Lethal
   abstract: true
   id: StorageFillAmmoBoxLethal30
-  suffix: 7.62x39mm, Lethal, x4 boxes
+  suffix: 762x39mm, Lethal, x4 boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox7.62x39mmFMJ
+    - id: AmmoBox762x39mmFMJ
       amount: 4
 
 - type: entity # Lethal
   abstract: true
   id: StorageFillAmmoBoxBigLethal30
-  suffix: 7.62x39mm, Lethal, x4 big boxes
+  suffix: 762x39mm, Lethal, x4 big boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox7.62x39mmBigFMJ
+    - id: AmmoBox762x39mmBigFMJ
       amount: 4
 
 - type: entity # Rubber
   abstract: true
   id: StorageFillAmmoBoxRubber30
-  suffix: 7.62x39mm, Rubber, x4 boxes
+  suffix: 762x39mm, Rubber, x4 boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox7.62x39mmRubber
+    - id: AmmoBox762x39mmRubber
       amount: 4
 
 - type: entity # Practice
   abstract: true
   id: StorageFillAmmoBoxPractice30
-  suffix: 7.62x39mm, Practice, x4 boxes
+  suffix: 762x39mm, Practice, x4 boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox7.62x39mmPractice
+    - id: AmmoBox762x39mmPractice
       amount: 4
 
 - type: entity # Incendiary
   abstract: true
   id: StorageFillAmmoBoxIncendiary30
-  suffix: 7.62x39mm, Incendiary, x4 boxes
+  suffix: 762x39mm, Incendiary, x4 boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox7.62x39mmIncendiary
+    - id: AmmoBox762x39mmIncendiary
       amount: 4
 
 - type: entity # Uranium
   abstract: true
   id: StorageFillAmmoBoxUranium30
-  suffix: 7.62x39mm, Uranium, x4 boxes
+  suffix: 762x39mm, Uranium, x4 boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox7.62x39mmUranium
+    - id: AmmoBox762x39mmUranium
       amount: 4
 
 # .35 pistol ammo
@@ -201,31 +201,31 @@
     - id: AmmoBox9x19mmEmp
       amount: 4
 
-# 6.35x40mm Caseless ammo
+# 635x40mm Caseless ammo
 - type: entity # Lethal
   abstract: true
   id: StorageFillAmmoBoxLethal25
-  suffix: 6.35x40mm Caseless, Lethal, x4 boxes
+  suffix: 635x40mm Caseless, Lethal, x4 boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox6.35x40mmCaseless
+    - id: AmmoBox635x40mmCaseless
       amount: 4
 
 - type: entity # Lethal
   abstract: true
   id: StorageFillAmmoBoxBigLethal25
-  suffix: 6.35x40mm Caseless, Lethal, x4 big boxes
+  suffix: 635x40mm Caseless, Lethal, x4 big boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox6.35x40mmCaselessBig
+    - id: AmmoBox635x40mmCaselessBig
       amount: 4
 
 - type: entity # Rubber
   abstract: true
   id: StorageFillAmmoBoxRubber25
-  suffix: 6.35x40mm Caseless, Rubber, x4 boxes
+  suffix: 635x40mm Caseless, Rubber, x4 boxes
   components:
   - type: StorageFill
     contents:
@@ -235,17 +235,17 @@
 - type: entity # Rubber
   abstract: true
   id: StorageFillAmmoBoxBigRubber25
-  suffix: 6.35x40mm Caseless, Rubber, x4 big boxes
+  suffix: 635x40mm Caseless, Rubber, x4 big boxes
   components:
   - type: StorageFill
     contents:
-    - id: AmmoBox6.35x40mmCaselessBigRubber
+    - id: AmmoBox635x40mmCaselessBigRubber
       amount: 4
 
 - type: entity # Practice
   abstract: true
   id: StorageFillAmmoBoxPractice25
-  suffix: 6.35x40mm Caseless, Practice, x4 boxes
+  suffix: 635x40mm Caseless, Practice, x4 boxes
   components:
   - type: StorageFill
     contents:

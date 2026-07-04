@@ -1,10 +1,6 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   name: SKR-WS MLA-79 smart LMG (.160 smart)
-  parent: [BaseWeaponLightMachineGun, BaseGunWieldable, BaseC2Contraband]
+  parent: [BaseWeaponLightMachineGun, BaseGunWieldable]
   id: WeaponSmartLmg
   description: A military prototype that saw rare use in front-lines field testing. This is a refined version for standard production.
   components:
@@ -73,3 +69,7 @@
   - type: SmartGun
     requiresWield: true
   - type: LaserPointer
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/smartgun_mouse.rsi
+      state: all

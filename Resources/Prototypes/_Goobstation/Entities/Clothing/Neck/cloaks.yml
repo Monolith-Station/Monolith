@@ -1,0 +1,11 @@
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSanabi
+  name: brigadier general cloak
+  description: A tattered, yet imposing cloak, worn by elite warriors.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/sanabi.rsi
+  - type: StaticPrice # Monolith
+    vendPrice: 220

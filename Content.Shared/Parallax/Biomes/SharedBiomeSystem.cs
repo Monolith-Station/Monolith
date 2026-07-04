@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Cheackraze
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2025 Tayrtahn
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Maps;
@@ -21,13 +11,13 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Parallax.Biomes;
 
-public abstract class SharedBiomeSystem : EntitySystem
+public abstract partial class SharedBiomeSystem : EntitySystem
 {
-    [Dependency] protected readonly IPrototypeManager ProtoManager = default!;
-    [Dependency] private readonly ISerializationManager _serManager = default!;
-    [Dependency] protected readonly ITileDefinitionManager TileDefManager = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] protected IPrototypeManager ProtoManager = default!;
+    [Dependency] private ISerializationManager _serManager = default!;
+    [Dependency] protected ITileDefinitionManager TileDefManager = default!;
+    [Dependency] private TileSystem _tile = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     protected const byte ChunkSize = 8;
 

@@ -71,24 +71,35 @@ public abstract partial class SharedToolSystem
     {
         using (args.PushGroup(nameof(WelderComponent)))
         {
-            if (ItemToggle.IsActivated(entity.Owner))
+            if (!entity.Comp.OnlyDisplayFuel)
             {
-                args.PushMarkup(Loc.GetString("welder-component-on-examine-welder-lit-message"));
-            }
-            else
-            {
-                args.PushMarkup(Loc.GetString("welder-component-on-examine-welder-not-lit-message"));
+                var lit = Loc.GetString("welder-component-on-examine-welder-not-lit-message");
+
+                if (ItemToggle.IsActivated(entity.Owner))
+                    lit = Loc.GetString("welder-component-on-examine-welder-lit-message");
+
+                args.PushMarkup(lit);
             }
 
             if (args.IsInDetailsRange)
             {
                 var (fuel, capacity) = GetWelderFuelAndCapacity(entity.Owner, entity.Comp);
 
-                args.PushMarkup(Loc.GetString("welder-component-on-examine-detailed-message",
+                var status = Loc.GetString("welder-component-on-examine-detailed-message",
                     ("colorName", fuel < capacity / FixedPoint2.New(4f) ? "darkorange" : "orange"),
                     ("fuelLeft", fuel),
                     ("fuelCapacity", capacity),
-                    ("status", string.Empty))); // Lit status is handled above
+                    ("status", string.Empty)); // Lit status is handled above
+
+                if (entity.Comp.OnlyDisplayFuel) // Monolith edit - Nanite applicator
+                {
+                    status = Loc.GetString("welder-component-on-examine-less-detailed-message",
+                        ("colorName", fuel < capacity / FixedPoint2.New(4f) ? "darkorange" : "orange"),
+                        ("fuelLeft", fuel),
+                        ("fuelCapacity", capacity));
+                }
+
+                args.PushMarkup(status); // Lit status is handled above
             }
         }
     }
@@ -106,6 +117,20 @@ public abstract partial class SharedToolSystem
             && SolutionContainerSystem.TryGetDrainableSolution(target, out var targetSoln, out var targetSolution)
             && SolutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.FuelSolutionName, out var solutionComp, out var welderSolution))
         {
+            // MONO: Exit refill attempt if the tank contains incompatible reagents
+            // mitigates borgs self-btfoing from welder/applicator refill mixup
+            foreach (var reagent in targetSolution.Contents)
+            {
+                if (reagent.Reagent.Prototype != entity.Comp.FuelReagent.Id)
+                {
+                    _popup.PopupClient(
+                        Loc.GetString("welder-component-incompatible-fuel", ("owner", args.Target)), entity, args.User);
+
+                    return;
+                }
+            }
+            //Mono end
+
             var trans = FixedPoint2.Min(welderSolution.AvailableVolume, targetSolution.Volume);
             if (trans > 0)
             {

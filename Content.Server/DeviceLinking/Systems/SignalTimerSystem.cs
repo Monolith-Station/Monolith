@@ -10,14 +10,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.DeviceLinking.Systems;
 
-public sealed class SignalTimerSystem : EntitySystem
+public sealed partial class SignalTimerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly DeviceLinkSystem _signalSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private DeviceLinkSystem _signalSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
 
     /// <summary>
     /// Per-tick timer cache.
@@ -52,8 +52,7 @@ public sealed class SignalTimerSystem : EntitySystem
         if (_ui.HasUi(uid, SignalTimerUiKey.Key))
         {
             _ui.SetUiState(uid, SignalTimerUiKey.Key, new SignalTimerBoundUserInterfaceState(component.Label,
-                TimeSpan.FromSeconds(component.Delay).Minutes.ToString("D2"),
-                TimeSpan.FromSeconds(component.Delay).Seconds.ToString("D2"),
+                TimeSpan.FromSeconds(component.Delay), // Mono
                 component.Repeat, // Frontier: Repeat value
                 component.CanEditLabel,
                 time,
@@ -75,8 +74,7 @@ public sealed class SignalTimerSystem : EntitySystem
         if (_ui.HasUi(uid, SignalTimerUiKey.Key))
         {
             _ui.SetUiState(uid, SignalTimerUiKey.Key, new SignalTimerBoundUserInterfaceState(signalTimer.Label,
-                TimeSpan.FromSeconds(signalTimer.Delay).Minutes.ToString("D2"),
-                TimeSpan.FromSeconds(signalTimer.Delay).Seconds.ToString("D2"),
+                TimeSpan.FromSeconds(signalTimer.Delay), // Mono
                 signalTimer.Repeat, // Frontier: Repeat value
                 signalTimer.CanEditLabel,
                 TimeSpan.Zero,

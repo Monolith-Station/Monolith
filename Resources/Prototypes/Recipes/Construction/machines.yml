@@ -1,4 +1,4 @@
-﻿- type: construction
+- type: construction
   name: computer
   id: Computer
   graph: Computer
@@ -13,7 +13,7 @@
     state: 4
 
 - type: construction
-  name: machine frame
+  name: machine frame (1x1)
   description: A machine under construction. Needs more parts.
   id: MachineFrame
   graph: Machine

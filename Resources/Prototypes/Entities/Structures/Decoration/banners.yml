@@ -44,6 +44,10 @@
           SheetSteel1: # Frontier
             min: 1 # Frontier
             max: 2 # Frontier
+  - type: GridClaimer # Mono
+  - type: GuideHelp # Mono
+    guides:
+    - GridClaimer
 
 - type: entity
   id: BannerNanotrasen

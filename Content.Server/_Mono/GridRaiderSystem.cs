@@ -13,10 +13,10 @@ namespace Content.Server._Mono;
 /// System that handles the GridRaiderComponent, which applies NoHack and NoDeconstruct to entities with Door and/or VendingMachine components on a grid.
 /// Protection is applied once during initialization and remains until the component is removed.
 /// </summary>
-public sealed class GridRaiderSystem : EntitySystem
+public sealed partial class GridRaiderSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -75,30 +75,37 @@ public sealed class GridRaiderSystem : EntitySystem
 
             // Check if this entity should be protected based on current settings
             var shouldProtect = false;
+            var hackProtect = true;
 
             if (component.ProtectDoors && HasComp<DoorComponent>(entity))
                 shouldProtect = true;
 
             if (component.ProtectVendingMachines && HasComp<VendingMachineComponent>(entity))
+            {
                 shouldProtect = true;
+                hackProtect = false; // vendors can be hackable
+            }
 
             if (shouldProtect)
-                ApplyProtection(entity, component);
+                ApplyProtection(entity, component, hackProtect);
         }
     }
 
     /// <summary>
     /// Applies NoHack and NoDeconstruct to an entity and adds it to the protected entities list
     /// </summary>
-    private void ApplyProtection(EntityUid entityUid, GridRaiderComponent component)
+    private void ApplyProtection(EntityUid entityUid, GridRaiderComponent component, bool hackProtect = true, bool deconProtect = true)
     {
         // Skip if the entity is already protected
         if (component.ProtectedEntities.Contains(entityUid))
             return;
 
         // Apply NoHack and NoDeconstruct components
-        EnsureComp<NoHackComponent>(entityUid);
-        EnsureComp<NoDeconstructComponent>(entityUid);
+        if (hackProtect)
+            EnsureComp<NoHackComponent>(entityUid);
+        if (deconProtect)
+            EnsureComp<NoDeconstructComponent>(entityUid);
+
         component.ProtectedEntities.Add(entityUid);
     }
 

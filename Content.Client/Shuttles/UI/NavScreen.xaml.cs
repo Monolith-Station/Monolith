@@ -15,8 +15,8 @@ namespace Content.Client.Shuttles.UI;
 [GenerateTypedNameReferences]
 public sealed partial class NavScreen : BoxContainer
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     private SharedTransformSystem _xformSystem;
 
     private EntityUid? _consoleEntity; // Entity of controlling console
@@ -47,34 +47,35 @@ public sealed partial class NavScreen : BoxContainer
 
         NavRadar.IFFFilter = text.Length == 0
             ? null // If empty, do not filter
-            : (entity, grid, iff) => // Otherwise use simple search criteria
+            : (entity, grid, iff, hideLabel, name) => // Otherwise use simple search criteria
             {
                 // Check entity name
-                if (_entManager.TryGetComponent<MetaDataComponent>(entity, out var metadata) && 
-                    metadata.EntityName.Contains(text, StringComparison.OrdinalIgnoreCase))
+                if (name.Contains(text, StringComparison.OrdinalIgnoreCase))
                 {
                     return true;
                 }
-                
+                if (hideLabel)
+                    return false;
+
                 // Check company name
                 if (_entManager.TryGetComponent<CompanyComponent>(entity, out var companyComp) &&
                     !string.IsNullOrEmpty(companyComp.CompanyName))
                 {
                     // Try to match the company ID directly
-                    if (companyComp.CompanyName.Contains(text, StringComparison.OrdinalIgnoreCase))
+                    if (companyComp.CompanyName.Id.Contains(text, StringComparison.OrdinalIgnoreCase))
                     {
                         return true;
                     }
-                    
+
                     // Try to match company name from prototype
-                    if (_prototypeManager.TryIndex<CompanyPrototype>(
-                        companyComp.CompanyName, out var prototype) && 
+                    if (_prototypeManager.TryIndex(
+                        companyComp.CompanyName, out var prototype) &&
                         prototype.Name.Contains(text, StringComparison.OrdinalIgnoreCase))
                     {
                         return true;
                     }
                 }
-                
+
                 return false;
             };
     }
@@ -113,10 +114,10 @@ public sealed partial class NavScreen : BoxContainer
     public void UpdateState(NavInterfaceState scc)
     {
         NavRadar.UpdateState(scc);
-        
+
         // Update port names if custom names are available
         UpdateNetworkPortButtonNames(scc.NetworkPortNames);
-        
+
         NfUpdateState(); // Frontier Update State
     }
 
@@ -175,14 +176,15 @@ public sealed partial class NavScreen : BoxContainer
         var (_, worldRot, worldMatrix) = _xformSystem.GetWorldPositionRotationMatrix(gridXform);
         var worldPos = Vector2.Transform(gridBody.LocalCenter, worldMatrix);
 
-        // Get the positive reduced angle.
-        var displayRot = -worldRot.Reduced();
+        // Mono - remap to [0, 360)
+        var displayRot = (-worldRot).Reduced();
+        var displayRotDegrees = displayRot.FlipPositive().Degrees;
 
         GridPosition.Text = Loc.GetString("shuttle-console-position-value",
             ("X", $"{worldPos.X:0.0}"),
             ("Y", $"{worldPos.Y:0.0}"));
         GridOrientation.Text = Loc.GetString("shuttle-console-orientation-value",
-            ("angle", $"{displayRot.Degrees:0.0}"));
+            ("angle", $"{displayRotDegrees:0.0}"));
 
         var gridVelocity = gridBody.LinearVelocity;
         gridVelocity = displayRot.RotateVec(gridVelocity);

@@ -1,0 +1,47 @@
+- type: constructionGraph
+  id: NailBomb
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: gunpowder
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - material: Steel
+        amount: 1
+        doAfter: 3
+  - node: gunpowder
+    entity: NailBombGunpowder
+    edges:
+    - to: cable
+      steps:
+      - material: Gunpowder
+        amount: 5
+        doAfter: 3
+      - material: Steel
+        amount: 1
+        doAfter: 3
+  - node: cable
+    entity: NailBombCable
+    edges:
+    - to: nailbomb
+      steps:
+      - material: Cable
+        amount: 5
+        doAfter: 2
+
+  - node: nailbomb
+    entity: NailBomb
+    # edges: # what is this for even?
+    # - to: cable
+    #   completed:
+    #   - !type:SpawnPrototype
+    #     prototype: CableApcStack1
+    #     amount: 5
+    #   steps:
+    #   - tool: Cutting
+    #     doAfter: 2

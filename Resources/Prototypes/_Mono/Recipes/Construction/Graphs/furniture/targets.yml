@@ -1,0 +1,73 @@
+- type: constructionGraph
+  id: ShootingTargets
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: TargetHuman
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 3
+        - to: TargetSyndicate
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 3
+        - to: TargetClown
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 3
+        - to: TargetStrange
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 3
+
+    - node: TargetHuman
+      entity: TargetHuman
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+          steps:
+            - tool: Screwing
+              doAfter: 4
+    - node: TargetSyndicate
+      entity: TargetSyndicate
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+          steps:
+            - tool: Screwing
+              doAfter: 4
+    - node: TargetClown
+      entity: TargetClown
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+          steps:
+            - tool: Screwing
+              doAfter: 4
+    - node: TargetStrange
+      entity: TargetStrange
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+          steps:
+            - tool: Screwing
+              doAfter: 4

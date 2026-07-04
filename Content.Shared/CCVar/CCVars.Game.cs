@@ -11,6 +11,22 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool>
         GameDummyTicker = CVarDef.Create("game.dummyticker", false, CVar.ARCHIVE | CVar.SERVERONLY);
 
+    // Mono Start
+    /// Enables the automatic voting system.
+    public static readonly CVarDef<bool> AutoVoteEnabled =
+        CVarDef.Create("vote.autovote_enabled", true, CVar.SERVERONLY);
+
+    /// Automatically starts a map vote when returning to the lobby.
+    /// Requires auto voting to be enabled.
+    public static readonly CVarDef<bool> MapAutoVoteEnabled =
+        CVarDef.Create("vote.map_autovote_enabled", false, CVar.SERVERONLY);
+
+    /// Automatically starts a gamemode vote when returning to the lobby.
+    /// Requires auto voting to be enabled.
+    public static readonly CVarDef<bool> PresetAutoVoteEnabled =
+        CVarDef.Create("vote.preset_autovote_enabled", true, CVar.SERVERONLY);
+    // Mono End
+
     /// <summary>
     ///     Controls if the lobby is enabled. If it is not, and there are no available jobs, you may get stuck on a black screen.
     /// </summary>

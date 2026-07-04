@@ -1,6 +1,6 @@
 - type: entity
   name: stun baton
-  parent: [BaseItem, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseItem
   id: Stunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
   components:
@@ -8,7 +8,7 @@
     sprite: Objects/Weapons/Melee/stunbaton.rsi
     layers:
     - state: stunbaton_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Stunbaton
     energyPerUse: 50
   - type: ItemToggle
@@ -63,8 +63,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: stunbaton_on}
           False: {state: stunbaton_off}
   - type: StaticPrice
@@ -86,14 +86,10 @@
     materialComposition:
       Steel: 100
       Plastic: 100
-  - type: GuideHelp
-    guides:
-    - Security
-    # - Antagonists # Frontier: guidebook entry removed
 
 - type: entity
   name: cyborg stun baton
-  parent: [BaseItem, BaseC1Contraband]
+  parent: BaseItem
   id: CyborgStunbaton
   description: A stun baton for incapacitating people with, designed for cyborgs. Actively harming with this is considered bad tone.
   components:
@@ -101,7 +97,7 @@
     sprite: Objects/Weapons/Melee/stunbaton.rsi
     layers:
     - state: stunbaton_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Stunbaton
     energyPerUse: 0
   - type: ItemToggle
@@ -154,8 +150,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+     enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: stunbaton_on}
           False: {state: stunbaton_off}
   - type: StaticPrice
@@ -177,13 +173,10 @@
     materialComposition:
       Steel: 100
       Plastic: 100
-  - type: GuideHelp
-    guides:
-    - Security
 
 - type: entity
   name: truncheon
-  parent: [BaseItem, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseItem
   id: Truncheon
   description: A rigid, steel-studded baton, meant to harm. On the handle is a label that says 'for authorized use only.'
   components:
@@ -213,30 +206,36 @@
   - type: Appearance
   - type: StaticPrice
     price: 80
-  - type: GuideHelp
-    guides:
-    - Security
-    # - Antagonists # Frontier: guidebook entry removed
 
 - type: entity
   name: flash
-  parent: [BaseItem, BaseC1Contraband] # Frontier: BaseSecurityScienceCommandContraband<BaseC1Contraband
+  parent: BaseItem
   id: Flash
   description: An ultrabright flashbulb with a trigger, which causes the victim to be dazed and lose their eyesight for a moment. Useless when burnt out.
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/component_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/component_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/component_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Objects/Weapons/Melee/flash.rsi
     layers:
     - state: flash
-      map: [ "enum.FlashVisuals.BaseLayer" ]
+      map: [ "enum.FlashVisualLayers.BaseLayer" ]
     - state: flashing
-      map: [ "enum.FlashVisuals.LightLayer" ]
+      map: [ "enum.FlashVisualLayers.LightLayer" ]
       visible: false
       shader: unshaded
   - type: Flash
   - type: LimitedCharges
     maxCharges: 5
-    charges: 5
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
@@ -247,22 +246,20 @@
     size: Small
     sprite: Objects/Weapons/Melee/flash.rsi
   - type: UseDelay
+    delay: 4 # has to be the same as the FlashingTime datafield in FlashComponent
+  - type: UseDelayOnMeleeHit
   - type: StaticPrice
     price: 40
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.FlashVisuals.Burnt:
-        enum.FlashVisuals.BaseLayer:
+        enum.FlashVisualLayers.BaseLayer:
           True: {state: burnt}
       enum.FlashVisuals.Flashing:
-        enum.FlashVisuals.LightLayer:
+        enum.FlashVisualLayers.LightLayer:
           True: {visible: true}
           False: {visible: false}
-  - type: GuideHelp
-    guides:
-    - Security
-  # - Antagonists # Frontier: guidebook entry removed
 
 - type: entity
   name: flash
@@ -276,7 +273,7 @@
 
 - type: entity
   name: portable flasher
-  parent: [BaseMachine, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: BaseMachine
   id: PortableFlasher
   description: An ultrabright flashbulb with a proximity trigger, useful for making an area security-only.
   components:
@@ -315,7 +312,3 @@
     radius: 0
     softness: 0
     enabled: true
-  - type: GuideHelp
-    guides:
-    - Security
-  # - Antagonists # Frontier: guidebook entry removed

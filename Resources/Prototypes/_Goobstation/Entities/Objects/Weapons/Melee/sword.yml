@@ -1,8 +1,8 @@
 - type: entity
   name: navy officer's sabre
-  parent: [ BaseSword, BaseCentcommContraband ]
+  parent: BaseSword
   id: NavyOfficerSabre
-  description: Used primarily in ceremonies by naval officers, it remains a proven weapon.
+  description: Plastitanium sabre used primarily in ceremonies by naval officers, it remains a proven weapon. # Mono added mention of plastitanium to description to explain its heightened damage
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Melee/ccsabre.rsi
@@ -11,7 +11,7 @@
     attackRate: 1.6
     damage:
       types:
-        Slash: 30 # Seem important to keep the message from goob.// Fuck you.
+        Slash: 40 # Seem important to keep the message from goob.// Fuck you. # Mono Increased damage from 30 to 40 to maintain its status as cap sabre but better, also makes it something of a viable alternative to an e-sword that loses the armor pen heat damage in exchange for flat slash damage
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Reflect

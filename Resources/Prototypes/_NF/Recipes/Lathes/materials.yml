@@ -19,10 +19,10 @@
 - type: latheRecipe
   id: SmeltScrap
   result: SpawnRandomRefinedScrap
-  parent: BaseMaterialsNoDiscountRecipe
+#  parent: BaseMaterialsNoDiscountRecipe #Mono
   completetime: 0.1
   icon:
     sprite: _NF/Objects/Materials/ore.rsi
     state: scrapore
   materials:
-    RawScrap: 2000
+    RawScrap: 400 # Mono - 2000 > 400

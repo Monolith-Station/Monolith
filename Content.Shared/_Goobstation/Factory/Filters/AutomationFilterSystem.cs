@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Examine;
@@ -15,11 +9,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Factory.Filters;
 
-public sealed class AutomationFilterSystem : EntitySystem
+public sealed partial class AutomationFilterSystem : EntitySystem
 {
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
 
     private EntityQuery<FilterSlotComponent> _slotQuery;
     private EntityQuery<LabelComponent> _labelQuery;

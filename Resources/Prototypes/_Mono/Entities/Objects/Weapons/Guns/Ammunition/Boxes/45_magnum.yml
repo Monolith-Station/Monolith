@@ -1,28 +1,8 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 Paul Ritter
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2023 Boaz1111
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Moomoobeef
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   abstract: true
   parent: [BaseItem, RecyclableItemCardboard] # Frontier: added RecyclableItemCardboard
   id: BaseAmmoBox45_magnum
+  name: ammunition box (.45 magnum FMJ)
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -43,32 +23,17 @@
     steps: 4
     zeroVisible: false
   - type: Appearance
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
 
-# Boxes
-- type: entity # Mono Big Pistol Mags
-  parent: BaseAmmoBox45_magnum
-  id: AmmoBox45_magnumBigFMJ
-  name: big ammunition box (.45 magnum FMJ)
-  suffix: Big
-  components:
-  - type: Item
-    shape:
-    - 0,0,1,1
-  - type: BallisticAmmoProvider
-    capacity: 80
-    proto: Cartridge45_magnumFMJ
-  - type: Sprite
-    layers:
-    - state: base-b # Frontier: base-big<base-b
-      map: ["enum.GunVisualLayers.Base"]
-    - state: magb-1 # Frontier: mag-big-1<magb-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: magb # Frontier: mag-big<magb
-    steps: 4
-    zeroVisible: false
-  - type: Appearance
-
+#small ammo boxes
 - type: entity
   parent: BaseAmmoBox45_magnum
   id: AmmoBox45_magnumFMJ
@@ -99,8 +64,8 @@
     - state: practice
 
 - type: entity
-  id: AmmoBox45_magnumIncendiary
   parent: BaseAmmoBox45_magnum
+  id: AmmoBox45_magnumIncendiary
   name: ammunition box (.45 magnum incendiary)
   components:
   - type: BallisticAmmoProvider
@@ -128,10 +93,27 @@
       map: ["enum.GunVisualLayers.Mag"]
     - state: uranium
 
+# Upstream
+- type: entity
+  parent: BaseAmmoBox45_magnum
+  id: AmmoBox45_magnumRubber
+  name: ammunition box (.45 magnum rubber)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumRubber
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: rubber
+
+#deprecated AP
 - type: entity
   id: AmmoBox45_magnumAP
   parent: BaseAmmoBox45_magnum
-  name: ammunition box (.45 magnum armor-piercing)
+  name: ammunition box (.45 magnum extreme armor-piercing)
   components:
   - type: BallisticAmmoProvider
     proto: Cartridge45_magnumAP
@@ -143,18 +125,76 @@
       map: ["enum.GunVisualLayers.Mag"]
     - state: piercing
 
+# Mono AP syst
+#anti-flesh:
 - type: entity
   parent: BaseAmmoBox45_magnum
-  id: AmmoBox45_magnumRubber
-  name: ammunition box (.45 magnum rubber)
+  id: AmmoBox45_magnumHP
+  name: ammunition box (.45 magnum hollow-point)
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge45_magnumRubber
+    proto: Cartridge45_magnumHP
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/45_magnum.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    - state: rubber
+    - state: HP
+
+- type: entity
+  parent: BaseAmmoBox45_magnum
+  id: AmmoBox45_magnumRIP
+  name: ammunition box (.45 magnum RIP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumRIP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: RIP
+
+#armor-piercing:
+
+- type: entity
+  parent: BaseAmmoBox45_magnum
+  id: AmmoBox45_magnumPlasteelAP
+  name: ammunition box (.45 magnum AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumPlasteelAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: plasteelAP
+
+#big ammo boxes
+- type: entity
+  parent: BaseAmmoBox45_magnum
+  id: AmmoBox45_magnumBigFMJ
+  name: big ammunition box (.45 magnum FMJ)
+  suffix: Big
+  components:
+  - type: Item
+    shape:
+    - 0,0,1,1
+  - type: BallisticAmmoProvider
+    capacity: 100
+    proto: Cartridge45_magnumFMJ
+  - type: Sprite
+    layers:
+    - state: base-b # Frontier: base-big<base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1 # Frontier: mag-big-1<magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb # Frontier: mag-big<magb
+    steps: 4
+    zeroVisible: false
+  - type: Appearance

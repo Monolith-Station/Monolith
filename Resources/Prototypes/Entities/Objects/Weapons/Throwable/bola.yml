@@ -1,6 +1,6 @@
 - type: entity
   name: bola
-  parent: [BaseItem, BaseC1Contraband] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseItem
   id: Bola
   description: Linked together with some spare cuffs and metal.
   components:

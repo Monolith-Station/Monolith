@@ -1,6 +1,6 @@
 # Resomi steak
 - type: constructionGraph
-  id: ResomiSteak   
+  id: ResomiSteak
   start: start
   graph:
 
@@ -23,11 +23,11 @@
   graph:
   - node: start
     edges:
-    - to: cutlet cooked
+    - to: resomi cutlet
       completed:
       - !type:PlaySound
         sound: /Audio/Effects/sizzle.ogg
       steps:
       - minTemperature: 335
-  - node: cutlet cooked
+  - node: resomi cutlet
     entity: FoodMeatResomiCutletCooked

@@ -26,13 +26,14 @@
     - type: UpgradedMachine
       upgrade: lathe-upgrade-kit-hyper-convection
     - type: LatheUpgrade
-      materialUseMultiplier: 0.5
+      materialUseMultiplier: 0.8
       timeMultiplier: 1.5
     - type: LatheHeatProducing
+      temperatureCap: 373.15
     - type: ReagentSpeed
       solution: lube
       modifiers:
-        SpaceLube: 0.8 # being faster means less heat so lube needs to be nerfed
+        SpaceLube: 0.5
         SpaceGlue: 5 # no change from normal lathe, overheat!!!
 
 - type: entity

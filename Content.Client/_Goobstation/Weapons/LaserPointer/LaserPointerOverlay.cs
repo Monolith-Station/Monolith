@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aviu00
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Goobstation.Weapons.SmartGun;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -36,6 +32,7 @@ public sealed class LaserPointerOverlay : Overlay
     {
         var handle = args.WorldHandle;
         var bounds = args.WorldAABB;
+        var currentMapId = args.MapId;
 
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
         var query = _entManager.EntityQueryEnumerator<LaserPointerManagerComponent>();
@@ -44,16 +41,20 @@ public sealed class LaserPointerOverlay : Overlay
         {
             foreach (var (netEnt, data) in manager.Data)
             {
+                var ent = _entManager.GetEntity(netEnt);
+
+                if (!_entManager.EntityExists(ent) || !xformQuery.TryComp(ent, out var xform))
+                    continue;
+
+                if (xform.MapID != currentMapId)
+                    continue;
+
                 var start = data.Start;
                 var end = data.End;
 
-                var ent = _entManager.GetEntity(netEnt);
-                if (xformQuery.TryComp(ent, out var xform))
-                {
-                    var coords = _transform.GetMapCoordinates(ent, xform);
-                    if (coords.MapId != MapId.Nullspace)
-                        start = coords.Position;
-                }
+                var coords = _transform.GetMapCoordinates(ent, xform);
+                if (coords.MapId != MapId.Nullspace && coords.MapId == currentMapId)
+                    start = coords.Position;
 
                 var (left, right) = MinMax(start.X, end.X);
                 var (bottom, top) = MinMax(start.Y, end.Y);

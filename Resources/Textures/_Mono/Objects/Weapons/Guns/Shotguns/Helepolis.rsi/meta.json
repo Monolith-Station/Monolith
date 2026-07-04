@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-4.0",
+    "copyright": "icon sprited entirely by tonotom1, in-hand sprite from TerraGov Marine Corps sawn-off https://github.com/tgstation/TerraGov-Marine-Corps/pull/7678/commits/e7bc17b894aa4c1f882358016346c3be00236df8, https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/obj/items/gun.dmi modified by tonotom1, backpack strap sprite derived from sawn-off backpack sprite by Peptide, modified by tonotom1. prior sprite modifications to sawn-off sprite sources by Jaсkal 298",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
+            "directions": 4
+        }
+    ]
+}

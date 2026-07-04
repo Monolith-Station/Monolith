@@ -1,41 +1,3 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 Hugo Laloge
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2020 Swept
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-# SPDX-FileCopyrightText: 2020 py01
-# SPDX-FileCopyrightText: 2021 Galactic Chimp
-# SPDX-FileCopyrightText: 2021 Paul Ritter
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 Scribbles0
-# SPDX-FileCopyrightText: 2022 Visne
-# SPDX-FileCopyrightText: 2022 keronshb
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 TaralGit
-# SPDX-FileCopyrightText: 2023 and_a
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2023 stopbreaking
-# SPDX-FileCopyrightText: 2024 Cojoke
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Ilya246
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 Kesiath
-# SPDX-FileCopyrightText: 2024 Naive817
-# SPDX-FileCopyrightText: 2024 WarMechanic
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 nikthechampiongr
-# SPDX-FileCopyrightText: 2025 Eden077
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 UltimateJester
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   name: BaseWeaponLightMachineGun
   parent: BaseItem
@@ -56,10 +18,10 @@
     - suitStorage
   - type: Wieldable
     unwieldOnUse: false
-  - type: GunWieldBonus
-    minAngle: -20
+  - type: GunWieldBonus # Mono
+    minAngle: -22
     maxAngle: -20
-  - type: Gun
+  - type: Gun # L6 LMG stats adjusted
     minAngle: 24
     maxAngle: 45
     angleIncrease: 3
@@ -81,20 +43,20 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: Magazine7.62x39mmBox
+        startingItem: Magazine762x39mmBox
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - Magazine7.62x39mmBox
+            - Magazine762x39mmBox
       gun_chamber:
         name: Chamber
-        startingItem: Cartridge7.62x39mmFMJ
+        startingItem: Cartridge762x39mmFMJ
         priority: 1
         whitelist:
           tags:
-            - Cartridge7.62x39mmFMJ
+            - Cartridge762x39mmFMJ
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -110,11 +72,30 @@
     walkModifier: 0.9
     sprintModifier: 0.75
   - type: GunRequiresWield # Mono
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/lmg_mouse.rsi
+      state: all
+  - type: WieldDelay # Mono
+    baseDelay: 1
+    modifiedDelay: 1
+    preventFiring: true
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RiflesDrop
+  # Goobstation edit end
 
 - type: entity
   name: PA L6B SAW (7.62x39mm)
   id: WeaponLightMachineGunL6
-  parent: [BaseWeaponLightMachineGun, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: BaseWeaponLightMachineGun
   description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses 7.62x39mm ammo. No longer in production, it serves as a remnant of humanity's greed and ambition during The Fracture.
   components:
   - type: Sprite
@@ -129,19 +110,23 @@
     steps: 4
     zeroVisible: true
   - type: Appearance
+  - type: Gun # Mono change - Sound for L6 saw
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/l6_fire.ogg
 
 - type: entity
   name: PA L6C ROW (7.62x39mm)
   id: WeaponLightMachineGunL6C
-  parent: [BaseItem, BaseC3SyndicateContraband] # Frontier: added BaseC3SyndicateContraband
-  description: A L6 SAW for use by cyborgs. Creates 7.62x39mm ammo on the fly from an internal ammo fabricator, which slowly self-charges.
+  parent: BaseItem
+  description: A L6 SAW for use by cyborgs. Creates 762x39mm ammo on the fly from an internal ammo fabricator, which slowly self-charges.
   components:
-    - type: Gun
+    - type: Gun # Gun stats adjusted to be similar to LMG
       minAngle: 4
-      maxAngle: 25
-      angleIncrease: 4
-      angleDecay: 16
+      maxAngle: 20
+      angleIncrease: 3
+      angleDecay: 20
       fireRate: 8
+      projectileSpeed: 55 # Mono
       selectedMode: FullAuto
       availableModes:
         - FullAuto
@@ -162,7 +147,7 @@
       containers:
         ballistic-ammo: !type:Container
     - type: ProjectileBatteryAmmoProvider
-      proto: Cartridge7.62x39mmFMJ
+      proto: Cartridge762x39mmFMJ
       fireCost: 100
     - type: Battery
       maxCharge: 10000

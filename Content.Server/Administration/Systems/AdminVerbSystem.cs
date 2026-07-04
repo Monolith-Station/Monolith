@@ -5,9 +5,10 @@ using Content.Server.Disposal.Tube;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Roles;
-using Content.Server.Mind;
 using Content.Server.Mind.Commands;
+using Content.Server.Mind;
 using Content.Server.Prayer;
+using Content.Server.Silicons.Laws;
 using Content.Server.Station.Systems;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
@@ -18,28 +19,32 @@ using Content.Shared.Configurable;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
+using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
+using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
+using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Verbs;
 using Robust.Server.Console;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Server.Silicons.Laws;
-using Content.Shared.Movement.Components;
-using Content.Shared.Silicons.Laws.Components;
-using Robust.Server.Player;
-using Content.Shared.Silicons.StationAi;
-using Robust.Shared.Physics.Components;
 using static Content.Shared.Configurable.ConfigurationComponent;
+using Robust.Shared.Containers;
+using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Hands.Components;
+using Content.Shared.PDA;
 
 namespace Content.Server.Administration.Systems
 {
@@ -48,30 +53,31 @@ namespace Content.Server.Administration.Systems
     /// </summary>
     public sealed partial class AdminVerbSystem : EntitySystem
     {
-        [Dependency] private readonly IConGroupController _groupController = default!;
-        [Dependency] private readonly IConsoleHost _console = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly AdminSystem _adminSystem = default!;
-        [Dependency] private readonly DisposalTubeSystem _disposalTubes = default!;
-        [Dependency] private readonly EuiManager _euiManager = default!;
-        [Dependency] private readonly GameTicker _ticker = default!;
-        [Dependency] private readonly GhostRoleSystem _ghostRoleSystem = default!;
-        [Dependency] private readonly ArtifactSystem _artifactSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-        [Dependency] private readonly PrayerSystem _prayerSystem = default!;
-        [Dependency] private readonly MindSystem _mindSystem = default!;
-        [Dependency] private readonly ToolshedManager _toolshed = default!;
-        [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly StationSystem _stations = default!;
-        [Dependency] private readonly StationSpawningSystem _spawning = default!;
-        [Dependency] private readonly ExamineSystemShared _examine = default!;
-        [Dependency] private readonly AdminFrozenSystem _freeze = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
+        [Dependency] private IConGroupController _groupController = default!;
+        [Dependency] private IConsoleHost _console = default!;
+        [Dependency] private IAdminManager _adminManager = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private SharedMapSystem _map = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private AdminSystem _adminSystem = default!;
+        [Dependency] private DisposalTubeSystem _disposalTubes = default!;
+        [Dependency] private EuiManager _euiManager = default!;
+        [Dependency] private GameTicker _ticker = default!;
+        [Dependency] private GhostRoleSystem _ghostRoleSystem = default!;
+        [Dependency] private ArtifactSystem _artifactSystem = default!;
+        [Dependency] private UserInterfaceSystem _uiSystem = default!;
+        [Dependency] private PrayerSystem _prayerSystem = default!;
+        [Dependency] private MindSystem _mindSystem = default!;
+        [Dependency] private ToolshedManager _toolshed = default!;
+        [Dependency] private RejuvenateSystem _rejuvenate = default!;
+        [Dependency] private SharedPopupSystem _popup = default!;
+        [Dependency] private StationSystem _stations = default!;
+        [Dependency] private StationSpawningSystem _spawning = default!;
+        [Dependency] private ExamineSystemShared _examine = default!;
+        [Dependency] private AdminFrozenSystem _freeze = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private SiliconLawSystem _siliconLawSystem = default!;
+        [Dependency] private SharedContainerSystem _container = default!; // Mono
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
@@ -180,6 +186,30 @@ namespace Content.Server.Administration.Systems
 
                             var profile = _ticker.GetPlayerProfile(targetActor.PlayerSession);
                             _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid, session: targetActor.PlayerSession); // Frontier: added session
+                        },
+                        ConfirmationPopup = true,
+                        Impact = LogImpact.High,
+                    });
+
+                    // Mono: Clone with Items
+                    args.Verbs.Add(new Verb()
+                    {
+                        Text = Loc.GetString("admin-player-actions-clone-with-items"),
+                        Category = VerbCategory.Admin,
+                        Act = () =>
+                        {
+                            if (!_transformSystem.TryGetMapOrGridCoordinates(args.User, out var coords))
+                            {
+                                _popup.PopupEntity(Loc.GetString("admin-player-spawn-failed"), args.User, args.User);
+                                return;
+                            }
+
+                            var stationUid = _stations.GetOwningStation(args.Target);
+
+                            var profile = _ticker.GetPlayerProfile(targetActor.PlayerSession);
+                            var clonedMob = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid, session: targetActor.PlayerSession);
+
+                            CopyAllItems(args.Target, clonedMob);
                         },
                         ConfirmationPopup = true,
                         Impact = LogImpact.High,
@@ -388,6 +418,22 @@ namespace Content.Server.Administration.Systems
                         Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
                     });
                 }
+
+                // open camera
+                args.Verbs.Add(new Verb()
+                {
+                    Priority = 10,
+                    Text = Loc.GetString("admin-verbs-camera"),
+                    Message = Loc.GetString("admin-verbs-camera-description"),
+                    Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/vv.svg.192dpi.png")),
+                    Category = VerbCategory.Admin,
+                    Act = () =>
+                    {
+                        var ui = new AdminCameraEui(args.Target);
+                        _euiManager.OpenEui(ui, player);
+                    },
+                    Impact = LogImpact.Low
+                });
             }
         }
 
@@ -485,19 +531,34 @@ namespace Content.Server.Administration.Systems
                 args.Verbs.Add(verb);
             }
 
-            // Set clothing verb
-            if (_groupController.CanCommand(player, "setoutfit") &&
-                EntityManager.HasComponent<InventoryComponent>(args.Target))
+            if (TryComp<InventoryComponent>(args.Target, out var inventoryComponent))
             {
-                Verb verb = new()
+                // Strip all verb
+                if (_groupController.CanCommand(player, "stripall"))
                 {
-                    Text = Loc.GetString("set-outfit-verb-get-data-text"),
-                    Category = VerbCategory.Debug,
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
-                    Act = () => _euiManager.OpenEui(new SetOutfitEui(GetNetEntity(args.Target)), player),
-                    Impact = LogImpact.Medium
-                };
-                args.Verbs.Add(verb);
+                    args.Verbs.Add(new Verb
+                    {
+                        Text = Loc.GetString("strip-all-verb-get-data-text"),
+                        Category = VerbCategory.Debug,
+                        Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
+                        Act = () => _console.RemoteExecuteCommand(player, $"stripall \"{args.Target}\""),
+                        Impact = LogImpact.Medium
+                    });
+                }
+
+                // set outfit verb
+                if (_groupController.CanCommand(player, "setoutfit"))
+                {
+                    Verb verb = new()
+                    {
+                        Text = Loc.GetString("set-outfit-verb-get-data-text"),
+                        Category = VerbCategory.Debug,
+                        Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
+                        Act = () => _euiManager.OpenEui(new SetOutfitEui(GetNetEntity(args.Target)), player),
+                        Impact = LogImpact.Medium
+                    };
+                    args.Verbs.Add(verb);
+                }
             }
 
             // In range unoccluded verb
@@ -626,5 +687,83 @@ namespace Content.Server.Administration.Systems
             _openSolutionUis.Clear();
         }
         #endregion
+
+        /// <summary>
+        /// Mono: Copies all items from source entity to target entity.
+        /// </summary>
+        private void CopyAllItems(EntityUid source, EntityUid target)
+        {
+            if (TryComp<InventoryComponent>(source, out var sourceInv) &&
+                TryComp<InventoryComponent>(target, out var targetInv))
+            {
+                var enumerator = new InventorySystem.InventorySlotEnumerator(sourceInv);
+                while (enumerator.NextItem(out var item, out var slot))
+                {
+                    var prototypeId = MetaData(item).EntityPrototype?.ID;
+                    if (string.IsNullOrEmpty(prototypeId))
+                        continue;
+                    var cloneItem = Spawn(prototypeId, Transform(target).Coordinates);
+                    if (_inventorySystem.TryEquip(target, cloneItem, slot.Name, silent: true, force: true, inventory: targetInv))
+                    {
+                        // Recursively copy items from containers (backpacks, etc.)
+                        CopyContainedItems(item, cloneItem);
+                    }
+                }
+            }
+
+            if (TryComp<HandsComponent>(source, out var sourceHands) &&
+                TryComp<HandsComponent>(target, out var targetHands))
+            {
+                foreach (var hand in sourceHands.Hands.Values)
+                {
+                    if (hand.HeldEntity == null)
+                        continue;
+
+                    var prototypeId = MetaData(hand.HeldEntity.Value).EntityPrototype?.ID;
+                    if (string.IsNullOrEmpty(prototypeId))
+                        continue;
+                    var cloneItem = Spawn(prototypeId, Transform(target).Coordinates);
+
+                    if (_handsSystem.TryPickupAnyHand(target, cloneItem, checkActionBlocker: false, handsComp: targetHands))
+                    {
+                        CopyContainedItems(hand.HeldEntity.Value, cloneItem);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Mono: Recursively copies all items from source container to target container.
+        /// </summary>
+        private void CopyContainedItems(EntityUid source, EntityUid target)
+        {
+            if (HasComp<PdaComponent>(target))
+                return;
+
+            if (!TryComp<ContainerManagerComponent>(source, out var sourceContainers))
+                return;
+
+            if (!TryComp<ContainerManagerComponent>(target, out var targetContainers))
+                return;
+
+            foreach (var sourceContainer in sourceContainers.Containers.Values)
+            {
+                foreach (var contained in sourceContainer.ContainedEntities)
+                {
+                    if (!targetContainers.Containers.TryGetValue(sourceContainer.ID, out var targetContainer))
+                        continue;
+
+                    var prototypeId = MetaData(contained).EntityPrototype?.ID;
+                    if (string.IsNullOrEmpty(prototypeId))
+                        continue;
+                    var cloneItem = Spawn(prototypeId, Transform(target).Coordinates);
+
+                    if (_container.Insert(cloneItem, targetContainer))
+                    {
+                        CopyContainedItems(contained, cloneItem);
+                    }
+                }
+            }
+        }
     }
 }

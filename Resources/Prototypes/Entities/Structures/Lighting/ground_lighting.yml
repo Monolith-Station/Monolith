@@ -66,6 +66,10 @@
   - type: StaticPrice
     price: 30 # Frontier: 75<30
   - type: RequireProjectileTarget
+  # Mono
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 2
 
 - type: entity
   id: PoweredLightPostSmallEmpty

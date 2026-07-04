@@ -6,11 +6,13 @@
 # SPDX-FileCopyrightText: 2024 Salvantrix
 # SPDX-FileCopyrightText: 2024 Tych0
 # SPDX-FileCopyrightText: 2024 Whatstone
+# SPDX-FileCopyrightText: 2025 Arcticular
 # SPDX-FileCopyrightText: 2025 BramvanZijp
 # SPDX-FileCopyrightText: 2025 LukeZurg22
 # SPDX-FileCopyrightText: 2025 Redrover1760
 # SPDX-FileCopyrightText: 2025 dustylens
 # SPDX-FileCopyrightText: 2025 starch
+# SPDX-FileCopyrightText: 2025 thoughtlessuser
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -144,7 +146,7 @@
     - state: idnfsdbailiff
 
 - type: entity
-  parent: [CadetIDCard, BaseCommandContraband]
+  parent: CadetIDCard
   id: ShriffIDCard
   name: TSFMC colonel ID card
   components:
@@ -193,20 +195,21 @@
     - state: ert_mailcarrier
 
 - type: entity
-  parent: [HoPIDCard, BaseCommandContraband]
+  parent: HoPIDCard
   id: SrIDCard
-  name: colonial liaison ID card
+  name: overseer ID card
   components:
   - type: PresetIdCard
     job: StationRepresentative
 
 - type: entity
-  parent: ValetIDCard
-  id: ValetNFIDCard
-  name: valet ID card
+  parent: CCServiceWorkerIDCard
+  id: CCServiceWorkerNFIDCard #Mono
+  name: colossus sector service ID card
+  description: An identification card belonging to a service worker in the Colossus Sector.
   components:
   - type: PresetIdCard
-    job: Valet
+    job: ServiceWorker
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
@@ -234,49 +237,6 @@
     - state: idcontractor
 
 - type: entity
-  parent: PirateIDCard
-  id: PirateNFIDCard
-  name: rogue agent ID card
-  description: Garr, be this wood?
-  components:
-  - type: PresetIdCard
-    job: Pirate
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: pirate
-    - state: idpirate
-  - type: Item
-    heldPrefix: pirate
-
-- type: entity
-  parent: PirateNFIDCard
-  id: PirateCaptainNFIDCard
-  name: rogue commander ID card
-  description: Ahoy, see how it glistens!
-  components:
-  - type: PresetIdCard
-    job: PirateCaptain
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: pirate
-    - state: idpiratecaptain
-
-- type: entity
-  parent: PirateNFIDCard
-  id: PirateFirstMateNFIDCard
-  name: rogue commandant ID card
-  components:
-  - type: PresetIdCard
-    job: PirateFirstMate
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: pirate
-    - state: idpiratefirstmate
-
-- type: entity
   parent: PunPunIDCard
   id: YipYipIDCard
   name: yip yip ID card
@@ -285,7 +245,7 @@
     name: Yip Yip
 
 - type: entity
-  parent: [IDCardStandard, BaseCommandContraband]
+  parent: IDCardStandard
   id: DocIDCard
   name: director of care ID card
   components:
@@ -311,7 +271,7 @@
     name: Clippy
 
 - type: entity
-  parent: PirateFirstMateNFIDCard
+  parent: PDVAsvaranIDCard
   id: ClarpyIDCard
   name: clarpy ID card
   components:

@@ -1,16 +1,11 @@
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 grandalff
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+#Author: Grandalff on Github.
 
 - type: vessel
   id: Remontnik
   parent: BaseVesselAntag
   name: PPU Remontnik
-  description: A USSP engineering and mining vessel designed by PPU. Comes with an FTL, potatoes with butter and alcohol in the fridge. 
-  price: 100000
+  description: A USSP engineering and mining vessel designed by PPU. Comes with an FTL, potatoes with butter and alcohol in the fridge.
+  price: 102000
   category: Medium
   group: Ussp
   access: USSP
@@ -38,8 +33,5 @@
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            USSPSergeant: [0, 0]
-            USSPCorporal: [0, 0]
-            USSPMedic: [0, 0]
-            USSPRifleman: [0, 0]
-            USSPCommissar: [0, 0]
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]

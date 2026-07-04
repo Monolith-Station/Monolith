@@ -1,0 +1,25 @@
+# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
+# Base
+
+- type: entity
+  name: macaroni & cheese
+  parent: FoodNoodlesBase
+  id: FoodMacaroni
+  description: Cheesy!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - pasta
+      - cheesy
+  - type: Sprite
+    state: macncheese
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Flavorol
+          Quantity: 20
+# Tastes like pasta.

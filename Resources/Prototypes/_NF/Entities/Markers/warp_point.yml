@@ -2,7 +2,7 @@
   id: WarpPointAdmin
   parent: WarpPoint
   suffix: Admin-only
-  categories: [ DoNotMap ]
+  # categories: [ DoNotMap ] Mono
   components:
   - type: WarpPoint
     adminOnly: true

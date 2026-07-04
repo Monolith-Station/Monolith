@@ -1,55 +1,3 @@
-# SPDX-FileCopyrightText: 2018 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2019 Acruid
-# SPDX-FileCopyrightText: 2019 L.E.D
-# SPDX-FileCopyrightText: 2019 Swept
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 Hugo Laloge
-# SPDX-FileCopyrightText: 2020 Paul Ritter
-# SPDX-FileCopyrightText: 2020 Peter Wedder
-# SPDX-FileCopyrightText: 2020 Reno DuBois
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-# SPDX-FileCopyrightText: 2020 juliangiebel
-# SPDX-FileCopyrightText: 2020 py01
-# SPDX-FileCopyrightText: 2020 zumorica
-# SPDX-FileCopyrightText: 2021 20kdc
-# SPDX-FileCopyrightText: 2021 Alex Evgrashin
-# SPDX-FileCopyrightText: 2021 Nikita Brancatisano
-# SPDX-FileCopyrightText: 2021 Peptide90
-# SPDX-FileCopyrightText: 2021 Ygg01
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Leon Friedrich
-# SPDX-FileCopyrightText: 2022 Moony
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 Ripmorld
-# SPDX-FileCopyrightText: 2022 ShadowCommander
-# SPDX-FileCopyrightText: 2022 Visne
-# SPDX-FileCopyrightText: 2022 corentt
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2023 Checkraze
-# SPDX-FileCopyrightText: 2023 Chief-Engineer
-# SPDX-FileCopyrightText: 2023 Doru991
-# SPDX-FileCopyrightText: 2023 Emisse
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2023 Sailor
-# SPDX-FileCopyrightText: 2023 chromiumboy
-# SPDX-FileCopyrightText: 2023 crazybrain23
-# SPDX-FileCopyrightText: 2023 deltanedas
-# SPDX-FileCopyrightText: 2023 h3half
-# SPDX-FileCopyrightText: 2023 keronshb
-# SPDX-FileCopyrightText: 2023 kxv
-# SPDX-FileCopyrightText: 2023 sTiKyt
-# SPDX-FileCopyrightText: 2024 Debug
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2025 wewman222
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BasePowerCell
   abstract: true
@@ -327,7 +275,7 @@
       autoRechargeRate: 40
     - type: MachinePart # Frontier
       part: PowerCell # Frontier
-      rating: 4 # Frontier: tier of this is arguable
+      rating: 6 # Frontier: tier of this is arguable # Mono: 4->6 - if you use this for a SMES it better work good
 
 # Power cage (big heavy power cell for big devices)
 
@@ -363,7 +311,7 @@
   id: PowerCageSmall
   parent: BasePowerCage
   name: small-capacity power cage
-  description: A rechargeable power cage for big devices. This is the cheapest kind you can find.
+  description: A rechargeable power cage for big devices. This is the cheapest kind you can find, but it comes with some moderate EMP shielding.
   components:
   - type: Sprite
     sprite: Objects/Power/power_cages.rsi
@@ -374,8 +322,10 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 1400
-    startingCharge: 1400
+    maxCharge: 2800 # Mono: 1400 >> 2800
+    startingCharge: 2800
+  - type: EmpResistance # Mono also
+    coefficient: 0.000112
 
 - type: entity
   id: PowerCageMedium
@@ -392,14 +342,14 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 2700
-    startingCharge: 2700
+    maxCharge: 4600 # Mono: 2700 >> 4600
+    startingCharge: 4600
 
 - type: entity
   id: PowerCageMech
   parent: BasePowerCage
   name: mech fuel cell
-  description: A rechargeable fuel cell for mechs.
+  description: An auto-recharging fuel cell for mechs.
   components:
   - type: Sprite
     sprite: Objects/Power/power_cages.rsi
@@ -410,8 +360,13 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 6000
-    startingCharge: 6000
+    maxCharge: 7200
+    startingCharge: 7200
+  - type: BatterySelfRecharger
+    autoRechargePause: true
+    autoRechargePauseTime: 30 # Prevent continuous fire, but not a huge delay
+    autoRecharge: true
+    autoRechargeRate: 30 # 4 minutes to fully recharge, 2.5x recharge rate of micro-reactor
 
 - type: entity
   id: PowerCageHigh
@@ -428,8 +383,8 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 6200
-    startingCharge: 6200
+    maxCharge: 6400 # Mono: 6100 >> 6400
+    startingCharge: 6400
 
 - type: entity
   id: PowerCageSmallEmpty
@@ -446,7 +401,6 @@
       shader: unshaded
       visible: false
   - type: Battery
-    maxCharge: 1400
     startingCharge: 0
 
 - type: entity

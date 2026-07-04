@@ -1,22 +1,14 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Aviu00
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: Tag
+  id: Magazine762x39mmSubsonic
 
 - type: Tag
-  id: Magazine7.62x39mmSubsonic
+  id: Magazine127x99mm
 
 - type: Tag
-  id: Magazine12.7x99mm
+  id: Cartridge762x39mmSubsonic
 
 - type: Tag
-  id: Cartridge7.62x39mmSubsonic
-
-- type: Tag
-  id: Cartridge12.7x99mm
+  id: Cartridge127x99mm
 
 # Mechs
 
@@ -124,6 +116,9 @@
   id: Gygax
 
 - type: Tag
+  id: Hammer
+
+- type: Tag
   id: LaserLMG
 
 - type: Tag
@@ -179,6 +174,18 @@
 
 - type: Tag
   id: MagazineSmart
+
+- type: Tag
+  id: Welder
+
+- type: Tag
+  id: WelderExperimental
+
+- type: Tag
+  id: WoodenHandle
+
+- type: Tag
+  id: WelderIndustrial
 
 - type: Tag
   id: MagazineSmartLMG

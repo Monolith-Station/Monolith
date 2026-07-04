@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Aviu00
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.NPC.Components;
 using Content.Shared._Goobstation.Weapons.SmartGun;
 using Content.Shared.Wieldable.Components;
@@ -10,9 +5,9 @@ using Robust.Server.GameStates;
 
 namespace Content.Server._Goobstation.Weapons.Ranged;
 
-public sealed class LaserPointerSystem : SharedLaserPointerSystem
+public sealed partial class LaserPointerSystem : SharedLaserPointerSystem
 {
-    [Dependency] private readonly PvsOverrideSystem _override = default!;
+    [Dependency] private PvsOverrideSystem _override = default!;
 
     protected override void PvsOverride(EntityUid entity)
     {

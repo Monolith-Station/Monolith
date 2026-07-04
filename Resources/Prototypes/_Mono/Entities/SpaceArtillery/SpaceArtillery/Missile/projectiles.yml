@@ -1,73 +1,121 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 Disguised Bear
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: entity
+  id: ShipMissileBase
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: ShipWeaponProjectile
+  - type: Fixtures
+    fixtures:
+      hit:
+        shape: !type:PhysShapeCircle
+          radius: 2
+        layer:
+        - BulletImpassable # Mono - ProjectileGridPhase will take care of collisions with same ship shots
+        - Opaque
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.45,0.15,0.15"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 # VESPERA
 
 - type: entity
-  id: ShipMissileASM417
-  name: ASM-417 Mini Missile
-  parent: BaseBulletTrigger
+  id: MissileProjectile50mmHE
+  name: ASM-50 50mm Mini Missile
+  parent: ShipMissileBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Structural: 450
-        Blunt: 65
-        Heat: 10
+        Structural: 20
+        Blunt: 20
+        Heat: 30
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:
     - state: mini-rocket
   - type: Ammo
-    muzzleFlash: null
-  - type: ShipWeaponProjectile
+    muzzleFlash: MuzzleFlashEffectSmall
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 1
-    requireNoGrid: true
-    shape: triangle
+    shape: hexagon
   - type: TimedDespawn
-    lifetime: 3.5
+    lifetime: 2.5
   - type: PointLight
     radius: 3.5
     color: orange
     energy: 0.5
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: DefaultShipGun
-    totalIntensity: 75
-    intensitySlope: 8
-    maxIntensity: 25
+    explosionType: Default
+    totalIntensity: 6
+    intensitySlope: 3
+    maxIntensity: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 150
-    detectionRange: 300
+    acceleration: 50
+    detectionRange: 500
     scanArc: 35
     launchSpeed: 150
-    maxSpeed: 180
+    maxSpeed: 300
     trackDelay: 0.1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
-# ASM-302
+# VANYK
 
 - type: entity
-  id: ShipMissileASM302
-  name: ASM-302 missile
-  parent: BaseBulletTrigger
+  id: ShipMissileASM150
+  name: ASM-150 150mm missile
+  parent: ShipMissileBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Structural: 1000
+        Structural: 200
         Blunt: 175
         Heat: 50
   - type: Sprite
@@ -75,113 +123,117 @@
     layers:
     - state: frag
   - type: Ammo
-    muzzleFlash: null
-  - type: ShipWeaponProjectile
+    muzzleFlash: MuzzleFlashEffectSmall
   - type: RadarBlip
     radarColor: "#FCBA03"
     scale: 1.5
-    requireNoGrid: true
-    shape: triangle
+    shape: hexagon
   - type: TimedDespawn
-    lifetime: 4.5
+    lifetime: 6
   - type: PointLight
     radius: 3.5
     color: orange
     energy: 0.5
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: DefaultShipGun
-    totalIntensity: 150
-    intensitySlope: 10
-    maxIntensity: 55
-  - type: GatheringProjectile
-  - type: MiningGatheringSoft
-  - type: MiningGatheringHard
-  - type: TargetSeeking
-    acceleration: 200
-    detectionRange: 450
-    scanArc: 40
-    launchSpeed: 90
-    maxSpeed: 210
-    trackDelay: 0.2
-
-# ASM-501
-
-- type: entity
-  id: ShipMissileASM501
-  name: ASM-501 missile
-  parent: BaseBulletTrigger
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Projectile
-    damage:
-      types:
-        Structural: 15000
-        Blunt: 2000
-        Heat: 500
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: frag
-  - type: Ammo
-    muzzleFlash: null
-  - type: ShipWeaponProjectile
-  - type: RadarBlip
-    radarColor: "#FCBA03"
-    scale: 4
-    requireNoGrid: true
-    shape: triangle
-  - type: TimedDespawn
-    lifetime: 15
-  - type: PointLight
-    radius: 5
-    color: orange
-    energy: 2
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: DefaultShipGun
-    maxIntensity: 6000
-    intensitySlope: 30
-    totalIntensity: 6000
+    explosionType: Default
+    totalIntensity: 10
+    intensitySlope: 4
+    maxIntensity: 4
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 50
-    detectionRange: 300
-    scanArc: 30
-    launchSpeed: 25
-    maxSpeed: 30
-    trackDelay: 2
+    detectionRange: 600
+    scanArc: 40
+    launchSpeed: 90
+    maxSpeed: 300
+    trackDelay: 0.2
+
+- type: entity
+  id: ShipMissileASM150Unguided
+  name: ASM-150 150mm missile
+  parent: ShipMissileASM150
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TargetSeeking
+    acceleration: 50
+    detectionRange: 0
+    scanArc: 40
+    launchSpeed: 90
+    maxSpeed: 300
 
 # TOVEK
 
 - type: entity
-  id: ShipMissileASM557
-  name: ASM-557 Hybrid EMP Missile
-  parent: BaseBulletTrigger
+  id: ShipMissileASM250HEAT
+  name: 250mm HEAT missile
+  parent: ShipMissileBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Structural: 7500
+        Structural: 500
+        Blunt: 250
+        Heat: 125
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectSmall
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 2.5
+    shape: hexagon
+  - type: TimedDespawn
+    lifetime: 8
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 35
+    intensitySlope: 6
+    maxIntensity: 10
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetSeeking
+    acceleration: 80
+    detectionRange: 1000
+    scanArc: 40
+    launchSpeed: 120
+    maxSpeed: 450
+    trackDelay: 0.25
+
+- type: entity
+  id: ShipMissileASM250
+  name: ASM-250 Hybrid EMP Missile
+  parent: ShipMissileBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 100
         Heat: 30
-        Ion: 2500
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/hybrid_missile.rsi
     layers:
     - state: hybrid-missile
   - type: Ammo
-    muzzleFlash: null
-  - type: ShipWeaponProjectile
+    muzzleFlash: MuzzleFlashEffectSmall
   - type: RadarBlip
     radarColor: "#FB00FF"
-    scale: 1
-    requireNoGrid: true
-    shape: triangle
+    scale: 2
+    shape: hexagon
   - type: TimedDespawn
-    lifetime: 6.5
+    lifetime: 7
   - type: PointLight
     radius: 3.5
     color: orange
@@ -192,18 +244,128 @@
     disableDuration: 5
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: DefaultShipGun
-    totalIntensity: 100
+    explosionType: Default
+    totalIntensity: 20
     intensitySlope: 10
-    maxIntensity: 50
+    maxIntensity: 15
     maxTileBreak: 1
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 100
-    detectionRange: 450
+    acceleration: 60
+    detectionRange: 600
     scanArc: 45
-    launchSpeed: 50
-    maxSpeed: 125
+    launchSpeed: 60
+    maxSpeed: 400
     trackDelay: 0.6
+
+# Serpent Torpedo
+
+- type: entity
+  id: ShipMissileSerpent
+  name: serpent torpedo
+  parent: ShipMissileBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 200
+        Blunt: 10
+        Heat: 30
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Ammo
+    muzzleFlash: null
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 4
+    shape: hexagon
+  - type: TimedDespawn
+    lifetime: 18
+  - type: PointLight
+    radius: 5
+    color: orange
+    energy: 2
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 75
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetSeeking
+    acceleration: 10 # low
+    detectionRange: 600
+    scanArc: 30
+    launchSpeed: 25
+    maxSpeed: 300
+    trackDelay: 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+# Pre-Fracture
+# Entropy electron Torpedo
+
+- type: entity
+  id: ShipMissileEntropy
+  name: electron torpedo
+  parent: ShipMissileBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Shock: 200
+        Heat: 200
+        Structural: 4000
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Projectiles/ship_projectiles.rsi
+    layers:
+    - state: electron-torpedo
+  - type: Ammo
+    muzzleFlash: null
+  - type: RadarBlip
+    radarColor: "#f5ee1b"
+    scale: 4
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 6.5
+  - type: PointLight
+    radius: 5
+    color: orange
+    energy: 2
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBombShipGun
+    maxIntensity: 350
+    intensitySlope: 5
+    totalIntensity: 550
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetSeeking
+    acceleration: 80
+    detectionRange: 1000
+    scanArc: 45
+    launchSpeed: 100
+    maxSpeed: 300
+    trackDelay: 2
+  - type: EmpOnTrigger
+    range: 7
+    energyConsumption: 2900000
+    disableDuration: 7

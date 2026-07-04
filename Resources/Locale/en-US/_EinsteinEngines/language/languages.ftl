@@ -10,17 +10,21 @@ language-Bubblish-description = The language of Slimes. Being a mixture of bubbl
 language-RootSpeak-name = Rootspeak
 language-RootSpeak-description = The strange whistling-style language spoken by the Diona.
 
+language-Hydraspeak-name = Hy'drav'tha
+language-Hydraspeak-description =
+    A Mix of warbles, trills and chirps, with heavy tonal shifts and pitch changes make up this unusual language.
+    Due to the avian nature of hydrakin, one word can mean a million other things at the same time, which makes this language next to incomprehensible for even other birdlike races to figure out.
+
 language-Nekomimetic-name = Nekomimetic
 language-Nekomimetic-description = To the casual observer, this language is an incomprehensible mess of broken Japanese. To the Felinids and Oni, it's somehow comprehensible.
 
-language-Draconic-name = Sinta'Unathi
+language-Draconic-name = Draconic
 language-Draconic-description =
-    The common language of Moghes - composed of sibilant hisses and rattles. Spoken natively by Unathi.
+    The common language of reptillians - composed of sibilant hisses and rattles.
 
-language-Azaziba-name = Sinta'Azaziba
+language-Azaziba-name = Azaziba
 language-Azaziba-description =
-    A language of Moghes consisting of a combination of spoken word and gesticulation.
-    While waning since Moghes entered the galactic stage - it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance.
+    A native language of Asakims consisting of a combination of spoken word and gesticulation.
 
 language-SolCommon-name = Sol common
 language-SolCommon-description =
@@ -186,3 +190,16 @@ language-Shadowmind-description =
 language-Qiilour-name = Qiilour
 language-Qiilour-description =
     The native and principal language of the Xelthia, Qiilour is spoken by nearly all members of their species to some degree. It is a refined fusion of several ancient tongues—such as Telenarii, Voskarn, and Old Xelthec—each now lost to history.
+
+# Languages Added here by Mono
+
+language-Blob-name = Blob
+language-Blob-description = The language spoken by blobs! Glorp!
+
+# Ported from Floofstation:
+
+language-NewKinPidgin-name = Ka'rakk
+language-NewKinPidgin-description = A debased dialect cobbled together by lower-caste Vox, mangled beyond recognition.
+    While a primitive and clumsy attempt resulting in a dull, simplified mockery of their true language,
+    higher-caste Vox can still discern meaning within the crude approximations.
+    It sounds like chaotic shrieking to everyone else.

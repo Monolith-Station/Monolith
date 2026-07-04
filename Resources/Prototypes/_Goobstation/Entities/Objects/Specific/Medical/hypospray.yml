@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: futuristic medipen
   parent: ChemicalMedipen
   id: StasiziumAutoInjector
@@ -25,3 +25,60 @@
           Quantity: 10
   - type: Tag
     tags: []
+
+- type: entity
+  name: centcomm advanced stimulant
+  parent: [ChemicalMedipen]
+  id: CentcommStimpack
+  suffix: DO NOT MAP
+  description: According to a TSF funded study, it has zero addictive properties.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: ntstimpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 50
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 50
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: ntstimpen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 50
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags: []
+
+- type: entity
+  name: centcomm hypospray
+  parent: [BaseItem]
+  description: Reserved for TSF's top doctors. It utilizes experimental bluespace technology.
+  id: CentCommHypo
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+    state: hypo
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 50
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 0.2

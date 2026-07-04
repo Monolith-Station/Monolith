@@ -1,0 +1,142 @@
+- type: entity
+  id: ShotgunTrap
+  parent: [ShuttleGunBase]
+  name: shotgun trap
+  description: A makeshift 4-gauge shotgun hooked up to a remote signaler.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Traps/shotguntrap.rsi
+    layers:
+    - state: shotgun_trap
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+  - type: Gun
+    projectileSpeed: 60
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - ShellShotgun23x75mmBuckshot
+    capacity: 1
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: Construction
+    deconstructionTarget: null
+    graph: ShotgunTrapPackingGraph
+    node: ShotgunTrapPacked
+
+- type: constructionGraph # deconstruction graph
+  id: ShotgunTrapPackingGraph
+  start: ShotgunTrapPacked
+  graph:
+  - node: ShotgunTrapPacked
+    entity: ShotgunTrap
+    edges:
+    - to: ShotgunTrapPacked
+      completed:
+      - !type:SpawnPrototype
+        prototype: ShotgunTrapPacked
+        amount: 1
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      
+- type: entity
+  id: ShotgunTrapPacked
+  name: packed shotgun trap
+  description: A disassembled makeshift shotgun trap.
+  parent: BaseItem
+  components:
+  - type: SpawnAfterInteract
+    prototype: ShotgunTrap
+    doAfter: 5
+    removeOnInteract: true
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Traps/shotguntrap.rsi
+    state: shotgun_trap_handheld
+  - type: Item
+    size: Large
+    sprite: _Mono/Objects/Weapons/Traps/shotguntrap.rsi
+  - type: Construction
+    graph: ShotgunTrap
+    node: shotgunTrap
+    
+- type: entity
+  name: pressure plate
+  id: PressurePlate
+  parent: BaseStructureDisableAnchoring
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: RequiresGrid
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+          - LowImpassable
+  - type: Sprite
+    drawdepth: Items
+    sprite: _Mono/Objects/Weapons/Traps/pressureplate.rsi
+    layers:
+    - state: pressure_plate
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:TriggerBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: LandMine
+    sound:
+        path: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+        params:
+            maxDistance: 5
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    stepOn: true
+  - type: DeviceLinkSource
+    ports: [ Pressed ]
+  - type: Construction
+    graph: PressurePlateGraph
+    node: PressurePlateNode

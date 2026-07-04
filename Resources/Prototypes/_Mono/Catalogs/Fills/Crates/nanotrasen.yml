@@ -1,0 +1,35 @@
+- type: entity
+  id: CrateNanotrasenLootFilledT1
+  parent: CrateNanotrasen
+  suffix: Filled, Lootbox, T1
+  name: NT equipment crate
+  description: A white and blue crate with the Nanotrasen Symbol, a relic from the corporation wars, could contain some interesting things.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: CrateNanotrasenLootFilledT1Trunk
+
+- type: entity
+  id: CrateNanotrasenLootFilledT2
+  parent: CrateNanotrasen
+  suffix: Filled, Lootbox, T2
+  name: NT equipment crate
+  description: A white and blue crate with the Nanotrasen Symbol, a relic from the corporation wars, could contain some interesting things.
+  components:
+   - type: EntityTableContainerFill
+     containers:
+      entity_storage: !type:NestedSelector
+        tableId: CrateNanotrasenLootFilledT2Trunk
+
+- type: entity
+  id: CrateNanotrasenLootFilledT3
+  parent: CrateNanotrasenDS
+  suffix: Filled, Lootbox, T3
+  name: menacing NT equipment crate
+  description: A white and blue crate with the Nanotrasen Symbol, a relic from the corporation wars, could contain some interesting things.
+  components:
+   - type: EntityTableContainerFill
+     containers:
+      entity_storage: !type:NestedSelector
+        tableId: CrateNanotrasenLootFilledT3Trunk

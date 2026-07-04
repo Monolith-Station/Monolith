@@ -21,6 +21,17 @@
     tags:
     - Matchstick
     - Trash
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
+  - type: Food
+    requiresSpecialDigestion: true
   - type: SpaceGarbage
     cleanupExempt: true # Mono
   - type: Sprite
@@ -35,6 +46,12 @@
     duration: 10
     igniteSound:
       path: /Audio/Items/match_strike.ogg
+      params:
+        volume: -0.125
+        variation: 0.125
+  - type: IgnitionSource
+    ignited: false
+    temperature: 400.0
   - type: PointLight
     enabled: false
     radius: 1.1
@@ -75,6 +92,20 @@
   id: Matchbox
   description: A small box of Almost But Not Quite Plasma Premium Matches.
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/matchbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/matchbox_drop.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Goobstation/Items/handling/matchbox_drop.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Items/handling/matchbox_use.ogg
+  # Goobstation edit end
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/matchbox_drop.ogg
@@ -117,5 +148,16 @@
   - type: Tag
     tags:
     - Trash
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
+  - type: Food
+    requiresSpecialDigestion: true
   - type: SpaceGarbage
     cleanupExempt: true # Mono

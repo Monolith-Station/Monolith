@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 gus
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #- type: entity
 #  id: MachineShieldMS225Circuitboard
 #  parent: BaseMachineCircuitboard
@@ -67,7 +58,7 @@
     stackRequirements:
       Glass: 10
       Steel: 10
-      Uranium: 30
+      Uranium: 5
 
 - type: entity
   id: MachineGCSLowCircuitboard
@@ -174,7 +165,7 @@
     stackRequirements:
       Glass: 20
       Steel: 20
-      Uranium: 35
+      UraniumFissile: 2
 
 - type: entity
   id: MachineDriveCTLA50Circuitboard
@@ -196,4 +187,18 @@
     stackRequirements:
       Glass: 20
       Steel: 20
-      Uranium: 40
+      UraniumFissile: 2
+
+- type: entity
+  id: LargeThrusterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: large thruster machine board
+  description: A large circuitboard for a 2x2 machine frame.
+  components:
+  - type: MachineBoard
+    prototype: ThrusterLarge
+    frameSize: 2x2
+    requirements:
+      Capacitor: 4
+    stackRequirements:
+      Steel: 20

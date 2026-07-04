@@ -7,15 +7,16 @@ using Content.Shared.Explosion;
 
 namespace Content.Server.Disposal.Unit;
 
-public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
+public sealed partial class DisposalUnitSystem : SharedDisposalUnitSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosSystem = default!;
+    [Dependency] private AtmosphereSystem _atmosSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<DisposalUnitComponent, DestructionEventArgs>(OnDestruction);
+        SubscribeLocalEvent<DisposalUnitComponent, EntityTerminatingEvent>(OnTerminating);
         SubscribeLocalEvent<DisposalUnitComponent, BeforeExplodeEvent>(OnExploded);
     }
 
@@ -35,6 +36,11 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
     private void OnDestruction(EntityUid uid, DisposalUnitComponent component, DestructionEventArgs args)
     {
         TryEjectContents(uid, component);
+    }
+
+    private void OnTerminating(Entity<DisposalUnitComponent> ent, ref EntityTerminatingEvent args)
+    {
+        TryEjectContents(ent, ent.Comp);
     }
 
     private void OnExploded(Entity<DisposalUnitComponent> ent, ref BeforeExplodeEvent args)

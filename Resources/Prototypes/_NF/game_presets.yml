@@ -5,7 +5,7 @@
     - adventure
   name: nf-adventure-title
   description: nf-adventure-description
-  showInVote: true
+  showInVote: false # Mono
   rules:
     - NFAdventure
     - BasicStationEventScheduler
@@ -15,6 +15,7 @@
     - SmugglingEventScheduler
     - FrontierRoundstartVariation
     - MonoAISTCShuttleSpawnerScheduler # Mono
+    - MonoAsakimSTCShuttleSpawnerScheduler # Mono
 
 - type: gamePreset
   id: NFPirate
@@ -23,7 +24,7 @@
     - pirate
   name: nf-pirate-title
   description: nf-pirate-description
-  showInVote: true
+  showInVote: false # Mono
   rules:
     - NFAdventure
     - BasicStationEventScheduler
@@ -33,3 +34,4 @@
     - SmugglingEventScheduler
     - FrontierRoundstartVariation
     - MonoAISTCShuttleSpawnerScheduler # Mono
+    - MonoAsakimSTCShuttleSpawnerScheduler # Mono

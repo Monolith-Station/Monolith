@@ -1,6 +1,6 @@
 - type: entity
-  parent: [BaseItem, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
-  id: AccessBreakerUnlimited
+  parent: [ BaseFactionGearPDVT1, BaseItem ] # Mono
+  id: AccessBreakerUnlimited 
   suffix: Unlimited
   name: authentication disruptor
   description: A hacked access configurator, specialized to unlock and erase access from digital locks.
@@ -19,4 +19,6 @@
   suffix: Limited
   components:
   - type: LimitedCharges
+    maxCharges: 6
+    charges: 6
   - type: AutoRecharge

@@ -50,6 +50,13 @@ public sealed partial class BluespaceErrorRuleComponent : Component
     public bool DeleteGridsOnEnd = true;
 
     /// <summary>
+    /// Will actively extend the gamerule's duration as long as there's people near or on any of the rule's grids.
+    /// Prevents it being deleted from under you.
+    /// </summary>
+    [DataField]
+    public bool ExtendIfPopulated = true;
+
+    /// <summary>
     /// How much the grid is appraised at upon entering into existence, set after starting the event
     /// </summary>
     public double StartingValue = 0;
@@ -119,7 +126,7 @@ public enum BluespaceDatasetNameType
 }
 
 [DataRecord]
-public sealed class BluespaceDungeonSpawnGroup : IBluespaceSpawnGroup
+public sealed partial class BluespaceDungeonSpawnGroup : IBluespaceSpawnGroup
 {
     /// <summary>
     /// Prototypes we can choose from to spawn.
@@ -162,7 +169,7 @@ public sealed class BluespaceDungeonSpawnGroup : IBluespaceSpawnGroup
 }
 
 [DataRecord]
-public sealed class BluespaceGridSpawnGroup : IBluespaceSpawnGroup
+public sealed partial class BluespaceGridSpawnGroup : IBluespaceSpawnGroup
 {
     public List<ResPath> Paths = new();
 

@@ -84,6 +84,29 @@
 
   The efficiency of tritium fusion depends on various factors such as burn richness and temperature.
 
+  ##Pluoxium
+  Pluoxium is a non-reactive Oxygen substitute that delivers eight times as much O2 to the bloodstream, with as little 3 kPa minimum pressure required for internals.
+
+  Pluoxium may be created by exposing O2, CO2 and Tritium together in an exothermic reaction between 50 K and 273 K. Furthermore, Pluoxium is also created by the Supermatter, when Oxygen and CO2 are present.
+
+  <Box>
+    <GuideEntityEmbed Entity="OxygenCanister"/>
+    <GuideEntityEmbed Entity="CarbonDioxideCanister"/>
+    <GuideEntityEmbed Entity="TritiumCanister"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="PluoxiumCanister"/>
+  </Box>
+
+  ##BZ
+  BZ gas is a potent hallucinogenic, as well as a sleeping agent for slimes. It is toxic to breathe and causes respiratory irritation and coughing. BZ sees frequent use as an ingredient in more complex gas reactions. 
+
+  <Box>
+    <GuideEntityEmbed Entity="PlasmaCanister"/>
+    <GuideEntityEmbed Entity="NitrousOxideCanister"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="BZCanister"/>
+  </Box>
+
   ## Frezon
   <Box>
     <GuideEntityEmbed Entity="FrezonCanister" Caption=""/>
@@ -104,6 +127,29 @@
 
   Remember, atmospherics is all about experimentation and process optimization. Try it until you get it right!
 
+  ##Healium
+  Healium is a red gas, formed in cold environments, which acts as a strong sleeping agent, while healing burns, bruises, and toxin damage. Excessive use will lead to inebriation. 
+
+  <Box>
+    <GuideEntityEmbed Entity="BZCanister"/>
+    <GuideEntityEmbed Entity="StorageCanister" Caption="frezon canister"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="StorageCanister" Caption="healium canister"/>
+  </Box>
+
+  ##Nitrium
+  Nitrium is a gaseous stimulant that when inhaled can enhance speed and endurance. At lower concentrations Nitrium will increase your top running speed while healthy and unimpaired. Additionally, at slightly higher concentrations, breathing Nitrium will prevent drowsiness. At high concentrations breathing it will begin to shut down a person's lungs, causing asphyxiation. 
+
+  <Box>
+    <GuideEntityEmbed Entity="BZCanister"/>
+    <GuideEntityEmbed Entity="TritiumCanister"/>
+    <GuideEntityEmbed Entity="NitrogenCanister"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="StorageCanister" Caption="nitrium canister"/>
+  </Box>
+
+  Nitrium degrades into nitrogen and water vapor on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak. 
+
   ## Nitrous Oxide
   <Box>
     <GuideEntityEmbed Entity="NitrousOxideCanister" Caption=""/>
@@ -118,5 +164,7 @@
   A gas produced by the decomposition of bodies.
 
   Can be condensed to create ammonia, which can be used to make space cleaner.
+
+
 
 </Document>

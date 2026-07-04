@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Clutter
 - type: entity
   name: random clutter
@@ -79,6 +71,7 @@
     - ClothingHandsGlovesColorYellow
     - GeigerCounter
     - Lantern
+    - MaintenanceJack #Mono
     #- SpawnDungeonLootVendingRestocks
     chance: 0.95
     offset: 0.0
@@ -108,6 +101,7 @@
     - PowerDrill
     - JawsOfLife
     - WelderExperimental
+    - ClothingEyesGlassesMesonTray #Mono
     - HolofanProjector
     - RPED
     chance: 0.95

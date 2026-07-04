@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Coenx-flex
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Shared.Alert.Components;
 using Robust.Client.GameObjects;
@@ -12,9 +8,9 @@ namespace Content.Client.Alerts;
 /// <summary>
 /// This handles <see cref="GenericCounterAlertComponent"/>
 /// </summary>
-public sealed class GenericCounterAlertSystem : EntitySystem
+public sealed partial class GenericCounterAlertSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

@@ -1,19 +1,10 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: technology
-  id: ShuttleArmamentComponentsResearch
-  name: research-technology-shuttle-armaments-components
-  icon:
-    sprite: _Mono/Structures/ShuttleComponents/shield.rsi
-    state: control
-  discipline: Arsenal
+  id: ShuttleAdvancedComponents
+  name: research-technology-shuttle-advanced-components
+  entityIcon: ComputerAdvancedRadar
+  discipline: CivilianServices
   tier: 3
-  cost: 20000
+  cost: 55000
   recipeUnlocks:
 #  - ShieldControlComputerCircuitboard
 #  - MachineShieldMS225Circuitboard
@@ -21,41 +12,27 @@
   - MachineGCSLowCircuitboard
   - MachineGCSMediumCircuitboard
   - MachineGCSHighCircuitboard
-
-- type: technology
-  id: ShuttleRadarResearch
-  name: research-technology-shuttle-radar-components
-  icon:
-    sprite: Structures/Shuttles/iff.rsi
-    state: helm
-  discipline: CivilianServices
-  tier: 3
-  cost: 20000
-  recipeUnlocks:
   - AdvancedRadarConsoleCircuitboard
   - ComputerIFFCircuitboard
-
-- type: technology
-  id: ShuttleCtla25DriveResearch
-  name: research-technology-bluespace-drive-ctla25
-  icon:
-    sprite: _Mono/Structures/ShuttleComponents/drive.rsi
-    state: control
-  discipline: Experimental
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
   - MachineDriveCTLA25Circuitboard
+  - LargeThrusterMachineCircuitboard
+  technologyPrerequisites:
+  - Shuttlecraft
+  - SuperParts
+  position: -6, 7
+
 
 - type: technology
   id: ShuttleCtlaAdvancedDriveResearch
   name: research-technology-bluespace-drive-ctla-advanced
-  icon:
-    sprite: _Mono/Structures/ShuttleComponents/drive.rsi
-    state: control
+  entityIcon: MachineFTLDrive50
   discipline: Experimental
   tier: 3
-  cost: 7500
+  cost: 45000
   recipeUnlocks:
   - MachineDriveCTLA25sCircuitboard
   - MachineDriveCTLA50Circuitboard
+  technologyPrerequisites:
+  - ShuttleAdvancedComponents
+  - PortableFission
+  position: -6, 9

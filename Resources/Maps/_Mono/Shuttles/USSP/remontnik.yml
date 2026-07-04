@@ -1,34 +1,10 @@
-# SPDX-FileCopyrightText: 2021 AJCM-git
-# SPDX-FileCopyrightText: 2021 Paul Ritter
-# SPDX-FileCopyrightText: 2021 wrexbe
-# SPDX-FileCopyrightText: 2022 20kdc
-# SPDX-FileCopyrightText: 2022 Cheackraze
-# SPDX-FileCopyrightText: 2022 LittleBuilderJane
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2022 mirrorcult
-# SPDX-FileCopyrightText: 2023 Checkraze
-# SPDX-FileCopyrightText: 2023 Dvir
-# SPDX-FileCopyrightText: 2023 Emisse
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2024 QueerNB
-# SPDX-FileCopyrightText: 2025 Honestly101
-# SPDX-FileCopyrightText: 2025 RikuTheKiller
-# SPDX-FileCopyrightText: 2025 grandalff
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Grid
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/10/2025 14:30:55
+  time: 08/16/2025 14:43:06
   entityCount: 1137
 maps: []
 grids:
@@ -94,6 +70,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -976,7 +953,7 @@ entities:
       parent: 45
     - type: Physics
       canCollide: False
-- proto: AmmoBox7.62x39mmFMJ
+- proto: AmmoBox762x39mmFMJ
   entities:
   - uid: 47
     components:
@@ -984,7 +961,7 @@ entities:
       parent: 45
     - type: Physics
       canCollide: False
-- proto: AmmoBox7.62x54mmRFMJ
+- proto: AmmoBox762x54mmRFMJ
   entities:
   - uid: 48
     components:
@@ -4015,7 +3992,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerShuttle
+- proto: ComputerShuttleKPV63RWR
   entities:
   - uid: 611
     components:
@@ -4191,6 +4168,14 @@ entities:
     - type: Transform
       pos: -1.5,19.5
       parent: 1
+- proto: DefibrillatorCabinetFilled
+  entities:
+  - uid: 651
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-5.5
+      parent: 1
 - proto: DrinkCoffeeLiqueurBottleFull
   entities:
   - uid: 633
@@ -4272,12 +4257,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,-2.5
-      parent: 1
-  - uid: 651
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,12.5
       parent: 1
   - uid: 652
     components:
@@ -5394,7 +5373,7 @@ entities:
     - type: Transform
       pos: 2.5,7.5
       parent: 1
-- proto: Magazine7.62x39mmFMJ
+- proto: Magazine762x39mmFMJ
   entities:
   - uid: 785
     components:
@@ -5935,14 +5914,14 @@ entities:
           - 633
           - 639
           - 638
-- proto: ShipyardRCD
+- proto: ShipRepairDevice
   entities:
   - uid: 857
     components:
     - type: Transform
       pos: 4.5254717,6.776931
       parent: 1
-- proto: ShipyardRCDAmmo
+- proto: ShipRepairDeviceAmmo
   entities:
   - uid: 858
     components:
@@ -6207,40 +6186,6 @@ entities:
     - type: Transform
       pos: 0.5,2.5
       parent: 1
-- proto: SpawnPointUSSPCorporal
-  entities:
-  - uid: 882
-    components:
-    - type: Transform
-      pos: 0.5,2.5
-      parent: 1
-  - uid: 883
-    components:
-    - type: Transform
-      pos: 3.5,10.5
-      parent: 1
-  - uid: 884
-    components:
-    - type: Transform
-      pos: 0.5,14.5
-      parent: 1
-- proto: SpawnPointUSSPMedic
-  entities:
-  - uid: 885
-    components:
-    - type: Transform
-      pos: 0.5,2.5
-      parent: 1
-  - uid: 886
-    components:
-    - type: Transform
-      pos: 3.5,10.5
-      parent: 1
-  - uid: 887
-    components:
-    - type: Transform
-      pos: 0.5,14.5
-      parent: 1
 - proto: SpawnPointUSSPRifleman
   entities:
   - uid: 888
@@ -6442,8 +6387,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -6.5,-3.5
       parent: 1
-    - type: Thruster
-      enabled: False
     - type: ApcPowerReceiver
       powerLoad: 1
   - uid: 920

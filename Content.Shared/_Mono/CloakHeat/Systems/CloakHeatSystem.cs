@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 ScyronX
-// SPDX-FileCopyrightText: 2025 ark1368
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
@@ -15,10 +9,10 @@ namespace Content.Shared._Mono.CloakHeat.Systems;
 /// <summary>
 /// System that manages heat buildup for cloaking.
 /// </summary>
-public sealed class CloakHeatSystem : EntitySystem
+public sealed partial class CloakHeatSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedShuttleSystem _shuttle = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedShuttleSystem _shuttle = default!;
 
     private bool isMoving;
 

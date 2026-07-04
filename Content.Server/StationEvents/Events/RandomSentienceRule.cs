@@ -9,20 +9,21 @@ using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRuleComponent>
+public sealed partial class RandomSentienceRule : StationEventSystem<RandomSentienceRuleComponent>
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
     protected override void Started(EntityUid uid, RandomSentienceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        if (!TryGetRandomStation(out var station))
+        if (!TryGetRandomStations(gameRule.NumberOfGrids.Min, gameRule.NumberOfGrids.Max, out var stations))
             return;
 
         var targetList = new List<Entity<SentienceTargetComponent>>();
         var query = EntityQueryEnumerator<SentienceTargetComponent, TransformComponent>();
         while (query.MoveNext(out var targetUid, out var target, out var xform))
         {
-            if (StationSystem.GetOwningStation(targetUid, xform) != station)
+            var owningStation = StationSystem.GetOwningStation(targetUid, xform);
+            if (!owningStation.HasValue || !stations.Contains(owningStation.Value)) // Mono change: multiple stations
                 continue;
 
             targetList.Add((targetUid, target));
@@ -68,15 +69,18 @@ public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRule
         var kind2 = groupList.Count > 1 ? groupList[1] : "???";
         var kind3 = groupList.Count > 2 ? groupList[2] : "???";
 
-        ChatSystem.DispatchStationAnnouncement(
-            station.Value,
-            Loc.GetString("station-event-random-sentience-announcement",
-                ("kind1", kind1), ("kind2", kind2), ("kind3", kind3), ("amount", groupList.Count),
-                ("data", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventData"))),
-                ("strength", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventStrength")))
-            ),
-            playDefaultSound: false,
-            colorOverride: Color.Gold
-        );
+        foreach (var station in stations)
+        {
+            ChatSystem.DispatchStationAnnouncement(
+                station,
+                Loc.GetString("station-event-random-sentience-announcement",
+                    ("kind1", kind1), ("kind2", kind2), ("kind3", kind3), ("amount", groupList.Count),
+                    ("data", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventData"))),
+                    ("strength", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventStrength")))
+                ),
+                playDefaultSound: false,
+                colorOverride: Color.Gold
+            );
+        }
     }
 }

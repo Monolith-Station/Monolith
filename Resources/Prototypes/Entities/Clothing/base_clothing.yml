@@ -21,6 +21,8 @@
   components:
     - type: Geiger
       attachedToSuit: true
+      showExamine: true # Mono
+      isEnabled: false # Mono
 
 - type: entity
   abstract: true

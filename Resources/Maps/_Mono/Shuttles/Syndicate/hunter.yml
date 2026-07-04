@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/10/2025 14:15:06
+  time: 10/22/2025 02:15:30
   entityCount: 365
 maps: []
 grids:
@@ -61,6 +61,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -437,8 +438,6 @@ entities:
       pos: 0.5,-0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4
   - uid: 17
@@ -1293,18 +1292,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-    - type: DeviceLinkSource
-      linkedPorts: {}
-      lastSignals: {}
-      ports:
-      - device-button-1
-      - device-button-2
-      - device-button-3
-      - device-button-4
-      - device-button-5
-      - device-button-6
-      - device-button-7
-      - device-button-8
 - proto: ComputerTabletopStationRecords
   entities:
   - uid: 173
@@ -1383,8 +1370,6 @@ entities:
       pos: 0.5,-2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 3
       - 4
@@ -1689,8 +1674,6 @@ entities:
       pos: -0.5,-1.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4
     - type: AtmosPipeColor
@@ -1736,8 +1719,6 @@ entities:
       pos: 1.5,-1.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4
     - type: AtmosPipeColor
@@ -2618,7 +2599,7 @@ entities:
     - type: Transform
       pos: 1.5,-1.5
       parent: 1
-- proto: WeaponTurretAK570
+- proto: WeaponTurretFang
   entities:
   - uid: 362
     components:
@@ -2635,13 +2616,13 @@ entities:
   - uid: 364
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -4.5,-11.5
+      rot: 1.5707963267948966 rad
+      pos: 5.5,-11.5
       parent: 1
   - uid: 365
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 5.5,-11.5
+      rot: -1.5707963267948966 rad
+      pos: -4.5,-11.5
       parent: 1
 ...

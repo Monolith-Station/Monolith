@@ -1,0 +1,46 @@
+- type: entity
+  id: BlastDoorIndestructible
+  parent: BlastDoor
+  name: blast door
+  description: An exceptionally tough blast door, good luck blasting through this.
+  suffix: indestructible
+  components:
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0
+        Slash: 0
+        Piercing: 0
+        Heat: 0
+        Structural: 0
+
+- type: entity
+  parent: BlastDoor
+  id: BlastDoorMonolithic
+  name: monolith tenebris crack
+  description: Some kind of break in the surrounding dark tenebris.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/monolith_door.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    closeTimeOne: 0.4
+    closeTimeTwo: 0.7
+    openTimeOne: 0.4
+    openTimeTwo: 0.7
+    openingAnimationTime: 1.1
+    closingAnimationTime: 1.0
+    canPry: true
+    crushDamage:
+      types:
+        Blunt: 25 # yowch
+        Sharp: 25 # double yowch
+  - type: IconSmooth
+    key: chitin
+    mode: NoSprite
+  - type: ExplosionResistance
+    damageCoefficient: 0

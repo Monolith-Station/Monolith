@@ -1,0 +1,60 @@
+- type: latheRecipe
+  id: CharonSlugUniversal
+  parent: BaseRailgunSlugRecipe
+  result: CharonSlugAmmo
+
+- type: latheRecipe
+  id: CharonSubnuclearSlugUniversal
+  parent: BaseRailgunSlugRecipe
+  result: CharonSubnuclearSlugAmmo
+  materials:
+    Steel: 3000
+    Plasteel: 4000 # penetrator head
+    Plasma: 3000 # ionized plasma gas for heavier weight
+    UraniumFissile: 100 # payload is nuclear - with economy update should take a special nuclear armament component
+
+- type: latheRecipe
+  id: ASM220TorpedoHEUniversal
+  parent: BaseTorpedoRecipe
+  result: Asm220TorpedoHE
+
+- type: latheRecipe
+  id: ASM220TorpedoECMUniversal
+  parent: BaseTorpedoRecipe
+  result: Asm220TorpedoECM
+
+- type: latheRecipe
+  id: ASM220TorpedoLOSATUniversal
+  parent: BaseTorpedoRecipe
+  result: Asm220TorpedoLOSAT
+  materials:
+    Steel: 1200 # shell/casing
+    Plasteel: 1000 # penetrator
+    Glass: 400 # opticals
+    Gold: 200 # electronics
+    Silver: 200 # electronics
+
+- type: latheRecipe
+  id: 150mmApShellUniversal
+  parent: Base150mmShellAmmoRecipe
+  result: 150mmApShell
+
+- type: latheRecipe
+  id: 150mmEmpShellUniversal
+  parent: Base150mmShellAmmoRecipe
+  result: 150mmEmpShell
+
+- type: latheRecipe
+  id: GPOL50BombUniversal
+  parent: BaseLightOrdinanceAmmoRecipe
+  result: LightFighterOrdinanceGPOItem
+
+- type: latheRecipe
+  id: ZenithRocketUniversal
+  parent: BaseLightOrdinanceAmmoRecipe
+  result: LightFighterOrdinanceZenithItem
+
+- type: latheRecipe
+  id: QuasarAcceleratorUniversal
+  parent: BaseLightOrdinanceAdvancedAmmoRecipe
+  result: LightFighterOrdinanceQuasarItem

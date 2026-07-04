@@ -1,33 +1,3 @@
-// SPDX-FileCopyrightText: 2021 DrSmugleaf
-// SPDX-FileCopyrightText: 2021 Wrexbe
-// SPDX-FileCopyrightText: 2022 Moony
-// SPDX-FileCopyrightText: 2022 Paul Ritter
-// SPDX-FileCopyrightText: 2022 Radrark
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 Kevin Zheng
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 Tom Leys
-// SPDX-FileCopyrightText: 2023 Varen
-// SPDX-FileCopyrightText: 2024 ElectroJr
-// SPDX-FileCopyrightText: 2024 Mervill
-// SPDX-FileCopyrightText: 2024 MilenVolf
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Simon
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 checkraze
-// SPDX-FileCopyrightText: 2024 neuPanda
-// SPDX-FileCopyrightText: 2024 no
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Whatstone
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server._NF.Shuttles.Components; // Frontier
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
@@ -43,6 +13,7 @@ using Content.Server.Stunnable;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.GameTicking;
+using Content.Shared.Light.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
@@ -64,50 +35,52 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Maps;
 
 namespace Content.Server.Shuttles.Systems;
 
 [UsedImplicitly]
 public sealed partial class ShuttleSystem : SharedShuttleSystem
 {
-    [Dependency] private readonly IAdminLogManager _logger = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private readonly BiomeSystem _biomes = default!;
-    [Dependency] private readonly BodySystem _bobby = default!;
-    [Dependency] private readonly BuckleSystem _buckle = default!;
-    [Dependency] private readonly DamageableSystem _damageSys = default!;
-    [Dependency] private readonly DockingSystem _dockSystem = default!;
-    [Dependency] private readonly DungeonSystem _dungeon = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly MapLoaderSystem _loader = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvs = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedSalvageSystem _salvage = default!;
-    [Dependency] private readonly ShuttleConsoleSystem _console = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly StunSystem _stuns = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly ThrusterSystem _thruster = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly GameTicker _ticker = default!; //frontier edit to get the main map in FTL
+    [Dependency] private IAdminLogManager _logger = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private BiomeSystem _biomes = default!;
+    [Dependency] private BodySystem _bobby = default!;
+    [Dependency] private BuckleSystem _buckle = default!;
+    [Dependency] private DamageableSystem _damageSys = default!;
+    [Dependency] private DockingSystem _dockSystem = default!;
+    [Dependency] private DungeonSystem _dungeon = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private FixtureSystem _fixtures = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private MapLoaderSystem _loader = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
+    [Dependency] private PvsOverrideSystem _pvs = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedSalvageSystem _salvage = default!;
+    [Dependency] private ShuttleConsoleSystem _console = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private StunSystem _stuns = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private ThrusterSystem _thruster = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private GameTicker _ticker = default!; //frontier edit to get the main map in FTL
+    [Dependency] private TurfSystem _turf = default!;
 
     private EntityQuery<BuckleComponent> _buckleQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<TransformComponent> _xformQuery;
 
-    public const float TileMassMultiplier = 0.5f;
+    public const float TileDensityMultiplier = 0.5f;
 
     public override void Initialize()
     {
@@ -146,7 +119,7 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
     {
         foreach (var fixture in args.NewFixtures)
         {
-            _physics.SetDensity(uid, fixture.Key, fixture.Value, TileMassMultiplier, false, manager);
+            _physics.SetDensity(uid, fixture.Key, fixture.Value, TileDensityMultiplier, false, manager);
             _fixtures.SetRestitution(uid, fixture.Key, fixture.Value, 0.1f, false, manager);
         }
     }
@@ -156,7 +129,13 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         if (HasComp<MapComponent>(ev.EntityUid))
             return;
 
-        EntityManager.EnsureComponent<ShuttleComponent>(ev.EntityUid);
+        EnsureComp<ShuttleComponent>(ev.EntityUid);
+
+        // This and RoofComponent should be mutually exclusive, so ImplicitRoof should be removed if the grid has RoofComponent
+        if (HasComp<RoofComponent>(ev.EntityUid))
+            RemComp<ImplicitRoofComponent>(ev.EntityUid);
+        else
+            EnsureComp<ImplicitRoofComponent>(ev.EntityUid);
     }
 
     private void OnShuttleStartup(EntityUid uid, ShuttleComponent component, ComponentStartup args)
@@ -179,32 +158,34 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         component.DampingModifier = component.BodyModifier;
     }
 
-    public void Toggle(EntityUid uid, ShuttleComponent component)
+    public void Toggle(EntityUid uid, ShuttleComponent component,
+                       bool force = false) // Mono - add force
     {
         if (!EntityManager.TryGetComponent(uid, out PhysicsComponent? physicsComponent))
             return;
 
-        if (HasComp<PreventGridAnchorChangesComponent>(uid)) // Frontier
+        if (HasComp<PreventGridAnchorChangesComponent>(uid) && !force) // Frontier // Mono
             return; // Frontier
 
         component.Enabled = !component.Enabled;
 
         if (component.Enabled)
         {
-            Enable(uid, component: physicsComponent, shuttle: component);
+            Enable(uid, component: physicsComponent, shuttle: component, force: force);
         }
         else
         {
-            Disable(uid, component: physicsComponent);
+            Disable(uid, component: physicsComponent, force: force);
         }
     }
 
-    public void Enable(EntityUid uid, FixturesComponent? manager = null, PhysicsComponent? component = null, ShuttleComponent? shuttle = null)
+    public void Enable(EntityUid uid, FixturesComponent? manager = null, PhysicsComponent? component = null, ShuttleComponent? shuttle = null,
+                       bool force = false) // Mono - add force
     {
         if (!Resolve(uid, ref manager, ref component, ref shuttle, false))
             return;
 
-        if (HasComp<PreventGridAnchorChangesComponent>(uid)) // Frontier
+        if (HasComp<PreventGridAnchorChangesComponent>(uid) && !force) // Frontier // Mono
             return; // Frontier
 
         _physics.SetBodyType(uid, BodyType.Dynamic, manager: manager, body: component);
@@ -212,12 +193,13 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         _physics.SetFixedRotation(uid, false, manager: manager, body: component);
     }
 
-    public void Disable(EntityUid uid, FixturesComponent? manager = null, PhysicsComponent? component = null)
+    public void Disable(EntityUid uid, FixturesComponent? manager = null, PhysicsComponent? component = null,
+                        bool force = false) // Mono - add force
     {
         if (!Resolve(uid, ref manager, ref component, false))
             return;
 
-        if (HasComp<PreventGridAnchorChangesComponent>(uid)) // Frontier
+        if (HasComp<PreventGridAnchorChangesComponent>(uid) && !force) // Frontier // Mono
             return; // Frontier
 
         _physics.SetBodyType(uid, BodyType.Static, manager: manager, body: component);
@@ -241,11 +223,46 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
 
     private void OnFTLStarted(Entity<ShuttleComponent> ent, ref FTLStartedEvent args)
     {
+        var gridUid = args.Entity;
+
         ent.Comp.DampingModifier = 0f;
+
+        var dockedShuttles = new HashSet<EntityUid>();
+        GetAllDockedShuttles(gridUid, dockedShuttles);
+
+        // Process each docked ship (excluding the main ship which we already processed)
+        foreach (var dockedUid in dockedShuttles)
+        {
+            if (dockedUid == gridUid)
+                continue;
+
+            if (_entityManager.TryGetComponent<ShuttleComponent>(dockedUid, out var dockedComp))
+            {
+                dockedComp.DampingModifier = 0f;
+            }
+        }
     }
 
     private void OnFTLCompleted(Entity<ShuttleComponent> ent, ref FTLCompletedEvent args)
     {
+        var gridUid = args.Entity;
+
         ent.Comp.DampingModifier = ent.Comp.BodyModifier;
+
+        // Todo: Account for scenarios where shuttles undock mid-FTL
+        var dockedShuttles = new HashSet<EntityUid>();
+        GetAllDockedShuttles(gridUid, dockedShuttles);
+
+        // Process each docked ship (excluding the main ship which we already processed)
+        foreach (var dockedUid in dockedShuttles)
+        {
+            if (dockedUid == gridUid)
+                continue;
+
+            if (_entityManager.TryGetComponent<ShuttleComponent>(dockedUid, out var dockedComp))
+            {
+                dockedComp.DampingModifier = dockedComp.BodyModifier;
+            }
+        }
     }
 }

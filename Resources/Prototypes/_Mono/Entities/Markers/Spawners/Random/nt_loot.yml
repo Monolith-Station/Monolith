@@ -1,0 +1,291 @@
+# SPDX-FileCopyrightText: 2025 Avalon
+#
+# SPDX-License-Identifier: MPL-2.0
+
+- type: entity
+  parent: MarkerBase
+  id: NTLootT1Clothing
+  name: NT clothing T1 spawner
+  components:
+  - type: EntityTableSpawner
+    offset: 0.0
+    table: !type:NestedSelector
+      tableId: NTLootClothingT1Trunk
+      prob: 1.0
+
+- type: entity
+  parent: MarkerBase
+  id: NTLootT2Clothing
+  name: NT clothing T2 spawner
+  components:
+  - type: EntityTableSpawner
+    offset: 0.0
+    table: !type:NestedSelector
+      tableId: NTLootClothingT2Trunk
+      prob: 1.0
+
+- type: entity
+  parent: MarkerBase
+  id: NTLootT3Clothing
+  name: NT clothing T3 Spawner
+  components:
+  - type: EntityTableSpawner
+    offset: 0.0
+    table: !type:NestedSelector
+      tableId: NTLootClothingT3Trunk
+      prob: 1.0
+
+- type: entity
+  parent: MarkerBase
+  id: NTLootBackpack
+  name: NT backpack spawner
+  components:
+  - type: EntityTableSpawner
+    offset: 0.0
+    table: !type:NestedSelector
+      tableId: NTLootBackpackTrunk
+      prob: 1.0
+
+- type: entity
+  parent: MarkerBase
+  id: NTLootHardsuit
+  name: NT hardsuit spawner
+  components:
+  - type: EntityTableSpawner
+    offset: 0.0
+    table: !type:NestedSelector
+      tableId: NTLootHardsuitTrunk
+      prob: 1.0
+
+- type: entityTable
+  id: CrateNanotrasenLootFilledT1Trunk
+  table: !type:AllSelector
+    children:
+    - id: ClothingBackpackRogueNanotrasenT1
+    - id: ClothingBackpackRogueNanotrasenT1
+      prob: 0.5
+    - id: ClothingBackpackRogueNanotrasenT1
+      prob: 0.25
+    - id: ClothingBackpackRogueNanotrasenT2
+      prob: 0.25
+    - id: ClothingBackpackRogueNanotrasenT3
+      prob: 0.05
+
+- type: entityTable
+  id: CrateNanotrasenLootFilledT2Trunk
+  table: !type:AllSelector
+    children:
+    - id: ClothingBackpackRogueNanotrasenT1
+      prob: 0.5
+    - id: ClothingBackpackRogueNanotrasenT2
+    - id: ClothingBackpackRogueNanotrasenT2
+      prob: 0.25
+    - id: ClothingBackpackRogueNanotrasenT2
+      prob: 0.05
+    - id: ClothingBackpackRogueNanotrasenT3
+      prob: 0.1
+    - id: PenCentcom
+      prob: 0.75
+    - !type:NestedSelector
+      tableId: NTLootBackpackTrunk
+      prob: 0.3
+    - !type:NestedSelector
+      tableId: NTLootHardsuitTrunk
+      prob: 0.5
+
+- type: entityTable
+  id: CrateNanotrasenLootFilledT3Trunk
+  table: !type:AllSelector
+    children:
+    - id: ClothingBackpackRogueNanotrasenT2
+    - id: ClothingBackpackRogueNanotrasenT2
+      prob: 0.05
+    - id: ClothingBackpackRogueNanotrasenT3
+    - id: ClothingBackpackRogueNanotrasenT3
+      prob: 0.5
+    - id: ClothingBackpackRogueNanotrasenT3
+      prob: 0.1
+    - id: PenCentcom
+      prob: 0.75
+    - !type:NestedSelector
+      tableId: NTLootBackpackTrunk
+      prob: 0.5
+    - !type:NestedSelector
+      tableId: NTLootHardsuitTrunk
+      prob: 0.75
+
+- type: entityTable
+  id: NTLootClothingT1Trunk
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - !type:GroupSelector
+        weight: 2.75
+        children:
+        - id: ClothingShoesBootsWinterSec
+        - id: ClothingMaskGasSecurity
+        - id: ClothingHeadHatSecsoft
+        - id: ClothingEyesGlassesSecurity
+        - id: ClothingUniformJumpsuitSec
+        - id: ClothingUniformJumpskirtSec
+        - id: ClothingUniformJumpsuitSecGrey
+        - id: ClothingUniformJumpskirtSecGrey  
+      - !type:GroupSelector
+        weight: 1.745
+        children:
+        - id: ClothingHeadHatHoshat
+        - id: ClothingHeadHatBeretHoS
+        - id: ClothingNeckMantleHOS
+        - id: ClothingNeckCloakHos
+        - id: ClothingUniformJumpsuitHoS
+        - id: ClothingUniformJumpsuitHoSGrey
+        - id: ClothingUniformJumpsuitHoSBlue
+        - id: ClothingOuterCoatHoSTrench
+        - id: ClothingOuterWinterHoS
+        - id: ClothingShoesBootsWinterHoS
+        - id: UndeterminedVoidsuitSecurity
+      - !type:GroupSelector
+        weight: 0.05
+        children:
+        - id: ClothingUniformJumpsuitNanotrasen
+        - id: ClothingMaskClownSecurity
+        - id: ClothingHeadHatHoodBioSecurity
+        - id: ClothingOuterBioSecurity
+        - id: ClothingNeckSecuritymedal
+        - id: SecurityWhistle
+        - id: UndeterminedVoidsuitHeadOfSecurity
+  
+- type: entityTable
+  id: NTLootClothingT2Trunk
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - !type:GroupSelector
+        weight: 2.75
+        children:
+        - id: ClothingHeadHelmetERTEngineer
+        - id: ClothingHeadHelmetERTMedic
+        - id: ClothingHeadHelmetERTMailCarrier
+        - id: ClothingHeadHelmetERTJanitor
+        - id: ClothingHeadHelmetERTSecurity
+        - id: ClothingHeadHelmetERTLeader
+        - id: ClothingUniformJumpsuitWarden
+        - id: ClothingUniformJumpskirtWarden
+        - id: ClothingHeadHelmetERTMedic
+        - id: ClothingOuterWinterWardenUnarmored
+        - id: ClothingHeadHatWarden
+        - id: ClothingHeadHatBeretWarden
+      - !type:GroupSelector
+        weight: 1.745
+        children:
+        - id: ClothingUniformJumpsuitERTJanitor
+        - id: ClothingUniformJumpsuitERTEngineer
+        - id: ClothingUniformJumpsuitERTMailCarrier
+        - id: ClothingUniformJumpsuitERTChaplain
+        - id: ClothingUniformJumpsuitERTSecurity
+        - id: ClothingUniformJumpsuitERTLeader
+        - id: ClothingUniformJumpsuitERTMedic
+        - id: ClothingMaskGasERT
+        - id: ClothingOuterCoatWarden
+        - id: ClothingOuterWinterWarden
+      - !type:GroupSelector
+        weight: 0.05
+        children:
+        - id: ClothingOuterHardsuitWarden
+        - id: ClothingShoesBootsMagAdv
+        - id: ClothingShoesBootsMagGaloshes
+        - id: ClothingShoesBootsWinterWarden
+
+- type: entityTable
+  id: NTLootClothingT3Trunk
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - !type:GroupSelector
+        weight: 2.75
+        children:
+        - id: ClothingMaskGasCentcom
+        - id: ClothingHeadHatCentcom
+        - id: ClothingUniformJumpsuitCentcomOfficial
+        - id: ClothingUniformJumpskirtCentcomFormalDress
+        - id: ClothingUniformJumpsuitCentcomFormal
+      - !type:GroupSelector
+        weight: 1.745
+        children:
+        - id: ClothingHeadHatCentcomcap
+        - id: ClothingOuterWinterCentcom
+        - id: ClothingShoesBootsMagAdv
+        - id: ClothingShoesBootsWinterCentCom
+        - id: ClothingNeckCloakCentcom
+        - id: ClothingUniformJumpsuitCentcomOfficer
+      - !type:GroupSelector
+        weight: 0.05
+        children:
+        - id: ClothingUniformJumpsuitCentcomAgent
+        - id: ClothingNeckScarfStripedCentcom
+        - id: ClothingMaskGasDeathSquad
+        - id: ClothingUniformJumpsuitDeathSquad
+        - id: BedsheetCentcom
+
+- type: entityTable
+  id: NTLootBackpackTrunk
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - !type:GroupSelector
+        weight: 2.75
+        children:
+        - id: ClothingBackpackERTEngineer
+        - id: ClothingBackpackERTJanitor
+        - id: ClothingBackpackERTMailCarrier
+        - id: ClothingBackpackERTChaplain
+      - !type:GroupSelector
+        weight: 1.745
+        children:
+        - id: ClothingBackpackERTMedical
+        - id: ClothingBackpackERTSecurity
+        - id: ClothingBackpackERTLeader
+      - !type:GroupSelector
+        weight: 0.04
+        children:
+        - id: ClothingBackpackERTClown
+      - !type:GroupSelector
+        weight: 0.01
+        children:
+        - id: ClothingBackpackDeathSquad
+
+- type: entityTable
+  id: NTLootHardsuitTrunk
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - !type:GroupSelector
+        weight: 2.75
+        children:
+        - id: ClothingOuterHardsuitCBURN
+        - id: ClothingOuterHardsuitERTEngineer
+        - id: ClothingOuterHardsuitERTJanitor
+        - id: ClothingOuterHardsuitERTMailCarrier
+      - !type:GroupSelector
+        weight: 1.745
+        children:
+        - id: ClothingOuterHardsuitERTMedical
+        - id: ClothingOuterHardsuitERTSecurity
+      - !type:GroupSelector
+        weight: 0.04
+        children:
+        - id: ClothingOuterHardsuitERTChaplain
+      - !type:GroupSelector
+        weight: 0.01
+        children:
+        - id: ClothingOuterHardsuitERTLeader

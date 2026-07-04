@@ -1,36 +1,3 @@
-# SPDX-FileCopyrightText: 2021 20kdc
-# SPDX-FileCopyrightText: 2021 wrexbe
-# SPDX-FileCopyrightText: 2022 BubblegumBlue
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Moony
-# SPDX-FileCopyrightText: 2022 Paul Ritter
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 TaralGit
-# SPDX-FileCopyrightText: 2022 ZeroDayDaemon
-# SPDX-FileCopyrightText: 2022 and_a
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2022 ninruB
-# SPDX-FileCopyrightText: 2023 Cheackraze
-# SPDX-FileCopyrightText: 2023 Flareguy
-# SPDX-FileCopyrightText: 2023 Jackal298
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 PixelTK
-# SPDX-FileCopyrightText: 2023 T-Stalker
-# SPDX-FileCopyrightText: 2023 deltanedas
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 wafehling
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: CrateSalvageEquipment
   name: "salvage equipment crate"
@@ -77,7 +44,7 @@
         prob: 0.1
       - id: WelderIndustrialAdvanced
         prob: 0.1
-      - id: ResearchDisk
+      - id: ResearchDisk10000 # Mono
         prob: 0.1
       - id: SheetUranium
         prob: 0.1
@@ -102,7 +69,7 @@
         #  - Ammo
       - id: AmmoBox45_magnumFMJ
         prob: 0.01
-      - id: ResearchDisk10000
+      - id: ResearchDisk65000
         prob: 0.01
         # Just no (0.1%)
         #  - Working guns
@@ -117,7 +84,7 @@
         prob: 0.01
       - id: ClothingShoesSkates
         prob: 0.02
-      - id: ResearchDisk10000
+      - id: ResearchDisk65000
         prob: 0.005
       - id: ClothingHeadHatCatEars # Frontier
         prob: 0.00001 # Frontier

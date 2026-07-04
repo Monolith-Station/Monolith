@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 wewman222
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: latheRecipePack
   id: ClarkeMechParts
   recipes:
@@ -79,6 +74,7 @@
   - WeaponMechCombatDisabler
   - WeaponMechCombatFlashbangLauncher
   - WeaponMechCombatMissileRack8
+  - WeaponMechChainSword
 
 #Space Mecha stuff
 - type: latheRecipePack
@@ -91,7 +87,6 @@
   - BroadswordRArm
   - BroadswordRLeg
   - HalberdHarness
-  - SabreHarness
   - FlailHarness
   - FlailHead
   - FlailLArm
@@ -130,6 +125,8 @@
 - type: latheRecipePack
   id: SpaceMechaIFF
   recipes:
+  - MechIFFTSF
+  - MechIFFPDV
   - IFFMechaBlueSquare
   - IFFMechaBlueCircle
   - IFFMechaBlueTriangle

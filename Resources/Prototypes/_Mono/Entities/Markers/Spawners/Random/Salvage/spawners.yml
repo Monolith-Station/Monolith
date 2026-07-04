@@ -1,0 +1,28 @@
+- type: entity
+  parent: SalvageSpawnerScrapCommon
+  id: SalvageSpawnerPlastitaniumCommon
+  suffix: Plastitanium, 1-3
+  components:
+  - type: EntityTableSpawner
+    offset: 0.4
+    table: !type:NestedSelector
+      tableId: SalvagePlastitanium
+      prob: 1
+
+- type: entityTable
+  id: SalvagePlastitanium
+  table: !type:GroupSelector
+    children:
+    - id: SpawnerPlastitaniumCommon
+      weight: 1
+      amount: !type:RangeNumberSelector
+        range: 2, 3
+
+- type: entity
+  parent: MarkerBasePlaceFree
+  id: SpawnerPlastitaniumCommon
+  suffix: Plastitanium, 1-3
+  components:
+  - type: CountSpawner
+    prototype: SheetPlastitanium1
+    maximumCount: 3

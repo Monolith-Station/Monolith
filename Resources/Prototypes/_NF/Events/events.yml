@@ -1,18 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Cheackraze
-# SPDX-FileCopyrightText: 2023 FoxxoTrystan
-# SPDX-FileCopyrightText: 2024 AjexRose
-# SPDX-FileCopyrightText: 2024 AndresE55
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Long YM
-# SPDX-FileCopyrightText: 2024 Shroomerian
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 GreaseMonk
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 monolith8319
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entityTable
   id: BasicCalmEventsTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
@@ -20,7 +5,7 @@
     # - id: AnomalySpawn
     # - id: BluespaceArtifact
     # - id: BluespaceLocker
-    - id: BreakerFlip
+    # - id: BreakerFlip
     # - id: BureaucraticError
     # - id: ClericalError
     - id: CockroachMigration
@@ -31,7 +16,7 @@
     # - id: MassHallucinations # Frontier
     # - id: MimicVendorRule
     - id: MouseMigration
-    - id: PowerGridCheck
+    # - id: PowerGridCheck
     - id: RandomSentience
     # - id: SlimesSpawn
     - id: SolarFlare
@@ -42,8 +27,9 @@
     - id: BluespaceCargoCrate # Frontier
     - id: BluespaceMcCargoCrate # Frontier
     - id: BluespaceSyndicateCrate # Frontier
-    - id: BluespaceBrokenMcDelivery # Frontier
+#   - id: BluespaceBrokenMcDelivery # Frontier. Mono edit - Disabled
     - id: SmugglingFax # Frontier
+    - id: SnailMigration # Mono
 
 # Frontier: not used!
 - type: entityTable
@@ -70,6 +56,9 @@
     delay:
       min:  10
       max:  20
+    numberOfGrids:  # Mono
+      min:  5       # Mono
+      max:  10      # Mono
 
 - type: entity
   id: BaseStationEventShortDelay
@@ -80,6 +69,9 @@
     delay:
       min:  10
       max:  20
+    numberOfGrids:  # Mono
+      min:  5       # Mono
+      max:  10      # Mono
 
 - type: entity
   id: BaseStationEventLongDelay
@@ -90,6 +82,9 @@
     delay:
       min:  40
       max:  60
+    numberOfGrids:  # Mono
+      min:  5       # Mono
+      max:  10      # Mono
 
 # Frontier: right now you never find them since they spawn on random grids.
 # - type: entity
@@ -131,16 +126,16 @@
 #     duration: 1
 #   - type: BluespaceLockerRule
 
-- type: entity
-  id: BreakerFlip
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    weight: 7
-    earliestStart: 15 # Frontier
-    duration: 1
-    minimumPlayers: 15
-  - type: BreakerFlipRule
+#- type: entity
+#  id: BreakerFlip
+#  parent: BaseGameRule
+#  components:
+#  - type: StationEvent
+#    weight: 7
+#    earliestStart: 15 # Frontier
+#    duration: 1
+#    minimumPlayers: 15
+#  - type: BreakerFlipRule
 
 # - type: entity
 #   id: BureaucraticError
@@ -341,22 +336,22 @@
 #     duration: 240
 #   - type: KudzuGrowthRule
 
-- type: entity
-  id: PowerGridCheck
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    weight: 5
-    earliestStart: 15 # Frontier
-    startAnnouncement: station-event-power-grid-check-nf-start-announcement # Frontier: add nf-
-    endAnnouncement: station-event-power-grid-check-nf-end-announcement # Frontier: add nf-
-    startAudio:
-      path: /Audio/Announcements/power_off.ogg
-      params:
-        volume: -4
-    duration: 60
-    maxDuration: 120
-  - type: PowerGridCheckRule
+#- type: entity
+#  id: PowerGridCheck
+#  parent: BaseStationEventShortDelay
+#  components:
+#  - type: StationEvent
+#    weight: 5
+#    earliestStart: 15 # Frontier
+#    startAnnouncement: station-event-power-grid-check-nf-start-announcement # Frontier: add nf-
+#    endAnnouncement: station-event-power-grid-check-nf-end-announcement # Frontier: add nf-
+#    startAudio:
+#      path: /Audio/Announcements/power_off.ogg
+#      params:
+#        volume: -4
+#    duration: 60
+#    maxDuration: 120
+#  - type: PowerGridCheckRule
 
 - type: entity
   parent: BaseGameRule
@@ -389,7 +384,7 @@
     - Syndicate # Mono
     - Freelance # Mono
     - Ussp # Mono
-    - UsspCommand # Mono
+    # - UsspCommand # Mono
     extraCount: 6
     lightBreakChancePerSecond: 0.0003
     doorToggleChancePerSecond: 0 # Mono
@@ -408,26 +403,23 @@
     duration: 60
   - type: VentClogRule
 
-# - type: entity
-#   id: SlimesSpawn
-#   parent: BaseStationEventShortDelay
-#   components:
-#   - type: StationEvent
-#     startAnnouncement: station-event-vent-creatures-start-announcement
-#     startAudio:
-#       path: /Audio/Announcements/attention.ogg
-#     earliestStart: 20
-#     minimumPlayers: 15
-#     weight: 5
-#     duration: 60
-#   - type: VentCrittersRule
-#     entries:
-#     - id: MobAdultSlimesBlueAngry
-#       prob: 0.02
-#     - id: MobAdultSlimesGreenAngry
-#       prob: 0.02
-#     - id: MobAdultSlimesYellowAngry
-#       prob: 0.02
+# Mono Event
+- type: entity
+  id: BorerSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-nf-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 5
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobCorticalBorer
+      prob: 0.5
 
 # - type: entity
 #   id: SnakeSpawn

@@ -10,15 +10,37 @@
   metabolisms:
     Cryogenic:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange #Mono: EvenHealthChange
         conditions:
         - !type:Temperature
           max: 213.0
         damage:
+          Brute: -10
+#          types: #Mono start: RR reversal buff and evenheal effect
+#            Blunt: -2
+#            Piercing: -2
+#            Slash: -2
+      - !type:HealthScaleEffect
+        conditions:
+        - !type:Temperature
+          max: 213.0
+        - !type:TotalDamage
+          min: 200
+        healthScale:
           types:
-            Blunt: -2
-            Piercing: -2
-            Slash: -2
+            Blunt: 0.98
+            Slash: 0.98
+            Piercing: 0.98 #Mono end
+      - !type:GenericStatusEffect # Mono edit
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        - !type:Temperature
+          max: 213.0
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
 
 - type: reagent
   id: Stelloxadone
@@ -32,15 +54,33 @@
   metabolisms:
     Cryogenic:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange #Mono: EvenHealthChange
         conditions:
         - !type:Temperature
           max: 213.0
         damage:
+          Toxin: -10
+#            Poison: -6 #Mono start: RR reversal buff and evenheal effect
+#            Radiation: -3
+#            Cellular: 1
+      - !type:HealthScaleEffect
+        conditions:
+        - !type:Temperature
+          max: 213.0
+        - !type:TotalDamage
+          min: 200
+        healthScale:
           types:
-            Poison: -6
-            Radiation: -3
-            Cellular: 1
-          groups:
-            Brute: 3
-          
+            Poison: 0.98
+            Radiation: 0.98 #Mono end
+      - !type:GenericStatusEffect # Mono edit
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        - !type:Temperature
+          max: 213.0
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+

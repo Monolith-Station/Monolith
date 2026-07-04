@@ -1,8 +1,6 @@
 - type: entity
   parent:
-  - BaseC3CultContraband
   - ClothingBeltBase
-  - ContrabandClothing
   id: ClothingBeltCultForceField
   name: cult runic belt buckle
   components:
@@ -17,9 +15,7 @@
 
 - type: entity
   parent:
-  - BaseC3CultContrabandUnredeemable
   - NFClothingBeltStorageBase
-  - ContrabandClothing
   id: ClothingBeltCultWebbing
   name: cult webbing
   description: A webbing with pockets lined with waterproof (water, huh?) material.

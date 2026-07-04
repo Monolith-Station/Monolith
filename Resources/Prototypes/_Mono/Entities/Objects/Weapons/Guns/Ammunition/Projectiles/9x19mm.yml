@@ -1,25 +1,3 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2021 Leon Friedrich
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2022 Charlese2
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2023 Boaz1111
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 kerisargit
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: Bullet9x19mmFMJ
   name: bullet (9x19mm FMJ)
@@ -29,7 +7,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 19
+        Piercing: 24
+    armorPenetration: 0.05
 
 - type: entity
   id: Bullet9x19mmPractice
@@ -62,8 +41,9 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 16
+        Piercing: 10
+        Heat: 5
+    armorPenetration: -0.15
 
 - type: entity
   id: Bullet9x19mmUranium
@@ -74,8 +54,9 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 7
-        Piercing: 12
+        Radiation: 8
+        Piercing: 13
+    armorPenetration: -0.1
 
 # Upstream
 - type: entity
@@ -88,3 +69,46 @@
     damage:
       types:
         Shock: 0
+
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  id: Bullet9x19mmHP
+  parent: BaseBullet
+  name: bullet (9x19mm hollow-point)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 3
+        Piercing: 26
+    armorPenetration: -0.6
+
+- type: entity
+  id: Bullet9x19mmRIP
+  parent: BaseBullet
+  name: bullet (9x19mm RIP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 5
+        Piercing: 35
+    armorPenetration: -0.95
+
+#armor-piercing:
+
+- type: entity
+  id: Bullet9x19mmPlasteelAP
+  parent: BaseBullet
+  name: bullet (9x19mm AP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 7
+        Structural: 25
+    armorPenetration: 0.9

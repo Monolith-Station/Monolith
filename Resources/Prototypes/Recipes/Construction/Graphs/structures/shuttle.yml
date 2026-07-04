@@ -1,4 +1,4 @@
-﻿# Frontier: if updating this, also update _NF/Recipes/Construction/Graphs/structures/shuttle.yml
+# Frontier: if updating this, also update _NF/Recipes/Construction/Graphs/structures/shuttle.yml
 - type: constructionGraph
   id: AirlockShuttle
   start: start
@@ -140,6 +140,14 @@
       - material: ReinforcedGlass
         amount: 2
         doAfter: 2
+    # Mono
+    - to: skeletonSteel
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
     - to: skeletonWelded
       completed:
       - !type:SpawnPrototype
@@ -194,3 +202,33 @@
         steps:
           - tool: Prying
             doAfter: 5
+
+  # <Monolith>
+  - node: skeletonSteel
+    entity: AirlockShuttleAssembly
+    edges:
+    - to: skeletonSilver
+      completed:
+        - !type:SpawnPrototype
+          prototype: SheetSteel1
+          amount: 2
+      steps:
+      - tool: Prying
+        doAfter: 4
+    - to: gaslock
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+  - node: gaslock
+    entity: Gaslock
+    edges:
+      - to: skeletonSteel
+        conditions:
+          - !type:EntityAnchored {}
+        steps:
+          - tool: Prying
+            doAfter: 5
+  # </Monolith>

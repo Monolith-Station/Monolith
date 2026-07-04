@@ -8,9 +8,13 @@ on:
       - reopened
       - ready_for_review
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   Label:
-    if: ( github.event.pull_request.draft == false ) && ( github.actor != 'PJBot' ) && ( github.actor != 'FrontierATC' ) # Frontier
+    if: ( github.event.pull_request.draft == false )
     runs-on: ubuntu-latest
     steps:
       - name: Check for Merge Conflicts

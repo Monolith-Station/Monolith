@@ -10,7 +10,7 @@
 #
 - type: pointOfInterest
   id: Edison
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'Edison Power Plant'
   minimumDistance: 5650
   maximumDistance: 7400

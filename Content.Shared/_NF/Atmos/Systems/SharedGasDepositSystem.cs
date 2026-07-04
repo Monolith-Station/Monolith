@@ -10,12 +10,12 @@ using Robust.Shared.Player;
 
 namespace Content.Shared._NF.Atmos.Systems;
 
-public abstract class SharedGasDepositSystem : EntitySystem
+public abstract partial class SharedGasDepositSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] protected readonly SharedUserInterfaceSystem UI = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] protected SharedUserInterfaceSystem UI = default!;
 
     // The amount reported in a given extractor is a multiple of this.
     const float DrillExamineAmountRound = 1000.0f;
@@ -40,10 +40,22 @@ public abstract class SharedGasDepositSystem : EntitySystem
             ("pressure", ent.Comp.TargetPressure)));
         if (_net.IsServer && TryComp(ent.Comp.DepositEntity, out GasDepositComponent? deposit))
         {
-            float estimatedAmount = MathF.Round(deposit.Deposit.TotalMoles / DrillExamineAmountRound) * DrillExamineAmountRound;
-            args.PushMarkup(Loc.GetString("gas-deposit-drill-system-examined-amount",
-                ("statusColor", "lightblue"),
-                ("value", estimatedAmount)));
+            // Mono
+            if (deposit.YieldBased)
+            {
+                var hitMinimum = deposit.Yield == deposit.MinYield;
+                args.PushMarkup(Loc.GetString("gas-deposit-drill-system-examined-yield",
+                    ("statusColor", "lightblue"),
+                    ("yield", deposit.Yield * 100f),
+                    ("hitMinimum", hitMinimum)));
+            }
+            else
+            {
+                float estimatedAmount = MathF.Round(deposit.GasLeft / DrillExamineAmountRound) * DrillExamineAmountRound;
+                args.PushMarkup(Loc.GetString("gas-deposit-drill-system-examined-amount",
+                    ("statusColor", "lightblue"),
+                    ("value", estimatedAmount)));
+            }
         }
     }
 

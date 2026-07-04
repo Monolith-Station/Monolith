@@ -134,7 +134,6 @@
   id: SpaceBladeSec
   parent:
   - SpaceBlade
-  - BaseC2ContrabandUnredeemable
   components:
   - type: Sprite
     state: secblade
@@ -147,7 +146,6 @@
   id: SpaceBladeContra
   parent:
   - SpaceBlade
-  - BaseC3SyndicateContraband
   description: Let it reap
   components:
   - type: Sprite
@@ -230,7 +228,7 @@
 
 - type: entity
   id: SpaceBladeSingularity
-  parent: [BaseC3Contraband, SpaceBlade]
+  parent: SpaceBlade
   name: space blade
   description: Let it consume
   components:

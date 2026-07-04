@@ -1,12 +1,7 @@
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 gus
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Access.Components;
 using Content.Shared.Shuttles.Components;
 using Content.Shared._NF.Shipyard.Components;
+using Content.Shared.UserInterface;
 using Content.Shared.Popups;
 using Robust.Shared.Timing;
 using Content.Shared.Examine;
@@ -16,11 +11,11 @@ namespace Content.Shared.Shuttles.Systems;
 /// <summary>
 /// System that handles locking and unlocking shuttle consoles based on shuttle deeds.
 /// </summary>
-public abstract class SharedShuttleConsoleLockSystem : EntitySystem
+public abstract partial class SharedShuttleConsoleLockSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] protected IGameTiming Timing = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -28,6 +23,7 @@ public abstract class SharedShuttleConsoleLockSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<ShuttleConsoleLockComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ShuttleConsoleLockComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ShuttleConsoleLockComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
     }
 
     private void OnStartup(EntityUid uid, ShuttleConsoleLockComponent component, ComponentStartup args)
@@ -62,6 +58,17 @@ public abstract class SharedShuttleConsoleLockSystem : EntitySystem
 
         // No grid lock, use individual console lock state (fallback for legacy consoles)
         return component.Locked;
+    }
+
+    /// <summary>
+    /// Prevents using the console UI if it's locked
+    /// </summary>
+    protected virtual void OnUIOpenAttempt(EntityUid uid,
+        ShuttleConsoleLockComponent component,
+        ActivatableUIOpenAttemptEvent args)
+    {
+        if (GetEffectiveLockState(uid, component))
+            args.Cancel();
     }
 
     protected void UpdateAppearance(EntityUid uid, ShuttleConsoleLockComponent? component = null)

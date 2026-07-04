@@ -336,7 +336,7 @@
 # Non-faxable variants (obtainable from expeditions)
 
 - type: entity # Armory
-  parent: [ BaseC3Contraband, NFBaseBlueprint ]
+  parent: NFBaseBlueprint
   id: BaseBlueprintExpedition
   abstract: true
   components:

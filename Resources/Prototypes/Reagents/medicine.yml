@@ -1,75 +1,3 @@
-# SPDX-FileCopyrightText: 2019 moneyl
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 Hugo Laloge
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-# SPDX-FileCopyrightText: 2020 nuke
-# SPDX-FileCopyrightText: 2021 DmitriyRubetskoy
-# SPDX-FileCopyrightText: 2021 Elijahrane
-# SPDX-FileCopyrightText: 2021 SETh lafuente
-# SPDX-FileCopyrightText: 2021 ScalyChimp
-# SPDX-FileCopyrightText: 2021 SethLafuente
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2021 xRiriq
-# SPDX-FileCopyrightText: 2022 CrudeWax
-# SPDX-FileCopyrightText: 2022 EmoGarbage404
-# SPDX-FileCopyrightText: 2022 Flipp Syder
-# SPDX-FileCopyrightText: 2022 Jack Fox
-# SPDX-FileCopyrightText: 2022 Julian Giebel
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Kara D
-# SPDX-FileCopyrightText: 2022 Leon Friedrich
-# SPDX-FileCopyrightText: 2022 Moony
-# SPDX-FileCopyrightText: 2022 Myctai
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 Ripmorld
-# SPDX-FileCopyrightText: 2022 Sam Weaver
-# SPDX-FileCopyrightText: 2022 ShadowCommander
-# SPDX-FileCopyrightText: 2022 lapatison
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2022 mirrorcult
-# SPDX-FileCopyrightText: 2023 Alekshhh
-# SPDX-FileCopyrightText: 2023 Alex Evgrashin
-# SPDX-FileCopyrightText: 2023 CrigCrag
-# SPDX-FileCopyrightText: 2023 DjfjdfofdjfjD
-# SPDX-FileCopyrightText: 2023 Doru991
-# SPDX-FileCopyrightText: 2023 Dynexust
-# SPDX-FileCopyrightText: 2023 Emisse
-# SPDX-FileCopyrightText: 2023 IProduceWidgets
-# SPDX-FileCopyrightText: 2023 Interrobang01
-# SPDX-FileCopyrightText: 2023 Kevin Zheng
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2023 Maxtone
-# SPDX-FileCopyrightText: 2023 Sir Winters
-# SPDX-FileCopyrightText: 2023 Veritius
-# SPDX-FileCopyrightText: 2023 Visne
-# SPDX-FileCopyrightText: 2023 nikthechampiongr
-# SPDX-FileCopyrightText: 2024 EdenTheLiznerd
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Ghagliiarghii
-# SPDX-FileCopyrightText: 2024 Gotimanga
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Scribbles0
-# SPDX-FileCopyrightText: 2024 Skye
-# SPDX-FileCopyrightText: 2024 SlamBamActionman
-# SPDX-FileCopyrightText: 2024 Tayrtahn
-# SPDX-FileCopyrightText: 2024 Ubaser
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 deltanedas
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dustylens
-# SPDX-FileCopyrightText: 2024 icekot8
-# SPDX-FileCopyrightText: 2024 neuPanda
-# SPDX-FileCopyrightText: 2024 potato1234_x
-# SPDX-FileCopyrightText: 2024 slarticodefast
-# SPDX-FileCopyrightText: 2024 themias
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: reagent
   id: Cryptobiolin
   name: reagent-name-cryptobiolin
@@ -98,6 +26,7 @@
   color: "#3a1d8a"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -208,7 +137,7 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: -3
+            Radiation: -4 # Mono 3 >> 4
           groups:
             Brute: 1.5
 
@@ -222,18 +151,20 @@
   color: "#ffaa00"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono 1.5 >> 1
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Brute: -2
+          Brute: -1
+      - !type:ModifyBleedAmount # Mono: buff to differentiate more from trico
+        amount: -0.25
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
-          min: 15
+          min: 16 #Mono 15 >> 16
         damage:
           types:
             Asphyxiation: 0.5
@@ -249,7 +180,7 @@
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 16 #Mono 15 >> 16
       - !type:Drunk
 
 - type: reagent
@@ -269,19 +200,29 @@
   - !type:PlantCryoxadone {}
   metabolisms:
     Cryogenic: # Frontier: Medicine<Cryogenic
+      metabolismRate: 0.2 # Mono: 0.5 >> 0.2
       effects:
-        - !type:HealthChange
+        - !type:EvenHealthChange
           conditions:
           - !type:Temperature
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
           damage:
           # todo scale with temp like SS13
-            groups:
-              Airloss: -6
-              Brute: -4
-              Burn: -6
-              Toxin: -4
+            Airloss: -3
+            Brute: -2
+            Burn: -2
+            Toxin: -2
+        - !type:GenericStatusEffect # Mono edit
+          conditions:
+          - !type:OrganType #
+            type: Hydrakin
+          - !type:Temperature
+            max: 213.0
+          key: ForcedSleep
+          component: ForcedSleeping
+          refresh: false
+          type: Add
 
 - type: reagent
   id: Doxarubixadone
@@ -294,6 +235,7 @@
   worksOnTheDead: true # Frontier
   metabolisms:
     Cryogenic: # Frontier: Medicine<Cryogenic
+      metabolismRate: 0.2 # Mono
       effects:
         - !type:HealthChange
           conditions:
@@ -304,6 +246,16 @@
              Cellular: -4 # Frontier: -2<-4
             groups: # Frontier
                 Brute: 1 # Frontier
+        - !type:GenericStatusEffect # Mono edit
+          conditions:
+          - !type:OrganType #
+            type: Hydrakin
+          - !type:Temperature
+            max: 213.0
+          key: ForcedSleep
+          component: ForcedSleeping
+          refresh: false
+          type: Add
 
 - type: reagent
   id: Dermaline
@@ -315,6 +267,7 @@
   color: "#215263"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -350,6 +303,7 @@
   color: "#0041a8"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -428,15 +382,23 @@
         - !type:MobStateCondition
           mobstate: Critical
         - !type:ReagentThreshold
-          min: 0
+          reagent: Epinephrine
           max: 20
         damage:
           types:
             Asphyxiation: -3
             Poison: -0.5
-          groups:
-            Brute: -1
-            Burn: -1 # Was .5, Buffed due to limb damage changes(GoobStation)
+      - !type:EvenHealthChange
+        conditions:
+          # they gotta be in crit first
+        - !type:MobStateCondition
+          mobstate: Critical
+        - !type:ReagentThreshold
+          min: 0
+          max: 20
+        damage:
+          Brute: -2 # Mono: 0.5 >> 2
+          Burn: -2 # Mono: 0.5 >> 2
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -492,6 +454,7 @@
   color: "#4cb580"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         damage:
@@ -502,7 +465,7 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
-        probability: 0.02
+        probability: 0.005 # Mono: Longer lasting, less likely to puke your guts...as much
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -571,6 +534,7 @@
   color: "#bf3d19"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono 0.5 >> 0.2
       effects:
       - !type:HealthChange
         damage:
@@ -613,11 +577,17 @@
         conditions:
         - !type:Temperature
           max: 293.15
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: false
         amount: 100000 # thermal energy, not temperature!
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
           min: 293.15
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: false
         amount: -10000
       - !type:PopupMessage
         type: Local
@@ -627,6 +597,14 @@
       - !type:AdjustReagent
         reagent: Fresium
         amount: -5
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 115.15
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: true
+        amount: -100000
 
 - type: reagent
   id: Barozine
@@ -638,6 +616,7 @@
   color: "#ff867d"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Mono
       effects:
       - !type:HealthChange
         conditions:
@@ -717,7 +696,7 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
-        probability: 0.05
+        probability: 0.003 # Mono - Vomit shouldn't be that bad with such metabolism rate
 
 - type: reagent
   id: PolypyryliumOligomers
@@ -730,12 +709,10 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Brute: -3.5
-          types:
-            Asphyxiation: -2.5
+          Brute: -2.5 #Mono -1.75 >> -2.5
+          Airloss: -1
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -896,6 +873,7 @@
   color: "#ba7d7d"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 #Mono: Slower metabolism rate
       effects:
       # Medium-large quantities can hurt you instead,
       # but still technically stop your bleeding.
@@ -919,19 +897,31 @@
   color: "#00e5ff"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 #Mono: Slower metabolism rate
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange #Mono: Low damage healing
         conditions:
         - !type:TotalDamage
           max: 50
         damage:
-          groups:
-            Brute: -1
-          types:
-            Poison: -0.5 ##Should be about what it was when it healed the toxin group
-            Heat: -0.5
-            Shock: -0.5
-            Cold: -0.5 # Was .33, Buffed due to limb damage changes(GoobStation)
+          Brute: -1
+          Burn: -1
+          Toxin: -0.5
+      - !type:EvenHealthChange #Mono: High damage healing
+        conditions:
+        - !type:TotalDamage
+          min: 50
+        damage:
+          Brute: -0.25
+          Burn: -0.25
+          Toxin: -0.12
+      - !type:AdjustReagent # Mono: Overdose, penalize metabolism
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        reagent: Tricordrazine
+        amount: -0.8
+        
 
 - type: reagent
   id: Lipozine
@@ -960,27 +950,19 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange # Mono
+      - !type:EvenHealthChange
+        conditions:
+        damage:
+          Burn: -1.5
+          Toxin: -1.5
+          Airloss: -1.5
+          Brute: -1.5   
+      - !type:AdjustReagent # Mono: Overdose, penalize metabolism
         conditions:
         - !type:ReagentThreshold
-          min: 0
-          max: 100
-        damage:
-          groups:
-            Burn: -2
-            Toxin: -2
-            Airloss: -2
-            Brute: -2
-      - !type:HealthChange # Mono - Added overdose
-        conditions:
-        - !type:ReagentThreshold
-          min: 100
-        damage:
-          groups:
-            Burn: 1
-            Toxin: 1
-            Airloss: 1
-            Brute: 1
+          min: 60
+        reagent: Omnizine
+        amount: -1.0
 
 - type: reagent
   id: Ultravasculine
@@ -994,23 +976,34 @@
     Medicine:
       metabolismRate: 0.25
       effects:
+      - !type:EvenHealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 0
+          max: 20
+        damage:
+          Toxin: -6
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 0
-          max: 30
+          max: 20
         damage:
-          groups:
-            Toxin: -3
-            Brute: 0.5
+          types:
+            Blunt: 1.5
+      - !type:EvenHealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        damage:
+          Toxin: -2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 30
+          min: 20
         damage:
-          groups:
-            Toxin: -1
-            Brute: 3
+          types:
+            Blunt: 6
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -1054,6 +1047,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 5
+        - !type:HasTag # Mono edit - Chimeras cant talk
+          tag: Chimera
+          invert: true
 
 - type: reagent
   id: Ethyloxyephedrine
@@ -1181,12 +1177,12 @@
   color: "#283332"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.15 # Mono change - Chem rebalance
       effects:
       - !type:HealthChange
         damage:
           types:
-            Slash: -0.6 # 6 Per u
+            Slash: -2.1 # 6 Per u. Mono change - Chem rebalance
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -1196,7 +1192,7 @@
           min: 21
         damage:
           types:
-            Cold: 1.5 #15 per u
+            Cold: 2.5 # Mono change - Chem rebalance.
 
 - type: reagent
   id: Puncturase
@@ -1208,13 +1204,13 @@
   color: "#b9bf93"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.15 # Mono change - Chem rebalance
       effects:
       - !type:HealthChange
         damage:
           types:
-            Piercing: -0.6 # 6 per u
-            Blunt: 0.05 # 0.5 per u
+            Piercing: -2.1 # 6 per u. Mono change - Chem rebalance
+            Blunt: 0.08 # Mono change - Chem rebalance
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -1224,7 +1220,7 @@
           min: 21
         damage:
           types:
-            Blunt: 1 # 10 per u plus base effect
+            Blunt: 3.5 # 10 per u plus base effect
 
 - type: reagent
   id: Bruizine
@@ -1236,12 +1232,12 @@
   color: "#ff3636"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.15
       effects:
       - !type:HealthChange
         damage:
           types:
-            Blunt: -0.6 # 6 per u
+            Blunt: -2.1 # 6 per u. Mono change - Chem rebalance
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -1251,7 +1247,7 @@
           min: 19
         damage:
           types:
-            Poison: 1.5 # 15 per u
+            Poison: 2.5 # Mono change - Chem rebalance
 
 - type: reagent
   id: Holywater
@@ -1310,12 +1306,12 @@
   color: "#aa4308"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1 # slow metabolism to not be a godly combat med, its for treating burn victims efficiently
+      metabolismRate: 0.15 # slow metabolism to not be a godly combat med, its for treating burn victims efficiently # Mono 0.1 -> 0.15
       effects:
       - !type:HealthChange
         damage:
           types:
-            Heat: -1
+            Heat: -2.1 # Mono -1 -> -2.1
       # od causes massive bleeding
       - !type:HealthChange
         conditions:
@@ -1356,13 +1352,13 @@
   color: "#8147ff"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.15 # 0.1 -> 0.15
       effects:
       # heals shocks and removes shock chems
       - !type:HealthChange
         damage:
           types:
-            Shock: -0.5 # 5 per u
+            Shock: -1.5 # Mono 0.5 -> 1.5
       - !type:AdjustReagent
         reagent: Licoxide
         amount: -4
@@ -1432,16 +1428,39 @@
   metabolisms:
     Medicine:
       effects:
-        - !type:HealthChange
+        - !type:EvenHealthChange #Mono start: Give necrosol a niche
+          damage:
+            Airloss: -3
+            Brute: -3
+            Burn: -3
+            Toxin: -3
+        - !type:AdjustTemperature
           conditions:
           - !type:Temperature
-            max: 213.0
+            min: 214.65 # auto-bootstrap cryo: you will slowdown long before you see combat effect
+          amount: -5000 # Mono end
+        - !type:EvenHealthChange
+          conditions:
+          - !type:Temperature
+            max: 217.15 # Mono 213 >> 217.15: Necrosol can bootstrap only itself
           damage:
-            groups:
-              Brute: -4
-              Burn: -5
-            types:
-              Poison: -2
+            Airloss: -5 # Mono start: 0 >> -5
+            Brute: -5 # -2 >> -5
+            Burn: -5 # -2 >> -5
+            Toxin: -5 # 0 >> -5
+            #types:
+            #  Poison: -2 # Mono end
+        - !type:GenericStatusEffect # Mono edit
+          conditions:
+          - !type:OrganType
+            type: Hydrakin
+          - !type:Temperature
+            max: 217.15
+          key: ForcedSleep
+          component: ForcedSleeping
+          refresh: false
+          type: Add
+        
 
 - type: reagent
   id : Aloxadone
@@ -1455,16 +1474,34 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:Temperature
           max: 213.0
         damage:
+          Burn: -10 #Mono: 4.5 >> 10
+      - !type:HealthScaleEffect #Mono start: RR reversal buff
+        conditions:
+        - !type:Temperature
+          max: 213.0
+        - !type:TotalDamage
+          min: 200
+        healthScale:
           types:
-            Cold: -4.0
-            Heat: -4.0
-            Shock: -4.0
-            Caustic: -1.5
+            Heat: 0.98
+            Cold: 0.98
+            Shock: 0.98
+            Caustic: 0.98 #Mono end
+      - !type:GenericStatusEffect # Mono edit
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        - !type:Temperature
+          max: 213.0
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine
@@ -1547,7 +1584,7 @@
       - !type:GenericStatusEffect
         key: RadiationProtection
         component: RadiationProtection
-        time: 2
+        time: 15 #Mono: 2 >> 15, 1 pill = 5min
         type: Add
         refresh: false
       - !type:HealthChange

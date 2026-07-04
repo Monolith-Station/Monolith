@@ -1,35 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Paul Ritter
-// SPDX-FileCopyrightText: 2021 Visne
-// SPDX-FileCopyrightText: 2021 ZorenZal
-// SPDX-FileCopyrightText: 2022 DrSmugleaf
-// SPDX-FileCopyrightText: 2022 Jezithyr
-// SPDX-FileCopyrightText: 2022 Kara
-// SPDX-FileCopyrightText: 2022 Michael Phillips
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 08A
-// SPDX-FileCopyrightText: 2023 Keiku
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Miro Kavaliou
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 ShadowCommander
-// SPDX-FileCopyrightText: 2023 Skye
-// SPDX-FileCopyrightText: 2023 Vasilis
-// SPDX-FileCopyrightText: 2023 Vasilis The Pikachu
-// SPDX-FileCopyrightText: 2023 onoira
-// SPDX-FileCopyrightText: 2024 Wrexbe (Josh)
-// SPDX-FileCopyrightText: 2024 YuNii
-// SPDX-FileCopyrightText: 2024 deltanedas
-// SPDX-FileCopyrightText: 2024 slarticodefast
-// SPDX-FileCopyrightText: 2024 wafehling
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 ErhardSteinhauer
-// SPDX-FileCopyrightText: 2025 ScyronX
-// SPDX-FileCopyrightText: 2025 Whatstone
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Client.Stylesheets;
 using Content.Shared.CCVar;
@@ -58,8 +26,8 @@ namespace Content.Client.Options.UI.Tabs
             EngineKeyFunctions.HideUI,
         };
 
-        [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private IInputManager _inputManager = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
 
         private BindButton? _currentlyRebinding;
 
@@ -210,6 +178,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.ZoomIn);
             AddButton(ContentKeyFunctions.ZoomOut);
             AddButton(ContentKeyFunctions.ResetZoom);
+            AddButton(ContentKeyFunctions.ToggleFocus); // Mono
 
             AddHeader("ui-options-header-interaction-basic");
             AddButton(EngineKeyFunctions.Use);
@@ -229,10 +198,30 @@ namespace Content.Client.Options.UI.Tabs
             AddHeader("ui-options-header-interaction-adv");
             AddButton(ContentKeyFunctions.SmartEquipBackpack);
             AddButton(ContentKeyFunctions.SmartEquipBelt);
+            AddButton(ContentKeyFunctions.SmartEquipPocket1);
+            AddButton(ContentKeyFunctions.SmartEquipPocket2);
+            AddButton(ContentKeyFunctions.SmartEquipSuitStorage);
             AddButton(ContentKeyFunctions.SmartEquipWallet); // Frontier
-            AddButton(ContentKeyFunctions.SmartEquipBack); // Goobstation - Equip To Back
+            // Mono Edit
+            AddButton(ContentKeyFunctions.SmartEquipID);
+            AddButton(ContentKeyFunctions.SmartEquipShoes);
+            AddButton(ContentKeyFunctions.SmartEquipOuterClothing);
+            AddButton(ContentKeyFunctions.EquipBackpack);
+            AddButton(ContentKeyFunctions.EquipBelt);
+            AddButton(ContentKeyFunctions.EquipPocket1);
+            AddButton(ContentKeyFunctions.EquipPocket2);
+            AddButton(ContentKeyFunctions.EquipSuitStorage);
+            AddButton(ContentKeyFunctions.EquipWallet);
+            AddButton(ContentKeyFunctions.EquipID);
+            // Mono End
             AddButton(ContentKeyFunctions.OpenBackpack);
             AddButton(ContentKeyFunctions.OpenBelt);
+            // Mono
+            AddButton(ContentKeyFunctions.OpenPocket1);
+            AddButton(ContentKeyFunctions.OpenPocket2);
+            AddButton(ContentKeyFunctions.OpenSuitStorage);
+            AddButton(ContentKeyFunctions.OpenOuterClothing);
+            // Mono End
             AddButton(ContentKeyFunctions.OpenWallet); // Frontier
             AddButton(ContentKeyFunctions.ThrowItemInHand);
             AddButton(ContentKeyFunctions.TryPullObject);

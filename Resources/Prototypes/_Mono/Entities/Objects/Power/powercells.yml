@@ -1,0 +1,35 @@
+- type: entity
+  name: combat power cell
+  description: A rechargeable standardized power cell. This combat brand is equipped with partial protection from power spikes.
+  id: PowerCellCombat
+  suffix: Full
+  parent: PowerCellHigh
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Power/power_cells.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: combat
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: EmpResistance
+    coefficient: 0.0001
+
+
+- type: entity
+  id: PowerCellCombatPrinted
+  suffix: Empty
+  parent: PowerCellCombat
+  components:
+  - type: Sprite
+    layers:
+      - map: [ "enum.PowerCellVisualLayers.Base" ]
+        state: combat
+      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+        state: o2
+        shader: unshaded
+        visible: false
+  - type: Battery
+    maxCharge: 1080
+    startingCharge: 0

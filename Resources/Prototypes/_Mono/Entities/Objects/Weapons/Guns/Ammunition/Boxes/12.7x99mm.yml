@@ -1,15 +1,15 @@
 - type: entity
   abstract: true
-  parent: [ BaseItem, BaseC3PirateContraband ]
-  id: BaseAmmoBox12.7x99mm
+  parent: BaseItem
+  id: BaseAmmoBox127x99mm
   name: ammunition box (12.7x99mm anti-material)
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - Cartridge12.7x99mm
-    proto: Cartridge12.7x99mm
+        - Cartridge127x99mm
+    proto: Cartridge127x99mm
     capacity: 30
   - type: Item
     size: Small
@@ -28,16 +28,25 @@
     steps: 4
     zeroVisible: false
   - type: Appearance
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
 
 - type: entity
-  parent: BaseAmmoBox12.7x99mm
-  id: AmmoBox12.7x99mm
+  parent: BaseAmmoBox127x99mm
+  id: AmmoBox127x99mm
 
 - type: entity
-  parent: BaseAmmoBox12.7x99mm
-  id: AmmoBox12.7x99mmExplosive
+  parent: BaseAmmoBox127x99mm
+  id: AmmoBox127x99mmExplosive
   name: ammunition box (12.7x99mm high-explosive)
   components:
   - type: BallisticAmmoProvider
     capacity: 30
-    proto: Cartridge12.7x99mmExplosive
+    proto: Cartridge127x99mmExplosive

@@ -1,35 +1,3 @@
-// SPDX-FileCopyrightText: 2022 CommieFlowers
-// SPDX-FileCopyrightText: 2022 Rane
-// SPDX-FileCopyrightText: 2022 Vordenburg
-// SPDX-FileCopyrightText: 2022 ike709
-// SPDX-FileCopyrightText: 2022 rolfero
-// SPDX-FileCopyrightText: 2023 Checkraze
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Eoin Mcloughlin
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 Visne
-// SPDX-FileCopyrightText: 2023 eoineoineoin
-// SPDX-FileCopyrightText: 2023 faint
-// SPDX-FileCopyrightText: 2023 keronshb
-// SPDX-FileCopyrightText: 2023 themias
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 LordCarve
-// SPDX-FileCopyrightText: 2024 Mervill
-// SPDX-FileCopyrightText: 2024 Plykiya
-// SPDX-FileCopyrightText: 2024 Shroomerian
-// SPDX-FileCopyrightText: 2024 SlamBamActionman
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2025 Dvir
-// SPDX-FileCopyrightText: 2025 EctoplasmIsGood
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 SupernoobTheN1
-// SPDX-FileCopyrightText: 2025 Your Name
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using System.Text;
 using Content.Server.Popups;
@@ -63,32 +31,33 @@ using Content.Shared._NF.Bank.Components; // Frontier
 using Content.Server._NF.Bank; // Frontier
 using Content.Shared._NF.Bank.BUI; // Frontier
 
+using Content.Server.Chemistry.Containers.EntitySystems;
+using Robust.Shared.Prototypes;
 // todo: remove this stinky LINQy
 
 namespace Content.Server.Forensics
 {
-    public sealed class ForensicScannerSystem : EntitySystem
+    public sealed partial class ForensicScannerSystem : EntitySystem
     {
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly PaperSystem _paperSystem = default!;
-        [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
-        [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
-        [Dependency] private readonly TagSystem _tag = default!;
-        [Dependency] private readonly StackSystem _stackSystem = default!; // Frontier
-        [Dependency] private readonly SharedAudioSystem _audio = default!; // Frontier
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // Frontier
-        [Dependency] private readonly RadioSystem _radio = default!; // Frontier
-        [Dependency] private readonly DeadDropSystem _deadDrop = default!; // Frontier
-        [Dependency] private readonly ItemSlotsSystem _itemSlots = default!; // Frontier
-        [Dependency] private readonly CargoSystem _cargo = default!; // Frontier
-        [Dependency] private readonly SectorServiceSystem _service = default!; // Frontier
-        [Dependency] private readonly IConfigurationManager _cfg = default!; // Frontier
-        [Dependency] private readonly BankSystem _bank = default!; // Frontier
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+        [Dependency] private UserInterfaceSystem _uiSystem = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private PaperSystem _paperSystem = default!;
+        [Dependency] private SharedHandsSystem _handsSystem = default!;
+        [Dependency] private SharedAudioSystem _audioSystem = default!;
+        [Dependency] private MetaDataSystem _metaData = default!;
+        [Dependency] private ForensicsSystem _forensicsSystem = default!;
+        [Dependency] private TagSystem _tag = default!;
+        [Dependency] private StackSystem _stackSystem = default!; // Frontier
+        [Dependency] private IPrototypeManager _prototypeManager = default!; // Frontier
+        [Dependency] private RadioSystem _radio = default!; // Frontier
+        [Dependency] private DeadDropSystem _deadDrop = default!; // Frontier
+        [Dependency] private ItemSlotsSystem _itemSlots = default!; // Frontier
+        [Dependency] private CargoSystem _cargo = default!; // Frontier
+        [Dependency] private SectorServiceSystem _service = default!; // Frontier
+        [Dependency] private IConfigurationManager _cfg = default!; // Frontier
+        [Dependency] private BankSystem _bank = default!; // Frontier
 
         // Frontier: payout constants
         // Temporary values, sane defaults, will be overwritten by CVARs.
@@ -103,6 +72,8 @@ namespace Content.Server.Forensics
         private const int DropPodSpesoReward = 75000; //Mono
         private const float DropPodFMCReward = 15.0f; //Mono
         // End Frontier: payout constants
+
+        private static readonly ProtoId<TagPrototype> DNASolutionScannableTag = "DNASolutionScannable";
 
         public override void Initialize()
         {
@@ -132,7 +103,7 @@ namespace Content.Server.Forensics
         private void GiveReward(EntityUid uidOrigin, EntityUid target, int spesoAmount, FixedPoint2 fmcAmount, string msg)
         {
             SoundSpecifier confirmSound = new SoundPathSpecifier("/Audio/Effects/Cargo/ping.ogg");
-            _audio.PlayPvs(_audio.GetSound(confirmSound), uidOrigin);
+            _audioSystem.PlayPvs(_audioSystem.GetSound(confirmSound), uidOrigin);
 
             if (spesoAmount > 0)
                 _bank.TrySectorDeposit(SectorBankAccount.Nfsd, spesoAmount, LedgerEntryType.AntiSmugglingBonus);
@@ -258,7 +229,7 @@ namespace Content.Server.Forensics
                 }
                 // End Frontier: contraband poster/pod scanning
 
-                if (_tag.HasTag(args.Args.Target.Value, "DNASolutionScannable"))
+                if (_tag.HasTag(args.Args.Target.Value, DNASolutionScannableTag))
                 {
                     scanner.SolutionDNAs = _forensicsSystem.GetSolutionsDNA(args.Args.Target.Value);
                 } else

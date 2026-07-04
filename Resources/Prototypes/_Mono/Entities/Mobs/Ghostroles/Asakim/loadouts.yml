@@ -1,0 +1,35 @@
+- type: startingGear
+  id: AsakimGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNinja
+    back: ClothingBackpackERTLeader
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitAsakimUnremoveable
+    shoes: ClothingShoesBootsMagAsakim
+    pocket1: CrowbarPocket
+    pocket2: DoubleEmergencyOxygenTankFilled
+    belt: ClothingBeltWebbingsBigBlack
+    suitStorage: OxygenTankFilled
+  inhand:
+  - WeaponRifleAsakimAutopulser
+  - WeaponPhaseBlade
+  storage:
+    back:
+    - DoubleEmergencyOxygenTankFilled
+    - MedkitCombatFilled
+    - MedkitCombatFilled
+    - SyringeCaseAltFilled
+    - JetpackMiniFilled
+    - FreedomImplanter
+    - CognizineChemistryBottle
+    - Syringe
+    - RadioHandheldNF
+    belt:
+    - CombatMedipen
+    - CombatMedipen
+    - CombatMedipen
+    - CombatMedipen
+    - HandHeldMassScannerBorg
+    - PowerDrill
+    - JawsOfLife
+    - WelderExperimental

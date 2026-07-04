@@ -33,7 +33,7 @@
     RLeg: MobHumanRLeg
     LFoot: MobHumanLFoot
     RFoot: MobHumanRFoot
-    Tail: MobHumanoidAnyMarking # Nyanotrasen - Felinid
+    Tail: MobHumanoidAnyMarking # Nyanotrasen - Felinid, harpies & Tajaran.
     HeadSide: MobHumanoidAnyMarking # Einstein Engines - Oni
 
 - type: markingPoints
@@ -52,7 +52,7 @@
       points: 1
       required: false
     Tail: # the cat tail joke
-      points: 0
+      points: 1
       required: false
     HeadTop:
       points: 1

@@ -1,4 +1,4 @@
-﻿- type: constructionGraph
+- type: constructionGraph
   id: LogicGate
   start: start
   graph:
@@ -51,6 +51,14 @@
       - material: Cable
         amount: 2
         doAfter: 1
+    # Mono
+    - to: timer
+      steps:
+      - material: Steel
+        amount: 1
+      - material: Cable
+        amount: 2
+        doAfter: 1
   - node: logic_gate
     entity: LogicGateOr
     edges:
@@ -99,6 +107,20 @@
       completed:
       - !type:SpawnPrototype
         prototype: CapacitorStockPart
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 2
+  # Mono
+  - node: timer
+    entity: SignalTimerItem
+    edges:
+    - to: empty
+      steps:
+      - tool: Prying
+        doAfter: 2
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
       - !type:SpawnPrototype
         prototype: CableApcStack1
         amount: 2

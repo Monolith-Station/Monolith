@@ -29,7 +29,8 @@ public sealed partial class ContentAudioSystem : SharedContentAudioSystem
     public const float AmbientMusicMultiplier = 3f;
     public const float LobbyMultiplier = 3f;
     public const float InterfaceMultiplier = 2f;
-    
+    public const float CombatMultiplier = 3f; //Mono
+
     public override void Initialize()
     {
         base.Initialize();
@@ -81,7 +82,7 @@ public sealed partial class ContentAudioSystem : SharedContentAudioSystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        UpdateAmbientMusic();
+        UpdateAmbientMusic(frameTime);
         UpdateLobbyMusic();
         UpdateFades(frameTime);
     }

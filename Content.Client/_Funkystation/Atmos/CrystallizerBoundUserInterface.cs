@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 marc-pelletier
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Content.Shared._Funkystation.Atmos.Components;

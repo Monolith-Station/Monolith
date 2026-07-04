@@ -6,7 +6,7 @@
   name: LSE-400c "Svalinn machine gun" machine board
   description: A machine printed circuit board for an LSE-400c "Svalinn machine gun".
   suffix: DO NOT MAP, Machine Board
-  categories: [ DoNotMap ]
+  # categories: [ DoNotMap ] Mono
   components:
   - type: Sprite
     state: security

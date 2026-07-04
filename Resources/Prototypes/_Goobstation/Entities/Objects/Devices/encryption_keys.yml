@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: EncryptionKey
   id: EncryptionKeyFuture
   name: futuristic encryption key
@@ -15,7 +15,7 @@
     - Service
     - Supply
     - Freelance
-    - Binary
+    # - Binary # replaced with collective mind
     - Handheld
     - CentCom
     - Future

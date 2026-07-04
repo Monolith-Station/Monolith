@@ -20,9 +20,9 @@
   - type: Storage
     maxItemSize: Small
     grid:
-    - 0,0,2,1
-    blacklist:
-      components: [ Storage ] # No bagception
+    - 0,0,3,1 #Mono: 0,0,2,1 >> 0,0,3,1
+#    blacklist: #Mono out
+#      components: [ Storage ] # No bagception #Yes bagception
   - type: StaticPrice
     price: 50
   - type: ItemCounter
@@ -179,7 +179,7 @@
 - type: entity
   id: NFPouchSr
   parent: NFPouchUtility
-  name: colonial liaison's pouch
+  name: overseer's pouch
   components:
   - type: Sprite
     layers:

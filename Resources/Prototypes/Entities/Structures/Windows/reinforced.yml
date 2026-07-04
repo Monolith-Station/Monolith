@@ -44,6 +44,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
+    key: reinforcedwindows
     base: rwindow
   - type: Construction
     graph: Window
@@ -55,6 +56,13 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 5
+  - type: DeltaPressure
+    minPressure: 15000
+    minPressureDelta: 10000
+    scalingType: Threshold
 
 - type: entity
   id: WindowReinforcedDirectional
@@ -113,8 +121,14 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: DeltaPressure
+    minPressure: 3750
+    minPressureDelta: 2500
   - type: StaticPrice
     price: 10 # Frontier: 22.5<10
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 3
 
 - type: entity
   parent: ReinforcedWindow
@@ -134,7 +148,7 @@
     - Diagonal
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: reinforcedwindows # Mono
     base: state
   - type: Icon
     sprite: Structures/Windows/reinforced_window_diagonal.rsi
@@ -151,7 +165,7 @@
         mask:
         - FullTileMask
         layer:
-        - GlassLayer
+        - DiagonalGlassLayer # Mono GlassLayer->DiagonalGlassLayer
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:

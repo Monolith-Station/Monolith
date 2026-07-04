@@ -1,0 +1,71 @@
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT3 ]
+  id: ClothingOuterHardsuitAsakim
+  name: kasature-pattern combat exoskeleton
+  description: An advanced exoskeleton harness of cutting edge, corporate-era technology. It connects itself directly to the brain of the wearer, and requires advanced brain augmentation and cybernetics to function. Incredibly rare, and practically alien in technology compared to modern tacsuits. Once equipped, the armor cannot be removed without external release.
+  suffix: SelfUnremovable
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/asakim.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/asakim.rsi
+    stripDelay: 60
+    equipDelay: 5
+    whitelist:
+      tags:
+        - AsakimBrain
+    whitelistCheckOrgans: true
+  - type: SelfUnremovableClothing
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.35
+  - type: FireProtection
+    reduction: 0.7
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10
+    slots: OUTERCLOTHING
+  - type: StaticPrice
+    price: 50000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.85
+        Piercing: 0.3
+        Heat: 0.4
+        Radiation: 0
+        Shock: 0.8
+        Poison: 0.4
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHelmetHardsuitAsakim
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: PirateBountyItem
+    id: ClothingOuterHardsuitTacsuit
+  - type: StaminaDamageResistance
+    coefficient: 0.4
+
+- type: entity
+  parent: ClothingOuterHardsuitAsakim
+  id: ClothingOuterHardsuitAsakimUnremoveable
+  suffix: 120 stripDelay
+  components:
+  - type: Clothing
+    stripDelay: 120
+    equipDelay: 120
+

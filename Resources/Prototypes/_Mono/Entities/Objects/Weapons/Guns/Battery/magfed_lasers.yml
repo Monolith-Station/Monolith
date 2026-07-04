@@ -1,13 +1,8 @@
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 ScyronX
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   name: EM72 Ashstorm
-  parent: [ BaseWeaponPowerCell, BaseC2ContrabandUnredeemable ]
+  parent: BaseWeaponPowerCell
   id: WeaponLaserCellMG
-  description: EM72 Ashstorm, The TSF-EM72 Ashstorm is a directed-energy light machine gun developed by Aetherion Dynamics under TSF weapons contract 934A. Designed for sustained suppressive fire in void or planetary combat. The signature green glow of the Ashstorm's thermal capacitors is feared across insurgent lines in the Helion Belt.
+  description: EM72 Ashstorm, The TSF-EM72 Ashstorm is a directed-energy light machine gun developed by Aetherion Dynamics under TSF weapons contract 934A. Designed for sustained suppressive fire in void or planetary combat. The signature green glow of the Ashstorm's thermal capacitors is feared across imperial lines in the Helion Belt.
   components:
   - type: Item
     size: Huge
@@ -20,7 +15,7 @@
   - type: Gun
     minAngle: 23
     maxAngle: 20
-    fireRate: 8
+    fireRate: 10
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -30,9 +25,13 @@
     slots:
       gun_magazine:
         name: Magazine
+        startingItem: MilitaryPowerCellMG
         whitelist:
           tags:
           - MilitaryPowerCellMG
+  - type: HitscanBatteryAmmoProvider
+    proto: MediumOverchargedLaser
+    fireCost: 15
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Battery/cell_mg.rsi
     layers:
@@ -46,6 +45,9 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.80
+    sprintModifier: 0.80
   - type: PhysicalComposition
     materialComposition:
       Steel: 500
@@ -62,3 +64,82 @@
   - type: AmmoCounter
   - type: PirateBountyItem # Mono
     id: ExperimentalFactionWeapon
+
+- type: entity
+  name: NT-WS LRC-21 PPL
+  parent: [ BaseWeaponPowerCell, BaseGunWieldable ]
+  id: WeaponLRC21PPL
+  description: A heavy pulsed plasma lance rifle. Eviscerates targets with ease.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -62
+  - type: Gun
+    minAngle: 23
+    maxAngle: 64
+    fireRate: 0.7
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: PulsedPlasmaLaserCanister
+        whitelist:
+          tags:
+          - PPLCell
+  - type: HitscanBatteryAmmoProvider
+    proto: PulsedPlasma
+    fireCost: 3000
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Battery/lrc21.rsi
+    layers:
+    - state: icon
+      visible: false
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+      visible: false
+      shader: unshaded
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Battery/nt_longarm_inhands_32x.rsi
+    size: Huge
+    shape:
+    - 0,0,5,1
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+    zeroNoAmmo: true
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Battery/nt_longarm_inhands_32x.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
+  - type: AmmoCounter
+  - type: PirateBountyItem # Mono
+    id: ExperimentalFactionWeapon
+  - type: LaserPointer
+    targetedColor: "#03c2fc"
+    defaultColor: "#03c2fc"
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 12
+    pvsIncrease: 4
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/smartgun_mouse.rsi
+      state: all
+  - type: Appearance

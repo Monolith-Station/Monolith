@@ -1,26 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Emisse
-// SPDX-FileCopyrightText: 2023 Fahasor
-// SPDX-FileCopyrightText: 2023 I.K
-// SPDX-FileCopyrightText: 2023 Ilya Babunov
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 LordCarve
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 Psychpsyo
-// SPDX-FileCopyrightText: 2023 Repo
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 deltanedas
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2023 notquitehadouken <1isthisameme>
-// SPDX-FileCopyrightText: 2024 AJCM-git
-// SPDX-FileCopyrightText: 2024 Cojoke
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 eoineoineoin
-// SPDX-FileCopyrightText: 2025 Jajsha
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.Components;
@@ -41,17 +18,17 @@ using Robust.Shared.Utility;
 namespace Content.Server.Fluids.EntitySystems;
 
 /// <inheritdoc/>
-public sealed class AbsorbentSystem : SharedAbsorbentSystem
+public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly PopupSystem _popups = default!;
-    [Dependency] private readonly PuddleSystem _puddleSystem = default!;
-    [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private PopupSystem _popups = default!;
+    [Dependency] private PuddleSystem _puddleSystem = default!;
+    [Dependency] private SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
 
     private static readonly ProtoId<ReagentPrototype> Water = "Water"; // Frontier
     private static readonly ProtoId<ReagentPrototype> Holywater = "Holywater"; // Frontier

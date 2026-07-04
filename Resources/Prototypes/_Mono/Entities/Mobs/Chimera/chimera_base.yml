@@ -1,53 +1,61 @@
-# SPDX-FileCopyrightText: 2025 EctoplasmIsGood
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 Your Name
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # TODO - new sprites
 
 - type: entity
   parent:
-  - StripableInventoryBase
   - MobNonHumanHostileBase
-  - MobHumanoidHostileAISimpleMelee
   - MobStepTriggerImmune
-  id: MonoBaseMobFleshLetoferol
+  id: MonoBaseMobLetoferol
   name: chimera fleshbeast
-  description: A once sentient being covered in putrid flesh and bone. You can see a glimpse of humanity left in its eyes, like whoever it was is still awake.
+  description: A horribly mutated whatever-this-once-was.
   abstract: true
   components:
+  - type: HTN
+    rootTask:
+      task: ChimeraHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        false
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
   - type: NpcFactionMember
     factions:
-    - AberrantFleshExpeditionNF
+    - Chimera
   - type: Sprite
     drawdepth: Mobs
     sprite: _NF/Mobs/Aliens/flesh.rsi
-  - type: MobState
-  - type: DoAfter
-  - type: Stripping
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Critical
-      400: Dead
+      200: Dead
+  - type: DamageStateVisuals
+    states:
+      Dead:
+        Base: dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Chimera
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
       120: 0.5
-  - type: Stamina
-    critThreshold: 150
   - type: Butcherable
     spawned:
     - id: FoodMeat
       amount: 4
-  - type: Inventory
-    templateId: chimera
-  - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: NaturalLetoferol
     bloodMaxVolume: 300
+    bleedReductionAmount: 1.5
+    bloodlossThreshold: 0
+    bloodRefreshAmount: 10
   - type: MeleeWeapon
     attackRate: 1.5
     soundHit:
@@ -73,26 +81,12 @@
       reagents:
       - ReagentId: NaturalLetoferol
         Quantity: 90
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: MeleeChemicalInjector
     solution: melee
-    transferAmount: 2.5
+    transferAmount: 1.5
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
     baseSprintSpeed : 4.25
-  - type: Hands
-  - type: ComplexInteraction
   - type: StatusEffects
     allowed:
     - Stun
@@ -106,43 +100,32 @@
     - StaminaModifier
     - Flashed
     - RadiationProtection
-  - type: Ensnareable
-    sprite: Objects/Misc/ensnare.rsi
-    state: icon
   - type: Climbing
-  - type: Storage
-    clickInsert: false
-    openOnActivate: false
-    grid:
-    - 0,0,4,4
-    maxItemSize: Huge
-    storageInsertSound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
   - type: Tag
     tags:
-    - CanPilot
-    - FootstepSound
     - DoorBumpOpener
     - Chimera
   - type: PassiveDamage
     allowedStates:
     - Alive
-    - Critical
     damage:
       types:
-        Radiation: -0.1
-        Poison: -0.1
+        Radiation: -0.3
+        Poison: -0.3
       groups:
         Airloss: -0.45
-        Brute: -0.45
-        Burn: -0.45
+        Brute: -1.2
+        Burn: -1.2
         Genetic: -0.1
   - type: Targeting
-  - type: Puller
-    needsHands: false
-  - type: Body
-    prototype: Chimera
-    requiredLegs: 2
+  - type: Flammable
+    fireSpread: true
+    canResistFire: true
+    damage: #per second, scales with number of fire 'stacks'
+      types:
+        Heat: 8
+  - type: Clickable
+  - type: ZombieImmune
   - type: Reactive
     groups:
       Flammable: [Touch]
@@ -169,8 +152,98 @@
           types:
             Caustic: 20
             Cellular: 5
+  - type: SurgeryTarget
+  - type: Body
+    prototype: ChimeraBeast
+    requiredLegs: 0
   - type: PlayerToolModifier
     pryTimeMultiplier: 0.4
+  - type: ThermalVision
+    lightRadius: 15
+    activateSound: null
+    deactivateSound: null
+  - type: GuideHelp
+    guides:
+    - Letoferol
+  - type: MovementAlwaysTouching
+
+- type: entity
+  parent:
+  - MonoBaseMobLetoferol
+  - StripableInventoryBase
+  id: MonoBaseMobLetoferolHumanoid
+  name: chimera fleshbeast
+  description: A once sentient being covered in putrid flesh and bone. You can see a glimpse of humanity left in its eyes, like whoever it was is still awake.
+  abstract: true
+  components:
+  - type: HTN
+    rootTask:
+      task: ChimeraHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 2.5
+  - type: DoAfter
+  - type: Stripping
+  - type: Stamina
+    critThreshold: 150
+  - type: Inventory
+    templateId: chimera
+    relayBlockedSlots:
+    - outerClothing
+    - neck
+    - mask
+    - head
+    - jumpsuit
+    - shoes
+    - gloves
+  - type: Appearance
+  - type: SurgeryTarget
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  - type: Hands
+  - type: ComplexInteraction
+  - type: Ensnareable
+    sprite: Objects/Misc/ensnare.rsi
+    state: icon
+  - type: Storage
+    clickInsert: false
+    openOnActivate: false
+    grid:
+    - 0,0,4,4
+    maxItemSize: Huge
+    storageInsertSound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - Chimera
+    - Humanoid
+  - type: Puller
+    needsHands: false
+  - type: Body
+    prototype: Chimera
+    requiredLegs: 2
   - type: PlayerAccuracyModifier
     spreadMultiplier: 12
     maxSpreadAngle: 180
@@ -183,11 +256,3 @@
         Heat: 0.5 # fire is scary (esword is op)
   #- type: CollectiveMind  # Part of the organ instead.
   #  channel: Letoferol
-  - type: Flammable
-    fireSpread: true
-    canResistFire: true
-    damage: #per second, scales with number of fire 'stacks'
-      types:
-        Heat: 8
-  - type: Clickable
-  - type: ZombieImmune

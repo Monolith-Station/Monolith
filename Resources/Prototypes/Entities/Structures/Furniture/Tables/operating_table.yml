@@ -1,6 +1,6 @@
 - type: entity
   id: OperatingTable
-  parent: Bed
+  parent: [Bed, ConstructibleMachine]
   name: operating table
   description: Used for advanced medical procedures. # Shitmed
   components:

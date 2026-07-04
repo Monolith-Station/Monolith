@@ -10,3 +10,4 @@ marking-FelinidTiger = Tiger Tail
 marking-FelinidTiger-m_tail_tiger_primary = Primary
 marking-FelinidTiger-m_tail_tiger_secondary = Tip of Tail
 marking-FelinidTiger-m_tail_tiger_tertiary = Stripes
+marking-FelinidTailFoxtail = Fox Tail

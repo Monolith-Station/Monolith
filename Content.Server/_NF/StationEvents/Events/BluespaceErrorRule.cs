@@ -19,27 +19,30 @@ using Content.Server.StationEvents.Events;
 using Content.Server._NF.Station.Systems;
 using Content.Server._NF.StationEvents.Components;
 using Robust.Shared.EntitySerialization.Systems;
+using Content.Server._Mono.StationEvents;
+using Content.Server._Mono.GridClaimer;
 
 namespace Content.Server._NF.StationEvents.Events;
 
-public sealed class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleComponent>
+public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleComponent>
 {
     NanotrasenNameGenerator _nameGenerator = new();
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly DungeonSystem _dungeon = default!;
-    [Dependency] private readonly MapLoaderSystem _loader = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly PricingSystem _pricing = default!;
-    [Dependency] private readonly LinkedLifecycleGridSystem _linkedLifecycleGrid = default!;
-    [Dependency] private readonly StationRenameWarpsSystems _renameWarps = default!;
-    [Dependency] private readonly BankSystem _bank = default!;
-    [Dependency] private readonly SharedSalvageSystem _salvage = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private MapSystem _map = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private DungeonSystem _dungeon = default!;
+    [Dependency] private MapLoaderSystem _loader = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ShuttleSystem _shuttle = default!;
+    [Dependency] private PricingSystem _pricing = default!;
+    [Dependency] private LinkedLifecycleGridSystem _linkedLifecycleGrid = default!;
+    [Dependency] private StationRenameWarpsSystems _renameWarps = default!;
+    [Dependency] private BankSystem _bank = default!;
+    [Dependency] private SharedSalvageSystem _salvage = default!;
+    [Dependency] private AutoExtendRuleSystem _autoExtend = default!;
 
     public override void Initialize()
     {
@@ -121,6 +124,9 @@ public sealed class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleCo
                 EntityManager.AddComponents(spawned, group.AddComponents);
 
                 component.GridsUid.Add(spawned);
+
+                if (component.ExtendIfPopulated)
+                    _autoExtend.AutoExtend(uid, spawned);
             }
         }
 
@@ -220,6 +226,10 @@ public sealed class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleCo
                 Log.Error("bluespace error has no associated grid?");
                 return;
             }
+
+            // don't delete it if claimed
+            if (TryComp<ClaimableGridComponent>(componentGridUid, out var claimable) && claimable.Claimed)
+                return;
 
             if (component.DeleteGridsOnEnd)
             {

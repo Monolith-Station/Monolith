@@ -1,20 +1,9 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Checkraze
-# SPDX-FileCopyrightText: 2025 Myzumi
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 cheetah1984
-# SPDX-FileCopyrightText: 2025 dustylens
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vendingMachineInventory
   id: FlatpackVendInventory
   startingInventory:
     #ShuttleGunKineticFlatpack: 4294967295 # Infinite
     OreProcessorFlatpack: 4294967295 # Infinite
+    OreMagnetFlatpack: 4294967295 # Infinite
     AutolatheFlatpack: 4294967295 # Infinite
     HydroponicsTrayEmptyFlatpack: 4294967295 # Get a food ship, or an atmost ship - Mono Infinite
     ExosuitFabricatorFlatpack: 4294967295 # Infinite
@@ -27,7 +16,8 @@
     SalvageTechfabNFFlatpack: 4294967295 # Infinite
     ScrapProcessorFlatpack: 4294967295 # Infinite
     ServiceTechFabFlatpack: 4294967295 # Infinite
-#    MedicalTechFabFlatpack: 4294967295 # Infinite
+    MedicalTechFabFlatpack: 4294967295 # Infinite - Mono. Gamers, its back
+    ChemMasterFilledFlatpack: 4294967295 # Infinite - Mono, for ships without meds
     MaterialReclaimerFlatpack: 4294967295 # Infinite
     UniformPrinterFlatpack: 4294967295 # Loadouts are a thing - Mono Infinite
     CutterMachineFlatpack: 4294967295 # Infinite

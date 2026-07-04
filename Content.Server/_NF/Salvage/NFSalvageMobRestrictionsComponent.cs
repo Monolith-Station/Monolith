@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._NF.Salvage;
@@ -25,7 +20,7 @@ public sealed partial class NFSalvageMobRestrictionsComponent : Component
     /// Useful for event ghost roles, for instance.
     /// </summary>
     [DataField]
-    public bool DespawnIfOffLinkedGrid = false; // Mono - set to false
+    public bool DespawnIfOffLinkedGrid = false;
 
     // On walking off grid
     [DataField]

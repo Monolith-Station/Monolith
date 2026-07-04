@@ -53,8 +53,8 @@
       enum.RadarConsoleUiKey.Key:
         toggleAction: ActionObserverShowRadar
   - type: RadarConsole # Mono
-    maxRange: 384
     followEntity: true
+    noRotate: true # Mono
     maxIffRange: 0
     hideCoords: false
   - type: RandomSprite
@@ -172,7 +172,6 @@
   - type: Puller
     needsHands: false
   - type: NightVision # Goobstation - Nigthvision
-    color: "#808080"
     activateSound: null
     deactivateSound: null
 
@@ -182,6 +181,9 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+  - type: GhostRole
+    mindRoles:
+    - MindRoleDragon
   - type: ActionGun
     action: ActionDragonsBreath
     gunProto: DragonsBreathGun

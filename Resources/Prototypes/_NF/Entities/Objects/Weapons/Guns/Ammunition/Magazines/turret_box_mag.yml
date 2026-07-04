@@ -4,7 +4,7 @@
   id: MagazineAsmgtUniversalEmpty
   name: "ASMGT-compatible ammo box"
   description: |-
-   Universal ASMGT-compatible ammo box capable of accepting .20, .25, .30 and .35 cartridges.
+   Universal ASMGT-compatible ammo box capable of accepting 5.56x45mm, 6.35x40mm, 7.62x39mm and 9x19mm cartridges.
   suffix: empty
   components:
   - type: Tag
@@ -17,9 +17,9 @@
     whitelist:
       tags:
         - Cartridge9x19mmFMJ
-        - Cartridge5.56x45mmFMJ
-        - Cartridge7.62x39mmFMJ
-        - Cartridge6.35x40mmCaseless
+        - Cartridge556x45mmFMJ
+        - Cartridge762x39mmFMJ
+        - Cartridge635x40mmCaseless
     capacity: 50
   - type: ContainerContainer
     containers:
@@ -39,15 +39,36 @@
 
 - type: entity
   parent: MagazineAsmgtUniversalEmpty
-  id: MagazineAsmgtUniversalPistol
-  name: "ASMGT-compatible ammo box"
-  suffix: loaded .35 pistol
+  id: MagazineAsmgtUniversal9x19mm
+  name: "ASMGT-compatible ammo box (9x19mm)"
+  suffix: Loaded
   components:
   - type: BallisticAmmoProvider
     proto: Cartridge9x19mmFMJ
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+    
+- type: entity
+  parent: MagazineAsmgtUniversalEmpty
+  id: MagazineAsmgtUniversal762x39mm
+  name: "ASMGT-compatible ammo box (7.62x39mm)"
+  suffix: Loaded
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge762x39mmFMJ
+
+- type: entity
+  parent: MagazineAsmgtUniversalEmpty
+  id: MagazineAsmgtUniversal556x45mm
+  name: "ASMGT-compatible ammo box (5.56x45mm)"
+  suffix: Loaded
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge556x45mmFMJ
+
+- type: entity
+  parent: MagazineAsmgtUniversalEmpty
+  id: MagazineAsmgtUniversal635x40mm
+  name: "ASMGT-compatible ammo box (6.35x40mm)"
+  suffix: Loaded
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge635x40mmCaseless

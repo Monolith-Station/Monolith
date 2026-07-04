@@ -78,6 +78,12 @@
                         Text="1"
                         HorizontalExpand="True" />
                 </BoxContainer>
+                <!-- Mono -->
+                <BoxContainer Orientation="Horizontal"
+                    HorizontalExpand="True">
+                    <CheckBox Name="LoopCheckbox" HorizontalExpand="True" Text="{Loc 'lathe-menu-loop'}" />
+                    <CheckBox Name="SkipCheckbox" HorizontalExpand="True" Text="{Loc 'lathe-menu-skip'}" />
+                </BoxContainer>
             </BoxContainer>
         </BoxContainer>
         <BoxContainer MinWidth="5"/>

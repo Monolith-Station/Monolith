@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 steinhauer.erhard
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-# SPDX-FileCopyrightText: 2025 dustylens
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadout
   id: ContractorClothingBackpack
   price: 0
@@ -44,7 +34,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackCaptain
 
@@ -53,7 +43,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelCaptain
 
@@ -62,7 +52,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelCaptain
 
@@ -71,7 +61,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerCaptain
 
@@ -80,7 +70,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSalvage
 
@@ -89,7 +79,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelSalvage
 
@@ -98,7 +88,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelSalvage
 
@@ -107,7 +97,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerSalvage
 
@@ -116,7 +106,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackCargo
 
@@ -125,7 +115,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelCargo
 
@@ -134,7 +124,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelCargo
 
@@ -143,7 +133,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerCargo
 
@@ -152,7 +142,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackHydroponics
 
@@ -161,7 +151,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelHydroponics
 
@@ -170,7 +160,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelHydroponics
 
@@ -179,7 +169,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerHydroponics
 
@@ -188,7 +178,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackScience
 
@@ -197,7 +187,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelScience
 
@@ -206,7 +196,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelScience
 
@@ -215,7 +205,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerScience
 
@@ -226,7 +216,7 @@
     proto: ContractorT1
   - !type:GroupLoadoutEffect
     proto: NFNotDoc
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMedical
 
@@ -238,7 +228,7 @@
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFNotDoc
-  price: 750
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelMedical
 
@@ -250,7 +240,7 @@
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFNotDoc
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelMedical
 
@@ -262,7 +252,7 @@
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: NFNotDoc
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerMedical
 
@@ -271,7 +261,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackChemistry
 
@@ -280,7 +270,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelChemistry
 
@@ -289,7 +279,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelChemistry
 
@@ -298,7 +288,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerChemistry
 
@@ -307,7 +297,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackGenetics
 
@@ -316,7 +306,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelGenetics
 
@@ -325,7 +315,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelGenetics
 
@@ -334,7 +324,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerGenetics
 
@@ -343,7 +333,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackVirology
 
@@ -352,7 +342,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelVirology
 
@@ -361,7 +351,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelVirology
 
@@ -370,7 +360,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerVirology
 
@@ -379,7 +369,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackEngineering
 
@@ -388,7 +378,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelEngineering
 
@@ -397,7 +387,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelEngineering
 
@@ -406,7 +396,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerEngineering
 
@@ -415,7 +405,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerChiefEngineer
 
@@ -424,7 +414,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackAtmospherics
 
@@ -433,7 +423,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelAtmospherics
 
@@ -442,7 +432,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelAtmospherics
 
@@ -451,7 +441,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerAtmospherics
 
@@ -460,7 +450,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerChaplain
 
@@ -469,7 +459,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorBlack
 
@@ -478,7 +468,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorWhite
 
@@ -487,7 +477,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorBlue
 
@@ -496,7 +486,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorGreen
 
@@ -505,7 +495,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorOrange
 
@@ -514,7 +504,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorRed
 
@@ -523,7 +513,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorPurple
 
@@ -532,7 +522,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorBrownLight
 
@@ -541,7 +531,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerColorBrown
 
@@ -551,7 +541,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1250
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDrakeIndustries
 
@@ -560,25 +550,25 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 2000
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelDrakeIndustries
-    
+
 - type: loadout
-  id: ContractorClothingBackpackSatchelDrakeIndustries 
+  id: ContractorClothingBackpackSatchelDrakeIndustries
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1250
+  price: 0 # Mono
   equipment:
-    back: ClothingBackpackSatchelDrakeIndustries 
-    
+    back: ClothingBackpackSatchelDrakeIndustries
+
 - type: loadout
   id: ContractorClothingBackpackClown
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1250
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackClown
 
@@ -587,7 +577,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 2000
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelClown
 
@@ -596,7 +586,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1250
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelClown
 
@@ -605,7 +595,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1250
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerClown
 
@@ -614,7 +604,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1250
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMime
 
@@ -623,7 +613,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 2000
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackDuffelMime
 
@@ -632,7 +622,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1250
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackSatchelMime
 
@@ -641,6 +631,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1250
+  price: 0 # Mono
   equipment:
     back: ClothingBackpackMessengerMime

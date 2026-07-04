@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitUsspL27
@@ -23,21 +14,21 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.65
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.6
-        Slash: 0.45
-        Piercing: 0.4
-        Heat: 0.75
-        Radiation: 0.6
+        Slash: 0.7
+        Piercing: 0.45
+        Heat: 0.65
+        Radiation: 0.8
         Caustic: 0.6
   - type: StaminaDamageResistance # Mono - Stamres
-    coefficient: 0.4
+    coefficient: 0.3
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.85
+    walkModifier: 0.85
+    sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
@@ -50,8 +41,6 @@
   - type: StaticPrice
     price: 1250
     vendPrice: 7500
-  - type: PirateBountyItem # Mono
-    id: ClothingOuterHardsuitTacsuit
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -69,21 +58,21 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.7
-        Heat: 0.7
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.75
         Radiation: 0.7
         Caustic: 0.7
   - type: StaminaDamageResistance # Mono - Stamres
-    coefficient: 0.65
+    coefficient: 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
+    walkModifier: 1
+    sprintModifier: 1
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
@@ -96,8 +85,6 @@
   - type: StaticPrice
     price: 420
     vendPrice: 2500
-  - type: PirateBountyItem # Mono
-    id: ClothingOuterHardsuitTacsuit
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -115,18 +102,18 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.55
+    damageCoefficient: 0.8
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.65
-        Heat: 0.65
-        Radiation: 0.6
-        Caustic: 0.6
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.7
   - type: StaminaDamageResistance # Mono - Stamres
-    coefficient: 0.4
+    coefficient: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
@@ -142,8 +129,6 @@
   - type: StaticPrice
     price: 500
     vendPrice: 3000
-  - type: PirateBountyItem # Mono
-    id: ClothingOuterHardsuitTacsuit
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -161,21 +146,21 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.8
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.5
-        Heat: 0.8
-        Radiation: 0.5
-        Caustic: 0.6
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.7
   - type: StaminaDamageResistance # Mono - Stamres
-    coefficient: 0.45
+    coefficient: 0.5
   - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
+    walkModifier: 0.95
+    sprintModifier: 0.95
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false
@@ -187,8 +172,6 @@
   - type: StaticPrice
     price: 1350
     vendPrice: 8000
-  - type: PirateBountyItem # Mono
-    id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -233,8 +216,6 @@
   - type: StaticPrice
     price: 3300
     vendPrice: 20000
-  - type: PirateBountyItem # Mono
-    id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -279,5 +260,4 @@
   - type: StaticPrice
     price: 4200
     vendPrice: 25000
-  - type: PirateBountyItem # Mono
-    id: ClothingOuterHardsuitTacsuitHighValue
+

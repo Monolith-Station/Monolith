@@ -1,18 +1,14 @@
-// SPDX-FileCopyrightText: 2025 cheetah1984
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Power.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Materials.OreSilo;
 
-public abstract class SharedOreSiloSystem : EntitySystem
+public abstract partial class SharedOreSiloSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMaterialStorageSystem _materialStorage = default!;
+    [Dependency] private SharedPowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private EntityQuery<OreSiloClientComponent> _clientQuery;
 

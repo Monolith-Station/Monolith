@@ -20,15 +20,16 @@
         - LandMineExplosive
         - BannerSyndicate
         - Telecrystal5 # Mono
-        - Telecrystal5 # Mono # Mono
-        - Telecrystal5 # Mono # Mono
+        - Telecrystal5 # Mono
+        - Telecrystal5 # Mono
       rarePrototypes:
         - Telecrystal25 # Mono
-        - Telecrystal25 # Mono # Mono
-        - Telecrystal25 # Mono # Mono
+        - Telecrystal25 # Mono
+        - Telecrystal25 # Mono
         - SpawnMobWeaponTurretLaserSyndicateNF # Mono
         - SpawnMobWeaponTurretSyndicate # Mono
         - CrateSyndicateSurplusBundle # Mono
+        - CrateNanotrasenLootFilledT1 # Mono
       rareChance: 0.1 # Mono
 
 - type: entity
@@ -47,11 +48,19 @@
         - CrateTradeContrabandSecure5
         - CrateTradeContrabandSecure4
         - CrateTradeContrabandSecure3
+        - CrateNanotrasenLootFilledT1 # Mono
       rarePrototypes:
         - CrateSyndicateSurplusBundle
         - CrateSyndicateSurplusBundle
+        - CrateSyndicateSuperSurplusBundle
+# Begin Mono additions
+        - CrateSyndicateSurplusBundle
         - CrateSyndicateSurplusBundle
         - CrateSyndicateSuperSurplusBundle
+        - CrateNanotrasenLootFilledT3
+        - CrateNanotrasenLootFilledT2
+        - CrateNanotrasenLootFilledT2
+# End Mono Additions
       rareChance: 0.1
 
 - type: entity

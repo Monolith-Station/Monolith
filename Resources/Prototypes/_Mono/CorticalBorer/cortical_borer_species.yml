@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Coenx-flex
-# SPDX-FileCopyrightText: 2025 Cojoke
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ark1368
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   name: Cortical Borer
   parent: SimpleSpaceMobBase
@@ -18,10 +10,10 @@
     allowMovement: true
     requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
+      time: 180000 # 50 hrs - THIS IS WHY WE CANT HAVE NICE THINGS
     name: cortical-borer-ghostrole-name
     description: cortical-borer-ghostrole-desc
-    rules: ghost-role-information-freeagent-rules
+    rules: cortical-borer-ghostrole-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
@@ -75,8 +67,8 @@
   - type: Tag
     tags:
     - Meat
+    - VimPilot
   - type: ThermalVision
-    color: "#ae65bf"
     lightRadius: 15
     activateSound: null
     deactivateSound: null
@@ -93,11 +85,14 @@
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
   - type: CollectiveMind
-    channel: CorticalBorer
+    channels:
+    - CorticalBorer
+    defaultChannel: CorticalBorer
   - type: Speech
     enabled: false
   - type: HealthAnalyzer
-    silent: true
+    scanningEndSound:
+      path: "/Audio/Voice/Slime/slime_squish.ogg"
     maxScanRange: .5
   - type: CanEscapeInventory
   - type: GuideHelp
@@ -121,10 +116,10 @@
   - type: GhostRole
     name: cortical-borer-ghostrole-name
     description: cortical-borer-ghostrole-desc
-    rules: ghost-role-information-freeagent-rules
+    rules: cortical-borer-ghostrole-rules
     requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
+      time: 180000 # 50 hrs
     mindRoles:
     - MindRoleGhostRoleFreeAgent
   - type: GhostRoleMobSpawner

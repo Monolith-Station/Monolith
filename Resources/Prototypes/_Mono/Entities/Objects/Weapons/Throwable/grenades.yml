@@ -1,0 +1,145 @@
+- type: entity
+  parent: SmokeGrenade
+  id: NanolaminateFoamGrenade
+  name: nanolaminate foam grenade
+  description: An advanced version of a metal foam grenade. Instead of aluminium, the foam grows a nano-reinforced alloy in a large area, capable of sustaining much more damage than aluminium.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/metalfoam.rsi
+  - type: SmokeOnTrigger
+    duration: 4
+    spreadAmount: 17
+    smokePrototype: NanolaminateFoam
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  id: NanolaminateFoam
+  name: nanolaminate foam
+  categories: [ HideSpawnMenu ]
+  parent: MetalFoam
+  components:
+  - type: SpawnOnDespawn
+    prototype: FoamedNanolaminateMetal
+
+- type: entity
+  id: FoamedNanolaminateMetal
+  name: foamed nanolaminate
+  description: "For sealing hull breaches."
+  parent: BaseFoamedMetal
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    color: "#808e96cc"
+    sprite: Effects/foam.rsi
+    layers:
+    - state: metal_foam
+      map: ["enum.FoamVisualLayers.Base"]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: metal_foam-south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: metal_foam-east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: metal_foam-north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: metal_foam-west
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  name: sticky bomb
+  description: An anti-tank sticky bomb based on old designs, still effective even in space. Packs a punch, but has a long delay.
+  parent: GrenadeBase
+  id: StickyGrenade
+  components:
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 25
+    intensitySlope: 50
+    maxIntensity: 20
+    canCreateVacuum: false
+  - type: OnUseTimerTrigger
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 0.6 # 2 beeps total (at 0 and 2)
+    delay: 10
+  - type: EmbeddableProjectile
+    offset: 0.3,0.0
+    removalTime: 3.0
+  - type: LandAtCursor
+  - type: Tag
+    tags:
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: StickyGrenadeLaunched
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Bombs/sticky_bomb.rsi
+    layers:
+    - state: icon
+      map: [ "enum.TriggerVisualLayers.Base" ]
+
+- type: entity
+  name: dirty bomb
+  description: A unique weapon, effective at area denial. After a few seconds, degrades into a highly radioactive sludge. Probably illegal in the inner sectors, but that won't stop you.
+  parent: GrenadeBase
+  id: DirtyRadGrenade
+  components:
+  - type: OnUseTimerTrigger
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 0.2 # 2 beeps total (at 0 and 2)
+    delay: 5
+  - type: ThrowingAngle
+    angle: 315
+  - type: LandAtCursor
+  - type: SpawnOnTrigger
+    proto: DirtyRadHeap
+  - type: Tag
+    tags:
+    - GrenadeLaunchable
+  - type: CartridgeAmmo
+    proto: StickyGrenadeLaunched
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Bombs/dirtyradgrenade.rsi
+    layers:
+    - state: icon
+      map: [ "enum.TriggerVisualLayers.Base" ]
+  - type: DeleteOnTrigger
+
+- type: entity
+  name: radioactive heap
+  description: Basically the elephant's foot. Even just looking at this makes you feel cancerous.
+  parent: BaseItem
+  id: DirtyRadHeap
+  components:
+  - type: RadiationSource
+    intensity: 5
+    slope: 1
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Bombs/dirtyradgrenade.rsi
+    layers:
+    - state: melted
+      map: [ "enum.TriggerVisualLayers.Base" ]
+  - type: Item
+    size: Small
+  - type: TimedDespawn
+    lifetime: 120
+  - type: PointLight
+    enabled: true
+    radius: 2
+    color: "#03b1fc"

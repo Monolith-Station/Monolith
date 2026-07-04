@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2025 CerberusWolfie
-// SPDX-FileCopyrightText: 2025 FoxxoTrystan
-// SPDX-FileCopyrightText: 2025 GoobBot
-// SPDX-FileCopyrightText: 2025 Mnemotechnican
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Events;
@@ -16,9 +8,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._EinsteinEngines.Language.Systems;
 
-public sealed class LanguageSystem : SharedLanguageSystem
+public sealed partial class LanguageSystem : SharedLanguageSystem
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     /// <summary>
     ///     Invoked when the Languages of the local player entity change, for use in UI.

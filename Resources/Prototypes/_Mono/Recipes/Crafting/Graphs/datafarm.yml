@@ -1,0 +1,18 @@
+- type: constructionGraph
+  id: Datafarm
+  start: research
+  graph:
+  - node: research
+    entity: DataFarmResearchCircuitboard
+    edges:
+    - to: crypto
+      steps:
+      - tool: Screwing
+        doAfter: 2
+  - node: crypto
+    entity: DataFarmCryptoCircuitboard
+    edges:
+    - to: research
+      steps:
+      - tool: Screwing
+        doAfter: 2

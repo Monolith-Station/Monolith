@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 AndresE55
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   save: false
   id: NFMobAtmos
@@ -114,7 +105,6 @@
     - type: CanMoveInAir
     - type: Tag
     - type: Access
-    - type: Timer
     - type: TimedSpawner
     - type: Advertise
       pack: FuelVendAds # placeholder, required field, unused
@@ -487,7 +477,8 @@
     - DoorBumpOpener
     - CannotSuicide
   - type: FTLKnockdownImmune
-
+  
+# Mono edit - Faction overwriting fix
 # A simpler base for extending existing mobs (e.g. carp, kangaroos, snakes, xenos)
 - type: entity
   suffix: Frontier, Hostile
@@ -498,7 +489,7 @@
   - MobPrying
   - MobHumanoidHostileAISimpleMelee
   - BaseC3MobCreature
-  id: NFMobSimpleHostileBase
+  id: NFMobFactionlessBase
   components:
   - type: NPCRetaliation
     attackMemoryLength: 10
@@ -522,8 +513,18 @@
     group: GenericNumber
   - type: Puller
   - type: Hands
+  - type: Carriable # Kept for consistency with other mobs
+  - type: FTLKnockdownImmune
+
+
+- type: entity
+  suffix: Frontier, Hostile
+  abstract: true
+  parent:
+  - NFMobFactionlessBase
+  id: NFMobSimpleHostileBase
+  components:
   - type: NpcFactionMember
     factions:
     - SimpleHostile
-  - type: Carriable # Kept for consistency with other mobs
-  - type: FTLKnockdownImmune
+# Mono edit end

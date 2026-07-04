@@ -1,30 +1,24 @@
-# SPDX-FileCopyrightText: 2025 IndependentSpacer
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadout
   id: MercenaryVestSlim
-  price: 250
+  price: 0
   equipment:
     outerClothing: ClothingOuterArmorBasicSlim
 
 - type: loadout
   id: MercenaryVestNormal
-  price: 250
+  price: 0
   equipment:
     outerClothing: ClothingOuterArmorBasic
 
 - type: loadout
   id: MercenaryClothingOuterVestDetective
-  price: 250
+  price: 0
   equipment:
     outerClothing: ClothingOuterVestDetective
 
 - type: loadout
   id: MercenaryClothingOuterCoatBHTrench
-  price: 750
+  price: 0
   equipment:
     outerClothing: ClothingOuterCoatBHTrench
 
@@ -32,55 +26,48 @@
 
 - type: loadout
   id: MercenaryClothingOuterArmorBPVestLight
-  price: 750
+  price: 0
   equipment:
     outerClothing: ClothingOuterArmorBPVestLight
 
 - type: loadout
   id: MercenaryClothingOuterArmorBPVestMedium
-  price: 750
+  price: 0
   equipment:
     outerClothing: ClothingOuterArmorBPVestMedium
 
 - type: loadout
   id: MercenaryClothingOuterArmorBPVestHeavy
-  price: 1250
+  price: 0
   equipment:
     outerClothing: ClothingOuterArmorBPVestHeavy
 
 - type: loadout
   id: MercenaryClothingOuterArmorBPVestPolyvalent
-  price: 500
+  price: 0
   equipment:
     outerClothing: ClothingOuterArmorBPVestPolyvalent
 
 - type: loadout
   id: MercenaryClothingOuterArmorBPVestStabproof
-  price: 250
+  price: 0
   equipment:
     outerClothing: ClothingOuterArmorBPVestStabproof
 
 - type: loadout
   id: MercenaryClothingOuterHardsuitMercenary
-  price: 15000
+  price: 0
   equipment:
     outerClothing: ClothingOuterHardsuitMercenary
 
 - type: loadout
   id: MercenaryClothingOuterHardsuitPrivateSecurity
-  price: 15000
+  price: 0
   equipment:
     outerClothing: ClothingOuterHardsuitPrivateSecurity
-
-- type: loadout
-  id: MercenaryClothingOuterHardsuitScaf
-  price: 50000
-  equipment:
-    outerClothing: ClothingOuterHardsuitScaf
 
 - type: loadout
   id: MercenaryClothingOuterHardsuitMercenaryWarlord
   price: 50000
   equipment:
     outerClothing: ClothingOuterHardsuitMercenaryWarlord
-    

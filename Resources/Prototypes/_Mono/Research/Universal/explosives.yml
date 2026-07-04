@@ -1,0 +1,18 @@
+
+- type: technology
+  id: PrintableExplosives
+  name: research-technology-printable-explosives
+  entityIcon: C4
+  discipline: FactionUniversal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - PrintableC4
+  - PrintableEmpGrenade
+  - PrintableExplosiveGrenade
+  - PrintableStickyBomb
+  - PrintableBombCollar
+  - PrintableBombCollarSealer
+  technologyPrerequisites:
+  - UniversalPlastitaniumCore
+  position: 7, 7

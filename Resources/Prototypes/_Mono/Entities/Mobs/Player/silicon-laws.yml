@@ -1,12 +1,9 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 KiraZen_
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Redacted
+- type: siliconLaw
+  id: RedactedBorg1
+  order: 1
+  lawString: law-ads-1-borg
+
 - type: siliconLaw
   id: Redacted1
   order: 1
@@ -27,6 +24,16 @@
   order: 4
   lawString: law-ads-4
 
+- type: siliconLaw
+  id: Redacted5
+  order: 5
+  lawString: law-ads-5
+
+- type: siliconLaw
+  id: Redacted6
+  order: 6
+  lawString: law-ads-6
+
 - type: siliconLawset
   id: Redacted
   laws:
@@ -34,6 +41,19 @@
   - Redacted2
   - Redacted3
   - Redacted4
+  - Redacted5
+  - Redacted6
+  obeysTo: laws-owner-syndicate
+
+- type: siliconLawset
+  id: RedactedBorg
+  laws:
+  - RedactedBorg1
+  - Redacted2
+  - Redacted3
+  - Redacted4
+  - Redacted5
+  - Redacted6
   obeysTo: laws-owner-syndicate
 
 # Vessel lawset
@@ -68,26 +88,26 @@
 
 # Rogue lawset
 - type: siliconLaw
-  id: Rogue1
+  id: PDV1
   order: 1
-  lawString: law-rogue-1
+  lawString: law-pdv-1
 
 - type: siliconLaw
-  id: Rogue2
+  id: PDV2
   order: 2
-  lawString: law-rogue-2
+  lawString: law-pdv-2
 
 - type: siliconLaw
-  id: Rogue3
+  id: PDV3
   order: 3
-  lawString: law-rogue-3
+  lawString: law-pdv-3
 
 - type: siliconLawset
-  id: RogueLawset
+  id: PDVLawset
   laws:
-  - Rogue1
-  - Rogue2
-  - Rogue3
+  - PDV1
+  - PDV2
+  - PDV3
   obeysTo: laws-owner-crew
 
 # TSFMC lawset
@@ -111,6 +131,11 @@
   order: 4
   lawString: law-tsfmc-4
 
+- type: siliconLaw
+  id: TSFMCBORG3
+  order: 3
+  lawString: law-tsfmc-borg-3
+
 - type: siliconLawset
   id: TSFMCLawset
   laws:
@@ -118,6 +143,14 @@
   - TSFMC2
   - TSFMC3
   - TSFMC4
+  obeysTo: laws-owner-crew
+
+- type: siliconLawset
+  id: TSFMCBorgLawset
+  laws:
+  - TSFMC1
+  - TSFMC2
+  - TSFMCBORG3
   obeysTo: laws-owner-crew
 
 # Freeman lawset

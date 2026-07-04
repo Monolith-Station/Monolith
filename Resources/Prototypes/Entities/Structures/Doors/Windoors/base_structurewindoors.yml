@@ -6,6 +6,10 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -159,6 +163,10 @@
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:
       - South
+  - type: DeltaPressure
+    minPressure: 250
+    minPressureDelta: 187.5
+    scalingType: Threshold
   - type: Construction
     graph: Windoor
     node: windoor
@@ -167,6 +175,10 @@
   - type: StaticPrice
     price: 100 # Frontier: 150<100 - TODO: material value rework
   - type: PryUnpowered
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   id: BaseSecureWindoor
@@ -231,6 +243,10 @@
   - type: Construction
     graph: Windoor
     node: windoorSecure
+  - type: DeltaPressure
+    minPressure: 3750
+    minPressureDelta: 2500
+    scalingType: Threshold
   - type: StaticPrice
     price: 200 # Frontier: 350<200 - TODO: material value rework
   - type: Tag
@@ -300,10 +316,15 @@
   - type: Construction
     graph: Windoor
     node: pwindoor
+  - type: DeltaPressure
+    minPressure: 18750
+    minPressureDelta: 12500
+    scalingType: Threshold
   - type: StaticPrice
     price: 170 # Frontier: 500<170 - TODO: material value rework
   - type: RadiationBlocker
     resistance: 2
+  - type: HitscanDiffractTarget # Mono - Causes diffraction
 
 - type: entity
   id: BaseSecurePlasmaWindoor
@@ -366,6 +387,10 @@
   - type: Construction
     graph: Windoor
     node: pwindoorSecure
+  - type: DeltaPressure
+    minPressure: 37500
+    minPressureDelta: 25000
+    scalingType: Threshold
   - type: StaticPrice
     price: 312 # Frontier: 500<312 - material value rework
   - type: RadiationBlocker
@@ -374,7 +399,7 @@
     tags:
       - SecurePlasmaWindoor
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
-
+  - type: HitscanDiffractTarget # Mono - Causes diffraction
 
 #Uranium Windoors
 - type: entity
@@ -434,6 +459,10 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: DeltaPressure
+    minPressure: 18750
+    minPressureDelta: 12500
+    scalingType: Threshold
   - type: Construction
     graph: Windoor
     node: uwindoor
@@ -500,6 +529,10 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: DeltaPressure
+    minPressure: 37500
+    minPressureDelta: 25000
+    scalingType: Threshold
   - type: Construction
     graph: Windoor
     node: uwindoorSecure

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 themias
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
 using Content.Shared.Chat.Prototypes;
@@ -9,10 +5,10 @@ using Content.Shared.Speech.Components;
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed class MumbleAccentSystem : EntitySystem
+public sealed partial class MumbleAccentSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private ReplacementAccentSystem _replacement = default!;
 
     public override void Initialize()
     {

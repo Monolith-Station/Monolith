@@ -1,0 +1,426 @@
+- type: trait
+  id: PrybarProsthetics
+  name: trait-prybar-prosthetics-name
+  description: trait-prybar-prosthetics-desc
+  category: Physical
+  cost: 2
+  components:
+  - type: PrybarProsthetics
+
+- type: trait
+  id: Vigor
+  name: trait-vigor-name
+  description: trait-vigor-desc
+  category: Physical
+  cost: 6
+  mutuallyExclusiveTraits:
+  - Lethargy
+  speciesBlacklist:
+  - Oni
+  - IPC
+  components:
+  - type: Vigor
+
+- type: trait
+  id: Lethargy
+  name: trait-lethargy-name
+  description: trait-lethargy-desc
+  category: Physical
+  cost: -4
+  mutuallyExclusiveTraits:
+  - Vigor
+  speciesBlacklist:
+  - Felinid
+  - Tajaran
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: Lethargy
+
+- type: trait
+  id: GlassJaw
+  name: trait-glass-jaw-name
+  description: trait-glass-jaw-desc
+  category: Physical
+  cost: -2
+  mutuallyExclusiveTraits:
+  - Tenacity
+  speciesBlacklist:
+  - IPC
+  components:
+  - type: GlassJaw
+
+- type: trait
+  id: Tenacity
+  name: trait-tenacity-name
+  description: trait-tenacity-desc
+  category: Physical
+  cost: 1
+  mutuallyExclusiveTraits:
+  - GlassJaw
+  - OsteogenesisImperfecta
+  speciesBlacklist:
+  - IPC
+  components:
+  - type: Tenacity
+
+- type: trait
+  id: WillToLive
+  name: trait-will-to-live-name
+  description: trait-will-to-live-desc
+  category: Physical
+  cost: 1
+  mutuallyExclusiveTraits:
+  - WillToDie
+  - Redshirt
+  speciesBlacklist:
+  - IPC
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: WillToLive
+
+- type: trait
+  id: WillToDie
+  name: trait-will-to-die-name
+  description: trait-will-to-die-desc
+  category: Physical
+  cost: -1
+  mutuallyExclusiveTraits:
+  - WillToLive
+  speciesBlacklist:
+  - IPC
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: WillToDie
+
+- type: trait
+  id: Thieving
+  name: trait-thieving-name
+  description: trait-thieving-desc
+  category: Physical
+  cost: 2
+  speciesBlacklist:
+  - Felinid
+  components:
+  - type: Thieving
+    stealthy: false
+    timeMultiplier: 0.5
+    identifyHidden: true
+
+- type: trait
+  id: BionicLegs
+  name: trait-bionic-legs-name
+  description: trait-bionic-legs-desc
+  category: Physical
+  cost: 2
+  components:
+  - type: BionicLegs
+
+- type: trait
+  id: OsteogenesisImperfecta
+  name: trait-osteogenesis-imperfecta-name
+  description: trait-osteogenesis-imperfecta-desc
+  category: Physical
+  cost: -6
+  mutuallyExclusiveTraits:
+  - Tenacity
+  speciesBlacklist:
+  - IPC
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: GlassJaw
+    critDecrease: 50
+
+- type: trait
+  id: Hemophilia
+  name: trait-hemophilia-name
+  description: trait-hemophilia-desc
+  category: Physical
+  cost: -4
+  speciesBlacklist:
+  - IPC
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: Hemophilia
+
+- type: trait
+  id: Voracious
+  name: trait-voracious-name
+  description: trait-voracious-desc
+  category: Physical
+  cost: 1
+  speciesBlacklist:
+    - IPC
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+    - type: Voracious
+      consumptionSpeedMultiplier: 2.0
+
+- type: trait
+  id: BionicSpinarette
+  name: trait-bionic-spinarette-name
+  description: trait-bionic-spinarette-desc
+  category: Physical
+  cost: 2
+  speciesBlacklist:
+    - IPC
+    - Arachnid
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+    - type: Sericulture
+      action: ActionSericulture
+      productionLength: 2
+      entityProduced: MaterialWebSilk1
+      hungerCost: 4
+
+- type: trait
+  id: Feeble
+  name: trait-feeble-name
+  description: trait-feeble-desc
+  category: Physical
+  cost: -4
+  mutuallyExclusiveTraits:
+   - Steadfast
+  speciesBlacklist:
+   - Felinid
+   - Tajaran
+  components:
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        "45": 0.70
+        "65": 0.46
+
+- type: trait
+  id: TrapAvoider
+  name: trait-trap-avoider-name
+  description: trait-trap-avoider-desc
+  category: Physical
+  cost: 3
+  speciesBlacklist:
+    - Felinid
+    - Tajaran
+    - Harpy
+  components:
+    - type: TrapAvoider
+
+- type: trait
+  id: SelfAware
+  name: trait-self-aware-name
+  description: trait-self-aware-desc
+  category: Physical
+  cost: 2
+  components:
+  - type: SelfAware
+
+- type: trait
+  id: LiquorLifeline
+  name: trait-liquor-lifeline-name
+  description: trait-liquor-lifeline-desc
+  category: Physical
+  cost: 6
+  mutuallyExclusiveTraits:
+  - AlcoholTolerance
+  speciesBlacklist:
+  - IPC
+  - Dwarf
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: LiquorLifeline
+
+- type: trait
+  id: Redshirt
+  name: trait-redshirt-name
+  description: trait-redshirt-desc
+  category: Physical
+  cost: -8
+  mutuallyExclusiveTraits:
+  - WillToLive
+  speciesBlacklist:
+  - IPC
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: WillToDie
+    deadDecrease: 100
+
+- type: trait
+  id: StrikingCalluses
+  name: trait-striking-calluses-name
+  description: trait-striking-calluses-desc
+  category: Physical
+  cost: 2
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: StrikingCalluses
+
+- type: trait
+  id: Steadfast
+  name: trait-steadfast-name
+  description: trait-steadfast-desc
+  category: Physical
+  cost: 3
+  mutuallyExclusiveTraits:
+  - Feeble
+  speciesBlacklist:
+  - Felinid
+  - Tajaran
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      "70": 0.83
+      "90": 0.70
+
+- type: trait
+  id: DermalArmor
+  name: trait-dermal-armor-name
+  description: trait-dermal-armor-desc
+  category: Physical
+  cost: 6
+  components:
+  - type: DamageProtectionBuff
+    modifiers:
+      dermal:
+        id: DermalArmorTrait
+        coefficients:
+          Shock: 1.25
+        flatReductions:
+          Blunt: 3.5
+          Slash: 3.5
+          Piercing: 3.5
+          
+- type: trait
+  id: HardenedLymphocytes
+  name: trait-hardened-lymphocytes-name
+  description: trait-hardened-lymphocytes-desc
+  category: Physical
+  cost: 4
+  speciesBlacklist:
+  - IPC
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: DamageProtectionBuff
+    modifiers:
+      dermal:
+        id: HardenedLymphocytesTrait
+        flatReductions:
+          Radiation: 1
+
+- type: trait
+  id: Ironman
+  name: trait-ironman-name
+  description: trait-ironman-desc
+  category: Physical
+  cost: -5 # This shit was FREE for factions practically
+  components:
+  - type: Ironman
+  traitGear: ShipVoucherFrontierIronMan
+
+- type: trait
+  id: TemperatureTolerance
+  name: trait-temperature-tolerance-name
+  description: trait-temperature-tolerance-desc
+  category: Physical
+  cost: 1
+  components:
+  - type: TemperatureProtection
+    coolingCoefficient: 0.6
+
+- type: trait
+  id: AlcoholTolerance
+  name: trait-alcohol-tolerance-name
+  description: trait-alcohol-tolerance-desc
+  category: Physical
+  cost: 1
+  mutuallyExclusiveTraits:
+  - LightweightDrunk
+  - LiquorLifeline
+  speciesBlacklist:
+  - Dwarf
+  - IPC
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: AlcoholTolerance
+    visualScaleMultiplier: 0.35
+
+- type: trait
+  id: PlateletFactories
+  name: trait-platelet-factories-name
+  description: trait-platelet-factories-desc
+  category: Physical
+  cost: 6
+  mutuallyExclusiveTraits:
+  - Hemophilia
+  speciesBlacklist:
+  - IPC
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: PlateletFactories
+    intervalSeconds: 1
+    damagePerInterval:
+      groups:
+        Brute: -1.5
+        Burn: -2
+    critMultiplier: .25
+
+- type: trait
+  id: NaniteRepairDrones
+  name: trait-nanite-repair-drones-name
+  description: trait-nanite-repair-drones-desc
+  category: Physical
+  cost: 8
+  speciesBlacklist:
+  - Human
+  - Chitinid
+  - Oni
+  - Vulpkanin
+  - Vox
+  - Diona
+  - Moth
+  - Goblin
+  - Arachnid
+  - Resomi
+  - Harpy
+  - Reptilian
+  - Hydrakin
+  - Rodentia
+  - Dwarf
+  - SlimePerson
+  - Felinid
+  - Tajaran
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: PlateletFactories
+    intervalSeconds: 1
+    damagePerInterval:
+      groups:
+        Brute: -1.5
+        Burn: -2

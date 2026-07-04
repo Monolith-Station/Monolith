@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba
-// SPDX-FileCopyrightText: 2025 chromiumboy
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client.Pinpointer.UI;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Pinpointer;
@@ -16,7 +11,7 @@ namespace Content.Client.Atmos.Consoles;
 
 public sealed partial class AtmosMonitoringConsoleNavMapControl : NavMapControl
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public bool ShowPipeNetwork = true;
     public int? FocusNetId = null;

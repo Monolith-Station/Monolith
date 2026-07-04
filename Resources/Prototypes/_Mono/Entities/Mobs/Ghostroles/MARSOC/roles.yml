@@ -1,0 +1,136 @@
+# FTL
+- type: entity
+  parent: MobHumanMarsocBase
+  id: MobHumanMarsocFTL
+  name: MARSOC fire team leader
+  components:
+  - type: Loadout
+    prototypes: [MarsocFTLGear]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-marsoc-ftl-name
+    description: ghost-role-information-marsoc-description
+    rules: ghost-role-information-marsoc-rules
+    raffle:
+      settings: short
+
+# Operative
+- type: entity
+  parent: MobHumanMarsocBase
+  id: MobHumanMarsocOperative
+  name: MARSOC operative
+  components:
+  - type: Loadout
+    prototypes: [MarsocOperativeGear]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-marsoc-operative-name
+    description: ghost-role-information-marsoc-description
+    rules: ghost-role-information-marsoc-rules
+    raffle:
+      settings: short
+
+# Marksman (MR-8C)
+- type: entity
+  parent: MobHumanMarsocBase
+  id: MobHumanMarsocMarksman
+  name: MARSOC marksman
+  components:
+  - type: Loadout
+    prototypes: [MarsocMarksmanGear]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-marsoc-marksman-name
+    description: ghost-role-information-marsoc-description
+    rules: ghost-role-information-marsoc-rules
+    raffle:
+      settings: short
+
+# Corpsman
+- type: entity
+  parent: MobHumanMarsocBase
+  id: MobHumanMarsocCorpsman
+  name: MARSOC corpsman
+  components:
+  - type: Loadout
+    prototypes: [MarsocCorpsmanGear]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-marsoc-corpsman-name
+    description: ghost-role-information-marsoc-description
+    rules: ghost-role-information-marsoc-rules
+    raffle:
+      settings: short
+  - type: SurgerySpeedModifier
+    speedModifier: 2.25
+
+# SGO
+- type: entity
+  parent: MobHumanMarsocBase
+  id: MobHumanMarsocSGO
+  name: MARSOC smart gun operator
+  components:
+  - type: Loadout
+    prototypes: [MarsocSGOGear]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-marsoc-sgo-name
+    description: ghost-role-information-marsoc-description
+    rules: ghost-role-information-marsoc-rules
+    raffle:
+      settings: short
+
+# Autorifleman
+- type: entity
+  parent: MobHumanMarsocBase
+  id: MobHumanMarsocAutorifleman
+  name: MARSOC autorifleman
+  components:
+  - type: Loadout
+    prototypes: [MarsocAutoriflemanGear]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-marsoc-autorifleman-name
+    description: ghost-role-information-marsoc-description
+    rules: ghost-role-information-marsoc-rules
+    raffle:
+      settings: short
+
+# yeah
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanMarsocBase
+  name: operative base
+  suffix: Human, Base
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: True
+  - type: HumanoidAppearance
+  - type: Loadout
+    prototypes: [MarsocOperativeGear]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-marsoc-operative-name
+    description: ghost-role-information-marsoc-description
+    rules: ghost-role-information-marsoc-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitary
+    - NamesLastMilitary
+  - type: NpcFactionMember
+    factions:
+    - TSFMC
+  - type: Company
+    companyName: TSFHighComm
+  - type: MindShield
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
+
+- type: roleLoadout
+  id: RoleSurvivalTankOnly
+  groups:
+  - GroupEVATank

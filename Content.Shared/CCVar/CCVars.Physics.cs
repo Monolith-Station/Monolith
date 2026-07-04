@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Simon
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
@@ -18,7 +11,7 @@ public sealed partial class CCVars
         CVarDef.Create("physics.relative_movement", true, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
     public static readonly CVarDef<float> MinFriction =
-        CVarDef.Create("physics.min_friction", 0.0f, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("physics.min_friction", 0f, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
     public static readonly CVarDef<float> AirFriction =
         CVarDef.Create("physics.air_friction", 0.2f, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);

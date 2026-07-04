@@ -1,0 +1,292 @@
+# Base Heavy Turret
+- type: entity
+  id: BallisticTurretHeavyBase
+  parent: BaseWeaponTurret
+  name: heavy ballistic turret
+  description: A massively reinforced turret, firing a barrage of anti-material 7.62x51mm rounds that rip up targets and mechs alike. Woe be the fool who walks in front of this.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Turrets/heavy_turret.rsi
+    drawdepth: Mobs
+    layers:
+    - state: syndie_lethal
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+       # TODO: Construction graph
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 10
+            max: 20
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Battery
+    maxCharge: 5000
+    startingCharge: 5000
+  - type: Gun
+    fireRate: 4.5
+    projectileSpeed: 65
+    maxAngle: 12
+    minAngle: 0
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: Bullet762x51mmAntiMaterial
+    fireCost: 25
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+  - type: StaticPrice
+    price: 1500
+
+# Faction Based
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyCC
+  suffix: CC, Colossus
+  components:
+  - type: NpcFactionMember
+    factions:
+    - CC
+
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyNanoTrasen
+  suffix: NanoTrasen
+  components:
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyHostile
+  suffix: Hostile
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyAllHostile
+  suffix: All hostile
+  components:
+  - type: NpcFactionMember
+    factions:
+    - HostileUniversally
+
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavySyndicate
+  suffix: Syndicate
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyTSFMC
+  suffix: TSF
+  components:
+  - type: NpcFactionMember
+    factions:
+    - TSFMCTurret
+
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyVDN
+  suffix: PDV
+  components:
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyMD
+  suffix: Medical
+  components:
+  - type: NpcFactionMember
+    factions:
+    - MD
+
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavySilicon
+  suffix: Rogue AI
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SiliconsExpeditionNF
+
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyViper
+  suffix: Viper #I'm not sure where we'd actually need a gun this big, but hey.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - VGTurret
+
+# Anti-Chimera Variant
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyRIPBase
+  name: heavy ballistic RIP turret
+  description: A variant on the standard heavy ballistic turret, firing a barrage of 7.62x51mm RIP ammunition to delete anything unarmored. Chimera hate these.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Turrets/heavy_turret_RIP.rsi
+    drawdepth: Mobs
+    layers:
+    - state: syndie_lethal_RIP
+  - type: ProjectileBatteryAmmoProvider
+    proto: Bullet762x51mmRIP
+    fireCost: 25
+
+# Repairable wrecked state for RIP turrets tasked with anti-spawncamp (making them soft-indestructible)
+- type: entity
+  parent: BaseStructure
+  id: WeaponTurretRepairableBroken
+  name: heavy ballistic RIP turret (broken)
+  description: Chimera prefer it like this. It looks like it can be brought back online with a bit of welding or nanites.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+    noRot: true
+    drawdepth: Mobs
+    layers:
+    - state: syndie_broken
+  - type: Construction
+    graph: RepairableTurret
+    node: breakTurret
+
+# Faction Based
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPCC
+  suffix: CC, Colossus
+  components:
+  - type: NpcFactionMember
+    factions:
+    - CC
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: breakTurret
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+  - type: Construction
+    graph: RepairableTurret
+    node: repairTurret
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPNanoTrasen
+  suffix: NanoTrasen
+  components:
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPHostile
+  suffix: Hostile
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPAllHostile
+  suffix: All hostile
+  components:
+  - type: NpcFactionMember
+    factions:
+    - HostileUniversally
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPSyndicate
+  suffix: Syndicate
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPTSFMC
+  suffix: TSF
+  components:
+  - type: NpcFactionMember
+    factions:
+    - TSFMCTurret
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPVDN
+  suffix: PDV
+  components:
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPMD
+  suffix: Medical
+  components:
+  - type: NpcFactionMember
+    factions:
+    - MD
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPSilicon
+  suffix: Rogue AI
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SiliconsExpeditionNF
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPViper # ... Also not sure why we wouldn't just use the basic CC one for spawncamp purposes but hey.
+  suffix: Viper
+  components:
+  - type: NpcFactionMember
+    factions:
+    - VGTurret

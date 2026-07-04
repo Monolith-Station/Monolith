@@ -1,16 +1,3 @@
-# SPDX-FileCopyrightText: 2023 IData-RedactedI
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 wafehling
-# SPDX-FileCopyrightText: 2025 Honestly101
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 dustylens
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: ShredderMachineCircuitboard
   parent: BaseMachineCircuitboard
@@ -119,7 +106,7 @@
   - type: MachineBoard
     prototype: ThrusterSecurity
     requirements:
-      Capacitor: 3
+      Capacitor: 1
     stackRequirements:
       Steel: 5
 
@@ -131,7 +118,7 @@
   - type: MachineBoard
     prototype: ThrusterNfsd
     requirements:
-      Capacitor: 3
+      Capacitor: 1
     stackRequirements:
       Steel: 5
 
@@ -143,7 +130,7 @@
   - type: MachineBoard
     prototype: ThrusterUSSP
     requirements:
-      Capacitor: 3
+      Capacitor: 1
     stackRequirements:
       Steel: 5
 
@@ -155,7 +142,7 @@
   - type: MachineBoard
     prototype: ThrusterRogue
     requirements:
-      Capacitor: 3
+      Capacitor: 1
     stackRequirements:
       Steel: 5
 
@@ -167,7 +154,7 @@
   - type: MachineBoard
     prototype: SmallThruster
     requirements:
-      Capacitor: 4
+      Capacitor: 1 # Mono 1<4
     stackRequirements:
       Steel: 5
   - type: StaticPrice
@@ -249,22 +236,8 @@
     price: 17.5
 
 - type: entity
-  parent: BaseMachineCircuitboard
-  id: M_EmpMachineCircuitboard
-  name: M_EMP Generator machine board
-  description: A machine printed circuit board for a mobile EMP generator.
-  components:
-  - type: MachineBoard
-    prototype: M_Emp
-    requirements:
-      Capacitor: 4
-    stackRequirements:
-      Steel: 5
-      Cable: 2
-
-- type: entity
   id: PortableGeneratorDKMachineCircuitboard
-  parent: [ BaseMachineCircuitboard, BaseC2ContrabandUnredeemable ]
+  parent: BaseMachineCircuitboard
   name: D-K-type portable generator machine board
   description: A machine printed circuit board for a D-K-type portable generator.
   components:
@@ -286,7 +259,7 @@
 
 - type: entity
   id: PortableGeneratorDKJrMachineCircuitboard
-  parent: [ BaseMachineCircuitboard, BaseC1Contraband ]
+  parent: BaseMachineCircuitboard
   name: D-K Jr.-type portable generator machine board
   description: A machine printed circuit board for a D-K Jr.-type portable generator.
   components:

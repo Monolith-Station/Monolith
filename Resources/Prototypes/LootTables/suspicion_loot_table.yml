@@ -1,15 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2022 ZeroDayDaemon
-# SPDX-FileCopyrightText: 2022 and_a
-# SPDX-FileCopyrightText: 2023 TaralGit
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2024 starch
-# SPDX-FileCopyrightText: 2025 K-Dynamic
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # These will be spawned randomly around the station
 - type: entityLootTable
   id: SuspicionRule
@@ -136,19 +124,21 @@
 
 
     # Spawn a bunch of ammo around!
-  - id: Magazine5.56x45mmFMJ
+  - id: Magazine556x45mmFMJ
     maxAmount: 15
-  - id: Magazine6.35x40mmCaseless
+  - id: Magazine635x40mmCaseless
     maxAmount: 15
-  - id: Magazine6.35x40mmCaselessBig
+  - id: Magazine635x40mmCaselessBig
     maxAmount: 15
-  - id: Magazine6.35x40mmCaselessPistol
+  - id: Magazine635x40mmCaselessPistol
     maxAmount: 15
-  - id: Magazine7.62x39mmFMJ
+  - id: Magazine762x39mmFMJ
     maxAmount: 15
   - id: Magazine12_gaugeBuckshot
     maxAmount: 15
   - id: Magazine9x19mmPistolFMJ
+    maxAmount: 15
+  - id: Magazine45_ACPPistolFMJ
     maxAmount: 15
   - id: Magazine9x19mmPistolHighCapacityFMJ
     maxAmount: 15

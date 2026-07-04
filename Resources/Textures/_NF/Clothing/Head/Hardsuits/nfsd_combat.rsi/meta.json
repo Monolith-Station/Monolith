@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC0-1.0",
-  "copyright": "Original work by TJohnson.",
+  "copyright": "Original work by TJohnson, -reptilian sprite by Zethine / @synthetic_086 (discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -27,6 +27,14 @@
     },
     {
       "name": "on-equipped-HELMET-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-reptilian",
       "directions": 4
     }
   ]

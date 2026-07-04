@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2025 SX-7
-// SPDX-FileCopyrightText: 2025 SlamBamActionman
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -14,9 +6,9 @@ using Robust.Client.Player;
 
 namespace Content.Client.Movement.Systems;
 
-public sealed class ContentEyeSystem : SharedContentEyeSystem
+public sealed partial class ContentEyeSystem : SharedContentEyeSystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public void RequestZoom(EntityUid uid, Vector2 zoom, bool ignoreLimit, bool scalePvs, ContentEyeComponent? content = null)
     {

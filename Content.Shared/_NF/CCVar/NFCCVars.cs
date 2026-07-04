@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Mnemotechnican
-// SPDX-FileCopyrightText: 2024 AndresE55
-// SPDX-FileCopyrightText: 2024 Checkraze
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-// SPDX-FileCopyrightText: 2024 GreaseMonk
-// SPDX-FileCopyrightText: 2024 Shroomerian
-// SPDX-FileCopyrightText: 2025 EctoplasmIsGood
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Whatstone
-// SPDX-FileCopyrightText: 2025 Your Name
-// SPDX-FileCopyrightText: 2025 dustylens
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Shared.Configuration;
 
 namespace Content.Shared._NF.CCVar;
@@ -65,18 +49,20 @@ public sealed class NFCCVars
 
     /// <summary>
     /// The map to use for the public bus.
+	/// Mono: Changed to _Mono busdart.yml
     /// </summary>
     public static readonly CVarDef<string> PublicTransitBusMap =
-        CVarDef.Create("nf14.publictransit.bus_map", "/Maps/_NF/Shuttles/Bus/publicts.yml", CVar.SERVERONLY);
+        CVarDef.Create("nf14.publictransit.bus_map", "/Maps/_Mono/Shuttles/Bus/busdart.yml", CVar.SERVERONLY);
 
     /// <summary>
     /// The amount of time the bus waits at a station.
     /// </summary>
     public static readonly CVarDef<float> PublicTransitWaitTime =
-        CVarDef.Create("nf14.publictransit.wait_time", 120f, CVar.SERVERONLY);
+        CVarDef.Create("nf14.publictransit.wait_time", 40f, CVar.SERVERONLY);
 
     /// <summary>
-    /// The amount of time the flies through FTL space.
+    /// The amount of time the bus flies through FTL space.
+    /// This does nothing because the transit system is bugged in our favor (instant travel)
     /// </summary>
     public static readonly CVarDef<float> PublicTransitFlyTime =
         CVarDef.Create("nf14.publictransit.fly_time", 15f, CVar.SERVERONLY);
@@ -130,10 +116,10 @@ public sealed class NFCCVars
         CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
 
     /// <summary>
-    /// Base sell rate (multiplier: 0.75 = 75%)
+    /// Base sell rate (multiplier: 0.85 = 85%)
     /// </summary>
     public static readonly CVarDef<float> ShipyardSellRate =
-        CVarDef.Create("shuttle.shipyard_base_sell_rate", 0.75f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.shipyard_base_sell_rate", 0.85f, CVar.SERVERONLY);
 
     /*
      * Salvage

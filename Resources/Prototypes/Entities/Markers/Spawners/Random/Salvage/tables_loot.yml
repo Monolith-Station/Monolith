@@ -1,16 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 beck-thompson
-# SPDX-FileCopyrightText: 2024 deltanedas
-# SPDX-FileCopyrightText: 2025 Avalon
-# SPDX-FileCopyrightText: 2025 Nim
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2025 dustylens
-# SPDX-FileCopyrightText: 2025 tonotom
-# SPDX-FileCopyrightText: 2025 tonotom1
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Scrap: Worthless items that can be recycled into materials
 
 - type: entityTable
@@ -68,6 +55,8 @@
     - id: SheetPlastic10
     - id: ScrapGeneratorFuelTank
       weight: 0.5
+    - id: ScrapGeneratorFuelTankPlasma #Mono
+      weight: 0.5
     - id: PartRodMetal10
       weight: 0.33
     - id: MaterialWoodPlank10
@@ -104,7 +93,7 @@
     - id: SheetPlasma1
       amount: !type:RangeNumberSelector
         range: 3, 5
-    - id: ResearchDisk
+    - id: ResearchDisk10000
     - id: DrinkGoldenCup
     - id: TreasureSampleTube
     - !type:NestedSelector
@@ -147,7 +136,7 @@
     - id: TreasureCPUSupercharged
     # - id: TechnologyDiskRare # Frontier
     #   weight: 0.5 # Frontier
-    - id: ResearchDisk10000
+    - id: ResearchDisk65000
       weight: 0.5
     - id: ArabianLamp
     - !type:NestedSelector

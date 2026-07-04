@@ -1,13 +1,9 @@
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
-  parent: [ClothingHeadHardsuitBase, BaseC3SyndicateContraband]
+  parent: [ClothingHeadHardsuitBase, BaseFactionGearPDVT2, ShowSecurityIcons, ClothingHeadSuitWithLightBase]
   id: ClothingHeadHelmetHardsuitPirateScaf
-  name: rogue SCAF hardsuit helmet
-  description: An old SCAF suit painted red with white stripes. The lighting systems have been replaced with a thermal pulse.
+  name: PDV SCAF hardsuit helmet
+  description: An old SCAF suit painted in an PDV tan color scheme. Has been outfitted with a thermal pulse scanner.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/scaf_pirate.rsi
@@ -18,6 +14,9 @@
     pulseTime: 3
     isEquipment: true
     toggleAction: PulseThermalVision
+  - type: PointLight
+    radius: 5
+    color: green
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000

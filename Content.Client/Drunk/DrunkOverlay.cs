@@ -8,13 +8,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Drunk;
 
-public sealed class DrunkOverlay : Overlay
+public sealed partial class DrunkOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntitySystemManager _sysMan = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IEntitySystemManager _sysMan = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;
@@ -64,7 +64,11 @@ public sealed class DrunkOverlay : Overlay
         if (args.Viewport.Eye != eyeComp.Eye)
             return false;
 
-        _visualScale = BoozePowerToVisual(CurrentBoozePower);
+        var visualPower = CurrentBoozePower;
+        if (_entityManager.TryGetComponent(_playerManager.LocalEntity, out Content.Shared.Traits.Assorted.AlcoholToleranceComponent? tolerance))
+            visualPower *= tolerance.VisualScaleMultiplier;
+
+        _visualScale = BoozePowerToVisual(visualPower);
         return _visualScale > 0;
     }
 

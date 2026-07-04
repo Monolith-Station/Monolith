@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: AdminPDA
   id: ChronoPDA
   name: futuristic PDA
@@ -13,6 +13,80 @@
         pda-chrono
   - type: Pda
     id: ChronoIDCard
+    penSlot:
+      startingItem: PenFuture
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#dee4e7"
+    accentVColor: "#59bcee"
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-chrono
+
+- type: entity
+  parent: CentcomPDA
+  id: NavyCaptainPDA
+  name: Winter Solstice HiCom's PDA
+  description: The devil's in the details.
+  components:
+  - type: Pda
+    id: CentcomIDCardNavyCaptain
+  - type: HealthAnalyzer
+    scanDelay: 0
+    silent: true
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    notificationsEnabled: false
+    diskSpace: 10 # DeltaV
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - LogProbeCartridge
+    - MedTekCartridge
+    - AstroNavCartridge
+
+- type: entity
+  parent: NavyCaptainPDA
+  id: NavyOfficerPDA
+  name: Winter Solstice Officer's PDA
+  components:
+  - type: Pda
+    id: CentcomIDCardNavyOfficer
+
+- type: entity
+  parent: NavyCaptainPDA
+  id: SpecialOperationsOfficerPDA
+  name: Special Operations Officer's PDA
+  components:
+  - type: Pda
+    id: CentcomIDCardSpecialOperationsOfficer
+
+- type: entity
+  parent: NavyCaptainPDA
+  id: DiplomatPDA
+  name: diplomat's PDA
+  components:
+  - type: Pda
+    id: CentcomIDCardDiplomat
+
+- type: entity
+  parent: AdminPDA
+  id: GmanPDA
+  name: strange PDA
+  description: Your mind can't quite comprehend this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi # todo - make a unique texture.
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-chrono
+  - type: Pda
+    id: GmanIDCard
     penSlot:
       startingItem: PenFuture
       whitelist:

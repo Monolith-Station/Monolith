@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #Company branded
 - type: entity
   parent: ClothingMaskGasExplorer
@@ -19,7 +13,7 @@
     coverage: MOUTH
 
 - type: entity
-  parent: [ ClothingMaskDrakeIndustries , BaseC3ContrabandNoValue ]
+  parent: [ ClothingMaskDrakeIndustries  ]
   id: ClothingMaskDrakeIndustriesWatchdog
   name: watchdog respirator
   description: A clunky respirator following the original design from Drake Industries. This one comes wih a polarized visor to protect the eyes during hostile encounters.
@@ -30,7 +24,6 @@
     sprite: _Mono/Clothing/Mask/gasdi-watchdog.rsi
   - type: IdentityBlocker
     coverage: MOUTH
-  - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
 

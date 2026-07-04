@@ -28,7 +28,7 @@
                            Orientation="Vertical">
         <!-- FTL Lock Section -->
         <controls1:StripeBack MinSize="48 48">
-            <controls:Label Text="{controls:Loc 'FTL Lock'}" HorizontalAlignment="Center"/>
+            <controls:Label Text="{controls:Loc 'shuttle-console-ftl-lock'}" HorizontalAlignment="Center"/>
         </controls1:StripeBack>
         <controls:PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="4 4 4 4">
             <controls:PanelContainer.PanelOverride>
@@ -36,12 +36,12 @@
             </controls:PanelContainer.PanelOverride>
         <controls:BoxContainer Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="5 5 5 5">
             <controls:Button Name="FTLLockEnabledButton"
-                             Text="{controls:Loc 'Enabled'}"
+                             Text="{controls:Loc 'shuttle-console-ftl-lock-enabled'}"
                              ToggleMode="True"
                              HorizontalExpand="True"
                              StyleClasses="OpenRight"/>
             <controls:Button Name="FTLLockDisabledButton"
-                             Text="{controls:Loc 'Disabled'}"
+                             Text="{controls:Loc 'shuttle-console-ftl-lock-disabled'}"
                              ToggleMode="True"
                              HorizontalExpand="True"
                              StyleClasses="OpenLeft"/>
@@ -50,7 +50,7 @@
 
         <!-- Docks Section -->
         <controls1:StripeBack MinSize="48 48">
-            <controls:Label Text="{controls:Loc 'Docks'}" HorizontalAlignment="Center"/>
+            <controls:Label Text="{controls:Loc 'shuttle-console-docks-label'}" HorizontalAlignment="Center"/>
         </controls1:StripeBack>
         <controls:PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="4 4 4 4">
             <controls:PanelContainer.PanelOverride>
@@ -62,7 +62,7 @@
                         <graphics:StyleBoxFlat BorderThickness="2" BorderColor="#333333" BackgroundColor="#121212"/>
                     </controls:PanelContainer.PanelOverride>
         <controls:Button Name="UndockAllButton"
-                         Text="{controls:Loc 'Undock All'}"
+                         Text="{controls:Loc 'shuttle-console-undock-all'}"
                          Margin="5 5 5 5"
                          StyleClasses="ButtonSquare"/>
                 </controls:PanelContainer>

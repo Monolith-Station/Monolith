@@ -1,17 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Boaz1111
-# SPDX-FileCopyrightText: 2024 Cojoke
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 SpaceRox1244
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2025 Dvir
-# SPDX-FileCopyrightText: 2025 Ps3Moira
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Shotgun Shells
 - type: entity
   parent: AmmoProvider23x75mmShotgunShell
@@ -176,3 +162,78 @@
       - state: mag-practice-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: practice
+
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  name: shotgun shell box (4 gauge OO magnum buckshot)
+  parent: AmmoProvider23x75mmShotgunShell
+  id: AmmoBox23x75mmOOBuckshot
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShellShotgun23x75mmOOBuckshot
+    - type: Sprite
+      layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-1
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: magnum-buckshot
+
+- type: entity
+  name: shotgun shell box (4 gauge RIP)
+  parent: AmmoProvider23x75mmShotgunShell
+  id: AmmoBox23x75mmSlugRIP
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShellShotgun23x75mmSlugRIP
+    - type: MagazineVisuals
+      magState: mag-slugRIP
+      steps: 5
+      zeroVisible: false
+    - type: Sprite
+      layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-slugRIP-1
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: slugRIP
+
+#armor-piercing:
+- type: entity
+  name: shotgun shell box (4 gauge armor-piercing slug)
+  parent: AmmoProvider23x75mmShotgunShell
+  id: AmmoBox23x75mmSlugAP
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShellShotgun23x75mmSlugAP
+    - type: MagazineVisuals
+      magState: mag-slugAP
+      steps: 5
+      zeroVisible: false
+    - type: Sprite
+      layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-slugAP-1
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: slugAP
+
+- type: entity
+  name: shotgun shell box (4 gauge flechette)
+  parent: AmmoProvider23x75mmShotgunShell
+  id: AmmoBox23x75mmFlechette
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShellShotgun23x75mmFlechette
+    - type: MagazineVisuals
+      magState: mag-flechette
+      steps: 5
+      zeroVisible: false
+    - type: Sprite
+      layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-flechette-1
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: flechette

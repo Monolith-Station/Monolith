@@ -1,0 +1,97 @@
+# Various things
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: CartridgeRocket
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: CartridgeRocket
+  materials:
+    Steel: 250
+    Plastic: 250
+    Plasma: 1000
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineSmartLMG
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: MagazineSmartLMG
+  materials:
+    Steel: 1500
+    Plastic: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineSmartMagnum
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: Magazine55_SAMPistol
+  materials:
+    Steel: 1000
+    Plastic: 1000
+    Plasteel: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineSmartMagnumExt
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: Magazine55_SAMPistolHighCapacity
+  materials:
+    Steel: 1500
+    Plastic: 1500
+    Plasteel: 750
+
+# NT-WS Ammo
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: PulsedPlasmaLaserCanister
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: PulsedPlasmaLaserCanister
+  materials:
+    Steel: 2000
+    Plastic: 500
+    Glass: 1500
+    Gold: 200
+    Silver: 200
+    Plasma: 1000
+    Uranium: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: CartridgeMPSSMMissile
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: CartridgeMPSSMMissile
+  materials:
+    Steel: 2500
+    Plastic: 200
+    Glass: 500
+    Gold: 100
+    Silver: 100
+    Plasma: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: CartridgeMPSSMHEAT
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: CartridgeMPSSMHEAT
+  materials:
+    Steel: 2000
+    Plastic: 400
+    Glass: 500
+    Silver: 500
+    Plasma: 750
+    UraniumDepleted: 50
+

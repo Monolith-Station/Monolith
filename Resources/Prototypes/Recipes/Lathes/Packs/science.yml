@@ -37,6 +37,7 @@
   - NFClothingShoesBootsMoon # Frontier: use NF variant
   - ClothingShoesBootsSpeed
   - ClothingBackpackHolding
+  - ClothingShoesBootsJump
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
 
@@ -44,6 +45,7 @@
   id: PowerCells
   recipes:
   - PowerCellMicroreactor
+  - PowerCellCombat # Mono edit
   - PowerCellHigh
 
 - type: latheRecipePack
@@ -80,7 +82,7 @@
   id: ScienceBoards
   recipes:
   - TurboItemRechargerCircuitboard
-  # - TechDiskComputerCircuitboard # Frontier: no tech disks
+  - TechDiskComputerCircuitboard
   # Begin DeltaV Removals - replaced by techfabs/upgrade kits
   #- AutolatheHyperConvectionMachineCircuitboard
   #- ProtolatheHyperConvectionMachineCircuitboard
@@ -92,10 +94,11 @@
   - AnalysisComputerCircuitboard
   - AnomalyVesselCircuitboard
   - AnomalyVesselExperimentalCircuitboard
-  # - AnomalySynchronizerCircuitboard # Frontier: no synchronizer
+  - AnomalySynchronizerCircuitboard
   - APECircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard
+  - DataFarmResearchCircuitboard
 
 - type: latheRecipePack
   id: CameraBoards
@@ -123,11 +126,13 @@
   id: ShuttleBoards
   recipes:
   - ShuttleConsoleCircuitboard
+  - ShuttleConsoleCircuitboardTSFN # Mono
+  - ShuttleConsoleCircuitboardKPV63RWR # Mono
   - RadarConsoleCircuitboard
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
-  
+
 - type: latheRecipePack
   id: AiCoreBoard
   recipes:

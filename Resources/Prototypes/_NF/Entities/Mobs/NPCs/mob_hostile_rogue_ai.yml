@@ -70,8 +70,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical
-      140: Dead
+      80: Dead #Mono, health adjustments
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -181,8 +180,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Critical
-      120: Dead
+      85: Dead #Mono, health adjustments
   - type: SlowOnDamage
     speedModifierThresholds:
       36: 0.7
@@ -214,9 +212,6 @@
   description: Hacked and reprogrammed by a rogue AI departmental drones.
   abstract: true
   components:
-  - type: Loadout
-    prototypes:
-    - MobRogueSiliconLootT1
   - type: CanMoveInAir
   - type: Fixtures
     fixtures:
@@ -240,8 +235,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      30: Critical
-      90: Dead
+      54: Dead #Mono, health adjustments
   - type: SlowOnDamage
     speedModifierThresholds:
       18: 0.7
@@ -263,6 +257,14 @@
     volume: -9
     range: 5
     sound: /Audio/Effects/shuttle_thruster.ogg
+
+- type: entity
+  id: RogueSiliconT1LootLoadout
+  abstract: true
+  components:
+  - type: Loadout
+    prototypes:
+    - MobRogueSiliconLootT1
 
 # VARIATIONS
 ## Tier 1
@@ -539,6 +541,7 @@
   parent:
   - MobRogueSiliconDroneBase
   - MobRogueSiliconProjectileBatteryAmmo
+  - RogueSiliconT1LootLoadout
   id: MobRogueSiliconDroneLethals
   description: Hacked by a rogue AI, these security drones are programmed to kill.
   categories: [ HideSpawnMenu ]
@@ -563,6 +566,7 @@
   parent:
   - MobRogueSiliconDroneBase
   - MobRogueSiliconProjectileBatteryAmmo
+  - RogueSiliconT1LootLoadout
   id: MobRogueSiliconDroneNonLethals
   description: These engineering drones are capable of shooting disabler bolts. Dangerous in combination with other enemies.
   categories: [ HideSpawnMenu ]
@@ -590,6 +594,7 @@
   parent:
   - MobRogueSiliconDroneBase
   - MobRogueSiliconProjectileBatteryAmmo
+  - RogueSiliconT1LootLoadout
   id: MobRogueSiliconDroneScience
   description: A science drone, this rogue drone comes equipped with an experimental C.H.I.M.P. cannon.
   categories: [ HideSpawnMenu ]
@@ -633,8 +638,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      12: Critical
-      20: Dead
+      25: Dead #Mono, health adjustments
   - type: DamageStateVisuals
     states:
       Alive:
@@ -916,8 +920,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      110: Critical
-      160: Dead
+      145: Dead #Mono, health adjustments
   - type: SlowOnDamage
     speedModifierThresholds:
       66: 0.7
@@ -925,18 +928,18 @@
   - type: Stamina
     critThreshold: 600
   - type: ProjectileBatteryAmmoProvider
-    proto: TeslaGunBullet
+    proto: TeslaGunBulletRogueSilicon # Mono
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 30
+    autoRechargeRate: 50 # Mono 30 -> 50
   - type: Battery
     maxCharge: 300
     startingCharge: 300
   - type: Gun
     projectileSpeed: 10
     showExamineText: false
-    fireRate: 0.75
+    fireRate: 0.55 # Mono 0.75 -> 0.55
     minAngle: 0
     maxAngle: 15
     soundGunshot:
@@ -947,6 +950,39 @@
     radius: 1
     energy: 1.5
     color: "#47f8ff"
+
+#Mono Start: version of the tesla projectile for tesla-unit, less cancerous, more dangerous
+- type: entity
+  name: tesla gun lightning
+  id: TeslaGunBulletRogueSilicon
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+  - type: Sprite
+    sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
+    layers:
+    - state: tesla_projectile
+      shader: unshaded
+  - type: StaminaDamageOnCollide
+    damage: 35
+  - type: EmbeddableProjectile
+  - type: Projectile
+    deleteOnCollide: false
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+    damage:
+      types:
+        Piercing: 0
+        Heat: 17
+        Shock: 10
+  - type: Electrified
+    requirePower: false
+  - type: Tag
+    tags:
+      - HideContextMenu
+#Mono end
 
 ## Tier 4 Boss
 - type: entity
@@ -992,8 +1028,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Critical
-      400: Dead
+      350: Dead #Mono, health adjustments
   - type: SlowOnDamage
     speedModifierThresholds:
       120: 0.7
@@ -1048,8 +1083,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Critical
-      400: Dead
+      400: Dead #Mono, health adjustments
   - type: SlowOnDamage
     speedModifierThresholds:
       200: 0.7

@@ -1,21 +1,6 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2023 Visne
-// SPDX-FileCopyrightText: 2024 Mervill
-// SPDX-FileCopyrightText: 2024 TemporalOroboros
-// SPDX-FileCopyrightText: 2024 eoineoineoin
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 gus
-// SPDX-FileCopyrightText: 2025 metalgearsloth
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Shuttles.Components;
 using Content.Server._NF.Shuttles.Components;
+using Content.Shared._Crescent.ShipShields;
 using Content.Shared._Mono;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Components;
@@ -40,11 +25,16 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Numerics;
 
+using Content.Server._Mono.Cleanup;
+using Content.Shared._Mono.CCVar;
+
 namespace Content.Server.Shuttles.Systems;
 
 // shuttle impact damage ported from Goobstation (AGPLv3) with agreement of all coders involved
 public sealed partial class ShuttleSystem
 {
+    [Dependency] private SpaceCleanupSystem _sweep = default!;
+
     private bool _enabled;
     private float _minimumImpactInertia;
     private float _minimumImpactVelocity;
@@ -59,6 +49,11 @@ public sealed partial class ShuttleSystem
     private float _inertiaScaling;
     // this doesn't update if plating mass is changed but edgecase
     private float _platingMass;
+
+    // Mono
+    private float _sweepAggression;
+    private float _sweepDelay;
+    private float _sweepRadius;
 
     private const float _sparkChance = 0.2f;
     // shuttle mass to consider the neutral point for inertia scaling
@@ -101,6 +96,11 @@ public sealed partial class ShuttleSystem
         Subs.CVar(_cfg, CCVars.ImpactMassBias, value => _massBias = value, true);
         Subs.CVar(_cfg, CCVars.ImpactInertiaScaling, value => _inertiaScaling = value, true);
 
+        // Mono
+        Subs.CVar(_cfg, MonoCVars.ImpactSweepAggression, val => _sweepAggression = val, true);
+        Subs.CVar(_cfg, MonoCVars.ImpactSweepDelay, val => _sweepDelay = val, true);
+        Subs.CVar(_cfg, MonoCVars.ImpactSweepRadius, val => _sweepRadius = val, true);
+
         _platingMass = _protoManager.Index(_platingId).Mass;
     }
 
@@ -109,6 +109,7 @@ public sealed partial class ShuttleSystem
     /// </summary>
     private void OnShuttleCollide(EntityUid uid, ShuttleComponent component, ref StartCollideEvent args)
     {
+
         if (TerminatingOrDeleted(uid) || EntityManager.IsQueuedForDeletion(uid)
             || TerminatingOrDeleted(args.OtherEntity) || EntityManager.IsQueuedForDeletion(args.OtherEntity)
         )
@@ -206,7 +207,12 @@ public sealed partial class ShuttleSystem
             var impact = LogImpact.High;
             // if impact isn't tiny, log it as extreme
             if (toUsEnergy + toOtherEnergy > 2f * _tileBreakEnergyMultiplier * _platingMass)
+            {
                 impact = LogImpact.Extreme;
+
+                // Mono - also queue cleanup sweeps
+                _sweep.QueueSweep(ourPoint, TimeSpan.FromSeconds(_sweepDelay), _sweepRadius, _sweepAggression);
+            }
             // TODO: would be nice for it to also log who is piloting the grid(s)
             if (CheckShouldLog(args.OurEntity) && CheckShouldLog(args.OtherEntity))
                 _logger.Add(LogType.ShuttleImpact, impact, $"Shuttle impact of {ToPrettyString(args.OurEntity)} with {ToPrettyString(args.OtherEntity)} at {worldPoint}");
@@ -218,9 +224,26 @@ public sealed partial class ShuttleSystem
             var totalInertia = ourVelocity * ourMass + otherVelocity * otherMass;
             var inelasticVel = totalInertia / (ourMass + otherMass);
 
+            // Mono Edit - partial credit to https://github.com/Sector-Crescent/Hullrot/pull/692
+            //ShipShieldedComp is removed when shields are broken, reduces both energies when shields are active. ShipShieldsSystem ln 256.
+            float shieldFactor = 1f;
+            if (TryComp<ShipShieldedComponent>(args.OurEntity, out var ShipShieldedComponent) //Our ship collision resistance
+                && TryComp<ShipShieldEmitterComponent>(ShipShieldedComponent.Source, out var ShipShieldEmitterComponent)
+            )
+                shieldFactor *= ShipShieldEmitterComponent.CollisionResistanceMultiplier;
+
+            if (TryComp<ShipShieldedComponent>(args.OtherEntity, out var OtherShipShieldedComponent) //Other ship collision resistance
+                && TryComp<ShipShieldEmitterComponent>(OtherShipShieldedComponent.Source, out var OtherShipShieldEmitterComponent)
+            )
+                shieldFactor *= OtherShipShieldEmitterComponent.CollisionResistanceMultiplier;
+            toUsEnergy *= shieldFactor;
+            toOtherEnergy *= shieldFactor;
+            // Mono Edit end
+
             DoGridImpact((args.OurEntity, ourGrid, ourXform, ourBody), args.OurFixture, inelasticVel, ourVelocity, ourTile, ourTiles, toUsEnergy);
             DoGridImpact((args.OtherEntity, otherGrid, otherXform, otherBody), args.OtherFixture, inelasticVel, otherVelocity, otherTile, otherTiles, toOtherEnergy);
         }
+
     }
 
     private void DoGridImpact(Entity<MapGridComponent, TransformComponent, PhysicsComponent> ent,
@@ -260,33 +283,56 @@ public sealed partial class ShuttleSystem
         var knockdownTime = TimeSpan.FromSeconds(5);
 
         var minsq = _minThrowVelocity * _minThrowVelocity;
-        // iterate all entities on the grid
-        // TODO: only iterate non-static entities
-        var childEnumerator = xform.ChildEnumerator;
-        while (childEnumerator.MoveNext(out var uid))
-        {
-            // don't throw static bodies
-            if (!_physicsQuery.TryGetComponent(uid, out var physics) || (physics.BodyType & BodyType.Static) != 0)
-                continue;
 
+        // iterate all dynamic entities on the grid
+        if (!TryComp<BroadphaseComponent>(gridUid, out var lookup) || !_gridQuery.TryComp(gridUid, out var gridComp))
+            return;
+
+        var gridBox = gridComp.LocalAABB;
+        List<Entity<PhysicsComponent>> list = new();
+        HashSet<EntityUid> processed = new();
+        var state = (list, processed, _physicsQuery);
+        lookup.DynamicTree.QueryAabb(ref state, GridQueryCallback, gridBox, true);
+        lookup.SundriesTree.QueryAabb(ref state, GridQueryCallback, gridBox, true);
+
+        foreach (var ent in list)
+        {
             // don't throw if buckled
-            if (_buckle.IsBuckled(uid, _buckleQuery.CompOrNull(uid)))
+            if (_buckle.IsBuckled(ent, _buckleQuery.CompOrNull(ent)))
                 continue;
 
             // don't throw them if they have magboots
-            if (movedByPressureQuery.TryComp(uid, out var moved) && !moved.Enabled)
+            if (movedByPressureQuery.TryComp(ent, out var moved) && !moved.Enabled)
                 continue;
 
             if (direction.LengthSquared() > minsq)
             {
-                _stuns.TryKnockdown(uid, knockdownTime, true);
-                _throwing.TryThrow(uid, direction, physics, Transform(uid), _projQuery, direction.Length(), playSound: false);
+                _stuns.TryKnockdown(ent.Owner, knockdownTime, true);
+                _throwing.TryThrow(ent, direction, ent.Comp, Transform(ent), _projQuery, direction.Length(), playSound: false);
             }
             else
             {
-                _physics.ApplyLinearImpulse(uid, direction * physics.Mass, body: physics);
+                _physics.ApplyLinearImpulse(ent, direction * ent.Comp.Mass, body: ent.Comp);
             }
         }
+    }
+
+    private static bool GridQueryCallback(
+        ref (List<Entity<PhysicsComponent>> List, HashSet<EntityUid> Processed, EntityQuery<PhysicsComponent> PhysicsQuery) state,
+        in EntityUid uid)
+    {
+        if (state.Processed.Add(uid) && state.PhysicsQuery.TryComp(uid, out var body))
+            state.List.Add((uid, body));
+
+        return true;
+    }
+
+    private static bool GridQueryCallback(
+        ref (List<Entity<PhysicsComponent>> List, HashSet<EntityUid> Processed, EntityQuery<PhysicsComponent> PhysicsQuery) state,
+        in FixtureProxy proxy)
+    {
+        var owner = proxy.Entity;
+        return GridQueryCallback(ref state, in owner);
     }
 
     /// <summary>
@@ -305,7 +351,7 @@ public sealed partial class ShuttleSystem
 
         foreach (var tileRef in _mapSystem.GetLocalTilesIntersecting(uid, grid, new Circle(centerTile, radius)))
         {
-            var def = (ContentTileDefinition)_tileDefManager[tileRef.Tile.TypeId];
+            var def = _turf.GetContentTileDefinition(tileRef);
             mass += def.Mass;
             tileCount++;
 
@@ -432,7 +478,7 @@ public sealed partial class ShuttleSystem
                 continue;
 
             // Mark tiles for breaking/effects
-            var def = (ContentTileDefinition)_tileDefManager[_mapSystem.GetTileRef(uid, grid, tileData.Tile).Tile.TypeId];
+            var def = _turf.GetContentTileDefinition(_mapSystem.GetTileRef(uid, grid, tileData.Tile));
             if (tileData.Energy > def.Mass * _tileBreakEnergyMultiplier)
                 brokenTiles.Add((tileData.Tile, Tile.Empty));
 

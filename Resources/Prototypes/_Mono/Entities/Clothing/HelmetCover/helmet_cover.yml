@@ -1,0 +1,199 @@
+#customs helmet covers
+
+- type: entity
+  parent: ClothingHelmetCoverBase
+  id: ClothingHelmetCoverCCEBase
+  name: CCE helmet cover (base)
+  description: A CCE central european camouflage helmet cover for your tactical fashion needs or to mount attachments.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetCover/cover_CCE_base.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetCover/cover_CCE_base.rsi
+    clothingVisuals:
+      helmetcover:
+      - state: equipped-HELMETCOVER
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#2F2F2F"
+      right:
+      - state: inhand-right
+        color: "#2F2F2F"
+
+- type: entity
+  parent: ClothingHelmetCoverBase
+  id: ClothingHelmetCoverCCEDesert
+  name: CCE helmet cover (desert)
+  description: A Desert CCE central european camouflage helmet cover for your tactical fashion needs or to mount attachments.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetCover/cover_CCE_desert.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetCover/cover_CCE_desert.rsi
+    clothingVisuals:
+      helmetcover:
+      - state: equipped-HELMETCOVER
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#2F2F2F"
+      right:
+      - state: inhand-right
+        color: "#2F2F2F"
+
+- type: entity
+  parent: ClothingHelmetCoverBase
+  id: ClothingHelmetCoverRedDigital
+  name: red digital helmet cover
+  description: A red digital camouflage helmet cover for your tactical fashion needs or to mount attachments.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetCover/cover_digital_red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetCover/cover_digital_red.rsi
+    clothingVisuals:
+      helmetcover:
+      - state: equipped-HELMETCOVER
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#2F2F2F"
+      right:
+      - state: inhand-right
+        color: "#2F2F2F"
+
+- type: entity
+  parent: ClothingHelmetCoverBase
+  id: ClothingHelmetCoverHelmetMount
+  name: helmet attachment mount
+  description: A simple helmet mount to put attachment on your helmet.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetCover/attachment_mount.rsi
+    color: "#2F2F2F"
+    scale: 1.3,1.3
+  - type: StaticPrice
+    price: 600
+    vendPrice: 950
+
+#colored helmet covers
+
+- type: entity
+  parent: ClothingHelmetCoverBase
+  id: ClothingHelmetCoverBlack
+  name: black helmet cover
+  description: A colored helmet cover for your tactical fashion needs or to mount attachments.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetCover/cover_any.rsi
+    color: "#2F2F2F"
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetCover/cover_any.rsi
+    clothingVisuals:
+      helmetcover:
+      - state: equipped-HELMETCOVER
+        color: "#2F2F2F"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#2F2F2F"
+      right:
+      - state: inhand-right
+        color: "#2F2F2F"
+
+- type: entity
+  parent: ClothingHelmetCoverBase
+  id: ClothingHelmetCoverTan
+  name: tan helmet cover
+  description: A colored helmet cover for your tactical fashion needs or to mount attachments.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetCover/cover_any.rsi
+    color: "#d2B48C"
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetCover/cover_any.rsi
+    clothingVisuals:
+      helmetcover:
+      - state: equipped-HELMETCOVER
+        color: "#d2B48C"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#d2B48C"
+      right:
+      - state: inhand-right
+        color: "#d2B48C"
+
+- type: entity
+  parent: ClothingHelmetCoverBase
+  id: ClothingHelmetCoverRangerGreen
+  name: ranger green helmet cover
+  description: A colored helmet cover for your tactical fashion needs or to mount attachments.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetCover/cover_any.rsi
+    color: "#4A5A49"
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetCover/cover_any.rsi
+    clothingVisuals:
+      helmetcover:
+      - state: equipped-HELMETCOVER
+        color: "#4A5A49"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#4A5A49"
+      right:
+      - state: inhand-right
+        color: "#4A5A49"
+
+- type: entity
+  parent: ClothingHelmetCoverBase
+  id: ClothingHelmetCoverOlive
+  name: olive helmet cover
+  description: A colored helmet cover for your tactical fashion needs or to mount attachments.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetCover/cover_any.rsi
+    color: "#636B2F"
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetCover/cover_any.rsi
+    clothingVisuals:
+      helmetcover:
+      - state: equipped-HELMETCOVER
+        color: "#636B2F"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#636B2F"
+      right:
+      - state: inhand-right
+        color: "#636B2F"
+
+- type: entity
+  parent: ClothingHelmetCoverBase
+  id: ClothingHelmetCoverWhite
+  name: white helmet cover
+  description: A colored helmet cover for your tactical fashion needs or to mount attachments.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetCover/cover_any.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/HelmetCover/cover_any.rsi
+    clothingVisuals:
+      helmetcover:
+      - state: equipped-HELMETCOVER
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right

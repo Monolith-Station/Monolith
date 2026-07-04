@@ -1,45 +1,3 @@
-# SPDX-FileCopyrightText: 2022 CrudeWax
-# SPDX-FileCopyrightText: 2022 EmoGarbage404
-# SPDX-FileCopyrightText: 2022 Flipp Syder
-# SPDX-FileCopyrightText: 2022 Jessica M
-# SPDX-FileCopyrightText: 2022 Moony
-# SPDX-FileCopyrightText: 2022 Sam Weaver
-# SPDX-FileCopyrightText: 2022 ShadowCommander
-# SPDX-FileCopyrightText: 2022 lapatison
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2022 mirrorcult
-# SPDX-FileCopyrightText: 2023 Alex Evgrashin
-# SPDX-FileCopyrightText: 2023 CrigCrag
-# SPDX-FileCopyrightText: 2023 Doru991
-# SPDX-FileCopyrightText: 2023 Kara
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 Maxtone
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 ProPandaBear
-# SPDX-FileCopyrightText: 2023 QuantumSeanyGlass
-# SPDX-FileCopyrightText: 2023 Rane
-# SPDX-FileCopyrightText: 2023 Ubaser
-# SPDX-FileCopyrightText: 2023 Visne
-# SPDX-FileCopyrightText: 2023 Whisper
-# SPDX-FileCopyrightText: 2023 brainfood1183
-# SPDX-FileCopyrightText: 2024 EdenTheLiznerd
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Errant
-# SPDX-FileCopyrightText: 2024 MissKay1994
-# SPDX-FileCopyrightText: 2024 Mr. 27
-# SPDX-FileCopyrightText: 2024 Tayrtahn
-# SPDX-FileCopyrightText: 2024 Token
-# SPDX-FileCopyrightText: 2024 Vasilis
-# SPDX-FileCopyrightText: 2024 Verm
-# SPDX-FileCopyrightText: 2024 deltanedas
-# SPDX-FileCopyrightText: 2024 potato1234_x
-# SPDX-FileCopyrightText: 2024 slarticodefast
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: reagent
   id: Toxin
   name: reagent-name-toxin
@@ -573,6 +531,9 @@
           - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -586,6 +547,9 @@
           - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -594,6 +558,9 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -601,7 +568,6 @@
         conditions:
         - !type:OrganType
           type: Animal
-          shouldHave: true
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent # Frontier: Goblin
@@ -610,6 +576,7 @@
           type: Goblin # Frontier: Goblin
         reagent: Protein # Frontier: Goblin
         amount: 0.5 # Frontier: Goblin
+
 
 - type: reagent
   id: Allicin
@@ -833,3 +800,19 @@
           shouldHave: false
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
+
+- type: reagent
+  id: ToxinTrash
+  name: reagent-name-toxintrash
+  group: Toxins
+  desc: reagent-desc-toxintrash
+  flavor: trashy
+  physicalDesc: reagent-physical-desc-nondescript
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+        conditions:
+        - !type:OrganType
+          type: Vox

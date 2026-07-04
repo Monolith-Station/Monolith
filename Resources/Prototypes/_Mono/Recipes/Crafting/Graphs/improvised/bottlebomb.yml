@@ -1,0 +1,32 @@
+- type: constructionGraph
+  id: BottleBomb
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bottlebombempty
+      steps:
+      - tag: DrinkBottle
+        name: an empty bottle
+        icon:
+          sprite: Objects/Consumable/Drinks/vodkabottle.rsi
+          state: icon
+        doAfter: 1
+
+  - node: bottlebombempty
+    entity: BottleBombEmpty
+    edges:
+    - to: bottlebomb
+      conditions:
+      - !type:MinSolution
+        solution: drink
+        reagent:
+          ReagentId: WeldingFuel
+        quantity: 15
+      steps:
+      - material: Cloth
+        amount: 1
+        doAfter: 2
+
+  - node: bottlebomb
+    entity: BottleBomb

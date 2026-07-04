@@ -1,156 +1,169 @@
 # Tier 1
 
-- type: technology
-  id: BasicRobotics
-  name: research-technology-basic-robotics
-  icon:
-    sprite: Structures/Machines/exosuit_fabricator.rsi
-    state: fab-idle
-  discipline: Experimental
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - ProximitySensor
-
-- type: technology
-  id: BasicAnomalousResearch
-  name: research-technology-basic-anomalous-research
-  icon:
-    sprite: Objects/Specific/Research/anomalyscanner.rsi
-    state: icon
-  discipline: Experimental
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - AnomalyScanner
-  - AnomalyLocator
-  - AnomalyLocatorWide
-  - BorgModuleAnomaly
-  - APECircuitboard
-  - AnomalyVesselCircuitboard
-
-- type: technology
-  id: BasicXenoArcheology
-  name: research-technology-basic-xenoarcheology
-  icon:
-    sprite: Structures/Machines/artifact_analyzer.rsi
-    state: display
-  discipline: Experimental
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - NodeScanner
-  - BorgModuleArtifact
-  - AnalysisComputerCircuitboard
-  - ArtifactAnalyzerMachineCircuitboard
-
-# Frontier: no tech disks
+# Mono edit - research consolidation
 # - type: technology
-#   id: AlternativeResearch
-#   name: research-technology-alternative-research
-#   icon:
-#     sprite: Structures/Machines/tech_disk_printer.rsi
-#     state: display
+#   id: BasicRobotics
+#   name: research-technology-basic-robotics
+#   entityIcon: ExosuitFabricator
 #   discipline: Experimental
 #   tier: 1
 #   cost: 5000
 #   recipeUnlocks:
-#   - TechDiskComputerCircuitboard
-# End Frontier: no tech disks
+#   - ProximitySensor
+#   technologyPrerequisites:
+#   - BasicParts
+#   position: -1, -6
+
+# - type: technology
+#   id: BasicAnomalousResearch
+#   name: research-technology-basic-anomalous-research
+#   entityIcon: AnomalyScanner
+#   discipline: Experimental
+#   tier: 1
+#   cost: 10000
+#   recipeUnlocks:
+#   - AnomalyScanner
+#   - AnomalyLocator
+#   - AnomalyLocatorWide
+#   - BorgModuleAnomaly
+#   - APECircuitboard
+#   - AnomalyVesselCircuitboard
+#   technologyPrerequisites:
+#   - BasicParts
+#   position: -1, -5
+
+# - type: technology
+#   id: BasicXenoArcheology
+#   name: research-technology-basic-xenoarcheology
+#   entityIcon: MachineArtifactAnalyzer
+#   discipline: Experimental
+#   tier: 1
+#   cost: 5000
+#   recipeUnlocks:
+#   - NodeScanner
+#   - BorgModuleArtifact
+#   - AnalysisComputerCircuitboard
+#   - ArtifactAnalyzerMachineCircuitboard
+#   technologyPrerequisites:
+#   - BasicParts
+#   position: -1, -4
+
+- type: technology
+  id: AlternativeResearch
+  name: research-technology-alternative-research
+  entityIcon: ComputerTechnologyDiskTerminal
+  discipline: Experimental
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - TechDiskComputerCircuitboard
+  technologyPrerequisites:
+  - BasicParts
+  position: 1, -6
 
 - type: technology
   id: MagnetsTech
   name: research-technology-magnets-tech
-  icon:
-    sprite: Clothing/Shoes/Boots/magboots-science.rsi
-    state: icon
-  discipline: Experimental
-  tier: 1
-  cost: 7500
-  recipeUnlocks:
-  - ClothingShoesBootsMagSci
-  - NFClothingShoesBootsMoon # Frontier ClothingShoesBootsMoon<NFClothingShoesBootsMoon
-
-- type: technology
-  id: AnomalyCoreHarnessing
-  name: research-technology-anomaly-harnessing
-  icon:
-    sprite: Objects/Weapons/Melee/gorilla.rsi
-    state: icon
+  entityIcon: ClothingShoesBootsMagSci
   discipline: Experimental
   tier: 1
   cost: 10000
   recipeUnlocks:
-  - WeaponGauntletGorilla
+  - ClothingShoesBootsMagSci
+  - NFClothingShoesBootsMoon # Frontier ClothingShoesBootsMoon<NFClothingShoesBootsMoon
+  technologyPrerequisites:
+  - BasicParts
+  position: -2, -1
+
+# Mono edit - research consolidation
+# - type: technology
+#   id: AnomalyCoreHarnessing
+#   name: research-technology-anomaly-harnessing
+#   entityIcon: WeaponGauntletGorilla
+#   discipline: Experimental
+#   tier: 1
+#   cost: 15000
+#   recipeUnlocks:
+#   - WeaponGauntletGorilla
+#   technologyPrerequisites:
+#   - BasicAnomalousResearch
+#   - AdvancedParts
+#   position: -3, -5
 
 # Tier 2
 
 - type: technology
   id: AdvancedParts
   name: research-technology-advanced-parts
-  icon:
-    sprite: _NF/Objects/Misc/stock_parts.rsi # Frontier
-    state: advanced_matter_bin
+  entityIcon: AdvancedCapacitorStockPart
   discipline: Experimental
   tier: 2
-  cost: 10000
+  cost: 20000
   recipeUnlocks:
   - AdvancedCapacitorStockPart
   - AdvancedMatterBinStockPart
   - NanoManipulatorStockPart
-
-- type: technology
-  id: AbnormalArtifactManipulation
-  name: research-technology-abnormal-artifact-manipulation
-  icon:
-    sprite: Structures/Machines/artifact_crusher.rsi
-    state: icon
-  discipline: Experimental
-  tier: 2
-  cost: 5000
-  recipeUnlocks:
-  - ArtifactCrusherMachineCircuitboard
-
-- type: technology
-  id: AdvancedAnomalyResearch
-  name: research-technology-advanced-anomaly-research
-  icon:
-    sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
-    state: base
-  discipline: Experimental
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - WeaponPistolCHIMP
-  # - AnomalySynchronizerCircuitboard # Frontier: doesn't make sense for Frontier
-  - AnomalyVesselExperimentalCircuitboard
   technologyPrerequisites:
-  - BasicAnomalousResearch
+  - BasicParts
+  position: 0, 9
+
+# Mono edit - research consolidation
+# - type: technology
+#   id: AbnormalArtifactManipulation
+#   name: research-technology-abnormal-artifact-manipulation
+#   entityIcon: MachineArtifactCrusher
+#   discipline: Experimental
+#   tier: 2
+#   cost: 25000
+#   recipeUnlocks:
+#   - ArtifactCrusherMachineCircuitboard
+#   technologyPrerequisites:
+#   - BasicXenoArcheology
+#   - AdvancedParts
+#   position: -2, -4
+
+# - type: technology
+#   id: AdvancedAnomalyResearch
+#   name: research-technology-advanced-anomaly-research
+#   entityIcon: WeaponPistolCHIMP
+#   discipline: Experimental
+#   tier: 2
+#   cost: 25000
+#   recipeUnlocks:
+#   - WeaponPistolCHIMP
+#   - AnomalySynchronizerCircuitboard
+#   - AnomalyVesselExperimentalCircuitboard
+#   technologyPrerequisites:
+#   - BasicAnomalousResearch
+#   - AdvancedParts
+#   position: -2, -5
 
 - type: technology
   id: DeterrenceTechnologies
   name: research-technology-deterrence
-  icon:
-    sprite: Objects/Devices/Holoprojectors/field.rsi # Frontier particle_decelerator.rsi<field.rsi
-    state: icon # Frontier base<icon
-  discipline: Experimental
-  tier: 2
-  cost: 7500
-  recipeUnlocks:
-  # - WeaponParticleDecelerator # Frontier - Cancer gun that skip walls
-  - HoloprojectorField
-  
-- type: technology
-  id: AiTechnology
-  name: research-technology-ai
-  icon:
-    sprite: Mobs/Silicon/station_ai.rsi
-    state: ai
+  entityIcon: HoloprojectorField
   discipline: Experimental
   tier: 2
   cost: 10000
   recipeUnlocks:
+  # - WeaponParticleDecelerator # Frontier - Cancer gun that skip walls
+  - HoloprojectorField
+  technologyPrerequisites:
+  - BasicParts
+  position: 2, -1
+
+- type: technology
+  id: AiTechnology
+  name: research-technology-ai
+  entityIcon: PlayerStationAiEmpty
+  discipline: Experimental
+  tier: 2
+  cost: 20000
+  recipeUnlocks:
   - AiCoreElectronics
+  technologyPrerequisites:
+  - SuperParts
+  position: -4, 18
 
 # Tier 3
 

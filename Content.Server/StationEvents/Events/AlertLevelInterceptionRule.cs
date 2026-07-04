@@ -4,12 +4,11 @@ using Content.Server.AlertLevel;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class AlertLevelInterceptionRule : StationEventSystem<AlertLevelInterceptionRuleComponent>
+public sealed partial class AlertLevelInterceptionRule : StationEventSystem<AlertLevelInterceptionRuleComponent>
 {
-    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
+    [Dependency] private AlertLevelSystem _alertLevelSystem = default!;
 
-    protected override void Started(EntityUid uid, AlertLevelInterceptionRuleComponent component, GameRuleComponent gameRule,
-        GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, AlertLevelInterceptionRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args) // Goobstation - Changed an indent.
     {
         base.Started(uid, component, gameRule, args);
 
@@ -19,6 +18,6 @@ public sealed class AlertLevelInterceptionRule : StationEventSystem<AlertLevelIn
         if (_alertLevelSystem.GetLevel(chosenStation.Value) != "green")
             return;
 
-        _alertLevelSystem.SetLevel(chosenStation.Value, component.AlertLevel, true, true, true);
+        _alertLevelSystem.SetLevel(chosenStation.Value, component.AlertLevel, true, true, true, component.Locked); // Goobstation
     }
 }

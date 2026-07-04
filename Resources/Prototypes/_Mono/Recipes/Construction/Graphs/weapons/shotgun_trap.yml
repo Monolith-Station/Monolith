@@ -1,0 +1,37 @@
+- type: constructionGraph
+  id: ShotgunTrap
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shotgunTrap
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 1
+            - material: WoodPlank
+              amount: 4
+              doAfter: 1
+            - tag: ModularReceiver
+              name: modular receiver
+              icon:
+                sprite: Objects/Misc/modular_receiver.rsi
+                state: icon
+              doAfter: 2
+            - tag: Pipe
+              name: pipe
+              icon:
+                sprite: Structures/Piping/Atmospherics/pipe.rsi
+                state: pipeStraight
+              doAfter: 2
+            - tag: RemoteSignaller
+              name: remote signaller
+              icon:
+                sprite: Objects/Devices/signaller.rsi
+                state: signaller
+              doAfter: 1
+            - material: Cable
+              amount: 3
+              doAfter: 2
+    - node: shotgunTrap
+      entity: ShotgunTrapPacked

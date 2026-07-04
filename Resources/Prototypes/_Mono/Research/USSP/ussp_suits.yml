@@ -1,28 +1,22 @@
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: technology
   id: UsspBasicSuits
   name: research-technology-ussp-suits-basic
-  icon:
-    sprite: _Mono/Clothing/Head/Hardsuits/ussp_combat_light.rsi
-    state: icon
-  discipline: UsspEquipment
+  entityIcon: ClothingOuterHardsuitUsspL10
+  discipline: Ussp
   tier: 1
   cost: 25000
   recipeUnlocks:
   - ClothingOuterHardsuitUsspL10USSP
   - ClothingOuterHardsuitUsspL10AUSSP
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 12, 1
 
 - type: technology
   id: UsspMediumSuits
   name: research-technology-ussp-suits-medium
-  icon:
-    sprite: _Mono/Clothing/Head/Hardsuits/ussp_combat_lightmk2.rsi
-    state: icon
-  discipline: UsspEquipment
+  entityIcon: ClothingOuterHardsuitUsspL27
+  discipline: Ussp
   tier: 2
   cost: 45000
   recipeUnlocks:
@@ -30,14 +24,14 @@
   - ClothingOuterHardsuitUsspM10USSP
   technologyPrerequisites:
   - UsspBasicSuits
+  - UniversalMaterialResearchT2
+  position: 12, 7
 
 - type: technology
   id: UsspAdvancedSuits
   name: research-technology-ussp-suits-advanced
-  icon:
-    sprite: _Mono/Clothing/Head/Modsuits/ussp-varyag.rsi
-    state: helmet
-  discipline: UsspEquipment
+  entityIcon: ClothingModsuitUSSPZastavnik
+  discipline: Ussp
   tier: 3
   cost: 85000
   recipeUnlocks:
@@ -45,3 +39,5 @@
   - ClothingModsuitUSSPZastavnikUSSP
   technologyPrerequisites:
   - UsspMediumSuits
+  - UniversalMaterialResearchT3
+  position: 12, 12

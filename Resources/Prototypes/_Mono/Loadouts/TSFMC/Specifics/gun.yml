@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 core-mene
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutGroup
   id: TsfmcFirearmColonel
   name: loadout-group-weapon
@@ -20,27 +14,50 @@
 - type: loadoutGroup
   id: TsfmcFirearm
   name: loadout-group-weapon
-  minLimit: 1
+  minLimit: 0
   loadouts:
+  - FactionLecterLoadout
   - FactionDrozdLoadout
-  - FactionLecterLoadout
   - FactionVulcanLoadout
-  - FactionEnergyGunLoadout
-  - FactionBanditLoadout
-  fallbacks:
-  - FactionLecterLoadout
+  - SecurityGuardEnforcerLoadout # Shotgun, since mikus asked about it and technically we can pick it anyway
+  # - FactionBanditLoadout
+
+- type: loadoutGroup
+  id: TsfmcSidearm
+  name: loadout-group-pistol
+  minLimit: 0
+  loadouts:
+  - SecurityGuardMk58Loadout
+  - FactionInspectorLoadout
+  - FactionLaserPistolLoadout
+  - ContractorDisablerLoadout
 
 - type: loadoutGroup
   id: TsfmcMag
   name: loadout-group-magazine
-  minLimit: 1
+  minLimit: 0
   loadouts:
-  - FactionAcpPistolAmmoLoadout #MK58
+  - TSFCaselessAmmoBoxLoadout # Lecter
   - FactionAcpSmgAmmoLoadout #Drozd
   - FactionAcpSmgEmpAmmoLoadout #Drozd EMP
-  - Faction5.56x45mmAmmoLoadout #Lecter
-  - Faction7.62x51mmAmmoLoadout #Vulcan
+  - Faction762x51mmAmmoLoadout #Vulcan
   - FactionRechargerLoadout #Energy
-  - Faction8x65mmAmmoLoadout #Bandit
-  fallbacks:
-  - Faction5.56x45mmAmmoLoadout #Lecter
+  - SecurityGuardBeanbagAmmoLoadout # Buckshot, don't mind the weird naming.
+  # - Faction8x65mmAmmoLoadout #Bandit
+
+
+- type: loadout # Lecter ammo - putting it here because other factions shouldnt be using this
+  id: TSFCaselessAmmoBoxLoadout
+  price: 0
+  storage:
+    back:
+    - BoxMagazine68x52mmFMJ
+
+- type: loadoutGroup
+  id: TsfmcSidearmAmmo
+  name: loadout-group-pistol-magazine
+  minLimit: 0
+  loadouts:
+  - FactionRechargerLoadout #Energy
+  - FactionMagnum45Loadout # Inspector/Python/Mateba
+  - FactionAcpPistolAmmoLoadout #MK58

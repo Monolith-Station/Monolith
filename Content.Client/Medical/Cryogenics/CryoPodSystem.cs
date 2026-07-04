@@ -7,9 +7,9 @@ using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Client.Medical.Cryogenics;
 
-public sealed class CryoPodSystem: SharedCryoPodSystem
+public sealed partial class CryoPodSystem: SharedCryoPodSystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -64,7 +64,7 @@ public sealed class CryoPodSystem: SharedCryoPodSystem
         {
             args.Sprite.LayerSetState(CryoPodVisualLayers.Base, "pod-open");
             args.Sprite.LayerSetVisible(CryoPodVisualLayers.Cover, false);
-            args.Sprite.DrawDepth = (int) DrawDepth.Objects;
+            args.Sprite.DrawDepth = (int) DrawDepth.Mobs; //Mono: Objects >> Mobs: Fix sprite for collisions
         }
         else
         {

@@ -1,4 +1,4 @@
-﻿using Robust.Shared.GameStates;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Silicons.Borgs.Components;
 
@@ -20,6 +20,7 @@ public sealed partial class BorgModuleComponent : Component
 
     /// <summary>
     /// If true, this is a "default" module that cannot be removed from a borg.
+    /// Mono - changed to currently do nothing
     /// </summary>
     [DataField]
     [AutoNetworkedField]

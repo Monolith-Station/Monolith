@@ -73,6 +73,7 @@
       120: Dead
     stateAlertDict:
       Alive: BorgHealth
+      Dead: BorgDead
     showOverlays: false
   - type: Stamina
     critThreshold: 120
@@ -254,7 +255,7 @@
     description: ghost-role-information-honkbot-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -288,7 +289,7 @@
     description: ghost-role-information-jonkbot-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
     raffle:
       settings: default
   - type: InteractionPopup
@@ -365,7 +366,7 @@
     treatments:
       Alive:
         reagent: Tricordrazine
-        quantity: 30
+        quantity: 10 # Mono: Reduced to prevent overdose
         minDamage: 0
         maxDamage: 50
       Critical:
@@ -425,7 +426,7 @@
     description: ghost-role-information-mimebot-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
     raffle:
       settings: default
   - type: GhostTakeoverAvailable

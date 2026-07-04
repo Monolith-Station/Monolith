@@ -82,7 +82,7 @@ public sealed class MachineConstruction : InteractionTest
         // Query now returns higher quality parts.
         foreach (var part in SConstruction.GetAllParts(SEntMan.GetEntity(Target!.Value)))
         {
-            Assert.That(part.Part.Rating, Is.EqualTo(4)); // Frontier: using MachinePartState instead of MachinePart
+            Assert.That(part.Part.Rating, Is.EqualTo(6)); // Frontier: using MachinePartState instead of MachinePart // Mono: 4->6
         }
     }
 }

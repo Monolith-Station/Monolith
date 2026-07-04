@@ -69,76 +69,78 @@
     sprite: _NF/Structures/Wallmounts/posters.rsi
     state: nf_poster7_legit
 
+#Mono - Out-of-setting companies
+
 # Contraband posters
-- type: entity
-  parent: PosterBase
-  id: NFPosterContrabandLvhiStation
-  name: "LVHI Tetotum Station"
-  description: "This poster depicts Tetotum Space Station constructed by Langstad-Voigt Heavy Industries."
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/posters.rsi
-    state: nf_poster1_contraband
+#- type: entity
+#  parent: PosterBase
+#  id: NFPosterContrabandLvhiStation
+#  name: "LVHI Tetotum Station"
+#  description: "This poster depicts Tetotum Space Station constructed by Langstad-Voigt Heavy Industries."
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Structures/Wallmounts/posters.rsi
+#    state: nf_poster1_contraband
 
-- type: entity
-  parent: PosterBase
-  id: NFPosterContrabandLvhiShuttle
-  name: "LVHI Fleet"
-  description: "This poster depicts a shuttle exiting the planet's atmosphere. The text advertises the use of Langstad-Voigt Heavy Industries shuttles for planetary exploration."
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/posters.rsi
-    state: nf_poster2_contraband
+#- type: entity
+#  parent: PosterBase
+#  id: NFPosterContrabandLvhiShuttle
+#  name: "LVHI Fleet"
+#  description: "This poster depicts a shuttle exiting the planet's atmosphere. The text advertises the use of Langstad-Voigt Heavy Industries shuttles for planetary exploration."
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Structures/Wallmounts/posters.rsi
+#    state: nf_poster2_contraband
 
-- type: entity
-  parent: PosterBase
-  id: NFPosterContrabandLvhiSpace
-  name: "LVHI Exploration"
-  description: "This poster depicts a mineral-rich planet orbited by a moon, with both celestial bodies brightly illuminated by a blue star. The text promotes the use of Langstad-Voigt Heavy Industries shuttles for deep space exploration."
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/posters.rsi
-    state: nf_poster3_contraband
+#- type: entity
+#  parent: PosterBase
+#  id: NFPosterContrabandLvhiSpace
+#  name: "LVHI Exploration"
+#  description: "This poster depicts a mineral-rich planet orbited by a moon, with both celestial bodies brightly illuminated by a blue star. The text promotes the use of Langstad-Voigt Heavy Industries shuttles for deep space exploration."
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Structures/Wallmounts/posters.rsi
+#    state: nf_poster3_contraband
 
-- type: entity
-  parent: PosterBase
-  id: NFPosterContrabandFsbLogo
-  name: "Far Star Biotech Logo"
-  description: "Far Star Biotech: Wherever you are know that your body is safe with us."
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/posters.rsi
-    state: nf_poster4_contraband
+#- type: entity
+#  parent: PosterBase
+#  id: NFPosterContrabandFsbLogo
+#  name: "Far Star Biotech Logo"
+#  description: "Far Star Biotech: Wherever you are know that your body is safe with us."
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Structures/Wallmounts/posters.rsi
+#    state: nf_poster4_contraband
 
-- type: entity
-  parent: PosterBase
-  id: NFPosterContrabandFsbStasis
-  name: "Far Star Biotech Stasis"
-  description: "The FSB Stasis! Ensuring the worst mistake you've ever made is just the worst mistake you've made so far."
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/posters.rsi
-    state: nf_poster5_contraband
+#- type: entity
+#  parent: PosterBase
+#  id: NFPosterContrabandFsbStasis
+#  name: "Far Star Biotech Stasis"
+#  description: "The FSB Stasis! Ensuring the worst mistake you've ever made is just the worst mistake you've made so far."
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Structures/Wallmounts/posters.rsi
+#    state: nf_poster5_contraband
 
-- type: entity
-  parent: PosterBase
-  id: NFPosterContrabandFsbApothecary
-  name: "Far Star Biotech Apothecary"
-  description: "The FSB Apothecary! For the seasoned chemist, the FSB Apothecary offers top-of-the-line service at the price you deserve."
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/posters.rsi
-    state: nf_poster6_contraband
+#- type: entity
+#  parent: PosterBase
+#  id: NFPosterContrabandFsbApothecary
+#  name: "Far Star Biotech Apothecary"
+#  description: "The FSB Apothecary! For the seasoned chemist, the FSB Apothecary offers top-of-the-line service at the price you deserve."
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Structures/Wallmounts/posters.rsi
+#    state: nf_poster6_contraband
 
-- type: entity
-  parent: PosterBase
-  id: NFPosterContrabandFsbSpirit
-  name: "Far Star Biotech Spirit"
-  description: "The FSB Spirit! We know what your life is worth."
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/posters.rsi
-    state: nf_poster7_contraband
+#- type: entity
+#  parent: PosterBase
+#  id: NFPosterContrabandFsbSpirit
+#  name: "Far Star Biotech Spirit"
+#  description: "The FSB Spirit! We know what your life is worth."
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Structures/Wallmounts/posters.rsi
+#    state: nf_poster7_contraband
 
 - type: entity
   parent: PosterBase
@@ -150,37 +152,37 @@
     sprite: _NF/Structures/Wallmounts/posters.rsi
     state: nf_poster8_contraband
 
-- type: entity
-  parent: PosterBase
-  id: NFPosterContrabandLvhiMountains
-  name: "LVHI Mining"
-  description: |-
-   This poster depicts a planetary crust with a mountain range and an upper layer of magma. The advertising slogan reads: "Langstad-Voigt Heavy Industries. Mining the Skies, Building New Horizons."
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/posters.rsi
-    state: nf_poster9_contraband
+#- type: entity
+#  parent: PosterBase
+#  id: NFPosterContrabandLvhiMountains
+#  name: "LVHI Mining"
+#  description: |-
+#   This poster depicts a planetary crust with a mountain range and an upper layer of magma. The advertising slogan reads: "Langstad-Voigt Heavy Industries. Mining the Skies, Building New Horizons."
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Structures/Wallmounts/posters.rsi
+#    state: nf_poster9_contraband
 
-- type: entity
-  parent: PosterBase
-  id: NFPosterContrabandLvhiPlanetCore
-  name: "LVHI Deep Core Extraction"
-  description: "Poster about Deep Core Resource Extraction™ techniques employed by Langstad-Voigt Heavy Industries."
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/posters.rsi
-    state: nf_poster10_contraband
+#- type: entity
+#  parent: PosterBase
+#  id: NFPosterContrabandLvhiPlanetCore
+#  name: "LVHI Deep Core Extraction"
+#  description: "Poster about Deep Core Resource Extraction™ techniques employed by Langstad-Voigt Heavy Industries."
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Structures/Wallmounts/posters.rsi
+#    state: nf_poster10_contraband
 
-- type: entity
-  parent: PosterBase
-  id: NFPosterContrabandLvhiLogo
-  name: "LVHI Logo"
-  description: |-
-    Poster with Langstad-Voigt Heavy Industries logo. Ad slogan beneath it reads: "Beyond the Stars, Within Your Grasp."
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/posters.rsi
-    state: nf_poster11_contraband
+#- type: entity
+#  parent: PosterBase
+#  id: NFPosterContrabandLvhiLogo
+#  name: "LVHI Logo"
+#  description: |-
+#    Poster with Langstad-Voigt Heavy Industries logo. Ad slogan beneath it reads: "Beyond the Stars, Within Your Grasp."
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Structures/Wallmounts/posters.rsi
+#    state: nf_poster11_contraband
 
 - type: entity
   parent: PosterBase
@@ -222,25 +224,25 @@
     sprite: _NF/Structures/Wallmounts/posters.rsi
     state: nf_poster15_contraband
 
-- type: entity
-  parent: PosterBase
-  id: NFPosterContrabandFsbRubicon
-  name: "Far Star Biotech Rubicon Station"
-  description: "The FSB Rubicon! Guiding you through the afterlife and back into productive service!"
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/posters.rsi
-    state: nf_poster16_contraband
+#- type: entity
+#  parent: PosterBase
+#  id: NFPosterContrabandFsbRubicon
+#  name: "Far Star Biotech Rubicon Station"
+#  description: "The FSB Rubicon! Guiding you through the afterlife and back into productive service!"
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Structures/Wallmounts/posters.rsi
+#    state: nf_poster16_contraband
 
-- type: entity
-  parent: PosterBase
-  id: NFPosterContrabandWyvernShipyards
-  name: "Wyvern Shipyards"
-  description: "The Future can't come any faster, but we can get you there in a jiff!"
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/posters.rsi
-    state: nf_poster17_contraband
+#- type: entity
+#  parent: PosterBase
+#  id: NFPosterContrabandWyvernShipyards
+#  name: "Wyvern Shipyards"
+#  description: "The Future can't come any faster, but we can get you there in a jiff!"
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Structures/Wallmounts/posters.rsi
+#    state: nf_poster17_contraband
 
 - type: entity
   parent: PosterBase

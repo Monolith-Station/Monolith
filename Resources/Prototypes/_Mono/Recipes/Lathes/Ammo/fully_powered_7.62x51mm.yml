@@ -1,0 +1,94 @@
+#Magazines
+
+- type: latheRecipe
+  parent: BaseAmmoFMJFullyPoweredMagazineRecipe
+  id: Magazine762x51mmFMJ
+  result: Magazine762x51mmFMJ
+
+- type: latheRecipe
+  parent: BaseAmmoPlasteelAPFullyPoweredMagazineRecipe
+  id: Magazine762x51mmPlasteelAP
+  result: Magazine762x51mmPlasteelAP
+
+- type: latheRecipe
+  parent: BaseAmmoRubberFullyPoweredMagazineRecipe
+  id: Magazine762x51mmRubber
+  result: Magazine762x51mmRubber
+
+- type: latheRecipe
+  parent: BaseAmmoIncendiaryFullyPoweredMagazineRecipe
+  id: Magazine762x51mmIncendiary
+  result: Magazine762x51mmIncendiary
+
+- type: latheRecipe
+  parent: BaseAmmoPracticeFullyPoweredMagazineRecipe
+  id: Magazine762x51mmPractice
+  result: Magazine762x51mmPractice
+
+- type: latheRecipe
+  parent: BaseAmmoEmptyFullyPoweredMagazineRecipe
+  id: Magazine762x51mmEmpty
+  result: Magazine762x51mmEmpty
+
+- type: latheRecipe
+  parent: BaseAmmoUraniumFullyPoweredMagazineRecipe
+  id: Magazine762x51mmUranium
+  result: Magazine762x51mmUranium
+
+- type: latheRecipe
+  parent: BaseAmmoHPFullyPoweredMagazineRecipe
+  id: Magazine762x51mmHP
+  result: Magazine762x51mmHP
+
+- type: latheRecipe
+  parent: BaseAmmoRIPFullyPoweredMagazineRecipe
+  id: Magazine762x51mmRIP
+  result: Magazine762x51mmRIP
+
+#Boxes
+
+- type: latheRecipe
+  parent: BaseAmmoFMJFullyPoweredAmmoBoxRecipe
+  id: AmmoBox762x51mmFMJ
+  result: AmmoBox762x51mmFMJ
+
+- type: latheRecipe
+  parent: BaseAmmoPlasteelAPFullyPoweredAmmoBoxRecipe
+  id: AmmoBox762x51mmPlasteelAP
+  result: AmmoBox762x51mmPlasteelAP
+
+- type: latheRecipe
+  parent: BaseAmmoRubberFullyPoweredAmmoBoxRecipe
+  id: AmmoBox762x51mmRubber
+  result: AmmoBox762x51mmRubber
+
+- type: latheRecipe
+  parent: BaseAmmoIncendiaryFullyPoweredAmmoBoxRecipe
+  id: AmmoBox762x51mmIncendiary
+  result: AmmoBox762x51mmIncendiary
+
+- type: latheRecipe
+  parent: BaseAmmoPracticeFullyPoweredAmmoBoxRecipe
+  id: AmmoBox762x51mmPractice
+  result: AmmoBox762x51mmPractice
+
+- type: latheRecipe
+  parent: BaseAmmoUraniumFullyPoweredAmmoBoxRecipe
+  id: AmmoBox762x51mmUranium
+  result: AmmoBox762x51mmUranium
+
+- type: latheRecipe
+  parent: BaseAmmoHPFullyPoweredAmmoBoxRecipe
+  id: AmmoBox762x51mmHP
+  result: AmmoBox762x51mmHP
+
+- type: latheRecipe
+  parent: BaseAmmoRIPFullyPoweredAmmoBoxRecipe
+  id: AmmoBox762x51mmRIP
+  result: AmmoBox762x51mmRIP
+
+#big
+- type: latheRecipe
+  parent: BaseAmmoFMJFullyPoweredBigAmmoBoxRecipe
+  id: AmmoBox762x51mmBigFMJ
+  result: AmmoBox762x51mmBigFMJ

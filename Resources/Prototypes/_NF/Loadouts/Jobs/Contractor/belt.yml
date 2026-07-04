@@ -1,99 +1,90 @@
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Bonaout
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 UnicornOnLSD
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadout
   id: ContractorClothingBeltPlant
-  price: 500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltPlant
 
 - type: loadout
   id: ContractorClothingBeltPlantFilled
   name: botanical belt (filled)
-  price: 1500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltPlantFilled
 
 - type: loadout
   id: ContractorClothingBeltChef
-  price: 500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltChef
 
 - type: loadout
   id: ContractorClothingBeltChefFilled
   name: chef belt (filled)
-  price: 1500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltChefFilled
 
 - type: loadout
   id: ContractorClothingBeltStorageWaistbag
-  price: 500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltStorageWaistbag
 
 - type: loadout
   id: ContractorClothingBeltMedical
-  price: 500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltMedical
 
 - type: loadout
   id: ContractorClothingBeltMedicalFilled
   name: medical belt (filled)
-  price: 2000
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltMedicalFilled
 
 - type: loadout
   id: ContractorClothingBeltMedicalEMT
-  price: 500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltMedicalEMT
 
 - type: loadout
   id: ContractorClothingBeltMedicalEMTFilled
   name: EMT belt (filled)
-  price: 2000
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltMedicalEMTFilled
 
 - type: loadout
   id: ContractorClothingBeltUtility
-  price: 500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltUtility
 
 - type: loadout
   id: ContractorClothingBeltUtilityFilled
   name: utility belt (filled)
-  price: 1500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltUtilityEngineering
 
 - type: loadout
   id: ContractorClothingBeltSalvageWebbing
-  price: 500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltSalvageWebbing
 
 - type: loadout
   id: ContractorClothingBeltSalvageWebbingFilledNF
   name: salvage rig (filled)
-  price: 1500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltSalvageWebbingFilledNF
 
 - type: loadout
   id: ContractorClothingBeltDrakeIndustries
-  price: 750
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltDrakeIndustries
 #T1
@@ -102,7 +93,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 500
+  price: 0 # Mono
   equipment:
     belt: BoxFolderClipboard
 
@@ -111,7 +102,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltPilot
 
@@ -121,7 +112,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 1500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltPilotFilled
 
@@ -130,7 +121,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltBandolier
 
@@ -139,7 +130,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltHolster
 
@@ -148,7 +139,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltChaplainSash
 
@@ -158,7 +149,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 1500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltChaplainSashFilled
 
@@ -167,7 +158,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     belt: BooksBag
 
@@ -176,7 +167,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     belt: ChemBag
 
@@ -185,7 +176,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     belt: OreBag
 
@@ -194,7 +185,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     belt: PlantBag
 
@@ -203,7 +194,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT1
-  price: 750
+  price: 0 # Mono
   equipment:
     belt: ConstructionBag
 
@@ -213,7 +204,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1000
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltMartialBlack
 
@@ -223,7 +214,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1000
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltPunkRandomized
 
@@ -233,7 +224,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
-  price: 1500
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltPunkRandomizedFilled
 
@@ -243,7 +234,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 5000
+  price: 0 # Mono0
   equipment:
     belt: ClothingBeltChampion
 
@@ -253,6 +244,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  price: 3000
+  price: 0 # Mono
   equipment:
     belt: ClothingBeltSheathFilled

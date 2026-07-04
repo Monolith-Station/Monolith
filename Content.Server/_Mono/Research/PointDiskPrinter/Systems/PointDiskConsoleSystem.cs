@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Dvir
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Onezero0
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Research.Systems;
 using Content.Server._Mono.Research.PointDiskPrinter.Components;
 using Content.Server.Research.TechnologyDisk.Components;
@@ -20,12 +11,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.Research.PointDiskPrinter.Systems;
 
-public sealed class PointDiskConsoleSystem : EntitySystem
+public sealed partial class PointDiskConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ResearchSystem _research = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ResearchSystem _research = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

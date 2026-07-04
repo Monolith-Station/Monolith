@@ -1,9 +1,5 @@
-# SPDX-FileCopyrightText: 2025 Aviu00
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
-  parent: [ BaseCartridge, BaseRestrictedContraband ]
+  parent: BaseCartridge
   id: CartridgeSmart
   name: cartridge (.160 smart)
   description: A .160 smart bullet with a small charge of booster propellant at the bottom.
@@ -23,4 +19,4 @@
   - type: Appearance
   - type: SpentAmmoVisuals
   - type: StaticPrice
-    price: 20
+    price: 0.5

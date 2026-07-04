@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: MachineShieldMS100Circuitboard
   parent: BaseMachineCircuitboard
@@ -43,6 +39,7 @@
       Plasteel: 20
       Gold: 10
       Silver: 10
+      UraniumFissile: 1
 
 - type: entity
   id: MachineShieldMS500Circuitboard
@@ -65,4 +62,4 @@
       Plasteel: 50
       Gold: 15
       Silver: 15
-      Uranium: 30
+      UraniumFissile: 2

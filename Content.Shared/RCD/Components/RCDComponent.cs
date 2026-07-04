@@ -43,6 +43,13 @@ public sealed partial class RCDComponent : Component
     public RCDPrototype CachedPrototype { get; set; } = default!;
 
     /// <summary>
+    /// Indicates whether this is an RCD or an RPD 
+    /// </summary>
+    /// Goob
+    [DataField, AutoNetworkedField]
+    public bool IsRpd { get; set; } = false;
+
+    /// <summary>
     /// The direction constructed entities will face upon spawning
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -69,18 +76,10 @@ public sealed partial class RCDComponent : Component
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public Transform ConstructionTransform { get; private set; } = default!;
-    
+
     /// <summary>
-    /// Frontier - Shipyard RCD
-    /// A flag that limits RCD to the authorized ships.
+    /// Mono - delay multiplier for the RCD
     /// </summary>
-    [DataField("isShipyardRCD"), AutoNetworkedField]
-    public bool IsShipyardRCD;
-    
-    /// <summary>
-    /// Frontier - Shipyard RCD
-    /// The uid to which this RCD is limited to be used on.
-    /// </summary>
-    [DataField("linkedShuttleUid"), AutoNetworkedField]
-    public EntityUid? LinkedShuttleUid = null;
+    [DataField, AutoNetworkedField]
+    public float DelayMultiplier = 1f;
 }

@@ -1,4 +1,6 @@
+using Content.Shared._Crescent.SpaceBiomes;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Shuttles.Components;
 
@@ -25,4 +27,10 @@ public sealed partial class FTLMapComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Beacons;
+
+    /// <summary>
+    /// Mono: used for ContentAudioSystem.AmbientMusic.cs & SpaceBiomeSystem.cs to communicate biome on FTL
+    /// </summary>
+    [DataField]
+    public ProtoId<SpaceBiomePrototype> Biome = "BiomeFTL";
 }

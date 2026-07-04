@@ -16,13 +16,13 @@ namespace Content.Server._NF.Atmos.EntitySystems;
 /// Logic for the gas deposit scanner.  Largely based off of the GasAnalyzerSystem.
 /// </summary>
 [UsedImplicitly]
-public sealed class GasDepositScannerSystem : EntitySystem
+public sealed partial class GasDepositScannerSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private AtmosphereSystem _atmos = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private UserInterfaceSystem _userInterface = default!;
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
 
     /// <summary>
     /// Minimum moles of a gas to be included in the list.
@@ -163,7 +163,7 @@ public sealed class GasDepositScannerSystem : EntitySystem
                 return false;
             }
 
-            gasMixList = GenerateGasEntryArray(gasDeposit.Deposit);
+            gasMixList = GenerateGasEntryArray(gasDeposit.Composition, gasDeposit.GasLeft); // Mono
         }
 
         // Don't bother sending a UI message with no content, and stop updating I guess?
@@ -179,7 +179,8 @@ public sealed class GasDepositScannerSystem : EntitySystem
     /// <summary>
     /// Generates a GasEntry array for a given GasMixture.
     /// </summary>
-    private GasEntry[] GenerateGasEntryArray(GasMixture? mixture)
+    private GasEntry[] GenerateGasEntryArray(GasMixture? mixture,
+                                             float scale) // Mono
     {
         if (mixture == null)
             return [];
@@ -195,13 +196,15 @@ public sealed class GasDepositScannerSystem : EntitySystem
 
             var gasName = Loc.GetString(gas.Name);
             ApproximateGasDepositSize depositSize;
-            if (mixture[i] < 500.0)
+            // Mono
+            var gasCount = mixture[i] * scale;
+            if (gasCount < 500.0)
                 depositSize = ApproximateGasDepositSize.Trace;
-            else if (mixture[i] < 3000.0)
+            else if (gasCount < 3000.0)
                 depositSize = ApproximateGasDepositSize.Small;
-            else if (mixture[i] < 10000.0)
+            else if (gasCount < 10000.0)
                 depositSize = ApproximateGasDepositSize.Medium;
-            else if (mixture[i] < 30000.0)
+            else if (gasCount < 30000.0)
                 depositSize = ApproximateGasDepositSize.Large;
             else
                 depositSize = ApproximateGasDepositSize.Enormous;

@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: latheCategory
   id: Rifles
   name: lathe-category-guns-rifles
@@ -54,6 +50,14 @@
   id: Explosive
   name: lathe-category-guns-explosive
 
+- type: latheCategory
+  id: Antitank
+  name: lathe-category-guns-antitank
+
+- type: latheCategory
+  id: Attachments
+  name: lathe-category-attachments
+
 # mech slop
 
 - type: latheCategory
@@ -71,3 +75,5 @@
 - type: latheCategory
   id: MonoMechHeavyWeapons
   name: lathe-category-mono-mech-weapons-heavy
+
+

@@ -1,7 +1,8 @@
 - type: entity
   id: BaseCartridge45_ACP
   name: cartridge (.45 ACP FMJ)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseCartridge
+  description: Heavier alternative to 9x19mm for handguns and SMGs.
   abstract: true
   components:
   - type: Tag
@@ -11,7 +12,7 @@
   - type: CartridgeAmmo
     proto: Bullet45_ACPFMJ
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/pistol_ammo_casing.rsi
     layers:
       - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]
@@ -101,3 +102,52 @@
     range: 0.3
     energyConsumption: 2700000
     disableDuration: 10
+
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  id: Cartridge45_ACPHP
+  name: cartridge (.45 ACP hollow-point)
+  parent: BaseCartridge45_ACP
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet45_ACPHP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#90EE90"
+
+- type: entity
+  id: Cartridge45_ACPRIP
+  name: cartridge (.45 ACP RIP)
+  parent: BaseCartridge45_ACP
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet45_ACPRIP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#C04000"
+
+#armor-piercing:
+
+- type: entity
+  id: Cartridge45_ACPPlasteelAP
+  name: cartridge (.45 ACP AP)
+  parent: BaseCartridge45_ACP
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet45_ACPPlasteelAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#888888"

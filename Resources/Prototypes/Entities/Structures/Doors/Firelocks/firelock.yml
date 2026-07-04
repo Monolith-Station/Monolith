@@ -5,6 +5,10 @@
   name: firelock
   description: Apply crowbar.
   components:
+    - type: Anchorable
+      flags:
+      - Anchorable
+    - type: Rotatable
     - type: AtmosAlarmable
       syncWith:
         - FireAlarm
@@ -141,6 +145,10 @@
   - type: ContainerFill
     containers:
       board: [ FirelockElectronics ]
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   id: FirelockGlass

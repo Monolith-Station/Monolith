@@ -1,0 +1,116 @@
+- type: construction
+  name: quartz ore crab
+  id: OreCrabQuartz
+  graph: OreCrab
+  startNode: start
+  targetNode: quartz
+  category: construction-category-misc
+  objectType: Item
+  description: A quartz ore crab, if you're feeling lonely.
+  icon:
+    sprite: Mobs/Elemental/orecrab.rsi
+    state: quartz_crab
+
+- type: construction
+  name: iron ore crab
+  id: OreCrabIron
+  graph: OreCrab
+  startNode: start
+  targetNode: iron
+  category: construction-category-misc
+  objectType: Item
+  description: An iron ore crab, if you're feeling lonely.
+  icon:
+    sprite: Mobs/Elemental/orecrab.rsi
+    state: iron_crab
+
+- type: construction
+  name: uranium ore crab
+  id: OreCrabUranium
+  graph: OreCrab
+  startNode: start
+  targetNode: uranium
+  category: construction-category-misc
+  objectType: Item
+  description: A uranium ore crab, if you're feeling lonely.
+  icon:
+    sprite: Mobs/Elemental/orecrab.rsi
+    state: uranium_crab
+
+- type: construction
+  name: silver ore crab
+  id: OreCrabSilver
+  graph: OreCrab
+  startNode: start
+  targetNode: silver
+  category: construction-category-misc
+  objectType: Item
+  description: A silver ore crab, if you're feeling lonely.
+  icon:
+    sprite: Mobs/Elemental/orecrab.rsi
+    state: silver_crab
+
+- type: construction
+  name: bananium ore crab
+  id: OreCrabBananium
+  graph: OreCrab
+  startNode: start
+  targetNode: bananium
+  category: construction-category-misc
+  objectType: Item
+  description: A bananium ore crab, if you're feeling lonely.
+  icon:
+    sprite: _NF/Mobs/Elemental/orecrab.rsi
+    state: bananium_crab
+
+- type: construction
+  name: coal ore crab
+  id: OreCrabCoal
+  graph: OreCrab
+  startNode: start
+  targetNode: coal
+  category: construction-category-misc
+  objectType: Item
+  description: A coal ore crab, if you're feeling lonely.
+  icon:
+    sprite: _NF/Mobs/Elemental/orecrab.rsi
+    state: coal_crab
+
+- type: construction
+  name: gold ore crab
+  id: OreCrabGold
+  graph: OreCrab
+  startNode: start
+  targetNode: gold
+  category: construction-category-misc
+  objectType: Item
+  description: A gold ore crab, if you're feeling lonely.
+  icon:
+    sprite: _NF/Mobs/Elemental/orecrab.rsi
+    state: gold_crab
+
+- type: construction
+  name: plasma ore crab
+  id: OreCrabPlasma
+  graph: OreCrab
+  startNode: start
+  targetNode: plasma
+  category: construction-category-misc
+  objectType: Item
+  description: A plasma ore crab, if you're feeling lonely.
+  icon:
+    sprite: _NF/Mobs/Elemental/orecrab.rsi
+    state: plasma_crab
+
+- type: construction
+  name: salt ore crab
+  id: OreCrabSalt
+  graph: OreCrab
+  startNode: start
+  targetNode: salt
+  category: construction-category-misc
+  objectType: Item
+  description: A salt ore crab, if you're feeling lonely.
+  icon:
+    sprite: _NF/Mobs/Elemental/orecrab.rsi
+    state: salt_crab

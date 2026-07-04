@@ -23,7 +23,7 @@
   - type: TriggerOnBeingGibbed
   - type: GibOnTrigger
     deleteItems: true
-    deleteOrgans: true
+    deleteOrgans: false
     gib: false
     useArgumentEntity: true
   - type: MovementSpeedModifier
@@ -494,7 +494,6 @@
 # Look for magic bolt here:\Resources\Prototypes\_NF\Entities\Objects\Weapons\Guns\Projectiles\magic.yml
 - type: entity
   parent:
-  - BaseC3CultContraband
   - BaseWeaponTurretNF
   #- MobBloodCultistTimedDespawn
   id: BloodCultTurret

@@ -1,15 +1,6 @@
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-# SPDX-FileCopyrightText: 2025 Daniel Lenrd
-# SPDX-FileCopyrightText: 2025 cheetah1984
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Nfsd
 - type: roleLoadout
-  id: JobCadet
+  id: JobCadet # Unused
   groups:
   - TsfmcHead
   - TsfmcNeck
@@ -34,10 +25,11 @@
   - NfsdSpeciesSpecific
   - TsfmcFirearm
   - TsfmcMag
+  - FactionArmorPlates
   canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
-  id: JobDeputy
+  id: JobDeputy # Marine
   groups:
   - TsfmcHead
   - TsfmcNeck
@@ -60,11 +52,14 @@
   - ContractorTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearm
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobBrigmedic
+  id: JobBrigmedic # Brigmedic
   groups:
   - TsfmcHeadMedic
   - TsfmcNeckMedic
@@ -87,14 +82,17 @@
   - ContractorTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearm
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobBailiff
+  id: JobBailiff # Captain
   groups:
   - TsfmcHead
-  - TsfmcNeck
+  - TsfmcNeckCaptain
   - TsfmcJumpsuit
   - TsfmcGloves
   - TsfmcBackpack
@@ -114,11 +112,14 @@
   - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearm
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobSeniorOfficer
+  id: JobSeniorOfficer # Fireteam Leader
   groups:
   - TsfmcHead
   - TsfmcNeck
@@ -141,11 +142,14 @@
   - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearm
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobSheriff
+  id: JobSheriff # Colonel
   groups:
   - TsfmcHead
   - TsfmcNeckCommander
@@ -166,12 +170,15 @@
   - ContractorFun
   - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
-  - TsfmcFirearm
+  - TsfmcFirearmColonel
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobTsfEngineer
+  id: JobTsfEngineer # Engineer
   groups:
   - TsfmcHeadEngi
   - TsfmcNeckEngi
@@ -193,4 +200,7 @@
   - ContractorFun
   - ContractorTrinkets
   - NfsdSpeciesSpecific
+  - TsfmcSidearm
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
   canCustomizeName: true

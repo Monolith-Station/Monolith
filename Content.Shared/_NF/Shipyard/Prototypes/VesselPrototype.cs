@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Checkraze
-// SPDX-FileCopyrightText: 2024 TsjipTsjip
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 neuPanda
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Dvir
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 ark1368
-// SPDX-FileCopyrightText: 2025 sleepyyapril
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Guidebook;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
@@ -20,10 +7,10 @@ using Robust.Shared.Utility;
 namespace Content.Shared._NF.Shipyard.Prototypes;
 
 [Prototype]
-public sealed class VesselPrototype : IPrototype, IInheritingPrototype
+public sealed partial class VesselPrototype : IPrototype, IInheritingPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<VesselPrototype>))]
     public string[]? Parents { get; private set; }
@@ -42,6 +29,12 @@ public sealed class VesselPrototype : IPrototype, IInheritingPrototype
     ///     0 for unlimited.
     /// </summary>
     [DataField("limit")] public int LimitActive;
+
+    /// <summary>
+    ///     The amount of this ship that can active at any given time while HyperwarGamerule is active.
+    ///     0 for unlimited.
+    /// </summary>
+    [DataField("hyperwarLimit")] public int HyperwarLimitActive;
 
     /// <summary>
     ///     Short description of the vessel.
@@ -113,8 +106,18 @@ public sealed class VesselPrototype : IPrototype, IInheritingPrototype
     /// <summary>
     ///     The price markup of the vessel testing
     /// </summary>
+    [DataField("minPriceMarkup")]
+    public float MinPriceMarkup = 1f; // Mono change: 1.05 > 1
+
+    /// <summary>
+    ///     The price markup of the vessel testing for non capitals- Mono
+    /// </summary>
+    [DataField("maxPriceMarkup")]
+    public float MaxPriceMarkup = 2.5f; // Mono
+
+    // Mono
     [DataField]
-    public float MinPriceMarkup = 1.05f;
+    public bool Purchasable = true;
 
     [DataField]
     public HashSet<ProtoId<TagPrototype>> Tags = new();
@@ -199,4 +202,5 @@ public enum VesselEngine : byte
     Plasma,
     Uranium,
     Bananium,
+    NFR, // Mono
 }

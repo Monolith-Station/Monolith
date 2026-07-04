@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 AJCM-git
-// SPDX-FileCopyrightText: 2023 Arendian
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2023 LordEclipse
-// SPDX-FileCopyrightText: 2023 MendaxxDev
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2024 DrSmugleaf
-// SPDX-FileCopyrightText: 2024 Ed
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2024 SlamBamActionman
-// SPDX-FileCopyrightText: 2024 checkraze
-// SPDX-FileCopyrightText: 2024 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Avalon
-// SPDX-FileCopyrightText: 2025 Aviu00
-// SPDX-FileCopyrightText: 2025 GreaseMonk
-// SPDX-FileCopyrightText: 2025 starch
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -272,7 +251,14 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public LocId? ExamineCaliber;
-    
+
+    // Mono
+    /// <summary>
+    /// If we have a <see cref="ThermalSignatureComponent">, how much heat to generate per shot.
+    /// </summary>
+    [DataField]
+    public float ShootThermalSignature = 0f;
+
     /// <summary>
     /// What firemode is currently selected.
     /// </summary>
@@ -313,6 +299,47 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public Angle MuzzleFlashRotationOffset;
+
+    /// <summary>
+    ///     This multiplier will apply per projectile fired by the weapon.
+    /// </summary>
+    [DataField]
+    public float DamageModifier = 1f;
+
+    /// <summary>
+    /// Mono
+    /// Recoil to incur per ammo shot, kg*m/s.
+    /// </summary>
+    [DataField]
+    public float Recoil = 25f;
+
+    /// <summary>
+    /// Mono
+    /// Multiplier of how much recoil should rotate you.
+    /// </summary>
+    [DataField]
+    public float RecoilRotation = 0.2f;
+
+    /// <summary>
+    /// Mono
+    /// How long executing another person takes
+    /// </summary>
+    [DataField]
+    public float ExecutionTime = 6.0f;
+
+    /// <summary>
+    /// Mono
+    /// How long executing yourself takes
+    /// </summary>
+    [DataField]
+    public float SuicideTime = 2.0f;
+
+    /// <summary>
+    /// Mono
+    /// Damage multiplier when performing an execution
+    /// </summary>
+    [DataField]
+    public float ExecutionModifier = 9.0f;
 }
 
 [Flags]

@@ -1,19 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Emisse
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2022 mirrorcult
-# SPDX-FileCopyrightText: 2023 Kesiath
-# SPDX-FileCopyrightText: 2023 Puro
-# SPDX-FileCopyrightText: 2023 Velcroboy
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 deltanedas
-# SPDX-FileCopyrightText: 2024 neuPanda
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 KiraZen_
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: accessGroup
   id: AllAccess
   tags:
@@ -54,4 +38,62 @@
   - Chapel
   - Hydroponics
   - Atmospherics
+  - Pilot # Mono
 #  - Pirate # Mono
+
+# Mono start
+
+- type: accessGroup
+  id: AllAccessSR
+  tags:
+  - EmergencyShuttleRepealAll
+  - Captain
+  - HeadOfPersonnel
+  - ChiefEngineer
+  - ChiefMedicalOfficer
+  - ResearchDirector
+  - Frontier
+  - Command
+  - Cryogenics
+  - Security
+  - Brig
+  - Engineering
+  - Mail
+  - Medical
+  - Mercenary
+  - Quartermaster
+  - Salvage
+  - Cargo
+  - Research
+  - Service
+  - StationTrafficController
+  - Maintenance
+  - External
+  - Janitor
+  - Theatre
+  - Bar
+  - Chemistry
+  - Kitchen
+  - Chapel
+  - Hydroponics
+  - Atmospherics
+  - Pilot
+
+- type: accessGroup
+  id: AllAccessMono
+  tags:
+  #- EmergencyShuttleRepealAll
+  - Captain
+  - Command
+  - Security
+  - Brig
+  - Mail
+  - Medical
+  - Mercenary
+  - Service
+  - StationTrafficController
+  - Maintenance
+  - External
+  - Janitor
+  - Chemistry
+# Mono end

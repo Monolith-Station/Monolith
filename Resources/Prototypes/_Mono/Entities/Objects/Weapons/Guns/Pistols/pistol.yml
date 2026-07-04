@@ -1,10 +1,6 @@
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   name: U.I Smart Pistol MK5 (.55 SAM)
-  parent: [BaseWeaponPistol, BaseGunWieldable, BaseC3SyndicateContraband]
+  parent: [BaseWeaponPistol]
   id: WeaponPistolUllmanSmartMagnumMK5
   description: A prototype smart pistol developed by Ullman Industries that uses .55 Smart Action Magnum, designed for precision and adaptability in combat situations. It features advanced targeting systems and a sleek design.
   components:
@@ -57,7 +53,11 @@
   - type: StaticPrice
     price: 350
   - type: SmartGun
-    requiresWield: true
+    requiresWield: false
   - type: LaserPointer
     targetedColor: "#FF5C00"
     defaultColor: "#008080"
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/smartgun_mouse.rsi
+      state: all

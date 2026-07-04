@@ -1,0 +1,11 @@
+- type: language
+  id: Gary
+  isVisibleLanguage: true
+  speech:
+    color: "#005effdd"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 1
+    replacement:
+    - Gary

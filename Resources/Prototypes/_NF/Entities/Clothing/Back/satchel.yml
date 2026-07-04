@@ -10,7 +10,7 @@
 - type: entity
   id: ClothingBackpackSatchelArcadia
   name: arcadia satchel
-  parent: [ ClothingBackpackSatchel, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: [ ClothingBackpackSatchel ]
   description: A satchel produced by Arcadia Industries.
   components:
   - type: Sprite

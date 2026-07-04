@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 HungryCuban
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 sleepyyapril
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: cargoBounty
   id: USSPBountyArtifact
   reward: 30000
@@ -105,18 +98,6 @@
     whitelist:
       tags:
       - BiomassBounty
-
-- type: cargoBounty
-  id: USSPRogueHardsuit
-  reward: 32000
-  description: ussp-bounty-desc-rogue-hardsuit
-  idPrefix: NC # nova cygni fyi
-  entries:
-  - name: ussp-bounty-name-rogue-hardsuit
-    amount: 1
-    whitelist:
-      tags:
-      - RogueHardsuit
 
 - type: cargoBounty
   id: USSPBountyMilitaryMech

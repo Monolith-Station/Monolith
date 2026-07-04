@@ -1,23 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Alex Evgrashin
-// SPDX-FileCopyrightText: 2021 Paul Ritter
-// SPDX-FileCopyrightText: 2022 Leon Friedrich
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2022 keronshb
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Julian Giebel
-// SPDX-FileCopyrightText: 2023 chromiumboy
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2024 BombasterDS
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2024 Qulibly
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2024 themias
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Medical.SuitSensor;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -103,14 +83,14 @@ public sealed partial class SuitSensorComponent : Component
     /// <summary>
     /// The previous mode of the suit. This is used to restore the state when an EMP effect ends.
     /// </summary>
-    [DataField, ViewVariables]
+    [DataField, AutoNetworkedField, ViewVariables]
     public SuitSensorMode PreviousMode = SuitSensorMode.SensorOff;
 
     /// <summary>
     ///  The previous locked status of the controls.  This is used to restore the state when an EMP effect ends.
     ///  This keeps prisoner jumpsuits/internal implants from becoming unlocked after an EMP.
     /// </summary>
-    [DataField, ViewVariables]
+    [DataField, AutoNetworkedField, ViewVariables]
     public bool PreviousControlsLocked = false;
 
     /// <summary>

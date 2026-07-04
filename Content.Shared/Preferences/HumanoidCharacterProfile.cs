@@ -479,6 +479,14 @@ namespace Content.Shared.Preferences
             };
         }
 
+        public HumanoidCharacterProfile WithoutAllTraitPreferences()
+        {
+            return new(this)
+            {
+                _traitPreferences = new HashSet<ProtoId<TraitPrototype>>(),
+            };
+        }
+
         public string Summary =>
             Loc.GetString(
                 "humanoid-character-profile-summary",

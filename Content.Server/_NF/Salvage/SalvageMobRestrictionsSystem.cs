@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Whatstone
-// SPDX-FileCopyrightText: 2025 Ilya246
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Explosion.EntitySystems;
@@ -17,12 +11,12 @@ using Robust.Shared.Player;
 
 namespace Content.Server._NF.Salvage;
 
-public sealed class SalvageMobRestrictionsSystem : EntitySystem
+public sealed partial class SalvageMobRestrictionsSystem : EntitySystem
 {
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {

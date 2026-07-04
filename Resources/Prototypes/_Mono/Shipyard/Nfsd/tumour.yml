@@ -1,9 +1,11 @@
+#Author: Starch(!)
+
 - type: vessel
   id: Tumour
   parent: BaseVesselAntag
   name: TSF-SKR Tumour
   description: A ugly potato of a carrier. Little armament to defend itself, but carries lathes to support its fighters and other ships.
-  price: 44150
+  price: 68250
   category: Medium
   group: Security
   access: Security
@@ -32,4 +34,5 @@
       - type: StationJobs
         availableJobs:
           Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
 

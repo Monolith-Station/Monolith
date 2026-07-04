@@ -1,14 +1,10 @@
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #they are called *goggles* but count as glasses because.
 
 - type: entity
   parent: ClothingEyesHudMedical
   id: ClothingEyesBallisticGogglesRed
   name: red ballistic goggles
-  description: A pair of ballistic goggles with red lenses and integrated health scanning microships.
+  description: A pair of ballistic goggles with red lenses and integrated health scanning microchips.
   components:
   - type: StaticPrice
     price: 1500
@@ -34,7 +30,7 @@
   parent: ClothingEyesHudMedical
   id: ClothingEyesBallisticGlassesRed
   name: red ballistic glasses
-  description: A pair of ballistic glasses with red lenses and integrated health scanning microships.
+  description: A pair of ballistic glasses with red lenses and integrated health scanning microchips.
   components:
   - type: StaticPrice
     price: 1500
@@ -60,7 +56,7 @@
   parent: ClothingEyesHudMedical
   id: ClothingEyesBallisticGogglesGreen
   name: green ballistic goggles
-  description: A pair of ballistic goggles with green lenses and integrated health scanning microships.
+  description: A pair of ballistic goggles with green lenses and integrated health scanning microchips.
   components:
   - type: StaticPrice
     price: 1500
@@ -86,7 +82,7 @@
   parent: ClothingEyesHudMedical
   id: ClothingEyesBallisticGlassesGreen
   name: green ballistic glasses
-  description: A pair of ballistic glasses with green lenses and integrated health scanning microships.
+  description: A pair of ballistic glasses with green lenses and integrated health scanning microchips.
   components:
   - type: StaticPrice
     price: 1500
@@ -112,7 +108,7 @@
   parent: ClothingEyesHudMedical
   id: ClothingEyesBallisticGogglesOrange
   name: orange ballistic goggles
-  description: A pair of ballistic goggles with orange lenses and integrated health scanning microships.
+  description: A pair of ballistic goggles with orange lenses and integrated health scanning microchips.
   components:
   - type: StaticPrice
     price: 1500
@@ -138,7 +134,7 @@
   parent: ClothingEyesHudMedical
   id: ClothingEyesBallisticGlassesOrange
   name: orange ballistic glasses
-  description: A pair of ballistic glasses with orange lenses and integrated health scanning microships.
+  description: A pair of ballistic glasses with orange lenses and integrated health scanning microchips.
   components:
   - type: StaticPrice
     price: 1500
@@ -159,3 +155,24 @@
     - Inorganic
     - Silicon
     - Biological
+
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons]
+  id: ClothingEyesTSFOfficerGlasses
+  name: TSF commander shades
+  description: A high tech heads up display purpose built for Federation officers. Usually issued to the commanding officer of a company.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: ThermalVision
+    isEquipment: true
+    color: "#FFFFFFFF"
+    lightRadius: 45
+  - type: NightVision
+    flashDurationMultiplier: 2.75
+    isEquipment: true

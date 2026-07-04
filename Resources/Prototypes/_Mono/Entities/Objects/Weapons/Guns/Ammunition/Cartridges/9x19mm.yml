@@ -1,7 +1,8 @@
 - type: entity
   id: BaseCartridge9x19mm
   name: cartridge (9x19mm FMJ)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: BaseCartridge
+  description: Generic pistol round. Easy to handle, with a decent effect on unarmored flesh.
   abstract: true
   components:
   - type: Tag
@@ -11,7 +12,7 @@
   - type: CartridgeAmmo
     proto: Bullet9x19mmFMJ
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/pistol_ammo_casing.rsi
     layers:
       - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]
@@ -101,3 +102,52 @@
     range: 0.3
     energyConsumption: 2700000
     disableDuration: 10
+
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  id: Cartridge9x19mmHP
+  name: cartridge (9x19mm hollow-point)
+  parent: BaseCartridge9x19mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet9x19mmHP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#90EE90"
+
+- type: entity
+  id: Cartridge9x19mmRIP
+  name: cartridge (9x19mm RIP)
+  parent: BaseCartridge9x19mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet9x19mmRIP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#C04000"
+
+#armor-piercing:
+
+- type: entity
+  id: Cartridge9x19mmPlasteelAP
+  name: cartridge (9x19mm AP)
+  parent: BaseCartridge9x19mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet9x19mmPlasteelAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#888888"

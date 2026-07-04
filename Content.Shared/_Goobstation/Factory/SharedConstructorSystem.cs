@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared._Goobstation.Construction;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -14,11 +7,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Factory;
 
-public abstract class SharedConstructorSystem : EntitySystem
+public abstract partial class SharedConstructorSystem : EntitySystem
 {
-    [Dependency] protected readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] protected readonly IPrototypeManager Proto = default!;
-    [Dependency] protected readonly SharedTransformSystem _transform = default!;
+    [Dependency] protected ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] protected IPrototypeManager Proto = default!;
+    [Dependency] protected SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

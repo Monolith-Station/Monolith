@@ -1,7 +1,43 @@
-# SPDX-FileCopyrightText: 2025 Blu
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+
+#PDV
+- type: entity
+  id: SpawnPointPDVDenasvar
+  parent: SpawnPointJobBase
+  name: PDV Denasvar
+  components:
+  - type: SpawnPoint
+    job_id: PDVDenasvar
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
+
+- type: entity
+  id: SpawnPointPDVInfiltrator
+  parent: SpawnPointJobBase
+  name: pdv infiltrator
+  components:
+  - type: SpawnPoint
+    job_id: PDVInfiltrator
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
+
+- type: entity
+  id: SpawnPointPDVBorg
+  parent: SpawnPointJobBase
+  name: pdv cyborg
+  components:
+  - type: SpawnPoint
+    job_id: PdvBorg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: robot
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: robot_e
+
+#USSP
 
 - type: entity
   id: SpawnPointUSSPRifleman
@@ -10,28 +46,6 @@
   components:
   - type: SpawnPoint
     job_id: USSPRifleman
-  - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-red
-
-- type: entity
-  id: SpawnPointUSSPMedic
-  parent: SpawnPointJobBase
-  name: USSP Combat Medic
-  components:
-  - type: SpawnPoint
-    job_id: USSPMedic
-  - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-red
-
-- type: entity
-  id: SpawnPointUSSPCorporal
-  parent: SpawnPointJobBase
-  name: USSP Efreitor
-  components:
-  - type: SpawnPoint
-    job_id: USSPCorporal
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
     state: banner-red
@@ -58,6 +72,8 @@
     sprite: Structures/Decoration/banner.rsi
     state: banner-red
 
+#MD
+
 - type: entity
   id: SpawnPointMdMedic
   parent: SpawnPointJobBase
@@ -71,6 +87,8 @@
       - state: green
       - state: medic
 
+#TSF
+
 - type: entity
   id: SpawnPointTsfEngi
   parent: SpawnPointJobBase
@@ -82,3 +100,53 @@
     sprite: _NF/Markers/jobs.rsi
     layers:
     - state: green
+
+- type: entity
+  id: SpawnPointTSFBorg
+  parent: SpawnPointJobBase
+  name: tsf cyborg
+  components:
+  - type: SpawnPoint
+    job_id: TsfBorg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: robot
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: robot_e
+
+# Viper Group
+
+- type: entity
+  id: SpawnPointVGInfanteer
+  parent: SpawnPointJobBase
+  name: VG Infanteer
+  components:
+  - type: SpawnPoint
+    job_id: VGInfanteer
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
+
+- type: entity
+  id: SpawnPointVGLieutenant
+  parent: SpawnPointJobBase
+  name: VG Lieutenant
+  components:
+  - type: SpawnPoint
+    job_id: VGLieutenant
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
+
+- type: entity
+  id: SpawnPointVGCommander
+  parent: SpawnPointJobBase
+  name: VG Commander
+  components:
+  - type: SpawnPoint
+    job_id: VGCommander
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red

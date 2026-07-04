@@ -31,7 +31,7 @@
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
-  price: 2500
+  price: 0 # Mono
   equipment:
     shoes: ClothingShoesBootsMagMercenary
 
@@ -41,6 +41,6 @@
   hideEffects:
   - !type:GroupLoadoutEffect
     proto: ShoesCapableNF
-  price: 2500
+  price: 0 # Mono
   equipment:
     shoes: ClothingShoesBootsMagSecurity

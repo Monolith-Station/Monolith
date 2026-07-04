@@ -28,6 +28,7 @@ namespace Content.Shared.Administration
         public struct AdminRankData
         {
             public string Name;
+            public string ShortName; // Mono
             public AdminFlags Flags;
         }
     }
@@ -67,6 +68,7 @@ namespace Content.Shared.Administration
         public sealed class AddAdminRank : EuiMessageBase
         {
             public string Name = string.Empty;
+            public string ShortName = string.Empty; // Mono
             public AdminFlags Flags;
         }
 
@@ -82,6 +84,7 @@ namespace Content.Shared.Administration
             public int Id;
 
             public string Name = string.Empty;
+            public string ShortName = string.Empty; // Mono
             public AdminFlags Flags;
         }
     }

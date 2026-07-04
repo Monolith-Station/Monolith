@@ -1,21 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin
-# SPDX-FileCopyrightText: 2024 Checkraze
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 GreaseMonk
-# SPDX-FileCopyrightText: 2024 Salvantrix
-# SPDX-FileCopyrightText: 2024 Shroomerian
-# SPDX-FileCopyrightText: 2024 TsjipTsjip
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 LukeZurg22
-# SPDX-FileCopyrightText: 2025 RealSchepka
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 Schepka
-# SPDX-FileCopyrightText: 2025 SuperJoelDood
-# SPDX-FileCopyrightText: 2025 significant harassment
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # Author Info
 # GitHub: onezerooo0, Redrover1760
 # Discord: onezero00, Gnarlysheep
@@ -30,10 +12,11 @@
 #
 - type: pointOfInterest
   id: TSFMCHalcyon
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'TSFMC Flagship Halcyon'
-  minimumDistance: 2500 # Mono
-  maximumDistance: 4000 # Mono
+  minimumDistance: 4500 # Mono
+  maximumDistance: 5500 # Mono
+  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/tsfmchalcyon.yml
   addComponents:
@@ -42,7 +25,6 @@
     readOnly: true
   - type: SolarPoweredGrid
     doNotCull: true
-  - type: DeedlessShuttle
 
 - type: gameMap
   id: TSFMCHalcyon
@@ -53,21 +35,84 @@
   stations:
     TSFMCHalcyon:
       stationProto: SecurityFrontierOutpost
+      gridComponents:
+      - type: VesselInfo
+        description: "A mothballed battleship-turned-FOB, and Home of the TSFMC operations."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'TSFMC Flagship Halcyon'
         - type: ExtraStationInformation
-          iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
+          icon:
+            sprite: _NF/Structures/Decoration/banner.rsi
+            state: nfsd-banner
           stationSubtext: 'frontier-lobby-nfsd-subtext'
           stationDescription: 'frontier-lobby-nfsd-description'
           lobbySortOrder: 2
         - type: StationJobs
           availableJobs:
             Sheriff: [ 1, 1 ]
+            Bailiff: [1, 1 ]
             SeniorOfficer: [ 3, 3 ] # Mono
             Brigmedic: [ 2, 2 ] # Mono
             Deputy: [ -1, -1 ] # Mono
             TsfEngineer: [ 2, 2 ]
+            TsfBorg: [ 2, 2 ]
+          tags:
+          - HeadOfPersonnel
+          - HeadOfSecurity
+        - type: StationDeadDropReporting
+          messageSet: Nfsd
+        - type: StationDeadDropHintExempt
+
+### Hyperwar
+
+- type: pointOfInterest
+  id: TSFMCHalcyonHyperwar
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'TSFMC Flagship Halcyon'
+  minimumDistance: 4500
+  maximumDistance: 5500
+  spawnGamePreset: [ MonoRogueTSFHyperwar ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/tsfmchalcyon_hw.yml
+  addComponents:
+  - type: IFF
+    color: "#047abd"
+    readOnly: true
+  - type: SolarPoweredGrid
+    doNotCull: true
+
+- type: gameMap
+  id: TSFMCHalcyonHyperwar
+  mapName: 'TSFMC Flagship Halcyon'
+  mapPath: /Maps/_Mono/POI/tsfmchalcyon_hw.yml
+  minPlayers: 0
+  randomRotation: false
+  stations:
+    TSFMCHalcyonHyperwar:
+      stationProto: SecurityFrontierOutpost
+      gridComponents:
+      - type: VesselInfo
+        description: "A mothballed battleship-turned-FOB, and Home of the TSFMC operations."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'TSFMC Flagship Halcyon'
+        - type: ExtraStationInformation
+          icon:
+            sprite: _NF/Structures/Decoration/banner.rsi
+            state: nfsd-banner
+          stationSubtext: 'frontier-lobby-nfsd-subtext'
+          stationDescription: 'frontier-lobby-nfsd-description'
+          lobbySortOrder: 2
+        - type: StationJobs
+          availableJobs:
+            Sheriff: [ 1, 1 ]
+            Bailiff: [3, 3 ]
+            SeniorOfficer: [ 5, 5 ] # Mono
+            Brigmedic: [ 2, 2 ] # Mono
+            Deputy: [ -1, -1 ] # Mono
+            TsfEngineer: [ 2, 2 ]
+            TsfBorg: [ 2, 2 ]
           tags:
           - HeadOfPersonnel
           - HeadOfSecurity

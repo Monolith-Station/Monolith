@@ -1,4 +1,4 @@
-﻿version: 1 # Not used right now, whatever.
+version: 1 # Not used right now, whatever.
 binds:
 - function: UIClick
   type: State
@@ -47,6 +47,9 @@ binds:
 - function: ToggleStanding
   type: State
   key: R
+- function: ToggleFocus
+  type: State
+  key: Space
 # Shuttle
 - function: ShuttleStrafeUp
   type: State
@@ -256,9 +259,23 @@ binds:
   type: State
   key: E
   mod1: Shift
-- function: SmartEquipBack # Goobstation - Smart equip to back
-  type: State # Goobstation - Smart equip to back
-  key: F # Goobstation - Smart equip to back
+- function: SmartEquipPocket1
+  type: State
+  key: G # Mono: G<F
+  mod1: Shift
+- function: SmartEquipPocket2
+  type: State
+  key: H # Mono: H<G
+  mod1: Shift
+- function: SmartEquipSuitStorage
+  type: State
+  key: F # Mono: F<H
+  mod1: Shift
+# Goobstation - Smart equip to back
+- function: EquipSuitStorage # Mono
+  type: State
+  key: F
+# Goobstation end
 - function: OpenBackpack
   type: State
   key: V

@@ -4,19 +4,47 @@
   components:
     - type: BasicStationEventScheduler
       scheduledGameRules: !type:NestedSelector
-        tableId: MonoAISTCEventsTable
-      minimumTimeUntilFirstEvent: 3600 # 60 minutes
+        tableId: DamagedAIShipsTable
+      minimumTimeUntilFirstEvent: 3600 # 1 hour
       minMaxEventTiming:
-        min: 3600 # 60 minutes between events
+        min: 5400 # 90 minutes between events
         max: 7200 # 120 minutes between events
 
-- type: entityTable
-  id: MonoAISTCEventsTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-      - id: UnknownShuttleZenith
-      - id: UnknownShuttleRazor
-      - id: UnknownShuttleNebula
+- type: entity
+  id: MonoAISTCShuttleSpawnerSchedulerTier2
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: DamagedAIShipsTableT2
+    minimumTimeUntilFirstEvent: 10800 # 3 hours
+    minMaxEventTiming:
+      min: 3600 # 60 minutes between events
+      max: 3600 # 60 minutes between events
+
+- type: entity
+  id: MonoAsakimSTCShuttleSpawnerScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: AsakimShipsTable
+    minimumTimeUntilFirstEvent: 3600 # 1 hour
+    minMaxEventTiming:
+      min: 3600 # 60 minutes between events
+      max: 7200 # 120 minutes between events
+
+- type: entity
+  id: MonoChimeraSTCShuttleSpawnerScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: ChimeraShipsTable
+    minimumTimeUntilFirstEvent: 3600 # 1 hour
+    minMaxEventTiming: #2-4
+      min: 2400 # 40 minutes between events
+      max: 4800 # 80 minutes between events
 
 - type: entity
   abstract: true
@@ -30,3 +58,15 @@
     maxOccurrences: 2 # should be the same as [copies] in ship_spawns.yml
   - type: RuleGrids
   - type: LoadMapRule
+
+- type: entity
+  id: MonoMonolithicEventsScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: MonoMonolithicEventsTable
+    minimumTimeUntilFirstEvent: 600 # 10 minutes
+    minMaxEventTiming:
+      min: 420 # 7 minutes between events
+      max: 1200 # 20 minutes between events

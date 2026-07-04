@@ -1,0 +1,15 @@
+- type: reaction
+  id: Pyrogel
+  impact: Medium
+  quantized: true
+  minTemp: 370
+  reactants:
+    Napalm:
+      amount: 2
+    Phlogiston:
+      amount: 1
+    ChlorineTrifluoride:
+      amount: 2
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: MaterialPyrogel1

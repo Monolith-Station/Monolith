@@ -19,13 +19,13 @@
   - type: BlockMovement
   - type: Examiner
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
   - type: ActiveRadio
     channels:
-    - Binary
     - Common
+  - type: CollectiveMind
+    channels:
+    - Binary
+    defaultChannel: Binary
   - type: NameIdentifier
     group: MMI
   - type: DoAfter
@@ -61,6 +61,7 @@
     understands:
     - TauCetiBasic
     - RobotTalk
+  - type: RetroMonitorView # Mono
 
 - type: entity
   parent: MMI
@@ -111,13 +112,13 @@
     - type: Examiner
     - type: BorgBrain
     - type: IntrinsicRadioReceiver
-    - type: IntrinsicRadioTransmitter
-      channels:
-      - Binary
     - type: ActiveRadio
       channels:
-      - Binary
       - Common
+    - type: CollectiveMind
+      channels:
+      - Binary
+      defaultChannel: Binary
     - type: NameIdentifier
       group: PositronicBrain
     - type: DoAfter
@@ -157,3 +158,4 @@
       understands:
       - TauCetiBasic # Added since posi brains should be able to understand TauCetiBasic (they can in a chassis)
       - RobotTalk
+    - type: RetroMonitorView # Mono

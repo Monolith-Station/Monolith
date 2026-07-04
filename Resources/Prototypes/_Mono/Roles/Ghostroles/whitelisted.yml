@@ -13,27 +13,3 @@
   rules: ghost-role-information-silicon-rules
   entityPrototype: StationAiBrainRedacted
   whitelisted: true
-
-- type: ghostRole
-  id: VesselAICore
-  name: ghost-role-information-vessel-core
-  description: ghost-role-information-vessel-core-description
-  rules: ghost-role-information-silicon-rules
-  entityPrototype: StationAiBrainVessel
-  whitelisted: true
-
-- type: ghostRole
-  id: TSFMCAICore
-  name: ghost-role-information-tsfmc-core
-  description: ghost-role-information-tsfmc-core-description
-  rules: ghost-role-information-silicon-rules
-  entityPrototype: StationAiBrainTSFMC
-  whitelisted: true
-
-- type: ghostRole
-  id: RogueAICore
-  name: ghost-role-information-rogue-core
-  description: ghost-role-information-rogue-core-description
-  rules: ghost-role-information-silicon-rules
-  entityPrototype: StationAiBrainRogue
-  whitelisted: true

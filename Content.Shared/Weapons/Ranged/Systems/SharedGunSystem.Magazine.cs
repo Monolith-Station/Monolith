@@ -1,6 +1,7 @@
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Ranged.Components; // Mono
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Containers;
 
@@ -14,6 +15,7 @@ public abstract partial class SharedGunSystem
     {
         SubscribeLocalEvent<MagazineAmmoProviderComponent, MapInitEvent>(OnMagazineMapInit);
         SubscribeLocalEvent<MagazineAmmoProviderComponent, TakeAmmoEvent>(OnMagazineTakeAmmo);
+        SubscribeLocalEvent<MagazineAmmoProviderComponent, CheckShootPrototypeEvent>(OnMagazineCheckProto); // Mono
         SubscribeLocalEvent<MagazineAmmoProviderComponent, GetAmmoCountEvent>(OnMagazineAmmoCount);
         SubscribeLocalEvent<MagazineAmmoProviderComponent, GetVerbsEvent<AlternativeVerb>>(OnMagazineVerb);
         SubscribeLocalEvent<MagazineAmmoProviderComponent, EntInsertedIntoContainerMessage>(OnMagazineSlotChange);
@@ -33,7 +35,13 @@ public abstract partial class SharedGunSystem
             return;
 
         var (count, _) = GetMagazineCountCapacity(uid, component);
-        args.PushMarkup(Loc.GetString("gun-magazine-examine", ("color", AmmoExamineColor), ("count", count)));
+
+        // Mono
+        var mag = GetMagazineEntity(uid);
+        if (TryComp<BallisticAmmoProviderComponent>(mag, out var ballistic) && ballistic.InfiniteUnspawned)
+            args.PushMarkup(Loc.GetString("gun-magazine-infinite-examine", ("color", AmmoExamineSpecialColor), ("count", count)));
+        else
+            args.PushMarkup(Loc.GetString("gun-magazine-examine", ("color", AmmoExamineColor), ("count", count)));
     }
 
     private void OnMagazineUse(EntityUid uid, MagazineAmmoProviderComponent component, UseInHandEvent args)
@@ -143,6 +151,16 @@ public abstract partial class SharedGunSystem
         var ammoEv = new GetAmmoCountEvent();
         RaiseLocalEvent(magEntity.Value, ref ammoEv);
         FinaliseMagazineTakeAmmo(uid, component, ammoEv.Count, ammoEv.Capacity, args.User, appearance);
+    }
+
+    // Mono
+    private void OnMagazineCheckProto(Entity<MagazineAmmoProviderComponent> ent, ref CheckShootPrototypeEvent args)
+    {
+        var magEntity = GetMagazineEntity(ent);
+        if (magEntity == null)
+            return;
+
+        RaiseLocalEvent(magEntity.Value, ref args);
     }
 
     private void FinaliseMagazineTakeAmmo(EntityUid uid, MagazineAmmoProviderComponent component, int count, int capacity, EntityUid? user, AppearanceComponent? appearance)

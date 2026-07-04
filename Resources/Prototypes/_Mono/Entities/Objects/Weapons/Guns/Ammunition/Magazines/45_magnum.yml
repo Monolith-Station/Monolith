@@ -1,34 +1,7 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 DrSmugleaf
-# SPDX-FileCopyrightText: 2020 Paul Ritter
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2021 BulletGrade
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Scribbles0
-# SPDX-FileCopyrightText: 2023 TaralGit
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2024 Winkarst
-# SPDX-FileCopyrightText: 2025 BlueHNT
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft
-# SPDX-FileCopyrightText: 2025 K-Dynamic
-# SPDX-FileCopyrightText: 2025 core-mene
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BaseMagazine45_magnum
   name: pistol magazine (.45 magnum FMJ)
-  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC1Contraband, added RecyclableItemSteelTiny
+  parent: [ BaseItem, RecyclableItemSteelTiny ]
   abstract: true
   components:
   - type: Tag
@@ -39,7 +12,12 @@
     whitelist:
       tags:
         - Cartridge45_magnumFMJ
-    capacity: 7
+    capacity: 8
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/45_magnum/45_magnum_pistol_mag.rsi
     layers:
@@ -47,11 +25,263 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
 
+#Start Pistol mags
+- type: entity
+  id: Magazine45_magnumPistolFMJ
+  name: pistol magazine (.45 magnum FMJ)
+  parent: BaseMagazine45_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumFMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine45_magnumPistolEmpty
+  name: pistol magazine (.45 magnum any)
+  suffix: empty
+  parent: Magazine45_magnumPistolFMJ
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine45_magnumPistolIncendiary
+  name: pistol magazine (.45 magnum incendiary)
+  parent: Magazine45_magnumPistolFMJ
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumIncendiary
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine45_magnumPistolPractice
+  name: pistol magazine (.45 magnum practice)
+  parent: BaseMagazine45_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumPractice
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine45_magnumPistolUranium
+  name: pistol magazine (.45 magnum uranium)
+  parent: BaseMagazine45_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumUranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#old AP holdover
+- type: entity
+  id: Magazine45_magnumPistolAP
+  name: pistol magazine (.45 magnum extreme armor-piercing)
+  parent: BaseMagazine45_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumAP
+  - type: Sprite
+    layers:
+    - state: piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#Upstream
+- type: entity
+  id: Magazine45_magnumPistolRubber
+  name: pistol magazine (.45 magnum rubber)
+  parent: BaseMagazine45_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumRubber
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/45_magnum/45_magnum_pistol_mag.rsi
+    layers:
+    - state: rubber
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#Mono AP system
+#anti-flesh ammo
+- type: entity
+  id: Magazine45_magnumPistolHP
+  name: pistol magazine (.45 magnum hollow-point)
+  parent: BaseMagazine45_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumHP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/45_magnum/45_magnum_pistol_mag.rsi
+    layers:
+    - state: HP
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine45_magnumPistolRIP
+  name: pistol magazine (.45 magnum RIP)
+  parent: BaseMagazine45_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumRIP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/45_magnum/45_magnum_pistol_mag.rsi
+    layers:
+    - state: RIP
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#armor-piercing ammo
+
+- type: entity
+  id: Magazine45_magnumPistolPlasteelAP
+  name: pistol magazine (.45 magnum AP)
+  parent: BaseMagazine45_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumPlasteelAP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/45_magnum/45_magnum_pistol_mag.rsi
+    layers:
+    - state: plasteelAP
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#End Pistol mags
+#Start HighCapacity mags
+- type: entity
+  id: BaseMagazine45_magnumPistolHighCapacityFMJ
+  name: machine pistol magazine (.45 magnum FMJ)
+  parent: [BaseItem, RecyclableItemSteelTiny]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Magazine45_magnumPistolHighCapacityFMJ
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - Cartridge45_magnumFMJ
+    capacity: 16
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/45_magnum/45_magnum_pistol_high_capacity_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: Magazine45_magnumPistolHighCapacityEmpty
+  name: machine pistol magazine (.45 magnum any)
+  suffix: empty
+  parent: BaseMagazine45_magnumPistolHighCapacityFMJ
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine45_magnumPistolHighCapacityFMJ
+  name: machine pistol magazine (.45 magnum FMJ)
+  parent: BaseMagazine45_magnumPistolHighCapacityFMJ
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumFMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine45_magnumPistolHighCapacityPractice
+  name: machine pistol magazine (.45 magnum practice)
+  parent: BaseMagazine45_magnumPistolHighCapacityFMJ
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumFMJ
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine45_magnumPistolHighCapacityRubber
+  name: machine pistol magazine (.45 magnum rubber)
+  parent: BaseMagazine45_magnumPistolHighCapacityFMJ
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumFMJ
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/45_magnum/45_magnum_pistol_high_capacity_mag.rsi
+    layers:
+    - state: rubber
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#End HighCapacity mags
+#Start SubMachineGun mags
 - type: entity
   id: BaseMagazine45_magnumSubMachineGunFMJ
   name: SMG magazine (.45 magnum FMJ)
-  parent: [BaseItem, RecyclableItemSteelTiny] # Frontier: added RecyclableItemSteelTiny
+  parent: [BaseItem, RecyclableItemSteelTiny]
   abstract: true
   components:
   - type: Tag
@@ -62,7 +292,7 @@
     whitelist:
       tags:
         - Cartridge45_magnumFMJ
-    capacity: 25
+    capacity: 29
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -82,86 +312,20 @@
   - type: Appearance
 
 - type: entity
-  id: Magazine45_magnumPistolEmpty
-  name: pistol magazine (.45 magnum any)
-  suffix: empty
-  parent: BaseMagazine45_magnum
-  components:
-  - type: BallisticAmmoProvider
-    proto: null
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
-  id: Magazine45_magnumPistolFMJ
-  name: pistol magazine (.45 magnum FMJ)
-  parent: BaseMagazine45_magnum
+  id: Magazine45_magnumSubMachineGunFMJ
+  name: SMG magazine (.45 magnum FMJ)
+  parent: BaseMagazine45_magnumSubMachineGunFMJ
   components:
   - type: BallisticAmmoProvider
     proto: Cartridge45_magnumFMJ
+    whitelist:
+      tags:
+        - Cartridge45_magnumFMJ
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
   - type: Sprite
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
-  id: Magazine45_magnumPistolPractice
-  name: pistol magazine (.45 magnum practice)
-  parent: BaseMagazine45_magnum
-  components:
-  - type: BallisticAmmoProvider
-    proto: Cartridge45_magnumPractice
-  - type: Sprite
-    layers:
-    - state: practice
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
-  id: Magazine45_magnumPistolUranium
-  name: pistol magazine (.45 magnum uranium)
-  parent: BaseMagazine45_magnum
-  components:
-  - type: BallisticAmmoProvider
-    proto: Cartridge45_magnumUranium
-  - type: Sprite
-    layers:
-    - state: uranium
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
-  id: Magazine45_magnumPistolAP
-  name: pistol magazine (.45 magnum armor-piercing)
-  parent: BaseMagazine45_magnum
-  components:
-  - type: BallisticAmmoProvider
-    proto: Cartridge45_magnumAP
-  - type: Sprite
-    layers:
-    - state: piercing
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
-  id: Magazine45_magnumPistolIncendiary
-  name: pistol magazine (.45 magnum incendiary)
-  parent: BaseMagazine45_magnum
-  components:
-  - type: BallisticAmmoProvider
-    proto: Cartridge45_magnumIncendiary
-  - type: Sprite
-    layers:
-    - state: red
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -174,20 +338,6 @@
   components:
   - type: BallisticAmmoProvider
     proto: null
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
-  id: Magazine45_magnumSubMachineGunFMJ
-  name: SMG magazine (.45 magnum FMJ)
-  parent: BaseMagazine45_magnumSubMachineGunFMJ
-  components:
-  - type: BallisticAmmoProvider
-    proto: Cartridge45_magnumFMJ
   - type: Sprite
     layers:
     - state: base
@@ -224,43 +374,81 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: Magazine45_magnumSubMachineGunPiercing
-  name: SMG magazine (.45 magnum armor-piercing) # Frontier: armour<armor
   parent: BaseMagazine45_magnumSubMachineGunFMJ
+  id: Magazine45_magnumSubMachineGunIncendiary
+  name: SMG magazine (.45 magnum incendiary)
   components:
   - type: BallisticAmmoProvider
-    proto: Cartridge45_magnumAP
+    proto: Cartridge45_magnumIncendiary
   - type: Sprite
     layers:
-    - state: piercing
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
-  id: Magazine45_magnumPistolRubber
-  name: pistol magazine (.45 magnum rubber)
-  parent: BaseMagazine45_magnum
-  components:
-  - type: BallisticAmmoProvider
-    proto: Cartridge45_magnumRubber
-  - type: Sprite
-    layers:
-    - state: rubber
+    - state: red
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
   id: Magazine45_magnumSubMachineGunRubber
-  name: "SMG magazine (.45 magnum rubber)"
+  name: SMG magazine (.45 magnum rubber)
   parent: BaseMagazine45_magnumSubMachineGunFMJ
   components:
   - type: BallisticAmmoProvider
     proto: Cartridge45_magnumRubber
   - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/45_magnum/45_magnum_smg_mag.rsi
     layers:
     - state: rubber
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+#Mono AP system
+#anti-flesh ammo
+- type: entity
+  id: Magazine45_magnumSubMachineGunHP
+  name: SMG magazine (.45 magnum hollow-point)
+  parent: BaseMagazine45_magnumSubMachineGunFMJ
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumHP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/45_magnum/45_magnum_smg_mag.rsi
+    layers:
+    - state: HP
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Magazine45_magnumSubMachineGunRIP
+  name: SMG magazine (.45 magnum RIP)
+  parent: BaseMagazine45_magnumSubMachineGunFMJ
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumRIP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/45_magnum/45_magnum_smg_mag.rsi
+    layers:
+    - state: RIP
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#armor-piercing ammo
+
+- type: entity
+  id: Magazine45_magnumSubMachineGunPlasteelAP
+  name: SMG magazine (.45 magnum AP)
+  parent: BaseMagazine45_magnumSubMachineGunFMJ
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge45_magnumPlasteelAP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/45_magnum/45_magnum_smg_mag.rsi
+    layers:
+    - state: plasteelAP
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+#End SubMachineGun mags

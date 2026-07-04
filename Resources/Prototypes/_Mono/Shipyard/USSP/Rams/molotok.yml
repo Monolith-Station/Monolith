@@ -1,23 +1,20 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vessel
   id: Molotok
   parent: BaseVesselAntag
   name: BYP Molotok
   description: A broad-headed ram made to fit the connection port of the Ledokol.
   price: 60000
+  purchasable: false # voucher only
   category: Large
   group: Custom
-  access: USSPLedokolRam
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attatchments/molotok.yml
+  access: USSP
+  shuttlePath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attachments/molotok.yml
   guidebookPage: Null
 
 - type: gameMap
   id: Molotok
   mapName: 'Molotok'
-  mapPath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attatchments/molotok.yml
+  mapPath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attachments/molotok.yml
   minPlayers: 0
   stations:
     Molotok:

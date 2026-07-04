@@ -1,11 +1,6 @@
-# SPDX-FileCopyrightText: 2025 Onezero0
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: ComputerShipyardUSSP
-  parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyardBase]
+  parent: ComputerShipyardBase
   name: USSP shipyard console
   description: Used to buy ships from USSP naval reserves.
   components:
@@ -23,9 +18,9 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: shipyard_blackmarket
+      state: shipyard_ussp
     - map: ["computerLayerKeys"]
-      state: blackmarket_key
+      state: telesci_key
   - type: ShipyardConsole
     shipyardChannel: Ussp
     secretShipyardChannel: Nfsd
@@ -34,7 +29,7 @@
 
 - type: entity
   id: ComputerShipyardSHM
-  parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyardBase]
+  parent: ComputerShipyardBase
   name: SHM shipyard console
   description: Used to transfer ships from the SHM employ reserves.
   components:
@@ -62,7 +57,7 @@
 
 - type: entity
   id: ComputerShipyardDrakeIndustries
-  parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyardBase]
+  parent: ComputerShipyardBase
   name: drake industries shipyard console
   description: Used by Drake Industries affiliates to purchase specialty cargo shuttles.
   components:
@@ -87,3 +82,31 @@
       shipyardChannel: SHM
       secretShipyardChannel: Nfsd
       canTransferDeed: false
+
+- type: entity
+  id: ComputerShipyardViper
+  parent: ComputerShipyardBase
+  name: Viper Group shipyard console
+  description: Used to import ships from various manufacturers.
+  components:
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Viper
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardConsoleUiKey.Viper:
+        type: ShipyardConsoleBoundUserInterface
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/computers.rsi
+    layers: #Reusing as the DI computer sprites aren't in use to my knowledge.
+    - map: ["computerLayerBody"]
+      state: computer_not_rot
+    - map: ["computerLayerKeyboard"]
+      state: gunnery_keyboard
+    - map: ["computerLayerScreen"]
+      state: shipyard_DrakeIndustries
+    - map: ["computerLayerKeys"]
+      state: gunnery_keys
+  - type: ShipyardConsole
+    shipyardChannel: Traffic
+    ignoreBaseSaleRate: false
+    canTransferDeed: false

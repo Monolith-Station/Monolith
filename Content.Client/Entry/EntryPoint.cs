@@ -1,70 +1,3 @@
-// SPDX-FileCopyrightText: 2018 PJB3005
-// SPDX-FileCopyrightText: 2018 clusterfack
-// SPDX-FileCopyrightText: 2019 Silver
-// SPDX-FileCopyrightText: 2020 Clyybber
-// SPDX-FileCopyrightText: 2020 DamianX
-// SPDX-FileCopyrightText: 2020 Exp
-// SPDX-FileCopyrightText: 2020 F77F
-// SPDX-FileCopyrightText: 2020 FL-OZ
-// SPDX-FileCopyrightText: 2020 Injazz
-// SPDX-FileCopyrightText: 2020 Jackson Lewis
-// SPDX-FileCopyrightText: 2020 Swept
-// SPDX-FileCopyrightText: 2020 Tomeno
-// SPDX-FileCopyrightText: 2020 Tyler Young
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-// SPDX-FileCopyrightText: 2020 adrian
-// SPDX-FileCopyrightText: 2020 ancientpower
-// SPDX-FileCopyrightText: 2020 chairbender
-// SPDX-FileCopyrightText: 2020 ike709
-// SPDX-FileCopyrightText: 2020 moneyl
-// SPDX-FileCopyrightText: 2020 nuke
-// SPDX-FileCopyrightText: 2020 py01
-// SPDX-FileCopyrightText: 2020 scuffedjays
-// SPDX-FileCopyrightText: 2020 zumorica
-// SPDX-FileCopyrightText: 2021 AJCM-git
-// SPDX-FileCopyrightText: 2021 GraniteSidewalk
-// SPDX-FileCopyrightText: 2021 Pancake
-// SPDX-FileCopyrightText: 2021 Paul
-// SPDX-FileCopyrightText: 2021 ShadowCommander
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2021 Visne
-// SPDX-FileCopyrightText: 2022 0x6273
-// SPDX-FileCopyrightText: 2022 20kdc
-// SPDX-FileCopyrightText: 2022 Acruid
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin
-// SPDX-FileCopyrightText: 2022 Flipp Syder
-// SPDX-FileCopyrightText: 2022 Jezithyr
-// SPDX-FileCopyrightText: 2022 Kara
-// SPDX-FileCopyrightText: 2022 Moony
-// SPDX-FileCopyrightText: 2022 Paul Ritter
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2022 Rane
-// SPDX-FileCopyrightText: 2022 Veritius
-// SPDX-FileCopyrightText: 2022 metalgearsloth
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2023 Cheackraze
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Miro Kavaliou
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 c4llv07e
-// SPDX-FileCopyrightText: 2024 Dvir
-// SPDX-FileCopyrightText: 2024 Leon Friedrich
-// SPDX-FileCopyrightText: 2024 LordCarve
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 Simon
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 Vasilis
-// SPDX-FileCopyrightText: 2024 deltanedas
-// SPDX-FileCopyrightText: 2024 nikthechampiongr
-// SPDX-FileCopyrightText: 2024 no
-// SPDX-FileCopyrightText: 2024 slarticodefast
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Whatstone
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -105,43 +38,47 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Content.Client._NF.Emp.Overlays; // Frontier
+using Content.Client._Mono.Company; // Mono
+using Content.Client._Mono.MonoCoins; // Mono
 
 namespace Content.Client.Entry
 {
-    public sealed class EntryPoint : GameClient
+    public sealed partial class EntryPoint : GameClient
     {
-        [Dependency] private readonly IBaseClient _baseClient = default!;
-        [Dependency] private readonly IGameController _gameController = default!;
-        [Dependency] private readonly IStateManager _stateManager = default!;
-        [Dependency] private readonly IComponentFactory _componentFactory = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IClientAdminManager _adminManager = default!;
-        [Dependency] private readonly IParallaxManager _parallaxManager = default!;
-        [Dependency] private readonly IConfigurationManager _configManager = default!;
-        [Dependency] private readonly IStylesheetManager _stylesheetManager = default!;
-        [Dependency] private readonly IScreenshotHook _screenshotHook = default!;
-        [Dependency] private readonly FullscreenHook _fullscreenHook = default!;
-        [Dependency] private readonly ChangelogManager _changelogManager = default!;
-        [Dependency] private readonly ViewportManager _viewportManager = default!;
-        [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
-        [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IOverlayManager _overlayManager = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly IClientPreferencesManager _clientPreferencesManager = default!;
-        [Dependency] private readonly EuiManager _euiManager = default!;
-        [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly DocumentParsingManager _documentParsingManager = default!;
-        [Dependency] private readonly GhostKickManager _ghostKick = default!;
-        [Dependency] private readonly ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
-        [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
-        [Dependency] private readonly ContentLocalizationManager _contentLoc = default!;
-        [Dependency] private readonly ContentReplayPlaybackManager _playbackMan = default!;
-        [Dependency] private readonly IResourceManager _resourceManager = default!;
-        [Dependency] private readonly IReplayLoadManager _replayLoad = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
-        [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
-        [Dependency] private readonly TitleWindowManager _titleWindowManager = default!;
-        [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+        [Dependency] private IBaseClient _baseClient = default!;
+        [Dependency] private IGameController _gameController = default!;
+        [Dependency] private IStateManager _stateManager = default!;
+        [Dependency] private IComponentFactory _componentFactory = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IClientAdminManager _adminManager = default!;
+        [Dependency] private IParallaxManager _parallaxManager = default!;
+        [Dependency] private IConfigurationManager _configManager = default!;
+        [Dependency] private IStylesheetManager _stylesheetManager = default!;
+        [Dependency] private IScreenshotHook _screenshotHook = default!;
+        [Dependency] private FullscreenHook _fullscreenHook = default!;
+        [Dependency] private ChangelogManager _changelogManager = default!;
+        [Dependency] private ViewportManager _viewportManager = default!;
+        [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
+        [Dependency] private IInputManager _inputManager = default!;
+        [Dependency] private IOverlayManager _overlayManager = default!;
+        [Dependency] private IChatManager _chatManager = default!;
+        [Dependency] private IClientPreferencesManager _clientPreferencesManager = default!;
+        [Dependency] private EuiManager _euiManager = default!;
+        [Dependency] private IVoteManager _voteManager = default!;
+        [Dependency] private DocumentParsingManager _documentParsingManager = default!;
+        [Dependency] private GhostKickManager _ghostKick = default!;
+        [Dependency] private ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
+        [Dependency] private JobRequirementsManager _jobRequirements = default!;
+        [Dependency] private ContentLocalizationManager _contentLoc = default!;
+        [Dependency] private ContentReplayPlaybackManager _playbackMan = default!;
+        [Dependency] private IResourceManager _resourceManager = default!;
+        [Dependency] private IReplayLoadManager _replayLoad = default!;
+        [Dependency] private ILogManager _logManager = default!;
+        [Dependency] private DebugMonitorManager _debugMonitorManager = default!;
+        [Dependency] private TitleWindowManager _titleWindowManager = default!;
+        [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+        [Dependency] private CompanyManager _companyManager = default!; // Mono
+        [Dependency] private MonoCoinsManager _coinsManager = default!; // Mono
 
         public override void Init()
         {
@@ -204,6 +141,8 @@ namespace Content.Client.Entry
             _extendedDisconnectInformation.Initialize();
             _jobRequirements.Initialize();
             _playbackMan.Initialize();
+            _companyManager.Initialize(); // Mono
+            _coinsManager.Initialize(); // Mono
 
             //AUTOSCALING default Setup!
             _configManager.SetCVar("interface.resolutionAutoScaleUpperCutoffX", 1080);

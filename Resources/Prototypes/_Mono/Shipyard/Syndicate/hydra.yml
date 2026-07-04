@@ -3,7 +3,7 @@
   parent: BaseVesselAntag
   name: Hydra
   description: A syndicate missile corvette meant for stealthy hit and runs and harassment.
-  price: 185000
+  price: 135000
   category: Medium
   group: Syndicate
   shuttlePath: /Maps/_Mono/Shuttles/Syndicate/hydra.yml
@@ -23,7 +23,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Hydra MIL{1}'
+          mapNameTemplate: 'Hydra SYN{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

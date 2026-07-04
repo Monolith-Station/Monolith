@@ -1,23 +1,50 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Shiptest, converted for SS14 by _starch_ (discord)",
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Made by _starch_ (discord), detailing by onezero00 (discord).",
   "size": {
     "x": 48,
     "y": 32
   },
   "states": [
     {
-      "name": "mag-0"
+      "name": "base"
     },
     {
-      "name": "base"
+      "name": "bolt-open"
     },
     {
       "name": "icon"
     },
     {
-      "name": "bolt-open"
+      "name": "mag-0"
+    },
+    {
+      "name": "mag-1"
+    },
+    {
+      "name": "mag-2"
+    },
+    {
+      "name": "mag-3"
+    },
+    {
+      "name": "mag-4"
+    },
+    {
+      "name": "mag-5"
+    },
+    {
+      "name": "suppressed"
+    },
+    {
+      "name": "grip"
+    },
+    {
+      "name": "lam"
+    },
+    {
+      "name": "light"
     }
   ]
 }

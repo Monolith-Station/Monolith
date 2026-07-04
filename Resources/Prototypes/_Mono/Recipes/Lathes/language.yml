@@ -1,0 +1,43 @@
+# Translators
+- type: latheRecipe
+  id: GaryTranslator
+  result: GaryTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: NovaCygniTranslator
+  result: NovaCygniTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+# Implanters
+- type: latheRecipe
+  id: GaryTranslatorImplanter
+  result: GaryTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: NovaCygniTranslatorImplanter
+  result: NovaCygniTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50

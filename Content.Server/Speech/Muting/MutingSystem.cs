@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Scribbles0
-// SPDX-FileCopyrightText: 2023 brainfood1183
-// SPDX-FileCopyrightText: 2024 keronshb
-// SPDX-FileCopyrightText: 2025 themias
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Abilities.Mime;
 using Content.Server.Chat.Systems;
 using Content.Server._EinsteinEngines.Language;
@@ -19,10 +11,10 @@ using Content.Shared.Speech.Muting;
 
 namespace Content.Server.Speech.Muting
 {
-    public sealed class MutingSystem : EntitySystem
+    public sealed partial class MutingSystem : EntitySystem
     {
-        [Dependency] private readonly LanguageSystem _languages = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private LanguageSystem _languages = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
         public override void Initialize()
         {
             base.Initialize();

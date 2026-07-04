@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BoskiYourk
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   parent: NFHolopadPoiBase
   id: HolopadUSSPBaikal
@@ -17,3 +13,19 @@
   components:
   - type: Label
     currentLabel: holopad-ussp-commissar
+
+- type: entity
+  parent: NFHolopadPoiBase
+  id: HolopadJupiter
+  suffix: PDV Jupiter
+  components:
+  - type: Label
+    currentLabel: holopad-pdv-jupiter
+
+- type: entity
+  parent: NFHolopadPoiBase
+  id: HolopadVG
+  suffix: VG, Camelot
+  components:
+  - type: Label
+    currentLabel: holopad-vg

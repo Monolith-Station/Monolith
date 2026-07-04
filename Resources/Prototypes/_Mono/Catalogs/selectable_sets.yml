@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Schepka
-# SPDX-FileCopyrightText: 2025 starch
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 #RD
 
 - type: thiefBackpackSet
@@ -46,3 +41,58 @@
     state: control
   content:
   - ClothingModsuitCaptainPowerCell
+
+#PDV Infiltrator
+
+- type: thiefBackpackSet # infiltrator set
+  id: KitSelectorPDVInfiltratorChameleon
+  name: selectable-set-pdvinfiltrator-chameleon-kit-name
+  description: selectable-set-pdvinfiltrator-chameleon-kit-desc
+  sprite:
+    sprite: /Textures/Clothing/OuterClothing/Misc/black_hoodie.rsi
+    state: icon
+  content:
+  - ClothingUniformJumpsuitChameleon
+  - ClothingHandsChameleonThief
+  - ClothingHeadHatChameleon
+  - ClothingEyesChameleon
+  - ChameleonPDA
+  - ChameleonProjector
+  - BarberScissors
+  - ClothingOuterChameleon
+  - ClothingHeadsetChameleon
+  - ClothingShoesChameleon
+  - ClothingBackpackChameleon
+  - ClothingNeckChameleon
+  - ClothingMaskGasVoiceChameleon
+  - FakeMindShieldImplanter
+  - DnaScramblerImplanter
+  - RadioJammer
+  - Hypopen
+  - NocturineChemistryBottle
+  - WeaponSubMachineGunMla73
+  - Magazine635x40mmCaselessBig
+  - AgentIDCard
+
+- type: thiefBackpackSet # sabateour set
+  id: KitSelectorPDVInfiltratorSabateour
+  name: selectable-set-pdvinfiltrator-sabotage-kit-name
+  description: selectable-set-pdvinfiltrator-sabotage-kit-desc
+  sprite:
+    sprite: Objects/Tools/jaws_of_life.rsi
+    state: jaws_pry
+  content:
+  - NFShovel
+  - WelderExperimental
+  - NaniteApplicatorSyndicate
+  - RadioJammer
+  - MedkitCombatFilled
+  - AccessBreaker
+  - ClothingModsuitRoguePowerCell
+  - ClothingBackpackDuffelSyndicateC4tBundle
+  - ScramImplanter
+  - AccessConfiguratorAntag
+  - SyndiHypo
+  - NocturineChemistryBottle
+  - WeaponSubMachineGunMla73
+  - Magazine635x40mmCaselessBig

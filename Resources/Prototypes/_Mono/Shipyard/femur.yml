@@ -1,0 +1,41 @@
+# Author Info
+# GitHub: UnicornOnLSD
+# Discord: unicornonlsd
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Femur
+  parent: BaseVessel
+  name: DIS Femur
+  description: A power hungry menace, the DIS Femur is a medium-class FTL capable vessel. Shaped for and equipped with all the necessary tools for aggressive boarding operations. While Drake Industries is generally known for their non aggression policy within the sector, they recently started pumping out this mean hull, no public statements were given by the board of directives.
+  price: 93900
+  category: Medium
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/femur.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Femur
+  mapName: 'DIS Femur'
+  mapPath: /Maps/_Mono/Shuttles/femur.yml
+  minPlayers: 0
+  stations:
+    Femur:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Femur MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

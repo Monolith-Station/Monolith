@@ -1,21 +1,13 @@
-// SPDX-FileCopyrightText: 2024 neuPanda
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 Dvir
-// SPDX-FileCopyrightText: 2025 Ilya246
-// SPDX-FileCopyrightText: 2025 Redrover1760
-// SPDX-FileCopyrightText: 2025 Whatstone
-// SPDX-FileCopyrightText: 2025 significant harassment
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 // New Frontiers - This file is licensed under AGPLv3
 // Copyright (c) 2024 New Frontiers Contributors
 // See AGPLv3.txt for details.
+using Content.Server._Mono.Shuttles.Components;
 using Content.Server._NF.Station.Components;
 using Content.Server.Shuttles.Components;
 using Content.Shared._NF.Shuttles.Events;
 using Content.Shared._NF.Shipyard.Components;
-using Content.Server._Mono.Shuttles.Components;
+using Content.Shared.Shuttles.Components;
+using Robust.Shared.Physics; // Mono
 using Robust.Shared.Physics.Components;
 
 namespace Content.Server.Shuttles.Systems;
@@ -31,7 +23,7 @@ public sealed partial class ShuttleSystem
         SubscribeLocalEvent<ShuttleConsoleComponent, SetMaxShuttleSpeedRequest>(OnSetMaxShuttleSpeed);
     }
 
-    private bool SetInertiaDampening(EntityUid uid, PhysicsComponent physicsComponent, ShuttleComponent shuttleComponent, TransformComponent transform, InertiaDampeningMode mode)
+    public bool SetInertiaDampening(EntityUid uid, PhysicsComponent physicsComponent, ShuttleComponent shuttleComponent, TransformComponent transform, InertiaDampeningMode mode)
     {
         if (!transform.GridUid.HasValue)
         {
@@ -44,9 +36,8 @@ public sealed partial class ShuttleSystem
             return false;
         }
 
-        if (!EntityManager.HasComponent<ShuttleDeedComponent>(transform.GridUid) &
-            !EntityManager.HasComponent<DeedlessShuttleComponent>(transform.GridUid) || // Mono
-            EntityManager.HasComponent<StationDampeningComponent>(_station.GetOwningStation(transform.GridUid)))
+        // Mono - remove shuttle deed requirement, kill StationDampening
+        if ((physicsComponent.BodyType & BodyType.Static) != 0)
         {
             return false;
         }
@@ -58,6 +49,9 @@ public sealed partial class ShuttleSystem
             InertiaDampeningMode.Anchor => AnchorDampingStrength,
             _ => DampenDampingStrength, // other values: default to some sane behaviour (assume normal dampening)
         };
+
+        if (shuttleComponent.DampingModifier == shuttleComponent.BodyModifier)
+            return true;
 
         if (shuttleComponent.DampingModifier != 0)
             shuttleComponent.DampingModifier = shuttleComponent.BodyModifier;
@@ -83,25 +77,22 @@ public sealed partial class ShuttleSystem
     private void OnSetMaxShuttleSpeed(EntityUid uid, ShuttleConsoleComponent component, SetMaxShuttleSpeedRequest args)
     {
         // Ensure that the entity requested is a valid shuttle
-        if (!EntityManager.TryGetComponent(uid, out TransformComponent? transform) ||
-            !transform.GridUid.HasValue ||
-            !EntityManager.TryGetComponent(transform.GridUid, out ShuttleComponent? shuttleComponent))
+        var xform = Transform(uid);
+        if (!xform.GridUid.HasValue ||
+            !TryComp<ShuttleComponent>(xform.GridUid, out var shuttleComponent) ||
+            !TryComp<PilotComponent>(args.Actor, out var pilot))
         {
             return;
         }
 
-        // Mono - fix
-        var maxSpeed = Math.Max(args.MaxSpeed, 0f);
+        var maxSpeed = args.MaxSpeed;
+        if (maxSpeed is { } speed)
+            maxSpeed = Math.Max(speed, 0f);
 
-        // Don't do anything if the value didn't change
-        if (Math.Abs(shuttleComponent.SetMaxVelocity - maxSpeed) < 0.01f)
-            return;
-
-        // Mono - fix
-        shuttleComponent.SetMaxVelocity = maxSpeed;
+        pilot.SetMaxVelocity = maxSpeed;
 
         // Refresh the shuttle consoles to update the UI
-        _console.RefreshShuttleConsoles(transform.GridUid.Value);
+        _console.RefreshShuttleConsoles(xform.GridUid.Value);
     }
 
     public InertiaDampeningMode NfGetInertiaDampeningMode(EntityUid entity)
@@ -109,10 +100,8 @@ public sealed partial class ShuttleSystem
         if (!EntityManager.TryGetComponent<TransformComponent>(entity, out var xform))
             return InertiaDampeningMode.Dampen;
 
-        // Not a shuttle, shouldn't be togglable // Mono - Added DeedlessShuttle
-        if (!EntityManager.HasComponent<ShuttleDeedComponent>(xform.GridUid) &
-            !EntityManager.HasComponent<DeedlessShuttleComponent>(xform.GridUid) ||
-            EntityManager.HasComponent<StationDampeningComponent>(_station.GetOwningStation(xform.GridUid)))
+        // Not a shuttle, shouldn't be togglable // Mono - remove shuttle deed requirement, kill StationDampening
+        if (TryComp<PhysicsComponent>(xform.GridUid, out var body) && (body.BodyType & BodyType.Static) != 0)
             return InertiaDampeningMode.Station;
 
         if (!EntityManager.TryGetComponent(xform.GridUid, out ShuttleComponent? shuttle))
@@ -125,34 +114,4 @@ public sealed partial class ShuttleSystem
         else
             return InertiaDampeningMode.Dampen;
     }
-
-    public void NfSetPowered(EntityUid uid, ShuttleConsoleComponent component, bool powered)
-    {
-        // Ensure that the entity requested is a valid shuttle (stations should not be togglable)
-        if (!EntityManager.TryGetComponent(uid, out TransformComponent? transform) ||
-            !transform.GridUid.HasValue ||
-            !EntityManager.TryGetComponent(transform.GridUid, out PhysicsComponent? physicsComponent) ||
-            !EntityManager.TryGetComponent(transform.GridUid, out ShuttleComponent? shuttleComponent))
-        {
-            return;
-        }
-
-        // Update dampening physics without adjusting requested mode.
-        if (!powered)
-        {
-            SetInertiaDampening(uid, physicsComponent, shuttleComponent, transform, InertiaDampeningMode.Anchor);
-        }
-        else
-        {
-            // Update our dampening mode if we need to, and if we aren't a station.
-            var currentDampening = NfGetInertiaDampeningMode(uid);
-            if (currentDampening != component.DampeningMode &&
-                currentDampening != InertiaDampeningMode.Station &&
-                component.DampeningMode != InertiaDampeningMode.Station)
-            {
-                SetInertiaDampening(uid, physicsComponent, shuttleComponent, transform, component.DampeningMode);
-            }
-        }
-    }
-
 }

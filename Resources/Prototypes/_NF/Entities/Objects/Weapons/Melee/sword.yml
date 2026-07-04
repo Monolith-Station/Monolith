@@ -13,7 +13,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 15
+        Slash: 27 # Mono increased damage from 15 to 27 to no longer be the actual worst melee weapon in the game
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Reflect

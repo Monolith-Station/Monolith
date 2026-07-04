@@ -61,7 +61,9 @@ public sealed class DoAfterCancellationTests : InteractionTest
         AssertPrototype(WallConstruction.WallSolid);
     }
 
+    // Mono Disable: Goob's instant pry means you can't even do this and a fix is pointless
     [Test]
+    [Ignore("Goob instant pry makes this pointless")]
     public async Task CancelTilePry()
     {
         await SetTile(Floor);
@@ -73,7 +75,9 @@ public sealed class DoAfterCancellationTests : InteractionTest
         await AssertTile(Plating);
     }
 
+    // Mono Disable: Goob's instant pry means you can't even do this and their fix is pointless
     [Test]
+    [Ignore("Goob instant pry makes this pointless")]
     public async Task CancelRepeatedTilePry()
     {
         await SetTile(Floor);

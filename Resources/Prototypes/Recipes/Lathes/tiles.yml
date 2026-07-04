@@ -3,7 +3,7 @@
 - type: latheRecipe
   abstract: true
   id: BaseTileRecipe
-  applyMaterialDiscount: false
+  materialDiscountScale: 0
   completetime: 0.5
   materials:
     Steel: 25
@@ -72,6 +72,11 @@
 
 - type: latheRecipe
   parent: BaseTileRecipe
+  id: FloorTileItemDarkSquiggly
+  result: FloorTileItemDarkSquiggly
+
+- type: latheRecipe
+  parent: BaseTileRecipe
   id: FloorTileItemSteelCheckerDark
   result: FloorTileItemSteelCheckerDark
 
@@ -120,6 +125,7 @@
   id: FloorTileItemSteelPavementVertical
   result: FloorTileItemSteelPavementVertical
 
+# White steel tiles
 - type: latheRecipe
   parent: BaseTileRecipe
   id: FloorTileItemWhite
@@ -185,6 +191,11 @@
   parent: BaseTileRecipe
   id: FloorTileItemSteelMaint
   result: FloorTileItemSteelMaint
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemTechmaintDark
+  result: FloorTileItemTechmaintDark
 
 # Wood
 - type: latheRecipe

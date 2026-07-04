@@ -1,15 +1,7 @@
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti
-// SPDX-FileCopyrightText: 2022 rolfero
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Wrexbe (Josh)
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2025 Ark
-// SPDX-FileCopyrightText: 2025 ScyronX
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server._Mono.Radar;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Collections;
@@ -17,16 +9,49 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Movement.Systems;
 
-public sealed class JetpackSystem : SharedJetpackSystem
+public sealed partial class JetpackSystem : SharedJetpackSystem
 {
-    [Dependency] private readonly GasTankSystem _gasTank = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private GasTankSystem _gasTank = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        // Subscribe to ActiveJetpackComponent events
+        SubscribeLocalEvent<ActiveJetpackComponent, ComponentStartup>(OnJetpackActivated);
+        SubscribeLocalEvent<ActiveJetpackComponent, ComponentShutdown>(OnJetpackDeactivated);
+    }
 
     protected override bool CanEnable(EntityUid uid, JetpackComponent component)
     {
         return base.CanEnable(uid, component) &&
                TryComp<GasTankComponent>(uid, out var gasTank) &&
                !(gasTank.Air.TotalMoles < component.MoleUsage);
+    }
+
+    /// <summary>
+    /// Adds radar blip to jetpacks when they are activated - Mono
+    /// </summary>
+    private void OnJetpackActivated(EntityUid uid, ActiveJetpackComponent component, ComponentStartup args)
+    {
+        if (TryComp<JetpackComponent>(uid, out var jetpack) && jetpack.DetectionRange > 0)
+        {
+            var blip = EnsureComp<RadarBlipComponent>(uid);
+            blip.Config.Color = Color.Cyan;
+            blip.Config.Bounds = new(-0.25f, -0.25f, 0.25f, 0.25f);
+            blip.VisibleFromOtherGrids = true;
+            blip.MaxDistance = jetpack.DetectionRange;
+        }
+    }
+
+    /// <summary>
+    /// Removes radar blip from jetpacks when they are deactivated - Mono
+    /// </summary>
+    private void OnJetpackDeactivated(EntityUid uid, ActiveJetpackComponent component, ComponentShutdown args)
+    {
+        RemComp<RadarBlipComponent>(uid);
     }
 
     public override void Update(float frameTime)

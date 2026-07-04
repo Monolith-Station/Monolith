@@ -1,9 +1,26 @@
 - type: entity
   name: nuclear authentication disk
-  parent: [BaseItem, BaseC2ContrabandUnredeemable] # Frontier: BaseGrandTheftContraband<BaseC2ContrabandUnredeemable
+  parent: BaseItem
   id: NukeDisk
   description: A nuclear auth disk, capable of arming a nuke if used along with a code. Note from nanotrasen reads "THIS IS YOUR MOST IMPORTANT POSESSION"
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_pickup.ogg
+      params:
+        volume: -7
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
+      params:
+        volume: -7
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
+      params:
+        volume: -7
+  # Goobstation edit end
   - type: NukeDisk
   - type: SpecialRespawn
     prototype: NukeDisk
@@ -31,11 +48,28 @@
 
 - type: entity
   name: nuclear authentication disk
-  parent: [BaseItem, BaseC2ContrabandUnredeemable] # Frontier: BaseGrandTheftContraband<BaseC2ContrabandUnredeemable
+  parent: BaseItem
   id: NukeDiskFake
   suffix: Fake
   description: A nuclear auth disk, capable of arming a nuke if used along with a code. Note from nanotrasen reads "THIS IS YOUR MOST IMPORTANT POSESSION"
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_pickup.ogg
+      params:
+        volume: -7
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
+      params:
+        volume: -7
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
+      params:
+        volume: -7
+  # Goobstation edit end
   - type: Sprite
     sprite: Objects/Misc/nukedisk.rsi
     state: icon

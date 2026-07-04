@@ -1,0 +1,184 @@
+- type: vendingMachineInventory
+  id: PMCclothings
+  startingInventory:
+    # region Armbands
+    ClothingArmbandUNSA: 4294967295 # Infinite
+    ClothingArmbandUSA: 4294967295 # Infinite
+    ClothingArmbandWhite: 4294967295 # Infinite
+    ClothingArmbandGray: 4294967295 # Infinite
+    ClothingArmbandBlack: 4294967295 # Infinite
+    ClothingArmbandDarkRed: 4294967295 # Infinite
+    ClothingArmbandRed: 4294967295 # Infinite
+    ClothingArmbandDarkGreen: 4294967295 # Infinite
+    ClothingArmbandGreen: 4294967295 # Infinite
+    ClothingArmbandDarkBlue: 4294967295 # Infinite
+    ClothingArmbandBlue: 4294967295 # Infinite
+    ClothingArmbandDarkPurple: 4294967295 # Infinite
+    ClothingArmbandPurple: 4294967295 # Infinite
+    ClothingArmbandDarkYellow: 4294967295 # Infinite
+    ClothingArmbandYellow: 4294967295 # Infinite
+    # region Balaclavas
+    ClothingBalaclavaSkiMaskBlack: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskGray: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskWhite: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskRed: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskGreen: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskBlue: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskPurple: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskYellow: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskTan: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskRangerGreen: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskCoyoteBrown: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskMouthBlack: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskMouthGray: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskMouthWhite: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskMouthRed: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskMouthGreen: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskMouthBlue: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskMouthPurple: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskMouthYellow: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskMouthTan: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskMouthRangerGreen: 4294967295 # Infinite
+    ClothingBalaclavaSkiMaskMouthCoyoteBrown: 4294967295 # Infinite
+    ClothingBalaclavaClassicBlack: 4294967295 # Infinite
+    ClothingBalaclavaClassicGray: 4294967295 # Infinite
+    ClothingBalaclavaClassicWhite: 4294967295 # Infinite
+    ClothingBalaclavaClassicRed: 4294967295 # Infinite
+    ClothingBalaclavaClassicGreen: 4294967295 # Infinite
+    ClothingBalaclavaClassicBlue: 4294967295 # Infinite
+    ClothingBalaclavaClassicPurple: 4294967295 # Infinite
+    ClothingBalaclavaClassicYellow: 4294967295 # Infinite
+    ClothingBalaclavaClassicTan: 4294967295 # Infinite
+    ClothingBalaclavaClassicRangerGreen: 4294967295 # Infinite
+    ClothingBalaclavaClassicCoyoteBrown: 4294967295 # Infinite
+    ClothingBalaclavaClassicMouthBlack: 4294967295 # Infinite
+    ClothingBalaclavaClassicMouthGray: 4294967295 # Infinite
+    ClothingBalaclavaClassicMouthWhite: 4294967295 # Infinite
+    ClothingBalaclavaClassicMouthRed: 4294967295 # Infinite
+    ClothingBalaclavaClassicMouthGreen: 4294967295 # Infinite
+    ClothingBalaclavaClassicMouthBlue: 4294967295 # Infinite
+    ClothingBalaclavaClassicMouthPurple: 4294967295 # Infinite
+    ClothingBalaclavaClassicMouthYellow: 4294967295 # Infinite
+    ClothingBalaclavaClassicMouthTan: 4294967295 # Infinite
+    ClothingBalaclavaClassicMouthRangerGreen: 4294967295 # Infinite
+    ClothingBalaclavaClassicMouthCoyoteBrown: 4294967295 # Infinite
+    # region Belts
+    ClothingBeltMilitaryWebbing: 4294967295 # Infinite
+    ClothingBeltWebbingsNormalBlack: 4294967295 # Infinite
+    ClothingBeltWebbingsNormalTan: 4294967295 # Infinite
+    ClothingBeltWebbingsNormalRangerGreen: 4294967295 # Infinite
+    ClothingBeltWebbingsNormalOlive: 4294967295 # Infinite
+    ClothingBeltWebbingsBigBase: 4294967295 # Infinite
+    ClothingBeltWebbingsBigBlack: 4294967295 # Infinite
+    ClothingBeltWebbingsBigTan: 4294967295 # Infinite
+    ClothingBeltWebbingsBigRangerGreen: 4294967295 # Infinite
+    ClothingBeltWebbingsBigOlive: 4294967295 # Infinite
+    ClothingBeltMercenaryWebbing: 4294967295 # Infinite
+    ClothingBeltSecurity: 4294967295 # Infinite
+    ClothingBeltBandolier: 4294967295 # Infinite
+    # region Backpacks
+    ClothingBackpackDuffelTacticalDuffelTan: 4294967295 # Infinite
+    ClothingBackpackDuffelTacticalDuffelOlive: 4294967295 # Infinite
+    ClothingBackpackDuffelTacticalDuffelBlack: 4294967295 # Infinite
+    ClothingBackpackDuffelTacticalDuffelRangerGreen: 4294967295 # Infinite
+    ClothingBackpackDuffelTacticalDuffelCoyoteBrown: 4294967295 # Infinite
+    ClothingBackpackDuffelTacticalDuffelWhite: 4294967295 # Infinite
+    ClothingBackpackMercenary: 4294967295
+    ClothingBackpackDuffelMercenary: 4294967295
+    ClothingBackpackSatchelMercenary: 4294967295
+    ClothingBackpackMessengerMercenary: 4294967295
+    ClothingBackpackSecurity: 4294967295 # Infinite
+    ClothingBackpackDuffelSecurity: 4294967295 # Infinite
+    ClothingBackpackSatchelSecurity: 4294967295 # Infinite
+    #ClothingBackpackMessengerSecurity: 4294967295 # Infinite
+    # region Glasses
+    ClothingEyesBallisticGogglesRed: 4294967295 # Infinite
+    ClothingEyesBallisticGlassesRed: 4294967295 # Infinite
+    ClothingEyesBallisticGogglesGreen: 4294967295 # Infinite
+    ClothingEyesBallisticGlassesGreen: 4294967295 # Infinite
+    ClothingEyesBallisticGogglesOrange: 4294967295 # Infinite
+    ClothingEyesBallisticGlassesOrange: 4294967295 # Infinite
+    ClothingEyesGlassesMercenary: 4294967295 # Infinite
+    ClothingEyesGlassesSunglasses: 4294967295 # Infinite
+    # region Gloves
+    ClothingHandsGlovesTacticalCombatTan: 4294967295 # Infinite
+    ClothingHandsGlovesTacticalCombatBlack: 4294967295 # Infinite
+    ClothingHandsGlovesTacticalCombatRangerGreen: 4294967295 # Infinite
+    ClothingHandsGlovesTacticalCombatOlive: 4294967295 # Infinite
+    ClothingHandsGlovesTacticalCombatCoyoteBrown: 4294967295 # Infinite
+    ClothingHandsGlovesTacticalCombatWhite: 4294967295 # Infinite
+    # region Helmets
+    ClothingHeadBPHelmetLight: 4294967295 # Infinite
+    ClothingHeadHelmetMercenary: 4294967295 # Infinite
+    ClothingHeadHelmetMercenaryBlack: 4294967295 # Infinite
+    ClothingHeadHelmetBasic: 4294967295 # Infinite
+    ClothingHeadBandMercenary: 4294967295 # Infinite
+    ClothingHeadHatBeretMercenary: 4294967295 # Infinite
+    ClothingHeadHatBeretSecurity: 4294967295 # Infinite
+    # region Attachments
+    ClothingHelmetAttachmentGogglesCoverOlive: 4294967295 # Infinite
+    ClothingHelmetAttachmentGogglesCoverTan: 4294967295 # Infinite
+    ClothingHelmetAttachmentGogglesCoverBlack: 4294967295 # Infinite
+    ClothingHelmetAttachmentGogglesCoverRedDigital: 4294967295 # Infinite
+    # region Covers
+    ClothingHelmetCoverCCEBase: 4294967295 # Infinite
+    ClothingHelmetCoverCCEDesert: 4294967295 # Infinite
+    ClothingHelmetCoverRedDigital: 4294967295 # Infinite
+    ClothingHelmetCoverHelmetMount: 4294967295 # Infinite
+    ClothingHelmetCoverBlack: 4294967295 # Infinite
+    ClothingHelmetCoverTan: 4294967295 # Infinite
+    ClothingHelmetCoverRangerGreen: 4294967295 # Infinite
+    ClothingHelmetCoverOlive: 4294967295 # Infinite
+    ClothingHelmetCoverWhite: 4294967295 # Infinite
+    # region Jumpsuits
+    ClothingUniformJumpsuitCombatSuitCCEBasic: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitCCEWorn: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitCCEBleached: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitCCEDesert: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitGrassland: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitMudland: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitMisko: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitLampartFlag: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitLampart: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitSummerFloraFlag: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitSummerFlora: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitUrbanWhite: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitDigitalBlack: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitDigitalBlue: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitDigitalRed: 4294967295 # Infinite
+    ClothingUniformJumpsuitCombatSuitDigitalGreenTan: 4294967295 # Infinite
+    ClothingUniformJumpsuitMercenary: 4294967295 # Infinite
+    ClothingUniformJumpskirtMercenary: 4294967295 # Infinite
+    ClothingUniformJumpsuitPrivateSec: 4294967295 # Infinite
+    ClothingUniformJumpskirtPrivateSec: 4294967295 # Infinite
+    # region Masks
+    ClothingMaskSOM40: 4294967295 # Infinite
+    ClothingMaskSOM41: 4294967295 # Infinite
+    ClothingMaskSOM42: 4294967295 # Infinite
+    # region Armor
+    ClothingOuterArmorBPVestLight: 4294967295 # Infinite
+    ClothingOuterArmorBPVestMedium: 4294967295 # Infinite
+    ClothingOuterArmorBPVestHeavy: 4294967295 # Infinite
+    ClothingOuterArmorBPVestPolyvalent: 4294967295 # Infinite
+    ClothingOuterArmorBPVestStabproof: 4294967295 # Infinite
+    ClothingOuterVestWebMercenary: 4294967295 # Infinite
+    ClothingOuterVestWebMercenaryBlack: 4294967295 # Infinite
+    # region Boots
+    ClothingShoesTacticalSwatTan: 4294967295 # Infinite
+    ClothingShoesTacticalSwatOlive: 4294967295 # Infinite
+    ClothingShoesTacticalSwatBlack: 4294967295 # Infinite
+    ClothingShoesTacticalSwatRangerGreen: 4294967295 # Infinite
+    ClothingShoesTacticalSwatCoyoteBrown: 4294967295 # Infinite
+    ClothingShoesTacticalSwatWhite: 4294967295 # Infinite
+    ClothingShoesBootsMercenary: 4294967295 # Infinite
+    ClothingShoesBootsCombat: 4294967295 # Infinite
+    ClothingShoesBootsJack: 4294967295 # Infinite
+    # region Ties
+    ClothingNeckIFFNeutral: 4294967295 # Infinite, White
+    ClothingNeckIFFRed: 4294967295 # Infinite
+    ClothingNeckIFFGreen: 4294967295 # Infinite
+    ClothingNeckIFFBlue: 4294967295 # Infinite
+    ClothingNeckIFFCyan: 4294967295 # Infinite
+    ClothingNeckIFFOrange: 4294967295 # Infinite
+    ClothingNeckIFFPurple: 4294967295 # Infinite
+    CDDogtags: 4294967295 # Infinite

@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     # Hey there fork dev! If you like to include your own contributors in this then you can probably just change this to your own repo
     # Do this in dump_github_contributors.ps1 too into your own repo
-    if: github.repository == 'new-frontiers-14/frontier-station-14' # Frontier: space-wizards/space-station-14<new-frontiers-14/frontier-station-14
+    if: github.repository == 'Monolith-Station/Monolith' # Mono: space-wizards/space-station-14 > Monolith-Station/Monolith
 
     steps:
-      - uses: actions/checkout@v3.6.0
+      - uses: actions/checkout@v4.2.2
         with:
-          ref: master
+          ref: main
 
       - name: Get this week's Contributors
         shell: pwsh
@@ -51,5 +51,5 @@ jobs:
           commit-message: Update Credits
           title: Update Credits
           body: This is an automated Pull Request. This PR updates the github contributors in the credits section.
-          author: FrontierATC <zuuswa@gmail.com>
+          author: monolith8319 <195513600+monolith8319@users.noreply.github.com>
           branch: automated/credits-${{env.NOW}}

@@ -10,44 +10,22 @@ Warfare on the frontier is usually done via the means of [color=orange]ship gunn
 
 There are 3 types of ship weaponry available:
  - [color=gold]Ballistics[/color], which are weapons like autocannons, railguns, and all other unguided chemical-propellant weapons.
- - [color=MediumVioletRed]Energy[/color], which are weapons like plasma weaponry, lasers, and other similar non-chemical based weapons.
+ - [color=MediumVioletRed]Energy[/color], which are weapons like plasma weaponry, lasers, and other similar non-chemical based weapons. These have infinite ammo usually.
  - [color=GreenYellow]Missiles[/color], which are all guided munitions. It explains itself.
 
 Ship weapons all need a [color=orange]gunnery control console[/color] and a [color=slateblue]gunnery control server[/color] to function. They will be abbreviated to [color=orange]GCC[/color] and [color=slateblue]GCS[/color] in most instances.
+ - [color=gold]Ballistics[/color] and [color=GreenYellow]Missiles[/color] also require ammunition.
+ - Ammunition can be [color=red]very volatile[/color] if damaged.
 
 Ship weapons only fire if they are selected and if your cursor on the [color=orange]GCC[/color] is in the FOV of the turret.
 
   <Box>
-    <GuideEntityEmbed Entity="ShipMissileASM302"/>
+    <GuideEntityEmbed Entity="ShipMissileASM150"/>
     <GuideEntityEmbed Entity="WeaponTurretVanyk"/>
   </Box>
 
 Missiles will only track grids with a shuttle console, and are immediately pointed towards their tracked target upon detecting a target. Take into account the detection angle of your missiles, you can fire a lot farther than what the FOV of your turrets will allow if you do.
 
 Most missiles have a tracking delay before attempting to seek out targets, and will not lock onto targets around 200 meters or less away from the origin ship, depending on the missile size.
-
-## Shield Generators
-
-Some ships are equipped with [color=cyan]shield generators[/color]. These absorb all incoming impacts, and add power draw for every projectile absorbed. [color=yellow]Note that shields only react to projectiles fired from ship weapons, not regular handheld weapons or tools.[/color] Shields will NOT block beam or hitscan weapons, such as [color=red][bold]lasers[/bold][/color], and the area effects of [color=teal][bold]EMPs[/color][/bold] or explosions will still go through.
-
-  <Box>
-    <GuideEntityEmbed Entity="ShieldGeneratorSmall"/>
-    <GuideEntityEmbed Entity="ShieldGeneratorMedium"/>
-    <GuideEntityEmbed Entity="ShieldGenerator"/>
-  </Box>
-
-  ## Bluespace Drives
-
-  Many large, expedition, and combat ships are equipped with a [color=dodgerblue]Bluespace Drive[/color]. These can be fabricated with a T2 and T3 experimental research.
-
-  <Box>
-    <GuideEntityEmbed Entity="MachineFTLDrive"/>
-  </Box>
-
-These increase the ship's FTL range by a certain amount if powered. For the [color=dodgerblue][bold]CTLA-25[/bold][/color], this range is [bold]5000m[/bold]
-
-FTL speed is influenced based off the ship's mass. Heavier ships will have longer startup times, travel times, and longer cooldowns. More advanced drives can offset this effect.
-
-Lighter ships have shorter startup times, travel times, and shorter cooldowns.
 
 </Document>

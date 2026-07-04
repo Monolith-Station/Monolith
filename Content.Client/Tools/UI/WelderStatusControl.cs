@@ -29,17 +29,27 @@ public sealed class WelderStatusControl : PollingItemStatusControl<WelderStatusC
     protected override Data PollData()
     {
         var (fuel, capacity) = _toolSystem.GetWelderFuelAndCapacity(_parent, _parent.Comp);
-        return new Data(fuel, capacity, _parent.Comp.Enabled);
+        return new Data(fuel, capacity, _parent.Comp.Enabled, _parent.Comp.OnlyDisplayFuel);
     }
 
     protected override void Update(in Data data)
     {
-        _label.SetMarkup(Loc.GetString("welder-component-on-examine-detailed-message",
-            ("colorName", data.Fuel < data.FuelCapacity / 4f ? "darkorange" : "orange"),
-            ("fuelLeft", data.Fuel),
-            ("fuelCapacity", data.FuelCapacity),
-            ("status", Loc.GetString(data.Lit ? "welder-component-on-examine-welder-lit-message" : "welder-component-on-examine-welder-not-lit-message"))));
+        if (!data.OnlyDisplayFuel) // Monolith edit - Nanite applicator
+        {
+            _label.SetMarkup(Loc.GetString("welder-component-on-examine-detailed-message",
+                ("colorName", data.Fuel < data.FuelCapacity / 4f ? "darkorange" : "orange"),
+                ("fuelLeft", data.Fuel),
+                ("fuelCapacity", data.FuelCapacity),
+                ("status", Loc.GetString(data.Lit ? "welder-component-on-examine-welder-lit-message" : "welder-component-on-examine-welder-not-lit-message"))));
+        }
+        else
+        {
+            _label.SetMarkup(Loc.GetString("welder-component-on-examine-less-detailed-message",
+                ("colorName", data.Fuel < data.FuelCapacity / 4f ? "darkorange" : "orange"),
+                ("fuelLeft", data.Fuel),
+                ("fuelCapacity", data.FuelCapacity)));
+        }
     }
 
-    public record struct Data(FixedPoint2 Fuel, FixedPoint2 FuelCapacity, bool Lit);
+    public record struct Data(FixedPoint2 Fuel, FixedPoint2 FuelCapacity, bool Lit, bool OnlyDisplayFuel);
 }

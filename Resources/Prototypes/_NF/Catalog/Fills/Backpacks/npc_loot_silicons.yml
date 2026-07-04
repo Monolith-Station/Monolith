@@ -32,25 +32,61 @@
 - type: entity
   parent: RogueSiliconGiftBox
   id: ClothingBackpackRogueSiliconT0
-  categories: [ HideSpawnMenu ]
+  suffix: NPC Loot, T0 #Mono
+  # categories: [ HideSpawnMenu ] #Mono: spawnable for easier testing, why tf wasnt it spawnable anyway
   components:
   - type: SpawnItemsOnUse
     items:
     # Scrap chunks
-    - id: ScrapOre20
+    - id: ScrapOre10
       prob: 1.0
     # Parts
-    - id: AdvancedCapacitorStockPart
-      prob: 0.3
+    - id: SuperCapacitorStockPart
+      prob: 0.05
+      amount: 1
+    - id: SuperMatterBinStockPart
+      prob: 0.05
+      amount: 1
+    - id: PicoManipulatorStockPart
+      prob: 0.05
+      amount: 1
     - id: AdvancedMatterBinStockPart
-      prob: 0.3
+      prob: 0.5
+      amount: 2
+    - id: AdvancedCapacitorStockPart
+      prob: 0.5
+      amount: 2
+    - id: NanoManipulatorStockPart
+      prob: 0.5
+      amount: 2
     - id: SpawnDungeonLootPowerCell
-      prob: 0.25
-    - id: SpawnDungeonLootPartsEngi
-      prob: 0.25
+      prob: 0.5
+    # - id: SpawnDungeonLootPartsEngi #Mono: mostly trash and bloat
+    #   amount: 3
+    #   prob: 0.25
     # Circuit boards
-  #  - id: SpawnDungeonLootCircuitBoardEngi
-   #   prob: 0.25
+    - id: SpawnDungeonLootCircuitBoardEngi
+      amount: 1
+      prob: 0.05
+    - id: SpawnDungeonLootCircuitBoardScience
+      amount: 1
+      prob: 0.05
+    - id: SpawnDungeonLootCircuitBoardSalvage
+      prob: 0.05
+    - id: SpawnDungeonLootCircuitBoard
+      prob: 0.05
+    # Flatpacks
+    - id: SpawnDungeonLootFlatpacks
+      amount: 3
+      prob: 0.05
+    # Research disk
+    - id: RogueSiliconResearchDisk5000
+      prob: 0.8
+    - id: RogueSiliconResearchDisk10000
+      prob: 0.1
+    # Tech disk
+    - id: SpawnLootTechDisksT1
+      prob: 0.05
     sound:
       path: /Audio/Machines/windoor_open.ogg
 
@@ -58,30 +94,70 @@
 - type: entity
   parent: RogueSiliconGiftBox
   id: ClothingBackpackRogueSiliconT1
-  categories: [ HideSpawnMenu ]
+  suffix: NPC Loot, T1 #Mono
+  # categories: [ HideSpawnMenu ] #Mono: spawnable for easier testing, why tf wasnt it spawnable anyway
   components:
   - type: SpawnItemsOnUse
     items:
     # Scrap chunks
     - id: ScrapOre20
-      prob: 1.0
+      prob: 0.6
     # Parts
-    - id: AdvancedCapacitorStockPart
-      prob: 0.4
-    - id: NanoManipulatorStockPart
-      prob: 0.4
+    - id: QuadraticCapacitorStockPart
+      prob: 0.05
+      amount: 1
+    - id: FemtoManipulatorStockPart
+      prob: 0.02
+      amount: 1
+    - id: BluespaceMatterBinStockPart
+      prob: 0.01
+      amount: 1
+    - id: SuperCapacitorStockPart
+      prob: 0.2
+      amount: 2
+    - id: SuperMatterBinStockPart
+      prob: 0.2
+      amount: 2
+    - id: PicoManipulatorStockPart
+      prob: 0.2
+      amount: 2
     - id: AdvancedMatterBinStockPart
-      prob: 0.4
+      prob: 0.2
+      amount: 3
+    - id: AdvancedCapacitorStockPart
+      prob: 0.2
+      amount: 3
+    - id: NanoManipulatorStockPart
+      prob: 0.2
+      amount: 3
     - id: SpawnDungeonLootPowerCell
-      prob: 0.25
-    - id: SpawnDungeonLootPartsEngi
-      prob: 0.25
+      prob: 0.5
+    # - id: SpawnDungeonLootPartsEngi #Mono: mostly trash and bloat
+    #   amount: 3
+    #   prob: 0.25
     # Circuit boards
-   # - id: SpawnDungeonLootCircuitBoardEngi
-   #   prob: 0.9
+    - id: SpawnDungeonLootCircuitBoardEngi
+      amount: 1
+      prob: 0.1
+    - id: SpawnDungeonLootCircuitBoardScience
+      amount: 1
+      prob: 0.1
+    - id: SpawnDungeonLootCircuitBoardSalvage
+      prob: 0.1
+    - id: SpawnDungeonLootCircuitBoard
+      prob: 0.1
     # Flatpacks
-   # - id: SpawnDungeonLootFlatpacks
-   #  prob: 0.8
+    - id: SpawnDungeonLootFlatpacks
+      amount: 3
+      prob: 0.1
+    # Research disk
+    - id: RogueSiliconResearchDisk5000
+      prob: 0.7
+    - id: RogueSiliconResearchDisk10000
+      prob: 0.5
+    # Tech disk
+    - id: SpawnLootTechDisksT2Faction
+      prob: 0.1
     sound:
       path: /Audio/Machines/windoor_open.ogg
 
@@ -89,34 +165,65 @@
 - type: entity
   parent: RogueSiliconGiftBox
   id: ClothingBackpackRogueSiliconT2
-  categories: [ HideSpawnMenu ]
+  suffix: NPC Loot, T2 #Mono
+  # categories: [ HideSpawnMenu ] #Mono: spawnable for easier testing, why tf wasnt it spawnable anyway
   components:
+  - type: Sprite
+    state: sci-base #Mono
   - type: SpawnItemsOnUse
     items:
     # Scrap chunks
     - id: ScrapOre20
-      prob: 1.0
+      prob: 1
     # Parts
+    - id: QuadraticCapacitorStockPart
+      prob: 0.12
+      amount: 1
+    - id: FemtoManipulatorStockPart
+      prob: 0.06
+      amount: 1
+    - id: BluespaceMatterBinStockPart
+      prob: 0.02
+      amount: 1
     - id: SuperCapacitorStockPart
       prob: 0.4
-    - id: PicoManipulatorStockPart
-      prob: 0.4
+      amount: 3
     - id: SuperMatterBinStockPart
       prob: 0.4
+      amount: 3
+    - id: PicoManipulatorStockPart
+      prob: 0.4
+      amount: 3
     - id: SpawnDungeonLootPowerCell
-      prob: 0.25
-    - id: SpawnDungeonLootPartsEngi
-      amount: 2
-      prob: 0.25
+      prob: 0.5
+    # - id: SpawnDungeonLootPartsEngi #Mono: mostly trash and bloat
+    #   amount: 3
+    #   prob: 0.25
     # Circuit boards
-  #  - id: SpawnDungeonLootCircuitBoardEngi
-  #    amount: 1
-  #    prob: 0.8
-  #  - id: SpawnDungeonLootCircuitBoardScience
-  #    prob: 0.8
+    - id: SpawnDungeonLootCircuitBoardEngi
+      amount: 1
+      prob: 0.1
+    - id: SpawnDungeonLootCircuitBoardScience
+      amount: 1
+      prob: 0.1
+    - id: SpawnDungeonLootCircuitBoardSalvage
+      prob: 0.1
+    - id: SpawnDungeonLootCircuitBoard
+      prob: 0.1
     # Flatpacks
-  #  - id: SpawnDungeonLootFlatpacks
-  #    prob: 0.8
+    - id: SpawnDungeonLootFlatpacks
+      amount: 3
+      prob: 0.1
+    # Research disk
+    - id: RogueSiliconResearchDisk10000
+      prob: 0.5
+    - id: RogueSiliconResearchDisk25000
+      prob: 0.05
+    # Tech disk
+    - id: SpawnLootTechDisksPrinterT1
+      prob: 0.05
+    - id: SpawnLootTechDisksT1
+      prob: 0.1
     sound:
       path: /Audio/Machines/windoor_open.ogg
 
@@ -124,80 +231,127 @@
 - type: entity
   parent: RogueSiliconGiftBox
   id: ClothingBackpackRogueSiliconT3
-  categories: [ HideSpawnMenu ]
+  suffix: NPC Loot, T3 #Mono
+  # categories: [ HideSpawnMenu ] #Mono: spawnable for easier testing, why tf wasnt it spawnable anyway
   components:
+  - type: Sprite
+    state: sci-base #Mono
   - type: SpawnItemsOnUse
     items:
     # Scrap chunks
-    - id: ScrapOre20
-      prob: 1.0
+    - id: ScrapOre100
+      prob: 0.4
     # Parts
     - id: QuadraticCapacitorStockPart
-      prob: 0.05
+      prob: 0.4
+      amount: 1
+      maxAmount: 2
     - id: FemtoManipulatorStockPart
-      prob: 0.05
+      prob: 0.2
+      amount: 1
     - id: BluespaceMatterBinStockPart
-      prob: 0.05
-    - id: SpawnDungeonLootPowerCell
-      prob: 0.25
-    - id: SpawnDungeonLootPartsEngi
+      prob: 0.08
+      amount: 1
+    - id: SuperCapacitorStockPart
+      prob: 0.5
       amount: 3
-      prob: 0.25
+    - id: SuperMatterBinStockPart
+      prob: 0.5
+      amount: 3
+    - id: PicoManipulatorStockPart
+      prob: 0.5
+      amount: 3
+    - id: SpawnDungeonLootPowerCell
+      prob: 0.5
+    # - id: SpawnDungeonLootPartsEngi #Mono: mostly trash and bloat
+    #   amount: 3
+    #   prob: 0.25
     # Circuit boards
-  #  - id: SpawnDungeonLootCircuitBoardEngi
-  #    amount: 1
-  #    prob: 0.7
-  #  - id: SpawnDungeonLootCircuitBoardScience
-  #    amount: 1
-  #    prob: 0.7
-  #  - id: SpawnDungeonLootCircuitBoardSalvage
-  #    prob: 0.7
+    - id: SpawnDungeonLootCircuitBoardEngi
+      amount: 1
+      prob: 0.15
+    - id: SpawnDungeonLootCircuitBoardScience
+      amount: 1
+      prob: 0.15
+    - id: SpawnDungeonLootCircuitBoardSalvage
+      prob: 0.15
+    - id: SpawnDungeonLootCircuitBoard
+      prob: 0.15
     # Flatpacks
-  #  - id: SpawnDungeonLootFlatpacks
-  #   amount: 2
-  #    prob: 0.8
+    - id: SpawnDungeonLootFlatpacks
+      amount: 3
+      prob: 0.15
+    # Research disk
+    - id: RogueSiliconResearchDisk10000
+      prob: 0.4
+    - id: RogueSiliconResearchDisk25000
+      prob: 0.3
+    # Tech disk
+    - id: SpawnLootTechDisksT1
+      prob: 0.1
+    - id: SpawnLootTechDisksPrinterT1
+      prob: 0.1
     sound:
       path: /Audio/Machines/windoor_open.ogg
 
-## TIER 4 (Placeholder)
+## TIER 4 - Boss tier
 - type: entity
   parent: RogueSiliconGiftBox
   id: ClothingBackpackRogueSiliconT4
-  categories: [ HideSpawnMenu ]
+  suffix: NPC Loot, T4 #Mono
+  # categories: [ HideSpawnMenu ] #Mono: spawnable for easier testing, why tf wasnt it spawnable anyway
   components:
+  - type: Sprite
+    state: mili-base #Mono
   - type: SpawnItemsOnUse
     items:
     # Scrap chunks
-    - id: ScrapOre20
-      prob: 1.0
+    - id: ScrapOre100
+      prob: 0.6
     - id: WeaponLaserTurboNF
       prob: 0.1
     # Parts
     - id: QuadraticCapacitorStockPart
-      prob: 0.05
+      prob: 0.8
+      amount: 2
     - id: FemtoManipulatorStockPart
-      prob: 0.05
+      prob: 0.8
+      amount: 1
+      maxAmount: 2
     - id: BluespaceMatterBinStockPart
-      prob: 0.05
+      prob: 0.5
+      amount: 1
     - id: SpawnDungeonLootPowerCell
-      prob: 0.05
-    - id: SpawnDungeonLootPartsEngi
-      amount: 3
-      prob: 0.25
+      prob: 0.5
+    # - id: SpawnDungeonLootPartsEngi #Mono: mostly trash and bloat
+    #   amount: 3
+    #   prob: 0.25
     # Circuit boards
-   # - id: SpawnDungeonLootCircuitBoardEngi
-   #   amount: 1
-   #   prob: 0.8
-   # - id: SpawnDungeonLootCircuitBoardScience
-   #   amount: 1
-   #   prob: 0.8
-   # - id: SpawnDungeonLootCircuitBoardSalvage
-   #   prob: 0.8
-   # - id: SpawnDungeonLootCircuitBoard
-   #   prob: 0.8
+    - id: SpawnDungeonLootCircuitBoardEngi
+      amount: 1
+      prob: 0.2
+    - id: SpawnDungeonLootCircuitBoardScience
+      amount: 1
+      prob: 0.2
+    - id: SpawnDungeonLootCircuitBoardSalvage
+      prob: 0.2
+    - id: SpawnDungeonLootCircuitBoard
+      prob: 0.2
     # Flatpacks
-  #  - id: SpawnDungeonLootFlatpacks
-   #   amount: 3
-   #   prob: 0.8
+    - id: SpawnDungeonLootFlatpacks
+      amount: 3
+      prob: 0.2
+    # Research disk
+    - id: RogueSiliconResearchDisk50000
+      prob: 1
+    # Tech disk
+    - id: SpawnLootTechDisksPrinterT2
+      prob: 0.1
+    - id: SpawnLootTechDisksPrinterT1
+      prob: 0.1
+    - id: SpawnLootTechDisksT1
+      prob: 0.2
+    - id: SpawnLootTechDisksT2Faction
+      prob: 0.1
     sound:
       path: /Audio/Machines/windoor_open.ogg

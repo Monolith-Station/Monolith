@@ -168,6 +168,12 @@
       count: 1
       minGroupSize: 0
       maxGroupSize: 1
+    # Mono - has more
+    - !type:EntityTableDunGen
+      minCount: 7
+      maxCount: 12
+      table: !type:NestedSelector
+        tableId: VgroidGasDepositTable
 
 # Configs
 - type: dungeonConfig
@@ -327,7 +333,7 @@
     # Ice tiles
     - !type:BiomeTileLayer
       tile: FloorIce
-      threshold: -0.9
+      threshold: -0.4
       noise:
         seed: 0
         noiseType: Cellular

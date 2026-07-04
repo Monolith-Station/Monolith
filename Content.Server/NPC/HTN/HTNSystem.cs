@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics; // Mono
 using System.Text;
 using System.Threading;
 using Content.Server.Administration.Managers;
@@ -12,6 +13,7 @@ using Content.Shared.NPC;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Map; // Mono
 using Robust.Shared.Utility;
 using Content.Server.Worldgen; // Frontier
 using Content.Server.Worldgen.Components; // Frontier
@@ -20,15 +22,15 @@ using Robust.Server.GameObjects; // Frontier
 
 namespace Content.Server.NPC.HTN;
 
-public sealed class HTNSystem : EntitySystem
+public sealed partial class HTNSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminManager _admin = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly NPCUtilitySystem _utility = default!;
+    [Dependency] private IAdminManager _admin = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private NPCUtilitySystem _utility = default!;
     // Frontier
-    [Dependency] private readonly WorldControllerSystem _world = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private WorldControllerSystem _world = default!;
+    [Dependency] private TransformSystem _transform = default!;
     private EntityQuery<WorldControllerComponent> _mapQuery;
     private EntityQuery<LoadedChunkComponent> _loadedQuery;
     // Frontier
@@ -178,9 +180,6 @@ public sealed class HTNSystem : EntitySystem
                 return;
             }
 
-            if (!IsNPCActive(uid))  // Frontier
-                continue;
-
             if (comp.PlanningJob != null)
             {
                 if (comp.PlanningJob.Exception != null)
@@ -274,19 +273,6 @@ public sealed class HTNSystem : EntitySystem
         count = 0;
     }
 
-    // Frontier: prevent unneded NPC activity
-    private bool IsNPCActive(EntityUid entity) // Frontier
-    {
-        var transform = Transform(entity);
-
-        if (!_mapQuery.TryGetComponent(transform.MapUid, out var worldComponent))
-            return true;
-
-        var chunk = _world.GetOrCreateChunk(WorldGen.WorldToChunkCoords(_transform.GetWorldPosition(transform)).Floored(), transform.MapUid.Value, worldComponent);
-
-        return _loadedQuery.TryGetComponent(chunk, out var loaded) && loaded.Loaders is not null;
-    }
-
     private void AppendDebugText(HTNTask task, StringBuilder text, List<int> planBtr, List<int> btr, ref int level)
     {
         // If it's the selected BTR then highlight.
@@ -364,7 +350,11 @@ public sealed class HTNSystem : EntitySystem
                 foreach (var service in currentTask.Services)
                 {
                     var serviceResult = _utility.GetEntities(blackboard, service.Prototype);
-                    blackboard.SetValue(service.Key, serviceResult.GetHighest());
+                    var res = serviceResult.GetHighest();
+                    blackboard.SetValue(service.Key, res);
+                    // Mono
+                    if (service.CoordinatesKey != null)
+                        blackboard.SetValue(service.CoordinatesKey, new EntityCoordinates(res, Vector2.Zero));
                 }
 
                 component.CheckServices = false;
@@ -414,7 +404,11 @@ public sealed class HTNSystem : EntitySystem
 
     public void ShutdownPlan(HTNComponent component)
     {
-        DebugTools.Assert(component.Plan != null);
+        // Mono
+        if (component.Plan == null)
+            return;
+
+        // DebugTools.Assert(component.Plan != null);
         var blackboard = component.Blackboard;
 
         foreach (var task in component.Plan.Tasks)

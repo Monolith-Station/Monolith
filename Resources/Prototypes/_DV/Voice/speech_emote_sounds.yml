@@ -1,16 +1,3 @@
-# SPDX-FileCopyrightText: 2023 FoxxoTrystan
-# SPDX-FileCopyrightText: 2024 BorisTakerman
-# SPDX-FileCopyrightText: 2024 Dvir
-# SPDX-FileCopyrightText: 2024 ErhardSteinhauer
-# SPDX-FileCopyrightText: 2024 VMSolidus
-# SPDX-FileCopyrightText: 2024 Whatstone
-# SPDX-FileCopyrightText: 2025 Ark
-# SPDX-FileCopyrightText: 2025 Redrover1760
-# SPDX-FileCopyrightText: 2025 ScyronX
-# SPDX-FileCopyrightText: 2025 mikusssssss
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # species
 - type: emoteSounds
   id: SoundsHarpy
@@ -73,8 +60,10 @@
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
+    Yip: # Starlight / Monolith - yip & whine [
+      collection: VulpkaninYips
     Whine:
-      collection: VulpkaninWhines
+      collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
     Howl:
       collection: VulpkaninHowls
     Awoo:
@@ -131,8 +120,8 @@
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
-    Whine:
-      collection: VulpkaninWhines
+    Whimper:
+      collection: VulpkaninWhimpers # Starlight / Monolith: Rename to whimper
     Howl:
       collection: VulpkaninMaleHowl #Monolith
     Awoo:
@@ -143,6 +132,10 @@
       collection: MaleDeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
+    Yip: # Starlight / Monolith - yip & whine [
+      collection: VulpkaninYips
+    Whine:
+      collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -179,8 +172,8 @@
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
-    Whine:
-      collection: VulpkaninWhines
+    Whimper:
+      collection: VulpkaninWhimpers # Starlight / Monolith: Rename to whimper
     Howl:
       collection: VulpkaninFemaleHowl #Monolith
     Awoo:
@@ -191,6 +184,10 @@
       collection: FemaleDeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
+    Yip: # Starlight / Monolith - yip & whine [
+      collection: VulpkaninYips
+    Whine:
+      collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
 
 - type: emoteSounds
   id: MobDog
@@ -203,8 +200,10 @@
       collection: VulpkaninSnarls
     Bark:
       collection: VulpkaninBarks
+    Yip: # Starlight / Monolith - yip & whine [
+      collection: VulpkaninYips
     Whine:
-      collection: VulpkaninWhines
+      collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
     Howl:
       collection: VulpkaninHowls
     Awoo:

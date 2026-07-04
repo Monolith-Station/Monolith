@@ -1,0 +1,47 @@
+- type: entity
+  id: MonoAISTCShuttleSpawnerSchedulerSlow
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: DamagedAIShipsTable
+    minimumTimeUntilFirstEvent: 3600 # 1 hour
+    minMaxEventTiming:
+      min: 8100 # 135 minutes between events
+      max: 10800 # 180 minutes between events
+
+- type: entity
+  id: MonoAISTCShuttleSpawnerSchedulerTier2Slow
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: DamagedAIShipsTableT2
+    minimumTimeUntilFirstEvent: 14400 # 4 hours
+    minMaxEventTiming:
+      min: 5400 # 90 minutes between events
+      max: 5400 # 90 minutes between events
+
+- type: entity
+  id: MonoAsakimSTCShuttleSpawnerSchedulerSlow
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: AsakimShipsTable
+    minimumTimeUntilFirstEvent: 7200 # 2 hours
+    minMaxEventTiming:
+      min: 5400 # 90 minutes between events
+      max: 10800 # 180 minutes between events
+
+- type: entity
+  id: MonoChimeraSTCShuttleSpawnerSchedulerSlow
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: ChimeraShipsTable
+    minimumTimeUntilFirstEvent: 10800 # 3 hours
+    minMaxEventTiming:
+      min: 5400 # 90 minutes between events
+      max: 5400 # 90 minutes between events

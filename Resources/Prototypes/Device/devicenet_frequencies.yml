@@ -1,14 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Flipp Syder
-# SPDX-FileCopyrightText: 2022 Leon Friedrich
-# SPDX-FileCopyrightText: 2022 Morb
-# SPDX-FileCopyrightText: 2023 AJCM-git
-# SPDX-FileCopyrightText: 2023 Julian Giebel
-# SPDX-FileCopyrightText: 2023 avery
-# SPDX-FileCopyrightText: 2024 deltanedas
-# SPDX-FileCopyrightText: 2025 Onezero0
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: deviceFrequency
   id: ShuttleTimer
   name: device-frequency-prototype-name-shuttle-timer
@@ -128,3 +117,13 @@
   id: SurveillanceCameraTSF
   name: device-frequency-prototype-name-surveillance-camera-tsf
   frequency: 1941
+
+- type: deviceFrequency
+  id: SurveillanceCameraRogue
+  name: device-frequency-prototype-name-surveillance-camera-Rogue
+  frequency: 2947
+
+- type: deviceFrequency
+  id: SurveillanceCameraUSSP
+  name: device-frequency-prototype-name-surveillance-camera-USSP
+  frequency: 3528

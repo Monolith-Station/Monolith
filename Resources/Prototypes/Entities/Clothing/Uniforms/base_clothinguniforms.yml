@@ -3,6 +3,23 @@
   parent: [Clothing, RecyclableItemClothBasic] # Frontier: added RecyclableItemClothBasic
   id: UnsensoredClothingUniformBase
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/cloth_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/cloth_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/cloth_drop.ogg
+      params:
+        volume: -4
+  # Goobstation edit end
   - type: Sprite
     state: icon
   - type: Clothing
@@ -43,6 +60,11 @@
   id: ClothingUniformBase
   components:
   - type: SuitSensor
+  - type: ToggleableSignature
+    blip:
+      radarColor: Cyan
+      scale: 0.5
+      requireNoGrid: true
   - type: DeviceNetwork
     deviceNetId: Wireless
     transmitFrequencyId: SuitSensor

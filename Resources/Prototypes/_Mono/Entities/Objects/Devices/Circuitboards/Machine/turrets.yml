@@ -1,0 +1,18 @@
+- type: entity
+  id: WeaponTurretM25Circuitboard
+  parent: BaseMachineCircuitboard
+  name: M25 mining pulsar machine board
+  description: A machine printed circuit board for an M25 mining pulsar.
+  suffix: Machine Board
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: WeaponTurretM25
+    requirements:
+      MatterBin: 2
+      Manipulator: 4
+    stackRequirements:
+      Steel: 5
+      Plasma: 3
+      CableHV: 2

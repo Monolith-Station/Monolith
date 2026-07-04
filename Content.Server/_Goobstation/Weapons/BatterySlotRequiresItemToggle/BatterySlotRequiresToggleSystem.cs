@@ -1,16 +1,11 @@
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Item.ItemToggle.Components;
 
 namespace Content.Goobstation.Server.Weapons.BatterySlotRequiresItemToggle;
 
-public sealed class BatterySlotRequiresToggleSystem : EntitySystem
+public sealed partial class BatterySlotRequiresToggleSystem : EntitySystem
 {
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
 
     public override void Initialize()
     {
