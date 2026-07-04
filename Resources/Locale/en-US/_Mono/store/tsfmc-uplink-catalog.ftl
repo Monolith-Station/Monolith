@@ -34,20 +34,20 @@ uplink-security-eg4-desc = A self-recharging energy weapon, capable of shooting 
 uplink-security-annie-name = Annie
 uplink-security-annie-desc = A 7.62x39mm subsonic weapon, made to shoulder the weight of impossible operations.
 
-uplink-security-mr8c-name = MR-8C BR
+uplink-security-mr8c-name = QBU-243 Xian BR
 uplink-security-mr8c-desc = A semi-auto rifle firing 8x65mm SKR rounds, specially made for MARSOC usage. You're one lucky marine.
 
-uplink-security-mr8b-name = MR-8B LWMMG
-uplink-security-mr8b-desc = An expensive (relatively) light-weight GPMG branched off from the MR-8C. Compatible with both 8x65mm magazines and boxes.
+uplink-security-mr8b-name = QJY-244 LWMMG
+uplink-security-mr8b-desc = An expensive (relatively) light-weight GPMG branched off from the QBU-243. Compatible with both 8x65mm magazines and boxes.
 
 uplink-security-8x65mm-magazine-name = 8x65mm SKR Magazine
-uplink-security-8x65mm-magazine-desc = Compatible with the MR-8B and MR-8C. Contains 25 rounds.
+uplink-security-8x65mm-magazine-desc = Compatible with the QBU-243 and QJY-244. Contains 25 rounds.
 
 uplink-security-8x65mm-boxmag-name = 8x65mm SKR Box Magazine
-uplink-security-8x65mm-boxmag-desc = Compatible with the MR-8B only. Contains 75 rounds.
+uplink-security-8x65mm-boxmag-desc = Compatible with the QJY-244 only. Contains 75 rounds.
 
 uplink-security-8x65mm-box-name = 8x65mm SKR Box
-uplink-security-8x65mm-box-desc = Used to refill magazines/boxes for the MR-8C and MR-8B. Contains 100 rounds.
+uplink-security-8x65mm-box-desc = Used to refill magazines/boxes for the MQBU-243 and QJY-244. Contains 100 rounds.
 
 uplink-security-68x52mm-magazine-name = 6.8x52mm Caseless Magazine
 uplink-security-68x52mm-magazine-desc = Compatible with the Lecter. Contains 30 rounds.
@@ -79,8 +79,8 @@ uplink-exosuit-aurora-desc = A prototype exosuit for the future of warfare. Util
 uplink-security-ashstorm-name = EM72 Ashstorm
 uplink-security-ashstorm-desc = The TSF-EM72 Ashstorm is a directed-energy light machine gun developed by Aetherion Dynamics under TSF weapons contract 934A.
 
-uplink-security-smilodon-name = DEW-50-C 'Smilodon'
-uplink-security-smilodon-desc = The DEW-50-C Smilodon is a directed-energy light machine gun used by the TSF. Devastating.
+uplink-security-smilodon-name = QBH-50-C Smilodon
+uplink-security-smilodon-desc = The QBH-50-C Smilodon is a directed-energy light machine gun used by the TSF. Devastating.
 
 uplink-security-t0-voucher-name = TSFMC Tier 0 Ship Voucher
 uplink-security-t0-voucher-desc = A single-use voucher for any small ship.
@@ -111,6 +111,9 @@ uplink-security-t2-spekter-voucher-desc = A small card that contains the data fo
 
 uplink-security-t3-altair-voucher-name = TSFMC Altair LPC [T3]
 uplink-security-t3-altair-voucher-desc = A small card that contains the data for the procurement of an Altair-class frigate from the flagship's reserves.
+
+uplink-security-t3-polaris-voucher-name = TSFMC Polaris LPC [T3]
+uplink-security-t3-polaris-voucher-desc = A small card that contains the data for the procurement of an Type-56D Polaris-class frigate from the flagship's reserves.
 
 uplink-security-flyssa-voucher-name = TSFMC Flyssa LPC [T4]
 uplink-security-flyssa-voucher-desc = A small card that contains the data for the procurement of a Flyssa-class destroyer from the flagship's reserves.

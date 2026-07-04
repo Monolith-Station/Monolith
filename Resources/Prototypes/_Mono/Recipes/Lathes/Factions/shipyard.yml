@@ -61,6 +61,24 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
+  id: PolarisVoucherTSF
+  result: ShipVoucherPolaris
+  completetime: 100
+  materials:
+    Steel: 40000
+    Plasteel: 30000
+    Plastic: 30000
+    Glass: 7000
+    Plasma: 5000
+    UraniumFissile: 400
+    UraniumDepleted: 4000
+    Silver: 10000
+    Gold: 5000
+    Lithium: 2000
+    Copper: 2000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
   id: FlyssaVoucherTSF
   result: ShipVoucherFlyssa
   completetime: 130
