@@ -12,7 +12,7 @@
   price: 6000
   category: Small
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/baeg.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/baeg.yml
   guidebookPage: Null
   class:
   - Civilian
@@ -23,7 +23,7 @@
 - type: gameMap
   id: Baeg
   mapName: 'Z-22 Baeg'
-  mapPath: /Maps/_Mono/Shuttles/baeg.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/baeg.yml
   minPlayers: 0
   stations:
     Baeg:

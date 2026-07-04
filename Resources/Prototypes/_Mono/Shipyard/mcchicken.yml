@@ -11,7 +11,7 @@
   price: 28875
   category: Medium
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/mcchicken.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/mcchicken.yml
   guidebookPage: Null
   class:
   - Civilian
@@ -22,7 +22,7 @@
 - type: gameMap
   id: McChicken
   mapName: 'AES McChicken'
-  mapPath: /Maps/_Mono/Shuttles/mcchicken.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/mcchicken.yml
   minPlayers: 0
   stations:
     McChicken:

@@ -10,7 +10,7 @@
   category: Large
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/altair.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/altair.yml
   guidebookPage: Null
   class:
   - Frigate
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Altair
   mapName: 'Altair'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/altair.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/altair.yml
   minPlayers: 0
   stations:
     Altair:
