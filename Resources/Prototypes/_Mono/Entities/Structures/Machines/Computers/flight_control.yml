@@ -1,0 +1,124 @@
+# TSFN VWS (Simplified chinese missile warning, same tone for RWR)
+
+- type: entity
+  parent: ComputerShuttle
+  id: ComputerShuttleTSFNVWS
+  name: shuttle console
+  suffix: TSFN/TSFMC VWS
+  description: Used to pilot a shuttle. This one is outfitted with a TSFN VWS for missile warning tones.
+  components:
+  - type: Computer
+    board: ShuttleConsoleCircuitboardTSFN
+  - type: TargetSeekerAlert
+    targetGainSound:
+      path: /Audio/_Mono/Effects/Alerts/rwr_beep.ogg
+      params:
+        volume: 0.9
+    distanceAlertSettings:
+    - maximumDistance: 1000
+      sound:
+        path: /Audio/_Mono/Effects/Alerts/tsfn_launchwarning.ogg
+        params:
+          loop: true
+          volume: 1.0
+
+- type: entity
+  parent: [BaseStructureComputerTabletop, ComputerShuttleTSFNVWS]
+  id: ComputerTabletopShuttleTSFNVWS
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _NF/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _NF/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      sprite: Structures/Machines/computers.rsi
+      state: shuttle
+    - map: ["computerLayerKeys"]
+      sprite: Structures/Machines/computers.rsi
+      state: generic_keys
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ShuttleConsoleCircuitboardTSFN
+  name: shuttle console board (TSFN VWS)
+  suffix: Tabletop, TSFN/TSFMC VWS
+  description: A computer printed circuit board for a shuttle console. This one has a TSFN VWS for missile lock tones.
+  components:
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: ComputerShuttleTSFNVWS
+  - type: ComputerTabletopBoard # Frontier
+    prototype: ComputerTabletopShuttleTSFNVWS # Frontier
+
+# PDV/USSP RWR (SPO-15)
+
+- type: entity
+  parent: ComputerShuttle
+  id: ComputerShuttleKPV63RWR
+  name: shuttle console
+  suffix: PDV/USSP KPV-63 RWR
+  description: Used to pilot a shuttle. This one is outfitted with a KPV-63 RWR for missile warning tones.
+  components:
+  - type: Computer
+    board: ShuttleConsoleCircuitboardKPV63RWR
+  - type: TargetSeekerAlert
+    targetGainSound:
+      path: /Audio/_Mono/Effects/Alerts/kpv63_lock.ogg
+      params:
+        volume: 0.7
+        pitch: 1.2
+    distanceAlertSettings:
+    - maximumDistance: 256
+      sound:
+        path: /Audio/_Mono/Effects/Alerts/spo15_lock.ogg
+        params:
+          loop: true
+          volume: 1.0
+          pitch: 1.8
+    - maximumDistance: 1024
+      sound:
+        path: /Audio/_Mono/Effects/Alerts/kpv63_long_range.ogg
+        params:
+          loop: true
+          volume: 1.0
+          pitch: 1.0
+
+- type: entity
+  parent: [BaseStructureComputerTabletop, ComputerShuttleKPV63RWR]
+  id: ComputerTabletopShuttleKPV63RWR
+  suffix: Tabletop, PDV/USSP KPV-63 RWR
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _NF/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _NF/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      sprite: Structures/Machines/computers.rsi
+      state: shuttle
+    - map: ["computerLayerKeys"]
+      sprite: Structures/Machines/computers.rsi
+      state: generic_keys
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ShuttleConsoleCircuitboardKPV63RWR
+  name: shuttle console board (KPV-63 RWR)
+  description: A computer printed circuit board for a shuttle console. This one has a KPV-63 RWR for missile lock tones.
+  components:
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: ComputerShuttleKPV63RWR
+  - type: ComputerTabletopBoard # Frontier
+    prototype: ComputerTabletopShuttleKPV63RWR # Frontier
