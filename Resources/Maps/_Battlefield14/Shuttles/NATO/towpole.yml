@@ -166,6 +166,8 @@ entities:
           - 0
         chunkSize: 4
     - type: GasTileOverlay
+    - type: BecomesStation
+      id: M20
     - type: RadiationGridResistance
     - type: ShipGridLock
       locked: False

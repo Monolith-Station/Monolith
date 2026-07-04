@@ -22,7 +22,7 @@
     - map: ["computerLayerKeys"]
       state: blackmarket_key
   - type: ShipyardConsole
-    shipyardChannel: Traffic
+    shipyardChannel: RURadio
     ignoreBaseSaleRate: true # Fixed 70% sale rate.
     canTransferDeed: false
   - type: ShipyardListing
