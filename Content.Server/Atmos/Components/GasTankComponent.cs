@@ -20,7 +20,7 @@ namespace Content.Server.Atmos.Components
 
         [ViewVariables(VVAccess.ReadWrite), DataField("connectSound")]
         public SoundSpecifier? ConnectSound =
-            new SoundPathSpecifier("/Audio/_HaloSSE/Effects/internals.ogg") // BF14
+            new SoundPathSpecifier("/Audio/Effects/internals.ogg")
             {
                 Params = AudioParams.Default.WithVolume(5f),
             };
