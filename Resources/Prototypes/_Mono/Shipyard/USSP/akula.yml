@@ -1,11 +1,12 @@
-#Author: Grandalff on Github.
+#Author: Mrrpip on github, original akula by Grandalff.
 
 - type: vessel
   id: Akula
   parent: BaseVesselAntag
   name: PPU Akula
-  description: A USSP long range harasser, meant for hit and runs. Comes with two dravons and CTLA-25.
-  price: 64000
+  description: A USSP long range harasser, meant for hit and runs. Comes with a BOFORS and a lightweight shield generator.
+  price: 62500 #50K + 25%
+  purchasable: false # voucher only
   category: Medium
   group: Ussp
   access: USSP
