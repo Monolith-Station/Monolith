@@ -210,9 +210,20 @@ public sealed partial class NavScreen : BoxContainer
             if (_entManager.TryGetComponent(mapUid, out CEZLevelMapComponent? zLevel))
             {
                 altitude = zLevel.Depth;
-                state = _entManager.HasComponent<CEZGroundLayerComponent>(mapUid)
-                    ? "shuttle-console-travel-state-grounded"
-                    : "shuttle-console-travel-state-hovering";
+
+                // Mid-spool a grounded ship shows a launch countdown instead.
+                if (_entManager.TryGetComponent(_shuttleEntity, out CEZPhysicsComponent? spoolPhys) &&
+                    spoolPhys.LaunchCountdown > 0f)
+                {
+                    state = Loc.GetString("shuttle-console-travel-state-launching",
+                        ("countdown", $"{spoolPhys.LaunchCountdown:0.0}"));
+                }
+                else
+                {
+                    state = Loc.GetString(_entManager.HasComponent<CEZGroundLayerComponent>(mapUid)
+                        ? "shuttle-console-travel-state-grounded"
+                        : "shuttle-console-travel-state-hovering");
+                }
             }
             else if (_entManager.TryGetComponent(mapUid, out CEZTransitMapComponent? transit) &&
                      transit.LowerMap is { } lowerMap &&
@@ -223,13 +234,15 @@ public sealed partial class NavScreen : BoxContainer
                     progress = Math.Clamp(zPhys.LocalPosition, 0f, 1f);
 
                 altitude = lowerZ.Depth + progress;
-                state = "shuttle-console-travel-state-flying";
+                state = Loc.GetString("shuttle-console-travel-state-flying");
             }
         }
 
         var onZNetwork = altitude != null;
         GridAltitudeCaption.Visible = onZNetwork;
         GridAltitude.Visible = onZNetwork;
+        GridVerticalVelocityCaption.Visible = onZNetwork;
+        GridVerticalVelocity.Visible = onZNetwork;
         GridTravelStateCaption.Visible = onZNetwork;
         GridTravelState.Visible = onZNetwork;
 
@@ -238,6 +251,15 @@ public sealed partial class NavScreen : BoxContainer
 
         GridAltitude.Text = Loc.GetString("shuttle-console-altitude-value",
             ("altitude", $"{altitude!.Value:0.00}"));
-        GridTravelState.Text = Loc.GetString(state!);
+
+        // CEZPhysics.Velocity is positive = up; the server mirrors the grid's fall
+        // speed onto it. Add a bias like the other velocity rows so -0 never shows.
+        var vertical = 0f;
+        if (_entManager.TryGetComponent(_shuttleEntity, out CEZPhysicsComponent? velPhys))
+            vertical = velPhys.Velocity;
+        GridVerticalVelocity.Text = Loc.GetString("shuttle-console-vertical-velocity-value",
+            ("velocity", $"{vertical + 10f * float.Epsilon:0.00}"));
+
+        GridTravelState.Text = state!;
     }
 }

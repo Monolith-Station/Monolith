@@ -258,6 +258,13 @@ public sealed partial class ScalingViewport
                 Angle rotation = _fallbackEye.Rotation * -1;
                 var offset = rotation.ToWorldVec() * CEClientZLevelsSystem.ZLevelOffset * depth;
 
+                // Perspective: each level away from the observer's plane is drawn a
+                // constant factor smaller below and larger above, continuously with
+                // depth. Symmetric through depth 0, so a ship rising overhead grows
+                // by the same curve it shrinks by when it sinks — no pop when it
+                // crosses your plane and reverses direction.
+                var scale = _fallbackEye.Scale * MathF.Pow(CESharedZLevelsSystem.ZLevelViewShrink, -depth);
+
                 var zEye = new ZEye(lowestDepth, depth, highestDepth)
                 {
                     Position = new MapCoordinates(_fallbackEye.Position.Position, mapComp.MapId),
@@ -266,7 +273,7 @@ public sealed partial class ScalingViewport
                     DrawParallax = !isTransit && depth == lowestDepth,
                     Offset = _fallbackEye.Offset + offset,
                     Rotation = _fallbackEye.Rotation,
-                    Scale = _fallbackEye.Scale,
+                    Scale = scale,
                 };
 
                 // Ships overhead get their own transparent pass composited with

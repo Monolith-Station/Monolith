@@ -21,10 +21,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._CE.ZLevels.Mapping.Commands;
 
-public abstract class CEBaseTransitCommand : LocalizedEntityCommands
+public abstract partial class CEBaseTransitCommand : LocalizedEntityCommands
 {
-    [Dependency] protected readonly IEntityManager Entities = default!;
-    [Dependency] protected readonly CEZLevelsSystem ZLevel = default!;
+    [Dependency] protected IEntityManager Entities = default!;
+    [Dependency] protected CEZLevelsSystem ZLevel = default!;
 
     protected bool TryGetGrid(IConsoleShell shell, string arg, out Entity<MapGridComponent> grid)
     {
@@ -41,6 +41,23 @@ public abstract class CEBaseTransitCommand : LocalizedEntityCommands
 
         grid = (uid.Value, gridComp);
         return true;
+    }
+
+    protected CompletionResult TransitGridCompletions()
+    {
+        var options = new List<CompletionOption>();
+
+        var query = Entities.EntityQueryEnumerator<MapGridComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out var xform))
+        {
+            if (!Entities.HasComponent<CEZTransitMapComponent>(xform.MapUid))
+                continue;
+
+            var net = Entities.GetNetEntity(uid);
+            options.Add(new CompletionOption(net.ToString(), Entities.ToPrettyString(uid)));
+        }
+
+        return CompletionResult.FromHintOptions(options, "<transiting grid>");
     }
 }
 
@@ -84,6 +101,13 @@ public sealed class CETransitSetCommand : CEBaseTransitCommand
     public override string Command => "cez-transit-set";
     public override string Description => "Set a transit map's current distance in the stack.";
 
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length == 1
+            ? TransitGridCompletions()
+            : CompletionResult.FromHint("<absolute altitude>");
+    }
+
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (args.Length != 2)
@@ -110,39 +134,52 @@ public sealed class CETransitSetCommand : CEBaseTransitCommand
 }
 
 [AdminCommand(AdminFlags.Server | AdminFlags.Mapping)]
-public sealed class CETransitDebugCommand : CEBaseTransitCommand
+public sealed partial class CETransitDebugCommand : CEBaseTransitCommand
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MapLoaderSystem _mapLoader = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private MapSystem _map = default!;
 
     public override string Command => "cez-transit-debug";
     public override string Description =>
         "Loads in a testing map and spawns a shuttle for testing Z-levels.";
 
-    private const string ZMapId = "GrasslandsZ";
+    private const string DefaultZMapId = "GrasslandsZ";
     private const int ShuttleDepth = 2;
     private static readonly ResPath DefaultShuttle = new("/Maps/_Mono/Shuttles/bucket.yml");
 
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length switch
+        {
+            1 => CompletionResult.FromHintOptions(
+                CompletionHelper.PrototypeIDs<CEZLevelMapPrototype>(proto: _proto),
+                "<zMap id>"),
+            2 => CompletionResult.FromHint("<shuttle path>"),
+            _ => CompletionResult.Empty,
+        };
+    }
+
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length > 1)
+        if (args.Length > 2)
         {
             shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
             return;
         }
 
-        var shuttlePath = args.Length == 1 ? new ResPath(args[0]) : DefaultShuttle;
+        var zMapId = args.Length >= 1 ? args[0] : DefaultZMapId;
+        var shuttlePath = args.Length == 2 ? new ResPath(args[1]) : DefaultShuttle;
 
-        if (!_proto.Resolve<CEZLevelMapPrototype>(ZMapId, out var zMapProto))
+        if (!_proto.Resolve<CEZLevelMapPrototype>(zMapId, out var zMapProto))
         {
-            shell.WriteError($"Unknown CEZLevelMapPrototype {ZMapId}");
+            shell.WriteError($"Unknown CEZLevelMapPrototype {zMapId}");
             return;
         }
 
         var network = ZLevel.CreateZNetwork(zMapProto.Components);
-        _meta.SetEntityName(network, $"Debug zNetwork: {ZMapId}");
+        _meta.SetEntityName(network, $"Debug zNetwork: {zMapId}");
 
         var opts = new DeserializationOptions { InitializeMaps = true };
 
@@ -161,7 +198,7 @@ public sealed class CETransitDebugCommand : CEBaseTransitCommand
 
             maps.Add(mapEnt.Value, depth);
             byDepth[depth] = mapEnt.Value;
-            _meta.SetEntityName(mapEnt.Value, $"Debug {ZMapId} [{depth}]");
+            _meta.SetEntityName(mapEnt.Value, $"Debug {zMapId} [{depth}]");
             depth++;
         }
 
@@ -195,7 +232,7 @@ public sealed class CETransitDebugCommand : CEBaseTransitCommand
         // A test ship, delivered to the sky.
         if (!byDepth.TryGetValue(ShuttleDepth, out var shuttleMap))
         {
-            shell.WriteError($"{ZMapId} has no layer {ShuttleDepth}; shuttle load skipped");
+            shell.WriteError($"{zMapId} has no layer {ShuttleDepth}; shuttle load skipped");
             return;
         }
 
@@ -206,7 +243,7 @@ public sealed class CETransitDebugCommand : CEBaseTransitCommand
         }
 
         var shuttleNet = Entities.GetNetEntity(shuttle.Value.Owner);
-        shell.WriteLine($"Loaded {ZMapId}; shuttle {shuttleNet} on layer {ShuttleDepth} (map {shuttleMap.Comp.MapId})");
+        shell.WriteLine($"Loaded {zMapId}; shuttle {shuttleNet} on layer {ShuttleDepth} (map {shuttleMap.Comp.MapId})");
     }
 
     private void Cleanup(Dictionary<int, Entity<MapComponent>> byDepth, EntityUid network)
@@ -225,6 +262,13 @@ public sealed class CETransitLandCommand : CEBaseTransitCommand
 {
     public override string Command => "cez-transit-land";
     public override string Description => "Immediately force a grid in transit to land on the nearest Z-layer.";
+
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length == 1
+            ? TransitGridCompletions()
+            : CompletionResult.Empty;
+    }
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {

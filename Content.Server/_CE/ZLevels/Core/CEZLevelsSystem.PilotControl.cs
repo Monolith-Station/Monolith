@@ -3,14 +3,18 @@
  * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
  */
 
+using System.Numerics;
 using Content.Server.Shuttles.Components;
 using Content.Server._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared.Gravity;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Shuttles.Components;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server._CE.ZLevels.Core;
 
@@ -21,12 +25,26 @@ namespace Content.Server._CE.ZLevels.Core;
 /// </summary>
 public sealed partial class CEZLevelsSystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!;
+
     /// <summary>
     /// Seconds of continuously held ascend/descend before a ship parked on a GROUND
     /// layer lifts off. No takeoffs from a bumped key. Sky layers have nothing
     /// holding the ship down — leaving them is instant.
     /// </summary>
     private const float SpoolSeconds = 1.5f;
+
+    /// <summary>
+    /// Downwash VFX on liftoff: one dust puff roughly every this many meters of
+    /// hull perimeter, on the map the ship is leaving.
+    /// </summary>
+    private static readonly EntProtoId LiftoffDustProto = "CEZLiftoffDust";
+    private const float LiftoffDustSpacing = 2f;
+
+    /// <summary>
+    /// Velocity gain when spool ends.
+    /// </summary>
+    private const float SpoolLiftoffVelocity = 1.5f;
 
     /// <summary>
     /// A gap in held input longer than this restarts the takeoff spool.
@@ -36,7 +54,7 @@ public sealed partial class CEZLevelsSystem
     /// <summary>
     /// Converts the docked set's lateral acceleration (total thruster force over
     /// mass, in m/s²) into vertical acceleration in levels/s². Heavy ships with few
-    /// thrusters climb sluggishly; overbuilt gunboats leap.
+    /// thrusters climb sluggishly; overbuilt greadonlyunboats leap.
     /// </summary>
     private const float VerticalThrustScale = 0.05f;
 
@@ -73,6 +91,13 @@ public sealed partial class CEZLevelsSystem
     private const float TouchdownSpeed = 0.06f;
 
     private readonly Dictionary<EntityUid, float> _pilotVerticalInput = new();
+
+    /// <summary>
+    /// Grids that showed a launch countdown last tick, so it can be cleared the tick
+    /// they stop spooling (the pilot let go) — those grids aren't otherwise visited.
+    /// </summary>
+    private readonly HashSet<EntityUid> _spoolingGrids = new();
+    private readonly HashSet<EntityUid> _spoolingGridsThisTick = new();
 
     /// <summary>
     /// Gathers each grid's net ascend/descend input from everyone at its consoles.
@@ -160,8 +185,7 @@ public sealed partial class CEZLevelsSystem
     /// </summary>
     private void UpdateTakeoffSpool()
     {
-        if (_pilotVerticalInput.Count == 0)
-            return;
+        _spoolingGridsThisTick.Clear();
 
         foreach (var (gridUid, input) in _pilotVerticalInput)
         {
@@ -205,16 +229,77 @@ public sealed partial class CEZLevelsSystem
 
                 faller.SpoolLastInput = now;
 
-                if ((now - faller.SpoolStart).TotalSeconds < SpoolSeconds)
+                var remaining = SpoolSeconds - (float)(now - faller.SpoolStart).TotalSeconds;
+                if (remaining > 0f)
+                {
+                    // Still spooling up: feed the console its launch countdown.
+                    if (ZPhyzQuery.TryComp(gridUid, out var spoolPhys))
+                        SetLaunchCountdown((gridUid, spoolPhys), remaining);
+                    _spoolingGridsThisTick.Add(gridUid);
                     continue;
+                }
             }
 
             faller.SpoolDirection = 0;
 
-            // Liftoffs use the gap above so the ship doesn't sweep (and smimsh) the
-            // pad it's leaving; sinking naturally uses the gap below.
             if (TryEnterTransit((gridUid, grid), preferUpperGap: !down))
-                faller.Velocity = down ? TouchdownSpeed : -TouchdownSpeed;
+            {
+                if (grounded && !down)
+                {
+                    faller.Velocity = -SpoolLiftoffVelocity;
+                    SpawnLiftoffDust(gridUid, mapUid.Value);
+                }
+                else
+                {
+                    faller.Velocity = down ? TouchdownSpeed : -TouchdownSpeed;
+                }
+            }
         }
+
+        // Clear the countdown on any grid that was spooling but stopped this tick
+        // (the pilot let go) — those grids aren't in the input loop above.
+        foreach (var prev in _spoolingGrids)
+        {
+            if (!_spoolingGridsThisTick.Contains(prev) && ZPhyzQuery.TryComp(prev, out var prevPhys))
+                SetLaunchCountdown((prev, prevPhys), 0f);
+        }
+
+        _spoolingGrids.Clear();
+        _spoolingGrids.UnionWith(_spoolingGridsThisTick);
+    }
+
+    /// <summary>
+    /// Kicks up a ring of dust around a grid set's hull on the map it just lifted off
+    /// from — the downwash of whatever is suddenly holding the ship up. Runs after
+    /// <see cref="TryEnterTransit"/>, so the set is already on its transit map but
+    /// still at the same world position.
+    /// </summary>
+    private void SpawnLiftoffDust(EntityUid grid, EntityUid groundMap)
+    {
+        foreach (var member in CollectGridSet(grid))
+        {
+            if (!TryComp<MapGridComponent>(member, out var memberGrid))
+                continue;
+
+            var aabb = _transform.GetWorldMatrix(member).TransformBox(memberGrid.LocalAABB);
+
+            for (var x = aabb.Left; x <= aabb.Right; x += LiftoffDustSpacing)
+            {
+                SpawnDustPuff(groundMap, new Vector2(x, aabb.Bottom));
+                SpawnDustPuff(groundMap, new Vector2(x, aabb.Top));
+            }
+
+            for (var y = aabb.Bottom + LiftoffDustSpacing; y <= aabb.Top - LiftoffDustSpacing; y += LiftoffDustSpacing)
+            {
+                SpawnDustPuff(groundMap, new Vector2(aabb.Left, y));
+                SpawnDustPuff(groundMap, new Vector2(aabb.Right, y));
+            }
+        }
+    }
+
+    private void SpawnDustPuff(EntityUid map, Vector2 pos)
+    {
+        // Map-local == world: all z-level maps share one coordinate space.
+        Spawn(LiftoffDustProto, new EntityCoordinates(map, pos + _random.NextVector2(0.5f)));
     }
 }
