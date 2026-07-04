@@ -116,3 +116,15 @@
   parent: BaseGoldCircuitboardRecipe
   id: OreMagnetMachineCircuitboard
   result: OreMagnetMachineCircuitboard
+
+# faction-specific RWR shuttle consoles - can be made by anyone because it doesnt do shit gameplay wise
+
+- type: latheRecipe
+  parent: ShuttleConsoleCircuitboard
+  id: ShuttleConsoleCircuitboardTSFN
+  result: ShuttleConsoleCircuitboardTSFN
+
+- type: latheRecipe
+  parent: ShuttleConsoleCircuitboard
+  id: ShuttleConsoleCircuitboardKPV63RWR
+  result: ShuttleConsoleCircuitboardKPV63RWR
