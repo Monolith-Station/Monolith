@@ -22156,3 +22156,14 @@ Entries:
   id: 2447
   time: '2026-07-04T16:55:34.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4203
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Fixed ship drills not working properly
+    - type: Fix
+      message: >-
+        Fixed shipyard consoles not being available to entities without
+        CompanyComponent
+  id: 2448
+  time: '2026-07-04T22:58:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4205
