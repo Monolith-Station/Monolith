@@ -1,6 +1,6 @@
 # lockers with weapons pretty much
 
-# NATO | America
+#region NATO | America
 
 - type: entity
   id: LockerArmoryNATOFilledM249Para
@@ -71,7 +71,7 @@
   - type: AccessReader
     access: [["NATOArmory"]]
 
-# PACT | Russia
+#region PACT | Russia
 
 - type: entity
   id: LockerArmoryPACTFilledSV98
@@ -164,6 +164,7 @@
         - id: LightFighterGSH301
         - id: LightFighterS8
         - id: LightFighterFlarePod
+        - id: LightFighterFAB500
         - id: CrowbarRed
         - id: Screwdriver
         - id: WelderIndustrial

@@ -12,7 +12,7 @@
   - type: StaticPrice
     price: 500
 
-# NATO
+#region NATO
 
 - type: entity
   id: LightFighterM61A2
@@ -195,7 +195,7 @@
     maxSpeed: 90
     trackDelay: 2
 
-# PACT
+#region PACT
 
 - type: entity
   id: LightFighterGSH301
@@ -238,7 +238,7 @@
     sprite: _Battlefield14/Objects/Weapons/Guns/fighterweapons.rsi
     state: smallrocketpod
   - type: Gun
-    projectileSpeed: 65
+    projectileSpeed: 75
     fireRate: 8
     minAngle: 0
     maxAngle: 10
@@ -270,7 +270,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 10
+        Structural: 20
         Blunt: 20
   - type: HeFragProjectile
     fillPrototype: Bullet25x40Fragment
@@ -300,7 +300,104 @@
   - type: StaminaDamageOnCollide
     damage: 40 # ~3 hits to stun
 
-# neutral
+- type: entity
+  id: LightFighterFAB500
+  name: FAB-500 pylon
+  description: A 500 kilogram bomb. Approx range 512 meters.
+  suffix: Fighter weapon, Light, Gun
+  parent: [ BaseMechWeaponRange, LightFighterEquipment ]
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/fighterweapons.rsi
+    state: FAB500
+  - type: Gun
+    projectileSpeed: 50
+    fireRate: 0.5
+    minAngle: 0
+    maxAngle: 10
+    angleIncrease: 10
+    angleDecay: 4
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/_Battlefield14/Weapons/FighterWeapons/rocket2.ogg
+  - type: Battery
+    maxCharge: 2600
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletBombFAB500
+    fireCost: 2600 # ~2 shots
+  - type: Appearance
+  - type: AmmoCounter
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  id: BulletBombFAB500
+  name: FAB-500 bomb
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/fab500_launched.rsi
+    layers:
+    - state: fab500_launched
+  - type: Projectile
+    damage:
+      types:
+        Structural: 2000
+        Blunt: 500
+  - type: HeFragProjectile
+    fillPrototype: Bullet25x40Fragment
+    capacity: 50
+    randomAngle: true
+    minVelocity: 25
+    maxVelocity: 45
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 5
+    requireNoGrid: true
+    shape: diamond
+  - type: TimedDespawn
+    lifetime: 8.5 # approx 512 meter range
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 600
+    intensitySlope: 6
+    maxIntensity: 20
+    maxTileBreak: 3
+  - type: StaminaDamageOnCollide
+    damage: 200 # LOL
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1
+        density: 1500
+        layer:
+        - WallLayer
+        mask:
+        - MachineMask
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+#region neutral
 
 - type: entity
   id: LightFighterFlarePod
