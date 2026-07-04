@@ -46,6 +46,8 @@
   - type: Climbable
     delay: 5.0
   - type: Appearance
+  - type: ArmorThickness
+    thickness: 1 # BF14
 
 - type: entity
   parent: BaseFenceWood
