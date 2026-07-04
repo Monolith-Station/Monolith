@@ -250,7 +250,7 @@ public sealed partial class FoodSystem : EntitySystem
         var forceFeed = args.User != args.Target;
 
         args.Handled = true;
-        var transferAmount = entity.Comp.TransferAmount != null ? FixedPoint2.Min((FixedPoint2) entity.Comp.TransferAmount, solution.Volume) : solution.Volume;
+        var transferAmount = entity.Comp.TransferAmount != null ? FixedPoint2.Min((FixedPoint2)entity.Comp.TransferAmount, solution.Volume) : solution.Volume;
 
         var split = _solutionContainer.SplitSolution(soln.Value, transferAmount);
 
@@ -564,6 +564,6 @@ public sealed partial class FoodSystem : EntitySystem
         if (comp.TransferAmount == null)
             return 1;
 
-        return Math.Max(1, (int) Math.Ceiling((solution.Volume / (FixedPoint2) comp.TransferAmount).Float()));
+        return Math.Max(1, (int)Math.Ceiling((solution.Volume / (FixedPoint2)comp.TransferAmount).Float()));
     }
 }

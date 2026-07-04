@@ -7,7 +7,7 @@ public sealed partial class RetractorComponent : Component, ISurgeryToolComponen
 {
     public string ToolName => "a retractor";
     public bool? Used { get; set; } = null;
-    
+
     /// <summary>
     ///     Multiply the step's doafter by this value.
     /// </summary>

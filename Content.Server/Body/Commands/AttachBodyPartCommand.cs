@@ -94,7 +94,7 @@ namespace Content.Server.Body.Commands
 
             var bodySystem = _entManager.System<BodySystem>();
             var sharedBodySystem = _entManager.System<SharedBodySystem>();
-            
+
             if (bodySystem.BodyHasChild(bodyId, partUid.Value, body, part))
             {
                 shell.WriteLine($"Body part {_entManager.GetComponent<MetaDataComponent>(partUid.Value).EntityName} with uid {partUid} is already attached to entity {_entManager.GetComponent<MetaDataComponent>(bodyId).EntityName} with uid {bodyId}");
@@ -105,7 +105,7 @@ namespace Content.Server.Body.Commands
             var slotId = sharedBodySystem.GetFormattedSlotId(partUid.Value, part);
             // Set the slot ID properly using the system
             sharedBodySystem.SetBodyPartSlotId(partUid.Value, part.GetHashCode().ToString(), part);
-            
+
             // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
             if (body.RootContainer.ContainedEntity != null)
             {

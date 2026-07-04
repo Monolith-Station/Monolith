@@ -12,7 +12,7 @@ namespace Content.Shared.Store;
 [DataDefinition]
 public sealed partial class StorePresetPrototype : IPrototype
 {
-    [ViewVariables] [IdDataField] public string ID { get; private set; } = default!;
+    [ViewVariables][IdDataField] public string ID { get; private set; } = default!;
 
     /// <summary>
     /// The name displayed at the top of the store window

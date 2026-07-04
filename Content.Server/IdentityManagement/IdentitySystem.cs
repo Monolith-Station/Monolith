@@ -156,8 +156,8 @@ public sealed partial class IdentitySystem : SharedIdentitySystem
     ///     and their 'presumed name' and 'presumed job' being the name/job on their ID card, if they have one.
     /// </summary>
     private IdentityRepresentation GetIdentityRepresentation(EntityUid target,
-        InventoryComponent? inventory=null,
-        HumanoidAppearanceComponent? appearance=null)
+        InventoryComponent? inventory = null,
+        HumanoidAppearanceComponent? appearance = null)
     {
         int age = 18;
         Gender gender = Gender.Epicene;

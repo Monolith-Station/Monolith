@@ -1,4 +1,4 @@
-﻿using Content.Shared.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Chemistry.Reagent;
@@ -10,7 +10,7 @@ namespace Content.Shared.Chemistry.Reagent;
 [DataDefinition]
 public partial struct ReagentQuantity : IEquatable<ReagentQuantity>
 {
-    [DataField("Quantity", required:true)]
+    [DataField("Quantity", required: true)]
     public FixedPoint2 Quantity { get; private set; }
 
     [IncludeDataField]

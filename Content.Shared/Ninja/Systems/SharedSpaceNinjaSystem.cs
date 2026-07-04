@@ -98,7 +98,7 @@ public abstract partial class SharedSpaceNinjaSystem : EntitySystem
 
     private void TryRevealNinja(Entity<SpaceNinjaComponent> ent, bool disable)
     {
-        if (ent.Comp.Suit is {} uid && TryComp<NinjaSuitComponent>(ent.Comp.Suit, out var suit))
+        if (ent.Comp.Suit is { } uid && TryComp<NinjaSuitComponent>(ent.Comp.Suit, out var suit))
             Suit.RevealNinja((uid, suit), ent, disable: disable);
     }
 

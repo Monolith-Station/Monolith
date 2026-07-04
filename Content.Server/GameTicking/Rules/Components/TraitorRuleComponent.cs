@@ -1,6 +1,6 @@
 using Content.Shared.Dataset;
 using Content.Shared.FixedPoint;
-﻿using Content.Shared.NPC.Prototypes;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.Random;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;

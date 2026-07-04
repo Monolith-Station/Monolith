@@ -62,13 +62,13 @@ public sealed partial class PoissonDiskSampler
             TopLeft = topLeft, LowerRight = lowerRight,
             Dimensions = lowerRight - topLeft,
             Center = (topLeft + lowerRight) / 2,
-            CellSize = minimumDistance / (float) Math.Sqrt(2),
+            CellSize = minimumDistance / (float)Math.Sqrt(2),
             MinimumDistance = minimumDistance,
             RejectionSqDistance = rejectionDistance * rejectionDistance
         };
 
-        settings.GridWidth = (int) (settings.Dimensions.X / settings.CellSize) + 1;
-        settings.GridHeight = (int) (settings.Dimensions.Y / settings.CellSize) + 1;
+        settings.GridWidth = (int)(settings.Dimensions.X / settings.CellSize) + 1;
+        settings.GridHeight = (int)(settings.Dimensions.Y / settings.CellSize) + 1;
 
         var state = new State
         {
@@ -89,14 +89,14 @@ public sealed partial class PoissonDiskSampler
             d = _random.NextDouble();
             var yr = settings.TopLeft.Y + settings.Dimensions.Y * d;
 
-            var p = new Vector2((float) xr, (float) yr);
+            var p = new Vector2((float)xr, (float)yr);
             if (settings.RejectionSqDistance != null &&
                 (settings.Center - p).LengthSquared() > settings.RejectionSqDistance)
                 continue;
 
             var index = Denormalize(p, settings.TopLeft, settings.CellSize);
 
-            state.Grid[(int) index.X, (int) index.Y] = p;
+            state.Grid[(int)index.X, (int)index.Y] = p;
 
             state.ActivePoints.Add(p);
             return p;
@@ -115,21 +115,21 @@ public sealed partial class PoissonDiskSampler
             var qIndex = Denormalize(q, settings.TopLeft, settings.CellSize);
             var tooClose = false;
 
-            for (var i = (int) Math.Max(0, qIndex.X - 2);
+            for (var i = (int)Math.Max(0, qIndex.X - 2);
                  i < Math.Min(settings.GridWidth, qIndex.X + 3) && !tooClose;
                  i++)
-            for (var j = (int) Math.Max(0, qIndex.Y - 2);
-                 j < Math.Min(settings.GridHeight, qIndex.Y + 3) && !tooClose;
-                 j++)
-            {
-                if (state.Grid[i, j].HasValue && (state.Grid[i, j]!.Value - q).Length() < settings.MinimumDistance)
-                    tooClose = true;
-            }
+                for (var j = (int)Math.Max(0, qIndex.Y - 2);
+                     j < Math.Min(settings.GridHeight, qIndex.Y + 3) && !tooClose;
+                     j++)
+                {
+                    if (state.Grid[i, j].HasValue && (state.Grid[i, j]!.Value - q).Length() < settings.MinimumDistance)
+                        tooClose = true;
+                }
 
             if (!tooClose)
             {
                 state.ActivePoints.Add(q);
-                state.Grid[(int) qIndex.X, (int) qIndex.Y] = q;
+                state.Grid[(int)qIndex.X, (int)qIndex.Y] = q;
                 return q;
             }
         }
@@ -148,12 +148,12 @@ public sealed partial class PoissonDiskSampler
         var newX = radius * Math.Sin(angle);
         var newY = radius * Math.Cos(angle);
 
-        return new Vector2((float) (center.X + newX), (float) (center.Y + newY));
+        return new Vector2((float)(center.X + newX), (float)(center.Y + newY));
     }
 
     private static Vector2 Denormalize(Vector2 point, Vector2 origin, double cellSize)
     {
-        return new Vector2((int) ((point.X - origin.X) / cellSize), (int) ((point.Y - origin.Y) / cellSize));
+        return new Vector2((int)((point.X - origin.X) / cellSize), (int)((point.Y - origin.Y) / cellSize));
     }
 
     public struct SampleEnumerator

@@ -63,7 +63,7 @@ public sealed partial class EntityWhitelistSystem : EntitySystem
 
             foreach (var role in regs)
             {
-                if ( _roles.MindHasRole(uid, role.Type, out _))
+                if (_roles.MindHasRole(uid, role.Type, out _))
                 {
                     if (!list.RequireAll)
                         return true;

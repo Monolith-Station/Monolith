@@ -19,7 +19,7 @@ public abstract class BaseCryosleepEvent : EntityEventArgs
 /// </summary>
 public sealed class CryosleepEnterEvent : BaseCryosleepEvent
 {
-    public CryosleepEnterEvent(EntityUid cryopod, NetUserId? user) : base(cryopod, user) {}
+    public CryosleepEnterEvent(EntityUid cryopod, NetUserId? user) : base(cryopod, user) { }
 }
 
 /// <summary>
@@ -27,7 +27,7 @@ public sealed class CryosleepEnterEvent : BaseCryosleepEvent
 /// </summary>
 public sealed class CryosleepWakeUpEvent : BaseCryosleepEvent
 {
-    public CryosleepWakeUpEvent(EntityUid cryopod, NetUserId? user) : base(cryopod, user) {}
+    public CryosleepWakeUpEvent(EntityUid cryopod, NetUserId? user) : base(cryopod, user) { }
 }
 
 /// <summary>
@@ -35,5 +35,5 @@ public sealed class CryosleepWakeUpEvent : BaseCryosleepEvent
 /// </summary>
 public sealed class CryosleepBeforeMindRemovedEvent : BaseCryosleepEvent
 {
-    public CryosleepBeforeMindRemovedEvent(EntityUid cryopod, NetUserId? user) : base(cryopod, user) {}
+    public CryosleepBeforeMindRemovedEvent(EntityUid cryopod, NetUserId? user) : base(cryopod, user) { }
 }

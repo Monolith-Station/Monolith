@@ -30,7 +30,7 @@ namespace Content.Server.Power.NodeGroups
                 {
                     if ((comp.NodeId == null ||
                          comp.NodeId == node.Name) &&
-                        (NodeGroupID) comp.Voltage == node.NodeGroupID)
+                        (NodeGroupID)comp.Voltage == node.NodeGroupID)
                     {
                         SetNetConnectorNet(comp);
                     }

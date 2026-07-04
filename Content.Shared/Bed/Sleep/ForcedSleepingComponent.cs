@@ -7,5 +7,5 @@ namespace Content.Shared.Bed.Sleep
     /// </summary>
     [NetworkedComponent, RegisterComponent]
     public sealed partial class ForcedSleepingComponent : Component
-    {}
+    { }
 }

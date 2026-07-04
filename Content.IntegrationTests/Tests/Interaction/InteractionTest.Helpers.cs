@@ -1010,7 +1010,7 @@ public abstract partial class InteractionTest
         }
 
         Assert.That(control.GetType().IsAssignableTo(typeof(TControl)));
-        return (TControl) control;
+        return (TControl)control;
     }
 
     /// <summary>
@@ -1174,8 +1174,8 @@ public abstract partial class InteractionTest
         {
             var atmosSystem = SEntMan.System<AtmosphereSystem>();
             var moles = new float[Atmospherics.AdjustedNumberOfGases];
-            moles[(int) Gas.Oxygen] = 21.824779f;
-            moles[(int) Gas.Nitrogen] = 82.10312f;
+            moles[(int)Gas.Oxygen] = 21.824779f;
+            moles[(int)Gas.Nitrogen] = 82.10312f;
             atmosSystem.SetMapAtmosphere(target, false, new GasMixture(moles, Atmospherics.T20C));
         });
     }

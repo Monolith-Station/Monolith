@@ -46,7 +46,7 @@ namespace Content.Shared.Stacks
 
         // Cherry-pick #32938 courtesy of Ilya246
         // client shouldn't try to split stacks so do nothing on client
-        protected virtual void OnCustomSplitMessage(Entity<StackComponent> ent, ref StackCustomSplitAmountMessage message) {}
+        protected virtual void OnCustomSplitMessage(Entity<StackComponent> ent, ref StackCustomSplitAmountMessage message) { }
         // End cherry-pick #32938 courtesy of Ilya246
 
         public override void Shutdown()

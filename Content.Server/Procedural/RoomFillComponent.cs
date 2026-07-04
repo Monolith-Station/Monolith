@@ -19,13 +19,13 @@ public sealed partial class RoomFillComponent : Component
     /// Min size of the possible selected room.
     /// </summary>
     [DataField]
-    public Vector2i MinSize = new (3, 3);
+    public Vector2i MinSize = new(3, 3);
 
     /// <summary>
     /// Max size of the possible selected room.
     /// </summary>
     [DataField]
-    public Vector2i MaxSize = new (10, 10);
+    public Vector2i MaxSize = new(10, 10);
 
     /// <summary>
     /// Rooms allowed for the marker.

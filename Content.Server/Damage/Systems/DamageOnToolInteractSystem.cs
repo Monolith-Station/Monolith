@@ -30,7 +30,7 @@ namespace Content.Server.Damage.Systems
             if (!TryComp<ItemToggleComponent>(args.Used, out var itemToggle))
                 return;
 
-            if (component.WeldingDamage is {} weldingDamage
+            if (component.WeldingDamage is { } weldingDamage
             && EntityManager.TryGetComponent(args.Used, out WelderComponent? welder)
             && itemToggle.Activated
             && !welder.TankSafe)
@@ -43,7 +43,7 @@ namespace Content.Server.Damage.Systems
 
                 args.Handled = true;
             }
-            else if (component.DefaultDamage is {} damage
+            else if (component.DefaultDamage is { } damage
                 && _toolSystem.HasQuality(args.Used, component.Tools))
             {
                 var dmg = _damageableSystem.TryChangeDamage(args.Target, damage, origin: args.User);

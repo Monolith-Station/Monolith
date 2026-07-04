@@ -13,7 +13,8 @@ namespace Content.Shared.Cargo.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CargoOrderConsoleComponent : Component
 {
-    [DataField("soundError")] public SoundSpecifier ErrorSound =
+    [DataField("soundError")]
+    public SoundSpecifier ErrorSound =
         new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
 
     [DataField("soundConfirm")]

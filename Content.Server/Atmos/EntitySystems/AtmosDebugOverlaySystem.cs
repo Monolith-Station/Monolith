@@ -131,7 +131,7 @@ namespace Content.Server.Atmos.EntitySystems
             // Afterwards we reset all the chunk data for the next time we tick.
             foreach (var session in _playerObservers)
             {
-                if (session.AttachedEntity is not {Valid: true} entity)
+                if (session.AttachedEntity is not { Valid: true } entity)
                     continue;
 
                 var transform = Transform(entity);

@@ -76,7 +76,7 @@ public sealed partial class PlayerTabEntry : PanelContainer
         {
             case AdminPlayerTabRoleTypeOption.RoleTypeSubtype:
                 RoleTypeLabel.Text = roletype != subtype
-                    ? roletype + " - " +subtype
+                    ? roletype + " - " + subtype
                     : roletype;
                 break;
             case AdminPlayerTabRoleTypeOption.SubtypeRoleType:

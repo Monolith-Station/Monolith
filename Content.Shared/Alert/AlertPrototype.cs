@@ -59,7 +59,7 @@ public sealed partial class AlertPrototype : IPrototype
     /// <summary>
     /// -1 (no effect) unless MaxSeverity is specified. Defaults to 1. Minimum severity level supported by this state.
     /// </summary>
-    public short MinSeverity => MaxSeverity == -1 ? (short) -1 : _minSeverity;
+    public short MinSeverity => MaxSeverity == -1 ? (short)-1 : _minSeverity;
 
     [DataField("minSeverity")] private short _minSeverity = 1;
 

@@ -312,7 +312,7 @@ public sealed partial class SalvageExpeditionWindow : FancyWindow,
                 ? TimeSpan.FromSeconds(_cfgManager.GetCVar(NFCCVars.SalvageExpeditionFailedCooldown))
                 : TimeSpan.FromSeconds(_cfgManager.GetCVar(CCVars.SalvageExpeditionCooldown));
 
-            NextOfferBar.Value = 1f - (float) (remaining / cooldown);
+            NextOfferBar.Value = 1f - (float)(remaining / cooldown);
             NextOfferText.Text = $"{remaining.Minutes:00}:{remaining.Seconds:00}";
         }
     }

@@ -25,7 +25,7 @@ public sealed partial class GenerateChildPartSystem : EntitySystem
         if (args.Add)
             CreatePart(uid, component);
         //else
-            //DeletePart(uid, component);
+        //DeletePart(uid, component);
     }
 
     private void CreatePart(EntityUid uid, GenerateChildPartComponent component)

@@ -137,7 +137,7 @@ namespace Content.Tests.Shared.Chemistry
         [TestCase(2.005f, 201)]
         public void FloatRoundingTest(float a, int expected)
         {
-            var result = (int) MathF.Round(a * MathF.Pow(10, 2), MidpointRounding.AwayFromZero);
+            var result = (int)MathF.Round(a * MathF.Pow(10, 2), MidpointRounding.AwayFromZero);
             Assert.That(result, Is.EqualTo(expected));
         }
 
@@ -158,10 +158,10 @@ namespace Content.Tests.Shared.Chemistry
 
         [Test]
         [TestCase(10.1f, 2.5f, "25.25")]
-        public void FloatMultiply (float aFloat, float b, string expected)
+        public void FloatMultiply(float aFloat, float b, string expected)
         {
             var a = FixedPoint2.New(aFloat);
-            var result = a*b;
+            var result = a * b;
             Assert.That($"{result}", Is.EqualTo(expected));
         }
 
@@ -209,8 +209,8 @@ namespace Content.Tests.Shared.Chemistry
 
         [Test]
         [TestCase(1.001f, "1.01")]
-        [TestCase(2f,     "2")]
-        [TestCase(2.5f,   "2.5")]
+        [TestCase(2f, "2")]
+        [TestCase(2.5f, "2.5")]
         public void NewCeilingTest(float value, string expected)
         {
             var result = FixedPoint2.NewCeiling(value);

@@ -29,7 +29,8 @@ public sealed partial class Electrocute : EntityEffect
 
             if (reagentArgs.Reagent != null)
                 reagentArgs.Source?.RemoveReagent(reagentArgs.Reagent.ID, reagentArgs.Quantity);
-        } else
+        }
+        else
         {
             args.EntityManager.System<ElectrocutionSystem>().TryDoElectrocution(args.TargetEntity, null,
                 Math.Max(ElectrocuteDamageScale, 1), TimeSpan.FromSeconds(ElectrocuteTime), Refresh, ignoreInsulation: true);

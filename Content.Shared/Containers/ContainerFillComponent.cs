@@ -21,7 +21,7 @@ namespace Content.Shared.Containers;
 [RegisterComponent]
 public sealed partial class ContainerFillComponent : Component
 {
-    [DataField("containers", customTypeSerializer:typeof(ContainerFillSerializer))]
+    [DataField("containers", customTypeSerializer: typeof(ContainerFillSerializer))]
     public Dictionary<string, List<string>> Containers = new();
 
     /// <summary>

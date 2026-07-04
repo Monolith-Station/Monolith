@@ -339,7 +339,7 @@ public abstract partial class SharedSealableClothingSystem : EntitySystem
                 return false;
             }
 
-            comp.ProcessQueue.Enqueue(EntityManager.GetNetEntity(sealeable));
+            comp.ProcessQueue.Enqueue(GetNetEntity(sealeable));
         }
 
         comp.IsInProcess = true;

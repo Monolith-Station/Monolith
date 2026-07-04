@@ -17,8 +17,8 @@ namespace Content.Client.Chemistry.UI
 
         public TransferAmountBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
-          _owner = owner;
-          _entManager = IoCManager.Resolve<IEntityManager>();
+            _owner = owner;
+            _entManager = IoCManager.Resolve<IEntityManager>();
         }
 
         protected override void Open()

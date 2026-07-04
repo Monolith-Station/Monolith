@@ -20,7 +20,7 @@ public sealed partial class OreSiloMenu : FancyWindow
         {
             var item = ClientList[args.ItemIndex];
             // a little bit of null suppression makes me feel great! :-)
-            OnClientEntryPressed?.Invoke((NetEntity) item.Metadata!);
+            OnClientEntryPressed?.Invoke((NetEntity)item.Metadata!);
         };
     }
 
@@ -44,8 +44,8 @@ public sealed partial class OreSiloMenu : FancyWindow
         ClientList.SetItems(items,
             (item1, item2) =>
             {
-                var ent1 = (NetEntity) item1.Metadata!;
-                var ent2 = (NetEntity) item2.Metadata!;
+                var ent1 = (NetEntity)item1.Metadata!;
+                var ent2 = (NetEntity)item2.Metadata!;
                 return ent1.CompareTo(ent2);
             });
 

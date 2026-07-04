@@ -1,4 +1,4 @@
-﻿using Content.Server.Atmos;
+using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Audio;
@@ -160,7 +160,7 @@ public sealed partial class TegSystem : EntitySystem
             // Reduce efficiency at low temperature differences to encourage burn chambers (instead
             // of just feeding the TEG room temperature gas from an infinite gas miner).
             var dT = Thot - Tcold;
-            N *= MathF.Tanh(dT/700); // https://www.wolframalpha.com/input?i=tanh(x/700)+from+0+to+1000
+            N *= MathF.Tanh(dT / 700); // https://www.wolframalpha.com/input?i=tanh(x/700)+from+0+to+1000
 
             var transfer = Wmax * N;
             electricalEnergy = transfer * component.PowerFactor;
@@ -349,8 +349,8 @@ public sealed partial class TegSystem : EntitySystem
     private (PipeNode inlet, PipeNode outlet) GetPipes(EntityUid uidCirculator)
     {
         var nodeContainer = _nodeContainerQuery.GetComponent(uidCirculator);
-        var inlet = (PipeNode) nodeContainer.Nodes[NodeNameInlet];
-        var outlet = (PipeNode) nodeContainer.Nodes[NodeNameOutlet];
+        var inlet = (PipeNode)nodeContainer.Nodes[NodeNameInlet];
+        var outlet = (PipeNode)nodeContainer.Nodes[NodeNameOutlet];
 
         return (inlet, outlet);
     }

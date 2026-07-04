@@ -16,13 +16,13 @@ public sealed partial class SalvageDifficultyPrototype : IPrototype
     /// <summary>
     /// How much loot this difficulty is allowed to spawn.
     /// </summary>
-    [DataField("lootBudget", required : true)]
+    [DataField("lootBudget", required: true)]
     public float LootBudget;
 
     /// <summary>
     /// How many mobs this difficulty is allowed to spawn.
     /// </summary>
-    [DataField("mobBudget", required : true)]
+    [DataField("mobBudget", required: true)]
     public float MobBudget;
 
     /// <summary>

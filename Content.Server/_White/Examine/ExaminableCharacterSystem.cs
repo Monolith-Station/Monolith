@@ -1,4 +1,4 @@
-﻿using Content.Server.Chat.Managers;
+using Content.Server.Chat.Managers;
 using Content.Server.IdentityManagement;
 using Content.Shared.Chat;
 using Content.Shared.Examine;
@@ -46,13 +46,13 @@ namespace Content.Server._White.Examine
             var identity = _identitySystem.GetEntityIdentity(uid);
             var name = Loc.GetString(nameloc, ("name", identity));
             logLines.Add($"[color=DarkGray][font size=10]{name}[/font][/color]");
-            
+
             if (showExamine)
                 args.PushMarkup($"[font size=10]{name}[/font]", 15);
 
             var cansee = Loc.GetString(canseeloc, ("ent", uid));
             logLines.Add($"[color=DarkGray][font size=10]{cansee}[/font][/color]");
-            
+
             if (showExamine)
                 args.PushMarkup($"[font size=10]{cansee}[/font]", 14);
 
@@ -111,7 +111,7 @@ namespace Content.Server._White.Examine
 
                 var canseenothing = Loc.GetString(canseenothingloc, ("ent", uid));
                 logLines.Add($"[color=DarkGray][font size=10]{canseenothing}[/font][/color]");
-                
+
                 if (showExamine)
                     args.PushMarkup($"[font size=10]{canseenothing}[/font]", priority);
             }

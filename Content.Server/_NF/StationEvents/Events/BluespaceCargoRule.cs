@@ -60,8 +60,8 @@ public sealed partial class BluespaceCargoRule : StationEventSystem<BluespaceCar
 
         for (var i = 0; i < 25; i++)
         {
-            var randomX = _random.Next((int) gridBounds.Left, (int) gridBounds.Right);
-            var randomY = _random.Next((int) gridBounds.Bottom, (int) gridBounds.Top);
+            var randomX = _random.Next((int)gridBounds.Left, (int)gridBounds.Right);
+            var randomY = _random.Next((int)gridBounds.Bottom, (int)gridBounds.Top);
 
             var tile = new Vector2i(randomX, randomY);
 
@@ -81,7 +81,7 @@ public sealed partial class BluespaceCargoRule : StationEventSystem<BluespaceCar
                     continue;
                 if (body.BodyType != BodyType.Static ||
                     !body.Hard ||
-                    (body.CollisionLayer & (int) CollisionGroup.Impassable) == 0)
+                    (body.CollisionLayer & (int)CollisionGroup.Impassable) == 0)
                     continue;
 
                 valid = false;

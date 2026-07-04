@@ -21,6 +21,6 @@ public abstract partial class SharedStutteringSystem : EntitySystem
 
     public void DoRemoveStutter(EntityUid uid, double timeRemoved)
     {
-       _statusEffectsSystem.TryRemoveStatusEffect(uid, StutterKey);
+        _statusEffectsSystem.TryRemoveStatusEffect(uid, StutterKey);
     }
 }

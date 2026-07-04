@@ -1,4 +1,4 @@
-﻿using Content.Server.Ghost;
+using Content.Server.Ghost;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 using Content.Shared.Light.Components;
@@ -24,7 +24,7 @@ public sealed partial class LightFlickerArtifactSystem : EntitySystem
     private void OnActivated(EntityUid uid, LightFlickerArtifactComponent component, ArtifactActivatedEvent args)
     {
         var lights = GetEntityQuery<PoweredLightComponent>();
-        foreach (var light in _lookup.GetEntitiesInRange(uid, component.Radius, LookupFlags.StaticSundries ))
+        foreach (var light in _lookup.GetEntitiesInRange(uid, component.Radius, LookupFlags.StaticSundries))
         {
             if (!lights.HasComponent(light))
                 continue;

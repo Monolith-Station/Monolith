@@ -149,7 +149,7 @@ public sealed partial class GasTankWindow
 
         //internals
         _lblInternals = new RichTextLabel
-            { MinSize = new Vector2(200, 0), VerticalAlignment = VAlignment.Center };
+        { MinSize = new Vector2(200, 0), VerticalAlignment = VAlignment.Center };
         _btnInternals = new Button { Text = Loc.GetString("gas-tank-window-internals-toggle-button") };
 
         contentContainer.AddChild(

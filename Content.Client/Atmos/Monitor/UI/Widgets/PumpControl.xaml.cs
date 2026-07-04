@@ -13,7 +13,7 @@ public sealed partial class PumpControl : BoxContainer
     private string _address;
 
     public event Action<string, IAtmosDeviceData>? PumpDataChanged;
-	public event Action<IAtmosDeviceData>? PumpDataCopied;
+    public event Action<IAtmosDeviceData>? PumpDataCopied;
 
     private CheckBox _enabled => CEnableDevice;
     private CollapsibleHeading _addressLabel => CAddress;
@@ -59,27 +59,27 @@ public sealed partial class PumpControl : BoxContainer
 
         foreach (var value in Enum.GetValues<VentPumpDirection>())
         {
-            _pumpDirection.AddItem(Loc.GetString($"{value}"), (int) value);
+            _pumpDirection.AddItem(Loc.GetString($"{value}"), (int)value);
         }
 
-        _pumpDirection.SelectId((int) _data.PumpDirection);
+        _pumpDirection.SelectId((int)_data.PumpDirection);
         _pumpDirection.OnItemSelected += args =>
         {
             _pumpDirection.SelectId(args.Id);
-            _data.PumpDirection = (VentPumpDirection) args.Id;
+            _data.PumpDirection = (VentPumpDirection)args.Id;
             PumpDataChanged?.Invoke(_address, _data);
         };
 
         foreach (var value in Enum.GetValues<VentPressureBound>())
         {
-            _pressureCheck.AddItem(Loc.GetString($"{value}"), (int) value);
+            _pressureCheck.AddItem(Loc.GetString($"{value}"), (int)value);
         }
 
-        _pressureCheck.SelectId((int) _data.PressureChecks);
+        _pressureCheck.SelectId((int)_data.PressureChecks);
         _pressureCheck.OnItemSelected += args =>
         {
             _pressureCheck.SelectId(args.Id);
-            _data.PressureChecks = (VentPressureBound) args.Id;
+            _data.PressureChecks = (VentPressureBound)args.Id;
             PumpDataChanged?.Invoke(_address, _data);
         };
 
@@ -95,10 +95,10 @@ public sealed partial class PumpControl : BoxContainer
         _enabled.Pressed = _data.Enabled;
 
         _data.PumpDirection = data.PumpDirection;
-        _pumpDirection.SelectId((int) _data.PumpDirection);
+        _pumpDirection.SelectId((int)_data.PumpDirection);
 
         _data.PressureChecks = data.PressureChecks;
-        _pressureCheck.SelectId((int) _data.PressureChecks);
+        _pressureCheck.SelectId((int)_data.PressureChecks);
 
         _data.ExternalPressureBound = data.ExternalPressureBound;
         _externalBound.Value = _data.ExternalPressureBound;

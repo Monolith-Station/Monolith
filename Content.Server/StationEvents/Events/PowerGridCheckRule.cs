@@ -27,7 +27,7 @@ namespace Content.Server.StationEvents.Events
 
             component.AffectedStations = stations;
             var query = AllEntityQuery<ApcComponent, TransformComponent>();
-            while (query.MoveNext(out var apcUid ,out var apc, out var transform))
+            while (query.MoveNext(out var apcUid, out var apc, out var transform))
             {
                 var station = CompOrNull<StationMemberComponent>(transform.GridUid)?.Station;
                 if (apc.MainBreakerEnabled && station.HasValue && stations.Contains(station.Value))
@@ -50,7 +50,7 @@ namespace Content.Server.StationEvents.Events
 
                 if (TryComp(entity, out ApcComponent? apcComponent))
                 {
-                    if(!apcComponent.MainBreakerEnabled)
+                    if (!apcComponent.MainBreakerEnabled)
                         _apcSystem.ApcToggleBreaker(entity, apcComponent);
                 }
             }
@@ -73,7 +73,7 @@ namespace Content.Server.StationEvents.Events
             component.FrameTimeAccumulator += frameTime;
             if (component.FrameTimeAccumulator > component.UpdateRate)
             {
-                updates = (int) (component.FrameTimeAccumulator / component.UpdateRate);
+                updates = (int)(component.FrameTimeAccumulator / component.UpdateRate);
                 component.FrameTimeAccumulator -= component.UpdateRate * updates;
             }
 

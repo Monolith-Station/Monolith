@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Audio;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._NF.CrateMachine.Components;
@@ -6,7 +6,7 @@ namespace Content.Shared._NF.CrateMachine.Components;
 [RegisterComponent]
 [NetworkedComponent]
 [Access(typeof(SharedCrateMachineSystem))]
-public sealed partial class CrateMachineComponent: Component
+public sealed partial class CrateMachineComponent : Component
 {
     /// <summary>
     /// Used by the animation code to determine whether the next action is opening or closing

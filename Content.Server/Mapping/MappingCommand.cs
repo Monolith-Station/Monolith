@@ -105,7 +105,7 @@ namespace Content.Server.Mapping
                 {
                     var path = new ResPath(args[1]);
                     toLoad = path.FilenameWithoutExtension;
-                    var opts = new DeserializationOptions {StoreYamlUids = true};
+                    var opts = new DeserializationOptions { StoreYamlUids = true };
                     var loader = _entities.System<MapLoaderSystem>();
 
                     if (isGrid == true)

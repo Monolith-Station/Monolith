@@ -67,7 +67,7 @@ namespace Content.Client.Administration.UI.Bwoink
                 if (AHelpHelper.TryGetChannel(info.SessionId, out var panel) && panel.Unread > 0)
                 {
                     if (panel.Unread < 11)
-                        sb.Append(new Rune('➀' + (panel.Unread-1)));
+                        sb.Append(new Rune('➀' + (panel.Unread - 1)));
                     else
                         sb.Append(new Rune(0x2639)); // ☹
                     sb.Append(' ');
@@ -236,14 +236,14 @@ namespace Content.Client.Administration.UI.Bwoink
 
         private string FormatTabTitle(ItemList.Item li, PlayerInfo? pl = default)
         {
-            pl ??= (PlayerInfo) li.Metadata!;
+            pl ??= (PlayerInfo)li.Metadata!;
             var sb = new StringBuilder();
             sb.Append(pl.Connected ? '●' : '○');
             sb.Append(' ');
             if (AHelpHelper.TryGetChannel(pl.SessionId, out var panel) && panel.Unread > 0)
             {
                 if (panel.Unread < 11)
-                    sb.Append(new Rune('➀' + (panel.Unread-1)));
+                    sb.Append(new Rune('➀' + (panel.Unread - 1)));
                 else
                     sb.Append(new Rune(0x2639)); // ☹
                 sb.Append(' ');

@@ -37,7 +37,7 @@ public sealed partial class RevolverAmmoProviderComponent : AmmoProviderComponen
     [DataField("chambers")]
     public bool?[] Chambers = Array.Empty<bool?>();
 
-    [DataField("proto", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField("proto", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? FillPrototype = "Cartridge45_magnumFMJ";
 
     [DataField("soundEject")]

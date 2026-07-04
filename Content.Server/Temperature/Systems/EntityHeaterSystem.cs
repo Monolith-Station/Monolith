@@ -63,10 +63,10 @@ public sealed partial class EntityHeaterSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract)
             return;
 
-        var setting = (int) comp.Setting;
+        var setting = (int)comp.Setting;
         setting++;
         setting %= SettingCount;
-        var nextSetting = (EntityHeaterSetting) setting;
+        var nextSetting = (EntityHeaterSetting)setting;
 
         args.Verbs.Add(new AlternativeVerb()
         {

@@ -1,4 +1,4 @@
-﻿using Content.Shared.Interaction;
+using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Nyanotrasen.Digging;
 using Content.Shared.Physics;
@@ -65,7 +65,7 @@ public sealed partial class DiggingSystem : EntitySystem
         EntityCoordinates clickLocation)
     {
         ToolComponent? tool = null;
-        if (component.ToolComponentNeeded && !TryComp(shovel, out  tool))
+        if (component.ToolComponentNeeded && !TryComp(shovel, out tool))
             return false;
 
         var mapUid = clickLocation.GetGridUid(EntityManager);

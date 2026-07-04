@@ -29,7 +29,7 @@ namespace Content.Server.Body.Commands
                 return;
             }
 
-            if (player.AttachedEntity is not {} attached)
+            if (player.AttachedEntity is not { } attached)
             {
                 shell.WriteLine("You have no entity.");
                 return;

@@ -77,7 +77,8 @@ public sealed partial class MonoCoinsManager
     {
         var wasBalance = await GetMonoCoinsBalanceAsync(userId);
         _cachedBalance[userId] = Math.Max(0L, balance);
-        if (_player.TryGetSessionById(userId, out var session)) {
+        if (_player.TryGetSessionById(userId, out var session))
+        {
             SendBalance(session.Channel);
         }
         await _db.SetMonoCoinsAsync(userId, balance);
@@ -93,7 +94,8 @@ public sealed partial class MonoCoinsManager
     {
         var wasBalance = await GetMonoCoinsBalanceAsync(userId);
         _cachedBalance[userId] = Math.Max(0L, _cachedBalance[userId] + amount);
-        if (_player.TryGetSessionById(userId, out var session)) {
+        if (_player.TryGetSessionById(userId, out var session))
+        {
             SendBalance(session.Channel);
         }
         return await _db.AddMonoCoinsAsync(userId, amount);

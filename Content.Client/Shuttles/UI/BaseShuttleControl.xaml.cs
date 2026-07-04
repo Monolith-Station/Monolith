@@ -71,7 +71,7 @@ public partial class BaseShuttleControl : MapGridControl
 
         for (var i = 0; i < 4; i++)
         {
-            var dir = (DirectionFlag) Math.Pow(2, i);
+            var dir = (DirectionFlag)Math.Pow(2, i);
             var dirVec = dir.AsDir().ToIntVec();
             _neighborDirections[i] = (dir, dirVec);
         }
@@ -420,7 +420,7 @@ public partial class BaseShuttleControl : MapGridControl
     private static Vector2 GetAzimuthDirection(Angle baseAngle, float azimuthDegrees)
     {
         var angle = baseAngle + Angle.FromDegrees(azimuthDegrees);
-        var radians = (float) angle.Theta - MathF.PI / 2f;
+        var radians = (float)angle.Theta - MathF.PI / 2f;
         return new Vector2(MathF.Cos(radians), MathF.Sin(radians));
     }
     // End Mono
@@ -674,8 +674,8 @@ public partial class BaseShuttleControl : MapGridControl
 
         for (var i = 0; i < Math.Ceiling(triCount / BatchSize); i++)
         {
-            var start = (int) (i * BatchSize);
-            var end = (int) Math.Min(triCount, start + BatchSize);
+            var start = (int)(i * BatchSize);
+            var end = (int)Math.Min(triCount, start + BatchSize);
             var count = end - start;
             handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, new Span<Vector2>(_allVertices, start, count), color.WithAlpha(alpha));
         }

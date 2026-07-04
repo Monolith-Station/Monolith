@@ -23,7 +23,7 @@ public sealed class PowerMonitoringConsoleBoundUserInterface : BoundUserInterfac
     {
         base.UpdateState(state);
 
-        var castState = (PowerMonitoringConsoleBoundInterfaceState) state;
+        var castState = (PowerMonitoringConsoleBoundInterfaceState)state;
 
         EntMan.TryGetComponent<TransformComponent>(Owner, out var xform);
         _menu?.ShowEntites

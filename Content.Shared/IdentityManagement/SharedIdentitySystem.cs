@@ -25,7 +25,7 @@ public abstract partial class SharedIdentitySystem : EntitySystem
         if (component.Enabled)
         {
             args.TotalCoverage |= component.Coverage;
-            if(args.TotalCoverage == IdentityBlockerCoverage.FULL)
+            if (args.TotalCoverage == IdentityBlockerCoverage.FULL)
                 args.Cancel();
         }
     }

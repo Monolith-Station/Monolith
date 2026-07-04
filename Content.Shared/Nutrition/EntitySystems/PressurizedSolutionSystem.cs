@@ -66,7 +66,7 @@ public sealed partial class PressurizedSolutionSystem : EntitySystem
             if (_prototypeManager.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? reagentProto) && reagentProto != null)
             {
                 // What portion of the solution is this reagent?
-                var proportion = (float) (reagent.Quantity / solution.Volume);
+                var proportion = (float)(reagent.Quantity / solution.Volume);
                 totalFizzability += reagentProto.Fizziness * proportion;
             }
         }
@@ -221,7 +221,7 @@ public sealed partial class PressurizedSolutionSystem : EntitySystem
             return 0;
 
         var currentDuration = entity.Comp.FizzySettleTime - _timing.CurTime;
-        return Easings.InOutCubic((float) Math.Min(currentDuration / entity.Comp.FizzinessMaxDuration, 1));
+        return Easings.InOutCubic((float)Math.Min(currentDuration / entity.Comp.FizzinessMaxDuration, 1));
     }
 
     /// <summary>

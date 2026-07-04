@@ -53,7 +53,7 @@ public sealed partial class PlateletFactoriesSystem : EntitySystem
             return;
 
         var multiplier = _mobState.IsCritical(uid) ? comp.CritMultiplier : 1f;
-        _damageable.TryChangeDamage(uid, comp.DamagePerInterval*multiplier, true, false, damage);
+        _damageable.TryChangeDamage(uid, comp.DamagePerInterval * multiplier, true, false, damage);
     }
 }
 

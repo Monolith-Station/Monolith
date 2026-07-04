@@ -32,7 +32,7 @@ public sealed partial class DungeonJob
             //Tile mask filtering
             if (gen.TileMask is not null)
             {
-                if (!gen.TileMask.Contains(((ContentTileDefinition) _tileDefManager[tileRef.Value.Tile.TypeId]).ID))
+                if (!gen.TileMask.Contains(((ContentTileDefinition)_tileDefManager[tileRef.Value.Tile.TypeId]).ID))
                     continue;
             }
 
@@ -80,7 +80,7 @@ public sealed partial class DungeonJob
         if (_prototype.TryIndex(gen.Entity, out var proto) &&
             proto.Components.TryGetComponent("EntityRemap", out var comps))
         {
-            var remappingComp = (EntityRemapComponent) comps;
+            var remappingComp = (EntityRemapComponent)comps;
             remapping = remappingComp.Mask;
         }
 

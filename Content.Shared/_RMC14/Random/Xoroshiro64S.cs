@@ -24,8 +24,8 @@ public record struct Xoroshiro64S
     public Xoroshiro64S(long seed)
     {
         var sm64 = new SplitMix64(seed);
-        _s0 = unchecked((UInt32) sm64.Next());
-        _s1 = unchecked((UInt32) sm64.Next());
+        _s0 = unchecked((UInt32)sm64.Next());
+        _s1 = unchecked((UInt32)sm64.Next());
     }
 
     private UInt32 _s0;
@@ -38,13 +38,13 @@ public record struct Xoroshiro64S
     {
         UInt32 s0 = _s0;
         UInt32 s1 = _s1;
-        UInt32 result = unchecked(s0 * (UInt32) 0x9E3779BB);
+        UInt32 result = unchecked(s0 * (UInt32)0x9E3779BB);
 
         s1 ^= s0;
         _s0 = RotateLeft(s0, 26) ^ s1 ^ (s1 << 9);
         _s1 = RotateLeft(s1, 13);
 
-        return Math.Abs((int) result);
+        return Math.Abs((int)result);
     }
 
     public float NextFloat()

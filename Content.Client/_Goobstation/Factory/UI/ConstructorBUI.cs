@@ -68,7 +68,7 @@ public sealed partial class ConstructorBUI : BoundUserInterface
 
     private void PopulateCategories(string? selected = null)
     {
-        if (_menu is not {} menu)
+        if (_menu is not { } menu)
             return;
 
         var categories = new HashSet<string>();

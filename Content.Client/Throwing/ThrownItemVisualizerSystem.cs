@@ -1,4 +1,4 @@
-﻿using Content.Shared.Throwing;
+using Content.Shared.Throwing;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Animations;
@@ -60,7 +60,7 @@ public sealed partial class ThrownItemVisualizerSystem : EntitySystem
             return null;
 
         var scale = ent.Comp2.Scale;
-        var lenFloat = (float) length.TotalSeconds;
+        var lenFloat = (float)length.TotalSeconds;
 
         // TODO use like actual easings here
         return new Animation

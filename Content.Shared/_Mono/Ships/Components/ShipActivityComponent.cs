@@ -34,7 +34,7 @@ public sealed partial class ShipActivityComponent : Component
         if (inactiveTimes <= 0)
             return 0;
 
-        return inactiveTimes * (int) CheckInterval.TotalSeconds;
+        return inactiveTimes * (int)CheckInterval.TotalSeconds;
     }
 
     public int GetMinutesInactive()
@@ -45,7 +45,7 @@ public sealed partial class ShipActivityComponent : Component
         if (inactiveTimes <= 0)
             return 0;
 
-        var seconds = inactiveTimes * (int) CheckInterval.TotalSeconds;
+        var seconds = inactiveTimes * (int)CheckInterval.TotalSeconds;
         return seconds / 60;
     }
 }

@@ -218,10 +218,10 @@ namespace Content.Server.Cloning
             if (!TryComp<PhysicsComponent>(bodyToClone, out var physics))
                 return false;
 
-            var cloningCost = (int) Math.Round(physics.FixturesMass * clonePod.BiomassRequirementMultiplier);
+            var cloningCost = (int)Math.Round(physics.FixturesMass * clonePod.BiomassRequirementMultiplier);
 
             if (_configManager.GetCVar(CCVars.BiomassEasyMode))
-                cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
+                cloningCost = (int)Math.Round(cloningCost * EasyModeCloningCost);
 
             // Check if they have the uncloneable trait
             if (TryComp<UncloneableComponent>(bodyToClone, out var uncloneable))
@@ -254,7 +254,7 @@ namespace Content.Server.Cloning
             if (TryComp<DamageableComponent>(bodyToClone, out var damageable) &&
                 damageable.Damage.DamageDict.TryGetValue("Cellular", out var cellularDmg))
             {
-                var chance = Math.Clamp((float) (cellularDmg / 100), 0, 1);
+                var chance = Math.Clamp((float)(cellularDmg / 100), 0, 1);
                 chance *= failChanceModifier;
 
                 if (cellularDmg > 0 && clonePod.ConnectedConsole != null)
@@ -429,7 +429,7 @@ namespace Content.Server.Cloning
 
             if (!_emag.CheckFlag(uid, EmagType.Interaction))
             {
-                _material.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int) (clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
+                _material.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int)(clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
             }
 
             clonePod.UsedBiomass = 0;

@@ -12,7 +12,8 @@ public sealed partial class CPRTrainingComponent : Component
     [DataField]
     public TimeSpan DoAfterDuration = TimeSpan.FromSeconds(4);
 
-    [DataField] public DamageSpecifier CPRHealing = new()
+    [DataField]
+    public DamageSpecifier CPRHealing = new()
     {
         DamageDict =
         {

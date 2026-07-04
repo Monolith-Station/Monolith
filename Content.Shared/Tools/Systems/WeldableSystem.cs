@@ -102,12 +102,12 @@ public sealed partial class WeldableSystem : EntitySystem
         {
             switch (args.IsWelded)
             {
-                case true when fixture.CollisionLayer == (int) component.UnWeldedLayer:
-                    _physics.SetCollisionLayer(uid, id, fixture, (int) component.WeldedLayer);
+                case true when fixture.CollisionLayer == (int)component.UnWeldedLayer:
+                    _physics.SetCollisionLayer(uid, id, fixture, (int)component.WeldedLayer);
                     break;
 
-                case false when fixture.CollisionLayer == (int) component.WeldedLayer:
-                    _physics.SetCollisionLayer(uid, id, fixture, (int) component.UnWeldedLayer);
+                case false when fixture.CollisionLayer == (int)component.WeldedLayer:
+                    _physics.SetCollisionLayer(uid, id, fixture, (int)component.UnWeldedLayer);
                     break;
             }
         }

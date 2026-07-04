@@ -188,8 +188,8 @@ public sealed partial class GraphicsTab : Control
 
         protected override int Value
         {
-            get => _checkBox.Pressed ? (int) WindowMode.Fullscreen : (int) WindowMode.Windowed;
-            set => _checkBox.Pressed = (value == (int) WindowMode.Fullscreen);
+            get => _checkBox.Pressed ? (int)WindowMode.Fullscreen : (int)WindowMode.Windowed;
+            set => _checkBox.Pressed = (value == (int)WindowMode.Fullscreen);
         }
 
         public OptionFullscreen(

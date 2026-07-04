@@ -135,7 +135,7 @@ public sealed partial class HumanoidMarkingModifierWindow : DefaultWindow
             };
 
             var lineEditBox = new BoxContainer();
-            lineEditBox.AddChild(new Label { Text = "Prototype id: "});
+            lineEditBox.AddChild(new Label { Text = "Prototype id: " });
 
             // TODO: This line edit should really be an options / dropdown selector, not text.
             _lineEdit = new() { MinWidth = 200 };

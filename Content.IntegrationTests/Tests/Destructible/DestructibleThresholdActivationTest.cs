@@ -99,9 +99,9 @@ namespace Content.IntegrationTests.Tests.Destructible
                 // Check that it matches the YAML prototype
                 Assert.That(threshold.Behaviors, Has.Count.EqualTo(3));
 
-                var soundThreshold = (PlaySoundBehavior) threshold.Behaviors[0];
-                var spawnThreshold = (SpawnEntitiesBehavior) threshold.Behaviors[1];
-                var actsThreshold = (DoActsBehavior) threshold.Behaviors[2];
+                var soundThreshold = (PlaySoundBehavior)threshold.Behaviors[0];
+                var spawnThreshold = (SpawnEntitiesBehavior)threshold.Behaviors[1];
+                var actsThreshold = (DoActsBehavior)threshold.Behaviors[2];
 
                 Assert.Multiple(() =>
                 {
@@ -164,9 +164,9 @@ namespace Content.IntegrationTests.Tests.Destructible
                 // Check that it matches the YAML prototype
                 Assert.That(threshold.Behaviors, Has.Count.EqualTo(3));
 
-                soundThreshold = (PlaySoundBehavior) threshold.Behaviors[0];
-                spawnThreshold = (SpawnEntitiesBehavior) threshold.Behaviors[1];
-                actsThreshold = (DoActsBehavior) threshold.Behaviors[2];
+                soundThreshold = (PlaySoundBehavior)threshold.Behaviors[0];
+                spawnThreshold = (SpawnEntitiesBehavior)threshold.Behaviors[1];
+                actsThreshold = (DoActsBehavior)threshold.Behaviors[2];
 
                 // Check that it matches the YAML prototype
                 Assert.Multiple(() =>
@@ -201,7 +201,7 @@ namespace Content.IntegrationTests.Tests.Destructible
 
                 // Verify the first one, should be the lowest one (20)
                 msg = sTestThresholdListenerSystem.ThresholdsReached[0];
-                var trigger = (DamageTrigger) msg.Threshold.Trigger;
+                var trigger = (DamageTrigger)msg.Threshold.Trigger;
                 Assert.Multiple(() =>
                 {
                     Assert.That(trigger, Is.Not.Null);
@@ -215,7 +215,7 @@ namespace Content.IntegrationTests.Tests.Destructible
 
                 // Verify the second one, should be the highest one (50)
                 msg = sTestThresholdListenerSystem.ThresholdsReached[1];
-                trigger = (DamageTrigger) msg.Threshold.Trigger;
+                trigger = (DamageTrigger)msg.Threshold.Trigger;
                 Assert.Multiple(() =>
                 {
                     Assert.That(trigger, Is.Not.Null);
@@ -226,9 +226,9 @@ namespace Content.IntegrationTests.Tests.Destructible
 
                 Assert.That(threshold.Behaviors, Has.Count.EqualTo(3));
 
-                soundThreshold = (PlaySoundBehavior) threshold.Behaviors[0];
-                spawnThreshold = (SpawnEntitiesBehavior) threshold.Behaviors[1];
-                actsThreshold = (DoActsBehavior) threshold.Behaviors[2];
+                soundThreshold = (PlaySoundBehavior)threshold.Behaviors[0];
+                spawnThreshold = (SpawnEntitiesBehavior)threshold.Behaviors[1];
+                actsThreshold = (DoActsBehavior)threshold.Behaviors[2];
 
                 // Check that it matches the YAML prototype
                 Assert.Multiple(() =>

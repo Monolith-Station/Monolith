@@ -4,4 +4,4 @@ namespace Content.Server._NF.Contraband.Components;
 /// Any entities intersecting when a shuttle is recalled will be sold.
 /// </summary>
 [RegisterComponent]
-public sealed partial class ContrabandPalletComponent : Component {}
+public sealed partial class ContrabandPalletComponent : Component { }

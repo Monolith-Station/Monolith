@@ -17,13 +17,15 @@ public sealed partial class HeldSpeedModifierComponent : Component
     /// <summary>
     /// A multiplier applied to the walk speed.
     /// </summary>
-    [DataField] [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float WalkModifier = 1.0f;
 
     /// <summary>
     /// A multiplier applied to the sprint speed.
     /// </summary>
-    [DataField] [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float SprintModifier = 1.0f;
 
     /// <summary>

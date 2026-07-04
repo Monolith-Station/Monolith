@@ -37,7 +37,7 @@ public sealed partial class BatteryDrainerSystem : SharedBatteryDrainerSystem
     {
         var (uid, comp) = ent;
         var target = args.Target;
-        if (args.Handled || comp.BatteryUid is not {} battery || !HasComp<PowerNetworkBatteryComponent>(target))
+        if (args.Handled || comp.BatteryUid is not { } battery || !HasComp<PowerNetworkBatteryComponent>(target))
             return;
 
         // handles even if battery is full so you can actually see the poup
@@ -71,7 +71,7 @@ public sealed partial class BatteryDrainerSystem : SharedBatteryDrainerSystem
     {
         base.OnDoAfterAttempt(ent, ref args);
 
-        if (ent.Comp.BatteryUid is not {} battery || _battery.IsFull(battery))
+        if (ent.Comp.BatteryUid is not { } battery || _battery.IsFull(battery))
             args.Cancel();
     }
 

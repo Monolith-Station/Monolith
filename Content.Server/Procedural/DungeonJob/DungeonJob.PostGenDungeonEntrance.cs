@@ -23,7 +23,7 @@ public sealed partial class DungeonJob
 
         var rooms = new List<DungeonRoom>(dungeon.Rooms);
         var roomTiles = new List<Vector2i>();
-        var tileDef = (ContentTileDefinition) _tileDefManager[tileProto];
+        var tileDef = (ContentTileDefinition)_tileDefManager[tileProto];
 
         for (var i = 0; i < gen.Count; i++)
         {
@@ -43,7 +43,7 @@ public sealed partial class DungeonJob
                 // Check if one side is dungeon and the other side is nothing.
                 for (var j = 0; j < 4; j++)
                 {
-                    var dir = (Direction) (j * 2);
+                    var dir = (Direction)(j * 2);
                     var oppositeDir = dir.GetOpposite();
                     var dirVec = tile + dir.ToIntVec();
                     var oppositeDirVec = tile + oppositeDir.ToIntVec();

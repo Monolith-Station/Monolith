@@ -31,7 +31,7 @@ namespace Content.Shared.Nutrition.EntitySystems
             SplattedCreamPie(uid, creamPie);
         }
 
-        protected virtual void SplattedCreamPie(EntityUid uid, CreamPieComponent creamPie) {}
+        protected virtual void SplattedCreamPie(EntityUid uid, CreamPieComponent creamPie) { }
 
         public void SetCreamPied(EntityUid uid, CreamPiedComponent creamPied, bool value)
         {
@@ -67,6 +67,6 @@ namespace Content.Shared.Nutrition.EntitySystems
             _stunSystem.TryParalyze(uid, TimeSpan.FromSeconds(creamPie.ParalyzeTime), true);
         }
 
-        protected virtual void CreamedEntity(EntityUid uid, CreamPiedComponent creamPied, ThrowHitByEvent args) {}
+        protected virtual void CreamedEntity(EntityUid uid, CreamPiedComponent creamPied, ThrowHitByEvent args) { }
     }
 }

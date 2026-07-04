@@ -37,6 +37,6 @@ public sealed partial class ParticleAcceleratorStrengthWireAction : ComponentWir
     public override void Pulse(EntityUid user, Wire wire, ParticleAcceleratorControlBoxComponent controller)
     {
         var paSystem = EntityManager.System<ParticleAcceleratorSystem>();
-        paSystem.SetStrength(wire.Owner, (ParticleAcceleratorPowerState) ((int) controller.SelectedStrength + 1), user, controller);
+        paSystem.SetStrength(wire.Owner, (ParticleAcceleratorPowerState)((int)controller.SelectedStrength + 1), user, controller);
     }
 }

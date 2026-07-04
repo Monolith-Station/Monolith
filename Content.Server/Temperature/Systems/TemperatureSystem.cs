@@ -132,7 +132,7 @@ public sealed partial class TemperatureSystem : EntitySystem
     {
         if (!Resolve(uid, ref temperature, false))
             return;
-        
+
         // _Mono: No need if there's no heat to check
         if (heatAmount == 0)
             return;

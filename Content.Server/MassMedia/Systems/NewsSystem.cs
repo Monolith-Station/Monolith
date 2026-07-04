@@ -63,7 +63,7 @@ public sealed partial class NewsSystem : SharedNewsSystem
         SubscribeLocalEvent<NewsReaderCartridgeComponent, CartridgeMessageEvent>(OnReaderUiMessage);
         SubscribeLocalEvent<NewsReaderCartridgeComponent, CartridgeUiReadyEvent>(OnReaderUiReady);
     }
- 
+
     // Frontier: article lifecycle management
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
@@ -267,7 +267,8 @@ public sealed partial class NewsSystem : SharedNewsSystem
 
         // Any SectorNewsComponent will have a complete article set, we ensure one exists before returning the complete set.
         var query = EntityQueryEnumerator<SectorNewsComponent>();
-        if (query.MoveNext(out var _)) {
+        if (query.MoveNext(out var _))
+        {
             articles = SectorNewsComponent.Articles;
             return true;
         }

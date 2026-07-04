@@ -13,7 +13,8 @@ namespace Content.Server.EntityEffects.Effects
 
         public override void Effect(EntityEffectBaseArgs args)
         {
-            if (args is EntityEffectReagentArgs reagentArgs) {
+            if (args is EntityEffectReagentArgs reagentArgs)
+            {
                 if (reagentArgs.Reagent == null)
                     return;
 

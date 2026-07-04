@@ -109,11 +109,11 @@ public sealed class SolutionRoundingTest
 
                 Assert.That(
                     solution![new ReagentId("SolutionRoundingTestReagentC", null)].Quantity,
-                    Is.EqualTo((FixedPoint2) 20));
+                    Is.EqualTo((FixedPoint2)20));
 
                 Assert.That(
                     solution![new ReagentId("SolutionRoundingTestReagentD", null)].Quantity,
-                    Is.EqualTo((FixedPoint2) 30));
+                    Is.EqualTo((FixedPoint2)30));
             });
         });
 

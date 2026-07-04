@@ -5,5 +5,5 @@ namespace Content.Server.Power.Components
     /// </summary>
     [RegisterComponent]
     public sealed partial class PowerSwitchComponent : Component
-    {}
+    { }
 }

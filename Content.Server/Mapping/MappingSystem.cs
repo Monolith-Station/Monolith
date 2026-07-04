@@ -60,7 +60,7 @@ public sealed partial class MappingSystem : EntitySystem
         if (!_autosaveEnabled)
             return;
 
-        foreach (var (uid, (time, name))in _currentlyAutosaving)
+        foreach (var (uid, (time, name)) in _currentlyAutosaving)
         {
             if (_timing.RealTime <= time)
                 continue;
@@ -104,7 +104,7 @@ public sealed partial class MappingSystem : EntitySystem
             ToggleAutosave(uid.Value, path);
     }
 
-    public void ToggleAutosave(EntityUid uid, string? path=null)
+    public void ToggleAutosave(EntityUid uid, string? path = null)
     {
         if (!_autosaveEnabled)
             return;

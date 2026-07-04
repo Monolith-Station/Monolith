@@ -415,14 +415,14 @@ public sealed partial class InjectorSystem : SharedInjectorSystem
     private void DrawFromBlood(Entity<InjectorComponent> injector, Entity<BloodstreamComponent> target,
         Entity<SolutionComponent> injectorSolution, FixedPoint2 transferAmount, EntityUid user)
     {
-        var drawAmount = (float) transferAmount;
+        var drawAmount = (float)transferAmount;
 
         if (SolutionContainers.ResolveSolution(target.Owner, target.Comp.ChemicalSolutionName,
                 ref target.Comp.ChemicalSolution))
         {
             var chemTemp = SolutionContainers.SplitSolution(target.Comp.ChemicalSolution.Value, drawAmount * 0.15f);
             SolutionContainers.TryAddSolution(injectorSolution, chemTemp);
-            drawAmount -= (float) chemTemp.Volume;
+            drawAmount -= (float)chemTemp.Volume;
         }
 
         if (SolutionContainers.ResolveSolution(target.Owner, target.Comp.BloodSolutionName,

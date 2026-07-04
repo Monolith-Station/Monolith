@@ -44,7 +44,7 @@ public sealed partial class SequenceLength : FoodMetamorphRule
 public sealed partial class LastElementHasTags : FoodMetamorphRule
 {
     [DataField(required: true)]
-    public List<ProtoId<TagPrototype>> Tags = new ();
+    public List<ProtoId<TagPrototype>> Tags = new();
 
     [DataField]
     public bool NeedAll = true;
@@ -86,7 +86,7 @@ public sealed partial class ElementHasTags : FoodMetamorphRule
     public int ElementNumber = 0;
 
     [DataField(required: true)]
-    public List<ProtoId<TagPrototype>> Tags = new ();
+    public List<ProtoId<TagPrototype>> Tags = new();
 
     [DataField]
     public bool NeedAll = true;
@@ -167,7 +167,7 @@ public sealed partial class FoodHasReagent : FoodMetamorphRule
 public sealed partial class IngredientsWithTags : FoodMetamorphRule
 {
     [DataField(required: true)]
-    public List<ProtoId<TagPrototype>> Tags = new ();
+    public List<ProtoId<TagPrototype>> Tags = new();
 
     [DataField(required: true)]
     public MinMax Count = new();

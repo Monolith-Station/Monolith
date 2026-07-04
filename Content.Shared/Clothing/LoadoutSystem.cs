@@ -98,7 +98,7 @@ public sealed partial class LoadoutSystem : EntitySystem
             return GetName(gear);
         }
 
-        return GetName((IEquipmentLoadout) loadout);
+        return GetName((IEquipmentLoadout)loadout);
     }
 
     /// <summary>

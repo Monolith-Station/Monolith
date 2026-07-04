@@ -108,7 +108,7 @@ public sealed partial class MaskSystem : EntitySystem
         // Add an easier way to get the entity that is wearing clothing in a valid slot.
         EntityUid? wearer = null;
         if (TryComp(mask, out ClothingComponent? clothing)
-            && clothing.InSlotFlag is {} slotFlag
+            && clothing.InSlotFlag is { } slotFlag
             && clothing.Slots.HasFlag(slotFlag))
         {
             wearer = Transform(mask).ParentUid;

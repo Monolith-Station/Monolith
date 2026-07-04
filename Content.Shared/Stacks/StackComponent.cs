@@ -24,7 +24,7 @@ namespace Content.Shared.Stacks
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
         [DataField("maxCountOverride")]
-        public int? MaxCountOverride  { get; set; }
+        public int? MaxCountOverride { get; set; }
 
         /// <summary>
         ///     Set to true to not reduce the count when used.

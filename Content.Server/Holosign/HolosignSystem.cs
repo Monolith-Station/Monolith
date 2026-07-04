@@ -63,7 +63,7 @@ public sealed partial class HolosignSystem : EntitySystem
         if (battery == null ||
             component.ChargeUse == 0f) return 0;
 
-        return (int) (battery.CurrentCharge / component.ChargeUse);
+        return (int)(battery.CurrentCharge / component.ChargeUse);
     }
 
     private int MaxUses(HolosignProjectorComponent component, BatteryComponent? battery = null)
@@ -71,6 +71,6 @@ public sealed partial class HolosignSystem : EntitySystem
         if (battery == null ||
             component.ChargeUse == 0f) return 0;
 
-        return (int) (battery.MaxCharge / component.ChargeUse);
+        return (int)(battery.MaxCharge / component.ChargeUse);
     }
 }

@@ -9,4 +9,4 @@ namespace Content.Client.Singularity.Systems;
 /// Exists to make relevant signal handlers (ie: <see cref="SharedEventHorizonSystem.OnPreventCollide"/>) work on the client.
 /// </summary>
 public sealed class EventHorizonSystem : SharedEventHorizonSystem
-{}
+{ }

@@ -58,17 +58,17 @@ public sealed class SurveillanceCameraMonitorSubnetRequestMessage : BoundUserInt
 // Sent when the user requests that the cameras on the current subnet be refreshed.
 [Serializable, NetSerializable]
 public sealed class SurveillanceCameraRefreshCamerasMessage : BoundUserInterfaceMessage
-{}
+{ }
 
 // Sent when the user requests that the subnets known by the monitor be refreshed.
 [Serializable, NetSerializable]
 public sealed class SurveillanceCameraRefreshSubnetsMessage : BoundUserInterfaceMessage
-{}
+{ }
 
 // Sent when the user wants to disconnect the monitor from the camera.
 [Serializable, NetSerializable]
 public sealed class SurveillanceCameraDisconnectMessage : BoundUserInterfaceMessage
-{}
+{ }
 
 [Serializable, NetSerializable]
 public enum SurveillanceCameraMonitorUiKey : byte

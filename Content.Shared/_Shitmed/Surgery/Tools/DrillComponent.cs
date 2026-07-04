@@ -7,7 +7,7 @@ public sealed partial class DrillComponent : Component, ISurgeryToolComponent
 {
     public string ToolName => "a drill";
     public bool? Used { get; set; } = null;
-    
+
     /// <summary>
     ///     Multiply the step's doafter by this value.
     /// </summary>

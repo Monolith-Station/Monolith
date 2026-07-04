@@ -45,7 +45,7 @@ public sealed class JointVisualsOverlay : Overlay
                 continue;
 
             var texture = spriteSystem.Frame0(visuals.Sprite);
-            var width = texture.Width / (float) EyeManager.PixelsPerMeter;
+            var width = texture.Width / (float)EyeManager.PixelsPerMeter;
 
             var coordsA = xform.Coordinates;
             var coordsB = otherXform.Coordinates;

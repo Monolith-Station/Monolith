@@ -61,7 +61,7 @@ public sealed partial class ArtifactSystem : EntitySystem
         var sumValue = component.NodeTree.Sum(n => GetNodePointValue(n, component, getMaxPrice));
         var fullyExploredBonus = component.NodeTree.All(x => x.Triggered) || getMaxPrice ? 1.25f : 1;
 
-        return (int) (sumValue * fullyExploredBonus) - component.ConsumedPoints - component.SkippedPoints; // Frontier: subtract SkippedPoints
+        return (int)(sumValue * fullyExploredBonus) - component.ConsumedPoints - component.SkippedPoints; // Frontier: subtract SkippedPoints
     }
 
     /// <summary>
@@ -254,7 +254,7 @@ public sealed partial class ArtifactSystem : EntitySystem
 
         if (TryComp<BiasedArtifactComponent>(uid, out var bias) &&
             TryComp<TraversalDistorterComponent>(bias.Provider, out var trav) &&
-            _random.Prob(MathF.Min(1.0f,trav.BiasChance)) && //Mono (fix a crash by BiasChance going above 1.0)
+            _random.Prob(MathF.Min(1.0f, trav.BiasChance)) && //Mono (fix a crash by BiasChance going above 1.0)
             this.IsPowered(bias.Provider, EntityManager))
         {
             switch (trav.BiasDirection)

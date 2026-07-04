@@ -13,7 +13,7 @@ public sealed partial class GameTicker
     [ViewVariables]
     private List<ResPath>? _lobbyBackgrounds;
 
-    private static readonly string[] WhitelistedBackgroundExtensions = new string[] {"png", "jpg", "jpeg", "webp"};
+    private static readonly string[] WhitelistedBackgroundExtensions = new string[] { "png", "jpg", "jpeg", "webp" };
 
     private void InitializeLobbyBackground()
     {
@@ -25,7 +25,8 @@ public sealed partial class GameTicker
         RandomizeLobbyBackground();
     }
 
-    private void RandomizeLobbyBackground() {
+    private void RandomizeLobbyBackground()
+    {
         LobbyBackground = _lobbyBackgrounds!.Any() ? _robustRandom.Pick(_lobbyBackgrounds!).ToString() : null;
     }
 }

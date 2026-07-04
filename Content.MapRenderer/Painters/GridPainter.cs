@@ -60,7 +60,7 @@ namespace Content.MapRenderer.Painters
 
 
             _entityPainter.Run(gridCanvas, entities);
-            Console.WriteLine($"{nameof(GridPainter)} painted grid {gridUid} in {(int) stopwatch.Elapsed.TotalMilliseconds} ms");
+            Console.WriteLine($"{nameof(GridPainter)} painted grid {gridUid} in {(int)stopwatch.Elapsed.TotalMilliseconds} ms");
         }
 
         private ConcurrentDictionary<EntityUid, List<EntityData>> GetEntities()
@@ -96,7 +96,7 @@ namespace Content.MapRenderer.Painters
                 }
             }
 
-            Console.WriteLine($"Found {components.Values.Sum(l => l.Count)} entities on {components.Count} grids in {(int) stopwatch.Elapsed.TotalMilliseconds} ms");
+            Console.WriteLine($"Found {components.Values.Sum(l => l.Count)} entities on {components.Count} grids in {(int)stopwatch.Elapsed.TotalMilliseconds} ms");
 
             return components;
         }
@@ -128,14 +128,14 @@ namespace Content.MapRenderer.Painters
                 }
             }
 
-            Console.WriteLine($"Found {decals.Values.Sum(l => l.Count)} decals on {decals.Count} grids in {(int) stopwatch.Elapsed.TotalMilliseconds} ms");
+            Console.WriteLine($"Found {decals.Values.Sum(l => l.Count)} decals on {decals.Count} grids in {(int)stopwatch.Elapsed.TotalMilliseconds} ms");
             return decals;
         }
 
         private static (float x, float y) TransformLocalPosition(Vector2 position, MapGridComponent grid)
         {
-            var xOffset = (int) -grid.LocalAABB.Left;
-            var yOffset = (int) -grid.LocalAABB.Bottom;
+            var xOffset = (int)-grid.LocalAABB.Left;
+            var yOffset = (int)-grid.LocalAABB.Bottom;
             var tileSize = grid.TileSize;
 
             var x = (position.X + xOffset) * tileSize * TilePainter.TileImageSize;

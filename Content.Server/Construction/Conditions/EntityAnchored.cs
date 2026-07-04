@@ -1,4 +1,4 @@
-﻿using Content.Shared.Construction;
+using Content.Shared.Construction;
 using Content.Shared.Examine;
 using JetBrains.Annotations;
 using Robust.Shared.Utility;
@@ -43,7 +43,7 @@ namespace Content.Server.Construction.Conditions
                 Localization = Anchored
                     ? "construction-step-condition-entity-anchored"
                     : "construction-step-condition-entity-unanchored",
-                Icon = new SpriteSpecifier.Rsi(new ("Objects/Tools/wrench.rsi"), "icon"),
+                Icon = new SpriteSpecifier.Rsi(new("Objects/Tools/wrench.rsi"), "icon"),
             };
         }
     }

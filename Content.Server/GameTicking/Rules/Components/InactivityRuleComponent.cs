@@ -1,4 +1,4 @@
-﻿using System.Threading;
+using System.Threading;
 
 namespace Content.Server.GameTicking.Rules.Components;
 
@@ -18,7 +18,7 @@ public sealed partial class InactivityRuleComponent : Component
     /// The delay between announcing round end and the lobby.
     /// </summary>
     [DataField("roundEndDelay", required: true)]
-    public TimeSpan RoundEndDelay  = TimeSpan.FromSeconds(10);
+    public TimeSpan RoundEndDelay = TimeSpan.FromSeconds(10);
 
     public CancellationTokenSource TimerCancel = new();
 }

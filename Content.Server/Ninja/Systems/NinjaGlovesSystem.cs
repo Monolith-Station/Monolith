@@ -20,7 +20,7 @@ public sealed partial class NinjaGlovesSystem : SharedNinjaGlovesSystem
         base.EnableGloves(ent, user);
 
         // can't use abilities if suit is not equipped, this is checked elsewhere but just making sure to satisfy nullability
-        if (user.Comp.Suit is not {} suit)
+        if (user.Comp.Suit is not { } suit)
             return;
 
         if (!_mind.TryGetMind(user, out var mindId, out var mind))
@@ -29,7 +29,7 @@ public sealed partial class NinjaGlovesSystem : SharedNinjaGlovesSystem
         foreach (var ability in ent.Comp.Abilities)
         {
             // non-objective abilities are added in shared already
-            if (ability.Objective is not {} objId)
+            if (ability.Objective is not { } objId)
                 continue;
 
             // prevent doing an objective multiple times by toggling gloves after doing them

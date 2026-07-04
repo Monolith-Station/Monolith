@@ -79,8 +79,8 @@ public sealed partial class ContentAudioSystem : SharedContentAudioSystem
         var playlist = _lobbyMusicCollection.PickFiles
                                             .Select(x => x.ToString())
                                             .ToArray();
-         _robustRandom.Shuffle(playlist);
+        _robustRandom.Shuffle(playlist);
 
-         return playlist;
+        return playlist;
     }
 }

@@ -51,7 +51,7 @@ public sealed partial class RainbowOverlay : Overlay
         if (!statusSys.TryGetTime(playerEntity.Value, DrugOverlaySystem.RainbowKey, out var time, status))
             return;
 
-        var timeLeft = (float) (time.Value.Item2 - time.Value.Item1).TotalSeconds;
+        var timeLeft = (float)(time.Value.Item2 - time.Value.Item1).TotalSeconds;
 
         TimeTicker += args.DeltaSeconds;
 
@@ -61,7 +61,7 @@ public sealed partial class RainbowOverlay : Overlay
         }
         else
         {
-            Intoxication -= Intoxication/(timeLeft - TimeTicker) * args.DeltaSeconds;
+            Intoxication -= Intoxication / (timeLeft - TimeTicker) * args.DeltaSeconds;
         }
     }
 

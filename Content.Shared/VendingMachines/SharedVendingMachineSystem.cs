@@ -156,7 +156,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                 var result = Randomizer.NextFloat(0, 1);
                 if (result < chanceOfMissingStock)
                 {
-                    restock = (uint) Math.Floor(amount * result / chanceOfMissingStock);
+                    restock = (uint)Math.Floor(amount * result / chanceOfMissingStock);
                 }
 
                 // New Frontiers - Unlimited vending - support items with unlimited vending stock.

@@ -36,7 +36,7 @@ public sealed class PrototypeUploadTest
     [TestOf(typeof(LoadPrototypeCommand))]
     public async Task TestFileUpload()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings {Connected = true});
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
         var sCompFact = pair.Server.ResolveDependency<IComponentFactory>();
         var cCompFact = pair.Client.ResolveDependency<IComponentFactory>();
 

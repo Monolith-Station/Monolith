@@ -49,7 +49,7 @@ public sealed partial class SpawnCoordinatesSystem : EntitySystem
 
     private void OnGetBriefing(Entity<JobRoleComponent> ent, ref GetBriefingEvent args)
     {
-        if(args.Mind.Comp.OwnedEntity is not { } uid)
+        if (args.Mind.Comp.OwnedEntity is not { } uid)
             return;
 
         // Get the coordinates

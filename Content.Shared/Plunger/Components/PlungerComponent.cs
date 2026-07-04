@@ -5,7 +5,7 @@ namespace Content.Shared.Plunger.Components
     /// <summary>
     /// Allows entity to unblock target entity with PlungerUseComponent.
     /// </summary>
-    [RegisterComponent, NetworkedComponent,AutoGenerateComponentState]
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     public sealed partial class PlungerComponent : Component
     {
         /// <summary>

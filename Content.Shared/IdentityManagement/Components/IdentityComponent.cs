@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Containers;
+using Robust.Shared.Containers;
 using Robust.Shared.Enums;
 
 namespace Content.Shared.IdentityManagement.Components;
@@ -31,7 +31,7 @@ public sealed class IdentityRepresentation
     public string? PresumedName;
     public string? PresumedJob;
 
-    public IdentityRepresentation(string trueName, Gender trueGender, string ageString, string? presumedName=null, string? presumedJob=null)
+    public IdentityRepresentation(string trueName, Gender trueGender, string ageString, string? presumedName = null, string? presumedJob = null)
     {
         TrueName = trueName;
         TrueGender = trueGender;

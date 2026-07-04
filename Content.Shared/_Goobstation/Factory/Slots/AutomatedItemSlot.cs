@@ -22,7 +22,7 @@ public sealed partial class AutomatedItemSlot : AutomationSlot
     {
         get
         {
-            if (_slot is {} slot)
+            if (_slot is { } slot)
                 return slot;
 
             if (_slots.TryGetSlot(Owner, SlotId, out _slot))
@@ -53,7 +53,7 @@ public sealed partial class AutomatedItemSlot : AutomationSlot
 
     public override EntityUid? GetItem(EntityUid? filter)
     {
-        if (Slot.Item is not {} item || _filter.IsBlocked(filter, item))
+        if (Slot.Item is not { } item || _filter.IsBlocked(filter, item))
             return null;
 
         return item;

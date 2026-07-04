@@ -4,4 +4,4 @@ namespace Content.Shared._Mono.Pvs;
 ///     Causes this entity to be sent to all clients.
 /// </summary>
 [RegisterComponent]
-public sealed partial class GlobalPvsComponent : Component {}
+public sealed partial class GlobalPvsComponent : Component { }

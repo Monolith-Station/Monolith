@@ -9,7 +9,7 @@ public static class PlayerDataExt
     /// </summary>
     public static ContentPlayerData? ContentData(this SessionData data)
     {
-        return (ContentPlayerData?) data.ContentDataUncast;
+        return (ContentPlayerData?)data.ContentDataUncast;
     }
 
     /// <summary>

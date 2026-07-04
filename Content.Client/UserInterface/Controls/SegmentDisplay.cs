@@ -53,7 +53,7 @@ public sealed class SegmentDisplay : Control
         set
         {
             // Calculate max value based on digit count
-            var maxValue = (int) Math.Pow(10, _digitCount) - 1;
+            var maxValue = (int)Math.Pow(10, _digitCount) - 1;
             var newValue = Math.Clamp(value, 0, maxValue);
 
             if (_value == newValue)
@@ -262,7 +262,7 @@ public sealed class SegmentDisplay : Control
         var extension = segmentThickness * 0.5f;
 
         // Top horizontal segment
-        DrawSegment(handle, (pattern & 0b0000001) != 0, horSegmentX - extension/2, y, horSegmentWidth + extension, segmentThickness, true);
+        DrawSegment(handle, (pattern & 0b0000001) != 0, horSegmentX - extension / 2, y, horSegmentWidth + extension, segmentThickness, true);
 
         // Top left vertical segment
         var topLeftY = y + segmentThickness + gap;

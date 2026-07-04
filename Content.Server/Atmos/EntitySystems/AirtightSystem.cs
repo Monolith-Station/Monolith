@@ -34,7 +34,7 @@ namespace Content.Server.Atmos.EntitySystems
 
             var xform = Transform(airtight);
             airtight.Comp.CurrentAirBlockedDirection =
-                (int) Rotate((AtmosDirection) airtight.Comp.InitialAirBlockedDirection, xform.LocalRotation);
+                (int)Rotate((AtmosDirection)airtight.Comp.InitialAirBlockedDirection, xform.LocalRotation);
             UpdatePosition(airtight, xform);
             var airtightEv = new AirtightChanged(airtight, airtight, false, default);
             RaiseLocalEvent(airtight, ref airtightEv, true);
@@ -84,7 +84,7 @@ namespace Content.Server.Atmos.EntitySystems
         private void OnAirtightMoved(Entity<AirtightComponent> ent, ref MoveEvent ev)
         {
             var (owner, airtight) = ent;
-            airtight.CurrentAirBlockedDirection = (int) Rotate((AtmosDirection)airtight.InitialAirBlockedDirection, ev.NewRotation);
+            airtight.CurrentAirBlockedDirection = (int)Rotate((AtmosDirection)airtight.InitialAirBlockedDirection, ev.NewRotation);
             var pos = airtight.LastPosition;
             UpdatePosition(ent, ev.Component);
             var airtightEv = new AirtightChanged(owner, airtight, false, pos);
@@ -137,7 +137,7 @@ namespace Content.Server.Atmos.EntitySystems
             // TODO ATMOS MULTIZ: When we make multiZ atmos, special case this.
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
-                var direction = (AtmosDirection) (1 << i);
+                var direction = (AtmosDirection)(1 << i);
                 if (!myDirection.IsFlagSet(direction))
                     continue;
                 var angle = direction.ToAngle();

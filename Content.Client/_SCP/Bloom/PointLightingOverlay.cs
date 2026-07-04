@@ -24,7 +24,7 @@ public sealed class PointLightingOverlay : Overlay
     public PointLightingOverlay(IPrototypeManager prototypeManager, SpriteSystem spriteSystem, ProtoId<ShaderPrototype> shader)
     {
         _shader = prototypeManager.Index(shader).InstanceUnique();
-        ZIndex = (int) DrawDepth.Effects + 1;
+        ZIndex = (int)DrawDepth.Effects + 1;
 
         _pointTexture = spriteSystem.Frame0(BloomOverlayVisualsComponent.Point);
 

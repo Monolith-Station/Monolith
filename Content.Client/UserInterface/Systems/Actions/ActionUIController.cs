@@ -90,7 +90,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
     private void OnScreenLoad()
     {
-       LoadGui();
+        LoadGui();
     }
 
     private void OnScreenUnload()
@@ -483,7 +483,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
                 continue;
             }
 
-            var button = new ActionButton(_entMan, _spriteSystem, this) {Locked = true};
+            var button = new ActionButton(_entMan, _spriteSystem, this) { Locked = true };
             button.ActionPressed += OnWindowActionPressed;
             button.ActionUnpressed += OnWindowActionUnPressed;
             button.ActionFocusExited += OnWindowActionFocusExisted;
@@ -582,7 +582,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
     private void DragAction()
     {
-        if (_menuDragHelper.Dragged is not {ActionId: {} action} dragged)
+        if (_menuDragHelper.Dragged is not { ActionId: { } action } dragged)
         {
             _menuDragHelper.EndDrag();
             return;
@@ -715,7 +715,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
         if (_actionsSystem != null && _actionsSystem.TryGetActionData(_menuDragHelper.Dragged?.ActionId, out var action))
         {
             if (EntityManager.TryGetComponent(action.EntityIcon, out SpriteComponent? sprite)
-                && sprite.Icon?.GetFrame(RsiDirection.South, 0) is {} frame)
+                && sprite.Icon?.GetFrame(RsiDirection.South, 0) is { } frame)
             {
                 _dragShadow.Texture = frame;
             }
@@ -846,7 +846,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
     public override void FrameUpdate(FrameEventArgs args)
     {
         _menuDragHelper.Update(args.DeltaSeconds);
-        if (_window is {UpdateNeeded: true})
+        if (_window is { UpdateNeeded: true })
             SearchAndDisplay();
     }
 

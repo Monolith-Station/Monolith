@@ -20,8 +20,8 @@ public sealed partial class PathfindingSystem
 
     // What relevant collision groups we track for pathfinding.
     // Stuff like chairs have collision but aren't relevant for mobs.
-    public const int PathfindingCollisionMask = (int) CollisionGroup.MobMask;
-    public const int PathfindingCollisionLayer = (int) CollisionGroup.MobLayer;
+    public const int PathfindingCollisionMask = (int)CollisionGroup.MobMask;
+    public const int PathfindingCollisionLayer = (int)CollisionGroup.MobLayer;
 
     /// <summary>
     ///     If true, UpdateGrid() will not process grids.
@@ -351,8 +351,8 @@ public sealed partial class PathfindingSystem
         foreach (var corner in corners)
         {
             var sampledPoint = new Vector2i(
-                (int) Math.Floor((corner.X) / ChunkSize),
-                (int) Math.Floor((corner.Y) / ChunkSize));
+                (int)Math.Floor((corner.X) / ChunkSize),
+                (int)Math.Floor((corner.Y) / ChunkSize));
 
             chunks.Add(sampledPoint);
         }
@@ -384,18 +384,18 @@ public sealed partial class PathfindingSystem
 
     private byte GetIndex(int x, int y)
     {
-        return (byte) (x * ChunkSize + y);
+        return (byte)(x * ChunkSize + y);
     }
 
     private Vector2i GetOrigin(Vector2 localPos)
     {
-        return new Vector2i((int) Math.Floor(localPos.X / ChunkSize), (int) Math.Floor(localPos.Y / ChunkSize));
+        return new Vector2i((int)Math.Floor(localPos.X / ChunkSize), (int)Math.Floor(localPos.Y / ChunkSize));
     }
 
     private Vector2i GetOrigin(EntityCoordinates coordinates, EntityUid gridUid)
     {
         var localPos = Vector2.Transform(_transform.ToMapCoordinates(coordinates).Position, _transform.GetInvWorldMatrix(gridUid));
-        return new Vector2i((int) Math.Floor(localPos.X / ChunkSize), (int) Math.Floor(localPos.Y / ChunkSize));
+        return new Vector2i((int)Math.Floor(localPos.X / ChunkSize), (int)Math.Floor(localPos.Y / ChunkSize));
     }
 
     private void BuildBreadcrumbs(GridPathfindingChunk chunk, Entity<MapGridComponent> grid)
@@ -460,7 +460,7 @@ public sealed partial class PathfindingSystem
                         var yOffset = y * SubStep + subY;
 
                         // Subtile
-                        var localPos = new Vector2(StepOffset + gridOrigin.X + x + (float) subX / SubStep, StepOffset + gridOrigin.Y + y + (float) subY / SubStep);
+                        var localPos = new Vector2(StepOffset + gridOrigin.X + x + (float)subX / SubStep, StepOffset + gridOrigin.Y + y + (float)subY / SubStep);
                         var collisionMask = 0x0;
                         var collisionLayer = 0x0;
                         var damage = 0f;
@@ -618,8 +618,8 @@ public sealed partial class PathfindingSystem
 
                 foreach (var poly in tilePolys)
                 {
-                    var box = new Box2((Vector2) poly.BottomLeft / SubStep + polyOffset,
-                        (Vector2) (poly.TopRight + Vector2i.One) / SubStep + polyOffset);
+                    var box = new Box2((Vector2)poly.BottomLeft / SubStep + polyOffset,
+                        (Vector2)(poly.TopRight + Vector2i.One) / SubStep + polyOffset);
                     var polyData = points[x * SubStep + poly.Left, y * SubStep + poly.Bottom].Data;
 
                     tilePoly.Add(new PathPoly(grid, chunk.Origin, GetIndex(x, y), box, polyData)); // Mono - neighbors optional field, don't make it unless necessary
@@ -732,7 +732,7 @@ public sealed partial class PathfindingSystem
                     var enlarged = poly.Box.Enlarged(StepOffset);
 
                     // Shouldn't need to wraparound as previous neighbors would've handled us.
-                    for (var j = (byte) (i + 1); j < tile.Count; j++)
+                    for (var j = (byte)(i + 1); j < tile.Count; j++)
                     {
                         var neighbor = tile[j];
                         var enlargedNeighbor = neighbor.Box.Enlarged(StepOffset);

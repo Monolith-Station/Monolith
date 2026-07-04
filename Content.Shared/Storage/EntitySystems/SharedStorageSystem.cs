@@ -45,26 +45,26 @@ namespace Content.Shared.Storage.EntitySystems;
 
 public abstract partial class SharedStorageSystem : EntitySystem
 {
-    [Dependency] private   IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] protected IGameTiming Timing = default!;
-    [Dependency] private   IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] protected IRobustRandom Random = default!;
-    [Dependency] private   ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
 
     [Dependency] protected ActionBlockerSystem ActionBlocker = default!;
-    [Dependency] private   EntityLookupSystem _entityLookupSystem = default!;
-    [Dependency] private   EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private   InventorySystem _inventory = default!;
-    [Dependency] private   SharedAppearanceSystem _appearance = default!;
+    [Dependency] private EntityLookupSystem _entityLookupSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] protected SharedAudioSystem Audio = default!;
     [Dependency] protected SharedContainerSystem ContainerSystem = default!;
-    [Dependency] private   SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] protected SharedEntityStorageSystem EntityStorage = default!;
-    [Dependency] private   SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
     [Dependency] protected SharedItemSystem ItemSystem = default!;
-    [Dependency] private   SharedPopupSystem _popupSystem = default!;
-    [Dependency] private   SharedHandsSystem _sharedHandsSystem = default!;
-    [Dependency] private   SharedStackSystem _stack = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedHandsSystem _sharedHandsSystem = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
     [Dependency] protected SharedTransformSystem TransformSystem = default!;
     [Dependency] protected SharedUserInterfaceSystem UI = default!;
     [Dependency] protected UseDelaySystem UseDelay = default!;
@@ -165,7 +165,7 @@ public abstract partial class SharedStorageSystem : EntitySystem
             .Bind(ContentKeyFunctions.OpenBackpack, InputCmdHandler.FromDelegate(HandleOpenBackpack, handle: false))
             .Bind(ContentKeyFunctions.OpenBelt, InputCmdHandler.FromDelegate(HandleOpenBelt, handle: false))
             .Bind(ContentKeyFunctions.OpenWallet, InputCmdHandler.FromDelegate(HandleOpenWallet, handle: false)) // Frontier
-            // Mono
+                                                                                                                 // Mono
             .Bind(ContentKeyFunctions.OpenPocket1, InputCmdHandler.FromDelegate(HandleOpenPocket1, handle: false))
             .Bind(ContentKeyFunctions.OpenPocket2, InputCmdHandler.FromDelegate(HandleOpenPocket2, handle: false))
             .Bind(ContentKeyFunctions.OpenSuitStorage, InputCmdHandler.FromDelegate(HandleOpenSuitStorage, handle: false))
@@ -404,7 +404,7 @@ public abstract partial class SharedStorageSystem : EntitySystem
         }
     }
 
-    public virtual void UpdateUI(Entity<StorageComponent?> entity) {}
+    public virtual void UpdateUI(Entity<StorageComponent?> entity) { }
 
     private void AddTransferVerbs(EntityUid uid, StorageComponent component, GetVerbsEvent<UtilityVerb> args)
     {

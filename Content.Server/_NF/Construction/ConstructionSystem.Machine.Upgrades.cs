@@ -41,7 +41,7 @@ public sealed partial class ConstructionSystem
         if (markup.IsEmpty)
             return; // Not upgradable.
 
-        if(!FormattedMessage.TryFromMarkup(markup.ToMarkup().TrimEnd('\n'), out markup)) // Cursed workaround to https://github.com/space-wizards/RobustToolbox/issues/3371
+        if (!FormattedMessage.TryFromMarkup(markup.ToMarkup().TrimEnd('\n'), out markup)) // Cursed workaround to https://github.com/space-wizards/RobustToolbox/issues/3371
         {
             markup = FormattedMessage.Empty; // Frontier: attempt sane error handling
         }
@@ -55,7 +55,7 @@ public sealed partial class ConstructionSystem
             Text = Loc.GetString("machine-upgrade-examinable-verb-text"),
             Message = Loc.GetString("machine-upgrade-examinable-verb-message"),
             Category = VerbCategory.Examine,
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/pickup.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/pickup.svg.192dpi.png"))
         };
 
         args.Verbs.Add(verb);

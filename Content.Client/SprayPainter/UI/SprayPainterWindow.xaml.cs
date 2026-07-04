@@ -42,11 +42,11 @@ public sealed partial class SprayPainterWindow : DefaultWindow
             locString = colorKey;
 
         return locString;
-        }
+    }
 
     public string? IndexToColorKey(int index)
     {
-        return (string?) ColorList[index].Metadata;
+        return (string?)ColorList[index].Metadata;
     }
 
     public void Populate(List<SprayPainterEntry> entries, int selectedStyle, string? selectedColorKey, Dictionary<string, Color> palette)

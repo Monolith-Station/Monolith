@@ -29,7 +29,7 @@ public sealed partial class SpawnArtifactSystem : EntitySystem
         if (amount >= component.MaxSpawns)
             return;
 
-        if (component.Spawns is not {} spawns)
+        if (component.Spawns is not { } spawns)
             return;
 
         var artifactCord = _transform.GetMapCoordinates(uid);

@@ -13,4 +13,4 @@ namespace Content.Server.DeviceLinking.Components;
 [RegisterComponent, Access(typeof(DeviceLinkSystem))]
 public sealed partial class NoSignalOnLinkComponent : Component
 {
-} 
+}

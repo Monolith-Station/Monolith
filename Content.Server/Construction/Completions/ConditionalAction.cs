@@ -9,9 +9,9 @@ namespace Content.Server.Construction.Completions
     {
         [DataField("passUser")] public bool PassUser { get; private set; }
 
-        [DataField("condition", required:true)] public IGraphCondition? Condition { get; private set; }
+        [DataField("condition", required: true)] public IGraphCondition? Condition { get; private set; }
 
-        [DataField("action", required:true)] public IGraphAction? Action { get; private set; }
+        [DataField("action", required: true)] public IGraphAction? Action { get; private set; }
 
         [DataField("else")] public IGraphAction? Else { get; private set; }
 

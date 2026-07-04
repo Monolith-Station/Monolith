@@ -41,11 +41,11 @@ namespace Content.Server.Stack
                     _itemSlotsSystem.TryInsert(uid, "stack_slot", args.Target.Value, args.User);
                 return;
             }
-            var afterEv = new AfterInteractEvent(args.User, (EntityUid) item, args.Target, args.ClickLocation, args.CanReach);
-            RaiseLocalEvent((EntityUid) item, afterEv, false);
+            var afterEv = new AfterInteractEvent(args.User, (EntityUid)item, args.Target, args.ClickLocation, args.CanReach);
+            RaiseLocalEvent((EntityUid)item, afterEv, false);
             if (args.Target != null)
             {
-                var ev = new InteractUsingEvent(args.User, (EntityUid) item, args.Target.Value, args.ClickLocation);
+                var ev = new InteractUsingEvent(args.User, (EntityUid)item, args.Target.Value, args.ClickLocation);
                 RaiseLocalEvent(args.Target.Value, ev, false);
             }
         }

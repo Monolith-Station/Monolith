@@ -40,12 +40,12 @@ public sealed partial class VisualizeFireDirectionsCommand : IConsoleCommand
 
         // Get the fire control system
         var fireControlSystem = _systemManager.GetEntitySystem<FireControlSystem>();
-        
+
         // Toggle visualization
         var enabled = fireControlSystem.ToggleVisualization(entityUid);
-        
-        shell.WriteLine(enabled 
-            ? $"Visualization enabled for entity {entityUid}." 
+
+        shell.WriteLine(enabled
+            ? $"Visualization enabled for entity {entityUid}."
             : $"Visualization disabled for entity {entityUid}.");
     }
-} 
+}

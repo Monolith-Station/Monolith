@@ -21,7 +21,7 @@ public sealed partial class NodeScannerSystem : EntitySystem
 
     private void OnBeforeRangedInteract(EntityUid uid, NodeScannerComponent component, BeforeRangedInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target is not {} target)
+        if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
 
         if (!TryComp<ArtifactComponent>(target, out var artifact) || artifact.CurrentNodeId == null)

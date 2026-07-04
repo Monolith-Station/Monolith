@@ -253,15 +253,15 @@ public static partial class GameDataScrounger
                     switch (parentNode)
                     {
                         case YamlScalarNode scalar:
-                        {
-                            parents.Add(scalar.Value!);
-                            break;
-                        }
+                            {
+                                parents.Add(scalar.Value!);
+                                break;
+                            }
                         case YamlSequenceNode seq:
-                        {
-                            parents.AddRange(seq.Children.Select(x => x.AsString()));
-                            break;
-                        }
+                            {
+                                parents.AddRange(seq.Children.Select(x => x.AsString()));
+                                break;
+                            }
                     }
                 }
 
@@ -356,7 +356,7 @@ public static partial class GameDataScrounger
 
                 foreach (var entry in seq)
                 {
-                    if (entry is not YamlScalarNode { Value: {} value })
+                    if (entry is not YamlScalarNode { Value: { } value })
                         throw new Exception($"An entry in {path} is not a valid YAML scalar/string literal. Entry: {entry}");
 
                     ignores.Add(value);

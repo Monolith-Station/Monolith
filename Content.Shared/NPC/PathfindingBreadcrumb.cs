@@ -91,7 +91,7 @@ public struct PathfindingData : IEquatable<PathfindingData>
 
     public override int GetHashCode()
     {
-        return HashCode.Combine((int) Flags, CollisionLayer, CollisionMask);
+        return HashCode.Combine((int)Flags, CollisionLayer, CollisionMask);
     }
 }
 

@@ -6,5 +6,5 @@ namespace Content.Shared.Abilities
     [NetworkedComponent]
 
     public sealed partial class DogVisionComponent : Component
-    {}
+    { }
 }

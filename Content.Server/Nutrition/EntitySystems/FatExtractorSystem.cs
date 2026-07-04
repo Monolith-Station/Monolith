@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Construction;
 using Content.Server.Nutrition.Components;
@@ -33,7 +33,7 @@ public sealed partial class FatExtractorSystem : EntitySystem
     {
         SubscribeLocalEvent<FatExtractorComponent, RefreshPartsEvent>(OnRefreshParts);
         SubscribeLocalEvent<FatExtractorComponent, UpgradeExamineEvent>(OnUpgradeExamine);
-//        SubscribeLocalEvent<FatExtractorComponent, EntityUnpausedEvent>(OnUnpaused);
+        //        SubscribeLocalEvent<FatExtractorComponent, EntityUnpausedEvent>(OnUnpaused);
         SubscribeLocalEvent<FatExtractorComponent, GotEmaggedEvent>(OnGotEmagged);
         SubscribeLocalEvent<FatExtractorComponent, GotUnEmaggedEvent>(OnGotUnemagged); // Frontier
         SubscribeLocalEvent<FatExtractorComponent, StorageAfterCloseEvent>(OnClosed);
@@ -44,12 +44,12 @@ public sealed partial class FatExtractorSystem : EntitySystem
     private void OnRefreshParts(EntityUid uid, FatExtractorComponent component, RefreshPartsEvent args)
     {
         var rating = args.PartRatings[component.MachinePartNutritionRate] - 1;
-        component.NutritionPerSecond = component.BaseNutritionPerSecond + (int) (component.PartRatingRateMultiplier * rating);
+        component.NutritionPerSecond = component.BaseNutritionPerSecond + (int)(component.PartRatingRateMultiplier * rating);
     }
 
     private void OnUpgradeExamine(EntityUid uid, FatExtractorComponent component, UpgradeExamineEvent args)
     {
-        args.AddPercentageUpgrade("fat-extractor-component-rate", (float) component.NutritionPerSecond / component.BaseNutritionPerSecond);
+        args.AddPercentageUpgrade("fat-extractor-component-rate", (float)component.NutritionPerSecond / component.BaseNutritionPerSecond);
     }
 
     private void OnUnpaused(EntityUid uid, FatExtractorComponent component, ref EntityUnpausedEvent args)

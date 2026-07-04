@@ -32,8 +32,8 @@ public abstract partial class SharedEmitSoundSystem : EntitySystem
     [Dependency] protected IGameTiming Timing = default!;
     [Dependency] private INetManager _netMan = default!;
     [Dependency] protected IRobustRandom Random = default!;
-    [Dependency] private   SharedAmbientSoundSystem _ambient = default!;
-    [Dependency] private   SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedAmbientSoundSystem _ambient = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
     [Dependency] protected SharedPopupSystem Popup = default!;
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
@@ -141,7 +141,7 @@ public abstract partial class SharedEmitSoundSystem : EntitySystem
             TryEmitSound(ent, ent.Comp, args.User);
         }
     }
-    protected void TryEmitSound(EntityUid uid, BaseEmitSoundComponent component, EntityUid? user=null, bool predict=true)
+    protected void TryEmitSound(EntityUid uid, BaseEmitSoundComponent component, EntityUid? user = null, bool predict = true)
     {
         if (component.Sound == null)
             return;

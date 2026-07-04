@@ -53,7 +53,7 @@ namespace Content.Server.Speech
                 contextSound = prototype.ExclaimSound;
             }
 
-            var scale = (float) _random.NextGaussian(1, prototype.Variation);
+            var scale = (float)_random.NextGaussian(1, prototype.Variation);
             contextSound.Params = ent.Comp.AudioParams.WithPitchScale(scale);
             return contextSound;
         }

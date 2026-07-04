@@ -15,4 +15,4 @@ public enum PiratePalletConsoleUiKey : byte
     Sale
 }
 
-public abstract class SharedPirateSystem : EntitySystem {}
+public abstract class SharedPirateSystem : EntitySystem { }

@@ -242,7 +242,7 @@ public sealed partial class PullController : VirtualController
                 continue;
             }
 
-            if (pullable.Puller is not {Valid: true} puller)
+            if (pullable.Puller is not { Valid: true } puller)
                 continue;
 
             var pullerXform = _xformQuery.Get(puller);

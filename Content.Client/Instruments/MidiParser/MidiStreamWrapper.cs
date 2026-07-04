@@ -62,7 +62,7 @@ public sealed class MidiStreamWrapper
         var bytes = ReadBytes(4);
         return (uint)((bytes[0] << 24) |
                       (bytes[1] << 16) |
-                      (bytes[2] << 8)  |
+                      (bytes[2] << 8) |
                       (bytes[3]));
     }
 

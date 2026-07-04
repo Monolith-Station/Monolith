@@ -101,7 +101,7 @@ public sealed partial class DoAfterSystem : SharedDoAfterSystem
             @event = candidateEvent;
             doAfter = candidate;
             var elapsed = time - doAfter.StartTime;
-            progress = (float) Math.Min(1, elapsed.TotalSeconds / doAfter.Args.Delay.TotalSeconds);
+            progress = (float)Math.Min(1, elapsed.TotalSeconds / doAfter.Args.Delay.TotalSeconds);
 
             return true;
         }

@@ -1,4 +1,4 @@
-﻿using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -33,7 +33,7 @@ public sealed class ReagentGuideRegistryChangedEvent : EntityEventArgs
 [Serializable, NetSerializable]
 public sealed class ReagentGuideChangeset
 {
-    public Dictionary<string,ReagentGuideEntry> GuideEntries;
+    public Dictionary<string, ReagentGuideEntry> GuideEntries;
 
     public HashSet<string> Removed;
 

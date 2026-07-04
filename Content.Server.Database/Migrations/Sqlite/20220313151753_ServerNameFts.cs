@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -30,7 +30,7 @@ namespace Content.Server.Database.Migrations.Sqlite
 
             migrationBuilder.InsertData(
                 "server",
-                new[] {"server_id", "name"},
+                new[] { "server_id", "name" },
                 new object[] { 0, "unknown" }
             );
 

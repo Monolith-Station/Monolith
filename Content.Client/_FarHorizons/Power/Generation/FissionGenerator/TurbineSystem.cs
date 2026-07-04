@@ -59,7 +59,7 @@ public sealed partial class TurbineSystem : SharedTurbineSystem
         if (ent.Comp.RPM < 1)
             return;
 
-        if (!TryComp<SpriteComponent>(ent.Owner, out var sprite) || !_sprite.TryGetLayer((ent.Owner,sprite), TurbineVisualLayers.TurbineSpeed, out var layer, false))
+        if (!TryComp<SpriteComponent>(ent.Owner, out var sprite) || !_sprite.TryGetLayer((ent.Owner, sprite), TurbineVisualLayers.TurbineSpeed, out var layer, false))
             return;
 
         var state = "speedanim";
@@ -72,7 +72,7 @@ public sealed partial class TurbineSystem : SharedTurbineSystem
         ent.Comp.AnimRPM = ent.Comp.RPM;
         var layerKey = TurbineVisualLayers.TurbineSpeed;
         var time = 0.5f * ent.Comp.BestRPM / ent.Comp.RPM;
-        var timestep = time/12;
+        var timestep = time / 12;
         var animation = new Animation
         {
             Length = TimeSpan.FromSeconds(time),

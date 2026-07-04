@@ -130,7 +130,7 @@ public sealed partial class CriminalRecordsSystem : SharedCriminalRecordsSystem
             return false;
 
         var history = record.History[(int)index];
-        record.History.RemoveAt((int) index);
+        record.History.RemoveAt((int)index);
 
         var args = new CriminalHistoryRemovedEvent(history);
         var query = EntityQueryEnumerator<WantedListCartridgeComponent>();

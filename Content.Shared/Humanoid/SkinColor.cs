@@ -14,7 +14,7 @@ public static class SkinColor
     public const float MinFeathersSaturation = 20f / 100;
     public const float MaxFeathersSaturation = 88f / 100;
 
-        // Goobstation Section Start - Tajaran
+    // Goobstation Section Start - Tajaran
     public const float MinAnimalFurHue = 20f / 360;
     public const float MaxAnimalFurHue = 45f / 360;
     public const float MinAnimalFurSaturation = 0f / 100;
@@ -213,7 +213,7 @@ public static class SkinColor
         return true;
     }
 
-/// Goobstation Section Start - Tajaran
+    /// Goobstation Section Start - Tajaran
     /// <summary>
     ///     Converts a Color proportionally to the allowed animal fur color range.
     ///     Will NOT preserve the specific input color even if it is within the allowed animal fur color range.

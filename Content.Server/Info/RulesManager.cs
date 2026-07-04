@@ -24,8 +24,8 @@ public sealed partial class RulesManager
 
     private async void OnConnected(object? sender, NetChannelArgs e)
     {
-         var isLocalhost = IPAddress.IsLoopback(e.Channel.RemoteEndPoint.Address) &&
-                               _cfg.GetCVar(CCVars.RulesExemptLocal);
+        var isLocalhost = IPAddress.IsLoopback(e.Channel.RemoteEndPoint.Address) &&
+                              _cfg.GetCVar(CCVars.RulesExemptLocal);
 
         var lastRead = await _dbManager.GetLastReadRules(e.Channel.UserId);
         var hasCooldown = lastRead > LastValidReadTime;

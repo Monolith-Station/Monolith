@@ -79,7 +79,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
         args.Cancel();
     }
 
-    private void OnExamine(Entity<ClawsComponent> ent,ref ExaminedEvent args)
+    private void OnExamine(Entity<ClawsComponent> ent, ref ExaminedEvent args)
     {
         if (!TryGetStage(ent, out var stage))
             return;
@@ -112,7 +112,7 @@ public abstract partial class SharedClawsSystem : EntitySystem
     protected bool TryGetStage<T>(ClawsComponent comp, [NotNullWhen(true)] out T? stage) where T : ClawType
     {
         if (!_protoMan.TryIndex(comp.ClawStage, out var clawProto) ||
-            clawProto.ClawType.GetType().Name !=  typeof(T).Name)
+            clawProto.ClawType.GetType().Name != typeof(T).Name)
         {
             stage = null;
             return false;

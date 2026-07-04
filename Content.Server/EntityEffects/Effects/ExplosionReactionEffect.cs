@@ -45,7 +45,7 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
     /// </summary>
     [DataField]
     public float IntensityPerUnit = 1;
-	
+
     /// <summary>
     ///     Factor used to scale the explosion intensity when calculating tile break chances. Allows for stronger
     ///     explosives that don't space tiles, without having to create a new explosion-type prototype.
@@ -65,7 +65,7 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
 
         if (args is EntityEffectReagentArgs reagentArgs)
         {
-            intensity = MathF.Min((float) reagentArgs.Quantity * IntensityPerUnit, MaxTotalIntensity);
+            intensity = MathF.Min((float)reagentArgs.Quantity * IntensityPerUnit, MaxTotalIntensity);
         }
 
         args.EntityManager.System<ExplosionSystem>()
@@ -75,6 +75,6 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
             intensity,
             IntensitySlope,
             MaxIntensity,
-			TileBreakScale);
+            TileBreakScale);
     }
 }

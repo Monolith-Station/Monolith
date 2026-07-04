@@ -16,7 +16,7 @@ public sealed class AddAccessLogCommand : ToolshedCommand
 
         var accessLogCount = accessReader.AccessLog.Count;
         if (accessLogCount >= accessReader.AccessLogLimit)
-            ctx.WriteLine($"WARNING: Surpassing the limit of the log by {accessLogCount - accessReader.AccessLogLimit+1} entries!");
+            ctx.WriteLine($"WARNING: Surpassing the limit of the log by {accessLogCount - accessReader.AccessLogLimit + 1} entries!");
 
         var accessTime = TimeSpan.FromSeconds(seconds);
         accessReader.AccessLog.Enqueue(new AccessRecord(accessTime, accessor));

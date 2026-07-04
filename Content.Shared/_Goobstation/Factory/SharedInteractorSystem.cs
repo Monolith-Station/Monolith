@@ -53,7 +53,7 @@ public abstract partial class SharedInteractorSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        args.PushMarkup(_filter.GetSlot(ent) is {} filter
+        args.PushMarkup(_filter.GetSlot(ent) is { } filter
             ? Loc.GetString("robotic-arm-examine-filter", ("filter", filter))
             : Loc.GetString("robotic-arm-examine-no-filter"));
     }
@@ -98,7 +98,7 @@ public abstract partial class SharedInteractorSystem : EntitySystem
         _wake.SetEnabled(args.OtherEntity, wake); // don't break conveyors for skipped entities
     }
 
-    private void OnItemModified<T>(Entity<InteractorComponent> ent, ref T args) where T: ContainerModifiedMessage
+    private void OnItemModified<T>(Entity<InteractorComponent> ent, ref T args) where T : ContainerModifiedMessage
     {
         if (args.Container.ID != ent.Comp.ToolContainerId)
             return;
@@ -124,7 +124,7 @@ public abstract partial class SharedInteractorSystem : EntitySystem
 
     protected bool InteractWith(Entity<InteractorComponent> ent, EntityUid target)
     {
-        if (_handsQuery.CompOrNull(ent)?.ActiveHandEntity is not {} tool)
+        if (_handsQuery.CompOrNull(ent)?.ActiveHandEntity is not { } tool)
             return _interaction.InteractHand(ent, target);
 
         var coords = Transform(target).Coordinates;

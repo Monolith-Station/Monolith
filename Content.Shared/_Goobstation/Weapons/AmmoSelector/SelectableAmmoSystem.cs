@@ -125,8 +125,8 @@ public sealed partial class SelectableAmmoSystem : EntitySystem
             var oldFireCost = hitscanBattery.FireCost;
             hitscanBattery.FireCost = proto.FireCost;
             var fireCostDiff = proto.FireCost / oldFireCost;
-            hitscanBattery.Shots = (int) Math.Round(hitscanBattery.Shots / fireCostDiff);
-            hitscanBattery.Capacity = (int) Math.Round(hitscanBattery.Capacity / fireCostDiff);
+            hitscanBattery.Shots = (int)Math.Round(hitscanBattery.Shots / fireCostDiff);
+            hitscanBattery.Capacity = (int)Math.Round(hitscanBattery.Capacity / fireCostDiff);
             Dirty(uid, hitscanBattery);
             var updateClientAmmoEvent = new UpdateClientAmmoEvent();
             RaiseLocalEvent(uid, ref updateClientAmmoEvent);
@@ -140,9 +140,9 @@ public sealed partial class SelectableAmmoSystem : EntitySystem
                 return true;
             var oldFireCost = projectileBattery.FireCost;
             projectileBattery.FireCost = proto.FireCost;
-            var fireCostDiff =  proto.FireCost / oldFireCost;
-            projectileBattery.Shots = (int) Math.Round(projectileBattery.Shots / fireCostDiff);
-            projectileBattery.Capacity = (int) Math.Round(projectileBattery.Capacity / fireCostDiff);
+            var fireCostDiff = proto.FireCost / oldFireCost;
+            projectileBattery.Shots = (int)Math.Round(projectileBattery.Shots / fireCostDiff);
+            projectileBattery.Capacity = (int)Math.Round(projectileBattery.Capacity / fireCostDiff);
             Dirty(uid, projectileBattery);
             var updateClientAmmoEvent = new UpdateClientAmmoEvent();
             RaiseLocalEvent(uid, ref updateClientAmmoEvent);
@@ -165,16 +165,16 @@ public sealed partial class SelectableAmmoSystem : EntitySystem
 
     private bool ShouldSetFireCost(SelectableAmmoPrototype proto)
     {
-        return (proto.Flags & (int) SelectableAmmoFlags.ChangeWeaponFireCost) != 0;
+        return (proto.Flags & (int)SelectableAmmoFlags.ChangeWeaponFireCost) != 0;
     }
 
     private bool ShouldSetSound(SelectableAmmoPrototype proto)
     {
-        return (proto.Flags & (int) SelectableAmmoFlags.ChangeWeaponFireSound) != 0;
+        return (proto.Flags & (int)SelectableAmmoFlags.ChangeWeaponFireSound) != 0;
     }
 
     private bool ShouldSetFireRate(SelectableAmmoPrototype proto)
     {
-        return (proto.Flags & (int) SelectableAmmoFlags.ChangeWeaponFireRate) != 0;
+        return (proto.Flags & (int)SelectableAmmoFlags.ChangeWeaponFireRate) != 0;
     }
 }

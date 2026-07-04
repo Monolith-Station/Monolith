@@ -96,7 +96,7 @@ public sealed partial class PowerSensorSystem : EntitySystem
         var powerSwitchable = Comp<PowerSwitchableComponent>(uid);
         var cable = powerSwitchable.Cables[powerSwitchable.ActiveIndex];
         var nodeContainer = Comp<NodeContainerComponent>(uid);
-        var deviceNode = (CableDeviceNode) nodeContainer.Nodes[cable.Node];
+        var deviceNode = (CableDeviceNode)nodeContainer.Nodes[cable.Node];
 
         var charge = 0f;
         var chargingState = false;
@@ -113,7 +113,7 @@ public sealed partial class PowerSensorSystem : EntitySystem
             if (node.NodeGroup == null)
                 continue;
 
-            var group = (IBasePowerNet) node.NodeGroup;
+            var group = (IBasePowerNet)node.NodeGroup;
             var stats = _powerNet.GetNetworkStatistics(group.NetworkNode);
             charge = comp.Output ? stats.OutStorageCurrent : stats.InStorageCurrent;
             chargingState = charge > comp.LastCharge;

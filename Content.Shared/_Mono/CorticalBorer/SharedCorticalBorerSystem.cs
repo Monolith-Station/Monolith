@@ -89,7 +89,7 @@ public abstract partial class SharedCorticalBorerSystem : EntitySystem
                 if (HasComp(ent, compType))
                     continue;
 
-                var newComp = (Component) _serManager.CreateCopy(compReg.Component, notNullableOverride: true);
+                var newComp = (Component)_serManager.CreateCopy(compReg.Component, notNullableOverride: true);
                 EntityManager.AddComponent(ent, newComp, true);
             }
         }
@@ -118,8 +118,8 @@ public abstract partial class SharedCorticalBorerSystem : EntitySystem
         // close all the UIs that relate to host
         if (TryComp<UserInterfaceComponent>(ent, out var uic))
         {
-            _ui.CloseUi((ent.Owner,uic), HealthAnalyzerUiKey.Key);
-            _ui.CloseUi((ent.Owner,uic), CorticalBorerDispenserUiKey.Key);
+            _ui.CloseUi((ent.Owner, uic), HealthAnalyzerUiKey.Key);
+            _ui.CloseUi((ent.Owner, uic), CorticalBorerDispenserUiKey.Key);
         }
 
         RemCompDeferred<CorticalBorerInfestedComponent>(ent.Comp.Host.Value);
@@ -133,7 +133,7 @@ public abstract partial class SharedCorticalBorerSystem : EntitySystem
                 if (HasComp(ent, compType))
                     continue;
 
-                var newComp = (Component) _serManager.CreateCopy(compReg.Component, notNullableOverride: true);
+                var newComp = (Component)_serManager.CreateCopy(compReg.Component, notNullableOverride: true);
                 EntityManager.AddComponent(ent, newComp, true);
             }
         }
@@ -152,7 +152,7 @@ public abstract partial class SharedCorticalBorerSystem : EntitySystem
         if (ent.Comp.Host is not { } host)
             return;
 
-        if (ent.Comp.EggProto is not {} egg)
+        if (ent.Comp.EggProto is not { } egg)
             return;
 
         var coordinates = _transform.ToMapCoordinates(host.ToCoordinates());

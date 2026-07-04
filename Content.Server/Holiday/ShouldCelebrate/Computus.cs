@@ -57,7 +57,8 @@ namespace Content.Server.Holiday.ShouldCelebrate
             {
                 easterDate.month = 3;
                 easterDate.day = (d + e + 22);
-            } else if (d + e > 9)
+            }
+            else if (d + e > 9)
             {
                 easterDate.month = 4;
                 easterDate.day = (d + e - 9);
@@ -78,10 +79,10 @@ namespace Content.Server.Holiday.ShouldCelebrate
             {
                 var (day, month) = DoComputus(date);
 
-                holiday.BeginDay = (byte) day;
-                holiday.BeginMonth = (Month) month;
+                holiday.BeginDay = (byte)day;
+                holiday.BeginMonth = (Month)month;
 
-                holiday.EndDay = (byte) (holiday.BeginDay + _daysExtra);
+                holiday.EndDay = (byte)(holiday.BeginDay + _daysExtra);
                 holiday.EndMonth = holiday.BeginMonth;
 
                 // Begins in march, ends in april

@@ -13,8 +13,8 @@ public sealed partial class JobRequirementOverridePrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     [DataField]
-    public Dictionary<ProtoId<JobPrototype>, HashSet<JobRequirement>> Jobs = new ();
+    public Dictionary<ProtoId<JobPrototype>, HashSet<JobRequirement>> Jobs = new();
 
     [DataField]
-    public Dictionary<ProtoId<AntagPrototype>, HashSet<JobRequirement>> Antags = new ();
+    public Dictionary<ProtoId<AntagPrototype>, HashSet<JobRequirement>> Antags = new();
 }

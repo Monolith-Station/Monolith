@@ -77,7 +77,7 @@ namespace Content.Shared.Chat
         {
             var stream = new MemoryStream();
             serializer.SerializeDirect(stream, Message);
-            buffer.WriteVariableInt32((int) stream.Length);
+            buffer.WriteVariableInt32((int)stream.Length);
             buffer.Write(stream.AsSpan());
         }
     }

@@ -46,7 +46,7 @@ public partial class PolymorphSystem
             _whitelistSystem.IsBlacklistPass(component.Blacklist, other))
             return;
 
-        _queuedPolymorphUpdates.Enqueue(new (other, component.Sound, component.Polymorph));
+        _queuedPolymorphUpdates.Enqueue(new(other, component.Sound, component.Polymorph));
     }
 }
 

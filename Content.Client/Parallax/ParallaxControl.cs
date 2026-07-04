@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Client.Parallax.Data;
 using Content.Client.Parallax.Managers;
 using Robust.Client.Graphics;
@@ -26,7 +26,8 @@ public sealed partial class ParallaxControl : Control
     [ViewVariables(VVAccess.ReadWrite)] public float SpeedY { get; set; } = 100.0f;
     [ViewVariables(VVAccess.ReadWrite)] public float ScaleX { get; set; } = 1.0f;
     [ViewVariables(VVAccess.ReadWrite)] public float ScaleY { get; set; } = 1.0f;
-    [ViewVariables(VVAccess.ReadWrite)] public string ParallaxPrototype
+    [ViewVariables(VVAccess.ReadWrite)]
+    public string ParallaxPrototype
     {
         get => _parallaxPrototype;
         set
@@ -48,7 +49,7 @@ public sealed partial class ParallaxControl : Control
 
     protected override void Draw(DrawingHandleScreen handle)
     {
-        var currentTime = (float) _timing.RealTime.TotalSeconds;
+        var currentTime = (float)_timing.RealTime.TotalSeconds;
         var offset = Offset + new Vector2(currentTime * SpeedX, currentTime * SpeedY);
 
         foreach (var layer in _parallaxManager.GetParallaxLayers(_parallaxPrototype))

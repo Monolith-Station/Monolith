@@ -42,7 +42,7 @@ public sealed partial class PyroclasticAnomalySystem : EntitySystem
         foreach (var flammable in flammables)
         {
             var ent = flammable.Owner;
-            var stackAmount = 1 + (int) (severity / 0.15f);
+            var stackAmount = 1 + (int)(severity / 0.15f);
             _flammable.AdjustFireStacks(ent, stackAmount, flammable);
             _flammable.Ignite(ent, uid, flammable);
         }

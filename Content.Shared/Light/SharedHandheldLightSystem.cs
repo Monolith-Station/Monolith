@@ -95,7 +95,7 @@ public abstract partial class SharedHandheldLightSystem : EntitySystem
         ActivationVerb verb = new()
         {
             Text = Loc.GetString("verb-common-toggle-light"),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),
             Act = ent.Comp.Activated
                 ? () => TurnOff(ent)
                 : () => TurnOn(@event.User, ent)

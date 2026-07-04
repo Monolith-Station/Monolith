@@ -114,7 +114,7 @@ public abstract partial class SharedObjectivesSystem : EntitySystem
         if (!Resolve(mindId, ref mind))
             return null;
 
-        if (GetProgress(uid, (mindId, mind)) is not {} progress)
+        if (GetProgress(uid, (mindId, mind)) is not { } progress)
             return null;
 
         var comp = Comp<ObjectiveComponent>(uid);

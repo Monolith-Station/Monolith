@@ -63,7 +63,7 @@ public sealed partial class ParrotSpeechSystem : EntitySystem
             // split words correctly.
             var words = args.Message.Split(" ", StringSplitOptions.RemoveEmptyEntries);
             // Prefer longer phrases
-            var phraseLength = 1 + (int) (Math.Sqrt(_random.NextDouble()) * component.MaximumPhraseLength);
+            var phraseLength = 1 + (int)(Math.Sqrt(_random.NextDouble()) * component.MaximumPhraseLength);
 
             var startIndex = _random.Next(0, Math.Max(0, words.Length - phraseLength + 1));
 

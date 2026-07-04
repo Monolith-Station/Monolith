@@ -1,4 +1,4 @@
-﻿using Content.Shared.Parallax.Biomes.Markers;
+using Content.Shared.Parallax.Biomes.Markers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -19,7 +19,7 @@ public sealed partial class GatewayGeneratorComponent : Component
     /// <summary>
     /// Next time another seed unlocks.
     /// </summary>
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan NextUnlock;
 

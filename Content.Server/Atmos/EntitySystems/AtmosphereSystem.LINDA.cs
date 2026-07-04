@@ -28,19 +28,19 @@ namespace Content.Server.Atmos.EntitySystems
 
             for (var i = 0; i < Atmospherics.Directions; i++)
             {
-                var direction = (AtmosDirection) (1 << i);
-                if(tile.AdjacentBits.IsFlagSet(direction))
+                var direction = (AtmosDirection)(1 << i);
+                if (tile.AdjacentBits.IsFlagSet(direction))
                     adjacentTileLength++;
             }
 
-            for(var i = 0; i < Atmospherics.Directions; i++)
+            for (var i = 0; i < Atmospherics.Directions; i++)
             {
-                var direction = (AtmosDirection) (1 << i);
+                var direction = (AtmosDirection)(1 << i);
                 if (!tile.AdjacentBits.IsFlagSet(direction)) continue;
                 var enemyTile = tile.AdjacentTiles[i];
 
                 // If the tile is null or has no air, we don't do anything for it.
-                if(enemyTile?.Air == null) continue;
+                if (enemyTile?.Air == null) continue;
                 if (fireCount <= enemyTile.CurrentCycle) continue;
                 Archive(enemyTile, fireCount);
 
@@ -54,7 +54,8 @@ namespace Content.Server.Atmos.EntitySystems
                     }
 
                     shouldShareAir = true;
-                } else if (CompareExchange(tile, enemyTile) != GasCompareResult.NoExchange)
+                }
+                else if (CompareExchange(tile, enemyTile) != GasCompareResult.NoExchange)
                 {
                     AddActiveTile(gridAtmosphere, enemyTile);
                     if (ExcitedGroups)
@@ -71,7 +72,7 @@ namespace Content.Server.Atmos.EntitySystems
                         if (tile.ExcitedGroup == null)
                             ExcitedGroupAddTile(excitedGroup, tile);
 
-                        if(enemyTile.ExcitedGroup == null)
+                        if (enemyTile.ExcitedGroup == null)
                             ExcitedGroupAddTile(excitedGroup, enemyTile);
                     }
 
@@ -99,18 +100,18 @@ namespace Content.Server.Atmos.EntitySystems
                 }
             }
 
-            if(tile.Air != null)
+            if (tile.Air != null)
                 React(tile.Air, tile);
 
             InvalidateVisuals(ent, tile);
 
             var remove = true;
 
-            if(tile.Air!.Temperature > Atmospherics.MinimumTemperatureStartSuperConduction)
+            if (tile.Air!.Temperature > Atmospherics.MinimumTemperatureStartSuperConduction)
                 if (ConsiderSuperconductivity(gridAtmosphere, tile, true))
                     remove = false;
 
-            if(ExcitedGroups && tile.ExcitedGroup == null && remove)
+            if (ExcitedGroups && tile.ExcitedGroup == null && remove)
                 RemoveActiveTile(gridAtmosphere, tile);
         }
 
@@ -198,7 +199,7 @@ namespace Content.Server.Atmos.EntitySystems
         /// </summary>
         public float Share(TileAtmosphere tileReceiver, TileAtmosphere tileSharer, int atmosAdjacentTurfs)
         {
-            if (tileReceiver.Air is not {} receiver || tileSharer.Air is not {} sharer ||
+            if (tileReceiver.Air is not { } receiver || tileSharer.Air is not { } sharer ||
                     tileReceiver.AirArchived == null || tileSharer.AirArchived == null)
                 return 0f;
 
@@ -218,7 +219,7 @@ namespace Content.Server.Atmos.EntitySystems
             var movedMoles = 0f;
             var absMovedMoles = 0f;
 
-            for(var i = 0; i < Atmospherics.TotalNumberOfGases; i++)
+            for (var i = 0; i < Atmospherics.TotalNumberOfGases; i++)
             {
                 var thisValue = receiver.Moles[i];
                 var sharerValue = sharer.Moles[i];
@@ -315,7 +316,7 @@ namespace Content.Server.Atmos.EntitySystems
         /// </summary>
         public float TemperatureShare(TileAtmosphere tileReceiver, float conductionCoefficient, float sharerTemperature, float sharerHeatCapacity)
         {
-            if (tileReceiver.Air is not {} receiver || tileReceiver.AirArchived == null)
+            if (tileReceiver.Air is not { } receiver || tileReceiver.AirArchived == null)
                 return 0;
 
             var temperatureDelta = tileReceiver.AirArchived.Temperature - sharerTemperature;

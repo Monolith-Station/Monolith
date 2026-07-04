@@ -150,7 +150,8 @@ namespace Content.Client.VendingMachines.UI
         }
 
         // Mono: Moved out frontier pricing logic to the separate method
-        private int GetPrice(VendingMachineInventoryEntry entry, EntityPrototype? prototype, float priceModifier){
+        private int GetPrice(VendingMachineInventoryEntry entry, EntityPrototype? prototype, float priceModifier)
+        {
             // Frontier: item pricing
             // ok so we dont really have access to the pricing system so we are doing a quick price check
             // based on prototype info since the items inside a vending machine dont actually exist as entities

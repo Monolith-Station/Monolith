@@ -17,13 +17,13 @@ public sealed partial class JobCondition : EntityEffectCondition
     {
         args.EntityManager.TryGetComponent<MindContainerComponent>(args.TargetEntity, out var mindContainer);
 
-        if ( mindContainer is null
+        if (mindContainer is null
              || !args.EntityManager.TryGetComponent<MindComponent>(mindContainer.Mind, out var mind))
             return false;
 
         foreach (var roleId in mind.MindRoles)
         {
-            if(!args.EntityManager.HasComponent<JobRoleComponent>(roleId))
+            if (!args.EntityManager.HasComponent<JobRoleComponent>(roleId))
                 continue;
 
             if (!args.EntityManager.TryGetComponent<MindRoleComponent>(roleId, out var mindRole))

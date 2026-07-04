@@ -91,10 +91,10 @@ public sealed class BFSPathRequest : PathRequest
         int layer,
         int mask,
         CancellationToken cancelToken) : base(start, flags, layer, mask, cancelToken)
-        {
-            ExpansionRange = expansionRange;
-            ExpansionLimit = expansionLimit;
-        }
+    {
+        ExpansionRange = expansionRange;
+        ExpansionLimit = expansionLimit;
+    }
 }
 
 /// <summary>

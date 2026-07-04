@@ -4,6 +4,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
 
 namespace Content.Server.Anomaly.Effects;
+
 public sealed partial class ShuffleParticlesAnomalySystem : EntitySystem
 {
     [Dependency] private AnomalySystem _anomaly = default!;

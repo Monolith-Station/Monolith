@@ -17,7 +17,7 @@ public record struct GetExplosionResistanceEvent(string ExplosionPrototype) : II
 
     public readonly string ExplosionPrototype = ExplosionPrototype;
 
-    SlotFlags IInventoryRelayEvent.TargetSlots =>  ~SlotFlags.POCKET;
+    SlotFlags IInventoryRelayEvent.TargetSlots => ~SlotFlags.POCKET;
 }
 
 /// <summary>

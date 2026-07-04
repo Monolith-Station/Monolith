@@ -45,7 +45,7 @@ public sealed partial class GermanAccentSystem : EntitySystem
         foreach (Match match in RegexTh.Matches(msg))
         {
             // just shift the T over to a Z to preserve capitalization
-            msgBuilder[match.Index] = (char) (msgBuilder[match.Index] + 6);
+            msgBuilder[match.Index] = (char)(msgBuilder[match.Index] + 6);
         }
 
         // Random Umlaut Time! (The joke outweighs the emotional damage this inflicts on actual Germans)

@@ -132,7 +132,7 @@ public sealed partial class AtmosAlarmThreshold
             whichFailed = AtmosMonitorThresholdBound.Upper;
             return true;
         }
-        if(value <= LowerBound)
+        if (value <= LowerBound)
         {
             state = AtmosAlarmType.Danger;
             whichFailed = AtmosMonitorThresholdBound.Lower;
@@ -162,13 +162,17 @@ public sealed partial class AtmosAlarmThreshold
         switch (bound)
         {
             case AtmosMonitorThresholdBound.Upper:
-                return new AlarmThresholdSetting {
+                return new AlarmThresholdSetting
+                {
                     Enabled = UpperWarningPercentage.Enabled,
-                    Value = UpperBound.Value * UpperWarningPercentage.Value};
+                    Value = UpperBound.Value * UpperWarningPercentage.Value
+                };
             case AtmosMonitorThresholdBound.Lower:
-                return new AlarmThresholdSetting {
+                return new AlarmThresholdSetting
+                {
                     Enabled = LowerWarningPercentage.Enabled,
-                    Value = LowerBound.Value * LowerWarningPercentage.Value};
+                    Value = LowerBound.Value * LowerWarningPercentage.Value
+                };
             default:
                 // Unreachable.
                 return new AlarmThresholdSetting();
@@ -180,13 +184,17 @@ public sealed partial class AtmosAlarmThreshold
         switch (bound)
         {
             case AtmosMonitorThresholdBound.Upper:
-                return new AlarmThresholdSetting {
+                return new AlarmThresholdSetting
+                {
                     Enabled = UpperWarningPercentage.Enabled,
-                    Value = UpperBound.Value == 0 ? 0 : warningBound.Value / UpperBound.Value};
+                    Value = UpperBound.Value == 0 ? 0 : warningBound.Value / UpperBound.Value
+                };
             case AtmosMonitorThresholdBound.Lower:
-                return new AlarmThresholdSetting {
+                return new AlarmThresholdSetting
+                {
                     Enabled = LowerWarningPercentage.Enabled,
-                    Value = LowerBound.Value == 0 ? 0 : warningBound.Value / LowerBound.Value };
+                    Value = LowerBound.Value == 0 ? 0 : warningBound.Value / LowerBound.Value
+                };
             default:
                 // Unreachable.
                 return new AlarmThresholdSetting();
@@ -196,7 +204,7 @@ public sealed partial class AtmosAlarmThreshold
     // Enable or disable a single threshold setting
     public void SetEnabled(AtmosMonitorLimitType whichLimit, bool isEnabled)
     {
-        switch(whichLimit)
+        switch (whichLimit)
         {
             case AtmosMonitorLimitType.LowerDanger:
                 LowerBound = LowerBound.WithEnabled(isEnabled);
@@ -303,7 +311,7 @@ public readonly struct AtmosAlarmThresholdChange
 }
 
 [DataDefinition, Serializable]
-public readonly partial struct AlarmThresholdSetting: IEquatable<AlarmThresholdSetting>
+public readonly partial struct AlarmThresholdSetting : IEquatable<AlarmThresholdSetting>
 {
     [DataField("enabled")]
     public bool Enabled { get; init; } = true;
@@ -311,7 +319,7 @@ public readonly partial struct AlarmThresholdSetting: IEquatable<AlarmThresholdS
     [DataField("threshold")]
     public float Value { get; init; } = 1;
 
-    public static AlarmThresholdSetting Disabled = new() {Enabled = false, Value = 0};
+    public static AlarmThresholdSetting Disabled = new() { Enabled = false, Value = 0 };
 
     public AlarmThresholdSetting()
     {
@@ -329,12 +337,12 @@ public readonly partial struct AlarmThresholdSetting: IEquatable<AlarmThresholdS
 
     public AlarmThresholdSetting WithThreshold(float threshold)
     {
-        return this with {Value = threshold};
+        return this with { Value = threshold };
     }
 
     public AlarmThresholdSetting WithEnabled(bool enabled)
     {
-        return this with {Enabled = enabled};
+        return this with { Enabled = enabled };
     }
 
     public bool Equals(AlarmThresholdSetting other)

@@ -16,7 +16,7 @@ public sealed partial class SecretDataAnomalySystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, SecretDataAnomalyComponent anomaly, MapInitEvent args)
     {
-        RandomizeSecret(uid,_random.Next(anomaly.RandomStartSecretMin, anomaly.RandomStartSecretMax), anomaly);
+        RandomizeSecret(uid, _random.Next(anomaly.RandomStartSecretMin, anomaly.RandomStartSecretMax), anomaly);
     }
 
     public void RandomizeSecret(EntityUid uid, int count, SecretDataAnomalyComponent? component = null)

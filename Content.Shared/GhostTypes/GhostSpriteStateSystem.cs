@@ -61,7 +61,7 @@ public sealed partial class GhostSpriteStateSystem : EntitySystem
         }
         else if (ent.Comp.DamageMap.TryGetValue(highestType, out var spriteAmount))
         {
-                spriteState = highestType + rand.Next(spriteAmount);
+            spriteState = highestType + rand.Next(spriteAmount);
         }
 
         if (spriteState != null)

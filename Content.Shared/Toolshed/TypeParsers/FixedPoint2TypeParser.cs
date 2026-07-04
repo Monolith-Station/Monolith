@@ -13,7 +13,7 @@ public sealed class FixedPoint2TypeParser : TypeParser<FixedPoint2>
     {
         if (Toolshed.TryParse(ctx, out int? value))
         {
-            result =  FixedPoint2.New(value.Value);
+            result = FixedPoint2.New(value.Value);
             return true;
         }
 

@@ -46,7 +46,7 @@ public sealed partial class EmpReactionEffect : EntityEffect
 
         if (args is EntityEffectReagentArgs reagentArgs)
         {
-            range = MathF.Min((float) (reagentArgs.Quantity * EmpRangePerUnit), EmpMaxRange);
+            range = MathF.Min((float)(reagentArgs.Quantity * EmpRangePerUnit), EmpMaxRange);
         }
 
         args.EntityManager.System<EmpSystem>()

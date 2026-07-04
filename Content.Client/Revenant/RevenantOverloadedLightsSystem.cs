@@ -1,4 +1,4 @@
-﻿using Content.Shared.Revenant.Components;
+using Content.Shared.Revenant.Components;
 using Content.Shared.Revenant.EntitySystems;
 using Robust.Client.GameObjects;
 
@@ -25,7 +25,7 @@ public sealed partial class RevenantOverloadedLightsSystem : SharedRevenantOverl
         while (enumerator.MoveNext(out var uid, out var comp, out var light))
         {
             //this looks cool :HECK:
-            _lights.SetEnergy(uid, 2f * Math.Abs((float) Math.Sin(0.25 * Math.PI * comp.Accumulator)), light);
+            _lights.SetEnergy(uid, 2f * Math.Abs((float)Math.Sin(0.25 * Math.PI * comp.Accumulator)), light);
         }
     }
 

@@ -76,7 +76,7 @@ public abstract partial class SharedFirelockSystem : EntitySystem
             args.PryTimeModifier = 0f;
             return;
         }
-        
+
         WarnPlayer((uid, component), args.User);
 
         if (component.IsLocked)

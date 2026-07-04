@@ -44,7 +44,7 @@ public sealed partial class SlurredSystem : SharedSlurredSystem
             return 0;
 
         var curTime = _timing.CurTime;
-        var timeLeft = (float) (time.Value.Item2 - curTime).TotalSeconds;
+        var timeLeft = (float)(time.Value.Item2 - curTime).TotalSeconds;
         return Math.Clamp((timeLeft - 80) / 1100, 0f, 1f);
     }
 
@@ -90,7 +90,7 @@ public sealed partial class SlurredSystem : SharedSlurredSystem
                 }
             }
 
-            if (!_random.Prob(scale * 3/20))
+            if (!_random.Prob(scale * 3 / 20))
             {
                 sb.Append(character);
                 continue;

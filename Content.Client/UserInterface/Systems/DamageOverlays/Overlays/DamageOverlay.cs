@@ -75,8 +75,8 @@ public sealed partial class DamageOverlay : Overlay
         var handle = args.WorldHandle;
         var distance = args.ViewportBounds.Width;
 
-        var time = (float) _timing.RealTime.TotalSeconds;
-        var lastFrameTime = (float) _timing.FrameTime.TotalSeconds;
+        var time = (float)_timing.RealTime.TotalSeconds;
+        var lastFrameTime = (float)_timing.FrameTime.TotalSeconds;
 
         // If they just died then lerp out the white overlay.
         if (State != MobState.Dead)

@@ -397,7 +397,7 @@ public sealed partial class NPCSteeringSystem
                     // otherwise we can overbrake in this frame and reverse movement direction
                     // TODO: a way to tell calling code that we don't want to reverse movement direction to not have to do this
                     moveMultiplier = MapValue(cvel.Length(), 0f, frameAccel);
-                                        // brake                                 // normalise
+                    // brake                                 // normalise
                     ApplySeek(interest, -offsetRot.RotateVec(body.LinearVelocity / velLen), 1f);
                 }
                 break;
@@ -405,7 +405,7 @@ public sealed partial class NPCSteeringSystem
                 if (velLen > 0f)
                 {
                     moveMultiplier = MapValue(tgVel.Length(), 0f, frameAccel);
-                                        // brake
+                    // brake
                     ApplySeek(interest, -offsetRot.RotateVec(tgVel.Normalized()), tgVel.Length() / velLen);
                 }
                 break;

@@ -1,4 +1,4 @@
-﻿using Robust.Shared.GameStates;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.NameIdentifier;
@@ -9,7 +9,7 @@ namespace Content.Shared.NameIdentifier;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class NameIdentifierComponent : Component
 {
-    [DataField("group", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<NameIdentifierGroupPrototype>))]
+    [DataField("group", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<NameIdentifierGroupPrototype>))]
     public string Group = string.Empty;
 
     /// <summary>

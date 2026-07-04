@@ -30,7 +30,7 @@ namespace Content.Shared.Decals
             ISerializationManager.InstantiationDelegate<DecalGridChunkCollection>? _ = default)
         {
             node.TryGetValue("version", out var versionNode);
-            var version = ((ValueDataNode?) versionNode)?.AsInt() ?? 1;
+            var version = ((ValueDataNode?)versionNode)?.AsInt() ?? 1;
             Dictionary<Vector2i, DecalChunk> dictionary;
             uint nextIndex = 0;
             var ids = new HashSet<uint>();
@@ -38,14 +38,14 @@ namespace Content.Shared.Decals
             // TODO: Dump this when we don't need support anymore.
             if (version > 1)
             {
-                var nodes = (SequenceDataNode) node["nodes"];
+                var nodes = (SequenceDataNode)node["nodes"];
                 dictionary = new Dictionary<Vector2i, DecalChunk>();
 
                 foreach (var dNode in nodes)
                 {
-                    var aNode = (MappingDataNode) dNode;
+                    var aNode = (MappingDataNode)dNode;
                     var data = serializationManager.Read<DecalData>(aNode["node"], hookCtx, context);
-                    var deckNodes = (MappingDataNode) aNode["decals"];
+                    var deckNodes = (MappingDataNode)aNode["decals"];
 
                     foreach (var (decalUidNode, decalData) in deckNodes)
                     {

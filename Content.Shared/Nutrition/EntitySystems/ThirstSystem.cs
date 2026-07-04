@@ -47,8 +47,8 @@ public sealed partial class ThirstSystem : EntitySystem
         if (component.CurrentThirst < 0)
         {
             component.CurrentThirst = _random.Next(
-                (int) component.ThirstThresholds[ThirstThreshold.Thirsty] + 10,
-                (int) component.ThirstThresholds[ThirstThreshold.Okay] - 1);
+                (int)component.ThirstThresholds[ThirstThreshold.Thirsty] + 10,
+                (int)component.ThirstThresholds[ThirstThreshold.Okay] - 1);
         }
         component.NextUpdateTime = _timing.CurTime;
         component.CurrentThirstThreshold = GetThirstThreshold(component, component.CurrentThirst);
@@ -57,7 +57,7 @@ public sealed partial class ThirstSystem : EntitySystem
         UpdateEffects(uid, component);
 
         TryComp(uid, out MovementSpeedModifierComponent? moveMod);
-            _movement.RefreshMovementSpeedModifiers(uid, moveMod);
+        _movement.RefreshMovementSpeedModifiers(uid, moveMod);
     }
 
     private void OnRefreshMovespeed(EntityUid uid, ThirstComponent component, RefreshMovementSpeedModifiersEvent args)

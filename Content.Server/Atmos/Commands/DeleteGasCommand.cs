@@ -25,43 +25,16 @@ namespace Content.Server.Atmos.Commands
             switch (args.Length)
             {
                 case 0:
-                {
-                    if (player == null)
                     {
-                        shell.WriteLine("A grid must be specified when the command isn't used by a player.");
-                        return;
-                    }
-
-                    if (player.AttachedEntity is not {Valid: true} playerEntity)
-                    {
-                        shell.WriteLine("You have no entity to get a grid from.");
-                        return;
-                    }
-
-                    gridId = _entManager.GetComponent<TransformComponent>(playerEntity).GridUid;
-
-                    if (gridId == null)
-                    {
-                        shell.WriteLine("You aren't on a grid to delete gas from.");
-                        return;
-                    }
-
-                    break;
-                }
-                case 1:
-                {
-                    if (!NetEntity.TryParse(args[0], out var numberEnt) || !_entManager.TryGetEntity(numberEnt, out var number))
-                    {
-                        // Argument is a gas
                         if (player == null)
                         {
-                            shell.WriteLine("A grid id must be specified if not using this command as a player.");
+                            shell.WriteLine("A grid must be specified when the command isn't used by a player.");
                             return;
                         }
 
-                        if (player.AttachedEntity is not {Valid: true} playerEntity)
+                        if (player.AttachedEntity is not { Valid: true } playerEntity)
                         {
-                            shell.WriteLine("You have no entity from which to get a grid id.");
+                            shell.WriteLine("You have no entity to get a grid from.");
                             return;
                         }
 
@@ -73,46 +46,73 @@ namespace Content.Server.Atmos.Commands
                             return;
                         }
 
-                        if (!Enum.TryParse<Gas>(args[0], true, out var parsedGas))
+                        break;
+                    }
+                case 1:
+                    {
+                        if (!NetEntity.TryParse(args[0], out var numberEnt) || !_entManager.TryGetEntity(numberEnt, out var number))
                         {
-                            shell.WriteLine($"{args[0]} is not a valid gas name.");
+                            // Argument is a gas
+                            if (player == null)
+                            {
+                                shell.WriteLine("A grid id must be specified if not using this command as a player.");
+                                return;
+                            }
+
+                            if (player.AttachedEntity is not { Valid: true } playerEntity)
+                            {
+                                shell.WriteLine("You have no entity from which to get a grid id.");
+                                return;
+                            }
+
+                            gridId = _entManager.GetComponent<TransformComponent>(playerEntity).GridUid;
+
+                            if (gridId == null)
+                            {
+                                shell.WriteLine("You aren't on a grid to delete gas from.");
+                                return;
+                            }
+
+                            if (!Enum.TryParse<Gas>(args[0], true, out var parsedGas))
+                            {
+                                shell.WriteLine($"{args[0]} is not a valid gas name.");
+                                return;
+                            }
+
+                            gas = parsedGas;
+                            break;
+                        }
+
+                        // Argument is a grid
+                        gridId = number;
+                        break;
+                    }
+                case 2:
+                    {
+                        if (!NetEntity.TryParse(args[0], out var firstNet) || !_entManager.TryGetEntity(firstNet, out var first))
+                        {
+                            shell.WriteLine($"{args[0]} is not a valid integer for a grid id.");
+                            return;
+                        }
+
+                        gridId = first;
+
+                        if (gridId.Value.IsValid())
+                        {
+                            shell.WriteLine($"{gridId} is not a valid grid id.");
+                            return;
+                        }
+
+                        if (!Enum.TryParse<Gas>(args[1], true, out var parsedGas))
+                        {
+                            shell.WriteLine($"{args[1]} is not a valid gas.");
                             return;
                         }
 
                         gas = parsedGas;
+
                         break;
                     }
-
-                    // Argument is a grid
-                    gridId = number;
-                    break;
-                }
-                case 2:
-                {
-                    if (!NetEntity.TryParse(args[0], out var firstNet) || !_entManager.TryGetEntity(firstNet, out var first))
-                    {
-                        shell.WriteLine($"{args[0]} is not a valid integer for a grid id.");
-                        return;
-                    }
-
-                    gridId = first;
-
-                    if (gridId.Value.IsValid())
-                    {
-                        shell.WriteLine($"{gridId} is not a valid grid id.");
-                        return;
-                    }
-
-                    if (!Enum.TryParse<Gas>(args[1], true, out var parsedGas))
-                    {
-                        shell.WriteLine($"{args[1]} is not a valid gas.");
-                        return;
-                    }
-
-                    gas = parsedGas;
-
-                    break;
-                }
                 default:
                     shell.WriteLine(Help);
                     return;

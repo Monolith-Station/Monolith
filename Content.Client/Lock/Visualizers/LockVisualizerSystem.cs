@@ -22,10 +22,10 @@ public sealed class LockVisualizerSystem : VisualizerSystem<LockVisualsComponent
         {
             args.Sprite.LayerSetVisible(LockVisualLayers.Lock, !open);
         }
-        else if (!(bool) unlockedStateExist!)
+        else if (!(bool)unlockedStateExist!)
             args.Sprite.LayerSetVisible(LockVisualLayers.Lock, locked);
 
-        if (!open && (bool) unlockedStateExist!)
+        if (!open && (bool)unlockedStateExist!)
         {
             args.Sprite.LayerSetState(LockVisualLayers.Lock, locked ? comp.StateLocked : comp.StateUnlocked);
         }

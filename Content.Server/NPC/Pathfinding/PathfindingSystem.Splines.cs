@@ -92,7 +92,7 @@ public sealed partial class PathfindingSystem
                 pairs[i] = (pointA, splinePoint);
                 pairs.Insert(i + 1, (splinePoint, pointB));
 
-                i+= 2;
+                i += 2;
             }
         }
 

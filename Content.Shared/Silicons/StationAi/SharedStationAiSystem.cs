@@ -34,29 +34,29 @@ namespace Content.Shared.Silicons.StationAi;
 
 public abstract partial class SharedStationAiSystem : EntitySystem
 {
-    [Dependency] private   ISharedAdminManager _admin = default!;
-    [Dependency] private   IGameTiming _timing = default!;
-    [Dependency] private   INetManager _net = default!;
-    [Dependency] private   ItemSlotsSystem _slots = default!;
-    [Dependency] private   ItemToggleSystem _toggles = default!;
-    [Dependency] private   ActionBlockerSystem _blocker = default!;
-    [Dependency] private   MetaDataSystem _metadata = default!;
-    [Dependency] private   SharedAirlockSystem _airlocks = default!;
-    [Dependency] private   SharedAppearanceSystem _appearance = default!;
-    [Dependency] private   SharedAudioSystem _audio = default!;
-    [Dependency] private   SharedContainerSystem _containers = default!;
-    [Dependency] private   SharedDoorSystem _doors = default!;
-    [Dependency] private   SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private   SharedElectrocutionSystem _electrify = default!;
-    [Dependency] private   SharedEyeSystem _eye = default!;
+    [Dependency] private ISharedAdminManager _admin = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
+    [Dependency] private ItemToggleSystem _toggles = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
+    [Dependency] private SharedAirlockSystem _airlocks = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private SharedDoorSystem _doors = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedElectrocutionSystem _electrify = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
     [Dependency] protected SharedMapSystem Maps = default!;
-    [Dependency] private   SharedMindSystem _mind = default!;
-    [Dependency] private   SharedMoverController _mover = default!;
-    [Dependency] private   SharedPopupSystem _popup = default!;
-    [Dependency] private   SharedPowerReceiverSystem PowerReceiver = default!;
-    [Dependency] private   SharedTransformSystem _xforms = default!;
-    [Dependency] private   SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private   StationAiVisionSystem _vision = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedMoverController _mover = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPowerReceiverSystem PowerReceiver = default!;
+    [Dependency] private SharedTransformSystem _xforms = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private StationAiVisionSystem _vision = default!;
 
     [Dependency] private SharedAiRemoteControlSystem _remoteSystem = default!; // Corvax-Next-AiRemoteControl
 

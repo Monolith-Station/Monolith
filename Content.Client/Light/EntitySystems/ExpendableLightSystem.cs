@@ -31,7 +31,7 @@ public sealed partial class ExpendableLightSystem : VisualizerSystem<ExpendableL
             return;
 
         if (AppearanceSystem.TryGetData<string>(uid, ExpendableLightVisuals.Behavior, out var lightBehaviourID, args.Component)
-        &&  TryComp<LightBehaviourComponent>(uid, out var lightBehaviour))
+        && TryComp<LightBehaviourComponent>(uid, out var lightBehaviour))
         {
             _lightBehavior.StopLightBehaviour((uid, lightBehaviour));
 

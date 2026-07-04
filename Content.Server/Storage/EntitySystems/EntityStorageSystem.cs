@@ -112,10 +112,10 @@ public sealed partial class EntityStorageSystem : SharedEntityStorageSystem
         if (!component.Airtight)
             return;
 
-        var serverComp = (EntityStorageComponent) component;
+        var serverComp = (EntityStorageComponent)component;
         var tile = GetOffsetTileRef(uid, serverComp);
 
-        if (tile != null && _atmos.GetTileMixture(tile.Value.GridUid, null, tile.Value.GridIndices, true) is {} environment)
+        if (tile != null && _atmos.GetTileMixture(tile.Value.GridUid, null, tile.Value.GridIndices, true) is { } environment)
         {
             _atmos.Merge(serverComp.Air, environment.RemoveVolume(serverComp.Air.Volume));
         }
@@ -123,14 +123,14 @@ public sealed partial class EntityStorageSystem : SharedEntityStorageSystem
 
     public override void ReleaseGas(EntityUid uid, SharedEntityStorageComponent component)
     {
-        var serverComp = (EntityStorageComponent) component;
+        var serverComp = (EntityStorageComponent)component;
 
         if (!serverComp.Airtight)
             return;
 
         var tile = GetOffsetTileRef(uid, serverComp);
 
-        if (tile != null && _atmos.GetTileMixture(tile.Value.GridUid, null, tile.Value.GridIndices, true) is {} environment)
+        if (tile != null && _atmos.GetTileMixture(tile.Value.GridUid, null, tile.Value.GridIndices, true) is { } environment)
         {
             _atmos.Merge(environment, serverComp.Air);
             serverComp.Air.Clear();

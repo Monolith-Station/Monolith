@@ -184,7 +184,7 @@ public abstract partial class SharedStasisSystem : EntitySystem
             staminaComp.Decay /= protection.Comp.StaminaModifier;
         }
 
-        if (HasComp<StasisImmunityComponent>(args.Equipee) )
+        if (HasComp<StasisImmunityComponent>(args.Equipee))
             EntityManager.RemoveComponent<StasisImmunityComponent>(args.Equipee);
     }
 

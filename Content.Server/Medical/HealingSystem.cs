@@ -256,7 +256,7 @@ public sealed partial class HealingSystem : EntitySystem
         if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var amount, mobThreshold))
             return 1;
 
-        var percentDamage = (float) (damageable.TotalDamage / amount);
+        var percentDamage = (float)(damageable.TotalDamage / amount);
         //basically make it scale from 1 to the multiplier.
         var modifier = percentDamage * (component.SelfHealPenaltyMultiplier - 1) + 1;
         return Math.Max(modifier, 1);

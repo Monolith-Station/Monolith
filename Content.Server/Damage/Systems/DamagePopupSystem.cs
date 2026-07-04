@@ -46,7 +46,7 @@ public sealed partial class DamagePopupSystem : EntitySystem
             }
             else
             {
-                component.Type = (DamagePopupType) (int) component.Type + 1;
+                component.Type = (DamagePopupType)(int)component.Type + 1;
             }
             _popupSystem.PopupEntity("Target set to type: " + component.Type.ToString(), uid);
         }

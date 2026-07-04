@@ -184,9 +184,9 @@ public sealed partial class TurbineWindow : FancyWindow
     {
         UpdateIndicators(msg);
 
-        if(!_suppressFlowUpdate)
+        if (!_suppressFlowUpdate)
             TurbineFlowRateLabel.Text = Math.Round(msg.FlowRate).ToString();
-        if(!_suppressStatorUpdate)
+        if (!_suppressStatorUpdate)
             TurbineStatorLoadLabel.Text = Math.Round(msg.StatorLoad).ToString();
 
         var locktarget = _isMonitor ? _monitor : _turbine;

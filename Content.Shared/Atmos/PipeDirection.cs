@@ -17,8 +17,8 @@ namespace Content.Shared.Atmos
         //Half of a pipe in a direction
         North = 1 << 0,
         South = 1 << 1,
-        West  = 1 << 2,
-        East  = 1 << 3,
+        West = 1 << 2,
+        East = 1 << 3,
 
         //Straight pipes
         Longitudinal = North | South,
@@ -95,8 +95,8 @@ namespace Content.Shared.Atmos
             {
                 Direction.North => PipeDirection.North,
                 Direction.South => PipeDirection.South,
-                Direction.East  => PipeDirection.East,
-                Direction.West  => PipeDirection.West,
+                Direction.East => PipeDirection.East,
+                Direction.West => PipeDirection.West,
                 _ => throw new ArgumentOutOfRangeException(nameof(direction)),
             };
         }
@@ -107,8 +107,8 @@ namespace Content.Shared.Atmos
             {
                 PipeDirection.North => Direction.North,
                 PipeDirection.South => Direction.South,
-                PipeDirection.East  => Direction.East,
-                PipeDirection.West  => Direction.West,
+                PipeDirection.East => Direction.East,
+                PipeDirection.West => Direction.West,
                 _ => throw new ArgumentOutOfRangeException(nameof(pipeDirection)),
             };
         }
@@ -119,8 +119,8 @@ namespace Content.Shared.Atmos
             {
                 PipeDirection.North => PipeDirection.South,
                 PipeDirection.South => PipeDirection.North,
-                PipeDirection.East  => PipeDirection.West,
-                PipeDirection.West  => PipeDirection.East,
+                PipeDirection.East => PipeDirection.West,
+                PipeDirection.West => PipeDirection.East,
                 _ => throw new ArgumentOutOfRangeException(nameof(pipeDirection)),
             };
         }
@@ -129,25 +129,25 @@ namespace Content.Shared.Atmos
         {
             return pipeDirection switch
             {
-                PipeDirection.North         => PipeShape.Half,
-                PipeDirection.South         => PipeShape.Half,
-                PipeDirection.East          => PipeShape.Half,
-                PipeDirection.West          => PipeShape.Half,
+                PipeDirection.North => PipeShape.Half,
+                PipeDirection.South => PipeShape.Half,
+                PipeDirection.East => PipeShape.Half,
+                PipeDirection.West => PipeShape.Half,
 
-                PipeDirection.Lateral       => PipeShape.Straight,
-                PipeDirection.Longitudinal  => PipeShape.Straight,
+                PipeDirection.Lateral => PipeShape.Straight,
+                PipeDirection.Longitudinal => PipeShape.Straight,
 
-                PipeDirection.NEBend        => PipeShape.Bend,
-                PipeDirection.NWBend        => PipeShape.Bend,
-                PipeDirection.SEBend        => PipeShape.Bend,
-                PipeDirection.SWBend        => PipeShape.Bend,
+                PipeDirection.NEBend => PipeShape.Bend,
+                PipeDirection.NWBend => PipeShape.Bend,
+                PipeDirection.SEBend => PipeShape.Bend,
+                PipeDirection.SWBend => PipeShape.Bend,
 
-                PipeDirection.TNorth        => PipeShape.TJunction,
-                PipeDirection.TSouth        => PipeShape.TJunction,
-                PipeDirection.TEast         => PipeShape.TJunction,
-                PipeDirection.TWest         => PipeShape.TJunction,
+                PipeDirection.TNorth => PipeShape.TJunction,
+                PipeDirection.TSouth => PipeShape.TJunction,
+                PipeDirection.TEast => PipeShape.TJunction,
+                PipeDirection.TWest => PipeShape.TJunction,
 
-                PipeDirection.Fourway       => PipeShape.Fourway,
+                PipeDirection.Fourway => PipeShape.Fourway,
 
                 _ => throw new ArgumentOutOfRangeException(nameof(pipeDirection)),
             };
@@ -158,7 +158,7 @@ namespace Content.Shared.Atmos
             var newPipeDir = PipeDirection.None;
             for (var i = 0; i < PipeDirections; i++)
             {
-                var currentPipeDirection = (PipeDirection) (1 << i);
+                var currentPipeDirection = (PipeDirection)(1 << i);
                 if (!pipeDirection.HasFlag(currentPipeDirection)) continue;
                 var angle = currentPipeDirection.ToAngle();
                 angle += diff;

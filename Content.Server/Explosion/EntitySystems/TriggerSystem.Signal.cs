@@ -9,11 +9,11 @@ namespace Content.Server.Explosion.EntitySystems
         [Dependency] private DeviceLinkSystem _signalSystem = default!;
         private void InitializeSignal()
         {
-            SubscribeLocalEvent<TriggerOnSignalComponent,SignalReceivedEvent>(OnSignalReceived);
-            SubscribeLocalEvent<TriggerOnSignalComponent,ComponentInit>(OnInit);
+            SubscribeLocalEvent<TriggerOnSignalComponent, SignalReceivedEvent>(OnSignalReceived);
+            SubscribeLocalEvent<TriggerOnSignalComponent, ComponentInit>(OnInit);
 
-            SubscribeLocalEvent<TimerStartOnSignalComponent,SignalReceivedEvent>(OnTimerSignalReceived);
-            SubscribeLocalEvent<TimerStartOnSignalComponent,ComponentInit>(OnTimerSignalInit);
+            SubscribeLocalEvent<TimerStartOnSignalComponent, SignalReceivedEvent>(OnTimerSignalReceived);
+            SubscribeLocalEvent<TimerStartOnSignalComponent, ComponentInit>(OnTimerSignalInit);
         }
 
         private void OnSignalReceived(EntityUid uid, TriggerOnSignalComponent component, ref SignalReceivedEvent args)

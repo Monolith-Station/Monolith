@@ -71,7 +71,7 @@ public sealed partial class FTLDiskCommand : LocalizedCommands
             {
                 DebugTools.AssertNotNull(nullableDest);
 
-                dest = (EntityUid) nullableDest;
+                dest = (EntityUid)nullableDest;
 
                 // we need to go to a map, so check if the EntID is something else then try for its map
                 if (!_entManager.HasComponent<MapComponent>(dest))

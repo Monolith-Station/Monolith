@@ -1,4 +1,4 @@
-﻿using Content.Shared.Mech;
+using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Robust.Client.GameObjects;
@@ -24,7 +24,7 @@ public sealed partial class MechSystem : SharedMechSystem
         if (args.Sprite == null)
             return;
 
-        if (!args.Sprite.TryGetLayer((int) MechVisualLayers.Base, out var layer))
+        if (!args.Sprite.TryGetLayer((int)MechVisualLayers.Base, out var layer))
             return;
 
         var state = component.BaseState;
@@ -41,6 +41,6 @@ public sealed partial class MechSystem : SharedMechSystem
         }
 
         layer.SetState(state);
-        args.Sprite.DrawDepth = (int) drawDepth;
+        args.Sprite.DrawDepth = (int)drawDepth;
     }
 }

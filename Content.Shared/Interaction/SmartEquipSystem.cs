@@ -54,7 +54,8 @@ public sealed partial class SmartEquipSystem : EntitySystem
         CommandBinds.Unregister<SmartEquipSystem>();
     }
     // Mono, Partial Application of 2nd Argument
-    private StateInputCmdDelegate HandleSmartEquipPartial(string equipmentSlot) {
+    private StateInputCmdDelegate HandleSmartEquipPartial(string equipmentSlot)
+    {
         return (x) => HandleSmartEquip(x, equipmentSlot);
     }
     // Mono End
@@ -125,7 +126,7 @@ public sealed partial class SmartEquipSystem : EntitySystem
             }
 
             _hands.TryDrop(uid, hands.ActiveHand, handsComp: hands);
-            _inventory.TryEquip(uid, handItem.Value, equipmentSlot, predicted: true, checkDoafter:true);
+            _inventory.TryEquip(uid, handItem.Value, equipmentSlot, predicted: true, checkDoafter: true);
             return;
         }
 

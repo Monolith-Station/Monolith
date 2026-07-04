@@ -17,7 +17,7 @@ public sealed class ObjectiveLimitSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        if (Prototype(ent)?.ID is not {} proto)
+        if (Prototype(ent)?.ID is not { } proto)
         {
             Log.Error($"ObjectiveLimit used for non-prototyped objective {ent}");
             return;

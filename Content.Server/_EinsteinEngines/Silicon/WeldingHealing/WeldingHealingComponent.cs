@@ -18,7 +18,7 @@ namespace Content.Server._EinsteinEngines.Silicon.WeldingHealing
         [DataField(required: true)]
         public DamageSpecifier Damage;
 
-        [DataField(customTypeSerializer:typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
+        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
         public string QualityNeeded = "Welding";
 
         /// <summary>

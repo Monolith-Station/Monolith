@@ -7,6 +7,6 @@ namespace Content.Server.Explosion.Components;
 [RegisterComponent, Access(typeof(TriggerSystem))]
 public sealed partial class SpawnOnTriggerComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Proto = string.Empty;
 }

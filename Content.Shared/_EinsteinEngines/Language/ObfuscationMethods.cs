@@ -69,7 +69,7 @@ public sealed partial class SyllableObfuscation : ReplacementObfuscation
 
     internal override void Obfuscate(StringBuilder builder, string message, SharedLanguageSystem context)
     {
-        const char eof = (char) 0; // Special character to mark the end of the message in the code below.
+        const char eof = (char)0; // Special character to mark the end of the message in the code below.
 
         var wordBeginIndex = 0;
         var hashCode = 0;
@@ -160,7 +160,7 @@ public sealed partial class PhraseObfuscation : ReplacementObfuscation
             var length = i - sentenceBeginIndex;
             if (length > 0)
             {
-                var newLength = (int) Math.Clamp(Math.Pow(length, Proportion) - 1, MinPhrases, MaxPhrases);
+                var newLength = (int)Math.Clamp(Math.Pow(length, Proportion) - 1, MinPhrases, MaxPhrases);
 
                 for (var j = 0; j < newLength; j++)
                 {

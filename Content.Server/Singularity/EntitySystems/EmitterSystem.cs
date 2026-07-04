@@ -191,7 +191,7 @@ namespace Content.Server.Singularity.EntitySystems
 
         private void OnUpgradeExamine(EntityUid uid, EmitterComponent component, UpgradeExamineEvent args)
         {
-            args.AddPercentageUpgrade("emitter-component-upgrade-fire-rate", (float) (component.BaseFireInterval.TotalSeconds / component.FireInterval.TotalSeconds));
+            args.AddPercentageUpgrade("emitter-component-upgrade-fire-rate", (float)(component.BaseFireInterval.TotalSeconds / component.FireInterval.TotalSeconds));
         }
 
         public void SwitchOff(EntityUid uid, EmitterComponent component)

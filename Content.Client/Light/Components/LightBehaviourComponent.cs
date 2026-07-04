@@ -258,7 +258,7 @@ namespace Content.Client.Light.Components
             }
 
             _randomValue3 = _randomValue4;
-            _randomValue4 = (float)InterpolateLinear(StartValue, EndValue, (float) _random.NextDouble());
+            _randomValue4 = (float)InterpolateLinear(StartValue, EndValue, (float)_random.NextDouble());
         }
 
         public override (int KeyFrameIndex, float FramePlayingTime) AdvancePlayback(

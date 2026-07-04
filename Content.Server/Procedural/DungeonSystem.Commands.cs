@@ -172,7 +172,7 @@ public sealed partial class DungeonSystem
         }
 
         var mapId = new MapId(mapInt);
-        var mapUid =_maps.GetMapOrInvalid(mapId);
+        var mapUid = _maps.GetMapOrInvalid(mapId);
 
         if (!_prototype.TryIndex<DungeonPresetPrototype>(args[1], out var preset))
         {

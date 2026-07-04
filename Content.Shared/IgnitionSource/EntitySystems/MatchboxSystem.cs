@@ -12,7 +12,7 @@ public sealed partial class MatchboxSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MatchboxComponent, InteractUsingEvent>(OnInteractUsing, before: [ typeof(SharedStorageSystem) ]);
+        SubscribeLocalEvent<MatchboxComponent, InteractUsingEvent>(OnInteractUsing, before: [typeof(SharedStorageSystem)]);
     }
 
     private void OnInteractUsing(Entity<MatchboxComponent> ent, ref InteractUsingEvent args)

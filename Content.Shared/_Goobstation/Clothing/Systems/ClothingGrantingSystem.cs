@@ -6,6 +6,7 @@ using Robust.Shared.Serialization.Manager;
 using YamlDotNet.Core.Tokens;
 
 namespace Content.Shared._Goobstation.Clothing.Systems;
+
 public sealed partial class ClothingGrantingSystem : EntitySystem
 {
     [Dependency] private ISerializationManager _serializationManager = default!;
@@ -33,14 +34,14 @@ public sealed partial class ClothingGrantingSystem : EntitySystem
 
         foreach (var (name, data) in component.Components)
         {
-            var newComp = (Component) Factory.GetComponent(name);
+            var newComp = (Component)Factory.GetComponent(name);
 
             if (HasComp(args.Equipee, newComp.GetType()))
                 continue;
 
             object? temp = newComp;
             _serializationManager.CopyTo(data.Component, ref temp);
-            EntityManager.AddComponent(args.Equipee, (Component)temp!);
+            AddComp(args.Equipee, (Component)temp!);
 
             component.Active[name] = true; // Goobstation
         }
@@ -53,7 +54,7 @@ public sealed partial class ClothingGrantingSystem : EntitySystem
             if (!component.Active.TryGetValue(name, out _))
                 continue;
 
-            var newComp = (Component) Factory.GetComponent(name);
+            var newComp = (Component)Factory.GetComponent(name);
 
             RemComp(args.Equipee, newComp.GetType());
             component.Active[name] = false;

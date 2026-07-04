@@ -362,65 +362,66 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             var left = center + leftOffs;
             var right = center + rightOffs;
 
-            switch (_icon) {
+            switch (_icon)
+            {
                 case RadarModeButtonIcon.Azimuth:
-                {
-                    var iconColor = Color.Black.WithAlpha(0.95f);
-                    var topLeft = center + (up + leftOffs) / MathF.Sqrt(2f);
-                    var topRight = center + (up + rightOffs) / MathF.Sqrt(2f);
-                    var bottomLeft = center + (down + leftOffs) / MathF.Sqrt(2f);
-                    var bottomRight = center + (down + rightOffs) / MathF.Sqrt(2f);
-
-                    handle.DrawLine(topLeft, bottomRight, iconColor);
-                    handle.DrawLine(bottomLeft, topRight, iconColor);
-                    handle.DrawLine(left, right, iconColor);
-                    handle.DrawLine(bottom, top, iconColor);
-                    break;
-                }
-                case RadarModeButtonIcon.Rotation:
-                {
-                    var iconColor = Color.Yellow.WithAlpha(0.95f);
-                    var innerRatio = 0.8f;
-                    var segCount = 3;
-                    var prevOffs = up * innerRatio;
-                    for (var i = 0; i < segCount; i++)
                     {
-                        var angle = Angle.FromDegrees(120f * i / (float)segCount - 15f);
-                        var thisOffs = angle.RotateVec(up * innerRatio);
-                        var thisPointUp = center + thisOffs;
-                        var thisPointDown = center - thisOffs;
-                        var oldPointUp = center + prevOffs;
-                        var oldPointDown = center - prevOffs;
-                        handle.DrawLine(oldPointUp, thisPointUp, iconColor);
-                        handle.DrawLine(oldPointDown, thisPointDown, iconColor);
-                        prevOffs = thisOffs;
-                    }
-                    break;
-                }
-                case RadarModeButtonIcon.Anchor:
-                {
-                    var iconColor = Color.Blue.WithAlpha(0.95f);
-                    var stemTop = center + up * 0.5f;
-                    var crossLeft = center + leftOffs * 0.3f + up * 0.7f;
-                    var crossRight = center + rightOffs * 0.3f + up * 0.7f;;
-                    var leftFluke = center + leftOffs * 0.6f + down * 0.6f;
-                    var rightFluke = center + rightOffs * 0.6f + down * 0.6f;
-                    var innerRadius = radius * 0.4f;
-                    var innerTop = center + up * 0.6f;
+                        var iconColor = Color.Black.WithAlpha(0.95f);
+                        var topLeft = center + (up + leftOffs) / MathF.Sqrt(2f);
+                        var topRight = center + (up + rightOffs) / MathF.Sqrt(2f);
+                        var bottomLeft = center + (down + leftOffs) / MathF.Sqrt(2f);
+                        var bottomRight = center + (down + rightOffs) / MathF.Sqrt(2f);
 
-                    handle.DrawCircle(innerTop, innerRadius, iconColor, false);
-                    handle.DrawLine(stemTop, bottom, iconColor);
-                    handle.DrawLine(crossLeft, crossRight, iconColor);
-                    handle.DrawLine(bottom, leftFluke, iconColor);
-                    handle.DrawLine(bottom, rightFluke, iconColor);
-                    break;
-                }
+                        handle.DrawLine(topLeft, bottomRight, iconColor);
+                        handle.DrawLine(bottomLeft, topRight, iconColor);
+                        handle.DrawLine(left, right, iconColor);
+                        handle.DrawLine(bottom, top, iconColor);
+                        break;
+                    }
+                case RadarModeButtonIcon.Rotation:
+                    {
+                        var iconColor = Color.Yellow.WithAlpha(0.95f);
+                        var innerRatio = 0.8f;
+                        var segCount = 3;
+                        var prevOffs = up * innerRatio;
+                        for (var i = 0; i < segCount; i++)
+                        {
+                            var angle = Angle.FromDegrees(120f * i / (float)segCount - 15f);
+                            var thisOffs = angle.RotateVec(up * innerRatio);
+                            var thisPointUp = center + thisOffs;
+                            var thisPointDown = center - thisOffs;
+                            var oldPointUp = center + prevOffs;
+                            var oldPointDown = center - prevOffs;
+                            handle.DrawLine(oldPointUp, thisPointUp, iconColor);
+                            handle.DrawLine(oldPointDown, thisPointDown, iconColor);
+                            prevOffs = thisOffs;
+                        }
+                        break;
+                    }
+                case RadarModeButtonIcon.Anchor:
+                    {
+                        var iconColor = Color.Blue.WithAlpha(0.95f);
+                        var stemTop = center + up * 0.5f;
+                        var crossLeft = center + leftOffs * 0.3f + up * 0.7f;
+                        var crossRight = center + rightOffs * 0.3f + up * 0.7f; ;
+                        var leftFluke = center + leftOffs * 0.6f + down * 0.6f;
+                        var rightFluke = center + rightOffs * 0.6f + down * 0.6f;
+                        var innerRadius = radius * 0.4f;
+                        var innerTop = center + up * 0.6f;
+
+                        handle.DrawCircle(innerTop, innerRadius, iconColor, false);
+                        handle.DrawLine(stemTop, bottom, iconColor);
+                        handle.DrawLine(crossLeft, crossRight, iconColor);
+                        handle.DrawLine(bottom, leftFluke, iconColor);
+                        handle.DrawLine(bottom, rightFluke, iconColor);
+                        break;
+                    }
                 case RadarModeButtonIcon.Reset:
-                {
-                    var iconColor = Color.Red.WithAlpha(0.95f);
-                    handle.DrawLine(left, right, iconColor);
-                    break;
-                }
+                    {
+                        var iconColor = Color.Red.WithAlpha(0.95f);
+                        handle.DrawLine(left, right, iconColor);
+                        break;
+                    }
                 default:
                     break;
             }
@@ -1208,7 +1209,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             if (shieldFixture == null || shieldFixture.Shape is not ChainShape)
                 continue;
 
-            ChainShape chain = (ChainShape) shieldFixture.Shape;
+            ChainShape chain = (ChainShape)shieldFixture.Shape;
 
             var count = chain.Count;
             var verticies = chain.Vertices;

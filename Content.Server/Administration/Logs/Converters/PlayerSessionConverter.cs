@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using Robust.Shared.Player;
 
 namespace Content.Server.Administration.Logs.Converters;
@@ -19,12 +19,12 @@ public sealed class PlayerSessionConverter : AdminLogConverter<SerializablePlaye
     {
         writer.WriteStartObject();
 
-        if (value.Player.AttachedEntity is {Valid: true} playerEntity)
+        if (value.Player.AttachedEntity is { Valid: true } playerEntity)
         {
             if (!_entityManager.TryGetTarget(out var entityManager))
                 throw new InvalidOperationException("EntityManager got garbage collected!");
 
-            writer.WriteNumber("id", (int) value.Player.AttachedEntity);
+            writer.WriteNumber("id", (int)value.Player.AttachedEntity);
             writer.WriteString("name", entityManager.GetComponent<MetaDataComponent>(playerEntity).EntityName);
         }
 

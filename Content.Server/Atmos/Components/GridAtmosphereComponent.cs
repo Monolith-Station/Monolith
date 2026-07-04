@@ -26,7 +26,7 @@ namespace Content.Server.Atmos.Components
         public int UpdateCounter { get; set; } = 1; // DO NOT SET TO ZERO BY DEFAULT! It will break roundstart atmos...
 
         [ViewVariables]
-        [IncludeDataField(customTypeSerializer:typeof(TileAtmosCollectionSerializer))]
+        [IncludeDataField(customTypeSerializer: typeof(TileAtmosCollectionSerializer))]
         public Dictionary<Vector2i, TileAtmosphere> Tiles = new(1000);
 
         [ViewVariables]

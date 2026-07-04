@@ -1,4 +1,4 @@
-﻿using Content.Shared.DoAfter;
+using Content.Shared.DoAfter;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
@@ -10,7 +10,7 @@ public sealed partial class EarthDiggingDoAfterEvent : DoAfterEvent
 {
     public NetCoordinates Coordinates { get; set; }
 
-    private EarthDiggingDoAfterEvent(){}
+    private EarthDiggingDoAfterEvent() { }
 
     public EarthDiggingDoAfterEvent(NetCoordinates coordinates)
     {

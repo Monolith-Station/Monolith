@@ -43,7 +43,7 @@ public sealed partial class ClimbSystem : VirtualController
     [Dependency] private SharedTransformSystem _xformSystem = default!;
 
     private const string ClimbingFixtureName = "climb";
-    private const int ClimbingCollisionGroup = (int) (CollisionGroup.TableLayer | CollisionGroup.LowImpassable);
+    private const int ClimbingCollisionGroup = (int)(CollisionGroup.TableLayer | CollisionGroup.LowImpassable);
 
     private EntityQuery<ClimbableComponent> _climbableQuery;
     private EntityQuery<FixturesComponent> _fixturesQuery;
@@ -338,7 +338,7 @@ public sealed partial class ClimbSystem : VirtualController
                 uid,
                 new PhysShapeCircle(0.35f),
                 ClimbingFixtureName,
-                collisionLayer: (int) CollisionGroup.None,
+                collisionLayer: (int)CollisionGroup.None,
                 collisionMask: ClimbingCollisionGroup,
                 hard: false,
                 manager: fixturesComp))

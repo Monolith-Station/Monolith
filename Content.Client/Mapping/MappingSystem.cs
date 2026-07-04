@@ -18,12 +18,12 @@ public sealed partial class MappingSystem : EntitySystem
     /// <summary>
     ///     The icon to use for space tiles.
     /// </summary>
-    private readonly SpriteSpecifier _spaceIcon = new Texture(new ("Tiles/cropped_parallax.png"));
+    private readonly SpriteSpecifier _spaceIcon = new Texture(new("Tiles/cropped_parallax.png"));
 
     /// <summary>
     ///     The icon to use for entity-eraser.
     /// </summary>
-    private readonly SpriteSpecifier _deleteIcon = new Texture(new ("Interface/VerbIcons/delete.svg.192dpi.png"));
+    private readonly SpriteSpecifier _deleteIcon = new Texture(new("Interface/VerbIcons/delete.svg.192dpi.png"));
 
     public override void Initialize()
     {
@@ -135,7 +135,7 @@ public sealed partial class MappingSystem : EntitySystem
         {
             EntityType = args.EntityType,
             IsTile = args.TileId != null,
-            TileType = args.TileId != null ? _tileMan[args.TileId].TileId : (ushort) 0,
+            TileType = args.TileId != null ? _tileMan[args.TileId].TileId : (ushort)0,
             PlacementOption = args.PlacementOption,
         });
 

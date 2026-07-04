@@ -325,7 +325,7 @@ public sealed partial class ToggleableClothingSystem : EntitySystem
         // If it have more attached clothings, it'll open radial menu
         if (comp.ClothingUids.Count == 1)
             ToggleClothing(args.Performer, toggleable, comp.ClothingUids.First().Key);
-        else if(toggleable.Comp.UseRadialMenu)
+        else if (toggleable.Comp.UseRadialMenu)
             _uiSystem.OpenUi(toggleable.Owner, ToggleClothingUiKey.Key, args.Performer);
         else
             ToggleClothing(args.Performer, toggleable);

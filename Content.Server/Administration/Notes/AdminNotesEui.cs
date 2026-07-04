@@ -138,7 +138,7 @@ public sealed partial class AdminNotesEui : BaseEui
 
     private async Task LoadFromDb()
     {
-        var locatedPlayer = await _locator.LookupIdAsync((NetUserId) NotedPlayer);
+        var locatedPlayer = await _locator.LookupIdAsync((NetUserId)NotedPlayer);
         NotedPlayerName = locatedPlayer?.Username ?? string.Empty;
         HasConnectedBefore = locatedPlayer?.LastAddress is not null;
         Notes = (from note in await _notesMan.GetAllAdminRemarks(NotedPlayer)

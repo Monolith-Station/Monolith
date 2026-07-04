@@ -33,7 +33,7 @@ public static class ControlExtension
 
             if (isType)
             {
-                controlList.Add((T) child);
+                controlList.Add((T)child);
             }
 
             if (fullTreeSearch || searchDeeper)

@@ -47,8 +47,8 @@ namespace Content.Client.Flash
                 return;
 
             var curTime = _timing.CurTime;
-            var lastsFor = (float) (time.Value.Item2 - time.Value.Item1).TotalSeconds;
-            var timeDone = (float) (curTime - time.Value.Item1).TotalSeconds;
+            var lastsFor = (float)(time.Value.Item2 - time.Value.Item1).TotalSeconds;
+            var timeDone = (float)(curTime - time.Value.Item1).TotalSeconds;
 
             PercentComplete = timeDone / lastsFor;
         }

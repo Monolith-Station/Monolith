@@ -23,7 +23,7 @@ public sealed partial class RandomHumanoidSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<RandomHumanoidSpawnerComponent, MapInitEvent>(OnMapInit,
-            after: new []{ typeof(RandomMetadataSystem) });
+            after: new[] { typeof(RandomMetadataSystem) });
     }
 
     private void OnMapInit(EntityUid uid, RandomHumanoidSpawnerComponent component, MapInitEvent args)

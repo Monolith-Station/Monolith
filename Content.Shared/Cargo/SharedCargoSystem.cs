@@ -17,7 +17,7 @@ public enum CargoPalletConsoleUiKey : byte
     Sale
 }
 
-public abstract class SharedCargoSystem : EntitySystem {}
+public abstract class SharedCargoSystem : EntitySystem { }
 
 [Serializable, NetSerializable]
 public enum CargoTelepadState : byte

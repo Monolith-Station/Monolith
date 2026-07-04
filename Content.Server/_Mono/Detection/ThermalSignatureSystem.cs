@@ -132,7 +132,8 @@ public sealed partial class ThermalSignatureSystem : EntitySystem
             }
         }
 
-        foreach (var ent in _gridQueue) {
+        foreach (var ent in _gridQueue)
+        {
             ent.Comp.TotalHeat += ent.Comp.StoredHeat;
 
             // don't sync it if it didn't change heat much since last time, we don't need to sync 500 cold asteroids every system update

@@ -16,7 +16,7 @@ public sealed partial class HitscanBasicVisualsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HitscanBasicVisualsComponent, HitscanRaycastFiredEvent>(OnHitscanHit, before: [ typeof(HitscanReflectSystem) ]);
+        SubscribeLocalEvent<HitscanBasicVisualsComponent, HitscanRaycastFiredEvent>(OnHitscanHit, before: [typeof(HitscanReflectSystem)]);
     }
 
     private void OnHitscanHit(Entity<HitscanBasicVisualsComponent> hitscan, ref HitscanRaycastFiredEvent args)

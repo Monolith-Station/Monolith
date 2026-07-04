@@ -208,10 +208,10 @@ public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSys
             {
                 switch (encoded[i + 1])
                 {
-                    case 'n':  sb.Append('\n'); i++; break;
-                    case '|':  sb.Append('|');  i++; break;
+                    case 'n': sb.Append('\n'); i++; break;
+                    case '|': sb.Append('|'); i++; break;
                     case '\\': sb.Append('\\'); i++; break;
-                    default:   sb.Append(encoded[i]); break;
+                    default: sb.Append(encoded[i]); break;
                 }
             }
             else

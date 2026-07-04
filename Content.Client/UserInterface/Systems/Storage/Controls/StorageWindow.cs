@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Client.Hands.Systems;
@@ -656,7 +656,7 @@ public sealed partial class StorageWindow : BaseWindow
         if (StorageEntity != null)
             origin = _entity.GetComponent<StorageComponent>(StorageEntity.Value).Grid.GetBoundingBox().BottomLeft;
 
-        var textureSize = (Vector2) _emptyTexture!.Size * 2;
+        var textureSize = (Vector2)_emptyTexture!.Size * 2;
         var position = ((UserInterfaceManager.MousePositionScaled.Position
                          - _backgroundGrid.GlobalPosition
                          - ItemGridPiece.GetCenterOffset(entity, location, _entity) * 2

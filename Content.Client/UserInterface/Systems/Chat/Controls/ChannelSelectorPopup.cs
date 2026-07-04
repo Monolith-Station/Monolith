@@ -104,7 +104,7 @@ public sealed class ChannelSelectorPopup : Popup
 
     private void OnSelectorPressed(ButtonEventArgs args)
     {
-        var button = (ChannelSelectorItemButton) args.Button;
+        var button = (ChannelSelectorItemButton)args.Button;
         Select(button.Channel);
     }
 

@@ -19,11 +19,11 @@ namespace Content.Shared.SprayPainter;
 public abstract partial class SharedSprayPainterSystem : EntitySystem
 {
     [Dependency] protected IPrototypeManager Proto = default!;
-    [Dependency] private   ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] protected SharedAppearanceSystem Appearance = default!;
     [Dependency] protected SharedAudioSystem Audio = default!;
     [Dependency] protected SharedDoAfterSystem DoAfter = default!;
-    [Dependency] private   SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public List<AirlockStyle> Styles { get; private set; } = new();
     public List<AirlockGroupPrototype> Groups { get; private set; } = new();
@@ -63,7 +63,7 @@ public abstract partial class SharedSprayPainterSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
-        if (args.Args.Target is not {} target)
+        if (args.Args.Target is not { } target)
             return;
 
         if (!TryComp<PaintableAirlockComponent>(target, out var airlock))

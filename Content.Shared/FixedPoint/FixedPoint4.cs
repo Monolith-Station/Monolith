@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Linq;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -33,7 +33,7 @@ namespace Content.Shared.FixedPoint
 
         private readonly double ShiftDown()
         {
-            return Value / (double) ShiftConstant;
+            return Value / (double)ShiftConstant;
         }
 
         private FixedPoint4(long value)
@@ -49,7 +49,7 @@ namespace Content.Shared.FixedPoint
 
         public static FixedPoint4 New(float value)
         {
-            return new((long) ApplyFloatEpsilon(value * ShiftConstant));
+            return new((long)ApplyFloatEpsilon(value * ShiftConstant));
         }
 
         private static float ApplyFloatEpsilon(float value)
@@ -67,12 +67,12 @@ namespace Content.Shared.FixedPoint
         /// </summary>
         public static FixedPoint4 NewCeiling(float value)
         {
-            return new((long) MathF.Ceiling(value * ShiftConstant));
+            return new((long)MathF.Ceiling(value * ShiftConstant));
         }
 
         public static FixedPoint4 New(double value)
         {
-            return new((long) ApplyFloatEpsilon(value * ShiftConstant));
+            return new((long)ApplyFloatEpsilon(value * ShiftConstant));
         }
 
         public static FixedPoint4 New(string value)
@@ -97,12 +97,12 @@ namespace Content.Shared.FixedPoint
 
         public static FixedPoint4 operator *(FixedPoint4 a, float b)
         {
-            return new((long) ApplyFloatEpsilon(a.Value * b));
+            return new((long)ApplyFloatEpsilon(a.Value * b));
         }
 
         public static FixedPoint4 operator *(FixedPoint4 a, double b)
         {
-            return new((long) ApplyFloatEpsilon(a.Value * b));
+            return new((long)ApplyFloatEpsilon(a.Value * b));
         }
 
         public static FixedPoint4 operator *(FixedPoint4 a, long b)
@@ -112,12 +112,12 @@ namespace Content.Shared.FixedPoint
 
         public static FixedPoint4 operator /(FixedPoint4 a, FixedPoint4 b)
         {
-            return new((long) (ShiftConstant * (long) a.Value / b.Value));
+            return new((long)(ShiftConstant * (long)a.Value / b.Value));
         }
 
         public static FixedPoint4 operator /(FixedPoint4 a, float b)
         {
-            return new((long) ApplyFloatEpsilon(a.Value / b));
+            return new((long)ApplyFloatEpsilon(a.Value / b));
         }
 
         public static bool operator <=(FixedPoint4 a, long b)
@@ -182,7 +182,7 @@ namespace Content.Shared.FixedPoint
 
         public readonly float Float()
         {
-            return (float) ShiftDown();
+            return (float)ShiftDown();
         }
 
         public readonly double Double()

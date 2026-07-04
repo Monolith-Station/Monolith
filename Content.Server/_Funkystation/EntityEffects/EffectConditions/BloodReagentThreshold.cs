@@ -20,21 +20,21 @@ public sealed partial class BloodReagentThreshold : EntityEffectCondition
     public string? Reagent = null;
     public override bool Condition(EntityEffectBaseArgs args)
     {
-        if (Reagent is null) 
-			return true;
+        if (Reagent is null)
+            return true;
 
-		if (!args.EntityManager.TryGetComponent<BloodstreamComponent>(args.TargetEntity, out var blood))
-			return true;
+        if (!args.EntityManager.TryGetComponent<BloodstreamComponent>(args.TargetEntity, out var blood))
+            return true;
 
-		if (!args.EntityManager.System<SharedSolutionContainerSystem>()
-				.ResolveSolution(args.TargetEntity, blood.ChemicalSolutionName, ref blood.ChemicalSolution, out var chemSolution))
-			return true;
+        if (!args.EntityManager.System<SharedSolutionContainerSystem>()
+                .ResolveSolution(args.TargetEntity, blood.ChemicalSolutionName, ref blood.ChemicalSolution, out var chemSolution))
+            return true;
 
-		var reagentID = new ReagentId(Reagent, null);
-		if (!chemSolution.TryGetReagentQuantity(reagentID, out var reagentQuant))
-			return true;
+        var reagentID = new ReagentId(Reagent, null);
+        if (!chemSolution.TryGetReagentQuantity(reagentID, out var reagentQuant))
+            return true;
 
-		return reagentQuant > Min && reagentQuant < Max;
+        return reagentQuant > Min && reagentQuant < Max;
         throw new NotImplementedException();
     }
 
@@ -46,7 +46,7 @@ public sealed partial class BloodReagentThreshold : EntityEffectCondition
 
         return Loc.GetString("reagent-effect-condition-guidebook-blood-reagent-threshold",
             ("reagent", reagentProto?.LocalizedName ?? Loc.GetString("reagent-effect-condition-guidebook-this-reagent")),
-            ("max", Max == FixedPoint2.MaxValue ? (float) int.MaxValue : Max.Float()),
+            ("max", Max == FixedPoint2.MaxValue ? (float)int.MaxValue : Max.Float()),
             ("min", Min.Float()));
     }
 }

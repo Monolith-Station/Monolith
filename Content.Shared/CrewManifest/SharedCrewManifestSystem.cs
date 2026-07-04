@@ -69,4 +69,4 @@ public sealed class CrewManifestEntry
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class CrewManifestOpenUiMessage : BoundUserInterfaceMessage
-{}
+{ }

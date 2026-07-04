@@ -82,7 +82,7 @@ namespace Content.Shared.Interaction
             if (!_actionBlockerSystem.CanChangeDirection(user))
                 return false;
 
-            if (TryComp(user, out BuckleComponent? buckle) && buckle.BuckledTo is {} strap)
+            if (TryComp(user, out BuckleComponent? buckle) && buckle.BuckledTo is { } strap)
             {
                 // What if a person is strapped to a borg?
                 // I'm pretty sure this would allow them to be partially ratatouille'd

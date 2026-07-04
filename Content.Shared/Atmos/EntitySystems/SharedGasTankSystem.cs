@@ -14,12 +14,12 @@ namespace Content.Shared.Atmos.EntitySystems;
 
 public abstract partial class SharedGasTankSystem : EntitySystem
 {
-    [Dependency] private   SharedActionsSystem _actions = default!;
-    [Dependency] private   SharedAudioSystem _audio = default!;
-    [Dependency] private   SharedContainerSystem _containers = default!;
-    [Dependency] private   SharedInternalsSystem _internals = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private SharedInternalsSystem _internals = default!;
     [Dependency] protected SharedUserInterfaceSystem UI = default!;
-    [Dependency] private   UseDelaySystem _delay = default!;
+    [Dependency] private UseDelaySystem _delay = default!;
 
     public const string GasTankDelay = "gasTank";
 

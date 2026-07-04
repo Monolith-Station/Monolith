@@ -54,15 +54,15 @@ namespace Content.Client.Kitchen.UI
 
             _menu.OnCookTimeSelected += (args, buttonIndex) =>
             {
-                var selectedCookTime = (uint) 0;
+                var selectedCookTime = (uint)0;
 
                 if (args.Button is MicrowaveMenu.MicrowaveCookTimeButton microwaveCookTimeButton)
                 {
                     // args.Button is a MicrowaveCookTimeButton
-                    var actualButton = (MicrowaveMenu.MicrowaveCookTimeButton) args.Button;
+                    var actualButton = (MicrowaveMenu.MicrowaveCookTimeButton)args.Button;
                     selectedCookTime = actualButton.CookTime == 0 ? 0 : actualButton.CookTime;
                     // SendMessage(new MicrowaveSelectCookTimeMessage((int) selectedCookTime / 5, actualButton.CookTime));
-                    SendPredictedMessage(new MicrowaveSelectCookTimeMessage((int) selectedCookTime / 5, actualButton.CookTime));
+                    SendPredictedMessage(new MicrowaveSelectCookTimeMessage((int)selectedCookTime / 5, actualButton.CookTime));
 
                     _menu.CookTimeInfoLabel.Text = Loc.GetString("microwave-bound-user-interface-cook-time-label",
                                                                     ("time", selectedCookTime));
@@ -70,7 +70,7 @@ namespace Content.Client.Kitchen.UI
                 else
                 {
                     // args.Button is a normal button aka instant cook button
-                    SendPredictedMessage(new MicrowaveSelectCookTimeMessage((int) selectedCookTime, 0));
+                    SendPredictedMessage(new MicrowaveSelectCookTimeMessage((int)selectedCookTime, 0));
 
                     _menu.CookTimeInfoLabel.Text = Loc.GetString("microwave-bound-user-interface-cook-time-label",
                                                          ("time", Loc.GetString("microwave-menu-instant-button")));
@@ -117,7 +117,7 @@ namespace Content.Client.Kitchen.UI
             }
             else
             {
-                var currentlySelectedTimeButton = (Button) _menu.CookTimeButtonVbox.GetChild(cState.ActiveButtonIndex - 1);
+                var currentlySelectedTimeButton = (Button)_menu.CookTimeButtonVbox.GetChild(cState.ActiveButtonIndex - 1);
                 currentlySelectedTimeButton.Pressed = true;
             }
 

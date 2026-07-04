@@ -63,11 +63,11 @@ public sealed partial class ChaoticJumpSystem : VirtualController
         if (rayCastResults != null)
         {
             targetPos = rayCastResults.Value.HitPos;
-            targetPos = new Vector2(targetPos.X - (float) Math.Cos(direction), targetPos.Y - (float) Math.Sin(direction)); //offset so that the teleport does not take place directly inside the target
+            targetPos = new Vector2(targetPos.X - (float)Math.Cos(direction), targetPos.Y - (float)Math.Sin(direction)); //offset so that the teleport does not take place directly inside the target
         }
         else
         {
-            targetPos = new Vector2(startPos.X + range * (float) Math.Cos(direction), startPos.Y + range * (float) Math.Sin(direction));
+            targetPos = new Vector2(startPos.X + range * (float)Math.Cos(direction), startPos.Y + range * (float)Math.Sin(direction));
         }
 
         Spawn(component.Effect, transform.Coordinates);

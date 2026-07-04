@@ -31,7 +31,7 @@ public sealed partial class ArtifactSystem
 
         _usedNodeIds.Clear();
 
-        var uninitializedNodes = new List<ArtifactNode> { new(){ Id = GetValidNodeId() } };
+        var uninitializedNodes = new List<ArtifactNode> { new() { Id = GetValidNodeId() } };
         var createdNodes = 1;
 
         while (uninitializedNodes.Count > 0)
@@ -51,7 +51,7 @@ public sealed partial class ArtifactSystem
                     break;
                 }
 
-                var child = new ArtifactNode {Id = GetValidNodeId(), Depth = node.Depth + 1};
+                var child = new ArtifactNode { Id = GetValidNodeId(), Depth = node.Depth + 1 };
                 node.Edges.Add(child.Id);
                 child.Edges.Add(node.Id);
 
@@ -182,7 +182,7 @@ public sealed partial class ArtifactSystem
                 EntityManager.RemoveComponent(uid, reg.Type);
             }
 
-            var comp = (Component) Factory.GetComponent(reg);
+            var comp = (Component)Factory.GetComponent(reg);
 
             var temp = (object)comp;
             _serialization.CopyTo(entry.Component, ref temp);
@@ -217,7 +217,7 @@ public sealed partial class ArtifactSystem
             // if the entity prototype contained the component originally
             if (entityPrototype?.Components.TryGetComponent(name, out var entry) ?? false)
             {
-                var comp = (Component) Factory.GetComponent(name);
+                var comp = (Component)Factory.GetComponent(name);
                 var temp = (object)comp;
                 _serialization.CopyTo(entry, ref temp);
                 EntityManager.RemoveComponent(uid, temp!.GetType());

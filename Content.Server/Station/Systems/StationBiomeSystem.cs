@@ -6,6 +6,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Station.Systems;
+
 public sealed partial class StationBiomeSystem : EntitySystem
 {
     [Dependency] private BiomeSystem _biome = default!;

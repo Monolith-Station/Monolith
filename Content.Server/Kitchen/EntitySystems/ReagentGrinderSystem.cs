@@ -66,12 +66,12 @@ namespace Content.Server.Kitchen.EntitySystems
             SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderStartMessage>(OnStartMessage);
             SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderEjectChamberAllMessage>(OnEjectChamberAllMessage);
             SubscribeLocalEvent<ReagentGrinderComponent, ReagentGrinderEjectChamberContentMessage>(OnEjectChamberContentMessage);
-			SubscribeLocalEvent<ReagentGrinderComponent, ContainerDoAfterEvent>(OnContainerDoAfter); // Mono
+            SubscribeLocalEvent<ReagentGrinderComponent, ContainerDoAfterEvent>(OnContainerDoAfter); // Mono
         }
 
         private void OnToggleAutoModeMessage(Entity<ReagentGrinderComponent> entity, ref ReagentGrinderToggleAutoModeMessage message)
         {
-            entity.Comp.AutoMode = (GrinderAutoMode) (((byte) entity.Comp.AutoMode + 1) % Enum.GetValues(typeof(GrinderAutoMode)).Length);
+            entity.Comp.AutoMode = (GrinderAutoMode)(((byte)entity.Comp.AutoMode + 1) % Enum.GetValues(typeof(GrinderAutoMode)).Length);
 
             UpdateUiState(entity);
         }
@@ -114,7 +114,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
                         // Maximum number of items we can process in the stack without going over AvailableVolume
                         // We add a small tolerance, because floats are inaccurate.
-                        var fitsCount = (int) (stack.Count * FixedPoint2.Min(containerSolution.AvailableVolume / totalVolume + 0.01, 1));
+                        var fitsCount = (int)(stack.Count * FixedPoint2.Min(containerSolution.AvailableVolume / totalVolume + 0.01, 1));
                         if (fitsCount <= 0)
                             continue;
 
@@ -231,7 +231,7 @@ namespace Content.Server.Kitchen.EntitySystems
             var ratingStorage = args.PartRatings[entity.Comp.MachinePartStorageMax];
 
             entity.Comp.WorkTimeMultiplier = MathF.Pow(entity.Comp.PartRatingWorkTimerMulitplier, ratingWorkTime - 1);
-            entity.Comp.StorageMaxEntities = entity.Comp.BaseStorageMaxEntities + (int) (entity.Comp.StoragePerPartRating * (ratingStorage - 1));
+            entity.Comp.StorageMaxEntities = entity.Comp.BaseStorageMaxEntities + (int)(entity.Comp.StoragePerPartRating * (ratingStorage - 1));
         }
 
         private void OnUpgradeExamine(Entity<ReagentGrinderComponent> entity, ref UpgradeExamineEvent args)
@@ -314,7 +314,7 @@ namespace Content.Server.Kitchen.EntitySystems
             }
         }
 
-		// Mono start: Plant bag dump, credit to imatsoup
+        // Mono start: Plant bag dump, credit to imatsoup
         /// <summary>
         /// DoAfter function for interacting with the grinder with an item with a storage component.
         /// Moves any Extractable items from the storage of the held item to the grinder's container.
@@ -332,7 +332,7 @@ namespace Content.Server.Kitchen.EntitySystems
             if (storage.StoredItems.Count == 0)
                 return;
 
-			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Items/handling/backpack_equip.ogg"), comp.Owner, AudioParams.Default.WithVolume(-6f)); //Mono: Edited, not from port
+            _audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Items/handling/backpack_equip.ogg"), comp.Owner, AudioParams.Default.WithVolume(-6f)); //Mono: Edited, not from port
 
             var inputContainer = _containerSystem.EnsureContainer<Container>(comp.Owner, SharedReagentGrinder.InputContainerId);
 
@@ -358,7 +358,7 @@ namespace Content.Server.Kitchen.EntitySystems
             args.Handled = true;
 
         }
-		// Mono end
+        // Mono end
 
         /// <summary>
         /// The wzhzhzh of the grinder. Processes the contents of the grinder and puts the output in the beaker.

@@ -3,6 +3,7 @@ using Content.Shared.UserInterface;
 using Content.Shared.Access.Components;
 
 namespace Content.Shared.Access.Systems;
+
 public sealed partial class ActivatableUIRequiresAccessSystem : EntitySystem
 {
     [Dependency] private AccessReaderSystem _access = default!;

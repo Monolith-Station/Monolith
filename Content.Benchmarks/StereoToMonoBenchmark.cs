@@ -27,7 +27,7 @@ namespace Content.Benchmarks
             for (var j = 0; j < l; j++)
             {
                 var k = j + l;
-                _output[j] = (short) ((_input[k] + _input[j]) / 2);
+                _output[j] = (short)((_input[k] + _input[j]) / 2);
             }
         }
 

@@ -156,7 +156,7 @@ public sealed partial class DiscordChatLink : IPostInjectInit
                 // Check for "ao:" prefix to determine if message should be admin-only
                 var adminOnly = false;
                 var processedContents = contents;
-                
+
                 if (contents.StartsWith("ao:", StringComparison.OrdinalIgnoreCase))
                 {
                     adminOnly = true;

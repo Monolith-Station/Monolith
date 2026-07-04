@@ -61,12 +61,12 @@ public sealed partial class ItemStatusPanel : Control
 
         Contents.Margin = contentMargin;
 
-        var panel = (StyleBoxTexture) Panel.PanelOverride!;
+        var panel = (StyleBoxTexture)Panel.PanelOverride!;
         panel.Texture = texture;
         panel.SetPatchMargin(flat, 4);
         panel.SetPatchMargin(cutOut, 7);
 
-        var panelHighlight = (StyleBoxTexture) HighlightPanel.PanelOverride!;
+        var panelHighlight = (StyleBoxTexture)HighlightPanel.PanelOverride!;
         panelHighlight.Texture = textureHighlight;
         panelHighlight.SetPatchMargin(flat, 4);
         panelHighlight.SetPatchMargin(cutOut, 7);

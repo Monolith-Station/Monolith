@@ -33,7 +33,7 @@ namespace Content.Client.Administration.UI.ManageSolutions
 
         public override void HandleState(EuiStateBase baseState)
         {
-            var state = (EditSolutionsEuiState) baseState;
+            var state = (EditSolutionsEuiState)baseState;
             _window.SetState(state);
         }
     }

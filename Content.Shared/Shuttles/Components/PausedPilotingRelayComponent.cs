@@ -11,4 +11,4 @@ public sealed partial class PausedPilotingRelayComponent : Component
 {
     [DataField]
     public EntityUid RelayTarget;
-} 
+}

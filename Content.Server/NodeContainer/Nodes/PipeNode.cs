@@ -47,7 +47,7 @@ namespace Content.Server.NodeContainer.Nodes
             _alwaysReachable.Add(pipeNode);
 
             if (NodeGroup != null)
-                IoCManager.Resolve<IEntityManager>().System<NodeGroupSystem>().QueueRemakeGroup((BaseNodeGroup) NodeGroup);
+                IoCManager.Resolve<IEntityManager>().System<NodeGroupSystem>().QueueRemakeGroup((BaseNodeGroup)NodeGroup);
         }
 
         public void RemoveAlwaysReachable(PipeNode pipeNode)
@@ -57,7 +57,7 @@ namespace Content.Server.NodeContainer.Nodes
             _alwaysReachable.Remove(pipeNode);
 
             if (NodeGroup != null)
-                IoCManager.Resolve<IEntityManager>().System<NodeGroupSystem>().QueueRemakeGroup((BaseNodeGroup) NodeGroup);
+                IoCManager.Resolve<IEntityManager>().System<NodeGroupSystem>().QueueRemakeGroup((BaseNodeGroup)NodeGroup);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Content.Server.NodeContainer.Nodes
                 _connectionsEnabled = value;
 
                 if (NodeGroup != null)
-                    IoCManager.Resolve<IEntityManager>().System<NodeGroupSystem>().QueueRemakeGroup((BaseNodeGroup) NodeGroup);
+                    IoCManager.Resolve<IEntityManager>().System<NodeGroupSystem>().QueueRemakeGroup((BaseNodeGroup)NodeGroup);
             }
         }
 
@@ -91,7 +91,7 @@ namespace Content.Server.NodeContainer.Nodes
         ///     The <see cref="IPipeNet"/> this pipe is a part of.
         /// </summary>
         [ViewVariables]
-        private IPipeNet? PipeNet => (IPipeNet?) NodeGroup;
+        private IPipeNet? PipeNet => (IPipeNet?)NodeGroup;
 
         /// <summary>
         ///     The gases in this pipe.
@@ -193,7 +193,7 @@ namespace Content.Server.NodeContainer.Nodes
 
             for (var i = 0; i < PipeDirectionHelpers.PipeDirections; i++)
             {
-                var pipeDir = (PipeDirection) (1 << i);
+                var pipeDir = (PipeDirection)(1 << i);
 
                 if (!CurrentPipeDirection.HasDirection(pipeDir))
                     continue;

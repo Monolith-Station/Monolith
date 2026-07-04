@@ -1,4 +1,4 @@
-﻿using Lidgren.Network;
+using Lidgren.Network;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
@@ -26,7 +26,7 @@ namespace Content.Shared.Administration
             {
                 var active = buffer.ReadBoolean();
                 buffer.ReadPadBits();
-                var flags = (AdminFlags) buffer.ReadUInt32();
+                var flags = (AdminFlags)buffer.ReadUInt32();
                 var title = buffer.ReadString();
                 var shortTitle = buffer.ReadString(); // Mono
 
@@ -56,7 +56,7 @@ namespace Content.Shared.Administration
 
             buffer.Write(Admin.Active);
             buffer.WritePadBits();
-            buffer.Write((uint) Admin.Flags);
+            buffer.Write((uint)Admin.Flags);
             buffer.Write(Admin.Title);
             buffer.Write(Admin.ShortTitle); // Mono
         }

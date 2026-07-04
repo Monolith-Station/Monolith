@@ -184,7 +184,7 @@ public sealed partial class StatValuesCommand : IConsoleCommand
                 continue;
             }
 
-            var comp = (MeleeWeaponComponent) meleeComp.Component;
+            var comp = (MeleeWeaponComponent)meleeComp.Component;
 
             // TODO: Wielded damage
             // TODO: Esword damage
@@ -267,7 +267,7 @@ public sealed partial class StatValuesCommand : IConsoleCommand
                 continue;
             }
 
-            var comp = (ApcPowerReceiverComponent) powerConsumer.Component;
+            var comp = (ApcPowerReceiverComponent)powerConsumer.Component;
 
             if (comp.Load == 0)
                 continue;

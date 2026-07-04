@@ -19,21 +19,21 @@ namespace Content.Shared.Tools.Systems;
 
 public abstract partial class SharedToolSystem : EntitySystem
 {
-    [Dependency] private   IMapManager _mapManager = default!;
-    [Dependency] private   IPrototypeManager _protoMan = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] protected ISharedAdminLogManager AdminLogger = default!;
-    [Dependency] private   ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private   SharedAudioSystem _audioSystem = default!;
-    [Dependency] private   SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] protected SharedInteractionSystem InteractionSystem = default!;
     [Dependency] protected ItemToggleSystem ItemToggle = default!;
-    [Dependency] private   SharedMapSystem _maps = default!;
-    [Dependency] private   SharedPopupSystem _popup = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] protected SharedSolutionContainerSystem SolutionContainerSystem = default!;
-    [Dependency] private   SharedTransformSystem _transformSystem = default!;
-    [Dependency] private   TileSystem _tiles = default!;
-    [Dependency] private   TurfSystem _turfs = default!;
-    [Dependency] private   UseDelaySystem _delay = default!; // Goobstation
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private TileSystem _tiles = default!;
+    [Dependency] private TurfSystem _turfs = default!;
+    [Dependency] private UseDelaySystem _delay = default!; // Goobstation
 
     public const string CutQuality = "Cutting";
     public const string PulseQuality = "Pulsing";
@@ -56,10 +56,10 @@ public abstract partial class SharedToolSystem : EntitySystem
         ev.DoAfter = args.DoAfter;
 
         if (args.OriginalTarget != null)
-            RaiseLocalEvent(GetEntity(args.OriginalTarget.Value), (object) ev);
+            RaiseLocalEvent(GetEntity(args.OriginalTarget.Value), (object)ev);
         else
-            RaiseLocalEvent((object) ev);
-            
+            RaiseLocalEvent((object)ev);
+
         if (TryComp(uid, out UseDelayComponent? delay)) // Goobstation
             _delay.TryResetDelay((uid, delay));
     }
@@ -323,7 +323,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     [Serializable, NetSerializable]
     protected sealed partial class LatticeCuttingCompleteEvent : DoAfterEvent
     {
-        [DataField(required:true)]
+        [DataField(required: true)]
         public NetCoordinates Coordinates;
 
         private LatticeCuttingCompleteEvent()

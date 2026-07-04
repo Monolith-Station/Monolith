@@ -61,13 +61,13 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             // If the analyzer is running, its remaining time is further discounted by the time it's been running for.
             remaining += start - _timing.CurTime;
         }
-        var secsText = Math.Max((int) remaining.TotalSeconds, 0);
+        var secsText = Math.Max((int)remaining.TotalSeconds, 0);
 
         ProgressLabel.Text = Loc.GetString("analysis-console-progress-text",
             ("seconds", secsText));
 
         // 1.0 - div because we want it to tick up not down
-        ProgressBar.Value = Math.Clamp(1.0f - (float) remaining.Divide(total), 0.0f, 1.0f);
+        ProgressBar.Value = Math.Clamp(1.0f - (float)remaining.Divide(total), 0.0f, 1.0f);
     }
 
     public void SetButtonsDisabled(AnalysisConsoleUpdateState state)

@@ -5,4 +5,4 @@ namespace Content.Shared.IgnoreHumanoids;
 /// </summary>
 [RegisterComponent]
 public sealed partial class IgnoreHumanoidsOverlayComponent : Component
-{}
+{ }

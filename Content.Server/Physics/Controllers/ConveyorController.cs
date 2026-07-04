@@ -44,7 +44,7 @@ public sealed partial class ConveyorController : SharedConveyorController
             shape.SetAsBox(0.55f, 0.55f);
 
             _fixtures.TryCreateFixture(uid, shape, ConveyorFixture,
-                collisionLayer: (int) (CollisionGroup.LowImpassable | CollisionGroup.MidImpassable |
+                collisionLayer: (int)(CollisionGroup.LowImpassable | CollisionGroup.MidImpassable |
                                        CollisionGroup.Impassable), hard: false, body: physics);
 
         }

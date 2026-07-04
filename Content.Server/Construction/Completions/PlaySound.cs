@@ -21,7 +21,7 @@ namespace Content.Server.Construction.Completions
 
         public void PerformAction(EntityUid uid, EntityUid? userUid, IEntityManager entityManager)
         {
-            var scale = (float) IoCManager.Resolve<IRobustRandom>().NextGaussian(1, Variation);
+            var scale = (float)IoCManager.Resolve<IRobustRandom>().NextGaussian(1, Variation);
             if (entityManager.TryGetComponent<TransformComponent>(uid, out var xform))
                 entityManager.EntitySysManager.GetEntitySystem<SharedAudioSystem>()
                 .PlayPvs(Sound, xform.Coordinates, AudioParams.WithPitchScale(scale));

@@ -10,7 +10,7 @@ public sealed partial class PulledPrecondition : HTNPrecondition
 {
     private PullingSystem _pulling = default!;
 
-    [ViewVariables(VVAccess.ReadWrite)] [DataField("isPulled")] public bool IsPulled = true;
+    [ViewVariables(VVAccess.ReadWrite)][DataField("isPulled")] public bool IsPulled = true;
 
     public override void Initialize(IEntitySystemManager sysManager)
     {

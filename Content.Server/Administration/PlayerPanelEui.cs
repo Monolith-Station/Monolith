@@ -92,7 +92,7 @@ public sealed partial class PlayerPanelEui : BaseEui
 
                 if (_entity.HasComponent<AdminFrozenComponent>(session.AttachedEntity))
                 {
-                    _adminLog.Add(LogType.Action,$"{Player:actor} unfroze {_entity.ToPrettyString(session.AttachedEntity):subject}");
+                    _adminLog.Add(LogType.Action, $"{Player:actor} unfroze {_entity.ToPrettyString(session.AttachedEntity):subject}");
                     _entity.RemoveComponent<AdminFrozenComponent>(session.AttachedEntity.Value);
                     SetPlayerState();
                     return;
@@ -100,12 +100,12 @@ public sealed partial class PlayerPanelEui : BaseEui
 
                 if (freezeMsg.Mute)
                 {
-                    _adminLog.Add(LogType.Action,$"{Player:actor} froze and muted {_entity.ToPrettyString(session.AttachedEntity):subject}");
+                    _adminLog.Add(LogType.Action, $"{Player:actor} froze and muted {_entity.ToPrettyString(session.AttachedEntity):subject}");
                     frozenSystem.FreezeAndMute(session.AttachedEntity.Value);
                 }
                 else
                 {
-                    _adminLog.Add(LogType.Action,$"{Player:actor} froze {_entity.ToPrettyString(session.AttachedEntity):subject}");
+                    _adminLog.Add(LogType.Action, $"{Player:actor} froze {_entity.ToPrettyString(session.AttachedEntity):subject}");
                     _entity.EnsureComponent<AdminFrozenComponent>(session.AttachedEntity.Value);
                 }
                 SetPlayerState();
@@ -129,7 +129,7 @@ public sealed partial class PlayerPanelEui : BaseEui
 
                 if (msg is PlayerPanelRejuvenationMessage)
                 {
-                    _adminLog.Add(LogType.Action,$"{Player:actor} rejuvenated {_entity.ToPrettyString(session.AttachedEntity):subject}");
+                    _adminLog.Add(LogType.Action, $"{Player:actor} rejuvenated {_entity.ToPrettyString(session.AttachedEntity):subject}");
                     if (!_entity.TrySystem<RejuvenateSystem>(out var rejuvenate))
                         return;
 
@@ -137,7 +137,7 @@ public sealed partial class PlayerPanelEui : BaseEui
                 }
                 else
                 {
-                    _adminLog.Add(LogType.Action,$"{Player:actor} deleted {_entity.ToPrettyString(session.AttachedEntity):subject}");
+                    _adminLog.Add(LogType.Action, $"{Player:actor} deleted {_entity.ToPrettyString(session.AttachedEntity):subject}");
                     _entity.DeleteEntity(session.AttachedEntity);
                 }
                 break;
@@ -168,8 +168,8 @@ public sealed partial class PlayerPanelEui : BaseEui
 
         _sharedConnections = _player.Sessions.Count(s => s.Channel.RemoteEndPoint.Address.Equals(_targetPlayer.LastAddress) && s.UserId != _targetPlayer.UserId);
 
-    // Apparently the Bans flag is also used for whitelists
-    if (_admins.HasAdminFlag(Player, AdminFlags.Ban))
+        // Apparently the Bans flag is also used for whitelists
+        if (_admins.HasAdminFlag(Player, AdminFlags.Ban))
         {
             _whitelisted = await _db.GetWhitelistStatusAsync(_targetPlayer.UserId);
             // This won't get associated ip or hwid bans but they were not placed on this account anyways

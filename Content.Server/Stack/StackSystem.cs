@@ -248,7 +248,7 @@ namespace Content.Server.Stack
                 return;
             }
 
-            if (Split(uid, amount, userTransform.Coordinates, stack) is not {} split)
+            if (Split(uid, amount, userTransform.Coordinates, stack) is not { } split)
                 return;
 
             Hands.PickupOrDrop(userUid, split);

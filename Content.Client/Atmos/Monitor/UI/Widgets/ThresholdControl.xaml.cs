@@ -128,21 +128,21 @@ public sealed partial class ThresholdControl : BoxContainer
         switch (alarm)
         {
             case AtmosAlarmType.Danger:
-            {
-                if (bound == AtmosMonitorThresholdBound.Upper)
-                    upperDangerState = alarm;
-                else
-                    lowerDangerState = alarm;
-                break;
-            }
+                {
+                    if (bound == AtmosMonitorThresholdBound.Upper)
+                        upperDangerState = alarm;
+                    else
+                        lowerDangerState = alarm;
+                    break;
+                }
             case AtmosAlarmType.Warning:
-            {
-                if (bound == AtmosMonitorThresholdBound.Upper)
-                    upperWarningState = alarm;
-                else
-                    lowerWarningState = alarm;
-                break;
-            }
+                {
+                    if (bound == AtmosMonitorThresholdBound.Upper)
+                        upperWarningState = alarm;
+                    else
+                        lowerWarningState = alarm;
+                    break;
+                }
         }
 
         _upperBoundControl.SetValue(threshold.UpperBound.Value);

@@ -40,7 +40,7 @@ namespace Content.Shared.Tabletop
                 return;
 
             // Move the entity and dirty it (we use the map ID from the entity so noone can try to be funny and move the item to another map)
-            var transform = EntityManager.GetComponent<TransformComponent>(moved);
+            var transform = Comp<TransformComponent>(moved);
             Transforms.SetParent(moved, transform, _mapMan.GetMapEntityId(transform.MapID));
             Transforms.SetLocalPositionNoLerp(transform, msg.Coordinates.Position);
         }
@@ -61,12 +61,12 @@ namespace Content.Shared.Tabletop
             if (draggableComponent.DraggingPlayer != null)
             {
                 _appearance.SetData(dragged, TabletopItemVisuals.Scale, new Vector2(1.25f, 1.25f), appearance);
-                _appearance.SetData(dragged, TabletopItemVisuals.DrawDepth, (int) DrawDepth.DrawDepth.Items + 1, appearance);
+                _appearance.SetData(dragged, TabletopItemVisuals.DrawDepth, (int)DrawDepth.DrawDepth.Items + 1, appearance);
             }
             else
             {
                 _appearance.SetData(dragged, TabletopItemVisuals.Scale, Vector2.One, appearance);
-                _appearance.SetData(dragged, TabletopItemVisuals.DrawDepth, (int) DrawDepth.DrawDepth.Items, appearance);
+                _appearance.SetData(dragged, TabletopItemVisuals.DrawDepth, (int)DrawDepth.DrawDepth.Items, appearance);
             }
         }
 

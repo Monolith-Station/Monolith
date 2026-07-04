@@ -58,7 +58,7 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
         GetPalletGoods(gridUid, comp, out var toSell, out var amount);
 
         _uiSystem.SetUiState(uid, ContrabandPalletConsoleUiKey.Contraband,
-            new ContrabandPalletConsoleInterfaceState((int) amount, toSell.Count, true));
+            new ContrabandPalletConsoleInterfaceState((int)amount, toSell.Count, true));
     }
 
     private void OnPalletUIOpen(EntityUid uid, ContrabandPalletConsoleComponent component, BoundUIOpenedEvent args)

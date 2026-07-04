@@ -16,7 +16,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Medical.Cryogenics;
 
-public abstract partial class SharedCryoPodSystem: EntitySystem
+public abstract partial class SharedCryoPodSystem : EntitySystem
 {
     [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private StandingStateSystem _standingStateSystem = default!;
@@ -115,7 +115,7 @@ public abstract partial class SharedCryoPodSystem: EntitySystem
         if (!Resolve(uid, ref cryoPodComponent))
             return null;
 
-        if (cryoPodComponent.BodyContainer.ContainedEntity is not {Valid: true} contained)
+        if (cryoPodComponent.BodyContainer.ContainedEntity is not { Valid: true } contained)
             return null;
 
         _containerSystem.Remove(contained, cryoPodComponent.BodyContainer);

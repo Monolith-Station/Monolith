@@ -47,7 +47,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
         ///     Ignored if heater.
         /// </summary>
         [DataField, AutoNetworkedField]
-		[GuidebookData]
+        [GuidebookData]
         public float MinTemperature = 73.15f;
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
         ///     Ignored if freezer.
         /// </summary>
         [DataField, AutoNetworkedField]
-		[GuidebookData]
+        [GuidebookData]
         public float MaxTemperature = 593.15f;
 
         /// <summary>
@@ -68,8 +68,8 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
         /// An percentage of the energy change that is leaked into the surrounding environment rather than the inlet pipe.
         /// </summary>
         [DataField]
-		[GuidebookData]
-       	public float EnergyLeakPercentage;
+        [GuidebookData]
+        public float EnergyLeakPercentage;
 
         /// <summary>
         /// If true, heat is exclusively exchanged with the local atmosphere instead of the inlet pipe air

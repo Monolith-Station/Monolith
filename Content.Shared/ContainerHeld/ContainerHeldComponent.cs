@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.ContainerHeld;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class ContainerHeldComponent: Component
+public sealed partial class ContainerHeldComponent : Component
 {
     /// <summary>
     ///     The amount of weight needed to be in the container

@@ -1,4 +1,4 @@
-﻿using Content.Shared.Chemistry;
+using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
@@ -55,7 +55,7 @@ public sealed partial class ChemistryGuideDataSystem : SharedChemistryGuideDataS
 
         foreach (var (id, proto) in reagents.Modified)
         {
-            var reagentProto = (ReagentPrototype) proto;
+            var reagentProto = (ReagentPrototype)proto;
             var entry = new ReagentGuideEntry(reagentProto, PrototypeManager, EntityManager.EntitySysManager);
             changeset.GuideEntries.Add(id, entry);
             Registry[id] = entry;

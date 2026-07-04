@@ -1,4 +1,4 @@
-﻿using System.Collections.Frozen;
+using System.Collections.Frozen;
 using System.Linq;
 using System.Text;
 using System.Text.Unicode;
@@ -26,7 +26,7 @@ public sealed class SimpleCensor : IChatCensor
     private string[] _falseNegatives = Array.Empty<string>();
 
     // What unicode ranges are allowed? If this array is empty, don't filter by range.
-    private UnicodeRange[] _allowedUnicodeRanges= Array.Empty<UnicodeRange>();
+    private UnicodeRange[] _allowedUnicodeRanges = Array.Empty<UnicodeRange>();
 
     /// <summary>
     /// Censors the input string.
@@ -91,10 +91,10 @@ public sealed class SimpleCensor : IChatCensor
             if (_shouldSanitizeLeetspeak || _shouldSanitizeSpecialCharacters)
             {
                 // detect "()"
-                if (originalInput[i] == '(' && i != originalInput.Length - 1 && originalInput[i+1] == ')')
+                if (originalInput[i] == '(' && i != originalInput.Length - 1 && originalInput[i + 1] == ')')
                 {
                     // censored has now had "o" replaced with "o) so both strings line up again..."
-                    censored.Insert(i+1, censored[i] != replaceWith ? ')' : replaceWith);
+                    censored.Insert(i + 1, censored[i] != replaceWith ? ')' : replaceWith);
                 }
             }
 
@@ -180,13 +180,13 @@ public sealed class SimpleCensor : IChatCensor
             var endOfFoundWord = 0;
             var foundIndex = input.IndexOf(word, endOfFoundWord, StringComparison.OrdinalIgnoreCase);
 
-            while(foundIndex > -1)
+            while (foundIndex > -1)
             {
                 endOfFoundWord = foundIndex + wordLength;
 
                 for (var i = 0; i < wordLength; i++)
                 {
-                    censored[foundIndex+i] = replaceWith;
+                    censored[foundIndex + i] = replaceWith;
                 }
 
                 foundIndex = input.IndexOf(word, endOfFoundWord, StringComparison.OrdinalIgnoreCase);
@@ -209,7 +209,7 @@ public sealed class SimpleCensor : IChatCensor
             var endOfFoundWord = 0;
             var foundIndex = input.IndexOf(word, endOfFoundWord, StringComparison.OrdinalIgnoreCase);
 
-            while(foundIndex > -1)
+            while (foundIndex > -1)
             {
                 endOfFoundWord = foundIndex + wordLength;
 

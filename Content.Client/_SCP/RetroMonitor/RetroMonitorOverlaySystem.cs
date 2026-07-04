@@ -30,11 +30,13 @@ public sealed partial class RetroMonitorOverlaySystem : EntitySystem
     private void OnPlayerAttached(Entity<RetroMonitorViewComponent> ent, ref LocalPlayerAttachedEvent args)
     {
         // Mono - check for cvar
-        if(!_cfg.GetCVar(DCCVars.NoVisionFilters)){
+        if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
+        {
             _overlayManager.AddOverlay(_overlay);
 
             _grain.RemoveOverlay();
-            _vignette.RemoveOverlay();}
+            _vignette.RemoveOverlay();
+        }
     }
 
     private void OnPlayerDetached(Entity<RetroMonitorViewComponent> ent, ref LocalPlayerDetachedEvent args)

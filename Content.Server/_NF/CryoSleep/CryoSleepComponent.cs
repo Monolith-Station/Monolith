@@ -3,6 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 
 namespace Content.Server._NF.CryoSleep;
+
 [RegisterComponent]
 public sealed partial class CryoSleepComponent : Component
 {

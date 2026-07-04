@@ -9,13 +9,13 @@ namespace Content.Shared.Decals
     {
         // if these are made not-readonly, then decal grid state handling needs to be updated to clone decals.
         [DataField("coordinates")] public Vector2 Coordinates = Vector2.Zero;
-        [DataField("id")] public  string Id = string.Empty;
-        [DataField("color")] public  Color? Color;
-        [DataField("angle")] public  Angle Angle = Angle.Zero;
-        [DataField("zIndex")] public  int ZIndex;
-        [DataField("cleanable")] public  bool Cleanable;
+        [DataField("id")] public string Id = string.Empty;
+        [DataField("color")] public Color? Color;
+        [DataField("angle")] public Angle Angle = Angle.Zero;
+        [DataField("zIndex")] public int ZIndex;
+        [DataField("cleanable")] public bool Cleanable;
 
-        public Decal() {}
+        public Decal() { }
 
         public Decal(Vector2 coordinates, string id, Color? color, Angle angle, int zIndex, bool cleanable)
         {

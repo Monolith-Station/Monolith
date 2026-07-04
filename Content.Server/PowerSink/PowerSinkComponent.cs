@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Audio;
+using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.PowerSink
@@ -20,7 +20,7 @@ namespace Content.Server.PowerSink
         /// <summary>
         /// If explosion has been triggered, time at which to explode.
         /// </summary>
-        [DataField("explosionTime", customTypeSerializer:typeof(TimeOffsetSerializer))]
+        [DataField("explosionTime", customTypeSerializer: typeof(TimeOffsetSerializer))]
         [AutoPausedField]
         public System.TimeSpan? ExplosionTime = null;
 
@@ -34,7 +34,8 @@ namespace Content.Server.PowerSink
         [DataField("chargeFireSound")]
         public SoundSpecifier ChargeFireSound = new SoundPathSpecifier("/Audio/Effects/PowerSink/charge_fire.ogg");
 
-        [DataField("electricSound")] public SoundSpecifier ElectricSound =
+        [DataField("electricSound")]
+        public SoundSpecifier ElectricSound =
             new SoundPathSpecifier("/Audio/Effects/PowerSink/electric.ogg")
             {
                 Params = AudioParams.Default

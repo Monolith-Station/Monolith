@@ -173,7 +173,7 @@ public sealed partial class EyeLerpingSystem : EntitySystem
 
     public override void FrameUpdate(float frameTime)
     {
-        var tickFraction = (float) _gameTiming.TickFraction / ushort.MaxValue;
+        var tickFraction = (float)_gameTiming.TickFraction / ushort.MaxValue;
         const double lerpMinimum = 0.00001;
         var query = AllEntityQuery<LerpingEyeComponent, EyeComponent, TransformComponent>();
 

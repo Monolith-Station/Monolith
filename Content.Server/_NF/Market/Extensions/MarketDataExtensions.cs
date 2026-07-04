@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared._NF.Market;
 using Robust.Shared.Prototypes;
 
@@ -82,6 +82,6 @@ public static class MarketDataExtensions
         if (dataList.Count <= 0)
             return 0;
 
-        return dataList.Sum(marketData => (int) Math.Round(marketData.Price * marketData.Quantity * marketModifier));
+        return dataList.Sum(marketData => (int)Math.Round(marketData.Price * marketData.Quantity * marketModifier));
     }
 }

@@ -14,7 +14,7 @@ public sealed class SuitSensorStatus
         Job = job;
         JobIcon = jobIcon;
         JobDepartments = jobDepartments;
-		LocationName = locationName;
+        LocationName = locationName;
     }
 
     public TimeSpan Timestamp;
@@ -26,9 +26,9 @@ public sealed class SuitSensorStatus
     public bool IsAlive;
     public int? TotalDamage;
     public int? TotalDamageThreshold;
-    public float? DamagePercentage => TotalDamageThreshold == null || TotalDamage == null ? null : TotalDamage / (float) TotalDamageThreshold;
+    public float? DamagePercentage => TotalDamageThreshold == null || TotalDamage == null ? null : TotalDamage / (float)TotalDamageThreshold;
     public NetCoordinates? Coordinates;
-	public string LocationName;
+    public string LocationName;
 }
 
 [Serializable, NetSerializable]
@@ -66,7 +66,7 @@ public static class SuitSensorConstants
     public const string NET_TOTAL_DAMAGE_THRESHOLD = "vitalsThreshold";
     public const string NET_COORDINATES = "coords";
     public const string NET_SUIT_SENSOR_UID = "uid";
-	public const string NET_LOCATION_NAME = "location"; // Frontier modification
+    public const string NET_LOCATION_NAME = "location"; // Frontier modification
 
     ///Used by the CrewMonitoringServerSystem to send the status of all connected suit sensors to each crew monitor
     public const string NET_STATUS_COLLECTION = "suit-status-collection";

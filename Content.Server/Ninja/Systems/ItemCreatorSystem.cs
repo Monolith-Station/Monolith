@@ -24,7 +24,7 @@ public sealed partial class ItemCreatorSystem : SharedItemCreatorSystem
     private void OnCreateItem(Entity<ItemCreatorComponent> ent, ref CreateItemEvent args)
     {
         var (uid, comp) = ent;
-        if (comp.Battery is not {} battery)
+        if (comp.Battery is not { } battery)
             return;
 
         args.Handled = true;

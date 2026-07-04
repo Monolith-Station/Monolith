@@ -30,7 +30,7 @@ public sealed partial class FloatingVisualizerSystem : SharedFloatingVisualizerS
         var animation = new Animation
         {
             // We multiply by the number of extra keyframes to make time for them
-            Length = TimeSpan.FromSeconds(animationTime*2),
+            Length = TimeSpan.FromSeconds(animationTime * 2),
             AnimationTracks =
             {
                 new AnimationTrackComponentProperty

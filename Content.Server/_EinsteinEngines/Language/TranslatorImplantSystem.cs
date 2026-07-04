@@ -44,7 +44,7 @@ public sealed partial class TranslatorImplantSystem : EntitySystem
         // Even though the description of this event says it gets raised BEFORE reparenting, that's actually false...
         component.Enabled = component.SpokenRequirementSatisfied = component.UnderstoodRequirementSatisfied = false;
 
-        if (TryComp<SubdermalImplantComponent>(uid, out var subdermal) && subdermal.ImplantedEntity is { Valid: true} implantee)
+        if (TryComp<SubdermalImplantComponent>(uid, out var subdermal) && subdermal.ImplantedEntity is { Valid: true } implantee)
             _language.UpdateEntityLanguages(implantee);
     }
 

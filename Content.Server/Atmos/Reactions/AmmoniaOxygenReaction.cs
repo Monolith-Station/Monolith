@@ -15,8 +15,8 @@ public sealed partial class AmmoniaOxygenReaction : IGasReactionEffect
         var nTotal = mixture.TotalMoles;
 
         // Concentration-dependent reaction rate
-        var fAmmonia = nAmmonia/nTotal;
-        var fOxygen = nOxygen/nTotal;
+        var fAmmonia = nAmmonia / nTotal;
+        var fOxygen = nOxygen / nTotal;
         var rate = MathF.Pow(fAmmonia, 2) * MathF.Pow(fOxygen, 2);
 
         var deltaMoles = nAmmonia / Atmospherics.AmmoniaOxygenReactionRate * 2 * rate;

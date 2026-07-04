@@ -228,7 +228,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// [3] Offset of the center along the y axis
     /// </remarks>
     [DataField]
-    public int[] Gridbounds = [ 18, 15, 0, 5 ];
+    public int[] Gridbounds = [18, 15, 0, 5];
 
     #region Pipe Connections
     /// <summary>

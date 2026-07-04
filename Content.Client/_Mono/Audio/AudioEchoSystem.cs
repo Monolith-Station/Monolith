@@ -62,7 +62,7 @@ public sealed partial class AreaEchoSystem : EntitySystem
     /// <summary>
     ///     Collision mask for echoes.
     /// </summary>
-    private int _echoLayer = (int) (CollisionGroup.Opaque | CollisionGroup.Impassable); // this could be better but whatever
+    private int _echoLayer = (int)(CollisionGroup.Opaque | CollisionGroup.Impassable); // this could be better but whatever
 
     private int _echoMaxReflections;
     private bool _echoEnabled = true;
@@ -400,8 +400,8 @@ public sealed partial class AreaEchoSystem : EntitySystem
         for (; incrementedRayMagnitude < rayMagnitude;)
         {
             var nextCheckedTilePosition = new Vector2i(
-                (int) MathF.Floor(nextCheckedPosition.X / gridTileSize),
-                (int) MathF.Floor(nextCheckedPosition.Y / gridTileSize)
+                (int)MathF.Floor(nextCheckedPosition.X / gridTileSize),
+                (int)MathF.Floor(nextCheckedPosition.Y / gridTileSize)
             );
 
             if (checkRoof)

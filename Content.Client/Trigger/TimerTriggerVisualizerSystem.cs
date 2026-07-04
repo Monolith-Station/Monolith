@@ -19,7 +19,8 @@ public sealed partial class TimerTriggerVisualizerSystem : VisualizerSystem<Time
 
     private void OnComponentInit(EntityUid uid, TimerTriggerVisualsComponent comp, ComponentInit args)
     {
-        comp.PrimingAnimation = new Animation {
+        comp.PrimingAnimation = new Animation
+        {
             Length = TimeSpan.MaxValue,
             AnimationTracks = {
                 new AnimationTrackSpriteFlick() {
@@ -32,7 +33,8 @@ public sealed partial class TimerTriggerVisualizerSystem : VisualizerSystem<Time
         if (comp.PrimingSound != null)
         {
             comp.PrimingAnimation.AnimationTracks.Add(
-                new AnimationTrackPlaySound() {
+                new AnimationTrackPlaySound()
+                {
                     KeyFrames = { new AnimationTrackPlaySound.KeyFrame(_audioSystem.ResolveSound(comp.PrimingSound), 0) }
                 }
             );
@@ -42,7 +44,7 @@ public sealed partial class TimerTriggerVisualizerSystem : VisualizerSystem<Time
     protected override void OnAppearanceChange(EntityUid uid, TimerTriggerVisualsComponent comp, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null
-        ||  !TryComp<AnimationPlayerComponent>(uid, out var animPlayer))
+        || !TryComp<AnimationPlayerComponent>(uid, out var animPlayer))
             return;
 
         if (!AppearanceSystem.TryGetData<TriggerVisualState>(uid, TriggerVisuals.VisualState, out var state, args.Component))

@@ -29,7 +29,7 @@ public interface IGridSpawnGroup
     /// <summary>
     /// Maximum distance to spawn away from the station.
     /// </summary>
-    public float MaximumDistance { get;  }
+    public float MaximumDistance { get; }
 
     /// <inheritdoc />
     public ProtoId<LocalizedDatasetPrototype>? NameDataset { get; }

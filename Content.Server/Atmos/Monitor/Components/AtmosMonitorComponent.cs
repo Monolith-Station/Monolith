@@ -42,7 +42,7 @@ public sealed partial class AtmosMonitorComponent : Component
     public bool MonitorFire = false;
 
     [DataField("gasThresholdPrototypes",
-        customTypeSerializer:typeof(PrototypeIdValueDictionarySerializer<Gas, AtmosAlarmThresholdPrototype>))]
+        customTypeSerializer: typeof(PrototypeIdValueDictionarySerializer<Gas, AtmosAlarmThresholdPrototype>))]
     public Dictionary<Gas, string>? GasThresholdPrototypes;
 
     [DataField("gasThresholds")]

@@ -12,8 +12,8 @@ namespace Content.Shared.Atmos.Piping.Unary.Systems;
 public abstract partial class SharedGasCanisterSystem : EntitySystem
 {
     [Dependency] protected ISharedAdminLogManager AdminLogger = default!;
-    [Dependency] private   ItemSlotsSystem _slots = default!;
-    [Dependency] private   SharedAppearanceSystem _appearance = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] protected SharedUserInterfaceSystem UI = default!;
 
     public override void Initialize()

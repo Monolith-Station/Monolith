@@ -83,7 +83,7 @@ namespace Content.Shared.Popups
         /// <param name="message">The message to display.</param>
         /// <param name="uid">The UID of the entity.</param>
         /// <param name="type">Used to customize how this popup should appear visually.</param>
-        public abstract void PopupEntity(string? message, EntityUid uid, PopupType type=PopupType.Small);
+        public abstract void PopupEntity(string? message, EntityUid uid, PopupType type = PopupType.Small);
 
         /// <summary>
         ///     Variant of <see cref="PopupEntity(string, EntityUid, PopupType)"/> that shows the popup only to some specific client.

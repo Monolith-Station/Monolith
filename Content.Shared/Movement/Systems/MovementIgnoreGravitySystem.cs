@@ -1,4 +1,4 @@
-﻿using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Robust.Shared.GameStates;
 
@@ -23,7 +23,7 @@ public sealed class MovementIgnoreGravitySystem : EntitySystem
         if (args.Next is null)
             return;
 
-        component.Weightless = ((MovementIgnoreGravityComponentState) args.Next).Weightless;
+        component.Weightless = ((MovementIgnoreGravityComponentState)args.Next).Weightless;
     }
 
     private void GetState(EntityUid uid, MovementIgnoreGravityComponent component, ref ComponentGetState args)

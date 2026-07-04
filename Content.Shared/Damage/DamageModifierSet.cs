@@ -31,7 +31,7 @@ namespace Content.Shared.Damage
         /// Used mainly for species modifier sets.
         /// </summary>
         [DataField(customTypeSerializer: typeof(FlagSerializer<ArmorPierceFlags>))]
-        public int IgnoreArmorPierceFlags = (int) PartialArmorPierceFlags.None;
+        public int IgnoreArmorPierceFlags = (int)PartialArmorPierceFlags.None;
     }
 
     // Goobstation start

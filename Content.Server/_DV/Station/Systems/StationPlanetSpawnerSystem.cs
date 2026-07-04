@@ -17,7 +17,7 @@ public sealed partial class StationPlanetSpawnerSystem : EntitySystem
 
     private void OnMapInit(Entity<StationPlanetSpawnerComponent> ent, ref MapInitEvent args)
     {
-        if (ent.Comp.GridPath is not {} path)
+        if (ent.Comp.GridPath is not { } path)
             return;
 
         ent.Comp.Map = _planet.LoadPlanet(ent.Comp.Planet, path);

@@ -20,13 +20,13 @@ namespace Content.Client.Stack
 
         public void SetMax(int max)
         {
-          _max = max;
-          MaximumAmount.Text = Loc.GetString("comp-stack-split-size", ("size", _max));
+            _max = max;
+            MaximumAmount.Text = Loc.GetString("comp-stack-split-size", ("size", _max));
         }
 
         private void OnValueChanged(LineEdit.LineEditEventArgs args)
         {
-            if (!int.TryParse(AmountLineEdit.Text, out var amount)  || amount > _max || amount < _min)
+            if (!int.TryParse(AmountLineEdit.Text, out var amount) || amount > _max || amount < _min)
                 ApplyButton.Disabled = true;
             else
                 ApplyButton.Disabled = false;

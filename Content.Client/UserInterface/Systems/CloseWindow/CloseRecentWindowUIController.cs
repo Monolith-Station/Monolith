@@ -38,7 +38,7 @@ public sealed partial class CloseRecentWindowUIController : UIController
     public void CloseMostRecentWindow()
     {
         // Search backwards through the recency list to find a still open window and close it
-        for (int i=recentlyInteractedWindows.Count-1; i>=0; i--)
+        for (int i = recentlyInteractedWindows.Count - 1; i >= 0; i--)
         {
             var window = recentlyInteractedWindows[i];
             recentlyInteractedWindows.RemoveAt(i); // Should always be removed as either the reference is stale or we're closing it
@@ -79,14 +79,14 @@ public sealed partial class CloseRecentWindowUIController : UIController
         // Search through the list and see if already added.
         // (This search is backwards since it's fairly common that the user is clicking the same
         // window multiple times in a row, and so that saves a tiny bit of perf doing it this way)
-        for (int i=recentlyInteractedWindows.Count-1; i>=0; i--)
+        for (int i = recentlyInteractedWindows.Count - 1; i >= 0; i--)
         {
             if (recentlyInteractedWindows[i] == window)
             {
                 // Window already in the list
 
                 // Is window the top most recent entry?
-                if (i == recentlyInteractedWindows.Count-1)
+                if (i == recentlyInteractedWindows.Count - 1)
                     return; // Then there's nothing to do, it's already in the right spot
                 else
                 {
@@ -107,7 +107,7 @@ public sealed partial class CloseRecentWindowUIController : UIController
             return null;
 
         if (control is BaseWindow)
-            return (BaseWindow) control;
+            return (BaseWindow)control;
 
         // Go up the hierarchy until we find a window (or don't)
         return GetWindowForControl(control.Parent);
@@ -118,7 +118,7 @@ public sealed partial class CloseRecentWindowUIController : UIController
         if (control is BaseWindow)
         {
             // On new window open, add to tracking
-            SetMostRecentlyInteractedWindow((BaseWindow) control);
+            SetMostRecentlyInteractedWindow((BaseWindow)control);
         }
     }
 

@@ -36,7 +36,7 @@ namespace Content.Client.Power.APC
         {
             base.UpdateState(state);
 
-            var castState = (ApcBoundInterfaceState) state;
+            var castState = (ApcBoundInterfaceState)state;
             _menu?.UpdateState(castState);
         }
 

@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -42,10 +42,10 @@ public abstract partial class SharedMapTextComponent : Component
 [Serializable, NetSerializable]
 public sealed class MapTextComponentState : ComponentState
 {
-    public string? Text { get; init;}
-    public LocId LocText { get; init;}
-    public Color Color { get; init;}
+    public string? Text { get; init; }
+    public LocId LocText { get; init; }
+    public Color Color { get; init; }
     public string FontId { get; init; } = default!;
-    public int FontSize { get; init;}
-    public Vector2 Offset { get; init;}
+    public int FontSize { get; init; }
+    public Vector2 Offset { get; init; }
 }

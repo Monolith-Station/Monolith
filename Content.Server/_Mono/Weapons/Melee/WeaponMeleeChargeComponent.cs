@@ -22,5 +22,5 @@ public sealed partial class WeaponMeleeChargeComponent : Component
     public TimeSpan ActiveEndTime = TimeSpan.Zero;
 
     [DataField]
-    public DamageSpecifier CooldownDamagePenalty =  new DamageSpecifier();
+    public DamageSpecifier CooldownDamagePenalty = new DamageSpecifier();
 }

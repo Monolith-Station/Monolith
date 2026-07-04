@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Administration.Managers;
 using Content.Server.Database;
@@ -96,40 +96,40 @@ namespace Content.Server.Administration.UI
             switch (msg)
             {
                 case AddAdmin ca:
-                {
-                    await HandleCreateAdmin(ca);
-                    break;
-                }
+                    {
+                        await HandleCreateAdmin(ca);
+                        break;
+                    }
 
                 case UpdateAdmin ua:
-                {
-                    await HandleUpdateAdmin(ua);
-                    break;
-                }
+                    {
+                        await HandleUpdateAdmin(ua);
+                        break;
+                    }
 
                 case RemoveAdmin ra:
-                {
-                    await HandleRemoveAdmin(ra);
-                    break;
-                }
+                    {
+                        await HandleRemoveAdmin(ra);
+                        break;
+                    }
 
                 case AddAdminRank ar:
-                {
-                    await HandleAddAdminRank(ar);
-                    break;
-                }
+                    {
+                        await HandleAddAdminRank(ar);
+                        break;
+                    }
 
                 case UpdateAdminRank ur:
-                {
-                    await HandleUpdateAdminRank(ur);
-                    break;
-                }
+                    {
+                        await HandleUpdateAdminRank(ur);
+                        break;
+                    }
 
                 case RemoveAdminRank ra:
-                {
-                    await HandleRemoveAdminRank(ra);
-                    break;
-                }
+                    {
+                        await HandleRemoveAdminRank(ra);
+                        break;
+                    }
             }
 
             if (!IsShutDown)
@@ -425,14 +425,14 @@ namespace Content.Server.Administration.UI
             var negFlagList = AdminFlagsHelper.FlagsToNames(negFlags);
 
             return posFlagList
-                .Select(f => new AdminFlag {Negative = false, Flag = f})
-                .Concat(negFlagList.Select(f => new AdminFlag {Negative = true, Flag = f}))
+                .Select(f => new AdminFlag { Negative = false, Flag = f })
+                .Concat(negFlagList.Select(f => new AdminFlag { Negative = true, Flag = f }))
                 .ToList();
         }
 
         private static List<AdminRankFlag> GenRankFlagList(AdminFlags flags)
         {
-            return AdminFlagsHelper.FlagsToNames(flags).Select(f => new AdminRankFlag {Flag = f}).ToList();
+            return AdminFlagsHelper.FlagsToNames(flags).Select(f => new AdminRankFlag { Flag = f }).ToList();
         }
 
         private bool UserAdminFlagCheck(AdminFlags flags)

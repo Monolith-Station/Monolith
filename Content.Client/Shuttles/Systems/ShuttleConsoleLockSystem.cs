@@ -28,7 +28,7 @@ public sealed class ShuttleConsoleLockSystem : SharedShuttleConsoleLockSystem
     {
         base.OnUIOpenAttempt(uid, component, args);
 
-        if(Timing.IsFirstTimePredicted && args.Cancelled)
+        if (Timing.IsFirstTimePredicted && args.Cancelled)
             Popup.PopupEntity(Loc.GetString("shuttle-console-locked"), uid, args.User);
     }
 }

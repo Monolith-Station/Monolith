@@ -4,7 +4,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Mono.ScuttleDevice;
 
 [Serializable, NetSerializable]
-public sealed partial class ScuttleArmDoAfterEvent : SimpleDoAfterEvent {}
+public sealed partial class ScuttleArmDoAfterEvent : SimpleDoAfterEvent { }
 
 [Serializable, NetSerializable]
-public sealed partial class ScuttleDisarmDoAfterEvent : SimpleDoAfterEvent {}
+public sealed partial class ScuttleDisarmDoAfterEvent : SimpleDoAfterEvent { }

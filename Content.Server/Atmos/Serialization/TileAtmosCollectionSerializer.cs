@@ -26,7 +26,7 @@ public sealed partial class TileAtmosCollectionSerializer : ITypeSerializer<Dict
         ISerializationManager.InstantiationDelegate<Dictionary<Vector2i, TileAtmosphere>>? instanceProvider = null)
     {
         node.TryGetValue("version", out var versionNode);
-        var version = ((ValueDataNode?) versionNode)?.AsInt() ?? 1;
+        var version = ((ValueDataNode?)versionNode)?.AsInt() ?? 1;
         Dictionary<Vector2i, TileAtmosphere> tiles = new();
 
         // Backwards compatability
@@ -56,7 +56,7 @@ public sealed partial class TileAtmosCollectionSerializer : ITypeSerializer<Dict
         }
         else
         {
-            var dataNode = (MappingDataNode) node["data"];
+            var dataNode = (MappingDataNode)node["data"];
             var chunkSize = serializationManager.Read<int>(dataNode["chunkSize"], hookCtx, context);
 
             dataNode.TryGet("uniqueMixes", out var mixNode);
@@ -64,7 +64,7 @@ public sealed partial class TileAtmosCollectionSerializer : ITypeSerializer<Dict
 
             if (unique != null)
             {
-                var tileNode = (MappingDataNode) dataNode["tiles"];
+                var tileNode = (MappingDataNode)dataNode["tiles"];
                 foreach (var (chunkNode, valueNode) in tileNode)
                 {
                     var chunkOrigin = serializationManager.Read<Vector2i>(tileNode.GetKeyNode(chunkNode), hookCtx, context);
@@ -76,7 +76,7 @@ public sealed partial class TileAtmosCollectionSerializer : ITypeSerializer<Dict
                         {
                             for (var y = 0; y < chunkSize; y++)
                             {
-                                var flag = data & (uint) (1 << (x + y * chunkSize));
+                                var flag = data & (uint)(1 << (x + y * chunkSize));
 
                                 if (flag == 0)
                                     continue;
@@ -128,7 +128,7 @@ public sealed partial class TileAtmosCollectionSerializer : ITypeSerializer<Dict
             var indices = SharedMapSystem.GetChunkRelative(gridIndices, chunkSize);
 
             var mixFlag = tileChunk.Data.GetOrNew(mixIndex);
-            mixFlag |= (uint) 1 << (indices.X + indices.Y * chunkSize);
+            mixFlag |= (uint)1 << (indices.X + indices.Y * chunkSize);
             tileChunk.Data[mixIndex] = mixFlag;
         }
 

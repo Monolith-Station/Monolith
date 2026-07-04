@@ -68,7 +68,7 @@ namespace Content.Shared.DeviceNetwork
             if (!Enum.IsDefined(typeof(DeviceNetworkComponent.DeviceNetIdDefaults), id))
                 return id.ToString();
 
-            var result = ((DeviceNetworkComponent.DeviceNetIdDefaults) id).ToString();
+            var result = ((DeviceNetworkComponent.DeviceNetIdDefaults)id).ToString();
             var resultKebab = "device-net-id-" + CaseConversion.PascalToKebab(result);
 
             return !Loc.TryGetString(resultKebab, out var name) ? result : name;

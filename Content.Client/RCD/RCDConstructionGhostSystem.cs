@@ -67,7 +67,7 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
             MobUid = heldEntity.Value,
             PlacementOption = _placementMode,
             EntityType = rcd.CachedPrototype.Prototype,
-            Range = (int) Math.Ceiling(SharedInteractionSystem.InteractionRange),
+            Range = (int)Math.Ceiling(SharedInteractionSystem.InteractionRange),
             IsTile = (rcd.CachedPrototype.Mode == RcdMode.ConstructTile),
             UseEditorContext = false,
         };

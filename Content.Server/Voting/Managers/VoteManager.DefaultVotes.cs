@@ -168,7 +168,7 @@ namespace Content.Server.Voting.Managers
                 var total = votesYes + votesNo;
 
                 var ratioRequired = _cfg.GetCVar(CCVars.VoteRestartRequiredRatio);
-                if (total > 0 && votesYes / (float) total >= ratioRequired)
+                if (total > 0 && votesYes / (float)total >= ratioRequired)
                 {
                     // Check if an admin is online, and ignore the passed vote if the cvar is enabled
                     if (_cfg.GetCVar(CCVars.VoteRestartNotAllowedWhenAdminOnline) && _adminMgr.ActiveAdmins.Count() != 0)
@@ -247,13 +247,13 @@ namespace Content.Server.Voting.Managers
                 string picked;
                 if (args.Winner == null)
                 {
-                    picked = (string) _random.Pick(args.Winners);
+                    picked = (string)_random.Pick(args.Winners);
                     _chatManager.DispatchServerAnnouncement(
                         Loc.GetString("ui-vote-gamemode-tie", ("picked", Loc.GetString(presets[picked].Name))));
                 }
                 else
                 {
-                    picked = (string) args.Winner;
+                    picked = (string)args.Winner;
                     _chatManager.DispatchServerAnnouncement(
                         Loc.GetString("ui-vote-gamemode-win", ("winner", Loc.GetString(presets[picked].Name))));
                 }
@@ -293,13 +293,13 @@ namespace Content.Server.Voting.Managers
                 GameMapPrototype picked;
                 if (args.Winner == null)
                 {
-                    picked = (GameMapPrototype) _random.Pick(args.Winners);
+                    picked = (GameMapPrototype)_random.Pick(args.Winners);
                     _chatManager.DispatchServerAnnouncement(
                         Loc.GetString("ui-vote-map-tie", ("picked", maps[picked])));
                 }
                 else
                 {
-                    picked = (GameMapPrototype) args.Winner;
+                    picked = (GameMapPrototype)args.Winner;
                     _chatManager.DispatchServerAnnouncement(
                         Loc.GetString("ui-vote-map-win", ("winner", maps[picked])));
                 }
@@ -593,13 +593,13 @@ namespace Content.Server.Voting.Managers
 
             foreach (var preset in _prototypeManager.EnumeratePrototypes<GamePresetPrototype>())
             {
-                if(!preset.ShowInVote)
+                if (!preset.ShowInVote)
                     continue;
 
-                if(_playerManager.PlayerCount < (preset.MinPlayers ?? int.MinValue))
+                if (_playerManager.PlayerCount < (preset.MinPlayers ?? int.MinValue))
                     continue;
 
-                if(_playerManager.PlayerCount > (preset.MaxPlayers ?? int.MaxValue))
+                if (_playerManager.PlayerCount > (preset.MaxPlayers ?? int.MaxValue))
                     continue;
 
                 presets[preset.ID] = (preset.ModeTitle, preset.Weight);

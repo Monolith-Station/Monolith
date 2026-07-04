@@ -38,10 +38,10 @@ public static class PlayTimeCommandUtilities
             totalMinutes += minutes;
 
         // If no specific unit is provided, assume it's minutes
-        if (!dayMatch.Success && !hourMatch.Success && !minuteMatch.Success && 
+        if (!dayMatch.Success && !hourMatch.Success && !minuteMatch.Success &&
             double.TryParse(timeString, out var plainMinutes))
             totalMinutes = plainMinutes;
 
         return totalMinutes;
     }
-} 
+}

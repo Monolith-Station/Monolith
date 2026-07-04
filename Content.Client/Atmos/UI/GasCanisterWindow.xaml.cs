@@ -113,7 +113,7 @@ namespace Content.Client.Atmos.UI
             if (MathHelper.CloseTo(pressure, ReleasePressure.Value))
                 return;
 
-            if(!ReleasePressureSlider.Grabbed)
+            if (!ReleasePressureSlider.Grabbed)
                 ReleasePressureSlider.SetValueWithoutEvent(pressure);
             ReleasePressure.Value = pressure;
         }

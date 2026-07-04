@@ -6,5 +6,5 @@ namespace Content.Shared._Goobstation.Weapons.UseDelay;
 public sealed partial class UseDelayBlockMeleeComponent : Component
 {
     [DataField]
-    public List<string> Delays = new(){"default"};
+    public List<string> Delays = new() { "default" };
 }

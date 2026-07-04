@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using YamlDotNet.RepresentationModel;
 
@@ -44,15 +44,15 @@ namespace Content.Tools
             switch (other)
             {
                 case YamlSequenceNode subSequence:
-                    MergeYamlSequences((YamlSequenceNode) ours, (YamlSequenceNode) based, subSequence, path);
+                    MergeYamlSequences((YamlSequenceNode)ours, (YamlSequenceNode)based, subSequence, path);
                     break;
                 case YamlMappingNode subMapping:
-                    MergeYamlMappings((YamlMappingNode) ours, (YamlMappingNode) based, subMapping, path, Array.Empty<string>());
+                    MergeYamlMappings((YamlMappingNode)ours, (YamlMappingNode)based, subMapping, path, Array.Empty<string>());
                     break;
                 case YamlScalarNode subScalar:
                     // Console.WriteLine(path + " - " + ours + " || " + based + " || " + other);
-                    var scalarA = (YamlScalarNode) ours;
-                    var scalarB = (YamlScalarNode) based;
+                    var scalarA = (YamlScalarNode)ours;
+                    var scalarB = (YamlScalarNode)based;
                     var scalarC = subScalar;
                     var aeb = (scalarA.Value == scalarB.Value);
                     var cneb = (scalarC.Value != scalarB.Value);
@@ -160,9 +160,9 @@ namespace Content.Tools
 
             return a switch
             {
-                YamlSequenceNode x => YamlSequencesHeuristic(x, (YamlSequenceNode) b),
-                YamlMappingNode y => YamlMappingsHeuristic(y, (YamlMappingNode) b),
-                YamlScalarNode z => (z.Value == ((YamlScalarNode) b).Value) ? 1.0f : 0.0f,
+                YamlSequenceNode x => YamlSequencesHeuristic(x, (YamlSequenceNode)b),
+                YamlMappingNode y => YamlMappingsHeuristic(y, (YamlMappingNode)b),
+                YamlScalarNode z => (z.Value == ((YamlScalarNode)b).Value) ? 1.0f : 0.0f,
                 _ => throw new ArgumentException($"Unrecognized YAML node type: {a.GetType()}", nameof(a))
             };
         }

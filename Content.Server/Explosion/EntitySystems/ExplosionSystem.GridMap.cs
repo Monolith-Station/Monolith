@@ -64,7 +64,7 @@ public sealed partial class ExplosionSystem
         var targetMatrix = Matrix3x2.Identity;
         Angle targetAngle = new();
         var tileSize = DefaultTileSize;
-        var maxDistanceSq = (int) (maxDistance * maxDistance);
+        var maxDistanceSq = (int)(maxDistance * maxDistance);
 
         // if the explosion is centered on some grid (and not just space), get the transforms.
         if (referenceGrid != null)
@@ -104,9 +104,9 @@ public sealed partial class ExplosionSystem
 
             var xforms = EntityManager.GetEntityQuery<TransformComponent>();
             var xform = xforms.GetComponent(gridToTransform);
-            var  (_, gridWorldRotation, gridWorldMatrix, invGridWorldMatrid) = _transformSystem.GetWorldPositionRotationMatrixWithInv(xform, xforms);
+            var (_, gridWorldRotation, gridWorldMatrix, invGridWorldMatrid) = _transformSystem.GetWorldPositionRotationMatrixWithInv(xform, xforms);
 
-            var localEpicentre = (Vector2i) Vector2.Transform(epicentre.Position, invGridWorldMatrid);
+            var localEpicentre = (Vector2i)Vector2.Transform(epicentre.Position, invGridWorldMatrid);
             var matrix = offsetMatrix * gridWorldMatrix * targetMatrix;
             var angle = gridWorldRotation - targetAngle;
 
@@ -124,7 +124,7 @@ public sealed partial class ExplosionSystem
                 if ((dir & NeighborFlag.Cardinal) == 0)
                 {
                     // this is purely a diagonal edge tile
-                    var newIndex = new Vector2i((int) MathF.Floor(center.X), (int) MathF.Floor(center.Y));
+                    var newIndex = new Vector2i((int)MathF.Floor(center.X), (int)MathF.Floor(center.Y));
                     if (!transformedEdges.TryGetValue(newIndex, out var data))
                     {
                         data = new();
@@ -308,7 +308,7 @@ public sealed partial class ExplosionSystem
         for (var i = 0; i < NeighbourVectors.Length; i++)
         {
             if (!_map.TryGetTileRef(grid, grid.Comp, index + NeighbourVectors[i], out var neighborTile) || neighborTile.Tile.IsEmpty)
-                spaceDirections |= (NeighborFlag) (1 << i);
+                spaceDirections |= (NeighborFlag)(1 << i);
         }
 
         return spaceDirections != NeighborFlag.Invalid;

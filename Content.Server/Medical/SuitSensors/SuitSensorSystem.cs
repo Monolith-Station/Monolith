@@ -296,7 +296,7 @@ public sealed partial class SuitSensorSystem : EntitySystem
         {
             Text = GetModeName(mode),
             Disabled = component.Mode == mode,
-            Priority = -(int) mode, // sort them in descending order
+            Priority = -(int)mode, // sort them in descending order
             Category = VerbCategory.SetSensor,
             Act = () => TrySetSensor((uid, component), mode, userUid)
         };
@@ -376,7 +376,7 @@ public sealed partial class SuitSensorSystem : EntitySystem
 
         // check if sensor is enabled and worn by user
         // Frontier modification, made sensor work with grid being null
-        if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || !HasComp<MobStateComponent>(sensor.User) ) // || transform.GridUid == null
+        if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || !HasComp<MobStateComponent>(sensor.User)) // || transform.GridUid == null
             return null;
 
         // try to get mobs id from ID slot
@@ -443,7 +443,7 @@ public sealed partial class SuitSensorSystem : EntitySystem
 
                     // Frontier modification
                     /// Checks if sensor is present on expedition grid
-                    if(TryComp<SalvageExpeditionComponent>(transform.GridUid.Value, out var salvageComp))
+                    if (TryComp<SalvageExpeditionComponent>(transform.GridUid.Value, out var salvageComp))
                     {
                         locationName = Loc.GetString("suit-sensor-location-expedition");
                     }

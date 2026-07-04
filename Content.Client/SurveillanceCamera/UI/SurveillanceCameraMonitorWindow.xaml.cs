@@ -42,7 +42,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : DefaultWindow
                 return null;
             }
 
-            return (string) SubnetSelector.SelectedMetadata;
+            return (string)SubnetSelector.SelectedMetadata;
         }
     }
 
@@ -67,7 +67,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : DefaultWindow
         SubnetSelector.OnItemSelected += args =>
         {
             // piss
-            SubnetOpened!((string) args.Button.GetItemMetadata(args.Id)!);
+            SubnetOpened!((string)args.Button.GetItemMetadata(args.Id)!);
         };
         SubnetRefreshButton.OnPressed += _ => SubnetRefresh!();
         CameraRefreshButton.OnPressed += _ => CameraRefresh!();
@@ -196,6 +196,6 @@ public sealed partial class SurveillanceCameraMonitorWindow : DefaultWindow
 
     private void OnSubnetListSelect(ItemList.ItemListSelectedEventArgs args)
     {
-        CameraSelected!((string) SubnetList[args.ItemIndex].Metadata!);
+        CameraSelected!((string)SubnetList[args.ItemIndex].Metadata!);
     }
 }

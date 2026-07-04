@@ -193,7 +193,7 @@ namespace Content.Client.Viewport
             DebugTools.AssertNotNull(_viewport);
 
             var vpSize = _viewport!.Size;
-            var ourSize = (Vector2) PixelSize;
+            var ourSize = (Vector2)PixelSize;
 
             if (FixedStretchSize == null)
             {
@@ -216,13 +216,13 @@ namespace Content.Client.Viewport
                 // Size
                 var pos = (ourSize - size) / 2;
 
-                return (UIBox2i) UIBox2.FromDimensions(pos, size);
+                return (UIBox2i)UIBox2.FromDimensions(pos, size);
             }
             else
             {
                 // Center only, no scaling.
                 var pos = (ourSize - FixedStretchSize.Value) / 2;
-                return (UIBox2i) UIBox2.FromDimensions(pos, FixedStretchSize.Value);
+                return (UIBox2i)UIBox2.FromDimensions(pos, FixedStretchSize.Value);
             }
         }
 
@@ -232,16 +232,16 @@ namespace Content.Client.Viewport
 
             var vpSizeBase = ViewportSize;
             var ourSize = PixelSize;
-            var (ratioX, ratioY) = ourSize / (Vector2) vpSizeBase;
+            var (ratioX, ratioY) = ourSize / (Vector2)vpSizeBase;
             var ratio = Math.Min(ratioX, ratioY);
             var renderScale = 1;
             switch (_renderScaleMode)
             {
                 case ScalingViewportRenderScaleMode.CeilInt:
-                    renderScale = (int) Math.Ceiling(ratio);
+                    renderScale = (int)Math.Ceiling(ratio);
                     break;
                 case ScalingViewportRenderScaleMode.FloorInt:
-                    renderScale = (int) Math.Floor(ratio);
+                    renderScale = (int)Math.Floor(ratio);
                     break;
                 case ScalingViewportRenderScaleMode.Fixed:
                     renderScale = _fixedRenderScale;
@@ -333,7 +333,7 @@ namespace Content.Client.Viewport
             EnsureViewportCreated();
 
             var drawBox = GetDrawBox();
-            var scaleFactor = drawBox.Size / (Vector2) _viewport!.Size;
+            var scaleFactor = drawBox.Size / (Vector2)_viewport!.Size;
 
             if (scaleFactor.X == 0 || scaleFactor.Y == 0)
                 // Basically a nonsense scenario, at least make sure to return something that can be inverted.

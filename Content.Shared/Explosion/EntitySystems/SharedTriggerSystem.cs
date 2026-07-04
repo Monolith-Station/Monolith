@@ -1,6 +1,6 @@
-﻿namespace Content.Shared.Explosion.EntitySystems;
+namespace Content.Shared.Explosion.EntitySystems;
 
 public abstract class SharedTriggerSystem : EntitySystem
 {
-	
+
 }

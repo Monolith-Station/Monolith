@@ -33,7 +33,7 @@ public sealed partial class GunSignalControlSystem : EntitySystem
             return;
 
         if (args.Port == gunControl.Comp.TogglePort)
-           _gun.SetEnabled(gunControl, autoShoot, !autoShoot.Enabled);
+            _gun.SetEnabled(gunControl, autoShoot, !autoShoot.Enabled);
 
         if (args.Port == gunControl.Comp.OnPort)
             _gun.SetEnabled(gunControl, autoShoot, true);

@@ -84,7 +84,7 @@ public sealed partial class TypingIndicatorSystem : SharedTypingIndicatorSystem
         // check if player controls any pawn
         if (_playerManager.LocalEntity == null)
             return;
-		
+
         var state = TypingIndicatorState.None;
         if (_isClientChatFocused)
             state = _isClientTyping ? TypingIndicatorState.Typing : TypingIndicatorState.Idle;

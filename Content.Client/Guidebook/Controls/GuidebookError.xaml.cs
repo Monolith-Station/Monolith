@@ -5,7 +5,8 @@ using Robust.Client.UserInterface.XAML;
 
 namespace Content.Client.Guidebook.Controls;
 
-[UsedImplicitly] [GenerateTypedNameReferences]
+[UsedImplicitly]
+[GenerateTypedNameReferences]
 public sealed partial class GuidebookError : BoxContainer
 {
     public GuidebookError()

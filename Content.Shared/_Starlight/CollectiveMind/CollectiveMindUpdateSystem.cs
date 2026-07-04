@@ -29,14 +29,16 @@ public sealed partial class CollectiveMindUpdateSystem : EntitySystem
         }
     }
 
-    public bool HasCollectiveMind(Entity<CollectiveMindComponent?> ent, ProtoId<CollectiveMindPrototype> channel) {
+    public bool HasCollectiveMind(Entity<CollectiveMindComponent?> ent, ProtoId<CollectiveMindPrototype> channel)
+    {
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
         return ent.Comp.Channels.Contains(channel);
     }
 
-    public bool AddCollectiveMind(Entity<CollectiveMindComponent?> ent, ProtoId<CollectiveMindPrototype> channel, bool setDefault = false) {
+    public bool AddCollectiveMind(Entity<CollectiveMindComponent?> ent, ProtoId<CollectiveMindPrototype> channel, bool setDefault = false)
+    {
         if (!Resolve(ent, ref ent.Comp, false))
             EnsureComp<CollectiveMindComponent>(ent, out ent.Comp);
 
@@ -48,7 +50,8 @@ public sealed partial class CollectiveMindUpdateSystem : EntitySystem
         return res;
     }
 
-    public bool RemoveCollectiveMind(Entity<CollectiveMindComponent?> ent, ProtoId<CollectiveMindPrototype> channel) {
+    public bool RemoveCollectiveMind(Entity<CollectiveMindComponent?> ent, ProtoId<CollectiveMindPrototype> channel)
+    {
         if (!Resolve(ent, ref ent.Comp))
             return false;
 

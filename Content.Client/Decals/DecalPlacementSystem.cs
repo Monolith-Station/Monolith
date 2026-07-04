@@ -58,8 +58,8 @@ public sealed partial class DecalPlacementSystem : EntitySystem
                 if (_snap)
                 {
                     var newPos = new Vector2(
-                        (float) (MathF.Round(coords.X - 0.5f, MidpointRounding.AwayFromZero) + 0.5),
-                        (float) (MathF.Round(coords.Y - 0.5f, MidpointRounding.AwayFromZero) + 0.5)
+                        (float)(MathF.Round(coords.X - 0.5f, MidpointRounding.AwayFromZero) + 0.5),
+                        (float)(MathF.Round(coords.Y - 0.5f, MidpointRounding.AwayFromZero) + 0.5)
                     );
                     coords = coords.WithPosition(newPos);
                 }
@@ -119,8 +119,8 @@ public sealed partial class DecalPlacementSystem : EntitySystem
         if (args.Snap)
         {
             var newPos = new Vector2(
-                (float) (MathF.Round(args.Target.X - 0.5f, MidpointRounding.AwayFromZero) + 0.5),
-                (float) (MathF.Round(args.Target.Y - 0.5f, MidpointRounding.AwayFromZero) + 0.5)
+                (float)(MathF.Round(args.Target.X - 0.5f, MidpointRounding.AwayFromZero) + 0.5),
+                (float)(MathF.Round(args.Target.Y - 0.5f, MidpointRounding.AwayFromZero) + 0.5)
             );
             args.Target = args.Target.WithPosition(newPos);
         }
@@ -166,7 +166,7 @@ public sealed partial class DecalPlacementSystem : EntitySystem
             IconColor = _decalColor,
         });
 
-        _metaData.SetEntityName(actionId, $"{_decalId} ({_decalColor.ToHex()}, {(int) _decalAngle.Degrees})");
+        _metaData.SetEntityName(actionId, $"{_decalId} ({_decalColor.ToHex()}, {(int)_decalAngle.Degrees})");
 
         ev.Action = actionId;
     }

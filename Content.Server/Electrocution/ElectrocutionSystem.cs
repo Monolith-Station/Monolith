@@ -241,7 +241,7 @@ public sealed partial class ElectrocutionSystem : SharedElectrocutionSystem
                 lastRet = TryDoElectrocution(
                     entity,
                     uid,
-                    (int) (electrified.ShockDamage * MathF.Pow(RecursiveDamageMultiplier, depth)),
+                    (int)(electrified.ShockDamage * MathF.Pow(RecursiveDamageMultiplier, depth)),
                     TimeSpan.FromSeconds(electrified.ShockTime * MathF.Pow(RecursiveTimeMultiplier, depth)),
                     true,
                     electrified.SiemensCoefficient
@@ -270,7 +270,7 @@ public sealed partial class ElectrocutionSystem : SharedElectrocutionSystem
                     entity,
                     uid,
                     node,
-                    (int) (electrified.ShockDamage * MathF.Pow(RecursiveDamageMultiplier, depth) * damageScalar),
+                    (int)(electrified.ShockDamage * MathF.Pow(RecursiveDamageMultiplier, depth) * damageScalar),
                     TimeSpan.FromSeconds(electrified.ShockTime * MathF.Pow(RecursiveTimeMultiplier, depth) * timeScalar),
                     true,
                     electrified.SiemensCoefficient);
@@ -386,7 +386,7 @@ public sealed partial class ElectrocutionSystem : SharedElectrocutionSystem
 
         if (shockDamage != null)
         {
-            shockDamage = (int) (shockDamage * siemensCoefficient);
+            shockDamage = (int)(shockDamage * siemensCoefficient);
 
             if (shockDamage.Value <= 0)
                 return false;

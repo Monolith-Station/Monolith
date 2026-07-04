@@ -43,7 +43,7 @@ namespace Content.Shared.Eye.Blinding.Systems
             var ev = new GetEyeProtectionEvent();
             RaiseLocalEvent(args.User, ev);
 
-            var time = (float) (component.StatusEffectTime - ev.Protection).TotalSeconds;
+            var time = (float)(component.StatusEffectTime - ev.Protection).TotalSeconds;
             if (time <= 0)
                 return;
 

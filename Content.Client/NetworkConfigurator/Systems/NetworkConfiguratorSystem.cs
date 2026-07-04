@@ -126,7 +126,7 @@ public sealed partial class NetworkConfiguratorSystem : SharedNetworkConfigurato
 
             _linkModeActive = _configurator.LinkModeActive;
 
-            var modeLocString = _linkModeActive??false
+            var modeLocString = _linkModeActive ?? false
                 ? "network-configurator-examine-mode-link"
                 : "network-configurator-examine-mode-list";
 

@@ -45,8 +45,8 @@ public sealed partial class GunSystem
             return;
         }
 
-        shots = (int) (solution.Volume / component.FireCost);
-        maxShots = (int) (solution.MaxVolume / component.FireCost);
+        shots = (int)(solution.Volume / component.FireCost);
+        maxShots = (int)(solution.MaxVolume / component.FireCost);
 
         component.Shots = shots;
         DirtyField(uid, component, nameof(SolutionAmmoProviderComponent.Shots));

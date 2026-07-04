@@ -28,7 +28,7 @@ public sealed class ColorBox : PanelContainer, IDocumentTag
         else
             VerticalAlignment = VAlignment.Stretch;
 
-        var styleBox =  new StyleBoxFlat();
+        var styleBox = new StyleBoxFlat();
         if (args.TryGetValue("Color", out var color))
             styleBox.BackgroundColor = Color.FromHex(color);
 

@@ -148,7 +148,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         // Show monitor on nav map
         if (monitorCoords != null && _blipTexture != null)
         {
-             NavMap.TrackedEntities[_entManager.GetNetEntity(monitor)] = new NavMapBlip(monitorCoords.Value, _blipTexture, Color.Cyan, true, false); // Frontier modification
+            NavMap.TrackedEntities[_entManager.GetNetEntity(monitor)] = new NavMapBlip(monitorCoords.Value, _blipTexture, Color.Cyan, true, false); // Frontier modification
         }
     }
 
@@ -344,7 +344,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             if (sensor is not CrewMonitoringButton)
                 continue;
 
-            var castSensor = (CrewMonitoringButton) sensor;
+            var castSensor = (CrewMonitoringButton)sensor;
 
             if (castSensor.SuitSensorUid == prevTrackedEntity)
                 castSensor.RemoveStyleClass(StyleNano.StyleClassButtonColorGreen);
@@ -392,7 +392,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         foreach (var sensor in SensorsTable.Children)
         {
             if (sensor is CrewMonitoringButton &&
-                ((CrewMonitoringButton) sensor).SuitSensorUid == _trackedEntity)
+                ((CrewMonitoringButton)sensor).SuitSensorUid == _trackedEntity)
                 return true;
 
             nextScrollPosition += sensor.Height;

@@ -17,4 +17,4 @@ public sealed partial class FTLLockComponent : Component
     [DataField, AutoNetworkedField]
     [Access(typeof(ShuttleConsoleSystem), Friend = AccessPermissions.ReadWriteExecute)]
     public bool Enabled = true;
-} 
+}

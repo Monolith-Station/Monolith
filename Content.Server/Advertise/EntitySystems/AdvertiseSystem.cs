@@ -99,7 +99,7 @@ public sealed partial class AdvertiseSystem : EntitySystem
             // failsafe - something went wrong (evil admeme setting advertise delay to negative?) but don't freeze the server
             if (i > _advertQueue.Count)
                 break;
-                                                                                                     // seems like it has changed
+            // seems like it has changed
             if (TerminatingOrDeleted(uid) || !TryComp<AdvertiseComponent>(uid, out var advertise) || advertise.NextAdvertisementTime != time)
             {
                 _advertQueue.Dequeue();

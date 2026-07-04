@@ -1,4 +1,4 @@
-﻿using Content.Shared._Scp.ScpCCVars; // Mono
+using Content.Shared._Scp.ScpCCVars; // Mono
 using Robust.Client.Graphics; // Mono
 using Robust.Shared.Configuration; // Mono
 using Robust.Shared.Player;
@@ -17,7 +17,7 @@ public sealed partial class GrainOverlaySystem : EntitySystem
     {
         base.Initialize();
 
-        _overlay = new ();
+        _overlay = new();
 
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);

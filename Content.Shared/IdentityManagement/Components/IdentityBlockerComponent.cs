@@ -18,10 +18,10 @@ public sealed partial class IdentityBlockerComponent : Component
 
 public enum IdentityBlockerCoverage
 {
-    NONE  = 0,
+    NONE = 0,
     MOUTH = 1 << 0,
-    EYES  = 1 << 1,
-    FULL  = MOUTH | EYES
+    EYES = 1 << 1,
+    FULL = MOUTH | EYES
 }
 
 /// <summary>

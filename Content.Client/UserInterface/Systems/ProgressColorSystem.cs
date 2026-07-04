@@ -62,10 +62,10 @@ public sealed partial class ProgressColorSystem : EntitySystem
         var mu = 0.0;
         const double sigma2 = 0.035;
 
-        foreach(var color in colors)
+        foreach (var color in colors)
         {
             var percent = Math.Exp(-(x - mu) * (x - mu) / (2.0 * sigma2)) / Math.Sqrt(2.0 * Math.PI * sigma2);
-            total += (float) percent;
+            total += (float)percent;
             mu += step;
 
             r += color.R * percent;
@@ -73,6 +73,6 @@ public sealed partial class ProgressColorSystem : EntitySystem
             b += color.B * percent;
         }
 
-        return new Color((float) r / total, (float) g / total, (float) b / total);
+        return new Color((float)r / total, (float)g / total, (float)b / total);
     }
 }

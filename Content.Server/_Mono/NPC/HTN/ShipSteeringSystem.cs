@@ -182,43 +182,43 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         switch (comp.Mode)
         {
             case ShipSteeringMode.GoToRange:
-            {
-                if (!comp.NoFinish
-                    && distance >= lowRange && distance <= highRange
-                    && relVel.Length() < maxArrivedVel
-                    && MathF.Abs(angVel) < maxArrivedAngVel)
                 {
-                    var good = true;
-                    if (comp.InRangeRotation is { } targetWorldRot)
+                    if (!comp.NoFinish
+                        && distance >= lowRange && distance <= highRange
+                        && relVel.Length() < maxArrivedVel
+                        && MathF.Abs(angVel) < maxArrivedAngVel)
                     {
-                        var wishRotateBy = ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), targetWorldRot);
-                        good = MathF.Abs((float)wishRotateBy.Theta) < comp.RotationTolerance;
+                        var good = true;
+                        if (comp.InRangeRotation is { } targetWorldRot)
+                        {
+                            var wishRotateBy = ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI), targetWorldRot);
+                            good = MathF.Abs((float)wishRotateBy.Theta) < comp.RotationTolerance;
+                        }
+                        else if (comp.AlwaysFaceTarget)
+                        {
+                            var wishRotateBy = ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI) - targetAngleOffset, toTargetVec.ToWorldAngle());
+                            good = MathF.Abs((float)wishRotateBy.Theta) < comp.RotationTolerance;
+                        }
+                        if (good)
+                        {
+                            comp.Status = ShipSteeringStatus.InRange;
+                            return (mapTarget, true); // will be ignored
+                        }
                     }
-                    else if (comp.AlwaysFaceTarget)
-                    {
-                        var wishRotateBy = ShortestAngleDistance(shipNorthAngle + new Angle(Math.PI) - targetAngleOffset, toTargetVec.ToWorldAngle());
-                        good = MathF.Abs((float)wishRotateBy.Theta) < comp.RotationTolerance;
-                    }
-                    if (good)
-                    {
-                        comp.Status = ShipSteeringStatus.InRange;
-                        return (mapTarget, true); // will be ignored
-                    }
+
+                    if (distance < lowRange || distance > highRange)
+                        return (mapTarget.Offset(NormalizedOrZero(-toTargetVec) * midRange), false);
+
+                    return (shipPos, true);
                 }
-
-                if (distance < lowRange || distance > highRange)
-                    return (mapTarget.Offset(NormalizedOrZero(-toTargetVec) * midRange), false);
-
-                return (shipPos, true);
-            }
             case ShipSteeringMode.OrbitCW:
             case ShipSteeringMode.Orbit:
-            {
-                // take our position, project onto our target radius, rotate by desired orbit offset
-                var invert = comp.Mode == ShipSteeringMode.OrbitCW;
-                var rotateAngle = new Angle(comp.OrbitOffset * (invert ? -1 : 1));
-                return (mapTarget.Offset(NormalizedOrZero(rotateAngle.RotateVec(-toTargetVec)) * midRange), false);
-            }
+                {
+                    // take our position, project onto our target radius, rotate by desired orbit offset
+                    var invert = comp.Mode == ShipSteeringMode.OrbitCW;
+                    var rotateAngle = new Angle(comp.OrbitOffset * (invert ? -1 : 1));
+                    return (mapTarget.Offset(NormalizedOrZero(rotateAngle.RotateVec(-toTargetVec)) * midRange), false);
+                }
         }
 
         return (mapTarget, false);
@@ -280,7 +280,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
         // s = v^2 / 2a
         var brakePath = linVelLenSq / (2f * brakeAccel);
         // path we will pass if we keep braking until we reach our desired max velocity
-        var innerBrakePath = maxArrivedVel*maxArrivedVel / (2f * brakeAccel);
+        var innerBrakePath = maxArrivedVel * maxArrivedVel / (2f * brakeAccel);
 
         // negative if we're already slow enough
         var leftoverBrakePath = brakeAccel == 0f ? 0f : brakePath - innerBrakePath;
@@ -403,7 +403,8 @@ public sealed partial class ShipSteeringSystem : EntitySystem
             var dir = angle.ToVec();
 
             var dirAccel = _mover.GetWorldDirectionAccel(dir, ctx.Shuttle, ctx.ShipBody, ctx.ShipXform);
-            if (dirAccel.LengthSquared() == 0f) {
+            if (dirAccel.LengthSquared() == 0f)
+            {
                 dirAccel = dir * forwardAccel * (Vector2.Dot(dir, forwardAccelDir) + 1) * 0.5f;
             }
 

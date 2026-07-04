@@ -22,7 +22,7 @@ public sealed partial class RandomMetadataComponent : Component
 
     [DataField("descriptionSeparator")]
     public string DescriptionSeparator = " ";
-    
+
     /// Goobstation start
     /// <summary>
     /// LocId of the formatting string to use to assemble the <see cref="NameSegments"/> into the entity's name.

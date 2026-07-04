@@ -1,4 +1,4 @@
-﻿using Robust.Client.GameObjects;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
@@ -56,27 +56,27 @@ public sealed partial class MappingOverlay : Overlay
         switch (_state.State)
         {
             case CursorState.Pick:
-            {
-                if (_state.GetHoveredEntity() is { } entity &&
-                    _entities.TryGetComponent(entity, out SpriteComponent? sprite))
                 {
-                    _oldColors[entity] = sprite.Color;
-                    sprite.Color = PickColor;
-                }
+                    if (_state.GetHoveredEntity() is { } entity &&
+                        _entities.TryGetComponent(entity, out SpriteComponent? sprite))
+                    {
+                        _oldColors[entity] = sprite.Color;
+                        sprite.Color = PickColor;
+                    }
 
-                break;
-            }
+                    break;
+                }
             case CursorState.Delete:
-            {
-                if (_state.GetHoveredEntity() is { } entity &&
-                    _entities.TryGetComponent(entity, out SpriteComponent? sprite))
                 {
-                    _oldColors[entity] = sprite.Color;
-                    sprite.Color = DeleteColor;
-                }
+                    if (_state.GetHoveredEntity() is { } entity &&
+                        _entities.TryGetComponent(entity, out SpriteComponent? sprite))
+                    {
+                        _oldColors[entity] = sprite.Color;
+                        sprite.Color = DeleteColor;
+                    }
 
-                break;
-            }
+                    break;
+                }
         }
 
         handle.UseShader(null);

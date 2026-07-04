@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Content.Shared.Mapping;
@@ -49,7 +49,7 @@ public sealed partial class MappingManager : IPostInjectInit
                 !_admin.IsAdmin(session, true) ||
                 !_admin.HasAdminFlag(session, AdminFlags.Host) ||
                 !_ent.TryGetComponent(session.AttachedEntity, out TransformComponent? xform) ||
-                xform.MapUid is not {} mapUid)
+                xform.MapUid is not { } mapUid)
             {
                 return;
             }

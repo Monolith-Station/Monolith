@@ -86,7 +86,7 @@ public sealed partial class DeviceLinkSystem : SharedDeviceLinkSystem
         }
 
         // force using wireless network so things like atmos devices are able to send signals
-        var network = (int) DeviceNetworkComponent.DeviceNetIdDefaults.Wireless;
+        var network = (int)DeviceNetworkComponent.DeviceNetIdDefaults.Wireless;
         _deviceNetworkSystem.QueuePacket(source, sinkNetwork.Address, payload, sinkNetwork.ReceiveFrequency, network);
     }
 
@@ -130,7 +130,7 @@ public sealed partial class DeviceLinkSystem : SharedDeviceLinkSystem
             return;
 
         var eventArgs = new SignalReceivedEvent(port, args.Sender, args.Data);
-        RaiseLocalEvent(uid,  ref eventArgs);
+        RaiseLocalEvent(uid, ref eventArgs);
     }
 
     /// <summary>

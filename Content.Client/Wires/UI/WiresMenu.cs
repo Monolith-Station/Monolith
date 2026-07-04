@@ -34,7 +34,7 @@ namespace Content.Client.Wires.UI
         {
             IoCManager.InjectDependencies(this);
 
-            var rootContainer = new LayoutContainer {Name = "WireRoot"};
+            var rootContainer = new LayoutContainer { Name = "WireRoot" };
             AddChild(rootContainer);
 
             MouseFilter = MouseFilterMode.Stop;
@@ -98,9 +98,9 @@ namespace Content.Client.Wires.UI
                 VerticalAlignment = VAlignment.Bottom
             };
 
-            wrappingHBox.AddChild(new Control {MinSize = new Vector2(20, 0)});
+            wrappingHBox.AddChild(new Control { MinSize = new Vector2(20, 0) });
             wrappingHBox.AddChild(_wiresHBox);
-            wrappingHBox.AddChild(new Control {MinSize = new Vector2(20, 0)});
+            wrappingHBox.AddChild(new Control { MinSize = new Vector2(20, 0) });
 
             bottomWrap.AddChild(bottomPanel);
 
@@ -195,7 +195,7 @@ namespace Content.Client.Wires.UI
 
             var middle = new PanelContainer
             {
-                PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#202320")},
+                PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#202320") },
                 Children =
                 {
                     new BoxContainer
@@ -217,13 +217,13 @@ namespace Content.Client.Wires.UI
             _topContainer.AddChild(new PanelContainer
             {
                 MinSize = new Vector2(0, 2),
-                PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#525252ff")}
+                PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#525252ff") }
             });
             _topContainer.AddChild(middle);
             _topContainer.AddChild(new PanelContainer
             {
                 MinSize = new Vector2(0, 2),
-                PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#525252ff")}
+                PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#525252ff") }
             });
             CloseButton.OnPressed += _ => Close();
             SetHeight = 200;
@@ -579,7 +579,7 @@ namespace Content.Client.Wires.UI
                     VerticalAlignment = VAlignment.Center,
                 });
                 hBox.AddChild(lightContainer);
-                hBox.AddChild(new Control {MinSize = new Vector2(6, 0)});
+                hBox.AddChild(new Control { MinSize = new Vector2(6, 0) });
                 AddChild(hBox);
             }
         }
@@ -592,8 +592,8 @@ namespace Content.Client.Wires.UI
                 label.SetMessage(Loc.GetString("wires-menu-help-popup"));
                 AddChild(new PanelContainer
                 {
-                    StyleClasses = {ExamineSystem.StyleClassEntityTooltip},
-                    Children = {label}
+                    StyleClasses = { ExamineSystem.StyleClassEntityTooltip },
+                    Children = { label }
                 });
             }
         }

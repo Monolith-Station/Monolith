@@ -72,7 +72,7 @@ public sealed partial class NearbyTilesPercentRule : RulesRule
             matchingTileCount++;
         }
 
-        if (tileCount == 0 || matchingTileCount / (float) tileCount < Percent)
+        if (tileCount == 0 || matchingTileCount / (float)tileCount < Percent)
             return Inverted;
 
         return !Inverted;

@@ -20,7 +20,7 @@ namespace Content.Server.NodeContainer.NodeGroups
     [NodeGroup(NodeGroupID.Pipe)]
     public sealed class PipeNet : BaseNodeGroup, IPipeNet
     {
-        [ViewVariables] public GasMixture Air { get; set; } = new() {Temperature = Atmospherics.T20C};
+        [ViewVariables] public GasMixture Air { get; set; } = new() { Temperature = Atmospherics.T20C };
 
         [ViewVariables] private AtmosphereSystem? _atmosphereSystem;
 
@@ -53,7 +53,7 @@ namespace Content.Server.NodeContainer.NodeGroups
 
             foreach (var node in groupNodes)
             {
-                var pipeNode = (PipeNode) node;
+                var pipeNode = (PipeNode)node;
                 Air.Volume += pipeNode.Volume;
             }
         }
@@ -95,7 +95,7 @@ namespace Content.Server.NodeContainer.NodeGroups
 
         public override string GetDebugData()
         {
-            return @$"Pressure: { Air.Pressure:G3}
+            return @$"Pressure: {Air.Pressure:G3}
 Temperature: {Air.Temperature:G3}
 Volume: {Air.Volume:G3}";
         }

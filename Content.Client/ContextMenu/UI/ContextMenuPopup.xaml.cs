@@ -32,7 +32,7 @@ namespace Content.Client.ContextMenu.UI
 
         private ContextMenuUIController _uiController;
 
-        public ContextMenuPopup (ContextMenuUIController uiController, ContextMenuElement? parentElement) : base()
+        public ContextMenuPopup(ContextMenuUIController uiController, ContextMenuElement? parentElement) : base()
         {
             RobustXamlLoader.Load(this);
             MenuPanel.SetOnlyStyleClass(StyleClassContextMenuPopup);

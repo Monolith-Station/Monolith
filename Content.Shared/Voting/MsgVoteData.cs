@@ -65,7 +65,7 @@ namespace Content.Shared.Voting
             buffer.Write(DisplayVotes);
             buffer.WriteVariableInt32(TargetEntity);
 
-            buffer.Write((byte) Options.Length);
+            buffer.Write((byte)Options.Length);
             foreach (var (votes, name, realVotes) in Options)
             {
                 buffer.Write(votes);

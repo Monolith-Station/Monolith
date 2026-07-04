@@ -59,7 +59,7 @@ public sealed partial class FtlArrivalOverlay : Overlay
                 continue;
 
             var texture = _sprites.GetFrame(comp.Sprite, TimeSpan.FromSeconds(comp.Elapsed), loop: false);
-            comp.Elapsed += (float) _timing.FrameTime.TotalSeconds;
+            comp.Elapsed += (float)_timing.FrameTime.TotalSeconds;
 
             // Need to manually transform the viewport in terms of the visualizer entity as the grid isn't in position.
             var (_, _, worldMatrix, invMatrix) = _transforms.GetWorldPositionRotationMatrixWithInv(uid);

@@ -29,7 +29,7 @@ public sealed partial class HeldSpeedModifierSystem : EntitySystem
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
     }
 
-    public (float,float) GetHeldMovementSpeedModifiers(EntityUid uid, HeldSpeedModifierComponent component)
+    public (float, float) GetHeldMovementSpeedModifiers(EntityUid uid, HeldSpeedModifierComponent component)
     {
         var walkMod = component.WalkModifier;
         var sprintMod = component.SprintModifier;

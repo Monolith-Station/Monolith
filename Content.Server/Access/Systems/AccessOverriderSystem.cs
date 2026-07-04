@@ -52,7 +52,7 @@ public sealed partial class AccessOverriderSystem : SharedAccessOverriderSystem
         if (args.Target == null || !TryComp(args.Target, out AccessReaderComponent? accessReader))
             return;
 
-        if (!_interactionSystem.InRangeUnobstructed(args.User, (EntityUid) args.Target))
+        if (!_interactionSystem.InRangeUnobstructed(args.User, (EntityUid)args.Target))
             return;
 
         var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.DoAfter, new AccessOverriderDoAfterEvent(), uid, target: args.Target, used: uid)
@@ -113,7 +113,7 @@ public sealed partial class AccessOverriderSystem : SharedAccessOverriderSystem
 
         if (component.TargetAccessReaderId is { Valid: true } accessReader)
         {
-            targetLabel = Loc.GetString("access-overrider-window-target-label") + " " + EntityManager.GetComponent<MetaDataComponent>(component.TargetAccessReaderId).EntityName;
+            targetLabel = Loc.GetString("access-overrider-window-target-label") + " " + Comp<MetaDataComponent>(component.TargetAccessReaderId).EntityName;
             targetLabelColor = Color.White;
 
             if (!_accessReader.GetMainAccessReader(accessReader, out var accessReaderEnt))
@@ -125,7 +125,7 @@ public sealed partial class AccessOverriderSystem : SharedAccessOverriderSystem
 
         if (component.PrivilegedIdSlot.Item is { Valid: true } idCard)
         {
-            privilegedIdName = EntityManager.GetComponent<MetaDataComponent>(idCard).EntityName;
+            privilegedIdName = Comp<MetaDataComponent>(idCard).EntityName;
 
             if (component.TargetAccessReaderId is { Valid: true })
             {

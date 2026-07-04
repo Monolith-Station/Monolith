@@ -35,7 +35,7 @@ public sealed partial class GunSystem
         if (entityProto.Components
             .TryGetValue(Factory.GetComponentName<ProjectileComponent>(), out var projectile))
         {
-            var p = (ProjectileComponent) projectile.Component;
+            var p = (ProjectileComponent)projectile.Component;
 
             if (!p.Damage.Empty)
             {

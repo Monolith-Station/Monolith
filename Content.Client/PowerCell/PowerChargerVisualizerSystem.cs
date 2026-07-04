@@ -23,7 +23,7 @@ public sealed class PowerChargerVisualizerSystem : VisualizerSystem<PowerCharger
 
         // Update lighting
         if (AppearanceSystem.TryGetData<CellChargerStatus>(uid, CellVisual.Light, out var status, args.Component)
-        &&  comp.LightStates.TryGetValue(status, out var lightState))
+        && comp.LightStates.TryGetValue(status, out var lightState))
         {
             args.Sprite.LayerSetState(PowerChargerVisualLayers.Light, lightState);
             args.Sprite.LayerSetVisible(PowerChargerVisualLayers.Light, true);

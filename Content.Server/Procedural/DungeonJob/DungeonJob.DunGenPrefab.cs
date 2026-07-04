@@ -119,7 +119,7 @@ public sealed partial class DungeonJob
                 for (var j = 0; j < 4; j++)
                 {
                     var index = (startIndex + j) % 4;
-                    var dir = (DirectionFlag) Math.Pow(2, index);
+                    var dir = (DirectionFlag)Math.Pow(2, index);
                     Vector2i aPackDimensions;
 
                     if ((dir & (DirectionFlag.East | DirectionFlag.West)) != 0x0)
@@ -173,7 +173,7 @@ public sealed partial class DungeonJob
             // Actual spawn cud here.
             // Pickout the room pack template to get the room dimensions we need.
             // TODO: Need to be able to load entities on top of other entities but das a lot of effo
-            var packCenter = (Vector2) pack.Size / 2;
+            var packCenter = (Vector2)pack.Size / 2;
 
             foreach (var roomSize in pack.Rooms)
             {
@@ -311,7 +311,7 @@ public sealed partial class DungeonJob
             // Pick an entrance that isn't taken.
             for (var i = 0; i < 4; i++)
             {
-                var dir = (Direction) ((i + offset) * 2 % 8);
+                var dir = (Direction)((i + offset) * 2 % 8);
                 Vector2i entrancePos;
 
                 switch (dir)

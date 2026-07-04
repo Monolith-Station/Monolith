@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Client.Administration.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
@@ -32,7 +32,7 @@ public sealed class KillSignSystem : EntitySystem
         if (sprite.LayerMapTryGet(KillSignKey.Key, out var _))
             return;
 
-        var adj = sprite.Bounds.Height / 2 + ((1.0f/32) * 6.0f);
+        var adj = sprite.Bounds.Height / 2 + ((1.0f / 32) * 6.0f);
 
         var layer = sprite.AddLayer(new SpriteSpecifier.Rsi(new ResPath("Objects/Misc/killsign.rsi"), "sign"));
         sprite.LayerMapSet(KillSignKey.Key, layer);

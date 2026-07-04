@@ -41,7 +41,7 @@ public abstract partial class SharedReactorPartSystem : EntitySystem
     /// </summary>
     private readonly float _product = 0.005f;
 
-    private readonly float _threshold  = 0.5f;
+    private readonly float _threshold = 0.5f;
     private float _accumulator = 0f;
 
     #region Item Methods
@@ -154,7 +154,7 @@ public abstract partial class SharedReactorPartSystem : EntitySystem
                 continue;
             }
 
-            if (Math.Abs(component.Temperature - Atmospherics.T20C)>0.1)
+            if (Math.Abs(component.Temperature - Atmospherics.T20C) > 0.1)
                 component.Temperature -= (component.Temperature - Atmospherics.T20C) * 0.01f;
             else
                 component.Temperature = Atmospherics.T20C;
@@ -187,7 +187,7 @@ public abstract partial class SharedReactorPartSystem : EntitySystem
         reactorPart.ThermalCrossSection = 20f;
         reactorPart.IsControlRod = false;
 
-        if(reactorPart.HasRodType(ReactorPartComponent.RodTypes.GasChannel))
+        if (reactorPart.HasRodType(ReactorPartComponent.RodTypes.GasChannel))
             reactorPart.GasThermalCrossSection = 0.1f;
     }
 

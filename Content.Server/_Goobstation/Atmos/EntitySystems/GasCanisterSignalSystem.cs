@@ -33,7 +33,7 @@ public sealed class GasCanisterSignalSystem : EntitySystem
 
         var ev = new GasCanisterChangeReleaseValveMessage(valve);
         ev.UiKey = GasCanisterUiKey.Key;
-        if (args.Trigger is {} actor)
+        if (args.Trigger is { } actor)
             ev.Actor = actor;
         RaiseLocalEvent(ent, ev);
     }

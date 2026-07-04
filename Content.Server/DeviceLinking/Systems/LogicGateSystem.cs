@@ -78,9 +78,9 @@ public sealed partial class LogicGateSystem : EntitySystem
             return;
 
         // cycle through possible gates
-        var gate = (int) comp.Gate;
+        var gate = (int)comp.Gate;
         gate = ++gate % GateCount;
-        comp.Gate = (LogicGate) gate;
+        comp.Gate = (LogicGate)gate;
 
         // since gate changed the output probably has too, update it
         UpdateOutput(uid, comp);

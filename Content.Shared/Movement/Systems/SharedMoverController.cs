@@ -35,21 +35,21 @@ namespace Content.Shared.Movement.Systems;
 /// </summary>
 public abstract partial class SharedMoverController : VirtualController
 {
-    [Dependency] private   IConfigurationManager _configManager = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
     [Dependency] protected IGameTiming Timing = default!;
-    [Dependency] private   IMapManager _mapManager = default!;
-    [Dependency] private   ITileDefinitionManager _tileDefinitionManager = default!;
-    [Dependency] private   ActionBlockerSystem _blocker = default!;
-    [Dependency] private   EntityLookupSystem _lookup = default!;
-    [Dependency] private   InventorySystem _inventory = default!;
-    [Dependency] private   MobStateSystem _mobState = default!;
-    [Dependency] private   SharedAudioSystem _audio = default!;
-    [Dependency] private   SharedContainerSystem _container = default!;
-    [Dependency] private   SharedMapSystem _mapSystem = default!;
-    [Dependency] private   SharedGravitySystem _gravity = default!;
-    [Dependency] private   SharedTransformSystem _transform = default!;
-    [Dependency] private   TagSystem _tags = default!;
-    [Dependency] private   IEntityManager _entities = default!; // Delta V-NoShoesSilentFootstepsComponent
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TagSystem _tags = default!;
+    [Dependency] private IEntityManager _entities = default!; // Delta V-NoShoesSilentFootstepsComponent
 
     protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
@@ -118,7 +118,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     protected virtual void OnMoverStartup(Entity<InputMoverComponent> ent, ref ComponentStartup args)
     {
-       _blocker.UpdateCanMove(ent, ent.Comp);
+        _blocker.UpdateCanMove(ent, ent.Comp);
     }
 
     public override void Shutdown()

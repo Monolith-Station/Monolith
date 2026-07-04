@@ -18,7 +18,7 @@ public sealed partial class DnaData : ReagentData
             return false;
         }
 
-        return ((DnaData) other).DNA == DNA;
+        return ((DnaData)other).DNA == DNA;
     }
 
     public override int GetHashCode()

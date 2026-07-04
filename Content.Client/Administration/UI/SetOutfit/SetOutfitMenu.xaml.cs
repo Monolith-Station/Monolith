@@ -48,7 +48,7 @@ namespace Content.Client.Administration.UI.SetOutfit
 
         private void OutfitListOnOnItemSelected(ItemList.ItemListSelectedEventArgs obj)
         {
-            _selectedOutfit = (StartingGearPrototype) obj.ItemList[obj.ItemIndex].Metadata!;
+            _selectedOutfit = (StartingGearPrototype)obj.ItemList[obj.ItemIndex].Metadata!;
             ConfirmButton.Disabled = false;
         }
 

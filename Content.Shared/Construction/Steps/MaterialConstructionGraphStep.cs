@@ -11,7 +11,7 @@ namespace Content.Shared.Construction.Steps
     {
         // TODO: Make this use the material system.
         // TODO TODO: Make the material system not shit.
-        [DataField("material", required:true, customTypeSerializer:typeof(PrototypeIdSerializer<StackPrototype>))]
+        [DataField("material", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<StackPrototype>))]
         public string MaterialPrototypeId { get; private set; } = "Steel";
 
         [DataField("amount")] public int Amount { get; private set; } = 1;
@@ -45,7 +45,7 @@ namespace Content.Shared.Construction.Steps
             return new ConstructionGuideEntry()
             {
                 Localization = "construction-presenter-material-step",
-                Arguments = new (string, object)[]{("amount", Amount), ("material", material.Name)},
+                Arguments = new (string, object)[] { ("amount", Amount), ("material", material.Name) },
                 Icon = material.Icon,
             };
         }

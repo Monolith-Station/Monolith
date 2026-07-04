@@ -32,7 +32,7 @@ public sealed partial class StickySystem : EntitySystem
 
     private void OnAfterInteract(Entity<StickyComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target is not {} target)
+        if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
 
         // try stick object to a clicked target entity
@@ -103,7 +103,7 @@ public sealed partial class StickySystem : EntitySystem
     private void OnStickyDoAfter(Entity<StickyComponent> ent, ref StickyDoAfterEvent args)
     {
         // target is the sticky item when unsticking and the surface when sticking, it will never be null
-        if (args.Handled || args.Cancelled || args.Args.Target is not {} target)
+        if (args.Handled || args.Cancelled || args.Args.Target is not { } target)
             return;
 
         var user = args.User;
@@ -118,7 +118,7 @@ public sealed partial class StickySystem : EntitySystem
     private void StartUnsticking(Entity<StickyComponent> ent, EntityUid user)
     {
         var (uid, comp) = ent;
-        if (comp.StuckTo is not {} stuckTo)
+        if (comp.StuckTo is not { } stuckTo)
             return;
 
         var attemptEv = new AttemptEntityUnstickEvent(stuckTo, user);
@@ -182,7 +182,7 @@ public sealed partial class StickySystem : EntitySystem
     public void UnstickFromEntity(Entity<StickyComponent> ent, EntityUid user)
     {
         var (uid, comp) = ent;
-        if (comp.StuckTo is not {} stuckTo)
+        if (comp.StuckTo is not { } stuckTo)
             return;
 
         var attemptEv = new AttemptEntityUnstickEvent(stuckTo, user);

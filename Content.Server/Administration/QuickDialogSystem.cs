@@ -108,42 +108,42 @@ public sealed partial class QuickDialogSystem : EntitySystem
         switch (entryType)
         {
             case QuickDialogEntryType.Integer:
-            {
-                var result = int.TryParse(input, out var val);
-                output = (T?) (object?) val;
-                return result;
-            }
+                {
+                    var result = int.TryParse(input, out var val);
+                    output = (T?)(object?)val;
+                    return result;
+                }
             case QuickDialogEntryType.Float:
-            {
-                var result = float.TryParse(input, out var val);
-                output = (T?) (object?) val;
-                return result;
-            }
+                {
+                    var result = float.TryParse(input, out var val);
+                    output = (T?)(object?)val;
+                    return result;
+                }
             case QuickDialogEntryType.ShortText:
-            {
-                if (input.Length > 100)
                 {
-                    output = default;
-                    return false;
-                }
+                    if (input.Length > 100)
+                    {
+                        output = default;
+                        return false;
+                    }
 
-                output = (T?) (object?) input;
-                return output is not null;
-            }
+                    output = (T?)(object?)input;
+                    return output is not null;
+                }
             case QuickDialogEntryType.LongText:
-            {
-                if (input.Length > 2000)
                 {
-                    output = default;
-                    return false;
+                    if (input.Length > 2000)
+                    {
+                        output = default;
+                        return false;
+                    }
+
+                    //It's verrrry likely that this will be longstring
+                    var longString = (LongString)input;
+
+                    output = (T?)(object?)longString;
+                    return output is not null;
                 }
-
-                //It's verrrry likely that this will be longstring
-                var longString = (LongString) input;
-
-                output = (T?) (object?) longString;
-                return output is not null;
-            }
             default:
                 throw new ArgumentOutOfRangeException(nameof(entryType), entryType, null);
         }

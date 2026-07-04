@@ -70,27 +70,27 @@ namespace Content.Client.Decals
             switch (args.Current)
             {
                 case DecalGridDeltaState delta:
-                {
-                    modifiedChunks = delta.ModifiedChunks;
-                    foreach (var key in gridComp.ChunkCollection.ChunkCollection.Keys)
                     {
-                        if (!delta.AllChunks.Contains(key))
-                            _removedChunks.Add(key);
-                    }
+                        modifiedChunks = delta.ModifiedChunks;
+                        foreach (var key in gridComp.ChunkCollection.ChunkCollection.Keys)
+                        {
+                            if (!delta.AllChunks.Contains(key))
+                                _removedChunks.Add(key);
+                        }
 
-                    break;
-                }
+                        break;
+                    }
                 case DecalGridState state:
-                {
-                    modifiedChunks = state.Chunks;
-                    foreach (var key in gridComp.ChunkCollection.ChunkCollection.Keys)
                     {
-                        if (!state.Chunks.ContainsKey(key))
-                            _removedChunks.Add(key);
-                    }
+                        modifiedChunks = state.Chunks;
+                        foreach (var key in gridComp.ChunkCollection.ChunkCollection.Keys)
+                        {
+                            if (!state.Chunks.ContainsKey(key))
+                                _removedChunks.Add(key);
+                        }
 
-                    break;
-                }
+                        break;
+                    }
                 default:
                     return;
             }
@@ -175,7 +175,7 @@ namespace Content.Client.Decals
                 if (!chunkCollection.TryGetValue(index, out var chunk))
                     continue;
 
-                foreach (var decalId  in chunk.Decals.Keys)
+                foreach (var decalId in chunk.Decals.Keys)
                 {
                     OnDecalRemoved(gridId, decalId, gridComp, index, chunk);
                     gridComp.DecalIndex.Remove(decalId);

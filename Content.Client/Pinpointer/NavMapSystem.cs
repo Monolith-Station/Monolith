@@ -22,33 +22,33 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
         switch (args.Current)
         {
             case NavMapDeltaState delta:
-            {
-                modifiedChunks = delta.ModifiedChunks;
-                beacons = delta.Beacons;
-                regions = delta.Regions;
-
-                foreach (var index in component.Chunks.Keys)
                 {
-                    if (!delta.AllChunks!.Contains(index))
-                        component.Chunks.Remove(index);
-                }
+                    modifiedChunks = delta.ModifiedChunks;
+                    beacons = delta.Beacons;
+                    regions = delta.Regions;
 
-                break;
-            }
+                    foreach (var index in component.Chunks.Keys)
+                    {
+                        if (!delta.AllChunks!.Contains(index))
+                            component.Chunks.Remove(index);
+                    }
+
+                    break;
+                }
             case NavMapState state:
-            {
-                modifiedChunks = state.Chunks;
-                beacons = state.Beacons;
-                regions = state.Regions;
-
-                foreach (var index in component.Chunks.Keys)
                 {
-                    if (!state.Chunks.ContainsKey(index))
-                        component.Chunks.Remove(index);
-                }
+                    modifiedChunks = state.Chunks;
+                    beacons = state.Beacons;
+                    regions = state.Regions;
 
-                break;
-            }
+                    foreach (var index in component.Chunks.Keys)
+                    {
+                        if (!state.Chunks.ContainsKey(index))
+                            component.Chunks.Remove(index);
+                    }
+
+                    break;
+                }
             default:
                 return;
         }

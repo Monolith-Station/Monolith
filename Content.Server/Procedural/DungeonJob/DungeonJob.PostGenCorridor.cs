@@ -98,7 +98,7 @@ public sealed partial class DungeonJob
         WidenCorridor(dungeon, gen.Width, corridorTiles);
 
         var setTiles = new List<(Vector2i, Tile)>();
-        var tileDef = (ContentTileDefinition) _tileDefManager[tileProto];
+        var tileDef = (ContentTileDefinition)_tileDefManager[tileProto];
 
         foreach (var tile in corridorTiles)
         {

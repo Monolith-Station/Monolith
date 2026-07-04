@@ -1,4 +1,4 @@
-﻿using Content.Client.Decals.UI;
+using Content.Client.Decals.UI;
 using Content.Client.Gameplay;
 using Content.Client.Sandbox;
 using Content.Shared.Decals;
@@ -25,7 +25,7 @@ public sealed partial class DecalPlacerUIController : UIController, IOnStateExit
         {
             _window.Close();
         }
-        else if(_sandbox.SandboxAllowed)
+        else if (_sandbox.SandboxAllowed)
         {
             _window.Open();
         }

@@ -107,7 +107,7 @@ public sealed partial class FancyTree : Control
 
         foreach (var item in Body.Children)
         {
-            RecursiveUpdateIcon((TreeItem) item);
+            RecursiveUpdateIcon((TreeItem)item);
         }
     }
 
@@ -186,7 +186,7 @@ public sealed partial class FancyTree : Control
     {
         foreach (var item in Body.Children)
         {
-            RecursiveSetExpanded((TreeItem) item, value, depth);
+            RecursiveSetExpanded((TreeItem)item, value, depth);
         }
     }
 
@@ -200,7 +200,7 @@ public sealed partial class FancyTree : Control
 
         foreach (var child in item.Body.Children)
         {
-            RecursiveSetExpanded((TreeItem) child, value, depth);
+            RecursiveSetExpanded((TreeItem)child, value, depth);
         }
     }
 
@@ -257,7 +257,7 @@ public sealed partial class FancyTree : Control
 
         foreach (var item in Body.Children)
         {
-            RecursivelyUpdateRowStyle((TreeItem) item, ref index);
+            RecursivelyUpdateRowStyle((TreeItem)item, ref index);
         }
     }
 
@@ -281,7 +281,7 @@ public sealed partial class FancyTree : Control
 
         foreach (var child in item.Body.Children)
         {
-            RecursivelyUpdateRowStyle((TreeItem) child, ref index);
+            RecursivelyUpdateRowStyle((TreeItem)child, ref index);
         }
     }
 
@@ -294,7 +294,7 @@ public sealed partial class FancyTree : Control
 
         foreach (var item in Body.Children)
         {
-            RecursiveUpdateIcon((TreeItem) item);
+            RecursiveUpdateIcon((TreeItem)item);
         }
     }
 
@@ -304,14 +304,14 @@ public sealed partial class FancyTree : Control
 
         foreach (var child in item.Body.Children)
         {
-            RecursiveUpdateIcon((TreeItem) child);
+            RecursiveUpdateIcon((TreeItem)child);
         }
     }
 
     protected override void StylePropertiesChanged()
     {
         LoadIcons();
-        LineColor = TryGetStyleProperty(StylePropertyLineColor, out Color color) ? color: Color.White;
+        LineColor = TryGetStyleProperty(StylePropertyLineColor, out Color color) ? color : Color.White;
         LineWidth = TryGetStyleProperty(StylePropertyLineWidth, out int width) ? width : 2;
         base.StylePropertiesChanged();
     }

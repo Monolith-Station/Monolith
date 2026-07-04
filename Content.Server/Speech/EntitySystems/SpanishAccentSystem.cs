@@ -57,7 +57,8 @@ namespace Content.Server.Speech.EntitySystems
                 if (toInsert.Length == 0)
                 {
                     msg.Append(s);
-                } else
+                }
+                else
                 {
                     msg.Append(s.Insert(s.Length - s.TrimStart().Length, toInsert.ToString()));
                 }

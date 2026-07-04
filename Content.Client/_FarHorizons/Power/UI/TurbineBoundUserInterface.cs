@@ -32,7 +32,7 @@ public sealed partial class TurbineBoundUserInterface : BoundUserInterface, IBui
     {
         EntityUid? turbineUid = null;
         if (_entityManager.TryGetComponent<GasTurbineMonitorComponent>(Owner, out var turbineMonitorComponent))
-            if (!_entityManager.TryGetEntity(turbineMonitorComponent.turbine, out turbineUid) || turbineUid == null 
+            if (!_entityManager.TryGetEntity(turbineMonitorComponent.turbine, out turbineUid) || turbineUid == null
                 || !_entityManager.HasComponent<TurbineComponent>(turbineUid))
                 return;
 
@@ -66,7 +66,7 @@ public sealed partial class TurbineBoundUserInterface : BoundUserInterface, IBui
             return;
 
         if (!_entityManager.TryGetComponent<TurbineComponent>(Owner, out var comp))
-            if(!TryGetTurbineComp(Owner, out comp))
+            if (!TryGetTurbineComp(Owner, out comp))
                 return;
 
         foreach (var replayMsg in _pred!.MessagesToReplay())

@@ -46,7 +46,7 @@ public sealed partial class BankSystem
 
     private void OnWithdraw(EntityUid uid, BankATMComponent component, BankWithdrawMessage args)
     {
-        if (args.Actor is not { Valid : true } player)
+        if (args.Actor is not { Valid: true } player)
             return;
 
         // to keep the window stateful
@@ -211,7 +211,7 @@ public sealed partial class BankSystem
             var state = new BankATMMenuInterfaceState(bank.Balance, 0, true, deposit);
             state.Savings = GetEntSavings(player);
 
-            if (component.CashSlot.ContainerSlot?.ContainedEntity is not { Valid : true } cash)
+            if (component.CashSlot.ContainerSlot?.ContainedEntity is not { Valid: true } cash)
                 state.Deposit = 0;
             else
                 state.Deposit = deposit;

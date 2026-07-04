@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Client.Gravity;
 using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
@@ -65,11 +65,11 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
 
         while (query.MoveNext(out var super, out var sprite))
         {
-            var completion = 1f - (float) ((super.EndTime - _timing.CurTime) / super.SupercriticalDuration);
+            var completion = 1f - (float)((super.EndTime - _timing.CurTime) / super.SupercriticalDuration);
             var scale = completion * (super.MaxScaleAmount - 1f) + 1f;
             sprite.Scale = new Vector2(scale, scale);
 
-            var transparency = (byte) (65 * (1f - completion) + 190);
+            var transparency = (byte)(65 * (1f - completion) + 190);
             if (transparency < sprite.Color.AByte)
             {
                 sprite.Color = sprite.Color.WithAlpha(transparency);

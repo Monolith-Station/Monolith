@@ -15,7 +15,7 @@ public sealed partial class DungeonJob
     private async Task PostGen(CorridorClutterDunGen gen, DungeonData data, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
     {
         var physicsQuery = _entManager.GetEntityQuery<PhysicsComponent>();
-        var count = (int) Math.Ceiling(dungeon.CorridorTiles.Count * gen.Chance);
+        var count = (int)Math.Ceiling(dungeon.CorridorTiles.Count * gen.Chance);
 
         while (count > 0)
         {

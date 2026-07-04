@@ -121,7 +121,7 @@ public sealed partial class InnerBodyAnomalySystem : SharedInnerBodyAnomalySyste
 
             _popup.PopupEntity(message, ent, ent, PopupType.MediumCaution);
 
-            _adminLog.Add(LogType.Anomaly,LogImpact.Extreme,$"{ToPrettyString(ent)} became anomaly host.");
+            _adminLog.Add(LogType.Anomaly, LogImpact.Extreme, $"{ToPrettyString(ent)} became anomaly host.");
         }
         Dirty(ent);
     }
@@ -235,7 +235,7 @@ public sealed partial class InnerBodyAnomalySystem : SharedInnerBodyAnomalySyste
 
             _popup.PopupEntity(message, ent, ent, PopupType.MediumCaution);
 
-            _adminLog.Add(LogType.Anomaly, LogImpact.Medium,$"{ToPrettyString(ent)} is no longer a host for the anomaly.");
+            _adminLog.Add(LogType.Anomaly, LogImpact.Medium, $"{ToPrettyString(ent)} is no longer a host for the anomaly.");
         }
 
         ent.Comp.Injected = false;

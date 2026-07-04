@@ -86,7 +86,7 @@ namespace Content.Server.Pointing.EntitySystems
 
             foreach (var viewer in viewers)
             {
-                if (viewer.AttachedEntity is not {Valid: true} viewerEntity)
+                if (viewer.AttachedEntity is not { Valid: true } viewerEntity)
                 {
                     continue;
                 }
@@ -175,12 +175,12 @@ namespace Content.Server.Pointing.EntitySystems
                 }
             }
 
-            var layer = (int) VisibilityFlags.Normal;
+            var layer = (int)VisibilityFlags.Normal;
             if (TryComp(player, out VisibilityComponent? playerVisibility))
             {
                 var arrowVisibility = EntityManager.EnsureComponent<VisibilityComponent>(arrow);
                 layer = playerVisibility.Layer;
-                _visibilitySystem.SetLayer((arrow, arrowVisibility), (ushort) layer);
+                _visibilitySystem.SetLayer((arrow, arrowVisibility), (ushort)layer);
             }
 
             // Get players that are in range and whose visibility layer matches the arrow's.

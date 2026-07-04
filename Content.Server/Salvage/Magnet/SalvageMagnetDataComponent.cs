@@ -19,10 +19,10 @@ public sealed partial class SalvageMagnetDataComponent : Component
     /// <summary>
     /// If the magnet is currently active when does it end.
     /// </summary>
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan? EndTime;
 
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextOffer;
 
     /// <summary>

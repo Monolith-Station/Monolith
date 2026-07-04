@@ -33,7 +33,7 @@ namespace Content.YAMLLinter
 
             if (count == 0)
             {
-                Console.WriteLine($"No errors found in {(int) stopwatch.Elapsed.TotalMilliseconds} ms.");
+                Console.WriteLine($"No errors found in {(int)stopwatch.Elapsed.TotalMilliseconds} ms.");
                 PoolManager.Shutdown();
                 return 0;
             }
@@ -51,7 +51,7 @@ namespace Content.YAMLLinter
                 Console.WriteLine(error);
             }
 
-            Console.WriteLine($"{count} errors found in {(int) stopwatch.Elapsed.TotalMilliseconds} ms.");
+            Console.WriteLine($"{count} errors found in {(int)stopwatch.Elapsed.TotalMilliseconds} ms.");
             PoolManager.Shutdown();
             return -1;
         }

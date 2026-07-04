@@ -1,4 +1,5 @@
 namespace Content.Client.Guidebook.Controls;
+
 public interface ISearchableControl
 {
     public bool CheckMatchesSearch(string query);

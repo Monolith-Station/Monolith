@@ -1,4 +1,4 @@
-﻿using Lidgren.Network;
+using Lidgren.Network;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
@@ -19,7 +19,7 @@ namespace Content.Shared.Eui
         public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
         {
             Id = buffer.ReadUInt32();
-            Type = (CtlType) buffer.ReadByte();
+            Type = (CtlType)buffer.ReadByte();
             switch (Type)
             {
                 case CtlType.Open:
@@ -31,7 +31,7 @@ namespace Content.Shared.Eui
         public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
         {
             buffer.Write(Id);
-            buffer.Write((byte) Type);
+            buffer.Write((byte)Type);
             switch (Type)
             {
                 case CtlType.Open:

@@ -33,7 +33,7 @@ public sealed partial class AdminFaxWindow : DefaultWindow
 
         // Don't use this, but ColorSelectorSliders requires it:
         // what the fok
-        StampColorSelector.OnColorChanged += (color) => {};
+        StampColorSelector.OnColorChanged += (color) => { };
 
         var loc = IoCManager.Resolve<ILocalizationManager>();
         MessageEdit.Placeholder = new Rope.Leaf(loc.GetString("admin-fax-message-placeholder")); // TextEdit work only with Nodes
@@ -71,7 +71,7 @@ public sealed partial class AdminFaxWindow : DefaultWindow
 
     private void FollowFax(BaseButton.ButtonEventArgs obj)
     {
-        var faxEntity = (NetEntity?) FaxSelector.SelectedMetadata;
+        var faxEntity = (NetEntity?)FaxSelector.SelectedMetadata;
         if (faxEntity == null)
             return;
 
@@ -80,11 +80,11 @@ public sealed partial class AdminFaxWindow : DefaultWindow
 
     private void SendMessage(BaseButton.ButtonEventArgs obj)
     {
-        var faxEntity = (NetEntity?) FaxSelector.SelectedMetadata;
+        var faxEntity = (NetEntity?)FaxSelector.SelectedMetadata;
         if (faxEntity == null)
             return;
 
-        var stamp = (string?) StampSelector.SelectedMetadata;
+        var stamp = (string?)StampSelector.SelectedMetadata;
         if (stamp == null)
             return;
 

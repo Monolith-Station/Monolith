@@ -57,7 +57,7 @@ public abstract partial class GameTest
     /// </summary>
     /// <remarks>Does its own cleanup, you do not need to set the CVar back yourself.</remarks>
     public async Task OverrideCVar<T>(Side side, CVarDef<T> cvar, T value, bool sync = true)
-        where T: notnull
+        where T : notnull
     {
         await OverrideCVarByName(side, cvar.Name, value, sync);
     }

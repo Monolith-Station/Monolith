@@ -40,7 +40,7 @@ public sealed partial class GridModifierSystem : SharedGridModifierSystem
         if (!HasComp<MapGridComponent>(uid))
             return;
 
-        foreach (var modProto  in modifiers)
+        foreach (var modProto in modifiers)
         {
             if (!_protoMan.TryIndex(modProto, out var mod))
                 continue;

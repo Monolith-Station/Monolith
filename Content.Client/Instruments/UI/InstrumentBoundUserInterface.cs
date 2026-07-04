@@ -95,7 +95,7 @@ namespace Content.Client.Instruments.UI
 
         public void CloseBandMenu()
         {
-            if(_bandMenu?.IsOpen ?? false)
+            if (_bandMenu?.IsOpen ?? false)
                 _bandMenu.Close();
         }
 
@@ -108,7 +108,7 @@ namespace Content.Client.Instruments.UI
 
         public void CloseChannelsMenu()
         {
-            if(_channelsMenu?.IsOpen ?? false)
+            if (_channelsMenu?.IsOpen ?? false)
                 _channelsMenu.Close();
         }
     }

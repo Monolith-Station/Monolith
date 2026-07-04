@@ -213,7 +213,7 @@ public sealed partial class AtmosAlertsComputerSystem : SharedAtmosAlertsCompute
 
                 // Update the appearance of the console based on the highest recorded level of alert
                 if (TryComp<AppearanceComponent>(ent, out var entAppearance))
-                    _appearance.SetData(ent, AtmosAlertsComputerVisuals.ComputerLayerScreen, (int) highestAlert, entAppearance);
+                    _appearance.SetData(ent, AtmosAlertsComputerVisuals.ComputerLayerScreen, (int)highestAlert, entAppearance);
 
                 // If the console UI is open, send UI data to each subscribed session
                 UpdateUIState(ent, airAlarmEntries, fireAlarmEntries, gaslockEntries, entConsole, entXform); // Frontier: add gaslockEntries
@@ -356,13 +356,13 @@ public sealed partial class AtmosAlertsComputerSystem : SharedAtmosAlertsCompute
         foreach ((var address, var sensorData) in focusDeviceAirAlarm.SensorData)
         {
             if (sensorData.TemperatureThreshold.CheckThreshold(sensorData.Temperature, out var temperatureState) &&
-                (int) temperatureState > (int) temperatureData.Item2)
+                (int)temperatureState > (int)temperatureData.Item2)
             {
                 temperatureData = (temperatureData.Item1, temperatureState);
             }
 
             if (sensorData.PressureThreshold.CheckThreshold(sensorData.Pressure, out var pressureState) &&
-                (int) pressureState > (int) pressureData.Item2)
+                (int)pressureState > (int)pressureData.Item2)
             {
                 pressureData = (pressureData.Item1, pressureState);
             }
@@ -382,7 +382,7 @@ public sealed partial class AtmosAlertsComputerSystem : SharedAtmosAlertsCompute
                     }
 
                     if (threshold.CheckThreshold(gasData[gas].Item2, out var gasState) &&
-                        (int) gasState > (int) gasData[gas].Item3)
+                        (int)gasState > (int)gasData[gas].Item3)
                     {
                         gasData[gas] = (gasData[gas].Item1, gasData[gas].Item2, gasState);
                     }

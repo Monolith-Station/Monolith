@@ -61,7 +61,7 @@ public sealed partial class TestPair
     public override void ValidateSettings(PairSettings s)
     {
         base.ValidateSettings(s);
-        var settings = (PoolSettings) s;
+        var settings = (PoolSettings)s;
 
         var cfg = Server.CfgMan;
         Assert.That(cfg.GetCVar(CCVars.AdminLogsEnabled), Is.EqualTo(settings.AdminLogsEnabled));

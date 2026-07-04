@@ -208,7 +208,7 @@ public sealed partial class ContentReplayPlaybackManager
 
     private void OnReplayPlaybackStopped()
     {
-        _conGrp.Implementation = (IClientConGroupImplementation) _adminMan;
+        _conGrp.Implementation = (IClientConGroupImplementation)_adminMan;
         ReturnToDefaultState();
     }
 }

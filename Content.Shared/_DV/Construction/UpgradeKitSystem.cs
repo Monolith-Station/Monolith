@@ -30,7 +30,7 @@ public sealed partial class UpgradeKitSystem : EntitySystem
 
     private void OnAfterInteract(Entity<UpgradeKitComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target is not {} target)
+        if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
 
         args.Handled = true;
@@ -57,7 +57,7 @@ public sealed partial class UpgradeKitSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        if (args.Handled || args.Args.Target is not {} target)
+        if (args.Handled || args.Args.Target is not { } target)
             return;
 
         args.Handled = true;

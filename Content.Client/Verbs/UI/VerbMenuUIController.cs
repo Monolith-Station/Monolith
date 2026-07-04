@@ -83,7 +83,7 @@ namespace Content.Client.Verbs.UI
         /// <param name="popup">
         ///     If this is not null, verbs will be placed into the given popup instead.
         /// </param>
-        public void OpenVerbMenu(EntityUid target, bool force = false, ContextMenuPopup? popup=null)
+        public void OpenVerbMenu(EntityUid target, bool force = false, ContextMenuPopup? popup = null)
         {
             DebugTools.Assert(target.IsValid());
             OpenVerbMenu(EntityManager.GetNetEntity(target), force, popup);
@@ -97,10 +97,10 @@ namespace Content.Client.Verbs.UI
         /// <param name="popup">
         ///     If this is not null, verbs will be placed into the given popup instead.
         /// </param>
-        public void OpenVerbMenu(NetEntity target, bool force = false, ContextMenuPopup? popup=null)
+        public void OpenVerbMenu(NetEntity target, bool force = false, ContextMenuPopup? popup = null)
         {
             DebugTools.Assert(target.IsValid());
-            if (_playerManager.LocalEntity is not {Valid: true} user)
+            if (_playerManager.LocalEntity is not { Valid: true } user)
                 return;
 
             if (!force && _combatMode.IsInCombatMode(user))

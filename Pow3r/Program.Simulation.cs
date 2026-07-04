@@ -72,12 +72,12 @@ namespace Pow3r
                 displayBattery.SuppliedPowerData[_tickDataIdx] = battery.CurrentSupply;
             }
 
-            _simTickTimes[_tickDataIdx] = (float) _simStopwatch.Elapsed.TotalMilliseconds;
+            _simTickTimes[_tickDataIdx] = (float)_simStopwatch.Elapsed.TotalMilliseconds;
         }
 
         private void RunSingleStep()
         {
-            RunSingleStep(1f/_tps);
+            RunSingleStep(1f / _tps);
         }
 
         // Link data is stored authoritatively on networks,

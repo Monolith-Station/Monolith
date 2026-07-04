@@ -27,7 +27,7 @@ namespace Content.Client.Shuttles.UI
         {
 
             if (!EntManager.GetCoordinates(state.Coordinates).HasValue ||
-                !EntManager.TryGetComponent(EntManager.GetCoordinates(state.Coordinates).GetValueOrDefault().EntityId,out TransformComponent? transform) ||
+                !EntManager.TryGetComponent(EntManager.GetCoordinates(state.Coordinates).GetValueOrDefault().EntityId, out TransformComponent? transform) ||
                 !EntManager.TryGetComponent(transform.GridUid, out PhysicsComponent? physicsComponent))
             {
                 return;
@@ -117,11 +117,11 @@ namespace Content.Client.Shuttles.UI
                 if (blipData.IsOutsideRadarCircle)
                 {
                     // Calculate the angle of rotation
-                    var angle = (float) Math.Atan2(blipData.VectorToPosition.Y, blipData.VectorToPosition.X) + -1.6f;
+                    var angle = (float)Math.Atan2(blipData.VectorToPosition.Y, blipData.VectorToPosition.X) + -1.6f;
 
                     // Manually create a rotation matrix
-                    var cos = (float) Math.Cos(angle);
-                    var sin = (float) Math.Sin(angle);
+                    var cos = (float)Math.Cos(angle);
+                    var sin = (float)Math.Sin(angle);
                     float[,] rotationMatrix = { { cos, -sin }, { sin, cos } };
 
                     // Rotate each vertex

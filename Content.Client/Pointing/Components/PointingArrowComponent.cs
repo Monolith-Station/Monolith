@@ -2,6 +2,7 @@ using Content.Shared.Pointing.Components;
 using System.Numerics;
 
 namespace Content.Client.Pointing.Components;
+
 [RegisterComponent]
 public sealed partial class PointingArrowComponent : SharedPointingArrowComponent
 {

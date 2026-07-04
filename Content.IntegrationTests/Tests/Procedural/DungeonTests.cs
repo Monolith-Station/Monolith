@@ -32,7 +32,7 @@ public sealed class DungeonTests
                 for (var i = 0; i < pack.Rooms.Count; i++)
                 {
                     var room = pack.Rooms[i];
-                    var bounds = (Box2) room;
+                    var bounds = (Box2)room;
 
                     for (var j = 0; j < rooms.Count; j++)
                     {

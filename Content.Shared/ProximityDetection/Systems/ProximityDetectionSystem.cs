@@ -1,5 +1,5 @@
-﻿using Content.Shared.Item.ItemToggle;
-﻿using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Item.ItemToggle;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.ProximityDetection.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Network;
@@ -90,7 +90,7 @@ public sealed partial class ProximityDetectionSystem : EntitySystem
         Dirty(uid, comp);
     }
 
-    private void RunUpdate_Internal(EntityUid owner,ProximityDetectorComponent detector)
+    private void RunUpdate_Internal(EntityUid owner, ProximityDetectorComponent detector)
     {
         if (!_net.IsServer) //only run detection checks on the server!
             return;
@@ -110,9 +110,9 @@ public sealed partial class ProximityDetectionSystem : EntitySystem
             throw new ArgumentException($"ProximityDetectorComponent on {ToPrettyString(owner)} must use at least 1 component as a filter in criteria!");
         }
         var firstCompType = EntityManager.ComponentFactory.GetRegistration(detector.Criteria.Components[0]).Type;
-        var foundEnts = _entityLookup.GetEntitiesInRange(firstCompType,_transform.GetMapCoordinates(owner, xform), detector.Range.Float());
+        var foundEnts = _entityLookup.GetEntitiesInRange(firstCompType, _transform.GetMapCoordinates(owner, xform), detector.Range.Float());
 
-        var tagSearchEnabled = detector.Criteria.Tags is {Count: > 0};
+        var tagSearchEnabled = detector.Criteria.Tags is { Count: > 0 };
 
         CheckForAllComponentsPresent(detector, ref foundEnts, tagSearchEnabled);
 
@@ -183,7 +183,7 @@ public sealed partial class ProximityDetectionSystem : EntitySystem
         }
         var closestDistance = detections[0].Distance;
         EntityUid closestEnt = default!;
-        foreach (var (ent,dist) in detections)
+        foreach (var (ent, dist) in detections)
         {
             if (dist >= closestDistance)
                 continue;

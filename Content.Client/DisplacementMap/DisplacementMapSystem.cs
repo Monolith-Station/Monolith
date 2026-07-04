@@ -24,7 +24,7 @@ public sealed partial class DisplacementMapSystem : EntitySystem
         //allows you not to write it every time in the YML
         foreach (var pair in data.SizeMaps)
         {
-            pair.Value.CopyToShaderParameters??= new()
+            pair.Value.CopyToShaderParameters ??= new()
             {
                 LayerKey = "dummy",
                 ParameterTexture = "displacementMap",

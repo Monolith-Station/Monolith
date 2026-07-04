@@ -59,7 +59,7 @@ public sealed partial class RuleGridsSystem : GameRuleSystem<RuleGridsComponent>
             if (xform.MapID != ent.Comp.Map)
                 continue;
 
-            if (xform.GridUid is not {} grid || !ent.Comp.MapGrids.Contains(grid))
+            if (xform.GridUid is not { } grid || !ent.Comp.MapGrids.Contains(grid))
                 continue;
 
             if (_whitelist.IsWhitelistFail(ent.Comp.SpawnerWhitelist, uid))

@@ -221,7 +221,7 @@ namespace Content.Client.RoundEnd
                 if (playerInfo.EntMobState == MobState.Dead
                     && playerInfo.DamagePerGroup.Values.Any(v => v > 0))
                 {
-                    var totalDamage = playerInfo.DamagePerGroup.Values.Sum(static v => (decimal) v);
+                    var totalDamage = playerInfo.DamagePerGroup.Values.Sum(static v => (decimal)v);
                     var severityAdj = totalDamage switch
                     {
                         >= 1000 => "catastrophic",
@@ -285,7 +285,7 @@ namespace Content.Client.RoundEnd
                         };
                         var valueLabel = new Label
                         {
-                            Text = Math.Round((float) damage.Value).ToString(),
+                            Text = Math.Round((float)damage.Value).ToString(),
                             FontColorOverride = color,
                             HorizontalAlignment = HAlignment.Center,
                             VerticalAlignment = VAlignment.Center,

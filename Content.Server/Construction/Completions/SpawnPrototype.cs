@@ -1,4 +1,4 @@
-﻿using Content.Server.Stack;
+using Content.Server.Stack;
 using Content.Shared.Construction;
 using Content.Shared.Prototypes;
 using Content.Shared.Stacks;
@@ -12,7 +12,7 @@ namespace Content.Server.Construction.Completions
     [DataDefinition]
     public sealed partial class SpawnPrototype : IGraphAction
     {
-        [DataField("prototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+        [DataField("prototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string Prototype { get; private set; } = string.Empty;
         [DataField("amount")]
         public int Amount { get; private set; } = 1;

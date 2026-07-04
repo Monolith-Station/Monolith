@@ -55,7 +55,7 @@ public class ComponentQueryBenchmark
         _pair.Server.WaitPost(() =>
         {
             var map = new ResPath(Map);
-            var opts = DeserializationOptions.Default with {InitializeMaps = true};
+            var opts = DeserializationOptions.Default with { InitializeMaps = true };
             if (!_entMan.System<MapLoaderSystem>().TryLoadMap(map, out _, out _, opts))
                 throw new Exception("Map load failed");
         }).GetAwaiter().GetResult();

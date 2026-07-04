@@ -12,7 +12,7 @@ namespace Content.Server._Mono.Ships.Systems;
 public sealed partial class CrewedShuttleSystem : EntitySystem
 {
     [Dependency] private UserInterfaceSystem _ui = default!;
-    public bool AnyConsoleActiveByPlayer<T>(Entity<CrewedShuttleComponent?> shuttle, Enum key, EntityUid actor)  where T : IComponent
+    public bool AnyConsoleActiveByPlayer<T>(Entity<CrewedShuttleComponent?> shuttle, Enum key, EntityUid actor) where T : IComponent
     {
         if (!Resolve(shuttle.Owner, ref shuttle.Comp, false))
             return false;

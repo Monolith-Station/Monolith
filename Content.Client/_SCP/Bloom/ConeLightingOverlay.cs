@@ -24,7 +24,7 @@ public sealed class ConeLightingOverlay : Overlay
     public ConeLightingOverlay(IPrototypeManager prototypeManager, SpriteSystem spriteSystem, ProtoId<ShaderPrototype> shader)
     {
         _shader = prototypeManager.Index(shader).InstanceUnique();
-        ZIndex = (int) DrawDepth.Effects;
+        ZIndex = (int)DrawDepth.Effects;
 
         _maskTexture = spriteSystem.Frame0(BloomOverlayVisualsComponent.Cone);
 

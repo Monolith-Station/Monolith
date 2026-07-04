@@ -26,7 +26,7 @@ public sealed partial class DockObject : PanelContainer
             Text = "external airlock",
             HorizontalAlignment = HAlignment.Center,
         };
-        
+
         var viewButton = new Button()
         {
             Text = Loc.GetString("View"),

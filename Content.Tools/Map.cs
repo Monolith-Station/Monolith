@@ -19,16 +19,16 @@ namespace Content.Tools
             stream.Load(reader);
 
             Root = stream.Documents[0].RootNode;
-            TilemapNode = (YamlMappingNode) Root["tilemap"];
-            GridsNode = (YamlSequenceNode) Root["grids"];
-            EntitiesNode = (YamlSequenceNode) Root["entities"];
+            TilemapNode = (YamlMappingNode)Root["tilemap"];
+            GridsNode = (YamlSequenceNode)Root["grids"];
+            EntitiesNode = (YamlSequenceNode)Root["entities"];
 
             foreach (var entity in EntitiesNode)
             {
                 var uid = uint.Parse(entity["uid"].AsString());
                 if (uid >= NextAvailableEntityId)
                     NextAvailableEntityId = uid + 1;
-                Entities[uid] = (YamlMappingNode) entity;
+                Entities[uid] = (YamlMappingNode)entity;
             }
         }
 

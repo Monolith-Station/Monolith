@@ -71,7 +71,7 @@ public sealed partial class GridDraggingSystem : SharedGridDraggingSystem
             RaiseNetworkEvent(new GridDragVelocityRequest()
             {
                 Grid = GetNetEntity(_dragging.Value),
-                LinearVelocity = distance.LengthSquared() > 0f ? (distance / (float) tickTime.TotalSeconds) * 0.25f : Vector2.Zero,
+                LinearVelocity = distance.LengthSquared() > 0f ? (distance / (float)tickTime.TotalSeconds) * 0.25f : Vector2.Zero,
             });
         }
 

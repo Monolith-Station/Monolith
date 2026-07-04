@@ -61,7 +61,7 @@ public sealed partial class StealthComponent : Component
     /// Time at which <see cref="LastVisibility"/> was set. Null implies the entity is currently paused and not
     /// accumulating any visibility change.
     /// </summary>
-    [DataField("lastUpdate", customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField("lastUpdate", customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField] // Goobstation
     public TimeSpan? LastUpdated;
 

@@ -93,8 +93,8 @@ public sealed partial class TippyUIController : UIController
             return new Vector2(screenSize.X - offset * (tippy.DesiredSize.X + Padding), (screenSize.Y - tippy.DesiredSize.Y) / 2);
         }
 
-        var numSteps = (int) Math.Ceiling(slideTime / waddle);
-        var curStep = (int) Math.Floor(numSteps * offset);
+        var numSteps = (int)Math.Ceiling(slideTime / waddle);
+        var curStep = (int)Math.Floor(numSteps * offset);
         var stepSize = (tippy.DesiredSize.X + Padding) / numSteps;
 
         if (curStep != _previousStep)

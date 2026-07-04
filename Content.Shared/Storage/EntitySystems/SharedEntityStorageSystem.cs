@@ -31,19 +31,19 @@ namespace Content.Shared.Storage.EntitySystems;
 
 public abstract partial class SharedEntityStorageSystem : EntitySystem
 {
-    [Dependency] private   IGameTiming _timing = default!;
-    [Dependency] private   INetManager _net = default!;
-    [Dependency] private   EntityLookupSystem _lookup = default!;
-    [Dependency] private   SharedAppearanceSystem _appearance = default!;
-    [Dependency] private   SharedAudioSystem _audio = default!;
-    [Dependency] private   SharedContainerSystem _container = default!;
-    [Dependency] private   SharedInteractionSystem _interaction = default!;
-    [Dependency] private   SharedJointSystem _joints = default!;
-    [Dependency] private   SharedPhysicsSystem _physics = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedJointSystem _joints = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] protected SharedPopupSystem Popup = default!;
-    [Dependency] private   SharedStackSystem _stack = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
     [Dependency] protected SharedTransformSystem TransformSystem = default!;
-    [Dependency] private   WeldableSystem _weldable = default!;
+    [Dependency] private WeldableSystem _weldable = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private ActionBlockerSystem _actionBlocker = default!;
 

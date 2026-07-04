@@ -35,13 +35,13 @@ public sealed partial class MechMenu : FancyWindow
 
         var integrityPercent = mechComp.Integrity / mechComp.MaxIntegrity;
         IntegrityDisplayBar.Value = integrityPercent.Float();
-        IntegrityDisplay.Text = Loc.GetString("mech-integrity-display", ("amount", (integrityPercent*100).Int()));
+        IntegrityDisplay.Text = Loc.GetString("mech-integrity-display", ("amount", (integrityPercent * 100).Int()));
 
         if (mechComp.MaxEnergy != 0f)
         {
             var energyPercent = mechComp.Energy / mechComp.MaxEnergy;
             EnergyDisplayBar.Value = energyPercent.Float();
-            EnergyDisplay.Text = Loc.GetString("mech-energy-display", ("amount", (energyPercent*100).Int()));
+            EnergyDisplay.Text = Loc.GetString("mech-energy-display", ("amount", (energyPercent * 100).Int()));
         }
         else
         {

@@ -30,7 +30,7 @@ public sealed partial class CryoPodComponent : Component
     public float BeakerTransferTime = 1f;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("nextInjectionTime", customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField("nextInjectionTime", customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan? NextInjectionTime;
 
     /// <summary>

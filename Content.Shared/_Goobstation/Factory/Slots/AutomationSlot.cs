@@ -93,9 +93,9 @@ public abstract partial class AutomationSlot
     /// </summary>
     public virtual void AddPorts()
     {
-        if (Input is {} input)
+        if (Input is { } input)
             _device.EnsureSinkPorts(Owner, input);
-        if (Output is {} output)
+        if (Output is { } output)
             _device.EnsureSourcePorts(Owner, output);
     }
 
@@ -104,9 +104,9 @@ public abstract partial class AutomationSlot
     /// </summary>
     public virtual void RemovePorts()
     {
-        if (Input is {} input)
+        if (Input is { } input)
             _device.RemoveSinkPort(Owner, input);
-        if (Output is {} output)
+        if (Output is { } output)
             _device.RemoveSourcePort(Owner, output);
     }
 }

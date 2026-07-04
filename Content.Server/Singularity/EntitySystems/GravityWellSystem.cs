@@ -73,7 +73,7 @@ public sealed partial class GravityWellSystem : SharedGravityWellSystem
     /// <param name="frameTime">The time elapsed since the last set of updates.</param>
     public override void Update(float frameTime)
     {
-        if(!_timing.IsFirstTimePredicted)
+        if (!_timing.IsFirstTimePredicted)
             return;
 
         var query = EntityQueryEnumerator<GravityWellComponent, TransformComponent>();
@@ -108,7 +108,7 @@ public sealed partial class GravityWellSystem : SharedGravityWellSystem
     /// <param name="xform">The transform of the gravity well to make pulse.</param>
     private void Update(EntityUid uid, TimeSpan frameTime, GravityWellComponent? gravWell = null, TransformComponent? xform = null)
     {
-        if(!Resolve(uid, ref gravWell))
+        if (!Resolve(uid, ref gravWell))
             return;
 
         gravWell.NextPulseTime += gravWell.TargetPulsePeriod;
@@ -130,7 +130,7 @@ public sealed partial class GravityWellSystem : SharedGravityWellSystem
     {
         if (_physicsQuery.TryComp(entity, out var physics))
         {
-            if (physics.CollisionLayer == (int) CollisionGroup.GhostImpassable)
+            if (physics.CollisionLayer == (int)CollisionGroup.GhostImpassable)
                 return false;
         }
 
@@ -221,7 +221,7 @@ public sealed partial class GravityWellSystem : SharedGravityWellSystem
             if (TryComp<MovedByPressureComponent>(entity, out var movedPressure) && !movedPressure.Enabled) //Ignore magboots users
                 continue;
 
-            if(!CanGravPulseAffect(entity))
+            if (!CanGravPulseAffect(entity))
                 continue;
 
             var displacement = epicenter - _transform.GetWorldPosition(entity);
@@ -258,7 +258,7 @@ public sealed partial class GravityWellSystem : SharedGravityWellSystem
     /// <param name="gravWell">The state of the gravity well to set the pulse period for.</param>
     public void SetPulsePeriod(EntityUid uid, TimeSpan value, GravityWellComponent? gravWell = null)
     {
-        if(!Resolve(uid, ref gravWell))
+        if (!Resolve(uid, ref gravWell))
             return;
 
         if (MathHelper.CloseTo(gravWell.TargetPulsePeriod.TotalSeconds, value.TotalSeconds))

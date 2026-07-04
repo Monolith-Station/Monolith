@@ -47,7 +47,7 @@ public sealed partial class RechargeableBlockingSystem : SharedBlockingSystem //
             || recharger is not { AutoRechargeRate: > 0, AutoRecharge: true })
             return 0;
 
-        return (int) MathF.Round((batteryComponent.MaxCharge - batteryComponent.CurrentCharge) /
+        return (int)MathF.Round((batteryComponent.MaxCharge - batteryComponent.CurrentCharge) /
                                  recharger.AutoRechargeRate);
     }
 
@@ -103,6 +103,6 @@ public sealed partial class RechargeableBlockingSystem : SharedBlockingSystem //
 
         component.Discharged = false;
         if (TryComp(uid, out recharger))
-                recharger.AutoRechargeRate = component.ChargedRechargeRate;
+            recharger.AutoRechargeRate = component.ChargedRechargeRate;
     }
 }

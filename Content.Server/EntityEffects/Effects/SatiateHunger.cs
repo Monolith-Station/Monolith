@@ -29,7 +29,7 @@ namespace Content.Server.EntityEffects.Effects
                 return;
             if (args is EntityEffectReagentArgs reagentArgs)
             {
-                entman.System<HungerSystem>().ModifyHunger(reagentArgs.TargetEntity, NutritionFactor * (float) reagentArgs.Quantity, hunger);
+                entman.System<HungerSystem>().ModifyHunger(reagentArgs.TargetEntity, NutritionFactor * (float)reagentArgs.Quantity, hunger);
             }
             else
             {

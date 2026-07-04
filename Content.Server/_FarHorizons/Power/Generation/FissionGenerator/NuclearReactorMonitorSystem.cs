@@ -39,8 +39,8 @@ public sealed partial class NuclearReactorMonitorSystem : EntitySystem
     {
         if (!_entityManager.TryGetComponent<DeviceLinkSinkComponent>(uid, out var sink))
             return;
-        
-        foreach(var source in sink.LinkedSources)
+
+        foreach (var source in sink.LinkedSources)
         {
             if (!HasComp<NuclearReactorComponent>(source))
                 continue;

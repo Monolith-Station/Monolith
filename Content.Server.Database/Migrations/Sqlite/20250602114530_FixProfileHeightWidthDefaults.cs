@@ -31,4 +31,4 @@ namespace Content.Server.Database.Migrations.Sqlite
             // No rollback for data fixes - we don't want to restore broken data
         }
     }
-} 
+}

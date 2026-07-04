@@ -23,7 +23,7 @@ public sealed partial class RechargeBasicEntityAmmoComponent : Component
     };
 
     [ViewVariables(VVAccess.ReadWrite),
-     DataField("nextCharge", customTypeSerializer:typeof(TimeOffsetSerializer)),
+     DataField("nextCharge", customTypeSerializer: typeof(TimeOffsetSerializer)),
     AutoNetworkedField]
     [AutoPausedField]
     public TimeSpan? NextCharge;

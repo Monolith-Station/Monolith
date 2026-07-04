@@ -18,7 +18,7 @@ public sealed partial class HTNPrimitiveTask : HTNTask
     /// </summary>
     [DataField("preconditions")] public List<HTNPrecondition> Preconditions = new();
 
-    [DataField("operator", required:true)] public HTNOperator Operator = default!;
+    [DataField("operator", required: true)] public HTNOperator Operator = default!;
 
     /// <summary>
     /// Services actively tick and can potentially update keys, such as combat target.

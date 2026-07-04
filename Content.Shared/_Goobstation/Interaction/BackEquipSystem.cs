@@ -43,7 +43,8 @@ public sealed partial class BackEquipSystem : EntitySystem
         CommandBinds.Unregister<BackEquipSystem>();
     }
     // Mono, Partial Application of 2nd Argument
-    private StateInputCmdDelegate HandleEquipToSlotPartial(string equipmentSlot) {
+    private StateInputCmdDelegate HandleEquipToSlotPartial(string equipmentSlot)
+    {
         return (x) => HandleEquipToSlot(x, equipmentSlot);
     }
     // Mono End

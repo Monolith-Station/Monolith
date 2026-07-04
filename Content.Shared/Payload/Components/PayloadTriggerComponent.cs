@@ -29,7 +29,7 @@ public sealed partial class PayloadTriggerComponent : Component
     /// <summary>
     ///     List of components to add or remove from an entity when this trigger is (un)installed.
     /// </summary>
-    [DataField("components", serverOnly:true, readOnly: true)]
+    [DataField("components", serverOnly: true, readOnly: true)]
     public ComponentRegistry? Components = null;
 
     /// <summary>

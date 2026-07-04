@@ -1,4 +1,4 @@
-﻿using Content.Shared.Atmos;
+using Content.Shared.Atmos;
 
 namespace Content.Server.Atmos
 {
@@ -54,8 +54,8 @@ namespace Content.Server.Atmos
                 switch (direction)
                 {
                     case AtmosDirection.East:
-                         TransferDirectionEast = value;
-                         break;
+                        TransferDirectionEast = value;
+                        break;
                     case AtmosDirection.West:
                         TransferDirectionWest = value;
                         break;
@@ -73,8 +73,8 @@ namespace Content.Server.Atmos
 
         public float this[int index]
         {
-            get => this[(AtmosDirection) (1 << index)];
-            set => this[(AtmosDirection) (1 << index)] = value;
+            get => this[(AtmosDirection)(1 << index)];
+            set => this[(AtmosDirection)(1 << index)] = value;
         }
     }
 }

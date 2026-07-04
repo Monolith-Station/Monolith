@@ -22,7 +22,7 @@ namespace Content.Server.Chemistry.Components
         /// fill is added to the dispenser on MapInit. Note that we don't use ContainerFill because
         /// we have to generate the storage slots at MapInit first, then fill them.
         /// </summary>
-        [DataField("pack", customTypeSerializer:typeof(PrototypeIdSerializer<ReagentDispenserInventoryPrototype>))]
+        [DataField("pack", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentDispenserInventoryPrototype>))]
         [ViewVariables(VVAccess.ReadWrite)]
         public string? PackPrototypeId = default!;
 

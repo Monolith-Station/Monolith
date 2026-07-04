@@ -78,7 +78,7 @@ public sealed partial class MeleeChargeSystem : EntitySystem
 
     private void TryDeactivate(EntityUid uid, WeaponMeleeChargeComponent charge)
     {
-        if(!_toggle.TryDeactivate(uid))
+        if (!_toggle.TryDeactivate(uid))
             return;
 
         if (HasComp<ActiveWeaponMeleeChargeComponent>(uid))
@@ -110,6 +110,6 @@ public sealed partial class MeleeChargeSystem : EntitySystem
 
     private int CooldownToSeconds(Entity<WeaponMeleeChargeComponent> ent)
     {
-        return (int) double.Ceiling((ent.Comp.CooldownEndTime - _timing.CurTime).TotalSeconds);
+        return (int)double.Ceiling((ent.Comp.CooldownEndTime - _timing.CurTime).TotalSeconds);
     }
 }

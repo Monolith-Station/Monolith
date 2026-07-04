@@ -14,7 +14,7 @@ public sealed partial class VignetteOverlaySystem : EntitySystem
     {
         base.Initialize();
 
-        _overlay = new ();
+        _overlay = new();
 
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);

@@ -261,7 +261,7 @@ public sealed partial class BankSystem
 
     private void OnATMUIOpen(EntityUid uid, StationBankATMComponent component, BoundUIOpenedEvent args)
     {
-        if (args.Actor is not { Valid : true } player)
+        if (args.Actor is not { Valid: true } player)
             return;
 
         GetInsertedCashAmount(component, out var deposit);

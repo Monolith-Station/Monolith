@@ -51,7 +51,7 @@ public sealed partial class AutoExtendRuleSystem : EntitySystem
                 if (TryComp<MapGridComponent>(entUid, out var gridComp))
                 {
                     var gridAABB = gridComp.LocalAABB;
-                    checkRadius += MathF.Sqrt(gridAABB.Width*gridAABB.Width + gridAABB.Height*gridAABB.Height);
+                    checkRadius += MathF.Sqrt(gridAABB.Width * gridAABB.Width + gridAABB.Height * gridAABB.Height);
                 }
 
                 var allPlayerData = _player.GetAllPlayerData();

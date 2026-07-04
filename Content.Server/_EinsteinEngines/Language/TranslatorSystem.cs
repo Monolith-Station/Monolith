@@ -72,7 +72,7 @@ public sealed partial class TranslatorSystem : SharedTranslatorSystem
 
     private void OnTranslatorInserted(EntityUid translator, HandheldTranslatorComponent component, EntGotInsertedIntoContainerMessage args)
     {
-        if (args.Container.Owner is not {Valid: true} holder || !HasComp<LanguageSpeakerComponent>(holder))
+        if (args.Container.Owner is not { Valid: true } holder || !HasComp<LanguageSpeakerComponent>(holder))
             return;
 
         var intrinsic = EnsureComp<HoldsTranslatorComponent>(holder);
@@ -117,7 +117,7 @@ public sealed partial class TranslatorSystem : SharedTranslatorSystem
             _language.UpdateEntityLanguages(holder);
 
             // Update the current language of the entity if necessary
-            if (isEnabled && translatorComp.SetLanguageOnInteract && firstNewLanguage is {})
+            if (isEnabled && translatorComp.SetLanguageOnInteract && firstNewLanguage is { })
                 _language.SetLanguage((holder, languageComp), firstNewLanguage);
         }
 

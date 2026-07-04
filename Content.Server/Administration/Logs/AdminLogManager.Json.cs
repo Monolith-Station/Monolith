@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Content.Server.Administration.Logs.Converters;
@@ -56,7 +56,7 @@ public sealed partial class AdminLogManager
             {
                 EntityUid id => id,
                 EntityStringRepresentation rep => rep.Uid,
-                ICommonSession {AttachedEntity: {Valid: true}} session => session.AttachedEntity,
+                ICommonSession { AttachedEntity: { Valid: true } } session => session.AttachedEntity,
                 IComponent component => component.Owner,
                 _ => null
             };

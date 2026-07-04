@@ -103,7 +103,7 @@ public sealed partial class ReactiveSystem : EntitySystem
 }
 public enum ReactionMethod
 {
-Touch,
-Injection,
-Ingestion,
+    Touch,
+    Injection,
+    Ingestion,
 }

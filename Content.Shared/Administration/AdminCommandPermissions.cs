@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Linq;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
@@ -18,11 +18,11 @@ public sealed class AdminCommandPermissions
         using var reader = new StreamReader(fs, EncodingHelpers.UTF8);
         var yStream = new YamlStream();
         yStream.Load(reader);
-        var root = (YamlSequenceNode) yStream.Documents[0].RootNode;
+        var root = (YamlSequenceNode)yStream.Documents[0].RootNode;
 
         foreach (var child in root)
         {
-            var map = (YamlMappingNode) child;
+            var map = (YamlMappingNode)child;
             var commands = map.GetNode<YamlSequenceNode>("Commands").Select(p => p.AsString());
             if (map.TryGetNode("Flags", out var flagsNode))
             {
@@ -32,7 +32,7 @@ public sealed class AdminCommandPermissions
                 {
                     if (!AdminCommands.TryGetValue(cmd, out var exFlags))
                     {
-                        AdminCommands.Add(cmd, new[] {flags});
+                        AdminCommands.Add(cmd, new[] { flags });
                     }
                     else
                     {

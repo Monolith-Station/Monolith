@@ -66,7 +66,7 @@ public sealed partial class TagSystem : EntitySystem
     /// </exception>
     public bool AddTags(EntityUid entityUid, params ProtoId<TagPrototype>[] tags)
     {
-        return AddTags(entityUid,  (IEnumerable<ProtoId<TagPrototype>>)tags);
+        return AddTags(entityUid, (IEnumerable<ProtoId<TagPrototype>>)tags);
     }
 
     /// <summary>

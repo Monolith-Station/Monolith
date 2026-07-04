@@ -11,7 +11,7 @@ public abstract partial class SharedShuttleSystem
      * Handles the label visibility on radar controls. This can be hiding the label or applying other effects.
      */
 
-    protected virtual void UpdateIFFInterfaces(EntityUid gridUid, IFFComponent component) {}
+    protected virtual void UpdateIFFInterfaces(EntityUid gridUid, IFFComponent component) { }
 
     public Color GetIFFColor(EntityUid gridUid, bool self = false, IFFComponent? component = null)
     {

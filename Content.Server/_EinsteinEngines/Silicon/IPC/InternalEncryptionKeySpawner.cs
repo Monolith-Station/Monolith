@@ -8,6 +8,7 @@ using System.Linq;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._EinsteinEngines.Silicon.IPC;
+
 public sealed partial class InternalEncryptionKeySpawner : EntitySystem
 {
     [Dependency] private SharedContainerSystem _container = default!;

@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace Content.Shared.Administration.Logs;
 
@@ -39,7 +39,7 @@ public ref struct LogStringHandler
         }
 
         if (Values.TryAdd(format, value) ||
-            Values[format] == (object?) value)
+            Values[format] == (object?)value)
         {
             return;
         }

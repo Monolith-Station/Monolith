@@ -42,7 +42,7 @@ public abstract partial class SharedNinjaGlovesSystem : EntitySystem
         var (uid, comp) = ent;
 
         // already disabled?
-        if (comp.User is not {} user)
+        if (comp.User is not { } user)
             return;
 
         comp.User = null;
@@ -77,7 +77,7 @@ public abstract partial class SharedNinjaGlovesSystem : EntitySystem
 
     private void OnActivateAttempt(Entity<NinjaGlovesComponent> ent, ref ItemToggleActivateAttemptEvent args)
     {
-        if (args.User is not {} user
+        if (args.User is not { } user
             || !_ninja.NinjaQuery.TryComp(user, out var ninja)
             // need to wear suit to enable gloves
             || !HasComp<NinjaSuitComponent>(ninja.Suit))
@@ -90,7 +90,7 @@ public abstract partial class SharedNinjaGlovesSystem : EntitySystem
 
     private void OnToggled(Entity<NinjaGlovesComponent> ent, ref ItemToggledEvent args)
     {
-        if ((args.User ?? ent.Comp.User) is not {} user)
+        if ((args.User ?? ent.Comp.User) is not { } user)
             return;
 
         var message = Loc.GetString(args.Activated ? "ninja-gloves-on" : "ninja-gloves-off");

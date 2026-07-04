@@ -5,5 +5,5 @@ namespace Content.Server.Bible.Components
     /// </summary>
     [RegisterComponent]
     public sealed partial class SummonableRespawningComponent : Component
-    {}
+    { }
 }

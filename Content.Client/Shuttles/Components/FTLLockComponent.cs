@@ -14,4 +14,4 @@ public sealed partial class FTLLockComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Enabled = true;
-} 
+}

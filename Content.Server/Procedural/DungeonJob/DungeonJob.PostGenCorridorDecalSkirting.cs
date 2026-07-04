@@ -35,7 +35,7 @@ public sealed partial class DungeonJob
             // Do corners the other step
             for (var i = 0; i < 4; i++)
             {
-                var dir = (DirectionFlag) Math.Pow(2, i);
+                var dir = (DirectionFlag)Math.Pow(2, i);
                 var neighbor = tile + dir.AsDir().ToIntVec();
 
                 var anc = _maps.GetAnchoredEntitiesEnumerator(_gridUid, _grid, neighbor);
@@ -62,7 +62,7 @@ public sealed partial class DungeonJob
 
                 for (var i = 1; i < 5; i++)
                 {
-                    var dir = (Direction) (i * 2 - 1);
+                    var dir = (Direction)(i * 2 - 1);
                     var neighbor = tile + dir.ToIntVec();
 
                     var anc = _maps.GetAnchoredEntitiesEnumerator(_gridUid, _grid, neighbor);

@@ -8,6 +8,6 @@ namespace Content.Shared.Procedural.Loot;
 /// </summary>
 public sealed partial class BiomeTemplateLoot : IDungeonLoot
 {
-    [DataField("proto", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<BiomeTemplatePrototype>))]
+    [DataField("proto", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<BiomeTemplatePrototype>))]
     public string Prototype = string.Empty;
 }

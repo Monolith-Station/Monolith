@@ -15,7 +15,7 @@ namespace Content.Shared.Item;
 public abstract partial class SharedItemSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _prototype = default!;
-    [Dependency] private   SharedHandsSystem _handsSystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
     [Dependency] protected SharedContainerSystem Container = default!;
 
     public override void Initialize()
@@ -191,7 +191,7 @@ public abstract partial class SharedItemSystem : EntitySystem
 
         var shapes = GetItemShape(entity);
         var boundingShape = shapes.GetBoundingBox();
-        var boundingCenter = ((Box2) boundingShape).Center;
+        var boundingCenter = ((Box2)boundingShape).Center;
         var matty = Matrix3Helpers.CreateTransform(boundingCenter, rotation);
         var drift = boundingShape.BottomLeft - matty.TransformBox(boundingShape).BottomLeft;
 
@@ -229,7 +229,7 @@ public abstract partial class SharedItemSystem : EntitySystem
             {
                 // Set the deactivated size to the default item's size before it gets changed.
                 itemToggleSize.DeactivatedSize ??= item.Size;
-                SetSize(uid, (ProtoId<ItemSizePrototype>) itemToggleSize.ActivatedSize, item);
+                SetSize(uid, (ProtoId<ItemSizePrototype>)itemToggleSize.ActivatedSize, item);
             }
         }
         else
@@ -241,7 +241,7 @@ public abstract partial class SharedItemSystem : EntitySystem
 
             if (itemToggleSize.DeactivatedSize != null)
             {
-                SetSize(uid, (ProtoId<ItemSizePrototype>) itemToggleSize.DeactivatedSize, item);
+                SetSize(uid, (ProtoId<ItemSizePrototype>)itemToggleSize.DeactivatedSize, item);
             }
         }
 

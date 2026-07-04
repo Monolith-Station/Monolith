@@ -20,7 +20,7 @@ public sealed partial class GameMapPrototype
     [DataField("maxPlayers")]
     public uint MaxPlayers { get; private set; } = uint.MaxValue;
 
-    [DataField("conditions")] private  List<GameMapCondition> _conditions = new();
+    [DataField("conditions")] private List<GameMapCondition> _conditions = new();
 
     /// <summary>
     /// The game map conditions that must be fulfilled for this map to be selectable.

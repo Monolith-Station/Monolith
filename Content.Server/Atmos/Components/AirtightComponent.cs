@@ -13,7 +13,7 @@ namespace Content.Server.Atmos.Components
         /// The directions in which this entity should block airflow, relative to its own reference frame.
         /// </summary>
         [DataField("airBlockedDirection", customTypeSerializer: typeof(FlagSerializer<AtmosDirectionFlags>))]
-        public int InitialAirBlockedDirection { get; set; } = (int) AtmosDirection.All;
+        public int InitialAirBlockedDirection { get; set; } = (int)AtmosDirection.All;
 
         /// <summary>
         /// The directions in which the entity is currently blocking airflow, relative to the grid that the entity is on.

@@ -42,5 +42,5 @@ public sealed partial class PrayableComponent : Component
     /// </summary>
     [DataField("verbImage")]
     [ViewVariables(VVAccess.ReadOnly)]
-    public SpriteSpecifier? VerbImage = new SpriteSpecifier.Texture(new ("/Textures/Interface/pray.svg.png"));
+    public SpriteSpecifier? VerbImage = new SpriteSpecifier.Texture(new("/Textures/Interface/pray.svg.png"));
 }

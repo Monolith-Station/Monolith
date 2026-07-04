@@ -102,7 +102,7 @@ public sealed partial class PoweredSealableClothingSystem : SharedPoweredSealabl
         }
 
         var severity = ContentHelpers.RoundToLevels(MathF.Max(0f, battery.CurrentCharge), battery.MaxCharge, 6);
-        _alertsSystem.ShowAlert(controlComp.WearerEntity.Value, comp.SuitPowerAlert, (short) severity);
+        _alertsSystem.ShowAlert(controlComp.WearerEntity.Value, comp.SuitPowerAlert, (short)severity);
     }
 
     /// <summary>

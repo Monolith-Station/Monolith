@@ -36,12 +36,12 @@ public sealed class ServerRoleBanDef
         ServerRoleUnbanDef? unban,
         string role)
     {
-        if (userId == null && address == null && hwId ==  null)
+        if (userId == null && address == null && hwId == null)
         {
             throw new ArgumentException("Must have at least one of banned user, banned address or hardware ID");
         }
 
-        if (address is {} addr && addr.Item1.IsIPv4MappedToIPv6)
+        if (address is { } addr && addr.Item1.IsIPv4MappedToIPv6)
         {
             // Fix IPv6-mapped IPv4 addresses
             // So that IPv4 addresses are consistent between separate-socket and dual-stack socket modes.

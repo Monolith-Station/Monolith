@@ -71,7 +71,7 @@ public sealed partial class RiggableSystem : EntitySystem
 
         var radius = MathF.Min(5, MathF.Sqrt(battery.CurrentCharge) / 9);
 
-        _explosionSystem.TriggerExplosive(uid, radius: radius, user:cause);
+        _explosionSystem.TriggerExplosive(uid, radius: radius, user: cause);
         QueueDel(uid);
     }
 }

@@ -46,7 +46,7 @@ public sealed partial class TimeTransferPanel : DefaultWindow
             .OrderBy(job => job.LocalizedName)
             .ToList();
 
-        foreach(var job in jobs)
+        foreach (var job in jobs)
         {
             var jobEntry = new TimeTransferEntry(job, _spriteSystem, _prototypeManager);
             JobContainer.AddChild(jobEntry);

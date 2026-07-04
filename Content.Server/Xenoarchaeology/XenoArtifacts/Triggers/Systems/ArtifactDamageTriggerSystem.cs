@@ -1,4 +1,4 @@
-﻿using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
+using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
 using Content.Shared.Damage;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
@@ -26,7 +26,7 @@ public sealed partial class ArtifactDamageTriggerSystem : EntitySystem
             if (component.DamageTypes != null && !component.DamageTypes.Contains(type))
                 continue;
 
-            component.AccumulatedDamage += (float) amount;
+            component.AccumulatedDamage += (float)amount;
         }
 
         if (component.AccumulatedDamage >= component.DamageThreshold)

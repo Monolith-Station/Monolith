@@ -35,7 +35,7 @@ public sealed partial class ProduceMaterialExtractorSystem : EntitySystem
         // Ronstation PR#323: If we've managed to extract something from whatever we're using on the biogenerator, play audio
         if (TryExtractFromProduce(ent, args.Used, args.User) || TryInsertFromStorage(ent, args.Used, args.User))
             _audio.PlayPvs(ent.Comp.ExtractSound, ent);
-            args.Handled = true;
+        args.Handled = true;
     }
 
     // Ronstation PR#323: The old function, crammed into a boolean function to register whether we should play the audio/set the handled args
@@ -64,7 +64,7 @@ public sealed partial class ProduceMaterialExtractorSystem : EntitySystem
         _materialStorage.TryChangeMaterialAmount(ent, ent.Comp.ExtractedMaterial, changed);
 
         QueueDel(used);
-        
+
         return true;
     }
 

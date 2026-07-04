@@ -157,13 +157,13 @@ public partial class ChatBox : UIWidget
         formatted.PushColor(color);
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
-        if(repeat != 0) // WD EDIT START
+        if (repeat != 0) // WD EDIT START
         {
             int displayRepeat = repeat + 1;
             int sizeIncrease = Math.Min(displayRepeat / 6, 5);
             formatted.AddMarkup(_loc.GetString("chat-system-repeated-message-counter",
                 ("count", displayRepeat),
-                ("size", 8+sizeIncrease)
+                ("size", 8 + sizeIncrease)
             ));
         } // WD EDIT END
         Contents.AddMessage(formatted, tagsAllowed: null);

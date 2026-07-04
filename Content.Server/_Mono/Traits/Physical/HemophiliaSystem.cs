@@ -23,9 +23,9 @@ public sealed partial class HemophiliaSystem : EntitySystem
         SubscribeLocalEvent<HemophiliaComponent, DamageChangedEvent>(OnDamageChanged);
     }
 
-    private void OnStartup(Entity<HemophiliaComponent> ent, ref ComponentStartup args) {}
+    private void OnStartup(Entity<HemophiliaComponent> ent, ref ComponentStartup args) { }
 
-    private void OnShutdown(Entity<HemophiliaComponent> ent, ref ComponentShutdown args) {}
+    private void OnShutdown(Entity<HemophiliaComponent> ent, ref ComponentShutdown args) { }
 
     private void OnDamageModify(Entity<HemophiliaComponent> ent, ref DamageModifyEvent args)
     {

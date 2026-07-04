@@ -12,7 +12,7 @@ namespace Content.Server._NF.Transfer;
 public sealed partial class TransferMindOnDespawnSystem : EntitySystem
 {
     [Dependency] private SharedMindSystem _mindSystem = default!;
-    [Dependency] private IPrototypeManager _protoManager= default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
 
     ///Subscribe to the despawn event
     public override void Initialize()

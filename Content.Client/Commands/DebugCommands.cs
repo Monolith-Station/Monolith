@@ -54,7 +54,7 @@ internal sealed partial class ShowSubFloorForever : LocalizedCommands
 
         foreach (var (_, sprite) in components)
         {
-            sprite.DrawDepth = (int) DrawDepth.Overlays;
+            sprite.DrawDepth = (int)DrawDepth.Overlays;
         }
     }
 }

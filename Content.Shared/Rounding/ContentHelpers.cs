@@ -1,4 +1,4 @@
-﻿namespace Content.Shared.Rounding
+namespace Content.Shared.Rounding
 {
     public static class ContentHelpers
     {
@@ -35,7 +35,7 @@
             }
 
             var toOne = actual / max;
-            return (int) Math.Ceiling(toOne * (levels - 2));
+            return (int)Math.Ceiling(toOne * (levels - 2));
         }
 
         /// <summary>
@@ -73,7 +73,7 @@
                 return 0;
             }
 
-            return (int) Math.Round(actual / max * levels, MidpointRounding.AwayFromZero);
+            return (int)Math.Round(actual / max * levels, MidpointRounding.AwayFromZero);
         }
 
         /// <summary>
@@ -110,7 +110,7 @@
                 return 0;
             }
 
-            return (int) Math.Round(actual / max * levels, MidpointRounding.ToZero);
+            return (int)Math.Round(actual / max * levels, MidpointRounding.ToZero);
         }
     }
 }

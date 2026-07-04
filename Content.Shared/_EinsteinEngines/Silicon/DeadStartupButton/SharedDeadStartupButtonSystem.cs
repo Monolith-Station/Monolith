@@ -49,7 +49,7 @@ public abstract partial class SharedDeadStartupButtonSystem : EntitySystem
         if (!_net.IsServer)
             return;
         _audio.PlayPvs(comp.ButtonSound, target);
-        var args = new DoAfterArgs(EntityManager, user, comp.DoAfterInterval, new OnDoAfterButtonPressedEvent(), target, target:target)
+        var args = new DoAfterArgs(EntityManager, user, comp.DoAfterInterval, new OnDoAfterButtonPressedEvent(), target, target: target)
         {
             BreakOnDamage = true,
             BreakOnMove = true,

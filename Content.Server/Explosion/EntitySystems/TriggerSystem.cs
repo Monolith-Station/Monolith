@@ -249,8 +249,8 @@ namespace Content.Server.Explosion.EntitySystems
             // Gets location of the implant
             var ownerXform = Transform(uid);
             var pos = ownerXform.MapPosition;
-            var x = (int) pos.X;
-            var y = (int) pos.Y;
+            var x = (int)pos.X;
+            var y = (int)pos.Y;
             var posText = $"({x}, {y})";
 
             // Frontier: Gets station location of the implant
@@ -279,16 +279,16 @@ namespace Content.Server.Explosion.EntitySystems
                 switch (mobstate.CurrentState)
                 {
                     case MobState.Critical:
-                    {
-                        var message = mobstate.PreviousState == MobState.Dead ? reviveMessage : critMessage;
-                        _radioSystem.SendRadioMessage(uid, message, radioChannel, uid, null, language);
-                        break;
-                    }
+                        {
+                            var message = mobstate.PreviousState == MobState.Dead ? reviveMessage : critMessage;
+                            _radioSystem.SendRadioMessage(uid, message, radioChannel, uid, null, language);
+                            break;
+                        }
                     case MobState.Dead:
-                    {
-                        _radioSystem.SendRadioMessage(uid, deathMessage, radioChannel, uid, null, language);
-                        break;
-                    }
+                        {
+                            _radioSystem.SendRadioMessage(uid, deathMessage, radioChannel, uid, null, language);
+                            break;
+                        }
                 }
             }
 
@@ -305,7 +305,7 @@ namespace Content.Server.Explosion.EntitySystems
         private void OnSpawnTriggered(EntityUid uid, TriggerOnSpawnComponent component, MapInitEvent args)
         {
             if (component.timerOnly == true)
-                StartTimer(uid,uid);
+                StartTimer(uid, uid);
             else
                 Trigger(uid);
         }

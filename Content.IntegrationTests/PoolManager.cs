@@ -86,7 +86,7 @@ public static partial class PoolManager
 /// </summary>
 public sealed class ContentPoolManager : PoolManager<TestPair>
 {
-    public override PairSettings DefaultSettings =>  new PoolSettings();
+    public override PairSettings DefaultSettings => new PoolSettings();
     protected override string GetDefaultTestName(ITestContextLike testContext)
     {
         return testContext.FullName.Replace("Content.IntegrationTests.Tests.", "");

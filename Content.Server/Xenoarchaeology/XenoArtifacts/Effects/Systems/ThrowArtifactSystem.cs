@@ -49,13 +49,13 @@ public sealed partial class ThrowArtifactSystem : EntitySystem
         foreach (var ent in lookup)
         {
             if (physQuery.TryGetComponent(ent, out var phys)
-                && (phys.CollisionMask & (int) CollisionGroup.GhostImpassable) != 0)
+                && (phys.CollisionMask & (int)CollisionGroup.GhostImpassable) != 0)
                 continue;
 
             var tempXform = Transform(ent);
 
             var foo = _transform.GetMapCoordinates(ent, xform: tempXform).Position - _transform.GetMapCoordinates(uid, xform: xform).Position;
-            _throwing.TryThrow(ent, foo*2, component.ThrowStrength, uid, 0);
+            _throwing.TryThrow(ent, foo * 2, component.ThrowStrength, uid, 0);
         }
     }
 }

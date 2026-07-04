@@ -52,7 +52,7 @@ public sealed partial class CursedMaskComponent : Component
 [Serializable, NetSerializable]
 public enum CursedMaskVisuals : byte
 {
-     State
+    State
 }
 
 [Serializable, NetSerializable]

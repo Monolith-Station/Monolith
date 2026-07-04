@@ -437,7 +437,7 @@ public partial class SharedGunSystem
                     var uid = Spawn(component.FillPrototype, mapCoordinates);
 
                     if (TryComp<CartridgeAmmoComponent>(uid, out var cartridge))
-                        SetCartridgeSpent(uid, cartridge, !(bool) chamber);
+                        SetCartridgeSpent(uid, cartridge, !(bool)chamber);
 
                     EjectCartridge(uid);
                 }

@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Text;
 using Content.Server.Database;
 using Content.Shared.Administration;
@@ -96,7 +96,7 @@ public sealed partial class BanExemptionGetCommand : LocalizedCommands
         var first = true;
         for (var i = 0; i < sizeof(ServerBanExemptFlags) * 8; i++)
         {
-            var mask = (ServerBanExemptFlags) (1 << i);
+            var mask = (ServerBanExemptFlags)(1 << i);
             if ((mask & flags) == 0)
                 continue;
 

@@ -11,4 +11,4 @@ public sealed class ShipyardConsoleUnassignDeedMessage : BoundUserInterfaceMessa
     public ShipyardConsoleUnassignDeedMessage()
     {
     }
-} 
+}

@@ -28,8 +28,8 @@ public sealed partial class AdminNotesSystem : EntitySystem
 
     private void AddVerbs(GetVerbsEvent<Verb> ev)
     {
-        if (EntityManager.GetComponentOrNull<ActorComponent>(ev.User) is not {PlayerSession: var user} ||
-            EntityManager.GetComponentOrNull<ActorComponent>(ev.Target) is not {PlayerSession: var target})
+        if (EntityManager.GetComponentOrNull<ActorComponent>(ev.User) is not { PlayerSession: var user } ||
+            EntityManager.GetComponentOrNull<ActorComponent>(ev.Target) is not { PlayerSession: var target })
         {
             return;
         }

@@ -12,7 +12,7 @@ namespace Content.Server.Administration.Commands
 
         public string Command => "callshuttle";
         public string Description => Loc.GetString("call-shuttle-command-description");
-        public string Help => Loc.GetString("call-shuttle-command-help-text", ("command",Command));
+        public string Help => Loc.GetString("call-shuttle-command-help-text", ("command", Command));
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
@@ -41,7 +41,7 @@ namespace Content.Server.Administration.Commands
 
         public string Command => "recallshuttle";
         public string Description => Loc.GetString("recall-shuttle-command-description");
-        public string Help => Loc.GetString("recall-shuttle-command-help-text", ("command",Command));
+        public string Help => Loc.GetString("recall-shuttle-command-help-text", ("command", Command));
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {

@@ -110,7 +110,7 @@ public sealed partial class StationRecordSet
             return false;
         }
 
-        entry = (T) entryObject;
+        entry = (T)entryObject;
         _recentlyAccessed.Add(key);
 
         return true;

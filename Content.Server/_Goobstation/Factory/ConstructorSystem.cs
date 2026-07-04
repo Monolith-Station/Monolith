@@ -35,7 +35,7 @@ public sealed partial class ConstructorSystem : SharedConstructorSystem
     private async void Construct(Entity<ConstructorComponent> ent)
     {
         var uid = ent.Owner;
-        if (ent.Comp.Construction is not {} id)
+        if (ent.Comp.Construction is not { } id)
         {
             _machine.Failed(uid);
             return;

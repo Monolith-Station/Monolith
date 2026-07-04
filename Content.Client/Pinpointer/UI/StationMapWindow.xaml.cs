@@ -46,7 +46,8 @@ public sealed partial class StationMapWindow : FancyWindow
                 !string.IsNullOrEmpty(button.Label) &&
                 button.Label.Contains(newFilter, StringComparison.OrdinalIgnoreCase)
             );
-        };
+        }
+        ;
     }
 
     public void UpdateBeaconList(EntityUid? mapUid)

@@ -52,7 +52,7 @@ namespace Content.Server.Stunnable.Systems
 
             if (TryComp<BatteryComponent>(entity.Owner, out var battery))
             {
-                var count = (int) (battery.CurrentCharge / entity.Comp.EnergyPerUse);
+                var count = (int)(battery.CurrentCharge / entity.Comp.EnergyPerUse);
                 args.PushMarkup(Loc.GetString("melee-battery-examine", ("color", "yellow"), ("count", count)));
             }
         }
@@ -69,7 +69,7 @@ namespace Content.Server.Stunnable.Systems
                 args.Cancelled = true;
                 if (args.User != null)
                 {
-                    _popup.PopupEntity(Loc.GetString("stunbaton-component-low-charge"), (EntityUid) args.User, (EntityUid) args.User);
+                    _popup.PopupEntity(Loc.GetString("stunbaton-component-low-charge"), (EntityUid)args.User, (EntityUid)args.User);
                 }
                 return;
             }

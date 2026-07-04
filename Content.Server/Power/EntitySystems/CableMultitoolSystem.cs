@@ -54,7 +54,7 @@ namespace Content.Server.Power.EntitySystems
                     Message = Loc.GetString("cable-multitool-system-verb-tooltip"),
                     Text = Loc.GetString("cable-multitool-system-verb-name"),
                     Category = VerbCategory.Examine,
-                    Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/zap.svg.192dpi.png")),
+                    Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/zap.svg.192dpi.png")),
                     Act = () =>
                     {
                         var markup = FormattedMessage.FromMarkupOrThrow(GenerateCableMarkup(uid));
@@ -75,7 +75,7 @@ namespace Content.Server.Power.EntitySystems
             {
                 if (!(node.Value.NodeGroup is IBasePowerNet))
                     continue;
-                var p = (IBasePowerNet) node.Value.NodeGroup;
+                var p = (IBasePowerNet)node.Value.NodeGroup;
                 var ps = _pnSystem.GetNetworkStatistics(p.NetworkNode);
 
                 float storageRatio = ps.InStorageCurrent / Math.Max(ps.InStorageMax, 1.0f);

@@ -38,7 +38,7 @@ namespace Content.Shared.Preferences
             using (var stream = new MemoryStream())
             {
                 serializer.SerializeDirect(stream, Preferences);
-                buffer.WriteVariableInt32((int) stream.Length);
+                buffer.WriteVariableInt32((int)stream.Length);
                 stream.TryGetBuffer(out var segment);
                 buffer.Write(segment);
             }
@@ -46,7 +46,7 @@ namespace Content.Shared.Preferences
             using (var stream = new MemoryStream())
             {
                 serializer.SerializeDirect(stream, Settings);
-                buffer.WriteVariableInt32((int) stream.Length);
+                buffer.WriteVariableInt32((int)stream.Length);
                 stream.TryGetBuffer(out var segment);
                 buffer.Write(segment);
             }

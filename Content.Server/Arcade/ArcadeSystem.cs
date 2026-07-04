@@ -60,7 +60,7 @@ namespace Content.Server.Arcade
             int? placement = null;
             if (highScoreEntries.Contains(entry))
             {
-                highScoreEntries.Sort((p1,p2) => p2.Score.CompareTo(p1.Score));
+                highScoreEntries.Sort((p1, p2) => p2.Score.CompareTo(p1.Score));
                 placement = 1 + highScoreEntries.IndexOf(entry);
             }
 

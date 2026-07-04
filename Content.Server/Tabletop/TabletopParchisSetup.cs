@@ -8,16 +8,16 @@ namespace Content.Server.Tabletop
     public sealed partial class TabletopParchisSetup : TabletopSetup
     {
 
-        [DataField("redPiecePrototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+        [DataField("redPiecePrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string RedPiecePrototype { get; private set; } = "RedTabletopPiece";
 
-        [DataField("greenPiecePrototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+        [DataField("greenPiecePrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string GreenPiecePrototype { get; private set; } = "GreenTabletopPiece";
 
-        [DataField("yellowPiecePrototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+        [DataField("yellowPiecePrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string YellowPiecePrototype { get; private set; } = "YellowTabletopPiece";
 
-        [DataField("bluePiecePrototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+        [DataField("bluePiecePrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string BluePiecePrototype { get; private set; } = "BlueTabletopPiece";
 
         public override void SetupTabletop(TabletopSession session, IEntityManager entityManager)

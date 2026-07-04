@@ -25,7 +25,7 @@ public sealed partial class FultonedComponent : Component
     /// <summary>
     /// When the fulton is travelling to the beacon.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("nextFulton", customTypeSerializer:typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite), DataField("nextFulton", customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     [AutoPausedField]
     public TimeSpan NextFulton;
 

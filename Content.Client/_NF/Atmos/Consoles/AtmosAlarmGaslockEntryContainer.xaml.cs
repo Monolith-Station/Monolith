@@ -44,7 +44,7 @@ public sealed partial class AtmosAlarmGaslockEntryContainer : BoxContainer
         [Gas.NitrousOxide] = "N₂O",
         [Gas.Oxygen] = "O₂",
         [Gas.Plasma] = "P",
-		[Gas.Pluoxium] = "C₂O₆", // Funky/Goob
+        [Gas.Pluoxium] = "C₂O₆", // Funky/Goob
         [Gas.Tritium] = "T",
         [Gas.WaterVapor] = "H₂O",
     };

@@ -100,11 +100,11 @@ public sealed partial class AtmosphereSystem
     /// it may not be a good idea to use this generically.</remarks>
     private static void GetBulkTileAtmospherePressures(TileAtmosphere?[] tiles, Span<float> pressures)
     {
-        #if DEBUG
+#if DEBUG
         // Just in case someone tries to use this method incorrectly.
         if (tiles.Length != pressures.Length || tiles.Length != Atmospherics.Directions)
             throw new ArgumentException("Length of arrays must be the same and of Atmospherics.Directions length.");
-        #endif
+#endif
 
         // This hardcoded direction limit is stopping goobers from
         // overflowing the stack with massive arrays.
@@ -250,7 +250,7 @@ public sealed partial class AtmosphereSystem
             DeltaPressureDamageScalingType.Threshold => 1f,
             DeltaPressureDamageScalingType.Linear => pressure * ent.Comp.ScalingPower,
             DeltaPressureDamageScalingType.Log =>
-                (float) Math.Log(pressure, ent.Comp.ScalingPower),
+                (float)Math.Log(pressure, ent.Comp.ScalingPower),
             _ => throw new ArgumentOutOfRangeException(nameof(ent), "Invalid damage scaling type!"),
         };
 

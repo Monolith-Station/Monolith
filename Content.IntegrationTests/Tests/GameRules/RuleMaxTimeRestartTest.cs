@@ -49,7 +49,7 @@ namespace Content.IntegrationTests.Tests.GameRules
                 Assert.That(sGameTicker.RunLevel, Is.EqualTo(GameRunLevel.InRound));
             });
 
-            var ticks = sGameTiming.TickRate * (int) Math.Ceiling(maxTime.RoundMaxTime.TotalSeconds * 1.1f);
+            var ticks = sGameTiming.TickRate * (int)Math.Ceiling(maxTime.RoundMaxTime.TotalSeconds * 1.1f);
             await pair.RunTicksSync(ticks);
 
             await server.WaitAssertion(() =>
@@ -57,7 +57,7 @@ namespace Content.IntegrationTests.Tests.GameRules
                 Assert.That(sGameTicker.RunLevel, Is.EqualTo(GameRunLevel.PostRound));
             });
 
-            ticks = sGameTiming.TickRate * (int) Math.Ceiling(maxTime.RoundEndDelay.TotalSeconds * 1.1f);
+            ticks = sGameTiming.TickRate * (int)Math.Ceiling(maxTime.RoundEndDelay.TotalSeconds * 1.1f);
             await pair.RunTicksSync(ticks);
 
             await server.WaitAssertion(() =>

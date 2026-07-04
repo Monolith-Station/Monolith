@@ -20,7 +20,7 @@ public sealed partial class PolymorphableComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan? LastPolymorphEnd = null;
 
-        /// <summary>
+    /// <summary>
     /// The polymorphs that the entity starts out being able to do.
     /// </summary>
     [DataField]

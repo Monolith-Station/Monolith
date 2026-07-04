@@ -47,7 +47,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private IChatManager _chat = default!;
     [Dependency] private AlertsSystem _alerts = default!;
-    [Dependency] private GhostRoleSystem _ghost  = default!;
+    [Dependency] private GhostRoleSystem _ghost = default!;
     [Dependency] private MetaDataSystem _metaData = default!;
     [Dependency] private CollectiveMindUpdateSystem _collective = default!;
 
@@ -193,7 +193,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         UpdateChems(ent, -((int)chemAmount * chemicalPrototype.Cost));
         return true;
     }
-    
+
     private void OnInjectReagentMessage(Entity<CorticalBorerComponent> ent, ref CorticalBorerDispenserInjectMessage message)
     {
         CorticalBorerChemicalPrototype? chemProto = null;
@@ -233,7 +233,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
             var chems = ent.Comp.ChemicalPoints;
             var color = proto.SubstanceColor;
 
-            clones.Add(new CorticalBorerDispenserItem(reagentName,reagentId, cost, amount, chems, color)); // need color and name
+            clones.Add(new CorticalBorerDispenserItem(reagentName, reagentId, cost, amount, chems, color)); // need color and name
         }
 
         return clones;
@@ -249,7 +249,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
 
     public bool TryToggleCheckBlood(Entity<CorticalBorerComponent> ent)
     {
-        if(!TryComp<UserInterfaceComponent>(ent, out var uic))
+        if (!TryComp<UserInterfaceComponent>(ent, out var uic))
             return false;
 
         if (!TryComp<HealthAnalyzerComponent>(ent, out var health))
@@ -271,7 +271,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         if (!TryComp<HealthAnalyzerComponent>(ent, out var health))
             return;
 
-        if (!_ui.IsUiOpen((ent,uic), HealthAnalyzerUiKey.Key))
+        if (!_ui.IsUiOpen((ent, uic), HealthAnalyzerUiKey.Key))
             _ui.OpenUi((ent, uic), HealthAnalyzerUiKey.Key, ent);
         _analyzer.BeginAnalyzingEntity((ent, health), ent.Comp.Host.Value);
     }
@@ -284,7 +284,7 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
         if (!TryComp<HealthAnalyzerComponent>(ent, out var health))
             return;
 
-        if(!health.ScannedEntity.HasValue)
+        if (!health.ScannedEntity.HasValue)
             return;
 
         _ui.CloseUi((ent, uic), HealthAnalyzerUiKey.Key, ent);
@@ -333,12 +333,12 @@ public sealed partial class CorticalBorerSystem : SharedCorticalBorerSystem
             _ghost.UnregisterGhostRole((worm, ghostRole)); // prevent players from taking the worm role once mind isn't in the worm
 
         // add the end control and vomit egg action
-        if (_actions.AddAction(host, "ActionEndControlHost") is {} actionEnd)
+        if (_actions.AddAction(host, "ActionEndControlHost") is { } actionEnd)
             infestedComp.RemoveAbilities.Add(actionEnd);
         if (comp.CanReproduce &&
             infestedComp.ControlTimeEnd != null) // you can't lay eggs with something you can control forever
         {
-            if (_actions.AddAction(host, "ActionLayEggHost") is {} actionLay)
+            if (_actions.AddAction(host, "ActionLayEggHost") is { } actionLay)
                 infestedComp.RemoveAbilities.Add(actionLay);
         }
 

@@ -172,7 +172,7 @@ public sealed partial class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponen
             zombieCount++;
         }
 
-        return zombieCount / (float) (players.Count + zombieCount);
+        return zombieCount / (float)(players.Count + zombieCount);
     }
 
     /// <summary>

@@ -378,7 +378,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
 
         if (comp.ThermalPowerCount < comp.ThermalPowerPrecision)
             comp.ThermalPowerCount++;
-        comp.ThermalPower += ((TempChange/ args.dt) - comp.ThermalPower) / Math.Min(comp.ThermalPowerCount, comp.ThermalPowerPrecision);
+        comp.ThermalPower += ((TempChange / args.dt) - comp.ThermalPower) / Math.Min(comp.ThermalPowerCount, comp.ThermalPowerPrecision);
 
         if (comp.Temperature > comp.ReactorMeltdownTemp) // Disabled the explode if over 1000 rads thing, hope the server survives
         {
@@ -616,7 +616,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         var uid = ent.Owner;
 
         // Stop Alarms after meltdown
-        if(comp.Melted)
+        if (comp.Melted)
         {
             if (_audio.IsPlaying(comp.AlarmAudioHighThermal))
                 comp.AlarmAudioHighThermal = _audio.Stop(comp.AlarmAudioHighThermal);
@@ -634,7 +634,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         }
         else
             if (_audio.IsPlaying(comp.AlarmAudioHighThermal))
-            comp.AlarmAudioHighThermal = _audio.Stop(comp.AlarmAudioHighThermal);
+                comp.AlarmAudioHighThermal = _audio.Stop(comp.AlarmAudioHighThermal);
 
         if (comp.Temperature > comp.ReactorOverheatTemp)
         {
@@ -643,7 +643,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         }
         else
             if (_audio.IsPlaying(comp.AlarmAudioHighTemp))
-            comp.AlarmAudioHighTemp = _audio.Stop(comp.AlarmAudioHighTemp);
+                comp.AlarmAudioHighTemp = _audio.Stop(comp.AlarmAudioHighTemp);
 
         if (comp.RadiationLevel > comp.MaximumRadiation * 0.5)
         {
@@ -652,7 +652,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         }
         else
             if (_audio.IsPlaying(comp.AlarmAudioHighRads))
-            comp.AlarmAudioHighRads = _audio.Stop(comp.AlarmAudioHighRads);
+                comp.AlarmAudioHighRads = _audio.Stop(comp.AlarmAudioHighRads);
     }
 
     private void UpdateRadio(Entity<NuclearReactorComponent> ent)
@@ -741,7 +741,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         if (!_uiSystem.IsUiOpen(uid, NuclearReactorUiKey.Key))
             return;
 
-        if(reactor.Melted)
+        if (reactor.Melted)
         {
             _uiSystem.CloseUi(uid, NuclearReactorUiKey.Key);
             return;
@@ -759,8 +759,8 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
                 var reactorPart = reactor.ComponentGrid[x, y];
                 if (reactorPart == null)
                 {
-                    if(reactor.NeutronGrid[x, y] > 0)
-                        dict.Add(new(x,y), new ReactorSlotBUIData { NeutronCount = reactor.NeutronGrid[x, y] });
+                    if (reactor.NeutronGrid[x, y] > 0)
+                        dict.Add(new(x, y), new ReactorSlotBUIData { NeutronCount = reactor.NeutronGrid[x, y] });
                     continue;
                 }
 
@@ -844,7 +844,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
 
     private void OnControlRodMessage(Entity<NuclearReactorComponent> ent, ref ReactorControlRodModifyMessage args)
     {
-        if(AdjustControlRods(ent.Comp, args.Change))
+        if (AdjustControlRods(ent.Comp, args.Change))
             _adminLog.Add(LogType.Action, $"{ToPrettyString(args.Actor):actor} set control rod insertion of {ToPrettyString(ent):target} to {ent.Comp.ControlRodInsertion}");
         UpdateUI(ent.Owner, ent.Comp);
     }

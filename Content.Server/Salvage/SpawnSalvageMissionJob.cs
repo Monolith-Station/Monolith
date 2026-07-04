@@ -259,7 +259,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
             dungeonOffset = dungeonRotation.RotateVec(dungeonOffset);
             var dungeonMod = _prototypeManager.Index<SalvageDungeonModPrototype>(mission.Dungeon);
             var dungeonConfig = _prototypeManager.Index(dungeonMod.Proto);
-            var dungeons = await WaitAsyncTask(_dungeon.GenerateDungeonAsync(dungeonConfig, dungeonConfig.ID, mapUid, grid, (Vector2i) dungeonOffset, // Frontier: add dungeonConfig.ID
+            var dungeons = await WaitAsyncTask(_dungeon.GenerateDungeonAsync(dungeonConfig, dungeonConfig.ID, mapUid, grid, (Vector2i)dungeonOffset, // Frontier: add dungeonConfig.ID
                     _missionParams.Seed));
 
             dungeon = dungeons.First();
@@ -293,8 +293,8 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         }
 
         // Frontier: offset ship spawn point from bounding boxes
-        Vector2 dungeonProjection = new Vector2(dungeonBox.Width * (float) -Math.Sin(dungeonRotation) / 2, dungeonBox.Height * (float) Math.Cos(dungeonRotation) / 2); // Project boxes to get relevant offset for dungeon rotation.
-        Vector2 shuttleProjection = new Vector2(shuttleBox.Width * (float) -Math.Sin(dungeonRotation) / 2, shuttleBox.Height * (float) Math.Cos(dungeonRotation) / 2); // Note: sine is negative because of CCW rotation (starting north, then west)
+        Vector2 dungeonProjection = new Vector2(dungeonBox.Width * (float)-Math.Sin(dungeonRotation) / 2, dungeonBox.Height * (float)Math.Cos(dungeonRotation) / 2); // Project boxes to get relevant offset for dungeon rotation.
+        Vector2 shuttleProjection = new Vector2(shuttleBox.Width * (float)-Math.Sin(dungeonRotation) / 2, shuttleBox.Height * (float)Math.Cos(dungeonRotation) / 2); // Note: sine is negative because of CCW rotation (starting north, then west)
         Vector2 coords = dungeonBox.Center - dungeonProjection - dungeonOffset - shuttleProjection - shuttleBox.Center; // Coordinates to spawn the ship at to center it with the dungeon's bounding boxes
         coords = coords.Rounded(); // Ensure grid is aligned to map coords
 
@@ -442,8 +442,8 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
                 var spawnTile = validSpawns[^1];
                 validSpawns.RemoveAt(validSpawns.Count - 1);
 
-                if (!_anchorable.TileFree(grid, spawnTile, (int) CollisionGroup.MachineLayer,
-                        (int) CollisionGroup.MachineMask)) // Frontier: MachineLayer<MachineMask
+                if (!_anchorable.TileFree(grid, spawnTile, (int)CollisionGroup.MachineLayer,
+                        (int)CollisionGroup.MachineMask)) // Frontier: MachineLayer<MachineMask
                 {
                     continue;
                 }

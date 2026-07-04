@@ -20,7 +20,8 @@ public sealed partial class MechSoundboardUiFragment : BoxContainer
     {
         foreach (var sound in state.Sounds)
         {
-            Sounds.AddItem(Loc.GetString($"mech-soundboard-{sound}")).OnSelected += item => {
+            Sounds.AddItem(Loc.GetString($"mech-soundboard-{sound}")).OnSelected += item =>
+            {
                 OnPlayAction?.Invoke(Sounds.IndexOf(item));
             };
         }

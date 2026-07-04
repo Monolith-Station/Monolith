@@ -40,7 +40,7 @@ namespace Content.Server.Construction.Completions
                 foreach (var ent in containerSys.EmptyContainer(container, true, reparent: !pickup))
                 {
                     if (EmptyAtUser && userUid is not null)
-                        transformSys.DropNextTo(ent, (EntityUid) userUid);
+                        transformSys.DropNextTo(ent, (EntityUid)userUid);
 
                     if (pickup)
                         handSys.PickupOrDrop(userUid, ent, handsComp: hands);

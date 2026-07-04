@@ -184,7 +184,7 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
         var relayEv = new ImplantRelayEvent<T>(args);
         foreach (var implant in implantContainer.ContainedEntities)
         {
-            if (args is HandledEntityEventArgs { Handled : true })
+            if (args is HandledEntityEventArgs { Handled: true })
                 return;
 
             RaiseLocalEvent(implant, relayEv);

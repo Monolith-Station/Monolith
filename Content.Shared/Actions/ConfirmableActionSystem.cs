@@ -29,7 +29,7 @@ public sealed partial class ConfirmableActionSystem : EntitySystem
         var query = EntityQueryEnumerator<ConfirmableActionComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.NextUnprime is not {} time)
+            if (comp.NextUnprime is not { } time)
                 continue;
 
             if (now >= time)
@@ -43,7 +43,7 @@ public sealed partial class ConfirmableActionSystem : EntitySystem
             return;
 
         // if not primed, prime it and cancel the action
-        if (ent.Comp.NextConfirm is not {} confirm)
+        if (ent.Comp.NextConfirm is not { } confirm)
         {
             Prime(ent, args.User);
             args.Cancelled = true;

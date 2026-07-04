@@ -29,7 +29,7 @@ namespace Content.Client.CloningConsole.UI
         {
             base.UpdateState(state);
 
-            _window?.Populate((CloningConsoleBoundUserInterfaceState) state);
+            _window?.Populate((CloningConsoleBoundUserInterfaceState)state);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -31,7 +31,7 @@ namespace Content.Server.Database.Migrations.Postgres
 
             migrationBuilder.InsertData(
                 "server",
-                new[] {"server_id", "name"},
+                new[] { "server_id", "name" },
                 new object[] { 0, "unknown" }
             );
 

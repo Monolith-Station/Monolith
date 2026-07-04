@@ -75,7 +75,7 @@ public sealed class ActionButton : Control, IEntityControl
         };
         HighlightRect = new PanelContainer
         {
-            StyleClasses = {StyleNano.StyleClassHandSlotHighlight},
+            StyleClasses = { StyleNano.StyleClassHandSlotHighlight },
             MinSize = new Vector2(32, 32),
             Visible = false
         };
@@ -138,7 +138,7 @@ public sealed class ActionButton : Control, IEntityControl
                 _smallItemSpriteView
             }
         });
-        Cooldown = new CooldownGraphic {Visible = false};
+        Cooldown = new CooldownGraphic { Visible = false };
 
         AddChild(Button);
         AddChild(_bigActionIcon);
@@ -211,7 +211,7 @@ public sealed class ActionButton : Control, IEntityControl
 
     private void UpdateItemIcon()
     {
-        if (_action is not {EntityIcon: { } entity} ||
+        if (_action is not { EntityIcon: { } entity } ||
             !_entities.HasComponent<SpriteComponent>(entity))
         {
             _bigItemSpriteView.Visible = false;
@@ -392,7 +392,7 @@ public sealed class ActionButton : Control, IEntityControl
     public void Depress(GUIBoundKeyEventArgs args, bool depress)
     {
         // action can still be toggled if it's allowed to stay selected
-        if (_action is not {Enabled: true})
+        if (_action is not { Enabled: true })
             return;
 
         _depressed = depress;

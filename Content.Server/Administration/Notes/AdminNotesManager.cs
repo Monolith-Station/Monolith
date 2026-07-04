@@ -75,7 +75,7 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
         // There's a foreign key constraint in place here. If there's no player record, it will fail.
         // Not like there's much use in adding notes on accounts that have never connected.
         // You can still ban them just fine, which is why we should allow admins to view their bans with the notes panel
-        if (await _db.GetPlayerRecordByUserId((NetUserId) player) is null)
+        if (await _db.GetPlayerRecordByUserId((NetUserId)player) is null)
             return;
 
         var sb = new StringBuilder($"{createdBy.Name} added a");
@@ -144,7 +144,7 @@ public sealed partial class AdminNotesManager : IAdminNotesManager, IPostInjectI
 
         var note = new SharedAdminNote(
             noteId,
-            (NetUserId) player,
+            (NetUserId)player,
             roundId,
             serverName,
             playtime,

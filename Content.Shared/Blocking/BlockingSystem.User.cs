@@ -68,7 +68,7 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
             }
 
             args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage,
-                DamageSpecifier.PenetrateArmor(modify ,args.ArmorPenetration)); // Goob edit
+                DamageSpecifier.PenetrateArmor(modify, args.ArmorPenetration)); // Goob edit
 
             if (blocking.IsBlocking && !args.Damage.Equals(args.OriginalDamage))
             {

@@ -79,7 +79,7 @@ public sealed partial class ReplaySpectatorSystem
         if (_player.LocalUser != DefaultUser)
             return; // Already spectating some session.
 
-        if (_player.LocalEntity is not {} uid)
+        if (_player.LocalEntity is not { } uid)
             return;
 
         var netEnt = GetNetEntity(uid);
@@ -177,7 +177,7 @@ public sealed partial class ReplaySpectatorSystem
                 continue;
 
             if (!station && stationFound)
-               continue;
+                continue;
 
             maxUid = (uid, grid);
             maxSize = size;

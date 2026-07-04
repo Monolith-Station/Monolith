@@ -65,7 +65,7 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem
             if (component.NextUpdate > _timing.CurTime)
                 continue;
 
-            if (component.ScannedEntity is not {} patient)
+            if (component.ScannedEntity is not { } patient)
                 continue;
 
             if (Deleted(patient))
@@ -281,7 +281,7 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem
             bleeding,
             unrevivable,
             uncloneable, // Frontier
-            // Shitmed Change
+                         // Shitmed Change
             body,
             part != null ? GetNetEntity(part) : null
         ));

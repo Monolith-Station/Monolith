@@ -48,7 +48,7 @@ public sealed partial class ChunkingSystem : EntitySystem
         var chunks = viewerPool.Get();
         DebugTools.Assert(chunks.Count == 0);
 
-        if (session.Status != SessionStatus.InGame || session.AttachedEntity is not {} player)
+        if (session.Status != SessionStatus.InGame || session.AttachedEntity is not { } player)
             return chunks;
 
         var enlargement = viewEnlargement ?? chunkSize;

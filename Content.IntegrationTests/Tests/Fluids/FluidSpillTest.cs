@@ -87,7 +87,7 @@ public sealed class FluidSpill
 #pragma warning restore NUnit2045
         });
 
-        var sTimeToWait = (int) Math.Ceiling(2f * gameTiming.TickRate);
+        var sTimeToWait = (int)Math.Ceiling(2f * gameTiming.TickRate);
         await server.WaitRunTicks(sTimeToWait);
 
         await server.WaitAssertion(() =>

@@ -11,7 +11,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._NF.Market.Systems;
 
-public sealed partial class MarketSystem: SharedMarketSystem
+public sealed partial class MarketSystem : SharedMarketSystem
 {
     [Dependency] private BankSystem _bankSystem = default!;
     [Dependency] private UserInterfaceSystem _ui = default!;

@@ -199,7 +199,7 @@ namespace Content.Client.Administration.UI
 
         public override void HandleState(EuiStateBase state)
         {
-            var s = (PermissionsEuiState) state;
+            var s = (PermissionsEuiState)state;
 
             if (s.IsLoading)
             {

@@ -40,7 +40,7 @@ public sealed partial class ModifyLungGas : EntityEffect
             {
                 var quantity = ratio * amount / Atmospherics.BreathMolesToReagentMultiplier;
                 if (quantity < 0)
-                    quantity = Math.Max(quantity, -lung.Air[(int) gas]);
+                    quantity = Math.Max(quantity, -lung.Air[(int)gas]);
                 lung.Air.AdjustMoles(gas, quantity);
             }
         }

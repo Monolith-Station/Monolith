@@ -9,7 +9,7 @@ namespace Content.Server.Cargo.Components;
 [Access(typeof(CargoSystem))]
 public sealed partial class CargoPalletConsoleComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField("cashType", customTypeSerializer:typeof(PrototypeIdSerializer<StackPrototype>))]
+    [ViewVariables(VVAccess.ReadWrite), DataField("cashType", customTypeSerializer: typeof(PrototypeIdSerializer<StackPrototype>))]
     public string CashType = "Credit";
 
     // Frontier

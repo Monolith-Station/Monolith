@@ -21,8 +21,10 @@ public sealed partial class StampWidget : PanelContainer
         set => StampedByLabel.Orientation = value;
     }
 
-    public StampDisplayInfo StampInfo {
-        set {
+    public StampDisplayInfo StampInfo
+    {
+        set
+        {
             StampedByLabel.Text = value.Type is StampType.Signature ? value.StampedName : Loc.GetString(value.StampedName);
             StampedByLabel.FontColorOverride = value.StampedColor;
             ModulateSelfOverride = value.StampedColor;
@@ -36,7 +38,8 @@ public sealed partial class StampWidget : PanelContainer
         var resCache = IoCManager.Resolve<IResourceCache>();
         var borderImage = resCache.GetResource<TextureResource>(
                 "/Textures/Interface/Paper/paper_stamp_border.svg.96dpi.png");
-        _borderTexture = new StyleBoxTexture {
+        _borderTexture = new StyleBoxTexture
+        {
             Texture = borderImage,
         };
         _borderTexture.SetPatchMargin(StyleBoxTexture.Margin.All, 7.0f);

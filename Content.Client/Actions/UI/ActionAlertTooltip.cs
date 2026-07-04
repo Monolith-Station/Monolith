@@ -36,7 +36,7 @@ namespace Content.Client.Actions.UI
             var nameLabel = new RichTextLabel
             {
                 MaxWidth = TooltipTextMaxWidth,
-                StyleClasses = {StyleNano.StyleClassTooltipActionTitle}
+                StyleClasses = { StyleNano.StyleClassTooltipActionTitle }
             };
             nameLabel.SetMessage(name);
             vbox.AddChild(nameLabel);
@@ -46,7 +46,7 @@ namespace Content.Client.Actions.UI
                 var description = new RichTextLabel
                 {
                     MaxWidth = TooltipTextMaxWidth,
-                    StyleClasses = {StyleNano.StyleClassTooltipActionDescription}
+                    StyleClasses = { StyleNano.StyleClassTooltipActionDescription }
                 };
                 description.SetMessage(desc);
                 vbox.AddChild(description);
@@ -66,7 +66,7 @@ namespace Content.Client.Actions.UI
             vbox.AddChild(_cooldownLabel = new RichTextLabel
             {
                 MaxWidth = TooltipTextMaxWidth,
-                StyleClasses = {StyleNano.StyleClassTooltipActionCooldown},
+                StyleClasses = { StyleNano.StyleClassTooltipActionCooldown },
                 Visible = false
             });
 
@@ -75,7 +75,7 @@ namespace Content.Client.Actions.UI
                 var requiresLabel = new RichTextLabel
                 {
                     MaxWidth = TooltipTextMaxWidth,
-                    StyleClasses = {StyleNano.StyleClassTooltipActionRequirements}
+                    StyleClasses = { StyleNano.StyleClassTooltipActionRequirements }
                 };
 
                 if (!FormattedMessage.TryFromMarkup("[color=#635c5c]" + requires + "[/color]", out var markup))

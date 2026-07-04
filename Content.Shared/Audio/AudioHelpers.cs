@@ -22,7 +22,7 @@ namespace Content.Shared.Audio
         public static AudioParams WithVariation(float amplitude, IRobustRandom? rand)
         {
             IoCManager.Resolve(ref rand);
-            var scale = (float) rand.NextGaussian(1, amplitude);
+            var scale = (float)rand.NextGaussian(1, amplitude);
             return AudioParams.Default.WithPitchScale(scale);
         }
 

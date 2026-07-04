@@ -55,7 +55,7 @@ public sealed partial class AmbientSoundSystem : SharedAmbientSoundSystem
     /// <summary>
     /// How many times we can be playing 1 particular sound at once.
     /// </summary>
-    private int MaxSingleSound => (int) (_maxAmbientCount / (16.0f / 6.0f));
+    private int MaxSingleSound => (int)(_maxAmbientCount / (16.0f / 6.0f));
 
     private readonly Dictionary<Entity<AmbientSoundComponent>, (EntityUid? Stream, SoundSpecifier Sound, string Path)> _playingSounds = new();
     private readonly Dictionary<string, int> _playingCount = new();
@@ -168,7 +168,7 @@ public sealed partial class AmbientSoundSystem : SharedAmbientSoundSystem
         _targetTime = _gameTiming.CurTime + TimeSpan.FromSeconds(_cooldown);
 
         var player = _playerManager.LocalEntity;
-        if (!EntityManager.TryGetComponent(player, out TransformComponent? xform))
+        if (!TryComp(player, out TransformComponent? xform))
         {
             ClearSounds();
             return;

@@ -36,7 +36,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
                 // Don't delete the object here - let other processes like physical damage from the
                 // explosion clean up the exploding object(s)
                 var explosiveTotalIntensity = explosiveComponent.TotalIntensity * explosionScaleFactor;
-                system.ExplosionSystem.TriggerExplosive(owner, explosiveComponent, false, explosiveTotalIntensity, user:cause);
+                system.ExplosionSystem.TriggerExplosive(owner, explosiveComponent, false, explosiveTotalIntensity, user: cause);
             }
         }
     }

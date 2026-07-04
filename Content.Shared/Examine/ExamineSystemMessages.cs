@@ -15,7 +15,7 @@ namespace Content.Shared.Examine
 
             public readonly bool GetVerbs;
 
-            public RequestExamineInfoMessage(NetEntity netEntity, int id, bool getVerbs=false)
+            public RequestExamineInfoMessage(NetEntity netEntity, int id, bool getVerbs = false)
             {
                 NetEntity = netEntity;
                 Id = id;
@@ -37,8 +37,8 @@ namespace Content.Shared.Examine
 
             public readonly bool KnowTarget;
 
-            public ExamineInfoResponseMessage(NetEntity entityUid, int id, FormattedMessage message, List<Verb>? verbs=null,
-                bool centerAtCursor=true, bool openAtOldTooltip=true, bool knowTarget = true)
+            public ExamineInfoResponseMessage(NetEntity entityUid, int id, FormattedMessage message, List<Verb>? verbs = null,
+                bool centerAtCursor = true, bool openAtOldTooltip = true, bool knowTarget = true)
             {
                 EntityUid = entityUid;
                 Id = id;

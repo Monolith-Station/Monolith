@@ -61,7 +61,7 @@ public abstract partial class SharedWiresSystem : EntitySystem
                 args.Used,
                 args.User,
                 ent,
-                (float) ent.Comp.OpenDelay.TotalSeconds,
+                (float)ent.Comp.OpenDelay.TotalSeconds,
                 ent.Comp.OpeningTool,
                 new WirePanelDoAfterEvent()))
         {

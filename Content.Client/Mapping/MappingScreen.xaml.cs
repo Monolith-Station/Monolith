@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Numerics;
 using Content.Client.Decals;
 using Content.Client.Decals.UI;
@@ -129,7 +129,7 @@ public sealed partial class MappingScreen : InGameScreen
             _picker.OpenToLeft();
             _picker.PaletteList.OnItemSelected += args =>
             {
-                var color = ((Color?) args.ItemList.GetSelected().First().Metadata)!.Value;
+                var color = ((Color?)args.ItemList.GetSelected().First().Metadata)!.Value;
                 OnDecalColorPicked(color);
             };
 

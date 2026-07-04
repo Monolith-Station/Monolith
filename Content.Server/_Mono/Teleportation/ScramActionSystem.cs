@@ -26,7 +26,7 @@ public sealed partial class ScramActionSystem : EntitySystem
 
     private void OnInit(Entity<ScrammerComponent> ent, ref MapInitEvent args)
     {
-        ent.Comp.ActionUid =_action.AddAction(ent, ent.Comp.ActionProto);
+        ent.Comp.ActionUid = _action.AddAction(ent, ent.Comp.ActionProto);
     }
 
     private void OnRemove(Entity<ScrammerComponent> ent, ref ComponentRemove args)

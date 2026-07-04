@@ -1,4 +1,5 @@
 namespace Content.Server.Cargo.Components;
+
 using Content.Shared.Actions;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 

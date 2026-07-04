@@ -17,8 +17,8 @@ public sealed class GunAccuracyModifierSystem : EntitySystem
         // MONO: Content.Shared._Mono.Weapons.Ranged.Components.SkipAccuracyModifierComponent.css
         // Skip modifications if - type: SkipPlayerAccuracyModifier is present in a weapon
         if (HasComp<SkipPlayerAccuracyModifierComponent>(args.Gun))
-			return;
-		
+            return;
+
         var maxSpread = MathHelper.DegreesToRadians(ent.Comp.MaxSpreadAngle);
         args.MinAngle = Math.Clamp(args.MinAngle * ent.Comp.SpreadMultiplier, 0f, maxSpread);
         args.MaxAngle = Math.Clamp(args.MaxAngle * ent.Comp.SpreadMultiplier, 0f, maxSpread);

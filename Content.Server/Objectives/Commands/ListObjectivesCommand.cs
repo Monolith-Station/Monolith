@@ -50,7 +50,7 @@ namespace Content.Server.Objectives.Commands
                 else
                 {
 
-                    var progress = (int) (info.Value.Progress * 100f);
+                    var progress = (int)(info.Value.Progress * 100f);
                     shell.WriteLine($"- [{i}] {objectives[i]} ({info.Value.Title}) ({progress}%)");
                 }
             }

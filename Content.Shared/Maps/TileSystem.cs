@@ -86,7 +86,7 @@ public sealed partial class TileSystem : EntitySystem
         return PryTile(tileRef);
     }
 
-	public bool PryTile(TileRef tileRef)
+    public bool PryTile(TileRef tileRef)
     {
         return PryTile(tileRef, false);
     }
@@ -98,7 +98,7 @@ public sealed partial class TileSystem : EntitySystem
         if (tile.IsEmpty)
             return false;
 
-        var tileDef = (ContentTileDefinition) _tileDefinitionManager[tile.TypeId];
+        var tileDef = (ContentTileDefinition)_tileDefinitionManager[tile.TypeId];
 
         if (!tileDef.CanCrowbar)
             return false;
@@ -113,7 +113,7 @@ public sealed partial class TileSystem : EntitySystem
         if (tile.IsEmpty)
             return false;
 
-        var tileDef = (ContentTileDefinition) _tileDefinitionManager[tile.TypeId];
+        var tileDef = (ContentTileDefinition)_tileDefinitionManager[tile.TypeId];
 
         if (!tileDef.CanShovel)
             return false;
@@ -152,7 +152,7 @@ public sealed partial class TileSystem : EntitySystem
         if (tileRef.Tile.IsEmpty)
             return false;
 
-        var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId];
+        var tileDef = (ContentTileDefinition)_tileDefinitionManager[tileRef.Tile.TypeId];
 
         if (string.IsNullOrEmpty(tileDef.BaseTurf))
             return false;

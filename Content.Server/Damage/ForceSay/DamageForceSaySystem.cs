@@ -30,7 +30,7 @@ public sealed partial class DamageForceSaySystem : EntitySystem
         // need to raise after mobthreshold
         // so that we don't accidentally raise one for damage before one for mobstate
         // (this won't double raise, because of the cooldown)
-        SubscribeLocalEvent<DamageForceSayComponent, DamageChangedEvent>(OnDamageChanged, after: new []{ typeof(MobThresholdSystem)} );
+        SubscribeLocalEvent<DamageForceSayComponent, DamageChangedEvent>(OnDamageChanged, after: new[] { typeof(MobThresholdSystem) });
         SubscribeLocalEvent<DamageForceSayComponent, SleepStateChangedEvent>(OnSleep);
     }
 
@@ -48,7 +48,7 @@ public sealed partial class DamageForceSaySystem : EntitySystem
         }
     }
 
-    private void TryForceSay(EntityUid uid, DamageForceSayComponent component, bool useSuffix=true)
+    private void TryForceSay(EntityUid uid, DamageForceSayComponent component, bool useSuffix = true)
     {
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;

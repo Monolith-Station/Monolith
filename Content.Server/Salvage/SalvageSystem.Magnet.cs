@@ -187,7 +187,7 @@ public sealed partial class SalvageSystem
             var seed = _random.Next();
 
             // Fuck with the seed to mix wrecks and asteroids.
-            seed = (int) (seed / 10f) * 10;
+            seed = (int)(seed / 10f) * 10;
 
 
             if (i >= data.Comp.OfferCount / 2)

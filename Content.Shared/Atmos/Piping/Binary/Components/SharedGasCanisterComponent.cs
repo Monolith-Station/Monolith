@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Serialization;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Atmos.Piping.Binary.Components
 {
@@ -48,7 +48,7 @@ namespace Content.Shared.Atmos.Piping.Binary.Components
     public sealed class GasCanisterHoldingTankEjectMessage : BoundUserInterfaceMessage
     {
         public GasCanisterHoldingTankEjectMessage()
-        {}
+        { }
     }
 
     [Serializable, NetSerializable]

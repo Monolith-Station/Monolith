@@ -32,7 +32,7 @@ public sealed partial class StandingStateSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!; // Mono
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
-    private const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
+    private const int StandingCollisionLayer = (int)CollisionGroup.MidImpassable;
 
     public override void Initialize()
     {

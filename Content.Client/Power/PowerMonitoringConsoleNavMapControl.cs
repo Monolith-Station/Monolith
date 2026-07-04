@@ -92,12 +92,12 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
                 if (HiddenLineGroups.Contains(line.Group))
                     continue;
 
-                var cableOffset = _powerCableOffsets[(int) line.Group];
+                var cableOffset = _powerCableOffsets[(int)line.Group];
                 var start = ScalePosition(line.Origin + cableOffset - offset);
                 var end = ScalePosition(line.Terminus + cableOffset - offset);
 
-                cableNetworks[(int) line.Group].Add(start);
-                cableNetworks[(int) line.Group].Add(end);
+                cableNetworks[(int)line.Group].Add(start);
+                cableNetworks[(int)line.Group].Add(end);
             }
 
             for (int cableNetworkIdx = 0; cableNetworkIdx < cableNetworks.Length; cableNetworkIdx++)
@@ -128,7 +128,7 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
                 if (HiddenLineGroups.Contains(line.Group))
                     continue;
 
-                var cableOffset = _powerCableOffsets[(int) line.Group];
+                var cableOffset = _powerCableOffsets[(int)line.Group];
 
                 var leftTop = ScalePosition(new Vector2
                     (Math.Min(line.Origin.X, line.Terminus.X) - 0.1f,
@@ -150,12 +150,12 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
                     Math.Max(line.Origin.Y, line.Terminus.Y) + 0.1f)
                     + cableOffset - offset);
 
-                cableVertexUVs[(int) line.Group].Add(leftBottom);
-                cableVertexUVs[(int) line.Group].Add(leftTop);
-                cableVertexUVs[(int) line.Group].Add(rightBottom);
-                cableVertexUVs[(int) line.Group].Add(leftTop);
-                cableVertexUVs[(int) line.Group].Add(rightBottom);
-                cableVertexUVs[(int) line.Group].Add(rightTop);
+                cableVertexUVs[(int)line.Group].Add(leftBottom);
+                cableVertexUVs[(int)line.Group].Add(leftTop);
+                cableVertexUVs[(int)line.Group].Add(rightBottom);
+                cableVertexUVs[(int)line.Group].Add(leftTop);
+                cableVertexUVs[(int)line.Group].Add(rightBottom);
+                cableVertexUVs[(int)line.Group].Add(rightTop);
             }
 
             for (int cableNetworkIdx = 0; cableNetworkIdx < cableVertexUVs.Length; cableNetworkIdx++)
@@ -188,10 +188,10 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
         if (chunks == null)
             return decodedOutput;
 
-        Array.ForEach(_horizLines, x=> x.Clear());
-        Array.ForEach(_horizLinesReversed, x=> x.Clear());
-        Array.ForEach(_vertLines, x=> x.Clear());
-        Array.ForEach(_vertLinesReversed, x=> x.Clear());
+        Array.ForEach(_horizLines, x => x.Clear());
+        Array.ForEach(_horizLinesReversed, x => x.Clear());
+        Array.ForEach(_vertLines, x => x.Clear());
+        Array.ForEach(_vertLinesReversed, x => x.Clear());
 
         foreach (var (chunkOrigin, chunk) in chunks)
         {
@@ -269,7 +269,7 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
             foreach (var (origin, terminal) in horizLines)
             {
                 decodedOutput.Add(new PowerMonitoringConsoleLine(origin + gridOffset, terminal + gridOffset,
-                    (PowerMonitoringConsoleLineGroup) index));
+                    (PowerMonitoringConsoleLineGroup)index));
             }
         }
 
@@ -279,7 +279,7 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
             foreach (var (origin, terminal) in vertLines)
             {
                 decodedOutput.Add(new PowerMonitoringConsoleLine(origin + gridOffset, terminal + gridOffset,
-                    (PowerMonitoringConsoleLineGroup) index));
+                    (PowerMonitoringConsoleLineGroup)index));
             }
         }
 

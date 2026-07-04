@@ -71,7 +71,7 @@ public abstract partial class SharedRevolutionarySystem : EntitySystem
     private bool CanGetState(ICommonSession? player)
     {
         //Apparently this can be null in replays so I am just returning true.
-        if (player?.AttachedEntity is not {} uid)
+        if (player?.AttachedEntity is not { } uid)
             return true;
 
         if (HasComp<RevolutionaryComponent>(uid) || HasComp<HeadRevolutionaryComponent>(uid))

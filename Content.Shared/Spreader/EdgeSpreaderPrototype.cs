@@ -14,7 +14,7 @@ public sealed partial class EdgeSpreaderPrototype : IPrototype
     /// How many updates to perform every time a grid's spreaders are processed.
     /// What counts as an "update" is determined by the specific spreader.
     /// </summary>
-    [DataField(required:true)] public int UpdatesPerSecond;
+    [DataField(required: true)] public int UpdatesPerSecond;
 
     /// <summary>
     /// If true, this spreader can't spread onto spaced tiles like lattice.

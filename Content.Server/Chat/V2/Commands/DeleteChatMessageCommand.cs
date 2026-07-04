@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using Content.Server.Administration;
 using Content.Server.Chat.V2.Repository;
 using Content.Shared.Administration;
@@ -18,7 +18,7 @@ public sealed partial class DeleteChatMessageCommand : ToolshedCommand
     {
         if (!_manager.GetEntitySystem<ChatRepositorySystem>().Delete(messageId))
         {
-             ctx.ReportError(new MessageIdDoesNotExist());
+            ctx.ReportError(new MessageIdDoesNotExist());
         }
     }
 }

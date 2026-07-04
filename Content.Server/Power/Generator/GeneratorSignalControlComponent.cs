@@ -8,7 +8,7 @@ namespace Content.Server.Power.Generator;
 /// When attached to an entity with <see cref="FuelGeneratorComponent"/> it will allow the signal network to exert control over the generator.
 /// </summary>
 [RegisterComponent]
-public sealed partial class GeneratorSignalControlComponent: Component
+public sealed partial class GeneratorSignalControlComponent : Component
 {
     /// <summary>
     /// The port that should be invoked when turning the generator on.

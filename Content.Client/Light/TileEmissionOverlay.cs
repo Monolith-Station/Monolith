@@ -55,7 +55,7 @@ public sealed partial class TileEmissionOverlay : Overlay
         if (_grids.Count == 0)
             return;
 
-        var lightScale = viewport.LightRenderTarget.Size / (Vector2) viewport.Size;
+        var lightScale = viewport.LightRenderTarget.Size / (Vector2)viewport.Size;
         var scale = viewport.RenderScale / (Vector2.One / lightScale);
 
         args.WorldHandle.RenderInRenderTarget(target,

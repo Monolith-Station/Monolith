@@ -94,7 +94,7 @@ public sealed partial class DocumentParsingManager
                 {
                     try
                     {
-                        var tag = (IDocumentTag) sandbox.CreateInstance(tagType);
+                        var tag = (IDocumentTag)sandbox.CreateInstance(tagType);
                         if (!tag.TryParseTag(args, out var control))
                         {
                             _sawmill.Error($"Failed to parse {tagId} args");

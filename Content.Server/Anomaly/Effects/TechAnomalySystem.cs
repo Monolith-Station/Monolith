@@ -80,7 +80,7 @@ public sealed partial class TechAnomalySystem : EntitySystem
         var sourcePort = _random.Pick(source.Comp.Ports);
         var sinkPort = _random.Pick(target.Comp.Ports);
 
-        _signal.SaveLinks(null, source, target,new()
+        _signal.SaveLinks(null, source, target, new()
         {
             (sourcePort, sinkPort),
         });

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -46,9 +46,9 @@ namespace Content.Client.Parallax
 
         private void _loadConfig(TomlTable config)
         {
-            foreach (var layerArray in ((TomlTableArray) config.Get("layers")).Items)
+            foreach (var layerArray in ((TomlTableArray)config.Get("layers")).Items)
             {
-                switch (((TomlValue<string>) layerArray.Get("type")).Value)
+                switch (((TomlValue<string>)layerArray.Get("type")).Value)
                 {
                     case "clear":
                         var layerClear = new LayerClear(layerArray);
@@ -108,7 +108,7 @@ namespace Content.Client.Parallax
             {
                 if (table.TryGetValue("color", out var tomlObject))
                 {
-                    Color = Color.FromHex(((TomlValue<string>) tomlObject).Value);
+                    Color = Color.FromHex(((TomlValue<string>)tomlObject).Value);
                 }
             }
 
@@ -134,7 +134,7 @@ namespace Content.Client.Parallax
             private readonly NoiseGenerator.NoiseType NoiseType = NoiseGenerator.NoiseType.Fbm;
             private readonly uint Seed = 1234;
             private readonly float Persistence = 0.5f;
-            private readonly float Lacunarity = (float) (Math.PI / 3);
+            private readonly float Lacunarity = (float)(Math.PI / 3);
             private readonly float Frequency = 1;
             private readonly uint Octaves = 3;
             private readonly float Threshold;
@@ -146,62 +146,62 @@ namespace Content.Client.Parallax
             {
                 if (table.TryGetValue("innercolor", out var tomlObject))
                 {
-                    InnerColor = Color.FromHex(((TomlValue<string>) tomlObject).Value);
+                    InnerColor = Color.FromHex(((TomlValue<string>)tomlObject).Value);
                 }
 
                 if (table.TryGetValue("outercolor", out tomlObject))
                 {
-                    OuterColor = Color.FromHex(((TomlValue<string>) tomlObject).Value);
+                    OuterColor = Color.FromHex(((TomlValue<string>)tomlObject).Value);
                 }
 
                 if (table.TryGetValue("seed", out tomlObject))
                 {
-                    Seed = (uint) ((TomlValue<long>) tomlObject).Value;
+                    Seed = (uint)((TomlValue<long>)tomlObject).Value;
                 }
 
                 if (table.TryGetValue("persistence", out tomlObject))
                 {
-                    Persistence = float.Parse(((TomlValue<string>) tomlObject).Value, CultureInfo.InvariantCulture);
+                    Persistence = float.Parse(((TomlValue<string>)tomlObject).Value, CultureInfo.InvariantCulture);
                 }
 
                 if (table.TryGetValue("lacunarity", out tomlObject))
                 {
-                    Lacunarity = float.Parse(((TomlValue<string>) tomlObject).Value, CultureInfo.InvariantCulture);
+                    Lacunarity = float.Parse(((TomlValue<string>)tomlObject).Value, CultureInfo.InvariantCulture);
                 }
 
                 if (table.TryGetValue("frequency", out tomlObject))
                 {
-                    Frequency = float.Parse(((TomlValue<string>) tomlObject).Value, CultureInfo.InvariantCulture);
+                    Frequency = float.Parse(((TomlValue<string>)tomlObject).Value, CultureInfo.InvariantCulture);
                 }
 
                 if (table.TryGetValue("octaves", out tomlObject))
                 {
-                    Octaves = (uint) ((TomlValue<long>) tomlObject).Value;
+                    Octaves = (uint)((TomlValue<long>)tomlObject).Value;
                 }
 
                 if (table.TryGetValue("threshold", out tomlObject))
                 {
-                    Threshold = float.Parse(((TomlValue<string>) tomlObject).Value, CultureInfo.InvariantCulture);
+                    Threshold = float.Parse(((TomlValue<string>)tomlObject).Value, CultureInfo.InvariantCulture);
                 }
 
                 if (table.TryGetValue("sourcefactor", out tomlObject))
                 {
-                    SrcFactor = (Color.BlendFactor) Enum.Parse(typeof(Color.BlendFactor), ((TomlValue<string>) tomlObject).Value);
+                    SrcFactor = (Color.BlendFactor)Enum.Parse(typeof(Color.BlendFactor), ((TomlValue<string>)tomlObject).Value);
                 }
 
                 if (table.TryGetValue("destfactor", out tomlObject))
                 {
-                    DstFactor = (Color.BlendFactor) Enum.Parse(typeof(Color.BlendFactor), ((TomlValue<string>) tomlObject).Value);
+                    DstFactor = (Color.BlendFactor)Enum.Parse(typeof(Color.BlendFactor), ((TomlValue<string>)tomlObject).Value);
                 }
 
                 if (table.TryGetValue("power", out tomlObject))
                 {
-                    Power = float.Parse(((TomlValue<string>) tomlObject).Value, CultureInfo.InvariantCulture);
+                    Power = float.Parse(((TomlValue<string>)tomlObject).Value, CultureInfo.InvariantCulture);
                 }
 
                 if (table.TryGetValue("noise_type", out tomlObject))
                 {
-                    switch (((TomlValue<string>) tomlObject).Value)
+                    switch (((TomlValue<string>)tomlObject).Value)
                     {
                         case "fbm":
                             NoiseType = NoiseGenerator.NoiseType.Fbm;
@@ -271,7 +271,7 @@ namespace Content.Client.Parallax
             private readonly NoiseGenerator.NoiseType MaskNoiseType = NoiseGenerator.NoiseType.Fbm;
             private readonly uint MaskSeed = 1234;
             private readonly float MaskPersistence = 0.5f;
-            private readonly float MaskLacunarity = (float) (Math.PI * 2 / 3);
+            private readonly float MaskLacunarity = (float)(Math.PI * 2 / 3);
             private readonly float MaskFrequency = 1;
             private readonly uint MaskOctaves = 3;
             private readonly float MaskThreshold;
@@ -283,78 +283,78 @@ namespace Content.Client.Parallax
             {
                 if (table.TryGetValue("seed", out var tomlObject))
                 {
-                    Seed = (int) ((TomlValue<long>) tomlObject).Value;
+                    Seed = (int)((TomlValue<long>)tomlObject).Value;
                 }
 
                 if (table.TryGetValue("count", out tomlObject))
                 {
-                    PointCount = (int) ((TomlValue<long>) tomlObject).Value;
+                    PointCount = (int)((TomlValue<long>)tomlObject).Value;
                 }
 
                 if (table.TryGetValue("sourcefactor", out tomlObject))
                 {
-                    SrcFactor = (Color.BlendFactor) Enum.Parse(typeof(Color.BlendFactor), ((TomlValue<string>) tomlObject).Value);
+                    SrcFactor = (Color.BlendFactor)Enum.Parse(typeof(Color.BlendFactor), ((TomlValue<string>)tomlObject).Value);
                 }
 
                 if (table.TryGetValue("destfactor", out tomlObject))
                 {
-                    DstFactor = (Color.BlendFactor) Enum.Parse(typeof(Color.BlendFactor), ((TomlValue<string>) tomlObject).Value);
+                    DstFactor = (Color.BlendFactor)Enum.Parse(typeof(Color.BlendFactor), ((TomlValue<string>)tomlObject).Value);
                 }
 
                 if (table.TryGetValue("farcolor", out tomlObject))
                 {
-                    FarColor = Color.FromHex(((TomlValue<string>) tomlObject).Value);
+                    FarColor = Color.FromHex(((TomlValue<string>)tomlObject).Value);
                 }
 
                 if (table.TryGetValue("closecolor", out tomlObject))
                 {
-                    CloseColor = Color.FromHex(((TomlValue<string>) tomlObject).Value);
+                    CloseColor = Color.FromHex(((TomlValue<string>)tomlObject).Value);
                 }
 
                 if (table.TryGetValue("pointsize", out tomlObject))
                 {
-                    PointSize = (int) ((TomlValue<long>) tomlObject).Value;
+                    PointSize = (int)((TomlValue<long>)tomlObject).Value;
                 }
 
                 // Noise mask stuff.
                 if (table.TryGetValue("mask", out tomlObject))
                 {
-                    Masked = ((TomlValue<bool>) tomlObject).Value;
+                    Masked = ((TomlValue<bool>)tomlObject).Value;
                 }
 
                 if (table.TryGetValue("maskseed", out tomlObject))
                 {
-                    MaskSeed = (uint) ((TomlValue<long>) tomlObject).Value;
+                    MaskSeed = (uint)((TomlValue<long>)tomlObject).Value;
                 }
 
                 if (table.TryGetValue("maskpersistence", out tomlObject))
                 {
-                    MaskPersistence = float.Parse(((TomlValue<string>) tomlObject).Value, CultureInfo.InvariantCulture);
+                    MaskPersistence = float.Parse(((TomlValue<string>)tomlObject).Value, CultureInfo.InvariantCulture);
                 }
 
                 if (table.TryGetValue("masklacunarity", out tomlObject))
                 {
-                    MaskLacunarity = float.Parse(((TomlValue<string>) tomlObject).Value, CultureInfo.InvariantCulture);
+                    MaskLacunarity = float.Parse(((TomlValue<string>)tomlObject).Value, CultureInfo.InvariantCulture);
                 }
 
                 if (table.TryGetValue("maskfrequency", out tomlObject))
                 {
-                    MaskFrequency = float.Parse(((TomlValue<string>) tomlObject).Value, CultureInfo.InvariantCulture);
+                    MaskFrequency = float.Parse(((TomlValue<string>)tomlObject).Value, CultureInfo.InvariantCulture);
                 }
 
                 if (table.TryGetValue("maskoctaves", out tomlObject))
                 {
-                    MaskOctaves = (uint) ((TomlValue<long>) tomlObject).Value;
+                    MaskOctaves = (uint)((TomlValue<long>)tomlObject).Value;
                 }
 
                 if (table.TryGetValue("maskthreshold", out tomlObject))
                 {
-                    MaskThreshold = float.Parse(((TomlValue<string>) tomlObject).Value, CultureInfo.InvariantCulture);
+                    MaskThreshold = float.Parse(((TomlValue<string>)tomlObject).Value, CultureInfo.InvariantCulture);
                 }
 
                 if (table.TryGetValue("masknoise_type", out tomlObject))
                 {
-                    switch (((TomlValue<string>) tomlObject).Value)
+                    switch (((TomlValue<string>)tomlObject).Value)
                     {
                         case "fbm":
                             MaskNoiseType = NoiseGenerator.NoiseType.Fbm;
@@ -369,7 +369,7 @@ namespace Content.Client.Parallax
 
                 if (table.TryGetValue("maskpower", out tomlObject))
                 {
-                    MaskPower = float.Parse(((TomlValue<string>) tomlObject).Value, CultureInfo.InvariantCulture);
+                    MaskPower = float.Parse(((TomlValue<string>)tomlObject).Value, CultureInfo.InvariantCulture);
                 }
             }
 

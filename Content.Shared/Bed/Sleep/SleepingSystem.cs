@@ -67,7 +67,7 @@ public sealed partial class SleepingSystem : EntitySystem
         SubscribeLocalEvent<SleepingComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
         SubscribeLocalEvent<SleepingComponent, EmoteAttemptEvent>(OnEmoteAttempt);
 
-        SubscribeLocalEvent<SleepingComponent, BeforeForceSayEvent>(OnChangeForceSay, after: new []{typeof(PainNumbnessSystem)});
+        SubscribeLocalEvent<SleepingComponent, BeforeForceSayEvent>(OnChangeForceSay, after: new[] { typeof(PainNumbnessSystem) });
     }
 
     private void OnUnbuckleAttempt(Entity<SleepingComponent> ent, ref UnbuckleAttemptEvent args)
@@ -221,7 +221,7 @@ public sealed partial class SleepingSystem : EntitySystem
             return;
 
         // Wake up if either damage or healing exceeds the threshold
-        if ((totalChange > 0 || -totalChange > 0) && 
+        if ((totalChange > 0 || -totalChange > 0) &&
             (totalChange >= ent.Comp.WakeThreshold || -totalChange >= ent.Comp.WakeThreshold)
             && !HasComp<ForcedSleepingComponent>(ent))
             TryWaking((ent, ent.Comp));

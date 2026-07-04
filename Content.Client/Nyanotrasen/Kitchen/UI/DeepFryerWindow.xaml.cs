@@ -24,8 +24,8 @@ namespace Content.Client.Nyanotrasen.Kitchen.UI
 
         public void UpdateState(DeepFryerBoundUserInterfaceState state)
         {
-            OilLevel.Value = (float) state.OilLevel;
-            OilPurity.Value = (float) state.OilPurity;
+            OilLevel.Value = (float)state.OilLevel;
+            OilPurity.Value = (float)state.OilPurity;
 
             if (state.OilPurity < state.FryingOilThreshold)
             {
@@ -33,7 +33,7 @@ namespace Content.Client.Nyanotrasen.Kitchen.UI
                 {
                     OilPurity.ForegroundStyleBoxOverride = new StyleBoxFlat();
 
-                    var oilPurityStyle = (StyleBoxFlat) OilPurity.ForegroundStyleBoxOverride;
+                    var oilPurityStyle = (StyleBoxFlat)OilPurity.ForegroundStyleBoxOverride;
                     oilPurityStyle.BackgroundColor = WarningColor;
                 }
             }

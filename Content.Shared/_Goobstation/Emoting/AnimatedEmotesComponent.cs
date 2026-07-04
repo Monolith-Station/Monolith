@@ -12,12 +12,14 @@ namespace Content.Shared.Emoting;
 [Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationSpinEmoteEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationJumpEmoteEvent : EntityEventArgs { }
 
-[RegisterComponent, NetworkedComponent] public sealed partial class AnimatedEmotesComponent : Component
+[RegisterComponent, NetworkedComponent]
+public sealed partial class AnimatedEmotesComponent : Component
 {
     [DataField] public ProtoId<EmotePrototype>? Emote;
 }
 
-[Serializable, NetSerializable] public sealed partial class AnimatedEmotesComponentState : ComponentState
+[Serializable, NetSerializable]
+public sealed partial class AnimatedEmotesComponentState : ComponentState
 {
     public ProtoId<EmotePrototype>? Emote;
 

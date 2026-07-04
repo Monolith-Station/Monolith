@@ -96,7 +96,7 @@ public sealed partial class BinSystem : EntitySystem
         if (args.Using != null)
         {
             var canReach = args.CanAccess && args.CanInteract;
-            InsertIntoBin(args.User, args.Target, (EntityUid) args.Using, component, false, canReach);
+            InsertIntoBin(args.User, args.Target, (EntityUid)args.Using, component, false, canReach);
         }
     }
 

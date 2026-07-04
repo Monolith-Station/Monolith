@@ -1,4 +1,4 @@
-﻿using Robust.Client.UserInterface.Controls;
+using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
 
 namespace Content.Client.UserInterface.Controls;
@@ -126,7 +126,7 @@ public sealed partial class ConfirmButton : Button
         switch (IsConfirming)
         {
             case false:
-                _nextCooldown  = _gameTiming.CurTime + CooldownTime;
+                _nextCooldown = _gameTiming.CurTime + CooldownTime;
                 _nextReset = _gameTiming.CurTime + ResetTime;
                 Disabled = true;
                 break;

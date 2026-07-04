@@ -2,7 +2,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Sprite;
 
-public abstract class SharedRandomSpriteSystem : EntitySystem {}
+public abstract class SharedRandomSpriteSystem : EntitySystem { }
 
 [Serializable, NetSerializable]
 public sealed class RandomSpriteColorComponentState : ComponentState

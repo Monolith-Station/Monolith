@@ -89,7 +89,7 @@ public sealed partial class SalvageExpeditionDataComponent : Component
     /// <summary>
     /// Nexy time salvage missions are offered.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("nextOffer", customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [ViewVariables(VVAccess.ReadWrite), DataField("nextOffer", customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan NextOffer;
 

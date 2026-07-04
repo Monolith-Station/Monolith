@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net;
@@ -17,7 +17,7 @@ namespace Content.Server.IP
             if (tuple == null)
                 return null;
 
-            return new NpgsqlInet(tuple.Value.Item1, (byte) tuple.Value.Item2);
+            return new NpgsqlInet(tuple.Value.Item1, (byte)tuple.Value.Item2);
         }
 
         [return: NotNullIfNotNull(nameof(inet))]

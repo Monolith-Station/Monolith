@@ -111,7 +111,7 @@ public class TableContainer : Container
             // at least without causing *some* sort of word wrapping (assuming text contents).
             //
             // Assign horizontal space proportional to the wanted maximum size of the columns.
-            var assignableWidth =  Math.Max(0, availableSize.X - totalMinWidth);
+            var assignableWidth = Math.Max(0, availableSize.X - totalMinWidth);
             for (var c = 0; c < _columns; c++)
             {
                 ref var column = ref _columnDataCache[c];

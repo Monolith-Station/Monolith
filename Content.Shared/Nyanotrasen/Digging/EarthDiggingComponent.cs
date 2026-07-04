@@ -1,4 +1,4 @@
-﻿using System.Threading;
+using System.Threading;
 using Content.Shared.Tools;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -12,7 +12,7 @@ public sealed partial class EarthDiggingComponent : Component
     public bool ToolComponentNeeded = true;
 
     [ViewVariables]
-    [DataField("qualityNeeded", customTypeSerializer:typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
+    [DataField("qualityNeeded", customTypeSerializer: typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
     public string QualityNeeded = "Digging";
 
     [ViewVariables]

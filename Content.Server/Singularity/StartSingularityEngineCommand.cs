@@ -16,7 +16,7 @@ namespace Content.Server.Singularity
     {
         [Dependency] private readonly EmitterSystem _emitterSystem = default!;
         [Dependency] private readonly MultipartMachineSystem _multipartSystem = default!;
-        [Dependency] private readonly ParticleAcceleratorSystem  _paSystem = default!;
+        [Dependency] private readonly ParticleAcceleratorSystem _paSystem = default!;
         [Dependency] private readonly RadiationCollectorSystem _radCollectorSystem = default!;
 
         public override string Command => "startsingularityengine";

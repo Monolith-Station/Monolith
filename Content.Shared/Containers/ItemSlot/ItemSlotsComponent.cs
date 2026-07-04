@@ -21,7 +21,7 @@ namespace Content.Shared.Containers.ItemSlots
         ///     The dictionary that stores all of the item slots whose interactions will be managed by the <see
         ///     cref="ItemSlotsSystem"/>.
         /// </summary>
-        [DataField(readOnly:true)]
+        [DataField(readOnly: true)]
         public Dictionary<string, ItemSlot> Slots = new();
 
         // There are two ways to use item slots:

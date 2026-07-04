@@ -12,7 +12,7 @@ namespace Content.Server.Species.Systems;
 
 public sealed partial class NymphSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _protoManager= default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private MindSystem _mindSystem = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private ZombieSystem _zombie = default!;

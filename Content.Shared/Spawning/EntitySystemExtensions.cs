@@ -40,7 +40,7 @@ namespace Content.Shared.Spawning
                 }
 
                 // TODO: wtf fix this
-                if (collisionLayer == 0 || (body.CollisionMask & (int) collisionLayer) == 0)
+                if (collisionLayer == 0 || (body.CollisionMask & (int)collisionLayer) == 0)
                 {
                     continue;
                 }

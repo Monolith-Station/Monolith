@@ -19,7 +19,7 @@ public abstract partial class SharedEntityStorageComponent : Component
     /// <summary>
     ///     Collision masks that get removed when the storage gets opened.
     /// </summary>
-    public readonly int MasksToRemove = (int) (
+    public readonly int MasksToRemove = (int)(
         CollisionGroup.MidImpassable |
         CollisionGroup.HighImpassable |
         CollisionGroup.LowImpassable);

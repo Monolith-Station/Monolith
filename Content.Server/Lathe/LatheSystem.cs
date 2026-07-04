@@ -160,7 +160,7 @@ namespace Content.Server.Lathe
                 var totalHeatCap = 0f;
                 foreach (var env in _environments)
                 {
-                    avgTemp += env.Temperature;;
+                    avgTemp += env.Temperature; ;
                     totalHeatCap += _atmosphere.GetHeatCapacity(env, true);
                 }
                 avgTemp /= _environments.Count;

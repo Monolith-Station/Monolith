@@ -16,7 +16,7 @@ public sealed partial class PlantAffectGrowth : PlantAdjustAttribute
 
         var plantHolder = args.EntityManager.System<PlantHolderSystem>();
 
-        plantHolder.AffectGrowth(args.TargetEntity, (int) Amount, plantHolderComp);
+        plantHolder.AffectGrowth(args.TargetEntity, (int)Amount, plantHolderComp);
     }
 }
 

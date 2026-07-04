@@ -27,38 +27,38 @@ public sealed partial class ShowRulesCommand : IConsoleCommand
         switch (args.Length)
         {
             case 1:
-            {
-                target = args[0];
-                seconds = _configuration.GetCVar(CCVars.RulesWaitTime);
-                break;
-            }
-            case 2:
-            {
-                if (!float.TryParse(args[1], out seconds))
                 {
-                    shell.WriteError($"{args[1]} is not a valid amount of seconds.\n{Help}");
+                    target = args[0];
+                    seconds = _configuration.GetCVar(CCVars.RulesWaitTime);
+                    break;
+                }
+            case 2:
+                {
+                    if (!float.TryParse(args[1], out seconds))
+                    {
+                        shell.WriteError($"{args[1]} is not a valid amount of seconds.\n{Help}");
+                        return;
+                    }
+
+                    target = args[0];
+                    break;
+                }
+            default:
+                {
+                    shell.WriteLine(Help);
                     return;
                 }
-
-                target = args[0];
-                break;
-            }
-            default:
-            {
-                shell.WriteLine(Help);
-                return;
-            }
         }
 
 
         if (!_player.TryGetSessionByUsername(target, out var player))
         {
             shell.WriteError("Unable to find a player with that name.");
-           return;
+            return;
         }
 
         var coreRules = _configuration.GetCVar(CCVars.RulesFile);
-        var message = new SendRulesInformationMessage { PopupTime = seconds, CoreRules = coreRules, ShouldShowRules = true};
+        var message = new SendRulesInformationMessage { PopupTime = seconds, CoreRules = coreRules, ShouldShowRules = true };
         _net.ServerSendMessage(message, player.Channel);
     }
 

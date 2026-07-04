@@ -200,7 +200,8 @@ public sealed partial class TipsSystem : EntitySystem
             var ev = new TippyEvent(msg);
             ev.SpeakTime = 1 + tip.Length * 0.05f;
             RaiseNetworkEvent(ev);
-        } else
+        }
+        else
         {
             _chat.ChatMessageToManyFiltered(Filter.Broadcast(), ChatChannel.OOC, tip, msg,
             EntityUid.Invalid, false, false, Color.MediumPurple);

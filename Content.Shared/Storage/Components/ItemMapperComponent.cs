@@ -1,4 +1,4 @@
-﻿using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Storage.Components
@@ -56,7 +56,7 @@ namespace Content.Shared.Storage.Components
     [Access(typeof(SharedItemMapperSystem))]
     public sealed partial class ItemMapperComponent : Component
     {
-        [DataField("mapLayers")] public  Dictionary<string, SharedMapLayerData> MapLayers = new();
+        [DataField("mapLayers")] public Dictionary<string, SharedMapLayerData> MapLayers = new();
 
         [DataField("sprite")] public ResPath? RSIPath;
 

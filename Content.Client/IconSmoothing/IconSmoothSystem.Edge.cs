@@ -48,7 +48,7 @@ public sealed partial class IconSmoothSystem
 
         for (var i = 0; i < 4; i++)
         {
-            var dir = (DirectionFlag) Math.Pow(2, i);
+            var dir = (DirectionFlag)Math.Pow(2, i);
             var edge = GetEdge(dir);
 
             if ((dir & directions) != 0x0)

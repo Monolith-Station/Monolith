@@ -9,7 +9,7 @@ namespace Content.Shared.Shuttles.Events;
 public sealed class ToggleFTLLockRequestMessage : BoundUserInterfaceMessage
 {
     public IReadOnlyList<NetEntity> DockedEntities { get; }
-    
+
     /// <summary>
     /// The desired state for the FTL lock (true to enable, false to disable)
     /// </summary>
@@ -20,4 +20,4 @@ public sealed class ToggleFTLLockRequestMessage : BoundUserInterfaceMessage
         DockedEntities = dockedEntities;
         Enabled = enabled;
     }
-} 
+}

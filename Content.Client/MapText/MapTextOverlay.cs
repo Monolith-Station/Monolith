@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Shared.MapText;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -55,7 +55,7 @@ public sealed class MapTextOverlay : Overlay
 
     private void DrawWorld(DrawingHandleScreen handle, OverlayDrawArgs args, float scale)
     {
-        if ( args.ViewportControl == null)
+        if (args.ViewportControl == null)
             return;
 
         var matrix = args.ViewportControl.GetWorldToScreenMatrix();
@@ -64,7 +64,7 @@ public sealed class MapTextOverlay : Overlay
         // Enlarge bounds to try prevent pop-in due to large text.
         var bounds = args.WorldBounds.Enlarged(2);
 
-        while(query.MoveNext(out var uid, out var mapText))
+        while (query.MoveNext(out var uid, out var mapText))
         {
             var mapPos = _transform.GetMapCoordinates(uid);
 

@@ -1,4 +1,4 @@
-﻿using Content.Server.Construction;
+using Content.Server.Construction;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Xenoarchaeology.Equipment.Components;
@@ -65,7 +65,7 @@ public sealed partial class TraversalDistorterSystem : EntitySystem
                 examine = Loc.GetString("traversal-distorter-desc-down");
                 break;
         }
-        
+
         args.PushMarkup(examine);
     }
 

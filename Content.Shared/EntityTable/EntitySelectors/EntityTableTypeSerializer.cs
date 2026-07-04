@@ -32,6 +32,6 @@ public sealed class EntityTableTypeSerializer :
         if (node.Has(EntSelector.IdDataFieldTag))
             type = typeof(EntSelector);
 
-        return (EntityTableSelector) serializationManager.Read(type, node, context)!;
+        return (EntityTableSelector)serializationManager.Read(type, node, context)!;
     }
 }

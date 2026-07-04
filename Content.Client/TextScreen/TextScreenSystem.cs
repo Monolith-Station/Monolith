@@ -110,16 +110,16 @@ public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisual
             return;
 
         if (args.AppearanceData.TryGetValue(TextScreenVisuals.Color, out var color) && color is Color)
-            component.Color = (Color) color;
+            component.Color = (Color)color;
 
         // DefaultText: fallback text e.g. broadcast updates from comms consoles
         if (args.AppearanceData.TryGetValue(TextScreenVisuals.DefaultText, out var newDefault) && newDefault is string)
-            component.Text = SegmentText((string) newDefault, component);
+            component.Text = SegmentText((string)newDefault, component);
 
         // ScreenText: currently rendered text e.g. the "ETA" accompanying shuttle timers
         if (args.AppearanceData.TryGetValue(TextScreenVisuals.ScreenText, out var text) && text is string)
         {
-            component.TextToDraw = SegmentText((string) text, component);
+            component.TextToDraw = SegmentText((string)text, component);
             ResetText(uid, component);
             BuildTextLayers(uid, component, args.Sprite);
             DrawLayers(uid, component.LayerStatesToDraw);
@@ -127,7 +127,7 @@ public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisual
 
         if (args.AppearanceData.TryGetValue(TextScreenVisuals.TargetTime, out var time) && time is TimeSpan)
         {
-            var target = (TimeSpan) time;
+            var target = (TimeSpan)time;
             if (target > _gameTiming.CurTime)
             {
                 var timer = EnsureComp<TextScreenTimerComponent>(uid);

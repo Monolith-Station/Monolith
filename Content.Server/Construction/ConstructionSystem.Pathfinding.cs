@@ -27,13 +27,13 @@ namespace Content.Server.Construction
                 return true;
             }
 
-            if (GetCurrentGraph(uid, construction) is not {} graph)
+            if (GetCurrentGraph(uid, construction) is not { } graph)
                 return false;
 
             if (GetNodeFromGraph(graph, construction.Node) is not { } node)
                 return false;
 
-            if (GetNodeFromGraph(graph, targetNodeId) is not {} targetNode)
+            if (GetNodeFromGraph(graph, targetNodeId) is not { } targetNode)
                 return false;
 
             return UpdatePathfinding(uid, graph, node, targetNode, GetCurrentEdge(uid, construction), construction);
@@ -50,12 +50,12 @@ namespace Content.Server.Construction
             if (!Resolve(uid, ref construction))
                 return false;
 
-            if (construction.TargetNode is not {} targetNodeId)
+            if (construction.TargetNode is not { } targetNodeId)
                 return false;
 
-            if (GetCurrentGraph(uid, construction) is not {} graph
-                || GetNodeFromGraph(graph, construction.Node) is not {} node
-                || GetNodeFromGraph(graph, targetNodeId) is not {} targetNode)
+            if (GetCurrentGraph(uid, construction) is not { } graph
+                || GetNodeFromGraph(graph, construction.Node) is not { } node
+                || GetNodeFromGraph(graph, targetNodeId) is not { } targetNode)
                 return false;
 
             return UpdatePathfinding(uid, graph, node, targetNode, GetCurrentEdge(uid, construction), construction);
@@ -110,7 +110,7 @@ namespace Content.Server.Construction
                 construction.NodePathfinding.Dequeue();
             }
 
-            if (currentEdge != null && construction.TargetEdgeIndex is {} targetEdgeIndex)
+            if (currentEdge != null && construction.TargetEdgeIndex is { } targetEdgeIndex)
             {
                 if (currentNode.Edges.Count >= targetEdgeIndex)
                 {

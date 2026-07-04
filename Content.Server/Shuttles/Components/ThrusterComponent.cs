@@ -34,7 +34,8 @@ namespace Content.Server.Shuttles.Components
         [DataField("thrusterType")]
         public ThrusterType Type = ThrusterType.Linear;
 
-        [DataField("burnShape")] public List<Vector2> BurnPoly = new()
+        [DataField("burnShape")]
+        public List<Vector2> BurnPoly = new()
         {
             new Vector2(-0.4f, 0.5f),
             new Vector2(-0.1f, 1.2f),

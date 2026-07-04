@@ -7,6 +7,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 
 namespace Content.Client.Fullscreen;
+
 public sealed partial class FullscreenHook
 {
     [Dependency] private IInputManager _inputManager = default!;
@@ -26,13 +27,13 @@ public sealed partial class FullscreenHook
 
         switch (currentWindowMode)
         {
-            case (int) WindowMode.Windowed:
-                _cfg.SetCVar(CVars.DisplayWindowMode, (int) WindowMode.Fullscreen);
+            case (int)WindowMode.Windowed:
+                _cfg.SetCVar(CVars.DisplayWindowMode, (int)WindowMode.Fullscreen);
                 _sawmill.Info("Switched to Fullscreen mode");
                 break;
 
-            case (int) WindowMode.Fullscreen:
-                _cfg.SetCVar(CVars.DisplayWindowMode, (int) WindowMode.Windowed);
+            case (int)WindowMode.Fullscreen:
+                _cfg.SetCVar(CVars.DisplayWindowMode, (int)WindowMode.Windowed);
                 _sawmill.Info("Switched to Windowed mode");
                 break;
 

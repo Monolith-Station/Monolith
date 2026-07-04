@@ -349,12 +349,12 @@ public sealed partial class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRu
                     break;
                 // the remainder are done on a per-poi-per-group basis
                 default:
-                {
-                    if (!remainingUniqueProtosBySpawnGroup.ContainsKey(location.SpawnGroup))
-                        remainingUniqueProtosBySpawnGroup[location.SpawnGroup] = new();
-                    remainingUniqueProtosBySpawnGroup[location.SpawnGroup].Add(location);
-                    break;
-                }
+                    {
+                        if (!remainingUniqueProtosBySpawnGroup.ContainsKey(location.SpawnGroup))
+                            remainingUniqueProtosBySpawnGroup[location.SpawnGroup] = new();
+                        remainingUniqueProtosBySpawnGroup[location.SpawnGroup].Add(location);
+                        break;
+                    }
             }
         }
         _poi.GenerateDepots(mapUid, depotProtos, out component.CargoDepots);

@@ -17,5 +17,5 @@ public sealed partial class GunRequiresWieldComponent : Component
     public TimeSpan PopupCooldown = TimeSpan.FromSeconds(1);
 
     [DataField]
-    public LocId? WieldRequiresExamineMessage  = "gunrequireswield-component-examine";
+    public LocId? WieldRequiresExamineMessage = "gunrequireswield-component-examine";
 }

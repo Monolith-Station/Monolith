@@ -150,7 +150,7 @@ public abstract partial class SharedLatheSystem : EntitySystem
     // End Frontier: demag
 
     public static int AdjustMaterial(int original, float multScale, float multiplier)
-        => (int) MathF.Ceiling(original * MathF.Pow(multiplier, multScale));
+        => (int)MathF.Ceiling(original * MathF.Pow(multiplier, multScale));
 
     protected abstract bool HasRecipe(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component);
 
@@ -166,7 +166,7 @@ public abstract partial class SharedLatheSystem : EntitySystem
         InverseRecipes.Clear();
         foreach (var latheRecipe in _proto.EnumeratePrototypes<LatheRecipePrototype>())
         {
-            if (latheRecipe.Result is not {} result)
+            if (latheRecipe.Result is not { } result)
                 continue;
 
             InverseRecipes.GetOrNew(result).Add(latheRecipe);
@@ -191,7 +191,7 @@ public abstract partial class SharedLatheSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(proto.Name))
             return Loc.GetString(proto.Name);
 
-        if (proto.Result is {} result)
+        if (proto.Result is { } result)
         {
             return _proto.Index(result).Name;
         }
@@ -217,7 +217,7 @@ public abstract partial class SharedLatheSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(proto.Description))
             return Loc.GetString(proto.Description);
 
-        if (proto.Result is {} result)
+        if (proto.Result is { } result)
         {
             return _proto.Index(result).Description;
         }

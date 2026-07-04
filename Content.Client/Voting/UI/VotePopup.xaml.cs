@@ -101,7 +101,7 @@ namespace Content.Client.Voting.UI
             // Round up a second.
             timeLeft = TimeSpan.FromSeconds(Math.Ceiling(timeLeft.TotalSeconds));
 
-            TimeLeftBar.Value = Math.Min(1, (float) ((curTime.TotalSeconds - _vote.StartTime.TotalSeconds) /
+            TimeLeftBar.Value = Math.Min(1, (float)((curTime.TotalSeconds - _vote.StartTime.TotalSeconds) /
                                                      (_vote.EndTime.TotalSeconds - _vote.StartTime.TotalSeconds)));
 
             TimeLeftText.Text = $"{timeLeft:m\\:ss}";

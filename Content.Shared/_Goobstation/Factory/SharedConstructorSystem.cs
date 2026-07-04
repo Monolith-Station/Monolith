@@ -30,7 +30,7 @@ public abstract partial class SharedConstructorSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        var msg = ent.Comp.Construction is {} id
+        var msg = ent.Comp.Construction is { } id
             ? Loc.GetString("constructor-examine", ("name", Proto.Index(id).Name))
             : Loc.GetString("constructor-examine-unset");
         args.PushMarkup(msg);

@@ -27,7 +27,7 @@ public sealed partial class HitscanReflectSystem : EntitySystem
 
         // Mono begin
         DamageSpecifier damage = new();
-        if (EntityManager.TryGetComponent<HitscanBasicDamageComponent>(hitscan, out var hitscanDamage))
+        if (TryComp<HitscanBasicDamageComponent>(hitscan, out var hitscanDamage))
             damage = hitscanDamage.Damage * _damage.UniversalHitscanDamageModifier;
 
         // Mono - Use hitscan damage component if available

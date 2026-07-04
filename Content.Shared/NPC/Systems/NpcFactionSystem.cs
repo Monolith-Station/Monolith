@@ -314,7 +314,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
 
         _factions = factionPrototypes.ToFrozenDictionary(
             faction => faction.ID,
-            faction =>  new FactionData
+            faction => new FactionData
             {
                 Friendly = faction.Friendly.ToHashSet(),
                 Neutral = faction.Neutral.ToHashSet(),
@@ -341,7 +341,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
 
         if (!defaultHostile)
         {
-           return GetHostileFactions(iteratedFaction);
+            return GetHostileFactions(iteratedFaction);
         }
 
         foreach (var faction in factionPrototypes)

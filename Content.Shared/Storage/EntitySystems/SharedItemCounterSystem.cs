@@ -1,4 +1,4 @@
-﻿using Content.Shared.Stacks;
+using Content.Shared.Stacks;
 using Content.Shared.Storage.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
@@ -21,7 +21,7 @@ namespace Content.Shared.Storage.EntitySystems
         private void CounterEntityInserted(EntityUid uid, ItemCounterComponent itemCounter,
             EntInsertedIntoContainerMessage args)
         {
-            if (!EntityManager.TryGetComponent(uid, out AppearanceComponent? appearanceComponent))
+            if (!TryComp(uid, out AppearanceComponent? appearanceComponent))
                 return;
 
             var count = GetCount(args, itemCounter);
@@ -37,7 +37,7 @@ namespace Content.Shared.Storage.EntitySystems
         private void CounterEntityRemoved(EntityUid uid, ItemCounterComponent itemCounter,
             EntRemovedFromContainerMessage args)
         {
-            if (!EntityManager.TryGetComponent(uid, out AppearanceComponent? appearanceComponent))
+            if (!TryComp(uid, out AppearanceComponent? appearanceComponent))
                 return;
 
             var count = GetCount(args, itemCounter);

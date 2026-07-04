@@ -252,11 +252,11 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
             var maxSpread = recoilComponent.MaxSpreadModifier;
             var maxSpreadColor = GetColor(maxSpread);
 
-        // welcome to The Monolith.... I am lazy....
-            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-recovery",("color", recoilRecoveryColor),("modifier", recoilRecovery)));
-            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-recoil",("color", recoilIncreaseColor),("modifier", recoilIncrease)));
-            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-minspread",("color", minSpreadColor),("modifier", minSpread)));
-            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-maxspread",("color", maxSpreadColor),("modifier", maxSpread)));
+            // welcome to The Monolith.... I am lazy....
+            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-recovery", ("color", recoilRecoveryColor), ("modifier", recoilRecovery)));
+            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-recoil", ("color", recoilIncreaseColor), ("modifier", recoilIncrease)));
+            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-minspread", ("color", minSpreadColor), ("modifier", minSpread)));
+            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-maxspread", ("color", maxSpreadColor), ("modifier", maxSpread)));
         }
     }
     // Mono end

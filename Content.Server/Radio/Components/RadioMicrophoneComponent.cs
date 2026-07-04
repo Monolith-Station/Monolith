@@ -19,7 +19,7 @@ public sealed partial class RadioMicrophoneComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("listenRange")]
-    public int ListenRange  = 4;
+    public int ListenRange = 4;
 
     [DataField("enabled")]
     public bool Enabled = false;

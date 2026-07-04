@@ -15,10 +15,10 @@ namespace Content.Shared.Movement.Systems;
 public abstract partial class SharedMobCollisionSystem : EntitySystem
 {
     [Dependency] protected IConfigurationManager CfgManager = default!;
-    [Dependency] private   IRobustRandom _random = default!;
-    [Dependency] private   MovementSpeedModifierSystem _moveMod = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MovementSpeedModifierSystem _moveMod = default!;
     [Dependency] protected SharedPhysicsSystem Physics = default!;
-    [Dependency] private   SharedTransformSystem _xformSystem = default!;
+    [Dependency] private SharedTransformSystem _xformSystem = default!;
 
     protected EntityQuery<MobCollisionComponent> MobQuery;
     protected EntityQuery<PhysicsComponent> PhysicsQuery;

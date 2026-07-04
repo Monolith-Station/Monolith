@@ -45,7 +45,7 @@ public sealed partial class AltInteractOperator : HTNOperator
         if (result && doAfter != null && count != doAfter.DoAfters.Count)
         {
             var wait = doAfter.DoAfters.First().Value.Args.Delay;
-            blackboard.SetValue(IdleKey, (float) wait.TotalSeconds + 0.5f);
+            blackboard.SetValue(IdleKey, (float)wait.TotalSeconds + 0.5f);
         }
         else
         {

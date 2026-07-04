@@ -163,7 +163,7 @@ public sealed partial class PowerMonitoringWindow
             if (child is not PowerMonitoringWindowSubEntry)
                 continue;
 
-            var castChild = (PowerMonitoringWindowSubEntry) child;
+            var castChild = (PowerMonitoringWindowSubEntry)child;
 
             if (castChild == null)
                 continue;
@@ -256,7 +256,7 @@ public sealed partial class PowerMonitoringWindow
             if (control == null || control is not PowerMonitoringWindowEntry)
                 continue;
 
-            if (((PowerMonitoringWindowEntry) control).NetEntity == _focusEntity)
+            if (((PowerMonitoringWindowEntry)control).NetEntity == _focusEntity)
                 return true;
 
             nextScrollPosition += control.Height;
@@ -342,7 +342,7 @@ public sealed partial class PowerMonitoringWindow
 
     private PowerMonitoringConsoleGroup GetCurrentPowerMonitoringConsoleGroup()
     {
-        return (PowerMonitoringConsoleGroup) MasterTabContainer.CurrentTab;
+        return (PowerMonitoringConsoleGroup)MasterTabContainer.CurrentTab;
     }
 }
 

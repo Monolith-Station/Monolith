@@ -19,6 +19,6 @@ public sealed partial class TransitShuttleComponent : Component
     [DataField]
     public EntityUid NextStation;
 
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextTransfer;
 }

@@ -48,10 +48,10 @@ public sealed partial class NuclearCentrifugeSystem : EntitySystem
         var query = EntityQueryEnumerator<NuclearCentrifugeComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if(!comp.Processing)
+            if (!comp.Processing)
                 continue;
-            
-            if(comp.FuelToExtract>0)
+
+            if (comp.FuelToExtract > 0)
             {
                 var delta = Math.Min(comp.FuelToExtract, 0.5f);
                 comp.ExtractedFuel += delta;
@@ -59,10 +59,10 @@ public sealed partial class NuclearCentrifugeSystem : EntitySystem
             }
             else
             {
-                if(comp.ExtractedFuel > 1)
+                if (comp.ExtractedFuel > 1)
                 {
                     // If this while loop causes problems, blame whoever put 1.78e308 plutonium in the centrifuge
-                    while (comp.ExtractedFuel > 1) 
+                    while (comp.ExtractedFuel > 1)
                     {
                         var plutoniumStack = Spawn("IngotPlutonium1", Transform(uid).Coordinates);
                         _stackSystem.SetCount(plutoniumStack, Math.Clamp((int)Math.Floor(comp.ExtractedFuel), 1, _stackSize));
@@ -104,7 +104,7 @@ public sealed partial class NuclearCentrifugeSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString("nuclear-centrifuge-insert-item", ("user", args.User), ("machine", uid), ("item", args.Used)), uid);
         _audio.PlayPvs(comp.SoundLoad, uid);
 
-        if(!_audio.IsPlaying(comp.AudioProcess))
+        if (!_audio.IsPlaying(comp.AudioProcess))
             comp.AudioProcess = _audio.PlayPvs(comp.SoundProcess, uid, AudioParams.Default.WithLoop(true).WithVolume(-2))?.Entity;
 
         comp.FuelToExtract += ReactorPart.Properties.FissileIsotopes;
@@ -118,14 +118,14 @@ public sealed partial class NuclearCentrifugeSystem : EntitySystem
 
     private void OnPowerChange(EntityUid uid, NuclearCentrifugeComponent comp, ref PowerChangedEvent args)
     {
-        if(!args.Powered && comp.Processing)
+        if (!args.Powered && comp.Processing)
         {
-            if(_audio.IsPlaying(comp.AudioProcess))
+            if (_audio.IsPlaying(comp.AudioProcess))
                 _audio.Stop(comp.AudioProcess);
             comp.Processing = false;
         }
 
-        if(args.Powered && comp.FuelToExtract > 0)
+        if (args.Powered && comp.FuelToExtract > 0)
         {
             comp.AudioProcess = _audio.PlayPvs(comp.SoundProcess, uid, AudioParams.Default.WithLoop(true).WithVolume(-2))?.Entity;
             comp.Processing = true;

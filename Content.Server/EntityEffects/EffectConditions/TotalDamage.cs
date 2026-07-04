@@ -28,7 +28,7 @@ public sealed partial class TotalDamage : EntityEffectCondition
     public override string GuidebookExplanation(IPrototypeManager prototype)
     {
         return Loc.GetString("reagent-effect-condition-guidebook-total-damage",
-            ("max", Max == FixedPoint2.MaxValue ? (float) int.MaxValue : Max.Float()),
+            ("max", Max == FixedPoint2.MaxValue ? (float)int.MaxValue : Max.Float()),
             ("min", Min.Float()));
     }
 }

@@ -97,7 +97,7 @@ public sealed class GasArraySerializer : ITypeSerializer<float[], SequenceDataNo
             if (value[i] <= 0)
                 continue;
 
-            mapping.Add(((Gas) i).ToString(), serializationManager.WriteValue(value[i], alwaysWrite, context));
+            mapping.Add(((Gas)i).ToString(), serializationManager.WriteValue(value[i], alwaysWrite, context));
         }
 
         return mapping;

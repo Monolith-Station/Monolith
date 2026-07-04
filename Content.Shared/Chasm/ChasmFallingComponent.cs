@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -22,7 +22,7 @@ public sealed partial class ChasmFallingComponent : Component
     [DataField("deletionTime")]
     public TimeSpan DeletionTime = TimeSpan.FromSeconds(1.8f);
 
-    [DataField("nextDeletionTime", customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField("nextDeletionTime", customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan NextDeletionTime = TimeSpan.Zero;
 

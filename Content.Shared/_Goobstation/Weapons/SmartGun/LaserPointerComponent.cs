@@ -17,7 +17,7 @@ public sealed partial class LaserPointerComponent : Component
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/laserpointer.ogg");
 
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
-    public int CollisionMask = (int) CollisionGroup.BulletImpassable;
+    public int CollisionMask = (int)CollisionGroup.BulletImpassable;
 
     [DataField]
     public Color TargetedColor = Color.Green;

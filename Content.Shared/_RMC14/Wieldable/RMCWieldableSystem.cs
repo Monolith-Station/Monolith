@@ -42,7 +42,7 @@ public sealed partial class RMCWieldableSystem : EntitySystem
         Dirty(wieldable);
     }
 
-#region Wield delay
+    #region Wield delay
     private void OnGotEquippedHand(Entity<WieldDelayComponent> wieldable, ref GotEquippedHandEvent args)
     {
         _useDelaySystem.SetLength(wieldable.Owner, wieldable.Comp.ModifiedDelay, WieldUseDelayId);
@@ -109,5 +109,5 @@ public sealed partial class RMCWieldableSystem : EntitySystem
         // Uncomment when there's a cooldown on popups from a source.
     }
 
-#endregion
+    #endregion
 }

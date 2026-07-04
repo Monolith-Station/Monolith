@@ -296,7 +296,7 @@ namespace Content.Server.Power.EntitySystems
             RaiseLocalEvent(uid, ref ev);
             return newValue;
         }
-            // WD EDIT START
+        // WD EDIT START
         public bool TryGetBatteryComponent(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery,
             [NotNullWhen(true)] out EntityUid? batteryUid)
         {

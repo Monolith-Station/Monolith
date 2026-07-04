@@ -178,7 +178,7 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
 
     private bool OnUseMouseDown(in PointerInputCmdHandler.PointerInputCmdArgs args)
     {
-        if (args.Session?.AttachedEntity is not {Valid: true} dragger ||
+        if (args.Session?.AttachedEntity is not { Valid: true } dragger ||
             _combatMode.IsInCombatMode())
         {
             return false;
@@ -253,7 +253,7 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
             dragSprite.RenderOrder = EntityManager.CurrentTick.Value;
             dragSprite.Color = dragSprite.Color.WithAlpha(0.7f);
             // keep it on top of everything
-            dragSprite.DrawDepth = (int) DrawDepth.Overlays;
+            dragSprite.DrawDepth = (int)DrawDepth.Overlays;
             if (!dragSprite.NoRotation)
             {
                 _transformSystem.SetWorldRotationNoLerp(_dragShadow.Value, _transformSystem.GetWorldRotation(_draggedEntity.Value));
@@ -537,15 +537,15 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
         {
             // check if dragging should begin
             case DragState.MouseDown:
-            {
-                var screenPos = _inputManager.MouseScreenPosition;
-                if ((_mouseDownScreenPos!.Value.Position - screenPos.Position).Length() > Deadzone)
                 {
-                    StartDrag();
-                }
+                    var screenPos = _inputManager.MouseScreenPosition;
+                    if ((_mouseDownScreenPos!.Value.Position - screenPos.Position).Length() > Deadzone)
+                    {
+                        StartDrag();
+                    }
 
-                break;
-            }
+                    break;
+                }
             case DragState.Dragging:
                 UpdateDrag(frameTime);
                 break;

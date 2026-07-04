@@ -60,7 +60,7 @@ namespace Content.Server.Pointing.EntitySystems
             {
                 component.Chasing ??= RandomNearbyPlayer(uid, component, transform);
 
-                if (component.Chasing is not {Valid: true} chasing || Deleted(chasing))
+                if (component.Chasing is not { Valid: true } chasing || Deleted(chasing))
                 {
                     EntityManager.QueueDeleteEntity(uid);
                     continue;

@@ -1,4 +1,4 @@
-﻿using Robust.Server.Containers;
+using Robust.Server.Containers;
 
 namespace Content.Server.NPC.HTN.Preconditions;
 
@@ -9,7 +9,7 @@ public sealed partial class InContainerPrecondition : HTNPrecondition
 {
     private ContainerSystem _container = default!;
 
-    [ViewVariables(VVAccess.ReadWrite)] [DataField("isInContainer")] public bool IsInContainer = true;
+    [ViewVariables(VVAccess.ReadWrite)][DataField("isInContainer")] public bool IsInContainer = true;
 
     public override void Initialize(IEntitySystemManager sysManager)
     {

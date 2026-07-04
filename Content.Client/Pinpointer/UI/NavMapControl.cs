@@ -508,10 +508,10 @@ public partial class NavMapControl : MapGridControl
         _vertLines.Clear();
         _vertLinesReversed.Clear();
 
-        const int southMask = (int) AtmosDirection.South << (int) NavMapChunkType.Wall;
-        const int eastMask = (int) AtmosDirection.East << (int) NavMapChunkType.Wall;
-        const int westMask = (int) AtmosDirection.West << (int) NavMapChunkType.Wall;
-        const int northMask = (int) AtmosDirection.North << (int) NavMapChunkType.Wall;
+        const int southMask = (int)AtmosDirection.South << (int)NavMapChunkType.Wall;
+        const int eastMask = (int)AtmosDirection.East << (int)NavMapChunkType.Wall;
+        const int westMask = (int)AtmosDirection.West << (int)NavMapChunkType.Wall;
+        const int northMask = (int)AtmosDirection.North << (int)NavMapChunkType.Wall;
 
         foreach (var (chunkOrigin, chunk) in _navMap.Chunks)
         {
@@ -521,7 +521,7 @@ public partial class NavMapControl : MapGridControl
                 if (tileData == 0)
                     continue;
 
-                tileData >>= (int) NavMapChunkType.Wall;
+                tileData >>= (int)NavMapChunkType.Wall;
 
                 var relativeTile = SharedNavMapSystem.GetTileFromIndex(i);
                 var tile = (chunk.Origin * SharedNavMapSystem.ChunkSize + relativeTile) * _grid.TileSize;
@@ -538,7 +538,7 @@ public partial class NavMapControl : MapGridControl
                 // North edge
                 var neighborData = 0;
                 if (relativeTile.Y != SharedNavMapSystem.ChunkSize - 1)
-                    neighborData = chunk.TileData[i+1];
+                    neighborData = chunk.TileData[i + 1];
                 else if (_navMap.Chunks.TryGetValue(chunkOrigin + Vector2i.Up, out neighborChunk))
                     neighborData = neighborChunk.TileData[i + 1 - SharedNavMapSystem.ChunkSize];
 
@@ -618,7 +618,7 @@ public partial class NavMapControl : MapGridControl
                 if (tileData == 0)
                     continue;
 
-                tileData >>= (int) NavMapChunkType.Airlock;
+                tileData >>= (int)NavMapChunkType.Airlock;
 
                 var relative = SharedNavMapSystem.GetTileFromIndex(i);
                 var tile = (chunk.Origin * SharedNavMapSystem.ChunkSize + relative) * _grid.TileSize;
@@ -655,7 +655,7 @@ public partial class NavMapControl : MapGridControl
 
             // TODO NAVMAP
             // Consider using faster rotation operations, given that these are always 90 degree increments
-            var angle = -((AtmosDirection) dirMask).ToAngle();
+            var angle = -((AtmosDirection)dirMask).ToAngle();
             TileRects.Add((angle.RotateVec(leftTop) + tilePosition, angle.RotateVec(rightBottom) + tilePosition));
         }
     }
@@ -674,7 +674,7 @@ public partial class NavMapControl : MapGridControl
                 continue;
 
             var tilePosition = new Vector2(tile.X + 0.5f, -tile.Y - 0.5f);
-            var angle = -((AtmosDirection) dirMask).ToAngle();
+            var angle = -((AtmosDirection)dirMask).ToAngle();
             TileRects.Add((angle.RotateVec(leftTop) + tilePosition, angle.RotateVec(rightBottom) + tilePosition));
             TileLines.Add((angle.RotateVec(centreTop) + tilePosition, angle.RotateVec(centreBottom) + tilePosition));
         }

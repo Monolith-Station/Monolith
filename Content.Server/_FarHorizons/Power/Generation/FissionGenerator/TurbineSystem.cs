@@ -230,7 +230,7 @@ public sealed partial class TurbineSystem : SharedTurbineSystem
             }
 
             if (!_audio.IsPlaying(comp.AlarmAudioUnderspeed) && !comp.Undertemp && comp.FlowRate > 0 && comp.Stalling)
-                 PlayAudio(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/alarm_beep.ogg"), uid, out comp.AlarmAudioUnderspeed, AudioParams.Default.WithLoop(true).WithVolume(-4));
+                PlayAudio(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/alarm_beep.ogg"), uid, out comp.AlarmAudioUnderspeed, AudioParams.Default.WithLoop(true).WithVolume(-4));
             else if (_audio.IsPlaying(comp.AlarmAudioUnderspeed) && (comp.FlowRate <= 0 || comp.Undertemp || comp.RPM > 10))
                 comp.AlarmAudioUnderspeed = _audio.Stop(comp.AlarmAudioUnderspeed);
 
@@ -263,7 +263,7 @@ public sealed partial class TurbineSystem : SharedTurbineSystem
         AirContents!.Volume = comp.FlowRate;
 
         // Explode
-        if (!comp.Ruined && (comp.BladeHealth <= 0|| comp.RPM>comp.BestRPM*4))
+        if (!comp.Ruined && (comp.BladeHealth <= 0 || comp.RPM > comp.BestRPM * 4))
         {
             TearApart(uid, comp);
         }
@@ -301,7 +301,7 @@ public sealed partial class TurbineSystem : SharedTurbineSystem
     private void ShootShrapnel(EntityUid uid)
     {
         var ShrapnelCount = _random.Next(5, 20);
-        for (var i=0;i< ShrapnelCount; i++)
+        for (var i = 0; i < ShrapnelCount; i++)
         {
             _gun.ShootProjectile(Spawn("TurbineBladeShrapnel", _transformSystem.GetMapCoordinates(uid)), _random.NextAngle().ToVec().Normalized(), _random.NextVector2(2, 6), uid, uid);
         }
@@ -399,7 +399,7 @@ public sealed partial class TurbineSystem : SharedTurbineSystem
 
     private void OnUnanchorAttempt(EntityUid uid, TurbineComponent comp, ref UnanchorAttemptEvent args)
     {
-        if (comp.RPM>1)
+        if (comp.RPM > 1)
         {
             _popupSystem.PopupEntity(Loc.GetString("turbine-unanchor-warning"), args.User, args.User, PopupType.LargeCaution);
             args.Cancel();

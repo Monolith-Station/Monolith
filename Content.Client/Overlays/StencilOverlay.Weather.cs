@@ -38,7 +38,7 @@ public sealed partial class StencilOverlay
             foreach (var grid in _grids)
             {
                 var matrix = _transform.GetWorldMatrix(grid, xformQuery);
-                var matty =  Matrix3x2.Multiply(matrix, invMatrix);
+                var matty = Matrix3x2.Multiply(matrix, invMatrix);
                 worldHandle.SetTransform(matty);
                 _entManager.TryGetComponent(grid.Owner, out RoofComponent? roofComp);
 

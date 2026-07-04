@@ -1,4 +1,4 @@
-﻿using Content.Server.Administration.Logs;
+using Content.Server.Administration.Logs;
 using Content.Server.Audio;
 using Content.Server.Power.Components;
 using Content.Shared.Database;
@@ -88,7 +88,7 @@ public sealed partial class PowerChargeSystem : EntitySystem
         if (!Resolve(uid, ref powerReceiver))
             return;
 
-        if (user is { } )
+        if (user is { })
             _adminLogger.Add(LogType.Action, on ? LogImpact.Medium : LogImpact.High, $"{ToPrettyString(user):player} set ${ToPrettyString(uid):target} to {(on ? "on" : "off")}");
 
         component.SwitchedOn = on;
@@ -198,7 +198,7 @@ public sealed partial class PowerChargeSystem : EntitySystem
         else
         {
             var diff = chargeTarget - component.Charge;
-            chargeEta = (short) Math.Abs(diff / chargeRate);
+            chargeEta = (short)Math.Abs(diff / chargeRate);
         }
 
         var status = chargeRate switch
@@ -212,10 +212,10 @@ public sealed partial class PowerChargeSystem : EntitySystem
 
         var state = new PowerChargeState(
             component.SwitchedOn,
-            (byte) (component.Charge * 255),
+            (byte)(component.Charge * 255),
             status,
-            (short) Math.Round(powerReceiver.PowerReceived),
-            (short) Math.Round(powerReceiver.Load),
+            (short)Math.Round(powerReceiver.PowerReceived),
+            (short)Math.Round(powerReceiver.Load),
             chargeEta
         );
 

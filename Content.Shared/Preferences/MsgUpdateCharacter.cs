@@ -30,7 +30,7 @@ namespace Content.Shared.Preferences
             using (var stream = new MemoryStream())
             {
                 serializer.Serialize(stream, Profile);
-                buffer.WriteVariableInt32((int) stream.Length);
+                buffer.WriteVariableInt32((int)stream.Length);
                 stream.TryGetBuffer(out var segment);
                 buffer.Write(segment);
             }

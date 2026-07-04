@@ -25,7 +25,7 @@ public sealed partial class OSay : LocalizedCommands
 
         if (args.Length == 2)
         {
-            return CompletionResult.FromHintOptions( Enum.GetNames(typeof(InGameICChatType)),
+            return CompletionResult.FromHintOptions(Enum.GetNames(typeof(InGameICChatType)),
                 Loc.GetString("osay-command-arg-type"));
         }
 
@@ -45,7 +45,7 @@ public sealed partial class OSay : LocalizedCommands
             return;
         }
 
-        var chatType = (InGameICChatType) Enum.Parse(typeof(InGameICChatType), args[1]);
+        var chatType = (InGameICChatType)Enum.Parse(typeof(InGameICChatType), args[1]);
 
         if (!NetEntity.TryParse(args[0], out var sourceNet) || !_entityManager.TryGetEntity(sourceNet, out var source) || !_entityManager.EntityExists(source))
         {

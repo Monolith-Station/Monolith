@@ -32,8 +32,8 @@ namespace Content.Shared.Remotes
             if (args.Handled
                 || args.Target == null
                 || !TryComp<DoorComponent>(args.Target, out var doorComp) // If it isn't a door we don't use it
-                // Only able to control doors if they are within your vision and within your max range.
-                // Not affected by mobs or machines anymore.
+                                                                          // Only able to control doors if they are within your vision and within your max range.
+                                                                          // Not affected by mobs or machines anymore.
                 || !_examine.InRangeUnOccluded(args.User,
                     args.Target.Value,
                     SharedInteractionSystem.MaxRaycastRange,

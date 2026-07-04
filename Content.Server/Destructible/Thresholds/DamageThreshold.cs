@@ -86,7 +86,7 @@ namespace Content.Server.Destructible.Thresholds
             {
                 if (!entityManager.EntityExists(owner))
                     return;
-                
+
                 behavior.Execute(owner, system, cause);
             }
         }
@@ -101,7 +101,7 @@ namespace Content.Server.Destructible.Thresholds
                 // Skip gibbing behaviors if the damage is from space
                 if (spaceOrigin && behavior is GibBehavior)
                     continue;
-                
+
                 behavior.Execute(owner, system, cause);
             }
         }

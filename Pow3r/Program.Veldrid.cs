@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -98,27 +98,27 @@ void main()
                 case VeldridRenderer.Vulkan:
                     _vdGfxDevice = GraphicsDevice.CreateVulkan(
                         options,
-                        VkSurfaceSource.CreateWin32((nint) hinstance, hwnd),
-                        (uint) w, (uint) h);
+                        VkSurfaceSource.CreateWin32((nint)hinstance, hwnd),
+                        (uint)w, (uint)h);
                     break;
                 case VeldridRenderer.D3D11:
-                    _vdGfxDevice = GraphicsDevice.CreateD3D11(options, hwnd, (uint) w, (uint) h);
+                    _vdGfxDevice = GraphicsDevice.CreateD3D11(options, hwnd, (uint)w, (uint)h);
                     break;
                 case VeldridRenderer.OpenGL:
-                {
-                    var platInfo = new OpenGLPlatformInfo(
-                        (nint) _window.WindowPtr,
-                        GLFW.GetProcAddress,
-                        ptr => GLFW.MakeContextCurrent((Window*) ptr),
-                        () => (nint) GLFW.GetCurrentContext(),
-                        () => GLFW.MakeContextCurrent(null),
-                        ptr => GLFW.DestroyWindow((Window*) ptr),
-                        () => GLFW.SwapBuffers(_window.WindowPtr),
-                        vsync => GLFW.SwapInterval(vsync ? 1 : 0));
+                    {
+                        var platInfo = new OpenGLPlatformInfo(
+                            (nint)_window.WindowPtr,
+                            GLFW.GetProcAddress,
+                            ptr => GLFW.MakeContextCurrent((Window*)ptr),
+                            () => (nint)GLFW.GetCurrentContext(),
+                            () => GLFW.MakeContextCurrent(null),
+                            ptr => GLFW.DestroyWindow((Window*)ptr),
+                            () => GLFW.SwapBuffers(_window.WindowPtr),
+                            vsync => GLFW.SwapInterval(vsync ? 1 : 0));
 
-                    _vdGfxDevice = GraphicsDevice.CreateOpenGL(options, platInfo, (uint) w, (uint) h);
-                    break;
-                }
+                        _vdGfxDevice = GraphicsDevice.CreateOpenGL(options, platInfo, (uint)w, (uint)h);
+                        break;
+                    }
             }
 
 
@@ -189,8 +189,8 @@ void main()
                     depthClipEnabled: false,
                     scissorTestEnabled: true),
                 PrimitiveTopology.TriangleList,
-                new ShaderSetDescription(new[] {vtxLayout}, _vdShaders),
-                new[] {layoutProjMatrix, layoutTexture},
+                new ShaderSetDescription(new[] { vtxLayout }, _vdShaders),
+                new[] { layoutProjMatrix, layoutTexture },
                 new OutputDescription(
                     null,
                     new OutputAttachmentDescription(PixelFormat.B8_G8_R8_A8_UNorm_SRgb))
@@ -200,7 +200,7 @@ void main()
             _vdPipeline.Name = "MainPipeline";
 
             _vdProjMatrixUniformBuffer = factory.CreateBuffer(new BufferDescription(
-                (uint) sizeof(Matrix4x4),
+                (uint)sizeof(Matrix4x4),
                 BufferUsage.Dynamic | BufferUsage.UniformBuffer));
             _vdProjMatrixUniformBuffer.Name = "_vdProjMatrixUniformBuffer";
 
@@ -213,7 +213,7 @@ void main()
             io.Fonts.GetTexDataAsRGBA32(out byte* pixels, out var width, out var height, out _);
 
             _vdTexture = factory.CreateTexture(TextureDescription.Texture2D(
-                (uint) width, (uint) height,
+                (uint)width, (uint)height,
                 mipLevels: 1,
                 arrayLayers: 1,
                 PixelFormat.R8_G8_B8_A8_UNorm_SRgb,
@@ -227,10 +227,10 @@ void main()
 
             _vdGfxDevice.UpdateTexture(
                 _vdTexture,
-                (IntPtr) pixels,
-                (uint) (width * height * 4),
+                (IntPtr)pixels,
+                (uint)(width * height * 4),
                 x: 0, y: 0, z: 0,
-                (uint) width, (uint) height, depth: 1,
+                (uint)width, (uint)height, depth: 1,
                 mipLevel: 0,
                 arrayLayer: 0);
 
@@ -244,7 +244,7 @@ void main()
             io.Fonts.SetTexID(0);
             io.Fonts.ClearTexData();
 
-            _vdGfxDevice.ResizeMainWindow((uint) w, (uint) h);
+            _vdGfxDevice.ResizeMainWindow((uint)w, (uint)h);
             _vdGfxDevice.SwapBuffers();
         }
 
@@ -254,7 +254,7 @@ void main()
 
             if (_vdLastWidth != fbW && _vdLastHeight != fbH)
             {
-                _vdGfxDevice.ResizeMainWindow((uint) fbW, (uint) fbH);
+                _vdGfxDevice.ResizeMainWindow((uint)fbW, (uint)fbH);
                 _vdLastWidth = fbW;
                 _vdLastHeight = fbH;
             }
@@ -273,7 +273,7 @@ void main()
             ref var vtxBuf = ref fencedData.VertexBuffer;
             ref var idxBuf = ref fencedData.IndexBuffer;
 
-            var byteLenVtx = (uint) (sizeof(ImDrawVert) * drawData.TotalVtxCount);
+            var byteLenVtx = (uint)(sizeof(ImDrawVert) * drawData.TotalVtxCount);
             if (fencedData.VertexBuffer == null || vtxBuf.SizeInBytes < byteLenVtx)
             {
                 vtxBuf?.Dispose();
@@ -283,7 +283,7 @@ void main()
                 vtxBuf.Name = "_vdVtxBuffer";
             }
 
-            var byteLenIdx = (uint) (sizeof(ushort) * drawData.TotalIdxCount);
+            var byteLenIdx = (uint)(sizeof(ushort) * drawData.TotalIdxCount);
             if (idxBuf == null || idxBuf.SizeInBytes < byteLenIdx)
             {
                 idxBuf?.Dispose();
@@ -320,8 +320,8 @@ void main()
             {
                 var drawList = drawData.CmdListsRange[n];
 
-                var drawVtx = new Span<ImDrawVert>((void*) drawList.VtxBuffer.Data, drawList.VtxBuffer.Size);
-                var drawIdx = new Span<ushort>((void*) drawList.IdxBuffer.Data, drawList.IdxBuffer.Size);
+                var drawVtx = new Span<ImDrawVert>((void*)drawList.VtxBuffer.Data, drawList.VtxBuffer.Size);
+                var drawIdx = new Span<ushort>((void*)drawList.IdxBuffer.Data, drawList.IdxBuffer.Size);
 
                 drawVtx.CopyTo(mappedVtxBuf[vtxOffset..]);
                 drawIdx.CopyTo(mappedIdxBuf[idxOffset..]);
@@ -338,16 +338,16 @@ void main()
 
                     _vdCommandList.SetScissorRect(
                         0,
-                        (uint) clipRect.X,
-                        (uint) clipRect.Y,
-                        (uint) (clipRect.Z - clipRect.X),
-                        (uint) (clipRect.W - clipRect.Y));
+                        (uint)clipRect.X,
+                        (uint)clipRect.Y,
+                        (uint)(clipRect.Z - clipRect.X),
+                        (uint)(clipRect.W - clipRect.Y));
 
                     _vdCommandList.DrawIndexed(
                         cmd.ElemCount,
                         1,
-                        (uint) (cmd.IdxOffset + idxOffset),
-                        (int) (cmd.VtxOffset + vtxOffset),
+                        (uint)(cmd.IdxOffset + idxOffset),
+                        (int)(cmd.VtxOffset + vtxOffset),
                         0);
                 }
 
@@ -379,7 +379,7 @@ void main()
 
             Array.Resize(ref _fencedData, _fencedData.Length + 1);
             ref var slot = ref _fencedData[^1];
-            slot = new VdFencedDatum {Fence = _vdGfxDevice.ResourceFactory.CreateFence(false)};
+            slot = new VdFencedDatum { Fence = _vdGfxDevice.ResourceFactory.CreateFence(false) };
             return ref slot;
         }
 

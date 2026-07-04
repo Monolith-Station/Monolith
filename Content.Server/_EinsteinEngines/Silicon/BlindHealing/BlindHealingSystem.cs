@@ -30,7 +30,7 @@ public sealed partial class BlindHealingSystem : SharedBlindHealingSystem
         SubscribeLocalEvent<BlindHealingComponent, HealingDoAfterEvent>(OnHealingFinished);
     }
 
-     private void OnHealingFinished(EntityUid uid, BlindHealingComponent component, HealingDoAfterEvent args)
+    private void OnHealingFinished(EntityUid uid, BlindHealingComponent component, HealingDoAfterEvent args)
     {
         if (args.Cancelled || args.Target == null
             || !TryComp<BlindableComponent>(args.Target, out var blindComp)
@@ -39,7 +39,7 @@ public sealed partial class BlindHealingSystem : SharedBlindHealingSystem
 
         if (TryComp<StackComponent>(uid, out var stackComponent)
             && TryComp<StackPriceComponent>(uid, out var stackPrice))
-            _stackSystem.SetCount(uid, (int) (_stackSystem.GetCount(uid, stackComponent) - stackPrice.Price), stackComponent);
+            _stackSystem.SetCount(uid, (int)(_stackSystem.GetCount(uid, stackComponent) - stackPrice.Price), stackComponent);
 
         _blindableSystem.AdjustEyeDamage((args.Target.Value, blindComp), -blindComp.EyeDamage);
 

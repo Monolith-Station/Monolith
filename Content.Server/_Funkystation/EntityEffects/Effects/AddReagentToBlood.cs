@@ -20,24 +20,24 @@ public sealed partial class AddReagentToBlood : EntityEffect
     [DataField]
     public FixedPoint2 Amount = default!;
 
-	public override void Effect(EntityEffectBaseArgs args)
-	{
-		if (!args.EntityManager.TryGetComponent<BloodstreamComponent>(args.TargetEntity, out var bloodStreamTarget))
-			return;
+    public override void Effect(EntityEffectBaseArgs args)
+    {
+        if (!args.EntityManager.TryGetComponent<BloodstreamComponent>(args.TargetEntity, out var bloodStreamTarget))
+            return;
 
-		if (args is not EntityEffectReagentArgs reagentArgs)
-			return;
+        if (args is not EntityEffectReagentArgs reagentArgs)
+            return;
 
-		if (Reagent is null)
-			return;
+        if (Reagent is null)
+            return;
 
-		var amountAdd = Amount;
-		var solutionToAdd = new Solution();
-		solutionToAdd.AddReagent(Reagent, amountAdd);
+        var amountAdd = Amount;
+        var solutionToAdd = new Solution();
+        solutionToAdd.AddReagent(Reagent, amountAdd);
 
-		var sys = args.EntityManager.System<BloodstreamSystem>();
-		sys.TryAddToChemicals(args.TargetEntity, solutionToAdd, bloodStreamTarget);
-	}
+        var sys = args.EntityManager.System<BloodstreamSystem>();
+        sys.TryAddToChemicals(args.TargetEntity, solutionToAdd, bloodStreamTarget);
+    }
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {

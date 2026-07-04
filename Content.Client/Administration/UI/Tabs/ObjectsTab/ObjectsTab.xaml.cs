@@ -79,25 +79,25 @@ public sealed partial class ObjectsTab : Control
                 entities.AddRange(_entityManager.EntitySysManager.GetEntitySystem<StationSystem>().GetStationNames());
                 break;
             case ObjectsTabSelection.Grids:
-            {
-                var query = _entityManager.AllEntityQueryEnumerator<MapGridComponent, MetaDataComponent>();
-                while (query.MoveNext(out var uid, out _, out var metadata))
                 {
-                    entities.Add((metadata.EntityName, _entityManager.GetNetEntity(uid)));
-                }
+                    var query = _entityManager.AllEntityQueryEnumerator<MapGridComponent, MetaDataComponent>();
+                    while (query.MoveNext(out var uid, out _, out var metadata))
+                    {
+                        entities.Add((metadata.EntityName, _entityManager.GetNetEntity(uid)));
+                    }
 
-                break;
-            }
+                    break;
+                }
             case ObjectsTabSelection.Maps:
-            {
-                var query = _entityManager.AllEntityQueryEnumerator<MapComponent, MetaDataComponent>();
-                while (query.MoveNext(out var uid, out _, out var metadata))
                 {
-                    entities.Add((metadata.EntityName, _entityManager.GetNetEntity(uid)));
-                }
+                    var query = _entityManager.AllEntityQueryEnumerator<MapComponent, MetaDataComponent>();
+                    while (query.MoveNext(out var uid, out _, out var metadata))
+                    {
+                        entities.Add((metadata.EntityName, _entityManager.GetNetEntity(uid)));
+                    }
 
-                break;
-            }
+                    break;
+                }
             default:
                 throw new ArgumentOutOfRangeException(nameof(selection), selection, null);
         }

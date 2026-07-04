@@ -88,7 +88,7 @@ public sealed partial class OfferingWindow : FancyWindow,
             }
             else
             {
-                ProgressionBar.Value = 1f - (float) (remaining / ProgressionCooldown);
+                ProgressionBar.Value = 1f - (float)(remaining / ProgressionCooldown);
                 ProgressionText.Text = $"{remaining.Minutes:00}:{remaining.Seconds:00}";
             }
         }
@@ -109,7 +109,7 @@ public sealed partial class OfferingWindow : FancyWindow,
             }
             else
             {
-                NextOfferBar.Value = 1f - (float) (remaining / Cooldown);
+                NextOfferBar.Value = 1f - (float)(remaining / Cooldown);
                 NextOfferText.Text = $"{remaining.Minutes:00}:{remaining.Seconds:00}";
             }
         }

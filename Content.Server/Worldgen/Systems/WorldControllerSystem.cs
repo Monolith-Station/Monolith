@@ -119,7 +119,7 @@ public sealed partial class WorldControllerSystem : EntitySystem
                 continue; // Frontier
 
             // Mono edit
-            TryAddChunkLoader(uid, xform, (int) Math.Ceiling(worldLoader.Radius / (float) WorldGen.ChunkSize) + 1);
+            TryAddChunkLoader(uid, xform, (int)Math.Ceiling(worldLoader.Radius / (float)WorldGen.ChunkSize) + 1);
         }
 
         var mindEnum = EntityQueryEnumerator<MindContainerComponent, TransformComponent>();
@@ -148,7 +148,7 @@ public sealed partial class WorldControllerSystem : EntitySystem
                     continue;
             }
 
-            TryAddChunkLoader(uid, xform, (int) Math.Ceiling(load.LoadingDistance / (float) WorldGen.ChunkSize) + 1);
+            TryAddChunkLoader(uid, xform, (int)Math.Ceiling(load.LoadingDistance / (float)WorldGen.ChunkSize) + 1);
         }
         // Mono edit end.
 

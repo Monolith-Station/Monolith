@@ -1,4 +1,4 @@
-﻿namespace Content.Shared.Throwing
+namespace Content.Shared.Throwing
 {
     public sealed class ThrowAttemptEvent : CancellableEntityEventArgs
     {
@@ -24,5 +24,5 @@
     /// <summary>
     /// Raised when we try to pushback an entity from throwing
     /// </summary>
-    public sealed class ThrowPushbackAttemptEvent : CancellableEntityEventArgs {}
+    public sealed class ThrowPushbackAttemptEvent : CancellableEntityEventArgs { }
 }

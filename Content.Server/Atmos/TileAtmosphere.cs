@@ -102,7 +102,7 @@ namespace Content.Server.Atmos
 
         GasMixture IGasMixtureHolder.Air
         {
-            get => Air ?? new GasMixture(Atmospherics.CellVolume){ Temperature = Temperature };
+            get => Air ?? new GasMixture(Atmospherics.CellVolume) { Temperature = Temperature };
             set => Air = value;
         }
 
@@ -146,7 +146,7 @@ namespace Content.Server.Atmos
             AirArchived = Air != null ? Air.Clone() : null;
             Space = space;
 
-            if(immutable)
+            if (immutable)
                 Air?.MarkImmutable();
         }
 

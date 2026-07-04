@@ -1,4 +1,4 @@
-﻿using Content.Shared.Administration;
+using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
@@ -144,7 +144,7 @@ public sealed partial class PanicBunkerMinAccountAgeCommand : LocalizedCommands
 
         if (args.Length > 1)
         {
-            shell.WriteError(Loc.GetString("shell-need-between-arguments",("lower", 0), ("upper", 1)));
+            shell.WriteError(Loc.GetString("shell-need-between-arguments", ("lower", 0), ("upper", 1)));
             return;
         }
 
@@ -176,7 +176,7 @@ public sealed partial class PanicBunkerMinOverallMinutesCommand : LocalizedComma
 
         if (args.Length > 1)
         {
-            shell.WriteError(Loc.GetString("shell-need-between-arguments",("lower", 0), ("upper", 1)));
+            shell.WriteError(Loc.GetString("shell-need-between-arguments", ("lower", 0), ("upper", 1)));
             return;
         }
 

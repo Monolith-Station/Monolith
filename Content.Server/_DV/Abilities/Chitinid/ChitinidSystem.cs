@@ -44,7 +44,7 @@ public sealed partial class ChitinidSystem : EntitySystem
             if (chitinid.AmountAbsorbed >= chitinid.MaximumAbsorbed || _mobState.IsDead(uid))
                 continue;
 
-            if (_damageable.TryChangeDamage(uid, chitinid.Healing, damageable: damageable) is {} delta)
+            if (_damageable.TryChangeDamage(uid, chitinid.Healing, damageable: damageable) is { } delta)
             {
                 chitinid.AmountAbsorbed += -delta.GetTotal().Float();
                 if (chitinid.ChitziteAction != null && chitinid.AmountAbsorbed >= chitinid.MaximumAbsorbed)

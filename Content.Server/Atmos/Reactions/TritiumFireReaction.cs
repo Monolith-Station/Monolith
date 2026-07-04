@@ -31,7 +31,7 @@ namespace Content.Server.Atmos.Reactions
             else
             {
                 burnedFuel = initialTrit;
-                mixture.SetMoles(Gas.Tritium, mixture.GetMoles(Gas.Tritium ) * (1 - 1 / Atmospherics.TritiumBurnTritFactor));
+                mixture.SetMoles(Gas.Tritium, mixture.GetMoles(Gas.Tritium) * (1 - 1 / Atmospherics.TritiumBurnTritFactor));
                 mixture.AdjustMoles(Gas.Oxygen, -mixture.GetMoles(Gas.Tritium));
                 energyReleased += (Atmospherics.FireHydrogenEnergyReleased * burnedFuel * (Atmospherics.TritiumBurnTritFactor - 1));
             }

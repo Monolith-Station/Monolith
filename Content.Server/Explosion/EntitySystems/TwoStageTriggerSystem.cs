@@ -29,7 +29,7 @@ public sealed partial class TwoStageTriggerSystem : EntitySystem
     {
         foreach (var (name, entry) in component.SecondStageComponents)
         {
-            var comp = (Component) Factory.GetComponent(name);
+            var comp = (Component)Factory.GetComponent(name);
             var temp = (object)comp;
 
             if (EntityManager.TryGetComponent(uid, entry.Component.GetType(), out var c))

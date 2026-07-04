@@ -1,4 +1,4 @@
-﻿using Content.Shared.Examine;
+using Content.Shared.Examine;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Construction.Steps
@@ -22,7 +22,7 @@ namespace Content.Shared.Construction.Steps
             return new ConstructionGuideEntry
             {
                 Localization = "construction-presenter-arbitrary-step",
-                Arguments = new (string, object)[]{("name", Name)},
+                Arguments = new (string, object)[] { ("name", Name) },
                 Icon = Icon,
             };
         }

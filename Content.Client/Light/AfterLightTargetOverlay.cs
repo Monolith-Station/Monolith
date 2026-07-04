@@ -34,7 +34,7 @@ public sealed partial class AfterLightTargetOverlay : Overlay
         var bounds = args.WorldBounds;
 
         // at 1-1 render scale it's mostly fine but at 4x4 it's way too fkn big
-        var lightScale = viewport.LightRenderTarget.Size / (Vector2) viewport.Size;
+        var lightScale = viewport.LightRenderTarget.Size / (Vector2)viewport.Size;
         var newScale = viewport.RenderScale / (Vector2.One / lightScale);
 
         var localMatrix =

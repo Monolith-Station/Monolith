@@ -22,7 +22,7 @@ namespace Content.Shared.DeviceNetwork.Components
         [DataField("deviceNetId")]
         public DeviceNetIdDefaults NetIdEnum { get; set; }
 
-        public int DeviceNetId => (int) NetIdEnum;
+        public int DeviceNetId => (int)NetIdEnum;
 
         /// <summary>
         ///     The frequency that this device is listening on.

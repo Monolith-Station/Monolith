@@ -1,4 +1,4 @@
-﻿using Content.Server.Administration;
+using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Roles;
 using Robust.Shared.Console;
@@ -21,7 +21,7 @@ namespace Content.Server.Roles
                 return;
             }
 
-            foreach(var job in _prototypeManager.EnumeratePrototypes<JobPrototype>())
+            foreach (var job in _prototypeManager.EnumeratePrototypes<JobPrototype>())
             {
                 shell.WriteLine(job.ID);
             }

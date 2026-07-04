@@ -32,7 +32,7 @@ public sealed partial class EscapeInventorySystem : EntitySystem
     [Dependency] private SharedHandsSystem _handsSystem = default!;
     [Dependency] private CarryingSystem _carryingSystem = default!; // Carrying system from Nyanotrasen.
     [Dependency] private SharedActionsSystem _actions = default!;
-    [Dependency] private  EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
 
     // Frontier - cancel inventory escape
     [ValidatePrototypeId<EntityPrototype>]
@@ -137,7 +137,7 @@ public sealed partial class EscapeInventorySystem : EntitySystem
     private void RemoveCancelAction(EntityUid uid, CanEscapeInventoryComponent component)
     {
         if (component.EscapeCancelAction is not { Valid: true })
-         return;
+            return;
 
         _actions.RemoveAction(uid, component.EscapeCancelAction);
         component.EscapeCancelAction = null;

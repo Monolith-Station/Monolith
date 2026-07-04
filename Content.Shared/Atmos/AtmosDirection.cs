@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using Robust.Shared.Serialization;
 
@@ -12,10 +12,10 @@ namespace Content.Shared.Atmos
     public enum AtmosDirection
     {
         Invalid = 0,                        // 0
-        North   = 1 << 0,                   // 1
-        South   = 1 << 1,                   // 2
-        East    = 1 << 2,                   // 4
-        West    = 1 << 3,                   // 8
+        North = 1 << 0,                   // 1
+        South = 1 << 1,                   // 2
+        East = 1 << 2,                   // 4
+        West = 1 << 3,                   // 8
         // If more directions are added, note that AtmosDirectionHelpers.ToOppositeIndex() expects opposite directions
         // to come in pairs
 
@@ -58,7 +58,7 @@ namespace Content.Shared.Atmos
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static AtmosDirection ToOppositeDir(this int index)
         {
-            return (AtmosDirection) (1 << (index ^ 1));
+            return (AtmosDirection)(1 << (index ^ 1));
         }
 
         public static Direction ToDirection(this AtmosDirection direction)
@@ -108,8 +108,8 @@ namespace Content.Shared.Atmos
                 AtmosDirection.East => new Angle(MathHelper.PiOver2),
                 AtmosDirection.North => new Angle(Math.PI),
                 AtmosDirection.West => new Angle(-MathHelper.PiOver2),
-                AtmosDirection.NorthEast => new Angle(Math.PI*3/4),
-                AtmosDirection.NorthWest => new Angle(-Math.PI*3/4),
+                AtmosDirection.NorthEast => new Angle(Math.PI * 3 / 4),
+                AtmosDirection.NorthWest => new Angle(-Math.PI * 3 / 4),
                 AtmosDirection.SouthWest => new Angle(-MathHelper.PiOver4),
                 AtmosDirection.SouthEast => new Angle(MathHelper.PiOver4),
 

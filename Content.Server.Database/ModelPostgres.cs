@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -16,7 +16,7 @@ namespace Content.Server.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            ((IDbContextOptionsBuilderInfrastructure) options).AddOrUpdateExtension(new SnakeCaseExtension());
+            ((IDbContextOptionsBuilderInfrastructure)options).AddOrUpdateExtension(new SnakeCaseExtension());
 
             options.ConfigureWarnings(x =>
             {
@@ -42,7 +42,7 @@ namespace Content.Server.Database
             modelBuilder.Entity<ServerBan>().ToTable(t =>
                 t.HasCheckConstraint("AddressNotIPv6MappedIPv4", "NOT inet '::ffff:0.0.0.0/96' >>= address"));
 
-            modelBuilder.Entity<ServerRoleBan>().ToTable( t =>
+            modelBuilder.Entity<ServerRoleBan>().ToTable(t =>
                 t.HasCheckConstraint("AddressNotIPv6MappedIPv4", "NOT inet '::ffff:0.0.0.0/96' >>= address"));
 
             modelBuilder.Entity<Player>().ToTable(t =>
@@ -60,9 +60,9 @@ namespace Content.Server.Database
                 .HasMethod("GIN")
                 .IsTsVectorExpressionIndex("english");
 
-            foreach(var entity in modelBuilder.Model.GetEntityTypes())
+            foreach (var entity in modelBuilder.Model.GetEntityTypes())
             {
-                foreach(var property in entity.GetProperties())
+                foreach (var property in entity.GetProperties())
                 {
                     if (property.FieldInfo?.FieldType == typeof(DateTime) || property.FieldInfo?.FieldType == typeof(DateTime?))
                         property.SetColumnType("timestamp with time zone");
@@ -77,10 +77,10 @@ namespace Content.Server.Database
 
         public override int CountAdminLogs()
         {
-            using var command = new NpgsqlCommand("SELECT reltuples FROM pg_class WHERE relname = 'admin_log';", (NpgsqlConnection?) Database.GetDbConnection());
+            using var command = new NpgsqlCommand("SELECT reltuples FROM pg_class WHERE relname = 'admin_log';", (NpgsqlConnection?)Database.GetDbConnection());
 
             Database.GetDbConnection().Open();
-            var count = Convert.ToInt32((float) (command.ExecuteScalar() ?? 0));
+            var count = Convert.ToInt32((float)(command.ExecuteScalar() ?? 0));
             Database.GetDbConnection().Close();
             return count;
         }

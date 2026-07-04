@@ -8,7 +8,7 @@ namespace Content.Shared.Construction.Steps
     [DataDefinition]
     public sealed partial class ToolConstructionGraphStep : ConstructionGraphStep
     {
-        [DataField("tool", required:true, customTypeSerializer:typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
+        [DataField("tool", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
         public string Tool { get; private set; } = string.Empty;
 
         [DataField("fuel")] public float Fuel { get; private set; } = 10;
@@ -37,7 +37,7 @@ namespace Content.Shared.Construction.Steps
             return new ConstructionGuideEntry()
             {
                 Localization = "construction-presenter-tool-step",
-                Arguments = new (string, object)[]{("tool", quality.ToolName)},
+                Arguments = new (string, object)[] { ("tool", quality.ToolName) },
                 Icon = quality.Icon,
             };
         }

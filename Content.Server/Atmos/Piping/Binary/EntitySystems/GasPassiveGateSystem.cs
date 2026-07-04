@@ -41,7 +41,7 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
 
             float dt = args.dt;
             float dV = 0;
-            var denom = (T1*V2 + T2*V1);
+            var denom = (T1 * V2 + T2 * V1);
 
             if (pressureDelta > 0 && P1 > 0 && denom > 0)
             {
@@ -60,12 +60,12 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
                 // If you don't want to push through the math, just know that this behaves like a
                 // pump that can equalize pressure instantly, i.e. much faster than pressure or
                 // volume pumps.
-                var transferMoles = n1 - (n1+n2)*T2*V1 / denom;
+                var transferMoles = n1 - (n1 + n2) * T2 * V1 / denom;
 
                 // Get the volume transfered to update our flow meter.
                 // When you remove x from one side and add x to the other the total difference is 2x.
                 // Also account for atmos speedup so that measured flow rate matches the setting on the volume pump.
-                dV = 2*transferMoles*Atmospherics.R*T1/P1 / _atmosphereSystem.Speedup;
+                dV = 2 * transferMoles * Atmospherics.R * T1 / P1 / _atmosphereSystem.Speedup;
 
                 // Actually transfer the gas.
                 _atmosphereSystem.Merge(outlet.Air, inlet.Air.Remove(transferMoles));
@@ -73,8 +73,8 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
 
             // Update transfer rate with an exponential moving average.
             var tau = 1;    // Time constant (averaging time) in seconds
-            var a = dt/tau;
-            gate.FlowRate = a*dV/tau + (1-a)*gate.FlowRate; // in L/sec
+            var a = dt / tau;
+            gate.FlowRate = a * dV / tau + (1 - a) * gate.FlowRate; // in L/sec
         }
 
         private void OnExamined(Entity<GasPassiveGateComponent> gate, ref ExaminedEvent args)

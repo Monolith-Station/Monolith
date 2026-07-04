@@ -29,7 +29,7 @@ public sealed partial class DungeonJob
         {
             foreach (var entrance in room.Entrances)
             {
-                setTiles.Add((entrance, _tile.GetVariantTile((ContentTileDefinition) tileDef, random)));
+                setTiles.Add((entrance, _tile.GetVariantTile((ContentTileDefinition)tileDef, random)));
             }
         }
 

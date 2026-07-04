@@ -81,7 +81,8 @@ public sealed partial class GasMinerSystem : SharedGasMinerSystem
 
         var toSpawnReal = Math.Clamp(allowableMoles, 0f, toSpawnTarget);
 
-        if (toSpawnReal < Atmospherics.GasMinMoles) {
+        if (toSpawnReal < Atmospherics.GasMinMoles)
+        {
             return 0f;
         }
 

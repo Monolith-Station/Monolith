@@ -14,26 +14,26 @@ public sealed class StealthminCommand : LocalizedCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-            var player = shell.Player;
-            if (player == null)
-            {
-                shell.WriteLine(Loc.GetString("cmd-stealthmin-no-console"));
-                return;
-            }
+        var player = shell.Player;
+        if (player == null)
+        {
+            shell.WriteLine(Loc.GetString("cmd-stealthmin-no-console"));
+            return;
+        }
 
-            var mgr = IoCManager.Resolve<IAdminManager>();
+        var mgr = IoCManager.Resolve<IAdminManager>();
 
-            var adminData = mgr.GetAdminData(player);
+        var adminData = mgr.GetAdminData(player);
 
-            DebugTools.AssertNotNull(adminData);
+        DebugTools.AssertNotNull(adminData);
 
-            if (!adminData!.Stealth)
-            {
-                mgr.Stealth(player);
-            }
-            else
-            {
-                mgr.UnStealth(player);
-            }
+        if (!adminData!.Stealth)
+        {
+            mgr.Stealth(player);
+        }
+        else
+        {
+            mgr.UnStealth(player);
+        }
     }
 }

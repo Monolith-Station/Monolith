@@ -22,7 +22,7 @@ public abstract partial class SharedPathfindingSystem : EntitySystem
 
     public Vector2 GetCoordinate(Vector2i chunk, Vector2i index)
     {
-        return new Vector2(index.X, index.Y) / SubStep+ (chunk) * ChunkSizeVec + StepOffsetVec;
+        return new Vector2(index.X, index.Y) / SubStep + (chunk) * ChunkSizeVec + StepOffsetVec;
     }
 
     public static float ManhattanDistance(Vector2i start, Vector2i end)

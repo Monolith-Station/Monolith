@@ -15,7 +15,7 @@ public sealed partial class PlayerPanelEui : BaseEui
     [Dependency] private IClientAdminManager _admin = default!;
     [Dependency] private IClipboardManager _clipboard = default!;
 
-    private PlayerPanel PlayerPanel { get;  }
+    private PlayerPanel PlayerPanel { get; }
 
     public PlayerPanelEui()
     {
@@ -38,7 +38,7 @@ public sealed partial class PlayerPanelEui : BaseEui
         PlayerPanel.OnFreeze += () => SendMessage(new PlayerPanelFreezeMessage());
         PlayerPanel.OnLogs += () => SendMessage(new PlayerPanelLogsMessage());
         PlayerPanel.OnRejuvenate += () => SendMessage(new PlayerPanelRejuvenationMessage());
-        PlayerPanel.OnDelete+= () => SendMessage(new PlayerPanelDeleteMessage());
+        PlayerPanel.OnDelete += () => SendMessage(new PlayerPanelDeleteMessage());
         PlayerPanel.OnOpenJobWhitelists += id => _console.ExecuteCommand($"jobwhitelists \"{id}\""); // DeltaV
 
         PlayerPanel.OnClose += () => SendMessage(new CloseEuiMessage());

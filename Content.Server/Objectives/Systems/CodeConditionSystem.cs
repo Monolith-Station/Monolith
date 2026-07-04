@@ -51,7 +51,7 @@ public sealed partial class CodeConditionSystem : EntitySystem
     /// </summary>
     public void SetCompleted(Entity<MindContainerComponent?> mob, string prototype, bool completed = true)
     {
-        if (_mind.GetMind(mob, mob.Comp) is not {} mindId)
+        if (_mind.GetMind(mob, mob.Comp) is not { } mindId)
             return;
 
         if (!_mind.TryFindObjective(mindId, prototype, out var obj))

@@ -116,7 +116,7 @@ public sealed partial class DungeonJob
                         continue;
 
                     width--;
-                    _maps.SetTile(_gridUid, _grid, node, _tile.GetVariantTile((ContentTileDefinition) tileDef, random));
+                    _maps.SetTile(_gridUid, _grid, node, _tile.GetVariantTile((ContentTileDefinition)tileDef, random));
 
                     if (flank != null && nodeDistances.Count - i <= 2)
                     {

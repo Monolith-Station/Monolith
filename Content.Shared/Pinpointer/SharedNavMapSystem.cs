@@ -18,14 +18,14 @@ public abstract partial class SharedNavMapSystem : EntitySystem
     public const int ArraySize = ChunkSize * ChunkSize;
 
     public const int AllDirMask = (1 << Directions) - 1;
-    public const int AirlockMask = AllDirMask << (int) NavMapChunkType.Airlock;
-    public const int WallMask = AllDirMask << (int) NavMapChunkType.Wall;
-    public const int FloorMask = AllDirMask << (int) NavMapChunkType.Floor;
+    public const int AirlockMask = AllDirMask << (int)NavMapChunkType.Airlock;
+    public const int WallMask = AllDirMask << (int)NavMapChunkType.Wall;
+    public const int FloorMask = AllDirMask << (int)NavMapChunkType.Floor;
 
     [Robust.Shared.IoC.Dependency] private TagSystem _tagSystem = default!;
     [Robust.Shared.IoC.Dependency] private INetManager _net = default!;
 
-    private static readonly ProtoId<TagPrototype>[] WallTags = {"Wall", "Window"};
+    private static readonly ProtoId<TagPrototype>[] WallTags = { "Wall", "Window" };
     private EntityQuery<NavMapDoorComponent> _doorQuery;
 
     public override void Initialize()

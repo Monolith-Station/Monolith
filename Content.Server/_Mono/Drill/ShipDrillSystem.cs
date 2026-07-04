@@ -29,7 +29,7 @@ public partial class ShipDrillSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        if (_updateTimer <_updateCooldown)
+        if (_updateTimer < _updateCooldown)
         {
             _updateTimer += frameTime;
             return;

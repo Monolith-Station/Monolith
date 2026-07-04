@@ -32,7 +32,7 @@ public sealed partial class DungeonJob
             {
                 for (var i = 0; i < 8; i++)
                 {
-                    var dir = (Direction) i;
+                    var dir = (Direction)i;
                     var neighbor = entrance + dir.ToIntVec();
 
                     if (!dungeon.RoomExteriorTiles.Contains(neighbor))
@@ -41,7 +41,7 @@ public sealed partial class DungeonJob
                     if (reservedTiles.Contains(neighbor))
                         continue;
 
-                    tiles.Add((neighbor, _tile.GetVariantTile((ContentTileDefinition) tileDef, random)));
+                    tiles.Add((neighbor, _tile.GetVariantTile((ContentTileDefinition)tileDef, random)));
                     spawnPositions.Add(neighbor);
                 }
             }

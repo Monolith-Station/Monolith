@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 using System.Collections.Generic;
 using Content.Client.IoC;
 using Content.Client.Parallax.Managers;
@@ -96,9 +96,9 @@ public sealed partial class TestPair : RobustIntegrationTest.TestPair
         opts.BeforeStart += () =>
         {
             IoCManager.Resolve<IModLoader>().SetModuleBaseCallbacks(new ClientModuleTestingCallbacks
-                {
-                    ClientBeforeIoC = () => IoCManager.Register<IParallaxManager, DummyParallaxManager>(true)
-                });
+            {
+                ClientBeforeIoC = () => IoCManager.Register<IParallaxManager, DummyParallaxManager>(true)
+            });
         };
         return opts;
     }

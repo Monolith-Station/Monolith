@@ -16,7 +16,7 @@ public sealed partial class CorticalBorerReagentCardControl : Control
     {
         RobustXamlLoader.Load(this);
 
-        ColorPanel.PanelOverride = new StyleBoxFlat{ BackgroundColor = set.ReagentColor};
+        ColorPanel.PanelOverride = new StyleBoxFlat { BackgroundColor = set.ReagentColor };
         ReagentNameLabel.Text = set.ReagentName;
         FillLabel.Text = Loc.GetString("cortical-borer-dispenser-window-cost", ("cost", set.Cost * set.Amount));
 

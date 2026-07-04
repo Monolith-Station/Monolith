@@ -34,7 +34,7 @@ public sealed partial class DamageMarkerComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("marker"), AutoNetworkedField]
     public EntityUid Marker;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("endTime", customTypeSerializer:typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite), DataField("endTime", customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     [AutoPausedField]
     public TimeSpan EndTime;
 }

@@ -20,9 +20,9 @@ public sealed partial class PlantCryoxadone : EntityEffect
         var seed = plantHolderComp.Seed;
         var random = IoCManager.Resolve<IRobustRandom>();
         if (plantHolderComp.Age > seed.Maturation)
-            deviation = (int) Math.Max(seed.Maturation - 1, plantHolderComp.Age - random.Next(7, 10));
+            deviation = (int)Math.Max(seed.Maturation - 1, plantHolderComp.Age - random.Next(7, 10));
         else
-            deviation = (int) (seed.Maturation / seed.GrowthStages);
+            deviation = (int)(seed.Maturation / seed.GrowthStages);
         plantHolderComp.Age -= deviation;
         plantHolderComp.SkipAging++;
         plantHolderComp.ForceUpdate = true;

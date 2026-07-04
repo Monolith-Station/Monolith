@@ -154,7 +154,7 @@ namespace Content.Server.Solar.EntitySystems
             if (coverage > 0)
             {
                 // Determine if the solar panel is occluded, and zero out coverage if so.
-                var ray = new CollisionRay(_transformSystem.GetWorldPosition(xform), TowardsSun.ToWorldVec(), (int) CollisionGroup.Opaque);
+                var ray = new CollisionRay(_transformSystem.GetWorldPosition(xform), TowardsSun.ToWorldVec(), (int)CollisionGroup.Opaque);
                 var rayCastResults = _physicsSystem.IntersectRayWithPredicate(
                     xform.MapID,
                     ray,
@@ -177,7 +177,7 @@ namespace Content.Server.Solar.EntitySystems
             if (!Resolve(uid, ref solar, ref supplier, false))
                 return;
 
-            supplier.MaxSupply = (int) (solar.MaxSupply * solar.Coverage);
+            supplier.MaxSupply = (int)(solar.MaxSupply * solar.Coverage);
         }
     }
 }

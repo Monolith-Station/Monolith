@@ -11,10 +11,10 @@ namespace Content.Server.Jobs
     [DataDefinition]
     public sealed partial class GiveItemOnHolidaySpecial : JobSpecial
     {
-        [DataField("holiday", customTypeSerializer:typeof(PrototypeIdSerializer<HolidayPrototype>))]
+        [DataField("holiday", customTypeSerializer: typeof(PrototypeIdSerializer<HolidayPrototype>))]
         public string Holiday { get; private set; } = string.Empty;
 
-        [DataField("prototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+        [DataField("prototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string Prototype { get; private set; } = string.Empty;
 
         public override void AfterEquip(EntityUid mob)

@@ -52,13 +52,13 @@ namespace Content.Client.Credits
         {
             foreach (var entry in CreditsManager.GetLicenses(_resourceManager).OrderBy(p => p.Name))
             {
-                licensesContainer.AddChild(new Label {StyleClasses = {StyleBase.StyleClassLabelHeading}, Text = entry.Name});
+                licensesContainer.AddChild(new Label { StyleClasses = { StyleBase.StyleClassLabelHeading }, Text = entry.Name });
 
                 // We split these line by line because otherwise
                 // the LGPL causes Clyde to go out of bounds in the rendering code.
                 foreach (var line in entry.License.Split("\n"))
                 {
-                    licensesContainer.AddChild(new Label {Text = line, FontColorOverride = new Color(200, 200, 200)});
+                    licensesContainer.AddChild(new Label { Text = line, FontColorOverride = new Color(200, 200, 200) });
                 }
             }
         }
@@ -88,11 +88,11 @@ namespace Content.Client.Credits
             {
                 if (!first)
                 {
-                    patronsContainer.AddChild(new Control {MinSize = new Vector2(0, 10)});
+                    patronsContainer.AddChild(new Control { MinSize = new Vector2(0, 10) });
                 }
 
                 first = false;
-                patronsContainer.AddChild(new Label {StyleClasses = {StyleBase.StyleClassLabelHeading}, Text = $"{tier.Key}"});
+                patronsContainer.AddChild(new Label { StyleClasses = { StyleBase.StyleClassLabelHeading }, Text = $"{tier.Key}" });
 
                 var msg = string.Join(", ", tier.OrderBy(p => p.Name).Select(p => p.Name));
 
@@ -105,8 +105,8 @@ namespace Content.Client.Credits
 
         private IEnumerable<PatronEntry> LoadPatrons()
         {
-            var yamlStream = _resourceManager.ContentFileReadYaml(new ("/Credits/Patrons.yml"));
-            var sequence = (YamlSequenceNode) yamlStream.Documents[0].RootNode;
+            var yamlStream = _resourceManager.ContentFileReadYaml(new("/Credits/Patrons.yml"));
+            var sequence = (YamlSequenceNode)yamlStream.Documents[0].RootNode;
 
             return sequence
                 .Cast<YamlMappingNode>()
@@ -135,11 +135,11 @@ namespace Content.Client.Credits
             {
                 if (!first)
                 {
-                    ss14ContributorsContainer.AddChild(new Control {MinSize = new Vector2(0, 10)});
+                    ss14ContributorsContainer.AddChild(new Control { MinSize = new Vector2(0, 10) });
                 }
 
                 first = false;
-                ss14ContributorsContainer.AddChild(new Label {StyleClasses = {StyleBase.StyleClassLabelHeading}, Text = title});
+                ss14ContributorsContainer.AddChild(new Label { StyleClasses = { StyleBase.StyleClassLabelHeading }, Text = title });
 
                 var label = new RichTextLabel();
                 var text = _resourceManager.ContentFileReadAllText($"/Credits/{path}");

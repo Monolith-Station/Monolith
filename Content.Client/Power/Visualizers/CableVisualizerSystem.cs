@@ -30,6 +30,6 @@ public sealed partial class CableVisualizerSystem : EntitySystem
         if (!_appearanceSystem.TryGetData<WireVisDirFlags>(uid, WireVisVisuals.ConnectedMask, out var mask, args.Component))
             mask = WireVisDirFlags.None;
 
-        args.Sprite.LayerSetState(0, $"{component.StatePrefix}{(int) mask}");
+        args.Sprite.LayerSetState(0, $"{component.StatePrefix}{(int)mask}");
     }
 }

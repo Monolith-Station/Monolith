@@ -48,7 +48,7 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     /// The maximum armor resistance values this can penetrate through
     /// </summary>
     [DataField]
-    public DamageModifierSet MaxArmorResistances = new() {Coefficients = new() {["Poison"] = 0.8f}}; // Mono - change to poison
+    public DamageModifierSet MaxArmorResistances = new() { Coefficients = new() { ["Poison"] = 0.8f } }; // Mono - change to poison
 
     /// <summary>
     /// Contents of popup message to display to the attacker when injection

@@ -3,6 +3,7 @@ using Robust.Shared.Serialization;
 using CCVars = Content.Shared._EE.CCVar.EECCVars; // Frontier
 
 namespace Content.Shared.Contests;
+
 public sealed partial class ContestsSystem
 {
     /// <summary>
@@ -46,16 +47,16 @@ public sealed partial class ContestsSystem
                         : 1 / HealthContest(user, args.HealthBypassClamp, args.HealthRangeModifier))
                             + args.HealthOffset)
                                 : 1);
-                    //* (args.DoMindInteraction ? ((!args.MindDisadvantage
-                    //    ? MindContest(user, args.MindBypassClamp, args.MindRangeModifier)
-                    //    : 1 / MindContest(user, args.MindBypassClamp, args.MindRangeModifier))
-                    //        + args.MindOffset)
-                    //            : 1)
-                    //* (args.DoMoodInteraction ? ((!args.MoodDisadvantage
-                    //    ? MoodContest(user, args.MoodBypassClamp, args.MoodRangeModifier)
-                    //    : 1 / MoodContest(user, args.MoodBypassClamp, args.MoodRangeModifier))
-                    //        + args.MoodOffset)
-                    //            : 1);
+        //* (args.DoMindInteraction ? ((!args.MindDisadvantage
+        //    ? MindContest(user, args.MindBypassClamp, args.MindRangeModifier)
+        //    : 1 / MindContest(user, args.MindBypassClamp, args.MindRangeModifier))
+        //        + args.MindOffset)
+        //            : 1)
+        //* (args.DoMoodInteraction ? ((!args.MoodDisadvantage
+        //    ? MoodContest(user, args.MoodBypassClamp, args.MoodRangeModifier)
+        //    : 1 / MoodContest(user, args.MoodBypassClamp, args.MoodRangeModifier))
+        //        + args.MoodOffset)
+        //            : 1);
 
         var everyContest = EveryContest(user,
                     args.MassBypassClamp,

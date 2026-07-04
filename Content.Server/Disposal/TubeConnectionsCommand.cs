@@ -36,13 +36,13 @@ namespace Content.Server.Disposal
 
             if (!NetEntity.TryParse(args[0], out var idNet) || !_entities.TryGetEntity(idNet, out var id))
             {
-                shell.WriteLine(Loc.GetString("shell-invalid-entity-uid",("uid", args[0])));
+                shell.WriteLine(Loc.GetString("shell-invalid-entity-uid", ("uid", args[0])));
                 return;
             }
 
             if (!_entities.EntityExists(id))
             {
-                shell.WriteLine(Loc.GetString("shell-could-not-find-entity-with-uid",("uid", id)));
+                shell.WriteLine(Loc.GetString("shell-could-not-find-entity-with-uid", ("uid", id)));
                 return;
             }
 

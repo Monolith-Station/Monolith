@@ -382,7 +382,7 @@ public class RadialMenuTextureButtonWithSector : RadialMenuTextureButton, IRadia
 
     private Color _backgroundColorSrgb = Color.ToSrgb(new Color(30, 30, 33, 128));
     private Color _hoverBackgroundColorSrgb = Color.ToSrgb(new Color(107, 107, 112, 128));
-    private Color _borderColorSrgb = Color.ToSrgb(new Color(255,255,255, 70));
+    private Color _borderColorSrgb = Color.ToSrgb(new Color(255, 255, 255, 70));
     private Color _hoverBorderColorSrgb = Color.ToSrgb(new Color(107, 107, 112, 128));
 
     /// <summary>

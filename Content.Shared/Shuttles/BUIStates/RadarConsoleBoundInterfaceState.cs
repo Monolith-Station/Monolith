@@ -48,13 +48,13 @@ public sealed class CommonRadarEntityInterfaceState
 [Serializable, NetSerializable]
 public enum RadarRenderableGroup
 {
-    None                   =      0,
-    ShipEventTeammate      = 1 << 0,
-    Projectiles            = 1 << 1,
-    Cannon                 = 1 << 2,
-    Door                   = 1 << 3,
-    Pickup                 = 1 << 4,
-    Anomaly                = 1 << 5,
+    None = 0,
+    ShipEventTeammate = 1 << 0,
+    Projectiles = 1 << 1,
+    Cannon = 1 << 2,
+    Door = 1 << 3,
+    Pickup = 1 << 4,
+    Anomaly = 1 << 5,
 
     All = (ShipEventTeammate | Projectiles | Cannon | Door | Pickup | Anomaly),
 }

@@ -54,7 +54,8 @@ public sealed partial class ChameleonBoundUserInterface : BoundUserInterface
                 newTargets.Add(target);
             }
             _menu?.UpdateState(newTargets, st.SelectedId);
-        } else
+        }
+        else
         {
             _menu?.UpdateState(targets, st.SelectedId);
         }

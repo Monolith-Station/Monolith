@@ -51,7 +51,7 @@ public sealed partial class DynamicRoleSettingsSystem : EntitySystem
         UpdateRoleSettings();
     }
 
-     private void OnGameRunLevelChanged(GameRunLevelChangedEvent ev)
+    private void OnGameRunLevelChanged(GameRunLevelChangedEvent ev)
     {
         UpdateRoleSettings();
     }

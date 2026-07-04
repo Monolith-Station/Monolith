@@ -175,7 +175,7 @@ namespace Content.Shared.Atmos
             [Gas.NitrousOxide] = Loc.GetString("gas-nitrous-oxide-abbreviation"),
             [Gas.Oxygen] = Loc.GetString("gas-oxygen-abbreviation"),
             [Gas.Plasma] = Loc.GetString("gas-plasma-abbreviation"),
-			[Gas.Pluoxium] = Loc.GetString("gas-pluoxium-abbreviation"), // Funky/Goob - Ported gas
+            [Gas.Pluoxium] = Loc.GetString("gas-pluoxium-abbreviation"), // Funky/Goob - Ported gas
             [Gas.Tritium] = Loc.GetString("gas-tritium-abbreviation"),
             [Gas.WaterVapor] = Loc.GetString("gas-water-vapor-abbreviation"),
         };
@@ -250,7 +250,7 @@ namespace Content.Shared.Atmos
         public const float SuperSaturationEnds = 10f; // Frontier: SuperSaturationThreshold / 3 < 10
 
         public const float OxygenBurnRateBase = 1.4f;
-        public const float PlasmaMinimumBurnTemperature = (100f+T0C);
+        public const float PlasmaMinimumBurnTemperature = (100f + T0C);
         public const float PlasmaUpperTemperature = 700; // Frontier: (1370f+T0C)<700
         public const float PlasmaOxygenFullburn = 10f;
         public const float PlasmaBurnRateDelta = 9f;
@@ -305,9 +305,9 @@ namespace Content.Shared.Atmos
         ///     Divisor for Ammonia Oxygen reaction so that it doesn't happen instantaneously.
         /// </summary>
         public const float AmmoniaOxygenReactionRate = 10f;
-		
-		///Funky/Goob start
-		
+
+        ///Funky/Goob start
+
         /// <summary>
         ///     The amount of energy 1 mole of BZ forming from N2O and plasma releases.
         /// </summary>
@@ -327,14 +327,14 @@ namespace Content.Shared.Atmos
         ///     The amount of energy 1 mol of Nitrium decomposing into nitrogen and water vapor releases.
         /// </summary>
         public const float NitriumDecompositionEnergy = 30e3f;
-		
-		/// <summary>
+
+        /// <summary>
         ///     The amount of energy 1 mol of Pluoxium forming releases.
         /// </summary>
         public const float PluoxiumProductionEnergy = 250;
-		
-		///Funky/Goob end
-		
+
+        ///Funky/Goob end
+
         /// <summary>
         ///     Determines at what pressure the ultra-high pressure red icon is displayed.
         /// </summary>
@@ -429,6 +429,6 @@ namespace Content.Shared.Atmos
         BZ = 9, //Funky/Goob
         Healium = 10, //Funky/Goob
         Nitrium = 11, //Funky/Goob
-		Pluoxium = 12, //Funky/Goob
+        Pluoxium = 12, //Funky/Goob
     }
 }

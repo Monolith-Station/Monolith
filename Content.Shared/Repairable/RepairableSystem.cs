@@ -23,7 +23,7 @@ public sealed partial class RepairableSystem : EntitySystem
         SubscribeLocalEvent<RepairableComponent, RepairFinishedEvent>(OnRepairFinished);
     }
 
-    private void OnRepairFinished(Entity<RepairableComponent> ent,  ref RepairFinishedEvent args)
+    private void OnRepairFinished(Entity<RepairableComponent> ent, ref RepairFinishedEvent args)
     {
         if (args.Cancelled)
             return;

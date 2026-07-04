@@ -60,7 +60,7 @@ namespace Content.Server.GuideGenerator
                 if (Attribute.GetCustomAttribute(field, typeof(System.Runtime.CompilerServices.CompilerGeneratedAttribute), true) != null) continue;
 
                 // If the field has a [JsonPropertyName] attribute, get the property name. Otherwise, use the field name.
-                JsonPropertyNameAttribute? attr = (JsonPropertyNameAttribute?) Attribute.GetCustomAttribute(field, typeof(JsonPropertyNameAttribute), true);
+                JsonPropertyNameAttribute? attr = (JsonPropertyNameAttribute?)Attribute.GetCustomAttribute(field, typeof(JsonPropertyNameAttribute), true);
                 string name = attr == null ? field.Name : attr.Name;
 
                 // Write a new key/value pair into the JSON object itself.
@@ -74,7 +74,7 @@ namespace Content.Server.GuideGenerator
                 if (Attribute.GetCustomAttribute(prop, typeof(JsonIgnoreAttribute), true) != null) continue;
 
                 // If the property has a [JsonPropertyName] attribute, get the property name. Otherwise, use the property name.
-                JsonPropertyNameAttribute? attr = (JsonPropertyNameAttribute?) Attribute.GetCustomAttribute(prop, typeof(JsonPropertyNameAttribute), true);
+                JsonPropertyNameAttribute? attr = (JsonPropertyNameAttribute?)Attribute.GetCustomAttribute(prop, typeof(JsonPropertyNameAttribute), true);
                 string name = attr == null ? prop.Name : attr.Name;
 
                 // Write a new key/value pair into the JSON object itself.

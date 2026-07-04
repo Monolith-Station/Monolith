@@ -42,7 +42,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
                     {
                         TextureScale = new Vector2(0.4f, 0.4f),
                         Stretch = TextureRect.StretchMode.KeepCentered,
-                        Texture = _spriteSystem.Frame0(new SpriteSpecifier.Texture(new ("/Textures/Interface/Nano/lock.svg.192dpi.png"))),
+                        Texture = _spriteSystem.Frame0(new SpriteSpecifier.Texture(new("/Textures/Interface/Nano/lock.svg.192dpi.png"))),
                         HorizontalExpand = true,
                         HorizontalAlignment = HAlignment.Right,
                     });

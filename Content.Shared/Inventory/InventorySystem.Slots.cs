@@ -47,7 +47,7 @@ public partial class InventorySystem : EntitySystem
                 if (!TryComp<T>(item, out var required))
                     continue;
 
-                if ((((IClothingSlots) required).Slots & slot.SlotFlags) == 0x0)
+                if ((((IClothingSlots)required).Slots & slot.SlotFlags) == 0x0)
                     continue;
 
                 target = (item, required);
@@ -235,12 +235,12 @@ public partial class InventorySystem : EntitySystem
         private int _nextIdx = 0;
         public static InventorySlotEnumerator Empty = new(Array.Empty<SlotDefinition>(), Array.Empty<ContainerSlot>());
 
-        public InventorySlotEnumerator(InventoryComponent inventory,  SlotFlags flags = SlotFlags.All)
+        public InventorySlotEnumerator(InventoryComponent inventory, SlotFlags flags = SlotFlags.All)
             : this(inventory.Slots, inventory.Containers, flags)
         {
         }
 
-        public InventorySlotEnumerator(SlotDefinition[] slots, ContainerSlot[] containers,  SlotFlags flags = SlotFlags.All)
+        public InventorySlotEnumerator(SlotDefinition[] slots, ContainerSlot[] containers, SlotFlags flags = SlotFlags.All)
         {
             DebugTools.Assert(flags != SlotFlags.NONE);
             DebugTools.AssertEqual(slots.Length, containers.Length);

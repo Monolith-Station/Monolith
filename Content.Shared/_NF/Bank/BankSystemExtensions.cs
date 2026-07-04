@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 
 namespace Content.Shared._NF.Bank;
 
@@ -28,7 +28,7 @@ public static class BankSystemExtensions
     public static string ToCurrencyString(long amount, CultureInfo? culture = null, string? symbolOverride = null, string? separatorOverride = null, CurrencySymbolLocation symbolLocation = CurrencySymbolLocation.Default)
     {
         culture ??= CultureInfo.CurrentCulture;
-        var numberFormat = (NumberFormatInfo) culture.NumberFormat.Clone();
+        var numberFormat = (NumberFormatInfo)culture.NumberFormat.Clone();
 
         if (symbolOverride != null)
         {

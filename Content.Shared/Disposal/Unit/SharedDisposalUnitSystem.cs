@@ -45,23 +45,23 @@ public sealed partial class DisposalDoAfterEvent : SimpleDoAfterEvent
 public abstract partial class SharedDisposalUnitSystem : EntitySystem
 {
     [Dependency] protected ActionBlockerSystem ActionBlockerSystem = default!;
-    [Dependency] private   EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] protected MetaDataSystem Metadata = default!;
-    [Dependency] private   SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] protected SharedAudioSystem Audio = default!;
     [Dependency] protected IGameTiming GameTiming = default!;
-    [Dependency] private   ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private   ClimbSystem _climb = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private ClimbSystem _climb = default!;
     [Dependency] protected SharedContainerSystem Containers = default!;
     [Dependency] protected SharedJointSystem Joints = default!;
-    [Dependency] private   SharedPowerReceiverSystem _power = default!;
-    [Dependency] private   SharedDisposalTubeSystem _disposalTubeSystem = default!;
-    [Dependency] private   SharedPopupSystem _popupSystem = default!;
-    [Dependency] private   SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private   SharedHandsSystem _handsSystem = default!;
+    [Dependency] private SharedPowerReceiverSystem _power = default!;
+    [Dependency] private SharedDisposalTubeSystem _disposalTubeSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
     [Dependency] protected SharedTransformSystem TransformSystem = default!;
-    [Dependency] private   SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private   SharedMapSystem _map = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private SharedDeviceLinkSystem _device = default!; // Goobstation
     public static readonly ProtoId<SourcePortPrototype> ReadyPort = "DisposalReady"; // Goobstation
 

@@ -12,7 +12,7 @@ public sealed partial class SlidingComponent : Component
     ///     A list of SuperSlippery entities the entity with this component is colliding with.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public HashSet<EntityUid> CollidingEntities = new ();
+    public HashSet<EntityUid> CollidingEntities = new();
 
     /// <summary>
     ///     The friction modifier that will be applied to any friction calculations.

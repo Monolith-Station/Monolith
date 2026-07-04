@@ -40,7 +40,7 @@ public abstract partial class SharedSalvageSystem : EntitySystem
 
     public float GetMiningTax(DifficultyRating baseRating)
     {
-        return 0.6f + (int) baseRating * 0.05f;
+        return 0.6f + (int)baseRating * 0.05f;
     }
 
     /// <summary>
@@ -48,7 +48,7 @@ public abstract partial class SharedSalvageSystem : EntitySystem
     /// </summary>
     public int GetStructureCount(DifficultyRating baseRating)
     {
-        return 1 + (int) baseRating * 2;
+        return 1 + (int)baseRating * 2;
     }
 
     #endregion
@@ -83,13 +83,13 @@ public abstract partial class SharedSalvageSystem : EntitySystem
     public string GetFTLName(LocalizedDatasetPrototype dataset, int seed)
     {
         var random = new System.Random(seed);
-        return $"{Loc.GetString(dataset.Values[random.Next(dataset.Values.Count)])}-{random.Next(10, 100)}-{(char) (65 + random.Next(26))}";
+        return $"{Loc.GetString(dataset.Values[random.Next(dataset.Values.Count)])}-{random.Next(10, 100)}-{(char)(65 + random.Next(26))}";
     }
 
     public SalvageMission GetMission(SalvageMissionType config, DifficultyRating difficulty, int seed)
     {
         // This is on shared to ensure the client display for missions and what the server generates are consistent
-        var rating = (float) GetDifficulty(difficulty);
+        var rating = (float)GetDifficulty(difficulty);
         // Don't want easy missions to have any negative modifiers but also want
         // easy to be a 1 for difficulty.
         rating -= 1f;

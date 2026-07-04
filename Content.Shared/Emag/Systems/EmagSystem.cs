@@ -85,7 +85,7 @@ public sealed partial class EmagSystem : EntitySystem
 
         _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {ent.Comp.EmagType}");
 
-        if (charges != null  && emaggedEvent.Handled)
+        if (charges != null && emaggedEvent.Handled)
             _charges.UseCharge(ent, charges);
 
         if (!emaggedEvent.Repeatable)

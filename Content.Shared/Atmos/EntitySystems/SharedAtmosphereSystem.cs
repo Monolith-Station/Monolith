@@ -34,7 +34,7 @@ namespace Content.Shared.Atmos.EntitySystems
 
         public GasPrototype GetGas(int gasId) => GasPrototypes[gasId];
 
-        public GasPrototype GetGas(Gas gasId) => GasPrototypes[(int) gasId];
+        public GasPrototype GetGas(Gas gasId) => GasPrototypes[(int)gasId];
 
         public IEnumerable<GasPrototype> Gases => GasPrototypes;
     }

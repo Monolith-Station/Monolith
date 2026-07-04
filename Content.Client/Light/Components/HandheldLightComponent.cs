@@ -43,7 +43,7 @@ public sealed class HandheldLightStatus : Control
 
         for (var i = 0; i < _sections.Length; i++)
         {
-            var panel = new PanelContainer {MinSize = new Vector2(20, 20)};
+            var panel = new PanelContainer { MinSize = new Vector2(20, 20) };
             wrapper.AddChild(panel);
             _sections[i] = panel;
         }

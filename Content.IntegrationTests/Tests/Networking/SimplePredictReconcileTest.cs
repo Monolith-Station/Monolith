@@ -100,7 +100,7 @@ namespace Content.IntegrationTests.Tests.Networking
 
                 // Client last ran tick 15 meaning it's ahead of the last server tick it processed (12)
                 Assert.That(cGameTiming.CurTick, Is.EqualTo(expected));
-                Assert.That(cGameTiming.LastProcessedTick, Is.EqualTo(new GameTick((uint) (baseTick - cGameStateManager.TargetBufferSize))));
+                Assert.That(cGameTiming.LastProcessedTick, Is.EqualTo(new GameTick((uint)(baseTick - cGameStateManager.TargetBufferSize))));
             });
 
             // *** I am using block scopes to visually distinguish these sections of the test to make it more readable.
@@ -265,7 +265,7 @@ namespace Content.IntegrationTests.Tests.Networking
                 // Assert timing is still correct.
                 Assert.That(sGameTiming.CurTick, Is.EqualTo(new GameTick(baseTick + 8)));
                 Assert.That(cGameTiming.CurTick, Is.EqualTo(new GameTick(baseTick + 8 + delta)));
-                Assert.That(cGameTiming.LastProcessedTick, Is.EqualTo(new GameTick((uint) (baseTick + 8 - cGameStateManager.TargetBufferSize))));
+                Assert.That(cGameTiming.LastProcessedTick, Is.EqualTo(new GameTick((uint)(baseTick + 8 - cGameStateManager.TargetBufferSize))));
             });
 
             {

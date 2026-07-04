@@ -74,7 +74,7 @@ public sealed partial class IdCardConsoleSystem : SharedIdCardConsoleSystem
         List<ProtoId<AccessLevelPrototype>>? possibleAccess = null;
         if (component.PrivilegedIdSlot.Item is { Valid: true } item)
         {
-            privilegedIdName = EntityManager.GetComponent<MetaDataComponent>(item).EntityName;
+            privilegedIdName = Comp<MetaDataComponent>(item).EntityName;
             possibleAccess = _accessReader.FindAccessTags(item).ToList();
         }
 
@@ -98,12 +98,12 @@ public sealed partial class IdCardConsoleSystem : SharedIdCardConsoleSystem
         }
         else
         {
-            var targetIdComponent = EntityManager.GetComponent<IdCardComponent>(targetId);
-            var targetAccessComponent = EntityManager.GetComponent<AccessComponent>(targetId);
+            var targetIdComponent = Comp<IdCardComponent>(targetId);
+            var targetAccessComponent = Comp<AccessComponent>(targetId);
 
             var jobProto = new ProtoId<JobPrototype>(string.Empty); // Frontier: AccessLevelPrototype<JobPrototype
             if (TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
-                && keyStorage.Key is {} key
+                && keyStorage.Key is { } key
                 && _record.TryGetRecord<GeneralStationRecord>(key, out var record))
             {
                 jobProto = record.JobPrototype;
@@ -111,7 +111,7 @@ public sealed partial class IdCardConsoleSystem : SharedIdCardConsoleSystem
 
             string?[]? shuttleNameParts = null;
             var hasShuttle = false;
-            if (EntityManager.TryGetComponent<ShuttleDeedComponent>(targetId, out var comp))
+            if (TryComp<ShuttleDeedComponent>(targetId, out var comp))
             {
                 shuttleNameParts = new[] { comp.ShuttleName, comp.ShuttleNameSuffix };
                 hasShuttle = true;
@@ -216,7 +216,7 @@ public sealed partial class IdCardConsoleSystem : SharedIdCardConsoleSystem
         if (component.TargetIdSlot.Item is not { Valid: true } targetId || !PrivilegedIdIsAuthorized(uid, component))
             return;
 
-        if (!EntityManager.TryGetComponent<ShuttleDeedComponent>(targetId, out var shuttleDeed))
+        if (!TryComp<ShuttleDeedComponent>(targetId, out var shuttleDeed))
             return;
         else
         {

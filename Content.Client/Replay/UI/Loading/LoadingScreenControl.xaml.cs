@@ -13,7 +13,7 @@ namespace Content.Client.Replay.UI.Loading;
 [GenerateTypedNameReferences]
 public sealed partial class LoadingScreenControl : Control
 {
-    public static SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new ("/Textures/Mobs/Silicon/Bots/mommi.rsi"), "wiggle");
+    public static SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new("/Textures/Mobs/Silicon/Bots/mommi.rsi"), "wiggle");
 
     public LoadingScreenControl(IResourceCache resCache)
     {

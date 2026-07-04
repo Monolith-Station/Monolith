@@ -51,10 +51,10 @@ public abstract partial class HTNOperator
     /// <summary>
     /// Called the first time an operator runs.
     /// </summary>
-    public virtual void Startup(NPCBlackboard blackboard) {}
+    public virtual void Startup(NPCBlackboard blackboard) { }
 
     /// <summary>
     /// Called whenever the operator stops running.
     /// </summary>
-    public virtual void TaskShutdown(NPCBlackboard blackboard, HTNOperatorStatus status) {}
+    public virtual void TaskShutdown(NPCBlackboard blackboard, HTNOperatorStatus status) { }
 }

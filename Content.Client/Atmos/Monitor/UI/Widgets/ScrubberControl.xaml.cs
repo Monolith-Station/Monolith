@@ -14,7 +14,7 @@ public sealed partial class ScrubberControl : BoxContainer
     private string _address;
 
     public event Action<string, IAtmosDeviceData>? ScrubberDataChanged;
-	public event Action<IAtmosDeviceData>? ScrubberDataCopied;
+    public event Action<IAtmosDeviceData>? ScrubberDataCopied;
 
     private CheckBox _enabled => CEnableDevice;
     private CollapsibleHeading _addressLabel => CAddress;
@@ -61,14 +61,14 @@ public sealed partial class ScrubberControl : BoxContainer
 
         foreach (var value in Enum.GetValues<ScrubberPumpDirection>())
         {
-            _pumpDirection.AddItem(Loc.GetString($"{value}"), (int) value);
+            _pumpDirection.AddItem(Loc.GetString($"{value}"), (int)value);
         }
 
-        _pumpDirection.SelectId((int) _data.PumpDirection);
+        _pumpDirection.SelectId((int)_data.PumpDirection);
         _pumpDirection.OnItemSelected += args =>
         {
             _pumpDirection.SelectId(args.Id);
-            _data.PumpDirection = (ScrubberPumpDirection) args.Id;
+            _data.PumpDirection = (ScrubberPumpDirection)args.Id;
             ScrubberDataChanged?.Invoke(_address, _data);
         };
 
@@ -108,7 +108,7 @@ public sealed partial class ScrubberControl : BoxContainer
         _enabled.Pressed = _data.Enabled;
 
         _data.PumpDirection = data.PumpDirection;
-        _pumpDirection.Select((int) _data.PumpDirection);
+        _pumpDirection.Select((int)_data.PumpDirection);
 
         _data.VolumeRate = data.VolumeRate;
         _volumeRate.Value = _data.VolumeRate;

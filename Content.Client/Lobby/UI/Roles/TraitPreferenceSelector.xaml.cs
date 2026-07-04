@@ -65,15 +65,15 @@ public sealed partial class TraitPreferenceSelector : Control
         UpdateButtonState();
     }
 
-        public void SetTooltip(string tooltip)
+    public void SetTooltip(string tooltip)
+    {
+        TraitButton.TooltipSupplier = _ =>
         {
-            TraitButton.TooltipSupplier = _ =>
-            {
-                var tip = new Robust.Client.UserInterface.CustomControls.Tooltip();
-                tip.SetMessage(FormattedMessage.FromMarkupPermissive(tooltip));
-                return tip;
-            };
-        }
+            var tip = new Robust.Client.UserInterface.CustomControls.Tooltip();
+            tip.SetMessage(FormattedMessage.FromMarkupPermissive(tooltip));
+            return tip;
+        };
+    }
 
     private void OnTraitButtonPressed(BaseButton.ButtonEventArgs args)
     {

@@ -71,7 +71,7 @@ namespace Content.Server.Labels
 
         private void OnExamined(EntityUid uid, PaperLabelComponent comp, ExaminedEvent args)
         {
-            if (comp.LabelSlot.Item is not {Valid: true} item)
+            if (comp.LabelSlot.Item is not { Valid: true } item)
                 return;
 
             using (args.PushGroup(nameof(PaperLabelComponent)))

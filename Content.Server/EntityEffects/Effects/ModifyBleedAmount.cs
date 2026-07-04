@@ -23,7 +23,8 @@ public sealed partial class ModifyBleedAmount : EntityEffect
         {
             var sys = args.EntityManager.System<BloodstreamSystem>();
             var amt = Amount;
-            if (args is EntityEffectReagentArgs reagentArgs) {
+            if (args is EntityEffectReagentArgs reagentArgs)
+            {
                 if (Scaled)
                     amt *= reagentArgs.Quantity.Float();
                 amt *= reagentArgs.Scale.Float();

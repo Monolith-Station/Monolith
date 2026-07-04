@@ -10,7 +10,7 @@ namespace Content.Server.Chemistry.EntitySystems;
 /// </summary>
 public sealed partial class SolutionInjectWhileEmbeddedSystem : EntitySystem
 {
-	[Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {
@@ -36,7 +36,7 @@ public sealed partial class SolutionInjectWhileEmbeddedSystem : EntitySystem
 
             injectComponent.NextUpdate += injectComponent.UpdateInterval;
 
-            if(projectileComponent.EmbeddedIntoUid == null)
+            if (projectileComponent.EmbeddedIntoUid == null)
                 continue;
 
             var ev = new InjectOverTimeEvent(projectileComponent.EmbeddedIntoUid.Value);

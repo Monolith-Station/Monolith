@@ -14,7 +14,7 @@ public abstract partial class SharedHypospraySystem : EntitySystem
     [Dependency] protected SharedSolutionContainerSystem _solutionContainers = default!;
     [Dependency] protected ISharedAdminLogManager _adminLogger = default!;
     [Dependency] protected ReactiveSystem _reactiveSystem = default!;
-    
+
     public override void Initialize()
     {
         SubscribeLocalEvent<HyposprayComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleModeVerb);

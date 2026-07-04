@@ -17,10 +17,10 @@ public static class SharedResearchSystemExtensions
         var allTech = prototypeManager.EnumeratePrototypes<TechnologyPrototype>()
             .Where(p => p.Discipline == techDiscipline.ID && !p.Hidden).ToList();
 
-        var percentage = (float) component.UnlockedTechnologies
+        var percentage = (float)component.UnlockedTechnologies
             .Where(x => prototypeManager.Index<TechnologyPrototype>(x).Discipline == techDiscipline.ID)
-            .Count() / (float) allTech.Count * 100f;
+            .Count() / (float)allTech.Count * 100f;
 
-        return (int) Math.Clamp(percentage, 0, 100);
+        return (int)Math.Clamp(percentage, 0, 100);
     }
 }

@@ -26,7 +26,7 @@ public sealed partial class GunWieldBonusComponent : Component
     [DataField, AutoNetworkedField]
     public Angle AngleDecay = Angle.FromDegrees(0);
 
-	/// <summary>
+    /// <summary>
     /// Recoil bonuses applied upon being wielded.
     /// Higher angle decay bonus, quicker recovery.
     /// Lower angle increase bonus (negative numbers), slower buildup.

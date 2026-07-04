@@ -24,7 +24,7 @@ public sealed partial class DungeonJob
 
         var distance = Math.Max(aabb.Width / 2f + 1f, aabb.Height / 2f + 1f);
 
-        var startTile = new Vector2i(0, (int) distance).Rotate(angle);
+        var startTile = new Vector2i(0, (int)distance).Rotate(angle);
 
         Vector2i? dungeonSpawn = null;
         var pathfinder = _entManager.System<PathfindingSystem>();

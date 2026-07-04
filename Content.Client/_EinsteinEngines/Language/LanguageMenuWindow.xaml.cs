@@ -133,7 +133,7 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
         _clientLanguageSystem.RequestSetLanguage(id);
 
         // Predict the change
-        if (_clientLanguageSystem.GetLocalSpeaker()?.SpokenLanguages is {} languages)
+        if (_clientLanguageSystem.GetLocalSpeaker()?.SpokenLanguages is { } languages)
             UpdateState(id, languages);
     }
 

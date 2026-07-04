@@ -113,7 +113,7 @@ public sealed partial class RoundNotificationsSystem : EntitySystem
             },
         };
         if (!String.IsNullOrEmpty(_roleId) && ping)
-            payload.AllowedMentions = new Dictionary<string, string[]> {{ "roles", new []{ _roleId } }};
+            payload.AllowedMentions = new Dictionary<string, string[]> { { "roles", new[] { _roleId } } };
 
         var request = await _httpClient.PostAsync($"{_webhookUrl}?wait=true",
             new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
@@ -127,7 +127,7 @@ public sealed partial class RoundNotificationsSystem : EntitySystem
         }
     }
 
-// https://discord.com/developers/docs/resources/channel#message-object-message-structure
+    // https://discord.com/developers/docs/resources/channel#message-object-message-structure
     private struct WebhookPayload
     {
         [JsonPropertyName("username")] public string? Username { get; set; } = null;
@@ -150,7 +150,7 @@ public sealed partial class RoundNotificationsSystem : EntitySystem
         }
     }
 
-// https://discord.com/developers/docs/resources/channel#embed-object-embed-structure
+    // https://discord.com/developers/docs/resources/channel#embed-object-embed-structure
     private struct Embed
     {
         [JsonPropertyName("title")] public string Title { get; set; } = "";
@@ -166,7 +166,7 @@ public sealed partial class RoundNotificationsSystem : EntitySystem
         }
     }
 
-// https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure
+    // https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure
     private struct EmbedFooter
     {
         [JsonPropertyName("text")] public string Text { get; set; } = "";

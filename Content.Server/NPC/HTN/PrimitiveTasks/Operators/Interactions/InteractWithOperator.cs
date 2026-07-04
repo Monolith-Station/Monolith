@@ -91,7 +91,7 @@ public sealed partial class InteractWithOperator : HTNOperator
         }
 
         // We shouldn't arrive here if we start a doafter, so fail if we expected a doafter
-        if(ExpectDoAfter)
+        if (ExpectDoAfter)
             return HTNOperatorStatus.Failed;
 
         return HTNOperatorStatus.Finished;

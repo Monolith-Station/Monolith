@@ -262,7 +262,7 @@ public sealed partial class ExplosionSystem
             }
 
             var toleranceValue = damagePerIntensity > 0
-                ? (float) ((totalDamageTarget - damageable.TotalDamage) / damagePerIntensity)
+                ? (float)((totalDamageTarget - damageable.TotalDamage) / damagePerIntensity)
                 : ToleranceValues.Invulnerable;
 
             explosionTolerance[index] = toleranceValue;

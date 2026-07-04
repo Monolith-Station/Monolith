@@ -32,7 +32,7 @@ namespace Content.Client.IconSmoothing
         [ViewVariables(VVAccess.ReadWrite), DataField("base")]
         public string StateBase { get; set; } = string.Empty;
 
-        [DataField("shader", customTypeSerializer:typeof(PrototypeIdSerializer<ShaderPrototype>))]
+        [DataField("shader", customTypeSerializer: typeof(PrototypeIdSerializer<ShaderPrototype>))]
         public string? Shader;
 
         /// <summary>

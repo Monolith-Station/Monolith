@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -104,7 +104,7 @@ public static class EntitySpawnCollection
             if (entry.PrototypeId == null)
                 continue;
 
-            var amount = (int) entry.GetAmount(random);
+            var amount = (int)entry.GetAmount(random);
 
             for (var i = 0; i < amount; i++)
             {
@@ -131,7 +131,7 @@ public static class EntitySpawnCollection
                     break;
 
                 // Dice roll succeeded, add item and break loop
-                var amount = (int) entry.GetAmount(random);
+                var amount = (int)entry.GetAmount(random);
 
                 for (var i = 0; i < amount; i++)
                 {
@@ -158,7 +158,7 @@ public static class EntitySpawnCollection
             if (entry.SpawnProbability != 1f && !random.Prob(entry.SpawnProbability))
                 continue;
 
-            var amount = (int) entry.GetAmount(random);
+            var amount = (int)entry.GetAmount(random);
 
             for (var i = 0; i < amount; i++)
             {
@@ -182,7 +182,7 @@ public static class EntitySpawnCollection
                     continue;
 
                 // Dice roll succeeded, add item and break loop
-                var amount = (int) entry.GetAmount(random);
+                var amount = (int)entry.GetAmount(random);
 
                 for (var i = 0; i < amount; i++)
                 {

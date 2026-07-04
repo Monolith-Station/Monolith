@@ -32,7 +32,7 @@ public sealed partial class CorticalBorerSystem
 
     private void OnChemcialMenu(Entity<CorticalBorerComponent> ent, ref CorticalChemMenuActionEvent args)
     {
-        if(!TryComp<UserInterfaceComponent>(ent, out var uic))
+        if (!TryComp<UserInterfaceComponent>(ent, out var uic))
             return;
 
         if (ent.Comp.Host is null)

@@ -52,7 +52,7 @@ public sealed partial class SpiderSystem : SharedSpiderSystem
         // Spawn web in other directions
         for (var i = 0; i < 4; i++)
         {
-            var direction = (DirectionFlag) (1 << i);
+            var direction = (DirectionFlag)(1 << i);
             coords = transform.Coordinates.Offset(direction.AsDir().ToVec());
 
             if (!IsTileBlockedByWeb(coords))

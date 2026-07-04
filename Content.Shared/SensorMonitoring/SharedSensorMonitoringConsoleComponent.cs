@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Serialization;
+using Robust.Shared.Serialization;
 using ConsoleUIState = Content.Shared.SensorMonitoring.SensorMonitoringConsoleBoundInterfaceState;
 
 namespace Content.Shared.SensorMonitoring;
@@ -84,7 +84,8 @@ public enum SensorUnit : byte
     /// <summary>
     /// A value in the range 0-1.
     /// </summary>
-    /* L + */ Ratio,
+    /* L + */
+    Ratio,
 
     /// <summary>
     /// Power in Watts (W).

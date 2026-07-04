@@ -10,7 +10,7 @@ namespace Content.Shared.DoAfter;
 [Access(typeof(SharedDoAfterSystem))]
 public sealed partial class DoAfter
 {
-    [DataField("index", required:true)]
+    [DataField("index", required: true)]
     public ushort Index;
 
     public DoAfterId Id => new(Args.User, Index);
@@ -21,13 +21,13 @@ public sealed partial class DoAfter
     /// <summary>
     ///     Time at which this do after was started.
     /// </summary>
-    [DataField("startTime", customTypeSerializer: typeof(TimeOffsetSerializer), required:true)]
+    [DataField("startTime", customTypeSerializer: typeof(TimeOffsetSerializer), required: true)]
     public TimeSpan StartTime;
 
     /// <summary>
     ///     The time at which this do after was canceled
     /// </summary>
-    [DataField("cancelledTime", customTypeSerializer: typeof(TimeOffsetSerializer), required:true)]
+    [DataField("cancelledTime", customTypeSerializer: typeof(TimeOffsetSerializer), required: true)]
     public TimeSpan? CancelledTime;
 
     /// <summary>

@@ -28,7 +28,7 @@ namespace Content.IntegrationTests.Tests.Access
                     if (!ent.Components.TryGetComponent(accessName, out var access))
                         continue;
 
-                    var reader = (AccessReaderComponent) access;
+                    var reader = (AccessReaderComponent)access;
                     var allTags = reader.AccessLists.SelectMany(c => c).Union(reader.DenyTags);
 
                     foreach (var level in allTags)

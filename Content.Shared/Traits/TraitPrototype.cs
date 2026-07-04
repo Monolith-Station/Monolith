@@ -62,17 +62,17 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
 
-        /// <summary>
-        ///     List of traits that ca't be taken together with this one.
-        /// </summary>
-        [DataField]
-        public HashSet<ProtoId<TraitPrototype>> MutuallyExclusiveTraits { get; private set; } = new();
+    /// <summary>
+    ///     List of traits that ca't be taken together with this one.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<TraitPrototype>> MutuallyExclusiveTraits { get; private set; } = new();
 
-        /// <summary>
-        ///     List of species that can't have this trait.
-        /// </summary>
-        [DataField]
-        public HashSet<ProtoId<SpeciesPrototype>> SpeciesBlacklist { get; private set; } = new();
+    /// <summary>
+    ///     List of species that can't have this trait.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>> SpeciesBlacklist { get; private set; } = new();
 
     // Einstein Engines - Language begin (remove this if trait system refactor)
     /// <summary>

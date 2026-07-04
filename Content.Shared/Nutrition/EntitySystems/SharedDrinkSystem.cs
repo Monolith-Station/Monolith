@@ -46,7 +46,7 @@ public abstract partial class SharedDrinkSystem : EntitySystem
         else
         {
             //general approximation
-            var remainingString = (int) _solutionContainer.PercentFull(entity) switch
+            var remainingString = (int)_solutionContainer.PercentFull(entity) switch
             {
                 100 => "drink-component-on-examine-is-full",
                 > 66 => "drink-component-on-examine-is-mostly-full",

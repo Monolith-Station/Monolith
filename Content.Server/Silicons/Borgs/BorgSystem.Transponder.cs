@@ -30,7 +30,7 @@ public sealed partial class BorgSystem
         var query = EntityQueryEnumerator<BorgTransponderComponent, BorgChassisComponent, DeviceNetworkComponent, MetaDataComponent>();
         while (query.MoveNext(out var uid, out var comp, out var chassis, out var device, out var meta))
         {
-            if (comp.NextDisable is {} nextDisable && now >= nextDisable)
+            if (comp.NextDisable is { } nextDisable && now >= nextDisable)
                 DoDisable((uid, comp, chassis, meta));
 
             if (now < comp.NextBroadcast)
@@ -73,7 +73,7 @@ public sealed partial class BorgSystem
             return;
         }
 
-        if (ent.Comp2.BrainEntity is not {} brain)
+        if (ent.Comp2.BrainEntity is not { } brain)
             return;
 
         var message = Loc.GetString(ent.Comp1.DisabledPopup, ("name", Name(ent, ent.Comp3)));

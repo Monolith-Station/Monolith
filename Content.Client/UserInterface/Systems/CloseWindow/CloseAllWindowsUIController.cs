@@ -26,7 +26,7 @@ public sealed partial class CloseAllWindowsUIController : UIController
         {
             if (childControl is BaseWindow)
             {
-                ((BaseWindow) childControl).Close();
+                ((BaseWindow)childControl).Close();
             }
         }
     }

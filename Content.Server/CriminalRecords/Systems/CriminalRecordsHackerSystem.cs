@@ -38,7 +38,7 @@ public sealed partial class CriminalRecordsHackerSystem : SharedCriminalRecordsH
         // Frontier: sector-wide records
         // if (_station.GetOwningStation(ent) is not {} station)
         //     return;
-        if (_sectorService.GetServiceEntity() is not { Valid: true} station)
+        if (_sectorService.GetServiceEntity() is not { Valid: true } station)
             return;
         // End Frontier: sector-wide records
 

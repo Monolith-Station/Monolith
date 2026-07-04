@@ -57,5 +57,5 @@ public abstract class SharedGasThermoMachineSystem : EntitySystem
         DirtyUI(uid, thermoMachine);
     }
 
-    protected virtual void DirtyUI(EntityUid uid, GasThermoMachineComponent? thermoMachine, UserInterfaceComponent? ui=null) {}
+    protected virtual void DirtyUI(EntityUid uid, GasThermoMachineComponent? thermoMachine, UserInterfaceComponent? ui = null) { }
 }

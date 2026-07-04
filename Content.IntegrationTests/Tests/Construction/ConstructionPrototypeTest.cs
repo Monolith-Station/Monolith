@@ -111,7 +111,7 @@ namespace Content.IntegrationTests.Tests.Construction
                     if (proto.Abstract || pair.IsTestPrototype(proto) || !proto.Components.TryGetValue(name, out var reg))
                         continue;
 
-                    var comp = (ConstructionComponent) reg.Component;
+                    var comp = (ConstructionComponent)reg.Component;
                     var target = comp.DeconstructionNode;
                     if (target == null)
                         continue;

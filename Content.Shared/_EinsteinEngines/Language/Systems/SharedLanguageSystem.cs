@@ -40,7 +40,7 @@ public abstract partial class SharedLanguageSystem : EntitySystem
     public override void Initialize()
     {
         Universal = _prototype.Index<LanguagePrototype>("Universal");
-         // Initialize the Psychomantic prototype
+        // Initialize the Psychomantic prototype
         Psychomantic = _prototype.Index<LanguagePrototype>(PsychomanticPrototype);
     }
 

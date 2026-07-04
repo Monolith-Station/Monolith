@@ -23,13 +23,13 @@ namespace Content.Shared.Salvage.Fulton;
 public abstract partial class SharedFultonSystem : EntitySystem
 {
     [Dependency] protected IGameTiming Timing = default!;
-    [Dependency] private   MetaDataSystem _metadata = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
     [Dependency] protected SharedAudioSystem Audio = default!;
-    [Dependency] private   SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private   FoldableSystem _foldable = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private FoldableSystem _foldable = default!;
     [Dependency] protected SharedContainerSystem Container = default!;
-    [Dependency] private   SharedPopupSystem _popup = default!;
-    [Dependency] private   SharedStackSystem _stack = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStackSystem _stack = default!;
     [Dependency] protected SharedTransformSystem TransformSystem = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 

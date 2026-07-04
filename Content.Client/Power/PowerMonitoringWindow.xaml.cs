@@ -98,7 +98,7 @@ public sealed partial class PowerMonitoringWindow : FancyWindow
 
     private void OnTabChanged(int tab)
     {
-        SendPowerMonitoringConsoleMessageAction?.Invoke(_focusEntity, (PowerMonitoringConsoleGroup) tab);
+        SendPowerMonitoringConsoleMessageAction?.Invoke(_focusEntity, (PowerMonitoringConsoleGroup)tab);
     }
 
     private void OnShowCableToggled(PowerMonitoringConsoleLineGroup lineGroup)

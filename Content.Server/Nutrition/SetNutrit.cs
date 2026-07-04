@@ -41,52 +41,52 @@ public sealed class SetNutrit : LocalizedEntityCommands
         switch (systemString)
         {
             case "hunger":
-            {
-                if (!EntityManager.TryGetComponent(playerEntity, out HungerComponent? hunger))
                 {
-                    shell.WriteError(Loc.GetString("cmd-nutrition-error-component", ("comp", nameof(HungerComponent))));
+                    if (!EntityManager.TryGetComponent(playerEntity, out HungerComponent? hunger))
+                    {
+                        shell.WriteError(Loc.GetString("cmd-nutrition-error-component", ("comp", nameof(HungerComponent))));
+                        return;
+                    }
+
+                    if (!Enum.TryParse(args[1], out HungerThreshold hungerThreshold))
+                    {
+                        shell.WriteError(Loc.GetString("cmd-setnutrit-error-invalid-threshold",
+                            ("thresholdType", nameof(HungerThreshold)),
+                            ("thresholdString", args[1])
+                        ));
+                        return;
+                    }
+
+                    var hungerValue = hunger.Thresholds[hungerThreshold];
+                    EntityManager.System<HungerSystem>().SetHunger(playerEntity, hungerValue, hunger);
                     return;
                 }
-
-                if (!Enum.TryParse(args[1], out HungerThreshold hungerThreshold))
-                {
-                    shell.WriteError(Loc.GetString("cmd-setnutrit-error-invalid-threshold",
-                        ("thresholdType", nameof(HungerThreshold)),
-                        ("thresholdString", args[1])
-                    ));
-                    return;
-                }
-
-                var hungerValue = hunger.Thresholds[hungerThreshold];
-                EntityManager.System<HungerSystem>().SetHunger(playerEntity, hungerValue, hunger);
-                return;
-            }
             case "thirst":
-            {
-                if (!EntityManager.TryGetComponent(playerEntity, out ThirstComponent? thirst))
                 {
-                    shell.WriteError(Loc.GetString("cmd-nutrition-error-component", ("comp", nameof(ThirstComponent))));
+                    if (!EntityManager.TryGetComponent(playerEntity, out ThirstComponent? thirst))
+                    {
+                        shell.WriteError(Loc.GetString("cmd-nutrition-error-component", ("comp", nameof(ThirstComponent))));
+                        return;
+                    }
+
+                    if (!Enum.TryParse(args[1], out ThirstThreshold thirstThreshold))
+                    {
+                        shell.WriteError(Loc.GetString("cmd-setnutrit-error-invalid-threshold",
+                             ("thresholdType", nameof(ThirstThreshold)),
+                             ("thresholdString", args[1])
+                         ));
+                        return;
+                    }
+
+                    var thirstValue = thirst.ThirstThresholds[thirstThreshold];
+                    EntityManager.System<ThirstSystem>().SetThirst(playerEntity, thirst, thirstValue);
                     return;
                 }
-
-                if (!Enum.TryParse(args[1], out ThirstThreshold thirstThreshold))
-                {
-                    shell.WriteError(Loc.GetString("cmd-setnutrit-error-invalid-threshold",
-                         ("thresholdType", nameof(ThirstThreshold)),
-                         ("thresholdString", args[1])
-                     ));
-                    return;
-                }
-
-                var thirstValue = thirst.ThirstThresholds[thirstThreshold];
-                EntityManager.System<ThirstSystem>().SetThirst(playerEntity, thirst, thirstValue);
-                return;
-            }
             default:
-            {
-                shell.WriteError($"invalid nutrition system ${systemString}");
-                return;
-            }
+                {
+                    shell.WriteError($"invalid nutrition system ${systemString}");
+                    return;
+                }
         }
     }
 
@@ -95,19 +95,19 @@ public sealed class SetNutrit : LocalizedEntityCommands
         switch (args.Length)
         {
             case 1:
-            {
-                string[] kinds = { "hunger", "thirst" };
-                return CompletionResult.FromHintOptions(kinds, "nutrition system");
-            }
-            case 2:
-            {
-                return args[0] switch
                 {
-                    "hunger" => CompletionResult.FromHintOptions(Enum.GetNames<HungerThreshold>(), nameof(HungerThreshold)),
-                    "thirst" => CompletionResult.FromHintOptions(Enum.GetNames<ThirstThreshold>(), nameof(ThirstThreshold)),
-                    _ => CompletionResult.Empty,
-                };
-            }
+                    string[] kinds = { "hunger", "thirst" };
+                    return CompletionResult.FromHintOptions(kinds, "nutrition system");
+                }
+            case 2:
+                {
+                    return args[0] switch
+                    {
+                        "hunger" => CompletionResult.FromHintOptions(Enum.GetNames<HungerThreshold>(), nameof(HungerThreshold)),
+                        "thirst" => CompletionResult.FromHintOptions(Enum.GetNames<ThirstThreshold>(), nameof(ThirstThreshold)),
+                        _ => CompletionResult.Empty,
+                    };
+                }
             default:
                 return CompletionResult.Empty;
         }

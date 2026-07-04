@@ -12,7 +12,7 @@ public sealed partial class NanotrasenNameGenerator : StationNameGenerator
     [DataField("prefixCreator")] public string PrefixCreator = default!;
 
     private string Prefix => "NT";
-    private string[] SuffixCodes => new []{ "" }; // MONO - custom ship designations
+    private string[] SuffixCodes => new[] { "" }; // MONO - custom ship designations
 
     public override string FormatName(string input)
     {

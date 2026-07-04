@@ -199,7 +199,7 @@ public sealed partial class ContainmentFieldGeneratorSystem : EntitySystem
         if (component.PowerBuffer >= component.PowerMinimum)
         {
             var directions = Enum.GetValues<Direction>().Length;
-            for (int i = 0; i < directions-1; i+=2)
+            for (int i = 0; i < directions - 1; i += 2)
             {
                 var dir = (Direction)i;
 
@@ -393,7 +393,7 @@ public sealed partial class ContainmentFieldGeneratorSystem : EntitySystem
     {
         _visualizer.SetData(generator, ContainmentFieldGeneratorVisuals.FieldLight, generator.Comp.Connections.Count switch
         {
-            >1 => FieldLevelVisuals.MultipleFields,
+            > 1 => FieldLevelVisuals.MultipleFields,
             1 => FieldLevelVisuals.OneField,
             _ => generator.Comp.Enabled ? FieldLevelVisuals.On : FieldLevelVisuals.NoLevel
         });

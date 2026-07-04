@@ -16,7 +16,8 @@ namespace Content.Server.Database
     {
         public DbContextOptionsExtensionInfo Info { get; }
 
-        public SnakeCaseExtension() {
+        public SnakeCaseExtension()
+        {
             Info = new ExtensionInfo(this);
         }
 
@@ -25,11 +26,11 @@ namespace Content.Server.Database
             services.AddSnakeCase();
         }
 
-        public void Validate(IDbContextOptions options) {}
+        public void Validate(IDbContextOptions options) { }
 
         private sealed class ExtensionInfo : DbContextOptionsExtensionInfo
         {
-            public ExtensionInfo(IDbContextOptionsExtension extension) : base(extension) {}
+            public ExtensionInfo(IDbContextOptionsExtension extension) : base(extension) { }
 
             public override bool IsDatabaseProvider => false;
 
@@ -95,15 +96,17 @@ namespace Content.Server.Database
         private static readonly StoreObjectType[] _storeObjectTypes
             = { StoreObjectType.Table, StoreObjectType.View, StoreObjectType.Function, StoreObjectType.SqlQuery };
 
-        public SnakeCaseConvention() {}
+        public SnakeCaseConvention() { }
 
         public static string RewriteName(string name)
         {
             return UpperCaseLocator()
                 .Replace(
                     name,
-                    (Match match) => {
-                        if (match.Index == 0 && (match.Value == "FK" || match.Value == "PK" ||  match.Value == "IX")) {
+                    (Match match) =>
+                    {
+                        if (match.Index == 0 && (match.Value == "FK" || match.Value == "PK" || match.Value == "IX"))
+                        {
                             return match.Value;
                         }
                         if (match.Value == "HWI")

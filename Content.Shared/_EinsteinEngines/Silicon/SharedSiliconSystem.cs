@@ -25,29 +25,29 @@ public sealed partial class SharedSiliconChargeSystem : EntitySystem
         SubscribeLocalEvent<SiliconComponent, ItemSlotEjectAttemptEvent>(OnItemSlotEjectAttempt);*/
         SubscribeLocalEvent<SiliconComponent, TryingToSleepEvent>(OnTryingToSleep);
     }
-/*
-    private void OnItemSlotInsertAttempt(EntityUid uid, SiliconComponent component, ref ItemSlotInsertAttemptEvent args) Monolith IPC rework
-    {
-        if (args.Cancelled
-            || !TryComp<PowerCellSlotComponent>(uid, out var cellSlotComp)
-            || !_itemSlots.TryGetSlot(uid, cellSlotComp.CellSlotId, out var cellSlot)
-            || cellSlot != args.Slot || args.User != uid)
-            return;
+    /*
+        private void OnItemSlotInsertAttempt(EntityUid uid, SiliconComponent component, ref ItemSlotInsertAttemptEvent args) Monolith IPC rework
+        {
+            if (args.Cancelled
+                || !TryComp<PowerCellSlotComponent>(uid, out var cellSlotComp)
+                || !_itemSlots.TryGetSlot(uid, cellSlotComp.CellSlotId, out var cellSlot)
+                || cellSlot != args.Slot || args.User != uid)
+                return;
 
-        args.Cancelled = true;
-    }
+            args.Cancelled = true;
+        }
 
-    private void OnItemSlotEjectAttempt(EntityUid uid, SiliconComponent component, ref ItemSlotEjectAttemptEvent args)
-    {
-        if (args.Cancelled
-            || !TryComp<PowerCellSlotComponent>(uid, out var cellSlotComp)
-            || !_itemSlots.TryGetSlot(uid, cellSlotComp.CellSlotId, out var cellSlot)
-            || cellSlot != args.Slot || args.User != uid)
-            return;
+        private void OnItemSlotEjectAttempt(EntityUid uid, SiliconComponent component, ref ItemSlotEjectAttemptEvent args)
+        {
+            if (args.Cancelled
+                || !TryComp<PowerCellSlotComponent>(uid, out var cellSlotComp)
+                || !_itemSlots.TryGetSlot(uid, cellSlotComp.CellSlotId, out var cellSlot)
+                || cellSlot != args.Slot || args.User != uid)
+                return;
 
-        args.Cancelled = true;
-    }
-*/
+            args.Cancelled = true;
+        }
+    */
     private void OnSiliconInit(EntityUid uid, SiliconComponent component, ComponentInit args)
     {
         if (!component.BatteryPowered)

@@ -8,9 +8,9 @@ namespace Content.Shared.Shuttles.Components;
 public sealed class FTLLockComponentState : ComponentState
 {
     public bool Enabled;
-    
+
     public FTLLockComponentState(bool enabled)
     {
         Enabled = enabled;
     }
-} 
+}

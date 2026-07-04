@@ -28,7 +28,7 @@ public sealed partial class PathfindingSystem
             {
                 for (var i = 0; i < 8; i++)
                 {
-                    var direction = (DirectionFlag) i;
+                    var direction = (DirectionFlag)i;
                     var neighbor = node + direction.AsDir().ToIntVec();
 
                     if (!cameFrom.TryAdd(neighbor, node))
@@ -42,7 +42,7 @@ public sealed partial class PathfindingSystem
             {
                 for (var i = 0; i < 4; i++)
                 {
-                    var direction = (DirectionFlag) Math.Pow(2, i);
+                    var direction = (DirectionFlag)Math.Pow(2, i);
                     var neighbor = node + direction.AsDir().ToIntVec();
 
                     if (!cameFrom.TryAdd(neighbor, node))

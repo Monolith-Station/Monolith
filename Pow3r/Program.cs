@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using ImGuiNET;
@@ -19,13 +19,13 @@ namespace Pow3r
         [UnmanagedCallersOnly]
         private static byte* GetClipboardTextCallback(void* userData)
         {
-            return GLFW.GetClipboardStringRaw((Window*) userData);
+            return GLFW.GetClipboardStringRaw((Window*)userData);
         }
 
         [UnmanagedCallersOnly]
         private static void SetClipboardTextCallback(void* userData, byte* text)
         {
-            GLFW.SetClipboardStringRaw((Window*) userData, text);
+            GLFW.SetClipboardStringRaw((Window*)userData, text);
         }
 
         private static readonly GLFWCallbacks.ErrorCallback ErrorCallback = GlfwErrorCallback;
@@ -169,43 +169,43 @@ namespace Pow3r
             io.Fonts.AddFontDefault();
 
             delegate* unmanaged<void*, byte*> getClipboardCallback = &GetClipboardTextCallback;
-            io.GetClipboardTextFn = (IntPtr) getClipboardCallback;
+            io.GetClipboardTextFn = (IntPtr)getClipboardCallback;
             delegate* unmanaged<void*, byte*, void> setClipboardCallback = &SetClipboardTextCallback;
-            io.GetClipboardTextFn = (IntPtr) setClipboardCallback;
-            io.ClipboardUserData = (IntPtr) _window.WindowPtr;
+            io.GetClipboardTextFn = (IntPtr)setClipboardCallback;
+            io.ClipboardUserData = (IntPtr)_window.WindowPtr;
             io.BackendFlags |= ImGuiBackendFlags.RendererHasVtxOffset;
             io.BackendFlags |= ImGuiBackendFlags.HasSetMousePos;
             io.BackendFlags |= ImGuiBackendFlags.HasMouseCursors;
 
-            io.KeyMap[(int) ImGuiKey.Tab] = (int) Keys.Tab;
-            io.KeyMap[(int) ImGuiKey.LeftArrow] = (int) Keys.Left;
-            io.KeyMap[(int) ImGuiKey.RightArrow] = (int) Keys.Right;
-            io.KeyMap[(int) ImGuiKey.UpArrow] = (int) Keys.Up;
-            io.KeyMap[(int) ImGuiKey.DownArrow] = (int) Keys.Down;
-            io.KeyMap[(int) ImGuiKey.PageUp] = (int) Keys.PageUp;
-            io.KeyMap[(int) ImGuiKey.PageDown] = (int) Keys.PageDown;
-            io.KeyMap[(int) ImGuiKey.Home] = (int) Keys.Home;
-            io.KeyMap[(int) ImGuiKey.End] = (int) Keys.End;
-            io.KeyMap[(int) ImGuiKey.Delete] = (int) Keys.Delete;
-            io.KeyMap[(int) ImGuiKey.Backspace] = (int) Keys.Backspace;
-            io.KeyMap[(int) ImGuiKey.Enter] = (int) Keys.Enter;
-            io.KeyMap[(int) ImGuiKey.Escape] = (int) Keys.Escape;
-            io.KeyMap[(int) ImGuiKey.A] = (int) Keys.A;
-            io.KeyMap[(int) ImGuiKey.C] = (int) Keys.C;
-            io.KeyMap[(int) ImGuiKey.V] = (int) Keys.V;
-            io.KeyMap[(int) ImGuiKey.X] = (int) Keys.X;
-            io.KeyMap[(int) ImGuiKey.Y] = (int) Keys.Y;
-            io.KeyMap[(int) ImGuiKey.Z] = (int) Keys.Z;
+            io.KeyMap[(int)ImGuiKey.Tab] = (int)Keys.Tab;
+            io.KeyMap[(int)ImGuiKey.LeftArrow] = (int)Keys.Left;
+            io.KeyMap[(int)ImGuiKey.RightArrow] = (int)Keys.Right;
+            io.KeyMap[(int)ImGuiKey.UpArrow] = (int)Keys.Up;
+            io.KeyMap[(int)ImGuiKey.DownArrow] = (int)Keys.Down;
+            io.KeyMap[(int)ImGuiKey.PageUp] = (int)Keys.PageUp;
+            io.KeyMap[(int)ImGuiKey.PageDown] = (int)Keys.PageDown;
+            io.KeyMap[(int)ImGuiKey.Home] = (int)Keys.Home;
+            io.KeyMap[(int)ImGuiKey.End] = (int)Keys.End;
+            io.KeyMap[(int)ImGuiKey.Delete] = (int)Keys.Delete;
+            io.KeyMap[(int)ImGuiKey.Backspace] = (int)Keys.Backspace;
+            io.KeyMap[(int)ImGuiKey.Enter] = (int)Keys.Enter;
+            io.KeyMap[(int)ImGuiKey.Escape] = (int)Keys.Escape;
+            io.KeyMap[(int)ImGuiKey.A] = (int)Keys.A;
+            io.KeyMap[(int)ImGuiKey.C] = (int)Keys.C;
+            io.KeyMap[(int)ImGuiKey.V] = (int)Keys.V;
+            io.KeyMap[(int)ImGuiKey.X] = (int)Keys.X;
+            io.KeyMap[(int)ImGuiKey.Y] = (int)Keys.Y;
+            io.KeyMap[(int)ImGuiKey.Z] = (int)Keys.Z;
 
-            _cursors[(int) ImGuiMouseCursor.Arrow] = GLFW.CreateStandardCursor(CursorShape.Arrow);
-            _cursors[(int) ImGuiMouseCursor.TextInput] = GLFW.CreateStandardCursor(CursorShape.IBeam);
-            _cursors[(int) ImGuiMouseCursor.ResizeNS] = GLFW.CreateStandardCursor(CursorShape.ResizeNS);
-            _cursors[(int) ImGuiMouseCursor.ResizeEW] = GLFW.CreateStandardCursor(CursorShape.ResizeEW);
-            _cursors[(int) ImGuiMouseCursor.Hand] = GLFW.CreateStandardCursor(CursorShape.PointingHand);
-            _cursors[(int) ImGuiMouseCursor.ResizeAll] = GLFW.CreateStandardCursor(CursorShape.Arrow);
-            _cursors[(int) ImGuiMouseCursor.ResizeNESW] = GLFW.CreateStandardCursor(CursorShape.Arrow);
-            _cursors[(int) ImGuiMouseCursor.ResizeNWSE] = GLFW.CreateStandardCursor(CursorShape.Arrow);
-            _cursors[(int) ImGuiMouseCursor.NotAllowed] = GLFW.CreateStandardCursor(CursorShape.Arrow);
+            _cursors[(int)ImGuiMouseCursor.Arrow] = GLFW.CreateStandardCursor(CursorShape.Arrow);
+            _cursors[(int)ImGuiMouseCursor.TextInput] = GLFW.CreateStandardCursor(CursorShape.IBeam);
+            _cursors[(int)ImGuiMouseCursor.ResizeNS] = GLFW.CreateStandardCursor(CursorShape.ResizeNS);
+            _cursors[(int)ImGuiMouseCursor.ResizeEW] = GLFW.CreateStandardCursor(CursorShape.ResizeEW);
+            _cursors[(int)ImGuiMouseCursor.Hand] = GLFW.CreateStandardCursor(CursorShape.PointingHand);
+            _cursors[(int)ImGuiMouseCursor.ResizeAll] = GLFW.CreateStandardCursor(CursorShape.Arrow);
+            _cursors[(int)ImGuiMouseCursor.ResizeNESW] = GLFW.CreateStandardCursor(CursorShape.Arrow);
+            _cursors[(int)ImGuiMouseCursor.ResizeNWSE] = GLFW.CreateStandardCursor(CursorShape.Arrow);
+            _cursors[(int)ImGuiMouseCursor.NotAllowed] = GLFW.CreateStandardCursor(CursorShape.Arrow);
 
             InitRenderer();
 
@@ -234,16 +234,16 @@ namespace Pow3r
                 {
                     lastTick += tickSpan;
 
-                    Tick((float) tickSpan.TotalSeconds);
+                    Tick((float)tickSpan.TotalSeconds);
                 }
 
                 _frameTimeIdx = (_frameTimeIdx + 1) % _frameTimings.Length;
 
                 var dt = curTime - lastFrame;
                 lastFrame = curTime;
-                _frameTimings[_frameTimeIdx] = (float) dt.TotalMilliseconds;
+                _frameTimings[_frameTimeIdx] = (float)dt.TotalMilliseconds;
 
-                FrameUpdate((float) dt.TotalSeconds);
+                FrameUpdate((float)dt.TotalSeconds);
                 Render();
                 curTime = _stopwatch.Elapsed;
             }
@@ -254,14 +254,14 @@ namespace Pow3r
         private static void KeyCallback(KeyboardKeyEventArgs obj, bool down)
         {
             var io = ImGui.GetIO();
-            if (obj.Key ==Keys.Unknown)
+            if (obj.Key == Keys.Unknown)
                 return;
 
-            var keyInt = (int) obj.Key;
+            var keyInt = (int)obj.Key;
             io.KeysDown[keyInt] = down;
-            io.KeyCtrl = io.KeysDown[(int) Keys.LeftControl] || io.KeysDown[(int) Keys.RightControl];
-            io.KeyShift = io.KeysDown[(int) Keys.LeftShift] || io.KeysDown[(int) Keys.RightShift];
-            io.KeyAlt = io.KeysDown[(int) Keys.LeftAlt] || io.KeysDown[(int) Keys.RightAlt];
+            io.KeyCtrl = io.KeysDown[(int)Keys.LeftControl] || io.KeysDown[(int)Keys.RightControl];
+            io.KeyShift = io.KeysDown[(int)Keys.LeftShift] || io.KeysDown[(int)Keys.RightShift];
+            io.KeyAlt = io.KeysDown[(int)Keys.LeftAlt] || io.KeysDown[(int)Keys.RightAlt];
         }
 
         private static void WindowOnMouseWheel(MouseWheelEventArgs obj)
@@ -274,12 +274,12 @@ namespace Pow3r
         private static void WindowOnTextInput(TextInputEventArgs obj)
         {
             var io = ImGui.GetIO();
-            io.AddInputCharacter((uint) obj.Unicode);
+            io.AddInputCharacter((uint)obj.Unicode);
         }
 
         private void OnMouseDown(MouseButtonEventArgs obj)
         {
-            var button = (int) obj.Button;
+            var button = (int)obj.Button;
             if (obj.IsPressed && button < _mouseJustPressed.Length)
                 _mouseJustPressed[button] = true;
         }
@@ -291,7 +291,7 @@ namespace Pow3r
             GLFW.GetFramebufferSize(_window.WindowPtr, out var fbW, out var fbH);
             GLFW.GetWindowSize(_window.WindowPtr, out var wW, out var wH);
             io.DisplaySize = new Vector2(wW, wH);
-            io.DisplayFramebufferScale = new Vector2(fbW / (float) wW, fbH / (float) wH);
+            io.DisplayFramebufferScale = new Vector2(fbW / (float)wW, fbH / (float)wH);
             io.DeltaTime = dt;
 
             UpdateMouseState(io);
@@ -313,7 +313,7 @@ namespace Pow3r
             }
             else
             {
-                GLFW.SetCursor(_window.WindowPtr, _cursors[(int) cursor]);
+                GLFW.SetCursor(_window.WindowPtr, _cursors[(int)cursor]);
                 GLFW.SetInputMode(_window.WindowPtr, CursorStateAttribute.Cursor, CursorModeValue.CursorNormal);
             }
         }
@@ -323,7 +323,7 @@ namespace Pow3r
             for (var i = 0; i < io.MouseDown.Count; i++)
             {
                 io.MouseDown[i] = _mouseJustPressed[i] ||
-                                  GLFW.GetMouseButton(_window.WindowPtr, (MouseButton) i) == InputAction.Press;
+                                  GLFW.GetMouseButton(_window.WindowPtr, (MouseButton)i) == InputAction.Press;
                 _mouseJustPressed[i] = false;
             }
 
@@ -340,7 +340,7 @@ namespace Pow3r
                 else
                 {
                     GLFW.GetCursorPos(_window.WindowPtr, out var x, out var y);
-                    io.MousePos = new Vector2((float) x, (float) y);
+                    io.MousePos = new Vector2((float)x, (float)y);
                 }
             }
         }

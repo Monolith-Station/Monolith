@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Damage.Prototypes;
 
@@ -17,5 +17,5 @@ public sealed partial class ExaminableDamagePrototype : IPrototype
     ///     Last one describes almost destroyed.
     /// </summary>
     [DataField("messages")]
-    public string[] Messages = {};
+    public string[] Messages = { };
 }

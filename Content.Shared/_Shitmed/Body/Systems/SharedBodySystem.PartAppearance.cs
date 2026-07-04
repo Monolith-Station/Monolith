@@ -11,6 +11,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Body.Systems;
+
 public partial class SharedBodySystem
 {
     [Dependency] private SharedHumanoidAppearanceSystem _humanoid = default!;
@@ -126,7 +127,7 @@ public partial class SharedBodySystem
             partAppearance.Comp.Markings[targetLayer].Add(marking);
         }
         //else
-            //RemovePartMarkings(uid, component, bodyAppearance);
+        //RemovePartMarkings(uid, component, bodyAppearance);
     }
 
     private void HandleState(EntityUid uid, BodyPartAppearanceComponent component, ref AfterAutoHandleStateEvent args) =>

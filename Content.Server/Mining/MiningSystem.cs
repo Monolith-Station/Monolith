@@ -68,7 +68,7 @@ public sealed partial class MiningSystem : EntitySystem
             ? Transform(gatherer.Value).Coordinates
             : Transform(uid).Coordinates;
 
-        var yield = _random.Next(proto.MinOreYield, proto.MaxOreYield+1);
+        var yield = _random.Next(proto.MinOreYield, proto.MaxOreYield + 1);
         _spawnCount.SpawnCount(proto.OreEntity.Value, coords.Offset(_random.NextVector2(0.2f)), yield);
         component.PreventSpawning = true;
     }

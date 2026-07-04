@@ -67,7 +67,7 @@ public sealed partial class ChangeReagentWhitelistWindow : DefaultWindow
 
     private void ReagentListSelected(ItemList.ItemListSelectedEventArgs obj)
     {
-        _selectedReagent = (ReagentPrototype) obj.ItemList[obj.ItemIndex].Metadata!;
+        _selectedReagent = (ReagentPrototype)obj.ItemList[obj.ItemIndex].Metadata!;
         UpdateApplyButton();
     }
 

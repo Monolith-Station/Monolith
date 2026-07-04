@@ -20,7 +20,7 @@ public sealed class Hungry : LocalizedEntityCommands
             return;
         }
 
-        if (player.AttachedEntity is not {Valid: true} playerEntity)
+        if (player.AttachedEntity is not { Valid: true } playerEntity)
         {
             shell.WriteError(Loc.GetString("cmd-nutrition-error-entity"));
             return;

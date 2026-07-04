@@ -28,7 +28,7 @@ public abstract partial class SharedLabelSystem : EntitySystem
         NameMod.RefreshNameModifiers(uid);
     }
 
-    public virtual void Label(EntityUid uid, string? text, MetaDataComponent? metadata = null, LabelComponent? label = null){}
+    public virtual void Label(EntityUid uid, string? text, MetaDataComponent? metadata = null, LabelComponent? label = null) { }
 
     private void OnExamine(EntityUid uid, LabelComponent? label, ExaminedEvent args)
     {

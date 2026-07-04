@@ -148,7 +148,7 @@ namespace Content.Client.Construction.UI
                 return;
             }
 
-            _selected = (ConstructionPrototype) item.Metadata!;
+            _selected = (ConstructionPrototype)item.Metadata!;
             if (_placementManager.IsActive && !_placementManager.Eraser) UpdateGhostPlacement();
             PopulateInfo(_selected);
         }

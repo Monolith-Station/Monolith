@@ -2,6 +2,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Shared.IgnitionSource;
 
 namespace Content.Server.IgnitionSource;
+
 public sealed partial class IgnitionSourceSystem : SharedIgnitionSourceSystem
 {
     [Dependency] private AtmosphereSystem _atmosphere = default!;

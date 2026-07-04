@@ -17,7 +17,7 @@ public sealed partial class UtilityService
     /// <summary>
     /// Prototype of the utility query.
     /// </summary>
-    [DataField("proto", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<UtilityQueryPrototype>))]
+    [DataField("proto", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<UtilityQueryPrototype>))]
     public string Prototype = string.Empty;
 
     [DataField("minCooldown")]

@@ -32,7 +32,8 @@ public sealed partial class TeslaEnergyBallSystem : EntitySystem
         if (TryComp<SinguloFoodComponent>(args.Entity, out var singuloFood))
         {
             AdjustEnergy(tesla, tesla.Comp, singuloFood.Energy);
-        } else
+        }
+        else
         {
             AdjustEnergy(tesla, tesla.Comp, tesla.Comp.ConsumeStuffEnergy);
         }

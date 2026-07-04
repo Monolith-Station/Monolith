@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Globalization;
@@ -73,7 +73,7 @@ namespace Content.Tools
             var aChunks = a["chunks"];
             var bChunks = b["chunks"];
             var cChunks = c["chunks"];
-            MergeTileChunks((YamlSequenceNode) aChunks, (YamlSequenceNode) bChunks, (YamlSequenceNode) cChunks);
+            MergeTileChunks((YamlSequenceNode)aChunks, (YamlSequenceNode)bChunks, (YamlSequenceNode)cChunks);
         }
 
         public void MergeTileChunks(YamlSequenceNode aChunks, YamlSequenceNode bChunks, YamlSequenceNode cChunks)
@@ -147,7 +147,7 @@ namespace Content.Tools
         {
             var map = new Dictionary<string, YamlMappingNode>();
             foreach (var chunk in chunks)
-                map[chunk["ind"].ToString()] = (YamlMappingNode) chunk;
+                map[chunk["ind"].ToString()] = (YamlMappingNode)chunk;
             return map;
         }
 
@@ -219,7 +219,7 @@ namespace Content.Tools
                 }
                 else
                 {
-                    oursEnt = (YamlMappingNode) YamlTools.CopyYamlNodes(MapOther.Entities[kvp.Key]);
+                    oursEnt = (YamlMappingNode)YamlTools.CopyYamlNodes(MapOther.Entities[kvp.Key]);
                     if (!MapEntity(oursEnt))
                     {
                         Console.WriteLine("Unable to successfully import entity C/" + kvp.Key);
@@ -238,7 +238,7 @@ namespace Content.Tools
         public bool MergeEntityNodes(YamlMappingNode ours, YamlMappingNode based, YamlMappingNode other)
         {
             // Copy to intermediate
-            var otherMapped = (YamlMappingNode) YamlTools.CopyYamlNodes(other);
+            var otherMapped = (YamlMappingNode)YamlTools.CopyYamlNodes(other);
             if (!MapEntity(otherMapped))
                 return false;
             // Merge stuff that isn't components
@@ -247,18 +247,18 @@ namespace Content.Tools
             // Components are special
             var ourComponents = new Dictionary<string, YamlMappingNode>();
             var basedComponents = new Dictionary<string, YamlMappingNode>();
-            var ourComponentsNode = (YamlSequenceNode) ours["components"];
-            var basedComponentsNode = (YamlSequenceNode) based["components"];
-            var otherComponentsNode = (YamlSequenceNode) otherMapped["components"];
+            var ourComponentsNode = (YamlSequenceNode)ours["components"];
+            var basedComponentsNode = (YamlSequenceNode)based["components"];
+            var otherComponentsNode = (YamlSequenceNode)otherMapped["components"];
             foreach (var component in ourComponentsNode)
             {
                 var name = component["type"].ToString();
-                ourComponents[name] = (YamlMappingNode) component;
+                ourComponents[name] = (YamlMappingNode)component;
             }
             foreach (var component in basedComponentsNode)
             {
                 var name = component["type"].ToString();
-                basedComponents[name] = (YamlMappingNode) component;
+                basedComponents[name] = (YamlMappingNode)component;
             }
             foreach (var otherComponent in otherComponentsNode)
             {
@@ -284,13 +284,13 @@ namespace Content.Tools
             var path = "Entity" + other["uid"];
             if (other.Children.ContainsKey("components"))
             {
-                var components = (YamlSequenceNode) other["components"];
+                var components = (YamlSequenceNode)other["components"];
                 foreach (var component in components)
                 {
                     var type = component["type"].ToString();
                     if (type == "Transform")
                     {
-                        if (!MapEntityProperty((YamlMappingNode) component, "parent", path))
+                        if (!MapEntityProperty((YamlMappingNode)component, "parent", path))
                             return false;
                     }
                     else if (type == "ContainerContainer")

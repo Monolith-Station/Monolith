@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Timing;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Timing;
 
@@ -39,7 +39,7 @@ public record struct StartEndTime(TimeSpan Start, TimeSpan End)
         if (length == default)
             return float.NaN;
 
-        var progress = (float) ((time - Start) / length);
+        var progress = (float)((time - Start) / length);
         if (clamp)
             progress = MathHelper.Clamp01(progress);
 

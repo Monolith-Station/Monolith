@@ -43,7 +43,7 @@ public sealed partial class SeedExtractorSystem : EntitySystem
         QueueDel(args.Used);
         args.Handled = true;
 
-        var amount = (int) _random.NextFloat(seedExtractor.BaseMinSeeds, seedExtractor.BaseMaxSeeds + 1) * seedExtractor.SeedAmountMultiplier;
+        var amount = (int)_random.NextFloat(seedExtractor.BaseMinSeeds, seedExtractor.BaseMaxSeeds + 1) * seedExtractor.SeedAmountMultiplier;
         var coords = Transform(uid).Coordinates;
 
         var packetSeed = seed;

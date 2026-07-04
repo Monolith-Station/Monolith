@@ -48,7 +48,7 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components
 
                 foreach (var document in yamlStream.Documents)
                 {
-                    var root = (YamlSequenceNode) document.RootNode;
+                    var root = (YamlSequenceNode)document.RootNode;
 
                     foreach (var node in root.Cast<YamlMappingNode>())
                     {

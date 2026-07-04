@@ -6,4 +6,4 @@ namespace Content.Shared.Overlays;
 ///     This component allows you to identify members of the Syndicate faction.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class ShowSyndicateIconsComponent : Component {}
+public sealed partial class ShowSyndicateIconsComponent : Component { }

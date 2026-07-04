@@ -1,4 +1,5 @@
 namespace Content.Shared._Shitmed.Targeting;
+
 public enum TargetIntegrity
 {
     Healthy = 0,

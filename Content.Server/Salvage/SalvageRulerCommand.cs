@@ -15,7 +15,7 @@ sealed partial class SalvageRulerCommand : IConsoleCommand
 
     public string Description => Loc.GetString("salvage-ruler-command-description");
 
-    public string Help => Loc.GetString("salvage-ruler-command-help-text", ("command",Command));
+    public string Help => Loc.GetString("salvage-ruler-command-help-text", ("command", Command));
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {

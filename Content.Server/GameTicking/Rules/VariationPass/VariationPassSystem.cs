@@ -1,4 +1,4 @@
-﻿using Content.Server.Station.Systems;
+using Content.Server.Station.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Server.GameTicking.Rules.VariationPass;
@@ -8,7 +8,7 @@ namespace Content.Server.GameTicking.Rules.VariationPass;
 ///     so we simply reduce the boilerplate for the event handling a bit with this.
 /// </summary>
 public abstract partial class VariationPassSystem<T> : GameRuleSystem<T>
-    where T: IComponent
+    where T : IComponent
 {
     [Dependency] protected StationSystem Stations = default!;
     [Dependency] protected IRobustRandom Random = default!;

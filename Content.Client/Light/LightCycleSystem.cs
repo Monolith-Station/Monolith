@@ -22,7 +22,7 @@ public sealed partial class LightCycleSystem : SharedLightCycleSystem
             return;
 
         var mapQuery = AllEntityQuery<LightCycleComponent, MapLightComponent>();
-        while (mapQuery.MoveNext(out var uid,  out var cycle, out var map))
+        while (mapQuery.MoveNext(out var uid, out var cycle, out var map))
         {
             if (!cycle.Running)
                 continue;
@@ -31,7 +31,7 @@ public sealed partial class LightCycleSystem : SharedLightCycleSystem
             // it apply the server state
             var pausedTime = _metadata.GetPauseTime(uid);
 
-            var time = (float) _timing.CurTime
+            var time = (float)_timing.CurTime
                 .Add(cycle.Offset)
                 .Subtract(_ticker.RoundStartTimeSpan)
                 .Subtract(pausedTime)

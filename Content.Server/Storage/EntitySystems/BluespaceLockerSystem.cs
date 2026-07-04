@@ -61,7 +61,7 @@ public sealed partial class BluespaceLockerSystem : EntitySystem
                 if (curTimeTicks < effectTargetComponent.BluespaceEffectNextTime)
                     return;
 
-                effectTargetComponent.BluespaceEffectNextTime = curTimeTicks + (uint) (_timing.TickRate * effectTargetComponent.BehaviorProperties.BluespaceEffectMinInterval);
+                effectTargetComponent.BluespaceEffectNextTime = curTimeTicks + (uint)(_timing.TickRate * effectTargetComponent.BehaviorProperties.BluespaceEffectMinInterval);
             }
 
         Spawn(effectSourceComponent.BehaviorProperties.BluespaceEffectPrototype, effectTargetUid.ToCoordinates());
@@ -234,7 +234,7 @@ public sealed partial class BluespaceLockerSystem : EntitySystem
                                 targetBluespaceComponent.BluespaceLinks.Add(lockerUid);
 
                             if (component.AutoLinksUseProperties)
-                                targetBluespaceComponent.BehaviorProperties = component.AutoLinkProperties with {};
+                                targetBluespaceComponent.BehaviorProperties = component.AutoLinkProperties with { };
 
                             GetTarget(potentialLink, targetBluespaceComponent, true);
                             BluespaceEffect(potentialLink, targetBluespaceComponent, targetBluespaceComponent, true);

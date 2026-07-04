@@ -15,7 +15,7 @@ namespace Content.Shared.Construction
         [DataField("completed", serverOnly: true)]
         private IGraphAction[] _completed = Array.Empty<IGraphAction>();
 
-        [DataField("to", required:true)]
+        [DataField("to", required: true)]
         public string Target { get; private set; } = string.Empty;
 
         [ViewVariables]

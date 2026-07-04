@@ -298,18 +298,18 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         return itemDirection switch
         {
             Direction.North => component.NorthOver
-                ? (int) DrawDepth.DrawDepth.Doors
-                : (int) DrawDepth.DrawDepth.WallMountedItems,
+                ? (int)DrawDepth.DrawDepth.Doors
+                : (int)DrawDepth.DrawDepth.WallMountedItems,
             Direction.South => component.SouthOver
-                ? (int) DrawDepth.DrawDepth.Doors
-                : (int) DrawDepth.DrawDepth.WallMountedItems,
+                ? (int)DrawDepth.DrawDepth.Doors
+                : (int)DrawDepth.DrawDepth.WallMountedItems,
             Direction.West => component.WestOver
-                ? (int) DrawDepth.DrawDepth.Doors
-                : (int) DrawDepth.DrawDepth.WallMountedItems,
+                ? (int)DrawDepth.DrawDepth.Doors
+                : (int)DrawDepth.DrawDepth.WallMountedItems,
             Direction.East => component.EastOver
-                ? (int) DrawDepth.DrawDepth.Doors
-                : (int) DrawDepth.DrawDepth.WallMountedItems,
-            _ => (int) DrawDepth.DrawDepth.WallMountedItems
+                ? (int)DrawDepth.DrawDepth.Doors
+                : (int)DrawDepth.DrawDepth.WallMountedItems,
+            _ => (int)DrawDepth.DrawDepth.WallMountedItems
         };
     }
 
@@ -331,7 +331,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         {
             < 45f => new(0, component.SouthOverride),
             <= 135f => component.BaseBuckleOffset,
-            < 225f  => new(0, component.NorthOverride),
+            < 225f => new(0, component.NorthOverride),
             <= 315f => new(component.BaseBuckleOffset.X * -1, component.BaseBuckleOffset.Y),
             _ => new(0, component.SouthOverride)
         };

@@ -35,7 +35,7 @@ public sealed partial class NPCDomainCommand : IConsoleCommand
 
         var htnSystem = _sysManager.GetEntitySystem<HTNSystem>();
 
-        foreach (var line in htnSystem.GetDomain(new HTNCompoundTask {Task = args[0]}).Split("\n"))
+        foreach (var line in htnSystem.GetDomain(new HTNCompoundTask { Task = args[0] }).Split("\n"))
         {
             shell.WriteLine(line);
         }

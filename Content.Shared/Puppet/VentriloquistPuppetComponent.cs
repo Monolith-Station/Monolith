@@ -6,20 +6,20 @@ namespace Content.Shared.Puppet;
 public sealed partial class VentriloquistPuppetComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<LocId> RemoveHand = new ();
+    public List<LocId> RemoveHand = new();
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public List<LocId> RemovedHand = new();
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<LocId> InsertHand = new ();
+    public List<LocId> InsertHand = new();
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<LocId> InsertedHand = new ();
+    public List<LocId> InsertedHand = new();
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<LocId> PuppetRoleName = new ();
+    public List<LocId> PuppetRoleName = new();
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<LocId> PuppetRoleDescription = new ();
+    public List<LocId> PuppetRoleDescription = new();
 }

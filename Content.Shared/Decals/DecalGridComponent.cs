@@ -14,7 +14,7 @@ namespace Content.Shared.Decals
     {
         [Access(Other = AccessPermissions.ReadExecute)]
         [DataField(serverOnly: true)]
-        public DecalGridChunkCollection ChunkCollection = new(new ());
+        public DecalGridChunkCollection ChunkCollection = new(new());
 
         /// <summary>
         ///     Dictionary mapping decals to their corresponding grid chunks.
@@ -30,7 +30,7 @@ namespace Content.Shared.Decals
         [Serializable, NetSerializable]
         public sealed partial class DecalChunk
         {
-            [IncludeDataField(customTypeSerializer:typeof(DictionarySerializer<uint, Decal>))]
+            [IncludeDataField(customTypeSerializer: typeof(DictionarySerializer<uint, Decal>))]
             public Dictionary<uint, Decal> Decals;
 
             [NonSerialized]

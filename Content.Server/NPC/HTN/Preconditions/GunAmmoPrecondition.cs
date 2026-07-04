@@ -33,7 +33,7 @@ public sealed partial class GunAmmoPrecondition : HTNPrecondition
         if (ammoEv.Capacity == 0)
             percent = 0f;
         else
-            percent = ammoEv.Count / (float) ammoEv.Capacity;
+            percent = ammoEv.Count / (float)ammoEv.Capacity;
 
         percent = System.Math.Clamp(percent, 0f, 1f);
 

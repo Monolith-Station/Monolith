@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Players.RateLimiting;
@@ -46,7 +46,7 @@ public sealed partial class PlayerRateLimitManager : SharedPlayerRateLimitManage
 
         // Breached rate limits, inform admins if configured.
         // Negative delays can be used to disable admin announcements.
-        if (registration.AdminAnnounceDelay is {TotalSeconds: >= 0} cvarAnnounceDelay)
+        if (registration.AdminAnnounceDelay is { TotalSeconds: >= 0 } cvarAnnounceDelay)
         {
             if (datum.NextAdminAnnounce < time)
             {

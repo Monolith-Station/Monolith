@@ -152,7 +152,7 @@ public sealed partial class BloodstreamSystem : EntitySystem
                 // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
                 _drunkSystem.TryApplyDrunkenness(
                     uid,
-                    (float) bloodstream.UpdateInterval.TotalSeconds * 2,
+                    (float)bloodstream.UpdateInterval.TotalSeconds * 2,
                     applySlur: false);
                 _stutteringSystem.DoStutter(uid, bloodstream.UpdateInterval * 2, refresh: false);
 
@@ -415,7 +415,7 @@ public sealed partial class BloodstreamSystem : EntitySystem
             _alertsSystem.ClearAlert(uid, component.BleedingAlert);
         else
         {
-            var severity = (short) Math.Clamp(Math.Round(component.BleedAmount, MidpointRounding.ToZero), 0, 10);
+            var severity = (short)Math.Clamp(Math.Round(component.BleedAmount, MidpointRounding.ToZero), 0, 10);
             _alertsSystem.ShowAlert(uid, component.BleedingAlert, severity);
         }
 
@@ -505,7 +505,8 @@ public sealed partial class BloodstreamSystem : EntitySystem
         if (TryComp<DnaComponent>(uid, out var donorComp))
         {
             dnaData.DNA = donorComp.DNA;
-        } else
+        }
+        else
         {
             dnaData.DNA = Loc.GetString("forensics-dna-unknown");
         }

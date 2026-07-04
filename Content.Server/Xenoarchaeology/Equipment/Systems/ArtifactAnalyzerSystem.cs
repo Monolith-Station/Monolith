@@ -147,7 +147,7 @@ public sealed partial class ArtifactAnalyzerSystem : EntitySystem
         {
             var lastNode = artifact.CurrentNodeId == null
                 ? null
-                : (ArtifactNode?) _artifact.GetNodeFromId(artifact.CurrentNodeId.Value, artifact).Clone();
+                : (ArtifactNode?)_artifact.GetNodeFromId(artifact.CurrentNodeId.Value, artifact).Clone();
             component.LastAnalyzedNode = lastNode;
             component.LastAnalyzerPointValue = _artifact.GetResearchPointValue(component.LastAnalyzedArtifact.Value, artifact);
         }

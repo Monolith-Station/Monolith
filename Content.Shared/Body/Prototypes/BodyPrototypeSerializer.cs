@@ -118,7 +118,7 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
 
         foreach (var (slotId, valueNode) in slotNodes)
         {
-            var slot = (MappingDataNode) valueNode;
+            var slot = (MappingDataNode)valueNode;
 
             string? part = null;
             if (slot.TryGet<ValueDataNode>("part", out var value))
@@ -144,7 +144,7 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
 
                 foreach (var (organKey, organValueNode) in slotOrgansNode)
                 {
-                    organs.Add(organKey, ((ValueDataNode) organValueNode).Value);
+                    organs.Add(organKey, ((ValueDataNode)organValueNode).Value);
                 }
             }
 

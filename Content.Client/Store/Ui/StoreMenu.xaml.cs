@@ -54,7 +54,7 @@ public sealed partial class StoreMenu : DefaultWindow
         var balanceStr = string.Empty;
         foreach (var ((_, amount), proto) in currency)
         {
-            balanceStr += Loc.GetString("store-ui-balance-display", ("amount", BankSystemExtensions.ToIndependentString((int) amount)), // Frontier: amount<BankSystemExtensions.GetIndependentString((int)amount)
+            balanceStr += Loc.GetString("store-ui-balance-display", ("amount", BankSystemExtensions.ToIndependentString((int)amount)), // Frontier: amount<BankSystemExtensions.GetIndependentString((int)amount)
                 ("currency", Loc.GetString(proto.DisplayName, ("amount", 1))));
         }
 

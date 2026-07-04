@@ -279,7 +279,7 @@ public sealed partial class AccessReaderSystem : EntitySystem
             FindAccessTagsItem(ent, ref tags, ref owned);
         }
 
-        return (ICollection<ProtoId<AccessLevelPrototype>>?) tags ?? Array.Empty<ProtoId<AccessLevelPrototype>>();
+        return (ICollection<ProtoId<AccessLevelPrototype>>?)tags ?? Array.Empty<ProtoId<AccessLevelPrototype>>();
     }
 
     /// <summary>
@@ -340,7 +340,7 @@ public sealed partial class AccessReaderSystem : EntitySystem
         component.AccessLists.Clear();
         foreach (var access in accesses)
         {
-            component.AccessLists.Add(new HashSet<ProtoId<AccessLevelPrototype>>(){access});
+            component.AccessLists.Add(new HashSet<ProtoId<AccessLevelPrototype>>() { access });
         }
         Dirty(uid, component);
         RaiseLocalEvent(uid, new AccessReaderConfigurationChangedEvent());

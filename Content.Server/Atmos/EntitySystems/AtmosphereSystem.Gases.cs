@@ -55,7 +55,7 @@ namespace Content.Server.Atmos.EntitySystems
         }
 
         private float GetHeatCapacity(GasMixture mixture)
-            =>  GetHeatCapacityCalculation(mixture.Moles, mixture.Immutable);
+            => GetHeatCapacityCalculation(mixture.Moles, mixture.Immutable);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private float GetHeatCapacityCalculation(float[] moles, bool space)
@@ -199,7 +199,7 @@ namespace Content.Server.Atmos.EntitySystems
             // And now we transfer the gas.
             var removed = mixture.Remove(transferMoles);
 
-            if(output != null)
+            if (output != null)
                 Merge(output, removed);
 
             return true;
@@ -238,7 +238,7 @@ namespace Content.Server.Atmos.EntitySystems
         /// </summary>
         public void ScrubInto(GasMixture mixture, GasMixture destination, IReadOnlyCollection<Gas> filterGases)
         {
-            var buffer = new GasMixture(mixture.Volume){Temperature = mixture.Temperature};
+            var buffer = new GasMixture(mixture.Volume) { Temperature = mixture.Temperature };
 
             foreach (var gas in filterGases)
             {
@@ -418,7 +418,7 @@ namespace Content.Server.Atmos.EntitySystems
         {
             var moles = 0f;
 
-            for(var i = 0; i < Atmospherics.TotalNumberOfGases; i++)
+            for (var i = 0; i < Atmospherics.TotalNumberOfGases; i++)
             {
                 var gasMoles = sample.Moles[i];
                 var delta = MathF.Abs(gasMoles - otherSample.Moles[i]);
@@ -470,7 +470,7 @@ namespace Content.Server.Atmos.EntitySystems
                     continue;
 
                 reaction = prototype.React(mixture, holder, this, HeatScale);
-                if(reaction.HasFlag(ReactionResult.StopReactions))
+                if (reaction.HasFlag(ReactionResult.StopReactions))
                     break;
             }
 

@@ -135,8 +135,8 @@ public sealed class UniqueVector2iSet
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public Vector2i ToChunkIndices(Vector2i indices)
     {
-        var x = (int) Math.Floor(indices.X / (float) ChunkSize);
-        var y = (int) Math.Floor(indices.Y / (float) ChunkSize);
+        var x = (int)Math.Floor(indices.X / (float)ChunkSize);
+        var y = (int)Math.Floor(indices.Y / (float)ChunkSize);
         return new Vector2i(x, y);
     }
 

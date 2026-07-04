@@ -58,7 +58,7 @@ public sealed partial class ElectricityAnomalySystem : EntitySystem
                 continue;
 
             var range = elec.MaxElectrocuteRange * anom.Stability;
-            var damage = (int) (elec.MaxElectrocuteDamage * anom.Severity);
+            var damage = (int)(elec.MaxElectrocuteDamage * anom.Severity);
             var duration = elec.MaxElectrocuteDuration * anom.Severity;
 
             foreach (var (ent, comp) in _lookup.GetEntitiesInRange<StatusEffectsComponent>(_transform.GetMapCoordinates(uid, xform), range))

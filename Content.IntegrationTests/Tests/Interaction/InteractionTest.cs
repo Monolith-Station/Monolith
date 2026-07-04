@@ -138,7 +138,7 @@ public abstract partial class InteractionTest
     protected HandsComponent Hands = default!;
     protected DoAfterComponent DoAfters = default!;
 
-    public float TickPeriod => (float) STiming.TickPeriod.TotalSeconds;
+    public float TickPeriod => (float)STiming.TickPeriod.TotalSeconds;
 
     // Simple mob that has one hand and can perform misc interactions.
     [TestPrototypes]

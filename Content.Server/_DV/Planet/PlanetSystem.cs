@@ -38,7 +38,7 @@ public sealed partial class PlanetSystem : EntitySystem
             _biome.AddMarkerLayer(map, biome, layer);
         }
 
-        if (planet.AddedComponents is {} added)
+        if (planet.AddedComponents is { } added)
             EntityManager.AddComponents(map, added);
 
         _atmos.SetMapAtmosphere(map, false, planet.Atmosphere);

@@ -77,7 +77,7 @@ public abstract partial class SharedNuclearReactorSystem : EntitySystem
 
         if (comp.Temperature >= comp.ReactorOverheatTemp)
         {
-            if(!comp.IsSmoking)
+            if (!comp.IsSmoking)
             {
                 comp.IsSmoking = true;
                 _appearance.SetData(uid, ReactorVisuals.Smoke, true);
@@ -98,7 +98,7 @@ public abstract partial class SharedNuclearReactorSystem : EntitySystem
         }
         else
         {
-            if(comp.IsSmoking)
+            if (comp.IsSmoking)
             {
                 comp.IsSmoking = false;
                 _appearance.SetData(uid, ReactorVisuals.Smoke, false);
@@ -107,13 +107,14 @@ public abstract partial class SharedNuclearReactorSystem : EntitySystem
         }
     }
 
-    public static bool AdjustControlRods(NuclearReactorComponent comp, float change) { 
+    public static bool AdjustControlRods(NuclearReactorComponent comp, float change)
+    {
         var newSet = Math.Clamp(comp.ControlRodInsertion + change, 0, 2);
         if (comp.ControlRodInsertion != newSet)
         {
             comp.ControlRodInsertion = newSet;
             return true;
         }
-        return false; 
+        return false;
     }
 }

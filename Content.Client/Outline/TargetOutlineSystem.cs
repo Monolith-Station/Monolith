@@ -151,7 +151,7 @@ public sealed partial class TargetOutlineSystem : EntitySystem
             if (valid && ValidationEvent != null)
             {
                 ValidationEvent.Uncancel();
-                RaiseLocalEvent(entity, (object) ValidationEvent, broadcast: false);
+                RaiseLocalEvent(entity, (object)ValidationEvent, broadcast: false);
                 valid = !ValidationEvent.Cancelled;
             }
 

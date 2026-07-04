@@ -1,4 +1,5 @@
 namespace Content.Shared._Shitmed.Targeting;
+
 public abstract class SharedTargetingSystem : EntitySystem
 {
     /// <summary>

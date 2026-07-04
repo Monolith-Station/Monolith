@@ -59,7 +59,7 @@ internal sealed partial class ChatManager : IChatManager
                 break;
 
             case ChatSelectChannel.Dead:
-                if (_systems.GetEntitySystemOrNull<GhostSystem>() is {IsGhost: true})
+                if (_systems.GetEntitySystemOrNull<GhostSystem>() is { IsGhost: true })
                     goto case ChatSelectChannel.Local;
 
                 if (_adminMgr.HasFlag(AdminFlags.Admin))

@@ -32,7 +32,7 @@ public sealed partial class ChaoticJumpComponent : Component
     /// collision limits for which it is impossible to make a jump
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public int CollisionMask = (int) CollisionGroup.Impassable;
+    public int CollisionMask = (int)CollisionGroup.Impassable;
 
     /// <summary>
     /// Minimum jump range

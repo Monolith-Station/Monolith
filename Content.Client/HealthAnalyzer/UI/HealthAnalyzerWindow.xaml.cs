@@ -350,7 +350,7 @@ namespace Content.Client.HealthAnalyzer.UI
             {
                 // TODO: PartStatusUIController and make it use layers instead of TextureRects when EE refactors alerts.
                 string enumName = Enum.GetName(typeof(TargetBodyPart), bodyPart) ?? "Unknown";
-                int enumValue = (int) integrity;
+                int enumValue = (int)integrity;
                 var rsi = new SpriteSpecifier.Rsi(new ResPath($"/Textures/_Shitmed/Interface/Targeting/Status/{enumName.ToLowerInvariant()}.rsi"), $"{enumName.ToLowerInvariant()}_{enumValue}");
                 // Shitcode with love from Russia :)
                 if (!sprite.TryGetLayer(layer, out _))

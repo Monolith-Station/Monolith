@@ -88,11 +88,11 @@ public sealed partial class ChargerSystem : SharedChargerSystem
         if (HasComp<EmpDisabledComponent>(uid))
             charge = false;
         else
-        if (!TryComp<BatteryComponent>(target, out var battery))
-            charge = false;
-        else
-        if (Math.Abs(battery.MaxCharge - battery.CurrentCharge) < 0.01)
-            charge = false;
+            if (!TryComp<BatteryComponent>(target, out var battery))
+                charge = false;
+            else
+                if (Math.Abs(battery.MaxCharge - battery.CurrentCharge) < 0.01)
+                    charge = false;
 
         // wrap functionality in an if statement instead of returning...
         if (charge)

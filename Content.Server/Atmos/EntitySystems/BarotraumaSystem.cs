@@ -17,7 +17,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
         [Dependency] private DamageableSystem _damageableSystem = default!;
         [Dependency] private AlertsSystem _alertsSystem = default!;
-        [Dependency] private IAdminLogManager _adminLogger= default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
         [Dependency] private InventorySystem _inventorySystem = default!;
 
         private const float UpdateTimer = 1f;
@@ -242,7 +242,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                 var pressure = 1f;
 
-                if (_atmosphereSystem.GetContainingMixture(uid) is {} mixture)
+                if (_atmosphereSystem.GetContainingMixture(uid) is { } mixture)
                 {
                     pressure = MathF.Max(mixture.Pressure, 1f);
                 }

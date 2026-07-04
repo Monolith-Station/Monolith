@@ -65,7 +65,7 @@ namespace Content.Shared.DeviceLinking.Systems
                 Category = VerbCategory.Lever,
                 Message = disabled ? Loc.GetString("two-way-lever-cant") : null,
                 Disabled = disabled,
-                Icon = new SpriteSpecifier.Texture(new ($"/Textures/Interface/VerbIcons/{_leftToggleImage}")),
+                Icon = new SpriteSpecifier.Texture(new($"/Textures/Interface/VerbIcons/{_leftToggleImage}")),
                 Text = Loc.GetString("two-way-lever-left"),
             };
 
@@ -87,7 +87,7 @@ namespace Content.Shared.DeviceLinking.Systems
                 Category = VerbCategory.Lever,
                 Message = disabled ? Loc.GetString("two-way-lever-cant") : null,
                 Disabled = disabled,
-                Icon = new SpriteSpecifier.Texture(new ($"/Textures/Interface/VerbIcons/{_rightToggleImage}")),
+                Icon = new SpriteSpecifier.Texture(new($"/Textures/Interface/VerbIcons/{_rightToggleImage}")),
                 Text = Loc.GetString("two-way-lever-right"),
             };
 

@@ -76,7 +76,7 @@ public sealed partial class SolutionTransferSystem : EntitySystem
         var user = args.User;
         foreach (var amount in DefaultTransferAmounts)
         {
-          if (amount < comp.MinimumTransferAmount || amount > comp.MaximumTransferAmount)
+            if (amount < comp.MinimumTransferAmount || amount > comp.MaximumTransferAmount)
                 continue;
 
             AlternativeVerb verb = new();
@@ -101,7 +101,7 @@ public sealed partial class SolutionTransferSystem : EntitySystem
 
     private void OnAfterInteract(Entity<SolutionTransferComponent> ent, ref AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Target is not {} target)
+        if (!args.CanReach || args.Target is not { } target)
             return;
 
         var (uid, comp) = ent;
@@ -116,7 +116,7 @@ public sealed partial class SolutionTransferSystem : EntitySystem
             var transferAmount = comp.TransferAmount; // This is the player-configurable transfer amount of "uid," not the target reagent tank.
 
             // if the receiver has a smaller transfer limit, use that instead
-            if (refill?.MaxRefill is {} maxRefill)
+            if (refill?.MaxRefill is { } maxRefill)
                 transferAmount = FixedPoint2.Min(transferAmount, maxRefill);
 
             var transferred = Transfer(args.User, target, targetSoln.Value, uid, ownerSoln.Value, transferAmount);
@@ -141,7 +141,7 @@ public sealed partial class SolutionTransferSystem : EntitySystem
         {
             var transferAmount = comp.TransferAmount;
 
-            if (targetRefill?.MaxRefill is {} maxRefill)
+            if (targetRefill?.MaxRefill is { } maxRefill)
                 transferAmount = FixedPoint2.Min(transferAmount, maxRefill);
 
             var transferred = Transfer(args.User, uid, ownerSoln.Value, target, targetSoln.Value, transferAmount);
@@ -169,7 +169,7 @@ public sealed partial class SolutionTransferSystem : EntitySystem
 
         // Check if the source is cancelling the transfer
         RaiseLocalEvent(sourceEntity, ref transferAttempt);
-        if (transferAttempt.CancelReason is {} reason)
+        if (transferAttempt.CancelReason is { } reason)
         {
             _popup.PopupClient(reason, sourceEntity, user);
             return FixedPoint2.Zero;
@@ -184,7 +184,7 @@ public sealed partial class SolutionTransferSystem : EntitySystem
 
         // Check if the target is cancelling the transfer
         RaiseLocalEvent(targetEntity, ref transferAttempt);
-        if (transferAttempt.CancelReason is {} targetReason)
+        if (transferAttempt.CancelReason is { } targetReason)
         {
             _popup.PopupClient(targetReason, targetEntity, user);
             return FixedPoint2.Zero;

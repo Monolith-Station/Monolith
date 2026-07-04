@@ -154,7 +154,7 @@ namespace Content.Client.Voting.UI
             else
             {
                 int i = 0;
-                foreach(var dropdowns in VoteOptionsButtonContainer.Children)
+                foreach (var dropdowns in VoteOptionsButtonContainer.Children)
                 {
                     if (dropdowns is OptionButton optionButton && AvailableVoteOptions[(StandardVoteType)typeId].Dropdowns != null)
                     {

@@ -155,7 +155,7 @@ namespace Content.Client.Gameplay
             foreach (var entity in entities)
             {
                 if (clickQuery.TryGetComponent(entity.Uid, out var component) &&
-                    clickables.CheckClick((entity.Uid, component, entity.Component, entity.Transform), coordinates.Position, eye,  out var drawDepthClicked, out var renderOrder, out var bottom))
+                    clickables.CheckClick((entity.Uid, component, entity.Component, entity.Transform), coordinates.Position, eye, out var drawDepthClicked, out var renderOrder, out var bottom))
                 {
                     foundEntities.Add((entity.Uid, drawDepthClicked, renderOrder, bottom));
                 }
@@ -206,7 +206,7 @@ namespace Content.Client.Gameplay
         protected virtual void OnKeyBindStateChanged(ViewportBoundKeyEventArgs args)
         {
             // If there is no InputSystem, then there is nothing to forward to, and nothing to do here.
-            if(!_entitySystemManager.TryGetEntitySystem(out InputSystem? inputSys))
+            if (!_entitySystemManager.TryGetEntitySystem(out InputSystem? inputSys))
                 return;
 
             var kArgs = args.KeyEventArgs;

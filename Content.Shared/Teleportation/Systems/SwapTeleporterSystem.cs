@@ -194,7 +194,7 @@ public sealed partial class SwapTeleporterSystem : EntitySystem
         else
             _popup.PopupEntity(Loc.GetString("swap-teleporter-popup-link-destroyed"), ent);
 
-        if (linkedNullable is {} linked)
+        if (linkedNullable is { } linked)
             DestroyLink(linked, user); // the linked one is shown globally
     }
 
@@ -227,7 +227,7 @@ public sealed partial class SwapTeleporterSystem : EntitySystem
             if (_timing.CurTime < comp.NextTeleportUse)
             {
                 args.PushMarkup(Loc.GetString("swap-teleporter-examine-time-remaining",
-                    ("second", (int) ((comp.NextTeleportUse - _timing.CurTime).TotalSeconds + 0.5f))));
+                    ("second", (int)((comp.NextTeleportUse - _timing.CurTime).TotalSeconds + 0.5f))));
             }
         }
     }
