@@ -1,0 +1,35 @@
+- type: pointOfInterest
+  id: INDNavBouy
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'Navigation Bouy'
+#  minimumDistance: 0
+#  maximumDistance: 0
+#  spawnGamePreset: [ Battlefield14 , NFAdventure ]
+#  spawnGroup: Required
+  gridPath: /Maps/_Battlefield14/Stations/navbouy.yml
+  addComponents:
+  - type: IFF
+    color: "#efefef"
+#    flags: [HideLabel]
+#    readOnly: true
+
+- type: gameMap
+  id: BF14NavBouy
+  mapName: 'Navigation Bouy'
+  mapPath: /Maps/_Battlefield14/Stations/IND/navbouy.yml
+  minPlayers: 0
+  maxPlayers: 120
+#  fallback: true
+  randomRotation: false
+  maxRandomOffset: 0
+  stations:
+    BF14NavBouy:
+      stationProto: StandardFrontierStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Navigation Bouy'
+        - type: ExtraStationInformation
+          iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
+          stationSubtext: 'frontier-lobby-frontier-subtext' # TODO
+          stationDescription: 'frontier-lobby-frontier-subtext' # TODO
+          lobbySortOrder: 1

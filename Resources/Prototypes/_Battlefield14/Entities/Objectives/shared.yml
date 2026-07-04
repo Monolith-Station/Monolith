@@ -96,3 +96,18 @@
     sound:
       path: /Audio/Announcements/bloblarm.ogg
 #    color: "#BE8700"
+
+- type: entity
+  id: CapturePointSharedNavBouy
+  parent: BaseCapturePoint
+  name: nav bouy control point
+  suffix: Nav vouy, 120s / 2m
+  components:
+  - type: POICapture
+    poiName: "nav bouy"
+    timeToCapture: 120
+  - type: NavMapBeacon
+    defaultText: "nav bouy"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "nav bouy capture point"

@@ -289,22 +289,11 @@
         amount: 8
 
 - type: entity
-  parent: ColMarTechBase
+  parent: CMVendNATOUSMCWarVendorShips
   id: CMVendNATOUSMCWarVendorShipsExtended
   name: USMC extended ship LPC vendor
-  description: Marine-Grade space ships from a vending machine.
   suffix: ColMarTech, Extended
   components:
-  - type: Sprite
-    sprite: _Battlefield14/Structures/armoury.rsi
-    layers:
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "normal-unshaded"
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
-      shader: unshaded
-  - type: AccessReader
-    access: [["NATOCommon"]]
   - type: CMAutomatedVendor
     access:
     - "NATOCommon"
