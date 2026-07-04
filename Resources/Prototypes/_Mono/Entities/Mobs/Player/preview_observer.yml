@@ -1,0 +1,53 @@
+- type: entity
+  parent: [Incorporeal, BaseMob]
+  id: PreviewObserver
+  name: preview observer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    color: "#fff8"
+    layers:
+    - state: animated
+      map: [ "ghostVariant" ]
+      shader: unshaded
+  - type: Appearance
+  - type: ContentEye
+    maxZoom: 8.916104, 8.916104
+  - type: Eye
+    drawFov: false
+  - type: Tag
+    tags:
+    - InstantDoAfters
+    - CanPilot
+    - BypassInteractionRangeChecks
+    - BypassDropChecks
+    - NoConsoleSound
+    - PreventAccessLogging
+    - AllowBiomeLoading
+ # - type: Stealth # Mono - Stealth B Gone
+ #   maxVisibility: -1.5
+  - type: Physics
+    ignorePaused: true
+    bodyType: Kinematic
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardPreviewUiKey.Key:
+        type: ShipyardPreviewBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      enum.ShipyardPreviewUiKey.Key:
+        toggleAction: ActionPreviewShowMenu
+  - type: PointLight
+
+- type: entity
+  id: ActionPreviewShowMenu
+  name: Preview controls
+  description: View preview information about shuttle.
+  components:
+  - type: InstantAction
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+    keywords: [ "AI", "console", "interface" ]
+    priority: -4
+    event: !type:ToggleIntrinsicUIEvent { key: enum.ShipyardPreviewUiKey.Key }

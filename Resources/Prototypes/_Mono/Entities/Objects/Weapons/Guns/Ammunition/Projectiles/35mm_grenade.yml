@@ -1,0 +1,23 @@
+- type: entity
+  id: Bullet35mmGrenadeSAPHE
+  name: frag grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 75
+    intensitySlope: 4
+    totalIntensity: 75
+    maxTileBreak: 0
+  - type: Projectile
+    damage:
+      types:
+        Structural: 100
+        Piercing: 45
+    armorPenetration: 0.1

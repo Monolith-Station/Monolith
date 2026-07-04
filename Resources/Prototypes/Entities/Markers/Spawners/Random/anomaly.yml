@@ -28,6 +28,34 @@
     - RandomAnomalyInjectorSpawner
     offset: 0.15 # not to put it higher. The anomaly sychnronizer looks for anomalies within this radius, and if the radius is higher, the anomaly can be attracted from a neighboring tile.
 
+ #same thing as normal anomaly BUT no chance for a "RandomAnomalyInjectorSpawner" aka a trap anom aka one of the ones that gibs you
+- type: entity 
+  id: RandomAnomalySpawnerTrapless
+  name: random anomaly spawner trapless
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Structures/Specific/anomaly.rsi
+      state: anom1
+  - type: RandomSpawner
+    chance: 1
+    prototypes:
+    - AnomalyPyroclastic
+    - AnomalyGravity
+    - AnomalyElectricity
+    - AnomalyFlesh
+    - AnomalyBluespace
+    - AnomalyIce
+    - RandomRockAnomalySpawner
+    - AnomalyLiquid
+    - AnomalyFlora
+    - AnomalyShadow
+    - AnomalyTech
+    # - AnomalySanta
+    offset: 0.15 # not to put it higher. The anomaly sychnronizer looks for anomalies within this radius, and if the radius is higher, the anomaly can be attracted from a neighboring tile.
+
 - type: entity
   id: RandomRockAnomalySpawner
   parent: MarkerBase

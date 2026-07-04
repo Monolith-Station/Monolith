@@ -10,7 +10,7 @@
     damage:
       types:
         Radiation: 25
-        Structural: 500
+        Structural: 1500
         Heat: 50
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
@@ -30,10 +30,10 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 30
-    intensitySlope: 12
-    maxIntensity: 15
-    maxTileBreak: 1
+    totalIntensity: 60
+    intensitySlope: 8
+    maxIntensity: 12
+    maxTileBreak: 3
 
 # Cerberus
 
@@ -61,15 +61,15 @@
     scale: 2.5
     shape: triangle
   - type: TimedDespawn
-    lifetime: 12.2
+    lifetime: 10
   - type: PointLight
     color: "#FF0040"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 10
-    intensitySlope: 15
-    maxIntensity: 15
+    totalIntensity: 30
+    intensitySlope: 6
+    maxIntensity: 6
 
 - type: entity
   name: cerberus spread
@@ -114,9 +114,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 7
-    intensitySlope: 2
-    maxIntensity: 4
+    totalIntensity: 5
+    intensitySlope: 1
+    maxIntensity: 1
 
 # Scylla
 
@@ -149,9 +149,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 5
+    totalIntensity: 3
     intensitySlope: 3
-    maxIntensity: 5
+    maxIntensity: 3
 
 # Type 241
 
@@ -186,8 +186,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 15
-    intensitySlope: 9
+    totalIntensity: 25
+    intensitySlope: 5
     maxIntensity: 5
     maxTileBreak: 3
 
@@ -288,9 +288,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 200
-    intensitySlope: 10
-    maxIntensity: 100
+    totalIntensity: 500
+    intensitySlope: 100
+    maxIntensity: 20
     maxTileBreak: 5
   - type: GatheringProjectile
   - type: MiningGatheringSoft
@@ -323,15 +323,15 @@
     scale: 2.5
     shape: triangle
   - type: TimedDespawn
-    lifetime: 10
+    lifetime: 6
   - type: PointLight
     radarColor: "#ffffff"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 45
-    intensitySlope: 25
-    maxIntensity: 15
+    totalIntensity: 25
+    intensitySlope: 7
+    maxIntensity: 7
 
 # Harbinger
 
@@ -404,7 +404,7 @@
   - type: Explosive
     explosionType: Default
     totalIntensity: 120
-    intensitySlope: 5
+    intensitySlope: 45
     maxIntensity: 45
     maxTileBreak: 4
 
@@ -434,9 +434,9 @@
     damage:
      types:
       Heat: 35
-      Structural: 50
+      Structural: 35
   - type: HitscanBasicRaycast
-    maxDistance: 400
+    maxDistance: 512
 
 # Apollo
 
@@ -477,7 +477,9 @@
     damage:
      types:
        Heat: 120
-       Structural: 125
+       Structural: 500
+  - type: HitscanRadarSignature
+    radarColor: "#5d46e2"
   - type: HitscanSpawnEntity
     spawnedEntity: PrometheusExplosion
   - type: HitscanBasicRaycast
@@ -581,8 +583,8 @@
   - type: Explosive
     explosionType: Default
     totalIntensity: 1200
-    intensitySlope: 35
-    maxIntensity: 250
+    intensitySlope: 150
+    maxIntensity: 30
 
 - type: entity
   id: SunderExplosion
@@ -592,8 +594,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 22
-    intensitySlope: 2
+    totalIntensity: 45
+    intensitySlope: 5
     maxIntensity: 5
 
 - type: entity
@@ -604,6 +606,6 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 50
-    intensitySlope: 10
-    maxIntensity: 25
+    totalIntensity: 80
+    intensitySlope: 8
+    maxIntensity: 8

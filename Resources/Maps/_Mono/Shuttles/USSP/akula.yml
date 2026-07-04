@@ -2140,20 +2140,6 @@ entities:
     - type: Transform
       pos: 1.5,4.5
       parent: 1
-- proto: SpawnPointUSSPCorporal
-  entities:
-  - uid: 272
-    components:
-    - type: Transform
-      pos: 1.5,4.5
-      parent: 1
-- proto: SpawnPointUSSPMedic
-  entities:
-  - uid: 273
-    components:
-    - type: Transform
-      pos: 1.5,4.5
-      parent: 1
 - proto: SpawnPointUSSPRifleman
   entities:
   - uid: 274

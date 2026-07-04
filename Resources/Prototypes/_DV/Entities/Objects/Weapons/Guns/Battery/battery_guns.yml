@@ -26,20 +26,27 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+    burstFireRate: 4 # Mono burstfire and modeswitching
+    shotsPerBurst: 3
+    burstCooldown: 0.75
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - Burst
   - type: Battery
     maxCharge: 2250 # Mono 2000->2250
     startingCharge: 2250 # Mono 2000->2250
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 75 # 100->75
+    fireCost: 45 # 100->45
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 75 # 100->75
+      fireCost: 45 # Mono 100->45
       name: disable
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 150 # 200->150
+      fireCost: 75 # Mono 200->75
       name: kill
       state: lethal
   - type: MagazineVisuals
@@ -86,6 +93,13 @@
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+    burstFireRate: 4 # Mono burstfire and modeswitching
+    shotsPerBurst: 3
+    burstCooldown: 0.75
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - Burst
   - type: Battery
     maxCharge: 2250 # Mono 2000->2250
     startingCharge: 2250 # Mono 2000->2250
@@ -94,15 +108,15 @@
     autoRechargeRate: 25
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 75 # 100->75
+    fireCost: 45 # 100->45
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 75 # 100->75
+      fireCost: 45 # Mono 100->45
       name: disable
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 150 # 200->150
+      fireCost: 75 # Mono 200->75
       name: kill
       state: lethal
   - type: MagazineVisuals
@@ -144,24 +158,31 @@
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
   - type: Gun
     fireRate: 2.5
+    shotsPerBurst: 3
+    burstCooldown: 0.5
+    burstFireRate: 6
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - Burst
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 3750 # Mono 2000->3750
-    startingCharge: 3750 # Mono 2000->3750
+    maxCharge: 3600 # Mono 2000->3600
+    startingCharge: 3600 # Mono 2000->3600
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 75 # Mono 100 -> 75
+    fireCost: 60 # Mono 100 -> 60
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 75 # Mono 100 -> 75
+      fireCost: 60 # Mono 100 -> 60
       name: disable
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 150 # Mono 200 -> 150
+      fireCost: 90 # Mono 200 -> 90
       name: lethal
       state: lethal
     # - proto: BulletEnergyGunIon

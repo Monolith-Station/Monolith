@@ -1,39 +1,33 @@
 using Content.Server.Communications;
-using Content.Server.Chat.Managers;
 using Content.Server.CriminalRecords.Systems;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Server.Research.Systems;
-using Content.Server.Roles;
 using Content.Shared.Alert;
 using Content.Shared.Doors.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Ninja.Systems;
+using Content.Shared.Power.Components;
 using Content.Shared.Popups;
 using Content.Shared.Rounding;
-using Robust.Shared.Audio;
-using Robust.Shared.Player;
 using System.Diagnostics.CodeAnalysis;
-using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Ninja.Systems;
 
 /// <summary>
 /// Main ninja system that handles ninja setup, provides helper methods for the rest of the code to use.
 /// </summary>
-public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
+public sealed partial class SpaceNinjaSystem : SharedSpaceNinjaSystem
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private CodeConditionSystem _codeCondition = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {

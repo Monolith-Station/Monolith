@@ -51,6 +51,11 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
+  - type: DeltaPressure
+    minPressure: 15000
+    minPressureDelta: 10000
+    scalingType: Linear
+    scalingPower: 0.0005
   - type: StaticPrice
     price: 70 # Frontier: 150<70
   - type: ShipRepairable
@@ -75,7 +80,7 @@
     - Diagonal
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Frontier: windows<walls
+    key: shuttlewindows # Mono
     base: state
   - type: Icon
     sprite: Structures/Windows/shuttle_window_diagonal.rsi

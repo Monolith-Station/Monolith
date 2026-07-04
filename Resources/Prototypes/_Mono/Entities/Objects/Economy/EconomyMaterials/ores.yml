@@ -1,0 +1,67 @@
+- type: entity
+  parent: OreBase
+  id: CopperOre
+  name: malachite
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: CopperOre
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/ore.rsi
+    state: malachite
+  - type: Item
+    sprite: _Mono/Objects/Materials/ore.rsi
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      CopperOre: 100
+  - type: Extractable
+    grindableSolutionName: ore
+  - type: SolutionContainerManager
+    solutions:
+      ore:
+        reagents:
+        - ReagentId: Copper
+          Quantity: 10
+
+- type: entity
+  id: CopperOre1
+  parent: CopperOre
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: OreBase
+  id: LithiumOre
+  name: lithium ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: LithiumOre
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/ore.rsi
+    state: lithium
+  - type: Item
+    sprite: _Mono/Objects/Materials/ore.rsi
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      LithiumOre: 100
+  - type: Extractable
+    grindableSolutionName: ore
+  - type: SolutionContainerManager
+    solutions:
+      ore:
+        reagents:
+        - ReagentId: Lithium
+          Quantity: 10
+
+- type: entity
+  id: LithiumOre1
+  parent: LithiumOre
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

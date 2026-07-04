@@ -1,6 +1,6 @@
 - type: entity
-  id: BaseGreeble
   abstract: true
+  id: BaseGreeble
   placement:
     mode: SnapgridCenter
   components:
@@ -8,18 +8,39 @@
     anchored: true
   - type: Clickable
   - type: Animateable
+  - type: RequiresGrid
+  - type: InteractionOutline
   - type: Tag
     tags:
     - Structure
   - type: Repairable #Mono: Nanite applicator
     qualities:
     - Applicating
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 0
+  - type: Sprite
+    drawDepth: Overdoors
 
 - type: entity
-  name: Antenna
-  description: Like antennas to hell.
-  id: GreebleAntenna1
   parent: BaseGreeble
+  id: GreebleAntenna1
+  name: antenna
+  description: Like antennas to hell. Usually part of a ship or station's UHF communication systems.
   placement:
     mode: SnapgridCenter
   components:
@@ -35,10 +56,10 @@
     end: 0, 1.5
 
 - type: entity
-  name: Antenna
-  description: Like antennas to hell.
-  id: GreebleAntenna2
   parent: BaseGreeble
+  id: GreebleAntenna2
+  name: antenna
+  description: Like antennas to hell. Usually part of a ship or station's UHF communication systems.
   placement:
     mode: SnapgridCenter
   components:
@@ -54,43 +75,43 @@
     end: 0, 1.2
 
 - type: entity
-  name: ELINT
-  description: Like antennas to hell.
+  parent: BaseGreeble
   id: GreebleElint1
-  parent: BaseGreeble
+  name: ELINT system
+  description: Used for reading noncommunication electromagnetic radiation and their properties, such as radar signals. Who gives a shit?
   placement:
     mode: SnapgridCenter
   components:
-    - type: Sprite
-      offset: 0,1
-      sprite: _Mono/Structures/Decoration/Greeble/32x32.rsi
-      layers:
-        - state: elint1
+  - type: Sprite
+    offset: 0,1
+    sprite: _Mono/Structures/Decoration/Greeble/32x32.rsi
+    layers:
+    - state: elint1
 
 - type: entity
-  name: radar panel
-  description: Like antennas to hell.
+  parent: BaseGreeble
   id: GreebleRadarpanel1
-  parent: BaseGreeble
+  name: radar panel
+  description: Some kind of protective fiberglass panelling. Seen in various systems, such as weather and altitude mapping to military early-warning systems. If it's powerful enough, you might get cancer a bit faster!
   placement:
     mode: SnapgridCenter
   components:
-    - type: Sprite
-      offset: 0.5,0.5
-      sprite: _Mono/Structures/Decoration/Greeble/64x64.rsi
-      layers:
-        - state: radarpanel1
+  - type: Sprite
+    offset: 0.5,0.5
+    sprite: _Mono/Structures/Decoration/Greeble/64x64.rsi
+    layers:
+    - state: radarpanel1
 
 - type: entity
-  name: radar panel
-  description: Like antennas to hell.
-  id: GreebleRadarpanel2
   parent: BaseGreeble
+  id: GreebleRadarpanel2
+  name: radar panel
+  description: Some kind of protective fiberglass panelling. Seen in various systems, such as weather and altitude mapping to military early-warning systems. If it's powerful enough, you might get cancer a bit faster!
   placement:
     mode: SnapgridCenter
   components:
-    - type: Sprite
-      offset: 0.2,0
-      sprite: _Mono/Structures/Decoration/Greeble/64x64.rsi
-      layers:
-        - state: radarpanel2
+  - type: Sprite
+    offset: 0.2,0
+    sprite: _Mono/Structures/Decoration/Greeble/64x64.rsi
+    layers:
+    - state: radarpanel2

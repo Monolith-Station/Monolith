@@ -272,6 +272,7 @@
     - SmartGun # Goobstation
     # Einstein Engines Packs
     - Translators
+    - RCD # Mono!
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - DynamicAmmoRecipePack
@@ -345,6 +346,7 @@
     - AiCoreBoard
     - S2MechBoards
     - EngineeringBoardsGoob #Goob Factorio port
+    - ReactorCircuitboards # FH edit
   - type: MaterialStorage
     whitelist:
       tags:
@@ -509,8 +511,6 @@
     - MonoRogueWeaponsDynamicMelee
     - MonoRogueWeaponsDynamicRanged
     - MonoRogueMiscDynamic
-    - MonoUSSPMiscDynamic
-    - MonoUSSPWeaponsDynamicRanged
     - UniversalShellAmmo
     - ResearchedExplosives
     - UniversalRailgunAmmo
@@ -886,6 +886,7 @@
   - type: Lathe
     idleState: limbgrower_idleoff
     runningState: limbgrower_idleon
+    productValueModifier: 0.05
     staticPacks:
     - MedicalSynthLimbsStatic
   - type: EmagLatheRecipes

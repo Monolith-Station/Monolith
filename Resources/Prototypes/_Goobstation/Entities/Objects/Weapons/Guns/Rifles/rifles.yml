@@ -1,8 +1,8 @@
 - type: entity
-  name: TCA M27 Annie (7.62x39mm)
+  name: TCA QBZ-430 Annie (7.62x39mm)
   parent: [BaseWeaponRifle, BaseFactionGearTSFT2] # Mono
   id: WeaponRifleAnnie
-  description: A beast designed to shoulder the weight of impossible missions. Uses 7.62x39mm ammo.
+  description: A beast designed to shoulder the weight of impossible missions. Uses 7.62x39mm ammo. The barrel is threaded for suppressors, and an Erebus railmount is present on the receiver and handguard for optics/grips. # mono
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Rifles/annie.rsi # Mono
@@ -11,6 +11,9 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
+      - map: ["gripAttachment"] # Mono
+      - map: ["barrelAttachment"] # Mono
+      - map: ["opticAttachment"] # Mono
   - type: Item # Mono
     sprite: _Mono/Objects/Weapons/Guns/Rifles/annie_inhands_32x.rsi
   - type: Clothing
@@ -24,6 +27,7 @@
     shotsPerBurst: 4
     fireRate: 6.5
     projectileSpeed: 42.5 # Mono
+    damageModifier: 0.9
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/thock.ogg
   - type: ChamberMagazineAmmoProvider
@@ -48,10 +52,104 @@
         whitelist:
           tags:
             - Cartridge762x39mmFMJ
+      # Mono
+      attachment_grip:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoGripErebusRailmount
+      # Mono
+      attachment_barrel:
+        insertSound: /Audio/Items/screwdriver.ogg
+        ejectSound: /Audio/Items/screwdriver.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoSuppressorMulticalRifle
+      # Mono
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+      attachment_grip: !type:ContainerSlot # Mono
+      attachment_barrel: !type:ContainerSlot # Mono
+      attachment_optic: !type:ContainerSlot # Mono
+      # Mono start
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-barrel
+      containerId: attachment_barrel
+      whitelist:
+        tags:
+        - MonoSuppressorMulticalRifle
+    - name: es-gun-attachments-slot-name-grip
+      containerId: attachment_grip
+      whitelist:
+        tags:
+        - MonoGripErebusRailmount
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      gripAttachment:
+      - containerId: attachment_grip
+        state: grip
+        whitelist:
+          tags:
+          - MonoGripVFG
+      - containerId: attachment_grip
+        state: lam
+        whitelist:
+          tags:
+          - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
+      barrelAttachment:
+      - containerId: attachment_barrel
+        state: suppressed
+        whitelist:
+          tags:
+          - MonoSuppressor
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x
+  # Mono end
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -59,12 +157,13 @@
   - type: Appearance
   - type: PirateBountyItem # Mono
     id: ExperimentalFactionWeapon
+  - type: GunRequiresWield
 
 - type: entity
   name: CS KMP-WSPR (7.62x39mm)
   parent: BaseWeaponRifle # Mono - C3
   id: WeaponRifleWSPR
-  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses 7.62x39mm ammo.
+  description: A cutting-edge Dynasty burst rifle, versatile and reliable. Uses 7.62x39mm ammo. An Erebus railmount is present on the top of the reciever for optics. # mono
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr.rsi # Mono
@@ -73,6 +172,7 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
+      - map: ["opticAttachment"] # Mono
   - type: Item # Mono
     sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr_inhands_32x.rsi
   - type: Clothing
@@ -85,9 +185,10 @@
     - Burst
     selectedMode: Burst
     burstFireRate: 20 # Mono
-    burstCooldown: 0.4 # Mono
+    burstCooldown: 0.6 # Mono
     projectileSpeed: 45 # Mono
     fireRate: 7.5 # Mono, does nothing because its burst only but it makes it clear it can fire at this rate.
+    damageModifier: 0.9
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/wspr_fire.ogg # Mono change - Changed audio path
   - type: ItemSlots
@@ -109,17 +210,66 @@
         whitelist:
           tags:
             - Cartridge762x39mmFMJ
+      # Mono
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot # Mono
+  # Mono start
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x
+  # Mono end
   - type: MagazineVisuals
     magState: mag
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: GunRequiresWield
 
 - type: entity
   name: PA M-90 (7.62x51mm) # mono - 762x51mm
-  parent: BaseWeaponRifle # Mono - pirate contra
+  parent: BaseWeaponRifle
   id: WeaponRifleM90
-  description: A compact bullpup design. Uses 7.62x51mm rifle ammo. # mono
+  description: A compact bullpup design. Uses 7.62x51mm rifle ammo. The barrel is threaded for suppressors, and an Erebus railmount is present on the carryhandle and handguard for optics/grips. # mono
   components:
   - type: Item # Mono
     size: Large
@@ -131,12 +281,28 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
+    - map: ["gripAttachment"] # Mono
+    - map: ["barrelAttachment"] # Mono
+    - map: ["opticAttachment"] # Mono
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/Rifles/m90_inhands_32x.rsi # Mono
   - type: ChamberMagazineAmmoProvider # Mono
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: Gun
+    minAngle: 13
+    maxAngle: 20
+    angleIncrease: 5
+    angleDecay: 25
+    fireRate: 3
+    burstFireRate: 6
+    burstCooldown: 0.5
+    shotsPerBurst: 2
+    selectedMode: Burst
+    availableModes:
+    - FullAuto
+    - Burst
+    - SemiAuto
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_2.ogg # Mono
   - type: ItemSlots
@@ -158,15 +324,113 @@
         whitelist:
           tags:
           - Cartridge762x51mmFMJ # mono - 762x51mm
+      # Mono
+      attachment_grip:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoGripErebusRailmount
+      # Mono
+      attachment_barrel:
+        insertSound: /Audio/Items/screwdriver.ogg
+        ejectSound: /Audio/Items/screwdriver.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoSuppressorMulticalRifle
+      # Mono
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+      attachment_grip: !type:ContainerSlot # Mono
+      attachment_barrel: !type:ContainerSlot # Mono
+      attachment_optic: !type:ContainerSlot # Mono
+  # Mono start
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-barrel
+      containerId: attachment_barrel
+      whitelist:
+        tags:
+        - MonoSuppressorMulticalRifle
+    - name: es-gun-attachments-slot-name-grip
+      containerId: attachment_grip
+      whitelist:
+        tags:
+        - MonoGripErebusRailmount
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      gripAttachment:
+      - containerId: attachment_grip
+        state: grip
+        whitelist:
+          tags:
+          - MonoGripVFG
+      - containerId: attachment_grip
+        state: lam
+        whitelist:
+          tags:
+          - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
+      barrelAttachment:
+      - containerId: attachment_barrel
+        state: suppressed
+        whitelist:
+          tags:
+          - MonoSuppressor
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x
+  # Mono end
   - type: MagazineVisuals
     magState: mag
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -8
 
 - type: entity
   name: CS Burner (12.7x99mm)
@@ -216,3 +480,4 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: GunRequiresWield

@@ -3,7 +3,9 @@
 - type: entity
   id: WeaponTurretSerpentMissile
   name: Serpent torpedo launcher
-  parent: BallisticArtillery
+  parent:
+  - BallisticArtillery
+  - BallisticArtilleryTier3HP
   description: A light torpedo launcher developed by the Syndicate during the corporate war, uses similar systems to the anaconda for self loading munitons.
   components:
   - type: StaticPrice
@@ -57,7 +59,9 @@
   id: WeaponTurretTorpedoEntropy
   name: Curio-1602 electron torpedo launcher "Entropy"
   suffix: ADS ONLY
-  parent: BallisticArtillery
+  parent:
+  - BallisticArtillery
+  - BallisticArtilleryTier3HP
   description: An odd weapon of the pre-fracture era, it projects a mass of electrons that seek out the positive charge of nearby targets, overloading systems and shattering sections of hull.
   components:
   - type: StaticPrice
@@ -88,6 +92,17 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 400
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
     proto: ShipMissileEntropy

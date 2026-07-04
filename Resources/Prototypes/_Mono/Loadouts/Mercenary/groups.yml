@@ -53,6 +53,7 @@
   name: loadout-group-contractor-head
   loadouts:
   - MercenaryClothingHeadHatBH # Mono
+  - MercenaryClothingHeadBPHelmetLight # Mono
 
 - type: loadoutGroup
   id: MonoMercenaryOuterClothing # ONLY TO BE USED AS A SUBGROUP FOR _NF MERCENARY GROUPS
@@ -110,32 +111,3 @@
   - MercenaryClothingBalaclavaSkiMaskTan
   - MercenaryClothingBalaclavaSkiMaskRangerGreen
   - MercenaryClothingBalaclavaSkiMaskCoyoteBrown
-
-- type: loadoutGroup
-  id: MonoUSSPJumpsuit
-  name: loadout-group-ussp-jumpsuit
-  loadouts:
-  - USSPClothingJumpsuit
-
-- type: loadoutGroup
-  id: MonoUSSPHead
-  name: loadout-group-ussp-head
-  loadouts:
-  - USSPOfficerCap
-  - USSPCommissarCap
-
-- type: loadoutGroup
-  id: MonoUSSPOuterClothing
-  name: loadout-group-ussp-outerclothing
-  loadouts:
-  - USSPClothingL10
-  - USSPClothingL10A
-  - USSPClothingCoat
-
-- type: loadoutGroup
-  id: MonoUSSPBackpack
-  name: loadout-group-ussp-backpack
-  loadouts:
-  - USSPBackpack
-  - USSPDuffel
-  - USSPSatchel

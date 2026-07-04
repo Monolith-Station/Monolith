@@ -1,0 +1,280 @@
+- type: entity
+  parent: MarkerBase
+  id: POILootWeaponsAmmoMarker
+  name: POI loot mixed weapons & ammo loot spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: POILootMixed
+      prob: 1.0
+
+- type: entityTable
+  id: POILootMixed
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: POILootWeapons
+      prob: 1.0
+    - !type:NestedSelector
+      tableId: POILootAmmo
+      prob: 0.7
+
+- type: entity
+  parent: MarkerBase
+  id: POILootWeaponsMarker
+  name: POI loot weapons loot spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: POILootWeapons
+      prob: 0.8
+
+- type: entityTable
+  id: POILootWeapons
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - !type:GroupSelector
+        weight: 1.75
+        children:
+        - id: WeaponSubMachineGunKnallstock
+        - id: WeaponRifleLeeEnfield
+        - id: WeaponPistolMk32
+        - id: WeaponPistolPollock
+        - id: WeaponSniperMosin
+        - id: WeaponPistolCobra
+        - id: WeaponPistolViper
+        - id: WeaponPistolMk58
+        - id: WeaponRevolverInspector
+        - id: WeaponRevolverPython
+        - id: WeaponSubMachineGunAK220
+        - id: WeaponShotgunDoubleBarreled
+        - id: WeaponShotgunSawn
+        - id: WeaponShotgunKammerer
+      - !type:GroupSelector
+        weight: 2
+        children:
+        - id: WeaponShotgunBigLeady
+        - id: WeaponShotgunBigBuddy
+        - id: WeaponSubMachineGunTypewriter
+        - id: WeaponSubMachineGunMalandro
+        - id: WeaponRifleMla34
+        - id: WeaponRifleVulcan
+        - id: WeaponRiflePrometheus
+        - id: WeaponShotgunHelepolis
+        - id: WeaponRifleVulcanFCMC
+        - id: WeaponSubMachineGunAK220
+        - id: WeaponSubMachineGunFirestarter
+        - id: WeaponPistolN1984
+        - id: WeaponRevolverDeckard
+        - id: WeaponRifleLecter
+        - id: WeaponSubMachineGunDrozd
+        - id: WeaponRifleAK502
+        - id: WeaponRifleAK410
+        - id: WeaponShotgunEnforcer
+        - id: WeaponSubMachineGunC20r
+        - id: WeaponSubMachineGunMla73
+        - id: WeaponSubMachineGunVector9x19mm
+        - id: WeaponSubMachineGunVector45_ACP
+        - id: WeaponShotgunBigJohnny
+        - id: WeaponSubMachineSmart
+        - id: WeaponRifleM90
+      - !type:GroupSelector
+        weight: 0.3
+        children:
+        - id: WeaponLauncherPanzero
+        - id: WeaponLMGRatel
+        - id: WeaponSmartLmg
+        - id: WeaponRifleJackdaw
+        - id: WeaponDP29
+        - id: WeaponRifleAk
+        - id: WeaponRevolverMateba
+        - id: WeaponShotgunBulldog
+        - id: WeaponLMGGrizzly
+        - id: WeaponDP29
+        - id: WeaponSubMachineGunWt550
+        - id: WeaponSubMachineGunAtreides
+        - id: WeaponSniperHristov
+        - id: WeaponRifleXlr556
+        - id: WeaponRifleMR8C
+        - id: WeaponRifleAnnie
+        - id: WeaponRifleWSPR
+        - id: WeaponPistolAnaconda
+
+- type: entity
+  parent: MarkerBase
+  id: POILootAmmoMarker
+  name: POI loot ammo loot spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: POILootAmmo
+      prob: 1.0
+
+- type: entityTable
+  id: POILootAmmo
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: POILootAmmoBoxes
+      prob: 0.5
+    - !type:NestedSelector
+      tableId: POILootAmmoMagazines
+      prob: 0.7
+
+- type: entityTable
+  id: POILootAmmoMagazines
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - !type:GroupSelector
+        weight: 2.75
+        children:
+        - id: Magazine45_ACPPistolFMJ
+        - id: Magazine45_ACPSubMachineGunFMJ
+        - id: Magazine45_ACPSubMachineGunTopMountedFMJ
+        - id: Magazine12_gaugeBuckshot
+        - id: Magazine9x19mmPistolFMJ
+        - id: Magazine9x19mmSubMachineGunFMJ
+        - id: Magazine9x19mmSubMachineGunTopMountedFMJ
+        - id: Magazine762x51mmLowCapacityFMJ
+        - id: Magazine762x39mmLowCapacityFMJ
+        - id: Magazine635x40mmCaselessPistol
+        - id: Magazine635x40mmCaselessShort
+        - id: MagazineNovaliteC1
+        - id: Magazine57x28mmPistolFMJ
+        - id: Magazine46x30mmPistolFMJ
+      - !type:GroupSelector
+        weight: 1.00
+        children:
+        - id: Magazine55_SAMPistol
+        - id: Magazine8x65mmSKR
+        - id: Magazine9x19mmPistolHighCapacityFMJ
+        - id: Magazine45_ACPPistolHighCapacityFMJ
+        - id: Magazine45_magnumPistolFMJ
+        - id: Magazine68x52mmCaseless
+        - id: Magazine762x54mmRFMJ
+        - id: Magazine762x51mmFMJ
+        - id: Magazine762x39mmFMJ
+        - id: Magazine762x39mmSubsonic
+        - id: Magazine635x40mmCaseless
+        - id: Magazine556x45mmFMJ
+        - id: Magazine57x28mmSubMachineGunFMJ
+        - id: Magazine46x30mmSubMachineGunFMJ
+        - id: MagazineSmart
+      - !type:GroupSelector
+        weight: 0.4
+        children:
+        - id: Magazine45_ACPSubMachineGunEmp
+        - id: Magazine45_magnumPistolAP
+        - id: Magazine55_SAMPistolHighCapacity
+        - id: Magazine127x99mm
+        - id: Magazine762x39mmBox
+        - id: MagazineDP29
+      - !type:GroupSelector
+        weight: 0.2
+        children:
+        - id: Magazine762x51mmIncendiary
+        - id: Magazine762x54mmRIncendiary
+        - id: Magazine762x39mmIncendiary
+        - id: Magazine556x45mmIncendiary
+      - !type:GroupSelector
+        weight: 0.2
+        children:
+        - id: Magazine762x51mmUranium
+        - id: Magazine762x54mmRUranium
+        - id: Magazine762x39mmUranium
+        - id: Magazine556x45mmUranium
+      - !type:GroupSelector
+        weight: 0.2
+        children:
+        - id: Magazine762x51mmPlasteelAP
+        - id: Magazine762x54mmRPlasteelAP
+        - id: Magazine762x39mmPlasteelAP
+        - id: Magazine556x45mmPlasteelAP
+      - !type:GroupSelector
+        weight: 0.2
+        children:
+        - id: Magazine762x51mmRIP
+        - id: Magazine762x54mmRRIP
+        - id: Magazine762x39mmRIP
+        - id: Magazine556x45mmRIP
+        - id: Magazine762x51mmHP
+        - id: Magazine762x54mmRHP
+        - id: Magazine762x39mmHP
+        - id: Magazine556x45mmHP
+      - !type:GroupSelector
+        weight: 0.05
+        children:
+        - id: Magazine40mmFrag
+        - id: Magazine40mmBlast
+        - id: Magazine40mmFlash
+        - id: Magazine127x99mmExplosive
+
+- type: entityTable
+  id: POILootAmmoBoxes
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - !type:GroupSelector
+        weight: 2.75
+        children:
+        - id: AmmoBox46x30mmFMJ
+        - id: AmmoBox57x28mmFMJ
+        - id: AmmoBox556x45mmFMJ
+        - id: AmmoBox635x40mmCaseless
+        - id: AmmoBox68x52mmCaseless
+        - id: AmmoBox762x39mmFMJ
+        - id: AmmoBox762x51mmFMJ
+        - id: AmmoBox762x54mmRFMJ
+        - id: AmmoBox9x19mmFMJ
+        - id: AmmoBox12_gaugeBuckshot
+        - id: AmmoBox45_ACPFMJ
+      - !type:GroupSelector
+        weight: 1.00
+        children:
+        - id: AmmoBox23x75mmBuckshot
+        - id: AmmoBox635x40mmCaseless
+        - id: AmmoBox8x65mmSKR
+        - id: AmmoBox127x99mm
+        - id: AmmoBox145x114mm
+        - id: AmmoBox45_magnumFMJ
+        - id: AmmoBox68x52mmCaseless
+      - !type:GroupSelector
+        weight: 0.4
+        children:
+        - id: AmmoBox68x52mmCaselessBig
+        - id: AmmoBox45_ACPBigFMJ
+        - id: AmmoBox145x114mmBig
+        - id: AmmoBox9x19mmEmp
+        - id: AmmoBox9x19mmBigFMJ
+        - id: AmmoBox145x114mmBig
+        - id: AmmoBox762x54mmRBigFMJ
+        - id: AmmoBox762x51mmBigFMJ
+        - id: AmmoBox762x39mmSubsonic
+        - id: AmmoBox762x39mmBigFMJ
+        - id: AmmoBox556x45mmBigFMJ
+        - id: AmmoBox57x28mmBigFMJ
+        - id: AmmoBox46x30mmBigFMJ
+      - !type:GroupSelector
+        weight: 0.05
+        children:
+        - id: AmmoBox45_magnumAP
+        - id: AmmoBox127x99mmExplosive
+        - id: AmmoBox8x65mmSKRIncendiary
+        - id: AmmoBox635x40mmCaselessBig

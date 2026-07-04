@@ -1,8 +1,11 @@
 - type: entity
   id: WeaponTurretFlare
   name: GS-002 Sunny flare system
-  parent: BallisticArtilleryUnanchorableMagazine
+  parent:
+  - BallisticArtilleryUnanchorableMagazine
+  - BallisticArtilleryTier2HP
   description: A relatively small flare flinging hardpoint used to fool heat seeking missiles. Also good for search and rescue.
+  suffix: T1
   components:
   - type: StaticPrice
     price: 750
@@ -49,17 +52,6 @@
           tags:
           - SunnyMagazine
         whitelistFailPopup: gun-magazine-whitelist-fail
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 20000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: RadarBlip
     radarColor: "#ff9d00"
     scale: 0.7

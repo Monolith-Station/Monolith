@@ -1,0 +1,77 @@
+- type: entity
+  parent: BaseGunAttachmentOptic
+  id: GunAttachmentOpticErebus2x
+  name: Spectre 388 2x optic (Erebus-HI railmount)
+  description: Doesn't let you see as far as other optics, but helps with putting the sight back on target after recoil.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Attachments/Optics/scopes.rsi
+    state: erebus_2x
+  - type: ESGunComponentAttachment
+    component:
+    - type: CursorOffsetRequiresWield
+    - type: EyeCursorOffset
+      maxOffset: 1
+      pvsIncrease: 0.3
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 2
+    recoilIncreaseModifier: 1
+    minSpreadModifier: 1.0
+    maxSpreadModifier: 1.1
+  - type: Tag
+    tags:
+    - MonoOptic
+    - MonoOptic2x
+    - MonoOpticErebusRailmount
+
+- type: entity
+  parent: BaseGunAttachmentOptic
+  id: GunAttachmentOpticErebus4x
+  name: Spectre 970 4x optic (Erebus-HI railmount)
+  description: Allows for more medium-range combat to be possible. Doesn't do much for recoil recovery or accuracy.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Attachments/Optics/scopes.rsi
+    state: erebus_4x
+  - type: ESGunComponentAttachment
+    component:
+    - type: CursorOffsetRequiresWield
+    - type: EyeCursorOffset
+      maxOffset: 3
+      pvsIncrease: 0.5
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 1.05
+    recoilIncreaseModifier: 2.0
+    minSpreadModifier: 0.95
+    maxSpreadModifier: 1.0
+  - type: Tag
+    tags:
+    - MonoOptic
+    - MonoOptic4x
+    - MonoOpticErebusRailmount
+
+- type: entity
+  parent: BaseGunAttachmentOptic
+  id: GunAttachmentOpticErebus8x
+  name: L6 Bowman 8x optic (Erebus-HI railmount)
+  description: Allows for long-range combat. Unwieldy and hard to recover from after recoil.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Attachments/Optics/scopes.rsi
+    state: erebus_8x
+  - type: ESGunComponentAttachment
+    component:
+    - type: CursorOffsetRequiresWield
+    - type: EyeCursorOffset
+      maxOffset: 6
+      pvsIncrease: 0.9
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 0.4
+    recoilIncreaseModifier: 1
+    minSpreadModifier: 0.7
+    maxSpreadModifier: 0.7
+  - type: Tag
+    tags:
+    - MonoOptic
+    - MonoOptic8x
+    - MonoOpticErebusRailmount

@@ -7,14 +7,18 @@
   #- Magazine20mmAmmoRecipe
   #- Magazine30mmAmmoRecipe
   #- Magazine57mmAmmoRecipe
-  #- Magazine90mmAmmoRecipe
+  #- Magazine90mmAPHEAmmoRecipe
   # Individual load
-  #- 220mmCartridgeAmmoRecipe
-  #- 255mmCartridgeAmmoRecipe
-  #- CharonetteSlugCartridgeAmmoRecipe
+  #- 120mmCartridgeAPHEDSAmmoRecipe
+  #- 220mmCartridgeAPHEAmmoRecipe
+  #- 255mmCartridgeAPHEAmmoRecipe
   # Missiles
   - VanykMagazineAmmoRecipe
-  - VesperaMagazineAmmoRecipe
+  - MissileMagazine50mmHEAmmoRecipe
+  - R300ShellHEAmmoRecipe
+  - VanquisherMagazineAmmoRecipe
+  - PaladinMagazineAmmoRecipe
+  - PaladinMagazineEMPHEAmmoRecipe
 
 - type: latheRecipePack
   id: UniversalMissileAmmo

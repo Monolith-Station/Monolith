@@ -1,0 +1,34 @@
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHelmetHardsuitCsecMpeva
+  name: CSEC MP-EVA helmet
+  description: Heavy all-environment sealed helmet. Outfitted with basic NVD equipment.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/csec-mp-eva.rsi
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+  - type: NightVision
+    flashDurationMultiplier: 5
+    isEquipment: true

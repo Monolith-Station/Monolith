@@ -33,7 +33,7 @@ namespace Content.Server.Shuttles.Systems;
 // shuttle impact damage ported from Goobstation (AGPLv3) with agreement of all coders involved
 public sealed partial class ShuttleSystem
 {
-    [Dependency] private readonly SpaceCleanupSystem _sweep = default!;
+    [Dependency] private SpaceCleanupSystem _sweep = default!;
 
     private bool _enabled;
     private float _minimumImpactInertia;
@@ -225,16 +225,19 @@ public sealed partial class ShuttleSystem
             var inelasticVel = totalInertia / (ourMass + otherMass);
 
             // Mono Edit - partial credit to https://github.com/Sector-Crescent/Hullrot/pull/692
-            //ShipShieldedComp is removed when shields are broken, only reduces energy delivered when shields are active. ShipShieldsSystem ln 256.
+            //ShipShieldedComp is removed when shields are broken, reduces both energies when shields are active. ShipShieldsSystem ln 256.
+            float shieldFactor = 1f;
             if (TryComp<ShipShieldedComponent>(args.OurEntity, out var ShipShieldedComponent) //Our ship collision resistance
                 && TryComp<ShipShieldEmitterComponent>(ShipShieldedComponent.Source, out var ShipShieldEmitterComponent)
             )
-                toUsEnergy *= ShipShieldEmitterComponent.CollisionResistanceMultiplier;
+                shieldFactor *= ShipShieldEmitterComponent.CollisionResistanceMultiplier;
 
             if (TryComp<ShipShieldedComponent>(args.OtherEntity, out var OtherShipShieldedComponent) //Other ship collision resistance
                 && TryComp<ShipShieldEmitterComponent>(OtherShipShieldedComponent.Source, out var OtherShipShieldEmitterComponent)
             )
-                toOtherEnergy *= OtherShipShieldEmitterComponent.CollisionResistanceMultiplier;
+                shieldFactor *= OtherShipShieldEmitterComponent.CollisionResistanceMultiplier;
+            toUsEnergy *= shieldFactor;
+            toOtherEnergy *= shieldFactor;
             // Mono Edit end
 
             DoGridImpact((args.OurEntity, ourGrid, ourXform, ourBody), args.OurFixture, inelasticVel, ourVelocity, ourTile, ourTiles, toUsEnergy);
@@ -348,7 +351,7 @@ public sealed partial class ShuttleSystem
 
         foreach (var tileRef in _mapSystem.GetLocalTilesIntersecting(uid, grid, new Circle(centerTile, radius)))
         {
-            var def = (ContentTileDefinition)_tileDefManager[tileRef.Tile.TypeId];
+            var def = _turf.GetContentTileDefinition(tileRef);
             mass += def.Mass;
             tileCount++;
 
@@ -475,7 +478,7 @@ public sealed partial class ShuttleSystem
                 continue;
 
             // Mark tiles for breaking/effects
-            var def = (ContentTileDefinition)_tileDefManager[_mapSystem.GetTileRef(uid, grid, tileData.Tile).Tile.TypeId];
+            var def = _turf.GetContentTileDefinition(_mapSystem.GetTileRef(uid, grid, tileData.Tile));
             if (tileData.Energy > def.Mass * _tileBreakEnergyMultiplier)
                 brokenTiles.Add((tileData.Tile, Tile.Empty));
 

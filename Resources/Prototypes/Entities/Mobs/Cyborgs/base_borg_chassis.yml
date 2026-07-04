@@ -6,6 +6,8 @@
   save: false
   abstract: true
   components:
+  - type: SurgerySpeedModifier # Mono
+  - type: Stripping # Mono
   - type: SurgeryTarget # Mono
   - type: Sanitized # Mono
   - type: Reactive
@@ -47,8 +49,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Critical # Monolith
-      250: Dead # Monolith
+      200: Critical # Monolith
+      300: Dead # Monolith
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -191,7 +193,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 100 # Monolith
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -200,7 +202,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-         damage: 350 # Monolith
+         damage: 400 # Monolith
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -233,7 +235,7 @@
   #    minValue: 0.1
   #    maxValue: 2.0
   #    isLooped: true
-  #- type: ToggleableLightVisuals
+  #- type: ToggleableVisuals
   #- type: PointLight
   #  enabled: false
   #  mask: /Textures/Effects/LightMasks/cone.png
@@ -281,9 +283,13 @@
         toggleAction: ActionObserverShowRadar
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: DetectionRangeMultiplier # same as mass scanner
     infraredMultiplier: 0.5
     visualMultiplier: 0.75
+  - type: ShipNpcTarget
+    needGrid: NoGrid
+  - type: RetroMonitorView
   # </Mono>
 
 - type: entity

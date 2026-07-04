@@ -2,7 +2,7 @@
   id: UsspBasicSuits
   name: research-technology-ussp-suits-basic
   entityIcon: ClothingOuterHardsuitUsspL10
-  discipline: UsspEquipment
+  discipline: Ussp
   tier: 1
   cost: 25000
   recipeUnlocks:
@@ -10,13 +10,13 @@
   - ClothingOuterHardsuitUsspL10AUSSP
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 16, 1
+  position: 12, 1
 
 - type: technology
   id: UsspMediumSuits
   name: research-technology-ussp-suits-medium
   entityIcon: ClothingOuterHardsuitUsspL27
-  discipline: UsspEquipment
+  discipline: Ussp
   tier: 2
   cost: 45000
   recipeUnlocks:
@@ -25,13 +25,13 @@
   technologyPrerequisites:
   - UsspBasicSuits
   - UniversalMaterialResearchT2
-  position: 16, 6
+  position: 12, 7
 
 - type: technology
   id: UsspAdvancedSuits
   name: research-technology-ussp-suits-advanced
   entityIcon: ClothingModsuitUSSPZastavnik
-  discipline: UsspEquipment
+  discipline: Ussp
   tier: 3
   cost: 85000
   recipeUnlocks:
@@ -40,4 +40,4 @@
   technologyPrerequisites:
   - UsspMediumSuits
   - UniversalMaterialResearchT3
-  position: 16, 11
+  position: 12, 12

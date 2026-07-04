@@ -1,6 +1,6 @@
 - type: entity
   name: TSFMC energy shield
-  parent: EnergyShield
+  parent: [ BaseFactionGearTSFT2, EnergyShield ]
   id: EnergyShieldNfsd
   components:
   - type: Sprite

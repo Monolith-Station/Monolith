@@ -40,13 +40,23 @@
 
 
 - type: entity
+  id: BiomeSourceFarReachesIV
+  parent: BaseBiomeSource
+  name: far reaches IV biome source
+  components:
+  - type: SpaceBiomeSource
+    id: BiomeFarReachesIV
+    swapDistance: 50000 # fallback
+    priority: 125
+
+- type: entity
   id: BiomeSourceFarReachesIII
   parent: BaseBiomeSource
   name: far reaches III biome source
   components:
   - type: SpaceBiomeSource
     id: BiomeFarReachesIII
-    swapDistance: 28000 #beyond this is fallback
+    swapDistance: 30000
     priority: 250
 
 - type: entity

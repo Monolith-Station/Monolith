@@ -1,12 +1,11 @@
 - type: entity
   parent: ClothingBackpackDuffelTsfmc
-  id: ClothingBackpackDuffelAshstormBundle
-  name: EM72 Ashstorm bundle
-  description: A powerful energy LMG, coming pre-packaged with 3 spare cells. Perfect for laying down surpressive fire down long halls of glass.
+  id: ClothingBackpackDuffelSmilodonBundle
+  name: DEW-50-C 'Smilodon' bundle
+  description: A powerful energy LMG, coming pre-packaged with 2 spare cells. Perfect for laying down suppressive fire down long halls of glass.
   components:
   - type: StorageFill
     contents:
-      - id: WeaponLaserCellMG
-      - id: MilitaryPowerCellMG
-      - id: MilitaryPowerCellMG
-      - id: MilitaryPowerCellMG
+      - id: WeaponDEWSmilodon
+      - id: LargePowerCell700Thz
+      - id: LargePowerCell400Thz

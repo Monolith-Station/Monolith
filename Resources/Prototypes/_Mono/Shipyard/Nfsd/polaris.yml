@@ -1,0 +1,39 @@
+#Author: kasature90 on Github, _starch_ on Discord.
+
+- type: vessel
+  id: TSFNPolaris
+  parent: BaseVesselAntag
+  name: TSFN-SKR Polaris
+  description: Officially designated as a Type-56D Frigate in the TSFN. Armed with a single CHARON mass driver, 6 AK820 120mm autocannons, and 2 Phalanxes for PD. Large amount of redundant electrical systems to ensure constant combat readiness, but poor rear defenses.
+  limit: 2
+  price: 283000
+  purchasable: false # voucher only
+  category: Large
+  group: Security
+  access: Armory
+  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/polaris.yml
+  guidebookPage: Null
+  class:
+  - Frigate
+  - Capital
+  engine:
+  - AME
+
+- type: gameMap
+  id: TSFNPolaris
+  mapName: 'Polaris'
+  mapPath: /Maps/_Mono/Shuttles/Nfsd/polaris.yml
+  minPlayers: 0
+  stations:
+    TSFNPolaris:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Polaris TSFN{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]

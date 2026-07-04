@@ -65,15 +65,17 @@
     - Science
 
 - type: entity
+  abstract: true # Mono: Abstract
   id: BaseResearchAndDevelopmentPointSource
   parent: DatafarmResearchFaction # Mono: Changed to parent off of new research generation servers to replace existing mapped generators
   name: bolted data farm (Research) # Mono
-  description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates research points at a rate of 35 per second. It seems to be bolted to the floor. # Mono
+  suffix: Unused
+  description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates research points at a rate of 200 per second. It seems to be bolted to the floor. # Mono
   # We should make this abstract once there are actual point sources.
   components:
   - type: ResearchClient
   - type: ResearchPointSource
-    pointsPerSecond: 35
+    pointsPerSecond: 200
     active: true
   - type: PointLight
     radius: 1.5

@@ -1,0 +1,30 @@
+- type: entity
+  id: BaseCartridgeShenzhen
+  name: cartridge (13.4x92mm DU-APFSDS caseless)
+  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  description: Large anti-material round, with high armor-penetration and structural damage.
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeShenzhen
+  - type: HitscanAmmo
+    casingPrototype: ChemicalSlop # onezero ur hitscan ammo code sucks let me have normal casings
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/big_ammo_casing_steel.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+
+- type: entity
+  id: CartridgeShenzhen
+  name: cartridge (13.4X92mm DU-APFSDS caseless)
+  parent: [ BaseCartridgeShenzhen, Coilgun134x92mm ]
+  components:
+  - type: HitscanAmmo
+    casingPrototype: ChemicalSlop

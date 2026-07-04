@@ -1,36 +1,52 @@
+using System.Diagnostics;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Shared.Friction;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Ghost; // Frontier
+using Prometheus;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
-using DroneConsoleComponent = Content.Server.Shuttles.DroneConsoleComponent;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 using Robust.Shared.Map.Components;
 using Prometheus;
+using DroneConsoleComponent = Content.Server.Shuttles.DroneConsoleComponent;
 
 namespace Content.Server.Physics.Controllers;
 
-public sealed class MoverController : SharedMoverController
+public sealed partial class MoverController : SharedMoverController
 {
     private static readonly Gauge ActiveMoverGauge = Metrics.CreateGauge(
         "physics_active_mover_count",
-        "Active amount of InputMovers being processed by MoverController");
-    [Dependency] private readonly ThrusterSystem _thruster = default!;
-    [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
+        "Amount of ActiveInputMovers being processed by MoverController");
+
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ThrusterSystem _thruster = default!;
 
     private Dictionary<EntityUid, (ShuttleComponent, List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>)> _shuttlePilots = new();
+
+    [Dependency] private EntityQuery<ActiveInputMoverComponent> _activeQuery = default!;
+    [Dependency] private EntityQuery<DroneConsoleComponent> _droneQuery = default!;
+    [Dependency] private EntityQuery<ShuttleComponent> _shuttleQuery = default!;
+    [Dependency] private EntityQuery<GhostComponent> _ghostQuery = default!;
+
+    // Not needed for persistence; just used to save an alloc
+    private readonly HashSet<EntityUid> _seenMovers = [];
+    private readonly HashSet<EntityUid> _seenRelayMovers = [];
+    private readonly List<Entity<InputMoverComponent>> _moversToUpdate = [];
 
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<ActiveInputMoverComponent, EntityPausedEvent>(OnEntityPaused);
+        SubscribeLocalEvent<InputMoverComponent, EntityUnpausedEvent>(OnEntityUnpaused);
+
         SubscribeLocalEvent<RelayInputMoverComponent, PlayerAttachedEvent>(OnRelayPlayerAttached);
         SubscribeLocalEvent<RelayInputMoverComponent, PlayerDetachedEvent>(OnRelayPlayerDetached);
         SubscribeLocalEvent<InputMoverComponent, PlayerAttachedEvent>(OnPlayerAttached);
@@ -38,6 +54,81 @@ public sealed class MoverController : SharedMoverController
         SubscribeLocalEvent<PilotComponent, GetShuttleInputsEvent>(OnPilotGetInputs); // Mono
 
         SubscribeLocalEvent<PilotedShuttleComponent, StartCollideEvent>(PilotedShuttleRelayEvent<StartCollideEvent>); // Mono
+    }
+
+    private void OnEntityPaused(Entity<ActiveInputMoverComponent> ent, ref EntityPausedEvent args)
+    {
+        // Become unactive [sic] if we don't have PhysicsComp.IgnorePaused
+        if (PhysicsQuery.TryComp(ent, out var phys) && phys.IgnorePaused)
+            return;
+        RemCompDeferred<ActiveInputMoverComponent>(ent);
+    }
+
+    private void OnEntityUnpaused(Entity<InputMoverComponent> ent, ref EntityUnpausedEvent args)
+    {
+        UpdateMoverStatus((ent, ent.Comp));
+    }
+
+    protected override void OnMoverStartup(Entity<InputMoverComponent> ent, ref ComponentStartup args)
+    {
+        base.OnMoverStartup(ent, ref args);
+        UpdateMoverStatus((ent, ent.Comp));
+    }
+
+    protected override void OnTargetRelayShutdown(Entity<MovementRelayTargetComponent> ent, ref ComponentShutdown args)
+    {
+        base.OnTargetRelayShutdown(ent, ref args);
+        UpdateMoverStatus((ent, null, ent.Comp));
+    }
+
+    protected override void UpdateMoverStatus(Entity<InputMoverComponent?, MovementRelayTargetComponent?> ent)
+    {
+        // Track that we aren't in a loop of movement relayers
+        _seenMovers.Clear();
+        while (true)
+        {
+            if (!MoverQuery.Resolve(ent, ref ent.Comp1, logMissing: false))
+            {
+                RemCompDeferred<ActiveInputMoverComponent>(ent);
+                break;
+            }
+
+            var meta = MetaData(ent);
+            if (Terminating(ent, meta))
+                break;
+
+            ActiveInputMoverComponent? activeMover = null;
+            if (!meta.EntityPaused
+                || PhysicsQuery.TryComp(ent, out var phys) && phys.IgnorePaused)
+                activeMover = EnsureComp<ActiveInputMoverComponent>(ent);
+
+            // If we're a relay target, make sure our drivers are InputMovers
+            if (RelayTargetQuery.Resolve(ent, ref ent.Comp2, logMissing: false)
+                // In case we're called from ComponentShutdown:
+                && ent.Comp2.LifeStage <= ComponentLifeStage.Running
+                && Exists(ent.Comp2.Source)
+                && !_seenMovers.Contains(ent.Comp2.Source))
+            {
+                if (ent.Comp2.Source == ent.Owner)
+                {
+                    Log.Error($"Entity {ToPrettyString(ent)} is attempting to relay movement to itself!");
+                    break;
+                }
+
+                if (activeMover is not null)
+                    activeMover.RelayedFrom = ent.Comp2.Source;
+
+                ent = ent.Comp2.Source;
+                _seenMovers.Add(ent);
+                continue;
+            }
+
+            // No longer a well-defined relay target
+            if (activeMover is not null)
+                activeMover.RelayedFrom = null;
+
+            break;
+        }
     }
 
     private void OnRelayPlayerAttached(Entity<RelayInputMoverComponent> entity, ref PlayerAttachedEvent args)
@@ -75,6 +166,7 @@ public sealed class MoverController : SharedMoverController
             return;
 
         args.Input = input;
+        args.SetMaxVelocity = entity.Comp.SetMaxVelocity;
     }
 
     private void PilotedShuttleRelayEvent<TEvent>(Entity<PilotedShuttleComponent> entity, ref TEvent args)
@@ -91,53 +183,75 @@ public sealed class MoverController : SharedMoverController
         return true;
     }
 
-    private HashSet<EntityUid> _moverAdded = new();
-    private List<Entity<InputMoverComponent>> _movers = new();
-
-    private void InsertMover(Entity<InputMoverComponent> source)
-    {
-        if (TryComp(source, out MovementRelayTargetComponent? relay))
-        {
-            if (TryComp(relay.Source, out InputMoverComponent? relayMover))
-            {
-                InsertMover((relay.Source, relayMover));
-            }
-        }
-
-        // Already added
-        if (!_moverAdded.Add(source.Owner))
-            return;
-
-        _movers.Add(source);
-    }
-
     public override void UpdateBeforeSolve(bool prediction, float frameTime)
     {
         base.UpdateBeforeSolve(prediction, frameTime);
 
-        _moverAdded.Clear();
-        _movers.Clear();
-        var inputQueryEnumerator = AllEntityQuery<InputMoverComponent>();
+        // We use _seenMovers here as well as in UpdateMoverStatus—this means we
+        // cannot have any events get fired while we use it in this while loop.
+        _seenMovers.Clear();
+        _moversToUpdate.Clear();
 
-        // Need to order mob movement so that movers don't run before their relays.
-        while (inputQueryEnumerator.MoveNext(out var uid, out var mover))
+        // Don't use EntityQueryEnumerator because admin ghosts have to move on
+        // paused maps. Pausing movers is handled via ActiveInputMoverComponent.
+        var inputQueryEnumerator = AllEntityQuery<ActiveInputMoverComponent, InputMoverComponent>();
+        while (inputQueryEnumerator.MoveNext(out var uid, out var activeComp, out var moverComp))
         {
-            if (IsPaused(uid) && !HasComp<GhostComponent>(uid)) // Frontier: Skip processing paused entities. Ghosts are excepted for mapping reasons
+            if (IsPaused(uid) && !_ghostQuery.HasComp(uid)) // Frontier: Skip processing paused entities. Ghosts are excepted for mapping reasons
                 continue; // Frontier
 
-            InsertMover((uid, mover));
+            _seenRelayMovers.Clear(); // O(1) if already empty
+            QueueRelaySources(activeComp.RelayedFrom);
+
+            // If it's already inserted, that's fine—that means it'll still be
+            // handled before its child movers
+            AddMover((uid, moverComp));
         }
 
-        foreach (var mover in _movers)
+        ActiveMoverGauge.Set(_moversToUpdate.Count);
+
+        foreach (var ent in _moversToUpdate)
         {
-            HandleMobMovement(mover, frameTime);
+            HandleMobMovement(ent, frameTime);
         }
-
-        ActiveMoverGauge.Set(_movers.Count);
 
         HandleShuttlePilot(frameTime);
 
         HandleShuttleMovement(frameTime);
+        return;
+
+        // When we insert a chain of relay sources we have to flip its ordering
+        // It's going to be extremely uncommon for a relay chain to be more than
+        // one entity so we just recurse as needed.
+        void QueueRelaySources(EntityUid? next)
+        {
+            // We only care if it's still a mover
+            if (!_activeQuery.TryComp(next, out var nextActive)
+                || !MoverQuery.TryComp(next, out var nextMover)
+                || !_seenRelayMovers.Add(next.Value))
+                return;
+
+            Debug.Assert(next.Value != nextActive.RelayedFrom);
+
+            // While it is (as of writing) currently true that this recursion
+            // should always terminate due to RelayedFrom always being written
+            // in a way that tracks if it's made a loop, we still take the extra
+            // memory (and small time cost) of making sure via _seenRelayMovers.
+            QueueRelaySources(nextActive.RelayedFrom);
+            AddMover((next.Value, nextMover));
+        }
+
+        // Track inserts so we have ~ O(1) inserts without duplicates. Hopefully
+        // it doesn't matter that both _seenMovers and _moversToUpdate are never
+        // trimmed? They should be pretty memory light anyway, and in general
+        // it'll be rare for there to be a decrease in movers.
+        void AddMover(Entity<InputMoverComponent> entity)
+        {
+            if (!_seenMovers.Add(entity))
+                return;
+
+            _moversToUpdate.Add(entity);
+        }
     }
 
     // Mono: make ShuttleInput
@@ -186,7 +300,7 @@ public sealed class MoverController : SharedMoverController
 
     protected override void HandleShuttleInput(EntityUid uid, ShuttleButtons button, ushort subTick, bool state)
     {
-        if (!TryComp<PilotComponent>(uid, out var pilot) || pilot.Console == null)
+        if (!PilotQuery.TryComp(uid, out var pilot) || pilot.Console == null)
             return;
 
         ResetSubtick(pilot);
@@ -274,18 +388,26 @@ public sealed class MoverController : SharedMoverController
     //
 
     /// <summary>
+    /// Get a shuttle's torque.
+    /// </summary>
+    public float GetTorque(ShuttleComponent shuttle)
+    {
+        return shuttle.AngularThrust * shuttle.AngularMultiplier;
+    }
+
+    /// <summary>
     /// Get a shuttle's angular acceleration.
     /// </summary>
     public float GetAngularAcceleration(ShuttleComponent shuttle, PhysicsComponent body)
     {
-        return shuttle.AngularThrust * body.InvI;
+        return GetTorque(shuttle) * body.InvI;
     }
 
     /// <summary>
     /// Get shuttle thrust force in a given direction.
     /// Takes local direction.
     /// </summary>
-    public Vector2 GetDirectionThrust(Vector2 dir, ShuttleComponent shuttle)
+    public Vector2 GetDirectionThrust(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body, TransformComponent xform)
     {
         if (dir.Length() == 0f)
             return Vector2.Zero;
@@ -302,28 +424,48 @@ public sealed class MoverController : SharedMoverController
         // prevent NaNs
         dir *= dir.X == 0 ? vertScale : dir.Y == 0 ? horizScale : MathF.Min(horizScale, vertScale);
 
-        return dir;
-    }
+        var northAngle = xform.LocalRotation;
+        var localVel = (-northAngle).RotateVec(body.LinearVelocity);
 
-    public Vector2 GetDirectionAccel(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body)
-    {
-        return GetDirectionThrust(dir, shuttle) * body.InvMass;
+        // scale our velocity-wards component by 1 / (vel/basemax + 1)
+        var dot = Vector2.Dot(dir, localVel);
+        if (dot > 0f)
+        {
+            var velLenSq = localVel.LengthSquared();
+            var dirCompVel = localVel * dot / velLenSq;
+            var velRatio = localVel.Length() / shuttle.BaseMaxLinearVelocity;
+            // less effect at lower velocities
+            var exponent = velRatio * MathF.Pow(velRatio / (1f + velRatio), 3f);
+            var scaledComp = dirCompVel / MathF.Pow(2f, exponent);
+            dir = dir - dirCompVel + scaledComp;
+        }
+
+        return dir * shuttle.AccelerationMultiplier;
     }
 
     /// <summary>
-    /// Helper function to extrapolate max velocity for a given Vector2 (really, its angle) and shuttle.
+    /// Get shuttle acceleration in a given direction.
     /// Takes local direction.
     /// </summary>
-    public Vector2 ObtainMaxVel(Vector2 vel, ShuttleComponent shuttle, PhysicsComponent body) // mono
+    public Vector2 GetDirectionAccel(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body, TransformComponent xform)
     {
-        if (vel.Length() == 0f)
-            return Vector2.Zero;
+        return GetDirectionThrust(dir, shuttle, body, xform) * body.InvMass;
+    }
 
-        var thrust = GetDirectionThrust(vel, shuttle);
-        var twr = thrust.Length() / body.Mass;
-        var twrMult = MathF.Pow(twr / shuttle.BaseMaxVelocityTWR, shuttle.MaxVelocityScalingExponent);
+    /// <summary>
+    /// Get shuttle thrust force in a given world direction.
+    /// </summary>
+    public Vector2 GetWorldDirectionThrust(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body, TransformComponent xform)
+    {
+        return xform.LocalRotation.RotateVec(GetDirectionThrust((-xform.LocalRotation).RotateVec(dir), shuttle, body, xform));
+    }
 
-        return vel.Normalized() * MathF.Min(shuttle.BaseMaxLinearVelocity * twrMult, MathF.Min(shuttle.UpperMaxVelocity, shuttle.SetMaxVelocity));
+    /// <summary>
+    /// Get shuttle acceleration in a given world direction.
+    /// </summary>
+    public Vector2 GetWorldDirectionAccel(Vector2 dir, ShuttleComponent shuttle, PhysicsComponent body, TransformComponent xform)
+    {
+        return GetWorldDirectionThrust(dir, shuttle, body, xform) * body.InvMass;
     }
 
     private void HandleShuttleMovement(float frameTime)
@@ -335,6 +477,9 @@ public sealed class MoverController : SharedMoverController
             // query all our pilots for input
             var toRemove = new List<EntityUid>();
 
+            var angularMul = 0f;
+            var accelMul = 0f;
+            var setMaxVel = (float?)0f;
             foreach (var pilot in piloted.InputSources)
             {
                 var inputsEv = new GetShuttleInputsEvent(frameTime, uid);
@@ -343,7 +488,15 @@ public sealed class MoverController : SharedMoverController
                 if (!inputsEv.GotInput)
                     toRemove.Add(pilot);
                 else if (inputsEv.Input != null)
+                {
                     inputs.Add(inputsEv.Input.Value);
+                    angularMul += inputsEv.AngularMul;
+                    accelMul += inputsEv.AccelMul;
+                    if (setMaxVel != null && inputsEv.SetMaxVelocity != null)
+                        setMaxVel += inputsEv.SetMaxVelocity;
+                    else
+                        setMaxVel = null;
+                }
             }
 
             foreach (var remUid in toRemove)
@@ -359,6 +512,7 @@ public sealed class MoverController : SharedMoverController
             {
                 _thruster.DisableLinearThrusters(shuttle);
                 PhysicsSystem.SetSleepingAllowed(uid, body, true);
+                shuttle.AngularMultiplier = shuttle.AccelerationMultiplier = 1f;
                 continue;
             }
             PhysicsSystem.SetSleepingAllowed(uid, body, false);
@@ -377,7 +531,16 @@ public sealed class MoverController : SharedMoverController
             angularInput /= count;
             brakeInput /= count;
 
-            var shuttleNorthAngle = _xformSystem.GetWorldRotation(uid);
+            angularMul /= count;
+            accelMul /= count;
+            if (setMaxVel != null)
+                setMaxVel /= count;
+            shuttle.AngularMultiplier = angularMul;
+            shuttle.AccelerationMultiplier = accelMul;
+
+            var shuttleNorthAngle = _transform.GetWorldRotation(uid);
+
+            var xform = Transform(uid);
 
             // handle movement: brake
             if (brakeInput > 0f)
@@ -389,7 +552,7 @@ public sealed class MoverController : SharedMoverController
 
                     // Get velocity relative to the shuttle so we know which thrusters to fire
                     var shuttleVelocity = (-shuttleNorthAngle).RotateVec(body.LinearVelocity);
-                    var force = GetDirectionThrust(-shuttleVelocity, shuttle);
+                    var force = GetDirectionThrust(-shuttleVelocity, shuttle, body, xform);
 
                     if (force.X < 0f)
                     {
@@ -473,7 +636,7 @@ public sealed class MoverController : SharedMoverController
                 var linearDir = angle.GetDir();
                 var dockFlag = linearDir.AsFlag();
 
-                var totalForce = GetDirectionThrust(linearInput, shuttle);
+                var totalForce = GetDirectionThrust(linearInput, shuttle, body, xform);
 
                 // Won't just do cardinal directions.
                 foreach (DirectionFlag dir in Enum.GetValues(typeof(DirectionFlag)))
@@ -497,17 +660,20 @@ public sealed class MoverController : SharedMoverController
                 }
 
                 var localVel = (-shuttleNorthAngle).RotateVec(body.LinearVelocity);
-                // vector of max velocity we can be traveling with along current direction
-                var maxVelocity = ObtainMaxVel(localVel, shuttle, body);
-                // vector of max velocity we can be traveling with along wish-direction
-                var maxWishVelocity = ObtainMaxVel(totalForce, shuttle, body);
-                // if we're going faster than we can be, thrust to adjust our velocity to the max wish-direction velocity
-                if (localVel.LengthSquared() > maxVelocity.LengthSquared())
+                if (setMaxVel is { } speed && localVel.LengthSquared() != 0f && totalForce.LengthSquared() != 0f)
                 {
-                    var velDelta = maxWishVelocity - localVel;
-                    var maxForceLength = velDelta.Length() * body.Mass / frameTime;
-                    var appliedLength = MathF.Min(totalForce.Length(), maxForceLength);
-                    totalForce = velDelta.Length() == 0 ? Vector2.Zero : velDelta.Normalized() * appliedLength;
+                    // vector of max velocity we can be traveling with along current direction
+                    var maxVelocity = localVel.Normalized() * speed;
+                    // vector of max velocity we can be traveling with along wish-direction
+                    var maxWishVelocity = totalForce.Normalized() * speed;
+                    // if we're going faster than we can be, thrust to adjust our velocity to the max wish-direction velocity
+                    if (localVel.Length() / maxVelocity.Length() > 0.999f)
+                    {
+                        var velDelta = maxWishVelocity - localVel;
+                        var maxForceLength = velDelta.Length() * body.Mass / frameTime;
+                        var appliedLength = MathF.Min(totalForce.Length(), maxForceLength);
+                        totalForce = velDelta.Length() == 0 ? Vector2.Zero : velDelta.Normalized() * appliedLength;
+                    }
                 }
 
                 totalForce = shuttleNorthAngle.RotateVec(totalForce);
@@ -524,7 +690,7 @@ public sealed class MoverController : SharedMoverController
             }
             else
             {
-                var torque = shuttle.AngularThrust * -angularInput;
+                var torque = GetTorque(shuttle) * -angularInput;
 
                 // Need to cap the velocity if 1 tick of input brings us over cap so we don't continuously
                 // edge onto the cap over and over.
@@ -549,27 +715,25 @@ public sealed class MoverController : SharedMoverController
 
         // We just mark off their movement and the shuttle itself does its own movement
         var activePilotQuery = EntityQueryEnumerator<PilotComponent, InputMoverComponent>();
-        var shuttleQuery = GetEntityQuery<ShuttleComponent>();
         while (activePilotQuery.MoveNext(out var uid, out var pilot, out var mover))
         {
             var consoleEnt = pilot.Console;
 
             // TODO: This is terrible. Just make a new mover and also make it remote piloting + device networks
-            if (TryComp<DroneConsoleComponent>(consoleEnt, out var cargoConsole))
-            {
+            if (_droneQuery.TryComp(consoleEnt, out var cargoConsole))
                 consoleEnt = cargoConsole.Entity;
-            }
 
-            if (!TryComp(consoleEnt, out TransformComponent? xform)) continue;
+            if (!XformQuery.TryComp(consoleEnt, out var xform))
+                continue;
 
             var gridId = xform.GridUid;
             // This tries to see if the grid is a shuttle and if the console should work.
-            if (!TryComp<MapGridComponent>(gridId, out var _) ||
-                !shuttleQuery.TryGetComponent(gridId, out var shuttleComponent) ||
+            if (!MapGridQuery.HasComp(gridId) ||
+                !_shuttleQuery.TryGetComponent(gridId, out var shuttleComponent) ||
                 !shuttleComponent.Enabled)
                 continue;
 
-            if (!newPilots.TryGetValue(gridId!.Value, out var pilots))
+            if (!newPilots.TryGetValue(gridId.Value, out var pilots))
             {
                 pilots = (shuttleComponent, new List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>());
                 newPilots[gridId.Value] = pilots;

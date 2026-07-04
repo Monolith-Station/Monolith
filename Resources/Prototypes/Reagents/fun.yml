@@ -41,6 +41,11 @@
         conditions:
         - !type:OrganType
           type: Moth
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Vox
+        factor: 0.10 
 
 - type: reagent
   id: BuzzochloricBees

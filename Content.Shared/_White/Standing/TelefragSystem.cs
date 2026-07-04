@@ -5,12 +5,12 @@ using Robust.Shared.Map;
 
 namespace Content.Shared._White.Standing;
 
-public sealed class TelefragSystem : EntitySystem
+public sealed partial class TelefragSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private SharedLayingDownSystem _layingDown = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     public void DoTelefrag(EntityUid uid, EntityCoordinates coords, TimeSpan knockdownTime, float range = 0.4f)
     {

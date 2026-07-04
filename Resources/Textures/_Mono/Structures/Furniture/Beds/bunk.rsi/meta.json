@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from SS13 Shiptest.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bottom_bunk",
+      "directions": 4
+    },
+    {
+      "name": "top_bunk",
+      "directions": 4
+    },
+    {
+      "name": "top_bunk_ladder",
+      "directions": 4
+    },
+    {
+      "name": "top_bunk_posts",
+      "directions": 4
+    }
+  ]
+}

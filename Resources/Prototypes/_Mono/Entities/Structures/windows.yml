@@ -147,6 +147,56 @@
   - type: TimedDespawn
     lifetime: 1800
 
+# Other Timed Despawn Windows
+
+- type: entity
+  id: WindowTimedSeal60Minutes
+  parent: WindowTimedSeal
+  suffix: 60 Minutes, Indestructible
+  components:
+  - type: TimedDespawn
+    lifetime: 3600
+
+- type: entity
+  id: WindowTimedSeal120Minutes
+  parent: WindowTimedSeal
+  suffix: 120 Minutes, Indestructible
+  components:
+  - type: TimedDespawn
+    lifetime: 7200
+
+- type: entity
+  id: WindowTimedSeal180Minutes
+  parent: WindowTimedSeal
+  suffix: 180 Minutes, Indestructible
+  components:
+  - type: TimedDespawn
+    lifetime: 10800
+
+- type: entity
+  parent: MarkerBase
+  id: TimedSealsTableSpawner
+  name: random timed seal spawner (30-180 minutes)
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+  - type: EntityTableSpawner
+    offset: 0.0
+    table: !type:NestedSelector
+      tableId: TimedSealsTable
+      prob: 1.0
+
+- type: entityTable
+  id: TimedSealsTable
+  table: !type:GroupSelector
+    children:
+    - id: WindowTimedSeal
+    - id: WindowTimedSeal60Minutes
+    - id: WindowTimedSeal120Minutes
+    - id: WindowTimedSeal180Minutes
+      weight: 1.0
+
 #plastitanium but blocks rads 100%
 
 - type: entity

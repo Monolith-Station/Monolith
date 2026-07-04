@@ -101,3 +101,12 @@
   components:
   - type: StaticPrice
     price: 250
+
+- type: entity #RS-2 Malandro
+  parent:
+  - WeaponSubMachineGunMalandro
+  id: WeaponSubMachineGunMalandroPMC
+  suffix: Registered
+  components:
+  - type: StaticPrice
+    price: 1000

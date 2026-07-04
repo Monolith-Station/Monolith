@@ -14,10 +14,10 @@ using Robust.Shared.Player;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class LinkedLifecycleGridSystem : EntitySystem
+public sealed partial class LinkedLifecycleGridSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {
@@ -177,7 +177,7 @@ public sealed class LinkedLifecycleGridSystem : EntitySystem
     // Deletes a grid, reparenting every humanoid and player character that's on it.
     public void UnparentPlayersFromGrid(EntityUid grid, bool deleteGrid, bool ignoreLifeStage = false)
     {
-        if (!ignoreLifeStage && MetaData(grid).EntityLifeStage >= EntityLifeStage.Terminating)
+        if (!ignoreLifeStage && TerminatingOrDeleted(grid))
             return;
 
         var reparentEntities = GetEntitiesToReparent(grid);

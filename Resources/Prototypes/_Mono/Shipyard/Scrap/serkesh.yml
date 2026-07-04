@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: Corrupt142
+# Discord: Corrupt
+
+# Shuttle Notes: Trully, a mighty, spiky brick...
+
+- type: vessel
+  id: Serkesh
+  parent: BaseVessel
+  name: RSC-Serkesh
+  description: Iron handed heavy hitter of RedSail Corsairs, not the biggest, not the baddest and most definitely not the fastest. Put together on the backwater ports of the galaxy with half burned and half-missing andromeda blueprints, if andromeda is the lovechild of an artist and a surgeon. The RSC-Serkesh is the abandoned kid of a butcher and a hitman, she is not pretty, doesn't do any tricks, but she gets the job done. Armed with heavy ballistic weapons, it's a heavily armored bruiser that can exchange blows with any ship from short to medium range.
+  price: 262000 # 146K base x 1.8 -> 262K (80% markup for high gunnery).
+  category: medium
+  group: Scrap
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/Scrap/serkesh.yml
+  guidebookPage: Null
+  class:
+  - pursuit
+  - Scrapyard
+
+  engine:
+  - AME
+
+- type: gameMap
+  id: Serkesh
+  mapName: 'RSC-Serkesh'
+  mapPath: /Maps/_Mono/Shuttles/Scrap/serkesh.yml
+  minPlayers: 0
+  stations:
+    Serkesh:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Serkesh MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

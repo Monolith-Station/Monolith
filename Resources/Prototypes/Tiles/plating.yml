@@ -11,6 +11,22 @@
   friction: 1.5
   heatCapacity: 10000
 
+  # dont use this in game, for partial plating beacause SOMEONE didnt make them non-space proof - mono
+- type: tile
+  id: PlatingSpace
+  name: tiles-plating-space
+  sprite: /Textures/Tiles/Misc/clockwork/clockwork_floor.png # clock work floor so when you look up "plating" in tiles menu while mapping its easy to see the difference
+  baseTurf: Space
+  isSubfloor: true
+  deconstructTools: [ Axing ] # DeltaV - The return of fireaxe prying
+  deconstructTimeMultiplier: 5 # Goobstation
+  weather: true
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 1.5
+  isSpace: true
+  heatCapacity: 10000
+
 - type: tile
   id: PlatingDamaged
   name: tiles-plating

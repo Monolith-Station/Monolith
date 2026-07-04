@@ -36,6 +36,30 @@
     Silver: 300
 
 - type: latheRecipe
+  id: PrintableStickyBomb
+  categories:
+  - Explosive
+  result: StickyGrenade
+  completetime: 10
+  materials:
+    Steel: 500
+    Plastic: 1000
+    Plasma: 1000
+    Silver: 300
+
+- type: latheRecipe
+  id: PrintableDirtyBomb
+  categories:
+  - Explosive
+  result: DirtyRadGrenade
+  completetime: 10
+  materials:
+    Steel: 500
+    Plastic: 500
+    Uranium: 1000
+    Silver: 300
+
+- type: latheRecipe
   id: PrintableBombCollar
   categories:
   - Explosive

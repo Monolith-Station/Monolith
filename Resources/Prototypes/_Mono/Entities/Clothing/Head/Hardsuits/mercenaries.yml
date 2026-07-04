@@ -20,13 +20,14 @@
         Piercing: 0.95
         Heat: 0.95
   - type: FlashImmunity
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
   - type: PointLight
     radius: 8
     energy: 3
     color: "#e24242"
   - type: RadarConsole
     followEntity: true
+    noRotate: true
   - type: DetectionRangeMultiplier
     infraredMultiplier: 0.5
     visualMultiplier: 0.75

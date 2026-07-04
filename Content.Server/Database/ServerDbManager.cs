@@ -22,6 +22,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using LogLevel = Robust.Shared.Log.LogLevel;
 using MSLogLevel = Microsoft.Extensions.Logging.LogLevel;
+using Content.Shared._Mono.Company;
+using Content.Server._Mono.Company; // Mono
 
 namespace Content.Server.Database
 {
@@ -49,10 +51,9 @@ namespace Content.Server.Database
         #endregion
 
         #region MonoCoins
-        Task<int> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default);
-        Task SetMonoCoinsAsync(NetUserId userId, int balance, CancellationToken cancel = default);
-        Task<int> AddMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default);
-        Task<bool> TrySubtractMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default);
+        Task<long> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default);
+        Task SetMonoCoinsAsync(NetUserId userId, long balance, CancellationToken cancel = default);
+        Task<long> AddMonoCoinsAsync(NetUserId userId, long amount, CancellationToken cancel = default);
         #endregion
 
         #region User Ids
@@ -351,6 +352,19 @@ namespace Content.Server.Database
 
         #endregion
 
+        // Mono
+        #region Company
+        Task AddCompanyMember(Guid player, ProtoId<CompanyPrototype> company);
+
+        Task<List<string>> GetPlayerCompanies(Guid player, CancellationToken cancel = default);
+        Task<IEnumerable<CompanyMemberRecord>> GetCompanyMembers(ProtoId<CompanyPrototype> company, CancellationToken cancel = default);
+        Task<IEnumerable<CompanyMemberRecord>> GetAllCompanyMembers(CancellationToken cancel = default);
+        Task<CompanyMemberRecord?> GetCompanyMember(ProtoId<CompanyPrototype> company, Guid player, CancellationToken cancel = default);
+        Task SetCompanyOwner(ProtoId<CompanyPrototype> company, Guid player, bool owner);
+        Task<bool> RemoveCompanyMember(Guid player, ProtoId<CompanyPrototype> company);
+
+        #endregion
+
         #region DB Notifications
 
         void SubscribeToNotifications(Action<DatabaseNotification> handler);
@@ -398,7 +412,7 @@ namespace Content.Server.Database
         public string? Payload { get; set; }
     }
 
-    public sealed class ServerDbManager : IServerDbManager
+    public sealed partial class ServerDbManager : IServerDbManager
     {
         public static readonly Counter DbReadOpsMetric = Metrics.CreateCounter(
             "db_read_ops",
@@ -412,9 +426,9 @@ namespace Content.Server.Database
             "db_executing_ops",
             "Amount of active database operations. Note that some operations may be waiting for a database connection.");
 
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IResourceManager _res = default!;
-        [Dependency] private readonly ILogManager _logMgr = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IResourceManager _res = default!;
+        [Dependency] private ILogManager _logMgr = default!;
 
         private ServerDbBase _db = default!;
         private LoggingProvider _msLogProvider = default!;
@@ -504,28 +518,22 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetPlayerPreferencesAsync(userId, cancel));
         }
 
-        public Task<int> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default)
+        public Task<long> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default)
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetMonoCoinsAsync(userId, cancel));
         }
 
-        public Task SetMonoCoinsAsync(NetUserId userId, int balance, CancellationToken cancel = default)
+        public Task SetMonoCoinsAsync(NetUserId userId, long balance, CancellationToken cancel = default)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SetMonoCoinsAsync(userId, balance, cancel));
         }
 
-        public Task<int> AddMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default)
+        public Task<long> AddMonoCoinsAsync(NetUserId userId, long amount, CancellationToken cancel = default)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.AddMonoCoinsAsync(userId, amount, cancel));
-        }
-
-        public Task<bool> TrySubtractMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.TrySubtractMonoCoinsAsync(userId, amount, cancel));
         }
 
         public Task AssignUserIdAsync(string name, NetUserId userId)
@@ -1058,7 +1066,7 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.RemoveJobWhitelist(player, job));
         }
-        
+
         // Frontier: ghost role DB ops
         public Task AddGhostRoleWhitelist(Guid player, ProtoId<GhostRolePrototype> ghostRole)
         {
@@ -1094,6 +1102,50 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.CleanIPIntelCache(range));
         }
+
+        // Mono-Start
+        public Task AddCompanyMember(Guid player, ProtoId<CompanyPrototype> company)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddCompanyMember(player, company));
+        }
+
+        public Task<List<string>> GetPlayerCompanies(Guid player, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerCompanies(player, cancel));
+        }
+
+        public Task<IEnumerable<CompanyMemberRecord>> GetCompanyMembers(ProtoId<CompanyPrototype> company, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetCompanyMembers(company, cancel));
+        }
+
+        public Task<IEnumerable<CompanyMemberRecord>> GetAllCompanyMembers(CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAllCompanyMembers(cancel));
+        }
+
+        public Task<CompanyMemberRecord?> GetCompanyMember(ProtoId<CompanyPrototype> company, Guid player, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetCompanyMember(company, player, cancel));
+        }
+
+        public Task SetCompanyOwner(ProtoId<CompanyPrototype> company, Guid player, bool owner)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetCompanyOwner(company, player, owner));
+        }
+
+        public Task<bool> RemoveCompanyMember(Guid player, ProtoId<CompanyPrototype> company)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.RemoveCompanyMember(player, company));
+        }
+        // Mono-End
 
         public void SubscribeToNotifications(Action<DatabaseNotification> handler)
         {

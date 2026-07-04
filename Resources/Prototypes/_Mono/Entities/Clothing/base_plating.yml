@@ -25,35 +25,35 @@
 - type: entity
   abstract: true
   parent: ClothingArmorPlate
-  id: ClothingArmorPlateLight
+  id: ClothingArmorPlateBlunt_Slash
   components:
   - type: StorageFill
     contents:
-    - id: ArmorPlateLight
+    - id: ArmorPlateBlunt_Slash
 
 - type: entity
   abstract: true
   parent: ClothingArmorPlate
-  id: ClothingArmorPlateMedium
+  id: ClothingArmorPlatePierce
   components:
   - type: StorageFill
     contents:
-    - id: ArmorPlateMedium
+    - id: ArmorPlatePierce
 
 - type: entity
   abstract: true
   parent: ClothingArmorPlate
-  id: ClothingArmorPlateTactical
+  id: ClothingArmorPlateHeat
   components:
   - type: StorageFill
     contents:
-    - id: ArmorPlateTactical
+    - id: ArmorPlateHeat
 
 - type: entity
   abstract: true
   parent: ClothingArmorPlate
-  id: ClothingArmorPlatePlastitanium
+  id: ClothingArmorPlateSpeed
   components:
   - type: StorageFill
     contents:
-    - id: ArmorPlatePlastitanium
+    - id: ArmorPlateSpeed

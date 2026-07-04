@@ -83,6 +83,21 @@
   id: SmartfridgeCircuitboard
   result: SmartfridgeCircuitboard
 
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: SmartArmoryCircuitboard
+  result: SmartArmoryCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ShipDrillMachineCircuitboard
+  result: ShipDrillMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: LargeThrusterMachineCircuitboard
+  result: LargeThrusterMachineCircuitboard
+
 # Datafarm
 
 - type: latheRecipe
@@ -96,3 +111,8 @@
   parent: BaseGoldCircuitboardRecipe
   id: CentrifugeLatheMiniCircuitboard
   result: CentrifugeLatheMiniCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: OreMagnetMachineCircuitboard
+  result: OreMagnetMachineCircuitboard

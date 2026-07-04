@@ -25,7 +25,7 @@ namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
 {
-    [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
+    [Dependency] private RandomHelperSystem _randomHelper = default!; // Shitmed Change
 
     private void InitializeParts()
     {

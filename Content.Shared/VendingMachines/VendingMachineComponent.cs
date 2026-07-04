@@ -58,7 +58,7 @@ namespace Content.Shared.VendingMachines
         /// </summary>
         [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
         public TimeSpan EjectNextChargeTime;
-		
+
         /// <summary>
         /// Mono: Chance you can hit that vend wire again (Default 0)
         /// </summary>
@@ -83,6 +83,7 @@ namespace Content.Shared.VendingMachines
 
         public string? NextItemToEject;
 
+        [DataField]
         public bool Broken;
 
         /// <summary>
@@ -247,6 +248,12 @@ namespace Content.Shared.VendingMachines
         [DataField]
         public double? LastPurchasePrice;
         // End Frontier: taxes, cash slot
+
+        /// <summary>
+        /// Mono: Makes all positions in vending machines free if set false
+        /// </summary>
+        [DataField]
+        public bool RequiresCash = false;
     }
 
     [Serializable, NetSerializable]

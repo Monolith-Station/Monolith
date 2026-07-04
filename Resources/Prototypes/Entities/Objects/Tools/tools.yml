@@ -362,7 +362,6 @@
     availablePrototypes:
     - WallSolid
     - FloorSteel
-    - Plating
     - Catwalk
     - Grille
     - Window
@@ -379,9 +378,71 @@
     - HVCable
     - CableTerminal
     - Deconstruct
+    # mono start
+    - WallReinforced
+    - AirlockShuttle
+    - AirlockGlassShuttle
+    - SMES
+    - Substation
+    - BaseAPC
+    - Plating # Not mono, taken in for prettiness
+    - PlatingCornerNE
+    - PlatingCornerNW
+    - PlatingCornerSE
+    - PlatingCornerSW
+    - PlatingHalfV
+    - PlatingHalfH
+    - PlatingWedgeN
+    - PlatingWedgeE
+    - PlatingWedgeS
+    - PlatingWedgeW
+    - PlatingHalfTiltNESLower
+    - PlatingHalfTiltSEWLower
+    - PlatingHalfTiltSWNLower
+    - PlatingHalfTiltNWELower
+    - PlatingHalfTiltNESUpper
+    - PlatingHalfTiltSEWUpper
+    - PlatingHalfTiltSWNUpper
+    - PlatingHalfTiltNWEUpper
+    - PlatingHalfTiltNEWLower
+    - PlatingHalfTiltSENLower
+    - PlatingHalfTiltSWELower
+    - PlatingHalfTiltNWSLower
+    - PlatingHalfTiltNEWUpper
+    - PlatingHalfTiltSENUpper
+    - PlatingHalfTiltSWEUpper
+    - PlatingHalfTiltNWSUpper
+    - Lattice
+    - LatticeCornerNE
+    - LatticeCornerNW
+    - LatticeCornerSE
+    - LatticeCornerSW
+    - LatticeHalfV
+    - LatticeHalfH
+    - LatticeWedgeN
+    - LatticeWedgeE
+    - LatticeWedgeS
+    - LatticeWedgeW
+    - LatticeHalfTiltNESLower
+    - LatticeHalfTiltSEWLower
+    - LatticeHalfTiltSWNLower
+    - LatticeHalfTiltNWELower
+    - LatticeHalfTiltNESUpper
+    - LatticeHalfTiltSEWUpper
+    - LatticeHalfTiltSWNUpper
+    - LatticeHalfTiltNWEUpper
+    - LatticeHalfTiltNEWLower
+    - LatticeHalfTiltSENLower
+    - LatticeHalfTiltSWELower
+    - LatticeHalfTiltNWSLower
+    - LatticeHalfTiltNEWUpper
+    - LatticeHalfTiltSENUpper
+    - LatticeHalfTiltSWEUpper
+    - LatticeHalfTiltNWSUpper
+    delayMultiplier: 0.65 # Mono
   - type: LimitedCharges
-    maxCharges: 30
-    charges: 30
+    maxCharges: 125 # mono 30 -> 125
+    charges: 125 # mono 30 -> 125
   - type: Sprite
     sprite: _NF/Objects/Tools/rcd.rsi # Frontier
     state: icon
@@ -428,8 +489,8 @@
   suffix: AutoRecharge
   components:
   - type: LimitedCharges
-    maxCharges: 20
-    charges: 20
+    maxCharges: 90 # mono 20 -> 90
+    charges: 90 # mono 20 -> 90
   - type: AutoRecharge
     rechargeDuration: 10
 
@@ -451,7 +512,7 @@
   components:
   # Monolith changes start
   - type: LimitedChargesAmmo
-    charges: 30
+    charges: 125 # 30 -> 125
     whitelist:
       tags:
       - RapidConstructionTool
@@ -468,7 +529,7 @@
       Plastic: 100
   - type: StaticPrice
     price: 30 # Frontier 60<30
-    vendPrice: 1000 # Frontier
+    vendPrice: 3000 # Frontier
 
 - type: entity
   name: omnitool
@@ -536,6 +597,59 @@
         state: omnitool-pulsing
       changeSound:
         path: /Audio/Items/change_drill.ogg
+
+- type: entity # Goob to Mono
+  id: RPD
+  parent: RCD
+  name: RPD
+  description: The rapid piping device allows for the quick placement and removal of atmospheric-related buildings requires compressive matter to use.
+  components:
+  - type: RCD
+    isRpd: true
+    availablePrototypes:
+    - PipeFourway
+    - PipeStraight
+    - PipeBend
+    - PipeTJunction
+    - OutletInjector
+    - ManualValve
+    - VolumetricPump
+    - PressurePump
+    - VentScrubber
+    - PressureValve
+    - DualPortVent
+    - VentGas
+    - VentPassive
+    - MixerGas
+    - Radiator
+    - RadiatorBend
+    - SignalValve
+    - CanisterPort
+    - FilterGas
+    # </Goobstation>
+    - Deconstruct
+  - type: LimitedCharges
+    maxCharges: 90
+  - type: Sprite
+    sprite: Objects/Tools/rpd.rsi
+
+- type: entity # Goob
+  id: RPDEmpty
+  parent: RPD
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    charges: 0
+
+- type: entity # Goob
+  id: RPDRecharging
+  parent: RPD
+  name: experimental RPD
+  description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
+  suffix: AutoRecharge
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 10
 
 #Other
 - type: entity

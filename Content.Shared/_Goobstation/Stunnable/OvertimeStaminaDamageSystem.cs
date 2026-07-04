@@ -6,8 +6,8 @@ namespace Content.Shared.Stunnable;
 
 public sealed partial class OvertimeStaminaDamageSystem : EntitySystem
 {
-    [Dependency] private readonly StaminaSystem _stamina = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private StaminaSystem _stamina = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

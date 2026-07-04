@@ -233,7 +233,7 @@
 - type: entity
   id: ComputerPirateBounty
   parent: BaseComputer
-  name: rogue bounty console
+  name: PDV bounty console # Mono
   description: Pull up active contracts, track targets, and get paid in chits.
   components:
   - type: Sprite
