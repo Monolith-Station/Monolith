@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Construction;
 using Content.Shared.Destructible;
@@ -93,7 +93,8 @@ public abstract partial class SharedBuckleSystem
                         {
                             var worldPos = _transform.GetWorldPosition(uid);
                             _transform.SetWorldPosition(entity, worldPos);
-                            entityXform.AttachParent(strapXform.ParentUid);
+                            _transform.SetParent(entity, uid);
+                            // entityXform.AttachParent(strapXform.ParentUid);
                         }
 
                         // Reset other states

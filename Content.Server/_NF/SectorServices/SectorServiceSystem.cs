@@ -58,7 +58,7 @@ public sealed partial class SectorServiceSystem : EntitySystem
 
     private void DeleteServiceEntity()
     {
-        if (EntityManager.EntityExists(_entity) && !Terminating(_entity))
+        if (Exists(_entity) && !Terminating(_entity))
         {
             QueueDel(_entity);
         }

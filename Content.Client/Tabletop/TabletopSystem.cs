@@ -130,7 +130,7 @@ namespace Content.Client.Tabletop
             // Get the camera entity that the server has created for us
             var camera = GetEntity(msg.CameraUid);
 
-            if (!EntityManager.TryGetComponent<EyeComponent>(camera, out var eyeComponent))
+            if (!TryComp<EyeComponent>(camera, out var eyeComponent))
             {
                 // If there is no eye, print error and do not open any window
                 Log.Error("Camera entity does not have eye component!");
@@ -257,7 +257,7 @@ namespace Content.Client.Tabletop
         private void StopDragging(bool broadcast = true)
         {
             // Set the dragging player on the component to noone
-            if (broadcast && _draggedEntity != null && EntityManager.HasComponent<TabletopDraggableComponent>(_draggedEntity.Value))
+            if (broadcast && _draggedEntity != null && HasComp<TabletopDraggableComponent>(_draggedEntity.Value))
             {
                 RaisePredictiveEvent(new TabletopMoveEvent(GetNetEntity(_draggedEntity.Value), Transforms.GetMapCoordinates(_draggedEntity.Value), GetNetEntity(_table!.Value)));
                 RaisePredictiveEvent(new TabletopDraggingPlayerChangedEvent(GetNetEntity(_draggedEntity.Value), false));
@@ -281,7 +281,7 @@ namespace Content.Client.Tabletop
             if (eye == null)
                 return MapCoordinates.Nullspace;
 
-            var size = (Vector2) viewport.ViewportSize / EyeManager.PixelsPerMeter; // Convert to tiles instead of pixels
+            var size = (Vector2)viewport.ViewportSize / EyeManager.PixelsPerMeter; // Convert to tiles instead of pixels
             var eyePosition = eye.Position.Position;
             var eyeRotation = eye.Rotation;
             var eyeScale = eye.Scale;

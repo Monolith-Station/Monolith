@@ -63,7 +63,7 @@ public sealed partial class DeedCopySystem : EntitySystem
         var copiedDeed = _serializationManager.CreateCopy(sourceDeed, notNullableOverride: true);
 
         // Add the copied component to the target entity
-        EntityManager.AddComponent(targetId, copiedDeed, overwrite: true);
+        AddComp(targetId, copiedDeed, overwrite: true);
 
         // Success message
         _popupSystem.PopupEntity(

@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Client.Administration.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;

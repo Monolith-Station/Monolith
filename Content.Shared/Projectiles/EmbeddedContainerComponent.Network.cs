@@ -34,7 +34,7 @@ namespace Content.Shared.Projectiles
             var validSet = new HashSet<NetEntity>();
             foreach (var ent in component.EmbeddedObjects)
             {
-                if (EntityManager.TryGetNetEntity(ent, out var netEnt))
+                if (TryGetNetEntity(ent, out var netEnt))
                     validSet.Add(netEnt.Value);
             }
             args.State = new EmbeddedContainerComponentState(validSet);
@@ -48,7 +48,7 @@ namespace Content.Shared.Projectiles
             component.EmbeddedObjects.Clear();
             foreach (var netEnt in state.EmbeddedEntities)
             {
-                var entityUid = EntityManager.GetEntity(netEnt);
+                var entityUid = GetEntity(netEnt);
                 if (entityUid != EntityUid.Invalid)
                     component.EmbeddedObjects.Add(entityUid);
             }

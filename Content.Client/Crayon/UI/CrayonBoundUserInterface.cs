@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.Crayon;
 using Content.Shared.Decals;
 using Robust.Client.GameObjects;
@@ -57,7 +57,7 @@ namespace Content.Client.Crayon.UI
         {
             base.UpdateState(state);
 
-            _menu?.UpdateState((CrayonBoundUserInterfaceState) state);
+            _menu?.UpdateState((CrayonBoundUserInterfaceState)state);
         }
 
         public void Select(string state)

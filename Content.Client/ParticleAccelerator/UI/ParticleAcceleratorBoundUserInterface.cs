@@ -1,4 +1,4 @@
-﻿using Content.Shared.Singularity.Components;
+using Content.Shared.Singularity.Components;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.ParticleAccelerator.UI
@@ -41,7 +41,7 @@ namespace Content.Client.ParticleAccelerator.UI
 
         protected override void UpdateState(BoundUserInterfaceState state)
         {
-            _menu?.DataUpdate((ParticleAcceleratorUIState) state);
+            _menu?.DataUpdate((ParticleAcceleratorUIState)state);
         }
     }
 }

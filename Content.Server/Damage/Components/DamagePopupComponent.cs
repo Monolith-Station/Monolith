@@ -1,4 +1,4 @@
-﻿using Content.Server.Damage.Systems;
+using Content.Server.Damage.Systems;
 
 namespace Content.Server.Damage.Components;
 

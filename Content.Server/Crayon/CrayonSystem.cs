@@ -82,7 +82,7 @@ public sealed partial class CrayonSystem : SharedCrayonSystem
         }
         // End Frontier
 
-        _adminLogger.Add(LogType.CrayonDraw, LogImpact.Low, $"{EntityManager.ToPrettyString(args.User):user} drew a {component.Color:color} {component.SelectedState}");
+        _adminLogger.Add(LogType.CrayonDraw, LogImpact.Low, $"{ToPrettyString(args.User):user} drew a {component.Color:color} {component.SelectedState}");
         args.Handled = true;
 
         if (component.DeleteEmpty && component.Charges <= 0)
@@ -155,6 +155,6 @@ public sealed partial class CrayonSystem : SharedCrayonSystem
     private void UseUpCrayon(EntityUid uid, EntityUid user)
     {
         _popup.PopupEntity(Loc.GetString("crayon-interact-used-up-text", ("owner", uid)), user, user);
-        EntityManager.QueueDeleteEntity(uid);
+        QueueDel(uid);
     }
 }

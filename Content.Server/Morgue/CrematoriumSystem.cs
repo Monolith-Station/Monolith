@@ -138,7 +138,7 @@ public sealed partial class CrematoriumSystem : EntitySystem
             {
                 var item = storage.Contents.ContainedEntities[i];
                 _containers.Remove(item, storage.Contents);
-                EntityManager.DeleteEntity(item);
+                Del(item);
             }
             var ash = Spawn("Ash", Transform(uid).Coordinates);
             _containers.Insert(ash, storage.Contents);
@@ -176,7 +176,7 @@ public sealed partial class CrematoriumSystem : EntitySystem
         }
         else
         {
-            EntityManager.DeleteEntity(victim);
+            Del(victim);
         }
         _entityStorage.CloseStorage(uid);
         Cremate(uid, component);

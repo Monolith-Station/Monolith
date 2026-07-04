@@ -30,14 +30,14 @@ namespace Content.Shared.Damage
 
         private void OnRefreshMovespeed(EntityUid uid, SlowOnDamageComponent component, RefreshMovementSpeedModifiersEvent args)
         {
-            if (!EntityManager.TryGetComponent<DamageableComponent>(uid, out var damage))
+            if (!TryComp<DamageableComponent>(uid, out var damage))
                 return;
 
             if (damage.TotalDamage == FixedPoint2.Zero)
                 return;
 
             // Get closest threshold
-            FixedPoint2 closest = FixedPoint2.Zero;
+            var closest = FixedPoint2.Zero;
             var total = damage.TotalDamage;
             foreach (var thres in component.SpeedModifierThresholds)
             {

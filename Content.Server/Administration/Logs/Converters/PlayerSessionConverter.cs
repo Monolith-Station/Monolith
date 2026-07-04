@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using Robust.Shared.Player;
 
 namespace Content.Server.Administration.Logs.Converters;

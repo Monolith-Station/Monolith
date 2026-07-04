@@ -61,7 +61,7 @@ public sealed partial class ShuttleRecordsSystem
             }
         }
 
-        if (EntityManager.TryGetComponent(targetIdEntity, out ShuttleDeedComponent? shuttleDeed))
+        if (TryComp(targetIdEntity, out ShuttleDeedComponent? shuttleDeed))
             targetIdVesselName = shuttleDeed.ShuttleName + " " + shuttleDeed.ShuttleNameSuffix;
 
         var newState = new ShuttleRecordsConsoleInterfaceState(
@@ -109,7 +109,7 @@ public sealed partial class ShuttleRecordsSystem
                 }
             }
 
-            if (EntityManager.TryGetComponent(targetIdEntity, out ShuttleDeedComponent? shuttleDeed))
+            if (TryComp(targetIdEntity, out ShuttleDeedComponent? shuttleDeed))
                 targetIdVesselName = shuttleDeed.ShuttleName + " " + shuttleDeed.ShuttleNameSuffix;
 
             var newState = new ShuttleRecordsConsoleInterfaceState(

@@ -1,4 +1,4 @@
-﻿using Content.Server.Administration.Systems;
+using Content.Server.Administration.Systems;
 using Content.Shared.Administration;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Toolshed.Errors;

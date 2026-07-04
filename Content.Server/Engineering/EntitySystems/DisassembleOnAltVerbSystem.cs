@@ -59,11 +59,11 @@ namespace Content.Server.Engineering.EntitySystems
             if (!TryComp(uid, out TransformComponent? transformComp))
                 return;
 
-            var entity = EntityManager.SpawnEntity(component.Prototype, transformComp.Coordinates);
+            var entity = Spawn(component.Prototype, transformComp.Coordinates);
 
             _handsSystem.TryPickup(user, entity);
 
-            EntityManager.DeleteEntity(uid);
+            Del(uid);
         }
     }
 }

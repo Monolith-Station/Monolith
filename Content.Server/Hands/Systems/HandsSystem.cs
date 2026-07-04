@@ -227,9 +227,9 @@ namespace Content.Server.Hands.Systems
                 return false;
             hands.NextThrowTime = _timing.CurTime + hands.ThrowCooldown;
 
-            if (EntityManager.TryGetComponent(throwEnt, out StackComponent? stack) && stack.Count > 1 && stack.ThrowIndividually)
+            if (TryComp(throwEnt, out StackComponent? stack) && stack.Count > 1 && stack.ThrowIndividually)
             {
-                var splitStack = _stackSystem.Split(throwEnt, 1, EntityManager.GetComponent<TransformComponent>(player).Coordinates, stack);
+                var splitStack = _stackSystem.Split(throwEnt, 1, Comp<TransformComponent>(player).Coordinates, stack);
 
                 if (splitStack is not {Valid: true})
                     return false;
@@ -266,7 +266,7 @@ namespace Content.Server.Hands.Systems
 
         private void OnDropHandItems(Entity<HandsComponent> entity, ref DropHandItemsEvent args)
         {
-            var direction = EntityManager.TryGetComponent(entity, out PhysicsComponent? comp) ? comp.LinearVelocity / 50 : Vector2.Zero;
+            var direction = TryComp(entity, out PhysicsComponent? comp) ? comp.LinearVelocity / 50 : Vector2.Zero;
             var dropAngle = _random.NextFloat(0.8f, 1.2f);
 
             var fellEvent = new FellDownEvent(entity);

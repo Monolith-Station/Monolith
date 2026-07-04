@@ -1,4 +1,4 @@
-﻿using Content.Shared.Tools;
+using Content.Shared.Tools;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 

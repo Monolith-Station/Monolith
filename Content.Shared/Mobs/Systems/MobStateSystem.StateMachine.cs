@@ -1,4 +1,4 @@
-﻿using Content.Shared.Database;
+using Content.Shared.Database;
 using Content.Shared.Mobs.Components;
 using Content.Shared._Shitmed.Body.Organ;
 

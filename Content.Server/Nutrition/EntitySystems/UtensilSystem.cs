@@ -43,7 +43,7 @@ namespace Content.Server.Nutrition.EntitySystems
 
         public (bool Success, bool Handled) TryUseUtensil(EntityUid user, EntityUid target, Entity<UtensilComponent> utensil)
         {
-            if (!EntityManager.TryGetComponent(target, out FoodComponent? food))
+            if (!TryComp(target, out FoodComponent? food))
                 return (false, false);
 
             //Prevents food usage with a wrong utensil
@@ -72,7 +72,7 @@ namespace Content.Server.Nutrition.EntitySystems
             if (_robustRandom.Prob(component.BreakChance))
             {
                 _audio.PlayPvs(component.BreakSound, userUid, AudioParams.Default.WithVolume(-2f));
-                EntityManager.DeleteEntity(uid);
+                Del(uid);
             }
         }
     }

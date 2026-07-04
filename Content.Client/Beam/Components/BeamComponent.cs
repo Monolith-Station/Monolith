@@ -1,4 +1,4 @@
-﻿using Content.Shared.Beam.Components;
+using Content.Shared.Beam.Components;
 
 namespace Content.Client.Beam.Components;
 [RegisterComponent]

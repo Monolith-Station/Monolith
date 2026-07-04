@@ -149,7 +149,7 @@ public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
         _userInterface.TryToggleUi(uid, RemoteDeviceUiKey.Key, actor.PlayerSession);
 
         var aiGrid = Transform(uid).GridUid; // Mono
-        var query = EntityManager.EntityQueryEnumerator<AiRemoteControllerComponent>();
+        var query = EntityQueryEnumerator<AiRemoteControllerComponent>();
         var remoteDevices = new List<RemoteDevicesData>();
 
         while (query.MoveNext(out var queryUid, out var comp))

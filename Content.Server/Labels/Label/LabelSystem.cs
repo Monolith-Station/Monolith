@@ -82,7 +82,7 @@ namespace Content.Server.Labels
                     return;
                 }
 
-                if (!EntityManager.TryGetComponent(item, out PaperComponent? paper))
+                if (!TryComp(item, out PaperComponent? paper))
                     // Assuming yaml has the correct entity whitelist, this should not happen.
                     return;
 

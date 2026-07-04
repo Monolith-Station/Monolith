@@ -75,7 +75,7 @@ public sealed partial class CargoSystem
             }
 
             // Frontier - This makes sure telepads spawn goods of linked computers only. //TODO: FIx This Again
-            List<NetEntity> consoleUidList = sinkComponent.LinkedSources.Select(item => EntityManager.GetNetEntity(item)).ToList();
+            List<NetEntity> consoleUidList = sinkComponent.LinkedSources.Select(item => GetNetEntity(item)).ToList();
 
             var xform = Transform(uid);
             if (FulfillNextOrder(consoleUidList, orderDatabase, xform.Coordinates, comp.PrinterOutput))
@@ -110,7 +110,7 @@ public sealed partial class CargoSystem
     private void OnShutdown(Entity<CargoTelepadComponent> ent, ref ComponentShutdown args)
     {
         //if (ent.Comp.CurrentOrders.Count == 0) //Frontier - todo: find a smarter way to maybe fix this otherwise its exploity by forcing crate spawn on rando station
-            return;
+        return;
 
         if (_station.GetStations().Count == 0)
             return;
@@ -126,7 +126,7 @@ public sealed partial class CargoSystem
 
         //foreach (var order in ent.Comp.CurrentOrders)
         //{
-            //TryFulfillOrder((station, data), order, db); //Frontier TODO: Fix this?
+        //TryFulfillOrder((station, data), order, db); //Frontier TODO: Fix this?
         //}
     }
 

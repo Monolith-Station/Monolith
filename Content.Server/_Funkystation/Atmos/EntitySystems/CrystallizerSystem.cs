@@ -282,7 +282,7 @@ namespace Content.Server._Funkystation.Atmos.Systems
             if (TryComp<TransformComponent>(uid, out var transform) && transform.MapID != MapId.Nullspace)
             {
                 var gridUid = transform.GridUid;
-                if (gridUid != null && EntityManager.TryGetComponent<MapGridComponent>(gridUid, out var mapGrid))
+                if (gridUid != null && TryComp<MapGridComponent>(gridUid, out var mapGrid))
                 {
                     var tile = _map.CoordinatesToTile(gridUid.Value, mapGrid, mapCoords);
                     var southTile = tile + new Vector2i(0, -1);
@@ -291,7 +291,7 @@ namespace Content.Server._Funkystation.Atmos.Systems
                     {
                         for (int i = 0; i < amount; i++)
                         {
-                            var entity = EntityManager.SpawnEntity(productId, coords);
+                            var entity = Spawn(productId, coords);
                         }
                     }
                 }

@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Audio;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -18,18 +18,21 @@ public abstract partial class BaseActionComponent : Component
     /// <summary>
     ///     Icon representing this action in the UI.
     /// </summary>
-    [DataField("icon")] public SpriteSpecifier? Icon;
+    [DataField("icon")]
+    public SpriteSpecifier? Icon;
 
     /// <summary>
     ///     For toggle actions only, icon to show when toggled on. If omitted, the action will simply be highlighted
     ///     when turned on.
     /// </summary>
-    [DataField("iconOn")] public SpriteSpecifier? IconOn;
+    [DataField("iconOn")]
+    public SpriteSpecifier? IconOn;
 
     /// <summary>
     ///     For toggle actions only, background to show when toggled on.
     /// </summary>
-    [DataField] public SpriteSpecifier? BackgroundOn;
+    [DataField]
+    public SpriteSpecifier? BackgroundOn;
 
     /// <summary>
     ///     If not null, this color will modulate the action icon color.
@@ -38,27 +41,32 @@ public abstract partial class BaseActionComponent : Component
     ///     This currently only exists for decal-placement actions, so that the action icons correspond to the color of
     ///     the decal. But this is probably useful for other actions, including maybe changing color on toggle.
     /// </remarks>
-    [DataField("iconColor")] public Color IconColor = Color.White;
+    [DataField("iconColor")]
+    public Color IconColor = Color.White;
 
     /// <summary>
     ///     The original <see cref="IconColor"/> this action was.
     /// </summary>
-    [DataField] public Color OriginalIconColor;
+    [DataField]
+    public Color OriginalIconColor;
 
     /// <summary>
     ///     The color the action should turn to when disabled
     /// </summary>
-    [DataField] public Color DisabledIconColor = Color.DimGray;
+    [DataField]
+    public Color DisabledIconColor = Color.DimGray;
 
     /// <summary>
     ///     Keywords that can be used to search for this action in the action menu.
     /// </summary>
-    [DataField("keywords")] public HashSet<string> Keywords = new();
+    [DataField("keywords")]
+    public HashSet<string> Keywords = new();
 
     /// <summary>
     ///     Whether this action is currently enabled. If not enabled, this action cannot be performed.
     /// </summary>
-    [DataField("enabled")] public bool Enabled = true;
+    [DataField("enabled")]
+    public bool Enabled = true;
 
     /// <summary>
     ///     The toggle state of this action. Toggling switches the currently displayed icon, see <see cref="Icon"/> and <see cref="IconOn"/>.
@@ -79,12 +87,14 @@ public abstract partial class BaseActionComponent : Component
     /// <summary>
     ///     If true, the action will have an initial cooldown applied upon addition.
     /// </summary>
-    [DataField] public bool StartDelay = false;
+    [DataField]
+    public bool StartDelay = false;
 
     /// <summary>
     ///     Time interval between action uses.
     /// </summary>
-    [DataField("useDelay")] public TimeSpan? UseDelay;
+    [DataField("useDelay")]
+    public TimeSpan? UseDelay;
 
     /// <summary>
     ///     Convenience tool for actions with limited number of charges. Automatically decremented on use, and the
@@ -92,17 +102,20 @@ public abstract partial class BaseActionComponent : Component
     ///     However, charges will regenerate if <see cref="RenewCharges"/> is enabled and the action will not disable
     ///     when charges reach zero.
     /// </summary>
-    [DataField("charges")] public int? Charges;
+    [DataField("charges")]
+    public int? Charges;
 
     /// <summary>
     ///     The max charges this action has. If null, this is set automatically from <see cref="Charges"/> on mapinit.
     /// </summary>
-    [DataField] public int? MaxCharges;
+    [DataField]
+    public int? MaxCharges;
 
     /// <summary>
     ///     If enabled, charges will regenerate after a <see cref="Cooldown"/> is complete
     /// </summary>
-    [DataField("renewCharges")]public bool RenewCharges;
+    [DataField("renewCharges")]
+    public bool RenewCharges;
 
     /// <summary>
     /// The entity that contains this action. If the action is innate, this may be the user themselves.
@@ -138,28 +151,33 @@ public abstract partial class BaseActionComponent : Component
     ///     Whether the action system should block this action if the user cannot currently interact. Some spells or
     ///     abilities may want to disable this and implement their own checks.
     /// </summary>
-    [DataField("checkCanInteract")] public bool CheckCanInteract = true;
+    [DataField("checkCanInteract")]
+    public bool CheckCanInteract = true;
 
     /// <summary>
     /// Whether to check if the user is conscious or not. Can be used instead of <see cref="CheckCanInteract"/>
     /// for a more permissive check.
     /// </summary>
-    [DataField] public bool CheckConsciousness = true;
+    [DataField]
+    public bool CheckConsciousness = true;
 
     /// <summary>
     ///     If true, this will cause the action to only execute locally without ever notifying the server.
     /// </summary>
-    [DataField("clientExclusive")] public bool ClientExclusive = false;
+    [DataField("clientExclusive")]
+    public bool ClientExclusive = false;
 
     /// <summary>
     ///     Determines the order in which actions are automatically added the action bar.
     /// </summary>
-    [DataField("priority")] public int Priority = 0;
+    [DataField("priority")]
+    public int Priority = 0;
 
     /// <summary>
     ///     What entity, if any, currently has this action in the actions component?
     /// </summary>
-    [DataField] public EntityUid? AttachedEntity;
+    [DataField]
+    public EntityUid? AttachedEntity;
 
     /// <summary>
     ///     If true, this will cause the the action event to always be raised directed at the action performer/user instead of the action's container/provider.
@@ -178,22 +196,26 @@ public abstract partial class BaseActionComponent : Component
     /// <summary>
     ///     Whether or not to automatically add this action to the action bar when it becomes available.
     /// </summary>
-    [DataField("autoPopulate")] public bool AutoPopulate = true;
+    [DataField("autoPopulate")]
+    public bool AutoPopulate = true;
 
     /// <summary>
     ///     Temporary actions are deleted when they get removed a <see cref="ActionsComponent"/>.
     /// </summary>
-    [DataField("temporary")] public bool Temporary;
+    [DataField("temporary")]
+    public bool Temporary;
 
     /// <summary>
     ///     Determines the appearance of the entity-icon for actions that are enabled via some entity.
     /// </summary>
-    [DataField("itemIconStyle")] public ItemActionIconStyle ItemIconStyle;
+    [DataField("itemIconStyle")]
+    public ItemActionIconStyle ItemIconStyle;
 
     /// <summary>
     ///     If not null, this sound will be played when performing this action.
     /// </summary>
-    [DataField("sound")] public SoundSpecifier? Sound;
+    [DataField("sound")]
+    public SoundSpecifier? Sound;
 }
 
 [Serializable, NetSerializable]
