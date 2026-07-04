@@ -33,6 +33,9 @@ using System.Collections.Concurrent;
 using Robust.Shared.Timing;
 using Content.Shared._Mono;
 using Content.Shared.Tag;
+using Robust.Shared.Configuration;
+using Content.Shared._Mono.CCVar;
+using Robust.Shared;
 
 namespace Content.Shared.Projectiles;
 
@@ -40,20 +43,21 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 {
     public const string ProjectileFixture = "projectile";
 
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedGunSystem _guns = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly IParallelManager _parallel = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedGunSystem _guns = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedCameraRecoilSystem _sharedCameraRecoil = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private IParallelManager _parallel = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IConfigurationManager _cfg = default!; // Mono
 
     // Cache of projectiles waiting for collision checks
     private readonly ConcurrentQueue<(EntityUid Uid, ProjectileComponent Component, EntityUid Target)> _pendingCollisionChecks = new();
@@ -62,6 +66,11 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     private const int ProjectileBatchSize = 16;
     private TimeSpan _lastBatchProcess;
     private readonly TimeSpan _processingInterval = TimeSpan.FromMilliseconds(16); // ~60Hz
+
+    private float _minRaycastVelocity; // Mono
+    private bool _adaptiveRaycasting; // Mono
+    private const int BasePhysicsTickrate = 60; // Mono
+    private int _physicsTickrate; // Mono
 
     public override void Initialize()
     {
@@ -76,34 +85,29 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
 
         SubscribeLocalEvent<EmbeddedContainerComponent, EntityTerminatingEvent>(OnEmbeddableTermination);
-        // Subscribe to initialize the origin grid on ProjectileGridPhaseComponent
-        SubscribeLocalEvent<ProjectileGridPhaseComponent, ComponentStartup>(OnProjectileGridPhaseStartup);
-        // Subscribe to ensure MetaDataComponent on projectile entities for networking
-        SubscribeLocalEvent<ProjectileComponent, ComponentStartup>(OnProjectileMetaStartup);
 
         // Mono
         SubscribeLocalEvent<ProjectileComponent, TileFrictionEvent>(OnTileFriction);
+
+        Subs.CVar(_cfg, MonoCVars.ProjectileRaycastSpeedThreshold, value => _minRaycastVelocity = value, true);
+        Subs.CVar(_cfg, MonoCVars.ProjectileAdaptiveRaycastThreshold, value => _adaptiveRaycasting = value, true);
+        Subs.CVar(_cfg, CVars.TargetMinimumTickrate, value => _physicsTickrate = value, true);
+        // Mono End
     }
 
     /// <summary>
-    /// Initialize the origin grid for phasing projectiles.
+    /// Mono: Handles whether a projectile is raycasted based off projectile speed.
     /// </summary>
-    private void OnProjectileGridPhaseStartup(EntityUid uid, ProjectileGridPhaseComponent component, ComponentStartup args)
+    /// <param name="speed"></param>
+    /// <returns></returns>
+    public bool ShouldRaycastProjectile(float speed)
     {
-        var xform = Transform(uid);
-        component.SourceGrid = xform.GridUid;
-    }
+        if (_adaptiveRaycasting && speed > _minRaycastVelocity * (_physicsTickrate / BasePhysicsTickrate))
+            return true;
+        else if (speed > _minRaycastVelocity)
+            return true;
 
-    /// <summary>
-    /// Ensures that a MetaDataComponent exists on projectiles for network serialization.
-    /// </summary>
-    private void OnProjectileMetaStartup(EntityUid uid, ProjectileComponent component, ComponentStartup args)
-    {
-        // Check if the entity still exists before trying to add a component
-        if (!EntityManager.EntityExists(uid))
-            return;
-
-        EnsureComp<MetaDataComponent>(uid);
+        return false;
     }
 
     private void OnStartCollide(EntityUid uid, ProjectileComponent component, ref StartCollideEvent args)
@@ -498,18 +502,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         // Get transforms once for subsequent checks to avoid repeated calls
         var projectileXform = Transform(uid);
         var targetXform = Transform(args.OtherEntity);
-
-        // Check for ProjectileGridPhaseComponent and origin-grid phasing
-        if (TryComp<ProjectileGridPhaseComponent>(uid, out var phaseComp))
-        {
-            if (phaseComp.SourceGrid.HasValue &&
-                targetXform.GridUid.HasValue &&
-                phaseComp.SourceGrid == targetXform.GridUid)
-            {
-                args.Cancelled = true;
-                return; // Projectile phases through entities on its origin grid.
-            }
-        }
 
         // Add collision check to queue for batch processing if we have enough
         if (_pendingCollisionChecks.Count >= MinProjectilesForParallel / 2)

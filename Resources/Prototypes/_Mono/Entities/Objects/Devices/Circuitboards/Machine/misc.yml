@@ -40,3 +40,30 @@
     stackRequirements:
       Glass: 5
       Cable: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: SmartArmoryCircuitboard
+  name: smart-armory machine board
+  description: A machine printed circuit board for a smart-armory.
+  components:
+  - type: MachineBoard
+    prototype: SmartArmoryStorage
+    requirements:
+      Capacitor: 1
+    stackRequirements:
+      Glass: 5
+      Cable: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ShipDrillMachineCircuitboard
+  name: ship drill machine board
+  components:
+  - type: MachineBoard
+    prototype: MachineShipDrill
+    requirements:
+      Capacitor: 3
+      Manipulator: 1
+    stackRequirements:
+      Steel: 7

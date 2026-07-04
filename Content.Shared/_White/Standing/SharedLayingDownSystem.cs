@@ -11,12 +11,12 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Standing;
 
-public abstract class SharedLayingDownSystem : EntitySystem
+public abstract partial class SharedLayingDownSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
     public override void Initialize()
     {
         CommandBinds.Builder

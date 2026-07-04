@@ -14,12 +14,12 @@ using Content.Shared._NF.Atmos.Piping.Binary.Messages; // Frontier
 
 namespace Content.Shared.Atmos.EntitySystems;
 
-public abstract class SharedGasPressurePumpSystem : EntitySystem
+public abstract partial class SharedGasPressurePumpSystem : EntitySystem
 {
-    [Dependency] private   readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] private   readonly SharedPowerReceiverSystem _receiver = default!;
-    [Dependency] protected readonly SharedUserInterfaceSystem UserInterfaceSystem = default!;
+    [Dependency] private   ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] private   SharedPowerReceiverSystem _receiver = default!;
+    [Dependency] protected SharedUserInterfaceSystem UserInterfaceSystem = default!;
 
     // TODO: Check enabled for activatableUI
     // TODO: Add activatableUI to it.

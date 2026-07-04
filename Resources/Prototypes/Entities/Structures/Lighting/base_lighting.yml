@@ -18,6 +18,7 @@
     anchored: true
   - type: Clickable
   - type: InteractionOutline
+  - type: BloomOverlayVisuals
   - type: Construction
     graph: LightFixture
     node: tubeLight

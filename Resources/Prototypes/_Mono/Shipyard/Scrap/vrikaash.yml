@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: ari771155
+# Discord: Catshley
+
+# Shuttle Notes: This ship is designed to be as vox-like as possible, I wish i could've made it biomechanical but this is the best i can do with what we have.
+#
+- type: vessel
+  id: Vrikaash
+  parent: BaseVessel
+  name: VOX-Vrikaash
+  description: A warship produced by a Vox Arkship using debris from a battlefield. this vessel is highly unconventional, and filled with a nitrogen atmosphere. While Vox typically treat their vessels as their Kin, this one lacks any of the organic components, as it was built to be disposable. Unlike most vessels with a sensible weapons layout or doctrine, the Vrikaash places almost all of its weapons and armor on the starboard side, focusing firepower in standoff engagements.
+  price: 224000 # 130~k base marked up by 80~% 
+  category: medium
+  group: Scrap
+  access: Mercenary
+  shuttlePath: /Maps/_Mono/Shuttles/Scrap/vrikaash.yml
+  guidebookPage: Null
+  class:
+  - Destroyer
+  - Scrapyard
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Vrikaash
+  mapName: 'VOX-Vrikaash'
+  mapPath: /Maps/_Mono/Shuttles/Scrap/vrikaash.yml
+  minPlayers: 0
+  stations:
+    Vrikaash:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Vrikaash MIL-SRP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            Pilot: [ 0, 0 ]
+            Mercenary: [ 0, 0 ]

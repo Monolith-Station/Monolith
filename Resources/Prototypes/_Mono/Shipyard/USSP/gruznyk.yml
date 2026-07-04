@@ -8,7 +8,7 @@
   price: 64200
   category: Medium
   group: Ussp
-  access: Mercenary
+  access: USSP
   shuttlePath: /Maps/_Mono/Shuttles/USSP/gruznyk.yml
   guidebookPage: Null
   class:
@@ -27,11 +27,11 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Gruznyk MIL{1}'
+          mapNameTemplate: 'Gruznyk USSP{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Mercenary: [0, 0]
-            Pilot: [0, 0]
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]

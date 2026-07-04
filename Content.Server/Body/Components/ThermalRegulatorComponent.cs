@@ -4,7 +4,6 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Server.Body.Components;
 
 [RegisterComponent]
-[Access(typeof(ThermalRegulatorSystem))]
 public sealed partial class ThermalRegulatorComponent : Component
 {
     /// <summary>
@@ -73,4 +72,10 @@ public sealed partial class ThermalRegulatorComponent : Component
     /// </summary>
     [DataField]
     public bool ProcessWhileCrit = true;
+
+    /// <summary>
+    /// Disable regulation temporarily - Mono Cortical Borer
+    /// </summary>
+    [DataField]
+    public bool DisableProcessing = false;
 }

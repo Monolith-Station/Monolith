@@ -53143,20 +53143,6 @@ entities:
     - type: Transform
       pos: 88.5,64.5
       parent: 1
-- proto: SpawnPointUSSPCorporal
-  entities:
-  - uid: 7836
-    components:
-    - type: Transform
-      pos: 84.5,77.5
-      parent: 1
-- proto: SpawnPointUSSPMedic
-  entities:
-  - uid: 7837
-    components:
-    - type: Transform
-      pos: 84.5,76.5
-      parent: 1
 - proto: SpawnPointUSSPRifleman
   entities:
   - uid: 7838

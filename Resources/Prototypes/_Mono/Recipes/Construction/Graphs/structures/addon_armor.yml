@@ -1,0 +1,100 @@
+- type: constructionGraph
+  id: WallArmorAddonSolidGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: broken
+      steps:
+      - material: Steel
+        amount: 4
+        doAfter: 0.5
+      - material: Plasteel # After economy stuff is obtainable, replace all this with economy armor plates
+        amount: 4
+        doAfter: 0.5
+      #- tag: ArmorPlateEconomy1
+      #  name: basic armor plate
+      #  icon:
+      #    sprite: _Mono/Objects/Materials/bayponents.rsi
+      #    state: armor1
+      #  doAfter: 2
+  - node: broken
+    entity: WallArmorAddonSolidBroken
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+      - tool: Welding
+        doAfter: 0.5
+      - tool: Welding
+        doAfter: 0.5
+  - node: finished
+    entity: WallArmorAddonSolid
+
+- type: constructionGraph
+  id: WallArmorAddonSolidCornerLGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: broken
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 0.5
+      - material: Plasteel # After economy stuff is obtainable, replace all this with economy armor plates
+        amount: 2
+        doAfter: 0.5
+      #- tag: ArmorPlateEconomy1
+      #  name: basic armor plate
+      #  icon:
+      #    sprite: _Mono/Objects/Materials/bayponents.rsi
+      #    state: armor1
+      #  doAfter: 2
+  - node: broken
+    entity: WallArmorAddonSolidBrokenCornerL
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - tool: Welding
+        doAfter: 0.5
+  - node: finished
+    entity: WallArmorAddonSolidCornerL
+
+- type: constructionGraph
+  id: WallArmorAddonSolidCornerRGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: broken
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 0.5
+      - material: Plasteel # After economy stuff is obtainable, replace all this with economy armor plates
+        amount: 2
+        doAfter: 0.5
+      #- tag: ArmorPlateEconomy1
+      #  name: basic armor plate
+      #  icon:
+      #    sprite: _Mono/Objects/Materials/bayponents.rsi
+      #    state: armor1
+      #  doAfter: 2
+  - node: broken
+    entity: WallArmorAddonSolidBrokenCornerR
+    edges:
+    - to: finished
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - tool: Welding
+        doAfter: 0.5
+  - node: finished
+    entity: WallArmorAddonSolidCornerR

@@ -26,3 +26,15 @@
   - type: StaticPrice
     price: 500
     vendPrice: 2500
+
+- type: entity
+  parent: ClothingHeadHelmetBase
+  id: ClothingHeadHelmetCombatUSSP
+  name: USSP field helmet
+  description: A standard USSP field helmet fitted with a compact antenna array, a feature of newer designs shaped by DST requirements.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Helmets/ussp_combat_helmet.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Helmets/ussp_combat_helmet.rsi
+

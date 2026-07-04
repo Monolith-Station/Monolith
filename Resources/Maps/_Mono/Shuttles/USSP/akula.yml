@@ -1423,7 +1423,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerShuttle
+- proto: ComputerShuttleKPV63RWR
   entities:
   - uid: 181
     components:
@@ -2136,20 +2136,6 @@ entities:
 - proto: SpawnPointUSSPCommissar
   entities:
   - uid: 271
-    components:
-    - type: Transform
-      pos: 1.5,4.5
-      parent: 1
-- proto: SpawnPointUSSPCorporal
-  entities:
-  - uid: 272
-    components:
-    - type: Transform
-      pos: 1.5,4.5
-      parent: 1
-- proto: SpawnPointUSSPMedic
-  entities:
-  - uid: 273
     components:
     - type: Transform
       pos: 1.5,4.5

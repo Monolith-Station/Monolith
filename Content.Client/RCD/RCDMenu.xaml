@@ -12,8 +12,15 @@
 
     <!-- Entry layer (shows main categories) -->
     <ui:RadialContainer Name="Main" VerticalExpand="True" HorizontalExpand="True" InitialRadius="100" ReserveSpaceForHiddenChildren="False">
+        
         <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-walls-and-flooring'}" TargetLayer="WallsAndFlooring" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/walls_and_flooring.png"/>
+        </ui:RadialMenuTextureButtonWithSector>
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-latticetiles'}" TargetLayer="LatticeTiles" Visible="False">     <!-- Mono -->
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/lattice.png"/>
+        </ui:RadialMenuTextureButtonWithSector>
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-platingtiles'}" TargetLayer="PlatingTiles" Visible="False">     <!-- Mono -->
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/plating.png"/>
         </ui:RadialMenuTextureButtonWithSector>
         <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-windows-and-grilles'}" TargetLayer="WindowsAndGrilles" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/windows_and_grilles.png"/>
@@ -27,10 +34,29 @@
         <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-lighting'}" TargetLayer="Lighting" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/lighting.png"/>
         </ui:RadialMenuTextureButtonWithSector>
-    </ui:RadialContainer>
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-piping'}" TargetLayer="Piping" Visible="False">     <!-- Goob Start --> 
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/fourway.png"/>
+        </ui:RadialMenuTextureButtonWithSector>
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-atmosphericutility'}" TargetLayer="AtmosphericUtility" Visible="False">
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/port.png"/>
+        </ui:RadialMenuTextureButtonWithSector>
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-pumps'}" TargetLayer="PumpsValves" Visible="False">
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/pump_volume.png"/>
+        </ui:RadialMenuTextureButtonWithSector>
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="{Loc 'rcd-component-vents'}" TargetLayer="Vents" Visible="False">
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/vent_passive.png"/>
+        </ui:RadialMenuTextureButtonWithSector>    <!-- Goob End -->
 
+    </ui:RadialContainer>
+    
     <!-- Walls and flooring -->
     <ui:RadialContainer Name="WallsAndFlooring"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
+
+    <!-- Lattices Mono -->
+    <ui:RadialContainer Name="LatticeTiles"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
+
+    <!-- Plating Mono -->
+    <ui:RadialContainer Name="PlatingTiles"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
     <!-- Windows and grilles -->
     <ui:RadialContainer Name="WindowsAndGrilles"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
@@ -43,5 +69,17 @@
        
     <!-- Lighting -->
     <ui:RadialContainer Name="Lighting"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
+
+    <!-- Piping -->
+    <ui:RadialContainer Name="Piping"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
+
+    <!-- AtmosphericUtility -->
+    <ui:RadialContainer Name="AtmosphericUtility"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
+
+    <!-- PumpsValves -->
+    <ui:RadialContainer Name="PumpsValves"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
+
+    <!-- Vents -->
+    <ui:RadialContainer Name="Vents"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
 </ui:RadialMenu>
