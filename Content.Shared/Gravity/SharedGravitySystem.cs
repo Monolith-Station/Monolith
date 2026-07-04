@@ -41,7 +41,6 @@ public abstract partial class SharedGravitySystem : EntitySystem
         SubscribeLocalEvent<AlertsComponent, EntParentChangedMessage>(OnAlertsParentChange);
 
         // Impulse
-        SubscribeLocalEvent<GravityAffectedComponent, ShooterImpulseEvent>(OnShooterImpulse);
         SubscribeLocalEvent<GravityAffectedComponent, ThrowerImpulseEvent>(OnThrowerImpulse);
 
         GravityQuery = GetEntityQuery<GravityComponent>();
@@ -226,11 +225,6 @@ public abstract partial class SharedGravitySystem : EntitySystem
     }
 
     private void OnThrowerImpulse(Entity<GravityAffectedComponent> entity, ref ThrowerImpulseEvent args)
-    {
-        args.Push = true;
-    }
-
-    private void OnShooterImpulse(Entity<GravityAffectedComponent> entity, ref ShooterImpulseEvent args)
     {
         args.Push = true;
     }

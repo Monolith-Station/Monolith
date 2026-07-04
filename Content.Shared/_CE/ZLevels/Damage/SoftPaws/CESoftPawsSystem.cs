@@ -10,8 +10,8 @@ namespace Content.Shared._CE.ZLevels.Damage.SoftPaws;
 
 public sealed class CESoftPawsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StandingStateSystem _standingState = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private StandingStateSystem _standingState = default!;
 
     public override void Initialize()
     {

@@ -13,7 +13,7 @@ namespace Content.Server._CE.ZLevels.Mapping.Commands;
 [AdminCommand(AdminFlags.Server | AdminFlags.Mapping)]
 public sealed class CEDeleteZNetworkCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IEntityManager _entities = default!;
+    [Dependency] private IEntityManager _entities = default!;
 
     public override string Command => "znetwork-delete";
     public override string Description => "Delete all maps into selected zNetwork + zNetwork entity";

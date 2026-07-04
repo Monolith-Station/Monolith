@@ -14,7 +14,7 @@ namespace Content.Shared._CE.ZLevels.Weather;
 /// </summary>
 public sealed class CEWeatherSystem : EntitySystem
 {
-    [Dependency] private readonly SharedWeatherSystem _weather = default!;
+    [Dependency] private SharedWeatherSystem _weather = default!;
 
     public void SetWeather(Entity<CEZLevelsNetworkComponent?> network, WeatherPrototype? proto, TimeSpan? endTime)
     {

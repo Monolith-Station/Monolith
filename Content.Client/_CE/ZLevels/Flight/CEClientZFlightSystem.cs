@@ -15,8 +15,8 @@ namespace Content.Client._CE.ZLevels.Flight;
 
 public sealed class CEClientZFlightSystem : CESharedZFlightSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Update(float frameTime)
     {

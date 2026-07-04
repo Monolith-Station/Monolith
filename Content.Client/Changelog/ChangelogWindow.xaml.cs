@@ -116,7 +116,7 @@ namespace Content.Client.Changelog
     [UsedImplicitly, AnyCommand]
     public sealed class ChangelogCommand : LocalizedCommands
     {
-        [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
+        [Dependency] private IUserInterfaceManager _uiManager = default!;
 
         public override string Command => "changelog";
 

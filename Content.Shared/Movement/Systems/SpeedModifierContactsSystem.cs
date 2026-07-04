@@ -15,7 +15,7 @@ public sealed partial class SpeedModifierContactsSystem : EntitySystem
     [Dependency] private MovementSpeedModifierSystem _speedModifierSystem = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
 
     // TODO full-game-save
     // Either these need to be processed before a map is saved, or slowed/slowing entities need to update on init.

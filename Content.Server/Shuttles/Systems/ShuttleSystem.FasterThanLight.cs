@@ -37,7 +37,7 @@ namespace Content.Server.Shuttles.Systems;
 
 public sealed partial class ShuttleSystem
 {
-    [Dependency] private readonly ExplosionSystem _explosion = default!; // Mono - crushed-grid evidence
+    [Dependency] private ExplosionSystem _explosion = default!; // Mono - crushed-grid evidence
 
     /*
      * This is a way to move a shuttle from one location to another, via an intermediate map for fanciness.

@@ -23,12 +23,12 @@ namespace Content.Server._CE.ZLevels.Mapping.Commands;
 [AdminCommand(AdminFlags.Server | AdminFlags.Mapping)]
 public sealed class CEGameMapMappingZNetworkCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly CEZLevelsSystem _zLevel = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IComponentFactory _compFactory = default!;
+    [Dependency] private MapLoaderSystem _mapLoader = default!;
+    [Dependency] private CEZLevelsSystem _zLevel = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private MapSystem _map = default!;
 
     public override string Command => "znetwork-gamemap-mapping";
     public override string Description => "Load existed game map prototype as ZNetwork for mapping";

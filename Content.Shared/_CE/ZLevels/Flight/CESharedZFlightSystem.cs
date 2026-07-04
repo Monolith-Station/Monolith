@@ -21,12 +21,12 @@ namespace Content.Shared._CE.ZLevels.Flight;
 
 public abstract partial class CESharedZFlightSystem : EntitySystem
 {
-    [Dependency] private readonly CESharedZLevelsSystem _zLevel = default!;
-    [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private CESharedZLevelsSystem _zLevel = default!;
+    [Dependency] private SharedAmbientSoundSystem _ambient = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
 
     protected EntityQuery<CEZPhysicsComponent> ZPhyzQuery;
 

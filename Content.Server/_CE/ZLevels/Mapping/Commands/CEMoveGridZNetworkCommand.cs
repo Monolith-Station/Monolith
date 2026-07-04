@@ -15,8 +15,8 @@ namespace Content.Server._CE.ZLevels.Mapping.Commands;
 [AdminCommand(AdminFlags.Server | AdminFlags.Mapping)]
 public sealed class CEMoveGridZNetworkCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly CEZLevelsSystem _zLevel = default!;
+    [Dependency] private IEntityManager _entities = default!;
+    [Dependency] private CEZLevelsSystem _zLevel = default!;
 
     public override string Command => "znetwork-move-grid";
     public override string Description => "Move a grid up or down its z-network by the given offset.";

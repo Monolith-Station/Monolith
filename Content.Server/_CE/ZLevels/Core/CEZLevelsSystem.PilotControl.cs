@@ -25,7 +25,7 @@ namespace Content.Server._CE.ZLevels.Core;
 /// </summary>
 public sealed partial class CEZLevelsSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     /// <summary>
     /// Seconds of continuously held ascend/descend before a ship parked on a GROUND

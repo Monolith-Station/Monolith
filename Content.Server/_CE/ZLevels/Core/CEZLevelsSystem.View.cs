@@ -19,11 +19,11 @@ namespace Content.Server._CE.ZLevels.Core;
 
 public sealed partial class CEZLevelsSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly ViewSubscriberSystem _viewSubscriber = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedEyeSystem _eyeSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private ViewSubscriberSystem _viewSubscriber = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedEyeSystem _eyeSystem = default!;
 
     private readonly EntProtoId _zEyeProto = "CEZLevelEye";
 
@@ -64,14 +64,16 @@ public sealed partial class CEZLevelsSystem
             return;
         _nextZLevelViewerUpdate = _timing.CurTime + _zLevelViewerUpdateRate;
 
-        var query = EntityQueryEnumerator<CEZLevelViewerComponent, TransformComponent, EyeComponent>();
-        while (query.MoveNext(out var uid, out var viewer, out var xform, out var srcEye))
+        var query = EntityQueryEnumerator<CEZLevelViewerComponent, EyeComponent>();
+        while (query.MoveNext(out var uid, out var viewer, out var srcEye))
         {
             foreach (var eye in viewer.Eyes)
             {
                 // Eyes die with their map.
                 if (TerminatingOrDeleted(eye))
                     continue;
+
+                var xform = Transform(uid);
 
                 _transform.SetWorldPosition(eye, _transform.GetWorldPosition(xform));
 

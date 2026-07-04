@@ -7,7 +7,7 @@ namespace Content.Shared.Gravity;
 /// </summary>
 public abstract class SharedFloatingVisualizerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
 
     public override void Initialize()
     {

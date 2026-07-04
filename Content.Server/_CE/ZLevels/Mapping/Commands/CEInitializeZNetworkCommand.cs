@@ -15,8 +15,8 @@ namespace Content.Server._CE.ZLevels.Mapping.Commands;
 [AdminCommand(AdminFlags.Server | AdminFlags.Mapping)]
 public sealed class CEInitializeZNetworkCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private IEntityManager _entities = default!;
+    [Dependency] private MapSystem _map = default!;
 
     public override string Command => "znetwork-initialize";
     public override string Description => "Initialize all zNetwork maps.";

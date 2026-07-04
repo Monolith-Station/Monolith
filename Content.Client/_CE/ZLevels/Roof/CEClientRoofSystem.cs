@@ -11,7 +11,7 @@ namespace Content.Client._CE.ZLevels.Roof;
 /// <inheritdoc/>
 public sealed class CEClientRoofSystem : CESharedRoofSystem
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
 
     public override void Initialize()
     {

@@ -15,8 +15,8 @@ namespace Content.Client._CE.ZLevels.Core;
 
 public sealed class CEZLevelDebugOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IResourceCache _cache = default!;
     private readonly CESharedZLevelsSystem _zLevels = default!;
     private readonly SharedTransformSystem _transform = default!;
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
@@ -58,7 +58,7 @@ public sealed class CEZLevelDebugOverlay : Overlay
 
 public sealed class CEShowZLevelDebugCommand : LocalizedCommands
 {
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
     public override string Command => "showzleveldebug";
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)

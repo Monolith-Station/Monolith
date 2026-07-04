@@ -7,6 +7,7 @@ using System.Numerics;
 using Content.Server._CE.PVS;
 using Content.Server._CE.ZLevels.Core.Components;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Gravity;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
@@ -21,46 +22,13 @@ namespace Content.Server._CE.ZLevels.Core;
 
 public sealed partial class CEZLevelsSystem
 {
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly DockingSystem _dockSystem = default!;
-    [Dependency] private readonly ShuttleConsoleSystem _console = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
+    [Dependency] private ShuttleSystem _shuttle = default!;
+    [Dependency] private DockingSystem _dockSystem = default!;
+    [Dependency] private ShuttleConsoleSystem _console = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
 
-    /// <summary>
-    /// Seconds after arriving on a z-network before gravity acts on a grid.
-    /// </summary>
-    private const float GridGravityGraceSeconds = 3f;
-
-    /// <summary>
-    /// Downward acceleration in levels per second squared. Falls start slow and build.
-    /// </summary>
-    private const float GridGravity = 0.15f;
-
-    /// <summary>
-    /// Maximum fall speed in levels per second.
-    /// </summary>
-    private const float GridTerminalVelocity = 1.2f;
-
-    /// <summary>
-    /// Touchdown speed at or above which a ground-layer landing is a crash.
-    /// A full one-gap free fall arrives at ~0.74.
-    /// </summary>
-    private const float GridCrashVelocity = 0.35f;
-
-    /// <summary>
-    /// Roughly a 3x3 crater per hull tile on crash.
-    /// </summary>
-    private const float CrashTileIntensity = 12f;
-    private const float CrashTileSlope = 2f;
-    private const float CrashTileMaxIntensity = 4f;
-
-    /// <summary>
-    /// The central crash blast scales with hull size.
-    /// </summary>
-    private const float CrashIntensityPerTile = 5f;
-    private const float CrashCenterSlope = 5f;
-    private const float CrashCenterMaxIntensity = 100f;
+    [Dependency] private GravitySystem _grav = default!;
 
     private readonly List<Entity<MapGridComponent>> _gravityQueue = new();
 
@@ -103,7 +71,7 @@ public sealed partial class CEZLevelsSystem
         if (!HasComp<CEZGridFallerComponent>(grid))
         {
             var faller = AddComp<CEZGridFallerComponent>(grid);
-            faller.GravityTime = _timing.CurTime + TimeSpan.FromSeconds(GridGravityGraceSeconds);
+            faller.GravityTime = _timing.CurTime + TimeSpan.FromSeconds(faller.GridGravityGraceSeconds);
         }
     }
 
@@ -121,11 +89,13 @@ public sealed partial class CEZLevelsSystem
         // Collect first: entering/hopping transit adds components mid-query otherwise.
         _gravityQueue.Clear();
 
-        var levelQuery = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent, TransformComponent>();
-        while (levelQuery.MoveNext(out var uid, out var faller, out var grid, out var xform))
+        var levelQuery = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent>();
+        while (levelQuery.MoveNext(out var uid, out var faller, out var grid))
         {
             if (_timing.CurTime < faller.GravityTime)
                 continue;
+
+            var xform = Transform(uid);
 
             if (xform.MapUid is not { } mapUid || !HasComp<CEZLevelMapComponent>(mapUid))
                 continue;
@@ -138,7 +108,7 @@ public sealed partial class CEZLevelsSystem
             if (TryComp<PhysicsComponent>(uid, out var body) && body.BodyType == BodyType.Static)
                 continue;
 
-            if (TryComp<GravityComponent>(uid, out var gravity) && gravity.Enabled)
+            if (_grav.IsWeightless(uid))
                 continue;
 
             if (HasGroundUnderFootprint((uid, grid), mapUid))
@@ -237,7 +207,7 @@ public sealed partial class CEZLevelsSystem
             if (_timing.CurTime < faller.GravityTime)
                 return;
 
-            faller.Velocity = ApproachTerminal(faller.Velocity, GridGravity, GridTerminalVelocity, frameTime);
+            faller.Velocity = ApproachTerminal(faller.Velocity, faller.GridGravity, faller.GridTerminalVelocity, frameTime);
         }
         else
         {
@@ -314,13 +284,13 @@ public sealed partial class CEZLevelsSystem
         var impact = faller.Velocity;
         faller.Velocity = 0f;
 
-        if (impact < GridCrashVelocity || !HasComp<CEZGroundLayerComponent>(Transform(grid).MapUid))
+        if (impact < faller.GridCrashVelocity || !HasComp<CEZGroundLayerComponent>(Transform(grid).MapUid))
             return;
 
         foreach (var landedUid in CollectGridSet(grid))
         {
-            if (TryComp<MapGridComponent>(landedUid, out var landedGrid))
-                CrashGrid((landedUid, landedGrid));
+            if (TryComp<MapGridComponent>(landedUid, out var landedGrid) && TryComp<CEZGridFallerComponent>(landedUid, out var landedFaller))
+                CrashGrid((landedUid, landedGrid, landedFaller));
         }
     }
 
@@ -328,19 +298,19 @@ public sealed partial class CEZLevelsSystem
     /// A hard ground-layer touchdown: a small explosion on every hull tile plus one
     /// central blast scaled by hull size.
     /// </summary>
-    private void CrashGrid(Entity<MapGridComponent> ent)
+    private void CrashGrid(Entity<MapGridComponent, CEZGridFallerComponent> ent)
     {
         var tileCount = 0;
-        var tiles = _map.GetAllTilesEnumerator(ent, ent.Comp);
+        var tiles = _map.GetAllTilesEnumerator(ent, ent.Comp1);
         while (tiles.MoveNext(out var tileRef))
         {
             tileCount++;
-            var coords = _map.GridTileToLocal(ent, ent.Comp, tileRef.Value.GridIndices);
+            var coords = _map.GridTileToLocal(ent, ent.Comp1, tileRef.Value.GridIndices);
             _explosion.QueueExplosion(coords,
                 ExplosionSystem.DefaultExplosionPrototypeId,
-                CrashTileIntensity,
-                CrashTileSlope,
-                CrashTileMaxIntensity,
+                ent.Comp2.CrashTileIntensity,
+                ent.Comp2.CrashTileSlope,
+                ent.Comp2.CrashTileMaxIntensity,
                 cause: ent,
                 addLog: false);
         }
@@ -350,9 +320,9 @@ public sealed partial class CEZLevelsSystem
 
         _explosion.QueueExplosion(ent.Owner,
             ExplosionSystem.DefaultExplosionPrototypeId,
-            CrashIntensityPerTile * tileCount,
-            CrashCenterSlope,
-            CrashCenterMaxIntensity);
+            ent.Comp2.CrashIntensityPerTile * tileCount,
+            ent.Comp2.CrashCenterSlope,
+            ent.Comp2.CrashCenterMaxIntensity);
     }
 
     /// <summary>
