@@ -400,7 +400,7 @@
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-2
+      - state: mag-1
         visible: false
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing

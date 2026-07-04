@@ -292,3 +292,35 @@
       entries:
       - id: ShipVoucherKTV1
         amount: 8
+
+- type: entity
+  parent: ColMarTechBase
+  id: CMVendPACTVDVWarVendorShipsExtended
+  name: VDV extended ship LPC vendor
+  description: Time to fly this into anti-air defences.
+  suffix: ColMarTech, extended
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Structures/armoury.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "normal-unshaded"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+  - type: AccessReader
+    access: [["PACTCommon"]]
+  - type: CMAutomatedVendor
+    access:
+    - "PACTCommon"
+    sections:
+    - name: Transports
+      entries:
+      - id: ShipVoucherKTV1
+        amount: 8
+      - id: ShipVoucherBMD4
+        name: BMD-4A IFV
+        amount: 5
+      - id: ShipVoucherBMD4A
+        name: BMD-4A (anti-air)
+        amount: 5
