@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/04/2026 15:14:41
+  time: 07/04/2026 16:39:03
   entityCount: 379
 maps: []
 grids:
@@ -219,10 +219,10 @@ entities:
             27: -1,4
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
         Kudzu: []
-        Puddle: []
         MetalFoam: []
+        Smoke: []
+        Puddle: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -1778,14 +1778,6 @@ entities:
     - type: Transform
       pos: 0.5,5.5
       parent: 1
-- proto: LockerWallEVAColorNfsdFilled
-  entities:
-  - uid: 223
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,3.5
-      parent: 1
 - proto: MachineFTLDrive
   entities:
   - uid: 224
@@ -2042,6 +2034,14 @@ entities:
     components:
     - type: Transform
       pos: -3.5,1.5
+      parent: 1
+- proto: SuitStorageWallmountM82c
+  entities:
+  - uid: 223
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,3.5
       parent: 1
 - proto: TableReinforced
   entities:
