@@ -1,0 +1,38 @@
+- type: entity
+  id: MachineShipDrill
+  parent: [ConstructibleMachine, BaseMachinePowered]
+  name: ship drill
+  description: A small ship drill, capable of digging into asteroids.
+  components:
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Rotatable
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/drills.rsi
+    layers:
+    - state: drill
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { state: drill_on }
+          False: { state: drill }
+  - type: ApcPowerReceiver
+    powerLoad: 750
+  - type: ExtensionCableReceiver
+  - type: Appearance
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -10
+    range: 1
+    sound:
+      path: /Audio/Effects/saw.ogg
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 30
+  - type: ShipDrill
+    drillType: !type:GatheringDrillType
+  - type: Machine
+    board: ShipDrillMachineCircuitboard
