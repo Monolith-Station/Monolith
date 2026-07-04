@@ -114,6 +114,10 @@ public sealed partial class CEZLevelsSystem
     /// </summary>
     private void UpdateGridGravity(float frameTime)
     {
+        // Pilot vertical flight: read the consoles, then let parked ships spool up.
+        CollectPilotVerticalInputs();
+        UpdateTakeoffSpool();
+
         // Collect first: entering/hopping transit adds components mid-query otherwise.
         _gravityQueue.Clear();
 
@@ -168,10 +172,6 @@ public sealed partial class CEZLevelsSystem
                 continue;
             }
 
-            // The debug wave rig owns this ship's altitude.
-            if (HasComp<CEZTransitWaveComponent>(primary))
-                continue;
-
             _gravityQueue.Add((primary, primaryGrid));
         }
 
@@ -181,21 +181,41 @@ public sealed partial class CEZLevelsSystem
         }
     }
 
+    /// <summary>
+    /// Accelerates a velocity toward a terminal speed on a smooth curve rather than
+    /// a hard clamp: full acceleration at rest, tapering to zero as the speed nears
+    /// <paramref name="terminalSpeed"/>, and none at all beyond it — so an
+    /// over-terminal launch boost coasts instead of being yanked back to the cap.
+    /// <paramref name="signedAccel"/>'s sign is the direction (positive = down, to
+    /// match <see cref="CEZGridFallerComponent.Velocity"/>).
+    /// </summary>
+    private static float ApproachTerminal(float velocity, float signedAccel, float terminalSpeed, float frameTime)
+    {
+        if (terminalSpeed <= 0f || signedAccel == 0f)
+            return velocity;
+
+        // Current speed in the direction we're pushing (0 if already moving the other way).
+        var speedInDir = signedAccel > 0f ? MathF.Max(0f, velocity) : MathF.Max(0f, -velocity);
+        var taper = Math.Clamp(1f - speedInDir / terminalSpeed, 0f, 1f);
+        return velocity + signedAccel * taper * frameTime;
+    }
+
+    /// <summary>
+    /// Moves a value toward a target by at most <paramref name="maxDelta"/>. Used to
+    /// change fall speed at a bounded rate so it never snaps to a new value in a
+    /// single tick.
+    /// </summary>
+    private static float MoveTowards(float current, float target, float maxDelta)
+    {
+        var diff = target - current;
+        return MathF.Abs(diff) <= maxDelta ? target : current + MathF.Sign(diff) * maxDelta;
+    }
+
     private void IntegrateFallingGrid(Entity<MapGridComponent> grid, float frameTime)
     {
         if (!TryComp<CEZGridFallerComponent>(grid, out var faller) ||
             !ZPhyzQuery.TryComp(grid, out var zPhys))
         {
-            return;
-        }
-
-        if (_timing.CurTime < faller.GravityTime)
-            return;
-
-        // A powered gravity generator kills vertical momentum: the ship hovers.
-        if (TryComp<GravityComponent>(grid, out var gravity) && gravity.Enabled)
-        {
-            faller.Velocity = 0f;
             return;
         }
 
@@ -207,9 +227,82 @@ public sealed partial class CEZLevelsSystem
             return;
         }
 
-        faller.Velocity = Math.Min(faller.Velocity + GridGravity * frameTime, GridTerminalVelocity);
+        var progress = zPhys.LocalPosition;
+        var hasGravgen = TryComp<GravityComponent>(grid, out var gravity) && gravity.Enabled;
 
-        var altitude = lowerZ.Depth + zPhys.LocalPosition - faller.Velocity * frameTime;
+        if (!hasGravgen)
+        {
+            // Plummeting. The consoles can beep all they want.
+            // (The grace period only delays gravity, never pilot control.)
+            if (_timing.CurTime < faller.GravityTime)
+                return;
+
+            faller.Velocity = ApproachTerminal(faller.Velocity, GridGravity, GridTerminalVelocity, frameTime);
+        }
+        else
+        {
+            var input = GetTransitVerticalInput(xform.MapUid!.Value);
+            var accel = GetVerticalThrustAccel(grid);
+            var damp = Math.Max(accel, HoverDampAccel);
+
+            if (input != 0f && accel > 0f)
+            {
+                // Powered flight, up (input>0) or down (input<0). Curves into the
+                // speed cap instead of slamming it; an over-cap launch boost coasts.
+                faller.Velocity = ApproachTerminal(faller.Velocity, -input * accel, MaxPilotVerticalSpeed, frameTime);
+            }
+            else
+            {
+                // No pilot input: ease toward a target speed at a bounded rate so the
+                // velocity never snaps. Mid-gap the target is zero (hover); within a
+                // settle zone it's a gentle drift onto the nearer plane, scaled down
+                // by the remaining distance so touchdown is soft.
+                var target = 0f;
+
+                if (progress <= SettleZone)
+                {
+                    if (progress <= TouchdownProgress)
+                    {
+                        faller.Velocity = 0f;
+                        TryExitTransit(grid);
+                        return;
+                    }
+
+                    target = MathF.Max(TouchdownSpeed, progress * ApproachGain);
+                }
+                else if (progress >= 1f - SettleZone && transit.UpperMap != null)
+                {
+                    if (progress >= 1f - TouchdownProgress)
+                    {
+                        faller.Velocity = 0f;
+                        TryExitTransit(grid);
+                        return;
+                    }
+
+                    target = -MathF.Max(TouchdownSpeed, (1f - progress) * ApproachGain);
+                }
+
+                faller.Velocity = MoveTowards(faller.Velocity, target, damp * frameTime);
+            }
+
+            // Even under power you don't crater onto a ground layer: ease the descent
+            // speed down to a distance-scaled cap. A non-ground plane can still be
+            // punched through with the key held.
+            if (faller.Velocity > 0f && HasComp<CEZGroundLayerComponent>(lowerMap))
+            {
+                var cap = MathF.Max(TouchdownSpeed, progress * ApproachGain);
+                if (faller.Velocity > cap)
+                    faller.Velocity = MoveTowards(faller.Velocity, cap, damp * frameTime);
+            }
+        }
+
+        // Mirror the fall speed onto the networked z-physics velocity (which uses the
+        // opposite sign: positive = up) so consoles can read it. Whole set, since a
+        // console may sit on a docked companion.
+        foreach (var member in CollectGridSet(grid))
+            SetZVelocity(member, -faller.Velocity);
+
+        var altitude = lowerZ.Depth + progress - faller.Velocity * frameTime;
         if (!SetTransitAltitude(grid, altitude))
             return;
 
@@ -385,8 +478,11 @@ public sealed partial class CEZLevelsSystem
     /// (gap below at progress 1 when one exists, otherwise gap above at progress 0 —
     /// the same physical place). Which way it goes afterwards is just how its progress
     /// changes; crossing a plane hops gaps (see <see cref="SetTransitProgress"/>).
+    /// Pass <paramref name="preferUpperGap"/> to become airborne in the gap above
+    /// instead (a liftoff shouldn't sweep the pad it's leaving when it climbs
+    /// through its own plane).
     /// </summary>
-    public bool TryEnterTransit(Entity<MapGridComponent> grid, float? startProgress = null)
+    public bool TryEnterTransit(Entity<MapGridComponent> grid, float? startProgress = null, bool preferUpperGap = false)
     {
         var xform = Transform(grid);
 
@@ -405,18 +501,21 @@ public sealed partial class CEZLevelsSystem
         int depth;
         float defaultProgress;
 
-        if (TryMapDown(currentMap, out var below))
+        var hasBelow = TryMapDown(currentMap, out var below);
+        var hasAbove = TryMapUp(currentMap, out var above);
+
+        if (hasBelow && !(preferUpperGap && hasAbove))
         {
-            lowerMap = below.Value.Owner;
+            lowerMap = below!.Value.Owner;
             upperMap = currentMap;
             offset = -1;
             depth = below.Value.Comp.Depth;
             defaultProgress = 1f;
         }
-        else if (TryMapUp(currentMap, out var above))
+        else if (hasAbove)
         {
             lowerMap = currentMap;
-            upperMap = above.Value.Owner;
+            upperMap = above!.Value.Owner;
             offset = 1;
             depth = above.Value.Comp.Depth;
             defaultProgress = 0f;
@@ -532,41 +631,6 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Debug: toggles a sine-wave bob on a transiting grid around its current
-    /// altitude. Enters transit first if the grid isn't already airborne.
-    /// </summary>
-    public bool ToggleTransitWave(Entity<MapGridComponent> grid, float amplitude, float period)
-    {
-        if (RemComp<CEZTransitWaveComponent>(grid))
-            return true;
-
-        var xform = Transform(grid);
-        if (!TryComp<CEZTransitMapComponent>(xform.MapUid, out var transit))
-        {
-            if (!TryEnterTransit(grid))
-                return false;
-
-            xform = Transform(grid);
-            transit = Comp<CEZTransitMapComponent>(xform.MapUid!.Value);
-        }
-
-        if (transit.LowerMap is not { } lower ||
-            !TryComp<CEZLevelMapComponent>(lower, out var lowerZ) ||
-            !ZPhyzQuery.TryComp(grid, out var zPhys))
-        {
-            return false;
-        }
-
-        var wave = AddComp<CEZTransitWaveComponent>(grid);
-        wave.CenterAltitude = lowerZ.Depth + zPhys.LocalPosition;
-        wave.Amplitude = amplitude;
-        wave.Period = Math.Max(period, 1f);
-        wave.StartTime = _timing.CurTime;
-
-        return true;
-    }
-
-    /// <summary>
     /// Transit maps whose primary grid was deleted mid-gap (admin delete, crushed by
     /// another ship) have no exit path and would leak as phantom render passes.
     /// </summary>
@@ -587,20 +651,6 @@ public sealed partial class CEZLevelsSystem
 
             QueueDel(uid);
             QueueAllViewerUpdates();
-        }
-    }
-
-    private void UpdateTransitWaves()
-    {
-        var query = EntityQueryEnumerator<CEZTransitWaveComponent, MapGridComponent>();
-        while (query.MoveNext(out var uid, out var wave, out var grid))
-        {
-            var t = (float) (_timing.CurTime - wave.StartTime).TotalSeconds;
-            var altitude = wave.CenterAltitude + wave.Amplitude * MathF.Sin(MathF.Tau * t / wave.Period);
-
-            // Left transit (landed, probably by dipping below the ground): wave over.
-            if (!SetTransitAltitude((uid, grid), altitude))
-                RemCompDeferred<CEZTransitWaveComponent>(uid);
         }
     }
 
@@ -682,7 +732,10 @@ public sealed partial class CEZLevelsSystem
         foreach (var gridUid in movedGrids)
         {
             if (ZPhyzQuery.TryComp(gridUid, out var zPhys))
+            {
                 SetZPosition((gridUid, zPhys), 0f);
+                SetZVelocity((gridUid, zPhys), 0f);
+            }
 
             RemComp<CEPvsOverrideComponent>(gridUid);
 

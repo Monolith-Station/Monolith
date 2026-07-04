@@ -178,9 +178,15 @@ public sealed partial class ScalingViewport
         // The player's own map always renders, at depth 0 with the real eye.
         _zPasses.Add((playerMap, 0f, true, false));
 
-        // The level above only renders when looking up.
-        if (zLevelViewer.LookUp && aboveMap != null)
+        if (riderTransit != null)
+        {
+            if (aboveMap != null && aboveDepth > 0.001f && TransitFade(aboveDepth) > 0.01f)
+                _zPasses.Add((aboveMap.Value, aboveDepth, false, true));
+        }
+        else if (zLevelViewer.LookUp && aboveMap != null)
+        {
             _zPasses.Add((aboveMap.Value, aboveDepth, true, false));
+        }
 
         // Grids in transit render between the levels they're crossing. Selection is by
         // ABSOLUTE altitude difference, so ships in any gap of the observer's network
@@ -219,11 +225,23 @@ public sealed partial class ScalingViewport
             }
         }
 
-        // Painter's algorithm: deepest first.
-        _zPasses.Sort((a, b) => a.Depth.CompareTo(b.Depth));
+        // Painter's algorithm.
+        _zPasses.Sort(static (a, b) =>
+        {
+            var aUp = a.Depth > 0f;
+            var bUp = b.Depth > 0f;
+            if (aUp != bUp)
+                return aUp ? 1 : -1;
+            return aUp ? b.Depth.CompareTo(a.Depth) : a.Depth.CompareTo(b.Depth);
+        });
 
-        var lowestDepth = _zPasses[0].Depth;
-        var highestDepth = _zPasses[^1].Depth;
+        var lowestDepth = float.MaxValue;
+        var highestDepth = float.MinValue;
+        foreach (var pass in _zPasses)
+        {
+            lowestDepth = Math.Min(lowestDepth, pass.Depth);
+            highestDepth = Math.Max(highestDepth, pass.Depth);
+        }
         var first = true;
 
         foreach (var (mapUid, depth, allowFov, isTransit) in _zPasses)
@@ -240,6 +258,13 @@ public sealed partial class ScalingViewport
                 Angle rotation = _fallbackEye.Rotation * -1;
                 var offset = rotation.ToWorldVec() * CEClientZLevelsSystem.ZLevelOffset * depth;
 
+                // Perspective: each level away from the observer's plane is drawn a
+                // constant factor smaller below and larger above, continuously with
+                // depth. Symmetric through depth 0, so a ship rising overhead grows
+                // by the same curve it shrinks by when it sinks — no pop when it
+                // crosses your plane and reverses direction.
+                var scale = _fallbackEye.Scale * MathF.Pow(CESharedZLevelsSystem.ZLevelViewShrink, -depth);
+
                 var zEye = new ZEye(lowestDepth, depth, highestDepth)
                 {
                     Position = new MapCoordinates(_fallbackEye.Position.Position, mapComp.MapId),
@@ -248,7 +273,7 @@ public sealed partial class ScalingViewport
                     DrawParallax = !isTransit && depth == lowestDepth,
                     Offset = _fallbackEye.Offset + offset,
                     Rotation = _fallbackEye.Rotation,
-                    Scale = _fallbackEye.Scale,
+                    Scale = scale,
                 };
 
                 // Ships overhead get their own transparent pass composited with

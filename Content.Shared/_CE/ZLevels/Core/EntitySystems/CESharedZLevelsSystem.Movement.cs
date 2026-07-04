@@ -20,6 +20,13 @@ public abstract partial class CESharedZLevelsSystem
 {
     public const int MaxZLevelsBelowRendering = 10;
 
+    /// <summary>
+    /// Perspective: each z-level below the observer is drawn this much smaller than
+    /// the one above it. The server widens the below-eyes' PVS range by the inverse
+    /// so the whole zoomed-out view is actually streamed to the client.
+    /// </summary>
+    public const float ZLevelViewShrink = 0.65f;
+
     private const float ZGravityForce = 9.8f;
     private const float ZVelocityLimit = 20.0f;
 
@@ -29,6 +36,14 @@ public abstract partial class CESharedZLevelsSystem
     private const float ImpactVelocityLimit = 3f;
 
     private EntityQuery<CEZLevelHighGroundComponent> _highgroundQuery;
+
+    /// <summary>
+    /// Reusable buffer for <see cref="Update"/>: the movement pass raises land/fall
+    /// events and hops entities between maps, which adds and removes components — so
+    /// the entities are collected up front and processed after the query closes,
+    /// never while the component enumerator is still live.
+    /// </summary>
+    private readonly List<(EntityUid Uid, CEZPhysicsComponent ZPhys, TransformComponent Xform, PhysicsComponent Physics)> _zMoveQueue = new();
 
     private void InitMovement()
     {
@@ -103,6 +118,9 @@ public abstract partial class CESharedZLevelsSystem
     {
         base.Update(frameTime);
 
+        // Collect first: the body below hops entities between maps and raises events
+        // that add/remove components, which would corrupt a live query enumerator.
+        _zMoveQueue.Clear();
         var query = EntityQueryEnumerator<CEZPhysicsComponent, CEActiveZPhysicsComponent, TransformComponent, PhysicsComponent>();
         while (query.MoveNext(out var uid, out var zPhys, out _, out var xform, out var physics))
         {
@@ -110,6 +128,16 @@ public abstract partial class CESharedZLevelsSystem
                 continue;
 
             if (!_zMapQuery.HasComp(xform.MapUid) && !_transitQuery.HasComp(xform.MapUid))
+                continue;
+
+            _zMoveQueue.Add((uid, zPhys, xform, physics));
+        }
+
+        foreach (var (uid, zPhys, xform, physics) in _zMoveQueue)
+        {
+            // An earlier entity's landing (crush-through, gib, chasm) may have deleted
+            // this one before we reach it.
+            if (TerminatingOrDeleted(uid) || !ZPhyzQuery.HasComp(uid))
                 continue;
 
             var oldVelocity = zPhys.Velocity;
@@ -374,6 +402,15 @@ public abstract partial class CESharedZLevelsSystem
 
         ent.Comp.LocalPosition = newPosition;
         DirtyField(ent, ent.Comp, nameof(CEZPhysicsComponent.LocalPosition));
+    }
+
+    public void SetLaunchCountdown(Entity<CEZPhysicsComponent?> ent, float seconds)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp) || ent.Comp.LaunchCountdown.Equals(seconds))
+            return;
+
+        ent.Comp.LaunchCountdown = seconds;
+        DirtyField(ent, ent.Comp, nameof(CEZPhysicsComponent.LaunchCountdown));
     }
 
     [PublicAPI]

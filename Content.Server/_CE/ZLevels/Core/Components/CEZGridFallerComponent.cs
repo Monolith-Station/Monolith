@@ -25,4 +25,25 @@ public sealed partial class CEZGridFallerComponent : Component
     /// </summary>
     [DataField]
     public float Velocity;
+
+    /// <summary>
+    /// Which way the pilots are spooling for a liftoff/sink from a level surface:
+    /// +1 up, -1 down, 0 idle.
+    /// </summary>
+    [DataField]
+    public sbyte SpoolDirection;
+
+    /// <summary>
+    /// When the current takeoff spool started. Launch happens after holding the
+    /// vertical key continuously for the spool time.
+    /// </summary>
+    [DataField]
+    public TimeSpan SpoolStart;
+
+    /// <summary>
+    /// Last time a vertical key was seen held. A gap here means the pilot let go and
+    /// the spool restarts from zero.
+    /// </summary>
+    [DataField]
+    public TimeSpan SpoolLastInput;
 }
