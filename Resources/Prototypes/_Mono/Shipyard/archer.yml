@@ -13,7 +13,7 @@
   category: Medium
   group: Shipyard
   access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/archer.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/archer.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -23,7 +23,7 @@
 - type: gameMap
   id: Archer
   mapName: 'TSF-SKR Archer'
-  mapPath: /Maps/_Mono/Shuttles/archer.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/archer.yml
   minPlayers: 0
   stations:
     Archer:

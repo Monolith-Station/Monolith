@@ -6,12 +6,13 @@
   name: IDY Europa
   description: A repurposed interdyne medical frigate, with a focus on broadside firepower and armor.
   limit: 3
+  hyperwarLimit: 5
   price: 280650
   purchasable: false # voucher only
   category: Large
   group: BlackMarket
   access: Pirate
-  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/europa.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/europa.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -22,7 +23,7 @@
 - type: gameMap
   id: Europa
   mapName: 'PDV Europa'
-  mapPath: /Maps/_Mono/Shuttles/BlackMarket/europa.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/europa.yml
   minPlayers: 0
   stations:
     Europa:

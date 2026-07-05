@@ -13,7 +13,7 @@
   price: 76500 #appraises at 70000
   category: Medium
   group: Medical
-  shuttlePath: /Maps/_Mono/Shuttles/medicus.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/medicus.yml
   guidebookPage: null
   class:
   - Medical
@@ -25,7 +25,7 @@
 - type: gameMap
   id: Medicus
   mapName: 'UW Medicus'
-  mapPath: /Maps/_Mono/Shuttles/medicus.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/medicus.yml
   minPlayers: 0
   stations:
     Medicus:

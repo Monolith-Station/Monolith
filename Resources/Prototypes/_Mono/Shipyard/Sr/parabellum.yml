@@ -6,13 +6,13 @@
   id: Parabellum
   parent: BaseVessel
   name: Parabellum
-  description: The parabellum is a patrol boat, made for escorting and unsuprisingly; patrolling stations and depots from any malicious ships. It's equipped with EMP launchers, as well as a hybrid EMP Missile launcher for more tougher encounters. 
+  description: The parabellum is a patrol boat, made for escorting and unsuprisingly; patrolling stations and depots from any malicious ships. It's equipped with EMP launchers, as well as a hybrid EMP Missile launcher for more tougher encounters.
   price: 92000
   category: Medium
   group: Sr
   access: Brig # Oddball, matches guard ID, specific enough to exclude cadets
   mapchecker_group_override: Security  # Treat this as a security vessel for mapchecker purposes
-  shuttlePath: /Maps/_Mono/Shuttles/parabellum.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/parabellum.yml
   guidebookPage: Null
   class:
   - Civilian
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Parabellum
   mapName: 'Parabellum'
-  mapPath: /Maps/_Mono/Shuttles/parabellum.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/parabellum.yml
   minPlayers: 0
   stations:
     Parabellum:

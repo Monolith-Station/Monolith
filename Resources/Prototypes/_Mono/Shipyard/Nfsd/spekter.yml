@@ -12,7 +12,7 @@
   category: Medium
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/spekter.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/spekter.yml
   guidebookPage: ShipyardNFROperation
   class:
   - Pursuit
@@ -23,7 +23,7 @@
 - type: gameMap
   id: Spekter
   mapName: 'Spekter'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/spekter.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/spekter.yml
   minPlayers: 0
   stations:
     Spekter:

@@ -13,7 +13,7 @@
   category: Medium
   group: Shipyard
   access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/femur.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/femur.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -23,7 +23,7 @@
 - type: gameMap
   id: Femur
   mapName: 'DIS Femur'
-  mapPath: /Maps/_Mono/Shuttles/femur.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/femur.yml
   minPlayers: 0
   stations:
     Femur:

@@ -74,3 +74,23 @@
         - MachineMask
         layer:
         - MachineLayer
+
+- type: entity
+  id: WeaponTurretPaladinInfinite
+  parent:
+  - WeaponTurretPaladin
+  suffix: Large, T4, Infinite
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        disableEject: true
+        startingItem: PaladinMagazineInfinite
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - PaladinMagazine
+        whitelistFailPopup: gun-magazine-whitelist-fail

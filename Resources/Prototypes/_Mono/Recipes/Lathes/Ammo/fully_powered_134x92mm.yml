@@ -1,0 +1,26 @@
+- type: latheRecipe
+  parent: BaseAmmoFMJFullyPoweredAmmoBoxRecipe
+  id: MagazineShenzhen
+  result: MagazineShenzhen
+  materials:
+    Steel: 600
+    Plasteel: 250
+    UraniumDepleted: 50
+
+- type: latheRecipe
+  parent: BaseAmmoFMJFullyPoweredAmmoBoxRecipe
+  id: AmmoBoxShenzhen
+  result: AmmoBoxShenzhen
+  materials:
+    Steel: 2000
+    Plasteel: 500
+    UraniumDepleted: 100
+
+- type: latheRecipe
+  parent: BaseAmmoFMJFullyPoweredAmmoBoxRecipe
+  id: AmmoBoxShenzhenBig
+  result: AmmoBoxShenzhenBig
+  materials:
+    Steel: 6000
+    Plasteel: 1500
+    UraniumDepleted: 300
