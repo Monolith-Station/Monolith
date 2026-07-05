@@ -10,7 +10,7 @@
   category: Medium
   group: BlackMarket
   access: Pirate
-  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/kalisto.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/kalisto.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -21,7 +21,7 @@
 - type: gameMap
   id: Kalisto
   mapName: 'PDV Kalisto'
-  mapPath: /Maps/_Mono/Shuttles/BlackMarket/kalisto.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/kalisto.yml
   minPlayers: 0
   stations:
     Kalisto:

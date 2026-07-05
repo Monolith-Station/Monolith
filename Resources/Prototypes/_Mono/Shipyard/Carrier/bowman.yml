@@ -8,7 +8,7 @@
   group: Custom
   access: Mercenary
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
-  shuttlePath: /Maps/_Mono/Shuttles/Carrier/bowman.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Carrier/bowman.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -18,7 +18,7 @@
 - type: gameMap
   id: Bow-Man
   mapName: 'Bow-Man'
-  mapPath: /Maps/_Mono/Shuttles/Carrier/bowman.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Carrier/bowman.yml
   minPlayers: 0
   stations:
     Bow-Man:

@@ -143,3 +143,14 @@
   - MonoMonolithicEventsScheduler
   - RoundEndRuleHour3
   - PortstrikeAnnounceRuleHour1
+
+- type: gamePreset
+  id: MonoRogueTSFHyperwar
+  name: mono-roguetsf-hyperwar-title
+  description: mono-roguetsf-hyperwar-description
+  showInVote: false # AO
+  rules:
+  - NFAdventure
+  - Hyperwar
+  - RoundEndRuleHour3
+  - PortstrikeAnnounceRuleMinute90

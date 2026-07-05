@@ -7,7 +7,7 @@
   category: Micro
   group: Custom
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
-  shuttlePath: /Maps/_Mono/Shuttles/Carrier/stratorat.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Carrier/stratorat.yml
   guidebookPage: Null
   class:
   - Atmospherics
@@ -17,7 +17,7 @@
 - type: gameMap
   id: StratoRat
   mapName: 'HES Strato-Rat'
-  mapPath: /Maps/_Mono/Shuttles/Carrier/stratorat.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Carrier/stratorat.yml
   minPlayers: 0
   stations:
     StratoRat:

@@ -8,11 +8,11 @@
   id: Rig
   parent: BaseVessel
   name: DIS Rig
-  description: A heavy-class flying refinery manufactured by Drake Industries Shipyards. Able to extract, collect and process materials then refine them into whatever the ever changing Colossean market demands.  Comes equipped with two flare launchers for missile defense and four mining pulsers, along with mining bumpers to push minerals directly onto the built in belt system. 
+  description: A heavy-class flying refinery manufactured by Drake Industries Shipyards. Able to extract, collect and process materials then refine them into whatever the ever changing Colossean market demands.  Comes equipped with two flare launchers for missile defense and four mining pulsers, along with mining bumpers to push minerals directly onto the built in belt system.
   price: 104900 # +50% Markup from 69900 appraisegrid price. To amount for all of the QOL included in the vessel
   category: Medium
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/rig.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/rig.yml
   guidebookPage: null
   class:
   - Salvage
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Rig
   mapName: 'DIS Rig'
-  mapPath: /Maps/_Mono/Shuttles/rig.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/rig.yml
   minPlayers: 0
   stations:
     Rig:

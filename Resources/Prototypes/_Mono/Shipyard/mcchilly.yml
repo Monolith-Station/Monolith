@@ -13,7 +13,7 @@
   price: 17500
   category: Small
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/mcchilly.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/mcchilly.yml
   guidebookPage: Null
   class:
   - Civilian
@@ -24,7 +24,7 @@
 - type: gameMap
   id: McChilly
   mapName: 'AES McChilly'
-  mapPath: /Maps/_Mono/Shuttles/mcchilly.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/mcchilly.yml
   minPlayers: 0
   stations:
     McChilly:
