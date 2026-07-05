@@ -10,6 +10,7 @@
   - type: TileEmission
     color: "#974988"
   - type: StepTrigger
+    bypassesTrapAvoider: true # Mono
     requiredTriggeredSpeed: 0
     intersectRatio: 0.1
     blacklist:

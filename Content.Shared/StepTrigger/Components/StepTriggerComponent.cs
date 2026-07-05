@@ -57,6 +57,14 @@ public sealed partial class StepTriggerComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool StepOn = false;
+
+    // Monolith start
+    /// <summary>
+    /// If this steptrigger will affect entities with TrapAvoiderComponent.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool BypassesTrapAvoider = false;
+    // Monolith end
 }
 
 [RegisterComponent]
