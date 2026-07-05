@@ -7159,6 +7159,12 @@ entities:
     - type: Transform
       pos: 9.5,27.5
       parent: 1
+  - uid: 196
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,34.5
+      parent: 1
   - uid: 272
     components:
     - type: Transform
@@ -7227,6 +7233,12 @@ entities:
     components:
     - type: Transform
       pos: 7.5,33.5
+      parent: 1
+  - uid: 1170
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,34.5
       parent: 1
   - uid: 1272
     components:
@@ -7482,6 +7494,12 @@ entities:
     components:
     - type: Transform
       pos: 2.5,36.5
+      parent: 1
+  - uid: 401
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,34.5
       parent: 1
 - proto: PlasturaniumWindowRadProof
   entities:
@@ -10550,6 +10568,11 @@ entities:
     - type: Transform
       pos: -9.5,27.5
       parent: 1
+  - uid: 521
+    components:
+    - type: Transform
+      pos: -9.5,27.5
+      parent: 1
   - uid: 550
     components:
     - type: Transform
@@ -12118,14 +12141,12 @@ entities:
       parent: 1
 - proto: WeaponTurretDymere
   entities:
-  - uid: 1653
+  - uid: 1866
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 0.5,35.5
+      pos: 0.5,33.5
       parent: 1
-    - type: Gun
-      projectileSpeed: 250
 - proto: WhiteCatwalkMono
   entities:
   - uid: 257
