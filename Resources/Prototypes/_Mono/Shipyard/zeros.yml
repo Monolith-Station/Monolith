@@ -3,7 +3,7 @@
 # Discord: tsunameme
 
 # Shuttle Notes:
-# 
+#
 
 - type: vessel
   id: Zeros
@@ -13,7 +13,7 @@
   price: 112500
   category: Large
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/zeros.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/zeros.yml
   guidebookPage: null
   class:
   - Civilian
@@ -25,7 +25,7 @@
 - type: gameMap
   id: Zeros
   mapName: 'JIN Zeros'
-  mapPath: /Maps/_Mono/Shuttles/zeros.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/zeros.yml
   minPlayers: 0
   stations:
     Zeros:

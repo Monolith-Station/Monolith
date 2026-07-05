@@ -10,7 +10,7 @@
   category: Small
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/spica.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/spica.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -21,7 +21,7 @@
 - type: gameMap
   id: Spica
   mapName: 'Spica'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/spica.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/spica.yml
   minPlayers: 0
   stations:
     Spica:

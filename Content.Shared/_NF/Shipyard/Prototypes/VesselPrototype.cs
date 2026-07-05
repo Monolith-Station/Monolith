@@ -31,6 +31,12 @@ public sealed partial class VesselPrototype : IPrototype, IInheritingPrototype
     [DataField("limit")] public int LimitActive;
 
     /// <summary>
+    ///     The amount of this ship that can active at any given time while HyperwarGamerule is active.
+    ///     0 for unlimited.
+    /// </summary>
+    [DataField("hyperwarLimit")] public int HyperwarLimitActive;
+
+    /// <summary>
     ///     Short description of the vessel.
     /// </summary>
     [DataField] public string Description = string.Empty;

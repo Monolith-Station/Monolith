@@ -22099,3 +22099,85 @@ Entries:
   id: 2440
   time: '2026-07-03T11:26:02.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4178
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Hyperwar gamemode. Admin-only.
+  id: 2441
+  time: '2026-07-03T17:36:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4192
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: 'buffed 250mm EMPHE missiles to be faster, more agile '
+  id: 2442
+  time: '2026-07-03T18:01:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4190
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: >-
+        Added a new PDV ship: Metis a missile corvette armed with 2 vanquisher
+        missile swarm racks
+  id: 2443
+  time: '2026-07-03T18:10:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4183
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added missile warning SFX to shuttle consoles, gave TSF & PDV/USSP
+        consoles with unique RWRs
+    - type: Tweak
+      message: Gunnery consoles nolonger have their missile warning SFX now
+  id: 2444
+  time: '2026-07-03T18:37:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4191
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Changed AK-570/AK-820/R-300 sprites.
+  id: 2445
+  time: '2026-07-04T10:48:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4194
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: moved metis to T0
+  id: 2446
+  time: '2026-07-04T16:51:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4200
+- author: projectkepler-ru
+  changes:
+    - type: Fix
+      message: >-
+        Highcommand stopped giving us budget cut and actually field a suit into
+        the ocelot now.
+  id: 2447
+  time: '2026-07-04T16:55:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4203
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Fixed ship drills not working properly
+    - type: Fix
+      message: >-
+        Fixed shipyard consoles not being available to entities without
+        CompanyComponent
+  id: 2448
+  time: '2026-07-04T22:58:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4205
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Adds an additional RWR sound variant.
+  id: 2449
+  time: '2026-07-05T08:16:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4208
+- author: Mrrpip
+  changes:
+    - type: Remove
+      message: Remove missile sounds from Mass Scanner consoles.
+  id: 2450
+  time: '2026-07-05T08:18:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4210

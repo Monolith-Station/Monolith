@@ -12,7 +12,7 @@
   group: Sr
   access: Brig # Oddball, matches guard ID, specific enough to exclude cadets
   mapchecker_group_override: Security  # Treat this as a security vessel for mapchecker purposes
-  shuttlePath: /Maps/_Mono/Shuttles/sunrise.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/sunrise.yml
   guidebookPage: Null
   class:
   - Civilian
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Sunrise
   mapName: 'Sunrise'
-  mapPath: /Maps/_Mono/Shuttles/sunrise.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/sunrise.yml
   minPlayers: 0
   stations:
     Sunrise:

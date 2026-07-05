@@ -10,7 +10,7 @@
   price: 40600
   category: Medium
   group: Expedition
-  shuttlePath: /Maps/_Mono/Shuttles/Expedition/duran.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/duran.yml
   guidebookPage: null
   class:
   - Expedition
@@ -20,7 +20,7 @@
 - type: gameMap
   id: Duran
   mapName: 'Duran'
-  mapPath: /Maps/_Mono/Shuttles/Expedition/duran.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Expedition/duran.yml
   minPlayers: 0
   stations:
     Duran:

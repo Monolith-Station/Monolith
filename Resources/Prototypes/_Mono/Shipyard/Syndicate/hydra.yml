@@ -6,7 +6,7 @@
   price: 135000
   category: Medium
   group: Syndicate
-  shuttlePath: /Maps/_Mono/Shuttles/Syndicate/hydra.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Syndicate/hydra.yml
   guidebookPage: Null
   class:
   - Syndicate
@@ -16,7 +16,7 @@
 - type: gameMap
   id: Hydra
   mapName: 'Hydra'
-  mapPath: /Maps/_Mono/Shuttles/Syndicate/hydra.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Syndicate/hydra.yml
   minPlayers: 0
   stations:
     Hydra:
