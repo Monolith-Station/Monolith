@@ -13,7 +13,7 @@
   category: Micro
   group: Viper
   access: Viper
-  shuttlePath: /Maps/_Mono/Shuttles/Viper/hognose.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Viper/hognose.yml
   guidebookPage: Null
   class:
   - Scrapyard
@@ -24,7 +24,7 @@
 - type: gameMap
   id: Hognose
   mapName: 'VG Hognose'
-  mapPath: /Maps/_Mono/Shuttles/Viper/hognose.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Viper/hognose.yml
   minPlayers: 0
   stations:
     Hognose:
