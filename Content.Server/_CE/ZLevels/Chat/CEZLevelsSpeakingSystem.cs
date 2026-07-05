@@ -43,7 +43,7 @@ public sealed partial class CEZLevelsSpeakingSystem : EntitySystem
         if (sourceMap is null)
             return;
 
-        if (args.ObfuscatedMessage is not null) //Curse of chatcode: this is only way detect whispers
+        if (args.IsWhisper == true) // curse of chatcode broken we can just do this now
             return;
 
         var globalPosition = _transform.GetWorldPosition(xform);

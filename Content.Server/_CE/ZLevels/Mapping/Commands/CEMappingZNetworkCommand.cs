@@ -116,9 +116,9 @@ public sealed partial class CEMappingZNetworkCommand : LocalizedEntityCommands
             return;
         }
 
-        //Maps successfully created. run misc helpful mapping commands
+        // map successfully created. run misc helpful mapping commands
         if (player.AttachedEntity is { Valid: true } playerEntity &&
-            (EntityManager.GetComponent<MetaDataComponent>(playerEntity).EntityPrototype is not { } proto || proto != GameTicker.AdminObserverPrototypeName))
+            EntityManager.GetComponent<MetaDataComponent>(playerEntity).EntityPrototype?.ID != GameTicker.AdminObserverPrototypeName)
         {
             shell.ExecuteCommand("aghost");
         }
