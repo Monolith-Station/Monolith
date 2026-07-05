@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/05/2026 00:21:13
-  entityCount: 556
+  time: 07/05/2026 23:47:38
+  entityCount: 555
 maps: []
 grids:
 - 1
@@ -36,7 +36,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Akula
+      name: grid
     - type: Transform
       pos: -1.796875,-0.9375
       parent: invalid
@@ -70,10 +70,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
+        Smoke: []
         MetalFoam: []
         Kudzu: []
-        Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -494,7 +494,7 @@ entities:
     - type: Transform
       pos: 2.5,-0.5
       parent: 1
-- proto: APCBasic
+- proto: APCHighCapacity
   entities:
   - uid: 15
     components:
@@ -2356,15 +2356,6 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
-- proto: PaperOffice
-  entities:
-  - uid: 555
-    components:
-    - type: Transform
-      pos: -0.45016527,7.4626436
-      parent: 1
-    - type: Paper
-      content: 'Heads up, port 1 triggers flare launchers, use it when you are doing a gun run or engaging hostile mechs or fighters! '
 - proto: PlasmaReinforcedWindowDirectional
   entities:
   - uid: 10
