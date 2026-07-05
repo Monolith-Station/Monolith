@@ -9,7 +9,7 @@
   category: Micro
   group: Custom
   mapchecker_group_override: BlackMarket  # Treat this as a BlackMarket vessel for mapchecker purposes
-  shuttlePath: /Maps/_Mono/Shuttles/Carrier/veska.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Carrier/veska.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -20,7 +20,7 @@
 - type: gameMap
   id: Veska
   mapName: 'Veska'
-  mapPath: /Maps/_Mono/Shuttles/Carrier/veska.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Carrier/veska.yml
   minPlayers: 0
   stations:
     Veska:

@@ -8,12 +8,12 @@
 - type: vessel
   id: Odenta
   parent: BaseVessel
-  name: MI-COR Odenta 
+  name: MI-COR Odenta
   description: The Odenta is a heavily armored Medical Destroyer built for high-risk rescues and medical work. Armed with dual Prometheus Laser Cannons, a 255mm Bofors,a Draupnir 30mm Chaingun, 20mm, and PD lasers to shield its onboard Chemical Bay and Cryonics suite. Has MIL IFF.
   price: 112000 # 98K base + markup
   category: Medium
   group: Medical
-  shuttlePath: /Maps/_Mono/Shuttles/odenta.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/odenta.yml
   guidebookPage: null
   class:
   - Medical
@@ -25,7 +25,7 @@
 - type: gameMap
   id: Odenta
   mapName: 'MI-COR Odenta'
-  mapPath: /Maps/_Mono/Shuttles/odenta.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/odenta.yml
   minPlayers: 0
   stations:
     Odenta:
