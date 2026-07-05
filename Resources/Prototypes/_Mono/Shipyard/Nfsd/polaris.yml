@@ -11,7 +11,7 @@
   category: Large
   group: Security
   access: Armory
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/polaris.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/polaris.yml
   guidebookPage: Null
   class:
   - Frigate
@@ -22,7 +22,7 @@
 - type: gameMap
   id: TSFNPolaris
   mapName: 'Polaris'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/polaris.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/polaris.yml
   minPlayers: 0
   stations:
     TSFNPolaris:

@@ -7,7 +7,7 @@
   price: 47500
   category: Small
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/spyglass.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/spyglass.yml
   guidebookPage: Null
   class:
   - Science
@@ -17,7 +17,7 @@
 - type: gameMap
   id: Spyglass
   mapName: 'UI Spyglass'
-  mapPath: /Maps/_Mono/Shuttles/spyglass.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/spyglass.yml
   minPlayers: 0
   stations:
     Spyglass:

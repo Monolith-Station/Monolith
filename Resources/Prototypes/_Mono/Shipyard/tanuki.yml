@@ -13,7 +13,7 @@
   category: medium
   group: Shipyard
   access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/tanuki.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/tanuki.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -23,7 +23,7 @@
 - type: gameMap
   id: Tanuki
   mapName: 'MI-COR Tanuki'
-  mapPath: /Maps/_Mono/Shuttles/tanuki.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/tanuki.yml
   minPlayers: 0
   stations:
     Tanuki:

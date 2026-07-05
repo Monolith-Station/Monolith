@@ -11,7 +11,7 @@
   category: Large
   group: BlackMarket
   access: Pirate
-  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/vulture.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/vulture.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Vulture
   mapName: 'Vulture'
-  mapPath: /Maps/_Mono/Shuttles/BlackMarket/vulture.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/vulture.yml
   minPlayers: 0
   stations:
     Vulture:

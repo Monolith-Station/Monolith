@@ -7,7 +7,7 @@
   category: Micro
   group: Sr
   access: Janitor
-  shuttlePath: /Maps/_Mono/Shuttles/mophead.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/mophead.yml
   guidebookPage: Null
   class:
   - Civilian
@@ -17,7 +17,7 @@
 - type: gameMap
   id: Mophead
   mapName: 'Mophead'
-  mapPath: /Maps/_Mono/Shuttles/mophead.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/mophead.yml
   minPlayers: 0
   stations:
     Mophead:

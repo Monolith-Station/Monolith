@@ -12,7 +12,7 @@
   category: Medium
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/tarantula.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/tarantula.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -23,7 +23,7 @@
 - type: gameMap
   id: Tarantula
   mapName: 'Tarantula'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/tarantula.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/tarantula.yml
   minPlayers: 0
   stations:
     Tarantula:

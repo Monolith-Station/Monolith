@@ -22140,3 +22140,44 @@ Entries:
   id: 2445
   time: '2026-07-04T10:48:34.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4194
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: moved metis to T0
+  id: 2446
+  time: '2026-07-04T16:51:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4200
+- author: projectkepler-ru
+  changes:
+    - type: Fix
+      message: >-
+        Highcommand stopped giving us budget cut and actually field a suit into
+        the ocelot now.
+  id: 2447
+  time: '2026-07-04T16:55:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4203
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Fixed ship drills not working properly
+    - type: Fix
+      message: >-
+        Fixed shipyard consoles not being available to entities without
+        CompanyComponent
+  id: 2448
+  time: '2026-07-04T22:58:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4205
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Adds an additional RWR sound variant.
+  id: 2449
+  time: '2026-07-05T08:16:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4208
+- author: Mrrpip
+  changes:
+    - type: Remove
+      message: Remove missile sounds from Mass Scanner consoles.
+  id: 2450
+  time: '2026-07-05T08:18:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4210

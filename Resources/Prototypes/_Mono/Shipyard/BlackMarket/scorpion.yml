@@ -10,7 +10,7 @@
   category: Medium
   group: BlackMarket
   access: Pirate
-  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/scorpion.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/scorpion.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Scorpion
   mapName: 'PDV Scorpion'
-  mapPath: /Maps/_Mono/Shuttles/BlackMarket/scorpion.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/scorpion.yml
   minPlayers: 0
   stations:
     Scorpion:

@@ -9,7 +9,7 @@
   category: Small
   group: Custom
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
-  shuttlePath: /Maps/_Mono/Shuttles/Carrier/qj340.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Carrier/qj340.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -20,7 +20,7 @@
 - type: gameMap
   id: QJ340
   mapName: 'QJ-340'
-  mapPath: /Maps/_Mono/Shuttles/Carrier/qj340.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Carrier/qj340.yml
   minPlayers: 0
   stations:
     QJ340:

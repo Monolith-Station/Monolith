@@ -14,7 +14,7 @@
   price: 35000
   category: Small
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/spessbite.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/spessbite.yml
   guidebookPage: null
   class:
   - Civilian
@@ -26,7 +26,7 @@
 - type: gameMap
   id: Spessbite
   mapName: 'PTI Spessbite'
-  mapPath: /Maps/_Mono/Shuttles/spessbite.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/spessbite.yml
   minPlayers: 0
   stations:
     Spessbite:
