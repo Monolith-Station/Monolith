@@ -10,11 +10,11 @@
   parent: BaseVessel
   name: UW Sellsword
   description: An escort picket comprising a claustrophobic, cast-plastitanium coffin enrobing a 255mm gun and VESPERA missile pod. Combat life expectancy of 4 minutes. Has a military IFF designation.
-  price: 56000 # markup 15% from 48600. 
+  price: 56000 # markup 15% from 48600.
   category: Small
   group: Shipyard
   access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/sellsword.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/sellsword.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -24,7 +24,7 @@
 - type: gameMap
   id: Sellsword
   mapName: 'UW Sellsword'
-  mapPath: /Maps/_Mono/Shuttles/sellsword.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/sellsword.yml
   minPlayers: 0
   stations:
     Sellsword:

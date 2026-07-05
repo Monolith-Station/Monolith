@@ -67,6 +67,7 @@
       components: # Frontier
       - MiningGatheringHard # Frontier
       - MiningGatheringSoft # Frontier
+  - type: RequiresGrid
 
 # Ore veins
 - type: entity
@@ -770,6 +771,7 @@
       state: rock_north
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_west
+  - type: RequiresGrid
 
 # Ore veins
 - type: entity
