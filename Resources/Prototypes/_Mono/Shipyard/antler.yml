@@ -14,7 +14,7 @@
   category: Small
   group: Shipyard
   access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/antler.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/antler.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -25,7 +25,7 @@
 - type: gameMap
   id: Antler
   mapName: 'GS-501 Antler'
-  mapPath: /Maps/_Mono/Shuttles/antler.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/antler.yml
   minPlayers: 0
   stations:
     Antler:
