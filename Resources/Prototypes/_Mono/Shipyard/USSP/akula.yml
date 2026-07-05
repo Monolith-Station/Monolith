@@ -9,7 +9,7 @@
   category: Medium
   group: Ussp
   access: USSP
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/akula.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/akula.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -19,7 +19,7 @@
 - type: gameMap
   id: Akula
   mapName: 'Akula'
-  mapPath: /Maps/_Mono/Shuttles/USSP/akula.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/akula.yml
   minPlayers: 0
   stations:
     Akula:

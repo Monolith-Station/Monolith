@@ -6,7 +6,7 @@
   price: 120000
   category: Large
   group: Expedition
-  shuttlePath: /Maps/_Mono/Shuttles/Expedition/comet.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/comet.yml
   guidebookPage: null
   class:
   - Expedition
@@ -18,7 +18,7 @@
 - type: gameMap
   id: Comet
   mapName: 'CDM Comet'
-  mapPath: /Maps/_Mono/Shuttles/Expedition/comet.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Expedition/comet.yml
   minPlayers: 0
   stations:
     Comet:
