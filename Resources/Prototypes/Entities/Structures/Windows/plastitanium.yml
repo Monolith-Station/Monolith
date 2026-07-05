@@ -128,9 +128,9 @@
     damageModifierSet: RGlass
   - type: StaticPrice # Frontier
     price: 100 # Frontier
-  - type: Construction # Frontier - Harder to break into
-    graph: Plastitanium # Frontier - Harder to break into
-    node: plastitaniumWindow # Frontier - Harder to break into
+  - type: Construction # Mono - craftable plastitanium windows
+    graph: WindowFrame # Mono
+    node: plastitaniumWindow # Mono
 
 - type: entity
   id: PlastitaniumWindowDiagonalBase
@@ -225,3 +225,6 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: Construction # Mono - craftable plastitanium windows
+    graph: WindowFrame # Mono
+    node: plastitaniumWindowDiagonal # Mono

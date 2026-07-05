@@ -41,8 +41,9 @@
         acts: [ "Destruction" ]
   - type: IconSmooth
     base: swindow
+    key: shuttlewindows # Mono
   - type: Construction
-    graph: Window
+    graph: WindowFrame # Mono
     node: shuttleWindow
   - type: Appearance
   - type: DamageVisuals
@@ -85,6 +86,9 @@
   - type: Icon
     sprite: Structures/Windows/shuttle_window_diagonal.rsi
     state: state0
+  - type: Construction # Mono
+    graph: WindowFrame # Mono
+    node: shuttleWindowDiagonal # Mono
   - type: Fixtures
     fixtures:
       fix1:

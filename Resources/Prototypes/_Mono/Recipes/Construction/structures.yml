@@ -71,6 +71,101 @@
   - !type:TileNotBlocked
 
 - type: construction
+  name: plastitanium window
+  id: PlastitaniumWindow
+  graph: WindowFrame
+  startNode: start
+  targetNode: plastitaniumWindow
+  category: construction-category-structures
+  description: Extra sturdy to resist the pressure of FTL or sustain damage from munitions.
+  icon:
+    sprite: Structures/Windows/plastitanium_window.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: true
+  conditions:
+    - !type:EmptyOrWindowValidInTile
+    - !type:NoWindowsInTile
+
+- type: construction
+  name: diagonal plastitanium window
+  id: PlastitaniumWindowDiagonal
+  graph: WindowFrame
+  startNode: start
+  targetNode: plastitaniumWindowDiagonal
+  category: construction-category-structures
+  description: Extra sturdy to resist the pressure of FTL or sustain damage from munitions.
+  icon:
+    sprite: Structures/Windows/plastitanium_window_diagonal.rsi
+    state: state0
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
+  conditions:
+    - !type:EmptyOrWindowValidInTile
+    - !type:NoWindowsInTile
+
+- type: construction
+  name: plasturanium window
+  id: PlasturaniumWindowRadProof
+  graph: WindowFrame
+  startNode: start
+  targetNode: plasturaniumWindow
+  category: construction-category-structures
+  description: A plastitanium window with added uranium to block radiation.
+  icon:
+    sprite: _Mono/Structures/Windows/plasturanium_window.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: true
+  conditions:
+    - !type:EmptyOrWindowValidInTile
+    - !type:NoWindowsInTile
+
+- type: construction
+  name: diagonal plasturanium window
+  id: PlasturaniumWindowDiagonalRadProof
+  graph: WindowFrame
+  startNode: start
+  targetNode: plasturaniumWindowDiagonal
+  category: construction-category-structures
+  description: A plastitanium window with added uranium to block radiation.
+  icon:
+    sprite: _Mono/Structures/Windows/plasturanium_window_diagonal.rsi
+    state: state0
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
+  conditions:
+    - !type:EmptyOrWindowValidInTile
+    - !type:NoWindowsInTile
+
+- type: construction
+  name: diagonal shuttle window
+  id: ShuttleWindowDiagonal
+  graph: WindowFrame
+  startNode: start
+  targetNode: shuttleWindowDiagonal
+  category: construction-category-structures
+  canBuildInImpassable: true
+  description: Extra sturdy to resist the pressure of FTL or sustain damage from munitions.
+  conditions:
+    - !type:EmptyOrWindowValidInTile
+    - !type:NoWindowsInTile
+  icon:
+    sprite: Structures/Windows/shuttle_window_diagonal.rsi
+    state: state0
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+
+- type: construction
   name: directional uranium window
   id: UraniumWindowDirectional
   graph: WindowDirectional
