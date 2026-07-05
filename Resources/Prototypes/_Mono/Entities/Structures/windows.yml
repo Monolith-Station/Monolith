@@ -219,6 +219,8 @@
   - type: Construction
     graph: WindowFrame
     node: plasturaniumWindowDiagonal
+  - type: StaticPrice
+    price: 125
 
 - type: entity
   id: PlasturaniumWindowRadProof
@@ -240,6 +242,8 @@
   - type: Construction
     graph: WindowFrame
     node: plasturaniumWindow
+  - type: StaticPrice
+    price: 125
 
 #plastitanium but blocks rads 100% (industructible var.)
 
@@ -293,6 +297,8 @@
     - type: Sprite
       sprite: _Mono/Structures/Windows/shuttle_window_frame.rsi
       state: bare
+    - type: StaticPrice
+      price: 30
 
 - type: entity
   id: ShuttleWindowFrame
@@ -306,6 +312,8 @@
     - type: Sprite
       sprite: _Mono/Structures/Windows/shuttle_window_frame.rsi
       state: full
+    - type: StaticPrice
+      price: 60
 
 - type: entity
   id: PlastitWindowFrame
@@ -319,3 +327,5 @@
     - type: Sprite
       sprite: _Mono/Structures/Windows/shuttle_window_frame.rsi
       state: plastit_full
+    - type: StaticPrice
+      price: 80
