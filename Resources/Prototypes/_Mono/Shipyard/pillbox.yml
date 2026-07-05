@@ -6,7 +6,7 @@
   price: 91000
   category: Medium
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/pillbox.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/pillbox.yml
   guidebookPage: null
   class:
   - Civilian
@@ -16,7 +16,7 @@
 - type: gameMap
   id: Pillbox
   mapName: 'TPC Pillbox'
-  mapPath: /Maps/_Mono/Shuttles/pillbox.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/pillbox.yml
   minPlayers: 0
   stations:
     Pillbox:

@@ -13,11 +13,11 @@
   id: Bratan
   parent: BaseVessel
   name: PB Bratan
-  description: A mobile nightclub, cafeteria, hydroponics, and secret drug lab and smuggling ship, all in one package! Brought to you by the Paycheck Bratva. 
+  description: A mobile nightclub, cafeteria, hydroponics, and secret drug lab and smuggling ship, all in one package! Brought to you by the Paycheck Bratva.
   price: 142000
   category: Large
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/bratan.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/bratan.yml
   guidebookPage: Null
   class:
   - Civilian
@@ -34,7 +34,7 @@
 - type: gameMap
   id: Bratan
   mapName: 'PB Bratan'
-  mapPath: /Maps/_Mono/Shuttles/bratan.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/bratan.yml
   minPlayers: 0
   stations:
     Bratan:

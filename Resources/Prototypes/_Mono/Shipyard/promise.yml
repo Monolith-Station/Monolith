@@ -12,7 +12,7 @@
   price: 106500
   category: Medium
   group: Medical
-  shuttlePath: /Maps/_Mono/Shuttles/promise.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/promise.yml
   guidebookPage: null
   class:
   - Medical
@@ -23,7 +23,7 @@
 - type: gameMap
   id: Promise
   mapName: 'DFNT Promise'
-  mapPath: /Maps/_Mono/Shuttles/promise.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/promise.yml
   minPlayers: 0
   stations:
     Promise:

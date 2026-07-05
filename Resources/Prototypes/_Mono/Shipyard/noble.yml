@@ -11,7 +11,7 @@
   price: 52100
   category: Medium
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/noble.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/noble.yml
   guidebookPage: Null
   class:
   - Salvage
@@ -21,7 +21,7 @@
 - type: gameMap
   id: Noble
   mapName: 'SKR Noble'
-  mapPath: /Maps/_Mono/Shuttles/noble.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/noble.yml
   minPlayers: 0
   stations:
     Noble:

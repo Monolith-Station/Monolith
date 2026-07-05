@@ -9,7 +9,7 @@
   category: Medium
   group: Ussp
   access: USSP
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/tayfun.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/tayfun.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -21,7 +21,7 @@
 - type: gameMap
   id: Tayfun
   mapName: 'Tayfun'
-  mapPath: /Maps/_Mono/Shuttles/USSP/tayfun.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/tayfun.yml
   minPlayers: 0
   stations:
     Tayfun:

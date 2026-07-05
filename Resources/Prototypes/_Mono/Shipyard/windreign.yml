@@ -6,7 +6,7 @@
   price: 250000
   category: Large
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/windreign.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/windreign.yml
   guidebookPage: Null
   class:
   - Science
@@ -18,7 +18,7 @@
 - type: gameMap
   id: Windreign
   mapName: 'HES Windreign'
-  mapPath: /Maps/_Mono/Shuttles/windreign.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/windreign.yml
   minPlayers: 0
   stations:
     Windreign:

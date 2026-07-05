@@ -13,7 +13,7 @@
   category: medium
   group: Shipyard
   access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/kunai.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/kunai.yml
   guidebookPage: Null
   class:
   - pursuit
@@ -24,7 +24,7 @@
 - type: gameMap
   id: Kunai
   mapName: 'MI-COR Kunai'
-  mapPath: /Maps/_Mono/Shuttles/kunai.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/kunai.yml
   minPlayers: 0
   stations:
     Kunai:

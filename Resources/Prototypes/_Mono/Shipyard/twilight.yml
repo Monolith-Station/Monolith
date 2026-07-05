@@ -12,7 +12,7 @@
   price: 50000
   category: Small
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/twilight.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/twilight.yml
   guidebookPage: Null
   class:
   - Cargo
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Twilight
   mapName: 'SKR Twilight'
-  mapPath: /Maps/_Mono/Shuttles/twilight.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/twilight.yml
   minPlayers: 0
   stations:
     Twilight:

@@ -9,7 +9,7 @@
   category: Medium
   group: BlackMarket
   access: Pirate
-  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/tethys.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/tethys.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -19,7 +19,7 @@
 - type: gameMap
   id: Tethys
   mapName: 'PDV Tethys'
-  mapPath: /Maps/_Mono/Shuttles/BlackMarket/tethys.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/tethys.yml
   minPlayers: 0
   stations:
     Tethys:

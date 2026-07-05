@@ -11,7 +11,7 @@
   price: 75000
   category: Medium
   group: Scrap
-  shuttlePath: /Maps/_Mono/Shuttles/Scrap/mudskipper.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Scrap/mudskipper.yml
   guidebookPage: Null
   class:
   - Scrapyard
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Mudskipper
   mapName: 'SKR Mudskipper'
-  mapPath: /Maps/_Mono/Shuttles/Scrap/mudskipper.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Scrap/mudskipper.yml
   minPlayers: 0
   stations:
     Mudskipper:
