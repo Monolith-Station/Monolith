@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseSign
+  id: PosterWallmountIK2
+  name: IK-2 sign
+  description: "Correctional Colony Number Two. It is famous for the fact that it most often includes deputies and other political figures who are undesirable to the state. No one leaves here alive. Will you be the exception?"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _VXS14/Structures/Wallmount/Signs/ik2.rsi
+    state: icon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
