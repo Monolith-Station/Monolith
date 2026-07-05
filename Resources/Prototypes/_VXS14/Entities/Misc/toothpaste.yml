@@ -1,0 +1,64 @@
+- type: entity
+  parent: BaseItem
+  id: ToothpasteBottleDracosha
+  name: drakosha toothpaste
+  description: Do not consume. Your stomatch will hurt.
+  components:
+  - type: DrawableSolution
+    solution: food
+  - type: DrainableSolution
+    solution: food
+  - type: ExaminableSolution
+    solution: food
+  - type: Drink
+  - type: Openable
+    sound:
+      collection: pop
+    closeable: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: ToothpasteDrakosha
+          Quantity: 30
+  - type: Sprite
+    sprite: _VXS14/Misc/toothpaste.rsi
+    state: dracosha
+  - type: Item
+    size: Small
+
+- type: reagent
+  id: ToothpasteDrakosha
+  name: toothpaste
+  group: Foods
+  desc: wowza
+  physicalDesc: reagent-physical-desc-gloopy
+  flavor: sweet
+  color: pink
+  recognizable: false
+
+- type: entity
+  parent: ToothpasteBottleDracosha
+  id: ToothpasteBottleMint
+  name: mint toothpaste
+  description: Boring. Still should not eat.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: ToothpasteMint
+          Quantity: 30
+  - type: Sprite
+    sprite: _VXS14/Misc/toothpaste.rsi
+    state: mint
+
+- type: reagent
+  id: ToothpasteMint
+  name: toothpaste
+  group: Foods
+  desc: wowza
+  physicalDesc: reagent-physical-desc-gloopy
+  flavor: minty
+  color: green
+  recognizable: false

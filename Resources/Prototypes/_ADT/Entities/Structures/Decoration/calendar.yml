@@ -1,0 +1,9 @@
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterCalendarNT
+  name: Calendar
+  description: "A corporate calendar. Looks very cheap."
+  components:
+  - type: Sprite
+    sprite: _ADT/Structures/Wallmounts/posters.rsi
+    state: calendar_nt # by discord:prazat911 for ADT

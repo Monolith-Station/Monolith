@@ -1,0 +1,36 @@
+- type: entity
+  name: toothbrush
+  parent: BaseItem
+  id: Toothbrush
+  description: You stink. Wash your teeth.
+  components:
+  - type: Sprite
+    sprite: _VXS14/Misc/toothbrush.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _VXS14/Misc/toothbrush.rsi
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  name: toothbrush
+  parent: Toothbrush
+  id: ToothbrushGreen
+  suffix: green
+  description: You stink. Wash your teeth.
+  components:
+  - type: Sprite
+    sprite: _VXS14/Misc/toothbrush.rsi
+    state: green
+
+- type: entity
+  name: toothbrush
+  parent: Toothbrush
+  id: ToothbrushRed
+  suffix: red
+  description: You stink. Wash your teeth.
+  components:
+  - type: Sprite
+    sprite: _VXS14/Misc/toothbrush.rsi
+    state: red
