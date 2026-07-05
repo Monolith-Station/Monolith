@@ -1,0 +1,6 @@
+- type: entity
+  id: Hyperwar
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HyperwarRule

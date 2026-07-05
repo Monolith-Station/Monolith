@@ -12,6 +12,7 @@
           radius: 2
         layer:
         - BulletImpassable # Mono - ProjectileGridPhase will take care of collisions with same ship shots
+        - Opaque
       projectile:
         shape:
           !type:PhysShapeAabb
@@ -150,7 +151,65 @@
     maxSpeed: 300
     trackDelay: 0.2
 
+- type: entity
+  id: ShipMissileASM150Unguided
+  name: ASM-150 150mm missile
+  parent: ShipMissileASM150
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TargetSeeking
+    acceleration: 50
+    detectionRange: 0
+    scanArc: 40
+    launchSpeed: 90
+    maxSpeed: 300
+
 # TOVEK
+
+- type: entity
+  id: ShipMissileASM250HEAT
+  name: 250mm HEAT missile
+  parent: ShipMissileBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 500
+        Blunt: 250
+        Heat: 125
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectSmall
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 2.5
+    shape: hexagon
+  - type: TimedDespawn
+    lifetime: 8
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 35
+    intensitySlope: 6
+    maxIntensity: 10
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetSeeking
+    acceleration: 80
+    detectionRange: 1000
+    scanArc: 40
+    launchSpeed: 120
+    maxSpeed: 450
+    trackDelay: 0.25
 
 - type: entity
   id: ShipMissileASM250
@@ -171,10 +230,10 @@
     muzzleFlash: MuzzleFlashEffectSmall
   - type: RadarBlip
     radarColor: "#FB00FF"
-    scale: 1
+    scale: 2
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 8
+    lifetime: 7
   - type: PointLight
     radius: 3.5
     color: orange
@@ -194,11 +253,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 25
+    acceleration: 60
     detectionRange: 600
     scanArc: 45
-    launchSpeed: 30
-    maxSpeed: 300
+    launchSpeed: 60
+    maxSpeed: 400
     trackDelay: 0.6
 
 # Serpent Torpedo

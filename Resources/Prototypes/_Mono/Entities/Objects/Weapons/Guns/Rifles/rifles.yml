@@ -1,8 +1,8 @@
 - type: entity
-  name: VFD MR-8C DMR (8x65mm SKR)
+  name: VFD QBU-243 Xian DMR (8x65mm SKR)
   parent: [BaseWeaponRifle, BaseGunWieldable, BaseFactionGearTSFT2]
   id: WeaponRifleMR8C
-  description: The DMR variant of the MR-8 series, firing with incredible accuracy. Chambered in 8x65mm SKR. A label on the side reads "FOR MILITARY USE ONLY". An Erebus railmount is attached to the top of the reciever and the bottom of the handguard for optics and grips.
+  description: High powered, relatively fast-firing marksman rifle, intended for MARSOC usage. Chambered in 8x65mm SKR. An Erebus railmount is attached to the top of the reciever and the bottom of the handguard for optics and grips.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Rifles/mr8c.rsi
@@ -57,7 +57,6 @@
           tags:
           - MonoGripErebusRailmount
       attachment_optic:
-        startingItem: GunAttachmentOpticErebus4x
         insertSound: /Audio/Items/screwdriver2.ogg
         ejectSound: /Audio/Items/screwdriver2.ogg
         priority: 0
@@ -86,6 +85,11 @@
     sprintModifier: 0.5
   - type: ESAttachableGun
     slots:
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
     - name: es-gun-attachments-slot-name-grip
       containerId: attachment_grip
       whitelist:
@@ -238,7 +242,7 @@
           - MonoOptic8x
 
 - type: entity
-  name: VFD XLR-556 ICWS (5.56x45mm)
+  name: VFD QBZX-281 Taotie ICWS (5.56x45mm)
   parent: [BaseWeaponRifle, BaseGunWieldable, BaseFactionGearTSFT2]
   id: WeaponRifleXlr556
   description: A proposed next-gen "rifle" for TSF standard infantry. Chambered in 5.56x45mm rifle rounds, its RPM is incredible - but with great firerate comes great fire control...

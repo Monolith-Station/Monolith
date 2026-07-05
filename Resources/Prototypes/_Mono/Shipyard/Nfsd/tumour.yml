@@ -9,7 +9,7 @@
   category: Medium
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/tumour.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/tumour.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -20,7 +20,7 @@
 - type: gameMap
   id: Tumour
   mapName: 'Tumour'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/tumour.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/tumour.yml
   minPlayers: 0
   stations:
     Tumour:

@@ -1,0 +1,43 @@
+#Author: Corrupt 142
+
+- type: vessel
+  id: Ganymede
+  parent: BaseVesselAntag
+  name: IDY Ganymede
+  description: A Heavy "frigate" armed with 4x Hydra 220mm cannons, lots of PD, 2x Fang 90mm autocannons and some flares to top it all off!
+  limit: 3
+  hyperwarLimit: 5
+  price: 320650
+  purchasable: false # voucher only
+  category: Large
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/ganymede.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  - Frigate
+  engine:
+  - AME
+
+- type: gameMap
+  id: Ganymede
+  mapName: 'PDV Ganymede'
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/ganymede.yml
+  minPlayers: 0
+  stations:
+    Ganymede:
+      gridComponents:
+      - type: VesselInfo
+        description: "Half-built, bashed together to fight off TSF scum.."
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Ganymede PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

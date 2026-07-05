@@ -1,0 +1,36 @@
+#kasature90 (github)/ _starch_ (discord)
+- type: vessel
+  id: Fracture
+  parent: BaseVesselAntag
+  name: TSF-SKR Fracture
+  description: A one-man ship with the armor of a brawler and the guns of a sniper. Armed with 2 220mm CYREXAs and 2 150mm TARNYXs, but no PD. Don't miss your bursts.
+  price: 112500
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/fracture.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Fracture
+  mapName: 'Fracture'
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/fracture.yml
+  minPlayers: 0
+  stations:
+    Fracture:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Fracture TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]

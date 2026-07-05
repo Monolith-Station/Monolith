@@ -16,7 +16,7 @@
   group: Custom
   access: Brig
   mapchecker_group_override: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Carrier/taser.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Carrier/taser.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -26,7 +26,7 @@
 - type: gameMap
   id: Taser
   mapName: 'Taser'
-  mapPath: /Maps/_Mono/Shuttles/Carrier/taser.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Carrier/taser.yml
   minPlayers: 0
   stations:
     Taser:
