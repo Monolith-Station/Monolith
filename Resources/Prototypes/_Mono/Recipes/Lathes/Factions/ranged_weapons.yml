@@ -189,6 +189,26 @@
     Plastitanium: 2000
     Silver: 500
 
+# TSF Shenzhen
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponAMRShenzhenTSF
+  result: WeaponAMRShenzhen
+  categories:
+  - AntiMaterial
+  - Weapons
+  - Ballistic
+  materials:
+    Steel: 7000
+    Plasteel: 6000
+    Plastitanium: 1500
+    Copper: 2000
+    Lithium: 2000
+    Gold: 500
+    Silver: 500
+    UraniumDepleted: 50 # For the mag it comes with
+
 # TSF energy
 
 - type: latheRecipe

@@ -1,0 +1,72 @@
+- type: entity
+  name: "TCA QBU-284 'Shenzhen' coilgun AMR"
+  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  id: WeaponAMRShenzhen
+  description: Magazine-fed AMR, utilizing electromagnets to fire 13.4x92mm DU-APFSDS rounds with extreme velocity.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/shenzhen.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -95
+  - type: Gun
+    minAngle: 5
+    maxAngle: 95
+    angleIncrease: 27
+    angleDecay: 10
+    fireRate: 0.4
+    selectedMode: SemiAuto
+    availableModes: SemiAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/chemrail_shenzhen.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineShenzhen
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineShenzhen
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeShenzhen
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeShenzhen
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/shenzhen_inhands_32x.rsi
+  - type: Item
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/shenzhen_inhands_32x.rsi
+  - type: StaticPrice
+    price: 2400
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 7
+    pvsIncrease: 0.7
+  - type: GunRequiresWield

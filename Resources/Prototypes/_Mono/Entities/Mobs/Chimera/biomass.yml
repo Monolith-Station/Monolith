@@ -56,6 +56,19 @@
     damage:
       types:
         Heat: 9
+  - type: Reactive
+    groups:
+      Flammable: [Touch]
+      Extinguish: [Touch]
+    reactions:
+    - reagents: [SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        damage:
+          types:
+            Heat: 30
   - type: AtmosExposed
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.45
@@ -80,3 +93,4 @@
     - Chimera
     - ChimeraFloor
     - Meat
+  - type: ChimeraCleanable

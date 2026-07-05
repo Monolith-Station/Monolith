@@ -28,9 +28,19 @@
   result: 220mmCartridgeAPHE
 
 - type: latheRecipe
+  parent: BaseLightShipgunAmmoRecipe
+  id: 120mmCartridgeAPHEDSAmmoRecipe
+  result: 120mmCartridgeAPHEDS
+
+- type: latheRecipe
   parent: BaseShipgunAmmoRecipe
   id: 255mmCartridgeAPHEAmmoRecipe
   result: 255mmCartridgeAPHE
+
+- type: latheRecipe
+  parent: BaseHeavyShipgunAmmoRecipe
+  id: R300ShellHEAmmoRecipe
+  result: R300ShellHE
 
 # Missiles
 
@@ -43,3 +53,18 @@
   parent: BaseMissileShipgunAmmoRecipe
   id: VanykMagazineAmmoRecipe
   result: VanykMagazine
+
+- type: latheRecipe
+  parent: BaseHeavyMissileShipgunAmmoRecipe
+  id: PaladinMagazineAmmoRecipe
+  result: PaladinMagazine
+
+- type: latheRecipe
+  parent: BaseHeavyMissileShipgunAmmoRecipe
+  id: PaladinMagazineEMPHEAmmoRecipe
+  result: PaladinMagazineEMPHE
+
+- type: latheRecipe
+  parent: BaseHeavyMissileShipgunAmmoRecipe
+  id: VanquisherMagazineAmmoRecipe
+  result: VanquisherMagazine

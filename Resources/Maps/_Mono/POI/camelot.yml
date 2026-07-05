@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/22/2026 15:06:17
-  entityCount: 11859
+  time: 07/01/2026 23:20:46
+  entityCount: 11863
 maps: []
 grids:
 - 1
@@ -263,9 +263,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Smoke: []
         Puddle: []
+        Smoke: []
+        Kudzu: []
         MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -7681,7 +7681,7 @@ entities:
       pos: 1.5,2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -14703.365
+      secondsUntilStateChange: -15200.638
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7719,7 +7719,7 @@ entities:
       pos: -30.5,38.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -57897.047
+      secondsUntilStateChange: -58394.32
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -25555,36 +25555,6 @@ entities:
     - type: Transform
       pos: 19.5,2.5
       parent: 1
-- proto: ConstructionBox
-  entities:
-  - uid: 383
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 24.5,18.5
-      parent: 1
-  - uid: 478
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -26.5,-4.5
-      parent: 1
-  - uid: 1376
-    components:
-    - type: Transform
-      pos: -25.5,27.5
-      parent: 1
-  - uid: 3221
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 5.5,-2.5
-      parent: 1
-  - uid: 9890
-    components:
-    - type: Transform
-      pos: -27.5,37.5
-      parent: 1
 - proto: ConveyorBelt
   entities:
   - uid: 106
@@ -26098,7 +26068,7 @@ entities:
       pos: 22.5,53.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -53090.816
+      secondsUntilStateChange: -53588.09
       state: Closing
   - uid: 4605
     components:
@@ -26111,7 +26081,7 @@ entities:
       pos: 22.5,55.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -53092.816
+      secondsUntilStateChange: -53590.09
       state: Closing
   - uid: 9858
     components:
@@ -33849,6 +33819,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 17.5,7.5
       parent: 1
+  - uid: 11863
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,-6.5
+      parent: 1
 - proto: DisposalRouter
   entities:
   - uid: 314
@@ -34613,6 +34589,7 @@ entities:
     - type: Automated
     - type: DeviceNetwork
       deviceNetId: Wireless
+      configurators: []
       deviceLists: []
       receiveFrequencyId: BasicDevice
   - uid: 767
@@ -57399,6 +57376,27 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 16.5,22.5
       parent: 1
+- proto: HolopadCommissarBaikal
+  entities:
+  - uid: 11862
+    components:
+    - type: Transform
+      pos: 12.5,-2.5
+      parent: 1
+- proto: HolopadUSSPBaikal
+  entities:
+  - uid: 11861
+    components:
+    - type: Transform
+      pos: 6.5,-5.5
+      parent: 1
+- proto: HolopadVG
+  entities:
+  - uid: 11860
+    components:
+    - type: Transform
+      pos: 21.5,11.5
+      parent: 1
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 2585
@@ -58408,16 +58406,6 @@ entities:
     - type: Transform
       pos: -32.5,2.5
       parent: 1
-  - uid: 1162
-    components:
-    - type: Transform
-      pos: 17.5,13.5
-      parent: 1
-  - uid: 3290
-    components:
-    - type: Transform
-      pos: 12.5,-7.5
-      parent: 1
 - proto: MonoMaintenanceFluffSpawner
   entities:
   - uid: 10113
@@ -58515,6 +58503,36 @@ entities:
     components:
     - type: Transform
       pos: -22.437218,51.63972
+      parent: 1
+- proto: NFMagnetBoxConstruction
+  entities:
+  - uid: 383
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 24.5,18.5
+      parent: 1
+  - uid: 478
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -26.5,-4.5
+      parent: 1
+  - uid: 1376
+    components:
+    - type: Transform
+      pos: -25.5,27.5
+      parent: 1
+  - uid: 3221
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,-2.5
+      parent: 1
+  - uid: 9890
+    components:
+    - type: Transform
+      pos: -27.5,37.5
       parent: 1
 - proto: NFPosterLegitWinnerWinner
   entities:
@@ -63844,7 +63862,7 @@ entities:
   - uid: 2649
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: -1.5707963267948966 rad
       pos: 4.5,44.5
       parent: 1
   - uid: 3055
@@ -65833,6 +65851,8 @@ entities:
     - type: Transform
       pos: 10.5,1.5
       parent: 1
+- proto: SpawnPointUSSPSergeant
+  entities:
   - uid: 3281
     components:
     - type: Transform
@@ -68111,6 +68131,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: USSPLatheImmmovable
+  entities:
+  - uid: 3290
+    components:
+    - type: Transform
+      pos: 12.5,-7.5
+      parent: 1
 - proto: VendingMachineAmmoPOIMercenary
   entities:
   - uid: 2799
@@ -68403,6 +68430,13 @@ entities:
     components:
     - type: Transform
       pos: -3.5,29.5
+      parent: 1
+- proto: ViperLatheImmmovable
+  entities:
+  - uid: 1162
+    components:
+    - type: Transform
+      pos: 17.5,13.5
       parent: 1
 - proto: WallPlastitaniumCapital
   entities:

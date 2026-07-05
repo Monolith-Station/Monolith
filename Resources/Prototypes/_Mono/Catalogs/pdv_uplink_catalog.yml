@@ -1321,7 +1321,22 @@
   description: uplink-pdv-t1-garm-voucher-desc
   productEntity: ShipVoucherGarm
   cost:
-    Doubloon: 80
+    Doubloon: 75
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkSecurityT1VoucherKalisto
+  name:  uplink-pdv-t1-kalisto-voucher-name
+  description: uplink-pdv-t1-kalisto-voucher-desc
+  productEntity: ShipVoucherKalisto
+  cost:
+    Doubloon: 95
   categories:
   - UplinkPdvVouchers
   conditions:
@@ -1336,7 +1351,7 @@
   description: uplink-pdv-t1-fenrir-voucher-desc
   productEntity: ShipVoucherFenrir
   cost:
-    Doubloon: 100
+    Doubloon: 80
   categories:
   - UplinkPdvVouchers
   conditions:
@@ -1351,7 +1366,7 @@
   description: uplink-pdv-t1-scorpion-voucher-desc
   productEntity: ShipVoucherScorpion
   cost:
-    Doubloon: 120
+    Doubloon: 85
   categories:
   - UplinkPdvVouchers
   conditions:
@@ -1366,7 +1381,7 @@
   description: uplink-pdv-t1-bastion-voucher-desc
   productEntity: ShipVoucherBastion
   cost:
-    Doubloon: 110
+    Doubloon: 80
   categories:
   - UplinkPdvVouchers
   conditions:
@@ -1381,7 +1396,7 @@
   description: uplink-pdv-t1-neptune-voucher-desc
   productEntity: ShipVoucherNeptune
   cost:
-    Doubloon: 130
+    Doubloon: 100
   categories:
   - UplinkPdvVouchers
   conditions:
@@ -1400,7 +1415,22 @@
   description: uplink-pdv-t2-europa-voucher-desc
   productEntity: ShipVoucherEuropa
   cost:
-    Doubloon: 200
+    Doubloon: 180
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkSecurityT2VoucherGanymede
+  name:  uplink-pdv-t2-ganymede-voucher-name
+  description: uplink-pdv-t2-ganymede-voucher-desc
+  productEntity: ShipVoucherGanymede
+  cost:
+    Doubloon: 190
   categories:
   - UplinkPdvVouchers
   conditions:
@@ -1415,7 +1445,7 @@
   description: uplink-pdv-t2-vulture-voucher-desc
   productEntity: ShipVoucherVulture
   cost:
-    Doubloon: 200
+    Doubloon: 145
   categories:
   - UplinkPdvVouchers
   conditions:
@@ -1430,7 +1460,7 @@
   description: uplink-pdv-t2-motleyanne-voucher-desc
   productEntity: ShipVoucherMotleyAnne
   cost:
-    Doubloon: 200
+    Doubloon: 220
   categories:
   - UplinkPdvVouchers
   conditions:

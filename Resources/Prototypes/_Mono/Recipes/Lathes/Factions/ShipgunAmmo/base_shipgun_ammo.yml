@@ -45,6 +45,18 @@
 
 - type: latheRecipe
   parent: BaseShipgunAmmoRecipe
+  id: BaseHeavyMissileShipgunAmmoRecipe
+  abstract: true
+  materials:
+    Steel: 3500
+    Plasma: 250 # explosive payload
+    Glass: 600 # optical seeker
+    Gold: 250 # electronics
+    Silver: 250 # electronics
+
+
+- type: latheRecipe
+  parent: BaseShipgunAmmoRecipe
   id: BaseLightMissileShipgunAmmoRecipe
   abstract: true
   materials:
