@@ -3,12 +3,11 @@
   name: Move up
   description: Move up one Z-Level
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: _CE/Actions/zLevels.rsi
       state: up
-  - type: InstantAction
     event: !type:CEZLevelActionUp
 
 - type: entity
@@ -16,12 +15,11 @@
   name: Move down
   description: Move down one Z-Level
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: _CE/Actions/zLevels.rsi
       state: down
-  - type: InstantAction
     event: !type:CEZLevelActionDown
 
 - type: entity
@@ -29,10 +27,9 @@
   name: Look up
   description: You lift your head and look up at the sky.
   components:
-  - type: Action
+  - type: InstantAction
     checkCanInteract: false
     icon:
       sprite: _CE/Actions/zLevels.rsi
       state: eye
-  - type: InstantAction
     event: !type:CEToggleZLevelLookUpAction
