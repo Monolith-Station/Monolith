@@ -11,7 +11,7 @@
   price: 225500
   category: Large
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/olympus.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/olympus.yml
   guidebookPage: Null
   class:
   - Cargo
@@ -21,7 +21,7 @@
 - type: gameMap
   id: Olympus
   mapName: 'DIS Olympus'
-  mapPath: /Maps/_Mono/Shuttles/olympus.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/olympus.yml
   minPlayers: 0
   stations:
     Olympus:
