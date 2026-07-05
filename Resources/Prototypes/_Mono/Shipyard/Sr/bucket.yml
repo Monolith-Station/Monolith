@@ -7,7 +7,7 @@
   category: Micro
   group: Sr
   access: Janitor
-  shuttlePath: /Maps/_Mono/Shuttles/bucket.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/bucket.yml
   guidebookPage: Null
   class:
   - Civilian
@@ -17,7 +17,7 @@
 - type: gameMap
   id: Bucket
   mapName: 'Bucket'
-  mapPath: /Maps/_Mono/Shuttles/bucket.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/bucket.yml
   minPlayers: 0
   stations:
     Bucket:

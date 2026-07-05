@@ -9,10 +9,10 @@
   parent: BaseVessel
   name: HME Artemis
   description: The Artemis is a compact ambulance ship, designed to rescue patients quickly, and exfiltrate as fast as they arrived.
-  price: 34000 # Its a barebones med ship, basically acting as a paramedic ship. 
+  price: 34000 # Its a barebones med ship, basically acting as a paramedic ship.
   category: Small
   group: Medical
-  shuttlePath: /Maps/_Mono/Shuttles/artemis.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/artemis.yml
   guidebookPage: null
   class:
   - Medical
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Artemis
   mapName: 'HME Artemis'
-  mapPath: /Maps/_Mono/Shuttles/artemis.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/artemis.yml
   minPlayers: 0
   stations:
     Artemis:

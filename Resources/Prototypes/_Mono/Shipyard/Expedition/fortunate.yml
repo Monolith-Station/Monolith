@@ -8,12 +8,12 @@
   id: Fortunate
   parent: BaseVessel
   name: UNSA Fortunate
-  description: Part of the UNSA's vanguard fleet design, the Fortunate is an attack ship, equipped with frontal armor and guns in order to pierce through hulls. This design includes a boarding port, capable delivering soldiers to the enemy's busted hull in order to subdue and eliminate the threats in close quarters. 
+  description: Part of the UNSA's vanguard fleet design, the Fortunate is an attack ship, equipped with frontal armor and guns in order to pierce through hulls. This design includes a boarding port, capable delivering soldiers to the enemy's busted hull in order to subdue and eliminate the threats in close quarters.
   price: 152000 # relatively thin armor, and subpar weapons for it's size.
   category: Medium
   group: Expedition
   access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/Expedition/fortunate.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/fortunate.yml
   guidebookPage: Null
   class:
   - Expedition
@@ -24,7 +24,7 @@
 - type: gameMap
   id: Fortunate
   mapName: 'UNSA Fortunate'
-  mapPath: /Maps/_Mono/Shuttles/Expedition/fortunate.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Expedition/fortunate.yml
   minPlayers: 0
   stations:
     Fortunate:

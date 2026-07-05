@@ -11,7 +11,7 @@
   price: 59525
   category: Medium
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/peregrine.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/peregrine.yml
   guidebookPage: Null
   class:
   - Salvage
@@ -21,7 +21,7 @@
 - type: gameMap
   id: Peregrine
   mapName: 'SKR Peregrine'
-  mapPath: /Maps/_Mono/Shuttles/peregrine.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/peregrine.yml
   minPlayers: 0
   stations:
     Peregrine:
