@@ -3,7 +3,7 @@
   id: Altair
   parent: BaseVesselAntag
   name: TSF-PIN Altair
-  description: A heavily-armed frigate with 4 cyrexa, laser cannons and its main armament, a CHARON mass driver. Made as a heavy frontline brawler and to serve as a fleet anchor for smaller forces.
+  description: A heavily-armed frigate with 4 frontal cyrexa and its main armament, a DYMERE class turbolaser. Made as a heavy long range support and fleet anchor for those small forces on the Rim. Heavily survivable and rugged, just watch those hardpoints
   limit: 2
   hyperwarLimit: 4
   price: 425000
@@ -30,7 +30,7 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: "Is all this really worth it? A sense of regret washes over you, then dissapears."
+        description: "One hardy frigate built to whistand heavy punishment- and live. Hopefully the coolant system won't leak."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Altair TSFN{1}'
