@@ -4,7 +4,7 @@
   id: Aldebaran
   parent: BaseVesselAntag
   name: TSF-PIN Aldebaran
-  description: A frontal up-puncher corvette equipped with two cyrexas for long range engagements and torpedoes for heavier targets and close range.
+  description: A frontal up-puncher corvette equipped with two 220 CYREXA cannons for long range engagements and light target dispatching as well as torpedoes for heavier targets.
   price: 160200
   purchasable: false # voucher only
   category: Medium
@@ -26,6 +26,9 @@
   stations:
     Aldebaran:
       stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "One of the mainstays of the Federation, fast, precise, and -hopefully- deadly."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Aldebaran TSF{1}'
