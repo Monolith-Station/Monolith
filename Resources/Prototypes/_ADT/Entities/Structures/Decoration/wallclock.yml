@@ -1,0 +1,29 @@
+- type: entity
+  id: ADTWallClock
+  parent: BaseSign
+  name: wall clock
+  description: Would you look at the time!
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_ADT/Structures/Decoration/clock.rsi
+    state: clock
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: AmbientSound
+    volume: -6
+    range: 2
+    sound:
+      path: /Audio/_ADT/Ambience/clock_tick.ogg

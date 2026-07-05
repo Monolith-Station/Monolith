@@ -1,0 +1,34 @@
+- type: entity
+  parent: BaseItem
+  id: MetalPan
+  name: metal pan
+  description: Pankiller? Is it you on that video?
+  components:
+  - type: Sprite
+    sprite: _VXS14/Misc/pan.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+  - type: Item
+    size: Normal
+    sprite: _VXS14/Misc/pan.rsi
+
+- type: entity
+  parent: DrinkBase
+  id: Pot
+  name: metal pot
+  description: Ukraine not mentioned during spriting of this
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+  - type: Sprite
+    sprite: _VXS14/Misc/pot.rsi
+  - type: FitsInDispenser
+    solution: drink
+  - type: Item
+    size: Normal

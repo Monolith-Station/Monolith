@@ -1,0 +1,107 @@
+- type: entity
+  id: VehicleTrubostrelAntiair
+  name: 9K23 Trubostrel
+#  suffix: Solfed
+  description: That what you get if you put anti-air missiles with giant radar on a tank.
+  parent: BaseStructure
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: _VXS14/Structures/Vehicles/trubostrel.rsi
+    state: trubostrel
+#  - type: Gun
+#    cameraRecoilScalar: 0
+#    projectileSpeed: 100
+#    fireRate: 2
+#    soundGunshot:
+#      path: /Audio/VXS/Gunshots/Launcher/launcher2.ogg
+#      params:
+#        maxDistance: 50
+#        volume: 2
+#  - type: VXSManpadsLauncher
+#    scanRadius: 300
+#    scanInterval: 0.4
+#    lockSound:
+#      path: /Audio/VXS/Weaponry/manpadslock.ogg
+#    lockSoundCooldown: 0.25
+#    friendlyTransponders:
+#    - SF
+#  - type: VXSManpadsAutoDefense
+#    enabled: true
+#    fireInterval: 2
+#    scanInterval: 0.4
+#    scanRadius: 300
+#  - type: BallisticAmmoProvider
+#    whitelist:
+#      entities:
+#      - CartridgeRocketTrubostrelAA
+#    cycleable: false
+#    autoCycle: false
+#    proto: CartridgeRocketTrubostrelAA
+#    capacity: 4
+#    soundInsert:
+#      path: /Audio/_ADT/ADTGlobalEvents/ShipBattle/Weapons/Guns/MagIn/shell_in.ogg
+#  - type: ContainerContainer
+#    containers:
+#      ballistic-ammo: !type:Container
+#        ents: []
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          VehicleTrubostrelAntiairDestroyed:
+            min: 1
+            max: 1
+  - type: Appearance
+
+- type: entity
+  id: VehicleTrubostrelAntiairSyndicate
+  name: 9K23 Trubostrel
+  suffix: Syndicate
+  description: That what you get if you put anti-air missiles with giant radar on a tank.
+  parent: VehicleTrubostrelAntiair
+#  components:
+#  - type: VXSManpadsLauncher
+#    scanRadius: 300
+#    scanInterval: 0.4
+#    lockSound:
+#      path: /Audio/VXS/Weaponry/manpadslock.ogg
+#    lockSoundCooldown: 0.25
+#    friendlyTransponders:
+#    - Syndicate
+
+- type: entity
+  id: VehicleTrubostrelAntiairDestroyed
+  name: 9K23 Trubostrel wreck
+  description: Burned and nonfunctional remains of an anti-air system.
+  parent: BaseStructure
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: _VXS14/Structures/Vehicles/trubostrel.rsi
+    state: trubostrel_destructed
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 6
+            max: 12

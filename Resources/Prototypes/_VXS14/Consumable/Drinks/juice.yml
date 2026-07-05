@@ -1,0 +1,33 @@
+- type: entity
+  parent: DrinkCartonBaseFull
+  id: DrinkJuiceMultifruitCarton
+  name: multifruit juice
+  description: Multifruit juice in a cardboard box. Manufacturer - Zlobniy Inc, aka Zloy juice.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: JuiceOrange
+          Quantity: 16
+        - ReagentId: JuiceGrape
+          Quantity: 16
+        - ReagentId: JuiceWatermelon
+          Quantity: 16
+  - type: Sprite
+    sprite: _VXS14/Food/Drinks/juice/multifruit.rsi
+
+- type: entity
+  parent: DrinkCartonBaseFull
+  id: DrinkJuiceAppleCarton
+  name: apple juice
+  description: apple juice in a cardboard box. Manufacturer - Zlobniy Inc, aka Zloy juice.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: JuiceApple
+          Quantity: 48
+  - type: Sprite
+    sprite: _VXS14/Food/Drinks/juice/apple.rsi

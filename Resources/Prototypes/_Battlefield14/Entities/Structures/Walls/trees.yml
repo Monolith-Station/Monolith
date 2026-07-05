@@ -140,3 +140,19 @@
         tree06: ""
   - type: Occluder
     boundingBox: -0.3, -0.3, 0.3, 0.3
+
+- type: entity
+  parent: FloraTreeSnow
+  id: FloraTreeSnowOpaque
+  suffix: opaque
+  components:
+  - type: Occluder
+    boundingBox: -0.3, -0.3, 0.3, 0.3
+
+- type: entity
+  parent: FloraTreeConifer
+  id: FloraTreeConiferOpaque
+  suffix: opaque
+  components:
+  - type: Occluder
+    boundingBox: -0.3, -0.3, 0.3, 0.3
