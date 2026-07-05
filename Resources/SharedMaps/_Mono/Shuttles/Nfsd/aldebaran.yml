@@ -115,10 +115,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Kudzu: []
         MetalFoam: []
+        Kudzu: []
         Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -4316,9 +4316,11 @@ entities:
       pos: -1.5,7.5
       parent: 1
     - type: Battery
-      startingCharge: 0
+      startingCharge: 180
     - type: ApcPowerReceiver
       powerLoad: 20
+    - type: ApcPowerReceiverBattery
+      enabled: True
 - proto: GyroscopeNfsd
   entities:
   - uid: 14
