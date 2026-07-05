@@ -117,7 +117,7 @@
 - type: entity
   parent: PinpointerBase
   id: PinpointerMothership
-  name: core pinpointer
+  name: mothershipcore pinpointer
   description: A handheld tracking device that leads to the direction of the Mothership core.
   components:
   - type: Sprite
@@ -151,7 +151,7 @@
 - type: entity
   parent: BaseItem
   id: PinpointerMothershipPiece
-  name: piece of core pinpointer
+  name: piece of mothershipcore pinpointer
   description: A piece of a core pinpointer. You need four pieces to repair it.
   components:
   - type: Sprite
@@ -170,19 +170,23 @@
   - type: Tag
     tags:
     - MothershipPinpointerPiece
+  - type: MothershipPinpointerPiece
 
 - type: entity
   parent: PinpointerMothership
   id: PinpointerMothershipRepaired
-  name: repaired core pinpointer
+  name: repaired mothershipcore pinpointer
   description: A handheld tracking device that leads to the direction of the Mothership core. This one has seen better days.
   components:
   - type: Sprite
     layers:
     - state: pinpointer-xenoborg-repaired
       map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
   - type: Icon
     state: pinpointer-xenoborg-repaired
   - type: Construction
     graph: RepairMothershipPinpointer
     node: repairedPinpointer
+  - type: MothershipPinpointerPiece

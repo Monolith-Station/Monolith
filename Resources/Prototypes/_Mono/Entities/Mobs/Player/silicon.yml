@@ -889,6 +889,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+    - trigger:
+        !type:DamageTrigger
         damage: 500
       behaviors:
       - !type:DoActsBehavior
@@ -897,6 +904,12 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
+      - !type:ExplodeBehavior
+        explosionType: FireBomb
+        totalIntensity: 1
+        intensitySlope: 1
+        maxIntensity: 1
+        canCreateVacuum: false
   - type: Repairable
     doAfterDelay: 30 # you can heal the mothership core, but it takes a while
   - type: Anchorable

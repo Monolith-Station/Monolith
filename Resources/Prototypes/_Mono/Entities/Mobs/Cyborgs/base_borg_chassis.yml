@@ -264,7 +264,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 90
+        damage: 190
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -273,7 +273,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-        damage: 375
+        damage: 750
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -284,6 +284,12 @@
             min: 1
             max: 1
       - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - borg_module
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: IonStormTarget
     chance: 0.1
   - type: ShowJobIcons
