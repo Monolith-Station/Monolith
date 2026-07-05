@@ -9,7 +9,7 @@
   category: Medium
   group: Ussp
   access: USSP
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/natisk.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/natisk.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -19,7 +19,7 @@
 - type: gameMap
   id: Natisk
   mapName: 'Natisk'
-  mapPath: /Maps/_Mono/Shuttles/USSP/natisk.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/natisk.yml
   minPlayers: 0
   stations:
     Natisk:

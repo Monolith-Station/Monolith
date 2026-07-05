@@ -12,7 +12,7 @@
   price: 18500 # its got no ftl, barely any cargo space, its THE cheapest cargo ship you can buy.
   category: Small
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/piva.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/piva.yml
   guidebookPage: Null
   class:
   - Cargo
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Piva
   mapName: 'PB Piva'
-  mapPath: /Maps/_Mono/Shuttles/piva.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/piva.yml
   minPlayers: 0
   stations:
     Piva:

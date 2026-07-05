@@ -13,7 +13,7 @@
   category: large
   group: Scrap
   access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/Scrap/skelraak.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Scrap/skelraak.yml
   guidebookPage: Null
   class:
   - Frigate
@@ -24,7 +24,7 @@
 - type: gameMap
   id: skelraak
   mapName: 'VOX-Skelraak'
-  mapPath: /Maps/_Mono/Shuttles/Scrap/skelraak.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Scrap/skelraak.yml
   minPlayers: 0
   stations:
     skelraak:

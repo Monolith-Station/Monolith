@@ -9,7 +9,7 @@
   category: Small
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/ocelot.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/ocelot.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Ocelot
   mapName: 'Ocelot'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/ocelot.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/ocelot.yml
   minPlayers: 0
   stations:
     Ocelot:
