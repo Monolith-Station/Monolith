@@ -25,6 +25,7 @@
 - type: entity
   parent: [BaseStructureComputerTabletop, ComputerShuttleTSFNVWS]
   id: ComputerTabletopShuttleTSFNVWS
+  suffix: Tabletop, TSFN/TSFMC VWS
   components:
   - type: Sprite
     drawdepth: SmallObjects
@@ -122,3 +123,70 @@
     prototype: ComputerShuttleKPV63RWR
   - type: ComputerTabletopBoard # Frontier
     prototype: ComputerTabletopShuttleKPV63RWR # Frontier
+
+# Alternative sounds (AN/ALR-67)
+
+- type: entity
+  parent: ComputerShuttle
+  id: ComputerShuttleANALR67RWR
+  name: shuttle console
+  suffix: Alt AN/ALR-67 RWR
+  description: Used to pilot a shuttle. This one is outfitted with a AN/ALR-67 RWR for missile warning tones.
+  components:
+  - type: Computer
+    board: ShuttleConsoleCircuitboardANALR67RWR
+  - type: TargetSeekerAlert
+    targetGainSound:
+      path: /Audio/_Mono/Effects/Alerts/an_alr63_special.ogg
+      params:
+        volume: 0.7
+        pitch: 1.2
+    distanceAlertSettings:
+    - maximumDistance: 256
+      sound:
+        path: /Audio/_Mono/Effects/Alerts/an_alr63_missile.ogg
+        params:
+          loop: true
+          volume: 1.0
+          pitch: 1.0
+    - maximumDistance: 1024
+      sound:
+        path: /Audio/_Mono/Effects/Alerts/an_alr63_radar_lock.ogg
+        params:
+          loop: true
+          volume: 1.0
+          pitch: 1.0
+
+- type: entity
+  parent: [BaseStructureComputerTabletop, ComputerShuttleANALR67RWR]
+  id: ComputerTabletopShuttleANALR67RWR
+  suffix: Tabletop, alt AN/ALR-67
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _NF/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _NF/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      sprite: Structures/Machines/computers.rsi
+      state: shuttle
+    - map: ["computerLayerKeys"]
+      sprite: Structures/Machines/computers.rsi
+      state: generic_keys
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ShuttleConsoleCircuitboardANALR67RWR
+  name: shuttle console board (AN/ALR-67 RWR)
+  description: A computer printed circuit board for a shuttle console. This one has a AN/ALR-67 RWR for missile lock tones.
+  components:
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: ComputerShuttleANALR67RWR
+  - type: ComputerTabletopBoard # Frontier
+    prototype: ComputerTabletopShuttleANALR67RWR # Frontier

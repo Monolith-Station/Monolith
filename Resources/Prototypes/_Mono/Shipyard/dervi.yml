@@ -10,7 +10,7 @@
   price: 64300
   category: Small
   group: Medical
-  shuttlePath: /Maps/_Mono/Shuttles/dervi.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/dervi.yml
   guidebookPage: null
   class:
   - Medical
@@ -20,7 +20,7 @@
 - type: gameMap
   id: Dervi
   mapName: 'NEI Dervi'
-  mapPath: /Maps/_Mono/Shuttles/dervi.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/dervi.yml
   minPlayers: 0
   stations:
     Dervi:

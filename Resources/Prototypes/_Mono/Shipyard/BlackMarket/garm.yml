@@ -10,7 +10,7 @@
   category: Medium
   group: BlackMarket
   access: Pirate
-  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/garm.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/garm.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -20,7 +20,7 @@
 - type: gameMap
   id: Garm
   mapName: 'WEN Garm'
-  mapPath: /Maps/_Mono/Shuttles/BlackMarket/garm.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/garm.yml
   minPlayers: 0
   stations:
     Garm:

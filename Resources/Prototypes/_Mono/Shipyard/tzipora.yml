@@ -12,7 +12,7 @@
   price: 145530
   category: Large
   group: Medical
-  shuttlePath: /Maps/_Mono/Shuttles/tzipora.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/tzipora.yml
   guidebookPage: null
   class:
   - Medical
@@ -23,7 +23,7 @@
 - type: gameMap
   id: Tzipora
   mapName: 'SKR Tzipora'
-  mapPath: /Maps/_Mono/Shuttles/tzipora.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/tzipora.yml
   minPlayers: 0
   stations:
     Tzipora:

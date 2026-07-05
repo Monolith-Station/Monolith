@@ -9,7 +9,7 @@
   category: Small
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/syringe.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/syringe.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Syringe
   mapName: 'Syringe'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/syringe.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/syringe.yml
   minPlayers: 0
   stations:
     Syringe:

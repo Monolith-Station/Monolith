@@ -143,7 +143,7 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/needle.yml
+    path: /SharedMaps/_Mono/Shuttles/World/needle.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
@@ -163,7 +163,7 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/wedge.yml
+    path: /SharedMaps/_Mono/Shuttles/World/wedge.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
@@ -185,21 +185,21 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/ramdronesmall.yml
+    path: /SharedMaps/_Mono/Shuttles/World/ramdronesmall.yml
 
 - type: entity
   id: SpawnDroneBasicMedium
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/ramdronemedium.yml
+    path: /SharedMaps/_Mono/Shuttles/World/ramdronemedium.yml
 
 - type: entity
   id: SpawnDroneMPulsar
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/mpulsar.yml
+    path: /SharedMaps/_Mono/Shuttles/World/mpulsar.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
@@ -219,7 +219,7 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/lance.yml
+    path: /SharedMaps/_Mono/Shuttles/World/lance.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
@@ -241,7 +241,7 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/gust.yml
+    path: /SharedMaps/_Mono/Shuttles/World/gust.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
@@ -261,7 +261,7 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/wasp.yml
+    path: /SharedMaps/_Mono/Shuttles/World/wasp.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
@@ -281,7 +281,7 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/crown.yml
+    path: /SharedMaps/_Mono/Shuttles/World/crown.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
@@ -301,7 +301,7 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/piercer.yml
+    path: /SharedMaps/_Mono/Shuttles/World/piercer.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
@@ -323,7 +323,7 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/medusa.yml
+    path: /SharedMaps/_Mono/Shuttles/World/medusa.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
@@ -343,7 +343,7 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/assembly.yml
+    path: /SharedMaps/_Mono/Shuttles/World/assembly.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
@@ -363,7 +363,7 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/bracket.yml
+    path: /SharedMaps/_Mono/Shuttles/World/bracket.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
@@ -385,7 +385,7 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/mauler.yml
+    path: /SharedMaps/_Mono/Shuttles/World/mauler.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
@@ -405,7 +405,7 @@
   parent: SpawnDroneBase
   components:
   - type: GridSpawner
-    path: /Maps/_Mono/Shuttles/World/quake.yml
+    path: /SharedMaps/_Mono/Shuttles/World/quake.yml
     addComponents:
     - type: RandomMetadata
       nameSeparator: ""
