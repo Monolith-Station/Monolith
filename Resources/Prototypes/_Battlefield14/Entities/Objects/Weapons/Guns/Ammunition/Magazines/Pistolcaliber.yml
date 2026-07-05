@@ -123,6 +123,40 @@
   - type: Appearance
 
 - type: entity
+  parent: MagazinePistolGlock17
+  id: MagazinePistolUSP45
+  name: USP45 magazine (.45 ACP)
+  description: A 9x19mm magazine made for the Glock-17 pistol, no the 17 in the name doesnt stand for the magazine capacity.
+  components:
+  - type: Tag
+    tags:
+      - MagazinePistolUSP45
+      - Magazine
+      - PistolMagazine
+  - type: BallisticAmmoProvider
+    proto: BF_CartridgePistol45ACP
+    mayTransfer: true
+    whitelist:
+      tags:
+        - BF_CartridgePistol45ACP
+    capacity: 12
+  - type: Appearance
+
+- type: entity
+  parent: MagazinePistolGlock17
+  id: MagazinePistolUSP9
+  name: USP9 magazine (9x19mm)
+  description: A 9x19mm magazine made for the Glock-17 pistol, no the 17 in the name doesnt stand for the magazine capacity.
+  components:
+  - type: Tag
+    tags:
+      - MagazinePistolUSP9
+      - Magazine
+      - PistolMagazine
+  - type: BallisticAmmoProvider
+    capacity: 15
+
+- type: entity
   parent: BaseMagazinePistol
   id: MagazinePistolAPS
   name: APS magazine (9x18mm)

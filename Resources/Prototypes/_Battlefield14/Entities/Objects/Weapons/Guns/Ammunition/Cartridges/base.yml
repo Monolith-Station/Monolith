@@ -70,3 +70,15 @@
       collection: BF_Cartridge_Drop_40x46mm
       params:
         volume: -1
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - SUITSTORAGE2
+#    clothingVisuals:
+#      suitstorage2:
+#      - state: equipped-BACKPACK
+  - type: ExtendDescription # BF14
+    descriptionList:
+      - description: This item can be stored on your auxillary suit storage slot.
+        color: "#4f94ad"
+        requireDetailRange: true

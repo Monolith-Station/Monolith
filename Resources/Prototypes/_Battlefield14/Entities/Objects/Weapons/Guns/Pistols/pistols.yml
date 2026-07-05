@@ -93,74 +93,6 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  name: Glock-17
-  parent: BaseWeaponPistol
-  id: WeaponPistolATGlock17
-  description: The Glock-17 pistol, the media called it a "ghost gun" due to its high use of polymers, which led to people thinking you could get it through metal detectors without getting discovered.
-  components:
-  - type: Sprite
-    sprite: _Battlefield14/Objects/Weapons/Guns/Pistols/glock17.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Gun
-    minAngle: 0
-    maxAngle: 15
-    angleIncrease: 2
-    angleDecay: 10
-    fireRate: 5
-    projectileSpeed: 30
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      collection: BF_Glock17_Gunshots
-      params:
-        volume: -3
-  - type: ChamberMagazineAmmoProvider
-    soundRack:
-      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/rack.ogg
-      params:
-        volume: -1
-    soundBoltOpened:
-      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/lock.ogg
-      params:
-        volume: -1
-    soundBoltClosed:
-      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/chamber.ogg
-      params:
-        volume: -1
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazinePistolGlock17
-        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
-        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - MagazinePistolGlock17
-      gun_chamber:
-        name: Chamber
-        startingItem: BF_CartridgePistol9x19
-        priority: 1
-        whitelist:
-          tags:
-            - BF_CartridgePistol9x19
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-  - type: Appearance
-  - type: ExtendDescription
-    descriptionList:
-      - description: Takes Glock-17 pattern magazines.
-        color: "#4f94ad"
-        requireDetailRange: true
-
-- type: entity
   name: Mk 27
   parent: WeaponPistolATGlock17
   id: WeaponPistolUSMK27
@@ -292,11 +224,158 @@
     zeroVisible: true
   - type: Appearance
 
+#region DE
+
+- type: entity
+  name: USP45
+  parent: BaseWeaponPistol
+  id: WeaponPistolDEUSP45
+  description: The Universal Self Loading Pistol, as the name is the acronym of. Chambered in .45 ACP.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Pistols/USP.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    minAngle: 0
+    maxAngle: 15
+    angleIncrease: 2
+    angleDecay: 10
+    fireRate: 5
+    projectileSpeed: 30
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: BF_Glock17_Gunshots
+      params:
+        volume: -3
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/rack.ogg
+      params:
+        volume: -1
+    soundBoltOpened:
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/lock.ogg
+      params:
+        volume: -1
+    soundBoltClosed:
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/chamber.ogg
+      params:
+        volume: -1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolUSP45
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolUSP45
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgePistol45ACP
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgePistol45ACP
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: ExtendDescription
+    descriptionList:
+      - description: Takes USP45 pattern magazines.
+        color: "#4f94ad"
+        requireDetailRange: true
+
+- type: entity
+  name: USP9
+  parent: WeaponPistolDEUSP45
+  id: WeaponPistolDEUSP9
+  description: The Universal Self Loading Pistol, as the name is the acronym of. Chambered in 9x19mm.
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolUSP9
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolUSP9
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgePistol9x19
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgePistol9x19
+  - type: ExtendDescription
+    descriptionList:
+      - description: Takes USP9 pattern magazines.
+        color: "#4f94ad"
+        requireDetailRange: true
+
+- type: entity
+  name: P8A1
+  parent: WeaponPistolDEUSP9
+  id: WeaponPistolDEP8A1
+  suffix: USP9
+
+- type: entity
+  name: USP match
+  parent: WeaponPistolDEUSP9
+  id: WeaponPistolDEUSPMatch
+  description: A competition version of the USP9, with an aggressive compensator. Often paired with a stun baton.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Pistols/USPmatch.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    minAngle: 0
+    maxAngle: 15
+    angleIncrease: 1
+    angleDecay: 10
+    fireRate: 5
+    projectileSpeed: 30
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolUSP9
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolUSP9
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgePistol9x19
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgePistol9x19
+
+#region BE
+
 - type: entity
   name: Five-seveN
   parent: BaseWeaponPistol
   id: WeaponPistolBEFiveSeven
-  description: Designed alongside the P90 PDW, firing basically miniature rifle rounds.
+  description: Designed alongside the P90 PDW, firing what are basically miniature rifle rounds.
   components:
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Pistols/FiveSeven.rsi
@@ -354,6 +433,77 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+
+
+#region AT
+
+- type: entity
+  name: Glock-17
+  parent: BaseWeaponPistol
+  id: WeaponPistolATGlock17
+  description: The Glock-17 pistol, the media called it a "ghost gun" due to its high use of polymers, which led to people thinking you could get it through metal detectors without getting discovered.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Pistols/glock17.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    minAngle: 0
+    maxAngle: 15
+    angleIncrease: 2
+    angleDecay: 10
+    fireRate: 5
+    projectileSpeed: 30
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: BF_Glock17_Gunshots
+      params:
+        volume: -3
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/rack.ogg
+      params:
+        volume: -1
+    soundBoltOpened:
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/lock.ogg
+      params:
+        volume: -1
+    soundBoltClosed:
+      path: /Audio/_Battlefield14/Weapons/Guns/Glock17/chamber.ogg
+      params:
+        volume: -1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolGlock17
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Glock17/magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolGlock17
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgePistol9x19
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgePistol9x19
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: ExtendDescription
+    descriptionList:
+      - description: Takes Glock-17 pattern magazines.
+        color: "#4f94ad"
+        requireDetailRange: true
 
 ## PACT
 #region RU
