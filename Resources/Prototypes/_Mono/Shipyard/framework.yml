@@ -16,7 +16,7 @@
   price: 10000
   category: Small
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/framework.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/framework.yml
   guidebookPage: null
   class:
   - Civilian
@@ -27,7 +27,7 @@
 - type: gameMap
   id: Framework
   mapName: 'UNJ Framework'
-  mapPath: /Maps/_Mono/Shuttles/framework.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/framework.yml
   minPlayers: 0
   stations:
     Framework:

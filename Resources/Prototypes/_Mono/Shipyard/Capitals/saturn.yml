@@ -18,7 +18,7 @@
   category: Large
   group: BlackMarket
   access: Pirate
-  shuttlePath: /Maps/_Mono/Shuttles/Capitals/saturn.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Capitals/saturn.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -34,7 +34,7 @@
 - type: gameMap
   id: Saturn
   mapName: 'PDW-HSS Saturn'
-  mapPath: /Maps/_Mono/Shuttles/Capitals/saturn.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Capitals/saturn.yml
   minPlayers: 0
   stations:
     Saturn:

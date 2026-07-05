@@ -12,7 +12,7 @@
   category: Large
   group: BlackMarket
   access: Pirate
-  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/ganymede.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/ganymede.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -23,7 +23,7 @@
 - type: gameMap
   id: Ganymede
   mapName: 'PDV Ganymede'
-  mapPath: /Maps/_Mono/Shuttles/BlackMarket/ganymede.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/ganymede.yml
   minPlayers: 0
   stations:
     Ganymede:

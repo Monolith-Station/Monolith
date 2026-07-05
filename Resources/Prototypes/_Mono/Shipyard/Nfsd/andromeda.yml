@@ -12,7 +12,7 @@
   category: Large
   group: Security
   access: Armory
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/andromeda.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/andromeda.yml
   guidebookPage: Null
   class:
   - Frigate
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Andromeda
   mapName: 'Andromeda'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/andromeda.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/andromeda.yml
   minPlayers: 0
   stations:
     Andromeda:

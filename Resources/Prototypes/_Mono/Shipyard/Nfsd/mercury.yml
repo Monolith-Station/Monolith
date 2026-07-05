@@ -4,13 +4,13 @@
   id: Mercury
   parent: BaseVesselAntag
   name: TSF-SKR Mercury
-  description: Corvette with 4 frontal facing Vespera missile pods, and some light PD.
-  price: 150600 # Appraises at 125499. 20% tax.
+  description: Naval designation Type-32D Missile Corvette. Equipped with 4 frontal facing Paladin missile pods, and some light PD in the form of 4 L85 20mms.
+  price: 228621 # Appraises at 190518. 20% tax.
   purchasable: false # voucher only
   category: Medium
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/mercury.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/mercury.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -21,7 +21,7 @@
 - type: gameMap
   id: Mercury
   mapName: 'Mercury'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/mercury.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/mercury.yml
   minPlayers: 0
   stations:
     Mercury:

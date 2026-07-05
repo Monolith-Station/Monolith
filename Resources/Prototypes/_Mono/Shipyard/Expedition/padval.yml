@@ -8,11 +8,11 @@
   id: Padval
   parent: BaseVessel
   name: PB Padval
-  description: The Padval is a factory and store, all in one. This ship is dedicated to producing goods to sell to the colossus sector at large. 
+  description: The Padval is a factory and store, all in one. This ship is dedicated to producing goods to sell to the colossus sector at large.
   price: 79000 # i think this price is fair because its only really good for making stuff in techfabs and being a mobile store
   category: Medium
   group: Expedition
-  shuttlePath: /Maps/_Mono/Shuttles/Expedition/padval.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/padval.yml
   guidebookPage: null
   class:
   - Expedition
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Padval
   mapName: 'PB Padval'
-  mapPath: /Maps/_Mono/Shuttles/Expedition/padval.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Expedition/padval.yml
   minPlayers: 0
   stations:
     Padval:

@@ -980,31 +980,6 @@
     radius: 1.5
     energy: 1.6
     color: "#e6e227"
-  - type: TargetSeekerAlert # Mono
-    targetGainSound:
-      path: /Audio/_Mono/Effects/Alerts/rwr_beep.ogg
-      params:
-        volume: 1.55
-    distanceAlertSettings:
-    - maximumDistance: 250
-      sound:
-        path: /Audio/_Mono/Effects/Alerts/launchwarning.ogg
-        params:
-          loop: true
-          volume: 0.9
-    - maximumDistance: 600
-      sound:
-        path: /Audio/_Mono/Effects/Alerts/master_caution.ogg
-        params:
-          loop: true
-          volume: 1.2
-          pitch: 1.15
-    - maximumDistance: 1000
-      sound:
-        path: /Audio/_Mono/Effects/Alerts/master_caution.ogg
-        params:
-          loop: true
-          volume: 1
   # Mono
   - type: ShipRepairable
     repairTime: 4

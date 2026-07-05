@@ -12,7 +12,7 @@
   price: 115320
   category: Large
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/autumn.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/autumn.yml
   guidebookPage: Null
   class:
   - Cargo
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Autumn
   mapName: 'TSF-SKR Autumn'
-  mapPath: /Maps/_Mono/Shuttles/autumn.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/autumn.yml
   minPlayers: 0
   stations:
     Autumn:
