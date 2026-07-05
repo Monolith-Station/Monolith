@@ -9,7 +9,6 @@
   components:
   - type: Chasm
   - type: StepTrigger
-    bypassesTrapAvoider: true # Mono
     requiredTriggeredSpeed: 0
     intersectRatio: 0.4
     blacklist:
@@ -46,6 +45,7 @@
   - type: Tag
     tags:
     - HideContextMenu
+    - UnavoidableTrap # Mono - TrapAvoider shouldn't make you immune to this.
 
 - type: entity
   parent: FloorChasmEntity

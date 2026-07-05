@@ -1,13 +1,16 @@
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Tag;
 
 namespace Content.Shared._Mono.Traits.Physical;
 
 /// <summary>
-/// Cancels step triggers for entities that have TrapAvoiderComponent, unless the step trigger specifies otherwise.
+/// Cancels step triggers for entities that have TrapAvoiderComponent, unless the owner of the trigger has the UnavoidableTrap tag.
 /// </summary>
 public sealed class TrapAvoiderSystem : EntitySystem
 {
+    [Dependency] private TagSystem _tag = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<StepTriggerComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
@@ -15,7 +18,7 @@ public sealed class TrapAvoiderSystem : EntitySystem
 
     private void OnStepTriggerAttempt(Entity<StepTriggerComponent> ent, ref StepTriggerAttemptEvent args)
     {
-        if (!ent.Comp.BypassesTrapAvoider && HasComp<TrapAvoiderComponent>(args.Tripper))
+        if (!_tag.HasTag(ent.Owner, "UnavoidableTrap") && HasComp<TrapAvoiderComponent>(args.Tripper))
             args.Cancelled = true;
     }
 }

@@ -10,7 +10,6 @@
   - type: TileEmission
     color: "#974988"
   - type: StepTrigger
-    bypassesTrapAvoider: true # Mono
     requiredTriggeredSpeed: 0
     intersectRatio: 0.1
     blacklist:
@@ -55,3 +54,4 @@
   - type: Tag
     tags:
     - HideContextMenu
+    - UnavoidableTrap # Mono - TrapAvoider shouldn't make you immune to this.
