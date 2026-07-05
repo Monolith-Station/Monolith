@@ -25,6 +25,7 @@
 - type: entity
   parent: [BaseStructureComputerTabletop, ComputerShuttleTSFNVWS]
   id: ComputerTabletopShuttleTSFNVWS
+  suffix: Tabletop, TSFN/TSFMC VWS
   components:
   - type: Sprite
     drawdepth: SmallObjects
@@ -133,7 +134,7 @@
   description: Used to pilot a shuttle. This one is outfitted with a AN/ALR-67 RWR for missile warning tones.
   components:
   - type: Computer
-    board: ShuttleConsoleCircuitboardKPV63RWR
+    board: ShuttleConsoleCircuitboardANALR67RWR
   - type: TargetSeekerAlert
     targetGainSound:
       path: /Audio/_Mono/Effects/Alerts/an_alr63_special.ogg
@@ -157,7 +158,7 @@
           pitch: 1.0
 
 - type: entity
-  parent: [BaseStructureComputerTabletop, ComputerShuttleANALR67]
+  parent: [BaseStructureComputerTabletop, ComputerShuttleANALR67RWR]
   id: ComputerTabletopShuttleANALR67RWR
   suffix: Tabletop, alt AN/ALR-67
   components:
