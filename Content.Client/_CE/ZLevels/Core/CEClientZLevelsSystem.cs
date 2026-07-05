@@ -8,7 +8,7 @@ using Content.Client._CE.ZLevels.Core.Overlays;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Camera;
-using Content.Shared.StatusEffectNew.Components;
+using Content.Shared.StatusEffect;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.GameObjects;
@@ -93,7 +93,7 @@ internal sealed partial class CEClientZLevelsPreAnimSystem : EntitySystem
         }
 
         // Set parent-synced status effect offsets to the parent's current Z value each frame — prevents accumulation.
-        var syncQuery = EntityQueryEnumerator<StatusEffectComponent, SpriteComponent, TransformComponent>();
+        var syncQuery = EntityQueryEnumerator<StatusEffectsComponent, SpriteComponent, TransformComponent>();
         while (syncQuery.MoveNext(out var uid, out _, out var sprite, out var xform))
         {
             var parent = xform.ParentUid;
