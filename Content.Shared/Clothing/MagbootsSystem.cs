@@ -34,14 +34,8 @@ public sealed partial class SharedMagbootsSystem : EntitySystem
 
     private void OnToggled(Entity<MagbootsComponent> ent, ref ItemToggledEvent args)
     {
-        var (uid, comp) = ent;
-        // only stick to the floor if being worn in the correct slot
-        if (_container.TryGetContainingContainer((uid, null, null), out var container) &&
-            _inventory.TryGetSlotEntity(container.Owner, comp.Slot, out var worn)
-            && uid == worn)
-        {
+        if (_container.TryGetContainingContainer((ent.Owner, null, null), out var container))
             UpdateMagbootEffects(container.Owner, ent, args.Activated);
-        }
 
         var prefix = args.Activated ? ent.Comp.EnabledPrefix : null; // Goob edit
         _item.SetHeldPrefix(ent, prefix);
@@ -63,6 +57,8 @@ public sealed partial class SharedMagbootsSystem : EntitySystem
         // TODO: public api for this and add access
         if (TryComp<MovedByPressureComponent>(user, out var moved))
             moved.Enabled = !state;
+
+        _gravity.RefreshWeightless(user, !state);
 
         if (state)
             _alerts.ShowAlert(user, ent.Comp.MagbootsAlert);
