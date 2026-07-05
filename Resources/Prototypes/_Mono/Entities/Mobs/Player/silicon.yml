@@ -905,11 +905,11 @@
         sound:
           collection: MetalSlam
       - !type:ExplodeBehavior
-        explosionType: FireBomb
-        totalIntensity: 1
-        intensitySlope: 1
-        maxIntensity: 1
-        canCreateVacuum: false
+  - type: Explosive
+    totalIntensity: 1
+    explosionType: Default
+    maxIntensity: 1
+    intensitySlope: 1
   - type: Repairable
     doAfterDelay: 30 # you can heal the mothership core, but it takes a while
   - type: Anchorable
