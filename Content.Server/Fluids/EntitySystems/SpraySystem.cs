@@ -155,7 +155,7 @@ public sealed partial class SpraySystem : EntitySystem
 
             if (TryComp<PhysicsComponent>(user, out var body))
             {
-                if (_gravity.IsWeightless(user))
+                if (_gravity.IsWeightless(user, body))
                     _physics.ApplyLinearImpulse(user, -impulseDirection.Normalized() * entity.Comp.PushbackAmount, body: body);
             }
         }

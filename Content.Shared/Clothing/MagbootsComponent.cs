@@ -18,6 +18,12 @@ public sealed partial class MagbootsComponent : Component
     public bool RequiresGrid = true;
 
     /// <summary>
+    /// Slot the clothing has to be worn in to work.
+    /// </summary>
+    [DataField]
+    public string Slot = "shoes";
+
+    /// <summary>
     /// Goobstation - EquippedPrefix for enabled state
     /// </summary>
     [DataField]

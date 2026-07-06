@@ -216,7 +216,7 @@ public abstract partial class SharedConveyorController : VirtualController
             return true;
 
         if (physics.BodyStatus == BodyStatus.InAir ||
-            _gravity.IsWeightless(entity.Owner))
+            _gravity.IsWeightless(entity, physics, xform))
         {
             return true;
         }
