@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/06/2026 00:47:41
-  entityCount: 16514
+  time: 07/06/2026 02:00:47
+  entityCount: 16513
 maps:
 - 2700
 grids:
@@ -4086,8 +4086,8 @@ entities:
       spreadQueues:
         Kudzu: []
         MetalFoam: []
-        Smoke: []
         Puddle: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -8593,6 +8593,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 98.5,87.5
       parent: 1
+  - uid: 1022
+    components:
+    - type: Transform
+      pos: 45.5,52.5
+      parent: 1
 - proto: AirlockDoubleGlassLockedPACTCommon
   entities:
   - uid: 49129
@@ -8722,16 +8727,6 @@ entities:
       parent: 1
 - proto: AirlockGlass
   entities:
-  - uid: 39809
-    components:
-    - type: Transform
-      pos: 45.5,52.5
-      parent: 1
-  - uid: 39810
-    components:
-    - type: Transform
-      pos: 46.5,52.5
-      parent: 1
   - uid: 45334
     components:
     - type: Transform
@@ -57939,7 +57934,7 @@ entities:
       pos: 27.5,45.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -5910.9585
+      secondsUntilStateChange: -6406.3076
       state: Opening
   - uid: 38193
     components:
@@ -57948,7 +57943,7 @@ entities:
       pos: 33.5,45.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -5911.725
+      secondsUntilStateChange: -6407.074
       state: Opening
 - proto: InflatableWall
   entities:
