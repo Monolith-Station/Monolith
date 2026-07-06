@@ -9,7 +9,7 @@
   category: Medium
   group: Ussp
   access: USSP
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/tymah.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/tymah.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -18,9 +18,9 @@
   - AME
 
 - type: gameMap
-  id: Sulak
-  mapName: 'Sulak'
-  mapPath: /Maps/_Mono/Shuttles/USSP/sulak.yml
+  id: Tymah
+  mapName: 'Tymah'
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/tymah.yml
   minPlayers: 0
   stations:
     Tymah:
