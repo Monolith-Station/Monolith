@@ -1,16 +1,15 @@
-#Author: _starch_ (discord) / kasature90 (github)
-
+#kasature90 (github)/_starch_ (discord)
 - type: vessel
-  id: Mercury
+  id: Calypso
   parent: BaseVesselAntag
-  name: TSF-SKR Mercury
-  description: Naval designation Type-32D Missile Corvette. Equipped with 4 frontal facing Paladin missile pods, and some light PD in the form of 4 L85 20mms.
-  price: 228621 # Appraises at 190518. 20% tax.
+  name: TSF-SKR Calypso
+  description: Moderately armed and (relatively) heavily armored multipurpose corvette. Armed with 2 AK-820s and 2 AK-570s for consistent damage, 4 Phalanxes for PD, and 2 ASM-220s for the biggest targets.
+  price: 134000
   purchasable: false # voucher only
   category: Medium
   group: Security
   access: Security
-  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/mercury.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/calypso.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -19,16 +18,16 @@
   - AME
 
 - type: gameMap
-  id: Mercury
-  mapName: 'Mercury'
-  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/mercury.yml
+  id: Calypso
+  mapName: 'Calypso'
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/calypso.yml
   minPlayers: 0
   stations:
-    Mercury:
+    Calypso:
       stationProto: StandardFrontierSecurityVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Mercury TSF{1}'
+        mapNameTemplate: 'Calypso TSF{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
