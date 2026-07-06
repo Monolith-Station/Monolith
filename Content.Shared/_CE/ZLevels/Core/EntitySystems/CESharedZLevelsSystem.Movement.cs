@@ -326,6 +326,11 @@ public abstract partial class CESharedZLevelsSystem
         if (!_mapQuery.TryComp(targetMap, out var targetMapComp))
             return false;
 
+        // Mono: grids move as docked sets through the transit machinery; the server
+        // system overrides TryMoveGrid with the real logic.
+        if (_gridQuery.TryComp(ent, out var gridComp) && !_mapQuery.HasComp(ent))
+            return TryMoveGrid((ent, gridComp), (targetMap.Owner, targetMap.Comp, targetMapComp), offset);
+
         var worldRot = _transform.GetWorldRotation(ent);
 
         _transform.SetMapCoordinates(ent, new MapCoordinates(_transform.GetWorldPosition(ent), targetMapComp.MapId));
@@ -335,6 +340,17 @@ public abstract partial class CESharedZLevelsSystem
         RaiseLocalEvent(ent, ref ev);
 
         return true;
+    }
+
+    /// <summary>
+    /// Mono: moves a grid (and its docked set) between z-levels. The base
+    /// implementation refuses; the server transit logic overrides this.
+    /// </summary>
+    protected virtual bool TryMoveGrid(Entity<MapGridComponent> grid,
+        Entity<CEZMapComponent, MapComponent> targetMap,
+        int offset)
+    {
+        return false;
     }
 
     [PublicAPI]
@@ -381,6 +397,21 @@ public abstract partial class CESharedZLevelsSystem
 
         _dirtyMovementBodies.Clear();
     }
+}
+
+/// <summary>
+/// Mono: is called on an entity right before it moves between z-levels.
+/// </summary>
+/// <param name="offset">How many levels were crossed. If negative, it means there was a downward movement. If positive, it means an upward movement.</param>
+[ByRefEvent]
+public struct CEZLevelBeforeMapMoveEvent(int offset, int level)
+{
+    /// <summary>
+    /// How many levels were crossed. If negative, it means there was a downward movement. If positive, it means an upward movement.
+    /// </summary>
+    public int Offset = offset;
+
+    public int CurrentZLevel = level;
 }
 
 /// <summary>

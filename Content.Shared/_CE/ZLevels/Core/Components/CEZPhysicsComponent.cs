@@ -46,10 +46,6 @@ public sealed partial class CEZPhysicsComponent : Component
     [DataField, AutoNetworkedField]
     public bool Fallable = true;
 
-    // Visuals
-
-
-
     /// <summary>
     /// The original DrawDepth of the object is automatically saved here. Increases by 1 when the creature has <see cref="LocalPosition"/> > 0
     /// </summary>

@@ -67,6 +67,20 @@ public sealed partial class CEZLevelsSystem
         }
     }
 
+    /// <summary>
+    /// Marks every z-level viewer for an eye rebuild — used when a map appears or
+    /// vanishes between levels (transit maps), which can invalidate any viewer's
+    /// eye set regardless of distance.
+    /// </summary>
+    private void QueueAllViewerUpdates()
+    {
+        var query = AllEntityQuery<CEZLevelViewerComponent>();
+        while (query.MoveNext(out var uid, out _))
+        {
+            _dirtyViewers.Add(uid);
+        }
+    }
+
     private void UpdateDirtyViewers()
     {
         if (_dirtyViewers.Count == 0)

@@ -30,6 +30,7 @@ public sealed partial class CEZLevelsSystem : CESharedZLevelsSystem
         base.Initialize();
 
         InitView();
+        InitializeTransit();
 
         SubscribeLocalEvent<CEStationZLevelsComponent, StationPostInitEvent>(OnStationPostInit);
     }
@@ -135,5 +136,6 @@ public sealed partial class CEZLevelsSystem : CESharedZLevelsSystem
         base.Update(frameTime);
 
         UpdateView(frameTime);
+        CleanupOrphanedTransitMaps();
     }
 }
