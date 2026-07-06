@@ -81,7 +81,7 @@ public sealed class XenoborgCoreSystem : EntitySystem
                 1f,
                 2f);
 
-            EntityManager.DeleteEntity(uid);
+            QueueDel(uid);
         }
     }
 
@@ -171,7 +171,7 @@ public sealed class XenoborgCoreSystem : EntitySystem
                 5f,
                 20f);
 
-            EntityManager.DeleteEntity(uid);
+            QueueDel(uid);
         }
     }
 }

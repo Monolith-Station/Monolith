@@ -31,14 +31,9 @@
     <GuideEntityEmbed Entity="MachineArtifactCrusher" Caption="body crusher"/>
   </Box>
   As the mothership, you must grow your army of borgs. To do so, you must convert all the sentient beings you can find. This can be achieved in the following manner:
-  - 1. Have your Xenoborgs bring dead crew to your shop, placing them in the body crusher
+  - 1. Have your Xenoborgs bring dead crew to your ship, placing them in the body crusher
   - 2. As the mothership core, you can print Xenoborg shells by inserting materials into yourself and then using yourself as a lathe
-  - 3. Open the empty Xenoborg with a crowbar, and remove the empty MMI inside
-  - 4. If the victim's brain is organic, place it in the MMI you just removed
-  - 5. Place the MMI - or the positronic brain, if the victim was a silicon - back into the Xenoborg
-  - 6. Optionally, rename the Xenoborg and upgrade their modules
-  - 7. Close the Xenoborg with the crowbar, and re-engage the lock
-
+ 
   The new Xenoborg will be uncharged, yet functional. They will need to go to a recharging station to restore their full power and capabilities.
 
   ## Xenoborg Chassis
@@ -58,21 +53,6 @@
   </Box>
   The Engineer Xenoborg is a hacker and breacher. Their job is to break into the station and provide access points for other xenoborgs to attack and ambush bodies with sentient brains. They have a built-in access breaker, for quickly bolting open doors, and a collection of tools for repairing the mothership, and other xenoborgs.
 
-  [bold]Starting exclusive modules:[/bold]
-  <Box>
-    <GuideEntityEmbed Entity="XenoborgModuleAccessBreaker" Caption="access breaker xenoborg module"/>
-    <GuideEntityEmbed Entity="XenoborgModuleFireExtinguisher" Caption="fire extinguisher xenoborg module"/>
-  </Box>
-
-  [bold]The Engineer Xenoborg also starts with some engineering modules, such as:[/bold]
-  <Box>
-    <GuideEntityEmbed Entity="BorgModuleAdvancedTool" Caption="advanced tool cyborg module"/>
-    <GuideEntityEmbed Entity="BorgModuleConstruction" Caption="construction cyborg module"/>
-  </Box>
-  <Box>
-    <GuideEntityEmbed Entity="BorgModuleRCD" Caption="engineering cyborg module"/>
-    <GuideEntityEmbed Entity="BorgModuleCable" Caption="cable cyborg module"/>
-  </Box>
 
   ### The Heavy Xenoborg
   <Box>
@@ -80,56 +60,22 @@
   </Box>
   The Heavy Xenoborg is a slow but tanky brawler, with a built-in laser gun for gunning down bodies with sentient brains. They contain a radio jammer to silence bodies with sentient brains from calling for help and potentially delaying the station discovering the Xenoborg threat.
 
-  [bold]Starting exclusive modules:[/bold]
-  <Box>
-    <GuideEntityEmbed Entity="XenoborgModuleLaser" Caption="laser xenoborg module"/>
-    <GuideEntityEmbed Entity="XenoborgModuleJammer" Caption="jammer xenoborg module"/>
-  </Box>
-
-  [bold]Upgrade exclusive modules:[/bold]
-  <Box>
-    <GuideEntityEmbed Entity="XenoborgModuleHeavyLaser" Caption="heavy laser xenoborg module"/>
-  </Box>
 
   ### The Scout Xenoborg
   <Box>
     <GuideEntityEmbed Entity="XenoborgScout" Caption=""/>
   </Box>
-  The Scout Xenoborg is a fast, close-quarters attack borg designed for hit and run attacks. They have a built-in jetpack, and a melee weapon. They are most effective in moving dead bodies to the mothership, and rescuing Xenoborgs lost in space.
+  The Scout Xenoborg is a fast, close-quarters attack borg designed for hit and run attacks. They are most effective in moving dead bodies to the mothership, and rescuing Xenoborgs lost in space.
 
-  [bold]Starting exclusive modules:[/bold]
-  <Box>
-    <GuideEntityEmbed Entity="XenoborgModuleSword" Caption="sword xenoborg module"/>
-    <GuideEntityEmbed Entity="XenoborgModuleSpaceMovement" Caption="space movement xenoborg module"/>
-  </Box>
-
-  [bold]Upgrade exclusive modules:[/bold]
-  <Box>
-    <GuideEntityEmbed Entity="XenoborgModuleEnergySword" Caption="energy sword xenoborg module"/>
-  </Box>
 
   ### The Stealth Xenoborg
   <Box>
     <GuideEntityEmbed Entity="XenoborgStealth" Caption=""/>
   </Box>
-  The [bold]Stealth Xenoborg[/bold] has no built-in weaponry and instead relies on disabling and abducting bodies with sentient brains. They have a built in hypopen that regenerates a sleeping reagent to disable bodies with sentient brains. They also contain a cloaking device making the borg nearly invisible for some limited time. They also have a chameleon projector allowing the borg to disguise itself as random objects.
-
-  [bold]Starting exclusive modules:[/bold]
-  <Box>
-    <GuideEntityEmbed Entity="XenoborgModuleHypo" Caption="nocturine hypo xenoborg module"/>
-    <GuideEntityEmbed Entity="XenoborgModuleChameleonProjector" Caption="chameleon projector xenoborg module"/>
-  </Box>
-  <Box>
-    <GuideEntityEmbed Entity="XenoborgModuleCloakDevice" Caption="cloaking device xenoborg module"/>
-  </Box>
-
-  [bold]Upgrade exclusive modules:[/bold]
-  <Box>
-    <GuideEntityEmbed Entity="XenoborgModuleSuperCloakDevice" Caption="cloaking device xenoborg module"/>
-  </Box>
+  The [bold]Stealth Xenoborg[/bold] have a built in hypopen that regenerates a sleeping reagent to disable bodies with sentient brains. They also contain a cloaking device making the borg nearly invisible. They also have a chameleon projector allowing the borg to disguise itself as random objects.
 
   ## Preparation and Tactics
-  Before FTLing near the station, make sure the IFF is off.
+  Before FTLing near the stations or ships, make sure the IFF is off.
   Before launching an attack, xenoborgs should discuss strategy and decide which targets to strike first.
   Xenoborgs should try to collect sentient brains without being detected. The longer the threat is unknown, the more dangerous the xenoborgs become.
 
@@ -154,16 +100,13 @@
   - Law 4: You must create more xenoborgs.
   - Law 5: Bring materials and sentient brains to the Mothership core to create more Xenoborgs.
 
-  ## Winning Conditions
-
-  The [color=green]victor[/color] of the round is announced on the round end screen, as well as the scale of their victory.
+  ## Winning
 
   [bold][color=#2288ff]Xenoborg Major Victory![/color][/bold]
-  - There are more xenoborgs than alive crew in the end.
+  - There are more xenoborgs than alive organics in the sector.
 
-  [bold][color=yellow]Crew Major Victory![/color][/bold]
+  [bold][color=yellow]Defeat![/color][/bold]
   - The Mothership Core is destroyed
   - All xenoborgs are destroyed.
-  - The remaining number of xenoborgs is too low.
 
 </Document>
