@@ -12,7 +12,7 @@
   price: 97500
   category: Large
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/arribane.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/arribane.yml
   guidebookPage: Null
   class:
   - Atmospherics
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Arribane
   mapName: 'HES Arribane'
-  mapPath: /Maps/_Mono/Shuttles/arribane.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/arribane.yml
   minPlayers: 0
   stations:
     Arribane:

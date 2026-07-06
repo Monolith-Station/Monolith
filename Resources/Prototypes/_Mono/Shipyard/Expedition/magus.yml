@@ -12,7 +12,7 @@
   price: 69420 # ~20,000$ markup
   category: Medium
   group: Expedition
-  shuttlePath: /Maps/_Mono/Shuttles/Expedition/magus.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/magus.yml
   guidebookPage: null
   class:
   - Expedition
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Magus
   mapName: 'Magus'
-  mapPath: /Maps/_Mono/Shuttles/Expedition/magus.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Expedition/magus.yml
   minPlayers: 0
   stations:
     Magus:

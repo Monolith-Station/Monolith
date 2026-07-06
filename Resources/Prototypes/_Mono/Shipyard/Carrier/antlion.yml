@@ -7,7 +7,7 @@
   category: Micro
   group: Custom
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
-  shuttlePath: /Maps/_Mono/Shuttles/Carrier/antlion.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Carrier/antlion.yml
   guidebookPage: Null
   class:
   - Fighter
@@ -18,7 +18,7 @@
 - type: gameMap
   id: Antlion
   mapName: 'Antlion'
-  mapPath: /Maps/_Mono/Shuttles/Carrier/antlion.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Carrier/antlion.yml
   minPlayers: 0
   stations:
     Antlion:

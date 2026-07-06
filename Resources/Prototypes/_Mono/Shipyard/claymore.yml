@@ -1,5 +1,5 @@
 # Author Info
-# GitHub:Rubeebeebee 
+# GitHub:Rubeebeebee
 # Discord: rubeebee
 
 # Shuttle Notes:
@@ -14,7 +14,7 @@
   category: Large
   group: Shipyard
   access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/claymore.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/claymore.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -25,7 +25,7 @@
 - type: gameMap
   id: Claymore
   mapName: 'ZOB Claymore'
-  mapPath: /Maps/_Mono/Shuttles/claymore.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/claymore.yml
   minPlayers: 0
   stations:
     Claymore:
