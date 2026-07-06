@@ -19,8 +19,6 @@ public abstract class SharedGunOverheatSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        sys
-
         if (_updateTimer < _updateCooldown)
         {
             _updateTimer += frameTime;
