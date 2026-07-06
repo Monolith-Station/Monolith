@@ -31,6 +31,7 @@ using Content.Server.Salvage.Expeditions;
 using Content.Shared._Mono.Ships;
 using Content.Shared._Crescent.SpaceBiomes;
 using Robust.Shared.Prototypes;
+using Content.Server.Explosion.EntitySystems;
 
 namespace Content.Server.Shuttles.Systems;
 
