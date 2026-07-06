@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/06/2026 08:01:36
-  entityCount: 16690
+  time: 07/06/2026 09:39:53
+  entityCount: 16713
 maps:
 - 2700
 grids:
@@ -4086,10 +4086,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
         Kudzu: []
         MetalFoam: []
         Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -12531,6 +12531,134 @@ entities:
     components:
     - type: Transform
       pos: 43.5,51.5
+      parent: 1
+- proto: BF14SignCrossGreen
+  entities:
+  - uid: 1267
+    components:
+    - type: Transform
+      pos: 190.5,20.5
+      parent: 1
+  - uid: 1268
+    components:
+    - type: Transform
+      pos: 183.5,20.5
+      parent: 1
+- proto: BF14SignDoNotEnter
+  entities:
+  - uid: 1257
+    components:
+    - type: Transform
+      pos: 115.5,77.5
+      parent: 1
+- proto: BF14SignParking
+  entities:
+  - uid: 1255
+    components:
+    - type: Transform
+      pos: 36.5,77.5
+      parent: 1
+  - uid: 1261
+    components:
+    - type: Transform
+      pos: 103.5,77.5
+      parent: 1
+  - uid: 1262
+    components:
+    - type: Transform
+      pos: 65.5,50.5
+      parent: 1
+- proto: BF14SignRent
+  entities:
+  - uid: 1275
+    components:
+    - type: Transform
+      pos: 164.5,38.5
+      parent: 1
+- proto: BF14SignSale
+  entities:
+  - uid: 1276
+    components:
+    - type: Transform
+      pos: 155.5,20.5
+      parent: 1
+- proto: BF14SignStop
+  entities:
+  - uid: 1270
+    components:
+    - type: Transform
+      pos: 202.5,47.5
+      parent: 1
+  - uid: 1277
+    components:
+    - type: Transform
+      pos: 12.5,64.5
+      parent: 1
+- proto: BF14SignTresspass
+  entities:
+  - uid: 1256
+    components:
+    - type: Transform
+      pos: 118.5,79.5
+      parent: 1
+  - uid: 1264
+    components:
+    - type: Transform
+      pos: 49.5,57.5
+      parent: 1
+  - uid: 1265
+    components:
+    - type: Transform
+      pos: 70.5,45.5
+      parent: 1
+  - uid: 1271
+    components:
+    - type: Transform
+      pos: 27.5,87.5
+      parent: 1
+  - uid: 1274
+    components:
+    - type: Transform
+      pos: 105.5,84.5
+      parent: 1
+- proto: BF14SignVladimirPutin
+  entities:
+  - uid: 1258
+    components:
+    - type: Transform
+      pos: 141.5,72.5
+      parent: 1
+  - uid: 1272
+    components:
+    - type: Transform
+      pos: 336.5,35.5
+      parent: 1
+  - uid: 1273
+    components:
+    - type: Transform
+      pos: 343.5,46.5
+      parent: 1
+- proto: BF14SignZebraCrossing
+  entities:
+  - uid: 1259
+    components:
+    - type: Transform
+      pos: 103.5,74.5
+      parent: 1
+  - uid: 1263
+    components:
+    - type: Transform
+      pos: 76.5,47.5
+      parent: 1
+  - uid: 1266
+    components:
+    - type: Transform
+      pos: 118.5,47.5
+      parent: 1
+  - uid: 1269
+    components:
+    - type: Transform
+      pos: 202.5,38.5
       parent: 1
 - proto: Binoculars
   entities:
@@ -58755,7 +58883,7 @@ entities:
       pos: 27.5,45.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -13311.193
+      secondsUntilStateChange: -14076.071
       state: Opening
   - uid: 38193
     components:
@@ -58764,7 +58892,7 @@ entities:
       pos: 33.5,45.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -13311.96
+      secondsUntilStateChange: -14076.838
       state: Opening
 - proto: InflatableWall
   entities:
@@ -59291,6 +59419,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 88.5,83.5
+      parent: 1
+  - uid: 1260
+    components:
+    - type: Transform
+      pos: 103.5,78.5
       parent: 1
   - uid: 48678
     components:
