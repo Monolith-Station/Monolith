@@ -16,7 +16,7 @@ public abstract partial class CESharedZLevelsSystem
     /// </summary>
     public const float ZLevelViewShrink = 0.65f;
 
-    public const float ZGravityForce = 2.0f;
+    public const float ZGravityForce = 3.0f;
     private const float ZVelocityLimit = 20.0f;
     private const int MaxStepsPerFrame = 10;
 
