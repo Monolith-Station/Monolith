@@ -410,15 +410,15 @@
 
 - type: entity
   id: WeaponTurretLongbow
-  name: L65-"Longbow" 90mm autocannon
+  name: L/65 "Longbow" 140mm autocannon
   parent:
-  - BallisticArtilleryMagazine
-  - BallisticArtilleryTier4HP
-  suffix: Large, T4
-  description: Fires 90mm shells in a 20 round burst from an internal autoloader.
+  - BallisticArtilleryUnanchorableMagazine
+  - BallisticArtilleryTier5HP
+  suffix: Capital/Station, T4
+  description: Fires 140mm shells in a 15 round burst from an internal autoloader.
   components:
   - type: StaticPrice
-    price: 15000
+    price: 30000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/longbow.rsi
     layers:
@@ -444,10 +444,10 @@
     projectileSpeed: 290
     minAngle: 0
     maxAngle: 7
-    fireRate: 11
-    recoil: 10 # 2/5x
-    burstCooldown: 8
-    burstFireRate: 11
+    fireRate: 6
+    recoil: 15
+    burstCooldown: 4
+    burstFireRate: 6
     shotsPerBurst: 15
     selectedMode: Burst
     availableModes: Burst
@@ -475,18 +475,18 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: 90mmMagazineHE
+        startingItem: Magazine140mm
         insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-          - Magazine90mm
+          - Magazine140mm
         whitelistFailPopup: gun-magazine-whitelist-fail
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
-    shipClass: Heavy
+    shipClass: Superheavy
   - type: ShipRepairable
-    repairTime: 30
-    repairCost: 150
+    repairTime: 45
+    repairCost: 300

@@ -22005,3 +22005,63 @@ Entries:
   id: 2430
   time: '2026-07-01T09:53:43.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4168
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Changed coloring on USSP techfab, minor consistency for VG techfab
+        sprite.
+    - type: Tweak
+      message: >-
+        Changed USSP job icons for Rifleman & Sergeant to use white instead of
+        red. Just for better contrast.
+  id: 2431
+  time: '2026-07-01T19:03:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4177
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: >-
+        4 gauge canisters are no longer small items due to infringing on a MACo
+        patent.
+  id: 2432
+  time: '2026-07-01T19:03:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4169
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: Added PDV guidebook.
+    - type: Tweak
+      message: >-
+        Changed TSFMC guidebook (only a little.) Changed new player guide (only
+        a little.)
+  id: 2433
+  time: '2026-07-01T19:08:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4167
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Longbow is 140mm again.
+    - type: Tweak
+      message: >-
+        Swapped Longbows on Serkesh, Scallywag, and Comet for Cyrexas. Likely
+        temporary.
+  id: 2434
+  time: '2026-07-02T09:48:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3901
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed laser shipweapons (such as Phalanx) not being able to shoot down
+        projectiles.
+  id: 2435
+  time: '2026-07-02T13:25:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4180
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Ship previewing.
+  id: 2436
+  time: '2026-07-02T21:30:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4185
