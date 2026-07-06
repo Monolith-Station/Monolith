@@ -187,3 +187,13 @@
   - type: Sprite
     sprite: _Civ14/Objects/decals.rsi
     state: greencross
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignBank
+  name: bank sign
+  description: A sign indicating the building attached is a bank.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: bank

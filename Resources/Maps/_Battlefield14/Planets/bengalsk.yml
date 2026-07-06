@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/06/2026 09:39:53
-  entityCount: 16713
+  time: 07/06/2026 10:55:47
+  entityCount: 16720
 maps:
 - 2700
 grids:
@@ -4087,9 +4087,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Kudzu: []
+        Puddle: []
         MetalFoam: []
         Smoke: []
-        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -12532,6 +12532,50 @@ entities:
     - type: Transform
       pos: 43.5,51.5
       parent: 1
+- proto: BF14JerryCanWeldingFuel
+  entities:
+  - uid: 4
+    components:
+    - type: Transform
+      pos: 318.48697,44.27297
+      parent: 1
+  - uid: 5
+    components:
+    - type: Transform
+      pos: 318.65884,44.08534
+      parent: 1
+  - uid: 6
+    components:
+    - type: Transform
+      pos: 323.2546,35.295887
+      parent: 1
+  - uid: 36846
+    components:
+    - type: Transform
+      pos: 75.208374,39.50205
+      parent: 1
+  - uid: 48714
+    components:
+    - type: Transform
+      pos: 49.65066,82.11632
+      parent: 1
+  - uid: 48717
+    components:
+    - type: Transform
+      pos: 128.78563,80.86242
+      parent: 1
+  - uid: 48722
+    components:
+    - type: Transform
+      pos: 181.5,18.5
+      parent: 1
+- proto: BF14SignBank
+  entities:
+  - uid: 1282
+    components:
+    - type: Transform
+      pos: 37.5,72.5
+      parent: 1
 - proto: BF14SignCrossGreen
   entities:
   - uid: 1267
@@ -12620,6 +12664,12 @@ entities:
     components:
     - type: Transform
       pos: 105.5,84.5
+      parent: 1
+  - uid: 1278
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 33.5,75.5
       parent: 1
 - proto: BF14SignVladimirPutin
   entities:
@@ -35738,6 +35788,13 @@ entities:
     - type: Transform
       pos: 147.5,17.5
       parent: 1
+- proto: CrayonBox
+  entities:
+  - uid: 1284
+    components:
+    - type: Transform
+      pos: 36.49261,67.46125
+      parent: 1
 - proto: CurtainsBlack
   entities:
   - uid: 168
@@ -56897,6 +56954,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: 82.61875,90.63906
       parent: 1
+- proto: FolderSpawner
+  entities:
+  - uid: 1285
+    components:
+    - type: Transform
+      pos: 28.659277,68.555756
+      parent: 1
+  - uid: 1286
+    components:
+    - type: Transform
+      pos: 28.68011,71.56827
+      parent: 1
 - proto: FoodBoxDonkpocketPizza
   entities:
   - uid: 37141
@@ -58883,7 +58952,7 @@ entities:
       pos: 27.5,45.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -14076.071
+      secondsUntilStateChange: -14420.329
       state: Opening
   - uid: 38193
     components:
@@ -58892,7 +58961,7 @@ entities:
       pos: 33.5,45.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -14076.838
+      secondsUntilStateChange: -14421.096
       state: Opening
 - proto: InflatableWall
   entities:
@@ -59070,43 +59139,6 @@ entities:
     components:
     - type: Transform
       pos: 35.5,45.5
-      parent: 1
-- proto: JerryCanWeldingFuel
-  entities:
-  - uid: 4
-    components:
-    - type: Transform
-      pos: 318.48697,44.27297
-      parent: 1
-  - uid: 5
-    components:
-    - type: Transform
-      pos: 318.65884,44.08534
-      parent: 1
-  - uid: 6
-    components:
-    - type: Transform
-      pos: 323.2546,35.295887
-      parent: 1
-  - uid: 36846
-    components:
-    - type: Transform
-      pos: 75.208374,39.50205
-      parent: 1
-  - uid: 48714
-    components:
-    - type: Transform
-      pos: 49.65066,82.11632
-      parent: 1
-  - uid: 48717
-    components:
-    - type: Transform
-      pos: 128.78563,80.86242
-      parent: 1
-  - uid: 48722
-    components:
-    - type: Transform
-      pos: 181.5,18.5
       parent: 1
 - proto: Jug
   entities:
@@ -60578,6 +60610,11 @@ entities:
       parent: 1
 - proto: PaperBin5
   entities:
+  - uid: 1288
+    components:
+    - type: Transform
+      pos: 35.5,71.5
+      parent: 1
   - uid: 43216
     components:
     - type: Transform
@@ -60886,6 +60923,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 44.5,59.5
+      parent: 1
+- proto: PlushieRouny
+  entities:
+  - uid: 1283
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.49261,67.773964
       parent: 1
 - proto: PlushieSharkGrey
   entities:
@@ -83275,18 +83320,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 46.5,58.5
       parent: 1
-  - uid: 41961
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 30.5,67.5
-      parent: 1
-  - uid: 42425
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 30.5,70.5
-      parent: 1
   - uid: 42520
     components:
     - type: Transform
@@ -85826,6 +85859,19 @@ entities:
     components:
     - type: Transform
       pos: 322.5,34.5
+      parent: 1
+- proto: TableCounterMetal
+  entities:
+  - uid: 1279
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 36.5,67.5
+      parent: 1
+  - uid: 1287
+    components:
+    - type: Transform
+      pos: 35.5,71.5
       parent: 1
 - proto: TableFolding
   entities:
@@ -97828,18 +97874,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 333.5,66.5
       parent: 1
-  - uid: 41963
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 30.5,67.5
-      parent: 1
-  - uid: 42427
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 30.5,70.5
-      parent: 1
   - uid: 45595
     components:
     - type: Transform
@@ -97930,6 +97964,20 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 166.5,19.5
+      parent: 1
+- proto: WindowDirectionalBankOpen
+  entities:
+  - uid: 1280
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 30.5,70.5
+      parent: 1
+  - uid: 1281
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 30.5,67.5
       parent: 1
 - proto: WindowReinforcedDirectional
   entities:
