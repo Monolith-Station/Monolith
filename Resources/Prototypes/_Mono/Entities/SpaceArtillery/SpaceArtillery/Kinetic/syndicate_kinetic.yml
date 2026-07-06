@@ -6,7 +6,7 @@
 - type: entity
   id: WeaponTurretAdderScattercannon
   name: Adder scattercannon
-  suffix: Small, T1
+  suffix: Small, T1, PDV ONLY
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier1HP
@@ -72,7 +72,7 @@
 - type: entity
   id: WeaponTurretFang
   name: Fang heavy 90mm autocannon
-  suffix: Medium, T3
+  suffix: Medium, T3, PDV ONLY
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier3HP
@@ -152,7 +152,7 @@
 - type: entity
   id: WeaponTurretHydra
   name: Hydra 220mm battery
-  suffix: Large, T3
+  suffix: Large, T3, PDV ONLY
   parent: BallisticArtilleryUnanchorable
   description: A main cannonade of syndicate origin, the hydra is a monstrous tri-barreled battery of 220-millimeter pain, designed to shatter corpations' toughest vessels. Loads with a similar mechanism as the anaconda handgun.
   components:
@@ -247,7 +247,7 @@
 - type: entity
   id: WeaponTurretLeviathan
   name: LEVIATHAN 520mm howitzer
-  suffix: Capital, T5
+  suffix: Capital, T5, PDV ONLY
   parent:
   - BallisticArtilleryUnanchorable
   - BallisticArtilleryTier5HP
