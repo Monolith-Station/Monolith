@@ -4,7 +4,6 @@
  */
 
 using Content.Server._CE.ZLevels.Core;
-using Content.Server._CE.ZLevels.Core.Components;
 using Content.Server.Administration;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Mapping.Prototypes;
@@ -147,7 +146,7 @@ public sealed partial class CETransitDebugCommand : CEBaseTransitCommand
 
     private const string DefaultZMapId = "Grasslands";
     private const int ShuttleDepth = 2;
-    private static readonly ResPath DefaultShuttle = new("/SharedMaps/_Mono/Shuttles/bucket.yml");
+    private static readonly ResPath DefaultShuttle = new("/Maps/Shuttles/dart.yml");
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
