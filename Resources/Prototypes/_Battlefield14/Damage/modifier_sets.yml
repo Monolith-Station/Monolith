@@ -113,3 +113,19 @@
     Piercing: 5
     Heat: 5
     Structural: 5
+
+#region vehicles
+
+- type: damageModifierSet
+  id: BF_APC
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.5
+    Piercing: 0.5
+    Shock: 0.5
+    Structural: 1
+  flatReductions:
+    Blunt: 50
+    Slash: 50
+    Piercing: 50
+    Heat: 40
