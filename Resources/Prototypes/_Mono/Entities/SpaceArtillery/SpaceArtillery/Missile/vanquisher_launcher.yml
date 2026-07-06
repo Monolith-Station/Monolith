@@ -74,3 +74,22 @@
         - MachineMask
         layer:
         - MachineLayer
+
+- type: entity
+  id: WeaponTurretVanquisherInfinite
+  parent: WeaponTurretVanquisher
+  suffix: Large, T4, Infinite
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        disableEject: true
+        name: Magazine
+        startingItem: VanquisherMagazineInfinite
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - VanquisherMagazine
+        whitelistFailPopup: gun-magazine-whitelist-fail

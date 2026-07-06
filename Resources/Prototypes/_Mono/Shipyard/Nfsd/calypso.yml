@@ -1,0 +1,38 @@
+#kasature90 (github)/_starch_ (discord)
+- type: vessel
+  id: Calypso
+  parent: BaseVesselAntag
+  name: TSF-SKR Calypso
+  description: Moderately armed and (relatively) heavily armored multipurpose corvette. Armed with 2 AK-820s and 2 AK-570s for consistent damage, 4 Phalanxes for PD, and 2 ASM-220s for the biggest targets.
+  price: 134000
+  purchasable: false # voucher only
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/calypso.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Corvette
+  engine:
+  - AME
+
+- type: gameMap
+  id: Calypso
+  mapName: 'Calypso'
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/calypso.yml
+  minPlayers: 0
+  stations:
+    Calypso:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Calypso TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

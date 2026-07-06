@@ -10,7 +10,7 @@
   category: Medium
   group: BlackMarket
   access: Pirate
-  shuttlePath: /Maps/_Mono/Shuttles/BlackMarket/neptune.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/neptune.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Neptune
   mapName: 'PDV Neptune'
-  mapPath: /Maps/_Mono/Shuttles/BlackMarket/neptune.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/neptune.yml
   minPlayers: 0
   stations:
     Neptune:
