@@ -1,0 +1,44 @@
+- type: entity
+  id: CapturePointBengalskApartments
+  parent: BaseCapturePoint
+  name: apartments control point
+  suffix: bengalsk, 180s / 3m
+  components:
+  - type: POICapture
+    poiName: "Benglask apartments"
+    timeToCapture: 180
+  - type: NavMapBeacon
+    defaultText: "Apartments"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "Apartments capture point"
+
+- type: entity
+  id: CapturePointBengalskSpaceport
+  parent: BaseCapturePoint
+  name: spaceport control point
+  suffix: bengalsk, 180s / 3m
+  components:
+  - type: POICapture
+    poiName: "Benglask spaceport"
+    timeToCapture: 180
+  - type: NavMapBeacon
+    defaultText: "Spaceport"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "Spaceport capture point"
+
+- type: entity
+  id: CapturePointBengalskAdministration
+  parent: BaseCapturePoint
+  name: city administration control point
+  suffix: bengalsk, 180s / 3m
+  components:
+  - type: POICapture
+    poiName: "Benglask city administration"
+    timeToCapture: 180
+  - type: NavMapBeacon
+    defaultText: "Administration"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "City administration capture point"
