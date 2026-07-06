@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/05/2026 18:48:26
-  entityCount: 538
+  time: 07/06/2026 08:07:22
+  entityCount: 547
 maps: []
 grids:
 - 1
@@ -99,10 +99,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
         Kudzu: []
-        MetalFoam: []
+        Puddle: []
         Smoke: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1706,6 +1706,60 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -1.5,-3.5
+      parent: 1
+- proto: EmergencyLight
+  entities:
+  - uid: 539
+    components:
+    - type: Transform
+      pos: -4.5,0.5
+      parent: 1
+  - uid: 540
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,-0.5
+      parent: 1
+  - uid: 541
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,-0.5
+      parent: 1
+  - uid: 542
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,-1.5
+      parent: 1
+  - uid: 543
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-5.5
+      parent: 1
+  - uid: 544
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-5.5
+      parent: 1
+  - uid: 545
+    components:
+    - type: Transform
+      pos: 4.5,0.5
+      parent: 1
+  - uid: 546
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,-1.5
+      parent: 1
+  - uid: 547
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,-3.5
       parent: 1
 - proto: ExtinguisherCabinetFilled
   entities:
