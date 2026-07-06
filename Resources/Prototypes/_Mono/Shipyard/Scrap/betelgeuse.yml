@@ -11,7 +11,7 @@
   price: 43500
   category: Small
   group: Scrap
-  shuttlePath: /Maps/_Mono/Shuttles/betelgeuse.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/betelgeuse.yml
   guidebookPage: Null
   class:
   - Salvage
@@ -21,7 +21,7 @@
 - type: gameMap
   id: Betelgeuse
   mapName: 'Betelgeuse'
-  mapPath: /Maps/_Mono/Shuttles/betelgeuse.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/betelgeuse.yml
   minPlayers: 0
   stations:
     Betelgeuse:

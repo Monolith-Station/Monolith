@@ -101,7 +101,7 @@
     - state: space_artillery
     - state: fcs-unshaded
       shader: unshaded
-    scale: 2, 2
+    scale: 1, 1
   - type: Appearance
   - type: FireControlRotate
   - type: AmmoCounter
@@ -348,7 +348,7 @@
     - state: space_artillery
     - state: fcs-unshaded
       shader: unshaded
-    scale: 2, 2
+    scale: 1,1
   - type: Appearance
   - type: FireControlRotate
   - type: AmmoCounter

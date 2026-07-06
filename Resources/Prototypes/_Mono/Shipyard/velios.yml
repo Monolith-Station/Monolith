@@ -12,7 +12,7 @@
   price: 76080 # Appraises at 50721 but capabilities are good, + it's replacing the shirokami (112000).
   category: Medium
   group: Medical
-  shuttlePath: /Maps/_Mono/Shuttles/velios.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/velios.yml
   guidebookPage: null
   class:
   - Medical
@@ -23,7 +23,7 @@
 - type: gameMap
   id: Velios
   mapName: 'WLV-Velios'
-  mapPath: /Maps/_Mono/Shuttles/velios.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/velios.yml
   minPlayers: 0
   stations:
     Velios:

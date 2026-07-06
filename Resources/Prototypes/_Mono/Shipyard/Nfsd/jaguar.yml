@@ -9,7 +9,7 @@
   category: Small
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/jaguar.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/jaguar.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -21,7 +21,7 @@
 - type: gameMap
   id: Jaguar
   mapName: 'Jaguar'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/jaguar.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/jaguar.yml
   minPlayers: 0
   stations:
     Jaguar:

@@ -10,7 +10,7 @@
   category: Medium
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/sentinel.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/sentinel.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -21,7 +21,7 @@
 - type: gameMap
   id: Sentinel
   mapName: 'Sentinel'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/sentinel.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/sentinel.yml
   minPlayers: 0
   stations:
     Sentinel:
