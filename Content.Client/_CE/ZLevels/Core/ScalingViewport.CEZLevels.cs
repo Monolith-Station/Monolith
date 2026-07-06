@@ -155,8 +155,27 @@ public sealed partial class ScalingViewport
                 aboveMap = mapAbove.Owner;
         }
 
-        if (TryFindEmptyTiles(playerMap) &&
-            !_entityManager.HasComponent<CEZCloudLayerComponent>(playerMap))
+        // Depth of the nearest layer below the observer that caps the view, if any, with the
+        // band under it that still renders. A cloud deck keeps a dissolve band (ships sink
+        // through the tops); a ground layer is a hard floor you land ON, never below, so
+        // nothing under it should ever draw. Transit ships past this are occluded and skip
+        // their render pass (see the transit cull below).
+        float? occludeBelowDepth = null;
+        var occludeBand = 0f;
+
+        // Standing on such a layer caps the whole view below the observer at once.
+        if (_entityManager.HasComponent<CEZCloudLayerComponent>(playerMap))
+        {
+            occludeBelowDepth = ownDepth;
+            occludeBand = CloudDissolveBand;
+        }
+        else if (_entityManager.HasComponent<CEZGroundLayerComponent>(playerMap))
+        {
+            occludeBelowDepth = ownDepth;
+        }
+        // Otherwise walk downward while there are empty tiles to see through. A cloud or
+        // ground layer ends the walk: nothing beneath it is visible.
+        else if (TryFindEmptyTiles(playerMap))
         {
             var current = belowChainStart;
             var depthCursor = belowChainStartDepth;
@@ -165,7 +184,17 @@ public sealed partial class ScalingViewport
                 _zPasses.Add((current.Value, depthCursor, false, false));
 
                 if (_entityManager.HasComponent<CEZCloudLayerComponent>(current.Value))
-                    break; // clouds are very hard to see through
+                {
+                    occludeBelowDepth = depthCursor;
+                    occludeBand = CloudDissolveBand;
+                    break;
+                }
+
+                if (_entityManager.HasComponent<CEZGroundLayerComponent>(current.Value))
+                {
+                    occludeBelowDepth = depthCursor;
+                    break;
+                }
 
                 if (!TryFindEmptyTiles(current.Value))
                     break;
@@ -190,9 +219,9 @@ public sealed partial class ScalingViewport
 
         // transit maps also render
         var altitudeAnchor = riderTransit?.LowerMap ?? playerMap;
-        if (_entityManager.TryGetComponent(altitudeAnchor, out CEZMapComponent? anchorZ))
+        if (_entityManager.HasComponent<CEZMapComponent>(altitudeAnchor))
         {
-            var observerAltitude = anchorZ.Depth + frac;
+            var observerAltitude = _zLevels.GetAbsoluteAltitude(_player.LocalEntity.Value);
             var hasObserverNetwork = _zLevels.TryGetMapNetwork(altitudeAnchor, out var observerNetwork);
 
             var transitQuery = _entityManager.EntityQueryEnumerator<CEZTransitMapComponent>();
@@ -211,7 +240,21 @@ public sealed partial class ScalingViewport
                     continue;
                 }
 
-                var transitDepth = lowerZ.Depth + GetTransitProgress(transit) - observerAltitude;
+                // Transit grid's absolute altitude (lower-anchor depth + gap progress, folded in by
+                // the API) relative to the observer's. Fall back to the gap's lower plane if the map
+                // has no primary grid to read.
+                var transitAltitude = transit.PrimaryGrid is { } primaryGrid
+                    ? _zLevels.GetAbsoluteAltitude(primaryGrid)
+                    : lowerZ.Depth;
+                var transitDepth = transitAltitude - observerAltitude;
+
+                // Hidden under a layer between it and the observer: for a cloud, ships still
+                // within the dissolve band show through (as sinking ghosts) so only deeper
+                // ones are culled; for a ground layer the band is zero, so anything below the
+                // floor is dropped outright. This is what lets a deck cheapen the scene
+                // without hiding ships still crossing it.
+                if (occludeBelowDepth is { } occludeDepth && transitDepth < occludeDepth - occludeBand)
+                    continue;
 
                 // they're gone
                 if (transitDepth > 0f && TransitFade(transitDepth) <= 0.01f)
@@ -246,6 +289,31 @@ public sealed partial class ScalingViewport
             lowestDepth = Math.Min(lowestDepth, pass.Depth);
             highestDepth = Math.Max(highestDepth, pass.Depth);
         }
+
+        // Builds the perspective eye for a pass at an arbitrary depth. Factored out of the
+        // main loop's inline construction so a ship that has sunk below a cloud deck can be
+        // re-projected and re-drawn OVER the deck (see the cloudDeck branch).
+        ZEye? MakeZEye(EntityUid targetMap, float d)
+        {
+            if (_fallbackEye is null || !_mapQuery.Value.TryComp(targetMap, out var mapComp))
+                return null;
+
+            Angle rot = _fallbackEye.Rotation * -1;
+            var off = rot.ToWorldVec() * CEClientZLevelsSystem.ZLevelOffset * (d - ownDepth);
+            var scale = MathF.Pow(CESharedZLevelsSystem.ZLevelViewShrink, -d);
+
+            return new ZEye(lowestDepth, d, highestDepth)
+            {
+                Position = new MapCoordinates(_fallbackEye.Position.Position, mapComp.MapId),
+                DrawFov = false,
+                DrawLight = _fallbackEye.DrawLight,
+                DrawParallax = false,
+                Offset = _fallbackEye.Offset + off,
+                Rotation = _fallbackEye.Rotation,
+                Scale = _fallbackEye.Scale * scale,
+            };
+        }
+
         var first = true;
 
         foreach (var (mapUid, depth, allowFov, isTransit) in _zPasses)
@@ -274,12 +342,10 @@ public sealed partial class ScalingViewport
                 var zEye = new ZEye(lowestDepth, depth, highestDepth)
                 {
                     Position = new MapCoordinates(_fallbackEye.Position.Position, mapComp.MapId),
-                    // Not gated on depth >= 0: an airborne viewer's own map sits at a
-                    // small negative depth but their walls still block sight.
+                    // For overlay guards and other random shit that should only ever run on the actual eye and not the rest.
+                    Primary = mapUid == playerMap && !isTransit,
                     DrawFov = _fallbackEye.DrawFov && allowFov,
                     DrawLight = _fallbackEye.DrawLight,
-                    // A pass with a cloud deck never wants the skybox: the deck IS
-                    // the backdrop, and parallax would paint over it.
                     DrawParallax = !isTransit && depth == lowestDepth && cloudDeck == null,
                     Offset = _fallbackEye.Offset + offset,
                     Rotation = _fallbackEye.Rotation,
@@ -310,7 +376,23 @@ public sealed partial class ScalingViewport
             {
                 DrawCloudDeck(renderHandle, viewport, cloudDeck.CloudColor, 1f);
 
-                if (mapUid == playerMap && depth == 0f)
+                // Clouds are an opaque layer. Rendering hack so that transit maps still render right when a ship goes below the clouds.
+                foreach (var (sinkMap, sinkDepth, _, sinkTransit) in _zPasses)
+                {
+                    if (!sinkTransit)
+                        continue;
+
+                    var below = depth - sinkDepth; // how far this ship sits below the deck
+                    if (below <= 0f || below >= CloudDissolveBand)
+                        continue;
+
+                    if (MakeZEye(sinkMap, sinkDepth) is { } sinkEye)
+                    {
+                        var t = below / CloudDissolveBand;
+                        BlitTransitCloudGhost(renderHandle, viewport, sinkEye, cloudDeck.CloudColor, tint: t, alpha: 1f - t);
+                    }
+                }
+                if (mapUid == playerMap && depth <= 0.001f)
                     DrawCloudWisps(renderHandle, viewport, cloudDeck.CloudColor);
 
                 else if (depth > -0.5f)
@@ -374,12 +456,27 @@ public sealed partial class ScalingViewport
 
         var cloud = 0f;
         var cloudColor = Vector3.One;
-        if (_entityManager.TryGetComponent(transitMap, out CEZTransitMapComponent? transit) &&
-            transit.UpperMap is { } upper &&
-            _entityManager.TryGetComponent(upper, out CEZCloudLayerComponent? cloudLayer))
+        if (_entityManager.TryGetComponent(transitMap, out CEZTransitMapComponent? transit))
         {
-            cloud = CloudCoverage(1f - GetTransitProgress(transit));
-            cloudColor = new Vector3(cloudLayer.CloudColor.R, cloudLayer.CloudColor.G, cloudLayer.CloudColor.B);
+            var progress = GetTransitProgress(transit);
+
+            if (transit.UpperMap is { } upper &&
+                _entityManager.TryGetComponent(upper, out CEZCloudLayerComponent? cloudAbove))
+            {
+                cloud = CloudCoverage(1f - progress);
+                cloudColor = new Vector3(cloudAbove.CloudColor.R, cloudAbove.CloudColor.G, cloudAbove.CloudColor.B);
+            }
+
+            if (transit.LowerMap is { } lower &&
+                _entityManager.TryGetComponent(lower, out CEZCloudLayerComponent? cloudBelow))
+            {
+                var belowCover = CloudCoverage(progress);
+                if (belowCover > cloud)
+                {
+                    cloud = belowCover;
+                    cloudColor = new Vector3(cloudBelow.CloudColor.R, cloudBelow.CloudColor.G, cloudBelow.CloudColor.B);
+                }
+            }
         }
 
         var screenHandle = renderHandle.DrawingHandleScreen;
@@ -398,6 +495,56 @@ public sealed partial class ScalingViewport
             screenHandle.UseShader(null);
         }, null);
     }
+
+    /// <summary>
+    /// Renders a transit map to the scratch viewport under <paramref name="eye"/> and blits
+    /// just its hull over the main target: its own colors tinted toward
+    /// <paramref name="cloudColor"/> by <paramref name="tint"/> (0 = untouched hull, 1 = flat
+    /// deck color) and drawn at <paramref name="alpha"/>. Used to re-draw a ship that has sunk
+    /// below a cloud deck — and been hidden by its opaque fill — as a fogging, fading hull
+    /// sinking into the clouds instead of vanishing on the spot.
+    /// </summary>
+    private void BlitTransitCloudGhost(IRenderHandle renderHandle, IClydeViewport viewport, IEye? eye, Color cloudColor, float tint, float alpha)
+    {
+        if (eye is null || alpha <= 0.001f)
+            return;
+
+        if (_transitViewport == null || _transitViewport.Size != viewport.Size)
+        {
+            _transitViewport?.Dispose();
+            _transitViewport = _clyde.CreateViewport(viewport.Size, nameof(_transitViewport));
+            _transitViewport.RenderScale = viewport.RenderScale;
+        }
+
+        _transitBlitShader ??= _prototypeManager.Index<ShaderPrototype>("CEZBlurBlit").InstanceUnique();
+
+        _transitViewport.Eye = eye;
+        _transitViewport.ClearColor = new Color(0f, 0f, 0f, 0f);
+        _transitViewport.Render();
+
+        var col = new Vector3(cloudColor.R, cloudColor.G, cloudColor.B);
+        var screenHandle = renderHandle.DrawingHandleScreen;
+        screenHandle.RenderInRenderTarget(viewport.RenderTarget, () =>
+        {
+            var texture = _transitViewport.RenderTarget.Texture;
+
+            _transitBlitShader.SetParameter("BLUR_COLOR", new Vector3(0f, 0f, 0f));
+            _transitBlitShader.SetParameter("STRENGTH", 0f);
+            _transitBlitShader.SetParameter("CLOUD_COLOR", col);
+            _transitBlitShader.SetParameter("CLOUD", Math.Clamp(tint, 0f, 1f));
+            _transitBlitShader.SetParameter("FADE", Math.Clamp(alpha, 0f, 1f));
+
+            screenHandle.UseShader(_transitBlitShader);
+            screenHandle.DrawTextureRect(texture, new UIBox2(Vector2.Zero, texture.Size));
+            screenHandle.UseShader(null);
+        }, null);
+    }
+
+    /// <summary>
+    /// Levels of descent over which a below-observer ship dissolves into a cloud deck
+    /// beneath it: full whiteout at the plane, clear this far above.
+    /// </summary>
+    private const float CloudDissolveBand = 0.5f;
 
     /// <summary>
     /// How many z-levels of climb it takes for a transiting ship seen from below to
@@ -489,5 +636,13 @@ public sealed partial class ScalingViewport
         /// whether parallax draws (only used on the actual bottom layer of a z stack so transit doesnt explode time)
         /// </summary>
         public bool DrawParallax = true;
+
+        /// <summary>
+        /// Marker for which eye the player sees as their "primary" one (the one their entity is on).
+        /// This is here to make anyone messing with screenspace overlay's lives easier.
+        ///
+        /// (You should add a guard like the one in Vignette if it applies to every eye.)
+        /// </summary>
+        public bool Primary;
     }
 }
