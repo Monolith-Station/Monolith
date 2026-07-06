@@ -176,6 +176,7 @@
   defaultModules:
   - XenoborgModuleBasic
   - XenoborgModuleTool
+  - BorgModuleCable
   - XenoborgModuleDefense
   - XenoborgModuleDoorControl
   addComponents:
@@ -206,7 +207,7 @@
   defaultModules:
   - XenoborgModuleBasic
   - XenoborgModuleTool
-  - XenoborgModuleHeavyLaser
+  - XenoborgModuleDefense
   - XenoborgModuleJammer
   addComponents:
   - type: MobThresholds # tankier
@@ -244,7 +245,7 @@
   defaultModules:
   - XenoborgModuleBasic
   - XenoborgModuleTool
-  - BorgModuleSurgery
+  - XenoborgModuleSurgery
   - XenoborgModuleDefense
   addComponents:
   - type: ShowHealthBars
