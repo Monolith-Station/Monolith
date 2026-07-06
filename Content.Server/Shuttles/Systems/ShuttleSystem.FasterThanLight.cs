@@ -1476,7 +1476,7 @@ public sealed partial class ShuttleSystem
     }
 
     /// <summary>
-    /// Mono: A grid landed on another grid mid-transit — explode along the overlap and delete the loser.
+    /// Mono: A grid landed on another grid mid-transit — explode along the overlap and explode the loser.
     /// Ported from pzn's transit crush handling, modernized for the current entity API.
     /// </summary>
     private void CrushGrid(EntityUid crushed, EntityUid crusher)
@@ -1504,6 +1504,7 @@ public sealed partial class ShuttleSystem
             intensity,
             slope: 5f,
             maxTileIntensity: 30f,
+            cause: null,
             addLog: false);
         QueueDel(crushed);
     }
