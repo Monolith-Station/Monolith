@@ -3,3 +3,13 @@
   id: CEZBlur
   kind: source
   path: "/Textures/_CE/Shaders/zblur.swsl"
+
+# CrystallEdge: composites transit-grid viewport onto the main viewport with
+# height-scaled haze + dissolve (used by ScalingViewport.RenderTransitOverhead)
+- type: shader
+  id: CEZBlurBlit
+  kind: source
+  path: "/Textures/_CE/Shaders/zblur_blit.swsl"
+  params:
+    STRENGTH: 1.0
+    FADE: 1.0
