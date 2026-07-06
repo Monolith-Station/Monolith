@@ -1,0 +1,29 @@
+meta:
+  format: 7
+  category: Map
+  engineVersion: 264.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 08/12/2025 02:35:16
+  entityCount: 1
+maps:
+- 1
+grids: []
+orphans: []
+nullspace: []
+tilemap:
+  0: Space
+entities:
+- proto: ""
+  entities:
+  - uid: 1
+    components:
+    - type: MetaData
+      name: "CE Empty Map"
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
+...

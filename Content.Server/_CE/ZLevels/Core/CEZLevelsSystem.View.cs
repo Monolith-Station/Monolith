@@ -28,6 +28,8 @@ public sealed partial class CEZLevelsSystem
     private readonly TimeSpan _zLevelViewerUpdateRate = TimeSpan.FromSeconds(1f);
     private TimeSpan _nextZLevelViewerUpdate = TimeSpan.Zero;
 
+    private readonly HashSet<EntityUid> _dirtyViewers = new();
+
     private void InitView()
     {
         SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
@@ -42,6 +44,15 @@ public sealed partial class CEZLevelsSystem
 
     private void UpdateView(float frameTime)
     {
+        // MapUidChangedEvent can fire while the engine is still mid-walk of a live transform
+        // children collection (e.g. a grid carrying a rider gets reparented onto another map,
+        // cascading into the rider). UpdateViewer spawns/deletes entities as a side effect of
+        // that event, so running it synchronously in the handler mutates a children collection
+        // while something further up the call stack is still enumerating it. Instead we just mark
+        // the viewer dirty there (OnViewerMapUidChanged) and do the actual rebuild here, once per
+        // tick, safely outside of any transform cascade.
+        UpdateDirtyViewers();
+
         if (_timing.CurTime < _nextZLevelViewerUpdate)
             return;
         _nextZLevelViewerUpdate = _timing.CurTime + _zLevelViewerUpdateRate;
@@ -56,6 +67,22 @@ public sealed partial class CEZLevelsSystem
         }
     }
 
+    private void UpdateDirtyViewers()
+    {
+        if (_dirtyViewers.Count == 0)
+            return;
+
+        foreach (var uid in _dirtyViewers)
+        {
+            if (TerminatingOrDeleted(uid) || !TryComp<CEZLevelViewerComponent>(uid, out var viewer))
+                continue;
+
+            UpdateViewer((uid, viewer));
+        }
+
+        _dirtyViewers.Clear();
+    }
+
     private void OnViewerInit(Entity<CEZLevelViewerComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent, ref ent.Comp.ActionEntity, ent.Comp.ActionId);
@@ -66,6 +93,7 @@ public sealed partial class CEZLevelsSystem
     {
         _actions.RemoveAction(ent.Comp.ActionEntity);
         _meta.RemoveFlag(ent, MetaDataFlags.ExtraTransformEvents);
+        _dirtyViewers.Remove(ent.Owner);
 
         foreach (var eye in ent.Comp.Eyes)
         {
@@ -86,7 +114,11 @@ public sealed partial class CEZLevelsSystem
 
     private void OnViewerMapUidChanged(Entity<CEZLevelViewerComponent> ent, ref MapUidChangedEvent args)
     {
-        UpdateViewer(ent);
+        // Do not touch the viewer here: this event can fire mid-cascade, while the engine is
+        // still enumerating a live transform children collection further up the call stack (e.g.
+        // moving a grid with a rider standing on it). UpdateViewer spawns/deletes entities, which
+        // would mutate that collection out from under the enumerator. Defer it to UpdateDirtyViewers.
+        _dirtyViewers.Add(ent.Owner);
     }
 
     private void UpdateViewer(Entity<CEZLevelViewerComponent> ent)
