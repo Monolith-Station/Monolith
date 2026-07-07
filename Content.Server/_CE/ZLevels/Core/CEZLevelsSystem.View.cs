@@ -9,7 +9,6 @@ using Content.Shared.Actions;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -22,7 +21,6 @@ public sealed partial class CEZLevelsSystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private ViewSubscriberSystem _viewSubscriber = default!;
-    [Dependency] private SharedEyeSystem _eyeSystem = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
 
     private readonly EntProtoId _zEyeProto = "CEZLevelEye";
@@ -59,8 +57,8 @@ public sealed partial class CEZLevelsSystem
             return;
         _nextZLevelViewerUpdate = _timing.CurTime + _zLevelViewerUpdateRate;
 
-        var query = EntityQueryEnumerator<CEZLevelViewerComponent, TransformComponent, EyeComponent>();
-        while (query.MoveNext(out var uid, out var viewer, out var xform, out var srcEye))
+        var query = EntityQueryEnumerator<CEZLevelViewerComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var viewer, out var xform))
         {
             foreach (var eye in viewer.Eyes)
             {
@@ -69,14 +67,6 @@ public sealed partial class CEZLevelsSystem
                     continue;
 
                 _transform.SetWorldPosition(eye, _transform.GetWorldPosition(xform));
-
-                // Zoom (and anything else that widens the viewer's own PVS range)
-                // has to propagate to the z-eyes every update, not just at spawn.
-                var eyeMap = Transform(eye).MapUid;
-                _eyeSystem.SetPvsScale(eye,
-                    xform.MapUid is { } viewerMap && eyeMap is { } eyeMapUid
-                        ? GetZEyePvsScale(viewerMap, eyeMapUid, srcEye.PvsScale)
-                        : srcEye.PvsScale);
             }
         }
     }
@@ -168,7 +158,6 @@ public sealed partial class CEZLevelsSystem
             return;
 
         var globalPos = _transform.GetWorldPosition(xform);
-        var pvsScale = TryComp<EyeComponent>(ent, out var srcEye) ? srcEye.PvsScale : 1f;
 
         for (var i = 1; i <= MaxZLevelsBelowRendering; i++)
         {
@@ -178,7 +167,6 @@ public sealed partial class CEZLevelsSystem
             var newEye = SpawnAtPosition(_zEyeProto, new EntityCoordinates(mapUidBelow, globalPos));
 
             Transform(newEye).GridTraversal = false;
-            _eyeSystem.SetPvsScale(newEye, GetZEyePvsScale(map.Value, mapUidBelow, pvsScale));
             _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);
             eyes.Add(newEye);
         }
@@ -189,37 +177,9 @@ public sealed partial class CEZLevelsSystem
             var newEye = SpawnAtPosition(_zEyeProto, new EntityCoordinates(aboveMapUid, globalPos));
 
             Transform(newEye).GridTraversal = false;
-            _eyeSystem.SetPvsScale(newEye, pvsScale);
             _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);
             eyes.Add(newEye);
         }
-    }
-
-    /// <summary>
-    /// Eyes on levels below the viewer need a wider PVS range: the client draws those
-    /// levels zoomed out by <see cref="CESharedZLevelsSystem.ZLevelViewShrink"/> per
-    /// level, so the visible world area grows by the inverse. The base scale carries
-    /// the viewer's own PVS scale, so eye zoom widens the z-eyes too.
-    /// </summary>
-    private float GetZEyePvsScale(EntityUid viewerMap, EntityUid eyeMap, float baseScale)
-    {
-        if (!TryComp<CEZMapComponent>(eyeMap, out var eyeZ))
-            return baseScale;
-
-        int viewerDepth;
-        if (TryComp<CEZMapComponent>(viewerMap, out var viewerZ))
-            viewerDepth = viewerZ.Depth;
-        else if (TryComp<CEZTransitMapComponent>(viewerMap, out var transit) &&
-                 TryComp<CEZMapComponent>(transit.LowerMap, out var lowerZ))
-            viewerDepth = lowerZ.Depth + 1; // Top of the gap: covers the whole ride.
-        else
-            return baseScale;
-
-        var levelsBelow = viewerDepth - eyeZ.Depth;
-        if (levelsBelow <= 0)
-            return baseScale;
-
-        return baseScale * MathF.Pow(1f / CESharedZLevelsSystem.ZLevelViewShrink, levelsBelow);
     }
 
     private void OnZLevelFall(Entity<CEZPhysicsComponent> ent, ref CEZLevelFallMapEvent args)
