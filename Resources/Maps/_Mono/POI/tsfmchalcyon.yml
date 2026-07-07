@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/06/2026 17:34:31
-  entityCount: 10010
+  time: 07/07/2026 18:09:08
+  entityCount: 10012
 maps: []
 grids:
 - 1
@@ -228,9 +228,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Kudzu: []
+        Puddle: []
         MetalFoam: []
         Smoke: []
-        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -3199,10 +3199,10 @@ entities:
             1: 39390
           7,1:
             0: 53196
-          7,2:
-            0: 52701
           7,3:
             1: 16
+            0: 52428
+          7,2:
             0: 52428
           7,4:
             0: 52974
@@ -11701,8 +11701,14 @@ entities:
   - uid: 1173
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,0.5
+      rot: 3.141592653589793 rad
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 6961
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,-1.5
       parent: 1
 - proto: BoxBodyBag
   entities:
@@ -47635,12 +47641,6 @@ entities:
       parent: 1
 - proto: PoweredlightLED
   entities:
-  - uid: 400
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 28.5,8.5
-      parent: 1
   - uid: 3883
     components:
     - type: Transform
@@ -47788,6 +47788,12 @@ entities:
     components:
     - type: Transform
       pos: 6.5,26.5
+      parent: 1
+  - uid: 10012
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 27.5,8.5
       parent: 1
 - proto: PoweredlightRed
   entities:
@@ -50308,8 +50314,8 @@ entities:
   - uid: 7175
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 27.5,8.5
+      rot: -1.5707963267948966 rad
+      pos: 27.5,9.5
       parent: 1
   - uid: 7560
     components:
@@ -50964,11 +50970,6 @@ entities:
     - type: Transform
       pos: 0.5,2.5
       parent: 1
-  - uid: 6961
-    components:
-    - type: Transform
-      pos: 0.5,-1.5
-      parent: 1
   - uid: 7735
     components:
     - type: Transform
@@ -50996,11 +50997,6 @@ entities:
     components:
     - type: Transform
       pos: 28.5,20.5
-      parent: 1
-  - uid: 9963
-    components:
-    - type: Transform
-      pos: -0.5,-1.5
       parent: 1
 - proto: SuitStorageM86
   entities:
@@ -53454,8 +53450,8 @@ entities:
   - uid: 8007
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 28.5,9.5
+      rot: 3.141592653589793 rad
+      pos: 27.5,8.5
       parent: 1
 - proto: ToyAi
   entities:
@@ -54943,6 +54939,18 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 2.5,-5.5
+      parent: 1
+  - uid: 400
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 28.5,8.5
+      parent: 1
+  - uid: 960
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 28.5,9.5
       parent: 1
   - uid: 1310
     components:
@@ -64077,6 +64085,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 13.5,5.5
+      parent: 1
+  - uid: 9963
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 28.5,10.5
       parent: 1
   - uid: 10009
     components:
