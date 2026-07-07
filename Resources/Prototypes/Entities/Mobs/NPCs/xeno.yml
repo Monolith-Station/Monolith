@@ -135,6 +135,9 @@
     lightRadius: 15
     activateSound: null
     deactivateSound: null
+  - type: ContainableEntity # Monolith
+    basePoints: 75
+    multiplierDecay: 0.001 
 
 - type: entity
   name: praetorian
@@ -254,6 +257,9 @@
     understands:
     - TauCetiBasic
     - Xeno
+  - type: ContainableEntity # Monolith
+    basePoints: 175 # good luck getting alive queen lol.
+    multiplierDecay: 0.0005 
 
 - type: entity
   name: ravager

@@ -1,0 +1,63 @@
+- type: entity
+  id: MachineEntityAnalyzer
+  parent: [ BaseMachinePowered, BaseStructureDisableToolUse ]
+  name: deep entity analyzer
+  description: A deep entity analyzer that transmits data to.. someone. Containing entities in the chamber will reward you points.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/entity_analyzer.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - state: entity_analyzer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        mask:
+        - Impassable
+        - HighImpassable
+        - MidImpassable
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - Impassable
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+        hard: False
+  - type: Transform
+    anchored: true
+  - type: ApcPowerReceiver
+    powerLoad: 7500
+    needsPower: true
+  - type: Containment
+  - type: DeviceLinkSink
+    ports:
+      - Trigger
+  - type: Appearance
+  - type: ResearchClient
+  - type: ActivatableUI
+    key: enum.ResearchClientUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface

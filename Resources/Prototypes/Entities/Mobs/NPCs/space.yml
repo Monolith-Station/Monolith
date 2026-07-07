@@ -67,6 +67,9 @@
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: LargeMob
+  - type: ContainableEntity # Monolith
+    basePoints: 25
+    multiplierDecay: 0.001 
 
 - type: entity
   name: space bear
