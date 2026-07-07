@@ -22220,3 +22220,56 @@ Entries:
   id: 2455
   time: '2026-07-05T19:38:50.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4218
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Shipyard previewing now works properly.
+  id: 2456
+  time: '2026-07-06T23:14:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4235
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: jaguar had internals updated to better match tsf ships
+  id: 2457
+  time: '2026-07-07T00:26:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4228
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: Changed Dymere's projectile speed (buffed) and lifetime (reduced)
+    - type: Tweak
+      message: altair can now fire its main cannonade entirely frontally
+  id: 2458
+  time: '2026-07-07T00:30:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4219
+- author: EldritchPineapple
+  changes:
+    - type: Fix
+      message: Aldebaran got 3 (three) semiotics that were missing
+  id: 2459
+  time: '2026-07-07T00:31:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4217
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed ships with 4 letter designation suffixes (such as TSFN/USSP) being
+        fully renamable.
+  id: 2460
+  time: '2026-07-07T03:39:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4239
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Buffed Xian DMR movement speed. Now only 0.8x multiplier on wield.
+  id: 2461
+  time: '2026-07-07T16:25:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4238
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Buffed Iroh RPS
+  id: 2462
+  time: '2026-07-07T19:34:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4229
