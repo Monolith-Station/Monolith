@@ -4,6 +4,7 @@
  */
 
 using Content.Server._CE.ZLevels.Core;
+using Content.Server._CE.ZLevels.Core.Components;
 using Content.Server.Administration;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Mapping.Prototypes;
@@ -285,5 +286,80 @@ public sealed class CETransitLandCommand : CEBaseTransitCommand
             shell.WriteError("Failed to land (are you sure this grid is on a transitmap?)");
             return;
         }
+    }
+}
+
+[AdminCommand(AdminFlags.Server | AdminFlags.Mapping)]
+public sealed class CETransitLerpCommand : CEBaseTransitCommand
+{
+    public override string Command => "cez-transit-lerp";
+    public override string Description =>
+        "Smoothly lerp a grid to an absolute altitude over a duration (enters transit if needed).";
+
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length switch
+        {
+            1 => TransitGridCompletions(),
+            2 => CompletionResult.FromHint("<absolute altitude>"),
+            3 => CompletionResult.FromHint("<duration seconds>"),
+            _ => CompletionResult.Empty,
+        };
+    }
+
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        if (args.Length != 3)
+        {
+            shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
+            return;
+        }
+
+        if (!TryGetGrid(shell, args[0], out var grid))
+            return;
+
+        if (!float.TryParse(args[1], out var altitude))
+        {
+            shell.WriteError($"Invalid altitude {args[1]}.");
+            return;
+        }
+
+        if (!float.TryParse(args[2], out var duration) || duration < 0f)
+        {
+            shell.WriteError($"Invalid duration {args[2]}.");
+            return;
+        }
+
+        // Not flying yet? Toss it into transit at its current spot first.
+        var xform = Entities.GetComponent<TransformComponent>(grid);
+        if (!Entities.HasComponent<CEZTransitMapComponent>(xform.MapUid) &&
+            !ZLevel.TryEnterTransit(grid))
+        {
+            shell.WriteError("Failed to enter transit (are you sure this grid is on a Z-level?)");
+            return;
+        }
+
+        // Current absolute altitude = lower map's depth + fractional transit progress.
+        xform = Entities.GetComponent<TransformComponent>(grid);
+        if (xform.MapUid is not { } transitMap ||
+            !Entities.TryGetComponent<CEZTransitMapComponent>(transitMap, out var transit) ||
+            transit.LowerMap is not { } lower ||
+            !Entities.TryGetComponent<CEZMapComponent>(lower, out var lowerZ))
+        {
+            shell.WriteError("Grid is not in a valid transit stack.");
+            return;
+        }
+
+        var progress = Entities.TryGetComponent<CEZPhysicsComponent>(grid, out var zPhys)
+            ? Math.Clamp(zPhys.LocalPosition, 0f, 1f)
+            : 0f;
+
+        var lerp = Entities.EnsureComponent<CEZDebugAltitudeLerpComponent>(grid);
+        lerp.StartAltitude = lowerZ.Depth + progress;
+        lerp.TargetAltitude = altitude;
+        lerp.Duration = duration;
+        lerp.Elapsed = 0f;
+
+        shell.WriteLine($"Lerping grid {args[0]} from altitude {lerp.StartAltitude:0.##} to {altitude:0.##} over {duration:0.##}s.");
     }
 }
