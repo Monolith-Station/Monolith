@@ -178,7 +178,7 @@
   - XenoborgModuleTool
   - BorgModuleCable
   - XenoborgModuleDefense
-  - XenoborgModuleDoorControl
+  - XenoborgModuleAccessBreaker
   addComponents:
   - type: ShowHealthBars
     damageContainers:
@@ -281,9 +281,7 @@
   - XenoborgModuleBasic
   - XenoborgModuleTool
   - XenoborgModuleDefense
-  - XenoborgModuleChameleonProjector
   - XenoborgModuleCloakDevice
-  - XenoborgModuleHypo
   addComponents:
   - type: ShowHealthBars
     damageContainers:
