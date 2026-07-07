@@ -45,7 +45,7 @@
     Heat: 5
     Structural: 5
 
-# Barricades
+#region Barricades
 
 - type: damageModifierSet
   id: BarricadeSteel
@@ -114,18 +114,19 @@
     Heat: 5
     Structural: 5
 
-#region vehicles
+#region Vehicles
 
 - type: damageModifierSet
   id: BF_APC
   coefficients:
-    Blunt: 0.8
+    Blunt: 0.75
     Slash: 0.5
     Piercing: 0.5
+    Heat: 0.5
     Shock: 0.5
     Structural: 1
   flatReductions:
     Blunt: 50
     Slash: 50
     Piercing: 50
-    Heat: 40
+    Heat: 50
