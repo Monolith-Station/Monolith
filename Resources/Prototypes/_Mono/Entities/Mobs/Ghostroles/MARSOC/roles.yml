@@ -96,6 +96,37 @@
     raffle:
       settings: short
 
+# weapon specialists
+- type: entity
+  parent: MobHumanMarsocBase
+  id: MobHumanMarsocAMR
+  name: MARSOC specialist (AMR)
+  components:
+  - type: Loadout
+    prototypes: [MarsocSpecialistAMRGear]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-marsoc-specialist-name
+    description: ghost-role-information-marsoc-description
+    rules: ghost-role-information-marsoc-rules
+    raffle:
+      settings: short
+
+- type: entity
+  parent: MobHumanMarsocBase
+  id: MobHumanMarsocTPGL
+  name: MARSOC specialist (TPGL)
+  components:
+  - type: Loadout
+    prototypes: [MarsocSpecialistTPGLGear]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-marsoc-specialist-name
+    description: ghost-role-information-marsoc-description
+    rules: ghost-role-information-marsoc-rules
+    raffle:
+      settings: short
+
 # yeah
 
 - type: entity

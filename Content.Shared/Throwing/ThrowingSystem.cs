@@ -242,14 +242,14 @@ public sealed partial class ThrowingSystem : EntitySystem
         if (pushbackRatio != 0.0f &&
             physics.Mass > 0f &&
             TryComp(user.Value, out PhysicsComponent? userPhysics) &&
-            _gravity.IsWeightless(user.Value, userPhysics))
+            _gravity.IsWeightless(user.Value))
         {
             var msg = new ThrowPushbackAttemptEvent();
             RaiseLocalEvent(uid, msg);
             const float massLimit = 5f;
 
             if (!msg.Cancelled)
-                
+
                 // Frontier: apply impulse to buckled object if buckled
                 if (TryComp<BuckleComponent>(user, out var buckle) && buckle.BuckledTo is not null)
                 {
