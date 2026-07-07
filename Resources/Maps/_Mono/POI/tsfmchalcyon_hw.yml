@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/07/2026 22:03:07
+  time: 07/07/2026 22:07:14
   entityCount: 10033
 maps: []
 grids:
@@ -6655,10 +6655,15 @@ entities:
     - type: Transform
       pos: -0.5,11.5
       parent: 1
-  - uid: 356
+  - uid: 355
     components:
     - type: Transform
       pos: 6.5,-29.5
+      parent: 1
+  - uid: 356
+    components:
+    - type: Transform
+      pos: -1.5,22.5
       parent: 1
   - uid: 357
     components:
@@ -6693,11 +6698,6 @@ entities:
       name: APC (Medbay)
     - type: Transform
       pos: 19.5,-9.5
-      parent: 1
-  - uid: 355
-    components:
-    - type: Transform
-      pos: -1.5,22.5
       parent: 1
 - proto: AtmosDeviceFanDirectional
   entities:
