@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/05/2026 19:14:50
+  time: 07/07/2026 14:07:38
   entityCount: 736
 maps: []
 grids:
@@ -85,10 +85,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Kudzu: []
         MetalFoam: []
+        Puddle: []
         Smoke: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -2281,7 +2281,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerShuttle
+- proto: ComputerShuttleTSFNVWS
   entities:
   - uid: 314
     components:
@@ -2291,7 +2291,9 @@ entities:
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
-      startingCharge: 0
+      startingCharge: 32.5
+    - type: ApcPowerReceiverBattery
+      enabled: True
 - proto: ComputerSolarControl
   entities:
   - uid: 315

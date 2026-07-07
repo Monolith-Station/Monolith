@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/05/2026 19:30:17
+  time: 07/07/2026 14:07:59
   entityCount: 722
 maps: []
 grids:
@@ -517,10 +517,10 @@ entities:
         -2,-1: 36276122660171968
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Kudzu: []
         MetalFoam: []
+        Puddle: []
         Smoke: []
+        Kudzu: []
     - type: ThermalSignature
     - type: ExplosionAirtightGrid
 - proto: AirAlarm
@@ -2107,19 +2107,19 @@ entities:
       nextSound: 8739.4494153
     - type: ApcPowerReceiver
       powerLoad: 5
-- proto: ComputerTabletopShuttle
+- proto: ComputerTabletopShuttleTSFNVWS
   entities:
   - uid: 267
     components:
     - type: Transform
       pos: 0.5,0.5
       parent: 1
-    - type: Battery
-      startingCharge: 0
-    - type: SpamEmitSound
-      nextSound: 8755.6349467
     - type: ApcPowerReceiver
       powerLoad: 5
+    - type: Battery
+      startingCharge: 65
+    - type: ApcPowerReceiverBattery
+      enabled: True
 - proto: ComputerTabletopStationRecords
   entities:
   - uid: 268
