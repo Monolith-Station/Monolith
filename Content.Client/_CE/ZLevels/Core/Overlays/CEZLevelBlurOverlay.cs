@@ -59,8 +59,17 @@ public sealed partial class CEZLevelBlurOverlay : Overlay
                 mapLight.AmbientLightColor.B);
         }
 
+        // Fog scales with how far below the eye this pass sits: a full level = full
+        // haze, fractional depths (transit gaps) fade it continuously so descents
+        // don't pop in and out of the fog.
+        var strength = 1f;
+        if (args.Viewport.Eye is ScalingViewport.ZEye zeye)
+            strength = Math.Clamp(-zeye.Depth, 0f, 1f);
+
         _blurShader?.SetParameter("SCREEN_TEXTURE", ScreenTexture);
         _blurShader?.SetParameter("BLUR_COLOR", ambientColor);
+        _blurShader?.SetParameter("STRENGTH", strength);
+        _blurShader?.SetParameter("FADE", 1f); // Whole-screen fog never fades out.
 
         var worldHandle = args.WorldHandle;
         worldHandle.UseShader(_blurShader);
