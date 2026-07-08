@@ -1,0 +1,542 @@
+- type: entity
+  name: AK-74
+  parent: BaseWeaponRifle
+  id: WeaponRifleRUAK74
+  description: The communist response to the success of the M16.
+  components:
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK74.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    state: icon-ak74
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: stock-ak74
+      - state: grip-ak74
+      - state: handguard-ak74
+      - state: barrel-ak74
+      - state: ironsight-ak74
+      - state: mag-ak74-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK74.rsi
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -29
+    maxAngle: -30
+  - type: Gun
+    minAngle: 31
+    maxAngle: 42
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    selectedMode: FullAuto
+    fireRate: 6
+    projectileSpeed: 45
+    soundGunshot:
+      collection: BF_AK_545_Gunshots
+      params:
+        volume: -5
+        variation: 0.125
+  - type: ChamberMagazineAmmoProvider
+    boltClosed: null # means the bolt doesnt lock back like M16 pattern rifles, also means you need to cycle the gun after an empty mag
+    soundRack:
+      path: /Audio/_Battlefield14/Weapons/Guns/AK_GENERIC/rack.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleAK74
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleAK74
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle545x39
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle545x39
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag-ak74
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: ExtendDescription
+    descriptionList:
+      - description: Takes AK-74 pattern magazines.
+        color: "#4f94ad"
+        requireDetailRange: true
+
+- type: entity
+  name: AKS-74u
+  parent: WeaponRifleRUAK74
+  id: WeaponRifleRUAKS74U
+  description: You know when they decided to bring this out? Afghanistan. Rough.
+  components:
+  - type: Item
+    size: Large
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AKS74u.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    state: icon-aks74u
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: stock-folding
+      - state: grip-ak74
+      - state: handguard-ak74
+      - state: barrel-aks74u
+      - state: ironsight-aks74u
+      - state: mag-74-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AKS74u.rsi
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -28
+  - type: Gun
+    minAngle: 26
+    maxAngle: 42
+    angleIncrease: 1.25
+    projectileSpeed: 40 # Shorter barrel
+    fireRate: 6
+    availableModes:
+    - SemiAuto
+    - FullAuto
+
+- type: entity
+  name: AKS-74UB
+  parent: WeaponRifleRUAKS74U
+  id: WeaponRifleRUAKS74UB
+  description: A '74u with a PBS-4 suppressor slapped on it; meant for special forces and paratroopers.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: stock-folding
+      - state: grip-ak74
+      - state: handguard-ak74
+      - state: barrel-aks74u
+      - state: ironsight-aks74u
+      - state: supp
+        offset: -0.03, 0
+      - state: mag-74-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AKS74u.rsi
+  - type: Gun
+    projectileSpeed: 35 # Shorter barrel + suppressed
+    fireRate: 7
+    soundGunshot:
+      collection: BF_AK_545_Gunshots_SUPP
+      params:
+        volume: -8
+        variation: 0.125
+
+- type: entity
+  name: AK-12
+  parent: WeaponRifleRUAK74
+  id: WeaponRifleRUAK12
+  description: A "modernised" '74 pattern rifle, which looks attractive but doesn't advance much farther than the AK74M.
+  components:
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK12.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    state: icon-ak12
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: stock-ak12
+      - state: grip-ak12
+      - state: handguard-ak12
+      - state: barrel-ak12
+      - state: collimator-1p87
+      - state: mag-ak12-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK12.rsi
+  - type: GunWieldBonus
+    minAngle: -29
+    maxAngle: -34
+  - type: Gun
+    minAngle: 31
+    maxAngle: 42
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    selectedMode: FullAuto
+    fireRate: 6
+    projectileSpeed: 45
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleAK12
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleAK74
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle545x39
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle545x39
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag-ak12
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _Battlefield14/Interface/MousePointer/optics.rsi
+      state: 1p87
+
+- type: entity
+  name: AK-12 (Magnifier)
+  parent: WeaponRifleRUAK12
+  id: WeaponRifleRUAK12Magnified
+  description: A "modernised" '74 pattern rifle, which looks attractive but doesn't advance much farther than the AK74M. This one has a magnifier.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: stock-ak12
+      - state: grip-ak12
+      - state: handguard-ak12
+      - state: barrel-ak12
+      - state: collimator-1p87
+      - state: foregrip-polymer
+      - state: magnifier
+      - state: mag-ak12-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleAK12TracerGreen
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleAK74
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle545x39TracerGreen
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle545x39
+  - type: Gun
+    angleIncrease: 1
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 5
+    pvsIncrease: 0.35
+
+- type: entity
+  name: AK-74 FSB MOD.
+  parent: WeaponRifleRUAK74
+  id: WeaponRifleRUAK74FSB
+  description: An AK-74 with aftermarket parts geared towards the needs of the FSB.
+  components:
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK74MOD.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    state: icon-cag
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: stock-cag
+      - state: grip-cag
+      - state: handguard-cag
+      - state: barrel-cag
+      - state: scope-lpvo-cag
+      - state: supp
+        offset: 0.18, 0
+      - state: mag-cag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK74MOD.rsi
+  - type: GunWieldBonus
+    minAngle: -29
+    maxAngle: -34
+  - type: Gun
+    minAngle: 31
+    maxAngle: 42
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    selectedMode: FullAuto
+    fireRate: 7
+    projectileSpeed: 45
+    soundGunshot:
+      collection: BF_AK_545_Gunshots_SUPP
+      params:
+        volume: -10
+        variation: 0.125
+  - type: MagazineVisuals
+    magState: mag-cag
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 5
+    pvsIncrease: 0.35
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _Battlefield14/Interface/MousePointer/optics.rsi
+      state: acog
+
+- type: entity
+  name: AKMS
+  parent: WeaponRifleRUAK74
+  id: WeaponRifleRUAKMS
+  description: The right arm of the enslaved world.
+  components:
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AKMS.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    state: icon-akms
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: stock-underfolding
+      - state: grip-ak74
+      - state: handguard-ak74
+      - state: barrel-akm
+      - state: ironsight-ak74
+        offset: -0.18, 0
+      - state: mag-akm-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AKMS.rsi
+  - type: GunWieldBonus
+    minAngle: -29
+    maxAngle: -27
+  - type: Gun
+    minAngle: 31
+    maxAngle: 40
+    angleIncrease: 1
+    angleDecay: 16
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    selectedMode: FullAuto
+    fireRate: 5
+    projectileSpeed: 40
+    soundGunshot:
+      collection: BF_AK_762_Gunshots
+      params:
+        volume: -5
+        variation: 0.125
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleAKM
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleAKM
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle762x39
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle762x39
+  - type: MagazineVisuals
+    magState: mag-akm
+  - type: ExtendDescription
+    descriptionList:
+      - description: Takes AKM pattern magazines.
+        color: "#4f94ad"
+        requireDetailRange: true
+
+- type: entity
+  name: AK-203
+  parent: WeaponRifleRUAKMS
+  id: WeaponRifleRUAK203
+  description: A later revision of the AKM rifle, with even moderner design.
+  components:
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK203.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    state: icon-ak203
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: stock-ak203
+      - state: grip-ak203
+      - state: handguard-ak203
+      - state: barrel-ak203
+      - state: ironsight-ak74
+        offset: -0.18, 0
+      - state: mag-ak203-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -29
+    maxAngle: -34
+  - type: Gun # Improved recoil over the AKM
+    minAngle: 31
+    maxAngle: 40
+    angleIncrease: 0.75
+    angleDecay: 16
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK203.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleAK203
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleAKM
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle762x39
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle762x39
+  - type: MagazineVisuals
+    magState: mag-ak203
+
+- type: entity
+  name: draco
+  parent: WeaponRifleRUAKMS
+  id: WeaponRifleRUAKMUDraco
+  description: A chopped down AK47, unwieldy and impractical, with a reputation for being used by gang members.
+  components:
+  - type: Item
+    size: Large
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/draco.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/draco.rsi
+    state: icon
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/draco.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -2
+    maxAngle: -17
+  - type: Gun
+    minAngle: 6
+    maxAngle: 35
+    angleIncrease: 3.5
+    angleDecay: 16
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/draco.rsi
+  - type: MagazineVisuals
+    magState: mag
+
+- type: entity
+  name: golden draco
+  parent: WeaponRifleRUAKMUDraco
+  id: WeaponRifleRUAKMUDracoGold
+  description: You feel richer just looking at this.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/draco_gold.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/draco_gold.rsi
+
+- type: entity
+  name: VPO-136
+  parent: WeaponRifleRUAKMS
+  id: WeaponRifleRUVPO136
+  description: A de-militarized AKM made for the civillian market.
+  components:
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/VPO136.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/VPO136.rsi
+    state: icon
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: stock-ak74
+      - state: grip-ak74
+      - state: handguard-ak74
+      - state: barrel-akm
+      - state: ironsight-ak74
+      - state: mag-akm-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/VPO136.rsi
+  - type: GunWieldBonus
+    minAngle: -29
+    maxAngle: -27
+  - type: Gun
+    minAngle: 31
+    maxAngle: 40
+    angleIncrease: 1
+    angleDecay: 16
+    availableModes:
+    - SemiAuto
+    selectedMode: SemiAuto
+    fireRate: 4
+    projectileSpeed: 40
+    soundGunshot:
+      collection: BF_AK_762_Gunshots
+      params:
+        volume: -5
+        variation: 0.125
