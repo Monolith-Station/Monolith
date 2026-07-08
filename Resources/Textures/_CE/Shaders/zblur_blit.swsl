@@ -9,6 +9,10 @@ blend_mode mix;
 uniform highp vec3 BLUR_COLOR;
 uniform highp float STRENGTH;
 uniform highp float FADE;
+// Cloud layer above the transit gap: veils the ship's own pixels with the deck
+// color as it climbs into the clouds (CEZCloudLayer, see ScalingViewport).
+uniform highp vec3 CLOUD_COLOR;
+uniform highp float CLOUD;
 
 const highp float darken_strength = 0.3; // Darkness level 0.0 to 1.0
 const highp float blur_radius = 2.0; // Blur radius from 0.0 to 10.0
@@ -34,5 +38,8 @@ void fragment() {
     highp vec4 blurred_color = vec4(blurred_rgb * shadow, blurred_a);
 
     highp vec4 mixed = mix(color, blurred_color, clamp(STRENGTH, 0.0, 1.0));
+    // Only tint where the ship actually is (alpha-weighted by construction):
+    // from below, a hull entering the cloud base soaks up the deck color.
+    mixed.rgb = mix(mixed.rgb, CLOUD_COLOR, clamp(CLOUD, 0.0, 1.0));
     COLOR = vec4(mixed.rgb, mixed.a * clamp(FADE, 0.0, 1.0));
 }

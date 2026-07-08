@@ -72,7 +72,11 @@ public sealed partial class CEZLevelsSystem
 
                 // Zoom (and anything else that widens the viewer's own PVS range)
                 // has to propagate to the z-eyes every update, not just at spawn.
-                _eyeSystem.SetPvsScale(eye, srcEye.PvsScale);
+                var eyeMap = Transform(eye).MapUid;
+                _eyeSystem.SetPvsScale(eye,
+                    xform.MapUid is { } viewerMap && eyeMap is { } eyeMapUid
+                        ? GetZEyePvsScale(viewerMap, eyeMapUid, srcEye.PvsScale)
+                        : srcEye.PvsScale);
             }
         }
     }
@@ -172,14 +176,14 @@ public sealed partial class CEZLevelsSystem
             if (!TryMapOffset(map.Value, -i, out var mapUidBelow))
                 break;
 
-            SpawnViewerEye(eyes, actor, mapUidBelow, globalPos, pvsScale);
+            SpawnViewerEye(eyes, actor, map.Value, mapUidBelow, globalPos, pvsScale);
             coveredMaps.Add(mapUidBelow);
         }
 
         // We constantly load the upper z-level for the client so that you can quickly look up and climb stairs without PVS lag.
         if (TryMapUp(map.Value, out var aboveMapUid))
         {
-            SpawnViewerEye(eyes, actor, aboveMapUid, globalPos, pvsScale);
+            SpawnViewerEye(eyes, actor, map.Value, aboveMapUid, globalPos, pvsScale);
             coveredMaps.Add(aboveMapUid);
         }
 
@@ -199,19 +203,46 @@ public sealed partial class CEZLevelsSystem
             if (transitComp.LowerMap is { } transitLower && coveredMaps.Contains(transitLower) ||
                 transitComp.UpperMap is { } transitUpper && coveredMaps.Contains(transitUpper))
             {
-                SpawnViewerEye(eyes, actor, transitUid, globalPos, pvsScale);
+                SpawnViewerEye(eyes, actor, map.Value, transitUid, globalPos, pvsScale);
             }
         }
     }
 
-    private void SpawnViewerEye(HashSet<EntityUid> eyes, ActorComponent actor, EntityUid targetMap, Vector2 globalPos, float pvsScale)
+    private void SpawnViewerEye(HashSet<EntityUid> eyes, ActorComponent actor, EntityUid viewerMap, EntityUid targetMap, Vector2 globalPos, float pvsScale)
     {
         var newEye = SpawnAtPosition(_zEyeProto, new EntityCoordinates(targetMap, globalPos));
 
         Transform(newEye).GridTraversal = false;
-        _eyeSystem.SetPvsScale(newEye, pvsScale);
+        _eyeSystem.SetPvsScale(newEye, GetZEyePvsScale(viewerMap, targetMap, pvsScale));
         _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);
         eyes.Add(newEye);
+    }
+
+    /// <summary>
+    /// Eyes on levels below the viewer need a wider PVS range: the client draws those
+    /// levels zoomed out by <see cref="CESharedZLevelsSystem.ZLevelViewShrink"/> per
+    /// level, so the visible world area grows by the inverse. The base scale carries
+    /// the viewer's own PVS scale, so eye zoom widens the z-eyes too.
+    /// </summary>
+    private float GetZEyePvsScale(EntityUid viewerMap, EntityUid eyeMap, float baseScale)
+    {
+        if (!TryComp<CEZMapComponent>(eyeMap, out var eyeZ))
+            return baseScale;
+
+        int viewerDepth;
+        if (TryComp<CEZMapComponent>(viewerMap, out var viewerZ))
+            viewerDepth = viewerZ.Depth;
+        else if (TryComp<CEZTransitMapComponent>(viewerMap, out var transit) &&
+                 TryComp<CEZMapComponent>(transit.LowerMap, out var lowerZ))
+            viewerDepth = lowerZ.Depth + 1; // Top of the gap: covers the whole ride.
+        else
+            return baseScale;
+
+        var levelsBelow = viewerDepth - eyeZ.Depth;
+        if (levelsBelow <= 0)
+            return baseScale;
+
+        return baseScale * MathF.Pow(1f / CESharedZLevelsSystem.ZLevelViewShrink, levelsBelow);
     }
 
     private void OnZLevelFall(Entity<CEZPhysicsComponent> ent, ref CEZLevelFallMapEvent args)

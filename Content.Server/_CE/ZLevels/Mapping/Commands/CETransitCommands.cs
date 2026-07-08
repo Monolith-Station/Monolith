@@ -147,7 +147,7 @@ public sealed partial class CETransitDebugCommand : CEBaseTransitCommand
 
     private const string DefaultZMapId = "Grasslands";
     private const int ShuttleDepth = 2;
-    private static readonly ResPath DefaultShuttle = new("/Maps/Shuttles/dart.yml");
+    private static readonly ResPath DefaultShuttle = new("/SharedMaps/_Mono/Shuttles/bucket.yml");
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {

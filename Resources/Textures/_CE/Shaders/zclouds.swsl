@@ -1,0 +1,85 @@
+// CrystallEdge: procedural cloud deck for z-level cloud layers (CEZCloudLayer).
+// Drawn as a fullscreen rect by ScalingViewport.DrawCloudDeck in two roles:
+//  - COVERAGE 1: the opaque deck under a cloud layer map's render pass. Full
+//    opacity is load-bearing — it obscures everything below AND stands in for
+//    the pass clear, so any translucency would leak last frame's target.
+//  - COVERAGE <1: the wispy overlay swallowing a rider's view as their grid
+//    climbs into the deck; thin spots open first as coverage drops.
+blend_mode mix;
+
+uniform highp vec3 CLOUD_COLOR;
+uniform highp float COVERAGE;
+// > 0: "tops" mode — sparse puffs drawn back OVER a rendered pass, opaque only
+// in the puffiest spots and fully clear in the gaps, so ships parked on the
+// deck get overlapped by drifting cloud instead of floating on a flat fill.
+uniform highp float WISP;
+
+highp float hash(highp vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float vnoise(highp vec2 p) {
+    highp vec2 i = floor(p);
+    highp vec2 f = fract(p);
+    highp vec2 u = f * f * (3.0 - 2.0 * f);
+    highp float a = hash(i);
+    highp float b = hash(i + vec2(1.0, 0.0));
+    highp float c = hash(i + vec2(0.0, 1.0));
+    highp float d = hash(i + vec2(1.0, 1.0));
+    return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+}
+
+highp float fbm(highp vec2 p) {
+    highp float v = 0.0;
+    highp float a = 0.5;
+    for (int i = 0; i < 4; i++) {
+        v += a * vnoise(p);
+        p = p * 2.03 + vec2(19.7, 7.3);
+        a *= 0.5;
+    }
+    return v;
+}
+
+void fragment() {
+    // Screen-space coords: rect draws bind the white pixel texture, so UV can't
+    // be trusted for noise. Scale both axes by 1/height for square cells.
+    highp vec2 uv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE.y;
+
+    // Steady wind plus a counter-drifting domain warp: the deck visibly churns
+    // instead of sitting still or scrolling as a rigid sheet.
+    highp vec2 wind = TIME * vec2(0.11, 0.035);
+
+    if (WISP > 0.0) {
+        // Tops layer: bigger, slightly faster puffs riding above the deck.
+        // Thresholded alpha keeps the gaps fully clear so the world underneath
+        // stays readable; the offset frequency/speed gives parallax against
+        // the deck's own churn. No early return — swsl fragment bodies get
+        // inlined, and a bare return skips the wrapper's output handling.
+        highp vec2 wp = uv * 3.2 + wind * 3.0;
+        highp float wn = fbm(wp + 1.4 * fbm(wp * 0.6 - wind * 4.5));
+        highp float w = smoothstep(0.45, 0.8, wn);
+        // Against a near-white deck a bright puff is invisible; each wisp gets
+        // a shaded rim (low wn near the threshold edge) rising to a hot core,
+        // so the read is a dark outline around a bright blob.
+        highp float shade = mix(0.55, 1.3, smoothstep(0.45, 0.95, wn));
+        COLOR = vec4(CLOUD_COLOR * shade, w * WISP);
+    } else {
+        highp vec2 p = uv * 5.0 + wind * 2.0;
+        highp float n = fbm(p + 1.4 * fbm(p * 0.6 - wind * 3.5));
+        // Sharpen the field before shading: raw fbm hugs the midtones and
+        // washes out to flat white once CLOUD_COLOR is bright.
+        n = smoothstep(0.25, 0.85, n);
+
+        // Shaded troughs, bright tops.
+        highp vec3 col = CLOUD_COLOR * mix(0.45, 1.15, n);
+
+        highp float cover = clamp(COVERAGE, 0.0, 1.0);
+        highp float alpha = clamp(cover * (0.45 + 1.1 * cover) + (n - 0.5) * 0.8 * cover, 0.0, 1.0);
+        // Full deck must be fully opaque everywhere; cloud texture lives in RGB.
+        if (cover >= 0.999) {
+            alpha = 1.0;
+        }
+
+        COLOR = vec4(col, alpha);
+    }
+}
