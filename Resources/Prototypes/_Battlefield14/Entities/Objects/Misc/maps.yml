@@ -72,6 +72,32 @@
           color: "#4f94ad"
           requireDetailRange: true
 
+- type: entity
+  parent: BaseBattlemap
+  id: MapBengalsk
+  name: 'map (bengalsk)'
+  description: It's a map of Bengalsk, in the Russian Federation. The red squares mark objectives.
+  components:
+    - type: Item
+      size: Tiny
+      storedSprite:
+        sprite: _Battlefield14/Objects/Misc/maps.rsi
+        state: bengalsk-storage
+    - type: Sprite
+      sprite: _Battlefield14/Objects/Misc/maps.rsi
+      state: bengalsk
+#      scale: 0.7, 0.7
+    - type: TabletopGame
+      size: 384, 130
+      setup:
+        !type:TabletopEmptySetup
+        boardPrototype: PhotoMapBengalsk
+    - type: ExtendDescription
+      descriptionList:
+        - description: To use, place on the floor, hover over the item, and tap E on the keyboard.
+          color: "#4f94ad"
+          requireDetailRange: true
+
 # Image protos
 
 - type: entity
@@ -102,4 +128,14 @@
   components:
   - type: Sprite
     sprite: _Battlefield14/GroundMaps/Springfield.rsi
+    state: map
+
+- type: entity
+  parent: BaseBoardTabletop
+  id: PhotoMapBengalsk
+  name: map of Bengalsk
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/GroundMaps/Bengalsk.yml
     state: map
