@@ -10,7 +10,7 @@ public abstract partial class CESharedZLevelsSystem
     public static int MaxZLevelsBelowRendering = 10;
     public const float ZLevelOffset = 0.7f;
 
-    public const float ZGravityForce = 3.0f;
+    public const float ZGravityForce = 9.8f;
     private const float ZVelocityLimit = 20.0f;
     private const int MaxStepsPerFrame = 10;
 

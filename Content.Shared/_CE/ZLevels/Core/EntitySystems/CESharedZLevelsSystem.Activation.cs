@@ -62,10 +62,18 @@ public abstract partial class CESharedZLevelsSystem
     {
         RefreshBody(entity);
 
-        if (ZPhysicsQuery.TryComp(args.OldParent, out var oldParentPhysics))
-            SetZPosition((entity, entity), oldParentPhysics.LocalPosition);
-        else if (ZPhysicsQuery.HasComp(Transform(entity).ParentUid))
-            SetZPosition((entity, entity), 0);
+        // Height inheritance only applies to lateral parent swaps (stepping on/off a
+        // grid within the same z-level). Cross-map parent changes are z-hops: TryMove
+        // reparents onto the destination grid mid-hop and ProcessZPhysics still owes
+        // the ±1 carry, so clobbering LocalPosition here yo-yos the entity between
+        // levels and leaves it "landed" one layer above the grid.
+        if (args.OldMapId == Transform(entity).MapUid)
+        {
+            if (ZPhysicsQuery.TryComp(args.OldParent, out var oldParentPhysics))
+                SetZPosition((entity, entity), oldParentPhysics.LocalPosition);
+            else if (ZPhysicsQuery.HasComp(Transform(entity).ParentUid))
+                SetZPosition((entity, entity), 0);
+        }
 
         SnapOutOfTransitMap(entity);
     }
