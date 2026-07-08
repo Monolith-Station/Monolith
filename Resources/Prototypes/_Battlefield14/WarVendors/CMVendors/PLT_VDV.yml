@@ -31,7 +31,7 @@
         name: RPG-30
         points: 1
 #      - id: CratePowerWeaponFilledM107 OSV-96 AMR
-#        name: M107 anti materiel rifle
+#        name: OSV-96 anti materiel rifle
     - name: anti-personnel solution
       entries:
       - id: CrateSecgearPACTFilledRPG26Thermobaric
@@ -42,4 +42,9 @@
         points: 1
       - id: BoxGrenadesK52
         name: sarin gas grenades
+        points: 1
+    - name: anti-vessel solution
+      entries:
+      - id: CrateSecgearPACTFilledIgla
+        name: Igla MANPADS
         points: 1
