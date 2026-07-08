@@ -118,6 +118,8 @@
       - id: MagazineSniperSVDS
         amount: 3
 
+#region gear
+
 - type: entity
   parent: ColMarTechBase
   id: CMVendPACTVDVWarVendorGear
@@ -208,6 +210,8 @@
       - id: ClothingOuterSoftsuitNASA
         amount: 50
 
+#region ammo
+
 - type: entity
   parent: ColMarTechBase
   id: CMVendPACTVDVWarVendorAmmo
@@ -257,6 +261,8 @@
         amount: 2
       - id: MagazineBox762x39
         amount: 5
+      - id: MagazineBox762x54r
+        amount: 4
       - id: MagazineBox9x19mmBig
         amount: 5
       - id: ShellBoxBF12GaugeBuckshot
@@ -267,6 +273,8 @@
         amount: 10
       - id: CrayonBox
         amount: 1
+
+#region ships
 
 - type: entity
   parent: ColMarTechBase
