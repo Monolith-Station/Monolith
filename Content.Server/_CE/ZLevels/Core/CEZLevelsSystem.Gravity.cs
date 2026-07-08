@@ -24,7 +24,13 @@ public sealed partial class CEZLevelsSystem
     [Dependency] private EntityQuery<PhysicsComponent> _physQuery = default!;
 
     private readonly List<Entity<MapGridComponent>> _gravityQueue = new();
-    private readonly HashSet<EntityUid> _gravgenHeldGrids = new();
+
+    /// <summary>
+    /// pzn: pooled MaxHandledMass of active gravgens per grid, rebuilt in one pass
+    /// each gravity sweep. PositiveInfinity = at least one unrated (unlimited)
+    /// generator. Falling grids read this every frame, so it must stay a lookup.
+    /// </summary>
+    private readonly Dictionary<EntityUid, float> _gravgenCapacity = new();
     private readonly TimeSpan _gravityCheckTimer = TimeSpan.FromSeconds(0.5);
     private TimeSpan _nextGravityCheckTime;
 
@@ -48,14 +54,19 @@ public sealed partial class CEZLevelsSystem
             _gravityQueue.Clear();
 
             // What actually holds a grid aloft is a working gravgen, the same thing
-            // GravitySystem.RefreshGravity scans for. Precompute the set of grids with
-            // an active generator so the gate below stays O(grids + gravgens).
-            _gravgenHeldGrids.Clear();
+            // GravitySystem.RefreshGravity scans for. Precompute pooled generator
+            // capacity per grid so the gate below stays O(grids + gravgens).
+            _gravgenCapacity.Clear();
             var gravgenQuery = EntityQueryEnumerator<GravityGeneratorComponent, TransformComponent>();
             while (gravgenQuery.MoveNext(out _, out var gravgen, out var gravgenXform))
             {
-                if (gravgen.GravityActive && gravgenXform.ParentUid.IsValid())
-                    _gravgenHeldGrids.Add(gravgenXform.ParentUid);
+                if (!gravgen.GravityActive || !gravgenXform.ParentUid.IsValid())
+                    continue;
+
+                // Unrated (<= 0) = unlimited; infinity absorbs any finite additions.
+                var rated = gravgen.MaxHandledMass <= 0f ? float.PositiveInfinity : gravgen.MaxHandledMass;
+                _gravgenCapacity[gravgenXform.ParentUid] =
+                    _gravgenCapacity.GetValueOrDefault(gravgenXform.ParentUid) + rated;
             }
 
             var levelQuery = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent>();
@@ -84,7 +95,7 @@ public sealed partial class CEZLevelsSystem
                 // ground-layer maps carry inherent gravity (so mobs on the ground don't
                 // float), which would mean no grid on them ever falls.
                 // Only a working gravgen on the grid itself keeps it aloft.
-                if (_gravgenHeldGrids.Contains(uid))
+                if (GridHasActiveGravgen(uid))
                     continue;
 
                 if (HasGroundUnderFootprint((uid, grid), mapUid))
@@ -303,19 +314,26 @@ public sealed partial class CEZLevelsSystem
     /// Whether any solid tile of the map lies under the grid's footprint.
     /// </summary>
     /// <summary>
-    /// Same check GravitySystem effectively does when refreshing grid gravity:
-    /// is there a gravgen parented to this grid that's actually producing gravity?
+    /// Same check GravitySystem effectively does when refreshing grid gravity —
+    /// is there a gravgen parented to this grid that's actually producing gravity? —
+    /// plus pzn mass limits: every active gravgen on the grid pools its
+    /// <see cref="GravityGeneratorComponent.MaxHandledMass"/>, and if the grid's
+    /// fixture mass (≈ tile count) exceeds the pooled capacity, the generators are
+    /// overloaded and can't hold the grid aloft.
     /// </summary>
     private bool GridHasActiveGravgen(EntityUid grid)
     {
-        var query = EntityQueryEnumerator<GravityGeneratorComponent, TransformComponent>();
-        while (query.MoveNext(out _, out var gravgen, out var xform))
-        {
-            if (gravgen.GravityActive && xform.ParentUid == grid)
-                return true;
-        }
+        // Reads the pooled capacity rebuilt each gravity sweep, so per-frame falling
+        // integration stays O(1). At worst the answer is one sweep (0.5s) stale —
+        // the same cadence the fall gate has always run on.
+        if (!_gravgenCapacity.TryGetValue(grid, out var capacity))
+            return false;
 
-        return false;
+        if (float.IsPositiveInfinity(capacity))
+            return true;
+
+        var mass = _physQuery.TryComp(grid, out var body) ? body.FixturesMass : 0f;
+        return mass <= capacity;
     }
 
     private bool HasGroundUnderFootprint(Entity<MapGridComponent> grid, EntityUid mapUid)

@@ -1,6 +1,7 @@
 using Content.Server.Emp; // Frontier: Upstream - #28984
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.Examine; // pzn: mass limit examine
 using Content.Shared.Gravity;
 
 namespace Content.Server.Gravity;
@@ -18,6 +19,19 @@ public sealed partial class GravityGeneratorSystem : EntitySystem
         SubscribeLocalEvent<GravityGeneratorComponent, ChargedMachineActivatedEvent>(OnActivated);
         SubscribeLocalEvent<GravityGeneratorComponent, ChargedMachineDeactivatedEvent>(OnDeactivated);
         // SubscribeLocalEvent<GravityGeneratorComponent, EmpPulseEvent>(OnEmpPulse); // Frontier: Upstream - #28984
+        SubscribeLocalEvent<GravityGeneratorComponent, ExaminedEvent>(OnExamined); // pzn: mass limit
+    }
+
+    // pzn: state the rated mass capacity so people know why their brick fell out of the sky
+    private void OnExamined(Entity<GravityGeneratorComponent> ent, ref ExaminedEvent args)
+    {
+        if (ent.Comp.MaxHandledMass <= 0f)
+            return;
+
+        // pzn: raw physics mass ("kilograms"). Yes, a tile is 0.5 of these.
+        // Players can do the math themselves.
+        args.PushMarkup(Loc.GetString("gravity-generator-examine-max-mass",
+            ("mass", (int) ent.Comp.MaxHandledMass)));
     }
 
     public override void Update(float frameTime)
