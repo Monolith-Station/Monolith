@@ -39,6 +39,74 @@ public abstract partial class CESharedZLevelsSystem
         return target.Comp.LocalPosition - target.Comp.CachedGroundHeight;
     }
 
+    /// <summary>
+    /// Continuous altitude of an entity above the floor of the z-level it occupies:
+    /// 0 while standing on the level, approaching 1 at the boundary above. Transit
+    /// riders report the gap's current progress; airborne entities (and entities
+    /// riding an airborne grid) their z-physics height. Levels below the entity are
+    /// then simply -1 per layer from this value.
+    /// </summary>
+    [PublicAPI]
+    public float GetLocalAltitude(EntityUid uid)
+    {
+        var xform = Transform(uid);
+
+        // Open air between two levels: the gap's progress is the altitude above its
+        // lower anchor.
+        if (TryComp<CEZTransitMapComponent>(xform.MapUid, out var transit))
+            return GetTransitProgress(transit);
+
+        if (ZPhysicsQuery.TryComp(uid, out var zPhys) && zPhys.LocalPosition > 0f)
+            return Math.Clamp(zPhys.LocalPosition, 0f, 1f);
+
+        // Standing on a grid that is itself climbing within the level.
+        if (xform.GridUid is { } grid && grid != uid && ZPhysicsQuery.TryComp(grid, out var gridPhys))
+            return Math.Clamp(gridPhys.LocalPosition, 0f, 1f);
+
+        return 0f;
+    }
+
+    /// <summary>
+    /// Absolute altitude of an entity within its z-stack: the depth of the level it
+    /// occupies plus its fractional local altitude above that level's floor. Entities
+    /// riding a transit gap report the lower anchor's depth plus the gap's progress,
+    /// so the value climbs continuously through a two-level ride. Distance between
+    /// two entities in the same stack is just the difference of their absolute
+    /// altitudes.
+    /// </summary>
+    [PublicAPI]
+    public float GetAbsoluteAltitude(EntityUid uid)
+    {
+        var xform = Transform(uid);
+        if (xform.MapUid is not { } mapUid)
+            return 0f;
+
+        // Open air between two levels: the ride starts at the lower anchor's depth.
+        if (TryComp<CEZTransitMapComponent>(mapUid, out var transit))
+        {
+            var lowerDepth = transit.LowerMap is { } lower && _zMapQuery.TryComp(lower, out var lowerMap)
+                ? lowerMap.Depth
+                : 0;
+            return lowerDepth + GetTransitProgress(transit);
+        }
+
+        var depth = _zMapQuery.TryComp(mapUid, out var map) ? map.Depth : 0;
+        return depth + GetLocalAltitude(uid);
+    }
+
+    /// <summary>
+    /// How far a transit gap's ride has climbed from its lower anchor toward its
+    /// upper one, 0..1.
+    /// </summary>
+    [PublicAPI]
+    public float GetTransitProgress(CEZTransitMapComponent transit)
+    {
+        if (transit.PrimaryGrid is { } grid && ZPhysicsQuery.TryComp(grid, out var zPhys))
+            return Math.Clamp(zPhys.LocalPosition, 0f, 1f);
+
+        return 0f;
+    }
+
     private void OnTileChanged(Entity<CEZMapComponent> ent, ref TileChangedEvent args)
     {
         if (!TryComp<MapGridComponent>(args.Entity, out var grid))
