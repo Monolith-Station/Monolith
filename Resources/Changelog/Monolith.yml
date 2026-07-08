@@ -22167,3 +22167,139 @@ Entries:
   id: 2448
   time: '2026-07-04T22:58:43.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4205
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Adds an additional RWR sound variant.
+  id: 2449
+  time: '2026-07-05T08:16:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4208
+- author: Mrrpip
+  changes:
+    - type: Remove
+      message: Remove missile sounds from Mass Scanner consoles.
+  id: 2450
+  time: '2026-07-05T08:18:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4210
+- author: kasature90
+  changes:
+    - type: Add
+      message: Readded TSF Fracture & Calypso.
+    - type: Tweak
+      message: Swapped Mercury's 4 Vesperas for 4 Paladins. gg
+  id: 2451
+  time: '2026-07-05T10:32:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4204
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: Tweaked aldebaran for more usefulness
+  id: 2452
+  time: '2026-07-05T10:49:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4201
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: Altair now has more sustained damage capabilities
+  id: 2453
+  time: '2026-07-05T10:59:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4202
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: drone control servers are no longer anchorable
+    - type: Fix
+      message: fixed carrier consoles not working for TSF/PDV
+  id: 2454
+  time: '2026-07-05T16:53:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4216
+- author: mnva0
+  changes:
+    - type: Fix
+      message: Trap Avoider no longer allows walking on lava or over chasms.
+  id: 2455
+  time: '2026-07-05T19:38:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4218
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Shipyard previewing now works properly.
+  id: 2456
+  time: '2026-07-06T23:14:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4235
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: jaguar had internals updated to better match tsf ships
+  id: 2457
+  time: '2026-07-07T00:26:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4228
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: Changed Dymere's projectile speed (buffed) and lifetime (reduced)
+    - type: Tweak
+      message: altair can now fire its main cannonade entirely frontally
+  id: 2458
+  time: '2026-07-07T00:30:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4219
+- author: EldritchPineapple
+  changes:
+    - type: Fix
+      message: Aldebaran got 3 (three) semiotics that were missing
+  id: 2459
+  time: '2026-07-07T00:31:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4217
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed ships with 4 letter designation suffixes (such as TSFN/USSP) being
+        fully renamable.
+  id: 2460
+  time: '2026-07-07T03:39:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4239
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Buffed Xian DMR movement speed. Now only 0.8x multiplier on wield.
+  id: 2461
+  time: '2026-07-07T16:25:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4238
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Buffed Iroh RPS
+  id: 2462
+  time: '2026-07-07T19:34:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4229
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added Chatranks for CC, MD, VG, USSP, TSF, and PDV. TSF gets selectable
+        chatranks in loadout, others don't because I'm lazy and nobody made full
+        ranks for them yet.
+  id: 2463
+  time: '2026-07-08T13:46:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4240
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Night vision has been updated using new systems from Wizden. Bright
+        lights hurt now, ouch.
+    - type: Tweak
+      message: >-
+        Added night vision to CV-32, CV-53, & CV-67, and added a basic
+        short-range NVD system to all hardsuits.
+  id: 2464
+  time: '2026-07-08T14:07:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4244
+- author: kasature90
+  changes:
+    - type: Remove
+      message: Removed Asakim.
+  id: 2465
+  time: '2026-07-08T15:58:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4246

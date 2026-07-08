@@ -16,7 +16,7 @@
   category: Small
   group: Custom
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
-  shuttlePath: /Maps/_Mono/Shuttles/Carrier/inertia.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Carrier/inertia.yml
   guidebookPage: Null
   class:
   - Fighter
@@ -27,7 +27,7 @@
 - type: gameMap
   id: Inertia
   mapName: 'QJ-490'
-  mapPath: /Maps/_Mono/Shuttles/Carrier/inertia.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Carrier/inertia.yml
   minPlayers: 0
   stations:
     Inertia:

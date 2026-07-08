@@ -2,10 +2,10 @@
 - type: startingGear
   id: MarsocFTLGear
   equipment:
-    jumpsuit: ClothingUniformTSFMC
+    jumpsuit: ClothingUniformTsfmcMopp
     back: ClothingBackpackERTLeader
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesHudMedSec
+    eyes: ClothingEyesHudNfsd
     ears: ClothingHeadsetAltTsfmcMarsocFtl
     gloves: ClothingHandsGlovesTacticalCombatBlack
     outerClothing: ClothingOuterHardsuitM86Mk4
@@ -17,7 +17,8 @@
     neck: ClothingNeckIFFCyan
     suitStorage: OxygenTankFilled
   inhand:
-  - WeaponRifleAnnie
+  - WeaponLMGMR8B
+  - GunAttachmentGripErebusLAM
   storage:
     back:
     - RadioHandheldNF
@@ -32,12 +33,12 @@
     - BluespaceLifelineImplanter
     - PinpointerUniversal
     belt:
-    - Magazine762x39mmFMJ
-    - Magazine762x39mmFMJ
-    - Magazine762x39mmFMJ
-    - Magazine762x39mmFMJ
-    - AmmoBox762x39mmFMJ
-    - AmmoBox762x39mmIncendiary
+    - Magazine8x65mmSKR
+    - Magazine8x65mmSKR
+    - Magazine8x65mmSKR
+    - Magazine8x65mmSKR
+    - AmmoBox8x65mmSKR
+    - AmmoBox8x65mmSKRIncendiary
     - MotionDetectorBorg
     - HandHeldMassScannerBorg
 
@@ -45,10 +46,10 @@
 - type: startingGear
   id: MarsocOperativeGear
   equipment:
-    jumpsuit: ClothingUniformTSFMC
+    jumpsuit: ClothingUniformTsfmcMopp
     back: ClothingBackpackERTLeader
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesHudMedSec
+    eyes: ClothingEyesHudNfsd
     ears: ClothingHeadsetAltTsfmcMarsoc
     gloves: ClothingHandsGlovesTacticalCombatBlack
     outerClothing: ClothingOuterHardsuitM86Mk4
@@ -60,7 +61,8 @@
     neck: ClothingNeckIFFCyan
     suitStorage: OxygenTankFilled
   inhand:
-  - WeaponRifleAnnie
+  - WeaponLMGMR8B
+  - GunAttachmentGripErebusLAM
   storage:
     back:
     - RadioHandheldNF
@@ -75,12 +77,12 @@
     - BluespaceLifelineImplanter
     - PinpointerUniversal
     belt:
-    - Magazine762x39mmFMJ
-    - Magazine762x39mmFMJ
-    - Magazine762x39mmFMJ
-    - Magazine762x39mmFMJ
-    - AmmoBox762x39mmFMJ
-    - AmmoBox762x39mmIncendiary
+    - Magazine8x65mmSKR
+    - Magazine8x65mmSKR
+    - Magazine8x65mmSKR
+    - Magazine8x65mmSKR
+    - AmmoBox8x65mmSKR
+    - AmmoBox8x65mmSKRIncendiary
     - MotionDetectorBorg
     - HandHeldMassScannerBorg
 
@@ -88,10 +90,10 @@
 - type: startingGear
   id: MarsocMarksmanGear
   equipment:
-    jumpsuit: ClothingUniformTSFMC
+    jumpsuit: ClothingUniformTsfmcMopp
     back: ClothingBackpackERTLeader
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesHudMedSec
+    eyes: ClothingEyesHudNfsd
     ears: ClothingHeadsetAltTsfmcMarsoc
     gloves: ClothingHandsGlovesTacticalCombatBlack
     outerClothing: ClothingOuterHardsuitM86Mk4
@@ -118,6 +120,7 @@
     - EnergySwordNfsd
     - BluespaceLifelineImplanter
     - PinpointerUniversal
+    - GunAttachmentOpticErebus4x
     belt:
     - Magazine8x65mmSKR
     - Magazine8x65mmSKR
@@ -132,10 +135,10 @@
 - type: startingGear
   id: MarsocCorpsmanGear
   equipment:
-    jumpsuit: ClothingUniformTSFMC
+    jumpsuit: ClothingUniformTsfmcMopp
     back: ClothingBackpackERTLeader
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesHudMedSec
+    eyes: ClothingEyesHudNfsd
     ears: ClothingHeadsetAltTsfmcMarsoc
     gloves: ClothingHandsGlovesTacticalCombatBlack
     outerClothing: ClothingOuterHardsuitM86Mk4
@@ -180,10 +183,10 @@
 - type: startingGear
   id: MarsocSGOGear
   equipment:
-    jumpsuit: ClothingUniformTSFMC
+    jumpsuit: ClothingUniformTsfmcMopp
     back: ClothingBackpackERTLeader
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesHudMedSec
+    eyes: ClothingEyesHudNfsd
     ears: ClothingHeadsetAltTsfmcMarsoc
     gloves: ClothingHandsGlovesTacticalCombatBlack
     outerClothing: ClothingOuterHardsuitM86Mk4
@@ -223,10 +226,10 @@
 - type: startingGear
   id: MarsocAutoriflemanGear
   equipment:
-    jumpsuit: ClothingUniformTSFMC
+    jumpsuit: ClothingUniformTsfmcMopp
     back: ClothingBackpackERTLeader
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesHudMedSec
+    eyes: ClothingEyesHudNfsd
     ears: ClothingHeadsetAltTsfmcMarsoc
     gloves: ClothingHandsGlovesTacticalCombatBlack
     outerClothing: ClothingOuterHardsuitM86Mk4
@@ -238,7 +241,8 @@
     neck: ClothingNeckIFFCyan
     suitStorage: OxygenTankFilled
   inhand:
-  - WeaponLMGGrizzly
+  - WeaponLMGMR8B
+  - GunAttachmentGripErebusVFG
   storage:
     back:
     - RadioHandheldNF
@@ -253,10 +257,93 @@
     - BluespaceLifelineImplanter
     - PinpointerUniversal
     belt:
-    - AmmoBox68x52mmCaseless
-    - AmmoBox68x52mmCaseless
-    - AmmoBox68x52mmCaseless
-    - AmmoBox68x52mmCaseless
-    - AmmoBox68x52mmCaselessBig
+    - Magazine8x65mmSKRBox
+    - Magazine8x65mmSKRBox
+    - Magazine8x65mmSKRBox
+    - Magazine8x65mmSKR
+    - AmmoBox8x65mmSKR
+    - MotionDetectorBorg
+    - HandHeldMassScannerBorg
+
+# Weapon specialist (AMR)
+- type: startingGear
+  id: MarsocSpecialistAMRGear
+  equipment:
+    jumpsuit: ClothingUniformTsfmcMopp
+    back: ClothingBackpackERTLeader
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesHudNfsd
+    ears: ClothingHeadsetAltTsfmcMarsoc
+    gloves: ClothingHandsGlovesTacticalCombatBlack
+    outerClothing: ClothingOuterHardsuitM86Mk4
+    shoes: ClothingShoesBootsMagAdv
+    id: MarsocPDA
+    pocket1: CrowbarPocket
+    pocket2: WeaponPistolMk58
+    belt: ClothingBeltWebbingsNormalTSFMC
+    neck: ClothingNeckIFFCyan
+    suitStorage: OxygenTankFilled
+  inhand:
+  - WeaponAMRShenzhen
+  storage:
+    back:
+    - RadioHandheldNF
+    - BaseSecurityUplinkRadioDeputy
+    - DoubleEmergencyOxygenTank
+    - MedkitCombatFilled
+    - MedkitCombatFilled
+    - SyringeCaseAltFilled
+    - JetpackMiniFilled
+    - EnergyShieldNfsd
+    - EnergySwordNfsd
+    - BluespaceLifelineImplanter
+    - PinpointerUniversal
+    belt:
+    - MagazineShenzhen
+    - MagazineShenzhen
+    - MagazineShenzhen
+    - AmmoBoxShenzhenBig
+    - MotionDetectorBorg
+    - HandHeldMassScannerBorg
+
+# Weapon specialist (TPGL)
+- type: startingGear
+  id: MarsocSpecialistTPGLGear
+  equipment:
+    jumpsuit: ClothingUniformTsfmcMopp
+    back: ClothingBackpackERTLeader
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesHudNfsd
+    ears: ClothingHeadsetAltTsfmcMarsoc
+    gloves: ClothingHandsGlovesTacticalCombatBlack
+    outerClothing: ClothingOuterHardsuitM86Mk4
+    shoes: ClothingShoesBootsMagAdv
+    id: MarsocPDA
+    pocket1: CrowbarPocket
+    pocket2: WeaponPistolMk58
+    belt: ClothingBeltWebbingsNormalTSFMC
+    neck: ClothingNeckIFFCyan
+    suitStorage: OxygenTankFilled
+  inhand:
+  - WeaponLauncherTSFAnubis
+  storage:
+    back:
+    - RadioHandheldNF
+    - BaseSecurityUplinkRadioDeputy
+    - DoubleEmergencyOxygenTank
+    - MedkitCombatFilled
+    - MedkitCombatFilled
+    - SyringeCaseAltFilled
+    - JetpackMiniFilled
+    - EnergyShieldNfsd
+    - EnergySwordNfsd
+    - BluespaceLifelineImplanter
+    - PinpointerUniversal
+    - Magazine35mmGrenade
+    - Magazine35mmGrenade
+    - Magazine35mmGrenade
+    belt:
+    - Magazine35mmGrenade
+    - Magazine35mmGrenade
     - MotionDetectorBorg
     - HandHeldMassScannerBorg
