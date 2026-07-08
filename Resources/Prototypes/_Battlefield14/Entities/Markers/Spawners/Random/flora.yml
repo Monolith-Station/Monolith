@@ -1,0 +1,19 @@
+- type: entity
+  id: RandomFloraTreeSnow
+  name: random snowy tree spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Objects/Decoration/Flora/flora_trees.rsi
+        state: tree01
+  - type: RandomSpawner
+    prototypes:
+      - FloraTreeSnow
+      - FloraTreeConifer
+    chance: 0.5
+    rarePrototypes:
+      - FloraTreeSnowOpaque
+      - FloraTreeConiferOpaque
+    rareChance: 0.5

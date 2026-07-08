@@ -1,21 +1,21 @@
 - type: gameMap
-  id: BF14Customs
-  mapName: 'Customs'
-  mapPath: /Maps/_Battlefield14/Planets/customs.yml
+  id: BF14Bengalsk
+  mapName: 'Bengalsk water treatment'
+  mapPath: /Maps/_Battlefield14/Planets/bengalsk.yml
   minPlayers: 1
   maxPlayers: 50
   randomRotation: false
   maxRandomOffset: 0
   stations:
-    BF14Customs:
+    BF14Bengalsk:
       stationProto: StandardFrontierStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: "Norvinsk, Russian Federation"
+          mapNameTemplate: "Bengalsk, Russian Federation"
         - type: ExtraStationInformation
           iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
-          stationSubtext: "Norvinsk, Russian Federation"
-          stationDescription: "A customs office in a war torn region of the Russian Federation."
+          stationSubtext: "Bengalsk, Russian Federation"
+          stationDescription: "A hybrid water treatment plant and spaceport, allowing Russians to get into the sky; for tourism to see the curve of the earth, or more recently to send soldiers to space stations."
           lobbySortOrder: 1
         - type: StationJobs
           availableJobs:
@@ -31,6 +31,9 @@
             VDVAutomaticRifleman: [ 3, 3 ]
             VDVMedic: [ 3, 3 ]
             VDVRecon: [ 3, 3 ]
-            RUScav: [ 6, 6 ]
-            RUScavGuard: [ 2, 2 ]
-            RUScavBoss: [ 1, 1 ]
+#            OMONLieutenant: [ 1, 1 ]
+#            OMONSquadLeader: [ 1, 1 ]
+#            OMONRifleman:  [ 2, 2 ]
+#            RUScav: [ 3, 4 ] # Some OMON guys and russian civilians
+        - type: StationBiome
+          biome: Snow

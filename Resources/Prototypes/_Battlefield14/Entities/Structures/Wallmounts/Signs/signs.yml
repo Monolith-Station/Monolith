@@ -1,0 +1,199 @@
+- type: entity
+  parent: BaseSign
+  id: BF14SignTresspass
+  name: no tresspassing sign
+  description: A sign, indicating that the public is not permitted into the area beyond.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: trespass
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignMcd
+  name: Mickey D's sign
+  description: A sign, indicating that you will love it.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    layers:
+      - state: mcd
+        offset: 0, 1
+      - state: mcd-pole
+    drawdepth: OverMobs
+  - type: SpriteFade
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignMcd2
+  name: Mickey D's menu sign
+  description: A sign with the Mickey D's menu printed on it.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: mcd2
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignMcd3
+  name: Mickey D's sign
+  description: Are you loving it yet?.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: mcd3
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignParking
+  name: parking sign
+  description: A sign for a parking area.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: parking
+    drawdepth: OverMobs
+  - type: SpriteFade
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignZebraCrossing
+  name: zebra crossing sign
+  description: STOP! DON'T RUN OVER THAT MAN!
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: zebracrossing
+    drawdepth: OverMobs
+    snapCardinals: false
+  - type: SpriteFade
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignStop
+  name: stop sign
+  description: STOP! T-BONE THAT FAMILY!
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: stop
+    drawdepth: OverMobs
+  - type: SpriteFade
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignDoNotEnter
+  name: do not enter sign
+  description: You feel like you should heed the warning.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: donotenter
+    drawdepth: OverMobs
+  - type: SpriteFade
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignVladimirPutin
+  name: Vladimir Putin picture
+  description: A framed graphic of current Russian president Vladimir Putin.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: vp
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignCafe
+  name: cafe sign
+  description: A sign indicating the nearby presence of a cafe.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: cafesign
+    drawdepth: OverMobs
+  - type: SpriteFade
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignCafeRu
+  name: cafe sign
+  description: A sign indicating the nearby presence of a cafe.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: cafesign_ru
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignCafeBar
+  name: bar sign
+  description: A sign indicating the nearby presence of a bar.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: barsign
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignYield
+  name: yield sign
+  description: A sign indicating that you must YIELD.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: yeld
+    drawdepth: OverMobs
+  - type: SpriteFade
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignGasoline
+  name: gasoline sign
+  description: A sign indicating the nearby presence of a gasoline service station.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: gasolinesign
+    drawdepth: OverMobs
+  - type: SpriteFade
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignRent
+  name: for rent sign
+  description: A sign indicating the nearby property is available for rent.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: rent
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignSale
+  name: sale sign
+  description: A sign indicating a sale.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: sale
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignCrossGreen
+  name: green cross sign
+  description: A sign indicating a medical presence without violating any conventions of war.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: greencross
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignBank
+  name: bank sign
+  description: A sign indicating the building attached is a bank.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: bank

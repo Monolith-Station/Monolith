@@ -328,7 +328,7 @@
     East: /Textures/Tiles/Planet/Snow/snow_double_edge_east.png
     North: /Textures/Tiles/Planet/Snow/snow_double_edge_north.png
     West: /Textures/Tiles/Planet/Snow/snow_double_edge_west.png
-  baseTurf: FloorDirt
+  baseTurf: FloorDirtBF14 #BF14
   itemDrop: FloorTileItemSnow # Delta V
   deconstructTools: [ Digging ] # Frontier
   # canShovel: true # Delta V # Frontier

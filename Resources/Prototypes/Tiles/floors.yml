@@ -1446,8 +1446,8 @@
   - 1.0
   - 1.0
   - 1.0
-  baseTurf: FloorDirt
-  isSubfloor: true
+  baseTurf: FloorDirtBF14 # BF14
+  isSubfloor: false #BF14
   footstepSounds:
     collection: FootstepTile
   heatCapacity: 10000

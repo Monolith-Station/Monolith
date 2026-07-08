@@ -1,6 +1,6 @@
 - type: entity
   id: VehicleTrubostrelAntiair
-  name: 9K23 Trubostrel
+  name: 9K23 Turbostrela
 #  suffix: Solfed
   description: That what you get if you put anti-air missiles with giant radar on a tank.
   parent: BaseStructure
@@ -10,6 +10,8 @@
   - type: Sprite
     sprite: _VXS14/Structures/Vehicles/trubostrel.rsi
     state: trubostrel
+    drawdepth: OverMobs # BF14
+  - type: SpriteFade # BF14
 #  - type: Gun
 #    cameraRecoilScalar: 0
 #    projectileSpeed: 100
@@ -46,13 +48,25 @@
 #    containers:
 #      ballistic-ammo: !type:Container
 #        ents: []
+  - type: Fixtures # BF14
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2.3,-1.3,2,1.2"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
+    damageModifierSet: BF_APC
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 1000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -65,9 +79,7 @@
 
 - type: entity
   id: VehicleTrubostrelAntiairSyndicate
-  name: 9K23 Trubostrel
   suffix: Syndicate
-  description: That what you get if you put anti-air missiles with giant radar on a tank.
   parent: VehicleTrubostrelAntiair
 #  components:
 #  - type: VXSManpadsLauncher
@@ -81,7 +93,7 @@
 
 - type: entity
   id: VehicleTrubostrelAntiairDestroyed
-  name: 9K23 Trubostrel wreck
+  name: 9K23 Turbostrela wreck
   description: Burned and nonfunctional remains of an anti-air system.
   parent: BaseStructure
   components:
@@ -90,13 +102,15 @@
   - type: Sprite
     sprite: _VXS14/Structures/Vehicles/trubostrel.rsi
     state: trubostrel_destructed
+    drawdepth: OverMobs # BF14
+  - type: SpriteFade # BF14
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 1000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -105,3 +119,14 @@
           SheetSteel1:
             min: 6
             max: 12
+  - type: Fixtures # BF14
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2.3,-1.3,2,1.2"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer

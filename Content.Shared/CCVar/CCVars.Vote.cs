@@ -62,7 +62,7 @@ public sealed partial class CCVars
     ///     Sets the duration of the map vote timer.
     /// </summary>
     public static readonly CVarDef<int>
-        VoteTimerMap = CVarDef.Create("vote.timermap", 150, CVar.SERVERONLY); // Mono - 30 seconds below lobby duration (180), although I don't see this being used.
+        VoteTimerMap = CVarDef.Create("vote.timermap", 30, CVar.SERVERONLY); // BF14 150 > 30 // Mono - 30 seconds below lobby duration (180), although I don't see this being used.
 
     /// <summary>
     ///     Sets the duration of the restart vote timer.
@@ -74,7 +74,7 @@ public sealed partial class CCVars
     ///     Sets the duration of the gamemode/preset vote timer.
     /// </summary>
     public static readonly CVarDef<int>
-        VoteTimerPreset = CVarDef.Create("vote.timerpreset", 150, CVar.SERVERONLY); // Mono - 30 seconds below lobby duration (180)
+        VoteTimerPreset = CVarDef.Create("vote.timerpreset", 30, CVar.SERVERONLY); // BF14 150 > 30 // Mono - 30 seconds below lobby duration (180)
 
     /// <summary>
     ///     Sets the duration of the map vote timer when ALONE.

@@ -29,6 +29,7 @@
   showInVote: true # objectives not working yet, could poison the view of the map into a mindless TDM
   supportedMaps: BF14MapPoolEarthUSA
   description: Larp and frag.
+  minPlayers: 6
   rules:
   - NFAdventure
 
@@ -40,5 +41,6 @@
   showInVote: true # objectives not working yet, could poison the view of the map into a mindless TDM
   supportedMaps: BF14MapPoolEarthRussia
   description: Larp and frag. Russian edition.
+  minPlayers: 6
   rules:
   - NFAdventure

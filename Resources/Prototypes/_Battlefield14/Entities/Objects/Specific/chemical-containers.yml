@@ -1,0 +1,107 @@
+- type: entity
+  name: jerry can
+  parent: BaseItem
+  id: BF14JerryCan
+  description: A tough metal can fitted with a specialized hot-refill outlet allowing risk-free refueling.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 200
+  - type: Sprite
+    sprite: _Civ14/Objects/barrel.rsi
+    layers:
+    - state: jerrycan
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: Item
+    size: Large
+#    sprite: _NF/Objects/Specific/Chemistry/jerrycan.rsi
+  - type: Openable
+    sound:
+      collection: bottleOpenSounds
+    closeable: true
+    closeSound:
+      collection: bottleCloseSounds
+  - type: MixableSolution
+    solution: tank
+  - type: RefillableSolution
+    solution: tank
+  - type: DrainableSolution
+    solution: tank
+  - type: ExaminableSolution
+    solution: tank
+  - type: DrawableSolution
+    solution: tank
+  - type: InjectableSolution
+    solution: tank
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: tank
+  - type: ReagentTank
+    tankType: Fuel
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: Drink
+    solution: tank
+    delay: 1.5
+    forceFeedDelay: 5
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "jerrycan_open"}
+          False: {state: "jerrycan"}
+  - type: StaticPrice
+    price: 10
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: tank
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetPlastic1:
+            min: 0
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Label
+  - type: TrashOnSolutionEmpty
+    solution: tank
+
+- type: entity
+  parent: BF14JerryCan
+  suffix: welding fuel
+  id: BF14JerryCanWeldingFuel
+  components:
+  - type: Label
+    currentLabel: reagent-name-welding-fuel
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 200
+  - type: StaticPrice
+    vendPrice: 500
