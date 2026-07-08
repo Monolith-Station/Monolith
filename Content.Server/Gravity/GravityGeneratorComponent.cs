@@ -18,7 +18,7 @@ namespace Content.Server.Gravity
         public bool GravityActive { get; set; } = false;
 
         /// <summary>
-        /// pzn: maximum grid mass (= tiles because robustdevs lazy as fuck) that this gravgen can take on planetmaps
+        /// pzn: maximum grid mass (= tiles / ShuttleSystem.TileDensityMultiplier because robustdevs lazy as fuck) that this gravgen can take on planetmaps
         /// </summary>
         [DataField]
         public float MaxHandledMass;
