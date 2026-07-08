@@ -1,0 +1,13 @@
+# Air blast kicked up around a ship's hull as it lifts off from a ground layer.
+- type: entity
+  id: CEZLiftoffDust
+  categories: [ HideSpawnMenu ]
+  save: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: Sprite
+    sprite: _CE/Effects/dust.rsi
+    state: dust
+    drawdepth: Effects
+    noRot: true

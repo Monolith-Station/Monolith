@@ -207,7 +207,7 @@ public sealed partial class NavScreen : BoxContainer
 
         if (gridXform.MapUid is { } mapUid)
         {
-            if (_entManager.TryGetComponent(mapUid, out CEZLevelMapComponent? zLevel))
+            if (_entManager.TryGetComponent(mapUid, out CEZMapComponent? zLevel))
             {
                 altitude = zLevel.Depth;
 
@@ -227,7 +227,7 @@ public sealed partial class NavScreen : BoxContainer
             }
             else if (_entManager.TryGetComponent(mapUid, out CEZTransitMapComponent? transit) &&
                      transit.LowerMap is { } lowerMap &&
-                     _entManager.TryGetComponent(lowerMap, out CEZLevelMapComponent? lowerZ))
+                     _entManager.TryGetComponent(lowerMap, out CEZMapComponent? lowerZ))
             {
                 var progress = 0f;
                 if (_entManager.TryGetComponent(_shuttleEntity, out CEZPhysicsComponent? zPhys))

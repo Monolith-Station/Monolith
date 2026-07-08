@@ -262,6 +262,19 @@ public abstract partial class CESharedZLevelsSystem
         WakeBody(ent);
     }
 
+    /// <summary>
+    /// Sets the seconds remaining in a ground-liftoff spool-up, for the shuttle console countdown.
+    /// </summary>
+    [PublicAPI]
+    public void SetLaunchCountdown(Entity<CEZPhysicsComponent?> ent, float seconds)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp) || ent.Comp.LaunchCountdown.Equals(seconds))
+            return;
+
+        ent.Comp.LaunchCountdown = seconds;
+        DirtyField(ent, ent.Comp, nameof(CEZPhysicsComponent.LaunchCountdown));
+    }
+
     [PublicAPI]
     public void UpdateGravityState(Entity<CEZPhysicsComponent?> ent)
     {

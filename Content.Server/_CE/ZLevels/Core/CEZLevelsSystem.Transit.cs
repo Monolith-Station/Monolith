@@ -16,8 +16,6 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Server._CE.ZLevels.Core;
 
-// TODO Mono: transit gravity (grid falling, pilot vertical flight, crash-landings)
-
 public sealed partial class CEZLevelsSystem
 {
     [Dependency] private ShuttleSystem _shuttle = default!;
@@ -46,7 +44,8 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Grids on a z-network need z-physics so transit progress can be tracked.
+    /// Grids arriving on a z-network get z-physics and a gravity grace period; grids
+    /// leaving it drop the gravity state so a return starts a fresh grace.
     /// </summary>
     private void RefreshGridZPhysics(EntityUid grid)
     {
@@ -54,9 +53,21 @@ public sealed partial class CEZLevelsSystem
             return;
 
         var mapUid = Transform(grid).MapUid;
+        var onZLevels = HasComp<CEZMapComponent>(mapUid) || HasComp<CEZTransitMapComponent>(mapUid);
 
-        if (HasComp<CEZMapComponent>(mapUid) || HasComp<CEZTransitMapComponent>(mapUid))
-            EnsureComp<CEZPhysicsComponent>(grid);
+        if (!onZLevels)
+        {
+            RemComp<CEZGridFallerComponent>(grid);
+            return;
+        }
+
+        EnsureComp<CEZPhysicsComponent>(grid);
+
+        if (!HasComp<CEZGridFallerComponent>(grid))
+        {
+            var faller = AddComp<CEZGridFallerComponent>(grid);
+            faller.GravityTime = _timing.CurTime + TimeSpan.FromSeconds(faller.GridGravityGraceSeconds);
+        }
     }
 
     /// <inheritdoc/>
