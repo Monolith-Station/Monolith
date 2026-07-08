@@ -194,6 +194,30 @@
     launchSpeed: 1
     maxSpeed: 90
     trackDelay: 2
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1
+        density: 1500
+        layer:
+        - WallLayer
+        mask:
+        - MachineMask
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 #region PACT
 
@@ -366,9 +390,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBomb
-    totalIntensity: 600
+    totalIntensity: 1000
     intensitySlope: 6
-    maxIntensity: 20
+    maxIntensity: 100
     maxTileBreak: 3
   - type: StaminaDamageOnCollide
     damage: 200 # LOL
