@@ -1,0 +1,89 @@
+- type: loadout
+  id: TsfnCorpsmanRankE2
+  name: TSFN Corpsmen E-2 (HA)
+  components:
+  - type: ChatRank
+    rank: tsfn-e2
+
+- type: loadout
+  id: TsfnCorpsmanRankE3
+  name: TSFN Corpsmen E-3 (HN)
+  components:
+  - type: ChatRank
+    rank: tsfn-e3
+
+- type: loadout
+  id: TsfnCorpsmanRankE4
+  name: TSFN Corpsmen E-4 (HM3)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCorpsmanHM3
+  components:
+  - type: ChatRank
+    rank: tsfn-e4
+
+- type: loadoutEffectGroup
+  id: TsfnCorpsmanHM3
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBrigmedic
+      time: 108000 # 30hr
+
+- type: loadout
+  id: TsfnCorpsmanRankE5
+  name: TSFN Corpsmen E-5 (HM2)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCorpsmanHM2
+  components:
+  - type: ChatRank
+    rank: tsfn-e5
+
+- type: loadoutEffectGroup
+  id: TsfnCorpsmanHM2
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBrigmedic
+      time: 180000 # 50hr
+
+- type: loadout
+  id: TsfnCorpsmanRankE6
+  name: TSFN Corpsmen E-6 (HM1)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCorpsmanHM1
+  components:
+  - type: ChatRank
+    rank: tsfn-e6
+
+- type: loadoutEffectGroup
+  id: TsfnCorpsmanHM1
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBrigmedic
+      time: 288000 # 80hr
+
+- type: loadout
+  id: TsfnCorpsmanRankE7
+  name: TSFN Corpsmen E-7 (HMC)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCorpsmanHMC
+  components:
+  - type: ChatRank
+    rank: tsfn-e7
+
+- type: loadoutEffectGroup
+  id: TsfnCorpsmanHMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBrigmedic
+      time: 360000 # 100hr

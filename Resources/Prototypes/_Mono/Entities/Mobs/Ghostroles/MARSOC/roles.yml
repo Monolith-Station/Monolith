@@ -160,6 +160,8 @@
   - type: MindShield
   - type: SurgerySpeedModifier
     speedModifier: 1.5
+  - type: ChatRank
+    rank: tsf-marsoc
 
 - type: roleLoadout
   id: RoleSurvivalTankOnly

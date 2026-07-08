@@ -27,6 +27,8 @@
         - MD
       - type: SurgerySpeedModifier
         SpeedModifier: 1.75
+      - type: ChatRank
+        rank: md-medic
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
