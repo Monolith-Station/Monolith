@@ -8,6 +8,7 @@ using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Actions;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -72,13 +73,32 @@ public sealed partial class CEZLevelsSystem
 
                 // Zoom (and anything else that widens the viewer's own PVS range)
                 // has to propagate to the z-eyes every update, not just at spawn.
+                // Zoom must be folded in explicitly: the client->server PvsScale
+                // request is admin-gated, so for regular players (e.g. shuttle
+                // console pilots zoomed way out) PvsScale never tracks Zoom.
+                var baseScale = srcEye.PvsScale * GetViewerZoom(uid, srcEye);
                 var eyeMap = Transform(eye).MapUid;
                 _eyeSystem.SetPvsScale(eye,
                     xform.MapUid is { } viewerMap && eyeMap is { } eyeMapUid
-                        ? GetZEyePvsScale(viewerMap, eyeMapUid, srcEye.PvsScale)
-                        : srcEye.PvsScale);
+                        ? GetZEyePvsScale(viewerMap, eyeMapUid, baseScale)
+                        : baseScale);
             }
         }
+    }
+
+    /// <summary>
+    /// The viewer's effective zoom for PVS purposes. On the server, EyeComponent.Zoom
+    /// is never written for regular players — content zoom goes through
+    /// ContentEyeComponent.TargetZoom, and only the *client* lerps that into
+    /// EyeComponent.Zoom (ContentEyeSystem.FrameUpdate/Update). Reading srcEye.Zoom
+    /// here would always yield 1, so prefer the server-authoritative TargetZoom.
+    /// </summary>
+    private float GetViewerZoom(EntityUid uid, EyeComponent srcEye)
+    {
+        var zoom = TryComp<ContentEyeComponent>(uid, out var contentEye)
+            ? contentEye.TargetZoom
+            : srcEye.Zoom;
+        return Math.Max(zoom.X, zoom.Y);
     }
 
     /// <summary>
@@ -168,7 +188,10 @@ public sealed partial class CEZLevelsSystem
             return;
 
         var globalPos = _transform.GetWorldPosition(xform);
-        var pvsScale = TryComp<EyeComponent>(ent, out var srcEye) ? srcEye.PvsScale : 1f;
+        // Fold Zoom in explicitly — PvsScale doesn't track it for non-admins (see UpdateDirtyViewers note).
+        var pvsScale = TryComp<EyeComponent>(ent, out var srcEye)
+            ? srcEye.PvsScale * GetViewerZoom(ent, srcEye)
+            : 1f;
         var coveredMaps = new HashSet<EntityUid> { map.Value };
 
         for (var i = 1; i <= MaxZLevelsBelowRendering; i++)

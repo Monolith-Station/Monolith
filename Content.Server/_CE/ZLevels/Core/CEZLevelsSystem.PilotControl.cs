@@ -90,6 +90,13 @@ public sealed partial class CEZLevelsSystem
     private const float ApproachGain = 1.2f;
     private const float TouchdownSpeed = 0.06f;
 
+    /// <summary>
+    /// A settling ship only exits transit once its vertical speed is at most this
+    /// (levels/second). Hotter approaches hold at the plane and bleed speed off
+    /// first instead of snapping out of transit at full tilt.
+    /// </summary>
+    private const float ExitTransitMaxSpeed = 0.1f;
+
     private readonly Dictionary<EntityUid, float> _pilotVerticalInput = new();
 
     /// <summary>

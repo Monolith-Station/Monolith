@@ -216,7 +216,7 @@ public sealed partial class CEZLevelsSystem
 
                 if (progress <= SettleZone)
                 {
-                    if (progress <= TouchdownProgress)
+                    if (progress <= TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
                         faller.Velocity = 0f;
                         TryExitTransit(grid);
@@ -227,7 +227,7 @@ public sealed partial class CEZLevelsSystem
                 }
                 else if (progress >= 1f - SettleZone && transit.UpperMap != null)
                 {
-                    if (progress >= 1f - TouchdownProgress)
+                    if (progress >= 1f - TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
                         faller.Velocity = 0f;
                         TryExitTransit(grid);
