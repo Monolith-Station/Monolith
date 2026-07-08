@@ -81,6 +81,55 @@
         requireDetailRange: true
 
 - type: entity
+  name: AK-74M
+  parent: WeaponRifleRUAK74
+  id: WeaponRifleRUAK74M
+  description: A modernised version of the successful AK-74 with polymer furniture.
+  components:
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK74.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    state: icon-ak74m
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: stock-ak74black
+      - state: grip-ak74black
+      - state: handguard-ak74black
+      - state: barrel-ak74
+      - state: ironsight-ak74
+      - state: mag-ak74black-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK74.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleAK74 # black
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleAK74
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle545x39
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle545x39
+  - type: MagazineVisuals
+    magState: mag-ak74black
+    steps: 1
+    zeroVisible: true
+
+- type: entity
   name: AKS-74u
   parent: WeaponRifleRUAK74
   id: WeaponRifleRUAKS74U
@@ -102,7 +151,7 @@
       - state: handguard-ak74
       - state: barrel-aks74u
       - state: ironsight-aks74u
-      - state: mag-74-0
+      - state: mag-ak74-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AKS74u.rsi
@@ -137,7 +186,7 @@
       - state: ironsight-aks74u
       - state: supp
         offset: -0.03, 0
-      - state: mag-74-0
+      - state: mag-ak74-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AKS74u.rsi
@@ -288,7 +337,7 @@
       - state: foregrip-polymer
       - state: barrel-aks74u
       - state: collimator-1p87
-      - state: mag-12-0
+      - state: mag-ak12-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK12.rsi
