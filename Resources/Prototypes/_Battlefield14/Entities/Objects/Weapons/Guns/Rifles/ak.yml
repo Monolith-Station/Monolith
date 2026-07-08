@@ -267,6 +267,46 @@
     pvsIncrease: 0.35
 
 - type: entity
+  name: AK-12SK
+  parent: WeaponRifleRUAK12
+  id: WeaponRifleRUAK12SK
+  description: A shorter version of the AK-12 rifle, with a slightly shorter barrel than the AK-12K (no S) and lacking the suppressor package.
+  components:
+  - type: Item
+    size: Large
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK12.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    state: icon-ak12
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: stock-ak12k
+      - state: handguard-ak12
+      - state: foregrip-polymer
+      - state: barrel-aks74u
+      - state: collimator-1p87
+      - state: mag-12-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK12.rsi
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -28
+  - type: Gun
+    minAngle: 26
+    maxAngle: 42
+    angleIncrease: 1.25
+    projectileSpeed: 40 # Shorter barrel
+    fireRate: 7
+    availableModes:
+    - SemiAuto
+    - FullAuto
+
+
+- type: entity
   name: AK-74 FSB MOD.
   parent: WeaponRifleRUAK74
   id: WeaponRifleRUAK74FSB
@@ -342,7 +382,6 @@
       - state: handguard-ak74
       - state: barrel-akm
       - state: ironsight-ak74
-        offset: -0.18, 0
       - state: mag-akm-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
