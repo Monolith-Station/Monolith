@@ -37,6 +37,8 @@
         - MD # mono faction
       - type: SurgerySpeedModifier
         SpeedModifier: 2
+      - type: ChatRank
+        rank: md-doc
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
