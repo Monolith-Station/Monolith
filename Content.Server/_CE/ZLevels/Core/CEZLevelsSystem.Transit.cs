@@ -44,6 +44,20 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
+    /// Maps can join a z-network after their grids already loaded; those grids never saw a
+    /// parent change, so sweep them for z-physics/faller state when the map joins.
+    /// </summary>
+    private void SweepMapGridsForZPhysics(EntityUid mapUid)
+    {
+        var children = Transform(mapUid).ChildEnumerator;
+        while (children.MoveNext(out var child))
+        {
+            if (HasComp<MapGridComponent>(child))
+                RefreshGridZPhysics(child);
+        }
+    }
+
+    /// <summary>
     /// Grids arriving on a z-network get z-physics and a gravity grace period; grids
     /// leaving it drop the gravity state so a return starts a fresh grace.
     /// </summary>

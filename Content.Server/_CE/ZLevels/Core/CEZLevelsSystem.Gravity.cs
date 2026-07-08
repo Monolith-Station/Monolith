@@ -24,6 +24,7 @@ public sealed partial class CEZLevelsSystem
     [Dependency] private EntityQuery<PhysicsComponent> _physQuery = default!;
 
     private readonly List<Entity<MapGridComponent>> _gravityQueue = new();
+    private readonly HashSet<EntityUid> _gravgenHeldGrids = new();
     private readonly TimeSpan _gravityCheckTimer = TimeSpan.FromSeconds(0.5);
     private TimeSpan _nextGravityCheckTime;
 
@@ -46,6 +47,17 @@ public sealed partial class CEZLevelsSystem
             // Collect first: entering/hopping transit adds components mid-query otherwise.
             _gravityQueue.Clear();
 
+            // What actually holds a grid aloft is a working gravgen, the same thing
+            // GravitySystem.RefreshGravity scans for. Precompute the set of grids with
+            // an active generator so the gate below stays O(grids + gravgens).
+            _gravgenHeldGrids.Clear();
+            var gravgenQuery = EntityQueryEnumerator<GravityGeneratorComponent, TransformComponent>();
+            while (gravgenQuery.MoveNext(out _, out var gravgen, out var gravgenXform))
+            {
+                if (gravgen.GravityActive && gravgenXform.ParentUid.IsValid())
+                    _gravgenHeldGrids.Add(gravgenXform.ParentUid);
+            }
+
             var levelQuery = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent>();
             while (levelQuery.MoveNext(out var uid, out var faller, out var grid))
             {
@@ -65,7 +77,14 @@ public sealed partial class CEZLevelsSystem
                 if (_physQuery.TryComp(uid, out var body) && body.BodyType == BodyType.Static)
                     continue;
 
-                if (!_grav.IsWeightless(uid))
+                // NOTE: Can't use IsWeightless() here - Monolith's rewrite requires a
+                // GravityAffectedComponent on the entity, which grids never have, so it
+                // always returns false for grids. Also can't use
+                // EntityGridOrMapHaveGravity(): it falls back to the parent *map*, and
+                // ground-layer maps carry inherent gravity (so mobs on the ground don't
+                // float), which would mean no grid on them ever falls.
+                // Only a working gravgen on the grid itself keeps it aloft.
+                if (_gravgenHeldGrids.Contains(uid))
                     continue;
 
                 if (HasGroundUnderFootprint((uid, grid), mapUid))
@@ -155,7 +174,7 @@ public sealed partial class CEZLevelsSystem
         }
 
         var progress = zPhys.LocalPosition;
-        var hasGravgen = TryComp<GravityComponent>(grid, out var gravity) && gravity.Enabled;
+        var hasGravgen = GridHasActiveGravgen(grid);
 
         if (!hasGravgen)
         {
@@ -283,6 +302,22 @@ public sealed partial class CEZLevelsSystem
     /// <summary>
     /// Whether any solid tile of the map lies under the grid's footprint.
     /// </summary>
+    /// <summary>
+    /// Same check GravitySystem effectively does when refreshing grid gravity:
+    /// is there a gravgen parented to this grid that's actually producing gravity?
+    /// </summary>
+    private bool GridHasActiveGravgen(EntityUid grid)
+    {
+        var query = EntityQueryEnumerator<GravityGeneratorComponent, TransformComponent>();
+        while (query.MoveNext(out _, out var gravgen, out var xform))
+        {
+            if (gravgen.GravityActive && xform.ParentUid == grid)
+                return true;
+        }
+
+        return false;
+    }
+
     private bool HasGroundUnderFootprint(Entity<MapGridComponent> grid, EntityUid mapUid)
     {
         if (!TryComp<MapGridComponent>(mapUid, out var mapGrid))

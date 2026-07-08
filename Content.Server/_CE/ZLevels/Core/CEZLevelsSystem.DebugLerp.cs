@@ -35,6 +35,12 @@ public sealed partial class CEZLevelsSystem
                     zPhys.Velocity = 0f;
                     DirtyField(gridUid, zPhys, nameof(CEZPhysicsComponent.Velocity));
                 }
+
+                // The gravity faller integrates its own fall speed independently of
+                // zPhys; if we don't clear it too, the whole lerp "free-falls" and
+                // touchdown registers as a crash impact.
+                if (TryComp<CEZGridFallerComponent>(gridUid, out var faller))
+                    faller.Velocity = 0f;
             }
 
             // Done, or the grid left transit (landed / deleted) under us.
