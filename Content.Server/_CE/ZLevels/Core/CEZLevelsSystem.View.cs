@@ -3,6 +3,7 @@
  * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
  */
 
+using System.Numerics;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Actions;
@@ -22,6 +23,7 @@ public sealed partial class CEZLevelsSystem
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private ViewSubscriberSystem _viewSubscriber = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedEyeSystem _eyeSystem = default!;
 
     private readonly EntProtoId _zEyeProto = "CEZLevelEye";
 
@@ -57,8 +59,8 @@ public sealed partial class CEZLevelsSystem
             return;
         _nextZLevelViewerUpdate = _timing.CurTime + _zLevelViewerUpdateRate;
 
-        var query = EntityQueryEnumerator<CEZLevelViewerComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var viewer, out var xform))
+        var query = EntityQueryEnumerator<CEZLevelViewerComponent, EyeComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var viewer, out var srcEye, out var xform))
         {
             foreach (var eye in viewer.Eyes)
             {
@@ -67,6 +69,10 @@ public sealed partial class CEZLevelsSystem
                     continue;
 
                 _transform.SetWorldPosition(eye, _transform.GetWorldPosition(xform));
+
+                // Zoom (and anything else that widens the viewer's own PVS range)
+                // has to propagate to the z-eyes every update, not just at spawn.
+                _eyeSystem.SetPvsScale(eye, srcEye.PvsScale);
             }
         }
     }
@@ -158,28 +164,54 @@ public sealed partial class CEZLevelsSystem
             return;
 
         var globalPos = _transform.GetWorldPosition(xform);
+        var pvsScale = TryComp<EyeComponent>(ent, out var srcEye) ? srcEye.PvsScale : 1f;
+        var coveredMaps = new HashSet<EntityUid> { map.Value };
 
         for (var i = 1; i <= MaxZLevelsBelowRendering; i++)
         {
             if (!TryMapOffset(map.Value, -i, out var mapUidBelow))
                 break;
 
-            var newEye = SpawnAtPosition(_zEyeProto, new EntityCoordinates(mapUidBelow, globalPos));
-
-            Transform(newEye).GridTraversal = false;
-            _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);
-            eyes.Add(newEye);
+            SpawnViewerEye(eyes, actor, mapUidBelow, globalPos, pvsScale);
+            coveredMaps.Add(mapUidBelow);
         }
 
         // We constantly load the upper z-level for the client so that you can quickly look up and climb stairs without PVS lag.
         if (TryMapUp(map.Value, out var aboveMapUid))
         {
-            var newEye = SpawnAtPosition(_zEyeProto, new EntityCoordinates(aboveMapUid, globalPos));
-
-            Transform(newEye).GridTraversal = false;
-            _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);
-            eyes.Add(newEye);
+            SpawnViewerEye(eyes, actor, aboveMapUid, globalPos, pvsScale);
+            coveredMaps.Add(aboveMapUid);
         }
+
+        // Grids transiting past any covered level must stream to this viewer too:
+        // both PVS contents and decal chunks key off view subscriptions.
+        var transitQuery = EntityQueryEnumerator<CEZTransitMapComponent>();
+        while (transitQuery.MoveNext(out var transitUid, out var transitComp))
+        {
+            if (transitUid == map.Value)
+                continue;
+
+            // A transit hop queues this rebuild AND deletes the old map in the same
+            // tick; never spawn an eye on a map that's already on death row.
+            if (TerminatingOrDeleted(transitUid) || EntityManager.IsQueuedForDeletion(transitUid))
+                continue;
+
+            if (transitComp.LowerMap is { } transitLower && coveredMaps.Contains(transitLower) ||
+                transitComp.UpperMap is { } transitUpper && coveredMaps.Contains(transitUpper))
+            {
+                SpawnViewerEye(eyes, actor, transitUid, globalPos, pvsScale);
+            }
+        }
+    }
+
+    private void SpawnViewerEye(HashSet<EntityUid> eyes, ActorComponent actor, EntityUid targetMap, Vector2 globalPos, float pvsScale)
+    {
+        var newEye = SpawnAtPosition(_zEyeProto, new EntityCoordinates(targetMap, globalPos));
+
+        Transform(newEye).GridTraversal = false;
+        _eyeSystem.SetPvsScale(newEye, pvsScale);
+        _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);
+        eyes.Add(newEye);
     }
 
     private void OnZLevelFall(Entity<CEZPhysicsComponent> ent, ref CEZLevelFallMapEvent args)
