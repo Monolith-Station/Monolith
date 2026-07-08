@@ -1,0 +1,570 @@
+- type: entity
+  name: M16A1
+  parent: BaseWeaponRifle
+  id: WeaponRifleUSM16A1
+  description: The original rifle that started the M16 and M4 family of rifles, nowadways most western made guns copy it.
+  components:
+  - type: Item # Controls inhand sprites
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M16A2.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    state: icon-full-M16A1
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: carryhandle
+      - state: stock-full
+      - state: rifle-length-barrel-M16
+      - state: mag-20-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M16A2.rsi
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -27
+  - type: Gun
+    minAngle: 26
+    maxAngle: 40
+    angleIncrease: 1
+    projectileSpeed: 55 # twenty inch barrel
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    selectedMode: FullAuto
+    soundGunshot:
+      collection: BF_M16_Gunshots
+      params:
+        volume: -5
+        variation: 0.125
+    fireRate: 7
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/_Battlefield14/Weapons/Guns/M16/rack.ogg
+      params:
+        volume: -2
+    soundBoltClosed:
+      path: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_chamber_press.ogg
+      params:
+        volume: -5
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleSTANAGShort
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleSTANAG
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle556x45
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle556x45
+  - type: MagazineVisuals
+    magState: mag-20
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: ExtendDescription
+    descriptionList:
+      - description: Takes STANAG magazines.
+        color: "#4f94ad"
+        requireDetailRange: true
+
+- type: entity
+  parent: WeaponRifleUSM16A1
+  id: WeaponRifleUSM16A130
+  suffix: 30 round STANAG
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: carryhandle
+      - state: stock-full
+      - state: rifle-length-barrel-M16
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleSTANAG
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleSTANAG
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle556x45
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle556x45
+  - type: MagazineVisuals
+    magState: mag-30
+    steps: 1
+    zeroVisible: true
+
+- type: entity
+  name: M16A2
+  parent: WeaponRifleUSM16A1
+  id: WeaponRifleUSM16A2
+  description: An old Stoner design, many rifles have tried to take its place and many have failed.
+  components:
+  - type: Item # Controls inhand sprites
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M16A2.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    state: icon-full-M16A2
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: carryhandle
+      - state: stock-full
+      - state: rifle-length-barrel-clamshell
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M16A2.rsi
+  - type: GunWieldBonus
+    minAngle: -29
+    maxAngle: -32
+  - type: Gun
+    minAngle: 29
+    maxAngle: 42
+    availableModes:
+    - SemiAuto
+    - Burst
+    selectedMode: Burst
+    burstFireRate: 16
+    burstCooldown: 0.3
+    fireRate: 4
+    projectileSpeed: 55 # twenty inch barrel
+    angleIncrease: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleSTANAG
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleSTANAG
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle556x45
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle556x45
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag-30
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: M16A3
+  parent: WeaponRifleUSM16A1
+  id: WeaponRifleUSM16A3
+  description: The classic American slugthrower.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: carryhandle
+      - state: stock-full
+      - state: rifle-length-barrel-clamshell
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    state: icon-full-M16A2
+  - type: Gun
+    projectileSpeed: 55 # twenty inch barrel
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleSTANAG
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleSTANAG
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle556x45
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle556x45
+  - type: MagazineVisuals
+    magState: mag-30
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: M16A4
+  parent: WeaponRifleUSM16A2
+  id: WeaponRifleUSM16A4
+  description: An old Stoner design, many rifles have tried to take its place and many have failed.
+  components:
+  - type: Item # Controls inhand sprites
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M16A4.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    state: icon-full-M16A4
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: acog
+      - state: stock-full
+      - state: rifle-length-barrel-quadrail
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M16A4.rsi
+  - type: Appearance
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 5
+    pvsIncrease: 0.35
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _Battlefield14/Interface/MousePointer/optics.rsi
+      state: acog
+
+- type: entity
+  name: XM177E2
+  parent: WeaponRifleUSM16A1
+  id: WeaponRifleUSXM177E2
+  description: A favorite of tacticool larpers and MAC V SOG commandos alike.
+  components:
+  - type: Item # Controls inhand sprites
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M4.rsi
+    size: Large
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    state: icon-full-M4A1
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: carryhandle
+      - state: stock-full-short
+      - state: carbine-length-barrel-XM177
+      - state: mag-20-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M4.rsi
+  - type: Gun
+    projectileSpeed: 40 # Shorter barrel
+
+- type: entity
+  name: M4A1 Carbine
+  parent: WeaponRifleUSM16A3
+  id: WeaponRifleUSM4A1
+  description: The classic American slugthrower.
+  components:
+  - type: Item # Controls inhand sprites
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M4A1.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    state: icon-full-M4A1
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: reddot
+      - state: stock-adjustable
+      - state: carbine-length-barrel-quadrail
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M4A1.rsi
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -27
+  - type: Gun
+    minAngle: 26
+    maxAngle: 40
+    angleIncrease: 1
+    projectileSpeed: 40 # Shorter barrel
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _Battlefield14/Interface/MousePointer/optics.rsi
+      state: M68
+
+- type: entity
+  name: M4A1 Carbine (ACOG)
+  parent: WeaponRifleUSM4A1
+  id: WeaponRifleUSM4A1ACOG
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: acog
+      - state: stock-adjustable
+      - state: carbine-length-barrel-quadrail
+      - state: foregrip
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleSTANAGTracerRed
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/M16/uc_m16_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleSTANAG
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle556x45TracerRed
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle556x45
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -27
+  - type: Gun
+    minAngle: 26
+    maxAngle: 40
+    angleIncrease: 1.5
+    projectileSpeed: 40 # Shorter barrel
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 5
+    pvsIncrease: 0.35
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _Battlefield14/Interface/MousePointer/optics.rsi
+      state: acog
+
+- type: entity
+  name: M4A1 Carbine SUPP.
+  parent: WeaponRifleUSM4A1
+  id: WeaponRifleUSM4A1SUPP
+  description: This is so CAG bro!.
+  components:
+  - type: Item # Controls inhand sprites
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M4A1SUPP.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    state: icon-full-M4A1
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: holosight
+      - state: stock-adjustable
+      - state: carbine-length-barrel-quadrail
+      - state: supp # Lower in YML = higher priority
+        offset: 0.15, 0
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M4A1SUPP.rsi
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -27
+  - type: Gun
+    minAngle: 26
+    maxAngle: 40
+    angleIncrease: 1
+    projectileSpeed: 40 # Shorter barrel
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    selectedMode: FullAuto
+    soundGunshot:
+      collection: BF_Galil_Gunshots_SUPP
+      params:
+        volume: -12
+        variation: 0.125
+    fireRate: 7
+  - type: Appearance
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _Battlefield14/Interface/MousePointer/optics.rsi
+      state: eotech
+
+- type: entity
+  name: CAR-15
+  parent: WeaponRifleUSM4A1
+  id: WeaponRifleUSCAR15
+  description: A favorite of tacticool larpers and MAC V SOG commandos alike.
+  components:
+  - type: Item # Controls inhand sprites
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M4.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    state: icon-full-M4A1
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: carryhandle
+      - state: stock-adjustable
+      - state: carbine-length-barrel-clamshell
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M4.rsi
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/rifle_mouse.rsi
+      state: all
+
+- type: entity
+  name: M4 Carbine
+  parent: WeaponRifleUSM4A1
+  id: WeaponRifleUSM4
+  description: Before the M4 was A1 it had a 3 round burst
+  components:
+  - type: Item # Controls inhand sprites
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M4.rsi
+    size: Large
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    state: icon-full-M4
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: carryhandle
+      - state: stock-adjustable
+      - state: carbine-length-barrel-quadrail
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M4.rsi
+  - type: GunWieldBonus
+    minAngle: -29
+    maxAngle: -32
+  - type: Gun
+    minAngle: 29
+    maxAngle: 42
+    angleIncrease: 1
+    projectileSpeed: 40 # Shorter barrel
+    availableModes:
+    - SemiAuto
+    - Burst
+    selectedMode: Burst
+    burstFireRate: 16
+    burstCooldown: 0.3
+    fireRate: 4
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/rifle_mouse.rsi
+      state: all
+
+- type: entity
+  name: AR-15 Police Carbine
+  parent: WeaponRifleUSM4A1
+  id: WeaponRifleUSAR15Police
+  description: An off the shelf AR-15 with some extra attachments and a law enforcement serial number.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: reddot
+      - state: stock-adjustable
+      - state: carbine-length-barrel-quadrail
+      - state: foregrip
+      - state: railcover
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -27
+  - type: Gun
+    minAngle: 26
+    maxAngle: 40
+    angleIncrease: 1
+    projectileSpeed: 40 # Shorter barrel
+    fireRate: 5
+    availableModes:
+    - SemiAuto
+    selectedMode: SemiAuto
+  - type: RandomMetadata
+    nameSegments: [names_AR15_police]
+
+- type: entity
+  name: AR-15
+  parent: WeaponRifleUSM4
+  id: WeaponRifleUSAR15
+  description: A civilian pattern of AR15 marred with barrel length and select fire laws, this is as good as an American man can get off the shelf without paying an arm and a leg.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: carryhandle
+      - state: stock-adjustable
+      - state: carbine-length-barrel-clamshell
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -27
+  - type: Gun
+    minAngle: 26
+    maxAngle: 40
+    angleIncrease: 1
+    projectileSpeed: 40 # Shorter barrel
+    fireRate: 5
+    availableModes:
+    - SemiAuto
+    selectedMode: SemiAuto

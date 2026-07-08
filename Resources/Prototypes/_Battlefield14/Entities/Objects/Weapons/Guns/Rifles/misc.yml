@@ -148,6 +148,10 @@
   id: WeaponRifleRUAEK971
   description: A rare and powerful piece, using a balanced recoil system the weapon manages to produce almost zero felt recoil to the shooter.
   components:
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AEK971.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AEK971.rsi
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AEK971.rsi
     layers:
@@ -171,6 +175,8 @@
     selectedMode: FullAuto
     fireRate: 10 # intended this is a power weapon
     projectileSpeed: 50 # why not son
+  - type: MagazineVisuals
+    magState: mag
 
 - type: entity
   name: Kord 6p68
