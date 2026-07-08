@@ -1,4 +1,4 @@
-# Western / west associated songs
+#region Western / west associated songs
 
  - type: jukebox
    id: littledarkage
@@ -103,7 +103,7 @@
     path: /Audio/_Battlefield14/Jukebox/shattered.ogg
 
 
-# Eastern / east associated songs
+#region Eastern / east associated songs
 
  - type: jukebox
    id: tripoloski
@@ -207,7 +207,13 @@
    path:
      path: /Audio/_Battlefield14/Jukebox/spacemarinessong.ogg
 
-# Misc
+ - type: jukebox
+   id: kah
+   name: kah - егорbez
+   path:
+     path: /Audio/_Battlefield14/Lobby/kah.ogg
+
+#region Misc
 
  - type: jukebox
    id: fighttothetop
