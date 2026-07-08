@@ -1,17 +1,5 @@
 - type: loadout
-  id: LoadoutMapCustoms
+  id: LoadoutMapSelector
   storage:
     back:
-    - MapCustoms
-
-- type: loadout
-  id: LoadoutMapTaurus
-  storage:
-    back:
-    - MapTaurus
-
-- type: loadout
-  id: LoadoutMapSpringfield
-  storage:
-    back:
-    - MapSpringfield
+    - BF14UndeterminedMap

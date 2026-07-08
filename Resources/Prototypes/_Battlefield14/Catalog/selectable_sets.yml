@@ -1,0 +1,29 @@
+- type: thiefBackpackSet
+  id: BF14Set_MapTaurus
+  name: Taurus
+  description: A map of Taurus, USA
+  sprite:
+    sprite: _Battlefield14/Objects/Misc/maps.rsi
+    state: taurus
+  content:
+  - MapTaurus
+
+- type: thiefBackpackSet
+  id: BF14Set_MapSpringfield
+  name: Springfield
+  description: A map of Springfield, USA
+  sprite:
+    sprite: _Battlefield14/Objects/Misc/maps.rsi
+    state: springfield
+  content:
+  - MapSpringfield
+
+- type: thiefBackpackSet
+  id: BF14Set_MapCustoms
+  name: Customs
+  description: A map of Norvinsk Customs, Russia
+  sprite:
+    sprite: _Battlefield14/Objects/Misc/maps.rsi
+    state: customs
+  content:
+  - MapCustoms
