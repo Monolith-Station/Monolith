@@ -27,3 +27,13 @@
     state: customs
   content:
   - MapCustoms
+
+- type: thiefBackpackSet
+  id: BF14Set_MapBengalsk
+  name: Bengalsk
+  description: A map of Bengalsk water treatment plant/spaceport, Russian federation
+  sprite:
+    sprite: _Battlefield14/Objects/Misc/maps.rsi
+    state: bengalsk
+  content:
+  - MapBengalsk
