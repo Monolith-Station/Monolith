@@ -22,9 +22,6 @@ public sealed partial class CEZLevelsSystem
     [Dependency] private DockingSystem _dockSystem = default!;
     [Dependency] private ShuttleConsoleSystem _console = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
-
-    // TODO Mono: swap for the CEPvsOverrideComponent port when the PVS/viewer
-    // task lands; the engine global override does the same job for grids.
     [Dependency] private PvsOverrideSystem _pvsOverride = default!;
 
     private void InitializeTransit()
@@ -252,7 +249,6 @@ public sealed partial class CEZLevelsSystem
             SetZPosition((gridUid, zPhys), progress);
 
             // Everyone gets to watch, not just PVS neighbours.
-            // TODO Mono: CEPvsOverrideComponent once the PVS port lands (task #3).
             _pvsOverride.AddGlobalOverride(gridUid);
 
             // In transit = airborne: engines are live regardless of direction
@@ -454,7 +450,6 @@ public sealed partial class CEZLevelsSystem
                 SetZVelocity((gridUid, zPhys), 0f);
             }
 
-            // TODO Mono: CEPvsOverrideComponent once the PVS port lands (task #3).
             _pvsOverride.RemoveGlobalOverride(gridUid);
 
             // Landing flattens whatever is under the hull, exactly like an FTL arrival —
