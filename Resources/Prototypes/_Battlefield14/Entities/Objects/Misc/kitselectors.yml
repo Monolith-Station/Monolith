@@ -1,0 +1,24 @@
+- type: entity
+  id: BF14UndeterminedMap
+  name: undetermined map
+  description: A ground map you haven't decided on yet.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+      - state: folder-base
+        color: '#000000'
+      - state: folder-colormap
+  - type: ThiefUndeterminedBackpack
+    possibleSets:
+    - BF14Set_MapTaurus
+    - BF14Set_MapSpringfield
+    - BF14Set_MapCustoms
+    maxSelectedSets: 1
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface

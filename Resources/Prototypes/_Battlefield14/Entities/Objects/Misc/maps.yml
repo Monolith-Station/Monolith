@@ -1,28 +1,5 @@
 - type: entity
   parent: BaseBattlemap
-  id: MapCustoms
-  name: 'hand drawn map (Norvinsk customs)'
-  description: It's a map of Norvinsk customs. Gotta give credit where it due, atleast this one isnt crumpled to hell like the last batch of maps.
-  components:
-    - type: Item
-      size: Tiny
-    - type: Sprite
-      sprite: _Battlefield14/Objects/Misc/maps.rsi
-      state: customs
-    - type: TabletopGame
-      size: 1438, 691
-      setup:
-        !type:TabletopEmptySetup
-        boardPrototype: PhotoMapCustoms
-    - type: ExtendDescription
-      descriptionList:
-        - description: To use, place on the floor, hover over the item, and tap E on the keyboard.
-          color: "#4f94ad"
-          requireDetailRange: true
-
-
-- type: entity
-  parent: BaseBattlemap
   id: MapTaurus
   name: 'map (taurus)'
   description: It's a map of Taurus, Florida. The red squares mark objectives.
@@ -67,6 +44,28 @@
       setup:
         !type:TabletopEmptySetup
         boardPrototype: PhotoMapSpringfield
+    - type: ExtendDescription
+      descriptionList:
+        - description: To use, place on the floor, hover over the item, and tap E on the keyboard.
+          color: "#4f94ad"
+          requireDetailRange: true
+
+- type: entity
+  parent: BaseBattlemap
+  id: MapCustoms
+  name: 'hand drawn map (Norvinsk customs)'
+  description: It's a map of Norvinsk customs. Gotta give credit where it due, atleast this one isnt crumpled to hell like the last batch of maps.
+  components:
+    - type: Item
+      size: Tiny
+    - type: Sprite
+      sprite: _Battlefield14/Objects/Misc/maps.rsi
+      state: customs
+    - type: TabletopGame
+      size: 1438, 691
+      setup:
+        !type:TabletopEmptySetup
+        boardPrototype: PhotoMapCustoms
     - type: ExtendDescription
       descriptionList:
         - description: To use, place on the floor, hover over the item, and tap E on the keyboard.

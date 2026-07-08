@@ -343,9 +343,7 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - LoadoutMapCustoms
-  - LoadoutMapTaurus
-  - LoadoutMapSpringfield
+  - LoadoutMapSelector
   - LoadoutMiscItemsHandheldStationMapUnpowered
 
 - type: loadoutGroup
