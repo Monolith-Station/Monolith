@@ -164,8 +164,8 @@
     - state: space_artillery
   - type: Appearance
   - type: FireControlRotate
-  - type: AutoShootGun
   - type: GunSignalControl
+  - type: AutoShootGun
   - type: WirelessNetworkConnection
     range: 700
   - type: DeviceLinkSink
@@ -240,6 +240,8 @@
     - state: space_artillery
   - type: Appearance
   - type: FireControlRotate
+  - type: GunSignalControl
+  - type: AutoShootGun
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 700
@@ -308,6 +310,8 @@
     - state: space_artillery
   - type: Appearance
   - type: FireControlRotate
+  - type: GunSignalControl
+  - type: AutoShootGun
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 700
@@ -376,6 +380,8 @@
     - state: space_artillery
   - type: Appearance
   - type: FireControlRotate
+  - type: GunSignalControl
+  - type: AutoShootGun
   - type: AmmoCounter
   - type: WirelessNetworkConnection
     range: 500
