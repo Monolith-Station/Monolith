@@ -133,6 +133,7 @@ public sealed partial class RadioSystem : EntitySystem
             return;
 
         var evt = new TransformSpeakerNameEvent(messageSource, MetaData(messageSource).EntityName);
+        evt.FromRadio = true; // Mono/Crescent - Chatranks
         RaiseLocalEvent(messageSource, evt);
 
         // Frontier: add name transform event

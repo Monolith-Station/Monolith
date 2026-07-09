@@ -29,6 +29,8 @@
     - type: NpcFactionMember
       factions:
       - USSP
+    - type: ChatRank
+      rank: ussp-sergeant
   - !type:AddLanguageSpecial
     languagesSpoken:
     - NovaCygniBasic

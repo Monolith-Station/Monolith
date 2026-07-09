@@ -32,6 +32,8 @@
     - type: NpcFactionMember
       factions:
       - PirateNF
+    - type: ChatRank
+      rank: pdv-asvaran
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages
