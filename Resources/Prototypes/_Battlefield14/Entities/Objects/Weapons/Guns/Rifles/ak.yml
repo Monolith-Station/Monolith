@@ -109,7 +109,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineRifleAK74 # black
+        startingItem: MagazineRifleAK74Black
         insertSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magin.ogg
         ejectSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magout.ogg
         priority: 2
@@ -224,18 +224,6 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK12.rsi
-  - type: GunWieldBonus
-    minAngle: -29
-    maxAngle: -34
-  - type: Gun
-    minAngle: 31
-    maxAngle: 42
-    availableModes:
-    - SemiAuto
-    - FullAuto
-    selectedMode: FullAuto
-    fireRate: 6
-    projectileSpeed: 45
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -255,10 +243,6 @@
         whitelist:
           tags:
             - BF_CartridgeRifle545x39
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag-ak12
     steps: 4
@@ -354,6 +338,32 @@
     - SemiAuto
     - FullAuto
 
+- type: entity
+  name: AK-12SK
+  parent: WeaponRifleRUAK12
+  id: WeaponRifleRUAK12SKTracerGreen
+  description: A shorter version of the AK-12 rifle, with a slightly shorter barrel than the AK-12K (no S) and lacking the suppressor package.
+  suffix: Tracer, Green
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleAK12TracerGreen
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/AK_545/uc_ak_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifleAK74
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle545x39TracerGreen
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle545x39
 
 - type: entity
   name: AK-74 FSB MOD.
@@ -507,7 +517,7 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: GunWieldBonus
     minAngle: -29
-    maxAngle: -34
+    maxAngle: -32
   - type: Gun # Improved recoil over the AKM
     minAngle: 31
     maxAngle: 40
@@ -575,6 +585,11 @@
   id: WeaponRifleRUAKMUDracoGold
   description: You feel richer just looking at this.
   components:
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/draco_gold.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/draco_gold.rsi
+    state: icon
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/draco_gold.rsi
     layers:

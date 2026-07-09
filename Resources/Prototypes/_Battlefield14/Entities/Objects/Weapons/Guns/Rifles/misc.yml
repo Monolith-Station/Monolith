@@ -26,7 +26,8 @@
     maxAngle: -20
   - type: Gun
     minAngle: 21
-    maxAngle: 32
+    maxAngle: 35
+    angleIncrease: 1
     availableModes:
     - SemiAuto
     - FullAuto
@@ -97,11 +98,12 @@
     unwieldOnUse: false
   - type: GunWieldBonus
     minAngle: -14
-    maxAngle: -17
+    maxAngle: -10
   - type: Gun
     minAngle: 16
     maxAngle: 30
-    angleIncrease: 1
+    angleIncrease: 3
+    angleDecay: 30
     projectileSpeed: 50
     availableModes:
     - SemiAuto

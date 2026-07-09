@@ -1,6 +1,4 @@
 - type: entity
-  # COMMENTED OUT: Missing parent 'BaseMagazineRifle'
-  # parent: BaseMagazineRifle
   parent: BaseMagazineRifle
   id: MagazineRifleAK74
   name: "AK-74 magazine (5.45x39mm)"
@@ -34,6 +32,34 @@
       - description: Has an AK-74 pattern locking system.
         color: "#4f94ad"
         requireDetailRange: true
+
+- type: entity
+  parent: MagazineRifleAK74
+  id: MagazineRifleAK74TracerGreen
+  name: "AK-74 magazine (5.45x39mm green tracer)"
+  components:
+  - type: BallisticAmmoProvider
+    proto: BF_CartridgeRifle545x39TracerGreen
+
+- type: entity
+  parent: MagazineRifleAK74
+  id: MagazineRifleAK74Black
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Rifle/AK74black.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: MagazineRifleAK74Black
+  id: MagazineRifleAK74BlackTracerGreen
+  name: "AK-74 magazine (5.45x39mm green tracer)"
+  components:
+  - type: BallisticAmmoProvider
+    proto: BF_CartridgeRifle545x39TracerGreen
 
 - type: entity
   parent: MagazineRifleAK74

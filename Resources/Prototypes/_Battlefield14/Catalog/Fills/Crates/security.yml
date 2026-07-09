@@ -151,7 +151,7 @@
   - type: StorageFill
     contents:
         - id: WeaponRifleUSM16A1
-          amount: 10
+          amount: 5
         - id: BoxMagazineSTANAGShort
           amount: 2
   - type: AccessReader
@@ -166,7 +166,7 @@
   - type: StorageFill
     contents:
         - id: WeaponRifleUSM16A2
-          amount: 10
+          amount: 5
         - id: BoxMagazineSTANAG
           amount: 2
   - type: AccessReader
@@ -181,7 +181,7 @@
   - type: StorageFill
     contents:
         - id: WeaponRifleUSM16A3
-          amount: 10
+          amount: 5
         - id: BoxMagazineSTANAG
           amount: 2
   - type: AccessReader
@@ -196,7 +196,7 @@
   - type: StorageFill
     contents:
         - id: WeaponRifleUSM16A4
-          amount: 10
+          amount: 5
         - id: BoxMagazineSTANAG
           amount: 2
   - type: AccessReader
@@ -374,7 +374,7 @@
   - type: StorageFill
     contents:
         - id: WeaponRifleRUAK12
-          amount: 10
+          amount: 5
         - id: BoxMagazineAK12
           amount: 2
   - type: AccessReader
@@ -389,8 +389,23 @@
   - type: StorageFill
     contents:
         - id: WeaponRifleRUAK74
-          amount: 10
+          amount: 5
         - id: BoxMagazineAK74
+          amount: 2
+  - type: AccessReader
+    access: [["PACTSoldier"]]
+
+- type: entity
+  id: CrateSecgearPACTFilledAK74M
+  suffix: Filled, AK-74M
+  parent: CrateSecgear
+  name: AK-74M crate
+  components:
+  - type: StorageFill
+    contents:
+        - id: WeaponRifleRUAK74M
+          amount: 5
+        - id: BoxMagazineAK74Black
           amount: 2
   - type: AccessReader
     access: [["PACTSoldier"]]
