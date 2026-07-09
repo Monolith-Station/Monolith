@@ -136,6 +136,126 @@ public sealed partial class CEZLevelsSystem
         {
             IntegrateFallingGrid(grid, frameTime);
         }
+
+        CheckTransitCollisions();
+    }
+
+    /// <summary>
+    /// pzn: transit sets passing through each other explode. Every transit set rides
+    /// its own map, so physics never sees the overlap — sweep pairs of transit maps
+    /// sharing the same gap and, when their vertical bands and footprints intersect,
+    /// let each set flatten the other (both ways, so whichever side is "in transit"
+    /// makes no difference).
+    /// </summary>
+    private readonly List<(EntityUid Map, CEZTransitMapComponent Transit, EntityUid Primary, float Progress)> _transitCollisionScan = new();
+
+    /// <summary>
+    /// Progress of every transit map on the previous gravity tick, used for the
+    /// pairwise crossing test in <see cref="CheckTransitCollisions"/>.
+    /// </summary>
+    private readonly Dictionary<EntityUid, float> _transitLastProgress = new();
+
+    private void CheckTransitCollisions()
+    {
+        _transitCollisionScan.Clear();
+
+        var query = EntityQueryEnumerator<CEZTransitMapComponent>();
+        while (query.MoveNext(out var uid, out var transit))
+        {
+            if (TerminatingOrDeleted(uid) || EntityManager.IsQueuedForDeletion(uid))
+                continue;
+
+            if (transit.PrimaryGrid is not { } primary ||
+                TerminatingOrDeleted(primary) ||
+                !ZPhysicsQuery.TryComp(primary, out var zPhys))
+            {
+                continue;
+            }
+
+            _transitCollisionScan.Add((uid, transit, primary, zPhys.LocalPosition));
+        }
+
+        for (var i = 0; i < _transitCollisionScan.Count; i++)
+        {
+            var a = _transitCollisionScan[i];
+
+            for (var j = i + 1; j < _transitCollisionScan.Count; j++)
+            {
+                var b = _transitCollisionScan[j];
+
+                // Only sets sharing the same gap can meet.
+                if (a.Transit.LowerMap != b.Transit.LowerMap || a.Transit.UpperMap != b.Transit.UpperMap)
+                    continue;
+
+                // Crossing test: collide only when the pair's vertical order flips
+                // (or they meet exactly) between ticks. Fires once at the crossing
+                // regardless of speed — a distance band would re-trigger every tick
+                // for slow sets and tunnel straight through for fast ones.
+                if (!_transitLastProgress.TryGetValue(a.Map, out var prevA) ||
+                    !_transitLastProgress.TryGetValue(b.Map, out var prevB))
+                {
+                    continue; // first tick tracked for this pair
+                }
+
+                var prevDelta = prevA - prevB;
+                var curDelta = a.Progress - b.Progress;
+
+                // Same ordering on both ticks — they never met.
+                if (prevDelta * curDelta > 0f)
+                    continue;
+
+                // Cheap broadphase before Smimsh: all z-maps share one coordinate
+                // space, so world AABBs compare directly across the two transit maps.
+                if (!TryGetGridSetAabb(a.Primary, out var setA, out var aabbA) ||
+                    !TryGetGridSetAabb(b.Primary, out var setB, out var aabbB) ||
+                    !aabbA.Intersects(aabbB))
+                {
+                    continue;
+                }
+
+                // Mutual crush: each set explodes whatever of the other sits in its
+                // footprint. CrushGrid deletes the victim, so this can't re-fire.
+                foreach (var gridUid in setA)
+                    _shuttle.Smimsh(gridUid, crushMap: b.Map, explodeGrids: true, ignoredGrids: setA);
+
+                foreach (var gridUid in setB)
+                {
+                    if (TerminatingOrDeleted(gridUid) || EntityManager.IsQueuedForDeletion(gridUid))
+                        continue;
+
+                    _shuttle.Smimsh(gridUid, crushMap: a.Map, explodeGrids: true, ignoredGrids: setB);
+                }
+            }
+        }
+
+        // Refresh tracking; clear-and-refill also prunes maps whose transit ended.
+        _transitLastProgress.Clear();
+        foreach (var entry in _transitCollisionScan)
+        {
+            _transitLastProgress[entry.Map] = entry.Progress;
+        }
+    }
+
+    /// <summary>
+    /// Collects a transit set and the union of its members' world AABBs.
+    /// </summary>
+    private bool TryGetGridSetAabb(EntityUid primary, out HashSet<EntityUid> set, out Box2 aabb)
+    {
+        set = CollectGridSet(primary);
+        aabb = default;
+
+        var first = true;
+        foreach (var gridUid in set)
+        {
+            if (!TryComp<MapGridComponent>(gridUid, out var grid))
+                continue;
+
+            var worldAabb = _transform.GetWorldMatrix(gridUid).TransformBox(grid.LocalAABB);
+            aabb = first ? worldAabb : aabb.Union(worldAabb);
+            first = false;
+        }
+
+        return !first;
     }
 
     /// <summary>
