@@ -414,13 +414,46 @@ public abstract partial class CESharedZLevelsSystem
 
         var worldRot = _transform.GetWorldRotation(ent);
 
-        _transform.SetMapCoordinates(ent, new MapCoordinates(_transform.GetWorldPosition(ent), targetMapComp.MapId));
+        // pzn: falling into the gap can still hit a set mid-transit — land on the
+        // transit map instead of clipping through to the level below.
+        var destMapId = targetMapComp.MapId;
+        if (offset < 0 && TryFindTransitLanding(ent, map.Value.Owner, targetMap.Owner, out var transitMapId))
+            destMapId = transitMapId;
+
+        _transform.SetMapCoordinates(ent, new MapCoordinates(_transform.GetWorldPosition(ent), destMapId));
         _transform.SetWorldRotation(ent, worldRot);
 
         var ev = new CEZLevelMapMoveEvent(offset, targetMap.Comp.Depth);
         RaiseLocalEvent(ent, ref ev);
 
         return true;
+    }
+
+    /// <summary>
+    /// pzn: when an entity falls from <paramref name="upperMap"/> toward
+    /// <paramref name="lowerMap"/>, checks whether a transit set occupying that gap
+    /// has a grid under the entity's world position. If so, the entity should land
+    /// on the transit map rather than passing through to the level below.
+    /// </summary>
+    private bool TryFindTransitLanding(EntityUid ent, EntityUid upperMap, EntityUid lowerMap, out MapId transitMapId)
+    {
+        transitMapId = MapId.Nullspace;
+        var worldPos = _transform.GetWorldPosition(ent);
+
+        var query = EntityQueryEnumerator<CEZTransitMapComponent, MapComponent>();
+        while (query.MoveNext(out _, out var transit, out var mapComp))
+        {
+            if (transit.UpperMap != upperMap || transit.LowerMap != lowerMap)
+                continue;
+
+            if (!_mapManager.TryFindGridAt(mapComp.MapId, worldPos, out _, out _))
+                continue;
+
+            transitMapId = mapComp.MapId;
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
