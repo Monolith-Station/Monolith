@@ -12,10 +12,10 @@
   - type: Mortar
     baseAccuracy: 0.5
     accuracyDegradation: 0.1
-    minOffsetX: -175
-    maxOffsetX: 175
-    minOffsetY: -175
-    maxOffsetY: 175
+    minOffsetX: -200
+    maxOffsetX: 200
+    minOffsetY: -200
+    maxOffsetY: 200
     minSafeDistance: 10
   - type: ContainerContainer
     containers:

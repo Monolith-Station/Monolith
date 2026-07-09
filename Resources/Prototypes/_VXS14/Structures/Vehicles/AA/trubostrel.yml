@@ -75,6 +75,8 @@
           VehicleTrubostrelAntiairDestroyed:
             min: 1
             max: 1
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
   - type: Appearance
 
 - type: entity
@@ -105,12 +107,13 @@
     drawdepth: OverMobs # BF14
   - type: SpriteFade # BF14
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
+    damageModifierSet: BF_APC
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -130,3 +133,5 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
