@@ -35,7 +35,7 @@ public sealed partial class GravityGeneratorSystem : EntitySystem
             // raw physics mass ("kilograms"). Yes, a tile is 0.5 of these.
             // Players can do the math themselves. Fuck you guys.
             args.PushMarkup(Loc.GetString("gravity-generator-examine-max-mass",
-                ("mass", (int) ent.Comp.MaxHandledMass)));
+                ("mass", (int)ent.Comp.MaxHandledMass)));
         }
 
         // will it lift
