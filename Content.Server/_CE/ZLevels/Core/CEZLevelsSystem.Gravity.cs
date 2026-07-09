@@ -336,6 +336,36 @@ public sealed partial class CEZLevelsSystem
         return mass <= capacity;
     }
 
+    /// <summary>
+    /// pzn: on-demand load readout for examine/UI: the grid's physics mass plus the
+    /// pooled rated capacity of every *active* gravgen on it, same rules as the
+    /// gravity sweep (negative = unlimited, 0 = no lift hardware). Unlike <see cref="GridHasActiveGravgen"/>
+    /// this recomputes instead of reading the throttled cache, so it's never stale.
+    /// </summary>
+    public bool TryGetGravgenLoad(EntityUid gridUid, out float gridMass, out float capacity)
+    {
+        gridMass = 0f;
+        capacity = 0f;
+
+        if (!HasComp<MapGridComponent>(gridUid))
+            return false;
+
+        var query = EntityQueryEnumerator<GravityGeneratorComponent, TransformComponent>();
+        while (query.MoveNext(out _, out var gravgen, out var xform))
+        {
+            if (!gravgen.GravityActive || xform.ParentUid != gridUid)
+                continue;
+
+            // pzn: negative rating = infinite lift; 0 = pure gravity, no lift hardware at all.
+            capacity += gravgen.MaxHandledMass < 0f ? float.PositiveInfinity : gravgen.MaxHandledMass;
+        }
+
+        if (_physQuery.TryComp(gridUid, out var body))
+            gridMass = body.FixturesMass;
+
+        return true;
+    }
+
     private bool HasGroundUnderFootprint(Entity<MapGridComponent> grid, EntityUid mapUid)
     {
         if (!TryComp<MapGridComponent>(mapUid, out var mapGrid))
