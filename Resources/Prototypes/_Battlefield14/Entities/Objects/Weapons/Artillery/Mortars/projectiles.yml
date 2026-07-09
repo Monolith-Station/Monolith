@@ -24,7 +24,7 @@
   - type: ProjectileGrenade
     triggerKey: trigger
     fillPrototype: BulletGrenadeM67Fragment
-    capacity: 50
+    capacity: 65
     randomAngle: true
     MaxVelocity: 10
     MinVelocity: 8
@@ -143,7 +143,7 @@
   - type: ProjectileGrenade
     triggerKey: trigger
     fillPrototype: BulletGrenadeF1Fragment
-    capacity: 50
+    capacity: 65
     randomAngle: true
     MaxVelocity: 10
     MinVelocity: 8
