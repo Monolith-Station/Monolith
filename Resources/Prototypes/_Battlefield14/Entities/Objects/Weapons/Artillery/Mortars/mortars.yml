@@ -12,11 +12,11 @@
   - type: Mortar
     baseAccuracy: 0.5
     accuracyDegradation: 0.2
-    minOffsetX: -80
-    maxOffsetX: 80
-    minOffsetY: -80
-    maxOffsetY: 80
-    minSafeDistance: 0
+    minOffsetX: -100
+    maxOffsetX: 100
+    minOffsetY: -100
+    maxOffsetY: 100
+    minSafeDistance: 4
   - type: ContainerContainer
     containers:
       mortar_chamber: !type:ContainerSlot
@@ -89,11 +89,11 @@
   - type: Mortar
     baseAccuracy: 0.5
     accuracyDegradation: 0.2
-    minOffsetX: -80
-    maxOffsetX: 80
-    minOffsetY: -80
-    maxOffsetY: 80
-    minSafeDistance: 0
+    minOffsetX: -100
+    maxOffsetX: 100
+    minOffsetY: -100
+    maxOffsetY: 100
+    minSafeDistance: 4
   - type: ContainerContainer
     containers:
       mortar_chamber: !type:ContainerSlot
