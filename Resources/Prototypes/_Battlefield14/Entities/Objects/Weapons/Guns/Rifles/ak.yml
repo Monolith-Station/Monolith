@@ -339,10 +339,8 @@
     - FullAuto
 
 - type: entity
-  name: AK-12SK
-  parent: WeaponRifleRUAK12
+  parent: WeaponRifleRUAK12SK
   id: WeaponRifleRUAK12SKTracerGreen
-  description: A shorter version of the AK-12 rifle, with a slightly shorter barrel than the AK-12K (no S) and lacking the suppressor package.
   suffix: Tracer, Green
   components:
   - type: ItemSlots

@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "license": "Custom",
+    "copyright": "Sprites by JoeHammad, do not re-use without permission",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "icon"
+        },
+        {
+            "name": "end"
+        },
+        {
+            "name": "end-torn"
+        },
+        {
+          "name": "inhand-left",
+          "directions": 4
+        },
+        {
+          "name": "inhand-right",
+          "directions": 4
+        }
+    ]
+}

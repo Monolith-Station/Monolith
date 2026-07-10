@@ -1,0 +1,45 @@
+- type: entity
+  parent: BaseItem
+  id: BF14AmmoPackTearable556x45Clips
+  name: ammunition packet (5.56x45mm stripper clips)
+  description: A vacuum sealed packet of 5.56x45mm ammunition, in the form of stripper clips. Contains 120 rounds of ammunition total.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Boxes/556pack.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: SpawnItemsOnUse
+    items:
+    - id: BF14AmmoPackTearable556x45ClipsOpen
+    sound:
+      path: /Audio/_Battlefield14/Weapons/Guns/misc/velcro_1.ogg
+      params:
+        variation: 0.125
+
+- type: entity
+  parent: [ BaseItem, BaseStorageItem ]
+  id: BF14AmmoPackTearable556x45ClipsOpen
+  name: ammunition packet (5.56x45mm stripper clips)
+  description: A vacuum sealed packet of 5.56x45mm ammunition, in the form of stripper clips. Contains 120 rounds of ammunition total.
+  suffix: open
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Boxes/556pack.rsi
+    layers:
+      - state: base
+      - state: end-torn
+  - type: Item
+    size: Normal
+  - type: Storage
+    defaultStorageOrientation: Vertical
+    maxItemSize: Small
+    grid:
+    - 0,0,5,3
+    whitelist:
+      tags:
+        - SpeedLoaderSTANAG
+  - type: StorageFill
+    contents:
+      - id: SpeedLoaderSTANAG
+        amount: 12
