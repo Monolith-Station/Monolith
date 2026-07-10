@@ -560,6 +560,15 @@ public sealed partial class CEZLevelsSystem
                 break;
             }
 
+            // A ground layer overhead is a solid ceiling from below: a ship rises through a
+            // hole in it but never punches through the ground itself. Mirror of the descent
+            // rule (which lands ON ground, never past it). Clamp to the underside and stop.
+            if (HasComp<CEZGroundLayerComponent>(topUpper) && ConvoyBlockedByCeiling(convoy[^1], topUpper))
+            {
+                progress = 1f;
+                break;
+            }
+
             if (!TryMapUp(topUpper, out _))
             {
                 // Top of the network: give on-demand generation a chance to extend it
@@ -643,6 +652,25 @@ public sealed partial class CEZLevelsSystem
             QueueDel(uid);
             QueueAllViewerUpdates();
         }
+    }
+
+    /// <summary>
+    /// Whether a ground layer overhead blocks the convoy's top layer from rising through it:
+    /// true if any of that layer's grids has solid ground tiles directly above its footprint.
+    /// A footprint clear of ground (a hole punched through it) lets the ship pass.
+    /// </summary>
+    private bool ConvoyBlockedByCeiling(EntityUid topTransitMap, EntityUid groundMap)
+    {
+        foreach (var grid in CollectGridsOnMap(topTransitMap))
+        {
+            if (TryComp<MapGridComponent>(grid, out var gridComp)
+                && HasGroundUnderFootprint((grid, gridComp), groundMap))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private bool LandTransitSet(Entity<MapGridComponent> grid)
