@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared._CE.ZLevels.Core.Components; // Mono/CE: planet (z-level map) detection
 using Content.Shared._EE.CCVar; // EE
 using Content.Shared.Gravity;
 using Content.Shared.Input; // Mono/CE
@@ -39,6 +40,7 @@ public abstract partial class SharedJetpackSystem : EntitySystem
 
         SubscribeLocalEvent<JetpackUserComponent, RefreshWeightlessModifiersEvent>(OnJetpackUserWeightlessMovement);
         SubscribeLocalEvent<JetpackUserComponent, CanWeightlessMoveEvent>(OnJetpackUserCanWeightless);
+        SubscribeLocalEvent<JetpackUserComponent, IsWeightlessEvent>(OnJetpackUserIsWeightless); // Mono/CE
         SubscribeLocalEvent<JetpackUserComponent, MagbootsToggledEvent>(OnJetpackUserMagbootsToggled); // Mono
         SubscribeLocalEvent<JetpackUserComponent, EntParentChangedMessage>(OnJetpackUserEntParentChanged);
         SubscribeLocalEvent<JetpackComponent, EntGotInsertedIntoContainerMessage>(OnJetpackMoved);
@@ -162,14 +164,29 @@ public abstract partial class SharedJetpackSystem : EntitySystem
         args.CanMove = true;
     }
 
+    /// <summary>
+    /// An active jetpack makes its wearer weightless, so it drifts (weightless movement) instead
+    /// of walking as if on solid ground — the actual "cancel gravity on your own" behaviour, and
+    /// it works in planet gravity too since it doesn't care what the grid does.
+    /// </summary>
+    private void OnJetpackUserIsWeightless(Entity<JetpackUserComponent> ent, ref IsWeightlessEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.IsWeightless = true;
+        args.Handled = true;
+    }
+
     private void OnJetpackUserEntParentChanged(EntityUid uid, JetpackUserComponent component, ref EntParentChangedMessage args)
     {
         // Frontier: note - comment from upstream, dead men tell no tales
         // No and no again! Do not attempt to activate the jetpack on a grid with gravity disabled. You will not be the first or the last to try this.
         // https://discord.com/channels/310555209753690112/310555209753690112/1270067921682694234
         if (TryComp<JetpackComponent>(component.Jetpack, out var jetpack)
-            && (!CanEnable(component.Jetpack, uid, jetpack)
-                || !UserNotParented(uid, jetpack))) // EE
+            && (!CanEnableOnGrid(args.Transform.GridUid)
+                || !UserNotParented(uid, jetpack) // EE
+                || !_gravity.IsWeightless(uid))) // Mono
         {
             SetEnabled(component.Jetpack, jetpack, false, uid);
 
@@ -211,7 +228,8 @@ public abstract partial class SharedJetpackSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!CanEnable(uid, args.Performer, component))
+        if (TryComp(uid, out TransformComponent? xform) && !CanEnableOnGrid(xform.GridUid)
+        || !IsWeightlessOrPlanet(args.Performer)) // Mono/CE
         {
             _popup.PopupClient(Loc.GetString("jetpack-no-station"), uid, args.Performer);
 
@@ -272,22 +290,34 @@ public abstract partial class SharedJetpackSystem : EntitySystem
         return HasComp<JetpackUserComponent>(uid);
     }
 
+    private bool CanEnableOnGrid(EntityUid? gridUid)
+    {
+        // No and no again! Do not attempt to activate the jetpack on a grid with gravity disabled. You will not be the first or the last to try this.
+        // https://discord.com/channels/310555209753690112/310555209753690112/1270067921682694234
+        return gridUid == null // EE
+        //||(!HasComp<GravityComponent>(gridUid)); // EE
+            || _config.GetCVar(EECCVars.JetpackEnableAnywhere) // EE
+            || IsPlanet(gridUid) // Mono/CE: a planet's gravity is on the map, not a gravgen — jetpacks ignore it.
+            || _config.GetCVar(EECCVars.JetpackEnableInNoGravity) // EE
+            && TryComp<GravityComponent>(gridUid, out var comp) // EE
+            && !comp.Enabled; // EE
+    }
+
+    // Mono/CE: whether the grid sits on a z-level map (a planet), whose gravity a jetpack ignores.
+    private bool IsPlanet(EntityUid? gridUid)
+    {
+        return gridUid is { } grid && HasComp<CEZMapComponent>(Transform(grid).MapUid);
+    }
+
+    // Mono/CE: jetpacks work where you're weightless, or over a planet (whose gravity they ignore).
+    private bool IsWeightlessOrPlanet(EntityUid user)
+    {
+        return _gravity.IsWeightless(user) || (TryComp(user, out TransformComponent? xform) && IsPlanet(xform.GridUid));
+    }
+
     protected virtual bool CanEnable(EntityUid uid, EntityUid user, JetpackComponent component)
     {
-        if (_config.GetCVar(EECCVars.JetpackEnableAnywhere))
-            return true;
-
-        var gridUid = TryComp(user, out TransformComponent? xform) ? xform.GridUid : null;
-
-        if (gridUid == null)
-            return true;
-
-        if (_gravity.IsWeightless(user))
-            return true;
-
-        return _config.GetCVar(EECCVars.JetpackEnableInNoGravity) // EE
-               && TryComp<GravityComponent>(gridUid, out var grav)
-               && !grav.Enabled;
+        return IsWeightlessOrPlanet(user); // Mono/CE
     }
 
     // EE: check parent
