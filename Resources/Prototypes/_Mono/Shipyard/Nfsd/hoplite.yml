@@ -3,7 +3,7 @@
   id: Hoplite
   parent: BaseVesselAntag
   name: TSF-PIN Hoplite
-  description: A patrol craft meant to intercept smugglers and light enemy craft with powerful engines and EMPs. It is equipped with 2 RUBICON, two plasma pulsers and two MARAUDER plasma cannons
+  description: A patrol craft meant to intercept light enemy craft with powerful engines and EMPs. It is equipped with 2 RUBICON, two plasma pulsers and two MARAUDER plasma cannons. Fast, deadly, and with some nice cargo space.
   price: 78500
   category: Small
   group: Security
@@ -24,6 +24,9 @@
   stations:
     Hoplite:
       stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "A small but powerful frame, beware of the thrusters' whiplash."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Hoplite TSF{1}'
