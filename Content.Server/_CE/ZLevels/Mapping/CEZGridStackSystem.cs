@@ -20,11 +20,11 @@ namespace Content.Server._CE.ZLevels.Mapping;
 /// layer of their own — so each deck goes onto baseDepth + its index, all at one world
 /// position. The connector pillars mapped into the decks knit them into a z-grid network.
 /// </summary>
-public sealed class CEZGridStackSystem : EntitySystem
+public sealed partial class CEZGridStackSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly CEZLevelsSystem _zLevels = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MapLoaderSystem _mapLoader = default!;
+    [Dependency] private CEZLevelsSystem _zLevels = default!;
 
     /// <summary>
     /// Loads every deck of <paramref name="protoId"/> onto <paramref name="network"/>, deck i

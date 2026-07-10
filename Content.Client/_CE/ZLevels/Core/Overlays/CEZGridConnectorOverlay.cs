@@ -22,14 +22,13 @@ namespace Content.Client._CE.ZLevels.Core.Overlays;
 /// editing. Cyan = the connector currently binds a grid there; lime = it's dangling over
 /// empty space. Toggle with <c>showgridconnectors</c>.
 /// </summary>
-public sealed class CEZGridConnectorOverlay : Overlay
+public sealed partial class CEZGridConnectorOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entityManager = null!;
-    [Dependency] private readonly IMapManager _mapManager = null!;
-
-    private readonly SharedTransformSystem _transform;
-    private readonly SharedMapSystem _mapSystem;
-    private readonly CEClientZLevelsSystem _zLevels;
+    [Dependency] private IEntityManager _entityManager = null!;
+    [Dependency] private IMapManager _mapManager = null!;
+    private SharedTransformSystem _transform;
+    private SharedMapSystem _mapSystem;
+    private CEClientZLevelsSystem _zLevels;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
@@ -100,9 +99,9 @@ public sealed class CEZGridConnectorOverlay : Overlay
     }
 }
 
-public sealed class CEShowGridConnectorsCommand : LocalizedCommands
+public sealed partial class CEShowGridConnectorsCommand : LocalizedCommands
 {
-    [Dependency] private readonly IOverlayManager _overlayManager = null!;
+    [Dependency] private IOverlayManager _overlayManager = null!;
 
     public override string Command => "showgridconnectors";
 

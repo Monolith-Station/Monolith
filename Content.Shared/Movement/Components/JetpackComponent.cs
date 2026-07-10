@@ -32,4 +32,18 @@ public sealed partial class JetpackComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public float DetectionRange = 256f;
+
+    /// <summary>
+    /// CE z-flight: top vertical speed (z-levels/second) the jetpack drives toward while the
+    /// shuttle ascend/descend keys are held. Only relevant on z-level maps.
+    /// </summary>
+    [DataField]
+    public float FlightMaxSpeed = 3f;
+
+    /// <summary>
+    /// CE z-flight: how sharply vertical velocity chases the ascend/descend input — higher
+    /// reaches top speed (and coasts back to a hover on release) faster.
+    /// </summary>
+    [DataField]
+    public float FlightResponsiveness = 8f;
 }
