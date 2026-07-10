@@ -3,6 +3,8 @@
  * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
  */
 
+using Robust.Shared.GameStates;
+
 namespace Content.Shared._CE.ZLevels.Core.Components;
 
 /// <summary>
@@ -10,7 +12,10 @@ namespace Content.Shared._CE.ZLevels.Core.Components;
 /// provided a tile exists at this position on that upper grid.
 /// Multiple connector entities can independently maintain the same grid pair.
 /// </summary>
-[RegisterComponent]
+/// <remarks>
+/// Networked (fieldless marker) so the client-side connector debug overlay can find them.
+/// </remarks>
+[RegisterComponent, NetworkedComponent]
 public sealed partial class CEZGridConnectorComponent : Component
 {
 }

@@ -27,6 +27,7 @@ public sealed partial class CEZGridConnectorSystem : EntitySystem
     [Dependency] private EntityQuery<CEZGridComponent> _zgridQuery = default!;
     [Dependency] private EntityQuery<CEZGridNetworkComponent> _zgridNetworkQuery = default!;
     [Dependency] private EntityQuery<CEZMapComponent> _zMapQuery = default!;
+    [Dependency] private EntityQuery<CEZTransitMapComponent> _transitQuery = default!;
 
     private bool _dirty;
 
@@ -228,13 +229,32 @@ public sealed partial class CEZGridConnectorSystem : EntitySystem
                 continue; //We do not support connecting grid to planet maps right now
 
             var lowerGridUid = xform.GridUid.Value;
-            if (!_zMapQuery.TryComp(xform.MapUid.Value, out var zMap))
+
+            // The layer above the connector: a z-level's map-above, or — while the stack
+            // is mid-transit — the transit map linked directly above this one. Walking the
+            // transit links keeps a network connected through transit instead of dissolving
+            // it the instant its grids leave the z-network maps. Dissolving mid-transit also
+            // stops the grid sync, so the layers drift apart and the connectors can never
+            // re-link on landing; keeping the edges alive here avoids that entirely.
+            EntityUid aboveMapUid;
+            if (_zMapQuery.TryComp(xform.MapUid.Value, out var zMap))
+            {
+                if (!_zLevels.TryMapUp((xform.MapUid.Value, zMap), out var aboveMap))
+                    continue;
+
+                aboveMapUid = aboveMap.Owner;
+            }
+            else if (_transitQuery.TryComp(xform.MapUid.Value, out var transit) && transit.TransitAbove is { } transitAbove)
+            {
+                aboveMapUid = transitAbove;
+            }
+            else
+            {
                 continue;
-            if (!_zLevels.TryMapUp((xform.MapUid.Value, zMap), out var aboveMap))
-                continue;
+            }
 
             var worldPos = _transform.GetWorldPosition(connectorUid);
-            if (!_mapManager.TryFindGridAt(aboveMap.Owner, worldPos, out var upperGridUid, out var upperGrid))
+            if (!_mapManager.TryFindGridAt(aboveMapUid, worldPos, out var upperGridUid, out var upperGrid))
                 continue;
             if (upperGridUid == lowerGridUid)
                 continue;

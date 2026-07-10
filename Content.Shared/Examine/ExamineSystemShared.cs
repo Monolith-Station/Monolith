@@ -22,6 +22,7 @@ namespace Content.Shared.Examine
         [Dependency] private SharedTransformSystem _transform = default!;
         [Dependency] private SharedContainerSystem _containerSystem = default!;
         [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+        [Dependency] private IEntityManager _entity = default!;
         [Dependency] protected MobStateSystem MobStateSystem = default!;
 
         public const float MaxRaycastRange = 100;
@@ -268,10 +269,17 @@ namespace Content.Shared.Examine
             var hasDescription = false;
             var metadata = MetaData(entity);
 
-            //Add an entity description if one is declared
-            if (!string.IsNullOrEmpty(metadata.EntityDescription))
+            // Add an entity description if one is declared
+            if (!string.IsNullOrEmpty(_entity.GetComponent<MetaDataComponent>(entity).EntityDescription))
             {
-                message.AddText(metadata.EntityDescription);
+                try
+                {
+                    message.AddMarkupOrThrow(_entity.GetComponent<MetaDataComponent>(entity).EntityDescription);
+                }
+                catch (Exception _)
+                {
+                    message.AddText(_entity.GetComponent<MetaDataComponent>(entity).EntityDescription);
+                }
                 hasDescription = true;
             }
 

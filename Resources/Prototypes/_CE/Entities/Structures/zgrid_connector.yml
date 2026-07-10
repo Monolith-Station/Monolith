@@ -1,0 +1,7 @@
+- type: entity
+  parent: WallReinforced
+  id: CEZGridConnector
+  name: connector pillar
+  description: Tethers this grid to the one above it.
+  components:
+  - type: CEZGridConnector
