@@ -101,6 +101,13 @@ public sealed partial class CEZLevelsSystem
                 if (HasGroundUnderFootprint((uid, grid), mapUid))
                     continue;
 
+                // A z-network falls as one rigid stack: it stays up when its pooled
+                // gravgen capacity covers the whole network's mass, or a member rests
+                // on ground. Unsupported networks enter transit together via the
+                // convoy path in TryEnterTransit.
+                if (TryGetGridNetwork(uid, out var supportNet) && NetworkHasSupport(supportNet))
+                    continue;
+
                 _gravityQueue.Add((uid, grid));
             }
 
@@ -128,6 +135,11 @@ public sealed partial class CEZLevelsSystem
             {
                 continue;
             }
+
+            // Convoy follower layers don't integrate — they mirror the lead layer's
+            // velocity inside IntegrateFallingGrid.
+            if ((transit.TransitAbove != null || transit.TransitBelow != null) && !transit.ConvoyLead)
+                continue;
 
             _gravityQueue.Add((primary, primaryGrid));
         }
@@ -305,7 +317,19 @@ public sealed partial class CEZLevelsSystem
         }
 
         var progress = zPhys.LocalPosition;
-        var hasGravgen = GridHasActiveGravgen(grid);
+
+        // Convoy-aware bounds: the stack lands on whatever is under its BOTTOM layer
+        // and settles up against whatever is above its TOP layer; any member's
+        // gravgen keeps the whole thing aloft (the connectors carry the load).
+        var convoy = GetConvoyMaps(xform.MapUid!.Value);
+        var groundMapBelow = Comp<CEZTransitMapComponent>(convoy[0]).LowerMap ?? lowerMap;
+        var topUpperMap = Comp<CEZTransitMapComponent>(convoy[^1]).UpperMap;
+
+        var transitSet = CollectTransitSet(grid);
+
+        // The whole rigid set hovers only if its generators' pooled capacity holds the
+        // set's pooled mass — not if any single member's generator holds only itself.
+        var hasGravgen = HasPooledGravgenSupport(transitSet);
 
         if (!hasGravgen)
         {
@@ -317,7 +341,7 @@ public sealed partial class CEZLevelsSystem
         }
         else
         {
-            var input = GetTransitVerticalInput(xform.MapUid!.Value);
+            var input = GetConvoyVerticalInput(convoy);
             var accel = GetVerticalThrustAccel(grid);
             var damp = Math.Max(accel, HoverDampAccel);
 
@@ -345,7 +369,7 @@ public sealed partial class CEZLevelsSystem
 
                     target = MathF.Max(TouchdownSpeed, progress * ApproachGain);
                 }
-                else if (progress >= 1f - SettleZone && transit.UpperMap != null)
+                else if (progress >= 1f - SettleZone && topUpperMap != null)
                 {
                     if (progress >= 1f - TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
@@ -363,7 +387,7 @@ public sealed partial class CEZLevelsSystem
             // Even under power you don't crater onto a ground layer: ease the descent
             // speed down to a distance-scaled cap. A non-ground plane can still be
             // punched through with the key held.
-            if (faller.Velocity > 0f && HasComp<CEZGroundLayerComponent>(lowerMap))
+            if (faller.Velocity > 0f && HasComp<CEZGroundLayerComponent>(groundMapBelow))
             {
                 var cap = MathF.Max(TouchdownSpeed, progress * ApproachGain);
                 if (faller.Velocity > cap)
@@ -372,10 +396,17 @@ public sealed partial class CEZLevelsSystem
         }
 
         // Mirror the fall speed onto the networked z-physics velocity (which uses the
-        // opposite sign: positive = up) so consoles can read it. Whole set, since a
-        // console may sit on a docked companion.
-        foreach (var member in CollectGridSet(grid))
+        // opposite sign: positive = up) so consoles can read it. Whole transit set,
+        // since a console may sit on a docked companion or another network layer.
+        // Follower fallers also track the lead's velocity so a mid-transit split
+        // leaves them falling at a real speed instead of resetting to zero.
+        foreach (var member in transitSet)
+        {
             SetZVelocity(member, -faller.Velocity);
+
+            if (member != grid.Owner && TryComp<CEZGridFallerComponent>(member, out var memberFaller))
+                memberFaller.Velocity = faller.Velocity;
+        }
 
         var altitude = lowerZ.Depth + progress - faller.Velocity * frameTime;
         if (!SetTransitAltitude(grid, altitude))
@@ -392,7 +423,14 @@ public sealed partial class CEZLevelsSystem
         if (impact < faller.GridCrashVelocity || !HasComp<CEZGroundLayerComponent>(Transform(grid).MapUid))
             return;
 
-        foreach (var landedUid in CollectGridSet(grid))
+        var crashSet = CollectGridSet(grid);
+        if (TryGetGridNetwork(grid, out var landedNetwork))
+        {
+            foreach (var member in landedNetwork.Comp.Grids)
+                crashSet.UnionWith(CollectGridSet(member));
+        }
+
+        foreach (var landedUid in crashSet)
         {
             if (TryComp<MapGridComponent>(landedUid, out var landedGrid) && TryComp<CEZGridFallerComponent>(landedUid, out var landedFaller))
                 CrashGrid((landedUid, landedGrid, landedFaller));
@@ -457,10 +495,69 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// pzn: on-demand load readout for examine/UI: the grid's physics mass plus the
-    /// pooled rated capacity of every *active* gravgen on it, same rules as the
-    /// gravity sweep (negative = unlimited, 0 = no lift hardware). Unlike <see cref="GridHasActiveGravgen"/>
-    /// this recomputes instead of reading the throttled cache, so it's never stale.
+    /// Whether the pooled rated capacity of every active gravity generator across a
+    /// set of rigidly-joined grids (a z-network, or a docked set) can hold the set's
+    /// pooled mass. Because the grids move as one body their generators share the
+    /// whole load, so capacity and mass are summed across the set rather than each
+    /// grid being weighed against only its own generators. An unrated generator
+    /// anywhere in the set lifts any finite load.
+    /// </summary>
+    private bool HasPooledGravgenSupport(IEnumerable<EntityUid> grids)
+    {
+        var capacity = 0f;
+        var mass = 0f;
+
+        foreach (var grid in grids)
+        {
+            if (_gravgenCapacity.TryGetValue(grid, out var gridCapacity))
+            {
+                if (float.IsPositiveInfinity(gridCapacity))
+                    return true;
+
+                capacity += gridCapacity;
+            }
+
+            if (_physQuery.TryComp(grid, out var body))
+                mass += body.FixturesMass;
+        }
+
+        // capacity > 0 means at least one active generator exists; a set with no lift
+        // hardware is never "supported" even when it happens to be massless.
+        return capacity > 0f && mass <= capacity;
+    }
+
+    /// <summary>
+    /// A z-network falls as one rigid stack: it is held up when its generators' pooled
+    /// capacity covers the whole network's mass, or when any single member is resting
+    /// on ground under its footprint (the connectors carry the rest).
+    /// </summary>
+    private bool NetworkHasSupport(Entity<CEZGridNetworkComponent> network)
+    {
+        if (HasPooledGravgenSupport(network.Comp.Grids))
+            return true;
+
+        foreach (var member in network.Comp.Grids)
+        {
+            if (Transform(member).MapUid is { } memberMap
+                && TryComp<MapGridComponent>(member, out var memberGrid)
+                && HasGroundUnderFootprint((member, memberGrid), memberMap))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// pzn: on-demand load readout for examine/UI: the pooled physics mass and the
+    /// pooled rated capacity of every *active* gravgen holding the grid up, same rules
+    /// as the gravity sweep (negative = unlimited, 0 = no lift hardware). When the grid
+    /// belongs to a z-grid network the whole network is pooled — matching the pooled
+    /// support decision in <see cref="NetworkHasSupport"/> — so the readout reflects
+    /// whether the rigid stack actually stays aloft, not just this one grid. Unlike
+    /// <see cref="GridHasActiveGravgen"/> this recomputes instead of reading the
+    /// throttled cache, so it's never stale.
     /// </summary>
     public bool TryGetGravgenLoad(EntityUid gridUid, out float gridMass, out float capacity)
     {
@@ -470,18 +567,38 @@ public sealed partial class CEZLevelsSystem
         if (!HasComp<MapGridComponent>(gridUid))
             return false;
 
+        // A z-grid network shares its generators' lift across every member, so the
+        // load is pooled over the whole network; a lone grid answers for itself.
+        var networkGrids = TryGetGridNetwork(gridUid, out var network) ? network.Comp.Grids : null;
+
         var query = EntityQueryEnumerator<GravityGeneratorComponent, TransformComponent>();
         while (query.MoveNext(out _, out var gravgen, out var xform))
         {
-            if (!gravgen.GravityActive || xform.ParentUid != gridUid)
+            if (!gravgen.GravityActive)
+                continue;
+
+            var onSet = networkGrids != null
+                ? networkGrids.Contains(xform.ParentUid)
+                : xform.ParentUid == gridUid;
+            if (!onSet)
                 continue;
 
             // pzn: negative rating = infinite lift; 0 = pure gravity, no lift hardware at all.
             capacity += gravgen.MaxHandledMass < 0f ? float.PositiveInfinity : gravgen.MaxHandledMass;
         }
 
-        if (_physQuery.TryComp(gridUid, out var body))
+        if (networkGrids != null)
+        {
+            foreach (var member in networkGrids)
+            {
+                if (_physQuery.TryComp(member, out var memberBody))
+                    gridMass += memberBody.FixturesMass;
+            }
+        }
+        else if (_physQuery.TryComp(gridUid, out var body))
+        {
             gridMass = body.FixturesMass;
+        }
 
         return true;
     }

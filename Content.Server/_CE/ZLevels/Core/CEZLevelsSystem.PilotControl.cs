@@ -159,16 +159,30 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Vertical acceleration available to a docked set, in levels/s²: the sum of
+    /// Net vertical input across every layer of a transit convoy: pilots anywhere in
+    /// the stack vote on where the whole thing goes.
+    /// </summary>
+    private float GetConvoyVerticalInput(List<EntityUid> convoyMaps)
+    {
+        var total = 0f;
+        foreach (var convoyMap in convoyMaps)
+            total += GetTransitVerticalInput(convoyMap);
+
+        return Math.Clamp(total, -1f, 1f);
+    }
+
+    /// <summary>
+    /// Vertical acceleration available to a transit set, in levels/s²: the sum of
     /// every member's thrusters over the set's total mass. Direction doesn't matter
-    /// — every engine gimbals for lift.
+    /// — every engine gimbals for lift. Network members on the same layer count:
+    /// connectors transmit thrust just like they transmit support.
     /// </summary>
     private float GetVerticalThrustAccel(EntityUid grid)
     {
         var thrust = 0f;
         var mass = 0f;
 
-        foreach (var member in CollectGridSet(grid))
+        foreach (var member in CollectTransitSet(grid))
         {
             if (TryComp<ShuttleComponent>(member, out var shuttle))
             {

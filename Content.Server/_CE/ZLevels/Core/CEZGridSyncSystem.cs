@@ -53,6 +53,21 @@ public sealed partial class CEZGridSyncSystem : VirtualController
 
         SubscribeLocalEvent<CEZGridComponent, MoveEvent>(OnGridMoved);
         SubscribeLocalEvent<CEZGridComponent, MassDataChangedEvent>(OnMassChanged);
+        SubscribeLocalEvent<CEZGridComponent, PhysicsBodyTypeChangedEvent>(OnGridBodyTypeChanged);
+    }
+
+    private void OnGridBodyTypeChanged(Entity<CEZGridComponent> ent, ref PhysicsBodyTypeChangedEvent args)
+    {
+        // Parking/unparking a member (Static <-> movable) flips whether the network is
+        // anchored, which the cached HasStaticAnchor must track — otherwise a stack that
+        // just took off stays flagged "static" and is frozen in place, and one that just
+        // landed keeps drifting. Membership and mass are unchanged, so only the flag needs
+        // refreshing, and only when the change actually crosses the static boundary.
+        if ((args.Old == BodyType.Static) == (args.New == BodyType.Static))
+            return;
+
+        if (_zlevels.TryGetGridNetwork(ent.Owner, out var network))
+            RecalculateNetworkCache(network);
     }
 
     private void OnGridLinked(Entity<CEZGridComponent> zGridEnt, ref CEGridAddedIntoZNetworkEvent ev)
@@ -423,10 +438,18 @@ public sealed partial class CEZGridSyncSystem : VirtualController
             if (net.Grids.Count < 2)
                 continue;
 
-            // Static networks are kept still by the velocity-zeroing pass in UpdateBeforeSolve; we do
-            // not reposition them here, so collisions read as real collisions rather than soft pins.
+            // Landed/anchored network: hard-pin members back to anchor+offset so an
+            // in-solve collision impulse can't slide the stack sideways. The pre-solve
+            // velocity zeroing stops steady drift but not displacement applied during the
+            // solve itself, and OnGridMoved can't catch those (they fire mid-tick), so
+            // without this the stack is locked vertically but leaks laterally.
             if (net.HasStaticAnchor)
+            {
+                EnsureAnchor(net);
+                if (HasValidAnchor(net))
+                    PinStaticNetwork(net);
                 continue;
+            }
 
             EnsureAnchor(net);
             if (!HasValidAnchor(net))
@@ -434,6 +457,39 @@ public sealed partial class CEZGridSyncSystem : VirtualController
 
             CorrectFlyingNetwork(net);
         }
+    }
+
+    // Landed/anchored network: re-pin every moveable member to its anchor-relative pose so
+    // the stack is locked laterally and rotationally, not just vertically. Only members the
+    // solve actually displaced are teleported, so an undisturbed stack costs nothing.
+    // SetWorldPositionRotation also zeroes the body velocity in Robust, killing any lateral
+    // impulse the solve imparted.
+    private void PinStaticNetwork(CEZGridNetworkComponent net)
+    {
+        var (anchorPos, anchorRot) = GetGridPose(net.AnchorGrid);
+
+        _syncing = true;
+        foreach (var gUid in net.Grids)
+        {
+            if (gUid == net.AnchorGrid || !_gridCompQuery.TryComp(gUid, out var comp))
+                continue;
+            if (!_physicsQuery.TryComp(gUid, out var body) || !IsMoveable(body))
+                continue;
+
+            var targetPos = anchorPos + anchorRot.RotateVec(comp.NetworkOffset);
+            var targetRot = anchorRot + comp.NetworkRotation;
+            var (curPos, curRot) = GetGridPose(gUid);
+
+            if ((curPos - targetPos).LengthSquared() < 1e-9f
+                && Math.Abs((curRot - targetRot).Theta) < 1e-6)
+            {
+                continue;
+            }
+
+            ApplyAnchorToGrid(gUid, comp, anchorPos, anchorRot);
+        }
+
+        _syncing = false;
     }
 
     // Flying network: redistribute momentum first (reads velocities before any teleport),

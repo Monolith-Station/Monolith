@@ -433,16 +433,36 @@ public sealed partial class ScalingViewport
 
         var strength = Math.Clamp(depth, 0f, 1f);
 
-        // Climbing into a cloud layer above the gap: veil the ship's own pixels
-        // with the deck color as it nears the clouds, seen from below.
+        // Veil the ship's own pixels with a cloud deck's color as it nears the layer,
+        // whichever side the cloud is on. A cloud ABOVE the gap (UpperMap) fogs the ship
+        // as it climbs into the deck from below; a cloud BELOW the gap (LowerMap) fogs it
+        // as it descends onto the tops from above — the case that previously had no veil,
+        // so descending ships stayed crisp and popped through the cloud plane.
+        // CloudCoverage is symmetric about the plane, so the distance to the layer feeds
+        // the same curve either way and the fog is continuous through the crossing.
         var cloud = 0f;
         var cloudColor = Vector3.One;
-        if (_entityManager.TryGetComponent(transitMap, out CEZTransitMapComponent? transit) &&
-            transit.UpperMap is { } upper &&
-            _entityManager.TryGetComponent(upper, out CEZCloudLayerComponent? cloudLayer))
+        if (_entityManager.TryGetComponent(transitMap, out CEZTransitMapComponent? transit))
         {
-            cloud = CloudCoverage(1f - GetTransitProgress(transit));
-            cloudColor = new Vector3(cloudLayer.CloudColor.R, cloudLayer.CloudColor.G, cloudLayer.CloudColor.B);
+            var progress = GetTransitProgress(transit);
+
+            if (transit.UpperMap is { } upper &&
+                _entityManager.TryGetComponent(upper, out CEZCloudLayerComponent? cloudAbove))
+            {
+                cloud = CloudCoverage(1f - progress);
+                cloudColor = new Vector3(cloudAbove.CloudColor.R, cloudAbove.CloudColor.G, cloudAbove.CloudColor.B);
+            }
+
+            if (transit.LowerMap is { } lower &&
+                _entityManager.TryGetComponent(lower, out CEZCloudLayerComponent? cloudBelow))
+            {
+                var belowCover = CloudCoverage(progress);
+                if (belowCover > cloud)
+                {
+                    cloud = belowCover;
+                    cloudColor = new Vector3(cloudBelow.CloudColor.R, cloudBelow.CloudColor.G, cloudBelow.CloudColor.B);
+                }
+            }
         }
 
         var screenHandle = renderHandle.DrawingHandleScreen;
