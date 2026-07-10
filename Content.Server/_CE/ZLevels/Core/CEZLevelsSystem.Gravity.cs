@@ -69,6 +69,14 @@ public sealed partial class CEZLevelsSystem
                     _gravgenCapacity.GetValueOrDefault(gravgenXform.ParentUid) + rated;
             }
 
+            // Mapping anchors are unlimited lift: a grid hosting one holds its whole network
+            // aloft regardless of mass (see CEZMappingAnchorComponent).
+            var anchorQuery = EntityQueryEnumerator<CEZMappingAnchorGridComponent>();
+            while (anchorQuery.MoveNext(out var anchorGrid, out _))
+            {
+                _gravgenCapacity[anchorGrid] = float.PositiveInfinity;
+            }
+
             var levelQuery = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent>();
             while (levelQuery.MoveNext(out var uid, out var faller, out var grid))
             {

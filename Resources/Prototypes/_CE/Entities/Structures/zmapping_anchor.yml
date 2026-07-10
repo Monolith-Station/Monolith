@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseStructure
+  id: CEZIslandAnchor
+  name: ancient anchor
+  description: Pulls a high amount of power from an unknown source and keeps the island held up. [color=red]Destroying this would collapse the entire structure.[/color]
+  components:
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    state: red
+    drawdepth: Overdoors
+  - type: CEZGridConnector
+    anchorBelow: true
+  - type: CEZMappingAnchor
+  - type: NodeContainer
+    nodes:
+      output:
+        !type:CableDeviceNode
+        nodeGroupID: Apc
+  - type: PowerSupplier
+    voltage: Apc
+    supplyRate: 15000
+    supplyRampRate: 15000
+    supplyRampTolerance: 15000
