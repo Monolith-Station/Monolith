@@ -297,19 +297,18 @@ public abstract partial class SharedJetpackSystem : EntitySystem
         return gridUid == null // EE
         //||(!HasComp<GravityComponent>(gridUid)); // EE
             || _config.GetCVar(EECCVars.JetpackEnableAnywhere) // EE
-            || IsPlanet(gridUid) // Mono/CE: a planet's gravity is on the map, not a gravgen — jetpacks ignore it.
+            || IsPlanet(gridUid) // Mono
             || _config.GetCVar(EECCVars.JetpackEnableInNoGravity) // EE
             && TryComp<GravityComponent>(gridUid, out var comp) // EE
             && !comp.Enabled; // EE
     }
 
-    // Mono/CE: whether the grid sits on a z-level map (a planet), whose gravity a jetpack ignores.
+    // politely ignore that you can't fly with gravity on planets
     private bool IsPlanet(EntityUid? gridUid)
     {
         return gridUid is { } grid && HasComp<CEZMapComponent>(Transform(grid).MapUid);
     }
 
-    // Mono/CE: jetpacks work where you're weightless, or over a planet (whose gravity they ignore).
     private bool IsWeightlessOrPlanet(EntityUid user)
     {
         return _gravity.IsWeightless(user) || (TryComp(user, out TransformComponent? xform) && IsPlanet(xform.GridUid));
