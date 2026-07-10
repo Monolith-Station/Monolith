@@ -169,7 +169,9 @@ public sealed partial class CEZGridSyncSystem : VirtualController
 
     private bool IsStaticAnchor(EntityUid gridUid)
     {
-        return _mapCompQuery.HasComponent(gridUid)
+        // A mapping anchor pins its whole network in place (see CEZMappingAnchorComponent).
+        return HasComp<CEZMappingAnchorGridComponent>(gridUid)
+               || _mapCompQuery.HasComponent(gridUid)
                || _physicsQuery.TryComp(gridUid, out var body)
                && !IsMoveable(body);
     }
