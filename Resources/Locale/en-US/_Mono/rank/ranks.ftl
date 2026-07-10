@@ -51,10 +51,25 @@ pdv-denasvar = Dns.
 pdv-asvaran = Asv.
 pdv-vizier = Grand Vizier
 
-### USSP ranks
-ussp-rifleman = Rfl.
-ussp-sergeant = Srz.
-ussp-commissar = Commissar
+### USSP loadout ranks
+
+### Rifleman Ranks
+ussp-or1 = Ryad.
+ussp-or2 = Efr.
+
+### Shared Rifle/Serzhant (Corporal Equivalent)
+ussp-or3 = MSzt.
+
+### Serzhant Ranks
+ussp-or4 = Szt.
+ussp-or5 = SSzt.
+ussp-or6 = Sts.
+
+### Comissar Ranks
+ussp-cm1 = Pol.
+ussp-cm2 = SPol.
+ussp-cm3 = BKom.
+
 
 ### VG ranks
 vg-infanteer = Inf.
