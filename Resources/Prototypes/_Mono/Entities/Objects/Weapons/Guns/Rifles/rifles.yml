@@ -5,7 +5,7 @@
   description: High powered, relatively fast-firing marksman rifle, intended for MARSOC usage. Chambered in 8x65mm SKR. An Erebus railmount is attached to the top of the reciever and the bottom of the handguard for optics and grips.
   components:
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/mr8c.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/xian.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -75,14 +75,14 @@
     zeroVisible: true
   - type: Appearance
   - type: Clothing
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/mr8c_inhands_32x.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/xian_inhands_32x.rsi
   - type: Item
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/mr8c_inhands_32x.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/xian_inhands_32x.rsi
   - type: StaticPrice
     price: 2400
   - type: SpeedModifiedOnWield
-    walkModifier: 0.65
-    sprintModifier: 0.5
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: ESAttachableGun
     slots:
     - name: es-gun-attachments-slot-name-optic
@@ -609,7 +609,7 @@
     maxAngle: 58
     angleIncrease: 1.5
     angleDecay: 20
-    fireRate: 7
+    fireRate: 9
     selectedMode: FullAuto
     damageModifier: 0.95 # Brings it down to 152.95 DPS from 161 DPS (assuming perfect accuracy with FMJ on an unarmored target); Lecter has less DPS, but Lecter also has really fucking good accuracy and is free roundstart.
     availableModes:
