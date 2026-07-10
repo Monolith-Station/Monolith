@@ -16,9 +16,9 @@ namespace Content.Server._CE.ZLevels.Mapping;
 /// last anchor from a grid drops the lift and the static lock, and re-runs the connector
 /// recalc so any network it held together re-derives.
 /// </summary>
-public sealed class CEZMappingAnchorSystem : EntitySystem
+public sealed partial class CEZMappingAnchorSystem : EntitySystem
 {
-    [Dependency] private readonly CEZGridConnectorSystem _connectors = default!;
+    [Dependency] private CEZGridConnectorSystem _connectors = default!;
 
     public override void Initialize()
     {

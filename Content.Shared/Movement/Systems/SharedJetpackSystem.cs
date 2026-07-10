@@ -1,14 +1,18 @@
 using Content.Shared.Actions;
 using Content.Shared._EE.CCVar; // EE
 using Content.Shared.Gravity;
+using Content.Shared.Input; // Mono/CE
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Configuration; // EE
 using Robust.Shared.Containers;
+using Robust.Shared.Input; // Mono/CE
+using Robust.Shared.Input.Binding; // Mono/CE
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player; // Mono/CE
 using Robust.Shared.Serialization;
 using Content.Shared.Clothing;
 using JetBrains.Annotations; // Mono
@@ -41,6 +45,48 @@ public abstract partial class SharedJetpackSystem : EntitySystem
 
         SubscribeLocalEvent<GravityChangedEvent>(OnJetpackUserGravityChanged);
         SubscribeLocalEvent<JetpackComponent, MapInitEvent>(OnMapInit);
+
+        CommandBinds.Builder
+            .Bind(ContentKeyFunctions.ShuttleAscend, new JetpackVerticalCmdHandler(this, ascend: true))
+            .Bind(ContentKeyFunctions.ShuttleDescend, new JetpackVerticalCmdHandler(this, ascend: false))
+            .Register<SharedJetpackSystem>();
+    }
+
+    public override void Shutdown()
+    {
+        base.Shutdown();
+        CommandBinds.Unregister<SharedJetpackSystem>();
+    }
+
+    private void SetJetpackVerticalInput(EntityUid user, bool ascend, bool held)
+    {
+        if (!TryComp<JetpackUserComponent>(user, out var jetpackUser))
+            return;
+
+        if (ascend)
+            jetpackUser.AscendHeld = held;
+        else
+            jetpackUser.DescendHeld = held;
+    }
+
+    private sealed class JetpackVerticalCmdHandler : InputCmdHandler
+    {
+        private readonly SharedJetpackSystem _system;
+        private readonly bool _ascend;
+
+        public JetpackVerticalCmdHandler(SharedJetpackSystem system, bool ascend)
+        {
+            _system = system;
+            _ascend = ascend;
+        }
+
+        public override bool HandleCmdMessage(IEntityManager entManager, ICommonSession? session, IFullInputCmdMessage message)
+        {
+            if (session?.AttachedEntity is { } user)
+                _system.SetJetpackVerticalInput(user, _ascend, message.State == BoundKeyState.Down);
+
+            return false;
+        }
     }
 
     private void OnJetpackUserWeightlessMovement(Entity<JetpackUserComponent> ent, ref RefreshWeightlessModifiersEvent args)

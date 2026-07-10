@@ -16,9 +16,9 @@ namespace Content.Server._CE.ZLevels.Mapping.Commands;
 [AdminCommand(AdminFlags.Server | AdminFlags.Mapping)]
 public sealed partial class CESpawnGridStackCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly CEZGridStackSystem _gridStack = default!;
+    [Dependency] private IEntityManager _entities = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private CEZGridStackSystem _gridStack = default!;
 
     public override string Command => "cez-spawn-stack";
 
