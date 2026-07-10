@@ -12,6 +12,7 @@
   - type: CartridgeAmmo
     proto: ShipRailgunProjectile
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
     layers:
@@ -36,6 +37,7 @@
   - type: CartridgeAmmo
     proto: ShipRailgunProjectileSubnuclear
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
     layers:

@@ -6923,7 +6923,7 @@ entities:
     - type: Transform
       pos: -3.5,42.5
       parent: 1
-- proto: APCHyperCapacity
+- proto: APCBasic
   entities:
   - uid: 7829
     components:
@@ -44669,7 +44669,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.520905,51.31806
       parent: 1
-- proto: ShipVoucherPdvT1Random
+- proto: ShipVoucherPdvT1
   entities:
   - uid: 4236
     components:

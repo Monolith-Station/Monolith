@@ -8,20 +8,20 @@
   category: Large
   group: Custom
   access: USSP
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attatchments/kopye.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/Ledokol/Attachments/kopye.yml
   guidebookPage: Null
 
 - type: gameMap
   id: Kopye
   mapName: 'Kopye'
-  mapPath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attatchments/kopye.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/Ledokol/Attachments/kopye.yml
   minPlayers: 0
   stations:
     Kopye:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Kopye MIL Ram{1}'
+          mapNameTemplate: 'Kopye USSP Ram{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

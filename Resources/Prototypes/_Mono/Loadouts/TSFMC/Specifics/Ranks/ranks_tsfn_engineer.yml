@@ -1,0 +1,25 @@
+- type: loadout
+  id: TsfnEngineerRankW1
+  name: TSFN W1 (WO)
+  components:
+  - type: ChatRank
+    rank: tsfn-w1
+
+- type: loadout
+  id: TsfnEngineerRankW2
+  name: TSFN W2 (CWO2)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnEngineerCWO2
+  components:
+  - type: ChatRank
+    rank: tsfn-w2
+
+- type: loadoutEffectGroup
+  id: TsfnEngineerCWO2
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobTsfEngineer
+      time: 144000 # 40hr

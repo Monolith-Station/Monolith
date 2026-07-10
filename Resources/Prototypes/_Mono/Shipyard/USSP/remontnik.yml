@@ -8,8 +8,8 @@
   price: 102000
   category: Medium
   group: Ussp
-  access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/remontnik.yml
+  access: USSP
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/remontnik.yml
   guidebookPage: Null
   class:
   - Engineering
@@ -20,18 +20,18 @@
 - type: gameMap
   id: Remontnik
   mapName: 'Remontnik'
-  mapPath: /Maps/_Mono/Shuttles/USSP/remontnik.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/remontnik.yml
   minPlayers: 0
   stations:
     Remontnik:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Remontnik MIL{1}'
+          mapNameTemplate: 'Remontnik USSP{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Mercenary: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]

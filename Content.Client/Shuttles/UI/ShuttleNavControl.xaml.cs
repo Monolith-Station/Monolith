@@ -900,7 +900,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         var rawBlips = _blips.GetCurrentBlips();
 
         // Prepare view bounds for culling
-        var monoViewBounds = new Box2(-3f, -3f, Size.X + 3f, Size.Y + 3f);
+        var monoViewBounds = new Box2(-3f, -3f, PixelSize.X + 3f, PixelSize.Y + 3f);
 
         // Draw blips using the same grid-relative transformation approach as docks
         foreach (var blip in rawBlips)
@@ -924,6 +924,23 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             if (monoViewBounds.Contains(position))
             {
                 DrawBlipShape(handle, position, box, color, blip.Config.Shape);
+            }
+        }
+
+        // Draw missile lines from the radar blips system
+        var missileLines = _blips.GetMissileLines();
+        foreach (var line in missileLines)
+        {
+            var startPos = new Vector2(line.PositionStart.X, line.PositionStart.Y);
+            var startEnd = new Vector2(line.PositionEnd.X, line.PositionEnd.Y);
+            var startPosInView = Vector2.Transform(startPos, worldToView);
+            var endPosInView = Vector2.Transform(startEnd, worldToView);
+
+            // Only draw lines if at least one endpoint is within view
+            if (monoViewBounds.Contains(startPosInView) || monoViewBounds.Contains(endPosInView))
+            {
+                // Draw the line with the specified thickness and color
+                handle.DrawLine(startPosInView, endPosInView, line.Color);
             }
         }
 

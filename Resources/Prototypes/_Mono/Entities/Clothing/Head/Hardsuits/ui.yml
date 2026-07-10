@@ -13,9 +13,15 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: FlashImmunity
-  - type: NightVision
-    flashDurationMultiplier: 0.85
-    isEquipment: true
+  - type: NightVision # Gen 2
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 2
+    viewCircleSpacing: 280
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
   - type: Armor
     modifiers:
       coefficients:
@@ -58,9 +64,15 @@
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
   - type: FlashImmunity
-  - type: NightVision
-    flashDurationMultiplier: 0.85
-    isEquipment: true
+  - type: NightVision # Gen 2 quadtube
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
   - type: Armor
     modifiers:
       coefficients:
@@ -92,9 +104,15 @@
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
-  - type: NightVision
-    flashDurationMultiplier: 0.85
-    isEquipment: true
+  - type: NightVision # Gen 2 monotube
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 430
+    viewCircleCount: 1
+    viewCircleSpacing: 280
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
   - type: Armor
     modifiers:
       coefficients:
@@ -126,9 +144,15 @@
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
-  - type: NightVision
-    flashDurationMultiplier: 0.85
-    isEquipment: true
+  - type: NightVision # Gen 2
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 2
+    viewCircleSpacing: 280
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
   - type: Armor
     modifiers:
       coefficients:
@@ -172,9 +196,15 @@
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
   - type: FlashImmunity
-  - type: NightVision
-    flashDurationMultiplier: 0.85
-    isEquipment: true
+  - type: NightVision # Gen 4
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 4
+    viewCircleSpacing: 260
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
   - type: Armor
     modifiers:
       coefficients:

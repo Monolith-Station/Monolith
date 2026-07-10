@@ -127,6 +127,11 @@ public sealed partial class CorticalBorerSystem
             return;
 
         InfestTarget(ent, target);
+
+        // Thermal regulation is disabled because of a weird interaction with disabling heat while inside body. 
+        if (TryComp<ThermalRegulatorComponent>(ent, out var thermComp))
+            thermComp.DisableProcessing = true;
+
         args.Handled = true;
     }
 
@@ -147,6 +152,10 @@ public sealed partial class CorticalBorerSystem
             return;
 
         TryEjectBorer(ent);
+
+        // Thermal regulation can be re-enabled only if they're out of the body.
+        if (!ent.Comp.Host.HasValue && TryComp<ThermalRegulatorComponent>(ent, out var thermComp))
+            thermComp.DisableProcessing = false;
 
         args.Handled = true;
     }

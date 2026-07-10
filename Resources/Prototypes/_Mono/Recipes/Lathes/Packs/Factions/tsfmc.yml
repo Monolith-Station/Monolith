@@ -31,15 +31,17 @@
   - WeaponDEWSmilodon
   - WeaponLauncherTSFOsiris
   - WeaponLauncherTSFAnubis
+  - WeaponAMRShenzhenTSF
 
 - type: latheRecipePack
   id: MonoTSFVouchersDynamic
   recipes:
   - FlyssaVoucherTSF
   - AltairVoucherTSF
+  - PolarisVoucherTSF
   - ShipVoucherTsfT0Recipe
-  - ShipVoucherTsfT1RandomRecipe
-  - ShipVoucherTsfT2RandomRecipe
+  - ShipVoucherTsfT1Recipe
+  - ShipVoucherTsfT2Recipe
 
 - type: latheRecipePack
   id: MonoTSFMiscDynamic

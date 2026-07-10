@@ -1,0 +1,40 @@
+#Author of the old.. original ship named spyglass: Arcticular (i miss you man, hope you come back one day...)
+#Author of remap: Corrupt
+
+- type: vessel
+  id: Eris
+  parent: BaseVesselAntag
+  name: PDV Eris
+  description: A small, run down vessel designed for material aquisition and cargo hauling around the sector.
+  price: 85500
+  category: Small
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/eris.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  engine:
+  - bananium
+
+- type: gameMap
+  id: Eris
+  mapName: 'PDV Eris'
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/eris.yml
+  minPlayers: 0
+  stations:
+    Eris:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Built to be cheap and effective, this ship nonetheless manages to make several tons of steel feel like a rickety bridge."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Eris PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

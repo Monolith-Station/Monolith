@@ -46,6 +46,9 @@
 - type: Tag # Prevents a crash and makes future cherry-picks hurt less but not actually implemented
   id: TurretCompatibleWeapon # Used in the construction of sentry turrets
 
+- type: Tag
+  id: UnavoidableTrap # For "traps" (step triggers) that TrapAvoider shouldn't dodge, like lava or chasms.
+
 # Weapon attachments
 
 - type: Tag
@@ -290,6 +293,12 @@
 - type: Tag
   id: MagazineDP29
 
+- type: Tag
+  id: MagazineShenzhen
+
+- type: Tag
+  id: CartridgeShenzhen
+
 #8x65mm SKR tags
 
 - type: Tag
@@ -335,7 +344,16 @@
   id: WeaponShotgunBigBuddy
 
 - type: Tag
+  id: WeaponShotgunJack
+
+- type: Tag
+  id: JackShotgunBackpack
+
+- type: Tag
   id: ShellShotgun23x75mmBuckshot
+
+- type: Tag
+  id: Magazine4Gauge
 
 # 145x114mm tags
 
@@ -503,6 +521,12 @@
 - type: Tag
   id: MechIFFPDV
 
+- type: Tag
+  id: BorgIFFTSF
+
+- type: Tag
+  id: BorgIFFPDV
+
 # USSP Bounty
 
 - type: Tag
@@ -584,6 +608,12 @@
 
 - type: Tag
   id: USSPStamp
+
+# books
+
+- type: Tag
+  id: BookUSSPLaw
+
 # Multi-tile lathe board tags
 
 - type: Tag
@@ -648,3 +678,8 @@
 
 - type: Tag
   id: FactionStaticUplinkPdv
+
+# Viper Group stuff
+
+- type: Tag
+  id: WhitelistChameleonIdViperSpec

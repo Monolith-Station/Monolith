@@ -8,8 +8,8 @@
   price: 45820
   category: Small
   group: Ussp
-  access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/strayk.yml
+  access: USSP
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/strayk.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -20,18 +20,18 @@
 - type: gameMap
   id: Strayk
   mapName: 'Strayk'
-  mapPath: /Maps/_Mono/Shuttles/USSP/strayk.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/strayk.yml
   minPlayers: 0
   stations:
     Strayk:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Strayk MIL{1}'
+          mapNameTemplate: 'Strayk USSP{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Mercenary: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]

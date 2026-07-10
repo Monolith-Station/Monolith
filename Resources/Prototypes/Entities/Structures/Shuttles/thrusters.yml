@@ -196,6 +196,16 @@
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
+  - type: DeviceNetwork # Mono
+    deviceNetId: Wireless # Mono
+    receiveFrequencyId: BasicDevice # Mono
+  - type: WirelessNetworkConnection # Mono
+    range: 200 # Mono
+  - type: DeviceLinkSink # Mono
+    ports: # Mono
+    - On # Mono
+    - Off # Mono
+    - Toggle # Mono
   - type: PointLight
     radius: 1.3
     energy: 0.8
