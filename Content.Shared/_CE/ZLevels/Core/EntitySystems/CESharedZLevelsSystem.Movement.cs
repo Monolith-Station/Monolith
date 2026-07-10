@@ -401,6 +401,33 @@ public abstract partial class CESharedZLevelsSystem
         if (map is null)
             return false;
 
+        // Convoy transit: a networked ship's decks ride adjacent stacked transit maps,
+        // which aren't z-network members, so MapOffset can't target them. Step straight to
+        // the linked deck (one floor at a time) so crew can climb or fall between a ship's
+        // floors mid-descent instead of dropping onto the empty z-level the ship has left.
+        // Grids are excluded — they move as sets through the transit machinery, not this.
+        if ((offset == 1 || offset == -1)
+            && !_gridQuery.HasComp(ent)
+            && TryComp<CEZTransitMapComponent>(map.Value.Owner, out var currentTransit))
+        {
+            var deckLink = offset < 0 ? currentTransit.TransitBelow : currentTransit.TransitAbove;
+            if (deckLink is { } deckMap
+                && !TerminatingOrDeleted(deckMap)
+                && _mapQuery.TryComp(deckMap, out var deckMapComp))
+            {
+                var keepRot = _transform.GetWorldRotation(ent);
+                _transform.SetMapCoordinates(ent, new MapCoordinates(_transform.GetWorldPosition(ent), deckMapComp.MapId));
+                _transform.SetWorldRotation(ent, keepRot);
+
+                // Cache value only; the gap's lower anchor depth is the sensible stand-in.
+                var deckDepth = _zMapQuery.TryComp(currentTransit.LowerMap, out var lowerZ) ? lowerZ.Depth : 0;
+                var deckEv = new CEZLevelMapMoveEvent(offset, deckDepth);
+                RaiseLocalEvent(ent, ref deckEv);
+
+                return true;
+            }
+        }
+
         if (!TryMapOffset(map.Value, offset, out var targetMap))
             return false;
 

@@ -252,6 +252,106 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
+    /// Re-checks every transit convoy against current z-grid-network membership and splits
+    /// any stack whose layers are no longer held together — a connector destroyed mid-flight,
+    /// a hull tile blown out. Each severed fragment gets its own lead and falls independently
+    /// from there (its followers already track the lead's velocity, so the split doesn't reset
+    /// their speed). Called by <see cref="CEZGridConnectorSystem"/> after it reconciles networks.
+    /// </summary>
+    public void RevalidateTransitConvoys()
+    {
+        // 1. Sever the link between any two stacked transit layers whose grids no longer
+        //    share a z-grid network — the connector that bridged them is gone.
+        var query = EntityQueryEnumerator<CEZTransitMapComponent>();
+        while (query.MoveNext(out var uid, out var transit))
+        {
+            if (transit.TransitBelow is not { } below ||
+                TerminatingOrDeleted(below) ||
+                !TryComp<CEZTransitMapComponent>(below, out var belowComp))
+            {
+                continue;
+            }
+
+            if (SameConvoyNetwork(uid, below))
+                continue;
+
+            transit.TransitBelow = null;
+            belowComp.TransitAbove = null;
+            Dirty(uid, transit);
+            Dirty(below, belowComp);
+        }
+
+        // 2. Every resulting sub-stack needs exactly one lead to drive its fall.
+        var leadQuery = EntityQueryEnumerator<CEZTransitMapComponent>();
+        while (leadQuery.MoveNext(out var uid, out var transit))
+        {
+            // Walk each stack once, from its bottom (the layer with nothing linked below).
+            if (transit.TransitBelow == null)
+                EnsureConvoyLead(uid);
+        }
+    }
+
+    /// <summary>Whether the grid layers on two transit maps are still in the same z-grid network.</summary>
+    private bool SameConvoyNetwork(EntityUid mapA, EntityUid mapB)
+    {
+        if (!TryGetAnyGrid(mapA, out var gridA) || !TryGetAnyGrid(mapB, out var gridB))
+            return false; // a layer with no grids can't hold the stack together
+
+        return TryGetGridNetwork(gridA, out var netA)
+               && TryGetGridNetwork(gridB, out var netB)
+               && netA.Owner == netB.Owner;
+    }
+
+    private bool TryGetAnyGrid(EntityUid mapUid, out EntityUid grid)
+    {
+        var children = Transform(mapUid).ChildEnumerator;
+        while (children.MoveNext(out var child))
+        {
+            if (_mapGridQuery.HasComp(child))
+            {
+                grid = child;
+                return true;
+            }
+        }
+
+        grid = default;
+        return false;
+    }
+
+    /// <summary>Ensures the transit sub-stack rooted at <paramref name="bottomMap"/> has exactly one lead.</summary>
+    private void EnsureConvoyLead(EntityUid bottomMap)
+    {
+        var maps = GetConvoyMaps(bottomMap);
+
+        var haveLead = false;
+        foreach (var m in maps)
+        {
+            if (!TryComp<CEZTransitMapComponent>(m, out var t) || !t.ConvoyLead)
+                continue;
+
+            if (!haveLead)
+            {
+                haveLead = true; // keep the first
+            }
+            else
+            {
+                t.ConvoyLead = false; // a split can strand two leads in one stack — demote extras
+                Dirty(m, t);
+            }
+        }
+
+        if (haveLead || maps.Count == 0)
+            return;
+
+        // No lead survived in this fragment — promote its bottom layer to drive the fall.
+        if (TryComp<CEZTransitMapComponent>(maps[0], out var lead))
+        {
+            lead.ConvoyLead = true;
+            Dirty(maps[0], lead);
+        }
+    }
+
+    /// <summary>
     /// Moves a set of grids to another map, keeping world transforms (all z-level maps
     /// share one world coordinate space) and momentum, re-establishing the docking
     /// joints the engine clears on map changes, and notifying every passenger.
