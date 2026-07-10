@@ -168,18 +168,26 @@ public sealed partial class ScalingViewport
                 aboveMap = mapAbove.Owner;
         }
 
-        // Depth of the nearest cloud deck below the observer, if any. Its opaque fill hides
-        // everything under it, so transit ships more than a dissolve-band beneath it aren't
-        // worth a render pass (see the transit cull below).
+        // Depth of the nearest layer below the observer that caps the view, if any, with the
+        // band under it that still renders. A cloud deck keeps a dissolve band (ships sink
+        // through the tops); a ground layer is a hard floor you land ON, never below, so
+        // nothing under it should ever draw. Transit ships past this are occluded and skip
+        // their render pass (see the transit cull below).
         float? occludeBelowDepth = null;
+        var occludeBand = 0f;
 
-        // Standing on a deck caps the whole view below the observer at once.
+        // Standing on such a layer caps the whole view below the observer at once.
         if (_entityManager.HasComponent<CEZCloudLayerComponent>(playerMap))
         {
             occludeBelowDepth = ownDepth;
+            occludeBand = CloudDissolveBand;
         }
-        // Otherwise walk downward while there are empty tiles to see through. A cloud layer
-        // ends the walk: everything beneath its deck is solid fog anyway.
+        else if (_entityManager.HasComponent<CEZGroundLayerComponent>(playerMap))
+        {
+            occludeBelowDepth = ownDepth;
+        }
+        // Otherwise walk downward while there are empty tiles to see through. A cloud or
+        // ground layer ends the walk: nothing beneath it is visible.
         else if (TryFindEmptyTiles(playerMap))
         {
             var current = belowChainStart;
@@ -189,6 +197,13 @@ public sealed partial class ScalingViewport
                 _zPasses.Add((current.Value, depthCursor, false, false));
 
                 if (_entityManager.HasComponent<CEZCloudLayerComponent>(current.Value))
+                {
+                    occludeBelowDepth = depthCursor;
+                    occludeBand = CloudDissolveBand;
+                    break;
+                }
+
+                if (_entityManager.HasComponent<CEZGroundLayerComponent>(current.Value))
                 {
                     occludeBelowDepth = depthCursor;
                     break;
@@ -244,11 +259,12 @@ public sealed partial class ScalingViewport
 
                 var transitDepth = lowerZ.Depth + GetTransitProgress(transit) - observerAltitude;
 
-                // Hidden under a cloud deck between it and the observer: only ships still
-                // within the dissolve band below the deck show through (as sinking ghosts),
-                // so anything deeper is fully occluded and skips its render pass. This is
-                // what lets clouds cheapen the scene without hiding ships crossing them.
-                if (occludeBelowDepth is { } cloudDepth && transitDepth < cloudDepth - CloudDissolveBand)
+                // Hidden under a layer between it and the observer: for a cloud, ships still
+                // within the dissolve band show through (as sinking ghosts) so only deeper
+                // ones are culled; for a ground layer the band is zero, so anything below the
+                // floor is dropped outright. This is what lets a deck cheapen the scene
+                // without hiding ships still crossing it.
+                if (occludeBelowDepth is { } occludeDepth && transitDepth < occludeDepth - occludeBand)
                     continue;
 
                 // Fully dissolved into the sky: not worth a render pass.
