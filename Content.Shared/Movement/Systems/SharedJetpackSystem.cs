@@ -122,9 +122,8 @@ public abstract partial class SharedJetpackSystem : EntitySystem
         // No and no again! Do not attempt to activate the jetpack on a grid with gravity disabled. You will not be the first or the last to try this.
         // https://discord.com/channels/310555209753690112/310555209753690112/1270067921682694234
         if (TryComp<JetpackComponent>(component.Jetpack, out var jetpack)
-            && (!CanEnableOnGrid(args.Transform.GridUid)
-                || !UserNotParented(uid, jetpack) // EE
-                || !_gravity.IsWeightless(uid))) // Mono
+            && (!CanEnable(component.Jetpack, uid, jetpack)
+                || !UserNotParented(uid, jetpack))) // EE
         {
             SetEnabled(component.Jetpack, jetpack, false, uid);
 
@@ -166,8 +165,7 @@ public abstract partial class SharedJetpackSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (TryComp(uid, out TransformComponent? xform) && !CanEnableOnGrid(xform.GridUid)
-        || !_gravity.IsWeightless(args.Performer)) // Mono
+        if (!CanEnable(uid, args.Performer, component))
         {
             _popup.PopupClient(Loc.GetString("jetpack-no-station"), uid, args.Performer);
 
@@ -175,18 +173,6 @@ public abstract partial class SharedJetpackSystem : EntitySystem
         }
 
         SetEnabled(uid, component, !IsEnabled(uid));
-    }
-
-    private bool CanEnableOnGrid(EntityUid? gridUid)
-    {
-        // No and no again! Do not attempt to activate the jetpack on a grid with gravity disabled. You will not be the first or the last to try this.
-        // https://discord.com/channels/310555209753690112/310555209753690112/1270067921682694234
-        return gridUid == null // EE
-        //||(!HasComp<GravityComponent>(gridUid)); // EE
-            || _config.GetCVar(EECCVars.JetpackEnableAnywhere) // EE
-            || _config.GetCVar(EECCVars.JetpackEnableInNoGravity) // EE
-            && TryComp<GravityComponent>(gridUid, out var comp) // EE
-            && !comp.Enabled; // EE
     }
 
     private void OnJetpackGetAction(EntityUid uid, JetpackComponent component, GetItemActionsEvent args)
@@ -242,7 +228,20 @@ public abstract partial class SharedJetpackSystem : EntitySystem
 
     protected virtual bool CanEnable(EntityUid uid, EntityUid user, JetpackComponent component)
     {
-        return _gravity.IsWeightless(user); // Mono
+        if (_config.GetCVar(EECCVars.JetpackEnableAnywhere))
+            return true;
+
+        var gridUid = TryComp(user, out TransformComponent? xform) ? xform.GridUid : null;
+
+        if (gridUid == null)
+            return true;
+
+        if (_gravity.IsWeightless(user))
+            return true;
+
+        return _config.GetCVar(EECCVars.JetpackEnableInNoGravity) // EE
+               && TryComp<GravityComponent>(gridUid, out var grav)
+               && !grav.Enabled;
     }
 
     // EE: check parent
