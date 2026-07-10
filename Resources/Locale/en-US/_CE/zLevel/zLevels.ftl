@@ -4,3 +4,5 @@ ce-zlevel-look-up-fail = There is a ceiling above you. You cannot look up.
 
 ce-zlevel-voice-from-up = {$name} (from above)
 ce-zlevel-voice-from-down = {$name} (from below)
+
+ce-zgrid-connector-examine-anchoring = [color=cyan]It is currently locked to a grid on the level above.[/color]
