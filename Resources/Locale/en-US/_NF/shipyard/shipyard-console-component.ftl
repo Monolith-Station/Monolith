@@ -28,7 +28,6 @@ shipyard-console-denied = You cannot purchase this ship at this time.
 shipyard-console-limited = There are too many active shuttles of this type, try again later!
 shipyard-console-timelock = You are unable to deploy this vessel at the moment.
 
-
 shipyard-console-contraband-onboard = Smuggled contraband detected onboard.
 shipyard-console-station-resources = Vital station resources detected onboard.
 shipyard-console-dangerous-materials = Dangerous materials detected onboard.
