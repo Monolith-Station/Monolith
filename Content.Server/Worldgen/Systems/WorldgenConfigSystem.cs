@@ -81,5 +81,18 @@ public sealed partial class WorldgenConfigSystem : EntitySystem
 
         DebugTools.Assert(HasComp<WorldControllerComponent>(target));
     }
+
+    /// <summary>
+    /// Mono - Replaces current worldgen of default map with a new one.
+    /// </summary>
+    public void ReplaceWorldgen(ProtoId<WorldgenConfigPrototype> proto)
+    {
+        var target = _map.GetMapEntityId(_gameTicker.DefaultMap);
+        var oldGen = _proto.Index<WorldgenConfigPrototype>(_worldgenConfig);
+        var newGen = _proto.Index<WorldgenConfigPrototype>(proto.Id);
+
+        oldGen.Remove(target, _ser, EntityManager);
+        newGen.Apply(target, _ser, EntityManager);
+    }
 }
 
