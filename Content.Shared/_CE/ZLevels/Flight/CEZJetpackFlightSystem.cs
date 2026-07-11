@@ -19,6 +19,12 @@ namespace Content.Shared._CE.ZLevels.Flight;
 /// </summary>
 public sealed partial class CEZJetpackFlightSystem : EntitySystem
 {
+    /// <summary>
+    /// Fraction of a level, next to each plane, within which an idle wearer settles onto it. The
+    /// band between the two zones just hovers. Matches the transit set SettleZone.
+    /// </summary>
+    private const float SettleZone = 0.25f;
+
     [Dependency] private CESharedZLevelsSystem _zLevels = default!;
 
     public override void Initialize()
@@ -94,18 +100,22 @@ public sealed partial class CEZJetpackFlightSystem : EntitySystem
         }
         else
         {
-            // Idle: gradual pull toward the nearest level plane (a normalized altitude), like a
-            // transit set settling onto a level — down to the floor from the lower half, up into
-            // the level above from the upper half. LocalPosition is 0 at the floor, 1 at the next
-            // level. The pull is proportional to the distance left, so it eases to zero right at
-            // the plane instead of overshooting and oscillating across the boundary (which the
-            // nearest-plane-with-min-speed transit form would do here, since a walker never
-            // "exits" a level the way a transit set does). Crossing 1 hands off to the level
-            // above at LocalPosition ~0, where the pull is already spent — so it comes to rest.
+            // Idle: gradual pull toward a level plane (a normalized altitude), like a transit set
+            // settling onto a level. LocalPosition is 0 at the floor, 1 at the next level. Only
+            // within SettleZone of a plane does the pull engage — down to the floor from the lower
+            // zone, up into the level above from the upper zone; the band between just hovers, the
+            // same SettleZone=0.25 dead zone transit sets use. The pull is proportional to the
+            // distance left, so it eases to zero right at the plane instead of overshooting and
+            // oscillating across the boundary (a walker never "exits" a level the way a transit
+            // set does). Crossing 1 hands off to the level above at LocalPosition ~0, inside the
+            // lower zone where the pull is already spent — so it comes to rest.
             var pos = args.Target.Comp.LocalPosition;
-            target = pos <= 0.5f
-                ? -pos * settleGain               // drift down to this level's floor
-                : (1f - pos) * settleGain;        // drift up into the level above
+            if (pos <= SettleZone)
+                target = -pos * settleGain;           // drift down to this level's floor
+            else if (pos >= 1f - SettleZone)
+                target = (1f - pos) * settleGain;     // drift up into the level above
+            else
+                target = 0f;                          // dead zone: hover
         }
 
         args.VelocityDelta += (target - args.Target.Comp.Velocity) * responsiveness;
