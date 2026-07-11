@@ -505,6 +505,8 @@
     allowedEmotes: ['Chitter', 'Squeak']
   - type: FaxableObject
     insertingState: inserting_mothroach
+  - type: DashAction # Goobstation - dark souls moths
+    actionProto: ActionDashMoth
   - type: MothAccent
   - type: Sprite
     sprite: Mobs/Animals/mothroach/mothroach.rsi
