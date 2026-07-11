@@ -1,0 +1,27 @@
+- type: entity
+  id: ArtilleryMarkerIskander
+  name: artillery strike Iskander
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Fun/goldbikehorn.rsi
+    visible: false
+    state: icon
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 1000
+    intensitySlope: 6
+    maxIntensity: 100
+    maxTileBreak: 3
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ProjectileGrenade
+    triggerKey: trigger
+    fillPrototype: Bullet40x46mmHEDPFragment
+    capacity: 360
+    randomAngle: true
+    minVelocity: 25
+    maxVelocity: 45

@@ -1,5 +1,5 @@
 ## NATO
-# US
+#region US
 
 - type: entity
   id: ArtilleryMarkerM252HEFrag
@@ -14,9 +14,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: MicroBomb
+    totalIntensity: 100
     maxIntensity: 9
     intensitySlope: 4
-    totalIntensity: 80
     maxTileBreak: 1
   - type: ContainerContainer
     containers:
@@ -118,7 +118,7 @@
     energy: 8.0
 
 ## PACT
-# RU
+#region RU
 
 - type: entity
   id: ArtilleryMarker2B14HEFrag
@@ -133,9 +133,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: MicroBomb
+    totalIntensity: 100
     maxIntensity: 9
     intensitySlope: 4
-    totalIntensity: 80
     maxTileBreak: 1
   - type: ContainerContainer
     containers:
@@ -163,7 +163,7 @@
     explosionType: FireBomb
     maxIntensity: 15
     intensitySlope: 6
-    totalIntensity: 160
+    totalIntensity: 200
     maxTileBreak: 0
   - type: SpawnOnTrigger
     proto: InstantEffectGravityWellThermobaric

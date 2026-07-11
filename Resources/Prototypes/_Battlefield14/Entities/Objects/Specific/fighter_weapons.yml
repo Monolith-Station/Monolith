@@ -347,10 +347,10 @@
     soundGunshot:
       path: /Audio/_Battlefield14/Weapons/FighterWeapons/rocket2.ogg
   - type: Battery
-    maxCharge: 2600
+    maxCharge: 2100
   - type: ProjectileBatteryAmmoProvider
     proto: BulletBombFAB500
-    fireCost: 2600 # ~2 shots
+    fireCost: 2100 # ~2 shots
   - type: Appearance
   - type: AmmoCounter
 

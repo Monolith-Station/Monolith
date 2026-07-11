@@ -1,0 +1,32 @@
+- type: entity
+  parent: VehicleTrubostrelAntiair
+  id: MissileTruckPACTRUIskander9K720-10
+  name: 9K720-10 Iskander missile tank
+#  suffix: Solfed
+  description: That what you get if you put Iskander missiles on a tank.
+  components:
+  - type: Mortar
+    baseAccuracy: 0.1
+    accuracyDegradation: 0.1
+    minOffsetX: -300
+    maxOffsetX: 300
+    minOffsetY: -300
+    maxOffsetY: 300
+    minSafeDistance: 50
+  - type: ContainerContainer
+    containers:
+      mortar_chamber: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      mortar_chamber:
+        name: Chamber
+        priority: 1
+        insertSound: /Audio/_Battlefield14/Weapons/BattlefieldArtillery/reload2.ogg
+        whitelist:
+          tags:
+            - ShellMissileIskander
+  - type: ExtendDescription
+    descriptionList:
+      - description: Minimum range 50 meters, maximum range 300 meters.
+        color: "#4f94ad"
+        requireDetailRange: true
