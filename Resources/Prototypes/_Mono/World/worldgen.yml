@@ -1,0 +1,7 @@
+- type: worldgenConfig
+  id: HyperwarWorldgen
+  components:
+    - type: WorldController
+    - type: BiomeSelection
+      biomes:
+        - MonoWorldgenHyperwarAsteroidRing
