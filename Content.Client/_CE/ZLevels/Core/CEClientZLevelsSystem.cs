@@ -47,9 +47,6 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
-        if (sprite.SnapCardinals)
-            return;
-
         ent.Comp.DrawDepthDefault = sprite.DrawDepth;
         ent.Comp.SpriteOffsetDefault = sprite.Offset;
     }

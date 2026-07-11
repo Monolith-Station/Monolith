@@ -31,6 +31,15 @@ public sealed partial class CEZLevelsSystem
     /// generator. Falling grids read this every frame, so it must stay a lookup.
     /// </summary>
     private readonly Dictionary<EntityUid, float> _gravgenCapacity = new();
+
+    /// <summary>
+    /// pzn: per-sweep memo of each grid's rigid-set support verdict. Every grid in one rigid
+    /// body shares the same verdict, so the first grid of a body computes the flood + pooled
+    /// support once and caches it for every member — the other members then skip the whole
+    /// recomputation. Keeps the fall gate O(grids) instead of O(grids × body size). Cleared
+    /// each sweep alongside <see cref="_gravgenCapacity"/>.
+    /// </summary>
+    private readonly Dictionary<EntityUid, bool> _rigidSupportCache = new();
     private readonly TimeSpan _gravityCheckTimer = TimeSpan.FromSeconds(0.5);
     private TimeSpan _nextGravityCheckTime;
 
@@ -57,6 +66,7 @@ public sealed partial class CEZLevelsSystem
             // GravitySystem.RefreshGravity scans for. Precompute pooled generator
             // capacity per grid so the gate below stays O(grids + gravgens).
             _gravgenCapacity.Clear();
+            _rigidSupportCache.Clear();
             var gravgenQuery = EntityQueryEnumerator<GravityGeneratorComponent, TransformComponent>();
             while (gravgenQuery.MoveNext(out _, out var gravgen, out var gravgenXform))
             {
@@ -573,11 +583,29 @@ public sealed partial class CEZLevelsSystem
     /// member's weight counts against that lift), or any member rests on ground under its
     /// footprint. Subsumes the old per-grid gravgen check and network-only pooling — for a lone
     /// grid the set is just itself, giving the identical result.
+    ///
+    /// Memoized per sweep: every grid in one rigid body shares this verdict, so the first grid
+    /// floods + pools once and caches the answer for every member; the rest hit the cache. The
+    /// fall gate calls this once per grid, so without the cache an N-grid body would recompute
+    /// the whole flood N times (O(N²)); with it, once (O(N)).
     /// </summary>
     private bool RigidSetHasSupport(EntityUid uid)
     {
-        var set = CollectRigidSet(uid);
+        if (_rigidSupportCache.TryGetValue(uid, out var cached))
+            return cached;
 
+        var set = CollectRigidSet(uid);
+        var supported = SetHasSupport(set);
+
+        foreach (var member in set)
+            _rigidSupportCache[member] = supported;
+
+        return supported;
+    }
+
+    /// <summary>Pooled gravgen lift over the set covers its pooled mass, or a member is on ground.</summary>
+    private bool SetHasSupport(HashSet<EntityUid> set)
+    {
         if (HasPooledGravgenSupport(set))
             return true;
 
