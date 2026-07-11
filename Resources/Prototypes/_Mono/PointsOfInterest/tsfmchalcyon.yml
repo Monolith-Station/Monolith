@@ -107,15 +107,15 @@
         - type: StationJobs
           availableJobs:
             Sheriff: [ 1, 1 ]
-            Bailiff: [3, 3 ]
-            SeniorOfficer: [ 5, 5 ] # Mono
-            Brigmedic: [ 2, 2 ] # Mono
+            TsfMarsoc: [ 3, 3 ]
+            Bailiff: [ 3, 3 ]
+            SeniorOfficer: [ 6, 6 ] # Mono
+            Brigmedic: [ 4, 4 ] # Mono
             Deputy: [ -1, -1 ] # Mono
-            TsfEngineer: [ 2, 2 ]
+            TsfEngineer: [ 4, 4 ]
             TsfBorg: [ 2, 2 ]
           tags:
-          - HeadOfPersonnel
-          - HeadOfSecurity
+          - CentralCommand
         - type: StationDeadDropReporting
           messageSet: Nfsd
         - type: StationDeadDropHintExempt

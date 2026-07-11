@@ -12,7 +12,7 @@ namespace Content.Server._Mono.Ships.Systems;
 /// <summary>
 /// This handles shuttles with a limit.
 /// </summary>
-public sealed partial class LimitedShuttleSystem : EntitySystem
+public sealed partial class ShuttleRestrictionsSystem : EntitySystem
 {
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private IGameTiming _gameTiming = default!;
@@ -75,6 +75,14 @@ public sealed partial class LimitedShuttleSystem : EntitySystem
 
     private void OnAttemptShuttlePurchase(ref AttemptShipyardShuttlePurchaseEvent ev)
     {
+        if (_hyperwar.HyperwarActive && _gameTiming.CurTime < ev.Vessel.HyperwarTimelock)
+        {
+            ev.CancelReason = "shipyard-console-timelock";
+            ev.Cancel();
+
+            return;
+        }
+
         var limitActive = _hyperwar.HyperwarActive ? ev.Vessel.HyperwarLimitActive : ev.Vessel.LimitActive;
 
         var query = EntityQueryEnumerator<VesselComponent>();

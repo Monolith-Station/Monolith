@@ -742,6 +742,31 @@
     vendPrice: 195000
 
 - type: entity
+  parent: BaseShipLPCRenewable
+  id: ShipVoucherKortikT2
+  name: PDV Kortik-R LPC [T2]
+  description: A small card that contains the data for the procurement of a Kortik-R-class frigate from the flagship's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#1eff00"
+    - state: screen4
+      color: "#1eff00"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 3600 # one hour
+    consoleType: BlackMarket
+    companyName: PDV
+    vessels:
+    - KortikR
+  - type: StaticPrice
+    vendPrice: 20000
+
+- type: entity
   parent: ShipVoucherPdvT0
   id: ShipVoucherPdvT2
   name: PDV T2 ship voucher
@@ -765,6 +790,7 @@
     - Europa
     - Vulture
     - Ganymede
+    - KortikR
 # end T2
 
 # start T3
@@ -791,6 +817,31 @@
     companyName: PDV
     vessels:
     - Saintie
+  - type: StaticPrice
+    vendPrice: 325000
+
+- type: entity
+  parent: BaseShipLPCRenewable
+  id: ShipVoucherKortik
+  name: PDV Kortik-EM LPC [T3]
+  description: A small card that contains the data for the procurement of a Kortik-EM-class frigate from the flagship's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#1eff00"
+    - state: screen1
+      color: "#1eff00"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 5100 # hour and 25 minutes
+    consoleType: BlackMarket
+    companyName: PDV
+    vessels:
+    - Kortik
   - type: StaticPrice
     vendPrice: 325000
 
