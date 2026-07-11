@@ -33,22 +33,5 @@ public sealed partial class WorldgenConfigPrototype : IPrototype
             entityManager.AddComponent(target, comp);
         }
     }
-
-    /// <summary>
-    ///     Mono - Pretty much same shit as above but delete component instead.
-    /// </summary>
-    public void Remove(EntityUid target, ISerializationManager serialization, IEntityManager entityManager)
-    {
-        // Add all components required by the prototype. Engine update for this whenst.
-        foreach (var data in Components.Values)
-        {
-            var comp = (Component) serialization.CreateCopy(data.Component, notNullableOverride: true);
-
-            if (entityManager.HasComponent(target, comp.GetType()))
-            {
-                entityManager.RemoveComponent(target, comp);
-            }
-        }
-    }
 }
 
