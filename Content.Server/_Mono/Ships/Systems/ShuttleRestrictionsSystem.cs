@@ -83,7 +83,6 @@ public sealed partial class ShuttleRestrictionsSystem : EntitySystem
             return;
         }
 
-
         var limitActive = _hyperwar.HyperwarActive ? ev.Vessel.HyperwarLimitActive : ev.Vessel.LimitActive;
 
         var query = EntityQueryEnumerator<VesselComponent>();
