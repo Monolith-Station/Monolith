@@ -102,18 +102,16 @@ public sealed partial class CEZLevelsSystem
                 // EntityGridOrMapHaveGravity(): it falls back to the parent *map*, and
                 // ground-layer maps carry inherent gravity (so mobs on the ground don't
                 // float), which would mean no grid on them ever falls.
-                // Only a working gravgen on the grid itself keeps it aloft.
-                if (GridHasActiveGravgen(uid))
-                    continue;
-
-                if (HasGroundUnderFootprint((uid, grid), mapUid))
-                    continue;
-
-                // A z-network falls as one rigid stack: it stays up when its pooled
-                // gravgen capacity covers the whole network's mass, or a member rests
-                // on ground. Unsupported networks enter transit together via the
-                // convoy path in TryEnterTransit.
-                if (TryGetGridNetwork(uid, out var supportNet) && NetworkHasSupport(supportNet))
+                // Only a working gravgen keeps a set aloft.
+                //
+                // A grid is held up when its whole RIGID SET — its z-network members plus
+                // everything docked to any of them — pools enough gravgen lift to carry the
+                // set's pooled mass, or any member rests on ground. Connectors and docking
+                // ports both bind grids into one falling body, so both pool their generators
+                // AND their weight: a docked tug's gravgen can hold the set up, and its mass
+                // also loads the set down. Unsupported sets enter transit together (the docked
+                // partners ride along via CollectGridSet inside TryEnterTransit).
+                if (RigidSetHasSupport(uid))
                     continue;
 
                 _gravityQueue.Add((uid, grid));
@@ -477,32 +475,6 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Whether any solid tile of the map lies under the grid's footprint.
-    /// </summary>
-    /// <summary>
-    /// Same check GravitySystem effectively does when refreshing grid gravity —
-    /// is there a gravgen parented to this grid that's actually producing gravity? —
-    /// plus pzn mass limits: every active gravgen on the grid pools its
-    /// <see cref="GravityGeneratorComponent.MaxHandledMass"/>, and if the grid's
-    /// fixture mass (≈ tile count) exceeds the pooled capacity, the generators are
-    /// overloaded and can't hold the grid aloft.
-    /// </summary>
-    private bool GridHasActiveGravgen(EntityUid grid)
-    {
-        // Reads the pooled capacity rebuilt each gravity sweep, so per-frame falling
-        // integration stays O(1). At worst the answer is one sweep (0.5s) stale —
-        // the same cadence the fall gate has always run on.
-        if (!_gravgenCapacity.TryGetValue(grid, out var capacity))
-            return false;
-
-        if (float.IsPositiveInfinity(capacity))
-            return true;
-
-        var mass = _physQuery.TryComp(grid, out var body) ? body.FixturesMass : 0f;
-        return mass <= capacity;
-    }
-
-    /// <summary>
     /// Whether the pooled rated capacity of every active gravity generator across a
     /// set of rigidly-joined grids (a z-network, or a docked set) can hold the set's
     /// pooled mass. Because the grids move as one body their generators share the
@@ -535,16 +507,81 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// A z-network falls as one rigid stack: it is held up when its generators' pooled
-    /// capacity covers the whole network's mass, or when any single member is resting
-    /// on ground under its footprint (the connectors carry the rest).
+    /// The full rigid body a grid falls (or is held) as one with: the transitive closure over
+    /// both welds — docking ports and z-network connectors — so two stacks docked together fold
+    /// into a single set, no matter how many network-then-dock-then-network hops apart. Support
+    /// is pooled across the whole union. A lone, undocked, networkless grid yields just itself.
     /// </summary>
-    private bool NetworkHasSupport(Entity<CEZGridNetworkComponent> network)
+    private HashSet<EntityUid> CollectRigidSet(EntityUid uid)
     {
-        if (HasPooledGravgenSupport(network.Comp.Grids))
+        // Transitive flood over BOTH welds: docking ports and network connectors. One level
+        // isn't enough — a docked partner can itself be a member of another z-network whose own
+        // members are docked to yet more, and so on. Following only the starting grid's network
+        // (and its members' docks) would miss the far side of a stack-to-stack dock, and worse,
+        // give a different set depending on which grid you started from — so the same rigid body
+        // could be judged supported from one end and falling from the other. The flood closes
+        // over the whole connected body, so every grid in it yields the identical set.
+        //
+        // `set` guards enqueueing: each grid enters the queue only the first time it's seen, so
+        // the flood always terminates and docking/network cycles are safe. `dockWalked` and
+        // `netWalked` additionally guard the EXPENSIVE expansions: a docked component (returned
+        // whole by GetAllDockedShuttles) and a network are each walked exactly once, instead of
+        // re-walking the same cluster once per member.
+        var set = new HashSet<EntityUid>();
+        var queue = new Queue<EntityUid>();
+        var dockWalked = new HashSet<EntityUid>();
+        var netWalked = new HashSet<EntityUid>();
+
+        void Add(EntityUid g)
+        {
+            if (set.Add(g))
+                queue.Enqueue(g);
+        }
+
+        Add(uid);
+
+        while (queue.Count > 0)
+        {
+            var g = queue.Dequeue();
+
+            // Docking: GetAllDockedShuttles hands back g's whole docked component at once, and
+            // every grid in it shares that same component — so walk it once, marking the lot.
+            if (dockWalked.Add(g))
+            {
+                foreach (var docked in CollectGridSet(g))
+                {
+                    dockWalked.Add(docked);
+                    Add(docked);
+                }
+            }
+
+            // Connectors weld g to its z-network members; each may open onto a new docked
+            // component, which the loop then walks. Expand each network only once.
+            if (TryGetGridNetwork(g, out var network) && netWalked.Add(network.Owner))
+            {
+                foreach (var member in network.Comp.Grids)
+                    Add(member);
+            }
+        }
+
+        return set;
+    }
+
+    /// <summary>
+    /// Whether a grid's whole rigid set is held aloft: its generators' pooled capacity covers
+    /// the set's pooled mass (so a docked tug or a networked gravgen carries the rest, and every
+    /// member's weight counts against that lift), or any member rests on ground under its
+    /// footprint. Subsumes the old per-grid gravgen check and network-only pooling — for a lone
+    /// grid the set is just itself, giving the identical result.
+    /// </summary>
+    private bool RigidSetHasSupport(EntityUid uid)
+    {
+        var set = CollectRigidSet(uid);
+
+        if (HasPooledGravgenSupport(set))
             return true;
 
-        foreach (var member in network.Comp.Grids)
+        foreach (var member in set)
         {
             if (Transform(member).MapUid is { } memberMap
                 && TryComp<MapGridComponent>(member, out var memberGrid)
@@ -562,10 +599,9 @@ public sealed partial class CEZLevelsSystem
     /// pooled rated capacity of every *active* gravgen holding the grid up, same rules
     /// as the gravity sweep (negative = unlimited, 0 = no lift hardware). When the grid
     /// belongs to a z-grid network the whole network is pooled — matching the pooled
-    /// support decision in <see cref="NetworkHasSupport"/> — so the readout reflects
-    /// whether the rigid stack actually stays aloft, not just this one grid. Unlike
-    /// <see cref="GridHasActiveGravgen"/> this recomputes instead of reading the
-    /// throttled cache, so it's never stale.
+    /// support decision in <see cref="RigidSetHasSupport"/> — so the readout reflects
+    /// whether the rigid stack actually stays aloft, not just this one grid. Unlike the
+    /// gravity sweep this recomputes instead of reading the throttled cache, so it's never stale.
     /// </summary>
     public bool TryGetGravgenLoad(EntityUid gridUid, out float gridMass, out float capacity)
     {
