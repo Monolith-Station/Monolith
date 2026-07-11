@@ -77,6 +77,10 @@
           - PCVCell
         startingItem: PowerCellPCV
   - type: RechargeableBlocking # I think this makes it check to see if there's any power left, see above comment
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
 
 #region PCV
 
@@ -166,3 +170,7 @@
   - type: Battery
     maxCharge: 20
     startingCharge: 20
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier

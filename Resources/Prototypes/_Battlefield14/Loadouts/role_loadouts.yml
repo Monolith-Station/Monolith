@@ -503,3 +503,15 @@
   - BF_WPSGloves
   - BF_MiscItemsIND
   - ContractorWallet
+
+#region Misc
+
+- type: roleLoadout
+  id: JobTDMBlue
+  groups:
+  - ContractorWallet
+
+- type: roleLoadout
+  id: JobTDMRed
+  groups:
+  - ContractorWallet

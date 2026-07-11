@@ -575,3 +575,31 @@
     layers:
     - state: US
       scale: 1.5,1.5
+
+#region Misc
+
+- type: entity
+  id: SpawnPointTDMBlue
+  parent: SpawnPointJobBase
+  name: TDM Blue
+  components:
+  - type: SpawnPoint
+    job_id: TDMBlue
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: natoinfantry
+    scale: 1.5,1.5
+
+- type: entity
+  id: SpawnPointTDMRed
+  parent: SpawnPointJobBase
+  name: TDM Red
+  components:
+  - type: SpawnPoint
+    job_id: TDMRed
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: pactinfantry
+    scale: 1.5,1.5

@@ -1,4 +1,72 @@
-#region Handguns
+#region Handguns, US
+
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortUSM1911
+  suffix: M1911
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolUSM1911
+    - id: MagazinePistolM1911
+      amount: 2
+    - id: MagazineBox45ACP
+
+#region Handguns, DE
+
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortDEUSP9
+  suffix: USP9
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolDEUSP9
+    - id: MagazinePistolUSP9
+      amount: 2
+    - id: MagazineBox9x19mm
+
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortDEUSPMatch
+  suffix: USP match
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolDEUSPMatch
+    - id: MagazinePistolUSP9
+      amount: 2
+    - id: MagazineBox9x19mm
+
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortDEUSP45
+  suffix: USP45
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolDEUSP45
+    - id: MagazinePistolUSP45
+      amount: 2
+    - id: MagazineBox45ACP
+
+#region Handguns, BE
+
+- type: entity
+  parent: WeaponCaseShort
+  id: WeaponCaseShortFiveSeven
+  suffix: Five-seveN
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolBEFiveSeven
+    - id: MagazinePistolFiveSeven
+      amount: 2
+    - id: MagazineBox57x28
+
+
+#region Handguns, RU
+
 - type: entity
   parent: WeaponCaseShort
   id: WeaponCaseShortSR1MP
@@ -14,7 +82,7 @@
 - type: entity
   parent: WeaponCaseShort
   id: WeaponCaseShortRUTT33
-  suffix: M1911
+  suffix: TT33
   components:
   - type: StorageFill
     contents:
@@ -23,27 +91,250 @@
       amount: 2
     - id: MagazineBox762x25
 
+#region SMGs, US
+
+#region SMGs, DE
 
 - type: entity
-  parent: WeaponCaseShort
-  id: WeaponCaseShortFiveSeven
-  suffix: Five-seveN
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSMP5
+  suffix: MP5
   components:
   - type: StorageFill
     contents:
-    - id: WeaponPistolBEFiveSeven
-    - id: MagazinePistolFiveSeven
-      amount: 2
-    - id: MagazineBox57x28
+    - id: WeaponSubmachinegunUSMP5
+    - id: MagazineSubmachinegunMP5
+      amount: 5
 
 - type: entity
-  parent: WeaponCaseShort
-  id: WeaponCaseShortUSM1911
-  suffix: M1911
+  parent: WeaponCaseLong
+  id: WeaponCaseLongDEMP7
+  suffix: MP7
   components:
   - type: StorageFill
     contents:
-    - id: WeaponPistolUSM1911
-    - id: MagazinePistolM1911
+    - id: WeaponSubmachinegunDEMP7
+    - id: MagazineSubmachinegunMP7
+      amount: 5
+
+#region Rifles, US
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSM16A1
+  suffix: M16A1
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleUSM16A1
+    - id: MagazineRifleSTANAGShort
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSM16A2
+  suffix: M16A2
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleUSM16A2
+    - id: MagazineRifleSTANAG
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSM4A1
+  suffix: M4A1
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleUSM4A1
+    - id: MagazineRifleSTANAG
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSM30MRC
+  suffix: M-30 MR-C
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleUSM30MRC
+    - id: MagazineRifleM30MRC
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSM42A5
+  suffix: M42A5
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleUSM42A5
+    - id: MagazineRifleM42A5
+      amount: 5
+
+#region Machine guns, US
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSM249Para
+  suffix: M249 Para
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponMachineGunUSM249Para
+    - id: MagazineBeltBoxM249
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSM240B
+  suffix: M240B
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponMachineGunUSM240B
+    - id: MagazineBeltBoxM240
+
+#region Rifles, DE
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongDEG36
+  suffix: G36
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleDEG36
+    - id: MagazineRifleG36
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongDEG36C
+  suffix: G36C
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleDEG36C
+    - id: MagazineRifleG36
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongDEG3A3
+  suffix: G3A3
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleDEG3A3
+    - id: MagazineRifleG3
+      amount: 5
+
+#region Machine guns, US
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongDEMG3
+  suffix: MG3
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponMachineGunDEMG3
+    - id: MagazineBeltBoxMG3Short
       amount: 2
-    - id: MagazineBox45ACP
+
+#region SMGs, DE
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUSR2MP
+  suffix: SR2MP
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubmachinegunRUSR2MP
+    - id: MagazineSubmachinegunSR2MP
+      amount: 5
+
+#region Rifles, RU
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUAK74
+  suffix: AK-74
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleRUAK74
+    - id: MagazineRifleAK74
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUAK74M
+  suffix: AK-74M
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleRUAK74M
+    - id: MagazineRifleAK74Black
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUAK12
+  suffix: AK-12
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleRUAK12
+    - id: MagazineRifleAK12
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUAKS74U
+  suffix: AKS-74u
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleRUAKS74U
+    - id: MagazineRifleAK74
+      amount: 5
+
+#region Machine guns, RU
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUPKM
+  suffix: PKM
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponMachineGunRUPKM
+    - id: MagazineBeltBoxPKM
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRURP46
+  suffix: RP-46
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponMachineGunRURP46
+    - id: MagazineBeltRP46
+      amount: 2
+
+#region Oddballs
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUNSCMA5B
+  suffix: MA5B
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleUNSCMA5B
+    - id: MagazineRifleMA5B
+      amount: 5
