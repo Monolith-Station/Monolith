@@ -430,31 +430,31 @@
     price: 1
 
 
-# 40x46mm MK20 Automatic Grenade Launcher
+# 40x53mm MK20 Automatic Grenade Launcher
 - type: entity
-  id: Magazine40x46mmMK20
-  name: "40x46mm MK20 AGL magazine (HE)"
+  id: Magazine40x53mmMK20
+  name: "40x53mm HV MK20 AGL magazine (HE)"
   description: "An ammunition drum for the MK20 automatic grenade launcher. Loaded with high-explosive rounds."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
     tags:
-    - Magazine40x46mmMK20
+    - Magazine40x53mmMK20
   - type: Item
     size: Small
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
-    proto: Cartridge40x46mmHE
+    proto: Cartridge40x53mmHE
     capacity: 80
     mayTransfer: true
     whitelist:
       tags:
-      - Cartridge40x46mmHE
-      - Cartridge40x46mmHEDP
-      - Cartridge40x46mmFrag
-      - Cartridge40x46mmMPAPERS
-      - Cartridge40x46mmPlasmaGas
-      - Cartridge40x46mmChemicalSmoke
+      - Cartridge40x53mmHE
+      - Cartridge40x53mmHEDP
+      - Cartridge40x53mmFrag
+      - Cartridge40x53mmMPAPERS
+      - Cartridge40x53mmPlasmaGas
+      - Cartridge40x53mmChemicalSmoke
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
@@ -474,19 +474,19 @@
     price: 1
 
 - type: entity
-  id: Cartridge40x46mmHE
-  name: cartridge (40x46mm HE)
-  parent: BaseCartridge40x46
+  id: Cartridge40x53mmHE
+  name: cartridge (40x53mm HV HE)
+  parent: BaseCartridge40x53
   components:
   - type: Item
     size: Small
   - type: Tag
     tags:
     - Cartridge
-    - Cartridge40x46mmHE
-    - Cartridge40x46mmGrenade
+    - Cartridge40x53mmHE
+    - Cartridge40x53mmGrenade
   - type: CartridgeAmmo
-    proto: Bullet40x46mmHEArmingDistance
+    proto: Bullet40x53mmHEArmingDistance
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/40x46.rsi
     layers:
@@ -516,19 +516,41 @@
     damageModifierSet: Metallic
 
 - type: entity
-  id: Cartridge40x46mmHEDP
-  name: cartridge (40x46mm HEDP)
-  parent: BaseCartridge40x46
+  id: Magazine40x53mmMK20HEDP
+  name: "40x53mm HV MK20 AGL magazine (HEDP)"
+  description: "An ammunition drum for the MK20 automatic grenade launcher. Loaded with high-explosive dual-purpose rounds."
+  parent: Magazine40x53mmMK20
+  components:
+  - type: Tag
+    tags:
+    - Magazine40x53mmMK20
+  - type: BallisticAmmoProvider
+    proto: Cartridge40x53mmHEDP
+    capacity: 80
+    mayTransfer: true
+    whitelist:
+      tags:
+      - Cartridge40x53mmHE
+      - Cartridge40x53mmHEDP
+      - Cartridge40x53mmFrag
+      - Cartridge40x53mmMPAPERS
+      - Cartridge40x53mmPlasmaGas
+      - Cartridge40x53mmChemicalSmoke
+
+- type: entity
+  id: Cartridge40x53mmHEDP
+  name: cartridge (40x53mm HV HEDP)
+  parent: BaseCartridge40x53
   components:
   - type: Item
     size: Small
   - type: Tag
     tags:
     - Cartridge
-    - Cartridge40x46mmHEDP
-    - Cartridge40x46mmGrenade
+    - Cartridge40x53mmHEDP
+    - Cartridge40x53mmGrenade
   - type: CartridgeAmmo
-    proto: Bullet40x46mmHEDPArmingDistance
+    proto: Bullet40x53mmHEDPArmingDistance
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/40x46.rsi
     layers:
@@ -558,19 +580,19 @@
     damageModifierSet: Metallic
 
 - type: entity
-  id: Cartridge40x46mmFrag
-  name: cartridge (40x46mm fragmentation)
-  parent: BaseCartridge40x46
+  id: Cartridge40x53mmFrag
+  name: cartridge (40x53mm HV fragmentation)
+  parent: BaseCartridge40x53
   components:
   - type: Item
     size: Small
   - type: Tag
     tags:
     - Cartridge
-    - Cartridge40x46mmFrag
-    - Cartridge40x46mmGrenade
+    - Cartridge40x53mmFrag
+    - Cartridge40x53mmGrenade
   - type: CartridgeAmmo
-    proto: Bullet40x46mmFragArmingDistance
+    proto: Bullet40x53mmFragArmingDistance
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/40x46.rsi
     layers:
@@ -599,21 +621,21 @@
     damageContainer: Inorganic
     damageModifierSet: Metallic
 
-# 40x46mm MK20 Plasma Gas
+# 40x53mm MK20 Plasma Gas
 - type: entity
-  id: Cartridge40x46mmPlasmaGas
-  name: cartridge (40x46mm plasma gas)
-  parent: BaseCartridge40x46
+  id: Cartridge40x53mmPlasmaGas
+  name: cartridge (40x53mm HV plasma gas)
+  parent: BaseCartridge40x53
   components:
   - type: Item
     size: Small
   - type: Tag
     tags:
     - Cartridge
-    - Cartridge40x46mmPlasmaGas
-    - Cartridge40x46mmGrenade
+    - Cartridge40x53mmPlasmaGas
+    - Cartridge40x53mmGrenade
   - type: CartridgeAmmo
-    proto: Bullet40x46mmPlasmaGas
+    proto: Bullet40x53mmPlasmaGas
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/40x46.rsi
     layers:
@@ -642,21 +664,21 @@
     damageContainer: Inorganic
     damageModifierSet: Metallic
 
-# 40x46mm MK20 Chemical Smoke
+# 40x53mm MK20 Chemical Smoke
 - type: entity
-  id: Cartridge40x46mmChemicalSmoke
-  name: cartridge (40x46mm chemical smoke)
-  parent: BaseCartridge40x46
+  id: Cartridge40x53mmChemicalSmoke
+  name: cartridge (40x53mm HV chemical smoke)
+  parent: BaseCartridge40x53
   components:
   - type: Item
     size: Small
   - type: Tag
     tags:
     - Cartridge
-    - Cartridge40x46mmChemicalSmoke
-    - Cartridge40x46mmGrenade
+    - Cartridge40x53mmChemicalSmoke
+    - Cartridge40x53mmGrenade
   - type: CartridgeAmmo
-    proto: Bullet40x46mmChemicalSmoke
+    proto: Bullet40x53mmChemicalSmoke
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Casings/40x46.rsi
     layers:
@@ -869,26 +891,26 @@
   - type: Appearance
   - type: SpentAmmoVisuals
 
-# 40x46mm MK20 Plasma Gas Magazine
+# 40x53mm MK20 Plasma Gas Magazine
 - type: entity
-  id: Magazine40x46mmPlasmaGas
-  name: "40x46mm MK20 plasma gas magazine"
+  id: Magazine40x53mmPlasmaGas
+  name: "40x53mm HV MK20 plasma gas magazine"
   description: "An ammunition drum for the MK20 automatic grenade launcher, loaded with plasma gas rounds."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
     tags:
-    - Magazine40x46mmPlasmaGas
+    - Magazine40x53mmPlasmaGas
   - type: Item
     size: Small
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
-    proto: Cartridge40x46mmPlasmaGas
+    proto: Cartridge40x53mmPlasmaGas
     capacity: 80
     mayTransfer: true
     whitelist:
       tags:
-      - Cartridge40x46mmPlasmaGas
+      - Cartridge40x53mmPlasmaGas
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
@@ -907,26 +929,26 @@
   - type: StaticPrice
     price: 1
 
-# 40x46mm MK20 Chemical Smoke Magazine
+# 40x53mm MK20 Chemical Smoke Magazine
 - type: entity
-  id: Magazine40x46mmChemicalSmoke
-  name: "40x46mm MK20 chemical smoke magazine"
+  id: Magazine40x53mmChemicalSmoke
+  name: "40x53mm HV MK20 chemical smoke magazine"
   description: "An ammunition drum for the MK20 automatic grenade launcher, loaded with chemical smoke rounds."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
     tags:
-    - Magazine40x46mmChemicalSmoke
+    - Magazine40x53mmChemicalSmoke
   - type: Item
     size: Small
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
-    proto: Cartridge40x46mmChemicalSmoke
+    proto: Cartridge40x53mmChemicalSmoke
     capacity: 80
     mayTransfer: true
     whitelist:
       tags:
-      - Cartridge40x46mmChemicalSmoke
+      - Cartridge40x53mmChemicalSmoke
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container

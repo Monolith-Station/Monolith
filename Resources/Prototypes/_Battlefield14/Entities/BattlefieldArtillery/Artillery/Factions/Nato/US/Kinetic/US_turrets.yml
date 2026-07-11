@@ -380,15 +380,15 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: Magazine40x46mmMK20
+        startingItem: Magazine40x53mmMK20
         insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-          - Magazine40x46mmMK20
-          - Magazine40x46mmPlasmaGas
-          - Magazine40x46mmChemicalSmoke
+          - Magazine40x53mmMK20
+          - Magazine40x53mmPlasmaGas
+          - Magazine40x53mmChemicalSmoke
         whitelistFailPopup: gun-magazine-whitelist-fail
   - type: Destructible
     thresholds:

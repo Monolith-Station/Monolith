@@ -7,6 +7,9 @@
   purchasable: false # voucher only, money doesn't matter
   category: Small
   shuttlePath: /Maps/_Battlefield14/Shuttles/NATO/mgtadpole.yml
+  addComponents:
+  - type: IFF
+    color: "#047abd"
 
 - type: gameMap
   id: M20L

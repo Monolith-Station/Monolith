@@ -7,6 +7,9 @@
   purchasable: false # voucher only, money doesn't matter
   category: Small
   shuttlePath: /Maps/_Battlefield14/Shuttles/PACT/aabmp.yml
+  addComponents:
+  - type: IFF
+    color: "#bd0404"
 
 - type: gameMap
   id: BMD4A

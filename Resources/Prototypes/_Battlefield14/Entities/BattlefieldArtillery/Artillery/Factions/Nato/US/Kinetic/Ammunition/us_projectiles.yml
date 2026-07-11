@@ -361,10 +361,10 @@
     shape: triangle
     radarColor: "#FF3300"
 
-# 40x46mm MK20 HE
+# 40x53mm MK20 HE
 - type: entity
-  id: Bullet40x46mmHE
-  name: 40x46mm HE grenade
+  id: Bullet40x53mmHE
+  name: 40x53mm HE grenade
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -377,9 +377,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: MicroBomb
-    totalIntensity: 25
+    totalIntensity: 60
     intensitySlope: 4
-    maxIntensity: 2.5
+    maxIntensity: 7
     maxTileBreak: 1
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
@@ -398,10 +398,10 @@
     shape: triangle
     radarColor: "#FF3300"
 
-# 40x46mm MK20 HEDP
+# 40x53mm MK20 HEDP
 - type: entity
-  id: Bullet40x46mmHEDP
-  name: 40x46mm HEDP grenade
+  id: Bullet40x53mmHEDP
+  name: 40x53mm HEDP grenade
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -410,14 +410,7 @@
       types:
         Structural: 110
         Piercing: 40
-    deleteOnCollide: false
-  - type: ArmorPiercing
-    piercingThickness: 2
-  - type: Heat
-    explosionDelay: 0
-    fragmentationDelay: 0
-    fragmentationCount: 40
-    fragmentationPrototype: Bullet40x46mmHEDPFragment
+    deleteOnCollide: true
     plasmaAmount: 0
   - type: ExplodeOnTrigger
   - type: Explosive
@@ -443,10 +436,10 @@
     shape: triangle
     radarColor: "#FF3300"
 
-# 40x46mm MK20 Fragmentation
+# 40x53mm MK20 Fragmentation
 - type: entity
-  id: Bullet40x46mmFrag
-  name: 40x46mm fragmentation grenade
+  id: Bullet40x53mmFrag
+  name: 40x53mm fragmentation grenade
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -457,8 +450,8 @@
         Blunt: 40
     deleteOnCollide: true
   - type: HeFragProjectile
-    fillPrototype: Bullet40x46mmFragFragment
-    capacity: 60
+    fillPrototype: Bullet40x53mmFragFragment
+    capacity: 70
     randomAngle: true
     minVelocity: 8
     maxVelocity: 15
@@ -480,10 +473,10 @@
     shape: triangle
     radarColor: "#FF3300"
 
-# 40x46mm MK20 HEDP Fragment
+# 40x53mm MK20 HEDP Fragment
 - type: entity
-  id: Bullet40x46mmHEDPFragment
-  name: 40x46mm HEDP fragment
+  id: Bullet40x53mmHEDPFragment
+  name: 40x53mm HEDP fragment
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -513,10 +506,10 @@
     shape: triangle
     radarColor: "#FF9900"
 
-# 40x46mm MK20 Frag Fragment
+# 40x53mm MK20 Frag Fragment
 - type: entity
-  id: Bullet40x46mmFragFragment
-  name: 40x46mm fragment
+  id: Bullet40x53mmFragFragment
+  name: 40x53mm fragment
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -546,10 +539,10 @@
     shape: triangle
     radarColor: "#FF9900"
 
-# 40x46mm MK20 MP-APERS
+# 40x53mm MK20 MP-APERS
 - type: entity
-  id: Bullet40x46mmMPAPERS
-  name: 40x46mm MP-APERS grenade
+  id: Bullet40x53mmMPAPERS
+  name: 40x53mm MP-APERS grenade
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -560,7 +553,7 @@
         Piercing: 20
     deleteOnCollide: true
   - type: HeFragProjectile
-    fillPrototype: Bullet40x46mmMPAPERSFragment
+    fillPrototype: Bullet40x53mmMPAPERSFragment
     capacity: 150
     randomAngle: true
     minVelocity: 10
@@ -583,9 +576,9 @@
     shape: triangle
     radarColor: "#FF3300"
 
-# 40x46mm MK20 MP-APERS Fragment
+# 40x53mm MK20 MP-APERS Fragment
 - type: entity
-  id: Bullet40x46mmMPAPERSFragment
+  id: Bullet40x53mmMPAPERSFragment
   name: MP-APERS fragment
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -616,12 +609,12 @@
     radarColor: "#FF9900"
 
 - type: entity
-  id: 40x46mmMPAPERSSpread
+  id: 40x53mmMPAPERSSpread
   categories: [ HideSpawnMenu ]
   parent: Pellet12_gauge
   components:
   - type: ProjectileSpread
-    proto: Bullet40x46mmMPAPERSFragment
+    proto: Bullet40x53mmMPAPERSFragment
     count: 25
     spread: 15
 
@@ -776,10 +769,10 @@
     count: 40
     spread: 20
 
-# 40x46mm MK20 Plasma Gas
+# 40x53mm MK20 Plasma Gas
 - type: entity
-  id: Bullet40x46mmPlasmaGas
-  name: 40x46mm plasma gas shell
+  id: Bullet40x53mmPlasmaGas
+  name: 40x53mm plasma gas shell
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -818,8 +811,8 @@
     radarColor: "#9900FF"
 
 - type: entity
-  id: Bullet40x46mmChemicalSmoke
-  name: 40x46mm chemical smoke shell
+  id: Bullet40x53mmChemicalSmoke
+  name: 40x53mm chemical smoke shell
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:

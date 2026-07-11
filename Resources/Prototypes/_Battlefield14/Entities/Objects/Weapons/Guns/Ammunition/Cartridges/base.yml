@@ -54,6 +54,11 @@
         volume: -1
 
 - type: entity
+  parent: BaseCartridge40x46
+  id: BaseCartridge40x53
+  abstract: true
+
+- type: entity
   parent: [BaseCartridge, RecyclableItemSteelTiny]
   id: BaseCartridgeLauncher
   abstract: true
