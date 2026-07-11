@@ -46,4 +46,14 @@ public sealed partial class JetpackComponent : Component
     /// </summary>
     [DataField]
     public float FlightResponsiveness = 8f;
+
+    /// <summary>
+    /// CE z-flight: with no ascend/descend held, how strongly the wearer drifts toward the
+    /// nearest whole level plane (its floor from the lower half, the level above from the upper
+    /// half), like a transit set settling onto a level. The pull scales with distance to the
+    /// plane, so it eases to nothing right at it. 0 disables the settle — the wearer just hovers
+    /// wherever they let go.
+    /// </summary>
+    [DataField]
+    public float FlightSettleGain = 1f;
 }

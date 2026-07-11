@@ -66,9 +66,19 @@ public abstract partial class SharedJetpackSystem : EntitySystem
             return;
 
         if (ascend)
+        {
+            if (jetpackUser.AscendHeld == held)
+                return;
             jetpackUser.AscendHeld = held;
+        }
         else
+        {
+            if (jetpackUser.DescendHeld == held)
+                return;
             jetpackUser.DescendHeld = held;
+        }
+
+        Dirty(user, jetpackUser); // Server networks the held state to the client for prediction.
     }
 
     private sealed class JetpackVerticalCmdHandler : InputCmdHandler
@@ -186,7 +196,7 @@ public abstract partial class SharedJetpackSystem : EntitySystem
         if (TryComp<JetpackComponent>(component.Jetpack, out var jetpack)
             && (!CanEnableOnGrid(args.Transform.GridUid)
                 || !UserNotParented(uid, jetpack) // EE
-                || !_gravity.IsWeightless(uid))) // Mono
+                || !IsWeightlessOrPlanet(uid))) // Mono/CE: planets (grid or open map) keep it on
         {
             SetEnabled(component.Jetpack, jetpack, false, uid);
 
@@ -208,6 +218,7 @@ public abstract partial class SharedJetpackSystem : EntitySystem
         userComp.WeightlessFriction = component.Friction;
         userComp.WeightlessFrictionNoInput = component.Friction;
         _movementSpeedModifier.RefreshWeightlessModifiers(user);
+        _gravity.RefreshWeightless(user); // Mono/CE: recompute the weightless cache now the IsWeightless hook applies.
     }
 
     private void RemoveUser(EntityUid uid, JetpackComponent component)
@@ -221,6 +232,10 @@ public abstract partial class SharedJetpackSystem : EntitySystem
             _physics.SetBodyStatus(uid, physics, BodyStatus.OnGround);
 
         _movementSpeedModifier.RefreshWeightlessModifiers(uid);
+        // Mono/CE: the JetpackUserComponent (and its IsWeightless hook) is gone now, so recompute
+        // the weightless cache — otherwise it stays stuck true and the wearer floats on planet
+        // gravity after turning the jetpack off.
+        _gravity.RefreshWeightless(uid);
     }
 
     private void OnJetpackToggle(EntityUid uid, JetpackComponent component, ToggleJetpackEvent args)
@@ -309,9 +324,18 @@ public abstract partial class SharedJetpackSystem : EntitySystem
         return gridUid is { } grid && HasComp<CEZMapComponent>(Transform(grid).MapUid);
     }
 
+    // True whenever the entity is on a z-level (planet) map, whether it's standing on a grid
+    // there or directly on the open planet map — the latter has no GridUid, which is why the
+    // grid-based IsPlanet isn't enough and we check the map itself. Stepping off a grid onto
+    // the open planet map used to fail this and disable the jetpack mid-air.
+    private bool OverPlanet(EntityUid user)
+    {
+        return TryComp(user, out TransformComponent? xform) && HasComp<CEZMapComponent>(xform.MapUid);
+    }
+
     private bool IsWeightlessOrPlanet(EntityUid user)
     {
-        return _gravity.IsWeightless(user) || (TryComp(user, out TransformComponent? xform) && IsPlanet(xform.GridUid));
+        return _gravity.IsWeightless(user) || OverPlanet(user);
     }
 
     protected virtual bool CanEnable(EntityUid uid, EntityUid user, JetpackComponent component)
