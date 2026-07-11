@@ -56,13 +56,9 @@ public sealed class CEZLevelShadowOverlay : Overlay
         _zLevels = _entityManager.System<CEClientZLevelsSystem>();
     }
 
-    protected override bool BeforeDraw(in OverlayDrawArgs args)
-    {
-        return _entityManager.HasComponent<CEZMapComponent>(args.MapUid);
-    }
-
     protected override void Draw(in OverlayDrawArgs args)
     {
+        // Only z-level maps have levels above to cast from; non-z passes fall out here.
         var passMap = args.MapUid;
         if (!_entityManager.TryGetComponent<CEZMapComponent>(passMap, out var passZMap))
             return;
