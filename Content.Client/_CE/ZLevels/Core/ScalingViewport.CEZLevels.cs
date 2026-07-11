@@ -235,9 +235,9 @@ public sealed partial class ScalingViewport
         // ABSOLUTE altitude difference, so ships in any gap of the observer's network
         // render — not just gaps bordering the maps already in the pass list.
         var altitudeAnchor = riderTransit?.LowerMap ?? playerMap;
-        if (_entityManager.TryGetComponent(altitudeAnchor, out CEZMapComponent? anchorZ))
+        if (_entityManager.HasComponent<CEZMapComponent>(altitudeAnchor))
         {
-            var observerAltitude = anchorZ.Depth + frac;
+            var observerAltitude = _zLevels.GetAbsoluteAltitude(_player.LocalEntity.Value);
             var hasObserverNetwork = _zLevels.TryGetMapNetwork(altitudeAnchor, out var observerNetwork);
 
             var transitQuery = _entityManager.EntityQueryEnumerator<CEZTransitMapComponent>();
@@ -257,7 +257,13 @@ public sealed partial class ScalingViewport
                     continue;
                 }
 
-                var transitDepth = lowerZ.Depth + GetTransitProgress(transit) - observerAltitude;
+                // Transit grid's absolute altitude (lower-anchor depth + gap progress, folded in by
+                // the API) relative to the observer's. Fall back to the gap's lower plane if the map
+                // has no primary grid to read.
+                var transitAltitude = transit.PrimaryGrid is { } primaryGrid
+                    ? _zLevels.GetAbsoluteAltitude(primaryGrid)
+                    : lowerZ.Depth;
+                var transitDepth = transitAltitude - observerAltitude;
 
                 // Hidden under a layer between it and the observer: for a cloud, ships still
                 // within the dissolve band show through (as sinking ghosts) so only deeper

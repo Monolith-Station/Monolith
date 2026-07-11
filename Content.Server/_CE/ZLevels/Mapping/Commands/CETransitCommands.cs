@@ -339,23 +339,17 @@ public sealed class CETransitLerpCommand : CEBaseTransitCommand
             return;
         }
 
-        // Current absolute altitude = lower map's depth + fractional transit progress.
         xform = Entities.GetComponent<TransformComponent>(grid);
         if (xform.MapUid is not { } transitMap ||
-            !Entities.TryGetComponent<CEZTransitMapComponent>(transitMap, out var transit) ||
-            transit.LowerMap is not { } lower ||
-            !Entities.TryGetComponent<CEZMapComponent>(lower, out var lowerZ))
+            !Entities.HasComponent<CEZTransitMapComponent>(transitMap))
         {
             shell.WriteError("Grid is not in a valid transit stack.");
             return;
         }
 
-        var progress = Entities.TryGetComponent<CEZPhysicsComponent>(grid, out var zPhys)
-            ? Math.Clamp(zPhys.LocalPosition, 0f, 1f)
-            : 0f;
-
         var lerp = Entities.EnsureComponent<CEZDebugAltitudeLerpComponent>(grid);
-        lerp.StartAltitude = lowerZ.Depth + progress;
+        // Current absolute altitude (lower-anchor depth + gap progress) from the API.
+        lerp.StartAltitude = ZLevel.GetAbsoluteAltitude(grid);
         lerp.TargetAltitude = altitude;
         lerp.Duration = duration;
         lerp.Elapsed = 0f;
