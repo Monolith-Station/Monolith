@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/10/2026 20:17:04
+  time: 07/11/2026 17:48:08
   entityCount: 10033
 maps: []
 grids:
@@ -227,10 +227,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Smoke: []
         Kudzu: []
         MetalFoam: []
+        Puddle: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -3746,7 +3746,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: TSFMCHalcyon
+      id: TSFMCHalcyonHyperwar
     - type: ShipGridLock
       locked: False
     - type: ThermalSignature
@@ -6555,6 +6555,7 @@ entities:
     - type: Transform
       pos: 1.5,7.5
       parent: 1
+    - type: Lathe
 - proto: APCBasic
   entities:
   - uid: 337
@@ -10897,11 +10898,13 @@ entities:
     - type: Transform
       pos: 6.5,-28.5
       parent: 1
+    - type: Lathe
   - uid: 1183
     components:
     - type: Transform
       pos: 3.5,-9.5
       parent: 1
+    - type: Lathe
 - proto: BannerNGC
   entities:
   - uid: 1184
@@ -28257,6 +28260,7 @@ entities:
     - type: Transform
       pos: 3.5,-8.5
       parent: 1
+    - type: Lathe
 - proto: ClosetChefFilled
   entities:
   - uid: 4511
@@ -29984,11 +29988,6 @@ entities:
       parent: 1
 - proto: CrateEmptySpawner
   entities:
-  - uid: 4738
-    components:
-    - type: Transform
-      pos: 34.5,-22.5
-      parent: 1
   - uid: 4739
     components:
     - type: Transform
@@ -30018,16 +30017,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,26.5
-      parent: 1
-  - uid: 4745
-    components:
-    - type: Transform
-      pos: 34.5,-24.5
-      parent: 1
-  - uid: 4746
-    components:
-    - type: Transform
-      pos: 36.5,-23.5
       parent: 1
   - uid: 4747
     components:
@@ -33749,6 +33738,7 @@ entities:
     - type: Transform
       pos: 5.5,-28.5
       parent: 1
+    - type: Lathe
 - proto: ExosuitFabricator
   entities:
   - uid: 5381
@@ -33756,6 +33746,7 @@ entities:
     - type: Transform
       pos: 7.5,-9.5
       parent: 1
+    - type: Lathe
 - proto: ExosuitFabricatorMachineCircuitboard
   entities:
   - uid: 5382
@@ -33787,6 +33778,7 @@ entities:
     - type: Transform
       pos: 7.5,-5.5
       parent: 1
+    - type: Lathe
 - proto: FaxMachineNFNfsd
   entities:
   - uid: 5386
@@ -45880,6 +45872,7 @@ entities:
     - type: Transform
       pos: 19.5,-13.5
       parent: 1
+    - type: Lathe
 - proto: MedicalTechFab
   entities:
   - uid: 6938
@@ -45887,6 +45880,7 @@ entities:
     - type: Transform
       pos: 16.5,-5.5
       parent: 1
+    - type: Lathe
 - proto: MedkitAdvancedFilled
   entities:
   - uid: 6939
@@ -45992,6 +45986,7 @@ entities:
     - type: Transform
       pos: 0.5,7.5
       parent: 1
+    - type: Lathe
 - proto: NFSpawnPointDetective
   entities:
   - uid: 6955
@@ -46073,6 +46068,7 @@ entities:
     - type: Transform
       pos: 7.5,-8.5
       parent: 1
+    - type: Lathe
 - proto: OxygenCanister
   entities:
   - uid: 6968
@@ -48287,6 +48283,7 @@ entities:
     - type: Transform
       pos: 7.5,-7.5
       parent: 1
+    - type: Lathe
 - proto: Rack
   entities:
   - uid: 7332
@@ -49634,6 +49631,7 @@ entities:
     - type: Transform
       pos: 7.5,-6.5
       parent: 1
+    - type: Lathe
 - proto: ServiceTechFabCircuitboard
   entities:
   - uid: 7563
@@ -50541,6 +50539,27 @@ entities:
     components:
     - type: Transform
       pos: 7.6163464,26.50161
+      parent: 1
+- proto: SpawnerSupplyCratePlastic
+  entities:
+  - uid: 4746
+    components:
+    - type: Transform
+      pos: 36.853447,-23.429802
+      parent: 1
+- proto: SpawnerSupplyCratePlastitanium
+  entities:
+  - uid: 4738
+    components:
+    - type: Transform
+      pos: 34.603447,-23.476677
+      parent: 1
+- proto: SpawnerSupplyCrateTextiles
+  entities:
+  - uid: 4745
+    components:
+    - type: Transform
+      pos: 35.447197,-23.382927
       parent: 1
 - proto: SpawnMobCatCappy
   entities:

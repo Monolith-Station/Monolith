@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/03/2026 12:05:13
+  time: 07/11/2026 17:31:41
   entityCount: 8443
 maps: []
 grids:
@@ -218,7 +218,7 @@ entities:
     - type: Fixtures
       fixtures: {}
     - type: BecomesStation
-      id: PDV Helios Fortress
+      id: HeliosFortressHyperwar
     - type: OccluderTree
     - type: Shuttle
       dampingModifier: 0.25
@@ -4142,10 +4142,10 @@ entities:
             470: 4,49
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        MetalFoam: []
         Kudzu: []
         Smoke: []
+        MetalFoam: []
+        Puddle: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -6860,13 +6860,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -11.5,56.5
       parent: 1
-  - uid: 8364
-    components:
-    - type: Transform
-      pos: -3.5,42.5
-      parent: 1
-- proto: APCBasic
-  entities:
   - uid: 7829
     components:
     - type: Transform
@@ -6877,6 +6870,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -12.5,30.5
+      parent: 1
+  - uid: 8364
+    components:
+    - type: Transform
+      pos: -3.5,42.5
       parent: 1
 - proto: AtmosDeviceFanDirectional
   entities:
@@ -44685,29 +44683,6 @@ entities:
     - type: Transform
       pos: 13.5,38.5
       parent: 1
-- proto: SheetPlastitanium
-  entities:
-  - uid: 8441
-    components:
-    - type: Transform
-      pos: -17.505737,28.642569
-      parent: 1
-    - type: Stack
-      count: 100
-  - uid: 8442
-    components:
-    - type: Transform
-      pos: -17.208862,28.595694
-      parent: 1
-    - type: Stack
-      count: 100
-  - uid: 8443
-    components:
-    - type: Transform
-      pos: -17.771362,28.611319
-      parent: 1
-    - type: Stack
-      count: 100
 - proto: ShieldGeneratorPOI
   entities:
   - uid: 2771
@@ -45080,6 +45055,27 @@ entities:
     components:
     - type: Transform
       pos: 1.5,66.5
+      parent: 1
+- proto: SpawnerSupplyCratePlastic
+  entities:
+  - uid: 8442
+    components:
+    - type: Transform
+      pos: -4.828019,11.615787
+      parent: 1
+- proto: SpawnerSupplyCratePlastitanium
+  entities:
+  - uid: 8443
+    components:
+    - type: Transform
+      pos: -6.296769,11.365787
+      parent: 1
+- proto: SpawnerSupplyCrateTextiles
+  entities:
+  - uid: 8441
+    components:
+    - type: Transform
+      pos: -5.218644,11.522037
       parent: 1
 - proto: SpawnMobMedibot
   entities:

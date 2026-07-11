@@ -116,7 +116,7 @@ entities:
     - type: Fixtures
       fixtures: {}
     - type: BecomesStation
-      id: Kortik
+      id: KortikR
     - type: OccluderTree
     - type: Shuttle
       dampingModifier: 0.25
@@ -4590,7 +4590,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: CrateAmmoBoxCharon
+- proto: CrateAmmoBoxR300
   entities:
   - uid: 694
     components:
@@ -7464,7 +7464,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-9.5
       parent: 1
-- proto: CharonSlugAmmo
+- proto: R300ShellHE
   entities:
   - uid: 1076
     components:
@@ -9958,7 +9958,7 @@ entities:
     - type: Transform
       pos: 6.5,-21.5
       parent: 1
-- proto: WeaponTurretCharonReload
+- proto: WeaponTurretR300
   entities:
   - uid: 1539
     components:

@@ -43,3 +43,18 @@
           tags:
           - HeadOfPersonnel
           - HeadOfSecurity
+
+- type: gameMap
+  id: EmptyFrontier
+  mapName: Empty
+  mapPath: /Maps/Test/empty.yml
+  minPlayers: 0
+  stations:
+    Empty:
+      stationProto: StandardFrontierStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Empty"
+        # - type: StationJobs # mono edit
+        #   availableJobs:
+        #     Passenger: [ -1, -1 ]
