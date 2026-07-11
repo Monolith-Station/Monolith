@@ -270,15 +270,15 @@ namespace Content.Shared.Examine
             var metadata = MetaData(entity);
 
             // Add an entity description if one is declared
-            if (!string.IsNullOrEmpty(_entity.GetComponent<MetaDataComponent>(entity).EntityDescription))
+            if (!string.IsNullOrEmpty(metadata.EntityDescription))
             {
                 try
                 {
-                    message.AddMarkupOrThrow(_entity.GetComponent<MetaDataComponent>(entity).EntityDescription);
+                    message.AddMarkupOrThrow(metadata.EntityDescription);
                 }
                 catch (Exception _)
                 {
-                    message.AddText(_entity.GetComponent<MetaDataComponent>(entity).EntityDescription);
+                    message.AddText(metadata.EntityDescription);
                 }
                 hasDescription = true;
             }
