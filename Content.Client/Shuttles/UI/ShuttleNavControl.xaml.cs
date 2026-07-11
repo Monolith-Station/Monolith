@@ -927,6 +927,23 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             }
         }
 
+        // Draw missile lines from the radar blips system
+        var missileLines = _blips.GetMissileLines();
+        foreach (var line in missileLines)
+        {
+            var startPos = new Vector2(line.PositionStart.X, line.PositionStart.Y);
+            var startEnd = new Vector2(line.PositionEnd.X, line.PositionEnd.Y);
+            var startPosInView = Vector2.Transform(startPos, worldToView);
+            var endPosInView = Vector2.Transform(startEnd, worldToView);
+
+            // Only draw lines if at least one endpoint is within view
+            if (monoViewBounds.Contains(startPosInView) || monoViewBounds.Contains(endPosInView))
+            {
+                // Draw the line with the specified thickness and color
+                handle.DrawLine(startPosInView, endPosInView, line.Color);
+            }
+        }
+
         // Draw hitscan lines from the radar blips system
         var hitscanLines = _blips.GetHitscanLines();
         foreach (var line in hitscanLines)

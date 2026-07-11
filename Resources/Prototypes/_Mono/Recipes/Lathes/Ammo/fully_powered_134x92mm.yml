@@ -5,7 +5,7 @@
   materials:
     Steel: 600
     Plasteel: 250
-    UraniumDepleted: 50
+    UraniumDepleted: 100
 
 - type: latheRecipe
   parent: BaseAmmoFMJFullyPoweredAmmoBoxRecipe
@@ -14,7 +14,7 @@
   materials:
     Steel: 2000
     Plasteel: 500
-    UraniumDepleted: 100
+    UraniumDepleted: 200
 
 - type: latheRecipe
   parent: BaseAmmoFMJFullyPoweredAmmoBoxRecipe
@@ -23,4 +23,4 @@
   materials:
     Steel: 6000
     Plasteel: 1500
-    UraniumDepleted: 300
+    UraniumDepleted: 600

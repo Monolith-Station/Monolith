@@ -375,7 +375,7 @@
   description: Toggles the night vision on and off.
   components:
   - type: InstantAction
-    useDelay: 2
+    useDelay: 0.25
     icon:
       sprite: Interface/Actions/night_vision.rsi
       state: icon
