@@ -137,7 +137,7 @@
   productEntity: CratePlateLight
   icon: { sprite: _Mono/Clothing/ArmorPlate/armor_light.rsi, state: icon }
   cost:
-    NATORequisition: 6 # 1 minute
+    NATORequisition: 1 # 10 seconds
   categories:
     - UplinkNATOUSArmour
   conditions:

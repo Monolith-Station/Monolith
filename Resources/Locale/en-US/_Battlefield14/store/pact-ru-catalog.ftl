@@ -3,11 +3,11 @@
 uplink-PACTRU-PKMcrate-name = PKM x2
 uplink-PACTRU-PKMcrate-desc = A crate of two PKM machineguns and four belt boxes.
 
-uplink-PACTRU-ak74crate-name = AK-74 x10
-uplink-PACTRU-ak74crate-desc = A crate of ten AK-74 rifles and two boxes of spare ammunition.
+uplink-PACTRU-ak74crate-name = AK-74 x5
+uplink-PACTRU-ak74crate-desc = A crate of five AK-74 rifles and two boxes of spare ammunition.
 
-uplink-PACTRU-ak12crate-name = AK-12 x10
-uplink-PACTRU-ak12crate-desc = A crate of ten AK-12 rifles and two boxes of spare ammunition.
+uplink-PACTRU-ak12crate-name = AK-12 x5
+uplink-PACTRU-ak12crate-desc = A crate of five AK-12 rifles and two boxes of spare ammunition.
 
 uplink-PACTRU-ak203crate-name = AK-203 x5
 uplink-PACTRU-ak203crate-desc = A crate of five AK-203 7.62x39 rifles and two boxes of spare ammunition.

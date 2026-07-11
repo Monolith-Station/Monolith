@@ -1,6 +1,267 @@
 # Distinct from the ones in _Battlefield14\Entities\BattlefieldArtillery\Artillery\Factions\Nato\US\Kinetic\Ammunition but similar, chemicalsmoke and plasmagas dont work well with infantry gameplay
 
 - type: entity
+  id: Bullet40x46mmHE
+  name: 40x46mm HE grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 50
+        Blunt: 40
+    deleteOnCollide: true
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: MicroBomb
+    totalIntensity: 25
+    intensitySlope: 4
+    maxIntensity: 2.5
+    maxTileBreak: 0
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
+    layers:
+    - state: grenade
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 10
+  - type: PointLight
+    radius: 3
+    color: orange
+    energy: 0.5
+  - type: RadarBlip
+    scale: 1.5
+    requireNoGrid: true
+    shape: triangle
+    radarColor: "#FF3300"
+
+# 40x46mm HEDP
+- type: entity
+  id: Bullet40x46mmHEDP
+  name: 40x46mm HEDP grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 150
+        Piercing: 40
+    deleteOnCollide: true
+  - type: HeFragProjectile
+    fillPrototype: Bullet40x46mmHEDPFragment
+    capacity: 20
+    randomAngle: true
+    minVelocity: 8
+    maxVelocity: 15
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 30
+    intensitySlope: 5
+    maxIntensity: 5
+    maxTileBreak: 1
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
+    layers:
+    - state: grenade
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 10
+  - type: PointLight
+    radius: 3
+    color: orange
+    energy: 0.5
+  - type: RadarBlip
+    scale: 1.5
+    requireNoGrid: true
+    shape: triangle
+    radarColor: "#FF3300"
+
+# 40x46mm Fragmentation
+- type: entity
+  id: Bullet40x46mmFrag
+  name: 40x46mm fragmentation grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 40
+        Blunt: 40
+    deleteOnCollide: true
+  - type: HeFragProjectile
+    fillPrototype: Bullet40x46mmFragFragment
+    capacity: 60
+    randomAngle: true
+    minVelocity: 8
+    maxVelocity: 15
+  - type: ExplodeOnTrigger
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
+    layers:
+    - state: grenade
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 10
+  - type: PointLight
+    radius: 3
+    color: orange
+    energy: 0.5
+  - type: RadarBlip
+    scale: 1.5
+    requireNoGrid: true
+    shape: triangle
+    radarColor: "#FF3300"
+
+# 40x46mm HEDP Fragment
+- type: entity
+  id: Bullet40x46mmHEDPFragment
+  name: 40x46mm HEDP fragment
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 20
+        Slash: 10
+        Piercing: 10
+    deleteOnCollide: true
+  - type: StaminaDamageOnCollide
+    damage: 6 # ~17 hits to stun
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: shard
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 2
+  - type: PointLight
+    radius: 1.5
+    color: orange
+    energy: 0.3
+  - type: RadarBlip
+    scale: 0.6
+    requireNoGrid: true
+    shape: triangle
+    radarColor: "#FF9900"
+
+# 40x46mm Frag Fragment
+- type: entity
+  id: Bullet40x46mmFragFragment
+  name: 40x46mm fragment
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 10
+        Slash: 12
+        Piercing: 12
+    deleteOnCollide: true
+  - type: StaminaDamageOnCollide
+    damage: 8 # ~12.5 hits to stun
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: shard
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 2
+  - type: PointLight
+    radius: 1
+    color: orange
+    energy: 0.2
+  - type: RadarBlip
+    scale: 0.5
+    requireNoGrid: true
+    shape: triangle
+    radarColor: "#FF9900"
+
+# 40x46mm MP-APERS
+- type: entity
+  id: Bullet40x46mmMPAPERS
+  name: 40x46mm MP-APERS grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 30
+        Piercing: 20
+    deleteOnCollide: true
+  - type: HeFragProjectile
+    fillPrototype: Bullet40x46mmMPAPERSFragment
+    capacity: 150
+    randomAngle: true
+    minVelocity: 10
+    maxVelocity: 18
+  - type: ExplodeOnTrigger
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
+    layers:
+    - state: grenade
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 10
+  - type: PointLight
+    radius: 3
+    color: orange
+    energy: 0.5
+  - type: RadarBlip
+    scale: 1.5
+    requireNoGrid: true
+    shape: triangle
+    radarColor: "#FF3300"
+
+# 40x46mm MP-APERS Fragment
+- type: entity
+  id: Bullet40x46mmMPAPERSFragment
+  name: MP-APERS fragment
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 12
+        Piercing: 18
+  - type: StaminaDamageOnCollide
+    damage: 4 # ~25 hits to stun
+    deleteOnCollide: true
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
+    layers:
+    - state: small
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 1.5
+  - type: PointLight
+    radius: 0.8
+    color: orange
+    energy: 0.15
+  - type: RadarBlip
+    scale: 0.4
+    requireNoGrid: true
+    shape: triangle
+    radarColor: "#FF9900"
+
+- type: entity
+  id: 40x46mmMPAPERSSpread
+  categories: [ HideSpawnMenu ]
+  parent: Pellet12_gauge
+  components:
+  - type: ProjectileSpread
+    proto: Bullet40x46mmMPAPERSFragment
+    count: 25
+    spread: 15
+
+- type: entity
   id: Bullet40x46mmChemicalSmokeInfantry
   name: 40x46mm CS gas shell
   parent: BaseBulletTrigger
