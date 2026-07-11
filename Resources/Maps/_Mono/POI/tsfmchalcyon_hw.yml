@@ -6556,10 +6556,6 @@ entities:
       pos: 1.5,7.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.1
-      materialUseMultiplier: 0.25
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
 - proto: APCBasic
   entities:
   - uid: 337
@@ -10903,20 +10899,12 @@ entities:
       pos: 6.5,-28.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.1
-      materialUseMultiplier: 0.25
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
   - uid: 1183
     components:
     - type: Transform
       pos: 3.5,-9.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.1
-      materialUseMultiplier: 0.25
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
 - proto: BannerNGC
   entities:
   - uid: 1184
@@ -28273,10 +28261,6 @@ entities:
       pos: 3.5,-8.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.1
-      materialUseMultiplier: 0.25
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
 - proto: ClosetChefFilled
   entities:
   - uid: 4511
@@ -33755,10 +33739,6 @@ entities:
       pos: 5.5,-28.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.1
-      materialUseMultiplier: 0.25
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
 - proto: ExosuitFabricator
   entities:
   - uid: 5381
@@ -33767,10 +33747,6 @@ entities:
       pos: 7.5,-9.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.1
-      materialUseMultiplier: 0.25
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
 - proto: ExosuitFabricatorMachineCircuitboard
   entities:
   - uid: 5382
@@ -33803,10 +33779,6 @@ entities:
       pos: 7.5,-5.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.1
-      materialUseMultiplier: 0.25
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
 - proto: FaxMachineNFNfsd
   entities:
   - uid: 5386
@@ -45901,10 +45873,6 @@ entities:
       pos: 19.5,-13.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.1
-      materialUseMultiplier: 0.25
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
 - proto: MedicalTechFab
   entities:
   - uid: 6938
@@ -45913,10 +45881,6 @@ entities:
       pos: 16.5,-5.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.1
-      materialUseMultiplier: 0.25
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
 - proto: MedkitAdvancedFilled
   entities:
   - uid: 6939
@@ -46023,10 +45987,6 @@ entities:
       pos: 0.5,7.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.1
-      materialUseMultiplier: 0.25
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
 - proto: NFSpawnPointDetective
   entities:
   - uid: 6955
@@ -46109,10 +46069,6 @@ entities:
       pos: 7.5,-8.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.05
-      materialUseMultiplier: 0.1875
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
 - proto: OxygenCanister
   entities:
   - uid: 6968
@@ -48328,10 +48284,6 @@ entities:
       pos: 7.5,-7.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.1
-      materialUseMultiplier: 0.25
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
 - proto: Rack
   entities:
   - uid: 7332
@@ -49680,10 +49632,6 @@ entities:
       pos: 7.5,-6.5
       parent: 1
     - type: Lathe
-      timeMultiplier: 0.1
-      materialUseMultiplier: 0.25
-      finalTimeMultiplier: 0.1
-      finalMaterialUseMultiplier: 0.25
 - proto: ServiceTechFabCircuitboard
   entities:
   - uid: 7563
