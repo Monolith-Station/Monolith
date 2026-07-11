@@ -55,6 +55,7 @@ public sealed partial class HyperwarRuleSystem : GameRuleSystem<HyperwarRuleComp
 
     private void OnCleanup(RoundRestartCleanupEvent ev)
     {
+        _confMan.SetCVar("worldgen.worldgen_config", "NFDefault");
         HyperwarActive = false;
     }
 

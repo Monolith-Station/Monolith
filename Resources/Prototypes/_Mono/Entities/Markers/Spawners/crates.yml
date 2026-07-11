@@ -6,9 +6,11 @@
   - type: TimedSpawner
     prototypes:
     - CrateMaterialPlastic
-    intervalSeconds: 15
+    intervalSeconds: 900
     minimumEntitiesSpawned: 6
     maximumEntitiesSpawned: 6
+  - type: TimedDespawn
+    lifetime: 3601
 
 - type: entity
   id: SpawnerSupplyCrateTextiles
@@ -18,18 +20,22 @@
   - type: TimedSpawner
     prototypes:
     - CrateMaterialCloth
-    intervalSeconds: 15
+    intervalSeconds: 900
     minimumEntitiesSpawned: 6
     maximumEntitiesSpawned: 6
+  - type: TimedDespawn
+    lifetime: 3601
 
 - type: entity
   id: SpawnerSupplyCratePlastitanium
   parent: MarkerBasePlaceFree
-  suffix: 300 Plastitanium, 15 minute interval
+  suffix: 270 Plastitanium, 15 minute interval
   components:
   - type: TimedSpawner
     prototypes:
     - CrateMaterialPlastitanium
-    intervalSeconds: 15
+    intervalSeconds: 900
     minimumEntitiesSpawned: 3
     maximumEntitiesSpawned: 3
+  - type: TimedDespawn
+    lifetime: 3601
