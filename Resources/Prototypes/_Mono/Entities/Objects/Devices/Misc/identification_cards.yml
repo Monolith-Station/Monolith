@@ -80,22 +80,6 @@
 
 - type: entity
   parent: IDCardStandard
-  id: TsfMarsocFTLIDCard
-  name: TSFMC MARSOC fire team leader ID card
-  components:
-  - type: PresetIdCard
-    job: TsfMarsocFTL
-  - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
-    layers:
-    - state: centcom
-  - type: Clothing
-    sprite: Objects/Misc/id_cards.rsi
-  - type: Item
-    heldPrefix: blue
-
-- type: entity
-  parent: IDCardStandard
   id: TsfMarsocIDCard
   name: TSFMC MARSOC operative ID card
   components:
@@ -156,6 +140,19 @@
   parent: PirateIDCard
   id: PDVGrandVizierIDCard
   name: PDV grand vizier ID card
+  components:
+  - type: PresetIdCard
+    job: PirateCaptain
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/id_cards.rsi
+    layers:
+    - state: vizierbase
+    - state: id_vizier
+
+- type: entity
+  parent: PirateIDCard
+  id: PDVTarkhanIDCard
+  name: PDV tarkhan ID card
   components:
   - type: PresetIdCard
     job: PirateCaptain

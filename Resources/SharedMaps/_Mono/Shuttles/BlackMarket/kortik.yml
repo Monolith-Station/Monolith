@@ -4590,7 +4590,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: CrateAmmoBoxR300
+- proto: CrateAmmoBoxCharon
   entities:
   - uid: 694
     components:
@@ -7464,7 +7464,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-9.5
       parent: 1
-- proto: R300ShellHE
+- proto: CharonSlugAmmo
   entities:
   - uid: 1076
     components:
@@ -9958,7 +9958,7 @@ entities:
     - type: Transform
       pos: 6.5,-21.5
       parent: 1
-- proto: WeaponTurretR300
+- proto: WeaponTurretCharonReload
   entities:
   - uid: 1539
     components:

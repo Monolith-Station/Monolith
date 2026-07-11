@@ -1,0 +1,42 @@
+#Author: kasature90 (github) / _starch_ (discord).
+
+- type: vessel
+  id: KortikR
+  parent: BaseVesselAntag
+  name: PDV-NCI Kortik-R
+  description: Converted from recently purchased & outdated USSP Kortik hulls. A heavily armored frigate, with multiple layers of reinforced plastitanium hull. Comes with a full medbay & chemlab, and equipped with 2 spinal R-300s, 2 HADES, 2 CYREXA, 4 Draupnirs, 4 VESPERAs, and 4 20mms. FULLY UNABLE TO USE SHIELD GENERATORS.
+  limit: 3
+  hyperwarLimit: 4
+  hyperwarTimelock: 1800
+  price: 278000
+  purchasable: false # Voucher only
+  category: Large
+  group: BlackMarket
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/kortik_t2.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  - Frigate
+  engine:
+  - AME
+
+- type: gameMap
+  id: KortikR
+  mapName: 'Kortik-R'
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/kortik_t2.yml
+  minPlayers: 0
+  stations:
+    KortikR:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: ShipShieldDisabledGrid
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Kortik-R PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

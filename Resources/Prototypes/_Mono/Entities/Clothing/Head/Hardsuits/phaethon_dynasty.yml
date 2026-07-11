@@ -96,3 +96,24 @@
     viewCircleSpacing: 280
     phosphorColor: "#41D7D9"
     lightingColor: "#FFFFFF32"
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ShowMedicalIcons, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitTarkhan
+  name: "PDV CV-280 'Basilisk' combat hardsuit helmet"
+  description: A combat hardsuit helmet designed by the Phaethon Dynasty for Tarkhans. A full gen-4 NVD suite is installed.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/basilisk.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/basilisk.rsi
+  - type: NightVision # Gen 4 quadtube
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 4
+    viewCircleSpacing: 260
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"

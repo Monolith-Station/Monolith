@@ -211,3 +211,18 @@
   - FactionArmorPlates
   - TsfnRanksEngineers
   canCustomizeName: true
+
+- type: roleLoadout
+  id: JobTsfMarsoc
+  groups:
+  - TsfmcBalaclava
+  - NfsdBoxSurvival
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorTrinkets
+  - ContractorEncryptionKey
+  - NfsdSpeciesSpecific
+  - TsfmcSidearm
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
+  canCustomizeName: true

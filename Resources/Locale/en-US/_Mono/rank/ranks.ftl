@@ -50,6 +50,7 @@ pdv-rahkshan = Rhk.
 pdv-denasvar = Dns.
 pdv-asvaran = Asv.
 pdv-vizier = Grand Vizier
+pdv-tarkhan = PDRV Tarkhan
 
 ### USSP loadout ranks
 
@@ -69,6 +70,7 @@ ussp-or6 = Sts.
 ussp-cm1 = Pol.
 ussp-cm2 = SPol.
 ussp-cm3 = BKom.
+
 
 
 ### VG ranks

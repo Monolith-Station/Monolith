@@ -8,6 +8,14 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconTSFMarsoc
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFMarsoc
+  jobName: job-name-tsf-marsoc
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconUSSPRifleman
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
@@ -56,3 +64,11 @@
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: VGCommander
   jobName: job-name-vg-commander
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPDVTarkhan
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVTarkhan
+  jobName: ghost-role-information-tarkhan-operative-name
