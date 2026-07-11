@@ -1488,6 +1488,21 @@
       tags:
       - FactionStaticUplinkPdv
 
+- type: listing
+  id: UplinkSecurityT3VoucherKortik
+  name:  uplink-pdv-t3-kortik-voucher-name
+  description: uplink-pdv-t3-kortik-voucher-desc
+  productEntity: ShipVoucherKortik
+  cost:
+    Doubloon: 400
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
 # end T3
 
 # start T4

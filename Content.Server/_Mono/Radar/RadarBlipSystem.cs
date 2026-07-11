@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server._Mono.Projectiles.TargetSeeking;
 using Content.Shared._Mono.Radar;
 using Content.Shared.Projectiles;
 using Content.Shared.Shuttles.Components;
@@ -15,6 +16,7 @@ public sealed partial class RadarBlipSystem : EntitySystem
 
     // Pooled collections to avoid per-request heap churn
     private readonly List<BlipNetData> _tempBlipsCache = new();
+    private readonly List<MissileVectorNetData> _tempMissileCache = new();
     private readonly List<HitscanNetData> _tempHitscansCache = new();
     private readonly List<EntityUid> _tempSourcesCache = new();
     private readonly List<BlipConfig> _tempPaletteCache = new();
@@ -48,10 +50,11 @@ public sealed partial class RadarBlipSystem : EntitySystem
         AssembleHitscanReport((EntityUid)radarUid, _tempSourcesCache, radar);
 
         // Combine the blips and hitscan lines
-        var giveEv = new GiveBlipsEvent(_tempPaletteCache, _tempBlipsCache, _tempHitscansCache);
+        var giveEv = new GiveBlipsEvent(_tempPaletteCache, _tempBlipsCache, _tempMissileCache, _tempHitscansCache);
         RaiseNetworkEvent(giveEv, args.SenderSession);
 
         _tempBlipsCache.Clear();
+        _tempMissileCache.Clear();
         _tempHitscansCache.Clear();
         _tempSourcesCache.Clear();
         _tempPaletteCache.Clear();
@@ -127,6 +130,16 @@ public sealed partial class RadarBlipSystem : EntitySystem
                             rotation,
                             configIdx,
                             gridConfigIdx));
+        }
+
+        var missileQuery = EntityQueryEnumerator<TargetSeekingComponent, RadarBlipComponent, TransformComponent>();
+        while (missileQuery.MoveNext(out var missile, out var seeker, out var missileBlip, out var missileBlipXform))
+        {
+            var netMissileUid = GetNetEntity(missile);
+            var missileArc = MathHelper.DegreesToRadians(seeker.ScanArc);
+            _tempMissileCache.Add(new(netMissileUid,
+                (float)(seeker.MaxSpeed * 0.2),
+                missileArc));
         }
     }
 

@@ -22303,3 +22303,85 @@ Entries:
   id: 2465
   time: '2026-07-08T15:58:03.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4246
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Changed Annie sprite to not look so much like Lecter.
+  id: 2466
+  time: '2026-07-08T20:51:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4243
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Shenzhen now has a forced laser pointer, 2x DU cost (1 unit for a mag,
+        1.2 for the gun itself), and is now 120 pierce with 0.8 AP instead of
+        180 pierce with no AP.
+    - type: Fix
+      message: Fixed laser pointers for guns not working.
+    - type: Fix
+      message: Fixed Shenzhen's projectile going through glass doors.
+  id: 2467
+  time: '2026-07-08T20:53:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4213
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added Kortik as a heavily-armored T3 PDV ship, with multiple layers of
+        reinforced plastitanium, but unable to use shields.
+  id: 2468
+  time: '2026-07-08T21:18:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4237
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed Shenzhen ammo boxes having the wrong bullets.
+    - type: Fix
+      message: Fixed TSF naval ranks not requiring any time to unlock.
+  id: 2469
+  time: '2026-07-09T21:55:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4251
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added better radar signatures for missiles. Now shows a line for its
+        direction, plus lines for its scanning arcs.
+  id: 2470
+  time: '2026-07-10T16:28:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4232
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Reduced the delay on the toggle NVGs action.
+    - type: Tweak
+      message: >-
+        Buffed radius on basic hardsuit NVGs, buffed NVGs on M82c, CV-32, CV-67,
+        and U.I. engineering suits.
+  id: 2471
+  time: '2026-07-10T19:17:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4253
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: The Spica is now a decent (maybe too decent) emp pursuer
+  id: 2472
+  time: '2026-07-10T19:18:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4223
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: >-
+        the Shiv ad Hoplite have received a fresh coat of paint (the rust still
+        shows on the Shiv)
+  id: 2473
+  time: '2026-07-10T19:18:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4222
+- author: strace-enjoyer
+  changes:
+    - type: Fix
+      message: Fixed spontaneous plasmaflood in Dev
+  id: 2474
+  time: '2026-07-10T19:22:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4083
