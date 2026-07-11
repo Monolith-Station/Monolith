@@ -9,11 +9,11 @@ uplink-natous-M240B-desc = A crate with two M240B's and four spare belt boxes.
 uplink-natous-m320-name = M320 x2
 uplink-natous-m320-desc = Two M320 grenade launchers, fires 40x46mm grenades, two fragmentation, two smoke, and one HE box included.
 
-uplink-NATOUS-M16A2crate-name = M16A2 x10
-uplink-NATOUS-M16A2crate-desc = A crate with ten M16A2 rifles and two boxes of spare ammunition.
+uplink-NATOUS-M16A2crate-name = M16A2 x5
+uplink-NATOUS-M16A2crate-desc = A crate with five M16A2 rifles and two boxes of spare ammunition.
 
-uplink-natous-m16a4crate-name = M16A4 x10
-uplink-natous-m16a4crate-desc = A crate with ten M16A4 rifles and two boxes of spare ammunition.
+uplink-natous-m16a4crate-name = M16A4 x5
+uplink-natous-m16a4crate-desc = A crate with five M16A4 rifles and two boxes of spare ammunition.
 
 uplink-natous-m4a1crate-name = M4A1 x5
 uplink-natous-m4a1crate-desc = A crate with five M4A1 rifles and two boxes of spare ammunition.
