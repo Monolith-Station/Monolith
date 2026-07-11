@@ -10,8 +10,8 @@
   - type: DeleteOnTrigger
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: MicroBomb
-    totalIntensity: 120
+    explosionType: HardBomb
+    totalIntensity: 150
     intensitySlope: 4
     maxIntensity: 10
     maxTileBreak: 1
@@ -99,6 +99,10 @@
   - type: SmokeOnTrigger
     keysIn:
     - trigger
+    solution:
+      reagents:
+      - ReagentId: WhitePhosphorus
+        Quantity: 80
     duration: 30
     spreadAmount: 30
   - type: EmitSoundOnTrigger

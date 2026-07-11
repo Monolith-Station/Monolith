@@ -1,0 +1,35 @@
+## NATO
+# US
+
+- type: entity
+  id: ShellMissileIskander
+  parent: DebugMortarShell
+  suffix: HE-FRAG, Iskander, PACT, RU
+  name: high-explosive-fragmentation Iskander missile
+  description: High explosive fragmentation, a missile designed to destroy manpower and heavy fortifications.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/fighterweapons.rsi
+    state: FAB500
+  - type: Tag
+    tags:
+      - MortarShell
+      - ShellMissileIskander
+  - type: Item
+    size: Huge
+  - type: MortarShell
+    delayPerTile: 0.1
+    fireSound: /Audio/_Battlefield14/Weapons/FighterWeapons/rocket2.ogg
+    preExplosionSound: /Audio/_Civ14/Weapons/Explosives/Cannons/new_artillery_incoming01.ogg
+    explosionEntity: ArtilleryMarkerIskander
+    useDirectExplosion: false
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 200
+    intensitySlope: 4
+    maxIntensity: 8
+  - type: AnnounceOnSpawn
+    message: "A HE-F Iskander missile has been cleared for use"
+    sender: "Battlespace"
+    sound:
+      path: /Audio/_HaloSSE/Effects/Alert_State_Change.ogg

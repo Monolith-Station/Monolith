@@ -84,17 +84,10 @@
   description: A box full of GPS trackers, for re-locating anything you've scanned beforehand.
   suffix: NATO
   components:
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,3,3
-    whitelist:
-      components:
-        - Pinpointer
   - type: StorageFill
     contents:
       - id: PinpointerUniversalNATO
-        amount: 4
+        amount: 8
   - type: Sprite
     layers:
       - state: box_security
@@ -159,26 +152,14 @@
       - state: box_security
 
 - type: entity
-  parent: BoxMagazine
+  parent: BoxPinpointerUniversalNATO
   id: BoxPinpointerUniversalPACT
-  name: box of GPS trackers
-  description: A box full of GPS trackers, for re-locating anything you've scanned beforehand.
   suffix: PACT
   components:
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,3,3
-    whitelist:
-      components:
-        - Pinpointer
   - type: StorageFill
     contents:
       - id: PinpointerUniversalPACT
-        amount: 4
-  - type: Sprite
-    layers:
-      - state: box_security
+        amount: 8
 
 #region Misc
 
