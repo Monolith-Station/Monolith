@@ -1,17 +1,17 @@
 #Author: kasature90 (github) / _starch_ (discord).
 
 - type: vessel
-  id: Kortik
+  id: KortikR
   parent: BaseVesselAntag
-  name: PDV-NCI Kortik-EM
-  description: A further upgrade to the Kortik-R, swapping the 2 R-300 howitzers for 2 CHARON mass drivers. FULLY UNABLE TO USE SHIELD GENERATORS.
-  limit: 1
-  hyperwarLimit: 2
-  price: 298000
+  name: PDV-NCI Kortik-R
+  description: Converted from recently purchased & outdated USSP Kortik hulls. A heavily armored frigate, with multiple layers of reinforced plastitanium hull. Comes with a full medbay & chemlab, and equipped with 2 spinal R-300s, 2 HADES, 2 CYREXA, 4 Draupnirs, 4 VESPERAs, and 4 20mms. FULLY UNABLE TO USE SHIELD GENERATORS.
+  limit: 3
+  hyperwarLimit: 4
+  price: 278000
   purchasable: false # Voucher only
   category: Large
   group: BlackMarket
-  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/kortik.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/kortik_t2.yml
   guidebookPage: Null
   class:
   - Pirate
@@ -20,18 +20,18 @@
   - AME
 
 - type: gameMap
-  id: Kortik
-  mapName: 'Kortik'
-  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/kortik.yml
+  id: KortikR
+  mapName: 'Kortik-R'
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/kortik_t2.yml
   minPlayers: 0
   stations:
-    Kortik:
+    KortikR:
       stationProto: StandardFrontierVessel
       gridComponents:
       - type: ShipShieldDisabledGrid
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Kortik PDV{1}'
+          mapNameTemplate: 'Kortik-R PDV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
