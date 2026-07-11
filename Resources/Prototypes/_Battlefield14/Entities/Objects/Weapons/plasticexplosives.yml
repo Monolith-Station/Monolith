@@ -121,3 +121,33 @@
       - description: Remote signal required for use.
         color: "#4f94ad"
         requireDetailRange: true
+
+- type: entity
+  name: thermite charge
+  description: When you mix fuel, metal oxide, and metal powder in just the right way, you sure as hell aren't making pancakes.
+  parent: SeismicCharge
+  id: ThermiteCharge
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Charges/thermite.rsi
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: OnUseTimerTrigger
+    delay: 10
+    delayOptions: [ 10, 15, 20]
+    initialBeepDelay: 0
+    beepSound:
+      path: /Audio/Effects/refill.ogg
+    startOnStick: true
+    canToggleStartOnStick: true
+#  - type: TriggerOnSignal
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 200
+    intensitySlope: 10
+    maxIntensity: 150
+    maxTileBreak: 2
