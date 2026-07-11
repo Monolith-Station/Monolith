@@ -1,0 +1,107 @@
+- type: entity
+  name: TTT
+  parent: [ BaseMob, MobCombat, MobDamageable ]
+  id: TTT
+  description: Oh OH OH! thats Tung Tung Tung Sahur!
+  suffix: hostile
+  components:
+  - type: LanguageKnowledge # Einstein Engines - Languages (all mobs should speak TauCeti unless otherwise specified, to prevent universal.)
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+    - Russian
+    - English
+    - Sign
+    - German
+    - Mexican
+    - Esperanto
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive
+      scale: "0.125, 0.125"
+      sprite: _Battlefield14/Mobs/ttt.rsi
+  - type: Physics
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 200
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: SpamEmitSound
+    minInterval: 90
+    maxInterval: 180
+    sound:
+      path: /Audio/_Battlefield14/Misc/ttt/ambient.ogg
+  - type: ContainerContainer
+  - type: MovementAlwaysTouching
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+    weightlessAcceleration: 2
+    weightlessFriction: 2
+    baseWeightlessModifier: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+#      1000: Critical
+      2500: Dead
+  - type: EmitSoundOnSpawn
+    sound: 
+      path: /Audio/_Battlefield14/Misc/ttt/spawn.ogg
+      params:
+        range: 5000
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/_Battlefield14/Misc/ttt/attack.ogg
+    damage:
+      types:
+        Blunt: 500
+    animation: WeaponArcFist
+  - type: Puller
+    needsHands: false
+  - type: Body
+    prototype: Aghost
+    thermalVisibility: false
+  - type: ComplexInteraction
+  - type: ZombieImmune
+  - type: NightVision
+    activateSound: null
+    deactivateSound: null
+  - type: RadarConsole
+    maxRange: 512
+    followEntity: true
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+    inHandsOnly: false
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: Insulated
