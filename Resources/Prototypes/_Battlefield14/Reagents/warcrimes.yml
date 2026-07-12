@@ -15,8 +15,8 @@
       - !type:HealthChange
         damage:
           types:
-            Caustic: 1
-            Poison: 2
+            Caustic: 2
+            Poison: 1
       - !type:MovespeedModifier
         walkSpeedModifier: 0.75
         sprintSpeedModifier: 0.75
