@@ -414,10 +414,10 @@
 # start T4
 
 - type: listing
-  id: UplinkSecurityFlyssaVoucher
-  name:  uplink-security-flyssa-voucher-name
-  description: uplink-security-flyssa-voucher-desc
-  productEntity: ShipVoucherFlyssa
+  id: UplinkSecurityArcturusVoucher
+  name:  uplink-security-arcturus-voucher-name
+  description: uplink-security-arcturus-voucher-desc
+  productEntity: ShipVoucherArcturus
   cost:
     FederationMilitaryCredit: 750
   categories:
