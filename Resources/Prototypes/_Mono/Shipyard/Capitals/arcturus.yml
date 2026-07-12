@@ -1,8 +1,9 @@
+#Made with great stress by Eldritch_Pineapple
 - type: vessel
-  id: Flyssa
+  id: Arcturus
   parent: BaseVesselAntag
-  name: TSF-SKR Flyssa-K
-  description: Lended over from the TSFN for you marines. A one-ship fleet on this scale of combat.
+  name: TSFN-PIN Arcturus
+  description: A gigantic capital fittingly named after one of the brightest stars once seen from Sol. Glory to the Federation.
   limit: 1
   hyperwarLimit: 3
   hyperwarTimelock: 3600
@@ -11,7 +12,7 @@
   category: Large
   group: Security
   access: Security
-  shuttlePath: /SharedMaps/_Mono/Shuttles/Capitals/flyssa.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Capitals/arcturus.yml
   guidebookPage: Null
   class:
   - Capital
@@ -24,19 +25,19 @@
   - AME
 
 - type: gameMap
-  id: Flyssa
-  mapName: 'TSF-SKR Flyssa-K'
-  mapPath: /SharedMaps/_Mono/Shuttles/Capitals/flyssa.yml
+  id: Arcturus
+  mapName: 'TSFN-PIN Arcturus'
+  mapPath: /SharedMaps/_Mono/Shuttles/Capitals/arcturus.yml
   minPlayers: 0
   stations:
-    Flyssa:
+    Arcturus:
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: "The pride and joy of the TSFN, and a shining star in the sector. Sol invictus."
+        description: "One of the greatest pride and joy of the TSFN. Her turbolaser batteries rival with the star it was named after. Sol invictus."
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Flyssa TSFN{1}'
+        mapNameTemplate: 'Arcturus TSFN{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
