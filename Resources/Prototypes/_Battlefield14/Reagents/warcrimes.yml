@@ -16,7 +16,7 @@
         damage:
           types:
             Caustic: 1
-            Poison: 3
+            Poison: 2
       - !type:MovespeedModifier
         walkSpeedModifier: 0.75
         sprintSpeedModifier: 0.75
@@ -68,7 +68,7 @@
         ignoreResistances: false
         damage:
           types:
-            Caustic: 3
+            Caustic: 1
         # conditions:
         # - !type:HasComponentOnEquipmentCondition
         #   components:

@@ -655,18 +655,12 @@
       types:
         Structural: 1000
         Blunt: 200
-  - type: HeFragProjectile
-    fillPrototype: BulletGrenadeF1Fragment
-    capacity: 20
-    randomAngle: true
-    minVelocity: 8
-    maxVelocity: 15
   - type: SpawnOnTrigger
     proto: InstantEffectGravityWellThermobaric
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: FireBomb
-    totalIntensity: 110
+    totalIntensity: 100
     intensitySlope: 6
     maxIntensity: 6
     maxTileBreak: 0
