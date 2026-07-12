@@ -111,7 +111,7 @@
     explosionType: Default
     totalIntensity: 100
     intensitySlope: 5
-    maxIntensity: 6
+    maxIntensity: 5
     maxTileBreak: 0
   - type: StaminaDamageOnCollide
     damage: 200 # It's a fucking rocket
@@ -354,7 +354,7 @@
     explosionType: FireBomb
     totalIntensity: 90
     intensitySlope: 4
-    maxIntensity: 5
+    maxIntensity: 4
     maxTileBreak: 0
   - type: StaminaDamageOnCollide
     damage: 200
@@ -662,7 +662,7 @@
     explosionType: FireBomb
     totalIntensity: 100
     intensitySlope: 6
-    maxIntensity: 6
+    maxIntensity: 5
     maxTileBreak: 0
   - type: StaminaDamageOnCollide
     damage: 200 # It's a fucking rocket

@@ -5,7 +5,7 @@
   description: The communist response to the success of the M16.
   components:
   - type: Item
-    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK74.rsi
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/AK74.rsi
   - type: Icon
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
     state: icon-ak74
@@ -22,7 +22,7 @@
       - state: mag-ak74-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK74.rsi
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/AK74.rsi
   - type: Wieldable
     unwieldOnUse: false
   - type: GunWieldBonus
@@ -87,7 +87,7 @@
   description: A modernised version of the successful AK-74 with polymer furniture.
   components:
   - type: Item
-    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK74.rsi
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/AK74M.rsi
   - type: Icon
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi
     state: icon-ak74m
@@ -104,7 +104,7 @@
       - state: mag-ak74black-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK74.rsi
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/AK74M.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
