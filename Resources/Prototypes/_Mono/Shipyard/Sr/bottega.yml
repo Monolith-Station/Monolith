@@ -1,0 +1,35 @@
+# Author Info
+# Github: TheScienceOfKSP
+# Discord: sweepergiles
+
+- type: vessel
+  id: Bottega
+  parent: BaseVessel
+  name: KSP Bottega
+  description: A ship refurbished after being pried from the hands of the Post-Italian mafia, the Bottega is a floating convenience store for service staff to bring the services of CC out and about closer to potential customers.
+  price: 57000 #Roughly 20% markup from appraisegrid
+  category: Medium
+  group: Sr
+  access: Service
+  shuttlePath: /SharedMaps/_Mono/Shuttles/bottega.yml
+  guidebookPage: Null
+  class:
+  - Civilian
+  engine:
+  - Solar
+  - Combustion
+
+- type: gameMap
+  id: Bottega
+  mapName: 'Bottega'
+  mapPath: /SharedMaps/_Mono/Shuttles/bottega.yml
+  minPlayers: 0
+  stations:
+    Bottega:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Bottega SRV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
