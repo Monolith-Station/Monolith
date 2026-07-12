@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/12/2026 00:58:03
-  entityCount: 603
+  time: 07/12/2026 14:22:50
+  entityCount: 609
 maps: []
 grids:
 - 1
@@ -106,10 +106,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Smoke: []
         Kudzu: []
         Puddle: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -1444,6 +1444,41 @@ entities:
     components:
     - type: Transform
       pos: 3.5,7.5
+      parent: 1
+  - uid: 603
+    components:
+    - type: Transform
+      pos: -1.5,13.5
+      parent: 1
+  - uid: 604
+    components:
+    - type: Transform
+      pos: -1.5,14.5
+      parent: 1
+  - uid: 605
+    components:
+    - type: Transform
+      pos: 1.5,13.5
+      parent: 1
+  - uid: 606
+    components:
+    - type: Transform
+      pos: 2.5,13.5
+      parent: 1
+  - uid: 607
+    components:
+    - type: Transform
+      pos: 2.5,14.5
+      parent: 1
+  - uid: 608
+    components:
+    - type: Transform
+      pos: 0.5,13.5
+      parent: 1
+  - uid: 609
+    components:
+    - type: Transform
+      pos: -0.5,13.5
       parent: 1
 - proto: CableHV
   entities:
@@ -3141,13 +3176,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-2.5
-      parent: 1
-- proto: SpawnPointLatejoin
-  entities:
-  - uid: 603
-    components:
-    - type: Transform
-      pos: 1.5,6.5
       parent: 1
 - proto: SpawnPointVGCommander
   entities:
