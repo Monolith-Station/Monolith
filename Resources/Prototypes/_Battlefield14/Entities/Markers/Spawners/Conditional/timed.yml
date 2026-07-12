@@ -54,7 +54,7 @@
       maximumEntitiesSpawned: 1
 
 - type: entity
-  name: TDM Timed spawner, SMG
+  name: TDM Timed spawner, Shotgun
   id: BF14TimedSpawnerWeaponShotgun
   parent: MarkerBase
   components:
@@ -96,6 +96,7 @@
       prototypes:
         - WeaponCaseLongUSM16A1
         - WeaponCaseLongUSM16A2
+        - WeaponCaseLongUSM16A3
         - WeaponCaseLongUSM4A1
         - WeaponCaseLongUSM30MRC
         - WeaponCaseLongUSM42A5

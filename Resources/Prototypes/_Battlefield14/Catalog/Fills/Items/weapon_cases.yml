@@ -200,6 +200,17 @@
 
 - type: entity
   parent: WeaponCaseLong
+  id: WeaponCaseLongUSM16A3
+  suffix: M16A3
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleUSM16A3
+    - id: MagazineRifleSTANAG
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
   id: WeaponCaseLongUSM4A1
   suffix: M4A1
   components:
