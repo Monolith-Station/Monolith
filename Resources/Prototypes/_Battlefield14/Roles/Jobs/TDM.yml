@@ -1,0 +1,35 @@
+- type: job
+  id: TDMBlue
+  name: Blue Goon
+  description: Shoot reds.
+  playTimeTracker: JobTDMBlue
+  displayWeight: 2
+  startingGear: BF14TDMGearBlue
+  alwaysUseSpawner: true
+  icon: "JobIconNATORifleman"
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - English
+    languagesUnderstood:
+    - English
+  access:
+  - Maintenance
+
+- type: job
+  id: TDMRed
+  name: Red Goon
+  description: Shoot blues.
+  playTimeTracker: JobTDMRed
+  displayWeight: 1
+  startingGear: BF14TDMGearRed
+  alwaysUseSpawner: true
+  icon: "JobIconPACTRifleman"
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - English
+    languagesUnderstood:
+    - English
+  access:
+  - Maintenance

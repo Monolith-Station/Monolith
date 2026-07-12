@@ -1,6 +1,6 @@
 ## US
 
-# USMC
+#region USMC
 - type: playTimeTracker
   id: JobUSMCLieutenant
 
@@ -19,7 +19,7 @@
 - type: playTimeTracker
   id: JobUSMCRecon
 
-# USMC - MARSOC
+#region USMC - MARSOC
 
 - type: playTimeTracker
   id: JobMARSOCSquadLeader
@@ -33,7 +33,7 @@
 - type: playTimeTracker
   id: JobMARSOCMedic
 
-# USMC - HECU
+#region USMC - HECU
 
 - type: playTimeTracker
   id: JobHECUSquadLeader
@@ -47,7 +47,7 @@
 - type: playTimeTracker
   id: JobHECUMedic
 
-# USSF
+#region USSF
 
 - type: playTimeTracker
   id: JobUSSFCaptain
@@ -58,7 +58,7 @@
 - type: playTimeTracker
   id: JobUSSFFighterPilot
 
-# National Guard
+#region National Guard
 
 - type: playTimeTracker
   id: JobNGLieutenant
@@ -78,7 +78,7 @@
 - type: playTimeTracker
   id: JobNGRecon
 
-# US Police
+#region US Police
 
 - type: playTimeTracker
   id: JobUSPDChief
@@ -89,9 +89,9 @@
 - type: playTimeTracker
   id: JobUSPDOfficer
 
-## RU
+##region RU
 
-# VDV
+#region VDV
 
 - type: playTimeTracker
   id: JobVDVLieutenant
@@ -111,7 +111,7 @@
 - type: playTimeTracker
   id: JobVDVRecon
 
-# FSB
+#region FSB
 
 - type: playTimeTracker
   id: JobFSBSquadLeader
@@ -128,7 +128,7 @@
 - type: playTimeTracker
   id: JobFSBRecon
 
-# VKS
+#region VKS
 
 - type: playTimeTracker
   id: JobVKSCaptain
@@ -139,7 +139,7 @@
 - type: playTimeTracker
   id: JobVKSFighterPilot
 
-# OMON
+#region OMON
 
 - type: playTimeTracker
   id: JobOMONLieutenant # Unit Commander
@@ -152,7 +152,7 @@
 
 ## IND
 
-# Scav
+#region Scav
 
 - type: playTimeTracker
   id: JobRUScav
@@ -163,7 +163,7 @@
 - type: playTimeTracker
   id: JobRUScavBoss
 
-# Western Private Security
+#region Western Private Security
 
 - type: playTimeTracker
   id: JobWPSSecurityOfficer
@@ -174,7 +174,15 @@
 - type: playTimeTracker
   id: JobWPSMarshal
 
-# Civilian
+#region Civilian
 
 - type: playTimeTracker
   id: JobCivilianUS
+
+#region Misc
+
+- type: playTimeTracker
+  id: JobTDMBlue
+
+- type: playTimeTracker
+  id: JobTDMred

@@ -1,5 +1,5 @@
 ## NATO
-# US
+#region US
 
 - type: entity
   name: MP5
@@ -181,7 +181,7 @@
         volume: -12
         variation: 0.125
 
-# DE
+#region DE
 
 - type: entity
   name: MP7
@@ -259,7 +259,7 @@
   - type: Appearance
 
 ## PACT
-# RU
+#region RU
 
 - type: entity
   name: PP-91 Kedr
@@ -370,6 +370,7 @@
       collection: BF_PPSh_Gunshots
       params:
         volume: -5
+        variation: 0.125
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/_Battlefield14/Weapons/Guns/MP5/uc_mp5_rack.ogg

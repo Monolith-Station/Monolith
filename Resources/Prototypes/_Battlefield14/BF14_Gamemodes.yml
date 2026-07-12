@@ -29,7 +29,7 @@
   showInVote: true # objectives not working yet, could poison the view of the map into a mindless TDM
   supportedMaps: BF14MapPoolEarthUSA
   description: Larp and frag.
-  minPlayers: 6
+  minPlayers: 8
   rules:
   - NFAdventure
 
@@ -41,6 +41,34 @@
   showInVote: true # objectives not working yet, could poison the view of the map into a mindless TDM
   supportedMaps: BF14MapPoolEarthRussia
   description: Larp and frag. Russian edition.
-  minPlayers: 6
+  minPlayers: 8
   rules:
   - NFAdventure
+
+- type: gamePreset
+  id: BF14_TeamDeathMatch
+  alias:
+    - teamdeathmatch
+    - tdm
+  name: Team DeathMatch
+  description: Match to the death with your team.
+  maxPlayers: 10
+  showInVote: true
+  supportedMaps: BF14MapPoolTDM
+  rules:
+    - TeamDeathMatch
+
+- type: entity
+  id: TeamDeathMatch
+  parent: BaseGameRule
+  components:
+  - type: KillCalloutRule
+  - type: PointManager
+  - type: RespawnDeadRule
+    alwaysRespawnDead: true
+  - type: RespawnTracker
+    respawnDelay: 5
+    deleteBody: true
+  - type: MaxTimeRestartRule
+    roundMaxTime: 600 # 10 minutes
+    roundEndDelay: 30 # 30 seconds

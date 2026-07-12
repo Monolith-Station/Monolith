@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/27/2026 01:36:34
-  entityCount: 3810
+  time: 07/12/2026 05:37:42
+  entityCount: 3845
 maps:
 - 68
 grids:
@@ -186,9 +186,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
         Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -1479,6 +1479,288 @@ entities:
     - type: Transform
       pos: 14.5,11.5
       parent: 1
+- proto: BF14TimedSpawnerWeaponMachinegun
+  entities:
+  - uid: 290
+    components:
+    - type: Transform
+      pos: -0.5,0.5
+      parent: 1
+- proto: BF14TimedSpawnerWeaponPistol
+  entities:
+  - uid: 291
+    components:
+    - type: Transform
+      pos: -1.5,3.5
+      parent: 1
+  - uid: 295
+    components:
+    - type: Transform
+      pos: -26.5,5.5
+      parent: 1
+  - uid: 302
+    components:
+    - type: Transform
+      pos: 24.5,-3.5
+      parent: 1
+  - uid: 315
+    components:
+    - type: Transform
+      pos: -13.5,22.5
+      parent: 1
+  - uid: 321
+    components:
+    - type: Transform
+      pos: 32.5,22.5
+      parent: 1
+- proto: BF14TimedSpawnerWeaponRifle
+  entities:
+  - uid: 293
+    components:
+    - type: Transform
+      pos: -24.5,18.5
+      parent: 1
+    - type: TimedSpawner
+      prototypes:
+      - WeaponCaseLongUSM16A1
+      - WeaponCaseLongUSM16A2
+      - WeaponCaseLongUSM4A1
+      - WeaponCaseLongUSM30MRC
+      - WeaponCaseLongUSM42A5
+      - WeaponCaseLongDEG36
+      - WeaponCaseLongDEG36C
+      - WeaponCaseLongDEG3A3
+      - WeaponCaseLongRUAK74
+      - WeaponCaseLongRUAK74M
+      - WeaponCaseLongRUAK12
+      - WeaponCaseLongRUAKS74U
+  - uid: 297
+    components:
+    - type: Transform
+      pos: 25.5,22.5
+      parent: 1
+    - type: TimedSpawner
+      prototypes:
+      - WeaponCaseLongUSM16A1
+      - WeaponCaseLongUSM16A2
+      - WeaponCaseLongUSM4A1
+      - WeaponCaseLongUSM30MRC
+      - WeaponCaseLongUSM42A5
+      - WeaponCaseLongDEG36
+      - WeaponCaseLongDEG36C
+      - WeaponCaseLongDEG3A3
+      - WeaponCaseLongRUAK74
+      - WeaponCaseLongRUAK74M
+      - WeaponCaseLongRUAK12
+      - WeaponCaseLongRUAKS74U
+  - uid: 303
+    components:
+    - type: Transform
+      pos: -11.5,7.5
+      parent: 1
+    - type: TimedSpawner
+      prototypes:
+      - WeaponCaseLongUSM16A1
+      - WeaponCaseLongUSM16A2
+      - WeaponCaseLongUSM4A1
+      - WeaponCaseLongUSM30MRC
+      - WeaponCaseLongUSM42A5
+      - WeaponCaseLongDEG36
+      - WeaponCaseLongDEG36C
+      - WeaponCaseLongDEG3A3
+      - WeaponCaseLongRUAK74
+      - WeaponCaseLongRUAK74M
+      - WeaponCaseLongRUAK12
+      - WeaponCaseLongRUAKS74U
+  - uid: 304
+    components:
+    - type: Transform
+      pos: 6.5,10.5
+      parent: 1
+    - type: TimedSpawner
+      prototypes:
+      - WeaponCaseLongUSM16A1
+      - WeaponCaseLongUSM16A2
+      - WeaponCaseLongUSM4A1
+      - WeaponCaseLongUSM30MRC
+      - WeaponCaseLongUSM42A5
+      - WeaponCaseLongDEG36
+      - WeaponCaseLongDEG36C
+      - WeaponCaseLongDEG3A3
+      - WeaponCaseLongRUAK74
+      - WeaponCaseLongRUAK74M
+      - WeaponCaseLongRUAK12
+      - WeaponCaseLongRUAKS74U
+  - uid: 305
+    components:
+    - type: Transform
+      pos: 8.5,-9.5
+      parent: 1
+    - type: TimedSpawner
+      prototypes:
+      - WeaponCaseLongUSM16A1
+      - WeaponCaseLongUSM16A2
+      - WeaponCaseLongUSM4A1
+      - WeaponCaseLongUSM30MRC
+      - WeaponCaseLongUSM42A5
+      - WeaponCaseLongDEG36
+      - WeaponCaseLongDEG36C
+      - WeaponCaseLongDEG3A3
+      - WeaponCaseLongRUAK74
+      - WeaponCaseLongRUAK74M
+      - WeaponCaseLongRUAK12
+      - WeaponCaseLongRUAKS74U
+  - uid: 306
+    components:
+    - type: Transform
+      pos: -7.5,-9.5
+      parent: 1
+    - type: TimedSpawner
+      prototypes:
+      - WeaponCaseLongUSM16A1
+      - WeaponCaseLongUSM16A2
+      - WeaponCaseLongUSM4A1
+      - WeaponCaseLongUSM30MRC
+      - WeaponCaseLongUSM42A5
+      - WeaponCaseLongDEG36
+      - WeaponCaseLongDEG36C
+      - WeaponCaseLongDEG3A3
+      - WeaponCaseLongRUAK74
+      - WeaponCaseLongRUAK74M
+      - WeaponCaseLongRUAK12
+      - WeaponCaseLongRUAKS74U
+  - uid: 311
+    components:
+    - type: Transform
+      pos: -0.5,-23.5
+      parent: 1
+    - type: TimedSpawner
+      prototypes:
+      - WeaponCaseLongUSM16A1
+      - WeaponCaseLongUSM16A2
+      - WeaponCaseLongUSM4A1
+      - WeaponCaseLongUSM30MRC
+      - WeaponCaseLongUSM42A5
+      - WeaponCaseLongDEG36
+      - WeaponCaseLongDEG36C
+      - WeaponCaseLongDEG3A3
+      - WeaponCaseLongRUAK74
+      - WeaponCaseLongRUAK74M
+      - WeaponCaseLongRUAK12
+      - WeaponCaseLongRUAKS74U
+  - uid: 312
+    components:
+    - type: Transform
+      pos: -0.5,24.5
+      parent: 1
+    - type: TimedSpawner
+      prototypes:
+      - WeaponCaseLongUSM16A1
+      - WeaponCaseLongUSM16A2
+      - WeaponCaseLongUSM4A1
+      - WeaponCaseLongUSM30MRC
+      - WeaponCaseLongUSM42A5
+      - WeaponCaseLongDEG36
+      - WeaponCaseLongDEG36C
+      - WeaponCaseLongDEG3A3
+      - WeaponCaseLongRUAK74
+      - WeaponCaseLongRUAK74M
+      - WeaponCaseLongRUAK12
+      - WeaponCaseLongRUAKS74U
+- proto: BF14TimedSpawnerWeaponShotgun
+  entities:
+  - uid: 313
+    components:
+    - type: Transform
+      pos: -15.5,-22.5
+      parent: 1
+  - uid: 314
+    components:
+    - type: Transform
+      pos: 14.5,-22.5
+      parent: 1
+  - uid: 316
+    components:
+    - type: Transform
+      pos: -29.5,12.5
+      parent: 1
+  - uid: 317
+    components:
+    - type: Transform
+      pos: -29.5,0.5
+      parent: 1
+  - uid: 318
+    components:
+    - type: Transform
+      pos: -13.5,-4.5
+      parent: 1
+  - uid: 319
+    components:
+    - type: Transform
+      pos: 14.5,14.5
+      parent: 1
+  - uid: 320
+    components:
+    - type: Transform
+      pos: 28.5,9.5
+      parent: 1
+- proto: BF14TimedSpawnerWeaponSubmachinegun
+  entities:
+  - uid: 292
+    components:
+    - type: Transform
+      pos: -23.5,12.5
+      parent: 1
+  - uid: 294
+    components:
+    - type: Transform
+      pos: -23.5,23.5
+      parent: 1
+  - uid: 296
+    components:
+    - type: Transform
+      pos: -32.5,-10.5
+      parent: 1
+  - uid: 298
+    components:
+    - type: Transform
+      pos: 21.5,22.5
+      parent: 1
+  - uid: 299
+    components:
+    - type: Transform
+      pos: 24.5,14.5
+      parent: 1
+  - uid: 300
+    components:
+    - type: Transform
+      pos: 23.5,-13.5
+      parent: 1
+  - uid: 301
+    components:
+    - type: Transform
+      pos: 27.5,0.5
+      parent: 1
+  - uid: 307
+    components:
+    - type: Transform
+      pos: -11.5,-8.5
+      parent: 1
+  - uid: 308
+    components:
+    - type: Transform
+      pos: -15.5,13.5
+      parent: 1
+  - uid: 309
+    components:
+    - type: Transform
+      pos: 10.5,7.5
+      parent: 1
+  - uid: 310
+    components:
+    - type: Transform
+      pos: 12.5,-4.5
+      parent: 1
 - proto: BlastDoorIndestructible
   entities:
   - uid: 3038
@@ -1674,16 +1956,6 @@ entities:
     components:
     - type: Transform
       pos: -34.5,-8.5
-      parent: 1
-  - uid: 5112
-    components:
-    - type: Transform
-      pos: -34.5,-9.5
-      parent: 1
-  - uid: 5113
-    components:
-    - type: Transform
-      pos: -34.5,-10.5
       parent: 1
   - uid: 5114
     components:
@@ -9359,16 +9631,6 @@ entities:
     - type: Transform
       pos: -34.5,-8.5
       parent: 1
-  - uid: 5001
-    components:
-    - type: Transform
-      pos: -34.5,-9.5
-      parent: 1
-  - uid: 5002
-    components:
-    - type: Transform
-      pos: -34.5,-10.5
-      parent: 1
   - uid: 5003
     components:
     - type: Transform
@@ -13485,31 +13747,6 @@ entities:
       parent: 1
 - proto: SpawnPointPassenger
   entities:
-  - uid: 2577
-    components:
-    - type: Transform
-      pos: -39.5,-6.5
-      parent: 1
-  - uid: 2578
-    components:
-    - type: Transform
-      pos: -34.5,-9.5
-      parent: 1
-  - uid: 2579
-    components:
-    - type: Transform
-      pos: -29.5,-10.5
-      parent: 1
-  - uid: 2580
-    components:
-    - type: Transform
-      pos: -29.5,0.5
-      parent: 1
-  - uid: 2648
-    components:
-    - type: Transform
-      pos: -33.5,5.5
-      parent: 1
   - uid: 3120
     components:
     - type: Transform
@@ -13530,60 +13767,129 @@ entities:
     - type: Transform
       pos: -5.5,-22.5
       parent: 1
-  - uid: 6274
+- proto: SpawnPointTDMBlue
+  entities:
+  - uid: 276
     components:
     - type: Transform
-      pos: -28.5,17.5
+      pos: 28.5,5.5
       parent: 1
-  - uid: 6275
+  - uid: 277
     components:
     - type: Transform
-      pos: -23.5,17.5
+      pos: 31.5,0.5
       parent: 1
-  - uid: 6276
+  - uid: 278
     components:
     - type: Transform
-      pos: -22.5,23.5
+      pos: 33.5,12.5
       parent: 1
-  - uid: 6277
+  - uid: 279
     components:
     - type: Transform
-      pos: 23.5,23.5
+      pos: 28.5,13.5
       parent: 1
-  - uid: 6278
+  - uid: 280
     components:
     - type: Transform
-      pos: 22.5,8.5
+      pos: 27.5,-5.5
       parent: 1
-  - uid: 6279
+  - uid: 281
     components:
     - type: Transform
-      pos: 32.5,12.5
+      pos: 24.5,0.5
       parent: 1
-  - uid: 6280
-    components:
-    - type: Transform
-      pos: 27.5,12.5
-      parent: 1
-  - uid: 6281
-    components:
-    - type: Transform
-      pos: 32.5,-4.5
-      parent: 1
-  - uid: 6282
+  - uid: 282
     components:
     - type: Transform
       pos: 21.5,-5.5
       parent: 1
-  - uid: 6283
+  - uid: 285
     components:
     - type: Transform
-      pos: 24.5,-11.5
+      pos: 27.5,22.5
       parent: 1
-  - uid: 6285
+  - uid: 286
     components:
     - type: Transform
-      pos: 27.5,0.5
+      pos: 19.5,22.5
+      parent: 1
+  - uid: 287
+    components:
+    - type: Transform
+      pos: 21.5,9.5
+      parent: 1
+  - uid: 288
+    components:
+    - type: Transform
+      pos: 23.5,-14.5
+      parent: 1
+  - uid: 289
+    components:
+    - type: Transform
+      pos: 32.5,-4.5
+      parent: 1
+- proto: SpawnPointTDMRed
+  entities:
+  - uid: 266
+    components:
+    - type: Transform
+      pos: -26.5,0.5
+      parent: 1
+  - uid: 267
+    components:
+    - type: Transform
+      pos: -28.5,5.5
+      parent: 1
+  - uid: 268
+    components:
+    - type: Transform
+      pos: -32.5,0.5
+      parent: 1
+  - uid: 269
+    components:
+    - type: Transform
+      pos: -39.5,-6.5
+      parent: 1
+  - uid: 270
+    components:
+    - type: Transform
+      pos: -34.5,-10.5
+      parent: 1
+  - uid: 271
+    components:
+    - type: Transform
+      pos: -20.5,22.5
+      parent: 1
+  - uid: 272
+    components:
+    - type: Transform
+      pos: -23.5,17.5
+      parent: 1
+  - uid: 273
+    components:
+    - type: Transform
+      pos: -28.5,17.5
+      parent: 1
+  - uid: 274
+    components:
+    - type: Transform
+      pos: -28.5,11.5
+      parent: 1
+  - uid: 275
+    components:
+    - type: Transform
+      pos: -34.5,11.5
+      parent: 1
+  - uid: 283
+    components:
+    - type: Transform
+      pos: 27.5,-5.5
+      parent: 1
+  - uid: 284
+    components:
+    - type: Transform
+      pos: -26.5,22.5
       parent: 1
 - proto: SpawnVehicleJanicart
   entities:
@@ -19935,13 +20241,6 @@ entities:
     components:
     - type: Transform
       pos: 27.5,-26.5
-      parent: 1
-- proto: WeaponMachineGunUSM249Para
-  entities:
-  - uid: 2427
-    components:
-    - type: Transform
-      pos: -0.5,0.5
       parent: 1
 - proto: Windoor
   entities:

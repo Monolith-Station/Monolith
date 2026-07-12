@@ -6,8 +6,58 @@
     gloves: ClothingHandsGlovesFingerless
     outerClothing: ClothingOuterArmorWebVestSecEmpty
     shoes: ClothingShoesBootsJackFilled
-    back: ClothingBackpackRucksackBlack
+    back: ClothingBackpackButtpackSurplus
     neck: FlashlightMilitaryUS
     suitstorage: WeaponRifleUSM4
     pocket1: WeaponPistolILDeagleSilver
     pocket2: PouchFirstAidFilled
+
+- type: startingGear
+  id: BF14TDMGearBlue
+  equipment:
+    id: USMCRiflemanIDCard
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorBlue
+    head: ClothingHeadHatHelmetSecurityBF14
+    balaclava: ClothingBalaclavaMilitary
+    ears: ClothingHeadsetGrey
+    gloves: ClothingHandsGlovesFingerless
+    outerClothing: ClothingOuterArmorPCVRecharging
+    belt: ClothingBeltAssault
+    shoes: ClothingShoesBootsJackFilled
+    back: ClothingBackpackButtpackSurplus
+    neck: ClothingNeckIFFBlue
+    leftarmband: FlashlightMilitaryUS
+    suitstorage: WeaponRifleUSM4
+    pocket1: WeaponPistolILDeagleSilver
+    pocket2: PouchFirstAidFilled
+  storage:
+    back:
+    - BiofoamCanister
+    - CrowbarRed
+    - DefensiveGrenadeUSM67
+    - Tourniquet
+
+- type: startingGear
+  id: BF14TDMGearRed
+  equipment:
+    id: VDVRiflemanIDCard
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorRed
+    head: ClothingHeadHatHelmetSecurityBF14
+    balaclava: ClothingBalaclavaMilitary
+    ears: ClothingHeadsetGrey
+    gloves: ClothingHandsGlovesFingerless
+    outerClothing: ClothingOuterArmorPCVRecharging
+    belt: ClothingBeltAssault
+    shoes: ClothingShoesBootsJackFilled
+    back: ClothingBackpackButtpackSurplus
+    neck: ClothingNeckIFFRed
+    leftarmband: FlashlightMilitaryUS
+    suitstorage: WeaponRifleUSM4
+    pocket1: WeaponPistolILDeagleSilver
+    pocket2: PouchFirstAidFilled
+  storage:
+    back:
+    - BiofoamCanisterRed
+    - CrowbarRed
+    - DefensiveGrenadeUSM67
+    - Tourniquet
