@@ -40,9 +40,41 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
+        - WeaponCaseLongUSMAC10
+        - WeaponCaseLongUSMAC10Supp
         - WeaponCaseLongUSMP5
         - WeaponCaseLongDEMP7
         - WeaponCaseLongRUSR2MP
+        - WeaponCaseLongRUPPsh41
+        - WeaponCaseLongRUVityaz
+        - WeaponCaseLongRUVlad
+      chance: 1
+      intervalSeconds: 60
+      minimumEntitiesSpawned: 1
+      maximumEntitiesSpawned: 1
+
+- type: entity
+  name: TDM Timed spawner, SMG
+  id: BF14TimedSpawnerWeaponShotgun
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: Mobs/Species/Human/parts.rsi
+          state: full
+        - state: ai
+    - type: Timer
+    - type: TimedSpawner
+      prototypes:
+        - WeaponCaseLongUSM870
+        - WeaponCaseLongUSSPAS12
+        - WeaponCaseLongUSUSAS12
+        - WeaponCaseLongRUKSK
+        - WeaponCaseLongRUKS23M
+        - WeaponCaseLongRURMB93
+        - WeaponCaseLongRUMP133
+        - WeaponCaseLongRUMP43C1
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
@@ -143,6 +175,9 @@
     - type: TimedSpawner
       prototypes:
         - WeaponCaseLongRUSR2MP
+        - WeaponCaseLongRUPPsh41
+        - WeaponCaseLongRUVityaz
+        - WeaponCaseLongRUVlad
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1

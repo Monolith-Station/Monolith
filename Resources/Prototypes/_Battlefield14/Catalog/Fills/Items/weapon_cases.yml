@@ -93,6 +93,28 @@
 
 #region SMGs, US
 
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSMAC10
+  suffix: MAC10
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubmachinegunUSMAC10
+    - id: MagazineSubmachinegunMAC10
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSMAC10Supp
+  suffix: MAC10 SUPP.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubmachinegunUSMAC10Supp
+    - id: MagazineSubmachinegunMAC10
+      amount: 5
+
 #region SMGs, DE
 
 - type: entity
@@ -115,6 +137,41 @@
     contents:
     - id: WeaponSubmachinegunDEMP7
     - id: MagazineSubmachinegunMP7
+      amount: 5
+
+#region Shotguns, US
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSM870
+  suffix: M870
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunUSM870
+    - id: ShellBoxBF12GaugeBuckshot
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSSPAS12
+  suffix: SPAS12
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunUSSPAS12
+    - id: ShellBoxBF12GaugeBuckshot
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongUSUSAS12
+  suffix: USAS12
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunUSUSAS12
+    - id: MagazineShotgunUSAS
       amount: 5
 
 #region Rifles, US
@@ -244,7 +301,7 @@
     - id: MagazineBeltBoxMG3Short
       amount: 2
 
-#region SMGs, DE
+#region SMGs, RU
 
 - type: entity
   parent: WeaponCaseLong
@@ -256,6 +313,96 @@
     - id: WeaponSubmachinegunRUSR2MP
     - id: MagazineSubmachinegunSR2MP
       amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUPPsh41
+  suffix: PPsh41
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubmachinegunRUPPsh41
+    - id: MagazineSubmachinegunPPSh
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUVityaz
+  suffix: PP-19 Vityaz-SN
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubmachinegunRUVityaz
+    - id: MagazineSubmachinegunVityaz
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUVlad
+  suffix: Vladistokyov
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubmachinegunRUVlad
+    - id: MagazineSubmachinegunMAC10
+      amount: 5
+
+#region Shotguns, RU
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRURMB93
+  suffix: RMB-93
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunRURMB93
+    - id: ShellBoxBF12GaugeBuckshot
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUKSK
+  suffix: KS-K
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunRUKSK
+    - id: ShellBoxBF12GaugeBuckshot
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUKS23M
+  suffix: KS-23M
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunRUKS23M
+    - id: ShellBoxBF4GaugeShrap10
+    - id: ShellBoxBF4GaugeShrap25
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUMP133
+  suffix: MP-133
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunRUMP133
+    - id: ShellBoxBF12GaugeBuckshot
+      amount: 2
+
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongRUMP43C1
+  suffix: MP-43-C1
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunRUMP43C1
+    - id: ShellBoxBF12GaugeBuckshot
+      amount: 2
 
 #region Rifles, RU
 
