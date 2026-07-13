@@ -10,7 +10,7 @@
       role: JobPdvRahkshan
       time: 3600 # 1 hour
     - !type:DepartmentTimeRequirement
-      department: Security
+      department: Tsf
       time: 36000 # 10 hours # mono end
   whitelisted: true
   startingGear: PDVInfiltratorGear
@@ -24,7 +24,7 @@
   assignedCompany: PDV
   setPreference: true
   access:
-  - PdvGeneral
+  - PDVGeneral
   - Mercenary
   accessGroups:
   - GeneralAccess

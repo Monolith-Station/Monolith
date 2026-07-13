@@ -354,7 +354,7 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Sheriff
+        - TsfCommander
 
 #Mono start
 
@@ -442,8 +442,8 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Sheriff
-        - Brigmedic
+        - TsfCommander
+        - TsfCorpsman
 
 - type: listing
   id: UplinkSecurityMedicalAssembler
@@ -461,8 +461,8 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Sheriff
-        - Brigmedic
+        - TsfCommander
+        - TsfCorpsman
 
 - type: listing
   id: UplinkSecurityCompactDefibrillator
@@ -480,8 +480,8 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Sheriff
-        - Brigmedic
+        - TsfCommander
+        - TsfCorpsman
 
 - type: listing
   id: UplinkSecuritySyringeCaseFilled
@@ -547,9 +547,9 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Bailiff
-        - SeniorOfficer
-        - Sheriff
+        - TsfOfficer
+        - TsfTeamleader
+        - TsfCommander
 
 #Mono end
 
@@ -746,8 +746,8 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Brigmedic
-        - Sheriff
+        - TsfCorpsman
+        - TsfCommander
 
 - type: listing
   id: UplinkSecurityAmbuzol
@@ -782,9 +782,9 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Brigmedic
-        - Bailiff
-        - Sheriff
+        - TsfCorpsman
+        - TsfOfficer
+        - TsfCommander
 
 - type: listing
   id: UplinkSecurityInspector
@@ -819,9 +819,9 @@
           - SecurityUplink
     - !type:BuyerJobCondition # Mono: Whitelisted Mateba to only Baliff, Sergeant and Sheriff
       whitelist:
-        - Bailiff
-        - SeniorOfficer
-        - Sheriff
+        - TsfOfficer
+        - TsfTeamleader
+        - TsfCommander
 
 - type: listing
   id: UplinkSecurityTruncheon
@@ -888,9 +888,9 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Bailiff
-        - SeniorOfficer
-        - Sheriff
+        - TsfOfficer
+        - TsfTeamleader
+        - TsfCommander
 
 - type: listing
   id: UplinkSecurityPulseCarbine
@@ -909,9 +909,9 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Sheriff
-        - Bailiff
-        - SeniorOfficer
+        - TsfCommander
+        - TsfOfficer
+        - TsfTeamleader
 
 - type: listing
   id: UplinkSecurityHammer
@@ -978,9 +978,9 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Bailiff
-        - SeniorOfficer
-        - Sheriff
+        - TsfOfficer
+        - TsfTeamleader
+        - TsfCommander
 
 - type: listing
   id: UplinkSecuritySpeedloader

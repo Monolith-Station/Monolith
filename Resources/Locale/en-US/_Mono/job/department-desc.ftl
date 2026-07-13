@@ -6,3 +6,4 @@ department-NFCivilian-description = Team up with a crew and go out on adventures
 department-NFCommand-description = Manage the sector, keep things running efficiently.
 department-NFCentralCommand-description = Get the sector and your forces under control, keep command on its toes.
 department-Tsf-description = Expand the influence of Sol across the sector, crush any enemy resistance. Sol Invictus.
+department-NF-description = Maintain a modicum of oder among the few civilized stations of the Colossus Sector

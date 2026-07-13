@@ -106,7 +106,7 @@
 - type: department
   id: Security
   name: department-Security
-  description: department-NFSecurity-description # Frontier
+  description: department-Security-description # Frontier
   color: "#326DA8" # Mono
   weight: 120 # Mono
   roles:
@@ -116,7 +116,7 @@
 #  - SecurityOfficer # Frontier
 #  - Warden # Frontier
   - PrisonGuard ##nyano
-  - Brigmedic # Frontier
+#  - Brigmedic # Frontier
 #  - SecurityGuard # Frontier
   - NFDetective # Frontier
 #  - Cadet # Mono

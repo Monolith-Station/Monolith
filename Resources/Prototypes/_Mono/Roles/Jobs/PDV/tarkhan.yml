@@ -5,10 +5,10 @@
   playTimeTracker: JobPDVTarkhan
   requirements:
   - !type:DepartmentTimeRequirement # Requires time in both factions
-    department: Security
+    department: Tsf
     time: 14400 # 4 hours # mono
   - !type:DepartmentTimeRequirement # Requires time in both factions
-    department: Antag
+    department: Pdv
     time: 108000 # 30 hours # mono
   startingGear: PDVTarkhanGear
   icon: JobIconPDVTarkhan
