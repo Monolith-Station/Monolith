@@ -43,7 +43,7 @@
     balance:
       FederationMilitaryCredit: 25
   - type: AccessReader
-    access: [["Security"]]
+    access: [["TsfGeneral"]]
   - type: CompanyAccessReader
     requiredCompanies:
     - TSF
@@ -89,7 +89,7 @@
     balance:
       Doubloon: 25
   - type: AccessReader
-    access: [["Pirate"]]
+    access: [["PDVGeneral"]]
   - type: CompanyAccessReader
     requiredCompanies:
     - PDV
