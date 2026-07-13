@@ -1,3 +1,8 @@
 ﻿department-PMC-description = Combat focused contractors, who have less restrictions on gear they can carry.
 department-Medical-description = Emergency medical responders, deployed across space for rapid aid and rescue.
 department-Viper-description = Elite contractors belonging to a company of syndicate origins.
+department-Pdv-description = Keep the claim the Sultan has places centuries ago on this sector, vanquish all enemies of the Dynasty.
+department-NFCivilian-description = Team up with a crew and go out on adventures!
+department-NFCommand-description = Manage the sector, keep things running efficiently.
+department-NFCentralCommand-description = Get the sector and your forces under control, keep command on its toes.
+department-Tsf-description = Expand the influence of Sol across the sector, crush any enemy resistance. Sol Invictus.
