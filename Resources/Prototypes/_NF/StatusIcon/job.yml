@@ -39,7 +39,7 @@
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: PDVRakhshan
-  jobName: job-name-pirate
+  jobName: job-name-pdv-rahkshan
 
 - type: jobIcon
   parent: JobIcon
@@ -55,7 +55,7 @@
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: PDVVizier
-  jobName: job-name-pirate-captain
+  jobName: job-name-pdv-vizier
 
 - type: jobIcon
   parent: JobIcon
@@ -63,7 +63,7 @@
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: PDVAsvaran
-  jobName: job-name-pirate-first-mate
+  jobName: job-name-pdv-asvaran
 
 - type: jobIcon
   parent: JobIcon
@@ -112,7 +112,7 @@
   icon:
     sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
     state: nfsdcadet
-  jobName: job-name-cadet-nf
+  jobName: job-name-tsf-recruit
 
 - type: jobIcon
   parent: JobIcon
@@ -120,7 +120,7 @@
   icon:
     sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
     state: nfsddeputy
-  jobName: job-name-deputy
+  jobName: job-name-tsf-marine
 
 - type: jobIcon
   parent: JobIcon
@@ -144,7 +144,7 @@
   icon:
     sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
     state: nfsdbrigmed
-  jobName: job-name-brigmedic
+  jobName: job-name-tsf-corpsman
 
 - type: jobIcon
   parent: JobIcon
@@ -152,7 +152,7 @@
   icon:
     sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
     state: nfsdsergeant
-  jobName: job-name-senior-officer
+  jobName: job-name-tsf-teamleader
 
 - type: jobIcon
   parent: JobIcon
@@ -160,7 +160,7 @@
   icon:
     sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
     state: nfsdbailiff
-  jobName: job-name-bailiff
+  jobName: job-name-tsf-officer
 
 - type: jobIcon
   parent: JobIcon
@@ -168,7 +168,7 @@
   icon:
     sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
     state: nfsdsheriff
-  jobName: job-name-sheriff
+  jobName: job-name-tsf-commandingofficer
 #  allowSelection: false # Frontier: no impersonating command staff, literally 1984 - Mono Revert
 
   # Medical positions
