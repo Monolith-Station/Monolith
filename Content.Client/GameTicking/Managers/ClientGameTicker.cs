@@ -33,6 +33,12 @@ namespace Content.Client.GameTicking.Managers
         [ViewVariables] public TimeSpan StartTime { get; private set; }
         [ViewVariables] public new bool Paused { get; private set; }
 
+        [ViewVariables] public int BluforReady { get; private set; }
+        [ViewVariables] public int RedforReady { get; private set; }
+        [ViewVariables] public int TotalReady { get; private set; }
+        [ViewVariables] public int BluforAlive { get; private set; }
+        [ViewVariables] public int RedforAlive { get; private set; }
+
         [ViewVariables] public IReadOnlyDictionary<NetEntity, StationJobInformation> StationJobInformationList => _stationJobInformationList;
 
         // Frontier addition
@@ -48,6 +54,7 @@ namespace Content.Client.GameTicking.Managers
         public event Action? LobbyStatusUpdated;
         public event Action? LobbyLateJoinStatusUpdated;
         public event Action<IReadOnlyDictionary<NetEntity, StationJobInformation>>? LobbyJobsAvailableUpdated;
+        public event Action? FactionCountUpdated;
 
         public override void Initialize()
         {
@@ -63,6 +70,7 @@ namespace Content.Client.GameTicking.Managers
             SubscribeNetworkEvent<RequestWindowAttentionEvent>(OnAttentionRequest);
             SubscribeNetworkEvent<TickerLateJoinStatusEvent>(LateJoinStatus);
             SubscribeNetworkEvent<TickerJobsAvailableEvent>(UpdateJobsAvailable);
+            SubscribeNetworkEvent<TickerFactionCountEvent>(OnFactionCount);
 
             _admin.AdminStatusUpdated += OnAdminUpdated;
             OnAdminUpdated();
@@ -148,6 +156,16 @@ namespace Content.Client.GameTicking.Managers
             RestartSound = message.RestartSound;
 
             _userInterfaceManager.GetUIController<RoundEndSummaryUIController>().OpenRoundEndSummaryWindow(message);
+        }
+
+        private void OnFactionCount(TickerFactionCountEvent message)
+        {
+            BluforReady = message.BluforReady;
+            RedforReady = message.RedforReady;
+            TotalReady = message.TotalReady;
+            BluforAlive = message.BluforAlive;
+            RedforAlive = message.RedforAlive;
+            FactionCountUpdated?.Invoke();
         }
     }
 }

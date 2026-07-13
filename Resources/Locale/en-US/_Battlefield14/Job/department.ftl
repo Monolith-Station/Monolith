@@ -34,6 +34,10 @@ department-VKS-description = I can see my house from here!
 department-OMON-name = Russian Special Purpose Police (OMON)
 department-OMON-description = Secure the homefront, deal with riots or national disasters.
 
+# FSB
+department-FSB-name = Federal Security Service (FSB)
+department-FSB-description = The successors to the KGB. Protect the motherland from internal and external threats.
+
 ### IND
 
 # Western Private Security
