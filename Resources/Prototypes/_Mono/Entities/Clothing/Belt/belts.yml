@@ -266,3 +266,19 @@
           - Dragoon
     sprite: _Mono/Clothing/Belt/vizier_sheath.rsi
   - type: Appearance
+
+- type: entity
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
+  id: ClothingBeltWebbingsPDVTarkhan
+  name: tarkhan chest rig
+  description: A set of tactical webbing worn by Tarkhans.
+  components:
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 1500
+  - type: Sprite
+    sprite: _Mono/Clothing/Belt/tarkhan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Belt/tarkhan.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.5

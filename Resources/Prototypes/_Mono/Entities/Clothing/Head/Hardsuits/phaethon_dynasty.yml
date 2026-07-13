@@ -2,13 +2,22 @@
   parent: [ClothingHeadHelmetHardsuitSyndie, ShowSecurityIcons]
   id: ClothingHeadHelmetHardsuitAshen
   name: PDV CV-32 combat hardsuit helmet
-  description: A combat hardsuit helmet designed by the Phaethon Dynasty.
+  description: A combat hardsuit helmet designed by the Phaethon Dynasty. A basic monotube night vision system is installed.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/syndicate.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Head/Hardsuits/syndicate.rsi
+  - type: NightVision # Gen 4 monotube
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 450
+    viewCircleCount: 1
+    viewCircleSpacing: 280
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
 
 - type: entity
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons, ShowSecurityIcons]
@@ -50,13 +59,22 @@
   parent: [ClothingHeadHelmetHardsuitSyndieElite, ShowSecurityIcons]
   id: ClothingHeadHelmetHardsuitAshenElite
   name: PDV CV-53 combat tacsuit helmet
-  description: Based off of the CV-32 hardsuit, this tacsuit sacrifices heavy armor plates for environmental protection.
+  description: Based off of the CV-32 hardsuit, this tacsuit sacrifices heavy armor plates for environmental protection, and an advanced NVD suite.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hardsuits/syndieelite.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Head/Hardsuits/syndieelite.rsi
+  - type: NightVision # Gen 4 quadtube
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 4
+    viewCircleSpacing: 260
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
 
 - type: entity
   parent: [ClothingHeadHelmetHardsuitSyndieElite, ShowSecurityIcons]
@@ -69,3 +87,33 @@
     sprite: _Mono/Clothing/Head/Hardsuits/pdv_vizier.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Head/Hardsuits/pdv_vizier.rsi
+  - type: NightVision # Gen 4 dualtube
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 450
+    viewCircleCount: 2
+    viewCircleSpacing: 280
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ShowMedicalIcons, ShowSecurityIcons]
+  id: ClothingHeadHelmetHardsuitTarkhan
+  name: "PDV CV-280 'Basilisk' combat hardsuit helmet"
+  description: A combat hardsuit helmet designed by the Phaethon Dynasty for Tarkhans. A full gen-4 NVD suite is installed.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/basilisk.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/basilisk.rsi
+  - type: NightVision # Gen 4 quadtube
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 4
+    viewCircleSpacing: 260
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"

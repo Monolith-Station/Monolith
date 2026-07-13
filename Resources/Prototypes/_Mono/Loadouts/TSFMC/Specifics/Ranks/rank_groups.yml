@@ -1,0 +1,93 @@
+- type: loadoutGroup
+  id: TsfmcRanksEnlisted
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TsfmcRankE1
+  - TsfmcRankE2
+  - TsfmcRankE3
+  - TsfmcRankE4
+  - TsfmcRankE5Timelock20Hr
+  - TsfnCNRankE1
+  - TsfnCNRankE2
+  - TsfnCNRankE3
+  - TsfnCNRankE4
+  fallbacks:
+  - TsfmcRankE3
+
+- type: loadoutGroup
+  id: TsfmcRanksFTL
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TsfmcRankE4FTL
+  - TsfmcRankE5FTL
+  - TsfmcRankE6FTL
+  - TsfmcRankE7FTL
+  - TsfmcRankE8FTL
+  - TsfmcRankO1
+  - TsfnCNRankE3
+  - TsfnCNRankE4
+  - TsfnCNRankE5
+  fallbacks:
+  - TsfmcRankE5FTL
+
+- type: loadoutGroup
+  id: TsfmcRanksCaptain
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TsfmcRankO2
+  - TsfmcRankO3
+  - TsfmcRankO4
+  - TsfnCNRankE5
+  - TsfnCNRankE6
+  - TsfnCNRankE7
+  fallbacks:
+  - TsfmcRankO3
+
+- type: loadoutGroup
+  id: TsfmcRanksColonel
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TsfmcRankO5
+  - TsfmcRankO6
+  - TsfnCNRankE8
+  - TsfnCNRankE9
+  fallbacks:
+  - TsfmcRankO6
+
+- type: loadoutGroup
+  id: TsfnRanksCorpsmen
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TsfnCorpsmanRankE2
+  - TsfnCorpsmanRankE3
+  - TsfnCorpsmanRankE4
+  - TsfnCorpsmanRankE5
+  - TsfnCorpsmanRankE6
+  - TsfnCorpsmanRankE7
+  subgroups:
+  - TsfmcRanksEnlisted
+  fallbacks:
+  - TsfnCorpsmanRankE3
+
+- type: loadoutGroup
+  id: TsfnRanksEngineers
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TsfnEngineerRankW1
+  - TsfnEngineerRankW2
+  subgroups:
+  - TsfmcRanksEnlisted
+  fallbacks:
+  - TsfmcRankE4

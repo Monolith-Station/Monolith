@@ -1,0 +1,51 @@
+# Author Info
+# GitHub: starch70
+# Discord: _starch_
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Notes: Wow.
+#
+- type: pointOfInterest
+  id: Jupiter
+  parent: [BaseMobilePOI, BaseRepairablePOI]
+  name: 'PDV Jupiter Class Carrier'
+  minimumDistance: 17000
+  maximumDistance: 19000
+  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoRogueUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/Supercapitals/jupiter.yml
+  addComponents:
+  - type: IFF
+    color: "#d1bf58"
+    flags: [HideLabel]
+    readOnly: false
+
+- type: gameMap
+  id: Jupiter
+  mapName: 'PDV Jupiter Class Carrier'
+  mapPath: /Maps/_Mono/Supercapitals/jupiter.yml
+  minPlayers: 0
+  stations:
+    Jupiter:
+      stationProto: RecordsFrontierOutpostCargo
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'PDV Jupiter Class Carrier'
+        - type: ExtraStationInformation
+          icon: /Textures/_NF/Interface/Pirate/piratelogo.png
+          stationSubtext: 'frontier-lobby-jupiter-subtext'
+          stationDescription: 'frontier-lobby-jupiter-description'
+          lobbySortOrder: 2
+        - type: StationJobs
+          availableJobs:
+            PirateFirstMate: [ 1, 1 ] # Mono
+            PDVDenasvar: [ 2, 2 ]
+            Pirate: [ 8, 8 ] # Mono
+          tags:
+          - PDVCommand
+        - type: StationDeadDropReporting
+          messageSet: Pirate
+        - type: StationDeadDropHintExempt

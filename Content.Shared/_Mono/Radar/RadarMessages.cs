@@ -33,6 +33,11 @@ public sealed class GiveBlipsEvent : EntityEventArgs
     public readonly List<BlipNetData> Blips;
 
     /// <summary>
+    /// Vectors for missile stuff like arcs, current target, etc
+    /// </summary>
+    public readonly List<MissileVectorNetData> Missiles;
+
+    /// <summary>
     /// Hitscan lines to display on the radar as (start position, end position, thickness, color).
     /// </summary>
     public readonly List<HitscanNetData> HitscanLines;
@@ -40,10 +45,12 @@ public sealed class GiveBlipsEvent : EntityEventArgs
     public GiveBlipsEvent(
         List<BlipConfig> configPalette,
         List<BlipNetData> blips,
+        List<MissileVectorNetData> missiles,
         List<HitscanNetData> hitscans)
     {
         ConfigPalette = configPalette;
         Blips = blips;
+        Missiles = missiles;
         HitscanLines = hitscans;
     }
 }
@@ -78,6 +85,14 @@ public record struct BlipNetData
     Angle Rotation,
     ushort ConfigIndex,
     ushort? OnGridConfigIndex
+);
+
+[Serializable, NetSerializable]
+public record struct MissileVectorNetData
+(
+    NetEntity Uid,
+    float Range,
+    Angle ScanArc
 );
 
 [Serializable, NetSerializable]

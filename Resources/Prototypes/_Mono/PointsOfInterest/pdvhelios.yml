@@ -88,13 +88,14 @@
         - type: StationJobs
           availableJobs:
             PirateCaptain: [ 1, 1 ]
+            PDVTarkhan: [ 3, 3 ]
             PirateFirstMate: [ 3, 3 ]
-            PDVDenasvar: [ 5, 5 ]
+            PDVDenasvar: [ 6, 6 ]
             PDVInfiltrator: [ 2, 2 ]
             Pirate: [ -1, -1 ]
             PdvBorg: [ 2, 2 ]
           tags:
-          - GrandVizier
+          - CentralCommand
         - type: StationDeadDropReporting
           messageSet: Pirate
         - type: StationDeadDropHintExempt

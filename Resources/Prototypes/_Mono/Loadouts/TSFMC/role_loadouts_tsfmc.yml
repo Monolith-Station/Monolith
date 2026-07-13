@@ -26,6 +26,7 @@
   - TsfmcFirearm
   - TsfmcMag
   - FactionArmorPlates
+  - TsfmcRanksEnlisted
   canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
@@ -56,6 +57,7 @@
   - TsfmcMag
   - TsfmcSidearmAmmo
   - FactionArmorPlates
+  - TsfmcRanksEnlisted
   canCustomizeName: true
 
 - type: roleLoadout
@@ -86,6 +88,7 @@
   - TsfmcMag
   - TsfmcSidearmAmmo
   - FactionArmorPlates
+  - TsfnRanksCorpsmen
   canCustomizeName: true
 
 - type: roleLoadout
@@ -116,6 +119,7 @@
   - TsfmcMag
   - TsfmcSidearmAmmo
   - FactionArmorPlates
+  - TsfmcRanksCaptain
   canCustomizeName: true
 
 - type: roleLoadout
@@ -146,6 +150,7 @@
   - TsfmcMag
   - TsfmcSidearmAmmo
   - FactionArmorPlates
+  - TsfmcRanksFTL
   canCustomizeName: true
 
 - type: roleLoadout
@@ -175,6 +180,7 @@
   - TsfmcMag
   - TsfmcSidearmAmmo
   - FactionArmorPlates
+  - TsfmcRanksColonel
   canCustomizeName: true
 
 - type: roleLoadout
@@ -199,6 +205,22 @@
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
+  - NfsdSpeciesSpecific
+  - TsfmcSidearm
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
+  - TsfnRanksEngineers
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobTsfMarsoc
+  groups:
+  - TsfmcBalaclava
+  - NfsdBoxSurvival
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorTrinkets
+  - ContractorEncryptionKey
   - NfsdSpeciesSpecific
   - TsfmcSidearm
   - TsfmcSidearmAmmo
