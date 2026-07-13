@@ -232,6 +232,18 @@
     - sprite: _NF/Structures/Decoration/banner.rsi
       state: nfsd-banner
 
+- type: entity
+  id: SpawnPointTsfCorpsman
+  parent: SpawnPointJobBase
+  name: Tsf Corpsman
+  components:
+  - type: SpawnPoint # Frontier
+    job_id: TsfCorpsman # Frontier
+  - type: Sprite
+    layers:
+    - sprite: _NF/Structures/Decoration/banner.rsi
+      state: nfsd-banner
+
 # Viper Group
 
 - type: entity
