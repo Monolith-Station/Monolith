@@ -20,6 +20,8 @@
   - TsfmcEngineering
   - TsfGeneral
   - TsfFtl
+  accessGroups:
+  - GeneralAccess
   special:
   - !type:AddComponentSpecial
     components:

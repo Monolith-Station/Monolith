@@ -20,10 +20,12 @@
   displayWeight: 35
   assignedCompany: TSF
   canBeAntag: false
-  accessGroups:
+  access:
   - TsfGeneral
   - Medical
   - Chemistry
+  accessGroups:
+  - GeneralAccess
   special:
   - !type:AddComponentSpecial
     components:

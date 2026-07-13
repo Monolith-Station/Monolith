@@ -1,7 +1,7 @@
 - type: job
-  id: Pirate
+  id: PDVRahkshan
   name: job-name-pdv-Rahkshan
-  description: job-description-pirate
+  description: job-description-pdv-rahkshan
   playTimeTracker: JobPdvRahkshan
   requirements:
     - !type:OverallPlaytimeRequirement
@@ -17,7 +17,7 @@
   assignedCompany: PDV
   setPreference: true
   access:
-  - Pirate
+  - PDVGeneral
   - Mercenary
   accessGroups:
   - GeneralAccess

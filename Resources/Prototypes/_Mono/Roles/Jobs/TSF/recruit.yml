@@ -20,6 +20,8 @@
   setPreference: false # mono
   access:
   - TsfGeneral
+  accessGroups:
+  - GeneralAccess
   special:
   - !type:AddComponentSpecial
     components:

@@ -27,7 +27,9 @@
   - TsfCommander
   - TsfOfficer
   - TsfFtl
-  - TsfGeneral #Mono End
+  - TsfGeneral
+  accessGroups:
+  - GeneralAccess
   special:
   - !type:AddComponentSpecial
     components:

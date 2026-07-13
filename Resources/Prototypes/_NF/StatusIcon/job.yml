@@ -128,49 +128,48 @@
   parent: JobIcon
   id: JobIconTSFRecruit #Mono
   icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: tsfrecruit
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFRecruit
   jobName: job-name-tsf-recruit
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconTSFMarine #Mono
   icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: tsfmarine
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFMarine
   jobName: job-name-tsf-marine
-
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconTSFCorpsman #Mono
   icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: tsfcorpsman
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFCorpsman
   jobName: job-name-tsf-corpsman
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconSergeant
+  id: JobIconTsfTeamLeader
   icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: tsfteamleader
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFTeamleader
   jobName: job-name-tsf-teamleader
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconTSFOfficer #mono
   icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: tsfofficer
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFOfficer
   jobName: job-name-tsf-officer
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconTSFCommander #Mono
   icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: tsfcommander
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFCommander
   jobName: job-name-tsf-commandingofficer
 #  allowSelection: false # Frontier: no impersonating command staff, literally 1984 - Mono Revert
 

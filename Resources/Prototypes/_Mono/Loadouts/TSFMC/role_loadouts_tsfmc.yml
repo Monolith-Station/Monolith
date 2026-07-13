@@ -15,7 +15,7 @@
   - TsfmcBelt
   - TsfmcEars
   - NfsdBoxSurvival
-  - CadetPDA
+  - TSFRecruitPDA
   - ContractorWallet
   - ContractorCartridge
 #  - ContractorImplanter # Mono - TSF has a skill issue sometimes
@@ -45,7 +45,7 @@
   - TsfmcBelt
   - TsfmcEars
   - NfsdBoxSurvival
-  - DeputyPDA
+  - TSFMarinePDA
   - ContractorWallet
   - ContractorCartridge
   - ContractorEncryptionKey
@@ -76,7 +76,7 @@
   - TsfmcBrigmedicBelt
   - TsfmcEars
   - NfsdBoxSurvival
-  - BrigmedicPDA
+  - TSFCorpsmanPDA
   - ContractorWallet
   - ContractorCartridge
   - ContractorEncryptionKey
@@ -107,7 +107,7 @@
   - TsfmcBelt
   - TsfmcEarsSenior
   - NfsdBoxSurvival
-  - BailiffPDA
+  - TSFOfficerPDA
   - ContractorWallet
   - ContractorCartridge
   - ContractorEncryptionKey
@@ -138,7 +138,7 @@
   - TsfmcBelt
   - TsfmcEarsSenior
   - NfsdBoxSurvival
-  - SeniorOfficerPDA
+  - TSFTeamleaderPDA
   - ContractorWallet
   - ContractorCartridge
   - ContractorEncryptionKey
@@ -169,7 +169,7 @@
   - TsfmcBelt
   - TsfmcEarsCommander
   - NfsdBoxSurvival
-  - SheriffPDA
+  - TSFCommanderPDA
   - ContractorWallet
   - ContractorCartridge
   - ContractorFun

@@ -7,14 +7,16 @@
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hours
   startingGear: DeputyGear
-  icon: JobIconDeputy
-  supervisors: job-supervisors-sergeant
+  icon: JobIconTSFMarine
+  supervisors: job-supervisors-tsf
   weight: 130
   displayWeight: 40
   assignedCompany: TSF
   canBeAntag: false
-  accessGroups:
+  access:
   - TsfGeneral
+  accessGroups:
+  - GeneralAccess
   special:
   - !type:AddComponentSpecial
     components:

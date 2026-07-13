@@ -10,7 +10,7 @@
       department: Tsf
       time: 36000 # 10 hours # mono
   startingGear: SeniorOfficerGear
-  icon: JobIconSergeant
+  icon: JobIconTsfTeamLeader
   supervisors: job-supervisors-tsf-teamleader
   weight: 140
   displayWeight: 50
@@ -20,6 +20,8 @@
   - TsfGeneral
   - TsfFtl
   - TsfmcEngineering
+  accessGroups:
+  - GeneralAccess
   special:
   - !type:AddComponentSpecial
     components:

@@ -91,8 +91,8 @@
     - !type:BuyerJobCondition
       whitelist:
         - Brigmedic
-        - Bailiff
-        - Sheriff
+        - TsfOfficer
+        - TsfCommander
 
 
 - type: listing
@@ -494,6 +494,6 @@
           - SecurityUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Sheriff
-        - Bailiff
-        - SeniorOfficer
+        - TsfCommander
+        - TsfOfficer
+        - TsfTeamleader
