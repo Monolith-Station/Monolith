@@ -1,27 +1,24 @@
 - type: job
-  id: SeniorOfficer
+  id: TsfTeamleader
   name: job-name-tsf-teamleader
-  description: job-description-senior-officer
+  description: job-description-tsf-teamleader
   playTimeTracker: JobSeniorOfficer
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hours # mono
     - !type:DepartmentTimeRequirement
-      department: Security
+      department: Tsf
       time: 36000 # 10 hours # mono
   startingGear: SeniorOfficerGear
   icon: JobIconSergeant
-  supervisors: job-supervisors-sheriff
+  supervisors: job-supervisors-tsf-teamleader
   weight: 140
   displayWeight: 50
   assignedCompany: TSF
   canBeAntag: false
   access:
-  - Armory
-  - Sergeant
-  - Bailiff
-  - Medical
-  - Chemistry
+  - TsfGeneral
+  - TsfFtl
   - TsfmcEngineering
   special:
   - !type:AddComponentSpecial

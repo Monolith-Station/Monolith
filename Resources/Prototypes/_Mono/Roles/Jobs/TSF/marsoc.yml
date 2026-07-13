@@ -5,14 +5,14 @@
   playTimeTracker: JobTsfMarsoc
   requirements:
   - !type:DepartmentTimeRequirement # Requires time in both factions
-    department: Antag
+    department: Pdv
     time: 14400 # 4 hours # mono
   - !type:DepartmentTimeRequirement # Requires time in both factions
-    department: Security
+    department: Tsf
     time: 108000 # 30 hours # mono
   startingGear: MarsocOperativeGearHyperwarRole
   icon: JobIconTSFMarsoc
-  supervisors: job-supervisors-ws
+  supervisors: job-supervisors-tsf-commandingofficer
   weight: 45
   displayWeight: 45
   assignedCompany: TSF

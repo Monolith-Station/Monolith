@@ -1,13 +1,13 @@
 - type: job
-  id: Sheriff
+  id: TsfCommander
   name: job-name-tsf-commandingofficer
-  description: job-description-sheriff
+  description: job-description-tsf-commandingofficer
   playTimeTracker: JobHeadOfSecurity
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 144000 # 40 hours - mono
     - !type:DepartmentTimeRequirement
-      department: Security
+      department: Tsf
       time: 90000 # 25 hours - mono
     - !type:RoleTimeRequirement
       role: JobWarden
@@ -22,14 +22,12 @@
   displayWeight: 70
   assignedCompany: TSF
   canBeAntag: false
-  accessGroups:
-  - AllAccessMono #Mono Start
   access:
   - TsfmcEngineering
-  - HeadOfSecurity
-  - Bailiff
-  - Sergeant
-  - Frontier #Mono End
+  - TsfCommander
+  - TsfOfficer
+  - TsfFtl
+  - TsfGeneral #Mono End
   special:
   - !type:AddComponentSpecial
     components:

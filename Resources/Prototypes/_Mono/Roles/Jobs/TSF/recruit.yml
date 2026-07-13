@@ -1,25 +1,25 @@
 - type: job
-  id: Cadet
+  id: TsfRecruit
   name: job-name-tsf-recruit
-  description: job-description-cadet-nf
+  description: job-description-tsf-recruit
   playTimeTracker: JobSecurityCadet
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 32400 # 9 hours # mono
     - !type:DepartmentTimeRequirement
-      department: Security
+      department: Tsf
       time: 72000 # 20 hours # mono
       inverted: true # Leave slots open for newer, less confident players.
   startingGear: CadetGear
   icon: JobIconCadetNF
-  supervisors: job-supervisors-cadet
+  supervisors: job-supervisors-tsf-recruit
   weight: 70
   displayWeight: 10
   assignedCompany: TSF
   canBeAntag: false
   setPreference: false # mono
-  accessGroups:
-  - CadetNfsdAccess
+  access:
+  - TsfGeneral
   special:
   - !type:AddComponentSpecial
     components:

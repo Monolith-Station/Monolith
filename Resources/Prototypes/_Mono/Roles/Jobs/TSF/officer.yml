@@ -1,7 +1,7 @@
 - type: job
-  id: Bailiff
+  id: TsfOfficer
   name: job-name-tsf-officer
-  description: job-description-bailiff
+  description: job-description-tsf-officer
   playTimeTracker: JobWarden
   requirements: # mono - lowers all of these tbh
     - !type:OverallPlaytimeRequirement
@@ -20,11 +20,10 @@
   assignedCompany: TSF
   canBeAntag: false
   access:
-  - Armory
-  - Sergeant
-  - Bailiff
-  - Medical
-  - Chemistry
+  - TsfOfficer
+  - TsfGeneral
+  - TsfmcEngineering
+  - TsfFtl
   - TsfmcEngineering # Mono
   accessGroups:
   - GeneralNfsdAccess
@@ -54,6 +53,5 @@
 #    - Magazine45_ACPPistolFMJ # Mono
     - BaseSecurityUplinkRadioCaptain
 #    - ShipVoucherNfsdBailiff # Mono
-    - RubberStampBailiff
     - RadioHandheldNF # Mono
     - RubberStampTSFCaptain # Mono

@@ -1,7 +1,7 @@
 - type: job
-  id: Deputy
+  id: TsfMarine
   name: job-name-tsf-marine
-  description: job-description-deputy
+  description: job-description-tsf-marine
   playTimeTracker: JobSecurityOfficer
   requirements:
     - !type:OverallPlaytimeRequirement
@@ -14,7 +14,7 @@
   assignedCompany: TSF
   canBeAntag: false
   accessGroups:
-  - GeneralNfsdAccess
+  - TsfGeneral
   special:
   - !type:AddComponentSpecial
     components:

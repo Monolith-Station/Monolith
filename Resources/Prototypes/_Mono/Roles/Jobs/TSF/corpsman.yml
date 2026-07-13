@@ -1,13 +1,13 @@
 - type: job
-  id: Brigmedic
+  id: TsfCorpsman
   name: job-name-tsf-corpsman
-  description: job-description-brigmedic-nf
+  description: job-description-tsf-corpsman
   playTimeTracker: JobBrigmedic
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hours - mono
     - !type:DepartmentTimeRequirement
-      department: Security
+      department: Tsf
       time: 7200 # 2 hours - mono
   alternateRequirementSets:
     longerPlaytimeLessSec:
@@ -15,13 +15,15 @@
       time: 108000 # 30 hours - mono
   startingGear: BrigmedicGear
   icon: JobIconTSFCorpsman
-  supervisors: job-supervisors-bailiff
+  supervisors: job-supervisors-tsf
   weight: 125
   displayWeight: 35
   assignedCompany: TSF
   canBeAntag: false
   accessGroups:
-  - GeneralNfsdBrigmedicAccess
+  - TsfGeneral
+  - Medical
+  - Chemistry
   special:
   - !type:AddComponentSpecial
     components:

@@ -5,18 +5,21 @@
   playTimeTracker: JobTsfEngineer
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 21600 # 6 hours # mono
+      time: 54000 # 15 hours # mono #fuck this engineers aren't supposed to be the newbuddies
+    - !type:DepartmentTimeRequirement
+      department: Tsf
+      time: 7200 # 2 hours - mono
   startingGear: TsfEngiGear
   icon: JobIconTSFEngi
-  supervisors: job-supervisors-sergeant
+  supervisors: job-supervisors-tsf-teamleader
   weight: 130
   displayWeight: 20
   assignedCompany: TSF
   canBeAntag: false
   access:
   - TsfmcEngineering
-  accessGroups:
-  - TsfGeneralNoBrig
+  - TsfGeneral
+  - TsfFtl
   special:
   - !type:AddComponentSpecial
     components:
