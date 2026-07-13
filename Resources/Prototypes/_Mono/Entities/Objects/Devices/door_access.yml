@@ -40,7 +40,7 @@
 
 - type: entity
   parent: DoorElectronics
-  id: DoorElectronicsPdvCommand
+  id: DoorElectronicsPDVCommand
   suffix: PDV Command, Locked
   components:
   - type: AccessReader

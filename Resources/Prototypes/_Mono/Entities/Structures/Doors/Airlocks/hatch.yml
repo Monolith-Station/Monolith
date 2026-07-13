@@ -41,7 +41,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsPdvCommand ]
+      board: [ DoorElectronicsPDVCommand ]
 
 - type: entity
   parent: AirlockHatchSyndicate

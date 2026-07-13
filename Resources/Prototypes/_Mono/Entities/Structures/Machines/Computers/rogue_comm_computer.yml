@@ -18,7 +18,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: AccessReader
-    access: [[ "PdvCommand" ]]
+    access: [[ "PDVCommand" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-rogue
     color: "#D2B48C"
