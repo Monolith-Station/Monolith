@@ -1,7 +1,25 @@
 #region HEAD
 
 - type: loadoutGroup
+  id: BF_VDVHead
+  name: loadout-group-BF14-vdvhead
+  minLimit: 0
+  loadouts:
+  - LoadoutHeadBeretVDV
+
+- type: loadoutGroup
   id: BF_HeadCivilianRU
+  name: Hats
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - LoadoutHeadHatPompon
+  - LoadoutHeadHatUshanka
+  - LoadoutHeadHatUshankaTrack
+  - LoadoutHeadHatCabbie
+
+- type: loadoutGroup
+  id: BF_HeadScavRU
   name: Hats
   minLimit: 0
   maxLimit: 1
@@ -12,13 +30,6 @@
   - LoadoutHeadHatCabbie
   - LoadoutHeadHatHelmetRUSSh68
   - LoadoutHeadHatHelmetRUSSh68Track
-
-- type: loadoutGroup
-  id: BF_VDVHead
-  name: loadout-group-BF14-vdvhead
-  minLimit: 0
-  loadouts:
-  - LoadoutHeadBeretVDV
 
 - type: loadoutGroup
   id: BF_GoggleCover
@@ -133,6 +144,27 @@
   - LoadoutUniformJumpsuitMechanic
   - LoadoutUniformJumpsuitEngineer
   - LoadoutUniformJumpsuitClerk
+  - LoadoutUniformJumpsuitAfganVet1
+  - LoadoutUniformJumpsuitAfganVet2
+  - LoadoutUniformJumpsuitTracksuitRed
+  - LoadoutUniformJumpsuitTracksuitBlue
+  - LoadoutUniformJumpsuitTracksuitBlack
+  fallbacks:
+  - LoadoutUniformJumpsuitPlain
+
+- type: loadoutGroup
+  id: BF_JumpsuitsScavRU
+  name: loadout-group-BF14-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LoadoutUniformJumpsuitPlain
+  - LoadoutUniformJumpsuitDealer
+  - LoadoutUniformJumpsuitHunter
+  - LoadoutUniformJumpsuitWorker
+  - LoadoutUniformJumpsuitMechanic
+  - LoadoutUniformJumpsuitEngineer
+  - LoadoutUniformJumpsuitClerk
   - LoadoutUniformJumpsuitGorka
   - LoadoutUniformJumpsuitAfganVet1
   - LoadoutUniformJumpsuitAfganVet2
@@ -141,6 +173,27 @@
   - LoadoutUniformJumpsuitTracksuitBlack
   fallbacks:
   - LoadoutUniformJumpsuitPlain
+
+- type: loadoutGroup
+  id: BF_OuterCivilianRU
+  name: Outer clothes
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - LoadoutOuterBlackTrenchcoat
+  - LoadoutOuterWorkerHighViz
+  - LoadoutOuterWorkJacket
+
+- type: loadoutGroup
+  id: BF_OuterScavRU
+  name: Outer clothes
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - LoadoutOuterBlackTrenchcoat
+  - LoadoutOuterWorkerHighViz
+  - LoadoutOuterWorkJacket
+  - LoadoutOuterArmorRU6B2Vest
 
 - type: loadoutGroup
   id: BF_VestBossRU
@@ -277,17 +330,6 @@
   - LoadoutGunRUTT33VDVVET
 
 #region MISC
-
-- type: loadoutGroup
-  id: BF_OuterCivilianRU
-  name: Outer clothes
-  minLimit: 0
-  maxLimit: 1
-  loadouts:
-  - LoadoutOuterBlackTrenchcoat
-  - LoadoutOuterWorkerHighViz
-  - LoadoutOuterWorkJacket
-  - LoadoutOuterArmorRU6B2Vest
 
 - type: loadoutGroup
   id: BF_MiscItemsNATO

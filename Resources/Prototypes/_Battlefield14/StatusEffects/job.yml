@@ -1,4 +1,4 @@
-# Basic factions
+#region Basic factions
 
 - type: jobIcon
   parent: JobIcon
@@ -9,12 +9,40 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconDE
+  icon:
+    sprite: /Textures/_Battlefield14/Interface/Misc/job_icons.rsi
+    state: DE
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconUA
+  icon:
+    sprite: /Textures/_Battlefield14/Interface/Misc/job_icons.rsi
+    state: UA
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconRU
   icon:
     sprite: /Textures/_Battlefield14/Interface/Misc/job_icons.rsi
     state: RU
 
-# NATO classes
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPL
+  icon:
+    sprite: /Textures/_Battlefield14/Interface/Misc/job_icons.rsi
+    state: PL
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconGypsy
+  icon:
+    sprite: /Textures/_Battlefield14/Interface/Misc/job_icons.rsi
+    state: Gypsy
+
+#region NATO classes
 
 - type: jobIcon
   parent: JobIcon
@@ -79,7 +107,7 @@
     sprite: /Textures/_Battlefield14/Interface/Misc/class_icons.rsi
     state: natospecialforces
 
-# NATO allies
+#region NATO allies
 
 - type: jobIcon
   parent: JobIcon
@@ -130,7 +158,7 @@
     sprite: /Textures/_Battlefield14/Interface/Misc/class_icons.rsi
     state: natoallyengineer
 
- # PACT classes
+#region PACT classes
 
 - type: jobIcon
   parent: JobIcon
@@ -195,7 +223,7 @@
     sprite: /Textures/_Battlefield14/Interface/Misc/class_icons.rsi
     state: pactspecialforces
 
-# PACT allies
+#region PACT allies
 
 - type: jobIcon
   parent: JobIcon
@@ -218,7 +246,7 @@
     sprite: /Textures/_Battlefield14/Interface/Misc/class_icons.rsi
     state: pactallyinfantry
 
-# Independants
+#region Independants
 
 - type: jobIcon
   parent: JobIcon

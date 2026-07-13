@@ -427,39 +427,6 @@
 
 ### IND
 
-#region Scav
-
-- type: roleLoadout
-  id: JobRUScav
-  groups:
-  - BF_HeadCivilianRU
-  - BF_CombatMasks
-  - BF_JumpsuitsCivilianRU
-  - BF_OuterCivilianRU
-  - BF_WPSGloves
-  - BF_ShoesCivilian
-  - BF_MiscItemsIND
-  - ContractorWallet
-
-- type: roleLoadout
-  id: JobRUScavGuard
-  groups:
-  - BF_CombatMasks
-  - BF_WPSGloves
-  - BF_MiscItemsIND
-  - ContractorWallet
-
-- type: roleLoadout
-  id: JobRUScavBoss
-  groups:
-  - BF_VestBossRU
-  - BF_HelmetBossRU
-  - BF_VambraceBossRU
-  - BF_JumpsuitsBossRU
-  - BF_CombatMasks
-  - BF_WPSGloves
-  - BF_MiscItemsIND
-  - ContractorWallet
 
 #region Western Private Security
 
@@ -493,14 +460,67 @@
   - BF_MiscItemsIND
   - ContractorWallet
 
+#region Scav
+
+- type: roleLoadout
+  id: JobRUScav
+  groups:
+  - BF_HeadScavRU
+  - BF_CombatMasks
+  - BF_JumpsuitsScavRU
+  - BF_OuterScavRU
+  - BF_WPSGloves
+  - BF_ShoesCivilian
+  - BF_MiscItemsIND
+  - ContractorWallet
+
+- type: roleLoadout
+  id: JobRUScavGuard
+  groups:
+  - BF_CombatMasks
+  - BF_WPSGloves
+  - BF_MiscItemsIND
+  - ContractorWallet
+
+- type: roleLoadout
+  id: JobRUScavBoss
+  groups:
+  - BF_VestBossRU
+  - BF_CombatMasks
+  - BF_HelmetBossRU
+  - BF_VambraceBossRU
+  - BF_JumpsuitsBossRU
+  - BF_WPSGloves
+  - BF_MiscItemsIND
+  - ContractorWallet
+
 #region Civilian
 
 - type: roleLoadout
   id: JobCivilianUS
   groups:
   - BF_JumpsuitsCivilianUS
-  - BF_ShoesCivilian
   - BF_WPSGloves
+  - BF_ShoesCivilian
+  - BF_MiscItemsIND
+  - ContractorWallet
+
+- type: roleLoadout
+  id: JobCivilianRU
+  groups:
+  - BF_HeadCivilianRU
+  - BF_JumpsuitsCivilianRU
+  - BF_OuterCivilianRU
+  - BF_WPSGloves
+  - BF_ShoesCivilian
+  - BF_MiscItemsIND
+  - ContractorWallet
+
+- type: roleLoadout
+  id: JobCivilianRUEMT
+  groups:
+  - BF_WPSGloves
+  - BF_ShoesCivilian
   - BF_MiscItemsIND
   - ContractorWallet
 

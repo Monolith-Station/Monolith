@@ -479,46 +479,6 @@
 
 ### IND
 
-#region Scav
-
-- type: entity
-  id: SpawnPointScav
-  parent: SpawnPointJobBase
-  name: RU Scav
-  components:
-  - type: SpawnPoint
-    job_id: RUScav
-  - type: Sprite
-    sprite: /Textures/_Battlefield14/Interface/Misc/job_icons.rsi
-    layers:
-    - state: RU
-      scale: 1.5,1.5
-
-- type: entity
-  id: SpawnPointScavGuard
-  parent: SpawnPointJobBase
-  name: RU Scav Guard
-  components:
-  - type: SpawnPoint
-    job_id: RUScavGuard
-  - type: Sprite
-    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
-    layers:
-    - state: indsecurity
-      scale: 1.5,1.5
-
-- type: entity
-  id: SpawnPointScavBoss
-  parent: SpawnPointJobBase
-  name: RU Scav Boss
-  components:
-  - type: SpawnPoint
-    job_id: RUScavBoss
-  - type: Sprite
-    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
-    layers:
-    - state: indcaptain
-      scale: 1.5,1.5
 
 #region Western Private Security
 
@@ -561,6 +521,47 @@
     - state: indsquadleader
       scale: 1.5,1.5
 
+#region Scav
+
+- type: entity
+  id: SpawnPointScav
+  parent: SpawnPointJobBase
+  name: RU Scav
+  components:
+  - type: SpawnPoint
+    job_id: RUScav
+  - type: Sprite
+    sprite: /Textures/_Battlefield14/Interface/Misc/job_icons.rsi
+    layers:
+    - state: RU
+      scale: 1.5,1.5
+
+- type: entity
+  id: SpawnPointScavGuard
+  parent: SpawnPointJobBase
+  name: RU Scav Guard
+  components:
+  - type: SpawnPoint
+    job_id: RUScavGuard
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: indsecurity
+      scale: 1.5,1.5
+
+- type: entity
+  id: SpawnPointScavBoss
+  parent: SpawnPointJobBase
+  name: RU Scav Boss
+  components:
+  - type: SpawnPoint
+    job_id: RUScavBoss
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: indcaptain
+      scale: 1.5,1.5
+
 #region Civilian
 
 - type: entity
@@ -574,6 +575,32 @@
     sprite: _Battlefield14/Interface/Misc/job_icons.rsi
     layers:
     - state: US
+      scale: 1.5,1.5
+
+- type: entity
+  id: SpawnPointCivilianRU
+  parent: SpawnPointJobBase
+  name: Civilian RU
+  components:
+  - type: SpawnPoint
+    job_id: CivilianRU
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/job_icons.rsi
+    layers:
+    - state: RU
+      scale: 1.5,1.5
+
+- type: entity
+  id: SpawnPointCivilianRUEMT
+  parent: SpawnPointJobBase
+  name: Civilian RU EMT
+  components:
+  - type: SpawnPoint
+    job_id: CivilianRUEMT
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/job_icons.rsi
+    layers:
+    - state: RU
       scale: 1.5,1.5
 
 #region Misc
