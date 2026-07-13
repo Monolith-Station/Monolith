@@ -57,91 +57,7 @@
   - type: Item
     heldPrefix: medic
 
-# MARK: TSF
-
-- type: entity
-  parent: IDCardStandard
-  id: TsfRecruitIDCard
-  name: TSFMC recruit ID card
-  components:
-  - type: PresetIdCard
-    job: TsfRecruit
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: nfsd
-    - state: idnfsdcadet
-  - type: Clothing
-    sprite: _NF/Objects/Misc/id_cards.rsi
-  - type: Item
-    heldPrefix: nfsd
-
-- type: entity
-  parent: TsfRecruitIDCard
-  id: TsfMarineIDCard
-  name: TSFMC marine ID card
-  components:
-  - type: PresetIdCard
-    job: TsfMarine
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: nfsd
-    - state: idnfsddeputy
-
-- type: entity
-  parent: TsfRecruitIDCard
-  id: TsfCorpsmanIDCard
-  name: TSFMC corpsman ID card
-  components:
-  - type: PresetIdCard
-    job: TsfCorpsman
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: nfsd
-    - state: idnfsdbrigmed
-
-- type: entity
-  parent: TsfRecruitIDCard
-  id: TsfTeamleaderIDCard
-  name: TSFMC fireteam leader ID card
-  components:
-  - type: PresetIdCard
-    job: TsfTeamleader
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: nfsd
-    - state: idnfsdsergeant
-
-- type: entity
-  parent: TsfRecruitIDCard
-  id: TsfOfficerIDCard
-  name: TSFMC captain ID card
-  components:
-  - type: PresetIdCard
-    job: TsfOfficer
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: nfsd
-    - state: idnfsdbailiff
-
-- type: entity
-  parent: TsfRecruitIDCard
-  id: TsfCommanderIDCard
-  name: TSFMC colonel ID card
-  components:
-  - type: PresetIdCard
-    job: TsfCommander
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: silver
-    - state: idnfsdsheriff
-  - type: Item
-    heldPrefix: silver
+# MARK: TSF Engi
 
 - type: entity
   parent: IDCardStandard
@@ -183,15 +99,15 @@
 - type: entity
   parent: PirateIDCard
   id: PDVRahkshanIDCard
-  name: PDV Rahkshan id card
+  name: PDV rahkshan id card
   components:
   - type: PresetIdCard
-    job: Pirate
+    job: PDVRahkshan
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
     - state: base
-    - state: id_Rahkshan
+    - state: id_rahkshan
 
 - type: entity
   parent: PirateIDCard
@@ -263,7 +179,7 @@
     sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
     - state: base
-    - state: id_Rahkshan
+    - state: id_rahkshan
   - type: AgentIDCard
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
