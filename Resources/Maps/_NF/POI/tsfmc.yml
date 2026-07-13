@@ -16013,7 +16013,7 @@ entities:
     - type: Transform
       pos: 17.5,-6.5
       parent: 1
-- proto: NFSpawnPointSeniorOfficer
+- proto: SpawnPointTsfTeamleader
   entities:
   - uid: 2275
     components:
@@ -17786,14 +17786,14 @@ entities:
     - type: Transform
       pos: 6.5,7.5
       parent: 1
-- proto: SpawnPointBailiff
+- proto: SpawnPointTsfOfficer
   entities:
   - uid: 2562
     components:
     - type: Transform
       pos: 16.5,12.5
       parent: 1
-- proto: SpawnPointBrigmedic
+- proto: SpawnPointTsfCorpsman
   entities:
   - uid: 2563
     components:
@@ -17805,7 +17805,7 @@ entities:
     - type: Transform
       pos: 16.5,11.5
       parent: 1
-- proto: SpawnPointCadet
+- proto: SpawnPointTsfRecruit
   entities:
   - uid: 2565
     components:
@@ -17827,7 +17827,7 @@ entities:
     - type: Transform
       pos: 14.5,13.5
       parent: 1
-- proto: SpawnPointDeputy
+- proto: SpawnPointTsfMarine
   entities:
   - uid: 2569
     components:
@@ -17881,7 +17881,7 @@ entities:
     - type: Transform
       pos: -26.5,1.5
       parent: 1
-- proto: SpawnPointSheriff
+- proto: SpawnPointTsfCommander
   entities:
   - uid: 2579
     components:
