@@ -278,3 +278,58 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsTsf ]
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockRogueGlassLocked
+  suffix: PDV, Locked # Mono - PDV
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPDV ]
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalGlassRogueLocked
+  suffix: PDV, Glass, Locked # Mono - PDV
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPDV ]
+
+- type: entity
+  parent: AirlockMiningGlass
+  id: AirlockMiningGlassRogueLocked
+  suffix: PDV, Glass, Locked # Mono - PDV
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPDV ]
+
+- type: entity
+  parent: AirlockShuttleSyndicate
+  id: AirlockShuttleSyndicateRogueLocked
+  suffix: PDV, Locked # Mono - PDV
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPDV ]
+
+- type: entity
+  parent: AirlockGlassShuttleSyndicate
+  id: AirlockGlassShuttleSyndicateRogueLocked
+  suffix: PDV, Glass Locked # Mono - PDV
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPDV ]
+
+# Airtight Hatch
+- type: entity
+  parent: AirlockHatch
+  id: AirlockHatchRogueLocked
+  suffix: PDV, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPDV ]
