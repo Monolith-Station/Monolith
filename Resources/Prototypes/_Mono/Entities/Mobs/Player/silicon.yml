@@ -538,6 +538,14 @@
     - TauCetiBasic
     - RobotTalk
     - SolCommon
+  - type: Access
+    tags:
+    - TsfGeneral
+    - TsfmcEngineering
+    - TsfOfficer
+    - TsfCommander
+    - TsfFtl
+    - Mercenary
 
 - type: entity
   id: AiHeldTSFMC
@@ -626,9 +634,10 @@
     - Freespeak
   - type: Access
     tags:
-    - Pirate
+    - PDVGeneral
     - GrandVizier
     - PDVCommand
+    - Mercenary
 
 - type: entity
   id: AiHeldPDV

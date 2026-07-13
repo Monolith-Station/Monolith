@@ -57,21 +57,13 @@
     - TSFMC
   - type: Access
     tags:
-    - Security
-    - Armory
-    - Sergeant
-    - Bailiff
-    - Medical
-    - Chemistry
+    - TsfGeneral
+    - TsfFtl
+    - TsfOfficer
     - TsfmcEngineering
-    - Maintenance
-    - External
-    - Command
-    - Brig
     - Mercenary
-    - Captain
   - type: AccessReader
-    access: [["Security"], ["Armory"], ["Sergeant"], ["Bailiff"], ["TsfmcEngineering"], ["Brig"]]
+    access: [["TsfFtl"], ["TsfOfficer"], ["TsfmcEngineering"]]
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
@@ -123,12 +115,12 @@
     - PirateNF
   - type: Access
     tags:
-    - Pirate
+    - PDVGeneral
     - PDVCommand
     - GrandVizier
     - Mercenary
   - type: AccessReader
-    access: [["GrandVizier"]]
+    access: [["GrandVizier"],["PDVCommand"]]
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
