@@ -1,7 +1,7 @@
 - type: job
   id: PDVAsvaran
   name: job-name-pdv-asvaran
-  description: job-description-pirate-first-mate
+  description: job-description-pdv-asvaran
   playTimeTracker: JobPDVAsvaran
   requirements:
     - !type:OverallPlaytimeRequirement
@@ -15,7 +15,7 @@
   hideConsoleVisibility: true
   canBeAntag: true
   icon: "JobIconPDVAsvaran"
-  supervisors: job-supervisors-captain
+  supervisors: job-supervisors-pdv-asvaran
   weight: 40
   displayWeight: 40
   assignedCompany: PDV
