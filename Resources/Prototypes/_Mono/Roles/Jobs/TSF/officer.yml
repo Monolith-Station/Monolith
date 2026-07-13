@@ -2,19 +2,19 @@
   id: TsfOfficer
   name: job-name-tsf-officer
   description: job-description-tsf-officer
-  playTimeTracker: JobWarden
+  playTimeTracker: JobTsfOfficer
   requirements: # mono - lowers all of these tbh
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
-      department: Security
+      department: Tsf
       time: 36000 # 10 hours
     - !type:RoleTimeRequirement
-      role: JobSeniorOfficer
+      role: JobTsfTeamleader
       time: 10800 # 3 hours
   startingGear: BailiffGear
   icon: JobIconTSFOfficer
-  supervisors: job-supervisors-sheriff
+  supervisors: job-supervisors-tsf-officer
   weight: 150
   displayWeight: 60
   assignedCompany: TSF
