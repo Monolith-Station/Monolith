@@ -50,16 +50,15 @@
           lobbySortOrder: 2
         - type: StationJobs
           availableJobs:
-            TsfCommander [ 1, 1 ]
-            Bailiff: [1, 1 ]
-            SeniorOfficer: [ 3, 3 ] # Mono
+            TsfCommander: [ 1, 1 ]
+            TsfOfficer: [1, 1 ]
+            TsfTeamleader: [ 3, 3 ] # Mono
             Brigmedic: [ 2, 2 ] # Mono
-            Deputy: [ -1, -1 ] # Mono
+            TsfMarine: [ -1, -1 ] # Mono
             TsfEngineer: [ 2, 2 ]
             TsfBorg: [ 2, 2 ]
           tags:
-          - HeadOfPersonnel
-          - HeadOfSecurity
+          - CentralCommand
         - type: StationDeadDropReporting
           messageSet: Nfsd
         - type: StationDeadDropHintExempt
@@ -106,12 +105,12 @@
           lobbySortOrder: 2
         - type: StationJobs
           availableJobs:
-            TsfCommander [ 1, 1 ]
+            TsfCommander: [ 1, 1 ]
             TsfMarsoc: [ 3, 3 ]
-            Bailiff: [ 3, 3 ]
-            SeniorOfficer: [ 6, 6 ] # Mono
+            TsfOfficer: [ 3, 3 ]
+            TsfTeamleader: [ 6, 6 ] # Mono
             Brigmedic: [ 4, 4 ] # Mono
-            Deputy: [ -1, -1 ] # Mono
+            TsfMarine: [ -1, -1 ] # Mono
             TsfEngineer: [ 4, 4 ]
             TsfBorg: [ 2, 2 ]
           tags:
