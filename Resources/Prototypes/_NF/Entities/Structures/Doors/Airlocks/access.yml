@@ -87,7 +87,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsf ]
 
 - type: entity
   parent: AirlockNfsd
@@ -96,7 +96,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsf ]
 
 - type: entity
   parent: AirlockNfsd
@@ -155,20 +155,20 @@
 - type: entity
   parent: AirlockNfsd
   id: AirlockNfsdArmoryLocked
-  suffix: TSFMC Armory, Locked
+  suffix: TSFMC Teamleader, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsArmory ]
+      board: [ DoorElectronicsTsfTeamLeader ]
 
 - type: entity
   parent: AirlockNfsdGlass
   id: AirlockNfsdArmoryGlassLocked
-  suffix: TSFMC Armory, Locked
+  suffix: TSF Teamleader, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsArmory ]
+      board: [ DoorElectronicsTsfTeamLeader ]
 
 - type: entity
   parent: AirlockExternal
@@ -259,7 +259,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsf ]
 
 - type: entity
   parent: AirlockShuttleNfsd
@@ -268,7 +268,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsf ]
 
 - type: entity
   parent: AirlockGlassShuttleNfsd
@@ -277,59 +277,4 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
-
-- type: entity
-  parent: AirlockGlass
-  id: AirlockRogueGlassLocked
-  suffix: PDV, Locked # Mono - PDV
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsPirate ]
-
-- type: entity
-  parent: AirlockExternalGlass
-  id: AirlockExternalGlassRogueLocked
-  suffix: PDV, Glass, Locked # Mono - PDV
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsPirate ]
-
-- type: entity
-  parent: AirlockMiningGlass
-  id: AirlockMiningGlassRogueLocked
-  suffix: PDV, Glass, Locked # Mono - PDV
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsPirate ]
-
-- type: entity
-  parent: AirlockShuttleSyndicate
-  id: AirlockShuttleSyndicateRogueLocked
-  suffix: PDV, Locked # Mono - PDV
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsPirate ]
-
-- type: entity
-  parent: AirlockGlassShuttleSyndicate
-  id: AirlockGlassShuttleSyndicateRogueLocked
-  suffix: PDV, Glass Locked # Mono - PDV
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsPirate ]
-
-# Airtight Hatch
-- type: entity
-  parent: AirlockHatch
-  id: AirlockHatchRogueLocked
-  suffix: PDV, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsPirate ]
+      board: [ DoorElectronicsTsf ]

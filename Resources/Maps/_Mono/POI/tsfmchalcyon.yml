@@ -5010,7 +5010,7 @@ entities:
       parent: 1
     - type: AccessReader
       access:
-      - - HeadOfSecurity
+      - - TsfOfficer
 - proto: AirlockNfsdGlass
   entities:
   - uid: 102
@@ -64869,7 +64869,7 @@ entities:
       gridUid: 1
     - type: AccessReader
       access:
-      - - HeadOfSecurity
+      - - TsfCommander
   - uid: 9947
     components:
     - type: Transform

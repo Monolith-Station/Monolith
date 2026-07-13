@@ -190,11 +190,11 @@
 # Security
 - type: entity
   parent: DoorElectronics
-  id: DoorElectronicsHeadOfSecurity
+  id: DoorElectronicsHeadOfSecurity #Mono
   suffix: HeadOfSecurity, Locked
   components:
   - type: AccessReader
-    access: [["HeadOfSecurity"]]
+    access: [["TsfCommander"]] #Mono
 
 - type: entity
   parent: DoorElectronics
