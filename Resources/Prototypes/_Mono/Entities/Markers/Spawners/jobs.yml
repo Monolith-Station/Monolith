@@ -48,6 +48,39 @@
     - sprite: Mobs/Silicon/chassis.rsi
       state: robot_e
 
+- type: entity
+  id: SpawnPointPDVRahkshan
+  parent: SpawnPointJobBase
+  name: PDV Rahkshan
+  components:
+  - type: SpawnPoint
+    job_id: PDVRahkshanIDCard
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
+
+- type: entity
+  id: SpawnPointPDVAsvaran
+  parent: SpawnPointJobBase
+  name: PDV Asvaran
+  components:
+  - type: SpawnPoint
+    job_id: PDVAsvaran
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
+
+- type: entity
+  id: SpawnPointPDVGrandVizier
+  parent: SpawnPointJobBase
+  name: PDV Grand Vizier
+  components:
+  - type: SpawnPoint
+    job_id: PDVGrandVizier
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
+
 #USSP
 
 - type: entity
@@ -138,6 +171,46 @@
       state: robot
     - sprite: Mobs/Silicon/chassis.rsi
       state: robot_e
+
+- type: entity
+  id: SpawnPointSheriff
+  parent: SpawnPointHeadOfSecurity
+  name: sheriff
+  components:
+  - type: SpawnPoint
+    job_id: Sheriff
+
+- type: entity
+  id: SpawnPointBailiff
+  parent: SpawnPointWarden
+  name: bailiff
+  components:
+  - type: SpawnPoint
+    job_id: Bailiff
+
+- type: entity
+  id: NFSpawnPointSeniorOfficer
+  parent: SpawnPointWarden
+  name: sergeant
+  components:
+  - type: SpawnPoint
+    job_id: SeniorOfficer
+
+- type: entity
+  id: SpawnPointDeputy
+  parent: SpawnPointSecurityOfficer
+  name: deputy
+  components:
+  - type: SpawnPoint
+    job_id: Deputy
+
+- type: entity
+  id: SpawnPointCadet
+  parent: SpawnPointSecurityCadet
+  name: cadet
+  components:
+  - type: SpawnPoint
+    job_id: Cadet
 
 # Viper Group
 
