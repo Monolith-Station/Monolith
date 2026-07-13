@@ -11,9 +11,15 @@
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
-  - type: NightVision
-    flashDurationMultiplier: 3.5
-    isEquipment: true
+  - type: NightVision # Gen 1 monotube
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 1
+    viewCircleSpacing: 280
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
   - type: Armor
     modifiers:
       coefficients:
