@@ -25,7 +25,6 @@ JobSTC = Station Traffic Controller
 job-name-senior-engineer = Senior Engineer
 job-name-senior-researcher = Senior Researcher
 job-name-senior-physician = Senior Physician
-job-name-senior-officer = TSFMC Fireteam Leader
 
 JobSeniorEngineer = Senior Engineer
 JobSeniorOfficer = TSFMC Fireteam Leader
