@@ -17,9 +17,9 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: AccessReader
-    access: [["HeadOfPersonnel"], ["HeadOfSecurity"]]
+    access: [["TsfFtl"]]
   - type: CommunicationsConsole
-    title: comms-console-announcement-title-station
+    title: comms-console-announcement-title-tsf
     canShuttle: false
     global: true #SR WILL NOT BE IGNORED
   - type: DeviceNetwork
