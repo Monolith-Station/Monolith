@@ -250,21 +250,24 @@ namespace Content.Client.Lobby
 
         private void UpdateFactionCounts()
         {
+            string text;
             if (!_gameTicker.IsGameStarted)
             {
-                Lobby!.FactionCountLabel.SetMarkup(Loc.GetString(
+                text = Loc.GetString(
                     "lobby-faction-ready-count",
                     ("totalReady", _gameTicker.TotalReady),
                     ("bluforReady", _gameTicker.BluforReady),
-                    ("redforReady", _gameTicker.RedforReady)));
+                    ("redforReady", _gameTicker.RedforReady));
             }
             else
             {
-                Lobby!.FactionCountLabel.SetMarkup(Loc.GetString(
+                text = Loc.GetString(
                     "lobby-faction-alive-count",
                     ("bluforAlive", _gameTicker.BluforAlive),
-                    ("redforAlive", _gameTicker.RedforAlive)));
+                    ("redforAlive", _gameTicker.RedforAlive));
             }
+
+            Lobby!.CharacterPreview.SetFactionCountText(text);
         }
 
         private void SetReady(bool newReady)

@@ -49,12 +49,6 @@
                     </BoxContainer>
                     <!-- Vertical Padding-->
                     <Control VerticalExpand="True" />
-                    <!-- Faction Counts -->
-                    <PanelContainer StyleClasses="AngleRect" HorizontalAlignment="Left" Name="FactionCountPanel" Access="Public">
-                        <BoxContainer Orientation="Vertical" Name="FactionCountContainer" Access="Public" Margin="4 4 4 4">
-                            <RichTextLabel Name="FactionCountLabel" Access="Public" />
-                        </BoxContainer>
-                    </PanelContainer>
                     <!-- Left Bot Panel -->
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
                         <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="3 3 3 3" />
