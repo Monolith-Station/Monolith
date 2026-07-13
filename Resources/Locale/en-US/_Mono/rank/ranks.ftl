@@ -59,16 +59,16 @@ ussp-or1 = Ryad.
 ussp-or2 = Efr.
 
 ### Shared Rifle/Serzhant (Corporal Equivalent)
-ussp-or3 = MSzt.
+ussp-or3 = MlSrz.
 
 ### Serzhant Ranks
-ussp-or4 = Szt.
-ussp-or5 = SSzt.
+ussp-or4 = Srz.
+ussp-or5 = StSrz.
 ussp-or6 = Sts.
 
 ### Comissar Ranks
 ussp-cm1 = Pol.
-ussp-cm2 = SPol.
+ussp-cm2 = StPol.
 ussp-cm3 = BKom.
 
 
