@@ -610,7 +610,7 @@
     - !type:OverallPlaytimeRequirement
       time: 180000 # 50 hrs
     - !type:RoleTimeRequirement
-      role: JobPdvAsvaran
+      role: JobPDVAsvaran
       time: 54000 # 15 hours
   - type: GhostTakeoverAvailable
   - type: RandomMetadata

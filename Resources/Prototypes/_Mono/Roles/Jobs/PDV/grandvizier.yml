@@ -1,29 +1,29 @@
 - type: job
-  id: PirateCaptain
+  id: PDVGrandVizier
   name: job-name-pdv-vizier
   description: job-description-pirate-captain
-  playTimeTracker: JobPdvGrandVizier
+  playTimeTracker: JobPDVGrandVizier
   requirements:
     - !type:OverallPlaytimeRequirement # mono start
       time: 144000 # 40 hours
     - !type:RoleTimeRequirement
-      role: JobPdvAsvaran
+      role: JobPDVAsvaran
       time: 18000 # 5 hours - mono
   whitelisted: true
-  startingGear: PirateCaptainNFGear
+  startingGear: PDVGrandVizierGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   canBeAntag: true
-  icon: "JobIconPirateCaptain"
+  icon: "JobIconPDVGrandVizier"
   supervisors: job-supervisors-nobody
   weight: 50
   displayWeight: 50
   assignedCompany: PDV
   setPreference: true
   access:
-  - Pirate
+  - PdvGeneral
   - GrandVizier
-  - PDVCommand
+  - PdvCommand
   - Mercenary
   accessGroups:
   - GeneralAccess
@@ -47,11 +47,11 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: PirateCaptainNFGear
+  id: PDVGrandVizierGear
   equipment:
     ears: ClothingHeadsetAltVanguardCommand
     #belt: ClothingBeltUtility # mono
-    pocket1: BasePirateUplinkRadioPirateCaptain
+    pocket1: BasePirateUplinkRadioPDVGrandVizier
     pocket2: EnergySword
   storage:
     back:

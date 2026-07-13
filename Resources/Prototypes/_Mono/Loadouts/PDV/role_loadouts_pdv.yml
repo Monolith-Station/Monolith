@@ -25,7 +25,7 @@
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobPdvAsvaran
+  id: JobPDVAsvaran
   groups:
   - PDVHead
   - PDVNeck
@@ -51,7 +51,7 @@
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobPdvGrandVizier
+  id: JobPDVGrandVizier
   groups:
   - PDVCommanderHead
   - PDVJumpsuit
@@ -66,7 +66,7 @@
   - GrandVizierPDA
   - NFSpeciesSpecific
   - ContractorWallet
-  - PirateCaptainTrinkets
+  - PDVGrandVizierTrinkets
   - PDVBelt
   - ContractorEncryptionKey
   - RogueFirearm

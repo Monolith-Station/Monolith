@@ -58,23 +58,23 @@
     state: banner-red
 
 - type: entity
-  id: SpawnPointPirateFirstMate
+  id: SpawnPointPDVAsvaran
   parent: SpawnPointJobBase
   name: pirate first mate
   components:
   - type: SpawnPoint
-    job_id: PirateFirstMate
+    job_id: PDVAsvaran
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
     state: banner-red
 
 - type: entity
-  id: SpawnPointPirateCaptain
+  id: SpawnPointPDVGrandVizier
   parent: SpawnPointJobBase
   name: pirate captain
   components:
   - type: SpawnPoint
-    job_id: PirateCaptain
+    job_id: PDVGrandVizier
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
     state: banner-red

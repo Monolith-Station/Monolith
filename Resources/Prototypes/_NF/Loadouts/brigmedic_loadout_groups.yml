@@ -45,10 +45,10 @@
   name: loadout-group-contractor-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
-  - BrigmedicBrigmedicPDA
+  - TSFCorpsmanPDA
   fallbacks:
-  - BrigmedicBrigmedicPDA
-  
+  - TSFCorpsmanPDA
+
 - type: loadoutGroup
   id: BrigmedicGlasses
   name: loadout-group-contractor-glasses

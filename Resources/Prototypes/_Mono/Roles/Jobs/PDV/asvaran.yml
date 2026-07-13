@@ -1,8 +1,8 @@
 - type: job
-  id: PirateFirstMate
+  id: PDVAsvaran
   name: job-name-pdv-asvaran
   description: job-description-pirate-first-mate
-  playTimeTracker: JobPdvAsvaran
+  playTimeTracker: JobPDVAsvaran
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 180000 # 50 hours # mono
@@ -10,11 +10,11 @@
       role: JobPDVDenasvar
       time: 28800 # 8 hours
   #whitelisted: true # mono - comment out
-  startingGear: PirateFirstMateNFGear
+  startingGear: PDVAsvaranNFGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   canBeAntag: true
-  icon: "JobIconPirateFirstMate"
+  icon: "JobIconPDVAsvaran"
   supervisors: job-supervisors-captain
   weight: 40
   displayWeight: 40
@@ -46,7 +46,7 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: PirateFirstMateNFGear
+  id: PDVAsvaranNFGear
   equipment:
     ears: ClothingHeadsetAltVanguardCommand
     #belt: ClothingBeltUtility

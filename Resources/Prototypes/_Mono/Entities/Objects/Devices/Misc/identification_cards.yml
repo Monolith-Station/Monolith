@@ -129,7 +129,7 @@
   name: PDV asvaran ID card
   components:
   - type: PresetIdCard
-    job: PirateFirstMate
+    job: PDVAsvaran
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
@@ -142,7 +142,7 @@
   name: PDV grand vizier ID card
   components:
   - type: PresetIdCard
-    job: PirateCaptain
+    job: PDVGrandVizier
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
@@ -155,7 +155,7 @@
   name: PDV tarkhan ID card
   components:
   - type: PresetIdCard
-    job: PirateCaptain
+    job: PDVGrandVizier
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:

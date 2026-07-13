@@ -78,8 +78,8 @@
 
 - type: entity
   parent: IDCardStandard
-  id: CadetIDCard
-  name: TSFMC private ID card
+  id: TsfRecruitIDCard
+  name: TSFMC recruit ID card
   components:
   - type: PresetIdCard
     job: Cadet
@@ -94,8 +94,8 @@
     heldPrefix: nfsd
 
 - type: entity
-  parent: CadetIDCard
-  id: DeputyIDCard
+  parent: TsfRecruitIDCard
+  id: TsfMarineIDCard
   name: TSFMC marine ID card
   components:
   - type: PresetIdCard
@@ -107,8 +107,8 @@
     - state: idnfsddeputy
 
 - type: entity
-  parent: CadetIDCard
-  id: BrigmedicNFIDCard
+  parent: TsfRecruitIDCard
+  id: TSFCorpsmanIDCard
   name: TSFMC corpsman ID card
   components:
   - type: PresetIdCard
@@ -120,7 +120,7 @@
     - state: idnfsdbrigmed
 
 - type: entity
-  parent: CadetIDCard
+  parent: TsfRecruitIDCard
   id: SergeantIDCard
   name: TSFMC fireteam leader ID card
   components:
@@ -133,8 +133,8 @@
     - state: idnfsdsergeant
 
 - type: entity
-  parent: CadetIDCard
-  id: BailiffIDCard
+  parent: TsfRecruitIDCard
+  id: TsfOfficerIDCard
   name: TSFMC captain ID card
   components:
   - type: PresetIdCard
@@ -146,8 +146,8 @@
     - state: idnfsdbailiff
 
 - type: entity
-  parent: CadetIDCard
-  id: ShriffIDCard
+  parent: TsfRecruitIDCard
+  id: TsfCommanderIDCard
   name: TSFMC colonel ID card
   components:
   - type: PresetIdCard
@@ -161,7 +161,7 @@
     heldPrefix: silver
 
 - type: entity
-  parent: CadetIDCard
+  parent: TsfRecruitIDCard
   id: NFDetectiveIDCard
   name: TSFMC detective ID card
   components:
@@ -279,7 +279,7 @@
     name: Clarpy
 
 - type: entity
-  parent: DeputyIDCard
+  parent: TsfMarineIDCard
   id: CappyIDCard
   name: cappy ID card
   components:

@@ -35,7 +35,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconPirate
+  id: JobIconPDVRakhshan #Mono
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: PDVRakhshan
@@ -43,7 +43,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconPDVDenasvar
+  id: JobIconPDVDenasvar #Mono
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: PDVDenasvar
@@ -51,7 +51,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconPirateCaptain
+  id: JobIconPDVGrandVizier #Mono
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: PDVVizier
@@ -59,7 +59,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconPirateFirstMate
+  id: JobIconPDVAsvaran #Mono
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: PDVAsvaran
@@ -67,7 +67,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconPDVInfiltrator
+  id: JobIconPDVInfiltrator #Mono
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: PDVInfiltrator
@@ -108,22 +108,6 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCadetNF
-  icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: nfsdcadet
-  jobName: job-name-tsf-recruit
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconDeputy
-  icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: nfsddeputy
-  jobName: job-name-tsf-marine
-
-- type: jobIcon
-  parent: JobIcon
   id: JobIconPublicAffairsLiaison
   icon:
     sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
@@ -138,12 +122,31 @@
     state: nfsddetective
   jobName: job-name-detective-nf
 
+
+# TSF Positions Mono
 - type: jobIcon
   parent: JobIcon
-  id: JobIconBrigmedicNF
+  id: JobIconTSFRecruit #Mono
   icon:
     sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: nfsdbrigmed
+    state: tsfrecruit
+  jobName: job-name-tsf-recruit
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTSFMarine #Mono
+  icon:
+    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
+    state: tsfmarine
+  jobName: job-name-tsf-marine
+
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTSFCorpsman #Mono
+  icon:
+    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
+    state: tsfcorpsman
   jobName: job-name-tsf-corpsman
 
 - type: jobIcon
@@ -151,23 +154,23 @@
   id: JobIconSergeant
   icon:
     sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: nfsdsergeant
+    state: tsfteamleader
   jobName: job-name-tsf-teamleader
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconBailiff
+  id: JobIconTSFOfficer #mono
   icon:
     sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: nfsdbailiff
+    state: tsfofficer
   jobName: job-name-tsf-officer
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconSheriff
+  id: JobIconTSFCommander #Mono
   icon:
     sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: nfsdsheriff
+    state: tsfcommander
   jobName: job-name-tsf-commandingofficer
 #  allowSelection: false # Frontier: no impersonating command staff, literally 1984 - Mono Revert
 

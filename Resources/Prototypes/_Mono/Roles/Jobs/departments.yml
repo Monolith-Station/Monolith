@@ -33,3 +33,35 @@
   - VGCommander
   primary: false
   editorHidden: false
+
+- type: department
+  id: Pdv
+  name: department-Pdv
+  description: department-Pdv-description
+  color: "#DE3A3A"
+  weight: 115 # Mono
+  roles:
+  - PDVGrandVizier
+  - PDVAsvaran
+  - PDVDenasvar
+  - PDVRakhshan
+  - PDVInfiltrator
+  - PDVBorg
+  - PDVTarkhan
+
+- type: department
+  id: Tsf
+  name: department-Tsf
+  description: department-Tsf-description # Mono
+  color: "#326DA8" # Mono
+  weight: 120 # Mono
+  roles:
+  - TsfRecruit
+  - TsfCorpsman
+  - TsfMarine
+  - TsfOfficer
+  - TsfCommander
+  - TsfTeamleader
+  - TsfEngineer
+  - TsfMarsoc
+  - TsfBorg
