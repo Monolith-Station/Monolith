@@ -76,6 +76,7 @@ namespace Content.Client.Lobby
             _gameTicker.InfoBlobUpdated += UpdateLobbyUi;
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated += LobbyLateJoinStatusUpdated;
+            _gameTicker.FactionCountUpdated += UpdateFactionCounts;
         }
 
         protected override void Shutdown()
@@ -85,6 +86,7 @@ namespace Content.Client.Lobby
             _gameTicker.InfoBlobUpdated -= UpdateLobbyUi;
             _gameTicker.LobbyStatusUpdated -= LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated -= LobbyLateJoinStatusUpdated;
+            _gameTicker.FactionCountUpdated -= UpdateFactionCounts;
             _contentAudioSystem.LobbySoundtrackChanged -= UpdateLobbySoundtrackInfo;
 
             _voteManager.ClearPopupContainer();
@@ -244,6 +246,28 @@ namespace Content.Client.Lobby
                 Lobby!.Background.Texture = null;
             }
 
+        }
+
+        private void UpdateFactionCounts()
+        {
+            string text;
+            if (!_gameTicker.IsGameStarted)
+            {
+                text = Loc.GetString(
+                    "lobby-faction-ready-count",
+                    ("totalReady", _gameTicker.TotalReady),
+                    ("bluforReady", _gameTicker.BluforReady),
+                    ("redforReady", _gameTicker.RedforReady));
+            }
+            else
+            {
+                text = Loc.GetString(
+                    "lobby-faction-alive-count",
+                    ("bluforAlive", _gameTicker.BluforAlive),
+                    ("redforAlive", _gameTicker.RedforAlive));
+            }
+
+            Lobby!.CharacterPreview.SetFactionCountText(text);
         }
 
         private void SetReady(bool newReady)

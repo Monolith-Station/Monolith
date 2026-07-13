@@ -69,6 +69,20 @@
   - VDVRecon
 
 - type: department
+  id: FSB
+  name: department-FSB-name
+  description: department-FSB-description
+  color: "#a02829"
+  weight: 63
+  roles:
+  - FSBSquadLeader
+  - FSBRifleman
+  - FSBSupport
+  - FSBMedic
+  - FSBRecon
+  editorHidden: true
+  
+- type: department
   id: VKS
   name: department-VKS-name
   description: department-VKS-description

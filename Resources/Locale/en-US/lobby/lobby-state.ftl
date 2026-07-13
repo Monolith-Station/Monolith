@@ -21,3 +21,7 @@ lobby-state-song-text = Playing: [color=white]{$songTitle}[/color] by [color=whi
 lobby-state-song-no-song-text = No lobby song playing.
 lobby-state-song-unknown-title = [color=dimgray]Unknown title[/color]
 lobby-state-song-unknown-artist = [color=dimgray]Unknown artist[/color]
+
+lobby-faction-ready-count = Ready: [color=white]{$totalReady}[/color] [color=blue]NATO: {$bluforReady}[/color] | [color=red]PACT: {$redforReady}[/color]
+
+lobby-faction-alive-count = Alive: [color=blue]NATO: {$bluforAlive}[/color] | [color=red]PACT: {$redforAlive}[/color]

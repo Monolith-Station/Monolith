@@ -62,6 +62,11 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
     }
     // End MonoCoins Display
 
+    public void SetFactionCountText(string value)
+    {
+        FactionCount.SetMessage(FormattedMessage.FromMarkupPermissive(value));
+    }
+
     public void SetSprite(EntityUid uid)
     {
         if (_previewDummy != null)
