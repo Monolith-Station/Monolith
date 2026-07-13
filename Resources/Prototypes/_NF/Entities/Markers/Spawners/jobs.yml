@@ -47,12 +47,12 @@
       - state: pilot
 
 - type: entity
-  id: SpawnPointPirate
+  id: SpawnPointPDVRahkshan
   parent: SpawnPointJobBase
-  name: pirate
+  name: PDV Rahkshan
   components:
   - type: SpawnPoint
-    job_id: Pirate
+    job_id: PDVRahkshanIDCard
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
     state: banner-red
@@ -60,7 +60,7 @@
 - type: entity
   id: SpawnPointPDVAsvaran
   parent: SpawnPointJobBase
-  name: pirate first mate
+  name: PDV Asvaran
   components:
   - type: SpawnPoint
     job_id: PDVAsvaran
@@ -71,7 +71,7 @@
 - type: entity
   id: SpawnPointPDVGrandVizier
   parent: SpawnPointJobBase
-  name: pirate captain
+  name: PDV Grand Vizier
   components:
   - type: SpawnPoint
     job_id: PDVGrandVizier

@@ -12,13 +12,13 @@
   - PirateMercenaryJumpsuit
 
 - type: loadoutGroup
-  id: RakhshanPDA
+  id: RahkshanPDA
   name: loadout-group-contractor-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
-  - PDVRakhshanPDVRakhshanPDA
+  - PDVRahkshanPDVRahkshanPDA
   fallbacks:
-  - PDVRakhshanPDVRakhshanPDA
+  - PDVRahkshanPDVRahkshanPDA
 
 - type: loadoutGroup
   id: PirateFace

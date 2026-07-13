@@ -292,16 +292,16 @@
 
 - type: entity
   parent: BasePDVPDA
-  id: PDVRakhshanPDA
-  name: PDV rakhshan PDA
+  id: PDVRahkshanPDA
+  name: PDV Rahkshan PDA
   components:
   - type: Pda
-    id: PDVRakhshanIDCard
+    id: PDVRahkshanIDCard
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-rakhshan
+        pda-Rahkshan
   - type: Geiger # Mono
     showExamine: true
     showControl: true
@@ -405,7 +405,7 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-rakhshan
+        pda-Rahkshan
   - type: Geiger # Mono
     showExamine: true
     showControl: true

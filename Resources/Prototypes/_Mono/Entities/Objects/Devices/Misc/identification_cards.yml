@@ -65,7 +65,7 @@
   name: TSFMC recruit ID card
   components:
   - type: PresetIdCard
-    job: Cadet
+    job: TsfRecruit
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
@@ -82,7 +82,7 @@
   name: TSFMC marine ID card
   components:
   - type: PresetIdCard
-    job: Deputy
+    job: TsfMarine
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
@@ -95,7 +95,7 @@
   name: TSFMC corpsman ID card
   components:
   - type: PresetIdCard
-    job: Brigmedic
+    job: TsfCorpsman
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
@@ -108,7 +108,7 @@
   name: TSFMC fireteam leader ID card
   components:
   - type: PresetIdCard
-    job: SeniorOfficer
+    job: TsfTeamleader
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
@@ -121,7 +121,7 @@
   name: TSFMC captain ID card
   components:
   - type: PresetIdCard
-    job: Bailiff
+    job: TsfOfficer
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
@@ -134,7 +134,7 @@
   name: TSFMC colonel ID card
   components:
   - type: PresetIdCard
-    job: Sheriff
+    job: TsfCommander
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
@@ -182,8 +182,8 @@
 
 - type: entity
   parent: PirateIDCard
-  id: PDVRakhshanIDCard
-  name: PDV rakhshan id card
+  id: PDVRahkshanIDCard
+  name: PDV Rahkshan id card
   components:
   - type: PresetIdCard
     job: Pirate
@@ -191,7 +191,7 @@
     sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
     - state: base
-    - state: id_rakhshan
+    - state: id_Rahkshan
 
 - type: entity
   parent: PirateIDCard
@@ -263,7 +263,7 @@
     sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
     - state: base
-    - state: id_rakhshan
+    - state: id_Rahkshan
   - type: AgentIDCard
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
@@ -273,7 +273,7 @@
     - DoorBumpOpener
   - type: ChameleonClothing
     slot: [idcard]
-    default: PDVRakhshanIDCard
+    default: PDVRahkshanIDCard
     requireTag: WhitelistChameleonIdCard
   - type: UserInterface
     interfaces:

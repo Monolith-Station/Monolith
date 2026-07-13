@@ -1,6 +1,6 @@
 - type: job
   id: Pirate
-  name: job-name-pdv-rahkshan
+  name: job-name-pdv-Rahkshan
   description: job-description-pirate
   playTimeTracker: JobPdvRahkshan
   requirements:
@@ -28,7 +28,7 @@
       factions:
       - PirateNF
     - type: ChatRank
-      rank: pdv-rahkshan
+      rank: pdv-Rahkshan
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages
