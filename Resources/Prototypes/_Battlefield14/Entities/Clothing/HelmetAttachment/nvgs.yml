@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingHelmetAttachmentBase
+  parent: ClothingEyesBase
   id: ClothingHelmetAttachmentNVGsBasicPACT
   suffix: PACT
   name: Dedal-S750R biocular night vision goggles
@@ -9,20 +9,20 @@
     sprite: _Battlefield14/Clothing/HelmetAttachment/nvg.rsi
   - type: Clothing
     sprite: _Battlefield14/Clothing/HelmetAttachment/nvg.rsi
-    clothingVisuals:
-      helmetattachment:
-      - state: equipped-HELMETATTACHMENT
   - type: NightVision
+    relayOverlay: true
+    goggleEffect: true
     action: ActionToggleNightVision
     viewCircleRadius: 550
     viewCircleCount: 2
     viewCircleSpacing: 280
     phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
   - type: IdentityBlocker
     coverage: EYES
 
 - type: entity
-  parent: ClothingHelmetAttachmentBase
+  parent: ClothingEyesBase
   id: ClothingHelmetAttachmentNVGsBasicNATO
   suffix: NATO
   name: commercial night vision goggles
@@ -32,14 +32,14 @@
     sprite: _Battlefield14/Clothing/HelmetAttachment/nvg_blue.rsi
   - type: Clothing
     sprite: _Battlefield14/Clothing/HelmetAttachment/nvg_blue.rsi
-    clothingVisuals:
-      helmetattachment:
-      - state: equipped-HELMETATTACHMENT
   - type: NightVision
+    relayOverlay: true
+    goggleEffect: true
     action: ActionToggleNightVision
     viewCircleRadius: 550
     viewCircleCount: 2
     viewCircleSpacing: 280
     phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
   - type: IdentityBlocker
     coverage: EYES
