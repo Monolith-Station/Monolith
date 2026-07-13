@@ -61,6 +61,108 @@
 
 - type: entity
   parent: IDCardStandard
+  id: TsfRecruitIDCard
+  name: TSFMC recruit ID card
+  components:
+  - type: PresetIdCard
+    job: TsfRecruit
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdcadet
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
+
+- type: entity
+  parent: IDCardStandard
+  id: TsfMarineIDCard
+  name: TSFMC marine ID card
+  components:
+  - type: PresetIdCard
+    job: TsfMarine
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsddeputy
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
+
+- type: entity
+  parent: IDCardStandard
+  id: TsfTeamleaderIDCard
+  name: TSFMC Fireteam Leader ID card
+  components:
+  - type: PresetIdCard
+    job: TsfTeamleader
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdsergeant
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
+
+- type: entity
+  parent: IDCardStandard
+  id: TsfOfficerIDCard
+  name: TSF Officer ID card
+  components:
+  - type: PresetIdCard
+    job: TsfOfficer
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdbailiff
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
+
+- type: entity
+  parent: IDCardStandard
+  id: TsfCommanderIDCard
+  name: TSF Commanding Officer ID card
+  components:
+  - type: PresetIdCard
+    job: TsfCommander
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdsheriff
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
+
+- type: entity
+  parent: IDCardStandard
+  id: TsfCorpsmanIDCard
+  name: TSF Commanding Officer ID card
+  components:
+  - type: PresetIdCard
+    job: TsfCorpsman
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdbrigmed
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
+
+- type: entity
+  parent: IDCardStandard
   id: TsfEngiIDCard
   name: TSFMC engineer ID card
   components:
@@ -173,7 +275,7 @@
   - type: Access
     tags:
     - Maintenance
-    - Pirate
+    - PDVGeneral
     - Mercenary
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
