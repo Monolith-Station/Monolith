@@ -1,42 +1,78 @@
 using Content.Server.EUI;
 using Content.Shared.Eui;
 using JetBrains.Annotations;
+using Robust.Shared.GameObjects;
 using Content.Server._VXS14.Mortar;
 using Content.Shared._VXS14.Mortar;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Interaction;
+using Robust.Shared.Timing;
+using RobustTimer = Robust.Shared.Timing.Timer;
+using Robust.Shared.Map;
+using System.Threading;
 
 namespace Content.Server._VXS14.Mortar;
-
-/// <summary>
-///     Mortar Eui
-/// </summary>
-///
-
 
 [UsedImplicitly]
 public sealed class MortarEui : BaseEui
 {
-    private int Count = 0;
-    private readonly EntityUid Mortar;
+    private readonly EntityUid _mortar;
+    private CancellationTokenSource? _distanceCheckCts;
 
     public MortarEui(EntityUid uid)
     {
-        Mortar = uid;
+        _mortar = uid;
     }
 
     public override void Opened()
     {
         base.Opened();
 
-        // Send mortar configuration to the client
         var entMan = IoCManager.Resolve<IEntityManager>();
-        var mortarComp = entMan.GetComponent<SharedMortarComponent>(Mortar);
+        var mortarComp = entMan.GetComponent<SharedMortarComponent>(_mortar);
         SendMessage(new MortarSpawnExplosionEuiMsg.MortarConfig(
             mortarComp.MinOffsetX,
             mortarComp.MaxOffsetX,
             mortarComp.MinOffsetY,
             mortarComp.MaxOffsetY,
             mortarComp.MinSafeDistance));
+
+        var timerMan = IoCManager.Resolve<ITimerManager>();
+        _distanceCheckCts = new CancellationTokenSource();
+        timerMan.AddTimer(new RobustTimer(500, true, CheckDistance), _distanceCheckCts.Token);
+    }
+
+    public override void Closed()
+    {
+        base.Closed();
+        _distanceCheckCts?.Cancel();
+    }
+
+    private void CheckDistance()
+    {
+        var playerEntity = Player.AttachedEntity;
+
+        if (playerEntity == null)
+        {
+            Close();
+            return;
+        }
+
+        var entMan = IoCManager.Resolve<IEntityManager>();
+        if (!entMan.EntityExists(_mortar))
+        {
+            Close();
+            return;
+        }
+
+        var mortarPos = entMan.System<SharedTransformSystem>().GetMapCoordinates(_mortar);
+        var playerPos = entMan.System<SharedTransformSystem>().GetMapCoordinates(playerEntity.Value);
+
+        if (mortarPos.MapId != playerPos.MapId ||
+            (mortarPos.Position - playerPos.Position).LengthSquared() > SharedInteractionSystem.InteractionRangeSquared)
+        {
+            Close();
+        }
     }
 
     public override void HandleMessage(EuiMessageBase msg)
@@ -50,21 +86,19 @@ public sealed class MortarEui : BaseEui
         }
 
         var entMan = IoCManager.Resolve<IEntityManager>();
-        var mortarComp = entMan.GetComponent<SharedMortarComponent>(Mortar);
+        var mortarComp = entMan.GetComponent<SharedMortarComponent>(_mortar);
 
-        // Store the target offsets in the mortar component for auto-fire on shell insert
         mortarComp.TargetOffsetX = request.OffsetX;
         mortarComp.TargetOffsetY = request.OffsetY;
 
-        // Check if there's a shell loaded — if so, fire immediately
         var sysMan = IoCManager.Resolve<IEntitySystemManager>();
         var itemSlots = sysMan.GetEntitySystem<ItemSlotsSystem>();
-        var rocket = itemSlots.GetItemOrNull(Mortar, "mortar_chamber");
+        var rocket = itemSlots.GetItemOrNull(_mortar, "mortar_chamber");
 
         if (rocket != null)
         {
             var mortarSystem = sysMan.GetEntitySystem<MortarSystem>();
-            mortarSystem.FireMortar(Mortar, mortarComp, request.OffsetX, request.OffsetY);
+            mortarSystem.FireMortar(_mortar, mortarComp, request.OffsetX, request.OffsetY);
         }
 
         Close();

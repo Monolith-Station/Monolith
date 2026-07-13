@@ -41,6 +41,7 @@ namespace Content.Server._VXS14.Mortar
             base.Initialize();
 
             SubscribeLocalEvent<SharedMortarComponent, GetVerbsEvent<ExamineVerb>>(OnMortarVerbUtility);
+            SubscribeLocalEvent<SharedMortarComponent, ActivateInWorldEvent>(OnActivateInWorld);
             SubscribeLocalEvent<SharedMortarComponent, EntInsertedIntoContainerMessage>(OnItemInserted);
             SubscribeLocalEvent<SharedMortarComponent, InteractUsingEvent>(OnInteractUsing,
                 after: new[] { typeof(ItemSlotsSystem) });
@@ -49,7 +50,6 @@ namespace Content.Server._VXS14.Mortar
 
         private void OnMortarVerbUtility(EntityUid uid, SharedMortarComponent component, GetVerbsEvent<ExamineVerb> args)
         {
-            // Always show the mortar UI verb regardless of whether a shell is loaded
             var verb = new ExamineVerb
             {
                 Act = () => OnUsed(uid, args.User),
@@ -59,33 +59,39 @@ namespace Content.Server._VXS14.Mortar
             args.Verbs.Add(verb);
         }
 
+        private void OnActivateInWorld(EntityUid uid, SharedMortarComponent component, ActivateInWorldEvent args)
+        {
+            if (args.Handled)
+                return;
+
+            args.Handled = true;
+            OnUsed(uid, args.User);
+        }
+
         private void OnItemInserted(EntityUid uid, SharedMortarComponent component, EntInsertedIntoContainerMessage args)
         {
-            // Play insert sound when a mortar shell enters the chamber
             if (HasComp<SharedMortarShellComponent>(args.Entity) && args.Container.ID == "mortar_chamber")
             {
                 if (TryComp<SharedMortarShellComponent>(args.Entity, out var shellComponent) && shellComponent.InsertSound != null)
                 {
-                    _audioSystem.PlayPvs(new SoundPathSpecifier(shellComponent.InsertSound), uid);
+                    _audioSystem.PlayPvs(shellComponent.InsertSound, uid);
                 }
-                // Firing is handled by DoAfter started in OnInteractUsing
             }
         }
 
         private void OnInteractUsing(EntityUid uid, SharedMortarComponent component, InteractUsingEvent args)
         {
-            // Only proceed if ItemSlotsSystem successfully handled the insertion
             if (!args.Handled)
                 return;
 
-            // After ItemSlotsSystem has processed the interaction, check if the used item
-            // is now loaded in the mortar chamber and start the loading DoAfter.
             var sysMan = IoCManager.Resolve<IEntitySystemManager>();
             var itemSlots = sysMan.GetEntitySystem<ItemSlotsSystem>();
             var rocket = itemSlots.GetItemOrNull(uid, "mortar_chamber");
 
             if (rocket == null || rocket.Value != args.Used || !HasComp<SharedMortarShellComponent>(rocket.Value))
                 return;
+
+            component.CurrentLoader = args.User;
 
             var doAfterArgs = new DoAfterArgs(EntityManager, args.User, component.LoadDelay,
                 new MortarShellLoadDoAfterEvent(), uid)
@@ -100,7 +106,14 @@ namespace Content.Server._VXS14.Mortar
         private void OnMortarShellLoadDoAfter(EntityUid uid, SharedMortarComponent component, MortarShellLoadDoAfterEvent args)
         {
             if (args.Cancelled)
+            {
+                var sysMan = IoCManager.Resolve<IEntitySystemManager>();
+                var itemSlots = sysMan.GetEntitySystem<ItemSlotsSystem>();
+                if (itemSlots.TryGetSlot(uid, "mortar_chamber", out var slot))
+                    itemSlots.TryEjectToHands(uid, slot, component.CurrentLoader);
+                component.CurrentLoader = null;
                 return;
+            }
 
             FireMortar(uid, component, component.TargetOffsetX, component.TargetOffsetY);
         }
@@ -117,18 +130,19 @@ namespace Content.Server._VXS14.Mortar
                 return;
             }
 
+            offsetX = Math.Clamp(offsetX, mortarComp.MinOffsetX, mortarComp.MaxOffsetX);
+            offsetY = Math.Clamp(offsetY, mortarComp.MinOffsetY, mortarComp.MaxOffsetY);
+
             var entMan = IoCManager.Resolve<IEntityManager>();
             var transformSystem = entMan.System<SharedTransformSystem>();
             var mortarPosition = transformSystem.GetMapCoordinates(mortarUid);
 
-            // Calculate the target position based on offsets
             var targetPosition = new MapCoordinates(
                 new Vector2(
                     mortarPosition.X + offsetX,
                     mortarPosition.Y + offsetY),
                 mortarPosition.MapId);
 
-            // Prevent shooting at too close a range
             var distanceFromMortar = (targetPosition.Position - mortarPosition.Position).Length();
             var minDistance = mortarComp.MinSafeDistance;
             if (distanceFromMortar < minDistance)
@@ -151,80 +165,90 @@ namespace Content.Server._VXS14.Mortar
             entMan.TryGetComponent<SharedMortarShellComponent>(rocket, out var comp);
             Logger.InfoS("mortar", $"Shell component retrieved: {comp != null}");
 
-            // Play fire sound at mortar position
+            var shellName = "Shell";
+            if (entMan.TryGetComponent<MetaDataComponent>(rocket.Value, out var shellMetaData))
+            {
+                shellName = shellMetaData.EntityName ?? "Shell";
+            }
+
             if (comp?.FireSound != null)
             {
                 var mortarCoords = entMan.GetComponent<TransformComponent>(mortarUid).Coordinates;
-                _audioSystem.PlayPvs(new SoundPathSpecifier(comp.FireSound), mortarCoords);
+                _audioSystem.PlayPvs(comp.FireSound, mortarCoords);
             }
 
-            // Calculate distance for delay
             var distance = (targetPosition.Position - mortarPosition.Position).Length();
             var delay = (int)(distance * (comp?.DelayPerTile ?? 0.1f) * 1000);
+
+            entMan.DeleteEntity(rocket);
+            mortarComp.CurrentLoader = null;
+
+            var preExplosionSound = comp?.PreExplosionSound;
+            var useDirectExplosion = comp?.UseDirectExplosion ?? true;
+            var explosionType = comp?.Type ?? "Default";
+            var totalIntensity = comp?.TotalIntensity ?? 105f;
+            var slope = comp?.Slope ?? 200f;
+            var maxTileIntensity = comp?.MaxTileIntensity ?? 2f;
+            var explosionEntity = comp?.ExplosionEntity;
 
             var timerManager = IoCManager.Resolve<ITimerManager>();
             timerManager.AddTimer(new Timer(delay, false, () =>
             {
-                // Play pre-explosion sound at target position
-                if (comp?.PreExplosionSound != null)
+                if (preExplosionSound != null)
                 {
                     var mapSystem = sysMan.GetEntitySystem<SharedMapSystem>();
                     var mapEntity = mapSystem.GetMapOrInvalid(targetPosition.MapId);
                     var targetCoords = transformSystem.ToCoordinates(mapEntity, targetPosition);
-                    _audioSystem.PlayPvs(new SoundPathSpecifier(comp.PreExplosionSound), targetCoords);
+                    _audioSystem.PlayPvs(preExplosionSound, targetCoords);
                 }
 
                 timerManager.AddTimer(new Timer(500, false, () =>
                 {
                     Logger.InfoS("mortar", "=== TIMER FIRED ===");
-                    Logger.InfoS("mortar", $"Rocket entity: {rocket}");
                     Logger.InfoS("mortar", $"Target position: {targetPosition}");
 
-                    var shellName = "Shell";
-                    if (rocket != null && entMan.TryGetComponent<MetaDataComponent>(rocket.Value, out var shellMetaData))
+                    var distanceFired = (targetPosition.Position - mortarPosition.Position).Length();
+                    var accuracy = Math.Max(0f, mortarComp.BaseAccuracy - (distanceFired * mortarComp.AccuracyDegradation));
+                    var spread = mortarComp.MaxSpread * (1f - accuracy);
+                    if (spread > 0f)
                     {
-                        shellName = shellMetaData.EntityName ?? "Shell";
+                        var angle = _random.NextFloat() * MathF.PI * 2f;
+                        var scatterDist = _random.NextFloat() * spread;
+                        targetPosition = new MapCoordinates(
+                            targetPosition.Position + new Vector2(
+                                MathF.Cos(angle) * scatterDist,
+                                MathF.Sin(angle) * scatterDist),
+                            targetPosition.MapId);
                     }
 
-                    entMan.DeleteEntity(rocket);
-
-                    if (comp != null)
+                    var artillerySystem = sysMan.GetEntitySystem<ArtilleryDetectionSystem>();
+                    if (artillerySystem == null)
                     {
-                        var distanceFired = (targetPosition.Position - mortarPosition.Position).Length();
-                        var accuracyModifier = Math.Max(0.1f, mortarComp.BaseAccuracy - (distanceFired * mortarComp.AccuracyDegradation));
+                        Logger.ErrorS("mortar", "ArtilleryDetectionSystem is null!");
+                        return;
+                    }
 
-                        var artillerySystem = sysMan.GetEntitySystem<ArtilleryDetectionSystem>();
-                        if (artillerySystem == null)
-                        {
-                            Logger.ErrorS("mortar", "ArtilleryDetectionSystem is null!");
-                            return;
-                        }
+                    var mortarName = "Mortar";
+                    if (entMan.TryGetComponent<MetaDataComponent>(mortarUid, out var metaData))
+                    {
+                        mortarName = metaData.EntityName ?? "Mortar";
+                    }
 
-                        var mortarName = "Mortar";
-                        if (entMan.TryGetComponent<MetaDataComponent>(mortarUid, out var metaData))
-                        {
-                            mortarName = metaData.EntityName ?? "Mortar";
-                        }
+                    var weaponType = $"{mortarName} ({shellName})";
+                    artillerySystem.OnArtilleryFired(mortarPosition, weaponType, IoCManager.Resolve<IGameTiming>().CurTime, mortarName, shellName);
 
-                        var weaponType = $"{mortarName} ({shellName})";
-                        artillerySystem.OnArtilleryFired(mortarPosition, weaponType, IoCManager.Resolve<IGameTiming>().CurTime, mortarName, shellName);
-
-                        if (comp.UseDirectExplosion)
-                        {
-                            var adjustedTotalIntensity = comp.TotalIntensity * accuracyModifier;
-                            var adjustedSlope = comp.Slope * accuracyModifier;
-                            var adjustedMaxTileIntensity = comp.MaxTileIntensity * accuracyModifier;
-                            sysMan.GetEntitySystem<ExplosionSystem>().QueueExplosion(targetPosition, comp.Type, adjustedTotalIntensity, adjustedSlope, adjustedMaxTileIntensity, null);
-                        }
-                        else if (!string.IsNullOrEmpty(comp.ExplosionEntity))
-                        {
-                            Logger.InfoS("mortar", $"Using ExplosionEntity: {comp.ExplosionEntity}");
-                            entMan.SpawnEntity(comp.ExplosionEntity, targetPosition);
-                        }
-                        else
-                        {
-                            Logger.WarningS("mortar", "Shell has neither UseDirectExplosion nor ExplosionEntity!");
-                        }
+                    if (useDirectExplosion)
+                    {
+                        sysMan.GetEntitySystem<ExplosionSystem>().QueueExplosion(targetPosition, explosionType, totalIntensity, slope, maxTileIntensity, null);
+                    }
+                    else if (!string.IsNullOrEmpty(explosionEntity))
+                    {
+                        Logger.InfoS("mortar", $"Using ExplosionEntity: {explosionEntity}");
+                        entMan.SpawnEntity(explosionEntity, targetPosition);
+                    }
+                    else
+                    {
+                        Logger.WarningS("mortar", "Shell has neither UseDirectExplosion nor ExplosionEntity!");
                     }
                 }));
             }));

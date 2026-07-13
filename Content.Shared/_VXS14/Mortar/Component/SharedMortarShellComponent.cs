@@ -3,10 +3,10 @@ using Robust.Shared.Map;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.IoC;
+using Robust.Shared.Audio;
 
 namespace Content.Shared._VXS14.Mortar
 {
-    // Component for mortar shell type and power
     [RegisterComponent][AutoGenerateComponentState]
     public partial class SharedMortarShellComponent : Component
     {
@@ -23,27 +23,21 @@ namespace Content.Shared._VXS14.Mortar
         [ViewVariables(VVAccess.ReadWrite), DataField("maxTileIntensity"), AutoNetworkedField]
         public float MaxTileIntensity = 2f;
 
-        // Delay in seconds per tile distance
         [ViewVariables(VVAccess.ReadWrite), DataField("delayPerTile"), AutoNetworkedField]
         public float DelayPerTile = 0.1f;
 
-        // Sound to play when the shell is fired
         [ViewVariables(VVAccess.ReadWrite), DataField("fireSound"), AutoNetworkedField]
-        public string? FireSound = "/Audio/Effects/explosion_small1.ogg";
+        public SoundSpecifier? FireSound = new SoundPathSpecifier("/Audio/Effects/explosion_small1.ogg");
 
-        // Sound to play before explosion
         [ViewVariables(VVAccess.ReadWrite), DataField("preExplosionSound"), AutoNetworkedField]
-        public string? PreExplosionSound = "/Audio/Effects/explosionfar.ogg";
+        public SoundSpecifier? PreExplosionSound = new SoundPathSpecifier("/Audio/Effects/explosionfar.ogg");
 
-        // Sound to play when the shell is inserted into the mortar
         [ViewVariables(VVAccess.ReadWrite), DataField("insertSound"), AutoNetworkedField]
-        public string? InsertSound = "/Audio/Effects/thunk.ogg";
+        public SoundSpecifier? InsertSound = new SoundPathSpecifier("/Audio/Effects/thunk.ogg");
 
-        // Entity to spawn instead of direct explosion (for special shells like smoke, EMP, etc.)
         [ViewVariables(VVAccess.ReadWrite), DataField("explosionEntity")]
         public string? ExplosionEntity;
 
-        // Whether to use direct explosion (true) or spawn entity (false)
         [ViewVariables(VVAccess.ReadWrite), DataField("useDirectExplosion")]
         public bool UseDirectExplosion = true;
     }
