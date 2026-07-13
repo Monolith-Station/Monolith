@@ -1,5 +1,5 @@
 ## NATO
-# US
+#region US
 
 - type: department
   id: USMC
@@ -52,7 +52,7 @@
   - USPDOfficer
 
 ## PACT
-# RU
+#region RU
 
 - type: department
   id: VDV
@@ -121,11 +121,13 @@
 - type: department
   id: BF14Civilian
   name: department-Civilian
-  description: department-NFCivilian-description # Frontier
+  description: department-NFCivilian-description
   color: "#9FED58"
   weight: 1
   roles:
   - CivilianUS
+  - CivilianRU
+  - CivilianRUEMT
   - RUScav
   - RUScavGuard
   - RUScavBoss

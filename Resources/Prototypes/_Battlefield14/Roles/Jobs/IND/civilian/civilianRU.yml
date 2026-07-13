@@ -1,0 +1,18 @@
+- type: job
+  id: CivilianRU
+  name: job-name-ind-civilian
+  description: job-description-ind-civilian
+  playTimeTracker: JobCivilianRU
+  displayWeight: 10
+#  startingGear: PassengerGear
+  alwaysUseSpawner: true
+  icon: "JobIconRU"
+#  supervisors: job-supervisors-everyone
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - Russian
+    languagesUnderstood:
+    - Russian
+  access:
+  - Maintenance

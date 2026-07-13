@@ -1,0 +1,28 @@
+- type: job
+  id: CivilianRUEMT
+  name: Paramedic
+  description: Practice your hippocratic oath.
+  playTimeTracker: JobCivilianRUEMT
+  displayWeight: 10
+  startingGear: CivilianRUEMTGear
+  alwaysUseSpawner: true
+  icon: "JobIconRU"
+#  supervisors: job-supervisors-everyone
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - Russian
+    languagesUnderstood:
+    - Russian
+  access:
+  - Maintenance
+
+- type: startingGear
+  id: CivilianRUEMTGear
+  equipment:
+    id: ParamedicIDCard
+    belt: ClothingBeltMedicalEMTFilledBF14Basic
+    jumpsuit: ClothingUniformJumpsuitPlain
+    head: ClothingHeadHatParamedicsoft
+    outerClothing: ClothingOuterCoatParamedicWB
+#    shoes: ClothingShoesColorBlack
