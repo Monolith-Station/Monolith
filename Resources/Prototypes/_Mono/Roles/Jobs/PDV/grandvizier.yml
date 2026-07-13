@@ -2,12 +2,12 @@
   id: PirateCaptain
   name: job-name-pdv-vizier
   description: job-description-pirate-captain
-  playTimeTracker: JobPirateCaptain
+  playTimeTracker: JobPdvGrandVizier
   requirements:
     - !type:OverallPlaytimeRequirement # mono start
       time: 144000 # 40 hours
     - !type:RoleTimeRequirement
-      role: JobPirateFirstMate
+      role: JobPdvAsvaran
       time: 18000 # 5 hours - mono
   whitelisted: true
   startingGear: PirateCaptainNFGear

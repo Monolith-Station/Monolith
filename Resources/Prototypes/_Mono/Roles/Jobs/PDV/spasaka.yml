@@ -7,7 +7,7 @@
     - !type:OverallPlaytimeRequirement # mono start
       time: 108000 # 65 hours
     - !type:RoleTimeRequirement
-      role: JobPirate
+      role: JobPdvRahkshan
       time: 3600 # 1 hour
     - !type:DepartmentTimeRequirement
       department: Security
@@ -18,7 +18,7 @@
   hideConsoleVisibility: true
   canBeAntag: true
   icon: "JobIconPDVInfiltrator"
-  supervisors: job-supervisors-pirate
+  supervisors: job-supervisors-pdv-denasvar
   weight: 20
   displayWeight: 20
   assignedCompany: PDV

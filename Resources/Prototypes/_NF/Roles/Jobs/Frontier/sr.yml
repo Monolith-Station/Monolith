@@ -11,7 +11,7 @@
       time: 18000 # 5 hrs as security guard - mono
     # Factions are required here because Overseer needs to actually understand how both factions work.
     - !type:RoleTimeRequirement
-      role: JobPirate
+      role: JobPdvRahkshan
       time: 36000 # 10 hours
     - !type:DepartmentTimeRequirement
       department: Security

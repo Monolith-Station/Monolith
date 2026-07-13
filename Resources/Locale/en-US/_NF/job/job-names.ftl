@@ -15,9 +15,9 @@ JobMercenary = Mercenary
 JobPilot = Pilot
 JobPDVInfiltrator = PDV Spasaka
 JobPirate = PDV Rakhshan
-JobPirateCaptain = PDV Grand Vizier
-JobPirateFirstMate = PDV Asvaran
-JobPirateBoatswain = PDV Denasvar
+JobPdvGrandVizier = PDV Grand Vizier
+JobPdvAsvaran = PDV Asvaran
+JobPdvDenasvar = PDV Denasvar
 JobSecurityGuard = Judge
 JobSTC = Station Traffic Controller
 

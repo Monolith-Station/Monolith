@@ -2,7 +2,7 @@
   id: Pirate
   name: job-name-pdv-rahkshan
   description: job-description-pirate
-  playTimeTracker: JobPirate
+  playTimeTracker: JobPdvRahkshan
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hrs - mono
@@ -11,7 +11,7 @@
   hideConsoleVisibility: true
   canBeAntag: true
   icon: "JobIconPirate"
-  supervisors: job-supervisors-pirate
+  supervisors: job-supervisors-pdv
   weight: 20
   displayWeight: 20
   assignedCompany: PDV
