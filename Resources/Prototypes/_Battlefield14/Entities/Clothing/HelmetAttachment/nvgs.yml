@@ -3,7 +3,7 @@
   id: ClothingHelmetAttachmentNVGsBasicPACT
   suffix: PACT
   name: Dedal-S750R biocular night vision goggles
-  description: 3th generation bioculars made from commercial manufacture for mass mobilised soldiers.
+  description: 3rd generation bioculars made from commercial manufacture for mass mobilised soldiers.
   components:
   - type: Sprite
     sprite: _Battlefield14/Clothing/HelmetAttachment/nvg.rsi
@@ -13,9 +13,11 @@
       helmetattachment:
       - state: equipped-HELMETATTACHMENT
   - type: NightVision
+    relayOverlay: true
+    goggleEffect: true
     action: ActionToggleNightVision
     viewCircleRadius: 550
-    viewCircleCount: 2
+    viewCircleCount: 1
     viewCircleSpacing: 280
     phosphorColor: "#00FF00"
   - type: IdentityBlocker
@@ -26,7 +28,7 @@
   id: ClothingHelmetAttachmentNVGsBasicNATO
   suffix: NATO
   name: commercial night vision goggles
-  description: 3th generation bioculars made from commercial manufacture for mass mobilised soldiers.
+  description: 3rd generation bioculars made from commercial manufacture for mass mobilised soldiers.
   components:
   - type: Sprite
     sprite: _Battlefield14/Clothing/HelmetAttachment/nvg_blue.rsi
@@ -36,9 +38,11 @@
       helmetattachment:
       - state: equipped-HELMETATTACHMENT
   - type: NightVision
+    relayOverlay: true
+    goggleEffect: true
     action: ActionToggleNightVision
     viewCircleRadius: 550
-    viewCircleCount: 2
+    viewCircleCount: 1
     viewCircleSpacing: 280
     phosphorColor: "#00FF00"
   - type: IdentityBlocker
