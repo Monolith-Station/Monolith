@@ -107,6 +107,6 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
         }
 
         // Night vision overlay is prioritized
-        _overlay.IsActive = !_overlayMan.HasOverlay<BaseSwitchableOverlay<NightVisionComponent>>();
+        _overlay.IsActive = !_overlayMan.HasOverlay<BaseSwitchableOverlay<WWDPNightVisionComponent>>();
     }
 }
