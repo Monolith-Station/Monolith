@@ -2,14 +2,14 @@
   id: TsfTeamleader
   name: job-name-tsf-teamleader
   description: job-description-tsf-teamleader
-  playTimeTracker: JobSeniorOfficer
+  playTimeTracker: JobTsfTeamleader
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hours # mono
     - !type:DepartmentTimeRequirement
       department: Tsf
       time: 36000 # 10 hours # mono
-  startingGear: SeniorOfficerGear
+  startingGear: TsfTeamleaderGear
   icon: JobIconTsfTeamLeader
   supervisors: job-supervisors-tsf-teamleader
   weight: 140
@@ -40,7 +40,7 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: SeniorOfficerGear
+  id: TsfTeamleaderGear
 #  equipment:
 #    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:

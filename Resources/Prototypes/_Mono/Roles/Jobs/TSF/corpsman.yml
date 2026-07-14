@@ -2,7 +2,7 @@
   id: TsfCorpsman
   name: job-name-tsf-corpsman
   description: job-description-tsf-corpsman
-  playTimeTracker: JobBrigmedic
+  playTimeTracker: JobTsfCorpsman
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hours - mono
@@ -13,7 +13,7 @@
     longerPlaytimeLessSec:
     - !type:OverallPlaytimeRequirement
       time: 108000 # 30 hours - mono
-  startingGear: BrigmedicGear
+  startingGear: TsfCorpsmanGear
   icon: JobIconTSFCorpsman
   supervisors: job-supervisors-tsf
   weight: 125
@@ -46,7 +46,7 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: BrigmedicGear
+  id: TsfCorpsmanGear
 #  equipment:
 #    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:

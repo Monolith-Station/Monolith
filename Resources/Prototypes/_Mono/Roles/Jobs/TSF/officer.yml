@@ -12,7 +12,7 @@
     - !type:RoleTimeRequirement
       role: JobTsfTeamleader
       time: 10800 # 3 hours
-  startingGear: BailiffGear
+  startingGear: TsfOfficerGear
   icon: JobIconTSFOfficer
   supervisors: job-supervisors-tsf-officer
   weight: 150
@@ -45,7 +45,7 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: BailiffGear
+  id: TsfOfficerGear
 #  equipment:
 #    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:

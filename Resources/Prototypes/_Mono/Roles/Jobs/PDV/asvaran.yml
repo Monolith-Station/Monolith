@@ -10,7 +10,7 @@
       role: JobPDVDenasvar
       time: 28800 # 8 hours
   #whitelisted: true # mono - comment out
-  startingGear: PDVAsvaranNFGear
+  startingGear: PDVAsvaranGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   canBeAntag: true
@@ -46,7 +46,7 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: PDVAsvaranNFGear
+  id: PDVAsvaranGear
   equipment:
     ears: ClothingHeadsetAltVanguardCommand
     #belt: ClothingBeltUtility

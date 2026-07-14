@@ -2,7 +2,7 @@
   id: TsfCommander
   name: job-name-tsf-commandingofficer
   description: job-description-tsf-commandingofficer
-  playTimeTracker: JobHeadOfSecurity
+  playTimeTracker: JobTsfCommander
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 144000 # 40 hours - mono
@@ -10,10 +10,10 @@
       department: Tsf
       time: 90000 # 25 hours - mono
     - !type:RoleTimeRequirement
-      role: JobWarden
+      role: JobTsfOfficer
       time: 18000 # 5 hours - mono
   whitelisted: true
-  startingGear: SheriffGear
+  startingGear: TsfCommanderGear
   alwaysUseSpawner: true
   icon: JobIconTSFCommander
   requireAdminNotify: true
@@ -51,7 +51,7 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: SheriffGear
+  id: TsfCommanderGear
   equipment:
     pocket1: WeaponEnergyGunMultiphase # DeltaV gun
     pocket2: EnergySwordNfsd

@@ -2,11 +2,11 @@
   id: PDVRahkshan
   name: job-name-pdv-rahkshan
   description: job-description-pdv-rahkshan
-  playTimeTracker: JobPdvRahkshan
+  playTimeTracker: JobPDVRahkshan
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hrs - mono
-  startingGear: PirateNFGear
+  startingGear: RahkshanGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   canBeAntag: true
@@ -41,7 +41,7 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: PirateNFGear
+  id: RahkshanGear
   equipment:
     ears: ClothingHeadsetAltFreelancer
     #belt: ClothingBeltUtility

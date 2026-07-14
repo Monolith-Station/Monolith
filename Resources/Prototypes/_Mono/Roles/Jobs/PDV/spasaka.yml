@@ -7,7 +7,7 @@
     - !type:OverallPlaytimeRequirement # mono start
       time: 108000 # 65 hours
     - !type:RoleTimeRequirement
-      role: JobPdvRahkshan
+      role: JobPDVRahkshan
       time: 3600 # 1 hour
     - !type:DepartmentTimeRequirement
       department: Tsf

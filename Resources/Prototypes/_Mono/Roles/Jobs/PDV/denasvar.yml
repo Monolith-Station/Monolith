@@ -22,7 +22,7 @@
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hours # mono
     - !type:RoleTimeRequirement
-      role: JobPdvRahkshan
+      role: JobPDVRahkshan
       time: 36000 # 10 hours
   startingGear: PDVDenasvarGear
   alwaysUseSpawner: true

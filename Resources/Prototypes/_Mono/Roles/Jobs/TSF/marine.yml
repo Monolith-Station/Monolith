@@ -2,11 +2,11 @@
   id: TsfMarine
   name: job-name-tsf-marine
   description: job-description-tsf-marine
-  playTimeTracker: JobSecurityOfficer
+  playTimeTracker: JobTsfMarine
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hours
-  startingGear: DeputyGear
+  startingGear: TsfMarineGear
   icon: JobIconTSFMarine
   supervisors: job-supervisors-tsf
   weight: 130
@@ -35,7 +35,7 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: DeputyGear
+  id: TsfMarineGear
 #  equipment:
 #    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:

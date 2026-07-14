@@ -1,6 +1,6 @@
 # Nfsd
 - type: roleLoadout
-  id: JobCadet # Unused
+  id: JobTsfRecruit # Unused
   groups:
   - TsfmcHead
   - TsfmcNeck
@@ -30,7 +30,7 @@
   canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
-  id: JobDeputy # Marine
+  id: JobTsfMarine # Marine
   groups:
   - TsfmcHead
   - TsfmcNeck
@@ -61,7 +61,7 @@
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobBrigmedic # Brigmedic
+  id: JobTsfCorpsman # Brigmedic
   groups:
   - TsfmcHeadMedic
   - TsfmcNeckMedic
@@ -92,7 +92,7 @@
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobBailiff # Captain
+  id: JobTsfOfficer # Captain
   groups:
   - TsfmcHead
   - TsfmcNeckCaptain
@@ -122,7 +122,7 @@
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobSeniorOfficer # Fireteam Leader
+  id: JobTsfTeamleader # Fireteam Leader
   groups:
   - TsfmcHead
   - TsfmcNeckFTL
@@ -152,7 +152,7 @@
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobSheriff # Colonel
+  id: JobTsfCommander # Colonel
   groups:
   - TsfmcHead
   - TsfmcNeckCommander

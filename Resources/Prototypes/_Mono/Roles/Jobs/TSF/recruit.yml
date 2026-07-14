@@ -2,7 +2,7 @@
   id: TsfRecruit
   name: job-name-tsf-recruit
   description: job-description-tsf-recruit
-  playTimeTracker: JobSecurityCadet
+  playTimeTracker: JobTsfRecruit
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 32400 # 9 hours # mono
@@ -10,7 +10,7 @@
       department: Tsf
       time: 72000 # 20 hours # mono
       inverted: true # Leave slots open for newer, less confident players.
-  startingGear: CadetGear
+  startingGear: TsfRecruitGear
   icon: JobIconTSFRecruit
   supervisors: job-supervisors-tsf-recruit
   weight: 70
@@ -40,7 +40,7 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: CadetGear
+  id: TsfRecruitGear
   equipment:
     pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
     pocket2: BookSecurity
