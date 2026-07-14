@@ -49,7 +49,7 @@
   parent: [ ClothingOuterHardsuitSyndie, BaseFactionGearPDVT2 ]
   id: ClothingOuterHardsuitAshen
   name: PDV CV-32 combat hardsuit
-  description: A combat hardsuit designed by the Phaethon Dynasty. A heavier but still general-purpose hardsuit, effective but not stellar against most damage types.
+  description: A combat hardsuit designed by the Phaethon Dynasty. A heavier but still general-purpose hardsuit. Sacrifices most of it protection against ballistic damage.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/syndicate.rsi
@@ -63,9 +63,25 @@
       head: ClothingHeadHelmetHardsuitAshen
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.75
+        Piercing: 0.35
+        Heat: 0.75
+        Radiation: 0.7
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
   - type: Tag
     tags:
     - RogueHardsuit
+  - type: StaminaDamageResistance
+    coefficient: 0.75
 
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]

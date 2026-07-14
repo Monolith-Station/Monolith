@@ -23,6 +23,7 @@
     - Belt
   - type: AmmoCounter
   - type: Gun
+    damageModifier: 1.5 # Mono
     selectedMode: SemiAuto
     fireRate: 1.5
     availableModes:
@@ -124,6 +125,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
   - type: Gun
+    damageModifier: 1.2 # Mono
     fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
