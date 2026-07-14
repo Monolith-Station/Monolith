@@ -62,10 +62,10 @@
   - type: NightVision
     relayOverlay: true
     goggleEffect: true
-    action: ActionToggleNightVision
     viewCircleRadius: 400
     viewCircleCount: 1
     viewCircleSpacing: 280
+    action: ActionToggleNightVision
     phosphorColor: "#00FF00"
 #    activateSound: /Audio/_Battlefield14/Effects/nightvision.ogg
 #    flashDurationMultiplier: 1.5
