@@ -7,10 +7,10 @@
     - !type:OverallPlaytimeRequirement
       time: 144000 # 40 hours - mono
     - !type:DepartmentTimeRequirement
-      department: Tsf
+      department: Tsf + Security
       time: 90000 # 25 hours - mono
     - !type:RoleTimeRequirement
-      role: JobTsfOfficer
+      role: JobTsfOfficer + JobWarden
       time: 18000 # 5 hours - mono
   whitelisted: true
   startingGear: TsfCommanderGear

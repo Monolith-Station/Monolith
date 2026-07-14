@@ -21,9 +21,9 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 72000 # 20 hours # mono
-    - !type:RoleTimeRequirement
-      role: JobPDVRahkshan
-      time: 36000 # 10 hours
+    - !type:DepartmentTimeRequirement
+      department: Pdv
+      time: 36000 # 10 hours # mono
   startingGear: PDVDenasvarGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
