@@ -1,27 +1,12 @@
 - type: entity
-  id: CapturePointBengalskApartments
-  parent: BaseCapturePoint
-  name: apartments control point
-  suffix: bengalsk, 180s / 3m
-  components:
-  - type: POICapture
-    poiName: "Benglask apartments"
-    timeToCapture: 180
-  - type: NavMapBeacon
-    defaultText: "Apartments"
-    color: "#FFFF00"
-  - type: WarpPoint
-    location: "Apartments capture point"
-
-- type: entity
   id: CapturePointBengalskSpaceport
   parent: BaseCapturePoint
-  name: spaceport control point
-  suffix: bengalsk, 180s / 3m
+  name: Spaceport control point
+  suffix: bengalsk, 120s / 2m
   components:
   - type: POICapture
     poiName: "Benglask spaceport"
-    timeToCapture: 180
+    timeToCapture: 120
   - type: NavMapBeacon
     defaultText: "Spaceport"
     color: "#FFFF00"
@@ -29,16 +14,76 @@
     location: "Spaceport capture point"
 
 - type: entity
-  id: CapturePointBengalskAdministration
+  id: CapturePointBengalskCityAdministration
   parent: BaseCapturePoint
-  name: city administration control point
-  suffix: bengalsk, 180s / 3m
+  name: City administration control point
+  suffix: bengalsk, 120s / 2m
   components:
   - type: POICapture
     poiName: "Benglask city administration"
-    timeToCapture: 180
+    timeToCapture: 120
   - type: NavMapBeacon
-    defaultText: "Administration"
+    defaultText: "City Administration"
     color: "#FFFF00"
   - type: WarpPoint
-    location: "City administration capture point"
+    location: "City Administration capture point"
+
+- type: entity
+  id: CapturePointBengalskMFC
+  parent: BaseCapturePoint
+  name: MFC control point
+  suffix: bengalsk, 180s / 3m
+  components:
+  - type: POICapture
+    poiName: "Benglask MFC"
+    timeToCapture: 180
+  - type: NavMapBeacon
+    defaultText: "MFC"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "MFC capture point"
+
+- type: entity
+  id: CapturePointBengalskLowerHouses
+  parent: BaseCapturePoint
+  name: Lower Houses control point
+  suffix: bengalsk, 120s / 2m
+  components:
+  - type: POICapture
+    poiName: "Benglask Lower Houses"
+    timeToCapture: 120
+  - type: NavMapBeacon
+    defaultText: "Lower Houses"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "Lower Houses capture point"
+
+- type: entity
+  id: CapturePointBengalskUpperHouses
+  parent: BaseCapturePoint
+  name: Upper Houses control point
+  suffix: bengalsk, 120s / 2m
+  components:
+  - type: POICapture
+    poiName: "Benglask Upper Houses"
+    timeToCapture: 120
+  - type: NavMapBeacon
+    defaultText: "Upper Houses"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "Upper Houses capture point"
+
+- type: entity
+  id: CapturePointBengalskMikkieD
+  parent: BaseCapturePoint
+  name: Mikkie D control point
+  suffix: bengalsk, 120s / 2m
+  components:
+  - type: POICapture
+    poiName: "Benglask Mikkie D"
+    timeToCapture: 120
+  - type: NavMapBeacon
+    defaultText: "Mikkie D"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "Mikkie D capture point"
