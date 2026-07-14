@@ -24,6 +24,13 @@
     - !type:DepartmentTimeRequirement
       department: Pdv
       time: 36000 # 10 hours # mono
+  alternateRequirementSets:
+    longerPlaytimeLessSec:
+    - !type:OverallPlaytimeRequirement
+      time: 72000 # 20 hours # mono
+    - !type:DepartmentTimeRequirement
+      department: Antag
+      time: 36000 # 10 hours # mono
   startingGear: PDVDenasvarGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true

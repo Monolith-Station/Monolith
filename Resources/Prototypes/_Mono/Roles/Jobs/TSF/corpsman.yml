@@ -8,11 +8,14 @@
       time: 72000 # 20 hours - mono
     - !type:DepartmentTimeRequirement
       department: Tsf
-      time: 7200 # 2 hours - mono
+      time: 18000 # 5 hours - mono
   alternateRequirementSets:
     longerPlaytimeLessSec:
+    - !type:DepartmentTimeRequirement
+      department: Security #old tsf department name
+      time: 18000 # 5 hours - mono
     - !type:OverallPlaytimeRequirement
-      time: 108000 # 30 hours - mono
+      time: 72000 # 20 hours - mono
   startingGear: TsfCorpsmanGear
   icon: JobIconTSFCorpsman
   supervisors: job-supervisors-tsf

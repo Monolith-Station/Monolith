@@ -8,7 +8,7 @@
       time: 32400 # 9 hours # mono
     - !type:DepartmentTimeRequirement
       department: Tsf
-      time: 72000 # 20 hours # mono
+      time: 18000 # 5 hours # mono
       inverted: true # Leave slots open for newer, less confident players.
   startingGear: TsfRecruitGear
   icon: JobIconTSFRecruit

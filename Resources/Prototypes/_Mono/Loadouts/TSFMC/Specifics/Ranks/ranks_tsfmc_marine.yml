@@ -45,8 +45,13 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobSecurityOfficer
+      role: JobTsfMarine
       time: 36000 # 10hr
+      alternateRequirementSets:
+        longerPlaytimeLessSec:
+        - !type:RoleTimeRequirement
+          role: JobSecurityOfficer #ihate frontier i hate fronteir hi fep f eh ezf hehfzeh
+          time: 36000
 
 - type: loadoutEffectGroup
   id: TsfmcMarineSgt
@@ -54,5 +59,10 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobSecurityOfficer
+      role: JobTsfMarine
       time: 108000 # 30hr
+      alternateRequirementSets:
+        longerPlaytimeLessSec:
+        - !type:RoleTimeRequirement
+          role: JobSecurityOfficer #ihate frontier i hate fronteir hi fep f eh ezf hehfzeh
+          time: 108000

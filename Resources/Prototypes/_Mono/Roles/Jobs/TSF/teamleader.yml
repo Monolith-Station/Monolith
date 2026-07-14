@@ -9,6 +9,11 @@
     - !type:DepartmentTimeRequirement
       department: Tsf
       time: 36000 # 10 hours # mono
+  alternateRequirementSets:
+    longerPlaytimeLessSec:
+    - !type:DepartmentTimeRequirement
+      department: Security #old tsf department id -nuke when needed no more
+      time: 36000 # 10 hours - mono
   startingGear: TsfTeamleaderGear
   icon: JobIconTsfTeamLeader
   supervisors: job-supervisors-tsf-teamleader

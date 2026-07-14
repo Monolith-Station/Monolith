@@ -9,6 +9,13 @@
     - !type:RoleTimeRequirement
       role: JobPDVAsvaran
       time: 18000 # 5 hours - mono
+  alternateRequirementSets:
+    longerPlaytimeLessSec:
+    - !type:OverallPlaytimeRequirement
+      time: 144000 # 20 hours # mono
+    - !type:RoleTimeRequirement
+      role: JobPirateFirstMate
+      time: 18000 # 5 hours - mono
   whitelisted: true
   startingGear: PDVGrandVizierGear
   alwaysUseSpawner: true

@@ -3,12 +3,19 @@
   name: job-name-tsf-officer
   description: job-description-tsf-officer
   playTimeTracker: JobTsfOfficer
-  requirements: # mono - lowers all of these tbh
+  requirements:
     - !type:OverallPlaytimeRequirement
       time: 180000 # 50 hours
     - !type:RoleTimeRequirement
       role: JobTsfTeamleader
       time: 28800 # 8 hours
+  alternateRequirementSets:
+    longerPlaytimeLessSec:
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hours
+    - !type:RoleTimeRequirement
+      role: JobSeniorOfficer #old teamleader id
+      time: 28800
   startingGear: TsfOfficerGear
   icon: JobIconTSFOfficer
   supervisors: job-supervisors-tsf-officer

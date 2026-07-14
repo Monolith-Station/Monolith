@@ -100,5 +100,10 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
-      department: Security
+      department: Tsf
       time: 720000 # 200hr
+      alternateRequirementSets:
+        longerPlaytimeLessSec:
+        - !type:DepartmentTimeRequirement
+          department: Security
+          time: 720000

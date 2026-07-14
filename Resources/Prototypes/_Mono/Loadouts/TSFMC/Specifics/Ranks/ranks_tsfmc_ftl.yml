@@ -28,8 +28,13 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobSeniorOfficer
+      role: JobTsfTeamleader
       time: 36000 # 10hr
+      alternateRequirementSets:
+        longerPlaytimeLessSec:
+        - !type:RoleTimeRequirement
+          role: JobSeniorOfficer
+          time: 36000
 
 - type: loadout
   id: TsfmcRankE7FTL
@@ -47,8 +52,13 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobSeniorOfficer
-      time: 180000 # 50hr
+      role: JobTsfTeamleader
+      time: 180000 # 10hr
+      alternateRequirementSets:
+        longerPlaytimeLessSec:
+        - !type:RoleTimeRequirement
+          role: JobSeniorOfficer
+          time: 180000
 
 - type: loadout
   id: TsfmcRankE8FTL
@@ -76,5 +86,10 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobSeniorOfficer
-      time: 360000 # 100hr
+      role: JobTsfTeamleader
+      time: 360000 # 10hr
+      alternateRequirementSets:
+        longerPlaytimeLessSec:
+        - !type:RoleTimeRequirement
+          role: JobSeniorOfficer
+          time: 360000

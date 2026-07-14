@@ -9,6 +9,11 @@
     - !type:DepartmentTimeRequirement
       department: Tsf
       time: 18000 # 5 hours - mono
+  alternateRequirementSets:
+    longerPlaytimeLessSec:
+    - !type:DepartmentTimeRequirement
+      department: Security #old tsf department id
+      time: 18000 # 5 hours - mono
   startingGear: TsfEngiGear
   icon: JobIconTSFEngi
   supervisors: job-supervisors-tsf-teamleader
