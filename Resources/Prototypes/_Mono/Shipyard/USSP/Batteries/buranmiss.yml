@@ -1,0 +1,27 @@
+- type: vessel
+  id: Buranmissile
+  parent: BaseVesselAntag
+  name: Buran Missile battery
+  description: A Missile battery designed to slot into the buran gun ports. comes with two paladin missile launchers and a vanquisher launcher, manual loading required.
+  price: 45000
+  purchasable: false # voucher only
+  category: Large
+  group: Custom
+  access: USSP
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/Batteries/buranmiss.yml
+  guidebookPage: Null
+
+- type: gameMap
+  id: Buranmissile
+  mapName: 'Buranmissile'
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/Batteries/buranmiss.yml
+  minPlayers: 0
+  stations:
+    buranmiss:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Buran missile attachment{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'

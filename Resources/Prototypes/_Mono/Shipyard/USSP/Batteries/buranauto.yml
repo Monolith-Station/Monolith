@@ -1,0 +1,27 @@
+- type: vessel
+  id: Buranautocannon
+  parent: BaseVesselAntag
+  name: Buran Autocannon battery
+  description: A Autocannon battery designed to slot into the buran gun ports. Comes with two longbows.
+  price: 45000
+  purchasable: false # voucher only
+  category: Large
+  group: Custom
+  access: USSP
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/Batteries/buranauto.yml
+  guidebookPage: Null
+
+- type: gameMap
+  id: Buranautocannon
+  mapName: 'Buranautocannon'
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/Batteries/buranauto.yml
+  minPlayers: 0
+  stations:
+    buranautocannon:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Buran Autocannon attachment{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'

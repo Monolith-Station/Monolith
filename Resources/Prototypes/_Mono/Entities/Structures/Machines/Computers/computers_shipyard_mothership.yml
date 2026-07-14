@@ -88,6 +88,17 @@
     - Kupol
 
 - type: entity
+  id: BuranAttachmentComputer
+  parent: BaseCarrierComputer
+  name: buran attachment console
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Buranmissile
+    - Buranautocannon
+    - Buranartillery
+
+- type: entity
   id: WindreignCarrierComputer
   parent: BaseCarrierComputer
   name: windreign shipyard console

@@ -1,0 +1,27 @@
+- type: vessel
+  id: Buranartillery
+  parent: BaseVesselAntag
+  name: Buran Artillery battery
+  description: A Artillery battery designed to slot into the buran gun ports, comes with two bofors, and a hades cannon.
+  price: 45000
+  purchasable: false # voucher only
+  category: Large
+  group: Custom
+  access: USSP
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/Batteries/buranart.yml
+  guidebookPage: Null
+
+- type: gameMap
+  id: Buranartillery
+  mapName: 'Buranartillery'
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/Batteries/buranart.yml
+  minPlayers: 0
+  stations:
+    buranartillery:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Buran Artillery attachment{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
