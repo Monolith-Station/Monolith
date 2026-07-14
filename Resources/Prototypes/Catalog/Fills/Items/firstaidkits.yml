@@ -100,8 +100,8 @@
       - id: BF14HyposprayFilledAdvanced # BF14
       - id: BF14HyposprayFilledNanoblood # BF14
       - id: BF14HyposprayFilledHypervene # BF14
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
+      - id: BF14AdvancedTraumaKit # BF14
+      - id: BF14AdvancedBurnKit # BF14
 
 - type: entity
   id: MedkitCombatFilled
@@ -110,8 +110,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
+      - id: BF14AdvancedTraumaKit # BF14
+      - id: BF14AdvancedBurnKit # BF14
       - id: HandheldHealthAnalyzerUnpowered #BF14
       - id: SyringeEphedrine
       - id: SyringeSaline

@@ -1,0 +1,13 @@
+- type: stack
+  id: BF14AdvancedTraumaKit
+  name: advanced trauma kit
+  icon: {sprite: "_Battlefield14/Objects/Specific/Medical/medical.rsi", state: traumakit }
+  spawn: BF14AdvancedTraumaKit
+  maxCount: 15
+
+- type: stack
+  id: BF14AdvancedBurnKit
+  name: advanced burn kit
+  icon: {sprite: "_Battlefield14/Objects/Specific/Medical/medical.rsi", state: burnkit}
+  spawn: BF14AdvancedBurnKit
+  maxCount: 15

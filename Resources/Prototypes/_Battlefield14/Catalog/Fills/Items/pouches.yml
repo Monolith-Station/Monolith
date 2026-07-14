@@ -1,3 +1,5 @@
+#region medical pouches
+
 - type: entity
   parent: PouchFirstAid
   id: PouchFirstAidFilled
@@ -20,8 +22,8 @@
   - type: StorageFill
     contents:
       - id: HandheldHealthAnalyzerUnpowered
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
+      - id: BF14AdvancedTraumaKit
+      - id: BF14AdvancedBurnKit
       - id: PillCanisterBicaridine
       - id: PillCanisterKelotane
       - id: PillCanisterTricordrazine
@@ -36,13 +38,15 @@
   - type: StorageFill
     contents:
       - id: HandheldHealthAnalyzerUnpowered
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
+      - id: BF14AdvancedTraumaKit
+      - id: BF14AdvancedBurnKit
       - id: BF14HyposprayFilledAdvanced
       - id: BF14SyretteInaprovalineCapped
       - id: PillCanisterTricordrazine
       - id: Tourniquet
         amount: 2
+
+#region magazine pouches
 
 - type: entity
   parent: PouchMags
@@ -144,6 +148,8 @@
     - id: MagazineSubmachinegunSR2MP
       amount: 6
 
+#region grenade pouches
+
 - type: entity
   parent: PouchGrenades
   id: PouchGrenadesFilledUSARifleman
@@ -240,6 +246,8 @@
       amount: 3
     - id: SmokeCSGrenadeRUK51
       amount: 3
+
+#region flare pouches
 
 - type: entity
   parent: PouchFlares

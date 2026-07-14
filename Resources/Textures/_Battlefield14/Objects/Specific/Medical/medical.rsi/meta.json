@@ -1,0 +1,33 @@
+{
+	"version": 1,
+	"license": "CC-BY-SA-3.0",
+  "copyright": "Taken from haloSSE",
+	"size": {
+		"x": 32,
+		"y": 32
+	},
+	"states": [
+		{
+			"name": "traumakit"
+		},
+		{
+			"name": "traumakit-inhand-left",
+			"directions": 4
+		},
+		{
+			"name": "traumakit-inhand-right",
+			"directions": 4
+		},
+		{
+			"name": "burnkit"
+		},
+		{
+			"name": "burnkit-inhand-left",
+			"directions": 4
+		},
+		{
+			"name": "burnkit-inhand-right",
+			"directions": 4
+		}
+	]
+}
