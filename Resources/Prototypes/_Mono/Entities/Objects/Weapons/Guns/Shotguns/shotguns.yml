@@ -168,7 +168,7 @@
   name: GS-004-A Jack (4 gauge)
   parent: [BaseItem, BaseGunWieldable]
   id: WeaponShotgunJack
-  description: An incredibly heavy burst fire 23x75mm shotgun that loads from a belt and a specialized backpack.
+  description: An incredibly heavy automated fire 23x75mm shotgun that loads from a belt and a specialized backpack.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Shotguns/jack.rsi
@@ -189,18 +189,14 @@
     modifiedDelay: 2
     preventFiring: true
   - type: Gun
-    damageModifier: 0.65
     minAngle: 35 # Might need increasing for slugs.
     maxAngle: 60
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 0.2
-    selectedMode: Burst
+    fireRate: 2
+    selectedMode: FullAuto
     availableModes:
-    - Burst
-    burstCooldown: 4
-    burstFireRate: 4.5
-    shotsPerBurst: 3
+    - FullAuto
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
   - type: GunSpreadModifier
