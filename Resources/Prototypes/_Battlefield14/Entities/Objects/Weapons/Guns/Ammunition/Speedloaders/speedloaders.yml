@@ -27,7 +27,7 @@
 - type: entity
   id: SpeedLoaderSTANAG
   parent: BaseSpeedLoaderCap
-  name: "STANAG speed loader (5.56x45mm)"
+  name: "STANAG stripper clip (5.56x45mm)"
   description: A speedloader for loading STANAG magazines 10 rounds at a time.
   components:
   - type: BallisticAmmoProvider
@@ -58,7 +58,7 @@
 - type: entity
   id: SpeedLoaderSKS
   parent: SpeedLoaderSTANAG
-  name: "SKS speed loader (7.62x39mm)"
+  name: "SKS stripper clip (7.62x39mm)"
   description: A speedloader for loading the SKS simonov system.
   components:
   - type: BallisticAmmoProvider
