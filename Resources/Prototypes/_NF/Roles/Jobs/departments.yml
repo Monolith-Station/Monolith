@@ -23,3 +23,13 @@
   - NFJanitor
   - MailCarrier # nyano
   - SecurityGuard
+
+- type: department
+  id: Antag
+  name: department-Frontier
+  description: department-NF-description
+  weight: 0 #it's some old name for the PDV department
+  roles:
+  - PirateCaptain
+  - PirateFirstMate
+  - Pirate

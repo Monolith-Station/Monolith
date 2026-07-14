@@ -40,4 +40,16 @@ job-name-security-guard = Judge
 job-name-stc = Station Traffic Controller
 job-name-sr = Overseer
 
-
+#Role timers
+JobPDVInfiltrator = PDV Spasaka
+JobPDVRahkshan = PDV Rahkshan
+JobPDVGrandVizier = PDV Grand Vizier
+JobPDVAsvaran = PDV Asvaran
+JobPDVDenasvar = PDV Denasvar
+JobTsfCommander = TSF Commanding Officer
+JobTsfTeamleader = TSFMC Team leader
+JobTsfOfficer = TSF Officer
+JobTsfCorpsman = TSF Corpsman
+JobTsfMarine = TSFMC Marine
+JobTsfRecruit = TSFMC Recruit
+JobTsfEngineer = TSF Engineer

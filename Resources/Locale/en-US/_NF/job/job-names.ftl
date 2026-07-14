@@ -13,11 +13,6 @@ job-title-ert-mail-carrier = ERT Mail Carrier
 JobERTMailCarrier = ERT Mail Carrier
 JobMercenary = Mercenary
 JobPilot = Pilot
-JobPDVInfiltrator = PDV Spasaka
-JobPirate = PDV Rahkshan
-JobPdvGrandVizier = PDV Grand Vizier
-JobPdvAsvaran = PDV Asvaran
-JobPdvDenasvar = PDV Denasvar
 JobSecurityGuard = Judge
 JobSTC = Station Traffic Controller
 
