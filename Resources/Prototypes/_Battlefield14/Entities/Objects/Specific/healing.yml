@@ -1,0 +1,60 @@
+- type: entity
+  name: advanced trauma kit
+  description: An advanced trauma kit for severe injuries.
+  parent: MedicatedSuture
+  id: BF14AdvancedTraumaKit
+  suffix: Full
+  components:
+  - type: Tag
+    tags:
+    - Brutepack
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/medical.rsi
+    state: traumakit
+  - type: Item
+    size: Small
+    sprite: _Battlefield14/Objects/Specific/Medical/medical.rsi
+    heldPrefix: traumakit
+    storedRotation: 0
+  - type: Stack
+    stackType: BF14AdvancedTraumaKit
+    count: 15
+
+- type: entity
+  id: BF14AdvancedTraumaKit1
+  parent: BF14AdvancedTraumaKit
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: BF14AdvancedTraumaKit
+    count: 1
+
+- type: entity
+  name: advanced burn kit
+  description: An advanced treatment kit for severe burns.
+  parent: RegenerativeMesh
+  id: BF14AdvancedBurnKit
+  suffix: Full
+  components:
+  - type: Tag
+    tags:
+    - Ointment
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/medical.rsi
+    state: burnkit
+  - type: Item
+    size: Small
+    sprite: _Battlefield14/Objects/Specific/Medical/medical.rsi
+    heldPrefix: burnkit
+  - type: Stack
+    stackType: BF14AdvancedBurnKit
+    count: 15
+
+- type: entity
+  id: BF14AdvancedBurnKit1
+  parent: BF14AdvancedBurnKit
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: BF14AdvancedBurnKit
+    count: 1

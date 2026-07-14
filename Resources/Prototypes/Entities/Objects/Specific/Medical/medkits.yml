@@ -5,7 +5,7 @@
   id: Medkit
   components:
   - type: Sprite
-    sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi # Frontier: _NF prefix
+    sprite: _Battlefield14/Objects/Specific/Medical/firstaidkits.rsi # BF14
     state: firstaid
   - type: Storage
     maxItemSize: Normal # BF14
@@ -45,7 +45,7 @@
     size: Normal
     shape:
     - 0,0,1,1 # BF14
-    sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi # Frontier: _NF prefix
+    sprite: _Battlefield14/Objects/Specific/Medical/firstaidkits.rsi # BF14
     heldPrefix: firstaid
   - type: PhysicalComposition
     materialComposition:
@@ -61,7 +61,7 @@
   id: MedkitBurn
   components:
   - type: Sprite
-    state: burnkit
+    state: firefirstaid
   - type: Item
     heldPrefix: burnkit
 
@@ -72,7 +72,7 @@
   id: MedkitToxin
   components:
   - type: Sprite
-    state: toxinkit
+    state: antitoxfirstaid
   - type: Item
     heldPrefix: toxinkit
 
@@ -94,9 +94,9 @@
   id: MedkitBrute
   components:
   - type: Sprite
-    state: brutekit
+    state: radfirstaid
   - type: Item
-    heldPrefix: brutekit
+    heldPrefix: radkit
 
 - type: entity
   name: advanced first aid kit
@@ -105,7 +105,7 @@
   id: MedkitAdvanced
   components:
   - type: Sprite
-    state: advkit
+    state: advfirstaid
   - type: Item
     heldPrefix: advkit
 
@@ -116,7 +116,7 @@
   id: MedkitRadiation
   components:
   - type: Sprite
-    state: radkit
+    state: radfirstaid2
   - type: Item
     heldPrefix: radkit
 
@@ -127,18 +127,18 @@
   id: MedkitCombat
   components:
   - type: Sprite
-    sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi
-    state: blackkit
+#    sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi
+    state: bezerk
 #  - type: Storage
 #    maxItemSize: Small
 #    grid:
 #    - 0,0,3,1
   - type: Item
-    size: Normal
-    shape:
-    - 0,0,1,1
-    sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi
-    heldPrefix: blackkit
+#    size: Normal
+#    shape:
+#    - 0,0,1,1
+#    sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi
+    heldPrefix: bezerk
   - type: PhysicalComposition
     materialComposition:
       Plastic: 150

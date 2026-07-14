@@ -1,0 +1,43 @@
+- type: entity
+  name: surgical hardcase
+  description: A hardcase for holding surgical equipment.
+  parent: Medkit
+  id: BF14MedkitSurgery
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/firstaidkits.rsi # BF14
+    state: surgery
+  - type: Storage
+    grid:
+    - 0,0,5,3
+    whitelist:
+      tags:
+        - Brutepack
+        - Ointment
+        - SurgeryTool
+        - GasTank
+      components:
+        - GasTank
+        - SurgeryTool # Shitmed
+        - BreathMask
+  - type: Item
+    size: Huge
+    sprite: _Battlefield14/Objects/Specific/Medical/firstaidkits.rsi # BF14
+    heldPrefix: surgery
+
+- type: entity
+  id: BF14MedkitSurgeryFilled
+  suffix: Filled
+  parent: BF14MedkitSurgery
+  components:
+  - type: StorageFill
+    contents:
+      - id: BF14AdvancedTraumaKit
+      - id: Scalpel
+      - id: Cautery
+      - id: Retractor
+      - id: Drill
+      - id: Hemostat
+      - id: BoneGel # Shitmed
+      - id: SawElectric # Shitmed
+      - id: NitrousOxideTankFilled

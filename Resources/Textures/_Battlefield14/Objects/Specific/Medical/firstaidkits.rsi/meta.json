@@ -1,7 +1,7 @@
 {
 	"version": 1,
 	"license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/tree/727eb0a445bccbdc2d472e158e96b87fc0e997a1. Rad, toxin, o2, fire and adv by peptide",
+    "copyright": "Icons taken from haloSSE, inhands taken from TG at https://github.com/tgstation/tgstation/tree/727eb0a445bccbdc2d472e158e96b87fc0e997a1. surgery states taken from bay12, bezerk inhands by JoeHammad",
 	"size": {
 		"x": 32,
 		"y": 32
@@ -19,18 +19,10 @@
       "directions": 4
     },
 		{
-			"name": "brutekit"
+			"name": "ointment"
 		},
 		{
-      "name": "brutekit-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "brutekit-inhand-left",
-      "directions": 4
-    },
-		{
-			"name": "burnkit"
+			"name": "firefirstaid"
 		},
 		{
       "name": "burnkit-inhand-right",
@@ -52,18 +44,16 @@
       "directions": 4
     },
 		{
-			"name": "radkit"
+			"name": "antitoxin"
 		},
 		{
-      "name": "radkit-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "radkit-inhand-left",
-      "directions": 4
-    },
+			"name": "antitoxfirstaid"
+		},
 		{
-			"name": "toxinkit"
+			"name": "antitoxfirstaid2"
+		},
+		{
+			"name": "antitoxfirstaid3"
 		},
 		{
       "name": "toxinkit-inhand-right",
@@ -73,8 +63,31 @@
       "name": "toxinkit-inhand-left",
       "directions": 4
     },
+		{
+			"name": "radfirstaid"
+		},
+		{
+			"name": "radfirstaid2"
+		},
+		{
+			"name": "radfirstaid3"
+		},
+		{
+      "name": "radkit-inhand-right",
+      "directions": 4
+    },
     {
-			"name": "purplekit"
+      "name": "radkit-inhand-left",
+      "directions": 4
+    },
+    {
+			"name": "purplefirstaid"
+		},
+    {
+			"name": "purplefireaid"
+		},
+    {
+			"name": "purpletoxaid"
 		},
 		{
       "name": "purplekit-inhand-right",
@@ -85,14 +98,17 @@
       "directions": 4
     },
     {
-			"name": "blackkit"
+			"name": "surgery"
+		},
+    {
+			"name": "surgerykit"
 		},
 		{
-      "name": "blackkit-inhand-right",
+      "name": "surgery-inhand-right",
       "directions": 4
     },
     {
-      "name": "blackkit-inhand-left",
+      "name": "surgery-inhand-left",
       "directions": 4
     },
     {
@@ -104,6 +120,17 @@
     },
     {
       "name": "advkit-inhand-left",
+      "directions": 4
+    },
+    {
+			"name": "bezerk"
+		},
+		{
+      "name": "bezerk-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "bezerk-inhand-left",
       "directions": 4
     }
 	]
