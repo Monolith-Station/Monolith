@@ -77,6 +77,9 @@ public partial class SharedGunSystem
             Deleted(args.Target))
             return;
 
+        if (HasComp<GunComponent>(args.Target.Value))
+            return;
+
         // Ensure the target of interaction has a valid component.
         var validComponent = false;
         TimeSpan fillDelay = component.FillDelay;

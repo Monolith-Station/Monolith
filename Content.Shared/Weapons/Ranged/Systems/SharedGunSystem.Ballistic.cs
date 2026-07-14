@@ -1,5 +1,6 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
@@ -16,6 +17,7 @@ public abstract partial class SharedGunSystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
 
     protected virtual void InitializeBallistic()
@@ -28,6 +30,7 @@ public abstract partial class SharedGunSystem
 
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ExaminedEvent>(OnBallisticExamine);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, GetVerbsEvent<Verb>>(OnBallisticVerb);
+        SubscribeLocalEvent<BallisticAmmoProviderComponent, GetVerbsEvent<AlternativeVerb>>(OnBallisticAltVerb);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, InteractUsingEvent>(OnBallisticInteractUsing);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, AfterInteractEvent>(OnBallisticAfterInteract);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, AmmoFillDoAfterEvent>(OnBallisticAmmoFillDoAfter);
@@ -74,6 +77,9 @@ public abstract partial class SharedGunSystem
         {
             return;
         }
+
+        if (HasComp<GunComponent>(args.Target.Value))
+            return;
 
         // Frontier: better revolver reloading
         // Ensure the target of interaction has a valid component.
@@ -215,6 +221,46 @@ public abstract partial class SharedGunSystem
             });
 
         }
+    }
+
+    private void OnBallisticAltVerb(EntityUid uid, BallisticAmmoProviderComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.Hands == null)
+            return;
+
+        args.Verbs.Add(new AlternativeVerb()
+        {
+            Text = Loc.GetString("gun-ballistic-cycled"),
+            Disabled = GetBallisticShots(component) == 0,
+            Act = () => EjectSingleBallisticRound(uid, component, args.User),
+            Priority = 1
+        });
+    }
+
+    private void EjectSingleBallisticRound(EntityUid uid, BallisticAmmoProviderComponent component, EntityUid user)
+    {
+        if (GetBallisticShots(component) == 0)
+            return;
+
+        var coordinates = Transform(user).Coordinates;
+        var ammo = new List<(EntityUid? Entity, IShootable Shootable)>();
+        var ev = new TakeAmmoEvent(1, ammo, coordinates, user);
+        RaiseLocalEvent(uid, ev);
+
+        foreach (var (ent, _) in ammo)
+        {
+            if (ent == null)
+                continue;
+
+            if (!_hands.TryPickupAnyHand(user, ent.Value, animateUser: true))
+            {
+                EjectCartridge(ent.Value, playSound: false);
+            }
+        }
+
+        Audio.PlayPredicted(component.SoundInsert, uid, user);
+        UpdateBallisticAppearance(uid, component);
+        UpdateAmmoCount(uid);
     }
 
     private void OnBallisticExamine(EntityUid uid, BallisticAmmoProviderComponent component, ExaminedEvent args)
