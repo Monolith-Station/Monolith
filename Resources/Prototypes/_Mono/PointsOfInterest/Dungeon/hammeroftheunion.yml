@@ -12,7 +12,7 @@
   parent: [BaseMobilePOI, BaseRepairablePOI]
   name: 'Hammer Of The Union'
   minimumDistance: 10000
-  maximumDistance: 15000
+  maximumDistance: 20000
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/Dungeons/hammeroftheunion.yml
   addComponents:

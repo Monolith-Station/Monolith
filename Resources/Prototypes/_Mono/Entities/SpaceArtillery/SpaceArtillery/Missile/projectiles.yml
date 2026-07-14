@@ -9,7 +9,7 @@
     fixtures:
       hit:
         shape: !type:PhysShapeCircle
-          radius: 2
+          radius: 4
         layer:
         - BulletImpassable # Mono - ProjectileGridPhase will take care of collisions with same ship shots
         - Opaque
@@ -37,7 +37,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -70,7 +70,7 @@
     scale: 1
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 2.5
+    lifetime: 5
   - type: PointLight
     radius: 3.5
     color: orange
@@ -78,16 +78,16 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 6
+    totalIntensity: 8
     intensitySlope: 3
-    maxIntensity: 3
+    maxIntensity: 5
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 50
-    detectionRange: 500
-    scanArc: 35
+    detectionRange: 1200
+    scanArc: 15
     launchSpeed: 150
     maxSpeed: 300
     trackDelay: 0.1
@@ -95,7 +95,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 15
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -129,7 +129,7 @@
     scale: 1.5
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 6
+    lifetime: 12
   - type: PointLight
     radius: 3.5
     color: orange
@@ -137,16 +137,16 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 10
+    totalIntensity: 50
     intensitySlope: 4
-    maxIntensity: 4
+    maxIntensity: 15
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 50
-    detectionRange: 600
-    scanArc: 40
+    detectionRange: 1600
+    scanArc: 20
     launchSpeed: 90
     maxSpeed: 300
     trackDelay: 0.2
@@ -160,7 +160,7 @@
   - type: TargetSeeking
     acceleration: 50
     detectionRange: 0
-    scanArc: 40
+    scanArc: 0
     launchSpeed: 90
     maxSpeed: 300
 
@@ -189,7 +189,7 @@
     scale: 2.5
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 8
+    lifetime: 16
   - type: PointLight
     radius: 3.5
     color: orange
@@ -197,19 +197,19 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 35
+    totalIntensity: 300
     intensitySlope: 6
-    maxIntensity: 10
+    maxIntensity: 25
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 80
-    detectionRange: 1000
-    scanArc: 40
+    detectionRange: 2400
+    scanArc: 15
     launchSpeed: 120
     maxSpeed: 450
-    trackDelay: 0.25
+    trackDelay: 0.15
 
 - type: entity
   id: ShipMissileASM250
@@ -233,7 +233,7 @@
     scale: 2
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 7
+    lifetime: 14
   - type: PointLight
     radius: 3.5
     color: orange
@@ -245,20 +245,20 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 20
+    totalIntensity: 40
     intensitySlope: 10
-    maxIntensity: 15
-    maxTileBreak: 1
+    maxIntensity: 25
+    maxTileBreak: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 60
-    detectionRange: 600
-    scanArc: 45
+    detectionRange: 2400
+    scanArc: 15
     launchSpeed: 60
     maxSpeed: 400
-    trackDelay: 0.6
+    trackDelay: 0.2
 
 # Serpent Torpedo
 
@@ -285,7 +285,7 @@
     scale: 4
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 18
+    lifetime: 36
   - type: PointLight
     radius: 5
     color: orange
@@ -293,24 +293,25 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 10
+    maxIntensity: 600
     intensitySlope: 3
-    totalIntensity: 75
+    totalIntensity: 150
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 10 # low
-    detectionRange: 600
-    scanArc: 30
+    detectionRange: 2000
+    scanArc: 10
     launchSpeed: 25
     maxSpeed: 300
     trackDelay: 2
+    trackingAlgorithm: AdvancedPredictive
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 100
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -345,7 +346,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 6.5
+    lifetime: 13
   - type: PointLight
     radius: 5
     color: orange
@@ -353,18 +354,19 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBombShipGun
-    maxIntensity: 350
+    maxIntensity: 450
     intensitySlope: 5
     totalIntensity: 550
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 80
-    detectionRange: 1000
-    scanArc: 45
+    acceleration: 170
+    detectionRange: 1200
+    scanArc: 60
     launchSpeed: 100
     maxSpeed: 300
     trackDelay: 2
+    trackingAlgorithm: AdvancedPredictive
   - type: EmpOnTrigger
     range: 7
     energyConsumption: 2900000

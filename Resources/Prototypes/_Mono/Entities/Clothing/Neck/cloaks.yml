@@ -75,6 +75,15 @@
 
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingNeckTSFCloak
+  name: tsf officer's cloak
+  description: A more subtle TSFMC cloak for an officer to blend in while still appearing commanding.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Cloaks/tsfcloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ClothingNeckCloakCOG
   name: Old robe
   description: An ancient crimson draping from a now-defunct cult.

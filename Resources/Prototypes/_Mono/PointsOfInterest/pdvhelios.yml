@@ -9,8 +9,8 @@
   id: HeliosFortress
   parent: [BasePOI, BaseRepairablePOI]
   name: 'PDV Helios Fortress'
-  minimumDistance: 7500
-  maximumDistance: 9500
+  minimumDistance: 8600
+  maximumDistance: 11500
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoRogueUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/pdvhelios.yml
@@ -18,6 +18,13 @@
   - type: IFF
     color: "#DE9E59"
     readOnly: true # mono
+  - type: WorldGenDistanceCarver
+    distanceThresholds:
+    # Dead zone
+    - maxDistance: 800
+      prob: 0.0
+    - maxDistance: 1500
+      prob: 0.3
 
 - type: gameMap
   id: HeliosFortress
@@ -78,9 +85,16 @@
       gridComponents:
       - type: VesselInfo
         description: "An oppressive imperial aura lurks here. Glory to the Sultan."
+      - type: Tag
+        tags:
+        - PdvStation
       components:
         - type: StationNameSetup
           mapNameTemplate: 'PDV Helio Fortress'
+        - type: StationEventEligible
+        - type: NpcFactionMember
+          factions:
+          - PirateNF
         - type: ExtraStationInformation
           icon: /Textures/_NF/Interface/Pirate/piratelogo.png
           stationSubtext: 'frontier-lobby-pirate-subtext'

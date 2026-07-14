@@ -1,60 +1,55 @@
 - type: entity
-  parent: BaseWeaponRifle # Mono
-  id: WeaponRifleMR3C # Mono
-  name: SKR-WS QBU-430 Bandit (8x65mm SKR) # Mono
-  description: A precise and reliable bullpup DMR, developed as a cheaper production model from early QBU-243 prototypes. Feeds from 8x65mm STANAG magazines. It has a Erebus railmount for optics. # Mono
+  name: NCI AK-502 (7.62x39mm)
+  parent: BaseWeaponRifle
+  id: WeaponRifleAK502
+  description: A standard-issue USSP combat rifle. Uses 7.62x39mm ammo. It has an Erebus railmount attached to the carryhandle for optics.
   components:
   - type: Sprite
-    sprite: _Harmony/Objects/Weapons/Guns/Rifles/bandit.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/ak502.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
-    - map: ["opticAttachment"] # Mono
-  - type: Clothing
-    sprite: _Harmony/Objects/Weapons/Guns/Rifles/bandit.rsi
-  - type: GunWieldBonus # Mono
-    minAngle: -32
-    maxAngle: -51
+    - map: ["opticAttachment"]
+  - type: GunWieldBonus
+    minAngle: -21
+    maxAngle: -47
   - type: Gun
-    minAngle: 32 # Mono
-    maxAngle: 54 # Mono
-    angleIncrease: 14
-    angleDecay: 5
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    fireRate: 2
+    minAngle: 21
+    maxAngle: 52
+    angleIncrease: 6
+    angleDecay: 24
+    fireRate: 5 # 300 rpm
     soundGunshot:
-      collection: DMRFire
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/ak_fire.ogg
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/ak502.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: Magazine8x65mmSKR # Mono
-        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        startingItem: Magazine762x39mmFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
         priority: 2
         whitelist:
           tags:
-          - Magazine8x65mmSKR # Mono
+          - Magazine762x39mmFMJ
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: Cartridge8x65mmSKR # Mono
+        startingItem: Cartridge762x39mmFMJ
         priority: 1
         whitelist:
           tags:
-          - Cartridge8x65mmSKR # Mono
-      # Mono
+          - Cartridge762x39mmFMJ
       attachment_optic:
         insertSound: /Audio/Items/screwdriver2.ogg
         ejectSound: /Audio/Items/screwdriver2.ogg
-        startingItem: GunAttachmentOpticErebus4x
         priority: 0
         whitelist:
           tags:
@@ -63,16 +58,14 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-      attachment_optic: !type:ContainerSlot # Mono
+      attachment_optic: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
     steps: 1
     zeroVisible: true
   - type: Appearance
-    # Mono start
-  - type: SpeedModifiedOnWield
-    walkModifier: 0.75
-    sprintModifier: 0.75
+  - type: StaticPrice
+    price: 1200
   # Attachment slop
   - type: ESAttachableGun
     slots:
@@ -107,4 +100,3 @@
         whitelist:
           tags:
           - MonoOptic8x
-    # Mono end
