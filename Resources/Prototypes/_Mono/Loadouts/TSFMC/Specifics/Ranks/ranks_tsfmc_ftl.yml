@@ -30,10 +30,10 @@
       !type:RoleTimeRequirement
       role: JobTsfTeamleader
       time: 36000 # 10hr
-    alternateRequirement:
-      - !type:RoleTimeRequirement
-        role: JobSeniorOfficer
-        time: 36000
+    alternateRequirementSets:
+        - !type:RoleTimeRequirement
+          role: JobSeniorOfficer
+          time: 36000
 
 - type: loadout
   id: TsfmcRankE7FTL
@@ -53,10 +53,10 @@
       !type:RoleTimeRequirement
       role: JobTsfTeamleader
       time: 180000 # 10hr
-    alternateRequirement:
-      - !type:RoleTimeRequirement
-        role: JobSeniorOfficer
-        time: 180000
+      alternateRequirementSets:
+        - !type:RoleTimeRequirement
+          role: JobSeniorOfficer
+          time: 180000
 
 - type: loadout
   id: TsfmcRankE8FTL
@@ -86,7 +86,7 @@
       !type:RoleTimeRequirement
       role: JobTsfTeamleader
       time: 360000 # 10hr
-    alternateRequirement:
-      - !type:RoleTimeRequirement
-        role: JobSeniorOfficer
-        time: 360000
+      alternateRequirementSets:
+        - !type:RoleTimeRequirement
+          role: JobSeniorOfficer
+          time: 360000
