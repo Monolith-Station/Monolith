@@ -63,6 +63,20 @@
     - QJ340
 
 - type: entity
+  id: TSFNChengduComputer
+  parent: BaseCarrierComputer
+  name: TSFN Chengdu internal hangar console
+  description: Lighter shipyard using the Chengdu's internal hangars, doesn't have access to the full roster of TSFMC ships.
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Jaguar
+    - Ocelot
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
+
+- type: entity
   id: LedokolAttachmentComputer
   parent: BaseCarrierComputer
   name: ledokol attachment console

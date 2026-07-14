@@ -80,13 +80,15 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Piercing: 180 # Substitute right now since theres no AP for hitscan iirc
+        Piercing: 120
         Structural: 500
+    armorPenetration: 0.8
   - type: HitscanBasicRaycast
     maxDistance: 200
     collisionMask:
     - Impassable
     - Opaque
+    - HighImpassable
   - type: HitscanReflect
     reflectiveType: None
   - type: HitscanBasicVisuals

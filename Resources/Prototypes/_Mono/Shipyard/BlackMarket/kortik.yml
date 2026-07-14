@@ -1,0 +1,42 @@
+#Author: kasature90 (github) / _starch_ (discord).
+
+- type: vessel
+  id: Kortik
+  parent: BaseVesselAntag
+  name: PDV-NCI Kortik-EM
+  description: A further upgrade to the Kortik-R, swapping the 2 R-300 howitzers for 2 CHARON mass drivers. FULLY UNABLE TO USE SHIELD GENERATORS.
+  limit: 1
+  hyperwarLimit: 2
+  hyperwarTimelock: 3600
+  price: 298000
+  purchasable: false # Voucher only
+  category: Large
+  group: BlackMarket
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/kortik.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  - Frigate
+  engine:
+  - AME
+
+- type: gameMap
+  id: Kortik
+  mapName: 'Kortik'
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/kortik.yml
+  minPlayers: 0
+  stations:
+    Kortik:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: ShipShieldDisabledGrid
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Kortik PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

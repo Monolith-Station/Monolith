@@ -32,6 +32,8 @@
     - type: NpcFactionMember
       factions:
       - USSP
+    - type: ChatRank
+      rank: ussp-commissar
   - !type:AddLanguageSpecial
     languagesSpoken:
     - NovaCygniBasic

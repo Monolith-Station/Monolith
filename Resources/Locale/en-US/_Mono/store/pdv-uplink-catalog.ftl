@@ -298,5 +298,11 @@ uplink-pdv-t2-motleyanne-voucher-desc = A small card that contains the data for 
 uplink-pdv-t3-saintie-voucher-name = PDV Saintie LPC [T3]
 uplink-pdv-t3-saintie-voucher-desc = A small card that contains the data for the procurement of a Saintie-class cruiser from the flagship's reserves.
 
+uplink-pdv-t2-kortik-voucher-name = PDV Kortik-R LPC [T2]
+uplink-pdv-t2-kortik-voucher-desc = A small card that contains the data for the procurement of a Kortik-R-class frigate from the flagship's reserves.
+
+uplink-pdv-t3-kortik-voucher-name = PDV Kortik-EM LPC [T3]
+uplink-pdv-t3-kortik-voucher-desc = A small card that contains the data for the procurement of a Kortik-EM-class frigate from the flagship's reserves.
+
 uplink-pdv-t4-saturn-voucher-name = PDV Saturn LPC [T4]
 uplink-pdv-t4-saturn-voucher-desc = A small card that authorizes the procurement of the Saturn.

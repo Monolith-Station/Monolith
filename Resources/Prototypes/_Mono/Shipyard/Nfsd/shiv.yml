@@ -4,9 +4,10 @@
   id: Shiv
   parent: BaseVesselAntag
   name: TSF-PIN Shiv
-  description: The workhorse of industry of the Solarian fleets, comes with an artifact research bay and good mining capabilities.
+  description: The workhorse of industry of the Solarian fleets; rugged, ancient, some may even say obsolete. Comes with an artifact research bay and good mining capabilities.
   price: 60000
   category: Small
+  hyperwarTimelock: 0
   group: Security
   access: Security
   shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/shiv.yml
@@ -25,6 +26,9 @@
   stations:
     Shiv:
       stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "A vessel so rugged you can still see the radiation scarring after the new paintjob."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Shiv TSF{1}'

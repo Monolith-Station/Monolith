@@ -253,3 +253,111 @@
   - type: MaterialStorage
     storage:
       FuelGradePlasma: 2500
+
+# Stealth gen
+
+- type: entity
+  name: ZQ-340 sterling generator
+  description: A highly inefficient and expensive yet stealthy generator developed under TSFN-SWP. Drains plasma like there's no tomorrow, but you can bet on it hiding you thermally.
+  parent:
+  - BaseStructureDisableToolUse
+  - StaticGeneratorBase
+  id: GeneratorSterling
+  suffix: Plasma, 40 kW
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Power/Generators/sterling_reactor.rsi
+    layers:
+    - state: portgen0
+      map: [ "enum.GeneratorVisualLayers.Body" ]
+    - state: portgen_on_unlit
+      map: [ "enum.GeneratorVisualLayers.Unlit" ]
+      shader: unshaded
+      visible: false
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+    flags: Anchorable
+  - type: GenericVisualizer
+    visuals:
+      enum.GeneratorVisuals.Running:
+        enum.GeneratorVisualLayers.Body:
+          True: { state: portgen0on }
+          False: { state: portgen0 }
+  - type: FuelGenerator
+    minTargetPower: 1000
+    maxTargetPower: 50000
+    targetPower: 40000
+    optimalPower: 10000
+    optimalBurnRate: 0.05 # Insanely fast burning. You gotta deal with the tradeoffs for stealth.
+    fuelEfficiencyConstant: 0.95
+  - type: SolidFuelGeneratorAdapter
+    fuelMaterial: FuelGradePlasma
+    multiplier: 0.01
+  - type: MaterialStorage
+    materialWhiteList: [Plasma, FuelGradePlasma]
+  - type: PowerMonitoringDevice
+    sprite: _Mono/Structures/Power/Generators/sterling_reactor.rsi
+    state: portgen0
+  - type: AmbientSound
+    volume: 1
+    enabled: false
+    sound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg
+  - type: PowerSupplier
+    supplyRampRate: 10000
+    supplyRampTolerance: 3000
+    heatSignatureRatio: 0.5 # 1/8th normal!
+  - type: FuelGradeAdapter
+    inputMaterial: Plasma
+    outputMaterial: FuelGradePlasma
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 300 # very expensive
+  - type: ThermalSignature
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#fcba03"
+    scale: 2
+    shape: square
+    gridConfig:
+      color: "#fcba03"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.5,-0.5,0.5,0.5"
+  - type: StaticPrice
+    price: 12000
+
+- type: entity
+  parent:
+  - BaseGeneratorShuttle
+  - GeneratorSterling
+  id: GeneratorSterlingShuttle
+  suffix: Plasma, 40 kW, Ship
+  components:
+  - type: MaterialStorage
+    storage:
+      FuelGradePlasma: 25000
+
+# identical but different name for larp lol
+- type: entity
+  parent: GeneratorSterling
+  name: RD-540 sterling generator
+  description: A highly inefficient and expensive yet stealthy generator, reverse-engineered from TSF ZQ-340s. Drains plasma like there's no tomorrow, but you can bet on it hiding you thermally.
+  id: GeneratorSterlingPDV
+
+- type: entity
+  parent:
+  - BaseGeneratorShuttle
+  - GeneratorSterlingPDV
+  id: GeneratorSterlingPDVShuttle
+  suffix: Plasma, 40 kW, Ship
+  components:
+  - type: MaterialStorage
+    storage:
+      FuelGradePlasma: 25000

@@ -82,7 +82,7 @@
   - FrontierRoundstartVariation
   - MonoAISTCShuttleSpawnerScheduler
   - MonoAISTCShuttleSpawnerSchedulerTier2
-  - MonoAsakimSTCShuttleSpawnerScheduler
+  #- MonoAsakimSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
   - PortstrikeAnnounceRuleHour4
 
@@ -119,7 +119,7 @@
   - MonoChimeraSTCShuttleSpawnerSchedulerSlow
   - MonoAISTCShuttleSpawnerSchedulerSlow
   - MonoAISTCShuttleSpawnerSchedulerTier2Slow
-  - MonoAsakimSTCShuttleSpawnerSchedulerSlow
+  #- MonoAsakimSTCShuttleSpawnerSchedulerSlow
   - MonoMonolithicEventsScheduler
   - PortstrikeAnnounceRuleHour4
 
@@ -139,7 +139,7 @@
   - FrontierRoundstartVariation
   - MonoChimeraSTCShuttleSpawnerSchedulerApocalypse
   - MonoAISTCShuttleSpawnerSchedulerApocalypse
-  - MonoAsakimSTCShuttleSpawnerSchedulerApocalypse
+  #- MonoAsakimSTCShuttleSpawnerSchedulerApocalypse
   - MonoMonolithicEventsScheduler
   - RoundEndRuleHour3
   - PortstrikeAnnounceRuleHour1
@@ -153,4 +153,4 @@
   - NFAdventure
   - Hyperwar
   - RoundEndRuleHour3
-  - PortstrikeAnnounceRuleMinute90
+  - PortstrikeAnnounceRuleHour2
