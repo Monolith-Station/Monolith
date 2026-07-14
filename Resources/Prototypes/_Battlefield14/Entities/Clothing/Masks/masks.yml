@@ -60,12 +60,15 @@
     - Hair
     hideOnToggle: true
   - type: NightVision
-    color: "#407614"
-    noise: 0.5 #  base noise
-    strength: 1 # prevents white tiles looking like shit
-    activateSound: /Audio/_Battlefield14/Effects/nightvision.ogg
-    flashDurationMultiplier: 1.5
-    isEquipment: true
+    relayOverlay: true
+    goggleEffect: true
+    viewCircleRadius: 400
+    viewCircleCount: 1
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#00FF00"
+#    activateSound: /Audio/_Battlefield14/Effects/nightvision.ogg
+#    flashDurationMultiplier: 1.5
   - type: IngestionBlocker
     blockSmokeIngestion: true
 

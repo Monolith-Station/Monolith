@@ -80,11 +80,11 @@
     needsHands: false
   - type: ComplexInteraction
   - type: ZombieImmune
-  - type: NightVision # Gen 3 wide-quadtube
+  - type: NightVision
     relayOverlay: false
     goggleEffect: true
-    viewCircleRadius: 450
-    viewCircleCount: 4
+    viewCircleRadius: 400
+    viewCircleCount: 1
     viewCircleSpacing: 280
     action: ActionToggleNightVision
     phosphorColor: "#00FF00"
