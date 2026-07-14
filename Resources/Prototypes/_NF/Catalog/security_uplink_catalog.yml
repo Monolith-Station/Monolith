@@ -946,6 +946,22 @@
           - SecurityUplink
 
 - type: listing
+  id: UplinkSecurityImplanterTSF
+  name: uplink-security-implanter-tsf-name
+  description: uplink-security-implanter-tsf-desc
+  icon: { sprite: _NF/Objects/Devices/encryption_keys.rsi, state: nfsd_label }
+  productEntity: RadioImplanterTsf
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+  - UplinkSecurityUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
   id: UplinkSecurityEnergyShield
   name:  uplink-security-energyshield-name
   description: uplink-security-energyshield-desc

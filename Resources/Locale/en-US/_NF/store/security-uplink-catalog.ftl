@@ -162,3 +162,5 @@ uplink-security-contraband-forensics-module-name = Contraband Forenics Module
 uplink-security-contraband-forensics-module-desc = A program for scanning and reporting contraband dead drops and pods for bounties. Slots into a forensic scanner.
 uplink-security-mechpulserifle-name = CL-94 Pulse Emitter
 uplink-security-mechpulserifle-desc = A mech-mounted Pulse Rifle.
+uplink-security-implanter-tsf-name = Tsf Implanter
+uplink-security-implanter-tsf-desc = Implants an Tsf radio, allowing covert communication without a headset.

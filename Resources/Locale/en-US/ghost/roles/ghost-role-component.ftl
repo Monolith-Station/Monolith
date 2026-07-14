@@ -35,6 +35,17 @@ ghost-role-information-mouse-description = A hungry and mischievous mouse.
 ghost-role-information-mothroach-name = Mothroach
 ghost-role-information-mothroach-description = A cute but mischievous mothroach.
 
+ghost-role-information-moproach-name = Moproach
+ghost-role-information-moproach-description = A cute mothroach with more cute moplike shoes on its feet.
+
+ghost-role-information-boomroach-name = Boomroach
+ghost-role-information-boomroach-description = This little mothroach has a chinalake strapped to its back! Why and how?
+
+ghost-role-information-syndiroach-name = SyndiRoach
+ghost-role-information-syndiroach-description = You're the faithful trained pet of PDV operatives with a microbomb. Serve your master to the death!
+ghost-role-information-syndiroach-rules = You are a [color=red][bold]Team PDV[/bold][/color] with the agent who summoned you.
+
+
 ghost-role-information-snail-name = Snail
 ghost-role-information-snail-description = A little snail who doesn't mind a bit of space. Just stay on grid!
 

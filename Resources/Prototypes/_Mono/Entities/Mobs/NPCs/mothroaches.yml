@@ -1,0 +1,272 @@
+- type: entity
+  name: moproach
+  parent: MobMothroach
+  id: MobMoproach
+  description: This little mothroach has mopshoes on its feet! How adorable!
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-moproach-name
+    description: ghost-role-information-moproach-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Squeak
+    allowedEmotes: ['Chitter', 'Squeak']
+  - type: FaxableObject
+    insertingState: inserting_mothroach
+  - type: MothAccent
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/moproach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mothroach-moving
+    noMovementLayers:
+      movement:
+        state: mothroach
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/moproach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Critical:
+        Base: mothroach_dead
+      Dead:
+        Base: mothroach_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      45: Critical
+      65: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 5 # extra speed for that moppin'!
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    baseWeightlessModifier: 1
+  - type: HTN
+    rootTask:
+      task: MoproachCompound
+  - type: Absorbent
+    pickupAmount: 7.5 # small feet
+  - type: UseDelay
+    delay: 0.5 # quick feet
+  - type: SolutionRegeneration
+    solution: absorbed
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 5
+  - type: SolutionPurge
+    solution: absorbed
+    preserve:
+    - Water
+    quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      absorbed:
+        maxVol: 100
+  - type: ProtectedFromStepTriggers
+  - type: Insulated
+
+
+- type: entity
+  name: Boomroach
+  parent: MobMothroach
+  id: MobBoomroach
+  description: This little mothroach has a chinalake strapped to its back! Why and how?
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-boomroach-name
+    description: ghost-role-information-boomroach-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: AutoImplant
+    implants:
+    - RadioImplantCivilian
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Traffic
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Traffic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Squeak
+    allowedEmotes: ['Chitter', 'Squeak']
+  - type: FaxableObject
+    insertingState: inserting_mothroach
+  - type: MothAccent
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/boomroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mothroach-moving
+    noMovementLayers:
+      movement:
+        state: mothroach
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/boomroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Critical:
+        Base: mothroach_dead
+      Dead:
+        Base: mothroach_dead
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Moffic
+    understands:
+    - Moffic
+    - TauCetiBasic # Needs to understand your nukie ops.
+
+- type: entity
+  name: syndiroach
+  parent: MobMothroach
+  id: MobMothSyndy
+  description: Trained and elite member of the PDV, bewarned explosive personallity
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-syndiroach-name
+    description: ghost-role-information-syndiroach-description
+    rules: ghost-role-information-syndiroach-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+  - type: AutoImplant
+    implants:
+    - FreelanceTrackingImplant
+    - RadioImplantFreelance
+    - MicroBombImplant
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Traffic
+    - Freelance
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Traffic
+    - Freelance
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Squeak
+    allowedEmotes: ['Chitter', 'Squeak']
+  - type: FaxableObject
+    insertingState: inserting_mothroach
+  - type: MothAccent
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/syndiroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mothroach-moving
+    noMovementLayers:
+      movement:
+        state: mothroach
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/syndiroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Critical:
+        Base: mothroach_dead
+      Dead:
+        Base: mothroach_dead
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Moffic
+    - Freespeak
+    understands:
+    - Moffic
+    - TauCetiBasic # Needs to understand your nukie ops.
+    - Freespeak
