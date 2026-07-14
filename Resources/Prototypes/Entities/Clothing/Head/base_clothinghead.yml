@@ -182,15 +182,15 @@
     - HeadTop
     - HeadSide
   # Mono - basic NVDs for everyone!
-  - type: NightVision # Gen 2 monotube
-    relayOverlay: true
-    goggleEffect: true
-    action: ActionToggleNightVision
-    viewCircleRadius: 300
-    viewCircleCount: 1
-    viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
-    lightingColor: "#FFFFFF32"
+#BF14  - type: NightVision # Gen 2 monotube
+#BF14    relayOverlay: true
+#BF14    goggleEffect: true
+#BF14    action: ActionToggleNightVision
+#BF14    viewCircleRadius: 300
+#BF14    viewCircleCount: 1
+#BF14    viewCircleSpacing: 280
+#BF14    phosphorColor: "#00FF00"
+#BF14    lightingColor: "#FFFFFF32"
 
 - type: entity
   abstract: true
