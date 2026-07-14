@@ -687,7 +687,24 @@ public abstract class SharedStorageSystem : EntitySystem
             return;
         }
 
-        Insert(uid, toInsert, out _, user: args.Args.User, component);
+        if (args.Location != null)
+        {
+            if (!ItemFitsInGridLocation((toInsert, null), (uid, component), args.Location.Value))
+                return;
+
+            component.StoredItems[toInsert] = args.Location.Value;
+            Dirty(uid, component);
+
+            if (!Insert(uid, toInsert, out _, user: args.Args.User, component))
+            {
+                component.StoredItems.Remove(toInsert);
+                return;
+            }
+        }
+        else
+        {
+            Insert(uid, toInsert, out _, user: args.Args.User, component);
+        }
     }
 
     private void OnReclaimed(EntityUid uid, StorageComponent storageComp, GotReclaimedEvent args)
@@ -1134,6 +1151,20 @@ public abstract class SharedStorageSystem : EntitySystem
 
         if (!ItemFitsInGridLocation(insertEnt, uid, location))
             return false;
+
+        if (uid.Comp.InsertDoAfterDelay > TimeSpan.Zero && user != null)
+        {
+            var doAfterArgs = new DoAfterArgs(EntityManager, user.Value, uid.Comp.InsertDoAfterDelay,
+                new InsertItemIntoStorageDoAfterEvent(GetNetEntity(insertEnt), location), uid, target: uid)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                NeedHand = true,
+            };
+
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
+            return true;
+        }
 
         uid.Comp.StoredItems[insertEnt] = location;
         Dirty(uid, uid.Comp);
