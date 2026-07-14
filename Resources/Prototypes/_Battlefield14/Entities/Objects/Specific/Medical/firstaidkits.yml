@@ -16,6 +16,7 @@
         - Ointment
         - SurgeryTool
         - GasTank
+        - PetWearable
       components:
         - GasTank
         - SurgeryTool # Shitmed
@@ -37,8 +38,8 @@
       - id: Drill
       - id: ClothingMaskBreathMedical
       - id: Scalpel
-      - id: Cautery
       - id: Retractor
       - id: Hemostat
+      - id: Cautery
       - id: BoneGel # Shitmed
       - id: BF14AdvancedTraumaKit
