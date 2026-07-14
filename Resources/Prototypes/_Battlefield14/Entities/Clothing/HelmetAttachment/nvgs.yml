@@ -8,7 +8,7 @@
   - type: Sprite
     sprite: _Battlefield14/Clothing/HelmetAttachment/nvg.rsi
   - type: Clothing
-    sprite: _Battlefield14/Clothing/HelmetAttachment/nvg.rsi
+    sprite: _Mono/Clothing/HelmetAttachment/basic_optoelectronics_nvgs.rsi
     clothingVisuals:
       helmetattachment:
       - state: equipped-HELMETATTACHMENT
@@ -16,7 +16,7 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 550
+    viewCircleRadius: 450
     viewCircleCount: 1
     viewCircleSpacing: 280
     phosphorColor: "#00FF00"
@@ -27,13 +27,13 @@
   parent: ClothingHelmetAttachmentBase
   id: ClothingHelmetAttachmentNVGsBasicNATO
   suffix: NATO
-  name: commercial night vision goggles
-  description: 3rd generation bioculars made from commercial manufacture for mass mobilised soldiers.
+  name: AN/PVS-7 biocular night vision device
+  description: A basic biocular night vision device, showing the same image to both eyes.
   components:
   - type: Sprite
-    sprite: _Battlefield14/Clothing/HelmetAttachment/nvg_blue.rsi
+    sprite: _Battlefield14/Clothing/HelmetAttachment/nvg.rsi
   - type: Clothing
-    sprite: _Battlefield14/Clothing/HelmetAttachment/nvg_blue.rsi
+    sprite: _Mono/Clothing/HelmetAttachment/basic_optoelectronics_nvgs.rsi
     clothingVisuals:
       helmetattachment:
       - state: equipped-HELMETATTACHMENT
@@ -41,9 +41,34 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 550
+    viewCircleRadius: 450
     viewCircleCount: 1
     viewCircleSpacing: 280
     phosphorColor: "#00FF00"
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
+  parent: ClothingHelmetAttachmentBase
+  id: ClothingHelmetAttachmentNVGsNATOPVS14Binocular
+  suffix: NATO
+  name: AN/PVS-14 biocular night vision device
+  description: 3rd generation binoculars with white phosphor, developed for United States Army personnel.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/HelmetAttachment/nvg_binocular_blue.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/HelmetAttachment/nvg_binocular_blue.rsi
+    clothingVisuals:
+      helmetattachment:
+      - state: equipped-HELMETATTACHMENT
+  - type: NightVision
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 450
+    viewCircleCount: 2
+    viewCircleSpacing: 300
+    phosphorColor: "#679baf"
   - type: IdentityBlocker
     coverage: EYES
