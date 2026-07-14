@@ -96,3 +96,123 @@
   - NocturineChemistryBottle
   - WeaponSubMachineGunMla73
   - Magazine635x40mmCaselessBig
+
+# PDV Tarkhan
+
+- type: thiefBackpackSet # shotgun set
+  id: KitSelectorPDVTarkhanBreacher
+  name: selectable-set-pdvtarkhan-breacher-kit-name
+  description: selectable-set-pdvtarkhan-breacher-kit-desc
+  sprite:
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/flagbearer.rsi
+    state: icon
+  content:
+  - WeaponShotgunFlagbearer
+  - WeaponPistolAnaconda
+  - AmmoBox12_gaugeBuckshot
+  - AmmoBox12_gaugeBuckshot
+  - AmmoBox12_gaugeBuckshot
+  - AmmoBox12_gaugeBuckshot
+  - AccessBreaker
+  - JawsOfLife
+  - MedkitCombatFilled
+
+- type: thiefBackpackSet # rifle set
+  id: KitSelectorPDVTarkhanMolot
+  name: selectable-set-pdvtarkhan-molot-kit-name
+  description: selectable-set-pdvtarkhan-molot-kit-desc
+  sprite:
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/molot.rsi
+    state: icon
+  content:
+  - WeaponRifleMolot
+  - WeaponVT7
+  - Magazine762x51mmFMJ
+  - Magazine762x51mmFMJ
+  - Magazine762x51mmFMJ
+  - Magazine762x51mmFMJ
+  - AccessBreaker
+  - MedkitCombatFilled
+
+- type: thiefBackpackSet # LMG set
+  id: KitSelectorPDVTarkhanWSPR
+  name: selectable-set-pdvtarkhan-wspr-kit-name
+  description: selectable-set-pdvtarkhan-wspr-kit-desc
+  sprite:
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr_tarkhan.rsi
+    state: icon
+  content:
+  - WeaponRifleWSPRTarkhan
+  - AmmoBox762x51mmFMJ
+  - AmmoBox762x51mmFMJ
+  - AmmoBox762x51mmFMJ
+  - AmmoBox762x51mmFMJ
+  - AccessBreaker
+  - MedkitCombatFilled
+
+# TSF MARSOC
+
+- type: thiefBackpackSet # rifle set
+  id: KitSelectorTSFMarsocFenghuang
+  name: selectable-set-tsfmarsoc-fenghuang-kit-name
+  description: selectable-set-tsfmarsoc-fenghuang-kit-desc
+  sprite:
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/fenghuang.rsi
+    state: icon
+  content:
+  - WeaponLMGMR8B
+  - Magazine8x65mmSKR
+  - Magazine8x65mmSKR
+  - Magazine8x65mmSKR
+  - Magazine8x65mmSKR
+  - GunAttachmentGripErebusVFG
+  - JawsOfLife
+  - MedkitCombatFilled
+
+- type: thiefBackpackSet # amr set
+  id: KitSelectorTSFMarsocShenzhen
+  name: selectable-set-tsfmarsoc-shenzhen-kit-name
+  description: selectable-set-tsfmarsoc-shenzhen-kit-desc
+  sprite:
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/shenzhen.rsi
+    state: icon
+  content:
+  - WeaponAMRShenzhen
+  - MagazineShenzhen
+  - MagazineShenzhen
+  - MagazineShenzhen
+  - MagazineShenzhen
+  - AmmoBoxShenzhenBig
+  - JawsOfLife
+  - MedkitCombatFilled
+
+- type: thiefBackpackSet # pulse carbine set
+  id: KitSelectorTSFMarsocPulseCarbine
+  name: selectable-set-tsfmarsoc-pulse-kit-name
+  description: selectable-set-tsfmarsoc-pulse-kit-desc
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    state: base
+  content:
+  - WeaponPulseCarbine
+  - PortableRecharger
+  - WeaponEnergyRevolver
+  - JawsOfLife
+  - MedkitCombatFilled
+
+- type: thiefBackpackSet # hailstorm set
+  id: KitSelectorTSFMarsocHailstorm
+  name: selectable-set-tsfmarsoc-hailstorm-kit-name
+  description: selectable-set-tsfmarsoc-hailstorm-kit-desc
+  sprite:
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/mk348.rsi
+    state: base
+  content:
+  - WeaponLauncherMk348
+  - AmmoBox9x19mmFMJ
+  - AmmoBox9x19mmFMJ
+  - AmmoBox9x19mmFMJ
+  - AmmoBox9x19mmFMJ
+  - WeaponEnergyRevolver
+  - JawsOfLife
+  - MedkitCombatFilled

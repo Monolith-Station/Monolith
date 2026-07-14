@@ -1,0 +1,152 @@
+- type: spaceBiome
+  id: MonoWorldgenHyperwarAsteroidRing
+  parent: NFBiomeBase
+  priority: 1
+  distanceRange: 12250, 12450
+  chunkComponents:
+  - type: DebrisFeaturePlacerController
+    densityNoiseChannel: DensityExtreme
+  - type: SimpleDebrisSelector
+    debrisTable:
+    # Extra Enormous
+    - id: NFAsteroidDebrisExtraEnormous
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidIceDebrisExtraEnormous
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidAndesiteDebrisExtraEnormous
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidBasaltDebrisExtraEnormous
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidSandDebrisExtraEnormous
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidChromiteDebrisExtraEnormous
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidRockDebrisExtraEnormous
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidScrapDebrisExtraEnormous
+      prob: 0.15
+      orGroup: debris
+    # Massive
+    - id: NFAsteroidDebrisMassive
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidIceDebrisMassive
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidAndesiteDebrisMassive
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidBasaltDebrisMassive
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidSandDebrisMassive
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidChromiteDebrisMassive
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidRockDebrisMassive
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidScrapDebrisMassive
+      prob: 0.3
+      orGroup: debris
+    # Extra Massive
+    - id: NFAsteroidDebrisExtraMassive
+      prob: 1
+      orGroup: debris
+    - id: NFAsteroidAndesiteDebrisExtraMassive
+      prob: 1
+      orGroup: debris
+    - id: NFAsteroidBasaltDebrisExtraMassive
+      prob: 1
+      orGroup: debris
+    - id: NFAsteroidSandDebrisExtraMassive
+      prob: 1
+      orGroup: debris
+    - id: NFAsteroidChromiteDebrisExtraMassive
+      prob: 1
+      orGroup: debris
+    - id: NFAsteroidRockDebrisExtraMassive
+      prob: 1
+      orGroup: debris
+    - id: NFAsteroidScrapDebrisExtraMassive
+      prob: 0.5
+      orGroup: debris
+    # Gigantic
+    - id: NFAsteroidDebrisGigantic
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidAndesiteDebrisGigantic
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidBasaltDebrisGigantic
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidSandDebrisGigantic
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidChromiteDebrisGigantic
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidRockDebrisGigantic
+      prob: 0.6
+      orGroup: debris
+    - id: NFAsteroidScrapDebrisGigantic
+      prob: 0.3
+      orGroup: debris
+    # Extra Gigantic
+    - id: NFAsteroidDebrisExtraGigantic
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidAndesiteDebrisExtraGigantic
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidBasaltDebrisExtraGigantic
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidSandDebrisExtraGigantic
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidChromiteDebrisExtraGigantic
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidRockDebrisExtraGigantic
+      prob: 0.3
+      orGroup: debris
+    - id: NFAsteroidScrapDebrisExtraGigantic
+      prob: 0.15
+      orGroup: debris
+  - type: NoiseDrivenDebrisSelector
+    debrisTable:
+    - id: NFWreckDebrisMedium
+      prob: 0.3
+      orGroup: wreck
+    - id: NFWreckDebrisLarge
+      prob: 0.6
+      orGroup: wreck
+    - id: NFWreckDebrisExtraLarge
+      prob: 1
+      orGroup: wreck
+    - id: NFWreckDebrisHuge
+      prob: 0.6
+      orGroup: wreck
+    - id: NFWreckDebrisExtraHuge
+      prob: 0.3
+      orGroup: wreck
+    - id: NFWreckDebrisEnormous
+      prob: 0.15
+      orGroup: wreck
+    - id: NFWreckDebrisBrassSmall
+      prob: 0.03
+      orGroup: wreck
+    - id: NFWreckDebrisBrassMedium
+      prob: 0.006
+      orGroup: wreck

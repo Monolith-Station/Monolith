@@ -388,7 +388,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         var body = _physicsQuery.GetComponent(uid);
 
         // Monolith - early port of wizden#38846
-        var weightless = _gravity.IsWeightless(uid, body, xform);
+        var weightless = _gravity.IsWeightless(uid);
         var moveSpeed = GetSprintSpeed(uid, modifier);
         var acceleration = GetAcceleration((uid, modifier), weightless);
         var friction = GetFriction((uid, modifier), weightless);
