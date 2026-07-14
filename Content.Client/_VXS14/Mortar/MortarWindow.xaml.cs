@@ -103,10 +103,6 @@ public sealed partial class MortarWindow : DefaultWindow
         if (!TryGetOffsets(out var offsetX, out var offsetY))
             return;
 
-        // Clamp to allowed range
-        offsetX = Math.Clamp(offsetX, _minOffsetX, _maxOffsetX);
-        offsetY = Math.Clamp(offsetY, _minOffsetY, _maxOffsetY);
-
         _eui?.SendCords(new Vector2(offsetX, offsetY));
     }
 }
