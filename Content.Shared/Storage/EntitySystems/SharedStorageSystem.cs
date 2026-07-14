@@ -151,6 +151,7 @@ public abstract class SharedStorageSystem : EntitySystem
         SubscribeLocalEvent<StorageComponent, ContainerIsInsertingAttemptEvent>(OnInsertAttempt);
 
         SubscribeLocalEvent<StorageComponent, AreaPickupDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<StorageComponent, InsertItemIntoStorageDoAfterEvent>(OnInsertDoAfter);
 
         SubscribeAllEvent<OpenNestedStorageEvent>(OnStorageNested);
         SubscribeAllEvent<StorageTransferItemEvent>(OnStorageTransfer);
@@ -668,6 +669,44 @@ public abstract class SharedStorageSystem : EntitySystem
         args.Handled = true;
     }
 
+    private void OnInsertDoAfter(EntityUid uid, StorageComponent component, InsertItemIntoStorageDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled)
+            return;
+
+        args.Handled = true;
+
+        var toInsert = GetEntity(args.ToInsert);
+
+        if (!_interactionSystem.InRangeUnobstructed(args.Args.User, uid))
+            return;
+
+        if (!CanInsert(uid, toInsert, out var reason, component))
+        {
+            _popupSystem.PopupClient(Loc.GetString(reason ?? "comp-storage-cant-insert"), uid, args.User);
+            return;
+        }
+
+        if (args.Location != null)
+        {
+            if (!ItemFitsInGridLocation((toInsert, null), (uid, component), args.Location.Value))
+                return;
+
+            component.StoredItems[toInsert] = args.Location.Value;
+            Dirty(uid, component);
+
+            if (!Insert(uid, toInsert, out _, user: args.Args.User, component))
+            {
+                component.StoredItems.Remove(toInsert);
+                return;
+            }
+        }
+        else
+        {
+            Insert(uid, toInsert, out _, user: args.Args.User, component);
+        }
+    }
+
     private void OnReclaimed(EntityUid uid, StorageComponent storageComp, GotReclaimedEvent args)
     {
         ContainerSystem.EmptyContainer(storageComp.Container, destination: args.ReclaimerCoordinates);
@@ -1113,6 +1152,20 @@ public abstract class SharedStorageSystem : EntitySystem
         if (!ItemFitsInGridLocation(insertEnt, uid, location))
             return false;
 
+        if (uid.Comp.InsertDoAfterDelay > TimeSpan.Zero && user != null)
+        {
+            var doAfterArgs = new DoAfterArgs(EntityManager, user.Value, uid.Comp.InsertDoAfterDelay,
+                new InsertItemIntoStorageDoAfterEvent(GetNetEntity(insertEnt), location), uid, target: uid)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                NeedHand = true,
+            };
+
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
+            return true;
+        }
+
         uid.Comp.StoredItems[insertEnt] = location;
         Dirty(uid, uid.Comp);
 
@@ -1262,6 +1315,20 @@ public abstract class SharedStorageSystem : EntitySystem
     {
         if (!Resolve(uid, ref uid.Comp) || !_interactionSystem.InRangeUnobstructed(player, uid.Owner))
             return false;
+
+        if (uid.Comp.InsertDoAfterDelay > TimeSpan.Zero)
+        {
+            var doAfterArgs = new DoAfterArgs(EntityManager, player, uid.Comp.InsertDoAfterDelay,
+                new InsertItemIntoStorageDoAfterEvent(GetNetEntity(toInsert)), uid, target: uid)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                NeedHand = true,
+            };
+
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
+            return true;
+        }
 
         if (!Insert(uid, toInsert, out _, user: player, uid.Comp, playSound: playSound))
         {

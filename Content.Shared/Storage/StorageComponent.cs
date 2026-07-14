@@ -1,3 +1,4 @@
+using System;
 using Content.Shared.Item;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Whitelist;
@@ -132,6 +133,12 @@ namespace Content.Shared.Storage
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public StorageDefaultOrientation? DefaultStorageOrientation;
+
+        /// <summary>
+        /// If greater than 0, inserting an item into this storage will require a DoAfter progress bar.
+        /// </summary>
+        [DataField]
+        public TimeSpan InsertDoAfterDelay = TimeSpan.Zero;
 
         /// <summary>
         /// If true, sets StackVisuals.Hide to true when the container is closed

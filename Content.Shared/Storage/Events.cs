@@ -20,3 +20,25 @@ public sealed partial class AreaPickupDoAfterEvent : DoAfterEvent
 
     public override DoAfterEvent Clone() => this;
 }
+
+[Serializable, NetSerializable]
+public sealed partial class InsertItemIntoStorageDoAfterEvent : DoAfterEvent
+{
+    [DataField("toInsert", required: true)]
+    public NetEntity ToInsert;
+
+    [DataField("location")]
+    public ItemStorageLocation? Location;
+
+    private InsertItemIntoStorageDoAfterEvent()
+    {
+    }
+
+    public InsertItemIntoStorageDoAfterEvent(NetEntity toInsert, ItemStorageLocation? location = null)
+    {
+        ToInsert = toInsert;
+        Location = location;
+    }
+
+    public override DoAfterEvent Clone() => this;
+}
