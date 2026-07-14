@@ -151,6 +151,7 @@ public abstract class SharedStorageSystem : EntitySystem
         SubscribeLocalEvent<StorageComponent, ContainerIsInsertingAttemptEvent>(OnInsertAttempt);
 
         SubscribeLocalEvent<StorageComponent, AreaPickupDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<StorageComponent, InsertItemIntoStorageDoAfterEvent>(OnInsertDoAfter);
 
         SubscribeAllEvent<OpenNestedStorageEvent>(OnStorageNested);
         SubscribeAllEvent<StorageTransferItemEvent>(OnStorageTransfer);
@@ -666,6 +667,27 @@ public abstract class SharedStorageSystem : EntitySystem
         }
 
         args.Handled = true;
+    }
+
+    private void OnInsertDoAfter(EntityUid uid, StorageComponent component, InsertItemIntoStorageDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled)
+            return;
+
+        args.Handled = true;
+
+        var toInsert = GetEntity(args.ToInsert);
+
+        if (!_interactionSystem.InRangeUnobstructed(args.Args.User, uid))
+            return;
+
+        if (!CanInsert(uid, toInsert, out var reason, component))
+        {
+            _popupSystem.PopupClient(Loc.GetString(reason ?? "comp-storage-cant-insert"), uid, args.User);
+            return;
+        }
+
+        Insert(uid, toInsert, out _, user: args.Args.User, component);
     }
 
     private void OnReclaimed(EntityUid uid, StorageComponent storageComp, GotReclaimedEvent args)
@@ -1262,6 +1284,20 @@ public abstract class SharedStorageSystem : EntitySystem
     {
         if (!Resolve(uid, ref uid.Comp) || !_interactionSystem.InRangeUnobstructed(player, uid.Owner))
             return false;
+
+        if (uid.Comp.InsertDoAfterDelay > TimeSpan.Zero)
+        {
+            var doAfterArgs = new DoAfterArgs(EntityManager, player, uid.Comp.InsertDoAfterDelay,
+                new InsertItemIntoStorageDoAfterEvent(GetNetEntity(toInsert)), uid, target: uid)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                NeedHand = true,
+            };
+
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
+            return true;
+        }
 
         if (!Insert(uid, toInsert, out _, user: player, uid.Comp, playSound: playSound))
         {

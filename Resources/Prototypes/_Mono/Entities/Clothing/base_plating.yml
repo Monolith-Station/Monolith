@@ -4,6 +4,7 @@
   components:
   - type: ArmorPlateHolder
   - type: Storage
+    insertDoAfterDelay: 2.5 # BF14
     maxItemSize: Normal
     grid:
     - 0,0,1,1
