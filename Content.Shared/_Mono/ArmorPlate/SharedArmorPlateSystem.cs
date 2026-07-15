@@ -70,11 +70,14 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
             if (!TryGetActivePlate((equipped.Value, holder), out var plate))
                 continue;
 
-            // Calculate damages owed to plate and holder
+            // Calculate damages owed to plate and holder, then apply damage to plate and stamina damage to holder.
             CalcPlateDamages(args.Damage, plate.Comp, out var remainder, out var absorbed, out var plateDamage);
 
-            // Damage to plate, stamina damage to holder
-            AbsorbDamage(ent, equipped.Value, holder, plate, absorbed, plateDamage);
+            if (plate.Comp.MaxDurability != -1)
+                DamagePlate(ent, equipped.Value, holder, plate, plateDamage);
+
+            if(plate.Comp.StaminaDamageMultiplier > 0)
+                InflictStamina(ent, args.Damage, absorbed, remainder, plate.Comp.StaminaDamageMultiplier, plate.Comp.StaminaDamageSource);
 
             // Full absorption, done
             if (remainder.Empty)
@@ -90,12 +93,11 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
         }
     }
 
-    private void AbsorbDamage(
+    private void DamagePlate(
         EntityUid wearer,
         EntityUid armorUid,
         ArmorPlateHolderComponent holder,
         Entity<ArmorPlateItemComponent> plate,
-        FixedPoint2 absorbed,
         FixedPoint2 plateDamage)
 
     {
@@ -103,8 +105,46 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
         damageSpec.DamageDict.Add("Blunt", plateDamage);
 
         _damageable.TryChangeDamage(plate.Owner, damageSpec, ignoreResistances: true);
+    }
 
-        var staminaDamage = absorbed.Float() * plate.Comp.StaminaDamageMultiplier;
+    private void InflictStamina(
+        EntityUid wearer,
+        DamageSpecifier rawDamage,
+        FixedPoint2 absorbed,
+        DamageSpecifier remainder,
+        float multiplier,
+        StaminaDamageSourceFlag mode)
+    {
+        float staminaBaseDamage = 0f;
+
+        //If raw flag is present, it overrides to prevent double dipping
+        if ((mode & StaminaDamageSourceFlag.Raw) != 0)
+        {
+            foreach (var (_, amt) in rawDamage.DamageDict)
+                staminaBaseDamage = amt.Float();
+        }
+        else
+        {
+        //Absorbed, pretty straightforward
+            if ((mode & StaminaDamageSourceFlag.Absorbed) != 0)
+                staminaBaseDamage += absorbed.Float();
+
+        //Amplified = Remainder - Raw
+            if ((mode & StaminaDamageSourceFlag.Amplified) != 0)
+            {
+                float amplified = 0f;
+
+                foreach (var (_, amt) in remainder.DamageDict)
+                    amplified += amt.Float();
+
+                foreach (var (_, amt) in rawDamage.DamageDict)
+                    amplified -= amt.Float();
+
+                staminaBaseDamage += MathF.Max(0f, amplified);
+            }
+        }
+
+        var staminaDamage = staminaBaseDamage * multiplier;
         _stamina.TakeStaminaDamage(wearer, staminaDamage);
     }
 
@@ -282,7 +322,7 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
             if (amount <= FixedPoint2.Zero)
                 continue;
 
-            var multiplier = plate.DamageMultipliers.GetValueOrDefault(type, 1.0f);
+            var multiplier = plate.DamageToPlate.GetValueOrDefault(type, 0f);
             var ratio = plate.AbsorptionRatios.GetValueOrDefault(type, 0f);
 
             FixedPoint2 absorbed = FixedPoint2.Zero;
@@ -298,7 +338,7 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
                 remainderAmt = amount * (1f + Math.Abs(ratio));
             }
 
-            var plateDamage = amount * Math.Abs(ratio) * multiplier;
+            var plateDamage = amount * multiplier;
 
             absorbedTotal = absorbedTotal + absorbed;
             plateDamageTotal = plateDamageTotal + plateDamage;
@@ -328,31 +368,36 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
     }
 
     // Used to tell the .ftl if it's a positive or negative value
-    private static int CalcDirection(float ratio) => ratio < 0 ? 1 : ratio > 0 ? -1 : 0;
+    private static int CalcDirection(float ratio) => ratio < 0 ? -1 : ratio > 0 ? 1 : 0;
     //Speed tooltip generating method
     private void AddSpeedDisplay(FormattedMessage msg, string gaitType, float speedCalc)
     {
-        var deltaSign = CalcDirection(speedCalc);
+        var stringClause = CalcDirection(speedCalc);
 
         msg.PushNewline();
         msg.AddMarkupOrThrow(Loc.GetString("armor-plate-speed-display",
             ("gait", gaitType),
-            ("deltasign", deltaSign),
+            ("stringClause", stringClause),
             ("speedPercent", Math.Abs(speedCalc))
         ));
     }
 
     private FormattedMessage GetPlateExamine(ArmorPlateItemComponent plate)
     {
+        //Examine header
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(Loc.GetString("armor-plate-attributes-examine"));
 
-        msg.PushNewline();
+        //Durability info (if plate can break)
+        if (plate.MaxDurability != -1)
+        {
+            msg.PushNewline();
+            msg.AddMarkupOrThrow(Loc.GetString("armor-plate-initial-durability",
+                ("durability", plate.MaxDurability)
+            ));
+        }
 
-        msg.AddMarkupOrThrow(Loc.GetString("armor-plate-initial-durability",
-            ("durability", plate.MaxDurability)
-        ));
-
+        //Speed (if it is affected)
         var walkModifierCalc = MathF.Round((plate.WalkSpeedModifier - 1.0f) * 100f, 1);
         var sprintModifierCalc = MathF.Round((plate.SprintSpeedModifier - 1.0f) * 100f, 1);
 
@@ -369,29 +414,68 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
             }
         }
 
-        foreach (var kv in plate.AbsorptionRatios)
+        foreach (var (type, ratio) in plate.AbsorptionRatios)
+        {
+            //Damage absorption per type
+            msg.PushNewline();
+
+            var dmgType = Loc.GetString("armor-damage-type-" + type.ToLower());
+            var ratioPercent = MathF.Round(ratio * 100, 1);
+
+            var stringClause = CalcDirection(ratio);
+
+            msg.AddMarkupOrThrow(Loc.GetString("armor-plate-ratios-display",
+                ("stringClause", stringClause),
+                ("dmgType", dmgType),
+                ("ratioPercent", Math.Abs(ratioPercent))
+            ));
+
+            //Append damagetoplate information to the current absorption line (if plate can break)
+            var multiplier = plate.DamageToPlate.GetValueOrDefault(type, 0f);
+
+            if (plate.MaxDurability == -1)
+                continue;
+
+            if(multiplier > 0)
+            {
+                var multiplierPercent = MathF.Round(multiplier * 100, 1);
+                msg.AddMarkupOrThrow(" " + Loc.GetString("armor-plate-multiplier-display",
+                    ("multiplier", multiplierPercent),
+                    ("dmgType", dmgType)));
+            }
+            else
+            {
+                msg.AddMarkupOrThrow(" " + Loc.GetString("armor-plate-multiplier-none"));
+            }
+        }
+
+        //Stamina damage (if it can inflict any)
+        if (plate.StaminaDamageMultiplier > 0)
         {
             msg.PushNewline();
 
-            var dmgType = Loc.GetString("armor-damage-type-" + kv.Key.ToLower());
-            var ratioPercent = MathF.Round(kv.Value * 100, 1);
+            var staminaPercent = MathF.Round(plate.StaminaDamageMultiplier * 100f, 1);
+            var sources = new List<string>();
 
-            var multiplier = plate.DamageMultipliers.GetValueOrDefault(kv.Key, 1.0f);
-            var multiplierStr = multiplier.ToString("0.##");
-            var deltaSign = CalcDirection(kv.Value);
+            if ((plate.StaminaDamageSource & StaminaDamageSourceFlag.Raw) != 0)
+            {
+                sources.Add(Loc.GetString("armor-plate-stamina-source-raw"));
+            }
+            else
+            {
+                if ((plate.StaminaDamageSource & StaminaDamageSourceFlag.Absorbed) != 0)
+                    sources.Add(Loc.GetString("armor-plate-stamina-source-absorb"));
 
-            msg.AddMarkupOrThrow(Loc.GetString("armor-plate-ratios-display",
-                ("deltasign", deltaSign),
-                ("dmgType", dmgType),
-                ("ratioPercent", Math.Abs(ratioPercent)),
-                ("multiplier", multiplierStr)
-            ));
+                if ((plate.StaminaDamageSource & StaminaDamageSourceFlag.Amplified) != 0)
+                    sources.Add(Loc.GetString("armor-plate-stamina-source-amplified"));
+            }
+
+            var sourceString = string.Join(" " + Loc.GetString("armor-plate-stamina-concat") + " ", sources);
+
+            msg.AddMarkupOrThrow(Loc.GetString("armor-plate-stamina-value",
+                ("multiplier", staminaPercent),
+                ("sources", sourceString)));
         }
-
-        msg.PushNewline();
-        var staminaPercent = MathF.Round(plate.StaminaDamageMultiplier * 100f, 1);
-        msg.AddMarkupOrThrow(Loc.GetString("armor-plate-stamina-value",
-            ("multiplier", staminaPercent)));
 
         return msg;
     }
