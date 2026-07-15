@@ -108,7 +108,7 @@
         type: ShipyardConsoleBoundUserInterface
   - type: ShipyardConsole
     shipyardChannel: Nfsd
-    newAccessLevels: [Captain, Security, Brig]
+    newAccessLevels: [Captain, TsfGeneral]
 
 - type: entity
   id: ComputerShipyardSyndicate
@@ -135,7 +135,6 @@
       state: blackmarket_key
   - type: ShipyardConsole
     shipyardChannel: Syndicate
-    secretShipyardChannel: Nfsd
     taxAccounts:
       BlackMarket: 0.1 # 0.3->0.1, made BM Mono
     ignoreBaseSaleRate: true # Fixed 70% sale rate.
@@ -166,7 +165,6 @@
       state: telesci_key # Mono
   - type: ShipyardConsole
     shipyardChannel: Freelance
-    secretShipyardChannel: Nfsd
     taxAccounts:
       BlackMarket: 0.30 # Made BM - Mono
     ignoreBaseSaleRate: true # Fixed 70% sale rate.
