@@ -571,13 +571,13 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: GunWieldBonus
-    minAngle: -12
+    minAngle: -8
     maxAngle: -30
   - type: Gun
-    minAngle: 15
-    maxAngle: 50 # Ideally do not fire this one handed, but you can, just not encouraged.
-    angleIncrease: 8
-    angleDecay: 30
+    minAngle: 12
+    maxAngle: 35
+    angleIncrease: 4
+    angleDecay: 40
     fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
