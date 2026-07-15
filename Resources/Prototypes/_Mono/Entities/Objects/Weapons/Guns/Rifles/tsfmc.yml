@@ -403,12 +403,12 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
-    - map: ["gripAttachment"] # Mono
-    - map: ["barrelAttachment"] # Mono
-    - map: ["opticAttachment"] # Mono
+    - map: ["gripAttachment"]
+    - map: ["barrelAttachment"]
+    - map: ["opticAttachment"]
   - type: Clothing
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/lecter_inhands_32x.rsi
-  - type: ChamberMagazineAmmoProvider # Mono
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/riversong_inhands_32x.rsi
+  - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: Gun
@@ -566,7 +566,7 @@
     - map: ["barrelAttachment"] # Mono
     - map: ["opticAttachment"] # Mono
   - type: Clothing
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/lecter_inhands_32x.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/dragonfang_inhands_32x.rsi
   - type: ChamberMagazineAmmoProvider # Mono
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
