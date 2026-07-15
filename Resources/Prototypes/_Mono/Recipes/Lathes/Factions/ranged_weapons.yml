@@ -256,6 +256,21 @@
     Silver: 250
     Uranium: 250
 
+# PDV basic
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleVympelRogue
+  result: WeaponRifleVympel
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1600
+    Plasteel: 1200
+    Plastic: 1000
+
 # syndicate ballistics
 
 - type: latheRecipe

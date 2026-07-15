@@ -1,0 +1,81 @@
+- type: entity
+  name: PD-VI "Sultan's Pulsar" shotgun (4 gauge)
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC3SyndicateContraband]
+  id: WeaponShotgunSultanPulsar
+  description: A beast of a bolt-action shotgun, capable of firing the Sultan's finest 4-gauge with exceptional accuracy. Overkill for most space fauna, but using this means its certain you're hunting the most dangerous game.
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,5,0
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar_inhands_64x.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar_inhands_64x.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
+    fireRate: 0.7
+    selectedMode: Semiauto
+    availableModes:
+    - SemiAuto
+  - type: GunSpreadModifier
+    spread: 0.4
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun23x75mmBuckshot
+    capacity: 8
+    proto: ShellShotgun23x75mmBuckshot
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+    autoCycle: false
+  - type: StaticPrice
+    vendPrice: 43000
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8
+    sprintModifier: 0.90
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 1
+
+- type: entity
+  name: PD-VI LK/210 Flagbearer (12 gauge)
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC3SyndicateContraband]
+  id: WeaponShotgunFlagbearer
+  description: A fully-automatic 12 gauge shotgun feeding from a giant built-in drum. 32 round capacity.
+  components:
+  - type: Item
+    size: Ginormous
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/flagbearer_inhands_32x.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/flagbearer.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/flagbearer_inhands_32x.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
+    fireRate: 4
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: GunSpreadModifier
+    spread: 0.4
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun12_gaugeBuckshot
+    capacity: 32
+    proto: ShellShotgun12_gaugeBuckshot
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+    autoCycle: true
+  - type: StaticPrice
+    vendPrice: 43000
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8 # It doesnt make much sense, but it takes forever to load this thing!
+    sprintModifier: 0.8
