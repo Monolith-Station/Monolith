@@ -1,0 +1,104 @@
+- type: entity
+  name: mustard mothroachburger
+  parent: FoodBurgerMothRoach
+  id: FoodBurgerMustardMothRoach
+  description: The last lamp it saw was the one inside the microwave.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - mustard
+      - lostfriendship
+  - type: Sprite
+    sprite: _Mono/Objects/Consumable/Food/mothroach_burger.rsi
+    state: mustard_mothroach
+
+- type: entity
+  name: boom roachburger
+  parent: FoodBurgerMothRoach
+  id: FoodBurgerBoomRoach
+  description: The last lamp it saw was the one inside the microwave.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - gunpowder
+      - lostfriendship
+  - type: Sprite
+    sprite: _Mono/Objects/Consumable/Food/mothroach_burger.rsi
+    state: boom_mothroach
+
+- type: entity
+  name: syndi roachburger
+  parent: FoodBurgerMothRoach
+  id: FoodBurgerSyndiRoach
+  description: The last lamp it saw was the one inside the microwave.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - gunpowder
+      - lostfriendship
+  - type: Sprite
+    sprite: _Mono/Objects/Consumable/Food/mothroach_burger.rsi
+    state: syndi_mothroach
+
+- type: entity
+  name: mop roachburger
+  parent: FoodBurgerMothRoach
+  id: FoodBurgerMopRoach
+  description: The last lamp it saw was the one inside the microwave.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - clean
+      - lostfriendship
+  - type: Sprite
+    sprite: _Mono/Objects/Consumable/Food/mothroach_burger.rsi
+    state: mop_mothroach
+
+- type: entity
+  name: cecropia mothroachburger
+  parent: FoodBurgerMothRoach
+  id: FoodBurgerCecropiaMothRoach
+  description: The last lamp it saw was the one inside the microwave.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - meaty
+      - lostfriendship
+  - type: Sprite
+    sprite: _Mono/Objects/Consumable/Food/mothroach_burger.rsi
+    state: cecropia_mothroach
+
+- type: entity
+  name: leopard mothroachburger
+  parent: FoodBurgerMothRoach
+  id: FoodBurgerLeopardMothRoach
+  description: The last lamp it saw was the one inside the microwave.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - meaty
+      - lostfriendship
+  - type: Sprite
+    sprite: _Mono/Objects/Consumable/Food/mothroach_burger.rsi
+    state: leopard_mothroach
+
+- type: entity
+  name: lunar mothroachburger
+  parent: FoodBurgerMothRoach
+  id: FoodBurgerLunarMothRoach
+  description: The last lamp it saw was the one inside the microwave.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bun
+      - meaty
+      - lostfriendship
+  - type: Sprite
+    sprite: _Mono/Objects/Consumable/Food/mothroach_burger.rsi
+    state: lunar_mothroach
