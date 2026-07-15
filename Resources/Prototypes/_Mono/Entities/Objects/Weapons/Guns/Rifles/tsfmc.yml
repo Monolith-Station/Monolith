@@ -385,11 +385,13 @@
     id: ExperimentalFactionWeapon
   - type: GunRequiresWield
 
+# The Riversong, a bullpup ified lecter thing, fits in bag.
+
 - type: entity
   name: TCA QBZ-91 Riversong (6.8x52mm Caseless)
   parent: BaseWeaponRifle
   id: WeaponRifleRiversong
-  description: The result of a project to make a new standard rifle for the branches of the TSF military. Accurate, easy to use, and firing the 6.8x52mm STANAG round. Also accepts 5.56x45mm magazines to assist with standardization. The barrel is threaded for suppressors, and an Erebus railmount is on the bottom for grips.
+  description: A bullpup rifle designed for usage in tanks, landing craft and other low space vehicle of the TSFMC Ground Infantry, this weapon also became popular for boarding crew due to the small frame and the ability to be fired one handed. Accurate, easy to use, and firing the 6.8x52mm STANAG round. Also accepts 5.56x45mm magazines to assist with standardization. The barrel is threaded for suppressors, and an Erebus railmount is on the bottom for grips.
   components:
   - type: Item
     size: Large
@@ -410,7 +412,7 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: Gun
-    fireRate: 6 # Mono
+    fireRate: 6
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
   - type: ItemSlots
@@ -542,12 +544,13 @@
   - type: PirateBountyItem # Mono
     id: StandardFactionLongarm
 
+# The Bigger Riversong, Dragonfang, Think of the old M-90 but one handed. Also goes in bag.
 
 - type: entity
-  name: TCA QBB-81-1 Dragonfang (6.8x52mm Caseless)
+  name: TCA QBB-81-1 Dragonfang (7.62x51mm)
   parent: BaseWeaponRifle
   id: WeaponRifleDragonfang
-  description: The result of a project to make a new standard rifle for the branches of the TSF military. Accurate, easy to use, and firing the 6.8x52mm STANAG round. Also accepts 5.56x45mm magazines to assist with standardization. The barrel is threaded for suppressors, and an Erebus railmount is on the bottom for grips.
+  description: A heavy battle rifle used by FORECON in the early stage of colossus expedition, this rifle packs an outstanding firepower in an otherwise compact frame. Chambered in 7.62x51mm it decimate anything brave enough to stand in our military conquest. The barrel is threaded for suppressors, and an Erebus railmount is on the bottom for grips.
   components:
   - type: Item
     size: Large
@@ -567,11 +570,14 @@
   - type: ChamberMagazineAmmoProvider # Mono
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: GunWieldBonus
+    minAngle: -12
+    maxAngle: -30
   - type: Gun
-    minAngle: 5
-    maxAngle: 50
-    angleIncrease: 5
-    angleDecay: 25
+    minAngle: 15
+    maxAngle: 50 # Ideally do not fire this one handed, but you can, just not encouraged.
+    angleIncrease: 8
+    angleDecay: 30
     fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
@@ -624,10 +630,9 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-      attachment_grip: !type:ContainerSlot # Mono
-      attachment_barrel: !type:ContainerSlot # Mono
-      attachment_optic: !type:ContainerSlot # Mono
-      # Mono start
+      attachment_grip: !type:ContainerSlot
+      attachment_barrel: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
   - type: ESAttachableGun
     slots:
     - name: es-gun-attachments-slot-name-barrel
@@ -693,7 +698,6 @@
         whitelist:
           tags:
           - MonoOptic8x
-  # Mono end
   - type: MagazineVisuals
     magState: mag
     steps: 1
