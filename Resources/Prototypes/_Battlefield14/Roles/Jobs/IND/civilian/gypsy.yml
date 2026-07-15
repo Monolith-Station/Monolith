@@ -1,0 +1,23 @@
+- type: job
+  id: Gypsy
+  name: Gypsy
+  description: job-description-ind-civilian
+  playTimeTracker: JobGypsy
+  displayWeight: 11
+  startingGear: GypsyGear
+  alwaysUseSpawner: true
+  icon: "JobIconGypsy"
+#  supervisors: job-supervisors-everyone
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - Esperanto
+    languagesUnderstood:
+    - Esperanto
+  access:
+  - Maintenance
+
+- type: startingGear
+  id: GypsyGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCossack

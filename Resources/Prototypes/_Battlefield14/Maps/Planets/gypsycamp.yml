@@ -1,0 +1,25 @@
+- type: gameMap
+  id: BF14GypsyCamp
+  mapName: 'Gypsy camp'
+  mapPath: /Maps/_Battlefield14/Planets/gypsycamp2.yml
+  minPlayers: 1
+  maxPlayers: 50
+  randomRotation: false
+  maxRandomOffset: 0
+  stations:
+    BF14GypsyCamp:
+      stationProto: StandardFrontierStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Gypsy camp, Ukraine"
+        - type: ExtraStationInformation
+          iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
+          stationSubtext: "Ukraine"
+          stationDescription: "A gypsy camp in the heart of a public park in Ukraine"
+          lobbySortOrder: 1
+        - type: StationJobs
+          availableJobs:
+            NationalistUA: [ 8, 8]
+            Gypsy: [ 8, 8 ]
+        - type: StationBiome
+          biome: Grasslands

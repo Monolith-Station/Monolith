@@ -524,6 +524,26 @@
   - BF_MiscItemsIND
   - ContractorWallet
 
+- type: roleLoadout
+  id: JobNationalistUA
+  groups:
+  - BF_HeadCivilianRU
+  - BF_CombatMasks
+  - BF_JumpsuitsCivilianUS
+  - BF_OuterCivilianRU
+  - BF_WPSGloves
+  - BF_ShoesCivilian
+  - BF_MiscItemsIND
+  - ContractorWallet
+
+- type: roleLoadout
+  id: JobGypsy
+  groups:
+  - BF_WPSGloves
+  - BF_ShoesCivilian
+  - BF_MiscItemsIND
+  - ContractorWallet
+
 #region Misc
 
 - type: roleLoadout

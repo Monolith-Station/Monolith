@@ -46,6 +46,18 @@
   - NFAdventure
 
 - type: gamePreset
+  id: BF14_CivilUnrest
+  alias:
+  - civilunrest
+  name: Civil unrest
+  showInVote: true
+  supportedMaps: BF14MapPoolCivilUnrest
+  description: Maps involving civilians in combat.
+  maxPlayers: 16
+  rules:
+  - NFAdventure
+
+- type: gamePreset
   id: BF14_TeamDeathMatch
   alias:
     - teamdeathmatch

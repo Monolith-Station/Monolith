@@ -603,6 +603,32 @@
     - state: RU
       scale: 1.5,1.5
 
+- type: entity
+  id: SpawnPointNationalistUA
+  parent: SpawnPointJobBase
+  name: Nationalist UA
+  components:
+  - type: SpawnPoint
+    job_id: NationalistUA
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/job_icons.rsi
+    layers:
+    - state: UA
+      scale: 1.5,1.5
+
+- type: entity
+  id: SpawnPointGypsy
+  parent: SpawnPointJobBase
+  name: Gypsy
+  components:
+  - type: SpawnPoint
+    job_id: Gypsy
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/job_icons.rsi
+    layers:
+    - state: Gypsy
+      scale: 1.5,1.5
+
 #region Misc
 
 - type: entity

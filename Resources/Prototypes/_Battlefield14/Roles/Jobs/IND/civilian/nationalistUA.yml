@@ -1,0 +1,19 @@
+- type: job
+  id: NationalistUA
+  name: Nationalist
+  description: job-description-ind-civilian
+  playTimeTracker: JobNationalistUA
+  displayWeight: 12
+#  startingGear: PassengerGear
+  alwaysUseSpawner: true
+  icon: "JobIconUA"
+#  supervisors: job-supervisors-everyone
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - Ukrainian
+    languagesUnderstood:
+    - Ukrainian
+    - Russian
+  access:
+  - Maintenance
