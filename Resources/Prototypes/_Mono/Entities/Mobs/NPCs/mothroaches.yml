@@ -177,6 +177,22 @@
     - Moffic
     understands:
     - Moffic
+  - type: Gun
+    fireRate: 2
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: 40mmGrenadeFragmentation
+    fireCost: 500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
 
 - type: entity
   name: syndiroach
@@ -391,16 +407,20 @@
   - type: FlavorProfile
     flavors:
     - meaty
+    - mustard
+    - lostfriendship
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 5
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Mustard
           Quantity: 5
   - type: Speech
     speechVerb: Moth
