@@ -1,0 +1,136 @@
+- type: entity
+  name: NCI DP-29
+  parent: [BaseWeaponLightMachineGun, BaseGunWieldable]
+  id: WeaponDP29
+  description: A staple of USSP military doctrine, the DP-29 is a mass-produced light machine gun designed for reliability, ease of use, and battlefield endurance. Featuring a distinctive top-mounted pan magazine and a folding bipod, the DP-29 excels at providing suppressive fire in both urban and open combat scenarios. While its design dates back decades, its reliability and ease of maintenance make it a favorite among USSP infantry squads.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/dp29.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -20
+  - type: Gun
+    minAngle: 22
+    maxAngle: 40
+    angleIncrease: 2
+    angleDecay: 22
+    fireRate: 8
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/hmg.ogg
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineDP29
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineDP29
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge762x39mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge762x39mmFMJ
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/dp29.rsi
+  - type: StaticPrice
+    price: 1750
+    vendPrice: 50000
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8
+    sprintModifier: 0.65
+  - type: GunRequiresWield
+
+- type: entity
+  name: NCI AK-150 HAMMER (7.62x39mm)
+  parent: [BaseWeaponLightMachineGun, BaseGunWieldable]
+  id: WeaponLMGHammer
+  description: A modified old style AK from earth which has been improved with USSP engineering and new design philosophies. At a base level? It's been turned into an LMG with a box magazine attached alongside various recoil lessening upgrades and a stylized chassis. Hail The Commissariat.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/HAMMER/hammer-icon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/HAMMER/hammer-inhands.rsi
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -28
+  - type: Gun
+    minAngle: 24
+    maxAngle: 36
+    angleIncrease: 3
+    angleDecay: 34
+    fireRate: 6 # 360 rpm
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/ak_fire.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine762x39mmBox
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine762x39mmFMJ
+          - Magazine762x39mmBox
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge762x39mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge762x39mmFMJ
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/HAMMER/hammer-inhands.rsi
+  - type: StaticPrice
+    price: 8000
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.65
+    sprintModifier: 0.65
+  - type: GunRequiresWield

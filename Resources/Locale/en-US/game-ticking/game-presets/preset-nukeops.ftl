@@ -11,10 +11,14 @@ nukeops-opsminor = [color=crimson]Syndicate minor victory![/color]
 nukeops-neutral = [color=yellow]Neutral outcome![/color]
 nukeops-crewminor = [color=green]Crew minor victory![/color]
 nukeops-crewmajor = [color=green]Crew major victory![/color]
+nukeops-tsfmajor = [color=cornflowerblue]TSF detonated the bomb on the PDV station![/color]
+nukeops-pdvmajor = [color=goldenrod]PDV detonated the bomb on the TSF station![/color]
 
 nukeops-cond-nukeexplodedoncorrectstation = The nuclear operatives managed to blow up the station.
 nukeops-cond-nukeexplodedonnukieoutpost = The nuclear operative outpost was destroyed by a nuclear blast.
-nukeops-cond-nukeexplodedonincorrectlocation = The nuclear bomb was detonated off-station.
+nukeops-cond-nukeexplodedonincorrectlocation = The nuclear bomb was detonated on the wrong grid.
+nukeops-cond-nukeexplodedontsfstation = The nuclear bomb was detonated on the PDV station.
+nukeops-cond-nukeexplodedonpdvstation = The nuclear bomb was detonated on the TSF station.
 nukeops-cond-nukeactiveinstation = The nuclear bomb was left armed on-station.
 nukeops-cond-nukeactiveatcentcom = The nuclear bomb was delivered to Central Command!
 nukeops-cond-nukediskoncentcom = The crew escaped with the nuclear authentication disk.

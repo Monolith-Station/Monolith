@@ -85,9 +85,16 @@
       gridComponents:
       - type: VesselInfo
         description: "An oppressive imperial aura lurks here. Glory to the Sultan."
+      - type: Tag
+        tags:
+        - PdvStation
       components:
         - type: StationNameSetup
           mapNameTemplate: 'PDV Helio Fortress'
+        - type: StationEventEligible
+        - type: NpcFactionMember
+          factions:
+          - PirateNF
         - type: ExtraStationInformation
           icon: /Textures/_NF/Interface/Pirate/piratelogo.png
           stationSubtext: 'frontier-lobby-pirate-subtext'
