@@ -45,7 +45,7 @@
       types:
         Structural: 60
         Piercing: 80
-    armorPenetration: 1
+    armorPenetration: 0.7
 #    penetrationThreshold: 300
     deleteOnCollide: true
   - type: StaminaDamageOnCollide
