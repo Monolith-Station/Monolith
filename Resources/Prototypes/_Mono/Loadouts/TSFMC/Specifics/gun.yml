@@ -12,6 +12,16 @@
   - FactionFrostLoadout
 
 - type: loadoutGroup
+  id: TsfmcFirearmCommand
+  name: loadout-group-weapon
+  minLimit: 0
+  loadouts:
+  - FactionRiversongLoadout #I don't see T2 weapon being roundstart available to TSF command as a bad thing
+  - FactionDrozdLoadout
+  - FactionDragonfangLoadout
+  - SecurityGuardEnforcerLoadou
+
+- type: loadoutGroup
   id: TsfmcFirearm
   name: loadout-group-weapon
   minLimit: 0
