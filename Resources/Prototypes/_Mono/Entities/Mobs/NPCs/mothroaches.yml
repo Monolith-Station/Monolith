@@ -177,6 +177,7 @@
     - Moffic
     understands:
     - Moffic
+    - TauCetiBasic
   - type: Gun
     fireRate: 2
     useKey: false
@@ -193,6 +194,19 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 10
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical
+      100: Dead
 
 - type: entity
   name: syndiroach

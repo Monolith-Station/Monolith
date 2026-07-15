@@ -610,7 +610,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 60
+        damage: 250
       behaviors:
       - !type:GibBehavior { }
   - type: FireVisuals
@@ -654,8 +654,8 @@
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
   - type: EatToGrow # Goobstation Eat To Grow System
-    growth: 1
-    maxGrowth: 2.5
+    growth: 0.05
+    maxGrowth: 2
   - type: Puller
     needsHands: false
 
