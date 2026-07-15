@@ -73,18 +73,32 @@
 - type: technology
   id: TsfTierThreeVouchers
   name: research-technology-tsfmc-tier-three-vouchers
-  entityIcon: ShipVoucherArcturus
+  entityIcon: ShipVoucherAltair
   discipline: TsfmcShipyard
   tier: 3
   cost: 80000
   recipeUnlocks:
-  - ArcturusVoucherTSF
   - AltairVoucherTSF
   - PolarisVoucherTSF
   technologyPrerequisites:
   - TsfTierTwoVouchers
   - UniversalMaterialResearchT3
   position: 11, 12
+
+- type: technology
+  id: TsfTierFourVouchers
+  name: research-technology-tsfmc-tier-four-vouchers
+  entityIcon: ShipVoucherArcturus
+  discipline: TsfmcShipyard
+  tier: 3
+  cost: 45000
+  recipeUnlocks:
+  - ArcturusVoucherTSF
+  - FlyssaVoucherTSF
+  technologyPrerequisites:
+  - TsfTierThreeVouchers
+  - UniversalMaterialResearchT3
+  position: 11, 13
 
 - type: technology
   id: TsfMeds

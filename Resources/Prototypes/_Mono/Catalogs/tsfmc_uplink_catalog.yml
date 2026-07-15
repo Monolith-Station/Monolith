@@ -419,7 +419,7 @@
   description: uplink-security-arcturus-voucher-desc
   productEntity: ShipVoucherArcturus
   cost:
-    FederationMilitaryCredit: 750
+    FederationMilitaryCredit: 1000
   categories:
   - UplinkSecurityVouchers
   conditions:
@@ -428,6 +428,20 @@
       tags:
       - FactionStaticUplinkTsf
 
+- type: listing
+  id: UplinkSecurityFlyssaVoucher
+  name:  uplink-security-flyssa-voucher-name
+  description: uplink-security-flyssa-voucher-desc
+  productEntity: ShipVoucherFlyssa
+  cost:
+    FederationMilitaryCredit: 750
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
 # end T4
 
 # Misc

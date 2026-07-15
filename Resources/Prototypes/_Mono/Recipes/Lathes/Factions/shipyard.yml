@@ -79,8 +79,8 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
-  id: ArcturusVoucherTSF
-  result: ShipVoucherArcturus
+  id: FlyssaVoucherTSF
+  result: ShipVoucherFlyssa
   completetime: 130
   materials:
     Steel: 40000
@@ -92,6 +92,23 @@
     UraniumDepleted: 5000
     Silver: 5000
     Gold: 5000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ArcturusVoucherTSF
+  result: ShipVoucherArcturus
+  completetime: 170
+  materials:
+    Steel: 45000
+    Plasteel: 60000
+    Plastic: 50000
+    Glass: 12000
+    Plasma: 700
+    UraniumFissile: 1250
+    UraniumDepleted: 5500
+    Silver: 8000
+    Gold: 5625
+
 
 # PDV
 

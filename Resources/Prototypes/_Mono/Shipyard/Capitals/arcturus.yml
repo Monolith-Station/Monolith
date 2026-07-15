@@ -19,7 +19,6 @@
   - Destroyer
   - Medical
   - Chemistry
-  - Pursuit
   - Patrol
   engine:
   - AME
@@ -34,7 +33,7 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: "One of the greatest pride and joy of the TSFN. Her turbolaser batteries rival with the star it was named after. Sol invictus."
+        description: "One of the greatest pride and joys of the TSFN. Her turbolaser batteries' shine rivals with the star it was named after. Sol invictus."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Arcturus TSFN{1}'
