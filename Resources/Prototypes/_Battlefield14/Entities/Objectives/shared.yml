@@ -52,6 +52,14 @@
   - type: DeleteOnTrigger
 
 - type: entity
+  parent: GracePeriodAnnouncerSpawner5
+  id: GracePeriodAnnouncerSpawner7
+  suffix: 7 minutes
+  components:
+  - type: ActiveTimerTrigger
+    timeRemaining: 420
+
+- type: entity
   id: BaseGracePeriodAnnouncer
   name: grace period announcer
   suffix: DO NOT MAP

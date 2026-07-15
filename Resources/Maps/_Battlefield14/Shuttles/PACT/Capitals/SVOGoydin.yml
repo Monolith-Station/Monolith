@@ -10792,7 +10792,7 @@ entities:
     - type: Transform
       pos: 4.5,35.5
       parent: 1
-- proto: ClothingBackpackDuffelSurgeryFilled
+- proto: BF14MedkitSurgeryFilled
   entities:
   - uid: 1008
     components:
@@ -13126,7 +13126,7 @@ entities:
     - type: Transform
       pos: 35.5,25.5
       parent: 1
-- proto: MedicatedSuture
+- proto: BF14AdvancedTraumaKit
   entities:
   - uid: 1050
     components:
