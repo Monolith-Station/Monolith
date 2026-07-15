@@ -177,13 +177,12 @@
     - Moffic
     understands:
     - Moffic
-    - TauCetiBasic # Needs to understand your nukie ops.
 
 - type: entity
   name: syndiroach
   parent: MobMothroach
   id: MobMothSyndy
-  description: Trained and elite member of the PDV, bewarned explosive personallity
+  description: Repurposed and highly trained elite member of the PDV, bewarned explosive personallity
   components:
   - type: GhostRole
     makeSentient: true
@@ -268,5 +267,241 @@
     - Freespeak
     understands:
     - Moffic
-    - TauCetiBasic # Needs to understand your nukie ops.
     - Freespeak
+
+- type: entity
+  name: leopard mothroach
+  parent: MobMothroach
+  id: MobMothroachLeopard
+  description: A charming result of numerous attempts to crossbreed insects with predators.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-mothroachleopard-name
+    description: ghost-role-information-mothroachleopard-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/leopard_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_leopard
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/leopard_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+
+- type: entity
+  name: cecropia mothroach
+  parent: MobMothroach
+  id: MobMothroachCecropia
+  description: A charming result of numerous attempts to cross a genus of the nettle family with cockroaches.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-mothroachcecropia-name
+    description: ghost-role-information-mothroachcecropia-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/cecropia_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_cecropia
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/cecropia_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+
+- type: entity
+  name: lunar mothroach
+  parent: MobMothroach
+  id: MobMothroachLunar
+  description: Someone left the moth under the moonlight.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-mothroachlunar-name
+    description: ghost-role-information-mothroachlunar-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/lunar_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_lunar
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/lunar_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+
+- type: entity
+  name: mustard mothroach
+  parent:
+  - EdibleBase
+  - BaseMob
+  id: MobMothroachMustard
+  description: A delightful result of the world's chefs crossing meat with sauce.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-mothroachmustard-name
+    description: ghost-role-information-mothroachmustard-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: HTN
+    constantlyReplan: false
+    rootTask:
+      task: MouseCompound
+  - type: FlavorProfile
+    flavors:
+    - meaty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 45
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Squeak
+    allowedEmotes: ['Chitter', 'Squeak']
+  - type: FaxableObject
+    insertingState: inserting_mothroach
+  - type: DashAction # Goobstation - dark souls moths
+    actionProto: ActionDashMoth
+  - type: MothAccent
+  - type: Sprite
+    noRot: true
+    sprite: Mobs/Animals/mothroach/mustard_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mothroach-moving
+    noMovementLayers:
+      movement:
+        state: mothroach
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/mustard_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    baseWeightlessModifier: 1
+  - type: CombatMode
+  - type: Extractable
+    grindableSolutionName: food
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Moffic
+    understands:
+    - Moffic
+    - TauCetiBasic
+  - type: Vocal
+    sounds:
+      Male: UnisexMoth
+      Female: UnisexMoth
+      Unsexed: UnisexMoth
+    wilhelmProbability: 0.001
+  - type: MobPrice
+    price: 150
+  - type: Tag
+    tags:
+    - Trash
+    - CannotSuicide
+    - VimPilot
+    - Meat
+  - type: MovementAlwaysTouching
+  - type: CanEscapeInventory
+  - type: NpcFactionMember
+    factions:
+    - Mouse
+  - type: TypingIndicator
+    proto: moth
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: InventorySlots
+  - type: Inventory
+    speciesId: hamster
+    templateId: hamster
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: mask
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: suitstorage
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: eyes
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/mothroach/displacement.rsi
+            state: neck
+  - type: Puller
+    needsHands: false

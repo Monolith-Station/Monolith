@@ -42,9 +42,20 @@ ghost-role-information-boomroach-name = Boomroach
 ghost-role-information-boomroach-description = This little mothroach has a chinalake strapped to its back! Why and how?
 
 ghost-role-information-syndiroach-name = SyndiRoach
-ghost-role-information-syndiroach-description = You're the faithful trained pet of PDV operatives with a microbomb. Serve your master to the death!
+ghost-role-information-syndiroach-description = Repurposed by the PDV You are the highly trained and faithful pet of a PDV operative equiped with a microbomb. Serve your master to the death!
 ghost-role-information-syndiroach-rules = You are a [color=red][bold]Team PDV[/bold][/color] with the agent who summoned you.
 
+ghost-role-information-mothroachmustard-name = mustard mothroach
+ghost-role-information-mothroachmustard-description = A delightful result of the world's chefs crossing meat with sauce.
+
+ghost-role-information-mothroachleopard-name = leopard mothroach
+ghost-role-information-mothroachleopard-description = A charming result of numerous attempts to crossbreed insects with predators.
+
+ghost-role-information-mothroachcecropia-name = cecropia mothroach
+ghost-role-information-mothroachcecropia-description = A charming result of numerous attempts to cross a genus of the nettle family with cockroaches.
+
+ghost-role-information-mothroachlunar-name = lunar mothroach
+ghost-role-information-mothroachlunar-description = Someone left the moth under the moonlight.
 
 ghost-role-information-snail-name = Snail
 ghost-role-information-snail-description = A little snail who doesn't mind a bit of space. Just stay on grid!

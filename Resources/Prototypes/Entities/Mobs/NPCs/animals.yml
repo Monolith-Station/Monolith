@@ -575,6 +575,7 @@
     - Moffic
     understands:
     - Moffic
+    - TauCetiBasic
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
@@ -654,7 +655,9 @@
             state: neck
   - type: EatToGrow # Goobstation Eat To Grow System
     growth: 1
-    maxGrowth: 5
+    maxGrowth: 2.5
+  - type: Puller
+    needsHands: false
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
