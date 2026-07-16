@@ -91,8 +91,9 @@ public sealed partial class FireControlSystem : EntitySystem
                 ("usedProcessingPower", component.UsedProcessingPower),
                 ("processingPower", component.ProcessingPower),
                 ("valueColor", component.UsedProcessingPower <= component.ProcessingPower - 2 ? "green" : "yellow")
-            )
-        );
+            ));
+        if (HasComp<SpaceArtilleryDisabledGridComponent>(component.ConnectedGrid))
+            args.PushMarkup(Loc.GetString("gunnery-server-examine-pacifist-grid"));
     }
 
     private void OnControllablePowerChanged(EntityUid uid, FireControllableComponent component, PowerChangedEvent args)

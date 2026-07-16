@@ -132,7 +132,7 @@ public abstract partial class SharedGravitySystem : EntitySystem
         if (args.OldParent == args.Transform.GridUid)
             return;
 
-        RefreshWeightless((entity.Owner, entity.Comp), !EntityGridOrMapHaveGravity((entity, args.Transform)));
+        RefreshWeightless((entity.Owner, entity.Comp));
     }
 
     private void OnBodyTypeChanged(Entity<GravityAffectedComponent> entity, ref PhysicsBodyTypeChangedEvent args)
