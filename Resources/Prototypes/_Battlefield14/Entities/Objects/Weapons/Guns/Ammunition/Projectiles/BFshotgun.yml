@@ -11,8 +11,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 10
-        Slash: 5
+        Piercing: 7.5
+        Slash: 7.5
         Structural: 2
     armorPenetration: -0.3
   - type: StaminaDamageOnCollide
@@ -31,7 +31,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 67
+        Blunt: 27
+        Piercing: 50
         Structural: 50
     armorPenetration: -0.2
   - type: StaminaDamageOnCollide
@@ -44,19 +45,18 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
     layers:
-    - state: slug
+    - state: small
   - type: Projectile
     damage:
       types:
         Blunt: 4
         Slash: 4
         Piercing: 4
-        Structural: 100
-    armorPenetration: 0.15
+        Structural: 50
   - type: StaminaDamageOnCollide
-    damage: 15 # ~7 hits to stun
+    damage: 10 # ~10 hits to stun
   - type: TimedDespawn
     lifetime: 0.2
 
@@ -73,7 +73,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 15
+        Piercing: 10
         Heat: 5
         Structural: 15
     armorPenetration: -0.15
@@ -102,10 +102,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 20
-        Slash: 7
-        Structural: 3
-    armorPenetration: -0.3
+        Piercing: 17
+        Slash: 10
+        Structural: 5
+    armorPenetration: -0.1
   - type: StaminaDamageOnCollide
     damage: 9 # ~11-12 hits to stun
 
