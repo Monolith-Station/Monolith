@@ -34,6 +34,7 @@ public sealed partial class ArmorPlateItemComponent : Component
     /// <summary>
     /// Stamina damage applied based on a multiplier and chosen portion of damage. Options are: Raw, Absorbed, or Amplified.
     /// Omit this field in YML to deal no stamina damage
+    /// Adding raw OVERRIDES the damagetype behavior: no double dipping.
     /// </summary>
     [DataField("staminaDamageMultipliers")]
     public Dictionary<string, float> StaminaDamageMultipliers = new();
