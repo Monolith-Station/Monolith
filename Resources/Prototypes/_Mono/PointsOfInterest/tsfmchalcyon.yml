@@ -101,9 +101,16 @@
       gridComponents:
       - type: VesselInfo
         description: "A mothballed battleship-turned-FOB, and Home of the TSFMC operations."
+      - type: Tag
+        tags:
+        - TsfStation
       components:
         - type: StationNameSetup
           mapNameTemplate: 'TSFMC Flagship Halcyon'
+        - type: StationEventEligible
+        - type: NpcFactionMember
+          factions:
+          - TSFMC
         - type: ExtraStationInformation
           icon:
             sprite: _NF/Structures/Decoration/banner.rsi

@@ -1,0 +1,43 @@
+#Author: kasature90 (github) / _starch_ (discord).
+# spacer. we are inside your Hull. we are making our way to your Cockpit. when we get to your Cockpit, it is Game Over. we are going to tear open your Softsuit and Feast on your Credits.
+
+- type: vessel
+  id: Prowler
+  parent: BaseVesselAntag
+  name: PDV Prowler
+  description: A very stealth-focused craft, with special thrusters and power generation to minimize thermal signature. Guzzles plasma like a demon though. Thermal signature of about ~750m with generator on, and a visual signature of ~330m with SMES power (rated for 16 minutes).
+  limit: 1
+  hyperwarLimit: 1
+  hyperwarTimelock: 300 # It's hilarious.
+  price: 250000
+  purchasable: false # Voucher only
+  category: Small
+  group: BlackMarket
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/prowler.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Prowler
+  mapName: 'Prowler'
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/prowler.yml
+  minPlayers: 0
+  stations:
+    Prowler:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: ShipShieldDisabledGrid # We aren't going to bother with gunnery disabled like old prowler, because shooting guns defeats the point of being stealthy thermally.
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Prowler PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        # No. God no.
+        #- type: StationJobs
+        #  availableJobs:
+        #    Pirate: [ 0, 0 ]
+        #    PdvBorg: [ 0, 0 ]

@@ -518,7 +518,14 @@
     back:
     - WeaponRifleLecter
 
-- type: loadout #Lecter Ammo
+- type: loadout #C20r
+  id: FactionVympelLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleVympel
+
+- type: loadout #Vympel Ammo
   id: Faction556x45mmAmmoLoadout
   price: 0
   storage:

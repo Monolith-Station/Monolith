@@ -22,7 +22,7 @@
 
 - type: gameMap
   id: Kortik
-  mapName: 'Kortik'
+  mapName: 'Kortik-EM'
   mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/kortik.yml
   minPlayers: 0
   stations:
@@ -32,7 +32,7 @@
       - type: ShipShieldDisabledGrid
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Kortik PDV{1}'
+          mapNameTemplate: 'Kortik-EM PDV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

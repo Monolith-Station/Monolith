@@ -28,11 +28,14 @@
   parent: BaseTorpedoRecipe
   result: Asm220TorpedoLOSAT
   materials:
-    Steel: 1200 # shell/casing
+    Steel: 2400 # shell/casing
     Plasteel: 1000 # penetrator
+    Plastitanium: 500 # penetrator
     Glass: 400 # opticals
     Gold: 200 # electronics
     Silver: 200 # electronics
+    Copper: 300 # electronics
+    Lithium: 300 # electronics
 
 - type: latheRecipe
   id: 150mmApShellUniversal

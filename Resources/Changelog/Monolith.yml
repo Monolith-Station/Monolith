@@ -22442,3 +22442,128 @@ Entries:
   id: 2481
   time: '2026-07-14T01:37:06.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4272
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added Nuclear hyperwar.
+  id: 2482
+  time: '2026-07-14T18:14:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4271
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added grenades to lathes for (nearly) everyone. Roundstart and cheap as
+        hell, go crazy.
+    - type: Add
+      message: Reagent smokes (including teargas) hide you from thermals now.
+  id: 2483
+  time: '2026-07-14T18:15:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4276
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added Vympel as a new T0/T1 rifle for PDV. Roundstart in loadout.
+    - type: Tweak
+      message: >-
+        Nerfed Iroh to 8.4 RPS, removed crafting recipe. Added 1.5x damage to
+        Xian & AK-410. Buffed 4.6 & 5.7 FMJ's partial AP, buffed AP rounds for
+        them too. Unnerfed M-90, moved it back to T2 research. Removed damage
+        penalty from Annie & MLA-73, added 0.85x damage multiplier to C-20r.
+        Malandro is now 9x19mm with a 0.85x damage multiplier. Increased
+        slowdown for Shenzhen on wield. Hristov damage buffed to 80, slowdown
+        reduced to 0.6x. Buffed 6.35x40mm caseless AP and damage. Grizzly is no
+        longer multicaliber, and is now 6.8x52mm only.
+    - type: Fix
+      message: >-
+        Fixed Flagbearer and Shenzhen fitting into bags. Now only fits in suit
+        storage or backpack slot.
+    - type: Fix
+      message: Fixed DEW/QBH one-handed accuracy being really high/perfect.
+  id: 2484
+  time: '2026-07-14T18:21:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4270
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Slowed parallax background scrolling to compensate for our significantly
+        higher top speeds
+  id: 2485
+  time: '2026-07-14T18:26:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4277
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Updates the Venom to have spawn/warp points.
+  id: 2486
+  time: '2026-07-14T18:45:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4263
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Generally buffed ship missiles range greatly and explosive power, but
+        gave them reduced scanning arcs and increased recipe costs. Launchers
+        are also unanchorable now.
+  id: 2487
+  time: '2026-07-14T18:46:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4230
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added an industrial-sized uranium centrifuge to drillsite, and a NFR.
+        Much better at the job, I assure you.
+    - type: Tweak
+      message: >-
+        Buffed the drills on the derelict drillsite speed by 10x. Increased
+        power draw too.
+  id: 2488
+  time: '2026-07-14T18:55:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4257
+- author: Corrupt142
+  changes:
+    - type: Fix
+      message: >-
+        turrets no longer suffer from bluetooth bullets (they can hit mobs right
+        next to them
+  id: 2489
+  time: '2026-07-14T19:15:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4254
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        90mm Flak ammo. Make it in a lathe or buy it at cargo, put it in your
+        Dravons.
+  id: 2490
+  time: '2026-07-15T03:25:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4278
+- author: Huaqas
+  changes:
+    - type: Fix
+      message: Fixed some modsuits showing as errors for Resomi.
+    - type: Fix
+      message: >-
+        Artefacts should not appear around Resomi character when picking up
+        large items/clothing.
+  id: 2491
+  time: '2026-07-15T18:20:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4109
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed walls being able to exist without being on a grid. No more
+        original entity already existing when I'm trying to SRD.
+  id: 2492
+  time: '2026-07-15T23:30:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4283
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed some minor bugs with Drillsite.
+  id: 2493
+  time: '2026-07-15T23:52:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4282
