@@ -26,6 +26,7 @@
   friction: 1.5
   isSpace: true
   heatCapacity: 10000
+  transparent: true # CE
 
 - type: tile
   id: PlatingDamaged
