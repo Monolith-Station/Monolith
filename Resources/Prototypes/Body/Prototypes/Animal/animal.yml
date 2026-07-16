@@ -54,3 +54,17 @@
       part: RightLegAnimal
     left leg:
       part: LeftLegAnimal
+
+- type: entity
+  parent: [ PartAnimalBase, BaseTorsoAnimal ]
+  id: TorsoAnimal
+  name: animal torso
+  slots:
+    torso:
+      part: TorsoAnimal
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganHumanLungs
+        stomach: OrganMothStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
