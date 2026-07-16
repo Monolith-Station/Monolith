@@ -223,3 +223,30 @@
     interfaces:
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
+        
+- type: entity
+  parent: ClothingArmbandBase
+  id: ClothingArmbandStationMap
+  name: wrist-mounted station map
+  description: A portable map that can be mounted on the wrist for easy access at any time.
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Accessories/wristmap.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Accessories/wristmap.rsi
+    clothingVisuals:
+      leftarmband:
+      - state: equipped-ARMBANDLEFT
+      rightarmband:
+      - state: equipped-ARMBANDRIGHT
+  - type: StationMap
+    singleUser: true
+  - type: ActivatableUI
+    key: enum.StationMapUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
