@@ -12,6 +12,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using System.Collections;
 
 namespace Content.Shared._Mono.ArmorPlate;
 
@@ -120,8 +121,9 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
         //If raw flag is present, it overrides to prevent double dipping
         if ((mode & StaminaDamageSourceFlag.Raw) != 0)
         {
-            foreach (var (_, amt) in rawDamage.DamageDict)
-                staminaBaseDamage = amt.Float();
+            foreach (var (type, amt) in rawDamage.DamageDict)
+                if (type != "Structural")
+                    staminaBaseDamage += amt.Float();
         }
         else
         {
