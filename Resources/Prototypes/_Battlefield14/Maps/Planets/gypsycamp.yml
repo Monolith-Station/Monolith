@@ -1,7 +1,7 @@
 - type: gameMap
   id: BF14GypsyCamp
   mapName: 'Gypsy camp'
-  mapPath: /Maps/_Battlefield14/Planets/gypsycamp2.yml
+  mapPath: /Maps/_Battlefield14/Planets/gypsycamp.yml
   minPlayers: 1
   maxPlayers: 50
   randomRotation: false
@@ -19,7 +19,5 @@
           lobbySortOrder: 1
         - type: StationJobs
           availableJobs:
-            NationalistUA: [ 8, 8]
+            NationalistUA: [ 8, 8 ]
             Gypsy: [ 8, 8 ]
-        - type: StationBiome
-          biome: Grasslands

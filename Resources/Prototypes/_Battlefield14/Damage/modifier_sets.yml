@@ -117,6 +117,22 @@
 #region Vehicles
 
 - type: damageModifierSet
+  id: BF_ArmouredCar
+  coefficients:
+    Blunt: 0.75
+    Slash: 0.5
+    Piercing: 0.5
+    Heat: 0.5
+    Shock: 0.5
+    Structural: 1
+  flatReductions:
+    Blunt: 40
+    Slash: 40
+    Piercing: 40
+    Heat: 40
+    Structural: 20
+
+- type: damageModifierSet
   id: BF_APC
   coefficients:
     Blunt: 0.75
@@ -130,4 +146,4 @@
     Slash: 50
     Piercing: 50
     Heat: 50
-    Structural: 15
+    Structural: 50
