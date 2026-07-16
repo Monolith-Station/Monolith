@@ -77,8 +77,10 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
             if (plate.Comp.MaxDurability != -1)
                 DamagePlate(ent, equipped.Value, holder, plate, plateDamage);
 
-            if(plate.Comp.StaminaDamageMultiplier > 0)
-                InflictStamina(ent, args.Damage, absorbed, remainder, plate.Comp.StaminaDamageMultiplier, plate.Comp.StaminaDamageSource);
+            if (plate.Comp.StaminaDamageMultipliers.Count > 0)
+            {
+                InflictStamina(ent, args.Damage, absorbed, remainder, plate.Comp.StaminaDamageMultipliers);
+            }
 
             // Full absorption, done
             if (remainder.Empty)
@@ -113,26 +115,25 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
         DamageSpecifier rawDamage,
         FixedPoint2 absorbed,
         DamageSpecifier remainder,
-        float multiplier,
-        StaminaDamageSourceFlag mode)
+        Dictionary<string, float> multipliers)
     {
-        float staminaBaseDamage = 0f;
+        float staminaDamage = 0f;
 
         //If raw flag is present, it overrides to prevent double dipping
-        if ((mode & StaminaDamageSourceFlag.Raw) != 0)
+        if (multipliers.TryGetValue("Raw", out var rawMult))
         {
             foreach (var (type, amt) in rawDamage.DamageDict)
                 if (type != "Structural")
-                    staminaBaseDamage += amt.Float();
+                    staminaDamage += amt.Float() * rawMult;
         }
         else
         {
-        //Absorbed, pretty straightforward
-            if ((mode & StaminaDamageSourceFlag.Absorbed) != 0)
-                staminaBaseDamage += absorbed.Float();
+            //Absorbed, pretty straightforward
+            if (multipliers.TryGetValue("Absorbed", out var absorbMult))
+                staminaDamage += absorbed.Float() * absorbMult;
 
-        //Amplified = Remainder - Raw
-            if ((mode & StaminaDamageSourceFlag.Amplified) != 0)
+            //Amplified = Remainder - Raw
+            if (multipliers.TryGetValue("Amplified", out var amplifyMult))
             {
                 float amplified = 0f;
 
@@ -142,11 +143,10 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
                 foreach (var (_, amt) in rawDamage.DamageDict)
                     amplified -= amt.Float();
 
-                staminaBaseDamage += MathF.Max(0f, amplified);
+                staminaDamage += MathF.Max(0f, amplified) * amplifyMult;
             }
         }
 
-        var staminaDamage = staminaBaseDamage * multiplier;
         _stamina.TakeStaminaDamage(wearer, staminaDamage);
     }
 
@@ -257,7 +257,7 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
         holder.ActivePlate = plateUid;
         holder.WalkSpeedModifier = plateComp.WalkSpeedModifier;
         holder.SprintSpeedModifier = plateComp.SprintSpeedModifier;
-        holder.StaminaDamageMultiplier = plateComp.StaminaDamageMultiplier;
+        holder.ActiveStaminaMultipliers = new Dictionary<string, float>(plateComp.StaminaDamageMultipliers);
 
         Dirty(holderUid, holder);
         RefreshMovementSpeed(holderUid);
@@ -272,7 +272,7 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
         holder.ActivePlate = null;
         holder.WalkSpeedModifier = 1.0f;
         holder.SprintSpeedModifier = 1.0f;
-        holder.StaminaDamageMultiplier = 1.0f;
+        holder.ActiveStaminaMultipliers.Clear();
 
         Dirty(holderUid, holder);
         RefreshMovementSpeed(holderUid);
@@ -452,31 +452,67 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
         }
 
         //Stamina damage (if it can inflict any)
-        if (plate.StaminaDamageMultiplier > 0)
+
+        //Raw
+        if (plate.StaminaDamageMultipliers.TryGetValue("Raw", out var rawMultiplier) && rawMultiplier > 0f)
         {
             msg.PushNewline();
-
-            var staminaPercent = MathF.Round(plate.StaminaDamageMultiplier * 100f, 1);
-            var sources = new List<string>();
-
-            if ((plate.StaminaDamageSource & StaminaDamageSourceFlag.Raw) != 0)
-            {
-                sources.Add(Loc.GetString("armor-plate-stamina-source-raw"));
-            }
-            else
-            {
-                if ((plate.StaminaDamageSource & StaminaDamageSourceFlag.Absorbed) != 0)
-                    sources.Add(Loc.GetString("armor-plate-stamina-source-absorb"));
-
-                if ((plate.StaminaDamageSource & StaminaDamageSourceFlag.Amplified) != 0)
-                    sources.Add(Loc.GetString("armor-plate-stamina-source-amplified"));
-            }
-
-            var sourceString = string.Join(" " + Loc.GetString("armor-plate-stamina-concat") + " ", sources);
+            var staminaPercent = MathF.Round(rawMultiplier * 100f, 1);
+            var localizedSource = Loc.GetString("armor-plate-stamina-source-raw");
 
             msg.AddMarkupOrThrow(Loc.GetString("armor-plate-stamina-value",
                 ("multiplier", staminaPercent),
-                ("sources", sourceString)));
+                ("sources", localizedSource)));
+        }
+
+        //Absorbed & Amplified
+        else
+        {
+            var absorbedPercent = 0f;
+            var amplifiedPercent = 0f;
+
+            if (plate.StaminaDamageMultipliers.TryGetValue("Absorbed", out var absorbedMultiplier) && absorbedMultiplier > 0f)
+            {
+                absorbedPercent = MathF.Round(absorbedMultiplier * 100f, 1);
+            }
+
+            if (plate.StaminaDamageMultipliers.TryGetValue("Amplified", out var amplifiedMultiplier) && amplifiedMultiplier > 0f)
+            {
+                amplifiedPercent = MathF.Round(amplifiedMultiplier * 100f, 1);
+            }
+
+            //Seperate incongruent values
+            if (absorbedPercent != amplifiedPercent)
+            {
+                if (absorbedPercent > 0)
+                {
+                    msg.PushNewline();
+                    msg.AddMarkupOrThrow(Loc.GetString("armor-plate-stamina-value",
+                        ("multiplier", absorbedPercent),
+                        ("sources", Loc.GetString("armor-plate-stamina-source-absorb"))));
+                }
+
+                if (amplifiedPercent > 0)
+                {
+                    msg.PushNewline();
+                    msg.AddMarkupOrThrow(Loc.GetString("armor-plate-stamina-value",
+                        ("multiplier", amplifiedPercent),
+                        ("sources", Loc.GetString("armor-plate-stamina-source-amplified"))));
+                }
+            }
+
+            //Print together if absorbed = amplified and not 0
+            else if (absorbedPercent > 0 & amplifiedPercent > 0)
+            {
+                var sourceString = $"{Loc.GetString("armor-plate-stamina-source-absorb")}" + " " +
+                    $"{Loc.GetString("armor-plate-stamina-concat")}" + " " +
+                    $"{Loc.GetString("armor-plate-stamina-source-amplified")}";
+
+                msg.PushNewline();
+                msg.AddMarkupOrThrow(Loc.GetString("armor-plate-stamina-value",
+                    ("multiplier", absorbedPercent),
+                    ("sources", sourceString)));
+            }
         }
 
         return msg;

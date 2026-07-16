@@ -15,8 +15,9 @@
     maxDurability: 125
     walkSpeedModifier: 0.92
     sprintSpeedModifier: 0.92
-    staminaDamageMultiplier: 0.5
-    staminaDamageSource: Absorbed, Amplified
+    staminaDamageMultipliers:
+      Absorbed: 0.5
+      Amplified: 0.5
     damageToPlate:
       Blunt: 0.5
       Slash: 0.5
@@ -55,8 +56,9 @@
     maxDurability: 100
     walkSpeedModifier: 0.92
     sprintSpeedModifier: 0.92
-    staminaDamageMultiplier: 0.75
-    staminaDamageSource: Absorbed, Amplified
+    staminaDamageMultipliers:
+      Absorbed: 0.8
+      Amplified: 0.8
     damageToPlate:
       Piercing: 1
       Heat: 0.5
@@ -91,8 +93,9 @@
     maxDurability: 100
     walkSpeedModifier: 0.92
     sprintSpeedModifier: 0.92
-    staminaDamageMultiplier: 3 # Since you're betting against a damagetype already stacked against by other countermeasures, the punishment for wrong prep is even worse
-    staminaDamageSource: Amplified
+    staminaDamageMultipliers:
+      Absorbed: 0.8
+      Amplified: 3
     damageToPlate:
       Piercing: 0.5
       Heat: 1
@@ -129,8 +132,8 @@
     maxDurability: 200
     walkSpeedModifier: 1.1
     sprintSpeedModifier: 1.1
-    staminaDamageMultiplier: 0.6
-    staminaDamageSource: Raw
+    staminaDamageMultipliers:
+      Raw: 0.6
     damageToPlate:
       Heat: 1
       Blunt: 1

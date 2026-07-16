@@ -2,14 +2,6 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._Mono.ArmorPlate;
 
-[Flags]
-public enum StaminaDamageSourceFlag
-{
-    Absorbed = 1 << 0,
-    Amplified = 1 << 1,
-    Raw = 1 << 2,
-}
-
 /// <summary>
 /// Component for armor plates that can be inserted into compatible clothing.
 /// </summary>
@@ -19,7 +11,7 @@ public sealed partial class ArmorPlateItemComponent : Component
 {
     /// <summary>
     /// Maximum durability of this plate before destruction. Should match the destruction threshold in DestructibleComponent.
-    /// Exclude DestructibleComponent and exclude durability field in YML to make the plate indestructible.
+    /// Exclude DestructibleComponent and omit this field in YML to make the plate indestructible.
     /// </summary>
     [DataField]
     [AutoNetworkedField]
@@ -40,19 +32,11 @@ public sealed partial class ArmorPlateItemComponent : Component
     public float SprintSpeedModifier = 1.0f;
 
     /// <summary>
-    /// Multiplier applied when converting damage to stamina damage.
-	/// Amplified, absorbed, and raw damage are all distinct sources. Select accordingly with StaminaDamageSourceFlag
+    /// Stamina damage applied based on a multiplier and chosen portion of damage. Options are: Raw, Absorbed, or Amplified.
+    /// Omit this field in YML to deal no stamina damage
     /// </summary>
-    [DataField]
-    public float StaminaDamageMultiplier = 0f;
-
-    /// <summary>
-    /// Allows selection of Absorb and Amplified as stamina damage source. Defaults to absorbed.
-    /// Example: StaminaDamageSource: Absorbed, Amplified
-    /// Adding raw OVERRIDES the damagetype behavior: no double dipping.
-    /// </summary>
-    [DataField]
-    public StaminaDamageSourceFlag StaminaDamageSource = StaminaDamageSourceFlag.Absorbed;
+    [DataField("staminaDamageMultipliers")]
+    public Dictionary<string, float> StaminaDamageMultipliers = new();
 
     /// <summary>
     /// How much of the raw damage is dealt to the plate, per damagetype
