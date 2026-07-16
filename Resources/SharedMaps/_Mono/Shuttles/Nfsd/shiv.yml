@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/16/2026 12:51:07
+  time: 07/16/2026 13:38:05
   entityCount: 537
 maps: []
 grids:
@@ -87,10 +87,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
+        Smoke: []
         Puddle: []
         Kudzu: []
-        Smoke: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -1735,7 +1735,7 @@ entities:
     - type: Transform
       pos: -2.519052,-1.495266
       parent: 1
-- proto: GasMixer
+- proto: GasMixerOn
   entities:
   - uid: 105
     components:
@@ -1745,8 +1745,6 @@ entities:
       parent: 1
     - type: AtmosPipeLayers
       pipeLayer: Secondary
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
 - proto: GasPassiveVent
   entities:
   - uid: 193
@@ -2599,8 +2597,11 @@ entities:
   - uid: 177
     components:
     - type: Transform
+      anchored: True
       pos: -0.5,-1.5
       parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: OreProcessorIndustrial
   entities:
   - uid: 206
@@ -2613,8 +2614,11 @@ entities:
   - uid: 176
     components:
     - type: Transform
+      anchored: True
       pos: -0.5,0.5
       parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: PlastitaniumWindow
   entities:
   - uid: 24
