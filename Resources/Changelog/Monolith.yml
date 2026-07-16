@@ -22540,3 +22540,43 @@ Entries:
   id: 2490
   time: '2026-07-15T03:25:42.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4278
+- author: Huaqas
+  changes:
+    - type: Fix
+      message: Fixed some modsuits showing as errors for Resomi.
+    - type: Fix
+      message: >-
+        Artefacts should not appear around Resomi character when picking up
+        large items/clothing.
+  id: 2491
+  time: '2026-07-15T18:20:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4109
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed walls being able to exist without being on a grid. No more
+        original entity already existing when I'm trying to SRD.
+  id: 2492
+  time: '2026-07-15T23:30:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4283
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed some minor bugs with Drillsite.
+  id: 2493
+  time: '2026-07-15T23:52:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4282
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: >-
+        Caelestinus Central rises from the old hull with much needed touch-ups,
+        a redesign, and entirely new sections!
+    - type: Remove
+      message: >-
+        With the addition of a new and improved Central station; Trade Mall and
+        Medical Dispatch have been smote.
+  id: 2494
+  time: '2026-07-16T05:22:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4155

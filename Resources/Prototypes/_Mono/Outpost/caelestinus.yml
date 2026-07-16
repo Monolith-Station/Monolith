@@ -1,7 +1,7 @@
 - type: gameMap
   id: Frontier
-  mapName: 'Colossus Central'
-  mapPath: /Maps/_Mono/Outpost/colossus_central.yml # Mono
+  mapName: 'Caelestinus Central'
+  mapPath: /Maps/_Mono/Outpost/caelestinus_central.yml # Mono
   minPlayers: 0
   maxPlayers: 100
   randomRotation: false
@@ -16,7 +16,7 @@
         description: "The closest thing to civilisation in this sector. You almost feel safe."
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Colossus Central'
+          mapNameTemplate: 'Caelestinus Central'
 #          nameGenerator:
 #            !type:NanotrasenNameGenerator
 #            prefixCreator: '14'
@@ -40,6 +40,8 @@
             CCServiceWorker: [ 2, 2 ]
             NFJanitor: [ 2, 2 ]
             MailCarrier: [ 2, 2 ]
+            DirectorOfCare: [ 1, 1 ]
+            MdMedic: [ -1, -1 ]
           tags:
           - HeadOfPersonnel
           - HeadOfSecurity
