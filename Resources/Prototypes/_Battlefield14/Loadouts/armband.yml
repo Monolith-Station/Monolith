@@ -10,3 +10,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: BF_RU_BOSS_1
+
+- type: loadout
+  id: LoadoutArmbandStationMap
+  equipment:
+    leftarmband: ClothingArmbandStationMap
