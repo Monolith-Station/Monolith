@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 264.0.0
+  engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/07/2026 02:29:09
-  entityCount: 1371
+  time: 07/15/2026 08:10:12
+  entityCount: 1372
 maps: []
 grids:
 - 1
@@ -119,9 +119,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Puddle: []
+        Kudzu: []
         Smoke: []
         MetalFoam: []
-        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1243,61 +1243,15 @@ entities:
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         - volume: 2500
           immutable: True
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -1319,6 +1273,8 @@ entities:
         2,-1: 1953158174865555462
         2,-2: 434034414087831552
         0,-2: 868068828175663104
+    - type: ThermalSignature
+    - type: ExplosionAirtightGrid
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -3715,7 +3671,7 @@ entities:
   - uid: 427
     components:
     - type: Transform
-      pos: 7.5,11.5
+      pos: 8.5,12.5
       parent: 1
   - uid: 429
     components:
@@ -3766,6 +3722,11 @@ entities:
     components:
     - type: Transform
       pos: 7.5,13.5
+      parent: 1
+  - uid: 1372
+    components:
+    - type: Transform
+      pos: 8.5,11.5
       parent: 1
 - proto: CableMV
   entities:
@@ -4475,14 +4436,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ConstructionBox
-  entities:
-  - uid: 557
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 13.5,1.5
-      parent: 1
 - proto: ConveyorBelt
   entities:
   - uid: 558
@@ -6920,17 +6873,19 @@ entities:
       parent: 1
 - proto: MachineHeavyFTLDriveConsole
   entities:
-  - uid: 428
-    components:
-    - type: Transform
-      pos: 7.5,11.5
-      parent: 1
-- proto: MachineHeavyFTLDriveCore
-  entities:
   - uid: 867
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: 8.5,11.5
+      parent: 1
+- proto: MachineHeavyFTLDriveCore
+  entities:
+  - uid: 428
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,11.5
       parent: 1
 - proto: MedkitOxygenFilled
   entities:
@@ -6953,6 +6908,22 @@ entities:
     - type: Transform
       pos: 5.5,17.5
       parent: 1
+- proto: NFMagnetBoxConstruction
+  entities:
+  - uid: 557
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,1.5
+      parent: 1
+- proto: NFMagnetBoxOre
+  entities:
+  - uid: 873
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,2.5
+      parent: 1
 - proto: NitrogenCanister
   entities:
   - uid: 871
@@ -6971,14 +6942,6 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
-- proto: OreBox
-  entities:
-  - uid: 873
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 13.5,2.5
-      parent: 1
 - proto: OreProcessor
   entities:
   - uid: 874
@@ -7975,12 +7938,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 15.5,2.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 1041
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 17.5,2.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
 - proto: ReinforcedUraniumWindow
   entities:
   - uid: 1042
@@ -7989,12 +7956,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 17.5,-2.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 1043
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 15.5,-2.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
 - proto: ReinforcedWindow
   entities:
   - uid: 1044
@@ -8002,17 +7973,23 @@ entities:
     - type: Transform
       pos: 20.5,10.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 1045
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 20.5,8.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 1046
     components:
     - type: Transform
       pos: 20.5,9.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
 - proto: ResearchAndDevelopmentServer
   entities:
   - uid: 1047
@@ -8597,11 +8574,15 @@ entities:
       rot: 3.141592653589793 rad
       pos: 7.5,14.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 1120
     components:
     - type: Transform
       pos: 7.5,15.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
 - proto: WallmountTelevisionFrame
   entities:
   - uid: 1121
@@ -9911,6 +9892,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: 14.5,19.5
       parent: 1
+- proto: WeaponTurretFang
+  entities:
+  - uid: 1351
+    components:
+    - type: Transform
+      pos: 6.5,-8.5
+      parent: 1
+  - uid: 1352
+    components:
+    - type: Transform
+      pos: 14.5,-8.5
+      parent: 1
 - proto: WeaponTurretL85Autocannon
   entities:
   - uid: 1347
@@ -9925,6 +9918,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 20.5,-7.5
       parent: 1
+- proto: WeaponTurretRAC30
+  entities:
   - uid: 1349
     components:
     - type: Transform
@@ -9936,18 +9931,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 19.5,4.5
-      parent: 1
-- proto: WeaponTurretCyrexa
-  entities:
-  - uid: 1351
-    components:
-    - type: Transform
-      pos: 14.5,-8.5
-      parent: 1
-  - uid: 1352
-    components:
-    - type: Transform
-      pos: 6.5,-8.5
       parent: 1
 - proto: Welder
   entities:
@@ -9974,6 +9957,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: 8.5,14.5
       parent: 1
+    - type: DeltaPressure
+      gridUid: 1
 - proto: Wrench
   entities:
   - uid: 1357
