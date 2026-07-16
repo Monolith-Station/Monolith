@@ -129,9 +129,9 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 5
-        Structural: 10
-        Heat: 10
+        Radiation: 15
+        Structural: 35
+        Heat: 65
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
     layers:
@@ -147,11 +147,11 @@
   - type: PointLight
     radarColor: "#00e5ff"
   - type: ExplodeOnTrigger
-  - type: Explosive
+  - type: Explosive # worse than hitler
     explosionType: Default
-    totalIntensity: 3
-    intensitySlope: 3
-    maxIntensity: 3
+    totalIntensity: 16
+    intensitySlope: 4
+    maxIntensity: 4
 
 # Type 241
 

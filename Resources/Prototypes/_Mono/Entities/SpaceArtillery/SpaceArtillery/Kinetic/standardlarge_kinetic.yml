@@ -35,7 +35,7 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 275
+    projectileSpeed: 380
     minAngle: 0
     maxAngle: 1
     fireRate: 0.2
@@ -123,7 +123,7 @@
     projectileSpeed: 360
     minAngle: 0
     maxAngle: 0.5
-    fireRate: 2.5
+    fireRate: 3.5
     recoil: 10
     selectedMode: FullAuto
     availableModes: FullAuto
@@ -204,7 +204,7 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 350
+    projectileSpeed: 550
     minAngle: 0
     maxAngle: 1
     fireRate: 0.1
@@ -285,7 +285,7 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 350
+    projectileSpeed: 550
     minAngle: 0
     maxAngle: 0
     fireRate: 0.2
