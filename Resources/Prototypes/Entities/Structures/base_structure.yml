@@ -31,6 +31,8 @@
   - type: Repairable #Mono: Nanite applicator
     qualities:
     - Applicating
+  - type: GravityAffected # gravrefactor
+
 
 - type: entity
   # This means that it's not anchored on spawn.
