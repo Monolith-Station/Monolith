@@ -64,13 +64,48 @@
     slotId: feet # Shitmed
 
 - type: entity
-  parent: [ PartAnimalBase, BaseTorso ]
+  parent: [ PartAnimalBase, BaseLeftLeg ]
+  id: LeftLegAnimal
+  name: "left animal legs"
+  components:
+  - type: Sprite
+    layers:
+    - state: l_leg
+    - state: r_leg
+  - type: Icon
+    state: l_leg # cba to make a state for it
+    partType: Leg
+    symmetry: Left
+    slotId: leg # Shitmed
+  - type: MovementBodyPart
+
+- type: entity
+  parent: [ PartAnimalBase, BaseRightLeg ]
+  id: RightLegAnimal
+  name: "right animal legs"
+  components:
+  - type: Sprite
+    layers:
+    - state: l_leg
+    - state: r_leg
+  - type: Icon
+    state: l_leg # cba to make a state for it
+    partType: Leg
+    symmetry: Left
+    slotId: leg # Shitmed
+  - type: MovementBodyPart
+
+- type: entity
+  parent: [ PartAnimalBase, BaseTorsoAnimal ]
   id: TorsoAnimal
   name: animal torso
-  components:
-  - type: BodyPart
-    # standard organs are good for most animals
-    children: # most animals have no hands (primate is unused) so just legs by default
-      legs:
-        id: legs
-        type: Leg
+  slots:
+    torso:
+      part: TorsoAnimal
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganHumanLungs
+        stomach: OrganMothStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
+
