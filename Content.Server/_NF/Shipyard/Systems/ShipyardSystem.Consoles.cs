@@ -560,8 +560,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         var name = GetFullName(deed);
         SendSellMessage(uid, deed.ShuttleOwner!, name, component.ShipyardChannel, player, secret: false);
-        if (component.SecretShipyardChannel is { } secretChannel)
-            SendSellMessage(uid, deed.ShuttleOwner!, name, secretChannel, player, secret: true);
+        //if (component.SecretShipyardChannel is { } secretChannel) #Mono, WHY IS THERE A SECRET SHIPYARD CHANNEL WE NEVER USE THOSE
+        //    SendSellMessage(uid, deed.ShuttleOwner!, name, secretChannel, player, secret: true);
 
         EntityUid? refreshId = targetId;
 
