@@ -31,6 +31,7 @@
     tags:
     - Bandana
     - ClothMade
+    - PetWearable
   - type: HideLayerClothing
     slots:
     - Snout
@@ -46,6 +47,9 @@
     sprite: Clothing/Head/Bandanas/black.rsi
   - type: Clothing
     sprite: Clothing/Head/Bandanas/black.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingMaskBandanaBase
@@ -57,6 +61,9 @@
     sprite: Clothing/Head/Bandanas/blue.rsi
   - type: Clothing
     sprite: Clothing/Head/Bandanas/blue.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingMaskBandanaBase
@@ -72,6 +79,7 @@
     tags:
     - WhitelistChameleon
     - ClothMade
+    - PetWearable
 
 - type: entity
   parent: ClothingMaskBandanaBase
@@ -83,6 +91,9 @@
     sprite: Clothing/Head/Bandanas/gold.rsi
   - type: Clothing
     sprite: Clothing/Head/Bandanas/gold.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingMaskBandanaBase
@@ -94,6 +105,9 @@
     sprite: Clothing/Head/Bandanas/green.rsi
   - type: Clothing
     sprite: Clothing/Head/Bandanas/green.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingMaskBandanaBase
@@ -105,6 +119,9 @@
     sprite: Clothing/Head/Bandanas/grey.rsi
   - type: Clothing
     sprite: Clothing/Head/Bandanas/grey.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingMaskBandanaBase
@@ -116,6 +133,9 @@
     sprite: Clothing/Head/Bandanas/red.rsi
   - type: Clothing
     sprite: Clothing/Head/Bandanas/red.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingMaskBandanaBase
@@ -127,6 +147,9 @@
     sprite: Clothing/Head/Bandanas/skull.rsi
   - type: Clothing
     sprite: Clothing/Head/Bandanas/skull.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingMaskBandanaBase
@@ -138,6 +161,9 @@
     sprite: Clothing/Head/Bandanas/merc.rsi
   - type: Clothing
     sprite: Clothing/Head/Bandanas/merc.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingMaskBandanaBase
@@ -149,3 +175,6 @@
     sprite: Clothing/Head/Bandanas/brown.rsi
   - type: Clothing
     sprite: Clothing/Head/Bandanas/brown.rsi
+  - type: Tag
+    tags:
+    - PetWearable

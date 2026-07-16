@@ -13,6 +13,7 @@
     tags:
     - HelmetEVA
     - WhitelistChameleon
+    - PetWearable
 
 #Large EVA Helmet
 - type: entity
@@ -25,7 +26,10 @@
     sprite: Clothing/Head/Helmets/eva_large.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/eva_large.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 #Syndicate EVA Helmet
 - type: entity
   parent: [ClothingHeadEVAHelmetBase]
@@ -37,6 +41,9 @@
     sprite: Clothing/Head/Helmets/eva_syndicate.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/eva_syndicate.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 #Cosmonaut Helmet
 - type: entity
@@ -49,6 +56,9 @@
     sprite: Clothing/Head/Helmets/cosmonaut.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/cosmonaut.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 #Ancient Void Helmet
 - type: entity
@@ -61,6 +71,9 @@
     sprite: Clothing/Head/Helmets/ancientvoidsuit.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ancientvoidsuit.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 #Paramedic Void Helmet
 - type: entity
@@ -95,3 +108,6 @@
     radius: 6 # 5->6 Mono
     energy: 3 # 2->3 Mono
     color: "#00ffff"
+  - type: Tag
+    tags:
+    - PetWearable
