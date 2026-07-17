@@ -38,8 +38,8 @@
     intensitySlope: 8
     maxIntensity: 3
   - type: TargetSeeking
-    acceleration: 30
-    detectionRange: 1200
+    acceleration: 40
+    detectionRange: 2000
     scanArc: 35
     launchSpeed: 10
     maxSpeed: 300
@@ -61,8 +61,9 @@
     damage:
       types:
         Structural: 2500
-        Blunt: 35
-        Heat: 15
+        Blunt: 75
+        Heat: 35
+        Pierce: 50
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:
@@ -91,6 +92,6 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 25
+    totalIntensity: 150
     intensitySlope: 80
-    maxIntensity: 10
+    maxIntensity: 100

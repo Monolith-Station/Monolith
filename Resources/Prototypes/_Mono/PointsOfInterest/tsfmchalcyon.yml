@@ -25,6 +25,13 @@
     readOnly: true
   - type: SolarPoweredGrid
     doNotCull: true
+  - type: WorldGenDistanceCarver
+    distanceThresholds:
+    # Dead zone
+    - maxDistance: 800
+      prob: 0.0
+    - maxDistance: 1500
+      prob: 0.3
 
 - type: gameMap
   id: TSFMCHalcyon
@@ -60,6 +67,69 @@
           tags:
           - HeadOfPersonnel
           - HeadOfSecurity
+        - type: StationDeadDropReporting
+          messageSet: Nfsd
+        - type: StationDeadDropHintExempt
+
+### Hyperwar
+
+- type: pointOfInterest
+  id: TSFMCHalcyonHyperwar
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'TSFMC Flagship Halcyon'
+  minimumDistance: 4500
+  maximumDistance: 5500
+  spawnGamePreset: [ MonoRogueTSFHyperwar ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/tsfmchalcyon_hw.yml
+  addComponents:
+  - type: IFF
+    color: "#047abd"
+    readOnly: true
+  - type: SolarPoweredGrid
+    doNotCull: true
+
+- type: gameMap
+  id: TSFMCHalcyonHyperwar
+  mapName: 'TSFMC Flagship Halcyon'
+  mapPath: /Maps/_Mono/POI/tsfmchalcyon_hw.yml
+  minPlayers: 0
+  randomRotation: false
+  stations:
+    TSFMCHalcyonHyperwar:
+      stationProto: SecurityFrontierOutpost
+      gridComponents:
+      - type: VesselInfo
+        description: "A mothballed battleship-turned-FOB, and Home of the TSFMC operations."
+      - type: Tag
+        tags:
+        - TsfStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'TSFMC Flagship Halcyon'
+        - type: StationEventEligible
+        - type: NpcFactionMember
+          factions:
+          - TSFMC
+        - type: ExtraStationInformation
+          icon:
+            sprite: _NF/Structures/Decoration/banner.rsi
+            state: nfsd-banner
+          stationSubtext: 'frontier-lobby-nfsd-subtext'
+          stationDescription: 'frontier-lobby-nfsd-description'
+          lobbySortOrder: 2
+        - type: StationJobs
+          availableJobs:
+            Sheriff: [ 1, 1 ]
+            TsfMarsoc: [ 3, 3 ]
+            Bailiff: [ 3, 3 ]
+            SeniorOfficer: [ 6, 6 ] # Mono
+            Brigmedic: [ 4, 4 ] # Mono
+            Deputy: [ -1, -1 ] # Mono
+            TsfEngineer: [ 4, 4 ]
+            TsfBorg: [ 2, 2 ]
+          tags:
+          - CentralCommand
         - type: StationDeadDropReporting
           messageSet: Nfsd
         - type: StationDeadDropHintExempt

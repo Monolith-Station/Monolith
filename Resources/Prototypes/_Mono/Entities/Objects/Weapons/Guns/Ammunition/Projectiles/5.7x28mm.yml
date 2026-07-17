@@ -8,7 +8,7 @@
     damage:
       types:
         Piercing: 20
-    armorPenetration: 0.075
+    armorPenetration: 0.3
 
 - type: entity
   id: Bullet57x28mmPractice
@@ -110,4 +110,4 @@
       types:
         Piercing: 7
         Structural: 40
-    armorPenetration: 0.7
+    armorPenetration: 0.8

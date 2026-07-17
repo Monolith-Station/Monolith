@@ -4,8 +4,7 @@
   minLimit: 1
   loadouts:
   - FactionC20RLoadout
-  # - FactionWt550Loadout
-  # - FactionLecterLoadout
+  - FactionVympelLoadout
   - FactionAk220Loadout
   - FactionEnergyGunLoadout
   fallbacks:
@@ -17,8 +16,8 @@
   minLimit: 1
   loadouts:
   - FactionC20RLoadout
+  - FactionVympelLoadout
   - FactionWt550Loadout
-  # - FactionLecterLoadout
   - FactionAkmLoadout
   - FactionEnergyGunLoadout
   fallbacks:
@@ -38,8 +37,8 @@
   minLimit: 1
   loadouts:
   - Faction9x19SMGAmmoLoadout #C20r
+  - Faction556x45mmAmmoLoadout # Vympel
   # - Faction46x30mmTopAmmo #WT550
-  # - Faction556x45mmAmmoLoadout #Lecter
   # - Faction762x39mmAmmoLoadout #AKM
   - FactionRechargerLoadout #Energy
   fallbacks:

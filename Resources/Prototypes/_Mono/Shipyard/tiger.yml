@@ -8,11 +8,11 @@
   id: Tiger
   parent: BaseVessel
   name: NSK Tiger
-  description: A retired racing ship, the Tiger hull has been found in use by the Nova Sharks as both a hotrod, as well as a ludicriously fast haulcraft. 
-  price: 32000 # race ship tax since its gonna be used for smuggling. 
+  description: A retired racing ship, the Tiger hull has been found in use by the Nova Sharks as both a hotrod, as well as a ludicriously fast haulcraft.
+  price: 32000 # race ship tax since its gonna be used for smuggling.
   category: Small
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/tiger.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/tiger.yml
   guidebookPage: Null
   class:
   - Cargo
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Tiger
   mapName: 'NSK Tiger'
-  mapPath: /Maps/_Mono/Shuttles/tiger.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/tiger.yml
   minPlayers: 0
   stations:
     Tiger:

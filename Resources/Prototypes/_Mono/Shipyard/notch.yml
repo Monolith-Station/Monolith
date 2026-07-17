@@ -12,7 +12,7 @@
   price: 25900
   category: Small
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/notch.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/notch.yml
   guidebookPage: Null
   class:
   - Salvage
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Notch
   mapName: 'DIS Notch'
-  mapPath: /Maps/_Mono/Shuttles/notch.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/notch.yml
   minPlayers: 0
   stations:
     Notch:

@@ -157,6 +157,21 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
+  id: KortikVoucherRogue
+  result: ShipVoucherKortik
+  materials:
+    Steel: 30000
+    Plasteel: 50000
+    Plastic: 20000
+    Glass: 5000
+    Plasma: 5000
+    UraniumFissile: 400
+    UraniumDepleted: 2000
+    Silver: 3000
+    Gold: 3000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
   id: SaturnVoucherRogue
   result: ShipVoucherSaturn
   completetime: 10

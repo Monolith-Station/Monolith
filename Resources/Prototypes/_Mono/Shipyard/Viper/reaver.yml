@@ -13,7 +13,7 @@
   category: Small
   group: Viper
   access: Viper
-  shuttlePath: /Maps/_Mono/Shuttles/Viper/reaver.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Viper/reaver.yml
   guidebookPage: Null
   class:
   - Scrapyard
@@ -24,7 +24,7 @@
 - type: gameMap
   id: Reaver
   mapName: 'VG Reaver'
-  mapPath: /Maps/_Mono/Shuttles/Viper/reaver.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Viper/reaver.yml
   minPlayers: 0
   stations:
     Reaver:

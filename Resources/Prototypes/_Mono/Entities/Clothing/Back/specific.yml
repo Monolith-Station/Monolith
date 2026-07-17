@@ -85,6 +85,15 @@
   - type: Sprite
     sprite: _Mono/Clothing/Back/Satchels/pdv.rsi
 
+- type: entity
+  parent: ClothingBackpackERTLeader
+  id: ClothingBackpackPDVTarkhan
+  name: tarkhan advanced tactical backpack
+  description: A large bag used by Tarkhans.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Backpacks/tarkhan.rsi
+
 # Jackhammer
 
 - type: entity

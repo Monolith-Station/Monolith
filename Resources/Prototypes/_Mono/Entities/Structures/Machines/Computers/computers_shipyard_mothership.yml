@@ -1,6 +1,6 @@
 - type: entity
   id: BaseCarrierComputer
-  parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyard]
+  parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyardBase]
   suffix: Carrier
   description: Used on carriers to purchase and sell ships without returning to a station.
   abstract: true
@@ -61,6 +61,20 @@
     - QJ270
     - Zephyr
     - QJ340
+
+- type: entity
+  id: TSFNChengduComputer
+  parent: BaseCarrierComputer
+  name: TSFN Chengdu internal hangar console
+  description: Lighter shipyard using the Chengdu's internal hangars, doesn't have access to the full roster of TSFMC ships.
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Jaguar
+    - Ocelot
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
 
 - type: entity
   id: LedokolAttachmentComputer

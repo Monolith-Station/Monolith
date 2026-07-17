@@ -1,16 +1,16 @@
-#Author: Starch(!)
+#Author: Eldritch_Pineapple
 
 - type: vessel
   id: Spica
   parent: BaseVesselAntag
   name: TSF-PIN Spica
-  description: A beefed up hull and the light frontline mainstay of the TSF fleets. A suprising weapons package in a small frame, made to engage larger targets.
+  description: A beefed up(-ish) hull made to support heavier craft thanks to its impressive collection of EMP armaments, also equipped with a complimentary sensors suite to pursue any fleeing hostile.
   price: 117000
   purchasable: false # voucher only
   category: Small
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/spica.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/spica.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -21,11 +21,14 @@
 - type: gameMap
   id: Spica
   mapName: 'Spica'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/spica.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/spica.yml
   minPlayers: 0
   stations:
     Spica:
       stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "This ship is the living embodiement of militarized Solarian police craft: it goes fast and has enough EMP capacity to fry all power systems of a small freighter -permanently-."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Spica TSF{1}'

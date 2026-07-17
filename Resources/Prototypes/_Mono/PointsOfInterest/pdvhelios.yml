@@ -9,8 +9,8 @@
   id: HeliosFortress
   parent: [BasePOI, BaseRepairablePOI]
   name: 'PDV Helios Fortress'
-  minimumDistance: 7500
-  maximumDistance: 9500
+  minimumDistance: 8600
+  maximumDistance: 11500
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoRogueUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/pdvhelios.yml
@@ -18,10 +18,17 @@
   - type: IFF
     color: "#DE9E59"
     readOnly: true # mono
+  - type: WorldGenDistanceCarver
+    distanceThresholds:
+    # Dead zone
+    - maxDistance: 800
+      prob: 0.0
+    - maxDistance: 1500
+      prob: 0.3
 
 - type: gameMap
   id: HeliosFortress
-  mapName: 'PDV Helio Fortress'
+  mapName: 'PDV Helios Fortress'
   mapPath: /Maps/_Mono/POI/pdvhelios.yml
   minPlayers: 0
   stations:
@@ -47,6 +54,62 @@
             PdvBorg: [ 2, 2 ]
           tags:
           - GrandVizier
+        - type: StationDeadDropReporting
+          messageSet: Pirate
+        - type: StationDeadDropHintExempt
+
+### Hyperwar
+
+- type: pointOfInterest
+  id: HeliosFortressHyperwar
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'PDV Helios Fortress'
+  minimumDistance: 7500
+  maximumDistance: 9500
+  spawnGamePreset: [ MonoRogueTSFHyperwar ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/pdvhelios_hw.yml
+  addComponents:
+  - type: IFF
+    color: "#DE9E59"
+    readOnly: true # mono
+
+- type: gameMap
+  id: HeliosFortressHyperwar
+  mapName: 'PDV Helios Fortress'
+  mapPath: /Maps/_Mono/POI/pdvhelios_hw.yml
+  minPlayers: 0
+  stations:
+    HeliosFortressHyperwar:
+      stationProto: RecordsFrontierOutpostCargo
+      gridComponents:
+      - type: VesselInfo
+        description: "An oppressive imperial aura lurks here. Glory to the Sultan."
+      - type: Tag
+        tags:
+        - PdvStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'PDV Helio Fortress'
+        - type: StationEventEligible
+        - type: NpcFactionMember
+          factions:
+          - PirateNF
+        - type: ExtraStationInformation
+          icon: /Textures/_NF/Interface/Pirate/piratelogo.png
+          stationSubtext: 'frontier-lobby-pirate-subtext'
+          stationDescription: 'frontier-lobby-pirate-description'
+        - type: StationJobs
+          availableJobs:
+            PirateCaptain: [ 1, 1 ]
+            PDVTarkhan: [ 3, 3 ]
+            PirateFirstMate: [ 3, 3 ]
+            PDVDenasvar: [ 6, 6 ]
+            PDVInfiltrator: [ 2, 2 ]
+            Pirate: [ -1, -1 ]
+            PdvBorg: [ 2, 2 ]
+          tags:
+          - CentralCommand
         - type: StationDeadDropReporting
           messageSet: Pirate
         - type: StationDeadDropHintExempt
