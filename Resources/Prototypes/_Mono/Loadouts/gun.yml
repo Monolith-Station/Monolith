@@ -140,6 +140,20 @@
     back:
     - WeaponRifleVulcanFCMC
 
+- type: loadout # Basic Lever Action
+  id: MercenaryLeverActionloadout
+  price: 15000
+  storage:
+    back:
+    - WeaponSniperRepeater
+
+- type: loadout #.45 Magnum Ammo
+  id: MercenaryMagnum45Loadout
+  price: 1000
+  storage:
+    back:
+    - AmmoBox45_magnumFMJ
+
 - type: loadout #Lee Enfield
   id: MercenaryLeeEnfieldLoadout
   price: 15000
