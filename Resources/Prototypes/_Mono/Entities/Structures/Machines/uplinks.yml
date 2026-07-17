@@ -1,5 +1,5 @@
 - type: entity
-  parent: [StorePresetSecurityUplink, VendingMachine]
+  parent: [StorePresetTSFUplink, VendingMachine]
   id: VendingMachineTSFMCUplink
   name: TSFMC equipment requisition station
   description: A central TSFMC material access lift. Lets you access deep storage at the cost of FMC, which represent merit and accumulated resources.
@@ -33,13 +33,13 @@
     key: enum.StoreUiKey.Key
   - type: Store
     categories:
-    - UplinkSecurityHardsuits
-    - UplinkSecurityWeapons
-    - UplinkSecurityAmmo
-    - UplinkSecurityUtility
-    - UplinkSecurityExplosives
-    - UplinkSecurityBundles
-    - UplinkSecurityVouchers # Mono
+    - UplinkTsfHardsuits
+    - UplinkTsfWeapons
+    - UplinkTsfAmmo
+    - UplinkTsfUtility
+    - UplinkTsfExplosives
+    - UplinkTsfBundles
+    - UplinkTsfVouchers # Mono
     balance:
       FederationMilitaryCredit: 25
   - type: AccessReader
@@ -49,11 +49,11 @@
     - TSF
   - type: Tag
     tags:
-    - SecurityUplink
+    - TSFUplink
     - FactionStaticUplinkTsf
 
 - type: entity
-  parent: [StorePresetPirateUplink, VendingMachine]
+  parent: [StorePresetPDVUplink, VendingMachine]
   id: VendingMachinePDVUplink
   name: PDV equipment requisition station
   description: A central PDV material access lift. Lets you access deep storage at the cost of data chits, which represent merit and accumulated resources.
@@ -96,5 +96,5 @@
     popupMessage: company-pdv-access-denied
   - type: Tag
     tags:
-    - PirateUplink
+    - PDVUplink
     - FactionStaticUplinkPdv

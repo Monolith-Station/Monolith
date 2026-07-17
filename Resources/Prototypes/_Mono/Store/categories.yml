@@ -1,0 +1,67 @@
+#security
+- type: storeCategory
+  id: UplinkTsfBundles
+  name: store-category-tsfbundles
+
+- type: storeCategory
+  id: UplinkTsfHardsuits
+  name: store-category-tsfhardsuits
+
+- type: storeCategory
+  id: UplinkTsfWeapons
+  name: store-category-tsfweapons
+
+- type: storeCategory
+  id: UplinkTsfAmmo
+  name: store-category-tsfammo
+
+- type: storeCategory
+  id: UplinkTsfUtility
+  name: store-category-tsfutility
+
+- type: storeCategory
+  id: UplinkTsfExplosives
+  name: store-category-tsfexplosives
+# mono edit
+
+- type: storeCategory
+  id: UplinkTsfVouchers
+  name: store-category-tsfvouchers
+
+# MARK: Rogue
+- type: storeCategory
+  id: UplinkPirateBundles
+  name: store-category-pdvbundles
+
+- type: storeCategory
+  id: UplinkPirateEquipment
+  name: store-category-pdvequipment
+
+- type: storeCategory
+  id: UplinkPirateWeapons
+  name: store-category-pdvweapons
+
+- type: storeCategory
+  id: UplinkPirateAmmo
+  name: store-category-pdvammo
+
+- type: storeCategory
+  id: UplinkPirateMedical
+  name: store-category-pdvmedical
+
+- type: storeCategory
+  id: UplinkPirateUtility
+  name: store-category-pdvutility
+
+- type: storeCategory
+  id: UplinkPirateExplosives
+  name: store-category-pdvexplosives
+
+- type: storeCategory
+  id: UplinkPdvVouchers
+  name: store-category-pdvvouchers
+
+#- type: storeCategory
+#  id: UplinkPirateGambling
+#  name: store-category-pdvgambling
+# mono edit end

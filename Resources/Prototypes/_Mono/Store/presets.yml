@@ -22,19 +22,19 @@
       Telecrystal: 0
 
 - type: entity
-  id: StorePresetSecurityUplink
+  id: StorePresetTSFUplink
   abstract: true
   components:
   - type: Store
     name: store-preset-name-nfsd-uplink
     categories:
-    - UplinkSecurityHardsuits
-    - UplinkSecurityWeapons
-    - UplinkSecurityAmmo
-    - UplinkSecurityUtility
-    - UplinkSecurityExplosives
-    - UplinkSecurityBundles
-    - UplinkSecurityVouchers # Mono
+    - UplinkTsfHardsuits
+    - UplinkTsfWeapons
+    - UplinkTsfAmmo
+    - UplinkTsfUtility
+    - UplinkTsfExplosives
+    - UplinkTsfBundles
+    - UplinkTsfVouchers # Mono
     currencyWhitelist:
     - FederationMilitaryCredit
     balance:
@@ -42,7 +42,7 @@
 
 # mono edit
 - type: entity
-  id: StorePresetPirateUplink
+  id: StorePresetPDVUplink
   abstract: true
   components:
   - type: Store

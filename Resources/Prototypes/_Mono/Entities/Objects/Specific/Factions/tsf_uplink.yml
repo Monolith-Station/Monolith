@@ -5,7 +5,7 @@
   parent: BaseItem
   id: FederationMilitaryCredit # Mono - Renamed from FUCs
   suffix: 100 FMC # Mono
-  description: A token awarded to TSF personnel for turning in contraband. It can be exchanged in an TSFMC uplink device for a variety of law enforcement tools.
+  description: A token awarded to TSF personnel for turning in enemy equipment and valuable assets. It can be exchanged in a TSF uplink device for a variety of tools and equipment.
   components:
   - type: Sprite
     sprite: _NF/Objects/Specific/Security/frontieruplinkcoin.rsi
@@ -58,8 +58,8 @@
 
 # Uplinks
 - type: entity
-  parent: [ BaseItem, StorePresetSecurityUplink ]
-  id: BaseSecurityUplinkRadio
+  parent: [ BaseItem, StorePresetTSFUplink ]
+  id: BaseTSFUplinkRadio
   name: TSFMC uplink
   description: Retro looking old radio...
   suffix: Empty
@@ -80,43 +80,43 @@
     key: enum.StoreUiKey.Key
   - type: Tag
     tags:
-    - SecurityUplink
+    - TSFUplink
 
 - type: entity
-  parent: BaseSecurityUplinkRadio
-  id: BaseSecurityUplinkRadioDebug
-  suffix: Security, DEBUG
+  parent: BaseTSFUplinkRadio
+  id: BaseTSFUplinkRadioDebug
+  suffix: TSF, DEBUG
   components:
   - type: Store
     balance:
       FederationMilitaryCredit: 99999
 
 - type: entity
-  parent: BaseSecurityUplinkRadio
-  id: BaseSecurityUplinkRadioSheriff
-  suffix: Colonel 125
+  parent: BaseTSFUplinkRadio
+  id: BaseTSFUplinkRadioCommander
+  suffix: Commander 125
   components:
   - type: Store
     balance:
       FederationMilitaryCredit: 125
   - type: Tag
     tags:
-      - SecurityUplink
+      - TSFUplink
       - FactionStaticUplinkTsf
 
 - type: entity
-  parent: BaseSecurityUplinkRadio
-  id: BaseSecurityUplinkRadioCaptain
-  suffix: Captain 100
+  parent: BaseTSFUplinkRadio
+  id: BaseTSFUplinkRadioOfficer
+  suffix: Officer 100
   components:
   - type: Store
     balance:
       FederationMilitaryCredit: 100
 
 - type: entity
-  parent: BaseSecurityUplinkRadio
-  id: BaseSecurityUplinkRadioOfficer
-  suffix: Officer 75
+  parent: BaseTSFUplinkRadio
+  id: BaseTSFUplinkRadioTeamleader
+  suffix: Teamleader 75
   components:
   - type: Store
     balance:
@@ -125,8 +125,8 @@
 #Mono
 
 - type: entity
-  parent: BaseSecurityUplinkRadio
-  id: BaseSecurityUplinkRadioDeputy
+  parent: BaseTSFUplinkRadio
+  id: BaseTSFUplinkRadioMarine
   suffix: Marine 75
   components:
   - type: Store
@@ -134,16 +134,3 @@
       FederationMilitaryCredit: 75
 
 #Mono End
-
-- type: entity
-  name: TSFMC deployable barrier
-  id: NfsdDeployableBarrier
-  description: A deployable barrier. Swipe your ID card to lock/unlock it.
-  parent: DeployableBarrier
-  components:
-  - type: Sprite
-    sprite: _NF/Objects/Specific/Security/nfsdbarrier.rsi
-    layers:
-    - state: idle
-    - state: locked
-      map: ["enum.LockVisualLayers.Lock"]
