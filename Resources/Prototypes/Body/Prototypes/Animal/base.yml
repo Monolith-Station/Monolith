@@ -1,6 +1,7 @@
-﻿- type: body
-  id: Animal
-  name: "animal"
+- type: entity
+  parent: [ PartAnimalBase, BaseTorsoAnimal ]
+  id: TorsoAnimal
+  name: "animal torso"
   root: torso
   slots:
     head:
@@ -13,10 +14,10 @@
     torso:
       part: TorsoAnimal
       organs:
+        heart: OrganAnimalHeart
         lungs: OrganAnimalLungs
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
       connections:
       - right leg
