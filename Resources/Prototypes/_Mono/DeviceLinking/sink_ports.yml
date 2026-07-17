@@ -12,3 +12,6 @@
   id: SpaceArtilleryLoad
   name: signal-port-name-space-artillery-load
   description: signal-port-description-space-artillery-load
+
+- type: sinkPort #it's here so i remind later i want a multitool adjacent thing to link capture computers to sector control computers of the controlling faction
+  id: ResearchPOITransmitterReceive

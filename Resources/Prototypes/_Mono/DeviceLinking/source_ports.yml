@@ -7,3 +7,6 @@
   id: AmmoLoaderLoad
   name: signal-port-name-ammo-loader-load
   description: signal-port-description-ammo-loader-load
+
+- type: sourcePort #it's here so i remind later i want a multitool adjacent thing to link capture computers to sector control computers of the controlling faction
+  id: ResearchPOITransmitterEmit
