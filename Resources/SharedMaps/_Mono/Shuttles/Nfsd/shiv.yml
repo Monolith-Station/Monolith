@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/16/2026 13:38:05
-  entityCount: 537
+  time: 07/17/2026 09:49:01
+  entityCount: 538
 maps: []
 grids:
 - 1
@@ -87,10 +87,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Puddle: []
         Kudzu: []
         MetalFoam: []
+        Puddle: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -634,10 +634,10 @@ entities:
       parent: 1
 - proto: Autolathe
   entities:
-  - uid: 207
+  - uid: 208
     components:
     - type: Transform
-      pos: 4.5,-1.5
+      pos: 3.5,0.5
       parent: 1
 - proto: BlastDoor
   entities:
@@ -1743,8 +1743,16 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,-0.5
       parent: 1
+    - type: GasMixer
+      inletTwoConcentration: 0.20999998
+      inletOneConcentration: 0.79
+    - type: UserInterface
+      actors:
+        enum.GasMixerUiKey.Key:
+        - invalid
     - type: AtmosPipeLayers
       pipeLayer: Secondary
+    - type: ActiveUserInterface
 - proto: GasPassiveVent
   entities:
   - uid: 193
@@ -2543,12 +2551,19 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,4.5
       parent: 1
+- proto: LockerEngineerFilledHardsuit
+  entities:
+  - uid: 207
+    components:
+    - type: Transform
+      pos: 3.5,-1.5
+      parent: 1
 - proto: LockerSalvageSpecialistFilledHardsuit
   entities:
   - uid: 221
     components:
     - type: Transform
-      pos: 3.5,0.5
+      pos: 4.5,-1.5
       parent: 1
 - proto: MachineFTLDrive
   entities:
@@ -2749,13 +2764,6 @@ entities:
     components:
     - type: Transform
       pos: 3.5,-6.5
-      parent: 1
-- proto: Protolathe
-  entities:
-  - uid: 208
-    components:
-    - type: Transform
-      pos: 3.5,-1.5
       parent: 1
 - proto: Rack
   entities:
@@ -3089,6 +3097,13 @@ entities:
         233:
         - - Pressed
           - Toggle
+- proto: SinkWide
+  entities:
+  - uid: 538
+    components:
+    - type: Transform
+      pos: 2.5,0.5
+      parent: 1
 - proto: SMESAdvanced
   entities:
   - uid: 156
