@@ -56,9 +56,12 @@
     angleDecay: 16
     availableModes:
     - SemiAuto
-    - FullAuto
-    selectedMode: FullAuto
+    - Burst
+    selectedMode: Burst
+    burstCooldown: 0
+    shotsPerBurst: 5
     fireRate: 7
+    burstFireRate: 7
     projectileSpeed: 50 # twenty inch barrel
     soundGunshot:
       collection: BF_M16_Gunshots
@@ -172,8 +175,10 @@
     angleDecay: 16
     availableModes:
     - SemiAuto
-    - FullAuto
-    selectedMode: FullAuto
+    - Burst
+    selectedMode: Burst
+    burstCooldown: 0
+    shotsPerBurst: 5
     fireRate: 7
     projectileSpeed: 50 # twenty inch barrel
     soundGunshot:
