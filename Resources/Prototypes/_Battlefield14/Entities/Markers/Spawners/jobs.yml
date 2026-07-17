@@ -244,6 +244,88 @@
     - state: indcaptain
       scale: 1.5,1.5
 
+## DE
+
+#region BW
+
+- type: entity
+  id: SpawnPointBWLieutenant
+  parent: SpawnPointJobBase
+  name: BW Lieutenant
+  components:
+  - type: SpawnPoint
+    job_id: BWLieutenant
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: natocaptain
+      scale: 1.5,1.5
+
+- type: entity
+  id: SpawnPointBWSquadLeader
+  parent: SpawnPointJobBase
+  name: BW Squad Leader
+  components:
+  - type: SpawnPoint
+    job_id: BWSquadLeader
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: natosquadleader
+      scale: 1.5,1.5
+
+- type: entity
+  id: SpawnPointBWRifleman
+  parent: SpawnPointJobBase
+  name: BW Rifleman
+  components:
+  - type: SpawnPoint
+    job_id: BWRifleman
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: natoinfantry
+    scale: 1.5,1.5
+
+- type: entity
+  id: SpawnPointBWAutomaticRifleman
+  parent: SpawnPointJobBase
+  name: BW Automatic Rifleman
+  components:
+  - type: SpawnPoint
+    job_id: BWAutomaticRifleman
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: natosupport
+      scale: 1.5,1.5
+
+- type: entity
+  id: SpawnPointBWMedic
+  parent: SpawnPointJobBase
+  name: BW Medic
+  components:
+  - type: SpawnPoint
+    job_id: BWMedic
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: natomedic
+      scale: 1.5,1.5
+
+- type: entity
+  id: SpawnPointBWRecon
+  parent: SpawnPointJobBase
+  name: BW Recon
+  components:
+  - type: SpawnPoint
+    job_id: BWRecon
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: natorecon
+      scale: 1.5,1.5
+
 ### PACT
 
 ## RU
