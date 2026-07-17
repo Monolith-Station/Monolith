@@ -19,6 +19,7 @@ public sealed partial class CEVariantizeZNetworkCommand : LocalizedEntityCommand
 {
     [Dependency] private IEntityManager _entities = default!;
     [Dependency] private MapSystem _map = default!;
+    [Dependency] private ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private TileSystem _tile = default!;
     [Dependency] private TurfSystem _turf = default!;
 
@@ -71,7 +72,7 @@ public sealed partial class CEVariantizeZNetworkCommand : LocalizedEntityCommand
 
             foreach (var tile in _map.GetAllTiles(mapUid.Value, gridComp))
             {
-                var def = tile.Tile.GetContentTileDefinition(_tile);
+                var def = tile.Tile.GetContentTileDefinition(_tileDefManager);
                 var newTile = new Tile(tile.Tile.TypeId, tile.Tile.Flags, _tile.PickVariant(def), tile.Tile.RotationMirroring);
                 _map.SetTile(mapUid.Value, gridComp, tile.GridIndices, newTile);
             }
