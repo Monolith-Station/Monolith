@@ -64,7 +64,7 @@
     slotId: feet # Shitmed
 
 - type: entity
-  parent: [ PartAnimalBase, BaseLeftLeg ]
+  parent: [ PartAnimalBase, BaseLeftLeg, BaseAnimalOrgan ]
   id: LeftLegAnimal
   name: "left animal legs"
   components:
@@ -80,7 +80,7 @@
   - type: MovementBodyPart
 
 - type: entity
-  parent: [ PartAnimalBase, BaseRightLeg ]
+  parent: [ PartAnimalBase, BaseRightLeg, BaseAnimalOrgan ]
   id: RightLegAnimal
   name: "right animal legs"
   components:
@@ -94,3 +94,33 @@
     symmetry: Left
     slotId: leg # Shitmed
   - type: MovementBodyPart
+
+- type: entity
+  parent: [ PartAnimalBase, BaseLeftFoot, BaseAnimalOrgan ]
+  id: LeftFootAnimal
+  name: "left animal feet"
+  components:
+  - type: Sprite
+    layers:
+    - state: r_foot
+    - state: l_foot
+  - type: Icon
+    state: l_foot # cba to make a state for it
+  - type: BodyPart
+    partType: Foot
+    slotId: feet # Shitmed
+
+- type: entity
+  parent: [ PartAnimalBase, BaseRightFoot, BaseAnimalOrgan ]
+  id: RightFootAnimal
+  name: "right animal feet"
+  components:
+  - type: Sprite
+    layers:
+    - state: r_foot
+    - state: l_foot
+  - type: Icon
+    state: l_foot # cba to make a state for it
+  - type: BodyPart
+    partType: Foot
+    slotId: feet # Shitmed

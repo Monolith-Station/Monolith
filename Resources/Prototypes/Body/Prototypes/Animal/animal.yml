@@ -23,13 +23,21 @@
       - left leg
     right leg:
       part: RightLegAnimal
+      connections:
+      - right foot
     left leg:
       part: LeftLegAnimal
+      connections:
+      - left foot
+    right foot:
+      part: RightFootAnimal
+    left foot:
+      part: LeftFootAnimal
 
-
-- type: body
-  id: Mouse
-  name: "mouse"
+- type: entity
+  parent: [ PartAnimalBase, BaseTorsoAnimal ]
+  id: TorsoAnimal
+  name: "animal torso"
   root: torso
   slots:
     head:
@@ -42,29 +50,23 @@
     torso:
       part: TorsoAnimal
       organs:
-        lungs: OrganAnimalLungs
-        stomach: OrganMouseStomach
-        liver: OrganAnimalLiver
         heart: OrganAnimalHeart
+        lungs: OrganAnimalLungs
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
         kidneys: OrganAnimalKidneys
       connections:
       - right leg
       - left leg
     right leg:
       part: RightLegAnimal
+      connections:
+      - right foot
     left leg:
       part: LeftLegAnimal
-
-- type: entity
-  parent: [ PartAnimalBase, BaseTorsoAnimal ]
-  id: TorsoAnimal
-  name: animal torso
-  slots:
-    torso:
-      part: TorsoAnimal
-      organs:
-        heart: OrganAnimalHeart
-        lungs: OrganHumanLungs
-        stomach: OrganMothStomach
-        liver: OrganAnimalLiver
-        kidneys: OrganHumanKidneys
+      connections:
+      - left foot
+    right foot:
+      part: RightFootAnimal
+    left foot:
+      part: LeftFootAnimal

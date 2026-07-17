@@ -1,23 +1,23 @@
-﻿- type: body
-  id: Mothroach
-  name: "mothroach"
+- type: body
+  id: Mouse
+  name: "mouse"
   root: torso
   slots:
     head:
-      part: HeadMothRoach
+      part: HeadAnimal
       connections:
       - torso
       organs:
         brain: OrganAnimalBrain
         eyes: OrganAnimalEyes
     torso:
-      part: TorsoMothRoach
+      part: TorsoAnimal
       organs:
-        heart: OrganAnimalHeart
-        lungs: OrganHumanLungs
-        stomach: OrganMothStomach
+        lungs: OrganAnimalLungs
+        stomach: OrganMouseStomach
         liver: OrganAnimalLiver
-        kidneys: OrganHumanKidneys
+        heart: OrganAnimalHeart
+        kidneys: OrganAnimalKidneys
       connections:
       - right leg
       - left leg
