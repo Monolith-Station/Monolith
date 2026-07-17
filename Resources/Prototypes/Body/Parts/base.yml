@@ -78,40 +78,6 @@
 
 - type: entity
   abstract: true
-  id: BaseTorsoInorganicAnimal
-  name: "torso"
-  components:
-  - type: Sprite
-    state: "torso_m"
-  - type: Icon
-    state: "torso_m"
-  - type: BodyPart
-    partType: Torso
-    # Shitmed Change Start
-    toolName: "a torso"
-    containerName: "torso_slot"
-    children:
-      head:
-        id: head
-        type: Head
-    organs:
-      heart:
-        id: heart
-      lungs:
-        id: lungs
-      stomach:
-        id: stomach
-      liver:
-        id: liver
-      kidneys:
-        id: kidneys
-  - type: ContainerContainer
-    containers:
-      torso_slot: !type:ContainerSlot {}
-    # Shitmed Change End
-
-- type: entity
-  abstract: true
   id: BaseHead
   name: "head"
   description: "Doesn't make sense not to live for fun, your brain gets smart but your head gets dumb."

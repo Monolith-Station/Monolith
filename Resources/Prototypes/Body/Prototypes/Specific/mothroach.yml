@@ -4,32 +4,33 @@
   root: torso
   slots:
     head:
-      part: HeadMothRoach
+      part: HeadAnimal
       connections:
       - torso
       organs:
         brain: OrganAnimalBrain
         eyes: OrganAnimalEyes
     torso:
-      part: TorsoMothRoach
-      organs:
-        heart: OrganAnimalHeart
-        lungs: OrganHumanLungs
-        stomach: OrganMothStomach
-        liver: OrganAnimalLiver
-        kidneys: OrganHumanKidneys
+      part: TorsoAnimal
       connections:
       - right leg
       - left leg
+      - head # Shitmed
+      organs:
+        lungs: OrganAnimalLungs
+        stomach: OrganMothStomach
+        liver: OrganAnimalLiver
+        heart: OrganAnimalHeart
+        kidneys: OrganAnimalKidneys
     right leg:
-      part: RightLegAnimal
+      part: RightLegsAnimal
       connections:
       - right foot
     left leg:
-      part: LeftLegAnimal
+      part: LeftLegsAnimal
       connections:
       - left foot
     right foot:
-      part: RightFootAnimal
+      part: RightAnimalFeet
     left foot:
-      part: LeftFootAnimal
+      part: LeftAnimalFeet

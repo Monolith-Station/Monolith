@@ -12,6 +12,10 @@
         eyes: OrganAnimalEyes
     torso:
       part: TorsoAnimal
+      connections:
+      - right leg
+      - left leg
+      - head # Shitmed
       organs:
         lungs: OrganAnimalLungs
         stomach: OrganAnimalRuminantStomach
@@ -19,18 +23,15 @@
         liver: OrganAnimalLiver
         heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
-      connections:
-      - right leg
-      - left leg
     right leg:
-      part: RightLegAnimal
+      part: RightLegsAnimal
       connections:
       - right foot
     left leg:
-      part: LeftLegAnimal
+      part: LeftLegsAnimal
       connections:
       - left foot
     right foot:
-      part: RightFootAnimal
+      part: RightAnimalFeet
     left foot:
-      part: LeftFootAnimal
+      part: LeftAnimalFeet

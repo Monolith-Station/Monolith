@@ -64,63 +64,65 @@
     slotId: feet # Shitmed
 
 - type: entity
-  parent: [ PartAnimalBase, BaseLeftLeg, BaseAnimalOrgan ]
-  id: LeftLegAnimal
+  id: LeftLegsAnimal
   name: "left animal legs"
+  parent: [ PartAnimalBase, BaseLeftLeg, BaseAnimalOrgan ]
   components:
   - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
     layers:
     - state: l_leg
     - state: r_leg
   - type: Icon
     state: l_leg # cba to make a state for it
-    partType: Leg
-    symmetry: Left
-    slotId: leg # Shitmed
-  - type: MovementBodyPart
 
 - type: entity
-  parent: [ PartAnimalBase, BaseRightLeg, BaseAnimalOrgan ]
-  id: RightLegAnimal
+  id: RightLegsAnimal
   name: "right animal legs"
+  parent: [ PartAnimalBase, BaseRightLeg, BaseAnimalOrgan ]
   components:
   - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
     layers:
     - state: l_leg
     - state: r_leg
   - type: Icon
     state: l_leg # cba to make a state for it
-    partType: Leg
-    symmetry: Left
-    slotId: leg # Shitmed
-  - type: MovementBodyPart
 
 - type: entity
-  parent: [ PartAnimalBase, BaseLeftFoot, BaseAnimalOrgan ]
-  id: LeftFootAnimal
+  id: LeftAnimalFeet
   name: "left animal feet"
+  parent: [ PartAnimalBase, BaseLeftFoot, BaseAnimalOrgan ]
   components:
   - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
     layers:
     - state: r_foot
     - state: l_foot
   - type: Icon
     state: l_foot # cba to make a state for it
-  - type: BodyPart
-    partType: Foot
-    slotId: feet # Shitmed
 
 - type: entity
-  parent: [ PartAnimalBase, BaseRightFoot, BaseAnimalOrgan ]
-  id: RightFootAnimal
+  id: RightAnimalFeet
   name: "right animal feet"
+  parent: [ PartAnimalBase, BaseRightFoot, BaseAnimalOrgan ]
   components:
   - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
     layers:
     - state: r_foot
     - state: l_foot
   - type: Icon
     state: l_foot # cba to make a state for it
+
+- type: entity
+  parent: [ PartAnimalBase, BaseTorso ]
+  id: TorsoAnimal
+  name: animal torso
+  components:
   - type: BodyPart
-    partType: Foot
-    slotId: feet # Shitmed
+    # standard organs are good for most animals
+    children: # most animals have no hands (primate is unused) so just legs by default
+      legs:
+        id: legs
+        type: Leg
