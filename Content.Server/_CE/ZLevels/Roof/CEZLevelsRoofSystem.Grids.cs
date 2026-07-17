@@ -45,7 +45,7 @@ public sealed partial class CEZLevelsRoofSystem
 
         foreach (var (gridUid, _) in sorted)
         {
-            RemCompDeferred<ImplicitRoofComponent>(gridUid); //hack but that way we dont need edit vanilla code
+            // RemCompDeferred<ImplicitRoofComponent>(gridUid); //hack but that way we dont need edit vanilla code
 
             if (!GridQuery.TryComp(gridUid, out var grid))
                 continue;

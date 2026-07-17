@@ -56,7 +56,7 @@ public sealed partial class CEMappingZNetworkCommand : LocalizedEntityCommands
             return;
         }
         //Get Map Prototype
-        if (!_proto.Resolve<CEZLevelMapPrototype>(args[0], out var indexedZMap))
+        if (!_proto.TryIndex<CEZLevelMapPrototype>(args[0], out var indexedZMap))
         {
             shell.WriteError($"Unknown CEZLevelMapPrototype {args[0]}");
             return;
@@ -82,9 +82,9 @@ public sealed partial class CEMappingZNetworkCommand : LocalizedEntityCommands
                 return;
             }
 
-            dict.Add(mapEnt.Value, depth);
-            createdMaps.Add(mapEnt.Value.Comp.MapId);
-            _meta.SetEntityName(mapEnt.Value, $"Mapping {indexedZMap.ID} [{depth}]");
+            dict.Add(mapEnt!.Value, depth);
+            createdMaps.Add(mapEnt!.Value.Comp.MapId);
+            _meta.SetEntityName(mapEnt!.Value, $"Mapping {indexedZMap.ID} [{depth}]");
             depth++;
         }
 

@@ -46,7 +46,7 @@ public sealed partial class CEZLevelsSystem : CESharedZLevelsSystem
 
         _meta.SetEntityName(ent.Comp.ZNetworkEntity.Value, $"Station z-Network: {stationName}");
 
-        var mainGrid = _station.GetLargestGrid(ent.Owner);
+        var mainGrid = _station.GetLargestGrid(Comp<StationDataComponent>(ent.Owner));
         if (mainGrid is null)
             throw new Exception("Station has no grids to base z-levels off of!");
 

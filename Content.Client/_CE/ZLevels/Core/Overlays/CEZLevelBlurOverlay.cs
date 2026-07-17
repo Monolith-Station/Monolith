@@ -3,7 +3,6 @@
  * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
  */
 
-using System.Numerics;
 using Content.Client.Viewport;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
@@ -49,11 +48,11 @@ public sealed partial class CEZLevelBlurOverlay : Overlay
         if (ScreenTexture == null || args.Viewport.Eye == null)
             return;
 
-        var ambientColor = new Vector3(0, 0, 1); //Default blue
+        var ambientColor = new System.Numerics.Vector3(0, 0, 1); //Default blue
 
         if (_entity.TryGetComponent<MapLightComponent>(args.MapUid, out var mapLight))
         {
-            ambientColor = new Vector3(
+            ambientColor = new System.Numerics.Vector3(
                 mapLight.AmbientLightColor.R,
                 mapLight.AmbientLightColor.G,
                 mapLight.AmbientLightColor.B);

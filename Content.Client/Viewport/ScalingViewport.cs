@@ -156,7 +156,7 @@ namespace Content.Client.Viewport
             {
                 var callbacks = _queuedScreenshots.ToArray();
 
-                _viewport.RenderTarget.CopyPixelsToMemory<Rgba32>(image =>
+                _viewport!.RenderTarget.CopyPixelsToMemory<Rgba32>(image =>
                 {
                     foreach (var callback in callbacks)
                     {
@@ -169,9 +169,9 @@ namespace Content.Client.Viewport
 
             var drawBox = GetDrawBox();
             var drawBoxGlobal = drawBox.Translated(GlobalPixelPosition);
-            _viewport.RenderScreenOverlaysBelow(handle, this, drawBoxGlobal);
-            handle.DrawingHandleScreen.DrawTextureRect(_viewport.RenderTarget.Texture, drawBox);
-            _viewport.RenderScreenOverlaysAbove(handle, this, drawBoxGlobal);
+            _viewport!.RenderScreenOverlaysBelow(handle, this, drawBoxGlobal);
+            handle.DrawingHandleScreen.DrawTextureRect(_viewport!.RenderTarget.Texture, drawBox);
+            _viewport!.RenderScreenOverlaysAbove(handle, this, drawBoxGlobal);
         }
 
         public void Screenshot(CopyPixelsDelegate<Rgba32> callback)
