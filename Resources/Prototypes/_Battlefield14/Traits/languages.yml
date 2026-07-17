@@ -11,18 +11,18 @@
   languagesUnderstood:
     - Esperanto
 
-- type: trait
-  id: German
-  name: language-German-name
-  description: language-German-description
-  category: LanguageTraits
-  cost: 1
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
-    - German
-  languagesUnderstood:
-    - German
+#- type: trait
+#  id: German
+#  name: language-German-name
+#  description: language-German-description
+#  category: LanguageTraits
+#  cost: 1
+#  components:
+#  - type: LanguageSpeaker
+#  languagesSpoken:
+#    - German
+#  languagesUnderstood:
+#    - German
 
 - type: trait
   id: Mexican

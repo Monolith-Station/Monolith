@@ -15,6 +15,22 @@
       implant: TranslatorImplantEnglish
 
 - type: entity
+  id: TrackingImplanterNATODE
+  parent: BaseImplantOnlyImplanter
+  suffix: tracking, NATO DE
+  components:
+    - type: Implanter
+      implant: TrackingImplantNATODE
+
+- type: entity
+  id: TranslatorImplanterGerman
+  parent: BaseImplantOnlyImplanter
+  suffix: translator, German
+  components:
+    - type: Implanter
+      implant: TranslatorImplantGerman
+
+- type: entity
   id: TrackingImplanterPACTRU
   parent: BaseImplantOnlyImplanter
   suffix: tracking, PACT RU

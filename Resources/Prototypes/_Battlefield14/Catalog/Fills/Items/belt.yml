@@ -190,6 +190,50 @@
       - id: MagazineRifleSCARH
         amount: 7
 
+#region DE
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingDEFilledG36
+  parent: ClothingBeltMilitaryWebbingDE
+  suffix: Filled G36
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineRifleG36
+        amount: 8
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingDEFilledG36TracerRed
+  parent: ClothingBeltMilitaryWebbingDE
+  suffix: Filled G36, red tracer
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineRifleG36TracerRed
+        amount: 8
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingDEFilledMG36
+  parent: ClothingBeltMilitaryWebbingDE
+  suffix: Filled MG36 double drum
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineRifleG36DoubleDrumTracerRed
+        amount: 2
+      - id: MagazinePistolUSP9
+        amount: 2
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingDEFilledMG3Short
+  parent: ClothingBeltMilitaryWebbingDE
+  suffix: Filled MG3, short
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineBeltBoxMG3Short
+        amount: 4
+
 #region RU
 
 - type: entity

@@ -158,6 +158,30 @@
 #region DE
 
 - type: entity
+  name: box of G36 magazines
+  parent: BoxMagazine
+  id: BoxMagazineG36
+  description: A box full of 5.56x45 G36 magazines.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,3
+  - type: StorageFill
+    contents:
+      - id: MagazineRifleG36
+        amount: 8
+
+- type: entity
+  name: box of G36 tracer magazines
+  parent: BoxMagazineG36
+  id: BoxMagazineG36TracerRed
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineRifleG36TracerRed
+        amount: 8
+
+- type: entity
   name: box of MP7 magazines
   parent: BoxMagazine
   id: BoxMagazineMP7

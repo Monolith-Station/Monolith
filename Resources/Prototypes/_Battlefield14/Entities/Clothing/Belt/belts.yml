@@ -40,6 +40,17 @@
 
 - type: entity
   parent: ClothingBeltMilitaryWebbingUS
+  id: ClothingBeltMilitaryWebbingDE
+  name: MOBAST belt rig
+  description: You feel like a kangaroo.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Belt/de_webbing.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Belt/de_webbing.rsi
+
+- type: entity
+  parent: ClothingBeltMilitaryWebbingUS
   id: ClothingBeltMilitaryWebbingRU
   name: RU belt rig
   description: You wish you had a smersh.
@@ -48,10 +59,8 @@
     sprite: _Battlefield14/Clothing/Belt/ru_webbing.rsi
   - type: Clothing
     sprite: _Battlefield14/Clothing/Belt/ru_webbing.rsi
-  - type: Item
-    size: Huge
-  - type: ExplosionResistance
-    damageCoefficient: 0
+#  - type: ExplosionResistance
+#    damageCoefficient: 0
 
 - type: entity
   parent: ClothingBeltMilitaryWebbingUS

@@ -90,6 +90,26 @@
 
 - type: entity
   parent: PouchMags
+  id: PouchMagsFilledG36
+  suffix: Filled, G36
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineRifleG36
+      amount: 3
+
+- type: entity
+  parent: PouchMagsLarge
+  id: PouchMagsLargeFilledG36
+  suffix: Filled, G36
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazineRifleG36
+      amount: 4
+
+- type: entity
+  parent: PouchMags
   id: PouchMagsFilledAK74
   suffix: Filled, AK74
   components:

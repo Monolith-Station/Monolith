@@ -1,6 +1,6 @@
 ## US
 
-# USMC
+#region USMC
 
 - type: entity
   parent: BasePDA
@@ -98,7 +98,7 @@
   - type: PdaBorderColor
     borderColor: "#203564"
 
-# MARSOC
+#region MARSOC
 
 - type: entity
   parent: BasePDA
@@ -164,7 +164,7 @@
   - type: PdaBorderColor
     borderColor: "#203564"
 
-# HECU
+#region HECU
 
 - type: entity
   parent: BasePDA
@@ -230,7 +230,7 @@
   - type: PdaBorderColor
     borderColor: "#203564"
 
-# USSF
+#region USSF
 
 - type: entity
   parent: BasePDA
@@ -280,7 +280,7 @@
   - type: PdaBorderColor
     borderColor: "#203564"
 
-# ARNG
+#region ARNG
 
 - type: entity
   parent: BasePDA
@@ -378,7 +378,7 @@
   - type: PdaBorderColor
     borderColor: "#203564"
 
-# USPD
+#region USPD
 
 - type: entity
   parent: BasePDA
@@ -410,9 +410,111 @@
   - type: Pda
     id: USPDOfficerIDCard
 
+## DE
+
+#region BW
+
+- type: entity
+  parent: BasePDA
+  id: BWLieutenantPDA
+  name: bundeswehr PDA
+  description: Filled with my little dark age edits.
+  suffix: lieutenant
+  components:
+  - type: Icon
+    sprite: _Battlefield14/Objects/Devices/pda.rsi
+    state: pda-us
+  - type: Pda
+    id: BWLieutenantIDCard
+    state: pda-us
+  - type: PdaBorderColor
+    borderColor: "#203564"
+
+- type: entity
+  parent: BasePDA
+  id: BWSquadLeaderPDA
+  name: bundeswehr PDA
+  description: Filled with my little dark age edits.
+  suffix: squad leader
+  components:
+  - type: Icon
+    sprite: _Battlefield14/Objects/Devices/pda.rsi
+    state: pda-us
+  - type: Pda
+    id: BWSquadLeaderIDCard
+    state: pda-us
+  - type: PdaBorderColor
+    borderColor: "#203564"
+
+- type: entity
+  parent: BasePDA
+  id: BWRiflemanPDA
+  name: bundeswehr PDA
+  description: Filled with my little dark age edits.
+  suffix: rifleman
+  components:
+  - type: Icon
+    sprite: _Battlefield14/Objects/Devices/pda.rsi
+    state: pda-us
+  - type: Pda
+    id: BWRiflemanIDCard
+    state: pda-us
+  - type: PdaBorderColor
+    borderColor: "#203564"
+
+- type: entity
+  parent: BasePDA
+  id: BWAutomaticRiflemanPDA
+  name: bundeswehr PDA
+  description: Filled with my little dark age edits.
+  suffix: automatic rifleman
+  components:
+  - type: Icon
+    sprite: _Battlefield14/Objects/Devices/pda.rsi
+    state: pda-us
+  - type: Pda
+    id: BWAutomaticRiflemanIDCard
+    state: pda-us
+  - type: PdaBorderColor
+    borderColor: "#203564"
+
+- type: entity
+  parent: BasePDA
+  id: BWMedicPDA
+  name: bundeswehr PDA
+  description: Filled with my little dark age edits.
+  suffix: medic
+  components:
+  - type: Icon
+    sprite: _Battlefield14/Objects/Devices/pda.rsi
+    state: pda-us
+  - type: Pda
+    id: BWMedicIDCard
+    state: pda-us
+  - type: PdaBorderColor
+    borderColor: "#203564"
+
+- type: entity
+  parent: BasePDA
+  id: BWReconPDA
+  name: bundeswehr PDA
+  description: Filled with my little dark age edits.
+  suffix: recon
+  components:
+  - type: Icon
+    sprite: _Battlefield14/Objects/Devices/pda.rsi
+    state: pda-us
+  - type: Pda
+    id: BWReconIDCard
+    state: pda-us
+  - type: PdaBorderColor
+    borderColor: "#203564"
+
+### PACT
+
 ## RU
 
-# VDV
+#region VDV
 
 - type: entity
   parent: BasePDA
@@ -505,7 +607,7 @@
     id: VDVReconIDCard
     state: pda-ru
 
-# FSB
+#region FSB
 
 - type: entity
   parent: BasePDA
@@ -582,7 +684,7 @@
     id: FSBReconIDCard
     state: pda-ru
 
-# VKS
+#region VKS
 
 - type: entity
   parent: VDVRiflemanPDA
@@ -619,7 +721,7 @@
 
 ## IND
 
-# Western Private Security
+#region Western Private Security
 
 - type: entity
   parent: BasePDA

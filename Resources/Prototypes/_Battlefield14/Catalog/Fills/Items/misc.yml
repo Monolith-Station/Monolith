@@ -35,6 +35,16 @@
       - WeaponPistolUSMK27
 
 - type: entity
+  id: ClothingArmbandThighHolsterFilledDEP8A1
+  parent: ClothingArmbandThighHolster
+  suffix: Filled, DE, P8A1
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponPistolDEP8A1
+
+- type: entity
   id: ClothingArmbandThighHolsterFilledRU
   parent: ClothingArmbandThighHolster
   suffix: Filled, RU, MP443
@@ -83,6 +93,16 @@
     containers:
       item:
       - FHKnifeM7
+
+- type: entity
+  id: ClothingShoesBootsJackFilledBW
+  parent: ClothingShoesBootsJack
+  suffix: Filled, BW, M68
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - FHKnifeM68
 
 - type: entity
   id: ClothingShoesBootsJackFilledRU

@@ -1,4 +1,4 @@
-## US
+#region US
 
 #region USMC
 - type: playTimeTracker
@@ -89,7 +89,23 @@
 - type: playTimeTracker
   id: JobUSPDOfficer
 
-##region RU
+#Region DE
+
+#region BW
+
+- type: playTimeTracker
+  id: JobBWSquadLeader
+
+- type: playTimeTracker
+  id: JobBWRifleman
+
+- type: playTimeTracker
+  id: JobBWAutomaticRifleman
+
+- type: playTimeTracker
+  id: JobBWMedic
+
+#region RU
 
 #region VDV
 
@@ -150,7 +166,7 @@
 - type: playTimeTracker
   id: JobOMONRifleman # Riot Officer
 
-## IND
+#region IND
 
 #region Scav
 

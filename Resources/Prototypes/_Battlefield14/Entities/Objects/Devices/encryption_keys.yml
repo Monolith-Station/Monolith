@@ -15,6 +15,21 @@
 
 - type: entity
   parent: EncryptionKey
+  id: EncryptionKeyDE
+  name: DE communications encryption key
+  description: Quit playing that old song.
+  components:
+    - type: EncryptionKey
+      channels:
+        - DERadio
+      defaultChannel: DERadio
+    - type: Sprite
+      layers:
+        - state: crypt_silver
+        - state: nano_label
+
+- type: entity
+  parent: EncryptionKey
   id: EncryptionKeyRU
   name: RU communications encryption key
   description: I have never used this in my entire life.. - Ivan

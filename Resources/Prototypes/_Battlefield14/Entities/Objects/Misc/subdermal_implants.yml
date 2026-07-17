@@ -34,6 +34,40 @@
 
 - type: entity
   parent: BaseSubdermalImplant
+  id: TrackingImplantNATODE
+  name: Bundeswehr tracking implant
+  description: This implant has a condition monitor tuned for the German bundeswehr comms channels.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      whitelist:
+        components:
+        - MobState
+    - type: TriggerOnMobstateChange
+      mobState:
+      - Critical
+      - Dead
+    - type: Rattle
+      radioChannel: "DERadio"
+      language: "German"
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: TranslatorImplantGerman
+  name: German translator implant
+  description: An implant giving the ability to understand and speak German.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - German
+    spoken:
+    - German
+    requires:
+    - Sign
+
+- type: entity
+  parent: BaseSubdermalImplant
   id: TrackingImplantPACTRU
   name: Russian Ground Forces tracking implant
   description: This implant has a condition monitor tuned for Russian comms channels.
@@ -61,7 +95,7 @@
   - type: TranslatorImplant
     understood:
     - Russian
-    # - Ukrainian
+    - Ukrainian
     spoken:
     - Russian
     requires:

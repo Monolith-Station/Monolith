@@ -1,0 +1,58 @@
+- type: job
+  id: BWRifleman
+  name: job-name-bw-rifleman
+  description: job-description-bw-rifleman
+  playTimeTracker: JobBWRifleman
+  weight: 67
+  startingGear: BWRiflemanGear
+  alwaysUseSpawner: true
+  icon: "JobIconNATORifleman"
+  requireAdminNotify: false
+  supervisors: job-supervisors-degov
+  canBeAntag: false
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - German
+    languagesUnderstood:
+    - German
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - BW
+    - type: ChatRank
+      rank: BF-rank-private
+  - !type:AddImplantSpecial
+    implants: [ TrackingImplantNATODE ]
+  access:
+  - Maintenance
+  - Service
+  - External
+  - Mercenary # Frontier
+  - Captain # Frontier
+  - NATOCommon
+  - NATOMaintenance
+  - NATOSoldier
+  - NATOArmory
+
+- type: startingGear
+  id: BWRiflemanGear
+  equipment:
+    id: BWRiflemanPDA
+    ears: ClothingHeadsetAltDE
+    belt: ClothingBeltMilitaryWebbingDEFilledG36
+    jumpsuit: ClothingUniformJumpsuitCamoDEFlecktarn
+    head: ClothingHeadHatHelmetDEM92
+    outerClothing: ClothingOuterArmorPlateCarrierMOBAST
+    shoes: ClothingShoesBootsJackFilledBW
+    suitstorage: WeaponRifleDEG36
+    pocket1: PouchFirstAidFilled
+    pocket2: PouchGrenadesFilledUSMCRifleman
+  storage:
+    back:
+    - ArmorPlateMedium
+    - ClothingMaskGasM40
+    - FlashlightMilitaryUS
+    - Tourniquet
+    - Zipties
