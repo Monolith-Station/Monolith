@@ -8,6 +8,7 @@ using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client._CE.ZLevels.Core.Overlays;
@@ -48,11 +49,11 @@ public sealed partial class CEZLevelBlurOverlay : Overlay
         if (ScreenTexture == null || args.Viewport.Eye == null)
             return;
 
-        var ambientColor = new System.Numerics.Vector3(0, 0, 1); //Default blue
+        var ambientColor = new Vector3(0, 0, 1); //Default blue
 
         if (_entity.TryGetComponent<MapLightComponent>(args.MapUid, out var mapLight))
         {
-            ambientColor = new System.Numerics.Vector3(
+            ambientColor = new Vector3(
                 mapLight.AmbientLightColor.R,
                 mapLight.AmbientLightColor.G,
                 mapLight.AmbientLightColor.B);

@@ -71,7 +71,7 @@ public sealed partial class CEVariantizeZNetworkCommand : LocalizedEntityCommand
 
             foreach (var tile in _map.GetAllTiles(mapUid.Value, gridComp))
             {
-                var def = tile.GetContentTileDefinition(_tile);
+                var def = tile.Tile.GetContentTileDefinition(_tile);
                 var newTile = new Tile(tile.Tile.TypeId, tile.Tile.Flags, _tile.PickVariant(def), tile.Tile.RotationMirroring);
                 _map.SetTile(mapUid.Value, gridComp, tile.GridIndices, newTile);
             }
