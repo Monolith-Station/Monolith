@@ -14,9 +14,6 @@ namespace Content.Server._CE.ZLevels.Roof;
 
 public sealed partial class CEZLevelsRoofSystem
 {
-    [Dependency] private EntityQuery<CEZGridComponent> _zgridQuery = default!;
-    [Dependency] private EntityQuery<CEZGridNetworkComponent> _zGridNetworkQuery = default!;
-
     private void InitGrids()
     {
         SubscribeLocalEvent<CEZGridComponent, MapInitEvent>(OnZGridMapInit);

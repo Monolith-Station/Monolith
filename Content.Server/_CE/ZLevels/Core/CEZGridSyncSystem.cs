@@ -36,10 +36,10 @@ public sealed partial class CEZGridSyncSystem : VirtualController
     [Dependency] private CEZLevelsSystem _zlevels = default!;
     [Dependency] private CEZGridConnectorSystem _connectorSystem = default!;
 
-    [Dependency] private EntityQuery<CEZGridComponent> _gridCompQuery = default!;
-    [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
-    [Dependency] private EntityQuery<MapGridComponent> _mapGridQuery = default!;
-    [Dependency] private EntityQuery<MapComponent> _mapCompQuery = default!;
+    private EntityQuery<CEZGridComponent> _gridCompQuery = default!;
+    private EntityQuery<PhysicsComponent> _physicsQuery = default!;
+    private EntityQuery<MapGridComponent> _mapGridQuery = default!;
+    private EntityQuery<MapComponent> _mapCompQuery = default!;
 
     private bool _inPhysicsTick;
     private bool _syncing;
@@ -47,6 +47,11 @@ public sealed partial class CEZGridSyncSystem : VirtualController
     public override void Initialize()
     {
         base.Initialize();
+
+        _gridCompQuery = GetEntityQuery<CEZGridComponent>();
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
+        _mapGridQuery = GetEntityQuery<MapGridComponent>();
+        _mapCompQuery = GetEntityQuery<MapComponent>();
 
         SubscribeLocalEvent<CEZGridComponent, CEGridAddedIntoZNetworkEvent>(OnGridLinked);
         SubscribeLocalEvent<CEZGridComponent, CEGridRemovedFromZNetworkEvent>(OnGridUnlinked);

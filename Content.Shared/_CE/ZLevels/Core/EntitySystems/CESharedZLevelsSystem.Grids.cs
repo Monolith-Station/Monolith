@@ -11,8 +11,8 @@ namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
 
 public abstract partial class CESharedZLevelsSystem
 {
-    [Dependency] private EntityQuery<CEZGridComponent> _zGridQuery = default!;
-    [Dependency] private EntityQuery<CEZGridNetworkComponent> _zGridNetworkQuery = default!;
+    private EntityQuery<CEZGridComponent> _zGridQuery = default!;
+    private EntityQuery<CEZGridNetworkComponent> _zGridNetworkQuery = default!;
 
     /// <summary>
     /// Returns the z-level depth of the map containing the given grid,

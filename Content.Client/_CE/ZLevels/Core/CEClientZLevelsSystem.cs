@@ -71,13 +71,17 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
 internal sealed partial class CEClientZLevelsPreAnimSystem : EntitySystem
 {
     [Dependency] private SpriteSystem _sprite = default!;
-    [Dependency] private EntityQuery<MapGridComponent> _mapGridQuery = default!;
-    [Dependency] private EntityQuery<CEZPhysicsComponent> _zPhysQuery = default!;
+
+    private EntityQuery<MapGridComponent> _mapGridQuery = default!;
+    private EntityQuery<CEZPhysicsComponent> _zPhysQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         UpdatesBefore.Add(typeof(AnimationPlayerSystem));
+
+        _mapGridQuery = GetEntityQuery<MapGridComponent>();
+        _zPhysQuery = GetEntityQuery<CEZPhysicsComponent>();
     }
 
     public override void FrameUpdate(float frameTime)

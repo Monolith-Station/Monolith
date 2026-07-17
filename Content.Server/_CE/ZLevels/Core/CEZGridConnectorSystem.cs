@@ -24,9 +24,9 @@ public sealed partial class CEZGridConnectorSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SharedMapSystem _mapSystem = default!;
 
-    [Dependency] private EntityQuery<CEZGridComponent> _zgridQuery = default!;
-    [Dependency] private EntityQuery<CEZGridNetworkComponent> _zgridNetworkQuery = default!;
-    [Dependency] private EntityQuery<CEZMapComponent> _zMapQuery = default!;
+    private EntityQuery<CEZGridComponent> _zgridQuery = default!;
+    private EntityQuery<CEZGridNetworkComponent> _zgridNetworkQuery = default!;
+    private EntityQuery<CEZMapComponent> _zMapQuery = default!;
 
     private bool _dirty;
 
@@ -61,6 +61,10 @@ public sealed partial class CEZGridConnectorSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        _zgridQuery = GetEntityQuery<CEZGridComponent>();
+        _zgridNetworkQuery = GetEntityQuery<CEZGridNetworkComponent>();
+        _zMapQuery = GetEntityQuery<CEZMapComponent>();
 
         SubscribeLocalEvent<CEZGridConnectorComponent, MapInitEvent>(OnConnectorMapInit);
         SubscribeLocalEvent<CEZGridConnectorComponent, AnchorStateChangedEvent>(OnConnectorAnchorChanged);

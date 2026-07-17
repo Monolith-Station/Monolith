@@ -24,11 +24,13 @@ public sealed partial class CEZLevelsSystem : CESharedZLevelsSystem
     [Dependency] private MetaDataSystem _meta = default!;
     [Dependency] private StationSystem _station = default!;
 
-    [Dependency] private EntityQuery<MapGridComponent> _mapGridQuery = default!;
+    private EntityQuery<MapGridComponent> _mapGridQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _mapGridQuery = GetEntityQuery<MapGridComponent>();
 
         InitView();
 

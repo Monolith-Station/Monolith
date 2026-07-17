@@ -10,13 +10,17 @@ public sealed partial class CEZLevelsLaddersCacheSystem : EntitySystem
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 
-    [Dependency] private EntityQuery<TransformComponent> _xformQuery = default!;
-    [Dependency] private EntityQuery<MapGridComponent> _gridQuery = default!;
-    [Dependency] private EntityQuery<CEZLevelsLaddersCacheComponent> _cacheQuery = default!;
+    private EntityQuery<TransformComponent> _xformQuery = default!;
+    private EntityQuery<MapGridComponent> _gridQuery = default!;
+    private EntityQuery<CEZLevelsLaddersCacheComponent> _cacheQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _xformQuery = GetEntityQuery<TransformComponent>();
+        _gridQuery = GetEntityQuery<MapGridComponent>();
+        _cacheQuery = GetEntityQuery<CEZLevelsLaddersCacheComponent>();
 
         SubscribeLocalEvent<CEZLevelHighGroundComponent, MapInitEvent>(OnLadderInit);
         SubscribeLocalEvent<CEZLevelHighGroundComponent, ComponentShutdown>(OnLadderShutdown);

@@ -24,13 +24,17 @@ public abstract partial class CESharedZLevelsRoofSystem : EntitySystem
     [Dependency] protected SharedMapSystem Map = null!;
     [Dependency] protected ITileDefinitionManager TilDefMan = null!;
 
-    [Dependency] protected EntityQuery<MapGridComponent> GridQuery = default!;
-    [Dependency] protected EntityQuery<RoofComponent> RoofQuery = default!;
-    [Dependency] protected EntityQuery<CEZMapComponent> ZMapQuery = default!;
+    protected EntityQuery<MapGridComponent> GridQuery = default!;
+    protected EntityQuery<RoofComponent> RoofQuery = default!;
+    protected EntityQuery<CEZMapComponent> ZMapQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        GridQuery = GetEntityQuery<MapGridComponent>();
+        RoofQuery = GetEntityQuery<RoofComponent>();
+        ZMapQuery = GetEntityQuery<CEZMapComponent>();
 
         SubscribeLocalEvent<CEZLevelRoofComponent, TileChangedEvent>(OnTileChanged);
     }
