@@ -1,0 +1,5 @@
+# CrystallEdge: Z-level blur shader (used by CEZLevelBlurOverlay)
+- type: shader
+  id: CEZBlur
+  kind: source
+  path: "/Textures/_CE/Shaders/zblur.swsl"

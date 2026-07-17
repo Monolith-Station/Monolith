@@ -175,6 +175,86 @@
     shape: triangle
     radarColor: "#1df5cd"
 
+- type: entity
+  id: 90mmBulletFlak
+  parent: 90mmBulletBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 70
+        Structural: 100
+    penetrationThreshold: 2000
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
+    layers:
+    - state: 90mmHE
+  - type: PointLight
+    color: orange
+  - type: RadarBlip
+    scale: 2.5
+    shape: triangle
+    radarColor: "#1df5cd"
+  - type: ProjectileGrenade
+    fillPrototype: Shrapnel90mmFlak
+    capacity: 12 # lag!
+    minVelocity: 8
+    maxVelocity: 8
+    randomAngle: true
+  - type: TriggerOnProximity
+    enabled: true
+    shape:
+      !type:PhysShapeCircle
+      radius: 5
+      mask:
+      - BulletImpassable
+      - Opaque
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  id: Shrapnel90mmFlak
+  name: shrapnel
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 5
+        Slash: 10 # worry not. missiles take 1 million slash.
+    armorPenetration: 0
+    penetrationThreshold: 200
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape: !type:PhysShapeCircle
+          radius: 4
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: RadarBlip
+    scale: 2
+    shape: circle
+    radarColor: "#1df5cd"
+  - type: TimedDespawn
+    lifetime: 0.4
+
 # 140mm
 
 - type: entity
