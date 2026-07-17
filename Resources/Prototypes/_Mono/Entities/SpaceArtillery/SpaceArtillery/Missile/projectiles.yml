@@ -32,7 +32,7 @@
         hard: False
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageModifierSet: Missile
   - type: Destructible
     thresholds:
     - trigger:
@@ -44,6 +44,18 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+
+- type: damageModifierSet
+  id: Missile
+  coefficients:
+    Blunt: 0.7
+    Slash: 30 # I only use this for flak shrapnel, so it can work on missiles without it being too OP for ships.
+    Piercing: 0.7
+    Shock: 1.2
+    Structural: 0.5
+  flatReductions:
+    Blunt: 5
+    Heat: 5
 
 # VESPERA
 
