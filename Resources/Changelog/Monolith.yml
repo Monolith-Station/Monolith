@@ -22580,3 +22580,28 @@ Entries:
   id: 2494
   time: '2026-07-16T05:22:08.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4155
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: Added a new flatpack vendor for CC use.
+    - type: Remove
+      message: Removed some tiles around the bus stop- maybe it will move over there?
+    - type: Tweak
+      message: >-
+        Swapped around the shipyard consoles. Swapped various vendors for
+        station-exclusive variants. Enjoy your taxes. Swapped mail carrier
+        airlock with cargo sprite... why...?
+    - type: Fix
+      message: >-
+        Fixed 50 50 atmos distro. Fixed access issues on doors. Fixed no
+        observer spawn. Fixed a lack of cargo functionality.
+  id: 2495
+  time: '2026-07-17T08:30:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4297
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed cases where guns could get negative spread from attachments.
+  id: 2496
+  time: '2026-07-17T08:58:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4301

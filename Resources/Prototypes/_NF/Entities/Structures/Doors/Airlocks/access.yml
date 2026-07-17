@@ -67,6 +67,8 @@
   id: AirlockMailCarrierLocked
   suffix: Mail, Locked
   components:
+  - type: Sprite # Mono - swapped to cargo sprite... why did this not exist...
+    sprite: Structures/Doors/Airlocks/Standard/cargo.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMailCarrier ]
