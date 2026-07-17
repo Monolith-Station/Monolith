@@ -13,6 +13,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Mobs;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Stunnable;
 using JetBrains.Annotations;
 using Robust.Shared.Serialization;
@@ -27,6 +28,7 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
 
     protected EntityQuery<CEZPhysicsComponent> ZPhyzQuery;
 
@@ -158,7 +160,7 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
         DirtyField(ent, ent.Comp, nameof(CEZFlyerComponent.Active));
 
         _zLevel.UpdateGravityState((ent, zPhys));
-        _gravity.RefreshWeightless(ent.Owner);
+        _movementSpeed.RefreshWeightlessModifiers(ent.Owner);
 
         RaiseLocalEvent(ent, new CEFlightStartedEvent());
         return true;
@@ -180,7 +182,7 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
         DirtyField(ent, ent.Comp, nameof(CEZFlyerComponent.Active));
 
         _zLevel.UpdateGravityState((ent, zPhys));
-        _gravity.RefreshWeightless(ent.Owner);
+        _movementSpeed.RefreshWeightlessModifiers(ent.Owner);
 
         RaiseLocalEvent(ent, new CEFlightStoppedEvent());
     }
