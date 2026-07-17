@@ -10,6 +10,10 @@
     Frontier:
       stationProto: StandardFrontierStation
       gridComponents:
+      - type: StationCargoOrderDatabase
+        capacity: 60
+      - type: TradeCrateDestination
+        destinationProto: Trade
       - type: VesselMusic
         ambientMusicPrototype: ColossusCentralMusic
       - type: VesselInfo
