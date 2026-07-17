@@ -1746,10 +1746,6 @@ entities:
     - type: GasMixer
       inletTwoConcentration: 0.20999998
       inletOneConcentration: 0.79
-    - type: UserInterface
-      actors:
-        enum.GasMixerUiKey.Key:
-        - invalid
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: ActiveUserInterface
