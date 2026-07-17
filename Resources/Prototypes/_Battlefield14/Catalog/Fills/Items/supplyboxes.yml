@@ -45,6 +45,18 @@
       - id: MagazineBox762x51Big
 
 - type: entity
+  id: SupplyBoxAmmoUSFilledDE
+  parent: SupplyBoxAmmoUS
+  suffix: American, Filled, DE
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineBox556x45Big
+      - id: BoxMagazineG36
+      - id: BoxMagazineG36TracerRed
+      - id: MagazineBox9x19mmBig
+
+- type: entity
   id: SupplyBoxAmmoRUFilled
   parent: SupplyBoxAmmoRU
   suffix: Russian, Filled

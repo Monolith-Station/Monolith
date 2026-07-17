@@ -51,6 +51,22 @@
   - USPDWarden
   - USPDOfficer
 
+#region DE
+
+- type: department
+  id: BW # Bundeswehr
+  name: department-BW-name
+  description: department-BW-description
+  color: "#203564"
+  weight: 75
+  roles:
+  - BWLieutenant
+  - BWSquadLeader
+  - BWRifleman
+  - BWAutomaticRifleman
+  - BWMedic
+  - BWRecon
+
 ## PACT
 #region RU
 

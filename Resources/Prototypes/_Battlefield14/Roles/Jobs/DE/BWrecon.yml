@@ -1,0 +1,59 @@
+- type: job
+  id: BWRecon
+  name: job-name-bw-recon
+  description: job-description-bw-recon
+  playTimeTracker: JobBWRecon
+  weight: 64
+  startingGear: BWReconGear
+  alwaysUseSpawner: true
+  icon: "JobIconNATORecon"
+  requireAdminNotify: false
+  supervisors: job-supervisors-degov
+  canBeAntag: false
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - German
+    languagesUnderstood:
+    - German
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - BW
+    - type: ChatRank
+      rank: BF-rank-private
+  - !type:AddImplantSpecial
+    implants: [ TrackingImplantNATODE ]
+  access:
+  - Maintenance
+  - Service
+  - External
+  - Mercenary # Frontier
+  - Captain # Frontier
+  - NATOCommon
+  - NATOMaintenance
+  - NATOSoldier
+  - NATOArmory
+
+- type: startingGear
+  id: BWReconGear
+  equipment:
+    id: BWReconPDA
+    ears: ClothingHeadsetAltDE
+    belt: ClothingBeltMilitaryWebbingDEFilledG36
+    jumpsuit: ClothingUniformJumpsuitCamoDEFlecktarn
+    head: ClothingHeadHatHelmetDEM92
+    helmetattachment: ClothingHelmetAttachmentNVGsBasicNATO
+    outerClothing: ClothingOuterArmorPlateCarrierMOBAST
+    shoes: ClothingShoesBootsJackFilledBW
+    suitstorage: WeaponRifleDEG36CSupp
+    pocket1: PouchFirstAidFilled
+    pocket2: PouchGrenadesFilledUSMCScout
+  storage:
+    back:
+    - ClothingMaskGasM40
+    - FlashlightMilitaryUS
+    - Rangefinder
+    - Tourniquet
+    - Zipties

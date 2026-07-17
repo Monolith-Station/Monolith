@@ -39,6 +39,19 @@
 
 - type: entity
   parent: ClothingHeadHelmetVoidsuitAmericanCombatMarine
+  id: ClothingHeadHelmetVoidsuitGermanCombat
+  categories: [ HideSpawnMenu ]
+  name: German combat voidsuit helmet
+  description: A combat voidsuit helmet with internal pressurization systems and an inbuilt tracker system for ballistics.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Head/Voidsuithelmets/germancombat.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Head/Voidsuithelmets/germancombat.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetVoidsuitAmericanCombatMarine
   id: ClothingHeadHelmetVoidsuitRussianCombat
   categories: [ HideSpawnMenu ]
   name: Russian combat voidsuit helmet

@@ -22,6 +22,15 @@ job-name-uspd-chief = USPD Police Chief
 job-name-uspd-warden = USPD Warden
 job-name-uspd-officer = USPD Police Officer
 
+#German Federation#
+
+job-name-bw-lieutenant = Bundeswehr Platoon Commander
+job-name-bw-squadleader = Bundeswehr Squad Leader
+job-name-bw-rifleman = Bundeswehr Rifleman
+job-name-bw-automatic-rifleman = Bundeswehr Automatic Rifleman
+job-name-bw-medic = Bundeswehr Sanitater
+job-name-bw-recon = Bundeswehr Aufklarer
+
 #Russian Federation#
 
 job-name-vdv-lieutenant = VDV Platoon Commander

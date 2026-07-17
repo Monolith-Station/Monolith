@@ -1,6 +1,6 @@
 ## US
 
-# USMC
+#region USMC
 
 - type: entity
   parent: IDCardStandard
@@ -86,7 +86,7 @@
   - type: PresetIdCard
     job: USMCRecon
 
-# MARSOC
+#region MARSOC
 
 - type: entity
   parent: IDCardStandard
@@ -144,7 +144,7 @@
   - type: PresetIdCard
     job: MARSOCMedic
 
-# HECU
+#region HECU
 
 - type: entity
   parent: IDCardStandard
@@ -202,7 +202,7 @@
   - type: PresetIdCard
     job: HECUMedic
 
-# USSF
+#region USSF
 
 - type: entity
   parent: IDCardStandard
@@ -246,7 +246,7 @@
   - type: PresetIdCard
     job: USSFFighterPilot
 
-# ARNG
+#region ARNG
 
 - type: entity
   parent: IDCardStandard
@@ -332,7 +332,7 @@
   - type: PresetIdCard
     job: NGRecon
 
-# USPD
+#region USPD
 
 - type: entity
   parent: IDCardStandard
@@ -376,9 +376,99 @@
   - type: PresetIdCard
     job: USPDOfficer
 
+## DE
+
+#region BW
+
+- type: entity
+  parent: IDCardStandard
+  id: BWLieutenantIDCard
+  name: bundeswehr ID card
+  suffix: lieutenant
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: BWLieutenant
+
+- type: entity
+  parent: IDCardStandard
+  id: BWSquadLeaderIDCard
+  name: bundeswehr ID card
+  suffix: squad leader
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: BWSquadLeader
+
+- type: entity
+  parent: IDCardStandard
+  id: BWRiflemanIDCard
+  name: bundeswehr ID card
+  suffix: rifleman
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: BWRifleman
+
+- type: entity
+  parent: IDCardStandard
+  id: BWAutomaticRiflemanIDCard
+  name: bundeswehr ID card
+  suffix: automatic rifleman
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: BWAutomaticRifleman
+
+- type: entity
+  parent: IDCardStandard
+  id: BWMedicIDCard
+  name: bundeswehr ID card
+  suffix: medic
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: BWMedic
+
+- type: entity
+  parent: IDCardStandard
+  id: BWReconIDCard
+  name: bundeswehr ID card
+  suffix: recon
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: BWRecon
+
+### PACT
+
 ## RU
 
-# VDV
+#region VDV
 
 - type: entity
   parent: IDCardStandard
@@ -464,7 +554,7 @@
   - type: PresetIdCard
     job: VDVRecon
 
-# FSB
+#region FSB
 
 - type: entity
   parent: IDCardStandard
@@ -536,7 +626,7 @@
   - type: PresetIdCard
     job: FSBRecon
 
-# VKS
+#region VKS
 
 - type: entity
   parent: IDCardStandard
@@ -583,7 +673,7 @@
 
 ## IND
 
-# Western Private Security
+#region Western Private Security
 
 - type: entity
   parent: IDCardStandard

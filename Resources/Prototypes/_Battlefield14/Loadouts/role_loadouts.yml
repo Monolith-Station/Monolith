@@ -229,6 +229,87 @@
   - ContractorWallet
 
 
+#region BW
+
+- type: roleLoadout
+  id: JobBWLieutenant
+  groups:
+  - BF_SoldierGlassesTan
+  - BF_CombatMasks
+  - BF_SoldierGloves
+  - BF_NATOIFF
+  - BF_NATOIFFBox
+  - BF_HelmetAttachmentNATO
+  - BF_BackpacksBlack
+  - BF_MiscItemsNATO
+#  - BF_PistolsUSMCSL
+  - BF_Map
+  - ContractorWallet
+
+- type: roleLoadout
+  id: JobBWSquadLeader
+  groups:
+  - BF_SoldierGlassesGreen
+  - BF_CombatMasks
+  - BF_SoldierGloves
+  - BF_NATOIFF
+  - BF_HelmetAttachmentNATO
+  - BF_BackpacksBlack
+  - BF_MiscItemsNATO
+#  - BF_PistolsUSMCSL
+  - BF_Map
+  - ContractorWallet
+
+- type: roleLoadout
+  id: JobBWRifleman
+  groups:
+  - BF_SoldierGlassesGreen
+  - BF_CombatMasks
+  - BF_SoldierGloves
+  - BF_NATOIFF
+  - BF_HelmetAttachmentNATO
+  - BF_BackpacksBlack
+  - BF_MiscItemsNATO
+  - BF_Map
+  - ContractorWallet
+
+- type: roleLoadout
+  id: JobBWAutomaticRifleman
+  groups:
+  - BF_SoldierGlassesGreen
+  - BF_CombatMasks
+  - BF_SoldierGloves
+  - BF_NATOIFF
+  - BF_HelmetAttachmentNATO
+  - BF_BackpacksBlack
+  - BF_MiscItemsNATO
+#  - BF_PistolsUSMCSL
+  - BF_Map
+  - ContractorWallet
+
+- type: roleLoadout
+  id: JobBWRecon
+  groups:
+  - BF_CombatMasks
+  - BF_SoldierGloves
+  - BF_NATOIFF
+  - BF_BackpacksBlack
+  - BF_MiscItemsNATO
+  - BF_Map
+  - ContractorWallet
+
+- type: roleLoadout
+  id: JobBWMedic
+  groups:
+  - BF_CombatMasks
+  - BF_SoldierGloves
+  - BF_NATOIFF
+  - BF_HelmetAttachmentNATO
+  - BF_BackpacksBlack
+  - BF_MiscItemsNATO
+  - BF_Map
+  - ContractorWallet
+
 ## PACT
 
 ## RU

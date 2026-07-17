@@ -1,4 +1,19 @@
-# US
+- type: entity
+  parent: ClothingHeadHelmetBasic
+  id: BF14ClothingHeadHelmetBasic
+  abstract: true
+  description: This isnt for catching shrap or rounds, its made to keep your grey matter from grossing out your buddies.
+  components:
+  - type: Armor
+    modifiers:
+      flatReductions:
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+#region US
 
 - type: entity
   parent: ClothingHeadHelmetBasic
@@ -70,7 +85,19 @@
   - type: Clothing
     sprite: _Battlefield14/Clothing/Head/Helmets/ushelmeturbanriot.rsi
 
-# RU
+#region DE
+
+- type: entity
+  parent: BF14ClothingHeadHelmetBasic
+  id: ClothingHeadHatHelmetDEM92
+  name: M92 combat helmet (flecktarn)
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Head/Helmets/dehelmetM92.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Head/Helmets/dehelmetM92.rsi
+
+#region RU
 
 - type: entity
   parent: ClothingHeadHatHelmetUSRiot
@@ -173,7 +200,7 @@
   - type: Clothing
     sprite: _Battlefield14/Clothing/Head/Helmets/ruhelmetssh68track.rsi
 
-# MISC
+#region MISC
 
 - type: entity
   parent: ClothingHeadHatHelmetUS

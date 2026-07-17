@@ -1,0 +1,61 @@
+- type: job
+  id: BWAutomaticRifleman
+  name: job-name-bw-automatic-rifleman
+  description: job-description-bw-automatic-rifleman
+  playTimeTracker: JobBWAutomaticRifleman
+  weight: 66
+  startingGear: BWAutomaticRiflemanGear
+  alwaysUseSpawner: true
+  icon: "JobIconNATOSupport"
+  requireAdminNotify: false
+  supervisors: job-supervisors-degov
+  canBeAntag: false
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - German
+    languagesUnderstood:
+    - German
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - BW
+    - type: ChatRank
+      rank: BF-rank-private
+  - !type:AddImplantSpecial
+    implants: [ TrackingImplantNATODE ]
+  access:
+  - Maintenance
+  - Service
+  - External
+  - Mercenary # Frontier
+  - Captain # Frontier
+  - NATOCommon
+  - NATOMaintenance
+  - NATOSoldier
+  - NATOArmory
+
+- type: startingGear
+  id: BWAutomaticRiflemanGear
+  equipment:
+    id: BWAutomaticRiflemanPDA
+    ears: ClothingHeadsetAltDE
+    belt: ClothingBeltMilitaryWebbingDEFilledMG3Short
+    jumpsuit: ClothingUniformJumpsuitCamoDEFlecktarn
+    head: ClothingHeadHatHelmetDEM92
+    outerClothing: ClothingOuterArmorPlateCarrierMOBAST
+    shoes: ClothingShoesBootsJackFilledBW
+    suitstorage: WeaponMachineGunDEMG3
+    pocket1: PouchFirstAidFilled
+    pocket2: PouchGrenadesFilledUSMCSupport
+    rightarmband: ClothingArmbandThighHolsterFilledDEP8A1
+  storage:
+    back:
+    - SupplyBoxAmmoUSFilledDE
+    - FlashlightMilitaryUS
+    - ClothingMaskGasM40
+    - MagazinePistolUSP9
+    - MagazinePistolUSP9
+    - Tourniquet
+    - Zipties

@@ -37,8 +37,19 @@
     sprite: _Battlefield14/Clothing/OuterClothing/Armor/tancarrier.rsi
 
 - type: entity
+  parent: ClothingOuterArmorPlateCarrierBlack
+  id: ClothingOuterArmorPlateCarrierMOBAST
+  name: MOBAST armour vest
+  description: A standard issue armor vest for cannon fodder.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/OuterClothing/Armor/mobastvest.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/OuterClothing/Armor/mobastvest.rsi
+
+- type: entity
   parent: ClothingOuterArmorBase
-  id: ClothingOuterArmorPlateCarrierCivillian
+  id: ClothingOuterArmorPlateCarrierCivillian # nice typo
   name: civilian ballistic vest
   description: A civilian vest, basicaly useless as it cannot take plates. But hey atleast its light.
   components:

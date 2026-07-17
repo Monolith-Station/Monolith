@@ -7,6 +7,14 @@
   longRange: true
 
 - type: radioChannel
+  id: DERadio
+  name: chat-radio-de
+  keycode: 'x'
+  frequency: 1211
+  color: "#943aaa"
+  longRange: true
+
+- type: radioChannel
   id: RURadio
   name: chat-radio-ru
   keycode: 'z'
@@ -17,7 +25,7 @@
 - type: radioChannel
   id: ScavRadio
   name: chat-radio-scav
-  keycode: '1'
+  keycode: 'b'
   frequency: 1290
   color: "#fca503"
   longRange: true

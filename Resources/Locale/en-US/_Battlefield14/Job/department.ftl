@@ -18,6 +18,12 @@ department-NG-description = Secure the homefront, deal with riots or national di
 department-USPD-name = Generic United States Police Department (USPD)
 department-USPD-description = An amalgamation of regional police precincts. Enforce the law and bring order to chaos.
 
+## DE
+
+# BW
+department-BW-name = German Bundeswehr (BW)
+department-BW-description = Third time's the charm.
+
 ### PACT
 
 ## RU

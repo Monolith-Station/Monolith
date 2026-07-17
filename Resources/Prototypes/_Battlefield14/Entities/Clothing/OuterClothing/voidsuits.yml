@@ -1,5 +1,118 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase , BaseIntegratedManeuveringThrusters , ClothingArmorPlateMedium ]
+  id: BaseClothingOuterVoidsuitCombat
+  abstract: true
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - FitsInVoidsuitKit
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Shock: 0.5
+        Caustic: 0.5
+        Radiation: 0.3
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: StaminaDamageResistance
+    coefficient: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.85
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetVoidsuitAmericanCombatMarine
+      helmetcover: ClothingHeadHelmetCoverBlock
+  - type: StaticPrice
+    price: 4500
+
+#region US
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase , BaseIntegratedManeuveringThrusters , ClothingArmorPlateMedium ]
+  id: ClothingOuterVoidsuitAmericanCombatMarine
+  name: Marine 'Devil Dog' Combat Voidsuit
+  description: A combat voidsuit of American design, for their marine corps, with darker colours to blend into the backdrop of space.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/OuterClothing/Voidsuits/americancombatmarine.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/OuterClothing/Voidsuits/americancombatmarine.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: Item
+    size: Huge
+  - type: Tag
+    tags:
+    - FitsInVoidsuitKit
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Shock: 0.5
+        Caustic: 0.5
+        Radiation: 0.3
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: StaminaDamageResistance
+    coefficient: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.85
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetVoidsuitAmericanCombatMarine
+      helmetcover: ClothingHeadHelmetCoverBlock
+#      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StaticPrice
+    price: 4500
+  # COMMENTED OUT: ClothingAddFaction not supported (faction system not implemented)
+  # - type: ClothingAddFaction
+  #   faction: NATO
+
+#region DE
+
+- type: entity
+  parent: BaseClothingOuterVoidsuitCombat
+  id: ClothingOuterVoidsuitGermanCombat
+  name: German 'Panzermensch' Combat Voidsuit
+  description: A combat voidsuit of German design, designed for the falschirmjagers to blend into central/eastern europe in the case of an orbital insertion.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/OuterClothing/Voidsuits/germancombat.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/OuterClothing/Voidsuits/germancombat.rsi
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetVoidsuitGermanCombat
+      helmetcover: ClothingHeadHelmetCoverBlock
+
+#region RU
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase , BaseIntegratedManeuveringThrusters , ClothingArmorPlateMedium ]
   id: ClothingOuterVoidsuitRussianCombat
   name: Russian 'Goida' Combat Voidsuit
   description: A combat voidsuit of Russian design, for their frontline soldiers in the final frontier.
@@ -89,52 +202,3 @@
   # COMMENTED OUT: ClothingAddFaction not supported (faction system not implemented)
   # - type: ClothingAddFaction
   #   faction: PACT
-
-- type: entity
-  parent: [ ClothingOuterHardsuitBase , BaseIntegratedManeuveringThrusters , ClothingArmorPlateMedium ]
-  id: ClothingOuterVoidsuitAmericanCombatMarine
-  name: Marine 'Devil Dog' Combat Voidsuit
-  description: A combat voidsuit of American design, for their marine corps, with darker colours to blend into the backdrop of space.
-  components:
-  - type: Sprite
-    sprite: _Battlefield14/Clothing/OuterClothing/Voidsuits/americancombatmarine.rsi
-  - type: Clothing
-    sprite: _Battlefield14/Clothing/OuterClothing/Voidsuits/americancombatmarine.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.5
-    lowPressureMultiplier: 1000
-  - type: Item
-    size: Huge
-  - type: Tag
-    tags:
-    - FitsInVoidsuitKit
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-        Shock: 0.5
-        Caustic: 0.5
-        Radiation: 0.3
-  - type: ExplosionResistance
-    damageCoefficient: 0.6
-  - type: StaminaDamageResistance
-    coefficient: 0.7
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.85
-  - type: ToggleableClothing
-    requiredSlot: outerclothing
-    blockUnequipWhenAttached: false
-    replaceCurrentClothing: true
-    clothingPrototypes:
-      head: ClothingHeadHelmetVoidsuitAmericanCombatMarine
-      helmetcover: ClothingHeadHelmetCoverBlock
-#      helmetattachment: ClothingHeadHelmetAttachmentBlock
-  - type: StaticPrice
-    price: 4500
-  # COMMENTED OUT: ClothingAddFaction not supported (faction system not implemented)
-  # - type: ClothingAddFaction
-  #   faction: NATO

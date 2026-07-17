@@ -1,0 +1,68 @@
+- type: job
+  id: BWLieutenant
+  name: job-name-bw-lieutenant
+  description: job-description-bw-lieutenant
+  playTimeTracker: JobBWLieutenant
+  weight: 69
+  startingGear: BWLieutenantGear
+  alwaysUseSpawner: true
+  icon: "JobIconNATOCaptain"
+  requireAdminNotify: true
+  supervisors: job-supervisors-degov
+  canBeAntag: false
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - German
+    - Esperanto
+    languagesUnderstood:
+    - German
+    - Esperanto
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - BW
+    - type: ChatRank
+      rank: BF-rank-lieutenant
+    - type: CMVendorUser
+      id: BWLieutenant
+      points: 4
+  - !type:AddImplantSpecial
+    implants: [ TrackingImplantNATODE ]
+  access:
+  - Maintenance
+  - Service
+  - External
+  - Mercenary # Frontier
+  - Captain # Frontier
+  - NATOCommon
+  - NATOCommand
+  - NATOMaintenance
+  - NATOSoldier
+  - NATOArmory
+
+- type: startingGear
+  id: BWLieutenantGear
+  equipment:
+    id: BWSquadLeaderPDA
+    ears: ClothingHeadsetAltDE
+    belt: ClothingBeltMilitaryWebbingDEFilledG36TracerRed
+    jumpsuit: ClothingUniformJumpsuitCamoDEFlecktarn
+    head: ClothingHeadHatHelmetDEM92
+    outerClothing: ClothingOuterArmorPlateCarrierMOBAST
+    shoes: ClothingShoesBootsJackFilledBW
+    suitstorage: WeaponRifleDEG36 # G27K
+    pocket1: PouchFirstAidFilled
+    pocket2: PouchGrenadesFilledUSMCRifleman
+    rightarmband: ClothingArmbandThighHolsterFilledDEP8A1
+  storage:
+    back:
+    - ArmorPlateMedium
+    - ClothingMaskGasM40
+    - FlashlightMilitaryUS
+    - MagazinePistolUSP9
+    - MagazinePistolUSP9
+    - Tourniquet
+    - Zipties
+    - CMVendBWWarVendorLieutenantTablet

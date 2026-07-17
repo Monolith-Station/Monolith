@@ -3,7 +3,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCamoUS
-  name: american camo jumpsuit
+  name: american camo BDU
   description: FUCK I THINK THAT WAS A CIVILIAN.
   components:
   - type: Sprite
@@ -47,6 +47,21 @@
   - type: Faction
     factionId: "Nato"
 
+# DE
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCamoDEFlecktarn
+  name: flecktarn camo BDU
+  description: A uniform loved by german infantry and larpers alike.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/decamoflecktarn.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/decamoflecktarn.rsi
+  - type: Faction
+    factionId: "Nato"
+
 # RU
 
 - type: entity
@@ -65,7 +80,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCamoRUEMR
-  name: russian camo jumpsuit (EMR)
+  name: EMR camo BDU
   description: Helo zelenski, it's donetsk children.
   components:
   - type: Sprite
@@ -113,7 +128,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitRUOMON
-  name: OMON camo jumpsuit
+  name: OMON camo BDU
   description: Helo school children, it's RPO-A shmel.
   components:
   - type: Sprite

@@ -13,6 +13,17 @@
     - /Audio/_Battlefield14/Ambience/CombatMode/USMC_1.ogg
     - /Audio/_Battlefield14/Ambience/CombatMode/USMC_2.ogg
 
+- type: ambientMusic
+  id: CombatModeBW
+  sound:
+    collection: CombatModeBW
+
+- type: soundCollection
+  id: CombatModeBW
+  files:
+    - /Audio/_Battlefield14/Ambience/CombatMode/BW_1.ogg
+    - /Audio/_Battlefield14/Ambience/CombatMode/BW_2.ogg
+
 # VDV | More industrial tracks / just whatever Russian stuff
 - type: ambientMusic
   id: CombatModeVDV

@@ -1,0 +1,229 @@
+- type: entity
+  parent: ColMarTechBase
+  id: CMVendNATOBWWarVendor
+  name: Bundeswehr war vendor
+  description: Heer-Grade weaponry from a vending machine.
+  suffix: ColMarTech
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Structures/armoury.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "normal-unshaded"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+#      shader: unshaded
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["NATOCommon"]]
+  - type: CMAutomatedVendor
+    access:
+    - "NATOCommon"
+    sections:
+    - name: Armour
+      choices: { BF14Armour: 1 }
+      entries:
+      - id: ClothingOuterArmorPlateCarrierMOBAST
+        name: MOBAST vest
+      - id: ArmorPlateMedium
+        recommended: true
+    - name: 'Personal Medicine'
+      choices: { BF14PersonalMedicine: 1 }
+      entries:
+      - id: MedicationBoxPillsBicaridine
+        name: bicaridine pills
+        recommended: true
+      - id: MedicationBoxSyrettesBicaridine
+        name: bicaridine syrettes
+      - id: MedicationBoxPillsKelotane
+        name: kelotane pills
+      - id: MedicationBoxSyrettesKelotane
+        name: kelotane syrettes
+      - id: MedicationBoxSyrettesTricordrazine
+        name: tricordrazine syrettes
+      - id: BlisterPackSyretteMeralyne
+        name: meralyne syrettes
+      - id: BlisterPackSyretteDermaline
+        name: dermaline syrettes
+      - id: FoodCondimentPacketKaolin
+        name: kaolin powder packet
+      - id: DefibrillatorDisposable
+        name: disposable defibrillator
+    - name: Backpack/belt
+      choices: { BF14Storage: 2 }
+      entries:
+      - id: ClothingBackpackRucksackTan
+        replaceSlot: back
+        name: tan rucksack
+        recommended: true
+      - id: ClothingBackpackRucksackBlack
+        replaceSlot: back
+        name: black rucksack
+      - id: ClothingBeltMilitaryWebbingDE
+        replaceSlot: belt
+        name: MOBAST belt rig
+      - id: ClothingBeltAssault
+        replaceSlot: belt
+        name: assault belt
+      - id: ClothingBeltMedicalEMTFilledBF14Basic
+        replaceSlot: belt
+        name: basic medical belt
+        amount: 4
+    - name: Weapons
+      entries:
+      - id: WeaponRifleDEG36
+        amount: 25
+      - id: WeaponRifleDEG36K
+        amount: 25
+      - id: WeaponRifleDEG36C
+        amount: 5
+      - id: WeaponSubmachinegunUSMP5
+        amount: 5
+      - id: WeaponPistolDEP8A1
+        amount: 2
+    - name: Utility
+      entries:
+      - id: RiotBulletShield
+        amount: 3
+      - id: FHKnifeM68
+        amount: 10
+      - id: Crowbar
+        amount: 50
+    - name: Sustainment
+      entries:
+      - id: BoxMRE
+        amount: 50
+      - id: FoodSnackNutribrick
+        amount: 50
+      - id: DrinkMREFlask
+        amount: 50
+    - name: Misc
+      entries:
+      - id: USMCFlagFolded # german flag
+        amount: 3
+
+- type: entity
+  parent: ColMarTechBase
+  id: CMVendNATOBWWarVendorGear
+  name: Bundeswehr gear vendor
+  description: Heer-Grade weaponry from a vending machine.
+  suffix: ColMarTech
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Structures/armoury.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "normal-unshaded"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+  - type: AccessReader
+    access: [["NATOCommon"]]
+  - type: CMAutomatedVendor
+    access:
+    - "NATOCommon"
+    sections:
+    - name: Identification
+      entries:
+      - id: BoxIFFNATOBlue
+        amount: 10
+      - id: BoxIFFNATOGreen
+        amount: 10
+      - id: BoxIFFNATOYellow
+        amount: 10
+    - name: Breaching
+      entries:
+      - id: BreachingCharge
+        amount: 10
+      - id: FUBAR # something DE specific
+        amount: 1
+      - id: RemoteSignallerM57
+        amount: 10
+    - name: Grenades
+      entries:
+      - id: OffensiveGrenadeUSMK21 # DM51
+        amount: 20
+      - id: FlashbangGrenadeUSM84
+        amount: 20
+      - id: SmokeGrenadeUSM18
+        amount: 20
+#      - id: LandMineM16A2APMItem DM-22 PARM-2 and FFV 028 SN
+#        amount: 10
+    - name: Storage
+      entries:
+      - id: PouchMags
+        amount: 5
+      - id: PouchFlaresFilledGlowsticksBlue
+        amount: 5
+      - id: ClothingArmbandDumpPouchBlack
+        amount: 2
+    - name: Utility
+      entries:
+      - id: BarbedWire10
+        amount: 1
+      - id: BoxSandbagEmpty
+        amount: 5
+      - id: EntrenchingTool
+        amount: 2
+      - id: Multitool
+        amount: 3
+      - id: Zipties
+        amount: 15
+      - id: Handcuffs
+        amount: 5
+      - id: Whistle
+        amount: 3
+      - id: Boombox
+        amount: 2
+
+- type: entity
+  parent: ColMarTechBase
+  id: CMVendNATOBWWarVendorAmmo
+  name: Bundeswehr ammo vendor
+  description: Heer-Grade weaponry from a vending machine.
+  suffix: ColMarTech
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Structures/armoury.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "normal-unshaded"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+  - type: AccessReader
+    access: [["NATOCommon"]]
+  - type: CMAutomatedVendor
+    access:
+    - "NATOCommon"
+    sections:
+    - name: Magazine boxes
+      entries:
+      - id: BoxMagazineG36
+        amount: 3
+      - id: BoxMagazineG36TracerRed
+        amount: 2
+      - id: BoxMagazineMP5
+        amount: 5
+      - id: BoxFlare
+        amount: 4
+    - name: Loose rounds
+      entries:
+      - id: MagazineBox556x45Big
+        amount: 2
+      - id: MagazineBox556x45
+        amount: 5
+      - id: MagazineBox762x51Big
+        amount: 1
+      - id: MagazineBox762x51
+        amount: 5
+      - id: MagazineBox9x19mmBig
+        amount: 5
+      - id: ShellBoxBF12GaugeBuckshot
+        amount: 10
+    - name: Misc
+      entries:
+      - id: MagazinePistolUSP9
+        amount: 10

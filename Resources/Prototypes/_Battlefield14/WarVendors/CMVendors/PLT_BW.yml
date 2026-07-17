@@ -1,0 +1,42 @@
+- type: entity
+  parent: BaseItem
+  id: CMVendBWWarVendorLieutenantTablet
+  name: Bundeswehr lieutenant war vendor tablet
+  description: Top notch shit here.
+  suffix: ColMarTech, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/tablets.rsi
+    layers:
+      - state: tablet
+      - state: generic
+        shader: unshaded
+  - type: UserInterface
+    interfaces:
+      enum.CMAutomatedVendorUI.Key:
+        type: CMAutomatedVendorBui
+  - type: ActivatableUI
+    key: enum.CMAutomatedVendorUI.Key
+  - type: ActivatableUIRequiresAccess
+  - type: CMAutomatedVendor
+    jobs:
+    - BWLieutenant
+    sections:
+    - name: anti-armour solution
+      entries:
+      - id: CrateSecgearNATOFilledPZF3
+        name: Panzerfaust 3
+        points: 2
+      - id: CratePowerWeaponFilledM107
+        name: M107 anti-materiel rifle
+        points: 1
+    - name: anti-personnel solution
+      entries:
+      - id: BoxGrenadesM58
+        name: CS gas grenades
+        points: 1
+    - name: anti-vessel solution
+      entries:
+      - id: CrateSecgearNATOFilledStinger # fliegerfaust
+        name: Stinger MANPADS
+        points: 1

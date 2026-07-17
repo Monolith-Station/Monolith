@@ -317,6 +317,9 @@
   components:
   - type: Item # Controls inhand sprites
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/G36K.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/G36K.rsi
+    state: icon
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/G36K.rsi
     layers:
@@ -398,6 +401,9 @@
   components:
   - type: Item # Controls inhand sprites
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/G36.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/G36.rsi
+    state: icon
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/G36.rsi
     layers:
@@ -439,6 +445,9 @@
   - type: Item # Controls inhand sprites
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/G36C.rsi
     size: Large
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/G36C.rsi
+    state: icon
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/G36C.rsi
     layers:
@@ -464,8 +473,32 @@
         variation: 0.125
   - type: WieldedCrosshair
     rsi:
-      sprite: _Battlefield14/Interface/MousePointer/optics.rsi
-      state: M68
+      sprite: _RMC14/Interface/MousePointer/rifle_mouse.rsi
+      state: all
+
+- type: entity
+  name: G36C SUPP.
+  parent: WeaponRifleDEG36C
+  id: WeaponRifleDEG36CSupp
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/G36C.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: stripes
+      - state: supp
+        offset: 0.22, 0
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/G36C.rsi
+  - type: Gun
+    soundGunshot:
+      collection: BF_Galil_Gunshots_SUPP
+      params:
+        volume: -12
+        variation: 0.125
 
 #region Rifles - RU
 
