@@ -391,7 +391,7 @@
   name: TCA QBZ-91 Riversong (6.8x52mm Caseless)
   parent: BaseWeaponRifle
   id: WeaponRifleRiversong
-  description: A bullpup rifle designed for usage in tanks, landing craft and other low space vehicle of the TSFMC Ground Infantry, this weapon also became popular for boarding crew due to the small frame and the ability to be fired one handed. Accurate, easy to use, and firing the 6.8x52mm STANAG round. Also accepts 5.56x45mm magazines to assist with standardization. The barrel is threaded for suppressors, and an Erebus railmount is on the bottom for grips.
+  description: A bullpup rifle designed for usage in tanks, landing craft and other low space vehicles of the TSFMC Ground Infantry, this weapon also became popular for boarding crew due to the small frame and the ability to be fired one handed. Accurate, easy to use, and firing the 6.8x52mm STANAG round. Also accepts 5.56x45mm magazines to assist with standardization. The barrel is threaded for suppressors, and an Erebus railmount is present on the carryhandle and on the bottom for optics and grips.
   components:
   - type: Item
     size: Large
@@ -550,7 +550,7 @@
   name: TCA QBB-81-1 Dragonfang (7.62x51mm)
   parent: BaseWeaponRifle
   id: WeaponRifleDragonfang
-  description: A heavy battle rifle used by FORECON in the early stage of colossus expedition, this rifle packs an outstanding firepower in an otherwise compact frame. Chambered in 7.62x51mm it decimate anything brave enough to stand in our military conquest. The barrel is threaded for suppressors, and an Erebus railmount is on the bottom for grips.
+  description: A heavy battle rifle used by FORECON in the early stage of Colossus expedition, this rifle packs an outstanding firepower in an otherwise compact frame. Chambered in 7.62x51mm it decimates anything brave enough to stand in our military conquest. The barrel is threaded for suppressors, and an Erebus railmount is on the carryhandle and on the bottom for optics and grips.
   components:
   - type: Item
     size: Large
@@ -578,7 +578,7 @@
     maxAngle: 33
     angleIncrease: 4
     angleDecay: 40
-    fireRate: 3
+    fireRate: 4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
   - type: ItemSlots
