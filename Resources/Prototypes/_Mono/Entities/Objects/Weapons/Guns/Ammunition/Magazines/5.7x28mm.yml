@@ -27,7 +27,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 6
+    steps: 2
     zeroVisible: false
   - type: Appearance
 
@@ -199,7 +199,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 6
+    steps: 5
     zeroVisible: false
   - type: Appearance
 
@@ -280,6 +280,7 @@
     capacity: 30
   - type: Item
     size: Small
+    storedRotation: 45
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
@@ -292,7 +293,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 6
+    steps: 11
     zeroVisible: false
   - type: Appearance
 

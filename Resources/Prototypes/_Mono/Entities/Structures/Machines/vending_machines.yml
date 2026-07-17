@@ -212,3 +212,13 @@
   components:
   - type: VendingMachine
     pack: TraderTradeMall
+
+#Combines both flatpack vendors
+- type: entity
+  parent: VendingMachineFlatpackVend
+  id: FlatpackVendPremium
+  name: FlatpackVend Premium
+  description: Contains every flatpack from here to the neighboring sectors. Mostly.
+  components:
+  - type: VendingMachine
+    pack: FlatpackVendPremiumInventory

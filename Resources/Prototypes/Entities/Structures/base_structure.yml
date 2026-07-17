@@ -32,6 +32,7 @@
     qualities:
     - Applicating
 
+
 - type: entity
   # This means that it's not anchored on spawn.
   id: BaseStructureDynamic
@@ -48,6 +49,7 @@
   - type: Clickable
   - type: Physics
     bodyType: Dynamic
+  - type: CEZPhysics # CrystallEdge
   - type: Fixtures
     fixtures:
       fix1:

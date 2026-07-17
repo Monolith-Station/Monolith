@@ -10,6 +10,7 @@
     drawdepth: Mobs
   - type: MobCollision
   - type: GravityAffected
+  - type: CEZPhysics # CrystallEdge
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
