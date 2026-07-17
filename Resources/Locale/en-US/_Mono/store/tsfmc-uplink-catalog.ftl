@@ -118,6 +118,9 @@ uplink-security-t3-polaris-voucher-desc = A small card that contains the data fo
 uplink-security-flyssa-voucher-name = TSFMC Flyssa LPC [T4]
 uplink-security-flyssa-voucher-desc = A small card that contains the data for the procurement of a Flyssa-class destroyer from the flagship's reserves.
 
+uplink-security-arcturus-voucher-name = TSFMC Arcturus LPC [T4]
+uplink-security-arcturus-voucher-desc = A small card that contains the data for the procurement of an Arcturus-class destroyer from the flagship's reserves.
+
 uplink-security-sentry-mk290-name = MK-290 Deployable Sentry System
 uplink-security-sentry-mk290-desc = A multipurpose portable sentry, capable of feeding from 5.56x45mm, 6.8x52mm, and 7.62x39mm magazines. Requires a screwdriver to disassemble once placed.
 
