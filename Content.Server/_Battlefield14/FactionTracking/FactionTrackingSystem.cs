@@ -22,8 +22,11 @@ public sealed class FactionTrackingSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
 
-    private static readonly HashSet<string> BluforDepartments = new() { "USMC", "USSF", "ARNG", "USPD", "BW" };
-    private static readonly HashSet<string> RedforDepartments = new() { "VDV", "VKS", "OMON", "FSB" };
+    public static readonly HashSet<string> BluforDepartments = new() { "USMC", "USSF", "ARNG", "USPD", "BW" };
+    public static readonly HashSet<string> RedforDepartments = new() { "VDV", "VKS", "OMON", "FSB" };
+
+    [ViewVariables]
+    public bool AutobalancerEnabled { get; set; } = true;
 
     private float _updateTimer;
 
@@ -118,6 +121,47 @@ public sealed class FactionTrackingSystem : EntitySystem
         }
 
         return (blufor, redfor);
+    }
+
+    public string? GetPlayerFaction(ICommonSession session)
+    {
+        var departmentId = GetPreferredDepartment(session);
+        if (departmentId == null)
+            return null;
+        if (BluforDepartments.Contains(departmentId))
+            return "blufor";
+        if (RedforDepartments.Contains(departmentId))
+            return "redfor";
+        return null;
+    }
+
+    public bool IsFactionOverpopulated(string faction, GameTicker ticker)
+    {
+        var isRoundStarted = ticker.RunLevel != GameRunLevel.PreRoundLobby;
+
+        int blufor, redfor;
+        if (isRoundStarted)
+        {
+            (blufor, redfor) = CountAliveByFaction();
+        }
+        else
+        {
+            (blufor, redfor, _) = CountReadyByFaction(ticker);
+        }
+
+        return faction == "blufor" ? blufor > redfor : redfor > blufor;
+    }
+
+    public (int blufor, int redfor) GetFactionCounts(GameTicker ticker)
+    {
+        var isRoundStarted = ticker.RunLevel != GameRunLevel.PreRoundLobby;
+        if (isRoundStarted)
+            return CountAliveByFaction();
+        else
+        {
+            var (b, r, _) = CountReadyByFaction(ticker);
+            return (b, r);
+        }
     }
 
     private string? GetPreferredDepartment(ICommonSession session)

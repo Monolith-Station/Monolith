@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Battlefield14.FactionTracking;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking.Events;
@@ -346,6 +347,25 @@ namespace Content.Server.GameTicking
 
             if (!_userDb.IsLoadComplete(player))
                 return;
+
+            if (jobId != null)
+            {
+                var factionTracking = EntityManager.System<FactionTrackingSystem>();
+                if (factionTracking.AutobalancerEnabled && _jobs.TryGetDepartment(jobId, out var dept))
+                {
+                    string? faction = null;
+                    if (FactionTrackingSystem.BluforDepartments.Contains(dept.ID))
+                        faction = "blufor";
+                    else if (FactionTrackingSystem.RedforDepartments.Contains(dept.ID))
+                        faction = "redfor";
+
+                    if (faction != null && factionTracking.IsFactionOverpopulated(faction, this))
+                    {
+                        _chatManager.DispatchServerMessage(player, Loc.GetString("autobalance-team-full"));
+                        return;
+                    }
+                }
+            }
 
             SpawnPlayer(player, station, jobId, silent: silent);
         }

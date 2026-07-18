@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._Battlefield14.FactionTracking;
 using Content.Shared.GameTicking;
 using Content.Server.Station.Components;
 using Robust.Shared.Network;
@@ -171,6 +172,20 @@ namespace Content.Server.GameTicking
             if (RunLevel != GameRunLevel.PreRoundLobby)
             {
                 return;
+            }
+
+            if (ready)
+            {
+                var factionTracking = EntityManager.System<FactionTrackingSystem>();
+                if (factionTracking.AutobalancerEnabled)
+                {
+                    var faction = factionTracking.GetPlayerFaction(player);
+                    if (faction != null && factionTracking.IsFactionOverpopulated(faction, this))
+                    {
+                        _chatManager.DispatchServerMessage(player, Loc.GetString("autobalance-team-full"));
+                        return;
+                    }
+                }
             }
 
             var status = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
