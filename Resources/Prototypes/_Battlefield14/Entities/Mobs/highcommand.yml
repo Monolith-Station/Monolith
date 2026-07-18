@@ -1,0 +1,121 @@
+- type: entity
+  name: AlpharingTheHydra
+  parent: [ BaseMob, MobCombat, MobDamageable ]
+  id: HighCommand
+  description: When you embarrass yourself in front of high command...
+  suffix: hostile
+  components:
+  - type: LanguageKnowledge # Einstein Engines - Languages (all mobs should speak TauCeti unless otherwise specified, to prevent universal.)
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+    - Russian
+    - English
+    - Sign
+    - German
+    - Mexican
+    - Esperanto
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive
+      scale: "0.125, 0.125"
+      sprite: _Battlefield14/Mobs/highcommand.rsi
+  - type: Physics
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 200
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: ContainerContainer
+  - type: MovementAlwaysTouching
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+    weightlessAcceleration: 2
+    weightlessFriction: 2
+    baseWeightlessModifier: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+#      1000: Critical
+      5000: Dead
+  - type: EmitSoundOnSpawn
+    sound: 
+      path: /Audio/_Battlefield14/Weapons/Misc/LaserGun_Reload.ogg
+      params:
+        range: 5000
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: WeaponLaserGunDecomissioner
+      amount: 1
+  - type: Gun
+    fireRate: 1
+    projectileSpeed: 10
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Battlefield14/Weapons/Misc/LaserGun_Fire.ogg
+  - type: AmmoCounter
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+    rechargeSound:
+      path: /Audio/_Battlefield14/Weapons/Misc/LaserGun_Reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletDecomissioner
+    capacity: 1
+    count: 1
+  - type: Puller
+    needsHands: false
+  - type: Body
+    prototype: Aghost
+    thermalVisibility: false
+  - type: ComplexInteraction
+  - type: ZombieImmune
+  - type: NightVision # Gen 3 wide-quadtube
+    relayOverlay: false
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#a7882b"
+    lightingColor: "#FFFFFF32"
+  - type: RadarConsole
+    maxRange: 512
+    followEntity: true
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+    inHandsOnly: false
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: Insulated

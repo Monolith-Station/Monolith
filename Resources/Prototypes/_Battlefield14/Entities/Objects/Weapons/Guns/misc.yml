@@ -11,17 +11,17 @@
   - type: Item
     size: Normal
   - type: Gun
-    fireRate: 0.5
+    fireRate: 1
     projectileSpeed: 10
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      path: /Audio/_Battlefield14/Weapons/Misc/LaserGun_Fire.ogg
   - type: AmmoCounter
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 2
     rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+      path: /Audio/_Battlefield14/Weapons/Misc/LaserGun_Reload.ogg
   - type: BasicEntityAmmoProvider
     proto: BulletDecomissioner
     capacity: 1
