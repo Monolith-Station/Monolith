@@ -29,11 +29,11 @@
     availableModes:
     - FullAuto
     - Burst
-    selectedMode: Burst
+    selectedMode: FullAuto
     fireRate: 7
     projectileSpeed: 40 # 13 inch barrel
     shotsPerBurst: 8 # Fictional, to help with conserving ammo
-    burstCooldown: 0
+    burstCooldown: 0.5
     soundGunshot:
       collection: BF_M249_Gunshots
       params:

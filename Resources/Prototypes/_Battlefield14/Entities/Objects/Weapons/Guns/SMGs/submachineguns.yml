@@ -28,10 +28,7 @@
     projectileSpeed: 35 # pistol caliber
     availableModes:
     - SemiAuto
-    - Burst
-    selectedMode: Burst
-    burstCooldown: 0
-    shotsPerBurst: 5
+    - FullAuto
     soundGunshot:
       collection: BF_MP5_Gunshots
       params:
@@ -213,10 +210,7 @@
     projectileSpeed: 40
     availableModes:
     - SemiAuto
-    - Burst
-    selectedMode: Burst
-    burstCooldown: 0
-    shotsPerBurst: 5
+    - FullAuto
     soundGunshot:
       collection: BF_MP7_Gunshots
       params:
@@ -444,10 +438,7 @@
     projectileSpeed: 35 # pistol caliber
     availableModes:
     - SemiAuto
-    - Burst
-    selectedMode: Burst
-    burstCooldown: 0
-    shotsPerBurst: 5
+    - FullAuto
     soundGunshot:
       collection: BF_UZI_Gunshots
       params:
