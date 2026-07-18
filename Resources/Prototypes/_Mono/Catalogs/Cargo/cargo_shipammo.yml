@@ -1,5 +1,6 @@
 # Cartridge reload
 
+# Charon slugs
 - type: cargoProduct
   id: ArmoryShipAmmoCharon
   icon:
@@ -11,12 +12,126 @@
   group: market
 
 - type: cargoProduct
+  id: ArmoryShipAmmoCharonAPHE
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBoxCharonAPHE
+  cost: 7500
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmoCharonEMP
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBoxCharonEMP
+  cost: 7500
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+# R300 shells
+- type: cargoProduct
   id: ArmoryShipAmmoR300
   icon:
     sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
     state: icon
   product: CrateAmmoBoxR300
   cost: 7500
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+# Tarnyx shells
+- type: cargoProduct
+  id: ArmoryShipAmmo150mmEMP
+  icon:
+    sprite: _Mono/Objects/Storage/Cases/ammocaseheavy.rsi
+    state: icon
+  product: WeaponCaseHeavyAmmo150EMP
+  cost: 6000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmo150mmAP
+  icon:
+    sprite: _Mono/Objects/Storage/Cases/ammocaseheavy.rsi
+    state: icon
+  product: WeaponCaseHeavyAmmo150AP
+  cost: 6000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmo150mmAPHE
+  icon:
+    sprite: _Mono/Objects/Storage/Cases/ammocaseheavy.rsi
+    state: icon
+  product: WeaponCaseHeavyAmmo150APHE
+  cost: 6000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+# Cyrexa shells
+- type: cargoProduct
+  id: ArmoryShipAmmo220mmAPHE
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox220mmAPHE
+  cost: 15000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmo220mmHECluster
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox220mmHECluster
+  cost: 20000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmo220mmSmartCluster
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox220mmSmartCluster
+  cost: 30000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+# Bofors shells
+- type: cargoProduct
+  id: ArmoryShipAmmo255mmAPHE
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox255mmAPHE
+  cost: 15000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmo255mmEMP
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox255mmEMP
+  cost: 20000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmo255mmMine
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox255mmMine
+  cost: 25000
   category: cargoproduct-category-name-shipammo
   group: market
 
@@ -33,12 +148,32 @@
   group: market
 
 - type: cargoProduct
+  id: ArmoryShipAmmo20mmAS
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox20mmAS
+  cost: 4000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
   id: ArmoryShipAmmo30mm
   icon:
     sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
     state: icon
   product: CrateAmmoBox30mm
   cost: 6500
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmo30mmHE
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox30mmHE
+  cost: 9000
   category: cargoproduct-category-name-shipammo
   group: market
 
@@ -53,11 +188,31 @@
   group: market
 
 - type: cargoProduct
+  id: ArmoryShipAmmo57mmSmart
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox57mmSmart
+  cost: 7000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
   id: ArmoryShipAmmo90mm
   icon:
     sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
     state: icon
   product: CrateAmmoBox90mm
+  cost: 6500
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmo90mmAP
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox90mmAP
   cost: 6500
   category: cargoproduct-category-name-shipammo
   group: market
@@ -69,6 +224,16 @@
     state: icon
   product: CrateAmmoBox90mmFlak
   cost: 6500
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmo90mmMinelayer
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox90mmMinelayer
+  cost: 12500
   category: cargoproduct-category-name-shipammo
   group: market
 
@@ -111,5 +276,35 @@
     state: icon
   product: CrateAmmoBoxTovek
   cost: 7500
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmoPaladinHE
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBoxPaladinHE
+  cost: 15000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmoPaladinEMPHE
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBoxPaladinEMPHE
+  cost: 15000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmoPaladinHV
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBoxPaladinHV
+  cost: 25000
   category: cargoproduct-category-name-shipammo
   group: market
