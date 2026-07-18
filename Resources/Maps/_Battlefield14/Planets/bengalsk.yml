@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/14/2026 11:05:17
-  entityCount: 18996
+  time: 07/18/2026 11:23:05
+  entityCount: 19034
 maps:
 - 2700
 grids:
@@ -6604,9 +6604,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Kudzu: []
         Smoke: []
+        Kudzu: []
+        MetalFoam: []
         Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -41381,7 +41381,7 @@ entities:
   - uid: 17
     components:
     - type: Transform
-      pos: 45.5,58.5
+      pos: 71.5,53.5
       parent: 1
 - proto: CapturePointBengalskUpperHouses
   entities:
@@ -47032,6 +47032,36 @@ entities:
     - type: Transform
       pos: 234.5,37.5
       parent: 1
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 7879
+          - 7878
+          - 7877
+          - 7876
+          - 7875
+          - 7874
+          - 7873
+          - 7872
+          - 7880
+          - 7881
+          - 7882
+          - 7883
+          - 7884
+          - 7885
+          - 7886
+          - 7887
+          - 7888
+          - 7889
+          - 7890
+          - 7891
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
   - uid: 6666
     components:
     - type: Transform
@@ -50860,11 +50890,6 @@ entities:
     - type: Transform
       pos: 69.5,53.5
       parent: 1
-  - uid: 39980
-    components:
-    - type: Transform
-      pos: 71.5,53.5
-      parent: 1
   - uid: 40264
     components:
     - type: Transform
@@ -53671,6 +53696,62 @@ entities:
       parent: 1
 - proto: FoodMeat
   entities:
+  - uid: 7884
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7885
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7886
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7887
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7888
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7889
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7890
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7891
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 34001
     components:
     - type: Transform
@@ -53953,6 +54034,91 @@ entities:
     - type: Transform
       pos: 212.66641,85.80458
       parent: 1
+  - uid: 7893
+    components:
+    - type: Transform
+      pos: 234.8406,41.538998
+      parent: 1
+  - uid: 7895
+    components:
+    - type: Transform
+      pos: 237.83946,34.47887
+      parent: 1
+  - uid: 7896
+    components:
+    - type: Transform
+      pos: 228.80621,44.523373
+      parent: 1
+  - uid: 7897
+    components:
+    - type: Transform
+      pos: 232.82393,44.492123
+      parent: 1
+  - uid: 7898
+    components:
+    - type: Transform
+      pos: 236.82602,44.523373
+      parent: 1
+  - uid: 7899
+    components:
+    - type: Transform
+      pos: 240.84373,44.554623
+      parent: 1
+  - uid: 7900
+    components:
+    - type: Transform
+      pos: 231.80777,41.523373
+      parent: 1
+  - uid: 7901
+    components:
+    - type: Transform
+      pos: 241.81029,34.54137
+      parent: 1
+  - uid: 7902
+    components:
+    - type: Transform
+      pos: 245.81236,34.463245
+      parent: 1
+  - uid: 7903
+    components:
+    - type: Transform
+      pos: 249.87181,34.57262
+      parent: 1
+  - uid: 7904
+    components:
+    - type: Transform
+      pos: 249.63867,39.744495
+      parent: 1
+  - uid: 7905
+    components:
+    - type: Transform
+      pos: 248.60689,39.713245
+      parent: 1
+  - uid: 7906
+    components:
+    - type: Transform
+      pos: 253.90652,34.494495
+      parent: 1
+  - uid: 7907
+    components:
+    - type: Transform
+      pos: 250.46722,39.806995
+      parent: 1
+  - uid: 7908
+    components:
+    - type: Transform
+      pos: 253.56259,39.681995
+      parent: 1
+  - uid: 7909
+    components:
+    - type: Transform
+      pos: 252.5777,39.76012
+      parent: 1
+  - uid: 7910
+    components:
+    - type: Transform
+      pos: 251.53027,39.85387
+      parent: 1
   - uid: 33307
     components:
     - type: Transform
@@ -54131,6 +54297,43 @@ entities:
     - type: Transform
       pos: 151.74983,15.49248
       parent: 1
+- proto: FoodTomato
+  entities:
+  - uid: 7872
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7873
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7874
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7875
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7880
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: Fork
   entities:
   - uid: 35630
@@ -55906,7 +56109,7 @@ entities:
       pos: 27.5,45.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -90981.34
+      secondsUntilStateChange: -91123.58
       state: Opening
   - uid: 38193
     components:
@@ -55915,7 +56118,7 @@ entities:
       pos: 33.5,45.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -90982.11
+      secondsUntilStateChange: -91124.34
       state: Opening
 - proto: InflatableWall
   entities:
@@ -85450,6 +85653,11 @@ entities:
     - type: Transform
       pos: 213.76202,87.40653
       parent: 1
+  - uid: 7892
+    components:
+    - type: Transform
+      pos: 234.70735,36.269924
+      parent: 1
   - uid: 35752
     components:
     - type: Transform
@@ -85457,6 +85665,13 @@ entities:
       parent: 1
 - proto: ReagentContainerFlourSmall
   entities:
+  - uid: 7883
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 33680
     components:
     - type: Transform
@@ -85486,6 +85701,20 @@ entities:
     - type: Transform
       pos: 213.37012,87.997734
       parent: 1
+  - uid: 7881
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7882
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 35830
     components:
     - type: Transform
@@ -85517,6 +85746,13 @@ entities:
     components:
     - type: Transform
       pos: 154.99995,17.363316
+      parent: 1
+- proto: ReagentContainerSalt
+  entities:
+  - uid: 7894
+    components:
+    - type: Transform
+      pos: 232.83955,36.55971
       parent: 1
 - proto: ReagentContainerSugar
   entities:
@@ -114588,6 +114824,36 @@ entities:
     - type: Transform
       pos: 145.5,81.5
       parent: 1
+- proto: WheatBushel
+  entities:
+  - uid: 7876
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7877
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7878
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 7879
+    components:
+    - type: Transform
+      parent: 6313
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: Windoor
   entities:
   - uid: 6655
