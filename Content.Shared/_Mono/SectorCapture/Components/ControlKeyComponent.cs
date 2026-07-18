@@ -1,5 +1,4 @@
 using Content.Shared._Mono.Company;
-using Content.Shared.Containers.ItemSlots;
 
 namespace Content.Shared._Mono.SectorCapture.Components;
 [RegisterComponent, NetworkedComponent]

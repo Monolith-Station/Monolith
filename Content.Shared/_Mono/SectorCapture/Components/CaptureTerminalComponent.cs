@@ -1,4 +1,3 @@
-using Robust.Shared.Components;
 using Content.Shared._Mono.Company;
 using Content.Shared.Containers.ItemSlots;
 
