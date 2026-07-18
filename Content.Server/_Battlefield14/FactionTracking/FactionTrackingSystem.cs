@@ -25,6 +25,9 @@ public sealed class FactionTrackingSystem : EntitySystem
     public static readonly HashSet<string> BluforDepartments = new() { "USMC", "USSF", "ARNG", "USPD", "BW" };
     public static readonly HashSet<string> RedforDepartments = new() { "VDV", "VKS", "OMON", "FSB" };
 
+    [ViewVariables]
+    public bool AutobalancerEnabled { get; set; } = true;
+
     private float _updateTimer;
 
     public override void Update(float frameTime)

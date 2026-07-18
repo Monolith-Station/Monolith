@@ -177,11 +177,14 @@ namespace Content.Server.GameTicking
             if (ready)
             {
                 var factionTracking = EntityManager.System<FactionTrackingSystem>();
-                var faction = factionTracking.GetPlayerFaction(player);
-                if (faction != null && factionTracking.IsFactionOverpopulated(faction, this))
+                if (factionTracking.AutobalancerEnabled)
                 {
-                    _chatManager.DispatchServerMessage(player, Loc.GetString("autobalance-team-full"));
-                    return;
+                    var faction = factionTracking.GetPlayerFaction(player);
+                    if (faction != null && factionTracking.IsFactionOverpopulated(faction, this))
+                    {
+                        _chatManager.DispatchServerMessage(player, Loc.GetString("autobalance-team-full"));
+                        return;
+                    }
                 }
             }
 

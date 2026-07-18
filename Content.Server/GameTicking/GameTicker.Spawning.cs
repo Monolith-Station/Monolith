@@ -351,7 +351,7 @@ namespace Content.Server.GameTicking
             if (jobId != null)
             {
                 var factionTracking = EntityManager.System<FactionTrackingSystem>();
-                if (_jobs.TryGetDepartment(jobId, out var dept))
+                if (factionTracking.AutobalancerEnabled && _jobs.TryGetDepartment(jobId, out var dept))
                 {
                     string? faction = null;
                     if (FactionTrackingSystem.BluforDepartments.Contains(dept.ID))
