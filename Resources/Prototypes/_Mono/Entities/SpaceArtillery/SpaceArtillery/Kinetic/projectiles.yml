@@ -51,6 +51,25 @@
   - type: PointLight
     color: orange
 
+- type: entity
+  id: 20mmBulletAS # Antishield
+  name: 20mm bullet (AS)
+  parent: 20mmBulletBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+        Radiation: 600
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/50_armorpiercing_machinegun_casing.rsi
+    layers:
+    - state: base-projectile
+  - type: PointLight
+    color: orange
+
+
 # 30mm - Draupnir
 
 - type: entity
@@ -72,6 +91,32 @@
     scale: 1.15
     shape: arrow
     radarColor: "#1df1f5"
+
+- type: entity
+  id: 30mmBulletHE
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 120
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 3
+  - type: PointLight
+    radius: 3.5
+    energy: 0.5
+  - type: RadarBlip
+    scale: 1.15
+    shape: arrow
+    radarColor: "#991551"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 1
+    intensitySlope: 2
+    maxIntensity: 2
 
 # 57mm
 
@@ -108,6 +153,48 @@
     intensitySlope: 2
     maxIntensity: 2
     maxTileBreak: 1
+
+- type: entity
+  id: 57mmBulletSmart
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 35
+        Piercing: 25
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectAk570
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
+    layers:
+    - state: 57mmHMNG
+    scale: 1, 1
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 1.5
+    shape: triangle
+    radarColor: "#1df1f5"
+  - type: TimedDespawn
+    lifetime: 7
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 10 # totalIntensity goes first, please.
+    intensitySlope: 5
+    maxIntensity: 6
+    maxTileBreak: 1
+  - type: TargetSeeking
+    acceleration: 350
+    detectionRange: 1000
+    scanArc: 20
+    launchSpeed: 204
+    maxSpeed: 250
+    trackDelay: 0.1
+    trackingAlgorithm: Direct
 
 # 90mm
 
@@ -185,11 +272,11 @@
       types:
         Piercing: 70
         Structural: 100
-    penetrationThreshold: 2000
+    penetrationThreshold: 500
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/shells.rsi
     layers:
-    - state: 90mmHE
+    - state: 90mmFLAK
   - type: PointLight
     color: orange
   - type: RadarBlip
@@ -203,6 +290,7 @@
     maxVelocity: 8
     randomAngle: true
   - type: TriggerOnProximity
+    requiresAnchored: false
     enabled: true
     shape:
       !type:PhysShapeCircle
@@ -254,6 +342,110 @@
     radarColor: "#1df5cd"
   - type: TimedDespawn
     lifetime: 0.4
+
+- type: entity
+  id: 90mmBulletMinelayer
+  name: 90mm mine-laying projectile
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 70
+        Structural: 100
+    penetrationThreshold: 500
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
+    layers:
+    - state: 90mmMINE
+  - type: PointLight
+    color: orange
+  - type: RadarBlip
+    scale: 2.5
+    shape: triangle
+    radarColor: "#1df5cd"
+  - type: TriggerOnSpawn
+    timerOnly: true
+  - type: TimedDespawn
+    lifetime: 1
+  - type: OnUseTimerTrigger
+    delay: 1
+    examinable: false
+  - type: ProjectileGrenade
+    fillPrototype: NavalMine90mm
+    capacity: 6
+    minVelocity: 2
+    maxVelocity: 2
+    randomAngle: true
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  id: NavalMine90mm
+  name: naval mine
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: false
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
+    layers:
+    - state: mine
+    scale: 0.1, 0.1
+  - type: Clickable
+  - type: LagCompensation
+  - type: Projectile
+    deleteOnCollide: true
+    damage:
+      types:
+        Blunt: 5
+    armorPenetration: 0
+    penetrationThreshold: 5
+  - type: Physics
+    bodyStatus: InAir
+    angularDamping: 50
+    linearDamping: 50
+    fixedRotation: False
+    bodyType: Dynamic
+  - type: TileFrictionModifier
+    modifier: 100000
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2
+        mask:
+        - ItemMask # BulletImpassable
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: TriggerOnProximity
+    requiresAnchored: false
+    enabled: true
+    shape:
+      !type:PhysShapeCircle
+      radius: 5
+      mask:
+      - Impassable
+      - Opaque
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 50
+    intensitySlope: 5
+    maxIntensity: 400
+  - type: RadarBlip
+    scale: 0.3
+    shape: circle
+    radarColor: "#1df5cd"
+  - type: TimedDespawn
+    lifetime: 1800
+  - type: TargetSeeking # This is ultra-giga jank, it's the only way I could get it to slow down instead of going on forever.
+    arcLines: false
+    scanArc: 0
+    launchSpeed: 0
+    maxSpeed: 3
 
 # 140mm
 
@@ -373,6 +565,108 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
 
+- type: entity
+  id: 220mmPelletHE
+  name: 220mm HE cluster-projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 200
+        Blunt: 200
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
+    layers:
+    - state: 30mm
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 2
+    shape: triangle
+    radarColor: "#f55e1d"
+  - type: TimedDespawn
+    lifetime: 4
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBombShipGun
+    totalIntensity: 120
+    intensitySlope: 12
+    maxIntensity: 50
+    maxTileBreak: 3
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+
+- type: entity
+  id: 220mmPelletHESpread
+  categories: [ HideSpawnMenu ]
+  parent: 220mmPelletHE
+  components:
+  - type: ProjectileSpread
+    proto: 220mmPelletHE
+    count: 6
+    spread: 3
+
+- type: entity
+  id: 220mmPelletSmart
+  name: 220mm HMNG cluster-projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 800
+        Blunt: 200
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
+    layers:
+    - state: 30mm
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 2
+    shape: triangle
+    radarColor: "#f55e1d"
+  - type: TimedDespawn
+    lifetime: 15 # pack hunter
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBombShipGun
+    totalIntensity: 60
+    intensitySlope: 12
+    maxIntensity: 50
+    maxTileBreak: 3
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetSeeking
+    acceleration: 150
+    detectionRange: 1000
+    scanArc: 20
+    launchSpeed: 200
+    maxSpeed: 200
+    trackDelay: 0
+    trackingAlgorithm: Direct
+
+- type: entity
+  id: 220mmPelletSmartSpread
+  categories: [ HideSpawnMenu ]
+  parent: 220mmPelletSmart
+  components:
+  - type: ProjectileSpread
+    proto: 220mmPelletSmart
+    count: 6
+    spread: 6
+
 # 255mm
 
 - type: entity
@@ -450,9 +744,112 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: EmpOnTrigger
-    range: 2
-    energyConsumption: 2700000
-    disableDuration: 20
+    range: 7
+    energyConsumption: 2000000
+    disableDuration: 5
+
+- type: entity
+  id: 255mmBulletMinelayer
+  name: 255mm mine-laying projectile
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 70
+        Structural: 100
+    penetrationThreshold: 500
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
+    layers:
+    - state: 255mmMINE
+  - type: PointLight
+    color: orange
+  - type: RadarBlip
+    scale: 2.5
+    shape: triangle
+    radarColor: "#1df5cd"
+  - type: TriggerOnSpawn
+    timerOnly: true
+  - type: TimedDespawn
+    lifetime: 1
+  - type: OnUseTimerTrigger
+    delay: 1
+    examinable: false
+  - type: ProjectileGrenade
+    fillPrototype: NavalMine255mm
+    capacity: 6
+    minVelocity: 2
+    maxVelocity: 2
+    randomAngle: true
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  id: NavalMine255mm
+  name: naval mine
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: false
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
+    layers:
+    - state: mine
+  - type: Clickable
+  - type: LagCompensation
+  - type: Projectile
+    deleteOnCollide: true
+    damage:
+      types:
+        Blunt: 5
+    armorPenetration: 0
+    penetrationThreshold: 5
+  - type: Physics
+    bodyStatus: InAir
+    angularDamping: 50
+    linearDamping: 50
+    fixedRotation: False
+    bodyType: Dynamic
+  - type: TileFrictionModifier
+    modifier: 100000
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2
+        mask:
+        - ItemMask # BulletImpassable
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: TriggerOnProximity
+    requiresAnchored: false
+    enabled: true
+    shape:
+      !type:PhysShapeCircle
+      radius: 5
+      mask:
+      - Impassable
+      - Opaque
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 1500
+    intensitySlope: 5
+    maxIntensity: 400
+  - type: RadarBlip
+    scale: 1
+    shape: circle
+    radarColor: "#1df5cd"
+  - type: TimedDespawn
+    lifetime: 3600
+  - type: TargetSeeking # This is ultra-giga jank, it's the only way I could get it to slow down instead of going on forever.
+    arcLines: false
+    scanArc: 0
+    launchSpeed: 0
+    maxSpeed: 3
 
 # CHARON
 
@@ -495,9 +892,85 @@
   - type: MiningGatheringHard
 
 - type: entity
+  id: ShipRailgunProjectileEMP
+  name: M381 CHARON 280mm 26.5 kg EMP slug
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 5000
+        Blunt: 3000
+        Radiation: 200000 # Shield-killer 9k
+    penetrationThreshold: 3000
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#CF0E0E"
+    scale: 4
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 3.1 # ~2.4 km range
+  - type: PointLight
+    color: "#2e50d9"
+  - type: LightningOnTrigger
+    chance: 1
+    range: 15
+    arcDepth: 3
+    lightningProto: LightningEMPCharon
+    lightningEffects: false
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+
+- type: entity
+  id: ShipRailgunProjectileAphe
+  name: M381 CHARON 280mm 26.5kg APHE slug
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 7000
+        Blunt: 3000
+    penetrationThreshold: 8000
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#268521"
+    scale: 4
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 1.7
+  - type: PointLight
+    color: "#19AFFF"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    deleteAfterExplosion: false
+    explosionType: HardBomb
+    totalIntensity: 1000
+    intensitySlope: 25
+    maxIntensity: 450
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+
+- type: entity
   id: ShipRailgunProjectileSubnuclear
   name: M381 CHARON 280mm 1.5kt nuclear slug
-  description: Once the genie is out of the bottle, there's no putting it back inside, tarkhan.
+  description: Once the genie is out of the bottle, there's no putting it back inside, Tarkhan.
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -523,10 +996,10 @@
     color: "#19AFFF"
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default
+    explosionType: HardBomb
     totalIntensity: 18000
-    intensitySlope: 25
-    maxIntensity: 450
+    intensitySlope: 5
+    maxIntensity: 500
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard

@@ -4,6 +4,16 @@
   result: CharonSlugAmmo
 
 - type: latheRecipe
+  id: CharonApheSlugUniversal
+  parent: BaseRailgunSlugRecipe
+  result: CharonApheSlugAmmo
+
+- type: latheRecipe
+  id: CharonEmpSlugUniversal
+  parent: BaseRailgunSlugRecipe
+  result: CharonEmpSlugAmmo
+
+- type: latheRecipe
   id: CharonSubnuclearSlugUniversal
   parent: BaseRailgunSlugRecipe
   result: CharonSubnuclearSlugAmmo
@@ -41,6 +51,11 @@
   id: 150mmApShellUniversal
   parent: Base150mmShellAmmoRecipe
   result: 150mmApShell
+
+- type: latheRecipe
+  id: 150mmApheShellUniversal
+  parent: Base150mmShellAmmoRecipe
+  result: 150mmApheShell
 
 - type: latheRecipe
   id: 150mmEmpShellUniversal

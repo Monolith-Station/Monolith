@@ -82,6 +82,38 @@
     repairTime: 30
     repairCost: 150
 
+- type: entity
+  id: WeaponTurretCyrexaHomingCluster
+  name: CYREXA 220mm cannon
+  parent: WeaponTurretCyrexa
+  suffix: Large, T4, Infinite HMNG-CLST
+  components:
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    whitelist:
+      tags:
+      - 220mmCartridge
+    capacity: 24
+    proto: 220mmCartridgeSmartCluster
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  id: WeaponTurretCyrexaHECluster
+  name: CYREXA 220mm cannon
+  parent: WeaponTurretCyrexa
+  suffix: Large, T4, Infinite HE-CLST
+  components:
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    whitelist:
+      tags:
+      - 220mmCartridge
+    capacity: 24
+    proto: 220mmCartridgeHECluster
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
 # AK820 120mm
 
 - type: entity
