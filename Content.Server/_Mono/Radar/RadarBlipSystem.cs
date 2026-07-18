@@ -137,9 +137,10 @@ public sealed partial class RadarBlipSystem : EntitySystem
         {
             var netMissileUid = GetNetEntity(missile);
             var missileArc = MathHelper.DegreesToRadians(seeker.ScanArc);
-            _tempMissileCache.Add(new(netMissileUid,
-                (float)(seeker.MaxSpeed * 0.2),
-                missileArc));
+            if (seeker.ArcLines)
+                _tempMissileCache.Add(new(netMissileUid,
+                    (float)(seeker.MaxSpeed * 0.2),
+                    missileArc));
         }
     }
 

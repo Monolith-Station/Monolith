@@ -4,22 +4,32 @@
   id: RoundstartShipgunAmmo
   recipes:
   # Magfed
-  #- Magazine20mmAmmoRecipe
-  #- Magazine30mmAmmoRecipe
-  #- Magazine57mmAmmoRecipe
-  #- Magazine90mmAPHEAmmoRecipe
+  - Magazine20mmAmmoRecipe
+  - Magazine20mmASAmmoRecipe
+  - Magazine30mmAmmoRecipe
+  - Magazine30mmHEAmmoRecipe
+  - Magazine57mmHEAmmoRecipe
+  - Magazine57mmSmartAmmoRecipe
+  - 90mmMagazineHEAmmoRecipe
+  - 90mmMagazineAPAmmoRecipe
+  - 90mmMagazineFlakAmmoRecipe
+  - 90mmMagazineMinelayerAmmoRecipe
   # Individual load
-  #- 120mmCartridgeAPHEDSAmmoRecipe
-  #- 220mmCartridgeAPHEAmmoRecipe
-  #- 255mmCartridgeAPHEAmmoRecipe
+  - 120mmCartridgeAPHEDSAmmoRecipe
+  - 220mmCartridgeAPHEAmmoRecipe
+  - 220mmCartridgeHEClusterAmmoRecipe
+  - 220mmCartridgeSmartClusterAmmoRecipe
+  - 255mmCartridgeAPHEAmmoRecipe
+  - 255mmCartridgeEMPAmmoRecipe
+  - 255mmCartridgeMineAmmoRecipe
+  - R300ShellHEAmmoRecipe
   # Missiles
   - VanykMagazineAmmoRecipe
   - MissileMagazine50mmHEAmmoRecipe
-  - R300ShellHEAmmoRecipe
   - VanquisherMagazineAmmoRecipe
   - PaladinMagazineAmmoRecipe
   - PaladinMagazineEMPHEAmmoRecipe
-  - 90mmMagazineFlakAmmoRecipe
+  - PaladinMagazineHVAmmoRecipe
 
 - type: latheRecipePack
   id: UniversalMissileAmmo
@@ -32,12 +42,15 @@
   id: UniversalRailgunAmmo
   recipes:
   - CharonSlugUniversal
+  - CharonApheSlugUniversal
+  - CharonEmpSlugUniversal
   - CharonSubnuclearSlugUniversal
 
 - type: latheRecipePack
   id: UniversalShellAmmo
   recipes:
   - 150mmApShellUniversal
+  - 150mmApheShellUniversal
   - 150mmEmpShellUniversal
 
 - type: latheRecipePack
