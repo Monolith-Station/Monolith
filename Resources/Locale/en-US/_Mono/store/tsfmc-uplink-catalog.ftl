@@ -118,6 +118,9 @@ uplink-tsf-t3-polaris-voucher-desc = A small card that contains the data for the
 uplink-tsf-flyssa-voucher-name = TSFMC Flyssa LPC [T4]
 uplink-tsf-flyssa-voucher-desc = A small card that contains the data for the procurement of a Flyssa-class destroyer from the flagship's reserves.
 
+uplink-tsf-t3-fujian-voucher-name = TSFMC Fujian LPC [T3]
+uplink-tsf-t3-fujian-voucher-desc = A small card that contains the data for the procurement of an Type-53C Fujian-class escort carrier from the flagship's reserves.
+
 uplink-tsf-sentry-mk290-name = MK-290 Deployable Sentry System
 uplink-tsf-sentry-mk290-desc = A multipurpose portable sentry, capable of feeding from 5.56x45mm, 6.8x52mm, and 7.62x39mm magazines. Requires a screwdriver to disassemble once placed.
 

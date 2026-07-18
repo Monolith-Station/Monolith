@@ -409,6 +409,20 @@
       tags:
       - FactionStaticUplinkTsf
 
+  id: UplinkSecurityT3VoucherFujian
+  name:  uplink-tsf-t3-fujian-voucher-name
+  description: uplink-tsf-t3-fujian-voucher-desc
+  productEntity: ShipVoucherFujian
+  cost:
+    FederationMilitaryCredit: 320
+  categories:
+  - UplinkTsfVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
 # end T3
 
 # start T4
