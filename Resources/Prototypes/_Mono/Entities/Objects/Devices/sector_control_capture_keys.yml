@@ -1,0 +1,20 @@
+#TODO
+- type: entity
+  parent: BaseItem
+  id: SectorControlCaptureKey
+  suffix: DEBUG
+  name: Capture Key
+  description: Debug item
+
+- type: entity
+  parent: SectorControlCaptureKey
+  suffix: Empty
+  id: SectorControlCaptureKeyNone
+  name: Unafilliated capture key
+  description: A small electronic key containing a data package specifically designed to target a station's systems and take control of them. This one has no data on it.
+  components:
+  - type: Sprite
+    sprite:
+    state:
+  - type: ControlKey
+    owner: None

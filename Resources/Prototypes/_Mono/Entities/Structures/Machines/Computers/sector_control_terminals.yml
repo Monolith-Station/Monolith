@@ -1,36 +1,37 @@
 - type: entity
   parent: BaseComputer
   id: SectorControlComputer
-  suffix: DEBUG, unaffiliated
-  name: unaffiliated sector control computer
-  description: placeholder
+  suffix: Sector Control, Neutral
+  name: Unafilliated sector control terminal
+  description: A console designed to overwatch all data feeds coming from successfully infiltrated stations.
   components:
+  - type: Sprite
+    sprite:
+    state:
   - type: Computer
-    board: CaptureControlComputerCircuitBoard
-
+    board: SectorControlComputerCircuitBoard
+  - type: ControlTerminal
+    owner: None
 
 - type: entity #will be used for testing before factionizing the thing
   parent: BaseComputerCircuitboard
   id: SectorControlComputerCircuitBoard
   suffix: DEBUG, unaffiliated
   name: unaffiliated sector control computer circuit board #what a mouthful
-  desciption: placeholder
+  desciption: A circuit board used to make an unaffiliated sector control terminal
   components:
+  - type: Sprite
+    state: cpu_command
+  - type: ComputerBoard
+    prototype: SectorControlComputer
+
+
 
 - type: entity
   parent: BaseComputer
   id: SectorCaptureComputerBase
-  suffix: DEBUG
+  suffix: POI Capture, Neutral
   name: base capture point terminal
   desciption: the place where you insert ur key and capture the thingiemabob
   components:
-  - type: Computer
-  board: SectorCaptureComputerCircuitBoard
 
-- type: entity #will be used for testing before factionizing the thing
-  parent: BaseComputerCircuitboard
-  id: SectorCaptureComputerCircuitBoard
-  suffix: DEBUG, unaffiliated
-  name: unaffiliated poi control computer circuit board
-  desciption: placeholder
-  components:
