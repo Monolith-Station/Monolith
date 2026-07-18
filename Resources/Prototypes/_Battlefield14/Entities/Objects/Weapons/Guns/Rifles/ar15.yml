@@ -33,10 +33,8 @@
     projectileSpeed: 55 # twenty inch barrel
     availableModes:
     - SemiAuto
-    - Burst
-    selectedMode: Burst
-    burstCooldown: 0
-    shotsPerBurst: 5
+    - FullAuto
+    selectedMode: FullAuto
     soundGunshot:
       collection: BF_M16_Gunshots
       params:
@@ -158,7 +156,6 @@
     burstCooldown: 0.3
     fireRate: 4
     projectileSpeed: 55 # twenty inch barrel
-    shotsPerBurst: 3
     angleIncrease: 1
   - type: ItemSlots
     slots:
@@ -500,7 +497,6 @@
     selectedMode: Burst
     burstFireRate: 16
     burstCooldown: 0.3
-    shotsPerBurst: 3
     fireRate: 4
   - type: WieldedCrosshair
     rsi:

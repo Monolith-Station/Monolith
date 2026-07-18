@@ -36,12 +36,10 @@
       params:
         volume: -5
         variation: 0.125
+    selectedMode: SemiAuto
     availableModes:
       - SemiAuto
-      - Burst
-    selectedMode: Burst
-    burstCooldown: 0
-    shotsPerBurst: 4
+      - FullAuto
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/_Battlefield14/Weapons/Guns/M14/uc_m14_rack.ogg
@@ -264,10 +262,8 @@
         variation: 0.125
     availableModes:
     - SemiAuto
-    - Burst
-    selectedMode: Burst
-    burstCooldown: 0
-    shotsPerBurst: 4
+    - FullAuto
+    selectedMode: FullAuto
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/_Battlefield14/Weapons/Guns/G3/rack.ogg

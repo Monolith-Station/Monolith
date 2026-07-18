@@ -30,12 +30,13 @@
     angleIncrease: 1
     availableModes:
     - SemiAuto
+    - FullAuto
     - Burst
-    selectedMode: Burst
-    burstCooldown: 0
-    shotsPerBurst: 5
+    selectedMode: FullAuto
     fireRate: 8
     projectileSpeed: 45
+    shotsPerBurst: 3
+    burstCooldown: 0.3
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg
   - type: ChamberMagazineAmmoProvider
