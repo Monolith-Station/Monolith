@@ -18470,7 +18470,7 @@ entities:
     - type: Transform
       pos: 7.5,49.5
       parent: 1
-- proto: DebugThrusterRogue
+- proto: ThrusterRogue
   entities:
   - uid: 688
     components:
@@ -22097,7 +22097,7 @@ entities:
         actions: !type:Container
           ents:
           - 2568
-- proto: EnergySwordNfsd
+- proto: EnergySword
   entities:
   - uid: 3409
     components:
