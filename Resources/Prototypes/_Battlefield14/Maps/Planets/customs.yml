@@ -1,7 +1,7 @@
 - type: gameMap
   id: BF14Customs
   mapName: 'Customs'
-  mapPath: /Maps/_Battlefield14/Planets/customs.yml
+  mapPath: /Maps/_Battlefield14/Planets/MultiZ/BF14CustomsZMap0.yml
   minPlayers: 1
   maxPlayers: 50
   randomRotation: false
@@ -34,3 +34,17 @@
             RUScav: [ 6, 6 ]
             RUScavGuard: [ 2, 2 ]
             RUScavBoss: [ 1, 1 ]
+        - type: CEStationZLevels
+          mapsAbove:
+            - /Maps/_Battlefield14/Planets/MultiZ/BF14CustomsZMap1.yml
+#          mapsBelow:
+          zLevelsComponentOverrides:
+            - type: CEAutoGridGravity
+
+- type: zMap
+  id: BF14CustomsZMap
+  maps:
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14CustomsZMap0.yml    # Depth 0
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14CustomsZMap1.yml    # Depth 1
+  components:
+    - type: CEAutoGridGravity

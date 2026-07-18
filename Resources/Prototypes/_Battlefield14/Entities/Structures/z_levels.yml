@@ -1,0 +1,25 @@
+- type: entity
+  id: HighGroundStair
+  components:
+  - type: CEZLevelHighGround
+    heightCurve:
+    - 1.05
+    - 1.05
+    - 0.575
+    - 0.1
+    stick: true
+
+- type: entity
+  id: StairStageHighGround
+  parent: [ StairStage , HighGroundStair ]
+  suffix: Steel, stage, z level
+
+- type: entity
+  id: StairWhiteHighGround
+  parent: [ StairWhite , HighGroundStair ]
+  suffix: White, z level
+
+- type: entity
+  id: StairWoodHighGround
+  parent: [StairWood , HighGroundStair ]
+  suffix: Wood, z level
