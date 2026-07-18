@@ -1358,6 +1358,7 @@
     collection: FootstepTile
   itemDrop: SheetGlass1
   heatCapacity: 10000
+  transparent: true
 
 - type: tile
   id: FloorRGlass
@@ -1376,6 +1377,7 @@
     collection: FootstepTile
   itemDrop: SheetRGlass1
   heatCapacity: 10000
+  transparent: true
 
 - type: tile
   id: FloorMetalFoam
@@ -1391,6 +1393,7 @@
     collection: FootstepHull
   itemDrop: SheetSteel1
   heatCapacity: 10000
+  transparent: true
 
 # Circuits
 - type: tile

@@ -270,15 +270,15 @@ namespace Content.Shared.Movement.Systems
             var mapId = args.Transform.MapUid;
 
             // If we change maps then reset eye rotation entirely.
-            if (oldMapId != mapId)
-            {
-                entity.Comp.RelativeEntity = relative;
-                entity.Comp.TargetRelativeRotation = Angle.Zero;
-                entity.Comp.RelativeRotation = Angle.Zero;
-                entity.Comp.LerpTarget = TimeSpan.Zero;
-                Dirty(entity.Owner, entity.Comp);
-                return;
-            }
+            //if (oldMapId != mapId) //CrystallEdge: No, we dont! Our zLevels is different maps, and we dont wanna reset rotation each time when we move through zLevels
+            //{
+            //    entity.Comp.RelativeEntity = relative;
+            //    entity.Comp.TargetRelativeRotation = Angle.Zero;
+            //    entity.Comp.RelativeRotation = Angle.Zero;
+            //    entity.Comp.LerpTarget = TimeSpan.Zero;
+            //    Dirty(entity.Owner, entity.Comp);
+            //    return;
+            //}
 
             // If we go on a grid and back off then just reset the accumulator.
             if (relative == entity.Comp.RelativeEntity)

@@ -47,6 +47,7 @@
   - type: Clickable
   - type: Physics
     bodyType: Dynamic
+  - type: CEZPhysics # CrystallEdge
   - type: Fixtures
     fixtures:
       fix1:

@@ -10,6 +10,7 @@
     collection: FootstepPlating
   friction: 1.5
   heatCapacity: 10000
+  transparent: true # CE
 
 - type: tile
   id: PlatingDamaged
@@ -83,6 +84,7 @@
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000
+  transparent: true
   mass: 200
 
 - type: tile
@@ -100,4 +102,5 @@
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000
+  transparent: true
   mass: 200

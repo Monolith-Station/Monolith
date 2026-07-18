@@ -9,6 +9,7 @@
     noRot: true
     drawdepth: Mobs
   - type: MobCollision
+  - type: CEZPhysics # CrystallEdge
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
