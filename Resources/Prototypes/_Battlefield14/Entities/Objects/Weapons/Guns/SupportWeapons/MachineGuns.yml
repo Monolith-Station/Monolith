@@ -1,5 +1,5 @@
 ## NATO
-# US
+#region US
 
 - type: entity
   name: M249 Para
@@ -257,10 +257,10 @@
         color: "#4f94ad"
         requireDetailRange: true
 
-# DE
+#region DE
 
 - type: entity
-  name: MG-3
+  name: MG3
   parent: BaseWeaponLightMachineGun
   id: WeaponMachineGunDEMG3
   description: It's just an MG42 rechambered for 7.62x51, making modernisation cheap and easy for the young bundeswehr.
@@ -286,7 +286,7 @@
   - type: Gun
     minAngle: 19 # Wielded = 5
     maxAngle: 60 # wielded = 25
-    angleIncrease: 0.5
+    angleIncrease: 1.5
     angleDecay: 15
     availableModes:
     - FullAuto
