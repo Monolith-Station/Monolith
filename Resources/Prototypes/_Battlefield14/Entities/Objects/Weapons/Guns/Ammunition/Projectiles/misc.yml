@@ -13,9 +13,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/robloxlaser.rsi
     layers:
-    - state: heavylaser
+    - state: robloxlaser
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -30,13 +30,13 @@
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectHeavyLaser
   - type: StaminaDamageOnCollide
-    damage: 30
+    damage: 100
   - type: Projectile
     impactEffect: BulletImpactEffectRedDisabler
     damage:
       types:
-        Heat: 2000
+        Radiation: 500000
     armorPenetration: 1
     soundHit:
-      collection: WeakHit
+      path: /Audio/_Battlefield14/Weapons/Misc/LaserGun_Hit.ogg
     forceSound: true
