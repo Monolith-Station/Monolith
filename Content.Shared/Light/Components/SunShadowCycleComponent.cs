@@ -36,9 +36,7 @@ public sealed partial class SunShadowCycleComponent : Component
 }
 
 /// <summary>
-/// A single entry in <see cref="SunShadowCycleComponent.Directions"/>.
-/// Mono: was a (float, Vector2, float) value tuple upstream, which the serialization manager
-/// can write but not read back (no data definition for ValueTuple`3), breaking map loads.
+/// Stupid hack so the serializer doesn't explode upon seeing a four element list. The solution is a serializable struct.
 /// </summary>
 [DataDefinition, Serializable, NetSerializable]
 public partial struct SunShadowDirection
