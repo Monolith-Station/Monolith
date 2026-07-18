@@ -1,44 +1,65 @@
 ﻿{
-    "version": 1,
-    "license": "CC-BY-3.0",
-    "copyright": "Made by kyres1 (discord), tweaked by Onezero0",
-    "size": {
-        "x": 32,
-        "y": 32
+  "version": 1,
+  "license": "CC-BY-3.0",
+  "copyright": "Made by kyres1 (discord), tweaked by Onezero0. Mine state from NSV-13.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "57mmHE"
     },
-    "states": [
-        {
-            "name": "57mmHE"
-        },
-        {
-            "name": "90mmAP"
-        },
-        {
-            "name": "90mmEMP"
-        },
-        {
-            "name": "90mmHE"
-        },
-        {
-            "name": "150mmAP"
-        },
-        {
-            "name": "220mmAPHE"
-        },
-        {
-            "name": "220mmEMP"
-        },
-        {
-            "name": "220mmHE"
-        },
-        {
-            "name": "255mmAPHE"
-        },
-        {
-            "name": "255mmEMP"
-        },
-        {
-            "name": "255mmHE"
-        }
-    ]
+    {
+      "name": "57mmHMNG"
+    },
+    {
+      "name": "90mmAP"
+    },
+    {
+      "name": "90mmEMP"
+    },
+    {
+      "name": "90mmHE"
+    },
+    {
+      "name": "90mmFLAK"
+    },
+    {
+      "name": "90mmMINE"
+    },
+    {
+      "name": "150mmAP"
+    },
+    {
+      "name": "220mmAPHE"
+    },
+    {
+      "name": "220mmEMP"
+    },
+    {
+      "name": "220mmHE"
+    },
+    {
+      "name": "220mmHECLST"
+    },
+    {
+      "name": "220mmHMNGCLST"
+    },
+    {
+      "name": "255mmAPHE"
+    },
+    {
+      "name": "255mmEMP"
+    },
+    {
+      "name": "255mmHE"
+    },
+    {
+      "name": "255mmMINE"
+    },
+    {
+      "name": "mine"
+    }
+  ]
 }

@@ -511,6 +511,20 @@
 
 # Rifles
 
+- type: loadout #Riversong
+  id: FactionRiversongLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleRiversong
+
+- type: loadout #Dragonfang
+  id: FactionDragonfangLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleDragonfang
+
 - type: loadout #Lecter
   id: FactionLecterLoadout
   price: 0
