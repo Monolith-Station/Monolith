@@ -1,11 +1,11 @@
-#Author: Eldritch_Pineapple on Github, Eldritch_Pineapple on Discord
+#Author:  Corrupt142 on Github, Theticalsteak49 on Discord
 
 - type: vessel
   id: Shiv
   parent: BaseVesselAntag
   name: TSF-PIN Shiv
-  description: The workhorse of industry of the Solarian fleets; rugged, ancient, some may even say obsolete. Comes with an artifact research bay and good mining capabilities.
-  price: 60000
+  description: The workhorse of industry of the Solarian fleets; rugged, ancient, some may even say obsolete. Comes with a decent armament and good mining capabilities.
+  price: 80000
   category: Small
   hyperwarTimelock: 0
   group: Security
@@ -14,7 +14,6 @@
   guidebookPage: Null
   class:
   - Salvage
-  - Science
   engine:
   - Plasma
 
