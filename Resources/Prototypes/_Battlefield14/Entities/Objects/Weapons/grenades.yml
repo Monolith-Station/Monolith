@@ -363,6 +363,50 @@
         color: "#4f94ad"
         requireDetailRange: true
 
+#region DE
+
+- type: entity
+  name: DM51 defensive grenade
+  description: A DM51 grenade with the frag sleeve installed.
+  parent: DefensiveGrenadeUSM67
+  id: DefensiveGrenadeDEDM51
+  components:
+  - type: Tag
+    tags:
+      - Grenade
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Grenades/DM51frag.rsi
+
+- type: entity
+  name: DM51 offensive grenade
+  description: Bundeswehr standard issue blast grenade, frag sleeve removed.
+  parent: OffensiveGrenadeRURGD5
+  id: OffensiveGrenadeDEDM51
+  components:
+  - type: Tag
+    tags:
+      - Grenade
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Grenades/DM51.rsi
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: "/Audio/_Battlefield14/Weapons/Grenades/trigger2.ogg"
+  - type: EmitSoundOnPickup
+    sound: /Audio/_Battlefield14/Weapons/Grenades/grab1.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/_Battlefield14/Weapons/Grenades/drop1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      collection: FragGrenadeSFX
+
+- type: entity
+  name: DM45 smoke grenade
+  parent: SmokeGrenadeUSM18
+  id: SmokeGrenadeDEDM45
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Grenades/DM45.rsi
+
 #region RU
 
 - type: entity
