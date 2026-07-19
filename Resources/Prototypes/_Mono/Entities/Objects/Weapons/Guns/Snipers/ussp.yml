@@ -1,0 +1,136 @@
+- type: entity
+  id: WeaponRifleAK410
+  name: NCI AK-410 (7.62x54mmR)
+  parent: BaseWeaponRifle
+  description: "Bullpup DMR feeding from 7.62x54mmR magazines, developed to modernize USSP long-range infantry weapons. It has an Erebus railmount attached to the reciever for optics."
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/ak410.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - map: ["opticAttachment"]
+  - type: Item # Mono
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/ak410_inhands_32x.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/ak410_inhands_32x.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: GunWieldBonus
+    minAngle: -27
+    maxAngle: -36
+  - type: Gun
+    minAngle: 27
+    maxAngle: 39
+    fireRate: 2.25
+    damageModifier: 1.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine762x54mmRFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine762x54mmRFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge762x54mmRFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge762x54mmRFMJ
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        startingItem: GunAttachmentOpticErebus8x
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  # Attachment slop
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x
+
+- type: entity
+  name: NCI Kardashev-Mosin (7.62x54mmR)
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseGunMelee]
+  id: WeaponSniperMosin
+  description: A weapon for hunting, or endless trench warfare. Uses 762x54mmR ammo. Equipped with bayonet.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 1.5
+    pvsIncrease: 0.15
+  - type: AltFireMelee
+    attackType: Light
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - Cartridge762x54mmRFMJ
+    capacity: 5
+    proto: Cartridge762x54mmRFMJ
+  - type: PirateBountyItem
+    id: StandardFactionLongarm

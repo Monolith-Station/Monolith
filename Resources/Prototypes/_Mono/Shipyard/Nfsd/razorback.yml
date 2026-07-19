@@ -1,0 +1,44 @@
+#Author: kasature90 (github) / _starch_ (discord).
+# spacer. we are inside your Hull. we are making our way to your Cockpit. when we get to your Cockpit, it is Game Over. we are going to tear open your Softsuit and Feast on your Credits.
+
+- type: vessel
+  id: Razorback
+  parent: BaseVesselAntag
+  name: TSF-SKR Razorback
+  description: An experimental TSF stealth ship. Cramped as hell and unarmed, but really fucking hard to find! Guzzles fuel like a demon.
+  limit: 1
+  hyperwarLimit: 1
+  hyperwarTimelock: 300 # It's hilarious.
+  price: 250000
+  purchasable: false # Voucher only
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/razorback.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Razorback
+  mapName: 'Razorback'
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/razorback.yml
+  minPlayers: 0
+  stations:
+    Razorback:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: ShipShieldDisabledGrid # We aren't going to bother with gunnery disabled like old prowler, because shooting guns defeats the point of being stealthy thermally.
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Razorback TSF{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        # No. God no.
+        #- type: StationJobs
+        #  availableJobs:
+        #    Deputy: [ 0, 0 ]
+        #    TsfBorg: [ 0, 0 ]

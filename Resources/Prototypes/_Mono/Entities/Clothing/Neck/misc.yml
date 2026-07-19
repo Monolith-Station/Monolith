@@ -43,6 +43,26 @@
   - type: Clothing
     sprite: _Mono/Clothing/Neck/Misc/heavyovercoat.rsi
 
+#TSFMC
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckFormalTSF
+  name: TSFMC formal coat
+  description: A TSFMC officer's formal wear for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/tsfcoat.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckFormalTSFColonel
+  name: TSFMC colonel's formal coat
+  description: A TSFMC high ranking officer's formal wear for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/tsfcolonelcoat.rsi
+
 # Viper Group
 
 - type: entity

@@ -1,17 +1,20 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from NSV-13.",
+  "copyright": "Taken from NSV-13. APHE state edited by _starch_ (discord).",
   "size": {
     "x": 32,
     "y": 32
   },
-    "states": [
-        {
-            "name": "150mm_emp"
-        },
-        {
-            "name": "150mm_standard"
-        }
-    ]
+  "states": [
+    {
+      "name": "150mm_emp"
+    },
+    {
+      "name": "150mm_standard"
+    },
+    {
+      "name": "150mm_aphe"
+    }
+  ]
 }

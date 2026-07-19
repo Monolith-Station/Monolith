@@ -51,6 +51,8 @@ pdv-denasvar = Dns.
 pdv-asvaran = Asv.
 pdv-vizier = Grand Vizier
 
+pdv-tarkhan = PDRV Tarkhan
+
 ### USSP ranks
 ussp-rifleman = Rfl.
 ussp-sergeant = Srz.
