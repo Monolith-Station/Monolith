@@ -210,6 +210,22 @@
       collection: FragGrenadeSFX
 
 - type: entity
+  name: MK3A2 offensive grenade
+  description: An outdated blast grenade, replaced by the M111 due to having its body partially containing asbestos, because of course it did.
+  parent: OffensiveGrenadeRURGD5
+  id: OffensiveGrenadeUSMK3A2
+  components:
+  - type: Sprite
+    sprite: _WorldAblaze1968/Objects/Weapons/Explosives/mk3a2.rsi
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: "/Audio/_Battlefield14/Weapons/Grenades/trigger2.ogg"
+  - type: EmitSoundOnPickup
+    sound: /Audio/_Battlefield14/Weapons/Grenades/grab1.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/_Battlefield14/Weapons/Grenades/drop1.ogg
+
+- type: entity
   name: M18 smoke grenade
   description: A simple grey smoke grenade, canned smoke for your convenience. At least, you think it’s canned smoke, you’re not entirely sure how these things actually work.
   parent: GrenadeBase
@@ -221,7 +237,7 @@
     tags:
       - Grenade
   - type: Sprite
-    sprite: _Battlefield14/Objects/Weapons/Grenades/M18.rsi
+    sprite: _WorldAblaze1968/Objects/Weapons/Explosives/m18.rsi
   - type: SmokeOnTrigger
     duration: 30
     spreadAmount: 15
