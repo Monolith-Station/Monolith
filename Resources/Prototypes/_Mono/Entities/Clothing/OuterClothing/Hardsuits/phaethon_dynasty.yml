@@ -212,3 +212,50 @@
     radius: 1.4
     energy: 2
     color: "#5dd439"
+
+- type: entity
+  parent: ClothingOuterHardsuitAshen
+  id: ClothingOuterHardsuitTarkhan
+  name: "PDV CV-280 'Basilisk' combat hardsuit"
+  description: A combat hardsuit designed by the Phaethon Dynasty for Tarkhans. Utilizes an imperfect nanolaminate composition like the CV-67 to save weight, and an installed hydraulic rig for more mobility, and painted in a royal Tarkhan white palette. A rare sight.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/basilisk.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/basilisk.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: FireProtection
+    reduction: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.45
+        Piercing: 0.375
+        Shock: 0.95
+        Heat: 0.7
+        Poison: 0.825
+        Radiation: 0.5
+        Caustic: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 1.05
+    sprintModifier: 1.05 # powered rig instead of shield
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitTarkhan
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: Tag
+    tags:
+    - RogueHardsuit
+  - type: StaminaDamageResistance
+    coefficient: 0.3
+  - type: ClothingSlowOnDamageModifier # Sorry dude. It's my awesome fucking exosuit.
+    modifier: 0.5

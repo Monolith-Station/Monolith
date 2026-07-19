@@ -79,3 +79,144 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
+
+- type: entity
+  id: 255mmCartridgeMinelayer
+  name: 255mm minelayer shell
+  description: A chemically-propelled shell for 255mm cannons with a timed fuse. When the fuse expires after 1 seconds, it ejects a payload of 4 large anti-ship mines that persist for 1 hour.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - 255mmCartridge
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: 255mmBulletMinelayer
+    deleteOnSpawn: true
+    muzzleFlash: null
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
+    layers:
+    - state: 255mmMINE
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: OnUseTimerTrigger
+    delay: 2.5
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0.3
+    beepInterval: 1
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+
+# Boxes because I hate manually loading 8 shells
+
+- type: entity
+  id: Box255mmAPHE
+  name: "255mm APHE ammo box"
+  description: "A big box containing 16 255mm APHE rounds. Usable by vessel-mounted artillery pieces."
+  parent: [BaseItem, RecyclableItemSteelTiny]
+  components:
+  - type: Item
+    size: Huge
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: false
+    proto: 255mmCartridgeAPHE
+    capacity: 16
+    mayTransfer: true
+    whitelist:
+      tags:
+      - 255mmCartridge
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_heavy_shipgun_box.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: Box255mmEMP
+  name: "255mm EMP ammo box"
+  description: "A big box containing 16 255mm EMP rounds. Usable by vessel-mounted artillery pieces."
+  parent: [BaseItem, RecyclableItemSteelTiny]
+  components:
+  - type: Item
+    size: Huge
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: false
+    proto: 255mmCartridgeEMP
+    capacity: 16
+    mayTransfer: true
+    whitelist:
+      tags:
+      - 255mmCartridge
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_heavy_shipgun_box.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: Box255mmMine
+  name: "255mm minelayer ammo box"
+  description: "A big box containing 16 255mm minelayer rounds. Usable by vessel-mounted artillery pieces."
+  parent: [BaseItem, RecyclableItemSteelTiny]
+  components:
+  - type: Item
+    size: Huge
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: false
+    proto: 255mmCartridgeMinelayer
+    capacity: 16
+    mayTransfer: true
+    whitelist:
+      tags:
+      - 255mmCartridge
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_heavy_shipgun_box.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance

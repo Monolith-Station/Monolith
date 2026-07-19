@@ -19,7 +19,7 @@
     viewCircleRadius: 400
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
+    phosphorColor: "#00AACC"
     lightingColor: "#FFFFFF32"
   - type: Armor
     modifiers:
@@ -49,14 +49,14 @@
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
-  - type: NightVision # Gen 3 quadtube-wide
+  - type: NightVision # Gen 4 quadtube-wide
     relayOverlay: true
     goggleEffect: true
     viewCircleRadius: 450
     viewCircleCount: 4
     viewCircleSpacing: 280
     action: ActionToggleNightVision
-    phosphorColor: "#00FF00"
+    phosphorColor: "#41D7D9"
     lightingColor: "#FFFFFF32"
   - type: Armor
     modifiers:
@@ -102,6 +102,15 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: NightVision # Gen 4 dual tube - It needs to be durable, after all.
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 450
+    viewCircleCount: 2
+    viewCircleSpacing: 280
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
   - type: EyeProtection
     protectionTime: 15
 
@@ -121,14 +130,14 @@
     lowPressureMultiplier: 1000
   - type: EyeProtection
     protectionTime: 15
-  - type: NightVision # Gen 3 dual tube - It needs to be durable, after all.
+  - type: NightVision # Gen 4 dual tube - It needs to be durable, after all.
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
     viewCircleRadius: 450
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
+    phosphorColor: "#41D7D9"
     lightingColor: "#FFFFFF32"
   - type: Armor
     modifiers:

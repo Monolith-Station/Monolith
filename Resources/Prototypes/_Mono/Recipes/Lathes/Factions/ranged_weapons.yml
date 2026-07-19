@@ -52,6 +52,33 @@
     Plasteel: 650
     Plastic: 600
 
+# Bullpup Lecter & Vulcan
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleRiversongTSF
+  result: WeaponRifleRiversong
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plasteel: 2000
+    Plastic: 1200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleDragonfangTSF
+  result: WeaponRifleDragonfang
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plasteel: 2000
+    Plastic: 1200
+
 # Rogues/TSF WSPR/Annie
 
 - type: latheRecipe
@@ -255,6 +282,21 @@
     Plasteel: 1500
     Silver: 250
     Uranium: 250
+
+# PDV basic
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleVympelRogue
+  result: WeaponRifleVympel
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1600
+    Plasteel: 1200
+    Plastic: 1000
 
 # syndicate ballistics
 

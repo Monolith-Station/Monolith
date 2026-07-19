@@ -1,0 +1,238 @@
+- type: entity
+  name: VFD QBZ-244 Fenghuang (8x65mm SKR)
+  parent: [BaseWeaponLightMachineGun, BaseGunWieldable]
+  id: WeaponLMGMR8B
+  description: Carbine variant of the QLU-243, shortened barrel optimized for heavy sustained fire. Chambered in 8x65mm SKR, and accepts both box and STANAG magazines. Only issued to MARSOC, and blacklisted from standard TSFN & TSFMC requisition.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/fenghuang.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - map: ["magazineAttachment"]
+    - map: ["gripAttachment"]
+    - map: ["opticAttachment"]
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -20
+  - type: Gun
+    minAngle: 24
+    maxAngle: 46
+    angleIncrease: 5
+    angleDecay: 34
+    fireRate: 6 # 360 rpm
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/heavy_rifle_1.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine8x65mmSKR
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine8x65mmSKR
+          - MagazineBox8x65mmSKR
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge8x65mmSKR
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge8x65mmSKR
+      attachment_grip:
+        priority: 0
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        whitelist:
+          tags:
+          - MonoGripErebusRailmount
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      attachment_grip: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/xian_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/xian_inhands_32x.rsi
+  - type: StaticPrice
+    price: 2500
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: GunRequiresWield
+  - type: PirateBountyItem # Mono
+    id: ExperimentalFactionWeapon
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
+    - name: es-gun-attachments-slot-name-grip
+      containerId: attachment_grip
+      whitelist:
+        tags:
+        - MonoGripErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      magazineAttachment:
+      - containerId: gun_magazine
+        state: mag-0
+        whitelist:
+          tags:
+          - Magazine8x65mmSKR
+      - containerId: gun_magazine
+        state: boxmag-0
+        whitelist:
+          tags:
+          - MagazineBox8x65mmSKR
+      gripAttachment:
+      - containerId: attachment_grip
+        state: grip
+        whitelist:
+          tags:
+          - MonoGripVFG
+      - containerId: attachment_grip
+        state: lam
+        whitelist:
+          tags:
+          - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x
+
+- type: entity
+  name: TCA QJY-68 Grizzly (6.8x52mm caseless)
+  parent: [BaseWeaponLightMachineGun, BaseGunWieldable]
+  id: WeaponLMGGrizzly
+  description: A medium machine gun chambered in 6.8x52mm caseless, accepts both box and standard magazines. The weight of the machine gun make it hard to wield easily.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/grizzly/Grizzly-icon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: 0
+    maxAngle: 0
+  - type: Gun
+    minAngle: 0 # forcewield anyways
+    maxAngle: 12
+    angleIncrease: 1
+    angleDecay: 12
+    fireRate: 8 # same as L6, but more accurate and heavier
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/heavy_rifle_1.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
+    soundBoltClosed:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
+    soundBoltOpened:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_open.ogg
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/grizzly/Grizzly-inhands.rsi
+    shape:
+    - 0,0,7,4
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: AmmoBox68x52mmCaseless
+        insertSound: /Audio/Weapons/Guns/MagIn/lmg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/lmg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine68x52mmCaselessBoxSmall
+          - Magazine68x52mmCaselessBoxBig
+          - Magazine68x52mmCaseless
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge68x52mmCaseless
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge68x52mmCaseless
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/grizzly/Grizzly-inhands.rsi
+  - type: StaticPrice
+    price: 2500
+  - type: GunRequiresWield
+  - type: PirateBountyItem
+    id: ExperimentalFactionWeapon
+  - type: HeldSpeedModifier
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.95
+    walkModifier: 0.95
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.5
+    sprintModifier: 0.4
+  - type: WieldDelay
+    baseDelay: 1.2
+    modifiedDelay: 1.2
+    preventFiring: true

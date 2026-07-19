@@ -9,7 +9,7 @@
     fixtures:
       hit:
         shape: !type:PhysShapeCircle
-          radius: 2
+          radius: 4
         layer:
         - BulletImpassable # Mono - ProjectileGridPhase will take care of collisions with same ship shots
         - Opaque
@@ -32,18 +32,30 @@
         hard: False
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageModifierSet: Missile
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+
+- type: damageModifierSet
+  id: Missile
+  coefficients:
+    Blunt: 0.7
+    Slash: 30 # I only use this for flak shrapnel, so it can work on missiles without it being too OP for ships.
+    Piercing: 0.7
+    Shock: 1.2
+    Structural: 0.5
+  flatReductions:
+    Blunt: 5
+    Heat: 5
 
 # VESPERA
 
@@ -70,7 +82,7 @@
     scale: 1
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 2.5
+    lifetime: 5
   - type: PointLight
     radius: 3.5
     color: orange
@@ -78,16 +90,16 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 6
+    totalIntensity: 8
     intensitySlope: 3
-    maxIntensity: 3
+    maxIntensity: 5
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 50
-    detectionRange: 500
-    scanArc: 35
+    detectionRange: 1200
+    scanArc: 15
     launchSpeed: 150
     maxSpeed: 300
     trackDelay: 0.1
@@ -95,7 +107,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 15
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -129,7 +141,7 @@
     scale: 1.5
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 6
+    lifetime: 12
   - type: PointLight
     radius: 3.5
     color: orange
@@ -137,16 +149,16 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 10
+    totalIntensity: 50
     intensitySlope: 4
-    maxIntensity: 4
+    maxIntensity: 15
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 50
-    detectionRange: 600
-    scanArc: 40
+    detectionRange: 1600
+    scanArc: 20
     launchSpeed: 90
     maxSpeed: 300
     trackDelay: 0.2
@@ -160,7 +172,7 @@
   - type: TargetSeeking
     acceleration: 50
     detectionRange: 0
-    scanArc: 40
+    scanArc: 0
     launchSpeed: 90
     maxSpeed: 300
 
@@ -189,7 +201,7 @@
     scale: 2.5
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 8
+    lifetime: 16
   - type: PointLight
     radius: 3.5
     color: orange
@@ -197,19 +209,65 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 35
+    totalIntensity: 300
     intensitySlope: 6
-    maxIntensity: 10
+    maxIntensity: 25
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 80
-    detectionRange: 1000
-    scanArc: 40
+    detectionRange: 2400
+    scanArc: 15
     launchSpeed: 120
     maxSpeed: 450
-    trackDelay: 0.25
+    trackDelay: 0.15
+
+- type: entity
+  id: ShipMissileASM250HV
+  name: 250mm HV missile
+  parent: ShipMissileBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 200
+        Blunt: 250
+        Heat: 75
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectSmall
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 2.5
+    shape: hexagon
+  - type: TimedDespawn
+    lifetime: 16
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 70
+    intensitySlope: 6
+    maxIntensity: 25
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetSeeking
+    acceleration: 360 # PD skillcheck
+    detectionRange: 700
+    scanArc: 20
+    launchSpeed: 300
+    maxSpeed: 650
+    trackDelay: 0
+    trackingAlgorithm: AdvancedPredictive
 
 - type: entity
   id: ShipMissileASM250
@@ -233,7 +291,7 @@
     scale: 2
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 7
+    lifetime: 14
   - type: PointLight
     radius: 3.5
     color: orange
@@ -245,20 +303,20 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 20
+    totalIntensity: 40
     intensitySlope: 10
-    maxIntensity: 15
-    maxTileBreak: 1
+    maxIntensity: 25
+    maxTileBreak: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 60
-    detectionRange: 600
-    scanArc: 45
+    detectionRange: 2400
+    scanArc: 15
     launchSpeed: 60
     maxSpeed: 400
-    trackDelay: 0.6
+    trackDelay: 0.2
 
 # Serpent Torpedo
 
@@ -285,7 +343,7 @@
     scale: 4
     shape: hexagon
   - type: TimedDespawn
-    lifetime: 18
+    lifetime: 36
   - type: PointLight
     radius: 5
     color: orange
@@ -293,24 +351,25 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 10
+    maxIntensity: 600
     intensitySlope: 3
-    totalIntensity: 75
+    totalIntensity: 150
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 10 # low
-    detectionRange: 600
-    scanArc: 30
+    detectionRange: 2000
+    scanArc: 10
     launchSpeed: 25
     maxSpeed: 300
     trackDelay: 2
+    trackingAlgorithm: AdvancedPredictive
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 100
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -345,7 +404,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 6.5
+    lifetime: 13
   - type: PointLight
     radius: 5
     color: orange
@@ -353,18 +412,19 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBombShipGun
-    maxIntensity: 350
+    maxIntensity: 450
     intensitySlope: 5
     totalIntensity: 550
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 80
-    detectionRange: 1000
-    scanArc: 45
+    acceleration: 170
+    detectionRange: 1200
+    scanArc: 60
     launchSpeed: 100
     maxSpeed: 300
     trackDelay: 2
+    trackingAlgorithm: AdvancedPredictive
   - type: EmpOnTrigger
     range: 7
     energyConsumption: 2900000

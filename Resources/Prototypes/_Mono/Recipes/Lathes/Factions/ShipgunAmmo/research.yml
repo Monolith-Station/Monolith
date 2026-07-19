@@ -4,6 +4,16 @@
   result: CharonSlugAmmo
 
 - type: latheRecipe
+  id: CharonApheSlugUniversal
+  parent: BaseRailgunSlugRecipe
+  result: CharonApheSlugAmmo
+
+- type: latheRecipe
+  id: CharonEmpSlugUniversal
+  parent: BaseRailgunSlugRecipe
+  result: CharonEmpSlugAmmo
+
+- type: latheRecipe
   id: CharonSubnuclearSlugUniversal
   parent: BaseRailgunSlugRecipe
   result: CharonSubnuclearSlugAmmo
@@ -11,7 +21,7 @@
     Steel: 3000
     Plasteel: 4000 # penetrator head
     Plasma: 3000 # ionized plasma gas for heavier weight
-    UraniumFissile: 100 # payload is nuclear - with economy update should take a special nuclear armament component
+    UraniumFissile: 200 # payload is nuclear - with economy update should take a special nuclear armament component
 
 - type: latheRecipe
   id: ASM220TorpedoHEUniversal
@@ -28,16 +38,24 @@
   parent: BaseTorpedoRecipe
   result: Asm220TorpedoLOSAT
   materials:
-    Steel: 1200 # shell/casing
+    Steel: 2400 # shell/casing
     Plasteel: 1000 # penetrator
+    Plastitanium: 500 # penetrator
     Glass: 400 # opticals
     Gold: 200 # electronics
     Silver: 200 # electronics
+    Copper: 300 # electronics
+    Lithium: 300 # electronics
 
 - type: latheRecipe
   id: 150mmApShellUniversal
   parent: Base150mmShellAmmoRecipe
   result: 150mmApShell
+
+- type: latheRecipe
+  id: 150mmApheShellUniversal
+  parent: Base150mmShellAmmoRecipe
+  result: 150mmApheShell
 
 - type: latheRecipe
   id: 150mmEmpShellUniversal

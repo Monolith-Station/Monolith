@@ -264,6 +264,7 @@
     - Sentinel
     - Dagger
     - Calypso
+    - Razorback
 
 # end T1
 
@@ -393,6 +394,31 @@
     companyName: TSF
     vessels:
     - TSFNPolaris
+  - type: StaticPrice
+    vendPrice: 800000
+
+- type: entity
+  parent: BaseShipLPCRenewable
+  id: ShipVoucherFujian
+  name: TSF Fujian LPC [T3]
+  description: A small card that contains the data for the procurement of an Type-53C Fujian-class escort carrier from the flagship's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#05ffff"
+    - state: screen3
+      color: "#05ffff"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 3600 # 1 hour
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - Fujian
   - type: StaticPrice
     vendPrice: 800000
 
@@ -637,6 +663,7 @@
     - Garm
     - Kalisto
     - Metis
+    - Prowler
 # end T1
 
 # start T2
