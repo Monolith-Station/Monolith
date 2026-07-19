@@ -232,6 +232,44 @@
 
 - type: entity
   parent: PouchGrenades
+  id: PouchGrenadesFilledBWRifleman
+  suffix: Filled, Bundeswehr Rifleman
+  components:
+  - type: StorageFill
+    contents:
+    - id: OffensiveGrenadeDEDM51
+      amount: 2
+    - id: DefensiveGrenadeDEDM51
+    - id: SmokeGrenadeDEDM45
+      amount: 3
+
+- type: entity
+  parent: PouchGrenades
+  id: PouchGrenadesFilledBWScout
+  suffix: Filled, Bundeswehr Scout
+  components:
+  - type: StorageFill
+    contents:
+    - id: FlashbangGrenadeUSM84
+      amount: 3
+    - id: SmokeGrenadeDEDM45
+      amount: 3
+
+- type: entity
+  parent: PouchGrenades
+  id: PouchGrenadesFilledBWSupport
+  suffix: Filled, Bundeswehr Support
+  components:
+  - type: StorageFill
+    contents:
+    - id: OffensiveGrenadeDEDM51
+      amount: 2
+    - id: DefensiveGrenadeDEDM51
+    - id: SmokeCSGrenadeUSM58
+      amount: 3
+
+- type: entity
+  parent: PouchGrenades
   id: PouchGrenadesFilledVDVRifleman
   suffix: Filled, VDV Rifleman
   components:
