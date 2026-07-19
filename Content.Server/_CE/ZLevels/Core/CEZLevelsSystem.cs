@@ -137,7 +137,6 @@ public sealed partial class CEZLevelsSystem : CESharedZLevelsSystem
 
         UpdateGridGravity(frameTime);
         UpdateView(frameTime);
-        UpdateDebugAltitudeLerps(frameTime);
         CleanupOrphanedTransitMaps();
     }
 }
