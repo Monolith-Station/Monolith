@@ -251,6 +251,8 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsNATOCommon ]
+  - type: Sprite
+    sprite: _Battlefield14/Structures/Doors/Airlocks/Double/nato.rsi
 
 - type: entity
   parent: AirlockDouble
@@ -261,6 +263,20 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsNATOCommand ]
+  - type: Sprite
+    sprite: _Battlefield14/Structures/Doors/Airlocks/Double/nato.rsi
+
+- type: entity
+  parent: AirlockDouble
+  id: AirlockDoubleLockedNATOCrew
+  suffix: NATO Crew, Double, Locked
+  name: NATO Crew double airlock
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNATOCrew ]
+  - type: Sprite
+    sprite: _Battlefield14/Structures/Doors/Airlocks/Double/nato.rsi
 
 - type: entity
   parent: AirlockDoubleGlass
@@ -282,6 +298,15 @@
     containers:
       board: [ DoorElectronicsNATOCommand ]
 
+- type: entity
+  parent: AirlockDoubleGlass
+  id: AirlockDoubleGlassLockedNATOCrew
+  suffix: NATO Crew, Double, Locked
+  name: NATO Crew double airlock
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNATOCrew ]
 
 #region PACT
 
@@ -294,6 +319,8 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsPACTCommon ]
+  - type: Sprite
+    sprite: _Battlefield14/Structures/Doors/Airlocks/Double/pact.rsi
 
 - type: entity
   parent: AirlockDouble
@@ -304,6 +331,8 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsPACTCommand ]
+  - type: Sprite
+    sprite: _Battlefield14/Structures/Doors/Airlocks/Double/pact.rsi
 
 - type: entity
   parent: AirlockDoubleGlass
