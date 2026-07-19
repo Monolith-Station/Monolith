@@ -232,7 +232,7 @@
 - type: roleLoadout
   id: JobBWLieutenant
   groups:
-  - BF_SoldierGlassesTan
+  - BF_SoldierGlassesGreen
   - BF_CombatMasks
   - BF_SoldierGloves
   - BF_NATOIFF
@@ -287,6 +287,7 @@
 - type: roleLoadout
   id: JobBWRecon
   groups:
+  - BF_SoldierGlassesGreen
   - BF_CombatMasks
   - BF_SoldierGloves
   - BF_NATOIFF
