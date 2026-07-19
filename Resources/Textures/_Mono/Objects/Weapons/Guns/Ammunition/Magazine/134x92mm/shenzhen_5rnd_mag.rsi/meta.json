@@ -1,36 +1,25 @@
 {
-    "version": 1,
-    "size": {
-        "x": 32,
-        "y": 32
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Icons from SS13 Shiptest, inhands by TiniestShark (GitHub).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "inhand-left-mag",
+      "directions": 4
     },
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Icon made by kasature90, inhands by TiniestShark (GitHub).",
-    "states": [
-        {
-            "name": "base"
-        },
-        {
-            "name": "stripe"
-        },
-        {
-            "name": "mag-1"
-        },
-        {
-            "name": "inhand-left-mag",
-            "directions": 4
-        },
-        {
-            "name": "inhand-left-stripe",
-            "directions": 4
-        },
-        {
-            "name": "inhand-right-mag",
-            "directions": 4
-        },
-        {
-            "name": "inhand-right-stripe",
-            "directions": 4
-        }
-    ]
+    {
+      "name": "inhand-right-mag",
+      "directions": 4
+    },
+    {
+      "name": "mag-1"
+    },
+    {
+      "name": "base"
+    }
+  ]
 }
