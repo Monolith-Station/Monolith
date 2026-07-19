@@ -9,5 +9,5 @@ public sealed partial class ControlTerminalComponent : Component
     /// sets the owner of the Control terminal, will not get changed in gameplay
     /// </summary>
     [DataField]
-    public string Owner = "";
+    public string? Owner ;
 }

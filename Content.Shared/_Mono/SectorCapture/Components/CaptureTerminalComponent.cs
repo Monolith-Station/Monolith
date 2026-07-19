@@ -9,10 +9,10 @@ public sealed partial class CaptureTerminalComponent : Component
     /// sets the current owner of the terminal
     /// </summary>
     [DataField]
-    public string Owner = "";
+    public string? Owner ;
     /// <summary>
     /// sets what class of POI terminal (ergo what class of POI) the terminal is assigned to: either Economy or Research
     /// </summary>
     [DataField]
-    public string Class = "";
+    public string? Class ;
 }

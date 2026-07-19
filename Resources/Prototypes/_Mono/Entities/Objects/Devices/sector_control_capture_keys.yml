@@ -18,3 +18,29 @@
     state:
   - type: ControlKey
     owner: None
+
+- type: entity
+  parent: SectorControlCaptureKey
+  suffix: TSF
+  id: SectorControlCaptureKeyTSF
+  name: Tsf encrypted capture key
+  description: A small electronic key containing a data package specifically designed to target a station's systems and take control of them. This one has a Trans solarian data package on it.
+  components:
+  - type: Sprite
+    sprite:
+    state:
+  - type: ControlKey
+    owner: TSF
+
+- type: entity
+  parent: SectorControlCaptureKey
+  suffix: Empty
+  id: SectorControlCaptureKeyPDV
+  name: Pdv encrypted capture key
+  description: A small electronic key containing a data package specifically designed to target a station's systems and take control of them. This one has an Imperial data package on it.
+  components:
+  - type: Sprite
+    sprite:
+    state:
+  - type: ControlKey
+    owner: PDV

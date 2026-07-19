@@ -9,5 +9,5 @@ public sealed partial class ControlKeyComponent : Component
     /// </summary>
     [Datafield]
     [AutoNetworkedField]
-    public string Owner = "";
+    public string? Owner;
 }
