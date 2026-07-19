@@ -15,6 +15,7 @@ public abstract partial class SectorCaptureSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
     }
 
 

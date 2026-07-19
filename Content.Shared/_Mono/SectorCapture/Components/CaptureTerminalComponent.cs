@@ -11,8 +11,9 @@ public sealed partial class CaptureTerminalComponent : Component
     [DataField]
     public string? Owner ;
     /// <summary>
-    /// sets what class of POI terminal (ergo what class of POI) the terminal is assigned to: either Economy or Research
+    /// sets the class of capture terminal, which should correspond with the class of the POI that the terminal is on
+    /// used to trigger specific radio calls/ popups (eventually a specific ui depending on POI class?)
     /// </summary>
     [DataField]
-    public string? Class ;
+    public string? CaptureClass ;
 }
