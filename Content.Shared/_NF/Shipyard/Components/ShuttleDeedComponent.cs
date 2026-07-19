@@ -1,13 +1,14 @@
 using Content.Shared._NF.ShuttleRecords;
 using Robust.Shared.GameStates;
 using Content.Shared.Shuttles.Systems;
+using Content.Shared.Access.Components;
 
 namespace Content.Shared._NF.Shipyard.Components;
 
 /// <summary>
 /// Tied to an ID card when a ship is purchased. 1 ship per captain.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedShipyardSystem), typeof(SharedShuttleRecordsSystem), typeof(SharedShuttleConsoleLockSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedShipyardSystem), typeof(SharedShuttleRecordsSystem), typeof(SharedShuttleConsoleLockSystem), Other = AccessPermissions.ReadWrite)]
 public sealed partial class ShuttleDeedComponent : Component
 {
     public const int MaxNameLength = 30;

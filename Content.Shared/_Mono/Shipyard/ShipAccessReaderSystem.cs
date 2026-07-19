@@ -13,6 +13,7 @@ using Content.Shared._Mono.Company;
 using Content.Shared.Ghost;
 using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Map;
+using Content.Shared._Mono.POI.Components;
 
 namespace Content.Shared._Mono.Shipyard;
 
@@ -112,15 +113,30 @@ public sealed partial class ShipAccessReaderSystem : EntitySystem
 
         var gridUid = targetTransform.GridUid.Value;
 
+        // Find all accessible ID cards once
+        var accessibleCards = FindAccessibleIdCards(user);
+
+        // POI faction access
+        if (TryComp<CapturablePOIComponent>(gridUid, out var poi))
+        {
+            if (!string.IsNullOrEmpty(poi.OwnerFaction))
+            {
+                foreach (var cardUid in accessibleCards)
+                {
+                    if (TryComp<IdCardComponent>(cardUid, out var card) && card.CompanyName == poi.OwnerFaction)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
         // Check if the grid has a ship deed (is a purchased ship)
         if (!TryComp<ShuttleDeedComponent>(gridUid, out var shipDeed))
         {
             // Log.Debug("ShipAccess: Grid {0} has no ShuttleDeedComponent, allowing normal access", gridUid);
             return true; // Not a ship with a deed, allow normal access
         }
-
-        // Find all accessible ID cards for the user
-        var accessibleCards = FindAccessibleIdCards(user);
 
         // Check for company-based access (USSP, Rogue, TSF) using ID card company
         if (TryComp<CompanyComponent>(gridUid, out var shipCompany))
