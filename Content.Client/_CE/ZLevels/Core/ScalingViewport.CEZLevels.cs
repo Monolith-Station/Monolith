@@ -312,7 +312,7 @@ public sealed partial class ScalingViewport
 
                 if (mapUid == playerMap && depth == 0f)
                     DrawCloudWisps(renderHandle, viewport, cloudDeck.CloudColor);
-\
+
                 else if (depth > -0.5f)
                     wispColor = cloudDeck.CloudColor;
                 first = false;
