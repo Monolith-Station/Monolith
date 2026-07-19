@@ -572,6 +572,8 @@
   # - type: EarthDigging # Frontier
   - type: Shovel
   - type: ToolTileCompatible # Frontier
+  - type: UseDelay # BF14
+    delay: 1
 
 - type: entity
   parent: BaseItem

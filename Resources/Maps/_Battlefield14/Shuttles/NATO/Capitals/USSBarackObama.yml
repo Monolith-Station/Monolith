@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/24/2026 01:20:06
-  entityCount: 3752
+  time: 07/19/2026 07:33:30
+  entityCount: 3750
 maps: []
 grids:
 - 1
@@ -119,9 +119,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Kudzu: []
-        Smoke: []
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1386,11 +1386,6 @@ entities:
     - type: Transform
       pos: 26.5,-35.5
       parent: 1
-  - uid: 2359
-    components:
-    - type: Transform
-      pos: 10.5,-23.5
-      parent: 1
   - uid: 2360
     components:
     - type: Transform
@@ -1402,6 +1397,31 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 13.5,-14.5
+      parent: 1
+- proto: AirlockDoubleLockedNATOCommon
+  entities:
+  - uid: 58
+    components:
+    - type: Transform
+      pos: 10.5,-23.5
+      parent: 1
+  - uid: 60
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.5,-60.5
+      parent: 1
+  - uid: 532
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 24.5,-43.5
+      parent: 1
+  - uid: 540
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 23.5,-46.5
       parent: 1
 - proto: AirlockMaintLockedNATOMaintenance
   entities:
@@ -1453,7 +1473,7 @@ entities:
       pos: 20.5,-21.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -18184.158
+      secondsUntilStateChange: -18391.783
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1574,47 +1594,11 @@ entities:
       parent: 1
 - proto: AirlockNfsdLockedNATOCommon
   entities:
-  - uid: 58
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 15.5,-60.5
-      parent: 1
-  - uid: 60
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 15.5,-61.5
-      parent: 1
   - uid: 2391
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 5.5,-34.5
-      parent: 1
-  - uid: 2397
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 22.5,-46.5
-      parent: 1
-  - uid: 2398
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 23.5,-46.5
-      parent: 1
-  - uid: 2399
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 24.5,-44.5
-      parent: 1
-  - uid: 2400
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 24.5,-43.5
       parent: 1
 - proto: AirlockNfsdLockedNATOSoldier
   entities:
@@ -2675,6 +2659,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 14.5,-16.5
+      parent: 1
+- proto: BF14MedkitSurgeryFilled
+  entities:
+  - uid: 493
+    components:
+    - type: Transform
+      pos: 28.508938,-31.807577
       parent: 1
 - proto: BlastDoor
   entities:
@@ -10756,13 +10747,6 @@ entities:
           - 3734
           - 3735
           - 3736
-- proto: BF14MedkitSurgeryFilled
-  entities:
-  - uid: 493
-    components:
-    - type: Transform
-      pos: 28.508938,-31.807577
-      parent: 1
 - proto: ClothingHeadHatHardhatOrange
   entities:
   - uid: 312
@@ -10836,6 +10820,17 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 24.5,-47.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+- proto: ComputerComms
+  entities:
+  - uid: 2359
+    components:
+    - type: Transform
+      pos: 14.5,-30.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -12472,7 +12467,7 @@ entities:
       pos: 10.5,-42.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -16022.563
+      secondsUntilStateChange: -16230.1875
       state: Closing
   - uid: 2294
     components:
@@ -16636,6 +16631,13 @@ entities:
     - type: Transform
       pos: 15.494425,-66.66319
       parent: 1
+- proto: JukeboxShip
+  entities:
+  - uid: 529
+    components:
+    - type: Transform
+      pos: 18.5,-43.5
+      parent: 1
 - proto: KitchenMicrowave
   entities:
   - uid: 158
@@ -17464,11 +17466,6 @@ entities:
     components:
     - type: Transform
       pos: 14.5,-9.5
-      parent: 1
-  - uid: 2426
-    components:
-    - type: Transform
-      pos: 14.5,-30.5
       parent: 1
   - uid: 3539
     components:

@@ -8,6 +8,9 @@
     - 0.575
     - 0.1
     stick: true
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.6
+    sprintSpeedModifier: 0.6
 
 - type: entity
   id: StairStageHighGround

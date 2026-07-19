@@ -12,7 +12,7 @@
     - state: injector
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: Item
-    size: Tiny
+    size: Small
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -55,7 +55,7 @@
       params:
         variation: 0.125
   - type: Item
-    size: Tiny
+    size: Small
   - type: ExtendDescription
     descriptionList:
       - description: Use in hand to remove cap.
@@ -280,4 +280,38 @@
         - ReagentId: Meralyne
           Quantity: 5
         - ReagentId: Ephedrine
+          Quantity: 5
+
+- type: entity
+  parent: BF14AutoInjectorCappedBase
+  id: BF14AutoInjectorCombatStabilisationCapped
+  suffix: combat stabilisation, capped
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Specific/Medical/injector.rsi
+    layers:
+    - state: injector
+    - state: cap_red
+  - type: SpawnItemsOnUse
+    items:
+    - id: BF14AutoinjectorCapRed
+    - id: BF14AutoInjectorCombatStabilisation
+  - type: Label
+    currentLabel: combat stabilisation
+
+- type: entity
+  parent: BF14AutoInjectorBase
+  id: BF14AutoInjectorCombatStabilisation
+  suffix: combat stabilisation
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Biofoam
+          Quantity: 5
+        - ReagentId: Inaprovaline
+          Quantity: 5
+        - ReagentId: Epinephrine # Painkiller
           Quantity: 5
