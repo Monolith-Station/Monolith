@@ -110,15 +110,13 @@
   components:
   - type: StorageFill
     contents:
-      - id: BF14AdvancedTraumaKit # BF14
-      - id: BF14AdvancedBurnKit # BF14
       - id: HandheldHealthAnalyzerUnpowered #BF14
-      - id: SyringeEphedrine
+      - id: BF14AdvancedTraumaKit # BF14
+#      - id: BF14AdvancedBurnKit # BF14
+      - id: BF14AutoInjectorCombatStabilisationCapped
+        amount: 3
+#BF14      - id: SyringeEphedrine
       - id: SyringeSaline
-      - id: BF14AutoInjectorBruteCapped # BF14
-      - id: BF14AutoInjectorBurnCapped # BF14
-      - id: BF14SyretteInaprovalineCapped # BF14
-      - id: BlisterPackTricordrazine # BF14
 
 - type: entity
   id: StimkitFilled

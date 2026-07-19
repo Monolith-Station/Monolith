@@ -114,7 +114,7 @@
   - type: TargetSeeking
     acceleration: 60
     detectionRange: 350
-    scanArc: 40
+    scanArc: 67
     launchSpeed: 5
     maxSpeed: 120
     trackDelay: 1
@@ -190,10 +190,10 @@
   - type: TargetSeeking
     acceleration: 80
     detectionRange: 512
-    scanArc: 30
+    scanArc: 50
     launchSpeed: 1
     maxSpeed: 90
-    trackDelay: 2
+    trackDelay: 1.5
   - type: Fixtures
     fixtures:
       projectile:
