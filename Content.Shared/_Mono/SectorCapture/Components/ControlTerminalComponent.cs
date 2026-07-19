@@ -6,8 +6,8 @@ namespace Content.Shared._Mono.SectorCapture.Components;
 public sealed partial class ControlTerminalComponent : Component
 {
     /// <summary>
-    /// sets the owner of the Control terminal, will not get changed in gameplay
+    /// sets the owner of the Control terminal, so that it can display which POIs the owner (ergo faction) has captured
     /// </summary>
     [DataField]
-    public string? Owner ;
+    public string? Owner;
 }

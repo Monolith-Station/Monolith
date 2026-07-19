@@ -5,7 +5,7 @@ namespace Content.Shared._Mono.SectorCapture.Components;
 public sealed partial class ControlKeyComponent : Component
 {
     /// <summary>
-    /// This component takes the company (or faction) of the source Control terminal and keeps it in memory to imprint onto Capture Terminals
+    /// This component sets the company of the encrypted capture key, and is used to switch state from Neutral/Hacked to Captured, with the owner built in
     /// </summary>
     [Datafield]
     [AutoNetworkedField]
