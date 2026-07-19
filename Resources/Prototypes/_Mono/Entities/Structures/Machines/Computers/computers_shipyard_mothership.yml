@@ -53,7 +53,7 @@
 - type: entity
   id: TSFCarrierComputer
   parent: BaseCarrierComputer
-  name: TSF carrier console
+  name: TSF tumour carrier console
   components:
   - type: ShipyardListing
     shuttles:
@@ -62,6 +62,16 @@
     - Zephyr
     - QJ340
 
+- type: entity
+  id: TSFCarrierComputerFujian
+  parent: BaseCarrierComputer
+  name: TSF fujian carrier console # Yes it can -hypothetically- carry the same ships as tumour, but it can't carry 4 of them (QJ-340 is really too long!)
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - Zephyr
+    - ZephyrEC
+    
 - type: entity
   id: TSFNChengduComputer
   parent: BaseCarrierComputer

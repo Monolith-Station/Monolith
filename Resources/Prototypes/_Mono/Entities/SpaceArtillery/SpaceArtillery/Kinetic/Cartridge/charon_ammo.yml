@@ -21,6 +21,56 @@
   - type: Appearance
   - type: SpentAmmoVisuals
 
+# APHE shells
+
+- type: entity
+  id: CharonApheSlugAmmo
+  name: M381 CHARON 280mm 26.5kg APHE slug cartridge
+  description: An all-in-one package containing plasma gas accelerant and a high-density tungsten slug loaded with a small explosive payload. Cheap, devastating, and long ranged.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - CharonSlug
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipRailgunProjectileAphe
+    deleteOnSpawn: true
+    muzzleFlash: null
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
+    layers:
+    - state: railgun_aphe
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+# EMP shells
+
+- type: entity
+  id: CharonEmpSlugAmmo
+  name: M381 CHARON 280mm 26.5kg EMP slug cartridge
+  description: An all-in-one package containing plasma gas accelerant and a high-density tungsten slug loaded with a large electromagnetic payload. Creates massive EMP arcs on impact, but has limited penetration power. Amazing for shields!
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - CharonSlug
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipRailgunProjectileEMP
+    deleteOnSpawn: true
+    muzzleFlash: null
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
+    layers:
+    - state: railgun_emp
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
 # Nuclear shells
 
 - type: entity

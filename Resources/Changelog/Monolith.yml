@@ -22619,3 +22619,109 @@ Entries:
   id: 2498
   time: '2026-07-17T19:41:34.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4280
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added 57mm Homing, 20mm anti-shield, 30mm HE, 150mm APHE, 250mm HV
+        missiles (Tovek/Paladin), CHARON APHE, CHARON EMP, 255mm minelayer,
+        255mm EMP, 90mm minelayer, 220mm cluster-HE, and 220mm cluster-homing
+        ship ammo.
+    - type: Tweak
+      message: Buffed CHARON subnuclear explosion by a lot.
+    - type: Fix
+      message: Fixed 90mm flak ammo using the same sprite as HE.
+  id: 2499
+  time: '2026-07-18T02:35:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4299
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: 'HYPERWAR: tweaked jupiter a bit while also fixing some mistakes'
+  id: 2500
+  time: '2026-07-18T08:09:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4302
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: Added ore magnets to eris and shiv
+    - type: Tweak
+      message: Remapped shiv
+  id: 2501
+  time: '2026-07-18T08:34:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4294
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the Polaris's internal layout slightly and made it so it didn't
+        blind everyone with 500 lights
+  id: 2502
+  time: '2026-07-18T08:37:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4288
+- author: EldritchPineapple
+  changes:
+    - type: Add
+      message: Added two frontal fangs to the Saintie for defense
+    - type: Tweak
+      message: >-
+        reworked the saintie external look with lattices, added some armor
+        (changed a few walls) to make it a little more survivable in some places
+  id: 2503
+  time: '2026-07-18T08:38:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4291
+- author: projectkepler-ru
+  changes:
+    - type: Fix
+      message: missing hydrakin & lizard sprite for marsoc fit
+  id: 2504
+  time: '2026-07-18T09:04:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4307
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added Fujian carrier for TSF T3.
+  id: 2505
+  time: '2026-07-18T13:50:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4252
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Nerfed 90mm minelayer ammo to 12 rounds/mag, increased radar signature.
+    - type: Tweak
+      message: Doubled subnuclear shell fissile cost, ~2/3 explosive power.
+  id: 2506
+  time: '2026-07-18T21:06:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4309
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed issues with the nuke codes & announcement in Hyperwar.
+  id: 2507
+  time: '2026-07-18T23:56:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4311
+- author: waphun
+  changes:
+    - type: Tweak
+      message: >-
+        The Shiv should have gravity now and its mining pulsers properly overlap
+        now
+  id: 2508
+  time: '2026-07-19T16:06:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4310
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Nuclear reactors & gas turbines are locked to general faction stuff now
+        instead of higher-access roles like FTLs.
+  id: 2509
+  time: '2026-07-19T20:09:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4319
+- author: kasature90
+  changes:
+    - type: Add
+      message: Ported Wizden turret control system. Not mapped anywhere though.
+  id: 2510
+  time: '2026-07-19T20:11:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4315
