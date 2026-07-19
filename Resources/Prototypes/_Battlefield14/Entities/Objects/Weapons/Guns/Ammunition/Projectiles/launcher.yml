@@ -415,9 +415,9 @@
   name: PG-7VL HEAT rocket
   components:
   - type: Sprite
-    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Launcher/RPG7.rsi
+    sprite: _WorldAblaze1968/Objects/Weapons/projectiles.rsi
     layers:
-    - state: base-spent
+    - state: pg7v
   - type: Projectile
     damage:
       types:
@@ -441,9 +441,9 @@
   name: PG-7VL HEAT rocket
   components:
   - type: Sprite
-    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Launcher/RPG7.rsi
+    sprite: _WorldAblaze1968/Objects/Weapons/projectiles.rsi
     layers:
-    - state: base-spent
+    - state: pg7v
   - type: Projectile
     damage:
       types:
