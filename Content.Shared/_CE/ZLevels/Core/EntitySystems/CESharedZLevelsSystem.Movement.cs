@@ -406,16 +406,14 @@ public abstract partial class CESharedZLevelsSystem
         if (!_mapQuery.TryComp(targetMap, out var targetMapComp))
             return false;
 
-        // Mono: grids move as docked sets through the transit machinery; the server
-        // system overrides TryMoveGrid with the real logic.
+        // pzn: Transit maps have their own path.
         if (_gridQuery.TryComp(ent, out var gridComp) && !_mapQuery.HasComp(ent))
             return TryMoveGrid((ent, gridComp), (targetMap.Owner, targetMap.Comp, targetMapComp), offset);
 
         var worldRot = _transform.GetWorldRotation(ent);
-
-        // pzn: falling into the gap can still hit a set mid-transit — land on the
-        // transit map instead of clipping through to the level below.
         var destMapId = targetMapComp.MapId;
+
+        // If there's a transitting grid below, land on it instead of just noclipping through it like that guy from the Backrooms movie.
         if (offset < 0 && TryFindTransitLanding(ent, map.Value.Owner, targetMap.Owner, out var transitMapId))
             destMapId = transitMapId;
 
@@ -428,12 +426,6 @@ public abstract partial class CESharedZLevelsSystem
         return true;
     }
 
-    /// <summary>
-    /// pzn: when an entity falls from <paramref name="upperMap"/> toward
-    /// <paramref name="lowerMap"/>, checks whether a transit set occupying that gap
-    /// has a grid under the entity's world position. If so, the entity should land
-    /// on the transit map rather than passing through to the level below.
-    /// </summary>
     private bool TryFindTransitLanding(EntityUid ent, EntityUid upperMap, EntityUid lowerMap, out MapId transitMapId)
     {
         transitMapId = MapId.Nullspace;
@@ -455,10 +447,6 @@ public abstract partial class CESharedZLevelsSystem
         return false;
     }
 
-    /// <summary>
-    /// Mono: moves a grid (and its docked set) between z-levels. The base
-    /// implementation refuses; the server transit logic overrides this.
-    /// </summary>
     protected virtual bool TryMoveGrid(Entity<MapGridComponent> grid,
         Entity<CEZMapComponent, MapComponent> targetMap,
         int offset)
