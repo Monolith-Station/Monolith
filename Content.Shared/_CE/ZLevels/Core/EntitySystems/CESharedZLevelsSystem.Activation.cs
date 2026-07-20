@@ -61,20 +61,6 @@ public abstract partial class CESharedZLevelsSystem
     private void OnParentChanged(Entity<CEZPhysicsComponent> entity, ref EntParentChangedMessage args)
     {
         RefreshBody(entity);
-
-        // Height inheritance only applies to lateral parent swaps (stepping on/off a
-        // grid within the same z-level). Cross-map parent changes are z-hops: TryMove
-        // reparents onto the destination grid mid-hop and ProcessZPhysics still owes
-        // the ±1 carry, so clobbering LocalPosition here yo-yos the entity between
-        // levels and leaves it "landed" one layer above the grid.
-        if (args.OldMapId == Transform(entity).MapUid)
-        {
-            if (ZPhysicsQuery.TryComp(args.OldParent, out var oldParentPhysics))
-                SetZPosition((entity, entity), oldParentPhysics.LocalPosition);
-            else if (ZPhysicsQuery.HasComp(Transform(entity).ParentUid))
-                SetZPosition((entity, entity), 0);
-        }
-
         SnapOutOfTransitMap(entity);
 
         // Drop leftover altitude that can no longer resolve to the ground here, before the
@@ -100,35 +86,26 @@ public abstract partial class CESharedZLevelsSystem
     }
 
     /// <summary>
-    /// A transit map is open air between two z-levels, so an entity that ends up
-    /// parented to the map itself (stepped off a grid mid-gap, thrown overboard,
-    /// dropped) has nothing to exist on there. Snap it to the lower z-level at the
-    /// transit map's current height so it falls through real space instead of
-    /// dangling on the gap map.
+    /// If an entity falls off of a transit map, put it back onto a normal one.
     /// </summary>
     private void SnapOutOfTransitMap(Entity<CEZPhysicsComponent> entity)
     {
-        // Grids in transit are the transit machinery itself; they leave via
-        // SetTransitAltitude / TryExitTransit, not this path.
+        // Grids don't count. We don't talk about grids.
         if (_gridQuery.HasComp(entity) || _mapQuery.HasComp(entity))
             return;
 
         var xform = Transform(entity);
 
-        // Still standing on a grid within the gap: the grid carries it.
+        // Not on the map itself. Don't touch it.
         if (xform.ParentUid != xform.MapUid)
             return;
 
         if (!TryComp<CEZTransitMapComponent>(xform.MapUid, out var transit))
             return;
 
-        // The gap's current altitude above its lower anchor is the primary grid's
-        // transit fraction.
         if (ZPhysicsQuery.TryComp(transit.PrimaryGrid, out var primaryPhysics))
             SetZPosition((entity, entity), primaryPhysics.LocalPosition);
 
-        // MapOffset resolves -1 from a transit map to its lower anchor; LocalPosition
-        // is preserved across the hop, so the entity keeps the transit height.
         if (TryMove(entity, -1))
             WakeBody((entity, entity));
     }

@@ -64,10 +64,6 @@ public sealed partial class CEZLevelsSystem
         RefreshGridZPhysics(ent);
     }
 
-    /// <summary>
-    /// Maps can join a z-network after their grids already loaded; those grids never saw a
-    /// parent change, so sweep them for z-physics/faller state when the map joins.
-    /// </summary>
     private void SweepMapGridsForZPhysics(EntityUid mapUid)
     {
         var children = Transform(mapUid).ChildEnumerator;
@@ -78,10 +74,6 @@ public sealed partial class CEZLevelsSystem
         }
     }
 
-    /// <summary>
-    /// Grids arriving on a z-network get z-physics and a gravity grace period; grids
-    /// leaving it drop the gravity state so a return starts a fresh grace.
-    /// </summary>
     private void RefreshGridZPhysics(EntityUid grid)
     {
         if (HasComp<MapComponent>(grid) || TerminatingOrDeleted(grid))
@@ -352,9 +344,7 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Moves a set of grids to another map, keeping world transforms (all z-level maps
-    /// share one world coordinate space) and momentum, re-establishing the docking
-    /// joints the engine clears on map changes, and notifying every passenger.
+    /// Moves a set of grids to another map.
     /// </summary>
     private void MoveGridSetToMap(HashSet<EntityUid> movedGrids, EntityUid targetMap, int offset, int depth)
     {
@@ -416,18 +406,11 @@ public sealed partial class CEZLevelsSystem
         }
     }
 
-    // ===== Transit maps: grids vertically between two z-levels =====
+    // === WARNING: A severe amount of this system was written with the assistance of LLMs. Expect bugs, inconsistent behaviour, and potentially stupid mistakes. ===
+    // === While this system was manually reviewed and tested, I have no way of knowing entirely if it will fully hold up without live usage. ===
 
     /// <summary>
-    /// Moves a grid (and its docked set) into a fresh transit map. Entry is
-    /// direction-agnostic: a level's plane is both the top of the gap below and the
-    /// bottom of the gap above, so the grid simply becomes airborne at its own plane
-    /// (gap below at progress 1 when one exists, otherwise gap above at progress 0 —
-    /// the same physical place). Which way it goes afterwards is just how its progress
-    /// changes; crossing a plane hops gaps (see <see cref="SetTransitAltitude"/>).
-    /// Pass <paramref name="preferUpperGap"/> to become airborne in the gap above
-    /// instead (a liftoff shouldn't sweep the pad it's leaving when it climbs
-    /// through its own plane).
+    /// Moves a grid (and its docked set) into a fresh transit map.
     /// </summary>
     public bool TryEnterTransit(Entity<MapGridComponent> grid, float? startProgress = null, bool preferUpperGap = false)
     {
@@ -522,11 +505,7 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Sets a transiting grid set's altitude in the z-network's depth coordinates:
-    /// the integer part is a level, the fraction is the position in the gap above it
-    /// (1.1 = a tenth of a gap above level 1). Absolute and idempotent — repeating the
-    /// same value keeps the ship where it is, however many gaps it crossed to get
-    /// there. Values below the bottom of the network land the set on the bottom level.
+    /// Sets a transiting grid set's altitude in the z-network's depth coordinates.
     /// </summary>
     public bool SetTransitAltitude(Entity<MapGridComponent> grid, float altitude)
     {
@@ -544,7 +523,6 @@ public sealed partial class CEZLevelsSystem
             return false;
         }
 
-        // Altitude is absolute; the current gap starts at its lower level's depth.
         var progress = altitude - anchorZ.Depth;
 
         while (progress > 1f)
@@ -596,16 +574,13 @@ public sealed partial class CEZLevelsSystem
             var convoy = GetConvoyMaps(transitMapUid);
             var bottomTransit = Comp<CEZTransitMapComponent>(convoy[0]);
 
-            // Ground layers stop descents dead — you land ON them, never hop past
-            // them. The BOTTOM layer decides for the whole convoy.
+            // You can't fly below a ground layer.
             if (bottomTransit.LowerMap is not { } bottomLower || HasComp<CEZGroundLayerComponent>(bottomLower))
                 return LandTransitSet(grid);
 
             if (!TryMapDown(bottomLower, out _))
             {
-                // Bottom of the network without ground under it: give on-demand
-                // generation (procgen cave layers) a chance to extend it downward
-                // before concluding there's nothing there.
+                // Once again, give procgen a chance.
                 RaiseExpandEvent(bottomLower, up: false);
 
                 if (!TryMapDown(bottomLower, out _))
@@ -631,8 +606,7 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Transit maps whose primary grid was deleted mid-gap (admin delete, crushed by
-    /// another ship) have no exit path and would leak as phantom render passes.
+    /// If a transit map's grid is somehow wiped, delete the transit map.
     /// </summary>
     private void CleanupOrphanedTransitMaps()
     {
@@ -754,9 +728,7 @@ public sealed partial class CEZLevelsSystem
             var movedGrids = CollectGridsOnMap(oldMap);
             MoveGridSetToMap(movedGrids, newTransitMap, offset, depth);
 
-            // The hop sweeps the hull through a level's plane: going up that's the new
-            // gap's floor, going down its ceiling. Whatever occupies the footprint there
-            // gets flattened, FTL-style.
+            // Someone neglected to check for other ships.
             var crossedPlane = up ? lower : upper;
             foreach (var gridUid in movedGrids)
             {
@@ -766,7 +738,6 @@ public sealed partial class CEZLevelsSystem
             if (oldMap == trackedMap)
                 tracked = newTransitMap;
 
-            // Unlink before deletion so shutdown promotion doesn't fire on the old stack.
             old.TransitAbove = null;
             old.TransitBelow = null;
             old.ConvoyLead = false;
@@ -781,9 +752,7 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Lands a transiting grid set on whichever bordering z-level is nearest to its
-    /// current progress and deletes the transit map. Ships arriving at a ground
-    /// layer are parked.
+    /// Land whatever's on this transit map to the closest normal layer.
     /// </summary>
     public bool TryExitTransit(Entity<MapGridComponent> grid)
     {
@@ -795,7 +764,6 @@ public sealed partial class CEZLevelsSystem
         if (!TryComp<CEZTransitMapComponent>(transitMap, out var transit))
             return false;
 
-        // Nearest plane wins: exit is just "stop being airborne".
         var up = ZPhysicsQuery.TryComp(grid, out var gridZPhys) && gridZPhys.LocalPosition >= 0.5f;
 
         // Validate every layer's arrival level first — the convoy lands all-or-nothing.
@@ -830,9 +798,7 @@ public sealed partial class CEZLevelsSystem
 
                 _pvsOverride.RemoveGlobalOverride(gridUid);
 
-                // Landing flattens whatever is under the hull, exactly like an FTL arrival —
-                // except grids underneath blow apart in place instead of vanishing. The
-                // rest of the landing set is exempt or docked ships would blast each other.
+                // Landing on a grid causes an explosion. Don't do that.
                 _shuttle.Smimsh(gridUid, explodeGrids: true, ignoredGrids: movedGrids);
 
                 if (parked)
@@ -860,13 +826,11 @@ public sealed partial class CEZLevelsSystem
         transit.PrimaryGrid = primaryGrid;
         Dirty(mapUid, transit);
 
-        // Same environment as the network's z-levels (atmosphere etc.), so crews don't
-        // asphyxiate mid-descent.
+        // Same environment as the network's z-levels (eg. atmosphere); this should really become configurable with real planets.
         if (TryGetMapNetwork(lowerMap, out var network) && network.Comp.Components.Count > 0)
             EntityManager.AddComponents(mapUid, network.Comp.Components, removeExisting: false);
 
-        // Start lit like the upper level; the client lerps this toward the lower
-        // level's ambient as the grid descends.
+        // Copy the lighting from the upper level (or lower if there isn't any above) so you can see.
         var light = EnsureComp<MapLightComponent>(mapUid);
         if (TryComp<MapLightComponent>(upperMap, out var upperLight))
             light.AmbientLightColor = upperLight.AmbientLightColor;
@@ -876,19 +840,12 @@ public sealed partial class CEZLevelsSystem
 
         _meta.SetEntityName(mapUid, $"Z-Transit above {MetaData(lowerMap).EntityName}");
 
-        // Viewers near the gap need eyes on the new map (PVS + decal streaming).
         QueueAllViewerUpdates();
 
         return mapUid;
     }
 }
 
-/// <summary>
-/// Raised on a z-network entity when a transiting grid reaches the network's edge with
-/// nothing beyond it (and, going down, no ground layer to land on). On-demand layer
-/// generation can extend the network during this event and the grid will continue
-/// into the new level seamlessly instead of stopping.
-/// </summary>
 [ByRefEvent]
 public record struct CEZNetworkExpandRequestEvent(
     Entity<CEZMapNetworkComponent> Network,

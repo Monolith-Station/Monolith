@@ -152,11 +152,7 @@ public abstract partial class CESharedZLevelsSystem
 
     private Entity<CEZMapComponent>? MapOffset(Entity<CEZMapComponent?> entity, int offset)
     {
-        // Transit maps hang between two z-levels and are not members of any z-network
-        // (they sit at fractional altitude and several can occupy the same gap), so
-        // network walks would otherwise dead-end on them. Hop through their anchor
-        // links instead: -1 resolves to the level below the gap, +1 to the level above,
-        // and larger offsets continue through the real network from that anchor.
+        // Transit map fuckery! Woo!
         if (offset != 0 && entity.Comp is null && !_zMapQuery.HasComp(entity) &&
             TryComp<CEZTransitMapComponent>(entity, out var transit))
         {

@@ -1,4 +1,3 @@
-# CrystallEdge: Z-level blur shader (used by CEZLevelBlurOverlay)
 - type: shader
   id: CEZBlur
   kind: source
@@ -7,8 +6,7 @@
     STRENGTH: 1.0
     FADE: 1.0
 
-# CrystallEdge: composites transit-grid viewport onto the main viewport with
-# height-scaled haze + dissolve (used by ScalingViewport.RenderTransitOverhead)
+# patched blur shader so it works on specific entities
 - type: shader
   id: CEZBlurBlit
   kind: source
@@ -18,9 +16,6 @@
     FADE: 1.0
     CLOUD: 0.0
 
-# CrystallEdge: procedural cloud deck for CEZCloudLayer maps — opaque backdrop
-# under the layer's pass, wispy overlay on a rider climbing into the deck
-# (used by ScalingViewport.DrawCloudDeck)
 - type: shader
   id: CEZClouds
   kind: source

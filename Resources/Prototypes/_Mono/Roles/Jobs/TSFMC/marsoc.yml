@@ -1,0 +1,57 @@
+- type: job
+  id: TsfMarsoc
+  name: job-name-tsf-marsoc
+  description: job-description-tsf-marsoc
+  playTimeTracker: JobTsfMarsoc
+  requirements:
+  - !type:DepartmentTimeRequirement # Requires time in both factions
+    department: Antag
+    time: 14400 # 4 hours # mono
+  - !type:DepartmentTimeRequirement # Requires time in both factions
+    department: Security
+    time: 108000 # 30 hours # mono
+  startingGear: MarsocOperativeGearHyperwarRole
+  icon: JobIconTSFMarsoc
+  supervisors: job-supervisors-ws
+  weight: 45
+  displayWeight: 45
+  assignedCompany: TSF
+  canBeAntag: false
+  setPreference: true
+  accessGroups:
+  - AllAccess
+  access:
+  - TsfmcEngineering
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSFMC
+    - type: ChatRank
+      rank: tsf-marsoc
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, TrackingImplant ]
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - SolCommon
+    languagesUnderstood:
+    - SolCommon
+
+- type: startingGear
+  id: MarsocOperativeGearHyperwarRole
+  equipment:
+    jumpsuit: ClothingUniformTsfmcMopp
+    back: ClothingBackpackERTLeader
+    eyes: ClothingEyesHudNfsd
+    ears: ClothingHeadsetAltTsfmcMarsoc
+    gloves: ClothingHandsGlovesTacticalCombatBlack
+    outerClothing: ClothingOuterHardsuitM86Mk4
+    shoes: ClothingShoesBootsMagAdv
+    id: MarsocPDA
+    pocket1: CrowbarPocket
+    pocket2: RadioHandheldNF
+    belt: ClothingBeltWebbingsNormalTSFMC
+    neck: ClothingNeckIFFCyan
+  inhand:
+  - UndeterminedTSFMarsocKit

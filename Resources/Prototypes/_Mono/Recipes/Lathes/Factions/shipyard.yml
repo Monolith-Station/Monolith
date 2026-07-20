@@ -45,6 +45,21 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
+  id: FujianVoucherTSF
+  result: ShipVoucherFujian
+  completetime: 100
+  materials:
+    Steel: 40000
+    Plasteel: 20000
+    Plastic: 30000
+    Glass: 10000
+    Plasma: 5000
+    UraniumDepleted: 3000
+    Silver: 10000
+    Gold: 5000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
   id: AltairVoucherTSF
   result: ShipVoucherAltair
   completetime: 100
@@ -154,6 +169,21 @@
     UraniumDepleted: 4000
     Silver: 5000
     Gold: 5000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: KortikVoucherRogue
+  result: ShipVoucherKortik
+  materials:
+    Steel: 30000
+    Plasteel: 50000
+    Plastic: 20000
+    Glass: 5000
+    Plasma: 5000
+    UraniumFissile: 400
+    UraniumDepleted: 2000
+    Silver: 3000
+    Gold: 3000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe

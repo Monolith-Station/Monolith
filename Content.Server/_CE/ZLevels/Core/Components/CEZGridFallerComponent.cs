@@ -12,7 +12,7 @@ namespace Content.Server._CE.ZLevels.Core.Components;
 public sealed partial class CEZGridFallerComponent : Component
 {
     /// <summary>
-    /// Grace period before you plummet violently.
+    /// Remaining time until the grid plummets from grace period expiring (see GridGravityGraceSeconds below)
     /// </summary>
     [DataField]
     public TimeSpan GravityTime;
@@ -22,12 +22,6 @@ public sealed partial class CEZGridFallerComponent : Component
     /// </summary>
     [DataField]
     public float Velocity;
-
-    /// <summary>
-    /// Which way the grid is starting to move initially. Probably going to be removed in later reworks.
-    /// </summary>
-    [DataField]
-    public sbyte SpoolDirection;
 
     /// <summary>
     /// Time when the spoolup start began.
@@ -44,13 +38,13 @@ public sealed partial class CEZGridFallerComponent : Component
     // Gridgrav values (Originally in GridMovement)
 
     /// <summary>
-    /// Seconds after arriving on a z-network before gravity acts on a grid.
+    /// Seconds after arriving on a z-network before gravity acts on a grid. This is so spawned grids do not immediately plummet.
     /// </summary>
     [DataField]
     public float GridGravityGraceSeconds = 3f;
 
     /// <summary>
-    /// Downward acceleration in levels per second squared. Falls start slow and build.
+    /// Downward acceleration in levels per second squared. This should really be per-planet later...
     /// </summary>
     [DataField]
     public float GridGravity = 0.15f;
@@ -63,7 +57,6 @@ public sealed partial class CEZGridFallerComponent : Component
 
     /// <summary>
     /// Touchdown speed at or above which a ground-layer landing is a crash.
-    /// A full one-gap free fall arrives at ~0.74.
     /// </summary>
     [DataField]
     public float GridCrashVelocity = 0.35f;

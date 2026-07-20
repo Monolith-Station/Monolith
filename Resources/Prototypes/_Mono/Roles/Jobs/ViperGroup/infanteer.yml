@@ -24,6 +24,8 @@
     - type: NpcFactionMember
       factions:
       - VG
+    - type: ChatRank
+      rank: vg-infanteer
   accessGroups:
   - GeneralAccess
   - ViperLow

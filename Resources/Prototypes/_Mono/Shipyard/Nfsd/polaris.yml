@@ -6,6 +6,8 @@
   name: TSFN-SKR Polaris
   description: Officially designated as a Type-56D Frigate in the TSFN. Armed with a single CHARON mass driver, 6 AK820 120mm autocannons, and 2 Phalanxes for PD. Large amount of redundant electrical systems to ensure constant combat readiness, but poor rear defenses.
   limit: 2
+  hyperwarLimit: 3
+  hyperwarTimelock: 3600
   price: 283000
   purchasable: false # voucher only
   category: Large

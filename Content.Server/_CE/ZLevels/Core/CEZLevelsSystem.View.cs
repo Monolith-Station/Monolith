@@ -47,13 +47,6 @@ public sealed partial class CEZLevelsSystem
 
     private void UpdateView(float frameTime)
     {
-        // MapUidChangedEvent can fire while the engine is still mid-walk of a live transform
-        // children collection (e.g. a grid carrying a rider gets reparented onto another map,
-        // cascading into the rider). UpdateViewer spawns/deletes entities as a side effect of
-        // that event, so running it synchronously in the handler mutates a children collection
-        // while something further up the call stack is still enumerating it. Instead we just mark
-        // the viewer dirty there (OnViewerMapUidChanged) and do the actual rebuild here, once per
-        // tick, safely outside of any transform cascade.
         UpdateDirtyViewers();
 
         if (_timing.CurTime < _nextZLevelViewerUpdate)
@@ -71,11 +64,7 @@ public sealed partial class CEZLevelsSystem
 
                 _transform.SetWorldPosition(eye, _transform.GetWorldPosition(xform));
 
-                // Zoom (and anything else that widens the viewer's own PVS range)
-                // has to propagate to the z-eyes every update, not just at spawn.
-                // Zoom must be folded in explicitly: the client->server PvsScale
-                // request is admin-gated, so for regular players (e.g. shuttle
-                // console pilots zoomed way out) PvsScale never tracks Zoom.
+                // Zoom propagation.
                 var baseScale = srcEye.PvsScale * GetViewerZoom(uid, srcEye);
                 var eyeMap = Transform(eye).MapUid;
                 _eyeSystem.SetPvsScale(eye,
@@ -86,13 +75,6 @@ public sealed partial class CEZLevelsSystem
         }
     }
 
-    /// <summary>
-    /// The viewer's effective zoom for PVS purposes. On the server, EyeComponent.Zoom
-    /// is never written for regular players — content zoom goes through
-    /// ContentEyeComponent.TargetZoom, and only the *client* lerps that into
-    /// EyeComponent.Zoom (ContentEyeSystem.FrameUpdate/Update). Reading srcEye.Zoom
-    /// here would always yield 1, so prefer the server-authoritative TargetZoom.
-    /// </summary>
     private float GetViewerZoom(EntityUid uid, EyeComponent srcEye)
     {
         var zoom = TryComp<ContentEyeComponent>(uid, out var contentEye)
@@ -101,11 +83,6 @@ public sealed partial class CEZLevelsSystem
         return Math.Max(zoom.X, zoom.Y);
     }
 
-    /// <summary>
-    /// Marks every z-level viewer for an eye rebuild — used when a map appears or
-    /// vanishes between levels (transit maps), which can invalidate any viewer's
-    /// eye set regardless of distance.
-    /// </summary>
     private void QueueAllViewerUpdates()
     {
         var query = AllEntityQuery<CEZLevelViewerComponent>();
@@ -162,10 +139,7 @@ public sealed partial class CEZLevelsSystem
 
     private void OnViewerMapUidChanged(Entity<CEZLevelViewerComponent> ent, ref MapUidChangedEvent args)
     {
-        // Do not touch the viewer here: this event can fire mid-cascade, while the engine is
-        // still enumerating a live transform children collection further up the call stack (e.g.
-        // moving a grid with a rider standing on it). UpdateViewer spawns/deletes entities, which
-        // would mutate that collection out from under the enumerator. Defer it to UpdateDirtyViewers.
+        // "Why don't you just move the viewer here" Because doing that causes a really stupid crash (I miss you already, Fable) that deferring it mitigates.
         _dirtyViewers.Add(ent.Owner);
     }
 
@@ -188,7 +162,6 @@ public sealed partial class CEZLevelsSystem
             return;
 
         var globalPos = _transform.GetWorldPosition(xform);
-        // Fold Zoom in explicitly — PvsScale doesn't track it for non-admins (see UpdateDirtyViewers note).
         var pvsScale = TryComp<EyeComponent>(ent, out var srcEye)
             ? srcEye.PvsScale * GetViewerZoom(ent, srcEye)
             : 1f;
@@ -210,16 +183,13 @@ public sealed partial class CEZLevelsSystem
             coveredMaps.Add(aboveMapUid);
         }
 
-        // Grids transiting past any covered level must stream to this viewer too:
-        // both PVS contents and decal chunks key off view subscriptions.
+        // Also handle transit maps that are within viewrange.
         var transitQuery = EntityQueryEnumerator<CEZTransitMapComponent>();
         while (transitQuery.MoveNext(out var transitUid, out var transitComp))
         {
             if (transitUid == map.Value)
                 continue;
 
-            // A transit hop queues this rebuild AND deletes the old map in the same
-            // tick; never spawn an eye on a map that's already on death row.
             if (TerminatingOrDeleted(transitUid) || EntityManager.IsQueuedForDeletion(transitUid))
                 continue;
 
@@ -241,12 +211,6 @@ public sealed partial class CEZLevelsSystem
         eyes.Add(newEye);
     }
 
-    /// <summary>
-    /// Eyes on levels below the viewer need a wider PVS range: the client draws those
-    /// levels zoomed out by <see cref="CESharedZLevelsSystem.ZLevelViewShrink"/> per
-    /// level, so the visible world area grows by the inverse. The base scale carries
-    /// the viewer's own PVS scale, so eye zoom widens the z-eyes too.
-    /// </summary>
     private float GetZEyePvsScale(EntityUid viewerMap, EntityUid eyeMap, float baseScale)
     {
         if (!TryComp<CEZMapComponent>(eyeMap, out var eyeZ))
@@ -257,7 +221,7 @@ public sealed partial class CEZLevelsSystem
             viewerDepth = viewerZ.Depth;
         else if (TryComp<CEZTransitMapComponent>(viewerMap, out var transit) &&
                  TryComp<CEZMapComponent>(transit.LowerMap, out var lowerZ))
-            viewerDepth = lowerZ.Depth + 1; // Top of the gap: covers the whole ride.
+            viewerDepth = lowerZ.Depth + 1;
         else
             return baseScale;
 
@@ -270,8 +234,8 @@ public sealed partial class CEZLevelsSystem
 
     private void OnZLevelFall(Entity<CEZPhysicsComponent> ent, ref CEZLevelFallMapEvent args)
     {
-        //A dirty trick: we call PredictedPopup on the falling entity on SERVER.
-        //This means that the one who is falling does not see the popup itself, but everyone around them does. This is what we need.
+        // A dirty trick: we call PredictedPopup on the falling entity on SERVER.
+        // This means that the one who is falling does not see the popup itself, but everyone around them does. This is what we need.
         _popup.PopupPredictedCoordinates(Loc.GetString("ce-zlevel-falling-popup", ("name", Identity.Name(ent, EntityManager))), Transform(ent).Coordinates, ent);
     }
 }

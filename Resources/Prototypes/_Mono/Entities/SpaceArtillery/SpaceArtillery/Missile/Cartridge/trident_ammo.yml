@@ -24,7 +24,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 25
+    lifetime: 50
   - type: PointLight
     radius: 5
     color: orange
@@ -32,24 +32,24 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 150
+    maxIntensity: 250
     intensitySlope: 30
-    totalIntensity: 1000
+    totalIntensity: 2500
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 30
-    detectionRange: 750
-    scanArc: 75
+    acceleration: 60
+    detectionRange: 3000
+    scanArc: 15
     launchSpeed: 60
-    maxSpeed: 150
+    maxSpeed: 250
     trackDelay: 3
   # destructible components below
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 700
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -126,7 +126,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 15
+    lifetime: 30
   - type: PointLight
     radius: 5
     color: orange
@@ -135,11 +135,11 @@
   - type: MiningGatheringHard
   - type: TargetSeeking
     acceleration: 70
-    detectionRange: 750
-    scanArc: 15
+    detectionRange: 2000
+    scanArc: 10
     launchSpeed: 60
     maxSpeed: 275
-    trackDelay: 1
+    trackDelay: 1.4
   - type: Explosive
     explosionType: Default
     maxIntensity: 30
@@ -226,7 +226,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 15
+    lifetime: 30
   - type: PointLight
     radius: 5
     color: orange
@@ -240,12 +240,12 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 25
-    detectionRange: 750
-    scanArc: 45
+    acceleration: 60
+    detectionRange: 3500
+    scanArc: 25
     launchSpeed: 50
-    maxSpeed: 140
-    trackDelay: 3
+    maxSpeed: 170
+    trackDelay: 1
   - type: EmpOnTrigger
     range: 7
     energyConsumption: 2900000
@@ -254,7 +254,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 700
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

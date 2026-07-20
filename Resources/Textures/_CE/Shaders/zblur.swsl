@@ -1,10 +1,6 @@
 uniform sampler2D SCREEN_TEXTURE;
 uniform highp vec3 BLUR_COLOR;
-// 0 = no fog at all, 1 = a full z-level of depth haze. Fractional values fade the
-// effect continuously for levels seen from a grid in transit between them.
 uniform highp float STRENGTH;
-// Output opacity: used when compositing a transit grid pass, so ships dissolve
-// into the sky near the top of a gap. 1 for whole-screen fog usage.
 uniform highp float FADE;
 
 const highp float darken_strength = 0.3; // Darkness level 0.0 to 1.0

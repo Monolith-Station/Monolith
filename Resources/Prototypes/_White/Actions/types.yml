@@ -1,5 +1,5 @@
 - type: entity
-  id: ToggleNightVision
+  id: WWDPToggleNightVision
   name: Toggle Night Vision
   description: Toggles night vision.
   categories: [ HideSpawnMenu ]
@@ -11,7 +11,7 @@
     icon:
       sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
       state: icon
-    event: !type:ToggleNightVisionEvent
+    event: !type:WWDPToggleNightVisionEvent
 
 - type: entity
   id: ToggleThermalVision

@@ -8,3 +8,8 @@
   id: MonoCentrifugeProcessingStatic # used to let centrifuges always have basic processing
   recipes:
   - UraniumCentrifugeProcessingMini
+
+- type: latheRecipePack
+  id: MonoCentrifugeProcessingFullSizeStatic
+  recipes:
+  - UraniumCentrifugeProcessing # No reprocessing - it would lead to duplication.

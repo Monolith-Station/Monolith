@@ -28,6 +28,7 @@ gravity-generator-window-eta-none = N/A
 gravity-generator-window-eta-value = { TOSTRING($left, "m\\:ss") }
 
 ## pzn: mass limit examine
-gravity-generator-examine-max-mass = It's rated to hold [color=yellow]{ $mass }[/color] kilograms of shuttle aloft.
+## yes i know shuttle mass is actually in kilograms but shhhhhhh dont tell anyone
+gravity-generator-examine-max-mass = It's rated to hold [color=yellow]{ $mass }[/color] tons of shuttle aloft.
 gravity-generator-examine-load = The generator is running at [color={ $color }]{ $percent }%[/color] of it's capacity.
 gravity-generator-examine-load-unlimited = The generator doesn't appear to be running.

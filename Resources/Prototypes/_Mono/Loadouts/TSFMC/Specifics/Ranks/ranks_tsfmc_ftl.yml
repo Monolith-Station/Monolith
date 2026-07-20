@@ -1,0 +1,80 @@
+- type: loadout
+  id: TsfmcRankE4FTL
+  name: TSFMC E-4 (CPL)
+  components:
+  - type: ChatRank
+    rank: tsf-e4
+
+- type: loadout
+  id: TsfmcRankE5FTL
+  name: TSFMC E-5 (SGT)
+  components:
+  - type: ChatRank
+    rank: tsf-e5
+
+- type: loadout
+  id: TsfmcRankE6FTL
+  name: TSFMC E-6 (SSGT)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfmcFTLSSgt
+  components:
+  - type: ChatRank
+    rank: tsf-e6
+
+- type: loadoutEffectGroup
+  id: TsfmcFTLSSgt
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSeniorOfficer
+      time: 36000 # 10hr
+
+- type: loadout
+  id: TsfmcRankE7FTL
+  name: TSFMC E-7 (GYSGT) # Gay sergeant
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfmcFTLGySgt
+  components:
+  - type: ChatRank
+    rank: tsf-e7
+
+- type: loadoutEffectGroup
+  id: TsfmcFTLGySgt
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSeniorOfficer
+      time: 180000 # 50hr
+
+- type: loadout
+  id: TsfmcRankE8FTL
+  name: TSFMC E-8 (MSGT)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfmcFTLMSgt
+  components:
+  - type: ChatRank
+    rank: tsf-e8
+
+- type: loadout
+  id: TsfmcRankO1
+  name: TSFMC O-1 (2LT)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfmcFTLMSgt
+  components:
+  - type: ChatRank
+    rank: tsf-o1
+
+- type: loadoutEffectGroup
+  id: TsfmcFTLMSgt
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSeniorOfficer
+      time: 360000 # 100hr

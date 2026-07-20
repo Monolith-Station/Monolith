@@ -26,9 +26,7 @@ public sealed partial class CEZLevelsSystem
     private readonly List<Entity<MapGridComponent>> _gravityQueue = new();
 
     /// <summary>
-    /// pzn: pooled MaxHandledMass of active gravgens per grid, rebuilt in one pass
-    /// each gravity sweep. PositiveInfinity = at least one unrated (unlimited)
-    /// generator. Falling grids read this every frame, so it must stay a lookup.
+    /// pzn: pooled MaxHandledMass of active gravgens per grid.
     /// </summary>
     private readonly Dictionary<EntityUid, float> _gravgenCapacity = new();
 
@@ -44,13 +42,10 @@ public sealed partial class CEZLevelsSystem
     private TimeSpan _nextGravityCheckTime;
 
     /// <summary>
-    /// Grid gravity: unsupported grids on z-levels start falling (into transit), and
-    /// grids in transit accelerate downward until a gravity generator or the ground
-    /// says otherwise.
+    /// Drop grid if no gravgen.
     /// </summary>
     private void UpdateGridGravity(float frameTime)
     {
-        // Pilot vertical flight: read the consoles, then let parked ships spool up.
         CollectPilotVerticalInputs();
         UpdateTakeoffSpool();
 
@@ -59,12 +54,8 @@ public sealed partial class CEZLevelsSystem
         {
             _nextGravityCheckTime = _timing.CurTime + _gravityCheckTimer;
 
-            // Collect first: entering/hopping transit adds components mid-query otherwise.
             _gravityQueue.Clear();
 
-            // What actually holds a grid aloft is a working gravgen, the same thing
-            // GravitySystem.RefreshGravity scans for. Precompute pooled generator
-            // capacity per grid so the gate below stays O(grids + gravgens).
             _gravgenCapacity.Clear();
             _rigidSupportCache.Clear();
             var gravgenQuery = EntityQueryEnumerator<GravityGeneratorComponent, TransformComponent>();
@@ -102,25 +93,10 @@ public sealed partial class CEZLevelsSystem
                 if (_zGroundQuery.HasComp(mapUid))
                     continue;
 
-                // Parked/anchored ships hold position.
                 if (_physQuery.TryComp(uid, out var body) && body.BodyType == BodyType.Static)
                     continue;
 
-                // NOTE: Can't use IsWeightless() here - Monolith's rewrite requires a
-                // GravityAffectedComponent on the entity, which grids never have, so it
-                // always returns false for grids. Also can't use
-                // EntityGridOrMapHaveGravity(): it falls back to the parent *map*, and
-                // ground-layer maps carry inherent gravity (so mobs on the ground don't
-                // float), which would mean no grid on them ever falls.
-                // Only a working gravgen keeps a set aloft.
-                //
-                // A grid is held up when its whole RIGID SET — its z-network members plus
-                // everything docked to any of them — pools enough gravgen lift to carry the
-                // set's pooled mass, or any member rests on ground. Connectors and docking
-                // ports both bind grids into one falling body, so both pool their generators
-                // AND their weight: a docked tug's gravgen can hold the set up, and its mass
-                // also loads the set down. Unsupported sets enter transit together (the docked
-                // partners ride along via CollectGridSet inside TryEnterTransit).
+                // "Why not use IsWeightless on each grid-" Doesn't work on grids. I tried.
                 if (RigidSetHasSupport(uid))
                     continue;
 
@@ -136,7 +112,6 @@ public sealed partial class CEZLevelsSystem
             }
         }
 
-        // Clear out the queue.
         _gravityQueue.Clear();
 
         var transitQuery = EntityQueryEnumerator<CEZTransitMapComponent>();
@@ -168,19 +143,7 @@ public sealed partial class CEZLevelsSystem
         CheckTransitCollisions();
     }
 
-    /// <summary>
-    /// pzn: transit sets passing through each other explode. Every transit set rides
-    /// its own map, so physics never sees the overlap — sweep pairs of transit maps
-    /// sharing the same gap and, when their vertical bands and footprints intersect,
-    /// let each set flatten the other (both ways, so whichever side is "in transit"
-    /// makes no difference).
-    /// </summary>
     private readonly List<(EntityUid Map, CEZTransitMapComponent Transit, EntityUid Primary, float Progress)> _transitCollisionScan = new();
-
-    /// <summary>
-    /// Progress of every transit map on the previous gravity tick, used for the
-    /// pairwise crossing test in <see cref="CheckTransitCollisions"/>.
-    /// </summary>
     private readonly Dictionary<EntityUid, float> _transitLastProgress = new();
 
     private void CheckTransitCollisions()
@@ -215,10 +178,7 @@ public sealed partial class CEZLevelsSystem
                 if (a.Transit.LowerMap != b.Transit.LowerMap || a.Transit.UpperMap != b.Transit.UpperMap)
                     continue;
 
-                // Crossing test: collide only when the pair's vertical order flips
-                // (or they meet exactly) between ticks. Fires once at the crossing
-                // regardless of speed — a distance band would re-trigger every tick
-                // for slow sets and tunnel straight through for fast ones.
+                // If the maps didn't swap positions, they couldn't have collided (therefore, it is Not Our Problem)
                 if (!_transitLastProgress.TryGetValue(a.Map, out var prevA) ||
                     !_transitLastProgress.TryGetValue(b.Map, out var prevB))
                 {
@@ -228,12 +188,9 @@ public sealed partial class CEZLevelsSystem
                 var prevDelta = prevA - prevB;
                 var curDelta = a.Progress - b.Progress;
 
-                // Same ordering on both ticks — they never met.
                 if (prevDelta * curDelta > 0f)
                     continue;
 
-                // Cheap broadphase before Smimsh: all z-maps share one coordinate
-                // space, so world AABBs compare directly across the two transit maps.
                 if (!TryGetGridSetAabb(a.Primary, out var setA, out var aabbA) ||
                     !TryGetGridSetAabb(b.Primary, out var setB, out var aabbB) ||
                     !aabbA.Intersects(aabbB))
@@ -241,8 +198,6 @@ public sealed partial class CEZLevelsSystem
                     continue;
                 }
 
-                // Mutual crush: each set explodes whatever of the other sits in its
-                // footprint. CrushGrid deletes the victim, so this can't re-fire.
                 foreach (var gridUid in setA)
                     _shuttle.Smimsh(gridUid, crushMap: b.Map, explodeGrids: true, ignoredGrids: setA);
 
@@ -256,7 +211,6 @@ public sealed partial class CEZLevelsSystem
             }
         }
 
-        // Refresh tracking; clear-and-refill also prunes maps whose transit ended.
         _transitLastProgress.Clear();
         foreach (var entry in _transitCollisionScan)
         {
@@ -287,28 +241,20 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Accelerates a velocity toward a terminal speed on a smooth curve rather than
-    /// a hard clamp: full acceleration at rest, tapering to zero as the speed nears
-    /// <paramref name="terminalSpeed"/>, and none at all beyond it — so an
-    /// over-terminal launch boost coasts instead of being yanked back to the cap.
-    /// <paramref name="signedAccel"/>'s sign is the direction (positive = down, to
-    /// match <see cref="CEZGridFallerComponent.Velocity"/>).
+    /// Someone forgot their gravgen.
     /// </summary>
     private static float ApproachTerminal(float velocity, float signedAccel, float terminalSpeed, float frameTime)
     {
         if (terminalSpeed <= 0f || signedAccel == 0f)
             return velocity;
 
-        // Current speed in the direction we're pushing (0 if already moving the other way).
         var speedInDir = signedAccel > 0f ? MathF.Max(0f, velocity) : MathF.Max(0f, -velocity);
         var taper = Math.Clamp(1f - speedInDir / terminalSpeed, 0f, 1f);
         return velocity + signedAccel * taper * frameTime;
     }
 
     /// <summary>
-    /// Moves a value toward a target by at most <paramref name="maxDelta"/>. Used to
-    /// change fall speed at a bounded rate so it never snaps to a new value in a
-    /// single tick.
+    /// Moves a value toward a target by at most <paramref name="maxDelta"/>.
     /// </summary>
     private static float MoveTowards(float current, float target, float maxDelta)
     {
@@ -368,10 +314,6 @@ public sealed partial class CEZLevelsSystem
             }
             else
             {
-                // No pilot input: ease toward a target speed at a bounded rate so the
-                // velocity never snaps. Mid-gap the target is zero (hover); within a
-                // settle zone it's a gentle drift onto the nearer plane, scaled down
-                // by the remaining distance so touchdown is soft.
                 var target = 0f;
 
                 if (progress <= SettleZone)
@@ -400,9 +342,7 @@ public sealed partial class CEZLevelsSystem
                 faller.Velocity = MoveTowards(faller.Velocity, target, damp * frameTime);
             }
 
-            // Even under power you don't crater onto a ground layer: ease the descent
-            // speed down to a distance-scaled cap. A non-ground plane can still be
-            // punched through with the key held.
+            // Slow down when approaching a ground layer so people under you got some time to move.
             if (faller.Velocity > 0f && HasComp<CEZGroundLayerComponent>(groundMapBelow))
             {
                 var cap = MathF.Max(TouchdownSpeed, progress * ApproachGain);
@@ -411,11 +351,6 @@ public sealed partial class CEZLevelsSystem
             }
         }
 
-        // Mirror the fall speed onto the networked z-physics velocity (which uses the
-        // opposite sign: positive = up) so consoles can read it. Whole transit set,
-        // since a console may sit on a docked companion or another network layer.
-        // Follower fallers also track the lead's velocity so a mid-transit split
-        // leaves them falling at a real speed instead of resetting to zero.
         foreach (var member in transitSet)
         {
             SetZVelocity(member, -faller.Velocity);
@@ -432,7 +367,6 @@ public sealed partial class CEZLevelsSystem
         if (HasComp<CEZTransitMapComponent>(Transform(grid).MapUid))
             return;
 
-        // Touched down (SetTransitAltitude landed us below the network's bottom).
         var impact = faller.Velocity;
         faller.Velocity = 0f;
 
@@ -454,8 +388,7 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// A hard ground-layer touchdown: a small explosion on every hull tile plus one
-    /// central blast scaled by hull size.
+    /// kaboom?
     /// </summary>
     private void CrashGrid(Entity<MapGridComponent, CEZGridFallerComponent> ent)
     {
@@ -485,12 +418,7 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Whether the pooled rated capacity of every active gravity generator across a
-    /// set of rigidly-joined grids (a z-network, or a docked set) can hold the set's
-    /// pooled mass. Because the grids move as one body their generators share the
-    /// whole load, so capacity and mass are summed across the set rather than each
-    /// grid being weighed against only its own generators. An unrated generator
-    /// anywhere in the set lifts any finite load.
+    /// Will It Lift?
     /// </summary>
     private bool HasPooledGravgenSupport(IEnumerable<EntityUid> grids)
     {
@@ -623,13 +551,7 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// pzn: on-demand load readout for examine/UI: the pooled physics mass and the
-    /// pooled rated capacity of every *active* gravgen holding the grid up, same rules
-    /// as the gravity sweep (negative = unlimited, 0 = no lift hardware). When the grid
-    /// belongs to a z-grid network the whole network is pooled — matching the pooled
-    /// support decision in <see cref="RigidSetHasSupport"/> — so the readout reflects
-    /// whether the rigid stack actually stays aloft, not just this one grid. Unlike the
-    /// gravity sweep this recomputes instead of reading the throttled cache, so it's never stale.
+    /// pzn: Get the current load of the grid for gravgen examine.
     /// </summary>
     public bool TryGetGravgenLoad(EntityUid gridUid, out float gridMass, out float capacity)
     {
@@ -655,7 +577,6 @@ public sealed partial class CEZLevelsSystem
             if (!onSet)
                 continue;
 
-            // pzn: negative rating = infinite lift; 0 = pure gravity, no lift hardware at all.
             capacity += gravgen.MaxHandledMass < 0f ? float.PositiveInfinity : gravgen.MaxHandledMass;
         }
 

@@ -27,37 +27,16 @@ public sealed partial class CEZLevelsSystem
 {
     [Dependency] private IRobustRandom _random = default!;
 
-    /// <summary>
-    /// Seconds of continuously held ascend/descend before a ship parked on a GROUND
-    /// layer lifts off. No takeoffs from a bumped key. Sky layers have nothing
-    /// holding the ship down — leaving them is instant.
-    /// </summary>
     private const float SpoolSeconds = 1.5f;
 
-    /// <summary>
-    /// Downwash VFX on liftoff: one dust puff roughly every this many meters of
-    /// hull perimeter, on the map the ship is leaving.
-    /// </summary>
     private static readonly EntProtoId LiftoffDustProto = "CEZLiftoffDust";
     private const float LiftoffDustSpacing = 2f;
 
-    /// <summary>
-    /// Velocity gain when spool ends.
-    /// </summary>
     private const float SpoolLiftoffVelocity = 1.5f;
 
-    /// <summary>
-    /// A gap in held input longer than this restarts the takeoff spool.
-    /// </summary>
     private static readonly TimeSpan SpoolInputGap = TimeSpan.FromSeconds(0.25);
 
-    /// <summary>
-    /// Converts the docked set's lateral acceleration (total thruster force over
-    /// mass, in m/s²) into vertical acceleration in levels/s². Heavy ships with few
-    /// thrusters climb sluggishly; overbuilt greadonlyunboats leap.
-    /// </summary>
     private const float VerticalThrustScale = 0.05f;
-
     private const float MaxVerticalAccel = 0.75f;
 
     /// <summary>
@@ -73,8 +52,7 @@ public sealed partial class CEZLevelsSystem
     private const float HoverDampAccel = 0.3f;
 
     /// <summary>
-    /// Release-to-settle: a gravgen'd ship idling within this fraction of a plane
-    /// drifts onto it and lands. Keep the key held to punch through instead.
+    /// Release-to-settle: a gravgen'd ship idling within this fraction of a plane drifts onto it and lands.
     /// </summary>
     private const float SettleZone = 0.25f;
 
@@ -84,33 +62,23 @@ public sealed partial class CEZLevelsSystem
     private const float TouchdownProgress = 0.01f;
 
     /// <summary>
-    /// Descents that end on the plane below get capped to this speed profile:
-    /// max(TouchdownSpeed, distance * ApproachGain). Arrive gently, not as a crater.
+    /// Descents that end on the plane below get slowed down to this.
     /// </summary>
     private const float ApproachGain = 1.2f;
     private const float TouchdownSpeed = 0.06f;
 
     /// <summary>
-    /// A settling ship only exits transit once its vertical speed is at most this
-    /// (levels/second). Hotter approaches hold at the plane and bleed speed off
-    /// first instead of snapping out of transit at full tilt.
+    /// A settling ship only exits transit once its vertical speed is at most this (levels/second).
     /// </summary>
     private const float ExitTransitMaxSpeed = 0.1f;
 
     private readonly Dictionary<EntityUid, float> _pilotVerticalInput = new();
 
-    /// <summary>
-    /// Grids that showed a launch countdown last tick, so it can be cleared the tick
-    /// they stop spooling (the pilot let go) — those grids aren't otherwise visited.
-    /// </summary>
     private readonly HashSet<EntityUid> _spoolingGrids = new();
     private readonly HashSet<EntityUid> _spoolingGridsThisTick = new();
 
     /// <summary>
     /// Gathers each grid's net ascend/descend input from everyone at its consoles.
-    /// Read straight off <see cref="PilotComponent.HeldButtons"/>: it stays current
-    /// even for ground-parked ships whose shuttle is disabled, which is exactly
-    /// what takeoff needs.
     /// </summary>
     private void CollectPilotVerticalInputs()
     {
@@ -140,8 +108,7 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Net vertical input for the grid set occupying a transit map (every set member
-    /// shares the map, so any member's consoles count).
+    /// Net vertical input for the grid set occupying a transit map.
     /// </summary>
     private float GetTransitVerticalInput(EntityUid transitMap)
     {
@@ -159,8 +126,7 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Net vertical input across every layer of a transit convoy: pilots anywhere in
-    /// the stack vote on where the whole thing goes.
+    /// Net vertical input across every layer of a transit convoy.
     /// </summary>
     private float GetConvoyVerticalInput(List<EntityUid> convoyMaps)
     {
@@ -172,10 +138,8 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Vertical acceleration available to a transit set, in levels/s²: the sum of
-    /// every member's thrusters over the set's total mass. Direction doesn't matter
-    /// — every engine gimbals for lift. Network members on the same layer count:
-    /// connectors transmit thrust just like they transmit support.
+    /// Vertical acceleration available to a docked set, in levels/s²: the sum of
+    /// every member's thrusters over the set's total mass.
     /// </summary>
     private float GetVerticalThrustAccel(EntityUid grid)
     {
@@ -200,10 +164,6 @@ public sealed partial class CEZLevelsSystem
         return Math.Clamp(thrust / mass * VerticalThrustScale, 0f, MaxVerticalAccel);
     }
 
-    /// <summary>
-    /// Ships parked on a level surface lift off (or sink through their own plane)
-    /// after their pilots hold ascend/descend for the full spool time.
-    /// </summary>
     private void UpdateTakeoffSpool()
     {
         _spoolingGridsThisTick.Clear();
@@ -213,12 +173,12 @@ public sealed partial class CEZLevelsSystem
             if (TerminatingOrDeleted(gridUid) || !TryComp<MapGridComponent>(gridUid, out var grid))
                 continue;
 
-            // Airborne ships are handled by the transit integrator, not the spool.
+            // Transit maps are already in the air. If you're landed on a transit map you have much, MUCH bigger problems.
             var mapUid = Transform(gridUid).MapUid;
             if (mapUid == null || !HasComp<CEZMapComponent>(mapUid))
                 continue;
 
-            // No gravgen, no lift authority.
+            // No gravgen, dumbass.
             if (!TryComp<GravityComponent>(gridUid, out var gravity) || !gravity.Enabled)
                 continue;
 
@@ -235,33 +195,25 @@ public sealed partial class CEZLevelsSystem
 
             var faller = EnsureComp<CEZGridFallerComponent>(gridUid);
 
-            // Only ground layers hold a ship down enough to need a spool-up;
-            // hovering on a sky layer, the key just works.
+            // If you're in the air you can just move, your engines are hot enough for that.
             if (grounded)
             {
-                var direction = (sbyte)(down ? -1 : 1);
                 var now = _timing.CurTime;
 
-                if (faller.SpoolDirection != direction || now - faller.SpoolLastInput > SpoolInputGap)
-                {
-                    faller.SpoolDirection = direction;
+                if (now - faller.SpoolLastInput > SpoolInputGap)
                     faller.SpoolStart = now;
-                }
 
                 faller.SpoolLastInput = now;
 
                 var remaining = SpoolSeconds - (float)(now - faller.SpoolStart).TotalSeconds;
                 if (remaining > 0f)
                 {
-                    // Still spooling up: feed the console its launch countdown.
                     if (ZPhysicsQuery.TryComp(gridUid, out var spoolPhys))
                         SetLaunchCountdown((gridUid, spoolPhys), remaining);
                     _spoolingGridsThisTick.Add(gridUid);
                     continue;
                 }
             }
-
-            faller.SpoolDirection = 0;
 
             if (TryEnterTransit((gridUid, grid), preferUpperGap: !down))
             {
@@ -277,8 +229,6 @@ public sealed partial class CEZLevelsSystem
             }
         }
 
-        // Clear the countdown on any grid that was spooling but stopped this tick
-        // (the pilot let go) — those grids aren't in the input loop above.
         foreach (var prev in _spoolingGrids)
         {
             if (!_spoolingGridsThisTick.Contains(prev) && ZPhysicsQuery.TryComp(prev, out var prevPhys))
@@ -289,12 +239,6 @@ public sealed partial class CEZLevelsSystem
         _spoolingGrids.UnionWith(_spoolingGridsThisTick);
     }
 
-    /// <summary>
-    /// Kicks up a ring of dust around a grid set's hull on the map it just lifted off
-    /// from — the downwash of whatever is suddenly holding the ship up. Runs after
-    /// <see cref="TryEnterTransit"/>, so the set is already on its transit map but
-    /// still at the same world position.
-    /// </summary>
     private void SpawnLiftoffDust(EntityUid grid, EntityUid groundMap)
     {
         foreach (var member in CollectGridSet(grid))
@@ -320,7 +264,6 @@ public sealed partial class CEZLevelsSystem
 
     private void SpawnDustPuff(EntityUid map, Vector2 pos)
     {
-        // Map-local == world: all z-level maps share one coordinate space.
         Spawn(LiftoffDustProto, new EntityCoordinates(map, pos + _random.NextVector2(0.5f)));
     }
 }
