@@ -1,0 +1,41 @@
+# Author Info
+# Discord: marcell6469
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Venom
+  parent: BaseVessel
+  name: VG Venom
+  description: A medium sized destroyer with detainment capabilities. Armed with a Cyrex as its main cannon, 4 Dravon 90mm autocannons and 2 AK57 for maximum destruction
+  price: 120000
+  category: Medium
+  group: Viper
+  access: Viper
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Viper/venom.yml
+  guidebookPage: Null
+  class:
+  - Destroyer
+  - Detainment
+  engine:
+  - AME
+
+- type: gameMap
+  id: Venom
+  mapName: 'VG Venom'
+  mapPath: /SharedMaps/_Mono/Shuttles/Viper/venom.yml
+  minPlayers: 0
+  stations:
+    Venom:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Venom MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            VGInfanteer: [ 0, 0 ]
+            VGLieutenant: [ 0, 0 ]
+            VGCommander: [ 0, 0 ]

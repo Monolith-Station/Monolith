@@ -22220,3 +22220,508 @@ Entries:
   id: 2455
   time: '2026-07-05T19:38:50.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4218
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Shipyard previewing now works properly.
+  id: 2456
+  time: '2026-07-06T23:14:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4235
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: jaguar had internals updated to better match tsf ships
+  id: 2457
+  time: '2026-07-07T00:26:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4228
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: Changed Dymere's projectile speed (buffed) and lifetime (reduced)
+    - type: Tweak
+      message: altair can now fire its main cannonade entirely frontally
+  id: 2458
+  time: '2026-07-07T00:30:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4219
+- author: EldritchPineapple
+  changes:
+    - type: Fix
+      message: Aldebaran got 3 (three) semiotics that were missing
+  id: 2459
+  time: '2026-07-07T00:31:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4217
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed ships with 4 letter designation suffixes (such as TSFN/USSP) being
+        fully renamable.
+  id: 2460
+  time: '2026-07-07T03:39:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4239
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Buffed Xian DMR movement speed. Now only 0.8x multiplier on wield.
+  id: 2461
+  time: '2026-07-07T16:25:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4238
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Buffed Iroh RPS
+  id: 2462
+  time: '2026-07-07T19:34:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4229
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added Chatranks for CC, MD, VG, USSP, TSF, and PDV. TSF gets selectable
+        chatranks in loadout, others don't because I'm lazy and nobody made full
+        ranks for them yet.
+  id: 2463
+  time: '2026-07-08T13:46:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4240
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Night vision has been updated using new systems from Wizden. Bright
+        lights hurt now, ouch.
+    - type: Tweak
+      message: >-
+        Added night vision to CV-32, CV-53, & CV-67, and added a basic
+        short-range NVD system to all hardsuits.
+  id: 2464
+  time: '2026-07-08T14:07:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4244
+- author: kasature90
+  changes:
+    - type: Remove
+      message: Removed Asakim.
+  id: 2465
+  time: '2026-07-08T15:58:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4246
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Changed Annie sprite to not look so much like Lecter.
+  id: 2466
+  time: '2026-07-08T20:51:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4243
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Shenzhen now has a forced laser pointer, 2x DU cost (1 unit for a mag,
+        1.2 for the gun itself), and is now 120 pierce with 0.8 AP instead of
+        180 pierce with no AP.
+    - type: Fix
+      message: Fixed laser pointers for guns not working.
+    - type: Fix
+      message: Fixed Shenzhen's projectile going through glass doors.
+  id: 2467
+  time: '2026-07-08T20:53:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4213
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added Kortik as a heavily-armored T3 PDV ship, with multiple layers of
+        reinforced plastitanium, but unable to use shields.
+  id: 2468
+  time: '2026-07-08T21:18:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4237
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed Shenzhen ammo boxes having the wrong bullets.
+    - type: Fix
+      message: Fixed TSF naval ranks not requiring any time to unlock.
+  id: 2469
+  time: '2026-07-09T21:55:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4251
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added better radar signatures for missiles. Now shows a line for its
+        direction, plus lines for its scanning arcs.
+  id: 2470
+  time: '2026-07-10T16:28:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4232
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Reduced the delay on the toggle NVGs action.
+    - type: Tweak
+      message: >-
+        Buffed radius on basic hardsuit NVGs, buffed NVGs on M82c, CV-32, CV-67,
+        and U.I. engineering suits.
+  id: 2471
+  time: '2026-07-10T19:17:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4253
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: The Spica is now a decent (maybe too decent) emp pursuer
+  id: 2472
+  time: '2026-07-10T19:18:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4223
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: >-
+        the Shiv ad Hoplite have received a fresh coat of paint (the rust still
+        shows on the Shiv)
+  id: 2473
+  time: '2026-07-10T19:18:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4222
+- author: strace-enjoyer
+  changes:
+    - type: Fix
+      message: Fixed spontaneous plasmaflood in Dev
+  id: 2474
+  time: '2026-07-10T19:22:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4083
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a T3 Kortik variant w/ 2 mass-drivers instead of howtizers, moved
+        current Kortik to T2 PDV.
+  id: 2475
+  time: '2026-07-11T16:57:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4259
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Adds the VG Venom.
+  id: 2476
+  time: '2026-07-11T18:57:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4147
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added spec-ops roles for TSF & PDV, for hyperwar only.
+  id: 2477
+  time: '2026-07-11T19:13:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4258
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Resprited handrails.
+  id: 2478
+  time: '2026-07-11T19:57:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4261
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added TSFN Type-98F Chengdu-class Cruiser. Exclusive to hyperwar,
+        roundstart like Jupiter. PDV equivalent will be ready in time.
+  id: 2479
+  time: '2026-07-12T14:32:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4221
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Changed more NVG phosphors on TSF & PDV suits.
+  id: 2480
+  time: '2026-07-14T01:36:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4274
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Important POIs have less asteroids/drones around them now.
+    - type: Tweak
+      message: >-
+        Changed dungeon POIs (like LBP) to spawn out further. Should help with
+        camelot getting glassed by it.
+  id: 2481
+  time: '2026-07-14T01:37:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4272
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added Nuclear hyperwar.
+  id: 2482
+  time: '2026-07-14T18:14:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4271
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added grenades to lathes for (nearly) everyone. Roundstart and cheap as
+        hell, go crazy.
+    - type: Add
+      message: Reagent smokes (including teargas) hide you from thermals now.
+  id: 2483
+  time: '2026-07-14T18:15:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4276
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added Vympel as a new T0/T1 rifle for PDV. Roundstart in loadout.
+    - type: Tweak
+      message: >-
+        Nerfed Iroh to 8.4 RPS, removed crafting recipe. Added 1.5x damage to
+        Xian & AK-410. Buffed 4.6 & 5.7 FMJ's partial AP, buffed AP rounds for
+        them too. Unnerfed M-90, moved it back to T2 research. Removed damage
+        penalty from Annie & MLA-73, added 0.85x damage multiplier to C-20r.
+        Malandro is now 9x19mm with a 0.85x damage multiplier. Increased
+        slowdown for Shenzhen on wield. Hristov damage buffed to 80, slowdown
+        reduced to 0.6x. Buffed 6.35x40mm caseless AP and damage. Grizzly is no
+        longer multicaliber, and is now 6.8x52mm only.
+    - type: Fix
+      message: >-
+        Fixed Flagbearer and Shenzhen fitting into bags. Now only fits in suit
+        storage or backpack slot.
+    - type: Fix
+      message: Fixed DEW/QBH one-handed accuracy being really high/perfect.
+  id: 2484
+  time: '2026-07-14T18:21:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4270
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Slowed parallax background scrolling to compensate for our significantly
+        higher top speeds
+  id: 2485
+  time: '2026-07-14T18:26:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4277
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Updates the Venom to have spawn/warp points.
+  id: 2486
+  time: '2026-07-14T18:45:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4263
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Generally buffed ship missiles range greatly and explosive power, but
+        gave them reduced scanning arcs and increased recipe costs. Launchers
+        are also unanchorable now.
+  id: 2487
+  time: '2026-07-14T18:46:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4230
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added an industrial-sized uranium centrifuge to drillsite, and a NFR.
+        Much better at the job, I assure you.
+    - type: Tweak
+      message: >-
+        Buffed the drills on the derelict drillsite speed by 10x. Increased
+        power draw too.
+  id: 2488
+  time: '2026-07-14T18:55:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4257
+- author: Corrupt142
+  changes:
+    - type: Fix
+      message: >-
+        turrets no longer suffer from bluetooth bullets (they can hit mobs right
+        next to them
+  id: 2489
+  time: '2026-07-14T19:15:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4254
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        90mm Flak ammo. Make it in a lathe or buy it at cargo, put it in your
+        Dravons.
+  id: 2490
+  time: '2026-07-15T03:25:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4278
+- author: Huaqas
+  changes:
+    - type: Fix
+      message: Fixed some modsuits showing as errors for Resomi.
+    - type: Fix
+      message: >-
+        Artefacts should not appear around Resomi character when picking up
+        large items/clothing.
+  id: 2491
+  time: '2026-07-15T18:20:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4109
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed walls being able to exist without being on a grid. No more
+        original entity already existing when I'm trying to SRD.
+  id: 2492
+  time: '2026-07-15T23:30:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4283
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed some minor bugs with Drillsite.
+  id: 2493
+  time: '2026-07-15T23:52:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4282
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: >-
+        Caelestinus Central rises from the old hull with much needed touch-ups,
+        a redesign, and entirely new sections!
+    - type: Remove
+      message: >-
+        With the addition of a new and improved Central station; Trade Mall and
+        Medical Dispatch have been smote.
+  id: 2494
+  time: '2026-07-16T05:22:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4155
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: Added a new flatpack vendor for CC use.
+    - type: Remove
+      message: Removed some tiles around the bus stop- maybe it will move over there?
+    - type: Tweak
+      message: >-
+        Swapped around the shipyard consoles. Swapped various vendors for
+        station-exclusive variants. Enjoy your taxes. Swapped mail carrier
+        airlock with cargo sprite... why...?
+    - type: Fix
+      message: >-
+        Fixed 50 50 atmos distro. Fixed access issues on doors. Fixed no
+        observer spawn. Fixed a lack of cargo functionality.
+  id: 2495
+  time: '2026-07-17T08:30:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4297
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed cases where guns could get negative spread from attachments.
+  id: 2496
+  time: '2026-07-17T08:58:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4301
+- author: kasature90
+  changes:
+    - type: Add
+      message: Resprited ammo boxes & magazines *almost* fully.
+  id: 2497
+  time: '2026-07-17T19:09:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4300
+- author: projectkepler-ru
+  changes:
+    - type: Add
+      message: 2 new TSF Tier 2 rifle, the Riversong and Dragonfang.
+  id: 2498
+  time: '2026-07-17T19:41:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4280
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added 57mm Homing, 20mm anti-shield, 30mm HE, 150mm APHE, 250mm HV
+        missiles (Tovek/Paladin), CHARON APHE, CHARON EMP, 255mm minelayer,
+        255mm EMP, 90mm minelayer, 220mm cluster-HE, and 220mm cluster-homing
+        ship ammo.
+    - type: Tweak
+      message: Buffed CHARON subnuclear explosion by a lot.
+    - type: Fix
+      message: Fixed 90mm flak ammo using the same sprite as HE.
+  id: 2499
+  time: '2026-07-18T02:35:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4299
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: 'HYPERWAR: tweaked jupiter a bit while also fixing some mistakes'
+  id: 2500
+  time: '2026-07-18T08:09:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4302
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: Added ore magnets to eris and shiv
+    - type: Tweak
+      message: Remapped shiv
+  id: 2501
+  time: '2026-07-18T08:34:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4294
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the Polaris's internal layout slightly and made it so it didn't
+        blind everyone with 500 lights
+  id: 2502
+  time: '2026-07-18T08:37:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4288
+- author: EldritchPineapple
+  changes:
+    - type: Add
+      message: Added two frontal fangs to the Saintie for defense
+    - type: Tweak
+      message: >-
+        reworked the saintie external look with lattices, added some armor
+        (changed a few walls) to make it a little more survivable in some places
+  id: 2503
+  time: '2026-07-18T08:38:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4291
+- author: projectkepler-ru
+  changes:
+    - type: Fix
+      message: missing hydrakin & lizard sprite for marsoc fit
+  id: 2504
+  time: '2026-07-18T09:04:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4307
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added Fujian carrier for TSF T3.
+  id: 2505
+  time: '2026-07-18T13:50:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4252
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Nerfed 90mm minelayer ammo to 12 rounds/mag, increased radar signature.
+    - type: Tweak
+      message: Doubled subnuclear shell fissile cost, ~2/3 explosive power.
+  id: 2506
+  time: '2026-07-18T21:06:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4309
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed issues with the nuke codes & announcement in Hyperwar.
+  id: 2507
+  time: '2026-07-18T23:56:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4311
+- author: waphun
+  changes:
+    - type: Tweak
+      message: >-
+        The Shiv should have gravity now and its mining pulsers properly overlap
+        now
+  id: 2508
+  time: '2026-07-19T16:06:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4310
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Nuclear reactors & gas turbines are locked to general faction stuff now
+        instead of higher-access roles like FTLs.
+  id: 2509
+  time: '2026-07-19T20:09:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4319
+- author: kasature90
+  changes:
+    - type: Add
+      message: Ported Wizden turret control system. Not mapped anywhere though.
+  id: 2510
+  time: '2026-07-19T20:11:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4315

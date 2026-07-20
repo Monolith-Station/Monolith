@@ -511,6 +511,20 @@
 
 # Rifles
 
+- type: loadout #Riversong
+  id: FactionRiversongLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleRiversong
+
+- type: loadout #Dragonfang
+  id: FactionDragonfangLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleDragonfang
+
 - type: loadout #Lecter
   id: FactionLecterLoadout
   price: 0
@@ -518,7 +532,14 @@
     back:
     - WeaponRifleLecter
 
-- type: loadout #Lecter Ammo
+- type: loadout #C20r
+  id: FactionVympelLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleVympel
+
+- type: loadout #Vympel Ammo
   id: Faction556x45mmAmmoLoadout
   price: 0
   storage:

@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Client.Mind;
 using Content.Shared._Mono.Shipyard;
 using Content.Shared._NF.Shipyard.Prototypes;
@@ -41,6 +42,7 @@ public sealed class ShipyardPreviewSystem : SharedShipyardPreviewSystem
                 opts))
             return false;
 
+        _xform.SetMapCoordinates(grid.Value, new MapCoordinates(Vector2.Zero, _previewMap));
         _meta.SetEntityName(grid.Value, vessel.Name);
         CurrentGrid = grid.Value;
         return true;
