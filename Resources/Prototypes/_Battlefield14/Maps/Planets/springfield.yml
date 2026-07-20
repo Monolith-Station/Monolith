@@ -1,7 +1,7 @@
 - type: gameMap
   id: BF14Springfield
   mapName: 'Springfield'
-  mapPath: /Maps/_Battlefield14/Planets/springfield.yml
+  mapPath: /Maps/_Battlefield14/Planets/MultiZ/BF14SpringfieldZMap1.yml
   minPlayers: 1
   maxPlayers: 50
   randomRotation: false
@@ -35,5 +35,19 @@
             USPDWarden: [ 1, 1 ]
             USPDOfficer: [ 1, 1 ]
             CivilianUS: [ 3, 3]
-        - type: StationBiome
-          biome: Grasslands
+        - type: CEStationZLevels
+          mapsAbove:
+            - /Maps/_Battlefield14/Planets/MultiZ/BF14SpringfieldZMap2.yml
+          mapsBelow:
+            - /Maps/_Battlefield14/Planets/MultiZ/BF14SpringfieldZMap0.yml
+          zLevelsComponentOverrides:
+            - type: CEAutoGridGravity
+
+- type: zMap
+  id: BF14SpringfieldZMap
+  maps:
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14SpringfieldZMap0.yml    # Level 0
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14SpringfieldZMap1.yml    # Level 1
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14SpringfieldZMap2.yml    # Level 2
+  components:
+    - type: CEAutoGridGravity
