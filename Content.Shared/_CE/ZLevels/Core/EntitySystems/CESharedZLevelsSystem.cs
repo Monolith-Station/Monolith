@@ -47,14 +47,12 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
     [Dependency] private EntityQuery<CEZLevelHighGroundComponent> _zHighGroundQuery = default!;
 
     private bool _clientSimulation;
-    private TimeSpan _fixedTimestep;
 
     public override void Initialize()
     {
         base.Initialize();
 
         _config.OnValueChanged(CCVars.ZLevelsPhysicsClientSimulation, i => _clientSimulation = i, true);
-        _config.OnValueChanged(CCVars.ZLevelsPhysicsTickRate, i => _fixedTimestep = TimeSpan.FromSeconds(1d / i), true);
 
         InitializeActivation();
         InitializeCacheHooks();

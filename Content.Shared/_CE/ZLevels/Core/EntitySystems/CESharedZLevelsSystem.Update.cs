@@ -22,16 +22,7 @@ public abstract partial class CESharedZLevelsSystem
         if (_net.IsClient && !_clientSimulation)
             return;
 
-        _accumulatedTime += TimeSpan.FromSeconds(frameTime);
-
-        var steps = 0;
-        while (_accumulatedTime >= _fixedTimestep && steps < MaxStepsPerFrame)
-        {
-            UpdateZPhysics((float) _fixedTimestep.TotalSeconds);
-            _accumulatedTime -= _fixedTimestep;
-
-            steps++;
-        }
+        UpdateZPhysics(frameTime);
     }
 
     private void UpdateZPhysics(float frameTime)
@@ -55,6 +46,10 @@ public abstract partial class CESharedZLevelsSystem
                 _activeBodies.RemoveAt(i);
                 continue;
             }
+
+            // Mono: The client only handles predicted stuff (non-predicted is the server's problem)
+            if (_net.IsClient && !physics.Predict)
+                continue;
 
             ProcessZPhysics((uid, zPhysicsComponent, physics), frameTime);
         }

@@ -15,7 +15,6 @@ namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
 
 public abstract partial class CESharedZLevelsSystem
 {
-    private TimeSpan _accumulatedTime = TimeSpan.Zero;
     private readonly List<EntityUid> _dirtyMovementBodies = new();
 
     private void InitializeMovement()

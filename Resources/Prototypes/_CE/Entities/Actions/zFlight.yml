@@ -1,5 +1,3 @@
-# Mono: flight action protos referenced by CEControllableFlightComponent;
-# never shipped upstream, authored here after the existing zLevels.yml actions.
 - type: entity
   id: CEActionZFlightUp
   name: Fly up
@@ -33,5 +31,8 @@
     checkCanInteract: false
     icon:
       sprite: _CE/Actions/zLevels.rsi
-      state: eye
+      state: toggle_flight
+    iconOn:
+      sprite: _CE/Actions/zLevels.rsi
+      state: toggle_flight_on
     event: !type:ToggleActionEvent

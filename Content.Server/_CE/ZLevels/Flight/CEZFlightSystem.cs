@@ -43,7 +43,8 @@ public sealed partial class CEZFlightSystem : CESharedZFlightSystem
                 continue;
 
             flyer.NextStaminaDrain = now + DrainInterval;
-            _stamina.TakeStaminaDamage(uid, flyer.HoverStaminaDrain, stamina, visual: false);
+            var drain = flyer.HoverStaminaDrain * GetMassFactor((uid, flyer));
+            _stamina.TakeStaminaDamage(uid, drain, stamina, visual: false);
         }
     }
 
@@ -67,8 +68,5 @@ public sealed partial class CEZFlightSystem : CESharedZFlightSystem
         _actions.AddAction(ent, ref ent.Comp.ZLevelUpActionEntity, ent.Comp.UpActionProto);
         _actions.AddAction(ent, ref ent.Comp.ZLevelDownActionEntity, ent.Comp.DownActionProto);
         _actions.AddAction(ent, ref ent.Comp.ZLevelToggleActionEntity, ent.Comp.ToggleActionProto);
-
-        _actions.SetEnabled(ent.Comp.ZLevelDownActionEntity, flyerComp.Active);
-        _actions.SetEnabled(ent.Comp.ZLevelUpActionEntity, flyerComp.Active);
     }
 }

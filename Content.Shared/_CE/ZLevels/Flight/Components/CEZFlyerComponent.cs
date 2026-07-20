@@ -24,7 +24,7 @@ public sealed partial class CEZFlyerComponent : Component
     public float FlightSpeed = 1.5f;
 
     /// <summary>
-    /// Stamina drained per second while flying. At stamina crit the flyer collapses and falls.
+    /// Stamina drained per second while flying.
     /// </summary>
     [DataField]
     public float HoverStaminaDrain;
@@ -32,17 +32,18 @@ public sealed partial class CEZFlyerComponent : Component
     [DataField]
     public float FlightMoveSpeedModifier = 1f;
 
-    public TimeSpan NextStaminaDrain = TimeSpan.Zero;
-
-    [DataField]
-    public float DefaultGravityIntensity = 1f;
-
     /// <summary>
-    /// Spawned on client only every tick in flight state
+    /// Fixture mass at which the configured drain and speeds apply unchanged.
+    /// Heavier flyers drain faster and fly slower; lighter ones the reverse.
     /// </summary>
     [DataField]
-    public EntProtoId? FlightVfx;
+    public float ReferenceMass = 70f;
 
     [DataField]
-    public TimeSpan NextVfx = TimeSpan.Zero;
+    public float MinMassFactor = 0.5f;
+
+    [DataField]
+    public float MaxMassFactor = 2f;
+
+    public TimeSpan NextStaminaDrain = TimeSpan.Zero;
 }
