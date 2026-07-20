@@ -1,0 +1,65 @@
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: BF14ClothingOuterCoatCivGreen
+  name: green jacket
+  description: A comfortable green jacket.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/OuterClothing/Coats/civcoat_green.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/OuterClothing/Coats/civcoat_green.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: BF14ClothingOuterCoatCivBlack
+  name: black jacket
+  description: A comfortable black jacket.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/OuterClothing/Coats/civcoat_black.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/OuterClothing/Coats/civcoat_black.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: BF14ClothingOuterCoatCivRed
+  name: red jacket
+  description: A comfortable red jacket.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/OuterClothing/Coats/civcoat_red.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/OuterClothing/Coats/civcoat_red.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: BF14ClothingOuterCoatCivUkr
+  name: fancy jacket
+  description: A comfortable multi-colour jacket.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/OuterClothing/Coats/civcoat_ukr.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/OuterClothing/Coats/civcoat_ukr.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: BF14ClothingOuterCoatEMS
+  name: EMS jacket
+  description: An orange and black jacket for emergency medical technicians.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/OuterClothing/Coats/emsjacket.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/OuterClothing/Coats/emsjacket.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: BF14ClothingOuterCoatFirstResponder
+  name: first responder jacket
+  description: A bright yellow and black jacket for first responders.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/OuterClothing/Coats/frjacket.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/OuterClothing/Coats/frjacket.rsi

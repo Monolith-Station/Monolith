@@ -17,6 +17,24 @@
       time: 7200 # 2 hr
 
 - type: loadoutEffectGroup
+  id: BF_BW_VET
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: BW
+      time: 7200 # 2 hr
+
+- type: loadoutEffectGroup
+  id: BF_BW_SL_VET
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBWSquadLeader
+      time: 7200 # 2 hr
+
+- type: loadoutEffectGroup
   id: BF_VDV_VET
   effects:
   - !type:JobRequirementLoadoutEffect

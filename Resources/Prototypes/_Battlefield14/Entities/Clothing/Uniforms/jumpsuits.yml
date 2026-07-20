@@ -14,11 +14,15 @@
     factionId: "Nato"
 
 - type: entity
-  parent: ClothingUniformJumpsuitMilitaryGenetics
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSpaceForceCrewman
   name: USSF crewman uniform
   description: A full uniform for crew aboard United States Space Force vessels.
   components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/blue_utility_crew.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Uniforms/Jumpsuit/blue_utility_crew.rsi
   - type: Faction
     factionId: "Nato"
 

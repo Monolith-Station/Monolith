@@ -17,6 +17,24 @@
   - WeaponCaseShortUSM1911
 
 - type: loadout
+  id: LoadoutGunDEUSPMatchBWSLVET
+  name: USP match gun case
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_BW_SL_VET
+  inhand:
+  - WeaponCaseShortDEUSPMatch
+
+- type: loadout
+  id: LoadoutGunDEUSP45BWVET
+  name: USP45 gun case
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BF_BW_VET
+  inhand:
+  - WeaponCaseShortDEUSP45
+
+- type: loadout
   id: LoadoutGunSR1MPVDVSLVET
   name: SR1MP gun case
   effects:

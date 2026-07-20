@@ -132,6 +132,34 @@
 #region BODY (uniform/armour)
 
 - type: loadoutGroup
+  id: BF_JumpsuitsCivilianUS
+  name: loadout-group-BF14-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LoadoutUniformJumpsuitPlain
+  - LoadoutUniformJumpsuitWorker
+  - LoadoutJumpsuitCivilianPlainGraphicChud
+  - LoadoutJumpsuitCivilianPlainGraphicHate
+  - LoadoutJumpsuitCivilianPatrioticUSA1
+  - LoadoutJumpsuitCivilianPatrioticUSA2
+  - LoadoutJumpsuitCivilianPatrioticUSA3
+
+- type: loadoutGroup
+  id: BF_OuterCivilianUS
+  name: Outer clothes
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - LoadoutOuterBlackTrenchcoat
+  - LoadoutOuterWorkerHighViz
+  - LoadoutOuterWorkJacket
+  - LoadoutOuterCoatCivGreen
+  - LoadoutOuterCoatCivBlack
+  - LoadoutOuterCoatCivRed
+  - LoadoutOuterCoatCivUkr
+
+- type: loadoutGroup
   id: BF_JumpsuitsCivilianRU
   name: loadout-group-BF14-jumpsuit
   minLimit: 1
@@ -183,6 +211,10 @@
   - LoadoutOuterBlackTrenchcoat
   - LoadoutOuterWorkerHighViz
   - LoadoutOuterWorkJacket
+  - LoadoutOuterCoatCivGreen
+  - LoadoutOuterCoatCivBlack
+  - LoadoutOuterCoatCivRed
+  - LoadoutOuterCoatCivUkr
 
 - type: loadoutGroup
   id: BF_OuterScavRU
@@ -193,6 +225,10 @@
   - LoadoutOuterBlackTrenchcoat
   - LoadoutOuterWorkerHighViz
   - LoadoutOuterWorkJacket
+  - LoadoutOuterCoatCivGreen
+  - LoadoutOuterCoatCivBlack
+  - LoadoutOuterCoatCivRed
+  - LoadoutOuterCoatCivUkr
   - LoadoutOuterArmorRU6B2Vest
 
 - type: loadoutGroup
@@ -242,17 +278,37 @@
   - LoadoutUniformJumpsuitCombatScavBoss
 
 - type: loadoutGroup
-  id: BF_JumpsuitsCivilianUS
+  id: BF_JumpsuitsCivilianUANationalist
   name: loadout-group-BF14-jumpsuit
   minLimit: 1
   maxLimit: 1
   loadouts:
   - LoadoutUniformJumpsuitPlain
+  - LoadoutUniformJumpsuitWorker
   - LoadoutJumpsuitCivilianPlainGraphicChud
   - LoadoutJumpsuitCivilianPlainGraphicHate
+  - LoadoutUniformJumpsuitDealer
+  - LoadoutUniformJumpsuitHunter
   - LoadoutJumpsuitCivilianPatrioticUSA1
-  - LoadoutJumpsuitCivilianPatrioticUSA2
-  - LoadoutJumpsuitCivilianPatrioticUSA3
+
+- type: loadoutGroup
+  id: BF_JumpsuitsCivilianRUEMT
+  name: loadout-group-BF14-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LoadoutUniformJumpsuitPlain
+  - LoadoutUniformJumpsuitWorker
+
+- type: loadoutGroup
+  id: BF_OuterCivilianRUEMT
+  name: Outer clothes
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - LoadoutOuterCoatEMS
+  - LoadoutOuterCoatFirstResponder
+  - LoadoutOuterCoatCivUkr
 
 #region BACK
 
@@ -319,6 +375,15 @@
   loadouts:
   - LoadoutGunFiveSevenUSMCSLVET
   - LoadoutGunUSM1911USMCVET
+
+- type: loadoutGroup
+  id: BF_PistolsBW
+  name: loadout-group-BF14-sidearm
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - LoadoutGunDEUSPMatchBWSLVET
+  - LoadoutGunDEUSP45BWVET
 
 - type: loadoutGroup
   id: BF_PistolsVDVSL
