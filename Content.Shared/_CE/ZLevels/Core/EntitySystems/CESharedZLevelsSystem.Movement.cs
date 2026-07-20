@@ -580,10 +580,16 @@ public struct CEZLevelHitEvent(float impactPower)
 /// Is called every frame to calculate the current vertical velocity of the active zphysics entities.
 /// </summary>
 [ByRefEvent]
-public struct CEGetZVelocityEvent(Entity<CEZPhysicsComponent> target)
+public struct CEGetZVelocityEvent(Entity<CEZPhysicsComponent> target, float frameTime)
 {
     public Entity<CEZPhysicsComponent> Target = target;
     public float VelocityDelta = 0;
+
+    /// <summary>
+    /// The substep length the returned <see cref="VelocityDelta"/> is integrated over, so
+    /// handlers can predict where this step lands and clamp against overshooting a plane.
+    /// </summary>
+    public float FrameTime = frameTime;
 }
 
 /// <summary>

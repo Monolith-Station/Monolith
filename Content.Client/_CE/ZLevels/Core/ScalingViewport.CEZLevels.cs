@@ -342,12 +342,10 @@ public sealed partial class ScalingViewport
                 var zEye = new ZEye(lowestDepth, depth, highestDepth)
                 {
                     Position = new MapCoordinates(_fallbackEye.Position.Position, mapComp.MapId),
-                    // Not gated on depth >= 0: an airborne viewer's own map sits at a
-                    // small negative depth but their walls still block sight.
+                    // For overlay guards and other random shit that should only ever run on the actual eye and not the rest.
+                    Primary = mapUid == playerMap && !isTransit,
                     DrawFov = _fallbackEye.DrawFov && allowFov,
                     DrawLight = _fallbackEye.DrawLight,
-                    // A pass with a cloud deck never wants the skybox: the deck IS
-                    // the backdrop, and parallax would paint over it.
                     DrawParallax = !isTransit && depth == lowestDepth && cloudDeck == null,
                     Offset = _fallbackEye.Offset + offset,
                     Rotation = _fallbackEye.Rotation,
@@ -394,7 +392,7 @@ public sealed partial class ScalingViewport
                         BlitTransitCloudGhost(renderHandle, viewport, sinkEye, cloudDeck.CloudColor, tint: t, alpha: 1f - t);
                     }
                 }
-                if (mapUid == playerMap && depth == 0f)
+                if (mapUid == playerMap && depth <= 0.001f)
                     DrawCloudWisps(renderHandle, viewport, cloudDeck.CloudColor);
 
                 else if (depth > -0.5f)
@@ -638,5 +636,13 @@ public sealed partial class ScalingViewport
         /// whether parallax draws (only used on the actual bottom layer of a z stack so transit doesnt explode time)
         /// </summary>
         public bool DrawParallax = true;
+
+        /// <summary>
+        /// Marker for which eye the player sees as their "primary" one (the one their entity is on).
+        /// This is here to make anyone messing with screenspace overlay's lives easier.
+        ///
+        /// (You should add a guard like the one in Vignette if it applies to every eye.)
+        /// </summary>
+        public bool Primary;
     }
 }

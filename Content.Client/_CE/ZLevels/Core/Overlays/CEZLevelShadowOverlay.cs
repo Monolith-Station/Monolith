@@ -4,160 +4,163 @@
  */
 
 using System.Numerics;
-using Content.Client._CE.ZLevels.Core;
+using Content.Client.Light;
 using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared.Maps;
 using Robust.Client.Graphics;
-using Robust.Shared.Console;
 using Robust.Shared.Enums;
+using Robust.Shared.Log;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Timing;
 
 namespace Content.Client._CE.ZLevels.Core.Overlays;
 
-/// <summary>
-/// Casts drop shadows of the grids overhead onto the z-level being drawn: for the map in a
-/// z-render pass, every grid on the levels ABOVE it — real z-levels and the transit maps holding
-/// grids mid-descent in the gaps between them — stamps its tile footprint as a dark, tile-shaped
-/// overlay. All z-maps share one world coordinate space, so a tile at world (x,y) overhead
-/// shadows the same (x,y) here. Shadows fade with each level of distance and stack where
-/// structures overlap. Drawn on every pass, so floating grids darken the floor beneath them.
-/// Toggle with <c>showzlevelshadows</c>.
-/// </summary>
-public sealed class CEZLevelShadowOverlay : Overlay
+public sealed partial class CEZLevelShadowOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entityManager = null!;
-    [Dependency] private readonly IMapManager _mapManager = null!;
+    private readonly IEntityManager _entManager;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private ITileDefinitionManager _tileDefMan = default!;
 
-    private readonly SharedMapSystem _maps;
-    private readonly SharedTransformSystem _transform;
-    private readonly CEClientZLevelsSystem _zLevels;
-
-    /// <summary>How many z-levels up to gather shadow casters from.</summary>
-    private const int MaxShadowLevels = 3;
-
-    /// <summary>Shadow opacity at one level of distance; it strengthens as distance drops toward 0
-    /// (a grid hovering just over the floor) and fades by <see cref="LevelFalloff"/> per level up.</summary>
-    private const float BaseAlpha = 0.35f;
-    private const float LevelFalloff = 0.55f;
+    private readonly EntityLookupSystem _lookup;
+    private readonly SharedMapSystem _mapSystem;
+    private readonly SharedTransformSystem _xformSystem;
+    private readonly CESharedZLevelsSystem _zLevel;
 
     private List<Entity<MapGridComponent>> _grids = new();
+    private readonly List<(Entity<MapGridComponent> Grid, float Height)> _shadowGrids = new();
+    private readonly Dictionary<EntityUid, float> _shadowMapGaps = new();
 
-    // Reused each Draw: the chain of z-level maps at and above the pass map. Index i is i levels up,
-    // so index 0 is the pass map itself (never drawn — a level doesn't shadow itself).
-    private readonly List<EntityUid> _chain = new();
+    public Color Color = Color.Black;
 
-    public override OverlaySpace Space => OverlaySpace.WorldSpace;
+    public const float MaxShadowAlpha = 0.98f;
+    public const float ShadowHeightFalloff = 0.45f;
 
-    public CEZLevelShadowOverlay()
+    public override OverlaySpace Space => OverlaySpace.BeforeLighting;
+
+    public const int ContentZIndex = RoofOverlay.ContentZIndex + 1;
+
+    public CEZLevelShadowOverlay(IEntityManager entManager)
     {
+        _entManager = entManager;
         IoCManager.InjectDependencies(this);
-        _maps = _entityManager.System<SharedMapSystem>();
-        _transform = _entityManager.System<SharedTransformSystem>();
-        _zLevels = _entityManager.System<CEClientZLevelsSystem>();
+
+        _lookup = _entManager.System<EntityLookupSystem>();
+        _mapSystem = _entManager.System<SharedMapSystem>();
+        _xformSystem = _entManager.System<SharedTransformSystem>();
+        _zLevel = _entManager.System<CESharedZLevelsSystem>();
+
+        ZIndex = ContentZIndex;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        var passMap = args.MapUid;
-        if (!_entityManager.TryGetComponent<CEZMapComponent>(passMap, out var passZMap))
+        var eye = args.Viewport.Eye;
+        if (eye == null || !_entManager.HasComponent<MapLightComponent>(args.MapUid))
             return;
 
-        var passDepth = passZMap.Depth;
-        var worldAabb = args.WorldAABB;
-        var handle = args.WorldHandle;
+        if (!_entManager.TryGetComponent(args.MapUid, out CEZMapComponent? zComp))
+            return;
 
-        // Walk the z-levels up from the pass map. _chain[i] is i levels above the pass map, and is
-        // the set that scopes casters to THIS observer's network (a transit map counts only if its
-        // lower anchor is one of these).
-        _chain.Clear();
-        var cur = passMap;
-        for (var i = 0; i <= MaxShadowLevels; i++)
+
+        _shadowGrids.Clear();
+
+        CollectShadowGrids(args.MapUid, 0f, args.WorldBounds, requireAirborne: true);
+
+        // Track each visible level's height so transit gaps can anchor to them.
+        _shadowMapGaps.Clear();
+        _shadowMapGaps[args.MapUid] = 0f;
+
+        var gap = 1f;
+        foreach (var aboveMap in _zLevel.GetAllMapsAbove((args.MapUid, zComp)))
         {
-            _chain.Add(cur);
-            if (!_entityManager.TryGetComponent<CEZMapComponent>(cur, out var zc) || zc.MapAbove is not { } up)
-                break;
-            cur = up;
+            _shadowMapGaps[aboveMap] = gap;
+            CollectShadowGrids(aboveMap, gap, args.WorldBounds, requireAirborne: false);
+            gap += 1f;
         }
 
-        // Real z-levels above (index 1+): grids there are grounded, so their height above us is just
-        // the level difference.
-        for (var level = 1; level < _chain.Count; level++)
-            DrawMapShadows(handle, worldAabb, _chain[level], AlphaForDistance(level));
-
-        // Transit maps hold grids mid-descent in the gaps. Height above us is the grid's absolute
-        // altitude (GetAbsoluteAltitude already folds in the lower-anchor depth + gap progress)
-        // minus our depth — so as a ship sinks toward this floor the distance shrinks continuously
-        // and the shadow sharpens, then fades toward the level above near the top of the gap.
-        var transitQuery = _entityManager.EntityQueryEnumerator<CEZTransitMapComponent>();
+        // Grids in transit shadow this level from whatever gap they're crossing:
+        // height = the gap's floor level plus their progress within it.
+        var transitQuery = _entManager.EntityQueryEnumerator<CEZTransitMapComponent>();
         while (transitQuery.MoveNext(out var transitUid, out var transit))
         {
-            // Scope to the observer's network + above the pass: the gap's lower anchor must be in
-            // the chain we just walked.
-            if (transit.LowerMap is not { } lower || !_chain.Contains(lower))
+            if (transit.LowerMap is not { } lowerMap ||
+                !_shadowMapGaps.TryGetValue(lowerMap, out var lowerGap))
+            {
                 continue;
+            }
 
-            if (transit.PrimaryGrid is not { } primary)
-                continue;
-
-            var distance = _zLevels.GetAbsoluteAltitude(primary) - passDepth;
-            if (distance <= 0f || distance >= MaxShadowLevels)
-                continue;
-
-            DrawMapShadows(handle, worldAabb, transitUid, AlphaForDistance(distance));
+            CollectShadowGrids(transitUid, lowerGap, args.WorldBounds, requireAirborne: false);
         }
-    }
 
-    /// <summary>
-    /// Shadow opacity at a continuous distance in levels: <see cref="BaseAlpha"/> at one level,
-    /// stronger below that (a grid right over the floor), fainter above by <see cref="LevelFalloff"/>
-    /// per level. Clamped so a grazing-the-floor caster never blows past a near-opaque shadow.
-    /// </summary>
-    private static float AlphaForDistance(float distance)
-    {
-        return Math.Clamp(BaseAlpha * MathF.Pow(LevelFalloff, distance - 1f), 0f, 0.6f);
-    }
-
-    private void DrawMapShadows(DrawingHandleWorld handle, Box2 worldAabb, EntityUid mapUid, float alpha)
-    {
-        if (!_entityManager.TryGetComponent<MapComponent>(mapUid, out var map))
+        if (_shadowGrids.Count == 0)
             return;
 
-        var color = Color.Black.WithAlpha(alpha);
+        var viewport = args.Viewport;
+        var worldHandle = args.WorldHandle;
+
+        var lightOverlay = _overlay.GetOverlay<BeforeLightTargetOverlay>();
+        var bounds = lightOverlay.EnlargedBounds;
+        var target = lightOverlay.GetCachedForViewport(viewport).EnlargedLightTarget;
+
+        var lightScale = viewport.LightRenderTarget.Size / (Vector2) viewport.Size;
+        var scale = viewport.RenderScale / (Vector2.One / lightScale);
+        var invMatrix = target.GetWorldToLocalMatrix(eye, scale);
+
+        worldHandle.RenderInRenderTarget(target,
+            () =>
+            {
+                foreach (var (grid, height) in _shadowGrids)
+                {
+                    var alpha = MaxShadowAlpha * MathF.Exp(-ShadowHeightFalloff * height);
+                    if (alpha <= 0.01f)
+                        continue;
+
+                    var color = Color.WithAlpha(Color.A * alpha);
+
+                    var gridMatrix = _xformSystem.GetWorldMatrix(grid.Owner);
+                    var matty = Matrix3x2.Multiply(gridMatrix, invMatrix);
+                    worldHandle.SetTransform(matty);
+
+                    var tileEnumerator = _mapSystem.GetTilesEnumerator(grid.Owner, grid, bounds);
+                    while (tileEnumerator.MoveNext(out var tileRef))
+                    {
+                        var tileDef = (ContentTileDefinition) _tileDefMan[tileRef.Tile.TypeId];
+                        if (tileDef.Transparent)
+                            continue;
+
+                        var local = _lookup.GetLocalBounds(tileRef, grid.Comp.TileSize);
+                        worldHandle.DrawRect(local, color);
+                    }
+                }
+            }, null);
+
+        worldHandle.SetTransform(Matrix3x2.Identity);
+    }
+
+    private void CollectShadowGrids(EntityUid mapUid,
+        float gap,
+        Box2Rotated bounds,
+        bool requireAirborne)
+    {
+        if (!_entManager.TryGetComponent(mapUid, out MapComponent? mapComp))
+            return;
 
         _grids.Clear();
-        _mapManager.FindGridsIntersecting(map.MapId, worldAabb, ref _grids);
+        _mapManager.FindGridsIntersecting(mapComp.MapId, bounds, ref _grids, approx: true, includeMap: false);
 
-        foreach (var (gridUid, grid) in _grids)
+        foreach (var grid in _grids)
         {
-            var gridRot = _transform.GetWorldRotation(gridUid);
-            var half = grid.TileSizeHalfVector;
+            var localPos = 0f;
+            if (_entManager.TryGetComponent(grid.Owner, out CEZPhysicsComponent? zPhys))
+                localPos = Math.Clamp(zPhys.LocalPosition, 0f, 1f);
 
-            // ignoreEmpty (default) skips space tiles, so only real hull/floor tiles cast.
-            var tiles = _maps.GetTilesEnumerator(gridUid, grid, worldAabb);
-            while (tiles.MoveNext(out var tileRef))
-            {
-                var center = _maps.GridTileToWorld(gridUid, grid, tileRef.GridIndices).Position;
-                var box = new Box2(center - half, center + half);
-                handle.DrawRect(new Box2Rotated(box, gridRot, center), color);
-            }
+            if (requireAirborne && localPos <= 0.01f)
+                continue;
+
+            _shadowGrids.Add((grid, gap + localPos));
         }
-    }
-}
-
-public sealed class CEShowZLevelShadowsCommand : LocalizedCommands
-{
-    [Dependency] private readonly IOverlayManager _overlayManager = null!;
-
-    public override string Command => "showzlevelshadows";
-
-    public override void Execute(IConsoleShell shell, string argStr, string[] args)
-    {
-        if (_overlayManager.HasOverlay<CEZLevelShadowOverlay>())
-        {
-            _overlayManager.RemoveOverlay<CEZLevelShadowOverlay>();
-            return;
-        }
-
-        _overlayManager.AddOverlay(new CEZLevelShadowOverlay());
     }
 }
