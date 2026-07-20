@@ -40,3 +40,18 @@ HyperlinkBookNfsdSop: null
 
 # base planet water replaced by CE water (z-level safe landing + distortion)
 FloorWaterEntity: CEWater
+
+#Acceses fix and job id fixes and spawnpoint fixes and allat, defrontierification
+SpawnPointPirate: SpawnPointPDVRahkshan
+SpawnPointPirateCaptain: SpawnPointPDVGrandVizier
+SpawnPointPirateFirstMate: SpawnPointPDVAsvaran
+SpawnPointBailiff: SpawnPointTsfOfficer
+SpawnPointBrigmedic: SpawnPointTsfCorpsman
+SpawnPointCadet: SpawnPointTsfRecruit
+SpawnPointDeputy: SpawnPointTsfMarine
+SpawnPointSheriff: SpawnPointTsfCommander
+JobWarden: JobTsfOfficer
+JobPirateFirstMate: JobPDVAsvaran
+JobBrigmedic: JobTsfCorpsman
+JobSecurityOfficer: JobTsfMarine
+JobSeniorOfficer: JobTsfTeamleader
