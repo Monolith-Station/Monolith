@@ -13,6 +13,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Mobs;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Stunnable;
 using JetBrains.Annotations;
 using Robust.Shared.Serialization;
@@ -27,6 +28,7 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
 
     protected EntityQuery<CEZPhysicsComponent> ZPhyzQuery;
 
@@ -42,6 +44,7 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
         SubscribeLocalEvent<CEZFlyerComponent, CEGetZVelocityEvent>(OnGetZVelocity);
         SubscribeLocalEvent<CEZFlyerComponent, CECheckGravityEvent>(OnGetGravity);
         SubscribeLocalEvent<CEZFlyerComponent, IsWeightlessEvent>(CheckWeightless);
+        SubscribeLocalEvent<CEZFlyerComponent, RefreshWeightlessModifiersEvent>(OnRefreshWeightlessModifiers);
 
         SubscribeLocalEvent<CEZFlyerComponent, StunnedEvent>(OnStunned);
         SubscribeLocalEvent<CEZFlyerComponent, KnockedDownEvent>(OnKnockDowned);
@@ -130,6 +133,15 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
         args.VelocityDelta = velocityDelta;
     }
 
+    private void OnRefreshWeightlessModifiers(Entity<CEZFlyerComponent> ent, ref RefreshWeightlessModifiersEvent args)
+    {
+        if (!ent.Comp.Active)
+            return;
+
+        args.WeightlessModifier *= ent.Comp.FlightMoveSpeedModifier;
+        args.WeightlessAccelerationMod *= ent.Comp.FlightMoveSpeedModifier;
+    }
+
     private void OnGetGravity(Entity<CEZFlyerComponent> ent, ref CECheckGravityEvent args)
     {
         if (ent.Comp.Active)
@@ -159,6 +171,7 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
 
         _zLevel.UpdateGravityState((ent, zPhys));
         _gravity.RefreshWeightless(ent.Owner);
+        _movementSpeed.RefreshWeightlessModifiers(ent.Owner);
 
         RaiseLocalEvent(ent, new CEFlightStartedEvent());
         return true;
@@ -181,6 +194,7 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
 
         _zLevel.UpdateGravityState((ent, zPhys));
         _gravity.RefreshWeightless(ent.Owner);
+        _movementSpeed.RefreshWeightlessModifiers(ent.Owner);
 
         RaiseLocalEvent(ent, new CEFlightStoppedEvent());
     }

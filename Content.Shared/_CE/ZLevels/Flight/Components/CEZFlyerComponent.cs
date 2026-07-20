@@ -23,6 +23,17 @@ public sealed partial class CEZFlyerComponent : Component
     [DataField]
     public float FlightSpeed = 1.5f;
 
+    /// <summary>
+    /// Stamina drained per second while flying. At stamina crit the flyer collapses and falls.
+    /// </summary>
+    [DataField]
+    public float HoverStaminaDrain;
+
+    [DataField]
+    public float FlightMoveSpeedModifier = 1f;
+
+    public TimeSpan NextStaminaDrain = TimeSpan.Zero;
+
     [DataField]
     public float DefaultGravityIntensity = 1f;
 
