@@ -13,6 +13,11 @@
     sprintSpeedModifier: 0.6
 
 - type: entity
+  id: StairsHighGround
+  parent: [ Stairs , HighGroundStair ]
+  suffix: Steel, z level
+
+- type: entity
   id: StairStageHighGround
   parent: [ StairStage , HighGroundStair ]
   suffix: Steel, stage, z level
@@ -21,6 +26,11 @@
   id: StairWhiteHighGround
   parent: [ StairWhite , HighGroundStair ]
   suffix: White, z level
+
+- type: entity
+  id: StairDarkHighGround
+  parent: [ StairDark , HighGroundStair ]
+  suffix: Dark, z level
 
 - type: entity
   id: StairWoodHighGround

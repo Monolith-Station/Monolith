@@ -10,7 +10,7 @@
     collection: FootstepPlating
   friction: 1.5
   heatCapacity: 10000
-  transparent: true # CE
+  transparent: false # CE #BF14, CE made this true for some reason
 
 - type: tile
   id: PlatingDamaged
