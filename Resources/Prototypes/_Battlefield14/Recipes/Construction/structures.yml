@@ -1,4 +1,4 @@
-# Barricades
+#region Barricades
 
 - type: construction
   id: BarricadeSteel
@@ -94,6 +94,27 @@
   icon:
     sprite: /Textures/_RMC14/Structures/Walls/Barricades/barricade.rsi
     state: sandbag
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  canRotate: true
+
+#region Ladder
+
+- type: construction
+  name: extended ladder
+  id: ExtendableLadder
+  graph: ExtendableLadder
+  startNode: start
+  targetNode: extendableladder
+  category: construction-category-structures
+  description: Take a collapsed extendable ladder and un-collapse it.
+#  conditions:
+#    - !type:TileNotBlocked
+#      failIfSpace: true
+  icon:
+    sprite: _Battlefield14/Objects/Misc/extendableladder.rsi
+    state: ladder
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
