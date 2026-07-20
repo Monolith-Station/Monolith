@@ -1,0 +1,81 @@
+- type: entity
+  parent: BaseItem
+  id: BF14ExtendableLadderItem
+  name: extendable ladder
+  description: A collapsed ladder, for tactically expediting upwards movement between Z levels.
+  suffix: item
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Misc/extendableladder.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Misc/extendableladder.rsi
+    quickEquip: true
+    slots:
+    - SUITSTORAGE2
+    clothingVisuals:
+      suitstorage2:
+      - state: equipped-SUITSTORAGE
+  - type: Item
+    size: Large
+  - type: Tag
+    tags:
+      - ExtendableLadder
+  - type: ExtendDescription
+    descriptionList:
+      - description: This item can be stored on your auxillary suit storage slot.
+        color: "#4f94ad"
+        requireDetailRange: true
+
+- type: entity
+  id: BF14ExtendableLadder
+  parent: HighGroundStair
+  name: extendable ladder
+  description: An extended ladder, for tactically expediting upwards movement between Z levels.
+  suffix: extended
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Rotatable
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Misc/extendableladder.rsi
+    snapCardinals: false
+    state: ladder
+    drawdepth: FloorTiles
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: ExtendableLadder
+    node: extendableladder
+  - type: DisassembleOnAltVerb
+    prototype: BF14ExtendableLadderItem
+    doAfter: 3
+  - type: ExtendDescription
+    descriptionList:
+      - description: Alt-click to collapse into an item.
+        color: "#4f94ad"
+        requireDetailRange: true

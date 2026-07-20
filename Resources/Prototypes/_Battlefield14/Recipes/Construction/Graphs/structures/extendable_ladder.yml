@@ -1,0 +1,17 @@
+- type: constructionGraph
+  id: ExtendableLadder
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: extendableladder
+          completed:
+            - !type:SnapToGrid
+              southRotation: false
+          steps:
+            - tag: ExtendableLadder
+              amount: 1
+              doAfter: 3
+
+    - node: extendableladder
+      entity: BF14ExtendableLadder
