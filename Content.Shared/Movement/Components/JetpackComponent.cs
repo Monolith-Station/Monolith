@@ -34,26 +34,20 @@ public sealed partial class JetpackComponent : Component
     public float DetectionRange = 256f;
 
     /// <summary>
-    /// CE z-flight: top vertical speed (z-levels/second) the jetpack drives toward while the
-    /// shuttle ascend/descend keys are held. Only relevant on z-level maps.
+    /// CEZ: Maximum heave velocity.
     /// </summary>
     [DataField]
-    public float FlightMaxSpeed = 3f;
+    public float FlightMaxSpeed = 1f;
 
     /// <summary>
-    /// CE z-flight: how sharply vertical velocity chases the ascend/descend input — higher
-    /// reaches top speed (and coasts back to a hover on release) faster.
+    /// CEZ: Acceleration. Controls how fast upwards/downwards movement is.
     /// </summary>
     [DataField]
-    public float FlightResponsiveness = 8f;
+    public float FlightResponsiveness = 2f;
 
     /// <summary>
-    /// CE z-flight: with no ascend/descend held, how strongly the wearer drifts toward the
-    /// nearest whole level plane (its floor from the lower half, the level above from the upper
-    /// half), like a transit set settling onto a level. The pull scales with distance to the
-    /// plane, so it eases to nothing right at it. 0 disables the settle — the wearer just hovers
-    /// wherever they let go.
+    /// CEZ: How quickly the user settles towards a normal layer when jetpacking.
     /// </summary>
     [DataField]
-    public float FlightSettleGain = 1f;
+    public float FlightSettleGain = 3f;
 }

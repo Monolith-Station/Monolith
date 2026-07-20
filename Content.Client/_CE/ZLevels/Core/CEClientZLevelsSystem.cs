@@ -29,7 +29,7 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
     {
         base.Initialize();
         _overlay.AddOverlay(new CEZLevelBlurOverlay());
-        _overlay.AddOverlay(new CEZLevelShadowOverlay());
+        _overlay.AddOverlay(new CEZLevelShadowOverlay(EntityManager));
 
         SubscribeLocalEvent<CEZPhysicsComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<CEZPhysicsComponent, GetEyeOffsetEvent>(OnEyeOffset);

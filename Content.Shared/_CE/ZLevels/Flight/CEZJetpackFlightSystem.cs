@@ -80,8 +80,6 @@ public sealed partial class CEZJetpackFlightSystem : EntitySystem
 
     private void OnGetZVelocity(Entity<JetpackUserComponent> ent, ref CEGetZVelocityEvent args)
     {
-        var input = (ent.Comp.AscendHeld ? 1f : 0f) - (ent.Comp.DescendHeld ? 1f : 0f);
-
         var maxSpeed = 3f;
         var responsiveness = 8f;
         var settleGain = 1f;
@@ -92,32 +90,51 @@ public sealed partial class CEZJetpackFlightSystem : EntitySystem
             settleGain = jetpack.FlightSettleGain;
         }
 
+        var pos = args.Target.Comp.LocalPosition;
+        var velocity = args.Target.Comp.Velocity;
+        var input = (ent.Comp.AscendHeld ? 1f : 0f) - (ent.Comp.DescendHeld ? 1f : 0f);
+
+        // The vertical speed we want right now. While steering, chase the held direction at full
+        // speed. Idle, ease toward the nearest level plane — like a transit set settling onto a
+        // level: LocalPosition is 0 at the floor, 1 at the next level, and only within SettleZone
+        // of a plane does the pull engage (down to this floor from the lower zone, up into the
+        // level above from the upper zone); the band between just hovers. Crossing 1 hands off to
+        // the level above at LocalPosition ~0, inside its lower zone, which settles it onto that
+        // floor.
         float target;
         if (input != 0f)
-        {
-            // Actively steering: chase the held direction at full speed.
-            target = input * maxSpeed;
-        }
+            target = input * maxSpeed;            // steer at full speed
+        else if (pos <= SettleZone)
+            target = -pos * settleGain;           // ease down onto this level's floor
+        else if (pos >= 1f - SettleZone)
+            target = (1f - pos) * settleGain;     // drift up into the level above
         else
+            target = 0f;                          // dead zone: hover
+
+        // Chase that target and drive the wearer's vertical velocity directly, rather than feeding
+        // the shared per-substep VelocityDelta — the jetpack owns the wearer's z-motion outright
+        // while it's on.
+        var newVelocity = velocity + (target - velocity) * responsiveness * args.FrameTime;
+
+        // Anti-overshoot: the downward settle must not coast LocalPosition below 0. The z-physics
+        // reads that as a fall — the wearer drops a level, the level below's upward settle shoves
+        // them back, and the two planes ping-pong them across the boundary forever. When this step
+        // would sink past the floor, land ON it and stop instead. (The upward settle is meant to
+        // cross into the level above, so it is left alone to hand off there.)
+        if (input == 0f && pos <= SettleZone && pos + newVelocity * args.FrameTime <= 0f)
         {
-            // Idle: gradual pull toward a level plane (a normalized altitude), like a transit set
-            // settling onto a level. LocalPosition is 0 at the floor, 1 at the next level. Only
-            // within SettleZone of a plane does the pull engage — down to the floor from the lower
-            // zone, up into the level above from the upper zone; the band between just hovers, the
-            // same SettleZone=0.25 dead zone transit sets use. The pull is proportional to the
-            // distance left, so it eases to zero right at the plane instead of overshooting and
-            // oscillating across the boundary (a walker never "exits" a level the way a transit
-            // set does). Crossing 1 hands off to the level above at LocalPosition ~0, inside the
-            // lower zone where the pull is already spent — so it comes to rest.
-            var pos = args.Target.Comp.LocalPosition;
-            if (pos <= SettleZone)
-                target = -pos * settleGain;           // drift down to this level's floor
-            else if (pos >= 1f - SettleZone)
-                target = (1f - pos) * settleGain;     // drift up into the level above
-            else
-                target = 0f;                          // dead zone: hover
+            // Only write when something actually changes, so a wearer already at rest on the floor
+            // stops waking its body every substep and is free to fall asleep.
+            if (pos != 0f)
+                _zLevels.SetZPosition(args.Target.AsNullable(), 0f);
+            if (velocity != 0f)
+                _zLevels.SetZVelocity(args.Target.AsNullable(), 0f);
+            return;
         }
 
-        args.VelocityDelta += (target - args.Target.Comp.Velocity) * responsiveness;
+        // Same idea for the sleep-friendly path: skip the wake-inducing write once the velocity has
+        // all but stopped changing, letting the body's own sleep logic take over.
+        if (MathF.Abs(newVelocity - velocity) > 0.001f)
+            _zLevels.SetZVelocity(args.Target.AsNullable(), newVelocity);
     }
 }
