@@ -119,7 +119,7 @@
         fractalType: Ridged
         octaves: 1
       entities:
-        - FloorWaterEntity
+        - CEWater
     # Fill remainder with dirt.
     - !type:BiomeTileLayer
       threshold: -1.0

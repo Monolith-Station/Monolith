@@ -204,7 +204,7 @@ public sealed partial class CEZLevelsSystem
             if (mapUid == null || !HasComp<CEZMapComponent>(mapUid))
                 continue;
 
-            // No gravgen, no lift authority.
+            // No gravgen, dumbass.
             if (!TryComp<GravityComponent>(gridUid, out var gravity) || !gravity.Enabled)
                 continue;
 
@@ -225,14 +225,10 @@ public sealed partial class CEZLevelsSystem
             // hovering on a sky layer, the key just works.
             if (grounded)
             {
-                var direction = (sbyte)(down ? -1 : 1);
                 var now = _timing.CurTime;
 
-                if (faller.SpoolDirection != direction || now - faller.SpoolLastInput > SpoolInputGap)
-                {
-                    faller.SpoolDirection = direction;
+                if (now - faller.SpoolLastInput > SpoolInputGap)
                     faller.SpoolStart = now;
-                }
 
                 faller.SpoolLastInput = now;
 
@@ -246,8 +242,6 @@ public sealed partial class CEZLevelsSystem
                     continue;
                 }
             }
-
-            faller.SpoolDirection = 0;
 
             if (TryEnterTransit((gridUid, grid), preferUpperGap: !down))
             {
