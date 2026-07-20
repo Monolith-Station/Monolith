@@ -222,7 +222,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     proto: 90mmCartridgeMinelayer
-    capacity: 400
+    capacity: 12 # for balance
     mayTransfer: true
     whitelist:
       tags:

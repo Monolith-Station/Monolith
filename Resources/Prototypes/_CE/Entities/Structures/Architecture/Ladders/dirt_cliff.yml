@@ -1,0 +1,28 @@
+- type: entity
+  id: CEZLevelsLadderDirtCliffBase
+  name: dirt cliff
+  description: A steep earthen slope. Climbable, with some effort.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _CE/Structures/Architecture/Ladders/dirt_cliff.rsi
+
+- type: entity
+  parent:
+  - CEZLevelLadderBase
+  - CEZLevelsLadderDirtCliffBase
+  id: CEZLevelLadderDirtCliff
+
+- type: entity
+  parent:
+  - CEZLevelLadderCornerBase
+  - CEZLevelsLadderDirtCliffBase
+  id: CEZLevelLadderDirtCliffCorner
+  suffix: Corner
+
+- type: entity
+  parent:
+  - CEZLevelLadderCornerInnerBase
+  - CEZLevelsLadderDirtCliffBase
+  id: CEZLevelLadderDirtCliffCornerInner
+  suffix: Inner Corner
