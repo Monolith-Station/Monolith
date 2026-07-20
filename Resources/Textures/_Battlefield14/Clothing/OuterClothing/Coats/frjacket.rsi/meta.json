@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Baystation 12 at commit https://github.com/Baystation12/Baystation12/pull/35093/commits/1b140eaff0569f04b49ff5341cd0da531fcf955b",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "icon-open"
+        },
+        {
+            "name": "equipped-OUTERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "open-equipped-OUTERCLOTHING",
+            "directions": 4
+        }
+    ]
+}

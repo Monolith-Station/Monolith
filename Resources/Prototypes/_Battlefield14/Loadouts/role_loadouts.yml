@@ -239,7 +239,7 @@
   - BF_HelmetAttachmentNATO
   - BF_BackpacksBlack
   - BF_MiscItemsNATO
-#  - BF_PistolsUSMCSL
+  - BF_PistolsBW
   - BF_Map
   - ContractorWallet
 
@@ -253,7 +253,7 @@
   - BF_HelmetAttachmentNATO
   - BF_BackpacksBlack
   - BF_MiscItemsNATO
-#  - BF_PistolsUSMCSL
+  - BF_PistolsBW
   - BF_Map
   - ContractorWallet
 
@@ -280,7 +280,7 @@
   - BF_HelmetAttachmentNATO
   - BF_BackpacksBlack
   - BF_MiscItemsNATO
-#  - BF_PistolsUSMCSL
+  - BF_PistolsBW
   - BF_Map
   - ContractorWallet
 
@@ -577,6 +577,7 @@
   id: JobCivilianUS
   groups:
   - BF_JumpsuitsCivilianUS
+  - BF_OuterCivilianUS
   - BF_WPSGloves
   - BF_ShoesCivilian
   - BF_MiscItemsIND
@@ -596,6 +597,8 @@
 - type: roleLoadout
   id: JobCivilianRUEMT
   groups:
+  - BF_JumpsuitsCivilianRUEMT
+  - BF_OuterCivilianRUEMT
   - BF_WPSGloves
   - BF_ShoesCivilian
   - BF_MiscItemsIND
@@ -606,7 +609,7 @@
   groups:
   - BF_HeadCivilianRU
   - BF_CombatMasks
-  - BF_JumpsuitsCivilianUS
+  - BF_JumpsuitsCivilianUANationalist
   - BF_OuterCivilianRU
   - BF_WPSGloves
   - BF_ShoesCivilian
