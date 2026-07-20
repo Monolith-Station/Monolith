@@ -283,6 +283,9 @@ uplink-pdv-t1-bastion-voucher-desc = A small card that contains the data for the
 uplink-pdv-t1-neptune-voucher-name = PDV Neptune LPC [T1]
 uplink-pdv-t1-neptune-voucher-desc = A small card that contains the data for the procurement of a Neptune-class frigate from the flagship's reserves.
 
+uplink-pdv-t1-layak-voucher-name = PDV Layak LPC [T1]
+uplink-pdv-t1-layak-voucher-desc = A small card that contains the data for the procurement of a Layak-class corvette from the flagship's reserves.
+
 uplink-pdv-t2-europa-voucher-name = PDV Europa LPC [T2]
 uplink-pdv-t2-europa-voucher-desc = A small card that contains the data for the procurement of a Europa-class cruiser from the flagship's reserves.
 

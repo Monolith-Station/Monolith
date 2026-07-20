@@ -32,6 +32,7 @@
     speedModifierThresholds:
       60: 0.85  # 0.7 is base speed.
       80: 0.75  # 0.5 is base speed.
+  - type: CESoftPaws # Mono: Cats usually land on their feet. At least, I think this is a cat.
   - type: Carriable # Carrying system from nyanotrasen.
   - type: Butcherable
     butcheringType: Spike

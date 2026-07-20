@@ -9,3 +9,10 @@
 - type: accessLevel
   id: PDVGeneral
   name: id-card-access-level-pdv
+
+- type: accessGroup
+  id: PDV
+  tags:
+  - GrandVizier
+  - PDVCommand
+  - PDVGeneral

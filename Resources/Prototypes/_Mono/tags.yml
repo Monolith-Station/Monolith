@@ -43,9 +43,6 @@
 - type: Tag
   id: ShipRepairTool
 
-- type: Tag # Prevents a crash and makes future cherry-picks hurt less but not actually implemented
-  id: TurretCompatibleWeapon # Used in the construction of sentry turrets
-
 - type: Tag
   id: UnavoidableTrap # For "traps" (step triggers) that TrapAvoider shouldn't dodge, like lava or chasms.
 

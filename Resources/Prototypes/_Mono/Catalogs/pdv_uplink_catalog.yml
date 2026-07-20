@@ -1405,6 +1405,21 @@
       tags:
       - FactionStaticUplinkPdv
 
+- type: listing
+  id: UplinkSecurityT1VoucherLayak
+  name:  uplink-pdv-t1-layak-voucher-name
+  description: uplink-pdv-t1-layak-voucher-desc
+  productEntity: ShipVoucherLayak
+  cost:
+    Doubloon: 100
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
 # end T1
 
 # start T2
