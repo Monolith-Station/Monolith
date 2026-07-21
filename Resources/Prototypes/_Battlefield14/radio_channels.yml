@@ -1,7 +1,8 @@
+#region faction radios
 - type: radioChannel
   id: USRadio
   name: chat-radio-us
-  keycode: 'w' # Changed from 'l' to avoid conflict with Letoferol channel
+  keycode: 'w'
   frequency: 1210
   color: "#2948ff"
   longRange: true
@@ -10,7 +11,7 @@
   id: DERadio
   name: chat-radio-de
   keycode: 'x'
-  frequency: 1211
+  frequency: 1220
   color: "#943aaa"
   longRange: true
 
@@ -18,7 +19,7 @@
   id: RURadio
   name: chat-radio-ru
   keycode: 'z'
-  frequency: 1220
+  frequency: 1230
   color: "#d30000"
   longRange: true
 
@@ -28,4 +29,56 @@
   keycode: 'b'
   frequency: 1290
   color: "#fca503"
+  longRange: true
+
+#region NATO fireteam radios
+
+- type: radioChannel
+  id: AlphaRadio
+  name: Alpha
+  keycode: '1'
+  frequency: 1211
+  color: "#5e75ff"
+  longRange: true
+
+- type: radioChannel
+  id: BravoRadio
+  name: Bravo
+  keycode: '2'
+  frequency: 1212
+  color: "#c6e935"
+  longRange: true
+
+- type: radioChannel
+  id: CharlieRadio
+  name: Charlie
+  keycode: '3'
+  frequency: 1213
+  color: "#20c839"
+  longRange: true
+
+#region PACT fireteam radios
+
+- type: radioChannel
+  id: ZaryaRadio
+  name: Zarya
+  keycode: '5'
+  frequency: 1231
+  color: "#ff4646"
+  longRange: true
+
+- type: radioChannel
+  id: OlgaRadio
+  name: Olga
+  keycode: '6'
+  frequency: 1232
+  color: "#cfcfcf"
+  longRange: true
+
+- type: radioChannel
+  id: VladRadio
+  name: Vlad
+  keycode: '7'
+  frequency: 1233
+  color: "#e3a131"
   longRange: true

@@ -17,6 +17,20 @@
       sprite: _Battlefield14/Clothing/Ears/Headsets/us_alt.rsi
 
 - type: entity
+  parent: ClothingHeadsetAltUS
+  id: ClothingHeadsetAltUSCommand
+  name: US command over-ear headset
+  components:
+    - type: ContainerFill
+      containers:
+        key_slots:
+          - EncryptionKeyUS
+          - EncryptionKeyCommon
+          - EncryptionKeyAlpha
+          - EncryptionKeyBravo
+          - EncryptionKeyCharlie
+
+- type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltDE
   name: DE over-ear headset
@@ -35,6 +49,20 @@
       sprite: _Battlefield14/Clothing/Ears/Headsets/de_alt.rsi
 
 - type: entity
+  parent: ClothingHeadsetAltDE
+  id: ClothingHeadsetAltDECommand
+  name: DE command over-ear headset
+  components:
+    - type: ContainerFill
+      containers:
+        key_slots:
+          - EncryptionKeyDE
+          - EncryptionKeyCommon
+          - EncryptionKeyAlpha
+          - EncryptionKeyBravo
+          - EncryptionKeyCharlie
+
+- type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltRU
   name: RU over-ear headset
@@ -51,6 +79,20 @@
       sprite: _Battlefield14/Clothing/Ears/Headsets/ru_alt.rsi
     - type: Clothing
       sprite: _Battlefield14/Clothing/Ears/Headsets/ru_alt.rsi
+
+- type: entity
+  parent: ClothingHeadsetAltRU
+  id: ClothingHeadsetAltRUCommand
+  name: RU command over-ear headset
+  components:
+    - type: ContainerFill
+      containers:
+        key_slots:
+          - EncryptionKeyRU
+          - EncryptionKeyCommon
+          - EncryptionKeyZarya
+          - EncryptionKeyOlga
+          - EncryptionKeyVlad
 
 - type: entity
   parent: ClothingHeadsetAlt

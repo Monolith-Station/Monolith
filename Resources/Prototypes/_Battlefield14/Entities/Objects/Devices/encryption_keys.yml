@@ -1,3 +1,4 @@
+#region faction comms
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyUS
@@ -72,3 +73,67 @@
       layers:
         - state: crypt_silver
         - state: nano_label
+
+#region NATO fireteam radios
+
+- type: entity
+  parent: EncryptionKeyUS
+  id: EncryptionKeyAlpha
+  name: alpha fireteam encryption key
+  components:
+    - type: EncryptionKey
+      channels:
+        - AlphaRadio
+      defaultChannel: AlphaRadio
+
+- type: entity
+  parent: EncryptionKeyUS
+  id: EncryptionKeyBravo
+  name: bravo fireteam encryption key
+  components:
+    - type: EncryptionKey
+      channels:
+        - BravoRadio
+      defaultChannel: BravoRadio
+
+- type: entity
+  parent: EncryptionKeyUS
+  id: EncryptionKeyCharlie
+  name: charlie fireteam encryption key
+  components:
+    - type: EncryptionKey
+      channels:
+        - CharlieRadio
+      defaultChannel: CharlieRadio
+
+#region PACT fireteam radios
+
+- type: entity
+  parent: EncryptionKeyRU
+  id: EncryptionKeyZarya
+  name: zarya fireteam encryption key
+  components:
+    - type: EncryptionKey
+      channels:
+        - ZaryaRadio
+      defaultChannel: ZaryaRadio
+
+- type: entity
+  parent: EncryptionKeyRU
+  id: EncryptionKeyOlga
+  name: olga fireteam encryption key
+  components:
+    - type: EncryptionKey
+      channels:
+        - OlgaRadio
+      defaultChannel: OlgaRadio
+
+- type: entity
+  parent: EncryptionKeyRU
+  id: EncryptionKeyVlad
+  name: vlad fireteam encryption key
+  components:
+    - type: EncryptionKey
+      channels:
+        - VladRadio
+      defaultChannel: VladRadio
