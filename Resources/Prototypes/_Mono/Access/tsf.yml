@@ -17,3 +17,12 @@
 - type: accessLevel
   id: TsfGeneral
   name: id-card-access-level-tsf
+
+- type: accessLevel
+  id: TSF
+  tags:
+  - TsfmcEngineering
+  - TsfFtl
+  - TsfOfficer
+  - TsfCommander
+  - TsfGeneral

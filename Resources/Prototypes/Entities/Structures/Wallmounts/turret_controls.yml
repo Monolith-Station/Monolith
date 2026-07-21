@@ -109,11 +109,10 @@
     - Silicon
     accessLevels:
     ## TSF
-    - HeadOfSecurity
-    - Armory
-    - Bailiff
-    - Sergeant
-    - Security
+    - TsfCommander
+    - TsfOfficer
+    - TsfFtl
+    - TsfGeneral
     - TsfmcEngineering
     ## USSP
     - USSPCommand

@@ -67,11 +67,10 @@
     access: [["TsfmcEngineering"]]
   - type: TurretTargetSettings
     exemptAccessLevels:
-    - HeadOfSecurity
-    - Armory
-    - Bailiff
-    - Sergeant
-    - Security
+    - TsfCommander
+    - TsfOfficer
+    - TsfGeneral
+    - TsfFtl
     - TsfmcEngineering
   - type: DeviceNetwork
     receiveFrequencyId: TurretAITSF
