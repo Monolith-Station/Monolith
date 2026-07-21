@@ -14,7 +14,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: job-name-bailiff
+      role: JobWarden
       time: 360000 # 100hr
 
 - type: loadout

@@ -8,6 +8,9 @@
 - type: loadout
   id: TsfmcRankE5FTL
   name: TSFMC E-5 (SGT)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfmcFTLSgt
   components:
   - type: ChatRank
     rank: tsf-e5
@@ -21,6 +24,15 @@
   components:
   - type: ChatRank
     rank: tsf-e6
+
+- type: loadoutEffectGroup
+  id: TsfmcFTLSgt
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSeniorOfficer
+      time: 36000 # 10hr
 
 - type: loadoutEffectGroup
   id: TsfmcFTLSSgt
