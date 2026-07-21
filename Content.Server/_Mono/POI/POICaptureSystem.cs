@@ -93,7 +93,7 @@ public sealed class POICaptureSystem : EntitySystem
 
             _radio.SendRadioMessage(
                 uid,
-                $"{playerName} is capturing for {factionName} {Name(uid)}. Stand by.",
+                $"{playerName} for faction {factionName} is attempting to capture {Name(uid)}. Stand by.",
                 "Traffic",
                 uid);
 
@@ -176,6 +176,15 @@ public sealed class POICaptureSystem : EntitySystem
                 factionName = card.Faction;
 
 
+            //
+            // Remove previous ownership deeds
+            //
+            RemoveExistingDeeds(uid);
+
+
+            //
+            // Assign new ownership deed
+            //
             var deed = EnsureComp<ShuttleDeedComponent>(idCard);
 
             deed.ShuttleUid = uid;
@@ -198,6 +207,24 @@ public sealed class POICaptureSystem : EntitySystem
 
 
         RemComp<POICaptureComponent>(uid);
+    }
+
+
+    /// <summary>
+    /// Removes any existing deeds that reference this POI.
+    /// Ensures only one ID card owns the captured location.
+    /// </summary>
+    private void RemoveExistingDeeds(EntityUid poiUid)
+    {
+        var query = EntityQueryEnumerator<ShuttleDeedComponent>();
+
+        while (query.MoveNext(out var deedUid, out var deed))
+        {
+            if (deed.ShuttleUid != poiUid)
+                continue;
+
+            RemComp<ShuttleDeedComponent>(deedUid);
+        }
     }
 
 
