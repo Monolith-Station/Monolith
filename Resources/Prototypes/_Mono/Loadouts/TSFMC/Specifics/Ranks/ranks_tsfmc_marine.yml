@@ -61,7 +61,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 36000 # 10hr
+      time: 108000 # 30hr
 
 - type: loadoutEffectGroup
   id: TsfmcMarineCpl
@@ -70,7 +70,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 36000 # 10hr
+      time: 180000 # 50hr
 
 - type: loadoutEffectGroup
   id: TsfmcMarineSgt
@@ -79,4 +79,4 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 108000 # 30hr
+      time: 270000 # 75hr
