@@ -22750,3 +22750,41 @@ Entries:
   id: 2513
   time: '2026-07-20T10:54:43.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4285
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Worldgen before the far ring is now condensed into 2 big clusters (they
+        have beacons!) and a ring at 9km.
+  id: 2514
+  time: '2026-07-21T02:34:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4320
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added SACLOS ammo for 57mm, 140mm, and ASM-220.
+    - type: Tweak
+      message: ASM-220 HE torpedoes can now be bought at cargo.
+    - type: Tweak
+      message: 220mm cluster-homing ammo is now predictive guidance.
+    - type: Remove
+      message: Removed 57mm homing & 90mm minelayer ammo.
+  id: 2515
+  time: '2026-07-21T03:02:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4312
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Influenced human NPCs
+  id: 2516
+  time: '2026-07-21T05:24:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4317
+- author: strace-enjoyer
+  changes:
+    - type: Fix
+      message: >-
+        Fixed CC constantly underpressuring and air alarms panicking and
+        firelocks going down
+  id: 2517
+  time: '2026-07-21T05:25:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4324

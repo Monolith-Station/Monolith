@@ -46,9 +46,75 @@
     deleteOnSpawn: true
     proto: 140mmBulletAPHE
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
     layers:
-    - state: 140mm
+    - state: 150mmAP
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 3
+    totalIntensity: 1
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+
+- type: entity
+  id: Magazine140mmSACLOS
+  name: "140mm SACLOS ammo loader"
+  description: "An ammunition loader containing 120 140mm laser-guided semi-automatic-command-line-of-sight rounds. Thats a mouthful, but it just means it's guided by you directly mid-flight. Usable by vessel-mounted artillery pieces."
+  parent: [BaseItem, RecyclableItemSteelTiny]
+  components:
+  - type: Tag
+    tags:
+    - Magazine140mm
+  - type: Item
+    size: Normal
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: false
+    proto: 140mmCartridgeSACLOS
+    capacity: 120
+    mayTransfer: true
+    whitelist:
+      tags:
+      - 140mmCartridge
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi # Im nothing like yall
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: 140mmCartridgeSACLOS
+  name: cartridge (140mm SACLOS)
+  parent: BaseCartridge
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - 140mmCartridge
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: 140mmBulletSACLOS
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
+    layers:
+    - state: 150mmAP
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
