@@ -21,7 +21,7 @@
 
 - type: entity
   id: SpeedLoader45_magnumFMJ
-  name: "speed loader (.45 magnum FMJ)"
+  name: "speed loader (.45 magnum HV)"
   parent: BaseSpeedLoader45_magnum
   components:
   - type: BallisticAmmoProvider

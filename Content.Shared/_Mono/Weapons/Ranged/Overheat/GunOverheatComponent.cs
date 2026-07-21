@@ -1,8 +1,5 @@
 namespace Content.Shared._Mono.Weapons.Ranged.Overheat;
 
-/// <summary>
-/// This is used for...
-/// </summary>
 [RegisterComponent]
 public sealed partial class GunOverheatComponent : Component
 {

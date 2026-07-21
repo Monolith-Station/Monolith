@@ -3,7 +3,7 @@ using Content.Shared.Physics;
 namespace Content.Shared._Mono.Weapons.Hitscan.Components;
 
 /// <summary>
-/// This is used for...
+/// Similar to simple raycast, but has several entities to hit.
 /// </summary>
 [RegisterComponent]
 public sealed partial class HitscanMultiRaycastComponent : Component
@@ -15,13 +15,19 @@ public sealed partial class HitscanMultiRaycastComponent : Component
     public float MaxDistance = 20.0f;
 
     /// <summary>
-    /// The collision mask the hitscan ray uses to collide with other objects. See the enum for more information
+    /// Maximum amount of entities that can be pierced
+    /// </summary>
+    [DataField]
+    public float MaxPierce = 3f;
+
+    /// <summary>
+    /// Collision mask that will be pierced
     /// </summary>
     [DataField]
     public CollisionGroup PierceCollisionMask = CollisionGroup.MobMask;
 
     /// <summary>
-    /// The collision mask the hitscan ray uses to collide with other objects. See the enum for more information
+    /// Collision mask impassable for this hitscan.
     /// </summary>
     [DataField]
     public CollisionGroup CollisionMask = CollisionGroup.Opaque;

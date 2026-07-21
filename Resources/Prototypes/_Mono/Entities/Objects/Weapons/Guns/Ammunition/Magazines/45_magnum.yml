@@ -1,6 +1,6 @@
 - type: entity
   id: BaseMagazine45_magnum
-  name: pistol magazine (.45 magnum FMJ)
+  name: pistol magazine (.45 magnum HV)
   parent: [ BaseItem, RecyclableItemSteelTiny ]
   abstract: true
   components:
@@ -34,7 +34,7 @@
 #Start Pistol mags
 - type: entity
   id: Magazine45_magnumPistolFMJ
-  name: pistol magazine (.45 magnum FMJ)
+  name: pistol magazine (.45 magnum HV)
   parent: BaseMagazine45_magnum
   components:
   - type: BallisticAmmoProvider
@@ -187,7 +187,7 @@
 #Start HighCapacity mags
 - type: entity
   id: BaseMagazine45_magnumPistolHighCapacityFMJ
-  name: machine pistol magazine (.45 magnum FMJ)
+  name: machine pistol magazine (.45 magnum HV)
   parent: [BaseItem, RecyclableItemSteelTiny]
   abstract: true
   components:
@@ -235,7 +235,7 @@
 
 - type: entity
   id: Magazine45_magnumPistolHighCapacityFMJ
-  name: machine pistol magazine (.45 magnum FMJ)
+  name: machine pistol magazine (.45 magnum HV)
   parent: BaseMagazine45_magnumPistolHighCapacityFMJ
   components:
   - type: BallisticAmmoProvider
@@ -280,7 +280,7 @@
 #Start SubMachineGun mags
 - type: entity
   id: BaseMagazine45_magnumSubMachineGunFMJ
-  name: SMG magazine (.45 magnum FMJ)
+  name: SMG magazine (.45 magnum HV)
   parent: [BaseItem, RecyclableItemSteelTiny]
   abstract: true
   components:
@@ -313,7 +313,7 @@
 
 - type: entity
   id: Magazine45_magnumSubMachineGunFMJ
-  name: SMG magazine (.45 magnum FMJ)
+  name: SMG magazine (.45 magnum HV)
   parent: BaseMagazine45_magnumSubMachineGunFMJ
   components:
   - type: BallisticAmmoProvider

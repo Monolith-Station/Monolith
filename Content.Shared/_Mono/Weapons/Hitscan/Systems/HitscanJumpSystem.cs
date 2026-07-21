@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Numerics;
 using Content.Shared._Mono.Weapons.Hitscan.Components;
 using Content.Shared.Mobs.Components;
@@ -13,6 +14,8 @@ public sealed class HitscanJumpSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
+    [Dependency] private EntityQuery<MobThresholdsComponent> _mobQuery = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -20,18 +23,18 @@ public sealed class HitscanJumpSystem : EntitySystem
         SubscribeLocalEvent<HitscanJumpComponent, HitscanRaycastFiredEvent>(OnHitscanHit, after: [ typeof(HitscanReflectSystem) ]);
     }
 
-    private void OnHitscanHit(Entity<HitscanJumpComponent> ent, ref HitscanRaycastFiredEvent args)
+    private void OnHitscanHit(Entity<HitscanJumpComponent> ent, ref HitscanRaycastFiredEvent args) // Important note - incompatible with HitscanMultiRaycastSystem.
     {
         if (args.Canceled ||
-            args.HitEntity == null ||
+            args.HitEntity.Count == 0 ||
             args.Shooter == null ||
-            !HasComp<MobThresholdsComponent>(args.HitEntity) ||
+            _mobQuery.HasComp(args.HitEntity.First()) ||
             ent.Comp.Count <= 0)
             return;
 
         ent.Comp.IgnoredEntities.Add(args.Shooter.Value.Id);
-        ent.Comp.IgnoredEntities.Add(args.HitEntity.Value.Id);
-        var fromCoords = Transform(args.HitEntity.Value).Coordinates;
+        ent.Comp.IgnoredEntities.Add(args.HitEntity.First().Id);
+        var fromCoords = Transform(args.HitEntity.First()).Coordinates;
 
         if (!GetClosestTarget(fromCoords, ent.Comp.Range, ent.Comp.IgnoredEntities, out _, out var delta))
             return;
@@ -43,7 +46,7 @@ public sealed class HitscanJumpSystem : EntitySystem
             FromCoordinates = fromCoords,
             ShotDirection = -Vector2.Normalize(delta.Value),
             Gun = args.Gun,
-            Shooter = args.HitEntity,
+            Shooter = args.HitEntity.First(),
         };
 
         RaiseLocalEvent(ent, ref hitFire);

@@ -3,9 +3,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Mono.Weapons.Hitscan.Components;
 
-/// <summary>
-/// When this hitscan hits a target, it will create an entity defined in SpawnedEntity.
-/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HitscanJumpComponent : Component
 {
