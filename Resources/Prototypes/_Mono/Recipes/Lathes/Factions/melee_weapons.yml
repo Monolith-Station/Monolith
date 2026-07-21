@@ -53,16 +53,15 @@
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
-  id: EnergyShieldRogue
+  id: HeavyBallisticShield
   categories:
-  - Energy
   - Weapons
-  result: EnergyShield
+  result: HeavyBallisticShield
   materials:
-    Steel: 1500
-    Plasteel: 6500
-    Plastic: 800
-    Plasma: 4000
+    Steel: 4500
+    Plasteel: 3500
+    Plastic: 1000
+    Glass: 500
 
 - type: latheRecipe
   parent: BaseWeaponRecipe
