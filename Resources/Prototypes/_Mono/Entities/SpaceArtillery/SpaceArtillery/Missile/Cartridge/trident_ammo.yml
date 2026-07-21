@@ -103,6 +103,108 @@
 # HE end
 
 - type: entity
+  id: ShipMissileASM220HESACLOS
+  name: ASM-220 torpedo (HE-SACLOS)
+  parent: ShipMissileBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 250
+        Blunt: 200
+        Heat: 100
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
+    layers:
+    - state: mini-rocket
+    scale: 1, 2
+  - type: Ammo
+    muzzleFlash: null
+  - type: RadarBlip
+    radarColor: "#ffff00"
+    scale: 4
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 50
+  - type: PointLight
+    radius: 5
+    color: orange
+    energy: 2
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 250
+    intensitySlope: 30
+    totalIntensity: 2500
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetGuided
+    turnRate: 30
+    acceleration: 60
+    launchSpeed: 70
+    maxSpeed: 300
+    maxLifetime: 50
+    fallbackTime: 50
+  # destructible components below
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 700
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  id: Asm220TorpedoHESACLOS
+  name: ASM-220 high-explosive SACLOS torpedo
+  description: Contains a large explosive payload. High-Explosive is an understatement. This one is equipped with a SACLOS guidance system and requires manual guidance to target, but can move faster.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - Asm220Torpedo
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipMissileASM220HESACLOS
+    deleteOnSpawn: true
+    muzzleFlash: null
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/asm220.rsi
+    layers:
+    - state: standard
+      map: ["enum.AmmoVisualLayers.Base"]
+    scale: 0.55, 0.725
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 50
+    intensitySlope: 30
+    totalIntensity: 50
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+
+# SACLOS end
+
+- type: entity
   id: ShipMissileASM220LOSAT
   name: ASM-220 LOSAT hyper-penetrator
   parent: ShipMissileBase

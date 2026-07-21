@@ -370,8 +370,6 @@
     attackMemoryLength: 10
   - type: MobMover
   - type: StandingState
-  - type: RandomHumanoidAppearance
-    randomizeName: true
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -477,7 +475,7 @@
     - DoorBumpOpener
     - CannotSuicide
   - type: FTLKnockdownImmune
-  
+
 # Mono edit - Faction overwriting fix
 # A simpler base for extending existing mobs (e.g. carp, kangaroos, snakes, xenos)
 - type: entity

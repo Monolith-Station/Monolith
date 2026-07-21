@@ -7,6 +7,12 @@
   name: id-card-access-level-vg-command
 
 - type: accessGroup
+  id: Viper
+  tags:
+  - Viper
+  - ViperCommand
+
+- type: accessGroup
   id: ViperHigh
   tags:
   - Viper

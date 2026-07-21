@@ -136,3 +136,21 @@
   - type: ShipRepairable
     repairTime: 15
     repairCost: 60
+
+- type: entity
+  id: WeaponTurretDravonFlak
+  parent: WeaponTurretDravon
+  suffix: Medium, T2, Flak
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: 90mmMagazineFlak
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine90mm
+        whitelistFailPopup: gun-magazine-whitelist-fail

@@ -32,7 +32,7 @@
         hard: False
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageModifierSet: Missile
   - type: Destructible
     thresholds:
     - trigger:
@@ -44,6 +44,18 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+
+- type: damageModifierSet
+  id: Missile
+  coefficients:
+    Blunt: 0.7
+    Slash: 30 # I only use this for flak shrapnel, so it can work on missiles without it being too OP for ships.
+    Piercing: 0.7
+    Shock: 1.2
+    Structural: 0.5
+  flatReductions:
+    Blunt: 5
+    Heat: 5
 
 # VESPERA
 
@@ -210,6 +222,52 @@
     launchSpeed: 120
     maxSpeed: 450
     trackDelay: 0.15
+
+- type: entity
+  id: ShipMissileASM250HV
+  name: 250mm HV missile
+  parent: ShipMissileBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 200
+        Blunt: 250
+        Heat: 75
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectSmall
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 2.5
+    shape: hexagon
+  - type: TimedDespawn
+    lifetime: 16
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 70
+    intensitySlope: 6
+    maxIntensity: 25
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetSeeking
+    acceleration: 360 # PD skillcheck
+    detectionRange: 700
+    scanArc: 20
+    launchSpeed: 300
+    maxSpeed: 650
+    trackDelay: 0
+    trackingAlgorithm: AdvancedPredictive
 
 - type: entity
   id: ShipMissileASM250

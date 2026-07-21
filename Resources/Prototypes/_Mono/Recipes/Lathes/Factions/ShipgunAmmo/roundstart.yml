@@ -6,9 +6,19 @@
   result: Magazine20mm
 
 - type: latheRecipe
+  parent: BaseLightShipgunAmmoRecipe
+  id: Magazine20mmASAmmoRecipe
+  result: Magazine20mmAS
+
+- type: latheRecipe
   parent: BaseShipgunAmmoRecipe
   id: Magazine30mmAmmoRecipe
   result: Magazine30mm
+
+- type: latheRecipe
+  parent: BaseShipgunAmmoRecipe
+  id: Magazine30mmHEAmmoRecipe
+  result: Magazine30mmHE
 
 - type: latheRecipe
   parent: BaseShipgunAmmoRecipe
@@ -20,12 +30,42 @@
   id: 90mmMagazineHEAmmoRecipe
   result: 90mmMagazineHE
 
+- type: latheRecipe
+  parent: BaseMediumShipgunAmmoRecipe
+  id: 90mmMagazineAPAmmoRecipe
+  result: 90mmMagazineAP
+
+- type: latheRecipe
+  parent: BaseMediumShipgunAmmoRecipe
+  id: 90mmMagazineFlakAmmoRecipe
+  result: 90mmMagazineFlak
+
+- type: latheRecipe
+  parent: BaseHeavyShipgunAmmoRecipe
+  id: Magazine140mmAmmoRecipe
+  result: Magazine140mm
+
+- type: latheRecipe
+  parent: BaseHeavyShipgunAmmoRecipe
+  id: Magazine140mmSACLOSAmmoRecipe
+  result: Magazine140mmSACLOS
+
 # Individual
 
 - type: latheRecipe
   parent: BaseLightShipgunAmmoRecipe
   id: 220mmCartridgeAPHEAmmoRecipe
   result: 220mmCartridgeAPHE
+
+- type: latheRecipe
+  parent: BaseLightShipgunAmmoRecipe
+  id: 220mmCartridgeHEClusterAmmoRecipe
+  result: 220mmCartridgeHECluster
+
+- type: latheRecipe
+  parent: BaseLightShipgunAmmoRecipe
+  id: 220mmCartridgeSmartClusterAmmoRecipe
+  result: 220mmCartridgeSmartCluster
 
 - type: latheRecipe
   parent: BaseLightShipgunAmmoRecipe
@@ -36,6 +76,16 @@
   parent: BaseShipgunAmmoRecipe
   id: 255mmCartridgeAPHEAmmoRecipe
   result: 255mmCartridgeAPHE
+
+- type: latheRecipe
+  parent: BaseShipgunAmmoRecipe
+  id: 255mmCartridgeEMPAmmoRecipe
+  result: 255mmCartridgeEMP
+
+- type: latheRecipe
+  parent: BaseShipgunAmmoRecipe
+  id: 255mmCartridgeMineAmmoRecipe
+  result: 255mmCartridgeMinelayer
 
 - type: latheRecipe
   parent: BaseHeavyShipgunAmmoRecipe
@@ -63,6 +113,11 @@
   parent: BaseHeavyMissileShipgunAmmoRecipe
   id: PaladinMagazineEMPHEAmmoRecipe
   result: PaladinMagazineEMPHE
+
+- type: latheRecipe
+  parent: BaseHeavyMissileShipgunAmmoRecipe
+  id: PaladinMagazineHVAmmoRecipe
+  result: PaladinMagazineHV
 
 - type: latheRecipe
   parent: BaseHeavyMissileShipgunAmmoRecipe

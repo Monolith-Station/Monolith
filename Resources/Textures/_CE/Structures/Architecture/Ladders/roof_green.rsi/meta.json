@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Created by omsoyk (Discord), recolored by TheShuEd",
+  "size": {
+    "x": 48,
+    "y": 78
+  },
+  "states": [
+    {
+      "name": "straight",
+      "directions": 4
+    },
+    {
+      "name": "corner",
+      "directions": 4
+    },
+    {
+      "name": "internal_corner",
+      "directions": 4
+    }
+  ]
+}
