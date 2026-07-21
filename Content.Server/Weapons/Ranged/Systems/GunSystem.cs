@@ -47,6 +47,9 @@ public sealed partial class GunSystem : SharedGunSystem
     private EntityQuery<AutoShootGunComponent> _autoShootGunQuery; // Mono
     private EntityQuery<DamageableComponent> _damageableQuery; // Mono
 
+    [Dependency] private EntityQuery<ProjectileComponent> _projectileQuery = default!; // Mono
+    [Dependency] private EntityQuery<HitscanBasicDamageComponent> _hitscanDamageQuery = default!; // Mono
+
     private const float DamagePitchVariation = 0.05f;
 
     public override void Initialize()
@@ -231,6 +234,9 @@ public sealed partial class GunSystem : SharedGunSystem
         // mono
         if (HasComp<HitscanAmmoComponent>(uid))
         {
+            if (_hitscanDamageQuery.TryComp(uid, out var hitscanDamageComp))
+                hitscanDamageComp.Damage *= gun.DamageModifier;
+
             ShootHitscan(
                 uid,
                 fromCoordinates,
@@ -243,7 +249,7 @@ public sealed partial class GunSystem : SharedGunSystem
         }
 
         // Do a throw
-        if (!TryComp(uid, out ProjectileComponent? projectileComp))
+        if (!_projectileQuery.TryComp(uid, out var projectileComp))
         {
             RemoveShootable(uid);
             // TODO: Someone can probably yeet this a billion miles so need to pre-validate input somewhere up the call stack.
@@ -258,6 +264,8 @@ public sealed partial class GunSystem : SharedGunSystem
             predicted.ClientId = uid.Id;
             predicted.ClientEnt = user;
         }
+
+        projectileComp.Damage *= gun.DamageModifier;
 
         ShootProjectile(uid,
             mapDirection,
