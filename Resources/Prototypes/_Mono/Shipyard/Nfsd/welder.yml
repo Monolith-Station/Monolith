@@ -9,7 +9,7 @@
   category: Small
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/welder.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/welder.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Welder
   mapName: 'Welder'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/welder.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/welder.yml
   minPlayers: 0
   stations:
     Welder:

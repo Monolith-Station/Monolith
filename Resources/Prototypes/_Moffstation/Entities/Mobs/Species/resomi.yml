@@ -16,7 +16,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.35
+          radius: 0.31 # Monolith
         density: 120 # Monolith
         restitution: 0.0
         mask:
@@ -104,11 +104,16 @@
       - 0, 2, 5, 4
   # Goobstation - End
   - type: Hands
-    handDisplacement:
+    leftHandDisplacement:
       sizeMaps:
         32:
           sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi
-          state: inHand
+          state: inHandLeft
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi
+          state: inHandRight
   - type: Inventory
     speciesId: resomi
     displacements:

@@ -66,6 +66,7 @@
   components:
   - type: ShipRepairTool
     repairTimeMultiplier: 0
+    checkPreExistingEntities: false
   - type: Tag
     tags:
     - ShipRepairTool

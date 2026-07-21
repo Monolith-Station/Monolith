@@ -115,6 +115,9 @@ uplink-security-t3-altair-voucher-desc = A small card that contains the data for
 uplink-security-t3-polaris-voucher-name = TSFMC Polaris LPC [T3]
 uplink-security-t3-polaris-voucher-desc = A small card that contains the data for the procurement of an Type-56D Polaris-class frigate from the flagship's reserves.
 
+uplink-security-t3-fujian-voucher-name = TSFMC Fujian LPC [T3]
+uplink-security-t3-fujian-voucher-desc = A small card that contains the data for the procurement of an Type-53C Fujian-class escort carrier from the flagship's reserves.
+
 uplink-security-flyssa-voucher-name = TSFMC Flyssa LPC [T4]
 uplink-security-flyssa-voucher-desc = A small card that contains the data for the procurement of a Flyssa-class destroyer from the flagship's reserves.
 

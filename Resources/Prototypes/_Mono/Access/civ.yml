@@ -1,0 +1,18 @@
+- type: accessGroup
+  id: CC
+  tags:
+  - HeadOfPersonnel
+  - ChiefMedicalOfficer
+  - StationTrafficController
+  - Command
+  - Brig
+  - Mail
+  - Janitor
+  - Medical
+  - Chemistry
+
+- type: accessGroup
+  id: Civilian
+  tags:
+  - Mercenary
+  - Pilot

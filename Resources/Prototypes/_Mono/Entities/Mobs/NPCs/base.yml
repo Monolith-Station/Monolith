@@ -1,0 +1,96 @@
+# Human NPC but shade-ified
+
+- type: entity
+  suffix: AI, Hostile, Shade
+  #abstract: true
+  parent:
+  - BaseMobSpeciesShade
+  - MobHumanoidHostileBase
+  id: MobHumanoidHostileBaseShade
+  components:
+  - type: Bloodstream
+    bloodReagent: Gestalzitine
+    bloodMaxVolume: 10
+    chemicalMaxVolume: 10
+
+# creepified human basically
+- type: entity
+  save: false
+  parent:
+  - BaseMobSpecies
+  id: BaseMobSpeciesShade
+  #abstract: true
+  components:
+  - type: Advertise
+    pack: WaywardComments
+    minimumWait: 30
+    maximumWait: 120
+  - type: SpamEmitSound
+    minInterval: 12
+    maxInterval: 36
+    sound:
+      collection: MonoShadeAmbience
+      params:
+        volume: -12
+        maxDistance: 4
+        variation: 0.05
+  - type: Sprite
+    sprite: _Mono/Mobs/monolithic.rsi
+    layers:
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - state: shade
+    - map: ["jumpsuit"]
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "id" ] # Mono - move from between belt and back
+    - map: [ "outerClothing" ] # mono - i hate you upstream
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.HumanoidVisualLayers.Wings" ] # For IPC wings porting from SimpleStation
+    - map: [ "balaclava" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "neck" ]
+    - map: [ "helmetcover" ]
+    - map: [ "helmetattachment" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "clownedon" ] # Dynamically generated
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+
+# Human NPC, uses equipment, immune to vacuum/low pressure - random appearance
+- type: entity
+  suffix: AI, Hostile
+  abstract: true
+  parent:
+  - MobHumanoidHostileBase
+  id: MobHumanoidHostileBaseRandomAppearance
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeHair: true
+    randomizeName: true

@@ -112,31 +112,6 @@
 
 - type: entity
   parent: SheriffPDA
-  id: MarsocFTLPDA
-  name: TSFMC MARSOC fire team leader PDA
-  description: A standard TSFMC personal computer.
-  components:
-  - type: Pda
-    id: TsfMarsocFTLIDCard
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - MedTekCartridge
-    - WantedListCartridge
-    - LogProbeCartridge
-    - AstroNavCartridge
-    - MailMetricsCartridge # Frontier
-  - type: Geiger # Mono
-    showExamine: true
-    showControl: true
-    isEnabled: true
-    attachedToSuit: true # Mono
-
-- type: entity
-  parent: SheriffPDA
   id: MarsocPDA
   name: TSFMC MARSOC operative PDA
   description: A standard TSFMC personal computer.
@@ -237,6 +212,34 @@
     - AstroNavCartridge
   - type: PdaBorderColor
     borderColor: "#533980"
+
+- type: entity
+  parent: BasePDVPDA
+  id: PDVTarkhanPDA
+  name: PDV tarkhan PDA
+  components:
+  - type: Pda
+    id: PDVTarkhanIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-tarkhan
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: CartridgeLoader
+    preinstalled:
+    - LedgerCartridge
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+  - type: PdaBorderColor
+    borderColor: "#EEEEEE"
 
 
 - type: entity

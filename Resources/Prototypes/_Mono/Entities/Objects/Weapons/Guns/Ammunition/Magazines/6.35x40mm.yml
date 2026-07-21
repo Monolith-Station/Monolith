@@ -1,6 +1,6 @@
 - type: entity
   id: BaseMagazine635x40mmCaseless
-  name: "magazine (635x40mm Caseless)"
+  name: "magazine (6.35x40mm Caseless)"
   parent: [ BaseCartridge, RecyclableItemSteelTiny ]
   abstract: true
   components:
@@ -34,7 +34,7 @@
 
 - type: entity
   id: BaseMagazine635x40mmCaselessShort
-  name: "caseless rifle short magazine (635x40mm Caseless)"
+  name: "caseless rifle short magazine (6.35x40mm Caseless)"
   parent: BaseMagazine635x40mmCaseless
   abstract: true
   components:
@@ -53,7 +53,7 @@
 
 - type: entity
   id: BaseMagazine635x40mmCaselessPistol
-  name: "pistol magazine (635x40mm Caseless)"
+  name: "pistol magazine (6.35x40mm Caseless)"
   parent: BaseMagazine635x40mmCaseless
   abstract: true
   components:
@@ -77,13 +77,13 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 6
+    steps: 5
     zeroVisible: false
   - type: Appearance
 
 - type: entity
   id: Magazine635x40mmCaselessBig
-  name: "box magazine (635x40mm Caseless)"
+  name: "box magazine (6.35x40mm Caseless)"
   parent: BaseMagazine635x40mmCaseless
   components:
   - type: BallisticAmmoProvider
@@ -98,7 +98,7 @@
 
 - type: entity
   id: Magazine635x40mmCaselessPistol
-  name: "pistol magazine (635x40mm Caseless)"
+  name: "pistol magazine (6.35x40mm Caseless)"
   parent: BaseMagazine635x40mmCaselessPistol
   components:
   - type: BallisticAmmoProvider
@@ -112,13 +112,13 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 6
+    steps: 5
     zeroVisible: false
   - type: Appearance
 
 - type: entity
   id: Magazine635x40mmCaselessPistolPractice
-  name: "pistol magazine (635x40mm Caseless practice)"
+  name: "pistol magazine (6.35x40mm Caseless practice)"
   parent: BaseMagazine635x40mmCaselessPistol
   components:
   - type: BallisticAmmoProvider
@@ -132,13 +132,13 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 6
+    steps: 5
     zeroVisible: false
   - type: Appearance
 
 - type: entity
   id: Magazine635x40mmCaseless
-  name: "magazine (635x40mm Caseless)"
+  name: "magazine (6.35x40mm Caseless)"
   parent: BaseMagazine635x40mmCaseless
   components:
   - type: BallisticAmmoProvider
@@ -152,7 +152,7 @@
 
 - type: entity
   id: Magazine635x40mmCaselessRubber
-  name: "magazine (635x40mm Caseless)"
+  name: "magazine (6.35x40mm Caseless)"
   parent: BaseMagazine635x40mmCaseless
   components:
   - type: BallisticAmmoProvider
@@ -166,7 +166,7 @@
 
 - type: entity
   id: Magazine635x40mmCaselessPractice
-  name: "magazine (635x40mm Caseless practice)"
+  name: "magazine (6.35x40mm Caseless practice)"
   parent: BaseMagazine635x40mmCaseless
   components:
   - type: BallisticAmmoProvider
@@ -180,7 +180,7 @@
 
 - type: entity
   id: Magazine635x40mmCaselessShort
-  name: "short magazine (635x40mm Caseless)"
+  name: "short magazine (6.35x40mm Caseless)"
   parent: BaseMagazine635x40mmCaselessShort
   components:
   - type: BallisticAmmoProvider
@@ -195,7 +195,7 @@
 
 - type: entity
   id: Magazine635x40mmCaselessShortPractice
-  name: "short magazine (635x40mm Caseless practice)"
+  name: "short magazine (6.35x40mm Caseless practice)"
   parent: BaseMagazine635x40mmCaselessShort
   components:
   - type: BallisticAmmoProvider

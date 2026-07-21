@@ -1,0 +1,13 @@
+- type: entity
+  id: Hyperwar
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HyperwarRule
+  - type: RandomMetadata #this generates the random operation name cuz it's cool.
+    nameSegments:
+    - operationPrefix
+    - operationSuffix
+  - type: NukeopsRule
+    roundEndBehavior: InstantEnd
+    canEnableWarOps: false

@@ -13,7 +13,7 @@
   price: 33000
   category: Small
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/canister.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/canister.yml
   guidebookPage: Null
   class:
   - Atmospherics
@@ -23,7 +23,7 @@
 - type: gameMap
   id: Canister
   mapName: 'HES Phaeron'
-  mapPath: /Maps/_Mono/Shuttles/canister.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/canister.yml
   minPlayers: 0
   stations:
     Canister:

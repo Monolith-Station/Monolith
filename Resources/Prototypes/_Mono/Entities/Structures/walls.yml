@@ -325,6 +325,68 @@
     repairTime: 10
     repairCost: 20
 
+# mining
+
+- type: entity
+  parent: WallMining
+  id: WallMiningOutpost
+  suffix: OUTPOST ONLY
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15000
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ShipRepairable
+    repairTime: 12
+    repairCost: 30
+
+- type: entity
+  parent: WallMiningDiagonal
+  id: WallMiningDiagonalOutpost
+  suffix: diagonal, OUTPOST ONLY
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 20
+
 # plastitanum
 
 - type: entity

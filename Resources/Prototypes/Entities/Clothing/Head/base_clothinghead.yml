@@ -183,6 +183,16 @@
     - Snout
     - HeadTop
     - HeadSide
+  # Mono - basic NVDs for everyone!
+  - type: NightVision # Gen 2 monotube
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 1
+    viewCircleSpacing: 280
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
 
 - type: entity
   abstract: true

@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateMaterialPlastitanium
+  parent: CrateGenericSteel
+  name: plastitanium crate
+  description: 90 sheets of plastitanium.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SheetPlastitanium
+        amount: 6

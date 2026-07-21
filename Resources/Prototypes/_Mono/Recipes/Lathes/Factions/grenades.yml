@@ -1,0 +1,69 @@
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: GrenadeFlashBang
+  result: GrenadeFlashBang
+  categories:
+  - FactionEquipment
+  - Weapons
+  - Explosive
+  completetime: 2
+  materials:
+    Plastic: 100
+    Steel: 100
+    Plasma: 100
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: SmokeGrenade
+  result: SmokeGrenade
+  categories:
+  - FactionEquipment
+  - Weapons
+  - Explosive
+  completetime: 2
+  materials:
+    Plastic: 100
+    Steel: 100
+    Plasma: 100
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AirGrenade
+  result: AirGrenade
+  categories:
+  - FactionEquipment
+  - Weapons
+  - Explosive
+  completetime: 2
+  materials:
+    Plastic: 100
+    Steel: 100
+    Plasma: 100
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: TearGasGrenade
+  result: TearGasGrenade
+  categories:
+  - FactionEquipment
+  - Weapons
+  - Explosive
+  completetime: 2
+  materials:
+    Plastic: 100
+    Steel: 100
+    Plasma: 100
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: ExGrenade
+  result: ExGrenade
+  categories:
+  - FactionEquipment
+  - Weapons
+  - Explosive
+  completetime: 2
+  materials:
+    Plastic: 300
+    Steel: 300
+    Plasma: 300

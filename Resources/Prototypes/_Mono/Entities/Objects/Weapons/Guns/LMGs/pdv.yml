@@ -1,0 +1,149 @@
+- type: entity
+  name: Cyborg minigun
+  id: CyborgWeaponMinigun
+  parent: BaseWeaponHeavyMachineGun
+  description: Old highly-inaccurate rotary mini-gun chambered in a small caliber.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+  - type: Gun
+    minAngle: 4
+    maxAngle: 25
+    angleIncrease: 3
+    angleDecay: 20
+    fireRate: 16
+    projectileSpeed: 45
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: CartridgeMinigun
+    fireCost: 20
+  - type: Battery
+    maxCharge: 4000
+    startingCharge: 4000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+  - type: AmmoCounter
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+
+- type: entity
+  name: PD-VI LA/22 "Kord" (7.62x51mm)
+  parent: BaseWeaponLightMachineGun
+  id: WeaponRifleWSPRTarkhan
+  description: A WSPR adapted into a 7.62x51mm GPMG for Tarkhans, somehow still integrally suppressed. An Erebus railmount is present on the top of the reciever for optics.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr_tarkhan.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - map: ["opticAttachment"]
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr_tarkhan_inhands_32x.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr_tarkhan_inhands_32x.rsi
+  - type: GunWieldBonus
+    minAngle: -14
+    maxAngle: -47
+  - type: Gun
+    minAngle: 14
+    maxAngle: 52
+    availableModes:
+    - Burst
+    - FullAuto
+    selectedMode: FullAuto
+    burstFireRate: 20
+    burstCooldown: 0.6
+    projectileSpeed: 45
+    fireRate: 7
+    damageModifier: 0.9
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/wspr_fire.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: AmmoBox762x51mmFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/lmg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/lmg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine762x51mmBoxSmall
+          - Magazine762x51mmFMJ
+          - Magazine762x51mmLowCapacityFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge762x51mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge762x51mmFMJ
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: GunRequiresWield
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.7
+    sprintModifier: 0.7
+  - type: WieldDelay
+    baseDelay: 0.8
+    modifiedDelay: 0.8
+    preventFiring: true

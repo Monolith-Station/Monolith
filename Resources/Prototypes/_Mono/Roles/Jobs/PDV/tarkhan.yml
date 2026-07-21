@@ -1,0 +1,59 @@
+- type: job
+  id: PDVTarkhan
+  name: job-name-pdv-tarkhan
+  description: job-description-pdv-tarkhan
+  playTimeTracker: JobPDVTarkhan
+  requirements:
+  - !type:DepartmentTimeRequirement # Requires time in both factions
+    department: Security
+    time: 14400 # 4 hours # mono
+  - !type:DepartmentTimeRequirement # Requires time in both factions
+    department: Antag
+    time: 108000 # 30 hours # mono
+  startingGear: PDVTarkhanGear
+  icon: JobIconPDVTarkhan
+  supervisors: job-supervisors-nobody
+  weight: 45
+  displayWeight: 45
+  assignedCompany: PDV
+  canBeAntag: false
+  setPreference: true
+  access:
+  - Pirate
+  - GrandVizier
+  - PDVCommand
+  - Mercenary
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - PirateNF
+    - type: ChatRank
+      rank: pdv-tarkhan
+  - !type:AddImplantSpecial
+    implants: [ FreelanceTrackingImplant ]
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - Freespeak
+    languagesUnderstood:
+    - Freespeak
+
+- type: startingGear
+  id: PDVTarkhanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNfsdTacCream
+    back: ClothingBackpackPDVTarkhan
+    ears: ClothingHeadsetAltVanguardCommand
+    gloves: ClothingHandsGlovesTacticalCombatBlack
+    outerClothing: ClothingOuterHardsuitTarkhan
+    shoes: ClothingShoesBootsMagAshen
+    id: PDVTarkhanPDA
+    pocket1: CrowbarPocket
+    pocket2: RadioHandheldNF
+    belt: ClothingBeltWebbingsPDVTarkhan
+    neck: ClothingNeckIFFOrange
+  inhand:
+  - UndeterminedPDVTarkhanKit

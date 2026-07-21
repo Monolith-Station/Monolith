@@ -5,16 +5,10 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgun12_gaugeBeanbag
-    - type: MagazineVisuals
-      magState: mag-beanbag
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-beanbag-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: beanbag
 
 - type: entity
@@ -28,8 +22,6 @@
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: lethal
 
 - type: entity
@@ -39,16 +31,10 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgun12_gaugeSlug
-    - type: MagazineVisuals
-      magState: mag-slug
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-slug-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: slug
 
 - type: entity
@@ -58,16 +44,10 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgun12_gaugeFlare
-    - type: MagazineVisuals
-      magState: mag-flare
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-flare-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: flare
 
 - type: entity
@@ -77,16 +57,10 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgun12_gaugeIncendiary
-    - type: MagazineVisuals
-      magState: mag-incend
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-incend-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: incendiary
 
 - type: entity
@@ -96,16 +70,10 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgun12_gaugeUranium
-    - type: MagazineVisuals
-      magState: mag-uranium
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-uranium-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: uranium
 
 - type: entity
@@ -115,16 +83,10 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgun12_gaugePractice
-    - type: MagazineVisuals
-      magState: mag-practice
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-practice-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: practice
 
 - type: entity
@@ -134,16 +96,10 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgun12_gaugeTranquilizer
-    - type: MagazineVisuals
-      magState: mag-tranq
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-tranq-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: tranquilizer
 
 # Mono AP syst
@@ -159,8 +115,6 @@
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: magnum-buckshot
 
 - type: entity
@@ -170,16 +124,10 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgun12_gaugeSlugRIP
-    - type: MagazineVisuals
-      magState: mag-slugRIP
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-slugRIP-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: slugRIP
 
 #armor-piercing:
@@ -190,16 +138,10 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgun12_gaugeSlugAP
-    - type: MagazineVisuals
-      magState: mag-slugAP
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-slugAP-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: slugAP
 
 - type: entity
@@ -209,14 +151,8 @@
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgun12_gaugeFlechette
-    - type: MagazineVisuals
-      magState: mag-flechette
-      steps: 5
-      zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-flechette-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: flechette

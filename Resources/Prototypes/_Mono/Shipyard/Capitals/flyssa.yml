@@ -4,12 +4,14 @@
   name: TSF-SKR Flyssa-K
   description: Lended over from the TSFN for you marines. A one-ship fleet on this scale of combat.
   limit: 1
+  hyperwarLimit: 3
+  hyperwarTimelock: 3600
   price: 1225950
   purchasable: false # voucher only
   category: Large
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Capitals/flyssa.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Capitals/flyssa.yml
   guidebookPage: Null
   class:
   - Capital
@@ -24,7 +26,7 @@
 - type: gameMap
   id: Flyssa
   mapName: 'TSF-SKR Flyssa-K'
-  mapPath: /Maps/_Mono/Shuttles/Capitals/flyssa.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Capitals/flyssa.yml
   minPlayers: 0
   stations:
     Flyssa:
