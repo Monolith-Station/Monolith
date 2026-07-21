@@ -301,22 +301,6 @@
           - PirateUplink
 
 - type: listing
-  id: UplinkPirateEnergyShield
-  name: uplink-pirate-energy-shield-name
-  description: uplink-pirate-energy-shield-desc
-  icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
-  productEntity: EnergyShield
-  cost:
-    Doubloon: 40
-  categories:
-  - UplinkPirateUtility
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
-
-- type: listing
   id: UplinkPirateThrusterKit
   name: uplink-pirate-thruster-kit-name
   description: uplink-pirate-thruster-kit-desc
