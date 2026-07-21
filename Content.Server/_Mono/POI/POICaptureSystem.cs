@@ -2,7 +2,9 @@ using Content.Server.Radio.EntitySystems;
 using Content.Shared._Mono.POI.Components;
 using Content.Shared.Access.Components;
 using Content.Shared._NF.Shipyard.Components;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.Popups;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.POI;
@@ -16,6 +18,7 @@ public sealed class POICaptureSystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
 
     private TimeSpan _nextUpdate;
@@ -31,7 +34,6 @@ public sealed class POICaptureSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        // Only process captures once per second
         if (_gameTiming.CurTime < _nextUpdate)
             return;
 
@@ -52,7 +54,6 @@ public sealed class POICaptureSystem : EntitySystem
         EntityUid uid,
         POICaptureComponent capture)
     {
-        // Capture no longer has an owner
         if (capture.CapturingEntity == null)
         {
             CancelCapture(uid);
@@ -60,7 +61,6 @@ public sealed class POICaptureSystem : EntitySystem
         }
 
 
-        // Ensure this grid is capturable
         if (!TryComp<CapturablePOIComponent>(uid, out var poi))
         {
             CancelCapture(uid);
@@ -68,22 +68,32 @@ public sealed class POICaptureSystem : EntitySystem
         }
 
 
-        // First capture announcement
+        //
+        // Initial capture announcement
+        //
         if (capture.LastBroadcastPercent == -1)
         {
-            var capturerName = "Unknown";
+            var playerName = "Unknown";
+            var factionName = "Unknown";
+
 
             if (capture.CapturingEntity is { } capturer)
-                capturerName = Name(capturer);
+                playerName = Name(capturer);
 
 
-            Logger.Info(
-                $"POI Capture Started: {Name(uid)} by {capturerName}");
+            if (capture.CapturingIdCard is { } idCard &&
+                TryComp<IdCardComponent>(idCard, out var card))
+            {
+                if (_prototype.TryIndex(card.Faction, out var faction))
+                    factionName = faction.Name;
+                else
+                    factionName = card.Faction;
+            }
 
 
             _radio.SendRadioMessage(
                 uid,
-                $"{Name(uid)} is now being captured by {capturerName}. Stand by.",
+                $"{playerName} is capturing for {factionName} {Name(uid)}. Stand by.",
                 "Traffic",
                 uid);
 
@@ -108,7 +118,9 @@ public sealed class POICaptureSystem : EntitySystem
         Dirty(uid, poi);
 
 
-        // Broadcast progress every 20%
+        //
+        // Progress announcements every 20%
+        //
         var broadcast =
             (int)(poi.CaptureProgress / 20) * 20;
 
@@ -143,15 +155,28 @@ public sealed class POICaptureSystem : EntitySystem
         poi.CaptureProgress = 0;
         poi.IsBeingCaptured = false;
 
+
         Dirty(uid, poi);
 
 
-        // Assign ownership deed to ID card
+        var playerName = "Unknown";
+        var factionName = "Unknown";
+
+
+        if (capture.CapturingEntity is { } capturer)
+            playerName = Name(capturer);
+
+
         if (capture.CapturingIdCard is { } idCard &&
             TryComp<IdCardComponent>(idCard, out var card))
         {
-            var deed = EnsureComp<ShuttleDeedComponent>(idCard);
+            if (_prototype.TryIndex(card.Faction, out var faction))
+                factionName = faction.Name;
+            else
+                factionName = card.Faction;
 
+
+            var deed = EnsureComp<ShuttleDeedComponent>(idCard);
 
             deed.ShuttleUid = uid;
             deed.ShuttleName = Name(uid);
@@ -162,7 +187,7 @@ public sealed class POICaptureSystem : EntitySystem
 
         _radio.SendRadioMessage(
             uid,
-            $"{Name(uid)} has been captured.",
+            $"{Name(uid)} has been captured by {playerName} for faction {factionName}.",
             "Traffic",
             uid);
 

@@ -12,6 +12,7 @@ public sealed class CapturableShuttleConsoleSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
 
+
     public override void Initialize()
     {
         base.Initialize();
@@ -22,6 +23,7 @@ public sealed class CapturableShuttleConsoleSystem : EntitySystem
         SubscribeLocalEvent<CapturableShuttleConsoleComponent, GetVerbsEvent<Verb>>(AddCaptureVerb);
     }
 
+
     private void OnIdInserted(
         EntityUid uid,
         CapturableShuttleConsoleComponent component,
@@ -30,11 +32,14 @@ public sealed class CapturableShuttleConsoleSystem : EntitySystem
         if (args.Container.ID != component.IdSlot)
             return;
 
+
         if (!HasComp<IdCardComponent>(args.Entity))
             return;
 
+
         component.InsertedId = args.Entity;
     }
+
 
     private void OnIdRemoved(
         EntityUid uid,
@@ -44,8 +49,10 @@ public sealed class CapturableShuttleConsoleSystem : EntitySystem
         if (args.Container.ID != component.IdSlot)
             return;
 
+
         component.InsertedId = null;
     }
+
 
     private void AddCaptureVerb(
         EntityUid uid,
@@ -70,6 +77,7 @@ public sealed class CapturableShuttleConsoleSystem : EntitySystem
         });
     }
 
+
     private void TryStartCapture(
         EntityUid console,
         CapturableShuttleConsoleComponent component,
@@ -85,7 +93,9 @@ public sealed class CapturableShuttleConsoleSystem : EntitySystem
             return;
         }
 
+
         var consoleTransform = Transform(console);
+
 
         if (consoleTransform.GridUid == null)
         {
@@ -97,9 +107,10 @@ public sealed class CapturableShuttleConsoleSystem : EntitySystem
             return;
         }
 
+
         var grid = consoleTransform.GridUid.Value;
 
-        // Any grid containing this console becomes capturable.
+
         var poi = EnsureComp<CapturablePOIComponent>(grid);
 
 
@@ -114,18 +125,45 @@ public sealed class CapturableShuttleConsoleSystem : EntitySystem
             return;
         }
 
+
         var capture = EnsureComp<POICaptureComponent>(grid);
 
+
+        // Person who pressed the capture button
         capture.CapturingEntity = user;
+        capture.CapturingPlayerName = Name(user);
+
+
+        // ID card in the console
         capture.CapturingIdCard = component.InsertedId.Value;
+
+
+        // Capture timing
         capture.CaptureStart = _gameTiming.CurTime;
         capture.CaptureDuration = TimeSpan.FromSeconds(component.CaptureTime);
-        capture.LastBroadcastPercent = 0;
+
+
+        // Force start announcement
+        capture.LastBroadcastPercent = -1;
+
+
+        // Store faction/company from inserted ID card
+        if (TryComp<IdCardComponent>(component.InsertedId.Value, out var card))
+        {
+            capture.CapturingFaction = card.CompanyName.ToString();
+        }
+        else
+        {
+            capture.CapturingFaction = "None";
+        }
+
 
         poi.CaptureProgress = 0;
         poi.IsBeingCaptured = true;
 
+
         Dirty(grid, poi);
+
 
         _popup.PopupClient(
             "POI capture started.",

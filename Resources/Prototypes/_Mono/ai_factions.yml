@@ -1,5 +1,6 @@
 - type: npcFaction
   id: CC
+  name: CC
   hostile:
   - SimpleHostile
   - Zombie
@@ -30,6 +31,7 @@
 
 - type: npcFaction
   id: USSP
+  name: USSP
   neutral:
   - CC
   - NanoTrasen
@@ -52,6 +54,7 @@
 
 - type: npcFaction
   id: MD
+  name: MD
   friendly:
   - CC
   neutral:
@@ -73,6 +76,7 @@
 
 - type: npcFaction
   id: VG
+  name: VG
   neutral:
   - CC
   - NanoTrasen

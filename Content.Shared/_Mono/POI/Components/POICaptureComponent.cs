@@ -23,6 +23,19 @@ public sealed partial class POICaptureComponent : Component
 
 
     /// <summary>
+    /// Character name of the person who started the capture.
+    /// Stored because the entity may not resolve later.
+    /// </summary>
+    public string CapturingPlayerName = "Unknown";
+
+
+    /// <summary>
+    /// Company/faction stored from the inserted ID card.
+    /// </summary>
+    public string CapturingFaction = "None";
+
+
+    /// <summary>
     /// Time when capture started.
     /// </summary>
     public TimeSpan CaptureStart;

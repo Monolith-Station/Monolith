@@ -30,6 +30,8 @@
     - state: idmercenary
   - type: Clothing
     sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: IdCard
+    faction: Private Contractors
 
 - type: entity
   parent: IDCardStandard
@@ -45,6 +47,8 @@
     - state: idpilot
   - type: Clothing
     sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: IdCard
+    faction: CC
 
 - type: entity
   parent: IDCardStandard
@@ -62,6 +66,8 @@
     sprite: _NF/Objects/Misc/id_cards.rsi
   - type: Item
     heldPrefix: silver
+  - type: IdCard
+    faction: CC
 
 - type: entity
   parent: IDCardStandard
@@ -75,6 +81,8 @@
     layers:
     - state: nfsd
     - state: idpublicaffairsliaison
+  - type: IdCard
+    faction: TSF
 
 - type: entity
   parent: IDCardStandard
@@ -92,6 +100,8 @@
     sprite: _NF/Objects/Misc/id_cards.rsi
   - type: Item
     heldPrefix: nfsd
+  - type: IdCard
+    faction: TSF
 
 - type: entity
   parent: CadetIDCard
@@ -105,7 +115,9 @@
     layers:
     - state: nfsd
     - state: idnfsddeputy
-
+  - type: IdCard
+    faction: TSF
+    
 - type: entity
   parent: CadetIDCard
   id: BrigmedicNFIDCard
@@ -118,7 +130,9 @@
     layers:
     - state: nfsd
     - state: idnfsdbrigmed
-
+  - type: IdCard
+    faction: TSF
+    
 - type: entity
   parent: CadetIDCard
   id: SergeantIDCard
@@ -131,7 +145,9 @@
     layers:
     - state: nfsd
     - state: idnfsdsergeant
-
+  - type: IdCard
+    faction: TSF
+    
 - type: entity
   parent: CadetIDCard
   id: BailiffIDCard
@@ -144,7 +160,9 @@
     layers:
     - state: nfsd
     - state: idnfsdbailiff
-
+  - type: IdCard
+    faction: TSF
+    
 - type: entity
   parent: CadetIDCard
   id: ShriffIDCard
@@ -159,7 +177,9 @@
     - state: idnfsdsheriff
   - type: Item
     heldPrefix: silver
-
+  - type: IdCard
+    faction: TSF
+    
 - type: entity
   parent: CadetIDCard
   id: NFDetectiveIDCard
@@ -172,7 +192,9 @@
     layers:
     - state: nfsd
     - state: idnfsddetective
-
+  - type: IdCard
+    faction: TSF
+    
 - type: entity
   parent: SecurityIDCard
   id: SecurityGuardIDCard
@@ -180,7 +202,9 @@
   components:
   - type: PresetIdCard
     job: SecurityGuard
-
+  - type: IdCard
+    faction: CC
+    
 - type: entity
   parent: ERTChaplainIDCard
   id: ERTMailCarrierIDCard
@@ -188,12 +212,13 @@
   components:
   - type: IdCard
     jobTitle: job-title-ert-mail-carrier
+    faction: CC
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
     - state: gold
     - state: ert_mailcarrier
-
+    
 - type: entity
   parent: HoPIDCard
   id: SrIDCard
@@ -201,7 +226,9 @@
   components:
   - type: PresetIdCard
     job: StationRepresentative
-
+  - type: IdCard
+    faction: CC
+    
 - type: entity
   parent: CCServiceWorkerIDCard
   id: CCServiceWorkerNFIDCard #Mono
@@ -215,14 +242,18 @@
     layers:
     - state: default
     - state: idvalet
-
+  - type: IdCard
+    faction: CC
+    
 - type: entity
   parent: JanitorIDCard
   id: NFJanitorIDCard
   components:
   - type: PresetIdCard
     job: NFJanitor
-
+  - type: IdCard
+    faction: CC
+    
 - type: entity
   parent: PassengerIDCard
   id: ContractorIDCard
@@ -235,7 +266,9 @@
     layers:
     - state: default
     - state: idcontractor
-
+  - type: IdCard
+    faction: CC
+    
 - type: entity
   parent: PunPunIDCard
   id: YipYipIDCard
@@ -243,7 +276,9 @@
   components:
   - type: PresetIdCard
     name: Yip Yip
-
+  - type: IdCard
+    faction: CC
+    
 - type: entity
   parent: IDCardStandard
   id: DocIDCard
@@ -260,7 +295,9 @@
     sprite: _NF/Objects/Misc/id_cards.rsi
   - type: Item
     heldPrefix: medic #temporary to OBSERVE
-
+  - type: IdCard
+    faction: CC
+    
 # Cats
 - type: entity
   parent: CourierIDCard
@@ -269,7 +306,9 @@
   components:
   - type: PresetIdCard
     name: Clippy
-
+  - type: IdCard
+    faction: CC
+    
 - type: entity
   parent: PDVAsvaranIDCard
   id: ClarpyIDCard
@@ -277,7 +316,9 @@
   components:
   - type: PresetIdCard
     name: Clarpy
-
+  - type: IdCard
+    faction: PDV
+    
 - type: entity
   parent: DeputyIDCard
   id: CappyIDCard
@@ -285,3 +326,6 @@
   components:
   - type: PresetIdCard
     name: Cappy
+  - type: IdCard
+    faction: TSF
+    
