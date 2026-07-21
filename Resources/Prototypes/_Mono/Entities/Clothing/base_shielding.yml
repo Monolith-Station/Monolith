@@ -70,3 +70,33 @@
     autoRecharge: true
     autoRechargeRate: 5
   - type: RechargeableBlocking
+
+- type: entity
+  abstract: true
+  id: MonoEnergyShieldClothing
+  components:
+  - type: PersonalShield
+    shield:
+      maxCharge: 300
+      regenRate: 3
+      spinupTime: 1
+      breakCooldown: 15
+      powerDraw: 0.5
+  - type: ItemToggle
+    onUse: false
+    onAltUse: true
+    onActivate: false
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: Battery
+    maxCharge: 40
+    startingCharge: 40
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 4
