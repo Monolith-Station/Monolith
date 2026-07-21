@@ -1,6 +1,4 @@
 name: Publish Mapping
-concurrency:
-  group: publish
 
 on:
   workflow_dispatch:
