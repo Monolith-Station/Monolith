@@ -118,7 +118,7 @@
     exemptAccessLevels:
     - GrandVizier
     - PDVCommand
-    - Pirate
+    - PDVGeneral
   - type: DeviceNetwork
     receiveFrequencyId: TurretAIPDV
     transmitFrequencyId: TurretControlAIPDV
@@ -135,7 +135,7 @@
     exemptAccessLevels:
     - GrandVizier
     - PDVCommand
-    - Pirate
+    - PDVGeneral
   - type: DeviceNetwork
     receiveFrequencyId: TurretControlAIPDV
     transmitFrequencyId: TurretAIPDV
