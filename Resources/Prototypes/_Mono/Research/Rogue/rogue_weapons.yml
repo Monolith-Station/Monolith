@@ -1,12 +1,12 @@
 - type: technology
-  id: RogueEsword
-  name: research-technology-rogue-energy-weapon
-  entityIcon: EnergySword
+  id: RogueMeleeWeapons
+  name: research-technology-rogue-advanced-melee-weapon
+  entityIcon: HeavyBallisticShield
   discipline: RogueWeaponry
   tier: 3
   cost: 25000
   recipeUnlocks:
-  - EnergyShieldRogue
+  - HeavyBallisticShield
   - EnergySwordRogue
   - EnergyDaggerRogue
   technologyPrerequisites:
@@ -23,7 +23,7 @@
   recipeUnlocks:
   - HFSwordVT7
   technologyPrerequisites:
-  - RogueEsword
+  - RogueMeleeWeapons
   position: 12, 14
 
 - type: technology

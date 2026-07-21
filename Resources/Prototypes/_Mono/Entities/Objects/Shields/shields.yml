@@ -5,7 +5,7 @@
   description: Z-22 produced hardlight shield, when folded, can even fit in your pocket. Its more emmitive than reflective, unlike its blue cousins.
   components:
     - type: ItemToggle
-      predictable: false 
+      predictable: false
       soundActivate:
         path: /Audio/Weapons/ebladeon.ogg
       soundDeactivate:
@@ -51,8 +51,8 @@
       netsync: false
       enabled: false
       radius: 1.5
-      energy: 0.7 
-      color: "#67d971" 
+      energy: 0.7
+      color: "#67d971"
     - type: ItemTogglePointLight
     - type: Blocking
       passiveBlockModifier:
@@ -60,7 +60,7 @@
           Blunt: .75
           Slash: .75
           Piercing: 0.75
-          Heat: 0.85 
+          Heat: 0.85
       activeBlockModifier:
         coefficients:
           Blunt: .5
@@ -84,3 +84,47 @@
       autoRecharge: true
       autoRechargeRate: 3
     - type: RechargeableBlocking
+
+- type: entity
+  name: heavy ballistic shield
+  parent: BaseShield
+  id: HeavyBallisticShield
+  description:
+  components:
+    - type: Sprite
+      sprite: _Mono/Objects/Weapons/Melee/shields.rsi
+      state: heavy-icon
+    - type: Item
+      size: Ginormous
+      sprite: _Mono/Objects/Weapons/Melee/shields.rsi
+      heldPrefix: heavy
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.35
+          Slash: 0.35
+          Piercing: 0.20
+          Heat: 0.35
+      passiveBlockFraction: 1
+    - type: ClothingSpeedModifier
+      sprintModifier: 0.3
+      walkModifier: 0.5
+    - type: HeldSpeedModifier
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetPlasteel:
+                  min: 5
+                  max: 5
+    - type: StaticPrice
+      price: 350
