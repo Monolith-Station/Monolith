@@ -290,10 +290,10 @@ uplink-tsf-navyofficersword-name = Navy Officer Sabre
 uplink-tsf-navyofficersword-desc = A sword normally reserved for navy officers, admiralty, and other high command of the solarian naval forces. Has a small chance to reflect incoming projectiles.
 
 uplink-tsf-pulsepistol-name = Pulse Pistol
-uplink-tsf-pulsepistol-desc = A high powered laser pistol normally reserved for elite ERT units. Has an internal battery, but requires using a security charging dock.
+uplink-tsf-pulsepistol-desc = A high powered laser pistol normally reserved as a sidearm for TSFMC and TSFN officers. Has an internal low emission charging cell, for some degree of prolonged use.
 
 uplink-tsf-pulsecarbine-name = Pulse Carbine
-uplink-tsf-pulsecarbine-desc = A high powered laser carbine normally reserved for elite ERT and combat units. Has an internal battery, but requires using a security charging dock.
+uplink-tsf-pulsecarbine-desc = A high powered laser carbine normally reserved for elite TSFMC units. Has an internal low emission charging cell, for some degree of prolonged use.
 
 uplink-tsf-hammer-name = Breaching Hammer
 uplink-tsf-hammer-desc = A large, two-handed hammer that is perfect for breaking down doors, or breaching through hull plating.
