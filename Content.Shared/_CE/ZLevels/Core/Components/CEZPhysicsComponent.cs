@@ -28,6 +28,13 @@ public sealed partial class CEZPhysicsComponent : Component
     [DataField, AutoNetworkedField]
     public float LocalPosition;
 
+    /// <summary>
+    /// Seconds left in a ground-liftoff spool-up, for the shuttle console countdown.
+    /// Zero when not launching.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float LaunchCountdown;
+
     /// Optimization Caches
     /// <summary>
     /// Cached value of the current z-level map height
@@ -45,10 +52,6 @@ public sealed partial class CEZPhysicsComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool Fallable = true;
-
-    // Visuals
-
-
 
     /// <summary>
     /// The original DrawDepth of the object is automatically saved here. Increases by 1 when the creature has <see cref="LocalPosition"/> > 0

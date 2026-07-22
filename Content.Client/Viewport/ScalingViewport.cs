@@ -154,7 +154,7 @@ namespace Content.Client.Viewport
 
             DebugTools.AssertNotNull(_viewport);
 
-            RenderZLevels(_viewport!); // CrystallEdge Process multi-Z rendering
+            RenderZLevels(handle, _viewport!); // CrystallEdge Process multi-Z rendering
 
             //_viewport!.Render();
 

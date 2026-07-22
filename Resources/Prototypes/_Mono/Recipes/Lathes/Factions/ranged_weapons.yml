@@ -412,6 +412,42 @@
     Silver: 200
     Plasma: 500
 
+# PDV T3
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLightMachineGunL6Rogue
+  result: WeaponLightMachineGunL6
+  categories:
+  - LMGs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plasteel: 2500
+    Plastitanium: 1500
+    Plastic: 1000
+    Silver: 500
+    Gold: 250
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleBurnerRogue
+  result: WeaponRifleBurner
+  categories:
+  - DMRs
+  - AntiMaterial
+  - Ballistic
+  - Weapons
+  - Antitank
+  materials:
+    Steel: 3000
+    Plasteel: 2500
+    Plastitanium: 2000
+    Plastic: 800
+    Silver: 700
+    Gold: 650
+
 # hristov
 
 - type: latheRecipe

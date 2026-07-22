@@ -15,7 +15,6 @@ namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
 
 public abstract partial class CESharedZLevelsSystem
 {
-    private TimeSpan _accumulatedTime = TimeSpan.Zero;
     private readonly List<EntityUid> _dirtyMovementBodies = new();
 
     private void InitializeMovement()
@@ -37,6 +36,74 @@ public abstract partial class CESharedZLevelsSystem
             return 0;
 
         return target.Comp.LocalPosition - target.Comp.CachedGroundHeight;
+    }
+
+    /// <summary>
+    /// Continuous altitude of an entity above the floor of the z-level it occupies:
+    /// 0 while standing on the level, approaching 1 at the boundary above. Transit
+    /// riders report the gap's current progress; airborne entities (and entities
+    /// riding an airborne grid) their z-physics height. Levels below the entity are
+    /// then simply -1 per layer from this value.
+    /// </summary>
+    [PublicAPI]
+    public float GetLocalAltitude(EntityUid uid)
+    {
+        var xform = Transform(uid);
+
+        // Open air between two levels: the gap's progress is the altitude above its
+        // lower anchor.
+        if (TryComp<CEZTransitMapComponent>(xform.MapUid, out var transit))
+            return GetTransitProgress(transit);
+
+        if (ZPhysicsQuery.TryComp(uid, out var zPhys) && zPhys.LocalPosition > 0f)
+            return Math.Clamp(zPhys.LocalPosition, 0f, 1f);
+
+        // Standing on a grid that is itself climbing within the level.
+        if (xform.GridUid is { } grid && grid != uid && ZPhysicsQuery.TryComp(grid, out var gridPhys))
+            return Math.Clamp(gridPhys.LocalPosition, 0f, 1f);
+
+        return 0f;
+    }
+
+    /// <summary>
+    /// Absolute altitude of an entity within its z-stack: the depth of the level it
+    /// occupies plus its fractional local altitude above that level's floor. Entities
+    /// riding a transit gap report the lower anchor's depth plus the gap's progress,
+    /// so the value climbs continuously through a two-level ride. Distance between
+    /// two entities in the same stack is just the difference of their absolute
+    /// altitudes.
+    /// </summary>
+    [PublicAPI]
+    public float GetAbsoluteAltitude(EntityUid uid)
+    {
+        var xform = Transform(uid);
+        if (xform.MapUid is not { } mapUid)
+            return 0f;
+
+        // Open air between two levels: the ride starts at the lower anchor's depth.
+        if (TryComp<CEZTransitMapComponent>(mapUid, out var transit))
+        {
+            var lowerDepth = transit.LowerMap is { } lower && _zMapQuery.TryComp(lower, out var lowerMap)
+                ? lowerMap.Depth
+                : 0;
+            return lowerDepth + GetTransitProgress(transit);
+        }
+
+        var depth = _zMapQuery.TryComp(mapUid, out var map) ? map.Depth : 0;
+        return depth + GetLocalAltitude(uid);
+    }
+
+    /// <summary>
+    /// How far a transit gap's ride has climbed from its lower anchor toward its
+    /// upper one, 0..1.
+    /// </summary>
+    [PublicAPI]
+    public float GetTransitProgress(CEZTransitMapComponent transit)
+    {
+        if (transit.PrimaryGrid is { } grid && ZPhysicsQuery.TryComp(grid, out var zPhys))
+            return Math.Clamp(zPhys.LocalPosition, 0f, 1f);
+
+        return 0f;
     }
 
     private void OnTileChanged(Entity<CEZMapComponent> ent, ref TileChangedEvent args)
@@ -262,6 +329,19 @@ public abstract partial class CESharedZLevelsSystem
         WakeBody(ent);
     }
 
+    /// <summary>
+    /// Sets the seconds remaining in a ground-liftoff spool-up, for the shuttle console countdown.
+    /// </summary>
+    [PublicAPI]
+    public void SetLaunchCountdown(Entity<CEZPhysicsComponent?> ent, float seconds)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp) || ent.Comp.LaunchCountdown.Equals(seconds))
+            return;
+
+        ent.Comp.LaunchCountdown = seconds;
+        DirtyField(ent, ent.Comp, nameof(CEZPhysicsComponent.LaunchCountdown));
+    }
+
     [PublicAPI]
     public void UpdateGravityState(Entity<CEZPhysicsComponent?> ent)
     {
@@ -326,15 +406,52 @@ public abstract partial class CESharedZLevelsSystem
         if (!_mapQuery.TryComp(targetMap, out var targetMapComp))
             return false;
 
-        var worldRot = _transform.GetWorldRotation(ent);
+        // pzn: Transit maps have their own path.
+        if (_gridQuery.TryComp(ent, out var gridComp) && !_mapQuery.HasComp(ent))
+            return TryMoveGrid((ent, gridComp), (targetMap.Owner, targetMap.Comp, targetMapComp), offset);
 
-        _transform.SetMapCoordinates(ent, new MapCoordinates(_transform.GetWorldPosition(ent), targetMapComp.MapId));
+        var worldRot = _transform.GetWorldRotation(ent);
+        var destMapId = targetMapComp.MapId;
+
+        // If there's a transitting grid below, land on it instead of just noclipping through it like that guy from the Backrooms movie.
+        if (offset < 0 && TryFindTransitLanding(ent, map.Value.Owner, targetMap.Owner, out var transitMapId))
+            destMapId = transitMapId;
+
+        _transform.SetMapCoordinates(ent, new MapCoordinates(_transform.GetWorldPosition(ent), destMapId));
         _transform.SetWorldRotation(ent, worldRot);
 
         var ev = new CEZLevelMapMoveEvent(offset, targetMap.Comp.Depth);
         RaiseLocalEvent(ent, ref ev);
 
         return true;
+    }
+
+    private bool TryFindTransitLanding(EntityUid ent, EntityUid upperMap, EntityUid lowerMap, out MapId transitMapId)
+    {
+        transitMapId = MapId.Nullspace;
+        var worldPos = _transform.GetWorldPosition(ent);
+
+        var query = EntityQueryEnumerator<CEZTransitMapComponent, MapComponent>();
+        while (query.MoveNext(out _, out var transit, out var mapComp))
+        {
+            if (transit.UpperMap != upperMap || transit.LowerMap != lowerMap)
+                continue;
+
+            if (!_mapManager.TryFindGridAt(mapComp.MapId, worldPos, out _, out _))
+                continue;
+
+            transitMapId = mapComp.MapId;
+            return true;
+        }
+
+        return false;
+    }
+
+    protected virtual bool TryMoveGrid(Entity<MapGridComponent> grid,
+        Entity<CEZMapComponent, MapComponent> targetMap,
+        int offset)
+    {
+        return false;
     }
 
     [PublicAPI]
@@ -381,6 +498,21 @@ public abstract partial class CESharedZLevelsSystem
 
         _dirtyMovementBodies.Clear();
     }
+}
+
+/// <summary>
+/// Mono: is called on an entity right before it moves between z-levels.
+/// </summary>
+/// <param name="offset">How many levels were crossed. If negative, it means there was a downward movement. If positive, it means an upward movement.</param>
+[ByRefEvent]
+public struct CEZLevelBeforeMapMoveEvent(int offset, int level)
+{
+    /// <summary>
+    /// How many levels were crossed. If negative, it means there was a downward movement. If positive, it means an upward movement.
+    /// </summary>
+    public int Offset = offset;
+
+    public int CurrentZLevel = level;
 }
 
 /// <summary>

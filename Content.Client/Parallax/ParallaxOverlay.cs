@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Client.Parallax.Managers;
 using Content.Client.Viewport; // CrystallEdge
+using Content.Shared._CE.ZLevels.Core.Components; // CrystallEdge
 using Content.Shared._CE.ZLevels.Core.EntitySystems; // CrystallEdge
 using Content.Shared.CCVar;
 using Content.Shared.Parallax.Biomes;
@@ -41,7 +42,12 @@ public sealed partial class ParallaxOverlay : Overlay
 
         //CrystallEdge draw parallax only for lowest zlevel
         if (args.Viewport.Eye is ScalingViewport.ZEye zEye)
-            return zEye.LowestDepth == zEye.Depth;
+            return zEye.DrawParallax;
+
+        // Transit maps are mostly-empty carriers for a moving ship; painting the
+        // skybox on them would overwrite the already-rendered world below.
+        if (_entManager.HasComponent<CEZTransitMapComponent>(args.MapUid))
+            return false;
 
         return !_zLevel.TryMapDown(args.MapUid, out _);
         //CrystallEdge end

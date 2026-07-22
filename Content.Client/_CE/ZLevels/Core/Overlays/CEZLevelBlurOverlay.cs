@@ -59,8 +59,14 @@ public sealed partial class CEZLevelBlurOverlay : Overlay
                 mapLight.AmbientLightColor.B);
         }
 
+        var strength = 1f;
+        if (args.Viewport.Eye is ScalingViewport.ZEye zeye)
+            strength = Math.Clamp(-zeye.Depth, 0f, 1f);
+
         _blurShader?.SetParameter("SCREEN_TEXTURE", ScreenTexture);
         _blurShader?.SetParameter("BLUR_COLOR", ambientColor);
+        _blurShader?.SetParameter("STRENGTH", strength);
+        _blurShader?.SetParameter("FADE", 1f);
 
         var worldHandle = args.WorldHandle;
         worldHandle.UseShader(_blurShader);

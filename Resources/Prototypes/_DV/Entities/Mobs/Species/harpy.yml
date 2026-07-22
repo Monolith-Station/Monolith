@@ -5,6 +5,12 @@
   id: MobHarpyBase
   abstract: true
   components:
+  - type: CEZFlyer # Mono: z-level flight
+    flightSpeed: 0.5
+    flightMoveSpeedModifier: 0.5
+    hoverStaminaDrain: 5
+  - type: CEControllableFlight
+    startFlightDoAfter: 1.5
   - type: HarpySinger
   - type: Instrument
     allowPercussion: false
