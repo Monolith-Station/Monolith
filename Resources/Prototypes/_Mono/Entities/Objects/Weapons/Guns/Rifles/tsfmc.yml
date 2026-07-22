@@ -596,12 +596,11 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: Cartridge68x52mmCaseless # Mono
+        startingItem: Cartridge762x51mmFMJ
         priority: 1
         whitelist:
           tags:
-          - Cartridge68x52mmCaseless # Mono
-          - Cartridge556x45mmFMJ # Mono
+          - Cartridge762x51mmFMJ
       # Mono
       attachment_grip:
         insertSound: /Audio/Items/screwdriver2.ogg
