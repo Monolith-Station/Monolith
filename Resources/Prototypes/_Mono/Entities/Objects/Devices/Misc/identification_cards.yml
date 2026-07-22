@@ -62,7 +62,7 @@
 - type: entity
   parent: IDCardStandard
   id: TsfRecruitIDCard
-  name: TSFMC recruit ID card
+  name: TSF recruit ID card
   components:
   - type: PresetIdCard
     job: TsfRecruit
@@ -79,7 +79,7 @@
 - type: entity
   parent: IDCardStandard
   id: TsfMarineIDCard
-  name: TSFMC marine ID card
+  name: TSF marine ID card
   components:
   - type: PresetIdCard
     job: TsfMarine

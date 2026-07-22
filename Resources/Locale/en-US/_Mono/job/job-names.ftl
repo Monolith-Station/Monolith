@@ -11,15 +11,15 @@ job-name-md-medic = Emergency Responder
 job-name-doc = Director of Care
 
 # MARK: TSF
-job-name-tsf-engineer = TSFMC Engineer
-job-name-tsf-borg = TSFMC Cyborg
-job-name-tsf-marine = TSFMC Marine
+job-name-tsf-engineer = TSFN Engineer
+job-name-tsf-borg = TSF Cyborg
+job-name-tsf-marine = TSF Marine
 job-name-tsf-officer = TSF Officer
 job-name-tsf-corpsman = TSF Corpsman
-job-name-tsf-recruit = TSFMC Recruit
+job-name-tsf-recruit = TSF Recruit
 job-name-tsf-commandingofficer = TSF Commanding Officer
 job-name-tsf-marsoc = TSFMC MARSOC Operative
-job-name-tsf-teamleader = TSFMC Fireteam Leader
+job-name-tsf-teamleader = TSF Fireteam Leader
 
 # MARK: PDV
 job-name-pdv-borg = PDV Cyborg
