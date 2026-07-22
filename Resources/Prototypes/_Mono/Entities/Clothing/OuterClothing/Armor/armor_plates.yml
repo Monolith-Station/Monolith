@@ -1,4 +1,8 @@
 # Blunt and Slash
+#READ THIS BEFORE EDITING THE ABSORPTION RATIOS
+# The maths for how the damage is calculated is "damage - [Multiplyer*damage]" so if the value is set to over 1, it removes all damage but if its set to a negative it adds damage
+# e.g. heat plate before fix: 24-[24*1.2] = 24-26.4 = -2.4 (which does no damage)
+# after fix it would be: 24-[24*-0.2] = 24+2.4 = 26.4 (which does more damage)
 - type: entity
   parent: BaseItem
   id: ArmorPlateBlunt_Slash
@@ -17,9 +21,9 @@
     sprintSpeedModifier: 0.95
     staminaDamageMultiplier: 1.0
     absorptionRatios:
-      Blunt: 0.7
-      Slash: 0.7
-      Burn: 1.2
+      Blunt: 0.3
+      Slash: 0.3
+      Heat: -0.2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -49,8 +53,8 @@
     sprintSpeedModifier: 0.95
     staminaDamageMultiplier: 1.0
     absorptionRatios:
-      Piercing: 0.7
-      Burn: 1.2
+      Piercing: 0.3
+      Heat: -0.2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -80,8 +84,8 @@
     sprintSpeedModifier: 0.95
     staminaDamageMultiplier: 1.0
     absorptionRatios:
-      Heat: 0.7
-      Piercing: 1.2
+      Heat: 0.3
+      Piercing: -0.2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -111,10 +115,10 @@
     sprintSpeedModifier: 1.1
     staminaDamageMultiplier: 2
     absorptionRatios:
-      Burn: 1.2
-      Piercing: 1.2
-      Blunt: 1.2
-      Slash: 1.2
+      Heat: -0.2
+      Piercing: -0.2
+      Blunt: -0.2
+      Slash: -0.2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
