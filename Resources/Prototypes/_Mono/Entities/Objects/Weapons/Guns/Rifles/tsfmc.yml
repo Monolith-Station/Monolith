@@ -1,5 +1,5 @@
 - type: entity
-  name: VFD QBZX-281 Taotie ICWS (5.56x45mm)
+  name: VFD QBZX-281 ICWS (5.56x45mm)
   parent: [BaseWeaponRifle, BaseGunWieldable, BaseFactionGearTSFT2]
   id: WeaponRifleXlr556
   description: A proposed next-gen "rifle" for TSF standard infantry. Chambered in 5.56x45mm rifle rounds, its RPM is incredible - but with great firerate comes great fire control...
@@ -596,12 +596,11 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: Cartridge68x52mmCaseless # Mono
+        startingItem: Cartridge762x51mmFMJ
         priority: 1
         whitelist:
           tags:
-          - Cartridge68x52mmCaseless # Mono
-          - Cartridge556x45mmFMJ # Mono
+          - Cartridge762x51mmFMJ
       # Mono
       attachment_grip:
         insertSound: /Audio/Items/screwdriver2.ogg
