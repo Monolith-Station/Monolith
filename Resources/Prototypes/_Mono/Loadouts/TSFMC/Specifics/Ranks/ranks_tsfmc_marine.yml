@@ -73,24 +73,6 @@
       time: 180000 # 50hr
 
 - type: loadoutEffectGroup
-  id: TsfmcMarineLCpl
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobTsfMarine
-      time: 108000 # 30hr
-
-- type: loadoutEffectGroup
-  id: TsfmcMarineCpl
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobTsfMarine
-      time: 180000 # 50hr
-
-- type: loadoutEffectGroup
   id: TsfmcMarineSgt
   effects:
   - !type:JobRequirementLoadoutEffect
