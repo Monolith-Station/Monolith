@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commit 2bb3d7698887e0f4f450da372d525385c248c52a",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "adapter-1",
+      "directions": 4
+    },
+    {
+      "name": "adapter-2",
+      "directions": 4
+    },
+    {
+      "name": "adapter-3",
+      "directions": 4
+    },
+    {
+      "name": "adapter-4",
+      "directions": 4
+    },
+    {
+      "name": "adapter-5",
+      "directions": 4
+    },
+    {
+      "name": "adapter_center"
+    },
+    {
+      "name": "pipe-1",
+      "directions": 4
+    },
+    {
+      "name": "pipe-2",
+      "directions": 4
+    },
+    {
+      "name": "pipe-3",
+      "directions": 4
+    },
+    {
+      "name": "pipe-4",
+      "directions": 4
+    },
+    {
+      "name": "pipe-5",
+      "directions": 4
+    }
+  ]
+}

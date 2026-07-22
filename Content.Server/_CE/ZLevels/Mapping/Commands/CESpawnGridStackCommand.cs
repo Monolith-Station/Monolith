@@ -20,10 +20,10 @@ public sealed partial class CESpawnGridStackCommand : LocalizedEntityCommands
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private CEZGridStackSystem _gridStack = default!;
 
-    public override string Command => "cez-spawn-stack";
+    public override string Command => "znetwork-spawn-stack";
 
     public override string Description =>
-        "Spawn a multi-deck grid stack into a z-network. Args: <zNetwork net entity> <baseDepth> <cezGridStack id> [x] [y]";
+        "Spawn a multi-deck grid stack into a z-network.";
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {

@@ -38,6 +38,13 @@ namespace Content.Server.Power.Nodes
                     nodeDirs.Add((Direction.Invalid, node));
                 }
 
+                // CrystallEdge: vertical nodes for cables
+                if (node is CECableVerticalNode && dir == Direction.Invalid)
+                {
+                    nodeDirs.Add((Direction.Invalid, node));
+                }
+                // CrystallEdge end
+
                 if (node is CableTerminalNode)
                 {
                     if (dir == Direction.Invalid)
@@ -52,7 +59,6 @@ namespace Content.Server.Power.Nodes
                         {
                             // Target tile has a terminal towards us, block the direction.
                             terminalDirs |= 1 << (int) dir;
-                            break;
                         }
                     }
                 }
