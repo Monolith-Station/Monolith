@@ -71,6 +71,27 @@
             </PanelContainer>
             </BoxContainer>
             </PanelContainer>
+            <PanelContainer VerticalExpand="False" HorizontalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BorderThickness="4" BorderColor="#262626" BackgroundColor="#111111" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Horizontal" MinWidth="256" MaxWidth="256" HorizontalExpand="False" Margin="2 3 2 3">
+                    <PanelContainer VerticalExpand="False" HorizontalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BorderThickness="4" BorderColor="#2e2e2e" BackgroundColor="#1c1c1c" />
+                        </PanelContainer.PanelOverride>
+                        <Button Name="IFFToggle" Access="Public" Text="{Loc 'shuttle-console-iff-toggle'}"
+                                StyleClasses="ButtonSquare" HorizontalExpand="True" Margin="4 4" ToggleMode="True"/>
+                    </PanelContainer>
+                    <PanelContainer VerticalExpand="False" HorizontalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BorderThickness="4" BorderColor="#2e2e2e" BackgroundColor="#1c1c1c" />
+                        </PanelContainer.PanelOverride>
+                        <Button Name="DockToggle" Access="Public" Text="{Loc 'shuttle-console-dock-toggle'}"
+                                StyleClasses="ButtonSquare" HorizontalExpand="True" Margin="4 4" ToggleMode="True"/>
+                    </PanelContainer>
+                </BoxContainer>
+            </PanelContainer>
 
             <!-- Weapons List -->
             <PanelContainer VerticalExpand="True" Margin="0 3 0 3">

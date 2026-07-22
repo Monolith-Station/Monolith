@@ -22684,3 +22684,219 @@ Entries:
   id: 2505
   time: '2026-07-18T13:50:24.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4252
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Nerfed 90mm minelayer ammo to 12 rounds/mag, increased radar signature.
+    - type: Tweak
+      message: Doubled subnuclear shell fissile cost, ~2/3 explosive power.
+  id: 2506
+  time: '2026-07-18T21:06:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4309
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed issues with the nuke codes & announcement in Hyperwar.
+  id: 2507
+  time: '2026-07-18T23:56:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4311
+- author: waphun
+  changes:
+    - type: Tweak
+      message: >-
+        The Shiv should have gravity now and its mining pulsers properly overlap
+        now
+  id: 2508
+  time: '2026-07-19T16:06:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4310
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Nuclear reactors & gas turbines are locked to general faction stuff now
+        instead of higher-access roles like FTLs.
+  id: 2509
+  time: '2026-07-19T20:09:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4319
+- author: kasature90
+  changes:
+    - type: Add
+      message: Ported Wizden turret control system. Not mapped anywhere though.
+  id: 2510
+  time: '2026-07-19T20:11:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4315
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: >-
+        FIRMWARE UPDATE: Your shuttle console's flight control software has been
+        updated to v2.0_pzn; no further interaction is required.
+  id: 2511
+  time: '2026-07-20T06:36:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4321
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed Grizzly not working.
+  id: 2512
+  time: '2026-07-20T07:02:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4323
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added Layak as a PDV T1 escort corvette.
+    - type: Tweak
+      message: Updated Jupiter shipyard console roster to be more up-to-date.
+  id: 2513
+  time: '2026-07-20T10:54:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4285
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Worldgen before the far ring is now condensed into 2 big clusters (they
+        have beacons!) and a ring at 9km.
+  id: 2514
+  time: '2026-07-21T02:34:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4320
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added SACLOS ammo for 57mm, 140mm, and ASM-220.
+    - type: Tweak
+      message: ASM-220 HE torpedoes can now be bought at cargo.
+    - type: Tweak
+      message: 220mm cluster-homing ammo is now predictive guidance.
+    - type: Remove
+      message: Removed 57mm homing & 90mm minelayer ammo.
+  id: 2515
+  time: '2026-07-21T03:02:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4312
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Influenced human NPCs
+  id: 2516
+  time: '2026-07-21T05:24:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4317
+- author: strace-enjoyer
+  changes:
+    - type: Fix
+      message: >-
+        Fixed CC constantly underpressuring and air alarms panicking and
+        firelocks going down
+  id: 2517
+  time: '2026-07-21T05:25:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4324
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Heavy ballistic shield for PDV.
+    - type: Remove
+      message: Energy shield for PDV.
+  id: 2518
+  time: '2026-07-21T12:48:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4330
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: CV-32 and CV-82 have been rebalanced.
+    - type: Tweak
+      message: TSFMC mid-high tier hardsuit have been rebalanced.
+    - type: Tweak
+      message: Removed basillisk high accuracy from 1 hand
+    - type: Tweak
+      message: Replaced 100 ammo mag with medipen case in spasaka kit
+    - type: Tweak
+      message: Buffed vulcan RPS to 3.5
+    - type: Tweak
+      message: Nerfed 9x19mm vector damage modifier to 0.8x
+    - type: Tweak
+      message: Removed damage modifier from WSPR
+    - type: Tweak
+      message: Severely buffed GS-004 Heavy shotgun
+    - type: Tweak
+      message: >-
+        Increased scylla&autopulser velocity. Scylla has been buffed.
+        Autopulsers are no longer anchorable
+    - type: Tweak
+      message: Buffed artillery&AK570 velocity
+    - type: Tweak
+      message: Buffed AK870
+    - type: Tweak
+      message: Buffed apollo
+    - type: Tweak
+      message: Reworked 520mm howitzer - Slower but more range and more powerful.
+  id: 2519
+  time: '2026-07-22T00:03:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4279
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: L6 SAW & Burner can now be produced.
+  id: 2520
+  time: '2026-07-22T00:03:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4337
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: >-
+        Ullman has released a new model of their ENFORCER MKII combat tacsuit
+        with an upgraded shield generator.
+  id: 2521
+  time: '2026-07-22T00:04:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4328
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: >-
+        Added the Zeta Node. A small grid that sits in close proximity to CC and
+        allows fast travel between the two.
+    - type: Tweak
+      message: >-
+        The interior of CC's medbay is now altered for a more QoL outlook.
+        Mildly expanded CC's shooting range as well.
+  id: 2522
+  time: '2026-07-22T00:05:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4329
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added toggles to gunnery console for showing IFF and dock labels.
+  id: 2523
+  time: '2026-07-22T00:07:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4248
+- author: EldritchPineapple
+  changes:
+    - type: Tweak
+      message: The prometheus had received buffs
+  id: 2524
+  time: '2026-07-22T00:08:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4241
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Telescopic shields for PDV.
+    - type: Tweak
+      message: Telescopic shields received severe buffs
+    - type: Tweak
+      message: Heavy ballistic shield now blocks shock
+  id: 2525
+  time: '2026-07-22T00:14:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4336
+- author: eris-webserv
+  changes:
+    - type: Tweak
+      message: There is a new rock by the water.
+  id: 2526
+  time: '2026-07-22T12:12:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4340
+- author: projectkepler-ru
+  changes:
+    - type: Tweak
+      message: >-
+        FTL & Denasvar and above are given more weapon type for their equivalent
+        faction.
+  id: 2527
+  time: '2026-07-22T13:59:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4305

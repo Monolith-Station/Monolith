@@ -188,16 +188,6 @@
   group: market
 
 - type: cargoProduct
-  id: ArmoryShipAmmo57mmSmart
-  icon:
-    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
-    state: icon
-  product: CrateAmmoBox57mmSmart
-  cost: 7000
-  category: cargoproduct-category-name-shipammo
-  group: market
-
-- type: cargoProduct
   id: ArmoryShipAmmo90mm
   icon:
     sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
@@ -228,22 +218,22 @@
   group: market
 
 - type: cargoProduct
-  id: ArmoryShipAmmo90mmMinelayer
-  icon:
-    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
-    state: icon
-  product: CrateAmmoBox90mmMinelayer
-  cost: 12500
-  category: cargoproduct-category-name-shipammo
-  group: market
-
-- type: cargoProduct
   id: ArmoryShipAmmo140mm
   icon:
     sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
     state: icon
   product: CrateAmmoBox140mm
   cost: 12000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmo140mmSACLOS
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox140mmSACLOS
+  cost: 18000
   category: cargoproduct-category-name-shipammo
   group: market
 
@@ -305,6 +295,26 @@
     sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
     state: icon
   product: CrateAmmoBoxPaladinHV
+  cost: 25000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmoTrident
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBoxTrident
+  cost: 25000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmoTridentSACLOS
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBoxTridentSACLOS
   cost: 25000
   category: cargoproduct-category-name-shipammo
   group: market

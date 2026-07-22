@@ -159,8 +159,10 @@ public sealed partial class NPCCombatSystem
             if (comp.LOSAccumulator < 0f)
             {
                 comp.LOSAccumulator += UnoccludedCooldown;
-                // Mono
-                comp.TargetInLOS = InRangeGoodTarget((gunUid, gun), uid, comp.Target, distance, comp.ShotsThreshold, comp.ObstructedMask, comp.BulletMask);
+
+                // For consistency with NPC steering.
+                var collisionGroup = comp.UseOpaqueForLOSChecks ? CollisionGroup.Opaque : (CollisionGroup.Impassable | CollisionGroup.InteractImpassable);
+                comp.TargetInLOS = _interaction.InRangeUnobstructed(uid, comp.Target, distance + 0.1f, collisionGroup);
             }
 
             if (!comp.TargetInLOS)

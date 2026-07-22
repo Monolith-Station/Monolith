@@ -56,6 +56,17 @@
       - id: Magazine762x39mmPractice
         amount: 4
 
+- type: entity
+  name: box of 7.62x39mm (subsonic) magazines
+  parent: BoxMagazine
+  id: BoxMagazine762x39mmSubsonic
+  description: A box full of 7.62x39mm (subsonic) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: Magazine762x39mmSubsonic
+        amount: 4
+
 #mono edit start
 - type: entity
   name: box of DP-29 magazines

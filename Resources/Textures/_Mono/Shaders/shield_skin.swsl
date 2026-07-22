@@ -1,0 +1,175 @@
+light_mode unshaded;
+
+// Monolith: energy shield skin — a procedural hexfield dome, entirely
+// textureless (the whole pattern is shader math). Reused for both the planetary
+// shield (drawn over a planet disc) and the personal shield (drawn as a bubble
+// over a mob by PersonalShieldOverlay). The quad's UV is treated as a unit disc
+// (r = 1 at the quad edge), bulged into fake sphere coordinates so the hex cells
+// foreshorten toward the limb, then composed from a per-cell shimmering fill,
+// bright hex border lines, and a limb rim glow.
+//
+// `progress` runs 0 -> 2 in three phases:
+//   0.0 -> 1.0  the field crawls in across the dome from the top (activation).
+//   1.0 -> 1.8  the field shatters: a perlin dissolve eats it away in ragged
+//               noisy shards, each flashing hot right as it breaks off.
+//   1.8 -> 2.0  fully gone (invisible tail, so the clock can reset seamlessly).
+
+uniform highp float progress;
+uniform highp vec4 skin_color;
+
+// Multiplies the field's RGB — >1 pushes the colours hot/bloomy, <1 dims them.
+// Alpha (overall opacity) still comes from skin_color.a.
+uniform highp float brightness;
+
+// Pixellation: number of quantisation cells across the quad. Higher = finer (less
+// chunky); at/below 1 the spatial snap is skipped entirely and the field renders
+// smooth. Set by the overlay from the shield's PixelGrid field.
+uniform highp float pixel_grid;
+
+// Hex density: how many hex cells span the dome. Lower = fewer, larger cells. Set
+// by the overlay from the shield's HexDensity field.
+uniform highp float hex_density;
+
+// Formation origin, in disc space (-1..1, r = 1 at the dome edge): the point the
+// activation crawl sweeps out from. (0, -0.85) is the top of the dome. Set by the
+// overlay from the shield's FormOrigin field.
+uniform highp vec2 form_origin;
+
+// Strengths of the three layers: the wash inside the shell, the hex cell borders, and
+// the glow along the limb.
+uniform highp float fill_level;
+uniform highp float line_level;
+uniform highp float rim_level;
+
+// How much the field hollows out toward the middle. 0 fills the whole dome evenly; 1
+// leaves the centre almost clear and concentrates everything near the rim, so the
+// wearer stays visible through it the way a sci-fi bubble should.
+uniform highp float core_fade;
+
+// Frequency of the shatter noise. Higher = smaller, finer shards.
+uniform highp float shard_scale;
+
+// Posterise bands (lower = chunkier stepping) and depth of the slow pulse.
+uniform highp float alpha_bands;
+uniform highp float breath_depth;
+
+highp float hash21(highp vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+// Value noise: smooth interpolated hash lattice. Used for the shatter dissolve so
+// the break front is organic and ragged rather than a clean sweep.
+highp float vnoise(highp vec2 p) {
+    highp vec2 i = floor(p);
+    highp vec2 f = fract(p);
+    highp float a = hash21(i);
+    highp float b = hash21(i + vec2(1.0, 0.0));
+    highp float c = hash21(i + vec2(0.0, 1.0));
+    highp float d = hash21(i + vec2(1.0, 1.0));
+    highp vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+}
+
+// Signed-ish distance to the hex cell border: 0 at the centre, 0.5 at an edge.
+highp float hexDist(highp vec2 p) {
+    p = abs(p);
+    return max(dot(p, vec2(0.5, 0.866025)), p.x);
+}
+
+// Hex tiling: returns (edge distance, cell id hash) for the cell containing uv.
+highp vec2 hexCell(highp vec2 uv) {
+    highp vec2 r = vec2(1.0, 1.732051);
+    highp vec2 h = r * 0.5;
+    highp vec2 a = mod(uv, r) - h;
+    highp vec2 b = mod(uv - h, r) - h;
+    highp float useB = step(dot(b, b), dot(a, a));
+    highp vec2 gv = mix(a, b, useB);
+    highp vec2 id = uv - gv;
+    return vec2(hexDist(gv), hash21(id));
+}
+
+void fragment() {
+    // Pixel-art quantisation: snap the sample point to a coarse grid and step the
+    // clock at ~8 fps, so the field is chunky in space AND time — smooth per-frame
+    // motion on a pixel grid reads as cheap; steppy motion reads as sprite animation.
+    // pixel_grid <= 1 disables the spatial snap (smooth field) for small bubbles
+    // where a coarse grid looks too blocky.
+    highp vec2 uvq = UV;
+    if (pixel_grid > 1.0)
+        uvq = (floor(UV * pixel_grid) + vec2(0.5)) / pixel_grid;
+    highp float t = floor(TIME * 8.0) / 8.0;
+
+    // Disc space: r = 1 at the quad's inscribed circle (the overlay sizes the quad
+    // to the sprite, so the field hugs the disc).
+    highp vec2 p = (uvq - vec2(0.5)) * 2.0;
+    highp float r = length(p);
+
+    // Hard disc mask with a little AA; everything below multiplies into this.
+    highp float mask = 1.0 - smoothstep(0.97, 1.0, r);
+
+    // Fake dome: z is the shell height (1 centre → 0 limb). The equal-angle bulge
+    // asin(r)/r runs the hex grid faster toward the limb, so cells visibly
+    // foreshorten there — reads as a curved shell, not wallpaper.
+    highp float rc = min(r, 1.0);
+    highp float z = sqrt(max(1.0 - rc * rc, 0.0));
+    highp float warp = asin(rc) / max(rc, 0.0001);
+    highp vec2 q = p * warp;
+
+    highp vec2 cell = hexCell(q * hex_density);
+    highp float edge = cell.x;
+    highp float id = cell.y;
+
+    // Phase split: form is the 0 → 1 crawl parameter; shatter is the 0 → 1 dissolve
+    // parameter mapped from progress 1.0 → 1.8 (progress ≥ 1.8 leaves it clamped at
+    // 1, i.e. fully broken → invisible, for the 1.8 → 2.0 reset tail).
+    highp float form = clamp(progress, 0.0, 1.0);
+    highp float shatter = clamp((progress - 1.0) / 0.8, 0.0, 1.0);
+
+    // Formation crawl outward from the configurable origin.
+    highp float front = distance(p, form_origin) * 0.5;
+    highp float jitter = (id - 0.5) * 0.12;
+    highp float appear = step(front + jitter, form);
+    highp float fresh = smoothstep(0.25, 0.0, form - (front + jitter));
+
+    // Per-cell shimmer so the field feels energised without strobing.
+    highp float shimmer = 0.75 + 0.25 * sin(t * 1.7 + id * 6.2832);
+
+    // Edge weighting: (1 - z) is 0 dead centre and 1 out at the limb. Fading the wash and
+    // the hex lines by it hollows the dome out, so you look THROUGH the middle and the
+    // structure only reads near the edges — the usual sci-fi bubble. core_fade = 0 restores
+    // the old evenly-filled shell.
+    highp float limb = 1.0 - z;
+    highp float edgeWeight = mix(1.0, limb * limb, clamp(core_fade, 0.0, 1.0));
+
+    // Faint cell fill, brighter borders, hot pop-in, and the limb glow. The pop-in flash is
+    // NOT edge-weighted: it should read across the whole dome as the field sweeps in.
+    highp float border = smoothstep(0.42, 0.5, edge);
+    highp float fill = fill_level * shimmer * edgeWeight;
+    highp float lines = line_level * border * edgeWeight;
+    highp float rim = pow(limb, 3.0) * rim_level;
+
+    highp float a = (fill + lines + fresh * 0.6 + rim) * appear * mask;
+
+    // Shatter dissolve: every bit of the dome gets a break threshold from a noisy
+    // field (spatial perlin blended with per-cell jitter) so it comes apart in
+    // ragged clumps, not a ruler line. As `shatter` climbs past a fragment's
+    // threshold it winks out; fragments right at the front flash hot for the beat
+    // they break off, selling the shatter.
+    // Break threshold, scaled into [0, 0.85] so even the last-to-go fragment (plus
+    // its dissolve window and glow band) fully clears before `shatter` reaches 1 —
+    // otherwise the highest-threshold cells freeze mid-fade and never disappear.
+    highp float thr = clamp(vnoise(q * shard_scale) * 0.7 + id * 0.3, 0.0, 1.0) * 0.85;
+    highp float shard = 1.0 - smoothstep(thr, thr + 0.1, shatter);
+    highp float breakGlow = smoothstep(0.12, 0.0, abs(shatter - thr)) * step(0.001, shatter);
+    a = a * shard + breakGlow * 0.7 * mask;
+
+    // Slow breath over the whole shell — alive, never flickering off.
+    a *= (1.0 - breath_depth) + breath_depth * sin(t * 0.9);
+
+    // Posterise into a handful of alpha bands: no smooth gradients, just the
+    // stepped shading pixel art actually has.
+    highp float bands = max(alpha_bands, 1.0);
+    a = floor(clamp(a, 0.0, 1.0) * bands + 0.5) / bands;
+
+    COLOR = vec4(skin_color.rgb * brightness, skin_color.a * a);
+}
