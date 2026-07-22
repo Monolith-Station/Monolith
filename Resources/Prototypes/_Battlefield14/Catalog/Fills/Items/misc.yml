@@ -113,3 +113,12 @@
     containers:
       item:
       - FHKnife6h4
+
+- type: entity
+  id: DiskCaseFilledRandomMusicProp
+  parent: DiskCase
+  suffix: Filled, random music album prop
+  components:
+  - type: StorageFill
+    contents:
+    - id: BF14MusicDiskRandomProp

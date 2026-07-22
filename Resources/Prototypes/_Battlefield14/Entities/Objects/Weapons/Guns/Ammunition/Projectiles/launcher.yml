@@ -109,9 +109,9 @@
     maxVelocity: 15
   - type: Explosive
     explosionType: Default
-    totalIntensity: 100
+    totalIntensity: 90
     intensitySlope: 5
-    maxIntensity: 5
+    maxIntensity: 4
     maxTileBreak: 0
   - type: StaminaDamageOnCollide
     damage: 200 # It's a fucking rocket
@@ -517,9 +517,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 100
+    totalIntensity: 90
     intensitySlope: 5
-    maxIntensity: 7
+    maxIntensity: 4
     maxTileBreak: 0
   - type: StaminaDamageOnCollide
     damage: 200 # It's a fucking rocket

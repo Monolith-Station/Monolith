@@ -17,24 +17,18 @@
     explosionType: MicroBomb
     totalIntensity: 25
     intensitySlope: 4
-    maxIntensity: 2.5
+    maxIntensity: 2
     maxTileBreak: 0
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
     layers:
     - state: grenade
-  - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
     radius: 3
     color: orange
     energy: 0.5
-  - type: RadarBlip
-    scale: 1.5
-    requireNoGrid: true
-    shape: triangle
-    radarColor: "#FF3300"
 
 # 40x46mm HEDP
 - type: entity
@@ -66,18 +60,12 @@
     sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
     layers:
     - state: grenade
-  - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
     radius: 3
     color: orange
     energy: 0.5
-  - type: RadarBlip
-    scale: 1.5
-    requireNoGrid: true
-    shape: triangle
-    radarColor: "#FF3300"
 
 # 40x46mm Fragmentation
 - type: entity
@@ -103,18 +91,12 @@
     sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
     layers:
     - state: grenade
-  - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
     radius: 3
     color: orange
     energy: 0.5
-  - type: RadarBlip
-    scale: 1.5
-    requireNoGrid: true
-    shape: triangle
-    radarColor: "#FF3300"
 
 # 40x46mm HEDP Fragment
 - type: entity
@@ -136,18 +118,12 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
     - state: shard
-  - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 2
   - type: PointLight
     radius: 1.5
     color: orange
     energy: 0.3
-  - type: RadarBlip
-    scale: 0.6
-    requireNoGrid: true
-    shape: triangle
-    radarColor: "#FF9900"
 
 # 40x46mm Frag Fragment
 - type: entity
@@ -169,18 +145,12 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
     - state: shard
-  - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 2
   - type: PointLight
     radius: 1
     color: orange
     energy: 0.2
-  - type: RadarBlip
-    scale: 0.5
-    requireNoGrid: true
-    shape: triangle
-    radarColor: "#FF9900"
 
 # 40x46mm MP-APERS
 - type: entity
@@ -206,18 +176,12 @@
     sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
     layers:
     - state: grenade
-  - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
     radius: 3
     color: orange
     energy: 0.5
-  - type: RadarBlip
-    scale: 1.5
-    requireNoGrid: true
-    shape: triangle
-    radarColor: "#FF3300"
 
 # 40x46mm MP-APERS Fragment
 - type: entity
@@ -238,18 +202,12 @@
     sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
     layers:
     - state: small
-  - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 1.5
   - type: PointLight
     radius: 0.8
     color: orange
     energy: 0.15
-  - type: RadarBlip
-    scale: 0.4
-    requireNoGrid: true
-    shape: triangle
-    radarColor: "#FF9900"
 
 - type: entity
   id: 40x46mmMPAPERSSpread
@@ -285,7 +243,6 @@
     sprite: _Battlefield14/Objects/Weapons/Guns/Projectiles/ballistic.rsi
     layers:
     - state: grenade
-  - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
