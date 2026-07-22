@@ -32,8 +32,10 @@
             RUScav: [ 6, 9 ]
         - type: CEStationZLevels
           mapsAbove:
+            - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap0.yml
             - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap1.yml
             - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap2.yml
+            - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap3.yml
           zLevelsComponentOverrides:
             - type: CEAutoGridGravity
 
@@ -43,5 +45,6 @@
     - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap0.yml    # Ground floor
     - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap1.yml    # 1st floor
     - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap2.yml    # 2nd floor
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap3.yml    # roof
   components:
     - type: CEAutoGridGravity
