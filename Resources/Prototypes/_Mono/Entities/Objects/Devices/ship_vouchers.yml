@@ -614,7 +614,7 @@
 - type: entity
   parent: BaseShipLPCRenewable
   id: ShipVoucherNeptune
-  name: PDV Neptune LPC [T1]
+  name: PDV Neptune LPC [T2]
   description: A small card that contains the data for the procurement of a Neptune-class frigate from the flagship's reserves.
   components:
   - type: Sprite
@@ -683,7 +683,6 @@
     vessels:
     - Scorpion
     - Bastion
-    - Neptune
     - Fenrir
     - Garm
     - Kalisto
@@ -844,6 +843,7 @@
     - Vulture
     - Ganymede
     - KortikR
+    - Neptune
 # end T2
 
 # start T3

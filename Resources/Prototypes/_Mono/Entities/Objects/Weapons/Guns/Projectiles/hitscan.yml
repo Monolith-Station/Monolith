@@ -80,9 +80,12 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Piercing: 120
+        Piercing: 20
+        Heat: 55
+        Shock: 5
         Structural: 500
-    armorPenetration: 0.8
+    ignoreResistances: true
+    #armorPenetration: 0.8
   - type: HitscanBasicRaycast
     maxDistance: 200
     collisionMask:

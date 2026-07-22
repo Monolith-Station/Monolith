@@ -19,7 +19,7 @@
     absorptionRatios:
       Blunt: 0.7
       Slash: 0.7
-      Burn: 1.2
+      Heat: -0.2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -50,7 +50,7 @@
     staminaDamageMultiplier: 1.0
     absorptionRatios:
       Piercing: 0.7
-      Burn: 1.2
+      Heat: -0.2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -81,7 +81,7 @@
     staminaDamageMultiplier: 1.0
     absorptionRatios:
       Heat: 0.7
-      Piercing: 1.2
+      Piercing: -0.2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -111,10 +111,10 @@
     sprintSpeedModifier: 1.1
     staminaDamageMultiplier: 2
     absorptionRatios:
-      Burn: 1.2
-      Piercing: 1.2
-      Blunt: 1.2
-      Slash: 1.2
+      Heat: -0.2
+      Piercing: -0.2
+      Blunt: -0.2
+      Slash: -0.2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
