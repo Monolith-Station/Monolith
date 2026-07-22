@@ -8,9 +8,21 @@
 - type: loadout
   id: TsfnCorpsmanRankE3
   name: TSFN Corpsmen E-3 (HN)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCorpsmanHN
   components:
   - type: ChatRank
     rank: tsfn-e3
+
+- type: loadoutEffectGroup
+  id: TsfnCorpsmanHN
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBrigmedic
+      time: 36000 # 10hr
 
 - type: loadout
   id: TsfnCorpsmanRankE4

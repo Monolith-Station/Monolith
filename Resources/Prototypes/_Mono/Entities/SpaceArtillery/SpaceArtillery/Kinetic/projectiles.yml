@@ -143,7 +143,7 @@
     shape: triangle
     radarColor: "#1df1f5"
   - type: TimedDespawn
-    lifetime: 7
+    lifetime: 4.5
   - type: PointLight
     color: "#FCBA03"
   - type: ExplodeOnTrigger
@@ -778,7 +778,7 @@
     scale: 2.5
     shape: triangle
   - type: TimedDespawn
-    lifetime: 7
+    lifetime: 5.5
   - type: PointLight
     color: "#fc5a03"
   - type: ExplodeOnTrigger
@@ -1077,7 +1077,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 1.7
+    lifetime: 1.7 # ~2.4 km range
   - type: PointLight
     color: "#19AFFF"
   - type: ExplodeOnTrigger
@@ -1147,15 +1147,15 @@
     requireNoGrid: true
     shape: star
   - type: TimedDespawn
-    lifetime: 3.6 #2.5km
+    lifetime: 7.2 #3.2km - Its 520mm after all.
   - type: PointLight
     color: "#fc5a03"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 1400
-    intensitySlope: 10
-    maxIntensity: 30
+    totalIntensity: 1900
+    intensitySlope: 8
+    maxIntensity: 90
     maxTileBreak: 6
   - type: GatheringProjectile
   - type: MiningGatheringSoft

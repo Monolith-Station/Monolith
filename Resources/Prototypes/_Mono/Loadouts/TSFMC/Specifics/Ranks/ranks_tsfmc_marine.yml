@@ -20,7 +20,7 @@
   name: TSFMC E-3 (LCPL)
   effects:
   - !type:GroupLoadoutEffect
-    proto: TsfmcMarineLcpl
+    proto: TsfmcMarineLCpl
   components:
   - type: ChatRank
     rank: tsf-e3
@@ -55,7 +55,25 @@
       time: 36000 # 10hr
 
 - type: loadoutEffectGroup
-  id: TsfmcMarineLcpl
+  id: TsfmcMarineLCpl
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobTsfMarine
+      time: 108000 # 30hr
+
+- type: loadoutEffectGroup
+  id: TsfmcMarineCpl
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobTsfMarine
+      time: 180000 # 50hr
+
+- type: loadoutEffectGroup
+  id: TsfmcMarineLCpl
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -79,4 +97,4 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobTsfMarine
-      time: 360000 # 100hr
+      time: 270000 # 75hr

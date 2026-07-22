@@ -7,6 +7,7 @@
   cost: 25000
   recipeUnlocks:
   - HeavyBallisticShield
+  - TelescopicShield
   - EnergySwordRogue
   - EnergyDaggerRogue
   technologyPrerequisites:
@@ -64,12 +65,17 @@
 - type: technology
   id: RogueHeavyWeapons
   name: research-technology-rogue-heavy-weapons
-  entityIcon: WeaponSniperHristov
+  entityIcon: WeaponLightMachineGunL6
   discipline: RogueWeaponry
   tier: 3
-  cost: 55000
+  cost: 75000
   recipeUnlocks:
   - WeaponSniperHristovRogue
+  - WeaponLightMachineGunL6Rogue
+  - WeaponRifleBurnerRogue
+  - Magazine762x39mmBox
+  - Magazine127x99mm
+  - AmmoBox127x99mm
   - AmmoBox145x114mm
   - AmmoBox145x114mmBig
   - WeaponDEWBasilisk

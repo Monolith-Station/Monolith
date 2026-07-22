@@ -58,7 +58,7 @@
     modifiers:
       coefficients:
         Blunt: 0.6
-        Slash: 0.6
+        Slash: 0.5
         Piercing: 0.7
         Heat: 0.6
         Radiation: 0.2
@@ -134,7 +134,7 @@
   - type: FireProtection # Mono
     reduction: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.3
   - type: Armor # Mono - Armor Value Changes
     modifiers:
       coefficients:
@@ -183,9 +183,9 @@
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.6
-        Heat: 0.7
-        Radiation: 0.5
+        Piercing: 0.5
+        Heat: 0.6
+        Radiation: 0.45
         Caustic: 0.8
         Poison: 0.8 # Mono
   - type: ClothingSpeedModifier # Mono - Armor Value Changes

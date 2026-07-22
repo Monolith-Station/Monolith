@@ -98,6 +98,8 @@
       size: Ginormous
       sprite: _Mono/Objects/Weapons/Melee/shields.rsi
       heldPrefix: heavy
+    - type: Damageable
+      damageContainer: ShieldHeavy
     - type: Blocking
       passiveBlockModifier:
         coefficients:
@@ -105,6 +107,7 @@
           Slash: 0.35
           Piercing: 0.20
           Heat: 0.35
+          Shock: 0.35
       passiveBlockFraction: 1
     - type: ClothingSpeedModifier
       sprintModifier: 0.3
