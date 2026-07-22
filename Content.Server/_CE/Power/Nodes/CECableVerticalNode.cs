@@ -1,7 +1,8 @@
+using System.Numerics;
 using Content.Server._CE.ZLevels.Core;
 using Content.Server.NodeContainer.Nodes;
+using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared.NodeContainer;
-using Robust.Shared.IoC;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
@@ -26,14 +27,10 @@ public sealed partial class CECableVerticalNode : Node
         if (!xform.Comp.Anchored || grid is not { } gridEnt)
             yield break;
 
-        if (xform.Comp.MapUid is null)
+        if (xform.Comp.MapUid is not { } mapUid)
             yield break;
 
         var mapSystem = entMan.System<SharedMapSystem>();
-        var mapManager = IoCManager.Resolve<IMapManager>();
-        var zLevelsSys = entMan.System<CEZLevelsSystem>();
-        var worldPos = entMan.System<SharedTransformSystem>().GetWorldPosition(xform.Owner);
-
         var gridIndex = mapSystem.TileIndicesFor(gridEnt, xform.Comp.Coordinates);
 
         List<Node> outputNodes = new();
@@ -44,35 +41,63 @@ public sealed partial class CECableVerticalNode : Node
                 outputNodes.Add(node);
         }
 
-        if (Up && zLevelsSys.TryMapUp(xform.Comp.MapUid.Value, out var mapAbove))
-        {
-            if (mapManager.TryFindGridAt(mapAbove.Owner, worldPos, out var gridAboveUid, out var gridAboveComp)
-                && mapSystem.TryGetTileRef(gridAboveUid, gridAboveComp, worldPos, out var tileAbove)
-                && !tileAbove.Tile.IsEmpty)
-            {
-                foreach (var nodeAbove in NodeHelpers.GetNodesInTile(nodeQuery, (gridAboveUid, gridAboveComp), tileAbove.GridIndices, mapSystem))
-                {
-                    if (nodeAbove is CECableVerticalNode verticalCableNode && verticalCableNode.Down)
-                        outputNodes.Add(nodeAbove);
-                }
-            }
-        }
+        var worldPos = entMan.System<SharedTransformSystem>().GetWorldPosition(xform.Owner);
 
-        if (Down && zLevelsSys.TryMapDown(xform.Comp.MapUid.Value, out var mapBelow))
-        {
-            if (mapManager.TryFindGridAt(mapBelow.Owner, worldPos, out var gridBelowUid, out var gridBelowComp)
-                && mapSystem.TryGetTileRef(gridBelowUid, gridBelowComp, worldPos, out var tileBelow)
-                && !tileBelow.Tile.IsEmpty)
-            {
-                foreach (var nodeBelow in NodeHelpers.GetNodesInTile(nodeQuery, (gridBelowUid, gridBelowComp), tileBelow.GridIndices, mapSystem))
-                {
-                    if (nodeBelow is CECableVerticalNode verticalCableNode && verticalCableNode.Up)
-                        outputNodes.Add(nodeBelow);
-                }
-            }
-        }
+        if (Up)
+            CollectNeighbourNodes(mapUid, up: true, worldPos, nodeQuery, entMan, outputNodes);
+
+        if (Down)
+            CollectNeighbourNodes(mapUid, up: false, worldPos, nodeQuery, entMan, outputNodes);
 
         foreach (var node in outputNodes)
             yield return node;
+    }
+
+    private static void CollectNeighbourNodes(
+        EntityUid mapUid,
+        bool up,
+        Vector2 worldPos,
+        EntityQuery<NodeContainerComponent> nodeQuery,
+        IEntityManager entMan,
+        List<Node> outputNodes)
+    {
+        if (!TryGetNeighbourMap(mapUid, up, entMan, out var neighbourMap))
+            return;
+
+        var mapManager = IoCManager.Resolve<IMapManager>();
+        var mapSystem = entMan.System<SharedMapSystem>();
+
+        if (!mapManager.TryFindGridAt(neighbourMap, worldPos, out var gridUid, out var gridComp)
+            || !mapSystem.TryGetTileRef(gridUid, gridComp, worldPos, out var tileRef)
+            || tileRef.Tile.IsEmpty)
+        {
+            return;
+        }
+
+        foreach (var node in NodeHelpers.GetNodesInTile(nodeQuery, (gridUid, gridComp), tileRef.GridIndices, mapSystem))
+        {
+            if (node is CECableVerticalNode vertical && (up ? vertical.Down : vertical.Up))
+                outputNodes.Add(node);
+        }
+    }
+    private static bool TryGetNeighbourMap(EntityUid mapUid, bool up, IEntityManager entMan, out EntityUid neighbourMap)
+    {
+        neighbourMap = default;
+
+        if (entMan.TryGetComponent<CEZTransitMapComponent>(mapUid, out var transit))
+        {
+            if ((up ? transit.TransitAbove : transit.TransitBelow) is not { } transitNeighbour)
+                return false;
+
+            neighbourMap = transitNeighbour;
+            return true;
+        }
+
+        var zLevels = entMan.System<CEZLevelsSystem>();
+        if (!(up ? zLevels.TryMapUp(mapUid, out var neighbour) : zLevels.TryMapDown(mapUid, out neighbour)))
+            return false;
+
+        neighbourMap = neighbour.Owner;
+        return true;
     }
 }

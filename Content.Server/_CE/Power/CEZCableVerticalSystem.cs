@@ -22,11 +22,14 @@ public sealed partial class CEZCableVerticalSystem : EntitySystem
     {
         base.Initialize();
 
-        // Membership is the only thing that moves a riser's target. A grid changing z-level does
-        // not: the stack rides along, so the grid a layer up is the same grid at the same world
-        // position, and every link still resolves to what it did before.
         SubscribeLocalEvent<MapGridComponent, CEGridAddedIntoZNetworkEvent>(OnGridLinked);
         SubscribeLocalEvent<MapGridComponent, CEGridRemovedFromZNetworkEvent>(OnGridUnlinked);
+        SubscribeLocalEvent<MapGridComponent, CEZLevelMapMoveEvent>(OnGridZMoved);
+    }
+
+    private void OnGridZMoved(Entity<MapGridComponent> grid, ref CEZLevelMapMoveEvent args)
+    {
+        RefloodVerticalNodes(grid.Owner);
     }
 
     private void OnGridLinked(Entity<MapGridComponent> grid, ref CEGridAddedIntoZNetworkEvent args)
