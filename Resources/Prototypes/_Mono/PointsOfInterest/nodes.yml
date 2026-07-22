@@ -1,0 +1,17 @@
+- type: pointOfInterest
+  id: ZetaNode
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'Zeta Node'
+  minimumDistance: 500
+  maximumDistance: 750
+  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/zetanode.yml
+  addComponents:
+  - type: IFF
+    color: "#37946e"
+    readOnly: true # mono
+  - type: VesselMusic
+    ambientMusicPrototype: ColossusCentralMusic
+  - type: VesselInfo
+    description: "Even the air has a thin coat of dust."

@@ -72,6 +72,12 @@ binds:
 - function: ShuttleBrake
   type: State
   key: Space
+- function: ShuttleAscend
+  type: State
+  key: R
+- function: ShuttleDescend
+  type: State
+  key: F
 - function: CameraRotateLeft
   type: State
   key: NumpadNum7

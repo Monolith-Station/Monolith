@@ -52,3 +52,15 @@
   id: BiomeInnerRing
   name: Inner Ring
   description: "Civilised space. The constellations seen from here are burned into your memory."
+
+# clusters
+- type: ambientSpaceBiome
+  id: BiomeClusterA
+  name: INSO-357k
+  description: "A stellar graveyard of husks and drifting rocks."
+
+- type: ambientSpaceBiome
+  id: BiomeWilds
+  name: Wilds
+  description: "Watch your back."
+

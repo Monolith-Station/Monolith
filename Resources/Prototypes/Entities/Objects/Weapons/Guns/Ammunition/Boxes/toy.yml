@@ -50,15 +50,15 @@
   - type: BallisticAmmoProvider
     proto: CartridgeCap
     capacity: 20
-  - type: MagazineVisuals
-    magState: mag # Frontier: mag-cap<mag
-    steps: 4
-    zeroVisible: false
+  #- type: MagazineVisuals # Mono - comment out
+  #  magState: mag # Frontier: mag-cap<mag
+  #  steps: 4
+  #  zeroVisible: false
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/45_magnum.rsi # Frontier: add _NF prefix
     layers:
       - state: capbase # Frontier: base<capbase
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-1 # Frontier: mag-cap-1<mag-1
-        map: ["enum.GunVisualLayers.Mag"]
+      #- state: mag-1 # Frontier: mag-cap-1 # Mono- comment out
+      #  map: ["enum.GunVisualLayers.Mag"]
       # - state: capbase # Frontier

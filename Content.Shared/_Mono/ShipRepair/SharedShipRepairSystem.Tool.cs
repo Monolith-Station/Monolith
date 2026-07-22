@@ -151,7 +151,7 @@ public abstract partial class SharedShipRepairSystem : EntitySystem
         }
         if (notEnoughCharges)
             _popup.PopupClient(Loc.GetString("ship-repair-tool-insufficient-ammo"), ent, args.User);
-        else if (alreadyExists && _net.IsServer) // else we show it once or twice depending on whether it's in PVS
+        else if (alreadyExists && _net.IsServer && ent.Comp.CheckPreExistingEntities) // else we show it once or twice depending on whether it's in PVS
             _popup.PopupEntity(Loc.GetString("ship-repair-tool-entity-exists"), ent, args.User, PopupType.SmallCaution);
     }
 
@@ -212,7 +212,7 @@ public abstract partial class SharedShipRepairSystem : EntitySystem
 
             // this is technically copypaste code but it's different each time
             var origUid = spec.OriginalEntity == null ? (EntityUid?)null : GetEntity(spec.OriginalEntity.Value);
-            if (origUid != null && !TerminatingOrDeleted(origUid.Value))
+            if (origUid != null && !TerminatingOrDeleted(origUid.Value) && ent.Comp.CheckPreExistingEntities)
             {
                 var ev = new ShipRepairReinstateQueryEvent(true);
                 RaiseLocalEvent(origUid.Value, ref ev);

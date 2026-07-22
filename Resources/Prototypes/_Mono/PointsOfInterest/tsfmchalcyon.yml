@@ -25,6 +25,13 @@
     readOnly: true
   - type: SolarPoweredGrid
     doNotCull: true
+  - type: WorldGenDistanceCarver
+    distanceThresholds:
+    # Dead zone
+    - maxDistance: 800
+      prob: 0.0
+    - maxDistance: 1500
+      prob: 0.3
 
 - type: gameMap
   id: TSFMCHalcyon
@@ -94,9 +101,16 @@
       gridComponents:
       - type: VesselInfo
         description: "A mothballed battleship-turned-FOB, and Home of the TSFMC operations."
+      - type: Tag
+        tags:
+        - TsfStation
       components:
         - type: StationNameSetup
           mapNameTemplate: 'TSFMC Flagship Halcyon'
+        - type: StationEventEligible
+        - type: NpcFactionMember
+          factions:
+          - TSFMC
         - type: ExtraStationInformation
           icon:
             sprite: _NF/Structures/Decoration/banner.rsi

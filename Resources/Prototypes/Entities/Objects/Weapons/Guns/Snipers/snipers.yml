@@ -57,63 +57,7 @@
       collection: SnipersDrop
   # Goobstation edit end
 
-- type: entity
-  name: NCI Kardashev-Mosin (7.62x54mmR)
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseGunMelee] # added BaseGunMelee
-  id: WeaponSniperMosin
-  description: A weapon for hunting, or endless trench warfare. Uses 762x54mmR ammo. Equipped with bayonet. # Frontier: bayonet
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
-  - type: CursorOffsetRequiresWield # Frontier
-  - type: EyeCursorOffset # Frontier
-    maxOffset: 1.5 # Frontier
-    pvsIncrease: 0.15 # Frontier
-  - type: AltFireMelee # Frontier
-    attackType: Light # Frontier
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - Cartridge762x54mmRFMJ
-    capacity: 5
-    proto: Cartridge762x54mmRFMJ
-  - type: PirateBountyItem # Mono
-    id: StandardFactionLongarm
-
-- type: entity
-  name: SKR-WS M96 Hristov (14.5x114mm)
-  parent: [BaseWeaponSniper, BaseGunWieldable]
-  id: WeaponSniperHristov
-  description: A portable anti-material rifle. Fires high velocity 14.5mm shells. Uses 145x114mm ammo.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Snipers/hristov.rsi
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Snipers/hristov.rsi
-  - type: GunRequiresWield
-  - type: Gun
-    fireRate: 0.75
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/_Harmony/Weapons/Guns/Gunshots/hristov_fire_alt.ogg # harmony - changed audio path
-  - type: BallisticAmmoProvider
-    autoCycle: false
-    whitelist:
-      tags:
-      - Cartridge145x114mm
-    capacity: 5
-    proto: Cartridge145x114mm
-  - type: SpeedModifiedOnWield
-    walkModifier: 0.25
-    sprintModifier: 0.25
-  - type: CursorOffsetRequiresWield
-  - type: EyeCursorOffset
-    maxOffset: 7 # Mono - Sniper Buff
-    pvsIncrease: 0.7 # Mono - Sniper Buff
-  - type: StaticPrice # Mono
-    price: 1250
+# Mono - moved Hristov & Mosin to _Mono
 
 - type: entity
   name: musket

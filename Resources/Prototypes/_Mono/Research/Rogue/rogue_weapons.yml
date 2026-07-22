@@ -1,12 +1,13 @@
 - type: technology
-  id: RogueEsword
-  name: research-technology-rogue-energy-weapon
-  entityIcon: EnergySword
+  id: RogueMeleeWeapons
+  name: research-technology-rogue-advanced-melee-weapon
+  entityIcon: HeavyBallisticShield
   discipline: RogueWeaponry
   tier: 3
   cost: 25000
   recipeUnlocks:
-  - EnergyShieldRogue
+  - HeavyBallisticShield
+  - TelescopicShield
   - EnergySwordRogue
   - EnergyDaggerRogue
   technologyPrerequisites:
@@ -23,7 +24,7 @@
   recipeUnlocks:
   - HFSwordVT7
   technologyPrerequisites:
-  - RogueEsword
+  - RogueMeleeWeapons
   position: 12, 14
 
 - type: technology
@@ -35,8 +36,8 @@
   cost: 15000
   recipeUnlocks:
   - WeaponSubMachineGunC20rRogue
+  - WeaponRifleVympelRogue
   - WeaponRevolverPythonRogue
-  - WeaponRifleM90Rogue
   - WeaponShotgunSultanPulsar
   - PrintableDirtyBomb
   technologyPrerequisites:
@@ -53,6 +54,7 @@
   recipeUnlocks:
   - WeaponSubMachineGunWt550Rogue
   - WeaponSubMachineGunAtreidesRogue
+  - WeaponRifleM90Rogue
   - WeaponShotgunBulldogRogue
   - WeaponLauncherPanzeroRogue
   technologyPrerequisites:
@@ -63,12 +65,17 @@
 - type: technology
   id: RogueHeavyWeapons
   name: research-technology-rogue-heavy-weapons
-  entityIcon: WeaponSniperHristov
+  entityIcon: WeaponLightMachineGunL6
   discipline: RogueWeaponry
   tier: 3
-  cost: 55000
+  cost: 75000
   recipeUnlocks:
   - WeaponSniperHristovRogue
+  - WeaponLightMachineGunL6Rogue
+  - WeaponRifleBurnerRogue
+  - Magazine762x39mmBox
+  - Magazine127x99mm
+  - AmmoBox127x99mm
   - AmmoBox145x114mm
   - AmmoBox145x114mmBig
   - WeaponDEWBasilisk

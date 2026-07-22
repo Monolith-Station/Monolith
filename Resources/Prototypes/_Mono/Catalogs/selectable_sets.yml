@@ -71,8 +71,8 @@
   - Hypopen
   - NocturineChemistryBottle
   - WeaponSubMachineGunMla73
-  - Magazine635x40mmCaselessBig
   - AgentIDCard
+  - SyringeCaseAltFilled
 
 - type: thiefBackpackSet # sabateour set
   id: KitSelectorPDVInfiltratorSabateour
@@ -95,7 +95,7 @@
   - SyndiHypo
   - NocturineChemistryBottle
   - WeaponSubMachineGunMla73
-  - Magazine635x40mmCaselessBig
+  - SyringeCaseAltFilled
 
 # PDV Tarkhan
 
@@ -205,8 +205,8 @@
   name: selectable-set-tsfmarsoc-hailstorm-kit-name
   description: selectable-set-tsfmarsoc-hailstorm-kit-desc
   sprite:
-    sprite: _Mono/Objects/Weapons/Guns/Snipers/shenzhen.rsi
-    state: icon
+    sprite: _Mono/Objects/Weapons/Guns/Launchers/mk348.rsi
+    state: base
   content:
   - WeaponLauncherMk348
   - AmmoBox9x19mmFMJ

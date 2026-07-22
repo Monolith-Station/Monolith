@@ -42,17 +42,21 @@
     Glass: 80 # optical seeker
     Gold: 50 # electronics
     Silver: 50 # electronics
+    Copper: 100 # electronics
+    Lithium: 100 # electronics
 
 - type: latheRecipe
   parent: BaseShipgunAmmoRecipe
   id: BaseHeavyMissileShipgunAmmoRecipe
   abstract: true
   materials:
-    Steel: 3500
+    Steel: 900
     Plasma: 250 # explosive payload
     Glass: 600 # optical seeker
     Gold: 250 # electronics
     Silver: 250 # electronics
+    Copper: 100 # electronics
+    Lithium: 100 # electronics
 
 
 - type: latheRecipe
@@ -65,6 +69,8 @@
     Glass: 30 # optical seeker
     Gold: 15 # electronics
     Silver: 15 # electronics
+    Copper: 50 # electronics
+    Lithium: 50 # electronics
 
 # Research ordinance
 
@@ -89,11 +95,13 @@
   id: BaseTorpedoRecipe
   abstract: true
   materials:
-    Steel: 1500
+    Steel: 3000
     Plasma: 300 # explosive payload
     Glass: 150 # optical seeker
     Gold: 100 # electronics
     Silver: 100 # electronics
+    Copper: 150 # electronics
+    Lithium: 150 # electronics
 
 - type: latheRecipe
   parent: BaseShipgunAmmoRecipe

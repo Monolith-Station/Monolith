@@ -19,7 +19,8 @@
     recipes:
     - EnergySwordRogue
     - EnergyDaggerRogue
-    - EnergyShieldRogue
+    - HeavyBallisticShield
+    - TelescopicShield
 
 # tsf stuff
 
@@ -145,9 +146,13 @@
   - type: TechnologyDisk
     recipes:
     - CharonSlugUniversal
+    - CharonApheSlugUniversal
+    - CharonEmpSlugUniversal
     - ASM220TorpedoHEUniversal
+    - ASM220TorpedoHESACLOSUniversal
     - ASM220TorpedoECMUniversal
     - 150mmApShellUniversal
+    - 150mmApheShellUniversal
     - 150mmEmpShellUniversal
     - GPOL50BombUniversal
     - ZenithRocketUniversal
@@ -169,10 +174,14 @@
   - type: TechnologyDisk
     recipes:
     - CharonSlugUniversal
+    - CharonApheSlugUniversal
+    - CharonEmpSlugUniversal
     - ASM220TorpedoHEUniversal
+    - ASM220TorpedoHESACLOSUniversal
     - ASM220TorpedoECMUniversal
     - ASM220TorpedoLOSATUniversal
     - 150mmApShellUniversal
+    - 150mmApheShellUniversal
     - 150mmEmpShellUniversal
     - GPOL50BombUniversal
     - ZenithRocketUniversal

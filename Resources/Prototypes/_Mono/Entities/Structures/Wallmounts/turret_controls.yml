@@ -1,0 +1,294 @@
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: BallisticTurretHeavyAIBase
+  name: heavy remote sentry turret
+  abstract: true
+  components:
+  - type: AccessReader
+    access: [["Security"]]
+  - type: DeployableTurret
+    retractedDamageModifierSetId: Metallic
+    deployedDamageModifierSetId: Metallic
+    deploymentSound:
+      path: /Audio/_Mono/Effects/Machines/twobeep_high.ogg
+    retractionSound:
+      path: /Audio/_Mono/Effects/Machines/triple_beep.ogg
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - Security
+    - Borg
+    - BasicSilicon
+  - type: ProjectileBatteryAmmoProvider
+    proto: Bullet762x51mmRubber
+    fireCost: 100
+  - type: DeviceNetworkRequiresPower
+  - type: WiredNetworkConnection
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    boardName: wires-board-name-weapon-energy-turret
+    layoutId: WeaponEnergyTurret
+  - type: Lock
+    locked: true
+    unlockOnClick: false
+  - type: LockedWiresPanel
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: Bullet762x51mmRubber
+      fireCost: 100
+    - proto: Bullet762x51mmAntiMaterial
+      fireCost: 100
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    sendBroadcastAttemptEvent: true
+    prefix: device-address-prefix-turret
+    examinableAddress: true
+    receiveFrequencyId: TurretControlAI
+    transmitFrequencyId: TurretAI
+  - type: HTN
+    enabled: false
+  - type: StationAiWhitelist
+  - type: NpcFactionMember
+    factions:
+    - AllHostile
+
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanel
+  id: WeaponEnergyTurretTSFControlPanel
+  name: TSF sentry turret control panel
+  suffix: TSF Engineer access
+  description: A wall-mounted interface that allows a local artifical intelligence to adjust the operational parameters of linked sentry turrets.
+  components:
+  - type: AccessReader
+    access: [["TsfmcEngineering"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - HeadOfSecurity
+    - Armory
+    - Bailiff
+    - Sergeant
+    - Security
+    - TsfmcEngineering
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretAITSF
+    transmitFrequencyId: TurretControlAITSF
+
+- type: entity
+  parent: BallisticTurretHeavyAIBase
+  id: BallisticTurretHeavyAITSF
+  name: TSF heavy remote sentry turret
+  suffix: TSF
+  components:
+  - type: AccessReader
+    access: [["TsfmcEngineering"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - HeadOfSecurity
+    - Armory
+    - Bailiff
+    - Sergeant
+    - Security
+    - TsfmcEngineering
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControlAITSF
+    transmitFrequencyId: TurretAITSF
+
+- type: deviceFrequency
+  id: TurretControlAITSF
+  name: device-frequency-prototype-name-turret-control
+  frequency: 1681
+
+- type: deviceFrequency
+  id: TurretAITSF
+  name: device-frequency-prototype-name-turret
+  frequency: 1682
+
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanel
+  id: WeaponEnergyTurretPDVControlPanel
+  name: PDV sentry turret control panel
+  suffix: PDV Command access
+  description: A wall-mounted interface that allows a local artifical intelligence to adjust the operational parameters of linked sentry turrets.
+  components:
+  - type: AccessReader
+    access: [["PDVCommand"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - GrandVizier
+    - PDVCommand
+    - Pirate
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretAIPDV
+    transmitFrequencyId: TurretControlAIPDV
+
+- type: entity
+  parent: BallisticTurretHeavyAIBase
+  id: BallisticTurretHeavyAIPDV
+  name: PDV heavy remote sentry turret
+  suffix: PDV
+  components:
+  - type: AccessReader
+    access: [["PDVCommand"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - GrandVizier
+    - PDVCommand
+    - Pirate
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControlAIPDV
+    transmitFrequencyId: TurretAIPDV
+
+- type: deviceFrequency
+  id: TurretControlAIPDV
+  name: device-frequency-prototype-name-turret-control
+  frequency: 1683
+
+- type: deviceFrequency
+  id: TurretAIPDV
+  name: device-frequency-prototype-name-turret
+  frequency: 1684
+
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanel
+  id: WeaponEnergyTurretUSSPControlPanel
+  name: USSP sentry turret control panel
+  suffix: USSP Secure access
+  description: A wall-mounted interface that allows a local artifical intelligence to adjust the operational parameters of linked sentry turrets.
+  components:
+  - type: AccessReader
+    access: [["USSPHigh"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - USSPCommand
+    - USSPHigh
+    - USSP
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretAIUSSP
+    transmitFrequencyId: TurretControlAIUSSP
+
+- type: entity
+  parent: BallisticTurretHeavyAIBase
+  id: BallisticTurretHeavyAIUSSP
+  name: USSP heavy remote sentry turret
+  suffix: USSP
+  components:
+  - type: AccessReader
+    access: [["USSPHigh"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - USSPCommand
+    - USSPHigh
+    - USSP
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControlAIUSSP
+    transmitFrequencyId: TurretAIUSSP
+
+- type: deviceFrequency
+  id: TurretControlAIUSSP
+  name: device-frequency-prototype-name-turret-control
+  frequency: 1685
+
+- type: deviceFrequency
+  id: TurretAIUSSP
+  name: device-frequency-prototype-name-turret
+  frequency: 1686
+
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanel
+  id: WeaponEnergyTurretFreeportControlPanel
+  name: freeport sentry turret control panel
+  suffix: USSP Commissar access
+  description: A wall-mounted interface that allows a local artifical intelligence to adjust the operational parameters of linked sentry turrets.
+  components:
+  - type: AccessReader
+    access: [["USSPHigh"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - USSPCommand
+    - USSPHigh
+    - USSP
+    - ViperCommand
+    - Viper
+    - Mercenary
+    - Pilot
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretAIFP
+    transmitFrequencyId: TurretControlAIFP
+
+- type: entity
+  parent: BallisticTurretHeavyAIBase
+  id: BallisticTurretHeavyAIFP
+  name: freeport heavy remote sentry turret
+  suffix: FREEPORT
+  components:
+  - type: AccessReader
+    access: [["USSPHigh"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - USSPCommand
+    - USSPHigh
+    - USSP
+    - ViperCommand
+    - Viper
+    - Mercenary
+    - Pilot
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControlAIFP
+    transmitFrequencyId: TurretAIFP
+
+- type: deviceFrequency
+  id: TurretControlAIFP
+  name: device-frequency-prototype-name-turret-control
+  frequency: 1687
+
+- type: deviceFrequency
+  id: TurretAIFP
+  name: device-frequency-prototype-name-turret
+  frequency: 1688
+
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanel
+  id: WeaponEnergyTurretViperControlPanel
+  name: VG sentry turret control panel
+  suffix: VG Command access
+  description: A wall-mounted interface that allows a local artifical intelligence to adjust the operational parameters of linked sentry turrets.
+  components:
+  - type: AccessReader
+    access: [["ViperCommand"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - ViperCommand
+    - Viper
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretAIVG
+    transmitFrequencyId: TurretControlAIVG
+
+- type: entity
+  parent: BallisticTurretHeavyAIBase
+  id: BallisticTurretHeavyAIVG
+  name: VG heavy remote sentry turret
+  suffix: VG
+  components:
+  - type: AccessReader
+    access: [["ViperCommand"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - ViperCommand
+    - Viper
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControlAIVG
+    transmitFrequencyId: TurretAIVG
+
+- type: deviceFrequency
+  id: TurretControlAIVG
+  name: device-frequency-prototype-name-turret-control
+  frequency: 1689
+
+- type: deviceFrequency
+  id: TurretAIVG
+  name: device-frequency-prototype-name-turret
+  frequency: 1690

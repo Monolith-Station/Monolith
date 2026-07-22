@@ -66,7 +66,7 @@
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier3HP
-  suffix: Medium, T2
+  suffix: Medium, T3
   description: Borrowing from the design of the Marauder, the Cerberus fires very similar shots, but in a tight spread of 3 blasts
   components:
   - type: StaticPrice
@@ -123,7 +123,7 @@
   id: WeaponTurretType54
   name: Type-54C plasma autopulser
   parent:
-  - BallisticArtillery
+  - BallisticArtilleryUnanchorable
   - BallisticArtilleryTier2HP
   suffix: Medium, T2
   description: A rapidly firing energy weapon, well known for its devastating burst followed by a constant stream of plasma.
@@ -147,7 +147,7 @@
     recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 5
-    projectileSpeed: 220
+    projectileSpeed: 320
     shootThermalSignature: 500000 # ~5.6km with continuous fire
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/autopulse_laser_fire_01.ogg
@@ -314,8 +314,8 @@
   name: TPC Scylla plasma impulse driver
   parent:
   - BallisticArtilleryUnanchorable
-  - BallisticArtilleryTier3HP
-  suffix: Large, T3
+  - BallisticArtilleryTier4HP
+  suffix: Large, T4
   description: A more specialized energy weapon, the Scylla fires a massive burst of plasma projectiles down range, in a huge spew to erase large and small targets alike.
   components:
   - type: StaticPrice
@@ -333,14 +333,14 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    projectileSpeed: 240
+    projectileSpeed: 350
     minAngle: 0
     maxAngle: 6
     fireRate: 1
     recoil: 10 # 2/5x
     burstCooldown: 5.5
-    burstFireRate: 100
-    shotsPerBurst: 100
+    burstFireRate: 15
+    shotsPerBurst: 35
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 500000 # ~5.6km with continuous fire
@@ -372,7 +372,7 @@
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
-    shipClass: Heavy
+    shipClass: SuperHeavy
   - type: ShipRepairable
     repairTime: 70
     repairCost: 150
@@ -541,7 +541,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.3
+    fireRate: 0.8
     recoil: 5
     minAngle: 0
     maxAngle: 0
@@ -598,19 +598,17 @@
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
-    maxCharge: 56250 # 20 seconds of constant fire, 375 rock walls destroyed per full mag. 5 mining pulsers needed to equal its output.
+    maxCharge: 56250
     startingCharge: 56250
   - type: BatterySelfRecharger
-    autoRechargePause: true
-    autoRechargePauseTime: 30
     autoRecharge: true
-    autoRechargeRate: 56250
+    autoRechargeRate: 2500
   - type: FireControlRotate
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 20
+    fireRate: 25
     recoil: 0
     minAngle: 0
     maxAngle: 0

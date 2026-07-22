@@ -114,7 +114,7 @@
   - ContractorFun
   - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
-  - TsfmcFirearm
+  - TsfmcFirearmCommand
   - TsfmcSidearm
   - TsfmcMag
   - TsfmcSidearmAmmo
@@ -126,7 +126,7 @@
   id: JobSeniorOfficer # Fireteam Leader
   groups:
   - TsfmcHead
-  - TsfmcNeck
+  - TsfmcNeckFTL
   - TsfmcJumpsuit
   - TsfmcGloves
   - TsfmcBackpack
@@ -145,7 +145,7 @@
   - ContractorFun
   - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
-  - TsfmcFirearm
+  - TsfmcFirearmCommand
   - TsfmcSidearm
   - TsfmcMag
   - TsfmcSidearmAmmo

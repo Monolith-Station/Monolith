@@ -8,6 +8,14 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconTSFCaptain
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFCaptain
+  jobName: job-name-bailiff
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconTSFMarsoc
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi

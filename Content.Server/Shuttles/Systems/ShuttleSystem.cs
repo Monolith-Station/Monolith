@@ -55,6 +55,7 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
     [Dependency] private DockingSystem _dockSystem = default!;
     [Dependency] private DungeonSystem _dungeon = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private Content.Server.Explosion.EntitySystems.ExplosionSystem _explosion = default!; // Mono: z-level transit crush
     [Dependency] private IEntityManager _entityManager = default!;
     [Dependency] private FixtureSystem _fixtures = default!;
     [Dependency] private InventorySystem _inventorySystem = default!;
