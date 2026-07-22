@@ -26,17 +26,3 @@
   - TsfmcBasicEquipment
   - UniversalMaterialResearchT2
   position: 12, 7
-
-- type: technology
-  id: TsfmcExperimentalEquipment
-  name: research-technology-tsfmc-experimental-equipment
-  entityIcon: ClothingOuterHardsuitNfsdExperimental
-  discipline: TsfmcEquipment
-  tier: 3
-  cost: 85000
-  recipeUnlocks:
-  - ClothingOuterHardsuitM92XTsf
-  technologyPrerequisites:
-  - TsfmcAdvancedEquipment
-  - UniversalMaterialResearchT3
-  position: 12, 12
