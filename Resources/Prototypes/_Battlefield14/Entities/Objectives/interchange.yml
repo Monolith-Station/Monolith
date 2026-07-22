@@ -1,0 +1,121 @@
+# longer times due to large map size
+
+- type: entity
+  id: CapturePointInterchangeParking
+  parent: BaseCapturePoint
+  name: Parking lot control point
+  suffix: Interchange, 180s / 3m
+  components:
+  - type: POICapture
+    poiName: "Inside parking lot"
+    timeToCapture: 180
+  - type: NavMapBeacon
+    defaultText: "Inside parking lot"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "Inside parking"
+
+- type: entity
+  id: CapturePointInterchangeManager
+  parent: BaseCapturePoint
+  name: Manager office control point
+  suffix: Interchange, 180s / 4m
+  components:
+  - type: POICapture
+    poiName: "Manager office"
+    timeToCapture: 180
+  - type: NavMapBeacon
+    defaultText: "Manager office"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "Manager office"
+
+- type: entity
+  id: CapturePointInterchangeOLI
+  parent: BaseCapturePoint
+  name: OLI control point
+  suffix: Interchange, 240s / 4m
+  components:
+  - type: POICapture
+    poiName: "OLI"
+    timeToCapture: 240
+  - type: NavMapBeacon
+    defaultText: "OLI"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "OLI"
+
+- type: entity
+  id: CapturePointInterchangeCasino
+  parent: BaseCapturePoint
+  name: Diamond casino point
+  suffix: Interchange, 120s / 2m
+  components:
+  - type: POICapture
+    poiName: "Diamond Casino"
+    timeToCapture: 120
+  - type: NavMapBeacon
+    defaultText: "Diamond Casino"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "Diamond Casino"
+
+- type: entity
+  id: CapturePointInterchangeFerdinand
+  parent: BaseCapturePoint
+  name: Ferdinands pizzeria point
+  suffix: Interchange, 120s / 2m
+  components:
+  - type: POICapture
+    poiName: "Ferdinands pizzeria"
+    timeToCapture: 120
+  - type: NavMapBeacon
+    defaultText: "Ferdinands pizzeria"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "Ferdinands pizzeria"
+
+- type: entity
+  id: CapturePointInterchangeSwed
+  parent: BaseCapturePoint
+  name: Swed house control point
+  suffix: Interchange, 240s / 4m
+  components:
+  - type: POICapture
+    poiName: "Swed house"
+    timeToCapture: 240
+  - type: NavMapBeacon
+    defaultText: "Swed house"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "Swed house"
+
+- type: entity
+  id: CapturePointInterchangeKibba
+  parent: BaseCapturePoint
+  name: Kibba control point
+  suffix: Interchange, 120s / 2m
+  components:
+  - type: POICapture
+    poiName: "Kibba store"
+    timeToCapture: 120
+  - type: NavMapBeacon
+    defaultText: "kibba store"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "Kibba store"
+
+- type: entity
+  id: CapturePointInterchangeATF
+  parent: BaseCapturePoint
+  name: ATF 'r Us control point
+  suffix: Interchange, 120 / 2m
+  components:
+  - type: POICapture
+    poiName: "ATF 'r Us store"
+    timeToCapture: 120
+  - type: NavMapBeacon
+    defaultText: "ATF 'r Us store"
+    color: "#FFFF00"
+  - type: WarpPoint
+    location: "ATF 'r Us store"

@@ -1,0 +1,50 @@
+- type: gameMap
+  id: BF14Interchange
+  mapName: 'Interchange'
+  mapPath: /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap0.yml 
+  minPlayers: 1
+  maxPlayers: 50
+  randomRotation: false
+  maxRandomOffset: 0
+  stations:
+    BF14Interchange:
+      stationProto: StandardFrontierStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Norvinsk, Russian Federation"
+        - type: ExtraStationInformation
+          iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
+          stationSubtext: "Norvinsk, Russian Federation"
+          stationDescription: "A giant mega mall in a war torn region of the Russian Federation."
+          lobbySortOrder: 1
+        - type: StationJobs
+          availableJobs:
+            USMCLieutenant: [ 1, 1 ]
+            USMCSquadLeader: [ 3, 3 ]
+            USMCRifleman: [ 12, 12 ]
+            USMCAutomaticRifleman: [ 1, 1 ]
+            USMCMedic: [ 3, 3 ]
+            VDVLieutenant: [ 1, 1 ]
+            VDVSquadLeader: [ 3, 3 ]
+            VDVRifleman: [ 10, 10 ]
+            VDVAutomaticRifleman: [ 3, 3 ]
+            VDVMedic: [ 3, 3 ]
+            RUScav: [ 6, 9 ]
+        - type: CEStationZLevels
+          mapsAbove:
+            - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap0.yml
+            - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap1.yml
+            - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap2.yml
+            - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap3.yml
+          zLevelsComponentOverrides:
+            - type: CEAutoGridGravity
+
+- type: zMap
+  id: BF14InterchangeZMap
+  maps:
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap0.yml    # Ground floor
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap1.yml    # 1st floor
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap2.yml    # 2nd floor
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap3.yml    # roof
+  components:
+    - type: CEAutoGridGravity
