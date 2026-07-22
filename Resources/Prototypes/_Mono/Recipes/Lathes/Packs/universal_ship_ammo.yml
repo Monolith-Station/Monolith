@@ -9,11 +9,11 @@
   - Magazine30mmAmmoRecipe
   - Magazine30mmHEAmmoRecipe
   - Magazine57mmHEAmmoRecipe
-  - Magazine57mmSmartAmmoRecipe
   - 90mmMagazineHEAmmoRecipe
   - 90mmMagazineAPAmmoRecipe
   - 90mmMagazineFlakAmmoRecipe
-  - 90mmMagazineMinelayerAmmoRecipe
+  - Magazine140mmAmmoRecipe
+  - Magazine140mmSACLOSAmmoRecipe
   # Individual load
   - 120mmCartridgeAPHEDSAmmoRecipe
   - 220mmCartridgeAPHEAmmoRecipe
@@ -35,6 +35,7 @@
   id: UniversalMissileAmmo
   recipes:
   - ASM220TorpedoHEUniversal
+  - ASM220TorpedoHESACLOSUniversal
   - ASM220TorpedoECMUniversal
   - ASM220TorpedoLOSATUniversal
 

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server._Mono.Projectiles.TargetGuided;
 using Content.Server._Mono.Projectiles.TargetSeeking;
 using Content.Shared._Mono.Radar;
 using Content.Shared.Projectiles;
@@ -141,6 +142,16 @@ public sealed partial class RadarBlipSystem : EntitySystem
                 _tempMissileCache.Add(new(netMissileUid,
                     (float)(seeker.MaxSpeed * 0.2),
                     missileArc));
+        }
+        // Check for SACLOS/mouse-guided missiles to add their directional lines to the console.
+        var saclosQuery = EntityQueryEnumerator<TargetGuidedComponent, RadarBlipComponent, TransformComponent>();
+        while (saclosQuery.MoveNext(out var missile, out var seeker, out var missileBlip, out var missileBlipXform))
+        {
+            var netMissileUid = GetNetEntity(missile);
+            if (seeker.RadarLines)
+                _tempMissileCache.Add(new(netMissileUid,
+                    (float)(seeker.CurrentSpeed * 0.2),
+                    0));
         }
     }
 

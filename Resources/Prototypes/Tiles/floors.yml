@@ -1458,7 +1458,25 @@
 - type: tile
   id: FloorGrass
   name: tiles-planet-grass-floor
-  sprite: /Textures/Tiles/grass.png
+  sprite: /Textures/_CE/Tiles/Grass/grass.png
+  variants: 6
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_CE/Tiles/Grass/single_edge_SE.png
+    NorthEast: /Textures/_CE/Tiles/Grass/single_edge_NE.png
+    NorthWest: /Textures/_CE/Tiles/Grass/single_edge_NW.png
+    SouthWest: /Textures/_CE/Tiles/Grass/single_edge_SW.png
+    South: /Textures/_CE/Tiles/Grass/double_edge_S.png
+    East: /Textures/_CE/Tiles/Grass/double_edge_E.png
+    North: /Textures/_CE/Tiles/Grass/double_edge_N.png
+    West: /Textures/_CE/Tiles/Grass/double_edge_W.png
   baseTurf: FloorDirt
   #canCrowbar: false # Come back
   # canShovel: true # Delta V # nuh uh frontier now
@@ -1469,6 +1487,7 @@
   itemDrop: FloorTileItemGrass
   heatCapacity: 10000
   weather: true
+  iconSmoothSprite: /Textures/_CE/Tiles/Edges/grass.rsi
 
 - type: tile
   id: FloorGrassJungle
@@ -1519,13 +1538,25 @@
 - type: tile
   id: FloorGrassLight
   name: tiles-light-grass-floor
-  sprite: /Textures/Tiles/grasslight.png
-  variants: 4
+  sprite: /Textures/_CE/Tiles/GrassLight/grass.png
+  variants: 6
   placementVariants:
   - 1.0
   - 1.0
   - 1.0
   - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 2
+  edgeSprites:
+    SouthEast: /Textures/_CE/Tiles/GrassLight/single_edge_SE.png
+    NorthEast: /Textures/_CE/Tiles/GrassLight/single_edge_NE.png
+    NorthWest: /Textures/_CE/Tiles/GrassLight/single_edge_NW.png
+    SouthWest: /Textures/_CE/Tiles/GrassLight/single_edge_SW.png
+    South: /Textures/_CE/Tiles/GrassLight/double_edge_S.png
+    East: /Textures/_CE/Tiles/GrassLight/double_edge_E.png
+    North: /Textures/_CE/Tiles/GrassLight/double_edge_N.png
+    West: /Textures/_CE/Tiles/GrassLight/double_edge_W.png
   baseTurf: FloorDirt
   #canCrowbar: false # Come back
   # canShovel: true # Delta V # Frontier
@@ -1536,6 +1567,7 @@
   itemDrop: FloorTileItemGrassLight
   heatCapacity: 10000
   weather: true
+  iconSmoothSprite: /Textures/_CE/Tiles/Edges/grass_light.rsi
 
 - type: tile
   id: FloorDirt
@@ -1556,6 +1588,7 @@
   itemDrop: FloorTileItemDirt # Delta V
   heatCapacity: 10000
   weather: true
+  iconSmoothSprite: /Textures/_CE/Tiles/Edges/dirt.rsi
 
 # Asteroid
 

@@ -10,14 +10,19 @@
     Frontier:
       stationProto: StandardFrontierStation
       gridComponents:
+      - type: IFF
+        color: "#37946e"
+        readOnly: true # mono
+      - type: StationDeadDrop
+        maxDeadDrops: 2
       - type: StationCargoOrderDatabase
-        capacity: 60
+        capacity: 240 # has to be large to compensate for playerbase
       - type: TradeCrateDestination
         destinationProto: Trade
       - type: VesselMusic
         ambientMusicPrototype: ColossusCentralMusic
       - type: VesselInfo
-        description: "The closest thing to civilisation in this sector. You almost feel safe."
+        description: "The closest thing to civilization in this sector. You almost feel safe."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Caelestinus Central'
