@@ -1,0 +1,20 @@
+- type: entity
+  name: CD
+  parent: BaseItem
+  id: BF14MusicDiskRandomProp
+  description: A CD for playing music.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/cd.rsi
+    state: icon
+  - type: StaticPrice
+    price: 100
+  - type: Tag
+    tags:
+    - CoordinatesDisk
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 1
+  - type: RandomMetadata
+    nameSegments: [names_CD_music_albums]
