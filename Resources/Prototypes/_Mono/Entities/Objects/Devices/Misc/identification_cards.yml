@@ -96,7 +96,7 @@
 - type: entity
   parent: IDCardStandard
   id: TsfTeamleaderIDCard
-  name: TSFMC Fireteam Leader ID card
+  name: TSF Fireteam Leader ID card
   components:
   - type: PresetIdCard
     job: TsfTeamleader
@@ -147,7 +147,7 @@
 - type: entity
   parent: IDCardStandard
   id: TsfCorpsmanIDCard
-  name: TSF Commanding Officer ID card
+  name: TSF Corpsman ID card
   components:
   - type: PresetIdCard
     job: TsfCorpsman
@@ -164,7 +164,7 @@
 - type: entity
   parent: IDCardStandard
   id: TsfEngiIDCard
-  name: TSFMC engineer ID card
+  name: TSFN engineer ID card
   components:
   - type: PresetIdCard
     job: TsfEngineer
