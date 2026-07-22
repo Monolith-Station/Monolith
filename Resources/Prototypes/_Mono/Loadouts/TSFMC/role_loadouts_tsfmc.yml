@@ -226,3 +226,32 @@
   - TsfmcSidearmAmmo
   - FactionArmorPlates
   canCustomizeName: true
+
+- type: roleLoadout
+  id: JobTsfReservist #  Reservist Role [Deck Crew]
+  groups:
+  - TsfmcHeadEngi
+  - TsfmcNeckEngi
+  - TsfmcJumpsuitEngi
+  - TsfmcGloves
+  - TsfmcEngiModsuit
+  - TsfmcOuterClothing
+  - TsfmcShoes
+  - TsfmcFace
+  - TsfmcBalaclava
+  - TsfmcEngiGlasses
+  - TsfmcUtilBelt
+  - TsfmcEars
+  - NfsdBoxSurvival
+  - TsfEngiPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorEncryptionKey
+  - ContractorFun
+  - ContractorTrinkets
+  - NfsdSpeciesSpecific
+  - TsfmcSidearm
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
+  - TsfnRanksEngineers
+  canCustomizeName: true
