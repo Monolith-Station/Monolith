@@ -266,14 +266,14 @@
   description: It's just an MG42 rechambered for 7.62x51, making modernisation cheap and easy for the young bundeswehr.
   components:
   - type: Sprite
-    sprite: _Battlefield14/Objects/Weapons/Guns/MachineGuns/MG3.rsi
+    sprite: _WorldAblaze1968/Objects/Weapons/Smallarms/Machineguns/mg3.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Battlefield14/Objects/Weapons/Guns/MachineGuns/MG3.rsi
+    sprite: _WorldAblaze1968/Objects/Weapons/Smallarms/Machineguns/mg3.rsi
     quickEquip: false
     slots:
     - Back

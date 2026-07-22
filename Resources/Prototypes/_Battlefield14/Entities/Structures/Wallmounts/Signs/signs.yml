@@ -72,7 +72,7 @@
   parent: BaseSign
   id: BF14SignStop
   name: stop sign
-  description: STOP! T-BONE THAT FAMILY!
+  description: STOP! DON'T T-BONE THAT FAMILY!
   components:
   - type: Sprite
     sprite: _Civ14/Objects/decals.rsi
@@ -197,3 +197,13 @@
   - type: Sprite
     sprite: _Civ14/Objects/decals.rsi
     state: bank
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignDiamond
+  name: diamond casino sign
+  description: SPEND ALL YOUR MONEY HERE.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/decals.rsi
+    state: yellow_logo
