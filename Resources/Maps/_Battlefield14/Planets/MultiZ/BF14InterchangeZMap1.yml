@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/22/2026 02:21:54
+  time: 07/22/2026 13:51:28
   entityCount: 5463
 maps:
 - 141
@@ -346,9 +346,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
-        Kudzu: []
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: BecomesStation
@@ -1825,9 +1825,6 @@ entities:
     - type: OccluderTree
     - type: MapLight
       ambientLightColor: '#D8B059FF'
-    - type: LightCycle
-      minLightLevel: 0.5
-      offset: 900
     - type: MapAtmosphere
       space: False
       mixture:
@@ -1860,9 +1857,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
-        Kudzu: []
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier

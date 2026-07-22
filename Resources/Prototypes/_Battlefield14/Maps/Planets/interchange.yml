@@ -21,17 +21,15 @@
           availableJobs:
             USMCLieutenant: [ 1, 1 ]
             USMCSquadLeader: [ 3, 3 ]
-            USMCRifleman: [ 8, 8 ]
-            USMCAutomaticRifleman: [ 3, 3 ]
+            USMCRifleman: [ 12, 12 ]
+            USMCAutomaticRifleman: [ 1, 1 ]
             USMCMedic: [ 3, 3 ]
-            USMCRecon: [ 3, 3 ]
             VDVLieutenant: [ 1, 1 ]
             VDVSquadLeader: [ 3, 3 ]
-            VDVRifleman: [ 8, 8 ]
+            VDVRifleman: [ 10, 10 ]
             VDVAutomaticRifleman: [ 3, 3 ]
             VDVMedic: [ 3, 3 ]
-            VDVRecon: [ 3, 3 ]
-            RUScav: [ 9, 9 ]
+            RUScav: [ 6, 9 ]
         - type: CEStationZLevels
           mapsAbove:
             - /Maps/_Battlefield14/Planets/MultiZ/BF14InterchangeZMap1.yml

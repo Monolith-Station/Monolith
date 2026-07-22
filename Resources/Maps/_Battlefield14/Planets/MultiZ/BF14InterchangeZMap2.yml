@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/22/2026 02:21:55
-  entityCount: 3863
+  time: 07/22/2026 13:51:29
+  entityCount: 3869
 maps:
 - 13
 grids:
@@ -315,9 +315,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
-        Kudzu: []
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1638,9 +1638,6 @@ entities:
     - type: OccluderTree
     - type: MapLight
       ambientLightColor: '#D8B059FF'
-    - type: LightCycle
-      minLightLevel: 0.5
-      offset: 900
     - type: MapAtmosphere
       space: False
       mixture:
@@ -1669,9 +1666,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
-        Kudzu: []
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -3956,6 +3953,13 @@ entities:
     - type: Transform
       pos: 68.5,88.5
       parent: 1
+- proto: CapturePointInterchangeManager
+  entities:
+  - uid: 3864
+    components:
+    - type: Transform
+      pos: 122.5,128.5
+      parent: 1
 - proto: CarpStatue
   entities:
   - uid: 3858
@@ -5377,6 +5381,18 @@ entities:
     - type: Transform
       pos: 140.5,111.5
       parent: 1
+- proto: DrinkWineBottleFull
+  entities:
+  - uid: 3868
+    components:
+    - type: Transform
+      pos: 118.372444,129.68297
+      parent: 1
+  - uid: 3869
+    components:
+    - type: Transform
+      pos: 118.76827,129.67603
+      parent: 1
 - proto: ExtinguisherCabinet
   entities:
   - uid: 1791
@@ -6237,6 +6253,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: 82.5,112.5
       parent: 1
+  - uid: 3865
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 117.5,129.5
+      parent: 1
+  - uid: 3866
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 118.5,128.5
+      parent: 1
 - proto: N14ChairMetalRed
   entities:
   - uid: 1717
@@ -6829,6 +6857,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 88.5,111.5
+      parent: 1
+  - uid: 3867
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 118.5,129.5
       parent: 1
 - proto: N14TableDeskMetalDirty
   entities:

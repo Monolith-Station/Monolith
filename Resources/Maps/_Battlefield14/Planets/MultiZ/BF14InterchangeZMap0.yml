@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/22/2026 02:21:53
+  time: 07/22/2026 13:51:27
   entityCount: 6702
 maps:
 - 1616
@@ -13771,9 +13771,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
-        Kudzu: []
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -19420,9 +19420,6 @@ entities:
     - type: OccluderTree
     - type: MapLight
       ambientLightColor: '#D8B059FF'
-    - type: LightCycle
-      minLightLevel: 0.5
-      offset: 900
     - type: Parallax
       parallax: bedrock
     - type: MapAtmosphere
@@ -19453,9 +19450,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
-        Kudzu: []
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -26937,7 +26934,7 @@ entities:
     - type: Transform
       pos: 45.5,197.5
       parent: 1
-- proto: CapturePointInterchangeDorms
+- proto: CapturePointInterchangeParking
   entities:
   - uid: 4598
     components:
