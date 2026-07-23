@@ -53,17 +53,23 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 200
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 150
       behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
+            min: 2
+            max: 4
+          PartRodMetal1:
             min: 2
             max: 4
       - !type:DoActsBehavior
@@ -76,6 +82,6 @@
     doAfter: 3
   - type: ExtendDescription
     descriptionList:
-      - description: Alt-click to collapse into an item.
+      - description:  Allows you to go up Z levels. Alt-click to collapse into an item.
         color: "#4f94ad"
         requireDetailRange: true
