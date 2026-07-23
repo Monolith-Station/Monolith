@@ -22900,3 +22900,41 @@ Entries:
   id: 2527
   time: '2026-07-22T13:59:17.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4305
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Fissile uranium is actually scary now.
+  id: 2528
+  time: '2026-07-22T23:32:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4343
+- author: projectkepler-ru
+  changes:
+    - type: Add
+      message: Lever Action is now available to the merc loadout and tech fab
+  id: 2529
+  time: '2026-07-23T15:33:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4304
+- author: thoughtlessuser
+  changes:
+    - type: Add
+      message: >-
+        Added all the cooler sprites for Hydrakin. Added outer clothing
+        displacement (finally). Allowed hydrakin to cool even when cuffed. Made
+        them sick from eating raw meat (no more carnivorousness mweheh).
+    - type: Tweak
+      message: >-
+        Altered Hydrakin heat systems (only a little). Adjusted displacement
+        mapping for the new hydrakin shape. Hydrakin no longer overheat while
+        sleeping. That doesn't mean it dissipates while sleeping, though!
+  id: 2530
+  time: '2026-07-23T22:01:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4314
+- author: IronmoonHeathen
+  changes:
+    - type: Fix
+      message: >-
+        Colonel double checked their closets and remember to actually bring
+        their gun 
+  id: 2531
+  time: '2026-07-23T22:01:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4346
