@@ -24,7 +24,7 @@ public sealed partial class PersonalShieldOverlay : Overlay
     private readonly InventorySystem _inventory;
     private readonly ShaderInstance _shader;
 
-    public override OverlaySpace Space => OverlaySpace.WorldSpace;
+    public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
 
     public PersonalShieldOverlay()
     {
