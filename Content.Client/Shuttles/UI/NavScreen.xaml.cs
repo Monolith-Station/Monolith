@@ -9,6 +9,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 
@@ -199,11 +200,11 @@ public sealed partial class NavScreen : BoxContainer
         GridAngularVelocity.Text = Loc.GetString("shuttle-console-angular-velocity-value",
             ("angularVelocity", $"{-MathHelper.RadiansToDegrees(gridBody.AngularVelocity) + 10f * float.Epsilon:0.0}"));
 
-        UpdateAltitude(gridXform); // Mono
+        UpdateAltitude(gridXform, gridBody); // Mono
     }
 
     // Mono: z-level altimeter
-    private void UpdateAltitude(TransformComponent gridXform)
+    private void UpdateAltitude(TransformComponent gridXform, PhysicsComponent gridBody)
     {
         float? altitude = null;
         string? state = null;
@@ -229,7 +230,11 @@ public sealed partial class NavScreen : BoxContainer
                 }
                 else
                 {
-                    state = Loc.GetString(_entManager.HasComponent<CEZGroundLayerComponent>(mapUid)
+                    // Landing on terrain parks the ship (ShuttleSystem.Disable -> Static);
+                    // setting down over open sky leaves it Dynamic and hovering. Reading the
+                    // body keeps the readout honest per-ship rather than per-z-level, so a
+                    // ship idling over a hole doesn't claim to be grounded.
+                    state = Loc.GetString(gridBody.BodyType == BodyType.Static
                         ? "shuttle-console-travel-state-grounded"
                         : "shuttle-console-travel-state-hovering");
                 }

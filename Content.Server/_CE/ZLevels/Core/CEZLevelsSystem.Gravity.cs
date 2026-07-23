@@ -7,6 +7,7 @@ using Content.Server._CE.ZLevels.Core.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Gravity;
 using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Gravity;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -20,7 +21,6 @@ public sealed partial class CEZLevelsSystem
     [Dependency] private GravitySystem _grav = default!;
 
     [Dependency] private EntityQuery<CEZMapComponent> _zMapQuery = default!;
-    [Dependency] private EntityQuery<CEZGroundLayerComponent> _zGroundQuery = default!;
     [Dependency] private EntityQuery<PhysicsComponent> _physQuery = default!;
 
     private readonly List<Entity<MapGridComponent>> _gravityQueue = new();
@@ -89,14 +89,12 @@ public sealed partial class CEZLevelsSystem
                 if (xform.MapUid is not { } mapUid || !_zMapQuery.HasComp(mapUid))
                     continue;
 
-                // You can't fall out of the ground floor.
-                if (_zGroundQuery.HasComp(mapUid))
-                    continue;
-
                 if (_physQuery.TryComp(uid, out var body) && body.BodyType == BodyType.Static)
                     continue;
 
                 // "Why not use IsWeightless on each grid-" Doesn't work on grids. I tried.
+                // This also covers "you can't fall out of the ground floor": a grid sat on the
+                // bottom level's terrain has ground under its footprint like any other.
                 if (RigidSetHasSupport(uid))
                     continue;
 
@@ -327,7 +325,13 @@ public sealed partial class CEZLevelsSystem
 
                     target = MathF.Max(TouchdownSpeed, progress * ApproachGain);
                 }
-                else if (progress >= 1f - SettleZone && topUpperMap != null)
+                // Only settle up onto the level above if the convoy can actually get through it.
+                // Pinned under solid terrain the ship just hovers against the underside; without
+                // this it would drift into the touchdown band and pop out on top of the ceiling
+                // that was blocking it.
+                else if (progress >= 1f - SettleZone
+                         && topUpperMap is { } upper
+                         && !ConvoyBlockedByPlane(convoy[^1], upper))
                 {
                     if (progress >= 1f - TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
@@ -342,8 +346,8 @@ public sealed partial class CEZLevelsSystem
                 faller.Velocity = MoveTowards(faller.Velocity, target, damp * frameTime);
             }
 
-            // Slow down when approaching a ground layer so people under you got some time to move.
-            if (faller.Velocity > 0f && HasComp<CEZGroundLayerComponent>(groundMapBelow))
+            // Slow down when approaching terrain so people under you got some time to move.
+            if (faller.Velocity > 0f && ConvoyBlockedByPlane(convoy[0], groundMapBelow))
             {
                 var cap = MathF.Max(TouchdownSpeed, progress * ApproachGain);
                 if (faller.Velocity > cap)
@@ -370,8 +374,13 @@ public sealed partial class CEZLevelsSystem
         var impact = faller.Velocity;
         faller.Velocity = 0f;
 
-        if (impact < faller.GridCrashVelocity || !HasComp<CEZGroundLayerComponent>(Transform(grid).MapUid))
+        // Only a landing that ended ON terrain is a crash; setting down over open sky isn't.
+        if (impact < faller.GridCrashVelocity
+            || Transform(grid).MapUid is not { } landedMap
+            || !HasGroundUnderFootprint(grid, landedMap))
+        {
             return;
+        }
 
         var crashSet = CollectGridSet(grid);
         if (TryGetGridNetwork(grid, out var landedNetwork))
@@ -596,6 +605,16 @@ public sealed partial class CEZLevelsSystem
         return true;
     }
 
+    /// <summary>
+    /// Whether a z-level has solid terrain under (or over) a grid's footprint. A z-level map
+    /// entity carries its own MapGrid and its tiles are the layer's terrain, so this is what
+    /// makes a level something a ship can rest on or be stopped by.
+    ///
+    /// Solidity matches <see cref="CEZLevelOpeningCache.IsOpeningTile"/>, the same rule entity
+    /// falling uses: empty and transparent tiles are holes. A gap punched in a platform drops a
+    /// ship through exactly like it drops a person, instead of the two disagreeing about the
+    /// same tile.
+    /// </summary>
     private bool HasGroundUnderFootprint(Entity<MapGridComponent> grid, EntityUid mapUid)
     {
         if (!TryComp<MapGridComponent>(mapUid, out var mapGrid))
@@ -603,6 +622,12 @@ public sealed partial class CEZLevelsSystem
 
         var worldAabb = _transform.GetWorldMatrix(grid).TransformBox(grid.Comp.LocalAABB);
         var tiles = _map.GetTilesEnumerator(mapUid, mapGrid, worldAabb);
-        return tiles.MoveNext(out _);
+        while (tiles.MoveNext(out var tileRef))
+        {
+            if (!CEZLevelOpeningCache.IsOpeningTile(tileRef.Tile, TilDefMan))
+                return true;
+        }
+
+        return false;
     }
 }

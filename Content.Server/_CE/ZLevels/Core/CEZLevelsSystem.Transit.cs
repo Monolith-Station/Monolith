@@ -107,10 +107,12 @@ public sealed partial class CEZLevelsSystem
 
         foreach (var gridUid in movedGrids)
         {
-            // Ships parked on the ground get their engines back once they're off the
-            // ground layer (see CEZGroundLayerComponent).
-            if (!HasComp<CEZGroundLayerComponent>(targetMap.Owner))
+            // Ships parked on terrain get their engines back once they're off it.
+            if (!_mapGridQuery.TryComp(gridUid, out var movedGrid)
+                || !HasGroundUnderFootprint((gridUid, movedGrid), targetMap.Owner))
+            {
                 _shuttle.Enable(gridUid);
+            }
         }
 
         return true;
@@ -538,10 +540,10 @@ public sealed partial class CEZLevelsSystem
                 break;
             }
 
-            // A ground layer overhead is a solid ceiling from below: a ship rises through a
-            // hole in it but never punches through the ground itself. Mirror of the descent
-            // rule (which lands ON ground, never past it). Clamp to the underside and stop.
-            if (HasComp<CEZGroundLayerComponent>(topUpper) && ConvoyBlockedByCeiling(convoy[^1], topUpper))
+            // Terrain overhead is a solid ceiling from below: a ship rises through a hole in it
+            // but never punches through the tiles themselves. Mirror of the descent rule (which
+            // lands ON terrain, never past it). Clamp to the underside and stop.
+            if (ConvoyBlockedByPlane(convoy[^1], topUpper))
             {
                 progress = 1f;
                 break;
@@ -574,8 +576,8 @@ public sealed partial class CEZLevelsSystem
             var convoy = GetConvoyMaps(transitMapUid);
             var bottomTransit = Comp<CEZTransitMapComponent>(convoy[0]);
 
-            // You can't fly below a ground layer.
-            if (bottomTransit.LowerMap is not { } bottomLower || HasComp<CEZGroundLayerComponent>(bottomLower))
+            // You can't fly below terrain — the convoy sets down on it instead.
+            if (bottomTransit.LowerMap is not { } bottomLower || ConvoyBlockedByPlane(convoy[0], bottomLower))
                 return LandTransitSet(grid);
 
             if (!TryMapDown(bottomLower, out _))
@@ -593,7 +595,20 @@ public sealed partial class CEZLevelsSystem
             progress += 1f;
         }
 
-        foreach (var convoyMap in GetConvoyMaps(transitMapUid))
+        var convoyMaps = GetConvoyMaps(transitMapUid);
+
+        // Hold a hair clear of a ceiling we're pinned under, so it keeps drawing overhead.
+        // Applied here rather than inside the climb loop above because progress also creeps
+        // into the top of the gap without ever exceeding 1f — clamping only on overshoot
+        // would let the ship drift flush, then snap back down, once per overshoot.
+        if (progress > 1f - CeilingClearance
+            && Comp<CEZTransitMapComponent>(convoyMaps[^1]).UpperMap is { } ceiling
+            && ConvoyBlockedByPlane(convoyMaps[^1], ceiling))
+        {
+            progress = 1f - CeilingClearance;
+        }
+
+        foreach (var convoyMap in convoyMaps)
         {
             foreach (var gridUid in CollectGridsOnMap(convoyMap))
             {
@@ -629,16 +644,20 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Whether a ground layer overhead blocks the convoy's top layer from rising through it:
-    /// true if any of that layer's grids has solid ground tiles directly above its footprint.
-    /// A footprint clear of ground (a hole punched through it) lets the ship pass.
+    /// Whether the z-level <paramref name="plane"/> stops the convoy's edge layer from passing
+    /// through it: true if any of that layer's grids has solid terrain directly across its
+    /// footprint. A footprint clear of terrain (open sky, or a hole punched through a platform)
+    /// lets the convoy pass.
+    ///
+    /// Direction-agnostic — the same test decides whether a floor below catches a descent and
+    /// whether a ceiling above halts a climb, so the two can never disagree about one plane.
     /// </summary>
-    private bool ConvoyBlockedByCeiling(EntityUid topTransitMap, EntityUid groundMap)
+    private bool ConvoyBlockedByPlane(EntityUid edgeTransitMap, EntityUid plane)
     {
-        foreach (var grid in CollectGridsOnMap(topTransitMap))
+        foreach (var grid in CollectGridsOnMap(edgeTransitMap))
         {
             if (TryComp<MapGridComponent>(grid, out var gridComp)
-                && HasGroundUnderFootprint((grid, gridComp), groundMap))
+                && HasGroundUnderFootprint((grid, gridComp), plane))
             {
                 return true;
             }
@@ -787,7 +806,6 @@ public sealed partial class CEZLevelsSystem
             var movedGrids = CollectGridsOnMap(convoyMap);
             MoveGridSetToMap(movedGrids, destination, up ? 1 : -1, depth);
 
-            var parked = HasComp<CEZGroundLayerComponent>(destination);
             foreach (var gridUid in movedGrids)
             {
                 if (ZPhysicsQuery.TryComp(gridUid, out var zPhys))
@@ -801,7 +819,10 @@ public sealed partial class CEZLevelsSystem
                 // Landing on a grid causes an explosion. Don't do that.
                 _shuttle.Smimsh(gridUid, explodeGrids: true, ignoredGrids: movedGrids);
 
-                if (parked)
+                // Set down on terrain = parked; arriving over open sky leaves the engines hot.
+                // Per-grid, since a wide set can straddle a platform edge.
+                if (_mapGridQuery.TryComp(gridUid, out var landedGrid)
+                    && HasGroundUnderFootprint((gridUid, landedGrid), destination))
                 {
                     _shuttle.Disable(gridUid);
                     _console.RefreshShuttleConsoles(gridUid);
