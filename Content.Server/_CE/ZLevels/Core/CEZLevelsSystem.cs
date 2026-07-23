@@ -31,6 +31,7 @@ public sealed partial class CEZLevelsSystem : CESharedZLevelsSystem
 
         InitView();
         InitializeTransit();
+        InitializeGroundFriction();
 
         SubscribeLocalEvent<CEStationZLevelsComponent, StationPostInitEvent>(OnStationPostInit);
     }
@@ -136,6 +137,8 @@ public sealed partial class CEZLevelsSystem : CESharedZLevelsSystem
         base.Update(frameTime);
 
         UpdateGridGravity(frameTime);
+        UpdateGroundFriction(frameTime);
+        UpdateWallCollision();
         UpdateView(frameTime);
         CleanupOrphanedTransitMaps();
     }
