@@ -8,7 +8,6 @@ using Content.Shared.Radiation.Components;
 namespace Content.Server._Mono.Radiation;
 
 public sealed partial class ChainRadiationSystem : EntitySystem
-
 {
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private ExplosionSystem _explosion = default!;
