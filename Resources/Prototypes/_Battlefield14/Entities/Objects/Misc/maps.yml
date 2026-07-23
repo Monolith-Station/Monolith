@@ -52,6 +52,29 @@
 
 - type: entity
   parent: BaseBattlemap
+  id: MapInterchange
+  name: 'map (Norvinsk interchange)'
+  description: It's a map of Norvinsk, UTLRA mall also nicknamed the interchange. objectives are circled in red.
+  components:
+    - type: Item
+      size: Tiny
+    - type: Sprite
+      sprite: _Battlefield14/Objects/Misc/maps.rsi
+      state: interchange
+      scale: 0.7, 0.7
+    - type: TabletopGame
+      size: 1000, 1520
+      setup:
+        !type:TabletopEmptySetup
+        boardPrototype: PhotoMapInterchange
+    - type: ExtendDescription
+      descriptionList:
+        - description: To use, place on the floor, hover over the item, and tap E on the keyboard.
+          color: "#4f94ad"
+          requireDetailRange: true
+
+- type: entity
+  parent: BaseBattlemap
   id: MapCustoms
   name: 'hand drawn map (Norvinsk customs)'
   description: It's a map of Norvinsk customs. Gotta give credit where it due, atleast this one isnt crumpled to hell like the last batch of maps.
@@ -99,6 +122,16 @@
           requireDetailRange: true
 
 # Image protos
+
+- type: entity
+  parent: BaseBoardTabletop
+  id: PhotoMapInterchange
+  name: map of Norvinsk interchange
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/GroundMaps/interchange.rsi
+    state: marked
 
 - type: entity
   parent: BaseBoardTabletop

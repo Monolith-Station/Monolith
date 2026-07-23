@@ -19,6 +19,16 @@
   - MapSpringfield
 
 - type: thiefBackpackSet
+  id: BF14Set_MapInterchange
+  name: Interchange
+  description: A map of Norvinsk Interchange, Russia
+  sprite:
+    sprite: _Battlefield14/Objects/Misc/maps.rsi
+    state: interchange
+  content:
+  - MapInterchange
+
+- type: thiefBackpackSet
   id: BF14Set_MapCustoms
   name: Customs
   description: A map of Norvinsk Customs, Russia
