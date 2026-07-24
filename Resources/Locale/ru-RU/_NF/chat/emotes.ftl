@@ -59,5 +59,4 @@ chat-emote-msg-vulpkanin-whines = скулит
 chat-emote-msg-vulpkanin-howls = воет
 chat-emote-msg-vulpkanin-awoo = воет
 
-chat-emote-name-hiss = Шипеть
 chat-emote-msg-hiss = шипит

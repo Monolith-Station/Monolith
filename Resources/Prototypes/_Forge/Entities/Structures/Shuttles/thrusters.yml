@@ -18,6 +18,8 @@
         shader: unshaded
         visible: false
         offset: 0, 0.5
+    - type: Machine
+      board: GoblinThrusterCircuitboard
     - type: Construction
       graph: goblin_machinery
       node: goblinThruster

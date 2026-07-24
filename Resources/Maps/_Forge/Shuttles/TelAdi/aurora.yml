@@ -6323,8 +6323,6 @@ entities:
       pos: -0.5,53.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1194
       - 1192
@@ -6335,8 +6333,6 @@ entities:
       pos: 0.5,53.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1194
       - 1192
@@ -6347,8 +6343,6 @@ entities:
       pos: 1.5,53.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1194
       - 1192
@@ -6359,8 +6353,6 @@ entities:
       pos: 4.5,56.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1195
       - 1194
@@ -6371,8 +6363,6 @@ entities:
       pos: -3.5,56.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1193
       - 1194
@@ -6589,8 +6579,6 @@ entities:
       pos: 0.5,16.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1185
       - 1890
@@ -8031,8 +8019,6 @@ entities:
       pos: 0.5,56.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1194
   - uid: 1903
@@ -8114,8 +8100,6 @@ entities:
       pos: -0.5,55.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 1194
   - uid: 1421
@@ -8954,7 +8938,7 @@ entities:
       parent: 2
     - type: Paper
       content: >-
-        уже иду сладкий 
+        уже иду сладкий
 
         p.s Андрей
   - uid: 1913
