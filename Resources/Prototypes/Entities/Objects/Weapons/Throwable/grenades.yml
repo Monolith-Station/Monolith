@@ -24,15 +24,6 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Grenade # BF14 grenades thrown over barbed wire would take damage from the DamageUserOnTrigger comp and can detonate instantly without the proper damage modifer set
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 20 # BF14 10 > 20
-      behaviors:
-      - !type:TriggerBehavior
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: Appearance
   - type: AnimationPlayer
   - type: GenericVisualizer
@@ -117,20 +108,6 @@
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.1
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10
-      behaviors:
-      - !type:TimerStartBehavior
-    - trigger:
-        !type:DamageTrigger
-        damage: 45
-      behaviors:
-      - !type:TriggerBehavior
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: OnUseTimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
@@ -291,15 +268,6 @@
     totalIntensity: 20000 # ~15 tile radius.
     intensitySlope: 5
     maxIntensity: 50
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:TriggerBehavior
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: Appearance
   - type: TimerTriggerVisuals
     primingSound:
@@ -325,15 +293,6 @@
     node: emptyCase
   - type: Damageable
     damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:TriggerBehavior
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
