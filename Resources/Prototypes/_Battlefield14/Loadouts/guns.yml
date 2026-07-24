@@ -5,7 +5,7 @@
   - !type:GroupLoadoutEffect
     proto: BF_USMC_SL_VET
   inhand:
-  - WeaponCaseShortFiveSeven
+  - BF14WeaponCaseShortBEFiveSeven
 
 - type: loadout
   id: LoadoutGunUSM1911USMCVET
@@ -14,7 +14,7 @@
   - !type:GroupLoadoutEffect
     proto: BF_USMC_VET
   inhand:
-  - WeaponCaseShortUSM1911
+  - BF14WeaponCaseShortUSM1911
 
 - type: loadout
   id: LoadoutGunDEUSPMatchBWSLVET
@@ -23,7 +23,7 @@
   - !type:GroupLoadoutEffect
     proto: BF_BW_SL_VET
   inhand:
-  - WeaponCaseShortDEUSPMatch
+  - BF14WeaponCaseShortDEUSPMatch
 
 - type: loadout
   id: LoadoutGunDEUSP45BWVET
@@ -32,7 +32,7 @@
   - !type:GroupLoadoutEffect
     proto: BF_BW_VET
   inhand:
-  - WeaponCaseShortDEUSP45
+  - BF14WeaponCaseShortDEUSP45
 
 - type: loadout
   id: LoadoutGunSR1MPVDVSLVET
@@ -41,7 +41,7 @@
   - !type:GroupLoadoutEffect
     proto: BF_VDV_SL_VET
   inhand:
-  - WeaponCaseShortSR1MP
+  - BF14WeaponCaseShortSR1MP
 
 - type: loadout
   id: LoadoutGunRUTT33VDVVET
@@ -50,4 +50,4 @@
   - !type:GroupLoadoutEffect
     proto: BF_VDV_VET
   inhand:
-  - WeaponCaseShortRUTT33
+  - BF14WeaponCaseShortRUTT33

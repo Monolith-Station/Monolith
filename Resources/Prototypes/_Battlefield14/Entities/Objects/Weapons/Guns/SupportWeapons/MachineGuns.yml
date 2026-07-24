@@ -538,3 +538,33 @@
     baseDelay: 1
     modifiedDelay: 1
     preventFiring: true
+
+#region Misc
+
+- type: entity
+  name: bonesaw
+  parent: WeaponMachineGunDEMG3
+  id: BF14WeaponMachineGunBrigadorBonesaw
+  description: Chambered in 7.92x57mm. A famous design even before the troubles, after GL rose to power the thing's name was changed to the 'bonesaw', in honor of his legendary ambush by Linschotten, 8 thousand infantry cut down in the cornfield. Nowadays the design bureau slaps this shitty laser onto it.
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineBeltBoxBonesaw
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/M249/uc_m249_boxinsert.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/M249/uc_m249_boxremove.ogg
+        swap: false
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineBeltBoxMG42
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgeRifle792x57TracerRed
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgeRifle792x57
+  - type: LaserPointer

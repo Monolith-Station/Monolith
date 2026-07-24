@@ -14,13 +14,13 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseShortUSM1911
-        - WeaponCaseShortDEUSP9
-        - WeaponCaseShortDEUSPMatch
-        - WeaponCaseShortDEUSP45
-        - WeaponCaseShortFiveSeven
-        - WeaponCaseShortSR1MP
-        - WeaponCaseShortRUTT33
+        - BF14WeaponCaseShortUSM1911
+        - BF14WeaponCaseShortDEUSP9
+        - BF14WeaponCaseShortDEUSPMatch
+        - BF14WeaponCaseShortDEUSP45
+        - BF14WeaponCaseShortBEFiveSeven
+        - BF14WeaponCaseShortRUSR1MP
+        - BF14WeaponCaseShortRUTT33
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
@@ -40,14 +40,14 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseLongUSMAC10
-        - WeaponCaseLongUSMAC10Supp
-        - WeaponCaseLongUSMP5
-        - WeaponCaseLongDEMP7
-        - WeaponCaseLongRUSR2MP
-        - WeaponCaseLongRUPPsh41
-        - WeaponCaseLongRUVityaz
-        - WeaponCaseLongRUVlad
+        - BF14WeaponCaseLongUSMAC10
+        - BF14WeaponCaseLongUSMAC10Supp
+        - BF14WeaponCaseLongUSMP5
+        - BF14WeaponCaseLongDEMP7
+        - BF14WeaponCaseLongRUSR2MP
+        - BF14WeaponCaseLongRUPPsh41
+        - BF14WeaponCaseLongRUVityaz
+        - BF14WeaponCaseLongRUVlad
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
@@ -67,14 +67,14 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseLongUSM870
-        - WeaponCaseLongUSSPAS12
-        - WeaponCaseLongUSUSAS12
-        - WeaponCaseLongRUKSK
-        - WeaponCaseLongRUKS23M
-        - WeaponCaseLongRURMB93
-        - WeaponCaseLongRUMP133
-        - WeaponCaseLongRUMP43C1
+        - BF14WeaponCaseLongUSM870
+        - BF14WeaponCaseLongUSSPAS12
+        - BF14WeaponCaseLongUSUSAS12
+        - BF14WeaponCaseLongRUKSK
+        - BF14WeaponCaseLongRUKS23M
+        - BF14WeaponCaseLongRURMB93
+        - BF14WeaponCaseLongRUMP133
+        - BF14WeaponCaseLongRUMP43C1
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
@@ -94,19 +94,19 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseLongUSM16A1
-        - WeaponCaseLongUSM16A2
-        - WeaponCaseLongUSM16A3
-        - WeaponCaseLongUSM4A1
-        - WeaponCaseLongUSM30MRC
-        - WeaponCaseLongUSM42A5
-        - WeaponCaseLongDEG36
-        - WeaponCaseLongDEG36C
-        - WeaponCaseLongDEG3A3
-        - WeaponCaseLongRUAK74
-        - WeaponCaseLongRUAK74M
-        - WeaponCaseLongRUAK12
-        - WeaponCaseLongRUAKS74U
+        - BF14WeaponCaseLongUSM16A1
+        - BF14WeaponCaseLongUSM16A2
+        - BF14WeaponCaseLongUSM16A3
+        - BF14WeaponCaseLongUSM4A1
+        - BF14WeaponCaseLongUSM30MRC
+        - BF14WeaponCaseLongUSM42A5
+        - BF14WeaponCaseLongDEG36
+        - BF14WeaponCaseLongDEG36C
+        - BF14WeaponCaseLongDEG3A3
+        - BF14WeaponCaseLongRUAK74
+        - BF14WeaponCaseLongRUAK74M
+        - BF14WeaponCaseLongRUAK12
+        - BF14WeaponCaseLongRUAKS74U
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
@@ -126,11 +126,12 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseLongUSM249Para
-        - WeaponCaseLongUSM240B
-        - WeaponCaseLongDEMG3
-        - WeaponCaseLongRUPKM
-        - WeaponCaseLongRURP46
+        - BF14WeaponCaseLongUSM249Para
+        - BF14WeaponCaseLongUSM240B
+        - BF14WeaponCaseLongDEMG3
+        - BF14WeaponCaseLongRUPKM
+        - BF14WeaponCaseLongRURP46
+        - BF14WeaponCaseLongBrigadorBonesaw
       chance: 1
       intervalSeconds: 180 # 3 minutes
       minimumEntitiesSpawned: 1
@@ -154,8 +155,8 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseLongUSMP5
-        - WeaponCaseLongDEMP7
+        - BF14WeaponCaseLongUSMP5
+        - BF14WeaponCaseLongDEMP7
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
@@ -175,10 +176,10 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseLongRUSR2MP
-        - WeaponCaseLongRUPPsh41
-        - WeaponCaseLongRUVityaz
-        - WeaponCaseLongRUVlad
+        - BF14WeaponCaseLongRUSR2MP
+        - BF14WeaponCaseLongRUPPsh41
+        - BF14WeaponCaseLongRUVityaz
+        - BF14WeaponCaseLongRUVlad
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
@@ -200,11 +201,11 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseLongUSM16A1
-        - WeaponCaseLongUSM16A2
-        - WeaponCaseLongUSM4A1
-        - WeaponCaseLongUSM30MRC
-        - WeaponCaseLongUSM42A5
+        - BF14WeaponCaseLongUSM16A1
+        - BF14WeaponCaseLongUSM16A2
+        - BF14WeaponCaseLongUSM4A1
+        - BF14WeaponCaseLongUSM30MRC
+        - BF14WeaponCaseLongUSM42A5
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
@@ -224,9 +225,9 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseLongDEG36
-        - WeaponCaseLongDEG36C
-        - WeaponCaseLongDEG3A3
+        - BF14WeaponCaseLongDEG36
+        - BF14WeaponCaseLongDEG36C
+        - BF14WeaponCaseLongDEG3A3
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
@@ -246,10 +247,10 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseLongRUAK74
-        - WeaponCaseLongRUAK74M
-        - WeaponCaseLongRUAK12
-        - WeaponCaseLongRUAKS74U
+        - BF14WeaponCaseLongRUAK74
+        - BF14WeaponCaseLongRUAK74M
+        - BF14WeaponCaseLongRUAK12
+        - BF14WeaponCaseLongRUAKS74U
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
@@ -271,8 +272,8 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseLongUSM249Para
-        - WeaponCaseLongUSM240B
+        - BF14WeaponCaseLongUSM249Para
+        - BF14WeaponCaseLongUSM240B
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
@@ -292,7 +293,7 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseLongDEMG3
+        - BF14WeaponCaseLongDEMG3
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
@@ -312,8 +313,8 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-        - WeaponCaseLongRUPKM
-        - WeaponCaseLongRURP46
+        - BF14WeaponCaseLongRUPKM
+        - BF14WeaponCaseLongRURP46
       chance: 1
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
