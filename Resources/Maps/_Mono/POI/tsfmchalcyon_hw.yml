@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/24/2026 01:58:45
-  entityCount: 10033
+  time: 07/24/2026 02:21:26
+  entityCount: 10035
 maps: []
 grids:
 - 1
@@ -231,8 +231,8 @@ entities:
       spreadQueues:
         MetalFoam: []
         Smoke: []
-        Puddle: []
         Kudzu: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -3250,6 +3250,7 @@ entities:
           8,-3:
             0: 30464
             1: 4
+            2: 8
           8,-2:
             0: 119
             1: 32768
@@ -3349,17 +3350,17 @@ entities:
             2: 886
             1: 1024
           3,10:
-            2: 4612
+            2: 4684
             0: 8192
-            1: 1224
+            1: 1152
           3,11:
             2: 19
             1: 4128
           3,9:
-            1: 49364
-            2: 1024
+            1: 32784
+            2: 17604
           4,9:
-            2: 16
+            2: 48
             1: 64
           -4,-8:
             1: 119
@@ -3426,8 +3427,8 @@ entities:
           1,-10:
             0: 3058
           1,-13:
-            2: 20480
-            1: 40960
+            2: 61440
+            0: 1024
           1,-11:
             0: 43690
           2,-12:
@@ -3492,6 +3493,7 @@ entities:
             1: 12
           12,0:
             0: 15
+            2: 256
             1: 512
           -4,-10:
             1: 13072
@@ -3507,6 +3509,7 @@ entities:
             2: 32
           -4,-13:
             2: 10240
+            0: 32768
             1: 1536
           -4,-11:
             1: 2184
@@ -3534,8 +3537,8 @@ entities:
             1: 6272
             2: 49424
           -3,9:
-            1: 2
-            2: 32
+            0: 528
+            2: 34
           -3,10:
             1: 68
           -2,9:
@@ -3628,6 +3631,7 @@ entities:
             2: 4096
             1: 8192
           12,-1:
+            2: 1
             0: 65280
             1: 2
           -10,0:
@@ -3645,7 +3649,7 @@ entities:
             1: 8256
             2: 2184
           5,-8:
-            2: 48208
+            2: 48240
             1: 128
           5,-7:
             2: 4087
@@ -3655,7 +3659,7 @@ entities:
             1: 8448
             2: 4096
           6,-7:
-            2: 35875
+            2: 35939
             1: 132
           6,-6:
             2: 30623
@@ -3679,6 +3683,7 @@ entities:
             0: 56796
           8,-9:
             1: 24576
+            2: 32768
           9,-7:
             1: 191
             0: 53248
@@ -3715,13 +3720,11 @@ entities:
             2: 8192
             1: 768
           -2,-14:
-            1: 6144
-            2: 2
-          1,-14:
-            1: 2048
+            0: 1824
+            2: 4096
           2,-14:
-            2: 2
-            1: 33792
+            0: 1824
+            1: 32768
           3,-13:
             2: 2048
           8,5:
@@ -3729,7 +3732,7 @@ entities:
             1: 32
           8,6:
             1: 34306
-            2: 24576
+            2: 24608
           8,8:
             0: 16383
           9,7:
@@ -3772,7 +3775,7 @@ entities:
           7,10:
             0: 14
           9,9:
-            2: 819
+            2: 947
             1: 1088
           10,9:
             1: 20
@@ -5449,7 +5452,7 @@ entities:
       pos: 8.5,-4.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -59309.42
+      secondsUntilStateChange: -59355.242
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5479,7 +5482,7 @@ entities:
       pos: 8.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -59308.652
+      secondsUntilStateChange: -59354.473
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18374,6 +18377,11 @@ entities:
     - type: Transform
       pos: 1.5,-32.5
       parent: 1
+  - uid: 10035
+    components:
+    - type: Transform
+      pos: 10.5,-13.5
+      parent: 1
 - proto: CableApcStack10
   entities:
   - uid: 2671
@@ -28231,6 +28239,15 @@ entities:
       rot: 3.141592653589793 rad
       pos: 6.5,1.5
       parent: 1
+  - uid: 10034
+    components:
+    - type: Transform
+      anchored: True
+      rot: 3.141592653589793 rad
+      pos: 6.5,-3.5
+      parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: ChairOfficeLight
   entities:
   - uid: 4496

@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/24/2026 01:03:38
-  entityCount: 10016
+  time: 07/24/2026 02:20:21
+  entityCount: 10018
 maps: []
 grids:
 - 1
@@ -229,10 +229,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         MetalFoam: []
-        Puddle: []
         Smoke: []
+        Kudzu: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -5449,7 +5449,7 @@ entities:
       pos: 8.5,-4.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -56895.04
+      secondsUntilStateChange: -57104.773
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5479,7 +5479,7 @@ entities:
       pos: 8.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -56894.27
+      secondsUntilStateChange: -57104.004
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18379,6 +18379,11 @@ entities:
     - type: Transform
       pos: 1.5,-32.5
       parent: 1
+  - uid: 10018
+    components:
+    - type: Transform
+      pos: 10.5,-13.5
+      parent: 1
 - proto: CableApcStack10
   entities:
   - uid: 2671
@@ -28178,6 +28183,15 @@ entities:
       rot: 3.141592653589793 rad
       pos: 6.5,1.5
       parent: 1
+  - uid: 10017
+    components:
+    - type: Transform
+      anchored: True
+      rot: 3.141592653589793 rad
+      pos: 6.5,-3.5
+      parent: 1
+    - type: Physics
+      bodyType: Static
 - proto: ChairOfficeLight
   entities:
   - uid: 4496
