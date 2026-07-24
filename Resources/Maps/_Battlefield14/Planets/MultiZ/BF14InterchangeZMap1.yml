@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/22/2026 21:56:55
-  entityCount: 5463
+  time: 07/24/2026 14:26:23
+  entityCount: 5472
 maps:
 - 141
 grids:
@@ -156,7 +156,7 @@ entities:
           version: 7
         9,6:
           ind: 9,6
-          tiles: CAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAFgAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABYAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAWAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAWAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFgAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAFgAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABYAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAWAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAWAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAFgAAAAAAAAMAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAADAAAAAAAAFgAAAAAAABYAAAAAAAAWAAAAAAAAFgAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAWAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAFgAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAABYAAAAAAAADAAAAAAAAFgAAAAAAABYAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAWAAAAAAAAEwAAAAAAABMAAAAAAAATAAAAAAAAEwAAAAAAABMAAAAAAAATAAAAAAAAEwAAAAAAABMAAAAAAAAWAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAADwAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAABMAAAAAAAATAAAAAAAAEwAAAAAAABMAAAAAAAATAAAAAAAAEwAAAAAAABMAAAAAAAATAAAAAAAAFgAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAA==
+          tiles: CAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAFgAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAWAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAWAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFgAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAFgAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAWAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAWAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAFgAAAAAAAAMAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAADAAAAAAAAFgAAAAAAABYAAAAAAAAWAAAAAAAAFgAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAWAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAFgAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAABYAAAAAAAADAAAAAAAAFgAAAAAAABYAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAAWAAAAAAAAFgAAAAAAABYAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAWAAAAAAAAEwAAAAAAABMAAAAAAAATAAAAAAAAEwAAAAAAABMAAAAAAAATAAAAAAAAEwAAAAAAABMAAAAAAAAWAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAADwAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAABMAAAAAAAATAAAAAAAAEwAAAAAAABMAAAAAAAATAAAAAAAAEwAAAAAAABMAAAAAAAATAAAAAAAAFgAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAA==
           version: 7
         10,6:
           ind: 10,6
@@ -345,10 +345,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
         Smoke: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: BecomesStation
@@ -1856,10 +1856,10 @@ entities:
           version: 7
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
         Smoke: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -3385,6 +3385,21 @@ entities:
     components:
     - type: Transform
       pos: 149.5,126.5
+      parent: 1
+  - uid: 4487
+    components:
+    - type: Transform
+      pos: 152.5,99.5
+      parent: 1
+  - uid: 4488
+    components:
+    - type: Transform
+      pos: 153.5,99.5
+      parent: 1
+  - uid: 4489
+    components:
+    - type: Transform
+      pos: 154.5,99.5
       parent: 1
   - uid: 4840
     components:
@@ -8251,11 +8266,6 @@ entities:
     - type: Transform
       pos: 171.5,94.5
       parent: 1
-  - uid: 2656
-    components:
-    - type: Transform
-      pos: 125.5,88.5
-      parent: 1
   - uid: 2657
     components:
     - type: Transform
@@ -9534,6 +9544,63 @@ entities:
     components:
     - type: Transform
       pos: 161.5,123.5
+      parent: 1
+- proto: MapInterchange
+  entities:
+  - uid: 5226
+    components:
+    - type: Transform
+      pos: 120.5,110.5
+      parent: 1
+  - uid: 5227
+    components:
+    - type: Transform
+      pos: 120.5,110.5
+      parent: 1
+  - uid: 5464
+    components:
+    - type: Transform
+      pos: 122.5,107.5
+      parent: 1
+  - uid: 5465
+    components:
+    - type: Transform
+      pos: 123.5,107.5
+      parent: 1
+  - uid: 5466
+    components:
+    - type: Transform
+      pos: 122.5,107.5
+      parent: 1
+  - uid: 5467
+    components:
+    - type: Transform
+      pos: 120.5,110.5
+      parent: 1
+  - uid: 5468
+    components:
+    - type: Transform
+      pos: 120.5,110.5
+      parent: 1
+  - uid: 5469
+    components:
+    - type: Transform
+      pos: 121.5,110.5
+      parent: 1
+  - uid: 5470
+    components:
+    - type: Transform
+      pos: 119.5,107.5
+      parent: 1
+  - uid: 5471
+    components:
+    - type: Transform
+      pos: 87.5,84.5
+      parent: 1
+  - uid: 5472
+    components:
+    - type: Transform
+      pos: 92.5,83.5
       parent: 1
 - proto: MedkitAdvancedFilled
   entities:
@@ -23617,6 +23684,145 @@ entities:
     - type: Transform
       pos: 114.5,135.5
       parent: 1
+- proto: RandomGearMapLowTierUNI
+  entities:
+  - uid: 2656
+    components:
+    - type: Transform
+      pos: 126.5,88.5
+      parent: 1
+  - uid: 4456
+    components:
+    - type: Transform
+      pos: 127.5,88.5
+      parent: 1
+  - uid: 4458
+    components:
+    - type: Transform
+      pos: 92.5,113.5
+      parent: 1
+  - uid: 4466
+    components:
+    - type: Transform
+      pos: 92.5,113.5
+      parent: 1
+  - uid: 4467
+    components:
+    - type: Transform
+      pos: 92.5,113.5
+      parent: 1
+  - uid: 4468
+    components:
+    - type: Transform
+      pos: 94.5,111.5
+      parent: 1
+  - uid: 4469
+    components:
+    - type: Transform
+      pos: 94.5,111.5
+      parent: 1
+  - uid: 4470
+    components:
+    - type: Transform
+      pos: 94.5,113.5
+      parent: 1
+  - uid: 4473
+    components:
+    - type: Transform
+      pos: 94.5,113.5
+      parent: 1
+  - uid: 4474
+    components:
+    - type: Transform
+      pos: 96.5,113.5
+      parent: 1
+  - uid: 4475
+    components:
+    - type: Transform
+      pos: 96.5,113.5
+      parent: 1
+  - uid: 4476
+    components:
+    - type: Transform
+      pos: 96.5,113.5
+      parent: 1
+  - uid: 4481
+    components:
+    - type: Transform
+      pos: 127.5,88.5
+      parent: 1
+  - uid: 4482
+    components:
+    - type: Transform
+      pos: 126.5,90.5
+      parent: 1
+  - uid: 4483
+    components:
+    - type: Transform
+      pos: 92.5,111.5
+      parent: 1
+  - uid: 4484
+    components:
+    - type: Transform
+      pos: 92.5,111.5
+      parent: 1
+  - uid: 4485
+    components:
+    - type: Transform
+      pos: 96.5,111.5
+      parent: 1
+  - uid: 4491
+    components:
+    - type: Transform
+      pos: 125.5,90.5
+      parent: 1
+  - uid: 5222
+    components:
+    - type: Transform
+      pos: 125.5,88.5
+      parent: 1
+  - uid: 5223
+    components:
+    - type: Transform
+      pos: 126.5,90.5
+      parent: 1
+  - uid: 5224
+    components:
+    - type: Transform
+      pos: 125.5,90.5
+      parent: 1
+  - uid: 5225
+    components:
+    - type: Transform
+      pos: 126.5,88.5
+      parent: 1
+- proto: RandomGearMapMidTierUNI
+  entities:
+  - uid: 4477
+    components:
+    - type: Transform
+      pos: 86.5,112.5
+      parent: 1
+  - uid: 4478
+    components:
+    - type: Transform
+      pos: 86.5,114.5
+      parent: 1
+  - uid: 4479
+    components:
+    - type: Transform
+      pos: 86.5,110.5
+      parent: 1
+  - uid: 4480
+    components:
+    - type: Transform
+      pos: 86.5,110.5
+      parent: 1
+  - uid: 4486
+    components:
+    - type: Transform
+      pos: 86.5,112.5
+      parent: 1
 - proto: RandomMeat
   entities:
   - uid: 3667
@@ -24048,6 +24254,16 @@ entities:
       parent: 1
 - proto: RandomSpawner
   entities:
+  - uid: 4492
+    components:
+    - type: Transform
+      pos: 152.5,103.5
+      parent: 1
+  - uid: 4493
+    components:
+    - type: Transform
+      pos: 154.5,101.5
+      parent: 1
   - uid: 4846
     components:
     - type: Transform
@@ -24182,6 +24398,21 @@ entities:
     components:
     - type: Transform
       pos: 153.5,130.5
+      parent: 1
+  - uid: 5212
+    components:
+    - type: Transform
+      pos: 154.5,103.5
+      parent: 1
+  - uid: 5220
+    components:
+    - type: Transform
+      pos: 152.5,101.5
+      parent: 1
+  - uid: 5221
+    components:
+    - type: Transform
+      pos: 154.5,104.5
       parent: 1
 - proto: RMCPlatformKutjevoCornerSmall
   entities:
@@ -26934,6 +27165,11 @@ entities:
     - type: Transform
       pos: 92.5,111.5
       parent: 1
+  - uid: 4490
+    components:
+    - type: Transform
+      pos: 125.5,90.5
+      parent: 1
   - uid: 4539
     components:
     - type: Transform
@@ -27383,12 +27619,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 175.5,80.5
-      parent: 1
-  - uid: 5212
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 125.5,90.5
       parent: 1
   - uid: 5213
     components:
@@ -27972,200 +28202,6 @@ entities:
     components:
     - type: Transform
       pos: 65.5,113.5
-      parent: 1
-- proto: SpawnDungeonLootClothesEngi
-  entities:
-  - uid: 4466
-    components:
-    - type: Transform
-      pos: 96.5,113.5
-      parent: 1
-  - uid: 4467
-    components:
-    - type: Transform
-      pos: 96.5,113.5
-      parent: 1
-  - uid: 4468
-    components:
-    - type: Transform
-      pos: 96.5,113.5
-      parent: 1
-  - uid: 4469
-    components:
-    - type: Transform
-      pos: 96.5,113.5
-      parent: 1
-  - uid: 4470
-    components:
-    - type: Transform
-      pos: 96.5,113.5
-      parent: 1
-- proto: SpawnDungeonLootClothesHydroponics
-  entities:
-  - uid: 4473
-    components:
-    - type: Transform
-      pos: 94.5,113.5
-      parent: 1
-  - uid: 4474
-    components:
-    - type: Transform
-      pos: 94.5,113.5
-      parent: 1
-  - uid: 4475
-    components:
-    - type: Transform
-      pos: 94.5,113.5
-      parent: 1
-  - uid: 4476
-    components:
-    - type: Transform
-      pos: 94.5,113.5
-      parent: 1
-- proto: SpawnDungeonLootClothesKitchen
-  entities:
-  - uid: 4458
-    components:
-    - type: Transform
-      pos: 92.5,113.5
-      parent: 1
-  - uid: 4477
-    components:
-    - type: Transform
-      pos: 92.5,113.5
-      parent: 1
-  - uid: 4478
-    components:
-    - type: Transform
-      pos: 92.5,113.5
-      parent: 1
-  - uid: 4479
-    components:
-    - type: Transform
-      pos: 92.5,113.5
-      parent: 1
-  - uid: 4480
-    components:
-    - type: Transform
-      pos: 92.5,113.5
-      parent: 1
-  - uid: 5224
-    components:
-    - type: Transform
-      pos: 125.5,90.5
-      parent: 1
-  - uid: 5225
-    components:
-    - type: Transform
-      pos: 125.5,90.5
-      parent: 1
-- proto: SpawnDungeonLootClothesMed
-  entities:
-  - uid: 4456
-    components:
-    - type: Transform
-      pos: 92.5,111.5
-      parent: 1
-  - uid: 4481
-    components:
-    - type: Transform
-      pos: 92.5,111.5
-      parent: 1
-  - uid: 4482
-    components:
-    - type: Transform
-      pos: 92.5,111.5
-      parent: 1
-  - uid: 4483
-    components:
-    - type: Transform
-      pos: 92.5,111.5
-      parent: 1
-- proto: SpawnDungeonLootClothesMercenary
-  entities:
-  - uid: 4484
-    components:
-    - type: Transform
-      pos: 94.5,111.5
-      parent: 1
-  - uid: 4485
-    components:
-    - type: Transform
-      pos: 94.5,111.5
-      parent: 1
-  - uid: 4486
-    components:
-    - type: Transform
-      pos: 94.5,111.5
-      parent: 1
-  - uid: 4487
-    components:
-    - type: Transform
-      pos: 94.5,111.5
-      parent: 1
-  - uid: 4488
-    components:
-    - type: Transform
-      pos: 94.5,111.5
-      parent: 1
-  - uid: 5226
-    components:
-    - type: Transform
-      pos: 127.5,88.5
-      parent: 1
-  - uid: 5227
-    components:
-    - type: Transform
-      pos: 127.5,88.5
-      parent: 1
-- proto: SpawnDungeonLootClothesSalvage
-  entities:
-  - uid: 4489
-    components:
-    - type: Transform
-      pos: 96.5,111.5
-      parent: 1
-  - uid: 4490
-    components:
-    - type: Transform
-      pos: 96.5,111.5
-      parent: 1
-  - uid: 4491
-    components:
-    - type: Transform
-      pos: 96.5,111.5
-      parent: 1
-  - uid: 4492
-    components:
-    - type: Transform
-      pos: 96.5,111.5
-      parent: 1
-  - uid: 4493
-    components:
-    - type: Transform
-      pos: 96.5,111.5
-      parent: 1
-- proto: SpawnDungeonLootClothesScience
-  entities:
-  - uid: 5220
-    components:
-    - type: Transform
-      pos: 126.5,90.5
-      parent: 1
-  - uid: 5221
-    components:
-    - type: Transform
-      pos: 126.5,90.5
-      parent: 1
-  - uid: 5222
-    components:
-    - type: Transform
-      pos: 126.5,88.5
-      parent: 1
-  - uid: 5223
-    components:
-    - type: Transform
-      pos: 126.5,88.5
       parent: 1
 - proto: SpawnDungeonLootKitsFirstAid
   entities:
