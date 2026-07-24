@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/24/2026 02:21:26
+  time: 07/24/2026 03:21:54
   entityCount: 10035
 maps: []
 grids:
@@ -229,10 +229,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Smoke: []
         Kudzu: []
+        Smoke: []
         Puddle: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -5452,7 +5452,7 @@ entities:
       pos: 8.5,-4.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -59355.242
+      secondsUntilStateChange: -59435.766
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5482,7 +5482,7 @@ entities:
       pos: 8.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -59354.473
+      secondsUntilStateChange: -59434.996
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -30699,6 +30699,8 @@ entities:
     - type: Transform
       pos: -3.5,9.5
       parent: 1
+    - type: ResearchPointSource
+      pointsPerSecond: 600
 - proto: DefaultStationBeaconBar
   entities:
   - uid: 4836
