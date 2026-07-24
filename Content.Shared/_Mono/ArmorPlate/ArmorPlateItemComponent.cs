@@ -49,7 +49,8 @@ public sealed partial class ArmorPlateItemComponent : Component
 
     /// <summary>
     /// Absorption effect of the plate, by damagetype. Unintended effect past 1.0
-	/// Can go negative which INCREASES damage taken. Negative values will still decrement armor durability.
+    /// This doesn't affect the durability cost of taking hits. Add an accompanying DamagetoPlate to adjust.
+	/// Can go negative which INCREASES damage taken.
     /// Ex. 0.2 >> 20% damage reduction, -0.2 >> 20% damage amplification
     /// </summary>
 	[DataField("absorptionRatios")]
