@@ -19,10 +19,11 @@
       - ChameleonDisguise # no becoming kleiner
       - MindContainer # no
       - Pda # PDAs currently make you invisible /!\
+      - SubFloorHide # no hiding under the floor
       tags:
-      - Wall
-      - Catwalk
-      - Window
+      - Wall # walls make you invisible
+      - Catwalk # Catwalks make you invisible
+      - Window # Windows makes you invisible
     disguiseProto: ChameleonDisguise
 
 - type: entity
