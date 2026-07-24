@@ -61,19 +61,12 @@ public abstract partial class CESharedZLevelsSystem
         var tiles = _map.GetAllTilesEnumerator(gridUid, gridComp);
         while (tiles.MoveNext(out var shipTile))
         {
-            // Hull tile centre into the world, honouring the grid's rotation, as a tile-sized box.
             var local = new Vector2(
                 (shipTile.Value.GridIndices.X + 0.5f) * shipTileSize,
                 (shipTile.Value.GridIndices.Y + 0.5f) * shipTileSize);
             var worldCentre = Vector2.Transform(local, matrix);
             var shipAabb = new Box2(worldCentre - shipHalf, worldCentre + shipHalf);
 
-            // Every terrain tile that box overlaps — so contact registers the moment the hull edge
-            // touches a wall, not only once its centre has sunk into the cell. Work in the terrain
-            // grid's local frame to get tile indices.
-            // Nudge the far edges inward by a hair so a hull box flush against a tile boundary doesn't
-            // pull in the adjacent, non-overlapping tile column/row (float.Epsilon is far too small to
-            // survive against tile-scale coordinates).
             const float edgeBias = 1e-4f;
 
             var localAabb = mapInvMatrix.TransformBox(shipAabb);
