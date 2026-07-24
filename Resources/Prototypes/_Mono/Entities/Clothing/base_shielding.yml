@@ -100,7 +100,13 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 4
-
+  - type: ActionGrant
+    actions:
+    - ActionActivatePersonalShield
+  - type: ItemActionGrant
+    actions:
+    - ActionActivatePersonalShield
+    
 - type: entity
   abstract: true
   parent: MonoEnergyShieldClothing
