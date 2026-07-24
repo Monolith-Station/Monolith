@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/22/2026 21:56:56
-  entityCount: 3869
+  time: 07/24/2026 14:26:24
+  entityCount: 3881
 maps:
 - 13
 grids:
@@ -314,10 +314,10 @@ entities:
       id: BF14Interchange
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
         Smoke: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1666,10 +1666,10 @@ entities:
       chunks: {}
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
         Smoke: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -6124,6 +6124,53 @@ entities:
     components:
     - type: Transform
       pos: 114.5,102.5
+      parent: 1
+- proto: MapInterchange
+  entities:
+  - uid: 3873
+    components:
+    - type: Transform
+      pos: 125.5,123.5
+      parent: 1
+  - uid: 3874
+    components:
+    - type: Transform
+      pos: 125.5,123.5
+      parent: 1
+  - uid: 3875
+    components:
+    - type: Transform
+      pos: 125.5,117.5
+      parent: 1
+  - uid: 3876
+    components:
+    - type: Transform
+      pos: 116.5,115.5
+      parent: 1
+  - uid: 3877
+    components:
+    - type: Transform
+      pos: 116.5,119.5
+      parent: 1
+  - uid: 3878
+    components:
+    - type: Transform
+      pos: 119.5,112.5
+      parent: 1
+  - uid: 3879
+    components:
+    - type: Transform
+      pos: 119.5,112.5
+      parent: 1
+  - uid: 3880
+    components:
+    - type: Transform
+      pos: 122.5,112.5
+      parent: 1
+  - uid: 3881
+    components:
+    - type: Transform
+      pos: 121.5,132.5
       parent: 1
 - proto: MaterialHideCorgi
   entities:
@@ -15589,6 +15636,53 @@ entities:
     - type: Transform
       pos: 58.5,115.5
       parent: 1
+  - uid: 3009
+    components:
+    - type: Transform
+      pos: 90.5,125.5
+      parent: 1
+  - uid: 3010
+    components:
+    - type: Transform
+      pos: 90.5,125.5
+      parent: 1
+  - uid: 3011
+    components:
+    - type: Transform
+      pos: 92.5,125.5
+      parent: 1
+  - uid: 3012
+    components:
+    - type: Transform
+      pos: 92.5,124.5
+      parent: 1
+  - uid: 3013
+    components:
+    - type: Transform
+      pos: 90.5,124.5
+      parent: 1
+  - uid: 3014
+    components:
+    - type: Transform
+      pos: 92.5,125.5
+      parent: 1
+- proto: RandomGearMapMidTierUNI
+  entities:
+  - uid: 3870
+    components:
+    - type: Transform
+      pos: 96.5,126.5
+      parent: 1
+  - uid: 3871
+    components:
+    - type: Transform
+      pos: 96.5,126.5
+      parent: 1
+  - uid: 3872
+    components:
+    - type: Transform
+      pos: 96.5,128.5
+      parent: 1
 - proto: RandomInstruments
   entities:
   - uid: 2800
@@ -19667,38 +19761,6 @@ entities:
     components:
     - type: Transform
       pos: 64.5,104.5
-      parent: 1
-- proto: SpawnDungeonLootClothesMercenary
-  entities:
-  - uid: 3009
-    components:
-    - type: Transform
-      pos: 90.5,125.5
-      parent: 1
-  - uid: 3010
-    components:
-    - type: Transform
-      pos: 90.5,125.5
-      parent: 1
-  - uid: 3011
-    components:
-    - type: Transform
-      pos: 92.5,124.5
-      parent: 1
-  - uid: 3012
-    components:
-    - type: Transform
-      pos: 92.5,124.5
-      parent: 1
-  - uid: 3013
-    components:
-    - type: Transform
-      pos: 92.5,125.5
-      parent: 1
-  - uid: 3014
-    components:
-    - type: Transform
-      pos: 92.5,125.5
       parent: 1
 - proto: SpawnDungeonLootToolsBasicEngineering
   entities:
