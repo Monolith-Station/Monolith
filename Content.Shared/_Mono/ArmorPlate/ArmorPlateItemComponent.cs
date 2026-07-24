@@ -40,8 +40,8 @@ public sealed partial class ArmorPlateItemComponent : Component
     public Dictionary<string, float> StaminaDamageMultipliers = new();
 
     /// <summary>
-    /// How much of the raw damage is dealt to the plate, per damagetype
-    /// This doesn't affect how much damage the plate absorbs, and is by default 1.0f for any damagetype with an absorption value
+    /// How much of the raw damage is dealt to the plate, per damagetype. Needs an accompanying AbsorptionRatio to take effect.
+    /// This doesn't affect how much damage the plate absorbs, and is by default 0f.
     /// Ex. 0.5 >> half of raw damage counts against plate hp, 2.0 >> 2x raw daamage counts against plate hp
     /// </summary>
     [DataField("damageToPlate")]
