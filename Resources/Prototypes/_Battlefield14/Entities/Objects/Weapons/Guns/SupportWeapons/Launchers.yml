@@ -408,6 +408,10 @@
     slots:
     - Back
     - suitStorage
+    - SUITSTORAGE2
+    clothingVisuals:
+      suitstorage2:
+      - state: equipped-BACKPACK
   - type: Gun
     projectileSpeed: 40
     fireRate: 0.5

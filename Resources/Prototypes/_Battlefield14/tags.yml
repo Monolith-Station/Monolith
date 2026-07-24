@@ -32,7 +32,7 @@
   id: MagazinePistolAPS
 
 - type: Tag
-  id: MagazinePistolPM
+  id: MagazinePistolPM # down to here
 
 - type: Tag
   id: BF_CartridgePistol50AE
@@ -81,6 +81,9 @@
 
 - type: Tag
   id: BF_CartridgeRifle762x54r
+
+- type: Tag
+  id: BF_CartridgeRifle792x57
 
 - type: Tag
   id: BF_CartridgeRifle9x39
@@ -195,6 +198,9 @@
 
 - type: Tag
   id: MagazineBeltBoxMG3
+
+- type: Tag
+  id: MagazineBeltBoxMG42
 
 - type: Tag
   id: MagazineBeltBoxMK48

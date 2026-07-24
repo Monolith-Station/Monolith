@@ -94,7 +94,7 @@
 - type: entity
   parent: BaseItem
   id: MagazineBeltBoxMG3Short
-  name: "MG-3 drum (7.62x51mm)"
+  name: "MG3 drum (7.62x51mm)"
   description: A big circular drum that has a belt in it, for 7.62x51 millimeter ammo.
   components:
   - type: Tag
@@ -102,8 +102,6 @@
       - MagazineBeltBoxMG3
   - type: Item
     size: Normal
-#    shape:
-#      - 0,0,2,1 # 3 wide
   - type: BallisticAmmoProvider
     proto: BF_CartridgeRifle762x51TracerRed
     mayTransfer: true
@@ -127,7 +125,7 @@
 - type: entity
   parent: MagazineBeltBoxMG3Short
   id: MagazineBeltBoxMG3
-  name: "MG-3 belt box (7.62x51mm)"
+  name: "MG3 belt box (7.62x51mm)"
   description: A big box that has a belt in it, for 7.62x51 millimeter ammo.
   components:
   - type: Item
@@ -153,6 +151,25 @@
     steps: 5
     zeroVisible: false
   - type: Appearance
+
+- type: entity
+  parent: MagazineBeltBoxMG3Short
+  id: MagazineBeltBoxBonesaw
+  name: "bonesaw drum (7.92x57mm)"
+  description: A big circular drum that has a belt in it, for 7.92x57 millimeter ammo.
+  components:
+  - type: Tag
+    tags:
+      - MagazineBeltBoxMG42
+  - type: Item
+    size: Normal
+  - type: BallisticAmmoProvider
+    proto: BF_CartridgeRifle792x57TracerRed
+    mayTransfer: true
+    whitelist:
+      tags:
+        - BF_CartridgeRifle792x57
+    capacity: 50
 
 - type: entity
   parent: BaseItem
