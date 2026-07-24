@@ -10,6 +10,13 @@
       cluster-payload: !type:Container
   - type: Damageable
     damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:TriggerBehavior
   - type: ScatteringGrenade
 
 - type: entity
