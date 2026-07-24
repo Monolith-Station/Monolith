@@ -11,13 +11,13 @@
     Heat: 5
 
 - type: damageModifierSet
-  id: Grenade
+  id: Grenade # so it doesn't explode when being thrown over barbed wire or falling from a height
   coefficients:
-    Blunt: 0.5
-    Slash: 0 # so it doesn't explode when being thrown over barbed wire
+    Slash: 0
     Piercing: 0.5
     Shock: 0.35
   flatReductions:
+    Blunt: 30
     Heat: 2
 
 - type: damageModifierSet
