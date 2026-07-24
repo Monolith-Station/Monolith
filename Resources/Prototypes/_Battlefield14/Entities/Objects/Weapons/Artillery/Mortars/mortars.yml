@@ -12,13 +12,14 @@
     sprite: _VXS14/Structures/mortar.rsi
     state: mortar
   - type: Mortar
-    baseAccuracy: 0.5
-    accuracyDegradation: 0.2
+    baseAccuracy: 1.6
+    accuracyDegradation: 0.02
+    maxSpread: 10
     minOffsetX: -100
     maxOffsetX: 100
     minOffsetY: -100
     maxOffsetY: 100
-    minSafeDistance: 4
+    minSafeDistance: 15
   - type: ContainerContainer
     containers:
       mortar_chamber: !type:ContainerSlot
@@ -91,13 +92,14 @@
     sprite: _VXS14/Structures/mortar.rsi
     state: mortar
   - type: Mortar
-    baseAccuracy: 0.5
-    accuracyDegradation: 0.2
+    baseAccuracy: 1.6
+    accuracyDegradation: 0.02
+    maxSpread: 10
     minOffsetX: -100
     maxOffsetX: 100
     minOffsetY: -100
     maxOffsetY: 100
-    minSafeDistance: 4
+    minSafeDistance: 15
   - type: ContainerContainer
     containers:
       mortar_chamber: !type:ContainerSlot

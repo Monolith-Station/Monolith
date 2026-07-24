@@ -22,6 +22,10 @@ using Robust.Shared.Timing;
 using Content.Server.ArtilleryDetection.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared.Popups;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server._VXS14.Mortar
 {
@@ -35,6 +39,8 @@ namespace Content.Server._VXS14.Mortar
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+        [Dependency] private readonly IMapManager _mapManager = default!;
+        [Dependency] private readonly SharedPopupSystem _popup = default!;
 
         public override void Initialize()
         {
@@ -130,6 +136,13 @@ namespace Content.Server._VXS14.Mortar
                 return;
             }
 
+            if (mortarComp.CurrentLoader is { } loader && HasCeilingAbove(mortarUid))
+            {
+                _popup.PopupClient("Cannot fire, ceiling above.", mortarUid, loader);
+                Logger.WarningS("mortar", "Cannot fire: ceiling detected above mortar");
+                return;
+            }
+
             offsetX = Math.Clamp(offsetX, mortarComp.MinOffsetX, mortarComp.MaxOffsetX);
             offsetY = Math.Clamp(offsetY, mortarComp.MinOffsetY, mortarComp.MaxOffsetY);
 
@@ -221,6 +234,8 @@ namespace Content.Server._VXS14.Mortar
                             targetPosition.MapId);
                     }
 
+                    targetPosition = GetHighestTileTarget(targetPosition, mortarUid);
+
                     var artillerySystem = sysMan.GetEntitySystem<ArtilleryDetectionSystem>();
                     if (artillerySystem == null)
                     {
@@ -262,6 +277,71 @@ namespace Content.Server._VXS14.Mortar
                 var ui = new MortarEui(uid);
                 eui.OpenEui(ui, session);
             }
+        }
+
+        private bool HasCeilingAbove(EntityUid uid)
+        {
+            var xform = Transform(uid);
+            if (xform.MapUid is not { } mapUid)
+                return false;
+
+            if (!TryComp<CEZMapComponent>(mapUid, out var zMap))
+                return false;
+
+            var sysMan = IoCManager.Resolve<IEntitySystemManager>();
+            var zLevels = sysMan.GetEntitySystem<CESharedZLevelsSystem>();
+            var worldPos = _transform.GetWorldPosition(uid);
+
+            Entity<CEZMapComponent> currentMap = (mapUid, zMap);
+            while (zLevels.TryMapUp((currentMap.Owner, (CEZMapComponent?)currentMap.Comp), out var mapAbove))
+            {
+                if (TileExistsAt(mapAbove, worldPos))
+                    return true;
+                currentMap = mapAbove;
+            }
+
+            return false;
+        }
+
+        private MapCoordinates GetHighestTileTarget(MapCoordinates targetPos, EntityUid mortarUid)
+        {
+            var xform = Transform(mortarUid);
+            if (xform.MapUid is not { } mortarMapUid)
+                return targetPos;
+
+            if (!TryComp<CEZMapComponent>(mortarMapUid, out var zMap))
+                return targetPos;
+
+            if (!TryComp<CEZMapNetworkComponent>(zMap.NetworkUid, out var network))
+                return targetPos;
+
+            for (var i = network.SortedZLevels.Count - 1; i >= 0; i--)
+            {
+                var levelUid = network.SortedZLevels[i];
+                if (!levelUid.IsValid())
+                    continue;
+
+                if (!TryComp<CEZMapComponent>(levelUid, out _))
+                    continue;
+
+                if (!TryComp<MapComponent>(levelUid, out var mapComp))
+                    continue;
+
+                if (TileExistsAt(levelUid, targetPos.Position))
+                    return new MapCoordinates(targetPos.Position, mapComp.MapId);
+            }
+
+            return targetPos;
+        }
+
+        private bool TileExistsAt(EntityUid mapUid, Vector2 worldPos)
+        {
+            if (!_mapManager.TryFindGridAt(mapUid, worldPos, out var gridUid, out var grid))
+                return false;
+
+            var sysMan = IoCManager.Resolve<IEntitySystemManager>();
+            var mapSystem = sysMan.GetEntitySystem<SharedMapSystem>();
+            return mapSystem.TryGetTileRef(gridUid, grid, worldPos, out var tileRef) && !tileRef.Tile.IsEmpty;
         }
 
     }
