@@ -7,9 +7,9 @@
   name: uplink-PACTRU-ak203crate-name
   description: uplink-PACTRU-ak203crate-desc
   productEntity: CrateSecgearPACTFilledAK203
-  icon: { sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK203.rsi, state: icon }
+  icon: { sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi, state: icon-ak203 }
   cost:
-    PACTRequisition: 18 # 3 minutes
+    PACTRequisition: 12 # 2 minutes
   categories:
     - UplinkPACTRUWeapons
   conditions:
@@ -23,9 +23,9 @@
   name: uplink-PACTRU-ak74crate-name
   description: uplink-PACTRU-ak74crate-desc
   productEntity: CrateSecgearPACTFilledAK74
-  icon: { sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK74.rsi, state: icon }
+  icon: { sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi, state: icon-ak74 }
   cost:
-    PACTRequisition: 10 # 1 minute 40 seconds
+    PACTRequisition: 5 # 50 seconds
   categories:
     - UplinkPACTRUWeapons
   conditions:
@@ -39,9 +39,9 @@
   name: uplink-PACTRU-ak12crate-name
   description: uplink-PACTRU-ak12crate-desc
   productEntity: CrateSecgearPACTFilledAK12
-  icon: { sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK12.rsi, state: icon }
+  icon: { sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AK/iconstates.rsi, state: icon-ak12 }
   cost:
-    PACTRequisition: 10 # 1 minute 40 seconds
+    PACTRequisition: 5 # 50 seconds
   categories:
     - UplinkPACTRUWeapons
   conditions:
