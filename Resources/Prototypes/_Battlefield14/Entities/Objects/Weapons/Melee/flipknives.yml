@@ -1,0 +1,115 @@
+- type: entity
+  name: switchblade
+  parent: BaseItem
+  id: BF14KnifeSwitchblade
+  description: An automatic folding knife known for use amongst mobsters.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Melee/Knives/flip.rsi
+    layers:
+    - state: switchblade-off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/telescopicon.ogg
+      params:
+        variation: 0.250
+    soundDeactivate:
+      path: /Audio/Weapons/telescopicoff.ogg
+      params:
+        variation: 0.250
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Slash: 21
+    activatedSoundOnHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    damage:
+      types:
+        Blunt: 2
+    animation: WeaponArcThrust
+  - type: ComponentToggler
+    components:
+    - type: DisarmMalus
+      malus: 0.6
+  - type: ItemToggleSize
+    activatedSize: Normal
+  - type: LandAtCursor
+  - type: UseDelay
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Melee/Knives/flip.rsi
+    heldPrefix: on
+    size: Small
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: switchblade-on}
+          False: {state: switchblade-off}
+  - type: StaticPrice
+    price: 100
+  - type: Tool
+    qualities:
+    - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: Scalpel # Shitmed
+    speed: 0.65
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
+  - type: Tag
+    tags:
+    - Knife
+
+- type: entity
+  name: tactical folding knife
+  parent: BF14KnifeSwitchblade
+  id: BF14KnifeFlipTaticool
+  description: A manual flip knife, for enthusiasts and practical application.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Melee/Knives/flip.rsi
+    layers:
+    - state: tacticool-hardware-closed
+      map: [ "enum.ToggleVisuals.Layer" ]
+    - state: tacticool-handle
+      map: [ "overlay" ]
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 2
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: tacticool-hardware}
+          False: {state: tacticool-hardware-closed}
+  - type: RandomSprite
+    available:
+      - overlay:
+          tacticool-handle: Sixteen
+
+- type: entity
+  parent: BF14KnifeFlipTaticool
+  id: BF14KnifeFlipTaticoolBlack
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Melee/Knives/flip.rsi
+    layers:
+    - state: tacticool-hardware-closed
+      map: [ "enum.ToggleVisuals.Layer" ]
+    - state: tacticool-handle
+      color: "#565656"
