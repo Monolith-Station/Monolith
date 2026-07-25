@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/25/2026 02:49:50
+  time: 07/25/2026 03:09:37
   entityCount: 4113
 maps:
 - 13
@@ -318,8 +318,8 @@ entities:
       spreadQueues:
         Smoke: []
         MetalFoam: []
-        Puddle: []
         Kudzu: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1178,7 +1178,7 @@ entities:
           24,30:
             0: 53503
           24,31:
-            0: 52685
+            0: 50637
           24,32:
             0: 65293
           25,29:
@@ -1186,7 +1186,7 @@ entities:
           25,30:
             0: 65279
           25,31:
-            0: 65535
+            0: 63487
           25,32:
             0: 65295
           26,29:
@@ -1194,7 +1194,7 @@ entities:
           26,30:
             0: 63487
           26,31:
-            0: 65535
+            0: 63487
           26,32:
             0: 65295
           27,29:
@@ -1670,8 +1670,8 @@ entities:
       spreadQueues:
         Smoke: []
         MetalFoam: []
-        Puddle: []
         Kudzu: []
+        Puddle: []
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -21131,6 +21131,23 @@ entities:
     - type: Transform
       pos: 104.5,128.5
       parent: 1
+- proto: SpawnMobCow
+  entities:
+  - uid: 2246
+    components:
+    - type: Transform
+      pos: 106.5,128.5
+      parent: 1
+  - uid: 2247
+    components:
+    - type: Transform
+      pos: 108.5,128.5
+      parent: 1
+  - uid: 2253
+    components:
+    - type: Transform
+      pos: 107.5,127.5
+      parent: 1
 - proto: SpawnMobLizard
   entities:
   - uid: 3929
@@ -21155,23 +21172,6 @@ entities:
     components:
     - type: Transform
       pos: 99.5,127.5
-      parent: 1
-- proto: SpawnMobMouse
-  entities:
-  - uid: 2246
-    components:
-    - type: Transform
-      pos: 108.5,128.5
-      parent: 1
-  - uid: 2247
-    components:
-    - type: Transform
-      pos: 106.5,128.5
-      parent: 1
-  - uid: 2253
-    components:
-    - type: Transform
-      pos: 107.5,127.5
       parent: 1
 - proto: SpawnMobParrot
   entities:
