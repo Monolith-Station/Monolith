@@ -88,7 +88,6 @@ public sealed partial class StationAiOverlay : Overlay
 
                 foreach (var tile in _visibleTiles)
                 {
-                    // Mono - change HashSet to ConcurrentDictionary
                     var aabb = lookups.GetLocalBounds(tile, grid.TileSize);
                     worldHandle.DrawRect(aabb, Color.White);
                 }
