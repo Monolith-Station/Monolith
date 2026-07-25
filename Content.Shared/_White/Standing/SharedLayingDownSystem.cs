@@ -5,6 +5,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
+using Content.Shared.Traits.Assorted; //Mono: Wheelchair user check
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
@@ -57,6 +58,9 @@ public abstract partial class SharedLayingDownSystem : EntitySystem
             return;
 
         var uid = args.SenderSession.AttachedEntity.Value;
+
+        if (HasComp<LegsParalyzedComponent>(uid)) //Mono: Stop wheelchair user trait from standing
+            return;
 
         // TODO: Wizard
         //if (HasComp<FrozenComponent>(uid))
