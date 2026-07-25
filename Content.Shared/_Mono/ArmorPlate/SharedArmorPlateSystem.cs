@@ -369,12 +369,10 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
             Loc.GetString("armor-plate-examinable-verb-message"));
     }
 
-    // Used to tell the .ftl if it's a positive or negative value
-    private static int CalcDirection(float ratio) => ratio < 0 ? -1 : ratio > 0 ? 1 : 0;
     //Speed tooltip generating method
     private void AddSpeedDisplay(FormattedMessage msg, string gaitType, float speedCalc)
     {
-        var stringClause = CalcDirection(speedCalc);
+        var stringClause = MathF.Sign(speedCalc);
 
         msg.PushNewline();
         msg.AddMarkupOrThrow(Loc.GetString("armor-plate-speed-display",
@@ -424,7 +422,7 @@ public sealed partial class SharedArmorPlateSystem : EntitySystem
             var dmgType = Loc.GetString("armor-damage-type-" + type.ToLower());
             var ratioPercent = MathF.Round(ratio * 100, 1);
 
-            var stringClause = CalcDirection(ratio);
+            var stringClause = MathF.Sign(ratio);
 
             msg.AddMarkupOrThrow(Loc.GetString("armor-plate-ratios-display",
                 ("stringClause", stringClause),
