@@ -437,6 +437,11 @@
   - type: CursorOffsetRequiresWield
     maxOffset: 5
     pvsIncrease: 0.35
+  - type: ExtendDescription
+    descriptionList:
+      - description: This weapon can be stored on your auxillary suit storage slot.
+        color: "#4f94ad"
+        requireDetailRange: true
 
 #region RU
 

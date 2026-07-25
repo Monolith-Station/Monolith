@@ -18,6 +18,7 @@
     slots:
     - Belt
     - suitStorage
+    - SUITSTORAGE2
   - type: StaticPrice
     price: 200
   - type: ActivatableUI
@@ -26,3 +27,8 @@
     interfaces:
        enum.JukeboxUiKey.Key:
          type: JukeboxBoundUserInterface
+  - type: ExtendDescription
+    descriptionList:
+      - description: This item can be worn on your auxillary suit storare slot.
+        color: "#4f94ad"
+        requireDetailRange: true
