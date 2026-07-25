@@ -20,13 +20,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 5700 # BF14 was 500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 5000 # BF14 was 50
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:

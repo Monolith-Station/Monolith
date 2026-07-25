@@ -13,18 +13,18 @@
   - type: DeleteOnTrigger
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: MicroBomb
-    totalIntensity: 100
-    maxIntensity: 9
+    explosionType: DemolitionCharge
+    totalIntensity: 150
     intensitySlope: 4
-    maxTileBreak: 1
+    maxIntensity: 10
+    maxTileBreak: 2
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
   - type: ProjectileGrenade
     triggerKey: trigger
     fillPrototype: BulletGrenadeM67Fragment
-    capacity: 65
+    capacity: 60
     randomAngle: true
     MaxVelocity: 10
     MinVelocity: 8
@@ -132,18 +132,18 @@
   - type: DeleteOnTrigger
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: MicroBomb
-    totalIntensity: 100
-    maxIntensity: 9
+    explosionType: DemolitionCharge
+    totalIntensity: 150
     intensitySlope: 4
-    maxTileBreak: 1
+    maxIntensity: 10
+    maxTileBreak: 2
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
   - type: ProjectileGrenade
     triggerKey: trigger
     fillPrototype: BulletGrenadeF1Fragment
-    capacity: 65
+    capacity: 60
     randomAngle: true
     MaxVelocity: 10
     MinVelocity: 8
@@ -164,7 +164,7 @@
     maxIntensity: 15
     intensitySlope: 6
     totalIntensity: 200
-    maxTileBreak: 0
+    maxTileBreak: 2
   - type: SpawnOnTrigger
     proto: InstantEffectGravityWellThermobaric
 

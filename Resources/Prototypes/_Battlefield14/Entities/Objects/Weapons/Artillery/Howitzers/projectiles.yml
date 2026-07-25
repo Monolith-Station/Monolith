@@ -11,17 +11,17 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBomb
-    totalIntensity: 150
+    totalIntensity: 200
     intensitySlope: 4
     maxIntensity: 10
-    maxTileBreak: 1
+    maxTileBreak: 2
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
   - type: ProjectileGrenade
     triggerKey: trigger
     fillPrototype: Bullet40x46mmFragFragment
-    capacity: 85
+    capacity: 80
     randomAngle: true
     MaxVelocity: 10
     MinVelocity: 8
