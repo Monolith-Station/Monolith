@@ -1,0 +1,39 @@
+- type: entity
+  parent: BaseItem
+  id: ArmorPlateLightPackaged
+  name: packaged kevlar insert
+  description: A lightweight protective kevlar insert, made to protect against pistol-class threats.
+  suffix: Light, packaged
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/ArmourPlate/packaged.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: SpawnItemsOnUse
+    items:
+    - id: ArmorPlateLight
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+      params:
+        variation: 0.125
+
+- type: entity
+  parent: BaseItem
+  id: ArmorPlateMediumPackaged
+  name: packaged ceramic plate
+  description: Ceramic armour absorbs impacts by using ceramic tiles that the bullet breaks on impact instead of you, uncountable soldiers depend on this kind of plate to save their life.
+  suffix: Medium, packaged
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/ArmourPlate/packaged.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: SpawnItemsOnUse
+    items:
+    - id: ArmorPlateMedium
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+      params:
+        variation: 0.125
