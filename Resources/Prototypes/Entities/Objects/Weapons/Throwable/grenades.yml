@@ -80,7 +80,7 @@
     range: 7
   - type: SoundOnTrigger
     sound:
-      path: "/Audio/Effects/flash_bang.ogg"
+      path: "/Audio/_Mono/Weapons/Grenades/flashbang_explode_1.ogg" # Mono
   - type: DeleteOnTrigger
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
@@ -88,10 +88,6 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
-  - type: GuideHelp
-    guides:
-    - Security
-    #- Antagonists # Frontier: removed guidebook entry
   - type: Tag
     tags:
     - GrenadeFlashBang
@@ -420,7 +416,7 @@
     duration: 30
     spreadAmount: 50
   - type: SoundOnTrigger
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
+    sound: /Audio/_Mono/Weapons/Grenades/smoke_bomb.ogg # Mono
   - type: DeleteOnTrigger
   - type: TimerTriggerVisuals
     primingSound:
@@ -513,8 +509,8 @@
     air:
       volume: 1000
       moles: # Target is 3117.84 mols total for filling 30 tiles (goal is 101.325 kPa @ 20C)
-      - 654.7464 # oxygen
-      - 2463.0936 # nitrogen
+        Oxygen: 654.7464 # oxygen
+        Nitrogen: 2463.0936 # nitrogen
       temperature: 293.15
   - type: StaticPrice
     price: 100 #Mono: 350 >> 100

@@ -1,42 +1,3 @@
-# CHARON
-
-- type: entity
-  id: ShipRailgunProjectile
-  name: M381 CHARON 280mm 26.5 kg slug
-  parent: BaseBulletTrigger
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Projectile
-    damage:
-      types:
-        Structural: 9000
-        Blunt: 5000
-    penetrationThreshold: 2500
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
-    layers:
-    - state: omnilaser
-  - type: Ammo
-    muzzleFlash: null
-  - type: ShipWeaponProjectile
-  - type: RadarBlip
-    radarColor: "#CF0E0E"
-    scale: 4
-    shape: triangle
-  - type: TimedDespawn
-    lifetime: 3.1 # ~2.4 km range
-  - type: PointLight
-    color: "#19AFFF"
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 1500
-    intensitySlope: 40
-    maxIntensity: 200
-  - type: GatheringProjectile
-  - type: MiningGatheringSoft
-  - type: MiningGatheringHard
-
 - type: entity
   id: CharonSlugAmmo
   name: M381 CHARON 280mm 26.5kg slug cartridge
@@ -51,6 +12,7 @@
   - type: CartridgeAmmo
     proto: ShipRailgunProjectile
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
     layers:
@@ -59,44 +21,57 @@
   - type: Appearance
   - type: SpentAmmoVisuals
 
-# Nuclear shells
+# APHE shells
 
 - type: entity
-  id: ShipRailgunProjectileSubnuclear
-  name: M381 CHARON 280mm 1.5kt nuclear slug
-  description: Once the genie is out of the bottle, there's no putting it back inside, tarkhan.
-  parent: BaseBulletTrigger
-  categories: [ HideSpawnMenu ]
+  id: CharonApheSlugAmmo
+  name: M381 CHARON 280mm 26.5kg APHE slug cartridge
+  description: An all-in-one package containing plasma gas accelerant and a high-density tungsten slug loaded with a small explosive payload. Cheap, devastating, and long ranged.
+  parent: BaseGrenade
   components:
-  - type: Projectile
-    damage:
-      types:
-        Structural: 125000
-        Blunt: 5000
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
-    layers:
-    - state: omnilaser
-  - type: Ammo
+  - type: Tag
+    tags:
+    - CharonSlug
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipRailgunProjectileAphe
+    deleteOnSpawn: true
     muzzleFlash: null
-  - type: ShipWeaponProjectile
-  - type: RadarBlip
-    radarColor: "#268521"
-    scale: 4
-    shape: triangle
-  - type: TimedDespawn
-    lifetime: 1.7
-  - type: PointLight
-    color: "#19AFFF"
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 12000
-    intensitySlope: 30
-    maxIntensity: 400
-  - type: GatheringProjectile
-  - type: MiningGatheringSoft
-  - type: MiningGatheringHard
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
+    layers:
+    - state: railgun_aphe
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+# EMP shells
+
+- type: entity
+  id: CharonEmpSlugAmmo
+  name: M381 CHARON 280mm 26.5kg EMP slug cartridge
+  description: An all-in-one package containing plasma gas accelerant and a high-density tungsten slug loaded with a large electromagnetic payload. Creates massive EMP arcs on impact, but has limited penetration power. Amazing for shields!
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - CharonSlug
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipRailgunProjectileEMP
+    deleteOnSpawn: true
+    muzzleFlash: null
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
+    layers:
+    - state: railgun_emp
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+# Nuclear shells
 
 - type: entity
   id: CharonSubnuclearSlugAmmo
@@ -112,6 +87,7 @@
   - type: CartridgeAmmo
     proto: ShipRailgunProjectileSubnuclear
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
     layers:

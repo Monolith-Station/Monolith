@@ -8,8 +8,8 @@
   price: 64000
   category: Medium
   group: Ussp
-  access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/akula.yml
+  access: USSP
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/akula.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -19,18 +19,18 @@
 - type: gameMap
   id: Akula
   mapName: 'Akula'
-  mapPath: /Maps/_Mono/Shuttles/USSP/akula.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/akula.yml
   minPlayers: 0
   stations:
     Akula:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Akula MIL{1}'
+          mapNameTemplate: 'Akula USSP{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Mercenary: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
+            USSPSergeant: [ 0, 0 ]
+            USSPRifleman: [ 0, 0 ]

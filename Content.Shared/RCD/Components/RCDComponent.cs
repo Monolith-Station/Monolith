@@ -43,6 +43,13 @@ public sealed partial class RCDComponent : Component
     public RCDPrototype CachedPrototype { get; set; } = default!;
 
     /// <summary>
+    /// Indicates whether this is an RCD or an RPD 
+    /// </summary>
+    /// Goob
+    [DataField, AutoNetworkedField]
+    public bool IsRpd { get; set; } = false;
+
+    /// <summary>
     /// The direction constructed entities will face upon spawning
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -69,4 +76,10 @@ public sealed partial class RCDComponent : Component
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public Transform ConstructionTransform { get; private set; } = default!;
+
+    /// <summary>
+    /// Mono - delay multiplier for the RCD
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float DelayMultiplier = 1f;
 }

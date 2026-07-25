@@ -8,8 +8,8 @@
   price: 74200
   category: Medium
   group: Ussp
-  access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/tayfun.yml
+  access: USSP
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/tayfun.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -21,18 +21,18 @@
 - type: gameMap
   id: Tayfun
   mapName: 'Tayfun'
-  mapPath: /Maps/_Mono/Shuttles/USSP/tayfun.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/tayfun.yml
   minPlayers: 0
   stations:
     Tayfun:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Tayfun MIL{1}'
+          mapNameTemplate: 'Tayfun USSP{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Mercenary: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]

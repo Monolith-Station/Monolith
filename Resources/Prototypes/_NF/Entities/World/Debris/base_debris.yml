@@ -11,7 +11,7 @@
   - type: LinkedLifecycleGridParent
   - type: ProtectedGrid
     preventArtifactTriggers: true
-  - type: PreventPilot
+#  - type: PreventPilot # Mono: FUN ALLOWED
   - type: IFF
     flags: HideLabel, HideLabelAlways, AlwaysShowColor
   - type: ClaimableGrid # Mono

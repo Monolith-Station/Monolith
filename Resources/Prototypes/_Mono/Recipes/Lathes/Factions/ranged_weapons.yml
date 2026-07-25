@@ -52,6 +52,33 @@
     Plasteel: 650
     Plastic: 600
 
+# Bullpup Lecter & Vulcan
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleRiversongTSF
+  result: WeaponRifleRiversong
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plasteel: 2000
+    Plastic: 1200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleDragonfangTSF
+  result: WeaponRifleDragonfang
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plasteel: 2000
+    Plastic: 1200
+
 # Rogues/TSF WSPR/Annie
 
 - type: latheRecipe
@@ -172,6 +199,43 @@
     Plastitanium: 2500
     Silver: 250
 
+# TSF Anubis
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLauncherTSFAnubis
+  result: WeaponLauncherTSFAnubis
+  categories:
+  - AntiMaterial
+  - Antitank
+  - Explosive
+  - Weapons
+  materials:
+    Steel: 12000
+    Plasteel: 4000
+    Plastitanium: 2000
+    Silver: 500
+
+# TSF Shenzhen
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponAMRShenzhenTSF
+  result: WeaponAMRShenzhen
+  categories:
+  - AntiMaterial
+  - Weapons
+  - Ballistic
+  materials:
+    Steel: 7000
+    Plasteel: 6000
+    Plastitanium: 1500
+    Copper: 2000
+    Lithium: 2000
+    Gold: 500
+    Silver: 500
+    UraniumDepleted: 120 # For the mag it comes with + the bullet in the chamber. 20 DU per round, if you're adding any recipes yourself.
+
 # TSF energy
 
 - type: latheRecipe
@@ -218,6 +282,21 @@
     Plasteel: 1500
     Silver: 250
     Uranium: 250
+
+# PDV basic
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleVympelRogue
+  result: WeaponRifleVympel
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1600
+    Plasteel: 1200
+    Plastic: 1000
 
 # syndicate ballistics
 
@@ -332,6 +411,42 @@
     Plastic: 500
     Silver: 200
     Plasma: 500
+
+# PDV T3
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLightMachineGunL6Rogue
+  result: WeaponLightMachineGunL6
+  categories:
+  - LMGs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plasteel: 2500
+    Plastitanium: 1500
+    Plastic: 1000
+    Silver: 500
+    Gold: 250
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleBurnerRogue
+  result: WeaponRifleBurner
+  categories:
+  - DMRs
+  - AntiMaterial
+  - Ballistic
+  - Weapons
+  - Antitank
+  materials:
+    Steel: 3000
+    Plasteel: 2500
+    Plastitanium: 2000
+    Plastic: 800
+    Silver: 700
+    Gold: 650
 
 # hristov
 

@@ -40,8 +40,6 @@
   - AirTank
 # Mercenary techfab
 ## Clothing / Armor
-  - ArmorPlateLight #Mono
-  - ArmorPlateSteel #Mono
   - RiotShield
   - ClothingNeckIFFNeutral
   - ClothingNeckIFFGreen
@@ -91,8 +89,12 @@
   - BaseBallBatNF
   - CrossbowModern
   - WeaponPistolPollock
+  - WeaponRifleSVSUSSP #Mono
+  - WeaponSniperMosinUSSP #Mono
+  - WeaponSubMachineGunAK220USSP #Mono
   ## Cyborg Modules
   - BorgModuleMercenary # mono
+
 
 - type: latheRecipePack
   id: NFMercenaryTechfabDeprecated
@@ -102,6 +104,7 @@
   - WelderExperimental
   - JawsOfLife
   - PowerDrill
+  - TrayGoggles # Mono
   - JetpackVoid
   - PowerCellHigh
   # - PowerCellHyperNF
@@ -109,9 +112,10 @@
   - PowerCellMicroreactor
 # Mercenary techfab
 ## Armor
-  - ArmorPlateMedium #Mono
-  - ArmorPlateTactical #Mono
-  - ArmorPlateRefractive #Mono
+  - ArmorPlateBlunt_Slash #Mono
+  - ArmorPlatePierce #Mono
+  - ArmorPlateHeat #Mono
+  - ArmorPlateSpeed #Mono
   - TelescopicShield
   - ClothingOuterArmorBulletproofNF
   - ClothingOuterCoatBHTrench
@@ -131,6 +135,7 @@
   - ClothingUniformRandomPunkCroptopShorts
   - ClothingOuterCoatLettermanRandomized
   - ClothingOuterCoatBomberRandomized
+  - ClothingBackpackJack
 ## EVA / Hardsuits
   - ClothingOuterHardsuitCap
   - ClothingOuterHardsuitMercenary
@@ -174,6 +179,7 @@
   - WeaponXrayCannon
 #Mono start
   - WeaponLMGRatel
+  - WeaponSniperRepeater
   - WeaponShotgunBigBuddy
   - WeaponShotgunBigJohnny
   - WeaponShotgunEnforcerMerc
@@ -200,6 +206,9 @@
   - UllmanWeaponPulseRifle
   - UllmanWeaponPulseSniper
   - UllmanMeleePlasmaBlade
+  - WeaponShotgunJack
+  ## LPC
+  - BalorDroneVoucherMerc
 #Mono end
 
 - type: latheRecipePack

@@ -68,9 +68,15 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: NightVision # Goobstation - Nigthvision
-    activateSound: null
-    deactivateSound: null
+  - type: NightVision # Gen 3 wide-quadtube
+    relayOverlay: false
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
 
 - type: entity
   name: bee
@@ -318,7 +324,6 @@
   parent: FoodEgg
   suffix: Fertilized, Chicken
   components:
-  - type: Timer
   - type: TimedSpawner
     prototypes:
     - MobChicken
@@ -481,7 +486,7 @@
     description: ghost-role-information-mothroach-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
   - type: Fixtures
     fixtures:
       fix1:
@@ -766,7 +771,6 @@
   parent: FoodEgg
   suffix: Fertilized, Duck
   components:
-  - type: Timer
   - type: TimedSpawner
     prototypes:
     - MobDuckMallard
@@ -898,6 +902,9 @@
     quantityPerUpdate: 25
     growthDelay: 30
   - type: ExaminableHunger
+  - type: Hunger
+    baseDecayRate: 10 # always hungry
+    starvingSlowdownModifier: 1  
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -1775,7 +1782,7 @@
     description: ghost-role-information-mouse-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
   - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
@@ -1936,9 +1943,15 @@
       Taco: RatTaco
       Burger: RatBurger
       Skewer: RatSkewer
-  - type: NightVision # Goobstation - Nigthvision
-    activateSound: null
-    deactivateSound: null
+  - type: NightVision # Gen 3 wide-quadtube
+    relayOverlay: false
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
 
 - type: entity
   parent: MobMouse
@@ -2609,9 +2622,15 @@
       groups:
         Brute: -0.07
         Burn: -0.07
-  - type: NightVision # Goobstation - Nigthvision
-    activateSound: null
-    deactivateSound: null
+  - type: NightVision # Gen 3 wide-quadtube
+    relayOverlay: false
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
 
 - type: entity
   parent: MobSpiderBase

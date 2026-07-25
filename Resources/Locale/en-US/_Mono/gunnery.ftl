@@ -8,3 +8,4 @@ gunnery-gun-select = {$name}
 gunnery-gun-select-ammo = {$name}: {$ammo}
 
 gunnery-server-examine-detail = The server is using [color={$valueColor}]{$usedProcessingPower}/{$processingPower}[/color] of its processing power.
+gunnery-server-examine-pacifist-grid = [color=crimson]The grid it's anchored to can't use ship weapons![/color]

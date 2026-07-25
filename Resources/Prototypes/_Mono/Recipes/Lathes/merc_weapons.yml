@@ -166,6 +166,19 @@
     Plastic: 1000
 
 - type: latheRecipe
+  id: WeaponSniperRepeater
+  parent: BaseWeaponRecipeLong
+  result: WeaponSniperRepeater
+  categories:
+  - Weapons
+  - Rifles
+  - Ballistic
+  materials:
+    Steel: 2500
+    Plasteel: 1000
+    Plastic: 1000
+
+- type: latheRecipe
   id: WeaponRadAx
   parent: BaseWeaponRecipeLong
   result: WeaponRadAx
@@ -212,3 +225,16 @@
     Plasma: 1500
     Gold: 1000
     Diamond: 150
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponShotgunJack
+  result: WeaponShotgunJack
+  categories:
+  - Shotguns
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3000
+    Plasteel: 2500
+    Plastic: 700

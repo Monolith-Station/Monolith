@@ -142,45 +142,6 @@
   uiName: USSP
 
 - type: techDiscipline
-  id: UsspShipyard
-  name: research-discipline-ussp-shipyard
-  color: "#4c9e9a"
-  icon:
-    sprite: _Mono/Interface/Misc/research_disciplines_ussp.rsi
-    state: shipyard
-  tierPrerequisites:
-    1: 0
-    2: 0.50
-    3: 0.50
-  uiName: USSP-HI
-
-- type: techDiscipline
-  id: UsspEquipment
-  name: research-discipline-ussp-equipment
-  color: "#966c53"
-  icon:
-    sprite: _Mono/Interface/Misc/research_disciplines_ussp.rsi
-    state: equipment
-  tierPrerequisites:
-    1: 0
-    2: 0.50
-    3: 0.50
-  uiName: USSP-EQ
-
-- type: techDiscipline
-  id: UsspWeapons
-  name: research-discipline-ussp-weaponry
-  color: "#52c08d"
-  icon:
-    sprite: _Mono/Interface/Misc/research_disciplines_ussp.rsi
-    state: weaponry
-  tierPrerequisites:
-    1: 0
-    2: 0.75
-    3: 0.75
-  uiName: USSP-WP
-
-- type: techDiscipline
   id: ViperGroup
   name: research-discipline-viper-group
   color: "#bf3434"

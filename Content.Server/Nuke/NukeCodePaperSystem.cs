@@ -2,21 +2,21 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server.Chat.Systems;
 using Content.Server.Fax;
 using Content.Shared.Fax.Components;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Paper;
+using Content.Shared.Station.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Nuke
 {
-    public sealed class NukeCodePaperSystem : EntitySystem
+    public sealed partial class NukeCodePaperSystem : EntitySystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
-        [Dependency] private readonly StationSystem _station = default!;
-        [Dependency] private readonly PaperSystem _paper = default!;
-        [Dependency] private readonly FaxSystem _faxSystem = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private ChatSystem _chatSystem = default!;
+        [Dependency] private StationSystem _station = default!;
+        [Dependency] private PaperSystem _paper = default!;
+        [Dependency] private FaxSystem _faxSystem = default!;
 
         public override void Initialize()
         {
@@ -116,7 +116,7 @@ namespace Content.Server.Nuke
 
             foreach (var (nukeUid, nuke) in nukes)
             {
-                if (!onlyCurrentStation &&
+                if (!onlyCurrentStation || // Mono - swap to ||
                     (owningStation == null &&
                     nuke.OriginMapGrid != (transform.MapID, transform.GridUid) ||
                     nuke.OriginStation != owningStation))

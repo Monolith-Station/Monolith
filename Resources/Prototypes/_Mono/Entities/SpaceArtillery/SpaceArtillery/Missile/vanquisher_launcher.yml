@@ -1,0 +1,95 @@
+- type: entity
+  id: WeaponTurretVanquisher
+  name: SRM-573 "Vanquisher" Missile Pod
+  parent:
+  - BallisticArtilleryUnanchorableMagazine
+  - BallisticArtilleryTier4HP
+  description: A short-ranged missile pod firing 150mm unguided rockets with devastating fire rate.
+  suffix: Large, T4
+  components:
+  - type: StaticPrice
+    price: 21200
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/vanquisher.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: GunSignalControl
+  - type: Gun
+    selectedMode: Burst
+    availableModes: Burst
+    burstCooldown: 15
+    burstFireRate: 14
+    shotsPerBurst: 72
+    fireRate: 0.8
+    recoil: 5
+    minAngle: 0
+    maxAngle: 6
+    shootThermalSignature: 8000000
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: Actions
+  - type: SpaceArtillery
+    powerChargeRate: 350
+    powerUsePassive: 600
+    powerUseActive: 0
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: VanquisherMagazine
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - VanquisherMagazine
+        whitelistFailPopup: gun-magazine-whitelist-fail
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 3
+    visibleFromOtherGrids: true
+  - type: ShipGunType
+    shipType: Missile
+  - type: ShipGunClass
+    shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 100
+    repairCost: 200
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.75,-0.75,0.75,0.75"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  id: WeaponTurretVanquisherInfinite
+  parent: WeaponTurretVanquisher
+  suffix: Large, T4, Infinite
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        disableEject: true
+        name: Magazine
+        startingItem: VanquisherMagazineInfinite
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - VanquisherMagazine
+        whitelistFailPopup: gun-magazine-whitelist-fail

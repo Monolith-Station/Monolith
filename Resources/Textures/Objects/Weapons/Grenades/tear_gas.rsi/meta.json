@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Derived from deltanedas (https://github.com/space-wizards/space-station-14/commit/7dd472c934e61e4087a3f991ed9b51f0eb99271c), created by K-Dynamic (github)",
+  "copyright": "Taken from TGMC.",
   "size": {
     "x": 32,
     "y": 32
@@ -11,7 +11,13 @@
       "name": "icon"
     },
     {
-      "name": "primed"
+      "name": "primed",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
     }
   ]
 }

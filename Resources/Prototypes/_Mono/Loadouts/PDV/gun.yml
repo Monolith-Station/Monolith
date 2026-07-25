@@ -4,8 +4,7 @@
   minLimit: 1
   loadouts:
   - FactionC20RLoadout
-  # - FactionWt550Loadout
-  # - FactionLecterLoadout
+  - FactionVympelLoadout
   - FactionAk220Loadout
   - FactionEnergyGunLoadout
   fallbacks:
@@ -16,14 +15,38 @@
   name: loadout-group-weapon
   minLimit: 1
   loadouts:
-  - FactionHawk4Pistol
   - FactionC20RLoadout
+  - FactionVympelLoadout
   - FactionWt550Loadout
-  # - FactionLecterLoadout
   - FactionAkmLoadout
   - FactionEnergyGunLoadout
+  - FactionM90Loadout
+  - FactionWSPRLoadout
   fallbacks:
-  - FactionHawk4Pistol
+  - FactionC20RLoadout
+
+- type: loadoutGroup
+  id: RogueSidearm
+  name: loadout-group-pistol
+  minLimit: 0
+  loadouts:
+  - FactionPythonLoadout
+  - FactionViperLoadout
+
+- type: loadoutGroup
+  id: RogueCommandMag
+  name: loadout-group-magazine
+  minLimit: 1
+  loadouts:
+  - Faction9x19SMGAmmoLoadout #C20r
+  - Faction556x45mmAmmoLoadout # Vympel
+  - Faction46x30mmTopAmmo #WT550
+  - Faction762x39mmAmmoLoadout #AKM
+  - FactionRechargerLoadout #Energy
+  - Faction762x51mmAmmoLoadout #M90
+  - Faction762x39mmSubsonicAmmoLoadout #WESPR
+  fallbacks:
+  - Faction9x19SMGAmmoLoadout #C20r
 
 - type: loadoutGroup
   id: RogueMag
@@ -31,10 +54,16 @@
   minLimit: 1
   loadouts:
   - Faction9x19SMGAmmoLoadout #C20r
-  # - Faction46x30mmTopAmmo #WT550
-  # - Faction556x45mmAmmoLoadout #Lecter
-  # - Faction762x39mmAmmoLoadout #AKM
+  - Faction556x45mmAmmoLoadout # Vympel
   - FactionRechargerLoadout #Energy
   fallbacks:
   - Faction9x19SMGAmmoLoadout #C20r
+
+- type: loadoutGroup
+  id: RoguePistolMag
+  name: loadout-group-pistol-magazine
+  minLimit: 0
+  loadouts:
+  - Mercenary9x19mmPistolAmmoLoadout #Viper
+  - FactionMagnum45Loadout # Inspector/Python/Mateba
 

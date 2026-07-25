@@ -1,7 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.EUI;
-using Content.Server.Flash;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -12,6 +11,7 @@ using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.Database;
+using Content.Shared.Flash;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
@@ -28,27 +28,29 @@ using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
+using Robust.Shared.Player;
 
 namespace Content.Server.GameTicking.Rules;
 
 /// <summary>
 /// Where all the main stuff for Revolutionaries happens (Assigning Head Revs, Command on station, and checking for the game to end.)
 /// </summary>
-public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleComponent>
+public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleComponent>
 {
-    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
-    [Dependency] private readonly EuiManager _euiMan = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private EmergencyShuttleSystem _emergencyShuttle = default!;
+    [Dependency] private EuiManager _euiMan = default!;
+    [Dependency] private IAdminLogManager _adminLogManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private RoleSystem _role = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
@@ -129,6 +131,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// </summary>
     private void OnPostFlash(EntityUid uid, HeadRevolutionaryComponent comp, ref AfterFlashedEvent ev)
     {
+        if (uid != ev.User || !ev.Melee)
+            return;
+
         var alwaysConvertible = HasComp<AlwaysRevolutionaryConvertibleComponent>(ev.Target);
 
         if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind) && !alwaysConvertible)
@@ -165,8 +170,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             _role.MindAddRole(mindId, "MindRoleRevolutionary");
         }
 
-        if (mind?.Session != null)
-            _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+        if (mind is { UserId: not null } && _player.TryGetSessionById(mind.UserId, out var session))
+            _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
     }
 
     //TODO: Enemies of the revolution
@@ -228,7 +233,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
                 _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
 
-                if (!_mind.TryGetMind(uid, out var mindId, out _, mc))
+                if (!_mind.TryGetMind(uid, out var mindId, out var mind, mc))
                     continue;
 
                 // remove their antag role
@@ -236,7 +241,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
                 // make it very obvious to the rev they've been deconverted since
                 // they may not see the popup due to antag and/or new player tunnel vision
-                if (_mind.TryGetSession(mindId, out var session))
+                if (_player.TryGetSessionById(mind.UserId, out var session))
                     _euiMan.OpenEui(new DeconvertedEui(), session);
             }
             return true;

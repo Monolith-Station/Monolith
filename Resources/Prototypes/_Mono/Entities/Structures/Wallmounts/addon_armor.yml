@@ -1,0 +1,289 @@
+- type: entity
+  name: solid armor
+  description: An additional chunk of armor, attached to the side of a vessel. Provides additional protection, but makes the hull more vulnerable to explosives.
+  id: WallArmorAddonSolid
+  parent: BaseGreeble
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0,0.45
+    sprite: _Mono/Structures/Wallmounts/Addons/armor.rsi
+    layers:
+    - state: armor-solid
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 4000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ChangeConstructionNodeBehavior
+        node: broken
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 3
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,0.1,0.5,0.8"
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+        density: 1000
+  - type: Construction
+    graph: WallArmorAddonSolidGraph
+    node: finished
+
+- type: entity
+  name: solid armor corner
+  suffix: Left
+  description: An additional chunk of armor, attached to the side of a vessel. Provides additional protection, but makes the hull more vulnerable to explosives.
+  id: WallArmorAddonSolidCornerL
+  parent: WallArmorAddonSolid
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0,0.45
+    sprite: _Mono/Structures/Wallmounts/Addons/armor.rsi
+    layers:
+    - state: armor-solid-cornerL
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ChangeConstructionNodeBehavior
+        node: broken
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 2
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.5,0.1,0.2,0.7"
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+        density: 500
+  - type: Construction
+    graph: WallArmorAddonSolidCornerLGraph
+    node: finished
+
+- type: entity
+  name: solid armor corner
+  suffix: Right
+  description: An additional chunk of armor, attached to the side of a vessel. Provides additional protection, but makes the hull more vulnerable to explosives.
+  id: WallArmorAddonSolidCornerR
+  parent: WallArmorAddonSolid
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0,0.45
+    sprite: _Mono/Structures/Wallmounts/Addons/armor.rsi
+    layers:
+    - state: armor-solid-cornerR
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: WallDefense2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ChangeConstructionNodeBehavior
+        node: broken
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 2
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,0.7,-0.2,0.1"
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+        density: 500
+  - type: Construction
+    graph: WallArmorAddonSolidCornerRGraph
+    node: finished
+
+# Broken solid armor
+
+- type: entity
+  name: broken solid armor
+  description: The remains of a chunk of additional armor plating. Doesn't seem very effective anymore.
+  id: WallArmorAddonSolidBroken
+  parent: WallArmorAddonSolid
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      offset: 0,0.45
+      sprite: _Mono/Structures/Wallmounts/Addons/armor.rsi
+      layers:
+        - state: armor-solid-broken
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: WallDefense2
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 500
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalSlam
+    - type: ShipRepairable
+      repairTime: 3
+      repairCost: 1
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,0.1,0.5,0.8"
+          mask:
+            - TableMask
+          layer:
+            - TableLayer
+          density: 500
+    - type: Construction
+      graph: WallArmorAddonSolidGraph
+      node: broken
+
+- type: entity
+  name: broken solid armor corner
+  suffix: Left
+  description: The remains of a chunk of additional armor plating. Doesn't seem very effective anymore.
+  id: WallArmorAddonSolidBrokenCornerL
+  parent: WallArmorAddonSolidCornerL
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      offset: 0,0.45
+      sprite: _Mono/Structures/Wallmounts/Addons/armor.rsi
+      layers:
+        - state: armor-solid-broken-cornerL
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: WallDefense2
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 250
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalSlam
+    - type: ShipRepairable
+      repairTime: 1
+      repairCost: 1
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "0.5,0.1,0.2,0.7"
+          mask:
+            - TableMask
+          layer:
+            - TableLayer
+          density: 250
+    - type: Construction
+      graph: WallArmorAddonSolidCornerLGraph
+      node: broken
+
+- type: entity
+  name: broken solid armor corner
+  suffix: Right
+  description: The remains of a chunk of additional armor plating. Doesn't seem very effective anymore.
+  id: WallArmorAddonSolidBrokenCornerR
+  parent: WallArmorAddonSolidCornerR
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      offset: 0,0.45
+      sprite: _Mono/Structures/Wallmounts/Addons/armor.rsi
+      layers:
+        - state: armor-solid-broken-cornerR
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: WallDefense2
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 250
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalSlam
+    - type: ShipRepairable
+      repairTime: 2
+      repairCost: 2
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,0.7,-0.2,0.1"
+          mask:
+            - TableMask
+          layer:
+            - TableLayer
+          density: 250
+    - type: Construction
+      graph: WallArmorAddonSolidCornerRGraph
+      node: broken

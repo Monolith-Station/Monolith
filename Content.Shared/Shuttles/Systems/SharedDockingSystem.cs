@@ -3,15 +3,15 @@ using Robust.Shared.Map;
 
 namespace Content.Shared.Shuttles.Systems;
 
-public abstract class SharedDockingSystem : EntitySystem
+public abstract partial class SharedDockingSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedTransformSystem XformSystem = default!;
+    [Dependency] protected SharedTransformSystem XformSystem = default!;
 
     public const float DockingHiglightRange = 4f;
     public const float DockRange = 1f + 0.2f;
     public static readonly double AlignmentTolerance = Angle.FromDegrees(15).Theta;
 
-    public bool CanShuttleDock(EntityUid? shuttle)
+    public bool CanShuttleDock(EntityUid? shuttle, SharedDockingComponent dockComp) //Mono, I trust the null check in DockingSystem.cs
     {
         if (shuttle == null)
             return false;
@@ -19,7 +19,7 @@ public abstract class SharedDockingSystem : EntitySystem
         if (TryComp<FTLComponent>(shuttle, out var ftl) && (ftl.State & (FTLState.Starting | FTLState.Travelling | FTLState.Arriving)) != 0)
             return false;
 
-        return !HasComp<PreventPilotComponent>(shuttle.Value);
+        return !HasComp<PreventPilotComponent>(shuttle.Value) || dockComp.DockType.HasFlag(DockType.Gas);
     }
 
     public bool CanShuttleUndock(EntityUid? shuttle)

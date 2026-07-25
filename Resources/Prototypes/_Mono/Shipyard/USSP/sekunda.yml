@@ -8,8 +8,8 @@
   price: 60000
   category: Medium
   group: Ussp
-  access: Mercenary
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/sekunda.yml
+  access: USSP
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/sekunda.yml
   guidebookPage: Null
   class:
   - Patrol
@@ -21,19 +21,19 @@
 - type: gameMap
   id: Sekunda
   mapName: 'Sekunda'
-  mapPath: /Maps/_Mono/Shuttles/USSP/sekunda.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/sekunda.yml
   minPlayers: 0
   stations:
     Sekunda:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Sekunda MIL{1}'
+          mapNameTemplate: 'Sekunda USSP{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Mercenary: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]
 #Idfk what im doing I will not lie at all. What am I doing? Hello? Mooooooooooooom? AAAAAAAAAAAAAAAAA! *crashes your entire game and dies*

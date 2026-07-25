@@ -150,6 +150,8 @@
     - NFNfsdTechfabDeprecatedStatic
     - StaticAmmoRecipePack
     - RoundstartShipgunAmmo # Mono
+    - StaticGrenades
+    - MonoAttachmentsStatic # Mono
     dynamicPacks:
     - NFNfsdTechfabDeprecated
     - DynamicAmmoRecipePack
@@ -198,6 +200,8 @@
     - StaticAmmoRecipePack
     - MonoRestraintsStatic # Mono
     - RoundstartShipgunAmmo # Mono
+    - StaticGrenades
+    - MonoAttachmentsStatic # Mono
     dynamicPacks:
     - NFMercenaryTechfabDeprecated
     - DynamicAmmoRecipePack
@@ -208,9 +212,6 @@
     - MonoRogueWeaponsDynamicMelee
     - MonoRogueWeaponsDynamicRanged
     - MonoRogueMiscDynamic
-    - MonoUSSPMiscDynamic
-    - MonoUSSPWeaponsDynamicRanged
-    - MonoViperGroupDynamic
     # Universal shit (stuff like shipgun ammo)
     - UniversalRailgunAmmo
     - UniversalMissileAmmo
@@ -267,6 +268,8 @@
     - StaticAmmoRecipePack
     - MonoRestraintsStatic
     - RoundstartShipgunAmmo # Mono
+    - StaticGrenades
+    - MonoAttachmentsStatic # Mono
     dynamicPacks:
     - NFHackedMercenaryTechfabDeprecated
     - DynamicAmmoRecipePack
@@ -278,9 +281,6 @@
     - MonoRogueWeaponsDynamicMelee
     - MonoRogueWeaponsDynamicRanged
     - MonoRogueMiscDynamic
-    - MonoUSSPMiscDynamic
-    - MonoViperGroupDynamic
-    - MonoUSSPWeaponsDynamicRanged
     # Universal shit (stuff like shipgun ammo)
     - UniversalRailgunAmmo
     - UniversalMissileAmmo

@@ -28,19 +28,19 @@ using Content.Shared._Goobstation.Weapons.Ranged; // GoobStation - NoWieldNeeded
 
 namespace Content.Shared.Wieldable;
 
-public abstract class SharedWieldableSystem : EntitySystem
+public abstract partial class SharedWieldableSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
-    [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedItemSystem _item = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedVirtualItemSystem _virtualItem = default!;
+    [Dependency] private UseDelaySystem _delay = default!;
 
     public override void Initialize()
     {
@@ -134,10 +134,19 @@ public abstract class SharedWieldableSystem : EntitySystem
              noWieldNeeded.GetBonus)
            )
         {
-            args.MinAngle += bonus.Comp.MinAngle;
-            args.MaxAngle += bonus.Comp.MaxAngle;
-            args.AngleDecay += bonus.Comp.AngleDecay;
-            args.AngleIncrease += bonus.Comp.AngleIncrease;
+            // Mono start - do all this stupid bullshit because i'm too lazy to make attachments modify the wieldcomp
+            if (TryComp<GunComponent>(args.Gun, out var gunComp))
+            {
+                var minAngleAdd = bonus.Comp.MinAngle * (gunComp.MinAngleModified / gunComp.MinAngle);
+                var maxAngleAdd = bonus.Comp.MaxAngle * (gunComp.MaxAngleModified / gunComp.MaxAngle);
+                var angleDecayAdd = bonus.Comp.AngleDecay * (gunComp.AngleDecayModified / gunComp.AngleDecay);
+                var angleIncreaseAdd = bonus.Comp.AngleIncrease * (gunComp.AngleIncreaseModified / gunComp.AngleIncrease);
+                args.MinAngle += minAngleAdd;
+                args.MaxAngle += maxAngleAdd;
+                args.AngleDecay += angleDecayAdd;
+                args.AngleIncrease += angleIncreaseAdd;
+            }
+            // Mono end
         }
     }
 

@@ -16,7 +16,7 @@ namespace Content.Server._Mono.NPC.HTN.Operators;
 /// </summary>
 public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShutdown
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private PowerReceiverSystem _power = default!;
     private ShipSteeringSystem _steering = default!;
 
@@ -66,7 +66,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     /// How unwilling we are to use brake to adjust our velocity. Higher means less willing.
     /// </summary>
     [DataField]
-    public float BrakeThreshold = 0.75f;
+    public float BrakeThreshold = 0.3f;
 
     /// <summary>
     /// How many evasion sectors to init on the outer ring.

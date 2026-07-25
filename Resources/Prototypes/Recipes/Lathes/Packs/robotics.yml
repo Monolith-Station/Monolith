@@ -52,6 +52,8 @@
   id: Robotics
   recipes:
   - ProximitySensor
+  - BorgIFFTSF # _Mono
+  - BorgIFFPDV # _Mono
 
 - type: latheRecipePack
   id: BorgModules

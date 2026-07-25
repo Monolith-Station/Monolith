@@ -64,6 +64,7 @@
     blip:
       radarColor: Cyan
       scale: 0.5
+      requireNoGrid: true
   - type: DeviceNetwork
     deviceNetId: Wireless
     transmitFrequencyId: SuitSensor

@@ -23,7 +23,9 @@
   displayWeight: 60 # Second from the top # mono - first from top
   canBeAntag: false
   accessGroups:
-  - AllAccessSR
+  - AllAccessMono #Mono
+  access:
+  - ChiefMedicalOfficer #Mono
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ] # Mono - remove TSFMC implant
@@ -35,6 +37,8 @@
         - MD # mono faction
       - type: SurgerySpeedModifier
         SpeedModifier: 2
+      - type: ChatRank
+        rank: md-doc
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift

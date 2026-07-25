@@ -42,6 +42,13 @@ public sealed partial class NPCRangedCombatComponent : Component
     public bool TargetInLOS = false;
 
     /// <summary>
+    /// If true, only opaque objects will block line of sight.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    // ReSharper disable once InconsistentNaming
+    public bool UseOpaqueForLOSChecks = false;
+
+    /// <summary>
     /// Delay after target is in LOS before we start shooting.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
@@ -49,6 +56,11 @@ public sealed partial class NPCRangedCombatComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float ShootAccumulator;
+
+    /// <summary>
+    /// Mono - accept having to fire for up to this many seconds to destroy an obstacle.
+    /// </summary>
+    public float ShotsThreshold = 2;
 
     /// <summary>
     /// Sound to play if the target enters line of sight.

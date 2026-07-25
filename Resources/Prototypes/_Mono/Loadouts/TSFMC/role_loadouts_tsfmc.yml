@@ -25,6 +25,8 @@
   - NfsdSpeciesSpecific
   - TsfmcFirearm
   - TsfmcMag
+  - FactionArmorPlates
+  - TsfmcRanksEnlisted
   canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
@@ -51,7 +53,11 @@
   - ContractorTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearm
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
+  - TsfmcRanksEnlisted
   canCustomizeName: true
 
 - type: roleLoadout
@@ -78,7 +84,11 @@
   - ContractorTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearm
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
+  - TsfnRanksCorpsmen
   canCustomizeName: true
 
 - type: roleLoadout
@@ -104,15 +114,19 @@
   - ContractorFun
   - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
-  - TsfmcFirearm
+  - TsfmcFirearmCommand
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
+  - TsfmcRanksCaptain
   canCustomizeName: true
 
 - type: roleLoadout
   id: JobSeniorOfficer # Fireteam Leader
   groups:
   - TsfmcHead
-  - TsfmcNeck
+  - TsfmcNeckFTL
   - TsfmcJumpsuit
   - TsfmcGloves
   - TsfmcBackpack
@@ -131,8 +145,12 @@
   - ContractorFun
   - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
-  - TsfmcFirearm
+  - TsfmcFirearmCommand
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
+  - TsfmcRanksFTL
   canCustomizeName: true
 
 - type: roleLoadout
@@ -158,7 +176,11 @@
   - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearmColonel
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
+  - TsfmcRanksColonel
   canCustomizeName: true
 
 - type: roleLoadout
@@ -184,4 +206,23 @@
   - ContractorFun
   - ContractorTrinkets
   - NfsdSpeciesSpecific
+  - TsfmcSidearm
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
+  - TsfnRanksEngineers
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobTsfMarsoc
+  groups:
+  - TsfmcBalaclava
+  - NfsdBoxSurvival
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorTrinkets
+  - ContractorEncryptionKey
+  - NfsdSpeciesSpecific
+  - TsfmcSidearm
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
   canCustomizeName: true

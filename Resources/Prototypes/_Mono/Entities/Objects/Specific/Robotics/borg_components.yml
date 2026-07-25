@@ -1,0 +1,33 @@
+# Faction Cyborg Components
+- type: entity
+  id: BorgIFFTSF
+  parent: BaseExosuitParts
+  name: TSF Cyborg Chip 
+  description: Apply before the final screw of a standard cyborg to install the necessary TSF components.
+  components:
+    - type: Item
+      storedRotation: 0
+    - type: Sprite
+      sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+      layers:
+      - state: tsf
+    - type: Tag
+      tags:
+      - BorgIFFTSF
+
+- type: entity
+  id: BorgIFFPDV
+  parent: BaseExosuitParts
+  name: PDV Cyborg Chip 
+  description: Apply before the final screw of a standard cyborg to install the necessary PDV components.
+  components:
+    - type: Item
+      storedRotation: 0
+    - type: Sprite
+      sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+      layers:
+      - state: pdv
+    - type: Tag
+      tags:
+      - BorgIFFPDV
+

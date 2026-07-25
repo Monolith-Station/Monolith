@@ -4,9 +4,9 @@ using Content.Shared.Weapons.Hitscan.Events;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
-public sealed class HitscanBasicDamageSystem : EntitySystem
+public sealed partial class HitscanBasicDamageSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private DamageableSystem _damage = default!;
 
     public override void Initialize()
     {
@@ -22,7 +22,7 @@ public sealed class HitscanBasicDamageSystem : EntitySystem
 
         var dmg = ent.Comp.Damage * _damage.UniversalHitscanDamageModifier;
 
-        var damageDealt = _damage.TryChangeDamage(args.HitEntity, dmg, origin: args.Gun);
+        var damageDealt = _damage.TryChangeDamage(args.HitEntity, dmg, origin: args.Gun, armorPenetration: ent.Comp.ArmorPenetration, ignoreResistances: ent.Comp.IgnoreResistances); // Mono - AP
 
         if (damageDealt == null)
             return;

@@ -8,20 +8,20 @@
   category: Large
   group: Custom
   access: USSP
-  shuttlePath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attatchments/molotok.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/Ledokol/Attachments/molotok.yml
   guidebookPage: Null
 
 - type: gameMap
   id: Molotok
   mapName: 'Molotok'
-  mapPath: /Maps/_Mono/Shuttles/USSP/Ledokol/Attatchments/molotok.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/Ledokol/Attachments/molotok.yml
   minPlayers: 0
   stations:
     Molotok:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Molotok MIL Ram{1}'
+          mapNameTemplate: 'Molotok USSP Ram{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

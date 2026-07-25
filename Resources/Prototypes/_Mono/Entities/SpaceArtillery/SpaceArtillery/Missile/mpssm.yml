@@ -38,11 +38,11 @@
     intensitySlope: 8
     maxIntensity: 3
   - type: TargetSeeking
-    acceleration: 170
-    detectionRange: 1200
+    acceleration: 40
+    detectionRange: 2000
     scanArc: 35
     launchSpeed: 10
-    maxSpeed: 180
+    maxSpeed: 300
     trackDelay: 0.1
   - type: EmpOnTrigger
     range: 2
@@ -61,8 +61,9 @@
     damage:
       types:
         Structural: 2500
-        Blunt: 35
-        Heat: 15
+        Blunt: 75
+        Heat: 35
+        Pierce: 50
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:
@@ -81,16 +82,16 @@
     color: orange
     energy: 0.5
   - type: TargetSeeking # This is just for the acceleration and rocket shit, to make it, you know, be an actual rocket.
-    acceleration: 170
+    acceleration: 30
     detectionRange: 0
     scanArc: 0
     launchSpeed: 10
-    maxSpeed: 180
+    maxSpeed: 300
     trackDelay: 0
     exposesTracking: false
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 25
+    totalIntensity: 150
     intensitySlope: 80
-    maxIntensity: 10
+    maxIntensity: 100

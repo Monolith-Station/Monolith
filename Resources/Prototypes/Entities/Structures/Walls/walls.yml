@@ -9,6 +9,10 @@
     snap:
     - Wall
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: RangedDamageSound
     soundGroups:
       Brute:
@@ -22,6 +26,7 @@
     tags:
     - Wall
   - type: IsRoof
+  - type: RequiresGrid # Mono
   - type: Sprite
     drawdepth: Walls
   - type: Icon

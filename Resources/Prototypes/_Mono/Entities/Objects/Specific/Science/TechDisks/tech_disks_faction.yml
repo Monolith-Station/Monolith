@@ -19,7 +19,8 @@
     recipes:
     - EnergySwordRogue
     - EnergyDaggerRogue
-    - EnergyShieldRogue
+    - HeavyBallisticShield
+    - TelescopicShield
 
 # tsf stuff
 
@@ -27,7 +28,7 @@
   parent: TechDiskBase
   id: TechDiskTSFAnnie
   name: TSF Annie faction tech disk
-  description: A disk capable of adding the M-27 Annie and its ammo to a server's recipes, for faction techfabs.
+  description: A disk capable of adding the QBZ-430 Annie and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:
@@ -48,7 +49,7 @@
   parent: TechDiskBase
   id: TechDiskTSFLecter
   name: TSF Lecter faction tech disk
-  description: A disk capable of adding the M-6 Lecter and its ammo to a server's recipes, for faction techfabs.
+  description: A disk capable of adding the QBZ-410 Lecter and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:
@@ -66,7 +67,7 @@
   parent: TechDiskBase
   id: TechDiskTSFDrozd
   name: TSF Drozd faction tech disk
-  description: A disk capable of adding the M-5 Drozd and its ammo to a server's recipes, for faction techfabs.
+  description: A disk capable of adding the CS/LR-8 Drozd and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:
@@ -87,7 +88,7 @@
   parent: TechDiskBase
   id: TechDiskTSFBandit
   name: TSF Bandit faction tech disk
-  description: A disk capable of adding the MR-3 Bandit and its ammo to a server's recipes, for faction techfabs.
+  description: A disk capable of adding the QBU-406 Bandit and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:
@@ -108,7 +109,7 @@
   parent: TechDiskBase
   id: TechDiskTSFICWS
   name: TSF ICWS faction tech disk
-  description: A disk capable of adding the XLR-556 ICWS and its ammo to a server's recipes, for faction techfabs.
+  description: A disk capable of adding the QBZX-281 ICWS and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:
@@ -145,9 +146,13 @@
   - type: TechnologyDisk
     recipes:
     - CharonSlugUniversal
+    - CharonApheSlugUniversal
+    - CharonEmpSlugUniversal
     - ASM220TorpedoHEUniversal
+    - ASM220TorpedoHESACLOSUniversal
     - ASM220TorpedoECMUniversal
     - 150mmApShellUniversal
+    - 150mmApheShellUniversal
     - 150mmEmpShellUniversal
     - GPOL50BombUniversal
     - ZenithRocketUniversal
@@ -169,10 +174,14 @@
   - type: TechnologyDisk
     recipes:
     - CharonSlugUniversal
+    - CharonApheSlugUniversal
+    - CharonEmpSlugUniversal
     - ASM220TorpedoHEUniversal
+    - ASM220TorpedoHESACLOSUniversal
     - ASM220TorpedoECMUniversal
     - ASM220TorpedoLOSATUniversal
     - 150mmApShellUniversal
+    - 150mmApheShellUniversal
     - 150mmEmpShellUniversal
     - GPOL50BombUniversal
     - ZenithRocketUniversal

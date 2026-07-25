@@ -1,6 +1,4 @@
-using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
-using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Server.Power.Nodes;
 using Content.Server.Power.NodeGroups;
@@ -9,19 +7,21 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Pinpointer;
 using Content.Shared.Station.Components;
 using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.NodeContainer;
 
 namespace Content.Server.Power.EntitySystems;
 
 [UsedImplicitly]
 internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitoringConsoleSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-    [Dependency] private readonly SharedMapSystem _sharedMapSystem = default!;
+    [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private SharedMapSystem _sharedMapSystem = default!;
 
     // Note: this data does not need to be saved
     private Dictionary<EntityUid, Dictionary<Vector2i, PowerCableChunk>> _gridPowerCableChunks = new();

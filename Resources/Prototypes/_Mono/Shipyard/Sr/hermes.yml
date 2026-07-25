@@ -7,7 +7,7 @@
   category: Small
   group: Sr
   access: Mail
-  shuttlePath: /Maps/_Mono/Shuttles/hermes.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/hermes.yml
   guidebookPage: Null
   class:
   - Cargo
@@ -17,7 +17,7 @@
 - type: gameMap
   id: Hermes
   mapName: 'TPC Hermes'
-  mapPath: /Maps/_Mono/Shuttles/hermes.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/hermes.yml
   minPlayers: 0
   stations:
     Hermes:

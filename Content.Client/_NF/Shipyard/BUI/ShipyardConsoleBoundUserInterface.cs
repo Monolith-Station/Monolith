@@ -1,3 +1,4 @@
+using Content.Client._Mono.Shipyard;
 using Content.Client._NF.Shipyard.UI;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared._NF.Shipyard.BUI;
@@ -10,6 +11,7 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
 {
     private ShipyardConsoleMenu? _menu;
     private ShipyardRulesPopup? _rulesWindow;
+    [Dependency] private ShipyardPreviewSystem _preview = default!;
     public int Balance { get; private set; }
 
     public int? ShipSellValue { get; private set; }
@@ -40,6 +42,7 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
         _menu.OnUnassignDeed += UnassignDeed;
         _menu.OnRenameShip += RenameShip;
         _menu.TargetIdButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent("ShipyardConsole-targetId"));
+        _menu.OnPreviewShip += PreviewShip;
     }
 
     private void Populate(List<string> availablePrototypes, List<string> unavailablePrototypes, bool freeListings, bool validId)
@@ -78,7 +81,7 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
 
     private void ApproveOrder(ButtonEventArgs args)
     {
-        if (args.Button.Parent?.Parent is not VesselRow row || row.Vessel == null)
+        if (args.Button.Parent?.Parent?.Parent is not VesselRow row || row.Vessel == null) // Mono - another .parent? - this is really fucking stupid
         {
             return;
         }
@@ -86,13 +89,13 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
         var vesselId = row.Vessel.ID;
         SendMessage(new ShipyardConsolePurchaseMessage(vesselId));
     }
-    
+
     private void SellShip(ButtonEventArgs args)
     {
         //reserved for a sanity check, but im not sure what since we check all the important stuffs on server already
         SendMessage(new ShipyardConsoleSellMessage());
     }
-    
+
     private void UnassignDeed(ButtonEventArgs args)
     {
         SendMessage(new ShipyardConsoleUnassignDeedMessage());
@@ -101,5 +104,17 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
     private void RenameShip(string newName)
     {
         SendMessage(new ShipyardConsoleRenameMessage(newName));
+    }
+
+    private void PreviewShip(ButtonEventArgs args)
+    {
+        if (args.Button.Parent?.Parent?.Parent is not VesselRow row || row.Vessel == null) // Mono - another .parent? - this is really fucking stupid
+        {
+            return;
+        }
+
+        var vessel = row.Vessel;
+        SendMessage(new ShipyardConsolePreviewMessage());
+        _preview.TryPreviewGrid(vessel);
     }
 }

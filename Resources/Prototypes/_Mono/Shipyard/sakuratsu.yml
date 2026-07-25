@@ -12,7 +12,7 @@
   price: 58250
   category: Medium
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/sakuratsu.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/sakuratsu.yml
   guidebookPage: null
   class:
   - Science
@@ -23,7 +23,7 @@
 - type: gameMap
   id: Sakuratsu
   mapName: 'SKR Sakuratsu'
-  mapPath: /Maps/_Mono/Shuttles/sakuratsu.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/sakuratsu.yml
   minPlayers: 0
   stations:
     Sakuratsu:

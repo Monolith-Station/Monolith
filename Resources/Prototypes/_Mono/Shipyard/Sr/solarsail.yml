@@ -2,12 +2,12 @@
   id: Solarsail
   parent: BaseVessel
   name: Solarsail
-  description: A personal transport and mobile office for the colonial liaison. Part of the combined service ship.
+  description: A personal transport and mobile office for the Overseer. Part of the combined service ship.
   price: 25500
   category: Small
   group: Sr
   access: HeadOfPersonnel
-  shuttlePath: /Maps/_Mono/Shuttles/solarsail.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/solarsail.yml
   guidebookPage: Null
   class:
   - Civilian
@@ -17,7 +17,7 @@
 - type: gameMap
   id: Solarsail
   mapName: 'Solarsail'
-  mapPath: /Maps/_Mono/Shuttles/solarsail.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/solarsail.yml
   minPlayers: 0
   stations:
     Solarsail:

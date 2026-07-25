@@ -1,0 +1,37 @@
+#Author: Starch(!)
+
+- type: vessel
+  id: ZephyrEC
+  parent: BaseVessel
+  name: TSF-SKR Zephyr-EC
+  description: A Zephyr w/ an TSFN-EC overhaul package, converting it into a light unmanned drone.
+  limit: 8
+  hyperwarLimit: 12
+  price: 19600
+  category: Small
+  group: Custom
+  mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Carrier/zephyr_ec.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  - Fighter
+  engine:
+  - APU
+
+- type: gameMap
+  id: ZephyrEC
+  mapName: 'Zephyr-EC'
+  mapPath: /SharedMaps/_Mono/Shuttles/Carrier/zephyr_ec.yml
+  minPlayers: 0
+  stations:
+    ZephyrEC:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Zephyr-EC TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs: {}

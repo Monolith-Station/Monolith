@@ -11,15 +11,15 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared.Clothing;
 
-public sealed class SharedMagbootsSystem : EntitySystem
+public sealed partial class SharedMagbootsSystem : EntitySystem
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly ClothingSystem _clothing = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private ClothingSystem _clothing = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private SharedItemSystem _item = default!;
 
     public override void Initialize()
     {
@@ -34,16 +34,10 @@ public sealed class SharedMagbootsSystem : EntitySystem
 
     private void OnToggled(Entity<MagbootsComponent> ent, ref ItemToggledEvent args)
     {
-        var (uid, comp) = ent;
-        // only stick to the floor if being worn in the correct slot
-        if (_container.TryGetContainingContainer((uid, null, null), out var container) &&
-            _inventory.TryGetSlotEntity(container.Owner, comp.Slot, out var worn)
-            && uid == worn)
-        {
+        if (_container.TryGetContainingContainer((ent.Owner, null, null), out var container))
             UpdateMagbootEffects(container.Owner, ent, args.Activated);
-        }
 
-        var prefix = args.Activated ? "on" : null;
+        var prefix = args.Activated ? ent.Comp.EnabledPrefix : null; // Goob edit
         _item.SetHeldPrefix(ent, prefix);
         _clothing.SetEquippedPrefix(ent, prefix);
     }
@@ -64,10 +58,16 @@ public sealed class SharedMagbootsSystem : EntitySystem
         if (TryComp<MovedByPressureComponent>(user, out var moved))
             moved.Enabled = !state;
 
+        _gravity.RefreshWeightless(user);
+
         if (state)
             _alerts.ShowAlert(user, ent.Comp.MagbootsAlert);
         else
             _alerts.ClearAlert(user, ent.Comp.MagbootsAlert);
+
+        // Mono
+        var ev = new MagbootsToggledEvent(ent.Owner, state);
+        RaiseLocalEvent(user, ref ev);
     }
 
     private void OnIsWeightless(Entity<MagbootsComponent> ent, ref IsWeightlessEvent args)
@@ -88,3 +88,6 @@ public sealed class SharedMagbootsSystem : EntitySystem
         OnIsWeightless(ent, ref args.Args);
     }
 }
+
+[ByRefEvent]
+public record struct MagbootsToggledEvent(EntityUid Magboots, bool State); // Mono

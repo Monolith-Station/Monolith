@@ -8,6 +8,6 @@ delta-chat-emote-name-rev = Rev
 delta-chat-emote-name-caw = Caw
 delta-chat-emote-name-bark = Bark
 delta-chat-emote-name-snarl = Snarl
-delta-chat-emote-name-whine = Whine
+delta-chat-emote-name-whine = Whimper
 delta-chat-emote-name-howl = Howl
 delta-chat-emote-name-awoo = Awoo

@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Client.Stealth;
 using Content.Shared._White.Overlays;
 using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -13,11 +14,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._White.Overlays;
 
-public sealed class ThermalVisionOverlay : Overlay
+public sealed partial class ThermalVisionOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly TransformSystem _transform;
     private readonly StealthSystem _stealth;
@@ -87,6 +88,10 @@ public sealed class ThermalVisionOverlay : Overlay
         while (entities.MoveNext(out var uid, out var body, out var sprite, out var xform))
         {
             if (!CanSee(uid, sprite) || !body.ThermalVisibility)
+                continue;
+
+            // Mono - teargas hides you from smoke
+            if (_entity.HasComponent<SmokeAffectedComponent>(uid))
                 continue;
 
             var entity = uid;

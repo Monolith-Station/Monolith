@@ -1,0 +1,41 @@
+- type: loadout
+  id: VGInfanteerPDA
+  equipment:
+    id: VGInfanteerPDA
+
+- type: loadoutGroup
+  id: VGInfanteerPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - VGInfanteerPDA
+  fallbacks:
+  - VGInfanteerPDA
+
+- type: loadout
+  id: VGLieutenantPDA
+  equipment:
+    id: VGLieutenantPDA
+
+- type: loadoutGroup
+  id: VGLieutenantPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - VGLieutenantPDA
+  fallbacks:
+  - VGLieutenantPDA
+
+- type: loadout
+  id: VGCommanderPDA
+  equipment:
+    id: VGCommanderPDA
+
+- type: loadoutGroup
+  id: VGCommanderPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - VGCommanderPDA
+  fallbacks:
+  - VGCommanderPDA

@@ -12,7 +12,7 @@
   price: 57500
   category: Small
   group: Shipyard
-  shuttlePath: /Maps/_Mono/Shuttles/kestrel.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/kestrel.yml
   guidebookPage: null
   class:
   - Science
@@ -22,7 +22,7 @@
 - type: gameMap
   id: Kestrel
   mapName: 'SKR Kestrel'
-  mapPath: /Maps/_Mono/Shuttles/kestrel.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/kestrel.yml
   minPlayers: 0
   stations:
     Kestrel:

@@ -1,0 +1,327 @@
+- type: entity
+  name: "TCA QBU-284 'Shenzhen' coilgun AMR"
+  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  id: WeaponAMRShenzhen
+  description: Magazine-fed AMR, utilizing electromagnets to fire 13.4x92mm DU-APFSDS rounds with extreme velocity.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/shenzhen.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -95
+  - type: Gun
+    minAngle: 5
+    maxAngle: 95
+    angleIncrease: 27
+    angleDecay: 10
+    fireRate: 0.4
+    selectedMode: SemiAuto
+    availableModes: SemiAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/chemrail_shenzhen.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineShenzhen
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineShenzhen
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeShenzhen
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeShenzhen
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/shenzhen_inhands_32x.rsi
+  - type: Item
+    size: Ginormous
+    sprite: _Mono/Objects/Weapons/Guns/Snipers/shenzhen_inhands_32x.rsi
+  - type: StaticPrice
+    price: 2400
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.3
+    sprintModifier: 0.3
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 7
+    pvsIncrease: 0.7
+  - type: GunRequiresWield
+  - type: LaserPointer
+    targetedColor: "#03c2fc"
+    defaultColor: "#03c2fc"
+
+- type: entity
+  name: VFD QBU-243 Xian DMR (8x65mm SKR)
+  parent: [BaseWeaponRifle, BaseGunWieldable, BaseFactionGearTSFT2]
+  id: WeaponRifleMR8C
+  description: High powered, relatively fast-firing marksman rifle, intended for MARSOC usage. Chambered in 8x65mm SKR. An Erebus railmount is attached to the top of the reciever and the bottom of the handguard for optics and grips.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/xian.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - map: ["gripAttachment"]
+    - map: ["opticAttachment"]
+  - type: GunWieldBonus
+    minAngle: -21
+    maxAngle: -47
+  - type: Gun
+    minAngle: 21
+    maxAngle: 48
+    angleIncrease: 27
+    angleDecay: 2
+    fireRate: 3 # 180 rpm
+    damageModifier: 1.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/heavy_rifle_1.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine8x65mmSKR
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine8x65mmSKR
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge8x65mmSKR
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge8x65mmSKR
+      attachment_grip:
+        priority: 0
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        whitelist:
+          tags:
+          - MonoGripErebusRailmount
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      attachment_grip: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/xian_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/xian_inhands_32x.rsi
+  - type: StaticPrice
+    price: 2400
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
+    - name: es-gun-attachments-slot-name-grip
+      containerId: attachment_grip
+      whitelist:
+        tags:
+        - MonoGripErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      gripAttachment:
+      - containerId: attachment_grip
+        state: grip
+        whitelist:
+          tags:
+          - MonoGripVFG
+      - containerId: attachment_grip
+        state: lam
+        whitelist:
+          tags:
+          - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x
+
+- type: entity
+  parent: BaseWeaponRifle # Mono
+  id: WeaponRifleMR3C # Mono
+  name: SKR-WS QBU-430 Bandit (8x65mm SKR) # Mono
+  description: A precise and reliable bullpup DMR, developed as a cheaper production model from early QBU-243 prototypes. Feeds from 8x65mm STANAG magazines. It has a Erebus railmount for optics. # Mono
+  components:
+  - type: Sprite
+    sprite: _Harmony/Objects/Weapons/Guns/Rifles/bandit.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - map: ["opticAttachment"] # Mono
+  - type: Clothing
+    sprite: _Harmony/Objects/Weapons/Guns/Rifles/bandit.rsi
+  - type: GunWieldBonus # Mono
+    minAngle: -32
+    maxAngle: -51
+  - type: Gun
+    minAngle: 32 # Mono
+    maxAngle: 54 # Mono
+    angleIncrease: 14
+    angleDecay: 5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    fireRate: 2
+    soundGunshot:
+      collection: DMRFire
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine8x65mmSKR # Mono
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine8x65mmSKR # Mono
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge8x65mmSKR # Mono
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge8x65mmSKR # Mono
+      # Mono
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        startingItem: GunAttachmentOpticErebus4x
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot # Mono
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+    # Mono start
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  # Attachment slop
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x
+    # Mono end

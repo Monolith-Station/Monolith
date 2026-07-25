@@ -86,10 +86,6 @@
     materialComposition:
       Steel: 100
       Plastic: 100
-  - type: GuideHelp
-    guides:
-    - Security
-    # - Antagonists # Frontier: guidebook entry removed
 
 - type: entity
   name: cyborg stun baton
@@ -177,9 +173,6 @@
     materialComposition:
       Steel: 100
       Plastic: 100
-  - type: GuideHelp
-    guides:
-    - Security
 
 - type: entity
   name: truncheon
@@ -213,10 +206,6 @@
   - type: Appearance
   - type: StaticPrice
     price: 80
-  - type: GuideHelp
-    guides:
-    - Security
-    # - Antagonists # Frontier: guidebook entry removed
 
 - type: entity
   name: flash
@@ -239,15 +228,14 @@
     sprite: Objects/Weapons/Melee/flash.rsi
     layers:
     - state: flash
-      map: [ "enum.FlashVisuals.BaseLayer" ]
+      map: [ "enum.FlashVisualLayers.BaseLayer" ]
     - state: flashing
-      map: [ "enum.FlashVisuals.LightLayer" ]
+      map: [ "enum.FlashVisualLayers.LightLayer" ]
       visible: false
       shader: unshaded
   - type: Flash
   - type: LimitedCharges
     maxCharges: 5
-    charges: 5
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
@@ -258,22 +246,20 @@
     size: Small
     sprite: Objects/Weapons/Melee/flash.rsi
   - type: UseDelay
+    delay: 4 # has to be the same as the FlashingTime datafield in FlashComponent
+  - type: UseDelayOnMeleeHit
   - type: StaticPrice
     price: 40
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.FlashVisuals.Burnt:
-        enum.FlashVisuals.BaseLayer:
+        enum.FlashVisualLayers.BaseLayer:
           True: {state: burnt}
       enum.FlashVisuals.Flashing:
-        enum.FlashVisuals.LightLayer:
+        enum.FlashVisualLayers.LightLayer:
           True: {visible: true}
           False: {visible: false}
-  - type: GuideHelp
-    guides:
-    - Security
-  # - Antagonists # Frontier: guidebook entry removed
 
 - type: entity
   name: flash
@@ -326,7 +312,3 @@
     radius: 0
     softness: 0
     enabled: true
-  - type: GuideHelp
-    guides:
-    - Security
-  # - Antagonists # Frontier: guidebook entry removed

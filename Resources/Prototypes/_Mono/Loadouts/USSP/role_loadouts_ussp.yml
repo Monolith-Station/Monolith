@@ -3,99 +3,84 @@
   groups:
   - USSPHead
   - USSPJumpsuit
-  - TsfmcGloves
+  - USSPNeck
+  - USSPGloves
   - USSPBackpack
-  - TsfmcOuterClothing
+  - USSPOuterClothing
   - TsfmcShoes
   - TsfmcFace
+  - USSPBalaclava
+  - USSPGlasses
   - USSPBelt
   - USSPEars
+  - ContractorEncryptionKey
   - NfsdBoxSurvival
   - USSPRiflemanPDA
   - ContractorWallet
-  - ContractorEncryptionKey
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorTrinkets
+  - USSPBureaucracy
   - NfsdSpeciesSpecific
-  - UsspFirearm
-  - UsspMag
-
-- type: roleLoadout
-  id: JobUSSPCorporal
-  groups:
-  - USSPHead
-  - USSPJumpsuit
-  - TsfmcGloves
-  - USSPBackpack
-  - USSPOuterClothing
-  - TsfmcShoes
-  - TsfmcFace
-  - USSPBelt
-  - USSPEars
-  - NfsdBoxSurvival
-  - USSPCorporalPDA
-  - ContractorWallet
-  - ContractorEncryptionKey
-  - NfsdSpeciesSpecific
-  - UsspFirearm
-  - UsspMag
-
-
-- type: roleLoadout
-  id: JobUSSPMedic
-  groups:
-  - USSPHead
-  - USSPJumpsuit
-  - TsfmcBrigmedicGloves
-  - USSPBackpack
-  - USSPOuterClothing
-  - TsfmcShoes
-  - TsfmcFace
-  - USSPEars
-  - NfsdBoxSurvival
-  - USSPMedicPDA
-  - ContractorWallet
-  - ContractorEncryptionKey
-  - NfsdSpeciesSpecific
-  - USSPMedhud
-  - USSPBeltMedic
+  - ContractorArmorPlates
   - UsspFirearm
   - UsspMag
 
 - type: roleLoadout
   id: JobUSSPSergeant
   groups:
-  - USSPJumpsuit
-  - TsfmcGloves
-  - USSPBackpackSergeant
+  - USSPHeadOfficer
+  - USSPJumpsuitOfficer
+  - USSPNeck
+  - USSPGloves
+  - USSPBackpack
+  - USSPOuterClothingOfficer
   - TsfmcShoes
   - TsfmcFace
-  - USSPBelt
+  - USSPBalaclava
+  - USSPGlasses
+  - USSPBeltOfficer
   - USSPEarsCommand
+  - ContractorEncryptionKey
   - NfsdBoxSurvival
   - USSPSergeantPDA
   - ContractorWallet
-  - ContractorEncryptionKey
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorTrinkets
+  - USSPBureaucracy
   - NfsdSpeciesSpecific
-  - USSPOuterClothingOfficer
-  - USSPHeadOfficer
+  - ContractorArmorPlates
   - UsspFirearm
   - UsspMag
 
 - type: roleLoadout
   id: JobUSSPCommissar
   groups:
-  - USSPJumpsuit
-  - TsfmcGloves
-  - USSPBackpackSergeant
+  - USSPHeadCommissar
+  - USSPJumpsuitOfficer
+  - USSPNeck
+  - USSPCommissarGloves
+  - USSPBackpack
   - USSPOuterClothingOfficer
   - TsfmcShoes
   - TsfmcFace
-  - USSPBelt
+  - USSPBalaclava
+  - USSPGlasses
+  - USSPBeltOfficer
   - USSPEarsCommand
+  - ContractorEncryptionKey
   - NfsdBoxSurvival
   - USSPCommissarPDA
   - ContractorWallet
-  - ContractorEncryptionKey
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorTrinkets
+  - USSPBureaucracy
   - NfsdSpeciesSpecific
-  - USSPHeadCommissar
+  - ContractorArmorPlates
   - UsspFirearm
   - UsspMag

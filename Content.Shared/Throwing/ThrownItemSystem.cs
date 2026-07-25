@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._CE.ZLevels.Core.EntitySystems; // CrystallEdge
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Gravity;
@@ -15,14 +16,15 @@ namespace Content.Shared.Throwing
     /// <summary>
     ///     Handles throwing landing and collisions.
     /// </summary>
-    public sealed class ThrownItemSystem : EntitySystem
+    public sealed partial class ThrownItemSystem : EntitySystem
     {
-        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
-        [Dependency] private readonly FixtureSystem _fixtures = default!;
-        [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-        [Dependency] private readonly SharedGravitySystem _gravity = default!;
+        [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private SharedBroadphaseSystem _broadphase = default!;
+        [Dependency] private FixtureSystem _fixtures = default!;
+        [Dependency] private SharedPhysicsSystem _physics = default!;
+        [Dependency] private SharedGravitySystem _gravity = default!;
+        [Dependency] private CESharedZLevelsSystem _zLevels = default!; // CrystallEdge
 
         private const string ThrowingFixture = "throw-fixture";
 
@@ -124,6 +126,10 @@ namespace Content.Shared.Throwing
                 _adminLogger.Add(LogType.Landed, LogImpact.Low, $"{ToPrettyString(uid):entity} thrown by {ToPrettyString(thrownItem.Thrower.Value):thrower} landed.");
 
             _broadphase.RegenerateContacts((uid, physics));
+            //CrystallEdge dont call LandEvent if we dont have ground
+            if (_zLevels.DistanceToGround(uid) > 0.5f)
+                return;
+            //CrystallEdge end
             var landEvent = new LandEvent(thrownItem.Thrower, playSound);
             RaiseLocalEvent(uid, ref landEvent);
         }

@@ -1,17 +1,18 @@
 - type: technology
-  id: RogueEsword
-  name: research-technology-rogue-energy-weapon
-  entityIcon: EnergySword
+  id: RogueMeleeWeapons
+  name: research-technology-rogue-advanced-melee-weapon
+  entityIcon: HeavyBallisticShield
   discipline: RogueWeaponry
   tier: 3
   cost: 25000
   recipeUnlocks:
-  - EnergyShieldRogue
+  - HeavyBallisticShield
+  - TelescopicShield
   - EnergySwordRogue
   - EnergyDaggerRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 19, 6
+  position: 12, 9
 
 - type: technology
   id: HFSwordTech
@@ -23,8 +24,8 @@
   recipeUnlocks:
   - HFSwordVT7
   technologyPrerequisites:
-  - RogueEsword
-  position: 19, 12
+  - RogueMeleeWeapons
+  position: 12, 14
 
 - type: technology
   id: RogueBasicGuns
@@ -35,13 +36,13 @@
   cost: 15000
   recipeUnlocks:
   - WeaponSubMachineGunC20rRogue
+  - WeaponRifleVympelRogue
   - WeaponRevolverPythonRogue
-  - WeaponRifleM90Rogue
   - WeaponShotgunSultanPulsar
   - PrintableDirtyBomb
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 20, 2
+  position: 12, 2
 
 - type: technology
   id: RogueAdvancedGuns
@@ -53,22 +54,28 @@
   recipeUnlocks:
   - WeaponSubMachineGunWt550Rogue
   - WeaponSubMachineGunAtreidesRogue
+  - WeaponRifleM90Rogue
   - WeaponShotgunBulldogRogue
   - WeaponLauncherPanzeroRogue
   technologyPrerequisites:
   - RogueBasicGuns
   - UniversalMaterialResearchT2
-  position: 20, 7
+  position: 12, 8
 
 - type: technology
   id: RogueHeavyWeapons
   name: research-technology-rogue-heavy-weapons
-  entityIcon: WeaponSniperHristov
+  entityIcon: WeaponLightMachineGunL6
   discipline: RogueWeaponry
   tier: 3
-  cost: 55000
+  cost: 75000
   recipeUnlocks:
   - WeaponSniperHristovRogue
+  - WeaponLightMachineGunL6Rogue
+  - WeaponRifleBurnerRogue
+  - Magazine762x39mmBox
+  - Magazine127x99mm
+  - AmmoBox127x99mm
   - AmmoBox145x114mm
   - AmmoBox145x114mmBig
   - WeaponDEWBasilisk
@@ -77,7 +84,7 @@
   technologyPrerequisites:
   - RogueAdvancedGuns
   - UniversalMaterialResearchT3
-  position: 20, 12
+  position: 12, 13
 
 - type: technology
   id: RogueSubsonic
@@ -97,4 +104,4 @@
   - AmmoBox635x40mmCaselessBig
   technologyPrerequisites:
   - RogueAdvancedGuns
-  position: 21, 7
+  position: 13, 8

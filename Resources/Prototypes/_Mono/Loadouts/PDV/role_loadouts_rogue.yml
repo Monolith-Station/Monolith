@@ -18,7 +18,10 @@
   - PDVBelt
   - ContractorEncryptionKey
   - RogueFirearm
+  - RogueSidearm
   - RogueMag
+  - RoguePistolMag
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -40,8 +43,11 @@
   - PirateTrinkets
   - PDVBelt
   - ContractorEncryptionKey
-  - RogueFirearm
-  - RogueMag
+  - RogueFirearmCommander
+  - RogueSidearm
+  - RogueCommandMag
+  - RoguePistolMag
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -63,8 +69,11 @@
   - PirateCaptainTrinkets
   - PDVBelt
   - ContractorEncryptionKey
-  - RogueFirearm
-  - RogueMag
+  - RogueFirearmCommander
+  - RogueSidearm
+  - RogueCommandMag
+  - RoguePistolMag
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -88,6 +97,7 @@
   - ContractorEncryptionKey
   - RogueFirearm
   - RogueMag
+  - FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -109,6 +119,23 @@
   - PirateTrinkets
   - PDVBelt
   - ContractorEncryptionKey
-  - RogueFirearm
-  - RogueMag
+  - RogueFirearmCommander
+  - RogueSidearm
+  - RogueCommandMag
+  - RoguePistolMag
+  - FactionArmorPlates
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobPDVTarkhan
+  groups:
+  - ContractorBoxSurvival
+  - NFSpeciesSpecific
+  - ContractorWallet
+  - PirateTrinkets
+  - ContractorCartridge
+  - ContractorEncryptionKey
+  - RogueSidearm
+  - RoguePistolMag
+  - FactionArmorPlates
   canCustomizeName: true

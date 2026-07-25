@@ -67,6 +67,8 @@
   id: AirlockMailCarrierLocked
   suffix: Mail, Locked
   components:
+  - type: Sprite # Mono - swapped to cargo sprite... why did this not exist...
+    sprite: Structures/Doors/Airlocks/Standard/cargo.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMailCarrier ]
@@ -282,7 +284,7 @@
 - type: entity
   parent: AirlockGlass
   id: AirlockRogueGlassLocked
-  suffix: Rogue, Locked
+  suffix: PDV, Locked # Mono - PDV
   components:
   - type: ContainerFill
     containers:
@@ -291,7 +293,7 @@
 - type: entity
   parent: AirlockExternalGlass
   id: AirlockExternalGlassRogueLocked
-  suffix: Rogue, Glass, Locked
+  suffix: PDV, Glass, Locked # Mono - PDV
   components:
   - type: ContainerFill
     containers:
@@ -300,7 +302,7 @@
 - type: entity
   parent: AirlockMiningGlass
   id: AirlockMiningGlassRogueLocked
-  suffix: Rogue, Glass, Locked
+  suffix: PDV, Glass, Locked # Mono - PDV
   components:
   - type: ContainerFill
     containers:
@@ -309,7 +311,7 @@
 - type: entity
   parent: AirlockShuttleSyndicate
   id: AirlockShuttleSyndicateRogueLocked
-  suffix: Rogue, Locked
+  suffix: PDV, Locked # Mono - PDV
   components:
   - type: ContainerFill
     containers:
@@ -318,7 +320,7 @@
 - type: entity
   parent: AirlockGlassShuttleSyndicate
   id: AirlockGlassShuttleSyndicateRogueLocked
-  suffix: Rogue, Glass Locked
+  suffix: PDV, Glass Locked # Mono - PDV
   components:
   - type: ContainerFill
     containers:
@@ -328,7 +330,7 @@
 - type: entity
   parent: AirlockHatch
   id: AirlockHatchRogueLocked
-  suffix: Rogue, Locked
+  suffix: PDV, Locked
   components:
   - type: ContainerFill
     containers:
