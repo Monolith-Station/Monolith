@@ -51,3 +51,23 @@
     proto: BF_VDV_VET
   inhand:
   - BF14WeaponCaseShortRUTT33
+
+#region SWAT
+
+- type: loadout
+  id: LoadoutGunAR15Police
+  name: AR15 police carbine gun case
+  inhand:
+  - BF14WeaponCaseLongUSAR15Police
+
+- type: loadout
+  id: LoadoutGunMP5
+  name: MP5 gun case
+  inhand:
+  - BF14WeaponCaseLongUSMP5
+
+- type: loadout
+  id: LoadoutGunM870
+  name: M870 gun case
+  inhand:
+  - BF14WeaponCaseLongUSM870

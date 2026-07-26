@@ -365,6 +365,18 @@
   - LoadoutShoesColourBrown
   - LoadoutShoesWorkboots
 
+#region LONGARMS
+
+- type: loadoutGroup
+  id: BF_LongarmsSWAT
+  name: longarm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LoadoutGunAR15Police
+  - LoadoutGunMP5
+  - LoadoutGunM870
+
 #region SIDEARMS
 
 - type: loadoutGroup

@@ -196,6 +196,8 @@
   - BF_Map
   - ContractorWallet
 
+#region USPD
+
 - type: roleLoadout
   id: JobUSPDChief
   groups:
@@ -226,6 +228,30 @@
   - BF_Map
   - ContractorWallet
 
+- type: roleLoadout
+  id: JobUSPDSWATSquadLeader
+  groups:
+  - BF_LongarmsSWAT
+  - BF_PistolsUSMCSL
+  - BF_SoldierGlassesGreen
+  - BF_CombatMasks
+  - BF_WPSGloves
+  - BF_BackpacksBlack
+  - BF_MiscItemsNATO
+  - BF_Map
+  - ContractorWallet
+
+- type: roleLoadout
+  id: JobUSPDSWATOfficer
+  groups:
+  - BF_LongarmsSWAT
+  - BF_SoldierGlassesGreen
+  - BF_CombatMasks
+  - BF_WPSGloves
+  - BF_BackpacksBlack
+  - BF_MiscItemsNATO
+  - BF_Map
+  - ContractorWallet
 
 #region BW
 

@@ -1,0 +1,52 @@
+- type: job
+  id: USPDSWATOfficer
+  name: SWAT Officer
+  description: job-description-uspd-officer
+  playTimeTracker: JobUSPDSWATOfficer
+  weight: 68
+  startingGear: USPDSWATOfficerGear
+  alwaysUseSpawner: true
+  icon: "JobIconINDRifleman"
+  requireAdminNotify: false
+  supervisors: job-supervisors-usgov
+  canBeAntag: false
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - English
+    languagesUnderstood:
+    - English
+  - !type:AddComponentSpecial
+    components:
+    - type: ChatRank
+      rank: BF-rank-policeofficer
+  access:
+  - Maintenance
+  - Service
+  - External
+  - Mercenary # Frontier
+  - NATOCommon
+  - Security
+  - Brig
+  - Command
+  - Medical
+  - Cargo
+  - Engineering
+  - Research
+
+- type: startingGear
+  id: USPDSWATOfficerGear
+  equipment:
+    id: USPDOfficerPDA
+    head: ClothingHeadHatHelmetSurplus
+    ears: ClothingHeadsetAltWPS
+    belt: ClothingBeltStationSecurityFilledSWAT
+    jumpsuit: ClothingUniformJumpsuitUSPD
+    outerClothing: ClothingOuterArmorWebVestSec
+    shoes: ClothingShoesBootsJackFilled
+    pocket2: PouchFirstAidFilled
+  storage:
+    back:
+    - ClothingMaskGasM40
+    - Tourniquet
+    - Zipties

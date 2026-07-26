@@ -23,3 +23,30 @@
   - type: Tag
     tags:
     - SandbagFillable
+
+- type: entity
+  parent: [BaseItem, RecyclableItemClothSmall]
+  name: lit rag
+  id: RagItemLit
+  description: It's on fire!.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/rag.rsi
+    layers:
+    - state: fire
+      sprite: Effects/fire.rsi
+    - state: rag
+  - type: Appearance
+  - type: Item
+    size: Small
+    sprite: Objects/Specific/Janitorial/rag.rsi
+  - type: PointLight
+    enabled: true
+    netsync: false
+    radius: 1.5
+    color: orange
+  - type: IgnitionSource
+    ignited: true
+  - type: ActiveTimerTrigger
+    timeRemaining: 5
+  - type: DeleteOnTrigger
