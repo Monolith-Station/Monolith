@@ -1067,6 +1067,12 @@ entities:
     - type: GridTree
     - type: Broadphase
     - type: OccluderTree
+    - type: Parallax
+      parallax: bedrock
+    - type: MapLight
+      ambientLightColor: '#D8B059FF'
+    - type: Roof
+      data: {}
     - type: MapAtmosphere
       space: False
       mixture:
