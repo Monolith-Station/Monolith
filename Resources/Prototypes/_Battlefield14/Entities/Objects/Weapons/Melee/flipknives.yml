@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: _Battlefield14/Objects/Weapons/Melee/Knives/flip.rsi
     layers:
-    - state: switchblade-off
+    - state: switchblade_off
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: ItemToggle
     soundActivate:
@@ -45,8 +45,7 @@
   - type: LandAtCursor
   - type: UseDelay
   - type: Item
-    sprite: _Battlefield14/Objects/Weapons/Melee/Knives/flip.rsi
-    heldPrefix: on
+    heldPrefix: off
     size: Small
   - type: DisarmMalus
     malus: 0.225
@@ -55,8 +54,16 @@
     visuals:
       enum.ToggleVisuals.Toggled:
         enum.ToggleVisuals.Layer:
-          True: {state: switchblade-on}
-          False: {state: switchblade-off}
+          True: {state: switchblade_on}
+          False: {state: switchblade_off}
+  - type: Stunbaton # for some fucking reason if it doesnt have this the inhand thing DOESN'T WORK
+    energyPerUse: 0
+  - type: Battery
+    maxCharge: 1
+    startingCharge: 1
+  - type: BatterySelfRecharger # so your knife isnt killed by an EMP
+    autoRechargeRate: 1
+    autoRecharge: True
   - type: StaticPrice
     price: 100
   - type: Tool
