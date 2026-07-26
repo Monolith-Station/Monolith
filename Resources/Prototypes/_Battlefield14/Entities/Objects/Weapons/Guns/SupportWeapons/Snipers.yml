@@ -135,6 +135,55 @@
       state: acog
 
 - type: entity
+  name: M38 DMR
+  parent: WeaponRifleUSM16A3
+  id: WeaponRifleUSM38
+  description: A HK416 in DMR configuration.
+  components:
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M27-IAR.rsi
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: LPVO
+      - state: stock-adjustable-HK
+      - state: rifle-length-barrel-quadrail
+      - state: foregrip
+      - state: railcover
+      - state: supp
+        offset: 0.20, 0
+      - state: mag-30-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/iconstates.rsi
+    state: icon-full-M27IAR
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/AR15/M27-IAR.rsi
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -30
+  - type: Gun
+    projectileSpeed: 60
+    damageModifier: 1.5
+    minAngle: 19 # wielded = 0
+    maxAngle: 50 # wielded = 20
+    angleIncrease: 3.5
+    angleDecay: 16
+    availableModes:
+    - SemiAuto
+    selectedMode: SemiAuto
+    fireRate: 4
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 10
+    pvsIncrease: 0.8
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.90
+    sprintModifier: 0.90
+
+- type: entity
   name: M200 Intervention
   parent: [BaseWeaponRifle, BaseGunWieldable]
   id: WeaponSniperUSIntervention

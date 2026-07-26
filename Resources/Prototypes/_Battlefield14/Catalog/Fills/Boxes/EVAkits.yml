@@ -1,8 +1,7 @@
 - type: entity
-  name: Marine combat EVA kit
   parent: BoxCardboard
-  id: EVAKitCombatUSMC
-  description: A kit containing everything needed to survive and thrive in space. Marine edition.
+  id: BaseEVAKit
+  abstract: true
   components:
   - type: Item
     size: Ginormous
@@ -16,6 +15,17 @@
         - Crowbar
         - Wrench
         - GPS
+  - type: Sprite
+    layers:
+      - state: boxwide
+      - state: extendedtank
+
+- type: entity
+  name: USMC combat EVA kit
+  parent: BaseEVAKit
+  id: EVAKitCombatUSMC
+  description: A kit containing everything needed to survive and thrive in space. Marine edition.
+  components:
   - type: StorageFill
     contents:
       - id: ClothingOuterVoidsuitAmericanCombatMarine
@@ -24,30 +34,28 @@
       - id: HandHeldMassScanner
       - id: HandheldGPSBasic
       - id: CrowbarRed
-  - type: Sprite
-    layers:
-      - state: boxwide
-      - state: extendedtank
+
+- type: entity
+  name: fallschirmjager combat EVA kit
+  parent: BaseEVAKit
+  id: EVAKitCombatFSJ
+  description: A kit containing everything needed to survive and thrive in space. Fallschirmjager edition.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterVoidsuitGermanCombat
+      - id: ClothingShoesBootsMagAshenFilled
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: HandHeldMassScanner
+      - id: HandheldGPSBasic
+      - id: CrowbarRed
 
 - type: entity
   name: Russian combat EVA kit
-  parent: BoxCardboard
+  parent: BaseEVAKit
   id: EVAKitCombatRU
   description: A kit containing everything needed to survive and thrive in space. Ruski edition.
   components:
-  - type: Item
-    size: Ginormous
-  - type: Storage
-    maxItemSize: Huge
-    grid:
-    - 0,0,6,3
-    whitelist:
-      tags:
-        - FitsInVoidsuitKit
-        - Crowbar
-        - Wrench
-        - GPS
-        - GasTank
   - type: StorageFill
     contents:
       - id: ClothingOuterVoidsuitRussianCombat
@@ -56,7 +64,3 @@
       - id: HandHeldMassScanner
       - id: HandheldGPSBasic
       - id: CrowbarRed
-  - type: Sprite
-    layers:
-      - state: boxwide
-      - state: extendedtank
