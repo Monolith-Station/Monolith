@@ -547,6 +547,12 @@
   id: BF14WeaponMachineGunBrigadorBonesaw
   description: Chambered in 7.92x57mm. A famous design even before the troubles, after GL rose to power the thing's name was changed to the 'bonesaw', in honor of his legendary ambush by Linschotten, 8 thousand infantry cut down in the cornfield. Nowadays the design bureau slaps this shitty laser onto it.
   components:
+  - type: Gun
+    availableModes:
+    - Burst
+    selectedMode: Burst
+    shotsPerBurst: 3
+    burstCooldown: 0
   - type: ItemSlots
     slots:
       gun_magazine:

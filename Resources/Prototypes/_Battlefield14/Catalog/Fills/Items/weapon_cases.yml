@@ -242,6 +242,17 @@
     - id: MagazineRifleM42A5
       amount: 5
 
+- type: entity
+  parent: WeaponCaseLong
+  id: BF14WeaponCaseLongUSMXM8
+  suffix: XM8
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleUSXM8
+    - id: MagazineRifleG36
+      amount: 5
+
 #region Machine guns, US
 
 - type: entity
