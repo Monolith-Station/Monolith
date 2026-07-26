@@ -364,6 +364,23 @@
         amount: 2
 
 - type: entity
+  id: ClothingBeltStationSecurityFilledSWAT
+  parent: ClothingBeltStationSecurity
+  suffix: Filled, SWAT
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponPistolM9
+  - type: StorageFill
+    contents:
+      - id: Handcuffs
+        amount: 2
+      - id: FlashlightSeclite
+      - id: MagazinePistolM9
+        amount: 2
+
+- type: entity
   id: ClothingBeltMacheteFilled
   parent: ClothingBeltMachete
   suffix: Filled

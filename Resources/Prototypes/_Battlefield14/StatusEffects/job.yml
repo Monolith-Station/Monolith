@@ -250,27 +250,6 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconINDScav
-  icon:
-    sprite: /Textures/_Battlefield14/Interface/Misc/class_icons.rsi
-    state: indscav
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconINDScavGuard
-  icon:
-    sprite: /Textures/_Battlefield14/Interface/Misc/class_icons.rsi
-    state: indscavguard
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconINDScavBoss
-  icon:
-    sprite: /Textures/_Battlefield14/Interface/Misc/class_icons.rsi
-    state: indscavboss
-
-- type: jobIcon
-  parent: JobIcon
   id: JobIconINDCaptain
   icon:
     sprite: /Textures/_Battlefield14/Interface/Misc/class_icons.rsi
@@ -282,6 +261,13 @@
   icon:
     sprite: /Textures/_Battlefield14/Interface/Misc/class_icons.rsi
     state: indsquadleader
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconINDRifleman
+  icon:
+    sprite: /Textures/_Battlefield14/Interface/Misc/class_icons.rsi
+    state: indinfantry
 
 - type: jobIcon
   parent: JobIcon

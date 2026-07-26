@@ -222,6 +222,28 @@
 
 - type: entity
   parent: WeaponCaseLong
+  id: BF14WeaponCaseLongUSAR15
+  suffix: AR15
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleUSAR15
+    - id: MagazineRifleSTANAG
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: BF14WeaponCaseLongUSAR15Police
+  suffix: AR15 Police
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleUSAR15Police
+    - id: MagazineRifleSTANAG
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
   id: BF14WeaponCaseLongUSM30MRC
   suffix: M-30 MR-C
   components:

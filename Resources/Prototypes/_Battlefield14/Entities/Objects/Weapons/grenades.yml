@@ -836,3 +836,58 @@
     radius: 1
     color: orange
     energy: 0.2
+
+- type: entity
+  name: molotov cocktail
+  description: A russian fuse stuffed into a plastic soft drink bottle full of ball bearings.
+  parent: BaseItem
+  id: FlameGrenadeINDMolotov
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Bombs/pyrogelbomb.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 4
+  - type: Spillable
+    solution: drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Vodka
+          Quantity: 100
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpillBehavior { }
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          BrokenBottle:
+            min: 1
+            max: 1
+          RagItemLit:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 100
+  - type: StaticPrice
+    price: 16

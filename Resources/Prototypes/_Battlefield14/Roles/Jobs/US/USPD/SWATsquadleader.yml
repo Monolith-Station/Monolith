@@ -1,0 +1,53 @@
+- type: job
+  id: USPDSWATSquadLeader
+  name: SWAT Squad Leader
+  description: job-description-uspd-warden
+  playTimeTracker: JobUSPDSWATSquadLeader
+  weight: 69
+  startingGear: USPDSWATSquadLeader
+  alwaysUseSpawner: true
+  icon: "JobIconINDSquadLeader"
+  requireAdminNotify: false
+  supervisors: job-supervisors-usgov
+  canBeAntag: false
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - English
+    languagesUnderstood:
+    - English
+  - !type:AddComponentSpecial
+    components:
+    - type: ChatRank
+      rank: BF-rank-sergeant
+  access:
+  - Maintenance
+  - Service
+  - External
+  - Mercenary # Frontier
+  - NATOCommon
+  - Security
+  - Brig
+  - Armory
+  - Command
+  - Medical
+  - Cargo
+  - Engineering
+  - Research
+
+- type: startingGear
+  id: USPDSWATSquadLeader
+  equipment:
+    id: USPDOfficerPDA
+    head: ClothingHeadHatHelmetSurplus
+    ears: ClothingHeadsetAltWPS
+    belt: ClothingBeltStationSecurityFilledSWAT
+    jumpsuit: ClothingUniformJumpsuitUSPD
+    outerClothing: ClothingOuterArmorWebVestSec
+    shoes: ClothingShoesBootsJackFilled
+    pocket2: PouchFirstAidFilled
+  storage:
+    back:
+    - ClothingMaskGasM40
+    - Tourniquet
+    - Zipties
