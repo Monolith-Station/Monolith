@@ -24,12 +24,13 @@
     neck: ClothingNeckIFFtapeRed
     outerClothing: ClothingOuterArmorPlateCarrierCivillian
     back: ClothingBackpackButtpack
-    leftarmband: FlashlightMilitaryUS
+    leftarmband: Tourniquet
+    rightarmband: FlashlightMilitaryUS
     pocket1: PouchMagsPistolFilledUSP45
     pocket2: PouchFirstAidFilled
   storage:
     back:
     - MaterialWoodPlank
     - SandbagFull5
+    - MagazineBox45ACP
     - BF14KnifeFlipTaticool
-    - Tourniquet
