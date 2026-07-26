@@ -37,25 +37,27 @@ public sealed partial class CEZLevelsSystem
     /// Ignore penetrations shallower than this (m) so a hull resting flush against a wall isn't
     /// nudged every tick by floating-point noise.
     /// </summary>
-    private const float WallPenetrationSlop = 0.01f;
+    private const float WallPenetrationDeadZone = 0.01f;
 
     private readonly List<CESharedZLevelsSystem.CEWallContact> _wallContacts = new();
 
     /// <summary>
-    /// Pushes any flying grid out of the walls it has driven into and rebounds it. Runs after the
-    /// skid pass so a grid that just grounded (now Static) is skipped.
+    /// Pushes any flying grid out of the walls it has driven into and rebounds it.
     /// </summary>
     private void UpdateWallCollision()
     {
         var query = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent, PhysicsComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out _, out var body, out var xform))
         {
-            if (body.BodyType == BodyType.Static)
+            if (body.BodyType == BodyType.Static) // Stopped.
                 continue;
 
-            // Cheap reject before the per-tile scan: only terrain levels have walls.
-            if (xform.MapUid is not { } map || !_zMapQuery.HasComp(map) || !_mapGridQuery.HasComp(map))
+            if (xform.MapUid is not { } map
+                || !_zMapQuery.HasComp(map) // wall collision only applies on Z levels
+                || !_mapGridQuery.HasComp(map)) // only relevant if the map has a mapgrid
                 continue;
+
+            _wallContacts.Clear();
 
             GetWallContacts(uid, _wallContacts);
             if (_wallContacts.Count == 0)
@@ -84,7 +86,7 @@ public sealed partial class CEZLevelsSystem
             var overlapX = MathF.Min(ship.Right, wall.Right) - MathF.Max(ship.Left, wall.Left);
             var overlapY = MathF.Min(ship.Top, wall.Top) - MathF.Max(ship.Bottom, wall.Bottom);
 
-            if (overlapX <= WallPenetrationSlop || overlapY <= WallPenetrationSlop)
+            if (overlapX <= WallPenetrationDeadZone || overlapY <= WallPenetrationDeadZone)
                 continue;
 
             if (overlapX < overlapY)

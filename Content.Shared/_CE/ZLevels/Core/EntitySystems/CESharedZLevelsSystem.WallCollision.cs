@@ -23,6 +23,9 @@ public abstract partial class CESharedZLevelsSystem
     /// </summary>
     public readonly record struct CEWallContact(Box2 ShipTile, Box2 WallTile);
 
+    // The bounding box of the previous position of the grid.
+    private Dictionary<EntityUid, Box2> _previousGridPosition = new();
+
     /// <summary>
     /// Every tile of a grid whose centre is over a wall on the z-level it occupies. Keyed on the
     /// hull's OWN tiles rather than its world AABB: a turned hull's bounding box juts out past the
@@ -36,8 +39,6 @@ public abstract partial class CESharedZLevelsSystem
     [PublicAPI]
     public void GetWallContacts(EntityUid gridUid, List<CEWallContact> contacts)
     {
-        contacts.Clear();
-
         if (!_gridQuery.TryComp(gridUid, out var gridComp))
             return;
 
