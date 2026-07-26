@@ -1,4 +1,6 @@
 using Content.Shared._Mono.Company;
+using Content.Shared._Mono.POI.Systems;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.Access.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
@@ -11,7 +13,7 @@ namespace Content.Shared.Access.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
-[Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), Other = AccessPermissions.ReadWrite)]
+[Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), typeof(CapturableShuttleConsoleSystem), Other = AccessPermissions.ReadWrite)]
 public sealed partial class IdCardComponent : Component
 {
     [DataField]
@@ -46,11 +48,19 @@ public sealed partial class IdCardComponent : Component
     public List<ProtoId<DepartmentPrototype>> JobDepartments = new();
 
     /// <summary>
-    /// The company name associated with this ID card
+    /// The company name associated with this ID card.
     /// </summary>
     [DataField]
     [AutoNetworkedField]
     public ProtoId<CompanyPrototype> CompanyName = "None";
+
+    /// <summary>
+    /// The NPC faction associated with this ID card.
+    /// Used for POI capture, IFF and faction-based systems.
+    /// </summary>
+    [DataField]
+    [AutoNetworkedField]
+    public ProtoId<NpcFactionPrototype> Faction = "CC";
 
     /// <summary>
     /// Determines if accesses from this card should be logged by <see cref="AccessReaderComponent"/>

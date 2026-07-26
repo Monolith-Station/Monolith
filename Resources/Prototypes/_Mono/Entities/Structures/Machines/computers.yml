@@ -10,3 +10,41 @@
   - type: AccessReader
     enabled: false
 
+- type: entity
+  parent: ComputerShuttle
+  id: ShuttleConsoleCapturable
+  name: POI capture console
+  description: Used to claim control of a point of interest.
+  components:
+  - type: CapturableShuttleConsole
+  - type: ItemSlots
+    slots:
+      disk_slot:
+        name: Disk
+        insertSound:
+          path: /Audio/Machines/terminal_insert_disc.ogg
+        ejectSound:
+          path: /Audio/Machines/terminal_insert_disc.ogg
+        whitelist:
+          components:
+          - ShuttleDestinationCoordinates
+      id_slot:
+        name: ID Card
+        insertSound:
+          path: /Audio/Machines/id_swipe.ogg
+        ejectSound:
+          path: /Audio/Machines/id_swipe.ogg
+        whitelist:
+          components:
+          - IdCard
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: []
+      disk_slot: !type:ContainerSlot {}
+      key_slots: !type:Container
+      id_slot: !type:ContainerSlot {}
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyTraffic
