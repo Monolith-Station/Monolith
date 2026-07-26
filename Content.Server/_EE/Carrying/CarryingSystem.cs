@@ -331,7 +331,7 @@ namespace Content.Server.Carrying
             _virtualItemSystem.DeleteInHandsMatching(carrier, carried);
             _transform.AttachToGridOrMap(carried);
             if (!HasComp<LegsParalyzedComponent>(carried)) // Mono: Check wheelchair user before standing
-            _standingState.Stand(carried);
+                _standingState.Stand(carried);
             _movementSpeed.RefreshMovementSpeedModifiers(carrier);
         }
 
