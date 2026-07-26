@@ -717,7 +717,7 @@
   variants: 6
   placementVariants: [0, 1, 2, 3, 4, 5]
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false # BF14
   footstepSounds:
     collection: N14FootstepConcrete
   thermalConductivity: 0.04
@@ -730,7 +730,7 @@
   sprite: /Textures/_Nuclear14/Tiles/concrete-goon.png
   variants: 1
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false # BF14
   footstepSounds:
     collection: N14FootstepConcrete
   thermalConductivity: 0.04
@@ -743,7 +743,7 @@
   sprite: /Textures/_Nuclear14/Tiles/concrete-bay.png
   variants: 1
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false # BF14
   footstepSounds:
     collection: N14FootstepConcrete
   thermalConductivity: 0.04
@@ -756,7 +756,7 @@
   sprite: /Textures/_Nuclear14/Tiles/hexacrete.png
   variants: 1
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false # BF14
   footstepSounds:
     collection: N14FootstepConcrete
   thermalConductivity: 0.04
@@ -768,7 +768,7 @@
   name: concrete hexacrete dark
   sprite: /Textures/_Nuclear14/Tiles/hexacrete_dark.png
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false # BF14
   footstepSounds:
     collection: N14FootstepConcrete
   thermalConductivity: 0.04
@@ -782,7 +782,7 @@
   variants: 6
   placementVariants: [0, 1, 2, 3, 4, 5]
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false # BF14
   footstepSounds:
     collection: N14FootstepConcrete
   thermalConductivity: 0.04
@@ -796,7 +796,7 @@
   variants: 6
   placementVariants: [0, 1, 2, 3, 4, 5]
   baseTurf: Plating
-  isSubfloor: true
+  isSubfloor: false # BF14
   footstepSounds:
     collection: N14FootstepConcrete
   thermalConductivity: 0.04
