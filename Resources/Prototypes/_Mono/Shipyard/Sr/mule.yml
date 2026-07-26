@@ -1,35 +1,35 @@
 # Author Info
-# Github: NazrinNya
-# Discord: NazrinNya
+# Github: Loldaddy5676
+# Discord: huragok
 
 - type: vessel
-  id: Thorax
+  id: Mule
   parent: BaseVessel
-  name: Thorax
-  description: A light mech carrier and factory, including 4 different docks for assistance.
+  name: Mule
+  description: A combat freighter dating back to the corporate war, refitted and now in use by CCTC security.
   price: 63450
   category: Medium
   group: Sr
   access: Brig
   mapchecker_group_override: Security
-  shuttlePath: /SharedMaps/_Mono/Shuttles/thorax.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/mule.yml
   guidebookPage: Null
   class:
   - Civilian
   engine:
-  - Uranium
+  - Plasma
 
 - type: gameMap
-  id: Thorax
-  mapName: 'Thorax'
-  mapPath: /SharedMaps/_Mono/Shuttles/thorax.yml
+  id: Mule
+  mapName: 'Mule'
+  mapPath: /SharedMaps/_Mono/Shuttles/mule.yml
   minPlayers: 0
   stations:
-    Thorax:
+    Mule:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Thorax SEC{1}'
+          mapNameTemplate: 'Mule SEC{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
