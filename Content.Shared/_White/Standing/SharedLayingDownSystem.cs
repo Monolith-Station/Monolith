@@ -116,7 +116,8 @@ public abstract partial class SharedLayingDownSystem : EntitySystem
         // If the entity is not on a grid, try to make it stand up to avoid issues
         if (!TryComp<StandingStateComponent>(uid, out var standingState)
             || standingState.CurrentState is StandingState.Standing
-            || CanLieDown(uid)) // Mono
+            || CanLieDown(uid) // Mono
+            || HasComp<LegsParalyzedComponent>(uid)) // Mono
         {
             return;
         }
