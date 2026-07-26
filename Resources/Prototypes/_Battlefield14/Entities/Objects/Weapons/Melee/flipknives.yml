@@ -38,6 +38,8 @@
     components:
     - type: DisarmMalus
       malus: 0.6
+    - type: Sharp
+    - type: Execution
   - type: ItemToggleSize
     activatedSize: Normal
   - type: LandAtCursor

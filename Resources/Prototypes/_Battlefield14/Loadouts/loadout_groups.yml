@@ -160,6 +160,21 @@
   - LoadoutOuterCoatCivUkr
 
 - type: loadoutGroup
+  id: BF_JumpsuitsSuspectUS
+  name: loadout-group-BF14-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LoadoutUniformJumpsuitDealer
+  - LoadoutUniformJumpsuitPlain
+  - LoadoutUniformJumpsuitWorker
+  - LoadoutJumpsuitCivilianPlainGraphicChud
+  - LoadoutJumpsuitCivilianPlainGraphicHate
+  - LoadoutJumpsuitCivilianPatrioticUSA1
+  - LoadoutJumpsuitCivilianPatrioticUSA2
+  - LoadoutJumpsuitCivilianPatrioticUSA3
+
+- type: loadoutGroup
   id: BF_JumpsuitsCivilianRU
   name: loadout-group-BF14-jumpsuit
   minLimit: 1

@@ -670,6 +670,21 @@
     - state: indcaptain
       scale: 1.5,1.5
 
+#region Partisan
+
+- type: entity
+  id: SpawnPointSuspectUS
+  parent: SpawnPointJobBase
+  name: Suspect US
+  components:
+  - type: SpawnPoint
+    job_id: SuspectUS
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: indinfantry
+      scale: 1.5,1.5
+
 #region Civilian
 
 - type: entity

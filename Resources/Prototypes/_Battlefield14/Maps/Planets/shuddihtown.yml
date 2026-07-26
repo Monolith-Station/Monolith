@@ -19,9 +19,11 @@
           lobbySortOrder: 1
         - type: StationJobs
           availableJobs:
+            SuspectUS: [ 15, 15 ]
             USPDChief: [ 1, 1 ]
             USPDSWATSquadLeader: [ 2, 2 ]
             USPDSWATOfficer: [ 6, 6 ]
+            CivilianRUEMT: [ 1, 1 ]
         - type: CEStationZLevels
           mapsAbove:
             - /Maps/_Battlefield14/Planets/MultiZ/BF14ShuddihTownZMap1.yml 
