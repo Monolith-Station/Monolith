@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/26/2026 23:35:24
-  entityCount: 789
+  time: 07/26/2026 23:51:15
+  entityCount: 798
 maps: []
 grids:
 - 1
@@ -1338,6 +1338,46 @@ entities:
     components:
     - type: Transform
       pos: -10.5,-19.5
+      parent: 1
+  - uid: 790
+    components:
+    - type: Transform
+      pos: -7.5,-22.5
+      parent: 1
+  - uid: 791
+    components:
+    - type: Transform
+      pos: -8.5,-22.5
+      parent: 1
+  - uid: 792
+    components:
+    - type: Transform
+      pos: -9.5,-22.5
+      parent: 1
+  - uid: 793
+    components:
+    - type: Transform
+      pos: -10.5,-22.5
+      parent: 1
+  - uid: 794
+    components:
+    - type: Transform
+      pos: 2.5,-22.5
+      parent: 1
+  - uid: 795
+    components:
+    - type: Transform
+      pos: 3.5,-22.5
+      parent: 1
+  - uid: 796
+    components:
+    - type: Transform
+      pos: 4.5,-22.5
+      parent: 1
+  - uid: 797
+    components:
+    - type: Transform
+      pos: 5.5,-22.5
       parent: 1
 - proto: CableHV
   entities:
@@ -3150,6 +3190,14 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,-20.5
+      parent: 1
+- proto: LockerWallMaterialsFuelPlasmaFilled
+  entities:
+  - uid: 798
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -7.5,-29.5
       parent: 1
 - proto: LuxuryPen
   entities:
