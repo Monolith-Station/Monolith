@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/26/2026 20:53:40
+  time: 07/26/2026 22:47:47
   entityCount: 803
 maps:
 - 2
@@ -136,9 +136,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Smoke: []
         MetalFoam: []
+        Kudzu: []
         Puddle: []
       updateAccumulator: 0.197999
     - type: Shuttle
@@ -8306,7 +8306,7 @@ entities:
       pos: -14.507682,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1359
     mapInit: true
@@ -8316,7 +8316,7 @@ entities:
       pos: -15.503928,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1360
     mapInit: true
@@ -8326,7 +8326,7 @@ entities:
       pos: -16.500175,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1361
     mapInit: true
@@ -8336,7 +8336,7 @@ entities:
       pos: -17.492315,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1362
     mapInit: true
@@ -8370,7 +8370,7 @@ entities:
       pos: -22.507679,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1367
     mapInit: true
@@ -8380,7 +8380,7 @@ entities:
       pos: -23.503922,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1368
     mapInit: true
@@ -8390,7 +8390,7 @@ entities:
       pos: -24.500175,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1369
     mapInit: true
@@ -8400,7 +8400,7 @@ entities:
       pos: -25.492315,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1370
     mapInit: true

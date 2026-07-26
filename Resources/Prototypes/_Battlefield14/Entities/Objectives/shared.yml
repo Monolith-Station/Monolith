@@ -53,6 +53,15 @@
 
 - type: entity
   parent: GracePeriodAnnouncerSpawner5
+  id: GracePeriodAnnouncerSpawner5SWAT
+  name: grace period announcer spawner
+  suffix: 5 minutes, SWAT
+  components:
+  - type: SpawnOnTrigger
+    proto: BaseGracePeriodAnnouncerSWAT
+
+- type: entity
+  parent: GracePeriodAnnouncerSpawner5
   id: GracePeriodAnnouncerSpawner7
   suffix: 7 minutes
   components:
@@ -100,6 +109,21 @@
   - type: DeleteOnTrigger
   - type: AnnounceOnSpawn
     message: "The area is now an active warzone."
+    sender: "Combat Area"
+    sound:
+      path: /Audio/Announcements/bloblarm.ogg
+#    color: "#BE8700"
+
+- type: entity
+  parent: BaseGracePeriodAnnouncer
+  id: BaseGracePeriodAnnouncerSWAT
+  name: SWAT grace period announcer
+  suffix: DO NOT MAP
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: AnnounceOnSpawn
+    message: "SWAT team is moving in."
     sender: "Combat Area"
     sound:
       path: /Audio/Announcements/bloblarm.ogg

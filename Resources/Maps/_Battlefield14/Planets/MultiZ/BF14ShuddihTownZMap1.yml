@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/26/2026 20:53:40
-  entityCount: 1082
+  time: 07/26/2026 22:47:47
+  entityCount: 1084
 maps:
 - 2
 grids:
@@ -144,9 +144,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Smoke: []
         MetalFoam: []
+        Kudzu: []
         Puddle: []
       updateAccumulator: 0.4304576
     - type: Shuttle
@@ -2793,6 +2793,18 @@ entities:
     - type: Transform
       pos: -16.5,34.5
       parent: 1
+- proto: ClothingHeadHatHelmetHardhat
+  entities:
+  - uid: 345
+    components:
+    - type: Transform
+      pos: 9.46867,5.3363237
+      parent: 1
+  - uid: 346
+    components:
+    - type: Transform
+      pos: 17.315632,7.666068
+      parent: 1
 - proto: CurtainsWhite
   entities:
   - uid: 2365
@@ -4503,7 +4515,7 @@ entities:
       pos: 0.5199997,26.459595
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1334
     mapInit: true
@@ -4513,7 +4525,7 @@ entities:
       pos: -0.4950001,26.45897
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1355
     mapInit: true
@@ -4541,7 +4553,7 @@ entities:
       pos: -14.507686,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1359
     mapInit: true
@@ -4551,7 +4563,7 @@ entities:
       pos: -15.503942,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1360
     mapInit: true
@@ -4561,7 +4573,7 @@ entities:
       pos: -16.500195,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1361
     mapInit: true
@@ -4571,7 +4583,7 @@ entities:
       pos: -17.492321,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1362
     mapInit: true
@@ -4605,7 +4617,7 @@ entities:
       pos: -22.507679,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1367
     mapInit: true
@@ -4615,7 +4627,7 @@ entities:
       pos: -23.503922,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1368
     mapInit: true
@@ -4625,7 +4637,7 @@ entities:
       pos: -24.500175,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1369
     mapInit: true
@@ -4635,7 +4647,7 @@ entities:
       pos: -25.492315,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1370
     mapInit: true
@@ -4837,7 +4849,7 @@ entities:
       pos: -0.49500012,27.474586
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1710
     mapInit: true
@@ -4847,7 +4859,7 @@ entities:
       pos: 0.5199996,27.474586
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1711
     mapInit: true
@@ -4857,7 +4869,7 @@ entities:
       pos: -0.49500015,28.48958
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1712
     mapInit: true
@@ -4867,7 +4879,7 @@ entities:
       pos: 0.5199997,28.489902
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1713
     mapInit: true
@@ -4877,7 +4889,7 @@ entities:
       pos: -0.49500006,29.504995
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1714
     mapInit: true
@@ -4887,7 +4899,7 @@ entities:
       pos: 0.5199997,29.505173
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1715
     mapInit: true
@@ -4897,7 +4909,7 @@ entities:
       pos: -0.49769408,30.519987
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1716
     mapInit: true
@@ -4907,7 +4919,7 @@ entities:
       pos: 0.4887564,30.520166
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1717
     mapInit: true
@@ -4917,7 +4929,7 @@ entities:
       pos: -1.5057175,31.503864
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1718
     mapInit: true
@@ -4927,7 +4939,7 @@ entities:
       pos: -0.5072798,31.535158
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1719
     mapInit: true
@@ -4937,7 +4949,7 @@ entities:
       pos: 0.48752218,31.535181
       parent: 2
     - type: Physics
-      sleepTime: 195.02971
+      sleepTime: 175.00127
       bodyType: Dynamic
   - uid: 1720
     mapInit: true
