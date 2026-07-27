@@ -9,12 +9,14 @@ using Content.Shared.Interaction;
 using Content.Shared.Timing;
 using Content.Shared.Vapor;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.CCVar; /// Forge-Change
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 using Robust.Shared.Map;
+using Robust.Shared.Configuration; /// Forge-Change
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -30,6 +32,11 @@ public sealed partial class SpraySystem : EntitySystem
     [Dependency] private VaporSystem _vapor = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    /// Forge-Change-Start
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+
+    private float _gridImpulseMultiplier;
+    /// Forge-Change-End
 
     public override void Initialize()
     {
@@ -37,6 +44,7 @@ public sealed partial class SpraySystem : EntitySystem
 
         SubscribeLocalEvent<SprayComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<SprayComponent, UserActivateInWorldEvent>(OnActivateInWorld);
+        Subs.CVar(_cfg, CCVars.GridImpulseMultiplier, UpdateGridMassMultiplier, true); /// Forge-Change
     }
 
     private void OnActivateInWorld(Entity<SprayComponent> entity, ref UserActivateInWorldEvent args)
@@ -50,7 +58,13 @@ public sealed partial class SpraySystem : EntitySystem
 
         Spray(entity, args.User, targetMapPos);
     }
+/// Forge-Change-Start
+    private void UpdateGridMassMultiplier(float value)
+    {
+        _gridImpulseMultiplier = value;
+    }
 
+/// Forge-Change-End
     private void OnAfterInteract(Entity<SprayComponent> entity, ref AfterInteractEvent args)
     {
         if (args.Handled)
@@ -156,7 +170,23 @@ public sealed partial class SpraySystem : EntitySystem
             if (TryComp<PhysicsComponent>(user, out var body))
             {
                 if (_gravity.IsWeightless(user))
-                    _physics.ApplyLinearImpulse(user, -impulseDirection.Normalized() * entity.Comp.PushbackAmount, body: body);
+                /// Forge-Change-Start
+                {
+                    // push back the player
+                    _physics.ApplyLinearImpulse(user, -impulseDirection * entity.Comp.PushbackAmount, body: body);
+                }
+                else
+                {
+                    // push back the grid the player is standing on
+                    var userTransform = Transform(user);
+                    if (userTransform.GridUid == userTransform.ParentUid)
+                    {
+                        // apply both linear and angular momentum depending on the player position
+                        // multiply by a cvar because grid mass is currently extremely small compared to all other masses
+                        _physics.ApplyLinearImpulse(userTransform.GridUid.Value, -impulseDirection * _gridImpulseMultiplier * entity.Comp.PushbackAmount, userTransform.LocalPosition);
+                    }
+                }
+                /// Forge-Change-End
             }
         }
 

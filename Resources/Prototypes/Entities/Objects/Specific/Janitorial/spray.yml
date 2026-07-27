@@ -59,6 +59,7 @@
         maxVol: 250
   - type: Spray
     transferAmount: 15
+    pushbackAmount: 150 # Forge-Change
     sprayedPrototype: BigVapor
     sprayVelocity: 3
     sprayDistance: 4.5

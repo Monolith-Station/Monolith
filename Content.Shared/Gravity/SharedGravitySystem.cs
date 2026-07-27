@@ -45,27 +45,42 @@ public abstract partial class SharedGravitySystem : EntitySystem
         UpdateShake();
     }
 
+    /// <summary>
+    /// If the entity can be weightless and is weightless, return true, otherwise return false
+    /// </summary>
     public bool IsWeightless(Entity<GravityAffectedComponent?> entity)
     {
-        // If we can be weightless and are weightless, return true, otherwise return false
         return _weightlessQuery.Resolve(entity, ref entity.Comp, false) && entity.Comp.Weightless;
     }
+    /// Forge-Change-Start
+    /// <summary>
+    /// If the entity can be weightless and the status (whether weightless or not) is from the grid/map, return true, otherwise return false.
+    /// </summary>
+    public bool IsWeightlessStatusFromGrid(Entity<GravityAffectedComponent?> entity)
+    {
+        return _weightlessQuery.Resolve(entity, ref entity.Comp, false) && entity.Comp.GridWeightlessStatus;
+    }
 
-    private bool GetWeightless(Entity<GravityAffectedComponent, PhysicsComponent?> entity)
+    /// <summary>
+    /// Gets an entity's weightless status.
+    /// </summary>
+    /// <returns>First bool returns true if the entity is weightless. Second bool returns true if the first bool was given via the grid/map gravity, false if from the entity.</returns>
+    private (bool, bool) GetWeightless(Entity<GravityAffectedComponent, PhysicsComponent?> entity)
+    /// Forge-Change-End
     {
         if (!_physicsQuery.Resolve(entity, ref entity.Comp2, false))
-            return false;
+            return (false, false); /// Forge-Change
 
         if (entity.Comp2.BodyType is BodyType.Static or BodyType.Kinematic)
-            return false;
+            return (false, false); /// Forge-Change
 
         // Check if something other than the grid or map is overriding our gravity
         var ev = new IsWeightlessEvent();
         RaiseLocalEvent(entity, ref ev);
         if (ev.Handled)
-            return ev.IsWeightless;
+            return (ev.IsWeightless, false); /// Forge-Change
 
-        return !EntityGridOrMapHaveGravity(entity.Owner);
+        return (!EntityGridOrMapHaveGravity(entity.Owner), true); /// Forge-Change
     }
 
     /// <summary>
@@ -103,10 +118,11 @@ public abstract partial class SharedGravitySystem : EntitySystem
         var newWeightless = GetWeightless(entity);
 
         // Don't network or raise events if it's not changing
-        if (newWeightless == entity.Comp.Weightless)
+        if (newWeightless.Item1 == entity.Comp.Weightless && newWeightless.Item2 == entity.Comp.GridWeightlessStatus) /// Forge-Change
             return;
 
-        entity.Comp.Weightless = newWeightless;
+        entity.Comp.Weightless = newWeightless.Item1;           /// Forge-Change
+        entity.Comp.GridWeightlessStatus = newWeightless.Item2; /// Forge-Change
         Dirty(entity);
 
         var ev = new WeightlessnessChangedEvent(entity.Comp.Weightless);

@@ -14,4 +14,13 @@ public sealed partial class GravityAffectedComponent : Component
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public bool Weightless = true;
+    /// Forge-Change-Start
+
+    /// <summary>
+    /// If true, the <see cref="Weightless"/> value is currently being provided via the grid through <see cref="SharedGravitySystem.EntityGridOrMapHaveGravity"/>.
+    /// If false, the value is provided by the <see cref="IsWeightlessEvent"/>.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public bool GridWeightlessStatus = false;
+    /// Forge-Change-End
 }

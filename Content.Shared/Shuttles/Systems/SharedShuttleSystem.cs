@@ -7,8 +7,10 @@ using Content.Shared.Shuttles.UI.MapObjects;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.Shuttles.Systems;
 
@@ -23,6 +25,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
 
     public const float FTLRange = 0f;
     public const float FTLBufferRange = 20f;
+    public const float TileDensityMultiplier = 0.5f; /// Forge-Change
 
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -127,7 +130,15 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     {
         if (!Resolve(gridUid, ref physics))
             return true;
+        /// Forge-Change-Start
+        // physics.BodyType; /// Forge-Change-Del
 
+        if (physics.BodyType != BodyType.Static && physics.Mass < (20f * TileDensityMultiplier)) // A grid of approx 20 tiles, to not draw tiny grids.
+        {
+            return false;
+        }
+
+        /// Forge-Change-End
         if (!Resolve(gridUid, ref iffComp, false))
         {
             return true;

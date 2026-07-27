@@ -37,7 +37,7 @@ public sealed partial class GrapplingGunComponent : Component
     /// Minimum length for the grappling hook's rope
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float RopeMinLength = 1f;
+    public float RopeMinLength = 0; /// Forge-Change
 
     /// <summary>
     /// Maximum length the grapple can actually be.

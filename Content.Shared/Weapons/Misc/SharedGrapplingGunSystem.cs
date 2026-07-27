@@ -1,7 +1,9 @@
+/// Forge-Change-Start
 using System.Numerics;
 using Content.Shared.CombatMode;
+using Content.Shared.Gravity;
 using Content.Shared.Hands;
-using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Events;
 using Content.Shared.Physics;
@@ -18,40 +20,50 @@ using Robust.Shared.Physics.Dynamics.Joints;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-
-// Mono
-using Robust.Shared.Player;
-using Robust.Shared.GameStates;
-using System.Numerics;
+using Robust.Shared.Map.Components;
 
 namespace Content.Shared.Weapons.Misc;
 
 public abstract partial class SharedGrapplingGunSystem : VirtualController
 {
     [Dependency] protected IGameTiming Timing = default!;
-    [Dependency] private ISharedPlayerManager _player = default!;
     [Dependency] private INetManager _netManager = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedJointSystem _joints = default!;
     [Dependency] private SharedGunSystem _gun = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
-    [Dependency] private SharedPvsOverrideSystem _pvsOverride = default!; // Mono
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
     [Dependency] private SharedContainerSystem _container = default!;
 
+    /// <summary>
+    /// Name of the joint between a grappling gun and its hook.
+    /// </summary>
     public const string GrapplingJoint = "grappling";
+
+    /// <summary>
+    /// The "default" mass below which pulling strength is scaled, to prevent small entities from being yeeted too fast.
+    /// </summary>
+    public const float BaseWeightMass = 80f;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<GrapplingProjectileComponent, ProjectileEmbedEvent>(OnGrappleCollide);
         SubscribeLocalEvent<GrapplingProjectileComponent, JointRemovedEvent>(OnGrappleJointRemoved);
-        SubscribeLocalEvent<CanWeightlessMoveEvent>(OnWeightlessMove);
-        SubscribeAllEvent<RequestGrapplingReelMessage>(OnGrapplingReel);
+        SubscribeLocalEvent<GrapplingProjectileComponent, ComponentShutdown>(OnGrappleProjectileShutdown);
+        SubscribeLocalEvent<GrapplingProjectileComponent, ProjectileEmbedEvent>(OnGrappleCollide);
 
         SubscribeLocalEvent<GrapplingGunComponent, GunShotEvent>(OnGrapplingShot);
         SubscribeLocalEvent<GrapplingGunComponent, ActivateInWorldEvent>(OnGunActivate);
         SubscribeLocalEvent<GrapplingGunComponent, HandDeselectedEvent>(OnGrapplingDeselected);
+
+        SubscribeAllEvent<RequestGrapplingReelMessage>(OnGrapplingReel);
+        SubscribeLocalEvent<CanWeightlessMoveEvent>(OnWeightlessMove);
+
+        // TODO: After step trigger refactor, dropping a grappling gun should manually try and activate step triggers it's suppressing.
+
+        SubscribeLocalEvent<GrapplingProjectileEmbedComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
 
         UpdatesBefore.Add(typeof(SharedJointSystem)); // We want to run before joints are solved
         base.Initialize();
@@ -63,30 +75,76 @@ public abstract partial class SharedGrapplingGunSystem : VirtualController
             QueueDel(uid);
     }
 
+    private void OnGrappleProjectileShutdown(Entity<GrapplingProjectileComponent> ent, ref ComponentShutdown args)
+    {
+        if (!TryComp<EmbeddableProjectileComponent>(ent, out var embedComp) || embedComp.EmbeddedIntoUid == null)
+            return;
+
+        if (!TryComp<GrapplingProjectileEmbedComponent>(embedComp.EmbeddedIntoUid, out var grapplingEmbedComp))
+            return;
+
+        grapplingEmbedComp.GrapplingProjectiles.Remove(ent);
+    }
+
+    private void OnGrappleCollide(EntityUid uid, GrapplingProjectileComponent component, ref ProjectileEmbedEvent args)
+    {
+        if (!Timing.IsFirstTimePredicted || args.Weapon == null || !TryComp<GrapplingGunComponent>(args.Weapon, out var grapple))
+            return;
+        var grapplePos = _transform.GetWorldPosition(args.Weapon);
+        var hookPos = _transform.GetWorldPosition(uid);
+        if ((grapplePos - hookPos).Length() >= grapple.RopeMaxLength)
+        {
+            Ungrapple((args.Weapon, grapple), true);
+            return;
+        }
+
+        var embedComp = EnsureComp<GrapplingProjectileEmbedComponent>(args.Embedded);
+        embedComp.GrapplingProjectiles.Add(uid);
+
+        var joint = _joints.CreateDistanceJoint(uid, args.Weapon, id: GrapplingJoint);
+        joint.MaxLength = joint.Length + grapple.RopeMargin;
+        joint.Stiffness = grapple.RopeStiffness;
+        joint.MinLength = grapple.RopeMinLength; // Length of a tile to prevent pulling yourself into / through walls
+        joint.Breakpoint = grapple.RopeBreakPoint;
+
+        var jointCompGrapple = Comp<JointComponent>(args.Weapon);
+
+        // Since the grappling hook is offset from the grid, we need to update the local anchor so that the relay correctly uses the correct anchor for the grid.
+        RefreshJointRelay((args.Embedded, embedComp));
+
+        _joints.RefreshRelay(args.Weapon, jointCompGrapple);
+    }
+
     private void OnGrapplingShot(EntityUid uid, GrapplingGunComponent component, ref GunShotEvent args)
     {
         foreach (var (shotUid, _) in args.Ammo)
         {
-            if (shotUid is not { } shot || !HasComp<GrapplingProjectileComponent>(shotUid))
+            if (!HasComp<GrapplingProjectileComponent>(shotUid))
                 continue;
 
             //todo: this doesn't actually support multigrapple
             // At least show the visuals.
-            component.Projectile = shot;
+            component.Projectile = shotUid.Value;
             DirtyField(uid, component, nameof(GrapplingGunComponent.Projectile));
-            var visuals = EnsureComp<JointVisualsComponent>(shot);
+            var visuals = EnsureComp<JointVisualsComponent>(shotUid.Value);
             visuals.Sprite = component.RopeSprite;
-            visuals.OffsetA = new Vector2(0f, 0.5f);
             visuals.Target = GetNetEntity(uid);
-            Dirty(shot, visuals);
-
-            // Mono
-            if (_player.TryGetSessionByEntity(args.User, out var session))
-                _pvsOverride.AddSessionOverride(shot, session);
+            Dirty(shotUid.Value, visuals);
         }
 
         TryComp<AppearanceComponent>(uid, out var appearance);
         _appearance.SetData(uid, SharedTetherGunSystem.TetherVisualsStatus.Key, false, appearance);
+    }
+
+    private void OnGunActivate(EntityUid uid, GrapplingGunComponent component, ActivateInWorldEvent args)
+    {
+        if (!Timing.IsFirstTimePredicted || args.Handled || !args.Complex)
+            return;
+
+        _audio.PlayPredicted(component.CycleSound, uid, args.User);
+        Ungrapple((uid, component), false, args.User);
+
+        args.Handled = true;
     }
 
     private void OnGrapplingDeselected(EntityUid uid, GrapplingGunComponent component, HandDeselectedEvent args)
@@ -96,9 +154,11 @@ public abstract partial class SharedGrapplingGunSystem : VirtualController
 
     private void OnGrapplingReel(RequestGrapplingReelMessage msg, EntitySessionEventArgs args)
     {
-        var player = args.SenderSession.AttachedEntity;
-        if (!TryComp<HandsComponent>(player, out var hands) ||
-            !TryComp<GrapplingGunComponent>(hands.ActiveHandEntity, out var grappling))
+        if (args.SenderSession.AttachedEntity is not { } player)
+            return;
+
+        if (!_hands.TryGetActiveItem(player, out var activeItem) ||
+            !TryComp<GrapplingGunComponent>(activeItem, out var grappling))
         {
             return;
         }
@@ -110,7 +170,7 @@ public abstract partial class SharedGrapplingGunSystem : VirtualController
             return;
         }
 
-        SetReeling(hands.ActiveHandEntity.Value, grappling, msg.Reeling, player.Value);
+        SetReeling(activeItem.Value, grappling, msg.Reeling, player);
     }
 
     private void OnWeightlessMove(ref CanWeightlessMoveEvent ev)
@@ -122,9 +182,28 @@ public abstract partial class SharedGrapplingGunSystem : VirtualController
         {
             if (TryComp<JointComponent>(relay, out var jointRelay) && jointRelay.GetJoints.ContainsKey(GrapplingJoint))
             {
-                ev.CanMove = true;
+                if(jointRelay.GetJoints.TryGetValue(GrapplingJoint, out var joint))
+                {
+                    var grid = _transform.GetGrid(joint.BodyAUid);
+                    if (grid is not null)
+                        ev.CanMove = true;
+                }
                 return;
             }
+        }
+    }
+
+    private void OnAnchorStateChanged(Entity<GrapplingProjectileEmbedComponent> entity, ref AnchorStateChangedEvent args)
+    {
+        foreach (var hook in entity.Comp.GrapplingProjectiles)
+        {
+            if (!TryComp<ProjectileComponent>(hook, out var projectileComp) || !TryComp<JointComponent>(hook, out var jointComp))
+                continue;
+
+            if (projectileComp.Weapon == null || !TryComp<GrapplingGunComponent>(projectileComp.Weapon, out var gunComp))
+                continue;
+
+            RefreshJointRelay(entity);
         }
     }
 
@@ -140,7 +219,12 @@ public abstract partial class SharedGrapplingGunSystem : VirtualController
             return;
 
         if (isBreak)
-            _audio.PlayPredicted(grapple.Comp.BreakSound, grapple.Owner, user);
+        {
+            if (user != null)
+                _audio.PlayPredicted(grapple.Comp.BreakSound, grapple.Owner, user);
+            else if (_netManager.IsServer) // This feels... hacky.
+                _audio.PlayPvs(grapple.Comp.BreakSound, grapple.Owner);
+        }
 
         _appearance.SetData(grapple.Owner, SharedTetherGunSystem.TetherVisualsStatus.Key, true);
 
@@ -151,17 +235,6 @@ public abstract partial class SharedGrapplingGunSystem : VirtualController
         grapple.Comp.Projectile = null;
         DirtyField(grapple.Owner, grapple.Comp, nameof(GrapplingGunComponent.Projectile));
         _gun.ChangeBasicEntityAmmoCount(grapple.Owner, 1);
-    }
-
-    private void OnGunActivate(EntityUid uid, GrapplingGunComponent component, ActivateInWorldEvent args)
-    {
-        if (!Timing.IsFirstTimePredicted || args.Handled || !args.Complex)
-            return;
-
-        _audio.PlayPredicted(component.CycleSound, uid, args.User);
-        Ungrapple((uid, component), false, args.User);
-
-        args.Handled = true;
     }
 
     private void SetReeling(EntityUid uid, GrapplingGunComponent component, bool value, EntityUid? user)
@@ -180,10 +253,11 @@ public abstract partial class SharedGrapplingGunSystem : VirtualController
         if (value)
         {
             // We null-coalesce here because playing the sound again will cause it to become eternally stuck playing
-            component.Stream ??= _audio.PlayPredicted(component.ReelSound, uid, user)?.Entity ?? component.Stream;
+            component.Stream ??= _audio.PlayPredicted(component.ReelSound, uid, user)?.Entity;
         }
         else if (!value && component.Stream.HasValue && Timing.IsFirstTimePredicted)
         {
+            // The IsFirstTimePredicted check is important here because otherwise component.Stream will be set to null from an early cancellation if this isn't FirstTimePredicted
             component.Stream = _audio.Stop(component.Stream);
         }
 
@@ -216,8 +290,8 @@ public abstract partial class SharedGrapplingGunSystem : VirtualController
                 continue;
             }
 
-            var physicalGrapple = jointComp.Relay ?? joint.BodyBUid;
-            var physicalHook = hookJointComp.Relay ?? joint.BodyAUid;
+            var physicalGrapple = jointComp.Relay.HasValue ? jointComp.Relay.Value : joint.BodyBUid;
+            var physicalHook = hookJointComp.Relay.HasValue ? hookJointComp.Relay.Value : joint.BodyAUid;
 
             // HACK: preventing both ends of the grappling hook from sleeping if neither are on the same grid, so that grid movement works as expected
             if (_transform.GetGrid(physicalHook) != _transform.GetGrid(physicalGrapple))
@@ -227,20 +301,14 @@ public abstract partial class SharedGrapplingGunSystem : VirtualController
             }
             // END OF HACK
 
-            var bodyAWorldPos = _transform.GetWorldPosition(physicalHook);
-            var bodyBWorldPos = _transform.GetWorldPosition(physicalGrapple);
-
-            // Mono
-            var bodyAVel = _physics.GetMapLinearVelocity(physicalHook);
-            var bodyBVel = _physics.GetMapLinearVelocity(physicalGrapple);
-            var velDiff = bodyAVel - bodyBVel;
-            var margin = grappling.RopeMargin + velDiff.Length() * frameTime; // Mono
+            var bodyAWorldPos = _transform.GetWorldPosition(joint.BodyAUid);
+            var bodyBWorldPos = _transform.GetWorldPosition(joint.BodyBUid);
 
             // The solver does not handle setting the rope's length, but we still need to work with a copy of it to prevent jank.
             var ropeLength = (bodyAWorldPos - bodyBWorldPos).Length();
 
             // Rope should just break, instantly, if the user is teleported past its max length
-            if (ropeLength >= distance.MaxLength + margin)
+            if (ropeLength >= distance.MaxLength + grappling.RopeMargin)
             {
                 Ungrapple((uid, grappling), true);
                 continue;
@@ -255,66 +323,211 @@ public abstract partial class SharedGrapplingGunSystem : VirtualController
                 continue;
             }
 
-
             // TODO: Contracting DistanceJoints should be in engine
-            if (distance.MaxLength >= ropeLength + margin)
+            if (distance.MaxLength >= ropeLength + grappling.RopeMargin)
             {
-                distance.MaxLength = MathF.Max(distance.MinLength + margin, distance.MaxLength - grappling.ReelRate * frameTime);
-                distance.MaxLength = MathF.Max(ropeLength + margin, distance.MaxLength);
+                distance.MaxLength = MathF.Max(distance.MinLength + grappling.RopeMargin, distance.MaxLength - grappling.ReelRate * frameTime);
+                distance.MaxLength = MathF.Max(ropeLength + grappling.RopeMargin, distance.MaxLength);
                 ropeLength = MathF.Min(distance.MaxLength, ropeLength);
 
                 distance.Length = ropeLength;
             }
 
+
             if (ropeLength <= distance.MinLength + grappling.RopeFullyReeledMargin)
             {
                 SetReeling(uid, grappling, false, null);
             }
-            else if (ropeLength >= distance.MaxLength - margin)
+            else if (ropeLength >= distance.MaxLength - grappling.RopeMargin)
             {
+                // Checks if the entity is "tied" to the grid it is on via extra-gravity technology (e.g. magboots). If so, for the purposes of reeling it counts as if you're weighing the same as the grid.
+                bool attachedToGrid = ToGridAttached(jointComp, joint);
+
                 var targetDirection = (bodyAWorldPos - bodyBWorldPos).Normalized();
 
                 var grapplerUidA = _container.TryGetOuterContainer(physicalHook, Transform(physicalHook), out var containerA) ? containerA.Owner : physicalHook;
+                var grapplerOffsetA = _transform.GetRelativePosition(Transform(joint.BodyAUid), grapplerUidA);
                 var grapplerBodyA = Comp<PhysicsComponent>(grapplerUidA);
 
-                _physics.ApplyLinearImpulse(grapplerUidA, targetDirection * grappling.ReelForce * frameTime * -1, body: grapplerBodyA);
-
                 var grapplerUidB = _container.TryGetOuterContainer(physicalGrapple, Transform(physicalGrapple), out var containerB) ? containerB.Owner : physicalGrapple;
+                if (attachedToGrid)
+                    grapplerUidB = _transform.GetGrid(joint.BodyBUid) ?? grapplerUidB;
+                var grapplerOffsetB = _transform.GetRelativePosition(Transform(joint.BodyBUid), grapplerUidB);
                 var grapplerBodyB = Comp<PhysicsComponent>(grapplerUidB);
 
-                _physics.ApplyLinearImpulse(grapplerUidB, targetDirection * grappling.ReelForce * frameTime, body: grapplerBodyB);
+                // Handle edge-cases where the mass is zero (e.g. station anchor). Treat that as infinite weight.
+                float massFactor;
+                if (grapplerBodyA.Mass == 0f && grapplerBodyB.Mass != 0f)
+                {
+                    massFactor = 0.5f;
+                }
+                else if (grapplerBodyA.Mass != 0f && grapplerBodyB.Mass == 0f)
+                {
+                    massFactor = 1f;
+                }
+                else if (grapplerBodyA.Mass == 0f && grapplerBodyB.Mass == 0f)
+                {
+                    massFactor = 1f;
+                }
+                else if(grapplerBodyA.Mass <= 8f && grapplerBodyB.Mass >= 130f)
+                {
+                    massFactor = 0f;
+                }
+                else if(grapplerBodyA.Mass >= 8f && grapplerBodyB.Mass <= 130f)
+                {
+                    massFactor = 1f;
+                }
+                else
+                {
+                    // This assumes the bodies can move freely.
+                    // It would be nice if any resisting force applied to the grid (e.g. if stuck on something and can't move closer) would transfer to the main entity.
+                    massFactor = grapplerBodyA.Mass / (grapplerBodyA.Mass + grapplerBodyB.Mass);
+                }
+
+                // Note that this way of calculating the impulse does not take into account objects being stuck on things, e.g. a movable grapple point stuck behind a wall.
+                // Ideally the contraction of the joint itself should take this into account, but alas, this works for now.
+
+                var massFactorA = (1 - massFactor);
+                if (grapplerBodyA.Mass < BaseWeightMass) // To prevent small things go zoomies
+                    massFactorA *= grapplerBodyA.Mass / BaseWeightMass;
+
+                // Prevent applying impulses if rope is ended to prevent cliping to the walls from space and applying it while standing on the same grid
+                if (!(ropeLength <= 5f) && !HasComp<MapGridComponent>(grapplerUidA))
+                {
+                    massFactorA += 0.5f;
+                    _physics.ApplyLinearImpulse(grapplerUidA, targetDirection * massFactorA * grappling.ReelForce * frameTime * -1, grapplerOffsetA, body: grapplerBodyA);
+                }
+                else if (ropeLength >= 150f && _transform.GetGrid(joint.BodyAUid) != _transform.GetGrid(joint.BodyBUid) && StandingOnGrid(joint.BodyBUid))
+                {
+                    _physics.ApplyLinearImpulse(grapplerUidA, targetDirection * massFactorA * grappling.ReelForce * frameTime * -1, grapplerOffsetA, body: grapplerBodyA);
+                }
+
+                var massFactorB = massFactor;
+                if (grapplerBodyB.Mass < BaseWeightMass) // To prevent small things go zoomies
+                    massFactorB *= grapplerBodyB.Mass / BaseWeightMass;
+                // Prevent applying impulses if rope is ended to prevent cliping to the walls
+                if(ropeLength >= 5f && !HasComp<MapGridComponent>(grapplerUidB))
+                    _physics.ApplyLinearImpulse(grapplerUidB, targetDirection * massFactorB * grappling.ReelForce * frameTime, grapplerOffsetB, body: grapplerBodyB);
+                else if (ropeLength >= 150f && _transform.GetGrid(joint.BodyAUid) != _transform.GetGrid(joint.BodyBUid) && StandingOnGrid(joint.BodyBUid))
+                {
+                    _physics.ApplyLinearImpulse(grapplerUidB, targetDirection * massFactorB * grappling.ReelForce * frameTime, grapplerOffsetB, body: grapplerBodyB);
+                }
             }
 
             Dirty(uid, jointComp);
         }
     }
 
-    private void OnGrappleCollide(EntityUid uid, GrapplingProjectileComponent component, ref ProjectileEmbedEvent args)
+    /// <summary>
+    /// Checks whether the entity is hooked to something via grappling gun.
+    /// </summary>
+    /// <param name="entity">Entity to check.</param>
+    /// <returns>True if hooked, false otherwise.</returns>
+    public bool IsEntityHooked(Entity<JointRelayTargetComponent?> entity)
     {
-        if (!Timing.IsFirstTimePredicted || !TryComp<GrapplingGunComponent>(args.Weapon, out var grapple))
-            return;
+        if (!Resolve(entity, ref entity.Comp, false))
+            return false;
 
-
-        var grapplePos = _transform.GetWorldPosition(args.Weapon);
-        var hookPos = _transform.GetWorldPosition(uid);
-        if ((grapplePos - hookPos).Length() >= grapple.RopeMaxLength)
+        foreach (var uid in entity.Comp.Relayed)
         {
-            Ungrapple((args.Weapon, grapple), true);
-            return;
+            if (HasComp<GrapplingGunComponent>(uid))
+                return true;
         }
 
-        var joint = _joints.CreateDistanceJoint(uid, args.Weapon, id: GrapplingJoint);
-        joint.MaxLength = joint.Length + grapple.RopeMargin;
-        joint.Stiffness = grapple.RopeStiffness;
-        joint.MinLength = grapple.RopeMinLength; // Length of a tile to prevent pulling yourself into / through walls
-        joint.Breakpoint = grapple.RopeBreakPoint;
-
-        var jointCompHook = Comp<JointComponent>(uid); // we use get here because if the component doesn't exist then something has fucked up bigtime
-        var jointCompGrapple = Comp<JointComponent>(args.Weapon);
-
-        _joints.SetRelay(uid, args.Embedded, jointCompHook);
-        _joints.RefreshRelay(args.Weapon, jointCompGrapple);
+        return false;
     }
+
+    /// <summary>
+    /// Updates the relay of any grappling hook to ensure it uses either the embedded entity, or the grid if the entity is anchored.
+    /// </summary>
+    private void RefreshJointRelay(Entity<GrapplingProjectileEmbedComponent> entity)
+    {
+        if (!_netManager.IsServer)
+            return;
+
+        foreach (var hook in entity.Comp.GrapplingProjectiles)
+        {
+            if (!HasComp<GrapplingProjectileComponent>(hook) || !TryComp<JointComponent>(hook, out var jointComp))
+                continue;
+
+            if (!jointComp.GetJoints.TryGetValue(GrapplingJoint, out var joint))
+                continue;
+
+            var targetGrid = _transform.GetGrid(entity.Owner);
+            var canRelayToGrid = targetGrid != null && !IsDockedGrid(targetGrid.Value);
+
+            if (Transform(entity).Anchored && canRelayToGrid && ToGridAttached(jointComp, joint) && StandingOnGrid(joint.BodyBUid))
+            {
+                joint.LocalAnchorA = _transform.GetRelativePosition(Transform(hook), targetGrid!.Value);
+                _joints.SetRelay(hook, targetGrid);
+
+            }
+            else
+            {
+                joint.LocalAnchorA = Vector2.Zero;
+                _joints.SetRelay(hook, entity.Owner, jointComp);
+            }
+        }
+    }
+
+    private bool IsDockedGrid(EntityUid gridUid)
+    {
+        if (!TryComp<JointComponent>(gridUid, out var jointComp))
+            return false;
+
+        foreach (var joint in jointComp.GetJoints.Values)
+        {
+            if (joint.ID.StartsWith("docking", StringComparison.Ordinal))
+                return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Checks if the entity is "tied" to the grid it is on via extra-gravity technology (e.g. magboots). If so, for the purposes of reeling it counts as if you're weighing the same as the grid.
+    /// </summary>
+    private bool ToGridAttached(JointComponent jointComp, Joint joint)
+    {
+        bool attachedToGrid;
+
+        if (_transform.GetGrid(joint.BodyAUid) == _transform.GetGrid(joint.BodyBUid))
+        {
+            attachedToGrid = false;
+        }
+        else
+        {
+            if (jointComp.Relay != null)
+            {
+                _physics.WakeBody(jointComp.Relay.Value);
+                attachedToGrid = Transform(jointComp.Relay.Value).Anchored ||
+                                    !_gravity.IsWeightless(jointComp.Relay.Value) &&
+                                    !_gravity.IsWeightlessStatusFromGrid(jointComp.Relay.Value);
+            }
+            else
+            {
+                attachedToGrid = Transform(joint.BodyAUid).Anchored ||
+                                    !_gravity.IsWeightless(joint.BodyAUid) &&
+                                    !_gravity.IsWeightlessStatusFromGrid(joint.BodyAUid);
+            }
+        }
+        return attachedToGrid;
+    }
+
+    private bool StandingOnGrid(EntityUid? entityUid)
+    {
+        if (entityUid != null &&
+            TryComp<GunComponent>(entityUid, out var gunComp) &&
+            gunComp.Holder != null &&
+            TryComp<TransformComponent>(gunComp.Holder, out var userTransform))
+            if (userTransform.GridUid == userTransform.ParentUid &&
+                TryComp<GravityAffectedComponent>(gunComp.Holder, out var gravityComp) &&
+                !(gravityComp.GridWeightlessStatus && gravityComp.Weightless))
+                return true;
+
+        return false;
+    }
+
 
     [Serializable, NetSerializable]
     protected sealed class RequestGrapplingReelMessage : EntityEventArgs
@@ -327,3 +540,5 @@ public abstract partial class SharedGrapplingGunSystem : VirtualController
         }
     }
 }
+/// Forge-Change-End
+///
