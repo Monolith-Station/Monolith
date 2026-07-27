@@ -1,17 +1,17 @@
 - type: job
-  id: TsfReservist
-  name: job-name-tsf-reservist
-  description: job-description-tsf-reservist
-  playTimeTracker: JobTsfReservist
+  id: PDVReservist
+  name: job-name-pdv-reservist
+  description: job-description-pdv-reservist
+  playTimeTracker: JobPDVReservist
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 100 # Requires you to have atleast logged on the server
   startingGear: TsfEngiGear
   icon: JobIconTSFEngi
-  supervisors: job-supervisors-sergeant
+  supervisors: job-supervisors-hire
   weight: 130
   displayWeight: 20
-  assignedCompany: TSF
+  assignedCompany: PDV
   canBeAntag: false
   access:
   - TsfmcEngineering

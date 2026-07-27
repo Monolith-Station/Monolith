@@ -12,9 +12,11 @@ job-name-md-medic = Emergency Responder
 # MARK: TSF
 job-name-tsf-engineer = TSFMC Engineer
 job-name-tsf-borg = TSFMC Cyborg
+job-name-tsf-reservist = TSFMC Deck Crew
 
 # MARK: PDV
 job-name-pdv-borg = PDV Cyborg
+job-name-pdv-reservist = PDV Paighan
 
 # MARK: Viper Group
 job-name-vg-infanteer = VG Infanteer

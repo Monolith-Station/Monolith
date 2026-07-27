@@ -9,9 +9,11 @@ job-description-md-medic = Traverse the space to provide life-saving care aboard
 # MARK: TSF
 job-description-tsf-engineer = Maintain the integrity of the flagship, get laughed at for not being a real soldier.
 job-description-tsf-borg = Half-human, Half-machine. Follow your laws, serve the TSF, and beg engineers for upgrades.
+job-description-tsf-reservist = Take orders from senior troopers, learn how to work in the TSFMC. Stay out of trouble. Accompany marines into battle.
 
 # MARK: PDV
 job-description-pdv-borg = Half-human, Half-machine. Follow your laws, serve the PDV, and beg dynasty troops for upgrades.
+job-description-pdv-reservist = Learn the hierarchy, learn how to work in the PDV. Stay out of trouble. Get sent to die with the cheapest gear possible.
 
 # MARK: Viper Group
 job-description-vg-infanteer = Follow the orders from above. Complete contracts. Get paid.
