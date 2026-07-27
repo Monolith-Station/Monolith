@@ -356,7 +356,6 @@
     - EngineeringBoardsGoob #Goob Factorio port
     - NanotrasenCircuitBoard # Forge-change
     - DrakeIndustriesCircuitBoards # Forge-change
-    - TelAdiCircuitBoards # Forge-change: Tel-Adi machine boards (centrifuge, scrap processor)
     - ReactorCircuitboards # FH edit
     - BsEnergyCircuitsPack # Forge-Change
   - type: MaterialStorage
@@ -402,7 +401,6 @@
     - EngineeringBoardsGoob #Goob Factorio port
     - NanotrasenCircuitBoard # Forge-change
     - DrakeIndustriesCircuitBoards # Forge-change
-    - TelAdiCircuitBoards # Forge-change: Tel-Adi machine boards (centrifuge, scrap processor)
     - ReactorCircuitboards # FH edit
     - ForgeHyperConvectionFSGTier4Boards # Forge — FSG T4 boards (disk-unlocked), hyper imprinter only
 
@@ -435,7 +433,6 @@
     - IPCPartsStatic
     dynamicPacks:
     - NanotrasenMechWeapon # Forge-change
-    - TelAdiCyberneticsDynamic # Forge-change: Tel-Adi emergency limb implant (research-gated)
     - Robotics
     - BorgModules
     - MechParts
@@ -709,7 +706,6 @@
     - NanotrasenClothing # Forge: AllTechPrintableTest only indexes dynamicPacks
     - NFPouches # Frontier
     - ClothingEmpirePack # Forge-change
-    - TelAdiClothingDynamic # Forge-change: Tel-Adi clothing (research-gated, see teladi_clothing.yml)
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ClothingCentComm

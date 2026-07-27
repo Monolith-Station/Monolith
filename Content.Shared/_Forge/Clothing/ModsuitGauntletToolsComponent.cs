@@ -63,15 +63,6 @@ public sealed partial class ModsuitGauntletToolsComponent : Component
     [DataField, AutoNetworkedField]
     public bool AuxiliaryInHand;
 
-    // Forge-change: optional sixth slot (RCD)
-    [DataField, AutoNetworkedField]
-    public EntProtoId RcdProto = "RCDRecharging";
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? RcdEntity;
-
-    [DataField, AutoNetworkedField]
-    public bool RcdInHand;
     [DataField, AutoNetworkedField]
     public bool PipingInHand;
 

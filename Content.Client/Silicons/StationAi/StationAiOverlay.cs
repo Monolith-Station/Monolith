@@ -56,16 +56,7 @@ public sealed partial class StationAiOverlay : Overlay
         var worldBounds = args.WorldBounds;
 
         var playerEnt = _player.LocalEntity;
-
-        // Forge-change: reveal vision on the grid the AI's eye (view target) is on, not the player
-        // entity's grid. This lets the vision follow the eye when it's projected onto another grid
-        // (e.g. a remote shuttle via a Soulkiller server). For a normal AI the eye shares the
-        // player's grid, so this is a no-op.
-        var viewEnt = playerEnt;
-        if (_entManager.TryGetComponent(playerEnt, out EyeComponent? eyeComp) && eyeComp.Target is { } eyeTarget)
-            viewEnt = eyeTarget;
-
-        _entManager.TryGetComponent(viewEnt, out TransformComponent? playerXform);
+        _entManager.TryGetComponent(playerEnt, out TransformComponent? playerXform);
         var gridUid = playerXform?.GridUid ?? EntityUid.Invalid;
         _entManager.TryGetComponent(gridUid, out MapGridComponent? grid);
         _entManager.TryGetComponent(gridUid, out BroadphaseComponent? broadphase);

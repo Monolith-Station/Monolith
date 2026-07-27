@@ -1,15 +1,4 @@
 - type: entity
-  id: BannerTelAdi
-  parent: BannerBase
-  name: Tel-Adi banner
-  description: Banner of the Tel-Adi corporation. A symbol of profit and order.
-  suffix: ТелАди
-  components:
-  - type: Sprite
-    sprite: Forge/Structures/Decoration/banner.rsi
-    state: banner_tel-adi
-
-- type: entity
   id: BannerScrapTech
   parent: BannerBase
   name: Scrap Tech banner

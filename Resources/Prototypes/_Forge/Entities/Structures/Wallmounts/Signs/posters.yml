@@ -62,14 +62,3 @@
   - type: Sprite
     sprite: Forge/Structures/Wallmounts/posters.rsi
     state: cf_poster_aam
-
-- type: entity
-  parent: PosterBase
-  id: PosterLegitTelAdi
-  name: Tel-Adi poster
-  description: A corporate poster of the Tel-Adi corporation. Profit is faith, order is law.
-  suffix: ТелАди
-  components:
-  - type: Sprite
-    sprite: Forge/Structures/Wallmounts/posters.rsi
-    state: tel_adi

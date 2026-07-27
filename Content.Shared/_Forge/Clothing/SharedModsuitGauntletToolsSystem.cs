@@ -57,9 +57,6 @@ public abstract partial class SharedModsuitGauntletToolsSystem : EntitySystem
             case ModsuitGauntletToolSlot.Auxiliary:
                 ToggleTool(gauntlets, wearer, gauntlets.Comp.AuxiliaryEntity, ref gauntlets.Comp.AuxiliaryInHand);
                 break;
-            case ModsuitGauntletToolSlot.Rcd:
-                ToggleTool(gauntlets, wearer, gauntlets.Comp.RcdEntity, ref gauntlets.Comp.RcdInHand);
-                break;
             case ModsuitGauntletToolSlot.Piping:
                 ToggleTool(gauntlets, wearer, gauntlets.Comp.PipingEntity, ref gauntlets.Comp.PipingInHand);
                 break;
@@ -75,7 +72,6 @@ public abstract partial class SharedModsuitGauntletToolsSystem : EntitySystem
             ModsuitGauntletToolSlot.Welder => comp.EnabledSlots.HasFlag(ModsuitGauntletEnabledSlots.Welder),
             ModsuitGauntletToolSlot.NaniteApplicator => comp.EnabledSlots.HasFlag(ModsuitGauntletEnabledSlots.NaniteApplicator),
             ModsuitGauntletToolSlot.Auxiliary => comp.EnabledSlots.HasFlag(ModsuitGauntletEnabledSlots.Auxiliary),
-            ModsuitGauntletToolSlot.Rcd => comp.EnabledSlots.HasFlag(ModsuitGauntletEnabledSlots.Rcd),
             ModsuitGauntletToolSlot.Piping => comp.EnabledSlots.HasFlag(ModsuitGauntletEnabledSlots.Piping),
             _ => false,
         };
@@ -113,11 +109,6 @@ public abstract partial class SharedModsuitGauntletToolsSystem : EntitySystem
             return true;
         }
 
-        if (comp.RcdInHand && IsSlotEnabled(comp, ModsuitGauntletToolSlot.Rcd))
-        {
-            slot = ModsuitGauntletToolSlot.Rcd;
-            return true;
-        }
         if (comp.PipingInHand && IsSlotEnabled(comp, ModsuitGauntletToolSlot.Piping))
         {
             slot = ModsuitGauntletToolSlot.Piping;
@@ -137,7 +128,6 @@ public abstract partial class SharedModsuitGauntletToolsSystem : EntitySystem
             ModsuitGauntletToolSlot.Welder => comp.WelderInHand,
             ModsuitGauntletToolSlot.NaniteApplicator => comp.NaniteApplicatorInHand,
             ModsuitGauntletToolSlot.Auxiliary => comp.AuxiliaryInHand,
-            ModsuitGauntletToolSlot.Rcd => comp.RcdInHand,
             ModsuitGauntletToolSlot.Piping => comp.PipingInHand,
             _ => false,
         };
@@ -191,7 +181,6 @@ public abstract partial class SharedModsuitGauntletToolsSystem : EntitySystem
         StowIfHeld(gauntlets, wearer, activeTool, comp.WelderEntity, ref comp.WelderInHand);
         StowIfHeld(gauntlets, wearer, activeTool, comp.NaniteApplicatorEntity, ref comp.NaniteApplicatorInHand);
         StowIfHeld(gauntlets, wearer, activeTool, comp.AuxiliaryEntity, ref comp.AuxiliaryInHand);
-        StowIfHeld(gauntlets, wearer, activeTool, comp.RcdEntity, ref comp.RcdInHand);
         StowIfHeld(gauntlets, wearer, activeTool, comp.PipingEntity, ref comp.PipingInHand);
     }
 
@@ -318,7 +307,6 @@ public abstract partial class SharedModsuitGauntletToolsSystem : EntitySystem
             comp.WelderInHand = false;
             comp.NaniteApplicatorInHand = false;
             comp.AuxiliaryInHand = false;
-            comp.RcdInHand = false;
             comp.PipingInHand = false;
             return;
         }
@@ -328,7 +316,6 @@ public abstract partial class SharedModsuitGauntletToolsSystem : EntitySystem
         comp.WelderInHand = IsHeld(wearer.Value, comp.WelderEntity);
         comp.NaniteApplicatorInHand = IsHeld(wearer.Value, comp.NaniteApplicatorEntity);
         comp.AuxiliaryInHand = IsHeld(wearer.Value, comp.AuxiliaryEntity);
-        comp.RcdInHand = IsHeld(wearer.Value, comp.RcdEntity);
         comp.PipingInHand = IsHeld(wearer.Value, comp.PipingEntity);
     }
 

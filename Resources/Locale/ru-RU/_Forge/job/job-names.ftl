@@ -84,7 +84,3 @@ job-name-tsf-crew = ТСФ Экипаж «Халкиона»
 job-name-tsf-crewofficer = ТСФ Офицер «Халкиона»
 job-name-nt-medic-pilot = Пилот TTI
 job-name-nt-medic-gunner = Стрелок TTI
-
-# Tel-Adi
-department-TelAdi = Tel-Adi
-forge-job-name-tel-adi-worker = ТА Работник

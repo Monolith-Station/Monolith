@@ -30,22 +30,6 @@
     - state: hospital_label
 
 - type: entity
-  parent: [ EncryptionKey ]
-  id: EncryptionKeyTelAdi
-  name: ключ шифрования Tel-Adi
-  description: Ключ доступа к закрытому каналу связи корпорации Tel-Adi (:g, 606.7).
-  components:
-  - type: EncryptionKey
-    channels:
-    - TelAdi
-    defaultChannel: TelAdi
-  - type: Sprite
-    sprite: Forge/Objects/Devices/encryption_keys.rsi
-    layers:
-    - state: crypt_teladi
-    - state: teladi_label
-
-- type: entity
   parent: EncryptionKey
   id: EncryptionKeyPlantManager
   name: plant manager encryption key

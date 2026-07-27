@@ -211,24 +211,3 @@
   - type: StaticPrice
     price: 5000
     vendPrice: 15000
-
-- type: entity
-  id: DisciplinesDiskTelAdi
-  parent: BaseItem
-  name: technology disk (Tel-Adi)
-  description: Disk with Tel-Adi ARS technology.
-  components:
-  - type: DisciplinesDisk
-    disciplines:
-    - TelAdi
-  - type: Item
-    size: Small
-  - type: Sprite
-    layers:
-    - sprite: Objects/Misc/diskcases.rsi
-      state: icon_base
-    - sprite: Forge/Objects/Specific/Research/teladidisk.rsi
-      state: teladi
-  - type: StaticPrice
-    price: 5000
-    vendPrice: 15000

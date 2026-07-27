@@ -143,25 +143,3 @@
     vendPrice: 640000
   # region Empire
 # Forge/Objects/Misc/emp_lpc.rsi # empire lpc textures
-
-# region Tel-Adi
-
-- type: entity
-  parent: BaseShipLPCOneUse
-  id: ShipVoucherTelAdiBillion
-  name: Tel-Adi Billion LPC
-  suffix: ТелАди
-  description: A small card that contains the data for the procurement of a Billion-class flagship from the Tel-Adi corporate reserves.
-  components:
-  - type: Sprite
-    sprite: Forge/Objects/Misc/teladi_voucher.rsi
-    layers:
-    - state: icon
-  - type: ShipyardVoucher
-    destroyOnEmpty: true
-    consoleType: Custom # консоли Tel-Adi работают на ключе Custom + ShipyardListing
-    companyName: TelAdi
-    vessels:
-    - teladi_aurora
-  - type: StaticPrice
-    price: 50000

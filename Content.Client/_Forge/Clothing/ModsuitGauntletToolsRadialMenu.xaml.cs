@@ -59,8 +59,6 @@ public sealed partial class ModsuitGauntletToolsRadialMenu : RadialMenu
         if (comp.EnabledSlots.HasFlag(ModsuitGauntletEnabledSlots.Auxiliary) && !comp.AuxiliaryInHand)
             AddToolButton(main, ModsuitGauntletToolSlot.Auxiliary, comp.AuxiliaryProto, comp.UsePrototypeMenuIcons);
 
-        if (comp.EnabledSlots.HasFlag(ModsuitGauntletEnabledSlots.Rcd) && !comp.RcdInHand)
-            AddToolButton(main, ModsuitGauntletToolSlot.Rcd, comp.RcdProto, comp.UsePrototypeMenuIcons);
         if (comp.EnabledSlots.HasFlag(ModsuitGauntletEnabledSlots.Piping) && !comp.PipingInHand)
             AddToolButton(main, ModsuitGauntletToolSlot.Piping, comp.PipingProto, comp.UsePrototypeMenuIcons);
 
@@ -133,11 +131,6 @@ public sealed partial class ModsuitGauntletToolsRadialMenu : RadialMenu
             return true;
         }
 
-        if (comp.RcdInHand && SharedModsuitGauntletToolsSystem.IsSlotEnabled(comp, ModsuitGauntletToolSlot.Rcd))
-        {
-            slot = ModsuitGauntletToolSlot.Rcd;
-         return true;
-        }   
         if (comp.PipingInHand && SharedModsuitGauntletToolsSystem.IsSlotEnabled(comp, ModsuitGauntletToolSlot.Piping))
         {
             slot = ModsuitGauntletToolSlot.Piping;

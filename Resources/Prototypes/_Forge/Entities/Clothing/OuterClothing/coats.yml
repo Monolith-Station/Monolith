@@ -129,21 +129,6 @@
         Heat: 0.8
         Caustic: 0.25
 
-# Пальто Tel-Adi
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterCoatTelAdi
-  name: пальто Tel-Adi
-  description: Фирменное пальто корпорации Tel-Adi. Стильное и представительное — для тех, кто ценит прибыль и внешний вид.
-  suffix: ТелАди
-  components:
-  - type: Sprite
-    sprite: Forge/Clothing/OuterClothing/Coats/tel_Adi.rsi
-  - type: Clothing
-    sprite: Forge/Clothing/OuterClothing/Coats/tel_Adi.rsi
-  - type: StaticPrice
-    price: 250
-
 - type: entity
   parent: [ClothingOuterStorageFoldableBase, BaseFactionGearOtherFactionT1]
   id: ClothingOuterRobeTraumaBomber

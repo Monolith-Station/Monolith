@@ -13,8 +13,7 @@ public enum ModsuitGauntletEnabledSlots : byte
     Welder = 1 << 2,
     NaniteApplicator = 1 << 3,
     Auxiliary = 1 << 4,
-    Rcd = 1 << 5,
-    Piping = 1 << 6,
+    Piping = 1 << 5,
     All = Urk | Omnitool | Welder | NaniteApplicator,
 }
 
@@ -26,7 +25,6 @@ public enum ModsuitGauntletToolSlot : byte
     Welder,
     NaniteApplicator,
     Auxiliary,
-    Rcd,
     Piping,
 }
 

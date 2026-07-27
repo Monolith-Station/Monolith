@@ -8,5 +8,3 @@ ent-PosterContrabandUSSP = Сила в единстве
 ent-PosterContrabandAutsider = Розыск
     .desc = Плакат о розыске некого ниана Стрюкова: "Пожалуйста, возвращайся домой.."
     .suffix = Forge, Fun
-ent-PosterLegitTelAdi = постер Tel-Adi
-    .desc = Корпоративный постер Tel-Adi. Прибыль — вера, порядок — закон.

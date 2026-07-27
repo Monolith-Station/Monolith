@@ -1,29 +1,5 @@
 - type: entity
   parent: BaseFlag
-  id: TelAdiFlag
-  name: Tel-Adi flag
-  description: The Tel-Adi corporation's branded flag.
-  suffix: ТелАди
-  components:
-  - type: Sprite
-    snapCardinals: false
-    drawdepth: WallMountedItems
-    sprite: Forge/Structures/Wallmounts/flags_64x32.rsi
-    state: tel_adi_flag
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.75,-0.10,0.75,0.35"
-        density: 75
-        mask:
-          - FullTileMask
-        layer:
-          - WallLayer
-
-- type: entity
-  parent: BaseFlag
   id: ScrapFlag
   name: Scrap Tech Flag
   suffix: DT/ST

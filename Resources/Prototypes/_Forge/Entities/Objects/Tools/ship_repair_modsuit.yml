@@ -6,12 +6,3 @@
   components:
   - type: Sprite
     scale: 1.0, 1.0
-
-# Самозарядный URK для перчаток Tel-Adi Mk2
-- type: entity
-  parent: ShipRepairDeviceRecharging
-  id: ShipRepairDeviceRechargingModsuitGauntlet
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    scale: 1.0, 1.0

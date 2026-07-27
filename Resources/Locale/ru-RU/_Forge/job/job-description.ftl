@@ -66,7 +66,3 @@ job-description-tsf-Medic = Спасайте жизни своих товари�
 job-description-tsf-sl = Командуйте приставленным в ваш отряд людьми и приведите их к победе.
 job-description-tsf-Crew = Обслуживайте Халкион, следите за питанием, изучайте РнД, производите снаряжение.
 job-description-tsf-crewofficer = Руководите экипажем Халкиона и будьте главным стрелком-наводчиком аванпоста.
-
-# Tel-Adi
-department-TelAdi-description = Сотрудник компании Tel-Adi.
-forge-job-desc-tel-adi-worker = Работник компании Tel-Adi. Выполняй контракты и блюди интересы компании.
