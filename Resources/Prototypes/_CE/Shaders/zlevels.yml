@@ -1,5 +1,24 @@
-# CrystallEdge: Z-level blur shader (used by CEZLevelBlurOverlay)
 - type: shader
   id: CEZBlur
   kind: source
   path: "/Textures/_CE/Shaders/zblur.swsl"
+  params:
+    STRENGTH: 1.0
+    FADE: 1.0
+
+# patched blur shader so it works on specific entities
+- type: shader
+  id: CEZBlurBlit
+  kind: source
+  path: "/Textures/_CE/Shaders/zblur_blit.swsl"
+  params:
+    STRENGTH: 1.0
+    FADE: 1.0
+    CLOUD: 0.0
+
+- type: shader
+  id: CEZClouds
+  kind: source
+  path: "/Textures/_CE/Shaders/zclouds.swsl"
+  params:
+    COVERAGE: 1.0

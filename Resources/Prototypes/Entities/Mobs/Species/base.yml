@@ -309,6 +309,7 @@
     shape:
       - 0, 0, 4, 4
       - 0, 3, 6, 5
+  - type: CanMoveInAir # Monolith: Allow air movement for Z levels (:3)
 
 - type: entity
   save: false

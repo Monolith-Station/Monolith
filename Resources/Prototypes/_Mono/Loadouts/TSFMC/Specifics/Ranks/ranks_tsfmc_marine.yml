@@ -8,6 +8,9 @@
 - type: loadout
   id: TsfmcRankE2
   name: TSFMC E-2 (PFC)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfmcMarinePfc
   components:
   - type: ChatRank
     rank: tsf-e2
@@ -15,6 +18,9 @@
 - type: loadout
   id: TsfmcRankE3
   name: TSFMC E-3 (LCPL)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfmcMarineLCpl
   components:
   - type: ChatRank
     rank: tsf-e3
@@ -40,7 +46,7 @@
     rank: tsf-e5
 
 - type: loadoutEffectGroup
-  id: TsfmcMarineCpl
+  id: TsfmcMarinePfc
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
@@ -49,10 +55,28 @@
       time: 36000 # 10hr
 
 - type: loadoutEffectGroup
-  id: TsfmcMarineSgt
+  id: TsfmcMarineLCpl
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 108000 # 30hr
+
+- type: loadoutEffectGroup
+  id: TsfmcMarineCpl
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 180000 # 50hr
+
+- type: loadoutEffectGroup
+  id: TsfmcMarineSgt
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 270000 # 75hr

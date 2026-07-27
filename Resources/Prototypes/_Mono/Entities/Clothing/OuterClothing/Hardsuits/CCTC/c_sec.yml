@@ -1,0 +1,87 @@
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitCCTCMedium
+  name: MP-EVA CSW-19 "Century" tacsuit
+  description: A general purpose, combat-ready hardsuit designed by Centennial Armsworks, for Centennial Armsworks. Designed to be usable for riot control, gunfights, and biohazards, but due to cheap materials it isn't particularly effective.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/cctc_lstar.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/cctc_lstar.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: Armor # like syndie suit, but weaker (not combat faction)
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.55
+        Heat: 0.6
+        Radiation: 0.6
+        Caustic: 0.6
+        Poison: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHelmetHardsuitCCTCMedium
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: PirateBountyItem
+    id: ClothingOuterHardsuitTacsuit
+  - type: StaminaDamageResistance
+    coefficient: 0.2
+  - type: FireProtection
+    reduction: 0.5
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitCCTCMediumPremium
+  name: MP-EVA CSW-21 "Centurion" tacsuit
+  description: A reinforced variant of the CSW-19 "Century", the "Centurion" is designed with the PMC's commanders in mind, boasting improved quality and protection.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/cctc_lstarpremium.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/cctc_lstarpremium.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: Armor # like syndie suit, but weaker (not combat faction)
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.5
+        Heat: 0.55
+        Radiation: 0.55
+        Caustic: 0.55
+        Poison: 0.55
+  - type: ClothingSpeedModifier
+    walkModifier: 0.92
+    sprintModifier: 0.92
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHelmetHardsuitCCTCMediumPremium
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: PirateBountyItem
+    id: ClothingOuterHardsuitTacsuit
+  - type: StaminaDamageResistance
+    coefficient: 0.1
+  - type: FireProtection
+    reduction: 0.5

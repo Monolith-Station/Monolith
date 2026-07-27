@@ -29,6 +29,11 @@
   result: Asm220TorpedoHE
 
 - type: latheRecipe
+  id: ASM220TorpedoHESACLOSUniversal
+  parent: BaseTorpedoRecipe
+  result: Asm220TorpedoHESACLOS
+
+- type: latheRecipe
   id: ASM220TorpedoECMUniversal
   parent: BaseTorpedoRecipe
   result: Asm220TorpedoECM

@@ -129,9 +129,9 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 5
-        Structural: 10
-        Heat: 10
+        Radiation: 15
+        Structural: 35
+        Heat: 65
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
     layers:
@@ -149,9 +149,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 3
-    intensitySlope: 3
-    maxIntensity: 3
+    totalIntensity: 16
+    intensitySlope: 4
+    maxIntensity: 4
 
 # Type 241
 
@@ -476,7 +476,7 @@
   - type: HitscanBasicDamage
     damage:
      types:
-       Heat: 120
+       Heat: 150
        Structural: 500
   - type: HitscanRadarSignature
     radarColor: "#5d46e2"
