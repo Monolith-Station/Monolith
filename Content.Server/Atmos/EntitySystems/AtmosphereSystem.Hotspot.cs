@@ -50,7 +50,7 @@ namespace Content.Server.Atmos.EntitySystems
                 ExcitedGroupResetCooldowns(tile.ExcitedGroup);
 
             // If the hotspot is too weak to exist/doesn't have the correct conditions, yeet it for deletion at the end of the tick
-            if ((tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist) || (tile.Hotspot.Volume <= 1f)
+            if ((tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist) || (tile.Hotspot.Volume <= 1f && tile.PuddleSolutionFlammability == 0) // Forge-Change
                 || tile.Air == null || tile.Air.GetMoles(Gas.Oxygen) < 0.5f || (tile.Air.GetMoles(Gas.Plasma) < 0.5f && tile.Air.GetMoles(Gas.Tritium) < 0.5f) && tile.PuddleSolutionFlammability == 0)
             {
                 tile.Hotspot = new Hotspot();
@@ -60,6 +60,21 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             PerformHotspotExposure(tile);
+
+            // Forge-change-start
+            // Fuel may have been fully consumed during exposure; extinguish immediately instead of waiting a tick.
+            var air = tile.Air;
+            if (air != null
+                && air.GetMoles(Gas.Plasma) < 0.5f
+                && air.GetMoles(Gas.Tritium) < 0.5f
+                && tile.PuddleSolutionFlammability == 0)
+            {
+                tile.Hotspot = new Hotspot();
+                tile.Hotspot.Type = HotspotType.Gas;
+                InvalidateVisuals(ent, tile);
+                return;
+            }
+            // Forge-change-end
 
             tile.Hotspot.Type = tile.PuddleSolutionFlammability > 0 ? HotspotType.Puddle : HotspotType.Gas;
 
@@ -91,9 +106,9 @@ namespace Content.Server.Atmos.EntitySystems
                 if (tileBurntDecals < 4)
                     _decalSystem.TryAddDecal(_burntDecals[_random.Next(_burntDecals.Length)], new EntityCoordinates(gridUid, tilePos), out _, cleanable: true);
 
-                if (tile.Air.Temperature > Atmospherics.FireMinimumTemperatureToSpread)
+                if (air != null && air.Temperature > Atmospherics.FireMinimumTemperatureToSpread) // Forge-Change
                 {
-                    var radiatedTemperature = tile.Air.Temperature * Atmospherics.FireSpreadRadiosityScale;
+                    var radiatedTemperature = air.Temperature * Atmospherics.FireSpreadRadiosityScale; // Forge-Change
                     foreach (var otherTile in tile.AdjacentTiles)
                     {
                         // TODO ATMOS: This is sus. Suss this out.
@@ -223,6 +238,15 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 RaiseLocalEvent(entity, ref fireEvent);
             }
+
+            // Forge-change-start
+            // Puddle fires don't produce gas fire reaction results; sustain volume and temperature from fuel.
+            if (tile.PuddleSolutionFlammability > 0)
+            {
+                tile.Hotspot.Temperature = MathF.Max(tile.Hotspot.Temperature, Atmospherics.FireMinimumTemperatureToExist);
+                tile.Hotspot.Volume = MathF.Max(tile.Hotspot.Volume, tile.PuddleSolutionFlammability * 25f);
+            }
+            // Forge-change-end
         }
 
         /// <summary>
