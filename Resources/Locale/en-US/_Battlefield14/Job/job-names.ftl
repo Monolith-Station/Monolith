@@ -21,6 +21,9 @@ job-name-ng-recon = N.G. Cavalry Scout
 job-name-uspd-chief = USPD Police Chief
 job-name-uspd-warden = USPD Warden
 job-name-uspd-officer = USPD Police Officer
+job-name-uspd-swat-lieutenant = SWAT Commander
+job-name-uspd-swat-squadleader = SWAT Sergeant
+job-name-uspd-swat-officer = SWAT Officer
 
 #German Federation#
 

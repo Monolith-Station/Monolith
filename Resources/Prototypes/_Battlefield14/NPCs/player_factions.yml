@@ -2,6 +2,7 @@
   id: NATO
   friendly:
   - USMC
+  - USPD
   - BW
   neutral:
   - NanoTrasen
@@ -17,6 +18,23 @@
   id: USMC
   friendly:
   - NATO
+  - USPD
+  - BW
+  neutral:
+  - NanoTrasen
+  - Cat
+  - PetsNT
+  - SimpleNeutral
+  hostile:
+  - PACT
+  - VDV
+  - FSB
+
+- type: npcFaction
+  id: USPD
+  friendly:
+  - NATO
+  - USMC
   - BW
   neutral:
   - NanoTrasen
@@ -33,6 +51,7 @@
   friendly:
   - NATO
   - USMC
+  - USPD
   neutral:
   - NanoTrasen
   - Cat
@@ -71,6 +90,7 @@
   hostile:
   - NATO
   - USMC
+  - USPD
   - BW
 
 - type: npcFaction
@@ -86,4 +106,5 @@
   hostile:
   - NATO
   - USMC
+  - USPD
   - BW

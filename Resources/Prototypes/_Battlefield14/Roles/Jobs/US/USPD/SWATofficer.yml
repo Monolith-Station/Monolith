@@ -1,7 +1,7 @@
 - type: job
   id: USPDSWATOfficer
-  name: SWAT Officer
-  description: job-description-uspd-officer
+  name: job-name-uspd-swat-officer
+  description: job-description-uspd-swat-officer
   playTimeTracker: JobUSPDSWATOfficer
   weight: 68
   startingGear: USPDSWATOfficerGear
@@ -20,6 +20,9 @@
     components:
     - type: ChatRank
       rank: BF-rank-policeofficer
+    - type: NpcFactionMember
+      factions:
+      - USPD
   access:
   - Maintenance
   - Service

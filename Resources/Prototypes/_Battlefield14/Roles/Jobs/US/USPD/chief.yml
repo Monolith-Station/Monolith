@@ -20,6 +20,9 @@
     components:
     - type: ChatRank
       rank: BF-rank-policechief
+    - type: NpcFactionMember
+      factions:
+      - USPD
   access:
   - Maintenance
   - Service

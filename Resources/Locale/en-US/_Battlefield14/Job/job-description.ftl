@@ -21,6 +21,9 @@ job-description-ng-recon = Go on the flanks and conduct surprise attacks or rela
 job-description-uspd-chief = Keep your department running smoothly.
 job-description-uspd-warden = Keep the brig secure and clean.
 job-description-uspd-officer = Keep the peace, bring order to chaos.
+job-description-uspd-swat-lieutenant = Complete the mission with your team, keep cool under fire.
+job-description-uspd-swat-squadleader = Coordinate the officers under you to bring order to chaos.
+job-description-uspd-swat-officer = Keep the peace, bring order to chaos.
 
 #German Federation#
 

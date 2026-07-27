@@ -229,6 +229,19 @@
   - ContractorWallet
 
 - type: roleLoadout
+  id: JobUSPDSWATLieutenant
+  groups:
+  - BF_LongarmsSWAT
+  - BF_PistolsUSMCSL
+  - BF_SoldierGlassesGreen
+  - BF_CombatMasks
+  - BF_WPSGloves
+  - BF_BackpacksBlack
+  - BF_MiscItemsNATO
+  - BF_Map
+  - ContractorWallet
+
+- type: roleLoadout
   id: JobUSPDSWATSquadLeader
   groups:
   - BF_LongarmsSWAT
@@ -602,7 +615,9 @@
 - type: roleLoadout
   id: JobSuspectUS
   groups:
+  - BF_HeadCivilianUS
   - BF_CombatMasks
+  - BF_CrewGlasses
   - BF_JumpsuitsSuspectUS
   - BF_WPSGloves
   - BF_ShoesCivilian
@@ -614,6 +629,7 @@
 - type: roleLoadout
   id: JobCivilianUS
   groups:
+  - BF_HeadCivilianUS
   - BF_JumpsuitsCivilianUS
   - BF_OuterCivilianUS
   - BF_WPSGloves

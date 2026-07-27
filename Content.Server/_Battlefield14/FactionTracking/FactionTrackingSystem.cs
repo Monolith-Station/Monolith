@@ -22,8 +22,8 @@ public sealed class FactionTrackingSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
 
-    public static readonly HashSet<string> BluforDepartments = new() { "USMC", "USSF", "ARNG", "USPD", "BW" };
-    public static readonly HashSet<string> RedforDepartments = new() { "VDV", "VKS", "OMON", "FSB" };
+    public static readonly HashSet<string> BluforDepartments = new() { "USMC", "USSF", "ARNG", "USPD", "BW", "TDMBlue" };
+    public static readonly HashSet<string> RedforDepartments = new() { "VDV", "VKS", "OMON", "FSB", "TDMRed" };
 
     [ViewVariables]
     public bool AutobalancerEnabled { get; set; } = true;

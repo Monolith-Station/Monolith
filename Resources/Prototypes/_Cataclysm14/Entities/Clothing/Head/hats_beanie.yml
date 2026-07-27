@@ -1,0 +1,202 @@
+#MARK: black
+- type: entity
+  parent: ClothingHeadBase # BF14
+  id: ClothingHeadHatBeanieBlack
+  name: beanie (black)
+  description: A beanie or seamed cap, a small piece of cloth to protect your head from cold or just for fashion.
+  components:
+  - type: Sprite
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    color: "#3B3B3B"
+  - type: Clothing
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#3B3B3B"
+  - type: Item
+    shape:
+    - 0,0,0,1
+    storedScale: 2
+    storedOffset: 0,3
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3B3B3B"
+      right:
+      - state: inhand-right
+        color: "#3B3B3B"
+
+#MARK: beige
+- type: entity
+  parent: ClothingHeadBase # BF14
+  id: ClothingHeadHatBeanieBeige
+  name: beanie (beige)
+  description: A beanie or seamed cap, a small piece of cloth to protect your head from cold or just for fashion.
+  components:
+  - type: Sprite
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    color: "#B8A98A"
+  - type: Clothing
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#B8A98A"
+  - type: Item
+    shape:
+    - 0,0,0,1
+    storedScale: 2
+    storedOffset: 1,3
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#B8A98A"
+      right:
+      - state: inhand-right
+        color: "#B8A98A"
+
+#MARK: purple
+- type: entity
+  parent: ClothingHeadBase # BF14
+  id: ClothingHeadHatBeaniePurple
+  name: beanie (purple)
+  description: A beanie or seamed cap, a small piece of cloth to protect your head from cold or just for fashion.
+  components:
+  - type: Sprite
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    color: "#8D4E78"
+  - type: Clothing
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#8D4E78"
+  - type: Item
+    shape:
+    - 0,0,0,1
+    storedScale: 2
+    storedOffset: 0,3
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#8D4E78"
+      right:
+      - state: inhand-right
+        color: "#8D4E78"
+
+#MARK: gray
+- type: entity
+  parent: ClothingHeadBase # BF14
+  id: ClothingHeadHatBeanieGray
+  name: beanie (gray)
+  description: A beanie or seamed cap, a small piece of cloth to protect your head from cold or just for fashion.
+  components:
+  - type: Sprite
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    color: "#777777"
+  - type: Clothing
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#777777"
+  - type: Item
+    shape:
+    - 0,0,0,1
+    storedScale: 2
+    storedOffset: 0,3
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#777777"
+      right:
+      - state: inhand-right
+        color: "#777777"
+
+#MARK: tan
+- type: entity
+  parent: ClothingHeadBase # BF14
+  id: ClothingHeadHatBeanieTan
+  name: beanie (tan)
+  description: A beanie or seamed cap, a small piece of cloth to protect your head from cold or just for fashion.
+  components:
+  - type: Sprite
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    color: "#d2B48C"
+  - type: Clothing
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#d2B48C"
+  - type: Item
+    shape:
+    - 0,0,0,1
+    storedScale: 2
+    storedOffset: 0,3
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#d2B48C"
+      right:
+      - state: inhand-right
+        color: "#d2B48C"
+
+#MARK: olive
+- type: entity
+  parent: ClothingHeadBase # BF14
+  id: ClothingHeadHatBeanieOlive
+  name: beanie (olive)
+  description: A beanie or seamed cap, a small piece of cloth to protect your head from cold or just for fashion.
+  components:
+  - type: Sprite
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    color: "#92A168"
+  - type: Clothing
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#92A168"
+  - type: Item
+    shape:
+    - 0,0,0,1
+    storedScale: 2
+    storedOffset: 0,3
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#92A168"
+      right:
+      - state: inhand-right
+        color: "#92A168"
+
+#MARK: ranger green
+- type: entity
+  parent: ClothingHeadBase # BF14
+  id: ClothingHeadHatBeanieRangerGreen
+  name: beanie (ranger green)
+  description: A beanie or seamed cap, a small piece of cloth to protect your head from cold or just for fashion.
+  components:
+  - type: Sprite
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    color: "#4A5A49"
+  - type: Clothing
+    sprite: _Cataclysm14/Clothing/Head/Hats/hat_beanie_any.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#4A5A49"
+  - type: Item
+    shape:
+    - 0,0,0,1
+    storedScale: 2
+    storedOffset: 0,3
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#4A5A49"
+      right:
+      - state: inhand-right
+        color: "#4A5A49"

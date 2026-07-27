@@ -1,3 +1,12 @@
+- type: department
+  id: TDMBlue
+  name: TDM (Blue)
+  description: lorum ipsum
+  color: "#203564"
+  weight: 6
+  roles:
+  - TDMBlue
+
 - type: job
   id: TDMBlue
   name: Blue Goon
@@ -15,6 +24,15 @@
     - English
   access:
   - Maintenance
+
+- type: department
+  id: TDMRed
+  name: TDM (Red)
+  description: lorum ipsum
+  color: "#a02829"
+  weight: 7
+  roles:
+  - TDMRed
 
 - type: job
   id: TDMRed
