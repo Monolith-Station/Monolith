@@ -1,4 +1,9 @@
 - type: loadout
+  id: LoadoutHeadBeretVDV
+  equipment:
+    head: ClothingHeadHatBeretVDV
+
+- type: loadout
   id: LoadoutHeadHatCabbie
   equipment:
     head: ClothingHeadHatCabbie
@@ -64,6 +69,6 @@
     head: ClothingHeadHatHelmetHardhat
 
 - type: loadout
-  id: LoadoutHeadBeretVDV
+  id: LoadoutHeadHatBeanieBlack
   equipment:
-    head: ClothingHeadHatBeretVDV
+    head: ClothingHeadHatBeanieBlack

@@ -50,6 +50,7 @@
   - USPDChief
   - USPDWarden
   - USPDOfficer
+  - USPDSWATLieutenant
   - USPDSWATSquadLeader
   - USPDSWATOfficer
 
@@ -155,7 +156,7 @@
 #region Partisan NATO (against)
 
 - type: department
-  id: BF14PartisanNATO
+  id: PartisanNATO
   name: Anti-NATO partisans
   description: department-NFCivilian-description
   color: "#9FED58"

@@ -14,6 +14,17 @@
     - /Audio/_Battlefield14/Ambience/CombatMode/USMC_2.ogg
 
 - type: ambientMusic
+  id: CombatModeUSPD
+  sound:
+    collection: CombatModeUSPD
+
+- type: soundCollection
+  id: CombatModeUSPD
+  files:
+    - /Audio/_Battlefield14/Ambience/CombatMode/USPD_1.ogg
+    - /Audio/_Battlefield14/Ambience/CombatMode/USPD_2.ogg
+
+- type: ambientMusic
   id: CombatModeBW
   sound:
     collection: CombatModeBW

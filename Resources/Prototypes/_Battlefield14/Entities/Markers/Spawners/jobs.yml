@@ -245,6 +245,19 @@
       scale: 1.5,1.5
 
 - type: entity
+  id: SpawnPointUSPDSWATLieutenant
+  parent: SpawnPointJobBase
+  name: USPD SWAT Lieutenant
+  components:
+  - type: SpawnPoint
+    job_id: USPDSWATLieutenant
+  - type: Sprite
+    sprite: _Battlefield14/Interface/Misc/class_icons.rsi
+    layers:
+    - state: indcaptain
+      scale: 1.5,1.5
+
+- type: entity
   id: SpawnPointUSPDSWATSquadLeader
   parent: SpawnPointJobBase
   name: USPD SWAT Squad Leader

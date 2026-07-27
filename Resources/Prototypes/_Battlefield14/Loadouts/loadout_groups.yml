@@ -8,12 +8,21 @@
   - LoadoutHeadBeretVDV
 
 - type: loadoutGroup
+  id: BF_HeadCivilianUS
+  name: Hats
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - LoadoutHeadHatBeanieBlack
+
+- type: loadoutGroup
   id: BF_HeadCivilianRU
   name: Hats
   minLimit: 0
   maxLimit: 1
   loadouts:
   - LoadoutHeadHatPompon
+  - LoadoutHeadHatBeanieBlack
   - LoadoutHeadHatUshanka
   - LoadoutHeadHatUshankaTrack
   - LoadoutHeadHatCabbie
@@ -25,6 +34,7 @@
   maxLimit: 1
   loadouts:
   - LoadoutHeadHatPompon
+  - LoadoutHeadHatBeanieBlack
   - LoadoutHeadHatUshanka
   - LoadoutHeadHatUshankaTrack
   - LoadoutHeadHatCabbie

@@ -1,12 +1,12 @@
 - type: job
-  id: USPDSWATSquadLeader
-  name: job-name-uspd-swat-squadleader
-  description: job-description-uspd-swat-squadleader
-  playTimeTracker: JobUSPDSWATSquadLeader
-  weight: 69
-  startingGear: USPDSWATSquadLeader
+  id: USPDSWATLieutenant
+  name: job-name-uspd-swat-lieutenant
+  description: jjob-description-uspd-swat-lieutenant
+  playTimeTracker: JobUSPDSWATLieutenant
+  weight: 70
+  startingGear: USPDSWATLieutenantGear
   alwaysUseSpawner: true
-  icon: "JobIconINDSquadLeader"
+  icon: "JobIconINDCaptain"
   requireAdminNotify: false
   supervisors: job-supervisors-usgov
   canBeAntag: false
@@ -19,7 +19,7 @@
   - !type:AddComponentSpecial
     components:
     - type: ChatRank
-      rank: BF-rank-sergeant
+      rank: BF-rank-lieutenant
     - type: NpcFactionMember
       factions:
       - USPD
@@ -32,6 +32,7 @@
   - Security
   - Brig
   - Armory
+  - HeadOfSecurity
   - Command
   - Medical
   - Cargo
@@ -39,9 +40,9 @@
   - Research
 
 - type: startingGear
-  id: USPDSWATSquadLeader
+  id: USPDSWATLieutenantGear
   equipment:
-    id: USPDOfficerPDA
+    id: USPDChiefPDA
     head: ClothingHeadHatHelmetSurplus
     ears: ClothingHeadsetAltWPS
     belt: ClothingBeltStationSecurityFilledSWAT
