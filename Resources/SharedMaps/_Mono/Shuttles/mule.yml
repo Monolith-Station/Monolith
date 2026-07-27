@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/26/2026 23:51:15
-  entityCount: 798
+  time: 07/27/2026 00:10:51
+  entityCount: 797
 maps: []
 grids:
 - 1
@@ -53,7 +53,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Dagger
+      name: Mule
     - type: Transform
       parent: invalid
     - type: MapGrid
@@ -356,9 +356,9 @@ entities:
             186: 0.24253082,-20.503075
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Smoke: []
         MetalFoam: []
+        Kudzu: []
         Puddle: []
     - type: GridAtmosphere
       version: 2
@@ -3182,14 +3182,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,-26.5
-      parent: 1
-- proto: LockerWallMaterialsFuelAmeJarFilled
-  entities:
-  - uid: 468
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,-20.5
       parent: 1
 - proto: LockerWallMaterialsFuelPlasmaFilled
   entities:
