@@ -284,7 +284,7 @@
   unit: materials-unit-sheet
   icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: uranium }
   color: "#8a8568"
-  price: 250 # 25000/sheet
+  price: 200 # 20000/sheet, 250>200 Forge-Change
   properties: # FH edit
     electrical: 4
     thermal: 3
@@ -375,7 +375,7 @@
   unit: materials-unit-sheet
   icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: depleted }
   color: "#14211d"
-  price: 20 # 250/sheet
+  price: 15 # 1500/sheet, 20>15 Forge-change
   properties: # FH edit
     electrical: 4
     thermal: 3
