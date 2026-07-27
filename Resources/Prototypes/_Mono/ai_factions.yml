@@ -92,3 +92,14 @@
   - Mouse
   - USSP
   defaultHostile: true
+
+- type: npcFaction
+  id: MMC
+  neutral:
+  - CC
+  - USSP
+  - VG
+  - NanoTrasen
+  - SimpleNeutral
+  - Mouse
+  defaultHostile: true

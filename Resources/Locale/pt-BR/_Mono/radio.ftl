@@ -5,3 +5,5 @@ chat-radio-cortical-borer = Mente Colmeia do Perfurador Cortical
 chat-radio-remnants = Remanescentes
 chat-radio-monolithic = Conexão Monolítica
 chat-radio-viper = Grupo Víbora
+chat-radio-mieyo = Rede Corporativa Mieyo
+chat-radio-mieyo-command = Rede de Comando Mieyo

@@ -8884,3 +8884,122 @@ ent-MailMonoRCD = {ent-BaseMail}
     .desc = {ent-BaseMail.desc}
     .suffix = RCD
 
+# MMC - Mieyo Manufacturing Concern
+ent-AccessBreakerMMC = disruptor de autenticação descartável Mieyo
+    .desc = Um dispositivo de hacking de uso único, especializado em destrancar e apagar acesso de fechaduras digitais.
+
+ent-MotionDetectorMMC = detector de movimento Mieyo
+    .desc = Um detector de movimento portátil. Detecta pessoas que não estão na mesma empresa do usuário.
+
+ent-NaniteApplicatorMMC = aplicador de nanitas Mieyo
+    .desc = Ferramenta avançada que usa nanotecnologia para reparar estruturas. Variante mais rápida fabricada pela MMC.
+
+ent-RCDMMC = RCD Mieyo
+    .desc = O dispositivo de construção rápida pode ser usado para colocar e remover rapidamente várias estruturas e acessórios. Requer matéria comprimida para funcionar. Não requer passar um cartão de ID para funcionar. Variante de maior capacidade fabricada pela MMC.
+
+ent-RPDMMC = RPD Mieyo
+    .desc = O dispositivo de canalização rápida permite a colocação e remoção rápidas de edifícios relacionados à atmosfera, requer matéria compressiva para usar. Variante de maior capacidade fabricada pela MMC.
+
+ent-ShipRepairDeviceMMC = SRD Mieyo
+    .desc = Um Dispositivo de Reparo de Naves que pode reconstruir seções destruídas de naves. Contém 300 cargas. Variante mais rápida fabricada pela MMC.
+
+ent-RubberStampMMCLiason = carimbo de borracha do representante MMC
+
+ent-WeaponPistolKuosame = VMK "Kuosame" MMC (5,7x28mm)
+    .desc = Uma arma de mão básica e simples para funcionários da MMC. Emitida apenas em zonas de alto risco.
+
+ent-WeaponSubMachineGunMasamune = VK-550 Masamune MMC (5,7x28mm)
+    .desc = Uma arma de defesa pessoal básica para segurança corporativa. Sem modularidade alguma.
+
+ent-WeaponSubMachineGunSakura = Smart-SMG Sakura MMC (.160 smart)
+    .desc = Uma variante de produção completa da arma inteligente Abielle, totalmente desenvolvida pela MMC.
+
+ent-ClothingHeadsetMieyo = fone de ouvido MMC
+    .desc = Um fone de ouvido padrão para funcionários da MMC. Este fone aceita chaves de criptografia padrão e vem com uma chave pré-instalada para comunicações corporativas.
+
+ent-ClothingHeadsetMieyoCorpsec = fone de ouvido da segurança corporativa MMC
+    .desc = Um fone de ouvido padrão para funcionários da MMC. Este fone aceita chaves de criptografia padrão e vem com uma chave pré-instalada para comunicações corporativas.
+
+ent-ClothingHelmetHardsuitMieyoCombat = capacete do traje tático Kurogane MMC
+    .desc = Um conjunto de sensores disfarçado de capacete. Ótimos óculos de visão noturna, proteção média.
+
+ent-ClothingHelmetHardsuitMieyoMining = capacete do traje de mineração MMC
+    .desc = Um capacete EVA básico projetado para operações industriais complexas no espaço.
+
+ent-ClothingUniformMMC = uniforme tático de campo da segurança corporativa MMC
+    .desc = Um uniforme tático preto fosco usado pela segurança corporativa da MMC.
+
+ent-ClothingUniformMMCCargos = uniforme tático de campo da segurança corporativa MMC (cargos)
+    .desc = Uma parte superior tática preta fosca combinada com calças de cargo marrons duráveis.
+
+ent-ClothingUniformMMCJeans = uniforme tático de campo da segurança corporativa MMC (jeans)
+    .desc = Uma camisa preta fosca combinada com jeans. Usado por agentes da segurança de ativos da MMC que preferem trabalho de campo com um pouco mais de flexibilidade.
+
+ent-ClothingUniformMMCJumpsuit = macacão MMC
+    .desc = Um macacão de trabalho básico para funcionários da MMC.
+
+ent-ClothingUniformMMCWarm = uniforme tático de campo aquecido da segurança corporativa MMC
+    .desc = Uma variante fortemente isolada do uniforme tático de campo da segurança corporativa MMC, forrado para ambientes extremos. Construído para sobrevivência sem compromissos.
+
+ent-ClothingOuterHardsuitMieyoCombat = traje tático de combate Kurogane MMC
+    .desc = Um traje de combate tático para proteção de ativos e segurança corporativa da MMC. É muito leve, mas não muito defensivo.
+
+ent-ClothingOuterHardsuitMieyoMining = traje de mineração MMC
+    .desc = Um traje EVA básico para funcionários da MMC e uso não-combate.
+
+ent-SpawnPointMMCEmployee = Funcionário MMC
+
+ent-SpawnPointMMCLiason = Representante MMC
+
+ent-SpawnPointMMCSecurity = Segurança MMC
+
+ent-EncryptionKeyMieyo = chave de criptografia MMC
+    .desc = Uma chave de criptografia para comunicações corporativas da Mieyo.
+
+ent-EncryptionKeyMieyoCommand = chave de criptografia de comando MMC
+    .desc = Uma chave de criptografia para comunicações de comando da Mieyo.
+
+ent-MieyoEmployeeIDCard = carteira de ID de funcionário MMC
+    .desc = { ent-IDCardStandard.desc }
+
+ent-MieyoLiasonIDCard = carteira de ID de representante MMC
+    .desc = { ent-IDCardStandard.desc }
+
+ent-MieyoSecurityIDCard = carteira de ID de segurança MMC
+    .desc = { ent-IDCardStandard.desc }
+
+ent-BaseMMCPDA = PDA base Mieyo
+    .desc = Um computador pessoal básico para restrição de acesso e organização.
+
+ent-MieyoEmployeePDA = PDA de funcionário Mieyo
+    .desc = { ent-BaseMMCPDA.desc }
+
+ent-MieyoLiasonPDA = PDA de representante corporativo Mieyo
+    .desc = { ent-BaseMMCPDA.desc }
+
+ent-MieyoSecurityPDA = PDA de segurança corporativa Mieyo
+    .desc = { ent-BaseMMCPDA.desc }
+
+ent-MieyoTrackingImplant = implante de rastreamento MMC
+    .desc = Este implante possui um monitor de dispositivo de rastreamento para o canal de rádio corporativo Mieyo.
+
+ent-BallisticTurretHeavyAIMieyo = torre sentinela remota pesada Mieyo
+    .desc = { ent-BallisticTurretHeavyBase.desc }
+    .suffix = Mieyo
+
+ent-ComputerShipyardMMC = console de estaleiro MMC
+    .desc = Usado para transferir naves das reservas de funcionários da MMC.
+
+ent-MieyoComputerComms = computador de comunicações Mieyo
+    .desc = O computador de comunicações primário para emitir anúncios da MMC.
+
+ent-MMCLathe = montador multipropósito MMC
+    .desc = Capaz de fabricar equipamentos a partir de padrões de design da MMC. Enviado para qualquer lugar que precise de uma inicialização industrial em grande escala.
+
+ent-ResearchAndDevelopmentServerMMC = servidor de P&D da MMC
+    .desc = Contém o conhecimento coletivo da MMC neste setor.
+
+ent-WeaponEnergyTurretMieyoControlPanel = painel de controle da torre sentinela Mieyo
+    .suffix = Acesso de Segurança Mieyo
+    .desc = Uma interface montada na parede que permite uma inteligência artificial local ajustar os parâmetros operacionais das torres sentinela conectadas.
+

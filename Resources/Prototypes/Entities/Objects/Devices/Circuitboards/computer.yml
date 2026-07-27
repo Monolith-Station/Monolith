@@ -565,3 +565,14 @@
       state: cpu_rogue
     - type: ComputerBoard
       prototype: RogueComputerComms
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: MieyoCommsComputerCircuitboard
+  name: mieyo communications computer board
+  description: A computer printed circuit board for a MMC console.
+  components:
+  - type: Sprite
+    state: cpu_science
+  - type: ComputerBoard
+    prototype: MieyoComputerComms

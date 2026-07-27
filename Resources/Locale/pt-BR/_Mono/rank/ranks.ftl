@@ -63,6 +63,13 @@ vg-infanteer = Inf.
 vg-lieutenant = Lt.
 vg-commander = Commander
 
+### MMC ranks
+mmc-employee = Funcionário
+mmc-security = Segurança Corporativa
+mmc-asset-security = Segurança de Recursos
+mmc-asset-security-senior = Segurança de Recursos Sênior
+mmc-liason = Representante Corporativo
+
 ### CC/MD ranks
 cc-judge = Jdg.
 cc-stc = STC

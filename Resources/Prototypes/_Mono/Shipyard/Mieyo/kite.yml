@@ -1,0 +1,34 @@
+# High alpha/burst damage but low sustained damage, more for hit & run (poor armor)
+- type: vessel
+  id: Kite
+  parent: BaseVessel
+  name: vessel-Kite-name
+  description: vessel-Kite-desc
+  price: 82500
+  category: Small
+  group: Mieyo
+  access: MieyoSecurity
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Mieyo/kite.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - AME
+
+- type: gameMap
+  id: Kite
+  mapName: 'MMC-CSC Kite'
+  mapPath: /SharedMaps/_Mono/Shuttles/Mieyo/kite.yml
+  minPlayers: 0
+  stations:
+    Kite:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Kite MCSC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MMCEmployee: [ 0, 0 ]
