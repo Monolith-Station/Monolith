@@ -7,6 +7,7 @@
   parent: BaseVessel
   name: Shrike
   description: The Shrike is a experimental frigate developed during the corporate war. its blueprints were found and now used by CCTC security forces, power management is advised. equiped with two sycllas as its main weapon, and a few autopulsars, marauders, and phalnax turrets.
+  limit: 2
   category: Medium
   group: Sr
   access: Brig # Oddball, matches guard ID, specific enough to exclude cadets
