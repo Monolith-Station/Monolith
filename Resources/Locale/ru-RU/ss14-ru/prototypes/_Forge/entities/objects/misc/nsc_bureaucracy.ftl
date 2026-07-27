@@ -4,5 +4,3 @@ ent-PenNexus = ручка Nexus
     .desc = Служебная ручка NSC с алмазным наконечником. Пишет поверх штампов, работает как отвёртка и бьёт не хуже канцелярских аналогов Штаба УСФ.
 ent-BoxFolderClipboardNexus = планшет Nexus
     .desc = Стандартный планшет NSC для бланков, манифестов и полевых отчётов.
-ent-RubberStampNexus = печать Nexus
-    .desc = Официальная резиновая печать Nexus Star Consortium.

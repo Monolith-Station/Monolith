@@ -21,3 +21,15 @@ ent-AirlockRenegade = { ent-Airlock }
     .desc = { ent-Airlock.desc }
 ent-AirlockRenegadeCom = { ent-Airlock }
     .desc = { ent-Airlock.desc }
+
+ent-AirlockProvost = { ent-Airlock }
+    .desc = { ent-Airlock.desc }
+ent-AirlockProvostLocked = { ent-Airlock }
+    .desc = { ent-Airlock.desc }
+    .suffix = Закрыт
+ent-AirlockProvostOfficerLocked = { ent-Airlock }
+    .desc = { ent-Airlock.desc }
+    .suffix = Офицер, Закрыт
+ent-AirlockProvostInspectorLocked = { ent-Airlock }
+    .desc = { ent-Airlock.desc }
+    .suffix = Инспектор, Закрыт

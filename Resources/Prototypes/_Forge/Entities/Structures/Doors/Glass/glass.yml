@@ -73,3 +73,39 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsRenegate ]
+
+#region Provost
+- type: entity
+  parent: AirlockGlass
+  id: AirlockGlassProvost
+  suffix: Provost
+  components:
+  - type: Sprite
+    sprite: Forge/Structures/Doors/Airlocks/Glass/provost.rsi
+
+- type: entity
+  parent: AirlockGlassProvost
+  id: AirlockGlassProvostLocked
+  suffix: Provost, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsProvost ]
+
+- type: entity
+  parent: AirlockGlassProvost
+  id: AirlockGlassProvostOfficerLocked
+  suffix: Provost, Officer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsProvostOfficer ]
+
+- type: entity
+  parent: AirlockGlassProvost
+  id: AirlockGlassProvostInspectorLocked
+  suffix: Provost, Inspector, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsProvostInspector ]

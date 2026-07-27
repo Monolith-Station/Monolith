@@ -490,4 +490,7 @@ public enum LogType
     /// Events relating to midi playback.
     /// </summary>
     Instrument = 103,
+
+    // RMC14
+    RMCTelephone = 10042,
 }

@@ -1,4 +1,4 @@
-# Empire
+#region Empire
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsEmpire
@@ -39,7 +39,32 @@
   - type: AccessReader
     access: [["EmpireDiplomacy"]]
 
-# Renegade
+#region Provost
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsProvost
+  suffix: ВП, Locked
+  components:
+  - type: AccessReader
+    access: [["Provost"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsProvostOfficer
+  suffix: ВП, Офицер, Locked
+  components:
+  - type: AccessReader
+    access: [["ProvostOfficer"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsProvostInspector
+  suffix: ВП, Инспектор, Locked
+  components:
+  - type: AccessReader
+    access: [["ProvostInspector"]]
+
+#region Renegade
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsRenegate
@@ -56,7 +81,7 @@
   - type: AccessReader
     access: [["RenegateOfficer"]]
 
-# Remnant
+#region Remnant
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsRemnant

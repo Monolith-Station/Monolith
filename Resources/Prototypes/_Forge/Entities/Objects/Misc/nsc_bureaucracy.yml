@@ -47,18 +47,3 @@
     sprite: Forge/Objects/Misc/clipboards/nexus_clipboard.rsi
   - type: Clothing
     sprite: Forge/Objects/Misc/clipboards/nexus_clipboard.rsi
-
-- type: entity
-  parent: RubberStampBase
-  id: RubberStampNexus
-  name: Nexus rubber stamp
-  suffix: Нексус
-  description: Official rubber stamp of the Nexus Star Consortium.
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-nexus
-    stampedColor: "#0f3b62"
-    stampState: paper_stamp-nexus
-  - type: Sprite
-    sprite: Forge/Objects/Misc/stamps/nexus_stamp.rsi
-    state: stamp-nexus

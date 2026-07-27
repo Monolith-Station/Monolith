@@ -1,0 +1,105 @@
+#region Empire
+- type: entity
+  name: Empire's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampEmpireSynodus
+  suffix: Forge, Synodus
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-empire-highcom
+    stampedColor: "#b49060"
+    stampState: "paper_stamp-mono-asvaran"
+  - type: Sprite
+    state: stamp-lawyer
+
+- type: entity
+  name: Lord's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampEmpireLord
+  suffix: Forge, Lord
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-empire-lord
+    stampedColor: "#D2B48C"
+    stampState: "paper_stamp-mono-overwatch"
+  - type: Sprite
+    state: stamp-qm
+
+- type: entity
+  name: Ecclesiarch's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampEmpireEcclesiarch
+  suffix: Forge, Ecclesiarch
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-empire-ecclesiarch
+    stampedColor: "#533980"
+    stampState: "paper_stamp-mono-spasaka"
+  - type: Sprite
+    state: stamp-wizard
+
+#region TSF
+- type: entity
+  name: TSF CO's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampTSFHighCommand
+  suffix: Forge, HighCom
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-tsf-highcom
+    stampedColor: "#047ABD"
+    stampState: "paper_stamp-mono-colonel"
+  - type: Sprite
+    sprite: _NF/Objects/Misc/stamps.rsi
+    state: stamp-doc
+
+- type: entity
+  name: TSF CO's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampTSFCommandingOfficer
+  suffix: Forge, CO
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-tsf-colonel
+    stampedColor: "#047ABD"
+    stampState: "paper_stamp-mono-captain"
+  - type: Sprite
+    sprite: _NF/Objects/Misc/stamps.rsi
+    state: stamp-sheriff
+
+#region Provost
+- type: entity
+  name: Provost rubber stamp
+  parent: RubberStampBase
+  id: RubberStampTSFProvost
+  suffix: Forge, Provost
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-tsf-provost
+    stampedColor: "#ff0026"
+    stampState: paper_stamp-mono-ussp-taccomm
+  - type: Sprite
+    state: stamp-syndicate
+
+#region Nexus
+- type: entity
+  parent: RubberStampBase
+  id: RubberStampNexus
+  name: Nexus rubber stamp
+  suffix: Forge, Nexus
+  description: Official rubber stamp of the Nexus Star Consortium.
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-nexus
+    stampedColor: "#0f3b62"
+    stampState: paper_stamp-nexus
+  - type: Sprite
+    sprite: Forge/Objects/Misc/stamps/nexus_stamp.rsi
+    state: stamp-nexus

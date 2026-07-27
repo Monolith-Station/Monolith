@@ -1,0 +1,127 @@
+#region Blue
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineBlue
+  name: long range fax machine
+  suffix: Forge, Blue
+  components:
+  - type: Sprite
+    layers:
+      - state: icon
+        map: [ "base" ]
+    color: "#bfe3ff"
+  - type: PowerSwitch
+
+- type: entity
+  parent: FaxMachineBlue
+  id: FaxMachineBlueShuttle
+  name: long range fax machine
+  suffix: Forge, Blue, Shuttle
+  components:
+  - type: FaxMachine
+    useStationName: true
+
+- type: entity
+  parent: FaxMachineBlue
+  id: FaxMachineBlueAdminNotify
+  name: long range fax machine
+  suffix: Forge, Blue, AdminNotify
+  components:
+  - type: FaxMachine
+    notifyAdmins: true
+
+#region Black
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineBlack
+  name: long range fax machine
+  suffix: Forge, Black
+  components:
+  - type: Sprite
+    layers:
+      - state: icon
+        map: [ "base" ]
+    color: "#a3a3a3"
+  - type: PowerSwitch
+
+- type: entity
+  parent: FaxMachineBlack
+  id: FaxMachineBlackShuttle
+  name: long range fax machine
+  suffix: Forge, Black, Shuttle
+  components:
+  - type: FaxMachine
+    useStationName: true
+
+- type: entity
+  parent: FaxMachineBlack
+  id: FaxMachineBlackAdminNotify
+  name: long range fax machine
+  suffix: Forge, Black, AdminNotify
+  components:
+  - type: FaxMachine
+    notifyAdmins: true
+
+#region Yellow
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineYellow
+  name: long range fax machine
+  suffix: Forge, Yellow
+  components:
+  - type: Sprite
+    layers:
+      - state: icon
+        map: [ "base" ]
+    color: "#a78d5d"
+  - type: PowerSwitch
+
+- type: entity
+  parent: FaxMachineYellow
+  id: FaxMachineYellowShuttle
+  name: long range fax machine
+  suffix: Forge, Yellow, Shuttle
+  components:
+  - type: FaxMachine
+    useStationName: true
+
+- type: entity
+  parent: FaxMachineYellow
+  id: FaxMachineYellowAdminNotify
+  name: long range fax machine
+  suffix: Forge, Yellow, AdminNotify
+  components:
+  - type: FaxMachine
+    notifyAdmins: true
+
+#region Red
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineRed
+  name: long range fax machine
+  suffix: Forge, Red
+  components:
+  - type: Sprite
+    layers:
+      - state: icon
+        map: [ "base" ]
+    color: "#a75d5d"
+  - type: PowerSwitch
+
+- type: entity
+  parent: FaxMachineRed
+  id: FaxMachineRedShuttle
+  name: long range fax machine
+  suffix: Forge, Red, Shuttle
+  components:
+  - type: FaxMachine
+    useStationName: true
+
+- type: entity
+  parent: FaxMachineRed
+  id: FaxMachineRedAdminNotify
+  name: long range fax machine
+  suffix: Forge, Red, AdminNotify
+  components:
+  - type: FaxMachine
+    notifyAdmins: true

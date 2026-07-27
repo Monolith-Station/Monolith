@@ -10,5 +10,8 @@ id-card-access-level-tsf-diplomacy = Дипломатия Федерации
 id-card-access-level-tsf-sec-apartment = Командование ТСФ
 id-card-access-level-renegate-sec-apartment = Командование Ренегатов
 id-card-access-level-empire-sec-apartment = Командование Империи
+id-card-access-level-provost = Военные Приставы
+id-card-access-level-provost-officer = Офицер ВП
+id-card-access-level-provost-inspector = Инспектор ВП
 
 id-card-access-level-basic-remnant = Предтеч

@@ -27,6 +27,8 @@
         - type: StationPlanetSpawner
           planet: DesertWorld
           gridPath: /Maps/_Mono/POI/surface_outpost_desert.yml
+        - type: StationMapSpawner # Forge-Change
+          gridPath: "/Maps/_Forge/admin_fax.yml" # Forge-Change
         - type: StationJobs
           availableJobs:
             Contractor: [ -1, -1 ]

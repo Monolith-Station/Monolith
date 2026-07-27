@@ -25,3 +25,16 @@
   - Security
   - Mercenary
   - Captain
+
+#region Provost
+- type: accessLevel
+  id: Provost
+  name: id-card-access-level-provost
+
+- type: accessLevel
+  id: ProvostOfficer
+  name: id-card-access-level-provost-officer
+
+- type: accessLevel
+  id: ProvostInspector
+  name: id-card-access-level-provost-inspector

@@ -1,0 +1,39 @@
+ent-FaxMachineBlue = { ent-FaxMachineBase }
+    .suffix = Forge, Синий
+    .desc = { ent-FaxMachineBase.desc }
+ent-FaxMachineBlueShuttle = { ent-FaxMachineBlue }
+    .suffix = Forge, Синий, Шаттл
+    .desc = { ent-FaxMachineBlue.desc }
+ent-FaxMachineBlueAdminNotify = { ent-FaxMachineBlue }
+    .suffix = Forge, Синий, Оповещает администрацию
+    .desc = { ent-FaxMachineBlue.desc }
+
+ent-FaxMachineBlack = { ent-FaxMachineBase }
+    .suffix = Forge, Тёмный
+    .desc = { ent-FaxMachineBase.desc }
+ent-FaxMachineBlackShuttle = { ent-FaxMachineBlack }
+    .suffix = Forge, Тёмный, Шаттл
+    .desc = { ent-FaxMachineBlack.desc }
+ent-FaxMachineBlackAdminNotify = { ent-FaxMachineBlack }
+    .suffix = Forge, Тёмный, Оповещает администрацию
+    .desc = { ent-FaxMachineBlack.desc }
+
+ent-FaxMachineYellow = { ent-FaxMachineBase }
+    .suffix = Forge, Жёлтый
+    .desc = { ent-FaxMachineBase.desc }
+ent-FaxMachineYellowShuttle = { ent-FaxMachineYellow }
+    .suffix = Forge, Жёлтый, Шаттл
+    .desc = { ent-FaxMachineYellow.desc }
+ent-FaxMachineYellowAdminNotify = { ent-FaxMachineYellow }
+    .suffix = Forge, Жёлтый, Оповещает администрацию
+    .desc = { ent-FaxMachineYellow.desc }
+
+ent-FaxMachineRed = { ent-FaxMachineBase }
+    .suffix = Forge, Жёлтый
+    .desc = { ent-FaxMachineBase.desc }
+ent-FaxMachineRedShuttle = { ent-FaxMachineRed }
+    .suffix = Forge, Жёлтый, Шаттл
+    .desc = { ent-FaxMachineRed.desc }
+ent-FaxMachineRedAdminNotify = { ent-FaxMachineRed }
+    .suffix = Forge, Жёлтый, Оповещает администрацию
+    .desc = { ent-FaxMachineRed.desc }

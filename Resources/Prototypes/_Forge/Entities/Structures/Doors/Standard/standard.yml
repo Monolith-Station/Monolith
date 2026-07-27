@@ -83,4 +83,40 @@
     sprite: Forge/Structures/Doors/Airlocks/Standard/ren_command.rsi
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsRenegateOfficer ]
+      board: [ DoorElectronicsRenegateOfficer ] 
+
+#region Provost
+- type: entity
+  parent: Airlock
+  id: AirlockProvost
+  suffix: Provost
+  components:
+  - type: Sprite
+    sprite: Forge/Structures/Doors/Airlocks/Standard/provost.rsi
+
+- type: entity
+  parent: AirlockProvost
+  id: AirlockProvostLocked
+  suffix: Provost, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsProvost ]
+
+- type: entity
+  parent: AirlockProvost
+  id: AirlockProvostOfficerLocked
+  suffix: Provost, Officer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsProvostOfficer ]
+
+- type: entity
+  parent: AirlockProvost
+  id: AirlockProvostInspectorLocked
+  suffix: Provost, Inspector, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsProvostInspector ]
