@@ -658,6 +658,19 @@
     randomMode: false
     mode: SensorVitals
 
+# CCTC
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCCTCFormal
+  name: executive's formal suit
+  description: A suit for special occasions.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/centcomformal.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/centcomformal.rsi
+
 # MMC
 
 - type: entity
