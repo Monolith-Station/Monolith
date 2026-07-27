@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/27/2026 00:10:51
-  entityCount: 797
+  time: 07/27/2026 00:36:46
+  entityCount: 800
 maps: []
 grids:
 - 1
@@ -3276,6 +3276,12 @@ entities:
       parent: 1
 - proto: Poweredlight
   entities:
+  - uid: 468
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,-26.5
+      parent: 1
   - uid: 772
     components:
     - type: Transform
@@ -3377,6 +3383,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,-26.5
+      parent: 1
+  - uid: 799
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,-30.5
       parent: 1
 - proto: Railing
   entities:
@@ -5147,6 +5159,14 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-24.5
+      parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 800
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,-19.5
       parent: 1
 - proto: WeaponTurretAk820
   entities:

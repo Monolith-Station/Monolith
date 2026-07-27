@@ -1,0 +1,34 @@
+# Author Info
+# Github: Loldaddy5676
+# Discord: Huragok
+
+- type: vessel
+  id: Shrike
+  parent: BaseVessel
+  name: Shrike
+  description: The Shrike is a experimental frigate developed during the corporate war. its blueprints were found and now used by CCTC security forces, power management is advised. equiped with two sycllas as its main weapon, and a few autopulsars, marauders, and phalnax turrets.
+  category: Medium
+  group: Sr
+  access: Brig # Oddball, matches guard ID, specific enough to exclude cadets
+  mapchecker_group_override: Security  # Treat this as a security vessel for mapchecker purposes
+  shuttlePath: /SharedMaps/_Mono/Shuttles/shrike.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - AME
+
+- type: gameMap
+  id: Shrike
+  mapName: 'Shrike'
+  mapPath: /SharedMaps/_Mono/Shuttles/shrike.yml
+  minPlayers: 0
+  stations:
+    Shrike:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Shrike SEC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
