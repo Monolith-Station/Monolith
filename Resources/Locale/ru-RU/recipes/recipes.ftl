@@ -90,4 +90,4 @@ construction-recipe-suit-storage = { ent-SuitStorageBase }
 construction-recipe-suit-storage-desc = { ent-SuitStorageBase.desc }
 
 construction-recipe-suit-storage-wallmount = { ent-SuitStorageWallmount }
-construction-recipe-suit-storage-desc = { ent-SuitStorageWallmount.desc }
+construction-recipe-suit-storage-wallmount-desc = { ent-SuitStorageWallmount.desc }

@@ -15,6 +15,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Robust.Shared.Timing; /// Forge-Change
 
 namespace Content.Shared._Goobstation.Clothing.Systems;
 
@@ -51,7 +52,7 @@ public abstract partial class SharedSealableClothingSystem : EntitySystem
         SubscribeLocalEvent<SealableClothingControlComponent, MapInitEvent>(OnControlMapInit);
         SubscribeLocalEvent<SealableClothingControlComponent, SealClothingDoAfterEvent>(OnSealClothingDoAfter);
         SubscribeLocalEvent<SealableClothingControlComponent, SealClothingEvent>(OnControlSealEvent);
-        //SubscribeLocalEvent<SealableClothingControlComponent, StartSealingProcessDoAfterEvent>(OnStartSealingDoAfter);
+        SubscribeLocalEvent<SealableClothingControlComponent, StartSealingProcessDoAfterEvent>(OnStartSealingDoAfter); /// Forge-Change
         SubscribeLocalEvent<SealableClothingControlComponent, ToggleClothingAttemptEvent>(OnToggleClothingAttempt);
     }
 
@@ -140,8 +141,7 @@ public abstract partial class SharedSealableClothingSystem : EntitySystem
         if (!_interactionSystem.InRangeUnobstructed(user, uid))
             return;
 
-        if (comp.WearerEntity == null ||
-            comp.WearerEntity != user && _actionBlockerSystem.CanInteract(comp.WearerEntity.Value, null))
+        if (comp.WearerEntity == null) /// Forge-Change
             return;
 
         var verbIcon = comp.IsCurrentlySealed ?
@@ -153,28 +153,44 @@ public abstract partial class SharedSealableClothingSystem : EntitySystem
             Icon = verbIcon,
             Priority = 5,
             Text = Loc.GetString(comp.VerbText),
-            Act = () => TryStartSealToggleProcess(control, user)
+            // Act = () => TryStartSealToggleProcess(control, user) /// Forge-Change-Del
         };
-
-        /* This should make as do after to start unsealing of suit with verb, but, for some reason i couldn't figure out, it ends with doAfter enumerator change exception
-         *  Would be nice if some can fix this, yet unsealing will be possible only on incapacitated wearers
+        /// Forge-Change-Start
         if (args.User == comp.WearerEntity)
         {
             verb.Act = () => TryStartSealToggleProcess(control);
         }
         else
         {
-            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, comp.NonWearerSealingTime, new StartSealingProcessDoAfterEvent(), uid)
-            {
-                RequireCanInteract = true,
-                BreakOnMove = true,
-                BlockDuplicate = true
-            };
-            verb.Act = () => _doAfterSystem.TryStartDoAfter(doAfterArgs);
-        }*/
+            verb.Act = () => StartSealDoAfter(user, control, comp.WearerEntity.Value);
+        }
+        /// Forge-Change-End
 
         args.Verbs.Add(verb);
     }
+    /// Forge-Change-Start
+    /// Take from Goobstation codebase
+
+        private void StartSealDoAfter(EntityUid user, Entity<SealableClothingControlComponent> control, EntityUid wearer)
+    {
+        _popupSystem.PopupClient("You start the suits' sealing process", wearer, user);
+        var args = new DoAfterArgs(EntityManager, user, control.Comp.NonWearerSealingTime, new StartSealingProcessDoAfterEvent(), control, wearer, control)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            DistanceThreshold = 2,
+        };
+
+        if (!_doAfterSystem.TryStartDoAfter(args))
+        {
+            return;
+        }
+
+        var popup = Loc.GetString("strippable-component-alert-owner-interact", ("user", Identity.Entity(user, EntityManager)), ("item", control));
+        _popupSystem.PopupEntity(popup, wearer, wearer, PopupType.Large);
+
+    }
+    /// Forge-Change-End
 
     /// <summary>
     /// Ensure actionEntity on map init
@@ -185,15 +201,17 @@ public abstract partial class SharedSealableClothingSystem : EntitySystem
         _actionContainerSystem.EnsureAction(uid, ref comp.SealActionEntity, comp.SealAction);
     }
 
-    /* This should make as do after to start unsealing of suit with verb, but, for some reason i couldn't figure out, it ends with doAfter enumerator change exception
-     * Would be nice if some can fix this, yet unsealing will be possible only on incapacitated wearers
+    /// Forge-Change-Start
+    /// Take from Goobstation codebase
     private void OnStartSealingDoAfter(Entity<SealableClothingControlComponent> control, ref StartSealingProcessDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
-
-        TryStartSealToggleProcess(control);
-    }*/
+        var user = args.User;
+        // unless you have another way to do doafters inside doafters then yeah
+        Timer.Spawn(0, () => TryStartSealToggleProcess(control, user));
+    }
+    /// Forge-Change-End
 
     /// <summary>
     /// Trying to start sealing on action. It'll notify wearer if process already started

@@ -58,4 +58,4 @@
 - type: entity
   id: NFCrateSalvageAssortedGoodiesTrashCart
   categories: [ HideSpawnMenu ]
-  parent: [ CrateTrashCart, NFCrateSalvageAssortedGoodies ]
+  parent: [ CrateTrashCartFilled ] # Forge-Change

@@ -130,6 +130,7 @@
           whitelist:
             components:
             - MachineBoard
+    - type: GravityAffected # Forge-Change
 
 - type: entity
   id: MachineFrameDestroyed

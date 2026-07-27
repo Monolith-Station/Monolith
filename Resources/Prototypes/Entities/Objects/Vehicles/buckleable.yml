@@ -38,6 +38,7 @@
         sound:
           collection: MetalGlassBreak
       - !type:ExplodeBehavior
+  - type: GravityAffected # Forge-Change
 
 - type: entity
   parent: BaseVehicle

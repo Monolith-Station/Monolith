@@ -23,6 +23,7 @@ ent-SurgeryRemoveBorgBrain = Вынуть позитронный мозг
 ent-SurgeryInsertBrain = Вставить мозг
 ent-SurgeryInsertBorgBrain = Вставить позитронный мозг
 ent-SurgeryInsertHeart = Вставить сердце
+ent-SurgeryInsertPump = Вставить помпу КПБ
 ent-SurgeryRemoveLiver = Удалить печень
 ent-SurgeryInsertLiver = Вставить печень
 ent-SurgeryRemoveLungs = Удалить лёгкие

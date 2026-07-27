@@ -93,8 +93,8 @@
   - type: StaticPrice
     price: 30
   - type: DnaSubstanceTrace
-  - type: TrashOnSolutionEmpty # Frontier
-    solution: beaker # Frontier
+  # - type: TrashOnSolutionEmpty # Frontier # Forge-Change-Del
+  #   solution: beaker # Frontier           # Forge-Change-Del
 
 - type: entity
   parent: BaseItem

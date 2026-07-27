@@ -361,6 +361,17 @@
           prob: 0.1
         - id: ShardGlassPlasma
           prob: 0.1
+          # Forge-Change-Start
+          # Goblin
+        - id: FireExtinguisher
+          prob: 0.05
+        - id: TrashBag
+          prob: 0.2
+        - id: Beaker
+          prob: 0.05
+        - id: DrinkColaCanEmpty
+          prob: 0.15
+          # Forge-Change-End
 
 - type: entity
   id: CrateCandles

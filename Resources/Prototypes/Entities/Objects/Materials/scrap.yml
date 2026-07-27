@@ -26,6 +26,7 @@
     tags:
     - Recyclable
     - GoblinPreciousTrash # Forge-Change
+    - Trash               # Forge-Change
 
 - type: entity
   parent: BaseStructure
@@ -125,6 +126,8 @@
   - type: Tag
     tags:
     - MachineBoard
+    - Trash
+    - Recyclable
   # Forge-Change-End
 
 - type: entity

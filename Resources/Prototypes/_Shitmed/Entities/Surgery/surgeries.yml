@@ -432,6 +432,30 @@
     - type: Heart
     inverse: true
     reattaching: true
+# Forge-Change-Start
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryInsertPump
+  name: Insert Pump
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepInsertHeart
+    - SurgeryStepSealOrganWound
+  - type: SurgeryOrganSlotCondition
+    organSlot: pump
+  - type: SurgeryPartCondition
+    part: Torso
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Heart
+    inverse: true
+    reattaching: true
+# Forge-Change-End
 
 - type: entity
   parent: SurgeryBase

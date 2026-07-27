@@ -633,6 +633,7 @@
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "0.0,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
+  - type: RatKingRummageable # Forge-Change
 
 - type: entity
   parent: CrateBaseSecure

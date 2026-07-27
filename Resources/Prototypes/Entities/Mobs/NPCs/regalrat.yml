@@ -345,10 +345,12 @@
 - type: weightedRandomEntity
   id: RatKingLoot
   weights: # DeltaV: Rebalanced for Rodentia rummaging because we don't have Rat King
-    RandomSpawner100: 100 #garbage
-#    FoodCheeseSlice: 15 #food
-#    RandomSnacks: 10
-#    RandomFoodSingle: 5
+  # Forge-Change-Start
+    RandomSpawner100: 85 #garbage
+    FoodCheeseSlice: 5   #food
+    RandomSnacks: 5
+    RandomFoodSingle: 5
+  # Forge-Change-End
 
 - type: entity
   id: ActionRatKingRaiseArmy

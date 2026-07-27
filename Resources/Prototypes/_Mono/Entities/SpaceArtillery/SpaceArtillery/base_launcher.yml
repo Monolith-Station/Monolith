@@ -72,6 +72,7 @@
   - type: Repairable
     qualities:
     - Applicating
+  - type: GravityAffected # Forge-Change
 
 - type: entity
   id: BallisticArtilleryUnanchorable
@@ -172,6 +173,7 @@
   - type: Repairable
     qualities:
     - Applicating
+  - type: GravityAffected # Forge-Change
 
 - type: entity
   id: BallisticArtilleryCartridge
@@ -284,6 +286,7 @@
   - type: Repairable
     qualities:
     - Applicating
+  - type: GravityAffected # Forge-Change
 
 - type: entity
   id: BallisticArtilleryMagazine
@@ -341,6 +344,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: GravityAffected # Forge-Change
 
 - type: entity
   id: BallisticArtilleryTier2HP # Normal weapons, slightly stronger than plastitanium. This is the baseline durability for your average sized anchorable weapon.
@@ -361,6 +365,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: GravityAffected # Forge-Change
 
 - type: entity
   id: BallisticArtilleryTier3HP # Medium weapons. Reinforced plastitanium level. Typical for medium-class weapons. In-between heavy artillery and standard anchorables.
@@ -387,6 +392,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: GravityAffected # Forge-Change
 
 - type: entity
   id: BallisticArtilleryTier4HP # Capital Weapons. Cyrexas, main cannons. Anything really big.
@@ -413,6 +419,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: GravityAffected # Forge-Change
 
 - type: entity
   id: BallisticArtilleryTier5HP # Supercapital class armament, station outpost weaponry and capital pre-fracture weaponry, around 4x Reinforced Plastitanium Health.
@@ -439,3 +446,4 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: GravityAffected # Forge-Change

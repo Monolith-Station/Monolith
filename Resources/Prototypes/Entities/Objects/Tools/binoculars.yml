@@ -14,7 +14,7 @@
     delay: 1.0
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 5
+    maxOffset: 10 # Forge-Change
     pvsIncrease: 0.5
   - type: SpeedModifiedOnWield
     walkModifier: 0.95

@@ -27,6 +27,7 @@
       - id: FoodTinMRETrash # Frontier
       - id: MysteryFigureBoxTrash # Frontier
       - id: FoodPSBTrash # Frontier
+      - id: DrinkColaCanEmpty # Forge-Change
     - !type:GroupSelector
       weight: 5
       children:
@@ -35,6 +36,8 @@
       - id: TrashBananaPeel # Frontier
       - id: FoodCornTrash # Frontier
       - id: TrashNapkin # Frontier
+      - id: Beaker      # Forge-Change
+      - id: DrinkGlass  # Forge-Change
 
 - type: entity
   name: Trash Spawner

@@ -68,5 +68,5 @@
   #   materialComposition:
   #     Plastic: 50
   - type: DnaSubstanceTrace
-  - type: TrashOnSolutionEmpty # Frontier
-    solution: bucket # Frontier
+  # - type: TrashOnSolutionEmpty # Frontier # Forge-Change-Del
+  #   solution: bucket # Frontier           # Forge-Change-Del

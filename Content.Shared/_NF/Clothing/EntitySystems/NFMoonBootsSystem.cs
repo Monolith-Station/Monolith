@@ -13,6 +13,7 @@ namespace Content.Shared._NF.Clothing.EntitySystems;
 
 public sealed partial class SharedNFMoonBootsSystem : EntitySystem
 {
+    [Dependency] private SharedGravitySystem _gravity = default!; /// Change-Forge
     [Dependency] private AlertsSystem _alerts = default!;
     [Dependency] private ClothingSystem _clothing = default!;
     [Dependency] private InventorySystem _inventory = default!;
@@ -40,6 +41,7 @@ public sealed partial class SharedNFMoonBootsSystem : EntitySystem
             && uid == worn)
         {
             UpdateMoonbootEffects(container.Owner, ent, args.Activated);
+            _gravity.RefreshWeightless(container.Owner); /// Change-Forge
         }
 
         var prefix = args.Activated ? "on" : null;
@@ -50,11 +52,13 @@ public sealed partial class SharedNFMoonBootsSystem : EntitySystem
     private void OnGotUnequipped(Entity<NFMoonBootsComponent> ent, ref ClothingGotUnequippedEvent args)
     {
         UpdateMoonbootEffects(args.Wearer, ent, false);
+        _gravity.RefreshWeightless(args.Wearer); /// Change-Forge
     }
 
     private void OnGotEquipped(Entity<NFMoonBootsComponent> ent, ref ClothingGotEquippedEvent args)
     {
         UpdateMoonbootEffects(args.Wearer, ent, _toggle.IsActivated(ent.Owner));
+        _gravity.RefreshWeightless(args.Wearer); /// Change-Forge
     }
 
     public void UpdateMoonbootEffects(EntityUid user, Entity<NFMoonBootsComponent> ent, bool state)
