@@ -32,8 +32,8 @@
       - state: equipped-HEAD
       head-vox:
       - state: equipped-HEAD-vox
-      head-vulpkanin:
-      - state: equipped-HEAD-vulpkanin
+      # head-vulpkanin: # Forge-change
+      # - state: equipped-HEAD-vulpkanin # Forge-change
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -41,8 +41,8 @@
       - state: equipped-HEAD-sealed
       head-vox:
       - state: equipped-HEAD-sealed-vox
-      head-vulpkanin:
-      - state: equipped-HEAD-sealed-vulpkanin
+      # head-vulpkanin: # Forge-change
+      # - state: equipped-HEAD-sealed-vulpkanin # Forge-change
   - type: ComponentToggler
     components:
     - type: BreathMask
