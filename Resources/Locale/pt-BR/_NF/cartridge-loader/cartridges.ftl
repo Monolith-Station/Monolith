@@ -16,6 +16,7 @@ ledger-no-balance = N/A
 ledger-tab-Frontier = Posto Colonial
 ledger-tab-Nfsd = TSFMC
 ledger-tab-Medical = Despacho Médico
+ledger-tab-Mieyo = MMC
 ledger-tab-BlackMarket = Mercado Negro
 # Fallback, if this displays, something's wrong.
 ledger-tab-Unknown = Desconhecido

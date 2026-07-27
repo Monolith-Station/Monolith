@@ -18,5 +18,10 @@ job-description-vg-infanteer = Siga as ordens de cima. Complete contratos. Receb
 job-description-vg-lieutenant = Dirija os destacamentos de infantaria. Garanta que os padrões sejam mantidos. Alcance prosperidade e riqueza.
 job-description-vg-commander = Lidere os Vipers à glória e riqueza. Forje novas relações comerciais. Mostre ao setor que suas presas não ficaram cegas.
 
+# MARK: MMC
+job-description-mmc-liason = Garanta lucros para seus gerentes corporativos, mantenha seus funcionários na linha e garanta a proteção dos ativos da MMC no setor.
+job-description-mmc-security = Proteja os recursos e funcionários da MMC na área de quaisquer ameaças.
+job-description-mmc-employee = Trabalhe sob seu representante para o bem do conselho diretor da MMC. Faça dinheiro, dê à empresa e repita.
+
 # MARK: Solstício do inverno
 job-description-operations-officer = [to-do]
