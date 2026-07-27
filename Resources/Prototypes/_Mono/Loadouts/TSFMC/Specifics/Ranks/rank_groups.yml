@@ -91,3 +91,15 @@
   - TsfmcRanksEnlisted
   fallbacks:
   - TsfmcRankE1
+
+- type: loadoutGroup
+  id: TsfnRanksReserve
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TsfnEngineerRankW1
+  subgroups:
+  - TsfmcRanksEnlisted
+  fallbacks:
+  - TsfmcRankE1
