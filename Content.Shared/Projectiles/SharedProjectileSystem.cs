@@ -472,6 +472,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             projectile.Shooter = null;
             projectile.Weapon = null;
             projectile.ProjectileSpent = false;
+            projectile.RaycastResetVelocity = null; /// Forge-Change
 
             Dirty(uid, projectile);
         }
@@ -504,6 +505,10 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void PreventCollision(EntityUid uid, ProjectileComponent component, ref PreventCollideEvent args)
     {
+ 	    // Dormant projectile entities (e.g. ammo bolts in inventory) should not use active projectile
+        // collision filtering because it interferes with normal item interactions.
+        if (!component.ProjectileSpent && component.Shooter == null && component.Weapon == null)    /// Forge-Change
+            return;                                                                                 /// Forge-Change
         // Goobstation - Crawling fix
         if (TryComp<RequireProjectileTargetComponent>(args.OtherEntity, out var requireTarget) && requireTarget.IgnoreThrow && requireTarget.Active)
             return;
