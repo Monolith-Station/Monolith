@@ -8960,16 +8960,25 @@ ent-EncryptionKeyMieyoCommand = chave de criptografia de comando MMC
     .desc = Uma chave de criptografia para comunicações de comando da Mieyo.
 
 ent-MieyoEmployeeIDCard = carteira de ID de funcionário MMC
+    .desc = { ent-IDCardStandard.desc }
 
 ent-MieyoLiasonIDCard = carteira de ID de representante MMC
+    .desc = { ent-IDCardStandard.desc }
 
 ent-MieyoSecurityIDCard = carteira de ID de segurança MMC
+    .desc = { ent-IDCardStandard.desc }
+
+ent-BaseMMCPDA = PDA base Mieyo
+    .desc = Um computador pessoal básico para restrição de acesso e organização.
 
 ent-MieyoEmployeePDA = PDA de funcionário Mieyo
+    .desc = { ent-BaseMMCPDA.desc }
 
 ent-MieyoLiasonPDA = PDA de representante corporativo Mieyo
+    .desc = { ent-BaseMMCPDA.desc }
 
 ent-MieyoSecurityPDA = PDA de segurança corporativa Mieyo
+    .desc = { ent-BaseMMCPDA.desc }
 
 ent-MieyoTrackingImplant = implante de rastreamento MMC
     .desc = Este implante possui um monitor de dispositivo de rastreamento para o canal de rádio corporativo Mieyo.
