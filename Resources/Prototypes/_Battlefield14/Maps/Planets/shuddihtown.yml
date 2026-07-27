@@ -1,0 +1,41 @@
+- type: gameMap
+  id: BF14ShuddihTown
+  mapName: 'Shuddih Town'
+  mapPath: /Maps/_Battlefield14/Planets/MultiZ/BF14ShuddihTownZMap0.yml
+  minPlayers: 8
+  maxPlayers: 50
+  randomRotation: false
+  maxRandomOffset: 0
+  stations:
+    BF14ShuddihTown:
+      stationProto: StandardFrontierStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Shuddih Town, California"
+        - type: ExtraStationInformation
+          iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
+          stationSubtext: "Shuddih Town, California"
+          stationDescription: "A small town in california."
+          lobbySortOrder: 1
+        - type: StationJobs
+          availableJobs:
+            SuspectUS: [ 15, 15 ]
+            USPDChief: [ 1, 1 ]
+            USPDSWATSquadLeader: [ 2, 2 ]
+            USPDSWATOfficer: [ 6, 6 ]
+            CivilianRUEMT: [ 1, 1 ]
+        - type: CEStationZLevels
+          mapsAbove:
+            - /Maps/_Battlefield14/Planets/MultiZ/BF14ShuddihTownZMap1.yml 
+            - /Maps/_Battlefield14/Planets/MultiZ/BF14ShuddihTownZMap2.yml 
+          zLevelsComponentOverrides:
+            - type: CEAutoGridGravity
+
+- type: zMap
+  id: BF14ShuddihTownZMap
+  maps:
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14ShuddihTownZMap0.yml    # Level 0
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14ShuddihTownZMap1.yml    # Level 1
+    - /Maps/_Battlefield14/Planets/MultiZ/BF14ShuddihTownZMap2.yml    # Level 2
+  components:
+    - type: CEAutoGridGravity

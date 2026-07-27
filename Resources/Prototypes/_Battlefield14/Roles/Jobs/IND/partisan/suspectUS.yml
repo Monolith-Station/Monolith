@@ -1,0 +1,36 @@
+- type: job
+  id: SuspectUS
+  name: Suspect
+  description: job-description-ind-civilian
+  playTimeTracker: JobSuspectUS
+  displayWeight: 10
+  startingGear: SuspectUSGear
+  alwaysUseSpawner: true
+  icon: "JobIconUS"
+#  supervisors: job-supervisors-everyone
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - English
+    languagesUnderstood:
+    - English
+  access:
+  - Maintenance
+
+- type: startingGear
+  id: SuspectUSGear
+  equipment:
+    belt: WeaponPistolDEUSP45
+    neck: ClothingNeckIFFtapeRed
+    outerClothing: ClothingOuterArmorPlateCarrierCivillian
+    back: ClothingBackpackButtpack
+    leftarmband: Tourniquet
+    rightarmband: FlashlightMilitaryUS
+    pocket1: PouchMagsPistolFilledUSP45
+    pocket2: PouchFirstAidFilled
+  storage:
+    back:
+    - MaterialWoodPlank
+    - SandbagFull5
+    - MagazineBox45ACP
+    - BF14KnifeFlipTaticool

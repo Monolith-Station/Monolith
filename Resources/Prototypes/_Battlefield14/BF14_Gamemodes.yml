@@ -49,13 +49,13 @@
   id: BF14_CivilUnrest
   alias:
   - civilunrest
-  name: Civil unrest
+  name: Civil Unrest
   showInVote: true
   supportedMaps: BF14MapPoolCivilUnrest
   description: Maps involving civilians in combat.
-  maxPlayers: 16
+  maxPlayers: 25
   rules:
-  - NFAdventure
+  - TenMinuteRestart
 
 - type: gamePreset
   id: BF14_TeamDeathMatch
@@ -69,6 +69,8 @@
   supportedMaps: BF14MapPoolTDM
   rules:
     - TeamDeathMatch
+
+#region game rules
 
 - type: entity
   id: TeamDeathMatch
@@ -84,3 +86,11 @@
   - type: MaxTimeRestartRule
     roundMaxTime: 600 # 10 minutes
     roundEndDelay: 30 # 30 seconds
+
+- type: entity
+  id: TenMinuteRestart
+  parent: BaseGameRule
+  components:
+  - type: MaxTimeRestartRule
+    roundMaxTime: 600 # 10 minutes
+    roundEndDelay: 120 # 2 minutes

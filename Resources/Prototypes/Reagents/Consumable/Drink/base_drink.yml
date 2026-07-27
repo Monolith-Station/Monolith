@@ -48,7 +48,7 @@
   group: Drinks
   abstract: true
   slipData:
-    requiredSlipSpeed: 3.5
+    requiredSlipSpeed: 4.5 #BF14 3.5
   friction: 0.4
   flammability: 1
   metabolisms:
@@ -66,7 +66,7 @@
       - !type:FlammableReaction
   tileReactions:
   - !type:FlammableTileReaction
-    temperatureMultiplier: 1.35
+    temperatureMultiplier: 0.001 #BF14 1.35 I swear this doesn't work
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 0.25

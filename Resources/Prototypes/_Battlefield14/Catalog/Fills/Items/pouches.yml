@@ -129,6 +129,16 @@
       amount: 4
 
 - type: entity
+  parent: PouchMagsPistol
+  id: PouchMagsPistolFilledUSP45
+  suffix: Filled, USP45
+  components:
+  - type: StorageFill
+    contents:
+    - id: MagazinePistolUSP45
+      amount: 4
+
+- type: entity
   parent: PouchMagsPistolLarge
   id: PouchMagsPistolLargeFilledMP5
   suffix: Filled, MP5
