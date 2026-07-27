@@ -16,7 +16,7 @@
   subgroups:
   - MonoMercenaryJumpsuit # Mono
   - MonoUSSPJumpsuit # Mono
-  - VGJumpsuit # Mono
+#  - VGJumpsuit # Mono, Forge-Change-Del
   - ContractorJumpsuit
   fallbacks:
   - MercenaryClothingUniformJumpsuitMercenary
@@ -36,7 +36,7 @@
   subgroups:
   - MonoMercenaryBackpack # Mono
   - MonoUSSPBackpack # Mono
-  - VGBackpack # Mono
+#  - VGBackpack # Mono, Forge-Change-Del
   - ContractorBackpack
   fallbacks:
   - MercenaryClothingBackpackMercenary
@@ -56,7 +56,7 @@
   subgroups:
   - MonoMercenaryOuterClothing # Mono
   - MonoUSSPOuterClothing # Mono
-  - VGOuterClothing # Mono
+#  - VGOuterClothing # Mono, Forge-Change-Del
   - ContractorOuterClothing
 
 - type: loadoutGroup
@@ -87,7 +87,7 @@
   - SecurityBeret
   subgroups:
   - MonoUSSPHead # Mono
-  - VGHead # Mono
+#  - VGHead # Mono, Forge-Change-Del
   - ContractorHead
   # - MonoMercenaryHead # Forge-Change-Del
 
@@ -103,7 +103,7 @@
   - MercenaryClothingHeadsetAltSecurityCommon
   subgroups:
   - USSPEars # Mono
-  - VGEars # Mono
+#  - VGEars # Mono, Forge-Change-Del
   - ContractorEars
 
 - type: loadoutGroup
