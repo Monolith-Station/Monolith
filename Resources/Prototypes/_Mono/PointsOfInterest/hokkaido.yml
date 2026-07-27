@@ -4,7 +4,7 @@
 - type: pointOfInterest
   id: Hokkaido
   parent: [BasePOI, BaseRepairablePOI]
-  name: 'MMC Hokkaido'
+  name: poi-Hokkaido-name
   minimumDistance: 2000
   maximumDistance: 8000
   spawnGroup: Required
