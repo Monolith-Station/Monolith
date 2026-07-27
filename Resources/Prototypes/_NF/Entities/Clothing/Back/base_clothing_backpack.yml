@@ -3,6 +3,20 @@
   abstract: true
   id: NFBackpackHiddenStash
   components:
+  # Forge-Change-Start
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "enum.AnchorableStorageVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.AnchorableStorageVisuals.Anchored:
+        enum.AnchorableStorageVisuals.Layer:
+          True: { drawdepth: ThinWire, visible: false }
+          False: { drawdepth: Items, visible: true }
+  - type: Visibility
+    layer: 1
+  # Forge-Change-End
   - type: Appearance
   - type: SubFloorHide
   - type: Anchorable
