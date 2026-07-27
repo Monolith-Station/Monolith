@@ -5,10 +5,18 @@ Entries:
       type: Add
   id: 1
   time: '2026-07-21T00:33:00-07:00'
-
 - author: Dragometh
   changes:
     - message: Traduz o jogo inteiro. Reporte erros no discord!
       type: Add
   id: 2
   time: '2026-07-21T00:33:00-07:00'
+- author: Dragometh
+  changes:
+    - type: Add
+      message: Changelog automatizado!
+    - type: Tweak
+      message: Mudanças e avanços na tradução.
+  id: 3
+  time: '2026-07-21T11:50:40.0000000+00:00'
+  url: https://github.com/Estacao-Andromeda/Monolith/pull/2
