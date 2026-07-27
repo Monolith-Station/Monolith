@@ -320,6 +320,7 @@
     - Wall
   - type: Sprite
     sprite: Structures/Walls/plastitanium.rsi
+  - type: PaintableWall # Forge-Change
   - type: Icon
     sprite: Structures/Walls/plastitanium.rsi
   - type: IconSmooth
@@ -401,6 +402,7 @@
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
+  - type: PaintableWall # Forge-Change
   - type: IconSmooth
     mode: Diagonal
     key: walls
@@ -440,6 +442,7 @@
   components:
   - type: Sprite
     sprite: Structures/Walls/solid.rsi
+  - type: PaintableWall # Forge-Change
   - type: Icon
     sprite: Structures/Walls/solid.rsi
     state: rgeneric
@@ -522,6 +525,7 @@
     drawdepth: Walls
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
+  - type: PaintableWall # Forge-Change
   - type: IconSmooth
     mode: Diagonal
     key: walls
@@ -645,6 +649,7 @@
     drawdepth: Walls
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
+  - type: PaintableWall # Forge-Change
   - type: IconSmooth
     mode: Diagonal
     key: walls
@@ -698,6 +703,7 @@
     resistance: 5
   - type: Sprite
     sprite: Structures/Walls/shuttle.rsi
+  - type: PaintableWall # Forge-Change
   - type: Icon
     sprite: Structures/Walls/shuttle.rsi
     state: full
@@ -751,6 +757,7 @@
     fx: EffectRCDDeconstruct8
   - type: Sprite
     sprite: Structures/Walls/shuttleinterior.rsi
+  - type: PaintableWall # Forge-Change
   - type: Icon
     sprite: Structures/Walls/shuttleinterior.rsi
   - type: Construction

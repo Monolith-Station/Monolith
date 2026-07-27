@@ -6,6 +6,8 @@
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/shuttle_window.rsi
+  - type: PaintableWall # Forge-Change
+    protectTransparent: true
   - type: Icon
     sprite: Structures/Windows/shuttle_window.rsi
   - type: Repairable

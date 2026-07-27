@@ -35,6 +35,8 @@ public sealed partial class DecalPlacementSystem : EntitySystem
     private bool _placing;
     private bool _erasing;
 
+    public bool IsActive => _active; // Forge-Change
+
     public (DecalPrototype? Decal, bool Snap, Angle Angle, Color Color) GetActiveDecal()
     {
         return _active && _decalId != null ?

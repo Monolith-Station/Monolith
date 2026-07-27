@@ -7,6 +7,7 @@ sandbox-window-respawn-button = Возрождение
 sandbox-window-spawn-entities-button = Спавн сущностей
 sandbox-window-spawn-tiles-button = Спавн тайлов
 sandbox-window-spawn-decals-button = Спавн декалей
+sandbox-window-paint-walls-button = Покраска стен
 sandbox-window-grant-full-access-button = Дать полный доступ
 sandbox-window-ghost-button = Призрак
 sandbox-window-toggle-lights-button = Переключить освещение

@@ -9,6 +9,7 @@ sandbox-window-respawn-button = Respawn
 sandbox-window-spawn-entities-button = Spawn Entities
 sandbox-window-spawn-tiles-button = Spawn Tiles
 sandbox-window-spawn-decals-button = Spawn Decals
+sandbox-window-paint-walls-button = Paint Walls
 sandbox-window-grant-full-access-button = Grant Full Access
 sandbox-window-ghost-button = Ghost
 sandbox-window-toggle-lights-button = Toggle Lights

@@ -75,7 +75,7 @@ public sealed partial class DecalPlacerUIController : UIController, IOnStateExit
         ReloadPrototypes();
     }
 
-    private void CloseWindow()
+    public void CloseWindow() // Forge-Change
     {
         if (_window == null || _window.Disposed)
             return;

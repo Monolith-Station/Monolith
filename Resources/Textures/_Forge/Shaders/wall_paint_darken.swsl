@@ -1,0 +1,16 @@
+uniform highp vec4 paintColor;
+uniform bool protectTransparency;
+uniform highp float opaqueAlphaThreshold;
+
+void fragment() {
+    highp vec4 base = zTexture(UV);
+    highp float paintAmount = paintColor.a * smoothstep(0.0, opaqueAlphaThreshold, base.a);
+
+    if (protectTransparency && base.a <= 0.0) {
+        paintAmount = 0.0;
+    }
+
+    highp float luma = dot(base.rgb, vec3(0.299, 0.587, 0.114));
+    highp vec3 tinted = paintColor.rgb * luma;
+    COLOR = vec4(mix(base.rgb, tinted, paintAmount), base.a);
+}
