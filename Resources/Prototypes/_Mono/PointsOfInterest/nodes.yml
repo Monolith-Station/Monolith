@@ -10,8 +10,19 @@
   addComponents:
   - type: IFF
     color: "#37946e"
-    readOnly: true # mono
-  - type: VesselMusic
-    ambientMusicPrototype: ColossusCentralMusic
   - type: VesselInfo
     description: poi-ZetaNode-desc
+
+- type: gameMap
+  id: ZetaNode
+  mapName: 'Zeta Node'
+  mapPath: /Maps/_Mono/POI/zetanode.yml
+  minPlayers: 0
+  stations:
+    ZetaNode:
+      stationProto: RecordsFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Zeta Node'
+        - type: StationDeadDrop
+          maxDeadDrops: 2
