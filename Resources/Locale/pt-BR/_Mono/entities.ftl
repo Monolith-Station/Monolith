@@ -8975,6 +8975,7 @@ ent-MieyoTrackingImplant = implante de rastreamento MMC
     .desc = Este implante possui um monitor de dispositivo de rastreamento para o canal de rádio corporativo Mieyo.
 
 ent-BallisticTurretHeavyAIMieyo = torre sentinela remota pesada Mieyo
+    .desc = { ent-BallisticTurretHeavyBase.desc }
     .suffix = Mieyo
 
 ent-ComputerShipyardMMC = console de estaleiro MMC
