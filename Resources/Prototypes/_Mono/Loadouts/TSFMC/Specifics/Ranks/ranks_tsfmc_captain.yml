@@ -11,3 +11,22 @@
   components:
   - type: ChatRank
     rank: tsf-o3
+
+- type: loadout
+  id: TsfmcRankO4
+  name: TSFMC O-4 (MAJ)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfmcCaptain
+  components:
+  - type: ChatRank
+    rank: tsf-o4
+
+- type: loadoutEffectGroup
+  id: TsfmcCaptain
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobWarden
+      time: 360000 # 100hr

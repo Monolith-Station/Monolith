@@ -1,0 +1,39 @@
+#Author: _starch_ (discord) / kasature90 (github)
+
+- type: vessel
+  id: Layak
+  parent: BaseVesselAntag
+  name: PD-VI Layak
+  description: A light escort corvette for combating light ships and incoming missiles. Outfitted with 4 DRAVONs for flak, 4 AK-570s, 2 CYREXAs, and 2 flare pods.
+  price: 134000 #~120k appraisal
+  purchasable: false # voucher only
+  category: Medium
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/layak.yml
+  guidebookPage: Null
+  class:
+  - Pirate
+  - Pursuit
+  - Corvette
+  engine:
+  - AME
+
+- type: gameMap
+  id: Layak
+  mapName: 'PDV Layak'
+  mapPath: /SharedMaps/_Mono/Shuttles/BlackMarket/layak.yml
+  minPlayers: 0
+  stations:
+    Layak:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Layak PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

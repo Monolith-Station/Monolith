@@ -1,0 +1,34 @@
+# Sustained-firepower alternative to Kite
+- type: vessel
+  id: Yukikaze
+  parent: BaseVessel
+  name: MMC-CSC Yukikaze
+  description: A craft with slightly-more armor than the Kite, with a layer of plasteel and plastitanium, plus a shield! Only comes with a 2 AK-820s + 20mms and very cramped interior however.
+  price: 87400
+  category: Small
+  group: Mieyo
+  access: MieyoSecurity
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Mieyo/yukikaze.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - AME
+
+- type: gameMap
+  id: Yukikaze
+  mapName: 'MMC-CSC Yukikaze'
+  mapPath: /SharedMaps/_Mono/Shuttles/Mieyo/yukikaze.yml
+  minPlayers: 0
+  stations:
+    Yukikaze:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Yukikaze MCSC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MMCEmployee: [ 0, 0 ]

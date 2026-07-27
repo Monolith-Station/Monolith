@@ -5,8 +5,8 @@
   loadouts:
   - FactionFrostLoadout
   - FactionDrozdLoadout
-  - FactionLecterLoadout
-  - FactionVulcanLoadout
+  - FactionRiversongLoadout
+  - FactionDragonfangLoadout
   - FactionBanditLoadout
   fallbacks:
   - FactionFrostLoadout
@@ -16,9 +16,9 @@
   name: loadout-group-weapon
   minLimit: 0
   loadouts:
-  - FactionLecterLoadout
+  - FactionRiversongLoadout
   - FactionDrozdLoadout
-  - FactionVulcanLoadout
+  - FactionDragonfangLoadout
   - SecurityGuardEnforcerLoadout
 
 - type: loadoutGroup
@@ -69,5 +69,5 @@
   minLimit: 0
   loadouts:
   - FactionRechargerLoadout #Energy
-  - FactionMagnum45Loadout # Inspector/Python/Mateba
+  - FactionMagnum357Loadout # Inspector/Python/Mateba
   - FactionAcpPistolAmmoLoadout #MK58

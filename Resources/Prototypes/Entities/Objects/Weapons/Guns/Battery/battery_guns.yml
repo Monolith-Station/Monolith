@@ -297,13 +297,13 @@
     - FullAuto
 
 - type: entity
-  name: LWC pulse pistol
+  name: VCD QSH-13 Pulse Pistol
   parent: BaseWeaponBatterySmall
   id: WeaponPulsePistol
-  description: A state of the art energy pistol favoured as a sidearm by the TSFN and TSFMC. # Mono
+  description: The pulse pistol is a compact version of the TSF pulse rifle. Though it uses the same self-recharging technology, it has a smaller battery that makes it impractical for sustained battlefield use. Nevertheless, it has found a niche in the hands of TSFN and TSFMC officers as a defensive sidearm. # Mono
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/pulse_pistol.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -316,7 +316,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/pulse_pistol.rsi
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
@@ -340,13 +340,13 @@
   # End Mono
 
 - type: entity
-  name: LWC pulse carbine
+  name: VCD QBH-12 Pulse Carbine
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponPulseCarbine
-  description: A common sight in the hands of higher ranked TSF, the pulse carbine is a punchy laser weapon salvaged from the remnants of Nanotrasen. # Mono
+  description: The pulse carbine is a slightly more compact version of the TSF pulse rifle that combines self-recharging technology with an even faster rate of fire meant to terrify enemies on the battlefield. Though known to overheat occasionally in prolonged battle, this does not stop the Marine special forces who favor them. # Mono
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/pulse_carbine.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -359,7 +359,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/pulse_carbine.rsi
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 3
@@ -389,13 +389,13 @@
   # End Mono
 
 - type: entity
-  name: NT pulse rifle
+  name: VCD QBH-11 Pulse Rifle
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponPulseRifle
-  description: A weapon that used to be used by the special operations units of NT, but now commonly seen in the hands of the TSF. # Mono
+  description: The first pulse model reproduced since the technology fell into TSF hands after the end of the Corporate War, this rifle defines cutting edge technology in the hands of elite TSF military troops and the officers that command them.  # Mono
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/pulse_rifle.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -408,7 +408,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/pulse_rifle.rsi
   - type: Gun
     fireRate: 1.5
     availableModes:
@@ -444,7 +444,7 @@
   description: A weapon that used to be used by the special operations units of NT, but mounted onto a silicon. # Mono
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/pulse_rifle.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -457,7 +457,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/pulse_rifle.rsi
   - type: Gun
     fireRate: 1.5
     availableModes:

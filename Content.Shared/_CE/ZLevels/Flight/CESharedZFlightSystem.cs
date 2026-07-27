@@ -13,8 +13,12 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Mobs;
+using Content.Shared.Movement.Events;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using JetBrains.Annotations;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._CE.ZLevels.Flight;
@@ -27,6 +31,8 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     protected EntityQuery<CEZPhysicsComponent> ZPhyzQuery;
 
@@ -42,6 +48,8 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
         SubscribeLocalEvent<CEZFlyerComponent, CEGetZVelocityEvent>(OnGetZVelocity);
         SubscribeLocalEvent<CEZFlyerComponent, CECheckGravityEvent>(OnGetGravity);
         SubscribeLocalEvent<CEZFlyerComponent, IsWeightlessEvent>(CheckWeightless);
+        SubscribeLocalEvent<CEZFlyerComponent, RefreshWeightlessModifiersEvent>(OnRefreshWeightlessModifiers);
+        SubscribeLocalEvent<CEZFlyerComponent, CanWeightlessMoveEvent>(OnCanWeightlessMove);
 
         SubscribeLocalEvent<CEZFlyerComponent, StunnedEvent>(OnStunned);
         SubscribeLocalEvent<CEZFlyerComponent, KnockedDownEvent>(OnKnockDowned);
@@ -95,6 +103,18 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
         StopFlightVisuals(ent.Owner);
     }
 
+    /// <summary>
+    /// How heavy this flyer is relative to its reference mass. Scales stamina
+    /// drain up and flight speeds down for heavier flyers.
+    /// </summary>
+    protected float GetMassFactor(Entity<CEZFlyerComponent> ent)
+    {
+        if (ent.Comp.ReferenceMass <= 0f || !TryComp<PhysicsComponent>(ent, out var body) || body.FixturesMass <= 0f)
+            return 1f;
+
+        return Math.Clamp(body.FixturesMass / ent.Comp.ReferenceMass, ent.Comp.MinMassFactor, ent.Comp.MaxMassFactor);
+    }
+
     private void OnGetZVelocity(Entity<CEZFlyerComponent> ent, ref CEGetZVelocityEvent args)
     {
         if (!ent.Comp.Active)
@@ -102,12 +122,13 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
 
         var zPhys = args.Target.Comp;
         var currentPos = zPhys.CurrentZLevel + zPhys.LocalPosition;
-        var targetPos = ent.Comp.TargetMapHeight + 0.2f;
+        var targetPos = ent.Comp.TargetMapHeight + 0.5f;
         var currentVelocity = zPhys.Velocity;
 
         var distanceToTarget = targetPos - currentPos;
 
-        var targetVelocity = Math.Clamp(distanceToTarget * ent.Comp.FlightSpeed, -ent.Comp.FlightSpeed, ent.Comp.FlightSpeed);
+        var flightSpeed = ent.Comp.FlightSpeed / GetMassFactor(ent);
+        var targetVelocity = Math.Clamp(distanceToTarget * flightSpeed, -flightSpeed, flightSpeed);
         var velocityDelta = targetVelocity - currentVelocity;
 
         var upperBound = ent.Comp.TargetMapHeight + 0.9f;
@@ -128,6 +149,22 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
         }
 
         args.VelocityDelta = velocityDelta;
+    }
+
+    private void OnCanWeightlessMove(Entity<CEZFlyerComponent> ent, ref CanWeightlessMoveEvent args)
+    {
+        if (ent.Comp.Active)
+            args.CanMove = true;
+    }
+
+    private void OnRefreshWeightlessModifiers(Entity<CEZFlyerComponent> ent, ref RefreshWeightlessModifiersEvent args)
+    {
+        if (!ent.Comp.Active)
+            return;
+
+        var modifier = ent.Comp.FlightMoveSpeedModifier / GetMassFactor(ent);
+        args.WeightlessModifier *= modifier;
+        args.WeightlessAccelerationMod *= modifier;
     }
 
     private void OnGetGravity(Entity<CEZFlyerComponent> ent, ref CECheckGravityEvent args)
@@ -157,8 +194,12 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
         ent.Comp.Active = true;
         DirtyField(ent, ent.Comp, nameof(CEZFlyerComponent.Active));
 
+        zPhys.VelocityRaiseEvent = true;
+        _zLevel.WakeBody((ent.Owner, zPhys));
+
         _zLevel.UpdateGravityState((ent, zPhys));
         _gravity.RefreshWeightless(ent.Owner);
+        _movementSpeed.RefreshWeightlessModifiers(ent.Owner);
 
         RaiseLocalEvent(ent, new CEFlightStartedEvent());
         return true;
@@ -179,8 +220,12 @@ public abstract partial class CESharedZFlightSystem : EntitySystem
         ent.Comp.Active = false;
         DirtyField(ent, ent.Comp, nameof(CEZFlyerComponent.Active));
 
+        zPhys.VelocityRaiseEvent = false;
+        _zLevel.WakeBody((ent.Owner, zPhys));
+
         _zLevel.UpdateGravityState((ent, zPhys));
         _gravity.RefreshWeightless(ent.Owner);
+        _movementSpeed.RefreshWeightlessModifiers(ent.Owner);
 
         RaiseLocalEvent(ent, new CEFlightStoppedEvent());
     }
