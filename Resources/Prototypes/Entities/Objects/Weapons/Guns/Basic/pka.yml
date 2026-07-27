@@ -19,3 +19,6 @@
     deconstructionTarget: null #Frontier
   - type: Wieldable # Frontier
   # todo: add clothingcomponent with clothingVisuals states using unused texture and animations assets in kinetic_accelerator.rsi
+  - type: StaticPrice # Forge-change
+    price: 100 # Forge-change
+    vendPrice: 5000 # Forge-change

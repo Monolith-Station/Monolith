@@ -54,6 +54,8 @@
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
   - type: StackPrice
     price: 15 # Mono - 5->15
+  - type: StaticPrice # Forge-change  
+    vendPrice: 5500 # Forge-change
 
 - type: entity
   id: Ointment1
@@ -154,6 +156,7 @@
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
   - type: StackPrice
     price: 15 # Mono - 5->15
+    vendPrice: 6000 # Forge-change
 
 - type: entity
   id: Brutepack1
@@ -254,6 +257,8 @@
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
   - type: StackPrice
     price: 25 # Mono - 10->25
+  - type: StaticPrice # Forge-change  
+    vendPrice: 3150 # Forge-change
 
 # Forge change
 - type: entity
@@ -346,6 +351,7 @@
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
   - type: StackPrice
     price: 15 # Mono 10->15
+    vendPrice: 6000 # Forge-change
 
 - type: entity
   id: Gauze1

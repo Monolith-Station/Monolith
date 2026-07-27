@@ -166,6 +166,9 @@
       head: ClothingHeadHelmetHardsuitSpatio
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StaticPrice # Forge-change
+    price: 1000 # Forge-change
+    vendPrice: 8000 # Forge-change
 
 #Salvage Hardsuit
 - type: entity
@@ -205,6 +208,9 @@
       head: ClothingHeadHelmetHardsuitSalvage
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StaticPrice # Forge-change
+    price: 1500 # Forge-change
+    vendPrice: 10000 # Forge-change
 
 #Goliath Hardsuit
 - type: entity

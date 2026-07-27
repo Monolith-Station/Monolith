@@ -169,6 +169,9 @@
     slots: # Frontier
     - back # Frontier
     - suitStorage # Frontier
+  - type: StaticPrice # Forge-change
+    price: 100 # Forge-change
+    vendPrice: 7000 # Forge-change
 
 - type: entity
   parent: [ BaseKnife, BaseWeaponCrusher]
@@ -198,6 +201,9 @@
     malus: 0.225
   - type: ThrowingAngle
     angle: 225
+  - type: StaticPrice # Forge-change
+    price: 100 # Forge-change
+    vendPrice: 3500 # Forge-change
 
 # Like a crusher... but better
 - type: entity
@@ -221,3 +227,6 @@
   - type: Item
     size: Ginormous
     sprite: Objects/Weapons/Melee/crusher_glaive-inhands.rsi
+  - type: StaticPrice # Forge-change
+    price: 100 # Forge-change
+    vendPrice: 15500 # Forge-change

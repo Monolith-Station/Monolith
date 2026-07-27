@@ -159,6 +159,8 @@
           Quantity: 3
   - type: Tag # Mono
     tags: [SurvivalBox]
+  - type: StaticPrice # Forge-change  
+    vendPrice: 3150 # Forge-change
 
 - type: entity
   name: poison auto-injector

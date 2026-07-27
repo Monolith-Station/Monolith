@@ -23,7 +23,7 @@
     delay: 1
   - type: StaticPrice
     price: 550
-    vendPrice: 5000 # Mono
+    vendPrice: 10000 # Mono, 5000 -> 10000 Forge-change
   - type: PirateBountyItem # Frontier
     id: HypoMini # Frontier
 
@@ -52,6 +52,7 @@
     delay: 0.75
   - type: StaticPrice
     price: 750  # Mono end
+    vendPrice: 20000 # 10000 -> 20000 Forge-change
 
 - type: entity
   name: NTCS-103 hypospray
@@ -66,7 +67,7 @@
     sprite: _NF/Objects/Specific/Medical/hypominilimitededition.rsi
   - type: StaticPrice # Mono
     price: 20 # 20 whole dollars
-    vendPrice: 10000
+    vendPrice: 25000 # 10000 -> 25000 Forge-change
   - type: UseDelay
     delay: 0.65
 

@@ -95,6 +95,9 @@
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.6
+  - type: StaticPrice # Forge-change
+    price: 1000 # Forge-change
+    vendPrice: 4000 # Forge-change
 
 #ERT Mail Carrier Hardsuit
 - type: entity
