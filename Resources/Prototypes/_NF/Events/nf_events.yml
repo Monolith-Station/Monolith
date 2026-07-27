@@ -16,12 +16,15 @@
     startAnnouncement: bluespace-cargo-event-announcement
     weight: 5
     duration: 35
-    reoccurrenceDelay: 60 # Mono
+    reoccurrenceDelay: 120 # Andromeda: CHEGA
   - type: BluespaceCargoRule
     spawnerPrototype: RandomCargoSpawner
     requireSafeAtmosphere: true
-    minimumSpawns: 2
-    maximumSpawns: 5
+    # Andromeda start: CHEGA. also coloca flash pras caixas normais também, porque porquê não?
+    flashPrototype: EffectFlashMcBluespace
+    minimumSpawns: 1
+    maximumSpawns: 3
+    # Andromeda end
 
 - type: entity
   id: BluespaceMcCargoCrate
@@ -33,7 +36,7 @@
     weight: 5
     duration: 35
     maximumPlayers: 20
-    reoccurrenceDelay: 120 # Mono
+    reoccurrenceDelay: 240 # Andromeda: CHEGA
   - type: BluespaceCargoRule
     spawnerPrototype: CrateFoodMcCargo
     flashPrototype: EffectFlashMcBluespace
@@ -51,7 +54,7 @@
     duration: 35
     earliestStart: 60 # Mono
     #minimumPlayers: 20 # Mono
-    reoccurrenceDelay: 180 # 8 hours #Mono: 3 hrs
+    reoccurrenceDelay: 300 # Andromeda: (Frontier) 480 > (Mono) 180 > (Andromeda) 300
   - type: BluespaceCargoRule
     spawnerPrototype: CrateSyndicateSurplusBundle
     maximumSpawns: 1
@@ -65,7 +68,7 @@
     duration: 35
     earliestStart: 50
     minimumPlayers: 2
-    reoccurrenceDelay: 50
+    reoccurrenceDelay: 240 # Andromeda: 50 > 240
   - type: RandomFaxRule
     minFaxes: 2 # Mono
     maxFaxes: 3 # Mono
@@ -87,6 +90,7 @@
     weight: 100 # Fairly common.
     minimumPlayers: 10
     duration: 35
+    reoccurrenceDelay: 240 # Andromeda: Adiciona variavel em 240
   - type: RandomFaxRule
     minFaxes: 4 # Mono
     maxFaxes: 5 # Mono
