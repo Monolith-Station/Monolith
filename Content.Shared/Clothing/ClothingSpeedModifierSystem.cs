@@ -80,7 +80,6 @@ public sealed partial class ClothingSpeedModifierSystem : EntitySystem
     {
         if (!_toggle.IsActivated(ent.Owner))
             return;
-        Log.Info($"got");
 
         if (_container.TryGetContainingContainer(ent.Owner, out var container))
         {
@@ -99,7 +98,6 @@ public sealed partial class ClothingSpeedModifierSystem : EntitySystem
     {
         if (!_toggle.IsActivated(ent.Owner))
             return;
-        Log.Info($"got");
 
         if (_container.TryGetContainingContainer(ent.Owner, out var container))
         {
