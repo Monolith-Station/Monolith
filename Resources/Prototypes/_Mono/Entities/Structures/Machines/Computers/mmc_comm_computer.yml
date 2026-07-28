@@ -1,0 +1,16 @@
+- type: entity
+  parent: ComputerComms
+  id: MieyoComputerComms
+  name: mieyo communications computer
+  description: The primary communications computer for issuing MMC announcements.
+  components:
+  - type: AccessReader
+    access: [[ "MieyoSecurity" ]]
+  - type: CommunicationsConsole
+    title: comms-console-announcement-title-mieyo
+    color: "#FFFFFF"
+    canShuttle: false
+    global: true
+    sound: /Audio/Announcements/announce.ogg
+  - type: Computer
+    board: MieyoCommsComputerCircuitboard

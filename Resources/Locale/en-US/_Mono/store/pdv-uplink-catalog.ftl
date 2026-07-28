@@ -105,7 +105,7 @@ uplink-pdv-energy-sword-name = Energy Sword
 uplink-pdv-energy-sword-desc = Courtesy of the Gorlex Marauders. Make your mark, leave no witnesses.
 
 uplink-pdv-python-name = Python
-uplink-pdv-python-desc = A brutally simple, effective, and loud revolver. Comes loaded with .45 magnum rounds.
+uplink-pdv-python-desc = A brutally simple, effective, and loud revolver. Comes loaded with .357 rounds.
 
 uplink-pdv-viper-name = Viper
 uplink-pdv-viper-desc = A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses pistol magazines (9x19mm FMJ).
@@ -157,8 +157,8 @@ uplink-pdv-box-magazine-pistol-desc = A box filled with 4 9x19mm pistol magazine
 uplink-pdv-box-magazine-light-rifle-name = Box of 7.62x39mm magazines
 uplink-pdv-box-magazine-light-rifle-desc = A box filled with 4 7.62x39mm magazines.
 
-uplink-pdv-magazine-box-45_magnum-name = Box of .45 magnum speedloaders
-uplink-pdv-magazine-box-45_magnum-desc = A box containing 4 .45 magnum speedloaders.
+uplink-pdv-magazine-box-45_magnum-name = Box of .357 magnum speedloaders
+uplink-pdv-magazine-box-45_magnum-desc = A box containing 4 .357 magnum speedloaders.
 
 uplink-pdv-light-rifle-magazine-box-big-name = Ammunition box (7.62x39mm FMJ)
 uplink-pdv-light-rifle-magazine-box-big-desc = A box containing 200 7.62x39mm catridges.

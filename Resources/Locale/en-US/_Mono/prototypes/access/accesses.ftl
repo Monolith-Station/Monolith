@@ -17,3 +17,7 @@ id-card-access-level-tsf-ftl = TSFMC Fireteam Leader
 id-card-access-level-tsf-officer = TSF Command
 id-card-access-level-tsf-commander = TSF Commanding Officer
 id-card-access-level-tsf-engineer = TSF Engineering
+
+id-card-access-level-mieyo = Mieyo
+id-card-access-level-mieyo-security = Mieyo Security
+id-card-access-level-mieyo-liason = Mieyo Liason

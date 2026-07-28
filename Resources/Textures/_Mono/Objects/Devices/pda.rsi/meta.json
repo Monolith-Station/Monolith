@@ -1,10 +1,14 @@
 {
-    "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "aPDA retexture by ZweiHawke @ zweihawke.net. PDV sprites made by DieselMohawk, ported by Arcticular1 and Thoughtlessuser. USSP Sprites  by GOLDMASK990. Viper sprites made by Mrrpip",
-    "size": {
-        "x": 32,
-        "y": 32
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "aPDA retexture by ZweiHawke @ zweihawke.net. PDV sprites made by DieselMohawk, ported by Arcticular1 and Thoughtlessuser. USSP Sprites  by GOLDMASK990. Viper sprites made by Mrrpip",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "pda"
     },
     "states": [
         {
@@ -57,13 +61,17 @@
             "name": "pda-usspsergeant"
          },
          {
-            "name": "pda-usspcommissar"
-        },
-                 {
+           "name": "pda-usspcommissar"
+         },
+         {
             "name": "pda-viperlow"
-        },
-                 {
+         },
+         {
             "name": "pda-viperhigh"
-        }
+         }
+         {
+            "name": "pda-mieyo"
+         }
+
     ]
 }
