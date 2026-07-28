@@ -157,8 +157,8 @@ uplink-pdv-box-magazine-pistol-desc = A box filled with 4 9x19mm pistol magazine
 uplink-pdv-box-magazine-light-rifle-name = Box of 7.62x39mm magazines
 uplink-pdv-box-magazine-light-rifle-desc = A box filled with 4 7.62x39mm magazines.
 
-uplink-pdv-magazine-box-45_magnum-name = Box of .357 magnum speedloaders
-uplink-pdv-magazine-box-45_magnum-desc = A box containing 4 .357 magnum speedloaders.
+uplink-pdv-magazine-box-357_magnum-name = Box of .357 magnum speedloaders
+uplink-pdv-magazine-box-357_magnum-desc = A box containing 4 .357 magnum speedloaders.
 
 uplink-pdv-light-rifle-magazine-box-big-name = Ammunition box (7.62x39mm FMJ)
 uplink-pdv-light-rifle-magazine-box-big-desc = A box containing 200 7.62x39mm catridges.
