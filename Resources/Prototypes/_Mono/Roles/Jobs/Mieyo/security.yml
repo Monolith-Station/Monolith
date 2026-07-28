@@ -6,9 +6,13 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: MieyoManufacturingConcern
-    time: 72000 # 20 hours
+    time: 36000 # 10 hours
   - !type:OverallPlaytimeRequirement
     time: 72000 # 20 hrs
+  alternateRequirementSets:
+    longerPlaytimeLessEmployee:
+    - !type:OverallPlaytimeRequirement
+      time: 108000 # 30 hours
   startingGear: MMCSecurityGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true

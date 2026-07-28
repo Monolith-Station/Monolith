@@ -442,7 +442,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
-    board: USSPTechfabMachineCircuitboard
+    board: MMCTechfabMachineCircuitboard
   - type: Lathe
     producingSound: /Audio/Machines/circuitprinter.ogg
     idleState: icon

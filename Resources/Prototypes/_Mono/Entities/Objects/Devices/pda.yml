@@ -580,5 +580,13 @@
   id: MieyoLiasonPDA
   name: mieyo corporate liason PDA
   components:
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+    - LedgerCartridge
   - type: Pda
     id: MieyoLiasonIDCard

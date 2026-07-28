@@ -17,6 +17,9 @@
     sprite: _Mono/Objects/Tools/mieyo_nanite_applicator.rsi
     layers:
     - state: icon
+  - type: StaticPrice
+    price: 20
+    vendPrice: 4000
 
 - type: entity
   id: ShipRepairDeviceMMC
@@ -36,6 +39,9 @@
   - type: Item
     sprite: _Mono/Objects/Tools/mieyo_srd_inhands.rsi
     size: Normal
+  - type: StaticPrice
+    price: 10000
+    vendPrice: 40000
 
 - type: entity
   id: RCDMMC
@@ -52,6 +58,9 @@
     sprite: _Mono/Objects/Tools/mieyo_rcd.rsi
   - type: Sprite
     sprite: _Mono/Objects/Tools/mieyo_rcd.rsi
+  - type: StaticPrice
+    price: 55
+    vendPrice: 20000
 
 - type: entity
   id: RCDMMCEmpty
@@ -77,6 +86,9 @@
     sprite: _Mono/Objects/Tools/mieyo_rpd.rsi
   - type: Sprite
     sprite: _Mono/Objects/Tools/mieyo_rpd.rsi
+  - type: StaticPrice
+    price: 55
+    vendPrice: 15000
 
 - type: entity
   id: RPDMMCEmpty
@@ -105,6 +117,9 @@
     charges: 15
   - type: UseDelay
     delay: 1.0
+  - type: StaticPrice
+    price: 300
+    vendPrice: 50000
 
 - type: entity
   parent: MotionDetector
@@ -120,3 +135,6 @@
       shader: unshaded
       visible: false
       map: ["enum.ToggleableVisuals.Layer"]
+  - type: StaticPrice
+    price: 300
+    vendPrice: 22500

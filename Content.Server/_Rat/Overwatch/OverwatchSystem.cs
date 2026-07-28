@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Server.Chat.Managers;
 using Content.Server.SurveillanceCamera;
 using Content.Server._Rat.Squad;
+using Content.Server.Shuttles.Components;
 using Content.Shared._Rat.Overwatch;
 using Content.Shared._Rat.Squad;
 using Content.Shared._Mono.Company;
@@ -688,7 +689,7 @@ public sealed class OverwatchSystem : EntitySystem
         var query = EntityQueryEnumerator<CompanyComponent>();
         while (query.MoveNext(out var uid, out var factionComp))
         {
-            if (factionComp.CompanyName == faction)
+            if (factionComp.CompanyName == faction && !HasComp<ShuttleComponent>(uid))
                 members.Add(uid);
         }
 
