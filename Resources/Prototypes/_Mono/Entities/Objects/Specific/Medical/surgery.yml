@@ -1,0 +1,58 @@
+- type: entity
+  name: chassis-mounted surgical multitool
+  description: A medical multitool for a cyborg chassis to use.
+  id: OmnimedToolBorg
+  parent: OmnimedTool
+  components:
+  - type: Hemostat
+    speed: 1.25
+  - type: Scalpel
+    speed: 1.25
+  - type: Drill
+    speed: 1.25
+  - type: BoneSetter
+    speed: 1.25
+  - type: Retractor
+    speed: 1.25
+  - type: Cautery
+    speed: 1.25
+  - type: BoneGel
+    speed: 1.25
+  - type: BoneSaw
+    speed: 1.25
+  - type: Tweezers
+    speed: 1.25
+  - type: Tending
+    speed: 1.25
+
+- type: entity
+  name: khorpeks surgical multitool
+  description: The fastest and most precise surgical equipment money can buy. Using advanced guidance systems, laser-edged serration, painless cautery, this device scrapes the boundaries between seamless manipulation of the physical body.
+  id: OmnimedToolBorgKhorpeks
+  parent: OmnimedTool
+  components:
+  - type: Hemostat
+    speed: 3
+  - type: Scalpel
+    speed: 3
+  - type: Drill
+    speed: 3
+  - type: BoneSetter
+    speed: 3
+  - type: Retractor
+    speed: 3
+  - type: Cautery
+    speed: 3
+  - type: BoneGel
+    speed: 3
+  - type: BoneSaw
+    speed: 3
+  - type: Tweezers
+    speed: 3
+  - type: Tending
+    speed: 3
+  - type: Sprite
+    state: evil
+  - type: Item
+    size: Small
+    heldPrefix: evil

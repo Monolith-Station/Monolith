@@ -133,7 +133,7 @@
     canChangeTransferAmount: true
   - type: SolutionItemStatus
     solution: tank
-  - type: ReagentTank #Mono: Enable borg tool draw
+  - type: ReagentTank    #Mono Enable borg tool draw
     tankType: Fuel
   - type: UserInterface
     interfaces:

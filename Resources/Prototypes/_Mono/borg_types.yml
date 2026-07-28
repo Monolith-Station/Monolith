@@ -12,7 +12,7 @@
   - BorgModulePDVStandardWeapon
   - BorgModuleJetpack
   - BorgModuleTool
-  - BorgModuleGPS
+  - BorgModuleSurveillance
   inventoryTemplateId: borgShort
   spriteBodyState: assault
   spriteHasMindState: assault_l
@@ -33,7 +33,7 @@
   defaultModules:
   - BorgModulePDVStandardWeapon
   - BorgModuleJetpack
-  - BorgModuleGPS
+  - BorgModuleSurveillance
   - BorgModuleTool
   - BorgModuleConstruction
   - BorgModuleRCD
@@ -63,7 +63,7 @@
   defaultModules:
   - BorgModulePDVStandardWeapon
   - BorgModuleJetpack
-  - BorgModuleGPS
+  - BorgModuleSurveillance
   - BorgModuleTool
   - BorgModuleTreatment
   - BorgModuleSurgery
@@ -94,7 +94,7 @@
   - BorgModuleTSFStandardWeapon
   - BorgModuleJetpack
   - BorgModuleTool
-  - BorgModuleGPS
+  - BorgModuleSurveillance
   inventoryTemplateId: borgShort
   spriteBodyState: assault
   spriteHasMindState: assault_l
@@ -115,7 +115,7 @@
   defaultModules:
   - BorgModuleTSFStandardWeapon
   - BorgModuleJetpack
-  - BorgModuleGPS
+  - BorgModuleSurveillance
   - BorgModuleTool
   - BorgModuleConstruction
   - BorgModuleRCD
@@ -145,7 +145,7 @@
   defaultModules:
   - BorgModuleTSFStandardWeapon
   - BorgModuleJetpack
-  - BorgModuleGPS
+  - BorgModuleSurveillance
   - BorgModuleTool
   - BorgModuleTreatment
   - BorgModuleSurgery

@@ -111,15 +111,15 @@
     - BorgModuleAdvancedCleaning
     - BorgModuleClowning
     - BorgModuleGardening
-    - BorgModuleHarvesting
+#    - BorgModuleHarvesting
     rareChance: 0.1
     prototypes:
     - BorgModuleCable
     - BorgModuleFireExtinguisher
-    - BorgModuleGPS
-    - BorgModuleRadiationDetection
+    - BorgModuleSurveillance
+ #   - BorgModuleRadiationDetection
     - BorgModuleTool
     - BorgModuleArtifact
-    - BorgModuleAnomaly
+ #   - BorgModuleAnomaly
     chance: 0.9
     offset: 0.2

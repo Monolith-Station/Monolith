@@ -9,7 +9,7 @@
   cost: 5000
   recipeUnlocks:
   - BorgModuleGardening
-  - BorgModuleHarvesting
+#  - BorgModuleHarvesting
   - PlantBagOfHolding
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
@@ -176,7 +176,7 @@
   - EnergyScalpel
   - EnergyCautery
   - AdvancedRetractor
-  - BorgModuleAdvancedSurgery
+#  - BorgModuleAdvancedSurgery # Mono
   - DefibrillatorCompact # Mono
   technologyPrerequisites:
   - SuperParts

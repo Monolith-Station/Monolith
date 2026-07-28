@@ -98,6 +98,9 @@
   parent: [BodyBag, RecyclableItemPlasticMedium] # Frontier: added RecyclableItemPlasticMedium
   suffix: folded
   components:
+  - type: Tag
+    tags:
+    - FoldedBodyBag # Mono
   - type: Foldable
     folded: true
 #  - type: BodyBagItem #TODO: we need some kind of generic placable, like thus:

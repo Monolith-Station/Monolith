@@ -62,3 +62,87 @@
     tags:
     - Beer
     - DrinkBottle
+
+- type: entity
+  parent: DrinkBeerBottleFull
+  id: DrinkBeerBottleFullRegen
+  name: bottomless beer bottle
+  description: An alcoholic beverage made from malted grains, hops, yeast, and water. Be it bluespace or magic; this one refills.
+  suffix: Regen
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+        - ReagentId: Beer
+          Quantity: 5
+
+- type: entity
+  parent: DrinkVodkaBottleFull
+  id: DrinkVodkaBottleFullRegen
+  name: bottomless vodka bottle
+  description: Aah, vodka. Prime choice of drink AND fuel by Russians worldwide. It seems the motherland has provided you with a bottomless blessing.
+  suffix: Regen
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+        - ReagentId: Vodka
+          Quantity: 5
+
+- type: entity
+  parent: DrinkWineBottleFull
+  id: DrinkWineBottleFullRegen
+  name: bottomless Doublebearded Bearded Special wine bottle
+  description: An uncontrollable aura of unease and asspainery surrounds the bottle.
+  suffix: Regen
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+        - ReagentId: Wine
+          Quantity: 5
+
+- type: entity
+  parent: DrinkSodaWaterBottleFull
+  id: DrinkSodaWaterBottleFullRegen
+  name: bottomless soda water bottle
+  description: Like water, but angry! Furious! UNCONTROLLABLE HATRED!
+  suffix: Regen
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+        - ReagentId: SodaWater
+          Quantity: 5
+
+- type: entity
+  parent: DrinkChampagneBottleFull
+  id: DrinkChampagneBottleFullRegen
+  name: bottomless champagne bottle
+  description: Only people devoid of imagination can't find an excuse for champagne. Drink until you cant think straight!
+  suffix: Regen
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+        - ReagentId: Champagne
+          Quantity: 5
+
+- type: entity
+  parent: DrinkWhiskeyBottleFull
+  id: DrinkWhiskeyBottleFullRegen
+  name: bottomless Uncle Git's Special Reserve
+  description: An endless premium single-malt whiskey, gently matured inside the tunnels of a nuclear shelter. TUNNEL WHISKEY RULES.
+  suffix: Regen
+  components:
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+        - ReagentId: Whiskey
+          Quantity: 5

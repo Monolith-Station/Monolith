@@ -4,6 +4,11 @@
   name: shaker
   description: The trusty mixing buddy of the bartender.
   components:
+  # Mono tag
+  - type: Tag
+    tags:
+    - Bartending
+  # tag end
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -71,6 +76,11 @@
     fillBaseName: fill
     inHandsMaxFillLevels: 1
     inHandsFillBaseName: -fill-
+  # Mono tag
+  - type: Tag
+    tags:
+    - Bartending
+  # tag end
 
 - type: entity
   parent: DrinkGlassBase

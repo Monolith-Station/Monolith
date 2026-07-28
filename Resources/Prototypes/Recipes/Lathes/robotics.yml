@@ -134,13 +134,13 @@
 
 - type: latheRecipe
   parent: BaseBorgModuleRecipe
-  id: BorgModuleGPS
-  result: BorgModuleGPS
+  id: BorgModuleSurveillance
+  result: BorgModuleSurveillance
 
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleRadiationDetection
-  result: BorgModuleRadiationDetection
+#- type: latheRecipe
+#  parent: BaseBorgModuleRecipe
+#  id: BorgModuleRadiationDetection
+#  result: BorgModuleRadiationDetection
 
 - type: latheRecipe
   parent: BaseBorgModuleRecipe
@@ -185,10 +185,10 @@
   id: BorgModuleArtifact
   result: BorgModuleArtifact
 
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleAnomaly
-  result: BorgModuleAnomaly
+#- type: latheRecipe
+#  parent: BaseBorgModuleRecipe
+#  id: BorgModuleAnomaly
+#  result: BorgModuleAnomaly
 
 # Service Modules
 
@@ -197,10 +197,10 @@
   id: BorgModuleGardening
   result: BorgModuleGardening
 
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleHarvesting
-  result: BorgModuleHarvesting
+#- type: latheRecipe
+#  parent: BaseBorgModuleRecipe
+#  id: BorgModuleHarvesting
+#  result: BorgModuleHarvesting
 
 # Shitmed Recipes
 
@@ -213,15 +213,15 @@
     Glass: 250
     Plastic: 250
 
-- type: latheRecipe
-  id: BorgModuleAdvancedSurgery
-  result: BorgModuleAdvancedSurgery
-  completetime: 3
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 250
-    Gold: 50
+#- type: latheRecipe
+#  id: BorgModuleAdvancedSurgery
+#  result: BorgModuleAdvancedSurgery
+#  completetime: 3
+#  materials:
+#    Steel: 500
+#    Glass: 500
+#    Plastic: 250
+#    Gold: 50
 
 - type: latheRecipe
   id: JawsOfLifeLeftArm
@@ -277,7 +277,7 @@
     Plastic: 500
     Gold: 300
     Silver: 300
-    
+
 - type: latheRecipe
   id: DexLeftHand
   result: DexLeftHand

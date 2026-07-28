@@ -1,0 +1,28 @@
+- type: entity
+  name: auto-fed emergency medipen
+  description: A chemical injector used for administering rapid doses of stabilizing stimulants. Useful for response to critical injuries. This one is automatically fed chemicals by its cyborg's chassis.
+  parent: EmergencyMedipen
+  id: EmergencyMedipenBorg
+  suffix: Borg
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: medipen
+  - type: UseDelay
+    delay: 60
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 15
+    onlyAffectsMobs: true
+    injectOnly: true
+    preventCombatInjection: true # Frontier
+    doAfterTime: 0 # Mono
+  - type: SolutionRegeneration
+    solution: pen
+    generated:
+      reagents:
+        - ReagentId: Epinephrine
+          Quantity: 12
+        - ReagentId: TranexamicAcid
+          Quantity: 3

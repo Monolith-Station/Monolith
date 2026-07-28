@@ -4,6 +4,7 @@
   id: BorgModuleAdvancedWeapon
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   name: advanced weapon cyborg module
+  description: A weapons utility for a cyborg chassis. Includes an Anaconda and e-sword.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
@@ -24,6 +25,7 @@
   id: BorgModuleTSFStandardWeapon
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseFactionGearTSFT2 ]
   name: TSFMC weapon cyborg module
+  description: A rather basic weapons module. utilizes an e-revolver and an e-sword.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
@@ -42,6 +44,7 @@
   id: BorgModuleTSFStandardAssault
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseFactionGearTSFT2 ]
   name: TSFMC basic assault cyborg module
+  description: Includes an e-sword and an Ullman pulse pistol.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
@@ -60,6 +63,7 @@
   id: BorgModuleTSFAdvancedWeapon
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseFactionGearTSFT3 ]
   name: TSFMC advanced weapon cyborg module
+  description: This module seems to provide a chassis with an HF blade and a pulse rifle.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
@@ -80,6 +84,7 @@
   id: BorgModulePDVStandardWeapon
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseFactionGearPDVT2 ]
   name: PDV weapon cyborg module
+  description: A weapons module including an Anaconda. Comes with a machete if the first weapon didn't work.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
@@ -98,6 +103,7 @@
   id: BorgModulePDVStandardAssault
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseFactionGearPDVT2 ]
   name: PDV basic assault cyborg module
+  description: An extremely heavy-duty module. Comes with a machete to compliment its minigun. Best not stand in front the provided chassis.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
@@ -116,6 +122,7 @@
   id: BorgModulePDVAdvancedWeapon
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseFactionGearPDVT3 ]
   name: PDV advanced weapon cyborg module
+  description: A module allowing a cyborg to enter combat with a VT7 blade and an L6.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
@@ -136,6 +143,7 @@
   id: BorgModuleRedactedRCD
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
   name: pre-fracture RCD module
+  description: An extremely sleek and strangely advanced looking module. It seems to provide some sort of construction-related functionality.
   components:
   - type: Sprite
     layers:
@@ -156,6 +164,7 @@
   id: BorgModuleRedactedWeapon
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   name: pre-fracture weapon cyborg module
+  description: It looks unfamiliar... It seems to provide a cyborg with some kind of upgrade.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi

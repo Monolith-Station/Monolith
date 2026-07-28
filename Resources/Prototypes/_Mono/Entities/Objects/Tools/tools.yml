@@ -1,0 +1,13 @@
+- type: entity
+  name: omnitool
+  parent: Omnitool
+  id: OmnitoolBorg
+  description: A device designed to fit the body of a cyborg. It is capable of various engineering tasks.
+  suffix: borg
+  components:
+  - type: UseDelay
+    delay: 0.5
+  - type: Tool
+    qualities:
+    - Screwing
+    speedModifier: 1.6

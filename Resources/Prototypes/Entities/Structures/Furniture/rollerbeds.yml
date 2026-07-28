@@ -77,6 +77,9 @@
   id: RollerBedSpawnFolded
   suffix: folded
   components:
+  - type: Tag
+    tags:
+    - FoldedRollerBed # Mono tag
   - type: Foldable
     folded: true
   - type: Strap

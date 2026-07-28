@@ -57,7 +57,7 @@
     maxCharges: 300
     charges: 50
   - type: AutoRecharge
-    rechargeDuration: 5
+    rechargeDuration: 2.5 # 12 Charge every 30s
 
 - type: entity
   id: ShipRepairDeviceAdmin
@@ -87,7 +87,7 @@
     maxCharges: 800
     charges: 50
   - type: AutoRecharge
-    rechargeDuration: 2
+    rechargeDuration: 0.5 # 30 charge every 15s
   - type: Tag
     tags:
     - ShipRepairTool
