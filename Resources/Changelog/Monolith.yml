@@ -22961,3 +22961,98 @@ Entries:
   id: 2534
   time: '2026-07-24T21:56:27.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4353
+- author: LassiH
+  changes:
+    - type: Fix
+      message: you can no longer turn invisible with chameleon projector
+  id: 2535
+  time: '2026-07-26T15:23:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4352
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Prevented standing up when using wheelchair user trait
+  id: 2536
+  time: '2026-07-26T15:23:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4356
+- author: Onezero0
+  changes:
+    - type: Remove
+      message: Removed the Fitz, Lucky, Faith, Deckard and N1984 revolvers.
+    - type: Tweak
+      message: The Mateba has a much lower fire-rate but now has a 3x damage modifier.
+    - type: Tweak
+      message: >-
+        The Python now has a double-tap burst firing mechanism and a 0.8x damage
+        modifier.
+    - type: Tweak
+      message: >-
+        The HLCM now uses speed loaders with a 24 round capacity. It also has a
+        1.1x damage modifier, and is now called the "Wayward HLCM."
+    - type: Tweak
+      message: >-
+        ".45 Magnum" is now ".357 Magnum" to better differentiate it from .45
+        ACP.
+    - type: Tweak
+      message: The Inspector revolver is now known as the Garter.
+  id: 2537
+  time: '2026-07-26T16:06:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3951
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added MMC minor faction. Not a lot of ships for them yet though. Go make
+        lots of money.
+  id: 2538
+  time: '2026-07-27T14:52:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4331
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Clothing with speed (de)buffs now also affects movement in zero-gravity
+        (including moonboots).
+  id: 2539
+  time: '2026-07-27T18:39:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4059
+- author: kasature90
+  changes:
+    - type: Add
+      message: 255mm and 220mm shipgun ammo boxes can now be made in lathes.
+  id: 2540
+  time: '2026-07-28T04:20:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4365
+- author: lordsej
+  changes:
+    - type: Add
+      message: Xenoborgs
+    - type: Remove
+      message: Removed Brains!
+  id: 2541
+  time: '2026-07-28T05:25:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4138
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Sellsword Bofors replaced with AK820. Durability and maneuverability
+        slightly increased. Price raised to 62000.
+  id: 2542
+  time: '2026-07-28T05:49:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4360
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added overwatch consoles to every faction leader. Spawns in backpack
+        roundstart.
+    - type: Fix
+      message: >-
+        Fixed company biometric readers saying TSF biometrics required by
+        default.
+    - type: Fix
+      message: Fixed Denasvars not having chatrank.
+  id: 2543
+  time: '2026-07-28T08:53:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4363

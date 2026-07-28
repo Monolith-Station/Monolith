@@ -6526,7 +6526,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: AmmoBox45_magnumFMJ
+- proto: AmmoBox357_magnumFMJ
   entities:
   - uid: 326
     components:
@@ -50667,7 +50667,7 @@ entities:
     - type: Transform
       pos: 17.5,3.5
       parent: 1
-- proto: SpeedLoader45_magnumFMJ
+- proto: SpeedLoader357_magnumFMJ
   entities:
   - uid: 7695
     components:

@@ -72,3 +72,13 @@
   materials:
     Steel: 1200
     Plastic: 300
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: SecBreachingHammerMMC
+  categories:
+  - FactionEquipment
+  result: SecBreachingHammer
+  materials:
+    Steel: 3000
+    Plastic: 600
