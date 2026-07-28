@@ -123,7 +123,7 @@ namespace Content.Shared.Maps
         /// Effective mass of this tile for grid impacts.
         /// </summary>
         [DataField]
-        public float Mass = SharedShuttleSystem.TileDensityMultiplier; /// Forge-Change
+        public float Mass = 1000f; /// Forge-Change
 
         // <Mono>
         /// <summary>
