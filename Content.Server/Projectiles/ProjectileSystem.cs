@@ -2,6 +2,7 @@ using Content.Server.Destructible;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Projectiles;
+using Robust.Shared.Containers; // Forge-Change
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -17,6 +18,7 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
 
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!; // Forge-Change
 
     // <Mono>
     private EntityQuery<PhysicsComponent> _physQuery;
@@ -131,8 +133,14 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
         var query = EntityQueryEnumerator<ProjectileComponent, PhysicsComponent>();
         while (query.MoveNext(out var uid, out var projectileComp, out var physicsComp))
         {
-            if (projectileComp.ProjectileSpent || TerminatingOrDeleted(uid))
+            // Forge-Changed-Start
+            // SetCoordinates detaches contained entities, so only raycast projectiles that are actively in flight.
+            if (projectileComp.ProjectileSpent ||
+                TerminatingOrDeleted(uid) ||
+                (projectileComp.Weapon == null && projectileComp.OnlyCollideWhenShot) ||
+                _container.IsEntityInContainer(uid))
                 continue;
+            // Forge-Changed-End
 
             var xform = Transform(uid);
             var currentVelocity = projectileComp.RaycastResetVelocity ?? _physics.GetMapLinearVelocity(uid, physicsComp, xform);

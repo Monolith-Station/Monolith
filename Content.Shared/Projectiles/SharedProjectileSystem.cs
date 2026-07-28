@@ -102,7 +102,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     /// <returns></returns>
     public bool ShouldRaycastProjectile(float speed)
     {
-        if (_adaptiveRaycasting && speed > _minRaycastVelocity * (_physicsTickrate / BasePhysicsTickrate))
+        if (_adaptiveRaycasting && speed > _minRaycastVelocity * ((float) _physicsTickrate / BasePhysicsTickrate)) // Forge-Change
             return true;
         else if (speed > _minRaycastVelocity)
             return true;
@@ -505,10 +505,10 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void PreventCollision(EntityUid uid, ProjectileComponent component, ref PreventCollideEvent args)
     {
- 	    // Dormant projectile entities (e.g. ammo bolts in inventory) should not use active projectile
-        // collision filtering because it interferes with normal item interactions.
-        if (!component.ProjectileSpent && component.Shooter == null && component.Weapon == null)    /// Forge-Change
-            return;                                                                                 /// Forge-Change
+        // Ignore spent projectiles and ammo entities that should only collide while actively shot.
+        if (component.ProjectileSpent || (component.Weapon == null && component.OnlyCollideWhenShot))
+            return;
+
         // Goobstation - Crawling fix
         if (TryComp<RequireProjectileTargetComponent>(args.OtherEntity, out var requireTarget) && requireTarget.IgnoreThrow && requireTarget.Active)
             return;
