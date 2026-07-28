@@ -152,7 +152,7 @@
 - type: entity
   id: WeaponTurretHydra
   name: Hydra 220mm battery
-  suffix: Large, T3
+  suffix: Large, T4
   parent: BallisticArtilleryUnanchorable
   description: A main cannonade of syndicate origin, the hydra is a monstrous tri-barreled battery of 220-millimeter pain, designed to shatter corpations' toughest vessels. Loads with a similar mechanism as the anaconda handgun.
   components:
@@ -183,11 +183,11 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 325
+    projectileSpeed: 410
     recoil: 50 # 2x
     minAngle: 0
     maxAngle: 3
-    fireRate: 0.2
+    fireRate: 0.3
     burstCooldown: 10
     burstFireRate: 2
     shotsPerBurst: 3
@@ -281,7 +281,7 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 720
+    projectileSpeed: 450
     recoil: 100 # 4x
     minAngle: 0
     maxAngle: 1

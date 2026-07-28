@@ -833,6 +833,32 @@
     - Wizard
     - External
     - Maintenance
+# Xenoborg
+- type: entity
+  parent: IDCardStandard
+  id: XenoborgIDCard
+  name: xenoborg ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Xenoborg
+
+# Xenoborg
+- type: entity
+  parent: IDCardStandard
+  id: MothershipIDCard
+  name: Mothership ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Xenoborg
+    - Mothership
 
 - type: entity
   parent: IDCardStandard
@@ -857,6 +883,8 @@
     groups:
     - AllAccess
     - USSPAA # Mono
+    - Mieyo # Mono
+    - Viper # Mono
     tags:
     - CentralCommand
     - NuclearOperative

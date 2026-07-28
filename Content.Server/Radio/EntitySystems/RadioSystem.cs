@@ -133,6 +133,7 @@ public sealed partial class RadioSystem : EntitySystem
             return;
 
         var evt = new TransformSpeakerNameEvent(messageSource, MetaData(messageSource).EntityName);
+        evt.FromRadio = true; // Mono/Crescent - Chatranks
         RaiseLocalEvent(messageSource, evt);
 
         // Frontier: add name transform event
@@ -192,9 +193,16 @@ public sealed partial class RadioSystem : EntitySystem
         var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);
         // Einstein Engines - Language end
 
-        var sendAttemptEv = new RadioSendAttemptEvent(channel, radioSource);
+        var transmitFrequency = frequency ?? GetFrequency(messageSource, channel);
+
+        var sendAttemptEv = new RadioSendAttemptEvent(
+            channel,
+            radioSource,
+            transmitFrequency);
+
         RaiseLocalEvent(ref sendAttemptEv);
         RaiseLocalEvent(radioSource, ref sendAttemptEv);
+
         var canSend = !sendAttemptEv.Cancelled;
 
         var sourceMapId = Transform(radioSource).MapID;

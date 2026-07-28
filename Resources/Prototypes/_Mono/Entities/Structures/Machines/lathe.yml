@@ -26,6 +26,7 @@
     - StaticAmmoRecipePack
     - NFMercenaryTechfabDeprecatedStatic
     - RoundstartShipgunAmmo
+    - StaticGrenades
     - MonoAttachmentsStatic
     dynamicPacks:
     # rogue start
@@ -231,6 +232,69 @@
           True: { visible: true }
           False: { visible: false }
 
+- type: entity
+  id: CentrifugeLathe
+  parent: [BaseStructureDisableToolUse, BaseLatheLube]
+  name: industrial uranium processing centrifuge
+  description: A large sized industrial gas centrifuge for bulk processing isotopes, materials and generally making things go spinny. Much more efficient at producing fissile uranium than the miniature ones. Not equipped to reprocess nuclear fuel.
+  components:
+  - type: Sprite
+    snapCardinals: false
+    offset: 0.5, 0.5
+    noRot: false
+    sprite: _Mono/Structures/Machines/2x2centrifuge.rsi
+    layers:
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    producingSound: /Audio/Ambience/Objects/crushing.ogg
+    idleState: icon
+    runningState: building
+    staticPacks:
+    - MonoCentrifugeProcessingFullSizeStatic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,1.5,1.2,-0.5"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+      - Ore
+  - type: RequireProjectileTarget
+  - type: GuideHelp
+    guides:
+    - Economy
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: OreSiloClient
+
 #USSP
 
 - type: entity
@@ -262,6 +326,7 @@
     - StaticAmmoRecipePack
     - NFMercenaryTechfabDeprecatedStatic
     - RoundstartShipgunAmmo
+    - StaticGrenades
     - MonoAttachmentsStatic
     - MonoUSSPStatic
     dynamicPacks:
@@ -325,6 +390,7 @@
     - StaticAmmoRecipePack
     - NFMercenaryTechfabDeprecatedStatic
     - RoundstartShipgunAmmo
+    - StaticGrenades
     - MonoAttachmentsStatic
     - MonoViperGroupStatic
     dynamicPacks:
@@ -352,4 +418,65 @@
 - type: entity
   id: ViperLatheImmmovable
   parent: [ViperLathe, BaseStructureDisableToolUse]
+  suffix: IMMOVABLE
+
+#MMC
+
+- type: entity
+  id: MMCLathe
+  parent: BaseLatheLube
+  name: MMC multipurpose assembler
+  description: Capable of manufacturing equipment from MMC design patterns. Sent to anywhere that needs a large-scale industrial startup.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: techfab-mieyo
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: MMCTechfabMachineCircuitboard
+  - type: Lathe
+    producingSound: /Audio/Machines/circuitprinter.ogg
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - StaticAmmoRecipePack
+    - RoundstartShipgunAmmo
+    - StaticGrenades
+    - MonoMMCUtilityStatic
+    - MonoMMCProductionStatic
+    - MonoMMCGearStatic
+    dynamicPacks:
+    # Universal shit (stuff like shipgun ammo)
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
+    - UniversalShellAmmo
+    - UniversalOrdinance
+    - DynamicAmmoRecipePack
+    # main
+    - MonoMMCUtilityResearch
+    - MonoMMCProductionResearch
+    - MonoMMCGearResearch
+    # Civ military tech
+    - SecurityEquipment
+    - SmartGun
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget
+
+- type: entity
+  id: MMCLatheImmmovable
+  parent: [MMCLathe, BaseStructureDisableToolUse]
   suffix: IMMOVABLE

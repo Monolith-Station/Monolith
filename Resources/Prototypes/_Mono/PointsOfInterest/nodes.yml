@@ -1,0 +1,28 @@
+- type: pointOfInterest
+  id: ZetaNode
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'Zeta Node'
+  minimumDistance: 500
+  maximumDistance: 750
+  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/zetanode.yml
+  addComponents:
+  - type: IFF
+    color: "#37946e"
+  - type: VesselInfo
+    description: "Even the air has a thin coat of dust."
+
+- type: gameMap
+  id: ZetaNode
+  mapName: 'Zeta Node'
+  mapPath: /Maps/_Mono/POI/zetanode.yml
+  minPlayers: 0
+  stations:
+    ZetaNode:
+      stationProto: RecordsFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Zeta Node'
+        - type: StationDeadDrop
+          maxDeadDrops: 2

@@ -46,17 +46,13 @@ public sealed partial class BiomeSelectionSystem : BaseWorldSystem
         Log.Error($"Biome selection ran out of biomes to select? See biomes list: {component.Biomes}");
     }
 
-    private void OnBiomeSelectionStartup(EntityUid uid, BiomeSelectionComponent component, ComponentStartup args)
-    {
-        // surely this can't be THAAAAAAAAAAAAAAAT bad right????
-        var sorted = component.Biomes
+
+    private void OnBiomeSelectionStartup(EntityUid uid, BiomeSelectionComponent component, ComponentStartup args) =>
+        component.Biomes = component.Biomes
             .Select(x => (Id: x, _proto.Index<BiomePrototype>(x).Priority))
             .OrderByDescending(x => x.Priority)
             .Select(x => x.Id)
             .ToList();
-
-        component.Biomes = sorted; // my hopes and dreams rely on this being pre-sorted by priority.
-    }
 
     // Frontier: check that a given point (passed as the square of its length) meets the range requirements of a biome
     private bool CheckBiomeRange(BiomePrototype biome, float centerLengthSquared)
@@ -69,7 +65,12 @@ public sealed partial class BiomeSelectionSystem : BaseWorldSystem
     }
     // End Frontier
 
-    private bool CheckBiomeValidity(EntityUid chunk, BiomePrototype biome, Vector2i coords)
+    // Mono / EE - change like this entire function
+    private bool CheckBiomeValidity(EntityUid chunk, BiomePrototype biome, Vector2i coords) =>
+        (biome.MinX is null || biome.MaxX is null || biome.MinY is null || biome.MaxY is null)
+            ? CheckNoiseRanges(chunk, biome, coords) : CheckSpecificChunkRange(biome, coords);
+
+    private bool CheckNoiseRanges(EntityUid chunk, BiomePrototype biome, Vector2i coords)
     {
         foreach (var (noise, ranges) in biome.NoiseRanges)
         {
@@ -87,8 +88,9 @@ public sealed partial class BiomeSelectionSystem : BaseWorldSystem
             if (!anyValid)
                 return false;
         }
-
         return true;
     }
-}
 
+    private bool CheckSpecificChunkRange(BiomePrototype biome, Vector2i coords) =>
+        coords.X >= biome.MinX && coords.X <= biome.MaxX && coords.Y >= biome.MinY && coords.Y <= biome.MaxY;
+}

@@ -43,9 +43,6 @@
 - type: Tag
   id: ShipRepairTool
 
-- type: Tag # Prevents a crash and makes future cherry-picks hurt less but not actually implemented
-  id: TurretCompatibleWeapon # Used in the construction of sentry turrets
-
 - type: Tag
   id: UnavoidableTrap # For "traps" (step triggers) that TrapAvoider shouldn't dodge, like lava or chasms.
 
@@ -222,22 +219,22 @@
 - type: Tag
   id: Magazine45_ACPFMJBox
 
-#45 magnum tags
+#357 magnum tags
 
 - type: Tag
-  id: Cartridge45_magnumFMJ
+  id: Cartridge357_magnumFMJ
 
 - type: Tag
-  id: Magazine45_magnumPistolHighCapacityFMJ
+  id: Magazine357_magnumPistolHighCapacityFMJ
 
 - type: Tag
-  id: SpeedLoader45_magnumFMJ
+  id: SpeedLoader357_magnumFMJ
 
 - type: Tag
-  id: Magazine45_magnumPistolFMJ
+  id: Magazine357_magnumPistolFMJ
 
 - type: Tag
-  id: Magazine45_magnumSubMachineGunFMJ
+  id: Magazine357_magnumSubMachineGunFMJ
 
 #9x19mm tags
 
@@ -609,6 +606,9 @@
 - type: Tag
   id: USSPStamp
 
+- type: Tag
+  id: MMCLiasonStamp
+
 # books
 
 - type: Tag
@@ -683,3 +683,20 @@
 
 - type: Tag
   id: WhitelistChameleonIdViperSpec
+
+# Nukeops tags
+
+- type: Tag
+  id: TsfStation
+
+- type: Tag
+  id: PdvStation
+
+# Gateway tags
+
+- type: Tag
+  id: Node
+
+- type: Tag
+  id: Central
+

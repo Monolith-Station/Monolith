@@ -58,6 +58,45 @@
       - MissileCartridge250mm
 
 - type: entity
+  id: PaladinMagazineEMPHEInfinite
+  parent: PaladinMagazineEMPHE
+  components:
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    proto: TovekCartridge
+    capacity: 24
+    mayTransfer: true
+    whitelist:
+      tags:
+      - MissileCartridge250mm
+
+- type: entity
+  id: PaladinMagazineHV
+  name: "Paladin 250mm HV missile autoloader"
+  parent: PaladinMagazine
+  components:
+  - type: BallisticAmmoProvider
+    proto: MissileCartridge250mmHV
+    capacity: 24
+    mayTransfer: true
+    whitelist:
+      tags:
+      - MissileCartridge250mm
+
+- type: entity
+  id: PaladinMagazineHVInfinite
+  parent: PaladinMagazineHV
+  components:
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    proto: MissileCartridge250mmHV
+    capacity: 24
+    mayTransfer: true
+    whitelist:
+      tags:
+      - MissileCartridge250mm
+
+- type: entity
   id: TovekCartridge
   name: 250mm EMPHE missile
   description: An individual ASM-250 EMPHE missile for a Tovek/Paladin launcher.
@@ -113,6 +152,47 @@
     size: Huge
   - type: CartridgeAmmo
     proto: ShipMissileASM250HEAT
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
+    layers:
+    - state: tovek
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 5
+    totalIntensity: 16
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+
+- type: entity
+  id: MissileCartridge250mmHV
+  name: 250mm HV missile
+  description: An individual ASM-250 high-velocity missile for a Tovek/Paladin launcher.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - TovekCartridge
+    - MissileCartridge250mm
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipMissileASM250HV
     deleteOnSpawn: true
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi

@@ -140,6 +140,20 @@
     back:
     - WeaponRifleVulcanFCMC
 
+- type: loadout # Basic Lever Action
+  id: MercenaryLeverActionloadout
+  price: 15000
+  storage:
+    back:
+    - WeaponSniperRepeater
+
+- type: loadout #.45 Magnum Ammo
+  id: MercenaryMagnum357Loadout
+  price: 1000
+  storage:
+    back:
+    - AmmoBox357_magnumFMJ
+
 - type: loadout #Lee Enfield
   id: MercenaryLeeEnfieldLoadout
   price: 15000
@@ -511,6 +525,27 @@
 
 # Rifles
 
+- type: loadout #Riversong
+  id: FactionRiversongLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleRiversong
+
+- type: loadout #Dragonfang
+  id: FactionDragonfangLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleDragonfang
+
+- type: loadout #M90
+  id: FactionM90Loadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleM90
+
 - type: loadout #Lecter
   id: FactionLecterLoadout
   price: 0
@@ -518,7 +553,21 @@
     back:
     - WeaponRifleLecter
 
-- type: loadout #Lecter Ammo
+- type: loadout #Lecter
+  id: FactionWSPRLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleWSPR
+
+- type: loadout #Vympel
+  id: FactionVympelLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRifleVympel
+
+- type: loadout #Vympel Ammo
   id: Faction556x45mmAmmoLoadout
   price: 0
   storage:
@@ -573,6 +622,13 @@
   storage:
     back:
     - BoxMagazine762x39mmFMJ
+
+- type: loadout #Wespr
+  id: Faction762x39mmSubsonicAmmoLoadout
+  price: 0
+  storage:
+    back:
+    - BoxMagazine762x39mmSubsonic
 
 - type: loadout #Mosin
   id: FactionMosinLoadout
@@ -715,7 +771,7 @@
     back:
     - BoxMagazine45_ACPFMJ
 
-- type: loadout #MK58 Ammo
+- type: loadout
   id: FactionHawk4Pistol
   price: 0
   storage:
@@ -736,12 +792,12 @@
     back:
     - WeaponRevolverInspector
 
-- type: loadout #.45 Magnum Ammo
-  id: FactionMagnum45Loadout
+- type: loadout #.357 Magnum Ammo
+  id: FactionMagnum357Loadout
   price: 0
   storage:
     back:
-    - AmmoBox45_magnumFMJ
+    - AmmoBox357_magnumFMJ
 
 - type: loadout # Laser Pistol
   id: FactionLaserPistolLoadout

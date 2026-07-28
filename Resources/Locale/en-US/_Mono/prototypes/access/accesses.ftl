@@ -11,4 +11,8 @@ id-card-access-level-pdv-command = PDV Command
 id-card-access-level-tsf-engineer = TSF Engineering
 
 id-card-access-level-vg = Viper Group
-id-card-access-level-vg-high = Viper Group Command
+id-card-access-level-vg-command = Viper Group Command
+
+id-card-access-level-mieyo = Mieyo
+id-card-access-level-mieyo-security = Mieyo Security
+id-card-access-level-mieyo-liason = Mieyo Liason

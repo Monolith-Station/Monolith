@@ -168,7 +168,7 @@
   name: GS-004-A Jack (4 gauge)
   parent: [BaseItem, BaseGunWieldable]
   id: WeaponShotgunJack
-  description: An incredibly heavy burst fire 23x75mm shotgun that loads from a belt and a specialized backpack.
+  description: An incredibly heavy automated fire 23x75mm shotgun that loads from a belt and a specialized backpack.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Shotguns/jack.rsi
@@ -189,18 +189,14 @@
     modifiedDelay: 2
     preventFiring: true
   - type: Gun
-    damageModifier: 0.65
     minAngle: 35 # Might need increasing for slugs.
     maxAngle: 60
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 0.2
-    selectedMode: Burst
+    fireRate: 2
+    selectedMode: FullAuto
     availableModes:
-    - Burst
-    burstCooldown: 4
-    burstFireRate: 4.5
-    shotsPerBurst: 3
+    - FullAuto
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
   - type: GunSpreadModifier
@@ -262,49 +258,3 @@
   - type: StaticPrice
     price: 600
     vendPrice: 3000
-
-# PDV
-
-- type: entity
-  name: PD-VI "Sultan's Pulsar" shotgun (4 gauge)
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC3SyndicateContraband]
-  id: WeaponShotgunSultanPulsar
-  description: A beast of a bolt-action shotgun, capable of firing the Sultan's finest 4-gauge with exceptional accuracy. Overkill for most space fauna, but using this means its certain you're hunting the most dangerous game.
-  components:
-  - type: Item
-    size: Normal
-    shape:
-    - 0,0,5,0
-    sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar_inhands_64x.rsi
-  - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar.rsi
-  - type: Clothing
-    sprite: _Mono/Objects/Weapons/Guns/Shotguns/SultansPulsar_inhands_64x.rsi
-  - type: GunRequiresWield
-  - type: Gun
-    soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
-    fireRate: 0.7
-    selectedMode: Semiauto
-    availableModes:
-    - SemiAuto
-  - type: GunSpreadModifier
-    spread: 0.4
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - ShellShotgun23x75mmBuckshot
-    capacity: 8
-    proto: ShellShotgun23x75mmBuckshot
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
-    autoCycle: false
-  - type: StaticPrice
-    vendPrice: 43000
-  - type: SpeedModifiedOnWield
-    walkModifier: 0.8
-    sprintModifier: 0.90
-  - type: CursorOffsetRequiresWield
-  - type: EyeCursorOffset
-    maxOffset: 3
-    pvsIncrease: 1

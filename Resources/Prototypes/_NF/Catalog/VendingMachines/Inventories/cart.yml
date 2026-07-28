@@ -56,11 +56,36 @@
     HandLabeler: 4294967295 #Infinite
     EncryptionKeyNfsd: 4294967295 #Infinite
     EncryptionKeyCommand: 5
-    ClothingOuterCoatNfsdFormal: 3
-    ClothingOuterCoatNfsdFormalSheriff: 3
-    ClothingOuterCoatNfsdLongCoat: 3
+    ClothingNeckFormalTSF: 5
+    ClothingNeckFormalTSFColonel: 3
+    ClothingNeckTSFCloak: 3
     ClothingNeckMantleSheriff: 3
     ClothingMaskGasSheriff: 3
+    AccessConfigurator: 2
+  contrabandInventory:
+    BalloonNT: 2
+    LuxuryPen: 1
+
+- type: vendingMachineInventory
+  id: MonoPTechMieyoInventory
+  startingInventory:
+    MieyoEmployeePDA: 10
+    MieyoSecurityPDA: 10
+    ClearNFPDA: 4294967295 #infinite
+    ContractorIDCard: 4294967295 #infinite
+    ClothingHeadsetPrison: 4294967295 #infinite
+    RubberStampApproved: 4294967295 #Infinite
+    RubberStampDenied: 4294967295 #Infinite
+    Pen: 4294967295 #Infinite
+    BoxPaper: 4
+    BoxPaperOffice: 4
+    BoxPaperCaptainsThoughts: 4
+    BoxEnvelope: 4
+    BoxFolderGreen: 3
+    BoxFolderRed: 3
+    HandLabeler: 4294967295 #Infinite
+    EncryptionKeyMieyo: 4294967295 #Infinite
+    EncryptionKeyMieyoCommand: 5
     AccessConfigurator: 2
   contrabandInventory:
     BalloonNT: 2

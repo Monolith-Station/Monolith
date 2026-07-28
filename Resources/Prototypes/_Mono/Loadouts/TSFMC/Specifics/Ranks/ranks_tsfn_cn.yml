@@ -1,0 +1,104 @@
+# Its just for fun and flexing pal.
+
+- type: loadout
+  id: TsfnCNRankE1
+  name: TSFN HJ1 (HJ1-LNG)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCNRanking
+  components:
+  - type: ChatRank
+    rank: tsfn-e1-cn
+
+- type: loadout
+  id: TsfnCNRankE2
+  name: TSFN HJ2 (HJ2-SHW)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCNRanking
+  components:
+  - type: ChatRank
+    rank: tsfn-e2-cn
+
+- type: loadout
+  id: TsfnCNRankE3
+  name: TSFN HJ3 (HJ3-ZW)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCNRanking
+  components:
+  - type: ChatRank
+    rank: tsfn-e3-cn
+
+- type: loadout
+  id: TsfnCNRankE4
+  name: TSFN HJ4 (HJ4-SW)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCNRanking
+  components:
+  - type: ChatRank
+    rank: tsfn-e4-cn
+
+# NCO start
+
+- type: loadout
+  id: TsfnCNRankE5
+  name: TSFN HJ5 (HJ5-SHX)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCNRanking
+  components:
+  - type: ChatRank
+    rank: tsfn-e5-cn
+
+- type: loadout
+  id: TsfnCNRankE6
+  name: TSFN HJ6 (HJ6-ZX)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCNRanking
+  components:
+  - type: ChatRank
+    rank: tsfn-e6-cn
+
+- type: loadout
+  id: TsfnCNRankE7
+  name: TSFN HJ7 (HJ7-SX)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCNRanking
+  components:
+  - type: ChatRank
+    rank: tsfn-e7-cn
+
+- type: loadout
+  id: TsfnCNRankE8
+  name: TSFN HJ8 (HJ8-DX)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCNRanking
+  components:
+  - type: ChatRank
+    rank: tsfn-e8-cn
+
+# general/flag officers start
+
+- type: loadout
+  id: TsfnCNRankE9
+  name: TSFN HJ9 (HJ9-SHJ)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TsfnCNRanking
+  components:
+  - type: ChatRank
+    rank: tsfn-e9-cn
+
+- type: loadoutEffectGroup
+  id: TsfnCNRanking
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 720000 # 200hr

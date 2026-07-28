@@ -24,19 +24,6 @@
     Plastic: 2000
 
 - type: latheRecipe
-  id: WeaponRifleIroh
-  parent: BaseWeaponRecipeLong
-  result: WeaponRifleIroh
-  categories:
-  - Rifles
-  - Ballistic
-  - Weapons
-  materials:
-    Steel: 2500
-    Plastic: 4000
-    Plasteel: 1000
-
-- type: latheRecipe
   id: WeaponRifleVulcanFCMC
   parent: BaseWeaponRecipeLong
   result: WeaponRifleVulcanFCMC
@@ -169,6 +156,19 @@
   id: WeaponRifleAk
   parent: BaseWeaponRecipeLong
   result: WeaponRifleAk
+  categories:
+  - Weapons
+  - Rifles
+  - Ballistic
+  materials:
+    Steel: 2500
+    Plasteel: 1000
+    Plastic: 1000
+
+- type: latheRecipe
+  id: WeaponSniperRepeater
+  parent: BaseWeaponRecipeLong
+  result: WeaponSniperRepeater
   categories:
   - Weapons
   - Rifles

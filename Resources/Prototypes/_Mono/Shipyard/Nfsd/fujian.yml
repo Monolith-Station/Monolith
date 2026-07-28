@@ -1,0 +1,41 @@
+#Author: Starch(!)
+
+- type: vessel
+  id: Fujian
+  parent: BaseVesselAntag
+  name: TSF-SKR Fujian
+  description: A decently-sized escort carrier, capable of holding 4 Zephyrs or Zephyr-ECs. Carries quite a bit of armor to defend itself and its fighters.
+  limit: 2
+  hyperwarLimit: 3
+  price: 258680
+  category: Large
+  purchasable: false # voucher only
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/fujian.yml
+  guidebookPage: ShipyardNFROperation
+  class:
+  - Patrol
+  - Frigate
+  engine:
+  - NFR
+
+- type: gameMap
+  id: Fujian
+  mapName: 'Fujian'
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/fujian.yml
+  minPlayers: 0
+  stations:
+    Fujian:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Fujian TSFN{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

@@ -3,7 +3,7 @@
   name: Wizard
   abstract: true
   parent:
-  - MobHumanoidHostileBase
+  - MobHumanoidHostileBaseShade # Mono: MobHumanoidHostileBase -> MobHumanoidHostileBaseShadeHumanoidHostileBase
   - MobPassiveRegen
   - MobHumanoidInvetory
   - MobHumanoidHostileAISimpleRanged

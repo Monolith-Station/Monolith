@@ -173,3 +173,38 @@
     sprite: _Mono/Clothing/Ears/Headsets/viperalt.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Ears/Headsets/viperalt.rsi
+
+# MMC
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetMieyo
+  name: MMC headset
+  description: A standard headset for MMC employees. This headset will accept standard encryption keys and comes prefitted with a key for corporate communications.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Ears/Headsets/mieyo.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Ears/Headsets/mieyo.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyMieyo
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetMieyoCorpsec
+  name: MMC corpsec headset
+  description: A standard headset for MMC employees. This headset will accept standard encryption keys and comes prefitted with a key for corporate communications.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Ears/Headsets/mieyo.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Ears/Headsets/mieyo.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyMieyo
+      - EncryptionKeyMieyoCommand

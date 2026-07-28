@@ -231,3 +231,58 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsViper ]
+
+- type: entity
+  parent: AirlockShuttleNfsd
+  id: AirlockExternalShuttleMieyoLocked
+  suffix: External, Docking, Mieyo, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyo ]
+
+- type: entity
+  parent: AirlockGlassShuttleNfsd
+  id: AirlockExternalGlassShuttleMieyoLocked
+  suffix: External, Docking, Mieyo, Locked, Glass
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyo ]
+
+- type: entity
+  parent: AirlockExternalShuttleMieyoLocked
+  id: AirlockExternalShuttleMieyoLockedOutpost
+  suffix: OUTPOST ONLY, External, Docking, Mieyo, Locked
+  components:
+  - type: Destructible # Mono - buff docking port health
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25000 # 10x buff
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+
+- type: entity
+  parent: AirlockExternalGlassShuttleMieyoLocked
+  id: AirlockExternalGlassShuttleMieyoLockedOutpost
+  suffix: OUTPOST ONLY, External, Docking, Mieyo, Locked, Glass # Longest suffix in mono?
+  components:
+  - type: Destructible # Mono - buff docking port health
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25000 # 10x buff
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+

@@ -22,13 +22,15 @@
   recipes:
   - EnergySwordRogue
   - EnergyDaggerRogue
-  - EnergyShieldRogue
+  - HeavyBallisticShield
+  - TelescopicShield
   - HFSwordVT7
 
 - type: latheRecipePack
   id: MonoRogueWeaponsDynamicRanged
   recipes:
   - WeaponRifleWSPRRogue
+  - WeaponRifleVympelRogue
   - WeaponSubMachineGunC20rRogue
   - WeaponRevolverPythonRogue
   - WeaponRifleM90Rogue
@@ -40,6 +42,9 @@
   - WeaponSubMachineGunMla73Rogue
   - WeaponDEWBasilisk
   - WeaponShotgunSultanPulsar
+  - WeaponLightMachineGunL6Rogue
+  - WeaponRifleBurnerRogue
+
 
 - type: latheRecipePack
   id: MonoRogueVouchersDynamic
@@ -48,6 +53,7 @@
   - ShipVoucherPdvT1Recipe
   - ShipVoucherPdvT2Recipe
   - SaintieVoucherRogue
+  - KortikVoucherRogue
   - SaturnVoucherRogue
   - SnakeletVoucherRogue
   - InertiaVoucherRogue

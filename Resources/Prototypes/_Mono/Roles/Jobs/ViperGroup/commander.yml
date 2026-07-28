@@ -4,7 +4,7 @@
   description: job-description-vg-commander
   playTimeTracker: JobVGCommander
   whitelisted: true # I'm not certain who gets this.
-  startingGear: ViperRadioGear
+  startingGear: ViperCommanderGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   icon: "JobIconVGCommander" # TODO - new USSP icons
@@ -24,6 +24,8 @@
     - type: NpcFactionMember
       factions:
       - VG
+    - type: ChatRank
+      rank: vg-commander
   - !type:AddLanguageSpecial
     languagesSpoken:
     - NovaCygniBasic
@@ -32,3 +34,10 @@
   accessGroups:
   - GeneralAccess
   - ViperHigh
+
+- type: startingGear
+  id: ViperCommanderGear
+  storage:
+    back:
+    - RadioHandheldNF
+    - VGHandheldOverwatchConsole

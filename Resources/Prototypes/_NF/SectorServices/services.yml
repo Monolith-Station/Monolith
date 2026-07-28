@@ -32,6 +32,10 @@
         !type:SectorBankAccountInfo
         balance: 8000
         increasePerSecond: 18 # ~65K per hour, a bit over for the DOC MOM's wage.
+      Mieyo:
+        !type:SectorBankAccountInfo
+        balance: 150000
+        increasePerSecond: 30
       BlackMarket:
         !type:SectorBankAccountInfo
         balance: 8000

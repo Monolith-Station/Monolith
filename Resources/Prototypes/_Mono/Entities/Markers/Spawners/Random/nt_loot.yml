@@ -131,7 +131,7 @@
         - id: ClothingUniformJumpsuitSec
         - id: ClothingUniformJumpskirtSec
         - id: ClothingUniformJumpsuitSecGrey
-        - id: ClothingUniformJumpskirtSecGrey  
+        - id: ClothingUniformJumpskirtSecGrey
       - !type:GroupSelector
         weight: 1.745
         children:
@@ -156,7 +156,7 @@
         - id: ClothingNeckSecuritymedal
         - id: SecurityWhistle
         - id: UndeterminedVoidsuitHeadOfSecurity
-  
+
 - type: entityTable
   id: NTLootClothingT2Trunk
   table: !type:GroupSelector

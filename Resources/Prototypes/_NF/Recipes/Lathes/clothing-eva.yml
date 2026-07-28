@@ -6,11 +6,10 @@
   categories:
   - EVASuits
   - ArmorNF # Mono
-  materialDiscountScale: 0
   completetime: 5
   materials:
     Steel: 300
-    Cloth: 300
+    Cloth: 500
     Durathread: 500
 
 - type: latheRecipe
@@ -21,7 +20,7 @@
   materials:
     Glass: 200
     Steel: 300
-    Cloth: 100
+    Cloth: 500
     Durathread: 50
 
 - type: latheRecipe
@@ -97,7 +96,7 @@
   materials:
     Plastic: 1000
     Steel: 1000
-    Cloth: 300
+    Cloth: 500
     Durathread: 2500
     Silver: 1000
 
@@ -121,7 +120,7 @@
   result: ClothingOuterHardsuitSyndicate
   materials:
     Steel: 200
-    Cloth: 300
+    Cloth: 500
     Durathread: 600
 
 - type: latheRecipe

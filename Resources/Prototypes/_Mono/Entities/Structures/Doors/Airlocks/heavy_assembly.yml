@@ -125,3 +125,13 @@
   - type: Sprite
     sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/engineering.rsi
     state: "assembly"
+
+#Mieyo
+- type: entity
+  parent: AirlockHeavyAssembly
+  id: AirlockHeavyAssemblyMieyo
+  suffix: Mieyo
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/mieyo.rsi
+    state: "assembly"
