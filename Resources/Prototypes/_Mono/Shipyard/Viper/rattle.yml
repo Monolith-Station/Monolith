@@ -1,0 +1,40 @@
+# Author Info
+# Discord: lassih
+# Github: LassiH
+
+# Shuttle Notes:
+- type: vessel
+  id: Rattle
+  parent: BaseVessel
+  name: VG Rattle
+  description: A medium sized patrol shuttle armed with 2 ak820's and 2 ak570's comes equipped with a shield
+  price: 110000
+  category: Medium
+  group: Viper
+  access: Viper
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Viper/rattle.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - AME
+
+- type: gameMap
+  id: Rattle
+  mapName: 'VG Rattle'
+  mapPath: /SharedMaps/_Mono/Shuttles/Viper/rattle.yml
+  minPlayers: 0
+  stations:
+    Venom:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Rattle MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            VGInfanteer: [ 0, 0 ]
+            VGLieutenant: [ 0, 0 ]
+            VGCommander: [ 0, 0 ]
