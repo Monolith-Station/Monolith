@@ -71,7 +71,9 @@
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Misc/tsfsilvercoat.rsi
-
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.2
 # Viper Group
 
 - type: entity
