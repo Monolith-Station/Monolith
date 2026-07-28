@@ -163,3 +163,140 @@
   spriteToggleLightState: medical_l
   petSuccessString: petting-success-engineer-cyborg
   petFailureString: petting-failure-engineer-cyborg
+
+#Xenoborg Cyborgs
+- type: borgType
+  id: xenoborgengineer
+  dummyPrototype: XenoborgChassisEngineer
+  extraModuleCount: 2
+  moduleWhitelist:
+    tags:
+    - BorgModuleXenoborgBase
+    - BorgModuleXenoborgEngineer
+  defaultModules:
+  - XenoborgModuleBasic
+  - XenoborgModuleTool
+  - BorgModuleCable
+  - XenoborgModuleDefense
+  - XenoborgModuleAccessBreaker
+  addComponents:
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_Mono/Effects/Footsteps/borgwalk3.ogg
+  inventoryTemplateId: borgShort
+  spriteBodyState: xenoborg_engi
+  spriteHasMindState: xenoborg_engi_l
+  spriteNoMindState: xenoborg_engi_l
+  spriteToggleLightState: xenoborg_engi_l
+  petSuccessString: petting-success-engineer-cyborg
+  petFailureString: petting-failure-engineer-cyborg
+
+- type: borgType
+  id: xenoborgheavy
+  dummyPrototype: XenoborgChassisHeavy
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleXenoborgBase
+    - BorgModuleXenoborgHeavy
+  defaultModules:
+  - XenoborgModuleBasic
+  - XenoborgModuleTool
+  - XenoborgModuleDefense
+  - XenoborgModuleJammer
+  addComponents:
+  - type: MobThresholds # tankier
+    thresholds:
+      0: Alive
+      350: Critical
+      750: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_Mono/Effects/Footsteps/borgwalk3.ogg
+  - type: MovementSpeedModifier # slower
+    baseWalkSpeed : 1.2
+    baseSprintSpeed : 2.2
+  inventoryTemplateId: borgShort
+  spriteBodyState: xenoborg_heavy
+  spriteHasMindState: xenoborg_heavy_l
+  spriteNoMindState: xenoborg_heavy_l
+  spriteToggleLightState: xenoborg_heavy_l
+  petSuccessString: petting-success-engineer-cyborg
+  petFailureString: petting-failure-engineer-cyborg
+
+- type: borgType
+  id: xenoborgscout
+  dummyPrototype: XenoborgChassisScout
+  extraModuleCount: 2
+  moduleWhitelist:
+    tags:
+    - BorgModuleXenoborgBase
+    - BorgModuleXenoborgScout
+  defaultModules:
+  - XenoborgModuleBasic
+  - XenoborgModuleTool
+  - XenoborgModuleSurgery
+  - XenoborgModuleDefense
+  addComponents:
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_Mono/Effects/Footsteps/borgwalk4.ogg
+  - type: MovementSpeedModifier # faster
+    baseWalkSpeed : 3
+    baseSprintSpeed : 6
+  radioChannels:
+  - Medical
+  inventoryTemplateId: borgShort
+  spriteBodyState: xenoborg_scout
+  spriteHasMindState: xenoborg_scout_l
+  spriteNoMindState: xenoborg_scout_l
+  spriteToggleLightState: xenoborg_scout_l
+  petSuccessString: petting-success-engineer-cyborg
+  petFailureString: petting-failure-engineer-cyborg
+
+- type: borgType
+  id: xenoborgstealth
+  dummyPrototype: XenoborgChassisStealth
+  extraModuleCount: 2
+  moduleWhitelist:
+    tags:
+    - BorgModuleXenoborgBase
+    - BorgModuleXenoborgStealth
+  defaultModules:
+  - XenoborgModuleBasic
+  - XenoborgModuleTool
+  - XenoborgModuleDefense
+  - XenoborgModuleCloakDevice
+  addComponents:
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_Mono/Effects/Footsteps/borgwalk4.ogg
+  radioChannels:
+  - Medical
+  inventoryTemplateId: borgShort
+  spriteBodyState: xenoborg_stealth
+  spriteHasMindState: xenoborg_stealth_l
+  spriteNoMindState: xenoborg_stealth_l
+  spriteToggleLightState: xenoborg_stealth_l
+  petSuccessString: petting-success-engineer-cyborg
+  petFailureString: petting-failure-engineer-cyborg

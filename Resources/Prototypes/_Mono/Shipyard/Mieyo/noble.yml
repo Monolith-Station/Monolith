@@ -1,0 +1,33 @@
+- type: vessel
+  id: MieyoNoble
+  parent: BaseVessel
+  name: MMC-SKR Mieyo-Noble
+  description: A slightly heavier mining craft, equipped with 4 mining pulsers and a magnet, but no self defense and poor armor.
+  price: 59400
+  category: Small
+  group: Mieyo
+  access: Mieyo
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Mieyo/noble.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: MieyoNoble
+  mapName: 'MMC-SKR Mieyo-Noble'
+  mapPath: /SharedMaps/_Mono/Shuttles/Mieyo/noble.yml
+  minPlayers: 0
+  stations:
+    MieyoNoble:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Mieyo-Noble MMC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MMCEmployee: [ 0, 0 ]

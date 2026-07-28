@@ -1,0 +1,72 @@
+- type: latheRecipe
+  parent: MotionDetectorTSF
+  id: MotionDetectorMMC
+  result: MotionDetectorMMC
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: NaniteApplicatorMMC
+  result: NaniteApplicatorMMC
+  materials:
+    Steel: 300 # really low but the experimental one is only 500 FOR SOME FUCKING REASON???
+
+- type: latheRecipe
+  parent: ShipRepairDevice
+  id: ShipRepairDeviceMMC
+  result: ShipRepairDeviceMMC
+
+- type: latheRecipe
+  id: RCDMMC
+  parent: RCD
+  result: RCDMMCEmpty
+
+- type: latheRecipe
+  id: RPDMMC
+  parent: RPD
+  result: RPDMMCEmpty
+
+- type: latheRecipe
+  parent: AccessBreakerRogue
+  id: AccessBreakerMMC
+  result: AccessBreakerMMC
+  completetime: 5 # Cheaper and faster, but single-use and disposable.
+  materials:
+    Steel: 1200
+    Glass: 600
+    Plastic: 500
+    Gold: 250
+    Silver: 250
+    Plasma: 200
+    Uranium: 100
+
+- type: latheRecipe
+  parent: HyposprayRogue
+  id: HyposprayMMC
+  result: Hypospray
+
+- type: latheRecipe
+  parent: SutureTSF
+  id: SutureMMC
+
+- type: latheRecipe
+  parent: MeshTSF
+  id: MeshMMC
+
+# suits
+- type: latheRecipe
+  id: ClothingOuterHardsuitMieyoMiningMMC
+  parent: MonoHardsuitT1Recipe
+  result: ClothingOuterHardsuitMieyoMining
+  materials:
+    Glass: 200
+    Steel: 3000
+    Plastic: 1500
+    Plasteel: 1500
+    Durathread: 500
+    Silver: 100
+    Gold: 100
+
+- type: latheRecipe
+  id: ClothingOuterHardsuitMieyoCombatMMC
+  parent: MonoHardsuitT2Recipe
+  result: ClothingOuterHardsuitMieyoCombat

@@ -1,0 +1,48 @@
+- type: job
+  id: MMCSecurity
+  name: job-name-mmc-security
+  description: job-description-mmc-security
+  playTimeTracker: JobMMCSecurity
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: MieyoManufacturingConcern
+    time: 36000 # 10 hours
+  - !type:OverallPlaytimeRequirement
+    time: 72000 # 20 hrs
+  alternateRequirementSets:
+    longerPlaytimeLessEmployee:
+    - !type:OverallPlaytimeRequirement
+      time: 108000 # 30 hours
+  startingGear: MMCSecurityGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  icon: "JobIconMMCSecurity"
+  supervisors: job-supervisors-mmc-liason
+  assignedCompany: MMC
+  canBeAntag: false
+  weight: 30
+  displayWeight: 30
+  accessGroups:
+  - GeneralAccess
+  access:
+  - Mieyo
+  - MieyoSecurity
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MieyoTrackingImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - MMC
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - Nekomimetic
+    languagesUnderstood:
+    - Nekomimetic
+
+- type: startingGear
+  id: MMCSecurityGear
+  storage:
+    back:
+    - RadioHandheldNF

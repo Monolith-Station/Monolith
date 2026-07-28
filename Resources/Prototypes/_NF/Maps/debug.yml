@@ -64,5 +64,8 @@
             VGInfanteer: [ -1, -1 ]
             VGLieutenant: [ -1, -1 ]
             VGCommander: [ -1, -1 ]
+            MMCEmployee: [ -1, -1 ]
+            MMCSecurity: [ -1, -1 ]
+            MMCLiason: [ -1, -1 ]
         - type: StationDeadDrop
           maxDeadDrops: 20 # Testing

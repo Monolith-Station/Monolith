@@ -88,7 +88,6 @@
     burstCooldown: 0.6 # Mono
     projectileSpeed: 45 # Mono
     fireRate: 7.5 # Mono, does nothing because its burst only but it makes it clear it can fire at this rate.
-    damageModifier: 0.9
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/wspr_fire.ogg # Mono change - Changed audio path
   - type: ItemSlots

@@ -16,6 +16,7 @@
     security:    Structures/Doors/Airlocks/Standard/security.rsi
     virology:    Structures/Doors/Airlocks/Standard/virology.rsi
     mercenary:   _NF/Structures/Doors/Airlocks/Standard/mercenary.rsi
+    mieyo:       _Mono/Structures/Doors/Airlocks/Standard/mieyo.rsi
 
 - type: AirlockGroup
   id: Glass
@@ -35,6 +36,7 @@
     security:    Structures/Doors/Airlocks/Glass/security.rsi
     virology:    Structures/Doors/Airlocks/Glass/virology.rsi
     mercenary:   _NF/Structures/Doors/Airlocks/Glass/mercenary.rsi
+    mieyo:       _Mono/Structures/Doors/Airlocks/Glass/mieyo.rsi
 
 - type: AirlockGroup
   id: Windoor
@@ -84,3 +86,4 @@
     science: Science
     security: Security
     virology: Medical
+    mieyo: MieyoManufacturingConcern

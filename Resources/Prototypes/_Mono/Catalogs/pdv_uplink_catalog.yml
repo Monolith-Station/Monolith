@@ -301,22 +301,6 @@
           - PirateUplink
 
 - type: listing
-  id: UplinkPirateEnergyShield
-  name: uplink-pirate-energy-shield-name
-  description: uplink-pirate-energy-shield-desc
-  icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
-  productEntity: EnergyShield
-  cost:
-    Doubloon: 40
-  categories:
-  - UplinkPirateUtility
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
-
-- type: listing
   id: UplinkPirateThrusterKit
   name: uplink-pirate-thruster-kit-name
   description: uplink-pirate-thruster-kit-desc
@@ -569,10 +553,10 @@
       - PirateUplink
 
 - type: listing
-  id: UplinkPirateAmmoBox45_magnum
-  name: uplink-pirate-magazine-box-45_magnum-name
-  description: uplink-pirate-magazine-box-45_magnum-desc
-  productEntity: BoxMagazine45_magnumFMJ
+  id: UplinkPirateAmmoBox357_magnum
+  name: uplink-pirate-magazine-box-357_magnum-name
+  description: uplink-pirate-magazine-box-357_magnum-desc
+  productEntity: BoxMagazine357_magnumFMJ
   cost:
     Doubloon: 5
   categories:
@@ -1406,6 +1390,21 @@
   name:  uplink-pdv-t1-neptune-voucher-name
   description: uplink-pdv-t1-neptune-voucher-desc
   productEntity: ShipVoucherNeptune
+  cost:
+    Doubloon: 100
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkSecurityT1VoucherLayak
+  name:  uplink-pdv-t1-layak-voucher-name
+  description: uplink-pdv-t1-layak-voucher-desc
+  productEntity: ShipVoucherLayak
   cost:
     Doubloon: 100
   categories:

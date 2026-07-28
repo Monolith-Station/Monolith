@@ -9,11 +9,11 @@
   - Magazine30mmAmmoRecipe
   - Magazine30mmHEAmmoRecipe
   - Magazine57mmHEAmmoRecipe
-  - Magazine57mmSmartAmmoRecipe
   - 90mmMagazineHEAmmoRecipe
   - 90mmMagazineAPAmmoRecipe
   - 90mmMagazineFlakAmmoRecipe
-  - 90mmMagazineMinelayerAmmoRecipe
+  - Magazine140mmAmmoRecipe
+  - Magazine140mmSACLOSAmmoRecipe
   # Individual load
   - 120mmCartridgeAPHEDSAmmoRecipe
   - 220mmCartridgeAPHEAmmoRecipe
@@ -23,6 +23,13 @@
   - 255mmCartridgeEMPAmmoRecipe
   - 255mmCartridgeMineAmmoRecipe
   - R300ShellHEAmmoRecipe
+  # Boxes
+  - Box220mmAPHEAmmoRecipe
+  - Box220mmHEClusterAmmoRecipe
+  - Box220mmSmartClusterAmmoRecipe
+  - Box255mmAPHEAmmoRecipe
+  - Box255mmEMPAmmoRecipe
+  - Box255mmMineAmmoRecipe
   # Missiles
   - VanykMagazineAmmoRecipe
   - MissileMagazine50mmHEAmmoRecipe
@@ -35,6 +42,7 @@
   id: UniversalMissileAmmo
   recipes:
   - ASM220TorpedoHEUniversal
+  - ASM220TorpedoHESACLOSUniversal
   - ASM220TorpedoECMUniversal
   - ASM220TorpedoLOSATUniversal
 

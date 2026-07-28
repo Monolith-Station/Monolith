@@ -637,6 +637,31 @@
     vendPrice: 20000
 
 - type: entity
+  parent: BaseShipLPCRenewable
+  id: ShipVoucherLayak
+  name: PDV Layak LPC [T1]
+  description: A small card that contains the data for the procurement of a Layak-class corvette from the flagship's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#1eff00"
+    - state: screen7
+      color: "#1eff00"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 3600 # one hour
+    consoleType: BlackMarket
+    companyName: PDV
+    vessels:
+    - Layak
+  - type: StaticPrice
+    vendPrice: 20000
+
+- type: entity
   parent: ShipVoucherPdvT0
   id: ShipVoucherPdvT1
   name: PDV T1 ship voucher
@@ -664,6 +689,7 @@
     - Kalisto
     - Metis
     - Prowler
+    - Layak
 # end T1
 
 # start T2

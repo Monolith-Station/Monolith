@@ -61,17 +61,32 @@ public abstract partial class CESharedZLevelsSystem
     private void OnParentChanged(Entity<CEZPhysicsComponent> entity, ref EntParentChangedMessage args)
     {
         RefreshBody(entity);
+        SnapOutOfTransitMap(entity);
+    }
 
-        if (ZPhysicsQuery.TryComp(args.OldParent, out var oldParentPhysics))
-        {
-            SetZPosition((entity, entity), oldParentPhysics.LocalPosition);
+    /// <summary>
+    /// If an entity falls off of a transit map, put it back onto a normal one.
+    /// </summary>
+    private void SnapOutOfTransitMap(Entity<CEZPhysicsComponent> entity)
+    {
+        // Grids don't count. We don't talk about grids.
+        if (_gridQuery.HasComp(entity) || _mapQuery.HasComp(entity))
             return;
-        }
 
-        if (ZPhysicsQuery.HasComp(Transform(entity).ParentUid))
-        {
-            SetZPosition((entity, entity), 0);
-        }
+        var xform = Transform(entity);
+
+        // Not on the map itself. Don't touch it.
+        if (xform.ParentUid != xform.MapUid)
+            return;
+
+        if (!TryComp<CEZTransitMapComponent>(xform.MapUid, out var transit))
+            return;
+
+        if (ZPhysicsQuery.TryComp(transit.PrimaryGrid, out var primaryPhysics))
+            SetZPosition((entity, entity), primaryPhysics.LocalPosition);
+
+        if (TryMove(entity, -1))
+            WakeBody((entity, entity));
     }
 
     [PublicAPI]

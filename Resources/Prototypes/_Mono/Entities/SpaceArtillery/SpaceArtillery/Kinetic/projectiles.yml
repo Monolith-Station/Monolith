@@ -143,7 +143,7 @@
     shape: triangle
     radarColor: "#1df1f5"
   - type: TimedDespawn
-    lifetime: 7
+    lifetime: 4.5
   - type: PointLight
     color: "#FCBA03"
   - type: ExplodeOnTrigger
@@ -195,6 +195,47 @@
     maxSpeed: 250
     trackDelay: 0.1
     trackingAlgorithm: Direct
+
+- type: entity
+  id: 57mmBulletSACLOS
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 35
+        Piercing: 40
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectAk570
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
+    layers:
+    - state: 57mmSACLOS
+    scale: 1, 1
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 1.5
+    shape: triangle
+    radarColor: "#1df1f5"
+  - type: TimedDespawn
+    lifetime: 7
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 10 # totalIntensity goes first, please.
+    intensitySlope: 5
+    maxIntensity: 6
+    maxTileBreak: 1
+  - type: TargetGuided
+    turnRate: 15
+    acceleration: 30
+    launchSpeed: 220
+    maxSpeed: 250
+    maxLifetime: 7
+    fallbackTime: 5
 
 # 90mm
 
@@ -464,7 +505,7 @@
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/shells.rsi
     layers:
-    - state: 90mmHE
+    - state: 150mmAP
   - type: Ammo
     muzzleFlash: null
   - type: ShipWeaponProjectile
@@ -486,6 +527,51 @@
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
+
+- type: entity
+  id: 140mmBulletSACLOS
+  name: 140mm SACLOS projectile
+  parent: BaseBulletTriggerSpent
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 250
+        Piercing: 75
+    penetrationThreshold: 1500
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/shells.rsi
+    layers:
+    - state: 150mmSACLOS
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 2.75
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 4
+  - type: PointLight
+    color: "#FCBA03"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    deleteAfterExplosion: false
+    explosionType: Default
+    totalIntensity: 30
+    intensitySlope: 5
+    maxIntensity: 25
+    maxTileBreak: 2
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetGuided
+    turnRate: 15
+    acceleration: 20
+    launchSpeed: 220
+    maxSpeed: 250
+    maxLifetime: 8
+    fallbackTime: 5
 
 # 220mm
 
@@ -692,7 +778,7 @@
     scale: 2.5
     shape: triangle
   - type: TimedDespawn
-    lifetime: 7
+    lifetime: 5.5
   - type: PointLight
     color: "#fc5a03"
   - type: ExplodeOnTrigger
@@ -991,7 +1077,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 1.7
+    lifetime: 1.7 # ~2.4 km range
   - type: PointLight
     color: "#19AFFF"
   - type: ExplodeOnTrigger
@@ -1061,15 +1147,15 @@
     requireNoGrid: true
     shape: star
   - type: TimedDespawn
-    lifetime: 3.6 #2.5km
+    lifetime: 7.2 #3.2km - Its 520mm after all.
   - type: PointLight
     color: "#fc5a03"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 1400
-    intensitySlope: 10
-    maxIntensity: 30
+    totalIntensity: 1900
+    intensitySlope: 8
+    maxIntensity: 90
     maxTileBreak: 6
   - type: GatheringProjectile
   - type: MiningGatheringSoft
