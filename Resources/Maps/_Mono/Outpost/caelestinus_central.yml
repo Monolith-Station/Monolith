@@ -134,7 +134,7 @@ entities:
     - type: ProtectedGrid
       hostileMobKillSound: !type:SoundPathSpecifier
         path: /Audio/Effects/holy.ogg
-      preventRCDUse: True
+      preventRCDUse: False
       preventFloorRemoval: True
     - type: GridGodMode
       protectedEntities: []
