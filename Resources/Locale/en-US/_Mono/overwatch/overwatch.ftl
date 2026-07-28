@@ -44,8 +44,8 @@ overwatch-member-coordinates-none = —
 
 overwatch-stop-watching-button = STOP WATCHING
 
-overwatch-title-tsf = TIANGONG
-overwatch-title-tsfhighcomm = TIANGONG
+overwatch-title-tsf = TSFMC HALCYON
+overwatch-title-tsfhighcomm = TSF HIGH COMMAND
 overwatch-title-pdv = PATROL
 overwatch-title-ussp = ST-NAV
 overwatch-title-md = CCTC MD
