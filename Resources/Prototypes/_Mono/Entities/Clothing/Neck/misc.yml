@@ -63,6 +63,15 @@
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Misc/tsfcolonelcoat.rsi
 
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckFormalTSFCaptain
+  name: TSFMC captain's formal coat
+  description: A TSFMC officer's formal wear for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/tsfsilvercoat.rsi
+
 # Viper Group
 
 - type: entity
