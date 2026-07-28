@@ -11,3 +11,87 @@
   - TsfEngiPDA
   fallbacks:
   - TsfEngiPDA
+
+- type: loadout
+  id: TsfOfficerTsfOfficerPDA
+  equipment:
+    id: TSFOfficerPDA
+
+- type: loadoutGroup
+  id: TSFOfficerPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - TsfOfficerTsfOfficerPDA
+  fallbacks:
+  - TsfOfficerTsfOfficerPDA
+
+- type: loadout
+  id: TSFCorpsmanPDA
+  equipment:
+    id: TSFCorpsmanPDA
+
+- type: loadoutGroup
+  id: TSFCorpsmanPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - TSFCorpsmanPDA
+  fallbacks:
+  - TSFCorpsmanPDA
+
+- type: loadout
+  id: TSFRecruitPDA
+  equipment:
+    id: TSFRecruitPDA
+
+- type: loadoutGroup
+  id: TSFRecruitPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - TSFRecruitPDA
+  fallbacks:
+  - TSFRecruitPDA
+
+- type: loadout
+  id: TsfMarineTsfMarinePDA
+  equipment:
+    id: TSFMarinePDA
+
+- type: loadoutGroup
+  id: TSFMarinePDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - TsfMarineTsfMarinePDA
+  fallbacks:
+  - TsfMarineTsfMarinePDA
+
+- type: loadout
+  id: TSFTeamleaderPDA
+  equipment:
+    id: TSFTeamleaderPDA
+
+- type: loadoutGroup
+  id: TSFTeamleaderPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - TSFTeamleaderPDA
+  fallbacks:
+  - TSFTeamleaderPDA
+
+- type: loadout
+  id: TSFCommanderPDA
+  equipment:
+    id: TSFCommanderPDA
+
+- type: loadoutGroup
+  id: TSFCommanderPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - TSFCommanderPDA
+  fallbacks:
+  - TSFCommanderPDA

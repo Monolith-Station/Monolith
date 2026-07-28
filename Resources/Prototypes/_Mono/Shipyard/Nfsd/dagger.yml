@@ -9,7 +9,7 @@
   purchasable: false # voucher only
   category: Medium
   group: Security
-  access: Security
+  access: TsfGeneral
   shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/dagger.yml
   guidebookPage: Null
   class:
@@ -34,6 +34,6 @@
           prefixCreator: '14'
       - type: StationJobs
         availableJobs:
-          Deputy: [ 0, 0 ]
+          TsfMarine: [ 0, 0 ]
           TsfBorg: [ 0, 0 ]
 

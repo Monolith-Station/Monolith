@@ -43,9 +43,10 @@
           lobbySortOrder: 2
         - type: StationJobs
           availableJobs:
-            SeniorOfficer: [ 0, 3 ]
-            Brigmedic: [ 0, 1 ]
-            Deputy: [ -1, -1 ]
+            TsfTeamleader: [ 0, 3 ]
+            TsfCorpsman: [ 0, 1 ]
+            TsfEngineer: [ 0, 1 ]
+            TsfMarine: [ -1, -1 ]
           tags:
           - HeadOfPersonnel
           - HeadOfSecurity

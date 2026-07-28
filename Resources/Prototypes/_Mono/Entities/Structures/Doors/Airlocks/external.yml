@@ -19,3 +19,20 @@
       board: [ DoorElectronicsUSSP ]
   - type: Wires
     layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalGlassMieyo
+  suffix: Mieyo, Glass, External
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/Airlocks/Glass/externalmieyo.rsi
+
+- type: entity
+  parent: AirlockExternalGlassMieyo
+  id: AirlockExternalGlassMieyoLocked
+  suffix: Locked, Mieyo, Glass, External
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyo ]

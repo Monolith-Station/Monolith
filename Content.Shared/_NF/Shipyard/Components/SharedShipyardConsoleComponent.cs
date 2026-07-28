@@ -35,8 +35,9 @@ public sealed partial class ShipyardConsoleComponent : Component
     /// A second comms channel that announces the ship purchase, with some information redacted.
     /// Currently used for black market and syndicate shipyards to alert the NFSD.
     /// </summary>
-    [DataField("secretShipyardChannel")]
-    public ProtoId<RadioChannelPrototype>? SecretShipyardChannel = null;
+    /// Mono edit WHY EVEN IS THIS A THING THERE IS NO REASON NFSD IS DEAD AND WE KILLED IT
+    //DataField("secretShipyardChannel")]
+    //public ProtoId<RadioChannelPrototype>? SecretShipyardChannel = null;
 
     /// <summary>
     /// If non-empty, specifies the new job title that should be given to the owner of the ship.

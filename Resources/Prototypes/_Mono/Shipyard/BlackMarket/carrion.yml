@@ -8,7 +8,7 @@
   price: 29000 #Appraised at 26000-ish
   category: Small
   group: BlackMarket
-  access: Pirate
+  access: PDVGeneral
   shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/carrion.yml
   guidebookPage: Null
   class:
@@ -33,5 +33,5 @@
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Pirate: [ 0, 0 ]
+            PDVRahkshan: [ 0, 0 ]
             PdvBorg: [ 0, 0 ]

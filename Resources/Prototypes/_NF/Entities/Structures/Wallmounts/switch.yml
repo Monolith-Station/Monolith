@@ -12,7 +12,7 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["Pirate"]]
+    access: [["PDVGeneral"]]
 
 - type: entity
   id: LockableButtonTSFMC
@@ -20,4 +20,4 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["TsfGeneral"]]

@@ -89,7 +89,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsf ]
 
 - type: entity
   parent: AirlockNfsd
@@ -98,7 +98,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsf ]
 
 - type: entity
   parent: AirlockNfsd
@@ -157,20 +157,20 @@
 - type: entity
   parent: AirlockNfsd
   id: AirlockNfsdArmoryLocked
-  suffix: TSFMC Armory, Locked
+  suffix: TSFMC Teamleader, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsArmory ]
+      board: [ DoorElectronicsTsfTeamLeader ]
 
 - type: entity
   parent: AirlockNfsdGlass
   id: AirlockNfsdArmoryGlassLocked
-  suffix: TSFMC Armory, Locked
+  suffix: TSF Teamleader, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsArmory ]
+      board: [ DoorElectronicsTsfTeamLeader ]
 
 - type: entity
   parent: AirlockExternal
@@ -261,7 +261,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsf ]
 
 - type: entity
   parent: AirlockShuttleNfsd
@@ -270,7 +270,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsf ]
 
 - type: entity
   parent: AirlockGlassShuttleNfsd
@@ -279,7 +279,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsf ]
 
 - type: entity
   parent: AirlockGlass
@@ -288,7 +288,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsPirate ]
+      board: [ DoorElectronicsPDV ]
 
 - type: entity
   parent: AirlockExternalGlass
@@ -297,7 +297,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsPirate ]
+      board: [ DoorElectronicsPDV ]
 
 - type: entity
   parent: AirlockMiningGlass
@@ -306,7 +306,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsPirate ]
+      board: [ DoorElectronicsPDV ]
 
 - type: entity
   parent: AirlockShuttleSyndicate
@@ -315,7 +315,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsPirate ]
+      board: [ DoorElectronicsPDV ]
 
 - type: entity
   parent: AirlockGlassShuttleSyndicate
@@ -324,7 +324,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsPirate ]
+      board: [ DoorElectronicsPDV ]
 
 # Airtight Hatch
 - type: entity
@@ -334,4 +334,4 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsPirate ]
+      board: [ DoorElectronicsPDV ]

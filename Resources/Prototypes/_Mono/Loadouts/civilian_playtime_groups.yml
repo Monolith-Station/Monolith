@@ -4,7 +4,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
-      department: Security
+      department: Tsf
       time: 180000 # 50 hrs
 
 - type: loadoutEffectGroup
@@ -22,7 +22,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
-      department: Antag
+      department: Pdv
       time: 180000 # 50 hrs
 
 - type: loadoutEffectGroup

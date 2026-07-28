@@ -485,8 +485,6 @@
     layers:
     - state: default
     - state: idbrigmedic
-  - type: PresetIdCard # Frontier
-    job: Brigmedic # Frontier
 
 - type: entity
   parent: IDCardStandard
@@ -816,8 +814,6 @@
     layers:
     - state: default
     - state: idseniorofficer
-  - type: PresetIdCard
-    job: SeniorOfficer
 
 - type: entity
   parent: IDCardStandard
@@ -833,6 +829,32 @@
     - Wizard
     - External
     - Maintenance
+# Xenoborg
+- type: entity
+  parent: IDCardStandard
+  id: XenoborgIDCard
+  name: xenoborg ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Xenoborg
+
+# Xenoborg
+- type: entity
+  parent: IDCardStandard
+  id: MothershipIDCard
+  name: Mothership ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Xenoborg
+    - Mothership
 
 - type: entity
   parent: IDCardStandard
@@ -857,12 +879,18 @@
     groups:
     - AllAccess
     - USSPAA # Mono
+    - Mieyo # Mono
+    - Viper # Mono
     tags:
+    - TsfCommander #Mono
+    - TsfOfficer #Mono
+    - TsfFtl #Mono
+    - TsfGeneral #Mono
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
     - Wizard
-    - Pirate # Mono
+    - PDVGeneral # Mono
     - TsfmcEngineering # Mono
     - GrandVizier
     - PDVCommand # Mono

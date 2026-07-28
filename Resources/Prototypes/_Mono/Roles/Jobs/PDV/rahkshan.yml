@@ -1,0 +1,52 @@
+- type: job
+  id: PDVRahkshan
+  name: job-name-pdv-rahkshan
+  description: job-description-pdv-rahkshan
+  playTimeTracker: JobPDVRahkshan
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hrs - mono
+  startingGear: RahkshanGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  canBeAntag: true
+  icon: "JobIconPDVRahkshan"
+  supervisors: job-supervisors-pdv
+  weight: 20
+  displayWeight: 20
+  assignedCompany: PDV
+  setPreference: true
+  access:
+  - PDVGeneral
+  - Mercenary
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - PirateNF
+    - type: ChatRank
+      rank: pdv-rahkshan
+  - !type:AddImplantSpecial
+    implants: [ FreelanceTrackingImplant ]
+  - !type:AddLanguageSpecial # Monolith - Languages
+    languagesSpoken:
+    - Freespeak
+    languagesUnderstood:
+    - Freespeak
+  - !type:GiveItemOnHolidaySpecial # Even pirates get a piece of cake.
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: RahkshanGear
+  equipment:
+    ears: ClothingHeadsetAltFreelancer
+    #belt: ClothingBeltUtility
+    pocket1: BasePDVUplinkRahkshan
+    #pocket2: AppraisalTool
+  storage:
+    back:
+    - RadioHandheldNF

@@ -29,6 +29,7 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nyanotrasen.Item.PseudoItem;
 using Content.Shared.Storage;
+using Content.Shared.Traits.Assorted; //Mono: Wheelchair user check
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Server.GameObjects;
@@ -329,7 +330,8 @@ namespace Content.Server.Carrying
             _actionBlockerSystem.UpdateCanMove(carried);
             _virtualItemSystem.DeleteInHandsMatching(carrier, carried);
             _transform.AttachToGridOrMap(carried);
-            _standingState.Stand(carried);
+            if (!HasComp<LegsParalyzedComponent>(carried)) // Mono: Check wheelchair user before standing
+                _standingState.Stand(carried);
             _movementSpeed.RefreshMovementSpeedModifiers(carrier);
         }
 

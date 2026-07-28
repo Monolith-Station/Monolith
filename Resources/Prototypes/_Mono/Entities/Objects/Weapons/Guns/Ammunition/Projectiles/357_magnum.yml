@@ -1,0 +1,114 @@
+- type: entity
+  id: Bullet357_magnumFMJ
+  name: bullet (.357 magnum)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 35
+    armorPenetration: 0.1
+
+- type: entity
+  id: Bullet357_magnumPractice
+  name: bullet (.357 magnum practice)
+  parent: BaseBulletPractice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  id: Bullet357_magnumRubber
+  name: bullet (.357 magnum rubber)
+  parent: BaseBulletRubber
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+  - type: StaminaDamageOnCollide
+    damage: 35 # 3 hits to stun cuz revolver
+
+- type: entity
+  id: Bullet357_magnumIncendiary
+  parent: BaseBulletIncendiary
+  name: bullet (.357 magnum incendiary)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+        Heat: 10
+
+- type: entity
+  id: Bullet357_magnumAP
+  name: bullet (.357 magnum armor-piercing)
+  parent: BaseBulletAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 26 # 20% decrease
+    ignoreResistances: true
+
+- type: entity
+  id: Bullet357_magnumUranium
+  name: bullet (.357 magnum uranium)
+  parent: BaseBulletUranium
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 15
+        Piercing: 20
+
+# Mono AP syst
+# + 0.05 base AP
+#anti-flesh:
+- type: entity
+  id: Bullet357_magnumHP
+  parent: BaseBullet
+  name: bullet (.357 magnum hollow-point)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 8
+        Piercing: 37
+    armorPenetration: -0.5
+
+- type: entity
+  id: Bullet357_magnumRIP
+  parent: BaseBullet
+  name: bullet (.357 magnum RIP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Slash: 10
+        Piercing: 50
+    armorPenetration: -0.9
+
+#armor-piercing:
+- type: entity
+  id: Bullet357_magnumPlasteelAP
+  parent: BaseBullet
+  name: bullet (.357 magnum AP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+        Structural: 70
+    armorPenetration: 0.6

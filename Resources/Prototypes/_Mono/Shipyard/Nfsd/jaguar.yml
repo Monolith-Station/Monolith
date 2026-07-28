@@ -8,7 +8,7 @@
   price: 58500
   category: Small
   group: Security
-  access: Security
+  access: TsfGeneral
   shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/jaguar.yml
   guidebookPage: Null
   class:
@@ -34,6 +34,6 @@
           prefixCreator: '14'
       - type: StationJobs
         availableJobs:
-          Deputy: [ 0, 0 ]
+          TsfMarine: [ 0, 0 ]
           TsfBorg: [ 0, 0 ]
 

@@ -23,7 +23,6 @@
       state: telesci_key
   - type: ShipyardConsole
     shipyardChannel: Ussp
-    secretShipyardChannel: Nfsd
     ignoreBaseSaleRate: true # Fixed 70% sale rate.
     canTransferDeed: false
 
@@ -52,7 +51,6 @@
       state: gunnery_keys
     - type: ShipyardConsole
       shipyardChannel: SHM
-      secretShipyardChannel: Nfsd
       canTransferDeed: false
 
 - type: entity
@@ -80,7 +78,6 @@
       state: gunnery_keys
     - type: ShipyardConsole
       shipyardChannel: SHM
-      secretShipyardChannel: Nfsd
       canTransferDeed: false
 
 - type: entity
@@ -110,3 +107,30 @@
     shipyardChannel: Traffic
     ignoreBaseSaleRate: false
     canTransferDeed: false
+
+- type: entity
+  id: ComputerShipyardMMC
+  parent: ComputerShipyardBase
+  name: MMC shipyard console
+  description: Used to transfer ships from the MMC employ reserves.
+  components:
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Mieyo
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardConsoleUiKey.Mieyo:
+        type: ShipyardConsoleBoundUserInterface
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer_not_rot
+    - map: ["computerLayerKeyboard"]
+      state: gunnery_keyboard
+    - map: ["computerLayerScreen"]
+      state: shipyard_MMC
+    - map: ["computerLayerKeys"]
+      state: gunnery_keys
+    - type: ShipyardConsole
+      shipyardChannel: Mieyo
+      canTransferDeed: false

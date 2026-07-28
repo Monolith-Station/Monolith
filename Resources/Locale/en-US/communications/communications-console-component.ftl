@@ -31,4 +31,6 @@ comms-console-announcement-title-station-ai = Station AI
 comms-console-announcement-title-wizard = Wizard
 
 # Mono
-comms-console-announcement-title-rogue = Phaethon Dynasty Imperial Vanguard
+comms-console-announcement-title-pdv = Phaethon Dynasty Imperial Vanguard
+comms-console-announcement-title-tsf = Trans Solar Federation Occupational Force
+comms-console-announcement-title-mieyo = Mieyo Manufacturing Concern

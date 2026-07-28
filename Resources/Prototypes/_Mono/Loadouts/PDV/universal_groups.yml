@@ -105,3 +105,57 @@
   fallbacks:
   - PDVClothingBeltWebbingsNormalBlack
 
+- type: loadoutGroup
+  id: RahkshanPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVRahkshanPDVRahkshanPDA
+  fallbacks:
+  - PDVRahkshanPDVRahkshanPDA
+
+- type: loadoutGroup
+  id: PirateTrinkets
+  name: loadout-group-contractor-trinkets
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - PirateNFPouchPirate
+  subgroups:
+  - ContractorTrinkets
+
+- type: loadoutGroup
+  id: GrandVizierPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVGrandVizierPDVGrandVizierPDA
+  fallbacks:
+  - PDVGrandVizierPDVGrandVizierPDA
+
+- type: loadoutGroup
+  id: AsvaranPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVAsvaranPDVAsvaranPDA
+  fallbacks:
+  - PDVAsvaranPDVAsvaranPDA
+
+- type: loadoutGroup
+  id: PDVInfiltratorPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVSpasakaPDVSpasakaPDA
+  fallbacks:
+  - PDVSpasakaPDVSpasakaPDA
+
+- type: loadoutGroup
+  id: PDVDenasvarPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVDenasvarPDVDenasvarPDA
+  fallbacks:
+  - PDVDenasvarPDVDenasvarPDA

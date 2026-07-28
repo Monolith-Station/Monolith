@@ -1,248 +1,248 @@
 - type: listing
-  id: UplinkSecurityAnnie
-  name:  uplink-security-annie-name
-  description: uplink-security-annie-desc
+  id: UplinkTsfAnnie
+  name:  uplink-tsf-annie-name
+  description: uplink-tsf-annie-desc
   productEntity: WeaponRifleAnnie
   cost:
     FederationMilitaryCredit: 75
   categories:
-    - UplinkSecurityWeapons
+    - UplinkTsfWeapons
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:
         tags:
-          - SecurityUplink
+          - TSFUplink
 
 - type: listing
-  id: UplinkSecurityEg4
-  name:  uplink-security-eg4-name
-  description: uplink-security-eg4-desc
+  id: UplinkTsfEg4
+  name:  uplink-tsf-eg4-name
+  description: uplink-tsf-eg4-desc
   productEntity: WeaponEnergyRevolver
   cost:
     FederationMilitaryCredit: 35
   categories:
-  - UplinkSecurityWeapons
+  - UplinkTsfWeapons
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - SecurityUplink
+      - TSFUplink
 
 - type: listing
-  id: UplinkSecurityMk290
-  name:  uplink-security-sentry-mk290-name
-  description: uplink-security-sentry-mk290-desc
+  id: UplinkTsfMk290
+  name:  uplink-tsf-sentry-mk290-name
+  description: uplink-tsf-sentry-mk290-desc
   productEntity: WeaponTurretMk290Packed
   cost:
     FederationMilitaryCredit: 100
   categories:
-  - UplinkSecurityWeapons
+  - UplinkTsfWeapons
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - SecurityUplink
+      - TSFUplink
 
 - type: listing
-  id: UplinkSecurityMR8C
-  name:  uplink-security-mr8c-name
-  description: uplink-security-mr8c-desc
+  id: UplinkTsfMR8C
+  name:  uplink-tsf-mr8c-name
+  description: uplink-tsf-mr8c-desc
   productEntity: WeaponRifleMR8C
   cost:
     FederationMilitaryCredit: 125
   categories:
-  - UplinkSecurityWeapons
+  - UplinkTsfWeapons
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - SecurityUplink
+      - TSFUplink
 
 - type: listing
-  id: UplinkSecuritySmilodon
-  name:  uplink-security-smilodon-name
-  description: uplink-security-smilodon-desc
+  id: UplinkTsfSmilodon
+  name:  uplink-tsf-smilodon-name
+  description: uplink-tsf-smilodon-desc
   productEntity: ClothingBackpackDuffelSmilodonBundle
   cost:
     FederationMilitaryCredit: 250
   categories:
-    - UplinkSecurityWeapons
+    - UplinkTsfWeapons
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:
         tags:
-          - SecurityUplink
+          - TSFUplink
 
 - type: listing
-  id: UplinkSecuritySurgeryDuffel
-  name:  uplink-security-surgery-duffel-name
-  description: uplink-security-surgery-duffel-desc
+  id: UplinkTsfSurgeryDuffel
+  name:  uplink-tsf-surgery-duffel-name
+  description: uplink-tsf-surgery-duffel-desc
   productEntity: ClothingBackpackDuffelSurgeryAdvancedFilled
   icon: { sprite: Objects/Specific/Medical/Surgery/scalpel.rsi, state: laser }
   cost:
     FederationMilitaryCredit: 20
   categories:
-    - UplinkSecurityUtility
+    - UplinkTsfUtility
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:
         tags:
-          - SecurityUplink
+          - TSFUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Brigmedic
-        - Bailiff
-        - Sheriff
+        - TsfCorpsman
+        - TsfOfficer
+        - TsfCommander
 
 
 - type: listing
-  id: UplinkSecurityPortableRecharger
-  name:  uplink-security-portable-recharger-name
-  description: uplink-security-portable-recharger-desc
+  id: UplinkTsfPortableRecharger
+  name:  uplink-tsf-portable-recharger-name
+  description: uplink-tsf-portable-recharger-desc
   productEntity: PortableRecharger
   cost:
     FederationMilitaryCredit: 35
   categories:
-  - UplinkSecurityUtility
+  - UplinkTsfUtility
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - SecurityUplink
+      - TSFUplink
 
 - type: listing
-  id: UplinkSecurityCash75000
-  name: uplink-security-cash75000-name
-  description: uplink-security-cash75000-desc
+  id: UplinkTsfCash75000
+  name: uplink-tsf-cash75000-name
+  description: uplink-tsf-cash75000-desc
   productEntity: SpaceCash75000
   icon: { sprite: _NF/Objects/Economy/cash.rsi, state: cash_100000 }
   cost:
     FederationMilitaryCredit: 50
   categories:
-    - UplinkSecurityUtility
+    - UplinkTsfUtility
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:
         tags:
-          - SecurityUplink
+          - TSFUplink
 
 #- type: listing
-#  id: UplinkSecurityMagazineSubsonic
+#  id: UplinkTsfMagazineSubsonic
 #  name:  uplink-subsonic-mag-name
 #  description: uplink-subsonic-mag-desc
 #  productEntity: Magazine762x39mmSubsonic
 #  cost:
 #    FederationMilitaryCredit: 3
 #  categories:
-#  - UplinkSecurityAmmo
+#  - UplinkTsfAmmo
 #  conditions:
 #  - !type:StoreWhitelistCondition
 #    whitelist:
 #      tags:
-#      - SecurityUplink
+#      - TSFUplink
 
 #- type: listing
-#  id: UplinkSecurityBoxSubsonic
+#  id: UplinkTsfBoxSubsonic
 #  name:  uplink-subsonic-box-name
 #  description: uplink-subsonic-box-desc
 #  productEntity: AmmoBox762x39mmSubsonic
 #  cost:
 #    FederationMilitaryCredit: 10
 #  categories:
-#  - UplinkSecurityAmmo
+#  - UplinkTsfAmmo
 #  conditions:
 #  - !type:StoreWhitelistCondition
 #    whitelist:
 #      tags:
-#      - SecurityUplink
+#      - TSFUplink
 
 - type: listing
-  id: UplinkSecurityMagazine8x65mm
-  name:  uplink-security-8x65mm-magazine-name
-  description: uplink-security-8x65mm-magazine-desc
+  id: UplinkTsfMagazine8x65mm
+  name:  uplink-tsf-8x65mm-magazine-name
+  description: uplink-tsf-8x65mm-magazine-desc
   productEntity: Magazine8x65mmSKR
   cost:
     FederationMilitaryCredit: 5
   categories:
-  - UplinkSecurityAmmo
+  - UplinkTsfAmmo
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - SecurityUplink
+      - TSFUplink
 
 - type: listing
-  id: UplinkSecurityBoxSKR
-  name:  uplink-security-8x65mm-box-name
-  description: uplink-security-8x65mm-box-desc
+  id: UplinkTsfBoxSKR
+  name:  uplink-tsf-8x65mm-box-name
+  description: uplink-tsf-8x65mm-box-desc
   productEntity: AmmoBox8x65mmSKR
   cost:
     FederationMilitaryCredit: 12
   categories:
-  - UplinkSecurityAmmo
+  - UplinkTsfAmmo
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - SecurityUplink
+      - TSFUplink
 
 - type: listing
-  id: UplinkSecurityMagazine68x52mm
-  name:  uplink-security-68x52mm-magazine-name
-  description: uplink-security-68x52mm-magazine-desc
+  id: UplinkTsfMagazine68x52mm
+  name:  uplink-tsf-68x52mm-magazine-name
+  description: uplink-tsf-68x52mm-magazine-desc
   productEntity: Magazine68x52mmCaseless
   cost:
     FederationMilitaryCredit: 2
   categories:
-  - UplinkSecurityAmmo
+  - UplinkTsfAmmo
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - SecurityUplink
+      - TSFUplink
 
 - type: listing
-  id: UplinkSecurityBox68x52mm
-  name:  uplink-security-68x52mm-box-name
-  description: uplink-security-68x52mm-box-desc
+  id: UplinkTsfBox68x52mm
+  name:  uplink-tsf-68x52mm-box-name
+  description: uplink-tsf-68x52mm-box-desc
   productEntity: AmmoBox68x52mmCaselessBig
   cost:
     FederationMilitaryCredit: 8
   categories:
-  - UplinkSecurityAmmo
+  - UplinkTsfAmmo
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - SecurityUplink
+      - TSFUplink
 
 - type: listing
-  id: UplinkSecurityNavyOfficerSword
-  name:  uplink-security-navyofficersword-name
-  description: uplink-security-navyofficersword-desc
+  id: UplinkTsfNavyOfficerSword
+  name:  uplink-tsf-navyofficersword-name
+  description: uplink-tsf-navyofficersword-desc
   productEntity: ClothingBeltSheathFilledNavy
   icon: { sprite: _Mono/Objects/Weapons/Melee/ccsabre.rsi, state: icon }
   cost:
     FederationMilitaryCredit: 10
   categories:
-    - UplinkSecurityWeapons
+    - UplinkTsfWeapons
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:
         tags:
-          - SecurityUplink
+          - TSFUplink
 
 # Vouchers
 
 - type: listing
-  id: UplinkSecurityT0Voucher
-  name:  uplink-security-t0-voucher-name
-  description: uplink-security-t0-voucher-desc
+  id: UplinkTsfT0Voucher
+  name:  uplink-tsf-t0-voucher-name
+  description: uplink-tsf-t0-voucher-desc
   productEntity: ShipVoucherTsfT0
   cost:
     FederationMilitaryCredit: 25
   categories:
-  - UplinkSecurityVouchers
+  - UplinkTsfVouchers
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -252,14 +252,14 @@
 # start T1
 
 - type: listing
-  id: UplinkSecurityT1VoucherSpica
-  name:  uplink-security-t1-spica-voucher-name
-  description: uplink-security-t1-spica-voucher-desc
+  id: UplinkTsfT1VoucherSpica
+  name:  uplink-tsf-t1-spica-voucher-name
+  description: uplink-tsf-t1-spica-voucher-desc
   productEntity: ShipVoucherSpica
   cost:
     FederationMilitaryCredit: 55
   categories:
-  - UplinkSecurityVouchers
+  - UplinkTsfVouchers
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -267,14 +267,14 @@
       - FactionStaticUplinkTsf
 
 - type: listing
-  id: UplinkSecurityT1VoucherDagger
-  name:  uplink-security-t1-dagger-voucher-name
-  description: uplink-security-t1-dagger-voucher-desc
+  id: UplinkTsfT1VoucherDagger
+  name:  uplink-tsf-t1-dagger-voucher-name
+  description: uplink-tsf-t1-dagger-voucher-desc
   productEntity: ShipVoucherDagger
   cost:
     FederationMilitaryCredit: 75
   categories:
-  - UplinkSecurityVouchers
+  - UplinkTsfVouchers
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -282,14 +282,14 @@
       - FactionStaticUplinkTsf
 
 - type: listing
-  id: UplinkSecurityT1VoucherTarantula
-  name:  uplink-security-t1-tarantula-voucher-name
-  description: uplink-security-t1-tarantula-voucher-desc
+  id: UplinkTsfT1VoucherTarantula
+  name:  uplink-tsf-t1-tarantula-voucher-name
+  description: uplink-tsf-t1-tarantula-voucher-desc
   productEntity: ShipVoucherTarantula
   cost:
     FederationMilitaryCredit: 85
   categories:
-  - UplinkSecurityVouchers
+  - UplinkTsfVouchers
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -297,14 +297,14 @@
       - FactionStaticUplinkTsf
 
 - type: listing
-  id: UplinkSecurityT1VoucherSentinel
-  name:  uplink-security-t1-sentinel-voucher-name
-  description: uplink-security-t1-sentinel-voucher-desc
+  id: UplinkTsfT1VoucherSentinel
+  name:  uplink-tsf-t1-sentinel-voucher-name
+  description: uplink-tsf-t1-sentinel-voucher-desc
   productEntity: ShipVoucherSentinel
   cost:
     FederationMilitaryCredit: 85
   categories:
-  - UplinkSecurityVouchers
+  - UplinkTsfVouchers
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -312,14 +312,14 @@
       - FactionStaticUplinkTsf
 
 - type: listing
-  id: UplinkSecurityT1VoucherMercury
-  name:  uplink-security-t1-mercury-voucher-name
-  description: uplink-security-t1-mercury-voucher-desc
+  id: UplinkTsfT1VoucherMercury
+  name:  uplink-tsf-t1-mercury-voucher-name
+  description: uplink-tsf-t1-mercury-voucher-desc
   productEntity: ShipVoucherMercury
   cost:
     FederationMilitaryCredit: 65 # Needs 2 man crew for GCS so its discounted
   categories:
-  - UplinkSecurityVouchers
+  - UplinkTsfVouchers
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -327,14 +327,14 @@
       - FactionStaticUplinkTsf
 
 - type: listing
-  id: UplinkSecurityT1VoucherAldebaran
-  name:  uplink-security-t1-aldebaran-voucher-name
-  description: uplink-security-t1-aldebaran-voucher-desc
+  id: UplinkTsfT1VoucherAldebaran
+  name:  uplink-tsf-t1-aldebaran-voucher-name
+  description: uplink-tsf-t1-aldebaran-voucher-desc
   productEntity: ShipVoucherAldebaran
   cost:
     FederationMilitaryCredit: 80
   categories:
-  - UplinkSecurityVouchers
+  - UplinkTsfVouchers
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -346,14 +346,14 @@
 # start T2
 
 - type: listing
-  id: UplinkSecurityT2VoucherAndromeda
-  name:  uplink-security-t2-andromeda-voucher-name
-  description: uplink-security-t2-andromeda-voucher-desc
+  id: UplinkTsfT2VoucherAndromeda
+  name:  uplink-tsf-t2-andromeda-voucher-name
+  description: uplink-tsf-t2-andromeda-voucher-desc
   productEntity: ShipVoucherAndromeda
   cost:
     FederationMilitaryCredit: 165
   categories:
-  - UplinkSecurityVouchers
+  - UplinkTsfVouchers
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -361,14 +361,14 @@
       - FactionStaticUplinkTsf
 
 - type: listing
-  id: UplinkSecurityT2VoucherSpekter
-  name:  uplink-security-t2-spekter-voucher-name
-  description: uplink-security-t2-spekter-voucher-desc
+  id: UplinkTsfT2VoucherSpekter
+  name:  uplink-tsf-t2-spekter-voucher-name
+  description: uplink-tsf-t2-spekter-voucher-desc
   productEntity: ShipVoucherSpekter
   cost:
     FederationMilitaryCredit: 240
   categories:
-  - UplinkSecurityVouchers
+  - UplinkTsfVouchers
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -380,14 +380,29 @@
 # start T3
 
 - type: listing
-  id: UplinkSecurityT3VoucherAltair
-  name:  uplink-security-t3-altair-voucher-name
-  description: uplink-security-t3-altair-voucher-desc
+  id: UplinkTsfT3VoucherAltair
+  name:  uplink-tsf-t3-altair-voucher-name
+  description: uplink-tsf-t3-altair-voucher-desc
   productEntity: ShipVoucherAltair
   cost:
     FederationMilitaryCredit: 345
   categories:
-  - UplinkSecurityVouchers
+  - UplinkTsfVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+- type: listing
+  id: UplinkTsfT3VoucherPolaris
+  name:  uplink-tsf-t3-polaris-voucher-name
+  description: uplink-tsf-t3-polaris-voucher-desc
+  productEntity: ShipVoucherPolaris
+  cost:
+    FederationMilitaryCredit: 400
+  categories:
+  - UplinkTsfVouchers
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -396,28 +411,13 @@
 
 - type: listing
   id: UplinkSecurityT3VoucherFujian
-  name:  uplink-security-t3-fujian-voucher-name
-  description: uplink-security-t3-fujian-voucher-desc
+  name:  uplink-tsf-t3-fujian-voucher-name
+  description: uplink-tsf-t3-fujian-voucher-desc
   productEntity: ShipVoucherFujian
   cost:
     FederationMilitaryCredit: 320
   categories:
-  - UplinkSecurityVouchers
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - FactionStaticUplinkTsf
-
-- type: listing
-  id: UplinkSecurityT3VoucherPolaris
-  name:  uplink-security-t3-polaris-voucher-name
-  description: uplink-security-t3-polaris-voucher-desc
-  productEntity: ShipVoucherPolaris
-  cost:
-    FederationMilitaryCredit: 400
-  categories:
-  - UplinkSecurityVouchers
+  - UplinkTsfVouchers
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -429,14 +429,14 @@
 # start T4
 
 - type: listing
-  id: UplinkSecurityFlyssaVoucher
-  name:  uplink-security-flyssa-voucher-name
-  description: uplink-security-flyssa-voucher-desc
+  id: UplinkTsfFlyssaVoucher
+  name:  uplink-tsf-flyssa-voucher-name
+  description: uplink-tsf-flyssa-voucher-desc
   productEntity: ShipVoucherFlyssa
   cost:
     FederationMilitaryCredit: 750
   categories:
-  - UplinkSecurityVouchers
+  - UplinkTsfVouchers
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -448,67 +448,1451 @@
 # Misc
 
 - type: listing
-  id: UplinkSecurityFactionRDServer
+  id: UplinkTsfFactionRDServer
   name:  uplink-faction-server-name
   description: uplink-faction-server-desc
   productEntity: RDServerTSFFlatpack
   cost:
     FederationMilitaryCredit: 100
   categories:
-  - UplinkSecurityUtility
+  - UplinkTsfUtility
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - SecurityUplink
+      - TSFUplink
 
 - type: listing
-  id: UplinkSecurityFactionLathe
+  id: UplinkTsfFactionLathe
   name:  uplink-faction-lathe-name
   description: uplink-faction-lathe-desc
   productEntity: FactionLatheFlatpack
   cost:
     FederationMilitaryCredit: 50
   categories:
-  - UplinkSecurityUtility
+  - UplinkTsfUtility
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - SecurityUplink
+      - TSFUplink
 
 # - type: listing
-#   id: UplinkSecurityAuroraExosuit
+#   id: UplinkTsfAuroraExosuit
 #   name:  uplink-exosuit-aurora-name
 #   description: uplink-exosuit-aurora-desc
 #   productEntity: ClothingOuterExosuitAurora
 #   cost:
 #     FederationMilitaryCredit: 125
 #   categories:
-#   - UplinkSecurityHardsuits
+#   - UplinkTsfHardsuits
 #   conditions:
 #   - !type:StoreWhitelistCondition
 #     whitelist:
 #       tags:
-#       - SecurityUplink
+#       - TSFUplink
 
 - type: listing
-  id: UplinkSecurityPulseRifle
-  name:  uplink-security-pulserifle-name
-  description: uplink-security-pulserifle-desc
+  id: UplinkTsfPulseRifle
+  name:  uplink-tsf-pulserifle-name
+  description: uplink-tsf-pulserifle-desc
   productEntity: WeaponPulseRifle
   icon: { sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi, state: base }
   cost:
     FederationMilitaryCredit: 100
   categories:
-    - UplinkSecurityWeapons
+    - UplinkTsfWeapons
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:
         tags:
-          - SecurityUplink
+          - TSFUplink
     - !type:BuyerJobCondition
       whitelist:
-        - Sheriff
-        - Bailiff
-        - SeniorOfficer
+        - TsfCommander
+        - TsfOfficer
+        - TsfTeamleader
+
+# FUC->FMC. FMC cost 5x - Mono
+
+- type: listing
+  id: UplinkClothingOuterHardsuitM82c
+  name: uplink-tsf-hardsuit-m82c-name
+  description: uplink-tsf-hardsuit-m82c-desc
+  productEntity: ClothingOuterHardsuitM82c
+  icon: { sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82c.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+    - UplinkTsfHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkClothingOuterHardsuitM82b
+  name: uplink-tsf-hardsuit-m82b-name
+  description: uplink-tsf-hardsuit-m82b-desc
+  productEntity: ClothingOuterHardsuitM82b
+  icon: { sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82b.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+    - UplinkTsfHardsuits
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfMK58
+  name:  uplink-tsf-mk58-name
+  description: uplink-tsf-mk58-desc
+  productEntity: WeaponPistolMk58
+  icon: { sprite: Objects/Weapons/Guns/Pistols/mk58.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfDisabler
+  name:  uplink-tsf-disabler-name
+  description: uplink-tsf-disabler-desc
+  productEntity: WeaponDisabler
+  icon: { sprite: Objects/Weapons/Guns/Battery/disabler.rsi, state: base }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfStunbaton
+  name:  uplink-tsf-stunbaton-name
+  description: uplink-tsf-stunbaton-desc
+  productEntity: Stunbaton
+  icon: { sprite: Objects/Weapons/Melee/stunbaton.rsi, state: stunbaton_off }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfEmitter
+  name:  uplink-tsf-emitter-name
+  description: uplink-tsf-emitter-desc
+  productEntity: WeaponEmpEmitter
+  icon: { sprite: _NF/Objects/Weapons/Guns/Projectiles/emp.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 15 #Mono Emmiter price: From 1 to 3
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfEnforcer
+  name:  uplink-tsf-enforcer-name
+  description: uplink-tsf-enforcer-desc
+  productEntity: WeaponShotgunEnforcer
+  icon: { sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 15
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfLecter
+  name:  uplink-tsf-lecter-name
+  description: uplink-tsf-lecter-desc
+  productEntity: WeaponRifleLecter
+  icon: { sprite: _Mono/Objects/Weapons/Guns/Rifles/lecter.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 15
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+# - type: listing # Mono - this entire listing
+#   id: UplinkTsfHFBlade
+#   name:  uplink-tsf-hfblade-name
+#   description: uplink-tsf-hfblade-desc
+#   productEntity: WeaponHFKatana
+#   icon: { sprite: _Mono/Objects/Weapons/Melee/hfblade.rsi, state: icon }
+#   cost:
+#     FederationMilitaryCredit: 50
+#   categories:
+#     - UplinkTsfWeapons
+#   conditions:
+#     - !type:StoreWhitelistCondition
+#       whitelist:
+#         tags:
+#           - TSFUplink
+
+- type: listing
+  id: UplinkTsfVulcan
+  name:  uplink-tsf-vulcan-name
+  description: uplink-tsf-vulcan-desc
+  productEntity: WeaponRifleVulcan
+  icon: { sprite: _DV/Objects/Weapons/Guns/Rifles/vulcan.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 15
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfLaserCarbine
+  name:  uplink-tsf-lasercarbine-name
+  description: uplink-tsf-lasercarbine-desc
+  productEntity: WeaponLaserCarbine
+  icon: { sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 5 # GARBAGE!!!
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfDisablerSMG
+  name:  uplink-tsf-disablersmg-name
+  description: uplink-tsf-disablersmg-desc
+  productEntity: WeaponDisablerSMG
+  icon: { sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi, state: base }
+  cost:
+    FederationMilitaryCredit: 25 # STUNMETA!!!
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfEnergySword
+  name:  uplink-tsf-energysword-name
+  description: uplink-tsf-energysword-desc
+  productEntity: EnergySwordNfsd
+  icon: { sprite: Objects/Weapons/Melee/e_sword.rsi, state: e_sword }
+  cost:
+    FederationMilitaryCredit: 30
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfWT550
+  name:  uplink-tsf-wt550-name
+  description: uplink-tsf-wt550-desc
+  productEntity: WeaponSubMachineGunWt550
+  icon: { sprite: Objects/Weapons/Guns/SMGs/wt550.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 20
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfEnergyGun
+  name:  uplink-tsf-energygun-name
+  description: uplink-tsf-energygun-desc
+  productEntity: WeaponEnergyGun
+  icon: { sprite: _DV/Objects/Weapons/Guns/Battery/energygun.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 15
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfEmpRpg
+  name:  uplink-tsf-emprpg-name
+  description: uplink-tsf-emprpg-desc
+  productEntity: WeaponLauncherRocketEmp
+  icon: { sprite: Objects/Weapons/Guns/Launchers/rocket.rsi, state: base }
+  cost:
+    FederationMilitaryCredit: 100 # Cost increased pending removal or rebalancing
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+
+- type: listing
+  id: UplinkTsfHolo
+  name:  uplink-tsf-holo-name
+  description: uplink-tsf-holo-desc
+  productEntity: HoloprojectorNfsd
+  icon: { sprite: _NF/Objects/Devices/Holoprojectors/nfsd.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkForcefieldTSF
+  name:  uplink-tsf-forcefield-name
+  description: uplink-tsf-forcefield-desc
+  productEntity: HoloprojectorFieldTSF
+  icon: { sprite: _NF/Objects/Devices/Holoprojectors/nfsd.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 55
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfJetpack
+  name:  uplink-tsf-jetpack-name
+  description: uplink-tsf-jetpack-desc
+  productEntity: JetpackNfsdFilled
+  icon: { sprite: _NF/Objects/Tanks/Jetpacks/nfsd.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfMagboots
+  name:  uplink-tsf-magboots-name
+  description: uplink-tsf-magboots-desc
+  productEntity: ClothingShoesBootsMagSecurityFilled # Mono
+  icon: { sprite: _NF/Clothing/Shoes/Boots/magboots-security.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkNfsdTechfab
+  name:  uplink-tsf-techfab-name
+  description: uplink-tsf-techfab-desc
+  productEntity: NfsdTechFabCircuitboard
+  icon: { sprite: _NF/Objects/Misc/module.rsi, state: nfsd }
+  cost:
+    FederationMilitaryCredit: 25
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfKey
+  name:  uplink-tsf-key-name
+  description: uplink-tsf-key-desc
+  productEntity: BoxEncryptionKeyNfsd
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - TsfCommander
+
+#Mono start
+
+#- type: listing
+#  id: UplinkTsfRadPen
+#  name:  uplink-tsf-rad-pen-name
+#  description: uplink-tsf-rad-pen-desc
+#  productEntity: RadAutoInjector
+#  icon: { sprite: Objects/Specific/Medical/medipen.rsi, state: arithpen }
+#  cost:
+#    FederationMilitaryCredit: 18
+#  categories:
+#    - UplinkTsfUtility
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - TSFUplink
+#    - !type:BuyerJobCondition
+#      whitelist:
+#        - Sheriff
+#        - Brigmedic
+
+#- type: listing
+#  id: UplinkTsfPyrazinePen
+#  name:  uplink-tsf-pyrazine-pen-name
+#  description: uplink-tsf-pyrazine-pen-desc
+#  productEntity: PyraAutoInjector
+#  icon: { sprite: Objects/Specific/Medical/medipen.rsi, state: pyrapen }
+#  cost:
+#    FederationMilitaryCredit: 18
+#  categories:
+#    - UplinkTsfUtility
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - TSFUplink
+
+#- type: listing
+#  id: UplinkTsfPuncturasePen
+#  name:  uplink-tsf-puncturase-pen-name
+#  description: uplink-tsf-puncturase-pen-desc
+#  productEntity: PunctAutoInjector
+#  icon: { sprite: Objects/Specific/Medical/medipen.rsi, state: punctpen }
+#  cost:
+#    FederationMilitaryCredit: 18
+#  categories:
+#    - UplinkTsfUtility
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - TSFUplink
+
+#- type: listing
+#  id: UplinkTsfAntiPoisonPen
+#  name:  uplink-tsf-anti-poison-pen-name
+#  description: uplink-tsf-anti-poison-pen-desc
+#  productEntity: AntiPoisonMedipen
+#  icon: { sprite: Objects/Specific/Medical/medipen.rsi, state: penacid }
+#  cost:
+#    FederationMilitaryCredit: 18
+#  categories:
+#    - UplinkTsfUtility
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - TSFUplink
+
+- type: listing
+  id: UplinkTsfOmnizineJug
+  name:  uplink-tsf-omnizine-jug-name
+  description: uplink-tsf-omnizine-jug-desc
+  productEntity: JugOmnizine
+  cost:
+    FederationMilitaryCredit: 60
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - TsfCommander
+        - TsfCorpsman
+
+- type: listing
+  id: UplinkTsfMedicalAssembler
+  name:  uplink-tsf-medical-assembler-name
+  description: uplink-tsf-medical-assembler-desc
+  productEntity: MedicalAssemblerFlatpack
+  cost:
+    FederationMilitaryCredit: 8
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - TsfCommander
+        - TsfCorpsman
+
+- type: listing
+  id: UplinkTsfCompactDefibrillator
+  name:  uplink-tsf-compact-defibrillator-name
+  description: uplink-tsf-compact-defibrillator-desc
+  productEntity: DefibrillatorCompact
+  cost:
+    FederationMilitaryCredit: 15
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - TsfCommander
+        - TsfCorpsman
+
+- type: listing
+  id: UplinkTsfSyringeCaseFilled
+  name:  uplink-tsf-syringe-case-name
+  description: uplink-tsf-syringe-case-desc
+  productEntity: SyringeCaseAltFilled
+  cost:
+    FederationMilitaryCredit: 50
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+#- type: listing
+#  id: UplinkTsfCombatPen
+#  name:  uplink-tsf-combat-pen-name
+#  description: uplink-tsf-combat-pen-desc
+#  productEntity: CombatMedipen
+#  icon: { sprite: Objects/Specific/Medical/medipen.rsi, state: morphen }
+#  cost:
+#    FederationMilitaryCredit: 12
+#  categories:
+#    - UplinkTsfUtility
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - TSFUplink
+
+- type: listing
+  id: UplinkTsfCyborgModule
+  name:  uplink-tsf-cyborg-module-name
+  description: uplink-tsf-cyborg-module-desc
+  productEntity: BorgModuleSecurity
+  icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+  cost:
+    FederationMilitaryCredit: 50
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfMechPulseRifle
+  name:  uplink-tsf-mechpulserifle-name
+  description: uplink-tsf-mechpulserifle-desc
+  productEntity: WeaponMechCombatPulseRifleTSF
+  icon: { sprite: Objects/Specific/Mech/mecha_equipment.rsi, state: mecha_pulse }
+  cost:
+    FederationMilitaryCredit: 100
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - TsfOfficer
+        - TsfTeamleader
+        - TsfCommander
+
+#Mono end
+
+- type: listing
+  id: UplinkTsfEmpRocket
+  name:  uplink-tsf-emprocket-name
+  description: uplink-tsf-emprocket-desc
+  productEntity: CartridgeRocketEmp
+  icon: { sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: rpg-emp }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfThrusterKit
+  name:  uplink-tsf-thrusterkit-name
+  description: uplink-tsf-thrusterkit-desc
+  productEntity: BoxT3SuperCapacitor
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box}
+  cost:
+    FederationMilitaryCredit: 20
+  categories:
+    - UplinkTsfBundles
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfPistolMagazine
+  name:  uplink-tsf-Magazine9x19mmPistolFMJ-name
+  description: uplink-tsf-Magazine9x19mmPistolFMJ-desc
+  productEntity: BoxMagazine9x19mmFMJ
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsf556x45mmMagazine
+  name:  uplink-tsf-5-56x45mmMagazine-name
+  description: uplink-tsf-5-56x45mmMagazine-desc
+  productEntity: BoxMagazine556x45mmFMJ
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsf762x51mmMagazine
+  name:  uplink-tsf-7-62x51mmMagazine-name
+  description: uplink-tsf-7-62x51mmMagazine-desc
+  productEntity: BoxMagazine762x51mmFMJ
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsf762x51mmMagazineRubber
+  name: uplink-tsf-7-62x51mmMagazine-rubber-name
+  description: uplink-tsf-7-62x51mmMagazine-rubber-desc
+  productEntity: BoxMagazine762x51mmRubber
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsf762x39mmMagazine
+  name:  uplink-tsf-7-62x39mmMagazine-name
+  description: uplink-tsf-7-62x39mmMagazine-desc
+  productEntity: BoxMagazine762x39mmFMJ
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfWT550Magazine
+  name:  uplink-tsf-wt550magazine-name
+  description: uplink-tsf-wt550magazine-desc
+  productEntity: BoxMagazine46x30mmSubMachineGunTopMountedFMJ
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfPistolMagazineRubber
+  name:  uplink-tsf-Magazine9x19mmPistolFMJ-rubber-name
+  description: uplink-tsf-Magazine9x19mmPistolFMJ-rubber-desc
+  productEntity: BoxMagazine9x19mmRubber
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsf556x45mmMagazineRubber
+  name: uplink-tsf-5-56x45mmMagazine-rubber-name
+  description: uplink-tsf-5-56x45mmMagazine-rubber-desc
+  productEntity: BoxMagazine556x45mmRubber
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsf762x39mmMagazineRubber
+  name: uplink-tsf-7-62x39mmMagazine-rubber-name
+  description: uplink-tsf-7-62x39mmMagazine-rubber-desc
+  productEntity: BoxMagazine762x39mmRubber
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+        - TSFUplink
+
+- type: listing
+  id: UplinkTsfHypo
+  name:  uplink-tsf-hypo-name
+  description: uplink-tsf-hypo-desc
+  productEntity: HypoBrigmedic
+  icon: { sprite: _NF/Objects/Specific/Medical/hypobrigmedic.rsi, state: hypo }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - TsfCorpsman
+        - TsfCommander
+
+- type: listing
+  id: UplinkTsfAmbuzol
+  name:  uplink-tsf-ambuzol-name
+  description: uplink-tsf-ambuzol-desc
+  productEntity: SyringeAmbuzol
+  icon: { sprite: Objects/Specific/Chemistry/syringe.rsi, state: syringe_base0 }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfMedkit
+  name:  uplink-tsf-medkit-name
+  description: uplink-tsf-medkit-desc
+  productEntity: MedkitCombatFilled
+  icon: { sprite: _NF/Objects/Specific/Medical/firstaidkits.rsi, state: blackkit } # Frontier: _NF prefix
+  cost:
+    FederationMilitaryCredit: 20
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - TsfCorpsman
+        - TsfOfficer
+        - TsfCommander
+
+- type: listing
+  id: UplinkTsfInspector
+  name:  uplink-tsf-inspector-name
+  description: uplink-tsf-inspector-desc
+  productEntity: WeaponRevolverInspector
+  icon: { sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfMateba
+  name:  uplink-tsf-mateba-name
+  description: uplink-tsf-mateba-desc
+  productEntity: WeaponRevolverMateba
+  icon: { sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 15
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+    - !type:BuyerJobCondition # Mono: Whitelisted Mateba to only Baliff, Sergeant and Sheriff
+      whitelist:
+        - TsfOfficer
+        - TsfTeamleader
+        - TsfCommander
+
+- type: listing
+  id: UplinkTsfTruncheon
+  name:  uplink-tsf-truncheon-name
+  description: uplink-tsf-truncheon-desc
+  productEntity: Truncheon
+  icon: { sprite: Objects/Weapons/Melee/truncheon.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfArmingSword
+  name:  uplink-tsf-armingsword-name
+  description: uplink-tsf-armingsword-desc
+  productEntity: PlasteelArmingSword
+  icon: { sprite: _NF/Objects/Weapons/Melee/armingsword.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+# Mono
+#- type: listing
+#  id: UplinkTsfCaptainSword
+#  name:  uplink-tsf-captainsword-name
+#  description: uplink-tsf-captainsword-desc
+#  productEntity: ClothingBeltSheathFilled
+#  icon: { sprite: Objects/Weapons/Melee/captain_sabre.rsi, state: icon }
+#  cost:
+#    FederationMilitaryCredit: 10 #From 10 to 2
+#  categories:
+#    - UplinkTsfWeapons
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - TSFUplink
+
+- type: listing
+  id: UplinkTsfPulsePistol
+  name:  uplink-tsf-pulsepistol-name
+  description: uplink-tsf-pulsepistol-desc
+  productEntity: WeaponPulsePistol
+  icon: { sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi, state: base }
+  cost:
+    FederationMilitaryCredit: 60
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - TsfOfficer
+        - TsfTeamleader
+        - TsfCommander
+
+- type: listing
+  id: UplinkTsfPulseCarbine
+  name:  uplink-tsf-pulsecarbine-name
+  description: uplink-tsf-pulsecarbine-desc
+  productEntity: WeaponPulseCarbine
+  icon: { sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi, state: base }
+  cost:
+    FederationMilitaryCredit: 250
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - TsfCommander
+        - TsfOfficer
+        - TsfTeamleader
+
+- type: listing
+  id: UplinkTsfHammer
+  name:  uplink-tsf-hammer-name
+  description: uplink-tsf-hammer-desc
+  productEntity: SecBreachingHammer
+  icon: { sprite: Nyanotrasen/Objects/Weapons/Melee/breaching_hammer.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 15
+  categories:
+    - UplinkTsfWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfTeleShield
+  name:  uplink-tsf-teleshield-name
+  description: uplink-tsf-teleshield-desc
+  productEntity: TelescopicShield
+  icon: { sprite: Objects/Weapons/Melee/teleriot_shield.rsi, state: teleriot-on }
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfEnergyShield
+  name:  uplink-tsf-energyshield-name
+  description: uplink-tsf-energyshield-desc
+  productEntity: EnergyShieldNfsd
+  icon: { sprite: _NF/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
+  cost:
+    FederationMilitaryCredit: 40
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfSwat
+  name:  uplink-tsf-swat-name
+  description: uplink-tsf-swat-desc
+  productEntity: ClothingMaskGasSheriff
+  icon: { sprite: _NF/Clothing/Mask/nfsd_sheriff.rsi, state: icon}
+  cost:
+    FederationMilitaryCredit: 5 #Mono: From 3 to 1
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+    - !type:BuyerJobCondition
+      whitelist:
+        - TsfOfficer
+        - TsfTeamleader
+        - TsfCommander
+
+- type: listing
+  id: UplinkTsfSpeedloader
+  name:  uplink-tsf-speedloader-name
+  description: uplink-tsf-speedloader-desc
+  productEntity: SpeedLoader357_magnumFMJ
+  icon: { sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/357_magnum/357_magnum_speed_loader.rsi, state: base }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfSpeedloaderRubber
+  name:  uplink-tsf-speedloaderrubber-name
+  description: uplink-tsf-speedloaderrubber-desc
+  productEntity: SpeedLoader357_magnumRubber
+  icon: { sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/357_magnum/357_magnum_speed_loader.rsi, state: base }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfShotLethal
+  name:  uplink-tsf-shotlethal-name
+  description: uplink-tsf-shotlethal-desc
+  productEntity: AmmoBox12_gaugeBuckshot
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfShotBeanbag
+  name:  uplink-tsf-shotbeanbag-name
+  description: uplink-tsf-shotbeanbag-desc
+  productEntity: AmmoBox12_gaugeBeanbag
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfShotIncend
+  name:  uplink-tsf-shotincend-name
+  description: uplink-tsf-shotincend-desc
+  productEntity: AmmoBox12_gaugeIncendiary
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfShotSlug
+  name:  uplink-tsf-shotslug-name
+  description: uplink-tsf-shotslug-desc
+  productEntity: AmmoBox12_gaugeSlug
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfCash7500
+  name: uplink-tsf-cash7500-name
+  description: uplink-tsf-cash7500-desc
+  productEntity: SpaceCash7500 # Mono: Changed the exchange rate from 1000 to 5000 to 7500
+  icon: { sprite: Objects/Economy/cash.rsi, state: cash_1000000 }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfSmokeGrenadeBox
+  name:  uplink-tsf-smokegrenade-box-name
+  description: uplink-tsf-smokegrenade-box-desc
+  productEntity: BoxSmokeGrenades
+  icon: { sprite: Objects/Weapons/Grenades/smoke.rsi, state: icon}
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfExplosives # Moved to Explosives - Mono
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfTeargasGrenadeBox
+  name:  uplink-tsf-teargasgrenade-box-name
+  description: uplink-tsf-teargasgrenade-box-desc
+  productEntity: BoxTeargasGrenades
+  icon: { sprite: Objects/Weapons/Grenades/tear_gas.rsi, state: icon}
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+    - UplinkTsfExplosives # Moved to Explosives - Mono
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfFlashbangGrenadeBox
+  name:  uplink-tsf-flashbanggrenade-box-name
+  description: uplink-tsf-flashbanggrenade-box-desc
+  productEntity: BoxFlashBangGrenades
+  icon: { sprite: Objects/Weapons/Grenades/flashbang.rsi, state: icon}
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfExplosives # Moved to Explosives - Mono
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfStingerGrenadeBox
+  name:  uplink-tsf-stingergrenade-box-name
+  description: uplink-tsf-stingergrenade-box-desc
+  productEntity: BoxStingerGrenadesNfsd
+  icon: { sprite: Objects/Weapons/Grenades/stingergrenade.rsi, state: icon}
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+    - UplinkTsfExplosives # Moved to Explosives - Mono
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfEmpGrenadeBox
+  name:  uplink-tsf-empgrenade-box-name
+  description: uplink-tsf-empgrenade-box-desc
+  productEntity: BoxEMPGrenadesNfsd
+  icon: { sprite: Objects/Weapons/Grenades/empgrenade.rsi, state: icon}
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+    - UplinkTsfExplosives
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfExplosiveGrenadeBox
+  name:  uplink-tsf-explosivegrenade-box-name
+  description: uplink-tsf-explosivegrenade-box-desc
+  productEntity: BoxExplosiveGrenadesNfsd
+  icon: { sprite: Objects/Weapons/Grenades/grenade.rsi, state: icon}
+  cost:
+    FederationMilitaryCredit: 15
+  categories:
+    - UplinkTsfExplosives
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfIncendiaryGrenadeBox
+  name:  uplink-tsf-incendiarygrenade-box-name
+  description: uplink-tsf-incendiarygrenade-box-desc
+  productEntity: BoxIncendiaryGrenadesNfsd
+  icon: { sprite: Objects/Weapons/Grenades/pyrogrenade.rsi, state: icon}
+  cost:
+    FederationMilitaryCredit: 10 # Mono 3->2
+  categories:
+    - UplinkTsfExplosives
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfShrapnelGrenadeBox
+  name:  uplink-tsf-shrapnelgrenade-box-name
+  description: uplink-tsf-shrapnelgrenade-box-desc
+  productEntity: BoxShrapnelGrenadesNfsd
+  icon: { sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi, state: icon}
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+    - UplinkTsfExplosives
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfBreachingChargesBox
+  name:  uplink-tsf-breachingcharge-box-name
+  description: uplink-tsf-breachingcharge-box-desc
+  productEntity: BoxBreachingCharges
+  icon: { sprite: _DV/Objects/Weapons/Bombs/breaching.rsi, state: icon}
+  cost:
+    FederationMilitaryCredit: 15
+  categories:
+    - UplinkTsfExplosives
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfHoverbikeNfsdFlatpack
+  name:  uplink-tsf-hoverbike-name
+  description: uplink-tsf-hoverbike-desc
+  productEntity: HoverbikeNfsdFlatpack
+  icon: { sprite: _NF/Objects/Vehicles/hoverbike.rsi, state: vehicle }
+  cost:
+    FederationMilitaryCredit: 15
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfLethalArmory
+  name:  uplink-tsf-lethalarmory-name
+  description: uplink-tsf-lethalarmory-desc
+  productEntity: CrateArmoryLethalNfsd
+  icon: { sprite: _NF/Structures/Storage/Crates/nfsd_secure2.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 75
+  categories:
+    - UplinkTsfBundles
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfTrackingBundle
+  name: uplink-tsf-trackingdart-bundle-name
+  description: uplink-tsf-trackingdart-bundle-desc
+  productEntity: ClothingBackpackDuffelNfsdTrackingBundle
+  icon: { sprite: _NF/Clothing/Back/Duffels/nfsd_brown.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 20
+  categories:
+    - UplinkTsfBundles
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfEmpBundle
+  name: uplink-tsf-emp-bundle-name
+  description: uplink-tsf-emp-bundle-desc
+  productEntity: ClothingBackpackDuffelNfsdEmpBundle
+  icon: { sprite: _NF/Clothing/Back/Duffels/nfsd_brown.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 20
+  categories:
+    - UplinkTsfBundles
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfNonLethalArmory
+  name:  uplink-tsf-nonlethalarmory-name
+  description: uplink-tsf-nonlethalarmory-desc
+  productEntity: CrateArmoryNonLethalNfsd
+  icon: { sprite: _NF/Structures/Storage/Crates/nfsd_secure1.rsi, state: icon }
+  cost:
+    FederationMilitaryCredit: 50
+  categories:
+    - UplinkTsfBundles
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfEmpGrenadeAmmo
+  name:  uplink-tsf-emp-ammo-name
+  description: uplink-tsf-emp-ammo-desc
+  productEntity: BoxEmpGrenadesAmmo
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfTrackingDartsAmmo
+  name:  uplink-tsf-trackingdart-ammo-name
+  description: uplink-tsf-trackingdart-ammo-desc
+  productEntity: NFBoxDartsTracking
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfAmmo
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfSpaceBladeSec
+  name:  uplink-tsf-spaceblade-sec-name
+  description: uplink-tsf-spaceblade-sec-desc
+  productEntity: SpaceBladeSec
+  icon: { sprite: _NF/Objects/Fun/spaceblade.rsi, state: secblade }
+  cost:
+    FederationMilitaryCredit: 5
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink
+
+- type: listing
+  id: UplinkTsfContrabandForensicsModule
+  name:  uplink-tsf-contraband-forensics-module-name
+  description: uplink-tsf-contraband-forensics-module-desc
+  productEntity: ContrabandForensicsModule
+  icon: { sprite: _NF/Objects/Devices/cartridge.rsi, state: contraband_forensics }
+  cost:
+    FederationMilitaryCredit: 20
+  categories:
+    - UplinkTsfUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - TSFUplink

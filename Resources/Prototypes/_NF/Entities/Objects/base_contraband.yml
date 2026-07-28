@@ -1,6 +1,7 @@
 # Frontier-specific contraband targets.
 # If you need multiple currency types, specify them in the actual object instead of inheriting multiple parents here.
 
+
 - type: entity # Mono
   id: BaseContrabandNoValue
   abstract: true

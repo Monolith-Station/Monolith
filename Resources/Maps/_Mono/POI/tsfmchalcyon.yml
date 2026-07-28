@@ -5010,7 +5010,7 @@ entities:
       parent: 1
     - type: AccessReader
       access:
-      - - HeadOfSecurity
+      - - TsfOfficer
 - proto: AirlockNfsdGlass
   entities:
   - uid: 102
@@ -6526,7 +6526,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: AmmoBox45_magnumFMJ
+- proto: AmmoBox357_magnumFMJ
   entities:
   - uid: 326
     components:
@@ -50495,7 +50495,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 15.5,-14.5
       parent: 1
-- proto: SpawnPointBailiff
+- proto: SpawnPointTsfOfficer
   entities:
   - uid: 7664
     components:
@@ -50507,7 +50507,7 @@ entities:
     - type: Transform
       pos: -4.5,19.5
       parent: 1
-- proto: SpawnPointBrigmedic
+- proto: SpawnPointTsfCorpsman
   entities:
   - uid: 7666
     components:
@@ -50519,7 +50519,7 @@ entities:
     - type: Transform
       pos: 28.5,-12.5
       parent: 1
-- proto: SpawnPointCadet
+- proto: SpawnPointTsfRecruit
   entities:
   - uid: 7668
     components:
@@ -50546,7 +50546,7 @@ entities:
     - type: Transform
       pos: 24.5,14.5
       parent: 1
-- proto: SpawnPointDeputy
+- proto: SpawnPointTsfMarine
   entities:
   - uid: 7673
     components:
@@ -50581,7 +50581,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 14.5,8.5
       parent: 1
-- proto: SpawnPointSheriff
+- proto: SpawnPointTsfCommander
   entities:
   - uid: 7679
     components:
@@ -50667,7 +50667,7 @@ entities:
     - type: Transform
       pos: 17.5,3.5
       parent: 1
-- proto: SpeedLoader45_magnumFMJ
+- proto: SpeedLoader357_magnumFMJ
   entities:
   - uid: 7695
     components:
@@ -64869,7 +64869,7 @@ entities:
       gridUid: 1
     - type: AccessReader
       access:
-      - - HeadOfSecurity
+      - - TsfCommander
   - uid: 9947
     components:
     - type: Transform

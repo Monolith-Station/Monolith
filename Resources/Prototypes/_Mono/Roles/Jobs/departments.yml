@@ -22,6 +22,18 @@
   primary: false
 
 - type: department
+  id: MieyoManufacturingConcern
+  name: department-MieyoManufacturingConcern
+  description: department-MieyoManufacturingConcern-description
+  color: "#EEEEEE"
+  weight: 0
+  roles:
+  - MMCLiason
+  - MMCSecurity
+  - MMCEmployee
+  primary: false
+
+- type: department
   id: ViperGroup
   name: department-Viper
   description: department-Viper-description
@@ -33,3 +45,35 @@
   - VGCommander
   primary: false
   editorHidden: false
+
+- type: department
+  id: Pdv
+  name: department-Pdv
+  description: department-Pdv-description
+  color: "#DE3A3A"
+  weight: 115 # Mono
+  roles:
+  - PDVGrandVizier
+  - PDVAsvaran
+  - PDVDenasvar
+  - PDVRahkshan
+  - PDVInfiltrator
+  - PdvBorg
+  - PDVTarkhan
+
+- type: department
+  id: Tsf
+  name: department-Tsf
+  description: department-Tsf-description # Mono
+  color: "#326DA8" # Mono
+  weight: 120 # Mono
+  roles:
+  - TsfRecruit
+  - TsfCorpsman
+  - TsfMarine
+  - TsfOfficer
+  - TsfCommander
+  - TsfTeamleader
+  - TsfEngineer
+  - TsfMarsoc
+  - TsfBorg

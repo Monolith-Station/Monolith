@@ -51,7 +51,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobSecurityOfficer
+      role: JobTsfMarine
       time: 36000 # 10hr
 
 - type: loadoutEffectGroup
@@ -60,7 +60,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobSecurityOfficer
+      role: JobTsfMarine
       time: 108000 # 30hr
 
 - type: loadoutEffectGroup
@@ -69,7 +69,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobSecurityOfficer
+      role: JobTsfMarine
       time: 180000 # 50hr
 
 - type: loadoutEffectGroup
@@ -78,5 +78,5 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobSecurityOfficer
+      role: JobTsfMarine
       time: 270000 # 75hr

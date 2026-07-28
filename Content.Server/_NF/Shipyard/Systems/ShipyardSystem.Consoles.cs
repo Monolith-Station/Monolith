@@ -391,8 +391,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         }
 
         SendPurchaseMessage(shipyardConsoleUid, player, name, component.ShipyardChannel, secret: false);
-        if (component.SecretShipyardChannel is { } secretChannel)
-            SendPurchaseMessage(shipyardConsoleUid, player, name, secretChannel, secret: true);
+        ///if (component.SecretShipyardChannel is { } secretChannel) #Mono, why the hell do we have secret shipyard channels?????
+        ///    SendPurchaseMessage(shipyardConsoleUid, player, name, secretChannel, secret: true);
 
         var vesselStore = EnsureComp<VesselComponent>(shuttleUid);
         vesselStore.VesselId = vessel.ID;
@@ -560,8 +560,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         var name = GetFullName(deed);
         SendSellMessage(uid, deed.ShuttleOwner!, name, component.ShipyardChannel, player, secret: false);
-        if (component.SecretShipyardChannel is { } secretChannel)
-            SendSellMessage(uid, deed.ShuttleOwner!, name, secretChannel, player, secret: true);
+        //if (component.SecretShipyardChannel is { } secretChannel) #Mono, WHY IS THERE A SECRET SHIPYARD CHANNEL WE NEVER USE THOSE
+        //    SendSellMessage(uid, deed.ShuttleOwner!, name, secretChannel, player, secret: true);
 
         EntityUid? refreshId = targetId;
 

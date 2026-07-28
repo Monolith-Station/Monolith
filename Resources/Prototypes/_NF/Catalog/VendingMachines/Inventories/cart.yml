@@ -33,14 +33,11 @@
 - type: vendingMachineInventory
   id: NFPTechNfsdInventory
   startingInventory:
-    CadetPDA: 10
-    DeputyPDA: 10
-    BrigmedicNFPDA: 10
-    NFDetectivePDA: 10
-    SergeantPDA: 10
-    BailiffPDA: 10
-    ClearNFPDA: 4294967295 #infinite
-    ContractorIDCard: 4294967295 #infinite
+    TSFRecruitPDA: 10
+    TSFMarinePDA: 10
+    TSFCorpsmanPDA: 10
+    TSFTeamleaderPDA: 10
+    TSFOfficerPDA: 10
     ClothingHeadsetPrison: 4294967295 #infinite
     RubberStampApproved: 4294967295 #Infinite
     RubberStampDenied: 4294967295 #Infinite
@@ -61,6 +58,31 @@
     ClothingNeckTSFCloak: 3
     ClothingNeckMantleSheriff: 3
     ClothingMaskGasSheriff: 3
+    AccessConfigurator: 2
+  contrabandInventory:
+    BalloonNT: 2
+    LuxuryPen: 1
+
+- type: vendingMachineInventory
+  id: MonoPTechMieyoInventory
+  startingInventory:
+    MieyoEmployeePDA: 10
+    MieyoSecurityPDA: 10
+    ClearNFPDA: 4294967295 #infinite
+    ContractorIDCard: 4294967295 #infinite
+    ClothingHeadsetPrison: 4294967295 #infinite
+    RubberStampApproved: 4294967295 #Infinite
+    RubberStampDenied: 4294967295 #Infinite
+    Pen: 4294967295 #Infinite
+    BoxPaper: 4
+    BoxPaperOffice: 4
+    BoxPaperCaptainsThoughts: 4
+    BoxEnvelope: 4
+    BoxFolderGreen: 3
+    BoxFolderRed: 3
+    HandLabeler: 4294967295 #Infinite
+    EncryptionKeyMieyo: 4294967295 #Infinite
+    EncryptionKeyMieyoCommand: 5
     AccessConfigurator: 2
   contrabandInventory:
     BalloonNT: 2

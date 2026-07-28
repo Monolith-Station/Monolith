@@ -83,11 +83,12 @@ public sealed partial class IdCardConsoleComponent : Component
     //"USSPCommand", // Mono
     //"Theatre",
     "Frontier", // Frontier //TSF Base access
-    "Sergeant", // Frontier //TSF FTL access
-    "Bailiff", // Frontier //TSF Command access
+    "TsfGeneral", // Mono //General Marine access, everyone has it in the corps
+    "TsfOfficer", // Mono //TSF Command access
+    "TsfFtl", // Mono //teamleader level access
     "TsfmcEngineering", // Mono, TSF Engineering access
-    "HeadOfSecurity", // TSF Colonel
-    "Pirate", //Frontier //PDV base access
+    "TsfCommander", // TSF Colonel
+    "PDVGeneral", //Frontier //PDV base access
     "PDVCommand", //Mono, PDV leadership (Denasvar, Asvaran, Vizier)
     "GrandVizier",//Mono, PDV Vizier
     };

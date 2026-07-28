@@ -57,12 +57,114 @@
   - type: Item
     heldPrefix: medic
 
-# MARK: TSF Engi
+# MARK: TSF
+
+- type: entity
+  parent: IDCardStandard
+  id: TsfRecruitIDCard
+  name: TSF recruit ID card
+  components:
+  - type: PresetIdCard
+    job: TsfRecruit
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdcadet
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
+
+- type: entity
+  parent: IDCardStandard
+  id: TsfMarineIDCard
+  name: TSF marine ID card
+  components:
+  - type: PresetIdCard
+    job: TsfMarine
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsddeputy
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
+
+- type: entity
+  parent: IDCardStandard
+  id: TsfTeamleaderIDCard
+  name: TSF Fireteam Leader ID card
+  components:
+  - type: PresetIdCard
+    job: TsfTeamleader
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdsergeant
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
+
+- type: entity
+  parent: IDCardStandard
+  id: TsfOfficerIDCard
+  name: TSF Officer ID card
+  components:
+  - type: PresetIdCard
+    job: TsfOfficer
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdbailiff
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
+
+- type: entity
+  parent: IDCardStandard
+  id: TsfCommanderIDCard
+  name: TSF Commanding Officer ID card
+  components:
+  - type: PresetIdCard
+    job: TsfCommander
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdsheriff
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
+
+- type: entity
+  parent: IDCardStandard
+  id: TsfCorpsmanIDCard
+  name: TSF Corpsman ID card
+  components:
+  - type: PresetIdCard
+    job: TsfCorpsman
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdbrigmed
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
 
 - type: entity
   parent: IDCardStandard
   id: TsfEngiIDCard
-  name: TSFMC engineer ID card
+  name: TSFN engineer ID card
   components:
   - type: PresetIdCard
     job: TsfEngineer
@@ -97,20 +199,20 @@
 # MARK: PDV
 
 - type: entity
-  parent: PirateIDCard
-  id: PDVRakhshanIDCard
-  name: PDV rakhshan id card
+  parent: IDCardStandard
+  id: PDVRahkshanIDCard
+  name: PDV rahkshan id card
   components:
   - type: PresetIdCard
-    job: Pirate
+    job: PDVRahkshan
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
     - state: base
-    - state: id_rakhshan
+    - state: id_rahkshan
 
 - type: entity
-  parent: PirateIDCard
+  parent: IDCardStandard
   id: PDVDenasvarIDCard
   name: PDV Denasvar ID card
   description: An identification card of one of the veteran foot soldiers among the Dynasty's Vanguard.
@@ -124,12 +226,12 @@
     - state: id_denasvar
 
 - type: entity
-  parent: PirateIDCard
+  parent: IDCardStandard
   id: PDVAsvaranIDCard
   name: PDV asvaran ID card
   components:
   - type: PresetIdCard
-    job: PirateFirstMate
+    job: PDVAsvaran
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
@@ -137,12 +239,12 @@
     - state: id_asvaran
 
 - type: entity
-  parent: PirateIDCard
+  parent: IDCardStandard
   id: PDVGrandVizierIDCard
   name: PDV grand vizier ID card
   components:
   - type: PresetIdCard
-    job: PirateCaptain
+    job: PDVGrandVizier
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
@@ -150,12 +252,12 @@
     - state: id_vizier
 
 - type: entity
-  parent: PirateIDCard
+  parent: IDCardStandard
   id: PDVTarkhanIDCard
   name: PDV tarkhan ID card
   components:
   - type: PresetIdCard
-    job: PirateCaptain
+    job: PDVGrandVizier
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
@@ -173,13 +275,13 @@
   - type: Access
     tags:
     - Maintenance
-    - Pirate
+    - PDVGeneral
     - Mercenary
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
     layers:
     - state: base
-    - state: id_rakhshan
+    - state: id_rahkshan
   - type: AgentIDCard
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
@@ -189,7 +291,7 @@
     - DoorBumpOpener
   - type: ChameleonClothing
     slot: [idcard]
-    default: PDVRakhshanIDCard
+    default: PDVRahkshanIDCard
     requireTag: WhitelistChameleonIdCard
   - type: UserInterface
     interfaces:
@@ -247,6 +349,58 @@
     layers:
     - state: vgbase
     - state: id_commander
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: default
+
+#MARK: Mieyo
+- type: entity
+  parent: IDCardStandard
+  id: MieyoEmployeeIDCard
+  name: MMC employee ID card
+  components:
+  - type: PresetIdCard
+    job: MMCEmployee
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/id_cards.rsi
+    layers:
+    - state: mieyobase
+    - state: id_mieyo_employee
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: default
+
+- type: entity
+  parent: IDCardStandard
+  id: MieyoSecurityIDCard
+  name: MMC security ID card
+  components:
+  - type: PresetIdCard
+    job: MMCSecurity
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/id_cards.rsi
+    layers:
+    - state: mieyobase
+    - state: id_mieyo_security
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: default
+
+- type: entity
+  parent: IDCardStandard
+  id: MieyoLiasonIDCard
+  name: MMC liason ID card
+  components:
+  - type: PresetIdCard
+    job: MMCLiason
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/id_cards.rsi
+    layers:
+    - state: mieyobase
+    - state: id_mieyo_liason
   - type: Clothing
     sprite: Objects/Misc/id_cards.rsi
   - type: Item

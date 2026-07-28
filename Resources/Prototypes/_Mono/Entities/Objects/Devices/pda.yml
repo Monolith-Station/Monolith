@@ -111,10 +111,10 @@
     attachedToSuit: true # Mono
 
 - type: entity
-  parent: SheriffPDA
+  parent: TSFCommanderPDA
   id: MarsocPDA
   name: TSFMC MARSOC operative PDA
-  description: A standard TSFMC personal computer.
+  description: A modified TSFMC personal computer for high profile missions.
   components:
   - type: Pda
     id: TsfMarsocIDCard
@@ -135,6 +135,131 @@
     isEnabled: true
     attachedToSuit: true # Mono
 
+- type: entity
+  parent: BaseSecurityPDA
+  id: TSFCommanderPDA
+  name: TSF Commanding Officer
+  description: A standard TSF portable PDA made specifically for the high ranking officers of the TSF.
+  components:
+  - type: Pda
+    id: TsfCommanderIDCard
+    penSlot:
+      startingItem: PenCentcom
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-hos
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+  - type: Icon
+    state: pda-hos
+  - type: CartridgeLoader # Extended with the ledger
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+    - WantedListCartridge
+    - LedgerCartridge
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: TSFRecruitPDA
+  name: TSF recruit PDA
+  description: A standard TSFMC personal computer. This one is slightly older and less fancy that the regular the marines have.
+  components:
+  - type: Pda
+    id: TsfRecruitIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-interncadet
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+  - type: Icon
+    state: pda-interncadet
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: TSFMarinePDA
+  name: TSF marine PDA
+  description: A standard TSFMC personal computer.
+  components:
+  - type: Pda
+    id: TsfMarineIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-security
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+  - type: Icon
+    state: pda-security
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: TSFCorpsmanPDA
+  name: TSF corpsman PDA
+  description: A standard TSFMC personal computer.
+  components:
+  - type: Pda
+    id: TsfCorpsmanIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-brigmedic
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+  - type: Icon
+    state: pda-brigmedic
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: TSFTeamleaderPDA
+  name: TSF fireteam leader PDA
+  description: A standard TSFMC personal computer.
+  components:
+  - type: Pda
+    id: TsfTeamleaderIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-seniorofficer
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+  - type: Icon
+    state: pda-seniorofficer
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: TSFOfficerPDA
+  name: TSF officer PDA
+  description: A standard TSF personnal computer issued to trained officers.
+  components:
+  - type: Pda
+    id: TsfOfficerIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-warden
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+  - type: Icon
+    state: pda-warden
+
+
+#PDV
 - type: entity
   parent: BasePDA
   id: BasePDVPDA
@@ -167,16 +292,16 @@
 
 - type: entity
   parent: BasePDVPDA
-  id: PDVRakhshanPDA
-  name: PDV rakhshan PDA
+  id: PDVRahkshanPDA
+  name: PDV Rahkshan PDA
   components:
   - type: Pda
-    id: PDVRakhshanIDCard
+    id: PDVRahkshanIDCard
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-rakhshan
+        pda-Rahkshan
   - type: Geiger # Mono
     showExamine: true
     showControl: true
@@ -192,6 +317,12 @@
   components:
   - type: Pda
     id: PDVGrandVizierIDCard
+    penSlot:
+      startingItem: CyberPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -274,7 +405,7 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-rakhshan
+        pda-Rahkshan
   - type: Geiger # Mono
     showExamine: true
     showControl: true
@@ -382,3 +513,80 @@
   components:
   - type: Pda
     id: VGCommanderIDCard
+
+# Mieyo
+
+- type: entity
+  parent: BasePDA
+  id: BaseMMCPDA
+  description: A basic personal computer for access restriction and organization.
+  abstract: true
+  components:
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-mieyo"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Icon
+    sprite: _Mono/Objects/Devices/pda.rsi
+    state: pda-mieyo
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-mieyo
+  - type: Geiger
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true
+  - type: PdaBorderColor
+    borderColor: "#AAAAAA"
+    accentHColor: "#d9a200"
+
+- type: entity
+  parent: BaseMMCPDA
+  id: MieyoEmployeePDA
+  name: mieyo employee PDA
+  components:
+  - type: Pda
+    id: MieyoEmployeeIDCard
+
+- type: entity
+  parent: BaseMMCPDA
+  id: MieyoSecurityPDA
+  name: mieyo corporate security PDA
+  components:
+  - type: Pda
+    id: MieyoSecurityIDCard
+
+- type: entity
+  parent: BaseMMCPDA
+  id: MieyoLiasonPDA
+  name: mieyo corporate liason PDA
+  components:
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+    - LedgerCartridge
+  - type: Pda
+    id: MieyoLiasonIDCard
