@@ -9,7 +9,3 @@ department-MieyoManufacturingConcern-description = Work under the MMC industrial
 
 department-Medical = Medical Dispatch
 department-Viper = Viper Group
-department-Pdv = Phaethon Dynasty Imperial Vanguard
-department-Command = Central Command
-department-Frontier = Colossus Frontier Colonization
-department-Tsf = TSF Navy and Marine Detachment

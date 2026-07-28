@@ -26,11 +26,16 @@
 
 - type: department
   id: Antag
-  name: department-Frontier
-  description: department-NF-description
-  weight: 0 #it's some old name for the PDV department
+  name: department-Antag
+  description: department-NFAntag-description
+  color: "#DE3A3A"
+  weight: 115 # Mono
   roles:
-  - PrisonGuard #random piece of job i took because errrrrr otherwise the antag department would shit itself #Mono
-#  - PirateCaptain
-#  - PirateFirstMate
-#  - Pirate
+  - PirateCaptain
+  - PirateFirstMate
+  - PDVDenasvar # Mono
+  - Pirate
+  - PDVInfiltrator # Mono
+  - PdvBorg # Mono
+  - PDVTarkhan
+  - Prisoner #nyano

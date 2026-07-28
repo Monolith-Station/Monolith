@@ -23,6 +23,7 @@
       state: telesci_key
   - type: ShipyardConsole
     shipyardChannel: Ussp
+    secretShipyardChannel: Nfsd
     ignoreBaseSaleRate: true # Fixed 70% sale rate.
     canTransferDeed: false
 
@@ -51,6 +52,7 @@
       state: gunnery_keys
     - type: ShipyardConsole
       shipyardChannel: SHM
+      secretShipyardChannel: Nfsd
       canTransferDeed: false
 
 - type: entity
@@ -78,6 +80,7 @@
       state: gunnery_keys
     - type: ShipyardConsole
       shipyardChannel: SHM
+      secretShipyardChannel: Nfsd
       canTransferDeed: false
 
 - type: entity

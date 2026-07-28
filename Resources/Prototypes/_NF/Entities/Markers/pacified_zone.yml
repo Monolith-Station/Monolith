@@ -13,13 +13,13 @@
   - type: PacifiedZoneGenerator
     radius: 10
     immuneRoles:
-      #- Bailiff #mono start, why the hell would tsf have pacification immunity gr, jobs are deprecated anyway
-      #- Brigmedic
-      #- Cadet
-      #- Deputy
-      #- NFDetective
-      #- SeniorOfficer
-      #- Sheriff #mono end
+      - Bailiff
+      - Brigmedic
+      - Cadet
+      - Deputy
+      - NFDetective
+      - SeniorOfficer
+      - Sheriff
       - SecurityGuard
       - StationRepresentative
       - StationTrafficController

@@ -3,7 +3,7 @@
 - type: entity
   parent: AirlockHeavy
   id: AirlockHeavyTSFMC
-  suffix: TSF
+  suffix: TSFMC
   components:
   - type: Sprite
     sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/tsfmc.rsi
@@ -11,20 +11,20 @@
 - type: entity
   parent: AirlockHeavyTSFMC
   id: AirlockHeavyTSFMCLocked
-  suffix: TSF, Locked
+  suffix: TSFMC, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsTsf ]
+      board: [ DoorElectronicsSecurity ]
 
 - type: entity
   parent: AirlockHeavyTSFMC
   id: AirlockHeavyTSFMCArmoryLocked
-  suffix: TSF Command, Locked
+  suffix: TSFMC Armory, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsTsfTeamLeader ]
+      board: [ DoorElectronicsArmory ]
 
 - type: entity
   parent: AirlockHeavyTSFMC
@@ -52,7 +52,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsPDV ]
+      board: [ DoorElectronicsPirate ]
 
 - type: entity
   parent: AirlockHeavyPDV
@@ -61,7 +61,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsPDVCommand ]
+      board: [ DoorElectronicsPdvCommand ]
 
 - type: entity
   parent: AirlockHeavyPDV

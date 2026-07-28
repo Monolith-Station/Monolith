@@ -39,4 +39,10 @@
   - type: AccessReader
     access: [["Mercenary"], ["Captain"]]
 
-
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsPirate
+  suffix: Rogue, Locked
+  components:
+  - type: AccessReader
+    access: [["Pirate"]]

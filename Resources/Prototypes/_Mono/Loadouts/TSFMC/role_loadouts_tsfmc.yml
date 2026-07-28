@@ -1,6 +1,6 @@
 # Nfsd
 - type: roleLoadout
-  id: JobTsfRecruit # Unused
+  id: JobCadet # Unused
   groups:
   - TsfmcHead
   - TsfmcNeck
@@ -15,7 +15,7 @@
   - TsfmcBelt
   - TsfmcEars
   - NfsdBoxSurvival
-  - TSFRecruitPDA
+  - CadetPDA
   - ContractorWallet
   - ContractorCartridge
 #  - ContractorImplanter # Mono - TSF has a skill issue sometimes
@@ -30,7 +30,7 @@
   canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
-  id: JobTsfMarine # Marine
+  id: JobDeputy # Marine
   groups:
   - TsfmcHead
   - TsfmcNeck
@@ -45,7 +45,7 @@
   - TsfmcBelt
   - TsfmcEars
   - NfsdBoxSurvival
-  - TSFMarinePDA
+  - DeputyPDA
   - ContractorWallet
   - ContractorCartridge
   - ContractorEncryptionKey
@@ -61,7 +61,7 @@
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobTsfCorpsman # Brigmedic
+  id: JobBrigmedic # Brigmedic
   groups:
   - TsfmcHeadMedic
   - TsfmcNeckMedic
@@ -76,7 +76,7 @@
   - TsfmcBrigmedicBelt
   - TsfmcEars
   - NfsdBoxSurvival
-  - TSFCorpsmanPDA
+  - BrigmedicPDA
   - ContractorWallet
   - ContractorCartridge
   - ContractorEncryptionKey
@@ -92,7 +92,7 @@
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobTsfOfficer # Captain
+  id: JobBailiff # Captain
   groups:
   - TsfmcHead
   - TsfmcNeckCaptain
@@ -107,11 +107,12 @@
   - TsfmcBelt
   - TsfmcEarsSenior
   - NfsdBoxSurvival
-  - TSFOfficerPDA
+  - BailiffPDA
   - ContractorWallet
   - ContractorCartridge
   - ContractorEncryptionKey
   - ContractorFun
+  - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearmCommand
   - TsfmcSidearm
@@ -122,7 +123,7 @@
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobTsfTeamleader # Fireteam Leader
+  id: JobSeniorOfficer # Fireteam Leader
   groups:
   - TsfmcHead
   - TsfmcNeckFTL
@@ -137,11 +138,12 @@
   - TsfmcBelt
   - TsfmcEarsSenior
   - NfsdBoxSurvival
-  - TSFTeamleaderPDA
+  - SeniorOfficerPDA
   - ContractorWallet
   - ContractorCartridge
   - ContractorEncryptionKey
   - ContractorFun
+  - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearmCommand
   - TsfmcSidearm
@@ -152,7 +154,7 @@
   canCustomizeName: true
 
 - type: roleLoadout
-  id: JobTsfCommander # Colonel
+  id: JobSheriff # Colonel
   groups:
   - TsfmcHead
   - TsfmcNeckCommander
@@ -167,10 +169,11 @@
   - TsfmcBelt
   - TsfmcEarsCommander
   - NfsdBoxSurvival
-  - TSFCommanderPDA
+  - SheriffPDA
   - ContractorWallet
   - ContractorCartridge
   - ContractorFun
+  - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearmColonel
   - TsfmcSidearm

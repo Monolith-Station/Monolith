@@ -11,7 +11,7 @@
   purchasable: false # voucher only
   category: Large
   group: BlackMarket
-  access: PDVGeneral
+  access: Pirate
   shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/vulture.yml
   guidebookPage: Null
   class:
@@ -39,5 +39,5 @@
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            PDVRahkshan: [ 0, 0 ]
+            Pirate: [ 0, 0 ]
             PdvBorg: [ 0, 0 ]

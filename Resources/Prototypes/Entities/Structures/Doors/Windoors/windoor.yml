@@ -157,7 +157,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsTsfTeamLeader ] #Mono
+      board: [ DoorElectronicsArmory ]
   - type: Wires
     layoutId: AirlockArmory
 
@@ -168,7 +168,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsTsfTeamLeader ] #Mono
+      board: [ DoorElectronicsArmory ]
   - type: Wires
     layoutId: AirlockArmory
 
@@ -419,22 +419,22 @@
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureSecurityLocked
-  suffix: TSF, Locked
+  suffix: Security, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsTsf ] #Mono
+      board: [ DoorElectronicsSecurity ]
   - type: Wires
     layoutId: AirlockSecurity
 
 - type: entity
   parent: WindoorSecurePlasma
   id: PlasmaWindoorSecureSecurityLocked
-  suffix: TSF, Locked, Plasma
+  suffix: Security, Locked, Plasma
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsTsf ] #Mono
+      board: [ DoorElectronicsSecurity ]
   - type: Wires
     layoutId: AirlockSecurity
 

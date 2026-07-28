@@ -20,7 +20,7 @@
   - type: NameIdentifier
     group: NuclearReactorTSF
   - type: AccessReader
-    access: [["TsfGeneral"]]
+    access: [["Security"]]
 
 - type: entity
   id: NuclearReactorPDV
@@ -32,7 +32,7 @@
   - type: NameIdentifier
     group: NuclearReactorPDV
   - type: AccessReader
-    access: [["PDVGeneral"]]
+    access: [["Pirate"]]
 
 # No use really, but just in case.
 - type: entity
@@ -86,7 +86,7 @@
   - type: NameIdentifier
     group: NuclearReactorTSFSmall
   - type: AccessReader
-    access: [["TsfGeneral"]]
+    access: [["Security"]]
 
 - type: entity
   id: NuclearReactorPDVSmall
@@ -98,7 +98,7 @@
   - type: NameIdentifier
     group: NuclearReactorPDVSmall
   - type: AccessReader
-    access: [["PDVGeneral"]]
+    access: [["Pirate"]]
 
 # No use really, but just in case.
 - type: entity

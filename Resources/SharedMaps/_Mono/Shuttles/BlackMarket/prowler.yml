@@ -1169,21 +1169,21 @@ entities:
     - type: Transform
       pos: -0.5,-6.5
       parent: 1
-- proto: SpawnPointPDVRahkshan
+- proto: SpawnPointPirate
   entities:
   - uid: 147
     components:
     - type: Transform
       pos: -0.5,-6.5
       parent: 1
-- proto: SpawnPointPDVGrandVizier
+- proto: SpawnPointPirateCaptain
   entities:
   - uid: 148
     components:
     - type: Transform
       pos: -0.5,-6.5
       parent: 1
-- proto: SpawnPointPDVAsvaran
+- proto: SpawnPointPirateFirstMate
   entities:
   - uid: 149
     components:

@@ -163,7 +163,7 @@
     stateDoorOpen: nfsd_gold_open
     stateDoorClosed: nfsd_gold_door
   - type: AccessReader
-    access: [["TsfFtl"]]
+    access: [["Sergeant"]]
 
 # NFSD Gold - Bailiff
 - type: entity
@@ -173,7 +173,7 @@
   suffix: Bailiff
   components:
   - type: AccessReader
-    access: [["TsfOfficer"]]
+    access: [["Bailiff"]]
 
 # NFSD Sheriff
 - type: entity
@@ -187,7 +187,7 @@
     stateDoorOpen: nfsd_sheriff_open
     stateDoorClosed: nfsd_sheriff_door
   - type: AccessReader
-    access: [["TsfCommander"]]
+    access: [["HeadOfSecurity"]]
 
 # SR
 - type: entity

@@ -77,7 +77,91 @@
     - state: idpublicaffairsliaison
 
 - type: entity
-  parent: TsfRecruitIDCard
+  parent: IDCardStandard
+  id: CadetIDCard
+  name: TSFMC private ID card
+  components:
+  - type: PresetIdCard
+    job: Cadet
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdcadet
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: nfsd
+
+- type: entity
+  parent: CadetIDCard
+  id: DeputyIDCard
+  name: TSFMC marine ID card
+  components:
+  - type: PresetIdCard
+    job: Deputy
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsddeputy
+
+- type: entity
+  parent: CadetIDCard
+  id: BrigmedicNFIDCard
+  name: TSFMC corpsman ID card
+  components:
+  - type: PresetIdCard
+    job: Brigmedic
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdbrigmed
+
+- type: entity
+  parent: CadetIDCard
+  id: SergeantIDCard
+  name: TSFMC fireteam leader ID card
+  components:
+  - type: PresetIdCard
+    job: SeniorOfficer
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdsergeant
+
+- type: entity
+  parent: CadetIDCard
+  id: BailiffIDCard
+  name: TSFMC captain ID card
+  components:
+  - type: PresetIdCard
+    job: Bailiff
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: nfsd
+    - state: idnfsdbailiff
+
+- type: entity
+  parent: CadetIDCard
+  id: ShriffIDCard
+  name: TSFMC colonel ID card
+  components:
+  - type: PresetIdCard
+    job: Sheriff
+  - type: Sprite
+    sprite: _NF/Objects/Misc/id_cards.rsi
+    layers:
+    - state: silver
+    - state: idnfsdsheriff
+  - type: Item
+    heldPrefix: silver
+
+- type: entity
+  parent: CadetIDCard
   id: NFDetectiveIDCard
   name: TSFMC detective ID card
   components:
@@ -195,7 +279,7 @@
     name: Clarpy
 
 - type: entity
-  parent: TsfMarineIDCard
+  parent: DeputyIDCard
   id: CappyIDCard
   name: cappy ID card
   components:

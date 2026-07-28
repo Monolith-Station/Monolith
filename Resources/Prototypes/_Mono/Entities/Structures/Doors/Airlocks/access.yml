@@ -5,7 +5,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsTsf ]
+      board: [ DoorElectronicsSecurity ]
 
 - type: entity
   parent: AirlockGlassShuttleNfsdOutpost
@@ -14,7 +14,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsTsf ]
+      board: [ DoorElectronicsSecurity ]
 
 - type: entity
   parent: HighSecDoor
@@ -23,7 +23,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsTsf ]
+      board: [ DoorElectronicsSecurity ]
 
 # Flyssa ports
 
@@ -34,7 +34,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsTsf ]
+      board: [ DoorElectronicsSecurity ]
 
 - type: entity
   parent: AirlockGlassShuttleNfsdCapital
@@ -43,7 +43,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsTsf ]
+      board: [ DoorElectronicsSecurity ]
 
 # MMC
 

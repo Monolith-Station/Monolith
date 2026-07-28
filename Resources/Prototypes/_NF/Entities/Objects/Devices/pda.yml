@@ -117,6 +117,129 @@
 
 - type: entity
   parent: BaseSecurityPDA
+  id: SheriffPDA
+  name: TSFMC colonel PDA
+  description: A standard TSFMC personal computer.
+  components:
+  - type: Pda
+    id: ShriffIDCard
+    penSlot:
+      startingItem: PenCentcom
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-hos
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+  - type: Icon
+    state: pda-hos
+  - type: CartridgeLoader # Extended with the ledger
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+    - WantedListCartridge
+    - LedgerCartridge
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: CadetPDA
+  name: TSF private PDA
+  description: A standard TSFMC personal computer.
+  components:
+  - type: Pda
+    id: CadetIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-interncadet
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+  - type: Icon
+    state: pda-interncadet
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: DeputyPDA
+  name: TSF marine PDA
+  description: A standard TSFMC personal computer.
+  components:
+  - type: Pda
+    id: DeputyIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-security
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+  - type: Icon
+    state: pda-security
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: BrigmedicNFPDA
+  name: TSF corpsman PDA
+  description: A standard TSFMC personal computer.
+  components:
+  - type: Pda
+    id: BrigmedicNFIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-corpsman
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+  - type: Icon
+    state: pda-corpsman
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: SergeantPDA
+  name: TSF fireteam leader PDA
+  description: A standard TSFMC personal computer.
+  components:
+  - type: Pda
+    id: SergeantIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-seniorofficer
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+  - type: Icon
+    state: pda-seniorofficer
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: BailiffPDA
+  name: TSF captain PDA
+  description: A standard TSFMC personal computer.
+  components:
+  - type: Pda
+    id: BailiffIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-warden
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+  - type: Icon
+    state: pda-warden
+
+- type: entity
+  parent: BaseSecurityPDA
   id: NFDetectivePDA
   name: detective PDA
   description: Smells like rain... pouring down the rooftops...

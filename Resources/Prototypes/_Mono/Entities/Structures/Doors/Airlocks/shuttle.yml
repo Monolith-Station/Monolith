@@ -167,7 +167,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsPDV ]
+      board: [ DoorElectronicsPirate ]
 
 - type: entity
   parent: AirlockGlassShuttleSyndicateCapital
@@ -176,7 +176,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsPDV ]
+      board: [ DoorElectronicsPirate ]
 
 - type: entity
   id: AirlockGlassShuttleSyndicateCapital

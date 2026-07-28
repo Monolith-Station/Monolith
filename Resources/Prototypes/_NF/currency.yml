@@ -7,14 +7,14 @@
 
 - type: currency
   id: FederationMilitaryCredit
-  displayName: store-currency-display-tsf-telecrystal
+  displayName: store-currency-display-security-telecrystal
   cash:
     1: FederationMilitaryCredit1
   canWithdraw: true
 
 - type: currency
   id: Doubloon
-  displayName: store-currency-display-pdv-telecrystal
+  displayName: store-currency-display-pirate-telecrystal
   cash:
     1: Doubloon1
   canWithdraw: true

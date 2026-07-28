@@ -77,10 +77,9 @@
   # - ERTEngineer # Frontier
   # - DeathSquad # Frontier
   - StationRepresentative # Frontier
-  - TsfCommander  # Mono
+  - Sheriff  # Frontier
   - StationTrafficController # Frontier
   - DirectorOfCare # Mono
-  - PDVGrandVizier #Mono
   primary: false
   weight: 100
 
@@ -106,7 +105,7 @@
 - type: department
   id: Security
   name: department-Security
-  description: department-Security-description # Frontier
+  description: department-NFSecurity-description # Frontier
   color: "#326DA8" # Mono
   weight: 120 # Mono
   roles:
@@ -115,20 +114,19 @@
 #  - SecurityCadet # Frontier
 #  - SecurityOfficer # Frontier
 #  - Warden # Frontier
-#  - Brigmedic # Frontier
+  - PrisonGuard ##nyano
+  - Brigmedic # Frontier
 #  - SecurityGuard # Frontier
   - NFDetective # Frontier
-#  - Cadet # Mono
-#  - Deputy # Mono
-#  - Bailiff # Mono
-#  - Sheriff # Mono
-#  - SeniorOfficer # Mono
+  - Cadet # Frontier
+  - Deputy # Frontier
+  - Bailiff # Frontier
+  - Sheriff # Frontier
+  - SeniorOfficer # Frontier
   - PublicAffairsLiaison # Frontier
-#  - TsfEngineer # Mono
-#  - TsfMarsoc # Mono
-#  - TsfBorg # Mono
-  primary: false
-  editorHidden: true # Frontier
+  - TsfEngineer # Mono
+  - TsfMarsoc # Mono
+  - TsfBorg # Mono
 
 - type: department
   id: Science

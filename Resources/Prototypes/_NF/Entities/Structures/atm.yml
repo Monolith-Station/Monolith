@@ -287,7 +287,7 @@
     requiredCompanies:
     - TSF
   - type: AccessReader
-    access: [["TsfCommander"]]
+    access: [["HeadOfSecurity"]]
 
 - type: entity
   parent: BaseStationAdminBankATM
@@ -328,7 +328,7 @@
   - type: StationBankATM
     account: BlackMarket
   - type: AccessReader
-    access: [["PDVCommand"]]
+    access: [["Pirate"]]
   - type: CompanyAccessReader
     requiredCompanies:
     - PDV

@@ -1,0 +1,176 @@
+# Pirate loadouts
+
+- type: loadoutGroup
+  id: PirateJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  loadouts:
+  - PirateJumpsuit
+  - PirateJumpskirt
+  - PirateClothingUniformJumpsuitPirateSlops
+  - PirateClothingUniformJumpsuitPirateLuffy
+  subgroups: # mono
+  - PirateMercenaryJumpsuit
+
+- type: loadoutGroup
+  id: RakhshanPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVRakhshanPDVRakhshanPDA
+  fallbacks:
+  - PDVRakhshanPDVRakhshanPDA
+
+- type: loadoutGroup
+  id: PirateFace
+  name: loadout-group-contractor-face
+  minLimit: 0
+  loadouts:
+  - ContractorClothingMaskBreath
+  - ContractorClothingMaskBreathMedical
+  - ContractorClothingMaskGas
+  subgroups: # mono
+  - MercenaryFace
+  - PilotFace
+
+- type: loadoutGroup
+  id: PirateShoes
+  name: loadout-group-contractor-shoes
+  loadouts:
+  - PirateClothingShoesBootsLaceup
+  - PirateClothingShoesBootsPirateLuffy
+  subgroups: # mono
+  - MercenaryShoes
+  - ContractorShoes
+  - PilotShoes
+
+- type: loadoutGroup
+  id: PirateHead
+  name: loadout-group-contractor-head
+  minLimit: 0
+  loadouts:
+  - PirateClothingHeadBandBlack
+  - PirateClothingHeadBandBrown
+  - PirateClothingHeadBandGrey
+  - PirateClothingHeadBandRed
+  subgroups: # mono
+  - MercenaryHead
+  - ContractorHead
+  - PilotHead
+
+- type: loadoutGroup
+  id: PirateTrinkets
+  name: loadout-group-contractor-trinkets
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - PirateNFPouchPirate
+  subgroups:
+  - ContractorTrinkets
+
+# Pirate Captain loadouts
+
+- type: loadoutGroup
+  id: PirateCaptainHead
+  name: loadout-group-contractor-head
+  minLimit: 0
+  loadouts:
+  - PirateClothingHeadHatPirate
+  - PirateClothingHeadHatPirateLuffy
+  subgroups: # mono
+  - MercenaryHead
+  - ContractorHead
+  - PilotHead
+
+- type: loadoutGroup
+  id: PirateCaptainOuterClothing
+  name: loadout-group-contractor-outerclothing
+  hidden: false
+  minLimit: 0
+  loadouts:
+  - PirateCaptainClothingOuterCoatPirate
+  subgroups: # mono
+  - ContractorOuterClothing
+  - MercenaryOuterClothing
+  - PilotOuterClothing
+
+- type: loadoutGroup
+  id: GrandVizierPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVGrandVizierPDVGrandVizierPDA
+  fallbacks:
+  - PDVGrandVizierPDVGrandVizierPDA
+
+- type: loadoutGroup
+  id: PirateCaptainWallet
+  name: loadout-group-contractor-wallet
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PirateCaptainClothingWalletLeatherPirate
+  fallbacks:
+  - PirateCaptainClothingWalletLeatherPirate
+
+- type: loadoutGroup
+  id: PirateCaptainTrinkets
+  name: loadout-group-contractor-trinkets
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - PirateNFPouchPirateCaptain
+  subgroups:
+  - ContractorTrinkets
+
+# Pirate First Mate loadouts
+
+- type: loadoutGroup
+  id: PirateFirstMateHead
+  name: loadout-group-contractor-head
+  minLimit: 0
+  loadouts:
+  - PirateClothingHeadHatPirateTricord
+  - PirateClothingHeadHatPirateLuffy
+  subgroups: # mono
+  - MercenaryHead
+  - ContractorHead
+  - PilotHead
+
+- type: loadoutGroup
+  id: PirateFirstMateOuterClothing
+  name: loadout-group-contractor-outerclothing
+  minLimit: 0
+  loadouts:
+  - PirateFirstMateClothingOuterCoatGentle
+  subgroups: # mono
+  - MercenaryOuterClothing
+  - ContractorOuterClothing
+  - PilotOuterClothing
+
+- type: loadoutGroup
+  id: AsvaranPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVAsvaranPDVAsvaranPDA
+  fallbacks:
+  - PDVAsvaranPDVAsvaranPDA
+
+# PDV Additions
+
+- type: loadoutGroup
+  id: PDVInfiltratorPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVSpasakaPDVSpasakaPDA
+  fallbacks:
+  - PDVSpasakaPDVSpasakaPDA
+
+- type: loadoutGroup
+  id: PDVDenasvarPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVDenasvarPDVDenasvarPDA
+  fallbacks:
+  - PDVDenasvarPDVDenasvarPDA

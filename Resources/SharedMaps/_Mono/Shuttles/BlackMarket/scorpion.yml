@@ -4109,21 +4109,21 @@ entities:
     - type: Transform
       pos: -1.5,16.5
       parent: 1
-- proto: SpawnPointPDVRahkshan
+- proto: SpawnPointPirate
   entities:
   - uid: 578
     components:
     - type: Transform
       pos: 0.5,13.5
       parent: 1
-- proto: SpawnPointPDVGrandVizier
+- proto: SpawnPointPirateCaptain
   entities:
   - uid: 579
     components:
     - type: Transform
       pos: 0.5,13.5
       parent: 1
-- proto: SpawnPointPDVAsvaran
+- proto: SpawnPointPirateFirstMate
   entities:
   - uid: 580
     components:

@@ -921,14 +921,14 @@ entities:
     - type: Transform
       pos: -6.5,5.5
       parent: 2
-- proto: BasePDVUplinkRadioDebug
+- proto: BasePirateUplinkRadioDebug
   entities:
   - uid: 88
     components:
     - type: Transform
       pos: 1.2513101,7.779885
       parent: 2
-- proto: BaseTSFUplinkRadioDebug
+- proto: BaseSecurityUplinkRadioDebug
   entities:
   - uid: 89
     components:
@@ -6066,7 +6066,7 @@ entities:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointTsfTeamleader
+- proto: NFSpawnPointSeniorOfficer
   entities:
   - uid: 916
     components:
@@ -7439,7 +7439,7 @@ entities:
     - type: Transform
       pos: 3.5,7.5
       parent: 2
-- proto: SpawnPointTsfOfficer
+- proto: SpawnPointBailiff
   entities:
   - uid: 1119
     components:
@@ -7453,14 +7453,14 @@ entities:
     - type: Transform
       pos: -5.5,2.5
       parent: 2
-- proto: SpawnPointTsfCorpsman
+- proto: SpawnPointBrigmedic
   entities:
   - uid: 1121
     components:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointTsfRecruit
+- proto: SpawnPointCadet
   entities:
   - uid: 1122
     components:
@@ -7481,7 +7481,7 @@ entities:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointTsfMarine
+- proto: SpawnPointDeputy
   entities:
   - uid: 1125
     components:
@@ -7628,21 +7628,21 @@ entities:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointPDVRahkshan
+- proto: SpawnPointPirate
   entities:
   - uid: 1143
     components:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointPDVGrandVizier
+- proto: SpawnPointPirateCaptain
   entities:
   - uid: 1144
     components:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointPDVAsvaran
+- proto: SpawnPointPirateFirstMate
   entities:
   - uid: 1145
     components:
@@ -7677,7 +7677,7 @@ entities:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointTsfCommander
+- proto: SpawnPointSheriff
   entities:
   - uid: 1150
     components:

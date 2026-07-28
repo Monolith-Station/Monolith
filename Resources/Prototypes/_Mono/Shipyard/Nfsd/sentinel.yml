@@ -9,7 +9,7 @@
   purchasable: false # voucher only
   category: Medium
   group: Security
-  access: TsfGeneral
+  access: Security
   shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/sentinel.yml
   guidebookPage: Null
   class:
@@ -34,6 +34,6 @@
           prefixCreator: '14'
       - type: StationJobs
         availableJobs:
-          TsfMarine: [ 0, 0 ]
+          Deputy: [ 0, 0 ]
           TsfBorg: [ 0, 0 ]
 

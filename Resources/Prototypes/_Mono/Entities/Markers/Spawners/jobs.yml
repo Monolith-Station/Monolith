@@ -9,7 +9,7 @@
     job_id: PDVDenasvar
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
-    state: banner-yellow
+    state: banner-red
 
 - type: entity
   id: SpawnPointPDVTarkhan
@@ -20,7 +20,7 @@
     job_id: PDVTarkhan
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
-    state: banner-yellow
+    state: banner-red
 
 - type: entity
   id: SpawnPointPDVInfiltrator
@@ -31,7 +31,7 @@
     job_id: PDVInfiltrator
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
-    state: banner-yellow
+    state: banner-red
 
 - type: entity
   id: SpawnPointPDVBorg
@@ -47,39 +47,6 @@
       state: robot
     - sprite: Mobs/Silicon/chassis.rsi
       state: robot_e
-
-- type: entity
-  id: SpawnPointPDVRahkshan
-  parent: SpawnPointJobBase
-  name: PDV Rahkshan
-  components:
-  - type: SpawnPoint
-    job_id: PDVRahkshan
-  - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-yellow
-
-- type: entity
-  id: SpawnPointPDVAsvaran
-  parent: SpawnPointJobBase
-  name: PDV Asvaran
-  components:
-  - type: SpawnPoint
-    job_id: PDVAsvaran
-  - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-yellow
-
-- type: entity
-  id: SpawnPointPDVGrandVizier
-  parent: SpawnPointJobBase
-  name: PDV Grand Vizier
-  components:
-  - type: SpawnPoint
-    job_id: PDVGrandVizier
-  - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-yellow
 
 #USSP
 
@@ -171,78 +138,6 @@
       state: robot
     - sprite: Mobs/Silicon/chassis.rsi
       state: robot_e
-
-- type: entity
-  id: SpawnPointTsfCommander
-  parent: SpawnPointJobBase
-  name: Tsf Commanding Officer
-  components:
-  - type: SpawnPoint
-    job_id: TsfCommander
-  - type: Sprite
-    layers:
-    - sprite: _NF/Structures/Decoration/banner.rsi
-      state: nfsd-banner
-
-- type: entity
-  id: SpawnPointTsfOfficer
-  parent: SpawnPointJobBase
-  name: Tsf Officer
-  components:
-  - type: SpawnPoint
-    job_id: TsfOfficer
-  - type: Sprite
-    layers:
-    - sprite: _NF/Structures/Decoration/banner.rsi
-      state: nfsd-banner
-
-- type: entity
-  id: SpawnPointTsfTeamleader
-  parent: SpawnPointJobBase
-  name: Tsf Fireteam Leader
-  components:
-  - type: SpawnPoint
-    job_id: TsfTeamleader
-  - type: Sprite
-    layers:
-    - sprite: _NF/Structures/Decoration/banner.rsi
-      state: nfsd-banner
-
-- type: entity
-  id: SpawnPointTsfMarine
-  parent: SpawnPointJobBase
-  name: Tsf Marine
-  components:
-  - type: SpawnPoint
-    job_id: TsfMarine
-  - type: Sprite
-    layers:
-    - sprite: _NF/Structures/Decoration/banner.rsi
-      state: nfsd-banner
-
-- type: entity
-  id: SpawnPointTsfRecruit
-  parent: SpawnPointJobBase
-  name: Tsf Recruit
-  components:
-  - type: SpawnPoint
-    job_id: TsfRecruit
-  - type: Sprite
-    layers:
-    - sprite: _NF/Structures/Decoration/banner.rsi
-      state: nfsd-banner
-
-- type: entity
-  id: SpawnPointTsfCorpsman
-  parent: SpawnPointJobBase
-  name: Tsf Corpsman
-  components:
-  - type: SpawnPoint # Frontier
-    job_id: TsfCorpsman # Frontier
-  - type: Sprite
-    layers:
-    - sprite: _NF/Structures/Decoration/banner.rsi
-      state: nfsd-banner
 
 # Viper Group
 

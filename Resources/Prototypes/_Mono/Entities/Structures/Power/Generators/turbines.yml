@@ -14,7 +14,7 @@
   description: A large turbine used for generating power using hot gas. Locked to the TSF.
   components:
   - type: AccessReader
-    access: [["TsfGeneral"]]
+    access: [["Security"]]
 
 - type: entity
   id: TurbinePDV
@@ -23,7 +23,7 @@
   description: A large turbine used for generating power using hot gas. Locked to the PDV.
   components:
   - type: AccessReader
-    access: [["PDVGeneral"]]
+    access: [["Pirate"]]
 
 # No use really, but just in case.
 - type: entity
@@ -65,7 +65,7 @@
   description: A large turbine used for generating power using hot gas. Locked to the TSF.
   components:
   - type: AccessReader
-    access: [["TsfGeneral"]]
+    access: [["Security"]]
 
 - type: entity
   id: TurbinePDVSmall
@@ -74,7 +74,7 @@
   description: A large turbine used for generating power using hot gas. Locked to the PDV.
   components:
   - type: AccessReader
-    access: [["PDVGeneral"]]
+    access: [["Pirate"]]
 
 # No use really, but just in case.
 - type: entity

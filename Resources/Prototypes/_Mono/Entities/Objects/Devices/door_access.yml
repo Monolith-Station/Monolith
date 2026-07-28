@@ -32,22 +32,6 @@
 
 - type: entity
   parent: DoorElectronics
-  id: DoorElectronicsTsfTeamLeader #Mono
-  suffix: TSF Teamleader, Locked
-  components:
-  - type: AccessReader
-    access: [["TsfFtl"]] #Mono
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsTsf
-  suffix: TSF, Locked
-  components:
-  - type: AccessReader
-    access: [["TsfGeneral"]]
-
-- type: entity
-  parent: DoorElectronics
   id: DoorElectronicsGrandVizier
   suffix: Grand Vizier, Locked
   components:
@@ -56,19 +40,11 @@
 
 - type: entity
   parent: DoorElectronics
-  id: DoorElectronicsPDVCommand
+  id: DoorElectronicsPdvCommand
   suffix: PDV Command, Locked
   components:
   - type: AccessReader
     access: [["PDVCommand"]]
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsPDV
-  suffix: PDV, Locked
-  components:
-  - type: AccessReader
-    access: [["PDVGeneral"]]
 
 - type: entity
   parent: DoorElectronics

@@ -7,7 +7,7 @@
   price: 112500
   category: Medium
   group: Security
-  access: TsfGeneral
+  access: Security
   shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/fracture.yml
   guidebookPage: Null
   class:
@@ -32,5 +32,5 @@
           prefixCreator: '14'
       - type: StationJobs
         availableJobs:
-          TsfMarine: [ 0, 0 ]
+          Deputy: [ 0, 0 ]
           TsfBorg: [ 0, 0 ]

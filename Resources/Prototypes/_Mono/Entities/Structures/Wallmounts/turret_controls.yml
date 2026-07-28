@@ -67,10 +67,11 @@
     access: [["TsfmcEngineering"]]
   - type: TurretTargetSettings
     exemptAccessLevels:
-    - TsfCommander
-    - TsfOfficer
-    - TsfGeneral
-    - TsfFtl
+    - HeadOfSecurity
+    - Armory
+    - Bailiff
+    - Sergeant
+    - Security
     - TsfmcEngineering
   - type: DeviceNetwork
     receiveFrequencyId: TurretAITSF
@@ -86,10 +87,11 @@
     access: [["TsfmcEngineering"]]
   - type: TurretTargetSettings
     exemptAccessLevels:
-    - TsfCommander
-    - TsfOfficer
-    - TsfGeneral
-    - TsfFtl
+    - HeadOfSecurity
+    - Armory
+    - Bailiff
+    - Sergeant
+    - Security
     - TsfmcEngineering
   - type: DeviceNetwork
     receiveFrequencyId: TurretControlAITSF
@@ -118,7 +120,7 @@
     exemptAccessLevels:
     - GrandVizier
     - PDVCommand
-    - PDVGeneral
+    - Pirate
   - type: DeviceNetwork
     receiveFrequencyId: TurretAIPDV
     transmitFrequencyId: TurretControlAIPDV
@@ -135,7 +137,7 @@
     exemptAccessLevels:
     - GrandVizier
     - PDVCommand
-    - PDVGeneral
+    - Pirate
   - type: DeviceNetwork
     receiveFrequencyId: TurretControlAIPDV
     transmitFrequencyId: TurretAIPDV

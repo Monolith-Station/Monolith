@@ -11,7 +11,7 @@
   purchasable: false
   category: Medium
   group: BlackMarket
-  access: PDVGeneral
+  access: Pirate
   shuttlePath: /SharedMaps/_Mono/Shuttles/BlackMarket/motleyanne.yml
   guidebookPage: ShipyardMotleyAnne
   class:
@@ -36,5 +36,5 @@
           prefixCreator: '14'
       - type: StationJobs
         availableJobs:
-          PDVRahkshan: [ 0, 0 ]
+          Pirate: [ 0, 0 ]
 

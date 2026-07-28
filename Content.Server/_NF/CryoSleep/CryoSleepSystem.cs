@@ -420,24 +420,24 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
         if (jobTitle != null)
         {
             // Check if job is one of the pirate jobs
-            isPirate = jobTitle.Equals(Loc.GetString("job-name-pdv-rahkshan"), StringComparison.OrdinalIgnoreCase) ||
-                       jobTitle.Equals(Loc.GetString("job-name-pdv-vizier"), StringComparison.OrdinalIgnoreCase) ||
-                       jobTitle.Equals(Loc.GetString("job-name-pdv-denasvar"), StringComparison.OrdinalIgnoreCase) ||
-                       jobTitle.Equals(Loc.GetString("job-name-pdv-infiltrator"), StringComparison.OrdinalIgnoreCase) ||
-                       jobTitle.Equals(Loc.GetString("job-name-pdv-asvaran"), StringComparison.OrdinalIgnoreCase);
+            isPirate = jobTitle.Equals(Loc.GetString("job-name-pirate"), StringComparison.OrdinalIgnoreCase) ||
+                       jobTitle.Equals(Loc.GetString("job-name-pirate-captain"), StringComparison.OrdinalIgnoreCase) ||
+                       jobTitle.Equals(Loc.GetString("job-name-pirate-first-mate"), StringComparison.OrdinalIgnoreCase);
         }
 
         // Check if character is TSF, and if so, use TSF radio instead of Common
         bool isTSF = false;
         if (jobTitle != null)
         {
-            isTSF = jobTitle.Equals(Loc.GetString("job-name-tsf-officer"), StringComparison.OrdinalIgnoreCase) ||
-                    jobTitle.Equals(Loc.GetString("job-name-tsf-corpsman"), StringComparison.OrdinalIgnoreCase) ||
-                    jobTitle.Equals(Loc.GetString("job-name-tsf-recruit"), StringComparison.OrdinalIgnoreCase) ||
-                    jobTitle.Equals(Loc.GetString("job-name-tsf-marine"), StringComparison.OrdinalIgnoreCase) ||
-                    jobTitle.Equals(Loc.GetString("job-name-tsf-engineer"), StringComparison.OrdinalIgnoreCase) ||
-                    jobTitle.Equals(Loc.GetString("job-name-tsf-teamleader"), StringComparison.OrdinalIgnoreCase) ||
-                    jobTitle.Equals(Loc.GetString("job-name-tsf-commandingofficer"), StringComparison.OrdinalIgnoreCase);
+            isTSF = jobTitle.Equals(Loc.GetString("job-name-bailiff"), StringComparison.OrdinalIgnoreCase) ||
+                    jobTitle.Equals(Loc.GetString("job-name-brigmedic"), StringComparison.OrdinalIgnoreCase) ||
+                    jobTitle.Equals(Loc.GetString("job-name-cadet-nf"), StringComparison.OrdinalIgnoreCase) ||
+                    jobTitle.Equals(Loc.GetString("job-name-deputy"), StringComparison.OrdinalIgnoreCase) ||
+                    jobTitle.Equals(Loc.GetString("job-name-nf-detective"), StringComparison.OrdinalIgnoreCase) ||
+                    jobTitle.Equals(Loc.GetString("job-name-sheriff"), StringComparison.OrdinalIgnoreCase) ||
+                    jobTitle.Equals(Loc.GetString("job-name-stc"), StringComparison.OrdinalIgnoreCase) ||
+                    jobTitle.Equals(Loc.GetString("job-name-sr"), StringComparison.OrdinalIgnoreCase) ||
+                    jobTitle.Equals(Loc.GetString("job-name-pal"), StringComparison.OrdinalIgnoreCase);
         }
 
         // Send radio message on appropriate channel

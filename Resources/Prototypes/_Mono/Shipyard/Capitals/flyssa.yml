@@ -10,7 +10,7 @@
   purchasable: false # voucher only
   category: Large
   group: Security
-  access: TsfGeneral
+  access: Security
   shuttlePath: /SharedMaps/_Mono/Shuttles/Capitals/flyssa.yml
   guidebookPage: Null
   class:
@@ -42,4 +42,4 @@
           prefixCreator: '14'
       - type: StationJobs
         availableJobs:
-          TsfMarine: [ 0, 0 ]
+          Deputy: [ 0, 0 ]

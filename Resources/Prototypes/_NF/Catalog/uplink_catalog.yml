@@ -1,0 +1,21 @@
+# - type: listing # Mono Edit - Boring
+#   id: UplinkEmpGrenadeLauncherBundle
+#   name: uplink-emp-grenade-launcher-bundle-name
+#   description: uplink-emp-grenade-launcher-bundle-desc
+#   icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+#   productEntity: ClothingBackpackDuffelSyndicateFilledEmpGrenadeLauncher
+#   cost:
+#     Telecrystal: 25
+#   categories:
+#   - UplinkWeaponry
+
+- type: listing
+  id: UplinkSecuritySpaceBladeSyndicate
+  name:  uplink-spaceblade-syndicate-name
+  description: uplink-spaceblade-syndicate-desc
+  productEntity: SpaceBladeContra
+  icon: { sprite: _NF/Objects/Fun/spaceblade.rsi, state: contraband }
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkPointless

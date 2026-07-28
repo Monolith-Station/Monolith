@@ -5010,7 +5010,7 @@ entities:
       parent: 1
     - type: AccessReader
       access:
-      - - TsfOfficer
+      - - HeadOfSecurity
 - proto: AirlockNfsdGlass
   entities:
   - uid: 102
@@ -50495,7 +50495,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 15.5,-14.5
       parent: 1
-- proto: SpawnPointTsfOfficer
+- proto: SpawnPointBailiff
   entities:
   - uid: 7664
     components:
@@ -50507,7 +50507,7 @@ entities:
     - type: Transform
       pos: -4.5,19.5
       parent: 1
-- proto: SpawnPointTsfCorpsman
+- proto: SpawnPointBrigmedic
   entities:
   - uid: 7666
     components:
@@ -50519,7 +50519,7 @@ entities:
     - type: Transform
       pos: 28.5,-12.5
       parent: 1
-- proto: SpawnPointTsfRecruit
+- proto: SpawnPointCadet
   entities:
   - uid: 7668
     components:
@@ -50546,7 +50546,7 @@ entities:
     - type: Transform
       pos: 24.5,14.5
       parent: 1
-- proto: SpawnPointTsfMarine
+- proto: SpawnPointDeputy
   entities:
   - uid: 7673
     components:
@@ -50581,7 +50581,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 14.5,8.5
       parent: 1
-- proto: SpawnPointTsfCommander
+- proto: SpawnPointSheriff
   entities:
   - uid: 7679
     components:
@@ -64869,7 +64869,7 @@ entities:
       gridUid: 1
     - type: AccessReader
       access:
-      - - TsfCommander
+      - - HeadOfSecurity
   - uid: 9947
     components:
     - type: Transform

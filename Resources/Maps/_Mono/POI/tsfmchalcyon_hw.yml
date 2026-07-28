@@ -50594,7 +50594,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 15.5,-14.5
       parent: 1
-- proto: SpawnPointTsfOfficer
+- proto: SpawnPointBailiff
   entities:
   - uid: 7678
     components:
@@ -50606,7 +50606,7 @@ entities:
     - type: Transform
       pos: -4.5,19.5
       parent: 1
-- proto: SpawnPointTsfCorpsman
+- proto: SpawnPointBrigmedic
   entities:
   - uid: 7680
     components:
@@ -50618,7 +50618,7 @@ entities:
     - type: Transform
       pos: 28.5,-12.5
       parent: 1
-- proto: SpawnPointTsfRecruit
+- proto: SpawnPointCadet
   entities:
   - uid: 7682
     components:
@@ -50645,7 +50645,7 @@ entities:
     - type: Transform
       pos: 24.5,14.5
       parent: 1
-- proto: SpawnPointTsfMarine
+- proto: SpawnPointDeputy
   entities:
   - uid: 7687
     components:
@@ -50680,7 +50680,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 14.5,8.5
       parent: 1
-- proto: SpawnPointTsfCommander
+- proto: SpawnPointSheriff
   entities:
   - uid: 7693
     components:

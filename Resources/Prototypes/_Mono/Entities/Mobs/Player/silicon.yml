@@ -565,8 +565,8 @@
     - !type:OverallPlaytimeRequirement
       time: 180000 # 50 hrs
     - !type:RoleTimeRequirement
-      role: JobTsfOfficer
-      time: 36000 # 10 hours
+      role: JobWarden
+      time: 54000 # 15 hours
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
     nameSegments: [ TSFMCCoreNameset ]
@@ -579,14 +579,6 @@
     - TauCetiBasic
     - RobotTalk
     - SolCommon
-  - type: Access
-    tags:
-    - TsfGeneral
-    - TsfmcEngineering
-    - TsfOfficer
-    - TsfCommander
-    - TsfFtl
-    - Mercenary
 
 - type: entity
   id: AiHeldTSFMC
@@ -659,8 +651,8 @@
     - !type:OverallPlaytimeRequirement
       time: 180000 # 50 hrs
     - !type:RoleTimeRequirement
-      role: JobPDVAsvaran
-      time: 36000 # 15 hours
+      role: JobPirateFirstMate
+      time: 54000 # 15 hours
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
     nameSegments: [ PDVCoreNameset ]
@@ -675,10 +667,9 @@
     - Freespeak
   - type: Access
     tags:
-    - PDVGeneral
+    - Pirate
     - GrandVizier
     - PDVCommand
-    - Mercenary
 
 - type: entity
   id: AiHeldPDV
