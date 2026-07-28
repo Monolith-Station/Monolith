@@ -1,93 +1,4 @@
-- type: entity
-  parent: BaseMagazineRifle
-  id: MagazineRifleVPO215
-  name: "VPO-215 magazine (.366mm)"
-  description: A small, 4 round magazine for the VPO-215.
-  components:
-  - type: Tag
-    tags:
-      - MagazineRifleVPO215
-      - Magazine
-  - type: BallisticAmmoProvider
-    proto: BF_CartridgeRifle366
-    mayTransfer: true
-    whitelist:
-      tags:
-        - BF_CartridgeRifle366
-    capacity: 4
-  - type: Sprite
-    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Sniper/SV98.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 3
-    zeroVisible: false
-  - type: Appearance
-
-- type: entity
-  parent: BaseMagazineRifle
-  id: MagazineRifleMagpulMosin
-  name: "Mosin-Nagant magazine (7.62x54mmR)"
-  description: A magpul aftermarket, 10 round magazine for the Mosin-Nagant,
-  components:
-  - type: Tag
-    tags:
-      - MagazineRifleMagpullMosin
-      - Magazine
-  - type: BallisticAmmoProvider
-    proto: BF_CartridgeRifle762x54r
-    mayTransfer: true
-    whitelist:
-      tags:
-        - BF_CartridgeRifle762x54r
-    capacity: 10
-  - type: Sprite
-    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Sniper/SV98.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 3
-    zeroVisible: false
-  - type: Appearance
-
-- type: entity
-  parent: BaseMagazineRifle
-  id: MagazineRifleSV98
-  name: "SV-98 magazine (7.62x54mmR)"
-  description: A small, 5 round magazine for the SV-98, but dont let its small size fool you, these rounds pack a punch.
-  components:
-  - type: Tag
-    tags:
-      - MagazineRifleSV98
-      - Magazine
-  - type: BallisticAmmoProvider
-    proto: BF_CartridgeRifle762x54r
-    mayTransfer: true
-    whitelist:
-      tags:
-        - BF_CartridgeRifle762x54r
-    capacity: 5
-  - type: Sprite
-    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Sniper/SV98.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 3
-    zeroVisible: false
-  - type: Appearance
-
+#region NATO
 - type: entity
   parent: BaseMagazineRifle
   id: MagazineSniperM107
@@ -150,6 +61,98 @@
 
 - type: entity
   parent: BaseMagazineRifle
+  id: MagazineSniperM40A5
+  name: "M40A5 magazine (7.62x51mm)"
+  description: It's a magazine.
+  components:
+  - type: Tag
+    tags:
+      - MagazineSniperM40A5
+      - Magazine
+  - type: BallisticAmmoProvider
+    proto: BF_CartridgeRifle762x51
+    mayTransfer: true
+    whitelist:
+      tags:
+        - BF_CartridgeRifle762x51
+    capacity: 10
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/7.62x51mm/7.62x51mm_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: false
+  - type: Appearance
+
+#region PACT
+
+- type: entity
+  parent: BaseMagazineRifle
+  id: MagazineSniperOSV96
+  name: "OSV-96 magazine (12.7x108mm)"
+  description: A 5 round magazine for the OSV-96 anti-materiel rifle.
+  components:
+  - type: Tag
+    tags:
+      - MagazineSniperOSV96
+      - Magazine
+  - type: BallisticAmmoProvider
+    proto: Cartridge127mmKordN
+    mayTransfer: true
+    whitelist:
+      tags:
+        - Cartridge127mmKordN
+    capacity: 5
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Sniper/OSV96.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineRifle
+  id: MagazineRifleSV98
+  name: "SV-98 magazine (7.62x54mmR)"
+  description: A small, 5 round magazine for the SV-98, but dont let its small size fool you, these rounds pack a punch.
+  components:
+  - type: Tag
+    tags:
+      - MagazineRifleSV98
+      - Magazine
+  - type: BallisticAmmoProvider
+    proto: BF_CartridgeRifle762x54r
+    mayTransfer: true
+    whitelist:
+      tags:
+        - BF_CartridgeRifle762x54r
+    capacity: 5
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Sniper/SV98.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineRifle
   id: MagazineSniperSVDS
   name: "SVDS magazine (7.62x54mmR)"
   description: A 10 round magazine for the SVDS, for tapping americans a little further than your average infantryman.
@@ -180,23 +183,53 @@
 
 - type: entity
   parent: BaseMagazineRifle
-  id: MagazineSniperM40A5
-  name: "M40A5 magazine (7.62x51mm)"
-  description: It's a magazine.
+  id: MagazineRifleVPO215
+  name: "VPO-215 magazine (.366mm)"
+  description: A small, 4 round magazine for the VPO-215.
   components:
   - type: Tag
     tags:
-      - MagazineSniperM40A5
+      - MagazineRifleVPO215
       - Magazine
   - type: BallisticAmmoProvider
-    proto: BF_CartridgeRifle762x51
+    proto: BF_CartridgeRifle366
     mayTransfer: true
     whitelist:
       tags:
-        - BF_CartridgeRifle762x51
+        - BF_CartridgeRifle366
+    capacity: 4
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Sniper/SV98.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineRifle
+  id: MagazineRifleMagpulMosin
+  name: "Mosin-Nagant magazine (7.62x54mmR)"
+  description: A magpul aftermarket, 10 round magazine for the Mosin-Nagant,
+  components:
+  - type: Tag
+    tags:
+      - MagazineRifleMagpullMosin
+      - Magazine
+  - type: BallisticAmmoProvider
+    proto: BF_CartridgeRifle762x54r
+    mayTransfer: true
+    whitelist:
+      tags:
+        - BF_CartridgeRifle762x54r
     capacity: 10
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/7.62x51mm/7.62x51mm_mag.rsi
+    sprite: _Battlefield14/Objects/Weapons/Guns/Ammunition/Magazines/Sniper/SV98.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]

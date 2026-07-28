@@ -275,6 +275,17 @@
     - id: MagazineRifleG36
       amount: 5
 
+- type: entity
+  parent: WeaponCaseLong
+  id: BF14WeaponCaseLongUSMXM8Tan
+  suffix: XM8, tan
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleUSXM8Tan
+    - id: MagazineRifleG36
+      amount: 5
+
 #region Machine guns, US
 
 - type: entity
@@ -297,6 +308,19 @@
     - id: WeaponMachineGunUSM240B
     - id: MagazineBeltBoxM240
 
+#region AMRs, US
+
+- type: entity
+  parent: WeaponCaseLong
+  id: BF14WeaponCaseLongUSM107
+  suffix: M107
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSniperUSM107
+    - id: MagazineSniperM107
+      amount: 6
+
 #region Rifles, DE
 
 - type: entity
@@ -307,6 +331,17 @@
   - type: StorageFill
     contents:
     - id: WeaponRifleDEG36
+    - id: MagazineRifleG36
+      amount: 5
+
+- type: entity
+  parent: WeaponCaseLong
+  id: BF14WeaponCaseLongDEG36K
+  suffix: G36K
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleDEG36K
     - id: MagazineRifleG36
       amount: 5
 
@@ -516,6 +551,19 @@
     - id: WeaponMachineGunRURP46
     - id: MagazineBeltRP46
       amount: 2
+
+#region AMRs, US
+
+- type: entity
+  parent: WeaponCaseLong
+  id: BF14WeaponCaseLongRUOSV96
+  suffix: OSV-96
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSniperRUOSV96
+    - id: MagazineSniperOSV96
+      amount: 6
 
 #region Oddballs
 

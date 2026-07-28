@@ -114,6 +114,27 @@
       sprite: _Battlefield14/Interface/MousePointer/optics.rsi
       state: acog
 
+- type: entity
+  name: XM8
+  parent: WeaponRifleUSXM8
+  id: WeaponRifleUSXM8Tan
+  suffix: tan
+  components:
+  - type: Item
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/XM8tan.rsi
+  - type: Icon
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/XM8tan.rsi
+    state: icon
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/XM8tan.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Battlefield14/Objects/Weapons/Guns/Rifles/XM8tan.rsi
+
 #region Belgium
 
 - type: entity
