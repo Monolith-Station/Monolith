@@ -376,6 +376,48 @@
   - type: PresetIdCard
     job: USPDOfficer
 
+- type: entity
+  parent: IDCardStandard
+  id: USPDSWATLieutenantIDCard
+  name: SWAT ID card
+  suffix: SWAT Lieutenant
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: USPDSWATLieutenant
+
+- type: entity
+  parent: IDCardStandard
+  id: USPDSWATSquadLeaderIDCard
+  name: SWAT ID card
+  suffix: SWAT Squad Leader
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: USPDSWATSquadLeader
+
+- type: entity
+  parent: IDCardStandard
+  id: USPDSWATOfficerIDCard
+  name: SWAT ID card
+  suffix: SWAT Officer
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: USPDSWATOfficer
+
 ## DE
 
 #region BW

@@ -410,6 +410,36 @@
   - type: Pda
     id: USPDOfficerIDCard
 
+- type: entity
+  parent: BasePDA
+  id: USPDSWATLieutenantPDA
+  name: SWAT PDA
+  description: Filled with bodycam footage.
+  suffix: SWAT lieutenant
+  components:
+  - type: Pda
+    id: USPDSWATLieutenantIDCard
+
+- type: entity
+  parent: BasePDA
+  id: USPDSWATSquadLeaderPDA
+  name: SWAT PDA
+  description: Filled with bodycam footage.
+  suffix: SWAT squad leader
+  components:
+  - type: Pda
+    id: USPDSWATSquadLeaderIDCard
+
+- type: entity
+  parent: BasePDA
+  id: USPDSWATOfficerPDA
+  name: SWAT PDA
+  description: Filled with bodycam footage.
+  suffix: SWAY officer
+  components:
+  - type: Pda
+    id: USPDSWATOfficerIDCard
+
 ## DE
 
 #region BW

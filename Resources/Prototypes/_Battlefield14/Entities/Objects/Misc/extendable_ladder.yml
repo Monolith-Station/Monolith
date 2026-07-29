@@ -43,7 +43,7 @@
     sprite: _Battlefield14/Objects/Misc/extendableladder.rsi
     snapCardinals: false
     state: ladder
-    drawdepth: FloorTiles
+    drawdepth: Walls
   - type: Transform
     anchored: true
   - type: Damageable

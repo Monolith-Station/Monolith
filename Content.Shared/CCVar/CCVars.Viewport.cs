@@ -23,7 +23,7 @@ public sealed partial class CCVars
         CVarDef.Create("viewport.minimum_width", 15, CVar.REPLICATED | CVar.SERVER);
 
     public static readonly CVarDef<int> ViewportMaximumWidth =
-        CVarDef.Create("viewport.maximum_width", 30, CVar.REPLICATED | CVar.SERVER); //CrystallEdge width 30
+        CVarDef.Create("viewport.maximum_width", 15, CVar.REPLICATED | CVar.SERVER); //BF14 1:1 viewport
 
     public static readonly CVarDef<int> ViewportWidth =
         CVarDef.Create("viewport.width", 30, CVar.CLIENTONLY | CVar.ARCHIVE); //CrystallEdge width 30

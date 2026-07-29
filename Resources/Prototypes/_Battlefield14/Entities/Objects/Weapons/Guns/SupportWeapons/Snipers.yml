@@ -175,6 +175,11 @@
     - SemiAuto
     selectedMode: SemiAuto
     fireRate: 4
+    soundGunshot:
+      collection: BF_Galil_Gunshots_SUPP
+      params:
+        volume: -12
+        variation: 0.125
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 10

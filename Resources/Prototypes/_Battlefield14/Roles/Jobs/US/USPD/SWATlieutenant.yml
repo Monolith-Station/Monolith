@@ -42,16 +42,18 @@
 - type: startingGear
   id: USPDSWATLieutenantGear
   equipment:
-    id: USPDChiefPDA
+    id: USPDSWATLieutenantPDA
     head: ClothingHeadHatHelmetSurplus
     ears: ClothingHeadsetAltWPS
     belt: ClothingBeltStationSecurityFilledSWAT
     jumpsuit: ClothingUniformJumpsuitUSPD
     outerClothing: ClothingOuterArmorWebVestSec
     shoes: ClothingShoesBootsJackFilled
+    pocket1: FlashbangGrenadeUSM84
     pocket2: PouchFirstAidFilled
   storage:
     back:
     - ClothingMaskGasM40
     - Tourniquet
-    - Zipties
+    - EncryptionKeyAlpha
+    - EncryptionKeyCharlie

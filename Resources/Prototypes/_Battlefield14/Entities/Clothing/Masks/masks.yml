@@ -115,3 +115,21 @@
     - Snout
     - Hair
     hideOnToggle: true
+
+- type: entity
+  parent: ClothingMaskGasM40Green
+  id: ClothingMaskGasM40GreenAdmin
+  name: M67 adming protective mask
+  description: Effective against stuff you reaally dont want in your body, upgraded with built-in night vision and heads-up-display.
+  suffix: ADMEME DO NOT MAP
+  components:
+  - type: NightVision
+    relayOverlay: true
+    goggleEffect: false
+    viewCircleRadius: 400
+    viewCircleCount: 1
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#00FF00"
+  - type: IngestionBlocker
+    blockSmokeIngestion: true

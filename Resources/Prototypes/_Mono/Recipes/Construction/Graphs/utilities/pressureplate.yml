@@ -12,11 +12,11 @@
             - material: Steel
               amount: 2
               doAfter: 1
-            - tag: RemoteSignaller
-              name: remote signaller
-              icon:
-                sprite: Objects/Devices/signaller.rsi
-                state: signaller
-              doAfter: 2
+#BF14            - tag: RemoteSignaller
+#BF14              name: remote signaller
+#BF14              icon:
+#BF14                sprite: Objects/Devices/signaller.rsi
+#BF14                state: signaller
+#BF14              doAfter: 2
     - node: PressurePlateNode
       entity: PressurePlate
