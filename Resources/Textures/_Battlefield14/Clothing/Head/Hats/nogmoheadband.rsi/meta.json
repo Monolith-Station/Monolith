@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "license": "Custom",
+  "copyright": "Made by JoeHammad for use in the Battlefield14 project. Do not re-use these sprites without permission.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-HELMETATTACHMENT",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HELMET",
+      "directions": 4
+    }
+  ]
+}
