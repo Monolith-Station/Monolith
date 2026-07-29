@@ -14,10 +14,12 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events; // Mono
+using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
@@ -36,6 +38,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Configuration;
 using Content.Shared._Mono.CCVar;
 using Robust.Shared;
+using Robust.Shared.Spawners;
 
 namespace Content.Shared.Projectiles;
 
@@ -78,6 +81,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         SubscribeLocalEvent<ProjectileComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<ProjectileComponent, PreventCollideEvent>(PreventCollision);
+        SubscribeLocalEvent<ProjectileComponent, EntGotInsertedIntoContainerMessage>(OnProjectileInserted);
+        SubscribeLocalEvent<ProjectileComponent, PullStartedMessage>(OnProjectilePullStarted);
         SubscribeLocalEvent<EmbeddableProjectileComponent, PreventCollideEvent>(EmbeddablePreventCollision); // Goobstation - Crawl Fix
         SubscribeLocalEvent<EmbeddableProjectileComponent, ProjectileHitEvent>(OnEmbedProjectileHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit);
@@ -110,11 +115,69 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         return false;
     }
 
+    /// <summary>
+    /// Returns whether the entity should currently behave like an active projectile.
+    /// Dormant ammo items keep their projectile component so they can be shot later,
+    /// but should otherwise behave like ordinary items in hands, pockets, and containers.
+    /// </summary>
+    protected static bool IsActiveProjectile(in ProjectileComponent component)
+    {
+        return !component.ProjectileSpent &&
+               !(component.OnlyCollideWhenShot && component.Weapon == null);
+    }
+
+    /// <summary>
+    /// Returns reusable ammo to dormant item behavior after pickup/pull.
+    /// Shot projectiles stay InAir with Weapon set, which otherwise lets them
+    /// levitate when pulled and keep projectile embedding after a throw.
+    /// </summary>
+    public void DeactivateShotProjectile(EntityUid uid, ProjectileComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false) || !component.OnlyCollideWhenShot)
+            return;
+
+        // Weapon is what IsActiveProjectile checks; clear networked shot identity only when needed.
+        if (component.Weapon != null || component.Shooter != null)
+        {
+            component.Weapon = null;
+            component.Shooter = null;
+            Dirty(uid, component);
+        }
+
+        // Server-local raycast hack; not networked, so no Dirty.
+        component.RaycastResetVelocity = null;
+
+        // Cancel flight despawn once the ammo is recovered / landed.
+        RemComp<TimedDespawnComponent>(uid);
+
+        // Physics is what stops levitation; BodyStatus/velocity replicate via physics, not Dirty.
+        if (!TryComp(uid, out PhysicsComponent? physics))
+            return;
+
+        if (physics.BodyStatus == BodyStatus.InAir)
+            _physics.SetBodyStatus(uid, physics, BodyStatus.OnGround);
+
+        _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);
+        _physics.SetAngularVelocity(uid, 0f, body: physics);
+    }
+
+    private void OnProjectileInserted(EntityUid uid, ProjectileComponent component, EntGotInsertedIntoContainerMessage args)
+    {
+        DeactivateShotProjectile(uid, component);
+    }
+
+    private void OnProjectilePullStarted(EntityUid uid, ProjectileComponent component, PullStartedMessage args)
+    {
+        if (args.PulledUid != uid)
+            return;
+
+        DeactivateShotProjectile(uid, component);
+    }
+
     private void OnStartCollide(EntityUid uid, ProjectileComponent component, ref StartCollideEvent args)
     {
         // This is so entities that shouldn't get a collision are ignored.
-        if (args.OurFixtureId != ProjectileFixture || !args.OtherFixture.Hard
-            || component.ProjectileSpent || component is { Weapon: null, OnlyCollideWhenShot: true })
+        if (args.OurFixtureId != ProjectileFixture || !args.OtherFixture.Hard || !IsActiveProjectile(component))
             return;
 
         ProjectileCollide((uid, component, args.OurBody), args.OtherEntity);
@@ -420,6 +483,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         _audio.PlayPredicted(component.Sound, uid, null);
         component.EmbeddedIntoUid = target;
+        // Embedded ammo should not despawn while stuck in a target.
+        RemComp<TimedDespawnComponent>(uid);
         var ev = new EmbedEvent(user, target);
         RaiseLocalEvent(uid, ref ev);
         Dirty(uid, component);
@@ -505,8 +570,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void PreventCollision(EntityUid uid, ProjectileComponent component, ref PreventCollideEvent args)
     {
-        // Ignore spent projectiles and ammo entities that should only collide while actively shot.
-        if (component.ProjectileSpent || (component.Weapon == null && component.OnlyCollideWhenShot))
+        // Ignore dormant ammo entities here so they keep ordinary item behavior.
+        if (!IsActiveProjectile(component))
             return;
 
         // Goobstation - Crawling fix

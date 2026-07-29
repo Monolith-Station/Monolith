@@ -120,4 +120,19 @@ public sealed partial class ProjectileComponent : Component
     // Mono
     [DataField]
     public float LinearDampening = 0f;
+
+    /// <summary>
+    /// Extra linear damping applied while the projectile is actively flying.
+    /// Useful for arrows/bolts that should lose speed over distance.
+    /// </summary>
+    [DataField]
+    public float InFlightLinearDampening = 0f;
+
+    /// <summary>
+    /// If greater than zero, a timed despawn is applied when this projectile is shot.
+    /// Used so recoverable ammo (arrows/bolts) does not fly forever in space.
+    /// Removed again if the projectile is recovered, lands, or embeds.
+    /// </summary>
+    [DataField]
+    public float FlightLifetime = 0f;
 }

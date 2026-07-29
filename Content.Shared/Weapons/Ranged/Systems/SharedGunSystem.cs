@@ -572,6 +572,10 @@ public abstract partial class SharedGunSystem : EntitySystem
         Projectiles.SetShooter(uid, projectile, user ?? gunUid);
         projectile.Weapon = gunUid;
 
+        // Recoverable ammo (arrows/bolts) gets a flight timeout so it cannot linger forever in space.
+        if (projectile.FlightLifetime > 0f)
+            EnsureComp<TimedDespawnComponent>(uid).Lifetime = projectile.FlightLifetime;
+
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
     }
 

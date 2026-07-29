@@ -133,16 +133,20 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
         var query = EntityQueryEnumerator<ProjectileComponent, PhysicsComponent>();
         while (query.MoveNext(out var uid, out var projectileComp, out var physicsComp))
         {
-            // Forge-Changed-Start
-            // SetCoordinates detaches contained entities, so only raycast projectiles that are actively in flight.
-            if (projectileComp.ProjectileSpent ||
-                TerminatingOrDeleted(uid) ||
-                (projectileComp.Weapon == null && projectileComp.OnlyCollideWhenShot) ||
+            // Raycast only active in-flight projectiles. Dormant ammo in containers must not be
+            // re-positioned because SetCoordinates will detach it from the container hierarchy.
+            if (TerminatingOrDeleted(uid) ||
+                !IsActiveProjectile(projectileComp) ||
                 _container.IsEntityInContainer(uid))
                 continue;
-            // Forge-Changed-End
 
             var xform = Transform(uid);
+            ApplyInFlightDamping(uid, projectileComp, physicsComp, xform, frameTime);
+
+            // Damping may have landed the ammo; do not keep raycasting a dormant item.
+            if (!IsActiveProjectile(projectileComp))
+                continue;
+
             var currentVelocity = projectileComp.RaycastResetVelocity ?? _physics.GetMapLinearVelocity(uid, physicsComp, xform);
             var velLen = currentVelocity.Length();
             if (!ShouldRaycastProjectile(velLen) && projectileComp.RaycastResetVelocity == null)
@@ -238,5 +242,47 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
                 return true;
             }
         }
+    }
+
+    /// <summary>
+    /// Below this map speed, damped ammo is forced to land instead of crawling forever.
+    /// </summary>
+    private const float InFlightStopSpeed = 0.2f;
+
+    private void ApplyInFlightDamping(
+        EntityUid uid,
+        ProjectileComponent projectile,
+        PhysicsComponent physics,
+        TransformComponent xform,
+        float frameTime)
+    {
+        if (projectile.InFlightLinearDampening <= 0f || frameTime <= 0f || projectile.RaycastResetVelocity != null)
+            return;
+
+        var mapVelocity = _physics.GetMapLinearVelocity(uid, physics, xform);
+        var speedSq = mapVelocity.LengthSquared();
+        if (speedSq <= 0f)
+            return;
+
+        var stopSpeedSq = InFlightStopSpeed * InFlightStopSpeed;
+        if (speedSq <= stopSpeedSq)
+        {
+            DeactivateShotProjectile(uid, projectile);
+            return;
+        }
+
+        var multiplier = MathF.Max(0f, 1f - projectile.InFlightLinearDampening * frameTime);
+        if (multiplier >= 0.9999f)
+            return;
+
+        var dampedMapVelocity = mapVelocity * multiplier;
+        if (dampedMapVelocity.LengthSquared() <= stopSpeedSq)
+        {
+            DeactivateShotProjectile(uid, projectile);
+            return;
+        }
+
+        var parentVelocity = _physics.GetMapLinearVelocity(xform.ParentUid);
+        _physics.SetLinearVelocity(uid, dampedMapVelocity - parentVelocity, body: physics);
     }
 }
