@@ -45,6 +45,10 @@ ghost-role-information-syndiroach-name = SyndiRoach
 ghost-role-information-syndiroach-description = Repurposed by the PDV You are the highly trained and faithful pet of a PDV operative equiped with a microbomb. Serve your master to the death!
 ghost-role-information-syndiroach-rules = You are a [color=red][bold]Team PDV[/bold][/color] with the agent who summoned you.
 
+ghost-role-information-oworoach-name = OwORoach
+ghost-role-information-oworoach-description = The Latest development from TSF High command, no explanation has been provided. equiped with a microbomb to disarm or dismember any threats to the TSF. Serve your handler to the death!
+ghost-role-information-oworoach-rules = You are a [color=red][bold]Team TSF[/bold][/color] with the agent who summoned you.
+
 ghost-role-information-mothroachmustard-name = mustard mothroach
 ghost-role-information-mothroachmustard-description = A delightful result of the world's chefs crossing meat with sauce.
 

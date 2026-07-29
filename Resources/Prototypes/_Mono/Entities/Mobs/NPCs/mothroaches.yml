@@ -300,6 +300,105 @@
     - Freespeak
 
 - type: entity
+  name: oworoach
+  parent: MobMothroach
+  id: MobOwORoach
+  description: TSF high command have provided no explanation or excuses
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-oworoach-name
+    description: ghost-role-information-oworoach-description
+    rules: ghost-role-information-oworoach-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: AutoImplant
+    implants:
+    - MindShieldImplant
+    - TrackingImplant
+    - RadioImplantTsf
+    - MicroBombImplant
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Traffic
+    - Nfsd
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Traffic
+    - Nfsd
+  - type: NpcFactionMember
+    factions:
+    - TSFMC
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Squeak
+    allowedEmotes: ['Chitter', 'Squeak']
+  - type: FaxableObject
+    insertingState: inserting_mothroach
+  - type: MothAccent
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/oworoach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+    - map: ["oworoach_tail"]
+      state: tail
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mothroach-moving
+    noMovementLayers:
+      movement:
+        state: mothroach
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/oworoach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Critical:
+        Base: mothroach_dead
+      Dead:
+        Base: mothroach_dead
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Moffic
+    - SolCommon
+    understands:
+    - Moffic
+    - SolCommon
+  - type: AddAccentClothing
+    accent: OwOAccent
+  - type: OwOAccent
+  - type: Company
+    companyName: TSF
+
+- type: entity
   name: leopard mothroach
   parent: MobMothroach
   id: MobMothroachLeopard

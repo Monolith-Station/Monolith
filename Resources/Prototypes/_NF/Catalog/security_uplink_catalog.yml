@@ -1207,6 +1207,22 @@
           - SecurityUplink
 
 - type: listing
+  id: MobOwORoach
+  name: uplink-security-MobOwORoach-name
+  description: uplink-security-MobOwORoach-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-oworoach }
+  productEntity: ReinforcementRadioTSFOwORoach
+  cost:
+    FederationMilitaryCredit: 30
+  categories:
+    - UplinkSecurityExplosives
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+- type: listing
   id: UplinkSecurityIncendiaryGrenadeBox
   name:  uplink-security-incendiarygrenade-box-name
   description: uplink-security-incendiarygrenade-box-desc

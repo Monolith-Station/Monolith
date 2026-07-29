@@ -1,0 +1,18 @@
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioTSFOwORoach
+  name: OwOroach Reinforcement Radio
+  description: Calls in a faithfully trained OwO with a microbomb to assist you.
+  components:
+  - type: GhostRole
+    name: ghost-role-information-oworoach-name
+    description: ghost-role-information-oworoach-description
+    rules: ghost-role-information-oworoach-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobOwORoach
+  - type: EmitSoundOnUse
+    sound: /Audio/Voice/Moth/moth_chitter.ogg

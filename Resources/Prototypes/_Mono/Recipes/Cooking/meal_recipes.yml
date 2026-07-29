@@ -99,6 +99,17 @@
 #Breads & Sandwiches
 
 - type: microwaveMealRecipe
+  id: RecipeOwORoachburger
+  name: oworoachburger recipe
+  result: FoodBurgerOwORoach
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    MobOwORoach: 1
+  recipeType: Microwave # Mono: Deviating to match the item description and restore the humor
+#Breads & Sandwiches
+
+- type: microwaveMealRecipe
   id: RecipeMopRoachburger
   name: moproachburger recipe
   result: FoodBurgerMopRoach
