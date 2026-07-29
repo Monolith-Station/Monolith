@@ -5,6 +5,7 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Actions;
 using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
 using Content.Shared.Throwing;
@@ -18,6 +19,7 @@ public sealed class DashActionSystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -39,6 +41,10 @@ public sealed class DashActionSystem : EntitySystem
         args.Handled = true;
         var vec = (_transform.ToMapCoordinates(args.Target).Position -
                    _transform.GetMapCoordinates(args.Performer).Position).Normalized() * args.Distance;
+        var vec = (_transform.ToMapCoordinates(args.Target).Position -
+                   _transform.GetMapCoordinates(args.Performer).Position).Normalized() *
+                   args.Distance;
+
         var speed = args.Speed;
 
         if (args.AffectedBySpeed && TryComp<MovementSpeedModifierComponent>(args.Performer, out var speedcomp))
@@ -57,6 +63,9 @@ public sealed class DashActionSystem : EntitySystem
             emotes.Emote = args.Emote;
             Dirty(args.Performer, emotes);
         }
+        _throwing.TryThrow(args.Performer, vec, speed, null, 0, null, false, false, false);
+
+        args.Handled = true;
     }
 
     private void OnComponentInit(EntityUid uid, DashActionComponent comp, ref ComponentInit args)

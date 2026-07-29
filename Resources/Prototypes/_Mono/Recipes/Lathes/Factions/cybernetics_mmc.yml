@@ -1,0 +1,34 @@
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AutosurgeonRightMantisBladeMMC
+  result: AutosurgeonRightMantisBladeMieyoFlatpack
+  materials:
+    Steel: 3000
+    Plastic: 2500
+    Glass: 400
+    Plasteel: 1600
+    Plasma: 750
+    Gold: 1000
+    Lithium: 750
+    Copper: 750
+
+- type: latheRecipe
+  parent: AutosurgeonRightMantisBladeMMC
+  id: AutosurgeonLeftMantisBladeMMC
+  result: AutosurgeonLeftMantisBladeMieyoFlatpack
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AutosurgeonSandevistanMMC
+  result: AutosurgeonSandevistanMieyoFlatpack
+  materials: # He is insanely expensive because it is cool as hell and OP as hell.
+    Steel: 3000
+    Plastic: 2500
+    Glass: 2000
+    Plasteel: 3000
+    Plasma: 1500
+    Gold: 1000
+    Lithium: 1500
+    Copper: 1500
+    UraniumFissile: 150
+    Iridite: 20 # It felt fitting. Just a high cost via the problem of obtaining it, not the problem of making it in bulk. No point making it cost 5 or 20 or whatever when its made in crystalizer.

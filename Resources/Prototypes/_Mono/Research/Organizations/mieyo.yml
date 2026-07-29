@@ -58,3 +58,46 @@
   - UniversalMaterialResearchT2
   position: 17, 7
 
+- type: technology
+  id: MieyoCorpsecRifles
+  name: research-technology-mieyo-corpsec-rifles
+  entityIcon: WeaponRifleOsaka
+  discipline: Mieyo
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - WeaponRifleOsakaMMC
+  - WeaponRifleIzumoMMC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  - MieyoCorpsecSuits
+  position: 17, 8
+
+- type: technology
+  id: MieyoBionicsT2
+  name: research-technology-mieyo-bionics-basic
+  entityIcon: MantisBlade
+  discipline: Mieyo
+  tier: 2
+  cost: 50000
+  recipeUnlocks:
+  - AutosurgeonRightMantisBladeMMC
+  - AutosurgeonLeftMantisBladeMMC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  position: 18, 7
+
+- type: technology
+  id: MieyoBionicsT3
+  name: research-technology-mieyo-bionics-advanced
+  entityIcon: OrganHeartSandevistan
+  discipline: Mieyo
+  tier: 3
+  cost: 125000
+  recipeUnlocks:
+  - AutosurgeonSandevistanMMC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT3
+  - MieyoBionicsT2
+  position: 18, 9
+

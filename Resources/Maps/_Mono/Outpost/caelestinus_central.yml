@@ -129,8 +129,6 @@ entities:
       parent: 1
     - type: ForceAnchor
     - type: StationTransit
-    - type: IFF
-      readOnly: True
     - type: ProtectedGrid
       hostileMobKillSound: !type:SoundPathSpecifier
         path: /Audio/Effects/holy.ogg
@@ -42720,7 +42718,7 @@ entities:
 
 
 
-                      Sincerely, 
+                      Sincerely,
                            Engineering Unanimously
     - type: Physics
       canCollide: False
@@ -42834,7 +42832,7 @@ entities:
 
                                     [head=2]Shooting range is OPEN[/head]
 
-                                  [bold] PLEASE ANNOUNCE OVER PUBLIC 
+                                  [bold] PLEASE ANNOUNCE OVER PUBLIC
                                     CHANNELS BEFORE BEGINNING
                                                     LIVE FIRE TESTS
     - type: Tag

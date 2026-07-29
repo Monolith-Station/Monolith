@@ -1,0 +1,16 @@
+- type: entity
+  parent: OrganHumanHeart #, BaseSyndicateContraband ]
+  id: OrganHeartSandevistan
+  name: Sandevistan
+  description: Advanced cyberware that replaces the user's heart and allows them to greatly increase their agility for a short period, at the cost of their endurance.
+  components:
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/sandevistan.rsi
+    state: icon
+    scale: 0.5, 0.5
+  - type: Organ
+    onAdd:
+    - type: SandevistanUser
+      loadPerActiveSecond: 5 # Mono
+      loadPerInactiveSecond: -0.25 # Mono

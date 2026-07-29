@@ -1,0 +1,32 @@
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AutosurgeonSandevistanTSF
+  result: AutosurgeonSandevistanTSFFlatpack
+  materials: # He is insanely expensive because it is cool as hell and OP as hell.
+    Steel: 3000
+    Plastic: 2500
+    Glass: 2000
+    Plasteel: 3000
+    Plasma: 1200 # Also a little less than the MMC one.
+    Gold: 1000
+    Lithium: 1500
+    Copper: 1200 # A little less copper than the MMC one, maybe say it has smaller heatsinks or something.
+    UraniumFissile: 150
+    Iridite: 20 # It felt fitting. Just a high cost via the problem of obtaining it, not the problem of making it in bulk. No point making it cost 5 or 20 or whatever when its made in crystalizer.
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AutosurgeonShuntTSF
+  result: AutosurgeonShuntTSFFlatpack
+  materials:
+    Steel: 3000
+    Plastic: 2500
+    Glass: 2000
+    Plasteel: 3000
+    Plasma: 2500
+    Gold: 1000
+    Lithium: 1500
+    Copper: 2000
+    UraniumFissile: 150
+    Bluespace: 200
+    Iridite: 50

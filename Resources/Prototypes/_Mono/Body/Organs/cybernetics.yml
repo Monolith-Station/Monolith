@@ -1,0 +1,117 @@
+- type: entity
+  parent: OrganHumanHeart
+  id: OrganHeartTSFSandevistan
+  name: TSF WJY-21X "Leuko" implant suite
+  description: An experimental piece of cyberware developed under contract by Erebus HI that replaces the heart. Equipped with an experimental reverse-engineered slower-recharging design of a MMC sandevistan.
+  components:
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/cybernetics.rsi
+    state: leuko
+  - type: Organ
+    onAdd:
+    - type: SandevistanUser # This is worse than the mieyo one, because its reverse engineered or something. My secrets are propietary to my company. I mean, the only difference though is that it cools down a little bit slower.
+      loadPerActiveSecond: 5
+      loadPerInactiveSecond: -0.15
+
+- type: entity
+  parent: OrganHumanHeart
+  id: OrganHeartTSFShunt
+  name: TSF KR-22 "Zenit" implant suite
+  description: A highly experimental piece of cyberware developed in some hellish TSF blacksite that replaces the heart. Allows the user to do a short localized teleport to any position in their line of sight.
+  components:
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/cybernetics.rsi
+    state: cranial_aug
+  - type: Organ
+    onAdd:
+    - type: DashAbility # Hilarious
+      dashAction: ActionEnergyCyberneticsShuntTSF
+      requireItem: false
+      isUser: true
+
+- type: entity
+  parent: BaseItem
+  id: OrganInternalAirSystem
+  name: PD-VI LS-210 IAS
+  description: A cybernetic organ that replaces the lungs with a suite of filters and other devices. Not enough to keep you breathing in space, but filters out toxic gases and makes you need a little less to breathe.
+  components:
+  - type: EmitSoundOnPickup
+    sound:
+      collection: OrganInteraction
+  - type: EmitSoundOnDrop
+    sound:
+      collection: OrganInteraction
+  - type: EmitSoundOnLand
+    sound:
+      collection: OrganInteraction
+  - type: Organ
+    slotId: lungs
+  - type: Gibbable
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/cybernetics.rsi
+    state: internal_air_system
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ IAS ]
+    groups:
+    - id: Gas
+      rateModifier: 60.0
+  - type: SolutionContainerManager
+    solutions:
+      Lung:
+        maxVol: 100.0
+        canReact: false
+
+- type: entity
+  parent: BaseItem
+  id: OrganPDVAdvancedHeart
+  name: PD-VI VV/KE prosthetic heart
+  description: A fast-pumping compact artifical heart. Can process a lot of reagents at once, and lets you take more damage before going down, but lowers your stamina and processes medicine slower.
+  components:
+  - type: EmitSoundOnPickup
+    sound:
+      collection: OrganInteraction
+  - type: EmitSoundOnDrop
+    sound:
+      collection: OrganInteraction
+  - type: EmitSoundOnLand
+    sound:
+      collection: OrganInteraction
+  - type: Organ
+    slotId: heart
+    onAdd:
+    - type: Stamina
+      critThreshold: 75 # 25% less stamina
+      decay: 2
+    - type: WillToLive
+      deadIncrease: 20
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        70: 0.6
+        90: 0.4
+  - type: Gibbable
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/cybernetics.rsi
+    state: glare_dampeners
+  - type: Heart
+  - type: Metabolizer
+    maxReagents: 6
+    metabolizerTypes: [Human]
+    groups:
+    - id: Medicine
+      rateModifier: 1.2
+    - id: Cryogenic
+      rateModifier: 1.2
+    - id: Poison
+      rateModifier: 0.2
+    - id: Narcotic
+      rateModifier: 0.2
+  - type: Item
+    size: Small
