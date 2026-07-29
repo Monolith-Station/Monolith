@@ -2,6 +2,7 @@
 - type: startingGear
   id: NFMobAghostGear
   equipment:
+    mask: ClothingMaskGasM40GreenAdmin # BF14
     back: ClothingBackpackSatchelHolding
     id: NFAdminPDA
   storage:
@@ -24,6 +25,7 @@
     - BluespaceBeaker
     - Omnitool
     - SyringeBluespace
+    - WeaponLaserGunDecomissioner # BF14
 
 - type: startingGear
   id: MobClippyGear

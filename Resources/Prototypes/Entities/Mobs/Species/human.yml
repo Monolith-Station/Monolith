@@ -95,6 +95,12 @@
       - description: Firing a weapon within half a tile will fire over their shoulder.
         color: "#4f94ad"
         requireDetailRange: true
+  - type: JumpAbility # BF14
+    jumpDistance: 2.75
+    jumpSound: /Audio/Effects/Footsteps/suitstep2.ogg
+  - type: ActionGrant # BF14
+    actions:
+    - ActionGravityJump 
 
 - type: entity
   parent: BaseSpeciesDummy

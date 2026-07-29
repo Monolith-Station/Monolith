@@ -97,54 +97,6 @@
       - id: ClothingUniformJumpsuitLoungewear
         prob: 0.05
         orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtBlackElegantDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtRedElegantDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtGreenElegantDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtBlueElegantDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtPurpleElegantDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtCyanStripedDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtRedStripedDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtGreenStripedDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtPinkStripedDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtOrangeStripedDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtPurpleTurtleneckDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtRedTurtleneckDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtGreenTurtleneckDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtBlueTurtleneckDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtYellowTurtleneckDress
-        prob: 0.05
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtYellowOldDress
-        prob: 0.05
-        orGroup: dressermainloot
       - id: Pen # It`s pen.
         prob: 0.03
         orGroup: dressersecondloot
@@ -214,9 +166,6 @@
       - id: ClothingHeadHatCorpsoft
         prob: 0.03
         orGroup: dresserthirdloot
-      - id: ClothingHeadHatBunny
-        prob: 0.03
-        orGroup: dresserthirdloot
       - id: ClothingOuterHoodieBlack
         prob: 0.03
         orGroup: dressersecondloot
@@ -274,9 +223,6 @@
       - id: ClothingOuterDameDane
         prob: 0.03
         orGroup: dressersecondloot
-      - id: ClothingHeadHatShrineMaidenWig
-        prob: 0.03
-        orGroup: dresserthirdloot
       - id: ClothingOuterPoncho
         prob: 0.03
         orGroup: dresserthirdloot
@@ -301,9 +247,6 @@
       - id: PlushieLizard
         prob: 0.03
         orGroup: dresserthirdloot
-      - id: ClothingOuterSuitShrineMaiden
-        prob: 0.03
-        orGroup: dressersecondloot
       - id: ClothingOuterClownPriest
         prob: 0.02
         orGroup: dressersecondloot
@@ -337,12 +280,6 @@
       - id: ClothingOuterGhostSheet
         prob: 0.008
         orGroup: dressersecondloot
-      - id: ClothingUniformJumpskirtJanimaid
-        prob: 0.005
-        orGroup: dressermainloot
-      - id: ClothingUniformJumpskirtJanimaidmini
-        prob: 0.005
-        orGroup: dressermainloot
       - id: ClothingNeckScarfStripedSyndieRed
         prob: 0.005
         orGroup: dressermainloot
@@ -355,18 +292,6 @@
       - id: ClothingHandsGlovesColorYellowBudget
         prob: 0.002
         orGroup: dressermainloot
-      - id: ClothingHeadPyjamaSyndicatePink
-        prob: 0.002
-        orGroup: dresserthirdloot
-      - id: ClothingUniformJumpsuitPyjamaSyndicatePink
-        prob: 0.002
-        orGroup: dressermainloot
-      - id: ClothingHeadHatTacticalMaidHeadband
-        prob: 0.001
-        orGroup: dresserthirdloot
-#      - id: FoodTinMRE
-#        prob: 0.010
-#        orGroup: dressermainloot
       - id: FoodCornTrash
         prob: 0.010
         orGroup: dressermainloot
@@ -481,9 +406,6 @@
       - id: FoodBowlBigTrash
         prob: 0.010
         orGroup: dresserthirdloot
-      - id: ClothingUniformJumpskirtTacticalMaid
-        prob: 0.001
-        orGroup: dressermainloot
       - id: ClothingUniformJumpsuitNanotrasen
         prob: 0.001
         orGroup: dressermainloot
@@ -515,9 +437,6 @@
         prob: 0.0003
         orGroup: dresserthirdloot
       - id: ClothingOuterWinterCentcom
-        prob: 0.0001
-        orGroup: dresserthirdloot
-      - id: ClothingUniformJumpskirtOfLife
         prob: 0.0001
         orGroup: dresserthirdloot
       - id: ClothingUniformJumpsuitSyndieFormal

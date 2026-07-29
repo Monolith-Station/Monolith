@@ -84,7 +84,7 @@
     respawnDelay: 5
     deleteBody: true
   - type: MaxTimeRestartRule
-    roundMaxTime: 600 # 10 minutes
+    roundMaxTime: 601 # 10 minutes
     roundEndDelay: 30 # 30 seconds
 
 - type: entity
@@ -92,5 +92,5 @@
   parent: BaseGameRule
   components:
   - type: MaxTimeRestartRule
-    roundMaxTime: 600 # 10 minutes
+    roundMaxTime: 601 # 10 minutes
     roundEndDelay: 120 # 2 minutes
