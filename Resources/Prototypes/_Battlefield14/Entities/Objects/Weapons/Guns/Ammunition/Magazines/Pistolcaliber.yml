@@ -405,6 +405,18 @@
   - type: Appearance
 
 - type: entity
+  parent: MagazinePistolM9
+  id: MagazinePistolHiPower
+  name: Hi-Power magazine (9x19mm)
+  description: It's a magazine, for the Browning Hi-Power.
+  components:
+  - type: Tag
+    tags:
+      - MagazinePistolHiPower
+      - Magazine
+      - PistolMagazine
+
+- type: entity
   parent: BaseMagazinePistol
   id: MagazinePistolMP443
   name: MP443 magazine (9x19mm)

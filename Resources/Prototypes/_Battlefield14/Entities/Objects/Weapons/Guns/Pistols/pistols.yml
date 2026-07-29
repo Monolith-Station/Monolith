@@ -224,6 +224,38 @@
     zeroVisible: true
   - type: Appearance
 
+- type: entity
+  name: Hi-Power
+  parent: WeaponPistolM9
+  id: WeaponPistolUSHiPower
+  description: One of Browning's popular pistols, developed after the 1911, serving in World War II and practically every conflict after.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Objects/Weapons/Guns/Pistols/hipower.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolHiPower
+        insertSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magin.ogg
+        ejectSound: /Audio/_Battlefield14/Weapons/Guns/Beretta/magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolHiPower
+      gun_chamber:
+        name: Chamber
+        startingItem: BF_CartridgePistol9x19
+        priority: 1
+        whitelist:
+          tags:
+            - BF_CartridgePistol9x19
+
 #region DE
 
 - type: entity
