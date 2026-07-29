@@ -1,4 +1,5 @@
 using Content.Shared._Mono.CCVar;
+using Content.Server._Mono.GridClaimer; /// Forge-Change
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
@@ -106,6 +107,9 @@ public abstract partial class BaseCleanupSystem<TComp> : EntitySystem
 
     protected void CleanupEnt(EntityUid uid)
     {
+        // don't delete it if claimed
+        if (TryComp<ClaimableGridComponent>(uid, out var claimable) && claimable.Claimed)   /// Forge-Change
+            return;                                                                         /// Forge-Change
         var coord = Transform(uid).Coordinates;
         var world = _transform.ToMapCoordinates(coord);
         if (_doLog)

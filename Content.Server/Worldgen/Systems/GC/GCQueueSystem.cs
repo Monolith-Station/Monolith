@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Worldgen.Components.GC;
 using Content.Server.Worldgen.Prototypes;
+using Content.Server._Mono.GridClaimer; /// Forge-Change
 using Content.Shared.CCVar;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
@@ -62,6 +63,10 @@ public sealed partial class GCQueueSystem : EntitySystem
                 var e = queue.Dequeue();
                 if (!Deleted(e))
                 {
+                    // don't delete it if claimed
+                    if (TryComp<ClaimableGridComponent>(e, out var claimable) && claimable.Claimed) /// Forge-Change
+                        continue;                                                                   /// Forge-Change
+
                     var ev = new TryCancelGC();
                     RaiseLocalEvent(e, ref ev);
 
@@ -78,6 +83,10 @@ public sealed partial class GCQueueSystem : EntitySystem
     /// <param name="e">Entity to GC.</param>
     public void TryGCEntity(EntityUid e)
     {
+        // don't delete it if claimed
+        if (TryComp<ClaimableGridComponent>(e, out var claimable) && claimable.Claimed) /// Forge-Change
+            return;                                                                     /// Forge-Change
+
         if (!TryComp<GCAbleObjectComponent>(e, out var comp))
         {
             QueueDel(e); // not our problem :)
