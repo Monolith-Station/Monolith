@@ -5,7 +5,6 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Actions;
 using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
 using Content.Shared.Throwing;
@@ -41,9 +40,6 @@ public sealed class DashActionSystem : EntitySystem
         args.Handled = true;
         var vec = (_transform.ToMapCoordinates(args.Target).Position -
                    _transform.GetMapCoordinates(args.Performer).Position).Normalized() * args.Distance;
-        var vec = (_transform.ToMapCoordinates(args.Target).Position -
-                   _transform.GetMapCoordinates(args.Performer).Position).Normalized() *
-                   args.Distance;
 
         var speed = args.Speed;
 
@@ -53,7 +49,7 @@ public sealed class DashActionSystem : EntitySystem
             speed *= speedcomp.CurrentSprintSpeed / speedcomp.BaseSprintSpeed;
         }
 
-        _throwing.TryThrow(args.Performer, vec, speed, animated: false);
+        _throwing.TryThrow( args.Performer, vec, baseThrowSpeed: speed, user: null, pushbackRatio: 0, friction: null, compensateFriction: false, recoil: false, animated: false);
 
         if (args.StaminaDrain != null)
             _stamina.TakeStaminaDamage(args.Performer, args.StaminaDrain.Value, visual: false, immediate: false);
@@ -63,9 +59,6 @@ public sealed class DashActionSystem : EntitySystem
             emotes.Emote = args.Emote;
             Dirty(args.Performer, emotes);
         }
-        _throwing.TryThrow(args.Performer, vec, speed, null, 0, null, false, false, false);
-
-        args.Handled = true;
     }
 
     private void OnComponentInit(EntityUid uid, DashActionComponent comp, ref ComponentInit args)
