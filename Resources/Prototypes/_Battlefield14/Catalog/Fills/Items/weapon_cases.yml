@@ -12,6 +12,30 @@
       amount: 2
     - id: MagazineBox45ACP
 
+- type: entity
+  parent: WeaponCaseShort
+  id: BF14WeaponCaseShortUSM9
+  suffix: M9 Beretta
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolM9
+    - id: MagazinePistolM9
+      amount: 2
+    - id: MagazineBox9x19mm
+
+- type: entity
+  parent: WeaponCaseShort
+  id: BF14WeaponCaseShortUSHiPower
+  suffix: Hi-Power
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolUSHiPower
+    - id: MagazinePistolHiPower
+      amount: 2
+    - id: MagazineBox9x19mm
+
 #region Handguns, DE
 
 - type: entity

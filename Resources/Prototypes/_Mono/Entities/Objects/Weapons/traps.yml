@@ -45,7 +45,8 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - ShellShotgun23x75mmBuckshot
+        - BF_CartridgeShotgun12Gauge
+        - BF_CartridgeShotgun4Gauge
     capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
