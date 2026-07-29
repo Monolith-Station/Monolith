@@ -53,6 +53,7 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
         var damageToOtherEv = new CEZFallingOnTargetDamageCalculateEvent(args.ImpactPower);
         RaiseLocalEvent(ent, damageToOtherEv);
         var otherDamage = damageToOtherEv.DamageMultiplier * BaseFallingOtherDamage * args.ImpactPower * args.ImpactPower;
+        otherDamage = MathF.Min(otherDamage, 80f);
         var otherStun = damageToOtherEv.StunMultiplier * BaseFallingOtherStunTime * args.ImpactPower * args.ImpactPower;
 
         // Calculate damage modifiers for the falling entity
@@ -100,6 +101,7 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
         stunModifier *= victimStunModifier;
 
         var damageAmount = args.ImpactPower * args.ImpactPower * BaseFallingDamage * damageModifier;
+        damageAmount = MathF.Min(damageAmount, 80f);
         if (damageAmount > 0)
         {
             var selfDmgSpec = new DamageSpecifier();
