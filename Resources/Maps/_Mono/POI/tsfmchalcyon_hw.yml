@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/24/2026 03:21:54
+  time: 07/29/2026 01:39:08
   entityCount: 10035
 maps: []
 grids:
@@ -229,10 +229,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Smoke: []
-        Puddle: []
         MetalFoam: []
+        Kudzu: []
+        Puddle: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -5452,7 +5452,7 @@ entities:
       pos: 8.5,-4.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -59435.766
+      secondsUntilStateChange: -59503.043
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5482,7 +5482,7 @@ entities:
       pos: 8.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -59434.996
+      secondsUntilStateChange: -59502.273
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -29091,15 +29091,6 @@ entities:
       startingCharge: 0
 - proto: ComputerCrewMonitoring
   entities:
-  - uid: 3926
-    components:
-    - type: Transform
-      pos: 4.5,26.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
   - uid: 4616
     components:
     - type: Transform
@@ -53599,6 +53590,17 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,32.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+- proto: TSFOverwatchComputer
+  entities:
+  - uid: 3926
+    components:
+    - type: Transform
+      pos: 4.5,26.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5

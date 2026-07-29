@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/25/2026 23:47:42
-  entityCount: 10022
+  time: 07/29/2026 01:28:59
+  entityCount: 10020
 maps: []
 grids:
 - 1
@@ -229,9 +229,9 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Kudzu: []
         MetalFoam: []
+        Kudzu: []
+        Smoke: []
         Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -5449,7 +5449,7 @@ entities:
       pos: 8.5,-4.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -58150.535
+      secondsUntilStateChange: -58743.973
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5479,7 +5479,7 @@ entities:
       pos: 8.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -58149.766
+      secondsUntilStateChange: -58743.203
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6597,15 +6597,6 @@ entities:
     - type: Transform
       pos: -0.42060804,-8.337971
       parent: 1
-- proto: AmmoBox700Thz
-  entities:
-  - uid: 330
-    components:
-    - type: Transform
-      parent: 329
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: AmmoBox762x51mmPractice
   entities:
   - uid: 335
@@ -11799,15 +11790,34 @@ entities:
     - type: Transform
       pos: -6.462846,11.782579
       parent: 1
-- proto: BoxMagazine762x39mmFMJ
+- proto: BoxMagazine45_ACPSubMachineGunEmp
   entities:
-  - uid: 1326
+  - uid: 6922
     components:
     - type: Transform
-      parent: 1325
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
+      pos: 3.569911,10.12535
+      parent: 1
+- proto: BoxMagazine45_ACPSubMachineGunFMJ
+  entities:
+  - uid: 6991
+    components:
+    - type: Transform
+      pos: 0.46358776,12.604516
+      parent: 1
+- proto: BoxMagazine68x52mmFMJ
+  entities:
+  - uid: 333
+    components:
+    - type: Transform
+      pos: 3.5073671,12.62535
+      parent: 1
+- proto: BoxMagazine762x51mmFMJ
+  entities:
+  - uid: 3926
+    components:
+    - type: Transform
+      pos: 1.464282,12.667016
+      parent: 1
 - proto: Bucket
   entities:
   - uid: 1330
@@ -29134,15 +29144,6 @@ entities:
       startingCharge: 0
 - proto: ComputerCrewMonitoring
   entities:
-  - uid: 3926
-    components:
-    - type: Transform
-      pos: 4.5,26.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
   - uid: 4616
     components:
     - type: Transform
@@ -45120,8 +45121,8 @@ entities:
         immutable: False
         temperature: 293.14923
         moles:
-          Oxygen: 1.8968438
-          Nitrogen: 7.1357465
+          Oxygen: 1.8977377
+          Nitrogen: 7.139109
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -45130,65 +45131,10 @@ entities:
           ents:
           - 322
           - 325
-          - 324
-          - 323
           - 321
+          - 323
+          - 324
           - 320
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 329
-    components:
-    - type: MetaData
-      name: gun safe (Energy Weapons)
-    - type: Transform
-      pos: 1.5,12.5
-      parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14923
-        moles:
-          Oxygen: 1.8968438
-          Nitrogen: 7.1357465
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 333
-          - 331
-          - 330
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 1325
-    components:
-    - type: Transform
-      pos: 3.5,12.5
-      parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14923
-        moles:
-          Oxygen: 1.7459903
-          Nitrogen: 6.568249
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1326
-          - 1327
-          - 1328
-          - 1329
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -45495,13 +45441,6 @@ entities:
     components:
     - type: Transform
       pos: 6.0854306,24.997478
-      parent: 1
-- proto: LargePowerCell700Thz
-  entities:
-  - uid: 6852
-    components:
-    - type: Transform
-      pos: 3.6463866,10.155844
       parent: 1
 - proto: LockableButtonArmory
   entities:
@@ -46049,30 +45988,6 @@ entities:
     - type: Transform
       pos: 3.5,-27.5
       parent: 1
-- proto: Magazine700Thz
-  entities:
-  - uid: 332
-    components:
-    - type: Transform
-      parent: 331
-    - type: Physics
-      canCollide: False
-  - uid: 334
-    components:
-    - type: Transform
-      parent: 333
-    - type: Physics
-      canCollide: False
-  - uid: 6922
-    components:
-    - type: Transform
-      pos: 3.4378467,9.989177
-      parent: 1
-  - uid: 6923
-    components:
-    - type: Transform
-      pos: 3.4378467,10.19751
-      parent: 1
 - proto: MailingUnit
   entities:
   - uid: 6924
@@ -46518,11 +46433,11 @@ entities:
       parent: 1
 - proto: PlasmaReinforcedWindowDirectional
   entities:
-  - uid: 6988
+  - uid: 330
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 1.5,12.5
+      pos: 4.5,12.5
       parent: 1
     - type: DeltaPressure
       gridUid: 1
@@ -46542,27 +46457,11 @@ entities:
       parent: 1
     - type: DeltaPressure
       gridUid: 1
-  - uid: 6991
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 1.5,12.5
-      parent: 1
-    - type: DeltaPressure
-      gridUid: 1
   - uid: 6992
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,10.5
-      parent: 1
-    - type: DeltaPressure
-      gridUid: 1
-  - uid: 6993
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 3.5,12.5
       parent: 1
     - type: DeltaPressure
       gridUid: 1
@@ -51192,6 +51091,16 @@ entities:
       parent: 1
 - proto: SuitStorageM82c
   entities:
+  - uid: 1328
+    components:
+    - type: Transform
+      pos: 4.5,7.5
+      parent: 1
+  - uid: 1329
+    components:
+    - type: Transform
+      pos: 5.5,7.5
+      parent: 1
   - uid: 7736
     components:
     - type: Transform
@@ -51229,18 +51138,6 @@ entities:
     components:
     - type: Transform
       pos: 28.5,20.5
-      parent: 1
-- proto: SuitStorageM86
-  entities:
-  - uid: 7742
-    components:
-    - type: Transform
-      pos: 5.5,7.5
-      parent: 1
-  - uid: 7743
-    components:
-    - type: Transform
-      pos: 4.5,7.5
       parent: 1
 - proto: SuitStorageSheriff
   entities:
@@ -52940,6 +52837,17 @@ entities:
       parent: 1
 - proto: TableReinforced
   entities:
+  - uid: 1325
+    components:
+    - type: Transform
+      pos: 1.5,12.5
+      parent: 1
+  - uid: 1327
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,12.5
+      parent: 1
   - uid: 3692
     components:
     - type: Transform
@@ -53630,6 +53538,17 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,32.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+- proto: TSFOverwatchComputer
+  entities:
+  - uid: 331
+    components:
+    - type: Transform
+      pos: 4.5,26.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -64339,49 +64258,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.6390576,9.589209
       parent: 1
-- proto: WeaponDEWCalico
-  entities:
-  - uid: 331
-    components:
-    - type: Transform
-      parent: 329
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 332
-        gun_chamber: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 333
-    components:
-    - type: Transform
-      parent: 329
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 334
-        gun_chamber: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: WeaponDEWSmilodon
-  entities:
-  - uid: 9862
-    components:
-    - type: Transform
-      pos: 3.5212626,9.655844
-      parent: 1
 - proto: WeaponDisablerPractice
   entities:
   - uid: 9863
@@ -64459,6 +64335,13 @@ entities:
     - type: Transform
       pos: -0.5278287,-7.334553
       parent: 1
+- proto: WeaponPistolMk58
+  entities:
+  - uid: 7742
+    components:
+    - type: Transform
+      pos: 3.569911,9.604516
+      parent: 1
 - proto: WeaponPulsePistol
   entities:
   - uid: 6873
@@ -64468,29 +64351,40 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WeaponRifleAnnie
+- proto: WeaponRifleLecter
   entities:
-  - uid: 1327
+  - uid: 332
     components:
     - type: Transform
-      parent: 1325
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1328
+      pos: 3.5073671,12.50035
+      parent: 1
+  - uid: 334
     components:
     - type: Transform
-      parent: 1325
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 1329
+      pos: 3.5073671,12.75035
+      parent: 1
+  - uid: 6852
     components:
     - type: Transform
-      parent: 1325
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
+      pos: 3.5073671,12.62535
+      parent: 1
+- proto: WeaponRifleVulcan
+  entities:
+  - uid: 329
+    components:
+    - type: Transform
+      pos: 1.4851294,12.854516
+      parent: 1
+  - uid: 6923
+    components:
+    - type: Transform
+      pos: 1.4851294,12.458683
+      parent: 1
+  - uid: 6993
+    components:
+    - type: Transform
+      pos: 1.4851294,12.646183
+      parent: 1
 - proto: WeaponShotgunDoubleBarreled
   entities:
   - uid: 9867
@@ -65130,6 +65024,20 @@ entities:
       gridUid: 1
 - proto: WindoorSecurePlasma
   entities:
+  - uid: 1326
+    components:
+    - type: Transform
+      pos: 1.5,12.5
+      parent: 1
+    - type: DeltaPressure
+      gridUid: 1
+  - uid: 6988
+    components:
+    - type: Transform
+      pos: 3.5,12.5
+      parent: 1
+    - type: DeltaPressure
+      gridUid: 1
   - uid: 9969
     components:
     - type: Transform
