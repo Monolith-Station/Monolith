@@ -14,3 +14,20 @@
 #    - head
 #    slot: eyes
 #  - type: ShowJobIcons
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHeadbandNoGmo
+  name: no gmo headband
+  description: a black headband with white text reading 'NO GMO'
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/Head/Hats/nogmoheadband.rsi
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/Head/Hats/nogmoheadband.rsi
+    slots:
+    - HEAD
+    - HELMETATTACHMENT
+    clothingVisuals:
+      helmetattachment:
+      - state: equipped-HELMETATTACHMENT

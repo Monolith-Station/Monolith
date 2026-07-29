@@ -30,3 +30,67 @@
     sprite: _Battlefield14/Clothing/OuterClothing/Misc/highviz.rsi
   - type: Clothing
     sprite: _Battlefield14/Clothing/OuterClothing/Misc/highviz.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterBombVest
+  name: bomb vest
+  description: Don't panic.
+  components:
+  - type: Sprite
+    sprite: _Civ14/Objects/grenade.rsi
+    state: suicide_vest
+  - type: Clothing
+    sprite: _Civ14/Objects/grenade.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: suicide_vest
+  - type: TriggerOnSignal
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 200
+    intensitySlope: 4
+    maxIntensity: 13
+    maxTileBreak: 1
+  - type: AutoLinkReceiver
+    channel: BombVest
+  - type: WirelessNetworkConnection
+    range: 3
+  - type: ItemSlots
+    slots:
+      item:
+        name: Detonator
+        whitelist:
+          components:
+          - AutoLinkTransmitter
+  - type: ContainerFill
+    containers:
+      item:
+      - RemoteSignallerBombVest
+
+- type: entity
+  parent: ClothingOuterBombVest
+  id: ClothingOuterBombVestCorn
+  name: corn vest
+  description: "That maniac is running at us with!-.. a vest of corn?"
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Clothing/OuterClothing/Misc/cornvest.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Battlefield14/Clothing/OuterClothing/Misc/cornvest.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+- type: entity
+  parent: RemoteSignallerM57
+  id: RemoteSignallerBombVest
+  name: bomb vest detonator
+  description: It looks American, but its just what was in the box. Range 3 meters.
+  components:
+  - type: AutoLinkTransmitter
+    channel: BombVest
+  - type: WirelessNetworkConnection
+    range: 3
