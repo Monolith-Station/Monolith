@@ -80,3 +80,27 @@
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: PDVTarkhan
   jobName: ghost-role-information-tarkhan-operative-name
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMMCEmployee
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: MMCEmployee
+  jobName: job-name-mmc-employee
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMMCSecurity
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: MMCSecurity
+  jobName: job-name-mmc-security
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMMCLiason
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: MMCLiason
+  jobName: job-name-mmc-liason

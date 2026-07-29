@@ -52,3 +52,15 @@
     state: cpu_command
   - type: ComputerBoard
     prototype: ComputerStationRadar
+
+# Xenoborg
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ComputerXenoborgsControlCircuitboard
+  name: xenoborg control console board
+  description: A computer printed circuit board for a xenoborg control console.
+  components:
+    - type: Sprite
+      state: cpu_science
+    - type: ComputerBoard
+      prototype: ComputerXenoborgsControl

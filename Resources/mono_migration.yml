@@ -32,6 +32,26 @@ Magazine90mm: 90mmMagazineHE
 ShipCyrexaProjectile: 220mmBulletAPHE
 ShipBoforsProjectile: 255mmBulletAPHE
 
+# 2026-05-10 - https://github.com/Monolith-Station/Monolith/pull/3951
+
+SpeedLoader45_magnumRubber: SpeedLoader357_magnumRubber
+SpeedLoader45_magnumFMJ: SpeedLoader357_magnumFMJ
+SpeedLoader45_magnumAP: SpeedLoader357_magnumAP
+SpeedLoader45_magnumPractice: SpeedLoader357_magnumPractice
+AmmoBox45_magnumFMJ: AmmoBox357_magnumFMJ
+AmmoBox45_magnumBigFMJ: AmmoBox357_magnumBigFMJ
+AmmoBox45_magnumPractice: AmmoBox357_magnumPractice
+BoxMagazine45_magnumFMJ: BoxMagazine357_magnumFMJ
+Magazine45_magnumPistolFMJ: null
+
+WeaponPistolN1984: WeaponRevolverMateba
+WeaponRevolverLucky: WeaponRevolverInspector
+WeaponRevolverFaith: WeaponRevolverInspector
+WeaponRevolverFitz: WeaponRevolverInspector
+WeaponRevolverDeckardExpeditionGrifty: WeaponRevolverInspector
+WeaponRevolverDeckard: WeaponRevolverInspector
+WeaponRevolverPirate: WeaponRevolverInspector
+
 # Hyperlink books
 
 HyperlinkBookSpaceLaw: null
