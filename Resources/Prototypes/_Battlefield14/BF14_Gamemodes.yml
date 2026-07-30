@@ -58,17 +58,32 @@
   - TenMinuteRestart
 
 - type: gamePreset
-  id: BF14_TeamDeathMatch
+  id: BF14_TDM
   alias:
     - teamdeathmatch
     - tdm
   name: Team DeathMatch
   description: Match to the death with your team.
   maxPlayers: 10
-  showInVote: true
+  showInVote: false # Disabled because it doesnt work
   supportedMaps: BF14MapPoolTDM
   rules:
     - TeamDeathMatch
+
+- type: gamePreset
+  id: BF14_TDMHardcore
+  alias:
+    - hardcoreteamdeathmatch
+    - teamdeathmatchhardcore
+    - hardcoretdm
+    - tdmhardcore
+  name: Team DeathMatch (Hardcore)
+  description: Match to the death with your team, no respawns.
+  maxPlayers: 20
+  showInVote: true
+  supportedMaps: BF14MapPoolTDMHardcore
+  rules:
+    - TeamDeathMatchHardcore
 
 #region game rules
 
@@ -85,6 +100,16 @@
     deleteBody: true
   - type: MaxTimeRestartRule
     roundMaxTime: 601 # 10 minutes
+    roundEndDelay: 30 # 30 seconds
+
+- type: entity
+  id: TeamDeathMatchHardcore
+  parent: BaseGameRule
+  components:
+  - type: KillCalloutRule
+  - type: PointManager
+  - type: MaxTimeRestartRule
+    roundMaxTime: 301 # 5 minutes
     roundEndDelay: 30 # 30 seconds
 
 - type: entity
