@@ -207,3 +207,13 @@
   - type: Sprite
     sprite: _Civ14/Objects/decals.rsi
     state: yellow_logo
+
+- type: entity
+  parent: BaseSign
+  id: BF14SignScience
+  name: science sign
+  description: Oh my fauchi.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Structures/Signs/science.rsi
+    state: sign

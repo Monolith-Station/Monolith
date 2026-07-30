@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseStructure
+  id: BF14SignDoNotEnterBig
+  name: do not enter sign
+  description: You feel like you should heed the warning.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Structures/Signs/donotenterbig.rsi
+    state: sign
+    drawdepth: OverMobs
+  - type: SpriteFade
