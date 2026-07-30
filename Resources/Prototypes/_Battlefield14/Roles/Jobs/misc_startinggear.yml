@@ -19,7 +19,7 @@
     jumpsuit: ClothingUniformJumpsuitMilitaryColorBlue
     head: ClothingHeadHatHelmetSecurityBF14
     balaclava: ClothingBalaclavaMilitary
-    ears: ClothingHeadsetGrey
+    ears: ClothingHeadsetAltUS
     gloves: ClothingHandsGlovesFingerless
     outerClothing: ClothingOuterArmorPCVRecharging
     belt: ClothingBeltAssault
@@ -36,6 +36,14 @@
     - CrowbarRed
     - DefensiveGrenadeUSM67
     - Tourniquet
+    belt:
+    - MagazinePistolDeagle
+    - MagazinePistolDeagle
+    - MagazineRifleG36
+    - MagazineRifleG36
+    - MagazineRifleG36
+    - MagazineRifleG36
+    - MagazineRifleG36
 
 - type: startingGear
   id: BF14TDMGearRed
@@ -44,14 +52,14 @@
     jumpsuit: ClothingUniformJumpsuitMilitaryColorRed
     head: ClothingHeadHatHelmetSecurityBF14
     balaclava: ClothingBalaclavaMilitary
-    ears: ClothingHeadsetGrey
+    ears: ClothingHeadsetAltRU
     gloves: ClothingHandsGlovesFingerless
     outerClothing: ClothingOuterArmorPCVRecharging
     belt: ClothingBeltAssault
     shoes: ClothingShoesBootsJackFilled
     back: ClothingBackpackButtpackSurplus
     neck: ClothingNeckIFFRed
-    leftarmband: FlashlightMilitaryUS
+    leftarmband: FlashlightMilitaryAlt
     suitstorage: WeaponRifleRUAK74M
     pocket1: WeaponPistolILDeagleSilver
     pocket2: PouchFirstAidFilled
@@ -61,3 +69,11 @@
     - CrowbarRed
     - DefensiveGrenadeUSM67
     - Tourniquet
+    belt:
+    - MagazinePistolDeagle
+    - MagazinePistolDeagle
+    - MagazineRifleAK74Black
+    - MagazineRifleAK74Black
+    - MagazineRifleAK74Black
+    - MagazineRifleAK74Black
+    - MagazineRifleAK74Black

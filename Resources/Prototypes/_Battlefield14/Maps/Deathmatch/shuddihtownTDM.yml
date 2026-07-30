@@ -1,0 +1,38 @@
+- type: gameMap
+  id: BF14ShuddihTownTDM
+  mapName: 'Shuddih Town (TDM)'
+  mapPath: /Maps/_Battlefield14/Deathmatch/MultiZ/BF14ShuddihTownTDMZMap0.yml
+  minPlayers: 1
+  maxPlayers: 20
+  randomRotation: false
+  maxRandomOffset: 0
+  stations:
+    BF14ShuddihTownTDM:
+      stationProto: StandardFrontierStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Shuddih Town, California"
+        - type: ExtraStationInformation
+          iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
+          stationSubtext: "Shuddih Town, California"
+          stationDescription: "A small town in california."
+          lobbySortOrder: 1
+        - type: StationJobs
+          availableJobs:
+            TDMRed: [ 10, 10 ]
+            TDMBlue: [ 10, 10 ]
+        - type: CEStationZLevels
+          mapsAbove:
+            - /Maps/_Battlefield14/Deathmatch/MultiZ/BF14ShuddihTownTDMZMap1.yml 
+            - /Maps/_Battlefield14/Deathmatch/MultiZ/BF14ShuddihTownTDMZMap2.yml 
+          zLevelsComponentOverrides:
+            - type: CEAutoGridGravity
+
+- type: zMap
+  id: BF14ShuddihTownTDMZMap
+  maps:
+    - /Maps/_Battlefield14/Deathmatch/MultiZ/BF14ShuddihTownTDMZMap0.yml    # Level 0
+    - /Maps/_Battlefield14/Deathmatch/MultiZ/BF14ShuddihTownTDMZMap1.yml    # Level 1
+    - /Maps/_Battlefield14/Deathmatch/MultiZ/BF14ShuddihTownTDMZMap2.yml    # Level 2
+  components:
+    - type: CEAutoGridGravity

@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/30/2026 07:29:58
+  time: 07/30/2026 07:51:30
   entityCount: 1069
 maps:
 - 2
@@ -144,10 +144,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        MetalFoam: []
         Kudzu: []
+        MetalFoam: []
         Smoke: []
+        Puddle: []
       updateAccumulator: 0.4304576
     - type: Shuttle
       dampingModifier: 0.25
@@ -1060,7 +1060,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: Mapping BF14ShuddihTownZMap [1]
+      name: Mapping BF14ShuddihTownTDMZMap [1]
     - type: Transform
     - type: Map
       mapPaused: True
@@ -1268,241 +1268,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -13.5,16.5
       parent: 1
-- proto: BF14FogSpawner5
-  entities:
-  - uid: 9
-    components:
-    - type: Transform
-      pos: 34.5,0.5
-      parent: 1
-  - uid: 16
-    components:
-    - type: Transform
-      pos: 31.5,0.5
-      parent: 1
-  - uid: 18
-    components:
-    - type: Transform
-      pos: 32.5,0.5
-      parent: 1
-  - uid: 19
-    components:
-    - type: Transform
-      pos: 33.5,0.5
-      parent: 1
-  - uid: 20
-    components:
-    - type: Transform
-      pos: 35.5,0.5
-      parent: 1
-  - uid: 33
-    components:
-    - type: Transform
-      pos: 36.5,0.5
-      parent: 1
-  - uid: 34
-    components:
-    - type: Transform
-      pos: 38.5,0.5
-      parent: 1
-  - uid: 35
-    components:
-    - type: Transform
-      pos: 39.5,0.5
-      parent: 1
-  - uid: 36
-    components:
-    - type: Transform
-      pos: 40.5,0.5
-      parent: 1
-  - uid: 37
-    components:
-    - type: Transform
-      pos: 41.5,0.5
-      parent: 1
-  - uid: 38
-    components:
-    - type: Transform
-      pos: 42.5,0.5
-      parent: 1
-  - uid: 39
-    components:
-    - type: Transform
-      pos: 37.5,0.5
-      parent: 1
-  - uid: 40
-    components:
-    - type: Transform
-      pos: 42.5,1.5
-      parent: 1
-  - uid: 41
-    components:
-    - type: Transform
-      pos: 43.5,1.5
-      parent: 1
-  - uid: 42
-    components:
-    - type: Transform
-      pos: 44.5,1.5
-      parent: 1
-  - uid: 43
-    components:
-    - type: Transform
-      pos: 45.5,1.5
-      parent: 1
-  - uid: 44
-    components:
-    - type: Transform
-      pos: 46.5,1.5
-      parent: 1
-  - uid: 45
-    components:
-    - type: Transform
-      pos: 49.5,1.5
-      parent: 1
-  - uid: 46
-    components:
-    - type: Transform
-      pos: 49.5,0.5
-      parent: 1
-  - uid: 47
-    components:
-    - type: Transform
-      pos: 49.5,-0.5
-      parent: 1
-  - uid: 48
-    components:
-    - type: Transform
-      pos: 49.5,-1.5
-      parent: 1
-  - uid: 49
-    components:
-    - type: Transform
-      pos: 50.5,-1.5
-      parent: 1
-  - uid: 50
-    components:
-    - type: Transform
-      pos: 51.5,-1.5
-      parent: 1
-  - uid: 51
-    components:
-    - type: Transform
-      pos: 52.5,-1.5
-      parent: 1
-  - uid: 52
-    components:
-    - type: Transform
-      pos: 53.5,-1.5
-      parent: 1
-  - uid: 53
-    components:
-    - type: Transform
-      pos: 54.5,-1.5
-      parent: 1
-  - uid: 54
-    components:
-    - type: Transform
-      pos: 55.5,-1.5
-      parent: 1
-  - uid: 55
-    components:
-    - type: Transform
-      pos: 57.5,-1.5
-      parent: 1
-  - uid: 56
-    components:
-    - type: Transform
-      pos: 58.5,-1.5
-      parent: 1
-  - uid: 57
-    components:
-    - type: Transform
-      pos: 59.5,-1.5
-      parent: 1
-  - uid: 58
-    components:
-    - type: Transform
-      pos: 56.5,-1.5
-      parent: 1
-  - uid: 332
-    components:
-    - type: Transform
-      anchored: False
-      pos: 47.5,1.5
-      parent: 2
-  - uid: 333
-    components:
-    - type: Transform
-      anchored: False
-      pos: 48.5,1.5
-      parent: 2
-  - uid: 334
-    components:
-    - type: Transform
-      anchored: False
-      pos: 30.5,0.5
-      parent: 2
-  - uid: 335
-    components:
-    - type: Transform
-      anchored: False
-      pos: 30.5,-0.5
-      parent: 2
-  - uid: 336
-    components:
-    - type: Transform
-      anchored: False
-      pos: 30.5,-1.5
-      parent: 2
-  - uid: 337
-    components:
-    - type: Transform
-      anchored: False
-      pos: 30.5,-2.5
-      parent: 2
-  - uid: 338
-    components:
-    - type: Transform
-      anchored: False
-      pos: 30.5,-3.5
-      parent: 2
-  - uid: 339
-    components:
-    - type: Transform
-      anchored: False
-      pos: 30.5,-4.5
-      parent: 2
-  - uid: 340
-    components:
-    - type: Transform
-      anchored: False
-      pos: 30.5,-5.5
-      parent: 2
-  - uid: 341
-    components:
-    - type: Transform
-      anchored: False
-      pos: 30.5,-6.5
-      parent: 2
-  - uid: 342
-    components:
-    - type: Transform
-      anchored: False
-      pos: 30.5,-8.5
-      parent: 2
-  - uid: 343
-    components:
-    - type: Transform
-      anchored: False
-      pos: 30.5,-9.5
-      parent: 2
-  - uid: 344
-    components:
-    - type: Transform
-      anchored: False
-      pos: 30.5,-7.5
-      parent: 2
 - proto: CableApcExtension
   entities:
   - uid: 218
@@ -4598,7 +4363,7 @@ entities:
       pos: -14.507686,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 121.177956
+      sleepTime: 877.5964
       bodyType: Dynamic
   - uid: 1359
     mapInit: true
@@ -4608,7 +4373,7 @@ entities:
       pos: -15.503942,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 121.177956
+      sleepTime: 877.5964
       bodyType: Dynamic
   - uid: 1360
     mapInit: true
@@ -4618,7 +4383,7 @@ entities:
       pos: -16.500195,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 121.177956
+      sleepTime: 877.5964
       bodyType: Dynamic
   - uid: 1361
     mapInit: true
@@ -4628,7 +4393,7 @@ entities:
       pos: -17.492321,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 121.177956
+      sleepTime: 877.5964
       bodyType: Dynamic
   - uid: 1362
     mapInit: true
@@ -4662,7 +4427,7 @@ entities:
       pos: -22.507679,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 121.177956
+      sleepTime: 877.5964
       bodyType: Dynamic
   - uid: 1367
     mapInit: true
@@ -4672,7 +4437,7 @@ entities:
       pos: -23.503922,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 121.177956
+      sleepTime: 877.5964
       bodyType: Dynamic
   - uid: 1368
     mapInit: true
@@ -4682,7 +4447,7 @@ entities:
       pos: -24.500175,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 121.177956
+      sleepTime: 877.5964
       bodyType: Dynamic
   - uid: 1369
     mapInit: true
@@ -4692,7 +4457,7 @@ entities:
       pos: -25.492315,36.51499
       parent: 2
     - type: Physics
-      sleepTime: 121.177956
+      sleepTime: 877.5964
       bodyType: Dynamic
   - uid: 1370
     mapInit: true
