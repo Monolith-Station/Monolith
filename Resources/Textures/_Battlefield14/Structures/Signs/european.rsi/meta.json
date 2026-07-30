@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Made by WillyBillyGilly, permission given for use in the Battlefield14 project. Do not re-use these sprites without permission from WillyBillyGilly.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "radiation",
+      "directions": 4
+    },
+    {
+      "name": "parking",
+      "directions": 4
+    },
+    {
+      "name": "speed30",
+      "directions": 4
+    },
+    {
+      "name": "speed50",
+      "directions": 4
+    },
+    {
+      "name": "speed60",
+      "directions": 4
+    },
+    {
+      "name": "speed90",
+      "directions": 4
+    },
+    {
+      "name": "noleft",
+      "directions": 4
+    },
+    {
+      "name": "noright",
+      "directions": 4
+    },
+    {
+      "name": "blueleft",
+      "directions": 4
+    },
+    {
+      "name": "blueright",
+      "directions": 4
+    },
+    {
+      "name": "blueoneway",
+      "directions": 4
+    }
+  ]
+}
