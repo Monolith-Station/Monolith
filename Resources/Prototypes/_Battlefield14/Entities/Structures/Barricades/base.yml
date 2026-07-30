@@ -15,7 +15,7 @@
         - FullTileMask
         layer:
         - TableLayer
-        - LowImpassable # no mice or crawling chuds allowed, its flush with the floor
+        - LowImpassable # no mice or crawling allowed, its flush with the floor
         - BulletImpassable
   - type: RotationDrawDepth
     southDrawDepth: OverMobs

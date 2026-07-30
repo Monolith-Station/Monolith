@@ -1,0 +1,50 @@
+- type: entity
+  parent: BaseStructure
+  id: BF14RoadBarrier
+  name: road barrier
+  description: A cheap barricade placed to halt incoming cars, at least if the driver is paying attention.
+  components:
+  - type: Sprite
+    sprite: _Battlefield14/Structures/Barricades/roadbarrier.rsi
+    drawdepth: WallTops
+    layers:
+    - state: roadbarrier
+  - type: Fixtures
+    fixtures:
+      cade:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - TableLayer
+        - LowImpassable # no mice or crawling allowed, its flush with the floor
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Dynamic
+  - type: Anchorable
+  - type: Rotatable
+  - type: Climbable
+  - type: InteractionOutline
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/_RMC14/Structures/metalhit.ogg
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger: !type:DamageTrigger
+        damage: 60 # for normal destruction
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
