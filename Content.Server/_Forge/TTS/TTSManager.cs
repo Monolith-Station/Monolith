@@ -37,6 +37,8 @@ public sealed class TTSManager
     private ISawmill _sawmill = default!;
     private readonly Dictionary<string, byte[]> _cache = new();
     private readonly List<string> _cacheKeysSeq = new();
+    private readonly Dictionary<string, Task<byte[]?>> _pendingRequests = new();
+    private readonly object _lock = new();
     private int _maxCachedCount = 200;
     private string _apiUrl = string.Empty;
     private string _apiToken = string.Empty;
@@ -59,18 +61,35 @@ public sealed class TTSManager
     /// <param name="speaker">Identifier of speaker</param>
     /// <param name="text">SSML formatted text</param>
     /// <returns>OGG audio bytes or null if failed</returns>
-    public async Task<byte[]?> ConvertTextToSpeech(string speaker, string text)
+    public Task<byte[]?> ConvertTextToSpeech(string speaker, string text)
     {
         WantedCount.Inc();
         var cacheKey = GenerateCacheKey(speaker, text);
 
-        if (_cache.TryGetValue(cacheKey, out var data))
+        lock (_lock)
         {
-            ReusedCount.Inc();
-            _sawmill.Verbose($"Use cached sound for '{text}' speech by '{speaker}' speaker");
-            return data;
-        }
+            if (_cache.TryGetValue(cacheKey, out var data))
+            {
+                ReusedCount.Inc();
+                _sawmill.Verbose($"Use cached sound for '{text}' speech by '{speaker}' speaker");
+                return Task.FromResult<byte[]?>(data);
+            }
 
+            if (_pendingRequests.TryGetValue(cacheKey, out var pending))
+            {
+                ReusedCount.Inc();
+                _sawmill.Verbose($"Reuse in-flight request for '{text}' speech by '{speaker}' speaker");
+                return pending;
+            }
+
+            var task = ConvertTextToSpeechInternal(speaker, text, cacheKey);
+            _pendingRequests[cacheKey] = task;
+            return task;
+        }
+    }
+
+    private async Task<byte[]?> ConvertTextToSpeechInternal(string speaker, string text, string cacheKey)
+    {
         _sawmill.Verbose($"Generate new audio for '{text}' speech by '{speaker}' speaker");
 
         var reqTime = DateTime.UtcNow;
@@ -110,14 +129,17 @@ public sealed class TTSManager
                 return null;
             }
 
-            _cache.Add(cacheKey, soundData);
-            _cacheKeysSeq.Add(cacheKey);
-
-            if (_cache.Count > _maxCachedCount)
+            lock (_lock)
             {
-                var firstKey = _cacheKeysSeq.First();
-                _cache.Remove(firstKey);
-                _cacheKeysSeq.Remove(firstKey);
+                _cache[cacheKey] = soundData;
+                _cacheKeysSeq.Add(cacheKey);
+
+                if (_cache.Count > _maxCachedCount)
+                {
+                    var firstKey = _cacheKeysSeq.First();
+                    _cache.Remove(firstKey);
+                    _cacheKeysSeq.Remove(firstKey);
+                }
             }
 
             _sawmill.Debug($"Generated TTS '{text}' ({soundData.Length} bytes)");
@@ -137,12 +159,22 @@ public sealed class TTSManager
             _sawmill.Error($"TTS error '{text}'\n{e}");
             return null;
         }
+        finally
+        {
+            lock (_lock)
+            {
+                _pendingRequests.Remove(cacheKey);
+            }
+        }
     }
 
     public void ResetCache()
     {
-        _cache.Clear();
-        _cacheKeysSeq.Clear();
+        lock (_lock)
+        {
+            _cache.Clear();
+            _cacheKeysSeq.Clear();
+        }
     }
 
     private string GenerateCacheKey(string speaker, string text)
