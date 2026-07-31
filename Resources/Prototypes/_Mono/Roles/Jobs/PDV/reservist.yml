@@ -14,15 +14,15 @@
   assignedCompany: PDV
   canBeAntag: false
   access:
-  - TsfmcEngineering
+  - Pirate
   accessGroups:
-  - TsfGeneralNoBrig
+  - GeneralAccess
   special:
   - !type:AddComponentSpecial
     components:
     - type: NpcFactionMember
       factions:
-      - TSFMC
+      - PDV
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial
@@ -35,10 +35,7 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: TsfEngiGear
-#  equipment:
-#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
-#    pocket2: Magazine45_ACPPistolFMJ
+  id: PDVReservistGear
   storage:
     back:
     - RadioHandheldNF
