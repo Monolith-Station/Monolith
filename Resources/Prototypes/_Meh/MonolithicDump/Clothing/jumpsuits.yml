@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformMonolith
+  name: monolithic combat uniform
+  description: Somekind of patchwork abonimation made from multiple jumpsuits sown together with durathread. Comes with a reinforced hood
+  components:
+  - type: Sprite
+    sprite: _Meh/Clothing/monolith_suit.rsi
+  - type: Clothing
+    sprite: _Meh/Clothing/monolith_suit.rsi
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorVitals
+  - type: ToggleableClothing # Goobstation
+    requiredSlot: innerclothing
+    clothingPrototypes:
+      head: ClothingHeadHoodMonolith

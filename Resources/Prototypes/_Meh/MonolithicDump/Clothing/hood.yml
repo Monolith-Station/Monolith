@@ -1,0 +1,28 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodMonolith
+  name: monolithic hood
+  description: A reinforced hood offers minor protection.
+  components:
+  - type: Sprite
+    sprite: _Meh/Clothing/monolith_hood.rsi
+  - type: Clothing
+    sprite: _Meh/Clothing/monolith_hood.rsi
+  - type: IngestionBlocker
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+  - type: StaticPrice
+    price: 500
+    vendPrice: 2500
