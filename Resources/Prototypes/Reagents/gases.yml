@@ -31,6 +31,9 @@
         conditions:
         - !type:OrganType
           type: Animal
+        conditions:
+        - !type:OrganType
+          type: Plasma  # Mono - Monolithic organs
       - !type:Oxygenate
         conditions:
         - !type:OrganType
@@ -98,6 +101,10 @@
         amount: -2.0
     Gas:
       effects:
+      - !type:Oxygenate # Mono - Monolithic organs
+        conditions:
+        - !type:OrganType
+          type: Plasma
       - !type:Oxygenate # Mono - Hydrakin
         conditions:
         - !type:OrganType
@@ -111,6 +118,9 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
+        - !type:OrganType # Mono - Monolithic organs
+          type: Plasma
+          shouldHave: false
         - !type:OrganType
           type: Hydrakin
           shouldHave: false
@@ -123,6 +133,13 @@
           types:
             Poison:
               1
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Plasma
+        ratios:
+          WaterVapour: 1.0
+          Plasma: -1.0
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
