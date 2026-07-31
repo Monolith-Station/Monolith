@@ -25614,13 +25614,6 @@ entities:
     - type: Transform
       pos: -15.5,13.5
       parent: 1
-- proto: DatafarmResearchFaction
-  entities:
-  - uid: 316
-    components:
-    - type: Transform
-      pos: -9.5,30.5
-      parent: 1
 - proto: DefaultStationBeaconAI
   entities:
   - uid: 8415

@@ -18463,13 +18463,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -16.5,53.5
       parent: 1
-- proto: DatafarmResearchFaction
-  entities:
-  - uid: 2717
-    components:
-    - type: Transform
-      pos: 7.5,49.5
-      parent: 1
 - proto: ThrusterRogue
   entities:
   - uid: 688

@@ -17,6 +17,19 @@
         Steel: 10
         Plasma: 30
         Plasteel: 10
+      tagRequirements:
+        ComponentBrickEconomy1:
+          amount: 1
+          defaultPrototype: ComponentBrickEconomy1
+        ElectromagnetEconomy1:
+          amount: 2
+          defaultPrototype: ElectromagnetEconomy1
+        MicroprocessorEconomy1:
+          amount: 2
+          defaultPrototype: MicroprocessorEconomy1
+        RadioEconomy1:
+          amount: 1
+          defaultPrototype: RadioEconomy1
 
 - type: entity
   id: MachineShieldMS250Circuitboard
@@ -40,6 +53,19 @@
       Gold: 10
       Silver: 10
       UraniumFissile: 1
+    tagRequirements:
+      ComponentBrickEconomy1:
+        amount: 2
+        defaultPrototype: ComponentBrickEconomy1
+      ElectromagnetEconomy2:
+        amount: 3
+        defaultPrototype: ElectromagnetEconomy1
+      MicroprocessorEconomy1:
+        amount: 3
+        defaultPrototype: MicroprocessorEconomy1
+      RadioEconomy2:
+        amount: 1
+        defaultPrototype: RadioEconomy2
 
 - type: entity
   id: MachineShieldMS500Circuitboard
@@ -63,3 +89,16 @@
       Gold: 15
       Silver: 15
       UraniumFissile: 2
+    tagRequirements:
+      ComponentBrickEconomy1:
+        amount: 2
+        defaultPrototype: ComponentBrickEconomy1
+      ElectromagnetEconomy2:
+        amount: 3
+        defaultPrototype: ElectromagnetEconomy1
+      MicroprocessorEconomy1:
+        amount: 3
+        defaultPrototype: MicroprocessorEconomy1
+      RadioEconomy2:
+        amount: 1
+        defaultPrototype: RadioEconomy2

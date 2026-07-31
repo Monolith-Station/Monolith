@@ -16,6 +16,20 @@
   position: 17, 1
 
 - type: technology
+  id: MieyoManufacturingPress
+  name: research-technology-mieyo-press
+  entityIcon: IndustrialPressEconomyElectronicsMMC
+  discipline: Mieyo
+  tier: 1
+  cost: 15000
+  recipeUnlocks:
+  - IndustrialPressEconomyElectronicsMMCMachineCircuitboard
+  - IndustrialPressEconomyPlatesMMCMachineCircuitboard
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 19, 1
+
+- type: technology
   id: MieyoShipworking
   name: research-technology-mieyo-srd
   entityIcon: NaniteApplicatorMMC

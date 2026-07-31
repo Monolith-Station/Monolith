@@ -16,9 +16,36 @@
       Glass: 5
       CableHV: 5
     tagRequirements:
-      GlassBeaker:
+      ArmorPlateEconomy1: # Reinforcement. Things that spin very heavy things very fast are very dangerous.
         amount: 4
-        defaultPrototype: Beaker
+        defaultPrototype: ArmorPlateEconomy1
+      ComponentBrickEconomy1:
+        amount: 1
+        defaultPrototype: ComponentBrickEconomy1
+
+- type: entity
+  id: IndustrialFurnaceEconomyCompactCircuitboard
+  parent: BaseMachineCircuitboard
+  name: compact arc furnace machine board
+  description: A machine printed circuit board for a compact arc furnace.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    flatpackable: false
+    prototype: IndustrialFurnaceEconomyCompact
+    stackRequirements:
+      CableHV: 5
+    tagRequirements:
+      ArmorPlateEconomy3:
+        amount: 1
+        defaultPrototype: ArmorPlateEconomy3
+      ElectromagnetEconomy1:
+        amount: 3
+        defaultPrototype: ElectromagnetEconomy1
+      ComponentBrickEconomy1:
+        amount: 1
+        defaultPrototype: ComponentBrickEconomy1
 
 - type: entity
   id: IndustrialPressEconomyPlatesMachineCircuitboard
@@ -33,14 +60,15 @@
     requirements:
       Capacitor: 2
     stackRequirements:
-      Glass: 5
       Lithium: 5
-      Plasteel: 20
       CableHV: 10
-    #tagRequirements: # todo: make it take a press plate component
-    #  GlassBeaker:
-    #    amount: 1
-    #    defaultPrototype: Beaker
+    tagRequirements: # todo: make it take a press plate component
+      ArmorPlateEconomy2: # Stand in for the base of the press or something
+        amount: 1
+        defaultPrototype: ArmorPlateEconomy2Finished
+      ComponentBrickEconomy1:
+        amount: 1
+        defaultPrototype: ComponentBrickEconomy1
   - type: Construction
     deconstructionTarget: null
     graph: IndustrialPress
@@ -60,14 +88,15 @@
       MatterBin: 2
       Capacitor: 2
     stackRequirements: # faster mmc variant
-      Glass: 10
       Lithium: 10
-      Plasteel: 30
       CableHV: 20
-    #tagRequirements: # todo: make it take a press plate component
-    #  GlassBeaker:
-    #    amount: 1
-    #    defaultPrototype: Beaker
+    tagRequirements: # todo: make it take a press plate component
+      ArmorPlateEconomy2: # Stand in for the base of the press or something
+        amount: 2
+        defaultPrototype: ArmorPlateEconomy2Finished
+      ComponentBrickEconomy1:
+        amount: 1
+        defaultPrototype: ComponentBrickEconomy1
   - type: Construction
     deconstructionTarget: null
     graph: IndustrialPressMMC
@@ -86,14 +115,15 @@
     requirements:
       Capacitor: 2
     stackRequirements:
-      Glass: 5
       Lithium: 5
-      Plasteel: 20
       CableHV: 10
-  #tagRequirements: # todo: make it take a press plate component
-  #  GlassBeaker:
-  #    amount: 1
-  #    defaultPrototype: Beaker
+    tagRequirements: # todo: make it take a press plate component
+      ArmorPlateEconomy2: # Stand in for the base of the press or something
+        amount: 1
+        defaultPrototype: ArmorPlateEconomy2Finished
+      ComponentBrickEconomy1:
+        amount: 1
+        defaultPrototype: ComponentBrickEconomy1
   - type: Construction
     deconstructionTarget: null
     graph: IndustrialPress
@@ -113,14 +143,15 @@
       MatterBin: 2
       Capacitor: 2
     stackRequirements: # faster mmc variant
-      Glass: 10
       Lithium: 10
-      Plasteel: 30
       CableHV: 20
-  #tagRequirements: # todo: make it take a press plate component
-  #  GlassBeaker:
-  #    amount: 1
-  #    defaultPrototype: Beaker
+    tagRequirements: # todo: make it take a press plate component
+      ArmorPlateEconomy2: # Stand in for the base of the press or something
+        amount: 2
+        defaultPrototype: ArmorPlateEconomy2Finished
+      ComponentBrickEconomy1:
+        amount: 1
+        defaultPrototype: ComponentBrickEconomy1
   - type: Construction
     deconstructionTarget: null
     graph: IndustrialPressMMC

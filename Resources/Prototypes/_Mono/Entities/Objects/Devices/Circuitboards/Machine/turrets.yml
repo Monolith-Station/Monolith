@@ -16,3 +16,16 @@
       Steel: 5
       Plasma: 3
       CableHV: 2
+    tagRequirements:
+      ComponentBrickEconomy1:
+        amount: 1
+        defaultPrototype: ComponentBrickEconomy1
+      ElectromagnetEconomy1:
+        amount: 2
+        defaultPrototype: ElectromagnetEconomy1
+      MicroprocessorEconomy1:
+        amount: 3
+        defaultPrototype: MicroprocessorEconomy1
+      MotorEconomy1:
+        amount: 1
+        defaultPrototype: MotorEconomy1

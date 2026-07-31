@@ -202,6 +202,7 @@
   - type: Tag
     tags:
     - EconomyGood
+    - MicroprocessorEconomy2
   - type: Item
     size: Small
   - type: Sprite
@@ -231,6 +232,7 @@
   - type: Tag
     tags:
     - EconomyGood
+    - MicroprocessorEconomy3
   - type: Item
     size: Small
   - type: Sprite
@@ -355,6 +357,7 @@
   - type: Tag
     tags:
     - EconomyGood
+    - ComponentBrickEconomy2
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "componentbrick2"
@@ -368,6 +371,7 @@
   - type: Tag
     tags:
     - EconomyGood
+    - ComponentBrickEconomy3
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "componentbrick3"
@@ -451,6 +455,7 @@
   - type: Tag
     tags:
     - EconomyGood
+    - ElectromagnetEconomy3
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "electromagnet3"
@@ -471,6 +476,7 @@
     - type: Tag
       tags:
         - EconomyGood
+        - RadioEconomy1
     - type: Sprite
       sprite: _Mono/Objects/Materials/bayponents.rsi
       state: "radio1"
@@ -484,6 +490,7 @@
     - type: Tag
       tags:
         - EconomyGood
+        - RadioEconomy2
     - type: Sprite
       sprite: _Mono/Objects/Materials/bayponents.rsi
       state: "radio2"
@@ -515,6 +522,7 @@
     - type: Tag
       tags:
         - EconomyGood
+        - OpticsEconomy2
     - type: Sprite
       sprite: _Mono/Objects/Materials/bayponents.rsi
       state: "optics2"
@@ -532,6 +540,7 @@
   - type: Tag
     tags:
     - EconomyGood
+    - CameraEconomy1
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "camera"
@@ -565,6 +574,7 @@
   - type: Tag
     tags:
     - EconomyGood
+    - MotorEconomy1
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "motor"
