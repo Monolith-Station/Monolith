@@ -23228,3 +23228,39 @@ Entries:
   id: 2563
   time: '2026-07-30T22:56:04.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4400
+- author: Onezero0
+  changes:
+    - type: Remove
+      message: Removed super data farms from faction bases.
+    - type: Tweak
+      message: >-
+        Sevastopol now gets two bolted data farms and point disk printers. Also
+        a few new surprises.
+  id: 2564
+  time: '2026-07-31T16:57:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4401
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added a 1x1 arc furnace that can be researched and built.
+    - type: Add
+      message: >-
+        Implemented economy machines. Industrial press can be researched with
+        automation tech, and added the current economy machines to Hokkaido
+        (replacing the machine frames in lathe room) and Camelot (replacing the
+        old shop area)
+    - type: Add
+      message: Implemented economy materials for machine parts.
+    - type: Tweak
+      message: >-
+        Adjusted ship prices to compensate for rise in price from economy
+        components.
+    - type: Tweak
+      message: >-
+        Flatpacker now needs 0.2 iridite tax. Convenience isn't free, but
+        iridite is also more obtainable now to allow for this stuff.
+    - type: Fix
+      message: Fixed arc furnace audio being really loud at all distances w/o falloff.
+  id: 2565
+  time: '2026-07-31T19:35:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4402

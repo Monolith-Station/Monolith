@@ -30770,13 +30770,6 @@ entities:
     - type: Transform
       pos: 3.5,28.5
       parent: 1
-- proto: DatafarmResearchFaction
-  entities:
-  - uid: 4835
-    components:
-    - type: Transform
-      pos: -3.5,9.5
-      parent: 1
 - proto: DefaultStationBeaconBar
   entities:
   - uid: 4836

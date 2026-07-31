@@ -35,11 +35,15 @@
       Steel: 750
       Silver: 100
       Gold: 50
+      Lithium: 50 # Mono
+      Copper: 50 # Mono
+      Iridite: 20 # Mono
     baseComputerCost:
       Steel: 500
       Glass: 250
       Silver: 100
       Gold: 50
+      Iridite: 20 # Mono
   - type: Machine
     board: FlatpackerMachineCircuitboard
   - type: MaterialStorage

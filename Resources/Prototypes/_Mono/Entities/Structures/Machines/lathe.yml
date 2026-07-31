@@ -563,6 +563,89 @@
       maxItems: 15
 
 - type: entity
+  id: IndustrialFurnaceEconomyCompact
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: compact arc furnace
+  description: A compact version advanced arc furnace capable of melting ore and refining material through heat. Essential for creating advanced alloys. Slower and less capacity.
+  components:
+  - type: Appearance
+  - type: Animateable
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/1x1arcfurnace.rsi
+    layers:
+    - state: icon
+      map: [ "enum.MicrowaveVisualizerLayers.Base" ]
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.MicrowaveVisualizerLayers.BaseUnlit" ]
+  - type: RequireProjectileTarget
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000 # expensive machine!
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Machine
+    board: IndustrialFurnaceEconomyCompactCircuitboard
+  # microwave comps
+  - type: GuideHelp
+    guides:
+    - ArcFurnace
+  - type: Microwave
+    capacity: 10
+    explosionChance: 0
+    lightningChance: 0
+    baseHeatMultiplier: 300
+    temperatureUpperThreshold: 3300
+    maxItemSize: Ginormous
+    validRecipeTypes: ArcFurnace
+    cookTimeMultiplier: 3 # It has 1 chamber thingy, on the sprite, the 2x1 one has 3, simple math.
+    cookTimeScalingConstant: 0.1 # I HATE bluespace parts!
+    beginCookingSound: /Audio/Machines/machine_switch.ogg
+    foodDoneSound: /Audio/Effects/Shuttle/radar_ping.ogg
+    loopingSound: /Audio/_Mono/Structures/Economy/furnace.ogg
+    key: ArcFurnaceKey
+    menuTitle: "assembler-menu-arc-furnace-title"
+    flavorText: "assembler-menu-arc-furnace-footer-flavor-left"
+  - type: ActivatableUI
+    key: enum.MicrowaveUiKey.ArcFurnaceKey
+  - type: ContainerContainer
+    containers:
+      microwave_entity_container: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: UserInterface
+    interfaces:
+      enum.MicrowaveUiKey.ArcFurnaceKey:
+        type: AssemblerBoundUserInterface
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.VisualState:
+        enum.MicrowaveVisualizerLayers.Base:
+          Idle: { state: "building" }
+          Cooking: { state: "building" }
+        enum.MicrowaveVisualizerLayers.BaseUnlit:
+          Idle: { state: "unlit" }
+          Broken: { state: "panel" }
+          Cooking: { state: "building" }
+      enum.PowerDeviceVisuals.Powered:
+        enum.MicrowaveVisualizerLayers.BaseUnlit:
+          True: { visible: true }
+          False: { visible: false }
+  - type: AutomationSlots
+    slots:
+    - !type:AutomatedContainer
+      input: AutomationSlotInput
+      output: AutomationSlotInput
+      containerId: microwave_entity_container
+      maxItems: 10
+
+- type: entity
   id: PrecisionAssemblerEconomy
   parent: [ BaseMachinePowered, BaseStructureDisableToolUse ]
   name: precision assembler
