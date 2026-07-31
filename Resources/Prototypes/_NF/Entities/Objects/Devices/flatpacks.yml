@@ -145,8 +145,8 @@
 - type: entity
   parent: BaseNFFlatpack
   id: AmeControllerUnanchoredFlatpack
-  name: AME controller flatpack
-  description: A flatpack used for constructing an AME controller.
+  name: IRE controller flatpack
+  description: A flatpack used for constructing an IRE controller.
   components:
   - type: Flatpack
     entity: AmeControllerUnanchored

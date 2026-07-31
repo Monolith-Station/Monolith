@@ -17,6 +17,7 @@ materials-raw-copper = malachite
 materials-raw-lithium = lithium
 
 # Sheets
+materials-iridite-slag = iridite slag
 materials-lithium = lithium
 stack-lithium = lithium
 materials-copper = copper

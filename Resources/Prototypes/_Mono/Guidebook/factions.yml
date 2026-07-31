@@ -43,6 +43,7 @@
   children:
   - USSP_Entry
   - Viper_Group
+  - MMC
 
 - type: guideEntry
   id: USSP_Entry
@@ -70,3 +71,9 @@
   name: The Viper Group
   text: "/ServerInfo/_Mono/Guidebook/Factions/viper_group.xml"
   priority: 11
+
+- type: guideEntry
+  id: MMC
+  name: Mieyo Manufacturing Concern
+  text: "/ServerInfo/_Mono/Guidebook/Factions/mmc.xml"
+  priority: 12

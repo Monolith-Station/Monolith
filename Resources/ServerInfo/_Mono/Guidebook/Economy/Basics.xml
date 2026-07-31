@@ -1,0 +1,51 @@
+<Document>
+  # Economy Basics
+  The colossus sector, being isolated from the rest of the galaxy's industry, requires significant effort from in-sector residents to make most electronics and structures. Luckily, the processes involved have been greatly simplified.
+  This PDA entry will educate the want-to-be-industrialist on the basics of industry and the starting of a new native economy.
+
+  ## Basics
+
+  <Box>
+    <GuideEntityEmbed Entity="SheetSteel" Caption="steel"/>
+    <GuideEntityEmbed Entity="SheetPlasteel" Caption="plasteel"/>
+    <GuideEntityEmbed Entity="SheetGlass" Caption="glass"/>
+  </Box>
+
+  Everything in this world has a cost, and for basic industry that cost is raw materials. More advanced products will require more resources and time, but those are far off for now.
+  Before you are able to make even a basic armor plate, you need to find or make a few workstations: the [color=gray]Industrial steel lathe[/color], the [color=orange]Arc Furnace[/color] and the [color=cyan]Precision Assembler[/color].
+  All of these work stations can be found at certain Points of Interest, though the [color=gray]industrial steel lathe[/color] can be constructed with a research.
+  Many items will also need experience with chemistry to produce - While only beakers, raw reagents and a reagent grinder are strictly necessary, having access to a chemical bay can make the procurement of certain solutions much easier.
+  [color=yellow]It is highly recommended to specialize in a certain type of product - Each is complicated! Remember that you can often purchase required items from other players![/color]
+
+  <Box>
+    <GuideEntityEmbed Entity="IndustrialPressEconomyPlates" Caption="industrial steel lathe"/>
+    <GuideEntityEmbed Entity="IndustrialFurnaceEconomy" Caption="industrial arc furnace"/>
+    <GuideEntityEmbed Entity="PrecisionAssemblerEconomy" Caption="precision assembler"/>
+    <GuideEntityEmbed Entity="KitchenReagentGrinder" Caption="reagent grinder"/>
+  </Box>
+
+  Now that you (presumably) have found these workstations and the materials needed to use them, it is time to start up the assembly line. You can find a reference table of [color=orange]Arc Furnace[/color] and [color=cyan]Precision Assembler[/color] recipes [textlink="in the Economy Recipes guidebook page." link="EconomyRecipes"]
+  At first, the table will look confusing, and that is because it is. Generally, economy goods can be split into four numbered "tiers" of value - The higher the tier, the more valuable a component is, but that value comes from effort.
+  All tier 1 components (needed for all others) can usually be created in the [color=gray]industrial steel lathe[/color], and are foundational to most other items. They can be made out of raw sheets of material refined from an ore processor, and are crafted like any other lathe-produced item - simply insert the sheets of material, click the desired item in the menu, and wait.
+
+  Tier 2 components are where products get complicated. They all require initial production from an [color=orange]Arc Furnace[/color] or [color=cyan]Precision Assembler[/color], and many also require additional components to be added after fabrication.
+  [bold][color=yellow]Remember: All "unfinished" products say what they need to start construction in their description![/color][/bold]
+  [color=red]IMPORTANT: Most components are fragile! Be cautious when introducing them to possible damage sources![/color]
+
+  To help explain the process of creating a Tier 2 product, this tutorial will include a walk-through about creating a Heavy Armor Plate.
+
+  ## Heavy Armor Plate
+  <Box>
+    <GuideEntityEmbed Entity="ArmorPlateEconomy2Start" Caption="heavy armor plate"/>
+  </Box>
+
+  Heavy armor plates are one of the simplest Tier 2 products to manufacture. The only particularly confusing part of their production is getting the silver they require and figuring out how to operate the [color=orange]Arc Furnace[/color].
+
+  Looking at the recipe in the Economy Recipes guidebook page, we can see that heavy armor plates require three distinct things: Two basic armor plates, 100 units of Silver, and an [color=orange]Arc Furnace[/color] to put the components together.
+  The basic armor plates are simple enough to acquire: They can simply be fabricated in an [color=gray]Industrial steel lathe[/color] for 20 steel sheets and 10 plasteel sheets each, then put into the furnace. Many other Tier 1 components can be found in the steel lathe as well.
+  The chemical form of Silver can be produced by grinding silver ingots in a Reagent Grinder, for 10 units a stick. The silver can be accumulated in anything capable of holding enough solution, then put into the furnace. Many other recipes require similar chemical forms of materials, such as gold, plasma, and lithium, which all follow the same route: stick their respective solid material into the blender!
+
+  After the two basic armor plates and the container of silver are inserted into the furnace, a [color=green]green[/color] "assemble" button should be active. (If the recipe is incompatible pressing the button will do nothing.) Pressing the button will initiate the furnace's production sequence, and afterwards a heavy armor plate should be produced.
+  If you need to eject the contents of the furnace (for example, if you put the wrong materials in), a [color=red]red[/color] "eject contents" button should be highlighted. Pressing this will do what it says and eject all contents of the furnace.
+
+</Document>

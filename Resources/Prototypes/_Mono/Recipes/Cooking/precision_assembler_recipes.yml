@@ -1,0 +1,129 @@
+# Capsule
+
+- type: microwaveMealRecipe
+  id: RecipeMatterBinEconomy2
+  name: large matter bin
+  result: MatterBinEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    MatterBinEconomy1: 2
+    ArmorPlateEconomy1: 1
+  recipeType: PrecisionAssembler
+
+# Microprocessors
+
+- type: microwaveMealRecipe
+  id: RecipeMicroprocessorEconomy2
+  name: nanoprocessor recipe
+  result: MicroprocessorEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    MicroprocessorEconomy1: 2
+    SiliconWaferEconomy: 1
+  reagents:
+    Plasma: 100
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMicroprocessorEconomy3
+  name: quantum processor recipe
+  result: MicroprocessorEconomy3
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    MicroprocessorEconomy2: 1
+    OpticsEconomy1: 1
+  reagents:
+    SodiumPolyacrylate: 30
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeSiliconWaferEconomy
+  name: silicon wafer recipe
+  result: SiliconWaferEconomySliceSpawner8
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    SiliconBouleEconomy: 1
+  recipeType: PrecisionAssembler
+
+# Capacitors
+
+- type: microwaveMealRecipe
+  id: RecipeCapacitorEconomy2
+  name: advanced capacitor recipe
+  result: CapacitorEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    CapacitorEconomy1: 1
+  reagents:
+    Superconductant: 60
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCapacitorEconomy3
+  name: supercapacitor recipe
+  result: CapacitorEconomy3
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    CapacitorEconomy2: 2
+    ElectromagnetEconomy2: 1
+  recipeType: PrecisionAssembler
+
+# Electromagnets
+
+- type: microwaveMealRecipe
+  id: RecipeElectromagnetEconomy2
+  name: compound electromagnet recipe
+  result: ElectromagnetEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    ElectromagnetEconomy1: 3
+  reagents:
+    Superconductant: 60
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeElectromagnetEconomy3
+  name: superconductive electromagnet recipe
+  result: ElectromagnetEconomy3
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    ElectromagnetEconomy2: 2
+    CapacitorEconomy2: 2
+  reagents:
+    LithiumHydroxide: 20
+  recipeType: PrecisionAssembler
+
+# Component bricks
+
+- type: microwaveMealRecipe
+  id: RecipeComponentBrickEconomy1
+  name: basic components recipe
+  result: ComponentBrickEconomy1
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    MicroprocessorEconomy1: 1
+    ArmorPlateEconomy1: 1
+    MatterBinEconomy1: 1
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeComponentBrickEconomy2
+  name: advanced components recipe
+  result: ComponentBrickEconomy2
+  time: 20
+  group: PrecisionAssembler
+  solids:
+    MicroprocessorEconomy2: 1
+    ArmorPlateEconomy2Finished: 1
+    MatterBinEconomy2: 1
+    ComponentBrickEconomy1: 1
+  recipeType: PrecisionAssembler

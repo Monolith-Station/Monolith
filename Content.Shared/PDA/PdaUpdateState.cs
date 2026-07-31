@@ -57,5 +57,6 @@ namespace Content.Shared.PDA
         public Color CompanyColor;
         public string? StationAlertLevel;
         public Color StationAlertColor;
+        public string? WarLevel;
     }
 }

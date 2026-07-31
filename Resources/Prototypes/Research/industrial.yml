@@ -286,6 +286,18 @@
   - SuperParts
   position: -2, 7
 
+- type: technology
+  id: MaterialSilo
+  name: research-technology-ore-silo
+  entityIcon: MachineMaterialSilo
+  discipline: Industrial
+  tier: 3
+  cost: 50000
+  recipeUnlocks:
+  - MaterialSiloMachineCircuitboard
+  technologyPrerequisites:
+  - SuperParts
+  position: -1, 6
 # Mono edit - research consolidation
 # - type: technology
 #   id: RapidConstruction

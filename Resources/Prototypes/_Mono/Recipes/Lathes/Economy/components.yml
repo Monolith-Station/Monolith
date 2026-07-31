@@ -1,8 +1,43 @@
 - type: latheRecipe
-  id: CapsuleEconomyRecipe
-  result: CapsuleEconomy
+  id: MatterBinEconomy1Recipe
+  result: MatterBinEconomy1
   categories:
   - Materials
-  completetime: 5
+  completetime: 10
   materials:
     Steel: 1000
+
+- type: latheRecipe
+  id: MicroprocessorEconomy1Recipe
+  result: MicroprocessorEconomy1
+  categories:
+  - Materials
+  completetime: 15
+  materials:
+    Steel: 100
+    Copper: 400
+    Gold: 300
+    Silver: 300
+    Lithium: 300
+
+- type: latheRecipe
+  id: ElectromagnetEconomy1Recipe
+  result: ElectromagnetEconomy1
+  categories:
+  - Materials
+  completetime: 15
+  materials:
+    Steel: 500
+    Copper: 500
+
+- type: latheRecipe
+  id: CapacitorEconomy1Recipe
+  result: CapacitorEconomy1
+  categories:
+  - Materials
+  completetime: 15
+  materials:
+    Steel: 300
+    Copper: 300
+    Lithium: 500
+

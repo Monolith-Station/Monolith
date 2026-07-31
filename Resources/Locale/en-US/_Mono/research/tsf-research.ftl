@@ -28,3 +28,5 @@ research-technology-tsfmc-tier-three-vouchers = Grade 3 Shipyard Production
 research-technology-tsfmc-super-weapons = State-of-the-art Weapons Manufacturing
 research-technology-tsfmc-synthalloy = Experimental Material Science
 research-technology-tsfmc-advanced-module = TSFMC Advanced Cyborg Module Developpment
+research-technology-tsfmc-sandevistan = TSFMC Sandevistan Reverse Engineering
+research-technology-tsfmc-shunt = TSFMC Blacksite Cybernetics

@@ -1,0 +1,40 @@
+- type: job
+  id: MMCEmployee
+  name: job-name-mmc-employee
+  description: job-description-mmc-employee
+  playTimeTracker: JobMMCEmployee
+  # No requirements. Anyone can be my slave.
+  startingGear: MMCEmployeeGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  icon: "JobIconMMCEmployee"
+  supervisors: job-supervisors-mmc-liason
+  assignedCompany: MMC
+  canBeAntag: false
+  weight: 10
+  displayWeight: 10
+  accessGroups:
+  - GeneralAccess
+  access:
+  - Mieyo
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MieyoTrackingImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - MMC
+    - type: ChatRank
+      rank: mmc-employee
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - Nekomimetic
+    languagesUnderstood:
+    - Nekomimetic
+
+- type: startingGear
+  id: MMCEmployeeGear
+  storage:
+    back:
+    - RadioHandheldNF

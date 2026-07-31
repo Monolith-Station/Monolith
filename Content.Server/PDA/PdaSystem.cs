@@ -1,3 +1,4 @@
+using Content.Server._Mono.AlertLevel;
 using Content.Server.Access.Systems;
 using Content.Server.AlertLevel;
 using Content.Server.CartridgeLoader;
@@ -63,6 +64,7 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<StationRenamedEvent>(OnStationRenamed);
             SubscribeLocalEvent<EntityRenamedEvent>(OnEntityRenamed, after: new[] { typeof(IdCardSystem) });
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
+            SubscribeLocalEvent<WarLevelChangedEvent>(OnWarLevelChanged);
         }
 
         private void OnEntityRenamed(ref EntityRenamedEvent ev)
@@ -91,6 +93,7 @@ namespace Content.Server.PDA
             if (!HasComp<UserInterfaceComponent>(uid))
                 return;
 
+            UpdateWarLevel(uid, pda); // Mono
             UpdateAlertLevel(uid, pda);
             UpdateStationName(uid, pda);
         }
@@ -136,6 +139,11 @@ namespace Content.Server.PDA
         }
 
         private void OnAlertLevelChanged(AlertLevelChangedEvent args)
+        {
+            UpdateAllPdaUisOnStation();
+        }
+
+        private void OnWarLevelChanged(WarLevelChangedEvent args)
         {
             UpdateAllPdaUisOnStation();
         }
@@ -188,6 +196,7 @@ namespace Content.Server.PDA
 
             UpdateStationName(uid, pda);
             UpdateAlertLevel(uid, pda);
+            UpdateWarLevel(uid, pda); // Mono
             // TODO: Update the level and name of the station with each call to UpdatePdaUi is only needed for latejoin players.
             // TODO: If someone can implement changing the level and name of the station when changing the PDA grid, this can be removed.
 
@@ -235,7 +244,8 @@ namespace Content.Server.PDA
                     CompanyName = companyName,
                     CompanyColor = companyColor,
                     StationAlertLevel = pda.StationAlertLevel,
-                    StationAlertColor = pda.StationAlertColor
+                    StationAlertColor = pda.StationAlertColor,
+                    WarLevel = pda.WarLevel
                 },
                 balance, // Frontier
                 ownedShipName, // Frontier
@@ -334,6 +344,15 @@ namespace Content.Server.PDA
             pda.StationAlertLevel = alertComp.CurrentLevel;
             if (alertComp.AlertLevels.Levels.TryGetValue(alertComp.CurrentLevel, out var details))
                 pda.StationAlertColor = details.Color;
+        }
+
+        // Mono
+        private void UpdateWarLevel(EntityUid uid, PdaComponent pda)
+        {
+            var station = _sectorService.GetServiceEntity();
+            if (!TryComp(station, out WarLevelComponent? warComp))
+                return;
+            pda.WarLevel = warComp.PostWar ? Loc.GetString("comp-pda-ui-station-war-level-post") : Loc.GetString("comp-pda-ui-station-war-level-pre");
         }
 
         private string? GetDeviceNetAddress(EntityUid uid)

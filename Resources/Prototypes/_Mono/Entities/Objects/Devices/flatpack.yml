@@ -360,3 +360,27 @@
   - type: StaticPrice
     price: 1000
     vendPrice: 8000
+
+- type: entity
+  parent: UniformPrinterFlatpack
+  id: InteractorCCTCFlatpack
+  name: proprietary interactor flatpack
+  description: A flatpack used for constructing a proprietary interactor.
+  components:
+  - type: Flatpack
+    entity: InteractorCCTC
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 5000
+
+- type: entity
+  parent: UniformPrinterFlatpack
+  id: RoboticArmCCTCFlatpack
+  name: proprietary robotic arm flatpack
+  description: A flatpack used for constructing a proprietary robotic arm.
+  components:
+  - type: Flatpack
+    entity: RoboticArmCCTC
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 4000

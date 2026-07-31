@@ -99,6 +99,17 @@
 - type: Tag
   id: SandMaterial
 
+# Iridite processing
+
+- type: Tag
+  id: IriditeSlag
+
+- type: Tag
+  id: IriditePowder
+
+- type: Tag
+  id: IriditeCrystal
+
 # Heavy airlocks
 
 - type: Tag
@@ -606,6 +617,9 @@
 - type: Tag
   id: USSPStamp
 
+- type: Tag
+  id: MMCLiasonStamp
+
 # books
 
 - type: Tag
@@ -667,6 +681,33 @@
 
 - type: Tag
   id: EconomyGood
+
+- type: Tag
+  id: ComponentBrickEconomy1
+
+- type: Tag
+  id: MicroprocessorEconomy1
+
+- type: Tag
+  id: CapacitorEconomy1
+
+- type: Tag
+  id: CapacitorEconomy2
+
+- type: Tag
+  id: MatterBinEconomy1
+
+- type: Tag
+  id: OpticsEconomy1
+
+- type: Tag
+  id: ArmorPlateEconomy1
+
+- type: Tag
+  id: ElectromagnetEconomy1
+
+- type: Tag
+  id: ElectromagnetEconomy2
 
 # Static uplinks
 

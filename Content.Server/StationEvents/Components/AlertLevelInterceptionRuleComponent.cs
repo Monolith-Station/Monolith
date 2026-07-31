@@ -15,6 +15,12 @@ public sealed partial class AlertLevelInterceptionRuleComponent : Component
     public string AlertLevel = "blue";
 
     /// <summary>
+    /// Mono - War level to set it to. True for HOT, false for COLD.
+    /// </summary>
+    [DataField]
+    public bool WarLevel = false;
+
+    /// <summary>
     /// Goobstation.
     /// Whether or not to override the current alert level, if it isn't green.
     /// </summary>

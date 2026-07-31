@@ -46,6 +46,10 @@
             <ContainerButton Name="StationAlertLevelInstructionsButton">
                 <RichTextLabel Name="StationAlertLevelInstructions" Access="Public"/>
             </ContainerButton>
+            <!-- Mono -->
+            <ContainerButton Name="WarLevelButton">
+                <RichTextLabel Name="WarLevelLabel" Access="Public"/>
+            </ContainerButton>
             <!-- Frontier -->
             <ContainerButton Name="BalanceButton">
                 <RichTextLabel Name="BalanceLabel" Access="Public"/>

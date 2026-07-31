@@ -1,0 +1,103 @@
+# T1
+
+- type: technology
+  id: MieyoMedicalGear
+  name: research-technology-mieyo-meds
+  entityIcon: Hypospray
+  discipline: Mieyo
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - HyposprayMMC
+  - SutureMMC
+  - MeshMMC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 17, 1
+
+- type: technology
+  id: MieyoShipworking
+  name: research-technology-mieyo-srd
+  entityIcon: NaniteApplicatorMMC
+  discipline: Mieyo
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - NaniteApplicatorMMC
+  - ShipRepairDeviceMMC
+  - ShipRepairDeviceAmmo
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 17, 2
+
+- type: technology
+  id: MieyoBreachingGear
+  name: research-technology-mieyo-breaching-gear
+  entityIcon: AccessBreakerMMC
+  discipline: Mieyo
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - AccessBreakerMMC
+  - SecBreachingHammerMMC
+  - WeaponSubMachineGunSakuraMMC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 18, 1
+
+- type: technology
+  id: MieyoCorpsecSuits
+  name: research-technology-mieyo-corpsec-gear
+  entityIcon: ClothingOuterHardsuitMieyoCombat
+  discipline: Mieyo
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - ClothingOuterHardsuitMieyoCombatMMC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  position: 17, 7
+
+- type: technology
+  id: MieyoCorpsecRifles
+  name: research-technology-mieyo-corpsec-rifles
+  entityIcon: WeaponRifleOsaka
+  discipline: Mieyo
+  tier: 2
+  cost: 25000
+  recipeUnlocks:
+  - WeaponRifleOsakaMMC
+  - WeaponRifleIzumoMMC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  - MieyoCorpsecSuits
+  position: 17, 8
+
+- type: technology
+  id: MieyoBionicsT2
+  name: research-technology-mieyo-bionics-basic
+  entityIcon: MantisBlade
+  discipline: Mieyo
+  tier: 2
+  cost: 50000
+  recipeUnlocks:
+  - AutosurgeonRightMantisBladeMMC
+  - AutosurgeonLeftMantisBladeMMC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  position: 18, 7
+
+- type: technology
+  id: MieyoBionicsT3
+  name: research-technology-mieyo-bionics-advanced
+  entityIcon: OrganHeartSandevistan
+  discipline: Mieyo
+  tier: 3
+  cost: 125000
+  recipeUnlocks:
+  - AutosurgeonSandevistanMMC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT3
+  - MieyoBionicsT2
+  position: 18, 9
+

@@ -21,24 +21,137 @@
         defaultPrototype: Beaker
 
 - type: entity
-  id: IndustrialLatheEconomyMachineCircuitboard
+  id: IndustrialPressEconomyPlatesMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: industrial lathe machine board
-  description: A machine printed circuit board for an industrial economy lathe.
+  name: industrial press (plates) machine board
+  description: A machine printed circuit board for an industrial press, calibrated for plating. Screwdrive it to switch between variants.
   components:
   - type: Sprite
     state: engineering
   - type: MachineBoard
-    prototype: IndustrialLatheEconomy
+    prototype: IndustrialPressEconomyPlates
     requirements:
-      MatterBin: 2
-      Manipulator: 4
       Capacitor: 2
     stackRequirements:
       Glass: 5
-      Plasteel: 10
-      CableHV: 5
-    tagRequirements:
-      GlassBeaker:
-        amount: 1
-        defaultPrototype: Beaker
+      Lithium: 5
+      Plasteel: 20
+      CableHV: 10
+    #tagRequirements: # todo: make it take a press plate component
+    #  GlassBeaker:
+    #    amount: 1
+    #    defaultPrototype: Beaker
+  - type: Construction
+    deconstructionTarget: null
+    graph: IndustrialPress
+    node: plates
+
+- type: entity
+  id: IndustrialPressEconomyPlatesMMCMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: MMC industrial press (plates) machine board
+  description: A machine printed circuit board for an industrial press, calibrated for plating. Screwdrive it to switch between variants.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: IndustrialPressEconomyPlatesMMC
+    requirements:
+      MatterBin: 2
+      Capacitor: 2
+    stackRequirements: # faster mmc variant
+      Glass: 10
+      Lithium: 10
+      Plasteel: 30
+      CableHV: 20
+    #tagRequirements: # todo: make it take a press plate component
+    #  GlassBeaker:
+    #    amount: 1
+    #    defaultPrototype: Beaker
+  - type: Construction
+    deconstructionTarget: null
+    graph: IndustrialPressMMC
+    node: plates
+
+- type: entity
+  id: IndustrialPressEconomyElectronicsMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: industrial press (electronics) machine board
+  description: A machine printed circuit board for an industrial press, calibrated for electronic components. Screwdrive it to switch between variants.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: IndustrialPressEconomyElectronics
+    requirements:
+      Capacitor: 2
+    stackRequirements:
+      Glass: 5
+      Lithium: 5
+      Plasteel: 20
+      CableHV: 10
+  #tagRequirements: # todo: make it take a press plate component
+  #  GlassBeaker:
+  #    amount: 1
+  #    defaultPrototype: Beaker
+  - type: Construction
+    deconstructionTarget: null
+    graph: IndustrialPress
+    node: electronics
+
+- type: entity
+  id: IndustrialPressEconomyElectronicsMMCMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: MMC industrial press (electronics) machine board
+  description: A machine printed circuit board for an industrial press, calibrated for electronic components. Screwdrive it to switch between variants.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: IndustrialPressEconomyElectronicsMMC
+    requirements:
+      MatterBin: 2
+      Capacitor: 2
+    stackRequirements: # faster mmc variant
+      Glass: 10
+      Lithium: 10
+      Plasteel: 30
+      CableHV: 20
+  #tagRequirements: # todo: make it take a press plate component
+  #  GlassBeaker:
+  #    amount: 1
+  #    defaultPrototype: Beaker
+  - type: Construction
+    deconstructionTarget: null
+    graph: IndustrialPressMMC
+    node: electronics
+
+- type: entity
+  id: InteractorCCTCCircuitboard
+  parent: BaseMachineCircuitboard
+  name: proprietary interactor machine board
+  description: A machine printed circuit board for a proprietary interactor. Very important for automated manufacturing.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: InteractorCCTC
+    requirements:
+      Capacitor: 1
+    stackRequirements:
+      Glass: 5
+
+- type: entity
+  id: RoboticArmCCTCCircuitboard
+  parent: BaseMachineCircuitboard
+  name: proprietary robotic arm machine board
+  description: A machine printed circuit board for a proprietary robotic arm. Very important for automated manufacturing.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: RoboticArmCCTC
+    requirements:
+      Capacitor: 1
+    stackRequirements:
+      Steel: 5
