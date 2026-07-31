@@ -483,8 +483,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         _audio.PlayPredicted(component.Sound, uid, null);
         component.EmbeddedIntoUid = target;
-        // Embedded ammo should not despawn while stuck in a target.
-        RemComp<TimedDespawnComponent>(uid);
+        // Embedded ammo should not despawn while stuck in a target, exception tesla-bolts.
+        if (TryComp<ProjectileComponent>(uid, out var projectile) && projectile.FlightLifetime > 0f)
+            RemComp<TimedDespawnComponent>(uid);
         var ev = new EmbedEvent(user, target);
         RaiseLocalEvent(uid, ref ev);
         Dirty(uid, component);
