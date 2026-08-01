@@ -5,9 +5,9 @@
   playTimeTracker: JobTsfReservist
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 100 # Requires you to have atleast logged on the server
+      time: 1000 # Requires you to have atleast logged on the server
   startingGear: TsfReservistGear
-  icon: JobIconTSFEngi
+  icon: JobIconTSFReservist
   supervisors: job-supervisors-sergeant
   weight: 130
   displayWeight: 20

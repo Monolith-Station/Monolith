@@ -5,9 +5,9 @@
   playTimeTracker: JobPDVReservist
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 100 # Requires you to have atleast logged on the server
+      time: 1000 # Requires you to have atleast logged on the server.
   startingGear: TsfEngiGear
-  icon: JobIconTSFEngi
+  icon: JobIconPDVReservist
   supervisors: job-supervisors-hire
   weight: 130
   displayWeight: 20
@@ -24,12 +24,12 @@
       factions:
       - PDV
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, TrackingImplant ]
+    implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial
     languagesSpoken:
-    - SolCommon
+    - Freespeak
     languagesUnderstood:
-    - SolCommon
+    - Freespeak
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
@@ -39,7 +39,6 @@
   storage:
     back:
     - RadioHandheldNF
-    - NanolaminateFoamGrenade
-    - NanolaminateFoamGrenade
-    - RCDRecharging
-    - NFPouchUtility
+    - NFPouchPirate
+    suitStorage: MaintenanceJack
+    belt: ClothingBeltUtilityEngineering
