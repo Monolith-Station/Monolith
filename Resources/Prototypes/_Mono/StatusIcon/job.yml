@@ -8,6 +8,14 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconTSFReservist
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFReservist
+  jobName: job-name-tsf-reservist
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconTSFCaptain
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
