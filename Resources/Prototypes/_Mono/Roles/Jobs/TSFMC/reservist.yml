@@ -6,7 +6,7 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 100 # Requires you to have atleast logged on the server
-  startingGear: TsfEngiGear
+  startingGear: TsfReservistGear
   icon: JobIconTSFEngi
   supervisors: job-supervisors-sergeant
   weight: 130
@@ -35,14 +35,9 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: TsfEngiGear
-#  equipment:
-#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
-#    pocket2: Magazine45_ACPPistolFMJ
+  id: TsfReservistGear
   storage:
     back:
     - RadioHandheldNF
-    - NanolaminateFoamGrenade
-    - NanolaminateFoamGrenade
     - RCDRecharging
     - NFPouchUtility
