@@ -1,0 +1,28 @@
+- type: job
+  id: MonolithServant
+  name: job-name-pdv-denasvar
+  description: job-description-pdv-denasvar
+  playTimeTracker: MonolithServant
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hours # mono
+  startingGear: JobServant
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  canBeAntag: true
+  icon: "JobIconServant"
+  supervisors: job-supervisors-pdv-denasvar
+  weight: 30
+  displayWeight: 30
+  assignedCompany: Monolith
+  setPreference: true
+  access:
+  - CultServant
+  - CultAcolyte
+  - Mercenary
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:GiveItemOnHolidaySpecial # Even pirates get a piece of cake.
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift

@@ -1,0 +1,119 @@
+# servant
+
+- type: startingGear
+  id: JobServantGear
+  equipment:
+    gloves: ClothingHandsGlovesCombat
+
+
+- type: roleLoadout
+  id: JobServant
+  groups:
+  - MonolithJumpsuitServant
+  - MonolithGloves
+  - MonolithOuterClothing
+  - MonolithBackpack
+  - MonolithShoes
+  - MonolithMaskServant
+  - ContractorBoxSurvival
+  - RakhshanPDA
+  - ContractorWallet
+  - NFSpeciesSpecific
+  - PirateTrinkets
+  - MonolithBelt
+  - ContractorEncryptionKey
+  - RogueFirearm
+  - RogueSidearm
+  - RogueMag
+  - RoguePistolMag
+  - FactionArmorPlates
+  canCustomizeName: true
+
+- type: loadoutGroup
+  id: MonolithBackpack
+  name: loadout-group-contractor-backpack
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingBackpackSecurity
+  - ClothingBackpackSatchelSecurity
+  - ClothingBackpackDuffelSecurity
+  fallbacks:
+  - ClothingBackpackSatchelSecurity
+
+- type: loadoutGroup
+  id: MonolithJumpsuitServant
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingUniformMonolith
+  fallbacks:
+  - ClothingUniformMonolith
+
+- type: loadoutGroup
+  id: MonolithMaskServant
+  name: loadout-group-contractor-mask
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingMaskGasSwat
+  fallbacks:
+  - ClothingMaskGasSwat
+
+- type: loadoutGroup
+  id: MonolithServantPDA
+  name: loadout-group-contractor-pda
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingMaskGasSwat
+  fallbacks:
+  - ClothingMaskGasSwat
+
+- type: loadoutGroup
+  id: MonolithGloves
+  name: loadout-group-contractor-gloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingHandsGlovesCombat
+  - ClothingHandsGlovesCombatBlack
+  fallbacks:
+  - ClothingHandsGlovesCombat
+
+- type: loadoutGroup
+  id: MonolithOuterClothing
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingOuterArmourBPVestLight
+  - ClothingOuterArmourBPVestMedium
+  - ClothingOuterArmourBPVestHeavy
+  fallbacks:
+  - ClothingOuterArmourBPVestLight
+
+- type: loadoutGroup
+  id: MonolithBelt
+  name: loadout-group-contractor-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingBeltPilot
+  - ClothingBeltSalvageWebbing
+  fallbacks:
+  - ClothingBeltSalvageWebbing
+
+- type: loadoutGroup
+  id: MonolithShoes
+  name: loadout-group-contractor-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingShoesColorBlack
+  - ClothingShoesBootsLaceup
+  - ClothingShoesBootsCombat
+  - clothingShoesBootsJack
+  fallbacks:
+  - ClothingShoesBootsCombat

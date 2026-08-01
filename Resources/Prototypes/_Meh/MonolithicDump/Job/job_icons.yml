@@ -4,7 +4,7 @@
   icon:
     sprite: _Meh/job_icons.rsi
     state: priest
-  jobName: job-name-borg
+  jobName: job-name-priest
 
 - type: jobIcon
   parent: JobIcon
@@ -12,7 +12,7 @@
   icon:
     sprite: _Meh/job_icons.rsi
     state: acolyte
-  jobName: job-name-borg
+  jobName: job-name-acolyte
 
 - type: jobIcon
   parent: JobIcon
@@ -20,4 +20,4 @@
   icon:
     sprite: _Meh/job_icons.rsi
     state: Servant
-  jobName: job-name-borg
+  jobName: job-name-servant
