@@ -1,13 +1,6 @@
 # servant
-
-- type: startingGear
-  id: JobServantGear
-  equipment:
-    gloves: ClothingHandsGlovesCombat
-
-
 - type: roleLoadout
-  id: JobServant
+  id: JobMonolithServant
   groups:
   - MonolithJumpsuitServant
   - MonolithGloves
@@ -16,7 +9,7 @@
   - MonolithShoes
   - MonolithMaskServant
   - ContractorBoxSurvival
-  - RakhshanPDA
+  - MonolithServantPDA
   - ContractorWallet
   - NFSpeciesSpecific
   - PirateTrinkets
@@ -67,9 +60,9 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - ClothingMaskGasSwat
+  - ServantPDA
   fallbacks:
-  - ClothingMaskGasSwat
+  - ServantPDA
 
 - type: loadoutGroup
   id: MonolithGloves
@@ -78,7 +71,6 @@
   maxLimit: 1
   loadouts:
   - ClothingHandsGlovesCombat
-  - ClothingHandsGlovesCombatBlack
   fallbacks:
   - ClothingHandsGlovesCombat
 
@@ -88,11 +80,11 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - ClothingOuterArmourBPVestLight
-  - ClothingOuterArmourBPVestMedium
-  - ClothingOuterArmourBPVestHeavy
+  - ClothingOuterArmorBPVestLight
+  - ClothingOuterArmorBPVestMedium
+  - ClothingOuterArmorBPVestHeavy
   fallbacks:
-  - ClothingOuterArmourBPVestLight
+  - ClothingOuterArmorBPVestLight
 
 - type: loadoutGroup
   id: MonolithBelt
@@ -114,6 +106,121 @@
   - ClothingShoesColorBlack
   - ClothingShoesBootsLaceup
   - ClothingShoesBootsCombat
-  - clothingShoesBootsJack
+  - ClothingShoesBootsJack
   fallbacks:
   - ClothingShoesBootsCombat
+
+- type: loadoutGroup
+  id: MonolithPrimary
+  name: loadout-group-contractor-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingBeltPilot
+  - ClothingBeltSalvageWebbing
+  fallbacks:
+  - ClothingBeltSalvageWebbing
+
+# this is insane that I have to do this. Why not just have it be items?
+
+- type: loadout
+  id: ClothingUniformMonolith
+  price: 0
+  equipment:
+    jumpsuit: ClothingUniformMonolith
+
+- type: loadout
+  id: ClothingHandsGlovesCombat
+  price: 0
+  equipment:
+    gloves: ClothingHandsGlovesCombat
+
+- type: loadout
+  id: ClothingShoesColorBlack
+  price: 0
+  equipment:
+    shoes: ClothingShoesColorBlack
+
+- type: loadout
+  id: ClothingShoesBootsLaceup
+  price: 0
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
+- type: loadout
+  id: ClothingShoesBootsCombat
+  price: 0
+  equipment:
+    shoes: ClothingShoesBootsCombat
+
+- type: loadout
+  id: ClothingShoesBootsJack
+  price: 0
+  equipment:
+    shoes: ClothingShoesBootsJack
+
+- type: loadout
+  id: ClothingBeltSalvageWebbing
+  price: 0
+  equipment:
+    belt: ClothingBeltSalvageWebbing
+
+- type: loadout
+  id: ClothingBeltPilot
+  price: 0
+  equipment:
+    belt: ClothingBeltPilot
+
+- type: loadout
+  id: ClothingBackpackSecurity
+  price: 0
+  equipment:
+    back: ClothingBackpackSecurity
+
+- type: loadout
+  id: ClothingBackpackSecurity
+  price: 0
+  equipment:
+    back: ClothingBackpackSecurity
+
+- type: loadout
+  id: ClothingBackpackDuffelSecurity
+  price: 0
+  equipment:
+    back: ClothingBackpackDuffelSecurity
+
+- type: loadout
+  id: ClothingBackpackSatchelSecurity
+  price: 0
+  equipment:
+    back: ClothingBackpackSatchelSecurity
+
+- type: loadout
+  id: ClothingOuterArmorBPVestLight
+  price: 0
+  equipment:
+    outerClothing: ClothingOuterArmorBPVestLight
+
+- type: loadout
+  id: ClothingOuterArmorBPVestMedium
+  price: 0
+  equipment:
+    outerClothing: ClothingOuterArmorBPVestMedium
+
+- type: loadout
+  id: ClothingOuterArmorBPVestHeavy
+  price: 0
+  equipment:
+    outerClothing: ClothingOuterArmorBPVestHeavy
+
+- type: loadout
+  id: ClothingMaskGasSwat
+  price: 0
+  equipment:
+    mask: ClothingMaskGasSwat
+
+- type: loadout
+  id: ServantPDA
+  price: 0
+  equipment:
+    pda: ServantPDA

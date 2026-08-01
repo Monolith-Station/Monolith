@@ -23,6 +23,25 @@
   accessGroups:
   - GeneralAccess
   special:
-  - !type:GiveItemOnHolidaySpecial # Even pirates get a piece of cake.
+  - !type:GiveItemOnHolidaySpecial # Even cultists get a piece of cake.
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
+
+- type: playTimeTracker
+  id: MonolithServant
+
+- type: startingGear
+  id: JobServant
+  equipment:
+    ears: ClothingHeadsetGrey
+
+# Department
+
+- type: department
+  id: Monolith
+  name: department-Monolith
+  description: department-NFMonolith-description # Frontier
+  color: "#727475"
+  weight: 130 # Mono
+  roles:
+  - MonolithServant

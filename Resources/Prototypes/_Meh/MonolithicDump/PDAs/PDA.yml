@@ -1,39 +1,5 @@
 - type: entity
   parent: BasePDA
-  id: PreistPDA
-  name: priest PDA
-  description: This was at one point a research director's PDA. Just like its owner.
-  components:
-  - type: Pda
-    id: PriestIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-rd
-  - type: PdaBorderColor
-    borderColor: "#48484b"
-    accentVColor: "#424d2c"
-  - type: Icon
-    state: pda-rd
-  
-- type: entity
-  parent: IDCardStandard
-  id: PriestIDCard
-  name: priest ID card
-  components:
-  - type: IdCard
-    job: Mercenary
-  - type: Sprite
-    sprite: _Meh/id_cards.rsi
-    layers:
-    - state: default
-    - state: idpriest
-  - type: Clothing
-    sprite: _NF/Objects/Misc/id_cards.rsi
-
-- type: entity
-  parent: BasePDA
   id: ServantPDA
   name: servant PDA
   description: A generic mercenary PDA. Unlike its owner.
@@ -44,7 +10,7 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-rd
+        pda-mercenary
   - type: PdaBorderColor
     borderColor: "#48484b"
     accentVColor: "#424d2c"
