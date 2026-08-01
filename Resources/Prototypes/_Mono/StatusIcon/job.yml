@@ -91,6 +91,14 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconPDVReservist
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVReservist
+  jobName: job-name-pdv-reservist
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconMMCEmployee
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
