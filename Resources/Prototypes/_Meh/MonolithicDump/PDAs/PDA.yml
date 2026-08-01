@@ -1,8 +1,8 @@
 - type: entity
   parent: BasePDA
-  id: PriestPDA
+  id: PreistPDA
   name: priest PDA
-  description: This PDA smells of war.
+  description: This was at one point a research director's PDA. Just like its owner.
   components:
   - type: Pda
     id: PriestIDCard
@@ -10,9 +10,24 @@
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        pda-mercenary
+        pda-rd
   - type: PdaBorderColor
     borderColor: "#48484b"
     accentVColor: "#424d2c"
   - type: Icon
-    state: pda-mercenary
+    state: pda-rd
+  
+- type: entity
+  parent: IDCardStandard
+  id: PriestIDCard
+  name: priest ID card
+  components:
+  - type: PresetIdCard
+    job: Mercenary
+  - type: Sprite
+    sprite: _Meh/id_cards.rsi
+    layers:
+    - state: default
+    - state: idpriest
+  - type: Clothing
+    sprite: _NF/Objects/Misc/id_cards.rsi
