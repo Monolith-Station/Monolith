@@ -254,7 +254,7 @@
   - type: RadiationReceiver
   - type: RadiationSource
     intensity: 1.2
-    slope: 1.3
+    slope: 10
   - type: ChainRadiation
     baseIntensity: 1.2
     coefficient: 0.15 # critical mass at 6

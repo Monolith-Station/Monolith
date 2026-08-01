@@ -80,3 +80,16 @@
     Opporozidone: 15
   recipeType: ArcFurnace
 
+# end iridite
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustrySterile
+  name: sterile components recipe
+  result: MaterialIndustrySterile
+  time: 5
+  group: ArcFurnace # Not in precision assembler because like heat sterilization or something
+  resultCount: 2
+  solids:
+    ComponentBrickEconomy1: 1 # replace this with something fitting one day
+  recipeType: PrecisionAssembler
+
