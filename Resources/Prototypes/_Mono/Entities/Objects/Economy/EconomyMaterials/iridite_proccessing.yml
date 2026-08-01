@@ -9,7 +9,6 @@
   id: MaterialIriditeSlag
   name: iridite slag
   description: Needs to be put in a centrifuge to seperate into the fine powder required for gasless Iridite production.
-  suffix: Full
   components:
   - type: Sprite
     sprite: _Mono/Objects/Materials/iridite_midsteps.rsi
@@ -20,8 +19,6 @@
   - type: PhysicalComposition
     materialComposition:
       IriditeSlag: 1
-  - type: PirateBountyItem # Frontier
-    id: MaterialDiamond # Frontier
   - type: GuideHelp
     guides:
     - ArcFurnace

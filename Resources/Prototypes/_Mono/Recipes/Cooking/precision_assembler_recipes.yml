@@ -127,3 +127,136 @@
     MatterBinEconomy2: 1
     ComponentBrickEconomy1: 1
   recipeType: PrecisionAssembler
+
+# Compressed parts
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryElectronics
+  name: electric components recipe
+  result: MaterialIndustryElectronics
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 3
+  solids:
+    MicroprocessorEconomy1: 3
+    MicroprocessorEconomy2: 1
+    ElectromagnetEconomy1: 1
+    CapacitorEconomy1: 4
+    RadioEconomy1: 1
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryElectronicsAdvanced
+  name: advanced electric components recipe
+  result: MaterialIndustryElectronicsAdvanced
+  time: 30
+  group: PrecisionAssembler
+  resultCount: 2
+  solids:
+    MicroprocessorEconomy2: 2
+    ElectromagnetEconomy3: 1
+    CapacitorEconomy2: 6
+    RadioEconomy2: 1
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryElectronicsAdvancedAlt
+  name: alternate advanced electric components recipe
+  result: MaterialIndustryElectronicsAdvanced
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 2
+  solids:
+    MicroprocessorEconomy3: 3
+    CapacitorEconomy3: 2
+    RadioEconomy1: 2
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryFCS
+  name: FCS components recipe
+  result: MaterialIndustryFCS
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 1
+  solids:
+    MicroprocessorEconomy1: 2
+    MicroprocessorEconomy2: 1
+    OpticsEconomy2: 2
+    CameraEconomy1: 1
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryMechanical
+  name: mechanical components recipe
+  result: MaterialIndustryMechanical
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 2
+  solids:
+    ComponentBrickEconomy1: 1
+    MotorEconomy1: 2
+    MatterBinEconomy1: 2
+    MatterBinEconomy2: 1
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryPlates
+  name: armor components recipe
+  result: MaterialIndustryPlates
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 2
+  solids:
+    ArmorPlateEconomy2Finished: 2
+    ArmorPlateEconomy1: 4
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryPlatesAlt
+  name: alternate armor components recipe
+  result: MaterialIndustryPlates
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 3
+  solids:
+    ArmorPlateEconomy3: 1
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryRecievers
+  name: reciever components recipe
+  result: MaterialIndustryRecievers
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 2 # may seem very grindy to get guns - 1 comp is 5u though
+  solids:
+    ComponentBrickEconomy1: 1 # not enough mechanical parts to use really
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustrySensors
+  name: sensor components recipe
+  result: MaterialIndustrySensors
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 2
+  solids:
+    OpticsEconomy1: 4
+    OpticsEconomy2: 2
+    CameraEconomy1: 2
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryShip
+  name: ship components recipe
+  result: MaterialIndustryShip
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 5
+  solids:
+    MaterialIndustrySensors: 1 # Here bro have a tung tung
+    MaterialIndustryPlates: 1
+    MaterialIndustryElectronics: 1
+    MaterialIndustryFCS: 1
+  recipeType: PrecisionAssembler
