@@ -13,7 +13,7 @@
     delay:
       min: 14400
       max: 14400
-  - type: AlertLevelInterceptionRule
+  - type: WarLevelRule
     warLevel: true
 
 - type: entity
@@ -24,7 +24,7 @@
     delay:
       min: 3600 # 1 hr
       max: 10800 # 3 hr
-        
+
 - type: entity
   id: PortstrikeAnnounceRuleHour2
   parent: PortstrikeAnnounceRuleHour4
