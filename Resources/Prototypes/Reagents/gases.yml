@@ -31,6 +31,7 @@
         conditions:
         - !type:OrganType
           type: Animal
+      - !type:Oxygenate
         conditions:
         - !type:OrganType
           type: Plasma  # Mono - Monolithic organs
@@ -133,13 +134,6 @@
           types:
             Poison:
               1
-      - !type:ModifyLungGas
-        conditions:
-        - !type:OrganType
-          type: Plasma
-        ratios:
-          WaterVapour: 1.0
-          Plasma: -1.0
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins

@@ -1,0 +1,18 @@
+- type: entity
+  parent: BasePDA
+  id: PriestPDA
+  name: priest PDA
+  description: This PDA smells of war.
+  components:
+  - type: Pda
+    id: PriestIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-mercenary
+  - type: PdaBorderColor
+    borderColor: "#48484b"
+    accentVColor: "#424d2c"
+  - type: Icon
+    state: pda-mercenary

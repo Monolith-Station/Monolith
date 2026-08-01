@@ -1,0 +1,32 @@
+- type: entity
+  id: ClothingOuterCoatMonolithic
+  name: Reinforced Coat
+  parent: ClothingOuterCoatHoSTrench
+  description: A large coat reinforced with a bulletproof vest. Offers minor protection from most damage.
+  components:
+  - type: Sprite
+    sprite: _Meh/Clothing/acolyte_coat.rsi
+  - type: Clothing
+    sprite: _Meh/Clothing/acolyte_coat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.55
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.80
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMonolithicPreist
+  name: Monolithic Priest Robes
+  description: Crude robes sewn together from bedsheets and other scraps of cloth. Worn by the devoted priests of the Monolith.
+  components:
+  - type: Sprite
+    sprite: _Meh/Clothing/Priest_robes.rsi
+  - type: Clothing
+    sprite: _Meh/Clothing/Priest_robes.rsi
+  - type: Item
+    size: Normal

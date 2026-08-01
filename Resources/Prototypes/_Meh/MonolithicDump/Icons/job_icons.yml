@@ -1,0 +1,23 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPreist
+  icon:
+    sprite: _Meh/job_icons.rsi
+    state: priest
+  jobName: job-name-borg
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAcolyte
+  icon:
+    sprite: _Meh/job_icons.rsi
+    state: acolyte
+  jobName: job-name-borg
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconServant
+  icon:
+    sprite: _Meh/job_icons.rsi
+    state: Servant
+  jobName: job-name-borg
