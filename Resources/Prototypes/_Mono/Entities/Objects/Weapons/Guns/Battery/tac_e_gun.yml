@@ -27,10 +27,14 @@
     minAngle: 21
     maxAngle: 34
     fireRate: 3
-    selectedMode: FullAuto
+    burstCooldown: 0.65
+    burstFireRate: 12
+    shotsPerBurst: 2
+    selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     - FullAuto
+    - Burst
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
@@ -58,10 +62,12 @@
     tags:
     - HighRiskItem
   - type: StaticPrice
-    price: 750
+    price: 2500
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 125
-  - type: PirateBountyItem # Mono
+    autoRechargeRate: 200
+    autoRechargePause: true
+    autoRechargePauseTime: 30
+  - type: PirateBountyItem
     id: ExperimentalFactionWeapon
 
