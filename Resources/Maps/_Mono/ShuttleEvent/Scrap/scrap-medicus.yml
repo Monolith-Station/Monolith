@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/02/2026 14:15:48
+  time: 08/02/2026 14:40:31
   entityCount: 1023
 maps: []
 grids:
@@ -771,15 +771,6 @@ entities:
     - type: ThermalSignature
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
-    - type: SalvageMobRestrictionsGrid
-      mobsToKill:
-      - invalid
-      - invalid
-      - invalid
-      - invalid
-      - invalid
-      - invalid
-      - invalid
 - proto: AirAlarm
   entities:
   - uid: 641
