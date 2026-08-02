@@ -14,7 +14,6 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/mk32.rsi
   - type: Gun
-    damageModifier: 2
     fireRate: 4 # Frontier: 3<4
     availableModes:
     - SemiAuto
@@ -58,7 +57,6 @@
   - type: Clothing
     sprite: _DV/Objects/Weapons/Guns/Pistols/pollock.rsi
   - type: Gun
-    damageModifier: 2
     fireRate: 5
     availableModes:
     - SemiAuto

@@ -19,7 +19,7 @@
     maxAngle: 35
     angleIncrease: 4
     angleDecay: 40
-    fireRate: 16
+    fireRate: 11 # 660 rpm
     shotsPerBurst: 3
     availableModes:
     - Burst
@@ -93,7 +93,7 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: Gun
-    fireRate: 13
+    fireRate: 6 # Mono
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
   - type: ItemSlots
@@ -252,7 +252,7 @@
     burstFireRate: 12
     burstCooldown: 0.8
     shotsPerBurst: 4
-    fireRate: 12.5
+    fireRate: 7
     projectileSpeed: 42.5 # Mono
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/thock.ogg
@@ -412,7 +412,7 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: Gun
-    fireRate: 12 # 1 lower than normal lecter, bag tax.
+    fireRate: 6
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
   - type: ItemSlots
@@ -578,7 +578,7 @@
     maxAngle: 33
     angleIncrease: 4
     angleDecay: 40
-    fireRate: 11.67
+    fireRate: 4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
   - type: ItemSlots

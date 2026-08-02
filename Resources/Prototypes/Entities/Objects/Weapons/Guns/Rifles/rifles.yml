@@ -16,7 +16,7 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 10 # Mono
+    fireRate: 5
     projectileSpeed: 55 # Mono
     selectedMode: FullAuto
     availableModes:
@@ -88,7 +88,7 @@
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/Rifles/akm_inhands_32x.rsi # Mono
   - type: Gun
-    fireRate: 10 # Mono
+    fireRate: 5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
   - type: ChamberMagazineAmmoProvider
