@@ -73,7 +73,7 @@
         Structural: 70
 
 - type: entity
-  parent: Pulse
+  parent: BasicHitscan
   id: RifleTacLethal #Tac E Gun
   categories: [ HideSpawnMenu ]
   components:
@@ -81,18 +81,38 @@
     damage:
       types:
         Heat: 27 # Mono
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: gauss_muzzle
+    travelFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: gauss_trail
+    impactFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: gauss_impact
 
 - type: entity
-  parent: Pulse
-  id: RifleTacLethal #Tac E Gun
+  parent: BasicHitscan
+  id: RifleTacShock #Tac E Gun
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 27 # Mono
+        Shock: 10
   - type: StaminaDamageOnCollide
-    damage: 30 # Mono
+    damage: 30
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: gauss_muzzle
+    travelFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: gauss_trail
+    impactFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: gauss_impact
 
 - type: entity
   id: Coilgun134x92mm

@@ -43,11 +43,11 @@
     maxCharge: 5250
     startingCharge: 5250
   - type: HitscanBatteryAmmoProvider
-    proto: BulletDisabler
+    proto: RifleTacShock
     fireCost: 75
   - type: HitscanBatteryAmmoProvider
     fireModes:
-    - proto: BulletDisabler
+    - proto: RifleTacShock
       fireCost: 75
       name: disable
     - proto: RifleTacLethal
