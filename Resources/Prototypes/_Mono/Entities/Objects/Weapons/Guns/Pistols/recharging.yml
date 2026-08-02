@@ -16,6 +16,7 @@
     - suitStorage
     - Belt
   - type: Gun
+    damageModifier: 1.5
     fireRate: 2
     projectileSpeed: 65
     availableModes:
@@ -69,6 +70,7 @@
     - suitStorage
     - Belt
   - type: Gun
+    damageModifier: 1.5
     fireRate: 1.5
     projectileSpeed: 75
     burstCooldown: 0.75

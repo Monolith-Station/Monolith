@@ -40,6 +40,7 @@ shuttle-console-exclusion = Exclusion Area
 shuttle-console-strafing = Strafing Mode
 shuttle-console-nav-settings = Settings
 shuttle-console-iff-toggle = Show IFF
+shuttle-console-iff-detailed = Detailed IFF
 shuttle-console-dock-toggle = Show Docks
 shuttle-console-iffshuttles-toggle = Show Shuttles
 

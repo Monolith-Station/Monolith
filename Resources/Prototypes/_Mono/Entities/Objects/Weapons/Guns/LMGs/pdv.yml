@@ -15,7 +15,7 @@
     maxAngle: 25
     angleIncrease: 3
     angleDecay: 20
-    fireRate: 16
+    fireRate: 50
     projectileSpeed: 45
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
@@ -64,7 +64,7 @@
     burstFireRate: 20
     burstCooldown: 0.6
     projectileSpeed: 45
-    fireRate: 7
+    fireRate: 10
     damageModifier: 0.9
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/wspr_fire.ogg

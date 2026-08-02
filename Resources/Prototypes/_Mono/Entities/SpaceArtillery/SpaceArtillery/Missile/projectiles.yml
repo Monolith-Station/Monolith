@@ -175,6 +175,11 @@
     scanArc: 0
     launchSpeed: 90
     maxSpeed: 300
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 30
+    intensitySlope: 5
+    maxIntensity: 15
 
 # TOVEK
 
@@ -209,7 +214,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 300
+    totalIntensity: 130
     intensitySlope: 6
     maxIntensity: 25
   - type: GatheringProjectile

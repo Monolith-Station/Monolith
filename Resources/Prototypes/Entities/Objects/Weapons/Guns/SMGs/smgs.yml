@@ -18,8 +18,8 @@
   - type: Gun
     minAngle: 2
     maxAngle: 16
-    fireRate: 8
-    burstFireRate: 8
+    fireRate: 12 # Mono
+    burstFireRate: 14 # Mono
     angleIncrease: 3
     angleDecay: 16
     selectedMode: FullAuto
@@ -103,7 +103,7 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
-    fireRate: 5.5
+    fireRate: 15.67 # Mono
     minAngle: 1
     maxAngle: 6
     angleIncrease: 1.5
@@ -111,7 +111,7 @@
     selectedMode: FullAuto
     shotsPerBurst: 5
     burstCooldown: 0.2
-    burstFireRate: 7
+    burstFireRate: 15.67 # Mono
     availableModes:
     - Burst
     - FullAuto

@@ -18,6 +18,7 @@
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
     fireRate: 0.7
+    damageModifier: 2 # Mono
     selectedMode: Semiauto
     availableModes:
     - SemiAuto
@@ -59,6 +60,7 @@
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
     fireRate: 4
+    damageModifier: 1.2 # Mono
     selectedMode: FullAuto
     availableModes:
     - FullAuto

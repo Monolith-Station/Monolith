@@ -26,7 +26,7 @@
     maxAngle: 45
     angleIncrease: 3
     angleDecay: 20
-    fireRate: 8
+    fireRate: 11 # Mono
     projectileSpeed: 55 # Mono
     selectedMode: FullAuto
     availableModes:
@@ -95,7 +95,7 @@
 - type: entity
   name: PA L6B SAW (7.62x39mm)
   id: WeaponLightMachineGunL6
-  parent: BaseWeaponLightMachineGun
+  parent: [BaseWeaponLightMachineGun, BaseFactionGearPDVT3]
   description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses 7.62x39mm ammo. it serves as a remnant of humanity's greed and ambition during The Fracture.
   components:
   - type: Sprite
@@ -125,7 +125,7 @@
       maxAngle: 20
       angleIncrease: 3
       angleDecay: 20
-      fireRate: 8
+      fireRate: 12 # Mono
       projectileSpeed: 55 # Mono
       selectedMode: FullAuto
       availableModes:

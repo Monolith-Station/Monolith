@@ -49,6 +49,21 @@
     SiliconBouleEconomy: 1
   recipeType: PrecisionAssembler
 
+# Optics
+
+- type: microwaveMealRecipe
+  id: RecipeOpticsEconomy2
+  name: precision optical sensor recipe
+  result: OpticsEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    OpticsEconomy1: 1
+    CapacitorEconomy1: 2
+  reagents:
+    Phenol: 20
+  recipeType: PrecisionAssembler
+
 # Capacitors
 
 - type: microwaveMealRecipe

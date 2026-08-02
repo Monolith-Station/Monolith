@@ -11,6 +11,7 @@
   - type: GunRequiresWield
   - type: Gun
     fireRate: 0.75
+    damageModifier: 1.2
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

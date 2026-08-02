@@ -544,8 +544,8 @@
     visuals:
       enum.PowerDeviceVisuals.VisualState:
         enum.MicrowaveVisualizerLayers.Base:
-          Idle: { state: "building" }
-          Cooking: { state: "building" }
+          Idle: { state: "icon" }
+          Cooking: { state: "icon" }
         enum.MicrowaveVisualizerLayers.BaseUnlit:
           Idle: { state: "unlit" }
           Broken: { state: "panel" }
@@ -627,8 +627,8 @@
     visuals:
       enum.PowerDeviceVisuals.VisualState:
         enum.MicrowaveVisualizerLayers.Base:
-          Idle: { state: "building" }
-          Cooking: { state: "building" }
+          Idle: { state: "icon" }
+          Cooking: { state: "icon" }
         enum.MicrowaveVisualizerLayers.BaseUnlit:
           Idle: { state: "unlit" }
           Broken: { state: "panel" }

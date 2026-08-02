@@ -663,7 +663,7 @@
     job: AtmosphericTechnician
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseFactionGearOtherFactionT1]
   id: SyndicateIDCard
   name: syndicate ID card
   components:

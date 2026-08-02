@@ -15,7 +15,7 @@
   - type: Gun
     minAngle: 23
     maxAngle: 20
-    fireRate: 10
+    fireRate: 15
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -66,10 +66,10 @@
     id: ExperimentalFactionWeapon
 
 - type: entity
-  name: NT-WS LRC-21 PPL
-  parent: [ BaseWeaponPowerCell, BaseGunWieldable ]
+  name: wayward NT-WS LRC-21 PPL
+  parent: [ BaseWeaponPowerCell, BaseGunWieldable, BaseFactionGearOtherFactionT3]
   id: WeaponLRC21PPL
-  description: A heavy pulsed plasma lance rifle. Eviscerates targets with ease.
+  description: A heavy pulsed plasma lance rifle. Eviscerates targets in one clean shot. A highly experimental brand, developed and reverse-engineered right before the Confederate Expansion... how do you know this?
   components:
   - type: Wieldable
   - type: GunWieldBonus
@@ -78,7 +78,7 @@
   - type: Gun
     minAngle: 23
     maxAngle: 64
-    fireRate: 0.7
+    fireRate: 1.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

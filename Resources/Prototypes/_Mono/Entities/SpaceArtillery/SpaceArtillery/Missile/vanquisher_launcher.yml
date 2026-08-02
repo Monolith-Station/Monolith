@@ -20,6 +20,7 @@
     range: 500
   - type: GunSignalControl
   - type: Gun
+    damageModifier: 0.5
     selectedMode: Burst
     availableModes: Burst
     burstCooldown: 15

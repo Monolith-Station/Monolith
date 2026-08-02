@@ -25,10 +25,10 @@
     minAngle: -27
     maxAngle: -36
   - type: Gun
+    damageModifier: 2.5
     minAngle: 27
     maxAngle: 39
     fireRate: 2.25
-    damageModifier: 1.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -124,6 +124,8 @@
   - type: EyeCursorOffset
     maxOffset: 1.5
     pvsIncrease: 0.15
+  - type: Gun
+    damageModifier: 2.5
   - type: AltFireMelee
     attackType: Light
   - type: BallisticAmmoProvider
