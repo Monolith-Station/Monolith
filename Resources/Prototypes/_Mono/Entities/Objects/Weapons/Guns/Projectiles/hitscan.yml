@@ -73,6 +73,28 @@
         Structural: 70
 
 - type: entity
+  parent: Pulse
+  id: RifleTacLethal #Tac E Gun
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 27 # Mono
+
+- type: entity
+  parent: Pulse
+  id: RifleTacLethal #Tac E Gun
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 27 # Mono
+  - type: StaminaDamageOnCollide
+    damage: 30 # Mono
+
+- type: entity
   id: Coilgun134x92mm
   parent: BasicHitscan
   categories: [ HideSpawnMenu ]

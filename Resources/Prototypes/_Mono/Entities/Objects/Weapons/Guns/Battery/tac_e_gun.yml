@@ -42,15 +42,15 @@
   - type: Battery
     maxCharge: 5250
     startingCharge: 5250
-  - type: ProjectileBatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 75
-  - type: EnergyGun
+  - type: HitscanBatteryAmmoProvider
     fireModes:
     - proto: BulletDisabler
       fireCost: 75
       name: disable
-    - proto: BulletEnergyGunLaser
+    - proto: RifleTacLethal
       fireCost: 150
       name: lethal
   - type: MagazineVisuals
