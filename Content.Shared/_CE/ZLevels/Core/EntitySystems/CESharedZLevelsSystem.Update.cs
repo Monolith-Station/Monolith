@@ -111,7 +111,7 @@ public abstract partial class CESharedZLevelsSystem
 
         if (zPhysicsComponent.LocalPosition < 0)
         {
-            if (TryMoveDownOrChasm(entity))
+            if (TryMoveDown(entity))
             {
                 zPhysicsComponent.LocalPosition += 1;
                 if (zPhysicsComponent is { CachedStickyGround: false, Fallable: true })
