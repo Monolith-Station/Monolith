@@ -490,25 +490,6 @@ public abstract partial class CESharedZLevelsSystem
         return TryMove(ent, -1);
     }
 
-    [PublicAPI]
-    public bool TryMoveDownOrChasm(EntityUid ent)
-    {
-        if (TryMoveDown(ent))
-            return true;
-
-        //welp, that default Chasm behavior. Not really good, but ok for now.
-        if (HasComp<ChasmFallingComponent>(ent))
-            return false; //Already falling
-
-        var audio = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
-        _audio.PlayPredicted(audio, Transform(ent).Coordinates, ent);
-        var falling = AddComp<ChasmFallingComponent>(ent);
-        falling.NextDeletionTime = _timing.CurTime + falling.DeletionTime;
-        _blocker.UpdateCanMove(ent);
-
-        return false;
-    }
-
     private void UpdateDirtyMovement()
     {
         for (var i = _dirtyMovementBodies.Count - 1; i >= 0; i--)
