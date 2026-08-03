@@ -69,7 +69,7 @@ public sealed partial class LatheSystem : SharedLatheSystem
                     if (proto.ID != entity.Id)
                         continue;
 
-                    if (TryComp<StackComponent>(conEnt, out var stack))
+                    if (_stackQuery.TryComp(conEnt, out var stack))
                         count = stack.Count;
 
                     if (processedEntities.ContainsKey(proto.ID))

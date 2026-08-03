@@ -315,7 +315,7 @@ namespace Content.Server.Lathe
                             || proto.ID != entity.Id)
                             continue;
 
-                        if (TryComp<StackComponent>(conEnt, out var stack))
+                        if (_stackQuery.TryComp(conEnt, out var stack))
                         {
                             count = Math.Clamp(stack.Count, 0, amount);
                             if (count == stack.Count)
@@ -700,7 +700,7 @@ namespace Content.Server.Lathe
                         if (proto.ID != entity.Id)
                             continue;
 
-                        if (TryComp<StackComponent>(conEnt, out var stack))
+                        if (_stackQuery.TryComp(conEnt, out var stack))
                             count = stack.Count;
 
                         if (processedEntities.ContainsKey(proto.ID))

@@ -9,6 +9,7 @@ using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Localizations;
 using Content.Shared.Materials;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Stacks;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
 using JetBrains.Annotations;
@@ -29,6 +30,7 @@ public abstract partial class SharedLatheSystem : EntitySystem
     [Dependency] private EmagSystem _emag = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] protected EntityQuery<StackComponent> _stackQuery = default!;
 
     public readonly Dictionary<string, List<LatheRecipePrototype>> InverseRecipes = new();
 
