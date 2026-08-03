@@ -29,9 +29,9 @@
     state: boom_mothroach
 
 - type: entity
-  name: syndi roachburger
+  name: imperi roachburger
   parent: FoodBurgerMothRoach
-  id: FoodBurgerSyndiRoach
+  id: FoodBurgerImperiRoach
   description: The last lamp it saw was the one inside the microwave.
   components:
   - type: FlavorProfile
@@ -41,7 +41,7 @@
       - lostfriendship
   - type: Sprite
     sprite: _Mono/Objects/Consumable/Food/mothroach_burger.rsi
-    state: syndi_mothroach
+    state: imperi_mothroach
 
 - type: entity
   name: OwO roachburger

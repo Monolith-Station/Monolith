@@ -88,13 +88,13 @@
 #Breads & Sandwiches
 
 - type: microwaveMealRecipe
-  id: RecipeSyndiRoachburger
-  name: syndiroachburger recipe
-  result: FoodBurgerSyndiRoach
+  id: RecipeImperiRoachburger
+  name: imperiroachburger recipe
+  result: FoodBurgerImperiRoach
   group: Savory
   solids:
     FoodBreadBun: 1
-    MobMothSyndy: 1
+    MobImperiRoach: 1
   recipeType: Microwave # Mono: Deviating to match the item description and restore the humor
 #Breads & Sandwiches
 

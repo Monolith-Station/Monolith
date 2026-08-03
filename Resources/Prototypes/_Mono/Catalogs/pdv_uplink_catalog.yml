@@ -1138,11 +1138,11 @@
       - PirateUplink
 
 - type: listing
-  id: UplinkMobMothSyndy
-  name: uplink-pirate-MobMothSyndy-name
-  description: uplink-pirate-MobMothSyndy-desc
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-syndiroach }
-  productEntity: ReinforcementRadioPDVSyndiRoach
+  id: UplinkMobImperiroach
+  name: uplink-pirate-MobImperiroach-name
+  description: uplink-pirate-MobImperiroach-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-imperiroach}
+  productEntity: ReinforcementRadioPDVImperiroach
   cost:
     Doubloon: 30
   categories:

@@ -186,10 +186,10 @@
     - SemiAuto
     soundGunshot: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
   - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
+    maxCharge: 1000
+    startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
-    proto: 40mmGrenadeFragmentation
+    proto: Bullet40mmGrenadeEMP
     fireCost: 500
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -209,18 +209,18 @@
       100: Dead
 
 - type: entity
-  name: syndiroach
+  name: ImperiRoach
   parent: MobMothroach
-  id: MobMothSyndy
+  id: MobImperiRoach
   description: Repurposed and highly trained elite member of the PDV, bewarned explosive personallity
   components:
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
     allowMovement: true
-    name: ghost-role-information-syndiroach-name
-    description: ghost-role-information-syndiroach-description
-    rules: ghost-role-information-syndiroach-rules
+    name: ghost-role-information-Imperiroach-name
+    description: ghost-role-information-Imperiroach-description
+    rules: ghost-role-information-Imperiroach-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
   - type: AutoImplant
@@ -263,7 +263,7 @@
     insertingState: inserting_mothroach
   - type: MothAccent
   - type: Sprite
-    sprite: Mobs/Animals/mothroach/syndiroach.rsi
+    sprite: Mobs/Animals/mothroach/imperiroach.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mothroach
@@ -278,7 +278,7 @@
     size: Normal
   - type: Clothing
     quickEquip: false
-    sprite: Mobs/Animals/mothroach/syndiroach.rsi
+    sprite: Mobs/Animals/mothroach/imperiroach.rsi
     equippedPrefix: 0
     slots:
     - HEAD
@@ -487,11 +487,9 @@
 
 - type: entity
   name: mustard mothroach
-  parent:
-  - EdibleBase
-  - BaseMob
+  parent: MobMothroach
   id: MobMothroachMustard
-  description: A delightful result of the world's chefs crossing meat with sauce.
+  description: A delightful result of the sectors's highest chefs crossing meat with sauce.
   components:
   - type: GhostRole
     makeSentient: true
@@ -502,22 +500,19 @@
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgentHarmless
-  - type: GhostTakeoverAvailable
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.2
-        density: 120
-        mask:
-        - SmallMobMask
-        layer:
-        - SmallMobLayer
-  - type: HTN
-    constantlyReplan: false
-    rootTask:
-      task: MouseCompound
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/mustard_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_lunar
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/mustard_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
   - type: FlavorProfile
     flavors:
     - meaty
@@ -536,106 +531,3 @@
           Quantity: 5
         - ReagentId: Mustard
           Quantity: 5
-  - type: Speech
-    speechVerb: Moth
-    speechSounds: Squeak
-    allowedEmotes: ['Chitter', 'Squeak']
-  - type: FaxableObject
-    insertingState: inserting_mothroach
-  - type: DashAction # Goobstation - dark souls moths
-    actionProto: ActionDashMoth
-  - type: MothAccent
-  - type: Sprite
-    noRot: true
-    sprite: Mobs/Animals/mothroach/mustard_mothroach.rsi
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: mothroach
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: mothroach-moving
-    noMovementLayers:
-      movement:
-        state: mothroach
-  - type: Item
-    size: Normal
-  - type: Clothing
-    quickEquip: false
-    sprite: Mobs/Animals/mothroach/mustard_mothroach.rsi
-    equippedPrefix: 0
-    slots:
-    - HEAD
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 4
-    weightlessAcceleration: 1.5
-    weightlessFriction: 1
-    baseWeightlessModifier: 1
-  - type: CombatMode
-  - type: Extractable
-    grindableSolutionName: food
-  - type: LanguageKnowledge # Einstein Engines - Language
-    speaks:
-    - Moffic
-    understands:
-    - Moffic
-    - TauCetiBasic
-  - type: Vocal
-    sounds:
-      Male: UnisexMoth
-      Female: UnisexMoth
-      Unsexed: UnisexMoth
-    wilhelmProbability: 0.001
-  - type: MobPrice
-    price: 150
-  - type: Tag
-    tags:
-    - Trash
-    - CannotSuicide
-    - VimPilot
-    - Meat
-  - type: MovementAlwaysTouching
-  - type: CanEscapeInventory
-  - type: NpcFactionMember
-    factions:
-    - Mouse
-  - type: TypingIndicator
-    proto: moth
-  - type: Strippable
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-  - type: InventorySlots
-  - type: Inventory
-    speciesId: mothroach
-    templateId: mothroach
-    displacements:
-      head:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: head
-      mask:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: mask
-      suitstorage:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: suitstorage
-      eyes:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: eyes
-      neck:
-        sizeMaps:
-          32:
-            sprite: Mobs/Animals/mothroach/displacement.rsi
-            state: neck
-  - type: Puller
-    needsHands: false
