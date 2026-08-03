@@ -8,7 +8,7 @@
           prototype: SheetSteel1
         - !type:DeleteEntity
       edges:
-        - to: machineFrame # Skipping missing wires fuck you.
+        - to: UnfinishedMachineFrame
           completed:
             - !type:SetAnchor
               value: true # Mono
