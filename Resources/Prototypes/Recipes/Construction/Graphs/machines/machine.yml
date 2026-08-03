@@ -8,19 +8,19 @@
           prototype: SheetSteel1
         - !type:DeleteEntity
       edges:
-        - to: missingWires
+        - to: machineFrame # Skipping missing wires fuck you.
           completed:
             - !type:SetAnchor
-              value: false
+              value: true # Mono
           steps:
             - material: Steel
               amount: 5
-              doAfter: 2.5
+              doAfter: 1 # Mono
         - to: destroyedMachineFrame
           steps:
             - material: Steel
               amount: 5
-              doAfter: 2.5
+              doAfter: 1 # Mono
 
     - node: missingWires
       entity: UnfinishedMachineFrame

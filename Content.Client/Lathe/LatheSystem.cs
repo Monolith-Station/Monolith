@@ -2,6 +2,7 @@ using Robust.Client.GameObjects;
 using Content.Shared.Lathe;
 using Content.Shared.Power;
 using Content.Client.Power;
+using Content.Client.Storage.Components;
 using Content.Shared.Research.Prototypes;
 
 namespace Content.Client.Lathe;
@@ -46,6 +47,50 @@ public sealed partial class LatheSystem : SharedLatheSystem
                 args.Sprite.LayerSetState(powerLayer, state);
             }
         }
+    }
+
+    // Mono
+    public override bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount = 1, LatheComponent? component = null)
+    {
+        if (TryComp<EntityStorageComponent>(uid, out var storage))
+        {
+            Dictionary<string, int> processedEntities = new();
+            foreach (var (entity, _) in recipe.Entities)
+            {
+
+                foreach (var conEnt in storage.Contents.ContainedEntities)
+                {
+                    var meta = MetaData(conEnt);
+                    if (meta.EntityPrototype is not { } proto)
+                        continue;
+
+                    if (proto.ID != entity.Id)
+                        continue;
+
+                    if (processedEntities.ContainsKey(proto.ID))
+                    {
+                        processedEntities[proto.ID] += 1;
+                    }
+                    else
+                    {
+                        processedEntities.Add(proto.ID, 1);
+                    }
+                }
+            }
+            foreach (var (entity, needed) in recipe.Entities)
+            {
+                if (!processedEntities.ContainsKey(entity))
+                    return false;
+
+                if (processedEntities.TryGetValue(entity, out var count)
+                    && count < needed)
+                    return false;
+            }
+        }
+        else if (recipe.Entities.Count != 0)
+            return false;
+
+        return base.CanProduce(uid, recipe, amount, component);
     }
 
     ///<remarks>

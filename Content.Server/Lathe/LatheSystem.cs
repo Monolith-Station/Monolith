@@ -35,7 +35,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cargo.Components; // Frontier
-using Content.Server._NF.Contraband.Systems; // Frontier
+using Content.Server._NF.Contraband.Systems;
+using Content.Server.Storage.Components; // Frontier
 using Robust.Shared.Containers; // Frontier
 
 namespace Content.Server.Lathe
@@ -287,6 +288,42 @@ namespace Content.Server.Lathe
 
                 _materialStorage.TryChangeMaterialAmount(uid, mat, adjustedAmount);
             }
+            foreach (var (reag, amount) in recipe.Reagents)
+            {
+                if (component.ReagentOutputSlotId is not { } slotId)
+                    break;
+
+                if (!_container.TryGetContainer(uid, slotId, out var container) ||
+                    !_solution.TryGetFitsInDispenser(container.ContainedEntities.First(), out var solEnt, out _))
+                    break;
+
+                var adjustedAmount = -AdjustMaterial(amount, 1, 1);
+
+                _solution.AddSolution(solEnt.Value, new Solution(reag, adjustedAmount));
+            }
+            if (TryComp<EntityStorageComponent>(uid, out var storage))
+            {
+                foreach (var (entity, amount) in recipe.Entities)
+                {
+                    var counter = 0;
+                    foreach (var conEnt in storage.Contents.ContainedEntities)
+                    {
+                        var meta = MetaData(conEnt);
+                        if (meta.EntityPrototype is not { } proto)
+                            continue;
+
+                        if (proto.ID != entity.Id)
+                            continue;
+
+                        QueueDel(conEnt); // rip
+                        counter += 1;
+
+                        if (counter >= amount)
+                            break;
+                    }
+                }
+            }
+
             // </Mono>
 
             batch.ItemsPrinted++;
@@ -632,6 +669,49 @@ namespace Content.Server.Lathe
             ent.Comp.Paused = false;
             if (wasPaused)
                 TryStartProducing(ent, ent.Comp);
+        }
+
+        // Mono
+        public override bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount = 1, LatheComponent? component = null)
+        {
+            if (TryComp<EntityStorageComponent>(uid, out var storage))
+            {
+                Dictionary<string, int> processedEntities = new();
+                foreach (var (entity, _) in recipe.Entities)
+                {
+                    foreach (var conEnt in storage.Contents.ContainedEntities)
+                    {
+                        var meta = MetaData(conEnt);
+                        if (meta.EntityPrototype is not { } proto)
+                            continue;
+
+                        if (proto.ID != entity.Id)
+                            continue;
+
+                        if (processedEntities.ContainsKey(proto.ID))
+                        {
+                            processedEntities[proto.ID] += 1;
+                        }
+                        else
+                        {
+                            processedEntities.Add(proto.ID, 1);
+                        }
+                    }
+                }
+                foreach (var (entity, needed) in recipe.Entities)
+                {
+                    if (!processedEntities.ContainsKey(entity))
+                        return false;
+
+                    if (processedEntities.TryGetValue(entity, out var count)
+                        && count < needed)
+                        return false;
+                }
+            }
+            else if (recipe.Entities.Count != 0)
+                return false;
+
+            return base.CanProduce(uid, recipe, amount, component);
         }
     }
 }

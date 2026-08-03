@@ -187,6 +187,42 @@ public sealed partial class LatheMenu : FancyWindow
             sb.AppendLine(tooltipText);
         }
 
+        foreach (var (id, amount) in prototype.Entities)
+        {
+            if (!_prototypeManager.TryIndex(id, out var proto))
+                continue;
+
+            var adjustedAmount = SharedLatheSystem.AdjustMaterial(amount, 1, 1);
+
+            var availableAmount = _materialStorage.GetMaterialAmount(Entity, id);
+
+            var name = Loc.GetString(proto.Name);
+
+            string tooltipText;
+
+            tooltipText = Loc.GetString("lathe-menu-tooltip-display", ("material", name), ("amount", adjustedAmount));
+
+            sb.AppendLine(tooltipText);
+        }
+
+        foreach (var (id, amount) in prototype.Reagents)
+        {
+            if (!_prototypeManager.TryIndex(id, out var proto))
+                continue;
+
+            var adjustedAmount = SharedLatheSystem.AdjustMaterial(amount, 1, 1);
+
+            var availableAmount = _materialStorage.GetMaterialAmount(Entity, id);
+
+            var name = Loc.GetString(proto.LocalizedName);
+
+            string tooltipText;
+
+            tooltipText = Loc.GetString("lathe-menu-tooltip-display", ("material", name), ("amount", adjustedAmount));
+
+            sb.AppendLine(tooltipText);
+        }
+
         var desc = _lathe.GetRecipeDescription(prototype);
         if (!string.IsNullOrWhiteSpace(desc))
             sb.AppendLine(Loc.GetString("lathe-menu-description-display", ("description", desc)));

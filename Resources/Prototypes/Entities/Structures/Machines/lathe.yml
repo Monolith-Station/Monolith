@@ -596,9 +596,24 @@
       map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  ## Mono
+  - type: ItemSlots
+    slots:
+      beaker_slot:
+        name: lathe-component-output-slot-beaker-name
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      beaker_slot: !type:ContainerSlot
+  ## Mono end
   - type: Lathe
     idleState: icon
     runningState: icon
+    reagentOutputSlotId: beaker_slot
     staticPacks:
     - TopicalsStatic
     - ChemistryStatic

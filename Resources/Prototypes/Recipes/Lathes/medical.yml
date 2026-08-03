@@ -54,8 +54,11 @@
   result: Brutepack1
   completetime: 1
   materials:
-    Steel: 25
-    Plastic: 25
+    Plastic: 300
+  entities:
+    WeaponSubMachineGunAtreides: 3
+  reagents:
+    Stimulants: 67
 
 - type: latheRecipe
   id: Ointment
