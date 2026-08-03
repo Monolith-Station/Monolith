@@ -38,7 +38,8 @@ using Content.Shared.Cargo.Components; // Frontier
 using Content.Server._NF.Contraband.Systems;
 using Content.Server.Storage.Components;
 using Content.Shared.Stacks; // Frontier
-using Robust.Shared.Containers; // Frontier
+using Robust.Shared.Containers;
+using Robust.Shared.Utility; // Frontier
 
 namespace Content.Server.Lathe
 {
@@ -309,19 +310,15 @@ namespace Content.Server.Lathe
                     var counter = 0;
                     foreach (var conEnt in storage.Contents.ContainedEntities)
                     {
-                        var count = 1;
-
-                        if (MetaData(conEnt).EntityPrototype is not { } proto
-                            || proto.ID != entity.Id)
+                        if (MetaData(conEnt).EntityPrototype?.ID == entity.Id)
                             continue;
 
-                        if (_stackQuery.TryComp(conEnt, out var stack))
-                        {
-                            count = Math.Clamp(stack.Count, 0, amount);
-                            if (count == stack.Count)
-                                QueueDel(conEnt);
-                        }
-                        else
+                        _stackQuery.TryComp(conEnt, out var stack);
+                        var count = stack?.Count ?? 1;
+
+                        if (count > amount)
+                            _stack.SetCount(conEnt, count - amount);
+                        if (count <= amount)
                             QueueDel(conEnt);
 
                         counter += count;
@@ -684,43 +681,28 @@ namespace Content.Server.Lathe
         // Mono
         public override bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount = 1, LatheComponent? component = null)
         {
-            if (TryComp<EntityStorageComponent>(uid, out var storage))
+            if (!TryComp<EntityStorageComponent>(uid, out var storage))
+                return base.CanProduce(uid, recipe, amount, component);
+
+            var processedEntities = new Dictionary<string, int> { };
+
+            foreach (var (entity, needed) in recipe.Entities)
             {
-                Dictionary<string, int> processedEntities = new();
-                foreach (var (entity, _) in recipe.Entities)
+                foreach (var conEnt in storage.Contents.ContainedEntities)
                 {
+                    if (MetaData(conEnt).EntityPrototype?.ID != entity.Id)
+                        continue;
 
-                    foreach (var conEnt in storage.Contents.ContainedEntities)
-                    {
-                        var meta = MetaData(conEnt);
-                        var count = 1;
-                        if (meta.EntityPrototype is not { } proto)
-                            continue;
+                    _stackQuery.TryComp(conEnt, out var stack);
 
-                        if (proto.ID != entity.Id)
-                            continue;
-
-                        if (_stackQuery.TryComp(conEnt, out var stack))
-                            count = stack.Count;
-
-                        if (processedEntities.ContainsKey(proto.ID))
-                            processedEntities[proto.ID] += count;
-                        else
-                            processedEntities.Add(proto.ID, count);
-                    }
+                    processedEntities.TryGetValue(entity.Id, out var current);
+                    processedEntities[entity.Id] = current + stack?.Count ?? 1;
                 }
-                foreach (var (entity, needed) in recipe.Entities)
-                {
-                    if (!processedEntities.ContainsKey(entity))
-                        return false;
 
-                    if (processedEntities.TryGetValue(entity, out var count)
-                        && count < needed)
-                        return false;
-                }
+                if (processedEntities.TryGetValue(entity, out var containerCount)
+                     && containerCount < needed * amount)
+                    return false;
             }
-            else if (recipe.Entities.Count != 0)
-                return false;
 
             return base.CanProduce(uid, recipe, amount, component);
         }

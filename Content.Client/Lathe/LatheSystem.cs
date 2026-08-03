@@ -53,43 +53,28 @@ public sealed partial class LatheSystem : SharedLatheSystem
     // Mono
     public override bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount = 1, LatheComponent? component = null)
     {
-        if (TryComp<EntityStorageComponent>(uid, out var storage))
+        if (!TryComp<EntityStorageComponent>(uid, out var storage))
+            return base.CanProduce(uid, recipe, amount, component);
+
+        var processedEntities = new Dictionary<string, int> { };
+
+        foreach (var (entity, needed) in recipe.Entities)
         {
-            Dictionary<string, int> processedEntities = new();
-            foreach (var (entity, _) in recipe.Entities)
+            foreach (var conEnt in storage.Contents.ContainedEntities)
             {
+                if (MetaData(conEnt).EntityPrototype?.ID != entity.Id)
+                    continue;
 
-                foreach (var conEnt in storage.Contents.ContainedEntities)
-                {
-                    var meta = MetaData(conEnt);
-                    var count = 1;
-                    if (meta.EntityPrototype is not { } proto)
-                        continue;
+                _stackQuery.TryComp(conEnt, out var stack);
 
-                    if (proto.ID != entity.Id)
-                        continue;
-
-                    if (_stackQuery.TryComp(conEnt, out var stack))
-                        count = stack.Count;
-
-                    if (processedEntities.ContainsKey(proto.ID))
-                        processedEntities[proto.ID] += count;
-                    else
-                        processedEntities.Add(proto.ID, count);
-                }
+                processedEntities.TryGetValue(entity.Id, out var current);
+                processedEntities[entity.Id] = current + stack?.Count ?? 1;
             }
-            foreach (var (entity, needed) in recipe.Entities)
-            {
-                if (!processedEntities.ContainsKey(entity))
-                    return false;
 
-                if (processedEntities.TryGetValue(entity, out var count)
-                    && count < needed * amount)
-                    return false;
-            }
+            if (processedEntities.TryGetValue(entity, out var containerCount)
+                && containerCount < needed * amount)
+                return false;
         }
-        else if (recipe.Entities.Count != 0)
-            return false;
 
         return base.CanProduce(uid, recipe, amount, component);
     }
