@@ -19,8 +19,8 @@
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/SMGs/vector.rsi
   - type: Gun
-    fireRate: 20 # jfc
-    damageModifier: 0.7
+    fireRate: 7.5
+    damageModifier: 0.8
     selectedMode: Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
@@ -29,7 +29,7 @@
     - SemiAuto
     - FullAuto
     burstCooldown: 0.5
-    burstFireRate: 25
+    burstFireRate: 14
     shotsPerBurst: 3
   - type: ItemSlots
     slots:
@@ -145,8 +145,7 @@
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/SMGs/vector.rsi
   - type: Gun
-    fireRate: 20 # jfc
-    damageModifier: 0.7
+    fireRate: 6
     selectedMode: Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
@@ -155,7 +154,7 @@
     - SemiAuto
     - FullAuto
     burstCooldown: 0.5
-    burstFireRate: 25
+    burstFireRate: 14
     shotsPerBurst: 3
   - type: ItemSlots
     slots:
@@ -271,8 +270,7 @@
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/SMGs/knallstock.rsi
   - type: Gun
-    fireRate: 7.5
-    damageModifier: 1.4
+    fireRate: 6
     minAngle: 19
     maxAngle: 21
     angleIncrease: 16
@@ -332,7 +330,7 @@
     maxAngle: 55
     angleIncrease: 18
     angleDecay: 4
-    fireRate: 10
+    fireRate: 7
   - type: StaticPrice
     price: 500
 
@@ -356,7 +354,7 @@
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/SMGs/drozd.rsi
   - type: Gun
-    fireRate: 11.3
+    fireRate: 6
     selectedMode: FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
@@ -405,7 +403,7 @@
     maxAngle: 15
     angleIncrease: 2
     angleDecay: 2
-    fireRate: 15.8
+    fireRate: 7.5
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/atreides_fire.ogg
     availableModes:
@@ -465,7 +463,7 @@
     maxAngle: 32
     angleIncrease: 2
     angleDecay: 2
-    fireRate: 10
+    fireRate: 6.5
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/atreides_fire.ogg
     availableModes:

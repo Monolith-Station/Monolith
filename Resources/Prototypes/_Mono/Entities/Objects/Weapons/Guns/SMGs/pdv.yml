@@ -23,7 +23,7 @@
     maxAngle: 40
     angleIncrease: 5
     angleDecay: 20
-    fireRate: 12
+    fireRate: 8
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/mla_fire.ogg
   - type: ChamberMagazineAmmoProvider
@@ -136,7 +136,7 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 15
+    fireRate: 8.5
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/atreides_fire.ogg
   - type: MagazineVisuals
@@ -191,7 +191,6 @@
     maxAngle: 32
     shotsPerBurst: 5
     damageModifier: 0.85
-    fireRate: 12
     availableModes:
     - Burst
     - FullAuto

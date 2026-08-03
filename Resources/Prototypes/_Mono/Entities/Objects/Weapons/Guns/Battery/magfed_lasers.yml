@@ -15,7 +15,7 @@
   - type: Gun
     minAngle: 23
     maxAngle: 20
-    fireRate: 15
+    fireRate: 10
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -78,7 +78,7 @@
   - type: Gun
     minAngle: 23
     maxAngle: 64
-    fireRate: 1.5
+    fireRate: 0.7
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

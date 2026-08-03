@@ -514,6 +514,9 @@
   - type: Sprite
     layers:
     - state: supply_lathe
+  - type: StaticPrice
+    price: 250
+    vendPrice: 5000
 
 - type: entity
   parent: BaseNFFlatpack

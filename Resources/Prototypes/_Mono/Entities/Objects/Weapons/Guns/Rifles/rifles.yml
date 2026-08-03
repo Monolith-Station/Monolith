@@ -78,7 +78,7 @@
     angleIncrease: 76
     angleDecay: 7
     cameraRecoilScalar: 0
-    fireRate: 10
+    fireRate: 3
     selectedMode: Burst
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
@@ -142,7 +142,7 @@
     angleIncrease: 12
     angleDecay: 20
     cameraRecoilScalar: 0
-    fireRate: 12
+    fireRate: 8
     availableModes:
     - FullAuto
     soundGunshot:
@@ -227,7 +227,7 @@
     maxAngle: 58
     angleIncrease: 1.5
     angleDecay: 20
-    fireRate: 12.5
+    fireRate: 8.4
     selectedMode: FullAuto
     damageModifier: 0.95 # Brings it down to 152.95 DPS from 161 DPS (assuming perfect accuracy with FMJ on an unarmored target); Lecter has less DPS, but Lecter also has really fucking good accuracy and is free roundstart.
     availableModes:

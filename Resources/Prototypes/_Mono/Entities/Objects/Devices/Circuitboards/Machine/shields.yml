@@ -8,10 +8,6 @@
       state: security
     - type: MachineBoard
       prototype: ShieldGeneratorSmall
-      componentRequirements:
-        AmeFuelContainer:
-          amount: 3
-          defaultPrototype: AmeJar
       stackRequirements:
         Glass: 10
         Steel: 10
@@ -41,10 +37,6 @@
     state: security
   - type: MachineBoard
     prototype: ShieldGeneratorMedium
-    componentRequirements:
-      AmeFuelContainer:
-        amount: 5
-        defaultPrototype: AmeJar
     stackRequirements:
       Glass: 10
       Steel: 10
@@ -77,10 +69,6 @@
     state: security
   - type: MachineBoard
     prototype: ShieldGenerator
-    componentRequirements:
-      AmeFuelContainer:
-        amount: 8
-        defaultPrototype: AmeJar
     stackRequirements:
       Glass: 30
       Steel: 30

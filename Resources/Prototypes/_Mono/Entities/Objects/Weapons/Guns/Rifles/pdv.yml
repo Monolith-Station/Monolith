@@ -19,7 +19,7 @@
     minAngle: -31
     maxAngle: -46
   - type: Gun
-    fireRate: 11.67
+    fireRate: 7
     projectileSpeed: 120
     angleDecay: 6
     angleIncrease: 3
@@ -83,12 +83,11 @@
   - type: Gun
     availableModes:
     - Burst
-    - FullAuto
-    selectedMode: FullAuto
+    selectedMode: Burst
     burstFireRate: 20 # Mono
     burstCooldown: 0.6 # Mono
     projectileSpeed: 45 # Mono
-    fireRate: 15
+    fireRate: 7.5 # Mono, does nothing because its burst only but it makes it clear it can fire at this rate.
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/wspr_fire.ogg # Mono change - Changed audio path
   - type: ItemSlots
@@ -196,7 +195,7 @@
     maxAngle: 64
     angleIncrease: 2
     angleDecay: 25
-    fireRate: 11.25
+    fireRate: 7
     selectedMode: FullAuto
     damageModifier: 0.95
     availableModes:
@@ -326,7 +325,7 @@
     maxAngle: 64
     angleIncrease: 5
     angleDecay: 25
-    fireRate: 12
+    fireRate: 6
     burstFireRate: 12
     burstCooldown: 0.5
     shotsPerBurst: 2

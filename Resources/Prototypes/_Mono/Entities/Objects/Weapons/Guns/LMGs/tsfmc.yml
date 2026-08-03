@@ -20,7 +20,7 @@
     maxAngle: 46
     angleIncrease: 5
     angleDecay: 34
-    fireRate: 11.2
+    fireRate: 6 # 360 rpm
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -170,7 +170,7 @@
     maxAngle: 12
     angleIncrease: 1
     angleDecay: 12
-    fireRate: 11.67
+    fireRate: 8 # same as L6, but more accurate and heavier
     selectedMode: FullAuto
     availableModes:
     - SemiAuto

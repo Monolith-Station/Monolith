@@ -23368,3 +23368,81 @@ Entries:
   id: 2576
   time: '2026-08-02T09:47:37.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4418
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a compact precision assembler. It's only half the speed of the
+        real one.
+    - type: Add
+      message: Basic industry comps can be bought at cargo.
+    - type: Tweak
+      message: Added basic industry machines to Helios and Halcyon.
+    - type: Tweak
+      message: Added industry planner to autolathe and cargo.
+    - type: Fix
+      message: Fixed a duping issue with composite armor plates.
+    - type: Fix
+      message: Fixed missing steps in the basic components alt recipe w/ optics.
+  id: 2577
+  time: '2026-08-02T10:23:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4425
+- author: AthrunZala33092
+  changes:
+    - type: Tweak
+      message: Updates the TSFMC guidebook with additional lore
+  id: 2578
+  time: '2026-08-02T17:45:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4422
+- author: kasature90
+  changes:
+    - type: Add
+      message: Ported ingame PDA date from DV.
+    - type: Add
+      message: Ported breathing SFX for internals from Hullrot.
+  id: 2579
+  time: '2026-08-02T18:43:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4427
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Portstrike timing has been changed - Now its random from 3.5h to 4.5h
+  id: 2580
+  time: '2026-08-02T20:48:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4433
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Nerfed tiny-chimera-things.
+    - type: Tweak
+      message: Chimeras are unrevivable now if they go down.
+    - type: Fix
+      message: Fixed chimeras not having a crit state.
+  id: 2581
+  time: '2026-08-02T20:52:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4431
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added ready-to-use 1x1 machine frames to RCD electrical category.
+    - type: Tweak
+      message: >-
+        Reduced some of the more extreme economy recipes (such as crystallizer,
+        cloning gear, data/bitcoin farms, etc) to use simpler and/or less
+        components.
+    - type: Fix
+      message: Fixed infinite money from vendor flatpacks with their components.
+    - type: Fix
+      message: Fixed economy matter bins having the same name as real ones.
+  id: 2582
+  time: '2026-08-02T21:31:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4434
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        You can now shoot over other people's shoulders. Just be careful not to
+        magdump them.
+  id: 2583
+  time: '2026-08-02T22:10:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4435

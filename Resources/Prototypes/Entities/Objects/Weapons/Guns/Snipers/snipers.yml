@@ -26,7 +26,6 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
     projectileSpeed: 65 # Mono
-    damageModifier: 2 # Mono
   - type: BallisticAmmoProvider
     capacity: 10
     proto: Cartridge762x39mmFMJ
@@ -79,7 +78,6 @@
     availableModes:
     - SemiAuto
     projectileSpeed: 25 # Mono
-    damageModifier: 3 # Mono
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 8 #it's a musket
@@ -112,7 +110,6 @@
     minAngle: 0
     maxAngle: 30 #miss him entirely because the barrel is smoothbore
     projectileSpeed: 25 # Mono
-    damageModifier: 1.2 # Mono
   - type: Item
     size: Small
     storedRotation: 90

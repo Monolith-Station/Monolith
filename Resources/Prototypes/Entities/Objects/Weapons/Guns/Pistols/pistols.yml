@@ -26,7 +26,6 @@
     - suitStorage
     - Belt
   - type: Gun
-    damageModifier: 2 # Mono
     fireRate: 6
     selectedMode: SemiAuto
     availableModes:
@@ -276,7 +275,6 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
-    damageModifier: 3 # Mono
     fireRate: 4
     projectileSpeed: 30 # Mono
     soundGunshot:
@@ -328,7 +326,6 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
   - type: Gun
-    damageModifier: 2 # Mono
     fireRate: 5
     availableModes:
     - SemiAuto
