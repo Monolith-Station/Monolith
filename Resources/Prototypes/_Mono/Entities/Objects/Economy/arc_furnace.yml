@@ -81,7 +81,6 @@
     materialComposition:
       Steel: 1000
       Plasteel: 500
-  - type: MultiHandedItem
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.8
@@ -260,7 +259,6 @@
         acts: [ "Destruction" ]
   - type: Item
     size: Huge
-  - type: MultiHandedItem
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.6
@@ -442,7 +440,6 @@
         acts: [ "Destruction" ]
   - type: Item
     size: Huge
-  - type: MultiHandedItem
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.6
@@ -558,7 +555,6 @@
         acts: [ "Destruction" ]
   - type: Item
     size: Huge
-  - type: MultiHandedItem
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.5

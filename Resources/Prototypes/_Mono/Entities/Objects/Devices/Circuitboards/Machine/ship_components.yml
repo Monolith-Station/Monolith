@@ -51,10 +51,6 @@
     requirements:
       Capacitor: 4
       Manipulator: 2
-    componentRequirements:
-      AmeFuelContainer:
-        amount: 3
-        defaultPrototype: AmeJar
     stackRequirements:
       Glass: 10
       Steel: 10
@@ -161,7 +157,7 @@
     tagRequirements:
       MicroprocessorEconomy2:
         amount: 3
-        defaultPrototype: MicroprocessorEconomy1
+        defaultPrototype: MicroprocessorEconomy2
       RadioEconomy2:
         amount: 2
         defaultPrototype: RadioEconomy2
@@ -185,7 +181,7 @@
     tagRequirements:
       MicroprocessorEconomy2:
         amount: 10
-        defaultPrototype: MicroprocessorEconomy1
+        defaultPrototype: MicroprocessorEconomy2
       RadioEconomy2:
         amount: 4
         defaultPrototype: RadioEconomy2
@@ -203,10 +199,6 @@
     requirements:
       Capacitor: 8
       Manipulator: 4
-    componentRequirements:
-      AmeFuelContainer:
-        amount: 3
-        defaultPrototype: AmeJar
     stackRequirements:
       Glass: 20
       Steel: 20
@@ -238,10 +230,6 @@
     requirements:
       Capacitor: 8
       Manipulator: 4
-    componentRequirements:
-      AmeFuelContainer:
-        amount: 3
-        defaultPrototype: AmeJar
     stackRequirements:
       Glass: 20
       Steel: 20

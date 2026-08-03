@@ -2,7 +2,7 @@
 
 - type: entity
   id: MatterBinEconomy1
-  name: matter bin
+  name: component bin
   description: Used for storing chemicals and other substances needed for industrial processes. Can be opened and closed. Don't use as a component while it has reagents inside!
   parent: BaseEconomyGood
   components:
@@ -72,7 +72,7 @@
 
 - type: entity
   id: MatterBinEconomy2
-  name: large matter bin
+  name: large component bin
   description: Used for storing chemicals and other substances needed for industrial processes. Much larger than its predecessor. Can be opened and closed. Don't use as a component while it has reagents inside!
   parent: [ MatterBinEconomy1, BaseEconomyGoodTier2 ]
   components:
@@ -129,7 +129,7 @@
 
 - type: entity
   id: MatterBinEconomy3
-  name: supermatter bin
+  name: supercomponent bin
   description: Used for storing chemicals and other substances needed for industrial processes. Much larger than its predecessor. Can be opened and closed. Don't use as a component while it has reagents inside!
   parent: [ MatterBinEconomy1, BaseEconomyGoodTier3 ]
   components:
@@ -255,7 +255,7 @@
 # capacitors
 
 - type: entity
-  name: basic capacitor
+  name: industrial basic capacitor
   description: A simple capacitor useful in small-scale power storage and simple circuits.
   parent: BaseEconomyGoodTier1
   id: CapacitorEconomy1
@@ -273,7 +273,7 @@
       rating: 1
 
 - type: entity
-  name: advanced capacitor
+  name: industrial advanced capacitor
   description: An upgraded capacitor capable of handling more voltage and storing more energy through the power of refined semiconductors.
   parent: BaseEconomyGoodTier2
   id: CapacitorEconomy2
@@ -293,7 +293,7 @@
       node: CapacitorEconomy2
 
 - type: entity
-  name: supercapacitor
+  name: industrial supercapacitor
   description: A state-of-the-art capacitor capable of storing incredible amounts of energy for its size through the use of miniaturized SMES technology.
   parent: BaseEconomyGoodTier3
   id: CapacitorEconomy3

@@ -24,8 +24,13 @@
     thresholds:
       0: Alive
       500: Critical
-      800: Dead
-    allowRevives: true
+      600: Dead
+    allowRevives: false
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       250: 0.85
@@ -95,6 +100,20 @@
         golem: ""
         clamp: ""
         lover: ""
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      70: Dead
+    allowRevives: false
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      30: 0.75
+      40: 0.5
+      50: 0.25
   - type: MeleeWeapon
     attackRate: 1.5
     soundHit:
@@ -103,6 +122,5 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Blunt: 5
         Slash: 5
         Structural: 50
