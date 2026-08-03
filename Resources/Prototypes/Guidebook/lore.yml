@@ -1,23 +1,23 @@
 - type: guideEntry
   id: BasicLore
   name: Лор # Forge-change
-  text: "/ServerInfo/_Forge/Guidebook/Lore/BasicLore.xml" # Forge-change
+  text: "/ServerInfo/_Forge/Guidebook/Lore/BasicLoreForge.xml" # Forge-change-start
   children:
-  - PhaethonDynasty
-  - TransSolarFederation
-  - UnitedSovietSocialistPlanets
+  - TransSolarFederationForge
+  - TheSacredEmpireofVermillionForge
+  - RenegadesForge #Forge-change-end
 
 - type: guideEntry
-  id: PhaethonDynasty
-  name: Династия Фаэтон # Forge-change
-  text: "/ServerInfo/_Forge/Guidebook/Lore/PhaethonDynasty.xml" # Forge-change
-
-- type: guideEntry
-  id: TransSolarFederation
+  id: TransSolarFederationForge
   name: Транс-Солнечная Федерация # Forge-change
-  text: "/ServerInfo/_Forge/Guidebook/Lore/TransSolarFederation.xml" # Forge-change
+  text: "/ServerInfo/_Forge/Guidebook/Lore/TransSolarFederationForge.xml" # Forge-change
 
 - type: guideEntry
-  id: UnitedSovietSocialistPlanets
-  name: Союз Советских Социалистических Планет # Forge-change
-  text: "/ServerInfo/_Forge/Guidebook/Lore/UnitedSovietSocialistPlanets.xml" # Forge-change
+  id: TheSacredEmpireofVermillionForge
+  name: Священная Империя Вермиллионов # Forge-change
+  text: "/ServerInfo/_Forge/Guidebook/Lore/TheSacredEmpireofVermillionForge.xml" # Forge-change
+
+- type: guideEntry
+  id: RenegadesForge
+  name: Ренегаты Кая Волтариса # Forge-change
+  text: "/ServerInfo/_Forge/Guidebook/Lore/RenegadesForge.xml" # Forge-change
