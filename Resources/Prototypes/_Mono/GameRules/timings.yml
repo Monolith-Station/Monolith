@@ -17,13 +17,13 @@
     warLevel: true
 
 - type: entity
-  id: PortstrikeAnnounceRuleRandom1To3
+  id: PortstrikeAnnounceRuleRandom35To45
   parent: PortstrikeAnnounceRuleHour4
   components:
   - type: GameRule
     delay:
-      min: 3600 # 1 hr
-      max: 10800 # 3 hr
+      min: 12600 # 3.5hr
+      max: 16200 # 4.5hr
 
 - type: entity
   id: PortstrikeAnnounceRuleHour2
