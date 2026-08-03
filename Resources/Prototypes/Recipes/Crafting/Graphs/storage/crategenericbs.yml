@@ -1,0 +1,36 @@
+#Forge-Change-Start // Рецепт крафта блюспейс ящика.
+
+- type: constructionGraph
+  id: CrateGenericBS
+  start: start
+  graph:
+  - node: start
+    edges:
+      - to: crategenericbs
+        steps:
+        - material: Steel
+          amount: 5
+        - material: Bluespace
+          amount: 5
+          doAfter: 5
+  - node: crategenericbs
+    entity: CrateGenericBS
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      conditions:
+      - !type:StorageWelded
+        welded: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: MaterialBluespace1
+        amount: 5
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity
+
+#Forge-change-end

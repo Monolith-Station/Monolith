@@ -671,3 +671,31 @@
   - type: StealthOnMove
     passiveVisibilityRate: -0.10
     movementVisibilityRate: 0.10
+
+# Forge-Change start
+- type: entity
+  parent: CrateBaseWeldable
+  id: CrateGenericBS #Forge-Change
+  name: crate BS
+  components:
+  - type: Icon
+    sprite: Forge/Structures/Storage/Crates/bluespace_crate.rsi
+  - type: Sprite
+    sprite: Forge/Structures/Storage/Crates/bluespace_crate.rsi
+  - type: Reflect
+    reflects:
+    - Energy
+    reflectProb: 0.2
+    spread: 90
+  - type: RadiationBlockingContainer
+    resistance: 2.5
+  - type: EntityStorage
+    capacity: 100
+  - type: Construction
+    graph: CrateGenericBS
+    node: crategenericbs
+    containers:
+    - entity_storage
+  - type: StaticPrice
+    price: 7530
+# Forge-Change end
