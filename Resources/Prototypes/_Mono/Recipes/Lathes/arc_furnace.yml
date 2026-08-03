@@ -1,7 +1,7 @@
 - type: latheRecipe
   id: ArmorPlate2
   result: ArmorPlateEconomy2Finished
-  completeTime: 15
+  completetime: 15
   entities:
     ArmorPlateEconomy3Fragment: 2
   reagents:
@@ -10,7 +10,7 @@
 - type: latheRecipe
   id: ArmorPlate3
   result: ArmorPlateEconomy3
-  completeTime: 15
+  completetime: 15
   entities:
     ArmorPlateEconomy2Finished: 2
   reagents:
@@ -19,7 +19,7 @@
 - type: latheRecipe
   id: ArmorPlate4Start
   result: ArmorPlateEconomy4Start
-  completeTime: 20
+  completetime: 20
   entities:
     ArmorPlateEconomy3: 1
   reagents:
@@ -30,7 +30,7 @@
 - type: latheRecipe
   id: SiliconBoule
   result: SiliconBouleEconomy
-  completeTime: 30
+  completetime: 30
   entities:
     MaterialDiamond1: 1 # seed crystal
   reagents:
@@ -42,7 +42,7 @@
 - type: latheRecipe
   id: IriditePowderIntoCrystal
   result: IriditeCrystal
-  completeTime: 30
+  completetime: 30
   entities:
     IriditePowder: 3
   reagents:
@@ -52,7 +52,7 @@
 - type: latheRecipe
   id: IriditeCrystalIntoPlate
   result: SheetIridite1
-  completeTime: 60
+  completetime: 60
   resultCount: 2
   entities:
     IriditeCrystal: 1
@@ -67,7 +67,7 @@
 - type: latheRecipe
   id: MaterialIndustrySterile
   result: MaterialIndustrySterile
-  completeTime: 5
+  completetime: 5
   resultCount: 2
   entities:
     ComponentBrickEconomy1: 1 # replace this with something fitting one day

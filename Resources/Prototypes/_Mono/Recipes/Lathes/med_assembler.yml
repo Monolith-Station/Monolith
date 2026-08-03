@@ -1,7 +1,7 @@
 - type: latheRecipe
   id: EmergencyMedipen
   result: EmergencyMedipen
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -11,7 +11,7 @@
 - type: latheRecipe
   id: AntiPoisonMedipen
   result: AntiPoisonMedipen
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -21,7 +21,7 @@
 - type: latheRecipe
   id: BruteAutoInjector
   result: BruteAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -31,7 +31,7 @@
 - type: latheRecipe
   id: BurnAutoInjector
   result: BurnAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -41,7 +41,7 @@
 - type: latheRecipe
   id: RadAutoInjector
   result: RadAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -51,7 +51,7 @@
 - type: latheRecipe
   id: PunctAutoInjector
   result: PunctAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -61,7 +61,7 @@
 - type: latheRecipe
   id: PyraAutoInjector
   result: PyraAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -71,7 +71,7 @@
 - type: latheRecipe
   id: AirlossAutoInjector
   result: AirlossAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -81,7 +81,7 @@
 - type: latheRecipe
   id: HemostasisAutoInjector
   result: HemostasisAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -91,7 +91,7 @@
 - type: latheRecipe
   id: StimulantAutoInjector
   result: StimulantAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -101,7 +101,7 @@
 - type: latheRecipe
   id: CrisisAutoInjector
   result: CrisisAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -111,7 +111,7 @@
 - type: latheRecipe
   id: LacerAutoInjector
   result: LacerAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -121,7 +121,7 @@
 - type: latheRecipe
   id: BruizAutoInjector
   result: BruizAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -131,7 +131,7 @@
 - type: latheRecipe
   id: PolyAutoInjector
   result: PolyAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -140,7 +140,7 @@
 - type: latheRecipe
   id: EthylredoxrazineAutoInjector
   result: EthylredoxrazineAutoInjector
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -150,7 +150,7 @@
 - type: latheRecipe
   id: CombatMedipen
   result: CombatMedipen
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -160,7 +160,7 @@
 - type: latheRecipe
   id: Stimpack
   result: Stimpack
-  completeTime: 5
+  completetime: 5
   entities:
     BlankMediPen: 1
   reagents:
@@ -169,14 +169,14 @@
 - type: latheRecipe
   id: AloeCream
   result: AloeCream
-  completeTime: 5
+  completetime: 5
   entities:
     FoodAloe: 1
 
 - type: latheRecipe
   id: MedicatedSutureAssembler
   result: MedicatedSuture
-  completeTime: 5
+  completetime: 5
   entities:
     Brutepack: 1
     MaterialCloth1: 1
@@ -187,7 +187,7 @@
 - type: latheRecipe
   id: RegenerativeMeshAssembler
   result: RegenerativeMesh
-  completeTime: 5
+  completetime: 5
   entities:
     Ointment: 1
     MaterialCloth1: 1

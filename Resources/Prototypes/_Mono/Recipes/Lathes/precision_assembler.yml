@@ -3,7 +3,7 @@
 - type: latheRecipe
   id: MatterBinEconomy2
   result: MatterBinEconomy2
-  completeTime: 15
+  completetime: 15
   entities:
     MatterBinEconomy1: 2
     ArmorPlateEconomy1: 1
@@ -13,7 +13,7 @@
 - type: latheRecipe
   id: MicroprocessorEconomy2
   result: MicroprocessorEconomy2
-  completeTime: 15
+  completetime: 15
   entities:
     MicroprocessorEconomy1: 2
     SiliconWaferEconomy: 1
@@ -23,7 +23,7 @@
 - type: latheRecipe
   id: MicroprocessorEconomy3
   result: MicroprocessorEconomy3
-  completeTime: 15
+  completetime: 15
   entities:
     MicroprocessorEconomy2: 1
     OpticsEconomy1: 1
@@ -33,7 +33,7 @@
 - type: latheRecipe
   id: SiliconWaferEconomy
   result: SiliconWaferEconomySliceSpawner8
-  completeTime: 15
+  completetime: 15
   entities:
     SiliconBouleEconomy: 1
 
@@ -42,7 +42,7 @@
 - type: latheRecipe
   id: OpticsEconomy2
   result: OpticsEconomy2
-  completeTime: 15
+  completetime: 15
   entities:
     OpticsEconomy1: 1
     CapacitorEconomy1: 2
@@ -54,7 +54,7 @@
 - type: latheRecipe
   id: RadioEconomy2
   result: RadioEconomy2
-  completeTime: 15
+  completetime: 15
   entities:
     RadioEconomy1: 1
     CapacitorEconomy1: 2
@@ -65,7 +65,7 @@
 - type: latheRecipe
   id: CapacitorEconomy2
   result: CapacitorEconomy2
-  completeTime: 15
+  completetime: 15
   entities:
     CapacitorEconomy1: 1
   reagents:
@@ -74,7 +74,7 @@
 - type: latheRecipe
   id: CapacitorEconomy3
   result: CapacitorEconomy3
-  completeTime: 15
+  completetime: 15
   entities:
     CapacitorEconomy2: 2
     ElectromagnetEconomy2: 1
@@ -84,7 +84,7 @@
 - type: latheRecipe
   id: ElectromagnetEconomy2
   result: ElectromagnetEconomy2
-  completeTime: 15
+  completetime: 15
   entities:
     ElectromagnetEconomy1: 2
   reagents:
@@ -93,7 +93,7 @@
 - type: latheRecipe
   id: ElectromagnetEconomy3
   result: ElectromagnetEconomy3
-  completeTime: 15
+  completetime: 15
   entities:
     ElectromagnetEconomy2: 2
     CapacitorEconomy2: 2
@@ -105,7 +105,7 @@
 - type: latheRecipe
   id: ComponentBrickEconomy1
   result: ComponentBrickEconomy1
-  completeTime: 15
+  completetime: 15
   entities:
     MicroprocessorEconomy1: 1
     ArmorPlateEconomy1: 1
@@ -114,7 +114,7 @@
 - type: latheRecipe
   id: ComponentBrickEconomy2
   result: ComponentBrickEconomy2
-  completeTime: 20
+  completetime: 20
   entities:
     MicroprocessorEconomy2: 1
     ArmorPlateEconomy2Finished: 1
@@ -126,7 +126,7 @@
 - type: latheRecipe
   id: MaterialIndustryElectronics
   result: MaterialIndustryElectronics
-  completeTime: 10
+  completetime: 10
   resultCount: 3
   entities:
     MicroprocessorEconomy1: 3
@@ -138,7 +138,7 @@
 - type: latheRecipe
   id: MaterialIndustryElectronicsAdvanced
   result: MaterialIndustryElectronicsAdvanced
-  completeTime: 30
+  completetime: 30
   resultCount: 2
   entities:
     MicroprocessorEconomy2: 2
@@ -149,7 +149,7 @@
 - type: latheRecipe
   id: MaterialIndustryElectronicsAdvancedAlt
   result: MaterialIndustryElectronicsAdvanced
-  completeTime: 10
+  completetime: 10
   resultCount: 2
   entities:
     MicroprocessorEconomy3: 3
@@ -159,7 +159,7 @@
 - type: latheRecipe
   id: MaterialIndustryFCS
   result: MaterialIndustryFCS
-  completeTime: 10
+  completetime: 10
   entities:
     MicroprocessorEconomy1: 2
     MicroprocessorEconomy2: 1
@@ -169,7 +169,7 @@
 - type: latheRecipe
   id: MaterialIndustryMechanical
   result: MaterialIndustryMechanical
-  completeTime: 10
+  completetime: 10
   resultCount: 2
   entities:
     ComponentBrickEconomy1: 1
@@ -180,7 +180,7 @@
 - type: latheRecipe
   id: MaterialIndustryPlates
   result: MaterialIndustryPlates
-  completeTime: 10
+  completetime: 10
   resultCount: 2
   entities:
     ArmorPlateEconomy2Finished: 2
@@ -189,7 +189,7 @@
 - type: latheRecipe
   id: MaterialIndustryPlatesAlt
   result: MaterialIndustryPlates
-  completeTime: 10
+  completetime: 10
   resultCount: 3
   entities:
     ArmorPlateEconomy3: 1
@@ -197,7 +197,7 @@
 - type: latheRecipe
   id: MaterialIndustryRecievers
   result: MaterialIndustryRecievers
-  completeTime: 10
+  completetime: 10
   resultCount: 2 # may seem very grindy to get guns - 1 comp is 5u though
   entities:
     ComponentBrickEconomy1: 1 # not enough mechanical parts to use really
@@ -205,7 +205,7 @@
 - type: latheRecipe
   id: MaterialIndustrySensors
   result: MaterialIndustrySensors
-  completeTime: 10
+  completetime: 10
   resultCount: 2
   entities:
     OpticsEconomy1: 4
@@ -215,7 +215,7 @@
 - type: latheRecipe
   id: MaterialIndustryShip
   result: MaterialIndustryShip
-  completeTime: 10
+  completetime: 10
   resultCount: 5
   entities:
     MaterialIndustrySensors: 1 # Here bro have a tung tung
