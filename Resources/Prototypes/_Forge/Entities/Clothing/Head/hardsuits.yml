@@ -214,11 +214,12 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
+    viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#c2ffc2" # #00FF00 to #c2ffc2 // сам фосфорный цвет, он так же может давать пересвет
+    lightingColor: "#0EFFFFFF" # #FFFFFF32 to #0EFFFFFF // Это главный рычаг яркости в темноте
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
   - type: ThermalVision
     flashDurationMultiplier: 2
@@ -259,11 +260,12 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
+    viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
+    phosphorColor: "#42AAFF"
     lightingColor: "#FFFFFF32"
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
   - type: ThermalVision
     flashDurationMultiplier: 2

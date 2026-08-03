@@ -146,3 +146,29 @@
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: ShowGuardIcons # ForgeChange
+
+#Forge start
+#Players using our build found the new night-vision device poorly balanced; adjusting the shader via code isn't a good idea either.
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesNightVisionGogglesForge
+  name: night vision goggles
+  description: Now you can see in the dark!
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+  - type: NightVision # Mono - Wizden NV
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 600 # Forge-Change 350 to 600 // это радиус обзора
+    viewCircleCount: 2
+    viewCircleSpacing: 280
+    phosphorColor: "#c2ffc2" # Forge-Change #00FF00 to #c2ffc2 // сам фосфорный цвет, он так же может давать пересвет
+    lightingColor: "#0EFFFFFF" # Forge-Change #FFFFFF32 to #0EFFFFFF // Это главный рычаг яркости в темноте
+    amplification: 1.2 #Forge-Change 32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
+  - type: IdentityBlocker
+    coverage: EYES
+#Forge end

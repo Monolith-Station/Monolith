@@ -56,7 +56,15 @@
       types:
         Heat: 0.35
   - type: NightVision
-    phosphorColor: "#808080"
+    relayOverlay: false
+    goggleEffect: true
+    viewCircleRadius: 1000 #Forge-changed 450 to 1000
+    viewCircleCount: 2 #Forge-changed 4 to 2 (у феленидов не 4 глаза)
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#c2ffc2" # Forge-Change #808080 to #c2ffc2 // сам фосфорный цвет, он так же может давать пересвет
+    lightingColor: "#0EFFFFFF" # Forge-Change #FFFFFF32 to #0EFFFFFF // Это главный рычаг яркости в темноте
+    amplification: 1.0 #Forge-Change 32 to 1.0 // параметр Усиление влияет на то как сильно слепят источники света
   - type: TemperatureSpeed
     thresholds:
       280: 0.9

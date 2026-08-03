@@ -176,9 +176,9 @@
   - type: NightVision # Gen 3 wide-quadtube
     relayOverlay: true
     goggleEffect: true
-    viewCircleRadius: 450
-    viewCircleCount: 4
+    viewCircleRadius: 800 #400 to 800 // это радиус обзора (максимальный радиус для ТСФ)
+    viewCircleCount: 2
     viewCircleSpacing: 280
-    action: ActionToggleNightVision
-    phosphorColor: "#00FF00"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#2E8B57"
+    lightingColor: "#0CFFFF32" # #FFFFFF32 to #0CFFFF32//
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света

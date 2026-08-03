@@ -42,7 +42,7 @@
 
 #region Company
 - type: entity
-  parent: [ClothingEyesNightVisionGoggles, ShowSecurityIcons, BaseFactionGearOtherFactionT1]
+  parent: [ClothingEyesNightVisionGogglesForge, ShowSecurityIcons, BaseFactionGearOtherFactionT1]
   id: NFClothingEyesNightVisionGoggleTL
   name: night vision TL
   suffix: TechnicLogistic
@@ -62,15 +62,16 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
+    viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
     phosphorColor: "#ba8207"
     lightingColor: "#FFFFFF32"
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 #region Other
 - type: entity
-  parent: ClothingEyesNightVisionGoggles
+  parent: ClothingEyesNightVisionGogglesForge
   id: NFClothingEyesNightVisionGoggles
   name: night vision goggles
   description: An advanced heads-up display which provides id data and vision in complete darkness.
@@ -89,15 +90,16 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
+    viewCircleRadius: 600 #350 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
     phosphorColor: "#77DD77"
     lightingColor: "#FFFFFF32"
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 
 - type: entity
-  parent: ClothingEyesNightVisionGoggles
+  parent: ClothingEyesNightVisionGogglesForge
   id: NFClothingEyesNightVisionGogglesMed
   name: night vision goggles
   description: An advanced heads-up display which provides id data and vision in complete darkness.
@@ -117,15 +119,16 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
+    viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
     phosphorColor: "#42AAFF"
     lightingColor: "#FFFFFF32"
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 
 - type: entity
-  parent: [ ClothingEyesNightVisionGoggles, ShowSecurityIcons, BaseC3SyndicateContraband ]
+  parent: [ ClothingEyesNightVisionGogglesForge, ShowSecurityIcons, BaseC3SyndicateContraband ]
   id: NFClothingEyesNightVisionGoggleSyndicate
   name: night vision goggles
   description: An advanced heads-up display which provides id data and vision in complete darkness.
@@ -143,15 +146,16 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
+    viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
     phosphorColor: "#AB4E52"
     lightingColor: "#FFFFFF32"
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 
 - type: entity
-  parent: [ ClothingEyesNightVisionGoggles, ShowSecurityIcons, BaseC3PirateContraband ]
+  parent: [ ClothingEyesNightVisionGogglesForge, ShowSecurityIcons, BaseC3PirateContraband ]
   id: NFClothingEyesNightVisionGogglePirate
   name: night vision goggles
   description: An advanced heads-up display which provides id data and vision in complete darkness.
@@ -169,15 +173,16 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
+    viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
     phosphorColor: "#ddba00"
     lightingColor: "#FFFFFF32"
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 
 - type: entity
-  parent: [ ClothingEyesNightVisionGoggles, ShowSecurityIcons, BaseC2ContrabandUnredeemable ]
+  parent: [ ClothingEyesNightVisionGogglesForge, ShowSecurityIcons, BaseC2ContrabandUnredeemable ]
   id: NFClothingEyesNightVisionGoggleDSBF
   name: night vision goggles
   description: Now you can see in the dark!
@@ -195,15 +200,16 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
-    viewCircleCount: 2
+    viewCircleRadius: 800 #400 to 800 // это радиус обзора (максимальный радиус для ТСФ)
+    viewCircleCount: 4
     viewCircleSpacing: 280
     phosphorColor: "#2E8B57"
-    lightingColor: "#FFFFFF32"
+    lightingColor: "#0CFFFF32" # #FFFFFF32 to #0CFFFF32//
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 
 - type: entity
-  parent: ClothingEyesNightVisionGoggles
+  parent: ClothingEyesNightVisionGogglesForge
   id: NFClothingEyesNightVisionGoggleChameleon
   name: night vision goggles
   description: Now you can see in the dark!
@@ -236,7 +242,7 @@
 
 
 - type: entity
-  parent: [ ClothingEyesNightVisionGoggles, ShowSecurityIcons, BaseC3SyndicateContraband ]
+  parent: [ ClothingEyesNightVisionGogglesForge, ShowSecurityIcons, BaseC3SyndicateContraband ]
   id: NFClothingEyesNightVisionGoggleChameleonNuke
   name: night vision goggles
   description: Now you can see in the dark!
@@ -269,7 +275,7 @@
 
 
 - type: entity
-  parent: [ ClothingEyesNightVisionGoggles, ShowSecurityIcons, ShowMedicalIcons, BaseC3Contraband ]
+  parent: [ ClothingEyesNightVisionGogglesForge, ShowSecurityIcons, ShowMedicalIcons, BaseC3Contraband ]
   id: ForgeClothingEyesNightVisionGoggleContractor
   name: прибор ночного видения DCN™
   description: Усовершенствованный сенсорный дисплей, который выдает идентификационные данные и обеспечивает видимость в полной темноте.
@@ -291,15 +297,16 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
+    viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
     phosphorColor: "#aa9c00"
     lightingColor: "#FFFFFF32"
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 
 - type: entity
-  parent: [ClothingEyesNightVisionGoggles, ShowSecurityIcons, BaseC2ContrabandUnredeemable]
+  parent: [ClothingEyesNightVisionGogglesForge, ShowSecurityIcons, BaseC2ContrabandUnredeemable]
   id: ClothingEyesNightThermalVisionNfsd
   name: night-thermal vision goggles
   description: Now you can see in the dark everyone!
@@ -317,11 +324,12 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
+    viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
     phosphorColor: "#b2cb50"
     lightingColor: "#FFFFFF32"
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
   - type: ThermalVision
     flashDurationMultiplier: 2

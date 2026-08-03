@@ -71,11 +71,12 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
+    viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 4
     viewCircleSpacing: 260
     phosphorColor: "#41D7D9"
     lightingColor: "#FFFFFF32"
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
   - type: ThermalVision
     flashDurationMultiplier: 2
     pulseTime: 3

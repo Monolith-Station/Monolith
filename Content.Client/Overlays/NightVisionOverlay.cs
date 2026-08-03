@@ -129,12 +129,14 @@ public sealed partial class NightVisionOverlay : Overlay
                 // Adjusting these weights is somewhat tricky.
                 // The offset controls the amount of spacing (in px) of the sample - going further out will result in more blur
                 // but also artifacting as you're losing information.
-                _nightVisionShader.SetParameter("BLUR_OFFSET", [0.0f, 1.3846153846f, 3.2307692308f]);
+                // Forge-Change убавил значения шага смещения пикселей, изначальные [0.0f, 1.3846153846f, 3.2307692308f]
+                _nightVisionShader.SetParameter("BLUR_OFFSET", [0.0f, 0.5f, 1.0f]);
 
                 // Adjusting the weights towards the outside will increase the blurring effect, but will also cause artifacts.
                 // weight[0] + 2*weight[1] + 2*weight[2] must equal one.
                 // Set weight[0] to 1 and others to zero to remove the blur entirely.
-                _nightVisionShader.SetParameter("BLUR_WEIGHT", [0.2270270270f, 0.3162162162f, 0.0702702703f]);
+                // Forge-Change тут был смещён баланс в сторону центрального пикселя от значений [0.2270270270f, 0.3162162162f, 0.0702702703f]
+                _nightVisionShader.SetParameter("BLUR_WEIGHT", [0.6f, 0.15f, 0.05f]);
 
                 handle.UseShader(_nightVisionShader);
                 handle.DrawRect(args.WorldBounds, Color.White);

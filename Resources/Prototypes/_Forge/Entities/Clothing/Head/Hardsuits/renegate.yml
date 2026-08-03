@@ -16,11 +16,12 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
-    viewCircleCount: 2
+    viewCircleRadius: 750 #400 to 750 // это радиус обзора (максимальный радиус для ТСФ(800))
+    viewCircleCount: 4
     viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#aa9c00" #Сделал как у ДСН
+    lightingColor: "#FFFFFF32" #Сделал как у ДСН
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
   - type: Armor
     modifiers:
@@ -54,11 +55,12 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
-    viewCircleCount: 2
+    viewCircleRadius: 750 #400 to 750 // это радиус обзора (максимальный радиус для ТСФ(800))
+    viewCircleCount: 4
     viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#aa9c00" #Сделал как у ДСН
+    lightingColor: "#FFFFFF32" #Сделал как у ДСН
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
   - type: Armor
     modifiers:
@@ -92,11 +94,12 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
-    viewCircleCount: 2
+    viewCircleRadius: 750 #400 to 750 // это радиус обзора (максимальный радиус для ТСФ(800))
+    viewCircleCount: 4
     viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#aa9c00" #Сделал как у ДСН
+    lightingColor: "#FFFFFF32" #Сделал как у ДСН
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
   - type: ThermalVision
     flashDurationMultiplier: 2
@@ -135,11 +138,12 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
-    viewCircleCount: 2
+    viewCircleRadius: 750 #400 to 750 // это радиус обзора (максимальный радиус для ТСФ(800))
+    viewCircleCount: 4
     viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#aa9c00" #Сделал как у ДСН
+    lightingColor: "#FFFFFF32" #Сделал как у ДСН
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
   - type: ThermalVision
     flashDurationMultiplier: 2
@@ -178,11 +182,12 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
-    viewCircleCount: 2
+    viewCircleRadius: 750 #400 to 750 // это радиус обзора (максимальный радиус для ТСФ(800))
+    viewCircleCount: 4
     viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#aa9c00" #Сделал как у ДСН
+    lightingColor: "#FFFFFF32" #Сделал как у ДСН
+    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
   - type: ThermalVision
     flashDurationMultiplier: 2
