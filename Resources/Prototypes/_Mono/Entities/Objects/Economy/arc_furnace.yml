@@ -2,13 +2,14 @@
 
 - type: entity
   name: basic armor plate
-  description: A simple, refined "armor" alloy plate useful for things that need structural stability.
+  description: A simple, refined "armor" alloy plate useful for things that need structural stability. Can be layered to start creating a heavy armor plate.
   parent: ArmorPlateEconomy1Broken
   id: ArmorPlateEconomy1
   components:
   - type: Tag
     tags:
     - EconomyGood
+    - ArmorPlateEconomy1
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "armor1"
@@ -30,6 +31,27 @@
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 1000
+  - type: Construction
+    graph: ArmorPlateEconomy1Finish
+    node: unfinished
+
+- type: entity
+  name: heavy armor plate (unfinished)
+  description: A work-in-progress heap of metal, in the process of being refined into a strong protective plate. Needs screwing to start processing.
+  categories: [ HideSpawnMenu ]
+  id: ArmorPlateEconomy2UnfinishedSpawner
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "armor2_unfinished"
+  - type: SpawnOnDespawn
+    count: 1
+    prototype: ArmorPlateEconomy2Start
+  - type: Construction
+    graph: ArmorPlateEconomy1Finish
+    node: finished
 
 - type: entity
   name: broken basic armor plate
@@ -55,19 +77,6 @@
         acts: [ "Destruction" ]
   - type: Item
     size: Huge
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.15,-0.15,0.15,0.15"
-        density: 40
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-        restitution: 0.3  # fite me
-        friction: 0.2
   - type: PhysicalComposition
     materialComposition:
       Steel: 1000
@@ -78,17 +87,98 @@
     sprintModifier: 0.8
   - type: HeldSpeedModifier
 
+# silicon
+
+- type: entity
+  name: silicon wafer
+  description: A clean slice of pure monocrystalline silicon. Essential for advanced electronics!
+  parent: BaseEconomyGoodTier1
+  id: SiliconWaferEconomy
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/silicon.rsi
+    state: "wafer"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SiliconWaferScrapEconomy:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
+  - type: PhysicalComposition
+    chemicalComposition:
+      Silicon: 20
+
+- type: entity
+  name: silicon wafer (x8)
+  description: A clean slice of pure monocrystalline silicon. Essential for advanced electronics!
+  categories: [ HideSpawnMenu ]
+  id: SiliconWaferEconomySliceSpawner8
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/silicon.rsi
+    state: "cuticon"
+  - type: SpawnOnDespawn
+    count: 7
+    prototype: SiliconWaferEconomy
+
+- type: entity
+  name: silicon wafer scrap
+  description: A broken, contaminated mess of silicon that used to be useful for computers. What a waste.
+  parent: SiliconWaferEconomy
+  id: SiliconWaferScrapEconomy
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/silicon.rsi
+    state: "waferscrap"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 25
+
 # T2
 
 - type: entity
   name: heavy armor plate
   description: A heavier, layered alloy armor plate. Heavy, but strong. Useful for things that need significant structural stability, or more commonly, the ability to take a hit.
   parent: ArmorPlateEconomy2Broken
-  id: ArmorPlateEconomy2
+  id: ArmorPlateEconomy2Finished
   components:
   - type: Tag
     tags:
     - EconomyGood
+    - ArmorPlateEconomy2
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "armor2"
@@ -110,10 +200,45 @@
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 3000
+  - type: Construction
+    graph: ArmorPlateEconomy2Finish
+    node: finished
+
+- type: entity
+  name: heavy armor plate (unfinished)
+  description: A work-in-progress heap of metal, in the process of being refined into a strong protective plate. Needs screwing to start processing.
+  parent: ArmorPlateEconomy2Broken
+  id: ArmorPlateEconomy2Start
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "armor2_unfinished"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ArmorPlateEconomy2Broken:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: ArmorPlateEconomy2Finish
+    node: unfinished
 
 - type: entity
   name: broken heavy armor plate
-  description: Wreckage from a heavy alloy armor plate. A little concerning.
+  description: Wreckage from a heavy alloy armor plate.
   parent: BaseEconomyGoodTier2
   id: ArmorPlateEconomy2Broken
   components:
@@ -135,19 +260,6 @@
         acts: [ "Destruction" ]
   - type: Item
     size: Huge
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
-        density: 40
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-        restitution: 0.3  # fite me
-        friction: 0.4
   - type: MultiHandedItem
   - type: ClothingSpeedModifier
     walkModifier: 0.8
@@ -197,6 +309,76 @@
       Carbon: 15
       Silicon: 15
 
+# silicon
+
+- type: entity
+  name: silicon boule
+  description: A hefty but fragile chunk of refined silicon, ready for slicing into processor-grade wafers. Don't touch it without gloves!
+  parent: BaseEconomyGoodTier2
+  id: SiliconBouleEconomy
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/silicon.rsi
+    state: "boule"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SiliconWaferScrapEconomy:
+            min: 3
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: SiliconWaferEconomy
+      amount: 4
+  - type: PhysicalComposition
+    chemicalComposition:
+      Silicon: 100
+
+- type: entity
+  name: silicon boule scrap
+  description: A broken, contaminated mess of silicon that used to be useful for computers. What a waste.
+  parent: SiliconBouleEconomy
+  id: SiliconBouleScrapEconomy
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/silicon.rsi
+    state: "boulescrap"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 50
+
 # T3
 
 - type: entity
@@ -208,6 +390,7 @@
   - type: Tag
     tags:
     - EconomyGood
+    - ArmorPlateEconomy3
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "armor3"
@@ -233,7 +416,7 @@
     butcheringType: Knife
     spawned:
       - id: ArmorPlateEconomy3Fragment
-        amount: 2
+        amount: 4
 
 - type: entity
   name: broken composite armor plate
@@ -259,19 +442,6 @@
         acts: [ "Destruction" ]
   - type: Item
     size: Huge
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
-        density: 60
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-        restitution: 0.3  # fite me
-        friction: 0.4
   - type: MultiHandedItem
   - type: ClothingSpeedModifier
     walkModifier: 0.8
@@ -287,6 +457,48 @@
       Silicon: 25
 
 # T4
+
+- type: entity
+  name: EMAG armor plate (unfinished)
+  description: The ceramic/metallic plate component of an EMAG armor plate, fresh off the forge and awaiting its electronic components. Needs a compound electromagnet to begin construction, then significant screwing and cutting.
+  parent: ArmorPlateEconomy4Broken
+  id: ArmorPlateEconomy4Start
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: StaticPrice
+    price: 3000
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "armor4_unfinished"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ArmorPlateEconomy3Broken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 4000
+      Plasteel: 2000
+      Silver: 1000
+    chemicalComposition:
+      Carbon: 25
+      Silicon: 25
+  - type: Construction
+    graph: ArmorPlateEconomy4Finish
+    node: unfinished
 
 - type: entity
   name: EMAG armor plate
@@ -318,6 +530,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Construction
+    graph: ArmorPlateEconomy4Finish
+    node: finished
 
 - type: entity
   name: broken EMAG armor plate
@@ -343,19 +558,6 @@
         acts: [ "Destruction" ]
   - type: Item
     size: Huge
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
-        density: 80
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-        restitution: 0.3  # fite me
-        friction: 0.6
   - type: MultiHandedItem
   - type: ClothingSpeedModifier
     walkModifier: 0.7

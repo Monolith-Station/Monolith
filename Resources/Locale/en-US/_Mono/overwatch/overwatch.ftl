@@ -44,9 +44,9 @@ overwatch-member-coordinates-none = —
 
 overwatch-stop-watching-button = STOP WATCHING
 
-overwatch-title-tsf = TIANGONG
-overwatch-title-tsfhighcomm = TIANGONG
-overwatch-title-pdv = PATROL
+overwatch-title-tsf = TSFMC HALCYON
+overwatch-title-tsfhighcomm = TSF HIGH COMMAND
+overwatch-title-pdv = PDV HELIOS
 overwatch-title-ussp = ST-NAV
 overwatch-title-md = CCTC MD
 overwatch-title-colonial = CCTC SC

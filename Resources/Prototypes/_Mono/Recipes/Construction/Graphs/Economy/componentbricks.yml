@@ -1,0 +1,282 @@
+- type: constructionGraph
+  id: ComponentBrickEconomy
+  start: start
+  graph:
+  - node: start
+  - node: MatterBinEconomy1
+    edges:
+    - to: finished_1
+      steps:
+      - tag: OpticsEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "optics1"
+        name: optical sensor
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - tag: MicroprocessorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "microprocessor1"
+        name: microprocessor
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+
+  - node: MatterBinEconomy2
+    edges:
+    - to: finished_1_t2
+      steps:
+      - tag: OpticsEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "optics1"
+        name: optical sensor
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tag: OpticsEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "optics1"
+        name: optical sensor
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tag: OpticsEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "optics1"
+        name: optical sensor
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+
+  - node: finished_1_t2
+    entity: ComponentBrickEconomy1SpawnerT2
+
+  - node: finished_1
+    entity: ComponentBrickEconomy1
+    edges:
+    - to: RadioEconomy1
+      steps:
+      - tag: MicroprocessorEconomy2
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "microprocessor2"
+        name: nanoprocessor
+        doAfter: 1
+      - tag: ArmorPlateEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "armor1"
+        name: basic armor plate
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+    - to: CameraEconomy1
+      steps:
+      - tag: OpticsEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "optics1"
+        name: optical sensor
+        doAfter: 1
+      - tag: ArmorPlateEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "armor1"
+        name: basic armor plate
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+    - to: MotorEconomy1 # motor
+      steps:
+      - tag: ElectromagnetEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "electromagnet1"
+        name: basic electromagnet
+        doAfter: 1
+      - tag: ArmorPlateEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "armor1"
+        name: basic armor plate
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+    - to: MotorEconomy1
+      steps:
+      - tag: ElectromagnetEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "electromagnet1"
+        name: basic electromagnet
+        doAfter: 1
+      - tag: ArmorPlateEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "armor1"
+        name: basic armor plate
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+    - to: CapacitorEconomy2
+      steps:
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        doAfter: 1
+        amount: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        doAfter: 1
+        amount: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        doAfter: 1
+        amount: 1
+    - to: MicroprocessorEconomy2
+      steps:
+      - tag: MicroprocessorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "microprocessor1"
+        name: microprocessor
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        doAfter: 1
+        amount: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        doAfter: 1
+        amount: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        doAfter: 1
+        amount: 1
+    - to: MatterBinEconomy2Spawn
+      steps:
+      - tag: MatterBinEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "canister_open"
+        name: matter bin
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        doAfter: 1
+        amount: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        doAfter: 1
+        amount: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        doAfter: 1
+        amount: 1
+
+  - node: RadioEconomy1
+    entity: RadioEconomy1
+
+  - node: CameraEconomy1
+    entity: CameraEconomy1
+
+  - node: MotorEconomy1
+    entity: MotorEconomy1
+
+  - node: CapacitorEconomy2
+    entity: CapacitorEconomy2
+
+  - node: MicroprocessorEconomy2
+    entity: MicroprocessorEconomy2
+
+  - node: MatterBinEconomy2Spawn
+    entity: MatterBinEconomy2Spawner

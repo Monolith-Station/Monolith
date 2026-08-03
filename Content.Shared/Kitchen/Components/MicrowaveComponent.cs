@@ -10,7 +10,7 @@ using Robust.Shared.Serialization; // Frontier
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Content.Shared.Kitchen.Components; // Frontier
 
-namespace Content.Server.Kitchen.Components
+namespace Content.Shared.Kitchen.Components // Mono: Moved to Shared
 {
     [RegisterComponent]
     public sealed partial class MicrowaveComponent : Component
@@ -144,6 +144,18 @@ namespace Content.Server.Kitchen.Components
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public string TooBigPopup = "microwave-component-interact-item-too-big";
+
+        /// <summary>
+        /// Mono: The localization string to be displayed for the UI menu.
+        /// </summary>
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public string MenuTitle = "assembler-menu-generic-title";
+
+        /// <summary>
+        /// Mono: The localization string to be displayed for the UI footer flavor text.
+        /// </summary>
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public string FlavorText = "assembler-menu-generic-footer-flavor-left";
 
         /// <summary>
         /// The sound that is played when a set of ingredients does not match an assembly recipe.

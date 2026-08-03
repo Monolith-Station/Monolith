@@ -26,7 +26,7 @@
 
 - type: entity
   name: PA china lake
-  parent: [BaseWeaponLauncher, BaseGunWieldable]
+  parent: [BaseWeaponLauncher, BaseGunWieldable, BaseFactionGearOtherFactionT3]
   id: WeaponLauncherChinaLake
   description: PLOOP.
   components:

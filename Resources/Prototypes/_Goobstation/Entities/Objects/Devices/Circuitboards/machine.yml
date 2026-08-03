@@ -14,9 +14,9 @@
       Steel: 6
       Cable: 5
     tagRequirements:
-      BorgArm:
-        amount: 2
-        defaultPrototype: LeftArmBorg
+      MotorEconomy1: # Mono
+        amount: 1
+        defaultPrototype: MotorEconomy1
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -35,9 +35,9 @@
       Steel: 10
       Cable: 5
     tagRequirements:
-      BorgArm:
-        amount: 4
-        defaultPrototype: LeftArmBorg
+      MotorEconomy1: # Mono
+        amount: 2
+        defaultPrototype: MotorEconomy1
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -69,6 +69,6 @@
       Plastic: 4
       Cable: 5
     tagRequirements:
-      BorgArm:
+      MotorEconomy1: # Mono
         amount: 1
-        defaultPrototype: LeftArmBorg
+        defaultPrototype: MotorEconomy1

@@ -11,7 +11,7 @@
   - type: Organ
     onAdd:
     - type: SandevistanUser # This is worse than the mieyo one, because its reverse engineered or something. My secrets are propietary to my company. I mean, the only difference though is that it cools down a little bit slower.
-      loadPerActiveSecond: 5
+      loadPerActiveSecond: 8
       loadPerInactiveSecond: -0.15
 
 - type: entity

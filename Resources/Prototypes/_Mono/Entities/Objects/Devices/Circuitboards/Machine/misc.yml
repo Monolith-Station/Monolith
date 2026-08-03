@@ -10,8 +10,10 @@
     requirements:
       Capacitor: 2
       Manipulator: 2
-    stackRequirements:
-      Plasma: 2
+    tagRequirements:
+      RadioEconomy1:
+        amount: 1
+        defaultPrototype: RadioEconomy1
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -26,6 +28,10 @@
       Capacitor: 4
     stackRequirements:
       Plasteel: 4
+    tagRequirements:
+      ElectromagnetEconomy2:
+        amount: 1
+        defaultPrototype: ElectromagnetEconomy2
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -62,8 +68,9 @@
   components:
   - type: MachineBoard
     prototype: MachineShipDrill
-    requirements:
-      Capacitor: 3
-      Manipulator: 1
     stackRequirements:
       Steel: 7
+    tagRequirements:
+      MotorEconomy1:
+        amount: 1
+        defaultPrototype: MotorEconomy1

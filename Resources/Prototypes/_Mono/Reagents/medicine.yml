@@ -121,16 +121,26 @@
         - !type:ReagentThreshold
           min: 40
       - !type:RevertPolymorph
+        prototype: LetoferolMutation
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+      - !type:RevertPolymorph
         prototype: LetoferolMutationNatural
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+      - !type:RevertPolymorph
+        prototype: LetoferolMutationBeastNatural
         conditions:
         - !type:ReagentThreshold
           min: 15
       - !type:AdjustReagent
         reagent: Letoferol
-        amount: -7.5
+        amount: -15
       - !type:AdjustReagent
         reagent: NaturalLetoferol
-        amount: -7.5
+        amount: -15
 
 # cheap alternative to mesotaxinide
 
@@ -148,7 +158,17 @@
       metabolismRate: 1
       effects:
       - !type:RevertPolymorph
+        prototype: LetoferolMutation
+        conditions:
+        - !type:ReagentThreshold
+          min: 40
+      - !type:RevertPolymorph
         prototype: LetoferolMutationNatural
+        conditions:
+        - !type:ReagentThreshold
+          min: 40
+      - !type:RevertPolymorph
+        prototype: LetoferolMutationBeastNatural
         conditions:
         - !type:ReagentThreshold
           min: 40

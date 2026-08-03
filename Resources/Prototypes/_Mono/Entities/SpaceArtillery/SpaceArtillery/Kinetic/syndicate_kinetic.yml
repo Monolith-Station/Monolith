@@ -183,6 +183,7 @@
         layer:
         - MachineLayer
   - type: Gun
+    damageModifier: 1.3
     projectileSpeed: 410
     recoil: 50 # 2x
     minAngle: 0

@@ -1,6 +1,7 @@
 research-discipline-mieyo = Mieyo Manufacturing Concern
 
 # T1 MMC
+research-technology-mieyo-press = MMC Hydraulics
 research-technology-mieyo-breaching-gear = MMC Breaching
 research-technology-mieyo-meds = MMC Wound Treatment
 research-technology-mieyo-srd = MMC Shipworking Techniques

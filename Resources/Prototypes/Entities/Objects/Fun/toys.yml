@@ -1338,10 +1338,10 @@
     - Balloon
 
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, BaseFactionGearOtherFactionT1]
   id: BalloonNT
-  name: nanotrasen balloon
-  description: Specially designed to inflict maximum psychological damage to Syndicate operatives.
+  name: wayward balloon # Mono
+  description: Specially designed to inflict maximum psychological damage.
   components:
   - type: Sprite
     sprite: Objects/Fun/toys.rsi

@@ -12,5 +12,5 @@
   - type: Organ
     onAdd:
     - type: SandevistanUser
-      loadPerActiveSecond: 5 # Mono
+      loadPerActiveSecond: 8 # Mono
       loadPerInactiveSecond: -0.25 # Mono

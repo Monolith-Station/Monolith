@@ -1,0 +1,371 @@
+- type: constructionGraph
+  id: ElectromagnetEconomy
+  start: start
+  graph:
+  - node: start
+  - node: ElectromagnetEconomy1
+    edges:
+    - to: unfinished
+      steps:
+      - tag: ComponentBrickEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "componentbrick1"
+        name: basic components
+        doAfter: 1
+
+  - node: unfinished
+    entity: ElectromagnetEconomy2Start
+    edges:
+    - to: finished
+      steps:
+      - material: CableHV # no loop option, oh well - 20x hv and 20x screwing steps
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+
+  - node: finished
+    entity: ElectromagnetEconomy2
+    edges:
+    - to: unfinished_ElectromagnetEconomy3
+      steps:
+      - tag: ArmorPlateEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "armor1"
+        name: basic armor plate
+        doAfter: 1
+      - tag: ArmorPlateEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "armor1"
+        name: basic armor plate
+        doAfter: 1
+
+  - node: unfinished_ElectromagnetEconomy3
+    entity: ElectromagnetEconomy3Start
+    edges:
+    - to: finished_ElectromagnetEconomy3
+      steps:
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+      - material: CableHV
+        amount: 1
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tag: CapacitorEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "capacitor1"
+        name: basic capacitor
+        doAfter: 1
+
+  - node: finished_ElectromagnetEconomy3
+    entity: ElectromagnetEconomy3
+
+# end electromagnets
+

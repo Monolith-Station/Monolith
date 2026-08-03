@@ -54,6 +54,12 @@
   - type: AlertLevel
     alertLevelPrototype: stationAlerts
 
+# Mono
+- type: sectorService
+  id: WarAlerts
+  components:
+  - type: WarLevel
+
 - type: sectorService
   id: BountyContracts
   components:
