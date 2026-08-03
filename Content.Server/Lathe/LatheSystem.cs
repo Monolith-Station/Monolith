@@ -36,7 +36,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cargo.Components; // Frontier
 using Content.Server._NF.Contraband.Systems;
-using Content.Server.Storage.Components; // Frontier
+using Content.Server.Storage.Components;
+using Content.Shared.Stacks; // Frontier
 using Robust.Shared.Containers; // Frontier
 
 namespace Content.Server.Lathe
@@ -288,6 +289,7 @@ namespace Content.Server.Lathe
 
                 _materialStorage.TryChangeMaterialAmount(uid, mat, adjustedAmount);
             }
+
             foreach (var (reag, amount) in recipe.Reagents)
             {
                 if (component.ReagentOutputSlotId is not { } slotId)
@@ -297,10 +299,9 @@ namespace Content.Server.Lathe
                     !_solution.TryGetFitsInDispenser(container.ContainedEntities.First(), out var solEnt, out _))
                     break;
 
-                var adjustedAmount = -AdjustMaterial(amount, 1, 1);
-
-                _solution.AddSolution(solEnt.Value, new Solution(reag, adjustedAmount));
+                _solution.SplitSolutionPerReagentWithOnly(solEnt.Value, amount, reag);
             }
+
             if (TryComp<EntityStorageComponent>(uid, out var storage))
             {
                 foreach (var (entity, amount) in recipe.Entities)
@@ -308,16 +309,22 @@ namespace Content.Server.Lathe
                     var counter = 0;
                     foreach (var conEnt in storage.Contents.ContainedEntities)
                     {
-                        var meta = MetaData(conEnt);
-                        if (meta.EntityPrototype is not { } proto)
+                        var count = 1;
+
+                        if (MetaData(conEnt).EntityPrototype is not { } proto
+                            || proto.ID != entity.Id)
                             continue;
 
-                        if (proto.ID != entity.Id)
-                            continue;
+                        if (TryComp<StackComponent>(conEnt, out var stack))
+                        {
+                            count = Math.Clamp(stack.Count, 0, amount);
+                            if (count == stack.Count)
+                                QueueDel(conEnt);
+                        }
+                        else
+                            QueueDel(conEnt);
 
-                        QueueDel(conEnt); // rip
-                        counter += 1;
-
+                        counter += count;
                         if (counter >= amount)
                             break;
                     }
@@ -362,19 +369,22 @@ namespace Content.Server.Lathe
             {
                 if (comp.CurrentRecipe.Result is { } resultProto)
                 {
-                    var result = Spawn(resultProto, Transform(uid).Coordinates);
-
-                    // Frontier: adjust price before merge (stack prices changed once)
-                    if (result.Valid)
+                    for (var i = 0; i < comp.CurrentRecipe.ResultCount; i++) // mono
                     {
-                        ModifyPrintedEntityPrice(uid, comp, result);
-                        // End Frontier
+                        var result = Spawn(resultProto, Transform(uid).Coordinates);
 
-                        // Mono: Handle printable contraband
-                        _contraband.HandleContrabandValueByCompany(result, prodComp.Actor);
+                        // Frontier: adjust price before merge (stack prices changed once)
+                        if (result.Valid)
+                        {
+                            ModifyPrintedEntityPrice(uid, comp, result);
+                            // End Frontier
+
+                            // Mono: Handle printable contraband
+                            _contraband.HandleContrabandValueByCompany(result, prodComp.Actor);
+                        }
+
+                        _stack.TryMergeToContacts(result);
                     }
-
-                    _stack.TryMergeToContacts(result);
                 }
 
                 // Mono
@@ -679,23 +689,24 @@ namespace Content.Server.Lathe
                 Dictionary<string, int> processedEntities = new();
                 foreach (var (entity, _) in recipe.Entities)
                 {
+
                     foreach (var conEnt in storage.Contents.ContainedEntities)
                     {
                         var meta = MetaData(conEnt);
+                        var count = 1;
                         if (meta.EntityPrototype is not { } proto)
                             continue;
 
                         if (proto.ID != entity.Id)
                             continue;
 
+                        if (TryComp<StackComponent>(conEnt, out var stack))
+                            count = stack.Count;
+
                         if (processedEntities.ContainsKey(proto.ID))
-                        {
-                            processedEntities[proto.ID] += 1;
-                        }
+                            processedEntities[proto.ID] += count;
                         else
-                        {
-                            processedEntities.Add(proto.ID, 1);
-                        }
+                            processedEntities.Add(proto.ID, count);
                     }
                 }
                 foreach (var (entity, needed) in recipe.Entities)

@@ -4,6 +4,7 @@ using Content.Shared.Power;
 using Content.Client.Power;
 using Content.Client.Storage.Components;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Stacks;
 
 namespace Content.Client.Lathe;
 
@@ -61,20 +62,20 @@ public sealed partial class LatheSystem : SharedLatheSystem
                 foreach (var conEnt in storage.Contents.ContainedEntities)
                 {
                     var meta = MetaData(conEnt);
+                    var count = 1;
                     if (meta.EntityPrototype is not { } proto)
                         continue;
 
                     if (proto.ID != entity.Id)
                         continue;
 
+                    if (TryComp<StackComponent>(conEnt, out var stack))
+                        count = stack.Count;
+
                     if (processedEntities.ContainsKey(proto.ID))
-                    {
-                        processedEntities[proto.ID] += 1;
-                    }
+                        processedEntities[proto.ID] += count;
                     else
-                    {
-                        processedEntities.Add(proto.ID, 1);
-                    }
+                        processedEntities.Add(proto.ID, count);
                 }
             }
             foreach (var (entity, needed) in recipe.Entities)
@@ -83,7 +84,7 @@ public sealed partial class LatheSystem : SharedLatheSystem
                     return false;
 
                 if (processedEntities.TryGetValue(entity, out var count)
-                    && count < needed)
+                    && count < needed * amount)
                     return false;
             }
         }

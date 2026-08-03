@@ -34,6 +34,8 @@
   - type: MachineBoard
     flatpackable: false
     prototype: IndustrialFurnaceEconomyCompact
+    requirements:
+      Manipulator: 3
     stackRequirements:
       CableHV: 5
     tagRequirements:
@@ -58,6 +60,8 @@
   - type: MachineBoard
     flatpackable: false
     prototype: PrecisionAssemblerEconomyCompact
+    requirements:
+      Manipulator: 3
     stackRequirements:
       CableHV: 5
     tagRequirements:
@@ -82,7 +86,8 @@
   - type: MachineBoard
     prototype: IndustrialPressEconomyPlates
     requirements:
-      Capacitor: 2
+      MatterBin: 2
+      Manipulator: 3
     stackRequirements:
       Lithium: 5
       CableHV: 10
@@ -110,7 +115,7 @@
     prototype: IndustrialPressEconomyPlatesMMC
     requirements:
       MatterBin: 2
-      Capacitor: 2
+      Manipulator: 3
     stackRequirements: # faster mmc variant
       Lithium: 10
       CableHV: 20
@@ -137,7 +142,8 @@
   - type: MachineBoard
     prototype: IndustrialPressEconomyElectronics
     requirements:
-      Capacitor: 2
+      MatterBin: 2
+      Manipulator: 3
     stackRequirements:
       Lithium: 5
       CableHV: 10
@@ -165,7 +171,7 @@
     prototype: IndustrialPressEconomyElectronicsMMC
     requirements:
       MatterBin: 2
-      Capacitor: 2
+      Manipulator: 3
     stackRequirements: # faster mmc variant
       Lithium: 10
       CableHV: 20

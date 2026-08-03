@@ -370,7 +370,7 @@
     - type: MachineBoard
       prototype: MedicalAssembler
       requirements:
-        Capacitor: 3
+        Manipulator: 2
       stackRequirements:
         Steel: 5
         Glass: 2

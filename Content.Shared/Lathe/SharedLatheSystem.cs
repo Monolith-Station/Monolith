@@ -137,13 +137,13 @@ public abstract partial class SharedLatheSystem : EntitySystem
             if (component.ReagentOutputSlotId is not { } slotId)
                 return false;
 
-            var adjustedAmount = AdjustMaterial(needed, 1, 1);
-
             if (_container.TryGetContainer(uid, slotId, out var container) &&
+                container.ContainedEntities.Count != 0 &&
                 _solution.TryGetFitsInDispenser(container.ContainedEntities.First(), out _, out var solution )
-                && solution.GetReagent(new ReagentId(reagent.Id, [])).Quantity < adjustedAmount * amount)
+                && solution.GetReagent(new ReagentId(reagent.Id, [])).Quantity < needed * amount)
                 return false;
         }
+        // mono end
 
         return true;
     }
@@ -174,10 +174,6 @@ public abstract partial class SharedLatheSystem : EntitySystem
 
     public static int AdjustMaterial(int original, float multScale, float multiplier)
         => (int) MathF.Ceiling(original * MathF.Pow(multiplier, multScale));
-
-    // mono
-    public static FixedPoint2 AdjustMaterial(FixedPoint2 original, float multScale, float multiplier)
-        => MathF.Ceiling((float) original * MathF.Pow(multiplier, multScale));
 
     protected abstract bool HasRecipe(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component);
 

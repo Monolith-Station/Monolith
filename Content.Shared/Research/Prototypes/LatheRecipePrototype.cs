@@ -90,5 +90,11 @@ namespace Content.Shared.Research.Prototypes
         /// </summary>
         [DataField]
         public List<ProtoId<LatheCategoryPrototype>> Categories = new();
+
+        /// <summary>
+        /// Mono - Amount of entities to spawn on production.
+        /// </summary>
+        [DataField]
+        public int ResultCount = 1;
     }
 }
