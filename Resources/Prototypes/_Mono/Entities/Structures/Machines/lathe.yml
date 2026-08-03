@@ -544,8 +544,8 @@
     visuals:
       enum.PowerDeviceVisuals.VisualState:
         enum.MicrowaveVisualizerLayers.Base:
-          Idle: { state: "building" }
-          Cooking: { state: "building" }
+          Idle: { state: "icon" }
+          Cooking: { state: "icon" }
         enum.MicrowaveVisualizerLayers.BaseUnlit:
           Idle: { state: "unlit" }
           Broken: { state: "panel" }
@@ -627,8 +627,8 @@
     visuals:
       enum.PowerDeviceVisuals.VisualState:
         enum.MicrowaveVisualizerLayers.Base:
-          Idle: { state: "building" }
-          Cooking: { state: "building" }
+          Idle: { state: "icon" }
+          Cooking: { state: "icon" }
         enum.MicrowaveVisualizerLayers.BaseUnlit:
           Idle: { state: "unlit" }
           Broken: { state: "panel" }
@@ -700,6 +700,91 @@
     lightningChance: 0
     baseHeatMultiplier: 300
     temperatureUpperThreshold: 3300
+    maxItemSize: Ginormous
+    validRecipeTypes: PrecisionAssembler
+    beginCookingSound: /Audio/Machines/machine_switch.ogg
+    foodDoneSound: /Audio/Effects/Shuttle/radar_ping.ogg
+    loopingSound: /Audio/_Mono/Structures/Economy/furnace.ogg
+    key: PrecisionAssemblerKey
+    menuTitle: "assembler-menu-precision-assembler-title"
+    flavorText: "assembler-menu-precision-assembler-footer-flavor-left"
+  - type: ActivatableUI
+    key: enum.MicrowaveUiKey.PrecisionAssemblerKey
+  - type: ContainerContainer
+    containers:
+      microwave_entity_container: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: UserInterface
+    interfaces:
+      enum.MicrowaveUiKey.PrecisionAssemblerKey:
+        type: AssemblerBoundUserInterface
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.VisualState:
+        enum.MicrowaveVisualizerLayers.Base:
+          Idle: { state: "icon" }
+          Broken: { state: "panel" }
+          Cooking: { state: "building" }
+        enum.MicrowaveVisualizerLayers.BaseUnlit:
+          Idle: { state: "unlit" }
+          Cooking: { state: "unlit-building" }
+      enum.PowerDeviceVisuals.Powered:
+        enum.MicrowaveVisualizerLayers.BaseUnlit:
+          True: { visible: true }
+          False: { visible: false }
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedContainer
+      input: AutomationSlotInput
+      output: AutomationSlotInput
+      containerId: microwave_entity_container
+      maxItems: 15
+
+- type: entity
+  id: PrecisionAssemblerEconomyCompact
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: compact precision assembler
+  description: A high-accuracy microfabricator capable of manipulating almost all forms of matter in the right circumstances. Astoundingly useful for creating advanced components of all kinds. This one is slower and has less space inside.
+  components:
+  - type: Appearance
+  - type: Animateable
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/altolathe.rsi
+    layers:
+    - state: icon
+      map: [ "enum.MicrowaveVisualizerLayers.Base" ]
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.MicrowaveVisualizerLayers.BaseUnlit" ]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: RequireProjectileTarget
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000 # Expensive.
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  # microwave comps
+  - type: GuideHelp
+    guides:
+    - PrecisionAssembler
+  - type: Machine
+    board: PrecisionAssemblerEconomyCompactCircuitboard
+  - type: Microwave
+    capacity: 10
+    explosionChance: 0
+    lightningChance: 0
+    baseHeatMultiplier: 300
+    temperatureUpperThreshold: 3300
+    cookTimeMultiplier: 2
+    cookTimeScalingConstant: 0.1 # I HATE bluespace parts!
     maxItemSize: Ginormous
     validRecipeTypes: PrecisionAssembler
     beginCookingSound: /Audio/Machines/machine_switch.ogg

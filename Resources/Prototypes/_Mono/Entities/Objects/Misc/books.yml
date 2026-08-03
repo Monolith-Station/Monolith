@@ -62,3 +62,25 @@
   - type: Tag
     tags:
     - Book
+
+- type: entity
+  id: BookTSFSOP
+  parent: BaseGuidebook
+  name: TSFMC SOP
+  description: A book containing the SOP for the TSFMC forces deployed to the Colossus Sector.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#18304c"
+    - state: decor_mono_middle_segmented_top
+      color: "#ffd800"
+    - state: decor_mono_middle_segmented_bottom
+      color: "#ffffff"
+  - type: GuideHelp
+    guides:
+    - TSFMC_Entry
+  - type: Tag
+    tags:
+    - Book

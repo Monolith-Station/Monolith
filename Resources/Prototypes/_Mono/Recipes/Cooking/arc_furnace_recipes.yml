@@ -70,14 +70,14 @@
   result: SheetIridite1
   time: 60
   group: ArcFurnace
+  resultCount: 2
   solids:
     IriditeCrystal: 1
   reagents:
-    SodiumPolyacrylate: 5
-    Acetone: 10
-    PolytrinicAcid: 5
-    Fersilicite: 5
-    Opporozidone: 15
+    SodiumPolyacrylate: 10
+    Fersilicite: 10
+    Benzene: 40
+    FluorosulfuricAcid: 40
   recipeType: ArcFurnace
 
 # end iridite
@@ -91,5 +91,5 @@
   resultCount: 2
   solids:
     ComponentBrickEconomy1: 1 # replace this with something fitting one day
-  recipeType: PrecisionAssembler
+  recipeType: ArcFurnace
 

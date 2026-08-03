@@ -48,9 +48,10 @@
   entityIcon: IndustrialFurnaceEconomyCompact
   discipline: FactionUniversal
   tier: 2
-  cost: 60000
+  cost: 20000
   recipeUnlocks:
   - IndustrialFurnaceEconomyCompactCircuitboard
+  - PrecisionAssemblerEconomyCompactCircuitboard
   technologyPrerequisites:
   - UniversalMaterialResearchT2
   position: 8, 10

@@ -17,7 +17,7 @@
       CableHV: 5
     tagRequirements:
       ArmorPlateEconomy1: # Reinforcement. Things that spin very heavy things very fast are very dangerous.
-        amount: 4
+        amount: 2
         defaultPrototype: ArmorPlateEconomy1
       ComponentBrickEconomy1:
         amount: 1
@@ -41,11 +41,29 @@
         amount: 1
         defaultPrototype: ArmorPlateEconomy3
       ElectromagnetEconomy1:
-        amount: 3
+        amount: 2
         defaultPrototype: ElectromagnetEconomy1
-      ComponentBrickEconomy1:
-        amount: 1
-        defaultPrototype: ComponentBrickEconomy1
+
+- type: entity
+  id: PrecisionAssemblerEconomyCompactCircuitboard
+  parent: BaseMachineCircuitboard
+  name: compact precision assembler machine board
+  description: A machine printed circuit board for a compact precision assembler.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    flatpackable: false
+    prototype: PrecisionAssemblerEconomyCompact
+    stackRequirements:
+      CableHV: 5
+    tagRequirements:
+      MicroprocessorEconomy1:
+        amount: 2
+        defaultPrototype: MicroprocessorEconomy1
+      MotorEconomy1:
+        amount: 4
+        defaultPrototype: MotorEconomy1
 
 - type: entity
   id: IndustrialPressEconomyPlatesMachineCircuitboard
@@ -63,7 +81,7 @@
       Lithium: 5
       CableHV: 10
     tagRequirements: # todo: make it take a press plate component
-      ArmorPlateEconomy2: # Stand in for the base of the press or something
+      ArmorPlateEconomy1: # Stand in for the base of the press or something
         amount: 1
         defaultPrototype: ArmorPlateEconomy2Finished
       ComponentBrickEconomy1:
@@ -92,7 +110,7 @@
       CableHV: 20
     tagRequirements: # todo: make it take a press plate component
       ArmorPlateEconomy2: # Stand in for the base of the press or something
-        amount: 2
+        amount: 1
         defaultPrototype: ArmorPlateEconomy2Finished
       ComponentBrickEconomy1:
         amount: 1
@@ -118,7 +136,7 @@
       Lithium: 5
       CableHV: 10
     tagRequirements: # todo: make it take a press plate component
-      ArmorPlateEconomy2: # Stand in for the base of the press or something
+      ArmorPlateEconomy1: # Stand in for the base of the press or something
         amount: 1
         defaultPrototype: ArmorPlateEconomy2Finished
       ComponentBrickEconomy1:
@@ -147,7 +165,7 @@
       CableHV: 20
     tagRequirements: # todo: make it take a press plate component
       ArmorPlateEconomy2: # Stand in for the base of the press or something
-        amount: 2
+        amount: 1
         defaultPrototype: ArmorPlateEconomy2Finished
       ComponentBrickEconomy1:
         amount: 1

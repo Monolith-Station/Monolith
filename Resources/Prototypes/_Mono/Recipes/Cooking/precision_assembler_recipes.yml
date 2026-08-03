@@ -49,6 +49,35 @@
     SiliconBouleEconomy: 1
   recipeType: PrecisionAssembler
 
+# Optics
+
+- type: microwaveMealRecipe
+  id: RecipeOpticsEconomy2
+  name: precision optical sensor recipe
+  result: OpticsEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    OpticsEconomy1: 1
+    CapacitorEconomy1: 2
+  reagents:
+    Phenol: 20
+  recipeType: PrecisionAssembler
+
+# Radios
+
+- type: microwaveMealRecipe
+  id: RecipeRadioEconomy2
+  name: HF signal transciever recipe
+  result: RadioEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    RadioEconomy1: 1
+    CapacitorEconomy1: 2
+    ComponentBrickEconomy1: 1
+  recipeType: PrecisionAssembler
+
 # Capacitors
 
 - type: microwaveMealRecipe
@@ -83,7 +112,7 @@
   time: 15
   group: PrecisionAssembler
   solids:
-    ElectromagnetEconomy1: 3
+    ElectromagnetEconomy1: 2
   reagents:
     Superconductant: 60
   recipeType: PrecisionAssembler

@@ -69,6 +69,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: SyncSprite # Frontier
+  - type: ShipRepairable # Mono
+    repairTime: 1
+    repairCost: 10
 
 - type: entity
   id: ConveyorBeltAssembly

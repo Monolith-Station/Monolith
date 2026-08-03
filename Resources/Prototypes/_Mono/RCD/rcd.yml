@@ -73,3 +73,15 @@
   delay: 2
   rotation: User
   fx: EffectRCDConstruct0
+
+- type: rcd
+  id: MachineFrame
+  category: Electrical
+  sprite: /Textures/_Mono/Interface/Radial/RCD/frame.png
+  mode: ConstructObject
+  prototype: MachineFrame
+  cost: 5
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2

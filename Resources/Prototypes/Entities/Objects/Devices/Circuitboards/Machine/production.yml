@@ -376,15 +376,12 @@
       Glass: 1
       Steel: 5
     tagRequirements: # Mono
-      MicroprocessorEconomy1:
-        amount: 3
-        defaultPrototype: MicroprocessorEconomy1
       MotorEconomy1:
         amount: 4
         defaultPrototype: MotorEconomy1
-      ArmorPlateEconomy2:
+      ArmorPlateEconomy1:
         amount: 1
-        defaultPrototype: ArmorPlateEconomy2Finished
+        defaultPrototype: ArmorPlateEconomy1
 
 - type: entity
   id: OrganHarvesterMachineCircuitboard
@@ -404,15 +401,12 @@
       Glass: 1
       Steel: 3
     tagRequirements: # Mono
-      MicroprocessorEconomy1:
-        amount: 3
-        defaultPrototype: MicroprocessorEconomy1
       MotorEconomy1:
-        amount: 4
+        amount: 2
         defaultPrototype: MotorEconomy1
-      ArmorPlateEconomy2:
+      ArmorPlateEconomy1:
         amount: 1
-        defaultPrototype: ArmorPlateEconomy2Finished
+        defaultPrototype: ArmorPlateEconomy1
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -430,15 +424,12 @@
         Cable: 1
         PlasmaGlass: 10
       tagRequirements: # Mono
-        MicroprocessorEconomy2:
-          amount: 2
-          defaultPrototype: MicroprocessorEconomy2
+        MicroprocessorEconomy1:
+          amount: 1
+          defaultPrototype: MicroprocessorEconomy1
         RadioEconomy1:
           amount: 1
           defaultPrototype: RadioEconomy1
-        ComponentBrickEconomy1:
-          amount: 1
-          defaultPrototype: ComponentBrickEconomy1
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -458,7 +449,7 @@
       MetalRod: 4
     tagRequirements: # Mono
       MicroprocessorEconomy2:
-        amount: 4
+        amount: 2
         defaultPrototype: MicroprocessorEconomy2
       RadioEconomy1:
         amount: 1
@@ -484,15 +475,12 @@
         PlasmaGlass: 5
         Cable: 5
       tagRequirements: # Mono
-        MicroprocessorEconomy2:
+        MicroprocessorEconomy1:
           amount: 1
-          defaultPrototype: MicroprocessorEconomy2
-        RadioEconomy2:
+          defaultPrototype: MicroprocessorEconomy1
+        RadioEconomy1:
           amount: 2
-          defaultPrototype: RadioEconomy2
-        ComponentBrickEconomy1:
-          amount: 1
-          defaultPrototype: ComponentBrickEconomy1
+          defaultPrototype: RadioEconomy1
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -510,12 +498,9 @@
         Cable: 1
         Glass: 1
       tagRequirements: # Mono
-        MicroprocessorEconomy2:
-          amount: 4
-          defaultPrototype: MicroprocessorEconomy2
-        RadioEconomy1:
+        MicroprocessorEconomy1:
           amount: 1
-          defaultPrototype: RadioEconomy1
+          defaultPrototype: MicroprocessorEconomy1
         ElectromagnetEconomy1:
           amount: 2
           defaultPrototype: ElectromagnetEconomy1
@@ -539,9 +524,6 @@
       MotorEconomy1:
         amount: 1
         defaultPrototype: MotorEconomy1
-      ComponentBrickEconomy1:
-        amount: 1
-        defaultPrototype: ComponentBrickEconomy1
   - type: Construction
     deconstructionTarget: null
     graph: ThermomachineBoard
@@ -566,9 +548,6 @@
       MotorEconomy1:
         amount: 1
         defaultPrototype: MotorEconomy1
-      ComponentBrickEconomy1:
-        amount: 1
-        defaultPrototype: ComponentBrickEconomy1
   - type: Construction
     graph: ThermomachineBoard
     deconstructionTarget: null
@@ -593,9 +572,9 @@
       MotorEconomy1:
         amount: 2
         defaultPrototype: MotorEconomy1
-      ComponentBrickEconomy2:
+      ComponentBrickEconomy1:
         amount: 1
-        defaultPrototype: ComponentBrickEconomy2
+        defaultPrototype: ComponentBrickEconomy1
   - type: Construction
     deconstructionTarget: null
     graph: ThermomachineBoard
@@ -620,9 +599,9 @@
       MotorEconomy1:
         amount: 2
         defaultPrototype: MotorEconomy1
-      ComponentBrickEconomy2:
+      ComponentBrickEconomy1:
         amount: 1
-        defaultPrototype: ComponentBrickEconomy2
+        defaultPrototype: ComponentBrickEconomy1
   - type: Construction
     graph: ThermomachineBoard
     deconstructionTarget: null
@@ -646,9 +625,6 @@
       MotorEconomy1:
         amount: 1
         defaultPrototype: MotorEconomy1
-      ComponentBrickEconomy1:
-        amount: 1
-        defaultPrototype: ComponentBrickEconomy1
 
 - type: entity
   id: PortableScrubberMachineCircuitBoard
@@ -670,9 +646,6 @@
       MotorEconomy1:
         amount: 1
         defaultPrototype: MotorEconomy1
-      ComponentBrickEconomy1:
-        amount: 1
-        defaultPrototype: ComponentBrickEconomy1
 
 - type: entity
   id: SpaceHeaterMachineCircuitBoard
@@ -689,10 +662,6 @@
       Capacitor: 2 # Frontier stackRequirements<requirements
     stackRequirements:
       Cable: 5
-    tagRequirements: # Mono
-      ComponentBrickEconomy1:
-        amount: 1
-        defaultPrototype: ComponentBrickEconomy1
 
 - type: entity
   id: CloningPodMachineCircuitboard
@@ -711,15 +680,12 @@
         Glass: 1
         Cable: 1
       tagRequirements: # Mono
-        CameraEconomy1:
-          amount: 4
-          defaultPrototype: CameraEconomy1
         ComponentBrickEconomy2:
-          amount: 2
-          defaultPrototype: ComponentBrickEconomy2
-        RadioEconomy2:
           amount: 1
-          defaultPrototype: RadioEconomy2
+          defaultPrototype: ComponentBrickEconomy2
+        RadioEconomy1:
+          amount: 1
+          defaultPrototype: RadioEconomy1
 
 - type: entity
   id: MedicalScannerMachineCircuitboard
@@ -740,12 +706,9 @@
         CameraEconomy1:
           amount: 4
           defaultPrototype: CameraEconomy1
-        ComponentBrickEconomy2:
-          amount: 2
-          defaultPrototype: ComponentBrickEconomy2
-        RadioEconomy2:
+        RadioEconomy1:
           amount: 1
-          defaultPrototype: RadioEconomy2
+          defaultPrototype: RadioEconomy1
 
 - type: entity
   id: CrewMonitoringServerMachineCircuitboard
@@ -809,9 +772,6 @@
         MicroprocessorEconomy1: # Mono
           amount: 4
           defaultPrototype: MicroprocessorEconomy1
-        MotorEconomy1: # Mono
-          amount: 1
-          defaultPrototype: MotorEconomy1
         OpticsEconomy1: # Mono
           amount: 1
           defaultPrototype: OpticsEconomy1
@@ -839,9 +799,6 @@
         MicroprocessorEconomy1: # Mono
           amount: 4
           defaultPrototype: MicroprocessorEconomy1
-        MotorEconomy1: # Mono
-          amount: 1
-          defaultPrototype: MotorEconomy1
         OpticsEconomy1: # Mono
           amount: 1
           defaultPrototype: OpticsEconomy1
@@ -864,9 +821,6 @@
           amount: 2
           defaultPrototype: KitchenKnife
           examineName: construction-insert-info-examine-name-knife
-        MicroprocessorEconomy1: # Mono
-          amount: 1
-          defaultPrototype: MicroprocessorEconomy1
         MotorEconomy1: # Mono
           amount: 4
           defaultPrototype: MotorEconomy1
@@ -889,12 +843,6 @@
         GlassBeaker:
           amount: 2
           defaultPrototype: Beaker
-        MicroprocessorEconomy1: # Mono
-          amount: 1
-          defaultPrototype: MicroprocessorEconomy1
-        OpticsEconomy1: # Mono
-          amount: 1
-          defaultPrototype: OpticsEconomy1
 
 - type: entity
   id: SeedExtractorMachineCircuitboard
@@ -913,13 +861,6 @@
         # replacing the console screen
         Glass: 1
         Cable: 2
-      tagRequirements: # Mono
-        MicroprocessorEconomy1:
-          amount: 1
-          defaultPrototype: MicroprocessorEconomy1
-        OpticsEconomy1:
-          amount: 1
-          defaultPrototype: OpticsEconomy1
 
 - type: entity
   id: SMESMachineCircuitboard
@@ -941,12 +882,9 @@
         MicroprocessorEconomy1:
           amount: 1
           defaultPrototype: MicroprocessorEconomy1
-        ElectromagnetEconomy2:
-          amount: 1
-          defaultPrototype: ElectromagnetEconomy2
-        ComponentBrickEconomy1:
-          amount: 1
-          defaultPrototype: ComponentBrickEconomy1
+        ElectromagnetEconomy1:
+          amount: 2
+          defaultPrototype: ElectromagnetEconomy1
 
 - type: entity
   id: SMESAdvancedMachineCircuitboard
@@ -966,14 +904,11 @@
       CableHV: 20
     tagRequirements: # Mono
       MicroprocessorEconomy1:
-        amount: 2
-        defaultPrototype: MicroprocessorEconomy1
-      ElectromagnetEconomy3:
         amount: 1
-        defaultPrototype: ElectromagnetEconomy3
-      ComponentBrickEconomy1:
+        defaultPrototype: MicroprocessorEconomy1
+      ElectromagnetEconomy2:
         amount: 2
-        defaultPrototype: ComponentBrickEconomy1
+        defaultPrototype: ElectromagnetEconomy2
 
 - type: entity
   id: CellRechargerCircuitboard
@@ -1126,9 +1061,6 @@
         ComponentBrickEconomy1:
           amount: 1
           defaultPrototype: ComponentBrickEconomy1
-        ElectromagnetEconomy1:
-          amount: 1
-          defaultPrototype: ElectromagnetEconomy1
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
@@ -1468,7 +1400,7 @@
       ComponentBrickEconomy1:
         amount: 1
         defaultPrototype: ComponentBrickEconomy1
-      ElectromagnetEconomy2:
+      ElectromagnetEconomy1:
         amount: 1
         defaultPrototype: ElectromagnetEconomy1
       ArmorPlateEconomy3:
@@ -1916,9 +1848,9 @@
       ComponentBrickEconomy1:
         amount: 2
         defaultPrototype: ComponentBrickEconomy1
-      MicroprocessorEconomy3:
-        amount: 1
-        defaultPrototype: MicroprocessorEconomy3
+      MicroprocessorEconomy1:
+        amount: 4
+        defaultPrototype: MicroprocessorEconomy1
       MotorEconomy1:
         amount: 1
         defaultPrototype: MotorEconomy1

@@ -282,3 +282,41 @@
         proto: NearbyShuttleTargetsLongRange
         key: Target
         coordinatesKey: TargetCoordinates
+        
+- type: htnCompound
+  id: DroneCompoundDander
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleOrbitDroneCompoundDander
+        
+- type: htnCompound
+  id: ShuttleOrbitDroneCompoundDander
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: TaskFinished
+        avoidProjectiles: true
+        removeKeyOnFinish: false
+        alwaysFaceTarget: false
+        inRangeMaxSpeed: null
+        range: 450
+        rangeTolerance: 50
+        targetKey: TargetCoordinates
+        mode: OrbitCW
+        orbitOffset: 5
+        evasionSectorDepth: 5
+        evasionSectorCount: 36
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates

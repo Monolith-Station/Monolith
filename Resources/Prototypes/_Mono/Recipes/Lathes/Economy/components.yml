@@ -41,3 +41,14 @@
     Copper: 300
     Lithium: 500
 
+- type: latheRecipe
+  id: OpticsEconomy1Recipe
+  result: OpticsEconomy1
+  categories:
+  - Materials
+  completetime: 10
+  materials:
+    Glass: 500
+    Copper: 300
+    Steel: 300
+

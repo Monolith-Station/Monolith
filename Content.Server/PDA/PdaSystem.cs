@@ -8,6 +8,7 @@ using Content.Server.PDA.Ringer;
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
+using Content.Shared._DV.CCVars; // DeltaV - PDA date
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Chat;
@@ -16,6 +17,7 @@ using Content.Shared.Light.EntitySystems;
 using Content.Shared.PDA;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
+using Robust.Shared.Configuration; // DeltaV - PDA date
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -43,6 +45,9 @@ namespace Content.Server.PDA
         [Dependency] private IdCardSystem _idCard = default!;
         [Dependency] private SectorServiceSystem _sectorService = default!;
         [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IConfigurationManager _config = default!; // DeltaV
+
+        private static DateTime ServerDate; // DeltaV - PDA
 
         public override void Initialize()
         {
@@ -65,6 +70,28 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<EntityRenamedEvent>(OnEntityRenamed, after: new[] { typeof(IdCardSystem) });
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
             SubscribeLocalEvent<WarLevelChangedEvent>(OnWarLevelChanged);
+
+            // Begin DeltaV additions
+            Subs.CVar(_config,
+                DCCVars.YearOffset,
+                value => ServerDate = DateTime.Today.AddYears(value),
+                true);
+            // End DeltaV additions
+            SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
+        }
+
+        private void OnPlayerAttached(PlayerAttachedEvent args)
+        {
+            // When a player reconnects, update all PDAs that have open UIs for this player.
+            // This ensures the shift remaining timer and other dynamic data are refreshed.
+            var query = EntityQueryEnumerator<PdaComponent>();
+            while (query.MoveNext(out var uid, out var pda))
+            {
+                if (_ui.IsUiOpen(uid, PdaUiKey.Key, args.Entity))
+                {
+                    UpdatePdaUi(uid, pda, args.Entity);
+                }
+            }
         }
 
         private void OnEntityRenamed(ref EntityRenamedEvent ev)
@@ -194,6 +221,7 @@ namespace Content.Server.PDA
             var hasInstrument = HasComp<InstrumentComponent>(uid);
             var showUplink = HasComp<UplinkComponent>(uid) && IsUnlocked(uid);
 
+            pda.CurrentDate = pda.DateOverride ?? ServerDate; // DeltaV - PDA date
             UpdateStationName(uid, pda);
             UpdateAlertLevel(uid, pda);
             UpdateWarLevel(uid, pda); // Mono
@@ -243,6 +271,7 @@ namespace Content.Server.PDA
                     JobTitle = id?.LocalizedJobTitle,
                     CompanyName = companyName,
                     CompanyColor = companyColor,
+                    CurrentDate = pda.CurrentDate, // DeltaV - PDA date
                     StationAlertLevel = pda.StationAlertLevel,
                     StationAlertColor = pda.StationAlertColor,
                     WarLevel = pda.WarLevel
