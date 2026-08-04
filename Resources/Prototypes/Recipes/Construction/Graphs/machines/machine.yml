@@ -8,7 +8,7 @@
           prototype: SheetSteel1
         - !type:DeleteEntity
       edges:
-        - to: UnfinishedMachineFrame
+        - to: missingWires
           completed:
             - !type:SetAnchor
               value: true # Mono

@@ -310,7 +310,7 @@ namespace Content.Server.Lathe
                     var counter = 0;
                     foreach (var conEnt in storage.Contents.ContainedEntities)
                     {
-                        if (MetaData(conEnt).EntityPrototype?.ID == entity.Id)
+                        if (MetaData(conEnt).EntityPrototype?.ID != entity.Id)
                             continue;
 
                         _stackQuery.TryComp(conEnt, out var stack);
@@ -681,13 +681,16 @@ namespace Content.Server.Lathe
         // Mono
         public override bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount = 1, LatheComponent? component = null)
         {
-            if (!TryComp<EntityStorageComponent>(uid, out var storage))
-                return base.CanProduce(uid, recipe, amount, component);
+            if (!TryComp<EntityStorageComponent>(uid, out var storage) &&
+                recipe.Entities.Count != 0)
+                return false;
 
-            var processedEntities = new Dictionary<string, int> { };
+            if (storage == null)
+                return base.CanProduce(uid, recipe, amount, component);
 
             foreach (var (entity, needed) in recipe.Entities)
             {
+                var processedEntities = 0;
                 foreach (var conEnt in storage.Contents.ContainedEntities)
                 {
                     if (MetaData(conEnt).EntityPrototype?.ID != entity.Id)
@@ -695,12 +698,10 @@ namespace Content.Server.Lathe
 
                     _stackQuery.TryComp(conEnt, out var stack);
 
-                    processedEntities.TryGetValue(entity.Id, out var current);
-                    processedEntities[entity.Id] = current + stack?.Count ?? 1;
+                    processedEntities += stack?.Count ?? 1;
                 }
 
-                if (processedEntities.TryGetValue(entity, out var containerCount)
-                     && containerCount < needed * amount)
+                if (processedEntities < needed * amount)
                     return false;
             }
 
