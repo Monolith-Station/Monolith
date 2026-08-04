@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Linq;
 using Content.Shared._Mono.Radar;
 using Content.Shared.Projectiles;
 using Robust.Shared.Map;
@@ -182,6 +183,9 @@ public sealed partial class RadarBlipsSystem : EntitySystem
         foreach (var missile in _missiles)
         {
             var tiedBlip = _blips.FirstOrDefault(x => x.Uid == missile.Uid);
+            if (tiedBlip == default)
+                continue;
+
             var coord = tiedBlip.Position;
             var color = Color.FromHex("#00AACC");
             var colorArcs = Color.FromHex("#FF0040");

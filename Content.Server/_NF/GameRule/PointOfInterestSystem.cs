@@ -132,7 +132,7 @@ public sealed partial class PointOfInterestSystem : EntitySystem
             if (marketsAdded >= marketCount)
                 break;
 
-            var offset = GetRandomPOICoord(proto.MinimumDistance, proto.MaximumDistance);
+            var offset = GetRandomPOICoord(proto);
             Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
             var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
             Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
@@ -141,7 +141,7 @@ public sealed partial class PointOfInterestSystem : EntitySystem
             {
                 marketStations.Add(market);
                 marketsAdded++;
-                AddStationCoordsToSet(coords);
+                AddStationPlacement(coords, proto);
             }
         }
     }
@@ -170,7 +170,7 @@ public sealed partial class PointOfInterestSystem : EntitySystem
             if (optionalsAdded >= optionalCount)
                 break;
 
-            var offset = GetRandomPOICoord(proto.MinimumDistance, proto.MaximumDistance);
+            var offset = GetRandomPOICoord(proto);
             Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
             var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
             Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
@@ -178,7 +178,7 @@ public sealed partial class PointOfInterestSystem : EntitySystem
             if (TrySpawnPoiGrid(mapUid, proto, coords, out var optionalUid) && optionalUid is { Valid: true } uid)
             {
                 optionalStations.Add(uid);
-                AddStationCoordsToSet(coords);
+                AddStationPlacement(coords, proto);
             }
         }
     }
@@ -202,7 +202,7 @@ public sealed partial class PointOfInterestSystem : EntitySystem
             if (proto.SpawnGamePreset.Length > 0 && !proto.SpawnGamePreset.Contains(currentPreset))
                 continue;
 
-            var offset = GetRandomPOICoord(proto.MinimumDistance, proto.MaximumDistance);
+            var offset = GetRandomPOICoord(proto);
             Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
             var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
             Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
@@ -210,7 +210,7 @@ public sealed partial class PointOfInterestSystem : EntitySystem
             if (TrySpawnPoiGrid(mapUid, proto, coords, out var requiredUid) && requiredUid is { Valid: true } uid)
             {
                 requiredStations.Add(uid);
-                AddStationCoordsToSet(coords);
+                AddStationPlacement(coords, proto);
             }
         }
     }
@@ -243,7 +243,7 @@ public sealed partial class PointOfInterestSystem : EntitySystem
                 var chance = _random.NextFloat(0, 1);
                 if (chance <= proto.SpawnChance)
                 {
-                    var offset = GetRandomPOICoord(proto.MinimumDistance, proto.MaximumDistance);
+                    var offset = GetRandomPOICoord(proto);
                     Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
                     var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
                     Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
@@ -251,7 +251,7 @@ public sealed partial class PointOfInterestSystem : EntitySystem
                     if (TrySpawnPoiGrid(mapUid, proto, coords, out var optionalUid) && optionalUid is { Valid: true } uid)
                     {
                         uniqueStations.Add(uid);
-                        AddStationCoordsToSet(coords);
+                        AddStationPlacement(coords, proto);
                         break;
                     }
                 }

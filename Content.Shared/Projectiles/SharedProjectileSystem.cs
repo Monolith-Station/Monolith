@@ -650,62 +650,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         }
     }
 
-    private void PreventCollision(EntityUid uid, ProjectileComponent component, ref PreventCollideEvent args)
-    {
-        // Ignore dormant ammo entities here so they keep ordinary item behavior.
-        if (!IsActiveProjectile(component))
-            return;
-
-        // Goobstation - Crawling fix
-        if (TryComp<RequireProjectileTargetComponent>(args.OtherEntity, out var requireTarget) && requireTarget.IgnoreThrow && requireTarget.Active)
-            return;
-
-        if (component.IgnoreShooter && (args.OtherEntity == component.Shooter || args.OtherEntity == component.Weapon))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        // Get transforms once for subsequent checks to avoid repeated calls
-        var projectileXform = Transform(uid);
-        var targetXform = Transform(args.OtherEntity);
-
-        // Add collision check to queue for batch processing if we have enough
-        if (_pendingCollisionChecks.Count >= MinProjectilesForParallel / 2)
-        {
-            _pendingCollisionChecks.Enqueue((uid, component, args.OtherEntity));
-
-            // Assume collision for now - if shield check passes, we'll handle it in the batch process
-            return;
-        }
-
-        // For low volume, process immediately
-        // Check if any shield system wants to prevent collision
-        var ev = new ProjectileCollisionAttemptEvent(uid, args.OtherEntity);
-        RaiseLocalEvent(ref ev);
-
-        if (ev.Cancelled)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        // Check if target and projectile are on different maps/z-levels
-        if (projectileXform.MapID != targetXform.MapID)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        // Define the tag constant
-        const string GunCanAimShooterTag = "GunCanAimShooter";
-
-        if ((component.Shooter == args.OtherEntity || component.Weapon == args.OtherEntity) &&
-            component.Weapon != null && _tag.HasTag(component.Weapon.Value, GunCanAimShooterTag) &&
-            TryComp(uid, out TargetedProjectileComponent? targeted) && targeted.Target == args.OtherEntity)
-            return;
-    }
-
     // Goobstation - Crawling fix
     private void EmbeddablePreventCollision(EntityUid uid, EmbeddableProjectileComponent component, ref PreventCollideEvent args)
     {
