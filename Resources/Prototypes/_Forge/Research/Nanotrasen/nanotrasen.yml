@@ -173,7 +173,6 @@
   cost: 15000
   recipeUnlocks:
   - WeaponRevolverInspector
-  - WeaponRevolverDeckard
   - WeaponFlareGunSecurity
   technologyPrerequisites:
   - UniversalMaterialResearchT1
@@ -187,7 +186,7 @@
   tier: 2
   cost: 30000
   recipeUnlocks:
-  - WeaponPistolN1984
+  - WeaponPistolMk58
   - WeaponRevolverMateba
   technologyPrerequisites:
   - NanotrasenWeaponT1
@@ -234,8 +233,8 @@
   - WeaponPulseCarbine
   - WeaponRifleNtsfLtr
   - WeaponSubMachineGunVectorNtsfHclm
-  - Magazine45_magnumPistolHighCapacityFMJ
-  - Magazine45_magnumPistolHighCapacityEmpty
+  - Magazine45_ACPPistolHighCapacityFMJ
+  - Magazine45_ACPPistolHighCapacityEmpty
   technologyPrerequisites:
   - NanotrasenWeaponT3
   position: 21, 10

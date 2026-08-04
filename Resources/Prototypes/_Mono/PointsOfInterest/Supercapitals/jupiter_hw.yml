@@ -37,9 +37,8 @@
           lobbySortOrder: 2
         - type: StationJobs
           availableJobs:
-            PirateFirstMate: [ 1, 1 ] # Mono
-            PDVDenasvar: [ 2, 2 ]
-            Pirate: [ 8, 8 ] # Mono
+            PDVTarkhan: [ 1, 1 ]
+            Pirate: [ 8, 8 ]
           tags:
           - PDVCommand
         - type: StationDeadDropReporting
