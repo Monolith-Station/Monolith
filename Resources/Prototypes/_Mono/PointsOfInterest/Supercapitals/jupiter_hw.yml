@@ -36,9 +36,7 @@
           stationDescription: 'frontier-lobby-jupiter-description'
           lobbySortOrder: 2
         - type: StationJobs
-          availableJobs:
-            PDVTarkhan: [ 1, 1 ]
-            Pirate: [ 8, 8 ]
+          availableJobs: {} # Forge-Change-delete: pirate/PDV spawners disabled
           tags:
           - PDVCommand
         - type: StationDeadDropReporting
