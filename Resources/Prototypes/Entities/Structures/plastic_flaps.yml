@@ -44,6 +44,9 @@
     mode: NoSprite
   - type: StaticPrice
     price: 100
+  - type: ShipRepairable # Mono
+    repairTime: 15
+    repairCost: 50
 
 - type: entity
   id: PlasticFlapsClear

@@ -1,0 +1,291 @@
+# Capsule
+
+- type: microwaveMealRecipe
+  id: RecipeMatterBinEconomy2
+  name: large matter bin
+  result: MatterBinEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    MatterBinEconomy1: 2
+    ArmorPlateEconomy1: 1
+  recipeType: PrecisionAssembler
+
+# Microprocessors
+
+- type: microwaveMealRecipe
+  id: RecipeMicroprocessorEconomy2
+  name: nanoprocessor recipe
+  result: MicroprocessorEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    MicroprocessorEconomy1: 2
+    SiliconWaferEconomy: 1
+  reagents:
+    Plasma: 100
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMicroprocessorEconomy3
+  name: quantum processor recipe
+  result: MicroprocessorEconomy3
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    MicroprocessorEconomy2: 1
+    OpticsEconomy1: 1
+  reagents:
+    SodiumPolyacrylate: 30
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeSiliconWaferEconomy
+  name: silicon wafer recipe
+  result: SiliconWaferEconomySliceSpawner8
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    SiliconBouleEconomy: 1
+  recipeType: PrecisionAssembler
+
+# Optics
+
+- type: microwaveMealRecipe
+  id: RecipeOpticsEconomy2
+  name: precision optical sensor recipe
+  result: OpticsEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    OpticsEconomy1: 1
+    CapacitorEconomy1: 2
+  reagents:
+    Phenol: 20
+  recipeType: PrecisionAssembler
+
+# Radios
+
+- type: microwaveMealRecipe
+  id: RecipeRadioEconomy2
+  name: HF signal transciever recipe
+  result: RadioEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    RadioEconomy1: 1
+    CapacitorEconomy1: 2
+    ComponentBrickEconomy1: 1
+  recipeType: PrecisionAssembler
+
+# Capacitors
+
+- type: microwaveMealRecipe
+  id: RecipeCapacitorEconomy2
+  name: advanced capacitor recipe
+  result: CapacitorEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    CapacitorEconomy1: 1
+  reagents:
+    Superconductant: 60
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeCapacitorEconomy3
+  name: supercapacitor recipe
+  result: CapacitorEconomy3
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    CapacitorEconomy2: 2
+    ElectromagnetEconomy2: 1
+  recipeType: PrecisionAssembler
+
+# Electromagnets
+
+- type: microwaveMealRecipe
+  id: RecipeElectromagnetEconomy2
+  name: compound electromagnet recipe
+  result: ElectromagnetEconomy2
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    ElectromagnetEconomy1: 2
+  reagents:
+    Superconductant: 60
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeElectromagnetEconomy3
+  name: superconductive electromagnet recipe
+  result: ElectromagnetEconomy3
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    ElectromagnetEconomy2: 2
+    CapacitorEconomy2: 2
+  reagents:
+    LithiumHydroxide: 20
+  recipeType: PrecisionAssembler
+
+# Component bricks
+
+- type: microwaveMealRecipe
+  id: RecipeComponentBrickEconomy1
+  name: basic components recipe
+  result: ComponentBrickEconomy1
+  time: 15
+  group: PrecisionAssembler
+  solids:
+    MicroprocessorEconomy1: 1
+    ArmorPlateEconomy1: 1
+    MatterBinEconomy1: 1
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeComponentBrickEconomy2
+  name: advanced components recipe
+  result: ComponentBrickEconomy2
+  time: 20
+  group: PrecisionAssembler
+  solids:
+    MicroprocessorEconomy2: 1
+    ArmorPlateEconomy2Finished: 1
+    MatterBinEconomy2: 1
+    ComponentBrickEconomy1: 1
+  recipeType: PrecisionAssembler
+
+# Compressed parts
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryElectronics
+  name: electric components recipe
+  result: MaterialIndustryElectronics
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 3
+  solids:
+    MicroprocessorEconomy1: 3
+    MicroprocessorEconomy2: 1
+    ElectromagnetEconomy1: 1
+    CapacitorEconomy1: 4
+    RadioEconomy1: 1
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryElectronicsAdvanced
+  name: advanced electric components recipe
+  result: MaterialIndustryElectronicsAdvanced
+  time: 30
+  group: PrecisionAssembler
+  resultCount: 2
+  solids:
+    MicroprocessorEconomy2: 2
+    ElectromagnetEconomy3: 1
+    CapacitorEconomy2: 6
+    RadioEconomy2: 1
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryElectronicsAdvancedAlt
+  name: alternate advanced electric components recipe
+  result: MaterialIndustryElectronicsAdvanced
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 2
+  solids:
+    MicroprocessorEconomy3: 3
+    CapacitorEconomy3: 2
+    RadioEconomy1: 2
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryFCS
+  name: FCS components recipe
+  result: MaterialIndustryFCS
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 1
+  solids:
+    MicroprocessorEconomy1: 2
+    MicroprocessorEconomy2: 1
+    OpticsEconomy2: 2
+    CameraEconomy1: 1
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryMechanical
+  name: mechanical components recipe
+  result: MaterialIndustryMechanical
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 2
+  solids:
+    ComponentBrickEconomy1: 1
+    MotorEconomy1: 2
+    MatterBinEconomy1: 2
+    MatterBinEconomy2: 1
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryPlates
+  name: armor components recipe
+  result: MaterialIndustryPlates
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 2
+  solids:
+    ArmorPlateEconomy2Finished: 2
+    ArmorPlateEconomy1: 4
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryPlatesAlt
+  name: alternate armor components recipe
+  result: MaterialIndustryPlates
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 3
+  solids:
+    ArmorPlateEconomy3: 1
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryRecievers
+  name: reciever components recipe
+  result: MaterialIndustryRecievers
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 2 # may seem very grindy to get guns - 1 comp is 5u though
+  solids:
+    ComponentBrickEconomy1: 1 # not enough mechanical parts to use really
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustrySensors
+  name: sensor components recipe
+  result: MaterialIndustrySensors
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 2
+  solids:
+    OpticsEconomy1: 4
+    OpticsEconomy2: 2
+    CameraEconomy1: 2
+  recipeType: PrecisionAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeMaterialIndustryShip
+  name: ship components recipe
+  result: MaterialIndustryShip
+  time: 10
+  group: PrecisionAssembler
+  resultCount: 5
+  solids:
+    MaterialIndustrySensors: 1 # Here bro have a tung tung
+    MaterialIndustryPlates: 1
+    MaterialIndustryElectronics: 1
+    MaterialIndustryFCS: 1
+  recipeType: PrecisionAssembler

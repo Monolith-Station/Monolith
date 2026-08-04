@@ -37,6 +37,12 @@ public sealed partial class VesselPrototype : IPrototype, IInheritingPrototype
     [DataField("hyperwarLimit")] public int HyperwarLimitActive;
 
     /// <summary>
+    ///     Makes ship unable to be deployed until specific time from round start passes while HyperwarGamerule is active.
+    ///     0 for unlimited.
+    /// </summary>
+    [DataField] public TimeSpan HyperwarTimelock = TimeSpan.FromMinutes(10);
+
+    /// <summary>
     ///     Short description of the vessel.
     /// </summary>
     [DataField] public string Description = string.Empty;

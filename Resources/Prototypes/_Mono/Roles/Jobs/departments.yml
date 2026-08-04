@@ -23,6 +23,18 @@
   editorHidden: true
 
 - type: department
+  id: MieyoManufacturingConcern
+  name: department-MieyoManufacturingConcern
+  description: department-MieyoManufacturingConcern-description
+  color: "#EEEEEE"
+  weight: 0
+  roles:
+  - MMCLiason
+  - MMCSecurity
+  - MMCEmployee
+  primary: false
+
+- type: department
   id: ViperGroup
   name: department-Viper
   description: department-Viper-description

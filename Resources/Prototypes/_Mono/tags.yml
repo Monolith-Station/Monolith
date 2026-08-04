@@ -43,9 +43,6 @@
 - type: Tag
   id: ShipRepairTool
 
-- type: Tag # Prevents a crash and makes future cherry-picks hurt less but not actually implemented
-  id: TurretCompatibleWeapon # Used in the construction of sentry turrets
-
 - type: Tag
   id: UnavoidableTrap # For "traps" (step triggers) that TrapAvoider shouldn't dodge, like lava or chasms.
 
@@ -101,6 +98,17 @@
 
 - type: Tag
   id: SandMaterial
+
+# Iridite processing
+
+- type: Tag
+  id: IriditeSlag
+
+- type: Tag
+  id: IriditePowder
+
+- type: Tag
+  id: IriditeCrystal
 
 # Heavy airlocks
 
@@ -225,22 +233,22 @@
 - type: Tag
   id: Magazine45_ACPFMJBox
 
-#45 magnum tags
+#357 magnum tags
 
 - type: Tag
-  id: Cartridge45_magnumFMJ
+  id: Cartridge357_magnumFMJ
 
 - type: Tag
-  id: Magazine45_magnumPistolHighCapacityFMJ
+  id: Magazine357_magnumPistolHighCapacityFMJ
 
 - type: Tag
-  id: SpeedLoader45_magnumFMJ
+  id: SpeedLoader357_magnumFMJ
 
 - type: Tag
-  id: Magazine45_magnumPistolFMJ
+  id: Magazine357_magnumPistolFMJ
 
 - type: Tag
-  id: Magazine45_magnumSubMachineGunFMJ
+  id: Magazine357_magnumSubMachineGunFMJ
 
 #9x19mm tags
 
@@ -612,6 +620,9 @@
 - type: Tag
   id: USSPStamp
 
+- type: Tag
+  id: MMCLiasonStamp
+
 # books
 
 - type: Tag
@@ -674,6 +685,69 @@
 - type: Tag
   id: EconomyGood
 
+- type: Tag
+  id: ComponentBrickEconomy1
+
+- type: Tag
+  id: ComponentBrickEconomy2
+
+- type: Tag
+  id: ComponentBrickEconomy3
+
+- type: Tag
+  id: MicroprocessorEconomy1
+
+- type: Tag
+  id: MicroprocessorEconomy2
+
+- type: Tag
+  id: MicroprocessorEconomy3
+
+- type: Tag
+  id: CapacitorEconomy1
+
+- type: Tag
+  id: CapacitorEconomy2
+
+- type: Tag
+  id: MatterBinEconomy1
+
+- type: Tag
+  id: OpticsEconomy1
+
+- type: Tag
+  id: OpticsEconomy2
+
+- type: Tag
+  id: CameraEconomy1
+
+- type: Tag
+  id: ArmorPlateEconomy1
+
+- type: Tag
+  id: ArmorPlateEconomy2
+
+- type: Tag
+  id: ArmorPlateEconomy3
+
+- type: Tag
+  id: ElectromagnetEconomy1
+
+- type: Tag
+  id: ElectromagnetEconomy2
+
+- type: Tag
+  id: ElectromagnetEconomy3
+
+- type: Tag
+  id: RadioEconomy1
+
+- type: Tag
+  id: RadioEconomy2
+
+- type: Tag
+  id: MotorEconomy1
+
 # Static uplinks
 
 - type: Tag
@@ -686,3 +760,20 @@
 
 - type: Tag
   id: WhitelistChameleonIdViperSpec
+
+# Nukeops tags
+
+- type: Tag
+  id: TsfStation
+
+- type: Tag
+  id: PdvStation
+
+# Gateway tags
+
+- type: Tag
+  id: Node
+
+- type: Tag
+  id: Central
+

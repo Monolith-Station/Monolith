@@ -144,6 +144,9 @@
   - type: TTS # Corvax-TTS
     voice: Glados
   #<Forge>
+  - type: BarricadeBlock
+    bidirectional: true
+    blocking: 67
 
 - type: entity
   parent: VendingMachine

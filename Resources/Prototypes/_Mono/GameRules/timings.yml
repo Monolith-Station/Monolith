@@ -13,24 +13,26 @@
     delay:
       min: 14400
       max: 14400
-  - type: BlankRule
-  - type: StationEvent
-    earliestStart: 0
-    endAnnouncement: gamerule-portstrike-announce-announcement
-    announceSender: gamerule-portstrike-announce-sender
-    endAudio:
-      path: /Audio/Misc/gamma.ogg
-      params:
-        volume: -2
+  - type: WarLevelRule
+    warLevel: true
 
 - type: entity
-  id: PortstrikeAnnounceRuleMinute90
+  id: PortstrikeAnnounceRuleRandom35To45
   parent: PortstrikeAnnounceRuleHour4
   components:
   - type: GameRule
     delay:
-      min: 5400
-      max: 5400
+      min: 12600 # 3.5hr
+      max: 16200 # 4.5hr
+
+- type: entity
+  id: PortstrikeAnnounceRuleHour2
+  parent: PortstrikeAnnounceRuleHour4
+  components:
+  - type: GameRule
+    delay:
+      min: 7200
+      max: 7200
 
 - type: entity
   id: PortstrikeAnnounceRuleHour1
@@ -50,10 +52,10 @@
     endAt: 120
 
 - type: entity
-  id: PortstrikeAnnounceRuleSeconds20
+  id: PortstrikeAnnounceRuleSeconds5
   parent: PortstrikeAnnounceRuleHour4
   components:
   - type: GameRule
     delay:
-      min: 20
-      max: 20
+      min: 5
+      max: 5

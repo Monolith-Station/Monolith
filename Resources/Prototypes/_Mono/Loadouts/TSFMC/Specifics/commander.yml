@@ -6,6 +6,7 @@
   - TsfmcClothingNeckIFFCyan
   - TsfClothingNeckColonelCloak
   - TsfClothingNeckCaptainCloak
+  - TsfClothingNeckCloak
   fallbacks:
   - TsfmcClothingNeckIFFCyan
 
@@ -16,6 +17,18 @@
   loadouts:
   - TsfmcClothingNeckIFFCyan
   - TsfClothingNeckCaptainCloak
+  - TsfClothingNeckCloak
+  - TsfClothingNeckCaptainFormal
+  fallbacks:
+  - TsfmcClothingNeckIFFCyan
+
+- type: loadoutGroup
+  id: TsfmcNeckFTL
+  name: loadout-group-contractor-neck
+  minLimit: 1
+  loadouts:
+  - TsfmcClothingNeckIFFCyan
+  - TsfClothingNeckCloak
   fallbacks:
   - TsfmcClothingNeckIFFCyan
 
@@ -43,3 +56,19 @@
   name: loadout-tsfmc-captain-cloak
   equipment:
     neck: ClothingNeckCaptainCloak
+
+- type: loadout
+  id: TsfClothingNeckCaptainFormal
+  equipment:
+    neck: ClothingNeckFormalTSFCaptain
+
+- type: loadout  
+  id: SheriffClothingNeckMantleSheriff
+  equipment:
+    neck: ClothingNeckMantleSheriff
+
+- type: loadout
+  id: TsfClothingNeckCloak
+  equipment:
+    neck: ClothingNeckTSFCloak
+

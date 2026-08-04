@@ -213,3 +213,57 @@
   components:
   - type: VendingMachine
     pack: TraderTradeMall
+
+#Combines both flatpack vendors
+- type: entity
+  parent: VendingMachineFlatpackVend
+  id: FlatpackVendPremium
+  name: FlatpackVend Premium
+  description: Contains every flatpack from here to the neighboring sectors. Mostly.
+  components:
+  - type: VendingMachine
+    pack: FlatpackVendPremiumInventory
+
+# Automated mieyo trader that sends taxes to MMC bank
+- type: entity
+  parent: VendingMachineAstroVend
+  id: VendingMachineMieyoAutomated
+  name: MMC automated vending machine
+  description: Sells various MMC products, and sends 80% of the profits back to Hokkaido.
+  components:
+  - type: VendingMachine
+    pack: MieyoAutomatedTrader
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    taxAccounts:
+      Mieyo: 0.8
+  - type: Advertise
+    pack: MieyoAds
+  - type: MarketModifier
+    mod: 5
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/vendomat.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#B0ADA9"
+
+- type: entity
+  parent: VendingMachineBoozeFlatpack
+  id: VendingMachineMieyoAutomatedFlatpack
+  name: MMC automated vendor flatpack
+  description: A flatpack used for constructing a MMC automated vendor.
+  components:
+  - type: Flatpack
+    entity: VendingMachineMieyoAutomated

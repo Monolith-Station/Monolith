@@ -508,6 +508,7 @@ namespace Content.IntegrationTests.Tests
                     !x.MapPath.ToString().StartsWith("/SharedMaps/_Forge/Shuttles") && // Forge: skip shuttles (not loaded as maps)
                     !x.MapPath.ToString().StartsWith("/Maps/_Mono/Deprecated") && // Mono: skip deprecated (not loaded as maps)
                     !x.MapPath.ToString().StartsWith("/Maps/_Mono/ShuttleEvent") && // Mono: skip shuttleevents (not loaded as maps)
+                    !x.MapPath.ToString().StartsWith("/Maps/_Mono/Supercapitals") && // Mono: skip supercapitals (not loaded as maps)
                     !x.MapPath.ToString().StartsWith("/Maps/_Mono/POI")) // Mono: skip POIs (not loaded as maps)
                     )
                 // End Frontier

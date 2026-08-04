@@ -1,0 +1,188 @@
+- type: loadoutGroup
+  id: MMCEmployeeBackpack
+  name: loadout-group-contractor-backpack
+  minLimit: 1
+  loadouts:
+  - ContractorClothingBackpack
+  - ContractorClothingBackpackDuffel
+  - ContractorClothingBackpackSatchel
+  - ContractorClothingBackpackMessenger
+  - ContractorClothingBackpackMessengerContractor
+  - MonoSecurityGuardBackpack
+  - MonoSecurityGuardSatchel
+  - MonoSecurityGuardDuffel
+  fallbacks:
+  - ContractorClothingBackpack
+
+- type: loadoutGroup
+  id: MMCEmployeeJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  loadouts:
+  - MMCOfficeSuit
+  - MMCOfficeSuitBlack
+  - MMCWorkSuit
+  fallbacks:
+  - MMCOfficeSuit
+
+- type: loadoutGroup
+  id: MMCEmployeeBelt
+  name: loadout-group-contractor-belt
+  minLimit: 0
+  loadouts:
+  - ContractorClothingBeltUtilityFilled
+
+- type: loadoutGroup
+  id: MMCOuterClothing
+  name: loadout-group-contractor-outerclothing
+  minLimit: 0
+  loadouts:
+  - MercenaryVestSlim
+  - MercenaryVestNormal
+  - MercenaryClothingOuterArmorBPVestLight
+  - MMCClothingOuterHardsuitMieyoMining
+
+- type: loadoutGroup
+  id: MMCEmployeeShoes
+  name: loadout-group-contractor-shoes
+  minLimit: 1
+  loadouts:
+  - ContractorClothingShoesBootsLaceup
+  - ContractorClothingShoesColorBlack
+  - ContractorClothingShoesBootsSalvage
+  fallbacks:
+  - ContractorClothingShoesBootsLaceup
+
+- type: loadoutGroup
+  id: MMCEmployeeEars
+  name: loadout-group-contractor-ears
+  minLimit: 1
+  loadouts:
+  - MMCHeadset
+  fallbacks:
+  - MMCHeadset
+
+- type: loadoutGroup
+  id: MMCProducts
+  name: loadout-group-mieyo-products
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - MMCRCDLoadout
+  - MMCRPDLoadout
+  - MMCMotionDetectorLoadout
+  - MMCSRDLoadout
+  - MMCVendorLoadout
+
+# Corpsec below
+
+- type: loadoutGroup
+  id: MMCCorpSecOuterClothing
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadouts:
+  - MercenaryVestSlim
+  - MercenaryVestNormal
+  - MercenaryClothingOuterArmorBPVestLight
+  - MMCClothingOuterHardsuitMieyoMining
+  - MMCClothingOuterHardsuitMieyoCombat
+  fallbacks:
+  - MercenaryVestSlim
+
+- type: loadoutGroup
+  id: MMCCorpSecBelt
+  name: loadout-group-contractor-belt
+  minLimit: 1
+  loadouts:
+  - MercenaryClothingBeltWebbingsNormalBlack
+  - MercenaryClothingBeltWebbingsBigBlack
+  - MercenaryClothingBeltSecurity
+  - MercenaryClothingBeltSecurityEmpty
+  fallbacks:
+  - MercenaryClothingBeltWebbingsNormalBlack
+
+- type: loadoutGroup
+  id: MMCCorpSecShoes
+  name: loadout-group-contractor-shoes
+  minLimit: 1
+  loadouts:
+  - MercenaryClothingShoesBootsJack
+  - MercenaryClothingShoesBootsCombat
+  fallbacks:
+  - MercenaryClothingShoesBootsCombat
+
+- type: loadoutGroup
+  id: MMCCorpSecBackpack
+  name: loadout-group-contractor-backpack
+  minLimit: 1
+  loadouts:
+  - MonoSecurityGuardBackpack
+  - MonoSecurityGuardSatchel
+  - MonoSecurityGuardDuffel
+  fallbacks:
+  - MonoSecurityGuardBackpack
+
+- type: loadoutGroup
+  id: MMCCorpSecJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  loadouts:
+  - MMCFieldSuit
+  - MMCFieldSuitJeans
+  - MMCFieldSuitCargos
+  - MMCFieldSuitWarm
+  fallbacks:
+  - MMCFieldSuit
+
+- type: loadoutGroup
+  id: MMCCorpSecEars
+  name: loadout-group-contractor-ears
+  minLimit: 1
+  loadouts:
+  - MMCCommandHeadset
+  fallbacks:
+  - MMCCommandHeadset
+
+- type: loadoutGroup
+  id: MMCCorpSecBalaclava
+  name: loadout-group-contractor-balaclava
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - MercenaryClothingBalaclavaSkiMaskBlack
+
+- type: loadoutGroup
+  id: MMCCorpSecGloves
+  name: loadout-group-contractor-gloves
+  minLimit: 1
+  loadouts:
+  - MercenaryClothingHandsGlovesCombat
+  - MercenaryClothingHandsGlovesTacticalCombatBlack
+  - ContractorClothingHandsGlovesFingerless
+  fallbacks:
+  - MercenaryClothingHandsGlovesCombat
+
+- type: loadoutGroup
+  id: MMCRanksCorpSec
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MMCRankCS
+  - MMCRankAS
+  - MMCRankSAS
+  fallbacks:
+  - MMCRankCS
+
+- type: loadoutGroup
+  id: MMCProductsCorpSec
+  name: loadout-group-mieyo-products
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - MMCRCDLoadout
+  - MMCRPDLoadout
+  - MMCMotionDetectorLoadout
+  - MMCSRDLoadout
+  - MMCVendorLoadout
+  - MMCSandevistanLoadout

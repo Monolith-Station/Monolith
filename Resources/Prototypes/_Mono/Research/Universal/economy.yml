@@ -25,14 +25,15 @@
   entityIcon: UraniumEnrichedProcessingIcon
   discipline: FactionUniversal
   tier: 2
-  cost: 30000
+  cost: 20000
   recipeUnlocks:
   - UraniumCentrifugeReprocessingMini
   - UraniumCentrifugeEnrichedProcessingMini
   technologyPrerequisites:
   - UniversalMaterialResearchT2
   - BasicProcessing
-  position: 9, 7
+  - AdvancedProcessing
+  position: 8, 11
 
 - type: entity
   id: UraniumEnrichedProcessingIcon
@@ -40,3 +41,17 @@
   - type: Sprite
     sprite: _Mono/Effects/processing.rsi
     state: processing_3
+
+- type: technology
+  id: AdvancedProcessing
+  name: research-technology-processing-advanced
+  entityIcon: IndustrialFurnaceEconomyCompact
+  discipline: FactionUniversal
+  tier: 2
+  cost: 20000
+  recipeUnlocks:
+  - IndustrialFurnaceEconomyCompactCircuitboard
+  - PrecisionAssemblerEconomyCompactCircuitboard
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  position: 8, 10

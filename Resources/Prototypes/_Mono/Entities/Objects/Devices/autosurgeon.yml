@@ -1,0 +1,265 @@
+# TSF
+
+- type: entity
+  parent: BaseAutosurgeon
+  id: AutosurgeonSandevistanTSF
+  name: TSF autosurgeon (WJY-21X sandevistan)
+  description: Replaces the heart with a reverse-engineered MMC Sandevistan. Doesn't cool down as fast as the real thing.
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Torso
+    targetOrgan: Heart
+    newPartProto: OrganHeartTSFSandevistan
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: AutosurgeonSandevistanTSFFlatpack
+  name: TSF autosurgeon (WJY-21X sandevistan) flatpack
+  description: A flatpack used for constructing a TSF autosurgeon.
+  components:
+  - type: Flatpack
+    entity: AutosurgeonSandevistanTSF
+  - type: StaticPrice
+    price: 15000
+  - type: Sprite
+    layers:
+    - state: medical_lathe
+
+- type: entity
+  parent: BaseAutosurgeon
+  id: AutosurgeonShuntTSF
+  name: TSF autosurgeon (KR-22 shunt device)
+  description: Replaces the heart with a highly experimental shunt device. Thats some scary tech.
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Torso
+    targetOrgan: Heart
+    newPartProto: OrganHeartTSFShunt
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: AutosurgeonShuntTSFFlatpack
+  name: TSF autosurgeon (KR-22 shunt device) flatpack
+  description: A flatpack used for constructing a TSF autosurgeon.
+  components:
+  - type: Flatpack
+    entity: AutosurgeonShuntTSF
+  - type: StaticPrice
+    price: 50000
+  - type: Sprite
+    layers:
+    - state: medical_lathe
+
+# PDV
+
+- type: entity
+  parent: BaseAutosurgeon
+  id: AutosurgeonIASPDV
+  name: PDV autosurgeon (LS-210 IAS)
+  description: Replaces the lungs with an advanced internal-air-system. Capable of filtering out most atmos gases and increasing respiratory efficiency greatly.
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Torso
+    targetOrgan: Lungs
+    newPartProto: OrganInternalAirSystem
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: AutosurgeonIASPDVFlatpack
+  name: PDV autosurgeon (LS-210 IAS) flatpack
+  description: A flatpack used for constructing a PDV autosurgeon.
+  components:
+  - type: Flatpack
+    entity: AutosurgeonIASPDV
+  - type: StaticPrice
+    price: 4000
+  - type: Sprite
+    layers:
+    - state: medical_lathe
+
+
+# Dermal armor
+
+- type: entity
+  parent: BaseAutosurgeonMieyo
+  id: AutosurgeonDermalArmorPDV
+  name: PDV autosurgeon (E-SAPI dermal armor)
+  description: Implants an array of E-SAPI armor plates into the body. Makes you more vulnerable to heat and shock, but makes you more resistant to bullets.
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Torso
+    componentsToUser:
+    - type: DamageProtectionBuff
+      modifiers:
+        dermal:
+          id: DermalArmorCybernetics
+          coefficients:
+            Shock: 1.25
+            Heat: 1.1
+            Piercing: 0.85
+            Blunt: 0.9
+            Slash: 0.9
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: AutosurgeonDermalArmorPDVFlatpack
+  name: PDV autosurgeon (E-SAPI dermal armor) flatpack
+  description: A flatpack used for constructing a PDV autosurgeon.
+  components:
+  - type: Flatpack
+    entity: AutosurgeonDermalArmorPDV
+  - type: StaticPrice
+    price: 2500
+  - type: Sprite
+    layers:
+    - state: medical_lathe
+
+- type: entity
+  parent: BaseAutosurgeon
+  id: AutosurgeonAdvHeartPDV
+  name: PDV autosurgeon (VV/KE prosthetic heart)
+  description: Replaces the heart with a more powerful one. Lets you process reagents faster and take more damage before going down, but lowers your stamina and processes medicine slower.
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Torso
+    targetOrgan: Heart
+    newPartProto: OrganPDVAdvancedHeart
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: AutosurgeonAdvHeartPDVFlatpack
+  name: PDV autosurgeon (VV/KE prosthetic heart) flatpack
+  description: A flatpack used for constructing a PDV autosurgeon.
+  components:
+  - type: Flatpack
+    entity: AutosurgeonAdvHeartPDV
+  - type: StaticPrice
+    price: 3000
+  - type: Sprite
+    layers:
+    - state: medical_lathe
+
+# Mieyo
+
+- type: entity
+  parent: BaseAutosurgeon
+  id: BaseAutosurgeonMieyo
+  abstract: true
+  components:
+  - type: Sprite
+    state: icon-mmc
+
+
+# Dash
+# This one is kinda broken right now for some reason. I think it's because of gravity refactor.
+
+- type: entity
+  parent: BaseAutosurgeonMieyo
+  id: AutosurgeonMuscleFibersMieyo
+  name: MMC autosurgeon (muscle fibers suite)
+  description: Implants a suite of muscle enhancements into the body. Now you can dash around like a pro.
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Torso
+    componentsToUser:
+    - type: DashAction
+      actionProto: ActionDashMuscleFibersImplant
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: AutosurgeonMuscleFibersMieyoFlatpack
+  name: MMC autosurgeon (muscle fibers suite) flatpack
+  description: A flatpack used for constructing a MMC autosurgeon.
+  components:
+  - type: Flatpack
+    entity: AutosurgeonMuscleFibersMieyo
+  - type: StaticPrice
+    price: 2500
+  - type: Sprite
+    layers:
+    - state: medical_lathe
+
+# Right mantis blade
+
+- type: entity
+  parent: BaseAutosurgeonMieyo
+  id: AutosurgeonRightMantisBladeMieyo
+  name: MMC autosurgeon (right mantis blade)
+  description: Implants a covert deployable mantis blade into your right arm. That's really cool.
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Right
+    componentsToPart:
+    - type: MantisBladeArm
+      actionProto: ActionToggleRightMantisBlade
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: AutosurgeonRightMantisBladeMieyoFlatpack
+  name: MMC autosurgeon (right mantis blade) flatpack
+  description: A flatpack used for constructing a MMC autosurgeon.
+  components:
+  - type: Flatpack
+    entity: AutosurgeonRightMantisBladeMieyo
+  - type: StaticPrice
+    price: 2500
+  - type: Sprite
+    layers:
+    - state: medical_lathe
+
+# Left mantis blade
+
+- type: entity
+  parent: BaseAutosurgeonMieyo
+  id: AutosurgeonLeftMantisBladeMieyo
+  name: MMC autosurgeon (left mantis blade)
+  description: Implants a covert deployable mantis blade into your left arm. That's really cool.
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Left
+    componentsToPart:
+    - type: MantisBladeArm
+      actionProto: ActionToggleLeftMantisBlade
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: AutosurgeonLeftMantisBladeMieyoFlatpack
+  name: MMC autosurgeon (left mantis blade) flatpack
+  description: A flatpack used for constructing a MMC autosurgeon.
+  components:
+  - type: Flatpack
+    entity: AutosurgeonLeftMantisBladeMieyo
+  - type: StaticPrice
+    price: 2500
+  - type: Sprite
+    layers:
+    - state: medical_lathe
+
+# Sandevistan
+
+- type: entity
+  parent: BaseAutosurgeonMieyo
+  id: AutosurgeonSandevistanMieyo
+  name: MMC autosurgeon (sandevistan)
+  description: Replaces the heart with a MMC Sandevistan.
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Torso
+    targetOrgan: Heart
+    newPartProto: OrganHeartSandevistan
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: AutosurgeonSandevistanMieyoFlatpack
+  name: MMC autosurgeon (sandevistan) flatpack
+  description: A flatpack used for constructing a MMC autosurgeon.
+  components:
+  - type: Flatpack
+    entity: AutosurgeonSandevistanMieyo
+  - type: StaticPrice
+    price: 20000
+  - type: Sprite
+    layers:
+    - state: medical_lathe

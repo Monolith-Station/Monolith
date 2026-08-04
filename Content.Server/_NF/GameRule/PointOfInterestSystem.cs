@@ -132,13 +132,16 @@ public sealed partial class PointOfInterestSystem : EntitySystem
             if (marketsAdded >= marketCount)
                 break;
 
-            var offset = GetRandomPOICoord(proto);
+            var offset = GetRandomPOICoord(proto.MinimumDistance, proto.MaximumDistance);
+            Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
+            var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
+            Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
 
-            if (TrySpawnPoiGrid(mapUid, proto, offset, out var marketUid) && marketUid is { Valid: true } market)
+            if (TrySpawnPoiGrid(mapUid, proto, coords, out var marketUid) && marketUid is { Valid: true } market)
             {
                 marketStations.Add(market);
                 marketsAdded++;
-                AddStationPlacement(offset, proto);
+                AddStationCoordsToSet(coords);
             }
         }
     }
@@ -167,13 +170,15 @@ public sealed partial class PointOfInterestSystem : EntitySystem
             if (optionalsAdded >= optionalCount)
                 break;
 
-            var offset = GetRandomPOICoord(proto);
+            var offset = GetRandomPOICoord(proto.MinimumDistance, proto.MaximumDistance);
+            Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
+            var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
+            Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
 
-            if (TrySpawnPoiGrid(mapUid, proto, offset, out var optionalUid) && optionalUid is { Valid: true } uid)
+            if (TrySpawnPoiGrid(mapUid, proto, coords, out var optionalUid) && optionalUid is { Valid: true } uid)
             {
                 optionalStations.Add(uid);
-                optionalsAdded++;
-                AddStationPlacement(offset, proto);
+                AddStationCoordsToSet(coords);
             }
         }
     }
@@ -197,12 +202,15 @@ public sealed partial class PointOfInterestSystem : EntitySystem
             if (proto.SpawnGamePreset.Length > 0 && !proto.SpawnGamePreset.Contains(currentPreset))
                 continue;
 
-            var offset = GetRandomPOICoord(proto);
+            var offset = GetRandomPOICoord(proto.MinimumDistance, proto.MaximumDistance);
+            Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
+            var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
+            Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
 
-            if (TrySpawnPoiGrid(mapUid, proto, offset, out var requiredUid) && requiredUid is { Valid: true } uid)
+            if (TrySpawnPoiGrid(mapUid, proto, coords, out var requiredUid) && requiredUid is { Valid: true } uid)
             {
                 requiredStations.Add(uid);
-                AddStationPlacement(offset, proto);
+                AddStationCoordsToSet(coords);
             }
         }
     }
@@ -235,12 +243,15 @@ public sealed partial class PointOfInterestSystem : EntitySystem
                 var chance = _random.NextFloat(0, 1);
                 if (chance <= proto.SpawnChance)
                 {
-                    var offset = GetRandomPOICoord(proto);
+                    var offset = GetRandomPOICoord(proto.MinimumDistance, proto.MaximumDistance);
+                    Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
+                    var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
+                    Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
 
-                    if (TrySpawnPoiGrid(mapUid, proto, offset, out var optionalUid) && optionalUid is { Valid: true } uid)
+                    if (TrySpawnPoiGrid(mapUid, proto, coords, out var optionalUid) && optionalUid is { Valid: true } uid)
                     {
                         uniqueStations.Add(uid);
-                        AddStationPlacement(offset, proto);
+                        AddStationCoordsToSet(coords);
                         break;
                     }
                 }

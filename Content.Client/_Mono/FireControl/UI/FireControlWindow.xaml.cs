@@ -85,6 +85,16 @@ public sealed partial class FireControlWindow : FancyWindow
         SelectMissileButton.OnPressed += SelectMissileWeapons;
         IffSearchCriteria.OnTextChanged += args => OnIffSearchChanged(args.Text);
 
+        IFFToggle.OnToggled += OnIFFTogglePressed;
+
+        IFFToggle.Pressed = NavRadar.ShowIFF;
+
+        IFFDetailedToggle.OnToggled += OnIFFDetailedTogglePressed; // Mono
+        IFFDetailedToggle.Pressed = NavRadar.ShowIFFDetailed; // Mono
+
+        DockToggle.OnToggled += OnDockTogglePressed;
+        DockToggle.Pressed = NavRadar.ShowDocks;
+
         InitializePresetControls();
         ApplyWindowLayout(initial: true);
     }
@@ -621,6 +631,24 @@ public sealed partial class FireControlWindow : FancyWindow
 
         OnWeaponSelectionChanged?.Invoke();
         UpdateAllWeaponButtonTexts();
+    }
+
+    private void OnIFFTogglePressed(BaseButton.ButtonEventArgs args)
+    {
+        NavRadar.ShowIFF ^= true;
+        args.Button.Pressed = NavRadar.ShowIFF;
+    }
+
+    private void OnIFFDetailedTogglePressed(BaseButton.ButtonEventArgs args)
+    {
+        NavRadar.ShowIFFDetailed ^= true;
+        args.Button.Pressed = NavRadar.ShowIFFDetailed;
+    }
+
+    private void OnDockTogglePressed(BaseButton.ButtonEventArgs args)
+    {
+        NavRadar.ShowDocks ^= true;
+        args.Button.Pressed = NavRadar.ShowDocks;
     }
 
     /// <summary>

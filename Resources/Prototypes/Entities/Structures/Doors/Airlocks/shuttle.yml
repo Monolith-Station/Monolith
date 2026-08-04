@@ -164,3 +164,11 @@
   components:
   - type: Sprite
     sprite: Forge/Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi # Forge-Change
+
+# Xenoborg shuttle airlock
+- type: entity
+  parent: AirlockShuttle
+  id: AirlockShuttleXenoborg
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/shuttle_xenoborg.rsi

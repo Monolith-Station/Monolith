@@ -6,3 +6,9 @@ cmd-setalertlevel-invalid-level = Specified alert level does not exist on that g
 
 cmd-setalertlevel-hint-1 = <level>
 cmd-setalertlevel-hint-2 = [locked]
+
+# Mono
+cmd-setwarlevel-desc = Set the war level to HOT (true) or COLD (false).
+cmd-setwarlevel-help = Usage: setwarlevel <postwar>
+cmd-setwarlevel-invalid-grid = You must be on grid of station code that you are going to change.
+cmd-setwarlevel-hint = <postwar>

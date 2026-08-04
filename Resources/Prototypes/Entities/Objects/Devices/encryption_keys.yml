@@ -222,7 +222,7 @@
     - state: nt_label
 
 - type: entity
-  parent: EncryptionKey
+  parent: [EncryptionKey, BaseFactionGearOtherFactionT1]
   id: EncryptionKeySyndie
   name: blood-red encryption key
   categories: [ DoNotMap ] # Frontier

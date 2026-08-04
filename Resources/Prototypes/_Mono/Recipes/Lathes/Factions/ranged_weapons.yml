@@ -52,6 +52,33 @@
     Plasteel: 650
     Plastic: 600
 
+# Bullpup Lecter & Vulcan
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleRiversongTSF
+  result: WeaponRifleRiversong
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plasteel: 2000
+    Plastic: 1200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleDragonfangTSF
+  result: WeaponRifleDragonfang
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plasteel: 2000
+    Plastic: 1200
+
 # Rogues/TSF WSPR/Annie
 
 - type: latheRecipe
@@ -256,6 +283,21 @@
     Silver: 250
     Uranium: 250
 
+# PDV basic
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleVympelRogue
+  result: WeaponRifleVympel
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1600
+    Plasteel: 1200
+    Plastic: 1000
+
 # syndicate ballistics
 
 - type: latheRecipe
@@ -369,6 +411,42 @@
     Plastic: 1500 # Forge-change
     Silver: 1000 # Forge-change
     Plasma: 500
+
+# PDV T3
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLightMachineGunL6Rogue
+  result: WeaponLightMachineGunL6
+  categories:
+  - LMGs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plasteel: 2500
+    Plastitanium: 1500
+    Plastic: 1000
+    Silver: 500
+    Gold: 250
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleBurnerRogue
+  result: WeaponRifleBurner
+  categories:
+  - DMRs
+  - AntiMaterial
+  - Ballistic
+  - Weapons
+  - Antitank
+  materials:
+    Steel: 3000
+    Plasteel: 2500
+    Plastitanium: 2000
+    Plastic: 800
+    Silver: 700
+    Gold: 650
 
 # hristov
 
@@ -546,3 +624,72 @@
     Plasteel: 3500
     Plastic: 500
     Plasma: 1000
+
+# Mieyo
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSubMachineGunMasamuneMMC
+  result: WeaponSubMachineGunMasamune
+  categories:
+  - SMGs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1000
+    Plasteel: 500
+    Plastic: 600
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSubMachineGunSakuraMMC
+  result: WeaponSubMachineGunSakura
+  categories:
+  - SMGs
+  - SmartGuns
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 2500
+    Plasteel: 1500
+    Plastic: 1000
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponPistolKuosameMMC
+  result: WeaponPistolKuosame
+  categories:
+  - Sidearms
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 400
+    Plasteel: 100
+    Plastic: 400
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleOsakaMMC
+  result: WeaponRifleOsaka
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1200
+    Plasteel: 1000
+    Plastic: 900
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleIzumoMMC
+  result: WeaponRifleIzumo
+  categories:
+  - Rifles
+  - DMRs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1600
+    Plasteel: 2000
+    Plastic: 1000

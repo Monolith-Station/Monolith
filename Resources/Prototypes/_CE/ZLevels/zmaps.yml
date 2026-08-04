@@ -1,0 +1,21 @@
+- type: zMap
+  id: Grasslands
+  maps:
+    - /Maps/Test/grasslands.yml
+    - /Maps/_CE/empty.yml
+    - /Maps/_CE/clouds.yml
+    - /Maps/_CE/empty.yml
+    - /Maps/_CE/empty.yml
+  components:
+    - type: MapAtmosphere
+      space: False
+      mixture:
+        volume: 2500
+        immutable: True
+        temperature: 293.15
+        moles:
+        - 21.824879
+        - 82.10312
+    - type: CEZLevelRoof
+    - type: MapLight
+      ambientLightColor: "#c8fdff"

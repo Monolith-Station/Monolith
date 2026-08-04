@@ -39,13 +39,14 @@ using Robust.Shared.Configuration;
 using Content.Shared._Mono.CCVar;
 using Robust.Shared;
 using Robust.Shared.Spawners;
+using Content.Shared.BarricadeBlock; // BF14
+using Robust.Shared.Random; // BF14
 
 namespace Content.Shared.Projectiles;
 
 public abstract partial class SharedProjectileSystem : EntitySystem
 {
     public const string ProjectileFixture = "projectile";
-
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedColorFlashEffectSystem _color = default!;
@@ -61,6 +62,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private IConfigurationManager _cfg = default!; // Mono
+    [Dependency] private IRobustRandom _random = default!; // BF14
 
     // Cache of projectiles waiting for collision checks
     private readonly ConcurrentQueue<(EntityUid Uid, ProjectileComponent Component, EntityUid Target)> _pendingCollisionChecks = new();
@@ -438,6 +440,85 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         // try place it in the user's hand
         _hands.TryPickupAnyHand(args.User, embeddable);
+    }
+
+    //ported from civ14
+    private void PreventCollision(EntityUid uid, ProjectileComponent component, ref PreventCollideEvent args)
+    {
+        if (component.IgnoreShooter && (args.OtherEntity == component.Shooter || args.OtherEntity == component.Weapon))
+        {
+            args.Cancelled = true;
+        }
+        //check for BarricadeBlock component (percentage of chance to hit/pass over)
+        if (TryComp(args.OtherEntity, out BarricadeBlockComponent? BarricadeBlock))
+        {
+            var alwaysPassThrough = false;
+            //_sawmill.Info("Checking BarricadeBlock...");
+            if (component.Shooter is { } shooterUid && Exists(shooterUid))
+            {
+                // Condition 1: Directions are the same (using cardinal directions).
+                // Or, if bidirectional, directions can be opposite.
+                var shooterWorldRotation = _transform.GetWorldRotation(shooterUid);
+                var BarricadeBlockWorldRotation = _transform.GetWorldRotation(args.OtherEntity);
+
+                var shooterDir = shooterWorldRotation.GetCardinalDir();
+                var BarricadeBlockDir = BarricadeBlockWorldRotation.GetCardinalDir();
+
+                bool directionallyAllowed = false;
+                if (shooterDir == BarricadeBlockDir)
+                {
+                    directionallyAllowed = true;
+                    //_sawmill.Debug("Shooter and BarricadeBlock facing same cardinal direction.");
+                }
+                else if (BarricadeBlock.Bidirectional)
+                {
+                    var oppositeBarricadeBlockDir = (Direction)(((int)BarricadeBlockDir + 4) % 8);
+                    if (shooterDir == oppositeBarricadeBlockDir)
+                    {
+                        directionallyAllowed = true;
+                        //_sawmill.Debug("Shooter and BarricadeBlock facing opposite cardinal directions (bidirectional pass).");
+                    }
+                }
+                else if (BarricadeBlock.Omnidirectional)
+                {
+                    directionallyAllowed = true;
+                    //_sawmill.Debug("Has the omnidirectional field");
+                }
+
+                if (directionallyAllowed)
+                {
+                    // Condition 2: Firer is within 1 tile of the BarricadeBlock.
+                    var shooterCoords = Transform(shooterUid).Coordinates;
+                    var BarricadeBlockCoords = Transform(args.OtherEntity).Coordinates;
+                    var BypassDistance = BarricadeBlock.PassThroughDistance;
+
+                    if (shooterCoords.TryDistance(EntityManager, BarricadeBlockCoords, out var distance) &&
+                        distance <= BypassDistance)
+                    {
+                        alwaysPassThrough = true;
+                    }
+                }
+            }
+
+            if (alwaysPassThrough)
+            {
+                args.Cancelled = true;
+            }
+            else
+            {
+                //_sawmill.Debug("BarricadeBlock direction/distance check failed or shooter not valid.");
+                // Standard BarricadeBlock blocking logic if the special conditions are not met.
+                var rando = _random.NextFloat(0.0f, 100.0f);
+                if (rando >= BarricadeBlock.Blocking)
+                {
+                    args.Cancelled = true;
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
     }
 
     private void OnEmbedThrowDoHit(Entity<EmbeddableProjectileComponent> embeddable, ref ThrowDoHitEvent args)

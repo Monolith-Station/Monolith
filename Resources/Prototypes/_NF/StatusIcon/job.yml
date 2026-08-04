@@ -154,13 +154,13 @@
     state: nfsdsergeant
   jobName: job-name-senior-officer
 
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconBailiff
-  icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: nfsdbailiff
-  jobName: job-name-bailiff
+#- type: jobIcon
+#  parent: JobIcon
+#  id: JobIconBailiff
+#  icon:
+#    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
+#    state: nfsdbailiff
+#  jobName: job-name-bailiff
 
 - type: jobIcon
   parent: JobIcon

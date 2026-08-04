@@ -10,6 +10,7 @@
     drawdepth: Mobs
   - type: MobCollision
   - type: GravityAffected
+  - type: CEZPhysics # CrystallEdge
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -53,6 +54,16 @@
   #<Forge>
   - type: TTS # Corvax-TTS
   #<Forge>
+  - type: BarricadeBlock # Mono
+    bidirectional: false
+    omnidirectional: true
+    passthroughdistance: 1
+    blocking: 100
+  - type: ExtendDescription # BF14
+    descriptionList:
+    - description: Firing a weapon within half a tile will fire over their shoulder.
+      color: "#4f94ad"
+      requireDetailRange: true
 
 - type: entity
   save: false

@@ -1,11 +1,11 @@
-#Author: Starch(!)
+#Author: Eldritch_Pineapple
 
 - type: vessel
   id: Spica
   parent: BaseVesselAntag
   name: TSF-PIN Spica
   description: Корабль с усиленным корпусом и лёгкая основа передовой линии флотов TSF. Обладает неожиданно мощным вооружением для столь небольшого корпуса и предназначен для борьбы с более крупными целями. # Forge-Change
-  price: 117000
+  price: 129438
   purchasable: false # voucher only
   category: Small
   group: Security
@@ -26,6 +26,9 @@
   stations:
     Spica:
       stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "This ship is the living embodiement of militarized Solarian police craft: it goes fast and has enough EMP capacity to fry all power systems of a small freighter -permanently-."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Спика TSF{1}' # Forge-Change

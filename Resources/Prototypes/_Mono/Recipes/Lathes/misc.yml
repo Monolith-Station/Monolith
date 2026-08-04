@@ -83,3 +83,10 @@
     Glass: 50
     Plastic: 200
 # Forge-Change-End
+
+- type: latheRecipe
+  id: EconomyPlanner
+  result: EconomyPlanner
+  completetime: 2
+  materials:
+    Plastic: 100

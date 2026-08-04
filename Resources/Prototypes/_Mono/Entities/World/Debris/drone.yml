@@ -30,6 +30,17 @@
     nameGrid: false
 
 - type: entity
+  id: MonoDroneSpawnerT0 #Used in LINEAR cluster biome
+  parent: MarkerBase
+  categories: [Spawner]
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - SpawnDroneMote
+    - SpawnDroneDander
+    - SpawnDroneMPulsar
+
+- type: entity
   id: MonoDroneSpawnerT1
   parent: MarkerBase
   categories: [Spawner]
@@ -172,6 +183,48 @@
       nameSeparator: ""
       nameSegments:
       - "WEDGE"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
+
+#region T0
+
+- type: entity
+  id: SpawnDroneDander
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /SharedMaps/_Mono/Shuttles/World/dander.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "DANDER"
+      - " 0x"
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+      - DroneHex
+    nameGrid: false
+    
+- type: entity
+  id: SpawnDroneMote
+  parent: SpawnDroneBase
+  components:
+  - type: GridSpawner
+    path: /SharedMaps/_Mono/Shuttles/World/mote.yml
+    addComponents:
+    - type: RandomMetadata
+      nameSeparator: ""
+      nameSegments:
+      - "MOTE"
       - " 0x"
       - DroneHex
       - DroneHex

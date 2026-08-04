@@ -211,3 +211,25 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsViperCommand ]
+
+- type: entity
+  parent: AirlockHeavyCommand
+  id: AirlockHeavyMieyoLocked
+  suffix: Mieyo Security, Locked
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/mieyo.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyoSecurity ]
+
+- type: entity
+  parent: AirlockHeavyMieyoLocked
+  id: AirlockHeavyMieyoLiasonLocked
+  suffix: Mieyo Liason, Locked
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/mieyo.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyoLiason ]

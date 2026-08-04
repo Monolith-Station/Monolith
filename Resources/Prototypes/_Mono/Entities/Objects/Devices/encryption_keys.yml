@@ -117,3 +117,39 @@
     layers:
     - state: crypt_rusted
     - state: cargo_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyMieyo
+  name: MMC encryption key
+  description: An encryption key for Mieyo corporate communications.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Mieyo
+    defaultChannel: Mieyo
+  - type: Item
+    sprite: _Mono/Objects/Devices/encryption_keys.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_mmc
+    - state: employee_label
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyMieyoCommand
+  name: MMC command encryption key
+  description: An encryption key for Mieyo command communications.
+  components:
+  - type: EncryptionKey
+    channels:
+    - MieyoCommand
+    defaultChannel: MieyoCommand
+  - type: Item
+    sprite: _Mono/Objects/Devices/encryption_keys.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_mmc
+    - state: csec_label
