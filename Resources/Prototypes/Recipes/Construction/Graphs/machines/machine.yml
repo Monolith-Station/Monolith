@@ -11,7 +11,7 @@
         - to: missingWires
           completed:
             - !type:SetAnchor
-              value: true # Mono
+              value: false
           steps:
             - material: Steel
               amount: 5
