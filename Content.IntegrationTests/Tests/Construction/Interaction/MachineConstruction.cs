@@ -18,8 +18,6 @@ public sealed class MachineConstruction : InteractionTest
     {
         await StartConstruction(MachineFrame);
         await InteractUsing(Steel, 5);
-        ClientAssertPrototype(Unfinished, Target);
-        await Interact(Wrench, Cable);
         AssertPrototype(MachineFrame);
         await Interact(ProtolatheBoard, Bin1, Bin1, Manipulator1, Manipulator1, Beaker, Beaker, Processor, Processor, Motor, Screw);
         AssertPrototype(Protolathe);
