@@ -1,0 +1,29 @@
+- type: loadoutGroup
+  id: MieyoCorpSecPrimary
+  name: loadout-group-weapon
+  minLimit: 1
+  loadouts:
+  - MMCMasamuneLoadout
+  - SecurityGuardEnforcerLoadout
+
+- type: loadoutGroup
+  id: MieyoCorpSecPrimaryAmmo
+  name: loadout-group-magazine
+  minLimit: 1
+  loadouts:
+  - MMCSMGAmmoLoadout
+  - SecurityGuardBeanbagAmmoLoadout # Buckshot actually
+
+- type: loadout
+  id: MMCMasamuneLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponSubMachineGunMasamune
+
+- type: loadout
+  id: MMCSMGAmmoLoadout
+  price: 0
+  storage:
+    back:
+    - BoxMagazine57x28mmSubMachineGunFMJ

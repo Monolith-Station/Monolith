@@ -1,0 +1,106 @@
+- type: constructionGraph
+  id: ArmorPlateEconomy1Finish
+  start: start
+  graph:
+  - node: start
+  - node: unfinished
+    entity: ArmorPlateEconomy1
+    edges:
+    - to: finished
+      steps:
+      - tag: ArmorPlateEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "armor1"
+        name: basic armor plate
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+      - tool: Welding
+        doAfter: 2
+      - tag: ArmorPlateEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "armor1"
+        name: basic armor plate
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+      - tool: Welding
+        doAfter: 2
+      - tag: ArmorPlateEconomy1
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "armor1"
+        name: basic armor plate
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+      - tool: Welding
+        doAfter: 2
+
+  - node: finished
+    entity: ArmorPlateEconomy2UnfinishedSpawner
+
+- type: constructionGraph
+  id: ArmorPlateEconomy2Finish
+  start: start
+  graph:
+  - node: start
+  - node: unfinished
+    entity: ArmorPlateEconomy2Start
+    edges:
+    - to: finished
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+      - tool: Welding
+        doAfter: 2
+      - tool: Welding
+        doAfter: 2
+      - tool: Welding
+        doAfter: 2
+
+  - node: finished
+    entity: ArmorPlateEconomy2Finished
+
+- type: constructionGraph
+  id: ArmorPlateEconomy4Finish
+  start: start
+  graph:
+  - node: start
+  - node: unfinished
+    entity: ArmorPlateEconomy4Start
+    edges:
+    - to: finished
+      steps:
+      - tag: ElectromagnetEconomy2
+        icon:
+          sprite: _Mono/Objects/Materials/bayponents.rsi
+          state: "electromagnet2_unfinished"
+        name: compound electromagnet
+      - tool: Screwing
+        doAfter: 2
+      - tool: Cutting
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+      - tool: Cutting
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+      - tool: Cutting
+        doAfter: 2
+
+  - node: finished
+    entity: ArmorPlateEconomy4

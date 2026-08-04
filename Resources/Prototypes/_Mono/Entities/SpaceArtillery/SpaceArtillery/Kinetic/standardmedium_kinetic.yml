@@ -26,12 +26,13 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
+    damageModifier: 1.1
     fireRate: 3
     recoil: 10 # 2/5x
-    projectileSpeed: 204
+    projectileSpeed: 320
     minAngle: 0
     maxAngle: 3
-    burstCooldown: 0.4
+    burstCooldown: 0.6
     burstFireRate: 10
     shotsPerBurst: 2
     selectedMode: Burst
@@ -98,6 +99,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
+    damageModifier: 4
     fireRate: 1.5
     recoil: 10 # 2/5x
     projectileSpeed: 300

@@ -143,3 +143,124 @@
     selectedBorgType: tsfmedical
   - type: BorgSwitchableSubtype
     borgSubtype: tsfmedical_default
+
+#Xenoborg Cyborgs
+- type: entity
+  id: BorgChassisSelectableXenoborg
+  parent: [ BaseBorgChassisXenoborg, BaseXenoborgTransponder ]
+  name: Xenoborg cyborg
+  description: A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army. This one is the indecisive type and has yet to choose its specialization
+  components:
+  - type: Xenoborg
+  - type: BorgTransponder
+    name: engi xenoborg
+    sprite:
+      sprite: _Mono/Mobs/Silicon/XENOBORG/xenoborgchassis.rsi
+      state: xenoborg_engi
+  - type: Sprite
+    sprite: _Mono/Mobs/Silicon/XENOBORG/xenoborgchassis.rsi
+    layers:
+    - state: xenoborg_engi
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: xenoborg_engi_l
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: xenoborg_engi_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: xenoborg_engi_l
+    noMindState: xenoborg_engi_l
+  - type: InteractionPopup
+    interactSuccessString: petting-success-derelict-cyborg
+    interactFailureString: petting-failure-derelict-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: BorgSwitchableType
+    typeWhitelist: 
+    - xenoborgheavy
+    - xenoborgengineer
+    - xenoborgscout
+    - xenoborgstealth
+    inherentRadioChannels:
+    - Traffic
+    - Xenoborg
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - MMI
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellCombat
+    
+- type: entity
+  id: XenoborgChassisEngineer
+  parent: [ BorgChassisSelectableXenoborg, BaseXenoborgTransponder ]
+  name: Xenoborg engineer cyborg
+  components:
+  - type: Xenoborg
+  - type: BorgTransponder
+    name: stealth xenoborg
+    sprite:
+      sprite:  _Mono/Mobs/Silicon/XENOBORG/xenoborgchassis.rsi
+      state: xenoborg_stealth
+  - type: BorgSwitchableType
+    selectedBorgType: xenoborgengineer
+  - type: BorgSwitchableSubtype
+    borgSubtype: xenoborgengineer_default
+
+- type: entity
+  id: XenoborgChassisHeavy
+  parent: [ BorgChassisSelectableXenoborg, BaseXenoborgTransponder ]
+  name: Xenoborg heavy cyborg
+  components:
+  - type: Xenoborg
+  - type: BorgTransponder
+    name: heavy xenoborg
+    sprite:
+      sprite: _Mono/Mobs/Silicon/XENOBORG/xenoborgchassis.rsi
+      state: xenoborg_heavy
+  - type: BorgSwitchableType
+    selectedBorgType: xenoborgheavy
+  - type: BorgSwitchableSubtype
+    borgSubtype: xenoborgheavy_default
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: FactionBorgChassis
+
+- type: entity
+  id: XenoborgChassisScout
+  parent: [ BorgChassisSelectableXenoborg, BaseXenoborgTransponder ]
+  name: Xenoborg Scout cyborg
+  components:
+  - type: Xenoborg
+  - type: BorgTransponder
+    name: scout xenoborg
+    sprite:
+      sprite: _Mono/Mobs/Silicon/XENOBORG/xenoborgchassis.rsi
+      state: xenoborg_scout
+  - type: BorgSwitchableType
+    selectedBorgType: xenoborgscout
+  - type: BorgSwitchableSubtype
+    borgSubtype: xenoborgscout_default
+
+- type: entity
+  id: XenoborgChassisStealth
+  parent: [ BorgChassisSelectableXenoborg, BaseXenoborgTransponder ]
+  name: Xenoborg Stealth cyborg
+  components:
+  - type: Xenoborg
+  - type: BorgTransponder
+    name: stealth xenoborg
+    sprite:
+      sprite: _Mono/Mobs/Silicon/XENOBORG/xenoborgchassis.rsi
+      state: xenoborg_stealth
+  - type: BorgSwitchableType
+    selectedBorgType: xenoborgstealth
+  - type: BorgSwitchableSubtype
+    borgSubtype: xenoborgstealth_default

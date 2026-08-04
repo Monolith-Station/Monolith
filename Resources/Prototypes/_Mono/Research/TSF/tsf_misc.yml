@@ -154,3 +154,30 @@
   - UniversalMaterialResearchT3
   - TSFBasicBorgModule
   position: 12, 14
+
+- type: technology
+  id: TSFAdvancedBionics
+  name: research-technology-tsfmc-sandevistan
+  entityIcon: OrganHeartTSFSandevistan
+  discipline: TsfmcGear
+  tier: 3
+  cost: 75000
+  recipeUnlocks:
+  - AutosurgeonSandevistanTSF
+  technologyPrerequisites:
+  - UniversalMaterialResearchT3
+  position: 13, 14
+
+#- type: technology
+#  id: TSFExperimentalBionics
+#  name: research-technology-tsfmc-shunt
+#  entityIcon: OrganHeartTSFShunt
+#  discipline: TsfmcGear
+#  tier: 3
+#  cost: 75000
+#  recipeUnlocks:
+#  - AutosurgeonShuntTSF
+#  technologyPrerequisites:
+#  - UniversalMaterialResearchT3
+#  - TSFAdvancedBionics
+#  position: 13, 15

@@ -61,6 +61,8 @@
   id: CrateNanotrasenLootFilledT1Trunk
   table: !type:AllSelector
     children:
+    - id: MonolithicCrystalSmall
+      prob: 0.5
     - id: ClothingBackpackRogueNanotrasenT1
     - id: ClothingBackpackRogueNanotrasenT1
       prob: 0.5
@@ -75,6 +77,8 @@
   id: CrateNanotrasenLootFilledT2Trunk
   table: !type:AllSelector
     children:
+    - id: MonolithicCrystalMedium
+      prob: 0.5
     - id: ClothingBackpackRogueNanotrasenT1
       prob: 0.5
     - id: ClothingBackpackRogueNanotrasenT2
@@ -97,7 +101,8 @@
   id: CrateNanotrasenLootFilledT3Trunk
   table: !type:AllSelector
     children:
-    - id: ClothingBackpackRogueNanotrasenT2
+    - id: MonolithicCrystalLarge
+      prob: 0.5
     - id: ClothingBackpackRogueNanotrasenT2
       prob: 0.05
     - id: ClothingBackpackRogueNanotrasenT3
@@ -131,7 +136,7 @@
         - id: ClothingUniformJumpsuitSec
         - id: ClothingUniformJumpskirtSec
         - id: ClothingUniformJumpsuitSecGrey
-        - id: ClothingUniformJumpskirtSecGrey  
+        - id: ClothingUniformJumpskirtSecGrey
       - !type:GroupSelector
         weight: 1.745
         children:
@@ -156,7 +161,7 @@
         - id: ClothingNeckSecuritymedal
         - id: SecurityWhistle
         - id: UndeterminedVoidsuitHeadOfSecurity
-  
+
 - type: entityTable
   id: NTLootClothingT2Trunk
   table: !type:GroupSelector

@@ -80,7 +80,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 120
+        Piercing: 220
   - type: ShipWeaponProjectile
   - type: TimedDespawn
     lifetime: 3
@@ -114,9 +114,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 1
+    totalIntensity: 2
     intensitySlope: 2
-    maxIntensity: 2
+    maxIntensity: 1
 
 # 57mm
 
@@ -128,8 +128,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 35
-        Piercing: 25
+        Blunt: 65
+        Piercing: 75
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectAk570
   - type: Sprite
@@ -143,13 +143,13 @@
     shape: triangle
     radarColor: "#1df1f5"
   - type: TimedDespawn
-    lifetime: 7
+    lifetime: 4.5
   - type: PointLight
     color: "#FCBA03"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 10 # totalIntensity goes first, please.
+    totalIntensity: 18 # totalIntensity goes first, please.
     intensitySlope: 2
     maxIntensity: 2
     maxTileBreak: 1
@@ -162,8 +162,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 35
-        Piercing: 25
+        Blunt: 55
+        Piercing: 65
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectAk570
   - type: Sprite
@@ -183,7 +183,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 10 # totalIntensity goes first, please.
+    totalIntensity: 18 # totalIntensity goes first, please.
     intensitySlope: 5
     maxIntensity: 6
     maxTileBreak: 1
@@ -204,8 +204,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 35
-        Piercing: 40
+        Blunt: 55
+        Piercing: 60
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectAk570
   - type: Sprite
@@ -225,7 +225,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 10 # totalIntensity goes first, please.
+    totalIntensity: 18 # totalIntensity goes first, please.
     intensitySlope: 5
     maxIntensity: 6
     maxTileBreak: 1
@@ -274,8 +274,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 27
-    intensitySlope: 3
+    totalIntensity: 45
+    intensitySlope: 4
     maxIntensity: 3
     maxTileBreak: 1
   - type: PointLight
@@ -290,7 +290,7 @@
     damage:
       types:
         Piercing: 70
-        Structural: 400
+        Structural: 600
     penetrationThreshold: 1000
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/shells.rsi
@@ -584,7 +584,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 2500
+        Structural: 12000
         Blunt: 250
     penetrationThreshold: 3000
   - type: Sprite
@@ -643,9 +643,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 300
+    totalIntensity: 600
     intensitySlope: 12
-    maxIntensity: 12
+    maxIntensity: 16
     maxTileBreak: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
@@ -764,9 +764,9 @@
   - type: Projectile
     damage:
       types:
-        Structural: 2500
+        Structural: 14000
         Blunt: 300
-    penetrationThreshold: 5000
+    penetrationThreshold: 7000
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/shells.rsi
     layers:
@@ -778,14 +778,14 @@
     scale: 2.5
     shape: triangle
   - type: TimedDespawn
-    lifetime: 7
+    lifetime: 5.5
   - type: PointLight
     color: "#fc5a03"
   - type: ExplodeOnTrigger
   - type: Explosive
     deleteAfterExplosion: false
     explosionType: Default
-    totalIntensity: 400
+    totalIntensity: 500
     intensitySlope: 10
     maxIntensity: 10
     maxTileBreak: 4
@@ -830,7 +830,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: EmpOnTrigger
-    range: 7
+    range: 10
     energyConsumption: 2000000
     disableDuration: 5
 
@@ -1077,7 +1077,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 1.7
+    lifetime: 1.7 # ~2.4 km range
   - type: PointLight
     color: "#19AFFF"
   - type: ExplodeOnTrigger
@@ -1147,15 +1147,15 @@
     requireNoGrid: true
     shape: star
   - type: TimedDespawn
-    lifetime: 3.6 #2.5km
+    lifetime: 7.2 #3.2km - Its 520mm after all.
   - type: PointLight
     color: "#fc5a03"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 1400
-    intensitySlope: 10
-    maxIntensity: 30
+    totalIntensity: 1900
+    intensitySlope: 8
+    maxIntensity: 90
     maxTileBreak: 6
   - type: GatheringProjectile
   - type: MiningGatheringSoft

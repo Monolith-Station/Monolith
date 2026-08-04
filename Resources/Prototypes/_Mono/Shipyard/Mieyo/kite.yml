@@ -1,0 +1,34 @@
+# High alpha/burst damage but low sustained damage, more for hit & run (poor armor)
+- type: vessel
+  id: Kite
+  parent: BaseVessel
+  name: MMC-CSC Kite
+  description: A lightly armored escort craft. Armed with 4 autopulsers and 2 TOVEKs for pursuiting fast-movers.
+  price: 120055
+  category: Small
+  group: Mieyo
+  access: MieyoSecurity
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Mieyo/kite.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - AME
+
+- type: gameMap
+  id: Kite
+  mapName: 'MMC-CSC Kite'
+  mapPath: /SharedMaps/_Mono/Shuttles/Mieyo/kite.yml
+  minPlayers: 0
+  stations:
+    Kite:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Kite MCSC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MMCEmployee: [ 0, 0 ]

@@ -131969,7 +131969,7 @@ entities:
     - type: Transform
       pos: -44.5,-21.5
       parent: 5350
-- proto: AmmoBox45_magnumPractice
+- proto: AmmoBox357_magnumPractice
   entities:
   - uid: 22264
     components:
@@ -134946,15 +134946,15 @@ entities:
       content: >-
         I don't know if you're trained already, so I hope this'll help.
 
-        AME controller needs LV power and an HV wire to output to. Check the area with a crowbar if you aren't sure.
+        IRE controller needs LV power and an HV wire to output to. Check the area with a crowbar if you aren't sure.
 
         There should be an empty room next to where you found this, that room's wired for the AME.
 
-        You can put an AME anywhere if you can get the wires to it, though.
+        You can put an IRE anywhere if you can get the wires to it, though.
 
-        3x3 grid of AME parts, multitool them to unpack. Be careful not to 'trap' anything.
+        3x3 grid of IRE parts, multitool them to unpack. Be careful not to 'trap' anything.
 
-        AME controller adjacent horizontally or vertically (not diagonally) to any point.
+        IRE controller adjacent horizontally or vertically (not diagonally) to any point.
 
         With only 1 core (what a 3x3 grid will get you), don't turn it up above 2.
 

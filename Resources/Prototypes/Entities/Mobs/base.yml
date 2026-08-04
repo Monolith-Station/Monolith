@@ -51,6 +51,16 @@
   - type: PassiveThermalSignature # Mono
     signature: 225 # if nothing else is generating heat, 30m radius, 60m with 4 mobs, 120 with 16
   - type: ThermalSignature # Mono
+  - type: BarricadeBlock # Mono
+    bidirectional: false
+    omnidirectional: true
+    passthroughdistance: 1
+    blocking: 100
+  - type: ExtendDescription # BF14
+    descriptionList:
+    - description: Firing a weapon within half a tile will fire over their shoulder.
+      color: "#4f94ad"
+      requireDetailRange: true
 
 - type: entity
   save: false

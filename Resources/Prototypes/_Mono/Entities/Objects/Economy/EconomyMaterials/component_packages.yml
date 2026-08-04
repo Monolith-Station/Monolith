@@ -1,0 +1,408 @@
+# Preset component packages.
+# This is so we have a way to use materials in lathes thats easy playerwise (stacking and silos), and easy devwise (not needing to make construction graphs for everything)
+# productbrick.rsi has modular layers like techdisks but you should Only Use Them for making new ones
+
+# electronics T1
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialIndustryElectronics
+  name: electronic parts package
+  description: A compressed crate of electronic parts such as capacitors, resistors, transistors, and even some processors. Categorized and organized for use in a lathe.
+  suffix: 1
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/productbrick.rsi
+    state: preset-electronics
+  - type: Item
+    size: Normal
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      MaterialIndustryElectronics: 5
+  - type: GuideHelp
+    guides:
+    - Economy
+    - EconomyRecipes
+    - Introduction
+    - ArcFurnace
+    - PrecisionAssembler
+  - type: Stack
+    stackType: MaterialIndustryElectronics
+    count: 1
+
+- type: stack
+  id: MaterialIndustryElectronics
+  name: electronic parts package
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-electronics }
+  spawn: MaterialIndustryElectronics
+  maxCount: 5
+
+- type: material
+  id: MaterialIndustryElectronics
+  stackEntity: MaterialIndustryElectronics
+  name: materials-components-electronics
+  unit: materials-unit-piece # I dont really know what to use for this.
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-electronics }
+  color: "#363740"
+  price: 2.5 # 250/comp
+
+# electronics T2
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialIndustryElectronicsAdvanced
+  name: advanced electronic parts package
+  description: A compressed crate of advanced electronic parts such as batteries, better processors, and smaller transistors. Categorized and organized for use in a lathe.
+  suffix: 1
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/productbrick.rsi
+    state: preset-electronics-advanced
+  - type: Item
+    size: Normal
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      MaterialIndustryElectronicsAdvanced: 5
+  - type: GuideHelp
+    guides:
+    - Economy
+    - EconomyRecipes
+    - Introduction
+    - ArcFurnace
+    - PrecisionAssembler
+  - type: Stack
+    stackType: MaterialIndustryElectronicsAdvanced
+    count: 1
+
+- type: stack
+  id: MaterialIndustryElectronicsAdvanced
+  name: advanced electronic parts package
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-electronics-advanced }
+  spawn: MaterialIndustryElectronicsAdvanced
+  maxCount: 5
+
+- type: material
+  id: MaterialIndustryElectronicsAdvanced
+  stackEntity: MaterialIndustryElectronicsAdvanced
+  name: materials-components-electronics-advanced
+  unit: materials-unit-piece # I dont really know what to use for this.
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-electronics-advanced }
+  color: "#363740"
+  price: 5 # 500/comp
+
+# FCS - Basically use this as advanced gun components!
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialIndustryFCS
+  name: fire-control system parts package
+  description: A compressed crate of fire-control systems and their replacement parts, such as laser rangefinders, gyroscopes, and thermal & NV optics. Categorized and organized for use in a lathe.
+  suffix: 1
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/productbrick.rsi
+    state: preset-fcs
+  - type: Item
+    size: Normal
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      MaterialIndustryFCS: 5
+  - type: GuideHelp
+    guides:
+    - Economy
+    - EconomyRecipes
+    - Introduction
+    - ArcFurnace
+    - PrecisionAssembler
+  - type: Stack
+    stackType: MaterialIndustryFCS
+    count: 1
+
+- type: stack
+  id: MaterialIndustryFCS
+  name: fire-control system parts package
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-fcs }
+  spawn: MaterialIndustryFCS
+  maxCount: 5
+
+- type: material
+  id: MaterialIndustryFCS
+  stackEntity: MaterialIndustryFCS
+  name: materials-components-fcs
+  unit: materials-unit-piece # I dont really know what to use for this.
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-fcs }
+  color: "#363740"
+  price: 3 # 300/comp
+
+# mechanical components
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialIndustryMechanical
+  name: mechanical parts package
+  description: A compressed crate of mechanical parts, such as gears, stepper motors, hydraulics, and more. Categorized and organized for use in a lathe.
+  suffix: 1
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/productbrick.rsi
+    state: preset-mechanical
+  - type: Item
+    size: Normal
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      MaterialIndustryMechanical: 5
+  - type: GuideHelp
+    guides:
+    - Economy
+    - EconomyRecipes
+    - Introduction
+    - ArcFurnace
+    - PrecisionAssembler
+  - type: Stack
+    stackType: MaterialIndustryMechanical
+    count: 1
+
+- type: stack
+  id: MaterialIndustryMechanical
+  name: mechanical parts package
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-mechanical }
+  spawn: MaterialIndustryMechanical
+  maxCount: 5
+
+- type: material
+  id: MaterialIndustryMechanical
+  stackEntity: MaterialIndustryMechanical
+  name: materials-components-mechanical
+  unit: materials-unit-piece # I dont really know what to use for this.
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-mechanical }
+  color: "#363740"
+  price: 1.5 # 150/comp
+
+# armor components
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialIndustryPlates
+  name: armor parts package
+  description: A compressed crate of armor parts, such as kevlar fibers, ceramic-carbide plates, steel plates, and even some exotic ones in there too. Categorized and organized for use in a lathe.
+  suffix: 1
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/productbrick.rsi
+    state: preset-plates
+  - type: Item
+    size: Normal
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      MaterialIndustryPlates: 5
+  - type: GuideHelp
+    guides:
+    - Economy
+    - EconomyRecipes
+    - Introduction
+    - ArcFurnace
+    - PrecisionAssembler
+  - type: Stack
+    stackType: MaterialIndustryPlates
+    count: 1
+
+- type: stack
+  id: MaterialIndustryPlates
+  name: mechanical parts package
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-plates }
+  spawn: MaterialIndustryPlates
+  maxCount: 5
+
+- type: material
+  id: MaterialIndustryPlates
+  stackEntity: MaterialIndustryPlates
+  name: materials-components-plates
+  unit: materials-unit-piece # I dont really know what to use for this.
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-plates }
+  color: "#363740"
+  price: 3.5 # 350/comp
+
+# reciever components
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialIndustryRecievers
+  name: reciever parts package
+  description: A compressed crate of reciever parts of all kinds for guns. Categorized and organized for use in a lathe.
+  suffix: 1
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/productbrick.rsi
+    state: preset-recievers
+  - type: Item
+    size: Normal
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      MaterialIndustryRecievers: 5
+  - type: GuideHelp
+    guides:
+    - Economy
+    - EconomyRecipes
+    - Introduction
+    - ArcFurnace
+    - PrecisionAssembler
+  - type: Stack
+    stackType: MaterialIndustryRecievers
+    count: 1
+
+- type: stack
+  id: MaterialIndustryRecievers
+  name: reciever parts package
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-recievers }
+  spawn: MaterialIndustryRecievers
+  maxCount: 5
+
+- type: material
+  id: MaterialIndustryRecievers
+  stackEntity: MaterialIndustryRecievers
+  name: materials-components-recievers
+  unit: materials-unit-piece # I dont really know what to use for this.
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-recievers }
+  color: "#363740"
+  price: 3.5 # 350/comp
+
+# sensor components
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialIndustrySensors
+  name: sensors parts package
+  description: A compressed crate of sensors parts of all kinds for a variety of uses, such as radar parts, RWRs, optics, temperature/pressure sensors, or just basic stuff like photometers. Categorized and organized for use in a lathe.
+  suffix: 1
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/productbrick.rsi
+    state: preset-sensors
+  - type: Item
+    size: Normal
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      MaterialIndustrySensors: 5
+  - type: GuideHelp
+    guides:
+    - Economy
+    - EconomyRecipes
+    - Introduction
+    - ArcFurnace
+    - PrecisionAssembler
+  - type: Stack
+    stackType: MaterialIndustrySensors
+    count: 1
+
+- type: stack
+  id: MaterialIndustrySensors
+  name: sensors parts package
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-sensors }
+  spawn: MaterialIndustrySensors
+  maxCount: 5
+
+- type: material
+  id: MaterialIndustrySensors
+  stackEntity: MaterialIndustrySensors
+  name: materials-components-sensors
+  unit: materials-unit-piece # I dont really know what to use for this.
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-sensors }
+  color: "#363740"
+  price: 2 # 200/comp
+
+# sensor components
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialIndustryShip
+  name: ship parts package
+  description: A compressed crate of ship parts for LPCs. Categorized and organized for use in a lathe.
+  suffix: 1
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/productbrick.rsi
+    state: preset-ship
+  - type: Item
+    size: Normal
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      MaterialIndustryShip: 5
+  - type: GuideHelp
+    guides:
+    - Economy
+    - EconomyRecipes
+    - Introduction
+    - ArcFurnace
+    - PrecisionAssembler
+  - type: Stack
+    stackType: MaterialIndustryShip
+    count: 1
+
+- type: stack
+  id: MaterialIndustryShip
+  name: ship parts package
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-ship }
+  spawn: MaterialIndustryShip
+  maxCount: 5
+
+- type: material
+  id: MaterialIndustryShip
+  stackEntity: MaterialIndustryShip
+  name: materials-components-ship
+  unit: materials-unit-piece # I dont really know what to use for this.
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-ship }
+  color: "#363740"
+  price: 3 # 300/comp
+
+# sensor components
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialIndustrySterile
+  name: sterile parts package
+  description: A compressed crate of sterilized parts for medical and research usage. Categorized and organized for use in a lathe.
+  suffix: 1
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/productbrick.rsi
+    state: preset-steriles
+  - type: Item
+    size: Normal
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      MaterialIndustrySterile: 5
+  - type: GuideHelp
+    guides:
+    - Economy
+    - EconomyRecipes
+    - Introduction
+    - ArcFurnace
+    - PrecisionAssembler
+  - type: Stack
+    stackType: MaterialIndustrySterile
+    count: 1
+
+- type: stack
+  id: MaterialIndustrySterile
+  name: sterile parts package
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-steriles }
+  spawn: MaterialIndustrySterile
+  maxCount: 5
+
+- type: material
+  id: MaterialIndustrySterile
+  stackEntity: MaterialIndustrySterile
+  name: materials-components-steriles
+  unit: materials-unit-piece # I dont really know what to use for this.
+  icon: { sprite: /Textures/_Mono/Objects/Materials/productbrick.rsi, state: preset-steriles }
+  color: "#363740"
+  price: 2 # 200/comp

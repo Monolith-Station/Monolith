@@ -402,6 +402,34 @@
     - NFScrapStatic
 
 - type: entity
+  id: MedicalAssembler
+  parent: BaseLatheAssembler
+  name: medical assembler
+  description: Great for medicine, apparently. You don't know how it works.
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Machines/medical_assembler.rsi
+    snapCardinals: true
+    layers:
+    - state: mediwave-base
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: mediwave-off-unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: ApcPowerReceiver
+    powerLoad: 500
+  - type: Machine
+    board: MedicalAssemblerMachineCircuitboard
+  - type: Lathe
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: mediwave-base
+    unlitIdleState: mediwave-off-unlit
+    unlitRunningState: mediwave-on-unlit
+    staticPacks:
+    - MedicalAssemblerStatic
+
+- type: entity
   id: BiogeneratorFill
   parent: Biogenerator
   name: biogenerator

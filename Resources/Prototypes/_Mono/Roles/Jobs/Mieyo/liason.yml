@@ -1,0 +1,56 @@
+- type: job
+  id: MMCLiason
+  name: job-name-mmc-liason
+  description: job-description-mmc-liason
+  playTimeTracker: JobMMCLiason
+  requirements:
+  - !type:DepartmentTimeRequirement
+     department: MieyoManufacturingConcern
+     time: 72000 # 20 hours
+  - !type:OverallPlaytimeRequirement
+    time: 144000 # 40 hrs
+  alternateRequirementSets:
+    longerPlaytimeLessEmployee:
+    - !type:OverallPlaytimeRequirement
+      time: 216000 # 60 hours
+  startingGear: MMCLiasonGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  icon: "JobIconMMCLiason"
+  supervisors: job-supervisors-mmc-highcomm
+  assignedCompany: MMC
+  canBeAntag: false
+  weight: 40
+  displayWeight: 40
+  accessGroups:
+  - GeneralAccess
+  access:
+  - Mieyo
+  - MieyoSecurity
+  - MieyoLiason
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MieyoTrackingImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - MMC
+    - type: ChatRank
+      rank: mmc-liason
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - Nekomimetic
+    - Tradeband
+    - NovuNederic
+    languagesUnderstood:
+    - Nekomimetic
+    - Tradeband
+    - NovuNederic
+
+- type: startingGear
+  id: MMCLiasonGear
+  storage:
+    back:
+    - RubberStampMMCLiason
+    - MMCHandheldOverwatchConsole
