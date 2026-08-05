@@ -9,5 +9,12 @@ public abstract partial class CESharedZLevelsSystem
 {
     private void InitializeCacheHooks()
     {
+        SubscribeLocalEvent<GridRemovalEvent>(OnGridRemoved);
+    }
+
+    private void OnGridRemoved(GridRemovalEvent ev)
+    {
+        _previousGridPosition.Remove(ev.EntityUid);
+        _wallsNearGrid.Remove(ev.EntityUid);
     }
 }

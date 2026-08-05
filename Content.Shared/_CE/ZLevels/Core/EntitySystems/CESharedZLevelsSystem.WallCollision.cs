@@ -9,32 +9,26 @@ using Content.Shared.Physics;
 using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
 
 public abstract partial class CESharedZLevelsSystem
 {
     [Dependency] private EntityQuery<FixturesComponent> _wallFixturesQuery = default!;
-
-    /// <summary>
-    /// One tile of a flying hull found sitting on a wall: the hull tile's world box and the terrain
-    /// wall tile's world box it has driven into. The server resolves these into a push and rebound;
-    /// the debug overlay draws them.
-    /// </summary>
     public readonly record struct CEWallContact(Box2 ShipTile, Box2 WallTile);
 
     // The bounding box of the previous position of the grid.
-    private Dictionary<EntityUid, Box2> _previousGridPosition = new();
+    private Dictionary<EntityUid, (EntityUid Map, Box2Rotated Bounds)> _previousGridPosition = new();
+
+    // Walls that may be colliding with a grid.
+    private Dictionary<EntityUid, HashSet<EntityUid>> _wallsNearGrid = new();
+
+    // In the event that grid processing ever becomes multithreaded; may God grant salvation to your soul.
+    private List<Box2Rotated> _sweptArea = new();
 
     /// <summary>
-    /// Every tile of a grid whose centre is over a wall on the z-level it occupies. Keyed on the
-    /// hull's OWN tiles rather than its world AABB: a turned hull's bounding box juts out past the
-    /// real tiles and would report walls the ship isn't actually touching, which is exactly the
-    /// phantom blocking this replaced.
-    ///
-    /// Empty (and returns nothing) unless the grid is on a networked level that carries its own
-    /// terrain grid — a transit map has no <see cref="CEZMapComponent"/>, so mid-flight grids fall
-    /// through untouched.
+    /// Every wall the hull is currently sitting on, on the z-level it occupies.
     /// </summary>
     [PublicAPI]
     public void GetWallContacts(EntityUid gridUid, List<CEWallContact> contacts)
@@ -42,71 +36,96 @@ public abstract partial class CESharedZLevelsSystem
         if (!_gridQuery.TryComp(gridUid, out var gridComp))
             return;
 
-        var mapUid = Transform(gridUid).MapUid;
-        if (mapUid is not { } map || !_zMapQuery.HasComp(map) || !_gridQuery.TryComp(map, out var mapGrid))
-            return;
-
-        // The terrain grid IS the map entity; it can't fly into its own walls.
-        if (map == gridUid)
-            return;
-
-        var matrix = _transform.GetWorldMatrix(gridUid);
-        var mapInvMatrix = _transform.GetInvWorldMatrix(map);
-
-        var shipTileSize = gridComp.TileSize;
-        var shipHalf = new Vector2(shipTileSize * 0.5f, shipTileSize * 0.5f);
-
-        var mapTileSize = mapGrid.TileSize;
-        var mapHalf = new Vector2(mapTileSize * 0.5f, mapTileSize * 0.5f);
-
-        var tiles = _map.GetAllTilesEnumerator(gridUid, gridComp);
-        while (tiles.MoveNext(out var shipTile))
+        if (Transform(gridUid).MapUid is not { } map
+            || map == gridUid
+            || !_zMapQuery.HasComp(map)
+            || !_gridQuery.TryComp(map, out var mapGrid))
         {
-            var local = new Vector2(
-                (shipTile.Value.GridIndices.X + 0.5f) * shipTileSize,
-                (shipTile.Value.GridIndices.Y + 0.5f) * shipTileSize);
-            var worldCentre = Vector2.Transform(local, matrix);
-            var shipAabb = new Box2(worldCentre - shipHalf, worldCentre + shipHalf);
+            return;
+        }
 
-            const float edgeBias = 1e-4f;
+        var (worldPos, worldRot) = _transform.GetWorldPositionRotation(gridUid);
+        var current = new Box2Rotated(gridComp.LocalAABB.Translated(worldPos), worldRot, worldPos);
 
-            var localAabb = mapInvMatrix.TransformBox(shipAabb);
-            var minX = (int)MathF.Floor(localAabb.Left / mapTileSize);
-            var maxX = (int)MathF.Floor((localAabb.Right - edgeBias) / mapTileSize);
-            var minY = (int)MathF.Floor(localAabb.Bottom / mapTileSize);
-            var maxY = (int)MathF.Floor((localAabb.Top - edgeBias) / mapTileSize);
+        var walls = _wallsNearGrid.GetOrNew(gridUid);
 
-            for (var tx = minX; tx <= maxX; tx++)
+        if (_previousGridPosition.TryGetValue(gridUid, out var previous) && previous.Map == map)
+        {
+            if (!current.Equals(previous.Bounds)) // Don't rerun swept check on a non-moving grid.
             {
-                for (var ty = minY; ty <= maxY; ty++)
-                {
-                    var wallTile = new Vector2i(tx, ty);
-                    if (!TileHasWall((map, mapGrid), wallTile))
-                        continue;
+                _sweptArea.Clear();
+                GetSweptArea(previous.Bounds, current, _sweptArea);
 
-                    var wallCentre = _map.GridTileToWorldPos(map, mapGrid, wallTile);
-                    var wallAabb = new Box2(wallCentre - mapHalf, wallCentre + mapHalf);
-
-                    if (shipAabb.Intersects(wallAabb))
-                        contacts.Add(new CEWallContact(shipAabb, wallAabb));
-                }
+                foreach (var box in _sweptArea)
+                    CacheWalls((map, mapGrid), box, walls);
             }
         }
-    }
-
-    private bool TileHasWall(Entity<MapGridComponent> map, Vector2i tile)
-    {
-        var anchored = _map.GetAnchoredEntitiesEnumerator(map.Owner, map.Comp, tile);
-        while (anchored.MoveNext(out var ent))
+        else
         {
-            if (IsWall(ent.Value))
-                return true;
+            walls.Clear(); // Rechecking entire AABB; don't keep stale walls.
+            CacheWalls((map, mapGrid), current, walls);
         }
 
-        return false;
+        _previousGridPosition[gridUid] = (map, current);
+
+        foreach (var wall in new List<EntityUid>(walls))
+        {
+            WallCollides((gridUid, gridComp), wall, walls, contacts);
+        }
     }
 
-    /// <summary>A hard fixture impassable at ground level counts as a wall — read off what mappers already place.</summary>
+    private void CacheWalls(Entity<MapGridComponent> map, Box2Rotated worldBounds, HashSet<EntityUid> walls)
+    {
+        foreach (var ent in _map.GetAnchoredEntities(map.Owner, map.Comp, worldBounds))
+        {
+            if (IsWall(ent))
+                walls.Add(ent);
+        }
+    }
+
+    private void WallCollides(Entity<MapGridComponent> grid, EntityUid wall, HashSet<EntityUid> walls, List<CEWallContact> contacts)
+    {
+        if (TerminatingOrDeleted(wall))
+        {
+            walls.Remove(wall); // Gone; not our problem
+            return;
+        }
+
+        // Add an extra tile to the AABB so that we aren't constantly evicting tiles right at the edge of a grid.
+        // Yes, I could just do 0.5; but 1 feels safer anyways.
+        var bounds = _transform.GetWorldMatrix(grid.Owner).TransformBox(grid.Comp.LocalAABB).Enlarged(grid.Comp.TileSize);
+        if (!bounds.Contains(_transform.GetWorldPosition(wall)))
+        {
+            walls.Remove(wall); // No longer within the grid bounding box; don't waste time on it anymore.
+            return;
+        }
+
+        if (!_gridQuery.TryComp(Transform(wall).GridUid, out var wallGrid))
+            return;
+
+        var wallHalf = new Vector2(wallGrid.TileSize * 0.5f, wallGrid.TileSize * 0.5f);
+        var wallCentre = _transform.GetWorldPosition(wall);
+        var wallAabb = new Box2(wallCentre - wallHalf, wallCentre + wallHalf);
+
+        var tileSize = grid.Comp.TileSize;
+        var tileHalf = new Vector2(tileSize * 0.5f, tileSize * 0.5f);
+        var gridMatrix = _transform.GetWorldMatrix(grid.Owner);
+
+        foreach (var tile in _map.GetTilesIntersecting(grid.Owner, grid.Comp, wallAabb))
+        {
+            var localCentre = new Vector2(
+                (tile.GridIndices.X + 0.5f) * tileSize,
+                (tile.GridIndices.Y + 0.5f) * tileSize);
+
+            var worldCentre = Vector2.Transform(localCentre, gridMatrix);
+            var shipAabb = new Box2(worldCentre - tileHalf, worldCentre + tileHalf);
+
+            if (shipAabb.Intersects(wallAabb))
+                contacts.Add(new CEWallContact(shipAabb, wallAabb));
+        }
+    }
+
+    /// <summary>Anything with a hard/impassable fixture is close enough to a wall, I guess.</summary>
     private bool IsWall(EntityUid uid)
     {
         if (!_wallFixturesQuery.TryComp(uid, out var fixtures))
