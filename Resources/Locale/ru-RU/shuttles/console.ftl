@@ -21,7 +21,11 @@ shuttle-console-exclusion = Зона отчуждения
 shuttle-console-strafing = Режим стрейфа
 shuttle-console-nav-settings = Настройки
 shuttle-console-iff-toggle = Показ системы опознавания
+shuttle-console-iff-detailed = Подробный IFF
 shuttle-console-dock-toggle = Показ стыковочных портов
+shuttle-console-iff-toggle-short = IFF
+shuttle-console-iff-detailed-short = D.IFF
+shuttle-console-dock-toggle-short = DOCKS
 shuttle-console-iffshuttles-toggle = Показать шаттлы
 
 # MAP

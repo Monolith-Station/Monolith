@@ -1216,6 +1216,17 @@ public sealed partial class BoardingTeleportConsoleSystem : EntitySystem
 
         }
 
+        // Cross-map locks would hit admin arenas / dormant ADS maps — same map only.
+        if (_transform.GetMapId(scannerGrid) != _transform.GetMapId(targetGrid))
+
+        {
+
+            status = BoardingTeleportStatus.InvalidTarget;
+
+            return false;
+
+        }
+
         if (IsGridInActiveFtl(targetGrid))
 
         {

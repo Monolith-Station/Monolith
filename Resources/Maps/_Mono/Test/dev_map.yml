@@ -7579,27 +7579,6 @@ entities:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
-- proto: SpawnPointMMCEmployee
-  entities:
-  - uid: 1707
-    components:
-    - type: Transform
-      pos: -4.5,2.5
-      parent: 2
-- proto: SpawnPointMMCLiason
-  entities:
-  - uid: 1708
-    components:
-    - type: Transform
-      pos: -4.5,2.5
-      parent: 2
-- proto: SpawnPointMMCSecurity
-  entities:
-  - uid: 1709
-    components:
-    - type: Transform
-      pos: -4.5,2.5
-      parent: 2
 - proto: SpawnPointObserver
   entities:
   - uid: 1138

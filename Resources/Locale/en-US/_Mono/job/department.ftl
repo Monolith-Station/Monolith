@@ -7,7 +7,6 @@ department-UnionOfSovietSocialistPlanets-description = Serve the glorious Union 
 department-MieyoManufacturingConcern = Mieyo Manufacturing Concern
 department-MieyoManufacturingConcern-description = Work under the MMC industrial conglomerate, and make as much as you can for the company.
 
-department-Medical = Medical Dispatch
 department-Viper = Viper Group
 # Forge
 department-Medical = Trauma Team International

@@ -62,7 +62,7 @@
   - type: Sprite
     sprite: _Mono/Structures/Doors/Airlocks/Glass/mieyo.rsi
   - type: PaintableAirlock
-    department: MieyoManufacturingConcern
+    department: Civilian # Forge-Change: disabled MMC
   - type: Wires
     layoutId: AirlockSecurity
 
