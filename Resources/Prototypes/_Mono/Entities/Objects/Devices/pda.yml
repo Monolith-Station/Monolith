@@ -427,34 +427,34 @@
     borderColor: "#AAAAAA"
     accentHColor: "#d9a200"
 
-- type: entity
-  parent: BaseMMCPDA
-  id: MieyoEmployeePDA
-  name: mieyo employee PDA
-  components:
-  - type: Pda
-    id: MieyoEmployeeIDCard
+#- type: entity
+#  parent: BaseMMCPDA
+#  id: MieyoEmployeePDA
+#  name: mieyo employee PDA
+#  components:
+#  - type: Pda
+#    id: MieyoEmployeeIDCard
 
-- type: entity
-  parent: BaseMMCPDA
-  id: MieyoSecurityPDA
-  name: mieyo corporate security PDA
-  components:
-  - type: Pda
-    id: MieyoSecurityIDCard
+#- type: entity
+#  parent: BaseMMCPDA
+#  id: MieyoSecurityPDA
+#  name: mieyo corporate security PDA
+#  components:
+#  - type: Pda
+#    id: MieyoSecurityIDCard
 
-- type: entity
-  parent: BaseMMCPDA
-  id: MieyoLiasonPDA
-  name: mieyo corporate liason PDA
-  components:
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - BountyContractsCartridge
-    - AstroNavCartridge
-    - LedgerCartridge
-  - type: Pda
-    id: MieyoLiasonIDCard
+#- type: entity
+#  parent: BaseMMCPDA
+#  id: MieyoLiasonPDA
+#  name: mieyo corporate liason PDA
+#  components:
+#  - type: CartridgeLoader
+#    preinstalled:
+#    - CrewManifestCartridge
+#    - NotekeeperCartridge
+#    - NewsReaderCartridge
+#    - BountyContractsCartridge
+#    - AstroNavCartridge
+#    - LedgerCartridge
+#  - type: Pda
+#    id: MieyoLiasonIDCard
