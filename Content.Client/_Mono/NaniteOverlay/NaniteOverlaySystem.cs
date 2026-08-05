@@ -87,8 +87,6 @@ public sealed partial class NaniteOverlaySystem : EntitySystem
 
     public void OnNaniteOverlayMessage(NaniteOverlayMessage message, EntitySessionEventArgs eventArgs)
     {
-        Logger.GetSawmill("overlay").Warning($"Client received message from server with {message.Responses?.Length} responses!");
-
         if (message.Responses == null || !_active)
             return;
 
@@ -168,6 +166,4 @@ public sealed partial class NaniteOverlaySystem : EntitySystem
 
         _modifiedEntities.Clear();
     }
-
-    private record struct OverlayData();
 }

@@ -36,7 +36,7 @@ public sealed partial class NaniteOverlaySystem : EntitySystem
 
     private void OnNaniteOverlayMessage(NaniteOverlayMessage message, EntitySessionEventArgs eventArgs)
     {
-        //TODO: security?
+        //TODO: security? idk if this could be an issue if someone spams it to lag or dos the server
 
         var ents = GetEntityArray(message.Targets);
         var response = new FixedPoint2[ents.Length];
