@@ -1,0 +1,44 @@
+#Author:  Meh32 With love!
+- type: vessel
+  id: Lumen
+  parent: BaseVesselAntag
+  name: TSF-DRN Lumen
+  description: The original protoype vessel for the TSFMC gamma core program. This vessel is agile and designed for supporting larger ships rather than attacking on its own.
+  price: 112458
+  purchasable: false 
+  category: Small
+  hyperwarTimelock: 0
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/Drones/lumen.yml
+  guidebookPage: Null
+  class:
+  - Frigate
+  - Drone
+  engine:
+  - RTG
+
+- type: gameMap
+  id: Lumen
+  mapName: 'Lumen'
+  mapPath: /SharedMaps/_Mono/Shuttles/Nfsd/Drones/lumen.yml
+  minPlayers: 0
+  stations:
+    Lumen:
+      stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Not worth its weight in shareholder funds."
+      components:
+      - type: ShipGridLock
+        locked: false
+      - type: StationNameSetup
+        mapNameTemplate: 'Lumen TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

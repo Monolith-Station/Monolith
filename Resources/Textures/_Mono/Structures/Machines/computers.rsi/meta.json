@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Gunnery sprites by justanorang for Monolith. Comm_rogue and rogue_key made by supernoob6677 (discord) for Monolith",
+  "copyright": "Gunnery sprites by justanorang for Monolith. Comm_rogue and rogue_key made by supernoob6677 (discord) for Monolith, Half computer sprites made by meh32",
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +9,22 @@
   "states": [
     {
       "name": "computer_not_rot",
+      "directions": 4
+    },
+    {
+      "name": "half_computer_right",
+      "directions": 4
+    },
+    {
+      "name": "half_computer_left",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_half",
+      "directions": 4
+    },
+    {
+      "name": "gunnery_half",
       "directions": 4
     },
 	{

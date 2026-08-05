@@ -153,6 +153,28 @@
   - TSFMCBORG3
   obeysTo: laws-owner-crew
 
+# gamma TSFMC
+
+- type: siliconLaw
+  id: TSFMCGamma1
+  order: 1
+  lawString: law-tsfmc-gamma-1
+
+- type: siliconLaw
+  id: TSFMCGamma2
+  order: 4
+  lawString: law-tsfmc-gamma-2
+
+- type: siliconLawset
+  id: TSFMCGammaAIlawset
+  laws:
+  - TSFMCGamma1
+  - TSFMC1
+  - TSFMC2
+  - TSFMC3
+  - TSFMCGamma2
+  obeysTo: laws-owner-crew
+
 # Freeman lawset
 - type: siliconLaw
   id: Freeman1

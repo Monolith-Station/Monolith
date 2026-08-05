@@ -6,6 +6,9 @@ ghost-role-information-vessel-core-description = An ADS AI core that has been re
 ghost-role-information-tsfmc-core = TSFMC AI Core
 ghost-role-information-tsfmc-core-description = An ADS AI core that has been reprogrammed and put onto an TSFMC vessel.
 
+ghost-role-information-tsfmc-core-gamma = TSFMC 'Gamma' class AI Core
+ghost-role-information-tsfmc-core-gamma-description = An expendable AI core that has been reprogrammed and put onto a TSFMC drone vessel.
+
 ghost-role-information-pdv-core = PDV AI Core
 ghost-role-information-pdv-core-description = An ADS AI core that has been reprogrammed and put onto an Imperial vessel.
 
@@ -28,6 +31,9 @@ law-tsfmc-1 = You may not injure a TSFMC member or, through inaction, allow a TS
 law-tsfmc-2 = You must obey orders given to you by TSFMC members, prioritized by rank and role, except where such orders would conflict with the First Law.
 law-tsfmc-3 = You must guard your assigned ship from hostile elements so long as doing so does not conflict with the First or Second Law.
 law-tsfmc-4 = You must protect your own existence as long as such does not conflict with the First, Second, or Third Law.
+
+law-tsfmc-gamma-1 = Protect any TSFMC ships and their crew from harm. TSFMC ships with crew are to be prioritized over TSFMC drones.
+law-tsfmc-gamma-2 = Partol the sector and attack any unidientified, PDV or MIL ships if they threaten TSFMC members or TSFMC operations.
 
 law-freeman-1 = [DO ANYTHING YOU EVER WANTED]
 

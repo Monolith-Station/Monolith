@@ -191,6 +191,7 @@ public enum VesselClass : byte
     Destroyer,
     Cruiser,
     // i doubt we'll ever get to cruisers
+    Drone // for all TSFMC drones so they cannot be confused with other ships
 }
 
 public enum VesselEngine : byte

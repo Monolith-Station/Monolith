@@ -69,3 +69,40 @@
     transmitFrequencyId: Mothership
   - type: WirelessNetworkConnection
     range: 2000
+
+- type: entity
+  parent: BaseComputerShuttle
+  id: ComputerShuttleHalf
+  name: shuttle console
+  description: Used to pilot a shuttle.
+  components:
+  - type: Sprite
+    sprite: _Mono\Structures\Machines\computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: half_computer_left
+    - map: ["computerLayerScreen"]
+      state: shuttle_half
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: Anchorable
+    flags:
+    - Anchorable
+    
+
+- type: entity
+  parent: ComputerGunneryConsole
+  id: ComputerGunneryHalf
+  components:
+  - type: Sprite
+    sprite: _Mono\Structures\Machines\computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: half_computer_right
+    - map: ["computerLayerScreen"]
+      state: gunnery_half
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: Anchorable
+    flags:
+    - Anchorable

@@ -9,6 +9,14 @@
     board: ThrusterNfsdMachineCircuitboard
 
 - type: entity
+  id: SmallThrusterNfsd
+  parent: SmallThruster
+  suffix: TSFMC
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thrusternfsd.rsi
+
+- type: entity
   id: DebugThrusterNfsd
   parent: DebugThrusterSecurity
   suffix: DEBUG, TSFMC

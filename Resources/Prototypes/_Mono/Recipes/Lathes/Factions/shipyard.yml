@@ -12,6 +12,18 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
+  id: DroneVoucherTSFRecipe
+  result: ShipVoucherTsfDrone
+  completetime: 30
+  materials:
+    Steel: 5000
+    Copper: 5000
+    Plasteel: 5000
+    Glass: 5000
+    Plasma: 2500
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
   id: ShipVoucherTsfT1Recipe
   result: ShipVoucherTsfT1
   completetime: 50

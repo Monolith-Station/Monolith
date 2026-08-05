@@ -1029,3 +1029,77 @@
     - !type:OverallPlaytimeRequirement
       time: 180000 # 50 hrs
   - type: GhostTakeoverAvailable
+
+# TSFMC Gamma Core
+
+- type: entity
+  id: PlayerStationAiTSFMCGamma
+  parent: PlayerStationAiEmpty
+  description: The latest in Artifical Intelligences. This one looks more fragile than usual and doubles as a gunnery server.
+  suffix: Ghost Role, TSFMC, gamma
+  components:
+  - type: ContainerComp
+    proto: AiHeldTSFMC
+    container: station_ai_mind_slot
+  - type: ContainerFill
+    containers:
+      station_ai_mind_slot:
+      - StationAiBrainTSFMCGamma
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+    - state: base_dark
+    - state: ai
+      shader: unshaded
+  - type: Anchorable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PointLight
+    color: "#bbfafa"
+    radius: 2
+    enabled: true
+  - type: FireControlServer
+    processingPower: 24
+
+- type: entity
+  id: StationAiBrainTSFMCGamma
+  parent: StationAiBrain
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+  - type: SiliconLawProvider
+    laws: TSFMCGammaAIlawset
+  - type: GhostRole
+    name: ghost-role-information-tsfmc-core-gamma
+    description: ghost-role-information-tsfmc-core-gamma-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+    prototype: TSFMCAICore
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hrs
+  - type: GhostTakeoverAvailable
+  - type: RandomMetadata
+    nameSegments: [ TSFMCCoreNameset ]
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+    - SolCommon

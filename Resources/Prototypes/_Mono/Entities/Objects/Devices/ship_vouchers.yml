@@ -52,6 +52,33 @@
 
 # Tsfmc
 
+# Drone voucher
+
+- type: entity
+  parent: BaseShipLPCOneUse
+  id: ShipVoucherTsfDrone
+  name: TSFMC drone ship voucher
+  description: Allows for one free small to medium TSFMC drone ship purchase. Destroyed on sale.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_fighter
+    - state: screen
+      color: "#a7ffff"
+    - state: screen5
+      color: "#a7ffff"
+      shader: unshaded
+  - type: Item
+    heldPrefix: tsf
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Security
+    companyName: TSF
+    vessels:
+    - Lumen
+    - Glimmer
+
 # T0 voucher
 
 - type: entity
