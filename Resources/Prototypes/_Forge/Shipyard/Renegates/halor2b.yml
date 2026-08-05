@@ -1,0 +1,32 @@
+- type: vessel
+  id: halor2b
+  parent: BaseVessel
+  name: Халор 2Б
+  description: Середнегабаритный боевой шаттл Ренегатов, оснащенный двумя Гидрами и так же лицевой броней.
+  price: 112960
+  category: Medium
+  group: Renegate
+  access: Renegate
+  shuttlePath: /SharedMaps/_Forge/Shuttles/Renegates/halor2b.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Pirate
+  engine:
+  - Plasma
+  - Uranium
+
+- type: gameMap
+  id: halor2b
+  mapName: 'Халор 2Б'
+  mapPath: /SharedMaps/_Forge/Shuttles/Renegates/halor2b.yml
+  minPlayers: 0
+  stations:
+    halor2b:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Халор 2Б MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'

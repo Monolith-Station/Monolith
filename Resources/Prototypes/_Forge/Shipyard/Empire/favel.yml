@@ -1,0 +1,30 @@
+- type: vessel
+  id: favel
+  parent: BaseVessel
+  name: DV Фавела
+  description: Шаттл Посольста Империи
+  price: 57040
+  category: Medium
+  group: Empire
+  access: Empire
+  shuttlePath: /SharedMaps/_Forge/Shuttles/Empire/favel.yml
+  guidebookPage: Null
+  class:
+  - Fighter
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: favel
+  mapName: 'DV Фавела'
+  mapPath: /SharedMaps/_Forge/Shuttles/Empire/favel.yml
+  minPlayers: 0
+  stations:
+    favel:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'DV Фавела SEW{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'

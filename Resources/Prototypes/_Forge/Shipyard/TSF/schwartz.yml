@@ -1,0 +1,30 @@
+- type: vessel
+  id: Schwartz
+  parent: BaseVesselAntag
+  name: TSF-DV Шварц
+  description: Средний шаттл посольства ТСФ.
+  price: 49761
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Forge/Shuttles/TSF/schwartz.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Schwartz
+  mapName: TSF-DV Шварц
+  mapPath: /SharedMaps/_Forge/Shuttles/TSF/schwartz.yml
+  minPlayers: 0
+  stations:
+    Schwartz:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'TSF-DV Шварц TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'

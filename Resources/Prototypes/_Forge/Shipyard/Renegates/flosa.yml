@@ -1,0 +1,31 @@
+- type: vessel
+  id: flosa
+  parent: BaseVessel
+  name: Фолса
+  description: Середнегабаритный боевой шаттл Ренегатов, оснащённый двумя Цирексами и двумя бофарсами и двумя ЛонгБолами и щитём Т2.
+  price: 214000
+  category: Medium
+  group: Renegate
+  access: Renegate
+  shuttlePath: /SharedMaps/_Forge/Shuttles/Renegates/flosa.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Pirate
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: flosa
+  mapName: 'Фолса'
+  mapPath: /SharedMaps/_Forge/Shuttles/Renegates/flosa.yml
+  minPlayers: 0
+  stations:
+    flosa:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Фолса MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'

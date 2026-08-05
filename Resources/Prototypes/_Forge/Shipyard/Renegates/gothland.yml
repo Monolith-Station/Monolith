@@ -1,0 +1,31 @@
+- type: vessel
+  id: gothland
+  parent: BaseVessel
+  name: Готланд
+  description: Середнегабаритный боевой шаттл Ренегатов, оснащённый двумя Цирексами и двумя бофарсами.
+  price: 127400
+  category: Medium
+  group: Renegate
+  access: Renegate
+  shuttlePath: /SharedMaps/_Forge/Shuttles/Renegates/gothland.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Pirate
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: gothland
+  mapName: 'Готланд'
+  mapPath: /SharedMaps/_Forge/Shuttles/Renegates/gothland.yml
+  minPlayers: 0
+  stations:
+    gothland:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Готланд MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'

@@ -1,0 +1,31 @@
+- type: vessel
+  id: coryntb2
+  parent: BaseVesselAntag
+  name: TSF-BS Корунт Б2
+  description: Средний боевой шаттл ТСФ.
+  price: 190624
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Forge/Shuttles/TSF/coryntb2.yml
+  guidebookPage: Null
+  class:
+  - Fighter
+  - Patrol
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: coryntb2
+  mapName: TSF-BS Корунт Б2
+  mapPath: /SharedMaps/_Forge/Shuttles/TSF/coryntb2.yml
+  minPlayers: 0
+  stations:
+    coryntb2:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'TSF-BS Корунт Б2 TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'

@@ -1,0 +1,31 @@
+- type: vessel
+  id: bleybleyd
+  parent: BaseVessel
+  name: Бейнблейд
+  description: Середнегабаритный боевой шаттл Ренегатов.
+  price: 100021
+  category: Medium
+  group: Renegate
+  access: Renegate
+  shuttlePath: /SharedMaps/_Forge/Shuttles/Renegates/bleybleyd.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Pirate
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: bleybleyd
+  mapName: 'Бейнблейд'
+  mapPath: /SharedMaps/_Forge/Shuttles/Renegates/bleybleyd.yml
+  minPlayers: 0
+  stations:
+    bleybleyd:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Бейнблейд MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'

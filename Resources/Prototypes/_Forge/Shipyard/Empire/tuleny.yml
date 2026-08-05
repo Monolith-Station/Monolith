@@ -1,0 +1,30 @@
+- type: vessel
+  id: tuleny
+  parent: BaseVessel
+  name: EMF Тюлень
+  description: Среднеторпедный шаттл Империи — боевой корабль средней дальности, оснащённый торпедным вооружением для нанесения мощных ударов по вражеским целям.
+  price: 211160
+  category: Medium
+  group: Empire
+  access: Empire
+  shuttlePath: /SharedMaps/_Forge/Shuttles/Empire/tuleny.yml
+  guidebookPage: Null
+  class:
+  - Fighter
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: tuleny
+  mapName: 'EMF Тюлень'
+  mapPath: /SharedMaps/_Forge/Shuttles/Empire/tuleny.yml
+  minPlayers: 0
+  stations:
+    tuleny:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'EMF Тюлень SEW{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'

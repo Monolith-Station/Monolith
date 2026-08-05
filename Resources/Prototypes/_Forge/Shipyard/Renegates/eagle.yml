@@ -1,0 +1,31 @@
+- type: vessel
+  id: eagle
+  parent: BaseVessel
+  name: Орел
+  description: Середнегабаритный исстребитель Ренегатов.
+  price: 151530
+  category: Medium
+  group: Renegate
+  access: Renegate
+  shuttlePath: /SharedMaps/_Forge/Shuttles/Renegates/eagle.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  - Pirate
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: eagle
+  mapName: 'Орел'
+  mapPath: /SharedMaps/_Forge/Shuttles/Renegates/eagle.yml
+  minPlayers: 0
+  stations:
+    eagle:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Орел MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'

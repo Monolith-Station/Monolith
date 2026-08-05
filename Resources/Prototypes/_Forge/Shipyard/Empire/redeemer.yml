@@ -1,0 +1,30 @@
+- type: vessel
+  id: redeemer
+  parent: BaseVessel
+  name: EMF Искупитель
+  description: Середний Истребитель Империи
+  price: 101100
+  category: Medium
+  group: Empire
+  access: Empire
+  shuttlePath: /SharedMaps/_Forge/Shuttles/Empire/redeemer.yml
+  guidebookPage: Null
+  class:
+  - Fighter
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: redeemer
+  mapName: 'EMF Искупитель'
+  mapPath: /SharedMaps/_Forge/Shuttles/Empire/redeemer.yml
+  minPlayers: 0
+  stations:
+    redeemer:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'EMF Искупитель SEW{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
