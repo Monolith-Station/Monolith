@@ -34,10 +34,6 @@
       - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: Plasma  # Mono - Monolithic organs
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
           type: Rat
       - !type:Oxygenate
         conditions:
@@ -102,10 +98,6 @@
         amount: -2.0
     Gas:
       effects:
-      - !type:Oxygenate # Mono - Monolithic organs
-        conditions:
-        - !type:OrganType
-          type: Plasma
       - !type:Oxygenate # Mono - Hydrakin
         conditions:
         - !type:OrganType
@@ -118,9 +110,6 @@
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
-          shouldHave: false
-        - !type:OrganType # Mono - Monolithic organs
-          type: Plasma
           shouldHave: false
         - !type:OrganType
           type: Hydrakin
