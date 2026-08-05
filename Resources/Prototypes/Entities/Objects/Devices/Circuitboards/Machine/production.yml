@@ -1478,8 +1478,6 @@
     requirements: # Frontier
       Manipulator: 2 # Frontier stackRequirements<requirements
       MatterBin: 1 # Frontier stackRequirements<requirements
-    stackRequirements:
-      Steel: 1
     tagRequirements: # Mono
       MicroprocessorEconomy1:
         amount: 2
@@ -1487,8 +1485,8 @@
       ComponentBrickEconomy1:
         amount: 1
         defaultPrototype: ComponentBrickEconomy1
-      MotorEconomy1:
-        amount: 2
+      ElectromagnetEconomy1:
+        amount: 1
         defaultPrototype: ElectromagnetEconomy1
       OpticsEconomy1:
         amount: 2

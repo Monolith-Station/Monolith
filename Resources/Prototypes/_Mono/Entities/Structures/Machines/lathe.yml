@@ -72,6 +72,36 @@
   parent: [FactionLathe, BaseStructureDisableToolUse]
   suffix: IMMOVABLE
 
+- type: entity
+  id: BaseLatheAssembler
+  parent: BaseLathe
+  abstract: true
+  name: lathe
+  components:
+  - type: ItemSlots
+    slots:
+      beaker_slot:
+        name: lathe-component-output-slot-beaker-name
+        whitelist:
+          components:
+          - SolutionContainerManager
+          - Item
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      entity_storage: !type:Container
+      beaker_slot: !type:ContainerSlot
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
+    - entity_storage
+  - type: EntityStorage
+    capacity: 75
+
 #USSP
 
 - type: entity
@@ -470,11 +500,10 @@
 
 - type: entity
   id: IndustrialFurnaceEconomy
-  parent: [ BaseMachinePowered, BaseStructureDisableToolUse ]
+  parent: BaseLatheAssembler
   name: industrial arc furnace
   description: An advanced arc furnace capable of melting ore and refining material through heat. Essential for creating advanced alloys.
   components:
-  - type: Appearance
   - type: Animateable
   - type: Transform
     noRot: false
@@ -484,11 +513,23 @@
     sprite: _Mono/Structures/Machines/2x1arcfurnace.rsi
     layers:
     - state: icon
-      map: [ "enum.MicrowaveVisualizerLayers.Base" ]
+      map: ["enum.LatheVisualLayers.IsRunning"]
     - state: unlit
       shader: unshaded
-      map: [ "enum.MicrowaveVisualizerLayers.BaseUnlit" ]
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    #- state: panel
+    #  map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: RequireProjectileTarget
+  - type: DisableToolUse
+    screwing: true
+    anchoring: true
+  - type: EntityStorage
+    capacity: 100
+    isCollidableWhenOpen: true
+    enteringOffset: 0.5,0
+    enteringRange: 0.35
   - type: Destructible
     thresholds:
     - trigger:
@@ -511,66 +552,27 @@
         - MachineMask
         layer:
         - MachineLayer
-  # microwave comps
-  - type: GuideHelp
-    guides:
-    - ArcFurnace
-  - type: Microwave
-    capacity: 15
-    explosionChance: 0
-    lightningChance: 0
-    baseHeatMultiplier: 300
-    temperatureUpperThreshold: 3300
-    maxItemSize: Ginormous
-    validRecipeTypes: ArcFurnace
-    beginCookingSound: /Audio/Machines/machine_switch.ogg
-    foodDoneSound: /Audio/Effects/Shuttle/radar_ping.ogg
-    loopingSound: /Audio/_Mono/Structures/Economy/furnace.ogg
-    key: ArcFurnaceKey
-    menuTitle: "assembler-menu-arc-furnace-title"
-    flavorText: "assembler-menu-arc-furnace-footer-flavor-left"
-  - type: ActivatableUI
-    key: enum.MicrowaveUiKey.ArcFurnaceKey
-  - type: ContainerContainer
-    containers:
-      microwave_entity_container: !type:Container
-      machine_board: !type:Container
-      machine_parts: !type:Container
-  - type: UserInterface
-    interfaces:
-      enum.MicrowaveUiKey.ArcFurnaceKey:
-        type: AssemblerBoundUserInterface
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerDeviceVisuals.VisualState:
-        enum.MicrowaveVisualizerLayers.Base:
-          Idle: { state: "icon" }
-          Cooking: { state: "icon" }
-        enum.MicrowaveVisualizerLayers.BaseUnlit:
-          Idle: { state: "unlit" }
-          Broken: { state: "panel" }
-          Cooking: { state: "building" }
-      enum.PowerDeviceVisuals.Powered:
-        enum.MicrowaveVisualizerLayers.BaseUnlit:
-          True: { visible: true }
-          False: { visible: false }
-  - type: AutomationSlots # Goobstation
-    slots:
-    - !type:AutomatedContainer
-      input: AutomationSlotInput
-      output: AutomationSlotInput
-      containerId: microwave_entity_container
-      maxItems: 15
+  - type: Lathe
+    timeMultiplier: 0.2
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: building
+    staticPacks:
+    - ArcFurnaceStatic
 
 - type: entity
   id: IndustrialFurnaceEconomyCompact
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: IndustrialFurnaceEconomy
   name: compact arc furnace
   description: A compact version advanced arc furnace capable of melting ore and refining material through heat. Essential for creating advanced alloys. Slower and less capacity.
   components:
-  - type: Appearance
-  - type: Animateable
+  - type: DisableToolUse
+    screwing: false
+    anchoring: false
   - type: Sprite
+    offset: 0,0
     sprite: _Mono/Structures/Machines/1x1arcfurnace.rsi
     layers:
     - state: icon
@@ -578,76 +580,51 @@
     - state: unlit
       shader: unshaded
       map: [ "enum.MicrowaveVisualizerLayers.BaseUnlit" ]
-  - type: RequireProjectileTarget
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: EntityStorage
+    capacity: 75
+    isCollidableWhenOpen: true
+    enteringOffset: 0.0, 0.0
+    enteringRange: 0.18
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000 # expensive machine!
+        damage: 1000 # Expensive.
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.5,0.5,-0.5,-0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: Machine
     board: IndustrialFurnaceEconomyCompactCircuitboard
-  # microwave comps
-  - type: GuideHelp
-    guides:
-    - ArcFurnace
-  - type: Microwave
-    capacity: 10
-    explosionChance: 0
-    lightningChance: 0
-    baseHeatMultiplier: 300
-    temperatureUpperThreshold: 3300
-    maxItemSize: Ginormous
-    validRecipeTypes: ArcFurnace
-    cookTimeMultiplier: 3 # It has 1 chamber thingy, on the sprite, the 2x1 one has 3, simple math.
-    cookTimeScalingConstant: 0.1 # I HATE bluespace parts!
-    beginCookingSound: /Audio/Machines/machine_switch.ogg
-    foodDoneSound: /Audio/Effects/Shuttle/radar_ping.ogg
-    loopingSound: /Audio/_Mono/Structures/Economy/furnace.ogg
-    key: ArcFurnaceKey
-    menuTitle: "assembler-menu-arc-furnace-title"
-    flavorText: "assembler-menu-arc-furnace-footer-flavor-left"
-  - type: ActivatableUI
-    key: enum.MicrowaveUiKey.ArcFurnaceKey
-  - type: ContainerContainer
-    containers:
-      microwave_entity_container: !type:Container
-      machine_board: !type:Container
-      machine_parts: !type:Container
-  - type: UserInterface
-    interfaces:
-      enum.MicrowaveUiKey.ArcFurnaceKey:
-        type: AssemblerBoundUserInterface
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerDeviceVisuals.VisualState:
-        enum.MicrowaveVisualizerLayers.Base:
-          Idle: { state: "icon" }
-          Cooking: { state: "icon" }
-        enum.MicrowaveVisualizerLayers.BaseUnlit:
-          Idle: { state: "unlit" }
-          Broken: { state: "panel" }
-          Cooking: { state: "building" }
-      enum.PowerDeviceVisuals.Powered:
-        enum.MicrowaveVisualizerLayers.BaseUnlit:
-          True: { visible: true }
-          False: { visible: false }
-  - type: AutomationSlots
-    slots:
-    - !type:AutomatedContainer
-      input: AutomationSlotInput
-      output: AutomationSlotInput
-      containerId: microwave_entity_container
-      maxItems: 10
+  - type: Lathe
+    timeMultiplier: 1
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: building
+    staticPacks:
+    - ArcFurnaceStatic
+
 
 - type: entity
   id: PrecisionAssemblerEconomy
-  parent: [ BaseMachinePowered, BaseStructureDisableToolUse ]
+  parent: BaseLatheAssembler
   name: precision assembler
   description: A high-accuracy microfabricator capable of manipulating almost all forms of matter in the right circumstances. Astoundingly useful for creating advanced components of all kinds.
   components:
@@ -661,13 +638,23 @@
     sprite: _Mono/Structures/Machines/nfr_assembler.rsi
     layers:
     - state: icon
-      map: [ "enum.MicrowaveVisualizerLayers.Base" ]
+      map: ["enum.LatheVisualLayers.IsRunning"]
     - state: unlit
       shader: unshaded
-      map: [ "enum.MicrowaveVisualizerLayers.BaseUnlit" ]
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
     #- state: panel
     #  map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: RequireProjectileTarget
+  - type: DisableToolUse
+    screwing: true
+    anchoring: true
+  - type: EntityStorage
+    capacity: 100
+    isCollidableWhenOpen: true
+    enteringOffset: 0.5,0
+    enteringRange: 0.35
   - type: Destructible
     thresholds:
     - trigger:
@@ -690,66 +677,27 @@
         - MachineMask
         layer:
         - MachineLayer
-  # microwave comps
-  - type: GuideHelp
-    guides:
-    - PrecisionAssembler
-  - type: Microwave
-    capacity: 15
-    explosionChance: 0
-    lightningChance: 0
-    baseHeatMultiplier: 300
-    temperatureUpperThreshold: 3300
-    maxItemSize: Ginormous
-    validRecipeTypes: PrecisionAssembler
-    beginCookingSound: /Audio/Machines/machine_switch.ogg
-    foodDoneSound: /Audio/Effects/Shuttle/radar_ping.ogg
-    loopingSound: /Audio/_Mono/Structures/Economy/furnace.ogg
-    key: PrecisionAssemblerKey
-    menuTitle: "assembler-menu-precision-assembler-title"
-    flavorText: "assembler-menu-precision-assembler-footer-flavor-left"
-  - type: ActivatableUI
-    key: enum.MicrowaveUiKey.PrecisionAssemblerKey
-  - type: ContainerContainer
-    containers:
-      microwave_entity_container: !type:Container
-      machine_board: !type:Container
-      machine_parts: !type:Container
-  - type: UserInterface
-    interfaces:
-      enum.MicrowaveUiKey.PrecisionAssemblerKey:
-        type: AssemblerBoundUserInterface
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerDeviceVisuals.VisualState:
-        enum.MicrowaveVisualizerLayers.Base:
-          Idle: { state: "icon" }
-          Broken: { state: "panel" }
-          Cooking: { state: "building" }
-        enum.MicrowaveVisualizerLayers.BaseUnlit:
-          Idle: { state: "unlit" }
-          Cooking: { state: "unlit-building" }
-      enum.PowerDeviceVisuals.Powered:
-        enum.MicrowaveVisualizerLayers.BaseUnlit:
-          True: { visible: true }
-          False: { visible: false }
-  - type: AutomationSlots # Goobstation
-    slots:
-    - !type:AutomatedContainer
-      input: AutomationSlotInput
-      output: AutomationSlotInput
-      containerId: microwave_entity_container
-      maxItems: 15
+  - type: Lathe
+    timeMultiplier: 0.2
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - PrecisionAssemblerStatic
 
 - type: entity
   id: PrecisionAssemblerEconomyCompact
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: PrecisionAssemblerEconomy
   name: compact precision assembler
   description: A high-accuracy microfabricator capable of manipulating almost all forms of matter in the right circumstances. Astoundingly useful for creating advanced components of all kinds. This one is slower and has less space inside.
   components:
-  - type: Appearance
-  - type: Animateable
+  - type: DisableToolUse
+    screwing: false
+    anchoring: false
   - type: Sprite
+    offset: 0,0
     sprite: _Mono/Structures/Machines/altolathe.rsi
     layers:
     - state: icon
@@ -760,6 +708,11 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: RequireProjectileTarget
+  - type: EntityStorage
+    capacity: 75
+    isCollidableWhenOpen: true
+    enteringOffset: 0.0, 0.0
+    enteringRange: 0.18
   - type: Destructible
     thresholds:
     - trigger:
@@ -771,60 +724,28 @@
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  # microwave comps
-  - type: GuideHelp
-    guides:
-    - PrecisionAssembler
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.5,0.5,-0.5,-0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: Machine
     board: PrecisionAssemblerEconomyCompactCircuitboard
-  - type: Microwave
-    capacity: 10
-    explosionChance: 0
-    lightningChance: 0
-    baseHeatMultiplier: 300
-    temperatureUpperThreshold: 3300
-    cookTimeMultiplier: 2
-    cookTimeScalingConstant: 0.1 # I HATE bluespace parts!
-    maxItemSize: Ginormous
-    validRecipeTypes: PrecisionAssembler
-    beginCookingSound: /Audio/Machines/machine_switch.ogg
-    foodDoneSound: /Audio/Effects/Shuttle/radar_ping.ogg
-    loopingSound: /Audio/_Mono/Structures/Economy/furnace.ogg
-    key: PrecisionAssemblerKey
-    menuTitle: "assembler-menu-precision-assembler-title"
-    flavorText: "assembler-menu-precision-assembler-footer-flavor-left"
-  - type: ActivatableUI
-    key: enum.MicrowaveUiKey.PrecisionAssemblerKey
-  - type: ContainerContainer
-    containers:
-      microwave_entity_container: !type:Container
-      machine_board: !type:Container
-      machine_parts: !type:Container
-  - type: UserInterface
-    interfaces:
-      enum.MicrowaveUiKey.PrecisionAssemblerKey:
-        type: AssemblerBoundUserInterface
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerDeviceVisuals.VisualState:
-        enum.MicrowaveVisualizerLayers.Base:
-          Idle: { state: "icon" }
-          Broken: { state: "panel" }
-          Cooking: { state: "building" }
-        enum.MicrowaveVisualizerLayers.BaseUnlit:
-          Idle: { state: "unlit" }
-          Cooking: { state: "unlit-building" }
-      enum.PowerDeviceVisuals.Powered:
-        enum.MicrowaveVisualizerLayers.BaseUnlit:
-          True: { visible: true }
-          False: { visible: false }
-  - type: AutomationSlots # Goobstation
-    slots:
-    - !type:AutomatedContainer
-      input: AutomationSlotInput
-      output: AutomationSlotInput
-      containerId: microwave_entity_container
-      maxItems: 15
+  - type: Lathe
+    timeMultiplier: 1
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - PrecisionAssemblerStatic
 
 - type: entity
   id: CentrifugeLathe

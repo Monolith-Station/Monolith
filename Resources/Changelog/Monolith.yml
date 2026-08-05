@@ -23446,3 +23446,59 @@ Entries:
   id: 2583
   time: '2026-08-02T22:10:13.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4435
+- author: tonotom1
+  changes:
+    - type: Add
+      message: Ruined and lootable Medicus derelict to derelict event circulation.
+    - type: Remove
+      message: Frontier Tide ship from derelict event circulation
+    - type: Tweak
+      message: >-
+        Medicus power capacity increased for QOL, guns rearranged to meet
+        guidelines.
+    - type: Tweak
+      message: There are now always 3 salvage wrecks and never 2.
+  id: 2584
+  time: '2026-08-03T14:24:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4428
+- author: ondrej008
+  changes:
+    - type: Tweak
+      message: SRD & tools are now more forgiving if you move a bit
+    - type: Fix
+      message: >-
+        SRD now works better when not standing on the grid that is being
+        repaired
+  id: 2585
+  time: '2026-08-03T14:35:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4407
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Flatpackers cost bluespace for tax instead of iridite.
+    - type: Fix
+      message: Armor plates should now fit in interactors.
+  id: 2586
+  time: '2026-08-03T20:54:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4439
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Medical assembler, precision assembler and arc furnace now use better
+        UI.
+    - type: Tweak
+      message: Machine frame construction is now faster
+  id: 2587
+  time: '2026-08-04T10:06:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4436
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Replaced gameplay voting for now with random gamemode (like normal
+        station servers). Now has a chance for greenshifts (no ADS/chimera
+        threat).
+  id: 2588
+  time: '2026-08-04T17:33:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4443
