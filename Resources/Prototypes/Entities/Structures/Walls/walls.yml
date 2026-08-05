@@ -26,6 +26,7 @@
     tags:
     - Wall
   - type: IsRoof
+  - type: RequiresGrid # Mono
   - type: Sprite
     drawdepth: Walls
   - type: Icon
@@ -917,6 +918,34 @@
   - type: Construction
     graph: Girder
     node: reinforcedWallChitin
+
+# Xenoborg walls
+- type: entity
+  parent: WallPlastitanium
+  id: WallXenoborg
+  name: xenoborg wall
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/xenoborg.rsi
+  - type: Icon
+    sprite: Structures/Walls/xenoborg.rsi
+  - type: IconSmooth
+    key: walls
+    base: xenoborg
+
+- type: entity
+  parent: WallPlastitaniumDiagonal
+  id: WallXenoborgDiagonal
+  name: xenoborg wall
+  suffix: diagonal
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: Structures/Walls/xenoborg_diagonal.rsi
+    state: state0
+  - type: Icon
+    sprite: Structures/Walls/xenoborg_diagonal.rsi
+    state: state0
 
 - type: entity
   parent: BaseWallTierOne # Mono

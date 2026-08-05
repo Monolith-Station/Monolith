@@ -16,11 +16,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/6.35x40mm_caseless.rsi
-  - type: MagazineVisuals
-    magState: mag
-    steps: 4
-    zeroVisible: false
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/68x52mm_caseless.rsi
   - type: Appearance
   - type: Tag
     tags:
@@ -47,8 +43,6 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
   parent: BaseAmmoBox68x52mmCaseless
@@ -61,8 +55,6 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
     - state: practice
 
 - type: entity
@@ -73,12 +65,10 @@
   - type: BallisticAmmoProvider
     proto: Cartridge68x52mmCaselessRubber
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/6.35x40mm_caseless.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/68x52mm_caseless.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
     - state: rubber
 
 # Mono AP syst
@@ -94,8 +84,7 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+    - state: HP
 
 - type: entity
   parent: BaseAmmoBox68x52mmCaseless
@@ -108,8 +97,7 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+    - state: RIP
 
 #armor-piercing:
 
@@ -124,8 +112,7 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+    - state: plasteelAP
 
 #big ammo boxes
 - type: entity
@@ -141,14 +128,10 @@
     capacity: 240
     proto: Cartridge68x52mmCaseless
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/6.35x40mm_caseless.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/68x52mm_caseless.rsi
     layers:
     - state: base-b
       map: ["enum.GunVisualLayers.Base"]
-    - state: magb-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: magb
   - type: Tag
     tags:
      - Magazine68x52mmCaselessBoxBig

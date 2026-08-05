@@ -1,5 +1,5 @@
 - type: entity
-  name: NEK'o Magnus (.45 magnum)
+  name: NEK'o Magnus (.357 magnum)
   parent: BaseWeaponRevolver
   suffix: Ренегаты
   id: WeaponRevolverMagnus
@@ -15,7 +15,7 @@
     availableModes:
     - SemiAuto
   - type: RevolverAmmoProvider
-    proto: Cartridge45_magnumFMJ
+    proto: Cartridge357_magnumFMJ
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
   - type: StaticPrice

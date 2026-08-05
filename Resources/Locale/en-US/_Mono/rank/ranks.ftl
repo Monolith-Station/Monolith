@@ -4,21 +4,21 @@ tsf-marsoc = WS.MARSOC
 
 ## TSFMC loadout ranks
 
-tsf-e1 = PVT
-tsf-e2 = PFC
-tsf-e3 = LCPL
-tsf-e4 = CPL
-tsf-e5 = SGT
-tsf-e6 = SSGT
-tsf-e7 = GYSGT
-tsf-e8 = MSGT
+tsf-e1 = Pvt.
+tsf-e2 = PFC.
+tsf-e3 = LCpl.
+tsf-e4 = Cpl.
+tsf-e5 = Sgt.
+tsf-e6 = SSgt.
+tsf-e7 = GySgt.
+tsf-e8 = MSgt.
 
-tsf-o1 = 2LT
-tsf-o2 = 1LT
-tsf-o3 = CPT
-tsf-o4 = MAJ
-tsf-o5 = LTCOL
-tsf-o6 = COL
+tsf-o1 = 2LT.
+tsf-o2 = 1LT.
+tsf-o3 = Cpt.
+tsf-o4 = Maj.
+tsf-o5 = LtCol.
+tsf-o6 = Col.
 
 ## TSFN loadout ranks
 # These are used for engineers
@@ -51,6 +51,8 @@ pdv-denasvar = Dns.
 pdv-asvaran = Asv.
 pdv-vizier = Grand Vizier
 
+pdv-tarkhan = PDRV Tarkhan
+
 ### USSP ranks
 ussp-rifleman = Rfl.
 ussp-sergeant = Srz.
@@ -60,6 +62,13 @@ ussp-commissar = Commissar
 vg-infanteer = Inf.
 vg-lieutenant = Lt.
 vg-commander = Commander
+
+### MMC ranks
+mmc-employee = Employee
+mmc-security = Corporate Security
+mmc-asset-security = Asset Security
+mmc-asset-security-senior = Senior Asset Security
+mmc-liason = Corporate Liason
 
 ### CC/MD ranks
 cc-judge = Jdg.

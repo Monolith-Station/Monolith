@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by SuperJoelD00D for Monolith Station, xenoborg sprites, created and modified by Samuka-C (github) and mangled by lordsej (github) who is very sorry, lathe stuff is from Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/c6e3401f2e7e1e55c57060cdf956a98ef1fefc24",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ai",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.1,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "panel"
+    },
+    {
+      "name": "inserting",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "building",
+      "delays": [
+        [
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10
+        ]
+      ]
+    },
+    {
+      "name": "unlit-building",
+      "delays": [
+        [
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10
+        ]
+      ]
+    },
+    {
+      "name": "unlit"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "ai_camera",
+      "delays": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "ai_dead"
+    },
+    {
+      "name": "ai_empty",
+      "delays": [
+        [
+          0.7,
+          0.7
+        ]
+      ]
+    },
+    {
+      "name": "default",
+      "directions": 4
+    },
+    {
+      "name": "base"
+    }
+  ]
+}

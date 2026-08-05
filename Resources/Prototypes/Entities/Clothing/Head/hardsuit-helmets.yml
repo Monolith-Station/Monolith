@@ -496,7 +496,7 @@
 
 #Syndicate Commander Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons]
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons, BaseFactionGearOtherFactionT3]
   id: ClothingHeadHelmetHardsuitSyndieCommander
   name: syndicate commander helmet
   description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.

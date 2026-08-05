@@ -183,11 +183,12 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 325
+    damageModifier: 1.3
+    projectileSpeed: 410
     recoil: 50 # 2x
     minAngle: 0
     maxAngle: 3
-    fireRate: 0.2
+    fireRate: 0.3
     burstCooldown: 10
     burstFireRate: 2
     shotsPerBurst: 3
@@ -281,7 +282,7 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 720
+    projectileSpeed: 450
     recoil: 100 # 4x
     minAngle: 0
     maxAngle: 1

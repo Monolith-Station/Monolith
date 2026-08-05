@@ -105,7 +105,7 @@ uplink-pirate-energy-sword-name = Energy Sword
 uplink-pirate-energy-sword-desc = Courtesy of the Gorlex Marauders. Make your mark, leave no witnesses.
 
 uplink-pirate-python-name = Python
-uplink-pirate-python-desc = A brutally simple, effective, and loud revolver. Comes loaded with .45 magnum rounds.
+uplink-pirate-python-desc = A brutally simple, effective, and loud revolver. Comes loaded with .357 magnum rounds.
 
 uplink-pirate-viper-name = Viper
 uplink-pirate-viper-desc = A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses pistol magazines (9x19mm FMJ).
@@ -157,8 +157,8 @@ uplink-pirate-box-magazine-pistol-desc = A box filled with 4 9x19mm pistol magaz
 uplink-pirate-box-magazine-light-rifle-name = Box of 7.62x39mm magazines
 uplink-pirate-box-magazine-light-rifle-desc = A box filled with 4 7.62x39mm magazines.
 
-uplink-pirate-magazine-box-45_magnum-name = Box of .45 magnum speedloaders
-uplink-pirate-magazine-box-45_magnum-desc = A box containing 4 .45 magnum speedloaders.
+uplink-pirate-magazine-box-357_magnum-name = Box of .357 magnum speedloaders
+uplink-pirate-magazine-box-357_magnum-desc = A box containing 4 .357 magnum speedloaders.
 
 uplink-pirate-light-rifle-magazine-box-big-name = Ammunition box (7.62x39mm FMJ)
 uplink-pirate-light-rifle-magazine-box-big-desc = A box containing 200 7.62x39mm catridges.
@@ -283,6 +283,9 @@ uplink-pdv-t1-bastion-voucher-desc = A small card that contains the data for the
 uplink-pdv-t1-neptune-voucher-name = PDV Neptune LPC [T1]
 uplink-pdv-t1-neptune-voucher-desc = A small card that contains the data for the procurement of a Neptune-class frigate from the flagship's reserves.
 
+uplink-pdv-t1-layak-voucher-name = PDV Layak LPC [T1]
+uplink-pdv-t1-layak-voucher-desc = A small card that contains the data for the procurement of a Layak-class corvette from the flagship's reserves.
+
 uplink-pdv-t2-europa-voucher-name = PDV Europa LPC [T2]
 uplink-pdv-t2-europa-voucher-desc = A small card that contains the data for the procurement of a Europa-class cruiser from the flagship's reserves.
 
@@ -298,8 +301,11 @@ uplink-pdv-t2-motleyanne-voucher-desc = A small card that contains the data for 
 uplink-pdv-t3-saintie-voucher-name = PDV Saintie LPC [T3]
 uplink-pdv-t3-saintie-voucher-desc = A small card that contains the data for the procurement of a Saintie-class cruiser from the flagship's reserves.
 
-uplink-pdv-t3-kortik-voucher-name = PDV Kortik LPC [T3]
-uplink-pdv-t3-kortik-voucher-desc = A small card that contains the data for the procurement of a Kortik-class frigate from the flagship's reserves.
+uplink-pdv-t2-kortik-voucher-name = PDV Kortik-R LPC [T2]
+uplink-pdv-t2-kortik-voucher-desc = A small card that contains the data for the procurement of a Kortik-R-class frigate from the flagship's reserves.
+
+uplink-pdv-t3-kortik-voucher-name = PDV Kortik-EM LPC [T3]
+uplink-pdv-t3-kortik-voucher-desc = A small card that contains the data for the procurement of a Kortik-EM-class frigate from the flagship's reserves.
 
 uplink-pdv-t4-saturn-voucher-name = PDV Saturn LPC [T4]
 uplink-pdv-t4-saturn-voucher-desc = A small card that authorizes the procurement of the Saturn.

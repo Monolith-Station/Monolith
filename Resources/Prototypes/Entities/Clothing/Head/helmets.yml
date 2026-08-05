@@ -59,7 +59,7 @@
 
 #SWAT Helmet
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ClothingHeadBase, BaseFactionGearOtherFactionT2]
   id: ClothingHeadHelmetSwat
   name: SWAT helmet
   description: An extremely robust helmet, commonly used by paramilitary forces. This one has the Nanotrasen logo emblazoned on the top.

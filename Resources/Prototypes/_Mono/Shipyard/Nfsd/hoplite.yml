@@ -4,7 +4,7 @@
   parent: BaseVesselAntag
   name: TSF-PIN Hoplite
   description: Патрульный корабль, предназначенный для перехвата контрабандистов и лёгких вражеских судов с помощью мощных двигателей и ЭМИ-вооружения. Оснащён двумя установками M220 «Рубикон», двумя плазменными импульсными орудиями и двумя плазменными пушками «Мародёр». # Forge-Change
-  price: 78500
+  price: 110211
   category: Small
   group: Security
   access: Security
@@ -25,6 +25,9 @@
   stations:
     Hoplite:
       stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "A small but powerful frame, beware of the thrusters' whiplash."
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Гоплит TSF{1}' # Forge-Change

@@ -158,6 +158,15 @@
   - type: Sprite
     sprite: Forge/Structures/Doors/Airlocks/Standard/hatch.rsi # Forge-Change
 
+# Xenoborg Airlock
+- type: entity
+  parent: Airlock
+  id: AirlockXenoborg
+  name: xenoborg airlock
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/xenoborg.rsi
+
 - type: entity
   parent: Airlock
   id: AirlockHatchMaintenance

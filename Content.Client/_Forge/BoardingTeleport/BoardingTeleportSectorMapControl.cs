@@ -8,7 +8,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
@@ -184,49 +183,57 @@ public sealed class BoardingTeleportSectorMapControl : BoxContainer
             return;
         }
 
-        var mapQuery = _entManager.AllEntityQueryEnumerator<MapComponent>();
-        while (mapQuery.MoveNext(out _, out var map))
+        // Only scan grids on the shuttle's current map — never admin arenas, dormant ADS, etc.
+        var shuttleMapId = _xform.GetMapId(_shuttle.Value);
+        if (shuttleMapId == MapId.Nullspace)
         {
-            foreach (var grid in _mapManager.GetAllGrids(map.MapId))
+            _objects.RemoveAllChildren();
+            _map.SetMapObjects(_mapObjects);
+            return;
+        }
+
+        foreach (var grid in _mapManager.GetAllGrids(shuttleMapId))
+        {
+            var gridUid = grid.Owner;
+            if (gridUid == _shuttle)
+                continue;
+
+            if (!_entManager.TryGetComponent<TransformComponent>(gridUid, out var xform))
+                continue;
+
+            if (xform.MapID != shuttleMapId)
+                continue;
+
+            _entManager.TryGetComponent(gridUid, out IFFComponent? iff);
+            var hideLabel = iff != null &&
+                            (iff.Flags & IFFFlags.HideLabel) != 0x0 &&
+                            gridUid != _shuttle;
+
+            var detectionLevel = _console == null
+                ? DetectionLevel.Detected
+                : _detection.IsGridDetected(gridUid, _console.Value);
+
+            var detected = detectionLevel != DetectionLevel.Undetected || !hideLabel;
+            if (!detected || iff != null && (iff.Flags & IFFFlags.Hide) != 0x0)
+                continue;
+
+            var name = hideLabel
+                ? detectionLevel == DetectionLevel.PartialDetected
+                    ? Loc.GetString("shuttle-console-signature-infrared")
+                    : _detection.HandleUnknownMassLabel(gridUid)
+                : _entManager.GetComponent<MetaDataComponent>(gridUid).EntityName;
+
+            var mapObject = new GridMapObject
             {
-                var gridUid = grid.Owner;
-                if (gridUid == _shuttle)
-                    continue;
+                Name = name,
+                Entity = gridUid,
+                HideButton = iff != null && (iff.Flags & IFFFlags.HideLabelAlways) != 0x0,
+            };
 
-                if (!_entManager.TryGetComponent<TransformComponent>(gridUid, out var xform))
-                    continue;
+            _mapObjects.GetOrNew(xform.MapID).Add(mapObject);
 
-                _entManager.TryGetComponent(gridUid, out IFFComponent? iff);
-                var hideLabel = iff != null &&
-                                (iff.Flags & IFFFlags.HideLabel) != 0x0 &&
-                                gridUid != _shuttle;
-
-                var detectionLevel = _console == null
-                    ? DetectionLevel.Detected
-                    : _detection.IsGridDetected(gridUid, _console.Value);
-
-                var detected = detectionLevel != DetectionLevel.Undetected || !hideLabel;
-                if (!detected || iff != null && (iff.Flags & IFFFlags.Hide) != 0x0)
-                    continue;
-
-                var name = hideLabel
-                    ? detectionLevel == DetectionLevel.PartialDetected
-                        ? Loc.GetString("shuttle-console-signature-infrared")
-                        : _detection.HandleUnknownMassLabel(gridUid)
-                    : _entManager.GetComponent<MetaDataComponent>(gridUid).EntityName;
-
-                var mapObject = new GridMapObject
-                {
-                    Name = name,
-                    Entity = gridUid,
-                    HideButton = iff != null && (iff.Flags & IFFFlags.HideLabelAlways) != 0x0,
-                };
-
-                _mapObjects.GetOrNew(xform.MapID).Add(mapObject);
-
-                if (!mapObject.HideButton)
-                    _listedObjects.Add(mapObject);
-            }
+            if (!mapObject.HideButton)
+                _listedObjects.Add(mapObject);
         }
 
         RecenterOnShuttle();

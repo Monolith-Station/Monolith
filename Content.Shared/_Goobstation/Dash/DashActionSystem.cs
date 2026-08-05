@@ -1,0 +1,59 @@
+using Content.Shared.Actions;
+using Content.Shared.Gravity;
+using Content.Shared.Movement.Components;
+using Content.Shared.Throwing;
+
+namespace Content.Shared._Goobstation.Dash;
+
+public sealed class DashActionSystem : EntitySystem
+{
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<DashActionEvent>(OnDashAction);
+
+        SubscribeLocalEvent<DashActionComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<DashActionComponent, ComponentShutdown>(OnComponentShutdown);
+    }
+
+    private void OnDashAction(DashActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (args.NeedsGravity && _gravity.IsWeightless(args.Performer))
+            return;
+
+        var vec = (_transform.ToMapCoordinates(args.Target).Position -
+                   _transform.GetMapCoordinates(args.Performer).Position).Normalized() *
+                   args.Distance;
+
+        var speed = args.Speed;
+
+        if (args.AffectedBySpeed && TryComp<MovementSpeedModifierComponent>(args.Performer, out var speedcomp))
+        {
+            vec *= speedcomp.CurrentSprintSpeed / speedcomp.BaseSprintSpeed;
+            speed *= speedcomp.CurrentSprintSpeed / speedcomp.BaseSprintSpeed;
+        }
+
+        _throwing.TryThrow(args.Performer, vec, speed, null, 0, null, false, false, false);
+
+        args.Handled = true;
+    }
+
+    private void OnComponentInit(EntityUid uid, DashActionComponent comp, ref ComponentInit args)
+    {
+        comp.ActionUid = _actions.AddAction(uid, comp.ActionProto);
+    }
+
+    private void OnComponentShutdown(EntityUid uid, DashActionComponent comp, ref ComponentShutdown args)
+    {
+        _actions.RemoveAction(comp.ActionUid);
+    }
+}

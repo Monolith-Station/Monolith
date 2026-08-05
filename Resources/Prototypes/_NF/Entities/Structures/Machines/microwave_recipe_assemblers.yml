@@ -238,6 +238,8 @@
     foodDoneSound: /Audio/Effects/Shuttle/radar_ping.ogg
     loopingSound: /Audio/_NF/Machines/medical-assembler.ogg
     key: MedicalAssemblerKey
+    menuTitle: "assembler-menu-medical-title"
+    flavorText: "assembler-menu-medical-footer-flavor-left"
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.VisualState:

@@ -115,6 +115,21 @@
   position: 12, -4
 
 - type: technology
+  id: PDVBasicBionics
+  name: research-technology-pdv-ias
+  entityIcon: OrganInternalAirSystem
+  discipline: Pdv
+  tier: 2
+  cost: 20000
+  recipeUnlocks:
+  - AutosurgeonIASPDV
+  - AutosurgeonAdvHeartPDV
+  - AutosurgeonDermalArmorPDV
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  position: 13, -4
+
+- type: technology
   id: PDVAdvancedBorgModule
   name: research-technology-pdv-advanced-module
   entityIcon: BorgModulePDVAdvancedWeapon

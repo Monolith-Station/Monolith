@@ -2,7 +2,7 @@
   name: blood cultist
   abstract: true
   parent:
-  - MobHumanoidHostileBase
+  - MobHumanoidHostileBaseShade # Mono: MobHumanoidHostileBase -> MobHumanoidHostileBaseShade
   - MobHumanoidInvetory
   - NFMobRestrictions
   id: MobBloodCultistBase

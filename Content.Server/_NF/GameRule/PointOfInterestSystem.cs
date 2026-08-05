@@ -133,12 +133,15 @@ public sealed partial class PointOfInterestSystem : EntitySystem
                 break;
 
             var offset = GetRandomPOICoord(proto);
+            Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
+            var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
+            Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
 
-            if (TrySpawnPoiGrid(mapUid, proto, offset, out var marketUid) && marketUid is { Valid: true } market)
+            if (TrySpawnPoiGrid(mapUid, proto, coords, out var marketUid) && marketUid is { Valid: true } market)
             {
                 marketStations.Add(market);
                 marketsAdded++;
-                AddStationPlacement(offset, proto);
+                AddStationPlacement(coords, proto);
             }
         }
     }
@@ -168,12 +171,14 @@ public sealed partial class PointOfInterestSystem : EntitySystem
                 break;
 
             var offset = GetRandomPOICoord(proto);
+            Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
+            var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
+            Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
 
-            if (TrySpawnPoiGrid(mapUid, proto, offset, out var optionalUid) && optionalUid is { Valid: true } uid)
+            if (TrySpawnPoiGrid(mapUid, proto, coords, out var optionalUid) && optionalUid is { Valid: true } uid)
             {
                 optionalStations.Add(uid);
-                optionalsAdded++;
-                AddStationPlacement(offset, proto);
+                AddStationPlacement(coords, proto);
             }
         }
     }
@@ -198,11 +203,14 @@ public sealed partial class PointOfInterestSystem : EntitySystem
                 continue;
 
             var offset = GetRandomPOICoord(proto);
+            Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
+            var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
+            Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
 
-            if (TrySpawnPoiGrid(mapUid, proto, offset, out var requiredUid) && requiredUid is { Valid: true } uid)
+            if (TrySpawnPoiGrid(mapUid, proto, coords, out var requiredUid) && requiredUid is { Valid: true } uid)
             {
                 requiredStations.Add(uid);
-                AddStationPlacement(offset, proto);
+                AddStationPlacement(coords, proto);
             }
         }
     }
@@ -236,11 +244,14 @@ public sealed partial class PointOfInterestSystem : EntitySystem
                 if (chance <= proto.SpawnChance)
                 {
                     var offset = GetRandomPOICoord(proto);
+                    Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
+                    var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
+                    Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
 
-                    if (TrySpawnPoiGrid(mapUid, proto, offset, out var optionalUid) && optionalUid is { Valid: true } uid)
+                    if (TrySpawnPoiGrid(mapUid, proto, coords, out var optionalUid) && optionalUid is { Valid: true } uid)
                     {
                         uniqueStations.Add(uid);
-                        AddStationPlacement(offset, proto);
+                        AddStationPlacement(coords, proto);
                         break;
                     }
                 }

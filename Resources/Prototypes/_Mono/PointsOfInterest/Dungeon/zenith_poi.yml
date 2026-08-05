@@ -10,9 +10,9 @@
 - type: pointOfInterest
   id: Zenith
   parent: BaseMobilePOI
-  name: 'ADS «Зенит» CK-395'
-  minimumDistance: 10000
-  maximumDistance: 15000
+  name: 'ADS Zenith CK-395'
+  minimumDistance: 20000
+  maximumDistance: 25000
   spawnGroup: Optional
   gridPath: /Maps/_Mono/POI/Dungeons/zenith_poi.yml
   addComponents:

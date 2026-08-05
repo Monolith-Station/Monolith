@@ -10,20 +10,7 @@
     Steel: 1500
     Plasteel: 1000
     Plastic: 1000
-    
-- type: latheRecipe
-  parent: BaseWeaponRecipeLong
-  id: WeaponRevolverDeckard
-  result: WeaponRevolverDeckard
-  categories:
-  - Sidearms
-  - Ballistic
-  - Weapons
-  materials:
-    Steel: 1500
-    Plasteel: 2000
-    Plastic: 1000
-    
+
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: WeaponRevolverMateba
@@ -36,11 +23,11 @@
     Steel: 3000
     Plasteel: 4000
     Plastic: 1000
-    
+
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
-  id: WeaponPistolN1984
-  result: WeaponPistolN1984
+  id: WeaponPistolMk58
+  result: WeaponPistolMk58
   categories:
   - Sidearms
   - Ballistic
@@ -49,7 +36,7 @@
     Steel: 2000
     Plasteel: 4000
     Plastic: 1000
-    
+
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: EnergySwordBlue

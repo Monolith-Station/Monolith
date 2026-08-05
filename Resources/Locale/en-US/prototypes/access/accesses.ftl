@@ -46,5 +46,10 @@ id-card-access-level-central-command = Central Command
 
 id-card-access-level-wizard = Wizard
 
+id-card-access-level-station-ai = Artifical Intelligence
+id-card-access-level-borg = Cyborg
+id-card-access-level-basic-silicon = Robot
+
+
 # Forge Change
 id-card-access-level-tsf-diplomacy = Federation Diplomacy

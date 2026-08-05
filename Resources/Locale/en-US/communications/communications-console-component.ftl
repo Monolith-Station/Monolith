@@ -33,3 +33,4 @@ comms-console-announcement-title-wizard = Wizard
 
 # Mono
 comms-console-announcement-title-rogue = Phaethon Dynasty Imperial Vanguard
+comms-console-announcement-title-mieyo = Mieyo Manufacturing Concern

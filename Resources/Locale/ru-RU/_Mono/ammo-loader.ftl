@@ -1,22 +1,23 @@
-# Ammo Loader
-ammo-loader-flush-verb = Отправить
-ammo-loader-eject-verb = Извлечь
-ammo-loader-insert-success = Боеприпасы загружены.
-ammo-loader-not-anchored = Боекомплектор должен быть закреплён!
-ammo-loader-empty = Боекомплектор пуст!
-ammo-loader-flushed = Боеприпасы отправлены!
-ammo-loader-no-artillery = Нет корабельных орудий, связанных с этим боекомплектером.
-ammo-loader-transfer-failed = Не удалось загрузить боеприпасы ни в одно из связанных орудий.
-ammo-loader-insert-fail = Боекомплектор заполнен.
+ammo-loader-eject-verb = Извлечь содержимое
+ammo-loader-insert-success = Боеприпасы вставлены.
+ammo-loader-not-anchored = Загрузчик должен быть закреплён!
+ammo-loader-empty = Загрузчик пуст!
+ammo-loader-flushed = Боеприпасы поданы!
+ammo-loader-no-artillery = К загрузчику не привязана корабельная артиллерия.
+ammo-loader-transfer-failed = Не удалось передать боеприпасы связанной артиллерии.
+ammo-loader-insert-fail = Загрузчик полон.
+ammo-loader-turret-locked = Боеприпасы этой турели нельзя заменить.
+ammo-loader-incompatible-ammo = Эти боеприпасы несовместимы с выбранной турелью.
+ammo-loader-load-failed = Не удалось зарядить турель.
+ammo-loader-unload-failed = Не удалось выгрузить боеприпасы из турели.
 
-# Artillery Flush Verbs
-ammo-loader-flush-to-artillery-with-ammo-and-id = Загрузить в { $artillery } ({ $ammo }/{ $capacity }) [{ $id }]
-ammo-loader-flushed-to-artillery = Боеприпасы загружены в { $artillery }!
-ammo-loader-transfer-failed-to-artillery = Не удалось загрузить боеприпасы в { $artillery }!
+ammo-loader-flush-to-artillery-with-ammo-and-id = Подать в { $artillery } ({ $ammo }/{ $capacity }) [{ $id }]
+ammo-loader-flushed-to-artillery = Боеприпасы поданы в { $artillery }!
+ammo-loader-transfer-failed-to-artillery = Не удалось передать боеприпасы в { $artillery }!
 
-# Device Link Ports
-signal-port-name-ammo-loader-load = Загрузить боеприпасы
-signal-port-description-ammo-loader-load = Передаёт боеприпасы в связанное корабельное орудие.
+signal-port-name-ammo-loader-load = Подача боеприпасов
+signal-port-description-ammo-loader-load = Передаёт загруженные боеприпасы связанной корабельной артиллерии.
 
-signal-port-name-space-artillery-load = Принять боеприпасы
-signal-port-description-space-artillery-load = Принимает боеприпасы от связанного боекомплектора.
+signal-port-name-space-artillery-load = Приём боеприпасов
+signal-port-description-space-artillery-load = Принимает боеприпасы от связанного загрузчика.
+

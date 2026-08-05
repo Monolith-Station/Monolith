@@ -1,0 +1,55 @@
+- type: pointOfInterest
+  id: BeaconClusterA
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'INSO-357k Asteroid Cluster'
+  minimumDistance: 0
+  maximumDistance: 100
+  posX: 5056
+  posY: 4480
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/beaconstation_a.yml
+  addComponents:
+  - type: IFF
+    color: "#ccaa55"
+  - type: SolarPoweredGrid
+    doNotCull: true
+
+- type: gameMap
+  id: BeaconClusterA
+  mapName: 'INSO-357k Asteroid Cluster'
+  mapPath: /Maps/_Mono/POI/beaconstation_a.yml
+  minPlayers: 0
+  stations:
+    BeaconClusterA:
+      stationProto: RecordsFrontierOutpost
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'INSO-357k Asteroid Cluster'
+
+- type: pointOfInterest
+  id: BeaconWilds
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'LINEAR-21 Asteroid Cluster'
+  minimumDistance: 0
+  maximumDistance: 100
+  posX: 9088
+  posY: -7552
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/beaconstation_wilds.yml
+  addComponents:
+  - type: IFF
+    color: "#ccaa55"
+  - type: SolarPoweredGrid
+    doNotCull: true
+
+- type: gameMap
+  id: BeaconWilds
+  mapName: 'LINEAR-21 Asteroid Cluster'
+  mapPath: /Maps/_Mono/POI/beaconstation_wilds.yml
+  minPlayers: 0
+  stations:
+    BeaconWilds:
+      stationProto: RecordsFrontierOutpost
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'LINEAR-21 Asteroid Cluster'

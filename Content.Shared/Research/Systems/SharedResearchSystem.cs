@@ -93,7 +93,8 @@ public abstract partial class SharedResearchSystem : EntitySystem
         var tiers = new Dictionary<string, int>();
         foreach (var discipline in component.SupportedDisciplines)
         {
-            tiers.Add(discipline, GetHighestDisciplineTier(component, discipline));
+            // Guard against duplicate disciplines in prototype lists.
+            tiers[discipline] = GetHighestDisciplineTier(component, discipline);
         }
 
         return tiers;

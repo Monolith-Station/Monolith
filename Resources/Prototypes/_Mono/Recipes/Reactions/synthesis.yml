@@ -1,0 +1,14 @@
+- type: reaction
+  id: LithiumHydroxide
+  impact: Medium
+  quantized: true
+  reactants:
+    Lithium:
+      amount: 3
+    Hydroxide:
+      amount: 2
+  effects:
+  - !type:CreateGas
+    gas: WaterVapor
+  products:
+    LithiumHydroxide: 2

@@ -388,7 +388,7 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
 
     public bool IsComplete(ShipWeaponFabricatorComponent component)
     {
-        if (!component.HasBoard)
+        if (GetActiveBoard(component) == null)
             return false;
 
         foreach (var (type, amount) in component.Requirements)
@@ -456,7 +456,8 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
         if (!ContainersReady(component))
             return;
 
-        if (!component.HasBoard)
+        if (GetActiveBoard(component) is not { } board ||
+            !TryComp<MachineBoardComponent>(board, out var machineBoard))
         {
             component.Requirements.Clear();
             component.MaterialRequirements.Clear();
@@ -468,10 +469,6 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
             component.TagProgress.Clear();
             return;
         }
-
-        var board = GetActiveBoard(component)!.Value;
-        if (!TryComp<MachineBoardComponent>(board, out var machineBoard))
-            return;
 
         ResetProgressAndRequirements(component, machineBoard);
 
@@ -485,6 +482,9 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
 
         foreach (var part in component.PartContainer.ContainedEntities)
         {
+            if (EntityManager.IsQueuedForDeletion(part))
+                continue;
+
             if (TryComp<MachinePartComponent>(part, out var machinePart))
             {
                 var type = machinePart.PartType;
@@ -538,23 +538,41 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
             return;
         }
 
-        var board = GetActiveBoard(component)!.Value;
-        if (!TryComp<MachineBoardComponent>(board, out var machineBoard))
+        var board = GetActiveBoard(component);
+        if (board == null || !TryComp<MachineBoardComponent>(board.Value, out var machineBoard))
         {
             SetFabricatingState(uid, component, false);
             UpdateUi(uid, component);
             return;
         }
 
+        // Re-check resources at finish time — prevents free crafts if state drifted mid-job.
+        RegenerateProgress(uid, component);
+        if (!IsComplete(component))
+        {
+            SetFabricatingState(uid, component, false);
+            UpdateUi(uid, component);
+            return;
+        }
+
+        // Consume before spawning so a failed deduct never yields a free weapon.
+        if (!TryConsumeRequiredMaterials(uid, component) || !TryConsumeRequiredParts(component))
+        {
+            SetFabricatingState(uid, component, false);
+            UpdateUi(uid, component);
+            return;
+        }
+
+        var packedPrototype = machineBoard.Prototype;
+        var flatpackPrototype = GetOutputFlatpackPrototype(board.Value, component);
         var output = GetOutputCoordinates(uid);
-        var flatpack = Spawn(GetOutputFlatpackPrototype(board, component), output);
-        _flatpack.ConfigureFlatpack(flatpack, machineBoard.Prototype, board);
+        var flatpack = Spawn(flatpackPrototype, output);
+        _flatpack.ConfigureFlatpack(flatpack, packedPrototype, board.Value);
 
-        ConsumeRequiredMaterials(uid, component);
-
-        ConsumeRequiredParts(component);
-
-        QueueDel(board);
+        // Remove the board from the queue immediately. QueueDel alone leaves it in the
+        // container until end-of-tick, so TryContinueQueue would reuse the same board.
+        _container.Remove(board.Value, component.BoardContainer, reparent: false, force: true);
+        QueueDel(board.Value);
 
         _materialStorage.UpdateMaterialWhitelist(uid);
         RegenerateProgress(uid, component);
@@ -574,7 +592,7 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
         if (component.Fabricating)
             return false;
 
-        if (!component.HasBoard || !IsComplete(component))
+        if (GetActiveBoard(component) is not { } board || !IsComplete(component))
             return false;
 
         if (!IsPowered(uid))
@@ -593,7 +611,6 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
             return false;
         }
 
-        var board = GetActiveBoard(component)!.Value;
         if (!TryComp<ShipWeaponBoardComponent>(board, out var shipWeaponBoard))
             return false;
 
@@ -604,13 +621,13 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
 
     private bool TryContinueQueue(EntityUid uid, ShipWeaponFabricatorComponent component)
     {
-        if (!component.HasBoard || !IsComplete(component))
+        // Use GetActiveBoard so boards queued for deletion cannot start another job.
+        if (GetActiveBoard(component) is not { } board || !IsComplete(component))
             return false;
 
         if (!IsPowered(uid) || !CanOutput(uid))
             return false;
 
-        var board = GetActiveBoard(component)!.Value;
         if (!TryComp<ShipWeaponBoardComponent>(board, out var shipWeaponBoard))
             return false;
 
@@ -620,10 +637,16 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
 
     private EntityUid? GetActiveBoard(ShipWeaponFabricatorComponent component)
     {
-        if (component.BoardContainer.Count == 0)
-            return null;
+        foreach (var board in component.BoardContainer.ContainedEntities)
+        {
+            if (MetaData(board).EntityLifeStage >= EntityLifeStage.Terminating ||
+                EntityManager.IsQueuedForDeletion(board))
+                continue;
 
-        return component.BoardContainer.ContainedEntities[0];
+            return board;
+        }
+
+        return null;
     }
 
     private void SetFabricatingState(EntityUid uid, ShipWeaponFabricatorComponent component, bool fabricating)
@@ -994,7 +1017,7 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
         _container.EmptyContainer(component.PartContainer, true, coordinates);
     }
 
-    private void ConsumeRequiredParts(ShipWeaponFabricatorComponent component)
+    private bool TryConsumeRequiredParts(ShipWeaponFabricatorComponent component)
     {
         foreach (var (partType, amount) in component.Requirements)
         {
@@ -1002,6 +1025,9 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
             for (var i = component.PartContainer.ContainedEntities.Count - 1; i >= 0 && remaining > 0; i--)
             {
                 var entity = component.PartContainer.ContainedEntities[i];
+                if (EntityManager.IsQueuedForDeletion(entity))
+                    continue;
+
                 if (!TryComp<MachinePartComponent>(entity, out var machinePart) || machinePart.PartType != partType)
                     continue;
 
@@ -1018,17 +1044,27 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
                     continue;
                 }
 
+                // Remove immediately so RegenerateProgress / queue continue cannot recount this part.
+                _container.Remove(entity, component.PartContainer, reparent: false, force: true);
                 QueueDel(entity);
                 remaining--;
             }
+
+            if (remaining > 0)
+                return false;
         }
 
         for (var i = component.PartContainer.ContainedEntities.Count - 1; i >= 0; i--)
         {
             var entity = component.PartContainer.ContainedEntities[i];
             if (!HasComp<MachinePartComponent>(entity))
+            {
+                _container.Remove(entity, component.PartContainer, reparent: false, force: true);
                 QueueDel(entity);
+            }
         }
+
+        return true;
     }
 
     private int GetStoredRequirementAmount(EntityUid uid, ProtoId<StackPrototype> stackType, MaterialStorageComponent storage)
@@ -1066,19 +1102,22 @@ public sealed class ShipWeaponFabricatorSystem : EntitySystem
         return false;
     }
 
-    private void ConsumeRequiredMaterials(EntityUid uid, ShipWeaponFabricatorComponent component)
+    private bool TryConsumeRequiredMaterials(EntityUid uid, ShipWeaponFabricatorComponent component)
     {
         if (!TryComp(uid, out MaterialStorageComponent? storage))
-            return;
+            return component.MaterialRequirements.Count == 0;
 
         foreach (var (stackType, amount) in component.MaterialRequirements)
         {
             if (!TryGetMaterialForRequirement(stackType, out var materialId) ||
                 !_prototype.TryIndex<MaterialPrototype>(materialId, out var material))
-                continue;
+                return false;
 
             var volume = amount * _materialStorage.GetSheetVolume(material);
-            _materialStorage.TryChangeMaterialAmount(uid, materialId, -volume, storage);
+            if (!_materialStorage.TryChangeMaterialAmount(uid, materialId, -volume, storage))
+                return false;
         }
+
+        return true;
     }
 }

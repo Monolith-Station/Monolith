@@ -551,9 +551,9 @@
           - !type:OrganType
             type: Vox
             shouldHave: false
-          - !type:OrganType   # Forge-Change
-            type: Rodentia    # Forge-Change
-            shouldHave: false # Forge-Change
+          - !type:OrganType # Mono - Hydrakin
+            type: Hydrakin
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -573,11 +573,14 @@
           - !type:OrganType
             type: Vox
             shouldHave: false
-          - !type:OrganType    # Forge-Change
-            type: Rodentia     # Forge-Change
-            shouldHave: false  # Forge-Change
+          - !type:OrganType # Mono - Hydrakin
+            type: Hydrakin
+            shouldHave: false
       - !type:HealthChange
         conditions:
+        - !type:OrganType # Mono - Hydrakin
+          type: Hydrakin
+          shouldHave: false
         - !type:OrganType
           type: Animal
           shouldHave: false
@@ -596,6 +599,12 @@
         damage:
           types:
             Poison: 1
+      - !type:AdjustReagent # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        reagent: Protein
+        amount: 0.5
       - !type:AdjustReagent
         conditions:
         - !type:OrganType
@@ -620,6 +629,7 @@
           type: Rodentia    # Forge-Change
         reagent: Protein    # Forge-Change
         amount: 0.5         # Forge-Change
+
 
 
 - type: reagent

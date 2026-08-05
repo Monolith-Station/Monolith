@@ -1,0 +1,104 @@
+- type: entity
+  name: CAW-32 "Galactica" (9x19mm)
+  parent: BaseWeaponPistol
+  id: WeaponPistolCCTCGalactica
+  description: Suspiciously similar to the Mk.32, this Centennial Arms original functions as a compact yet potent weapon. Threading for silencers and a pistol underbarrel mount allows for exceptional customizability on the field, while an upgraded reciever allows for powerful burst-fire capability.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Pistols/caw32.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - map: [ "gripAttachment" ]
+    - map: [ "barrelAttachment" ]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/mk32.rsi
+  - type: Gun
+    fireRate: 4
+    burstFireRate: 18
+    shotsPerBurst: 2
+    burstCooldown: 0.3
+    selectedMode: Burst
+    availableModes:
+    - SemiAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/mk_fire.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine9x19mmPistolFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine9x19mmPistolFMJ
+          - Magazine9x19mmPistolHighCapacityFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge9x19mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge9x19mmFMJ
+      attachment_grip:
+        priority: 0
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        whitelist:
+          tags:
+          - MonoGripPistolMount
+      attachment_barrel:
+        insertSound: /Audio/Items/screwdriver.ogg
+        ejectSound: /Audio/Items/screwdriver.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoSuppressorMulticalPistol
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      attachment_grip: !type:ContainerSlot
+      attachment_barrel: !type:ContainerSlot
+  - type: StaticPrice # Mono
+    price: 300
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-barrel
+      containerId: attachment_barrel
+      whitelist:
+        tags:
+        - MonoSuppressorMulticalPistol
+    - name: es-gun-attachments-slot-name-grip
+      containerId: attachment_grip
+      whitelist:
+        tags:
+        - MonoGripLAM
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      gripAttachment:
+      - containerId: attachment_grip
+        state: laser
+        whitelist:
+          tags:
+          - MonoGripLAM
+      barrelAttachment:
+      - containerId: attachment_barrel
+        state: suppressor
+        whitelist:
+          tags:
+          - MonoSuppressor

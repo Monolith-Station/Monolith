@@ -151,6 +151,12 @@
         variation: 0.2
   image: /Textures/_Mono/Companies/USSP.png
 
+- type: company
+  id: MMC
+  name: Mieyo Manufacturing Concern
+  color: "#EEEEEE"
+  hidden: true
+
 # Major companies
 
 - type: company
@@ -365,3 +371,11 @@
   # - burrrkeye
   # - enkidienne
   # - chugaa
+
+- type: company
+  id: PLXCOR
+  name: PLXCOR
+  description: plxcor-description
+  color: "#B500B5"
+  image: /Textures/_Mono/Companies/PLXCOR.png
+  whitelisted: true

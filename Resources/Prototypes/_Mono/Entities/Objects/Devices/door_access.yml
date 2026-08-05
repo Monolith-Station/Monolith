@@ -61,3 +61,19 @@
   components:
   - type: AccessReader
     access: [["ViperCommand"]]
+
+# Forge-Change: disabled MMC — default unlocked DoorElectronics (no Mieyo access)
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMieyo
+  suffix: Mieyo, Locked
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMieyoSecurity
+  suffix: Mieyo Security, Locked
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMieyoLiason
+  suffix: Mieyo Liason, Locked
