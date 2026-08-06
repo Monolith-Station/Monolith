@@ -11,4 +11,10 @@ public sealed partial class NaniteOverlayEyeComponent : Component
 {
     [DataField]
     public int Count = 0;
+
+    /// <summary>
+    /// How far away should the repairable entities be colored?
+    /// </summary>
+    [DataField]
+    public int Range = 5;
 }
