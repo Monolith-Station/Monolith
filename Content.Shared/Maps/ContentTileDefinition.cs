@@ -1,4 +1,5 @@
 using Content.Shared.Atmos;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Light.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Tools;
@@ -160,6 +161,26 @@ namespace Content.Shared.Maps
         /// </summary>
         [DataField]
         public bool Transparent = false;
+
+        // <Mono>
+        /// <summary>
+        /// Reagent this tile is made of..
+        /// </summary>
+        [DataField]
+        public ProtoId<ReagentPrototype>? Reagent { get; private set; }
+
+        /// <summary>
+        /// Multiplier on damage taken by anything that falls onto this tile.
+        /// </summary>
+        [DataField]
+        public float FallDamageMultiplier { get; private set; } = 1f;
+
+        /// <summary>
+        /// Multiplier on stun time taken by anything that falls onto this tile.
+        /// </summary>
+        [DataField]
+        public float FallStunMultiplier { get; private set; } = 1f;
+        // </Mono>
 
         /// <summary>
         /// CrystallEdge: RSI path for icon-smooth border sprites.

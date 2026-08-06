@@ -50,12 +50,14 @@ public sealed partial class CEZGroundFrictionController : VirtualController
             if (body.InvMass <= 0f)
                 continue;
 
-            var coverage = _zLevels.GetGroundCoverage(uid);
-            if (coverage <= 0f)
+            // Grip, not mere contact: a hull over a frictionless surface is on the ground and
+            // simply slides, so there is nothing here to apply.
+            var grip = _zLevels.GetGroundGrip(uid);
+            if (grip <= 0f)
                 continue;
 
-            ApplyLinearScrape(uid, body, coverage, frameTime);
-            ApplyAngularScrape(uid, body, coverage, frameTime);
+            ApplyLinearScrape(uid, body, grip, frameTime);
+            ApplyAngularScrape(uid, body, grip, frameTime);
         }
     }
 
@@ -69,7 +71,7 @@ public sealed partial class CEZGroundFrictionController : VirtualController
     /// place. The cancellation is capped at exactly that predicted velocity, so the scrape can slow
     /// a hull to a dead stop but never shove it backwards.
     /// </summary>
-    private void ApplyLinearScrape(EntityUid uid, PhysicsComponent body, float coverage, float frameTime)
+    private void ApplyLinearScrape(EntityUid uid, PhysicsComponent body, float grip, float frameTime)
     {
         var predicted = body.LinearVelocity + body.Force * body.InvMass * frameTime;
         var speed = predicted.Length();
@@ -77,7 +79,7 @@ public sealed partial class CEZGroundFrictionController : VirtualController
         if (speed <= 0f)
             return;
 
-        var drop = MathF.Min(CEZLevelsSystem.GroundSkidDecel * coverage * frameTime, speed);
+        var drop = MathF.Min(CEZLevelsSystem.GroundSkidDecel * grip * frameTime, speed);
 
         // Back out the force that produces exactly that change in velocity over this step.
         var force = predicted / speed * -drop / (body.InvMass * frameTime);
@@ -87,7 +89,7 @@ public sealed partial class CEZGroundFrictionController : VirtualController
     /// <summary>
     /// The spin equivalent, against the angular velocity the body is about to have.
     /// </summary>
-    private void ApplyAngularScrape(EntityUid uid, PhysicsComponent body, float coverage, float frameTime)
+    private void ApplyAngularScrape(EntityUid uid, PhysicsComponent body, float grip, float frameTime)
     {
         if (body.InvI <= 0f)
             return;
@@ -98,7 +100,7 @@ public sealed partial class CEZGroundFrictionController : VirtualController
         if (spin <= 0f)
             return;
 
-        var drop = MathF.Min(CEZLevelsSystem.GroundSkidAngularDecel * coverage * frameTime, spin);
+        var drop = MathF.Min(CEZLevelsSystem.GroundSkidAngularDecel * grip * frameTime, spin);
 
         var torque = -MathF.Sign(predicted) * drop / (body.InvI * frameTime);
         PhysicsSystem.ApplyTorque(uid, torque, body: body);

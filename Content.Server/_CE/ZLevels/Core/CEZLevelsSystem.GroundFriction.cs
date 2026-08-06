@@ -6,6 +6,7 @@
 using System.Numerics;
 using Content.Server._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared.Maps;
 using Content.Shared.Movement.Events;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
@@ -84,11 +85,11 @@ public sealed partial class CEZLevelsSystem
     public const float GroundSkidAngularDecel = 10f;
 
     /// <summary>
-    /// Per-grid footprint coverage, memoised for the tick it was computed on. The friction
-    /// controller asks once per awake body per substep and the skid sweep asks again, so without
-    /// this a large hull re-walks its whole footprint several times a tick.
+    /// Per-grid footprint grip and contact, memoised for the tick they were computed on. The
+    /// friction controller asks once per awake body per substep and the upkeep sweep asks again, so
+    /// without this a large hull re-walks its whole footprint several times a tick.
     /// </summary>
-    private readonly Dictionary<EntityUid, (GameTick Tick, float Coverage)> _groundCoverageCache = new();
+    private readonly Dictionary<EntityUid, (GameTick Tick, float Grip, bool Contact)> _groundCoverageCache = new();
 
     private void InitializeGroundFriction()
     {
@@ -96,16 +97,17 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// The speed-proportional half of the scrape. Scales with how much of the hull is actually over
-    /// solid tiles, so clipping a platform corner barely bites while a full belly landing digs in.
+    /// The speed-proportional half of the scrape. Scales with the grip the hull is actually getting,
+    /// so clipping a platform corner barely bites, a full belly landing digs in, and a hull over a
+    /// frictionless surface is left alone entirely.
     /// </summary>
     private void OnGridTileFriction(Entity<CEZGridFallerComponent> ent, ref TileFrictionEvent args)
     {
-        var coverage = GetGroundCoverage(ent.Owner);
-        if (coverage <= 0f)
+        var grip = GetGroundGrip(ent.Owner);
+        if (grip <= 0f)
             return;
 
-        args.Modifier *= 1f + (GroundDragModifier - 1f) * coverage;
+        args.Modifier *= 1f + (GroundDragModifier - 1f) * grip;
     }
 
     /// <summary>
@@ -121,22 +123,39 @@ public sealed partial class CEZLevelsSystem
         var query = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent>();
         while (query.MoveNext(out var uid, out _, out _))
         {
-            SetGroundContact(uid, GetGroundCoverage(uid) > 0f);
+            SetGroundContact(uid, HasGroundContact(uid));
         }
     }
 
     /// <summary>
-    /// Fraction of a grid's footprint sitting over solid terrain on the z-level it occupies, 0 if
-    /// it is not on one — a transit map, or a level with no terrain grid of its own.
+    /// How much grip a grid's footprint is getting from the z-level it occupies: the mean of the
+    /// terrain's <see cref="ContentTileDefinition.Friction"/> under each of its tiles, so ordinary
+    /// ground gives 1, grippier decking like lattice gives more, a frictionless surface gives 0, and
+    /// open sky gives nothing. Multiplies the scrape directly.
     /// </summary>
-    public float GetGroundCoverage(EntityUid grid)
+    public float GetGroundGrip(EntityUid grid)
+    {
+        return GetGroundSample(grid).Grip;
+    }
+
+    /// <summary>
+    /// Whether any of a grid's footprint is over solid terrain at all. Distinct from grip: a hull
+    /// sitting on a frictionless surface is still very much on the ground, it just slides, so the
+    /// console readout must not be driven by how much the terrain bites.
+    /// </summary>
+    public bool HasGroundContact(EntityUid grid)
+    {
+        return GetGroundSample(grid).Contact;
+    }
+
+    private (float Grip, bool Contact) GetGroundSample(EntityUid grid)
     {
         if (_groundCoverageCache.TryGetValue(grid, out var cached) && cached.Tick == _timing.CurTick)
-            return cached.Coverage;
+            return (cached.Grip, cached.Contact);
 
-        var coverage = ComputeGroundCoverage(grid);
-        _groundCoverageCache[grid] = (_timing.CurTick, coverage);
-        return coverage;
+        var sample = ComputeGroundSample(grid);
+        _groundCoverageCache[grid] = (_timing.CurTick, sample.Grip, sample.Contact);
+        return sample;
     }
 
     /// <summary>
@@ -148,32 +167,30 @@ public sealed partial class CEZLevelsSystem
     /// its centre, rather than a yes/no on the one tile it happens to sit over. Point-sampling reads
     /// as if it should give fine-grained coverage — a 987-tile hull ought to move in 0.1% steps —
     /// but the samples are perfectly correlated: on an axis-aligned hull every tile centre crosses
-    /// its terrain boundary at the same instant, so coverage does not creep up, it snaps from none
-    /// to all as the ship slides half a tile. Subsampling within each tile does not help for the
-    /// same reason. Interpolating instead makes coverage a continuous function of position, so grip
-    /// ramps in over the last tile of travel and a hull edging onto solid ground is progressively
-    /// caught rather than seized at one arbitrary threshold.
-    ///
-    /// Solid is a non-empty tile, the same rule entity falling and
-    /// <see cref="HasGroundUnderFootprint"/> use, so nothing disagrees about whether a given tile is
-    /// a hole.
+    /// its terrain boundary at the same instant, so grip does not creep up, it snaps from none to
+    /// all as the ship slides half a tile. Subsampling within each tile does not help for the same
+    /// reason. Interpolating instead makes grip a continuous function of position, so it ramps in
+    /// over the last tile of travel and a hull edging onto solid ground is progressively caught
+    /// rather than seized at one arbitrary threshold. It also means a shoreline is a gradient rather
+    /// than a wall: a hull coming off water is grabbed over a tile of travel, not instantly.
     /// </summary>
-    private float ComputeGroundCoverage(EntityUid grid)
+    private (float Grip, bool Contact) ComputeGroundSample(EntityUid grid)
     {
         if (!_mapGridQuery.TryComp(grid, out var gridComp))
-            return 0f;
+            return (0f, false);
 
         // A transit map has no CEZMapComponent, so this also excludes grids mid-flight between
         // levels — those are the falling code's business, not ours.
         var mapUid = Transform(grid).MapUid;
         if (mapUid is not { } map || !_zMapQuery.HasComp(map) || !_mapGridQuery.TryComp(map, out var mapGrid))
-            return 0f;
+            return (0f, false);
 
         var gridMatrix = _transform.GetWorldMatrix(grid);
         var tileSize = gridComp.TileSize;
 
-        var solid = 0f;
+        var grip = 0f;
         var total = 0;
+        var contact = false;
 
         var shipTiles = _map.GetAllTilesEnumerator(grid, gridComp);
         while (shipTiles.MoveNext(out var shipTile))
@@ -186,21 +203,25 @@ public sealed partial class CEZLevelsSystem
                 (shipTile.Value.GridIndices.Y + 0.5f) * tileSize);
             var worldPos = Vector2.Transform(localCentre, gridMatrix);
 
-            solid += SampleSolidity(map, mapGrid, worldPos);
+            grip += SampleGrip(map, mapGrid, worldPos, ref contact);
         }
 
-        return total == 0 ? 0f : solid / total;
+        return (total == 0 ? 0f : grip / total, contact);
     }
 
     /// <summary>
-    /// Solidity of the terrain under a world point, in 0..1, bilinearly interpolated between the
-    /// four terrain tile centres surrounding it. Exactly over a solid tile's centre this is 1, over
-    /// a hole's centre 0, and it slides smoothly across the boundary between them.
+    /// Grip of the terrain under a world point, bilinearly interpolated between the four terrain
+    /// tile centres surrounding it, and flags whether any of them was solid at all.
+    ///
+    /// Grip is the tile's own <see cref="ContentTileDefinition.Friction"/> rather than a flat 1, so
+    /// what the ground does to a hull is content data. A water tile at <c>friction: 0</c> lets a
+    /// ship glide across a lake and still be caught the moment it reaches the bank, and ice, decking
+    /// and dirt all fall out of the same number without any of them being special-cased here.
     /// </summary>
-    private float SampleSolidity(EntityUid map, MapGridComponent mapGrid, Vector2 worldPos)
+    private float SampleGrip(EntityUid map, MapGridComponent mapGrid, Vector2 worldPos, ref bool contact)
     {
         // Tile-space position, shifted so integer coordinates land on tile CENTRES — those are the
-        // points whose solidity we actually know.
+        // points whose grip we actually know.
         var local = _map.WorldToLocal(map, mapGrid, worldPos) / mapGrid.TileSize;
         var sampleX = local.X - 0.5f;
         var sampleY = local.Y - 0.5f;
@@ -211,21 +232,28 @@ public sealed partial class CEZLevelsSystem
         var fracY = sampleY - y0;
 
         var bottom = MathHelper.Lerp(
-            IsSolidTile(map, mapGrid, x0, y0),
-            IsSolidTile(map, mapGrid, x0 + 1, y0),
+            TileGrip(map, mapGrid, x0, y0, ref contact),
+            TileGrip(map, mapGrid, x0 + 1, y0, ref contact),
             fracX);
         var top = MathHelper.Lerp(
-            IsSolidTile(map, mapGrid, x0, y0 + 1),
-            IsSolidTile(map, mapGrid, x0 + 1, y0 + 1),
+            TileGrip(map, mapGrid, x0, y0 + 1, ref contact),
+            TileGrip(map, mapGrid, x0 + 1, y0 + 1, ref contact),
             fracX);
 
         return MathHelper.Lerp(bottom, top, fracY);
     }
 
-    private float IsSolidTile(EntityUid map, MapGridComponent mapGrid, int x, int y)
+    /// <summary>
+    /// A single terrain tile's grip: its friction, or nothing at all if it is a hole. Empty is the
+    /// same rule entity falling and <see cref="HasGroundUnderFootprint"/> use, so nothing disagrees
+    /// about which tiles are holes.
+    /// </summary>
+    private float TileGrip(EntityUid map, MapGridComponent mapGrid, int x, int y, ref bool contact)
     {
-        return _map.TryGetTileRef(map, mapGrid, new Vector2i(x, y), out var tileRef) && !tileRef.Tile.IsEmpty
-            ? 1f
-            : 0f;
+        if (!_map.TryGetTileRef(map, mapGrid, new Vector2i(x, y), out var tileRef) || tileRef.Tile.IsEmpty)
+            return 0f;
+
+        contact = true;
+        return ((ContentTileDefinition) TilDefMan[tileRef.Tile.TypeId]).Friction;
     }
 }
