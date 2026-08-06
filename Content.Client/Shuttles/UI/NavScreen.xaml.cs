@@ -9,7 +9,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
-using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 
@@ -200,11 +199,11 @@ public sealed partial class NavScreen : BoxContainer
         GridAngularVelocity.Text = Loc.GetString("shuttle-console-angular-velocity-value",
             ("angularVelocity", $"{-MathHelper.RadiansToDegrees(gridBody.AngularVelocity) + 10f * float.Epsilon:0.0}"));
 
-        UpdateAltitude(gridXform, gridBody); // Mono
+        UpdateAltitude(gridXform); // Mono
     }
 
     // Mono: z-level altimeter
-    private void UpdateAltitude(TransformComponent gridXform, PhysicsComponent gridBody)
+    private void UpdateAltitude(TransformComponent gridXform)
     {
         float? altitude = null;
         string? state = null;
@@ -222,19 +221,20 @@ public sealed partial class NavScreen : BoxContainer
             }
             else if (altitude != null)
             {
-                if (_entManager.TryGetComponent(shuttle, out CEZPhysicsComponent? spoolPhys) &&
-                    spoolPhys.LaunchCountdown > 0f)
+                _entManager.TryGetComponent(shuttle, out CEZPhysicsComponent? zPhys);
+
+                if (zPhys is { LaunchCountdown: > 0f })
                 {
                     state = Loc.GetString("shuttle-console-travel-state-launching",
-                        ("countdown", $"{spoolPhys.LaunchCountdown:0.0}"));
+                        ("countdown", $"{zPhys.LaunchCountdown:0.0}"));
                 }
                 else
                 {
-                    // Landing on terrain parks the ship (ShuttleSystem.Disable -> Static);
-                    // setting down over open sky leaves it Dynamic and hovering. Reading the
-                    // body keeps the readout honest per-ship rather than per-z-level, so a
-                    // ship idling over a hole doesn't claim to be grounded.
-                    state = Loc.GetString(gridBody.BodyType == BodyType.Static
+                    // Ground contact, not body type: nothing parks a landed hull any more, it is
+                    // simply held by the scrape, so there is no engines-cold state to report. Read
+                    // per-ship rather than per-z-level, so a ship idling over a hole in a platform
+                    // doesn't claim to be on the ground.
+                    state = Loc.GetString(zPhys is { GroundContact: true }
                         ? "shuttle-console-travel-state-grounded"
                         : "shuttle-console-travel-state-hovering");
                 }

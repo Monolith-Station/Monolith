@@ -105,16 +105,6 @@ public sealed partial class CEZLevelsSystem
         var movedGrids = CollectGridSet(grid);
         MoveGridSetToMap(movedGrids, targetMap.Owner, offset, targetMap.Comp1.Depth);
 
-        foreach (var gridUid in movedGrids)
-        {
-            // Ships parked on terrain get their engines back once they're off it.
-            if (!_mapGridQuery.TryComp(gridUid, out var movedGrid)
-                || !HasGroundUnderFootprint((gridUid, movedGrid), targetMap.Owner))
-            {
-                _shuttle.Enable(gridUid);
-            }
-        }
-
         return true;
     }
 
@@ -495,8 +485,8 @@ public sealed partial class CEZLevelsSystem
                 // Everyone gets to watch, not just PVS neighbours.
                 _pvsOverride.AddGlobalOverride(gridUid);
 
-                // In transit = airborne: engines are live regardless of direction
-                // (parked ships are Static and need the re-enable to move at all).
+                // In transit = airborne: engines are live regardless of direction. Grids mapped
+                // in Static (station anchors and the like) need this to fly at all.
                 _shuttle.Enable(gridUid);
             }
 
@@ -818,15 +808,6 @@ public sealed partial class CEZLevelsSystem
 
                 // Landing on a grid causes an explosion. Don't do that.
                 _shuttle.Smimsh(gridUid, explodeGrids: true, ignoredGrids: movedGrids);
-
-                // Set down on terrain = parked; arriving over open sky leaves the engines hot.
-                // Per-grid, since a wide set can straddle a platform edge.
-                if (_mapGridQuery.TryComp(gridUid, out var landedGrid)
-                    && HasGroundUnderFootprint((gridUid, landedGrid), destination))
-                {
-                    _shuttle.Disable(gridUid);
-                    _console.RefreshShuttleConsoles(gridUid);
-                }
             }
 
             // The set has left; a transit map only ever hosts one set.

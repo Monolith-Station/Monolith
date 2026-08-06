@@ -98,6 +98,9 @@ public sealed partial class CEZLevelsSystem
             if (pilot.Console is not { } console || TerminatingOrDeleted(console))
                 continue;
 
+            if (Transform(console).GridUid is not { } grid)
+                continue;
+
             var vertical = 0f;
             if ((pilot.HeldButtons & ShuttleButtons.AscendZ) != 0x0)
                 vertical += 1f;
@@ -105,9 +108,6 @@ public sealed partial class CEZLevelsSystem
                 vertical -= 1f;
 
             if (vertical == 0f)
-                continue;
-
-            if (Transform(console).GridUid is not { } grid)
                 continue;
 
             _pilotVerticalInput[grid] =
