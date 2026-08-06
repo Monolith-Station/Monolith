@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/31/2026 15:41:36
-  entityCount: 5939
+  time: 08/06/2026 14:31:01
+  entityCount: 5917
 maps: []
 grids:
 - 1
@@ -212,7 +212,7 @@ entities:
         path: /Audio/Effects/alert.ogg
     - type: DecalGrid
       chunkCollection:
-        version: 2
+        version: 3
         nodes:
         - node:
             color: '#BC863FFF'
@@ -2496,9 +2496,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         MetalFoam: []
-        Puddle: []
         Smoke: []
         Kudzu: []
+        Puddle: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -3099,6 +3099,8 @@ entities:
     - type: ImplicitRoof
     - type: RadiationGridResistance
     - type: ExplosionAirtightGrid
+    - type: ShipGridLock
+      locked: False
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -5331,6 +5333,75 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 5881
+- proto: BaseComputer
+  entities:
+  - uid: 2252
+    components:
+    - type: Transform
+      pos: -28.5,15.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+  - uid: 2253
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -30.5,11.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+  - uid: 2254
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 34.5,-20.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+  - uid: 2255
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 34.5,-23.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+  - uid: 4081
+    components:
+    - type: Transform
+      pos: 34.5,-11.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+  - uid: 4720
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,3.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+  - uid: 4771
+    components:
+    - type: Transform
+      pos: 32.5,-11.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
 - proto: Beaker
   entities:
   - uid: 364
@@ -15059,47 +15130,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 19.5,4.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-- proto: ComputerShipyardMMC
-  entities:
-  - uid: 2252
-    components:
-    - type: Transform
-      pos: -28.5,15.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-  - uid: 2253
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -30.5,11.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-  - uid: 2254
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 34.5,-20.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-  - uid: 2255
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 34.5,-23.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -28133,24 +28163,6 @@ entities:
     - type: Transform
       pos: -28.556162,-2.3743324
       parent: 1
-- proto: MieyoComputerComms
-  entities:
-  - uid: 4081
-    components:
-    - type: Transform
-      pos: 34.5,-11.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-- proto: MMCLathe
-  entities:
-  - uid: 4082
-    components:
-    - type: Transform
-      pos: -33.5,-6.5
-      parent: 1
 - proto: MonoVendingMachineCartMieyo
   entities:
   - uid: 4083
@@ -31648,9 +31660,9 @@ entities:
       parent: 1
     - type: DeltaPressure
       gridUid: 1
-- proto: ResearchAndDevelopmentServerMMC
+- proto: ResearchAndDevelopmentServer
   entities:
-  - uid: 4720
+  - uid: 4082
     components:
     - type: Transform
       pos: 18.5,9.5
@@ -32110,27 +32122,6 @@ entities:
     - type: Transform
       pos: -36.5,15.5
       parent: 1
-- proto: StationAdminBankATMMMC
-  entities:
-  - uid: 4808
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -3.5,3.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-  - uid: 4809
-    components:
-    - type: Transform
-      pos: 32.5,-11.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
 - proto: StationAnchorIndestructible
   entities:
   - uid: 4810
