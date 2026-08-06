@@ -9,6 +9,7 @@ using Content.Server.Gravity;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Gravity;
+using Content.Shared.Maps;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -610,10 +611,15 @@ public sealed partial class CEZLevelsSystem
     /// entity carries its own MapGrid and its tiles are the layer's terrain, so this is what
     /// makes a level something a ship can rest on or be stopped by.
     ///
-    /// Solidity matches <see cref="CEZLevelOpeningCache.IsOpeningTile"/>, the same rule entity
-    /// falling uses: empty and transparent tiles are holes. A gap punched in a platform drops a
-    /// ship through exactly like it drops a person, instead of the two disagreeing about the
-    /// same tile.
+    /// Solid is a non-empty tile — the same rule the entity fall path
+    /// (<c>ComputeGroundHeightInternal</c>) uses, so a gap punched in a platform drops a ship
+    /// through exactly like it drops a person instead of the two disagreeing about the same tile.
+    ///
+    /// Emptiness rather than <see cref="ContentTileDefinition.Transparent"/>, deliberately:
+    /// transparency is a SIGHT property, driving roof occlusion and the look-up/look-down view, and
+    /// a floor you can see through is still a floor. Lattice, glass floor and damaged plating are
+    /// all transparent and all hold weight, so keying support off it dropped ships through tiles
+    /// people were standing on. Space is tile id 0, so it is empty here anyway.
     /// </summary>
     private bool HasGroundUnderFootprint(Entity<MapGridComponent> grid, EntityUid mapUid)
     {
@@ -624,7 +630,7 @@ public sealed partial class CEZLevelsSystem
         var tiles = _map.GetTilesEnumerator(mapUid, mapGrid, worldAabb);
         while (tiles.MoveNext(out var tileRef))
         {
-            if (!CEZLevelOpeningCache.IsOpeningTile(tileRef.Tile, TilDefMan))
+            if (!tileRef.Tile.IsEmpty)
                 return true;
         }
 
