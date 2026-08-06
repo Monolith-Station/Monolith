@@ -248,7 +248,9 @@ public sealed partial class RadarBlipSystem : EntitySystem
             if (!hitscan.Enabled)
                 continue;
 
-            if (!NearAnySources(hitscan.StartPosition, sourcePositions, component.MaxRange) && NearAnySources(hitscan.EndPosition, sourcePositions, component.MaxRange))
+            // Skip only when neither endpoint is in range of any radar source.
+            if (!NearAnySources(hitscan.StartPosition, sourcePositions, component.MaxRange)
+                && !NearAnySources(hitscan.EndPosition, sourcePositions, component.MaxRange))
                 continue;
 
             _tempHitscansCache.Add(new(hitscan.StartPosition, hitscan.EndPosition, hitscan.LineThickness, hitscan.RadarColor));

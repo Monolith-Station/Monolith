@@ -42,13 +42,12 @@ public sealed partial class RadarBlipsSystem : EntitySystem
     private void HandleReceiveBlips(GiveBlipsEvent ev, EntitySessionEventArgs args)
     {
         _configPalette = ev.ConfigPalette;
-        _blips = ev.Blips;
         _missiles = ev.Missiles;
         _hitscans = ev.HitscanLines;
         _lastUpdatedTime = _timing.CurTime;
 
-        // Forge-Change-Start
-        _blips.Clear();
+        // Forge-Change-Start: filter suppressed blips without clearing the shared event list.
+        _blips = new List<BlipNetData>(ev.Blips.Count);
         foreach (var blip in ev.Blips)
         {
             if (!_suppressedBlips.Contains(blip.Uid))

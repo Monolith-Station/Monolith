@@ -797,9 +797,9 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                     var squaredRadius = radius * radius;
 
 
-                    // If true, flip the entire label to the right side of the blip and left-align it.
-                    // We default to the label being on the left side of the blip because it looked better to me in testing. (arbitrary)
-                    var flipLabel = true; // isOnLeftSide && labelCorners.Any(corner => corner.LengthSquared() > squaredRadius); // Mono - comment out, we dont want this teehee
+                    // Prefer label on the left of the blip; flip to the right only when a left-side
+                    // placement would leave the radar circle (keeps right-edge labels inward).
+                    var flipLabel = isOnLeftSide && labelCorners.Any(corner => corner.LengthSquared() > squaredRadius);
 
                     // Calculate unscaled offsets.
                     var labelOffset = new Vector2()
@@ -809,6 +809,13 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                             : -labelDimensions.X - blipSize, // Label on the left side of the blip, right-aligned text.
                         Y = -labelDimensions.Y * 0.5f
                     };
+
+                    // Clamp into control bounds so multi-line IFF never paints past the panel edge.
+                    var labelWidth = labelDimensions.X;
+                    var minX = -uiPosition.X + 2f;
+                    var maxX = Width - uiPosition.X - labelWidth - 2f;
+                    if (minX <= maxX)
+                        labelOffset.X = Math.Clamp(labelOffset.X, minX, maxX);
 
                     #endregion Mono
 
