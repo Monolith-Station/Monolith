@@ -164,12 +164,6 @@ namespace Content.Shared.Maps
 
         // <Mono>
         /// <summary>
-        /// Reagent this tile is made of..
-        /// </summary>
-        [DataField]
-        public ProtoId<ReagentPrototype>? Reagent { get; private set; }
-
-        /// <summary>
         /// Multiplier on damage taken by anything that falls onto this tile.
         /// </summary>
         [DataField]
