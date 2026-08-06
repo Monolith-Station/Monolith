@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/06/2026 13:37:20
+  time: 08/06/2026 19:41:41
   entityCount: 1153
 maps: []
 grids:
@@ -106,10 +106,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        MetalFoam: []
-        Kudzu: []
         Puddle: []
+        Smoke: []
+        Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -780,6 +780,9 @@ entities:
     - type: ExplosionAirtightGrid
     - type: ShipGridLock
       locked: False
+    - type: Roof
+      data:
+        0,-1: 4294967296
 - proto: AirAlarm
   entities:
   - uid: 7
