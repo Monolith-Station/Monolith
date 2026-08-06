@@ -181,7 +181,7 @@ public abstract partial class CESharedZLevelsSystem
 
         bool TryUseOpeningTile(Vector2i tile)
         {
-            if (_map.TryGetTileRef(openingMap, grid, tile, out var tileRef) && !CEZLevelOpeningCache.IsOpeningTile(tileRef.Tile, TilDefMan))
+            if (_map.TryGetTileRef(openingMap, grid, tile, out var tileRef) && !tileRef.Tile.IsEmpty)
                 return false;
 
             var openingCenter = _map.ToCenterCoordinates(openingMap, tile, grid).Position;

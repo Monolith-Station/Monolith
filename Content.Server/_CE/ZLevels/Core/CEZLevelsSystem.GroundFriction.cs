@@ -166,9 +166,9 @@ public sealed partial class CEZLevelsSystem
     ///
     /// Measured tile-for-tile against the hull's OWN tiles, not its world AABB: a turned hull's AABB
     /// is the bounding box of the rotated rectangle and juts out over terrain the ship isn't actually
-    /// above, which had it grounding on thin air near the corners. Solidity is
-    /// <see cref="CEZLevelOpeningCache.IsOpeningTile"/>, the same rule entity falling uses, so nothing
-    /// disagrees about whether a given tile is a hole.
+    /// above, which had it grounding on thin air near the corners. Solid is a non-empty tile, the
+    /// same rule entity falling and <see cref="HasGroundUnderFootprint"/> use, so nothing disagrees
+    /// about whether a given tile is a hole.
     /// </summary>
     private float GetGroundCoverage(EntityUid grid)
     {
@@ -211,7 +211,7 @@ public sealed partial class CEZLevelsSystem
             var worldPos = Vector2.Transform(localCentre, gridMatrix);
 
             if (_map.TryGetTileRef(map, mapGrid, worldPos, out var terrainTile)
-                && !CEZLevelOpeningCache.IsOpeningTile(terrainTile.Tile, TilDefMan))
+                && !terrainTile.Tile.IsEmpty)
             {
                 solid++;
             }
