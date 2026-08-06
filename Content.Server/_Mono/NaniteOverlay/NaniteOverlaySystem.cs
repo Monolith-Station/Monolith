@@ -41,30 +41,27 @@ public sealed partial class NaniteOverlaySystem : EntitySystem
         var ents = GetEntityArray(message.Targets);
         var response = new FixedPoint2[ents.Length];
 
-        int i = -1;
-        foreach (var ent in ents)
+        for (int i = 0; i < ents.Length; i++)
         {
-            i++;
+            var ent = ents[i];
+
             if (!ent.Valid || !TryComp<DestructibleComponent>(ent, out var destructible))
             {
-                response[i] = 0;
+                response[i] = -1;
                 continue;
             }
 
             var trigger = (DamageTrigger?)destructible.Thresholds.LastOrDefault(threshold => threshold.Trigger is DamageTrigger)?.Trigger;
             if (trigger == null)
-            {
-                response[i] = 0;
-                continue;
-            }
-
-            response[i] = trigger.Damage;
+                response[i] = -1;
+            else
+                response[i] = trigger.Damage;
         }
 
         RaiseNetworkEvent(new NaniteOverlayMessage(message.Targets, response), eventArgs.SenderSession);
     }
 
-    private void OnEquip(EntityUid user)
+    private void OnEquip(EntityUid user, Entity<ToolComponent> tool)
     {
         var comp = EnsureComp<NaniteOverlayEyeComponent>(user);
         comp.Count++;
@@ -92,13 +89,13 @@ public sealed partial class NaniteOverlaySystem : EntitySystem
     private void OnToolHandEquipped(Entity<ToolComponent> ent, ref GotEquippedHandEvent args)
     {
         if(_tool.HasQuality(ent, "Applicating"))
-            OnEquip(args.User);
+            OnEquip(args.User, ent);
     }
 
     private void OnToolEquipped(Entity<ToolComponent> ent, ref GotEquippedEvent args)
     {
         if (_tool.HasQuality(ent, "Applicating"))
-            OnEquip(args.Equipee);
+            OnEquip(args.Equipee, ent);
     }
 
     private void OnToolHandUnequipped(Entity<ToolComponent> ent, ref GotUnequippedHandEvent args)

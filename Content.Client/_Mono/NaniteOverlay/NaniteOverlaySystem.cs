@@ -27,11 +27,13 @@ public sealed partial class NaniteOverlaySystem : EntitySystem
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
 
     private float _updateTimer = 0.0f;
     private bool _active = false;
 
     private Dictionary<EntityUid, Color> _modifiedEntities = new();
+    private List<NetEntity> _entities = new();
 
     public override void Initialize()
     {
@@ -48,7 +50,7 @@ public sealed partial class NaniteOverlaySystem : EntitySystem
             return;
 
         var player = _player.LocalEntity;
-        if (player == null || !HasComp<NaniteOverlayEyeComponent>(player))
+        if (player == null || !TryComp<NaniteOverlayEyeComponent>(player, out var eye))
         {
             ClearOverlays();
             _active = false;
@@ -66,20 +68,34 @@ public sealed partial class NaniteOverlaySystem : EntitySystem
 
         _updateTimer = 1.0f;
 
-        // 1. Find entities that have Repairable, Damageable & SpriteComponent
-        var query = EntityQueryEnumerator<RepairableComponent, DamageableComponent, SpriteComponent>();
-        List<NetEntity> entities = new();
-
-        while (query.MoveNext(out EntityUid uid, out var repairable, out var damageable, out var sprite))
+        // 0. Remove entities that went out of range
+        List<EntityUid> toRemove = new();
+        foreach (var entity in _modifiedEntities)
         {
-            if (!TerminatingOrDeleted(uid) && damageable.TotalDamage > 0)
+            if ((_transform.GetWorldPosition(Transform(entity.Key)) - _transform.GetWorldPosition(Transform(player.Value))).LengthSquared() > (eye.Range * eye.Range + 1))
+                toRemove.Add(entity.Key);
+        }
+
+        foreach (var entry in toRemove)
+        {
+            _sprite.SetColor(entry, _modifiedEntities[entry]);
+            _modifiedEntities.Remove(entry);
+        }
+
+        // 1. Find entities that have Repairable, Damageable (SpriteComponent too but everything has that)
+        var candidates = _lookup.GetEntitiesInRange<RepairableComponent>(Transform(player.Value).Coordinates, eye.Range, LookupFlags.Uncontained);
+        _entities.Clear();
+
+        foreach (var entity in candidates)
+        {
+            if (!TerminatingOrDeleted(entity) && TryComp<DamageableComponent>(entity, out var damageable) && damageable.TotalDamage > 0)
             {
-                entities.Add(GetNetEntity(uid));
+                _entities.Add(GetNetEntity(entity));
             }
         }
 
         // 2. Ask the server for their damage threshold
-        RaiseNetworkEvent(new NaniteOverlayMessage(entities.ToArray()));
+        RaiseNetworkEvent(new NaniteOverlayMessage(_entities.ToArray()));
 
         // 3. Once server replies, draw them by changing the color of the entity based on the threshold
         // 4. If we lose the overlay eye (tool put away, etc.) change the color of the entities back to what it was previously
@@ -90,14 +106,21 @@ public sealed partial class NaniteOverlaySystem : EntitySystem
         if (message.Responses == null || !_active)
             return;
 
-        int i = -1;
-        foreach (var response in message.Responses)
+        for (int i = 0; i < message.Responses.Length; i++)
         {
-            i++;
-            if (response == 0)
-                continue;
+            var response = message.Responses[i];
 
-            ShowOverlay(GetEntity(message.Targets[i]), response);
+            if (response > 0) // if entity is damaged
+                ShowOverlay(GetEntity(message.Targets[i]), response);
+            else if (response == 0) // entity was repaired and is at full health
+            {
+                var uid = GetEntity(message.Targets[i]);
+                if (!uid.Valid || TerminatingOrDeleted(uid) && _modifiedEntities.ContainsKey(uid))
+                {
+                    _sprite.SetColor(uid, _modifiedEntities[uid]);
+                    _modifiedEntities.Remove(uid);
+                }
+            }
         }
     }
 
