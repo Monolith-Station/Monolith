@@ -84,8 +84,7 @@
         name: lathe-component-output-slot-beaker-name
         whitelist:
           components:
-          - SolutionContainerManager
-          - Item
+          - SolutionTransfer
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
