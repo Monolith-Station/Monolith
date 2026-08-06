@@ -6,10 +6,8 @@
 using System.Numerics;
 using Content.Server._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.Components;
-using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Movement.Events;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
@@ -20,63 +18,75 @@ namespace Content.Server._CE.ZLevels.Core;
 ///
 /// The engine refuses to give a map-grid physics at all (SharedPhysicsSystem.OnGridAdd bails on
 /// anything with a MapComponent), so a level's terrain is invisible to the solver and ships fly
-/// straight through it. Landing therefore only ever happened on the transit path, where
-/// <see cref="TryExitTransit"/> parks a grid that arrives over solid ground.
+/// straight through it. Landing therefore only ever happened on the transit path.
 ///
 /// A grid sitting on a z-level is at <see cref="CEZPhysicsComponent.LocalPosition"/> zero — flush
 /// with that level's floor — so sharing a level with terrain IS contact with it. Such a grid gets
-/// dragged down and parked once it has stopped, which gives the missing case: skidding to a halt on
-/// the ground you flew in over.
+/// dragged down, which gives the missing case: skidding to a halt on the ground you flew in over.
 ///
 /// The skid is two terms, because neither alone reads right. A speed-proportional one (the engine's
 /// own damping, via <see cref="TileFrictionEvent"/>) gives the hard initial bite when you come in
 /// fast, but decays exponentially and so asymptotes rather than stopping. A constant deceleration
 /// (Coulomb, the real model for a sliding contact) carries the tail: it ramps velocity down linearly
 /// and reaches zero in finite time, so the hull actually grinds out instead of creeping forever.
+///
+/// Nothing here parks a grid or otherwise changes its body type. A hull that has stopped is one the
+/// scrape is holding still, and it stays an ordinary dynamic body the whole time — so "can this ship
+/// move?" has exactly one answer, thrust against friction, evaluated by the solver every tick like
+/// any other force. There is no landed state to enter, get stuck in, or have to be released from.
 /// </summary>
 public sealed partial class CEZLevelsSystem
 {
     /// <summary>
     /// Speed-proportional part of the scrape, as a multiplier on the grid's ordinary airborne
     /// damping. Looks large only because that baseline is deliberately tiny —
-    /// <c>physics.air_friction</c> (0.2) times ShuttleComponent.BodyModifier (0.25) is 0.05 — so at
-    /// full footprint coverage this lands near 1.0 damping: a ~1 second e-fold, biting hardest at
-    /// the moment of contact and fading as the hull slows.
+    /// <c>physics.air_friction</c> (0.2) times ShuttleComponent.BodyModifier (0.25) is 0.05 — so
+    /// this lands near 1.0 damping: a ~1 second e-fold, biting hardest at the moment of contact and
+    /// fading as the hull slows.
     /// </summary>
     private const float GroundDragModifier = 20f;
 
     /// <summary>
-    /// Constant part of the scrape (m/s²) at full footprint coverage. Sets the skid's character:
-    /// against both terms together a hull touching down at 8 m/s comes to rest in about 1.3 seconds
-    /// and 4 tiles, most of that speed shed in the first half-second while the proportional term is
-    /// still biting and the rest ground out at a steady 3 m/s².
+    /// Constant part of the scrape (m/s²), and — being the same number — the acceleration a hull
+    /// must out-pull to drag itself along the ground at all.
     ///
-    /// Also the thrust the contact can beat — a ship whose lateral acceleration exceeds this can
-    /// still drag itself along the ground, which is the honest behaviour for something absurdly
-    /// overpowered and is well above what ordinary hulls manage.
+    /// Absolute, NOT a multiple of the hull's own thrust. Scaling it to the ship is a trap: it gives
+    /// every hull an identical thrust-to-friction ratio, so "can this ship drive off the deck?"
+    /// stops depending on the ship and collapses to one global yes or no. A 493kg Bucket pulling
+    /// 0.81 m/s² and a dreadnought pulling a hundred times that came out exactly alike. Real sliding
+    /// friction is μg — a property of the contact, not the engine — which is what makes thrust-to-
+    /// mass the thing that decides, so an underpowered hull is genuinely stuck and a monster
+    /// genuinely grinds along.
+    ///
+    /// One number for the scrape and for that threshold, because in a Coulomb contact they ARE one
+    /// number: net acceleration is simply thrust minus this. It also makes the two properties move
+    /// together the way a real surface does — a grippier deck both stops you sooner and is harder to
+    /// drive on — instead of being tuned apart into a hull that is free but cannot move.
+    ///
+    /// Scaled by footprint coverage, so a hull half over a hole gets half the grip — but sized so
+    /// that band is narrow rather than a place to live in. Any linear threshold has a coverage where
+    /// thrust just pips friction and the ship creeps; what decides whether that is a nuisance is how
+    /// wide the band is. A Bucket pulls 0.81 m/s², so it breaks free below <c>0.81/decel</c>
+    /// coverage: at 6 that was everything under 13% of the hull, wide enough to sit in and inch
+    /// along, and at 20 it is under 4% — a few tiles of a 987-tile hull, which is a corner clip and
+    /// should let go.
+    ///
+    /// At full coverage this stops a touchdown at 8 m/s inside about 1.6 metres, and sits above what
+    /// all but the 100x-thruster hulls can pull, so dragging yourself along the deck stays the
+    /// preserve of the genuinely absurd.
     /// </summary>
-    private const float GroundSkidDecel = 3f;
+    public const float GroundSkidDecel = 20f;
 
     /// <summary>
     /// Constant part of the scrape applied to spin (rad/s²) at full coverage. Kills the yaw of a
     /// hull that came in sideways over roughly the same time the linear term kills its speed.
     /// </summary>
-    private const float GroundSkidAngularDecel = 1.5f;
-
-    /// <summary>
-    /// Speed (m/s) under which a scraping grid is considered stopped and gets parked.
-    /// </summary>
-    private const float GroundingSpeed = 0.15f;
-
-    /// <summary>
-    /// Spin (rad/s) under which a scraping grid is considered stopped and gets parked.
-    /// </summary>
-    private const float GroundingAngularSpeed = 0.05f;
+    public const float GroundSkidAngularDecel = 10f;
 
     /// <summary>
     /// Per-grid footprint coverage, memoised for the tick it was computed on. The friction
-    /// controller asks once per awake body per substep and the grounding sweep asks again, so
-    /// without this a large hull re-walks its whole footprint several times a tick.
+    /// controller asks once per awake body per substep and the skid sweep asks again, so without
+    /// this a large hull re-walks its whole footprint several times a tick.
     /// </summary>
     private readonly Dictionary<EntityUid, (GameTick Tick, float Coverage)> _groundCoverageCache = new();
 
@@ -99,78 +109,27 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Runs the constant half of the scrape and parks whatever it has brought to a stop. Parking is
-    /// per-grid rather than per-rigid-set, matching <see cref="TryExitTransit"/>: a wide set can
-    /// straddle a platform edge, and the first member to park flips its network's
-    /// <see cref="CEZGridNetworkComponent.HasStaticAnchor"/> anyway, which pins the rest.
+    /// Once-a-tick upkeep: drops the coverage memo and republishes each grid's ground contact for
+    /// the shuttle console. The scrape itself is <see cref="CEZGroundFrictionController"/>'s job.
     /// </summary>
-    private void UpdateGroundFriction(float frameTime)
+    private void UpdateGroundFriction()
     {
         // Coverage is only ever valid for the tick it was taken on, and grids die; drop the lot
         // rather than carrying stale entries for deleted hulls.
         _groundCoverageCache.Clear();
 
-        var query = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent, PhysicsComponent>();
-        while (query.MoveNext(out var uid, out _, out _, out var body))
+        var query = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent>();
+        while (query.MoveNext(out var uid, out _, out _))
         {
-            // Already parked, or still in the air between two levels.
-            if (body.BodyType == BodyType.Static)
-                continue;
-
-            var coverage = GetGroundCoverage(uid);
-            if (coverage <= 0f)
-                continue;
-
-            ApplySkidDeceleration(uid, body, coverage, frameTime);
-
-            if (body.LinearVelocity.LengthSquared() > GroundingSpeed * GroundingSpeed
-                || MathF.Abs(body.AngularVelocity) > GroundingAngularSpeed)
-            {
-                continue;
-            }
-
-            _shuttle.Disable(uid);
-            _console.RefreshShuttleConsoles(uid);
-        }
-    }
-
-    /// <summary>
-    /// Sheds a fixed amount of speed and spin per second, capped at whatever the hull has left so
-    /// the scrape can never drive it backwards. Applied per-grid off its own coverage; a z-network
-    /// straddling an edge then decelerates by its supported mass share once
-    /// <see cref="CEZGridSyncSystem"/> equalises momentum across the members.
-    /// </summary>
-    private void ApplySkidDeceleration(EntityUid uid, PhysicsComponent body, float coverage, float frameTime)
-    {
-        var velocity = body.LinearVelocity;
-        var speed = velocity.Length();
-
-        if (speed > 0f)
-        {
-            var drop = MathF.Min(GroundSkidDecel * coverage * frameTime, speed);
-            _physics.SetLinearVelocity(uid, velocity - velocity / speed * drop, body: body);
-        }
-
-        var spin = body.AngularVelocity;
-
-        if (spin != 0f)
-        {
-            var angularDrop = MathF.Min(GroundSkidAngularDecel * coverage * frameTime, MathF.Abs(spin));
-            _physics.SetAngularVelocity(uid, spin - MathF.Sign(spin) * angularDrop, body: body);
+            SetGroundContact(uid, GetGroundCoverage(uid) > 0f);
         }
     }
 
     /// <summary>
     /// Fraction of a grid's footprint sitting over solid terrain on the z-level it occupies, 0 if
-    /// it is not on one (a transit map, or a level with no terrain grid of its own).
-    ///
-    /// Measured tile-for-tile against the hull's OWN tiles, not its world AABB: a turned hull's AABB
-    /// is the bounding box of the rotated rectangle and juts out over terrain the ship isn't actually
-    /// above, which had it grounding on thin air near the corners. Solid is a non-empty tile, the
-    /// same rule entity falling and <see cref="HasGroundUnderFootprint"/> use, so nothing disagrees
-    /// about whether a given tile is a hole.
+    /// it is not on one — a transit map, or a level with no terrain grid of its own.
     /// </summary>
-    private float GetGroundCoverage(EntityUid grid)
+    public float GetGroundCoverage(EntityUid grid)
     {
         if (_groundCoverageCache.TryGetValue(grid, out var cached) && cached.Tick == _timing.CurTick)
             return cached.Coverage;
@@ -180,6 +139,25 @@ public sealed partial class CEZLevelsSystem
         return coverage;
     }
 
+    /// <summary>
+    /// Measured against the hull's OWN tiles, not its world AABB: a turned hull's AABB is the
+    /// bounding box of the rotated rectangle and juts out over terrain the ship isn't actually
+    /// above, which had it grounding on thin air near the corners.
+    ///
+    /// Each tile contributes a FRACTION, bilinearly interpolated from the four terrain tiles around
+    /// its centre, rather than a yes/no on the one tile it happens to sit over. Point-sampling reads
+    /// as if it should give fine-grained coverage — a 987-tile hull ought to move in 0.1% steps —
+    /// but the samples are perfectly correlated: on an axis-aligned hull every tile centre crosses
+    /// its terrain boundary at the same instant, so coverage does not creep up, it snaps from none
+    /// to all as the ship slides half a tile. Subsampling within each tile does not help for the
+    /// same reason. Interpolating instead makes coverage a continuous function of position, so grip
+    /// ramps in over the last tile of travel and a hull edging onto solid ground is progressively
+    /// caught rather than seized at one arbitrary threshold.
+    ///
+    /// Solid is a non-empty tile, the same rule entity falling and
+    /// <see cref="HasGroundUnderFootprint"/> use, so nothing disagrees about whether a given tile is
+    /// a hole.
+    /// </summary>
     private float ComputeGroundCoverage(EntityUid grid)
     {
         if (!_mapGridQuery.TryComp(grid, out var gridComp))
@@ -194,11 +172,9 @@ public sealed partial class CEZLevelsSystem
         var gridMatrix = _transform.GetWorldMatrix(grid);
         var tileSize = gridComp.TileSize;
 
-        var solid = 0;
+        var solid = 0f;
         var total = 0;
 
-        // Walk the ship's real tiles and test the terrain directly beneath each tile's centre. This
-        // follows the hull's actual shape and rotation instead of its bounding box.
         var shipTiles = _map.GetAllTilesEnumerator(grid, gridComp);
         while (shipTiles.MoveNext(out var shipTile))
         {
@@ -210,13 +186,46 @@ public sealed partial class CEZLevelsSystem
                 (shipTile.Value.GridIndices.Y + 0.5f) * tileSize);
             var worldPos = Vector2.Transform(localCentre, gridMatrix);
 
-            if (_map.TryGetTileRef(map, mapGrid, worldPos, out var terrainTile)
-                && !terrainTile.Tile.IsEmpty)
-            {
-                solid++;
-            }
+            solid += SampleSolidity(map, mapGrid, worldPos);
         }
 
-        return total == 0 ? 0f : solid / (float)total;
+        return total == 0 ? 0f : solid / total;
+    }
+
+    /// <summary>
+    /// Solidity of the terrain under a world point, in 0..1, bilinearly interpolated between the
+    /// four terrain tile centres surrounding it. Exactly over a solid tile's centre this is 1, over
+    /// a hole's centre 0, and it slides smoothly across the boundary between them.
+    /// </summary>
+    private float SampleSolidity(EntityUid map, MapGridComponent mapGrid, Vector2 worldPos)
+    {
+        // Tile-space position, shifted so integer coordinates land on tile CENTRES — those are the
+        // points whose solidity we actually know.
+        var local = _map.WorldToLocal(map, mapGrid, worldPos) / mapGrid.TileSize;
+        var sampleX = local.X - 0.5f;
+        var sampleY = local.Y - 0.5f;
+
+        var x0 = (int) MathF.Floor(sampleX);
+        var y0 = (int) MathF.Floor(sampleY);
+        var fracX = sampleX - x0;
+        var fracY = sampleY - y0;
+
+        var bottom = MathHelper.Lerp(
+            IsSolidTile(map, mapGrid, x0, y0),
+            IsSolidTile(map, mapGrid, x0 + 1, y0),
+            fracX);
+        var top = MathHelper.Lerp(
+            IsSolidTile(map, mapGrid, x0, y0 + 1),
+            IsSolidTile(map, mapGrid, x0 + 1, y0 + 1),
+            fracX);
+
+        return MathHelper.Lerp(bottom, top, fracY);
+    }
+
+    private float IsSolidTile(EntityUid map, MapGridComponent mapGrid, int x, int y)
+    {
+        return _map.TryGetTileRef(map, mapGrid, new Vector2i(x, y), out var tileRef) && !tileRef.Tile.IsEmpty
+            ? 1f
+            : 0f;
     }
 }

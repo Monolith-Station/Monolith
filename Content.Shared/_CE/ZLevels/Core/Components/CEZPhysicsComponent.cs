@@ -35,6 +35,16 @@ public sealed partial class CEZPhysicsComponent : Component
     [DataField, AutoNetworkedField]
     public float LaunchCountdown;
 
+    /// <summary>
+    /// Whether any of this grid's footprint is currently over solid terrain, for the shuttle
+    /// console readout. Distinct from being parked: a hull under power drags itself along the
+    /// ground while still very much on it, so body type answers "are the engines cold" and this
+    /// answers "is there ground under me". Networked because the client cannot honestly work it
+    /// out — the footprint walk needs terrain chunks that may sit outside its PVS.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool GroundContact;
+
     /// Optimization Caches
     /// <summary>
     /// Cached value of the current z-level map height
