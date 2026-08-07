@@ -83,14 +83,14 @@
         Heat: 26
   - type: HitscanBasicVisuals
     muzzleFlash:
-      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
-      state: gauss_muzzle
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light
     travelFlash:
-      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
-      state: gauss_trail
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light
     impactFlash:
-      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
-      state: gauss_impact
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light
 
 - type: entity
   parent: BasicHitscan
@@ -105,14 +105,14 @@
     damage: 30
   - type: HitscanBasicVisuals
     muzzleFlash:
-      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
-      state: gauss_muzzle
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: muzzle_beam_light_pulse
     travelFlash:
-      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
-      state: gauss_trail
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: beam_light_pulse
     impactFlash:
-      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
-      state: gauss_impact
+      sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/small_laser.rsi
+      state: impact_beam_light_pulse
 
 - type: entity
   id: Coilgun134x92mm
