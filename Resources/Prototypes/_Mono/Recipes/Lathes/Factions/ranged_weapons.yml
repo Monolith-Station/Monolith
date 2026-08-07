@@ -267,6 +267,21 @@
     Gold: 500
     Plasma: 1000
 
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyGunTSFMCEnergyGun
+  result: WeaponEnergyGunTSFMCEnergyGun
+  categories:
+  - Rifles
+  - Energy
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 500
+    Uranium: 200
+    Gold: 500
+    Plasma: 500
+
 # PDV energy
 
 - type: latheRecipe
