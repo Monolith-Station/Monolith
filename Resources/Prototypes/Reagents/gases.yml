@@ -19,6 +19,10 @@
         conditions:
         - !type:OrganType
           type: Hydrakin
+      - !type:Oxygenate # Mono - IAS
+        conditions:
+        - !type:OrganType
+          type: IAS
       - !type:Oxygenate
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -35,6 +39,10 @@
         conditions:
         - !type:OrganType
           type: Plant
+      - !type:Oxygenate # DeltaV - Feroxi Still need to breathe
+        conditions:
+        - !type:OrganType
+          type: Feroxi
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -98,6 +106,10 @@
         conditions:
         - !type:OrganType
           type: Hydrakin
+      - !type:Oxygenate # Mono - IAS
+        conditions:
+        - !type:OrganType
+          type: IAS
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -105,6 +117,9 @@
           shouldHave: false
         - !type:OrganType
           type: Hydrakin
+          shouldHave: false
+        - !type:OrganType
+          type: IAS
           shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
@@ -211,6 +226,10 @@
         conditions:
         - !type:OrganType
           type: Hydrakin
+      - !type:Oxygenate # Mono - IAS
+        conditions:
+        - !type:OrganType
+          type: IAS
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -221,6 +240,9 @@
           shouldHave: false
         - !type:OrganType
           type: Hydrakin
+          shouldHave: false
+        - !type:OrganType
+          type: IAS
           shouldHave: false
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
@@ -271,6 +293,10 @@
         conditions:
         - !type:OrganType
           type: Hydrakin
+      - !type:Oxygenate # Mono - IAS
+        conditions:
+        - !type:OrganType
+          type: IAS
       - !type:Oxygenate
         conditions:
         - !type:OrganType
@@ -307,6 +333,10 @@
         conditions:
         - !type:OrganType
           type: Hydrakin
+      - !type:Oxygenate # Mono - IAS
+        conditions:
+        - !type:OrganType
+          type: IAS
       - !type:MovespeedModifier # Mono - Hydrakin
         walkSpeedModifier: 1.15
         sprintSpeedModifier: 1.15
@@ -351,6 +381,9 @@
         - !type:OrganType # Mono - Hydrakin
           type: Hydrakin
           shouldHave: false
+        - !type:OrganType
+          type: IAS
+          shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
@@ -366,6 +399,9 @@
           shouldHave: false
         - !type:OrganType # Mono - Hydrakin
           type: Hydrakin
+          shouldHave: false
+        - !type:OrganType
+          type: IAS
           shouldHave: false
         key: ForcedSleep
         component: ForcedSleeping
@@ -384,6 +420,9 @@
           shouldHave: false
         - !type:OrganType # Mono - Hydrakin
           type: Hydrakin
+          shouldHave: false
+        - !type:OrganType
+          type: IAS
           shouldHave: false
         ignoreResistances: true
         damage:
@@ -424,7 +463,10 @@
           type: Yowie
           shouldHave: false
         - !type:OrganType # Mono - Hydrakin
-          type: Hydrakin 
+          type: Hydrakin
+          shouldHave: false
+        - !type:OrganType
+          type: IAS
           shouldHave: false
         - !type:ReagentThreshold
           reagent: Frezon
@@ -456,6 +498,9 @@
         - !type:OrganType # Mono
           type: Hydrakin
           shouldHave: false
+        - !type:OrganType
+          type: IAS
+          shouldHave: false
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
@@ -466,6 +511,9 @@
           min: 0.5
         - !type:OrganType # Mono
           type: Hydrakin
+          shouldHave: false
+        - !type:OrganType
+          type: IAS
           shouldHave: false
       - !type:PopupMessage
         type: Local
@@ -479,6 +527,9 @@
         - !type:OrganType # Mono
           type: Hydrakin
           shouldHave: false
+        - !type:OrganType
+          type: IAS
+          shouldHave: false
       - !type:AdjustTemperature # Mono - Hydrakin
         conditions:
         - !type:ReagentThreshold
@@ -489,4 +540,4 @@
         - !type:OrganType
           type: Hydrakin
         amount: -10000
- 
+

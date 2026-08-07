@@ -9,10 +9,10 @@
 
 # Frontier
 - type: entity
-  name: N2524 Pattern Repeater (.45 magnum)
+  name: N2524 Pattern Repeater (.357 magnum)
   parent: [ BaseWeaponSniper, BaseGunWieldable ]
   id: WeaponSniperRepeater
-  description: A civilian grade lever action firearm, favored by space cowboys across the Frontier for its reliability and stopping power. Uses .45 magnum ammo.
+  description: A civilian grade lever action firearm, favored by space cowboys across the Frontier for its reliability and stopping power. Uses .357 magnum ammo.
   components:
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Snipers/repeater.rsi
@@ -23,6 +23,6 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-      - Cartridge45_magnumFMJ
+      - Cartridge357_magnumFMJ
     capacity: 7
-    proto: Cartridge45_magnumFMJ
+    proto: Cartridge357_magnumFMJ

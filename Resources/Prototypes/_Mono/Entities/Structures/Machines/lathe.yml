@@ -72,228 +72,39 @@
   parent: [FactionLathe, BaseStructureDisableToolUse]
   suffix: IMMOVABLE
 
-# economy
-
 - type: entity
-  id: CentrifugeLatheMini
-  parent: BaseLatheLube
-  name: miniature economy uranium processing centrifuge
-  description: A medium sized industrial gas centrifuge for "bulk" processing isotopes, materials and generally making things go spinny. Not as fast or efficient as its station-bound brother, but useful for smaller operations. Too small to reprocess nuclear fuel.
+  id: BaseLatheAssembler
+  parent: BaseLathe
+  abstract: true
+  name: lathe
   components:
-  - type: Sprite
-    sprite: _Mono/Structures/Machines/centrifuge.rsi
-    layers:
-    - state: icon
-      map: [ "enum.LatheVisualLayers.IsRunning" ]
-    - state: unlit
-      shader: unshaded
-      map: [ "enum.PowerDeviceVisualLayers.Powered"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: CentrifugeLatheMiniCircuitboard
-  - type: Lathe
-    producingSound: /Audio/Ambience/Objects/crushing.ogg
-    idleState: icon
-    runningState: building
-    staticPacks:
-    - MonoCentrifugeProcessingStatic
-    dynamicPacks:
-    - MonoUraniumProcessing
-  - type: MaterialStorage
-    whitelist:
-      tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
-      - Ore
-  - type: RequireProjectileTarget
-  - type: GuideHelp
-    guides:
-    - Economy
-
-- type: entity
-  id: IndustrialLatheEconomy
-  parent: BaseLatheLube
-  name: industrial steel lathe
-  description: Capable of forming metal into all types of shapes. Essential for starting to create most advanced items.
-  components:
-  - type: Sprite
-    sprite: _Mono/Structures/Machines/altolathe.rsi
-    layers:
-    - state: icon
-      map: [ "enum.LatheVisualLayers.IsRunning" ]
-    - state: unlit
-      shader: unshaded
-      map: [ "enum.PowerDeviceVisualLayers.Powered"]
-    - state: inserting
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: IndustrialLatheEconomyMachineCircuitboard
-  - type: Lathe
-    producingSound: /Audio/Machines/circuitprinter.ogg
-    idleState: icon
-    runningState: building
-    staticPacks:
-    - EconomyBasic
-    # dynamicPacks:
-  - type: MaterialStorage
-    whitelist:
-      tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
-  - type: RequireProjectileTarget
-  - type: GuideHelp
-    guides:
-    - Economy
-
-- type: entity
-  id: IndustrialFurnaceEconomy
-  parent: [ BaseMachinePowered, BaseStructureDisableToolUse ]
-  name: industrial arc furnace
-  description: An advanced arc furnace capable of melting ore and refining material through heat. Essential for creating advanced alloys.
-  components:
-  - type: Sprite
-    offset: 0.5,0
-    sprite: _Mono/Structures/Machines/2x1arcfurnace.rsi
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning" ]
-    - state: unlit
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: RequireProjectileTarget
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 900000
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "1.4,0.4,-0.4,-0.4"
-        density: 190
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
-  # microwave comps
-  - type: GuideHelp
-    guides:
-    - ArcFurnace
-  - type: Microwave
-    capacity: 15
-    explosionChance: 0
-    lightningChance: 0
-    baseHeatMultiplier: 300
-    temperatureUpperThreshold: 3300
-    maxItemSize: Ginormous
-    validRecipeTypes: ArcFurnace
-    beginCookingSound: /Audio/Machines/machine_switch.ogg
-    foodDoneSound: /Audio/Effects/Shuttle/radar_ping.ogg
-    loopingSound: /Audio/_Mono/Structures/Economy/furnace.ogg
-    key: ArcFurnaceKey
-  - type: ActivatableUI
-    key: enum.MicrowaveUiKey.ArcFurnaceKey
+  - type: ItemSlots
+    slots:
+      beaker_slot:
+        name: lathe-component-output-slot-beaker-name
+        whitelist:
+          components:
+          - DrainableSolution
   - type: ContainerContainer
     containers:
-      microwave_entity_container: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
-  - type: UserInterface
-    interfaces:
-      enum.MicrowaveUiKey.ArcFurnaceKey:
-        type: AssemblerBoundUserInterface
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerDeviceVisuals.VisualState:
-        enum.MicrowaveVisualizerLayers.Base:
-          Idle: { state: "icon" }
-          Cooking: { state: "building" }
-        enum.MicrowaveVisualizerLayers.BaseUnlit:
-          Idle: { state: "unlit" }
-          Broken: { state: "panel" }
-          Cooking: { state: "unlit" }
-      enum.PowerDeviceVisuals.Powered:
-        enum.MicrowaveVisualizerLayers.BaseUnlit:
-          True: { visible: true }
-          False: { visible: false }
-
-- type: entity
-  id: CentrifugeLathe
-  parent: [BaseStructureDisableToolUse, BaseLatheLube]
-  name: industrial uranium processing centrifuge
-  description: A large sized industrial gas centrifuge for bulk processing isotopes, materials and generally making things go spinny. Much more efficient at producing fissile uranium than the miniature ones. Not equipped to reprocess nuclear fuel.
-  components:
-  - type: Sprite
-    snapCardinals: false
-    offset: 0.5, 0.5
-    noRot: false
-    sprite: _Mono/Structures/Machines/2x2centrifuge.rsi
-    layers:
-    - state: icon
-      map: [ "enum.LatheVisualLayers.IsRunning" ]
-    - state: unlit
-      shader: unshaded
-      map: [ "enum.PowerDeviceVisualLayers.Powered"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Lathe
-    producingSound: /Audio/Ambience/Objects/crushing.ogg
-    idleState: icon
-    runningState: building
-    staticPacks:
-    - MonoCentrifugeProcessingFullSizeStatic
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,1.5,1.2,-0.5"
-        density: 1500
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-  - type: MaterialStorage
-    whitelist:
-      tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
-      - Ore
-  - type: RequireProjectileTarget
-  - type: GuideHelp
-    guides:
-    - Economy
-  - type: Transform
-    anchored: true
-    noRot: false
-  - type: OreSiloClient
+      entity_storage: !type:Container
+      beaker_slot: !type:ContainerSlot
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
+    - entity_storage
+  - type: EntityStorage
+    capacity: 75
+  - type: ExtendDescription
+    descriptionList:
+    - description: Insert components for recipes by placing them on top of the lathe, then "open / close" inside its right-click menu.
+      color: "#4f94ad"
+      requireDetailRange: true
 
 #USSP
 
@@ -419,3 +230,595 @@
   id: ViperLatheImmmovable
   parent: [ViperLathe, BaseStructureDisableToolUse]
   suffix: IMMOVABLE
+
+#MMC
+
+- type: entity
+  id: MMCLathe
+  parent: BaseLatheLube
+  name: MMC multipurpose assembler
+  description: Capable of manufacturing equipment from MMC design patterns. Sent to anywhere that needs a large-scale industrial startup.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: techfab-mieyo
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: MMCTechfabMachineCircuitboard
+  - type: Lathe
+    producingSound: /Audio/Machines/circuitprinter.ogg
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - StaticAmmoRecipePack
+    - RoundstartShipgunAmmo
+    - StaticGrenades
+    - MonoMMCUtilityStatic
+    - MonoMMCProductionStatic
+    - MonoMMCGearStatic
+    dynamicPacks:
+    # Universal shit (stuff like shipgun ammo)
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
+    - UniversalShellAmmo
+    - UniversalOrdinance
+    - DynamicAmmoRecipePack
+    # main
+    - MonoMMCUtilityResearch
+    - MonoMMCProductionResearch
+    - MonoMMCGearResearch
+    # Civ military tech
+    - SecurityEquipment
+    - SmartGun
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget
+
+- type: entity
+  id: MMCLatheImmmovable
+  parent: [MMCLathe, BaseStructureDisableToolUse]
+  suffix: IMMOVABLE
+
+# economy
+
+- type: entity
+  id: CentrifugeLatheMini
+  parent: BaseLatheLube
+  name: miniature economy uranium processing centrifuge
+  description: A medium sized industrial gas centrifuge for "bulk" processing isotopes, materials and generally making things go spinny. Not as fast or efficient as its station-bound brother, but useful for smaller operations. Too small to reprocess nuclear fuel.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/centrifuge.rsi
+    layers:
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: CentrifugeLatheMiniCircuitboard
+  - type: Lathe
+    producingSound: /Audio/Ambience/Objects/crushing.ogg
+    idleState: icon
+    runningState: building
+    staticPacks:
+    - MonoCentrifugeProcessingStatic
+    dynamicPacks:
+    - MonoUraniumProcessing
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+      - Ore
+  - type: RequireProjectileTarget
+  - type: GuideHelp
+    guides:
+    - Economy
+
+# industrial presses
+- type: entity
+  id: BaseIndustrialPressEconomy
+  parent: BaseLatheAssembler
+  abstract: true
+  components:
+  - type: EntityStorage
+    capacity: 30
+    isCollidableWhenOpen: true
+    enteringOffset: 0.5,0
+    enteringRange: 0.35
+
+- type: entity
+  id: IndustrialPressEconomyElectronics
+  parent: BaseIndustrialPressEconomy
+  name: industrial press (electronics)
+  description: Capable of forming metal into all types of shapes. This one is calibrated for electronics.
+  components:
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/pressinator.rsi
+    noRot: true
+    offset: 0, 0.2
+    layers:
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: electronics
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: IndustrialPressEconomyElectronicsMachineCircuitboard
+  - type: Lathe
+    producingSound: /Audio/_Mono/Structures/Economy/hammerpress.ogg
+    idleState: icon
+    runningState: building
+    unlitIdleState: electronics
+    unlitRunningState: unlit-building
+    staticPacks:
+    - IndustrialPressEconomyElectronics
+    # dynamicPacks:
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget
+  - type: GuideHelp
+    guides:
+    - Economy
+
+- type: entity
+  id: IndustrialPressEconomyElectronicsMMC
+  parent: IndustrialPressEconomyElectronics
+  name: industrial press (electronics)
+  description: Capable of forming metal into all types of shapes. This one is calibrated for electronics. This is a higher quality pattern patented by Meiyo Manufacturing Concerns.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/pressinator.rsi
+    noRot: true
+    offset: 0, 0.2
+    layers:
+    - state: mmc
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: electronics
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: Machine
+    board: IndustrialPressEconomyElectronicsMMCMachineCircuitboard
+  - type: Lathe
+    partRatingMaterialUseMultiplier: 0.98 # less of a buff from matter bins
+    producingSound: /Audio/_Mono/Structures/Economy/hammerpress.ogg
+    idleState: mmc
+    runningState: building_mmc
+    unlitIdleState: electronics
+    unlitRunningState: unlit-building
+    staticPacks:
+    - IndustrialPressEconomyElectronics
+    # dynamicPacks:
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget
+  - type: GuideHelp
+    guides:
+    - Economy
+
+- type: entity
+  id: IndustrialPressEconomyPlates
+  parent: BaseIndustrialPressEconomy
+  name: industrial press (plates)
+  description: Capable of forming metal into all types of shapes. This one is calibrated for plating.
+  components:
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/pressinator.rsi
+    noRot: true
+    offset: 0, 0.2
+    layers:
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: plates
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: IndustrialPressEconomyPlatesMachineCircuitboard
+  - type: Lathe
+    producingSound: /Audio/_Mono/Structures/Economy/hammerpress.ogg
+    idleState: icon
+    runningState: building
+    unlitIdleState: plates
+    unlitRunningState: unlit-building
+    staticPacks:
+    - IndustrialPressEconomyPlates
+    # dynamicPacks:
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget
+  - type: GuideHelp
+    guides:
+    - Economy
+
+- type: entity
+  id: IndustrialPressEconomyPlatesMMC
+  parent: IndustrialPressEconomyPlates
+  name: industrial press (plates)
+  description: Capable of forming metal into all types of shapes. This one is calibrated for plating. This is a higher quality pattern patented by Meiyo Manufacturing Concerns.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/pressinator.rsi
+    noRot: true
+    offset: 0, 0.2
+    layers:
+    - state: mmc
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: plates
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: Machine
+    board: IndustrialPressEconomyPlatesMMCMachineCircuitboard
+  - type: Lathe
+    partRatingMaterialUseMultiplier: 0.98 # less of a buff from matter bins
+    producingSound: /Audio/_Mono/Structures/Economy/hammerpress.ogg
+    idleState: mmc
+    runningState: building_mmc
+    unlitIdleState: plates
+    unlitRunningState: unlit-building
+    staticPacks:
+    - IndustrialPressEconomyPlates
+    # dynamicPacks:
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget
+  - type: GuideHelp
+    guides:
+    - Economy
+
+- type: entity
+  id: IndustrialFurnaceEconomy
+  parent: BaseLatheAssembler
+  name: industrial arc furnace
+  description: An advanced arc furnace capable of melting ore and refining material through heat. Essential for creating advanced alloys.
+  components:
+  - type: Animateable
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+  - type: Sprite
+    offset: 0.5,0
+    sprite: _Mono/Structures/Machines/2x1arcfurnace.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    #- state: panel
+    #  map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: RequireProjectileTarget
+  - type: DisableToolUse
+    screwing: true
+    anchoring: true
+  - type: EntityStorage
+    capacity: 100
+    isCollidableWhenOpen: true
+    enteringOffset: 0.5,0
+    enteringRange: 0.35
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 900000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "1.4,0.4,-0.4,-0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Lathe
+    timeMultiplier: 0.2
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: building
+    staticPacks:
+    - ArcFurnaceStatic
+
+- type: entity
+  id: IndustrialFurnaceEconomyCompact
+  parent: IndustrialFurnaceEconomy
+  name: compact arc furnace
+  description: A compact version advanced arc furnace capable of melting ore and refining material through heat. Essential for creating advanced alloys. Slower and less capacity.
+  components:
+  - type: DisableToolUse
+    screwing: false
+    anchoring: false
+  - type: Sprite
+    offset: 0,0
+    sprite: _Mono/Structures/Machines/1x1arcfurnace.rsi
+    layers:
+    - state: icon
+      map: [ "enum.MicrowaveVisualizerLayers.Base" ]
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.MicrowaveVisualizerLayers.BaseUnlit" ]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: EntityStorage
+    capacity: 75
+    isCollidableWhenOpen: true
+    enteringOffset: 0.0, 0.0
+    enteringRange: 0.18
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000 # Expensive.
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.5,0.5,-0.5,-0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Machine
+    board: IndustrialFurnaceEconomyCompactCircuitboard
+  - type: Lathe
+    timeMultiplier: 1
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: building
+    staticPacks:
+    - ArcFurnaceStatic
+
+- type: entity
+  id: PrecisionAssemblerEconomy
+  parent: BaseLatheAssembler
+  name: precision assembler
+  description: A high-accuracy microfabricator capable of manipulating almost all forms of matter in the right circumstances. Astoundingly useful for creating advanced components of all kinds.
+  components:
+  - type: Appearance
+  - type: Animateable
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+  - type: Sprite
+    offset: 0.5,0
+    sprite: _Mono/Structures/Machines/nfr_assembler.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    #- state: panel
+    #  map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: RequireProjectileTarget
+  - type: DisableToolUse
+    screwing: true
+    anchoring: true
+  - type: EntityStorage
+    capacity: 100
+    isCollidableWhenOpen: true
+    enteringOffset: 0.5,0
+    enteringRange: 0.35
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 900000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "1.4,0.4,-0.4,-0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Lathe
+    timeMultiplier: 0.2
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - PrecisionAssemblerStatic
+
+- type: entity
+  id: PrecisionAssemblerEconomyCompact
+  parent: PrecisionAssemblerEconomy
+  name: compact precision assembler
+  description: A high-accuracy microfabricator capable of manipulating almost all forms of matter in the right circumstances. Astoundingly useful for creating advanced components of all kinds. This one is slower and has less space inside.
+  components:
+  - type: DisableToolUse
+    screwing: false
+    anchoring: false
+  - type: Sprite
+    offset: 0,0
+    sprite: _Mono/Structures/Machines/1x1precisionass.rsi
+    layers:
+    - state: icon
+      map: [ "enum.MicrowaveVisualizerLayers.Base" ]
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.MicrowaveVisualizerLayers.BaseUnlit" ]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: RequireProjectileTarget
+  - type: EntityStorage
+    capacity: 75
+    isCollidableWhenOpen: true
+    enteringOffset: 0.0, 0.0
+    enteringRange: 0.18
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000 # Expensive.
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.5,0.5,-0.5,-0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Machine
+    board: PrecisionAssemblerEconomyCompactCircuitboard
+  - type: Lathe
+    timeMultiplier: 1
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - PrecisionAssemblerStatic
+
+- type: entity
+  id: CentrifugeLathe
+  parent: [BaseStructureDisableToolUse, BaseLatheLube]
+  name: industrial uranium processing centrifuge
+  description: A large sized industrial gas centrifuge for bulk processing isotopes, materials and generally making things go spinny. Much more efficient at producing fissile uranium than the miniature ones. Not equipped to reprocess nuclear fuel.
+  components:
+  - type: Sprite
+    snapCardinals: false
+    offset: 0.5, 0.5
+    noRot: false
+    sprite: _Mono/Structures/Machines/2x2centrifuge.rsi
+    layers:
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    producingSound: /Audio/Ambience/Objects/crushing.ogg
+    idleState: icon
+    runningState: building
+    staticPacks:
+    - MonoCentrifugeProcessingFullSizeStatic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,1.5,1.2,-0.5"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+      - Ore
+  - type: RequireProjectileTarget
+  - type: GuideHelp
+    guides:
+    - Economy
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: OreSiloClient
