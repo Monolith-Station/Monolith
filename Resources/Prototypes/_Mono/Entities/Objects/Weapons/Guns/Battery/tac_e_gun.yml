@@ -68,8 +68,8 @@
     visuals:
       enum.EnergyGunFireModeVisuals.State:
         Firemode:
-          shock: { state: mode-shock }
-          lethal: { state: mode-lethal }
+          Shock: { state: mode-shock }
+          Lethal: { state: mode-lethal }
   - type: Tag
     tags:
     - HighRiskItem
