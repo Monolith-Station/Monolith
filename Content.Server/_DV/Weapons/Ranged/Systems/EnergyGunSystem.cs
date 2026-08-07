@@ -161,7 +161,8 @@ public sealed partial class EnergyGunSystem : EntitySystem
                     // Mono: Shock mode because it's not actually disable
                     case "shock":
                         UpdateAppearance(uid, EnergyGunFireModeState.Shock);
-                    // End Mono
+                    // End
+                        break;
                 }
             }
         }
