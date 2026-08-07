@@ -52,10 +52,10 @@
     fireModes:
     - proto: RifleTacShock
       fireCost: 75
-      name: disable
+      name: Shock
     - proto: RifleTacLethal
       fireCost: 150
-      name: lethal
+      name: Lethal
   - type: MagazineVisuals
     magState: mag
     steps: 5
