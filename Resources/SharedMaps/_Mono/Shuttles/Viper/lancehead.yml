@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/06/2026 19:41:41
-  entityCount: 1153
+  time: 08/07/2026 15:22:22
+  entityCount: 1159
 maps: []
 grids:
 - 1
@@ -106,13 +106,12 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        MetalFoam: []
+        Kudzu: []
         Puddle: []
         Smoke: []
-        Kudzu: []
-        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
-    - type: ImplicitRoof
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -849,6 +848,17 @@ entities:
       devices:
       - 494
       - 493
+  - uid: 610
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,-1.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 496
+      - 498
+      - 1063
   - uid: 637
     components:
     - type: Transform
@@ -879,11 +889,6 @@ entities:
       - 1073
       - 1066
       - 1074
-  - uid: 768
-    components:
-    - type: Transform
-      pos: -1.5,-2.5
-      parent: 1
   - uid: 999
     components:
     - type: Transform
@@ -3360,6 +3365,26 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
+- proto: DrinkWaterBottleFull
+  entities:
+  - uid: 1157
+    components:
+    - type: Transform
+      parent: 613
+    - type: Physics
+      canCollide: False
+  - uid: 1158
+    components:
+    - type: Transform
+      parent: 613
+    - type: Physics
+      canCollide: False
+  - uid: 1159
+    components:
+    - type: Transform
+      parent: 613
+    - type: Physics
+      canCollide: False
 - proto: FaxMachineShip
   entities:
   - uid: 274
@@ -3419,6 +3444,7 @@ entities:
       deviceLists:
       - 553
       - 7
+      - 610
   - uid: 1066
     components:
     - type: Transform
@@ -3525,6 +3551,44 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+- proto: FoodTinBeans
+  entities:
+  - uid: 614
+    components:
+    - type: Transform
+      parent: 613
+    - type: Physics
+      canCollide: False
+  - uid: 615
+    components:
+    - type: Transform
+      parent: 613
+    - type: Physics
+      canCollide: False
+  - uid: 768
+    components:
+    - type: Transform
+      parent: 613
+    - type: Physics
+      canCollide: False
+  - uid: 1154
+    components:
+    - type: Transform
+      parent: 613
+    - type: Physics
+      canCollide: False
+  - uid: 1155
+    components:
+    - type: Transform
+      parent: 613
+    - type: Physics
+      canCollide: False
+  - uid: 1156
+    components:
+    - type: Transform
+      parent: 613
+    - type: Physics
+      canCollide: False
 - proto: GasMixerOn
   entities:
   - uid: 490
@@ -4101,22 +4165,6 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-  - uid: 610
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.5,-3.5
-      parent: 1
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
-  - uid: 613
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,-3.5
-      parent: 1
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
   - uid: 626
     components:
     - type: Transform
@@ -4469,22 +4517,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-9.5
-      parent: 1
-    - type: AtmosPipeColor
-      color: '#990000FF'
-  - uid: 614
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.5,-3.5
-      parent: 1
-    - type: AtmosPipeColor
-      color: '#990000FF'
-  - uid: 615
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,-3.5
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
@@ -4884,6 +4916,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 7
+      - 610
   - uid: 497
     components:
     - type: Transform
@@ -5062,6 +5095,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 7
+      - 610
     - type: AtmosPipeLayers
       pipeLayer: Secondary
   - uid: 500
@@ -5835,6 +5869,58 @@ entities:
       parent: 1
     - type: DeltaPressure
       gridUid: 1
+- proto: ShelfWallFreezerDark
+  entities:
+  - uid: 613
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,-0.5
+      parent: 1
+    - type: Storage
+      storedItems:
+        614:
+          position: 2,4
+          _rotation: East
+        615:
+          position: 1,3
+          _rotation: South
+        768:
+          position: 4,1
+          _rotation: South
+        1154:
+          position: 1,0
+          _rotation: South
+        1155:
+          position: 5,6
+          _rotation: South
+        1156:
+          position: 4,3
+          _rotation: South
+        1157:
+          position: 5,0
+          _rotation: South
+        1158:
+          position: 0,3
+          _rotation: South
+        1159:
+          position: 2,6
+          _rotation: East
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 614
+          - 615
+          - 768
+          - 1154
+          - 1155
+          - 1156
+          - 1157
+          - 1158
+          - 1159
 - proto: SinkWide
   entities:
   - uid: 749
