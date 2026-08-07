@@ -4,7 +4,7 @@
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetHMELightSuit
   name: HME light hardsuit "Preserver" helmet
-  description: light-HME-modsuit-helmet-desc 
+  description: light-HME-modsuit-helmet-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -111,7 +111,7 @@
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetHMEHeavySuit
   name: HME heavy hardsuit "Intercessor" helmet
-  description: heavy-HME-modsuit-helmet-desc 
+  description: heavy-HME-modsuit-helmet-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -262,11 +262,12 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
+    viewCircleRadius: 600 # Forge-Change 350 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#c2ffc2" # Forge-Change #00FF00 to #c2ffc2 // сам фосфорный цвет, он так же может давать пересвет
+    lightingColor: "#0EFFFFFF" # Forge-Change #FFFFFF32 to #0EFFFFFF // Это главный рычаг яркости в темноте
+    amplification: 1.2 #Forge-Change 32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
   - type: ShowHealthBars
     damageContainers:

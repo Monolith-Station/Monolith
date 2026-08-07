@@ -65,8 +65,8 @@
     viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#ba8207"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#ba8207" #Forge-change #ba8207 to #ffc83b
+    lightingColor: "#0FFFFFFF" #Forge-change #FFFFFF32 to #0FFFFFFF
     amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 #region Other
@@ -93,8 +93,8 @@
     viewCircleRadius: 600 #350 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#77DD77"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#a6ffa6" #Forge-change #77DD77 to #a6ffa6
+    lightingColor: "#0FFFFFFF" #Forge-change #FFFFFF32 to #0FFFFFFF
     amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 
@@ -122,8 +122,8 @@
     viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#42AAFF"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#80d4ff" #Forge-change #42AAFF to #80d4ff
+    lightingColor: "#0FFFFFFF" #Forge-change ##FFFFFF32 to #0FFFFFFF
     amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 
@@ -149,8 +149,8 @@
     viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#AB4E52"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#ff1a25" #Forge-change #AB4E52 to #ff1a25
+    lightingColor: "#FFFFFFFF" #Forge-change #FFFFFF32 to #FFFFFFFF
     amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 
@@ -176,8 +176,8 @@
     viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#ddba00"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#ffaa00" #Forge-change #ddba00 to #ffaa00
+    lightingColor: "#FFFFFFFF" #Forge-change #FFFFFF32 to #FFFFFFFF
     amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 
@@ -202,9 +202,9 @@
     action: ActionToggleNightVision
     viewCircleRadius: 800 #400 to 800 // это радиус обзора (максимальный радиус для ТСФ)
     viewCircleCount: 4
-    viewCircleSpacing: 280
-    phosphorColor: "#2E8B57"
-    lightingColor: "#0CFFFF32" # #FFFFFF32 to #0CFFFF32//
+    viewCircleSpacing: 100 #Forge-change 280 to 100
+    phosphorColor: "#4ee293" #Forge-change #2E8B57 to #4ee293
+    lightingColor: "#FFFFFFFF" # #FFFFFF32 to #0CFFFF32 // (hotFix1) to #FFFFFFFF
     amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 
@@ -300,8 +300,8 @@
     viewCircleRadius: 600 #400 to 600 // это радиус обзора
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#aa9c00"
-    lightingColor: "#FFFFFF32"
+    phosphorColor: "#d9ff00" #Forge-change #aa9c00 to #d9ff00
+    lightingColor: "#FFFFFFFF" #Forge-change #FFFFFF32 to #FFFFFFFF
     amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 

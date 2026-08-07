@@ -95,20 +95,24 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
-  - type: ThermalVision
+  - type: ThermalVision #Forge-Change start
+    #isEquipment: true
+    #color: "#FFFFFF00"
+    #lightRadius: 45
+    flashDurationMultiplier: 2
+    pulseTime: 3
     isEquipment: true
-    color: "#FFFFFFFF"
-    lightRadius: 45
+    toggleAction: PulseThermalVision #Forge-Change end
   - type: NightVision
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 400
+    viewCircleRadius: 700 # Forge-Change 350 to 700 // это радиус обзора (у ПНТ он чуть выше)
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
-    lightingColor: "#FFFFFF32"
-
+    phosphorColor: "#c2ffc2" # Forge-Change #00FF00 to #c2ffc2 // сам фосфорный цвет, он так же может давать пересвет
+    lightingColor: "#0EFFFFFF" # Forge-Change #FFFFFF32 to #0EFFFFFF // Это главный рычаг яркости в темноте
+    amplification: 1.2 #Forge-Change 32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]

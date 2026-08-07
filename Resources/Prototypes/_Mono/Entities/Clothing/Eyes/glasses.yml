@@ -169,17 +169,21 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
-  - type: ThermalVision
+  - type: ThermalVision #Forge-Change start
+    #isEquipment: true
+    #color: "#FFFFFFFF"
+    #lightRadius: 45
+    flashDurationMultiplier: 2
+    pulseTime: 3
     isEquipment: true
-    color: "#FFFFFFFF"
-    lightRadius: 45
+    toggleAction: PulseThermalVision #Forge-Change end
   - type: NightVision # Gen 4 wide-quadtube
     relayOverlay: true
     goggleEffect: true
-    viewCircleRadius: 800 #400 to 800 // это радиус обзора (максимальный радиус для ТСФ)
+    viewCircleRadius: 800 #Forge-Change 400 to 800 // это радиус обзора (максимальный радиус для ТСФ)
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#2E8B57"
-    lightingColor: "#0CFFFF32" # #FFFFFF32 to #0CFFFF32//
-    amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
+    phosphorColor: "#2E8B57" #Forge-Change #2E8B57 to #4ee293
+    lightingColor: "#FFFFFFFF" #Forge-Change #FFFFFF32 to #0CFFFF32 // темно, изменено на #FFFFFFFF
+    amplification: 1.2 #Forge-Change 32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
     action: ActionToggleNightVision

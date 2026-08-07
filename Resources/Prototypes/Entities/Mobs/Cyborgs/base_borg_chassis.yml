@@ -142,12 +142,13 @@
   - type: NightVision # Gen 3 wide-quadtube
     relayOverlay: false
     goggleEffect: true
-    viewCircleRadius: 450
-    viewCircleCount: 4
-    viewCircleSpacing: 280
     action: ActionToggleNightVision
-    phosphorColor: "#00FF00"
-    lightingColor: "#FFFFFF32"
+    viewCircleRadius: 700 # Forge-Change 450 to 700 // это радиус обзора
+    viewCircleCount: 4
+    viewCircleSpacing: 200
+    phosphorColor: "#c2ffc2" # Forge-Change #00FF00 to #c2ffc2 // сам фосфорный цвет, он так же может давать пересвет
+    lightingColor: "#0EFFFFFF" # Forge-Change #FFFFFF32 to #0EFFFFFF // Это главный рычаг яркости в темноте
+    amplification: 1.0 #Forge-Change 32 to 1.0 // параметр Усиление влияет на то как сильно слепят источники света (у боргов значение ниже так как эффект зрения дополнительно усиливает)
   - type: AccessToggle
   # TODO: refactor movement to just be based on toggle like speedboots but for the boots themselves
   # TODO: or just have sentient speedboots be fast idk

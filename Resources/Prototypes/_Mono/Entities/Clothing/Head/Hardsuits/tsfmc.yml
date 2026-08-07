@@ -18,9 +18,9 @@
     action: ActionToggleNightVision
     viewCircleRadius: 800 #Forge-Change 350 to 800 // это радиус обзора (максимальный радиус для ТСФ)
     viewCircleCount: 4
-    viewCircleSpacing: 280
-    phosphorColor: "#2E8B57"
-    lightingColor: "#0CFFFF32" #Forge-Change #FFFFFF32 to #0CFFFF32//
+    viewCircleSpacing: 100 #Forge-change 280 to 100
+    phosphorColor: "#4ee293" #Forge-Change #2E8B57 to #4ee293
+    lightingColor: "#FFFFFFFF" #Forge-Change #FFFFFF32 to #FFFFFFFF
     amplification: 1.2 #Forge-Change 32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
   - type: Armor
     modifiers:
@@ -56,9 +56,9 @@
     action: ActionToggleNightVision
     viewCircleRadius: 800 #Forge-Change 350 to 800 // это радиус обзора (максимальный радиус для ТСФ)
     viewCircleCount: 4
-    viewCircleSpacing: 280
-    phosphorColor: "#2E8B57"
-    lightingColor: "#0CFFFF32" #Forge-Change #FFFFFF32 to #0CFFFF32//
+    viewCircleSpacing: 100 #Forge-change 280 to 100
+    phosphorColor: "#4ee293" #Forge-Change #2E8B57 to #4ee293
+    lightingColor: "#FFFFFFFF" #Forge-Change #FFFFFF32 to #FFFFFFFF
     amplification: 1.2 #Forge-Change 32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
   - type: Armor
     modifiers:
@@ -86,9 +86,9 @@
     action: ActionToggleNightVision
     viewCircleRadius: 800 #Forge-Change 350 to 800 // это радиус обзора (максимальный радиус для ТСФ)
     viewCircleCount: 4
-    viewCircleSpacing: 280
-    phosphorColor: "#4ee293" #Forge-Change #2E8B57 to #4ee293 // цвет изменён так как в темноте слишком тускло и практически ничего не видно
-    lightingColor: "#0CFFFF32" #Forge-Change #FFFFFF32 to #0CFFFF32//
+    viewCircleSpacing: 100 #Forge-change 280 to 100
+    phosphorColor: "#4ee293" #Forge-Change #2E8B57 to #4ee293
+    lightingColor: "#FFFFFFFF" #Forge-Change #FFFFFF32 to #FFFFFFFF
     amplification: 1.2 #Forge-Change 32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
 
 - type: entity
@@ -109,11 +109,12 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 450
+    viewCircleRadius: 800 #Forge-Change 350 to 800 // это радиус обзора (максимальный радиус для ТСФ)
     viewCircleCount: 2
-    viewCircleSpacing: 280
-    phosphorColor: "#41D7D9"
-    lightingColor: "#FFFFFF32"
+    viewCircleSpacing: 180 #Forge-change 280 to 180
+    phosphorColor: "#4ee293" #Forge-Change #2E8B57 to #4ee293
+    lightingColor: "#FFFFFFFF" #Forge-Change #FFFFFF32 to #FFFFFFFF
+    amplification: 1.2 #Forge-Change 32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света
   - type: EyeProtection
     protectionTime: 15
 
