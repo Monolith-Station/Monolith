@@ -23,7 +23,6 @@ public sealed class ShipyardPreviewSystem : SharedShipyardPreviewSystem
     [Dependency] private MetaDataSystem _meta = default!;
     [Dependency] private TransformSystem _xform = default!;
     [Dependency] private MindSystem _mind = default!;
-    [Dependency] private EntityLookupSystem _lookup = default!;
 
     public Entity<MapGridComponent>? CurrentGrid;
     public override void Initialize()
@@ -36,7 +35,6 @@ public sealed class ShipyardPreviewSystem : SharedShipyardPreviewSystem
     {
         CachePreviewMap();
 
-
         var opts = new DeserializationOptions();
         if (!_loader.TryLoadGrid(_previewMap,
                 vessel.ShuttlePath,
@@ -47,7 +45,6 @@ public sealed class ShipyardPreviewSystem : SharedShipyardPreviewSystem
         _xform.SetMapCoordinates(grid.Value, new MapCoordinates(Vector2.Zero, _previewMap));
         _meta.SetEntityName(grid.Value, vessel.Name);
         CurrentGrid = grid.Value;
-
         return true;
     }
 
