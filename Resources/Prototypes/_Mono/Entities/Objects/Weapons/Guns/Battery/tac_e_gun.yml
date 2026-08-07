@@ -1,7 +1,7 @@
 
 - type: entity
   name: QBZ-Z9 Tactical Energy Gun
-  parent: [BaseWeaponBatterySmall]
+  parent: [BaseWeaponBatterySmall,  BaseGunWieldable]
   id: WeaponEnergyGunTSFMCEnergyGun
   description: Exceptional peace require exceptional firepower. The Z9 tactical energy gun features a shock and lethal mode intended for usage in policing, crowd control and everyday servicemen needs, fitted with a laser pointer for additional accuracy when properly wielded. And with this weapon, peace is an option.
   components:
@@ -21,6 +21,8 @@
     slots:
     - suitStorage
     - Back
+    sprite: _Mono/Objects/Weapons/Guns/Battery/tac_e_gun_inhands_32x.rsi
+  - type: Item
     sprite: _Mono/Objects/Weapons/Guns/Battery/tac_e_gun_inhands_32x.rsi
 
   - type: GunWieldBonus
@@ -43,8 +45,8 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 5250
-    startingCharge: 5250
+    maxCharge: 3750
+    startingCharge: 3750
   - type: HitscanBatteryAmmoProvider
     proto: RifleTacLethal
     fireCost: 150
@@ -78,7 +80,8 @@
     autoRechargePause: true
     autoRechargePauseTime: 30
   - type: PirateBountyItem
-    id: ExperimentalFactionWeapon
+    id: TSFLaserWeapon
   - type: LaserPointer
     targetedColor: "#03c2fc"
     defaultColor: "#03c2fc"
+  - type: CursorOffsetRequiresWield
