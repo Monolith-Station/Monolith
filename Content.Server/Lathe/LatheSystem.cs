@@ -297,7 +297,7 @@ namespace Content.Server.Lathe
                     break;
 
                 if (!_container.TryGetContainer(uid, slotId, out var container) ||
-                    !_solution.TryGetFitsInDispenser(container.ContainedEntities.First(), out var solEnt, out _))
+                    !_solution.TryGetDrainableSolution(container.ContainedEntities.First(), out var solEnt, out _))
                     break;
 
                 _solution.SplitSolutionPerReagentWithOnly(solEnt.Value, amount, reag);

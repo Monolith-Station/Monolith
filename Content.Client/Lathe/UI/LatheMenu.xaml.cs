@@ -414,11 +414,13 @@ public sealed partial class LatheMenu : FancyWindow
             lathe.ReagentOutputSlotId is not { } slotId)
             return 0;
 
-        if (_container.TryGetContainer(Entity, slotId, out var container) &&
-            container.ContainedEntities.Count != 0 &&
-            _solution.TryGetFitsInDispenser(container.ContainedEntities.First(), out _, out var solution))
-            return solution.GetReagent(new ReagentId(recipeReag, [])).Quantity;
+        if (!_container.TryGetContainer(Entity, slotId, out var container) ||
+            container.ContainedEntities.Count == 0)
+            return 0;
 
-        return 0;
+        if (!_solution.TryGetDrainableSolution(container.ContainedEntities[0], out _, out var solution))
+            return 0;
+
+        return solution.GetReagentQuantity(new ReagentId(recipeReag, []));
     }
 }
