@@ -54,10 +54,12 @@
     fireModes:
     - proto: RifleTacShock
       fireCost: 75
-      name: Shock
+      name: shock
+      state: shock
     - proto: RifleTacLethal
       fireCost: 150
-      name: Lethal
+      name: lethal
+      state: lethal
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -67,8 +69,8 @@
     visuals:
       enum.EnergyGunFireModeVisuals.State:
         Firemode:
-          Shock: { state: mode-shock }
-          Lethal: { state: mode-lethal }
+          shock: { state: mode-shock }
+          lethal: { state: mode-lethal }
   - type: Tag
     tags:
     - HighRiskItem
