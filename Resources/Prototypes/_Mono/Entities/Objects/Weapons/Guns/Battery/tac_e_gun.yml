@@ -17,19 +17,18 @@
     quickEquip: false
     slots:
     - suitStorage
-    - belt
-    sprite: _Mono/Objects/Weapons/Guns/Battery/tac_e_gun.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/tac_e_gun_inhands_32x.rsi
 
   - type: GunWieldBonus
     minAngle: -20
-    maxAngle: -25
+    maxAngle: -30
   - type: Gun
     minAngle: 21
     maxAngle: 34
     fireRate: 3
     burstCooldown: 0.65
     burstFireRate: 12
-    shotsPerBurst: 2
+    shotsPerBurst: 3
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
