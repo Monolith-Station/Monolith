@@ -34,16 +34,15 @@
     baseMachineCost:
       Steel: 1000
       Silver: 100
-      Gold: 500
-      Lithium: 500 # Mono
-      Copper: 500 # Mono
-      Bluespace: 100
+      Copper: 300
+      Plastic: 200
+      Gold: 250
     baseComputerCost:
       Steel: 500
       Glass: 250
       Silver: 100
-      Gold: 50
-      Bluespace: 50
+      Gold: 100
+      Copper: 100
   - type: Machine
     board: FlatpackerMachineCircuitboard
   - type: MaterialStorage

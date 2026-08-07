@@ -15,13 +15,6 @@
     stackRequirements:
       Glass: 5
       CableHV: 5
-    tagRequirements:
-      ArmorPlateEconomy1: # Reinforcement. Things that spin very heavy things very fast are very dangerous.
-        amount: 2
-        defaultPrototype: ArmorPlateEconomy1
-      ComponentBrickEconomy1:
-        amount: 1
-        defaultPrototype: ComponentBrickEconomy1
 
 - type: entity
   id: IndustrialFurnaceEconomyCompactCircuitboard
@@ -37,9 +30,9 @@
     stackRequirements:
       CableHV: 5
     tagRequirements:
-      ArmorPlateEconomy3:
+      ArmorPlateEconomy2:
         amount: 1
-        defaultPrototype: ArmorPlateEconomy3
+        defaultPrototype: ArmorPlateEconomy2Finished
       ElectromagnetEconomy1:
         amount: 2
         defaultPrototype: ElectromagnetEconomy1
@@ -80,13 +73,6 @@
     stackRequirements:
       Lithium: 5
       CableHV: 10
-    tagRequirements: # todo: make it take a press plate component
-      ArmorPlateEconomy1: # Stand in for the base of the press or something
-        amount: 1
-        defaultPrototype: ArmorPlateEconomy1
-      ComponentBrickEconomy1:
-        amount: 1
-        defaultPrototype: ComponentBrickEconomy1
   - type: Construction
     deconstructionTarget: null
     graph: IndustrialPress
@@ -135,13 +121,6 @@
     stackRequirements:
       Lithium: 5
       CableHV: 10
-    tagRequirements: # todo: make it take a press plate component
-      ArmorPlateEconomy1: # Stand in for the base of the press or something
-        amount: 1
-        defaultPrototype: ArmorPlateEconomy1
-      ComponentBrickEconomy1:
-        amount: 1
-        defaultPrototype: ComponentBrickEconomy1
   - type: Construction
     deconstructionTarget: null
     graph: IndustrialPress
