@@ -48,7 +48,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: RifleTacLethal
     fireCost: 150
-  - type: HitscanBatteryAmmoProvider
+  - type: EnergyGun
     fireModes:
     - proto: RifleTacShock
       fireCost: 75
