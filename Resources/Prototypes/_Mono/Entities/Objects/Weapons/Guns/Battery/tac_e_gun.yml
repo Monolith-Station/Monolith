@@ -3,20 +3,24 @@
   name: QBZ-Z9 Tactical Energy Gun
   parent: [BaseWeaponBatterySmall]
   id: WeaponEnergyGunTSFMCEnergyGun
-  description: Exceptional peace require exceptional firepower. The Z9 tactical energy gun features a shock and lethal mode intended for usage in policing, crowd control and everyday servicemen needs. The cell is swappable for convenience and ease of ammo procurment. And with this weapon, peace is an option.
+  description: Exceptional peace require exceptional firepower. The Z9 tactical energy gun features a shock and lethal mode intended for usage in policing, crowd control and everyday servicemen needs, fitted with a laser pointer for additional accuracy when properly wielded. And with this weapon, peace is an option.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Battery/tac_e_gun.rsi
     layers:
-    - state: icon
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mode
+    - state: mode-lethal
       shader: unshaded
       map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Clothing
     quickEquip: false
     slots:
     - suitStorage
+    - Back
     sprite: _Mono/Objects/Weapons/Guns/Battery/tac_e_gun_inhands_32x.rsi
 
   - type: GunWieldBonus
@@ -42,8 +46,8 @@
     maxCharge: 5250
     startingCharge: 5250
   - type: HitscanBatteryAmmoProvider
-    proto: RifleTacShock
-    fireCost: 75
+    proto: RifleTacLethal
+    fireCost: 150
   - type: HitscanBatteryAmmoProvider
     fireModes:
     - proto: RifleTacShock
@@ -54,8 +58,15 @@
       name: lethal
   - type: MagazineVisuals
     magState: mag
-    steps: 4
+    steps: 5
     zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Shock: { state: mode-shock }
+          Lethal: { state: mode-lethal }
   - type: Appearance
   - type: Tag
     tags:
@@ -64,9 +75,11 @@
     price: 2500
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 200
+    autoRechargeRate: 250
     autoRechargePause: true
     autoRechargePauseTime: 30
   - type: PirateBountyItem
     id: ExperimentalFactionWeapon
-
+  - type: LaserPointer
+    targetedColor: "#03c2fc"
+    defaultColor: "#03c2fc"
