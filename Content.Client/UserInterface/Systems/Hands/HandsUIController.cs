@@ -14,6 +14,7 @@ using Robust.Shared.Input;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared._NF.Interaction.Components;
+using Content.Shared._Mono.DualWield; // Mono - dual wielding
 
 namespace Content.Client.UserInterface.Systems.Hands;
 
@@ -465,11 +466,16 @@ public sealed partial class HandsUIController : UIController, IOnStateEntered<Ga
     {
         base.FrameUpdate(args);
 
+        // Mono - dual wielding: null unless the player is currently dual-wielding.
+        _entities.TryGetComponent(_player.LocalEntity, out DualWieldComponent? dualWield);
+
         // TODO this should be event based but 2 systems modify the same component differently for some reason
         foreach (var container in _handsContainers)
         {
             foreach (var hand in container.GetButtons())
             {
+                // Mono - dual wielding
+                hand.DualWield = dualWield != null && (hand.SlotName == dualWield.LeftHandId || hand.SlotName == dualWield.RightHandId);
 
                 if (!_entities.TryGetComponent(hand.Entity, out UseDelayComponent? useDelay))
                 {

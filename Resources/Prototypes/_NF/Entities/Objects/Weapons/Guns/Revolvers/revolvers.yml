@@ -4,6 +4,7 @@
   id: WeaponRevolverArgenti
   description: The civilian grade Argenti Type 20 revolver. Manufactured by Silver Industries. While the design with expanded cylinder is quite ancient, the right gunslinger will know how to utilise it well. Uses 5.56x45mm ammo.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     scale: 0.75 , 0.75
     sprite: _NF/Objects/Weapons/Guns/Revolvers/argenti.rsi

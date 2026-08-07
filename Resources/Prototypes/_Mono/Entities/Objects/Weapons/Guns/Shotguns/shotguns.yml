@@ -233,6 +233,7 @@
   id: WeaponShotgunHelepolis
   description: The Union Wrightworks 12-gauge breaching model "Helepolis", a compact shotgun that sacrifices all combat ergonomics to better serve as a breaching tool. Breaks doors with slugs. Combat use unadvised.
   components:
+  - type: LightWeapon
   - type: Item
     size: Normal
     shape:

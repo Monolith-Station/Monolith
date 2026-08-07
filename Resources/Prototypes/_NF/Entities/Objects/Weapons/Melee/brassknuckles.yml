@@ -4,6 +4,7 @@
   id: WeaponBrassKnuckles
   description: When you need to punch just a little harder.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: _NF/Objects/Weapons/Melee/brassknuckles.rsi
     state: icon

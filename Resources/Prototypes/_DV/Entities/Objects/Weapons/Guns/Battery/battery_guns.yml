@@ -4,6 +4,7 @@
   id: WeaponEnergyGun
   description: "A basic hybrid energy gun with two settings: disable and kill. On the handle is a label that says 'for authorized use only.'"
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/energygun.rsi
     layers:

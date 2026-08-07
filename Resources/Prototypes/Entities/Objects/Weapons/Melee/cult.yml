@@ -4,6 +4,7 @@
   id: RitualDagger
   description: A strange dagger used by sinister groups for rituals and sacrifices.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sharp
   - type: Sprite
     sprite: Objects/Weapons/Melee/cult_dagger.rsi
@@ -28,6 +29,7 @@
   id: EldritchBlade
   description: A sword humming with unholy energy.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sharp
   - type: Sprite
     sprite: Objects/Weapons/Melee/cult_blade.rsi
