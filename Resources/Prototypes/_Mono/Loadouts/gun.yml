@@ -482,6 +482,13 @@
     back:
     - WeaponEnergyGun
 
+- type: loadout #Tactical Energy Gun
+  id: WeaponEnergyGunTSFMCEnergyGunLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponEnergyGunTSFMCEnergyGun
+
 # Sidearms
 
 - type: loadout #MK58
