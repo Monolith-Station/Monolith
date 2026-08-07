@@ -31,6 +31,9 @@ uplink-security-cyborg-module-desc = A machete, an energy gun, and a stun baton,
 uplink-security-eg4-name = EG-4 Energy Revolver
 uplink-security-eg4-desc = A self-recharging energy weapon, capable of shooting both disabling and lethal bolts. Like a mini-energy gun.
 
+uplink-security-tacegun-name = Tactical Energy Gun
+uplink-security-tacegun-desc = A slow self-charging energy gun capable of firing shock and lethal laser, weaker than the smilodan and lower cell capacity.
+
 uplink-security-annie-name = Annie
 uplink-security-annie-desc = A 7.62x39mm subsonic weapon, made to shoulder the weight of impossible operations.
 

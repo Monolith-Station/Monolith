@@ -29,6 +29,21 @@
       - SecurityUplink
 
 - type: listing
+  id: UplinkSecurityTacegun
+  name:  uplink-security-tacegun-name
+  description: uplink-security-tacegun-desc
+  productEntity: WeaponEnergyGunTSFMCEnergyGun
+  cost:
+    FederationMilitaryCredit: 25
+  categories:
+  - UplinkSecurityWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
   id: UplinkSecurityMk290
   name:  uplink-security-sentry-mk290-name
   description: uplink-security-sentry-mk290-desc
