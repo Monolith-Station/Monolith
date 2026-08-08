@@ -1,0 +1,33 @@
+- type: vessel
+  id: Kami
+  parent: BaseVessel
+  name: MMC Kami
+  description: Light mining craft. Only equipped with 2 20mms, plus 2 mining pulsers and a magnet.
+  price: 92015
+  category: Small
+  group: Mieyo
+  access: Mieyo
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Mieyo/kami.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Kami
+  mapName: 'MMC Kami'
+  mapPath: /SharedMaps/_Mono/Shuttles/Mieyo/kami.yml
+  minPlayers: 0
+  stations:
+    Kami:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Kami MMC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MMCEmployee: [ 0, 0 ]

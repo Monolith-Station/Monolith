@@ -19,6 +19,11 @@
       - ChameleonDisguise # no becoming kleiner
       - MindContainer # no
       - Pda # PDAs currently make you invisible /!\
+      - SubFloorHide # monolith edit - no hiding under the floor
+      tags:
+      - Wall # monolith edit - walls make you invisible
+      - Catwalk # monolith edit - Catwalks make you invisible
+      - Window # monolith edit - Windows makes you invisible
     disguiseProto: ChameleonDisguise
 
 - type: entity

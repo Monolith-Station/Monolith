@@ -26,6 +26,12 @@ public sealed partial class IFFComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public Color Color = IFFColor;
 
+    /// <summary>
+    ///     Mono - ID to use for track
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public string? Address = string.Empty;
+
     // Frontier: POI IFF protection
     /// <summary>
     /// Whether or not this entity's IFF can be changed.

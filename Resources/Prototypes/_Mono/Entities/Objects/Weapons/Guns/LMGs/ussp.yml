@@ -19,8 +19,9 @@
     maxAngle: 40
     angleIncrease: 2
     angleDecay: 22
-    fireRate: 8
+    fireRate: 6
     selectedMode: FullAuto
+    damageModifier: 1.2
     availableModes:
     - FullAuto
     soundGunshot:
@@ -87,7 +88,7 @@
     maxAngle: 36
     angleIncrease: 3
     angleDecay: 34
-    fireRate: 6 # 360 rpm
+    fireRate: 7
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
