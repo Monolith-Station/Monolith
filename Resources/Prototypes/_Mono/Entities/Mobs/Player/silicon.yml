@@ -1039,7 +1039,7 @@
   suffix: Ghost Role, TSFMC, gamma
   components:
   - type: ContainerComp
-    proto: AiHeldTSFMC
+    proto: AiHeldGamma
     container: station_ai_mind_slot
   - type: ContainerFill
     containers:
@@ -1103,3 +1103,61 @@
     - TauCetiBasic
     - RobotTalk
     - SolCommon
+
+- type: entity
+  id: AiHeldGamma
+  description: Components added / removed from an entity that gets inserted into an AI core.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Traffic
+    - Science
+    - Supply
+    - Engineering
+    - Medical
+    - Nfsd
+    - Command
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Traffic
+    - Science
+    - Supply
+    - Engineering
+    - Medical
+    - Nfsd
+    - Command
+  - type: CollectiveMind
+    channels:
+    - Binary
+    defaultChannel: Binary
+  - type: IgnoreUIRange
+  - type: StationAiHeld
+  - type: StationAiOverlay
+  - type: ShowElectrocutionHUD
+  - type: ActionGrant
+    actions:
+    - ActionJumpToCore
+    - ActionSurvCameraLights
+    - ActionAIViewLaws
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowRadar
+  - type: RadarConsole
+    followEntity: false
+  - type: HolographicAvatar
+    layerData:
+    - sprite: Mobs/Silicon/station_ai.rsi
+      state: default
+  - type: ShowJobIcons
+  - type: AdvancedPilot # can use both gunnery and shuttle console even on capitals
