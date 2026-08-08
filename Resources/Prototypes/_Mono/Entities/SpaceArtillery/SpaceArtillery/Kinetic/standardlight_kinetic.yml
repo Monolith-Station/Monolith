@@ -34,7 +34,10 @@
     maxAngle: 5
     shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/vulcan.ogg
+      params:
+        variation: 0.10
+        pitch: 1.10
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: SpaceArtillery
@@ -122,7 +125,7 @@
     maxAngle: 4
     shootThermalSignature: 100000 # ~4.5km if firing continuously
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
+      collection: ShipGunGenericTiny
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: SpaceArtillery

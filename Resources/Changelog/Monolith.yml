@@ -23580,3 +23580,31 @@ Entries:
   id: 2595
   time: '2026-08-07T07:51:45.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4455
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a lot more SFX for shipgun firing (mostly ballistic and missiles)
+        instead of the same 3 gunshot noises being used everywhere.
+    - type: Add
+      message: Ammo loaders for ships now have audio for inserting/removing ammo.
+    - type: Add
+      message: >-
+        Missiles now have an ambient SFX, if you can manage to stay close to one
+        for long enough somehow.
+    - type: Tweak
+      message: >-
+        Changed radar blips for ballistic shipguns projectiles to be smaller
+        circles, and white instead of cyan/red triangles.
+  id: 2596
+  time: '2026-08-07T18:26:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4451
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Heavy/ceramic armor plates now have non-chemical requiring recipes.
+    - type: Fix
+      message: Fixed not being able to craft heavy armor plates.
+  id: 2597
+  time: '2026-08-07T21:34:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4457

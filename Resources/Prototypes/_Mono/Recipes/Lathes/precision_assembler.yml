@@ -354,3 +354,15 @@
     MaterialIndustryPlates: 1
     MaterialIndustryElectronics: 1
     MaterialIndustryFCS: 1
+
+- type: latheRecipe
+  id: MaterialIndustrySterile
+  result: MaterialIndustrySterile
+  categories:
+  - ComponentMaterials
+  completetime: 10
+  resultCount: 2
+  entities:
+    ComponentBrickEconomy1: 1 # replace this with something fitting one day
+  reagents:
+    Bleach: 20

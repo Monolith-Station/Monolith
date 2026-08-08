@@ -1,27 +1,63 @@
 - type: latheRecipe
   id: ArmorPlate2
   result: ArmorPlateEconomy2
+  categories:
+  - Components
   completetime: 15
   entities:
-    ArmorPlateEconomy3Fragment: 2
+    ArmorPlateEconomy1: 2
+
+- type: latheRecipe
+  id: ArmorPlate2Alt
+  result: ArmorPlateEconomy2
+  categories:
+  - Components
+  - AltRecipes
+  completetime: 10
+  entities:
+    ArmorPlateEconomy3Fragment: 1
   reagents:
-    Silver: 100
+    Silver: 50
 
 - type: latheRecipe
   id: ArmorPlate3
   result: ArmorPlateEconomy3
+  categories:
+  - Components
   completetime: 15
   entities:
     ArmorPlateEconomy2: 2
+
+- type: latheRecipe
+  id: ArmorPlate3Alt
+  result: ArmorPlateEconomy3
+  categories:
+  - Components
+  - AltRecipes
+  completetime: 10
+  entities:
+    ArmorPlateEconomy2: 1
   reagents:
     LithiumHydroxide: 30
 
 - type: latheRecipe
   id: ArmorPlate4Start
   result: ArmorPlateEconomy4Start
+  categories:
+  - Components
   completetime: 20
   entities:
     ArmorPlateEconomy3: 1
+
+- type: latheRecipe
+  id: ArmorPlate4StartAlt
+  result: ArmorPlateEconomy4Start
+  categories:
+  - Components
+  - AltRecipes
+  completetime: 15
+  entities:
+    ArmorPlateEconomy3Fragment: 2
   reagents:
     Superconductant: 60
 
@@ -30,7 +66,9 @@
 - type: latheRecipe
   id: SiliconBoule
   result: SiliconBouleEconomy
-  completetime: 30
+  categories:
+  - Components
+  completetime: 20
   entities:
     MaterialDiamond1: 1 # seed crystal
   reagents:
@@ -63,14 +101,4 @@
     FluorosulfuricAcid: 40
 
 # end iridite
-
-- type: latheRecipe
-  id: MaterialIndustrySterile
-  result: MaterialIndustrySterile
-  categories:
-  - ComponentMaterials
-  completetime: 5
-  resultCount: 2
-  entities:
-    ComponentBrickEconomy1: 1 # replace this with something fitting one day
 

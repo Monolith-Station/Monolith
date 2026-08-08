@@ -20,9 +20,9 @@
     radius: 3.5
     energy: 0.5
   - type: RadarBlip
-    scale: 0.85
-    shape: triangle
-    radarColor: "#1df1f5"
+    scale: 0.4
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: Fixtures
     fixtures:
       projectile:
@@ -88,9 +88,9 @@
     radius: 3.5
     energy: 0.5
   - type: RadarBlip
-    scale: 1.15
-    shape: arrow
-    radarColor: "#1df1f5"
+    scale: 0.5
+    shape: circle
+    radarColor: "#FFFFFF"
 
 - type: entity
   id: 30mmBulletHE
@@ -108,9 +108,9 @@
     radius: 3.5
     energy: 0.5
   - type: RadarBlip
-    scale: 1.15
-    shape: arrow
-    radarColor: "#991551"
+    scale: 0.5
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -139,9 +139,9 @@
     scale: 1, 1
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 1.5
-    shape: triangle
-    radarColor: "#1df1f5"
+    scale: 0.7
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 4.5
   - type: PointLight
@@ -173,9 +173,9 @@
     scale: 1, 1
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 1.5
-    shape: triangle
-    radarColor: "#1df1f5"
+    scale: 0.7
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 7
   - type: PointLight
@@ -215,9 +215,9 @@
     scale: 1, 1
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 1.5
-    shape: triangle
-    radarColor: "#1df1f5"
+    scale: 0.7
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 7
   - type: PointLight
@@ -253,9 +253,9 @@
     energy: 0.5
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 2.5
-    shape: triangle
-    radarColor: "#1df1f5"
+    scale: 0.8
+    shape: circle
+    radarColor: "#FFFFFF"
 
 - type: entity
   id: 90mmBulletHE
@@ -298,10 +298,6 @@
     - state: 90mmAP
   - type: PointLight
     color: orange
-  - type: RadarBlip
-    scale: 2.5
-    shape: triangle
-    radarColor: "#1df5cd"
 
 - type: entity
   id: 90mmBulletFlak
@@ -320,10 +316,6 @@
     - state: 90mmFLAK
   - type: PointLight
     color: orange
-  - type: RadarBlip
-    scale: 2.5
-    shape: triangle
-    radarColor: "#1df5cd"
   - type: ProjectileGrenade
     fillPrototype: Shrapnel90mmFlak
     capacity: 12 # lag!
@@ -510,8 +502,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 2.75
-    shape: triangle
+    scale: 1.1
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 4
   - type: PointLight
@@ -548,8 +541,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 2.75
-    shape: triangle
+    scale: 1.1
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 4
   - type: PointLight
@@ -595,8 +589,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 3.25
-    shape: triangle
+    scale: 1.4
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 5.15
   - type: PointLight
@@ -633,9 +628,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 3.25
-    shape: triangle
-    radarColor: "#f55e1d"
+    scale: 1.4
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 5.15
   - type: PointLight
@@ -670,9 +665,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 2
-    shape: triangle
-    radarColor: "#f55e1d"
+    scale: 0.7
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 4
   - type: PointLight
@@ -717,9 +712,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 2
-    shape: triangle
-    radarColor: "#f55e1d"
+    scale: 0.7
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 15 # pack hunter
   - type: PointLight
@@ -775,8 +770,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 2.5
-    shape: triangle
+    scale: 1.6
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 5.5
   - type: PointLight
@@ -812,9 +808,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 2.5
-    shape: triangle
-    radarColor: "#035EFC"
+    scale: 1.6
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 7
   - type: PointLight
@@ -959,9 +955,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    radarColor: "#CF0E0E"
-    scale: 4
-    shape: triangle
+    scale: 1.2 # very small but very fast - beware!
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 3.1 # ~2.4 km range
   - type: PointLight
@@ -998,9 +994,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    radarColor: "#CF0E0E"
-    scale: 4
-    shape: triangle
+    scale: 1.2 # very small but very fast - beware!
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 3.1 # ~2.4 km range
   - type: PointLight
@@ -1035,9 +1031,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    radarColor: "#268521"
-    scale: 4
-    shape: triangle
+    scale: 1.2 # very small but very fast - beware!
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 1.7
   - type: PointLight
@@ -1073,9 +1069,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    radarColor: "#268521"
-    scale: 4
-    shape: triangle
+    scale: 1.2 # very small but very fast - beware!
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 1.7 # ~2.4 km range
   - type: PointLight
@@ -1143,9 +1139,9 @@
     muzzleFlash: null
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 4
-    requireNoGrid: true
-    shape: star
+    scale: 2
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 7.2 #3.2km - Its 520mm after all.
   - type: PointLight
@@ -1181,9 +1177,9 @@
     scale: 1, 1
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 2.5
-    shape: triangle
-    radarColor: "#1df1f5"
+    scale: 1
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 5
   - type: PointLight
@@ -1234,9 +1230,9 @@
     scale: 0.8, 2
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 2.5
+    scale: 2
     shape: arrow
-    radarColor: "#1df1f5"
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 4
   - type: PointLight
