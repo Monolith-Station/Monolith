@@ -1,0 +1,78 @@
+- type: planetaryAtmosphereType
+  id: StandardAtmosphere
+  colors:
+    - '#4080D9'
+    - '#2FB87E'
+    - '#2659CF'
+    - '#86CDE8'
+  thickness:
+    min: 0.05
+    max: 0.15
+  density:
+    min: 0.75
+    max: 1.0
+  cloudColors:
+    - '#F0F4F8'
+    - '#D9E2EC'
+    - '#D0E8F2'
+  cloudCoverage:
+    min: 0.5
+    max: 1.0
+  cloudScale:
+    min: 0.25
+    max: 1.0
+  cloudDensity:
+    min: 0.5
+    max: 1.0
+
+- type: planetaryAtmosphereType
+  id: DesertAtmosphere
+  colors:
+    - '#D9A04B'
+    - '#C86446'
+    - '#BFA57A'
+  thickness:
+    min: 0.10
+    max: 0.15
+  density:
+    min: 1.0
+    max: 1.25
+  cloudColors:
+    - '#E0C39E'
+    - '#E8DAC8'
+    - '#D19B82'
+  cloudCoverage:
+    min: 0.5
+    max: 1.0
+  cloudScale:
+    min: 0.25
+    max: 1.0
+  cloudDensity:
+    min: 0.5
+    max: 1.0
+
+- type: planetaryAtmosphereType
+  id: VolcanicAtmosphere
+  colors:
+    - '#D4C237'
+    - '#E85127'
+    - '#634259'
+  thickness:
+    min: 0.10
+    max: 0.15
+  density:
+    min: 1.0
+    max: 1.25
+  cloudColors:
+    - '#524A4A'
+    - '#E6D88E'
+    - '#735A61'
+  cloudCoverage:
+    min: 0.75
+    max: 1.25
+  cloudScale:
+    min: 0.25
+    max: 0.75
+  cloudDensity:
+    min: 0.75
+    max: 1.25

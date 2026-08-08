@@ -1,0 +1,62 @@
+- type: planetaryLiquidType
+  id: LiquidMagma
+  color: '#CC1A00'
+  shallowColor: '#FF9900'
+  level:
+    min: 0.1
+    max: 0.5
+  riverFrequency:
+    min: 1.0
+    max: 3.0
+  riverThreshold:
+    min: 0.15
+    max: 0.4
+  specularity:
+    min: 0.0
+    max: 0.0
+  emissive: true
+  emission:
+    min: 0.15
+    max: 0.5
+
+- type: planetaryLiquidType
+  id: LiquidPlasma
+  color: '#4A00E0'
+  shallowColor: '#E000FF'
+  level:
+    min: 0.05
+    max: 0.20
+  riverFrequency:
+    min: 0.5
+    max: 1.5
+  riverThreshold:
+    min: 0.15
+    max: 0.4
+  specularity:
+    min: 0.0
+    max: 0.0
+  emissive: true
+  emission:
+    min: 0.15
+    max: 0.5
+
+- type: planetaryLiquidType
+  id: LiquidWater
+  color: '#0A3878'
+  shallowColor: '#1F75B8'
+  level:
+    min: 0.3
+    max: 0.65
+  riverFrequency:
+    min: 2.0
+    max: 5.0
+  riverThreshold:
+    min: 0.1
+    max: 0.25
+  specularity:
+    min: 32.0
+    max: 64.0
+  emissive: false
+  emission:
+    min: 0.0
+    max: 0.0

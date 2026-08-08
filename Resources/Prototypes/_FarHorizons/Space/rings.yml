@@ -1,0 +1,17 @@
+- type: planetaryRingsType
+  id: StandardRings # I don't know if we will need more types tbh
+  radiusInner:
+    min: 1.25
+    max: 2.0
+  widthMin: 0.1
+  radiusOuterMax: 3.0 # Minimum is whatever inner was rolled + widthMin
+  bandFrequency:
+    min: 5.0
+    max: 10.0
+  palettes:
+    - PaletteRingsIce
+    - PaletteRingsNitrogen
+    - PaletteRingsMetallic
+    - PaletteRingsVoid
+    - PaletteRingsRadioactive
+    - PaletteRingsObsidian

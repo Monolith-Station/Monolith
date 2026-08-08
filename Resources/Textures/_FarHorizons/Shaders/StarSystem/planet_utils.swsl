@@ -1,0 +1,132 @@
+// Planet physical data
+uniform highp vec2 planetPos;
+uniform highp float planetRadius;
+uniform highp float rotationAngle;
+
+// Color data
+uniform highp vec3 color1; // Bacgkround
+uniform highp vec3 color2; // Primary
+uniform highp vec3 color3; // Highlight
+uniform highp vec3 color4; // Accent
+uniform highp float hueShift;
+uniform highp float saturationShift;
+
+// Star data
+uniform highp vec2 starPos;
+uniform highp vec3 starColor;
+uniform highp float starLuminosity;
+
+// Caps
+uniform highp float polarCapColor;
+uniform highp float polarCapCoverage;
+uniform highp float polarCapNoiseScale;
+
+// Static shader yaml inputs
+uniform highp float parallaxFactor;
+uniform highp float planetaryRadiusFactor;
+uniform highp float hueShiftMultiplier;
+uniform highp float saturationShiftMultiplier;
+uniform highp float shadowSoftness;
+uniform highp float rotationSpeed;
+uniform highp float rimGlowStrength;
+uniform highp float axialPitch;
+uniform highp float ringDensity;
+uniform highp float perspectiveStrength;
+
+// Render data
+uniform highp vec2 viewportMin;
+uniform highp vec2 viewportSize;
+
+highp vec3 samplePlanetPalette(highp float t) {
+    t = clamp(t, 0.0, 1.0);
+    
+    highp float factor = t * 3.0;
+    
+    if (factor < 1.0) {
+        return mix(color1, color2, factor);
+    } else if (factor < 2.0) {
+        return mix(color2, color3, factor - 1.0);
+    } else {
+        return mix(color3, color4, factor - 2.0);
+    }
+}
+
+highp vec3 applyColorShifts(
+    highp vec3 color, 
+    highp float hShift, 
+    highp float sShift, 
+    highp float hMult, 
+    highp float sMult
+) {
+    highp vec3 hsv = rgb2hsv(color);
+    
+    hsv.x = fract(hsv.x + (hShift * hMult));
+    
+    highp float satDelta = (sShift * sMult) - (sMult * 0.5);
+    hsv.y = clamp(hsv.y + satDelta, 0.0, 1.0);
+    
+    return hsv2rgb(hsv);
+}
+
+void calculatePlanetParallax(
+    in highp vec2 uv, 
+    out highp vec2 offset, 
+    out highp float dist, 
+    out highp float coreRadius
+) {
+    highp vec2 cameraCenter = viewportMin + (viewportSize * 0.5);
+    highp vec2 pixelWorldPos = viewportMin + (uv * viewportSize);
+    highp vec2 parallaxedPos = planetPos + (cameraCenter - planetPos) * (1.0 - parallaxFactor);
+    offset = pixelWorldPos - parallaxedPos;
+    dist = length(offset);
+    coreRadius = planetRadius * planetaryRadiusFactor;
+}
+
+void calculateLightingSetup(
+    out highp vec2 lightDir2D,
+    out highp vec3 lightDir3D,
+    out highp vec3 incomingLight
+) {
+    lightDir2D = normalize(starPos - planetPos);
+    lightDir3D = normalize(vec3(lightDir2D, 0.4));
+    highp float compressedLuminosity = pow(max(0.0, starLuminosity), 0.4);
+    incomingLight = starColor * compressedLuminosity;
+    incomingLight = incomingLight / (vec3(1.0) + incomingLight);
+}
+
+highp vec2 hash22(highp vec2 p) {
+    highp vec3 p3 = fract(vec3(p.xyx) * vec3(0.1031, 0.1030, 0.0973));
+    p3 += dot(p3, p3.yzx + 33.33);
+    return fract((p3.xx + p3.yz) * p3.zy);
+}
+
+highp vec3 applyPolarCaps(
+    highp vec3 surfaceColor,
+    highp vec3 paletteCapColor,
+    highp vec2 sphereCoord,
+    highp float z,
+    highp float height
+) {
+    if (polarCapCoverage <= 0.01) {
+        return surfaceColor;
+    }
+
+    highp float c = cos(rotationAngle);
+    highp float s = sin(rotationAngle);
+    highp vec2 surfaceCoord = mat2(c, -s, s, c) * sphereCoord;
+
+    highp float latRad = asin(clamp(surfaceCoord.y, -0.9999, 0.9999));
+    
+    highp float absLat = abs(latRad) / 1.5707963;
+
+    highp float lonRad = atan(surfaceCoord.x, max(z, 0.001));
+
+    highp vec2 noiseUV = vec2(lonRad * 2.0, latRad * 3.0) * polarCapNoiseScale;
+    highp float edgeNoise = (fbm(noiseUV) - 0.5) * 0.2;
+    highp float elevationBonus = height * 0.15;
+
+    highp float capStart = clamp(1.0 - polarCapCoverage + edgeNoise - elevationBonus, 0.05, 0.95);
+    highp float capMask = smoothstep(capStart - 0.05, capStart + 0.05, absLat);
+
+    return mix(surfaceColor, paletteCapColor, capMask);
+}

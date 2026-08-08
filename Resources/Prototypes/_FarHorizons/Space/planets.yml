@@ -1,0 +1,203 @@
+# Gas Giant
+- type: planetType
+  id: PlanetTypeGasGiant
+  orbit: [ OuterWarm]
+  shader: GasGiant
+  basePrettiness: 30 # Pretty nice
+  ringProbability: 0.45
+  earthMass:
+    min: 100.0
+    max: 1200.0
+  atmosphereProbability: 0.0 # The horror
+  liquidProbability: 0.0
+  palettes:
+    - PaletteGasGiantJupiter
+    - PaletteGasGiantSaturn
+    - PaletteGasGiantPurple
+    - PaletteGasGiantToxic
+  rings:
+    - StandardRings
+  customData:
+    floats:
+      bandFrequency:
+        min: 4.0
+        max: 12.0
+      turbulenceScale:
+        min: 0.1
+        max: 0.85
+      polarGlowStrength:
+        min: 0.0
+        max: 1.0
+      polarGlowExtent:
+        min: 0.75
+        max: 0.95
+
+# Ice Giant
+- type: planetType
+  id: PlanetTypeIceGiant
+  orbit: [ OuterCold ]
+  shader: IceGiant
+  basePrettiness: 15 # Eh
+  ringProbability: 0.45
+  earthMass:
+    min: 10.0
+    max: 80.0
+  atmosphereProbability: 0.0
+  liquidProbability: 0.0
+  palettes:
+    - PaletteIceGiantNeptune
+    - PaletteIceGiantUranus
+    - PaletteIceGiantAmethyst
+    - PaletteIceGiantMint
+    - PaletteIceGiantAmber
+  rings:
+    - StandardRings
+  customData:
+    floats:
+      cloudScale:
+        min: 0.0
+        max: 5.0
+      cloudIntensity:
+        min: 0.0
+        max: 3.0
+      stormFrequency:
+        min: 0.0
+        max: 6.0
+
+# Volcanic
+- type: planetType
+  id: PlanetTypeVolcanic
+  orbit: [ InnerHot ]
+  shader: RockyPlanet
+  basePrettiness: 10 # Could be fine when it has lava
+  ringProbability: 0.05
+  earthMass:
+    min: 0.1
+    max: 1.5
+  atmosphereProbability: 0.7
+  atmospheres:
+    - VolcanicAtmosphere
+  liquidProbability: 1.0
+  liquids:
+    - LiquidMagma
+  palettes:
+    - PaletteVolcanicMagma
+    - PaletteVolcanicSulfur
+  rings:
+    - StandardRings
+  customData: &rocky_planet_values
+    floats:
+      terrainScale:
+        min: 0.5
+        max: 1.5
+      macroFrequency:
+        min: 2.5
+        max: 5.0
+      macroAmplitude:
+        min: 0.5
+        max: 1.0
+      ridgeFrequency:
+        min: 0.5
+        max: 1.5
+      ridgeAmplitude:
+        min: 5.0
+        max: 10.0
+      detailFrequency:
+        min: 5.0
+        max: 10.0
+      detailAmplitude:
+        min: 0.0
+        max: 0.5
+      polarCapColor:
+        min: 0.75
+        max: 1.0
+      polarCapCoverage:
+        min: 0.1
+        max: 0.3
+
+# Barren
+- type: planetType
+  id: PlanetTypeBarren
+  orbit: [ InnerHabitable, InnerCold ]
+  shader: RockyPlanet
+  basePrettiness: -10 # Lame boring rock
+  ringProbability: 0.05
+  earthMass:
+    min: 0.05
+    max: 2.0
+  atmosphereProbability: 0.0
+  liquidProbability: 0.0
+  palettes:
+    - PaletteBarrenLunar
+    - PaletteBarrenRocky
+  rings:
+    - StandardRings
+  customData: *rocky_planet_values
+
+# Desert (barren with atmosphere)
+- type: planetType
+  id: PlanetTypeDesert
+  orbit: [ InnerHot, InnerHabitable ]
+  shader: RockyPlanet
+  basePrettiness: 0 # Eh
+  ringProbability: 0.05
+  earthMass:
+    min: 0.5
+    max: 2.5
+  atmosphereProbability: 1.0 # When it has no atmos - it's barren
+  liquidProbability: 0.0 # duh
+  atmospheres:
+    - DesertAtmosphere
+  palettes:
+    - PaletteDesertMars
+    - PaletteDesertDune
+  rings:
+    - StandardRings
+  customData: *rocky_planet_values
+
+# Ice
+- type: planetType
+  id: PlanetTypeIce
+  orbit: [ InnerHabitable, InnerCold ]
+  shader: RockyPlanet
+  basePrettiness: 0 # Eh
+  ringProbability: 0.15
+  earthMass:
+    min: 0.5
+    max: 2.5
+  atmosphereProbability: 0.4
+  atmospheres:
+    - StandardAtmosphere
+  liquidProbability: 0.25
+  liquids:
+    - LiquidPlasma
+  palettes:
+    - PaletteIceDeep
+    - PaletteIceMethane
+  rings:
+    - StandardRings
+  customData: *rocky_planet_values
+
+# Habitable
+- type: planetType
+  id: PlanetTypeHabitable
+  orbit: [ InnerHabitable ]
+  shader: RockyPlanet
+  basePrettiness: 15 # Neat
+  ringProbability: 0.10
+  earthMass:
+    min: 0.8
+    max: 1.2
+  atmosphereProbability: 1.0
+  atmospheres:
+    - StandardAtmosphere
+  liquidProbability: 1.0
+  liquids:
+    - LiquidWater
+  palettes:
+    - PaletteHabitableEarth
+    - PaletteHabitableOcean
+    - PaletteHabitableJungle
+  rings:
+    - StandardRings
+  customData: *rocky_planet_values

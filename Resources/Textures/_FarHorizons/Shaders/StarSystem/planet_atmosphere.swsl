@@ -1,0 +1,146 @@
+uniform bool hasAtmosphere;
+uniform highp vec3 atmosphereColor;
+uniform highp float atmosphereThickness;
+uniform highp float atmosphereDensity;
+uniform highp float atmosphereSunScattering;
+uniform highp float atmosphereHeightFalloff;
+uniform highp vec3 cloudColor;
+uniform highp float cloudCoverage;
+uniform highp float cloudScale;
+uniform highp float cloudDensity;
+uniform highp float cloudSpeed;
+uniform highp float cloudHeight;
+uniform highp float cloudShadowStrength;
+
+highp vec3 calculateAtmospherePhase(highp vec3 lightDir3D, highp vec3 viewDir, highp vec3 baseColor, highp float sunIntensity) {
+    highp float cosAngle = dot(-viewDir, lightDir3D);
+    
+    highp float rayleighPhase = 0.75 * (1.0 + cosAngle * cosAngle);
+    highp float miePhase = pow(max(0.0, cosAngle), 8.0) * sunIntensity;
+    
+    return baseColor * rayleighPhase + vec3(miePhase);
+}
+
+highp vec4 renderAtmosphereHalo(
+    highp vec2 sphereCoord,
+    highp float distRatio,
+    highp vec3 lightDir3D,
+    highp vec3 incomingLight,
+    highp vec3 atmosColor,
+    highp float thickness,
+    highp float density,
+    highp float falloff,
+    highp float sunScattering
+) {
+    if (distRatio <= 1.0 || distRatio > (1.0 + thickness)) {
+        return vec4(0.0);
+    }
+
+    highp float h = (distRatio - 1.0) / thickness;
+    
+    highp float alpha = exp(-h * falloff) * (1.0 - h) * density;
+
+    highp vec3 viewDir = vec3(sphereCoord, sqrt(max(0.0, 1.0 - clamp(dot(sphereCoord, sphereCoord), 0.0, 1.0))));
+    
+    highp float lightFactor = smoothstep(-0.3, 0.4, dot(normalize(vec3(sphereCoord, 0.2)), lightDir3D));
+
+    highp vec3 phaseColor = calculateAtmospherePhase(lightDir3D, viewDir, atmosColor, sunScattering);
+    highp vec3 finalColor = phaseColor * incomingLight * lightFactor;
+
+    return vec4(finalColor * alpha, alpha * lightFactor);
+}
+
+highp vec3 applySurfaceAtmosphere(
+    highp vec3 surfaceColor,
+    highp float z,
+    highp float height,
+    highp vec3 lightDir3D,
+    highp vec3 incomingLight,
+    highp vec3 baseNormal,
+    highp vec3 atmosColor,
+    highp float density,
+    highp float sunScattering
+) {
+    highp float opticalDepth = (1.0 - z) * density;
+    
+    opticalDepth *= (1.0 - height * 0.6);
+
+    highp float NdotL = dot(baseNormal, lightDir3D);
+    highp float lightFactor = smoothstep(-0.25, 0.35, NdotL);
+
+    highp vec3 viewDir = vec3(baseNormal.xy, z);
+    highp vec3 phaseColor = calculateAtmospherePhase(lightDir3D, viewDir, atmosColor, sunScattering);
+
+    highp vec3 fogColor = phaseColor * incomingLight * lightFactor;
+    
+    highp float fogFactor = 1.0 - exp(-opticalDepth * 2.0);
+    return mix(surfaceColor, fogColor, fogFactor * lightFactor);
+}
+
+highp vec2 getCloudUV(highp vec2 sphereCoord, highp float z) {
+    highp vec2 elevatedCoord = sphereCoord * (1.0 + cloudHeight * (1.0 - z));
+
+    highp float c = cos(rotationAngle);
+    highp float s = sin(rotationAngle);
+    highp vec2 surfaceCoord = mat2(c, -s, s, c) * elevatedCoord;
+
+    highp float longitude = atan(surfaceCoord.x, max(z, 0.001)); 
+    highp float latitude = asin(clamp(surfaceCoord.y, -0.999, 0.999));
+
+    highp float pitchScale = 1.0 + sin(axialPitch) * 0.8;
+    highp float latitudeCurve = mix(latitude, latitude * pitchScale, 1.0 - z);
+
+    highp float totalSpeed = rotationSpeed + cloudSpeed;
+    return vec2(longitude * 0.8 + TIME * totalSpeed, latitudeCurve * 1.5);
+}
+
+highp float getCloudDensity(highp vec2 cloudUV) {
+    highp vec2 scaledUV = (cloudUV + planetPos / 1000.0) * cloudScale;
+
+    highp float macroNoise = fbm(scaledUV);
+    highp float detailNoise = fbm(scaledUV * 2.5) * 0.5;
+    
+    highp float rawDensity = macroNoise + detailNoise;
+
+    highp float cutoff = 1.0 - cloudCoverage;
+    highp float density = smoothstep(cutoff - 0.15, cutoff + 0.2, rawDensity);
+
+    return clamp(density * cloudDensity, 0.0, 1.0);
+}
+
+highp float calculateCloudShadow(highp vec2 sphereCoord, highp float z, highp vec3 lightDir3D) {
+    if (cloudCoverage <= 0.01) return 1.0;
+
+    highp vec2 shadowOffset = lightDir3D.xy * cloudHeight * 1.5;
+    highp vec2 shadowUV = getCloudUV(sphereCoord + shadowOffset, z);
+    
+    highp float cloudAlpha = getCloudDensity(shadowUV);
+    
+    return mix(1.0, 1.0 - cloudShadowStrength, cloudAlpha);
+}
+
+highp vec4 renderCloudLayer(
+    highp vec2 sphereCoord,
+    highp float z,
+    highp vec3 lightDir3D,
+    highp vec3 incomingLight,
+    highp vec3 baseNormal
+) {
+    if (cloudCoverage <= 0.01) return vec4(0.0);
+
+    highp vec2 cloudUV = getCloudUV(sphereCoord, z);
+    highp float density = getCloudDensity(cloudUV);
+
+    if (density <= 0.01) return vec4(0.0);
+
+    highp float NdotL = dot(baseNormal, lightDir3D);
+    highp float lightFactor = smoothstep(-0.15, 0.35, NdotL);
+
+    highp vec3 ambientLight = vec3(0.01, 0.01, 0.025);
+    highp vec3 litCloudColor = cloudColor * mix(ambientLight, incomingLight, lightFactor);
+
+    highp float edgeFade = smoothstep(0.0, 0.2, z);
+    highp float finalAlpha = density * edgeFade;
+
+    return vec4(litCloudColor, finalAlpha);
+}

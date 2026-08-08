@@ -1,0 +1,95 @@
+light_mode unshaded;
+
+#include "/Textures/_FarHorizons/Shaders/shader_utils.swsl"
+
+uniform highp vec2 starWorldPos;
+uniform highp float starRadius;
+uniform highp vec3 starColor;
+uniform highp float starLuminosity;
+
+uniform highp vec2 viewportMin;
+uniform highp vec2 viewportSize;
+
+uniform highp float parallaxFactor;
+uniform highp float solarRadiusFactor;
+
+void fragment() {
+    highp vec2 cameraCenter = viewportMin + (viewportSize * 0.5);
+    highp vec2 parallaxedPos = starWorldPos + (cameraCenter - starWorldPos) * (1.0 - parallaxFactor);
+
+    highp vec2 pixelWorldPos = viewportMin + (UV * viewportSize);
+    highp vec2 offset = pixelWorldPos - parallaxedPos;
+    highp float dist = length(offset);
+
+    highp float coreRadius = starRadius * solarRadiusFactor;
+
+    highp float maxBounds = coreRadius * 1.45;
+    if (dist > maxBounds) {
+        discard;
+    }
+
+    highp float r = dist / coreRadius;
+
+    highp float animSpeed = TIME * 0.25;
+
+    highp float lumFactor = clamp(log2(max(starLuminosity, 1.0)) * 0.15, 0.0, 1.0);
+    highp vec3 deepBlue = vec3(0.1, 0.4, 1.0);
+    highp vec3 baseHue = mix(starColor, deepBlue, lumFactor);
+
+    // surface
+    highp vec2 st = offset / coreRadius;
+    highp float detailScale = 80.0;
+
+    highp float n1 = fbm(st * detailScale + vec2(animSpeed * 0.4, animSpeed * 0.2));
+    highp vec2 warp = vec2(n1, fbm(st * (detailScale * 1.5) - animSpeed * 0.3));
+    highp float plasma = fbm(st * (detailScale * 2.0) + warp * 2.0 + animSpeed * 0.1);
+    plasma = plasma * 0.5 + 0.5;
+
+    highp float microDetail = fbm(st * (detailScale * 5.0) - animSpeed * 0.5) * 0.5 + 0.5;
+    plasma = mix(plasma, microDetail, 0.25);
+
+    highp vec3 darkSpot = baseHue * 0.35;
+    highp vec3 brightSpot = baseHue * 1.75;
+    highp vec3 surfaceColor = mix(darkSpot, brightSpot, plasma);
+
+    highp float limb = mix(1.0, 0.35, pow(clamp(r, 0.0, 1.0), 2.0));
+    highp vec3 coreColor = surfaceColor * limb;
+
+    highp float coreMask = smoothstep(1.0, 0.99, r);
+
+    // corona
+    highp float angle = atan(offset.y, offset.x);
+    
+    highp float spikeAngle = angle * 8.0;
+    highp float angleWarp = fbm(vec2(angle * 2.0, animSpeed * 0.4)) * 1.5;
+    highp float spikes = pow(abs(sin(spikeAngle + angleWarp)), 4.0);
+
+    highp vec2 polarUV = vec2(angle * 2.0, r * 2.5 - animSpeed * 0.5);
+    highp float baseCoronaNoise = fbm(polarUV) * 0.5 + 0.5;
+
+    highp float stormPulse = sin(angle * 4.0 + animSpeed * 2.5) * 0.5 + 0.5;
+    highp float flareStructure = (spikes * 1.2 * stormPulse) + (baseCoronaNoise * 0.35);
+
+    highp float coronaDist = max(r - 0.98, 0.0);
+    highp float coronaFalloff = exp(-5.5 * coronaDist);
+    highp float rimGlow = exp(-28.0 * abs(r - 1.0)) * 2.5;
+
+    highp float whiteHotFactor = clamp(log2(max(starLuminosity, 1.0)) * 0.25, 0.0, 1.0);
+    highp vec3 peakSpikeColor = mix(baseHue * 2.5, vec3(1.2, 1.1, 1.0), whiteHotFactor);
+
+    highp vec3 hotGlow = mix(baseHue * 1.8, peakSpikeColor, spikes * 0.7);
+    highp vec3 coronaHue = mix(hotGlow, baseHue * 0.6, coronaDist);
+
+    highp vec3 coronaColor = coronaHue * ((coronaFalloff * flareStructure * 1.8) + rimGlow);
+
+    // composition
+    highp vec3 finalColor = mix(coronaColor, coreColor, coreMask);
+
+    highp float brightnessBoost = 1.0 + log2(max(starLuminosity, 1.0)) * 0.2;
+    finalColor *= brightnessBoost;
+
+    highp float coronaAlpha = (coronaFalloff * flareStructure * 1.4) + (rimGlow * 0.8);
+    highp float alpha = max(coreMask, clamp(coronaAlpha, 0.0, 1.0) * smoothstep(1.45, 1.0, r));
+
+    COLOR = vec4(finalColor, alpha);
+}

@@ -1,0 +1,203 @@
+uniform bool hasRings;
+uniform highp float ringsRadiusInner;
+uniform highp float ringsRadiusOuter;
+uniform highp float ringsBandFrequency;
+uniform highp vec3 ringsColor1;
+uniform highp vec3 ringsColor2;
+uniform highp vec3 ringsColor3;
+
+highp vec3 transformToWorld3DRingSpace(highp vec2 offset, highp float tilt, highp float rot, highp float perspectiveStrength) {
+    highp float cosR = cos(-rot);
+    highp float sinR = sin(-rot);
+    highp vec2 unrotOffset = vec2(
+        offset.x * cosR - offset.y * sinR,
+        offset.x * sinR + offset.y * cosR
+    );
+
+    highp float cosT = max(0.08, abs(cos(tilt)));
+    highp float sinT = sin(tilt);
+
+    highp float denom = cosT - unrotOffset.y * sinT * perspectiveStrength;
+
+    if (denom <= 0.0001) {
+        return vec3(999999.0);
+    }
+
+    highp vec3 pos3D;
+    pos3D.x = (unrotOffset.x * cosT) / denom;
+    pos3D.y = unrotOffset.y / denom;
+    
+    pos3D.z = -pos3D.y * sinT; 
+
+    return pos3D;
+}
+
+highp vec4 sampleRingProcedural(
+    highp float distFromCenter, 
+    highp float innerR, 
+    highp float outerR, 
+    highp vec3 color1, 
+    highp vec3 color2, 
+    highp vec3 color3, 
+    highp float opacity, 
+    highp float bandFrequency
+) {
+    if (distFromCenter < innerR || distFromCenter > outerR) {
+        return vec4(0.0);
+    }
+
+    highp float t = (distFromCenter - innerR) / (outerR - innerR);
+
+    highp float edgeAlpha = smoothstep(0.0, 0.05, t) * smoothstep(1.0, 0.92, t);
+
+    highp float ringSeed = fract(sin(innerR * 12.9898 + outerR * 78.233 + bandFrequency * 43758.5453) * 43758.5453);
+
+    highp float bandPhase = ringSeed * 6.28318;
+    highp float bands = sin(t * bandFrequency * 6.28318 + bandPhase) * 0.5 + 0.5;
+    
+    highp float subBands = sin(t * (bandFrequency * (1.3 + ringSeed * 0.7)) * 6.28318 - bandPhase) * 0.5 + 0.5;
+    bands = mix(bands, subBands, 0.35);
+
+    highp float gapNoise = fbm(vec2(t * (12.0 + ringSeed * 10.0), ringSeed * 50.0));
+    
+    highp float gapCenter = mix(0.55, 0.80, ringSeed);
+    highp float cassiniGap = 1.0 - smoothstep(gapCenter - 0.03, gapCenter, t) * smoothstep(gapCenter + 0.03, gapCenter, t) * 0.85;
+
+    highp float colorSplit = mix(0.4, 0.6, ringSeed);
+    highp vec3 baseColor;
+    if (t < colorSplit) {
+        baseColor = mix(color1, color2, t / colorSplit);
+    } else {
+        baseColor = mix(color2, color3, (t - colorSplit) / (1.0 - colorSplit));
+    }
+
+    highp float density = (bands * 0.5 + gapNoise * 0.5) * cassiniGap;
+    density = pow(density, 0.7) * 1.5;
+
+    highp float finalAlpha = clamp(density * edgeAlpha * opacity, 0.0, 1.0);
+    highp vec3 finalColor = baseColor * (0.8 + 0.4 * density);
+
+    return vec4(finalColor, finalAlpha);
+}
+
+highp float calculatePlanetShadowOnRing(
+    highp vec3 pos3D, 
+    highp float coreRadius, 
+    highp vec3 lightDir3D, 
+    highp float tilt,
+    highp float rot,
+    highp float softness
+) {
+    highp float cosR = cos(-rot);
+    highp float sinR = sin(-rot);
+    highp vec2 localPos = pos3D.xy;
+
+    highp vec2 unrotLight2D = vec2(
+        lightDir3D.x * cosR - lightDir3D.y * sinR,
+        lightDir3D.x * sinR + lightDir3D.y * cosR
+    );
+    highp vec2 L2D = normalize(unrotLight2D);
+
+    highp float rayDist = dot(localPos, -L2D);
+
+    if (rayDist > 0.0) {
+        highp vec2 pointOnRay = -L2D * rayDist;
+        highp float distToAxis = length(localPos - pointOnRay);
+
+        return smoothstep(coreRadius * (1.0 - softness), coreRadius * (1.0 + softness), distToAxis);
+    }
+
+    return 1.0;
+}
+
+highp vec4 renderRingPass(
+    highp vec2 offset, 
+    highp float coreRadius, 
+    highp vec3 lightDir3D, 
+    highp vec3 incomingLight, 
+    highp float innerRadiusRatio,
+    highp float outerRadiusRatio,
+    highp float tiltAngle,
+    highp float rotationAngle,
+    highp vec3 ringColor1,
+    highp vec3 ringColor2,
+    highp vec3 ringColor3,
+    highp float opacity,
+    highp float bandFrequency,
+    highp float shadowSoftness,
+    highp float perspectiveStrength,
+    bool renderForeground
+) {
+    highp float innerR = coreRadius * innerRadiusRatio;
+    highp float outerR = coreRadius * outerRadiusRatio;
+
+    highp vec3 pos3D = transformToWorld3DRingSpace(offset, tiltAngle, rotationAngle, perspectiveStrength);
+    
+    highp float distFromCenter = length(pos3D.xy);
+
+    if (distFromCenter < innerR || distFromCenter > outerR) {
+        return vec4(0.0);
+    }
+
+    highp float distToCenter2D = length(offset);
+
+    if (distToCenter2D <= coreRadius) {
+        highp float sphereFrontZ = sqrt(coreRadius * coreRadius - distToCenter2D * distToCenter2D);
+
+        if (renderForeground) {
+            if (pos3D.z < sphereFrontZ) {
+                return vec4(0.0);
+            }
+        } else {
+            if (pos3D.z >= sphereFrontZ) {
+                return vec4(0.0);
+            }
+        }
+    } else {
+        if (renderForeground) {
+            return vec4(0.0);
+        }
+    }
+
+    highp vec4 ringSample = sampleRingProcedural(
+        distFromCenter, innerR, outerR, 
+        ringColor1, ringColor2, ringColor3, 
+        opacity, bandFrequency
+    );
+    if (ringSample.a <= 0.001) {
+        return vec4(0.0);
+    }
+
+    highp vec3 starDir3D = normalize(lightDir3D);
+    
+    highp float sinT = sin(tiltAngle);
+    highp float cosT = cos(tiltAngle);
+    highp float sinR = sin(rotationAngle);
+    highp float cosR = cos(rotationAngle);
+
+    highp vec3 ringNormal = normalize(vec3(
+        -sinT * sinR,
+        sinT * cosR,
+        cosT
+    ));
+
+    highp float NdotL = abs(dot(ringNormal, starDir3D)); 
+    highp float ringLighting = max(0.15, NdotL);
+
+    highp float planetShadow = calculatePlanetShadowOnRing(
+        pos3D, 
+        coreRadius, 
+        starDir3D, 
+        tiltAngle, 
+        rotationAngle, 
+        shadowSoftness
+    );
+
+    highp vec3 ambientLight = vec3(0.08);
+    highp vec3 directLight = incomingLight * ringLighting * planetShadow;
+    highp vec3 finalLighting = ambientLight + directLight;
+    
+    highp vec3 litRingColor = ringSample.rgb * finalLighting;
+
+    return vec4(litRingColor, ringSample.a);
+}

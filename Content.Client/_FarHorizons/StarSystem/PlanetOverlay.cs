@@ -1,0 +1,195 @@
+using System.Linq;
+using System.Numerics;
+using Content.Client.Parallax;
+using Content.Shared._FarHorizons.StarSystem;
+using Content.Shared._FarHorizons.StarSystem.Helpers;
+using Robust.Client.Graphics;
+using Robust.Shared.Enums;
+using Robust.Shared.Prototypes;
+
+namespace Content.Client._FarHorizons.StarSystem;
+
+public sealed class PlanetOverlay : Overlay
+{
+    private readonly IEntityManager _entMan;
+    private readonly IPrototypeManager _protoMan;
+    private Planet? _planet = null; // This isn't no man's sky and I work under an assumption only one planet is visible on screen
+    private ShaderInstance? _shaderInstance = null;
+    private Vector2 _starOffset = Vector2.Zero;
+    public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowWorld;
+
+    public PlanetOverlay(IEntityManager entMan, IPrototypeManager protoMan)
+    {
+        ZIndex = ParallaxSystem.ParallaxZIndex + 1;
+        _entMan = entMan;
+        _protoMan = protoMan;
+    }
+
+    protected override bool BeforeDraw(in OverlayDrawArgs args)
+    {
+        if (!_entMan.TryGetComponent<StarSystemMapComponent>(args.MapUid, out var starSystem) ||
+            starSystem.StarSystem == null ||
+            !starSystem.StarSystem.Planets.Any())
+        {
+            _planet = null;
+            _shaderInstance = null;
+            _starOffset = Vector2.Zero;
+            return false;
+        }
+
+        _starOffset = starSystem.StarOffset;
+        var viewportCenter = args.WorldAABB.Center;
+        var closestPlanet = starSystem.StarSystem.Planets.OrderBy(p => (viewportCenter - (p.Position + _starOffset)).Length()).First();
+
+        if (closestPlanet == _planet)
+            return true;
+
+        if (!_protoMan.TryIndex<ShaderPrototype>(closestPlanet.Shader, out var shader))
+            return false;
+        
+        _shaderInstance = SetupPlanetShader(closestPlanet, starSystem.StarSystem.Star);
+        if (_shaderInstance == null) return false;
+
+        _planet = closestPlanet;
+        
+        return true;
+    }
+
+    protected override void Draw(in OverlayDrawArgs args)
+    {
+        if (_shaderInstance == null)
+            return;
+        
+        var handle = args.WorldHandle;
+        var viewportBounds = args.WorldAABB;
+        _shaderInstance.SetParameter("viewportMin", viewportBounds.BottomLeft);
+        _shaderInstance.SetParameter("viewportSize", viewportBounds.Size);
+
+        handle.UseShader(_shaderInstance);
+        handle.DrawRect(viewportBounds, Color.White);
+        handle.UseShader(null);
+    }
+
+    private ShaderInstance? SetupPlanetShader(Planet planet, Star star)
+    {
+        if (!_protoMan.TryIndex<ShaderPrototype>(planet.Shader, out var shaderProto) ||
+            !_protoMan.TryIndex(planet.Palette, out var palette))
+            return null;
+        
+        var shader = shaderProto.InstanceUnique();
+
+        // Planet physical info
+        var pos = planet.Position + _starOffset;
+        shader.SetParameter("planetPos", pos);
+        shader.SetParameter("planetRadius", planet.Radius);
+        shader.SetParameter("rotationAngle", planet.Rotation);
+
+        // Colors
+        // What colors do is up to shader
+        var color1 = new Vector3(palette.Color1.R, palette.Color1.G, palette.Color1.B);
+        shader.SetParameter("color1", color1);
+        var color2 = new Vector3(palette.Color2.R, palette.Color2.G, palette.Color2.B);
+        shader.SetParameter("color2", color2);
+        var color3 = new Vector3(palette.Color3.R, palette.Color3.G, palette.Color3.B);
+        shader.SetParameter("color3", color3);
+        var color4 = new Vector3(palette.Color4.R, palette.Color4.G, palette.Color4.B);
+        shader.SetParameter("color4", color4);
+
+        shader.SetParameter("hueShift", planet.HueShift);
+        shader.SetParameter("saturationShift", planet.SaturationShift);
+
+        // Star info
+        var starPos = star.Position + _starOffset;
+        var starColor = new Vector3(star!.Color.R, star!.Color.G, star!.Color.B);
+        shader.SetParameter("starPos", starPos);
+        shader.SetParameter("starColor", starColor);
+        shader.SetParameter("starLuminosity", star.Luminocity);
+
+        // Atmosphere
+        if (planet.Atmosphere != null)
+        {
+            shader.SetParameter("hasAtmosphere", true);
+            
+            var atmosColor = new Vector3(planet.Atmosphere.Color.R, planet.Atmosphere.Color.G, planet.Atmosphere.Color.B);
+            shader.SetParameter("atmosphereColor", atmosColor);
+
+            shader.SetParameter("atmosphereThickness", planet.Atmosphere.Thickness);
+            shader.SetParameter("atmosphereDensity", planet.Atmosphere.Density);
+
+            var cloudColor = new Vector3(planet.Atmosphere.CloudColor.R, planet.Atmosphere.CloudColor.G, planet.Atmosphere.CloudColor.B);
+            shader.SetParameter("cloudColor", cloudColor);
+
+            shader.SetParameter("cloudCoverage", planet.Atmosphere.CloudCoverage);
+            shader.SetParameter("cloudScale", planet.Atmosphere.CloudScale);
+            shader.SetParameter("cloudDensity", planet.Atmosphere.CloudDensity);
+        }
+        else
+        {
+            shader.SetParameter("hasAtmosphere", false);
+        }
+
+        // Liquid
+        if (planet.Liquid != null)
+        {
+            shader.SetParameter("liquidLevel", planet.Liquid.Level);
+            shader.SetParameter("riverFrequency", planet.Liquid.RiverFrequency);
+            shader.SetParameter("riverThreshold", planet.Liquid.RiverThreshold);
+            shader.SetParameter("liquidSpecularity", planet.Liquid.Specularity);
+            shader.SetParameter("isLiquidEmissive", planet.Liquid.Emmissive);
+            shader.SetParameter("liquidEmission", planet.Liquid.Emission);
+
+            var color = new Vector3(planet.Liquid.Color.R, planet.Liquid.Color.G, planet.Liquid.Color.B);
+            shader.SetParameter("liquidColor", color);
+
+            var shallowColor = new Vector3(planet.Liquid.ShallowColor.R, planet.Liquid.ShallowColor.G, planet.Liquid.ShallowColor.B);
+            shader.SetParameter("liquidShallowColor", shallowColor);
+        }
+        else
+        {
+            shader.SetParameter("liquidLevel", -0.02f); // This is so jank...
+            shader.SetParameter("riverThreshold", 0f);
+        }
+
+        // Ring info
+        if (planet.Rings != null)
+        {
+            shader.SetParameter("hasRings", true);
+            shader.SetParameter("ringsRadiusInner", planet.Rings.RadiusInner);
+            shader.SetParameter("ringsRadiusOuter", planet.Rings.RadiusOuter);
+            shader.SetParameter("ringsBandFrequency", planet.Rings.BandFrequency);
+
+            var ringsColor1 = new Vector3(planet.Rings.Color1.R, planet.Rings.Color1.G, planet.Rings.Color1.B);
+            shader.SetParameter("ringsColor1", ringsColor1);
+            var ringsColor2 = new Vector3(planet.Rings.Color2.R, planet.Rings.Color2.G, planet.Rings.Color2.B);
+            shader.SetParameter("ringsColor2", ringsColor2);
+            var ringsColor3 = new Vector3(planet.Rings.Color3.R, planet.Rings.Color3.G, planet.Rings.Color3.B);
+            shader.SetParameter("ringsColor3", ringsColor3);
+        } else
+        {
+            shader.SetParameter("hasRings", false);
+        }
+
+        // Custom data
+        // each planet type will have different data
+        // it's up to whoever adds more to make sure corrent inputs exist
+        foreach (var (key, value) in planet.CustomData.Floats)
+            shader.SetParameter(key, value);
+        
+        foreach (var (key, value) in planet.CustomData.Ints)
+            shader.SetParameter(key, value);
+        
+        foreach (var (key, value) in planet.CustomData.Colors)
+        {
+            var color = new Vector3(value.R, value.G, value.B);
+            shader.SetParameter(key, color);
+        }
+
+        return shader;
+    }
+
+    public void ResetShader()
+    {
+        _planet = null;
+        _shaderInstance = null;
+    }
+}

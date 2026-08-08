@@ -1,0 +1,152 @@
+light_mode unshaded;
+
+#include "/Textures/_FarHorizons/Shaders/shader_utils.swsl"
+#include "/Textures/_FarHorizons/Shaders/StarSystem/planet_rings.swsl"
+#include "/Textures/_FarHorizons/Shaders/StarSystem/planet_utils.swsl" // Majority of uniforms come from here
+
+// Custom data
+uniform highp float bandFrequency;
+uniform highp float turbulenceScale;
+uniform highp float polarGlowStrength;
+uniform highp float polarGlowExtent;
+
+void fragment() {
+    highp vec2 offset;
+    highp float dist;
+    highp float coreRadius;
+    calculatePlanetParallax(UV, offset, dist, coreRadius);
+
+    // setup lighting
+    highp vec2 lightDir2D;
+    highp vec3 lightDir3D;
+    highp vec3 incomingLight;
+    calculateLightingSetup(lightDir2D, lightDir3D, incomingLight);
+
+    highp vec4 finalComposite = vec4(0.0);
+
+    // background rings
+    if (hasRings) {
+        finalComposite = renderRingPass(
+            offset, coreRadius, lightDir3D, incomingLight,
+            ringsRadiusInner, ringsRadiusOuter, axialPitch, rotationAngle,
+            ringsColor1, ringsColor2, ringsColor3,
+            ringDensity, ringsBandFrequency, shadowSoftness, perspectiveStrength, false
+        );
+    }
+
+    // planet surface
+    if (dist <= coreRadius) {
+        
+        highp vec2 sphereCoord = offset / coreRadius;
+        highp float r2 = dot(sphereCoord, sphereCoord);
+        highp float z = sqrt(max(0.0, 1.0 - r2));
+
+        highp float c = cos(rotationAngle);
+        highp float s = sin(rotationAngle);
+        highp mat2 rot = mat2(c, -s, s, c); 
+        highp vec2 surfaceCoord = rot * sphereCoord;
+
+        highp float pitchScale = 1.0 + sin(axialPitch) * 0.8;
+        
+        highp float latitudeCurve = mix(surfaceCoord.y, surfaceCoord.y * pitchScale, 1.0 - z);
+
+        highp vec2 cloudUV = vec2(surfaceCoord.x * 0.8 + TIME * rotationSpeed, latitudeCurve * 1.5);
+
+        highp float macroZone = fbm(vec2(latitudeCurve * 1.2, 3.7)); 
+        
+        highp float absLat = abs(latitudeCurve);
+        highp float latSign = sign(latitudeCurve);
+        
+        highp float distortedLat = latSign * (pow(absLat, 0.7) * 0.5 + pow(absLat, 2.5) * 0.5);
+        distortedLat += (macroZone - 0.5) * 1.8;
+
+        highp vec2 warp1 = vec2(
+            fbm(cloudUV + vec2(0.0, 0.0)),
+            fbm(cloudUV + vec2(5.2, 1.3))
+        );
+
+        highp vec2 warp2 = vec2(
+            fbm(cloudUV + 4.0 * warp1 + vec2(1.7, 9.2)),
+            fbm(cloudUV + 4.0 * warp1 + vec2(8.3, 2.8))
+        );
+
+        highp float latitudinalBands = sin(distortedLat * bandFrequency + warp2.y * (turbulenceScale * 5.0));
+        
+        highp float fbmNoise = fbm(cloudUV * 2.0 + warp1);
+        highp float rawPattern = mix(latitudinalBands, fbmNoise * 2.0 - 1.0, 0.35);
+
+        highp float pattern = clamp((rawPattern * 0.8) + 0.5, 0.0, 1.0);
+        pattern = smoothstep(0.05, 0.95, pattern);
+
+        highp vec3 baseColor = samplePlanetPalette(pattern);
+        baseColor = applyColorShifts(
+            baseColor, 
+            hueShift, 
+            saturationShift, 
+            hueShiftMultiplier, 
+            saturationShiftMultiplier
+        );
+
+        highp vec3 normal = vec3(sphereCoord, z);
+        highp float NdotL = dot(normal, lightDir3D);
+        highp float shadowFactor = smoothstep(-shadowSoftness, shadowSoftness, NdotL);
+
+        highp float limbDarkening = pow(z, 0.65);
+        highp vec3 shadedSurface = baseColor * limbDarkening;
+
+        highp vec3 ambientLight = vec3(0.02, 0.02, 0.04);
+        highp vec3 litColor = shadedSurface * mix(ambientLight, incomingLight, shadowFactor);
+
+        highp float rim = 1.0 - z;
+
+        highp float rimGlow = pow(rim, 3.0) * max(0.0, dot(lightDir2D, sphereCoord)) * rimGlowStrength;
+        litColor += color3 * rimGlow * incomingLight;
+
+        highp float glowThreshold = 0.25; 
+        
+        if (polarGlowStrength > glowThreshold) {
+            highp float normalizedGlowStrength = (polarGlowStrength - glowThreshold) / (1.0 - glowThreshold);
+            
+            highp float absLatitude = abs(surfaceCoord.y);
+            
+            highp float polarMask = pow(smoothstep(polarGlowExtent, 1.0, absLatitude), 2.5) * normalizedGlowStrength;
+            
+            if (polarMask > 0.001) {
+                highp float polarTime = TIME * 0.02;
+                
+                highp float polarNoise = fbm(vec2(surfaceCoord.x * 4.0 + polarTime, surfaceCoord.y * 4.0));
+                
+                highp vec3 purePolarColor = color4;
+                
+                highp float nightFactor = mix(0.4, 1.0, shadowFactor * 0.5 + 0.5);
+                highp vec3 pureGlow = purePolarColor * nightFactor;
+                
+                highp float alpha = clamp(polarMask * (0.8 + 0.4 * polarNoise), 0.0, 1.0);
+                
+                litColor = mix(litColor * (1.0 - alpha * 0.6), pureGlow, alpha);
+            }
+        }
+        
+        finalComposite.rgb = mix(finalComposite.rgb, litColor, 1.0);
+        finalComposite.a = 1.0;
+    }
+
+    // foreground rings
+    if (hasRings) {
+        highp vec4 fgRing = renderRingPass(
+            offset, coreRadius, lightDir3D, incomingLight,
+            ringsRadiusInner, ringsRadiusOuter, axialPitch, rotationAngle,
+            ringsColor1, ringsColor2, ringsColor3,
+            ringDensity, ringsBandFrequency, shadowSoftness, perspectiveStrength, true
+        );
+
+        finalComposite.rgb = mix(finalComposite.rgb, fgRing.rgb, fgRing.a);
+        finalComposite.a = max(finalComposite.a, fgRing.a);
+    }
+
+    if (finalComposite.a <= 0.001) {
+        discard;
+    }
+
+    COLOR = finalComposite;
+}
