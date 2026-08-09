@@ -272,13 +272,15 @@
         ballistic-ammo: !type:Container
     - type: ProjectileBatteryAmmoProvider
       proto: Cartridge762x39mmRIP
-      fireCost: 100
+      fireCost: 125
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
     - type: BatterySelfRecharger
       autoRecharge: true
-      autoRechargeRate: 75
+      autoRechargeRate: 250
+      autoRechargePause: true
+      autoRechargePauseTime: 10
     - type: AmmoCounter
     - type: HeldSpeedModifier
     - type: ClothingSpeedModifier
