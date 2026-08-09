@@ -16,8 +16,7 @@
   shuttlePath: /SharedMaps/_Mono/Shuttles/kunai.yml
   guidebookPage: Null
   class:
-  - pursuit
-
+  - Pursuit
   engine:
   - AME
 
@@ -38,5 +37,4 @@
         - type: StationJobs
           availableJobs:
             Contractor: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
-            Mercenary: [ 0, 0 ]
+
