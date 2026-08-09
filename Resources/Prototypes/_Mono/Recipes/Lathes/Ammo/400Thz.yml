@@ -1,0 +1,24 @@
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: Magazine400Thz
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: Magazine400Thz
+  materials:
+    Steel: 500
+    Plasma: 250
+
+# boxes
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoBox400Thz
+  categories:
+  - MiscAmmo
+  - Ammo
+  result: AmmoBox400Thz
+  materials:
+    Steel: 1000
+    Plasma: 500
