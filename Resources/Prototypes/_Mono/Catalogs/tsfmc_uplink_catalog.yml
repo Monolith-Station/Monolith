@@ -512,3 +512,18 @@
         - Sheriff
         - Bailiff
         - SeniorOfficer
+
+- type: listing
+  id: UplinkSecurityTabby
+  name:  uplink-security-tabby-name
+  description: uplink-security-tabby-desc
+  productEntity: ClothingBackpackDuffelTabbyBundle
+  cost:
+    FederationMilitaryCredit: 100
+  categories:
+  - UplinkSecurityWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink

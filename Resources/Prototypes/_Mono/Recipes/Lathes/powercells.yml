@@ -39,3 +39,18 @@
     Glass: 500
     Plastic: 500
     Gold: 500
+
+# Tabby power cell
+
+- type: latheRecipe
+  id: SmallPowerCell400Thz
+  result: LargePowerCell400ThzSmall
+  categories:
+  - Ammo
+  completetime: 10
+  materials:
+    Steel: 2500
+    Plasteel: 1000
+    Glass: 250
+    Plastic: 250
+    Gold: 250

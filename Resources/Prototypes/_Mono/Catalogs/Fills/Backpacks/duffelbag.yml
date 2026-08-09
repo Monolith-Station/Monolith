@@ -9,3 +9,15 @@
       - id: WeaponDEWSmilodon
       - id: LargePowerCell700Thz
       - id: LargePowerCell400Thz
+
+- type: entity
+  parent: ClothingBackpackDuffelTsfmc
+  id: ClothingBackpackDuffelTabbyBundle
+  name: QSH-10-C Tabby bundle
+  description: A powerful energy SMG, coming pre-packaged with 2 spare magazines. Perfect for laying down suppressive fire down short halls of glass.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSubMachineGunTabby
+      - id: Magazine400Thz
+        amount: 3
