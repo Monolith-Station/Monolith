@@ -21,32 +21,6 @@
     job_id: Contractor
 
 - type: entity
-  id: SpawnPointMercenary
-  parent: SpawnPointJobBase
-  name: mercenary
-  components:
-  - type: SpawnPoint
-    job_id: Mercenary
-  - type: Sprite
-    sprite: _NF/Markers/jobs.rsi
-    layers:
-      - state: green
-      - state: mercenary
-
-- type: entity
-  id: SpawnPointPilot
-  parent: SpawnPointJobBase
-  name: pilot
-  components:
-  - type: SpawnPoint
-    job_id: Pilot
-  - type: Sprite
-    sprite: _NF/Markers/jobs.rsi
-    layers:
-      - state: green
-      - state: pilot
-
-- type: entity
   id: SpawnPointPirate
   parent: SpawnPointJobBase
   name: pirate
