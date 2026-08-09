@@ -193,7 +193,7 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 6.5
+    fireRate: 5.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     availableModes:
@@ -201,7 +201,7 @@
     - FullAuto
     shotsPerBurst: 5
     burstCooldown: 0.25
-    burstFireRate: 8.5
+    burstFireRate: 6.5
   - type: MagazineVisuals
     magState: mag
     steps: 1
