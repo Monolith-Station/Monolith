@@ -34,7 +34,7 @@
   - PilotClothingOuterCoatBomber
   - PilotClothingOuterDrakeIndustriesTruckerPuffyVest
   - PilotClothingOuterHardsuitPilot
-  
+
   subgroups:
   - ContractorOuterClothing
 
@@ -84,16 +84,6 @@
   - PilotClothingNeckScarfPilot
   subgroups:
   - ContractorNeck
-
-- type: loadoutGroup
-  id: PilotPDA
-  name: loadout-group-contractor-id
-  loadouts:
-  - PilotPilotPDA
-  subgroups:
-  - ContractorPDA
-  fallbacks:
-  - PilotPilotPDA
 
 - type: loadoutGroup
   id: PilotGlasses

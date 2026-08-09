@@ -120,17 +120,6 @@
   - ContractorGloves
 
 - type: loadoutGroup
-  id: MercenaryPDA
-  name: loadout-group-contractor-id
-  loadouts:
-  - MercenaryMercenaryPDA
-  subgroups:
-  - PilotPDA
-  - ContractorPDA
-  fallbacks:
-  - MercenaryMercenaryPDA
-
-- type: loadoutGroup
   id: MercenaryGlasses
   name: loadout-group-contractor-glasses
   minLimit: 0

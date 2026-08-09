@@ -28,43 +28,6 @@
       - MedTekCartridge # Mono
 
 - type: entity
-  parent: BasePDA
-  id: MercenaryPDA
-  name: mercenary PDA
-  description: This PDA smells of war.
-  components:
-  - type: Pda
-    id: MercenaryIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-mercenary
-  - type: PdaBorderColor
-    borderColor: "#48484b"
-    accentVColor: "#424d2c"
-  - type: Icon
-    state: pda-mercenary
-
-- type: entity
-  parent: BasePDA
-  id: PilotPDA
-  name: pilot PDA
-  description: This PDA smells like thruster exhaust fumes.
-  components:
-  - type: Pda
-    id: PilotIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-tourist
-  - type: PdaBorderColor
-    borderColor: "#3b3b3b"
-  - type: Icon
-    state: pda-tourist
-
-- type: entity
   parent: BaseSecurityPDA
   id: StcPDA
   name: station traffic controller PDA
