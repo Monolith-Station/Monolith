@@ -74,6 +74,58 @@
   - type: BorgModuleIcon
     icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: tsfadvanced-weapon-module }
 
+- type: entity
+  id: BorgModuleTSFBerserker
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseFactionGearTSFT3 ]
+  name: TSFMC berserker cyborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: tsf
+    - state: icon-tsf-bezerk
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - CyborgEnergySwordDoubleNfsd
+    - EnergyShieldNfsd
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: tsfstandard-weapon-module }
+
+- type: entity
+  id: BorgModuleTSFMarksman
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseFactionGearTSFT3 ]
+  name: TSFMC marksman cyborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: tsf
+    - state: icon-tsf-marksman
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - WeaponAMRShenzhenBorg
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: tsfstandard-weapon-module }
+
+- type: entity
+  id: BorgModuleTSFHeavy
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseFactionGearTSFT3 ]
+  name: TSFMC heavy cyborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: tsf
+    - state: icon-tsf-heavy
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - WeaponLightMachineGunL6CRIPBorg
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: tsfstandard-weapon-module }
+
 # PDV Modules
 
 - type: entity

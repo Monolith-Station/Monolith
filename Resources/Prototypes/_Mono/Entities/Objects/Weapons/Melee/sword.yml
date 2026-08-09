@@ -323,3 +323,27 @@
   - type: Tag
     tags:
     - Shamshir
+
+- type: entity
+  suffix: One-Handed, For Borgs
+  parent: EnergySwordDouble
+  id: CyborgEnergySwordDoubleNfsd
+  description: A double-bladed e-sword now attached to a cyborg
+  components: # could add energy-draining like the L6C
+  - type: Wieldable
+    freeHandsRequired: 0 # because borg has no off-hand to wield with.  Without this, it will be unable to activate the esword
+  - type: EnergySword
+    colorOptions:
+      - "#bfdaff" # Mono
+    blockHacking: true
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        volume: 3
+        variation: 0.250
+    activatedDamage:
+      types:
+        Slash: 50
+        Heat: 25
+        Structural: 100
