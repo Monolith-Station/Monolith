@@ -180,6 +180,47 @@
     Plastic: 5000
     Bluespace: 200
 
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: BorgModuleBerserkerTSF
+  result: BorgModuleTSFBerserker
+  categories:
+  - Tools
+  - FactionEquipment
+  completetime: 3
+  materials:
+    Steel: 5000
+    Glass: 5000
+    Plastic: 5000
+    Bluespace: 200
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: BorgModuleMarksmanTSF
+  result: BorgModuleTSFMarksman
+  categories:
+  - Tools
+  - FactionEquipment
+  completetime: 3
+  materials:
+    Steel: 5000
+    Glass: 5000
+    Plastic: 5000
+    Bluespace: 200
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: BorgModuleHeavyTSF
+  result: BorgModuleTSFHeavy
+  categories:
+  - Tools
+  - FactionEquipment
+  completetime: 3
+  materials:
+    Steel: 5000
+    Glass: 5000
+    Plastic: 5000
+    Bluespace: 200
 
 - type: latheRecipe
   parent: BaseToolRecipe
