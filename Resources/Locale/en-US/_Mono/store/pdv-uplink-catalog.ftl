@@ -216,6 +216,9 @@ uplink-pirate-viper-group-medic-hardsuit-desc = A light hardsuit adorned with si
 uplink-pirate-webvest-name = Webvest
 uplink-pirate-webvest-desc = A webvest smuggled into the sector that hasn't been downgraded like ones utilized by civilian contractors. Great pierce resist, poor heat resist.
 
+uplink-pirate-elite-webvest-name = Elite Webvest
+uplink-pirate-elite-webvest-desc = A modified web vest specialised to counter the TSFMC's energy-based weaponry. Great heat resist, poor pierce resist.
+
 uplink-pirate-syndie-mask-name = Syndicate Gas Mask
 uplink-pirate-syndie-mask-desc = A tactical flash resistant gas mask that can be connected to an air supply.
 

@@ -63,6 +63,15 @@
   result: ClothingOuterVestWeb
 
 - type: latheRecipe
+  id: ClothingOuterVestWebEliteRogue
+  categories:
+  - ArmorNF
+  - ClothesNF
+  - FactionEquipment
+  parent: NFBaseArmorRecipe
+  result: ClothingOuterVestWebElite
+
+- type: latheRecipe
   id: ClothingShoesBootsMagSyndieRogue
   categories:
   - ClothesNF
