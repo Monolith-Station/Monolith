@@ -9,8 +9,10 @@
 - type: vessel
   id: Saturn
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Saturn-name
   description: vessel-Saturn-desc
+  # Andromeda end
   limit: 1
   hyperwarLimit: 3
   hyperwarTimelock: 3600
@@ -42,7 +44,7 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Saturn-desc
+        description: vessel-Saturn-desc # Andromeda: Localize ship name and desc
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Saturn HSS{1}'

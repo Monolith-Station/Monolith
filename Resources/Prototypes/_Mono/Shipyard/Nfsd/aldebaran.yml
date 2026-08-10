@@ -3,9 +3,11 @@
 - type: vessel
   id: Aldebaran
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Aldebaran-name
   description: vessel-Aldebaran-desc
-  price: 160200
+  # Andromeda end
+  price: 179964
   purchasable: false # voucher only
   category: Medium
   group: Security
@@ -28,7 +30,7 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Aldebaran-desc
+        description: vessel-Aldebaran-desc # Andromeda: Localize ship name and desc
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Aldebaran TSF{1}'

@@ -7,9 +7,11 @@
 - type: vessel
   id: Judiciary
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Judiciary-name
   description: vessel-Judiciary-desc
-  price: 70001 # ~20,000$ markup
+  # Andromeda end
+  price: 88594
   category: Medium
   group: Expedition
   shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/judiciary.yml

@@ -7,9 +7,11 @@
 - type: vessel
   id: Scallywag
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Scallywag-name
   description: vessel-Scallywag-desc
-  price: 120000 # 89K base x 1.35 -> 120K (35% markup).
+  # Andromeda end
+  price: 139176 # 134176 base
   category: medium
   group: Scrap
   access: Mercenary

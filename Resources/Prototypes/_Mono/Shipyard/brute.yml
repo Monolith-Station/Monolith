@@ -7,9 +7,11 @@
 - type: vessel
   id: Brute
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-Brute-name
   description: vessel-Brute-desc
-  price: 77850
+  # Andromeda end
+  price: 84142
   category: Medium
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/brute.yml

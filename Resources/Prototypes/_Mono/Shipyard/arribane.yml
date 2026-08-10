@@ -7,9 +7,11 @@
 - type: vessel
   id: Arribane
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-Arribane-name
   description: vessel-Arribane-desc
-  price: 97500
+  # Andromeda end
+  price: 138252
   category: Large
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/arribane.yml

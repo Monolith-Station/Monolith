@@ -489,6 +489,17 @@
   - type: AccessReader
     access: [["HeadOfSecurity"]]
 
+# Mono
+- type: entity
+  parent: NFVendingMachineCart
+  id: MonoVendingMachineCartMieyo
+  suffix: MMC
+  components:
+  - type: VendingMachine
+    pack: MonoPTechMieyoInventory
+  - type: AccessReader
+    access: [["MieyoLiason"]]
+
 # Punk stuff
 - type: entity
   parent:

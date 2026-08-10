@@ -3,9 +3,11 @@
 - type: vessel
   id: Shiv
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Shiv-name
   description: vessel-Shiv-desc
-  price: 80000
+  # Andromeda end
+  price: 112458
   category: Small
   hyperwarTimelock: 0
   group: Security
@@ -27,7 +29,7 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Shiv-desc
+        description: vessel-Shiv-desc # Andromeda: Localize ship name and desc
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Shiv TSF{1}'

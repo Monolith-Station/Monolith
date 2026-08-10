@@ -7,9 +7,11 @@
 - type: vessel
   id: Hammerhead
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Hammerhead-name
   description: vessel-Hammerhead-desc
-  price: 200000 # Its a ~10k markup, it really is that expensive.
+  # Andromeda end
+  price: 264616 # Its a ~10k markup, it really is that expensive.
   category: Large
   group: Shipyard
   access: Mercenary

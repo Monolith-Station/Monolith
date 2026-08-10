@@ -2,8 +2,10 @@
 - type: vessel
   id: BaseVessel
   abstract: true
+  # Andromeda start: Localize ship name and desc
   name: vessel-BaseVessel-name
   description: vessel-BaseVessel-desc
+  # Andromeda end
   price: 50000
   category: Medium
   group: Shipyard

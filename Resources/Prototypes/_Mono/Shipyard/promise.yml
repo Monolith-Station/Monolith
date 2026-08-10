@@ -7,9 +7,11 @@
 - type: vessel
   id: Promise
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Promise-name
   description: vessel-Promise-desc
-  price: 106500
+  # Andromeda end
+  price: 142676
   category: Medium
   group: Medical
   shuttlePath: /SharedMaps/_Mono/Shuttles/promise.yml

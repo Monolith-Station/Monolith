@@ -79,6 +79,15 @@
     - VGTurret
 
 - type: entity
+  parent: BaseWeaponBallisticTurret
+  id: WeaponTurretXenoborg
+  suffix: Xenoborg
+  components:
+  - type: NpcFactionMember
+    factions:
+    - XenoborgTurret
+
+- type: entity
   parent: BaseWeaponTurretNF
   id: BaseMk290Sentry
   name: MK-290 Sentry
@@ -154,6 +163,7 @@
   - type: NpcFactionMember
     factions:
     - TSFMCTurret
+    - TSFMC
 
 - type: entity
   parent: BaseMk290Sentry

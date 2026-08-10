@@ -1,14 +1,12 @@
-# Author Info
-# GitHub: starch70
-# Discord: _starch_
-
 # Shuttle Notes:
 - type: vessel
   id: Betelgeuse
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Betelgeuse-name
   description: vessel-Betelgeuse-desc
-  price: 43500
+  # Andromeda end
+  price: 62671
   category: Small
   group: Scrap
   shuttlePath: /SharedMaps/_Mono/Shuttles/betelgeuse.yml

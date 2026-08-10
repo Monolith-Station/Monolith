@@ -61,35 +61,36 @@
 
 - type: entity
   name: CS KMP-WSPR (7.62x39mm)
-  parent: BaseWeaponRifle # Mono - C3
+  parent: BaseWeaponRifle
   id: WeaponRifleWSPR
-  description: A cutting-edge Dynasty burst rifle, versatile and reliable. Uses 7.62x39mm ammo. An Erebus railmount is present on the top of the reciever for optics. # mono
+  description: A cutting-edge Dynasty integrally-suppressed rifle, versatile and reliable, and capable of a fast-firing hyperburst. Uses 7.62x39mm ammo. An Erebus railmount is present on the top of the reciever for optics.
   components:
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr.rsi # Mono
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
-    - map: ["opticAttachment"] # Mono
-  - type: Item # Mono
+    - map: ["opticAttachment"]
+  - type: Item
     sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr_inhands_32x.rsi
   - type: Clothing
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr_inhands_32x.rsi # Mono
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr_inhands_32x.rsi
   - type: GunWieldBonus
     minAngle: -14
     maxAngle: -41
   - type: Gun
     availableModes:
     - Burst
-    selectedMode: Burst
-    burstFireRate: 20 # Mono
-    burstCooldown: 0.6 # Mono
-    projectileSpeed: 45 # Mono
-    fireRate: 7.5 # Mono, does nothing because its burst only but it makes it clear it can fire at this rate.
+    - FullAuto
+    selectedMode: FullAuto
+    burstFireRate: 20
+    burstCooldown: 0.6
+    projectileSpeed: 45
+    fireRate: 7.5
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/wspr_fire.ogg # Mono change - Changed audio path
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/wspr_fire.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -189,15 +190,15 @@
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: GunWieldBonus
     minAngle: -3
-    maxAngle: -54
+    maxAngle: -43
   - type: Gun
     minAngle: 3
     maxAngle: 64
-    angleIncrease: 2
+    angleIncrease: 6
     angleDecay: 25
-    fireRate: 7
+    fireRate: 6.5
     selectedMode: FullAuto
-    damageModifier: 0.95
+    damageModifier: 1.1
     availableModes:
     - FullAuto
     - SemiAuto
@@ -294,34 +295,34 @@
   - type: GunRequiresWield
 
 - type: entity
-  name: PA M-90 (7.62x51mm) # mono - 762x51mm
+  name: PA M-90 (7.62x51mm)
   parent: BaseWeaponRifle
   id: WeaponRifleM90
-  description: A compact bullpup design. Uses 7.62x51mm rifle ammo. The barrel is threaded for suppressors, and an Erebus railmount is present on the carryhandle and handguard for optics/grips. # mono
+  description: A compact bullpup design. Uses 7.62x51mm rifle ammo. The barrel is threaded for suppressors, and an Erebus railmount is present on the carryhandle and handguard for optics/grips.
   components:
-  - type: Item # Mono
+  - type: Item
     size: Large
     sprite: _Mono/Objects/Weapons/Guns/Rifles/m90_inhands_32x.rsi
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/m90.rsi # Mono
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/m90.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
-    - map: ["gripAttachment"] # Mono
-    - map: ["barrelAttachment"] # Mono
-    - map: ["opticAttachment"] # Mono
+    - map: ["gripAttachment"]
+    - map: ["barrelAttachment"]
+    - map: ["opticAttachment"]
   - type: Clothing
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/m90_inhands_32x.rsi # Mono
-  - type: ChamberMagazineAmmoProvider # Mono
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/m90_inhands_32x.rsi
+  - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: GunWieldBonus
-    minAngle: -3
+    minAngle: -30
     maxAngle: -54
   - type: Gun
-    minAngle: 3
+    minAngle: 30
     maxAngle: 64
     angleIncrease: 5
     angleDecay: 25
@@ -335,14 +336,14 @@
     - Burst
     - SemiAuto
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_2.ogg # Mono
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_2.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
         startingItem: Magazine762x51mmFMJ
-        insertSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagIn/cm82_magin.ogg # Mono
-        ejectSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagOut/cm82_magout.ogg # Mono
+        insertSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagIn/cm82_magin.ogg
+        ejectSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagOut/cm82_magout.ogg
         priority: 2
         whitelist:
           tags:
@@ -350,12 +351,11 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: Cartridge762x51mmFMJ # mono - 762x51mm
+        startingItem: Cartridge762x51mmFMJ
         priority: 1
         whitelist:
           tags:
-          - Cartridge762x51mmFMJ # mono - 762x51mm
-      # Mono
+          - Cartridge762x51mmFMJ
       attachment_grip:
         insertSound: /Audio/Items/screwdriver2.ogg
         ejectSound: /Audio/Items/screwdriver2.ogg
@@ -363,7 +363,6 @@
         whitelist:
           tags:
           - MonoGripErebusRailmount
-      # Mono
       attachment_barrel:
         insertSound: /Audio/Items/screwdriver.ogg
         ejectSound: /Audio/Items/screwdriver.ogg
@@ -371,7 +370,6 @@
         whitelist:
           tags:
           - MonoSuppressorMulticalRifle
-      # Mono
       attachment_optic:
         insertSound: /Audio/Items/screwdriver2.ogg
         ejectSound: /Audio/Items/screwdriver2.ogg
@@ -383,10 +381,9 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-      attachment_grip: !type:ContainerSlot # Mono
-      attachment_barrel: !type:ContainerSlot # Mono
-      attachment_optic: !type:ContainerSlot # Mono
-      # Mono start
+      attachment_grip: !type:ContainerSlot
+      attachment_barrel: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
   - type: ESAttachableGun
     slots:
     - name: es-gun-attachments-slot-name-barrel
@@ -452,7 +449,6 @@
         whitelist:
           tags:
           - MonoOptic8x
-  # Mono end
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -462,7 +458,7 @@
 
 - type: entity
   name: CS Burner (12.7x99mm)
-  parent: BaseWeaponRifle # Mono - Changed to HighValue
+  parent: BaseWeaponRifle
   id: WeaponRifleBurner
   description: A high caliber syndicate gun chambered in 12.7x99mm, capable of firing anti-material and high explosive rounds.
   components:
@@ -473,8 +469,15 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -18
+    maxAngle: -55
   - type: Gun
-    fireRate: 1.7
+    minAngle: 18
+    maxAngle: 75
+    angleIncrease: 5
+    angleDecay: 15
+    fireRate: 2.2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: ChamberMagazineAmmoProvider

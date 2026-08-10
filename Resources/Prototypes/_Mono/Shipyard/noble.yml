@@ -6,9 +6,11 @@
 - type: vessel
   id: Noble
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Noble-name
   description: vessel-Noble-desc
-  price: 52100
+  # Andromeda end
+  price: 89559
   category: Medium
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/noble.yml

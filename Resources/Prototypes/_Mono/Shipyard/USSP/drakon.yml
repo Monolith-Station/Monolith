@@ -3,9 +3,11 @@
 - type: vessel
   id: Drakon
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Drakon-name
   description: vessel-Drakon-desc
-  price: 85290
+  # Andromeda end
+  price: 112753
   category: Medium
   group: Ussp
   access: USSP

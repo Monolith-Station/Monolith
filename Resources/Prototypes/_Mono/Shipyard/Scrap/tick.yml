@@ -7,9 +7,11 @@
 - type: vessel
   id: Tick
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Tick-name
   description: vessel-Tick-desc
-  price: 15000 # it's a heap of scrap
+  # Andromeda end
+  price: 22793 # it's a heap of scrap
   category: Small
   group: Scrap
   shuttlePath: /SharedMaps/_Mono/Shuttles/Scrap/tick.yml

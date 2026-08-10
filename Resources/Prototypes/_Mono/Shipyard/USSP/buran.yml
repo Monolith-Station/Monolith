@@ -3,10 +3,12 @@
 - type: vessel
   id: Buran
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Buran-name
   description: vessel-Buran-desc
+  # Andromeda end
   limit: 2
-  price: 320000
+  price: 330809
   purchasable: false # voucher only
   category: Large
   group: Ussp
@@ -28,7 +30,7 @@
       stationProto: StandardFrontierVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Buran-desc
+        description: vessel-Buran-desc # Andromeda: Localize ship name and desc
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Buran USSP{1}'

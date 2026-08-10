@@ -7,8 +7,10 @@
 - type: vessel
   id: MClass
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-MClass-name
   description: vessel-MClass-desc
+  # Andromeda end
   price: 155000
   category: Large
   group: Shipyard

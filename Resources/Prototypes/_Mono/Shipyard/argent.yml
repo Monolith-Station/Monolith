@@ -7,8 +7,10 @@
 - type: vessel
   id: Argent
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-Argent-name
   description: vessel-Argent-desc
+  # Andromeda end: Localizar nome e descrição de naves
   price: 61150
   category: Medium
   group: Shipyard

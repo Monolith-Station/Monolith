@@ -7,9 +7,11 @@
 - type: vessel
   id: Iapetus
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Iapetus-name
   description: vessel-Iapetus-desc
-  price: 36900
+  # Andromeda end
+  price: 62548
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/iapetus.yml

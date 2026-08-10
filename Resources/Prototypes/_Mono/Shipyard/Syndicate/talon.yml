@@ -1,9 +1,11 @@
 - type: vessel
   id: Talon
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Talon-name
   description: vessel-Talon-desc
-  price: 45000
+  # Andromeda end
+  price: 68579
   category: Small
   group: Syndicate
   shuttlePath: /SharedMaps/_Mono/Shuttles/Syndicate/talon.yml

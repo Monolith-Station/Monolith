@@ -7,9 +7,11 @@
 - type: vessel
   id: Femur
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Femur-name
   description: vessel-Femur-desc
-  price: 93900
+  # Andromeda end
+  price: 100816
   category: Medium
   group: Shipyard
   access: Mercenary

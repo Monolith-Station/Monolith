@@ -8,9 +8,11 @@
 - type: vessel
   id: Zeros
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Zeros-name
   description: vessel-Zeros-desc
-  price: 112500
+  # Andromeda end
+  price: 153578
   category: Large
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/zeros.yml

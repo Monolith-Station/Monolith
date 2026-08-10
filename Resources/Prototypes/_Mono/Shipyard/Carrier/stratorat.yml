@@ -1,9 +1,11 @@
 - type: vessel
   id: StratoRat
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-StratoRat-name
   description: vessel-StratoRat-desc
-  price: 15000
+  # Andromeda end
+  price: 23728
   category: Micro
   group: Custom
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes

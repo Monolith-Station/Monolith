@@ -5,9 +5,11 @@
 - type: vessel
   id: Duran
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Duran-name
   description: vessel-Duran-desc
-  price: 40600
+  # Andromeda end
+  price: 60456
   category: Medium
   group: Expedition
   shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/duran.yml

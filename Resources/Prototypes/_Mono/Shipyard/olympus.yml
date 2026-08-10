@@ -6,9 +6,11 @@
 - type: vessel
   id: Olympus
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Olympus-name
   description: vessel-Olympus-desc
-  price: 225500
+  # Andromeda end
+  price: 279891
   category: Large
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/olympus.yml

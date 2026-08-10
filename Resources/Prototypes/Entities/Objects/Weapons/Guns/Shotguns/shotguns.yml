@@ -101,7 +101,8 @@
   - type: AmmoCounter
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
-    fireRate: 3 # Goobstation
+    fireRate: 4 # Mono
+    damageModifier: 1.1 # Mono - More powerful than enforcer yes, but this is a T2
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -150,6 +151,7 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3.5 #3->3.5 Mono
+    damageModifier: 3 # Mono
   - type: GunSpreadModifier #Mono
     spread: 0.4
   - type: BallisticAmmoProvider
@@ -223,6 +225,7 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 1.4
+    damageModifier: 1.6 # Mono
   - type: GunSpreadModifier
     spread: 0.7 #Mono: 0.6 >> 0.7
   - type: Tag
@@ -230,6 +233,7 @@
     - WeaponShotgunKammerer
   - type: BallisticAmmoProvider
     capacity: 5
+    autoCycle: false # Mono
   - type: PirateBountyItem # Mono
     id: StandardFactionLongarm
 

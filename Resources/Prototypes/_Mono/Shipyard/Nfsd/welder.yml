@@ -3,9 +3,11 @@
 - type: vessel
   id: Welder
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Welder-name
   description: vessel-Welder-desc
-  price: 78200
+  # Andromeda end
+  price: 101725
   category: Small
   group: Security
   access: Security

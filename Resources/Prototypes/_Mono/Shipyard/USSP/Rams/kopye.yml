@@ -1,8 +1,10 @@
 - type: vessel
   id: Kopye
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Kopye-name
   description: vessel-Kopye-desc
+  # Andromeda end
   price: 45000
   purchasable: false # voucher only
   category: Large

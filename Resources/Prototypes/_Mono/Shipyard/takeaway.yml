@@ -8,9 +8,11 @@
 - type: vessel
   id: Takeaway
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Takeaway-name
   description: vessel-Takeaway-desc
-  price: 64000
+  # Andromeda end
+  price: 80968
   category: Medium
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/takeaway.yml

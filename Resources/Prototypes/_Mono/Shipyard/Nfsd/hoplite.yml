@@ -2,9 +2,11 @@
 - type: vessel
   id: Hoplite
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Hoplite-name
   description: vessel-Hoplite-desc
-  price: 78500
+  # Andromeda end
+  price: 110211
   category: Small
   group: Security
   access: Security
@@ -26,7 +28,7 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Hoplite-desc
+        description: vessel-Hoplite-desc # Andromeda: Localize ship name and desc
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Hoplite TSF{1}'

@@ -8,10 +8,12 @@
 - type: vessel
   id: Mock
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Mock-name
   description: vessel-Mock-desc
+  # Andromeda end
   limit: 4
-  price: 13500
+  price: 22618
   purchasable: false #voucher only
   category: Small
   group: Custom

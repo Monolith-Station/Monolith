@@ -7,9 +7,11 @@
 - type: vessel
   id: Magus
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Magus-name
   description: vessel-Magus-desc
-  price: 69420 # ~20,000$ markup
+  # Andromeda end
+  price: 98279
   category: Medium
   group: Expedition
   shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/magus.yml

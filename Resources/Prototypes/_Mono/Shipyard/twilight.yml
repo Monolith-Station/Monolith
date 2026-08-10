@@ -7,9 +7,11 @@
 - type: vessel
   id: Twilight
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Twilight-name
   description: vessel-Twilight-desc
-  price: 50000
+  # Andromeda end
+  price: 73375
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/twilight.yml

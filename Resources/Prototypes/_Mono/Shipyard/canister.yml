@@ -8,9 +8,11 @@
 - type: vessel
   id: Canister
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-Canister-name
   description: vessel-Canister-desc
-  price: 33000
+  # Andromeda end
+  price: 52614
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/canister.yml

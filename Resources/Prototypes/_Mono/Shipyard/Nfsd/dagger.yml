@@ -3,9 +3,11 @@
 - type: vessel
   id: Dagger
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Dagger-name
   description: vessel-Dagger-desc
-  price: 120000
+  # Andromeda end
+  price: 147694
   purchasable: false # voucher only
   category: Medium
   group: Security

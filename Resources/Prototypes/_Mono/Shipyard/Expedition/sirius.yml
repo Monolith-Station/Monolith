@@ -7,9 +7,11 @@
 - type: vessel
   id: Sirius
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Sirius-name
   description: vessel-Sirius-desc
-  price: 80750
+  # Andromeda end
+  price: 118453
   category: Medium
   group: Expedition
   shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/sirius.yml

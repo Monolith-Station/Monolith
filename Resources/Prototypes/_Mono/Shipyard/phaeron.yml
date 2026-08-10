@@ -10,9 +10,11 @@
 - type: vessel
   id: Phaeron
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Phaeron-name
   description: vessel-Phaeron-desc
-  price: 52450
+  # Andromeda end
+  price: 82751
   category: Medium
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/phaeron.yml

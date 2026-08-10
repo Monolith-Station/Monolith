@@ -3,8 +3,10 @@
 - type: vessel
   id: Ganymede
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Ganymede-name
   description: vessel-Ganymede-desc
+  # Andromeda end
   limit: 3
   hyperwarLimit: 5
   hyperwarTimelock: 1800
@@ -30,7 +32,7 @@
     Ganymede:
       gridComponents:
       - type: VesselInfo
-        description: vessel-Ganymede-desc
+        description: vessel-Ganymede-desc # Andromeda: Localize ship name and desc
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup

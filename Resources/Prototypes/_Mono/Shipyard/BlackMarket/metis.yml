@@ -3,9 +3,11 @@
 - type: vessel
   id: Metis
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Metis-name
   description: vessel-Metis-desc
-  price: 79500
+  # Andromeda end
+  price: 111453
   category: Medium
   group: BlackMarket
   access: Pirate
@@ -26,7 +28,7 @@
     Metis:
       gridComponents:
       - type: VesselInfo
-        description: vessel-Metis-desc
+        description: vessel-Metis-desc # Andromeda: Localize ship name and desc
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup

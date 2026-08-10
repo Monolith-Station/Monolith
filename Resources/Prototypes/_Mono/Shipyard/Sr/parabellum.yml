@@ -5,9 +5,11 @@
 - type: vessel
   id: Parabellum
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Parabellum-name
   description: vessel-Parabellum-desc
-  price: 92000
+  # Andromeda end
+  price: 155258
   category: Medium
   group: Sr
   access: Brig # Oddball, matches guard ID, specific enough to exclude cadets

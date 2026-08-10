@@ -145,38 +145,6 @@
 #           - SecurityUplink
 
 - type: listing
-  id: UplinkSecurityVulcan
-  name:  uplink-security-vulcan-name
-  description: uplink-security-vulcan-desc
-  productEntity: WeaponRifleVulcan
-  icon: { sprite: _DV/Objects/Weapons/Guns/Rifles/vulcan.rsi, state: icon }
-  cost:
-    FederationMilitaryCredit: 15
-  categories:
-    - UplinkSecurityWeapons
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SecurityUplink
-
-- type: listing
-  id: UplinkSecurityLaserCarbine
-  name:  uplink-security-lasercarbine-name
-  description: uplink-security-lasercarbine-desc
-  productEntity: WeaponLaserCarbine
-  icon: { sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi, state: icon }
-  cost:
-    FederationMilitaryCredit: 5 # GARBAGE!!!
-  categories:
-    - UplinkSecurityWeapons
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SecurityUplink
-
-- type: listing
   id: UplinkSecurityDisablerSMG
   name:  uplink-security-disablersmg-name
   description: uplink-security-disablersmg-desc
@@ -200,22 +168,6 @@
   icon: { sprite: Objects/Weapons/Melee/e_sword.rsi, state: e_sword }
   cost:
     FederationMilitaryCredit: 30
-  categories:
-    - UplinkSecurityWeapons
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SecurityUplink
-
-- type: listing
-  id: UplinkSecurityWT550
-  name:  uplink-security-wt550-name
-  description: uplink-security-wt550-desc
-  productEntity: WeaponSubMachineGunWt550
-  icon: { sprite: Objects/Weapons/Guns/SMGs/wt550.rsi, state: icon }
-  cost:
-    FederationMilitaryCredit: 20
   categories:
     - UplinkSecurityWeapons
   conditions:

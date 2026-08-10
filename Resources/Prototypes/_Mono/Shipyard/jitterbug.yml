@@ -9,9 +9,11 @@
 - type: vessel
   id: Jitterbug
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Jitterbug-name
   description: vessel-Jitterbug-desc
-  price: 36050
+  # Andromeda end
+  price: 50580
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/jitterbug.yml

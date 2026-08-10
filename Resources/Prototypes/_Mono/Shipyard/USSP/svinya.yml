@@ -8,9 +8,11 @@
 - type: vessel
   id: Svinya
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Svinya-name
   description: vessel-Svinya-desc
-  price: 39000 # appraised at ~33200
+  # Andromeda end
+  price: 57633 # appraised at 50633
   category: Small
   group: Ussp
   access: USSP

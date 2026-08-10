@@ -7,9 +7,11 @@
 - type: vessel
   id: Archer
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-Archer-name
   description: vessel-Archer-desc
-  price: 85200 # the plasma and plastitanium tax is real...
+  # Andromeda end
+  price: 98773 # the plasma and plastitanium tax is real...
   category: Medium
   group: Shipyard
   access: Mercenary

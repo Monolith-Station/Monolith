@@ -3,8 +3,10 @@
 - type: vessel
   id: Sulak
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Sulak-name
   description: vessel-Sulak-desc
+  # Andromeda end
   limit: 2
   price: 142500
   purchasable: false # voucher only

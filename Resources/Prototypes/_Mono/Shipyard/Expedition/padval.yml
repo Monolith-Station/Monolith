@@ -7,9 +7,11 @@
 - type: vessel
   id: Padval
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Padval-name
   description: vessel-Padval-desc
-  price: 79000 # i think this price is fair because its only really good for making stuff in techfabs and being a mobile store
+  # Andromeda end
+  price: 123700 # i think this price is fair because its only really good for making stuff in techfabs and being a mobile store
   category: Medium
   group: Expedition
   shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/padval.yml

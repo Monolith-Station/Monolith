@@ -7,9 +7,11 @@
 - type: vessel
   id: Autumn
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-Autumn-name
   description: vessel-Autumn-desc
-  price: 115320
+  # Andromeda end
+  price: 187811
   category: Large
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/autumn.yml

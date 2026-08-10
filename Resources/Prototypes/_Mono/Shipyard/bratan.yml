@@ -12,9 +12,11 @@
 - type: vessel
   id: Bratan
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-Bratan-name
   description: vessel-Bratan-desc
-  price: 142000
+  # Andromeda end
+  price: 188480
   category: Large
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/bratan.yml

@@ -3,9 +3,11 @@
 - type: vessel
   id: Sagittarius
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Sagittarius-name
   description: vessel-Sagittarius-desc
-  price: 165000
+  # Andromeda end
+  price: 192763
   category: Large
   group: Expedition
   shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/sagittarius.yml

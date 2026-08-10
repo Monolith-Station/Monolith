@@ -1,8 +1,10 @@
 - type: vessel
   id: Molotok
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Molotok-name
   description: vessel-Molotok-desc
+  # Andromeda end
   price: 60000
   purchasable: false # voucher only
   category: Large

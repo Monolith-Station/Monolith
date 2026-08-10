@@ -5,9 +5,11 @@
 - type: vessel
   id: Spekter
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Spekter-name
   description: vessel-Spekter-desc
-  price: 195000 # appraises at 159k
+  # Andromeda end
+  price: 236118 # appraises at 233118
   hyperwarTimelock: 1800
   purchasable: false # voucher only
   category: Medium

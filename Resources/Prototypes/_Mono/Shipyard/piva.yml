@@ -7,9 +7,11 @@
 - type: vessel
   id: Piva
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Piva-name
   description: vessel-Piva-desc
-  price: 18500 # its got no ftl, barely any cargo space, its THE cheapest cargo ship you can buy.
+  # Andromeda end
+  price: 36694 # its got no ftl, barely any cargo space, its THE cheapest cargo ship you can buy.
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/piva.yml

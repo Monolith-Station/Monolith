@@ -1,4 +1,5 @@
 ﻿using Content.Server.Kitchen.Components;
+using Content.Shared.Kitchen.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;

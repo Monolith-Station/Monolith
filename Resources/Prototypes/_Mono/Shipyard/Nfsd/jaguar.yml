@@ -3,9 +3,11 @@
 - type: vessel
   id: Jaguar
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Jaguar-name
   description: vessel-Jaguar-desc
-  price: 58500
+  # Andromeda end
+  price: 84873
   category: Small
   group: Security
   access: Security

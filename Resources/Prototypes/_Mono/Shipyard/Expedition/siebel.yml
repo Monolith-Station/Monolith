@@ -5,9 +5,11 @@
 - type: vessel
   id: Siebel
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Siebel-name
   description: vessel-Siebel-desc
-  price: 175000 #
+  # Andromeda end
+  price: 211782
   category: Medium
   group: Expedition
   access: Mercenary

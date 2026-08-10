@@ -1,9 +1,11 @@
 - type: vessel
   id: Bucket
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Bucket-name
   description: vessel-Bucket-desc
-  price: 18000
+  # Andromeda end
+  price: 34273
   category: Micro
   group: Sr
   access: Janitor

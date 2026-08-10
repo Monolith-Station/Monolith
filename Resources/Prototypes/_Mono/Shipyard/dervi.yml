@@ -5,9 +5,11 @@
 - type: vessel
   id: Dervi
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-Dervi-name
   description: vessel-Dervi-desc
-  price: 64300
+  # Andromeda end
+  price: 89618
   category: Small
   group: Medical
   shuttlePath: /SharedMaps/_Mono/Shuttles/dervi.yml

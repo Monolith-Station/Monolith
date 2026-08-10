@@ -7,9 +7,11 @@
 - type: vessel
   id: Vaquita
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Vaquita-name
   description: vessel-Vaquita-desc
-  price: 37900
+  # Andromeda end
+  price: 52014
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/vaquita.yml

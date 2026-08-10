@@ -9,9 +9,11 @@
 - type: vessel
   id: Spessbite
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Spessbite-name
   description: vessel-Spessbite-desc
-  price: 35000
+  # Andromeda end
+  price: 54734
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/spessbite.yml

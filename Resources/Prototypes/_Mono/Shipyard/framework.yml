@@ -11,9 +11,11 @@
 - type: vessel
   id: Framework
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Framework-name
   description: vessel-Framework-desc
-  price: 10000
+  # Andromeda end
+  price: 18204
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/framework.yml

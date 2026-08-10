@@ -1,0 +1,40 @@
+- type: entity
+  categories: [ DoNotMap ]
+  parent: BaseItem
+  id: MantisBlade
+  name: mantis blade
+  description: They won’t see the steel until it’s too late.
+  components:
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi
+    state: icon
+  - type: MeleeWeapon
+    swingLeft: true
+    wideAnimationRotation: 135
+    attackRate: 1.5
+    clickPartDamageMultiplier: 2
+    heavyPartDamageMultiplier: 1
+    damage:
+      types:
+        Slash: 14
+        Piercing: 7
+        Structural: 30
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Tag
+    tags:
+    - MantisBlade
+  - type: Multihit
+    multihitWhitelist:
+      tags:
+      - MantisBlade
+  - type: ChangePrefixAfterDelay
+  - type: Item
+    size: Ginormous
+    heldPrefix: popout
+  - type: Tool
+    qualities:
+    - Slicing

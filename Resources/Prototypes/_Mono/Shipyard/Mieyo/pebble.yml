@@ -1,0 +1,33 @@
+- type: vessel
+  id: Pebble
+  parent: BaseVessel
+  name: MMC Pebble
+  description: A dirt cheap mining craft. Literally only the bare essentials. No gunnery, no drills or pulsers, no magnet.
+  price: 70000
+  category: Small
+  group: Mieyo
+  access: Mieyo
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Mieyo/pebble.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Pebble
+  mapName: 'MMC Pebble'
+  mapPath: /SharedMaps/_Mono/Shuttles/Mieyo/pebble.yml
+  minPlayers: 0
+  stations:
+    Pebble:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Pebble MMC{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          MMCEmployee: [ 0, 0 ]

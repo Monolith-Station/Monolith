@@ -7,9 +7,11 @@
 - type: vessel
   id: Picses
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Picses-name
   description: vessel-Picses-desc
-  price: 77150
+  # Andromeda end
+  price: 82520
   category: Medium
   group: Expedition
   shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/picses.yml

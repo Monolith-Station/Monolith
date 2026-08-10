@@ -3,9 +3,11 @@
 - type: vessel
   id: Bastion
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Bastion-name
   description: vessel-Bastion-desc
-  price: 95500
+  # Andromeda end
+  price: 115905
   purchasable: false # voucher only
   category: Medium
   group: BlackMarket

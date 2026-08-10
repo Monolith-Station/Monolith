@@ -7,9 +7,11 @@
 - type: vessel
   id: Phantom
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Phantom-name
   description: vessel-Phantom-desc
-  price: 90000
+  # Andromeda end
+  price: 155146
   category: Small
   group: Medical
   access: Command # DoC exclusive.

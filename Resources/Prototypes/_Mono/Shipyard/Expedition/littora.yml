@@ -7,9 +7,11 @@
 - type: vessel
   id: Littora
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Littora-name
   description: vessel-Littora-desc
-  price: 76000
+  # Andromeda end
+  price: 120788
   category: Large
   group: Expedition
   shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/littora.yml

@@ -3,8 +3,10 @@
 - type: vessel
   id: Ledokol
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Ledokol-name
   description: vessel-Ledokol-desc
+  # Andromeda end
   limit: 1
   price: 425000
   purchasable: false # voucher only
@@ -31,7 +33,7 @@
       stationProto: StandardFrontierVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Ledokol-desc
+        description: vessel-Ledokol-desc # Andromeda: Localize ship name and desc
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Ledokol USSP{1}'

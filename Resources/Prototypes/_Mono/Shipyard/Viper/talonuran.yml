@@ -7,9 +7,11 @@
 - type: vessel
   id: Talonuran
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Talonuran-name
   description: vessel-Talonuran-desc
-  price: 47500
+  # Andromeda end
+  price: 68714
   category: Small
   group: Viper
   access: Viper

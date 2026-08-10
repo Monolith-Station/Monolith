@@ -7,9 +7,11 @@
 - type: vessel
   id: Shareholder
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Shareholder-name
   description: vessel-Shareholder-desc
-  price: 19000
+  # Andromeda end
+  price: 33269
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/shareholder.yml

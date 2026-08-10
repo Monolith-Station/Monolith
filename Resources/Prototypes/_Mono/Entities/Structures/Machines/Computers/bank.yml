@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseStationAdminBankATM
+  id: StationAdminBankATMMMC
+  description: Used to transfer funds to and from the local MMC account.
+  suffix: Mieyo
+  components:
+  - type: StationBankATM
+    account: Mieyo
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - MMC
+  - type: AccessReader
+    access: [["MieyoLiason"]]

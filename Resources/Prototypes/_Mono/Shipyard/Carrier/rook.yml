@@ -9,9 +9,11 @@
 - type: vessel
   id: Rook
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Rook-name
   description: vessel-Rook-desc
-  price: 15000
+  # Andromeda end
+  price: 21017
   category: Small
   group: Custom
   access: Brig

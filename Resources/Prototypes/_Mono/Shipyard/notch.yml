@@ -7,9 +7,11 @@
 - type: vessel
   id: Notch
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Notch-name
   description: vessel-Notch-desc
-  price: 25900
+  # Andromeda end
+  price: 47186
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/notch.yml

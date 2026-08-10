@@ -7,8 +7,10 @@
 - type: vessel
   id: Rig
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Rig-name
   description: vessel-Rig-desc
+  # Andromeda end
   price: 104900 # +50% Markup from 69900 appraisegrid price. To amount for all of the QOL included in the vessel
   category: Medium
   group: Shipyard

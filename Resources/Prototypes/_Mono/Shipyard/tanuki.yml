@@ -7,9 +7,11 @@
 - type: vessel
   id: Tanuki
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Tanuki-name
   description: vessel-Tanuki-desc
-  price: 115000 # 95K base + 20K for medical/galley.
+  # Andromeda end
+  price: 151250 # 131250 base + 20K for medical/galley.
   category: medium
   group: Shipyard
   access: Mercenary

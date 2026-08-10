@@ -2,9 +2,11 @@
 - type: vessel
   id: Calypso
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Calypso-name
   description: vessel-Calypso-desc
-  price: 134000
+  # Andromeda end
+  price: 168619
   purchasable: false # voucher only
   category: Medium
   group: Security

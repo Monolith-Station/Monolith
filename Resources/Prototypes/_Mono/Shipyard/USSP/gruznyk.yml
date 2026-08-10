@@ -3,9 +3,11 @@
 - type: vessel
   id: Gruznyk
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Gruznyk-name
   description: vessel-Gruznyk-desc
-  price: 64200
+  # Andromeda end
+  price: 99050
   category: Medium
   group: Ussp
   access: USSP

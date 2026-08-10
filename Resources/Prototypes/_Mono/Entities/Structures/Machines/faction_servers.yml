@@ -138,6 +138,29 @@
     - MechaEngineering
 
 - type: entity
+  id: ResearchAndDevelopmentServerMMC
+  parent: BaseRdServerFaction
+  name: MMC R&D server
+  description: Contains the collective knowledge of the MMC in this sector.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/server.rsi
+    layers:
+    - state: server
+    - state: variant-mmc
+    - state: server_o
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: TechnologyDatabase
+    supportedDisciplines:
+    - Mieyo
+    - FactionUniversal
+    - Industrial
+    - Arsenal
+    - Experimental
+    - CivilianServices
+    - MechaEngineering
+
+- type: entity
   id: ResearchAndDevelopmentServerDebug
   parent: BaseRdServerFaction
   name: debug R&D server
@@ -158,6 +181,8 @@
     - RogueEquipment
     - RogueShipyard
     - Ussp
+    - ViperGroup
+    - Mieyo
     - FactionUniversal
     - MechaEngineering
 

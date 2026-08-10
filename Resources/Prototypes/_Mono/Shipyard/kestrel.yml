@@ -7,9 +7,11 @@
 - type: vessel
   id: Kestrel
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Kestrel-name
   description: vessel-Kestrel-desc
-  price: 57500
+  # Andromeda end
+  price: 78811
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/kestrel.yml

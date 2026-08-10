@@ -39,7 +39,7 @@
     maxAngle: 5
     shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
+      collection: ShipGunGenericSmall
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -106,7 +106,7 @@
     availableModes: Burst
     shootThermalSignature: 2000000 # ~4.5km signature if firing continuously
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/120mm_mortar.ogg
+      collection: ShipGunGenericSmallAlt
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -183,6 +183,7 @@
         layer:
         - MachineLayer
   - type: Gun
+    damageModifier: 1.3
     projectileSpeed: 410
     recoil: 50 # 2x
     minAngle: 0
@@ -195,7 +196,7 @@
     availableModes: Burst
     shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon2.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -288,7 +289,7 @@
     fireRate: 0.05
     shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+      collection: ShipGunGenericBig
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger

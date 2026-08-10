@@ -7,9 +7,11 @@
 - type: vessel
   id: twilightmk2
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-twilightmk2-name
   description: vessel-twilightmk2-desc
-  price: 59000 # its not more expensive because 2/3s of the ship is actively spaced.
+  # Andromeda end
+  price: 98942 # its not more expensive because 2/3s of the ship is actively spaced.
   category: Medium
   group: Expedition
   access: Mercenary

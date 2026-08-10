@@ -8,8 +8,10 @@
 - type: vessel
   id: Snakelet
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Snakelet-name
   description: vessel-Snakelet-desc
+  # Andromeda end
   limit: 4
   price: 20000
   purchasable: false #voucher only

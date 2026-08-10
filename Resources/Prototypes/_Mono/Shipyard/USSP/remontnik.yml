@@ -3,9 +3,11 @@
 - type: vessel
   id: Remontnik
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Remontnik-name
   description: vessel-Remontnik-desc
-  price: 102000
+  # Andromeda end
+  price: 160461
   category: Medium
   group: Ussp
   access: USSP

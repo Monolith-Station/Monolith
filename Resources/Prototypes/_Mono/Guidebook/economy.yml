@@ -5,6 +5,13 @@
   priority: 1
   children:
   - EconomyRecipes
+  - Introduction
+
+- type: guideEntry
+  id: Introduction
+  name: Introduction
+  text: "/ServerInfo/_Mono/Guidebook/Economy/Basics.xml"
+  priority: 2
 
 - type: guideEntry
   id: EconomyRecipes
@@ -13,9 +20,20 @@
   priority: 2
   children:
   - ArcFurnace
+  - PrecisionAssembler
+  filterEnabled: True
 
 - type: guideEntry
   id: ArcFurnace
   name: Arc Furnace Recipes
   text: "/ServerInfo/_Mono/Guidebook/Economy/ArcFurnace.xml"
   priority: 3
+  filterEnabled: True
+
+- type: guideEntry
+  id: PrecisionAssembler
+  name: Precision Assembler Recipes
+  text: "/ServerInfo/_Mono/Guidebook/Economy/PrecisionAssembler.xml"
+  priority: 3
+  filterEnabled: True
+

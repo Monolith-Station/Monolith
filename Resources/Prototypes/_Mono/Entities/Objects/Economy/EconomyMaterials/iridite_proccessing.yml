@@ -1,0 +1,79 @@
+# FLOWCHART
+# 12 PLASMA 2 COPPER 2 LITHIUM 16 IRON 4 COAL INTO INDUSTRIAL ORE PROCESSOR INTO 1 SLAG
+# 1 SLAG GRINDED INTO 1 POWDER IN CENTRIFUGE
+# 3 POWDER W/ 10U NAPALM AND 10U THERMITE INTO 1 CRYSTAL IN ARC FURNACE
+# 1 CRYSTAL PUT IN ARC FURNACE AGAIN W/ A LOT OF OTHER RANDOM CHEMS FOR FINAL PRODUCT OF 1 SHEET
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialIriditeSlag
+  name: iridite slag
+  description: Needs to be put in a centrifuge to seperate into the fine powder required for gasless Iridite production.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/iridite_midsteps.rsi
+    state: slag
+  - type: Item
+    size: Normal
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      IriditeSlag: 1
+  - type: GuideHelp
+    guides:
+    - ArcFurnace
+  - type: Stack
+    stackType: IriditeSlag
+    count: 1
+
+- type: stack
+  id: IriditeSlag
+  name: iridite slag
+  icon: { sprite: /Textures/_Mono/Objects/Materials/iridite_midsteps.rsi, state: slag }
+  spawn: MaterialIriditeSlag
+  maxCount: 5
+
+- type: material
+  id: IriditeSlag
+  stackEntity: MaterialIriditeSlag
+  name: materials-iridite-slag
+  unit: materials-unit-chunk
+  icon: { sprite: /Textures/_Mono/Objects/Materials/iridite_midsteps.rsi, state: slag }
+  color: "#544438"
+  price: 0.1 # 10/sheet
+
+- type: entity
+  id: IriditePowder
+  name: raw iridite powder
+  parent: BaseItem
+  description: Grinded raw iridite slag made in a processing centrifuge, ready to be mixed with napalm and thermite in an arc furnace to make iridite crystals.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/iridite_midsteps.rsi
+    state: powder
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - IriditePowder
+  - type: GuideHelp
+    guides:
+    - ArcFurnace
+
+- type: entity
+  id: IriditeCrystal
+  name: crystalline iridite
+  parent: BaseItem
+  description: A natural state of iridite from the result of non-atmospheric iridite processing. Needs to be processed in an arc furnace again with various chemicals to make 1 iridite sheet.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/iridite_midsteps.rsi
+    state: crystal
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - IriditeCrystal
+  - type: GuideHelp
+    guides:
+    - ArcFurnace

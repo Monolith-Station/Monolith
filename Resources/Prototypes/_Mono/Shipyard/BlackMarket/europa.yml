@@ -3,8 +3,10 @@
 - type: vessel
   id: Europa
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Europa-name
   description: vessel-Europa-desc
+  # Andromeda end
   limit: 3
   hyperwarLimit: 5
   hyperwarTimelock: 1800
@@ -30,7 +32,7 @@
     Europa:
       gridComponents:
       - type: VesselInfo
-        description: vessel-Europa-desc
+        description: vessel-Europa-desc # Andromeda: Localize ship name and desc
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup

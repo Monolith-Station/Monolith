@@ -6,9 +6,11 @@
 - type: vessel
   id: Peregrine
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Peregrine-name
   description: vessel-Peregrine-desc
-  price: 59525
+  # Andromeda end
+  price: 128434
   category: Medium
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/peregrine.yml

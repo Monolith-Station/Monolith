@@ -1,6 +1,6 @@
 <Document>
-  # Motor de Antimatéria (AME)
-  O Motor de Antimatéria é um gerador de suporte de curto prazo para a estação, fornecendo uma quantidade considerável de energia por um tempo limitado.
+  # Motor de Reação de Isótopos (IRE)
+  O Motor de Reação de Isótopos é um gerador avançado mas de alto custo para a estação, fornecendo uma quantidade considerável de energia por um tempo limitado.
 
   É usado principalmente para auxiliar engenheiros na partida de motores maiores como o [textlink="Motor de Singularidade" link="SingularityEngine"] ou o [textlink="Motor Tesla" link="TeslaEngine"], suplementando as [textlink="baterias" link="PowerStorage"] da estação com energia parcial para estender seu tempo de funcionamento.
 
@@ -12,15 +12,15 @@
   <GuideEntityEmbed Entity="AmeJar"/>
   </Box>
 
-  O Controlador do AME é a parte do AME que fornece energia à rede da estação através de uma [textlink="conexão de alta tensão" link="VoltageNetworks"].
-  Por isso, você vai querer começar sua construção do AME com o controlador sobre um [color=orange]fio de AT[/color].
+  O Controlador do IRE é a parte do IRE que fornece energia à rede da estação através de uma [textlink="conexão de alta tensão" link="VoltageNetworks"].
+  Por isso, você vai querer começar sua construção do IRE com o controlador sobre um [color=orange]fio de AT[/color].
 
   A maioria das estações tem [color=orange]fiação de AT[/color] exposta ou locais designados para fixar um controlador AME, para que ele se conecte à rede.
 
-  O blindagem do AME é a estrutura física que compõe o motor de antimatéria. É feita convertendo kits AME em blindagem usando um multitool.
+  A blindagem do IRE é a estrutura física que compõe o motor de antimatéria. É feita convertendo kits IRE em blindagem usando uma multitool.
 
-  Para construir um AME, comece colocando um quadrado de 3x3 ou maior de kits AME em preparação para a construção, garantindo maximizar o número de peças "centrais" que são cercadas em todos os oito lados.
-  Quanto maior a quantidade de peças centrais, mais núcleos seu AME terá, e mais energia ele poderá gerar com segurança.
+  Para construir um IRE, comece colocando um quadrado 3x3 ou maior de kits IRE em preparação para a construção, garantindo maximizar o número de peças "centrais" que são cercadas em todos os oito lados.
+  Quanto maior a quantidade de peças centrais, mais núcleos seu IRE terá, e mais energia ele poderá gerar com segurança.
 
   <Box>
     <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
@@ -38,7 +38,7 @@
     <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
   </Box>
 
-  Uma vez feito isso, você pode usar um multitool para converter cada kit AME em blindagem, o que deve formar uma configuração de AME concluída.
+  Uma vez feito isso, você pode usar um multitool para converter cada kit IRE em blindagem, o que deve formar uma configuração de IRE concluída.
 
   <GuideEntityEmbed Entity="AmeController" Caption=""/>
   <Box>
@@ -61,16 +61,16 @@
   </Box>
 
   ## Operação
-  Para iniciar o AME, insira um frasco de combustível no controlador do AME e defina a taxa de injeção segura.
+  Para iniciar o IRE, insira um frasco de combustível no controlador e defina a taxa de injeção segura.
 
-  A taxa de injeção segura é o ponto onde o AME pode funcionar com segurança sem superaquecer, maximizando a saída de energia.
+  A taxa de injeção segura é o ponto onde o IRE pode funcionar com segurança sem superaquecer, maximizando a saída de energia.
 
   Esta taxa é sempre o dobro da contagem de núcleos.
 
-  Por exemplo, um AME com um núcleo terá uma taxa de injeção segura de 2. Com dois núcleos, a taxa de injeção segura seria 4, e assim por diante.
+  Por exemplo, um IRE com um núcleo terá uma taxa de injeção segura de 2. Com dois núcleos, a taxa de injeção segura seria 4, e assim por diante.
 
   Qualquer coisa além dessa proporção resultará eventualmente no motor [color=#ff0000]superaquecendo[/color] e, logo depois, [color=#ff0000]explodindo[/color].
 
-  O controlador do AME vai [textlink="reportar" link="InspectingPower"] tanto a quantidade de energia que está fornecendo à rede quanto o máximo de energia teórica que poderia fornecer se solicitado.
+  O controlador do IRE vai [textlink="reportar" link="InspectingPower"] tanto a quantidade de energia que está fornecendo à rede quanto o máximo de energia teórica que poderia fornecer se solicitado.
 
 </Document>

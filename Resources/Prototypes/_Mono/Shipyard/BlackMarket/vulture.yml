@@ -3,11 +3,13 @@
 - type: vessel
   id: Vulture
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Vulture-name
   description: vessel-Vulture-desc
+  # Andromeda end
   limit: 2
   hyperwarTimelock: 1800
-  price: 285580
+  price: 369351
   purchasable: false # voucher only
   category: Large
   group: BlackMarket
@@ -30,7 +32,7 @@
       stationProto: StandardFrontierVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Vulture-desc
+        description: vessel-Vulture-desc # Andromeda: Localize ship name and desc
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Vulture PDV{1}'
