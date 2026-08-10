@@ -9266,7 +9266,7 @@ ent-EconomyPlannerTabletop = planejador industrial
 
 # From: Resources/Prototypes/_Mono/Entities/Objects/Economy/arc_furnace.yml
 
-ent-ArmorPlateEconomy2UnfinishedSpawner = placa de blindagem pesada (inacabada)
+ent-ArmorPlateEconomy2UnfinishedSpawner = chapa de blindagem pesada (inacabada)
     .desc = Uma pilha de metal em processo, sendo refinada em uma placa protetora forte. Precisa de parafusos para começar o processamento.
 
 ent-SiliconWaferEconomy = wafer de silício
@@ -9278,11 +9278,8 @@ ent-SiliconWaferEconomySliceSpawner8 = wafer de silício (x8)
 ent-SiliconWaferScrapEconomy = sucata de wafer de silício
     .desc = Uma bagunça quebrada e contaminada de silício que costumava ser útil para computadores. Que desperdício.
 
-ent-ArmorPlateEconomy2Start = placa de blindagem pesada (inacabada)
+ent-ArmorPlateEconomy2Start = chapa de blindagem pesada (inacabada)
     .desc = Uma pilha de metal em processo, sendo refinada em uma placa protetora forte. Precisa de parafusos para começar o processamento.
-
-ent-ArmorPlateEconomy3Fragment = fragmento de placa de blindagem composta
-    .desc = Um fragmento de uma placa de blindagem cerâmica/carbeto. Útil para aplicações em menor escala.
 
 ent-SiliconBouleEconomy = lingote de silício
     .desc = Um pedaço robusto mas frágil de silício refinado, pronto para ser fatiado em wafers de qualidade de processador. Não toque sem luvas!
@@ -9290,7 +9287,7 @@ ent-SiliconBouleEconomy = lingote de silício
 ent-SiliconBouleScrapEconomy = sucata de lingote de silício
     .desc = Uma bagunça quebrada e contaminada de silício que costumava ser útil para computadores. Que desperdício.
 
-ent-ArmorPlateEconomy4Start = placa de blindagem EMAG (inacabada)
+ent-ArmorPlateEconomy4Start = chapa de blindagem EMAG (inacabada)
     .desc = O componente de placa cerâmica/metálica de uma placa de blindagem EMAG, fresco da forja e aguardando seus componentes eletrônicos. Precisa de um eletroímã composto para começar a construção, então parafusagem e corte significativos.
 
 # From: Resources/Prototypes/_Mono/Entities/Objects/Tools/mieyo_tools.yml
