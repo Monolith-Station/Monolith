@@ -174,6 +174,25 @@ namespace Content.Shared.Maps
         /// </summary>
         [DataField]
         public float FallStunMultiplier { get; private set; } = 1f;
+
+        /// <summary>
+        /// Shader applied to entities standing on this tile, for things like looking submerged while wading.
+        /// </summary>
+        [DataField]
+        public string? EntityShader { get; private set; }
+
+        /// <summary>
+        /// Please don't make a lake out of meth, please.
+        /// </summary>
+        [DataField]
+        public ProtoId<ReagentPrototype>? Reagent { get; private set; }
+
+        /// <summary>
+        /// Whether something lying down here goes under. Basically just used for water.
+        /// This should really, REALLY have a different way of defining it that isn't the damn ContentTileDefinition.
+        /// </summary>
+        [DataField]
+        public bool Submersible { get; private set; }
         // </Mono>
 
         /// <summary>
