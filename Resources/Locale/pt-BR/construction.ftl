@@ -795,3 +795,5 @@ construction-supplybot-name = { ent-MobSupplyBot }
 construction-supplybot-desc = Esse robô pode ser carregado com cargas para fazer entregas.
 construction-taxibot-name = { ent-MobTaxiBot }
 construction-taxibot-desc = Esse robô leva pessoas para o seu destino.
+construction-RepairMothershipPinpointer-name = pinpointer consertado da nave-mãe
+construction-RepairMothershipPinpointer-desc = Pinpointer Xenoborg consertado para rastrear a nave-mãe.

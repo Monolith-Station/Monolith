@@ -8963,7 +8963,7 @@ ent-ComputerSurveillanceWirelessXenoborgCameraMonitor = monitor de câmera de xe
 
 # From: Resources/Prototypes/_Mono/Entities/Structures/Machines/telecomms.yml
 
-ent-TelecomServerFilledMMC = ServidorTelecomFilledMMC
+ent-TelecomServerFilledMMC = {ent-TelecomServer}
     .suffix = Mieyo
 
 
@@ -9010,7 +9010,7 @@ ent-BallisticTurretHeavyAIMieyo = torre sentinela remota pesada Mieyo
 
 # From: Resources/Prototypes/_Mono/Entities/Structures/Wallmounts/switch.yml
 
-ent-LockableButtonMieyo = BotãoTrancávelMieyo
+ent-LockableButtonMieyo = {ent-LockableButton}
     .suffix = Mieyo
 
 
@@ -9088,22 +9088,22 @@ ent-VGHandheldOverwatchConsole = console portátil de sobrevisão VG
 
 # From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/airlock.yml
 
-ent-AirlockMieyo = CompartimentoMieyo
+ent-AirlockMieyo = {ent-Airlock}
     .suffix = Mieyo
 
 
 # From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/glass_airlock.yml
 
-ent-AirlockMieyoGlass = CompartimentoMieyoVidro
+ent-AirlockMieyoGlass = {ent-AirlockGlass}
     .suffix = Mieyo
 
-ent-AirlockMieyoGlassLocked = CompartimentoMieyoVidroTrancado
+ent-AirlockMieyoGlassLocked = {ent-AirlockGlass}
     .suffix = Mieyo, Trancado
 
-ent-AirlockMieyoGlassLockedSecurity = CompartimentoMieyoVidroTrancadoSegurança
+ent-AirlockMieyoGlassLockedSecurity = {ent-AirlockGlass}
     .suffix = Segurança Mieyo, Trancado
 
-ent-AirlockMieyoGlassLockedLiason = CompartimentoMieyoVidroTrancadoLiason
+ent-AirlockMieyoGlassLockedLiason = {ent-AirlockGlass}
     .suffix = Liaison Mieyo, Trancado
 
 
@@ -9139,22 +9139,22 @@ ent-AirlockHeavyMieyoLiasonLocked = {ent-AirlockHeavy}
 
 # From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/access.yml
 
-ent-AirlockMieyoLocked = CompartimentoMieyoTrancado
+ent-AirlockMieyoLocked = {ent-Airlock}
     .suffix = Mieyo, Trancado
 
-ent-AirlockMieyoLockedSecurity = CompartimentoMieyoTrancadoSegurança
+ent-AirlockMieyoLockedSecurity = {ent-Airlock}
     .suffix = Segurança Mieyo, Trancado
 
-ent-AirlockMieyoLockedLiason = CompartimentoMieyoTrancadoLiaison
+ent-AirlockMieyoLockedLiason = {ent-Airlock}
     .suffix = Liaison Mieyo, Trancado
 
-ent-AirlockMaintMieyoLocked = CompartimentoManutençãoMieyoTrancado
+ent-AirlockMaintMieyoLocked = {ent-Airlock}
     .suffix = Mieyo, Trancado
 
-ent-AirlockMaintMieyoSecurityLocked = CompartimentoManutençãoMieyoSegurançaTrancado
+ent-AirlockMaintMieyoSecurityLocked = {ent-Airlock}
     .suffix = Segurança Mieyo, Trancado
 
-ent-AirlockMaintMieyoLiasonLocked = CompartimentoManutençãoMieyoLiaisonTrancado
+ent-AirlockMaintMieyoLiasonLocked = {ent-Airlock}
     .suffix = Liaison Mieyo, Trancado
 
 
@@ -9167,10 +9167,10 @@ ent-AirlockHeavyAssemblyMieyo = {ent-AirlockHeavyAssembly}
 
 # From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/external.yml
 
-ent-AirlockExternalGlassMieyo = CompartimentoExternoVidroMieyo
+ent-AirlockExternalGlassMieyo = {ent-AirlockExternalGlass}
     .suffix = Mieyo, Vidro, Externo
 
-ent-AirlockExternalGlassMieyoLocked = CompartimentoExternoVidroMieyoTrancado
+ent-AirlockExternalGlassMieyoLocked = {ent-AirlockExternalGlass}
     .suffix = Trancado, Mieyo, Vidro, Externo
 
 
@@ -9194,7 +9194,7 @@ ent-XenoborgChassisStealth = cibernético furtivo xenoborg
 
 # From: Resources/Prototypes/_Mono/Entities/Mobs/Player/silicon.yml
 
-ent-MothershipCore = NaveMãe
+ent-MothershipCore = Nucleo da Nave Mãe
     .suffix = Papel de Fantasma, Xenoborg
 
 ent-StationAiBrainXenoborg = CérebroIAEstaçãoXenoborg
@@ -9217,7 +9217,7 @@ ent-PlayerXenoBorgGhostRolePlaytime = {ent-BorgChassisSelectableXenoborg}
 
 # From: Resources/Prototypes/_Mono/Entities/Objects/Misc/turrets.yml
 
-ent-WeaponTurretXenoborg = TorreXenoborg
+ent-WeaponTurretXenoborg = torreta
     .suffix = Xenoborg
 
 
@@ -9248,14 +9248,8 @@ ent-EconomyPlannerTabletop = planejador industrial
 
 # From: Resources/Prototypes/_Mono/Entities/Objects/Economy/arc_furnace.yml
 
-ent-ArmorPlateEconomy1 = placa de blindagem básica
-    .desc = Uma placa de liga "blindada" simples e refinada útil para coisas que precisam de estabilidade estrutural. Pode ser laminada para começar a criar uma placa de blindagem pesada.
-
 ent-ArmorPlateEconomy2UnfinishedSpawner = placa de blindagem pesada (inacabada)
     .desc = Uma pilha de metal em processo, sendo refinada em uma placa protetora forte. Precisa de parafusos para começar o processamento.
-
-ent-ArmorPlateEconomy1Broken = placa de blindagem básica quebrada
-    .desc = Destroços de uma placa de blindagem simples. Não muito surpreendente.
 
 ent-SiliconWaferEconomy = wafer de silício
     .desc = Uma fatia limpa de silício monocristalino puro. Essencial para eletrônicos avançados!
@@ -9266,14 +9260,8 @@ ent-SiliconWaferEconomySliceSpawner8 = wafer de silício (x8)
 ent-SiliconWaferScrapEconomy = sucata de wafer de silício
     .desc = Uma bagunça quebrada e contaminada de silício que costumava ser útil para computadores. Que desperdício.
 
-ent-ArmorPlateEconomy2 = placa de blindagem pesada
-    .desc = Uma placa de blindagem de liga mais pesada e laminada. Pesada, mas forte. Útil para coisas que precisam de estabilidade estrutural significativa, ou mais comumente, a capacidade de receber um golpe.
-
 ent-ArmorPlateEconomy2Start = placa de blindagem pesada (inacabada)
     .desc = Uma pilha de metal em processo, sendo refinada em uma placa protetora forte. Precisa de parafusos para começar o processamento.
-
-ent-ArmorPlateEconomy2Broken = placa de blindagem pesada quebrada
-    .desc = Destroços de uma placa de blindagem de liga pesada.
 
 ent-ArmorPlateEconomy3Fragment = fragmento de placa de blindagem composta
     .desc = Um fragmento de uma placa de blindagem cerâmica/carbeto. Útil para aplicações em menor escala.
@@ -9284,21 +9272,8 @@ ent-SiliconBouleEconomy = lingote de silício
 ent-SiliconBouleScrapEconomy = sucata de lingote de silício
     .desc = Uma bagunça quebrada e contaminada de silício que costumava ser útil para computadores. Que desperdício.
 
-ent-ArmorPlateEconomy3 = placa de blindagem composta
-    .desc = Uma placa de blindagem cerâmica/carbeto relativamente difícil de produzir. Leve para a quantidade de proteção que proporciona, mas ainda excepcionalmente pesada, tornando-a principalmente útil em cascos de naves. Pode ser cortada em dois fragmentos.
-
-ent-ArmorPlateEconomy3Broken = placa de blindagem composta quebrada
-    .desc = Destroços de uma placa de blindagem de liga cerâmica/carbeto avançada. Um pouco preocupante.
-
 ent-ArmorPlateEconomy4Start = placa de blindagem EMAG (inacabada)
     .desc = O componente de placa cerâmica/metálica de uma placa de blindagem EMAG, fresco da forja e aguardando seus componentes eletrônicos. Precisa de um eletroímã composto para começar a construção, então parafusagem e corte significativos.
-
-ent-ArmorPlateEconomy4 = placa de blindagem eletromagnética EMAG
-    .desc = Uma placa de blindagem eletromagnética EMAG de última geração. Resistência excepcional mesmo quando desligada, mas ainda muito pesada. Útil para blindagem de reator de alta potência, armadura de infantaria, motores FTL, e a maioria das coisas que passam por estresse significativo.
-
-ent-ArmorPlateEconomy4Broken = placa de blindagem EMAG quebrada
-    .desc = Destroços de uma placa de blindagem de liga cerâmica/carbeto avançada. Extremamente preocupante.
-
 
 # From: Resources/Prototypes/_Mono/Entities/Objects/Tools/mieyo_tools.yml
 
@@ -9417,13 +9392,13 @@ ent-MieyoLiasonPDA = PDA de liaison corporativo Mieyo
 
 # From: Resources/Prototypes/_Mono/Entities/Objects/Devices/door_access.yml
 
-ent-DoorElectronicsMieyo = EletrônicaPortaMieyo
+ent-DoorElectronicsMieyo = {ent-DoorElectronics}
     .suffix = Mieyo, Trancado
 
-ent-DoorElectronicsMieyoSecurity = EletrônicaPortaMieyoSegurança
+ent-DoorElectronicsMieyoSecurity = {ent-DoorElectronics}
     .suffix = Segurança Mieyo, Trancado
 
-ent-DoorElectronicsMieyoLiason = EletrônicaPortaMieyoLiaison
+ent-DoorElectronicsMieyoLiason = {ent-DoorElectronics}
     .suffix = Liaison Mieyo, Trancado
 
 

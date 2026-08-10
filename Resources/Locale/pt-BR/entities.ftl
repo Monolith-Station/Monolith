@@ -29352,4 +29352,3 @@ ent-BeachBall = bola de praia
 
 ent-ClownRecorder = gravador de palhaço
     .desc = Quando você simplesmente não consegue fazer aquelas risadas do jeito natural!
-
