@@ -376,7 +376,7 @@ ent-PaperStickyNoteStackPink = {ent-PaperStickyNoteStack}
 
 # From: _DV/Entities/Objects/Specific/Hydroponics/plant_bag_holding.yml
 
-ent-PlantBagOfHolding = bolsa bluespace de plantas
+ent-PlantBagOfHolding = bolsa de plantas bluespace
     .desc = Uma bolsa bluepace robusta para botânicos frutíferos com mais plantas do que bolsos.
 
 # From: _DV/Entities/Objects/Specific/Justice/gavel.yml
