@@ -13,7 +13,7 @@ chat-radio-engineering = Engenharia
 chat-radio-medical = Médico
 chat-radio-science = Ciência
 chat-radio-security = Segurança Colonial
-chat-radio-service = Staff Colonial
+chat-radio-service = Funcionários Colonial
 chat-radio-supply = Suprimentos
 chat-radio-syndicate = Sindicato
 chat-radio-freelance = Vanguarda
@@ -23,3 +23,5 @@ chat-radio-freeport = Porto Livre
 # not headset but whatever
 chat-radio-handheld = Portátil
 chat-radio-binary = Binário
+chat-radio-xenoborg = Xenoborg
+chat-radio-mothership = Mothership

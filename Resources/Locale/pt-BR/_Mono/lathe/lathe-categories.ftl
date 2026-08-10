@@ -6,6 +6,9 @@ lathe-category-dangerous-animals = Animais Perigosos
 # Misc
 lathe-category-vouchers = Voucher de Nave
 lathe-category-nfr = Barras NFR
+lathe-category-componentmaterials = Componentes Empacotados
+lathe-category-components = Componentes Industriais
+lathe-category-altrecipes = Receitas Alternativas
 
 # Mechs
 lathe-category-mech-weapons-s2s4 = Equipamento S2/4 para Mechas

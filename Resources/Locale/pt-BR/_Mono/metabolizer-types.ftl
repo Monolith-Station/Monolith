@@ -1,2 +1,3 @@
 metabolizer-type-chimera = Quimera
-metabolizer-type-hydrakin = Hidraquin
+metabolizer-type-hydrakin = Hydrakin
+metabolizer-type-ias = Sistema de Ar Interno

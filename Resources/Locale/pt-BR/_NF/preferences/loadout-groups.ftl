@@ -22,3 +22,6 @@ loadout-group-contractor-wallet = carteira
 loadout-group-contractor-implanter = implantadores
 loadout-group-contractor-bureaucracy = burocracia
 loadout-group-contractor-armorplates = placas de blindagem
+
+# MMC
+loadout-group-mieyo-products = MMC products

@@ -9092,6 +9092,7 @@ ent-VGHandheldOverwatchConsole = console portátil de sobrevisão VG
 # From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/airlock.yml
 
 ent-AirlockMieyo = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
     .suffix = Mieyo
 
 
@@ -9210,6 +9211,7 @@ ent-XenoborgChassisStealth = cibernético furtivo xenoborg
 # From: Resources/Prototypes/_Mono/Entities/Mobs/Player/silicon.yml
 
 ent-MothershipCore = Nucleo da Nave Mãe
+    .desc = O mais recente em Inteligências Artificiais.
     .suffix = Papel de Fantasma, Xenoborg
 
 ent-StationAiBrainXenoborg = CérebroIAEstaçãoXenoborg

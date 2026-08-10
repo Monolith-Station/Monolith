@@ -28,3 +28,5 @@ research-technology-tsfmc-tier-three-vouchers = Produção de Estaleiro de Grau 
 research-technology-tsfmc-super-weapons = Fabricação de Armas de Ponta
 research-technology-tsfmc-synthalloy = Ciência de Materiais Experimental
 research-technology-tsfmc-advanced-module = Desenvolvimento de Módulo Avançado de Ciborgue do TSFMC
+research-technology-tsfmc-sandevistan = Engenharia Reversa TSFMC Sandevistan
+research-technology-tsfmc-shunt = Cibernéticos TSFMC Blacksite
