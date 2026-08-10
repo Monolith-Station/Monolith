@@ -1,8 +1,10 @@
 - type: vessel
   id: Pebble
   parent: BaseVessel
-  name: MMC Pebble
-  description: A dirt cheap mining craft. Literally only the bare essentials. No gunnery, no drills or pulsers, no magnet.
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Pebble-name
+  description: vessel-Pebble-desc
+  # Andromeda end
   price: 70000
   category: Small
   group: Mieyo

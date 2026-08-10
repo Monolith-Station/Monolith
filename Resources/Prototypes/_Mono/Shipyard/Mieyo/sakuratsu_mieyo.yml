@@ -1,8 +1,10 @@
 - type: vessel
   id: MieyoSakuratsu
   parent: BaseVessel
-  name: MMC-SKR Sakuratsu
-  description: A licensed production variant of the Sakuratsu, with MMC-branded suits and a better ore processor installed.
+  # Andromeda start: Localize ship name and desc
+  name: vessel-MieyoSakuratsu-name
+  description: vessel-MieyoSakuratsu-desc
+  # Andromeda end
   price: 99721
   category: Medium
   group: Mieyo

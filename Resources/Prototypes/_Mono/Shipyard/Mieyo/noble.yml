@@ -1,8 +1,10 @@
 - type: vessel
   id: MieyoNoble
   parent: BaseVessel
-  name: MMC-SKR Mieyo-Noble
-  description: A slightly heavier mining craft, equipped with 4 mining pulsers and a magnet, but no self defense and poor armor.
+  # Andromeda start: Localize ship name and desc
+  name: vessel-MieyoNoble-name
+  description: vessel-MieyoNoble-desc
+  # Andromeda end
   price: 94365
   category: Small
   group: Mieyo

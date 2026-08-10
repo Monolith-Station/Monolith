@@ -1,8 +1,10 @@
 - type: vessel
   id: MieyoAutumn
   parent: BaseVessel
-  name: MMC-SKR Mieyo-Autumn
-  description: A licensed production variant of the Autumn. All we did for this one was swap out the floor tiles and the suits.
+  # Andromeda start: Localize ship name and desc
+  name: vessel-MieyoAutumn-name
+  description: vessel-MieyoAutumn-desc
+  # Andromeda end
   price: 189831
   category: Large
   group: Mieyo
