@@ -1,29 +1,29 @@
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
-  id: SurveillanceCameraRouterImperialDSM
-  suffix: DSM
+  id: SurveillanceCameraRouterWirelessPDV
+  suffix: PDV
   components:
     - type: SurveillanceCameraRouter
-      subnetFrequency: SurveillanceCameraImperialDSM #this is PDV
+      subnetFrequency: SurveillanceCameraVanguardPDV #this is PDV
     - type: WirelessNetworkConnection
       range: 40000 # Modify this to change the range, make sure to change the range of the respective camera to be the same
 
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
-  id: SurveillanceCameraRouterCommunardNCWL
-  suffix: NCWL
+  id: SurveillanceCameraRouterWirelessTSF
+  suffix: TSF
   components:
     - type: SurveillanceCameraRouter
-      subnetFrequency: SurveillanceCameraCommunardNCWL #this is tsf 
+      subnetFrequency: SurveillanceCameraSolarianTSF #this is tsf 
     - type: WirelessNetworkConnection
       range: 40000
 
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
-  id: SurveillanceCameraRouterInterdyneIPM
-  suffix: IPM
+  id: SurveillanceCameraRouterWirelessMMC
+  suffix: MMC
   components:
     - type: SurveillanceCameraRouter
-      subnetFrequency: SurveillanceCameraInterdyneIPM #not used possibly mmc etc.
+      subnetFrequency: SurveillanceCameraMieyoMMC #not used possibly mmc etc.
     - type: WirelessNetworkConnection
       range: 40000

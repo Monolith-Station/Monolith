@@ -48,6 +48,8 @@
     node: airlock
   - type: Wires
     layoutId: HighSec
+  - type: WeldingSparksAnimation
+    startingOffset: -0.5, 0
 
 - type: entity
   parent: AirlockGlass
@@ -98,6 +100,8 @@
     node: glassAirlock
   - type: Wires
     layoutId: HighSec
+  - type: WeldingSparksAnimation
+    startingOffset: -0.5, 0
 
 # Paints (No access diff)
 

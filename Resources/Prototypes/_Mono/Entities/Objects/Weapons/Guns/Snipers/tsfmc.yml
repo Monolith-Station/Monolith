@@ -90,10 +90,10 @@
     - map: ["gripAttachment"]
     - map: ["opticAttachment"]
   - type: GunWieldBonus
-    minAngle: -21
+    minAngle: -41
     maxAngle: -47
   - type: Gun
-    minAngle: 21
+    minAngle: 41
     maxAngle: 48
     angleIncrease: 27
     angleDecay: 2

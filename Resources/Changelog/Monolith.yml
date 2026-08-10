@@ -23608,3 +23608,69 @@ Entries:
   id: 2597
   time: '2026-08-07T21:34:45.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4457
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Nuked one-handed capability for full-power cartridge firing rifles
+        (7.62x51mm, 7.62x54mmR, 8x65mm)
+  id: 2598
+  time: '2026-08-08T19:23:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4461
+- author: kasature90
+  changes:
+    - type: Add
+      message: Ported operative hud from Goob/WWDP.
+    - type: Add
+      message: Ported toggleable tinted windows from Goob.
+  id: 2599
+  time: '2026-08-09T13:39:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4467
+- author: kasature90
+  changes:
+    - type: Add
+      message: Welding sparks for doors and walls and whatnot.
+  id: 2600
+  time: '2026-08-10T12:22:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4466
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Nuked economy components from a lot of basic machines like autolathes,
+        interactors, ship drills, etc. Don't get your expectations too high, the
+        powerful stuff like crystallizer and industrial processors still need
+        it.
+    - type: Tweak
+      message: >-
+        Industrial presses don't need any economy components to be made, so you
+        don't need a POI to get started with any of it now if you have an
+        autolathe & circuit imprinter.
+    - type: Tweak
+      message: Economy components have actual monetary value now.
+  id: 2601
+  time: '2026-08-10T12:24:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4468
+- author: Luweth
+  changes:
+    - type: Add
+      message: Added four new Vox quilstyles.
+    - type: Tweak
+      message: Changed making limits for Vox.
+  id: 2602
+  time: '2026-08-10T12:25:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4355
+- author: ondrej008
+  changes:
+    - type: Add
+      message: Holding a nanite applicator now shows you an overlay of damaged things!
+  id: 2603
+  time: '2026-08-10T15:22:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4445
+- author: Sniperzero112
+  changes:
+    - type: Tweak
+      message: Dragon lungs now work in space!
+  id: 2604
+  time: '2026-08-10T16:52:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4471
