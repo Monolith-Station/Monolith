@@ -1,0 +1,26 @@
+- type: shader
+  id: MonoSubmerged
+  kind: source
+  path: "/Textures/_Mono/Shaders/submerged.swsl"
+  params:
+    SUBMERGE_HEIGHT: 0.3
+    TINT: "#2F7C9B"
+    TINT_STRENGTH: 0.15
+    SUBMERGED_ALPHA: 0.2
+    HIDDEN_ALPHA: 0.1
+    # Pipes, cables and dropped items under the surface. Dimmed and tinted, but still findable;
+    # hiding is not the point here.
+    COVERED_ALPHA: 0.55
+    WAVE_AMPLITUDE: 0.035
+    WAVE_FREQUENCY: 25.0
+    WAVE_SPEED: 1.5
+    WAVE_FADE: 0.06
+    SURFACE_COLOR: "#CDEEF799"
+    SURFACE_WIDTH: 0.02
+    SURFACE_WOBBLE: 0.012
+    SURFACE_FREQUENCY: 18.0
+    SUBMERGED: 0.0
+    COVERED: 0.0
+    GROUND_UV: 2.0
+    UV_PER_TILE: 1.0
+    TILE_RECT: "0,0,0,0"

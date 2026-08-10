@@ -1,0 +1,13 @@
+- type: entity
+  id: MonoSubmergeSplash
+  categories: [ HideSpawnMenu ]
+  save: false
+  components:
+  - type: TimedDespawn
+    lifetime: 0.45
+  - type: Sprite
+    sprite: _CE/Effects/dust.rsi
+    state: dust
+    color: "#8FD4E8"
+    drawdepth: Effects
+    noRot: true

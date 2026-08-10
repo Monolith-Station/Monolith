@@ -1,0 +1,163 @@
+// Tile water surface.
+//
+// Drawn by WaterOverlay (Content.Client/_Mono/Water/WaterOverlay.cs) as a single batched triangle
+// list covering every visible water tile of one grid, immediately after that grid's tile mesh and
+// before any later grid or entity.
+//
+// The water body itself is deliberately flat. All of the read comes from its edges: a dark lip that
+// sits the surface down below the surrounding floor, and foam breaking along it. Anything that
+// wants to be seen on open water should be a disturbance in it (something moving through) rather
+// than standing detail, which just reads as haze on the floor.
+//
+// Two per-vertex channels come in from the overlay:
+//   UV2 - grid-local position in tile units (1.0 == one tile). Grid-local rather than world so the
+//         surface stays welded to a grid that moves or rotates.
+//   UV.x - which of the tile's neighbours are non-water, as a bitmask (1 west, 2 east, 4 south,
+//         8 north, 16 SW, 32 SE, 64 NW, 128 NE). Constant across the quad; the distance to them is
+//         derived per fragment.
+
+blend_mode mix;
+
+uniform highp vec4 DEEP_COLOR;
+uniform highp vec4 FOAM_COLOR;
+// How far in from a land-facing edge the foam reaches, in tiles.
+uniform highp float FOAM_WIDTH;
+// Width of the dark lip against a land-facing edge, in tiles.
+uniform highp float EDGE_WIDTH;
+// Multiplier applied to the water inside that lip.
+uniform highp float EDGE_DARKEN;
+// How fast the foam laps in and out.
+uniform highp float FOAM_SPEED;
+// Tiles per lump of foam. Smaller = choppier edge.
+uniform highp float FOAM_SCALE;
+// How much the reach varies along the coast. 0 is a perfectly even band.
+uniform highp float FOAM_WOBBLE;
+// Fraction of the reach that stays solid before the fade inward starts. Higher = harder inner edge.
+uniform highp float FOAM_FALLOFF;
+
+highp float hash(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float vnoise(highp vec2 p)
+{
+    highp vec2 i = floor(p);
+    highp vec2 f = fract(p);
+    highp vec2 u = f * f * (3.0 - 2.0 * f);
+
+    highp float a = hash(i);
+    highp float b = hash(i + vec2(1.0, 0.0));
+    highp float c = hash(i + vec2(0.0, 1.0));
+    highp float d = hash(i + vec2(1.0, 1.0));
+
+    return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+}
+
+highp float fbm(highp vec2 p)
+{
+    highp float v = 0.0;
+    highp float a = 0.5;
+
+    for (int i = 0; i < 3; i++)
+    {
+        v += a * vnoise(p);
+        p = p * 2.03 + vec2(19.7, 7.3);
+        a *= 0.5;
+    }
+
+    return v;
+}
+
+void fragment()
+{
+    highp vec2 tilePos = UV2;
+
+    // Distance from this fragment to the nearest non-water neighbour, in tiles. Left large when the
+    // tile is surrounded, so nothing downstream triggers.
+    //
+    // Sides give the perpendicular distance, which is what keeps the band an even width along the
+    // whole length of an edge instead of pinching toward the corners. Diagonals give the distance to
+    // the single corner point they touch at, which rounds off the turn in a coastline; without them
+    // the tile diagonally off a corner has nothing flagged at all and leaves a square notch there.
+    highp float m = floor(UV.x + 0.5);
+    highp vec2 inTile = fract(tilePos);
+    highp float edge = 4.0;
+
+    if (mod(m, 2.0) > 0.5)
+    {
+        edge = min(edge, inTile.x);
+    }
+
+    m = floor(m / 2.0);
+
+    if (mod(m, 2.0) > 0.5)
+    {
+        edge = min(edge, 1.0 - inTile.x);
+    }
+
+    m = floor(m / 2.0);
+
+    if (mod(m, 2.0) > 0.5)
+    {
+        edge = min(edge, inTile.y);
+    }
+
+    m = floor(m / 2.0);
+
+    if (mod(m, 2.0) > 0.5)
+    {
+        edge = min(edge, 1.0 - inTile.y);
+    }
+
+    m = floor(m / 2.0);
+
+    if (mod(m, 2.0) > 0.5)
+    {
+        edge = min(edge, length(inTile - vec2(0.0, 0.0)));
+    }
+
+    m = floor(m / 2.0);
+
+    if (mod(m, 2.0) > 0.5)
+    {
+        edge = min(edge, length(inTile - vec2(1.0, 0.0)));
+    }
+
+    m = floor(m / 2.0);
+
+    if (mod(m, 2.0) > 0.5)
+    {
+        edge = min(edge, length(inTile - vec2(0.0, 1.0)));
+    }
+
+    m = floor(m / 2.0);
+
+    if (mod(m, 2.0) > 0.5)
+    {
+        edge = min(edge, length(inTile - vec2(1.0, 1.0)));
+    }
+
+    highp vec4 water = DEEP_COLOR;
+
+    // A dark lip hard against the edge reads as the water sitting below the surrounding floor,
+    // which is what makes a flat tile look inset rather than painted on.
+    highp float rim = 1.0 - smoothstep(0.0, EDGE_WIDTH, edge);
+    water *= mix(1.0, EDGE_DARKEN, rim);
+
+    highp float lump = fbm(tilePos / FOAM_SCALE + vec2(0.0, TIME * FOAM_SPEED * 0.15));
+    highp float beat = sin(TIME * FOAM_SPEED + lump * 6.28);
+
+    // How far in the foam reaches varies a little along the coast so the band isn't a drawn
+    // outline, but only a little: FOAM_WOBBLE 0 gives a perfectly even band.
+    highp float reach = FOAM_WIDTH * (1.0 + FOAM_WOBBLE * (0.6 * (lump * 2.0 - 1.0) + 0.4 * beat));
+
+    // Solid against the boundary, fading only inward.
+    highp float foam = 1.0 - smoothstep(reach * FOAM_FALLOFF, reach, edge);
+
+    water = mix(water, FOAM_COLOR, foam);
+
+    // The tile's own flat blue is already on the framebuffer underneath; we draw over it fully
+    // opaque so the shader is the single source of truth for what water looks like.
+    COLOR = vec4(water.rgb, 1.0);
+}
