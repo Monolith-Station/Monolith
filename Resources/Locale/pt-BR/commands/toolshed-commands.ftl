@@ -18,6 +18,8 @@ command-description-jobs-set =
     Define o número de vagas para o emprego dado.
 command-description-jobs-amount =
     Retorna o número de vagas para o emprego dado.
+command-description-jobs-unlimited =
+    Faz com que o emprego dado tenha vagas infinitas.
 command-description-laws-list =
     Retorna uma lista de todas as entidades vinculadas a leis.
 command-description-laws-get =
