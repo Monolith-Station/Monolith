@@ -40,6 +40,9 @@
 
 - type: startingGear
   id: MarsocOperativeGearHyperwarRole
+  storage:
+    back:
+    - ClothingNeckWearableCameraSolarianTSF
   equipment:
     jumpsuit: ClothingUniformTsfmcMopp
     back: ClothingBackpackERTLeader

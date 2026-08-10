@@ -157,6 +157,8 @@
   components:
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+      layers:
+        - state: ntbox
     - type: DeviceNetwork
       deviceNetId: Wireless
       receiveFrequencyId: SurveillanceCameraSecurity
@@ -183,39 +185,39 @@
 
 - type: entity
   parent: ClothingNeckWearableCamera
-  id: ClothingNeckWearableCameraImperial
+  id: ClothingNeckWearableCameraVanguardPDV
   name: Dynasties wearable surveying port
-  description: the Dynasties's eyes in a field.
+  description: the Vizier's eyes in a field.
   components:
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
       layers:
         - state: shibox
     - type: DeviceNetwork
-      receiveFrequencyId: SurveillanceCameraImperialDSM
+      receiveFrequencyId: SurveillanceCameraVanguardPDV
 
 - type: entity
   parent: ClothingNeckWearableCamera
-  id: ClothingNeckWearableCameraCommunardNCWL
+  id: ClothingNeckWearableCameraSolarianTSF
   name: Solarian wearable surveying port
-  description: Sols command eyes on the battlefield.
+  description: Colonel's eyes on the battlefield.
   components:
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
       layers:
         - state: ntbox
     - type: DeviceNetwork
-      receiveFrequencyId: SurveillanceCameraCommunardNCWL
+      receiveFrequencyId: SurveillanceCameraSolarianTSF
 
 - type: entity
   parent: ClothingNeckWearableCamera
-  id: ClothingNeckWearableCameraInterdyne
+  id: ClothingNeckWearableCameraMieyoMMC
   name: interdyne wearable surveying port
-  description: the coordinator's eyes on extraction operations.
+  description: the liaison's eyes on extraction operations.
   components:
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
       layers:
         - state: civbox
     - type: DeviceNetwork
-      receiveFrequencyId: SurveillanceCameraInterdyneIPM
+      receiveFrequencyId: SurveillanceCameraMieyoMMC
