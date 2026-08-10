@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/02/2026 18:42:32
-  entityCount: 8429
+  time: 08/10/2026 14:17:57
+  entityCount: 8431
 maps: []
 grids:
 - 1
@@ -4142,10 +4142,10 @@ entities:
             470: 4,49
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Smoke: []
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
+        Kudzu: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -23886,18 +23886,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerAtmosMonitoring
-  entities:
-  - uid: 3617
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -5.5,38.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
 - proto: ComputerBlackMarketBankATM
   entities:
   - uid: 3618
@@ -24066,6 +24054,18 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -2.5,36.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+- proto: ComputerSurveillanceWirelessCameraMonitor
+  entities:
+  - uid: 3617
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,38.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -42090,6 +42090,17 @@ entities:
     - type: Transform
       pos: 7.5,43.5
       parent: 1
+- proto: PDVOverwatchComputer
+  entities:
+  - uid: 8431
+    components:
+    - type: Transform
+      pos: 7.5,38.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
 - proto: PlasmaReinforcedWindowDirectional
   entities:
   - uid: 6047
@@ -46424,6 +46435,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -5.5,77.5
+      parent: 1
+- proto: SurveillanceCameraRouterImperialDSM
+  entities:
+  - uid: 8430
+    components:
+    - type: Transform
+      pos: -9.5,30.5
       parent: 1
 - proto: SurveillanceCameraRouterRogue
   entities:

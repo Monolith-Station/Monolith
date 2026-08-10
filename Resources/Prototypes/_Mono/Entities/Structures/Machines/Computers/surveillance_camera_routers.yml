@@ -4,7 +4,7 @@
   suffix: DSM
   components:
     - type: SurveillanceCameraRouter
-      subnetFrequency: SurveillanceCameraImperialDSM
+      subnetFrequency: SurveillanceCameraImperialDSM #this is PDV
     - type: WirelessNetworkConnection
       range: 40000 # Modify this to change the range, make sure to change the range of the respective camera to be the same
 
@@ -14,7 +14,7 @@
   suffix: NCWL
   components:
     - type: SurveillanceCameraRouter
-      subnetFrequency: SurveillanceCameraCommunardNCWL
+      subnetFrequency: SurveillanceCameraCommunardNCWL #this is tsf 
     - type: WirelessNetworkConnection
       range: 40000
 
@@ -24,6 +24,6 @@
   suffix: IPM
   components:
     - type: SurveillanceCameraRouter
-      subnetFrequency: SurveillanceCameraInterdyneIPM
+      subnetFrequency: SurveillanceCameraInterdyneIPM #not used possibly mmc etc.
     - type: WirelessNetworkConnection
       range: 40000

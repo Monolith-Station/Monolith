@@ -187,6 +187,10 @@
   name: Dynasties wearable surveying port
   description: the Dynasties's eyes in a field.
   components:
+    - type: Sprite
+      sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+      layers:
+        - state: civbox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraImperialDSM
 
@@ -196,6 +200,10 @@
   name: Solarian wearable surveying port
   description: Sols command eyes on the battlefield.
   components:
+    - type: Sprite
+      sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+      layers:
+        - state: civbox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraCommunardNCWL
 
@@ -205,5 +213,9 @@
   name: interdyne wearable surveying port
   description: the coordinator's eyes on extraction operations.
   components:
+    - type: Sprite
+      sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+      layers:
+        - state: civbox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraInterdyneIPM
