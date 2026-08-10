@@ -190,7 +190,7 @@
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
       layers:
-        - state: civbox
+        - state: shibox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraImperialDSM
 
@@ -203,7 +203,7 @@
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
       layers:
-        - state: civbox
+        - state: ntbox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraCommunardNCWL
 
