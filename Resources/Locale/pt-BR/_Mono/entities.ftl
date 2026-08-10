@@ -9297,6 +9297,7 @@ ent-RPDMMCEmpty = {ent-RPDMMC}
     .desc = {ent-RPDMMC.desc}
     .suffix = vazio
 
+# MMC - Mieyo Manufacturing Concern
 ent-AccessBreakerMMC = disruptor de autenticação descartável Mieyo
     .desc = Um dispositivo de hacking de uso único, especializado em destrancar e apagar acesso de fechaduras digitais.
 

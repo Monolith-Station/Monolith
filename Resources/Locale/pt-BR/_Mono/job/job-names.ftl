@@ -20,3 +20,10 @@ job-name-pdv-borg = Cyborg PDV
 job-name-vg-infanteer = Infantaria VG
 job-name-vg-lieutenant = Tenente VG
 job-name-vg-commander = Comandante VG
+
+# MARK: MMC
+job-name-mmc-liason = Representante Corporativo MMC
+job-name-mmc-security = Segurança Corporativa MMC
+job-name-mmc-employee = Funcionário MMC
+job-supervisors-mmc-highcomm = o Conselho Diretor da Mieyo.
+job-supervisors-mmc-liason = o Representante Corporativo

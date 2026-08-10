@@ -32,3 +32,4 @@ comms-console-announcement-title-wizard = Mago
 
 # Mono
 comms-console-announcement-title-rogue = Vanguarda Imperial da Dinastia Phaethon
+comms-console-announcement-title-mieyo = Mieyo Manufacturing Concern
