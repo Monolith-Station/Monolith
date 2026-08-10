@@ -7,9 +7,11 @@
 - type: vessel
   id: Tiger
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Tiger-name
   description: vessel-Tiger-desc
-  price: 32000 # race ship tax since its gonna be used for smuggling.
+  # Andromeda end
+  price: 71166 # race ship tax since its gonna be used for smuggling.
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/tiger.yml

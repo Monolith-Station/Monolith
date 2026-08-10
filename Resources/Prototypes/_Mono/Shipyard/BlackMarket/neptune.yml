@@ -3,9 +3,11 @@
 - type: vessel
   id: Neptune
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Neptune-name
   description: vessel-Neptune-desc
-  price: 153555 #126k appraisal
+  # Andromeda end
+  price: 208340 #206340 appraisal
   purchasable: false # voucher only
   category: Medium
   group: BlackMarket

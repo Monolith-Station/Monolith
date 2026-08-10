@@ -6,9 +6,11 @@
 - type: vessel
   id: Mudskipper
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Mudskipper-name
   description: vessel-Mudskipper-desc
-  price: 75000
+  # Andromeda end
+  price: 108304
   category: Medium
   group: Scrap
   shuttlePath: /SharedMaps/_Mono/Shuttles/Scrap/mudskipper.yml

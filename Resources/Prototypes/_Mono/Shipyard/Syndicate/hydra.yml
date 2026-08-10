@@ -1,8 +1,10 @@
 - type: vessel
   id: Hydra
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Hydra-name
   description: vessel-Hydra-desc
+  # Andromeda end
   price: 135000
   category: Medium
   group: Syndicate

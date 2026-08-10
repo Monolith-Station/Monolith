@@ -8884,6 +8884,434 @@ ent-MailMonoRCD = {ent-BaseMail}
     .desc = {ent-BaseMail.desc}
     .suffix = RCD
 
+
+
+# From: Resources/Prototypes/_Mono/Entities/Clothing/Jumpsuit/jumpsuits.yml
+
+ent-ClothingUniformJumpsuitCCTCFormal = terno formal do executivo
+    .desc = Um terno para ocasiões especiais.
+
+ent-ClothingUniformMMC = uniforme tático de campo da segurança corporativa MMC
+    .desc = Um uniforme tático preto fosco usado pela segurança corporativa da MMC.
+
+ent-ClothingUniformMMCJeans = uniforme tático de campo da segurança corporativa MMC (jeans)
+    .desc = Uma camisa preta fosca combinada com jeans. Usado por agentes de segurança de ativos da MMC que preferem trabalho de campo com um pouco mais de flexibilidade.
+
+ent-ClothingUniformMMCCargos = uniforme tático de campo da segurança corporativa MMC (cargos)
+    .desc = Uma parte superior tática preta fosca combinada com calças cargo marrom duráveis.
+
+ent-ClothingUniformMMCWarm = uniforme tático de campo aquecido da segurança corporativa MMC
+    .desc = Uma variante fortemente isolada do uniforme tático de campo da segurança corporativa MMC, forrado para ambientes extremos. Construído para sobrevivência sem compromissos.
+
+ent-ClothingUniformMMCJumpsuit = macacão MMC
+    .desc = Um uniforme de trabalho básico para funcionários da MMC.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Clothing/Neck/misc.yml
+
+ent-ClothingNeckFormalTSFCaptain = casaco formal do capitão da TSFMC
+    .desc = Um traje formal de oficial da TSFMC para ocasiões especiais.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Clothing/Neck/cloaks.yml
+
+ent-ClothingNeckCloakCCTC = capa do executivo
+    .desc = Uma capa verde pomposa e elitista com um bonito acabamento dourado, feita sob medida especificamente para executivos da Creon-Centennial Trade Charter. É tão pesada que o acabamento dourado pode ser de verdade.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Clothing/Ears/headsets.yml
+
+ent-ClothingHeadsetMieyo = fone de ouvido MMC
+    .desc = Um fone de ouvido padrão para funcionários da MMC. Este fone aceita chaves de criptografia padrão e vem com uma chave pré-instalada para comunicações corporativas.
+
+ent-ClothingHeadsetMieyoCorpsec = fone de ouvido da segcorp MMC
+    .desc = Um fone de ouvido padrão para funcionários da MMC. Este fone aceita chaves de criptografia padrão e vem com uma chave pré-instalada para comunicações corporativas.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Clothing/Head/Hats/hats.yml
+
+ent-ClothingHeadHatCCTC = boné do executivo
+    .desc = Um boné extravagante e chique para um executivo da Carta Comercial.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Clothing/Head/Hardsuits/mmc.yml
+
+ent-ClothingHelmetHardsuitMieyoMining = capacete do traje de mineração MMC
+    .desc = Um capacete EVA básico projetado para operações industriais complexas no espaço.
+
+ent-ClothingHelmetHardsuitMieyoCombat = capacete do tacsuit kurogane MMC
+    .desc = Um conjunto de sensores disfarçado de capacete. Ótimos óculos de visão noturna, proteção média.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Clothing/OuterClothing/Hardsuits/mmc.yml
+
+ent-ClothingOuterHardsuitMieyoMining = traje de mineração MMC
+    .desc = Um traje EVA básico para funcionários da MMC e uso não-combatente.
+
+ent-ClothingOuterHardsuitMieyoCombat = tacsuit kurogane MMC
+    .desc = Um traje de combate tático para proteção de ativos e segurança corporativa da MMC. É muito leve, mas não muito defensivo.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Machines/computers.yml
+
+ent-ComputerXenoborgsControl = console de controle de xenoborgs
+    .desc = Usado para monitorar remotamente todos os xenoborgs.
+
+ent-ComputerSurveillanceWirelessXenoborgCameraMonitor = monitor de câmera de xenoborg
+    .desc = Um monitor de câmera sem fio de xenoborg. Você está observando eles. Talvez.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Machines/telecomms.yml
+
+ent-TelecomServerFilledMMC = {ent-TelecomServer}
+    .desc = {ent-TelecomServer.desc}
+    .suffix = Mieyo
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Machines/faction_servers.yml
+
+ent-ResearchAndDevelopmentServerMMC = servidor de P&D da MMC
+    .desc = Contém o conhecimento coletivo da MMC neste setor.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Machines/vending_machines.yml
+
+ent-VendingMachineMieyoAutomated = máquina de vendas automática MMC
+    .desc = Vende vários produtos da MMC e envia 80% dos lucros de volta para Hokkaido.
+
+ent-VendingMachineMieyoAutomatedFlatpack = flatpack de vendedor automático MMC
+    .desc = Um flatpack usado para construir um vendedor automático da MMC.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Machines/economy.yml
+
+ent-InteractorCCTC = interativo proprietário
+    .desc = Um design proprietário e mais eficiente de um atuador robótico especializado em interagir com objetos usando vários outros objetos.
+
+ent-RoboticArmCCTC = braço robótico proprietário
+    .desc = Um design proprietário e mais eficiente de um braço robótico de alta tecnologia capaz de mover itens de e para máquinas que possuem melhorias de automação.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Doors/windoors.yml
+
+ent-WindoorSecureMieyoLocked = {ent-WindoorSecure}
+    .desc = {ent-WindoorSecure.desc}
+    .suffix = Mieyo, Trancado
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Wallmounts/turret_controls.yml
+
+ent-WeaponEnergyTurretMieyoControlPanel = painel de controle de torre sentinela Mieyo
+    .desc = Uma interface montada na parede que permite a uma inteligência artificial local ajustar os parâmetros operacionais das torres sentinela conectadas.
+    .suffix = Acesso de Segurança Mieyo
+
+ent-BallisticTurretHeavyAIMieyo = torre sentinela remota pesada Mieyo
+    .desc = {ent-BallisticTurretHeavyBase.desc}
+    .suffix = Mieyo
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Wallmounts/switch.yml
+
+ent-LockableButtonMieyo = {ent-LockableButton}
+    .desc = {ent-LockableButton.desc}
+    .suffix = Mieyo
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Machines/Computers/shipyard.yml
+
+ent-ComputerShipyardMMC = console de estaleiro MMC
+    .desc = Usado para transferir naves das reservas de emprego da MMC.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Machines/Computers/bank.yml
+
+ent-StationAdminBankATMMMC = {ent-BaseStationAdminBankATM}
+    .desc = Usado para transferir fundos de e para a conta local da MMC.
+    .suffix = Mieyo
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Machines/Computers/mmc_comm_computer.yml
+
+ent-MieyoComputerComms = computador de comunicações Mieyo
+    .desc = O computador de comunicações principal para fazer anúncios da MMC.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Machines/Computers/overwatch.yml
+
+# Abstract entity (referenceable by children)
+ent-BaseComputerOverwatch = console de sobrevisão
+    .desc = Um console de computador usado para rastrear membros de facções através de câmeras vestíveis.
+
+ent-TSFOverwatchComputer = console de sobrevisão TSFMC
+    .desc = {ent-BaseComputerOverwatch.desc}
+
+ent-PDVOverwatchComputer = console de sobrevisão PDV
+    .desc = {ent-BaseComputerOverwatch.desc}
+
+ent-MMCOverwatchComputer = console de sobrevisão MMC
+    .desc = {ent-BaseComputerOverwatch.desc}
+
+ent-MDOverwatchComputer = console de sobrevisão MD
+    .desc = {ent-BaseComputerOverwatch.desc}
+
+ent-CCTCOverwatchComputer = console de sobrevisão CCTC
+    .desc = {ent-BaseComputerOverwatch.desc}
+
+ent-USSPOverwatchComputer = console de sobrevisão USSP
+    .desc = {ent-BaseComputerOverwatch.desc}
+
+ent-VGOverwatchComputer = console de sobrevisão VG
+    .desc = {ent-BaseComputerOverwatch.desc}
+
+# Abstract entity (referenceable by children)
+ent-BaseHandheldOverwatchConsole = console portátil de sobrevisão
+    .desc = Exibe uma leitura dos membros de esquadrão da facção.
+
+ent-TSFHandheldOverwatchConsole = console portátil de sobrevisão TSFMC
+    .desc = {ent-BaseHandheldOverwatchConsole.desc}
+
+ent-PDVHandheldOverwatchConsole = console portátil de sobrevisão PDV
+    .desc = {ent-BaseHandheldOverwatchConsole.desc}
+
+ent-MMCHandheldOverwatchConsole = console portátil de sobrevisão MMC
+    .desc = {ent-BaseHandheldOverwatchConsole.desc}
+
+ent-MDHandheldOverwatchConsole = console portátil de sobrevisão MD
+    .desc = {ent-BaseHandheldOverwatchConsole.desc}
+
+ent-CCHandheldOverwatchConsole = console portátil de sobrevisão CCTC
+    .desc = {ent-BaseHandheldOverwatchConsole.desc}
+
+ent-USSPHandheldOverwatchConsole = console portátil de sobrevisão USSP
+    .desc = {ent-BaseHandheldOverwatchConsole.desc}
+
+ent-VGHandheldOverwatchConsole = console portátil de sobrevisão VG
+    .desc = {ent-BaseHandheldOverwatchConsole.desc}
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/airlock.yml
+
+ent-AirlockMieyo = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
+    .suffix = Mieyo
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/glass_airlock.yml
+
+ent-AirlockMieyoGlass = {ent-AirlockGlass}
+    .desc = {ent-AirlockGlass.desc}
+    .suffix = Mieyo
+
+ent-AirlockMieyoGlassLocked = {ent-AirlockGlass}
+    .desc = {ent-AirlockGlass.desc}
+    .suffix = Mieyo, Trancado
+
+ent-AirlockMieyoGlassLockedSecurity = {ent-AirlockGlass}
+    .desc = {ent-AirlockGlass.desc}
+    .suffix = Segurança Mieyo, Trancado
+
+ent-AirlockMieyoGlassLockedLiason = {ent-AirlockGlass}
+    .desc = {ent-AirlockGlass.desc}
+    .suffix = Liaison Mieyo, Trancado
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/shuttle.yml
+
+ent-AirlockExternalShuttleMieyoLocked = {ent-AirlockShuttleNfsd}
+    .desc = {ent-AirlockShuttleNfsd.desc}
+    .suffix = Externo, Acoplamento, Mieyo, Trancado
+
+ent-AirlockExternalGlassShuttleMieyoLocked = {ent-AirlockGlassShuttleNfsd}
+    .desc = {ent-AirlockGlassShuttleNfsd.desc}
+    .suffix = Externo, Acoplamento, Mieyo, Trancado, Vidro
+
+ent-AirlockExternalShuttleMieyoLockedOutpost = {ent-AirlockShuttleNfsd}
+    .desc = {ent-AirlockShuttleNfsd.desc}
+    .suffix = APENAS POSTO, Externo, Acoplamento, Mieyo, Trancado
+
+ent-AirlockExternalGlassShuttleMieyoLockedOutpost = {ent-AirlockGlassShuttleNfsd}
+    .desc = {ent-AirlockGlassShuttleNfsd.desc}
+    .suffix = APENAS POSTO, Externo, Acoplamento, Mieyo, Trancado, Vidro
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/access_heavy.yml
+
+ent-AirlockHeavyMieyoLocked = {ent-AirlockHeavy}
+    .desc = {ent-AirlockHeavy.desc}
+    .suffix = Segurança Mieyo, Trancado
+
+ent-AirlockHeavyMieyoLiasonLocked = {ent-AirlockHeavy}
+    .desc = {ent-AirlockHeavy.desc}
+    .suffix = Liaison Mieyo, Trancado
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/access.yml
+
+ent-AirlockMieyoLocked = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
+    .suffix = Mieyo, Trancado
+
+ent-AirlockMieyoLockedSecurity = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
+    .suffix = Segurança Mieyo, Trancado
+
+ent-AirlockMieyoLockedLiason = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
+    .suffix = Liaison Mieyo, Trancado
+
+ent-AirlockMaintMieyoLocked = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
+    .suffix = Mieyo, Trancado
+
+ent-AirlockMaintMieyoSecurityLocked = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
+    .suffix = Segurança Mieyo, Trancado
+
+ent-AirlockMaintMieyoLiasonLocked = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
+    .suffix = Liaison Mieyo, Trancado
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/heavy_assembly.yml
+
+ent-AirlockHeavyAssemblyMieyo = {ent-AirlockHeavyAssembly}
+    .desc = {ent-AirlockHeavyAssembly.desc}
+    .suffix = Mieyo
+
+
+# From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/external.yml
+
+ent-AirlockExternalGlassMieyo = {ent-AirlockExternalGlass}
+    .desc = {ent-AirlockExternalGlass.desc}
+    .suffix = Mieyo, Vidro, Externo
+
+ent-AirlockExternalGlassMieyoLocked = {ent-AirlockExternalGlass}
+    .desc = {ent-AirlockExternalGlass.desc}
+    .suffix = Trancado, Mieyo, Vidro, Externo
+
+
+# From: Resources/Prototypes/_Mono/Entities/Mobs/Cyborgs/borg_chassis.yml
+
+ent-BorgChassisSelectableXenoborg = cibernético xenoborg
+    .desc = Um híbrido homem-máquina que visa se replicar. Eles adoram extrair cérebros para inserir em chassis xenoborg frescos para crescer seu exército. Este é do tipo indeciso e ainda não escolheu sua especialização
+
+ent-XenoborgChassisEngineer = cibernético engenheiro xenoborg
+    .desc = {ent-BorgChassisSelectableXenoborg.desc}
+
+ent-XenoborgChassisHeavy = cibernético pesado xenoborg
+    .desc = {ent-BorgChassisSelectableXenoborg.desc}
+
+ent-XenoborgChassisScout = cibernético explorador xenoborg
+    .desc = {ent-BorgChassisSelectableXenoborg.desc}
+
+ent-XenoborgChassisStealth = cibernético furtivo xenoborg
+    .desc = {ent-BorgChassisSelectableXenoborg.desc}
+
+
+# From: Resources/Prototypes/_Mono/Entities/Mobs/Player/silicon.yml
+
+ent-MothershipCore = Nucleo da Nave Mãe
+    .desc = O mais recente em Inteligências Artificiais.
+    .suffix = Papel de Fantasma, Xenoborg
+
+ent-StationAiBrainXenoborg = CérebroIAEstaçãoXenoborg
+
+ent-AiHeldXenoborg = IASeguradaXenoborg
+    .desc = {ent-AiHeldMono.desc}
+
+ent-PlayerXenoBorg = {ent-BorgChassisSelectableXenoborg}
+    .desc = {ent-BorgChassisSelectableXenoborg.desc}
+    .suffix = Papel de Fantasma, Xenoborg, Bateria, Módulo
+
+ent-PlayerXenoBorgGhostRole = {ent-BorgChassisSelectableXenoborg}
+    .desc = {ent-BorgChassisSelectableXenoborg.desc}
+    .suffix = Fantasma
+
+ent-PlayerXenoBorgGhostRolePlaytime = {ent-BorgChassisSelectableXenoborg}
+    .desc = {ent-BorgChassisSelectableXenoborg.desc}
+    .suffix = Fantasma, Tempo de Jogo
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Misc/turrets.yml
+
+ent-WeaponTurretXenoborg = {ent-BaseWeaponBallisticTurret}
+    .desc = {ent-BaseWeaponBallisticTurret.desc}
+    .suffix = Xenoborg
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Misc/subdermal_implants.yml
+
+ent-MieyoTrackingImplant = implante de rastreamento MMC
+    .desc = Este implante possui um dispositivo de rastreamento para o canal de rádio corporativo Mieyo.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Misc/rubber_stamp.yml
+
+ent-RubberStampMMCLiason = carimbo de liaison MMC
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Misc/books.yml
+
+ent-BookTSFSOP = PDA da TSFMC
+    .desc = Um livro contendo os PPA para as forças da TSFMC destacadas para o Setor Colossus.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Misc/economy.yml
+
+ent-EconomyPlanner = planejador industrial
+    .desc = Um tablet contendo um fluxograma visual sobre como produzir bens proprietários. (Coloque no chão e interaja com ele para abrir o fluxograma!)
+
+ent-EconomyPlannerTabletop = planejador industrial
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Economy/arc_furnace.yml
+
+ent-ArmorPlateEconomy2UnfinishedSpawner = chapa de blindagem pesada (inacabada)
+    .desc = Uma pilha de metal em processo, sendo refinada em uma placa protetora forte. Precisa de parafusos para começar o processamento.
+
+ent-SiliconWaferEconomy = wafer de silício
+    .desc = Uma fatia limpa de silício monocristalino puro. Essencial para eletrônicos avançados!
+
+ent-SiliconWaferEconomySliceSpawner8 = wafer de silício (x8)
+    .desc = Uma fatia limpa de silício monocristalino puro. Essencial para eletrônicos avançados!
+
+ent-SiliconWaferScrapEconomy = sucata de wafer de silício
+    .desc = Uma bagunça quebrada e contaminada de silício que costumava ser útil para computadores. Que desperdício.
+
+ent-ArmorPlateEconomy2Start = chapa de blindagem pesada (inacabada)
+    .desc = Uma pilha de metal em processo, sendo refinada em uma placa protetora forte. Precisa de parafusos para começar o processamento.
+
+ent-SiliconBouleEconomy = lingote de silício
+    .desc = Um pedaço robusto mas frágil de silício refinado, pronto para ser fatiado em wafers de qualidade de processador. Não toque sem luvas!
+
+ent-SiliconBouleScrapEconomy = sucata de lingote de silício
+    .desc = Uma bagunça quebrada e contaminada de silício que costumava ser útil para computadores. Que desperdício.
+
+ent-ArmorPlateEconomy4Start = chapa de blindagem EMAG (inacabada)
+    .desc = O componente de placa cerâmica/metálica de uma placa de blindagem EMAG, fresco da forja e aguardando seus componentes eletrônicos. Precisa de um eletroímã composto para começar a construção, então parafusagem e corte significativos.
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Tools/mieyo_tools.yml
+
+ent-NaniteApplicatorMMC = aplicador de nanitas Mieyo
+    .desc = Ferramenta avançada que usa nanotecnologia para reparar estruturas. Variante mais rápida fabricada pela MMC.
+
+ent-ShipRepairDeviceMMC = SRD Mieyo
+    .desc = Um Dispositivo de Reparo de Naves que pode reconstruir seções destruídas de naves. Contém 300 cargas. Variante mais rápida fabricada pela MMC.
+
+ent-RCDMMC = RCD Mieyo
+    .desc = O dispositivo de construção rápida pode ser usado para colocar e remover rapidamente várias estruturas e fixações. Requer matéria comprimida para funcionar. Não requer passar um ID para funcionar. Variante de maior capacidade fabricada pela MMC.
+
+ent-RCDMMCEmpty = {ent-RCDMMC}
+    .desc = {ent-RCDMMC.desc}
+    .suffix = vazio
+
+ent-RPDMMC = RPD Mieyo
+    .desc = O dispositivo de tubulação rápida permite a colocação e remoção rápida de edifícios relacionados à atmosfera e requer matéria compressiva para usar. Variante de maior capacidade fabricada pela MMC.
+
+ent-RPDMMCEmpty = {ent-RPDMMC}
+    .desc = {ent-RPDMMC.desc}
+    .suffix = vazio
+
 # MMC - Mieyo Manufacturing Concern
 ent-AccessBreakerMMC = disruptor de autenticação descartável Mieyo
     .desc = Um dispositivo de hacking de uso único, especializado em destrancar e apagar acesso de fechaduras digitais.
@@ -8891,115 +9319,265 @@ ent-AccessBreakerMMC = disruptor de autenticação descartável Mieyo
 ent-MotionDetectorMMC = detector de movimento Mieyo
     .desc = Um detector de movimento portátil. Detecta pessoas que não estão na mesma empresa do usuário.
 
-ent-NaniteApplicatorMMC = aplicador de nanitas Mieyo
-    .desc = Ferramenta avançada que usa nanotecnologia para reparar estruturas. Variante mais rápida fabricada pela MMC.
 
-ent-RCDMMC = RCD Mieyo
-    .desc = O dispositivo de construção rápida pode ser usado para colocar e remover rapidamente várias estruturas e acessórios. Requer matéria comprimida para funcionar. Não requer passar um cartão de ID para funcionar. Variante de maior capacidade fabricada pela MMC.
-
-ent-RPDMMC = RPD Mieyo
-    .desc = O dispositivo de canalização rápida permite a colocação e remoção rápidas de edifícios relacionados à atmosfera, requer matéria compressiva para usar. Variante de maior capacidade fabricada pela MMC.
-
-ent-ShipRepairDeviceMMC = SRD Mieyo
-    .desc = Um Dispositivo de Reparo de Naves que pode reconstruir seções destruídas de naves. Contém 300 cargas. Variante mais rápida fabricada pela MMC.
-
-ent-RubberStampMMCLiason = carimbo de borracha do representante MMC
-
-ent-WeaponPistolKuosame = VMK "Kuosame" MMC (5,7x28mm)
-    .desc = Uma arma de mão básica e simples para funcionários da MMC. Emitida apenas em zonas de alto risco.
-
-ent-WeaponSubMachineGunMasamune = VK-550 Masamune MMC (5,7x28mm)
-    .desc = Uma arma de defesa pessoal básica para segurança corporativa. Sem modularidade alguma.
-
-ent-WeaponSubMachineGunSakura = Smart-SMG Sakura MMC (.160 smart)
-    .desc = Uma variante de produção completa da arma inteligente Abielle, totalmente desenvolvida pela MMC.
-
-ent-ClothingHeadsetMieyo = fone de ouvido MMC
-    .desc = Um fone de ouvido padrão para funcionários da MMC. Este fone aceita chaves de criptografia padrão e vem com uma chave pré-instalada para comunicações corporativas.
-
-ent-ClothingHeadsetMieyoCorpsec = fone de ouvido da segurança corporativa MMC
-    .desc = Um fone de ouvido padrão para funcionários da MMC. Este fone aceita chaves de criptografia padrão e vem com uma chave pré-instalada para comunicações corporativas.
-
-ent-ClothingHelmetHardsuitMieyoCombat = capacete do traje tático Kurogane MMC
-    .desc = Um conjunto de sensores disfarçado de capacete. Ótimos óculos de visão noturna, proteção média.
-
-ent-ClothingHelmetHardsuitMieyoMining = capacete do traje de mineração MMC
-    .desc = Um capacete EVA básico projetado para operações industriais complexas no espaço.
-
-ent-ClothingUniformMMC = uniforme tático de campo da segurança corporativa MMC
-    .desc = Um uniforme tático preto fosco usado pela segurança corporativa da MMC.
-
-ent-ClothingUniformMMCCargos = uniforme tático de campo da segurança corporativa MMC (cargos)
-    .desc = Uma parte superior tática preta fosca combinada com calças de cargo marrons duráveis.
-
-ent-ClothingUniformMMCJeans = uniforme tático de campo da segurança corporativa MMC (jeans)
-    .desc = Uma camisa preta fosca combinada com jeans. Usado por agentes da segurança de ativos da MMC que preferem trabalho de campo com um pouco mais de flexibilidade.
-
-ent-ClothingUniformMMCJumpsuit = macacão MMC
-    .desc = Um macacão de trabalho básico para funcionários da MMC.
-
-ent-ClothingUniformMMCWarm = uniforme tático de campo aquecido da segurança corporativa MMC
-    .desc = Uma variante fortemente isolada do uniforme tático de campo da segurança corporativa MMC, forrado para ambientes extremos. Construído para sobrevivência sem compromissos.
-
-ent-ClothingOuterHardsuitMieyoCombat = traje tático de combate Kurogane MMC
-    .desc = Um traje de combate tático para proteção de ativos e segurança corporativa da MMC. É muito leve, mas não muito defensivo.
-
-ent-ClothingOuterHardsuitMieyoMining = traje de mineração MMC
-    .desc = Um traje EVA básico para funcionários da MMC e uso não-combate.
-
-ent-SpawnPointMMCEmployee = Funcionário MMC
-
-ent-SpawnPointMMCLiason = Representante MMC
-
-ent-SpawnPointMMCSecurity = Segurança MMC
+# From: Resources/Prototypes/_Mono/Entities/Objects/Devices/encryption_keys.yml
 
 ent-EncryptionKeyMieyo = chave de criptografia MMC
-    .desc = Uma chave de criptografia para comunicações corporativas da Mieyo.
+    .desc = Uma chave de criptografia para comunicações corporativas Mieyo.
 
 ent-EncryptionKeyMieyoCommand = chave de criptografia de comando MMC
-    .desc = Uma chave de criptografia para comunicações de comando da Mieyo.
+    .desc = Uma chave de criptografia para comunicações de comando Mieyo.
 
-ent-MieyoEmployeeIDCard = carteira de ID de funcionário MMC
-    .desc = { ent-IDCardStandard.desc }
 
-ent-MieyoLiasonIDCard = carteira de ID de representante MMC
-    .desc = { ent-IDCardStandard.desc }
+# From: Resources/Prototypes/_Mono/Entities/Objects/Devices/autosurgeon.yml
 
-ent-MieyoSecurityIDCard = carteira de ID de segurança MMC
-    .desc = { ent-IDCardStandard.desc }
+ent-AutosurgeonSandevistanTSF = autocirurgião TSF (sandevistan WJY-21X)
+    .desc = Substitui o coração por um Sandevistan da MMC de engenharia reversa. Não esfria tão rápido quanto o original.
 
-ent-BaseMMCPDA = PDA base Mieyo
+ent-AutosurgeonSandevistanTSFFlatpack = flatpack de autocirurgião TSF (sandevistan WJY-21X)
+    .desc = Um flatpack usado para construir um autocirurgião TSF.
+
+ent-AutosurgeonShuntTSF = autocirurgião TSF (dispositivo de derivação KR-22)
+    .desc = Substitui o coração por um dispositivo de derivação altamente experimental. Tecnologia assustadora.
+
+ent-AutosurgeonShuntTSFFlatpack = flatpack de autocirurgião TSF (dispositivo de derivação KR-22)
+    .desc = Um flatpack usado para construir um autocirurgião TSF.
+
+ent-AutosurgeonIASPDV = autocirurgião PDV (SIA LS-210)
+    .desc = Substitui os pulmões por um sistema de ar interno avançado. Capaz de filtrar a maioria dos gases atmosféricos e aumentar a eficiência respiratória significativamente.
+
+ent-AutosurgeonIASPDVFlatpack = flatpack de autocirurgião PDV (SIA LS-210)
+    .desc = Um flatpack usado para construir um autocirurgião PDV.
+
+ent-AutosurgeonDermalArmorPDV = autocirurgião PDV (blindagem dérmica E-SAPI)
+    .desc = Implanta uma matriz de placas de blindagem E-SAPI no corpo. Torna você mais vulnerável a calor e choque, mas mais resistente a balas.
+
+ent-AutosurgeonDermalArmorPDVFlatpack = flatpack de autocirurgião PDV (blindagem dérmica E-SAPI)
+    .desc = Um flatpack usado para construir um autocirurgião PDV.
+
+ent-AutosurgeonAdvHeartPDV = autocirurgião PDV (coração protético VV/KE)
+    .desc = Substitui o coração por um mais poderoso. Permite processar reagentes mais rápido e receber mais dano antes de cair, mas reduz sua stamina e processa remédios mais devagar.
+
+ent-AutosurgeonAdvHeartPDVFlatpack = flatpack de autocirurgião PDV (coração protético VV/KE)
+    .desc = Um flatpack usado para construir um autocirurgião PDV.
+
+# Abstract entity (referenceable by children)
+ent-BaseAutosurgeonMieyo = AutoCirurgiãoBaseMieyo
+    .desc = {ent-BaseAutosurgeon.desc}
+
+ent-AutosurgeonMuscleFibersMieyo = autocirurgião MMC (suíte de fibras musculares)
+    .desc = Implanta uma suíte de melhorias musculares no corpo. Agora você pode correr como um profissional.
+
+ent-AutosurgeonMuscleFibersMieyoFlatpack = flatpack de autocirurgião MMC (suíte de fibras musculares)
+    .desc = Um flatpack usado para construir um autocirurgião MMC.
+
+ent-AutosurgeonRightMantisBladeMieyo = autocirurgião MMC (lâmina mantis direita)
+    .desc = Implanta uma lâmina mantis implantável oculta no seu braço direito. Muito legal.
+
+ent-AutosurgeonRightMantisBladeMieyoFlatpack = flatpack de autocirurgião MMC (lâmina mantis direita)
+    .desc = Um flatpack usado para construir um autocirurgião MMC.
+
+ent-AutosurgeonLeftMantisBladeMieyo = autocirurgião MMC (lâmina mantis esquerda)
+    .desc = Implanta uma lâmina mantis implantável oculta no seu braço esquerdo. Muito legal.
+
+ent-AutosurgeonLeftMantisBladeMieyoFlatpack = flatpack de autocirurgião MMC (lâmina mantis esquerda)
+    .desc = Um flatpack usado para construir um autocirurgião MMC.
+
+ent-AutosurgeonSandevistanMieyo = autocirurgião MMC (sandevistan)
+    .desc = Substitui o coração por um Sandevistan MMC.
+
+ent-AutosurgeonSandevistanMieyoFlatpack = flatpack de autocirurgião MMC (sandevistan)
+    .desc = Um flatpack usado para construir um autocirurgião MMC.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Devices/pda.yml
+
+# Abstract entity (referenceable by children)
+ent-BaseMMCPDA = PDABaseMMC
     .desc = Um computador pessoal básico para restrição de acesso e organização.
 
 ent-MieyoEmployeePDA = PDA de funcionário Mieyo
-    .desc = { ent-BaseMMCPDA.desc }
-
-ent-MieyoLiasonPDA = PDA de representante corporativo Mieyo
-    .desc = { ent-BaseMMCPDA.desc }
+    .desc = {ent-BaseMMCPDA.desc}
 
 ent-MieyoSecurityPDA = PDA de segurança corporativa Mieyo
-    .desc = { ent-BaseMMCPDA.desc }
+    .desc = {ent-BaseMMCPDA.desc}
 
-ent-MieyoTrackingImplant = implante de rastreamento MMC
-    .desc = Este implante possui um monitor de dispositivo de rastreamento para o canal de rádio corporativo Mieyo.
+ent-MieyoLiasonPDA = PDA de liaison corporativo Mieyo
+    .desc = {ent-BaseMMCPDA.desc}
 
-ent-BallisticTurretHeavyAIMieyo = torre sentinela remota pesada Mieyo
-    .desc = { ent-BallisticTurretHeavyBase.desc }
-    .suffix = Mieyo
 
-ent-ComputerShipyardMMC = console de estaleiro MMC
-    .desc = Usado para transferir naves das reservas de funcionários da MMC.
+# From: Resources/Prototypes/_Mono/Entities/Objects/Devices/door_access.yml
 
-ent-MieyoComputerComms = computador de comunicações Mieyo
-    .desc = O computador de comunicações primário para emitir anúncios da MMC.
+ent-DoorElectronicsMieyo = {ent-DoorElectronics}
+    .desc = {ent-DoorElectronics.desc}
+    .suffix = Mieyo, Trancado
 
-ent-MMCLathe = montador multipropósito MMC
-    .desc = Capaz de fabricar equipamentos a partir de padrões de design da MMC. Enviado para qualquer lugar que precise de uma inicialização industrial em grande escala.
+ent-DoorElectronicsMieyoSecurity = {ent-DoorElectronics}
+    .desc = {ent-DoorElectronics.desc}
+    .suffix = Segurança Mieyo, Trancado
 
-ent-ResearchAndDevelopmentServerMMC = servidor de P&D da MMC
-    .desc = Contém o conhecimento coletivo da MMC neste setor.
+ent-DoorElectronicsMieyoLiason = {ent-DoorElectronics}
+    .desc = {ent-DoorElectronics.desc}
+    .suffix = Liaison Mieyo, Trancado
 
-ent-WeaponEnergyTurretMieyoControlPanel = painel de controle da torre sentinela Mieyo
-    .suffix = Acesso de Segurança Mieyo
-    .desc = Uma interface montada na parede que permite uma inteligência artificial local ajustar os parâmetros operacionais das torres sentinela conectadas.
 
+# From: Resources/Prototypes/_Mono/Entities/Objects/Specific/Robotics/borg_modules.yml
+
+# Abstract entity (referenceable by children)
+ent-BorgModuleXenoborgBase = MóduloCibernéticoXenoborgBase
+
+# Abstract entity (referenceable by children)
+ent-BorgModuleXenoborgEngineer = MóduloCibernéticoXenoborgEngenheiro
+
+# Abstract entity (referenceable by children)
+ent-BorgModuleXenoborgHeavy = MóduloCibernéticoXenoborgPesado
+
+# Abstract entity (referenceable by children)
+ent-BorgModuleXenoborgScout = MóduloCibernéticoXenoborgExplorador
+
+# Abstract entity (referenceable by children)
+ent-BorgModuleXenoborgStealth = MóduloCibernéticoXenoborgFurtivo
+
+ent-XenoborgModuleBasic = módulo básico de xenoborg
+
+ent-XenoborgModuleTool = módulo de ferramentas de xenoborg
+
+ent-XenoborgModuleDefense = módulo de defesa de xenoborg
+
+ent-XenoborgModuleJammer = módulo de interferidor de xenoborg
+
+ent-XenoborgModuleHeavyLaser = módulo de canhão laser de xenoborg
+
+ent-XenoborgModuleAccessBreaker = módulo quebra-acesso de xenoborg
+
+ent-XenoborgModuleDoorControl = módulo de controle de portas de xenoborg
+
+ent-XenoborgAdvancedModuleTool = módulo avançado de ferramentas de xenoborg
+
+ent-XenoborgModuleHypo = módulo hipo de nocturina de xenoborg
+
+ent-XenoborgModuleChameleonProjector = módulo projetor de camaleão de xenoborg
+
+ent-XenoborgModuleCloakDevice = módulo dispositivo de camuflagem de xenoborg
+
+ent-XenoborgModuleSuperCloakDevice = módulo dispositivo de invisibilidade de xenoborg
+
+ent-XenoborgModuleSurgery = módulo de cirurgia de cibernético xenoborg
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Economy/EconomyMaterials/component_packages.yml
+
+ent-MaterialIndustryElectronics = pacote de peças eletrônicas
+    .desc = Um caixote comprimido de peças eletrônicas como capacitores, resistores, transistores e até alguns processadores. Categorizado e organizado para uso em um torno.
+    .suffix = 1
+
+ent-MaterialIndustryElectronicsAdvanced = pacote de peças eletrônicas avançadas
+    .desc = Um caixote comprimido de peças eletrônicas avançadas como baterias, processadores melhores e transistores menores. Categorizado e organizado para uso em um torno.
+    .suffix = 1
+
+ent-MaterialIndustryFCS = pacote de peças de sistema de controle de tiro
+    .desc = Um caixote comprimido de sistemas de controle de tiro e suas peças de reposição, como telêmetros laser, giroscópios e óticas térmicas e NV. Categorizado e organizado para uso em um torno.
+    .suffix = 1
+
+ent-MaterialIndustryMechanical = pacote de peças mecânicas
+    .desc = Um caixote comprimido de peças mecânicas, como engrenagens, motores de passo, hidráulica e mais. Categorizado e organizado para uso em um torno.
+    .suffix = 1
+
+ent-MaterialIndustryPlates = pacote de peças de blindagem
+    .desc = Um caixote comprimido de peças de blindagem, como fibras de kevlar, placas cerâmica-carbeto, placas de aço e até algumas exóticas também. Categorizado e organizado para uso em um torno.
+    .suffix = 1
+
+ent-MaterialIndustryRecievers = pacote de peças de receptor
+    .desc = Um caixote comprimido de peças de receptor de todos os tipos para armas. Categorizado e organizado para uso em um torno.
+    .suffix = 1
+
+ent-MaterialIndustrySensors = pacote de peças de sensores
+    .desc = Um caixote comprimido de peças de sensores de todos os tipos para uma variedade de usos, como peças de radar, alertas radar, óticas, sensores de temperatura/pressão, ou apenas coisas básicas como fotômetros. Categorizado e organizado para uso em um torno.
+    .suffix = 1
+
+ent-MaterialIndustryShip = pacote de peças de nave
+    .desc = Um caixote comprimido de peças de nave para LPCs. Categorizado e organizado para uso em um torno.
+    .suffix = 1
+
+ent-MaterialIndustrySterile = pacote de peças estéreis
+    .desc = Um caixote comprimido de peças esterilizadas para uso médico e pesquisa. Categorizado e organizado para uso em um torno.
+    .suffix = 1
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Economy/EconomyMaterials/iridite_proccessing.yml
+
+ent-MaterialIriditeSlag = escória de iridita
+    .desc = Precisa ser colocada em uma centrífuga para separar no pó fino necessário para a produção de iridita sem gás.
+
+ent-IriditePowder = pó de iridita bruta
+    .desc = Escória de iridita bruta moída feita em uma centrífuga de processamento, pronta para ser misturada com napalm e termite em um forno a arco para fazer cristais de iridita.
+
+ent-IriditeCrystal = iridita cristalina
+    .desc = Um estado natural de iridita do resultado do processamento de iridita não atmosférico. Precisa ser processada em um forno a arco novamente com vários químicos para fazer 1 folha de iridita.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Devices/Misc/identification_cards.yml
+
+ent-MieyoEmployeeIDCard = cartão de identificação de funcionário MMC
+    .desc = {ent-IDCardStandard.desc}
+
+ent-MieyoSecurityIDCard = cartão de identificação de segurança MMC
+    .desc = {ent-IDCardStandard.desc}
+
+ent-MieyoLiasonIDCard = cartão de identificação de liaison MMC
+    .desc = {ent-IDCardStandard.desc}
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Devices/Circuitboards/computer.yml
+
+ent-ComputerXenoborgsControlCircuitboard = placa de console de controle de xenoborg
+    .desc = Um circuito impresso de computador para um console de controle de xenoborg.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Weapons/Guns/SMGs/smgs.yml
+
+ent-WeaponSubMachineGunMasamune = MMC VK-550 Masamune (5.7x28mm)
+    .desc = Uma PDW básica para segurança corporativa. Sem modularidade alguma.
+
+ent-WeaponSubMachineGunSakura = PMC Sakura Inteligente MMC (.160 inteligente)
+    .desc = Uma variante de produção completa da arma inteligente Abielle, totalmente desenvolvida pela MMC.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Weapons/Guns/Pistols/pistol.yml
+
+ent-WeaponPistolKuosame = MMC VMK "Kuosame" (5.7x28mm)
+    .desc = Uma pistola básica e simples para funcionários da MMC. Apenas emitida em zonas de alto risco.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Objects/Weapons/Guns/Rifles/mmc.yml
+
+ent-WeaponRifleOsaka = MMC V/78 "Osaka" (5.56x45mm)
+    .desc = Um rifle preciso e barato produzido pela MMC. Dispara 5.56x45mm.
+
+ent-WeaponRifleIzumo = MMC V/79P "Izumo" (5.56x45mm)
+    .desc = Um rifle ainda mais preciso e muito menos barato produzido pela MMC, selecionado dos rifles V/78 de maior desempenho e convertido para a função de DMR. Um trilho Erebus está presente no receptor para óticas.
+
+
+# From: Resources/Prototypes/_Mono/Entities/Markers/Spawners/ghost_roles.yml
+
+ent-SpawnPlayerXenoBorg = gerador de cuidador de xenoborg
+
+ent-SpawnPlayerXenoBorgPlaytime = Xenoborg playtime-locked tender spawner
+
+
+# From: Resources/Prototypes/_Mono/Entities/Markers/Spawners/jobs.yml
+
+ent-SpawnPointMMCEmployee = Empregado da MMC
+
+ent-SpawnPointMMCSecurity = Segurança da MMC
+
+ent-SpawnPointMMCLiason = Representante da MMC
+
+
+# From: Resources/Prototypes/_Mono/Entities/World/Debris/drone.yml
+
+ent-MonoDroneSpawnerT0 = MonoDroneSpawnerT0
+
+ent-SpawnDroneDander = SpawnDroneDander
+
+ent-SpawnDroneMote = SpawnDroneMote

@@ -5,9 +5,11 @@
 - type: vessel
   id: Manus
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Manus-name
   description: vessel-Manus-desc
-  price: 62125
+  # Andromeda end
+  price: 88068
   category: Medium
   group: Sr
   access: Brig # Oddball, matches guard ID, specific enough to exclude cadets

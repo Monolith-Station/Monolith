@@ -1,9 +1,11 @@
 - type: vessel
   id: Solarsail
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Solarsail-name
   description: vessel-Solarsail-desc
-  price: 25500
+  # Andromeda end
+  price: 35417
   category: Small
   group: Sr
   access: HeadOfPersonnel

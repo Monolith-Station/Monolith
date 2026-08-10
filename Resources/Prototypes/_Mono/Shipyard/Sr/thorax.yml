@@ -5,9 +5,11 @@
 - type: vessel
   id: Thorax
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Thorax-name
   description: vessel-Thorax-desc
-  price: 63450
+  # Andromeda end
+  price: 72070
   category: Medium
   group: Sr
   access: Brig

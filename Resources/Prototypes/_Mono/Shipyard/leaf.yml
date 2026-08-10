@@ -7,9 +7,11 @@
 - type: vessel
   id: Leaf
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Leaf-name
   description: vessel-Leaf-desc
-  price: 69500
+  # Andromeda end
+  price: 117617
   category: Medium
   group: Medical
   shuttlePath: /SharedMaps/_Mono/Shuttles/leaf.yml

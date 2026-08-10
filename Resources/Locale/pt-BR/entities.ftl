@@ -2171,7 +2171,7 @@ ent-ScrapJetpack = jetpack quebrado
 ent-ScrapMedkit = kit médico quebrado
     .desc = Espero que tenham conseguido algum uso dele.
 
-ent-ScrapMopBucket = meio balde de esfregona
+ent-ScrapMopBucket = meio balde de esfregão
     .desc = Tiders morrem. Zeladores sobrevivem.
 
 ent-ScrapPAI = dispositivo de IA pessoal
@@ -2666,7 +2666,7 @@ ent-BrbSign = placa de volta já
 ent-BriefcaseBase = {ent-BaseStorageItem}
     .desc = Útil para carregar itens em suas mãos.
 
-ent-BriefcaseBrown = maleta marrom
+ent-BriefcaseBrown = bolsa marrom
     .desc = {ent-BriefcaseBase.desc}
 
 ent-BriefcaseSyndie = {ent-BriefcaseBrown}
@@ -4724,14 +4724,14 @@ ent-PlantBag = sacola de plantas
 
 # From: Entities/Objects/Specific/Janitorial/janitor.yml
 
-ent-AdvMopItem = esfregona avançada
-    .desc = Esfregona motorizada que tem um reservatório maior e rapidamente substitui reagentes dentro por água. Medida Automática Contra Palhaços não incluída.
+ent-AdvMopItem = esfregão avançada
+    .desc = esfregão motorizada que tem um reservatório maior e rapidamente substitui reagentes dentro por água. Medida Automática Contra Palhaços não incluída.
 
 ent-GoldenPlunger = desentupidor dourado
     .desc = Um desentupidor com uma ventosa de plástico revestida em uma fina camada de ouro dado como um token de apreciação por anos de serviço. Ainda usado para desentupidor canos.
 
-ent-MopItem = esfregona
-    .desc = Uma esfregona que não pode ser parada, detalhe de limpeza de vísceras aguarda.
+ent-MopItem = esfregão
+    .desc = Uma esfregão que não pode ser parado, detalhe de limpeza de vísceras aguarda.
 
 ent-Plunger = desentupidor
     .desc = Um desentupidor com uma ventosa de plástico vermelha e um cabo de madeira. Usado para desentupir drenagens.
@@ -5604,7 +5604,7 @@ ent-PositronicBrain = cérebro positrônico
 
 # From: Entities/Objects/Specific/Salvage/ore_bag_holding.yml
 
-ent-OreBagOfHolding = bolsa de minério de manutenção
+ent-OreBagOfHolding = bolsa de minérios bluespace
     .desc = Uma bolsa robusta de manutenção para bilionários de salvagem e mineiros ricos transportarem grandes quantidades de minério. Magnetiza qualquer minério próximo quando anexada a um cinto.
 
 # From: Entities/Objects/Specific/Salvage/ore_bag.yml
@@ -12062,7 +12062,7 @@ ent-MopBucket = balde de esfregão
     .desc = Contém água e as lágrimas do zelador.
 
 ent-MopBucketFull = balde de esfregão
-    .desc = Um balde de esfregona.
+    .desc = Um balde de esfregão.
     .suffix = cheio
 
 # From: Entities/Structures/Specific/xeno.yml
@@ -17470,8 +17470,8 @@ ent-ClothingBackpackERTLeader = mochila tática avançada
 ent-ClothingBackpackGenetics = mochila de genética
     .desc = Uma mochila projetada para ser super resistente, caso alguém se transforme em hulk com você.
 
-ent-ClothingBackpackHolding = bolsa de held
-    .desc = Uma mochila que se abre em um bolso localizado de bluespace.
+ent-ClothingBackpackHolding = mochila bluespace
+    .desc = Uma mochila que se abre em um bolso bluespace localizado.
 
 ent-ClothingBackpackHydroponics = mochila de hidroponia
     .desc = É uma mochila feita de fibras 100% naturais.
@@ -17504,122 +17504,122 @@ ent-ClothingBackpackVirology = mochila de virologia
 
 # From: Entities/Clothing/Back/duffel.yml
 
-ent-ClothingBackpackDuffel = bolsa de transporte
+ent-ClothingBackpackDuffel = bolsa de viagem
     .desc = Uma bolsa grande para guardar coisas extras.
 
-ent-ClothingBackpackDuffelAtmospherics = bolsa de transporte atmosférica
+ent-ClothingBackpackDuffelAtmospherics = bolsa de viagem atmosférica
     .desc = Uma bolsa grande feita de fibras resistentes ao fogo. Cheira a plasma.
 
-ent-ClothingBackpackDuffelBrigmedic = bolsa de transporte de médico de brigada
+ent-ClothingBackpackDuffelBrigmedic = bolsa de viagem de médico de brigada
     .desc = Uma bolsa grande para guardar coisas médicas extras.
 
-ent-ClothingBackpackDuffelCaptain = bolsa de transporte de capitão
+ent-ClothingBackpackDuffelCaptain = bolsa de viagem de capitão
     .desc = Uma bolsa grande para guardar coisas capitães extras.
 
-ent-ClothingBackpackDuffelCargo = bolsa de transporte de carga
+ent-ClothingBackpackDuffelCargo = bolsa de viagem de carga
     .desc = Uma bolsa grande para roubar o precioso saque do cargueiro.
 
-ent-ClothingBackpackDuffelCBURN = bolsa de transporte CBURN
-    .desc = Uma bolsa de transporte contendo uma variedade de equipamentos de contenção biológica.
+ent-ClothingBackpackDuffelCBURN = bolsa de viagem CBURN
+    .desc = Uma bolsa de viagem contendo uma variedade de equipamentos de contenção biológica.
 
-ent-ClothingBackpackDuffelChemistry = bolsa de transporte de química
+ent-ClothingBackpackDuffelChemistry = bolsa de viagem de química
     .desc = Uma bolsa grande para guardar béqueres e tubos de ensaio extras.
 
-ent-ClothingBackpackDuffelClown = bolsa de transporte de palhaço
+ent-ClothingBackpackDuffelClown = bolsa de viagem de palhaço
     .desc = Uma bolsa grande para guardar coisas de honk extras.
 
-ent-ClothingBackpackDuffelEngineering = bolsa de transporte de engenharia
+ent-ClothingBackpackDuffelEngineering = bolsa de viagem de engenharia
     .desc = Uma bolsa grande para guardar ferramentas e suprimentos extras.
 
-ent-ClothingBackpackDuffelGenetics = bolsa de transporte de genética
+ent-ClothingBackpackDuffelGenetics = bolsa de viagem de genética
     .desc = Uma bolsa grande para guardar mutações genéticas extras.
 
-ent-ClothingBackpackDuffelHolding = bolsa de transporte de held
-    .desc = Uma bolsa de transporte que se abre em um bolso localizado de bluespace.
+ent-ClothingBackpackDuffelHolding = bolsa de viagem bluespace
+    .desc = Uma bolsa de viagem que se abre em um bolso bluespace localizado.
 
-ent-ClothingBackpackDuffelHydroponics = bolsa de transporte de hidroponia
+ent-ClothingBackpackDuffelHydroponics = bolsa de viagem de hidroponia
     .desc = Uma bolsa grande para guardar ferramentas de jardinagem extras.
 
-ent-ClothingBackpackDuffelMedical = bolsa de transporte médica
+ent-ClothingBackpackDuffelMedical = bolsa de viagem médica
     .desc = Uma bolsa grande para guardar suprimentos médicos extras.
 
-ent-ClothingBackpackDuffelMime = bolsa de transporte de mímico
+ent-ClothingBackpackDuffelMime = bolsa de viagem de mímico
     .desc = Uma bolsa grande para guardar... coisas... de mímico.
 
-ent-ClothingBackpackDuffelSalvage = bolsa de transporte de salvagem
+ent-ClothingBackpackDuffelSalvage = bolsa de viagem de salvagem
     .desc = Uma bolsa grande para guardar tesouros exóticos extras.
 
-ent-ClothingBackpackDuffelScience = bolsa de transporte de ciência
+ent-ClothingBackpackDuffelScience = bolsa de viagem de ciência
     .desc = Uma bolsa grande para guardar coisas científicas extras.
 
-ent-ClothingBackpackDuffelSecurity = bolsa de transporte tática
+ent-ClothingBackpackDuffelSecurity = bolsa de viagem tática
     .desc = Uma bolsa grande para guardar coisas de segurança extras.
 
-ent-ClothingBackpackDuffelSyndicate = bolsa de transporte de sindicato
+ent-ClothingBackpackDuffelSyndicate = bolsa de viagem de sindicato
     .desc = Uma bolsa grande para guardar várias coisas de traidor.
 
-ent-ClothingBackpackDuffelSyndicateAmmo = bolsa de transporte de sindicato
+ent-ClothingBackpackDuffelSyndicateAmmo = bolsa de viagem de sindicato
 
-ent-ClothingBackpackDuffelSyndicateMedical = bolsa de transporte de sindicato
+ent-ClothingBackpackDuffelSyndicateMedical = bolsa de viagem de sindicato
 
-ent-ClothingBackpackDuffelVirology = bolsa de transporte de virologia
+ent-ClothingBackpackDuffelVirology = bolsa de viagem de virologia
     .desc = Uma bolsa grande feita de fibras hipoalergênicas. É projetada para ajudar a prevenir a propagação de doenças. Cheira a macaco.
 
 # From: Entities/Clothing/Back/satchel.yml
 
-ent-ClothingBackpackSatchel = maleta
-    .desc = Uma maleta com aparência moderna.
+ent-ClothingBackpackSatchel = bolsa
+    .desc = Uma bolsa com aparência moderna.
 
-ent-ClothingBackpackSatchelAtmospherics = maleta atmosférica
-    .desc = Uma maleta resistente feita de fibras resistentes ao fogo. Cheira a plasma.
+ent-ClothingBackpackSatchelAtmospherics = bolsa atmosférica
+    .desc = Uma bolsa resistente feita de fibras resistentes ao fogo. Cheira a plasma.
 
-ent-ClothingBackpackSatchelBrigmedic = maleta de médico de brigada
-    .desc = Uma maleta estéril para necessidades médicas.
+ent-ClothingBackpackSatchelBrigmedic = bolsa de médico de brigada
+    .desc = Uma bolsa estéril para necessidades médicas.
 
-ent-ClothingBackpackSatchelCaptain = maleta de capitão
-    .desc = Uma maleta exclusiva para oficiais da TSF.
+ent-ClothingBackpackSatchelCaptain = bolsa de capitão
+    .desc = Uma bolsa exclusiva para oficiais da TSF.
 
-ent-ClothingBackpackSatchelCargo = maleta de carga
-    .desc = Uma maleta robusta para roubar o saque do cargueiro.
+ent-ClothingBackpackSatchelCargo = bolsa de carga
+    .desc = Uma bolsa robusta para roubar o saque do cargueiro.
 
-ent-ClothingBackpackSatchelChemistry = maleta de química
-    .desc = Uma maleta estéril com cores de químico.
+ent-ClothingBackpackSatchelChemistry = bolsa de química
+    .desc = Uma bolsa estéril com cores de químico.
 
-ent-ClothingBackpackSatchelClown = maleta de palhaço
+ent-ClothingBackpackSatchelClown = bolsa de palhaço
     .desc = Para correr rápido da segurança.
 
-ent-ClothingBackpackSatchelEngineering = maleta de engenharia
-    .desc = Uma maleta resistente com bolsos extras.
+ent-ClothingBackpackSatchelEngineering = bolsa de engenharia
+    .desc = Uma bolsa resistente com bolsos extras.
 
-ent-ClothingBackpackSatchelGenetics = maleta de genética
-    .desc = Uma maleta estéril com cores de geneticista.
+ent-ClothingBackpackSatchelGenetics = bolsa de genética
+    .desc = Uma bolsa estéril com cores de geneticista.
 
-ent-ClothingBackpackSatchelHolding = maleta de held
-    .desc = Uma maleta que se abre em um bolso localizado de bluespace.
+ent-ClothingBackpackSatchelHolding = bolsa bluespace
+    .desc = Uma bolsa que se abre em um bolso bluespace localizado.
 
-ent-ClothingBackpackSatchelHydroponics = maleta de hidroponia
-    .desc = Uma maleta feita de fibras 100% naturais.
+ent-ClothingBackpackSatchelHydroponics = bolsa de hidroponia
+    .desc = Uma bolsa feita de fibras 100% naturais.
 
-ent-ClothingBackpackSatchelLeather = maleta de couro
-    .desc = Uma maleta ditadora de moda de uma era passada.
+ent-ClothingBackpackSatchelLeather = bolsa de couro
+    .desc = Uma bolsa ditadora de moda de uma era passada.
 
-ent-ClothingBackpackSatchelMedical = maleta médica
-    .desc = Uma maleta estéril usada em departamentos médicos.
+ent-ClothingBackpackSatchelMedical = bolsa médica
+    .desc = Uma bolsa estéril usada em departamentos médicos.
 
-ent-ClothingBackpackSatchelMime = maleta de mímico
-    .desc = Uma maleta projetada para a arte silenciosa e expressiva da mímica.
+ent-ClothingBackpackSatchelMime = bolsa de mímico
+    .desc = Uma bolsa projetada para a arte silenciosa e expressiva da mímica.
 
-ent-ClothingBackpackSatchelSalvage = maleta de salvagem
-    .desc = Uma maleta robusta para guardar seu saque.
+ent-ClothingBackpackSatchelSalvage = bolsa de salvagem
+    .desc = Uma bolsa robusta para guardar seu saque.
 
-ent-ClothingBackpackSatchelScience = maleta de ciência
+ent-ClothingBackpackSatchelScience = bolsa de ciência
     .desc = Útil para guardar materiais de pesquisa.
 
-ent-ClothingBackpackSatchelSecurity = maleta tática
-    .desc = Uma maleta robusta para necessidades de segurança.
+ent-ClothingBackpackSatchelSecurity = bolsa tática
+    .desc = Uma bolsa robusta para necessidades de segurança.
 
-ent-ClothingBackpackSatchelVirology = maleta de virologia
-    .desc = Uma maleta feita de fibras hipoalergênicas. É projetada para ajudar a prevenir a propagação de doenças. Cheira a macaco.
+ent-ClothingBackpackSatchelVirology = bolsa de virologia
+    .desc = Uma bolsa feita de fibras hipoalergênicas. É projetada para ajudar a prevenir a propagação de doenças. Cheira a macaco.
 
 # From: Entities/Clothing/Back/specific.yml
 
@@ -28912,7 +28912,7 @@ ent-ImmovableRodKeepTilesStill = {ent-ImmovableRod}
     .desc = {ent-ImmovableRod.desc}
     .suffix = Manter Pisos, Parado
 
-ent-ImmovableRodMop = esfregona imóvel
+ent-ImmovableRodMop = esfregão imóvel
     .desc = Arremessada como um javali, com o poder de mil zeladores furiosos.
 
 ent-ImmovableRodShark = tubarão imóvel
@@ -29352,4 +29352,3 @@ ent-BeachBall = bola de praia
 
 ent-ClownRecorder = gravador de palhaço
     .desc = Quando você simplesmente não consegue fazer aquelas risadas do jeito natural!
-

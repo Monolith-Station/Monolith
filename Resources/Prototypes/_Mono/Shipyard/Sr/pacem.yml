@@ -5,9 +5,11 @@
 - type: vessel
   id: Pacem
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Pacem-name
   description: vessel-Pacem-desc
-  price: 130000 #Roughly 20% markup from appraisegrid
+  # Andromeda end
+  price: 174669
   category: Medium
   group: Sr
   access: Brig

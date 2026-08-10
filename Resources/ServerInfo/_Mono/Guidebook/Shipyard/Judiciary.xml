@@ -10,7 +10,7 @@
 
 	  [color=#a4885c]Tripulação Recomendada:[/color] 1-3
 
-	  [color=#a4885c]Tipo de Geração de Energia:[/color] Motor de Antimatéria (AME)
+  [color=#a4885c]Power Gen Type:[/color] Motor de Reação de Isótopos  (IRE)
 
 	  [color=#a4885c]Expedições:[/color] Todas
 
@@ -29,14 +29,14 @@
 	    <GuideEntityEmbed Entity="APCBasic"/>
 	  </Box>
 
-	  - Verifique se o gerador Motor de Antimatéria (AME) está funcional (Veja abaixo.)
+	  - Verifique se o Motor de Reação de Isótopos (IRE) está funcional (Veja abaixo.)
 	  - Verifique se a unidade SMES está fixada ao chão.
 	  - Verifique se a unidade subestação está carregando.
-	  - Verifique se o Disjuntor Principal da unidade APC Engenharia/Pesquisa está ativado.
-	  - Verifique se o Disjuntor Principal da unidade APC Sala do Servidor/Atmos está ativado.
-	  - Verifique se o Disjuntor Principal da unidade APC Ponte está ativado.
+	  - Verifique se o Disjuntor Principal da unidade APC da Engenharia/Pesquisa está ativado.
+	  - Verifique se o Disjuntor Principal da unidade APC da Sala do Servidor/Atmos está ativado.
+	  - Verifique se o Disjuntor Principal da unidade APC da Ponte está ativado.
 
-	  ## 1.2. Unidade reator Motor de Antimatéria (AME).
+	  ## 1.2. Unidade reatora do Motor de Reação de Isótopos (IRE).
 	  <Box>
 	    <GuideEntityEmbed Entity="AmeController"/>
 	    <GuideEntityEmbed Entity="AmeJar"/>

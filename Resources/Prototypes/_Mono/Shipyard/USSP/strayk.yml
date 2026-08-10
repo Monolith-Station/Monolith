@@ -3,9 +3,11 @@
 - type: vessel
   id: Strayk
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Strayk-name
   description: vessel-Strayk-desc
-  price: 45820
+  # Andromeda end
+  price: 66109
   category: Small
   group: Ussp
   access: USSP

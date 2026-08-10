@@ -1,8 +1,10 @@
 - type: vessel
   id: Balor
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Balor-name
   description: vessel-Balor-desc
+  # Andromeda end
   price: 188000
   category: Large
   group: Shipyard

@@ -5,9 +5,11 @@
 - type: vessel
   id: Tarantula
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Tarantula-name
   description: vessel-Tarantula-desc
-  price: 140850
+  # Andromeda end
+  price: 157049
   purchasable: false # voucher only
   category: Medium
   group: Security

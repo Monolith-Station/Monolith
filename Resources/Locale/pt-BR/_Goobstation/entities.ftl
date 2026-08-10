@@ -1555,3 +1555,42 @@ ent-DefibrillatorCompactEmpty = {ent-DefibrillatorCompact}
     .desc = {ent-DefibrillatorCompact.desc}
     .suffix = Vazio
 
+
+
+# From: Resources/Prototypes/_Goobstation/Entities/Mobs/Player/humanoid.yml
+
+ent-MobFeroxiRandom = Enzo Tubarão da Silva
+    .desc = {ent-MobFeroxiDummy.desc}
+    .suffix = Aparência Aleatória
+
+
+# From: Resources/Prototypes/_Goobstation/Entities/Objects/Devices/autosurgeon.yml
+
+# Abstract entity (referenceable by children)
+ent-BaseAutosurgeon = BaseAutosurgeon
+    .desc = Um auto cirurgião de uso único para substituir ou aprimorar suas partes com implantes cibernéticos. Destroçe a estação e faça dela parte de você.
+
+# Abstract entity (referenceable by children)
+ent-BaseAutosurgeonSyndicate = BaseAutosurgeonSyndicate
+    .desc = {ent-BaseAutosurgeon.desc}
+
+ent-AutosurgeonRightSpeedLeg = autocirurgião (perna direita S.P.E.E.D)
+    .desc = {ent-BaseAutosurgeon.desc}
+
+ent-AutosurgeonLeftSpeedLeg = autocirurgião (perna desquerda S.P.E.E.D)
+    .desc = {ent-BaseAutosurgeon.desc}
+
+ent-AutosurgeonRightMantisBlade = autocirurgião do sindicato (lâmina mantis direita)
+    .desc = {ent-BaseAutosurgeon.desc}
+
+ent-AutosurgeonLeftMantisBlade = autocirurgião do sindicato (lâmina mantis esquerda)
+    .desc = {ent-BaseAutosurgeon.desc}
+
+ent-AutosurgeonSandevistan = autocirurgião do sindicato (sandevistan)
+    .desc = {ent-BaseAutosurgeon.desc}
+
+
+# From: Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Melee/mantis_blade.yml
+
+ent-MantisBlade = lâmina mantis
+    .desc = Quando eles verem o aço, vai ser tarde demais.

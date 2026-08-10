@@ -3,9 +3,11 @@
 - type: vessel
   id: Kalisto
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Kalisto-name
   description: vessel-Kalisto-desc
-  price: 120750
+  # Andromeda end
+  price: 141003
   purchasable: false # voucher only
   category: Medium
   group: BlackMarket
@@ -27,7 +29,7 @@
     Kalisto:
       gridComponents:
       - type: VesselInfo
-        description: vessel-Kalisto-desc
+        description: vessel-Kalisto-desc # Andromeda: Localize ship name and desc
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup

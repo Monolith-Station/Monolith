@@ -1,7 +1,7 @@
 # Corpo War .45 Mag Vector
 - type: entity
   name: wayward HCLM-357 (.357 magnum)
-  parent: [BaseWeaponRevolver, BaseGunWieldable]
+  parent: [BaseWeaponRevolver, BaseGunWieldable, BaseFactionGearOtherFactionT3]
   id: WeaponSubMachineGunVectorNtsfHclm
   description: An anomalous Heavy Caliber Light Machinegun. A very high-quality heavy SMG chambered in .357 magnum. While awkward to use and quick to run out of ammo, it can be very devastating.
   components:

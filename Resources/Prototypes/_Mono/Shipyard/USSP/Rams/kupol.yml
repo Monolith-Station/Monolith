@@ -1,8 +1,10 @@
 - type: vessel
   id: Kupol
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Kupol-name
   description: vessel-Kupol-desc
+  # Andromeda end
   limit: 1
   price: 90000
   purchasable: false # voucher only

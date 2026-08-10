@@ -3,9 +3,11 @@
 - type: vessel
   id: Tumour
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Tumour-name
   description: vessel-Tumour-desc
-  price: 68250
+  # Andromeda end
+  price: 110110
   category: Medium
   group: Security
   access: Security

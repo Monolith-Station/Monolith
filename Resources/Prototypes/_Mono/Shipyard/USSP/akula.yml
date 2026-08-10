@@ -3,9 +3,11 @@
 - type: vessel
   id: Akula
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Akula-name
   description: vessel-Akula-desc
-  price: 64000
+  # Andromeda end
+  price: 70321
   category: Medium
   group: Ussp
   access: USSP

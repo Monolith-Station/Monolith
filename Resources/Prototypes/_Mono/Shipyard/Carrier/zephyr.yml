@@ -3,9 +3,11 @@
 - type: vessel
   id: Zephyr
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Zephyr-name
   description: vessel-Zephyr-desc
-  price: 16400
+  # Andromeda end
+  price: 29365
   category: Small
   group: Custom
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes

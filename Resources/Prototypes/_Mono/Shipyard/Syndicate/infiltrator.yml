@@ -1,8 +1,10 @@
 - type: vessel
   id: Infiltrator
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Infiltrator-name
   description: vessel-Infiltrator-desc
+  # Andromeda end
   price: 275000
   category: Large
   group: Syndicate

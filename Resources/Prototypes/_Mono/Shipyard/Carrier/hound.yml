@@ -9,9 +9,11 @@
 - type: vessel
   id: Hound
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Hound-name
   description: vessel-Hound-desc
-  price: 35000
+  # Andromeda end
+  price: 41611
   category: Small
   group: Custom
   access: Brig

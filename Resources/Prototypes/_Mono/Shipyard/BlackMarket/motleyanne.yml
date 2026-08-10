@@ -3,8 +3,10 @@
 - type: vessel
   id: MotleyAnne
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-MotleyAnne-name
   description: vessel-MotleyAnne-desc
+  # Andromeda end
   price: 280000
   limit: 2
   hyperwarTimelock: 1800

@@ -3,9 +3,11 @@
 - type: vessel
   id: Veska
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Veska-name
   description: vessel-Veska-desc
-  price: 6500
+  # Andromeda end
+  price: 11699
   category: Micro
   group: Custom
   mapchecker_group_override: BlackMarket  # Treat this as a BlackMarket vessel for mapchecker purposes

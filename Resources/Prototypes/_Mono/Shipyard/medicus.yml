@@ -8,9 +8,11 @@
 - type: vessel
   id: Medicus
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Medicus-name
   description: vessel-Medicus-desc
-  price: 76500 #appraises at 70000
+  # Andromeda end
+  price: 119000 #markup 10% from 108200
   category: Medium
   group: Medical
   shuttlePath: /SharedMaps/_Mono/Shuttles/medicus.yml

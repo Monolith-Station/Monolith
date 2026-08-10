@@ -7,8 +7,10 @@
 - type: vessel
   id: Kunai
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Kunai-name
   description: vessel-Kunai-desc
+  # Andromeda end
   price: 130700 # 71K base + 40K for torps and 26K for medical bay with nanomed.
   category: medium
   group: Shipyard

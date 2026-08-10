@@ -7,9 +7,11 @@
 - type: vessel
   id: Horsefly
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Horsefly-name
   description: vessel-Horsefly-desc
-  price: 32500 # it's a heap of scrap
+  # Andromeda end
+  price: 51463 # it's a heap of scrap
   category: Small
   group: Scrap
   shuttlePath: /SharedMaps/_Mono/Shuttles/Scrap/horsefly.yml

@@ -35,6 +35,7 @@
         layer:
         - MachineLayer
   - type: Gun
+    damageModifier: 2
     projectileSpeed: 380
     minAngle: 0
     maxAngle: 1
@@ -47,7 +48,9 @@
     availableModes: Burst
     shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/heph.ogg
+      params:
+        volume: 1.1
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: SpaceArtillery
@@ -193,13 +196,6 @@
     repairTime: 30
     repairCost: 150
 
-- type: soundCollection
-  id: 120mmAutocannonAK820
-  files:
-  - /Audio/_Mono/Weapons/Guns/Gunshots/autocannon_1.ogg
-  - /Audio/_Mono/Weapons/Guns/Gunshots/autocannon_2.ogg
-  - /Audio/_Mono/Weapons/Guns/Gunshots/autocannon_3.ogg
-
 # Bofors 255mm
 
 - type: entity
@@ -330,6 +326,8 @@
     shootThermalSignature: 160000000 # now all of china knows you're here (12.6km)
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+      params:
+        volume: 1.2
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -407,7 +405,10 @@
     availableModes: SemiAuto
     shootThermalSignature: 160000000
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+      collection: ShipGunMjolnir
+      params:
+        pitch: 0.6
+        volume: 2
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BallisticAmmoProvider
@@ -485,7 +486,9 @@
     availableModes: Burst
     shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/120mm_mortar.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/needler.ogg
+      params:
+        volume: 1.1
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: SpaceArtillery

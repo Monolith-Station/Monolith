@@ -3,12 +3,14 @@
 - type: vessel
   id: Kortik
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Kortik-name
   description: vessel-Kortik-desc
+  # Andromeda end
   limit: 1
   hyperwarLimit: 2
   hyperwarTimelock: 3600
-  price: 298000
+  price: 328237
   purchasable: false # Voucher only
   category: Large
   group: BlackMarket

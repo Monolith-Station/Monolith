@@ -54,7 +54,7 @@ thief-backpack-category-communicator-description =
     Dinheiro é poder, e segredos são dinheiro. Use sua língua de prata
     e riqueza para subverter a estação.
     Inclui: Chave mestra para todos os canais da estação, uma caneta CyberSun,
-    máscara camaleão de voz e 20k créditos dentro de uma maleta.
+    máscara camaleão de voz e 20k créditos dentro de uma bolsa.
 
 thief-backpack-category-smuggler-name = kit de contrabando
 thief-backpack-category-smuggler-description =

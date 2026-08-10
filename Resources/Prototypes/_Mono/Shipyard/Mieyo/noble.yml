@@ -1,9 +1,11 @@
 - type: vessel
   id: MieyoNoble
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-MieyoNoble-name
   description: vessel-MieyoNoble-desc
-  price: 59400
+  # Andromeda end
+  price: 94365
   category: Small
   group: Mieyo
   access: Mieyo

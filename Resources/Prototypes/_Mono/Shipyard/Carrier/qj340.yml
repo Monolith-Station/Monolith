@@ -3,9 +3,11 @@
 - type: vessel
   id: QJ340
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-QJ340-name
   description: vessel-QJ340-desc
-  price: 33600 #Rounded up to 28K, with a 20% tax
+  # Andromeda end
+  price: 45587
   category: Small
   group: Custom
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes

@@ -7,9 +7,11 @@
 - type: vessel
   id: Valkyrie
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Valkyrie-name
   description: vessel-Valkyrie-desc
-  price: 93950
+  # Andromeda end
+  price: 136554
   category: Medium
   group: Shipyard
   access: Mercenary

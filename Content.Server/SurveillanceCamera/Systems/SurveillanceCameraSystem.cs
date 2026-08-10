@@ -83,7 +83,7 @@ public sealed partial class SurveillanceCameraSystem : SharedSurveillanceCameraS
             {
                 { DeviceNetworkConstants.Command, string.Empty },
                 { CameraAddressData, deviceNet.Address },
-                { CameraNameData, component.CameraId },
+                { CameraNameData, component.UseEntityNameAsCameraId ? MetaData(uid).EntityName : component.CameraId },
                 { CameraSubnetData, string.Empty }
             };
 
@@ -215,7 +215,8 @@ public sealed partial class SurveillanceCameraSystem : SharedSurveillanceCameraS
                 return;
             }
         }
-
+		
+        var name = camera.UseEntityNameAsCameraId ? MetaData(uid).EntityName : camera.CameraId;
         var state = new SurveillanceCameraSetupBoundUiState(camera.CameraId, deviceNet.ReceiveFrequency ?? 0,
             camera.AvailableNetworks, camera.NameSet, camera.NetworkSet);
         _userInterface.SetUiState(uid, SurveillanceCameraSetupUiKey.Camera, state);

@@ -15,7 +15,7 @@ assembler-bound-user-interface-cook-time-label = TIME LEFT: {$time}
 
 microwave-menu-range-title = Electric Range
 
-microwave-menu-range-footer-flavor-left = NT is not liable for damages due to kitchen fires.
+microwave-menu-range-footer-flavor-left = CC is not liable for damages due to kitchen fires.
 
 assembler-menu-title = Food-O-Mat
 assembler-menu-medical-title = Medical Assembler

@@ -7,9 +7,11 @@
 - type: vessel
   id: Triage
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Triage-name
   description: vessel-Triage-desc
-  price: 49200 #Approx 41K with a 20% tax.
+  # Andromeda end
+  price: 64262 #Approx 60262
   category: Small
   group: Medical
   shuttlePath: /SharedMaps/_Mono/Shuttles/triage.yml

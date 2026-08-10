@@ -8,9 +8,11 @@
 - type: vessel
   id: McChilly
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-McChilly-name
   description: vessel-McChilly-desc
-  price: 17500
+  # Andromeda end
+  price: 28071
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/mcchilly.yml

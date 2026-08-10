@@ -20,6 +20,7 @@
     range: 500
   - type: GunSignalControl
   - type: Gun
+    damageModifier: 0.5
     selectedMode: Burst
     availableModes: Burst
     burstCooldown: 15
@@ -31,7 +32,7 @@
     maxAngle: 6
     shootThermalSignature: 8000000
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+      collection: ShipGunGenericMissile
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: Actions

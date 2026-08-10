@@ -7,9 +7,11 @@
 - type: vessel
   id: Velios
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Velios-name
   description: vessel-Velios-desc
-  price: 76080 # Appraises at 50721 but capabilities are good, + it's replacing the shirokami (112000).
+  # Andromeda end
+  price: 123227 # Appraises at 93227 but capabilities are good, + it's replacing the shirokami (112000).
   category: Medium
   group: Medical
   shuttlePath: /SharedMaps/_Mono/Shuttles/velios.yml

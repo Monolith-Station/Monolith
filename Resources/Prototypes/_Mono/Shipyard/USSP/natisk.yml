@@ -3,9 +3,11 @@
 - type: vessel
   id: Natisk
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Natisk-name
   description: vessel-Natisk-desc
-  price: 53500
+  # Andromeda end
+  price: 69870
   category: Medium
   group: Ussp
   access: USSP

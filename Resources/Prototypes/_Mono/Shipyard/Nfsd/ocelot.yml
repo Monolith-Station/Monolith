@@ -3,9 +3,11 @@
 - type: vessel
   id: Ocelot
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Ocelot-name
   description: vessel-Ocelot-desc
-  price: 68500
+  # Andromeda end
+  price: 89171
   category: Small
   group: Security
   access: Security

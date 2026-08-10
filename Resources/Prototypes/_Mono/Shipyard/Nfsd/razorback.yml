@@ -4,8 +4,10 @@
 - type: vessel
   id: Razorback
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Razorback-name
   description: vessel-Razorback-desc
+  # Andromeda end
   limit: 1
   hyperwarLimit: 1
   hyperwarTimelock: 300 # It's hilarious.

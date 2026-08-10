@@ -3,9 +3,11 @@
 - type: vessel
   id: QJ490
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-QJ490-name
   description: vessel-QJ490-desc
-  price: 36500
+  # Andromeda end
+  price: 55384
   category: Small
   group: Custom
   mapchecker_group_override: Shipyard  # Treat this as a Shipyard vessel for mapchecker purposes

@@ -9,9 +9,11 @@
 - type: vessel
   id: Taser
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Taser-name
   description: vessel-Taser-desc
-  price: 12500
+  # Andromeda end
+  price: 19981
   category: Small
   group: Custom
   access: Brig

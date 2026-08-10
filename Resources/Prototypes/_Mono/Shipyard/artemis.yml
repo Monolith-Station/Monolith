@@ -7,9 +7,11 @@
 - type: vessel
   id: Artemis
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-Artemis-name
   description: vessel-Artemis-desc
-  price: 34000 # Its a barebones med ship, basically acting as a paramedic ship.
+  # Andromeda end: Localizar nome e descrição de naves
+  price: 53381 # Its a barebones med ship, basically acting as a paramedic ship.
   category: Small
   group: Medical
   shuttlePath: /SharedMaps/_Mono/Shuttles/artemis.yml

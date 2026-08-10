@@ -3,9 +3,11 @@
 - type: vessel
   id: Spica
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Spica-name
   description: vessel-Spica-desc
-  price: 117000
+  # Andromeda end
+  price: 129438
   purchasable: false # voucher only
   category: Small
   group: Security
@@ -28,7 +30,7 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Spica-desc
+        description: vessel-Spica-desc # Andromeda: Localize ship name and desc
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Spica TSF{1}'

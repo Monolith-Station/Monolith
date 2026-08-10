@@ -708,8 +708,8 @@ ent-SpawnDungeonFurnitureBedroom = quarto aleatório
     .desc = Gera mobília.
     .suffix = Masmorra, Mobília
 
-ent-SpawnDungeonLootBriefcase = maleta aleatória
-    .desc = Gera maletas.
+ent-SpawnDungeonLootBriefcase = bolsa aleatória
+    .desc = Gera bolsas.
     .suffix = Masmorra
 
 ent-SpawnDungeonLootBureaucracy = bagunça aleatória
@@ -4308,7 +4308,7 @@ ent-ClothingBeltSheathFilledHilt = {ent-ClothingBeltSheath}
 
 ent-SpaceCashExpedition = créditos
     .suffix = Dinheiro
-    .desc = Uma maleta cheia de notas frescas da casa da moeda digital. Cheira a sucesso e impostos não pagos.
+    .desc = Uma bolsa cheia de notas frescas da casa da moeda digital. Cheira a sucesso e impostos não pagos.
 
 ent-SpaceCashExpeditionT1 = créditos (5.000)
 
@@ -4531,8 +4531,8 @@ ent-UrnMortuary = urna funerária
 
 # From: _NF/Entities/Objects/Misc/nfsd_medal_case.yml
 
-ent-MedalCaseNfsd = maleta de medalhas TSFMC
-    .desc = Esta maleta de carvalho polido esconde medalhas a serem dadas por serviço distinto.
+ent-MedalCaseNfsd = bolsa de medalhas TSFMC
+    .desc = Esta bolsa de carvalho polido esconde medalhas a serem dadas por serviço distinto.
 
 # From: _NF/Entities/Objects/Misc/paper.yml
 
@@ -4962,7 +4962,7 @@ ent-VialBluespace = frasco bluespace
 ent-ConstructionBag = bolsa de construção
     .desc = Uma bolsa robusta para especialistas de construção e engenheiros transportarem grandes quantidades de materiais de construção. Magnetiza quaisquer materiais de construção próximos quando anexada a um cinto.
 
-ent-ConstructionBagOfHolding = bolsa de construção de armazenamento
+ent-ConstructionBagOfHolding = bolsa de construção bluespace
     .desc = Uma bolsa de armazenamento robusta para especialistas de construção ricos e engenheiros transportarem grandes quantidades de materiais de construção. Magnetiza quaisquer materiais de construção próximos quando anexada a um cinto.
 
 # From: _NF/Entities/Objects/Specific/Hydroponics/leaves.yml
@@ -5373,23 +5373,23 @@ ent-NFBlueprintWeaponLaserSvalinn = projeto de pistola svalinn
 
 # From: _NF/Entities/Objects/Tools/blueprints/blueprints_engineering.yml
 
-ent-NFBlueprintClothingBackpackDuffelHolding = projeto de mochila de bluespace
-    .desc = Um projeto com esquema de uma mochila de bluespace. Pode ser inserido em um torno ou em um techfab.
+ent-NFBlueprintClothingBackpackDuffelHolding = projeto de bolsa de viagem bluespace
+    .desc = Um projeto com esquema de uma mala de transporte bluespace. Pode ser inserido em um torno ou em um techfab.
 
-ent-NFBlueprintClothingBackpackHolding = projeto de mochila de bluespace
-    .desc = Um projeto com esquema de uma mochila de bluespace. Pode ser inserido em um torno ou em um techfab.
+ent-NFBlueprintClothingBackpackHolding = projeto de mochila bluespace
+    .desc = Um projeto com esquema de uma mochila bluespace. Pode ser inserido em um torno ou em um techfab.
 
-ent-NFBlueprintClothingBackpackMessengerHolding = projeto de bolsa mensageira de bluespace
-    .desc = Um projeto com esquema de uma bolsa mensageira de bluespace. Pode ser inserido em um torno ou em um techfab.
+ent-NFBlueprintClothingBackpackMessengerHolding = projeto de bolsa mensageira bluespace
+    .desc = Um projeto com esquema de uma bolsa mensageira bluespace. Pode ser inserido em um torno ou em um techfab.
 
-ent-NFBlueprintClothingBackpackSatchelHolding = projeto de pasta de bluespace
-    .desc = Um projeto com esquema de uma pasta de bluespace. Pode ser inserido em um torno ou em um techfab.
+ent-NFBlueprintClothingBackpackSatchelHolding = projeto de bolsa bluespace
+    .desc = Um projeto com esquema de uma bolsa bluespace. Pode ser inserido em um torno ou em um techfab.
 
-ent-NFBlueprintConstructionBagOfHolding = projeto de sacola de construção de bluespace
-    .desc = Um projeto com esquema de uma sacola de construção de bluespace. Pode ser inserido em um torno ou em um techfab.
+ent-NFBlueprintConstructionBagOfHolding = projeto de bolsa de construção bluespace
+    .desc = Um projeto com esquema de uma bolsa de construção bluespace. Pode ser inserido em um torno ou em um techfab.
 
-ent-NFBlueprintJawsOfLife = projeto de jaws of life
-    .desc = Um projeto com esquema de um jaws of life. Pode ser inserido em um torno ou em um techfab.
+ent-NFBlueprintJawsOfLife = projeto de desencarcerador
+    .desc = Um projeto com esquema de um desencarcerador. Pode ser inserido em um torno ou em um techfab.
 
 ent-NFBlueprintPortableGeneratorDKJr = projeto de gerador portátil P.R.O.F.P.A.C.M.A.N.
     .desc = Um projeto com esquema de um gerador portátil tipo P.R.O.F.P.A.C.M.A.N. Pode ser inserido em um torno ou em um techfab.
@@ -5478,8 +5478,8 @@ ent-NFBlueprintClothingOuterHardsuitMaximPrototype = diagrama de traje rígido d
 ent-NFBlueprintMiningDrillDiamond = diagrama de broca de mineração com ponta de diamante
     .desc = Um diagrama com um esquema de uma broca de mineração com ponta de diamante. Pode ser inserido em um torno ou em uma techfab.
 
-ent-NFBlueprintOreBagOfHolding = diagrama de saco de minério bluespace
-    .desc = Um diagrama com um esquema de um saco de minério bluespace. Pode ser inserido em um torno ou em uma techfab.
+ent-NFBlueprintOreBagOfHolding = diagrama de bolsa de minério bluespace
+    .desc = Um diagrama com um esquema de um bolsa de minério bluespace. Pode ser inserido em um torno ou em uma techfab.
 
 # From: _NF/Entities/Objects/Tools/blueprints/blueprints_science.yml
 
@@ -5506,8 +5506,8 @@ ent-NFBlueprintAdvMopItem = diagrama de esfregão avançado
 ent-NFBlueprintPlantAnalyzer = diagrama de analisador de plantas
     .desc = Um diagrama com um esquema de um analisador de plantas. Pode ser inserido em um torno ou em uma techfab.
 
-ent-NFBlueprintPlantBagOfHolding = diagrama de saco de plantas bluespace
-    .desc = Um diagrama com um esquema de um saco de plantas bluespace. Pode ser inserido em um torno ou em uma techfab.
+ent-NFBlueprintPlantBagOfHolding = diagrama de bolsa de plantas bluespace
+    .desc = Um diagrama com um esquema de um bolsa de plantas bluespace. Pode ser inserido em um torno ou em uma techfab.
 
 # From: _NF/Entities/Objects/Tools/contrabandappraisal.yml
 
@@ -11881,8 +11881,8 @@ ent-ClothingBackpackMessengerEngineering = bolsa mensageira de engenharia
 ent-ClothingBackpackMessengerGenetics = bolsa mensageira de genética
     .desc = Uma bolsa mensageira estéril com cores de geneticista.
 
-ent-ClothingBackpackMessengerHolding = bolsa mensageira de segurar
-    .desc = Uma bolsa mensageira que se abre em um bolso localizado no bluespace.
+ent-ClothingBackpackMessengerHolding = bolsa mensageira bluespace
+    .desc = Uma bolsa mensageira que se abre em um bolso bluespace localizado.
 
 ent-ClothingBackpackMessengerHydroponics = bolsa mensageira de hidroponia
     .desc = Uma bolsa mensageira feita de fibras 100% naturais.
@@ -11928,16 +11928,16 @@ ent-ClothingBackpackMessengerVirology = bolsa mensageira de virologia
 
 # From: _NF/Entities/Clothing/Back/satchel.yml
 
-ent-ClothingBackpackSatchelArcadia = maleta da Arcadia
-    .desc = Uma maleta produzida pela Arcadia Industries.
+ent-ClothingBackpackSatchelArcadia = bolsa da Arcadia
+    .desc = Uma bolsa produzida pela Arcadia Industries.
 
-ent-ClothingBackpackSatchelMercenary = maleta de mercenário
-    .desc = Uma maleta que já esteve em muitos lugares perigosos, uma maleta de combate confiável.
+ent-ClothingBackpackSatchelMercenary = bolsa de mercenário
+    .desc = Uma bolsa que já esteve em muitos lugares perigosos, uma bolsa de combate confiável.
 
-ent-ClothingBackpackSatchelNfsdBrown = maleta da TSFMC
+ent-ClothingBackpackSatchelNfsdBrown = bolsa da TSFMC
 
-ent-ClothingBackpackSatchelPilot = maleta de piloto
-    .desc = Uma maleta produzida para um Ás Verdadeiro.
+ent-ClothingBackpackSatchelPilot = bolsa de piloto
+    .desc = Uma bolsa produzida para um Ás Verdadeiro.
 
 # From: _NF/Entities/Clothing/Belt/belts_blood_cult.yml
 
@@ -13356,4 +13356,3 @@ ent-SpawnMobFleshLoverExpeditions = gerador de amante de carne aberrante
 ent-SpawnMobHorrorExpeditions = gerador de horror de carne aberrante
     .desc = Gera um horror.
     .suffix = IA, Hostil
-

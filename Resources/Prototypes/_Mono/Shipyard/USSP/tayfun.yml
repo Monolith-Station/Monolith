@@ -3,9 +3,11 @@
 - type: vessel
   id: Tayfun
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Tayfun-name
   description: vessel-Tayfun-desc
-  price: 74200
+  # Andromeda end
+  price: 98532
   category: Medium
   group: Ussp
   access: USSP

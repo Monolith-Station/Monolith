@@ -7,8 +7,10 @@
 - type: vessel
   id: Tzipora
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Tzipora-name
   description: vessel-Tzipora-desc
+  # Andromeda end
   price: 145530
   category: Large
   group: Medical

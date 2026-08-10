@@ -2,8 +2,10 @@
 - type: vessel
   id: Altair
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Altair-name
   description: vessel-Altair-desc
+  # Andromeda end
   limit: 2
   hyperwarLimit: 4
   hyperwarTimelock: 3600
@@ -31,7 +33,7 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Altair-desc
+        description: vessel-Altair-desc # Andromeda: Localize ship name and desc
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Altair TSFN{1}'

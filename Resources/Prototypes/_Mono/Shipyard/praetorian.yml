@@ -7,8 +7,10 @@
 - type: vessel
   id: Praetorian
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Praetorian-name
   description: vessel-Praetorian-desc
+  # Andromeda end
   price: 101520
   category: Medium
   group: Shipyard

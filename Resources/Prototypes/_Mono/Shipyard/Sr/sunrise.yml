@@ -5,9 +5,11 @@
 - type: vessel
   id: Sunrise
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Sunrise-name
   description: vessel-Sunrise-desc
-  price: 59000
+  # Andromeda end
+  price: 84260
   category: Small
   group: Sr
   access: Brig # Oddball, matches guard ID, specific enough to exclude cadets

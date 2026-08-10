@@ -7,9 +7,11 @@
 - type: vessel
   id: Baeg
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-Baeg-name
   description: vessel-Baeg-desc
-  price: 6000
+  # Andromeda end
+  price: 14077
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/baeg.yml

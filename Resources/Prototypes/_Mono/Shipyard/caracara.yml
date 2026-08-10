@@ -7,9 +7,11 @@
 - type: vessel
   id: caracara
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-caracara-name
   description: vessel-caracara-desc
-  price: 71000
+  # Andromeda end
+  price: 89609
   category: Medium
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/caracara.yml

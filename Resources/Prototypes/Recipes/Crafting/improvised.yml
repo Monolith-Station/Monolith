@@ -1,209 +1,209 @@
 - type: construction
-  name: construction-bat-name
+  name: construction-bat-name  # Andromeda: Localizar nome e desc de receitas
   id: bat
   graph: WoodenBat
   startNode: start
   targetNode: bat
   category: construction-category-weapons
-  description: construction-bat-desc
+  description: construction-bat-desc  # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Objects/Weapons/Melee/baseball_bat.rsi
     state: icon
   objectType: Item
 
 - type: construction
-  name: construction-ghost_sheet-name
+  name: construction-ghost_sheet-name  # Andromeda: Localizar nome e desc de receitas
   id: ghost_sheet
   graph: GhostSheet
   startNode: start
   targetNode: ghost_sheet
   category: construction-category-clothing
-  description: construction-ghost_sheet-desc
+  description: construction-ghost_sheet-desc  # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Clothing/OuterClothing/Misc/ghostsheet.rsi
     state: icon
   objectType: Item
 
 - type: construction
-  name: construction-makeshifthandcuffs-name
+  name: construction-makeshifthandcuffs-name  # Andromeda: Localizar nome e desc de receitas
   id: makeshifthandcuffs
   graph: makeshifthandcuffs
   startNode: start
   targetNode: cuffscable
   category: construction-category-tools
-  description: construction-makeshifthandcuffs-desc
+  description: construction-makeshifthandcuffs-desc  # Andromeda: Localizar nome e desc de receitas
   icon: { sprite: Objects/Misc/cablecuffs.rsi, state: cuff }
   objectType: Item
 
 - type: construction
-  name: construction-makeshiftstunprod-name
+  name: construction-makeshiftstunprod-name  # Andromeda: Localizar nome e desc de receitas
   id: makeshiftstunprod
   graph: makeshiftstunprod
   startNode: start
   targetNode: msstunprod
   category: construction-category-weapons
-  description: construction-makeshiftstunprod-desc
+  description: construction-makeshiftstunprod-desc  # Andromeda: Localizar nome e desc de receitas
   icon: { sprite: Objects/Weapons/Melee/stunprod.rsi, state: stunprod_off }
   objectType: Item
 
 - type: construction
-  name: construction-muzzle-name
+  name: construction-muzzle-name  # Andromeda: Localizar nome e desc de receitas
   id: muzzle
   graph: Muzzle
   startNode: start
   targetNode: muzzle
   category: construction-category-tools
   objectType: Item
-  description: construction-muzzle-desc
+  description: construction-muzzle-desc  # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Clothing/Mask/muzzle.rsi
     state: icon
 
 - type: construction
-  name: construction-pneumaticcannon-name
+  name: construction-pneumaticcannon-name  # Andromeda: Localizar nome e desc de receitas
   id: pneumaticcannon
   graph: PneumaticCannon
   startNode: start
   targetNode: cannon
   category: construction-category-weapons
   objectType: Item
-  description: construction-pneumaticcannon-desc
+  description: construction-pneumaticcannon-desc  # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Objects/Weapons/Guns/Cannons/pneumatic_cannon.rsi
     state: icon
 
 - type: construction
-  name: construction-gauze-name
+  name: construction-gauze-name  # Andromeda: Localizar nome e desc de receitas
   id: gauze
   graph: Gauze
   startNode: start
   targetNode: gauze
   category: construction-category-tools
   objectType: Item
-  description: construction-gauze-desc
+  description: construction-gauze-desc  # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Objects/Specific/Medical/medical.rsi
     state: gauze
 
 - type: construction
-  name: construction-blindfold-name
+  name: construction-blindfold-name  # Andromeda: Localizar nome e desc de receitas
   id: blindfold
   graph: Blindfold
   startNode: start
   targetNode: blindfold
   category: construction-category-tools
   objectType: Item
-  description: construction-blindfold-desc
+  description: construction-blindfold-desc  # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Clothing/Eyes/Misc/blindfold.rsi
     state: icon
 
 - type: construction
-  name: construction-flowerwreath-name
+  name: construction-flowerwreath-name  # Andromeda: Localizar nome e desc de receitas
   id: flowerwreath
   graph: flowerwreath
   startNode: start
   targetNode: flowerwreath
   category: construction-category-clothing
-  description: construction-flowerwreath-desc
+  description: construction-flowerwreath-desc  # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Clothing/Head/Misc/flower-wreath.rsi
     state: icon
   objectType: Item
 
 - type: construction
-  name: construction-rag-name
+  name: construction-rag-name  # Andromeda: Localizar nome e desc de receitas
   id: rag
   graph: Rag
   startNode: start
   targetNode: rag
   category: construction-category-tools
   objectType: Item
-  description: construction-rag-desc
+  description: construction-rag-desc  # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Objects/Specific/Janitorial/rag.rsi
     state: rag
 
 - type: construction
-  name: construction-improvisedshotgun-name
+  name: construction-improvisedshotgun-name # Andromeda: Localizar nome e desc de receitas
   id: improvisedshotgun
   graph: ImprovisedShotgunGraph
   startNode: start
   targetNode: shotgun
   category: construction-category-weapons
   objectType: Item
-  description: construction-improvisedshotgun-desc
+  description: construction-improvisedshotgun-desc # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
     state: icon
 
 - type: construction
-  name: construction-ShellShotgun12_gaugeImprovised-name
+  name: construction-ShellShotgun12_gaugeImprovised-name # Andromeda: Localizar nome e desc de receitas
   id: ShellShotgun12_gaugeImprovised
   graph: ImprovisedShotgunShellGraph
   startNode: start
   targetNode: shell
   category: construction-category-weapons
   objectType: Item
-  description: construction-ShellShotgun12_gaugeImprovised-desc
+  description: construction-ShellShotgun12_gaugeImprovised-desc # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
     state: improvised
 
 - type: construction
-  name: construction-riflestock-name
+  name: construction-riflestock-name # Andromeda: Localizar nome e desc de receitas
   id: riflestock
   graph: RifleStockGraph
   startNode: start
   targetNode: riflestock
   category: construction-category-weapons
   objectType: Item
-  description: construction-riflestock-desc
+  description: construction-riflestock-desc # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Objects/Misc/rifle_stock.rsi
     state: icon
 
 - type: construction
-  name: construction-firebomb-name
+  name: construction-firebomb-name # Andromeda: Localizar nome e desc de receitas
   id: firebomb
   graph: FireBomb
   startNode: start
   targetNode: firebomb
   category: construction-category-weapons
   objectType: Item
-  description: construction-firebomb-desc
+  description: construction-firebomb-desc # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Objects/Weapons/Bombs/ied.rsi
     state: icon
 
 - type: construction
-  name: construction-CottonWovenCloth-name
+  name: construction-CottonWovenCloth-name # Andromeda: Localizar nome e desc de receitas
   id: CottonWovenCloth
   graph: CottonObjects
   startNode: start
   targetNode: cottoncloth
   category: construction-category-misc
-  description: construction-CottonWovenCloth-desc
+  description: construction-CottonWovenCloth-desc # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Objects/Materials/materials.rsi
     state: cloth_3
   objectType: Item
 
 - type: construction
-  name: construction-strawHat-name
+  name: construction-strawHat-name # Andromeda: Localizar nome e desc de receitas
   id: strawHat
   graph: StrawHat
   startNode: start
   targetNode: strawhat
   category: construction-category-clothing
-  description: construction-strawHat-desc
+  description: construction-strawHat-desc # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Clothing/Head/Hats/straw_hat.rsi
     state: icon
   objectType: Item
 
 - type: construction
-  name: construction-pipebomb-name
+  name: construction-pipebomb-name # Andromeda: Localizar nome e desc de receitas
   id: pipebomb
   graph: PipeBomb
   startNode: start
@@ -216,40 +216,54 @@
     state: icon
 
 - type: construction
-  name: construction-rollingpin-name
+  name: construction-rollingpin-name # Andromeda: Localizar nome e desc de receitas
   id: rollingpin
   graph: WoodenRollingPin
   startNode: start
   targetNode: rollingpin
   category: construction-category-tools
   objectType: Item
-  description: construction-rollingpin-desc
+  description: construction-rollingpin-desc # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Objects/Tools/rolling_pin.rsi
     state: icon
 
 - type: construction
-  name: construction-PetCarrier-name
+  name: construction-PetCarrier-name # Andromeda: Localizar nome e desc de receitas
   id: PetCarrier
   graph: PetCarrier
   startNode: start
   targetNode: petCarrier
   category: construction-category-misc
   objectType: Item
-  description: construction-PetCarrier-desc
+  description: construction-PetCarrier-desc # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Objects/Storage/petcarrier.rsi
     state: icon
 
+# Xenoborg Repaired mothership pinpointer
 - type: construction
-  name: construction-HardsuitGoliath-name
+  name: construction-RepairMothershipPinpointer-name # Andromeda: Localizar nome e desc de receitas
+  id: RepairMothershipPinpointer
+  graph: RepairMothershipPinpointer
+  startNode: start
+  targetNode: repairedPinpointer
+  category: construction-category-misc
+  objectType: Item
+  description: construction-RepairMothershipPinpointer-desc # Andromeda: Localizar nome e desc de receitas
+  icon:
+    sprite: Objects/Devices/pinpointer.rsi
+    state: pinpointer-xenoborg-repaired
+
+- type: construction
+  name: construction-HardsuitGoliath-name # Andromeda: Localizar nome e desc de receitas
   id: HardsuitGoliath
   graph: HardsuitGoliath
   startNode: start
   targetNode: hardsuitGoliath
   category: construction-category-clothing
   objectType: Item
-  description: construction-HardsuitGoliath-desc
+  description: construction-HardsuitGoliath-desc # Andromeda: Localizar nome e desc de receitas
   icon:
     sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
     state: icon

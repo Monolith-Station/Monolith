@@ -7,10 +7,12 @@
 - type: vessel
   id: Wolfsnake
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Wolfsnake-name
   description: vessel-Wolfsnake-desc
+  # Andromeda end
 #  limit: 3 --- Not sure. Will await review.
-  price: 161093
+  price: 196620
   purchasable: false # Voucher only
   category: Large
   group: Viper

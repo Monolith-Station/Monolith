@@ -553,6 +553,19 @@
     - type: ComputerBoard
       prototype: StationAiUploadComputer
 
+
+# Xenoborg
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: XenoborgCameraMonitorCircuitboard
+  name: xenoborg camera monitor board
+  description: A computer printed circuit board for a xenoborg camera monitor.
+  components:
+  - type: Sprite
+    state: cpu_science
+  - type: ComputerBoard
+    prototype: ComputerSurveillanceWirelessXenoborgCameraMonitor
+
 #Mono
 - type: entity
   parent: BaseComputerCircuitboard # Mono: From C3Syndicate

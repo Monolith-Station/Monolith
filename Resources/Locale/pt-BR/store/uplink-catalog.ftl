@@ -232,7 +232,7 @@ uplink-ammo-bundle-name = Pacote de Munição
 uplink-ammo-bundle-desc = Recarregando! Contém 4 carregadores para o C-20r, 4 tambores para o Bulldog e 2 caixas de munição para o L6 SAW.
 
 uplink-sniper-bundle-name = Pacote de Sniper
-uplink-sniper-bundle-desc = Uma maleta discreta que contém um Hristov, 10 balas sobressalentes e um disfarce conveniente.
+uplink-sniper-bundle-desc = Uma bolsa discreta que contém um Hristov, 10 balas sobressalentes e um disfarce conveniente.
 
 uplink-c20r-bundle-name = Pacote C-20r
 uplink-c20r-bundle-desc = Velho fiel: A clássica submetralhadora C-20r, acompanhada de três carregadores.

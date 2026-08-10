@@ -21,6 +21,7 @@
   - ContractorArmorPlates # Mono
   - MieyoSidearm
   - MieyoSidearmAmmo
+  - MMCProducts
 
 - type: roleLoadout
   id: JobMMCSecurity
@@ -33,6 +34,7 @@
   - MMCCorpSecBelt
   - MMCCorpSecEars
   - MMCCorpSecBalaclava
+  - MMCHud
   - MMCRanksCorpSec
   - ContractorEncryptionKey
   - ContractorBoxSurvival
@@ -50,6 +52,7 @@
   - MieyoCorpSecPrimaryAmmo
   - MieyoSidearm
   - MieyoSidearmAmmo
+  - MMCProductsCorpSec
 
 - type: roleLoadout
   id: JobMMCLiason
@@ -61,6 +64,7 @@
   - MMCEmployeeShoes
   - MMCEmployeeBelt
   - MMCCorpSecEars
+  - MMCHud
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - MieyoLiasonPDA
@@ -75,3 +79,4 @@
   - ContractorArmorPlates # Mono
   - MieyoSidearm
   - MieyoSidearmAmmo
+  - MMCProductsCorpSec

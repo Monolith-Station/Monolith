@@ -4,9 +4,11 @@
 - type: vessel
   id: Eris
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Eris-name
   description: vessel-Eris-desc
-  price: 85500
+  # Andromeda end
+  price: 156477
   category: Small
   hyperwarTimelock: 0
   group: BlackMarket
@@ -28,7 +30,7 @@
       stationProto: StandardFrontierVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Eris-desc
+        description: vessel-Eris-desc # Andromeda: Localize ship name and desc
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Eris PDV{1}'

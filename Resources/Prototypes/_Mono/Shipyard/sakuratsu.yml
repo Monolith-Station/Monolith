@@ -7,9 +7,11 @@
 - type: vessel
   id: Sakuratsu
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Sakuratsu-name
   description: vessel-Sakuratsu-desc
-  price: 58250
+  # Andromeda end
+  price: 89293
   category: Medium
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/sakuratsu.yml

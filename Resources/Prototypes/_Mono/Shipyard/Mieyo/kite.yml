@@ -2,9 +2,11 @@
 - type: vessel
   id: Kite
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Kite-name
   description: vessel-Kite-desc
-  price: 82500
+  # Andromeda end
+  price: 120055
   category: Small
   group: Mieyo
   access: MieyoSecurity

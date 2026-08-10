@@ -2,9 +2,11 @@
 - type: vessel
   id: Fracture
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Fracture-name
   description: vessel-Fracture-desc
-  price: 112500
+  # Andromeda end
+  price: 121137
   category: Medium
   group: Security
   access: Security

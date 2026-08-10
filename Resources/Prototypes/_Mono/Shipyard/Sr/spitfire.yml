@@ -5,9 +5,11 @@
 - type: vessel
   id: Spitfire
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Spitfire-name
   description: vessel-Spitfire-desc
-  price: 27000
+  # Andromeda end
+  price: 42230
   category: Small
   group: Sr
   access: Brig

@@ -3,8 +3,10 @@
 - type: vessel
   id: Garm
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Garm-name
   description: vessel-Garm-desc
+  # Andromeda end
   price: 105200 # 86700 appraisegrid
   purchasable: false # voucher only
   category: Medium
@@ -27,7 +29,7 @@
       stationProto: StandardFrontierVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Garm-desc
+        description: vessel-Garm-desc # Andromeda: Localize ship name and desc
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Garm PDV{1}'

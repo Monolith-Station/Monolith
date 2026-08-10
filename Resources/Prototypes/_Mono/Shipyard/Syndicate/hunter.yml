@@ -1,9 +1,11 @@
 - type: vessel
   id: Hunter
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Hunter-name
   description: vessel-Hunter-desc
-  price: 50000
+  # Andromeda end
+  price: 62802
   category: Small
   group: Syndicate
   shuttlePath: /SharedMaps/_Mono/Shuttles/Syndicate/hunter.yml

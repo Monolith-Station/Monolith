@@ -7,9 +7,11 @@
 - type: vessel
   id: Argent
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-Argent-name
   description: vessel-Argent-desc
-  price: 61150
+  # Andromeda end: Localizar nome e descrição de naves
+  price: 97903
   category: Medium
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/argent.yml

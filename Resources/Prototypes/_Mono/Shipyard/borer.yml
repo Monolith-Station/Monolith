@@ -7,9 +7,11 @@
 - type: vessel
   id: Borer
   parent: BaseVessel
+  # Andromeda start: Localizar nome e descrição de naves
   name: vessel-Borer-name
   description: vessel-Borer-desc
-  price: 20525
+  # Andromeda end
+  price: 37419
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/borer.yml

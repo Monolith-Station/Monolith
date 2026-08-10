@@ -19,6 +19,9 @@ advertisement-uplink-ads-4 = CONEXÃO COM CARGO ESTABELECIDA.
 advertisement-uplink-ads-5 = MANTENDO INTEGRIDADE DO SUPRIMENTO.
 advertisement-uplink-ads-6 = EQUIPAMENTO PRESENTE, AGUARDANDO ORDEM DE DISPENSA.
 
+advertisement-mieyo-ads-1 = Tenha um dia Mieyo-vilhoso!
+advertisement-mieyo-ads-2 = Tenha um dia feno-Mieyo-nal!
+
 wayward-comments-ads-1 = Eu...
 wayward-comments-ads-2 = Quem..?
 wayward-comments-ads-3 = É..!

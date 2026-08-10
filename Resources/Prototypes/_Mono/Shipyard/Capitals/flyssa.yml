@@ -1,8 +1,10 @@
 - type: vessel
   id: Flyssa
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Flyssa-name
   description: vessel-Flyssa-desc
+  # Andromeda end
   limit: 1
   hyperwarLimit: 3
   hyperwarTimelock: 3600
@@ -33,7 +35,7 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Flyssa-desc
+        description: vessel-Flyssa-desc # Andromeda: Localize ship name and desc
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Flyssa TSFN{1}'

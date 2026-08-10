@@ -1,5 +1,61 @@
 - type: latheRecipePack
-  id: EconomyBasic
+  id: IndustrialPressEconomyElectronics
+  recipes:
+  - MicroprocessorEconomy1Recipe
+  - CapacitorEconomy1Recipe
+  - OpticsEconomy1Recipe
+  - OpticsEconomy2
+  - CapacitorEconomy2
+  - ComponentBrickEconomy1
+  - RadioEconomy1
+  - CameraEconomy1
+
+- type: latheRecipePack
+  id: IndustrialPressEconomyPlates
   recipes:
   - ArmorPlateEconomy1Recipe
-  - CapsuleEconomyRecipe
+  - ElectromagnetEconomy1Recipe
+  - MatterBinEconomy1Recipe
+  - MatterBinEconomy2
+  - ElectromagnetEconomy2
+  - MotorEconomy1
+
+- type: latheRecipePack
+  id: PrecisionAssemblerStatic
+  recipes:
+  - MicroprocessorEconomy2
+  - MicroprocessorEconomy2Alt
+  - MicroprocessorEconomy3
+  - SiliconWaferEconomy
+  - RadioEconomy2
+  - CapacitorEconomy2Alt
+  - CapacitorEconomy3
+  - ElectromagnetEconomy2Alt
+  - ElectromagnetEconomy3
+  - ElectromagnetEconomy3Alt
+  - OpticsEconomy2Alt
+  - ComponentBrickEconomy2
+  - MaterialIndustryElectronics
+  - MaterialIndustryElectronicsAdvanced
+  - MaterialIndustryElectronicsAdvancedAlt
+  - MaterialIndustryFCS
+  - MaterialIndustryMechanical
+  - MaterialIndustryPlates
+  - MaterialIndustryPlatesAlt
+  - MaterialIndustryRecievers
+  - MaterialIndustrySensors
+  - MaterialIndustryShip
+  - MaterialIndustrySterile
+
+- type: latheRecipePack
+  id: ArcFurnaceStatic
+  recipes:
+  - ArmorPlate2
+  - ArmorPlate2Alt
+  - ArmorPlate3
+  - ArmorPlate3Alt
+  - ArmorPlate4Start
+  - ArmorPlate4StartAlt
+  - SiliconBoule
+  - IriditePowderIntoCrystal
+  - IriditeCrystalIntoPlate

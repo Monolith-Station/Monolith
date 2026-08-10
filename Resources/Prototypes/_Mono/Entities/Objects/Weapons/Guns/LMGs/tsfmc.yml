@@ -13,14 +13,14 @@
     - map: ["gripAttachment"]
     - map: ["opticAttachment"]
   - type: GunWieldBonus
-    minAngle: -24
-    maxAngle: -20
+    minAngle: -54
+    maxAngle: -72
   - type: Gun
-    minAngle: 24
-    maxAngle: 46
+    minAngle: 54
+    maxAngle: 85
     angleIncrease: 5
     angleDecay: 34
-    fireRate: 6 # 360 rpm
+    fireRate: 7
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -172,6 +172,7 @@
     angleDecay: 12
     fireRate: 8 # same as L6, but more accurate and heavier
     selectedMode: FullAuto
+    damageModifier: 1.1 # Don't walk in front of a MG.
     availableModes:
     - SemiAuto
     - FullAuto
@@ -187,7 +188,7 @@
   - type: Item
     sprite: _Mono/Objects/Weapons/Guns/LMGs/grizzly/Grizzly-inhands.rsi
     shape:
-    - 0,0,7,4
+    - 0,0,6,3
   - type: ItemSlots
     slots:
       gun_magazine:

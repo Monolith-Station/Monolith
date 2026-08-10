@@ -3,9 +3,11 @@
 - type: vessel
   id: Carrion
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Carrion-name
   description: vessel-Carrion-desc
-  price: 29000 #Appraised at 26000-ish
+  # Andromeda end
+  price: 46962 #Appraised at 44962
   category: Small
   group: BlackMarket
   access: Pirate

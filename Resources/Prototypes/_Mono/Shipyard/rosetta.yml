@@ -7,9 +7,11 @@
 - type: vessel
   id: Rosetta
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Rosetta-name
   description: vessel-Rosetta-desc
-  price: 99000
+  # Andromeda end
+  price: 128131
   category: Medium
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/Rosetta.yml

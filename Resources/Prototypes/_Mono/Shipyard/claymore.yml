@@ -8,8 +8,10 @@
 - type: vessel
   id: Claymore
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Claymore-name
   description: vessel-Claymore-desc
+  # Andromeda end
   price: 200000 # BIG BOI TAX
   category: Large
   group: Shipyard

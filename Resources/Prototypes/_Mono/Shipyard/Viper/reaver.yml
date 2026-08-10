@@ -7,9 +7,11 @@
 - type: vessel
   id: Reaver
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Reaver-name
   description: vessel-Reaver-desc
-  price: 61440
+  # Andromeda end
+  price: 79534
   category: Small
   group: Viper
   access: Viper

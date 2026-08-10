@@ -2,9 +2,11 @@
 - type: vessel
   id: Yukikaze
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Yukikaze-name
   description: vessel-Yukikaze-desc
-  price: 87400
+  # Andromeda end
+  price: 123288
   category: Small
   group: Mieyo
   access: MieyoSecurity

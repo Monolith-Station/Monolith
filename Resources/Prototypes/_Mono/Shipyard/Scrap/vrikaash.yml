@@ -7,8 +7,10 @@
 - type: vessel
   id: Vrikaash
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Vrikaash-name
   description: vessel-Vrikaash-desc
+  # Andromeda end
   price: 224000 # 130~k base marked up by 80~%
   category: medium
   group: Scrap

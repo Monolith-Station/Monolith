@@ -5,8 +5,10 @@
 - type: vessel
   id: Ravager
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Ravager-name
   description: vessel-Ravager-desc
+  # Andromeda end
   price: 875800
   purchasable: false # voucher only
   category: Large

@@ -18,4 +18,6 @@ research-technology-mechs-combat = Produção de Mechas de Combate
 research-technology-basic-economy = Equipamento de Processamento Portátil
 research-technology-uranium-processing-advanced = Processamento Avançado de Urânio
 
+research-technology-processing-advanced = Processamento Avançado de Materiais
+
 research-technology-drones-1 = Pesquisa de Drones 1

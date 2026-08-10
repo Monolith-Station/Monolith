@@ -6,9 +6,11 @@
 - type: vessel
   id: McChicken
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-McChicken-name
   description: vessel-McChicken-desc
-  price: 28875
+  # Andromeda end
+  price: 38485
   category: Medium
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/mcchicken.yml

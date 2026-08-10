@@ -1,9 +1,11 @@
 - type: vessel
   id: Pillbox
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Pillbox-name
   description: vessel-Pillbox-desc
-  price: 91000
+  # Andromeda end
+  price: 116484
   category: Medium
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/pillbox.yml

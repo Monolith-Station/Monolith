@@ -30,7 +30,7 @@
     projectileSpeed: 400
     shootThermalSignature: 8000000 # ~2.8km after firing - relatively low
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/ship_duster.ogg
+      collection: ShipGunGenericBig
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -83,7 +83,7 @@
     projectileSpeed: 400
     shootThermalSignature: 8000000 # ~2.8km after firing - relatively low
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/ship_duster.ogg
+      collection: ShipGunGenericBig
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: SpaceArtillery

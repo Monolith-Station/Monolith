@@ -1,9 +1,11 @@
 - type: vessel
   id: Kami
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Kami-name
   description: vessel-Kami-desc
-  price: 56400
+  # Andromeda end
+  price: 92015
   category: Small
   group: Mieyo
   access: Mieyo

@@ -3,9 +3,11 @@
 - type: vessel
   id: Fenrir
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Fenrir-name
   description: vessel-Fenrir-desc
-  price: 150750
+  # Andromeda end
+  price: 173385
   purchasable: false # voucher only
   category: Medium
   group: BlackMarket

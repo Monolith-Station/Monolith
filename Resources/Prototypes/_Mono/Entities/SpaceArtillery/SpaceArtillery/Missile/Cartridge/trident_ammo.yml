@@ -38,7 +38,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 60
+    acceleration: 100
     detectionRange: 3000
     scanArc: 15
     launchSpeed: 60
@@ -141,7 +141,7 @@
   - type: MiningGatheringHard
   - type: TargetGuided
     turnRate: 30
-    acceleration: 60
+    acceleration: 100
     launchSpeed: 70
     maxSpeed: 300
     maxLifetime: 50
@@ -236,7 +236,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 70
+    acceleration: 120
     detectionRange: 2000
     scanArc: 10
     launchSpeed: 60
@@ -342,7 +342,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 60
+    acceleration: 100
     detectionRange: 3500
     scanArc: 25
     launchSpeed: 50

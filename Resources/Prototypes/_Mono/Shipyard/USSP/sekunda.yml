@@ -3,9 +3,11 @@
 - type: vessel
   id: Sekunda
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Sekunda-name
   description: vessel-Sekunda-desc
-  price: 60000
+  # Andromeda end
+  price: 110505
   category: Medium
   group: Ussp
   access: USSP

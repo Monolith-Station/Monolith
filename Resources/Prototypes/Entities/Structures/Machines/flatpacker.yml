@@ -32,14 +32,18 @@
           False: { visible: false }
   - type: FlatpackCreator
     baseMachineCost:
-      Steel: 750
+      Steel: 1000
       Silver: 100
-      Gold: 50
+      Gold: 500
+      Lithium: 500 # Mono
+      Copper: 500 # Mono
+      Bluespace: 100
     baseComputerCost:
       Steel: 500
       Glass: 250
       Silver: 100
       Gold: 50
+      Bluespace: 50
   - type: Machine
     board: FlatpackerMachineCircuitboard
   - type: MaterialStorage

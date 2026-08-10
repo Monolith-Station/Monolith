@@ -7,9 +7,11 @@
 - type: vessel
   id: Mite
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Mite-name
   description: vessel-Mite-desc
-  price: 45000 # it's a heap of scrap
+  # Andromeda end
+  price: 69166 # it's a heap of scrap
   category: Small
   group: Scrap
   shuttlePath: /SharedMaps/_Mono/Shuttles/Scrap/mite.yml

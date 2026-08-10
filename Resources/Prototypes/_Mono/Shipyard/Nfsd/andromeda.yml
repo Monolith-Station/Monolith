@@ -3,12 +3,14 @@
 - type: vessel
   id: Andromeda
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Andromeda-name
   description: vessel-Andromeda-desc
+  # Andromeda end
   limit: 3
   hyperwarLimit: 5
   hyperwarTimelock: 1800
-  price: 320000
+  price: 358869
   purchasable: false # voucher only
   category: Large
   group: Security
@@ -30,7 +32,7 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Andromeda-desc
+        description: vessel-Andromeda-desc # Andromeda: Localize ship name and desc
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Andromeda TSF{1}'

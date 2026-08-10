@@ -3,12 +3,14 @@
 - type: vessel
   id: Saintie
   parent: BaseVesselAntag
+  # Andromeda start: Localize ship name and desc
   name: vessel-Saintie-name
   description: vessel-Saintie-desc
+  # Andromeda end
   limit: 2
   hyperwarLimit: 4
   hyperwarTimelock: 3600
-  price: 345000
+  price: 349358
   purchasable: false # Voucher only
   category: Large
   group: BlackMarket

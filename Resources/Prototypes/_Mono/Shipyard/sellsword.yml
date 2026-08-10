@@ -8,9 +8,11 @@
 - type: vessel
   id: Sellsword
   parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
   name: vessel-Sellsword-name
   description: vessel-Sellsword-desc
-  price: 56000 # markup 15% from 48600.
+  # Andromeda end
+  price: 81698 # markup from 77698.
   category: Small
   group: Shipyard
   access: Mercenary
@@ -19,7 +21,7 @@
   class:
   - Pursuit
   engine:
-  - Plasma
+  - Uranium
 
 - type: gameMap
   id: Sellsword

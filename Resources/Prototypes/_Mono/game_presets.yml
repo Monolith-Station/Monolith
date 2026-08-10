@@ -17,7 +17,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - PortstrikeAnnounceRuleRandom35To45
 
 - type: gamePreset
   id: MonoRogueTSF
@@ -33,7 +33,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - PortstrikeAnnounceRuleRandom35To45
 
 - type: gamePreset
   id: MonoRogueUSSP
@@ -49,7 +49,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - PortstrikeAnnounceRuleRandom35To45
 
 - type: gamePreset
   id: MonoTSFUSSP
@@ -65,7 +65,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - PortstrikeAnnounceRuleRandom35To45
 
 - type: gamePreset
   id: MonoADS
@@ -84,7 +84,7 @@
   - MonoAISTCShuttleSpawnerSchedulerTier2
   #- MonoAsakimSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - PortstrikeAnnounceRuleRandom35To45
 
 - type: gamePreset
   id: MonoChimera
@@ -101,7 +101,7 @@
   - FrontierRoundstartVariation
   - MonoChimeraSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - PortstrikeAnnounceRuleRandom35To45
 
 - type: gamePreset
   id: MonoMixed
@@ -121,7 +121,7 @@
   - MonoAISTCShuttleSpawnerSchedulerTier2Slow
   #- MonoAsakimSTCShuttleSpawnerSchedulerSlow
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - PortstrikeAnnounceRuleRandom35To45
 
 - type: gamePreset
   id: MonoAllAtOnce
