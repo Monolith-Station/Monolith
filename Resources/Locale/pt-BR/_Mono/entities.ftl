@@ -8964,6 +8964,7 @@ ent-ComputerSurveillanceWirelessXenoborgCameraMonitor = monitor de câmera de xe
 # From: Resources/Prototypes/_Mono/Entities/Structures/Machines/telecomms.yml
 
 ent-TelecomServerFilledMMC = {ent-TelecomServer}
+    .desc = {ent-TelecomServer.desc}
     .suffix = Mieyo
 
 
@@ -8993,7 +8994,8 @@ ent-RoboticArmCCTC = braço robótico proprietário
 
 # From: Resources/Prototypes/_Mono/Entities/Structures/Doors/windoors.yml
 
-ent-WindoorSecureMieyoLocked = PortaSeguraMieyoTrancada
+ent-WindoorSecureMieyoLocked = {ent-WindoorSecure}
+    .desc = {ent-WindoorSecure.desc}
     .suffix = Mieyo, Trancado
 
 
@@ -9011,6 +9013,7 @@ ent-BallisticTurretHeavyAIMieyo = torre sentinela remota pesada Mieyo
 # From: Resources/Prototypes/_Mono/Entities/Structures/Wallmounts/switch.yml
 
 ent-LockableButtonMieyo = {ent-LockableButton}
+    .desc = {ent-LockableButton.desc}
     .suffix = Mieyo
 
 
@@ -9095,15 +9098,19 @@ ent-AirlockMieyo = {ent-Airlock}
 # From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/glass_airlock.yml
 
 ent-AirlockMieyoGlass = {ent-AirlockGlass}
+    .desc = {ent-AirlockGlass.desc}
     .suffix = Mieyo
 
 ent-AirlockMieyoGlassLocked = {ent-AirlockGlass}
+    .desc = {ent-AirlockGlass.desc}
     .suffix = Mieyo, Trancado
 
 ent-AirlockMieyoGlassLockedSecurity = {ent-AirlockGlass}
+    .desc = {ent-AirlockGlass.desc}
     .suffix = Segurança Mieyo, Trancado
 
 ent-AirlockMieyoGlassLockedLiason = {ent-AirlockGlass}
+    .desc = {ent-AirlockGlass.desc}
     .suffix = Liaison Mieyo, Trancado
 
 
@@ -9140,21 +9147,27 @@ ent-AirlockHeavyMieyoLiasonLocked = {ent-AirlockHeavy}
 # From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/access.yml
 
 ent-AirlockMieyoLocked = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
     .suffix = Mieyo, Trancado
 
 ent-AirlockMieyoLockedSecurity = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
     .suffix = Segurança Mieyo, Trancado
 
 ent-AirlockMieyoLockedLiason = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
     .suffix = Liaison Mieyo, Trancado
 
 ent-AirlockMaintMieyoLocked = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
     .suffix = Mieyo, Trancado
 
 ent-AirlockMaintMieyoSecurityLocked = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
     .suffix = Segurança Mieyo, Trancado
 
 ent-AirlockMaintMieyoLiasonLocked = {ent-Airlock}
+    .desc = {ent-Airlock.desc}
     .suffix = Liaison Mieyo, Trancado
 
 
@@ -9168,9 +9181,11 @@ ent-AirlockHeavyAssemblyMieyo = {ent-AirlockHeavyAssembly}
 # From: Resources/Prototypes/_Mono/Entities/Structures/Doors/Airlocks/external.yml
 
 ent-AirlockExternalGlassMieyo = {ent-AirlockExternalGlass}
+    .desc = {ent-AirlockExternalGlass.desc}
     .suffix = Mieyo, Vidro, Externo
 
 ent-AirlockExternalGlassMieyoLocked = {ent-AirlockExternalGlass}
+    .desc = {ent-AirlockExternalGlass.desc}
     .suffix = Trancado, Mieyo, Vidro, Externo
 
 
@@ -9217,7 +9232,8 @@ ent-PlayerXenoBorgGhostRolePlaytime = {ent-BorgChassisSelectableXenoborg}
 
 # From: Resources/Prototypes/_Mono/Entities/Objects/Misc/turrets.yml
 
-ent-WeaponTurretXenoborg = torreta
+ent-WeaponTurretXenoborg = {ent-BaseWeaponBallisticTurret}
+    .desc = {ent-BaseWeaponBallisticTurret.desc}
     .suffix = Xenoborg
 
 
@@ -9394,12 +9410,15 @@ ent-MieyoLiasonPDA = PDA de liaison corporativo Mieyo
 # From: Resources/Prototypes/_Mono/Entities/Objects/Devices/door_access.yml
 
 ent-DoorElectronicsMieyo = {ent-DoorElectronics}
+    .desc = {ent-DoorElectronics.desc}
     .suffix = Mieyo, Trancado
 
 ent-DoorElectronicsMieyoSecurity = {ent-DoorElectronics}
+    .desc = {ent-DoorElectronics.desc}
     .suffix = Segurança Mieyo, Trancado
 
 ent-DoorElectronicsMieyoLiason = {ent-DoorElectronics}
+    .desc = {ent-DoorElectronics.desc}
     .suffix = Liaison Mieyo, Trancado
 
 
@@ -9501,10 +9520,13 @@ ent-IriditeCrystal = iridita cristalina
 # From: Resources/Prototypes/_Mono/Entities/Objects/Devices/Misc/identification_cards.yml
 
 ent-MieyoEmployeeIDCard = cartão de identificação de funcionário MMC
+    .desc = {ent-IDCardStandard.desc}
 
 ent-MieyoSecurityIDCard = cartão de identificação de segurança MMC
+    .desc = {ent-IDCardStandard.desc}
 
 ent-MieyoLiasonIDCard = cartão de identificação de liaison MMC
+    .desc = {ent-IDCardStandard.desc}
 
 
 # From: Resources/Prototypes/_Mono/Entities/Objects/Devices/Circuitboards/computer.yml

@@ -1560,6 +1560,7 @@ ent-DefibrillatorCompactEmpty = {ent-DefibrillatorCompact}
 # From: Resources/Prototypes/_Goobstation/Entities/Mobs/Player/humanoid.yml
 
 ent-MobFeroxiRandom = Enzo Tubarão da Silva
+    .desc = {ent-MobFeroxiDummy.desc}
     .suffix = Aparência Aleatória
 
 

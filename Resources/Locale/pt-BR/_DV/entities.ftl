@@ -506,12 +506,13 @@ ent-WindoorSecureMailLocked = {ent-WindoorSecure}
 # From: Resources/Prototypes/_DV/Entities/Mobs/Player/feroxi.yml
 
 ent-MobFeroxi = Enzo Tubarão da Silva
-
+    .desc = {ent-MobFeroxiDummy.desc}
 
 # From: Resources/Prototypes/_DV/Entities/Mobs/Species/feroxi.yml
 
 # Abstract entity (referenceable by children)
 ent-BaseMobFeroxi = Enzo Tubarão da Silva
+    .desc = {ent-MobFeroxiDummy.desc}
 
 ent-MobFeroxiDummy = Feroxi Dummy
     .desc = Um boneco de feroxi feito para ser usado na criação de personagem.
