@@ -501,3 +501,32 @@ ent-WindoorSecureMailLocked = {ent-WindoorSecure}
     .desc = {ent-WindoorSecure.desc}
     .suffix = Correio, trancado
 
+
+
+# From: Resources/Prototypes/_DV/Entities/Mobs/Player/feroxi.yml
+
+ent-MobFeroxi = Enzo Tubarão da Silva
+
+
+# From: Resources/Prototypes/_DV/Entities/Mobs/Species/feroxi.yml
+
+# Abstract entity (referenceable by children)
+ent-BaseMobFeroxi = Enzo Tubarão da Silva
+
+ent-MobFeroxiDummy = Feroxi Dummy
+    .desc = Um boneco de feroxi feito para ser usado na criação de personagem.
+
+
+# From: Resources/Prototypes/_DV/Entities/Objects/Tools/gas_tank.yml
+
+ent-WaterVaporTank = tanque de vapor de água
+    .desc = Um tanque de gás cilíndrico padrão para vapor de água. Pode conter 5L de gás.
+
+ent-EmergencyWaterVaporTank = emergency water vapor tank
+    .desc = Um tanque facilmente portátil para emergências. Contém muito pouco vapor de água, classificado apenas para uso de sobrevivência. Pode conter 0,66 L de gás.
+
+ent-ExtendedEmergencyWaterVaporTank = extended-capacity emergency water vapor tank
+    .desc = Um tanque de emergência com capacidade estendida. Tecnicamente classificado para uso prolongado. Pode conter 1,5 L de gás.
+
+ent-DoubleEmergencyWaterVaporTank = double emergency water vapor tank
+    .desc = Um contêiner de suporte de vida de emergência de alta graduação com tanque duplo. Contém uma quantidade decente de vapor de água para seu tamanho pequeno. Pode conter 2,5 L de gás.

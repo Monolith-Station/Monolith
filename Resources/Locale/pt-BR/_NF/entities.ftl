@@ -13357,3 +13357,15 @@ ent-SpawnMobHorrorExpeditions = gerador de horror de carne aberrante
     .desc = Gera um horror.
     .suffix = IA, Hostil
 
+
+
+# From: Resources/Prototypes/_NF/Entities/Structures/Machines/lathe.yml
+
+ent-MedicalAssembler = medical assembler
+    .desc = Ótimo pra medicina, aparentemente. Você não sabe como isso funciona.
+
+
+# From: Resources/Prototypes/_NF/Entities/Structures/Machines/vending_machines.yml
+
+ent-MonoVendingMachineCartMieyo = MonoVendingMachineCartMieyo
+    .suffix = MMC
