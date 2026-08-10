@@ -97,6 +97,7 @@
     useSound:
       collection: Welder
     qualities: Welding
+  - type: WeldingSparks # Goobstation
   - type: Welder
   - type: PointLight
     enabled: false
@@ -210,6 +211,8 @@
     statusEffectTime: 5 # less harmful; sunglasses can block it
   - type: Tool
     speedModifier: 1.3
+  - type: WeldingSparks # Goobstation
+    effect: EffectWeldingSparksExp
   - type: Tag # Goobstation-WelderSword
     tags:
     - WelderExperimental
