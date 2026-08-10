@@ -1,6 +1,6 @@
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
-  id: SurveillanceCameraRouterVanguardPDV
+  id: SurveillanceCameraRouterWirelessPDV
   suffix: PDV
   components:
     - type: SurveillanceCameraRouter
@@ -10,7 +10,7 @@
 
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
-  id: SurveillanceCameraRouterSolarianTSF
+  id: SurveillanceCameraRouterWirelessTSF
   suffix: TSF
   components:
     - type: SurveillanceCameraRouter
@@ -20,7 +20,7 @@
 
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
-  id: SurveillanceCameraRouterMieyoMMC
+  id: SurveillanceCameraRouterWirelessMMC
   suffix: MMC
   components:
     - type: SurveillanceCameraRouter
