@@ -76,8 +76,8 @@
     node: airlock
   - type: Wires
     layoutId: HighSec
-  # - type: WeldingSparksAnimation # Forge-changeL we dont have Goob/WeldingSparksAnimation
-  #   startingOffset: -0.5, 0
+  - type: WeldingSparksAnimation
+    startingOffset: -0.5, 0
   - type: Airlock
     openUnlitVisible: false
 
@@ -159,8 +159,8 @@
     node: glassAirlock
   - type: Wires
     layoutId: HighSec
-  # - type: WeldingSparksAnimation # Forge-change: we dont have Goob/WeldingSparksAnimation
-  #   startingOffset: -0.5, 0
+  - type: WeldingSparksAnimation
+    startingOffset: -0.5, 0
   - type: Airlock
     openUnlitVisible: false
 

@@ -25,6 +25,8 @@
   # Forge-Change-End
   - type: Wires
     layoutId: AirlockExternal
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: -0.5, 0
 
 - type: entity
   parent: AirlockExternal
