@@ -187,12 +187,6 @@ namespace Content.Shared.Maps
         [DataField]
         public ProtoId<ReagentPrototype>? Reagent { get; private set; }
 
-        /// <summary>
-        /// Whether something lying down here goes under. Basically just used for water.
-        /// This should really, REALLY have a different way of defining it that isn't the damn ContentTileDefinition.
-        /// </summary>
-        [DataField]
-        public bool Submersible { get; private set; }
         // </Mono>
 
         /// <summary>

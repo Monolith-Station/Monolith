@@ -19,7 +19,6 @@ public sealed partial class TileEntityShaderSystem : EntitySystem
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private TurfSystem _turf = default!;
 
-    private const float PostShadeScale = 1.25f;
     private readonly Dictionary<EntityUid, (string Id, ShaderInstance Instance)> _instances = new();
 
     /// <summary>
@@ -60,14 +59,22 @@ public sealed partial class TileEntityShaderSystem : EntitySystem
 
         var shaderId = _turf.GetContentTileDefinition(ownTile).EntityShader;
 
+        // Everything below is in tiles measured from the entity itself, expressed in the viewport's
+        // frame. Nothing here refers to the post-shader render target: it is shared and grown to fit
+        // the largest post-shaded sprite in the frame, placed on an integer pixel, and sized from
+        // sprite bounds that change whenever a layer is added. Anchoring to it moves the waterline
+        // when a neighbour gets outlined, when the sprite gains a typing indicator, and by a pixel or
+        // so every step you take.
         var bounds = _sprite.GetLocalBounds((ent.Owner, args.Sprite));
-        var half = bounds.Size * 0.5f * PostShadeScale;
         var center = bounds.Center;
-        var min = center - half;
-        var max = center + half;
-        var size = max - min;
+        var world = _xform.GetWorldPosition(xform);
 
-        if (size.X <= 0f || size.Y <= 0f)
+        // Pixels per world unit, measured off the viewport rather than assumed, so zoom is accounted
+        // for. Only a scale: the frame of reference is the sprite itself, via UV.
+        var pixelsPerUnit = MathF.Abs(
+            args.Viewport.WorldToLocal(world + Vector2.UnitY).Y - args.Viewport.WorldToLocal(world).Y);
+
+        if (pixelsPerUnit <= 0f)
             return;
 
         // The tile region. Mostly for shader effects.
@@ -77,19 +84,20 @@ public sealed partial class TileEntityShaderSystem : EntitySystem
         var top = (Matching(grid, tile + new Vector2i(0, 1), shaderId) ? tile.Y + 2 : tile.Y + 1) * tileSize;
 
         var rect = new Vector4(
-            (left - local.X - min.X) / size.X,
-            (bottom - local.Y - min.Y) / size.Y,
-            (right - local.X - min.X) / size.X,
-            (top - local.Y - min.Y) / size.Y);
+            (left - local.X - center.X) / tileSize,
+            (bottom - local.Y - center.Y) / tileSize,
+            (right - local.X - center.X) / tileSize,
+            (top - local.Y - center.Y) / tileSize);
 
         shader.SetParameter("TILE_RECT", rect);
-        shader.SetParameter("UV_PER_TILE", tileSize / size.Y);
-        shader.SetParameter("GROUND_UV", (bounds.Bottom - min.Y) / size.Y);
+        shader.SetParameter("PIXELS_PER_TILE", pixelsPerUnit * tileSize);
+        shader.SetParameter("GROUND", (bounds.Bottom - center.Y) / tileSize);
 
         // Also allow any other system to listen to this event and tweak the incoming shader as needed.
         var ev = new TileShaderParametersEvent(shader, _turf.GetContentTileDefinition(ownTile));
         RaiseLocalEvent(ent.Owner, ref ev);
     }
+
 
     /// <summary>
     /// Whether the neighbouring tile carries the same shader.
