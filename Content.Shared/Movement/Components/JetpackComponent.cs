@@ -14,6 +14,9 @@ public sealed partial class JetpackComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("moleUsage")]
     public float MoleUsage = 0.012f;
 
+    [ViewVariables(VVAccess.ReadWrite), DataField("verticalUsageMult")]
+    public float UpwardsMultiplier = 5f; // 5x as expensive to go upwards; beware!!
+
     [DataField] public EntProtoId ToggleAction = "ActionToggleJetpack";
 
     [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity;
@@ -49,5 +52,7 @@ public sealed partial class JetpackComponent : Component
     /// CEZ: How quickly the user settles towards a normal layer when jetpacking.
     /// </summary>
     [DataField]
-    public float FlightSettleGain = 3f;
+    public float FlightSettleGain = 2f;
+
+    public bool IsZMoving = true;
 }
