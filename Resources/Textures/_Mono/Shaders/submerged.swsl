@@ -1,14 +1,12 @@
 // Submersion for entities standing on a liquid tile.
 //
-// Set per-entity every frame by TileEntityShaderSystem, in render-target UV. Note that UV.y
-// increases UPWARD here: hcut.swsl fades UV.y below its threshold and calls that "below", which only
-// makes sense with y up. Getting this backwards submerges the head instead of the legs.
-//   GROUND_UV   - the bottom edge of the sprite. Measuring up from there rather than from the
-//                 entity's origin matters: a mob sprite is centred on its origin, so the origin is
-//                 mid-torso, not underfoot.
-//   UV_PER_TILE - how much UV one tile of world covers, so heights below can be given in tiles.
-//   TILE_RECT   - xy = bottom-left, zw = top-right of the run of tiles sharing this shader
-//                 around the entity. Set by TileEntityShaderSystem for any tile shader.
+// Everything here works in TILES measured from the entity's own position, with y up.
+//
+// Set per-entity every frame by TileEntityShaderSystem:
+//   PIXELS_PER_TILE - render-target pixels one world tile covers.
+//   GROUND          - the sprite's bottom edge, in tiles from the sprite's centre.
+//   TILE_RECT       - xy = bottom-left, zw = top-right of the run of tiles sharing this shader
+//                     around the entity, in tiles from the sprite's centre.
 
 // Not a stylistic choice. Clyde renders the sprite into the post-shader target with lighting already
 // applied (Clyde.HLR.cs: "necessary for light application"), then blits that target through this
@@ -16,8 +14,8 @@
 // visibly darker than everything around it. Unshaded here means "already lit", not "ignore light".
 light_mode unshaded;
 
-uniform highp float GROUND_UV;
-uniform highp float UV_PER_TILE;
+uniform highp float PIXELS_PER_TILE;
+uniform highp float GROUND;
 uniform highp vec4 TILE_RECT;
 
 // How far up from the bottom of the sprite the liquid comes, in tiles.
@@ -27,26 +25,20 @@ uniform highp vec4 TINT;
 uniform highp float TINT_STRENGTH;
 // Alpha of the submerged part.
 uniform highp float SUBMERGED_ALPHA;
-// 1 when the entity has gone fully under (lying down in deep water), 0 when merely wading.
-uniform highp float SUBMERGED;
-// Alpha of an entity that has gone fully under. This is the hiding.
-uniform highp float HIDDEN_ALPHA;
-// 1 when the entity is wholly under the surface but should still be seen: a pipe below the tile,
-// or an item dropped into it.
-uniform highp float COVERED;
-// Alpha for that case. Higher than HIDDEN_ALPHA: pipes and dropped items should stay findable,
-// where someone hiding should not.
-uniform highp float COVERED_ALPHA;
-// Sideways refraction of the submerged part, in UV.
+// Sideways refraction of the submerged part, in tiles.
 uniform highp float WAVE_AMPLITUDE;
+// Cycles per tile.
 uniform highp float WAVE_FREQUENCY;
 uniform highp float WAVE_SPEED;
-// Depth over which the refraction eases in below the surface. Too small and the boundary tears.
+// Depth over which the refraction eases in below the surface, in tiles. Too small and it tears.
 uniform highp float WAVE_FADE;
 // Bright meniscus riding on the surface.
 uniform highp vec4 SURFACE_COLOR;
+// In tiles.
 uniform highp float SURFACE_WIDTH;
-// How much the surface line itself undulates, and how choppily.
+// Fraction of that width held solid before it starts fading. Fading the whole way from the line up
+// is what makes it read as a glow around the sprite rather than as the surface of something.
+uniform highp float SURFACE_FALLOFF;
 uniform highp float SURFACE_WOBBLE;
 uniform highp float SURFACE_FREQUENCY;
 
@@ -54,42 +46,42 @@ void fragment()
 {
     highp vec2 uv = UV;
 
+    // Position in tiles from the centre of the sprite.
+    //
+    // Measured off UV, not off the viewport-space Pos varying. Pos would be immune to the render
+    // target moving about under us, but it is a position on the SCREEN, so pinning it to the entity
+    // needs the entity's own screen position as a reference — and getting that reference wrong makes
+    // every entity read the waterline off somebody else's position. UV is already relative to the
+    // sprite being drawn, so it cannot confuse one entity for another, whatever else it does.
+    //
+    // TEXTURE_PIXEL_SIZE is one over the target's size, which turns UV into pixels and then tiles,
+    // so at least the units survive the target being resized between sprites.
+    highp vec2 pos = (uv - 0.5) / (TEXTURE_PIXEL_SIZE * PIXELS_PER_TILE);
+
     // Vertical ripple, used to displace the submerged part sideways.
     highp float ripple =
-        sin(uv.y * WAVE_FREQUENCY + TIME * WAVE_SPEED) * 0.6 +
-        sin(uv.y * WAVE_FREQUENCY * 2.3 - TIME * WAVE_SPEED * 1.7) * 0.4;
+        sin(pos.y * WAVE_FREQUENCY + TIME * WAVE_SPEED) * 0.6 +
+        sin(pos.y * WAVE_FREQUENCY * 2.3 - TIME * WAVE_SPEED * 1.7) * 0.4;
 
     // Swell along the surface, used to undulate the waterline. Varies with x, unlike the ripple:
     // a water surface moves up and down along its length, it does not shear vertically.
     highp float swell =
-        sin(uv.x * SURFACE_FREQUENCY + TIME * WAVE_SPEED * 0.8) * 0.6 +
-        sin(uv.x * SURFACE_FREQUENCY * 1.7 - TIME * WAVE_SPEED * 1.3) * 0.4;
+        sin(pos.x * SURFACE_FREQUENCY + TIME * WAVE_SPEED * 0.8) * 0.6 +
+        sin(pos.x * SURFACE_FREQUENCY * 1.7 - TIME * WAVE_SPEED * 1.3) * 0.4;
 
-    // One line, used for all three of: what counts as submerged, where the sprite gets cut, and
-    // where the highlight sits. Deriving them separately is what let the highlight drift off the
-    // boundary it is supposed to be covering.
-    highp float line = GROUND_UV + SUBMERGE_HEIGHT * UV_PER_TILE + swell * SURFACE_WOBBLE;
-
-    // Gone under entirely: put the surface above the whole sprite. Everything downstream follows
-    // from the one line, so this submerges the lot, drops the meniscus (nothing is above the water
-    // to break it) and still respects the horizontal clamp, which keeps a body lying across the
-    // water's edge from fading out over dry ground.
-    // Written out rather than as 1.0e3: the swsl tokenizer only accepts digits and '.', so exponent
-    // notation lexes as the number 1.0 followed by an identifier e3 and emits broken GLSL.
-    // Either way of being wholly under: gone under deliberately, or lying beneath the surface to
-    // begin with.
-    highp float covered = max(step(0.5, SUBMERGED), step(0.5, COVERED));
-
-    line = mix(line, 1000.0, covered);
+    // One line, used for what counts as submerged, where the sprite gets cut, and where the
+    // highlight sits. Deriving them separately is what let the highlight drift off the boundary it
+    // is supposed to be covering.
+    highp float line = GROUND + SUBMERGE_HEIGHT + swell * SURFACE_WOBBLE;
 
     // Only treat this fragment as wet if it is actually over liquid. This is the clamp: without it
     // the submerged band runs the full width of the sprite and spills over dry neighbouring tiles
     // when standing at the water's edge.
     highp float inside =
-        step(TILE_RECT.x, uv.x) * step(uv.x, TILE_RECT.z) *
-        step(TILE_RECT.y, uv.y) * step(uv.y, TILE_RECT.w);
+        step(TILE_RECT.x, pos.x) * step(pos.x, TILE_RECT.z) *
+        step(TILE_RECT.y, pos.y) * step(pos.y, TILE_RECT.w);
 
-    highp float below = step(uv.y, line);
+    highp float below = step(pos.y, line);
     highp float submerged = below * inside;
 
     // Below the waterline but past the edge of the liquid: cut it entirely rather than letting it
@@ -99,10 +91,11 @@ void fragment()
 
     // Ease the refraction in with depth. At full strength right at the boundary the top row of the
     // distorted part is offset while the row above it is not, which reads as a tear along the line.
-    highp float depth = clamp((line - uv.y) / max(WAVE_FADE, 0.0001), 0.0, 1.0);
+    highp float depth = clamp((line - pos.y) / max(WAVE_FADE, 0.0001), 0.0, 1.0);
 
+    // Back out of tiles into UV to actually move the sample.
     highp vec2 sampleUv = uv;
-    sampleUv.x += ripple * WAVE_AMPLITUDE * submerged * depth;
+    sampleUv.x += ripple * WAVE_AMPLITUDE * submerged * depth * PIXELS_PER_TILE * TEXTURE_PIXEL_SIZE.x;
 
     // Refraction can push the sample off the render target. Zeroing rather than clamping keeps the
     // edge pixels from smearing outward into a streak.
@@ -112,21 +105,16 @@ void fragment()
 
     highp vec4 tex = zTexture(sampleUv) * inBounds;
 
-    highp float alpha = mix(SUBMERGED_ALPHA, HIDDEN_ALPHA, step(0.5, SUBMERGED));
-
-    // Covered wins over hiding: something is only ever one or the other, and this is the case that
-    // has to stay visible.
-    alpha = mix(alpha, COVERED_ALPHA, step(0.5, COVERED));
-
     tex.rgb = mix(tex.rgb, TINT.rgb, TINT_STRENGTH * submerged);
-    tex.a *= mix(1.0, alpha, submerged) * (1.0 - cut);
+    tex.a *= mix(1.0, SUBMERGED_ALPHA, submerged) * (1.0 - cut);
 
     // The meniscus sits on top of the line and never below it, so it covers the seam instead of
     // bleeding down into the distorted part. Only colour is touched, never alpha: tinting a
     // transparent fragment is invisible, which keeps the highlight on the body rather than drawing
     // a line across open air beside it.
     highp float surface =
-        inside * step(line, uv.y) * (1.0 - smoothstep(0.0, SURFACE_WIDTH, uv.y - line));
+        inside * step(line, pos.y)
+        * (1.0 - smoothstep(SURFACE_WIDTH * SURFACE_FALLOFF, SURFACE_WIDTH, pos.y - line));
 
     tex.rgb = mix(tex.rgb, SURFACE_COLOR.rgb, surface * SURFACE_COLOR.a);
 

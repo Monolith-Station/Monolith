@@ -7,20 +7,15 @@
     TINT: "#2F7C9B"
     TINT_STRENGTH: 0.15
     SUBMERGED_ALPHA: 0.2
-    HIDDEN_ALPHA: 0.1
-    # Pipes, cables and dropped items under the surface. Dimmed and tinted, but still findable;
-    # hiding is not the point here.
-    COVERED_ALPHA: 0.55
-    WAVE_AMPLITUDE: 0.035
-    WAVE_FREQUENCY: 25.0
+    WAVE_AMPLITUDE: 0.044
+    WAVE_FREQUENCY: 20.0
     WAVE_SPEED: 1.5
-    WAVE_FADE: 0.06
+    WAVE_FADE: 0.075
     SURFACE_COLOR: "#CDEEF799"
-    SURFACE_WIDTH: 0.02
-    SURFACE_WOBBLE: 0.012
-    SURFACE_FREQUENCY: 18.0
-    SUBMERGED: 0.0
-    COVERED: 0.0
-    GROUND_UV: 2.0
-    UV_PER_TILE: 1.0
+    SURFACE_WIDTH: 0.045
+    SURFACE_FALLOFF: 0.55
+    SURFACE_WOBBLE: 0.015
+    SURFACE_FREQUENCY: 14.4
+    GROUND: -10.0
+    PIXELS_PER_TILE: 32.0
     TILE_RECT: "0,0,0,0"
