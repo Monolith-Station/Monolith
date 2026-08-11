@@ -20,7 +20,7 @@
         - [textlink="2. Эскалация" link="CorvaxFrontierRule2"]
         <Box Margin="5" Orientation="Vertical" HorizontalAlignment="Left">
           - [textlink="2.1 Киллбоксы" link="CorvaxFrontierRule2_1"]
-          - [textlink="2.2 Конфликты фракций" link="CorvaxFrontierRule2_2"]
+          - [textlink="2.2 Контракты" link="CorvaxFrontierRule2_2"]
         </Box>
         - [textlink="3. Нарушение игровой атмосферы" link="CorvaxFrontierRule3"]
         <Box Margin="5" Orientation="Vertical" HorizontalAlignment="Left">
@@ -32,14 +32,21 @@
           - [textlink="4.1 КООП и мета-информация" link="CorvaxFrontierRule4_1"]
           - [textlink="4.2 Выход из роли" link="CorvaxFrontierRule4_2"]
         </Box>
-        - [textlink="5. Отыгрыш антагонистов и пиратство" link="CorvaxFrontierRule5"]
+        - [textlink="5. Отыгрыш антагонистов" link="CorvaxFrontierRule5"]
+        <Box Margin="5" Orientation="Vertical" HorizontalAlignment="Left">
+          - [textlink="5.1 Пиратство" link="CorvaxFrontierRule5_1"] # Новое правило
+        </Box>
         - [textlink="6. Мародёрство" link="CorvaxFrontierRule6"]
         - [textlink="7. Безопасная зона" link="CorvaxFrontierRule7"]
         <Box Margin="5" Orientation="Vertical" HorizontalAlignment="Left">
         - [textlink="7.1 Правило баз фракций" link="CorvaxFrontierRule7_1"]
-        - [textlink="8.1 Командиры фракций" link="CorvaxFrontierRule7_2"]
+        - [textlink="7.2 Захват точек интереса" link="CorvaxFrontierRule7_2"] # Новое правило
         </Box>
         - [textlink="8. Правила фракций" link="CorvaxFrontierRule8"]
+        <Box Margin="5" Orientation="Vertical" HorizontalAlignment="Left">
+        - [textlink="8.1 Отыгрыш фракций" link="CorvaxFrontierRule8_1"]
+        - [textlink="8.2 Правила войны" link="CorvaxFrontierRule8_2"] # Новое правило
+        </Box>
         - [textlink="9. ERP" link="CorvaxFrontierRule9"]
         - [textlink="10. Нечестная игра" link="CorvaxFrontierRule10"]
       </Box>

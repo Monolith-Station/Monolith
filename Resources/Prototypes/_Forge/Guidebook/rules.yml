@@ -22,6 +22,8 @@
     - CorvaxFrontierRule7_1
     - CorvaxFrontierRule7_2
     - CorvaxFrontierRule8
+    - CorvaxFrontierRule8_1
+    - CorvaxFrontierRule8_2
     - CorvaxFrontierRule9
     - CorvaxFrontierRule10
 
@@ -98,6 +100,12 @@
   ruleEntry: true
 
 - type: guideEntry
+  id: CorvaxFrontierRule5_1
+  name: guide-entry-frontier-rule-5.1
+  text: "/ServerInfo/_Forge/Rules/5-1_AntagsPiracy.xml"
+  ruleEntry: true
+
+- type: guideEntry
   id: CorvaxFrontierRule6
   name: guide-entry-frontier-rule-6
   text: "/ServerInfo/_Forge/Rules/6_Maraud.xml"
@@ -118,13 +126,25 @@
 - type: guideEntry
   id: CorvaxFrontierRule7_2
   name: guide-entry-frontier-rule-7.2
-  text: "/ServerInfo/_Forge/Rules/8-1_FactionCommanders.xml"
+  text: "/ServerInfo/_Forge/Rules/7-2_FactionBases.xml"
   ruleEntry: true
 
 - type: guideEntry
   id: CorvaxFrontierRule8
   name: guide-entry-frontier-rule-8
   text: "/ServerInfo/_Forge/Rules/8_FactionRules.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: CorvaxFrontierRule8_1
+  name: guide-entry-frontier-rule-8.1
+  text: "/ServerInfo/_Forge/Rules/8-1_FactionCommanders.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: CorvaxFrontierRule8_2
+  name: guide-entry-frontier-rule-8.2
+  text: "/ServerInfo/_Forge/Rules/8-2_FactionCommanders.xml"
   ruleEntry: true
 
 - type: guideEntry
