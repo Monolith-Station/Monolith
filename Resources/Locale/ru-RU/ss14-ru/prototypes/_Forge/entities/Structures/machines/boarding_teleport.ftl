@@ -16,6 +16,10 @@ ent-BoardingTeleportPlatformAdvanced = улучшенная платформа �
     .desc = Быстрее перезаряжается и имеет расширенную зону активации.
 ent-BoardingTeleportPlatformExperimental = экспериментальная платформа абордажа
     .desc = Выше риск дестабилизации, но фазовый контроль снижает разброс высадки.
+ent-BoardingTeleportEngineAdvancedMachineCircuitboard = плата улучшенного блюспейс двигателя
+    .desc =  Печатная плата для улучшенного блюспейс двигателя.
+ent-BoardingTeleportPlatformAdvancedMachineCircuitboard = плата улучшенной платформы
+    .desc = Печатная плата для улучшенной платформы для блюспейс абордажа.
 
 ent-BoardingTeleportEngineFlatpack = упакованный блюспейс-двигатель
     .desc = Флатпак для сборки блюспейс-двигателя абордажа.

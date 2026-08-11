@@ -75,5 +75,6 @@ research-technology-special-means = Специальные средства
 research-technology-kinetic-modifications = Кинетические модификации
 research-technology-thermal-weaponry = Температурное вооружение
 research-technology-bluespace-time-manipulation = Блюспейс манипулирование временем
-research-technology-launcher-syringe = Шприцемёт
+research-technology-syringe-gun = Шприцемёт
 research-technology-clowning-utilities = Клоунские принадлежности
+research-technology-ore-silo = Менеджмент материалов
