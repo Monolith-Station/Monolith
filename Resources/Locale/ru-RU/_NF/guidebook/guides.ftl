@@ -90,27 +90,27 @@ guide-entry-shipyard-tide = Tide
 guide-entry-shipyard-vagabond = Vagabond
 guide-entry-shipyard-vitalis = Vitalis
 
-# Rules entries (Fluent: dotted LocIds are attributes of the parent message)
+# Rules entries (hyphenated keys — Fluent attributes cannot start with a digit)
 guide-entry-frontier-rule-zero-tolerance = 0. Не будь мудаком
 guide-entry-frontier-rule-1 = 1. Гриф
 guide-entry-frontier-rule-2 = 2. Эскалация
-    .1 = 2.1. Киллбоксы
-    .2 = 2.2. Контракты
+guide-entry-frontier-rule-2-1 = 2.1. Киллбоксы
+guide-entry-frontier-rule-2-2 = 2.2. Контракты
 guide-entry-frontier-rule-3 = 3. Нарушение игровой атмосферы
-    .1 = 3.1. Поддержание уважительной обстановки
-    .2 = 3.2. Окончание раунда
+guide-entry-frontier-rule-3-1 = 3.1. Поддержание уважительной обстановки
+guide-entry-frontier-rule-3-2 = 3.2. Окончание раунда
 guide-entry-frontier-rule-4 = 4. Поведение персонажа
-    .1 = 4.1. КООП и мета-информация
-    .2 = 4.2. Выход из роли
+guide-entry-frontier-rule-4-1 = 4.1. КООП и мета-информация
+guide-entry-frontier-rule-4-2 = 4.2. Выход из роли
 guide-entry-frontier-rule-5 = 5. Отыгрыш антагонистов
-    .1 = 5.1. Пиратство
+guide-entry-frontier-rule-5-1 = 5.1. Пиратство
 guide-entry-frontier-rule-6 = 6. Мародёрство
 guide-entry-frontier-rule-7 = 7. Безопасная зона
-    .1 = 7.1. Правило баз фракций
-    .2 = 7.2. Захват точек интереса
+guide-entry-frontier-rule-7-1 = 7.1. Правило баз фракций
+guide-entry-frontier-rule-7-2 = 7.2. Захват точек интереса
 guide-entry-frontier-rule-8 = 8. Правила фракций
-    .1 = 8.1. Отыгрыш старшего состава
-    .2 = 8.2. Правила войны
+guide-entry-frontier-rule-8-1 = 8.1. Отыгрыш старшего состава
+guide-entry-frontier-rule-8-2 = 8.2. Правила войны
 guide-entry-frontier-rule-9 = 9. ERP
 guide-entry-frontier-rule-10 = 10. Нечестная игра
 

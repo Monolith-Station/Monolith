@@ -4,6 +4,7 @@ delta-chat-emote-name-ring = Звонить
 delta-chat-emote-msg-ring = звонит
 delta-chat-emote-name-pew = Пиу-Пиу!
 delta-chat-emote-msg-pew = Пиу-Пиу!
+delta-chat-emote-name-bang = Греметь
 delta-chat-emote-name-beep = Бип
 delta-chat-emote-msg-beep = бипает
 delta-chat-emote-name-rev = Реветь
