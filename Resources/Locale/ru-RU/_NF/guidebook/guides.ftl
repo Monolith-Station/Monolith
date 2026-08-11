@@ -90,37 +90,48 @@ guide-entry-shipyard-tide = Tide
 guide-entry-shipyard-vagabond = Vagabond
 guide-entry-shipyard-vitalis = Vitalis
 
-# Rules entries
-guide-entry-frontier-rule-0 = 0. Admin
-guide-entry-frontier-rule-1 = 1. ERP
-guide-entry-frontier-rule-2 = 2. Community
-guide-entry-frontier-rule-3 = 3. IC Info
-guide-entry-frontier-rule-4 = 4. Respawning
-guide-entry-frontier-rule-5 = 5. Chat
-guide-entry-frontier-rule-6 = 6. Roleplay
-guide-entry-frontier-rule-7 = 7. Antag
-guide-entry-frontier-rule-8 = 8. Safe Zone
-guide-entry-frontier-rule-9 = 9. Security
-guide-entry-frontier-rule-10 = 10. Command
-guide-entry-frontier-rule-11 = 11. Escalation
-guide-entry-frontier-rule-12 = 12. PVP
+# Rules entries (Fluent: dotted LocIds are attributes of the parent message)
+guide-entry-frontier-rule-zero-tolerance = 0. Не будь мудаком
+guide-entry-frontier-rule-1 = 1. Гриф
+guide-entry-frontier-rule-2 = 2. Эскалация
+    .1 = 2.1. Киллбоксы
+    .2 = 2.2. Контракты
+guide-entry-frontier-rule-3 = 3. Нарушение игровой атмосферы
+    .1 = 3.1. Поддержание уважительной обстановки
+    .2 = 3.2. Окончание раунда
+guide-entry-frontier-rule-4 = 4. Поведение персонажа
+    .1 = 4.1. КООП и мета-информация
+    .2 = 4.2. Выход из роли
+guide-entry-frontier-rule-5 = 5. Отыгрыш антагонистов
+    .1 = 5.1. Пиратство
+guide-entry-frontier-rule-6 = 6. Мародёрство
+guide-entry-frontier-rule-7 = 7. Безопасная зона
+    .1 = 7.1. Правило баз фракций
+    .2 = 7.2. Захват точек интереса
+guide-entry-frontier-rule-8 = 8. Правила фракций
+    .1 = 8.1. Отыгрыш старшего состава
+    .2 = 8.2. Правила войны
+guide-entry-frontier-rule-9 = 9. ERP
+guide-entry-frontier-rule-10 = 10. Нечестная игра
 
 # Reference entries
 guide-entry-medicalrecipes = Медицинские рецепты
 
 # Medical entries
 guide-entry-medical-bounties = Медицинские премии
-guide-entry-medical-doc = Менеджер Медицинских Операций
+guide-entry-medical-doc = Менеджер медицинских операций
 guide-entry-CParamed = Парамедик
 
 # Security entries
 guide-entry-nfsd-smuggling = Контрабанда
+guide-entry-weapons-ranged-archetypes = Архетипы дальнобойного оружия
+guide-entry-weapons-color-codes-ammo = Цветовые коды боеприпасов
 
-# Антаги
-guide-entry-nfantag = Антаганисты фронтира
+# Антагонисты
+guide-entry-nfantag = Антагонисты Фронтира
 guide-entry-Shturm = Штурмовик
-guide-entry-SParamed = Штурмовой Парамедик
-guide-entry-Commander = Командир "Жнецов"
+guide-entry-SParamed = Штурмовой парамедик
+guide-entry-Commander = Командир «Жнецов»
 guide-entry-Cadet = Кадет Горлекса
 guide-entry-Smugler = Контрабандист Горлекса
 guide-entry-startinggear = Стартовое снаряжение
@@ -128,10 +139,3 @@ guide-entry-interviews = Интервью
 guide-entry-sector-topology = Топология сектора
 guide-entry-cargo-hauling = Перевозка грузов
 guide-entry-offshore-gas-mining = Добыча газа в открытом космосе
-
-# Security entries
-guide-entry-weapons-ranged-archetypes = Архетипы дальнобойного оружия
-guide-entry-weapons-color-codes-ammo = Цветовые коды боеприпасов
-
-# Expedition faction entries
-guide-entry-frontier-rule-zero-tolerance = Нулевая терпимость
