@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/11/2026 12:08:13
-  entityCount: 9926
+  time: 08/11/2026 12:57:27
+  entityCount: 9927
 maps:
 - 1
 grids:
@@ -336,9 +336,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
+        Kudzu: []
         Puddle: []
         MetalFoam: []
-        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -6527,7 +6527,7 @@ entities:
             0: 65535
           4,5:
             0: 65254
-            6: 8
+            2: 8
           4,6:
             0: 61614
           4,7:
@@ -6568,17 +6568,17 @@ entities:
           -1,8:
             0: 46079
           -8,0:
-            2: 771
+            3: 771
             0: 34952
           -9,0:
-            2: 52431
-            5: 256
+            3: 52431
+            4: 256
           -8,1:
-            2: 3
+            3: 3
             1: 288
             0: 34952
           -9,1:
-            2: 895
+            3: 895
           -8,2:
             0: 48056
           -9,2:
@@ -6592,7 +6592,7 @@ entities:
           -8,-1:
             1: 8448
             0: 35020
-            3: 1
+            5: 1
           -7,0:
             0: 56785
           -7,1:
@@ -6661,10 +6661,10 @@ entities:
           1,9:
             0: 3
           1,10:
-            2: 528
+            3: 528
             1: 43488
           1,11:
-            2: 34817
+            3: 34817
             1: 10014
           1,12:
             1: 554
@@ -6675,15 +6675,15 @@ entities:
             1: 40960
           2,10:
             1: 24245
-            2: 33034
+            3: 33034
           2,11:
             1: 2014
-            2: 32
+            3: 32
           3,8:
             0: 16
           3,10:
             1: 269
-            2: 2
+            3: 2
           3,9:
             1: 704
           4,8:
@@ -6707,7 +6707,7 @@ entities:
           -3,-4:
             1: 8
           -2,-4:
-            2: 1
+            3: 1
             0: 34956
           -2,-2:
             1: 51
@@ -6770,23 +6770,23 @@ entities:
           -1,12:
             0: 30515
           1,-3:
-            2: 25344
+            3: 25344
             1: 36010
           1,-2:
             0: 52992
             1: 4
-            2: 8
+            3: 8
           1,-4:
             1: 8704
           2,-3:
             1: 20480
-            2: 8192
+            3: 8192
           2,-2:
             1: 15
             0: 12288
           3,-2:
             1: 3607
-            2: 256
+            3: 256
           4,-2:
             1: 256
           4,-1:
@@ -6846,18 +6846,18 @@ entities:
             0: 65521
           -8,-2:
             0: 52445
-            3: 4096
+            5: 4096
           -9,-2:
             0: 12799
-            3: 32768
+            5: 32768
           -9,-1:
-            3: 8
+            5: 8
             0: 3
-            2: 29440
+            3: 29440
           -7,-4:
             0: 4371
             1: 1152
-            2: 8
+            3: 8
           -7,-3:
             0: 4369
             1: 17408
@@ -6903,24 +6903,24 @@ entities:
             1: 32768
           -11,0:
             0: 9010
-            2: 2056
+            3: 2056
           -10,-4:
             0: 65520
           -10,-3:
             0: 887
           -10,-2:
             0: 33023
-            4: 12288
+            6: 12288
           -10,-1:
-            4: 3
+            6: 3
             1: 256
             0: 8
-            2: 51200
+            3: 51200
           -10,-5:
             0: 65280
             1: 4
           -10,0:
-            2: 26479
+            3: 26479
           -9,-5:
             0: 65480
           -12,0:
@@ -6940,10 +6940,10 @@ entities:
             0: 136
           -12,4:
             1: 13230
-            2: 16384
+            3: 16384
           -11,1:
             0: 802
-            2: 8
+            3: 8
             1: 128
           -11,3:
             0: 34960
@@ -6954,7 +6954,7 @@ entities:
             1: 33
             0: 37272
           -10,1:
-            2: 2255
+            3: 2255
             1: 256
           -10,2:
             0: 15291
@@ -6994,27 +6994,27 @@ entities:
           -10,8:
             0: 198
           -12,5:
-            2: 1
+            3: 1
             1: 2
             0: 65416
           -13,4:
-            2: 32768
+            3: 32768
             1: 16417
           -13,5:
-            2: 12
+            3: 12
             0: 65296
           -12,6:
             0: 7
-            2: 1280
+            3: 1280
             1: 4096
           -13,6:
             0: 31
-            2: 60416
+            3: 60416
           -12,7:
             1: 17
           -13,7:
             1: 152
-            2: 4
+            3: 4
           -11,5:
             0: 65535
           -11,6:
@@ -7039,7 +7039,7 @@ entities:
             1: 2048
           -1,-7:
             0: 13107
-            2: 8
+            3: 8
           -1,-6:
             0: 13107
           -1,-9:
@@ -7100,7 +7100,7 @@ entities:
           -7,-7:
             0: 14129
             1: 8
-            2: 128
+            3: 128
           -7,-6:
             0: 4369
             1: 72
@@ -7131,7 +7131,7 @@ entities:
             0: 3327
           -6,14:
             1: 49184
-            2: 1024
+            3: 1024
           -6,15:
             1: 1092
           5,0:
@@ -7162,12 +7162,12 @@ entities:
             0: 65528
           4,4:
             0: 26208
-            6: 34944
+            2: 34944
           5,4:
-            6: 13104
+            2: 13104
             1: 2048
           5,5:
-            6: 3
+            2: 3
             0: 13104
             1: 128
           5,6:
@@ -7178,7 +7178,7 @@ entities:
             1: 256
           6,5:
             1: 272
-            2: 8704
+            3: 8704
           6,6:
             0: 62976
           6,7:
@@ -7418,8 +7418,17 @@ entities:
           immutable: True
           moles: {}
         - volume: 2500
+          temperature: 235
+          moles:
+            Oxygen: 27.225372
+            Nitrogen: 102.419266
+        - volume: 2500
           temperature: 293.15
           moles: {}
+        - volume: 2500
+          temperature: 293.15
+          moles:
+            Plasma: 6666.982
         - volume: 2500
           temperature: 293.15
           moles:
@@ -7428,15 +7437,6 @@ entities:
           temperature: 293.15
           moles:
             Oxygen: 6666.982
-        - volume: 2500
-          temperature: 293.15
-          moles:
-            Plasma: 6666.982
-        - volume: 2500
-          temperature: 235
-          moles:
-            Oxygen: 27.225372
-            Nitrogen: 102.419266
         chunkSize: 4
     - type: GasTileOverlay
     - type: ExplosionAirtightGrid
@@ -7951,7 +7951,7 @@ entities:
       pos: -8.5,27.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -206870.7
+      secondsUntilStateChange: -206991.78
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16776,6 +16776,16 @@ entities:
     - type: Transform
       pos: -44.5,25.5
       parent: 2
+  - uid: 2028
+    components:
+    - type: Transform
+      pos: -15.5,12.5
+      parent: 2
+  - uid: 2029
+    components:
+    - type: Transform
+      pos: -14.5,12.5
+      parent: 2
   - uid: 2449
     components:
     - type: Transform
@@ -16785,6 +16795,11 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-0.5
+      parent: 2
+  - uid: 2630
+    components:
+    - type: Transform
+      pos: -13.5,12.5
       parent: 2
   - uid: 6594
     components:
@@ -16931,7 +16946,7 @@ entities:
   - uid: 1904
     components:
     - type: Transform
-      pos: -12.5,15.5
+      pos: -15.5,17.5
       parent: 2
   - uid: 1905
     components:
@@ -17432,16 +17447,6 @@ entities:
     components:
     - type: Transform
       pos: -22.5,13.5
-      parent: 2
-  - uid: 2028
-    components:
-    - type: Transform
-      pos: -12.5,14.5
-      parent: 2
-  - uid: 2029
-    components:
-    - type: Transform
-      pos: -12.5,13.5
       parent: 2
   - uid: 2030
     components:
