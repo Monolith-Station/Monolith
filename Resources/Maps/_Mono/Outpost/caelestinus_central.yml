@@ -7950,12 +7950,6 @@ entities:
     - type: Transform
       pos: -8.5,27.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -206991.78
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 40
     components:
     - type: Transform
