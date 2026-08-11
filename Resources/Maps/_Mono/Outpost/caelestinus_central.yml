@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/11/2026 12:57:27
-  entityCount: 9927
+  time: 08/11/2026 13:12:39
+  entityCount: 9925
 maps:
 - 1
 grids:
@@ -335,9 +335,9 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Kudzu: []
         Puddle: []
+        Kudzu: []
+        Smoke: []
         MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -10090,11 +10090,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -42.5,-0.5
       parent: 2
-  - uid: 9965
-    components:
-    - type: Transform
-      pos: -43.5,-11.5
-      parent: 2
   - uid: 9966
     components:
     - type: Transform
@@ -10160,12 +10155,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -45.5,2.5
-      parent: 2
-  - uid: 10015
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,-13.5
       parent: 2
 - proto: BarSign
   entities:
@@ -55948,7 +55937,7 @@ entities:
   - uid: 368
     components:
     - type: Transform
-      pos: -44.5,2.5
+      pos: -43.5,-4.5
       parent: 2
   - uid: 7614
     components:
