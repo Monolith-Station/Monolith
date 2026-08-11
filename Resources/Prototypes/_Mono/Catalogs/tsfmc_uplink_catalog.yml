@@ -1,4 +1,19 @@
 - type: listing
+  id: UplinkWearableCameraSolarianTSF
+  name:  uplink-security-Wearable-cameratsf-name
+  description: uplink-security-Wearable-cameratsf-desc
+  productEntity: ClothingNeckWearableCameraSolarianTSF
+  cost:
+    FederationMilitaryCredit: 1.7
+  categories:
+    - UplinkSecurityUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+- type: listing
   id: UplinkSecurityAnnie
   name:  uplink-security-annie-name
   description: uplink-security-annie-desc

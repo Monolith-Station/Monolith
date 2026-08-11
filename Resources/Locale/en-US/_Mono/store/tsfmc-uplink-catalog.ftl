@@ -132,3 +132,6 @@ uplink-security-hardsuit-m82c-desc = A basic protective system for dangerous env
 
 uplink-security-pulserifle-name = Pulse Rifle
 uplink-security-pulserifle-desc = A large, automatic pulse weapon. Larger cell, and high powered, perfect for chewing through groups of foes.
+
+uplink-security-Wearable-cameratsf-name = Solarian wearable surveying port
+uplink-security-Wearable-cameratsf-desc = Camera used for overwatching the operation area. Can be worn.

@@ -44,6 +44,9 @@ uplink-pirate-medical-assembler-desc = An assembler that can be used to make use
 
 # MARK: Utility
 
+uplink-pirate-wearable-camerapdv-name = Dynasties wearable surveying port
+uplink-pirate-wearable-camerapdv-desc = Camera used for overwatching the operation area. Can be worn.
+
 uplink-pirate-romerol-name = Romerol Syringe
 uplink-pirate-romerol-desc = A bioweapon used in previous wars, and heavily outlawed. Its obviously taken some effort to smuggle this one. Reanimates the dead.
 
