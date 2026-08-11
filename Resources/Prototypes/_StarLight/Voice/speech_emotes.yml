@@ -3,7 +3,7 @@
   name: chat-emote-name-whine
   category: Vocal
   available: false
-  chatMessages: [whines.]
+  chatMessages: [chat-emote-msg-whine] #Forge-Change
   whitelist:
     components:
     - Vocal
@@ -13,13 +13,15 @@
   chatTriggers:
   - whine
   - whines
+  - ноет #Forge-Change
+  - скулит #Forge-Change
 
 - type: emote
   id: Yip
   name: chat-emote-name-yip
   category: Vocal
   available: false
-  chatMessages: [yips.]
+  chatMessages: [chat-emote-msg-yip] #Forge-Change
   whitelist:
     components:
     - Vocal
@@ -29,3 +31,4 @@
   chatTriggers:
   - yip
   - yips
+  - тявкает #Forge-Change

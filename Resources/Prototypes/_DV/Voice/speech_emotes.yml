@@ -10,12 +10,13 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [honks.]
+  chatMessages: ["delta-chat-emote-msg-honk"] # #Forge-Change
   chatTriggers:
     - honk
     - honks
     - honking
     - honked
+    - хонкает #Forge-Change
 
 - type: emote
   id: HarpyRing
@@ -28,13 +29,14 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [rings.]
+  chatMessages: ["delta-chat-emote-msg-ring"] #Forge-Change
   chatTriggers:
     - ring
     - rings
     - ringing
     - ringed
     - rang
+    - звонит #Forge-Change
 
 - type: emote
   id: HarpyPew
@@ -47,11 +49,17 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [pews.]
+  chatMessages: ["delta-chat-emote-msg-pew"] #Forge-Change
   chatTriggers:
     - pew
     - pews
     - pewpew
+    - пиу #Forge-Change
+    - пиупиу #Forge-Change
+    - пиу-пиу #Forge-Change
+    - пиу пиу #Forge-Change
+    - пивкает #Forge-Change
+    - пиукает #Forge-Change
 
 - type: emote
   id: HarpyBang
@@ -64,12 +72,13 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [bangs.]
+  chatMessages: ["delta-chat-emote-msg-bang"] #Forge-Change
   chatTriggers:
     - bang
     - bangs
     - banging
     - banged
+    #- хлопает  #Forge-Change я хз как это перерводить, в игре оно издает рандомный набор звуков (гарпия)
 
 - type: emote
   id: HarpyBeep
@@ -82,12 +91,14 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [beeps.]
+  chatMessages: ["delta-chat-emote-msg-beep"] #Forge-Change
   chatTriggers:
     - beep
     - beeps
     - beeping
     - beeped
+    - бип #Forge-Change
+    - бипает #Forge-Change
 
 - type: emote
   id: HarpyRev
@@ -100,12 +111,14 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [revs.]
+  chatMessages: ["delta-chat-emote-msg-rev"] #Forge-Change
   chatTriggers:
     - rev
     - revs
     - revving
     - revved
+    - ревет #Forge-Change
+    - ревёт #Forge-Change
 
 - type: emote
   id: HarpyCaw
@@ -118,12 +131,13 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [caws.]
+  chatMessages: ["delta-chat-emote-msg-caw"] #Forge-Change
   chatTriggers:
     - caw
     - caws
     - cawing
     - cawed
+    - каркает #Forge-Change
 
 #Vulpkanin
 - type: emote
@@ -137,12 +151,14 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [barks.]
+  chatMessages: ["delta-chat-emote-msg-bark"] #Forge-Change
   chatTriggers:
     - bark
     - barks
     - barked
     - barking
+    - гавкает #Forge-Change
+    - гав #Forge-Change
 
 - type: emote
   id: Snarl
@@ -155,16 +171,17 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [snarls.]
+  chatMessages: ["delta-chat-emote-msg-snarl"] #Forge-Change
   chatTriggers:
     - snarl
     - snarls
     - snarled
     - snarling
+    - рычит #Forge-Change
 
 - type: emote
   id: Whimper # Starlight / Monolith: Renamed to whimper
-  name: delta-chat-emote-name-whine
+  name: delta-chat-emote-name-whine #Forge-Change
   category: Vocal
   available: false
   whitelist:
@@ -173,12 +190,13 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [whimper.] # Starlight / Monolith: Renamed to whimper
+  chatMessages: ["delta-chat-emote-msg-whimper"] # Starlight / Monolith: Renamed to whimper #Forge-Change
   chatTriggers:
     - whimper
     - whimpers
     - whimpered
     - whimpering
+    - скулит #Forge-Change
 
 - type: emote
   id: Howl
@@ -191,12 +209,13 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [howls.]
+  chatMessages: ["delta-chat-emote-msg-howl"] #Forge-Change
   chatTriggers:
     - howl
     - howls
     - howling
     - howled
+    - воет #Forge-Change
 
 - type: emote
   id: Awoo
@@ -209,9 +228,10 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [awoos.]
+  chatMessages: ["delta-chat-emote-msg-awoo"] #Forge-Change
   chatTriggers:
     - awoo
     - awoos
     - awooing
     - awooed
+    - авуу #Forge-Change

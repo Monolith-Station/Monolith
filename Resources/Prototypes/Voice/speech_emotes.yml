@@ -25,6 +25,10 @@
     - yells
     - yelled
     - yelling
+    - кричит #Forge-Change
+    - кричит! #Forge-Change
+    - орет #Forge-Change
+    - орёт #Forge-Change
 
 - type: emote
   id: Laugh
@@ -52,6 +56,8 @@
     - chortles
     - chortling
     - chortled # Frontier
+    - смеется #Forge-Change
+    - смеётся #Forge-Change
 
 - type: emote
   id: Honk
@@ -69,6 +75,7 @@
     - honks
     - honked
     - honking
+    - хонкает #Forge-Change
 
 - type: emote
   id: Sigh
@@ -87,6 +94,7 @@
     - sighs
     - sighed
     - sighing # Frontier
+    - зевает #Forge-Change
 
 - type: emote
   id: Whistle
@@ -105,6 +113,7 @@
     - whistles
     - whistleblowing
     - whistled # Frontier
+    - свистит #Forge-Change
 
 - type: emote
   id: Crying
@@ -127,6 +136,8 @@
     - sobbing
     - sobbed # Frontier
     - cried # Frontier
+    - плачет #Forge-Change
+    - рыдает #Forge-Change
 
 - type: emote
   id: Squish
@@ -146,6 +157,7 @@
     - squishing
     - squishes
     - squished # Frontier
+    - хлюпает #Forge-Change
 
 - type: emote
   id: Chitter
@@ -165,6 +177,7 @@
    - chitters
    - chittered
    - chittering # Frontier
+   - щебетчет #Forge-Change
 
 - type: emote
   id: Squeak
@@ -184,6 +197,7 @@
    - squeaks
    - squeaked
    - squeaking # Frontier
+   - пищит #Forge-Change
 
 - type: emote
   id: Click
@@ -203,6 +217,7 @@
    - clicks
    - clicked # Frontier
    - clicking # Frontier
+   - кликает #Forge-Change
 
 # hand emotes
 - type: emote
@@ -221,6 +236,7 @@
     - claps
     - clapping
     - clapped
+    - хлопает #Forge-Change
 
 - type: emote
   id: ClapSingle
@@ -240,6 +256,7 @@
     - claps her hands together
     - claps his hands together
     - claps its hands together
+    - хлопает один раз #Forge-Change
 
 - type: emote
   id: Snap
@@ -266,6 +283,8 @@
     - snaps its fingers
     - snapping fingers
     - snapped fingers
+    - щелкает #Forge-Change
+    - щелкает пальцами #Forge-Change
 
 - type: emote
   id: Thump
@@ -291,6 +310,9 @@
     - thumps her tail
     - thumps his tail
     - thumps its tail
+    - стучит #Forge-Change
+    - стучит хвостом #Forge-Change
+    - стучит своим хвостом #Forge-Change
 
 - type: emote
   id: Salute
@@ -309,6 +331,9 @@
     - salutes
     - saluted # Frontier
     - saluting # Frontier
+    - салютует #Forge-Change
+    - отдает честь #Forge-Change
+    - отдаёт честь #Forge-Change
 
 - type: emote
   id: Gasp
@@ -322,6 +347,7 @@
    - gasps
    - gasped
    - gasping # Frontier
+   - задыхается #Forge-Change
 
 - type: emote
   id: DefaultDeathgasp
@@ -337,6 +363,8 @@
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers: # Mono - D-V ready for some more 1984 - Readds deathgasp
     - deathgasp
+    - издает предсмертный хрип #Forge-Change
+    - издаёт предсмертный хрип #Forge-Change
 
 - type: emote
   id: MonkeyDeathgasp
@@ -359,6 +387,7 @@
     - buzz
     - buzzed
     - buzzes
+    - жужжит #Forge-Change
 
 - type: emote
   id: Weh
@@ -396,6 +425,7 @@
     - chirps
     - chirped
     - chirping
+    - чирикает #Forge-Change
 
 # Machine Emotes
 - type: emote
@@ -413,6 +443,9 @@
     - beeps
     - beeped
     - beeping
+    - бипает #Forge-Change
+    - бип #Forge-Change
+    - издает бип #Forge-Change
 
 - type: emote
   id: Chime
@@ -429,6 +462,8 @@
     - chimes
     - chimed
     - chiming
+    - издает звон #Forge-Change
+    - дзынь #Forge-Change
 
 - type: emote
   id: Buzz-Two
@@ -452,6 +487,10 @@
     - buzzing twice
     - buzzed twice
     - buzzedtwice # Frontier
+    - бип-буп #Forge-Change
+    - бип буп #Forge-Change
+    - издает бип-буп #Forge-Change
+    - издает бип буп #Forge-Change
 
 - type: emote
   id: Ping
@@ -468,3 +507,5 @@
     - pings
     - pinged
     - pinging
+    - издает пинг #Forge-Change
+    - пинг #Forge-Change

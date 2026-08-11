@@ -8,7 +8,7 @@
     - Silicon
     - BorgChassis
   chatTriggers:
-  - sdeathgasp
+  - sdeathgasp # я без понятия как это перевести и в игре оно ничего не делает
 
 - type: emote
   id: Whirr
@@ -22,6 +22,8 @@
   chatTriggers:
     - whirrs
     - rattles
+    - жужжит #Forge-Change
+    - гремит #Forge-Change
 
 - type: emote
   id: Boop
@@ -34,3 +36,5 @@
     - BorgChassis
   chatTriggers:
   - boops
+  - буп #Forge-Change
+  - бупает #Forge-Change
