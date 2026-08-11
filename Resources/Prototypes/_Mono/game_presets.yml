@@ -18,7 +18,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  #- PortstrikeAnnounceRuleRandom35To45 #Forge-Change нам это пока не надо
 
 - type: gamePreset
   id: MonoRogueTSF
@@ -35,7 +35,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  #- PortstrikeAnnounceRuleRandom35To45 #Forge-Change нам это пока не надо
 
 - type: gamePreset
   id: MonoRogueUSSP
@@ -52,7 +52,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  #- PortstrikeAnnounceRuleRandom35To45 #Forge-Change нам это пока не надо
 
 - type: gamePreset
   id: MonoTSFUSSP
@@ -69,7 +69,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  #- PortstrikeAnnounceRuleRandom35To45 #Forge-Change нам это пока не надо
 
 - type: gamePreset
   id: MonoADS
@@ -96,7 +96,7 @@
   - ForgeAsakimSTCShuttleSpawnerScheduler
   # Forge-Change-end
 
-  - PortstrikeAnnounceRuleRandom35To45
+  #- PortstrikeAnnounceRuleRandom35To45 #Forge-Change нам это пока не надо
 
 - type: gamePreset
   id: MonoChimera
@@ -114,7 +114,7 @@
   - FrontierRoundstartVariation
   - MonoChimeraSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  #- PortstrikeAnnounceRuleRandom35To45 #Forge-Change нам это пока не надо
 
 - type: gamePreset
   id: MonoMixed
@@ -136,7 +136,7 @@
   - ForgeAISTCShuttleSpawnerSchedulerTier3Slow # Forge-Change
   - MonoAsakimSTCShuttleSpawnerSchedulerSlow
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  #- PortstrikeAnnounceRuleRandom35To45 #Forge-Change нам это пока не надо
 
 #- type: gamePreset
 #  id: MonoAllAtOnce
@@ -168,4 +168,4 @@
   - NFAdventure
   - Hyperwar
   - RoundEndRuleHour3
-  - PortstrikeAnnounceRuleHour2
+  #- PortstrikeAnnounceRuleHour2 #Forge-Change нам это пока не надо

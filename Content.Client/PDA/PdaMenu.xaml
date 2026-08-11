@@ -52,9 +52,11 @@
                 <RichTextLabel Name="StationAlertLevelInstructions" Access="Public"/>
             </ContainerButton>
             <!-- Mono -->
+            <!-- Forge-Change нам это пока не надо
             <ContainerButton Name="WarLevelButton">
                 <RichTextLabel Name="WarLevelLabel" Access="Public"/>
             </ContainerButton>
+            -->
             <!-- Frontier -->
             <ContainerButton Name="BalanceButton">
                 <RichTextLabel Name="BalanceLabel" Access="Public"/>
