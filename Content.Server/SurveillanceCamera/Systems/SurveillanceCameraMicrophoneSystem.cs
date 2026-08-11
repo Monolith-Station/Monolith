@@ -1,6 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
+using Content.Shared.Chat; // Forge-Change
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
 using Content.Shared.SurveillanceCamera.Components;
@@ -25,8 +26,11 @@ public sealed partial class SurveillanceCameraMicrophoneSystem : EntitySystem
 
     private void OnExpandRecipients(ExpandICChatRecipientsEvent ev)
     {
+        if (ev.Channel is not (ChatChannel.Local or ChatChannel.Whisper or ChatChannel.Emotes)) // Forge-Change
+            return;
+
         var xformQuery = GetEntityQuery<TransformComponent>();
-        var sourceXform = Transform(ev.Source);
+        var sourceXform = Transform(ev.SpeechOrigin); // Forge-Change
         var sourcePos = _xforms.GetWorldPosition(sourceXform, xformQuery);
 
         // This function ensures that chat popups appear on camera views that have connected microphones.
@@ -48,7 +52,7 @@ public sealed partial class SurveillanceCameraMicrophoneSystem : EntitySystem
                 // if the player has not already received the chat message, send it to them but don't log it to the chat
                 // window. This is simply so that it appears in camera.
                 if (TryComp(viewer, out ActorComponent? actor))
-                    ev.Recipients.TryAdd(actor.PlayerSession, new ICChatRecipientData(range, false, true));
+                    ev.Recipients.TryAdd(actor.PlayerSession, new ICChatRecipientData(range, false, true, xform.Owner)); // Forge-Change
             }
         }
     }

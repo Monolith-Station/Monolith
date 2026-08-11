@@ -1,0 +1,15 @@
+- type: rcd
+  id: SurveillanceCamera
+  name: rcd-component-surveillance-camera
+  category: Electrical
+  sprite:
+    sprite: Structures/Wallmounts/camera.rsi
+    state: camera
+  mode: ConstructObject
+  prototype: SurveillanceCameraGeneral
+  cost: 3
+  delay: 2
+  collisionMask: TabletopMachineMask
+  collisionBounds: "-0.5,-0.5,-0.2,-0.15"
+  rotation: User
+  fx: EffectRCDConstruct2

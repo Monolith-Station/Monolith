@@ -31,6 +31,7 @@
   - type: SlimPoweredLight
     enabled: false
   - type: StationAiVision
+  - type: StationAiCameraRelay # Forge-Change
   - type: Clickable
   - type: InteractionOutline
   - type: Construction
@@ -79,13 +80,7 @@
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
+          damage: 600 # Forge-Change
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]

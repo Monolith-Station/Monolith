@@ -55,8 +55,11 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
 
     private void OnExpandICChatRecipients(ExpandICChatRecipientsEvent ev)
     {
+        if (ev.Channel is not (ChatChannel.Local or ChatChannel.Whisper or ChatChannel.Emotes)) // Forge-Change
+            return;
+
         var xformQuery = GetEntityQuery<TransformComponent>();
-        var sourceXform = Transform(ev.Source);
+        var sourceXform = Transform(ev.SpeechOrigin); // Forge-Change
         var sourcePos = _xforms.GetWorldPosition(sourceXform, xformQuery);
 
         // This function ensures that chat popups appear on camera views that have connected microphones.
@@ -80,7 +83,7 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
             if (range < 0 || range > ev.VoiceRange)
                 continue;
 
-            ev.Recipients.TryAdd(actor.PlayerSession, new ICChatRecipientData(range, false));
+            ev.Recipients.TryAdd(actor.PlayerSession, new ICChatRecipientData(range, false, HearingEntity: xform.Owner)); // Forge-Change
         }
     }
 

@@ -8,6 +8,8 @@ using Content.Server.Cargo.Systems; // Frontier
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
+using Content.Server.Ghost.Roles;
+using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
@@ -79,6 +81,7 @@ namespace Content.Server.Ghost
         [Dependency] private GhostSpriteStateSystem _ghostState = default!;
         [Dependency] private SponsorManager _sponsors = default!; // Forge-Change
         [Dependency] private PlayerRateLimitManager _rateLimit = default!; // Forge-Change
+        [Dependency] private GhostRoleSystem _ghostRoles = default!; // Forge-Change
 
         private const string InvalidGhostRequestRateLimitKey = "GhostInvalidRequests"; // Forge-Change
 
@@ -86,6 +89,7 @@ namespace Content.Server.Ghost
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
         private static readonly ProtoId<TagPrototype> AllowGhostShownByEventTag = "AllowGhostShownByEvent";
+        private static readonly ProtoId<TagPrototype> StationAiTag = "StationAi"; // Forge-Change
 
         public override void Initialize()
         {
@@ -777,6 +781,17 @@ namespace Content.Server.Ghost
             //   (If the mob survives, that's a bug. Ghosting is kept regardless.)
             var canReturn = canReturnGlobal && _mind.IsCharacterDeadPhysically(mind);
 
+            // Forge-Change: an AI brain has no MobState and is otherwise treated as dead.
+            // Ghosting from an occupied core must remove its mind so the takeover role can reopen.
+            GhostRoleComponent? stationAiRole = null;
+            var stationAiBrain = playerEntity != null &&
+                                 _tag.HasTag(playerEntity.Value, StationAiTag) &&
+                                 TryComp(playerEntity.Value, out stationAiRole)
+                ? playerEntity
+                : null;
+            if (stationAiBrain != null)
+                canReturn = false;
+
             if (_configurationManager.GetCVar(CCVars.GhostKillCrit) &&
                 canReturnGlobal &&
                 TryComp(playerEntity, out MobStateComponent? mobState))
@@ -810,6 +825,13 @@ namespace Content.Server.Ghost
 
             if (ghost == null)
                 return false;
+
+            // Forge-Change: the takeover MindRemovedMessage is unreliable for station AI brains on this fork.
+            if (stationAiBrain is { } brain && stationAiRole?.ReregisterOnGhost == true)
+            {
+                EnsureComp<GhostTakeoverAvailableComponent>(brain);
+                _ghostRoles.ReregisterGhostRole((brain, stationAiRole));
+            }
 
             return true;
         }

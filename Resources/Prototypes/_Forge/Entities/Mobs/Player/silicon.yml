@@ -15,6 +15,7 @@
     - ActionSurvCameraLights
     - ActionAIViewLaws
     - ActionOpenRemoteDevicesMenu
+    - ActionCustomizeStationAi
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -23,6 +24,8 @@
         type: SiliconLawBoundUserInterface
       enum.RemoteDeviceUiKey.Key:
         type: RemoteDevicesBoundUserInterface
+      enum.StationAiCustomizationUiKey.Key:
+        type: StationAiCustomizationBoundUserInterface
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -224,6 +227,8 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconSyndicate
+  - type: StationAiScreen
+    force-name-prefix: ADC
   - type: ContainerComp
     proto: AiHeldForerunner
     container: station_ai_mind_slot
@@ -231,12 +236,6 @@
     containers:
       station_ai_mind_slot:
       - StationAiBrainForerunner
-  - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
-    layers:
-    - state: base
-    - state: ai
-      shader: unshaded
   - type: Anchorable
 
 - type: entity
@@ -263,6 +262,7 @@
     rules: ghost-role-information-silicon-rules
     raffle:
       settings: default
+    reregister: true
     prototype: ForerunnerAICore
   - type: LanguageKnowledge
     speaks:
@@ -303,6 +303,7 @@
     rules: ghost-role-information-silicon-rules
     raffle:
       settings: default
+    reregister: true
     prototype: ForerunnerAICoreWhitelist
 
 - type: entity

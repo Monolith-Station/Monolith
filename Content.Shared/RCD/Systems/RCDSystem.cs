@@ -16,6 +16,7 @@ using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Construction.Components;
 using Content.Shared.RCD.Components;
+using Content.Shared._Forge.Silicons.StationAi; // Forge-Change
 using Content.Shared._NF.Shipyard.Components; // Frontier
 using Content.Shared.Tag;
 using Content.Shared.Tiles;
@@ -93,6 +94,9 @@ public partial class RCDSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, RCDComponent component, MapInitEvent args)
     {
+        if (HasComp<StationAiCameraRcdComponent>(uid)) // Forge-Change
+            component.AvailablePrototypes.Add("SurveillanceCamera");
+
         // On init, set the RCD to its first available recipe
         if (component.AvailablePrototypes.Any())
         {

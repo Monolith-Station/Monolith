@@ -8,6 +8,9 @@ namespace Content.Shared._Forge.CCVar;
 [CVarDefs]
 public sealed partial class ForgeCVars
 {
+    public static readonly CVarDef<float> StationAiSsdGracePeriod =
+        CVarDef.Create("station_ai.ssd_grace_period", 300f, CVar.SERVERONLY);
+
     /// <summary>
     ///     Duration of a POI capture operation, in minutes.
     /// </summary>

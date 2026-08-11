@@ -1,0 +1,6 @@
+- type: entity
+  id: RCDRechargingForerunner
+  parent: RCDRecharging
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StationAiCameraRcd

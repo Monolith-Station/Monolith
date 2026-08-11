@@ -39,6 +39,7 @@
     - ActionSurvCameraLights
     - ActionAIViewLaws
     - ActionOpenRemoteDevicesMenu # Corvax-Next-AiRemoteControl
+    - ActionCustomizeStationAi # Forge-Change
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -53,6 +54,8 @@
         type: CommunicationsConsoleBoundUserInterface
       enum.RemoteDeviceUiKey.Key: # Corvax-Next-AiRemoteControl
         type: RemoteDevicesBoundUserInterface
+      enum.StationAiCustomizationUiKey.Key: # Forge-Change
+        type: StationAiCustomizationBoundUserInterface
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -443,16 +446,20 @@
     powerLoad: 1000
     needsPower: false # Mono
   - type: StationAiCore
+  - type: StationAiScreen # Forge-Change
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
     snapCardinals: true
     sprite: Mobs/Silicon/station_ai.rsi
     layers:
-    - state: base
     - state: ai_empty
-      map: ["unshaded"]
+      map: ["enum.StationAiScreenLayer.Background"]
+    - state: ai_empty
+      map: ["enum.StationAiScreenLayer.Screen"]
       shader: unshaded
+    - state: base
+      map: ["enum.StationAiScreenLayer.Frame"]
   - type: Appearance
   - type: InteractionPopup
     interactSuccessString: petting-success-station-ai
@@ -460,12 +467,6 @@
     messagePerceivedByOthers: petting-success-station-ai-others # Otherwise AI cannot tell its being pet as It's just a brain inside of the core, not the core itself.
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: GenericVisualizer
-    visuals:
-      enum.StationAiVisualState.Key:
-        unshaded:
-          Empty: { state: ai_empty }
-          Occupied: { state: ai }
   - type: Telephone
     compatibleRanges:
     - Grid
@@ -600,13 +601,6 @@
   - type: ContainerSpawnPoint
     containerId: station_ai_mind_slot
     job: StationAi
-  - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
-    layers:
-    - state: base
-    - state: ai
-      shader: unshaded
-
 # The actual brain inside the core
 - type: entity
   id: StationAiBrain
@@ -653,6 +647,19 @@
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
+  - type: StationAiPersonality # Forge-Change
+  - type: GhostRole # Forge-Change
+    name: ghost-role-information-station-ai-name
+    description: ghost-role-information-station-ai-description
+    rules: ghost-role-information-silicon-rules
+    reregister: true
+    raffle:
+      settings: default
+    prototype: StationAICore
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 10800
+  - type: GhostTakeoverAvailable
 
 # Hologram projection that the AI's eye tracks.
 - type: entity

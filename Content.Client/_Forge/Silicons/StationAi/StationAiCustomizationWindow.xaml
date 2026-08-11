@@ -1,0 +1,23 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'station-ai-customization-title'}"
+                      MinSize="650 600"
+                      SetSize="760 700">
+    <BoxContainer Orientation="Vertical" Margin="12" HorizontalExpand="True">
+        <Label Text="{Loc 'station-ai-customization-name-label'}" />
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 4 0 10">
+            <Label Name="NamePrefixLabel" VerticalAlignment="Center" Margin="0 0 6 0" Visible="False" />
+            <LineEdit Name="NameEdit" HorizontalExpand="True" />
+        </BoxContainer>
+        <Label Name="ValidationLabel" FontColorOverride="Red" Visible="False" Margin="0 0 0 8" />
+        <Label Text="{Loc 'station-ai-customization-screen-label'}" />
+        <AnimatedTextureRect Name="SelectedPreview" MinSize="0 128" HorizontalExpand="True" Margin="0 4 0 8" />
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True" MinSize="0 300" Margin="0 4 0 10">
+            <GridContainer Name="ScreenGrid" Columns="5" HorizontalExpand="True" />
+        </ScrollContainer>
+        <Label Text="{Loc 'station-ai-customization-color-label'}" />
+        <ColorSelectorSliders Name="ColorSelector" HorizontalExpand="True" Margin="0 4 0 10" />
+        <Label Name="CooldownLabel" HorizontalAlignment="Center" Margin="0 2 0 8" />
+        <Button Name="ApplyButton" Text="{Loc 'station-ai-customization-apply'}" HorizontalExpand="True" />
+    </BoxContainer>
+</controls:FancyWindow>

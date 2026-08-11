@@ -7,6 +7,7 @@ using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.Discord.DiscordLink;
 using Content.Server._Forge.Sponsor; // Forge-Change
+using Content.Server._Forge.Silicons.StationAi; // Forge-Change
 using Content.Server.Preferences.Managers; // Forge-Change
 using Content.Server.GameTicking;
 using Content.Server._EinsteinEngines.Language; // Einstein Engines - Language
@@ -589,9 +590,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         var wrappedObfuscated = WrapPublicMessage(source, name, obfuscated, language: language);
         // Einstein Engines - Language end
 
-        SendInVoiceRange(ChatChannel.Local, name, message, wrappedMessage, obfuscated, wrappedObfuscated, source, range, languageOverride: language); // Einstein Engines - Language
+        var speechOrigin = ResolveLocalSpeechOrigin(source); // Forge-Change
+        SendInVoiceRange(ChatChannel.Local, name, message, wrappedMessage, obfuscated, wrappedObfuscated, source, range, languageOverride: language, speechOrigin: speechOrigin); // Einstein Engines - Language
 
-        var ev = new EntitySpokeEvent(source, message, null, false, language); // Einstein Engines - Language
+        // Forge-Change: keep speaker components on the AI while local acoustics originate from its camera.
+        var ev = new EntitySpokeEvent(speechOrigin, message, null, false, language); // Einstein Engines - Language
         RaiseLocalEvent(source, ev, true);
 
         // To avoid logging any messages sent by entities that are not players, like vendors, cloning, etc.
@@ -656,7 +659,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en")); // Einstein Engines - Language
 
 
-        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
+        var speechOrigin = ResolveLocalSpeechOrigin(source); // Forge-Change
+        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange, ChatChannel.Whisper, speechOrigin))
         {
             if (session.AttachedEntity is not { Valid: true } listener)
                 continue;
@@ -678,7 +682,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 result = perceivedMessage;
                 wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-wrap-message", name, result, language);
             }
-            else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange)) // UNEDIT FROM Einstein Engines - Language // They are out of date, this has been reverted to current ChatSystem
+            else if (_examineSystem.InRangeUnOccluded(speechOrigin, data.HearingEntity ?? listener, WhisperMuffledRange)) // Forge-Change
             {
                 // Scenario 2: if the listener is too far, they only hear fragments of the message
                 result = ObfuscateMessageReadability(perceivedMessage);
@@ -691,14 +695,15 @@ public sealed partial class ChatSystem : SharedChatSystem
                 wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-unknown-wrap-message", string.Empty, result, language);
             }
 
-            _chatManager.ChatMessageToOne(ChatChannel.Whisper, result, wrappedMessage, source, false, session.Channel);
+            _chatManager.ChatMessageToOne(ChatChannel.Whisper, result, wrappedMessage, speechOrigin, false, session.Channel); // Forge-Change
         }
 
         var replayWrap = WrapWhisperMessage(source, "chat-manager-entity-whisper-wrap-message", name, message, language);
-        _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, replayWrap, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
+        _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, replayWrap, GetNetEntity(speechOrigin), null, MessageRangeHideChatForReplay(range))); // Forge-Change
         // Einstein Engines - Languages end
 
-        var ev = new EntitySpokeEvent(source, message, channel, true, language); // Einstein Engines - Languages
+        // Forge-Change: keep radio and voice components on the speaker while local acoustics use the camera.
+        var ev = new EntitySpokeEvent(speechOrigin, message, channel, true, language); // Einstein Engines - Languages
         RaiseLocalEvent(source, ev, true);
         if (!hideLog)
             if (originalMessage == message)
@@ -751,7 +756,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en")); // Einstein Engines - Language
 
 
-        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
+        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange, ChatChannel.CollectiveMind))
         {
             if (session.AttachedEntity is not { Valid: true } listener)
                 continue;
@@ -816,7 +821,8 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         if (checkEmote)
             TryEmoteChatInput(source, action);
-        SendInVoiceRange(ChatChannel.Emotes, name, action, wrappedMessage, obfuscated: "", obfuscatedWrappedMessage: "", source, range, author); // Einstein Engines - Language
+        var speechOrigin = ResolveLocalSpeechOrigin(source); // Forge-Change
+        SendInVoiceRange(ChatChannel.Emotes, name, action, wrappedMessage, obfuscated: "", obfuscatedWrappedMessage: "", source, range, author, speechOrigin: speechOrigin); // Einstein Engines - Language
         if (!hideLog)
             if (name != Name(source))
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {ToPrettyString(source):user} as {name}: {action}");
@@ -953,11 +959,12 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <summary>
     ///     Sends a chat message to the given players in range of the source entity.
     /// </summary>
-    private void SendInVoiceRange(ChatChannel channel, string name, string message, string wrappedMessage, string obfuscated, string obfuscatedWrappedMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, LanguagePrototype? languageOverride = null) // Einstein Engines - Language
+    private void SendInVoiceRange(ChatChannel channel, string name, string message, string wrappedMessage, string obfuscated, string obfuscatedWrappedMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, LanguagePrototype? languageOverride = null, EntityUid? speechOrigin = null) // Einstein Engines - Language
     {
         var language = languageOverride ?? _language.GetLanguage(source); // Einstein Engines - Language
+        var transmissionSource = speechOrigin is { } origin && Exists(origin) ? origin : source; // Forge-Change
 
-        foreach (var (session, data) in GetRecipients(source, VoiceRange))
+        foreach (var (session, data) in GetRecipients(source, VoiceRange, channel, transmissionSource))
         {
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)
@@ -971,13 +978,13 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             // If the channel does not support languages, or the entity can understand the message, send the original message, otherwise send the obfuscated version
             if (channel == ChatChannel.LOOC || channel == ChatChannel.Emotes || _language.CanUnderstand(listener, language.ID))
-                _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);
+                _chatManager.ChatMessageToOne(channel, message, wrappedMessage, transmissionSource, entHideChat, session.Channel, author: author); // Forge-Change
             else
-                _chatManager.ChatMessageToOne(channel, obfuscated, obfuscatedWrappedMessage, source, entHideChat, session.Channel, author: author);
+                _chatManager.ChatMessageToOne(channel, obfuscated, obfuscatedWrappedMessage, transmissionSource, entHideChat, session.Channel, author: author); // Forge-Change
             // Einstein Engines - Language end
         }
 
-        _replay.RecordServerMessage(new ChatMessage(channel, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
+        _replay.RecordServerMessage(new ChatMessage(channel, message, wrappedMessage, GetNetEntity(transmissionSource), null, MessageRangeHideChatForReplay(range))); // Forge-Change
     }
 
     /// <summary>
@@ -1142,7 +1149,11 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <summary>
     ///     Returns list of players and ranges for all players withing some range. Also returns observers with a range of -1.
     /// </summary>
-    private Dictionary<ICommonSession, ICChatRecipientData> GetRecipients(EntityUid source, float voiceGetRange)
+    private Dictionary<ICommonSession, ICChatRecipientData> GetRecipients(
+        EntityUid source,
+        float voiceGetRange,
+        ChatChannel channel,
+        EntityUid? speechOrigin = null)
     {
         // TODO proper speech occlusion
 
@@ -1150,7 +1161,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         var ghostHearing = GetEntityQuery<GhostHearingComponent>();
         var xforms = GetEntityQuery<TransformComponent>();
 
-        var transformSource = xforms.GetComponent(source);
+        var origin = speechOrigin is { } requestedOrigin && Exists(requestedOrigin) ? requestedOrigin : source;
+        var transformSource = xforms.GetComponent(origin);
         var sourceMapId = transformSource.MapID;
         var sourceCoords = transformSource.Coordinates;
 
@@ -1177,11 +1189,22 @@ public sealed partial class ChatSystem : SharedChatSystem
                 recipients.Add(player, new ICChatRecipientData(-1, true));
         }
 
-        RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, voiceGetRange, recipients));
+        RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, origin, channel, voiceGetRange, recipients));
         return recipients;
     }
 
-    public readonly record struct ICChatRecipientData(float Range, bool Observer, bool? HideChatOverride = null)
+    private EntityUid ResolveLocalSpeechOrigin(EntityUid speaker)
+    {
+        var ev = new ResolveLocalSpeechOriginEvent(speaker, speaker);
+        RaiseLocalEvent(speaker, ref ev);
+        return Exists(ev.Origin) ? ev.Origin : speaker;
+    }
+
+    public readonly record struct ICChatRecipientData(
+        float Range,
+        bool Observer,
+        bool? HideChatOverride = null,
+        EntityUid? HearingEntity = null)
     {
     }
 
@@ -1222,7 +1245,12 @@ public sealed partial class ChatSystem : SharedChatSystem
 ///     This event is raised before chat messages are sent out to clients. This enables some systems to send the chat
 ///     messages to otherwise out-of view entities (e.g. for multiple viewports from cameras).
 /// </summary>
-public record ExpandICChatRecipientsEvent(EntityUid Source, float VoiceRange, Dictionary<ICommonSession, ChatSystem.ICChatRecipientData> Recipients)
+public record ExpandICChatRecipientsEvent(
+    EntityUid Source,
+    EntityUid SpeechOrigin,
+    ChatChannel Channel,
+    float VoiceRange,
+    Dictionary<ICommonSession, ChatSystem.ICChatRecipientData> Recipients)
 {
 }
 

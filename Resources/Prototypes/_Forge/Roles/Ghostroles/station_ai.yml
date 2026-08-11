@@ -1,0 +1,6 @@
+- type: ghostRole
+  id: StationAICore
+  name: ghost-role-information-station-ai-name
+  description: ghost-role-information-station-ai-description
+  rules: ghost-role-information-silicon-rules
+  entityPrototype: PlayerStationAi
