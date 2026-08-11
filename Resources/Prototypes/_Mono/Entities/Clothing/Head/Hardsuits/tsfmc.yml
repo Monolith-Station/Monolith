@@ -140,9 +140,9 @@
     action: ActionToggleNightVision
     viewCircleRadius: 800 #Forge-change 450 to 800 // это радиус обзора (максимальный радиус для ТСФ)
     viewCircleCount: 4 #Forge-change 2 to 4 // 4 трубки
-    viewCircleSpacing: 280
-    phosphorColor: "#2E8B57" # Forge-Change #00FF00 to #c2ffc2 // скорректирован цвет
-    lightingColor: "#0CFFFF32" #Forge-change #FFFFFF32 to #0CFFFF32 // баланс яркости
+    viewCircleSpacing: 90 #Forge-change 280 to 100
+    phosphorColor: "#4ee293" # Forge-Change #00FF00 to #c2ffc2 // скорректирован цвет to #4ee293
+    lightingColor: "#FFFFFFFF" #Forge-change #FFFFFF32 to #0CFFFF32 // баланс яркости to #FFFFFFFF
     amplification: 1.2 #32 to 1.2 #Forge-change // параметр Усиление влияет на то как сильно слепят источники света
   - type: Armor
     modifiers:
