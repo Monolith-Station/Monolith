@@ -12,6 +12,7 @@
 #  - ShipyardRuby
   - ShipyardMotleyAnne
   - ShipyardFenrir
+  - ShipyardDomra
 
 - type: guideEntry
   id: ShipyardArgent
@@ -52,3 +53,8 @@
   id: ShipyardNFROperation
   name: guide-entry-shipyard-nfr
   text: "/ServerInfo/_Mono/Guidebook/Shipyard/NFRManual.xml"
+
+- type: guideEntry
+  id: ShipyardDomra
+  name: guide-entry-shipyard-domra
+  text: "/ServerInfo/_Forge/Guidebook/Shipyard/Domra.xml"

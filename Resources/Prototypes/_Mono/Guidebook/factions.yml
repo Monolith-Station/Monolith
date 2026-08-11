@@ -8,11 +8,11 @@
 #  - TSFMC_Entry
 #  - Minor_Factions
 
-- type: guideEntry
-  id: TSFMC_Entry
-  name: TSFMC
-  text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC.xml"
-  priority: 2
+#- type: guideEntry
+#  id: TSFMC_Entry
+#  name: TSFMC
+#  text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC.xml"
+#  priority: 2
 
 #- type: guideEntry
 #  id: Smuggling
@@ -35,26 +35,26 @@
 #  - USSP_Entry
 #  - Viper_Group
 
-- type: guideEntry
-  id: USSP_Entry
-  name: USSP
-  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_Remnants.xml"
-  priority: 7
-  children:
-  - USSP_SoP
-  - USSP_Overview
+#- type: guideEntry
+#  id: USSP_Entry
+#  name: USSP
+#  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_Remnants.xml"
+#  priority: 7
+#  children:
+#  - USSP_SoP
+#  - USSP_Overview
 
-- type: guideEntry
-  id: USSP_SoP
-  name: S.O.P
-  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_SOP.xml"
-  priority: 8
+#- type: guideEntry
+#  id: USSP_SoP
+#  name: S.O.P
+#  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_SOP.xml"
+#  priority: 8
 
-- type: guideEntry
-  id: USSP_Overview
-  name: Union of Soviet Socialist Planets
-  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP.xml"
-  priority: 9
+#- type: guideEntry
+#  id: USSP_Overview
+#  name: Union of Soviet Socialist Planets
+#  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP.xml"
+#  priority: 9
 
 #- type: guideEntry
 #  id: Viper_Group

@@ -1,24 +1,24 @@
-- type: entity
-  id: BookUSSPLaw
-  parent: BaseGuidebook
-  name: USSP Service Regulations
-  description: A field manual carried by all servicemen of the USSP Armed Forces. Every serzhant can quote it from memory, usually at an intensity unsuitable for cramped spaces.
-  components:
-  - type: Sprite
-    layers:
-    - state: paper
-    - state: cover_strong
-      color: "#665d43"
-    - state: decor_mono_middle_segmented_top
-      color: "#b40505"
-    - state: decor_mono_middle_segmented_bottom
-      color: "#ffd900"
-  - type: GuideHelp
-    guides:
-    - USSP_Entry
-  - type: Tag
-    tags:
-    - Book
+#- type: entity # Forge-change delete start // Удален СОП из за ошибок YMLLinter
+#  id: BookUSSPLaw
+#  parent: BaseGuidebook
+#  name: USSP Service Regulations
+#  description: A field manual carried by all servicemen of the USSP Armed Forces. Every serzhant can quote it from memory, usually at an intensity unsuitable for cramped spaces.
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: paper
+#    - state: cover_strong
+#      color: "#665d43"
+#    - state: decor_mono_middle_segmented_top
+#      color: "#b40505"
+#    - state: decor_mono_middle_segmented_bottom
+#      color: "#ffd900"
+#  - type: GuideHelp
+#    guides:
+#    - USSP_Entry
+#  - type: Tag
+#    tags:
+#    - Book # Forge-change delete end
 
 - type: entity
   id: BookTheCommonCause
@@ -63,24 +63,24 @@
     tags:
     - Book
 
-- type: entity
-  id: BookTSFSOP
-  parent: BaseGuidebook
-  name: TSFMC SOP
-  description: A book containing the SOP for the TSFMC forces deployed to the Colossus Sector.
-  components:
-  - type: Sprite
-    layers:
-    - state: paper
-    - state: cover_strong
-      color: "#18304c"
-    - state: decor_mono_middle_segmented_top
-      color: "#ffd800"
-    - state: decor_mono_middle_segmented_bottom
-      color: "#ffffff"
-  - type: GuideHelp
-    guides:
-    - TSFMC_Entry
-  - type: Tag
-    tags:
-    - Book
+#- type: entity # Forge-change delete start // Удален СОП из за ошибок YMLLinter
+#  id: BookTSFSOP
+#  parent: BaseGuidebook
+#  name: TSFMC SOP
+#  description: A book containing the SOP for the TSFMC forces deployed to the Colossus Sector.
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: paper
+#    - state: cover_strong
+#      color: "#18304c"
+#    - state: decor_mono_middle_segmented_top
+#      color: "#ffd800"
+#    - state: decor_mono_middle_segmented_bottom
+#      color: "#ffffff"
+#  - type: GuideHelp
+#    guides:
+#    - TSFMC_Entry
+#  - type: Tag
+#    tags:
+#    - Book # Forge-change delete end

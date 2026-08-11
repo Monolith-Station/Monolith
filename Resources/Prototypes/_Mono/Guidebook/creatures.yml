@@ -6,8 +6,8 @@
   children:
   - CorticalBorerGuide
   - Letoferol
-  #- Asakim
-  - Xenoborgs
+  - Forerunners # Forge-change
+# - Xenoborgs # Forge-change // раскоментить при добавлении
 
 - type: guideEntry
   id: CorticalBorerGuide
@@ -15,25 +15,41 @@
   text: "/ServerInfo/_Forge/Guidebook/_Mono/Creatures/CorticalBorer.xml" # Forge-change
   priority: 1
 
-- type: guideEntry
+- type: guideEntry # Forge-change start
   id: Letoferol
   name: guide-entry-letoferol
   text: "/ServerInfo/_Forge/Guidebook/_Mono/Creatures/Chimera.xml" # Forge-change
-  priority: 1
+  priority: 1 # Forge-change end
 
-#- type: guideEntry
-#  id: Asakim
-#  name: guide-entry-asakim
-#  text: "/ServerInfo/_Mono/Guidebook/Creatures/Asakim.xml"
-#  priority: 1
+- type: guideEntry # Forge-change start
+  id: Forerunners
+  name: Предтечи
+  text: "/ServerInfo/_Forge/Guidebook/_Mono/Creatures/Forerunners.xml" # Forge-change
+  priority: 1
+  children:
+  - Asakim
+  - ADS
+  - Forbidden-Technologies
 
 - type: guideEntry
   id: Asakim
   name: guide-entry-asakim
   text: "/ServerInfo/_Forge/Guidebook/_Mono/Creatures/Asakim.xml" # Forge-change
-  priority: 1
+  priority: 2
 
 - type: guideEntry
-  id: Xenoborgs
-  name: guide-entry-xenoborgs
-  text: "/ServerInfo/_Mono/Guidebook/Creatures/Xenoborgs.xml"
+  id: ADS
+  name: АСО(ADS)
+  text: "/ServerInfo/_Forge/Guidebook/_Mono/Creatures/ADS.xml" # Forge-change
+  priority: 2
+
+- type: guideEntry
+  id: Forbidden-Technologies
+  name: Запретные технологии
+  text: "/ServerInfo/_Forge/Guidebook/_Mono/Creatures/ForbiddenTechnologies.xml" # Forge-change
+  priority: 3 # Forge-change end
+
+#- type: guideEntry #Forge-change delete
+#  id: Xenoborgs
+#  name: guide-entry-xenoborgs
+#  text: "/ServerInfo/_Forge/Guidebook/_Mono/Creatures/Xenoborgs.xml" # Forge-change delete end // гайдбук уже переведён, дочтаточно будет раскоментировать

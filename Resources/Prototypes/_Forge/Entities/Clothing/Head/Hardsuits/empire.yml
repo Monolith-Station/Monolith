@@ -86,9 +86,9 @@
     relayOverlay: true
     goggleEffect: true
     action: ActionToggleNightVision
-    viewCircleRadius: 750 #400 to 750 // это радиус обзора (максимальный радиус для ТСФ(800))
+    viewCircleRadius: 450 #400 to 750 // это радиус обзора (максимальный радиус для ТСФ(800))
     viewCircleCount: 4
-    viewCircleSpacing: 280
+    viewCircleSpacing: 270
     phosphorColor: "#d9ff00" #Forge-change Сделал как у ДСН // Слишком темно #aa9c00 увеличено #d9ff00
     lightingColor: "#FFFFFFFF" #Forge-change Сделал как у ДСН // Слишком темно #FFFFFF32 увеличено #FFFFFFFF
     amplification: 1.2 #32 to 1.2 // параметр Усиление влияет на то как сильно слепят источники света

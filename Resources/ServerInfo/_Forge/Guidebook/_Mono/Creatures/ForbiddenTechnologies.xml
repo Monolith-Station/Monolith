@@ -1,0 +1,170 @@
+<Document>
+  # Запретные технологии
+
+  - Данные предметы и технологии представляют непосредственный интерес для Предтеч и с большей долей вероятности приведут к их насильственному [color=orange][bold]изъятию[/bold][/color].
+
+  ## Запретные предметы:
+
+  <Box>
+  [bold]Компоненты:[/bold]
+  </Box>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="BluespaceMatterBinStockPart"/>
+      <GuideEntityEmbed Entity="FemtoManipulatorStockPart"/>
+      <GuideEntityEmbed Entity="QuadraticCapacitorStockPart"/>
+    </Box>
+  </ColorBox>
+
+  <Box>
+  [bold]Бездонные сумкни:[/bold]
+  </Box>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="ClothingBackpackHolding"/>
+      <GuideEntityEmbed Entity="ClothingBackpackSatchelHolding"/>
+      <GuideEntityEmbed Entity="ClothingBackpackDuffelHolding"/>
+      <GuideEntityEmbed Entity="ClothingBackpackMessengerHolding"/>
+    </Box>
+  </ColorBox>
+
+  <Box>
+  [bold]Экспериментальный абордаж:[/bold]
+  </Box>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="BoardingTeleportEngineExperimental"/>
+      <GuideEntityEmbed Entity="BoardingTeleportPlatformExperimental"/>
+    </Box>
+  </ColorBox>
+
+  <Box>
+  [bold]Скороходы:[/bold]
+  </Box>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="ClothingShoesBootsSpeed"/>
+    </Box>
+  </ColorBox>
+
+  <Box>
+  [bold]Импланты переводчики:[/bold]
+  </Box>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="BasicGalaticCommonTranslatorImplanter"/>
+      <GuideEntityEmbed Entity="AdvancedGalaticCommonTranslatorImplanter"/>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="BubblishTranslatorImplanter"/>
+      <GuideEntityEmbed Entity="ValyrianStandardTranslatorImplanter"/>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="NewKinPidginTranslatorImplanter"/>
+      <GuideEntityEmbed Entity="CanilunztTranslatorImplanter"/>
+    </Box>
+  </ColorBox>
+    <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="RootSpeakTranslatorImplanter"/>
+      <GuideEntityEmbed Entity="MofficTranslatorImplanter"/>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="NekomimeticTranslatorImplanter"/>
+      <GuideEntityEmbed Entity="ChittinTranslatorImplanter"/>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="DraconicTranslatorImplanter"/>
+      <GuideEntityEmbed Entity="NovaCygniTranslatorImplanter"/>
+    </Box>
+  </ColorBox>
+
+  <Box>
+  [bold]Щит MS-500:[/bold]
+  </Box>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="ShieldGenerator"/>
+    </Box>
+  </ColorBox>
+
+  <Box>
+  [bold]Корабельные орудия:[/bold]
+  </Box>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="WeaponTurretType241"/>
+      <GuideEntityEmbed Entity="WeaponTurretReaper"/>
+      <GuideEntityEmbed Entity="WeaponTurretTartarus"/>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="WeaponTurretHarbringer"/>
+      <GuideEntityEmbed Entity="WeaponTurretTorpedoEntropy"/>
+      <GuideEntityEmbed Entity="WeaponTurretScythe"/>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="WeaponTurretSunder"/>
+      <GuideEntityEmbed Entity="WeaponLaserTurretFlayer"/>
+    </Box>
+  </ColorBox>
+
+  <Box>
+  [bold]Снаряжение Асакимов:[/bold]
+  </Box>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="ClothingOuterHardsuitAsakimUnremoveableForge"/>
+      <GuideEntityEmbed Entity="ClothingUniformJumpsuitNinja"/>
+      <GuideEntityEmbed Entity="ClothingShoesBootsMagAsakimForge"/>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="WeaponRifleAsakimPistolForge"/>
+      <GuideEntityEmbed Entity="WeaponRifleAsakimAutopulserForge"/>
+      <GuideEntityEmbed Entity="WeaponPhaseBladeForge"/>
+    </Box>
+  </ColorBox>
+    <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="ClothingBackpackSatchelAsakim"/>
+      <GuideEntityEmbed Entity="ShipRepairDeviceRedacted"/>
+    </Box>
+  </ColorBox>
+
+  ## Технологии Предтеч:
+
+  <Box>
+  [bold]Технологические диски:[/bold]
+  </Box>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="TechDiskTierBS4"/>
+      <GuideEntityEmbed Entity="TechDiskBluespaceBags"/>
+      <GuideEntityEmbed Entity="TechDiskSpeedBoots"/>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#1c1c1d" OutlineColor="#1c1c1d" OutlineThickness="1" Margin="0 0 0 0">
+    <Box>
+      <GuideEntityEmbed Entity="TechDiskTranslationPreFracture"/>
+      <GuideEntityEmbed Entity="DisciplinesDiskBoardingTeleportTier4"/>
+    </Box>
+  </ColorBox>
+
+  ## Разные примечания:
+
+  - Украденные технологии Предтеч включают предметы и устройства, [bold]доступные только[/bold] через диски с технологиями Предтеч или кражу, такие как генераторы щитов MS-500 и корабельное оружие класса Curio. Технологии из исследовательского дерева, такие как CTLA-50, не считаются украденными технологиями.
+
+</Document>
