@@ -1207,11 +1207,11 @@
           - SecurityUplink
 
 - type: listing
-  id: MobOwORoach
-  name: uplink-security-MobOwORoach-name
-  description: uplink-security-MobOwORoach-desc
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-oworoach }
-  productEntity: ReinforcementRadioTSFOwORoach
+  id: UplinkSecurityMobBoomroach
+  name: uplink-security-MobBoomroach-name
+  description: uplink-security-MobBoomroach-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-boomroach }
+  productEntity: ReinforcementRadioTSFBoomRoach
   cost:
     FederationMilitaryCredit: 30
   categories:

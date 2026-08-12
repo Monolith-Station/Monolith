@@ -38,16 +38,16 @@ ghost-role-information-mothroach-description = A cute but mischievous mothroach.
 ghost-role-information-moproach-name = Moproach
 ghost-role-information-moproach-description = A cute mothroach with more cute moplike shoes on its feet.
 
-ghost-role-information-boomroach-name = Boomroach
-ghost-role-information-boomroach-description = This little mothroach has a chinalake strapped to its back! Why and how?
+ghost-role-information-oworoach-name = OwOroach
+ghost-role-information-oworoach-description = A very cute but mischievous mothroach. explosive personality.
 
 ghost-role-information-imperiroach-name = ImperiRoach
 ghost-role-information-imperiroach-description = highly trained and faithful pet of a PDV operative equiped with a microbomb. Serve your master to the death!
 ghost-role-information-imperiroach-rules = You are a [color=red][bold]Team PDV[/bold][/color] work with the agent who summoned you.
 
-ghost-role-information-oworoach-name = OwORoach
-ghost-role-information-oworoach-description = The Latest development from TSF High command, no explanation has been provided. equiped with a microbomb to disarm or dismember any threats to the TSF. Serve your handler to the death!
-ghost-role-information-oworoach-rules = You are a [color=red][bold]Team TSF[/bold][/color] with the agent who summoned you.
+ghost-role-information-boomroach-name = BoomRoach
+ghost-role-information-boomroach-description = The Latest development from TSF High command, or possibly a clown with with a bottle of glue.
+ghost-role-information-boomroach-rules = You are a [color=red][bold]Team TSF[/bold][/color] with the agent who summoned you.
 
 ghost-role-information-mothroachmustard-name = mustard mothroach
 ghost-role-information-mothroachmustard-description = A delightful result of the world's chefs crossing meat with sauce.

@@ -110,20 +110,28 @@
     allowMovement: true
     name: ghost-role-information-boomroach-name
     description: ghost-role-information-boomroach-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-boomroach-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
+    - MindRoleGhostRoleFamiliar
   - type: AutoImplant
     implants:
-    - RadioImplantCivilian
+    - MindShieldImplant
+    - TrackingImplant
+    - RadioImplantTsf
+    - MicroBombImplant
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
     - Traffic
+    - Nfsd
   - type: ActiveRadio
     channels:
     - Common
     - Traffic
+    - Nfsd
+  - type: NpcFactionMember
+    factions:
+    - TSFMC
   - type: Fixtures
     fixtures:
       fix1:
@@ -175,9 +183,12 @@
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Moffic
+    - TauCetiBasic
+    - SolCommon
     understands:
     - Moffic
     - TauCetiBasic
+    - SolCommon
   - type: Gun
     fireRate: 2
     useKey: false
@@ -207,6 +218,8 @@
       0: Alive
       80: Critical
       100: Dead
+  - type: Company
+    companyName: TSF
 
 - type: entity
   name: ImperiRoach
@@ -294,16 +307,18 @@
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Moffic
+    - TauCetiBasic
     - Freespeak
     understands:
     - Moffic
+    - TauCetiBasic
     - Freespeak
 
 - type: entity
   name: OwOroach
   parent: MobMothroach
   id: MobOwORoach
-  description: TSF high command have provided no explanation or excuses
+  description: Genetic Experimentionation between mothroaches and cats, too far or not far enough?
   components:
   - type: GhostRole
     makeSentient: true
@@ -311,14 +326,12 @@
     allowMovement: true
     name: ghost-role-information-oworoach-name
     description: ghost-role-information-oworoach-description
-    rules: ghost-role-information-oworoach-rules
+    rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFamiliar
+    - MindRoleGhostRoleFreeAgentHarmless
   - type: AutoImplant
     implants:
-    - MindShieldImplant
-    - TrackingImplant
-    - RadioImplantTsf
+    - RadioImplantCivilian
     - MicroBombImplant
   - type: ExplosionResistance
     damageCoefficient: 0.2
@@ -326,15 +339,10 @@
     channels:
     - Common
     - Traffic
-    - Nfsd
   - type: ActiveRadio
     channels:
     - Common
     - Traffic
-    - Nfsd
-  - type: NpcFactionMember
-    factions:
-    - TSFMC
   - type: Fixtures
     fixtures:
       fix1:
@@ -388,15 +396,13 @@
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Moffic
-    - SolCommon
+    - TauCetiBasic
     understands:
     - Moffic
-    - SolCommon
+    - TauCetiBasic
   - type: AddAccentClothing
     accent: OwOAccent
   - type: OwOAccent
-  - type: Company
-    companyName: TSF
 
 - type: entity
   name: leopard mothroach

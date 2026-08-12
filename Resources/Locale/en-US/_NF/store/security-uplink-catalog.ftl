@@ -164,5 +164,5 @@ uplink-security-mechpulserifle-name = CL-94 Pulse Emitter
 uplink-security-mechpulserifle-desc = A mech-mounted Pulse Rifle.
 uplink-security-implanter-tsf-name = TSF Radio Implanter
 uplink-security-implanter-tsf-desc = Implants a Tsf radio implant, allowing covert communication without a headset.
-uplink-security-MobOwORoach-name = OwORoach Reninforcement Radio
-uplink-security-MobOwORoach-desc = Your very own OwORoach friend sent by High Command for dubious and unknown reasons, equipped with a microbomb implant. Explodes when seriously injured. Can use harsh language and upset feelings.
+uplink-security-MobBoomroach-name = BoomRoach Reninforcement Radio
+uplink-security-MobBoomroach-desc = Your very own BoomRoach friend sent by High Command and equiped with a EMP Chinalake.
