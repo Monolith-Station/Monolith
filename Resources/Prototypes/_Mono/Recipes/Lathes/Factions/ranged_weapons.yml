@@ -664,3 +664,30 @@
     Steel: 400
     Plasteel: 100
     Plastic: 400
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleOsakaMMC
+  result: WeaponRifleOsaka
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1200
+    Plasteel: 1000
+    Plastic: 900
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleIzumoMMC
+  result: WeaponRifleIzumo
+  categories:
+  - Rifles
+  - DMRs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1600
+    Plasteel: 2000
+    Plastic: 1000

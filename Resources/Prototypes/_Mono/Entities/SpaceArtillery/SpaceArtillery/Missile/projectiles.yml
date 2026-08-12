@@ -44,6 +44,11 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: AmbientSound
+    volume: 5
+    range: 20
+    sound:
+      path: /Audio/_Mono/Weapons/Guns/Missiles/engine_rocket_01.ogg
 
 - type: damageModifierSet
   id: Missile
@@ -97,7 +102,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 50
+    acceleration: 140
     detectionRange: 1200
     scanArc: 15
     launchSpeed: 150
@@ -156,7 +161,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 50
+    acceleration: 150
     detectionRange: 1600
     scanArc: 20
     launchSpeed: 90
@@ -170,11 +175,16 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TargetSeeking
-    acceleration: 50
+    acceleration: 150
     detectionRange: 0
     scanArc: 0
     launchSpeed: 90
     maxSpeed: 300
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 30
+    intensitySlope: 5
+    maxIntensity: 15
 
 # TOVEK
 
@@ -209,14 +219,14 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 300
+    totalIntensity: 130
     intensitySlope: 6
     maxIntensity: 25
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 80
+    acceleration: 140
     detectionRange: 2400
     scanArc: 15
     launchSpeed: 120
@@ -311,7 +321,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 60
+    acceleration: 120
     detectionRange: 2400
     scanArc: 15
     launchSpeed: 60
@@ -358,7 +368,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 10 # low
+    acceleration: 50 # low
     detectionRange: 2000
     scanArc: 10
     launchSpeed: 25
@@ -418,7 +428,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 170
+    acceleration: 370
     detectionRange: 1200
     scanArc: 60
     launchSpeed: 100

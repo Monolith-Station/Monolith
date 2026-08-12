@@ -908,9 +908,11 @@
   loadouts:
   - ContractorBoxSurvivalNFOxygenExtended
   - ContractorBoxSurvivalNFNitrogenExtended
+  - ContractorBoxSurvivalNFVaporExtended
   fallbacks:
   - ContractorBoxSurvivalNFOxygenExtended
   - ContractorBoxSurvivalNFNitrogenExtended
+  - ContractorBoxSurvivalNFVaporExtended
 
 - type: loadoutGroup
   id: ContractorEncryptionKey

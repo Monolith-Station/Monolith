@@ -103,3 +103,10 @@
   - SimpleNeutral
   - Mouse
   defaultHostile: true
+
+- type: npcFaction
+  id: XenoborgTurret # Doesn't like intruders.
+  friendly:
+  - Mothership
+  - Xenoborg
+  defaultHostile: true

@@ -62,6 +62,18 @@
   fallbacks:
   - MMCHeadset
 
+- type: loadoutGroup
+  id: MMCProducts
+  name: loadout-group-mieyo-products
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - MMCRCDLoadout
+  - MMCRPDLoadout
+  - MMCMotionDetectorLoadout
+  - MMCSRDLoadout
+  - MMCVendorLoadout
+
 # Corpsec below
 
 - type: loadoutGroup
@@ -161,3 +173,16 @@
   - MMCRankSAS
   fallbacks:
   - MMCRankCS
+
+- type: loadoutGroup
+  id: MMCProductsCorpSec
+  name: loadout-group-mieyo-products
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - MMCRCDLoadout
+  - MMCRPDLoadout
+  - MMCMotionDetectorLoadout
+  - MMCSRDLoadout
+  - MMCVendorLoadout
+  - MMCSandevistanLoadout

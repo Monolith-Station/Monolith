@@ -24,7 +24,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.5
+    fireRate: 0.7
     recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 0
@@ -143,6 +143,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
+    damageModifier: 2
     fireRate: 20
     recoil: 5 # 1/5x
     minAngle: 0
@@ -155,7 +156,7 @@
       path: /Audio/Weapons/click.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 2250
+    autoRechargeRate: 1175
   - type: SpaceArtillery
     powerChargeRate: 700
     powerUsePassive: 100
@@ -205,6 +206,7 @@
     range: 500
   - type: FireControlRotate
   - type: Gun
+    damageModifier: 5
     fireRate: 5
     recoil: 2 # 2/25x
     projectileSpeed: 20
@@ -281,7 +283,7 @@
     projectileSpeed: 170
     shootThermalSignature: 2000000 # ~1414m after firing - relatively low
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+      collection: ShipGunMjolnir
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
@@ -333,12 +335,13 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
+    damageModifier: 2
     projectileSpeed: 350
     minAngle: 0
     maxAngle: 6
     fireRate: 1
     recoil: 10 # 2/5x
-    burstCooldown: 5.5
+    burstCooldown: 4.5
     burstFireRate: 15
     shotsPerBurst: 35
     selectedMode: Burst
@@ -421,7 +424,10 @@
     recoil: 500 # 20x - station weapon
     shootThermalSignature: 12000000 # ~6km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/laserfire.ogg
+      collection: ShipGunMjolnir
+      params:
+        pitch: 0.8
+        volume: 1.2
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -1136,7 +1142,7 @@
     maxAngle: 4
     shootThermalSignature: 2000000
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/sonic_jackhammer.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: SpaceArtillery

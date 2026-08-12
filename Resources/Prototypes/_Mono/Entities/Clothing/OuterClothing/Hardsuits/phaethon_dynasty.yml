@@ -180,8 +180,8 @@
         Blunt: 0.75
         Slash: 0.75
         Piercing: 0.65
-        Heat: 0.15
-        Radiation: 0.01
+        Heat: 0.2
+        Radiation: 0.1
         Caustic: 0.5
   - type: Item
     size: Huge
@@ -202,7 +202,7 @@
       regenRate: 5
       spinupTime: 0.5
       breakCooldown: 22.5
-      powerDraw: 0.5
+      powerDraw: 6
       blockModifier:
         coefficients:
           Piercing: 0.7
@@ -213,7 +213,6 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
-    autoRechargePauseTime: 5
   - type: UseDelay
     delay: 10
   - type: PointLight

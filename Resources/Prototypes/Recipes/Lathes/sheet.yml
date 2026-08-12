@@ -151,6 +151,10 @@
 
 - type: latheRecipe
   id: SheetPlasteel1
+  name: plasteel
+  icon:
+    sprite: Objects/Materials/Sheets/metal.rsi
+    state: steel
   materialResult:
     Plasteel: 100
   completetime: 0.06 # Frontier: 0<0.06 (~2/30)
@@ -179,6 +183,10 @@
 
 - type: latheRecipe
   id: SheetUGlass1
+  name: uranium glass
+  icon:
+    sprite: Objects/Materials/Sheets/glass.rsi
+    state: uglass
   materialResult:
     UraniumGlass: 100
   completetime: 0.06 # Frontier: 0<0.06 (~2/30)
@@ -197,6 +205,10 @@
 
 - type: latheRecipe
   id: SheetRUGlass1
+  name: reinforced uranium glass
+  icon:
+    sprite: Objects/Materials/Sheets/glass.rsi
+    state: ruglass
   materialResult:
     ReinforcedUraniumGlass: 100
   completetime: 0.06 # Frontier: 0<0.06 (~2/30)
@@ -243,6 +255,10 @@
 
 - type: latheRecipe
   id: MaterialDiamond
+  name: diamond
+  icon:
+    sprite: Objects/Materials/materials.rsi
+    state: diamond
   materialResult:
     Diamond: 100
   completetime: 0.06 # Frontier: 0<0.06 (~2/30)
@@ -251,6 +267,10 @@
 
 - type: latheRecipe
   id: SheetUranium1
+  name: uranium
+  icon:
+    sprite: Objects/Materials/Sheets/other.rsi
+    state: uranium
   materialResult:
     Uranium: 100
   completetime: 0.06 # Frontier: 0<0.06 (~2/30)
@@ -259,6 +279,10 @@
 
 - type: latheRecipe
   id: IngotGold1
+  name: gold
+  icon:
+    sprite: Objects/Materials/ingots.rsi
+    state: gold
   materialResult:
     Gold: 100
   completetime: 0.06 # Frontier: 0<0.06 (~2/30)
@@ -267,13 +291,17 @@
 
 - type: latheRecipe
   id: IngotSilver1
+  name: silver
+  icon:
+    sprite: Objects/Materials/ingots.rsi
+    state: silver
   materialResult:
     Silver: 100
   completetime: 0.06 # Frontier: 0<0.06 (~2/30)
   materials:
     RawSilver: 100
 
-- type: latheRecipe # what the fuck were you trying to do here
+- type: latheRecipe # mono - what the fuck were you trying to do here
   id: SheetPlastic
   result: SheetPlastic1
   materialDiscountScale: 0
@@ -283,6 +311,10 @@
 
 - type: latheRecipe
   id: MaterialBananium1
+  name: bananium
+  icon:
+    sprite: Objects/Materials/materials.rsi
+    state: bananium
   materialResult:
     Bananium: 100
   completetime: 0.06 # Frontier: 0<0.06 (~2/30)

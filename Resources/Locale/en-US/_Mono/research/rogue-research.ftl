@@ -11,7 +11,8 @@ research-technology-rogue-experimental-equipment = Experimental PDV Equipment
 research-technology-rogue-jaws = Advanced Jaws of Life
 research-technology-rogue-basic-guns = Basic Ballistics
 research-technology-rogue-thermals = Thermal Imaging
-research-technology-pdv-basic-module = PDV Basic Cyborg Module Developpment
+research-technology-pdv-basic-module = PDV Basic Cyborg Module Development
+research-technology-pdv-ias = PDV Cardiorespiratory Bionics
 research-technology-rogue-tier-one-vouchers = PDV Grade 1 Shipyard Production
 
 # T2 rogue

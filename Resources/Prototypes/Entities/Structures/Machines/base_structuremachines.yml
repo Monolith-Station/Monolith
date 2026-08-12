@@ -91,6 +91,9 @@
   - type: FootstepModifier # mono
     footstepSoundCollection:
       collection: FootstepHull
+  - type: ShipRepairable # Mono
+    repairTime: 15
+    repairCost: 100
 
 - type: entity
   abstract: true

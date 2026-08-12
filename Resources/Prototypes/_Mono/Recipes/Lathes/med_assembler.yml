@@ -1,0 +1,196 @@
+- type: latheRecipe
+  id: EmergencyMedipen
+  result: EmergencyMedipen
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Epinephrine: 12
+    TranexamicAcid: 3
+
+- type: latheRecipe
+  id: AntiPoisonMedipen
+  result: AntiPoisonMedipen
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Ultravasculine: 10
+    Epinephrine: 5
+
+- type: latheRecipe
+  id: BruteAutoInjector
+  result: BruteAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Bicaridine: 15
+    TranexamicAcid: 5
+
+- type: latheRecipe
+  id: BurnAutoInjector
+  result: BurnAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Dermaline: 10
+    Leporazine: 10
+
+- type: latheRecipe
+  id: RadAutoInjector
+  result: RadAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Arithrazine: 15
+    Bicaridine: 5
+
+- type: latheRecipe
+  id: PunctAutoInjector
+  result: PunctAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Puncturase: 10
+    TranexamicAcid: 5
+
+- type: latheRecipe
+  id: PyraAutoInjector
+  result: PyraAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Pyrazine: 10
+    Dermaline: 10
+
+- type: latheRecipe
+  id: AirlossAutoInjector
+  result: AirlossAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Saline: 20
+    DexalinPlus: 20
+
+- type: latheRecipe
+  id: HemostasisAutoInjector
+  result: HemostasisAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    TranexamicAcid: 5
+    Saline: 15
+
+- type: latheRecipe
+  id: StimulantAutoInjector
+  result: StimulantAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Desoxyephedrine: 10
+    Dylovene: 10
+
+- type: latheRecipe
+  id: CrisisAutoInjector
+  result: CrisisAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Inaprovaline: 10
+    DexalinPlus: 10
+
+- type: latheRecipe
+  id: LacerAutoInjector
+  result: LacerAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Lacerinol: 10
+    TranexamicAcid: 5
+
+- type: latheRecipe
+  id: BruizAutoInjector
+  result: BruizAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Bruizine: 10
+    TranexamicAcid: 5
+
+- type: latheRecipe
+  id: PolyAutoInjector
+  result: PolyAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    PolypyryliumOligomers: 15
+
+- type: latheRecipe
+  id: EthylredoxrazineAutoInjector
+  result: EthylredoxrazineAutoInjector
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Ethylredoxrazine: 15
+    Dylovene: 5
+
+- type: latheRecipe
+  id: CombatMedipen
+  result: CombatMedipen
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Omnizine: 25
+    TranexamicAcid: 5
+
+- type: latheRecipe
+  id: Stimpack
+  result: Stimpack
+  completetime: 5
+  entities:
+    BlankMediPen: 1
+  reagents:
+    Stimulants: 30
+
+- type: latheRecipe
+  id: AloeCream
+  result: AloeCream
+  completetime: 5
+  entities:
+    FoodAloe: 1
+
+- type: latheRecipe
+  id: MedicatedSutureAssembler
+  result: MedicatedSuture
+  completetime: 5
+  entities:
+    Brutepack: 1
+    MaterialCloth1: 1
+  reagents:
+    TranexamicAcid: 20
+    Cryptobiolin: 20
+
+- type: latheRecipe
+  id: RegenerativeMeshAssembler
+  result: RegenerativeMesh
+  completetime: 5
+  entities:
+    Ointment: 1
+    MaterialCloth1: 1
+  reagents:
+    Leporazine: 20
+    Dermaline: 20

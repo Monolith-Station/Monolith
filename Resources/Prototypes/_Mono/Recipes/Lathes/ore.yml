@@ -1,6 +1,9 @@
 - type: latheRecipe
   id: SteelOre1
   name: iron ore
+  icon:
+    sprite: Objects/Materials/ore.rsi
+    state: iron
   materialResult:
     RawIron: 100
   completetime: 0.06
@@ -11,6 +14,9 @@
 - type: latheRecipe
   id: SheetCopper
   name: copper
+  icon:
+    sprite: _Mono/Objects/Materials/industry-sheets.rsi
+    state: copper
   materialResult:
     Copper: 100
   completetime: 0.06
@@ -20,6 +26,9 @@
 - type: latheRecipe
   id: SheetLithium
   name: lithium
+  icon:
+    sprite: _Mono/Objects/Materials/industry-sheets.rsi
+    state: lithium
   materialResult:
     Lithium: 100
   completetime: 0.06
