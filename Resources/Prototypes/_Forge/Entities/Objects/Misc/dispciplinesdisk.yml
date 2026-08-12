@@ -17,7 +17,7 @@
       state: ussp
   - type: StaticPrice
     price: 5000
-    vendPrice: 15000
+    vendPrice: 50000
 
 - type: entity
   id: DisciplinesDiskTSF
@@ -38,7 +38,7 @@
       state: tsf
   - type: StaticPrice
     price: 5000
-    vendPrice: 15000
+    vendPrice: 50000
 
 - type: entity
   id: DisciplinesDiskRogue
@@ -59,7 +59,7 @@
       state: noname
   - type: StaticPrice
     price: 5000
-    vendPrice: 15000
+    vendPrice: 50000
 
 - type: entity
   id: DisciplinesDiskVG
@@ -80,7 +80,7 @@
       state: viper
   - type: StaticPrice
     price: 5000
-    vendPrice: 15000
+    vendPrice: 50000
 
 - type: entity
   id: DisciplinesDiskUllman
@@ -101,7 +101,7 @@
       state: ullman
   - type: StaticPrice
     price: 1000
-    vendPrice: 8000
+    vendPrice: 50000
 
 - type: entity
   id: DisciplinesDiskRenegate
@@ -124,7 +124,7 @@
       state: noname
   - type: StaticPrice
     price: 1000
-    vendPrice: 8000
+    vendPrice: 50000
 
 - type: entity
   id: DisciplinesDiskDrakeIndustries
@@ -146,7 +146,7 @@
       state: icon
   - type: StaticPrice
     price: 1000
-    vendPrice: 20000
+    vendPrice: 50000
 
 - type: entity
   id: DisciplinesDiskHME
@@ -167,7 +167,7 @@
       state: harmony
   - type: StaticPrice
     price: 1000
-    vendPrice: 20000
+    vendPrice: 30000
 
 - type: entity
   id: DisciplinesDiskNSC
@@ -189,7 +189,7 @@
       state: nsc
   - type: StaticPrice
     price: 1000
-    vendPrice: 20000
+    vendPrice: 50000
   
 - type: entity
   id: DisciplinesDiskNanotrasen
