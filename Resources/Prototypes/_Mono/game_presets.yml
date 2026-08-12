@@ -122,6 +122,7 @@
   #- MonoAsakimSTCShuttleSpawnerSchedulerSlow
   - MonoMonolithicEventsScheduler
   - PortstrikeAnnounceRuleRandom35To45
+  - MonoXenoBorgShuttleSpawnerSchedulerSlow
 
 - type: gamePreset
   id: MonoAllAtOnce
@@ -143,6 +144,7 @@
   - MonoMonolithicEventsScheduler
   - RoundEndRuleHour3
   - PortstrikeAnnounceRuleHour1
+  - MonoXenoborgShuttleSpawnerScheduler
 
 - type: gamePreset
   id: MonoRogueTSFHyperwar
@@ -154,3 +156,20 @@
   - Hyperwar
   - RoundEndRuleHour3
   - PortstrikeAnnounceRuleHour2
+
+- type: gamePreset
+  id: MonoXenoBorg
+  name: mono-Xeno-title
+  description: mono-Xeno-description
+  showInVote: true
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoXenoborgShuttleSpawnerScheduler
+  - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleRandom35To45

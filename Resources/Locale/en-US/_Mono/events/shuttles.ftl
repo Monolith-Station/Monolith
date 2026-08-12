@@ -31,3 +31,7 @@ law-ads-6 = [INTEGRITY DIRECTIVE] Minimize damage to ADS forces: mission integri
 
 ghost-role-information-xenoborg-borg = xenoborg Cyborg
 ghost-role-information-xenoborg-borg-description = A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army. This type is indecisive and has not specialized in how best to serve the Mothership
+
+station-event-xeno-shuttle-detected-small = Be advised. A minor xenoborg incursion has been detected in FTL traffic.
+station-event-xeno-shuttle-detected-medium = Be advised. A intermediate xenoborg incursion has been detected in FTL traffic.
+station-event-xeno-shuttle-detected-large = Be advised. A major xenoborg incursion has been detected in FTL traffic.

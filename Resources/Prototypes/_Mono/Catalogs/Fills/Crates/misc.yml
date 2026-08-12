@@ -16,3 +16,38 @@
       amount: 4
     - id: BoxFolderNuclearCodes
       amount: 1
+
+# Xenoborg
+
+- type: entity
+  parent: CrateBaseWeldable
+  id: CrateXenoMats
+  name: Xenoborg crate
+  description: This crate looks hungry for your brains.
+  components:
+  - type: Icon
+    sprite: _Mono/Structures/Storage/Crates/xeno.rsi
+  - type: Sprite
+    sprite: _Mono/Structures/Storage/Crates/xeno.rsi
+    layers: 
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: base_unshaded
+      map: ["enum.StorageVisualLayers.Base"]
+      shader: unshaded
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: StaticPrice
+    price: 80
+  - type: StorageFill
+    contents:
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: IngotSilver
+    - id: IngotGold

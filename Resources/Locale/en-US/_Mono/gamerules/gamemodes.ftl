@@ -24,3 +24,6 @@ mono-chimera-description = Native PDV imperials threaten TSF colonial expansion 
 
 mono-allatonce-title = Apocalypse (ALL, 3hr)
 mono-allatonce-description = A battleground between PDV, and TSF forces alike, with ancient ADS systems and Chimera bioweapons seeping in.
+
+mono-Xeno-title = Reclimation (TSF|PDV)
+mono-Xeno-description = Native PDV imperials threaten TSF colonial expansion into the sector. While the Xenoborgs have begun their assault on the sector.

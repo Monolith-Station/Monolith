@@ -268,6 +268,28 @@
     icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-tool-module }
 
 - type: entity
+  id: XenoborgModuleToolBasic
+  parent: [ BorgModuleXenoborgEngineer, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
+  name: basic engineer xenoborg module
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-tools
+  - type: ItemBorgModule
+    moduleId: Xenoborg_Tools
+    items:
+    - Crowbar
+    - Wrench
+    - Screwdriver
+    - Wirecutter
+    - Multitool
+    - NaniteApplicator
+  - type: BorgModuleIcon
+    icon: { sprite: _Mono/Interface/Action/actions_borg.rsi, state: xenoborg-tool-module }
+
+- type: entity
   id: XenoborgModuleDefense
   parent: [ BorgModuleXenoborgBase, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
   name: defense xenoborg module

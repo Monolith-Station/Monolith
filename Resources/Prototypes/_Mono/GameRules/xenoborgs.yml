@@ -1,0 +1,52 @@
+- type: entityTable
+  id: XenoborgShipTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+      - id: UnknownShuttleXenoSmall
+      - id: UnknownShuttleXenoMedium
+      - id: UnknownShuttleXenoLarge
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleXenoSmall
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-xeno-shuttle-detected-small
+    startAudio:
+      path: /Audio/Misc/cryo_warning.ogg
+    weight: 2
+    maxOccurrences: 4
+  - type: GameRule
+    minPlayers: 15
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/Xeno/Xenon.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleXenoMedium
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-xeno-shuttle-detected-medium
+    startAudio:
+      path: /Audio/Misc/cryo_warning.ogg
+    weight: 3
+    maxOccurrences: 4
+  - type: GameRule
+    minPlayers: 32
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/Xeno/utero.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleXenoHuge
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-xeno-shuttle-detected-large
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 2
+    maxOccurrences: 4
+  - type: GameRule
+    minPlayers: 60
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/Xeno/termina.yml
