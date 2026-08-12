@@ -16,23 +16,23 @@
     # Scrap chunks
     - id: ScrapOre100
       amount: 1 # Forge-change
-      maxAmount: 2 # Forge-change
+#      maxAmount: 2 # Forge-change
     # Material
     - id: SheetPlastitanium10
-      prob: 0.6 # Forge-change
-      amount: 2
+#      prob: 0.6 # Forge-change
+      amount: 1 # Forge-change
     # Parts
     - id: SuperCapacitorStockPart
       prob: 0.8
-      amount: 3
+      amount: 1 # Forge-Change
     - id: SuperMatterBinStockPart
       prob: 0.6
-      amount: 2
+      amount: 1 # Forge-Change
     - id: PicoManipulatorStockPart
       prob: 0.8
-      amount: 2
+      amount: 1 # Forge-Change
     - id: SpawnDungeonLootPowerCell
-      prob: 0.2 # Forge-change
+      prob: 0.1 # Forge-change
     # - id: SpawnDungeonLootPartsEngi #Mono: mostly trash and bloat
     #   amount: 3
     #   prob: 0.25
@@ -75,17 +75,17 @@
     # Money - 80k # removed
     # Scrap chunks
     - id: ScrapOre100
-      amount: 1 # Forge-change
-      maxAmount: 2 # Forge-change
+      amount: 2 # Forge-change
+#      maxAmount: 2 # Forge-change
     # Material
     - id: SheetPlastitanium10
-      amount: 1 # Forge-change
-      maxAmount: 4 # Forge-change
+      amount: 2 # Forge-change
+#      maxAmount: 4 # Forge-change
     # Parts
     - id: SuperCapacitorStockPart
-      amount: 3
+      amount: 2 # Forge-Change
     - id: SuperMatterBinStockPart
-      amount: 1
+      amount: 2 # Forge-Change
     - id: PicoManipulatorStockPart
       amount: 2
     # rare t4 parts
@@ -97,10 +97,13 @@
     - id: BluespaceMatterBinStockPart
       prob: 0.6
     - id: SpawnDungeonLootPowerCell
-      prob: 0.5
+      prob: 0.3 # Forge-Change
     - id: PowerCellMicroreactor
+      prob: 0.8 # Forge-Change
     # free shard
     - id: WeaponTurretShardFlatpack
+      amount: 0 # Forge-Change
+      maxAmount: 1 # Forge-Change
     # no flatpacks or boards, just gamble scrap
     # Research disk, expected value ~80k/drone
     - id: RogueSiliconResearchDisk5000
@@ -127,38 +130,40 @@
     # Money - 200k # removed
     # Scrap chunks
     - id: ScrapOre100
-      amount: 2 # Forge-change
-      maxAmount: 5 # Forge-change
+      amount: 3 # Forge-change
+#      maxAmount: 5 # Forge-change
     # Material
     - id: SheetPlastitanium10
-      amount: 2 # Forge-change
-      maxAmount: 6 # Forge-change
+      amount: 3 # Forge-change
+ #     maxAmount: 6 # Forge-change
     # Parts
-    - id: SuperCapacitorStockPart
-      amount: 6
-    - id: SuperMatterBinStockPart
-      amount: 2
-    - id: PicoManipulatorStockPart
-      amount: 4
+#    - id: SuperCapacitorStockPart   Forge-Change
+#      amount: 3 
+#    - id: SuperMatterBinStockPart   Forge-Change
+#      amount: 3 
+#    - id: PicoManipulatorStockPart   Forge-Change
+#      amount: 3 
     # rare t4 parts
     - id: QuadraticCapacitorStockPart
-      amount: 3
-      maxAmount: 6
+      amount: 1 # Forge-Change
+      maxAmount: 4 # Forge-Change
     - id: FemtoManipulatorStockPart
-      amount: 2
-      maxAmount: 4
+      amount: 1 # Forge-Change
+      maxAmount: 2 # Forge-Change
     - id: BluespaceMatterBinStockPart
-      amount: 0
-      maxAmount: 2
+      amount: 1 # Forge-Change
+      maxAmount: 2 # Forge-Change
     - id: SpawnDungeonLootPowerCell
-      amount: 1
-      maxAmount: 2
+      amount: 0 # Forge-Change
+      maxAmount: 1 # Forge-Change
     - id: PowerCellMicroreactor
     # free guns
     - id: WeaponTurretShardFlatpack
-      amount: 1
-      maxAmount: 2
+      amount: 0 # Forge-Change
+      maxAmount: 1 # Forge-Change
     - id: WeaponTurretPinholeFlatpack
+      amount: 0 # Forge-Change
+      maxAmount: 1 # Forge-Change
     # no flatpacks or boards, just gamble scrap
     # Research disk, expected value 200k/drone
     - id: RogueSiliconResearchDisk50000
@@ -170,7 +175,7 @@
     - id: SpawnLootTechDisksT3Fracture
       prob: 0.2
     - id: TechDiskOmegaGunnery # Forge-Change
-      prob: 0.005 # Forge-Change: 0.5%
+      prob: 0.03 # Forge-Change: 3%
     # Tier-4 bluespace boarding teleport (0.005%)
     - id: DisciplinesDiskBoardingTeleportTier4
       prob: 0.05
