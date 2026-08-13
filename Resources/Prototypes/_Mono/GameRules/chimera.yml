@@ -12,7 +12,7 @@
   id: UnknownShuttleChimeraSakuratsu
   components:
   - type: StationEvent
-    startAnnouncement: station-event-chimera-shuttle-detected
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-chimera-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
@@ -27,7 +27,7 @@
   id: UnknownShuttleChimeraOlympus
   components:
   - type: StationEvent
-    startAnnouncement: station-event-chimera-shuttle-detected
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-chimera-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
@@ -42,7 +42,7 @@
   id: UnknownShuttleChimeraTethys
   components:
   - type: StationEvent
-    startAnnouncement: station-event-chimera-shuttle-detected
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-chimera-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
@@ -57,7 +57,7 @@
   id: UnknownShuttleChimeraLegionnaire
   components:
   - type: StationEvent
-    startAnnouncement: station-event-chimera-shuttle-detected
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-chimera-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2

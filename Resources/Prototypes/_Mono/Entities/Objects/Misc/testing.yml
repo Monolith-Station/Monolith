@@ -1,0 +1,26 @@
+
+- type: entity
+  id: NukeTestingProjectile
+  name: nuclear lobster
+  suffix: yeah
+  description: You need to krill yourself NOW.
+  parent: [ BlueLobsterExploding ]
+  components:
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 2.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 120
+  - type: PointLight
+    color: "#FF0040"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 30000
+    intensitySlope: 12
+    maxIntensity: 15
+    maxTileBreak: 50
+    timeUntilExplodable: 1
+    detonationAlert: "delta"

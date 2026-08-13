@@ -1,0 +1,44 @@
+- type: loadout
+  id: UsspRankCM1
+  name: USSP CM-1 (Politruk)
+  components:
+  - type: ChatRank
+    rank: ussp-cm1
+
+- type: loadout
+  id: UsspRankCM2
+  name: USSP CM-2 (Starshiy Politruk)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: UsspStPol
+  components:
+  - type: ChatRank
+    rank: ussp-cm2
+
+- type: loadoutEffectGroup
+  id: UsspStPol
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobUSSPCommissar
+      time: 180000 # 50hr
+
+- type: loadout
+  id: UsspRankCM3
+  name: USSP CM-3 (Batalionny Komissar)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: UsspBKom
+  components:
+  - type: ChatRank
+    rank: ussp-cm3
+
+- type: loadoutEffectGroup
+  id: UsspBKom
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobUSSPCommissar
+      time: 360000 # 100hr
