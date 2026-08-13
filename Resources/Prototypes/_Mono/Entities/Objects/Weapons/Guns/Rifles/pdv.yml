@@ -319,10 +319,10 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: GunWieldBonus
-    minAngle: -3
+    minAngle: -30
     maxAngle: -54
   - type: Gun
-    minAngle: 3
+    minAngle: 30
     maxAngle: 64
     angleIncrease: 5
     angleDecay: 25

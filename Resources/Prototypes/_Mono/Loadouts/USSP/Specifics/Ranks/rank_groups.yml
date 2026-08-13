@@ -1,0 +1,36 @@
+- type: loadoutGroup
+  id: UsspRanksRifleman
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - UsspRankOR1
+  - UsspRankOR2
+  - UsspRankOR3TimeLock100HR
+  fallbacks:
+  - UsspRankOR1
+
+- type: loadoutGroup
+  id: UsspRanksSerzhant
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - UsspRankOR3
+  - UsspRankOR4
+  - UsspRankOR5
+  - UsspRankOR6
+  fallbacks:
+  - UsspRankOR3
+
+- type: loadoutGroup
+  id: UsspRanksCommissar
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - UsspRankCM1
+  - UsspRankCM2
+  - UsspRankCM3
+  fallbacks:
+  - UsspRankCM1
