@@ -77,6 +77,26 @@ public sealed class StarOverlay : Overlay
         shader.SetParameter("starRadius", star.Radius);
         shader.SetParameter("starColor", starColor);
         shader.SetParameter("starLuminosity", star.Luminocity);
+        shader.SetParameter("rotationAngle", star.Rotation);
+
+        if (star.Rings != null)
+        {
+            shader.SetParameter("hasRings", true);
+            shader.SetParameter("ringsRadiusInner", star.Rings.RadiusInner);
+            shader.SetParameter("ringsRadiusOuter", star.Rings.RadiusOuter);
+            shader.SetParameter("ringsBandFrequency", star.Rings.BandFrequency);
+
+            var ringsColor1 = new Vector3(star.Rings.Color1.R, star.Rings.Color1.G, star.Rings.Color1.B);
+            shader.SetParameter("ringsColor1", ringsColor1);
+            var ringsColor2 = new Vector3(star.Rings.Color2.R, star.Rings.Color2.G, star.Rings.Color2.B);
+            shader.SetParameter("ringsColor2", ringsColor2);
+            var ringsColor3 = new Vector3(star.Rings.Color3.R, star.Rings.Color3.G, star.Rings.Color3.B);
+            shader.SetParameter("ringsColor3", ringsColor3);
+        }
+        else
+        {
+            shader.SetParameter("hasRings", false);
+        }
 
         return shader;
     }

@@ -23,7 +23,13 @@ public abstract partial class SharedStarSystemMapSystem
         var pickedStar = rand.Pick(stars);
 
         var solarMass = rand.NextFloat(pickedStar.SolarMass.Min, pickedStar.SolarMass.Max);
-        var star = new Star(solarMass, pickedStar.Color, pickedStar.Shader);
+        var starRotation = rand.NextFloat(0f, MathF.Tau);
+
+        PlanetaryRings? starRings = null;
+        if (pickedStar.Rings.Any() && rand.NextFloat() < pickedStar.RingProbability)
+            starRings = new PlanetaryRings(rand, _protoMan, rand.Pick(pickedStar.Rings));
+
+        var star = new Star(solarMass, pickedStar.Color, pickedStar.Shader, starRotation, starRings);
         star.GenerateName(rand);
 
         var orbitOffset = new Vector2(rand.NextFloat(), rand.NextFloat());

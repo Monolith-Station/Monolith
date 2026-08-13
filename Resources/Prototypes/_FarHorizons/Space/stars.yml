@@ -41,6 +41,9 @@
     - type: OuterCold
       prob: 0.6
   asteroidBelts: [ StandardAsteroidBelt ]
+  ringProbability: 1.0
+  rings:
+    - StandardRings
 
 # Yellow Dwarf
 - type: starType

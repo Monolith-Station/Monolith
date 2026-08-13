@@ -14,13 +14,15 @@ public sealed partial class Star
     [ViewVariables(VVAccess.ReadWrite)] public Color Color;
     [ViewVariables] public Vector2 Position;
     [ViewVariables] public string Name = "";
+    [ViewVariables] public float Rotation;
+    [ViewVariables] public PlanetaryRings? Rings;
     public const float NAV_PIXEL_SIZE = 500;
     public const float MAP_PIXEL_SIZE = 500;
     public const string STAR_ENTITY = "StarEntity";
 
     private const string UppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public Star(float solarMass, Color color, string shader)
+    public Star(float solarMass, Color color, string shader, float rotation, PlanetaryRings? rings)
     {
         SolarMass = Math.Clamp(solarMass, 0.08f, 8.0f); // Main Sequence stars
 
@@ -35,6 +37,8 @@ public sealed partial class Star
         Color = color;
         Position = Vector2.Zero;
         Shader = shader;
+        Rotation = rotation;
+        Rings = rings;
     }
 
     public void GenerateName(System.Random rand)

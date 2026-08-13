@@ -12,6 +12,8 @@ public sealed partial class StarTypePrototype : IPrototype
     [DataField(required: true)] public Color Color = default!;
     [DataField(required: true)] public List<StarOrbitSlot> Orbits = default!;
     [DataField(required: true)] public List<ProtoId<AsteroidBeltTypePrototype>> AsteroidBelts = default!;
+    [DataField] public float RingProbability;
+    [DataField] public List<ProtoId<PlanetaryRingsTypePrototype>> Rings = new();
 }
 
 [DataDefinition]

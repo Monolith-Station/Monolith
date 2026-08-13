@@ -5,6 +5,9 @@
   params:
     parallaxFactor: 0.05
     solarRadiusFactor: 25.0
+    axialPitch: 1.7
+    ringDensity: 0.85
+    perspectiveStrength: 0.013
 
 - type: shader
   id: GasGiant

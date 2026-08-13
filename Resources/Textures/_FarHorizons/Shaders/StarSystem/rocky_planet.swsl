@@ -71,7 +71,7 @@ void fragment() {
             offset, coreRadius, lightDir3D, incomingLight,
             ringsRadiusInner, ringsRadiusOuter, axialPitch, rotationAngle,
             ringsColor1, ringsColor2, ringsColor3,
-            ringDensity, ringsBandFrequency, shadowSoftness, perspectiveStrength, false
+            ringDensity, ringsBandFrequency, shadowSoftness, perspectiveStrength, false, false
         );
     }
 
@@ -201,7 +201,7 @@ void fragment() {
             offset, coreRadius, lightDir3D, incomingLight,
             ringsRadiusInner, ringsRadiusOuter, axialPitch, rotationAngle,
             ringsColor1, ringsColor2, ringsColor3,
-            ringDensity, ringsBandFrequency, shadowSoftness, perspectiveStrength, true
+            ringDensity, ringsBandFrequency, shadowSoftness, perspectiveStrength, true, false
         );
 
         finalComposite.rgb = mix(finalComposite.rgb, fgRing.rgb, fgRing.a);

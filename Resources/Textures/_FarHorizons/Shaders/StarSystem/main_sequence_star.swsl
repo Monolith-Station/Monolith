@@ -1,33 +1,34 @@
 light_mode unshaded;
 
 #include "/Textures/_FarHorizons/Shaders/shader_utils.swsl"
+#include "/Textures/_FarHorizons/Shaders/StarSystem/planet_rings.swsl"
 
 uniform highp vec2 starWorldPos;
 uniform highp float starRadius;
 uniform highp vec3 starColor;
 uniform highp float starLuminosity;
+uniform highp float rotationAngle;
 
 uniform highp vec2 viewportMin;
 uniform highp vec2 viewportSize;
 
 uniform highp float parallaxFactor;
 uniform highp float solarRadiusFactor;
+uniform highp float axialPitch;
+uniform highp float ringDensity;
+uniform highp float perspectiveStrength;
 
-void fragment() {
-    highp vec2 cameraCenter = viewportMin + (viewportSize * 0.5);
-    highp vec2 parallaxedPos = starWorldPos + (cameraCenter - starWorldPos) * (1.0 - parallaxFactor);
+// Rings around a star are lit from its centre, so there is no shadow to cast and no softness to pass.
+highp vec4 renderStarRingPass(highp vec2 offset, highp float coreRadius, highp vec3 light, bool foreground) {
+    return renderRingPass(
+        offset, coreRadius, vec3(0.0), light,
+        ringsRadiusInner, ringsRadiusOuter, axialPitch, rotationAngle,
+        ringsColor1, ringsColor2, ringsColor3,
+        ringDensity, ringsBandFrequency, 0.0, perspectiveStrength, foreground, true
+    );
+}
 
-    highp vec2 pixelWorldPos = viewportMin + (UV * viewportSize);
-    highp vec2 offset = pixelWorldPos - parallaxedPos;
-    highp float dist = length(offset);
-
-    highp float coreRadius = starRadius * solarRadiusFactor;
-
-    highp float maxBounds = coreRadius * 1.45;
-    if (dist > maxBounds) {
-        discard;
-    }
-
+highp vec4 renderStarSurface(highp vec2 offset, highp float coreRadius, highp float dist) {
     highp float r = dist / coreRadius;
 
     highp float animSpeed = TIME * 0.25;
@@ -59,7 +60,7 @@ void fragment() {
 
     // corona
     highp float angle = atan(offset.y, offset.x);
-    
+
     highp float spikeAngle = angle * 8.0;
     highp float angleWarp = fbm(vec2(angle * 2.0, animSpeed * 0.4)) * 1.5;
     highp float spikes = pow(abs(sin(spikeAngle + angleWarp)), 4.0);
@@ -91,5 +92,43 @@ void fragment() {
     highp float coronaAlpha = (coronaFalloff * flareStructure * 1.4) + (rimGlow * 0.8);
     highp float alpha = max(coreMask, clamp(coronaAlpha, 0.0, 1.0) * smoothstep(1.45, 1.0, r));
 
-    COLOR = vec4(finalColor, alpha);
+    return vec4(finalColor, alpha);
+}
+
+void fragment() {
+    highp vec2 cameraCenter = viewportMin + (viewportSize * 0.5);
+    highp vec2 parallaxedPos = starWorldPos + (cameraCenter - starWorldPos) * (1.0 - parallaxFactor);
+
+    highp vec2 pixelWorldPos = viewportMin + (UV * viewportSize);
+    highp vec2 offset = pixelWorldPos - parallaxedPos;
+    highp float dist = length(offset);
+
+    highp float coreRadius = starRadius * solarRadiusFactor;
+
+    highp vec3 ringLight = starColor * pow(max(0.0, starLuminosity), 0.4);
+    ringLight = ringLight / (vec3(1.0) + ringLight);
+
+    highp vec4 composite = vec4(0.0);
+
+    if (hasRings) {
+        composite = renderStarRingPass(offset, coreRadius, ringLight, false);
+    }
+
+    if (dist <= coreRadius * 1.45) {
+        highp vec4 surface = renderStarSurface(offset, coreRadius, dist);
+        composite.rgb = mix(composite.rgb, surface.rgb, surface.a);
+        composite.a = max(composite.a, surface.a);
+    }
+
+    if (hasRings) {
+        highp vec4 fgRing = renderStarRingPass(offset, coreRadius, ringLight, true);
+        composite.rgb = mix(composite.rgb, fgRing.rgb, fgRing.a);
+        composite.a = max(composite.a, fgRing.a);
+    }
+
+    if (composite.a <= 0.001) {
+        discard;
+    }
+
+    COLOR = composite;
 }

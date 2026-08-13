@@ -126,7 +126,8 @@ highp vec4 renderRingPass(
     highp float bandFrequency,
     highp float shadowSoftness,
     highp float perspectiveStrength,
-    bool renderForeground
+    bool renderForeground,
+    bool litFromCenter
 ) {
     highp float innerR = coreRadius * innerRadiusRatio;
     highp float outerR = coreRadius * outerRadiusRatio;
@@ -168,33 +169,38 @@ highp vec4 renderRingPass(
         return vec4(0.0);
     }
 
-    highp vec3 starDir3D = normalize(lightDir3D);
-    
-    highp float sinT = sin(tiltAngle);
-    highp float cosT = cos(tiltAngle);
-    highp float sinR = sin(rotationAngle);
-    highp float cosR = cos(rotationAngle);
+    highp vec3 directLight = incomingLight;
 
-    highp vec3 ringNormal = normalize(vec3(
-        -sinT * sinR,
-        sinT * cosR,
-        cosT
-    ));
+    if (!litFromCenter) {
+        highp vec3 starDir3D = normalize(lightDir3D);
 
-    highp float NdotL = abs(dot(ringNormal, starDir3D)); 
-    highp float ringLighting = max(0.15, NdotL);
+        highp float sinT = sin(tiltAngle);
+        highp float cosT = cos(tiltAngle);
+        highp float sinR = sin(rotationAngle);
+        highp float cosR = cos(rotationAngle);
 
-    highp float planetShadow = calculatePlanetShadowOnRing(
-        pos3D, 
-        coreRadius, 
-        starDir3D, 
-        tiltAngle, 
-        rotationAngle, 
-        shadowSoftness
-    );
+        highp vec3 ringNormal = normalize(vec3(
+            -sinT * sinR,
+            sinT * cosR,
+            cosT
+        ));
+
+        highp float NdotL = abs(dot(ringNormal, starDir3D));
+        highp float ringLighting = max(0.15, NdotL);
+
+        highp float planetShadow = calculatePlanetShadowOnRing(
+            pos3D,
+            coreRadius,
+            starDir3D,
+            tiltAngle,
+            rotationAngle,
+            shadowSoftness
+        );
+
+        directLight = incomingLight * ringLighting * planetShadow;
+    }
 
     highp vec3 ambientLight = vec3(0.08);
-    highp vec3 directLight = incomingLight * ringLighting * planetShadow;
     highp vec3 finalLighting = ambientLight + directLight;
     
     highp vec3 litRingColor = ringSample.rgb * finalLighting;
