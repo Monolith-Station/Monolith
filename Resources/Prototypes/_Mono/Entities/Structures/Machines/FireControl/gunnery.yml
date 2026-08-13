@@ -126,7 +126,7 @@
 
 - type: entity
   id: GunneryServerUltra
-  parent: [BaseStructureDisableToolUse, GunneryServerBase]
+  parent: GunneryServerBase #Forge-Change
   name: ultra-high-power gunnery control server
   components:
   - type: Machine
@@ -145,15 +145,15 @@
     idleLoad: 50
     batteryRechargeRate: 2400
     batteryRechargeEfficiency: 0.95
-  - type: Anchorable # Sorry Tunguska, but I am NOT risking this being used for a missile bus. - "what could go wrong" says redrover -- It turns out, a lot could and did.
-    flags: Anchorable
+  #- type: Anchorable # Sorry Tunguska, but I am NOT risking this being used for a missile bus. - "what could go wrong" says redrover -- It turns out, a lot could and did. #Forge-Change
+    #flags: Anchorable #Forge-Change
   - type: ShipRepairable
     repairTime: 25
     repairCost: 100
 
 - type: entity
   id: GunneryServerOmega
-  parent: [BaseStructureDisableToolUse, GunneryServerBase]
+  parent: GunneryServerBase #Forge-Change
   name: omega-high-power gunnery control server
   components:
   - type: Machine
@@ -171,8 +171,8 @@
     idleLoad: 100
     batteryRechargeRate: 4800
     batteryRechargeEfficiency: 0.95
-  - type: Anchorable # Sorry Flyssa, but I am NOT risking this being used for a missile bus.
-    flags: Anchorable
+  #- type: Anchorable # Sorry Flyssa, but I am NOT risking this being used for a missile bus. #Forge-Change
+    #flags: Anchorable #Forge-Change
   - type: ShipRepairable
     repairTime: 40
     repairCost: 150
