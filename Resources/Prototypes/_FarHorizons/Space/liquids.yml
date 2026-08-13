@@ -30,3 +30,14 @@
   specularity: 48.0
   emissive: false
   emission: 0.0
+
+- type: planetaryLiquidType
+  id: LiquidNaturalLetoferol
+  color: '#7A5E14'
+  shallowColor: '#EBBA34'
+  level: 0.4
+  riverFrequency: 4.5
+  riverThreshold: 0.22
+  specularity: 12.0
+  emissive: true
+  emission: 0.25

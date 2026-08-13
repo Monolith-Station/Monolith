@@ -202,3 +202,24 @@
       cloudScale: 3.2
       cloudIntensity: 2.1
       stormFrequency: 1.4
+
+- type: planetType
+  id: PlanetAerumna
+  name: Aerumna
+  shader: RockyPlanet
+  earthMass: 0.95
+  rotation: 3.9
+  palette: PaletteBlightAerumna
+  atmosphere: BlightAtmosphere
+  liquid: LiquidNaturalLetoferol
+  customData:
+    floats:
+      terrainScale: 0.8
+      macroFrequency: 2.2
+      macroAmplitude: 1.2
+      ridgeFrequency: 1.15
+      ridgeAmplitude: 8.5
+      detailFrequency: 8.0
+      detailAmplitude: 0.25
+      polarCapColor: 1.0
+      polarCapCoverage: 0.15

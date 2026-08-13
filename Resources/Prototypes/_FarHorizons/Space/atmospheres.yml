@@ -27,3 +27,13 @@
   cloudCoverage: 1.0
   cloudScale: 0.5
   cloudDensity: 1.0
+
+- type: planetaryAtmosphereType
+  id: BlightAtmosphere
+  color: '#8C3A2E'
+  thickness: 0.13
+  density: 1.05
+  cloudColor: '#C9A85E'
+  cloudCoverage: 0.9
+  cloudScale: 0.55
+  cloudDensity: 1.1
