@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/13/2026 12:25:26
-  entityCount: 9933
+  time: 08/13/2026 12:32:34
+  entityCount: 9935
 maps:
 - 1
 grids:
@@ -335,10 +335,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Smoke: []
         Puddle: []
         Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -24054,6 +24054,18 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-3.5
+      parent: 2
+- proto: CMSemioticMedical
+  entities:
+  - uid: 6056
+    components:
+    - type: Transform
+      pos: -5.5,59.5
+      parent: 2
+  - uid: 6064
+    components:
+    - type: Transform
+      pos: -26.5,59.5
       parent: 2
 - proto: CMSemioticOne
   entities:
