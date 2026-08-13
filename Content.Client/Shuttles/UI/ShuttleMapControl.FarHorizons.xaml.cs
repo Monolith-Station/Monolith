@@ -15,7 +15,7 @@ public sealed partial class ShuttleMapControl
             starSystem.StarSystem == null)
             return;
         
-        var starPos = Vector2.Transform(starSystem.StarSystem.Star.Position + starSystem.StarOffset, matty);
+        var starPos = Vector2.Transform(starSystem.StarSystem.Star.Position, matty);
         starPos = starPos with { Y = -starPos.Y };
         starPos = ScalePosition(starPos);
         var starRadius = Star.MAP_PIXEL_SIZE * starSystem.StarSystem.Star.Radius * MinimapScale;
@@ -24,7 +24,7 @@ public sealed partial class ShuttleMapControl
 
         foreach (var planet in starSystem.StarSystem.Planets)
         {
-            var planetPos = Vector2.Transform(planet.Position + starSystem.StarOffset, matty);
+            var planetPos = Vector2.Transform(planet.Position, matty);
             planetPos = planetPos with { Y = -planetPos.Y };
             planetPos = ScalePosition(planetPos);
             var planetRadius = Planet.MAP_PIXEL_SIZE * planet.Radius * MinimapScale;

@@ -12,14 +12,11 @@ public sealed partial class AsteroidBelt
     [ViewVariables] public string Shader;
     [ViewVariables] public ProtoId<PlanetPalettePrototype> Palette;
 
-    public AsteroidBelt(Vector2 position, Vector2 radialSize, string shader, ProtoId<PlanetPalettePrototype> palette)
+    public AsteroidBelt(StarSystemAsteroidBelt belt, AsteroidBeltTypePrototype proto, Vector2 position)
     {
         Position = position;
-        RadialSize = radialSize;
-        Shader = shader;
-        Palette = palette;
+        RadialSize = new Vector2(belt.RadiusInner, belt.RadiusOuter);
+        Shader = proto.Shader;
+        Palette = proto.Palette;
     }
-
-    public void Expand(Vector2 size) => 
-        RadialSize = new Vector2(MathF.Min(RadialSize.X, size.X), MathF.Max(RadialSize.Y, size.Y));
 }

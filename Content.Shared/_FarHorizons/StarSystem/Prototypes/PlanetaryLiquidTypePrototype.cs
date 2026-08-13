@@ -1,4 +1,3 @@
-using Content.Shared._FarHorizons.StarSystem.Helpers;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.StarSystem.Prototypes;
@@ -9,10 +8,10 @@ public sealed partial class PlanetaryLiquidTypePrototype : IPrototype
     [IdDataField] public string ID { get; private set; } = default!;
     [DataField(required: true)] public Color Color = default!;
     [DataField(required: true)] public Color ShallowColor = default!;
-    [DataField(required: true)] public FloatRangeValue Level = default!;
-    [DataField(required: true)] public FloatRangeValue RiverFrequency = default!;
-    [DataField(required: true)] public FloatRangeValue RiverThreshold = default!;
-    [DataField(required: true)] public FloatRangeValue Specularity = default!;
-    [DataField(required: true)] public bool Emissive = default!;
-    [DataField(required: true)] public FloatRangeValue Emission = default!;
+    [DataField(required: true)] public float Level;
+    [DataField(required: true)] public float RiverFrequency;
+    [DataField(required: true)] public float RiverThreshold;
+    [DataField(required: true)] public float Specularity;
+    [DataField(required: true)] public bool Emissive;
+    [DataField(required: true)] public float Emission;
 }

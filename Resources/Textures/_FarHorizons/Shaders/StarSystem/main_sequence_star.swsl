@@ -11,6 +11,7 @@ uniform highp float rotationAngle;
 
 uniform highp vec2 viewportMin;
 uniform highp vec2 viewportSize;
+uniform highp vec2 parallaxCenter;
 
 uniform highp float parallaxFactor;
 uniform highp float solarRadiusFactor;
@@ -60,12 +61,13 @@ highp vec4 renderStarSurface(highp vec2 offset, highp float coreRadius, highp fl
 
     // corona
     highp float angle = atan(offset.y, offset.x);
+    highp vec2 angleDir = offset / max(dist, 0.0001);
 
     highp float spikeAngle = angle * 8.0;
-    highp float angleWarp = fbm(vec2(angle * 2.0, animSpeed * 0.4)) * 1.5;
+    highp float angleWarp = fbm(angleDir * 2.0 + vec2(animSpeed * 0.4)) * 1.5;
     highp float spikes = pow(abs(sin(spikeAngle + angleWarp)), 4.0);
 
-    highp vec2 polarUV = vec2(angle * 2.0, r * 2.5 - animSpeed * 0.5);
+    highp vec2 polarUV = angleDir * 2.0 + vec2(r * 2.5 - animSpeed * 0.5);
     highp float baseCoronaNoise = fbm(polarUV) * 0.5 + 0.5;
 
     highp float stormPulse = sin(angle * 4.0 + animSpeed * 2.5) * 0.5 + 0.5;
@@ -96,8 +98,7 @@ highp vec4 renderStarSurface(highp vec2 offset, highp float coreRadius, highp fl
 }
 
 void fragment() {
-    highp vec2 cameraCenter = viewportMin + (viewportSize * 0.5);
-    highp vec2 parallaxedPos = starWorldPos + (cameraCenter - starWorldPos) * (1.0 - parallaxFactor);
+    highp vec2 parallaxedPos = starWorldPos + (parallaxCenter - starWorldPos) * (1.0 - parallaxFactor);
 
     highp vec2 pixelWorldPos = viewportMin + (UV * viewportSize);
     highp vec2 offset = pixelWorldPos - parallaxedPos;
@@ -115,15 +116,11 @@ void fragment() {
     }
 
     if (dist <= coreRadius * 1.45) {
-        highp vec4 surface = renderStarSurface(offset, coreRadius, dist);
-        composite.rgb = mix(composite.rgb, surface.rgb, surface.a);
-        composite.a = max(composite.a, surface.a);
+        composite = compositeOver(composite, renderStarSurface(offset, coreRadius, dist));
     }
 
     if (hasRings) {
-        highp vec4 fgRing = renderStarRingPass(offset, coreRadius, ringLight, true);
-        composite.rgb = mix(composite.rgb, fgRing.rgb, fgRing.a);
-        composite.a = max(composite.a, fgRing.a);
+        composite = compositeOver(composite, renderStarRingPass(offset, coreRadius, ringLight, true));
     }
 
     if (composite.a <= 0.001) {

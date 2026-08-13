@@ -1,203 +1,204 @@
-# Gas Giant
-- type: planetType
-  id: PlanetTypeGasGiant
-  orbit: [ OuterWarm]
-  shader: GasGiant
-  basePrettiness: 30 # Pretty nice
-  ringProbability: 0.45
-  earthMass:
-    min: 100.0
-    max: 1200.0
-  atmosphereProbability: 0.0 # The horror
-  liquidProbability: 0.0
-  palettes:
-    - PaletteGasGiantJupiter
-    - PaletteGasGiantSaturn
-    - PaletteGasGiantPurple
-    - PaletteGasGiantToxic
-  rings:
-    - StandardRings
-  customData:
-    floats:
-      bandFrequency:
-        min: 4.0
-        max: 12.0
-      turbulenceScale:
-        min: 0.1
-        max: 0.85
-      polarGlowStrength:
-        min: 0.0
-        max: 1.0
-      polarGlowExtent:
-        min: 0.75
-        max: 0.95
+# Generic placeholders, plus the named bodies actually used by systems.
+# Orbits live on the starSystem entry that lists the planet.
 
-# Ice Giant
-- type: planetType
-  id: PlanetTypeIceGiant
-  orbit: [ OuterCold ]
-  shader: IceGiant
-  basePrettiness: 15 # Eh
-  ringProbability: 0.45
-  earthMass:
-    min: 10.0
-    max: 80.0
-  atmosphereProbability: 0.0
-  liquidProbability: 0.0
-  palettes:
-    - PaletteIceGiantNeptune
-    - PaletteIceGiantUranus
-    - PaletteIceGiantAmethyst
-    - PaletteIceGiantMint
-    - PaletteIceGiantAmber
-  rings:
-    - StandardRings
-  customData:
-    floats:
-      cloudScale:
-        min: 0.0
-        max: 5.0
-      cloudIntensity:
-        min: 0.0
-        max: 3.0
-      stormFrequency:
-        min: 0.0
-        max: 6.0
-
-# Volcanic
 - type: planetType
   id: PlanetTypeVolcanic
-  orbit: [ InnerHot ]
+  name: Volcanic
   shader: RockyPlanet
-  basePrettiness: 10 # Could be fine when it has lava
-  ringProbability: 0.05
-  earthMass:
-    min: 0.1
-    max: 1.5
-  atmosphereProbability: 0.7
-  atmospheres:
-    - VolcanicAtmosphere
-  liquidProbability: 1.0
-  liquids:
-    - LiquidMagma
-  palettes:
-    - PaletteVolcanicMagma
-    - PaletteVolcanicSulfur
-  rings:
-    - StandardRings
-  customData: &rocky_planet_values
+  earthMass: 0.8
+  palette: PaletteVolcanicMagma
+  atmosphere: VolcanicAtmosphere
+  liquid: LiquidMagma
+  customData:
     floats:
-      terrainScale:
-        min: 0.5
-        max: 1.5
-      macroFrequency:
-        min: 2.5
-        max: 5.0
-      macroAmplitude:
-        min: 0.5
-        max: 1.0
-      ridgeFrequency:
-        min: 0.5
-        max: 1.5
-      ridgeAmplitude:
-        min: 5.0
-        max: 10.0
-      detailFrequency:
-        min: 5.0
-        max: 10.0
-      detailAmplitude:
-        min: 0.0
-        max: 0.5
-      polarCapColor:
-        min: 0.75
-        max: 1.0
-      polarCapCoverage:
-        min: 0.1
-        max: 0.3
+      terrainScale: 1.0
+      macroFrequency: 3.75
+      macroAmplitude: 0.75
+      ridgeFrequency: 1.0
+      ridgeAmplitude: 7.5
+      detailFrequency: 7.5
+      detailAmplitude: 0.25
+      polarCapColor: 0.875
+      polarCapCoverage: 0.2
 
-# Barren
-- type: planetType
-  id: PlanetTypeBarren
-  orbit: [ InnerHabitable, InnerCold ]
-  shader: RockyPlanet
-  basePrettiness: -10 # Lame boring rock
-  ringProbability: 0.05
-  earthMass:
-    min: 0.05
-    max: 2.0
-  atmosphereProbability: 0.0
-  liquidProbability: 0.0
-  palettes:
-    - PaletteBarrenLunar
-    - PaletteBarrenRocky
-  rings:
-    - StandardRings
-  customData: *rocky_planet_values
-
-# Desert (barren with atmosphere)
 - type: planetType
   id: PlanetTypeDesert
-  orbit: [ InnerHot, InnerHabitable ]
+  name: Desert
   shader: RockyPlanet
-  basePrettiness: 0 # Eh
-  ringProbability: 0.05
-  earthMass:
-    min: 0.5
-    max: 2.5
-  atmosphereProbability: 1.0 # When it has no atmos - it's barren
-  liquidProbability: 0.0 # duh
-  atmospheres:
-    - DesertAtmosphere
-  palettes:
-    - PaletteDesertMars
-    - PaletteDesertDune
-  rings:
-    - StandardRings
-  customData: *rocky_planet_values
+  earthMass: 1.5
+  palette: PaletteDesertMars
+  atmosphere: DesertAtmosphere
+  customData:
+    floats:
+      terrainScale: 1.0
+      macroFrequency: 3.75
+      macroAmplitude: 0.75
+      ridgeFrequency: 1.0
+      ridgeAmplitude: 7.5
+      detailFrequency: 7.5
+      detailAmplitude: 0.25
+      polarCapColor: 0.875
+      polarCapCoverage: 0.2
 
-# Ice
-- type: planetType
-  id: PlanetTypeIce
-  orbit: [ InnerHabitable, InnerCold ]
-  shader: RockyPlanet
-  basePrettiness: 0 # Eh
-  ringProbability: 0.15
-  earthMass:
-    min: 0.5
-    max: 2.5
-  atmosphereProbability: 0.4
-  atmospheres:
-    - StandardAtmosphere
-  liquidProbability: 0.25
-  liquids:
-    - LiquidPlasma
-  palettes:
-    - PaletteIceDeep
-    - PaletteIceMethane
-  rings:
-    - StandardRings
-  customData: *rocky_planet_values
-
-# Habitable
 - type: planetType
   id: PlanetTypeHabitable
-  orbit: [ InnerHabitable ]
+  name: Habitable
   shader: RockyPlanet
-  basePrettiness: 15 # Neat
-  ringProbability: 0.10
-  earthMass:
-    min: 0.8
-    max: 1.2
-  atmosphereProbability: 1.0
-  atmospheres:
-    - StandardAtmosphere
-  liquidProbability: 1.0
-  liquids:
-    - LiquidWater
-  palettes:
-    - PaletteHabitableEarth
-    - PaletteHabitableOcean
-    - PaletteHabitableJungle
-  rings:
-    - StandardRings
-  customData: *rocky_planet_values
+  earthMass: 1.0
+  palette: PaletteHabitableEarth
+  atmosphere: StandardAtmosphere
+  liquid: LiquidWater
+  customData:
+    floats:
+      terrainScale: 1.0
+      macroFrequency: 3.75
+      macroAmplitude: 0.75
+      ridgeFrequency: 1.0
+      ridgeAmplitude: 7.5
+      detailFrequency: 7.5
+      detailAmplitude: 0.25
+      polarCapColor: 0.875
+      polarCapCoverage: 0.2
+
+- type: planetType
+  id: PlanetTypeIce
+  name: Ice
+  shader: RockyPlanet
+  earthMass: 1.5
+  palette: PaletteIceDeep
+  atmosphere: StandardAtmosphere
+  liquid: LiquidPlasma
+  customData:
+    floats:
+      terrainScale: 1.0
+      macroFrequency: 3.75
+      macroAmplitude: 0.75
+      ridgeFrequency: 1.0
+      ridgeAmplitude: 7.5
+      detailFrequency: 7.5
+      detailAmplitude: 0.25
+      polarCapColor: 0.875
+      polarCapCoverage: 0.2
+
+- type: planetType
+  id: PlanetTypeBarren
+  name: Barren
+  shader: RockyPlanet
+  earthMass: 1.0
+  palette: PaletteBarrenLunar
+  customData:
+    floats:
+      terrainScale: 1.0
+      macroFrequency: 3.75
+      macroAmplitude: 0.75
+      ridgeFrequency: 1.0
+      ridgeAmplitude: 7.5
+      detailFrequency: 7.5
+      detailAmplitude: 0.25
+      polarCapColor: 0.875
+      polarCapCoverage: 0.2
+
+- type: planetType
+  id: PlanetTypeGasGiant
+  name: Gas Giant
+  shader: GasGiant
+  earthMass: 650.0
+  palette: PaletteGasGiantJupiter
+  rings: StandardRings
+  customData:
+    floats:
+      bandFrequency: 8.0
+      turbulenceScale: 0.475
+      polarGlowStrength: 0.5
+      polarGlowExtent: 0.85
+
+- type: planetType
+  id: PlanetTypeIceGiant
+  name: Ice Giant
+  shader: IceGiant
+  earthMass: 45.0
+  palette: PaletteIceGiantNeptune
+  rings: StandardRings
+  customData:
+    floats:
+      cloudScale: 2.5
+      cloudIntensity: 1.5
+      stormFrequency: 3.0
+
+# Kyphrus
+
+- type: planetType
+  id: PlanetFervidus
+  name: Fervidus
+  shader: RockyPlanet
+  earthMass: 0.7
+  rotation: 0.4
+  palette: PaletteVolcanicMagma
+  atmosphere: VolcanicAtmosphere
+  liquid: LiquidMagma
+  customData:
+    floats:
+      terrainScale: 1.0
+      macroFrequency: 3.75
+      macroAmplitude: 0.75
+      ridgeFrequency: 1.0
+      ridgeAmplitude: 7.5
+      detailFrequency: 7.5
+      detailAmplitude: 0.25
+      polarCapColor: 0.875
+      polarCapCoverage: 0.2
+
+- type: planetType
+  id: PlanetMerak
+  name: Merak
+  shader: RockyPlanet
+  earthMass: 1.4
+  rotation: 2.1
+  palette: PaletteDesertDune
+  atmosphere: DesertAtmosphere
+  customData:
+    floats:
+      terrainScale: 1.0
+      macroFrequency: 3.75
+      macroAmplitude: 0.75
+      ridgeFrequency: 1.0
+      ridgeAmplitude: 7.5
+      detailFrequency: 7.5
+      detailAmplitude: 0.25
+      polarCapColor: 0.875
+      polarCapCoverage: 0.2
+
+- type: planetType
+  id: PlanetAsclepiu
+  name: Asclepiu
+  shader: RockyPlanet
+  earthMass: 1.05
+  rotation: 5.3
+  palette: PaletteHabitableNauvis
+  atmosphere: StandardAtmosphere
+  liquid: LiquidWater
+  customData:
+    floats:
+      terrainScale: 1.0
+      macroFrequency: 3.75
+      macroAmplitude: 0.75
+      ridgeFrequency: 1.0
+      ridgeAmplitude: 7.5
+      detailFrequency: 7.5
+      detailAmplitude: 0.25
+      polarCapColor: 1.0
+      polarCapCoverage: 0.2
+
+- type: planetType
+  id: PlanetThrascias
+  name: Thrascias
+  shader: IceGiant
+  earthMass: 540.0
+  rotation: 1.2
+  palette: PaletteIceGiantFrezon
+  rings: StandardRings
+  customData:
+    floats:
+      cloudScale: 3.2
+      cloudIntensity: 2.1
+      stormFrequency: 1.4

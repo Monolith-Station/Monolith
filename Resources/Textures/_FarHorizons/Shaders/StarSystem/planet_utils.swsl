@@ -36,6 +36,7 @@ uniform highp float perspectiveStrength;
 // Render data
 uniform highp vec2 viewportMin;
 uniform highp vec2 viewportSize;
+uniform highp vec2 parallaxCenter;
 
 highp vec3 samplePlanetPalette(highp float t) {
     t = clamp(t, 0.0, 1.0);
@@ -74,9 +75,8 @@ void calculatePlanetParallax(
     out highp float dist, 
     out highp float coreRadius
 ) {
-    highp vec2 cameraCenter = viewportMin + (viewportSize * 0.5);
     highp vec2 pixelWorldPos = viewportMin + (uv * viewportSize);
-    highp vec2 parallaxedPos = planetPos + (cameraCenter - planetPos) * (1.0 - parallaxFactor);
+    highp vec2 parallaxedPos = planetPos + (parallaxCenter - planetPos) * (1.0 - parallaxFactor);
     offset = pixelWorldPos - parallaxedPos;
     dist = length(offset);
     coreRadius = planetRadius * planetaryRadiusFactor;

@@ -1,147 +1,52 @@
-# Red Dwarf
+# Generic class placeholders, plus the named stars actually used by systems.
+
 - type: starType
   id: TypeMStar
+  name: Red Dwarf
   shader: MainSequenceStar
-  solarMass:
-    min: 0.08
-    max: 0.45
+  solarMass: 0.26
   color: '#E62A10'
-  orbits:
-    - type: InnerHot
-      prob: 0.95
-    - type: InnerHabitable
-    - type: InnerCold
-      prob: 0.75
-    - type: Belt
-      prob: 0.9
-    - type: OuterWarm
-    - type: OuterCold
-      prob: 0.6
-  asteroidBelts: [ StandardAsteroidBelt ]
 
-# Orange Dwarf
 - type: starType
   id: TypeKStar
+  name: Orange Dwarf
   shader: MainSequenceStar
-  solarMass:
-    min: 0.45
-    max: 0.8
+  solarMass: 0.62
   color: '#FF8A1C'
-  orbits:
-    - type: InnerHot
-      prob: 0.9
-    - type: InnerHabitable
-    - type: InnerHabitable
-      prob: 0.7
-    - type: InnerCold
-      prob: 0.75
-    - type: Belt
-      prob: 0.85
-    - type: OuterWarm
-    - type: OuterCold
-      prob: 0.6
-  asteroidBelts: [ StandardAsteroidBelt ]
-  ringProbability: 1.0
-  rings:
-    - StandardRings
 
-# Yellow Dwarf
 - type: starType
   id: TypeGStar
+  name: Yellow Dwarf
   shader: MainSequenceStar
-  solarMass:
-    min: 0.8
-    max: 1.04
+  solarMass: 0.92
   color: '#FFD13B'
-  orbits:
-    - type: InnerHot
-    - type: InnerHabitable
-    - type: InnerHabitable
-      prob: 0.7
-    - type: InnerCold
-      prob: 0.9
-    - type: Belt
-      prob: 0.9
-    - type: OuterWarm
-    - type: OuterWarm
-      prob: 0.6
-    - type: OuterCold
-      prob: 0.7
-  asteroidBelts: [ StandardAsteroidBelt ]
 
-# Yellow-White Dwarf
 - type: starType
   id: TypeFStar
+  name: Yellow-White Dwarf
   shader: MainSequenceStar
-  solarMass:
-    min: 1.04
-    max: 1.4
+  solarMass: 1.22
   color: '#F2FAFF'
-  orbits:
-    - type: InnerHot
-    - type: InnerHot
-      prob: 0.75
-    - type: InnerHabitable
-    - type: InnerHabitable
-    - type: InnerCold
-      prob: 0.9
-    - type: Belt
-      prob: 0.9
-    - type: OuterWarm
-    - type: OuterWarm
-      prob: 0.7
-    - type: OuterCold
-    - type: OuterCold
-      prob: 0.5
-  asteroidBelts: [ StandardAsteroidBelt ]
 
-# White (notably not dwarf)
 - type: starType
   id: TypeAStar
+  name: White Star
   shader: MainSequenceStar
-  solarMass:
-    min: 1.4
-    max: 2.1
+  solarMass: 1.75
   color: '#70BDFF'
-  orbits:
-    - type: InnerHot
-    - type: InnerHot
-    - type: InnerHabitable
-      prob: 0.8
-    - type: InnerCold
-      prob: 0.7
-    - type: Belt
-    - type: Belt
-      prob: 0.4
-    - type: OuterWarm
-    - type: OuterCold
-    - type: OuterCold
-      prob: 0.6
-  asteroidBelts: [ StandardAsteroidBelt ]
 
-# Blue Dwarf
 - type: starType
   id: TypeBStar
+  name: Blue Star
   shader: MainSequenceStar
-  solarMass:
-    min: 2.1
-    max: 8.0
+  solarMass: 5.0
   color: '#2B62FF'
-  orbits:
-    - type: InnerHot
-    - type: InnerHot
-    - type: InnerHot
-      prob: 0.6
-    - type: InnerHabitable
-      prob: 0.5
-    - type: InnerCold
-    - type: Belt
-    - type: Belt
-      prob: 0.7
-    - type: OuterWarm
-    - type: OuterWarm
-      prob: 0.8
-    - type: OuterCold
-    - type: OuterCold
-      prob: 0.7
-  asteroidBelts: [ StandardAsteroidBelt ]
+
+- type: starType
+  id: StarKyphrus
+  name: Kyphrus
+  shader: MainSequenceStar
+  solarMass: 0.62
+  color: '#FFD2A1'
+  rotation: 0.6
+  rings: StandardRings

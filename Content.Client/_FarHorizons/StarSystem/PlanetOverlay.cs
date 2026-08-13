@@ -14,7 +14,6 @@ public sealed class PlanetOverlay : Overlay
     private readonly IPrototypeManager _protoMan;
     private readonly List<(Planet Planet, ShaderInstance Shader)> _shaders = new(); // what do you mean, this isn't No Man's Sky?
     private List<Planet>? _planets;
-    private Vector2 _starOffset = Vector2.Zero;
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowWorld;
 
     public PlanetOverlay(IEntityManager entMan, IPrototypeManager protoMan)
@@ -34,10 +33,9 @@ public sealed class PlanetOverlay : Overlay
             return false;
         }
 
-        if (_planets != system.Planets || _starOffset != starSystem.StarOffset)
+        if (_planets != system.Planets)
         {
             ResetShader();
-            _starOffset = starSystem.StarOffset;
             _planets = system.Planets;
 
             foreach (var planet in _planets)
@@ -47,7 +45,7 @@ public sealed class PlanetOverlay : Overlay
             }
         }
 
-        var origin = args.WorldAABB.Center - _starOffset;
+        var origin = args.WorldAABB.Center;
 
         _shaders.Sort((a, b) =>
             (origin - b.Planet.Position).LengthSquared().CompareTo((origin - a.Planet.Position).LengthSquared()));
@@ -59,10 +57,12 @@ public sealed class PlanetOverlay : Overlay
     {
         var handle = args.WorldHandle;
         var viewportBounds = args.WorldAABB;
+        var parallaxCenter = args.Viewport.Eye?.Position.Position ?? viewportBounds.Center;
         foreach (var (_, shader) in _shaders)
         {
             shader.SetParameter("viewportMin", viewportBounds.BottomLeft);
             shader.SetParameter("viewportSize", viewportBounds.Size);
+            shader.SetParameter("parallaxCenter", parallaxCenter);
 
             handle.UseShader(shader);
             handle.DrawRect(viewportBounds, Color.White);
@@ -79,8 +79,7 @@ public sealed class PlanetOverlay : Overlay
         var shader = shaderProto.InstanceUnique();
 
         // Planet physical info
-        var pos = planet.Position + _starOffset;
-        shader.SetParameter("planetPos", pos);
+        shader.SetParameter("planetPos", planet.Position);
         shader.SetParameter("planetRadius", planet.Radius);
         shader.SetParameter("rotationAngle", planet.Rotation);
 
@@ -99,7 +98,7 @@ public sealed class PlanetOverlay : Overlay
         shader.SetParameter("saturationShift", planet.SaturationShift);
 
         // Star info
-        var starPos = star.Position + _starOffset;
+        var starPos = star.Position;
         var starColor = new Vector3(star!.Color.R, star!.Color.G, star!.Color.B);
         shader.SetParameter("starPos", starPos);
         shader.SetParameter("starColor", starColor);

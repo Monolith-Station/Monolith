@@ -23,7 +23,7 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
         _starOverlay = new(EntityManager, _protoMan);
         _planetOverlay = new(EntityManager, _protoMan);
         _beltOverlay = new(EntityManager, _protoMan);
-        
+
         _cfg.OnValueChanged(FHCCVars.RenderStarSystem, EnsureStarSystem, true);
     }
 
@@ -33,10 +33,10 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
         {
             if (!_overlayMan.HasOverlay<StarOverlay>())
                 _overlayMan.AddOverlay(_starOverlay);
-            
+
             if (!_overlayMan.HasOverlay<PlanetOverlay>())
                 _overlayMan.AddOverlay(_planetOverlay);
-            
+
             if (!_overlayMan.HasOverlay<AsteroidBeltOverlay>())
                 _overlayMan.AddOverlay(_beltOverlay);
         }
@@ -44,13 +44,13 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
         {
             if (_overlayMan.HasOverlay<StarOverlay>())
                 _overlayMan.RemoveOverlay(_starOverlay);
-            
+
             if (_overlayMan.HasOverlay<PlanetOverlay>())
                 _overlayMan.RemoveOverlay(_planetOverlay);
-            
+
             if (_overlayMan.HasOverlay<AsteroidBeltOverlay>())
                 _overlayMan.RemoveOverlay(_beltOverlay);
-            
+
             _starOverlay.ResetShader();
             _planetOverlay.ResetShader();
             _beltOverlay.ResetShader();
@@ -59,6 +59,7 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
 
     private void OnStateChanged(Entity<StarSystemMapComponent> ent, ref AfterAutoHandleStateEvent args)
     {
+        ent.Comp.StarSystem = ent.Comp.System is { } system ? BuildPlanetarySystem(system) : null;
         _starOverlay.ResetShader();
         _planetOverlay.ResetShader();
         _beltOverlay.ResetShader();

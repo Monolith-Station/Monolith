@@ -1,23 +1,20 @@
-using System.Linq;
 using Content.Server.GameTicking;
-using Content.Server.Station.Components;
 using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared._FarHorizons.StarSystem.Helpers;
+using Content.Shared._FarHorizons.StarSystem.Prototypes;
 using Robust.Server.GameObjects;
+using Robust.Server.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Server._FarHorizons.StarSystem;
 
 public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
 {
-
     [Dependency] private IPrototypeManager _protoMan = default!;
-    [Dependency] private IRobustRandom _rand = default!;
     [Dependency] private MapSystem _map = default!;
     [Dependency] private MetaDataSystem _metadata = default!;
-    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private PvsOverrideSystem _pvs = default!;
 
     public override void Initialize()
     {
@@ -30,33 +27,17 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
         if (!_map.TryGetMap(ev.Map, out var mapUid)) return;
         var comp = EnsureComp<StarSystemMapComponent>(mapUid.Value);
 
-        // TODO: readd starsystem definitions
-        if (comp.StarSystem == null) return;
+        if (comp.System is { } system)
+            SetSystem((mapUid.Value, comp), system);
+    }
 
-        EntityUid? station = null;
-        foreach (var grid in ev.Grids)
-        {
-            if (!HasComp<BecomesStationComponent>(grid))
-                continue;
+    public void SetSystem(Entity<StarSystemMapComponent> ent, ProtoId<StarSystemPrototype> system)
+    {
+        ent.Comp.System = system;
+        ent.Comp.StarSystem = BuildPlanetarySystem(system);
+        Dirty(ent);
 
-            station = grid;
-            break;
-        }
-
-        if (station == null) return;
-
-        var prettyPlanets = GetPrettyPlanets((mapUid.Value, comp));
-
-        if (!prettyPlanets.Any()) return;
-
-        var orbitPos = prettyPlanets.First().GetPointOnOrbit(_rand);
-        var stationPos = _transform.GetMapCoordinates(station.Value).Position;
-        var delta = stationPos - orbitPos;
-
-        comp.StarOffset = delta;
-        Dirty<StarSystemMapComponent>((mapUid.Value, comp));
-
-        SpawnEntities((mapUid.Value, comp));
+        SpawnEntities(ent);
     }
 
     private void SpawnEntities(Entity<StarSystemMapComponent> ent)
@@ -66,20 +47,20 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
 
         if (_protoMan.TryIndex<EntityPrototype>(Star.STAR_ENTITY, out var starEnt))
         {
-            var coords = new EntityCoordinates(ent, ent.Comp.StarSystem.Star.Position + ent.Comp.StarOffset);
+            var coords = new EntityCoordinates(ent, ent.Comp.StarSystem.Star.Position);
             var spawned = SpawnAtPosition(starEnt.ID, coords);
-            var name = Loc.GetString("space-star-warp-name", ("star", ent.Comp.StarSystem.Star.Name));
-            _metadata.SetEntityName(spawned, name);
+            _metadata.SetEntityName(spawned, ent.Comp.StarSystem.Star.Name);
+            _pvs.AddGlobalOverride(spawned);
         }
 
         if (_protoMan.TryIndex<EntityPrototype>(Planet.PLANET_ENTITY, out var planetEnt))
         {
             foreach (var planet in ent.Comp.StarSystem.Planets)
             {
-                var planetCoords = new EntityCoordinates(ent, planet.Position + ent.Comp.StarOffset);
+                var planetCoords = new EntityCoordinates(ent, planet.Position);
                 var spawnedPlanet = SpawnAtPosition(planetEnt.ID, planetCoords);
-                var name = Loc.GetString("space-planet-warp-name", ("planet", planet.Name));
-                _metadata.SetEntityName(spawnedPlanet, name);
+                _metadata.SetEntityName(spawnedPlanet, planet.Name);
+                _pvs.AddGlobalOverride(spawnedPlanet);
             }
         }
     }

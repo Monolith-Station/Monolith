@@ -108,8 +108,7 @@ void fragment() {
             ringDensity, ringsBandFrequency, shadowSoftness, perspectiveStrength, true, false
         );
 
-        finalComposite.rgb = mix(finalComposite.rgb, fgRing.rgb, fgRing.a);
-        finalComposite.a = max(finalComposite.a, fgRing.a);
+        finalComposite = compositeOver(finalComposite, fgRing);
     }
 
     if (finalComposite.a <= 0.001) {

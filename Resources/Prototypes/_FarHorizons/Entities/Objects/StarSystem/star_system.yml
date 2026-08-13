@@ -8,6 +8,8 @@
     - type: WarpPoint
     - type: FTLSmashImmune
     - type: FTLBeacon
+    - type: IFF
+      color: '#FFD27F'
 
 - type: entity
   id: PlanetEntity
@@ -17,3 +19,5 @@
     - type: WarpPoint
     - type: FTLSmashImmune
     - type: FTLBeacon
+    - type: IFF
+      color: '#7FB2FF'

@@ -13,7 +13,6 @@ public sealed class AsteroidBeltOverlay : Overlay
     private readonly IEntityManager _entMan;
     private readonly IPrototypeManager _protoMan;
 
-    private Vector2 _starOffset = Vector2.Zero;
     private Star? _star = null;
     private AsteroidBelt? _belt = null;
     private ShaderInstance? _shaderInstance = null;
@@ -36,7 +35,6 @@ public sealed class AsteroidBeltOverlay : Overlay
             _star = null;
             _belt = null;
             _shaderInstance = null;
-            _starOffset = Vector2.Zero;
             return false;
         }
 
@@ -46,7 +44,6 @@ public sealed class AsteroidBeltOverlay : Overlay
             return true;
 
         _star = starSystem.StarSystem.Star;
-        _starOffset = starSystem.StarOffset;
         _shaderInstance = SetupBeltShader(_star, belt);
         _belt = belt;
         return true;
@@ -75,14 +72,14 @@ public sealed class AsteroidBeltOverlay : Overlay
         
         var shader = shaderProto.InstanceUnique();
 
-        var starPos = star.Position + _starOffset;
+        var starPos = star.Position;
         var starColor = new Vector3(star!.Color.R, star!.Color.G, star!.Color.B);
 
         shader.SetParameter("starWorldPos", starPos);
         shader.SetParameter("starColor", starColor);
         shader.SetParameter("starLuminosity", star.Luminocity);
 
-        var beltPos = belt.Position + _starOffset;
+        var beltPos = belt.Position;
 
         shader.SetParameter("asteroidBeltPos", beltPos);
         shader.SetParameter("asteroidBeltRadialSize", belt.RadialSize);

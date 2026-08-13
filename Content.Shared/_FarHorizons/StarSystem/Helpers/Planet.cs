@@ -1,7 +1,6 @@
 using System.Numerics;
 using Content.Shared._FarHorizons.StarSystem.Prototypes;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Shared._FarHorizons.StarSystem.Helpers;
 
@@ -21,98 +20,48 @@ public sealed partial class Planet
     [ViewVariables] public float SaturationShift;
     [ViewVariables] public PlanetCustomValues CustomData;
     [ViewVariables] public PlanetaryRings? Rings;
-    [ViewVariables] public int BasePrettiness;
 
     public const float NAV_PIXEL_SIZE = 10;
     public const float MAP_PIXEL_SIZE = 10;
     public const string PLANET_ENTITY = "PlanetEntity";
 
-    public Planet(Vector2 position,
-                  string name,
-                  float earthMass,
-                  float rotation,
-                  PlanetaryAtmosphere? atmosphere,
-                  PlanetaryLiquid? liquid,
-                  ProtoId<PlanetPalettePrototype> palette,
-                  string shader,
-                  float hueShift,
-                  float saturationShift,
-                  PlanetCustomValues customData,
-                  PlanetaryRings? rings = null,
-                  int basePrettiness = -100)
+    public Planet(PlanetTypePrototype proto, IPrototypeManager protoMan, Vector2 position)
     {
         Position = position;
-        Name = name;
-        EarthMass = earthMass;
-        Rotation = rotation;
+        Name = proto.Name;
+        Shader = proto.Shader;
+        Palette = proto.Palette;
+        Rotation = proto.Rotation;
+        HueShift = proto.HueShift;
+        SaturationShift = proto.SaturationShift;
+        CustomData = proto.CustomData;
+
+        EarthMass = proto.EarthMass;
         Radius = GetRadius(EarthMass);
-        Atmosphere = atmosphere;
-        Liquid = liquid;
-        Palette = palette;
-        Shader = shader;
-        HueShift = hueShift;
-        SaturationShift = saturationShift;
-        CustomData = customData;
-        Rings = rings;
-        BasePrettiness = basePrettiness;
+
+        if (proto.Atmosphere is { } atmosphere)
+            Atmosphere = new PlanetaryAtmosphere(protoMan.Index(atmosphere));
+
+        if (proto.Liquid is { } liquid)
+            Liquid = new PlanetaryLiquid(protoMan.Index(liquid));
+
+        if (proto.Rings is { } rings)
+            Rings = new PlanetaryRings(protoMan, protoMan.Index(rings));
     }
 
-    public static float GetRadius(float mass) => 
+    public static float GetRadius(float mass) =>
         mass switch
         {
             <= 2f => (float)Math.Pow(mass, 0.28f), // rocky planets
             <= 130f => 1.01f * (float)Math.Pow(mass, 0.59f), // neptune-likes
             _ => 12f * (float)Math.Pow(mass, -0.04f) // jupiter-likes
         };
-
-    public int GetPettiness()
-    {
-        var prettiness = BasePrettiness;
-
-        if (Rings != null)
-            prettiness += 10;
-        
-        if (Atmosphere != null)
-            prettiness += 5;
-        
-        if (Liquid != null)
-            prettiness += 10;
-
-        return prettiness;
-    }
-
-    public Vector2 GetPointOnOrbit(IRobustRandom rand, float spacing = 25f)
-    {
-        var angle = rand.Next() * 2f * MathF.PI;
-
-        var radius = (Radius * NAV_PIXEL_SIZE) + spacing;
-
-        var x = Position.X + (radius * MathF.Cos(angle));
-        var y = Position.Y + (radius * MathF.Sin(angle));
-
-        return new Vector2(x, y);
-    }
 }
 
 [DataDefinition]
 public sealed partial class PlanetCustomValues
 {
-    [ViewVariables(VVAccess.ReadWrite)] public Dictionary<string, float> Floats;
-    [ViewVariables(VVAccess.ReadWrite)] public Dictionary<string, int> Ints;
-    [ViewVariables(VVAccess.ReadWrite)] public Dictionary<string, Color> Colors;
-
-    public PlanetCustomValues(System.Random rand, PlanetTypePrototype proto)
-    {
-        Floats = new Dictionary<string, float>();
-        foreach (var (key, range) in proto.CustomData.Floats)
-            Floats[key] = range.RollValue(rand);
-
-        Ints = new Dictionary<string, int>();
-        foreach (var (key, range) in proto.CustomData.Ints)
-            Ints[key] = range.RollValue(rand);
-
-        Colors = new Dictionary<string, Color>();
-        foreach (var (key, range) in proto.CustomData.Colors)
-            Colors[key] = range.RollValue(rand);
-    }
+    [DataField] public Dictionary<string, float> Floats = new();
+    [DataField] public Dictionary<string, int> Ints = new();
+    [DataField] public Dictionary<string, Color> Colors = new();
 }

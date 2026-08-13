@@ -1,9 +1,4 @@
 - type: asteroidBeltType
   id: StandardAsteroidBelt
   shader: AsteroidBelt
-  palettes:
-    - AsteroidBeltStandard
-    - AsteroidBeltFrozen
-    - AsteroidBeltMetallic
-    - AsteroidBeltMolten
-    - AsteroidBeltToxic
+  palette: AsteroidBeltStandard

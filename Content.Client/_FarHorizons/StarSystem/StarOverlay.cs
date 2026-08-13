@@ -13,7 +13,6 @@ public sealed class StarOverlay : Overlay
     private readonly IEntityManager _entMan;
     private readonly IPrototypeManager _protoMan;
 
-    private Vector2 _starOffset = Vector2.Zero;
     private Star? _star = null;
     private ShaderInstance? _shaderInstance = null;
 
@@ -33,7 +32,6 @@ public sealed class StarOverlay : Overlay
         {
             _star = null;
             _shaderInstance = null;
-            _starOffset = Vector2.Zero;
             return false;
         }
 
@@ -42,7 +40,6 @@ public sealed class StarOverlay : Overlay
         if (_star == star)
             return true;
 
-        _starOffset = starSystem.StarOffset;
         _shaderInstance = SetupStarShader(star);
         _star = star;
         return true;
@@ -57,6 +54,7 @@ public sealed class StarOverlay : Overlay
 
         _shaderInstance.SetParameter("viewportMin", viewportBounds.BottomLeft);
         _shaderInstance.SetParameter("viewportSize", viewportBounds.Size);
+        _shaderInstance.SetParameter("parallaxCenter", args.Viewport.Eye?.Position.Position ?? viewportBounds.Center);
         
         handle.UseShader(_shaderInstance);
         handle.DrawRect(viewportBounds, Color.White);
@@ -70,7 +68,7 @@ public sealed class StarOverlay : Overlay
         
         var shader = shaderProto.InstanceUnique();
 
-        var starPos = star.Position + _starOffset;
+        var starPos = star.Position;
         var starColor = new Vector3(star!.Color.R, star!.Color.G, star!.Color.B);
 
         shader.SetParameter("starWorldPos", starPos);

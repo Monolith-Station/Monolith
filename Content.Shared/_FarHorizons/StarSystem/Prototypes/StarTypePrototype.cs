@@ -1,4 +1,3 @@
-using Content.Shared._FarHorizons.StarSystem.Helpers;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.StarSystem.Prototypes;
@@ -7,18 +6,10 @@ namespace Content.Shared._FarHorizons.StarSystem.Prototypes;
 public sealed partial class StarTypePrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
+    [DataField(required: true)] public string Name = default!;
     [DataField(required: true)] public string Shader = default!;
-    [DataField(required: true)] public FloatRangeValue SolarMass = default!;
+    [DataField(required: true)] public float SolarMass;
     [DataField(required: true)] public Color Color = default!;
-    [DataField(required: true)] public List<StarOrbitSlot> Orbits = default!;
-    [DataField(required: true)] public List<ProtoId<AsteroidBeltTypePrototype>> AsteroidBelts = default!;
-    [DataField] public float RingProbability;
-    [DataField] public List<ProtoId<PlanetaryRingsTypePrototype>> Rings = new();
-}
-
-[DataDefinition]
-public sealed partial class StarOrbitSlot
-{
-    [DataField(required: true)] public OrbitType Type;
-    [DataField] public float Prob = 1f;
+    [DataField] public float Rotation;
+    [DataField] public ProtoId<PlanetaryRingsTypePrototype>? Rings;
 }

@@ -1,5 +1,4 @@
 using Content.Shared._FarHorizons.StarSystem.Prototypes;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.StarSystem.Helpers;
 
@@ -15,16 +14,15 @@ public sealed partial class PlanetaryLiquid
     [ViewVariables(VVAccess.ReadWrite)] public bool Emmissive;
     [ViewVariables(VVAccess.ReadWrite)] public float Emission;
 
-    public PlanetaryLiquid(System.Random rand, IPrototypeManager protoMan, ProtoId<PlanetaryLiquidTypePrototype> protoId)
+    public PlanetaryLiquid(PlanetaryLiquidTypePrototype proto)
     {
-        var proto = protoMan.Index(protoId);
         Color = proto.Color;
         ShallowColor = proto.ShallowColor;
-        Level = proto.Level.RollValue(rand);
-        RiverFrequency = proto.RiverFrequency.RollValue(rand);
-        RiverThreshold = proto.RiverThreshold.RollValue(rand);
-        Specularity = proto.Specularity.RollValue(rand);
+        Level = proto.Level;
+        RiverFrequency = proto.RiverFrequency;
+        RiverThreshold = proto.RiverThreshold;
+        Specularity = proto.Specularity;
         Emmissive = proto.Emissive;
-        Emission = proto.Emission.RollValue(rand);
+        Emission = proto.Emission;
     }
 }

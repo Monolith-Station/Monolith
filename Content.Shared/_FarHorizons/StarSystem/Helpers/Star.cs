@@ -1,5 +1,6 @@
 using System.Numerics;
-using System.Text;
+using Content.Shared._FarHorizons.StarSystem.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.StarSystem.Helpers;
 
@@ -13,18 +14,16 @@ public sealed partial class Star
     [ViewVariables] public string Shader;
     [ViewVariables(VVAccess.ReadWrite)] public Color Color;
     [ViewVariables] public Vector2 Position;
-    [ViewVariables] public string Name = "";
+    [ViewVariables] public string Name;
     [ViewVariables] public float Rotation;
     [ViewVariables] public PlanetaryRings? Rings;
     public const float NAV_PIXEL_SIZE = 500;
     public const float MAP_PIXEL_SIZE = 500;
     public const string STAR_ENTITY = "StarEntity";
 
-    private const string UppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-    public Star(float solarMass, Color color, string shader, float rotation, PlanetaryRings? rings)
+    public Star(StarTypePrototype proto, IPrototypeManager protoMan)
     {
-        SolarMass = Math.Clamp(solarMass, 0.08f, 8.0f); // Main Sequence stars
+        SolarMass = Math.Clamp(proto.SolarMass, 0.08f, 8.0f); // Main Sequence stars
 
         Luminocity = SolarMass < 0.43f
             ? 0.23f * MathF.Pow(SolarMass, 2.3f)
@@ -34,64 +33,13 @@ public sealed partial class Star
 
         Temperature = MathF.Pow(Luminocity / MathF.Pow(Radius, 2f), 0.25f) * 5778f;
 
-        Color = color;
+        Name = proto.Name;
+        Color = proto.Color;
+        Shader = proto.Shader;
+        Rotation = proto.Rotation;
         Position = Vector2.Zero;
-        Shader = shader;
-        Rotation = rotation;
-        Rings = rings;
+
+        if (proto.Rings is { } rings)
+            Rings = new PlanetaryRings(protoMan, protoMan.Index(rings));
     }
-
-    public void GenerateName(System.Random rand)
-    {
-        var letterCount = rand.Next(0, 2) == 0 ? 2 : 3;
-
-        var sb = new StringBuilder();
-
-        for (var i = 0; i < letterCount; i++)
-        {
-            var letter = UppercaseLetters[rand.Next(UppercaseLetters.Length)];
-            sb.Append(letter);
-        }
-
-        sb.Append('-');
-
-        var number = rand.Next(100, 999);
-        sb.Append(number);
-
-        sb.Append('-');
-
-        var suffix = UppercaseLetters[rand.Next(UppercaseLetters.Length)];
-        sb.Append(suffix);
-
-        Name = sb.ToString();
-    }
-
-    public string GetPlanetName(int order) => 
-        $"{Name} {ToRomanNumeral(order)}";
-    
-    private string ToRomanNumeral(int order) =>
-        order switch
-        {
-            0 => "I",
-            1 => "II",
-            2 => "III",
-            3 => "IV",
-            4 => "V",
-            5 => "VI",
-            6 => "VII",
-            7 => "VIII",
-            8 => "IX",
-            9 => "X",
-            10 => "XI",
-            11 => "XII",
-            12 => "XIII",
-            13 => "XIV",
-            14 => "XV",
-            15 => "XVI",
-            16 => "XVII",
-            17 => "XVIII",
-            18 => "XIX",
-            19 => "XX",
-            _ => "??"
-        };
 }

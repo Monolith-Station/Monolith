@@ -84,16 +84,7 @@ void fragment() {
             atmosphereHeightFalloff, atmosphereSunScattering
         );
 
-        highp float ringYOffset = sphereCoord.y * cos(axialPitch) - sin(axialPitch);
-        bool ringIsBehindHalo = ringYOffset < 0.0;
-
-        if (ringIsBehindHalo) {
-            finalComposite.rgb = mix(bgRing.rgb, halo.rgb, halo.a);
-            finalComposite.a = max(bgRing.a, halo.a);
-        } else {
-            finalComposite.rgb = mix(halo.rgb, bgRing.rgb, bgRing.a);
-            finalComposite.a = max(halo.a, bgRing.a);
-        }
+        finalComposite = compositeOver(bgRing, halo);
     } else if (hasRings) {
         finalComposite = bgRing;
     }
@@ -204,8 +195,7 @@ void fragment() {
             ringDensity, ringsBandFrequency, shadowSoftness, perspectiveStrength, true, false
         );
 
-        finalComposite.rgb = mix(finalComposite.rgb, fgRing.rgb, fgRing.a);
-        finalComposite.a = max(finalComposite.a, fgRing.a);
+        finalComposite = compositeOver(finalComposite, fgRing);
     }
 
     if (finalComposite.a <= 0.001) {

@@ -47,7 +47,7 @@ highp vec4 renderAtmosphereHalo(
     highp vec3 phaseColor = calculateAtmospherePhase(lightDir3D, viewDir, atmosColor, sunScattering);
     highp vec3 finalColor = phaseColor * incomingLight * lightFactor;
 
-    return vec4(finalColor * alpha, alpha * lightFactor);
+    return vec4(finalColor, alpha * lightFactor);
 }
 
 highp vec3 applySurfaceAtmosphere(
