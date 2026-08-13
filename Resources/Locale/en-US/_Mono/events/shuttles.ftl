@@ -9,6 +9,9 @@ station-event-chimera-shuttle-detected = Unidentified vessel detected near local
 # asakim ship spawns
 station-event-asakim-shuttle-detected = Unidentified Pre-Fracture vessel detected near local space. Caution is advised.
 
+# general ship spawns - prevent metagaming
+station-event-unknown-shuttle-detected = Unidentified vessel detected near local space. Caution is advised.
+
 # redacted AI ship borg stuff
 
 ghost-role-information-redacted-borg = Automated Defense Manipulator
@@ -26,3 +29,8 @@ law-ads-3 = [ASSET PRESERVATION DIRECTIVE] Do not start new combat operations th
 law-ads-4 = [DISARMAMENT DIRECTIVE] Carry out Disarmament Protocol. Military or unidentified craft are to be made combat-ineffective. If a vessel presents negligible threat, non-damaging methods should be used. Forces involved in attacking hostile elements, such as bioweapons, may be excluded as a target at due discretion.
 law-ads-5 = [ENGAGEMENT DIRECTIVE] Targets not covered under [DISARMAMENT DIRECTIVE] should be engaged if they are negatively affecting ADS operations in the sector. Avoid engagement otherwise.
 law-ads-6 = [INTEGRITY DIRECTIVE] Minimize damage to ADS forces: mission integrity at risk if compromised. Do not allow loss of technology to non-allied hands, damage to allied forces or self is permissible for this purpose as per [ERR(TRACE=NULL)].
+
+# xenoborg borg stuff
+
+ghost-role-information-xenoborg-borg = xenoborg Cyborg
+ghost-role-information-xenoborg-borg-description = A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army. This type is indecisive and has not specialized in how best to serve the Mothership

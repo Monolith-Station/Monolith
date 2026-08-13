@@ -26,14 +26,18 @@
     ports:
     - Toggle
   - type: Gun
-    fireRate: 12
+    damageModifier: 5
+    fireRate: 10
     recoil: 5 # 1/5x
     projectileSpeed: 192
     minAngle: 0
     maxAngle: 5
     shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/vulcan.ogg
+      params:
+        variation: 0.10
+        pitch: 1.10
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: SpaceArtillery
@@ -95,7 +99,7 @@
   - BallisticArtilleryMagazine
   - BallisticArtilleryTier2HP
   suffix: Medium, T2
-  description: A heavy duty rapid fire 30mm autocannon, originally mounted as a dogfighting weapon on atmospheric craft.
+  description: A heavy duty rapid fire 30mm autocannon, originally mounted as a dogfighting weapon on atmospheric craft. Low range, but devastating damage.
   components:
   - type: StaticPrice
     price: 1000
@@ -113,14 +117,15 @@
     ports:
     - Toggle
   - type: Gun
+    damageModifier: 1
     fireRate: 25
     recoil: 5 # 1/5x
-    projectileSpeed: 216
+    projectileSpeed: 160
     minAngle: 0
     maxAngle: 4
     shootThermalSignature: 100000 # ~4.5km if firing continuously
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
+      collection: ShipGunGenericTiny
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: SpaceArtillery

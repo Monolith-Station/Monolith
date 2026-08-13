@@ -26,7 +26,7 @@
     maxAngle: 0
     shootThermalSignature: 300000
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/autopulse_laser_fire_01.ogg
+      collection: ShipGunMjolnir
     soundEmpty:
       path: /Audio/Weapons/click.ogg
   - type: SpaceArtillery
@@ -134,7 +134,7 @@
     selectedMode: Burst
     availableModes: Burst
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+      collection: ShipGunMjolnir
     soundEmpty:
       path: /Audio/Weapons/click.ogg
   - type: SpaceArtillery

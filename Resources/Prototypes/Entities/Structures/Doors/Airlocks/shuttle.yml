@@ -72,6 +72,8 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: -0.5, -0.2
 
 - type: entity
   id: AirlockGlassShuttle
@@ -135,3 +137,11 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi
+
+# Xenoborg shuttle airlock
+- type: entity
+  parent: AirlockShuttle
+  id: AirlockShuttleXenoborg
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/shuttle_xenoborg.rsi

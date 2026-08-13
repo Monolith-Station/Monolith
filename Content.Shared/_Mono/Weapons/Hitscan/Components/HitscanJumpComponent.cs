@@ -18,5 +18,6 @@ public sealed partial class HitscanJumpComponent : Component
     /// <summary>
     /// Entities that were already hit by hitscan (Or fired it)
     /// </summary>
-    public HashSet<int> IgnoredEntities = [];
+    [DataField]
+    public HashSet<EntityUid> IgnoredEntities = [];
 };

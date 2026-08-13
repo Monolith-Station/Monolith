@@ -145,3 +145,22 @@
       types:
         Piercing: 35
     armorPenetration: 0.065
+
+- type: entity
+  parent: PiercingBallisticHitscan
+  id: Hitscan145x114mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Piercing: 200
+        Structural: 650
+    armorPenetration: 0
+  - type: HitscanMultiRaycast
+    maxPierce: 10 # This is going to be so fucking funny
+    maxDistance: 200
+    collisionMask:
+    - Impassable
+    - Opaque
+    - HighImpassable

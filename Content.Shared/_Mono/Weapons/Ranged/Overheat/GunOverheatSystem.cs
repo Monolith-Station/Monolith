@@ -4,12 +4,12 @@ using Content.Shared.Weapons.Ranged.Systems;
 
 namespace Content.Shared._Mono.Weapons.Ranged.Overheat;
 
-public abstract class SharedGunOverheatSystem : EntitySystem
+public sealed class GunOverheatSystem : EntitySystem
 {
-    private float _updateCooldown = 0.25f;
-    private float _updateTimer;
+    [Dependency] private SharedGunSystem _gun = default!;
 
-    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private EntityQuery<GunComponent> _gunQuery = default!;
+    private HashSet<Entity<GunOverheatComponent, GunComponent>> _activeGuns = new();
 
     public override void Initialize()
     {
@@ -19,31 +19,26 @@ public abstract class SharedGunOverheatSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        if (_updateTimer < _updateCooldown)
+        foreach (var ent in _activeGuns)
         {
-            _updateTimer += frameTime;
-            return;
-        }
+            ent.Comp1.Heat = Math.Clamp(ent.Comp1.Heat - ent.Comp1.HeatDissipation*frameTime, 0, ent.Comp1.HeatCapacity);
 
-        var ents = EntityQueryEnumerator<GunOverheatComponent, GunComponent>();
-
-        while (ents.MoveNext(out _, out var comp, out _))
-        {
-            if (comp.Heat == 0)
+            if (ent.Comp1.Heat > 0)
                 continue;
 
-            Math.Clamp(comp.Heat -= comp.HeatDissipation*_updateCooldown, 0, comp.HeatCapacity);
+            _activeGuns.Remove(ent);
+            _gun.RefreshModifiers((ent.Owner, ent.Comp2));
         }
-
-        _updateTimer -= _updateCooldown;
     }
 
     private void OnGunShot(Entity<GunOverheatComponent> ent, ref GunShotEvent ev)
     {
-        if (!TryComp<GunComponent>(ent, out var gun))
+        if (!_gunQuery.TryComp(ent, out var gun))
             return;
 
         ent.Comp.Heat = Math.Clamp(ent.Comp.Heat + ent.Comp.HeatPerShot, 0, ent.Comp.HeatCapacity);
+
+        _activeGuns.Add((ent.Owner, ent.Comp, gun));
         _gun.RefreshModifiers((ent, gun), ev.User);
     }
 
@@ -57,7 +52,7 @@ public abstract class SharedGunOverheatSystem : EntitySystem
 
     public float CalculatePenalty(float penalty, GunOverheatComponent overheat)
     {
-        var i = Math.Pow(overheat.Heat / overheat.HeatCapacity, 0.25f);
+        var i = Math.Pow(overheat.Heat / overheat.HeatCapacity, overheat.PenaltyExponent);
         var nP = penalty - (penalty-1) * (1-i);
 
         return (float) nP;

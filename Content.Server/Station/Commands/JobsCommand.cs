@@ -86,6 +86,18 @@ public sealed class JobsCommand : ToolshedCommand
     [CommandImplementation("amount")]
     public IEnumerable<int> Amount([PipedArgument] IEnumerable<JobSlotRef> @ref)
         => @ref.Select(Amount);
+
+    [CommandImplementation("unlimited")]
+    public JobSlotRef Unlimited([PipedArgument] JobSlotRef @ref)
+    {
+        _jobs ??= GetSys<StationJobsSystem>();
+        _jobs.MakeJobUnlimited(@ref.Station, @ref.Job);
+        return @ref;
+    }
+
+    [CommandImplementation("unlimited")]
+    public IEnumerable<JobSlotRef> Unlimited([PipedArgument] IEnumerable<JobSlotRef> @ref)
+        => @ref.Select(Unlimited);
 }
 
 // Used for Toolshed queries.

@@ -1,20 +1,22 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using Content.Shared._Mono.Weapons.Hitscan.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Hitscan.Events;
 using Content.Shared.Weapons.Hitscan.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Mono.Weapons.Hitscan.Systems;
 
 public sealed class HitscanJumpSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Robust.Shared.IoC.Dependency] private EntityLookupSystem _lookup = default!;
+    [Robust.Shared.IoC.Dependency] private SharedTransformSystem _transform = default!;
 
-    [Dependency] private EntityQuery<MobThresholdsComponent> _mobQuery = default!;
+    [Robust.Shared.IoC.Dependency] private EntityQuery<MobThresholdsComponent> _mobQuery = default!;
 
     public override void Initialize()
     {
@@ -32,8 +34,8 @@ public sealed class HitscanJumpSystem : EntitySystem
             ent.Comp.Count <= 0)
             return;
 
-        ent.Comp.IgnoredEntities.Add(args.Shooter.Value.Id);
-        ent.Comp.IgnoredEntities.Add(args.HitEntity.First().Id);
+        ent.Comp.IgnoredEntities.Add(args.Shooter.Value);
+        ent.Comp.IgnoredEntities.Add(args.HitEntity.First());
         var fromCoords = Transform(args.HitEntity.First()).Coordinates;
 
         if (!GetClosestTarget(fromCoords, ent.Comp.Range, ent.Comp.IgnoredEntities, out _, out var delta))
@@ -57,31 +59,12 @@ public sealed class HitscanJumpSystem : EntitySystem
         [NotNullWhen(true)] out EntityUid? closest,
         [NotNullWhen(true)] out Vector2? delta)
     {
-        var eqe = _lookup.GetEntitiesInRange<MobStateComponent>(coords, range);
-        delta = null;
-        closest = null;
-
-        var cD = range;
-        foreach (var ent in eqe)
-        {
-            coords.TryDistance(EntityManager, Transform(ent).Coordinates, out var d);
-
-            if (cD > d)
-            {
-                cD = d;
-                closest = ent.Owner;
-            }
-        }
-
-        if (closest.HasValue)
-            delta = _transform.ToWorldPosition(coords) - _transform.ToWorldPosition(Transform(closest.Value).Coordinates);
-
-        return closest.HasValue;
+        return GetClosestTarget(coords, range, [], out closest, out delta);
     }
 
     private bool GetClosestTarget(EntityCoordinates coords,
         float range,
-        HashSet<int> ignoredEnts,
+        HashSet<EntityUid> ignoredEnts,
         [NotNullWhen(true)] out EntityUid? closest,
         [NotNullWhen(true)] out Vector2? delta)
     {
@@ -93,7 +76,7 @@ public sealed class HitscanJumpSystem : EntitySystem
         var cD = range;
         foreach (var ent in eqe)
         {
-            if (ignoredEnts.Contains(ent.Owner.Id))
+            if (ignoredEnts.TryFirstOrNull(e => e.Id == ent.Owner.Id, out _))
                 continue;
 
             coords.TryDistance(EntityManager, Transform(ent).Coordinates, out var d);

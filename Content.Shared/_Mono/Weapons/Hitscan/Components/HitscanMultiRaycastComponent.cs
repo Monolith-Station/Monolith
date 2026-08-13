@@ -15,13 +15,14 @@ public sealed partial class HitscanMultiRaycastComponent : Component
     public float MaxDistance = 20.0f;
 
     /// <summary>
-    /// Maximum amount of entities that can be pierced
+    /// Maximum amount of entities that can be hit
     /// </summary>
     [DataField]
     public float MaxPierce = 3f;
 
     /// <summary>
-    /// Collision mask that will be pierced
+    /// Collision mask that will be pierced.
+    /// This means that hitscan will deal damage to this entity while also being able to move further.
     /// </summary>
     [DataField]
     public CollisionGroup PierceCollisionMask = CollisionGroup.MobMask;

@@ -1,0 +1,104 @@
+- type: latheRecipe
+  id: ArmorPlate2
+  result: ArmorPlateEconomy2
+  categories:
+  - Components
+  completetime: 15
+  entities:
+    ArmorPlateEconomy1: 2
+
+- type: latheRecipe
+  id: ArmorPlate2Alt
+  result: ArmorPlateEconomy2
+  categories:
+  - Components
+  - AltRecipes
+  completetime: 10
+  entities:
+    ArmorPlateEconomy3Fragment: 1
+  reagents:
+    Silver: 50
+
+- type: latheRecipe
+  id: ArmorPlate3
+  result: ArmorPlateEconomy3
+  categories:
+  - Components
+  completetime: 15
+  entities:
+    ArmorPlateEconomy2: 2
+
+- type: latheRecipe
+  id: ArmorPlate3Alt
+  result: ArmorPlateEconomy3
+  categories:
+  - Components
+  - AltRecipes
+  completetime: 10
+  entities:
+    ArmorPlateEconomy2: 1
+  reagents:
+    LithiumHydroxide: 30
+
+- type: latheRecipe
+  id: ArmorPlate4Start
+  result: ArmorPlateEconomy4Start
+  categories:
+  - Components
+  completetime: 20
+  entities:
+    ArmorPlateEconomy3: 1
+
+- type: latheRecipe
+  id: ArmorPlate4StartAlt
+  result: ArmorPlateEconomy4Start
+  categories:
+  - Components
+  - AltRecipes
+  completetime: 15
+  entities:
+    ArmorPlateEconomy3Fragment: 2
+  reagents:
+    Superconductant: 60
+
+# end armor recipes
+
+- type: latheRecipe
+  id: SiliconBoule
+  result: SiliconBouleEconomy
+  categories:
+  - Components
+  completetime: 20
+  entities:
+    MaterialDiamond1: 1 # seed crystal
+  reagents:
+    Silicon: 500
+    EZNutrient: 30 # doping agent
+
+# end silicon
+
+- type: latheRecipe
+  id: IriditePowderIntoCrystal
+  result: IriditeCrystal
+  completetime: 30
+  entities:
+    IriditePowder: 3
+  reagents:
+    Napalm: 10
+    Thermite: 10
+
+- type: latheRecipe
+  id: IriditeCrystalIntoPlate
+  result: SheetIridite1
+  completetime: 60
+  resultCount: 2
+  entities:
+    IriditeCrystal: 1
+  reagents:
+    SodiumPolyacrylate: 10
+    Fersilicite: 10
+    Benzene: 40
+    FluorosulfuricAcid: 40
+
+# end iridite
+

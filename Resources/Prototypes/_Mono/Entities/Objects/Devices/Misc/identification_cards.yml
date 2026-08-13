@@ -251,3 +251,55 @@
     sprite: Objects/Misc/id_cards.rsi
   - type: Item
     heldPrefix: default
+
+#MARK: Mieyo
+- type: entity
+  parent: IDCardStandard
+  id: MieyoEmployeeIDCard
+  name: MMC employee ID card
+  components:
+  - type: PresetIdCard
+    job: MMCEmployee
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/id_cards.rsi
+    layers:
+    - state: mieyobase
+    - state: id_mieyo_employee
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: default
+
+- type: entity
+  parent: IDCardStandard
+  id: MieyoSecurityIDCard
+  name: MMC security ID card
+  components:
+  - type: PresetIdCard
+    job: MMCSecurity
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/id_cards.rsi
+    layers:
+    - state: mieyobase
+    - state: id_mieyo_security
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: default
+
+- type: entity
+  parent: IDCardStandard
+  id: MieyoLiasonIDCard
+  name: MMC liason ID card
+  components:
+  - type: PresetIdCard
+    job: MMCLiason
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/id_cards.rsi
+    layers:
+    - state: mieyobase
+    - state: id_mieyo_liason
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    heldPrefix: default

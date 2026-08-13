@@ -20,6 +20,7 @@
     - EnergySwordRogue
     - EnergyDaggerRogue
     - HeavyBallisticShield
+    - TelescopicShield
 
 # tsf stuff
 
@@ -107,8 +108,8 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskTSFICWS
-  name: TSF Taotie faction tech disk
-  description: A disk capable of adding the QBZX-281 Taotie and its ammo to a server's recipes, for faction techfabs.
+  name: TSF ICWS faction tech disk
+  description: A disk capable of adding the QBZX-281 ICWS and its ammo to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:

@@ -65,11 +65,10 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     ];
 
     public bool ShowIFF { get; set; } = true;
-    public bool ShowIFFShuttles { get; set; } = true;
+    public bool ShowIFFDetailed { get; set; } = true;
     public bool ShowDocks { get; set; } = true;
 
     public float MaximumIFFDistance { get; set; } = 3000f; // Frontier // Mono - 3000 by default to not gigaclutter
-    public bool HideCoords { get; set; } = false; // Frontier
 
     private static Color _dockLabelColor = Color.White; // Frontier
 
@@ -546,7 +545,6 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         // Frontier
         if (state.MaxIffRange != null)
             MaximumIFFDistance = state.MaxIffRange.Value;
-        HideCoords = state.HideCoords;
         // End Frontier
 
         _docks = state.Docks;
@@ -697,12 +695,13 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 : _shuttles.GetIFFLabel(grid, self: false, component: iff);
 
             var shouldDrawIFF = ShowIFF && labelName != null;
+            var shouldDrawDetailedIFF = ShowIFFDetailed && shouldDrawIFF; // Mono
             if (shouldDrawIFF)
             {
                 if (IFFFilter != null)
                     shouldDrawIFF &= IFFFilter(gUid, grid.Comp, iff, hideLabel, labelName!);
-                if (isPlayerShuttle)
-                    shouldDrawIFF &= ShowIFFShuttles;
+                //if (isPlayerShuttle) // Mono - comments this out, replaced elsewere
+                //    shouldDrawIFF &= ShowIFFShuttles;
             }
 
             //var mapCenter = curGridToWorld. * gridBody.LocalCenter;
@@ -763,6 +762,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                     var labelText = Loc.GetString("shuttle-console-iff-label", ("name", labelName)!, ("distance", displayedDistance));
 
                     var coordsText = $"({gridMapPos.X:0.0}, {gridMapPos.Y:0.0})";
+                    var trackIdText = iff != null ? Loc.GetString("shuttle-console-track-label") + $"{iff.Address}" : Loc.GetString("shuttle-console-track-unknown-label");
 
                     #region Mono
 
@@ -791,9 +791,10 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                     var radius = Width * 0.5f;
                     var squaredRadius = radius * radius;
 
+
                     // If true, flip the entire label to the right side of the blip and left-align it.
                     // We default to the label being on the left side of the blip because it looked better to me in testing. (arbitrary)
-                    var flipLabel = isOnLeftSide && labelCorners.Any(corner => corner.LengthSquared() > squaredRadius);
+                    var flipLabel = true; // isOnLeftSide && labelCorners.Any(corner => corner.LengthSquared() > squaredRadius); // Mono - comment out, we dont want this teehee
 
                     // Calculate unscaled offsets.
                     var labelOffset = new Vector2()
@@ -826,30 +827,33 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                     // Draw main ship label with company color if available
                     handle.DrawString(Font, (uiPosition + labelOffset) * UIScale, mainLabel, UIScale * 0.9f, displayColor);
 
-                    // Draw company label if present
-                    if (!hideLabel && lines.Length > 1)
+                    // Mono start - draw main stack of info
+                    if (shouldDrawDetailedIFF)
                     {
-                        var companyLabel = lines[1];
-                        var companyLabelOffset = new Vector2(
-                            labelOffset.X,
-                            labelOffset.Y + handle.GetDimensions(Font, mainLabel, 0.9f).Y
-                        );
+                            // Get company label & draw
+                            var companyLabel =  !hideLabel ? lines[1] : Loc.GetString("shuttle-console-company-unknown");
+                            var companyLabelOffset = new Vector2(
+                                labelOffset.X,
+                                labelOffset.Y + handle.GetDimensions(Font, mainLabel, 0.9f).Y
+                            );
+                            handle.DrawString(Font, (uiPosition + companyLabelOffset) * UIScale, companyLabel, UIScale * 0.7f, displayColor);
 
-                        handle.DrawString(Font, (uiPosition + companyLabelOffset) * UIScale, companyLabel, UIScale * 0.9f, displayColor);
-                    }
+                            // Draw coordinates
+                            var coordDimensions = handle.GetDimensions(Font, coordsText, 0.7f);
+                            var coordOffset = new Vector2(
+                                labelOffset.X,
+                                labelOffset.Y + handle.GetDimensions(Font, mainLabel, 0.9f).Y + handle.GetDimensions(Font, companyLabel, 0.7f).Y);
+                            handle.DrawString(Font, (uiPosition + coordOffset) * UIScale, coordsText, 0.7f * UIScale, displayColor);
 
-                    if (isMouseOver && !HideCoords)
-                    {
-                        var coordDimensions = handle.GetDimensions(Font, coordsText, 0.7f);
-                        var coordOffset = new Vector2()
-                        {
-                            X = uiPosition.X > Width / 2f
-                                ? -coordDimensions.X - blipSize / 0.7f // right align the text to left of the blip (0.7 needed for scale)
-                                : blipSize, // left align the text to the right of the blip
-                            Y = labelOffset.Y + handle.GetDimensions(Font, mainLabel, 1f).Y + (lines.Length > 1 ? handle.GetDimensions(Font, lines[1], 1f).Y : 0) + 5
-                        };
-                        handle.DrawString(Font, (uiPosition + coordOffset) * UIScale, coordsText, 0.7f * UIScale, displayColor);
+                            // Draw track ID (if it has one)
+                            var trackIdDimensions = handle.GetDimensions(Font, trackIdText, 0.7f);
+                            var trackIdOffset = new Vector2(
+                                labelOffset.X,
+                                labelOffset.Y + handle.GetDimensions(Font, mainLabel, 0.9f).Y + handle.GetDimensions(Font, companyLabel, 0.7f).Y + handle.GetDimensions(Font, coordsText, 0.7f).Y);
+                            if (iff != null)
+                                handle.DrawString(Font, (uiPosition + trackIdOffset) * UIScale, trackIdText, 0.7f * UIScale, displayColor);
                     }
+                    // Mono end
                 }
 
                 NfAddBlipToList(_tempBlipDataList, isOutsideRadarCircle, uiPosition, uiXCentre, uiYCentre, labelColor, hideLabel ? default : gUid); // Frontier code

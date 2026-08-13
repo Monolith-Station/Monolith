@@ -2,7 +2,7 @@
   parent: WeaponPistolAnaconda
   id: WeaponPistolHawk4
   name: LWC HAWK-4 I.S
-  description: A modified, heavy Anaconda for the purpose of assassinating high value targets. This rare prototype is capable of printing armor penetrating bullets. A laser and holographic sight alongside a matte black chassis with a custom-built integrated silencer make for an exceedingly deadly stealth weapon, only fit for a true Commander of the Phaethon Dynasty Imperial Vanguard.
+  description: A modified, heavy Anaconda for the purpose of assassinating high value targets. This rare prototype is capable of printing armor penetrating bullets. A laser and holographic sight alongside a matte black chassis with a custom-built integrated silencer make for an exceedingly deadly stealth weapon.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Pistols/hawk4.rsi
@@ -24,10 +24,10 @@
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/hawk_fire.ogg
   - type: BasicEntityAmmoProvider
     proto: BulletHawk
-    capacity: 12
-    count: 12
+    capacity: 7
+    count: 7
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1.5
+    rechargeCooldown: 5
     rechargeSound:
       path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
   - type: AmmoCounter
@@ -49,8 +49,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 32
-    armorPenetration: 0.3
+        Piercing: 60
+    armorPenetration: 0.4
 
 - type: entity
   parent: WeaponPistolAnaconda
