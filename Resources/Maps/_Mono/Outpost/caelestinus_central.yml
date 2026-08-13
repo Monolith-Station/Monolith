@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/13/2026 12:32:34
-  entityCount: 9935
+  time: 08/13/2026 13:03:17
+  entityCount: 9938
 maps:
 - 1
 grids:
@@ -336,9 +336,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
-        Puddle: []
-        Kudzu: []
         MetalFoam: []
+        Kudzu: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -25464,15 +25464,10 @@ entities:
     - type: Transform
       pos: -21.5,43.5
       parent: 2
-  - uid: 6356
+  - uid: 6175
     components:
     - type: Transform
       pos: 22.5,8.5
-      parent: 2
-  - uid: 8768
-    components:
-    - type: Transform
-      pos: 22.5,7.5
       parent: 2
 - proto: CrateEngineeringSolar
   entities:
@@ -28121,13 +28116,6 @@ entities:
     - type: Transform
       pos: -31.5,33.5
       parent: 2
-- proto: DefaultStationBeacon
-  entities:
-  - uid: 3831
-    components:
-    - type: Transform
-      pos: 11.5,26.5
-      parent: 2
 - proto: DefaultStationBeaconAnchor
   entities:
   - uid: 3832
@@ -28148,6 +28136,13 @@ entities:
     components:
     - type: Transform
       pos: -37.5,-6.5
+      parent: 2
+- proto: DefaultStationBeaconBar
+  entities:
+  - uid: 6071
+    components:
+    - type: Transform
+      pos: 9.5,30.5
       parent: 2
 - proto: DefaultStationBeaconBridge
   entities:
@@ -28274,6 +28269,13 @@ entities:
     components:
     - type: Transform
       pos: -40.5,9.5
+      parent: 2
+- proto: DefaultStationBeaconKitchen
+  entities:
+  - uid: 6177
+    components:
+    - type: Transform
+      pos: 17.5,21.5
       parent: 2
 - proto: DefaultStationBeaconMailRoom
   entities:
@@ -28679,6 +28681,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -28.5,26.5
+      parent: 2
+  - uid: 6168
+    components:
+    - type: Transform
+      pos: 20.5,7.5
       parent: 2
 - proto: DisposalPipe
   entities:
@@ -29401,8 +29408,8 @@ entities:
   - uid: 4044
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 20.5,7.5
+      rot: -1.5707963267948966 rad
+      pos: 21.5,7.5
       parent: 2
   - uid: 4045
     components:
@@ -30111,6 +30118,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 22.5,9.5
       parent: 2
+  - uid: 3831
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,7.5
+      parent: 2
   - uid: 4164
     components:
     - type: Transform
@@ -30277,6 +30290,11 @@ entities:
     components:
     - type: Transform
       pos: -5.5,29.5
+      parent: 2
+  - uid: 6172
+    components:
+    - type: Transform
+      pos: 22.5,7.5
       parent: 2
 - proto: DisposalYJunction
   entities:
