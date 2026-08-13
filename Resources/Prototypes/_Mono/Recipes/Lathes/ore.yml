@@ -1,6 +1,6 @@
 - type: latheRecipe
   id: SteelOre1
-  name: iron ore
+  name: materials-raw-iron
   icon:
     sprite: Objects/Materials/ore.rsi
     state: iron
@@ -13,7 +13,7 @@
 # Economy materials
 - type: latheRecipe
   id: SheetCopper
-  name: copper
+  name: materials-copper
   icon:
     sprite: _Mono/Objects/Materials/industry-sheets.rsi
     state: copper
@@ -25,7 +25,7 @@
 
 - type: latheRecipe
   id: SheetLithium
-  name: lithium
+  name: materials-lithium
   icon:
     sprite: _Mono/Objects/Materials/industry-sheets.rsi
     state: lithium

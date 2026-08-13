@@ -2,7 +2,7 @@
 
 - type: latheRecipe
   id: SheetSteel
-  name: steel
+  name: materials-steel
   icon:
     sprite: Objects/Materials/Sheets/metal.rsi
     state: steel
@@ -24,7 +24,7 @@
 
 - type: latheRecipe
   id: SheetGlass1
-  name: glass
+  name: materials-glass
   icon:
     sprite: Objects/Materials/Sheets/glass.rsi
     state: glass
@@ -45,7 +45,7 @@
 # This version is for the autolathe
 - type: latheRecipe
   id: SheetRGlass
-  name: reinforced glass
+  name: materials-reinforced-glass
   icon:
     sprite: Objects/Materials/Sheets/glass.rsi
     state: rglass
@@ -59,7 +59,7 @@
 # This version is for the ore processor
 - type: latheRecipe
   id: SheetRGlassRaw
-  name: reinforced glass
+  name: materials-reinforced-glass
   icon:
     sprite: Objects/Materials/Sheets/glass.rsi
     state: rglass
@@ -83,7 +83,7 @@
 
 - type: latheRecipe
   id: SheetPGlass1
-  name: plasma glass
+  name: materials-plasma-glass
   icon:
     sprite: Objects/Materials/Sheets/glass.rsi
     state: pglass
@@ -105,7 +105,7 @@
 
 - type: latheRecipe
   id: SheetRPGlass1
-  name: reinforced plasma glass
+  name: materials-reinforced-plasma-glass
   icon:
     sprite: Objects/Materials/Sheets/glass.rsi
     state: rpglass
@@ -131,7 +131,7 @@
 
 - type: latheRecipe
   id: SheetPlasma1
-  name: plasma
+  name: materials-plasma
   icon:
     sprite: Objects/Materials/Sheets/other.rsi
     state: plasma
@@ -151,7 +151,7 @@
 
 - type: latheRecipe
   id: SheetPlasteel1
-  name: plasteel
+  name: materials-plasteel
   icon:
     sprite: Objects/Materials/Sheets/metal.rsi
     state: steel
@@ -183,7 +183,7 @@
 
 - type: latheRecipe
   id: SheetUGlass1
-  name: uranium glass
+  name: materials-uranium-glass
   icon:
     sprite: Objects/Materials/Sheets/glass.rsi
     state: uglass
@@ -205,7 +205,7 @@
 
 - type: latheRecipe
   id: SheetRUGlass1
-  name: reinforced uranium glass
+  name: materials-reinforced-uranium-glass
   icon:
     sprite: Objects/Materials/Sheets/glass.rsi
     state: ruglass
@@ -255,7 +255,7 @@
 
 - type: latheRecipe
   id: MaterialDiamond
-  name: diamond
+  name: materials-diamond
   icon:
     sprite: Objects/Materials/materials.rsi
     state: diamond
@@ -267,7 +267,7 @@
 
 - type: latheRecipe
   id: SheetUranium1
-  name: uranium
+  name: materials-uranium
   icon:
     sprite: Objects/Materials/Sheets/other.rsi
     state: uranium
@@ -279,7 +279,7 @@
 
 - type: latheRecipe
   id: IngotGold1
-  name: gold
+  name: materials-gold
   icon:
     sprite: Objects/Materials/ingots.rsi
     state: gold
@@ -291,7 +291,7 @@
 
 - type: latheRecipe
   id: IngotSilver1
-  name: silver
+  name: materials-silver
   icon:
     sprite: Objects/Materials/ingots.rsi
     state: silver
@@ -311,7 +311,7 @@
 
 - type: latheRecipe
   id: MaterialBananium1
-  name: bananium
+  name: materials-bananium
   icon:
     sprite: Objects/Materials/materials.rsi
     state: bananium
