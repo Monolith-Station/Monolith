@@ -58,5 +58,6 @@ namespace Content.Shared.PDA
         public string? StationAlertLevel;
         public Color StationAlertColor;
         public string? WarLevel;
+        public DateTime? CurrentDate; // DeltaV - PDA date
     }
 }

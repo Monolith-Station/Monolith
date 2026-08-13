@@ -1,9 +1,9 @@
 #NT security lootbox
 - type: entity
   parent: RogueSiliconGiftBox
-  name: NT Security equipement crate
+  name: wayward security equipment crate
   id: ClothingBackpackRogueNanotrasenT1
-  description: A Nanotrasen security forces gear crate.
+  description: An ominous security forces gear crate.
   suffix: NPC Loot, T1
   # categories: [ HideSpawnMenu ] #Mono: spawnable for easier testing, why tf wasnt it spawnable anyway
   components:
@@ -70,9 +70,9 @@
 #NT navy lootbox
 - type: entity
   parent: RogueSiliconGiftBox
-  name: NT Navy equipement crate
+  name: wayward navy equipment crate
   id: ClothingBackpackRogueNanotrasenT2
-  description: A Nanotrasen corporate navy gear crate.
+  description: An ominous navy gear crate.
   suffix: NPC Loot, T2
   # categories: [ HideSpawnMenu ] #Mono: spawnable for easier testing, why tf wasnt it spawnable anyway
   components:
@@ -123,9 +123,9 @@
 #NT special operation lootbox
 - type: entity
   parent: RogueSiliconGiftBox
-  name: NT Spec Ops equipement crate
+  name: wayward spec ops equipment crate
   id: ClothingBackpackRogueNanotrasenT3
-  description: A Nanotrasen special operation gear crate.
+  description: An ominous special operations gear crate.
   suffix: NPC Loot, T3
   # categories: [ HideSpawnMenu ] #Mono: spawnable for easier testing, why tf wasnt it spawnable anyway
   components:
@@ -163,8 +163,8 @@
     - id: CartridgeMPSSMMissile
       amount: 3
       prob: 0.09
-    - id: WeaponHeavyPulseCannon
-      prob: 0.005
+    #- id: WeaponHeavyPulseCannon
+    #  prob: 0.005
     - id: MedkitCombatFilled
       prob: 0.5
     #Clothings

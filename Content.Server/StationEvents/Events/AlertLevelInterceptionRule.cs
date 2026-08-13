@@ -1,4 +1,3 @@
-using Content.Server._Mono.AlertLevel;
 using Content.Server.StationEvents.Components;
 using Content.Server.AlertLevel;
 ﻿using Content.Shared.GameTicking.Components;
@@ -8,12 +7,10 @@ namespace Content.Server.StationEvents.Events;
 public sealed partial class AlertLevelInterceptionRule : StationEventSystem<AlertLevelInterceptionRuleComponent>
 {
     [Dependency] private AlertLevelSystem _alertLevelSystem = default!;
-    [Dependency] private WarLevelSystem _warLevelSystem = default!; // Mono
 
     protected override void Started(EntityUid uid, AlertLevelInterceptionRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args) // Goobstation - Changed an indent.
     {
         base.Started(uid, component, gameRule, args);
-        _warLevelSystem.SetLevel(component.WarLevel); // Mono
 
         if (!TryGetRandomStation(out var chosenStation))
             return;

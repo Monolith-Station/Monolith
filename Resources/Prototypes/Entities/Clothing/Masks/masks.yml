@@ -41,9 +41,9 @@
         Heat: 0.95
 
 - type: entity
-  parent: [ClothingMaskGas]
+  parent: [ClothingMaskGas, BaseFactionGearPDVT1]
   id: ClothingMaskGasSyndicate
-  name: syndicate gas mask
+  name: advanced gas mask
   description: A close-fitting tactical mask that can be connected to an air supply.
   components:
   - type: Sprite

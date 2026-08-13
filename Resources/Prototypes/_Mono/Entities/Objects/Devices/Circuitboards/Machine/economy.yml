@@ -7,6 +7,7 @@
   - type: Sprite
     state: engineering
   - type: MachineBoard
+    flatpackable: false
     prototype: CentrifugeLatheMini
     requirements:
       MatterBin: 2
@@ -16,9 +17,58 @@
       Glass: 5
       CableHV: 5
     tagRequirements:
-      GlassBeaker:
+      ArmorPlateEconomy1: # Reinforcement. Things that spin very heavy things very fast are very dangerous.
+        amount: 2
+        defaultPrototype: ArmorPlateEconomy1
+      ComponentBrickEconomy1:
+        amount: 1
+        defaultPrototype: ComponentBrickEconomy1
+
+- type: entity
+  id: IndustrialFurnaceEconomyCompactCircuitboard
+  parent: BaseMachineCircuitboard
+  name: compact arc furnace machine board
+  description: A machine printed circuit board for a compact arc furnace.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    flatpackable: false
+    prototype: IndustrialFurnaceEconomyCompact
+    requirements:
+      Manipulator: 3
+    stackRequirements:
+      CableHV: 5
+    tagRequirements:
+      ArmorPlateEconomy3:
+        amount: 1
+        defaultPrototype: ArmorPlateEconomy3
+      ElectromagnetEconomy1:
+        amount: 2
+        defaultPrototype: ElectromagnetEconomy1
+
+- type: entity
+  id: PrecisionAssemblerEconomyCompactCircuitboard
+  parent: BaseMachineCircuitboard
+  name: compact precision assembler machine board
+  description: A machine printed circuit board for a compact precision assembler.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    flatpackable: false
+    prototype: PrecisionAssemblerEconomyCompact
+    requirements:
+      Manipulator: 3
+    stackRequirements:
+      CableHV: 5
+    tagRequirements:
+      MicroprocessorEconomy1:
+        amount: 2
+        defaultPrototype: MicroprocessorEconomy1
+      MotorEconomy1:
         amount: 4
-        defaultPrototype: Beaker
+        defaultPrototype: MotorEconomy1
 
 - type: entity
   id: IndustrialPressEconomyPlatesMachineCircuitboard
@@ -29,18 +79,15 @@
   - type: Sprite
     state: engineering
   - type: MachineBoard
+    flatpackable: false
     prototype: IndustrialPressEconomyPlates
     requirements:
-      Capacitor: 2
+      MatterBin: 2
+      Manipulator: 3
     stackRequirements:
-      Glass: 5
       Lithium: 5
-      Plasteel: 20
       CableHV: 10
-    #tagRequirements: # todo: make it take a press plate component
-    #  GlassBeaker:
-    #    amount: 1
-    #    defaultPrototype: Beaker
+    # Doesnt require industry comps because it's entry-level. Let's you get to the other ones. It's called progression sir.
   - type: Construction
     deconstructionTarget: null
     graph: IndustrialPress
@@ -55,19 +102,18 @@
   - type: Sprite
     state: engineering
   - type: MachineBoard
+    flatpackable: false
     prototype: IndustrialPressEconomyPlatesMMC
     requirements:
       MatterBin: 2
-      Capacitor: 2
+      Manipulator: 3
     stackRequirements: # faster mmc variant
-      Glass: 10
       Lithium: 10
-      Plasteel: 30
       CableHV: 20
-    #tagRequirements: # todo: make it take a press plate component
-    #  GlassBeaker:
-    #    amount: 1
-    #    defaultPrototype: Beaker
+    tagRequirements:
+      ArmorPlateEconomy1:
+        amount: 1
+        defaultPrototype: ArmorPlateEconomy1
   - type: Construction
     deconstructionTarget: null
     graph: IndustrialPressMMC
@@ -82,18 +128,15 @@
   - type: Sprite
     state: engineering
   - type: MachineBoard
+    flatpackable: false
     prototype: IndustrialPressEconomyElectronics
     requirements:
-      Capacitor: 2
+      MatterBin: 2
+      Manipulator: 3
     stackRequirements:
-      Glass: 5
       Lithium: 5
-      Plasteel: 20
       CableHV: 10
-  #tagRequirements: # todo: make it take a press plate component
-  #  GlassBeaker:
-  #    amount: 1
-  #    defaultPrototype: Beaker
+    # Doesnt require industry comps because it's entry-level. Let's you get to the other ones. It's called progression sir.
   - type: Construction
     deconstructionTarget: null
     graph: IndustrialPress
@@ -108,19 +151,18 @@
   - type: Sprite
     state: engineering
   - type: MachineBoard
+    flatpackable: false
     prototype: IndustrialPressEconomyElectronicsMMC
     requirements:
       MatterBin: 2
-      Capacitor: 2
+      Manipulator: 3
     stackRequirements: # faster mmc variant
-      Glass: 10
       Lithium: 10
-      Plasteel: 30
       CableHV: 20
-  #tagRequirements: # todo: make it take a press plate component
-  #  GlassBeaker:
-  #    amount: 1
-  #    defaultPrototype: Beaker
+    tagRequirements:
+      ArmorPlateEconomy1:
+        amount: 1
+        defaultPrototype: ArmorPlateEconomy1
   - type: Construction
     deconstructionTarget: null
     graph: IndustrialPressMMC

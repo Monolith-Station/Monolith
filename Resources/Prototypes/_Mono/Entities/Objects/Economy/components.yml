@@ -2,7 +2,7 @@
 
 - type: entity
   id: MatterBinEconomy1
-  name: matter bin
+  name: component bin
   description: Used for storing chemicals and other substances needed for industrial processes. Can be opened and closed. Don't use as a component while it has reagents inside!
   parent: BaseEconomyGood
   components:
@@ -66,13 +66,12 @@
     solution: capsule
   - type: Spillable
     solution: capsule
-  - type: Construction
-    graph: ComponentBrickEconomy
-    node: MatterBinEconomy1
+  - type: StaticPrice
+    price: 200
 
 - type: entity
   id: MatterBinEconomy2
-  name: large matter bin
+  name: large component bin
   description: Used for storing chemicals and other substances needed for industrial processes. Much larger than its predecessor. Can be opened and closed. Don't use as a component while it has reagents inside!
   parent: [ MatterBinEconomy1, BaseEconomyGoodTier2 ]
   components:
@@ -104,9 +103,8 @@
       Steel: 1000
       Plastic: 1000
       Glass: 500
-  - type: Construction
-    graph: ComponentBrickEconomy
-    node: MatterBinEconomy2
+  - type: StaticPrice
+    price: 600
 
 - type: entity
   name: basic components
@@ -123,13 +121,10 @@
   - type: SpawnOnDespawn
     count: 0
     prototype: MatterBinEconomy2
-  - type: Construction
-    graph: ComponentBrickEconomy
-    node: MatterBinEconomy2Spawn
 
 - type: entity
   id: MatterBinEconomy3
-  name: supermatter bin
+  name: supercomponent bin
   description: Used for storing chemicals and other substances needed for industrial processes. Much larger than its predecessor. Can be opened and closed. Don't use as a component while it has reagents inside!
   parent: [ MatterBinEconomy1, BaseEconomyGoodTier3 ]
   components:
@@ -161,6 +156,8 @@
       Steel: 1000
       Plastic: 1000
       Glass: 500
+  - type: StaticPrice
+    price: 2000
 
 # end matter bins
 
@@ -192,6 +189,8 @@
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 300
 
 - type: entity
   name: nanoprocessor
@@ -202,6 +201,7 @@
   - type: Tag
     tags:
     - EconomyGood
+    - MicroprocessorEconomy2
   - type: Item
     size: Small
   - type: Sprite
@@ -218,9 +218,8 @@
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Construction
-    graph: ComponentBrickEconomy
-    node: MicroprocessorEconomy2
+  - type: StaticPrice
+    price: 600
 
 - type: entity
   name: quantum processor
@@ -231,6 +230,7 @@
   - type: Tag
     tags:
     - EconomyGood
+    - MicroprocessorEconomy3
   - type: Item
     size: Small
   - type: Sprite
@@ -247,13 +247,15 @@
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 2500
 
 # end microprocessors
 
 # capacitors
 
 - type: entity
-  name: basic capacitor
+  name: industrial basic capacitor
   description: A simple capacitor useful in small-scale power storage and simple circuits.
   parent: BaseEconomyGoodTier1
   id: CapacitorEconomy1
@@ -269,9 +271,11 @@
     - type: MachinePart
       part: Capacitor
       rating: 1
+    - type: StaticPrice
+      price: 200
 
 - type: entity
-  name: advanced capacitor
+  name: industrial advanced capacitor
   description: An upgraded capacitor capable of handling more voltage and storing more energy through the power of refined semiconductors.
   parent: BaseEconomyGoodTier2
   id: CapacitorEconomy2
@@ -286,12 +290,11 @@
     - type: MachinePart
       part: Capacitor
       rating: 3
-    - type: Construction
-      graph: ComponentBrickEconomy
-      node: CapacitorEconomy2
+    - type: StaticPrice
+      price: 600
 
 - type: entity
-  name: supercapacitor
+  name: industrial supercapacitor
   description: A state-of-the-art capacitor capable of storing incredible amounts of energy for its size through the use of miniaturized SMES technology.
   parent: BaseEconomyGoodTier3
   id: CapacitorEconomy3
@@ -305,6 +308,8 @@
     - type: MachinePart
       part: Capacitor
       rating: 4
+    - type: StaticPrice
+      price: 1400
 
 # end capacitors
 
@@ -323,9 +328,8 @@
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "componentbrick1"
-  - type: Construction
-    graph: ComponentBrickEconomy
-    node: finished_1
+  - type: StaticPrice
+    price: 800
 
 - type: entity
   name: basic components
@@ -342,9 +346,6 @@
   - type: SpawnOnDespawn
     count: 2
     prototype: ComponentBrickEconomy1
-  - type: Construction
-    graph: ComponentBrickEconomy
-    node: finished_1_t2
 
 - type: entity
   name: advanced components
@@ -355,9 +356,12 @@
   - type: Tag
     tags:
     - EconomyGood
+    - ComponentBrickEconomy2
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "componentbrick2"
+  - type: StaticPrice
+    price: 3000
 
 - type: entity
   name: super components
@@ -368,9 +372,12 @@
   - type: Tag
     tags:
     - EconomyGood
+    - ComponentBrickEconomy3
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "componentbrick3"
+  - type: StaticPrice
+    price: 5000
 
 # end component bricks
 
@@ -389,9 +396,8 @@
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "electromagnet1"
-  - type: Construction
-    graph: ElectromagnetEconomy
-    node: ElectromagnetEconomy1
+  - type: StaticPrice
+    price: 800
 
 - type: entity
   name: compound electromagnet (unfinished)
@@ -405,9 +411,6 @@
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "electromagnet2_unfinished"
-  - type: Construction
-    graph: ElectromagnetEconomy
-    node: unfinished
 
 - type: entity
   name: compound electromagnet
@@ -422,13 +425,12 @@
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "electromagnet2"
-  - type: Construction
-    graph: ElectromagnetEconomy
-    node: finished
+  - type: StaticPrice
+    price: 1600
 
 - type: entity
   name: superconductive electromagnet (unfinished)
-  description: A work-in-progress superconductive electromagnet. Needs 10 LV cables to begin construction, then significant welding.
+  description: A work-in-progress superconductive electromagnet. Needs further assembling in an precision assembler.
   parent: BaseEconomyGoodTier2
   id: ElectromagnetEconomy3Start
   components:
@@ -438,9 +440,6 @@
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "electromagnet3_unfinished"
-  - type: Construction
-    graph: ElectromagnetEconomy
-    node: unfinished_ElectromagnetEconomy3
 
 - type: entity
   name: superconductive electromagnet
@@ -451,12 +450,12 @@
   - type: Tag
     tags:
     - EconomyGood
+    - ElectromagnetEconomy3
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "electromagnet3"
-  - type: Construction
-    graph: ElectromagnetEconomy
-    node: finished_ElectromagnetEconomy3
+  - type: StaticPrice
+    price: 3000
 
 # end magnets
 
@@ -471,9 +470,12 @@
     - type: Tag
       tags:
         - EconomyGood
+        - RadioEconomy1
     - type: Sprite
       sprite: _Mono/Objects/Materials/bayponents.rsi
       state: "radio1"
+    - type: StaticPrice
+      price: 800
 
 - type: entity
   name: HF signal tranciever component
@@ -484,9 +486,12 @@
     - type: Tag
       tags:
         - EconomyGood
+        - RadioEconomy2
     - type: Sprite
       sprite: _Mono/Objects/Materials/bayponents.rsi
       state: "radio2"
+    - type: StaticPrice
+      price: 1200
 
 # end radios
 
@@ -505,6 +510,8 @@
     - type: Sprite
       sprite: _Mono/Objects/Materials/bayponents.rsi
       state: "optics1"
+    - type: StaticPrice
+      price: 800
 
 - type: entity
   name: precision optical sensor
@@ -515,9 +522,12 @@
     - type: Tag
       tags:
         - EconomyGood
+        - OpticsEconomy2
     - type: Sprite
       sprite: _Mono/Objects/Materials/bayponents.rsi
       state: "optics2"
+    - type: StaticPrice
+      price: 1200
 
 # end optics
 
@@ -532,12 +542,10 @@
   - type: Tag
     tags:
     - EconomyGood
+    - CameraEconomy1
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "camera"
-  - type: Construction
-    graph: ComponentBrickEconomy
-    node: CameraEconomy1
   # flash stuff
   - type: EmitSoundOnTrigger
     sound:
@@ -551,6 +559,8 @@
       !type:PhysShapeCircle
       radius: 2
     repeating: true
+  - type: StaticPrice
+    price: 1200
 
 # end camera
 
@@ -565,9 +575,9 @@
   - type: Tag
     tags:
     - EconomyGood
+    - MotorEconomy1
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "motor"
-  - type: Construction
-    graph: ComponentBrickEconomy
-    node: MotorEconomy1
+  - type: StaticPrice
+    price: 800

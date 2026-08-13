@@ -7,7 +7,6 @@
   - FactionDrozdLoadout
   - FactionRiversongLoadout
   - FactionDragonfangLoadout
-  - FactionBanditLoadout
   fallbacks:
   - FactionFrostLoadout
 
@@ -28,9 +27,7 @@
   loadouts:
   - FactionLecterLoadout
   - FactionDrozdLoadout
-  - FactionVulcanLoadout
   - SecurityGuardEnforcerLoadout # Shotgun, since mikus asked about it and technically we can pick it anyway
-  # - FactionBanditLoadout
 
 - type: loadoutGroup
   id: TsfmcSidearm
@@ -53,7 +50,6 @@
   - Faction762x51mmAmmoLoadout #Vulcan
   - FactionRechargerLoadout #Energy
   - SecurityGuardBeanbagAmmoLoadout # Buckshot, don't mind the weird naming.
-  # - Faction8x65mmAmmoLoadout #Bandit
 
 
 - type: loadout # Lecter ammo - putting it here because other factions shouldnt be using this
