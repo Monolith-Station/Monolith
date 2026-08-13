@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Numerics;
 using Content.Client.Parallax;
 using Content.Shared._FarHorizons.StarSystem;
@@ -13,8 +12,8 @@ public sealed class PlanetOverlay : Overlay
 {
     private readonly IEntityManager _entMan;
     private readonly IPrototypeManager _protoMan;
-    private Planet? _planet = null; // This isn't no man's sky and I work under an assumption only one planet is visible on screen
-    private ShaderInstance? _shaderInstance = null;
+    private readonly List<(Planet Planet, ShaderInstance Shader)> _shaders = new(); // what do you mean, this isn't No Man's Sky?
+    private List<Planet>? _planets;
     private Vector2 _starOffset = Vector2.Zero;
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowWorld;
 
@@ -28,45 +27,46 @@ public sealed class PlanetOverlay : Overlay
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
         if (!_entMan.TryGetComponent<StarSystemMapComponent>(args.MapUid, out var starSystem) ||
-            starSystem.StarSystem == null ||
-            !starSystem.StarSystem.Planets.Any())
+            starSystem.StarSystem is not { } system ||
+            system.Planets.Count == 0)
         {
-            _planet = null;
-            _shaderInstance = null;
-            _starOffset = Vector2.Zero;
+            ResetShader();
             return false;
         }
 
-        _starOffset = starSystem.StarOffset;
-        var viewportCenter = args.WorldAABB.Center;
-        var closestPlanet = starSystem.StarSystem.Planets.OrderBy(p => (viewportCenter - (p.Position + _starOffset)).Length()).First();
+        if (_planets != system.Planets || _starOffset != starSystem.StarOffset)
+        {
+            ResetShader();
+            _starOffset = starSystem.StarOffset;
+            _planets = system.Planets;
 
-        if (closestPlanet == _planet)
-            return true;
+            foreach (var planet in _planets)
+            {
+                if (SetupPlanetShader(planet, system.Star) is { } shader)
+                    _shaders.Add((planet, shader));
+            }
+        }
 
-        if (!_protoMan.TryIndex<ShaderPrototype>(closestPlanet.Shader, out var shader))
-            return false;
-        
-        _shaderInstance = SetupPlanetShader(closestPlanet, starSystem.StarSystem.Star);
-        if (_shaderInstance == null) return false;
+        var origin = args.WorldAABB.Center - _starOffset;
 
-        _planet = closestPlanet;
-        
-        return true;
+        _shaders.Sort((a, b) =>
+            (origin - b.Planet.Position).LengthSquared().CompareTo((origin - a.Planet.Position).LengthSquared()));
+
+        return _shaders.Count > 0;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (_shaderInstance == null)
-            return;
-        
         var handle = args.WorldHandle;
         var viewportBounds = args.WorldAABB;
-        _shaderInstance.SetParameter("viewportMin", viewportBounds.BottomLeft);
-        _shaderInstance.SetParameter("viewportSize", viewportBounds.Size);
+        foreach (var (_, shader) in _shaders)
+        {
+            shader.SetParameter("viewportMin", viewportBounds.BottomLeft);
+            shader.SetParameter("viewportSize", viewportBounds.Size);
 
-        handle.UseShader(_shaderInstance);
-        handle.DrawRect(viewportBounds, Color.White);
+            handle.UseShader(shader);
+            handle.DrawRect(viewportBounds, Color.White);
+        }
         handle.UseShader(null);
     }
 
@@ -75,7 +75,7 @@ public sealed class PlanetOverlay : Overlay
         if (!_protoMan.TryIndex<ShaderPrototype>(planet.Shader, out var shaderProto) ||
             !_protoMan.TryIndex(planet.Palette, out var palette))
             return null;
-        
+
         var shader = shaderProto.InstanceUnique();
 
         // Planet physical info
@@ -109,7 +109,7 @@ public sealed class PlanetOverlay : Overlay
         if (planet.Atmosphere != null)
         {
             shader.SetParameter("hasAtmosphere", true);
-            
+
             var atmosColor = new Vector3(planet.Atmosphere.Color.R, planet.Atmosphere.Color.G, planet.Atmosphere.Color.B);
             shader.SetParameter("atmosphereColor", atmosColor);
 
@@ -174,10 +174,10 @@ public sealed class PlanetOverlay : Overlay
         // it's up to whoever adds more to make sure corrent inputs exist
         foreach (var (key, value) in planet.CustomData.Floats)
             shader.SetParameter(key, value);
-        
+
         foreach (var (key, value) in planet.CustomData.Ints)
             shader.SetParameter(key, value);
-        
+
         foreach (var (key, value) in planet.CustomData.Colors)
         {
             var color = new Vector3(value.R, value.G, value.B);
@@ -189,7 +189,7 @@ public sealed class PlanetOverlay : Overlay
 
     public void ResetShader()
     {
-        _planet = null;
-        _shaderInstance = null;
+        _planets = null;
+        _shaders.Clear();
     }
 }
