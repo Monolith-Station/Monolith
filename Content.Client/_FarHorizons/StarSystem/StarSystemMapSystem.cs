@@ -59,7 +59,6 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
 
     private void OnStateChanged(Entity<StarSystemMapComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        ent.Comp.StarSystem = MakePlanetarySystem(ent);
         _starOverlay.ResetShader();
         _planetOverlay.ResetShader();
         _beltOverlay.ResetShader();

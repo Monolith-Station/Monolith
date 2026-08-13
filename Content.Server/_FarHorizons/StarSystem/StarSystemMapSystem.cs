@@ -13,7 +13,6 @@ namespace Content.Server._FarHorizons.StarSystem;
 public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
 {
 
-    [Dependency] private GameTicker _ticker = default!;
     [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private IRobustRandom _rand = default!;
     [Dependency] private MapSystem _map = default!;
@@ -30,14 +29,16 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
     {
         if (!_map.TryGetMap(ev.Map, out var mapUid)) return;
         var comp = EnsureComp<StarSystemMapComponent>(mapUid.Value);
-        SetSeed((mapUid.Value, comp), _ticker.RoundId, false);
+
+        // TODO: readd starsystem definitions
+        if (comp.StarSystem == null) return;
 
         EntityUid? station = null;
         foreach (var grid in ev.Grids)
         {
             if (!HasComp<BecomesStationComponent>(grid))
                 continue;
-            
+
             station = grid;
             break;
         }
@@ -56,27 +57,6 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
         Dirty<StarSystemMapComponent>((mapUid.Value, comp));
 
         SpawnEntities((mapUid.Value, comp));
-    }
-
-    public void SetSeed(Entity<StarSystemMapComponent> ent, int seed, bool sync = true)
-    {
-        ent.Comp.Seed = HashSeed(seed);
-        if (sync)
-            Dirty(ent);
-        ent.Comp.StarSystem = MakePlanetarySystem(ent);
-    }
-
-    // Shuffle bits around to create entropy
-    private static int HashSeed(int input)
-    {
-        var x = (uint)input;
-        x ^= x >> 16;
-        x *= 0x7feb352du;
-        x ^= x >> 15;
-        x *= 0x846ca68bu;
-        x ^= x >> 16;
-        
-        return (int)x; 
     }
 
     private void SpawnEntities(Entity<StarSystemMapComponent> ent)
