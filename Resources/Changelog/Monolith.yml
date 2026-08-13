@@ -23708,3 +23708,12 @@ Entries:
   id: 2608
   time: '2026-08-12T13:42:32.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4473
+- author: Onezero0
+  changes:
+    - type: Fix
+      message: No more duping DC. Not sorry.
+    - type: Tweak
+      message: PDV uplink now has less station fork references.
+  id: 2609
+  time: '2026-08-13T01:31:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4483
