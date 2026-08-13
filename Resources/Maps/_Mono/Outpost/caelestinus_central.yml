@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/13/2026 13:03:17
-  entityCount: 9938
+  time: 08/13/2026 13:13:29
+  entityCount: 9939
 maps:
 - 1
 grids:
@@ -12209,7 +12209,7 @@ entities:
   - uid: 965
     components:
     - type: Transform
-      pos: -29.5,-4.5
+      pos: -28.5,-11.5
       parent: 2
   - uid: 966
     components:
@@ -16850,6 +16850,11 @@ entities:
     components:
     - type: Transform
       pos: -26.5,-26.5
+      parent: 2
+  - uid: 6189
+    components:
+    - type: Transform
+      pos: -28.5,-12.5
       parent: 2
   - uid: 6594
     components:
