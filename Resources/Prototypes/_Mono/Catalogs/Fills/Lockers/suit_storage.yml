@@ -214,3 +214,36 @@
     - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
     access: [["MieyoSecurity"]]
+
+# Medical Dispatch / ATU
+- type: entity
+  id: SuitStorageTraumaLeader
+  parent: SuitStorageBase
+  suffix: ATU T-53
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitTraumaLeader
+    - id: ClothingMaskBreath
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMagSecurity
+  - type: AccessReader
+    access: [["Command"]]
+    
+- type: entity
+  id: SuitStorageTrauma
+  parent: SuitStorageBase
+  suffix: ATU T-23
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitTrauma
+    - id: ClothingMaskBreath
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMagSecurity
+  - type: AccessReader
+    access: [["Medical"]]
