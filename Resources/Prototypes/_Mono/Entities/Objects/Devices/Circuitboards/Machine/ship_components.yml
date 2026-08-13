@@ -291,6 +291,9 @@
   name: large thruster machine board
   description: A large circuitboard for a 2x2 machine frame.
   components:
+  - type: Tag
+    tags: 
+      - MachineBoard2x2 #Forge-Change
   - type: MachineBoard
     prototype: ThrusterLarge
     frameSize: 2x2

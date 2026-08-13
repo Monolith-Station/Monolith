@@ -114,6 +114,7 @@
         - MachineBoard2x2 # Forge-Change
         - MachineBoard3x2 # Forge-Change
         - MachineBoard3x3 # Forge-Change
+        - BlacklistMachineFrame #Forge-Change
     - type: ContainerContainer
       containers:
         machine_board: !type:Container

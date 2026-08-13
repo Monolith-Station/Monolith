@@ -4,7 +4,7 @@
   suffix: USSP, Locked
   components:
   - type: AccessReader
-    access: [["USSP"]]
+    access: [["Mercenary"], ["Captain"]] #Forge-Change
 
 - type: entity
   parent: DoorElectronics
@@ -52,7 +52,7 @@
   suffix: Viper Group, Locked
   components:
   - type: AccessReader
-    access: [["Viper"]]
+    access: [["Mercenary"], ["Captain"]] #Forge-Change
 
 - type: entity
   parent: DoorElectronics

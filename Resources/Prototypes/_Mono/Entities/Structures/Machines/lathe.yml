@@ -47,11 +47,12 @@
     - MonoTSFVouchersDynamic
     - MonoTSFMiscDynamic
     - MonoTSFGearDynamic
-    #Forge-Change-Start Моно закоментили все что в этом блоке, мы это раскоментили
+    #Forge-Change-start: back USSP & Viper staff
     # USSP start
     - MonoUSSPArmorDynamic
     - MonoUSSPMiscDynamic
     - MonoUSSPWeaponsDynamicRanged
+    - MonoUSSPVouchersDynamic
     # Viper Group start
     - MonoViperGroupDynamic
     #Forge-Change-End
@@ -76,7 +77,6 @@
     - RenegateAmmoDynamic
     - RenegateVoucherDynamic
     #Forge-Change-End
-
   - type: MaterialStorage
     whitelist:
       tags:

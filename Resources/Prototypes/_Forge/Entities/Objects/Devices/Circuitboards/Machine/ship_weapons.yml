@@ -18,6 +18,9 @@
       Steel: 20
       Glass: 12
       Plasteel: 10
+  - type: Tag
+    tags: 
+    - BlacklistMachineFrame
 
 - type: entity
   id: ForgeShipWeaponCircuitboardT2
@@ -42,6 +45,9 @@
       Gold: 15
       Copper: 40
       Lithium: 5
+  - type: Tag
+    tags: 
+    - BlacklistMachineFrame
 
 - type: entity
   id: ForgeShipWeaponCircuitboardT3
@@ -71,6 +77,9 @@
       Lithium: 10
       Plastitanium: 15
       Iridite: 3
+  - type: Tag
+    tags: 
+    - BlacklistMachineFrame
 
 - type: entity
   id: ForgeShipWeaponCircuitboardT4
@@ -101,6 +110,9 @@
       Lithium: 10
       Plastitanium: 40
       Iridite: 5
+  - type: Tag
+    tags: 
+    - BlacklistMachineFrame
 
 - type: entity
   id: WeaponTurretL85AutocannonCircuitboard
@@ -134,9 +146,6 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretRAC30Portable
-  - type: Tag
-    tags:
-    - MachineBoard2x1
 
 - type: entity
   id: WeaponTurretAK570Circuitboard
@@ -146,9 +155,6 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretAK570Portable
-  - type: Tag
-    tags:
-    - MachineBoard2x1
 - type: entity
   id: WeaponTurretDravonCircuitboard
   parent: ForgeShipWeaponCircuitboardT2
@@ -157,9 +163,6 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretDravonPortable
-  - type: Tag
-    tags:
-    - MachineBoard2x1
 - type: entity
   id: WeaponTurretType35Circuitboard
   parent: ForgeShipWeaponCircuitboardT2
@@ -168,9 +171,6 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretType35Portable
-  - type: Tag
-    tags:
-    - MachineBoard2x1
 - type: entity
   id: WeaponTurretM220Circuitboard
   parent: ForgeShipWeaponCircuitboardT2
@@ -194,9 +194,6 @@
       Silver: 30
       Copper: 60
       Lithium: 30
-  - type: Tag
-    tags:
-    - MachineBoard2x1
 
 - type: entity
   id: WeaponTurretVesperaCircuitboard
@@ -206,9 +203,6 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretVesperaPortable
-  - type: Tag
-    tags:
-    - MachineBoard2x1
 - type: entity
   id: WeaponTurretVanykCircuitboard
   parent: ForgeShipWeaponCircuitboardT2
@@ -217,9 +211,6 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretVanykPortable
-  - type: Tag
-    tags:
-    - MachineBoard2x1
 - type: entity
   id: WeaponTurretCerberusCircuitboard
   parent: ForgeShipWeaponCircuitboardT3
@@ -228,9 +219,6 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretCerberusPortable
-  - type: Tag
-    tags:
-    - MachineBoard2x1
 
 - type: entity
   id: WeaponTurretBoforsCircuitboard
@@ -240,9 +228,7 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretBoforsPortable
-  - type: Tag
-    tags:
-    - MachineBoard2x2
+
 
 - type: entity
   id: WeaponTurretTarnyxReloadCircuitboard
@@ -268,9 +254,7 @@
       Copper: 120
       Lithium: 60
       Iridite: 6
-  - type: Tag
-    tags:
-    - MachineBoard2x2
+ 
 - type: entity
   id: WeaponLaserTurretPrometheusCircuitboard
   parent: ForgeShipWeaponCircuitboardT3
@@ -279,9 +263,6 @@
   components:
   - type: MachineBoard
     prototype: WeaponLaserTurretPrometheusPortable
-  - type: Tag
-    tags:
-    - MachineBoard2x1
 
 - type: entity
   id: WeaponTurretSerpentMissileCircuitboard
@@ -291,9 +272,7 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretSerpentMissilePortable
-  - type: Tag
-    tags:
-    - MachineBoard2x2
+
 - type: entity
   id: WeaponTurretTovekCircuitboard
   parent: ForgeShipWeaponCircuitboardT3
@@ -302,9 +281,7 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretTovekPortable
-  - type: Tag
-    tags:
-    - MachineBoard2x2
+
 - type: entity
   id: WeaponTurretASM220Circuitboard
   parent: ForgeShipWeaponCircuitboardT3
@@ -313,9 +290,7 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretASM220Portable
-  - type: Tag
-    tags:
-    - MachineBoard2x2
+ 
 - type: entity
   id: WeaponTurretLightMunitionsBayCircuitboard
   parent: ForgeShipWeaponCircuitboardT3
@@ -324,9 +299,7 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretLightMunitionsBayPortable
-  - type: Tag
-    tags:
-    - MachineBoard2x2
+
 - type: entity
   id: WeaponTurretLongbowCircuitboard
   parent: ForgeShipWeaponCircuitboardT4
@@ -335,9 +308,7 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretLongbowPortable
-  - type: Tag
-    tags:
-    - MachineBoard2x2
+
 
 - type: entity
   id: WeaponTurretCyrexaCircuitboard
@@ -347,9 +318,7 @@
   components:
   - type: MachineBoard
     prototype: WeaponTurretCyrexaPortable
-  - type: Tag
-    tags:
-    - MachineBoard2x2
+
 
 - type: entity
   id: WeaponTurretCharonReloadCircuitboard
@@ -380,9 +349,6 @@
       Lithium: 15
       Plastitanium: 50
       Iridite: 10
-  - type: Tag
-    tags:
-    - MachineBoard2x2
 
 - type: entity
   id: WeaponLaserTurretApolloCircuitboard
@@ -392,10 +358,7 @@
   components:
   - type: MachineBoard
     prototype: WeaponLaserTurretApolloPortable
-  - type: Tag
-    tags:
-    - MachineBoard2x2
-
+  
 - type: entity
   id: WeaponTurretDrakeApolloMk2Circuitboard
   parent: ForgeShipWeaponCircuitboardT4
@@ -423,6 +386,3 @@
       Lithium: 15
       Plastitanium: 30
       Iridite: 5
-  - type: Tag
-    tags:
-    - MachineBoard2x2

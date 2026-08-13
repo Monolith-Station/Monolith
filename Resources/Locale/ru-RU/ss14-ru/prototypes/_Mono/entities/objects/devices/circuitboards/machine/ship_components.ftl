@@ -22,3 +22,5 @@ ent-MachineDriveCTLA25sCircuitboard = плата блюспейс-двигате
     .desc = Плата машины для продвинутого блюспейс-двигателя.
 ent-MachineDriveCTLA50Circuitboard = плата блюспейс-двигателя CTLA-50
     .desc = Плата машины для продвинутого блюспейс-двигателя.
+ent-LargeThrusterMachineCircuitboard = плата большого двигателя
+    .desc = Плата машины для большого двигателя.

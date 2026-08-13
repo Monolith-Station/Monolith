@@ -913,7 +913,7 @@
   cost: 4
   delay: 4
   collisionMask: FullTileMask
-  rotation: Camera
+  rotation: User #Forge-Change
   fx: EffectRCDConstruct4
 
 - type: rcd
@@ -925,7 +925,7 @@
   cost: 4
   delay: 4
   collisionMask: FullTileMask
-  rotation: Camera
+  rotation: User #Forge-Change
   fx: EffectRCDConstruct4
 
 - type: rcd
@@ -937,7 +937,7 @@
   cost: 4
   delay: 3
   collisionMask: FullTileMask
-  rotation: Camera
+  rotation: User #Forge-Change
   fx: EffectRCDConstruct3
 
 # Lighting
