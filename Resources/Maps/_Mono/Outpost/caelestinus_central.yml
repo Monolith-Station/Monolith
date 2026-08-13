@@ -8218,7 +8218,7 @@ entities:
     - type: Transform
       pos: -35.5,40.5
       parent: 2
-- proto: AirlockGlassShuttle
+- proto: AirlockGlassShuttleOutpost
   entities:
   - uid: 84
     components:
@@ -8260,8 +8260,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 40.5,27.5
       parent: 2
-- proto: AirlockGlassShuttleOutpost
-  entities:
   - uid: 90
     components:
     - type: Transform
@@ -8371,6 +8369,8 @@ entities:
     - type: Transform
       pos: 36.5,-0.5
       parent: 2
+    - type: Docking
+      name: 2A
   - uid: 107
     components:
     - type: Transform
@@ -8499,6 +8499,8 @@ entities:
     - type: Transform
       pos: -28.5,-37.5
       parent: 2
+    - type: Docking
+      name: 0B
   - uid: 128
     components:
     - type: Transform
@@ -9257,8 +9259,6 @@ entities:
     - type: Transform
       pos: 36.5,-0.5
       parent: 2
-    - type: Docking
-      name: 2A
   - uid: 248
     components:
     - type: Transform
@@ -11929,8 +11929,6 @@ entities:
     - type: Transform
       pos: -28.5,-37.5
       parent: 2
-    - type: Docking
-      name: 0B
   - uid: 910
     components:
     - type: Transform
