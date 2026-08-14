@@ -1,4 +1,4 @@
-using Content.Server._Mono.AlertLevel;
+// using Content.Server._Mono.AlertLevel; // Forge-change
 using Content.Server.Access.Systems;
 using Content.Server.AlertLevel;
 using Content.Server.CartridgeLoader;
@@ -69,7 +69,7 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<StationRenamedEvent>(OnStationRenamed);
             SubscribeLocalEvent<EntityRenamedEvent>(OnEntityRenamed, after: new[] { typeof(IdCardSystem) });
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
-            SubscribeLocalEvent<WarLevelChangedEvent>(OnWarLevelChanged);
+            // SubscribeLocalEvent<WarLevelChangedEvent>(OnWarLevelChanged); // Forge-change
 
             // Begin DeltaV additions
             Subs.CVar(_config,
@@ -120,7 +120,7 @@ namespace Content.Server.PDA
             if (!HasComp<UserInterfaceComponent>(uid))
                 return;
 
-            UpdateWarLevel(uid, pda); // Mono
+            //UpdateWarLevel(uid, pda); // Mono //Forge-Change
             UpdateAlertLevel(uid, pda);
             UpdateStationName(uid, pda);
         }
@@ -170,10 +170,12 @@ namespace Content.Server.PDA
             UpdateAllPdaUisOnStation();
         }
 
-        private void OnWarLevelChanged(WarLevelChangedEvent args)
-        {
-            UpdateAllPdaUisOnStation();
-        }
+        // Forge-change-start
+        // private void OnWarLevelChanged(WarLevelChangedEvent args)
+        // {
+        //     UpdateAllPdaUisOnStation();
+        // }
+        // Forge-change-end
 
         private void UpdateAllPdaUisOnStation()
         {
@@ -224,7 +226,7 @@ namespace Content.Server.PDA
             pda.CurrentDate = pda.DateOverride ?? ServerDate; // DeltaV - PDA date
             UpdateStationName(uid, pda);
             UpdateAlertLevel(uid, pda);
-            UpdateWarLevel(uid, pda); // Mono
+            //UpdateWarLevel(uid, pda); // Mono //Forge-Change
             // TODO: Update the level and name of the station with each call to UpdatePdaUi is only needed for latejoin players.
             // TODO: If someone can implement changing the level and name of the station when changing the PDA grid, this can be removed.
 
@@ -274,7 +276,7 @@ namespace Content.Server.PDA
                     CurrentDate = pda.CurrentDate, // DeltaV - PDA date
                     StationAlertLevel = pda.StationAlertLevel,
                     StationAlertColor = pda.StationAlertColor,
-                    WarLevel = pda.WarLevel
+                    //WarLevel = pda.WarLevel //Forge-Change
                 },
                 balance, // Frontier
                 ownedShipName, // Frontier
@@ -376,13 +378,15 @@ namespace Content.Server.PDA
         }
 
         // Mono
-        private void UpdateWarLevel(EntityUid uid, PdaComponent pda)
-        {
-            var station = _sectorService.GetServiceEntity();
-            if (!TryComp(station, out WarLevelComponent? warComp))
-                return;
-            pda.WarLevel = warComp.PostWar ? Loc.GetString("comp-pda-ui-station-war-level-post") : Loc.GetString("comp-pda-ui-station-war-level-pre");
-        }
+        // Forge-change-start
+        // private void UpdateWarLevel(EntityUid uid, PdaComponent pda)
+        // {
+        //     var station = _sectorService.GetServiceEntity();
+        //     if (!TryComp(station, out WarLevelComponent? warComp))
+        //         return;
+        //     pda.WarLevel = warComp.PostWar ? Loc.GetString("comp-pda-ui-station-war-level-post") : Loc.GetString("comp-pda-ui-station-war-level-pre");
+        // }
+        // Forge-change-end
 
         private string? GetDeviceNetAddress(EntityUid uid)
         {

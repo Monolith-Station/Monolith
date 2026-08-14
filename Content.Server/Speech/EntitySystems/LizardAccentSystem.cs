@@ -9,7 +9,8 @@ public sealed class LizardAccentSystem : EntitySystem
     private static readonly Regex RegexInternalX = new(@"(\w)x");
     private static readonly Regex RegexLowerEndX = new(@"\bx([\-|r|R]|\b)");
     private static readonly Regex RegexUpperEndX = new(@"\bX([\-|r|R]|\b)");
-    //Forge-Localization-Start
+
+    //Forge-change-start: Ru-Localization
     private static readonly Regex RegexLowerC = new Regex("с+");
     private static readonly Regex RegexUpperC = new Regex("С+");
     private static readonly Regex RegexLowerZ = new Regex("з+");
@@ -20,7 +21,8 @@ public sealed class LizardAccentSystem : EntitySystem
     private static readonly Regex RegexUpperCh = new Regex("Ч+");
     private static readonly Regex RegexLowerSch = new Regex("щ+");
     private static readonly Regex RegexUpperSch = new Regex("Щ+");
-    //Forge-Localiztion-End
+    //Forge-change-end
+
     public override void Initialize()
     {
         base.Initialize();
@@ -41,18 +43,20 @@ public sealed class LizardAccentSystem : EntitySystem
         message = RegexLowerEndX.Replace(message, "ecks$1");
         // eckS
         message = RegexUpperEndX.Replace(message, "ECKS$1");
-        //Forge-Localization-Start
-        message = RegexLowerC.Replace(message, "ссс");
-        message = RegexUpperC.Replace(message, "ССС");
-        message = RegexLowerZ.Replace(message, "ссс");       // для "з+" используются те же замены, что и для "с+"
-        message = RegexUpperZ.Replace(message, "ССС"); // для "З+" используются те же замены, что и для "С+"
-        message = RegexLowerSh.Replace(message, "шшш");
-        message = RegexUpperSh.Replace(message, "ШШШ");
-        message = RegexLowerCh.Replace(message, "ччч");
-        message = RegexUpperCh.Replace(message, "ЧЧЧ");
-        message = RegexLowerSch.Replace(message, "щщщ");
-        message = RegexUpperSch.Replace(message, "ЩЩЩ");
-        //Forge-Localization-End
+
+        //Forge-change-start
+        message = RegexLowerC.Replace(message, "сс");
+        message = RegexUpperC.Replace(message, "СС");
+        message = RegexLowerZ.Replace(message, "сс");
+        message = RegexUpperZ.Replace(message, "СС");
+        message = RegexLowerSh.Replace(message, "шш");
+        message = RegexUpperSh.Replace(message, "ШШ");
+        message = RegexLowerCh.Replace(message, "щщ");
+        message = RegexUpperCh.Replace(message, "ЩЩ");
+        message = RegexLowerSch.Replace(message, "щщ");
+        message = RegexUpperSch.Replace(message, "ЩЩ");
+        //Forge-change-end
+
         args.Message = message;
     }
 }

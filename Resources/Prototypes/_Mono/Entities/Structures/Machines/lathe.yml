@@ -97,6 +97,7 @@
   parent: BaseLatheLube
   name: USSP field assembler
   description: Capable of manufacturing equipment to USSP design specifications. Often issued throughout the Armed Forces to support the inherent industrial tendencies of its service members.
+  categories: [ HideSpawnMenu ] # Forge-change
   components:
   - type: Sprite
     sprite: _Mono/Structures/Machines/techfab.rsi
@@ -161,6 +162,7 @@
   parent: BaseLatheLube
   name: Viper Group precision lathe
   description: Capable of producing equipment to Viper Group standards. The parts making up the lathe are stamped with the logos of long-forgotten brands from the corporate era.
+  categories: [ HideSpawnMenu ] # Forge-change
   components:
   - type: Sprite
     sprite: _Mono/Structures/Machines/techfab.rsi
