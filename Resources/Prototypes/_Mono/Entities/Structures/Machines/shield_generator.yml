@@ -190,6 +190,50 @@
     repairTime: 30
     repairCost: 300
 
+- type: entity
+  id: ShieldGeneratorPOIBio
+  parent: ShieldGeneratorPOI
+  name: FS-243 "Biodome" Outpost Shield Generator
+  description: Biodome protects outpost from biological threats while also being resistant to stray artillery fire.
+  suffix: POI ONLY
+  components:
+  - type: ShipShieldEmitter
+    damageLimit: 150000
+    healPerSecond: 650
+    damageExp: 1
+    baseDraw: 80000
+    maxDraw: 150000
+    unpoweredBonus: 7
+    powerModifier: 0.25
+    damageOverloadTimePunishment: 65
+    shieldColor: "#50C878"
+    collisionResistanceMultiplier: 0.0
+  - type: Sprite
+    sprite: _Mono/Structures/ShuttleComponents/fobshield.rsi
+    snapCardinals: true
+    layers:
+    - state: fobshield
+    - state: fobshield_on
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+      color: "#50C878"
+  - type: PointLight
+    enabled: false
+    castShadows: true
+    radius: 2
+    energy: 1.5
+    color: "#50C878"
+  - type: FixtureDamageDealer
+    collisionMask: 65
+    damage:
+      types:
+        Heat: 25
+    whitelist:
+      tags:
+        - Chimera
+
+
 # TSF capital shield - inbetween POI and MS-500, meant for flyssa
 - type: entity
   id: ShieldGeneratorTSFCapital
