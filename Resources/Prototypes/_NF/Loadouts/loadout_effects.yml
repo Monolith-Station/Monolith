@@ -60,14 +60,6 @@
     - Feroxi # Mono/DV
 
 - type: loadoutEffectGroup
-  id: NFNotDocOrStc
-  effects:
-  - !type:RoleBlacklistLoadoutEffect
-    blacklist:
-    - JobStationTrafficController
-    - JobDirectorOfCare
-
-- type: loadoutEffectGroup
   id: NFNotDoc
   effects:
   - !type:RoleBlacklistLoadoutEffect

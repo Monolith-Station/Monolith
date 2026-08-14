@@ -45,3 +45,16 @@
   - VGCommander
   primary: false
   editorHidden: false
+
+- type: department
+  id: CCTC
+  name: department-CreonCentennialTradeCharter
+  description: department-CreonCentennialTradeCharter-description
+  color: "#5c6045"
+  weight: 100
+  roles:
+  - JobShareholderCCTC
+  - JobMarshallCCTC
+  - JobSecurityCCTC
+  - JobServiceTechCCTC
+  primary: true

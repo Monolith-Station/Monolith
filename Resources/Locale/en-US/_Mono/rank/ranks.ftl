@@ -86,8 +86,9 @@ mmc-asset-security-senior = Senior Asset Security
 mmc-liason = Corporate Liason
 
 ### CC/MD ranks
-cc-judge = Jdg.
+cctc-justice = Jdg.
 cc-stc = STC
-cc-overseer = Overseer
+cctc-marshall = Marshall
+cctc-shareholder = Nbl.
 md-doc = Director Of Care
 md-medic = ER.

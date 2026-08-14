@@ -77,8 +77,8 @@
   parent: JobIcon
   id: JobIconSecurityGuard
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: SecurityOfficer
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: CCTCjustice
   jobName: job-name-security-guard
 
 - type: jobIcon
@@ -100,9 +100,9 @@
   parent: JobIcon
   id: JobIconValet
   icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: valet
-  jobName: job-name-valet
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: CCTCservicetech
+  jobName: job-name-service-worker # Mono
 
 # NFSD positions
 
@@ -177,7 +177,7 @@
   parent: JobIcon
   id: JobIconDoc
   icon:
-    sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: nfmsdoc
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi # Mono
+    state: CCTCdoc
   jobName: job-name-doc
 #  allowSelection: false # Frontier: no impersonating command staff, literally 1984 - Mono Revert

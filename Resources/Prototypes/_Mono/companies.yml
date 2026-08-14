@@ -30,8 +30,14 @@
 
 - type: company
   id: Colonial
-  name: Colonial Staff
+  name: CCTC
   color: "#279659"
+  disabled: true
+
+- type: company
+  id: CCTC
+  name: CCTC
+  color: "#5c6045"
   disabled: true
 
 - type: company

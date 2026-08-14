@@ -76,11 +76,12 @@
   # - ERTSecurity # Frontier
   # - ERTEngineer # Frontier
   # - DeathSquad # Frontier
-  - StationRepresentative # Frontier
+  #- StationRepresentative # Frontier
   - Sheriff  # Frontier
-  - StationTrafficController # Frontier
-  - DirectorOfCare # Mono
+  #- StationTrafficController # Frontier
+  #- DirectorOfCare # Mono
   primary: false
+  editorHidden: true
   weight: 100
 
 - type: department
@@ -92,15 +93,16 @@
   primary: false
   editorHidden: true # Frontier
 
-- type: department
-  id: Medical
-  name: department-Medical
-  description: department-Medical-description
-  color: "#52B4E9"
-  weight: 0
-  roles: # Mono
-  - DirectorOfCare # Mono
-  - MdMedic # Mono
+#- type: department
+#  id: Medical
+#  name: department-Medical
+#  description: department-Medical-description
+#  color: "#52B4E9"
+#  weight: 0
+#  roles: # Mono
+  #- DirectorOfCare # Mono
+  #- MdMedic # Mono
+#  primary: false # Mono
 
 - type: department
   id: Security

@@ -48,23 +48,6 @@
 
 - type: entity
   parent: IDCardStandard
-  id: StcIDCard
-  name: station traffic controller ID card
-  components:
-  - type: PresetIdCard
-    job: StationTrafficController
-  - type: Sprite
-    sprite: _NF/Objects/Misc/id_cards.rsi
-    layers:
-    - state: silver
-    - state: idstationtrafficcontroller
-  - type: Clothing
-    sprite: _NF/Objects/Misc/id_cards.rsi
-  - type: Item
-    heldPrefix: silver
-
-- type: entity
-  parent: IDCardStandard
   id: PublicAffairsIDCard
   name: public affairs liaison ID card
   components:
@@ -193,14 +176,6 @@
     layers:
     - state: gold
     - state: ert_mailcarrier
-
-- type: entity
-  parent: HoPIDCard
-  id: SrIDCard
-  name: overseer ID card
-  components:
-  - type: PresetIdCard
-    job: StationRepresentative
 
 - type: entity
   parent: CCServiceWorkerIDCard

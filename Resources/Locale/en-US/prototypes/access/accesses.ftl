@@ -3,7 +3,7 @@ id-card-access-level-captain = Captain
 id-card-access-level-cryogenics = Cryogenics
 id-card-access-level-emergency-shuttle-repeal = E.Shuttle Repeal All
 
-id-card-access-level-head-of-personnel = Station Representative
+id-card-access-level-head-of-personnel = Marshall
 id-card-access-level-head-of-security = Colonel
 id-card-access-level-security = Security
 id-card-access-level-armory = Armory
@@ -17,7 +17,7 @@ id-card-access-level-atmospherics = Atmospherics
 id-card-access-level-research-director = Research Director
 id-card-access-level-research = Research
 
-id-card-access-level-chief-medical-officer = Chief Medical Officer
+id-card-access-level-chief-medical-officer = Claims Manager
 id-card-access-level-medical = Medical
 id-card-access-level-chemistry = Chemistry
 id-card-access-level-paramedic = Paramedic

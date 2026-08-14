@@ -66,25 +66,6 @@
 
 - type: entity
   parent: BaseSecurityPDA
-  id: StcPDA
-  name: station traffic controller PDA
-  description: Declare emergencies in style!
-  components:
-  - type: Pda
-    id: StcIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-cargo-assistant
-  - type: PdaBorderColor
-    borderColor: "#bdbdbd"
-    accentVColor: "#8f7145"
-  - type: Icon
-    state: pda-cargo-assistant
-
-- type: entity
-  parent: BaseSecurityPDA
   id: SecurityGuardPDA
   name: security guard PDA
   description: Red to hide the stains of passenger blood.
@@ -280,40 +261,6 @@
     accentHColor: "#896b49"
   - type: Icon
     state: pda-prosecutor
-
-- type: entity
-  parent: BaseSecurityPDA
-  id: SrPDA
-  name: overseer PDA
-  description: Looks like it's been clawed on.
-  components:
-  - type: Pda
-    id: SrIDCard
-    penSlot:
-      startingItem: PenCentcom
-      priority: -1
-      whitelist:
-        tags:
-        - Write
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-hop
-  - type: PdaBorderColor
-    borderColor: "#789876"
-    accentHColor: "#447987"
-  - type: Icon
-    state: pda-hop
-  - type: CartridgeLoader
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - BountyContractsCartridge
-    - AstroNavCartridge
-    - LedgerCartridge
-    - MailMetricsCartridge
 
 - type: entity
   parent: PassengerPDA

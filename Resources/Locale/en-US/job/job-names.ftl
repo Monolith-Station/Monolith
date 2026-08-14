@@ -9,7 +9,7 @@ job-name-research-assistant = Research Assistant
 job-name-rd = Research Director
 job-name-psychologist = Psychologist
 job-name-intern = Medical Intern
-job-name-doctor = Medical Doctor
+job-name-doctor = CCTC Emergency Responder
 job-name-paramedic = Paramedic
 job-name-cmo = Chief Medical Officer
 job-name-chemist = Chemist
@@ -18,7 +18,7 @@ job-name-engineer = Station Engineer
 job-name-atmostech = Atmospheric Technician
 job-name-hop = Head of Personnel
 job-name-captain = Captain
-job-name-serviceworker = Service Worker
+job-name-serviceworker = CCTC Service Tech
 job-name-centcomoff = CentComm Official
 job-name-cburn = Centcomm Quarantine Officer
 job-name-deathsquad = Centcomm Agent
@@ -89,8 +89,8 @@ JobERTJanitor = ERT Janitor
 JobERTLeader = ERT Leader
 JobERTMedical = ERT Medical
 JobERTSecurity = ERT Security
-# Frontier: Head of Personnel<Station Representative
-JobHeadOfPersonnel = Station Representative
+# Mono: Head of Personnel<Station Representative
+JobHeadOfPersonnel = Marshall
 # Mono: Head of Security<TSFMC Colonel
 JobHeadOfSecurity = TSFMC Colonel
 JobJanitor = Janitor
@@ -114,7 +114,7 @@ JobScientist = Scientist
 JobSecurityCadet = Cadet
 # Mono: Security Officer<TSFMC Corporal
 JobSecurityOfficer = TSFMC Corporal
-JobServiceWorker = Service Worker
+JobServiceWorker = CCTC Service Tech
 JobStationAi = Station AI
 JobStationEngineer = Station Engineer
 JobTechnicalAssistant = Technical Assistant

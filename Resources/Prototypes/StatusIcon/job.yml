@@ -271,9 +271,9 @@
   parent: JobIcon
   id: JobIconHeadOfSecurity
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: HeadOfSecurity
-  jobName: job-name-hos
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: CCTCmarshall
+  jobName: job-name-sr
   allowSelection: false # Frontier
 
 - type: jobIcon
@@ -289,8 +289,8 @@
   parent: JobIcon
   id: JobIconMedicalDoctor
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: MedicalDoctor
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: CCTCmedic
   jobName: job-name-doctor
 
 - type: jobIcon

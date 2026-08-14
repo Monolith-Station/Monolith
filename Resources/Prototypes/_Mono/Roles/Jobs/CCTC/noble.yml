@@ -1,23 +1,31 @@
 - type: job
-  id: StationTrafficController
-  name: job-name-stc
-  description: job-description-stc
-  playTimeTracker: JobStc
-  startingGear: StcGear
+  id: JobShareholderCCTC
+  name: job-name-cctc-shareholder
+  description: job-description-cctc-shareholder
+  playTimeTracker: JobShareholderCCTC
+  startingGear: ShareholderCCTCGear
   alwaysUseSpawner: true
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 54000 # 20 hrs # mono - change to 15 hr
+      time: 180000 # 50 hrs - 100 > 50 - mono
     - !type:RoleTimeRequirement
       role: JobSecurityGuard
-      time: 3600 # 3 hrs as security guard # mono - change to 1 hr
+      time: 18000 # 5 hrs as security guard - mono
+    - !type:RoleTimeRequirement
+      role: JobServiceWorker
+      time: 18000 # 5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Frontier
+      time: 54000 # 15 hours
   canBeAntag: false
-  icon: "JobIconStc"
-  assignedCompany: Colonial
+  icon: "JobIconCCTCNoble"
+  assignedCompany: CCTC
   supervisors: job-supervisors-sr
   weight: 160
-  displayWeight: 50 # Second from the top
+  displayWeight: 60 # Top
   setPreference: true
+  accessGroups:
+  - CCTC
   access:
   - Service
   - Maintenance
@@ -34,9 +42,9 @@
     prototype: FrontierBirthdayGift
 
 - type: startingGear
-  id: StcGear
-  equipment:
-    id: StcPDA
+  id: ShareholderCCTCGear
+  #equipment:
+  #  id: StcPDA
   storage:
     back:
     - Flash

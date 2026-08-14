@@ -1,19 +1,4 @@
 - type: loadoutGroup
-  id: MonoSecurityGuardOuterClothing
-  name: loadout-group-contractor-outerclothing
-  hidden: true # No point in showing this, it gets auto-selected.
-  minLimit: 1
-  loadouts:
-  - MonoSecurityGuardVestSlim
-  fallbacks:
-  - MonoSecurityGuardVestSlim
-
-- type: loadout
-  id: MonoSecurityGuardVestSlim
-  equipment:
-    outerClothing: ClothingOuterArmorBPVestPolyvalent
-
-- type: loadoutGroup
   id: MonoSecurityGuardBelt
   name: loadout-group-contractor-belt
   minLimit: 1
@@ -48,27 +33,6 @@
     belt: ClothingBeltAssault
 
 - type: loadoutGroup
-  id: MonoSecurityGuardGaiter
-  name: loadout-group-contractor-face
-  loadouts:
-  - MonoSecurityGuardNeckGaiter
-  - MonoSecurityGuardNeckGaiterRed
-  fallbacks:
-  - MonoSecurityGuardNeckGaiter
-
-- type: loadout
-  id: MonoSecurityGuardNeckGaiter
-  storage:
-    back:
-    - ClothingMaskNeckGaiter
-
-- type: loadout
-  id: MonoSecurityGuardNeckGaiterRed
-  storage:
-    back:
-    - ClothingMaskNeckGaiterRed
-
-- type: loadoutGroup
   id: MonoSecurityGuardHud
   name: loadout-group-contractor-glasses
   hidden: true # No point in showing this, it gets auto-selected.
@@ -98,26 +62,6 @@
     shoes: ClothingShoesBootsJackFilled
 
 - type: loadoutGroup
-  id: MonoSecurityGuardJumpsuit
-  name: loadout-group-contractor-jumpsuit
-  minLimit: 1
-  loadouts:
-  - MonoSecJumpsuitRed
-  - MonoSecJumpsuitMaroon
-  fallbacks:
-  - MonoSecJumpsuitRed
-
-- type: loadout
-  id: MonoSecJumpsuitRed
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitMilitaryColorRed
-
-- type: loadout
-  id: MonoSecJumpsuitMaroon
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitMilitaryColorMaroon
-
-- type: loadoutGroup
   id: MonoSecurityGuardBack
   name: loadout-group-contractor-backpack
   minLimit: 1
@@ -125,7 +69,6 @@
   - MonoSecurityGuardBackpack
   - MonoSecurityGuardSatchel
   - MonoSecurityGuardDuffel
-  - MercenaryClothingModsuitSecurityPowerCell
   fallbacks:
   - MonoSecurityGuardBackpack
 

@@ -11,8 +11,8 @@
   icon: "JobIconMedicalDoctor"
   supervisors: job-supervisors-doc
   weight: 170
-  displayWeight: 55 # Second from the top
-  assignedCompany: MD
+  displayWeight: 5 # Bottom
+  assignedCompany: CCTC # mono
   canBeAntag: false
   accessGroups:
   - GeneralAccess

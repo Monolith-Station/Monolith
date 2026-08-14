@@ -1,0 +1,49 @@
+- type: loadoutGroup
+  id: CCTCJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  loadouts:
+  - MercenaryClothingUniformJumpsuitMilitaryTurtleneckMercenary
+  - ContractorClothingUniformJumpsuitMilitaryColorDarkGreen
+  - ContractorClothingUniformJumpsuitMilitaryColorGreen
+  - ContractorClothingUniformJumpsuitMilitaryColorRed
+  fallbacks:
+  - ContractorClothingUniformJumpsuitMilitaryColorDarkGreen
+
+- type: loadoutGroup
+  id: CCTCJumpsuitUtility
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  loadouts:
+  - ContractorClothingUniformJumpsuitMilitaryColorBrown
+  - ContractorClothingUniformJumpsuitMilitaryCargo
+  - ContractorClothingUniformJumpsuitMilitaryEngineering
+  - ContractorClothingUniformJumpsuitMilitarySalvageSpecialist
+  - ContractorClothingUniformJumpsuitMilitaryColorDarkGreen
+  - ContractorClothingUniformJumpsuitMilitaryColorGreen
+  fallbacks:
+  - ContractorClothingUniformJumpsuitMilitaryEngineering
+
+- type: loadoutGroup
+  id: CCTCShareholderJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  loadouts:
+  - ClothingUniformJumpsuitCCTCFormalLoadout
+  - ClothingUniformJumpskirtCCTCFormalLoadout
+  - ContractorClothingUniformJumpsuitMilitaryColorDarkGreen
+  - ContractorClothingUniformJumpsuitMilitaryColorGreen
+  fallbacks:
+  - ClothingUniformJumpsuitCCTCFormalLoadout
+
+- type: loadout
+  id: ClothingUniformJumpsuitCCTCFormalLoadout
+  price: 1000
+  equipment:
+    neck: ClothingUniformJumpsuitCCTCFormal
+
+- type: loadout
+  id: ClothingUniformJumpskirtCCTCFormalLoadout
+  price: 1000
+  equipment:
+    neck: ClothingUniformJumpskirtCCTCFormalDress

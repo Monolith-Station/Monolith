@@ -204,10 +204,10 @@
       state: all
 
 - type: entity
-  name: HWL FG.J "Iroh" (5.56x45mm)
+  name: HWL CAW-15 "Iroh" (5.56x45mm)
   parent: BaseWeaponRifle
   id: WeaponRifleIroh
-  description: A premium, finely-tuned rifle. Accurate, fast firing, and expensive as shit. Outfitted with Erebus rails on the handguard and carryhandle, and a threaded barrel for attachments.
+  description: A premium, finely-tuned rifle made by Centennial Arms. Accurate, fast firing, and expensive as hell. Outfitted with Erebus rails on the handguard and carryhandle, and a threaded barrel for attachments.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Rifles/prometheus_a3.rsi

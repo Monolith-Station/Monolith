@@ -26,8 +26,8 @@
 - type: entity
   parent: BasePDA
   id: CCServiceWorkerPDA
-  name: colossus sector service PDA
-  description: A personal digital assistant belonging to a service worker in the Colossus Sector.
+  name: CCTC service tech PDA
+  description: A personal digital assistant belonging to a CCTC service tech in the Colossus Sector.
   components:
   - type: Pda
     id: CCServiceWorkerNFIDCard # Frontier: CCServiceWorkerIDCard<CCServiceWorkerNFIDCard

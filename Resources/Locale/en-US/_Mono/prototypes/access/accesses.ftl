@@ -16,3 +16,7 @@ id-card-access-level-vg-command = Viper Group Command
 id-card-access-level-mieyo = Mieyo
 id-card-access-level-mieyo-security = Mieyo Security
 id-card-access-level-mieyo-liason = Mieyo Liason
+
+id-card-access-level-cctc = CCTC
+id-card-access-level-cctc-security = CCTC Security
+id-card-access-level-cctc-executive = CCTC Executive

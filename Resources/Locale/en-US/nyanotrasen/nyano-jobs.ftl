@@ -1,6 +1,6 @@
 job-name-mail-carrier = Mail Carrier
 # job-name-prisoner defined in main job-names.ftl
-job-name-service-worker = Service Worker
+job-name-service-worker = CCTC service tech
 job-name-guard = Prison Guard
 
 job-description-mail-carrier = Deliver mail across the Colossus Sector. Stay neutral to conflicts.

@@ -7,7 +7,7 @@ job-supervisors-ussp-commissars = the Commissar
 job-supervisors-ussp-sergeant = the Serzhants
 
 # MARK: MD
-job-name-md-medic = Emergency Responder
+job-name-md-medic = CCTC Emergency Responder
 
 # MARK: TSF
 job-name-tsf-engineer = TSFMC Engineer
@@ -21,7 +21,13 @@ job-name-vg-infanteer = VG Infanteer
 job-name-vg-lieutenant = VG Lieutenant
 job-name-vg-commander = VG Commander
 
-# MARK: USSP
+# MARK: CCTC
+job-name-cctc-justice = CCTC Judge
+job-name-cctc-servicetech = CCTC Service Tech
+job-name-cctc-marshall = CCTC Marshall
+job-name-cctc-shareholder = CCTC Shareholder
+
+# MARK: MMC
 job-name-mmc-liason = MMC Corporate Liason
 job-name-mmc-security = MMC Corporate Security
 job-name-mmc-employee = MMC Employee

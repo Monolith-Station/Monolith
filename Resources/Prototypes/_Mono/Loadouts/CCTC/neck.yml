@@ -1,0 +1,14 @@
+- type: loadoutGroup
+  id: CCTCShareholderNeck
+  name: loadout-group-contractor-neck
+  minLimit: 1
+  loadouts:
+  - ClothingNeckCloakCCTCExecutive
+  fallbacks:
+  - ClothingNeckCloakCCTCExecutive
+
+- type: loadout
+  id: ClothingNeckCloakCCTCExecutive
+  price: 1000
+  equipment:
+    neck: ClothingNeckCloakCCTC

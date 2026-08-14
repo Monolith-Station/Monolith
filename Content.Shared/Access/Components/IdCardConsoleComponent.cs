@@ -77,7 +77,7 @@ public sealed partial class IdCardConsoleComponent : Component
     //"Salvage",
     "Security",
     "Service",
-    "StationTrafficController", // Frontier
+    //"StationTrafficController", // Frontier
     //"USSP", // Mono
     //"USSPHigh", // Mono
     //"USSPCommand", // Mono
@@ -93,6 +93,9 @@ public sealed partial class IdCardConsoleComponent : Component
     "Mieyo", // Mono
     "MieyoSecurity", // Mono
     "MieyoLiason", // Mono
+    "CCTC", // Mono
+    "CCTCSecurity", // Mono
+    "CCTCExecutive", // Mono
     };
 
     [Serializable, NetSerializable]

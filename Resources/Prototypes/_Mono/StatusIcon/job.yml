@@ -83,6 +83,37 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconCCTCServiceTech
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: CCTCservicetech
+  jobName: job-name-cctc-servicetech
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCTCJustice
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: CCTCjustice
+  jobName: job-name-cctc-justice
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCTCMarshall
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: CCTCmarshall
+  jobName: job-name-cctc-marshall
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCCTCNoble
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: CCTCnoble
+  jobName: job-name-cctc-shareholder
+
+- type: jobIcon
   id: JobIconMMCEmployee
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi

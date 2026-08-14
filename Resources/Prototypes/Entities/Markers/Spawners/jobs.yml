@@ -148,7 +148,7 @@
 - type: entity
   id: SpawnPointServiceWorker
   parent: SpawnPointJobBase
-  name: service worker
+  name: CCTC service tech
   categories: [ HideSpawnMenu ] # Frontier
   components:
   - type: SpawnPoint

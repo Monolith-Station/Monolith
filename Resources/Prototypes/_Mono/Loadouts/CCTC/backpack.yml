@@ -1,0 +1,35 @@
+- type: loadoutGroup
+  id: CCTCBackpack
+  name: loadout-group-contractor-backpack
+  loadouts:
+  - MercenaryClothingBackpackMercenary
+  - MercenaryClothingBackpackDuffelMercenary
+  - MercenaryClothingBackpackSatchelMercenary
+  - MercenaryClothingBackpackMessengerMercenary
+  - SecurityBackpack
+  - SecuritySatchel
+  - SecurityDuffel
+  fallbacks:
+  - MercenaryClothingBackpackMercenary
+
+- type: loadoutGroup
+  id: CCTCBackpackUtility
+  name: loadout-group-contractor-backpack
+  loadouts:
+  ## Mono start
+  - ContractorClothingModsuitAtmostechPowerCell
+  - ContractorClothingModsuitEngineerPowerCell
+  ## Mono end
+  - ContractorClothingBackpackSalvage
+  - ContractorClothingBackpackDuffelSalvage
+  - ContractorClothingBackpackSatchelSalvage
+  - ContractorClothingBackpackMessengerSalvage
+  - ContractorClothingBackpackEngineering
+  - ContractorClothingBackpackDuffelEngineering
+  - ContractorClothingBackpackSatchelEngineering
+  - ContractorClothingBackpackMessengerEngineering
+  - ContractorClothingBackpackDrakeIndustries
+  - ContractorClothingBackpackDuffelDrakeIndustries
+  - ContractorClothingBackpackSatchelDrakeIndustries
+  fallbacks:
+  - ContractorClothingBackpackSalvage

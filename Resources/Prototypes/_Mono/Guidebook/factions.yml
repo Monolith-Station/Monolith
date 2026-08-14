@@ -6,6 +6,7 @@
   children:
   - TSFMC_Entry
   - PDV_Entry
+  - CCTC_Entry
   - Minor_Factions
 
 - type: guideEntry
@@ -25,6 +26,12 @@
   name: PDV
   text: "/ServerInfo/_Mono/Guidebook/Factions/PDV.xml"
   priority: 3
+
+- type: guideEntry
+  id: CCTC_Entry
+  name: CCTC
+  text: "/ServerInfo/_Mono/Guidebook/Factions/CCTC.xml"
+  priority: 4
 
 - type: guideEntry
   id: Smuggling

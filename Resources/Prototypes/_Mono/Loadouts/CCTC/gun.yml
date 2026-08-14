@@ -27,18 +27,34 @@
   name: loadout-group-pistol
   minLimit: 1
   loadouts:
-  - SecurityGuardMk58Loadout #MK58
+  - SecurityGuardGalacticaLoadout
   fallbacks:
-  - SecurityGuardMk58Loadout
+  - SecurityGuardGalacticaLoadout
 
 - type: loadoutGroup
   id: SecurityGuardAmmo
   name: loadout-group-magazine
   minLimit: 1
   loadouts:
-  - SecurityGuardAcpPistolRubberAmmoLoadout #MK58
+  - SecurityGuard9x19mmPistolAmmoLoadout #MK58
   - SecurityGuardAcpSmgAmmoRubberLoadout #Vector
   - SecurityGuardBeanbagAmmoLoadout #Beanbag
   - SecurityGuard556x45mmAmmoLoadout # iroh
   fallbacks:
   - SecurityGuard556x45mmAmmoLoadout
+
+# actual loadouts
+
+- type: loadout #Galactica
+  id: SecurityGuardGalacticaLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponPistolCCTCGalactica
+
+- type: loadout #MK58 Rubber Ammo
+  id: SecurityGuard9x19mmPistolAmmoLoadout
+  price: 0
+  storage:
+    back:
+    - BoxMagazine9x19mmFMJ

@@ -6,7 +6,7 @@ frontier-lobby-station-subtext = Wake up from cryosleep to become captain, find 
 frontier-lobby-crew-title = Crew
 frontier-lobby-crew-subtext = Start your round aboard a ship amongst a crew that is looking for new crewmembers to give them a helping hand, whether you are a new or seasoned pilot!
 
-frontier-lobby-frontier-subtext = Main hub for many space pioneers.
+frontier-lobby-frontier-subtext = Foremost asset of the Creon-Centennial Trade Charter.
 frontier-lobby-frontier-description = Awaken from cryosleep here to:
    - Start your own crew and become captain
    - Find a crew to join

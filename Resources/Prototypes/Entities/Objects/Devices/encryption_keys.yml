@@ -188,9 +188,9 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeySecurity
-  name: colonial security encryption key # mono
+  name: centennial security encryption key # mono
   categories: [ DoNotMap ] # Frontier
-  description: An encryption key used by Colonial security. # Mono
+  description: An encryption key used by Creon-Centennial security. # Mono
   components:
   - type: EncryptionKey
     channels:
@@ -204,9 +204,9 @@
 - type: entity
   parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyService
-  name: colonial staff encryption key # Mono
+  name: creon-centennial staff encryption key # Mono
   categories: [ DoNotMap ] # Frontier
-  description: An encryption key used by the service staff, tasked with keeping the station full, happy and clean.
+  description: An encryption key used by Creon-Centennial employees.
   components:
   - type: EncryptionKey
     channels:

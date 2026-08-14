@@ -1,0 +1,137 @@
+
+- type: roleLoadout
+  id: JobServiceTechCCTC # Service Tech
+  groups:
+  - ContractorNeck
+  - CCTCJumpsuit
+  - CCTCBackpack
+  - TsfmcShoes
+  - TsfmcFace
+  - MMCEmployeeBelt
+  - ContractorEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility # Mono
+  - ContractorFun
+  - ContractorTrinkets
+  - NFSpeciesSpecific
+  - ContractorArmorPlates # Mono
+
+- type: roleLoadout
+  id: JobSecurityCCTC # Justice
+  groups:
+  # Mono Start
+  - CCTCJusticeOuterClothing
+  - MonoSecurityGuardBelt
+  - TsfmcNeck
+  - MonoSecurityGuardHud
+  - MonoSecurityGuardShoes
+  - CCTCJumpsuit
+  - MonoSecurityGuardBack
+  - SecurityGuardFirearm
+  - SecurityGuardPistol
+  - SecurityGuardAmmo
+  # Mono End
+  - SecurityGuardGloves
+  - SecurityGuardHead
+  - SecurityGuardEars
+  - NfsdBoxSurvival
+  - SecurityGuardPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility # Mono
+  - ContractorEncryptionKey
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
+  - NFSpeciesSpecific
+  - FactionArmorPlates # Mono
+
+# Mono edit
+- type: roleLoadout
+  id: JobMarshallCCTC # Marshall
+  groups:
+  #  - StationRepHead
+  #  - StationRepNeck
+  #  - StationRepJumpsuit
+  - StationRepGloves
+  - CCTCJumpsuit
+  - SecurityBackpack
+  - MarshallOuterClothing
+  #  - ContractorShoes
+  #  - ContractorFace
+  #  - ContractorGlasses
+  #  - ContractorBelt
+  - MonoSecurityGuardHud
+  - StationRepEars
+  - MonoSecurityGuardShoes
+  - HeadofSecurityHead
+  - HeadofSecurityJumpsuit
+  - HeadofSecurityNeck
+  - ColonialLiaisonFirearm # Mono
+  - ContractorBoxSurvival
+  - StationRepPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility # Mono
+  # - ContractorFun # Mono - no fun allowed
+  - StationRepTrinkets
+  - ContractorBureaucracy
+  - NFSpeciesSpecific
+  - ContractorArmorPlates # Mono
+
+- type: roleLoadout
+  id: JobShareholderCCTC # Shareholder
+  groups:
+  - CCTCShareholderHead
+  - CCTCShareholderNeck
+  - CCTCShareholderJumpsuit
+  - StationRepGloves
+  - CCTCBackpack
+  - StcShoes
+  - ContractorFace
+  - ContractorGlasses
+  - ContractorBelt
+  - StationRepEars
+  - ContractorBoxSurvival
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility # Mono
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
+  - NFSpeciesSpecific
+  - ContractorArmorPlates # Mono
+
+- type: roleLoadout
+  id: JobDirectorOfCare # Claims Manager
+  groups:
+  - DocHead
+  - DocNeck
+  - CCTCJumpsuit
+  - DocGloves
+  - MdMedicBackpack
+  - ContractorOuterClothing
+  - DocShoes
+  - ContractorFace
+  - ContractorGlasses
+  - ContractorBelt
+  - DocEars
+  - ContractorBoxSurvival
+  - DocPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility # Mono
+  - ContractorEncryptionKey
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
+  - NFSpeciesSpecific
+  - ContractorArmorPlates # Mono

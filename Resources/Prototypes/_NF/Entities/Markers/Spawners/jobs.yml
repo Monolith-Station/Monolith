@@ -80,19 +80,6 @@
     state: banner-red
 
 - type: entity
-  id: SpawnPointStc
-  parent: SpawnPointJobBase
-  name: station traffic controller
-  components:
-  - type: SpawnPoint
-    job_id: StationTrafficController
-  - type: Sprite
-    sprite: _NF/Markers/jobs.rsi
-    layers:
-      - state: green
-      - state: stc
-
-- type: entity
   id: SpawnPointSecurityGuard
   parent: SpawnPointJobBase
   name: security guard
@@ -117,27 +104,6 @@
     layers:
       - state: green
       - state: ertmailcarrier
-
-- type: entity
-  id: SpawnPointDirectorOfCare
-  parent: SpawnPointJobBase
-  name: director of care
-  components:
-  - type: SpawnPoint
-    job_id: DirectorOfCare
-  - type: Sprite
-    sprite: _NF/Markers/jobs.rsi
-    layers:
-      - state: green
-      - state: medic
-
-- type: entity
-  id: SpawnPointStationRepresentative
-  parent: SpawnPointHeadOfPersonnel
-  name: overseer
-  components:
-  - type: SpawnPoint
-    job_id: StationRepresentative
 
 - type: entity
   id: SpawnPointSheriff

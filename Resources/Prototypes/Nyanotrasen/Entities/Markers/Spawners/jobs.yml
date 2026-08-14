@@ -31,7 +31,7 @@
 - type: entity
   id: SpawnPointCCServiceWorker
   parent: SpawnPointJobBase
-  name: valet
+  name: CCTC service tech
   components:
   - type: SpawnPoint
     job_id: CCServiceWorker

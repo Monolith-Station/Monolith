@@ -6,7 +6,7 @@ ghost-role-information-emotional-support-rules = You are an [color=lightpink][bo
                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
 ghost-role-information-clippy-name = Clippy
-ghost-role-information-clippy-description = The Station Representative's loyal worker, smells like cardboard and papers.
+ghost-role-information-clippy-description = The late Station Representative's loyal worker, smells like cardboard and papers.
 
 ghost-role-information-clugg-name = Clugg
 ghost-role-information-clugg-description = Ugg! Clugg love eat meat. Find new home off space rock, make big hunt.

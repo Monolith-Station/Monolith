@@ -15,12 +15,12 @@
       time: 234000 # mono 65 hours
   startingGear: DocGear
   alwaysUseSpawner: true
-  assignedCompany: MD
+  assignedCompany: Colonial
   icon: "JobIconDoc"
   requireAdminNotify: true
   supervisors: job-supervisors-sr # Mono
   weight: 170
-  displayWeight: 60 # Second from the top # mono - first from top
+  displayWeight: 9
   canBeAntag: false
   accessGroups:
   - AllAccessMono #Mono

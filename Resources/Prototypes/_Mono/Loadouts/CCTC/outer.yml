@@ -1,0 +1,21 @@
+- type: loadoutGroup
+  id: CCTCJusticeOuterClothing
+  name: loadout-group-contractor-outerclothing
+  hidden: true # No point in showing this, it gets auto-selected.
+  minLimit: 1
+  loadouts:
+  - ClothingOuterHardsuitCCTCMediumLoadout
+  fallbacks:
+  - ClothingOuterHardsuitCCTCMediumLoadout
+
+- type: loadout
+  id: ClothingOuterHardsuitCCTCMediumLoadout
+  price: 0
+  equipment:
+    outerClothing: ClothingOuterHardsuitCCTCMedium
+
+- type: loadout
+  id: ClothingOuterHardsuitCCTCMediumPremiumLoadout
+  price: 0
+  equipment:
+    outerClothing: ClothingOuterHardsuitCCTCMediumPremium

@@ -1,0 +1,18 @@
+- type: accessLevel
+  id: CCTC
+  name: id-card-access-level-cctc
+
+- type: accessLevel
+  id: CCTCSecurity
+  name: id-card-access-level-cctc-security
+
+- type: accessLevel
+  id: CCTCExecutive
+  name: id-card-access-level-cctc-executive
+
+- type: accessGroup
+  id: CCTC
+  tags:
+  - CCTC
+  - CCTCSecurity
+  - CCTCExecutive

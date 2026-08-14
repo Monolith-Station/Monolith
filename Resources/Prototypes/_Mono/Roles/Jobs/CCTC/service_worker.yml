@@ -1,24 +1,25 @@
 - type: job
-  id: CCServiceWorker
-  name: job-name-service-worker
-  description: job-description-service-worker
-  playTimeTracker: JobCCServiceWorker
+  id: JobServiceTechCCTC
+  name: job-name-cctc-servicetech
+  description: job-description-cctc-servicetech
+  playTimeTracker: JobServiceTechCCTC
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 10800
-  startingGear: CCServiceWorkerGear
+      time: 10800 # three hours
+  startingGear: ServiceTechCCTCGear
   alwaysUseSpawner: true
-  icon: "JobIconValet" # Frontier: JobIconServiceWorker<JobIconValet
+  icon: "JobIconCCTCServiceTech"
   supervisors: job-supervisors-sr
   weight: 60 # Frontier
   displayWeight: 10 # Frontier
-  assignedCompany: Colonial
+  assignedCompany: CCTC
   canBeAntag: false
   access:
   - Maintenance
   - External # Frontier
   - Service
   - Frontier # Frontier
+  - Mercenary
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -26,15 +27,10 @@
     holiday: FrontierBirthday # Frontier
     prototype: FrontierBirthdayGift # Frontier
 
-# Frontier: valet loadout
 - type: startingGear
-  id: CCServiceWorkerGear
+  id: ServiceTechCCTCGear
   equipment:
-    head: ClothingHeadHatBellhop
-    gloves: ClothingHandsGlovesColorWhite
     id: CCServiceWorkerPDA
   storage:
     back:
-    - EncryptionKeyService # Frontier
-    - ShipVoucherFrontierService
-# End Frontier
+    - EncryptionKeyService

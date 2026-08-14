@@ -1,21 +1,14 @@
 # Mono edit.
 
 - type: loadoutGroup
-  id: StationRepOuterClothing
+  id: MarshallOuterClothing
   name: loadout-group-contractor-outerclothing
+  hidden: true
   minLimit: 0
   loadouts:
-  - StationRepClothingOuterHardsuitSecurityRed
-  subgroups:
-  - HeadofSecurityOuterClothing
-
-- type: loadoutGroup
-  id: StationRepBackpack
-  name: loadout-group-contractor-backpack
-  loadouts:
-  - StationRepClothingModsuitHeadOfSecurityPowerCell
-  subgroups:
-  - SecurityBackpack
+  - ClothingOuterHardsuitCCTCMediumPremiumLoadout
+  fallbacks:
+  - ClothingOuterHardsuitCCTCMediumPremiumLoadout
 
 - type: loadoutGroup
   id: StationRepEars

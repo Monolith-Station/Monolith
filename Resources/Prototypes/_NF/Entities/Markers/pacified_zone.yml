@@ -20,9 +20,9 @@
       - NFDetective
       - SeniorOfficer
       - Sheriff
-      - SecurityGuard
-      - StationRepresentative
-      - StationTrafficController
+      #- SecurityGuard
+      #- StationRepresentative
+      #- StationTrafficController
 
 - type: entity
   parent: BasePacifiedZone
