@@ -3,9 +3,6 @@ using Content.Shared.Whitelist;
 
 namespace Content.Shared._Mono.Fixtures;
 
-/// <summary>
-/// This is used for...
-/// </summary>
 [RegisterComponent]
 public sealed partial class FixtureDamageDealerComponent : Component
 {

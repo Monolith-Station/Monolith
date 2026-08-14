@@ -7,9 +7,6 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._Mono.Fixtures;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed partial class FixtureDamageDealerSystem : EntitySystem
 {
     [Dependency] private FixtureSystem _fixture = default!;
