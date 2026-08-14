@@ -3,7 +3,7 @@
   id: UplinkPirateMedicalBundle
   name: uplink-pirate-medical-bundle-name
   description: uplink-pirate-medical-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
+  productEntity: ClothingBackpackDuffelPDVMedicalBundleFilled
   cost:
     Doubloon: 150
   categories:
@@ -769,7 +769,7 @@
   id: UplinkPirateC20
   name: uplink-pirate-c20-name
   description: uplink-pirate-c20-desc
-  productEntity: ClothingBackpackDuffelSyndicateFilledSMG
+  productEntity: ClothingBackpackDuffelPDVFilledSMG
   icon: { sprite: Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
   cost:
     Doubloon: 20
@@ -785,7 +785,7 @@
   id: UplinkPirateAtreides
   name: uplink-pirate-atreides-name
   description: uplink-pirate-atreides-desc
-  productEntity: ClothingBackpackDuffelSyndicateFilledAtreides
+  productEntity: ClothingBackpackDuffelPDVFilledAtreides
   icon: { sprite: Objects/Weapons/Guns/SMGs/atreides.rsi, state: icon }
   cost:
     Doubloon: 100
@@ -801,7 +801,7 @@
   id: UplinkPirateBulldog
   name: uplink-pirate-bulldog-name
   description: uplink-pirate-bulldog-desc
-  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
+  productEntity: ClothingBackpackDuffelPDVFilledShotgun
   icon: { sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
   cost:
     Doubloon: 75
@@ -880,7 +880,7 @@
   id: UplinkPirateBurner
   name: uplink-pirate-burner-name
   description: uplink-pirate-burner-desc
-  productEntity: ClothingBackpackDuffelSyndicateBurner
+  productEntity: ClothingBackpackDuffelPDVBurner
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
   cost:
     Doubloon: 125
@@ -912,8 +912,8 @@
   id: UplinkPirateWspr
   name: uplink-pirate-wspr-name
   description: uplink-pirate-wspr-desc
-  productEntity: ClothingBackpackDuffelSyndicateFilledWSPR
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelPDVFilledWSPR
+  icon: { sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr.rsi, state: icon }
   cost:
     Doubloon: 75
   categories:
@@ -959,7 +959,7 @@
   id: UplinkPirateGrenadeLauncherBundle
   name: uplink-pirate-grenade-launcher-bundle-name
   description: uplink-pirate-grenade-launcher-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  productEntity: ClothingBackpackDuffelPDVFilledGrenadeLauncher
   icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
   cost:
     Doubloon: 150 # Mono #25 Mono Edit
@@ -976,7 +976,7 @@
   name: uplink-l6-saw-bundle-name
   description: uplink-l6-saw-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  productEntity: ClothingBackpackDuffelPDVFilledLMG
   cost:
     Doubloon: 100
   categories:
@@ -1032,6 +1032,21 @@
   description: uplink-pirate-webvest-desc
   productEntity: ClothingOuterVestWeb
   icon: { sprite: Clothing/OuterClothing/Vests/webvest.rsi, state: icon }
+  cost:
+    Doubloon: 15
+  categories:
+  - UplinkPirateEquipment
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
+  id: UplinkPirateWebVestElite
+  name: uplink-pirate-elite-webvest-name
+  description: uplink-pirate-elite-webvest-desc
+  productEntity: ClothingOuterVestWebElite
   cost:
     Doubloon: 15
   categories:
@@ -1126,7 +1141,7 @@
   id: UplinkPirateC4Bundle
   name: uplink-pirate-c4-bundle-name
   description: uplink-pirate-c4-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
+  productEntity: ClothingBackpackDuffelPDVC4tBundle
   cost:
     Doubloon: 60
   categories:

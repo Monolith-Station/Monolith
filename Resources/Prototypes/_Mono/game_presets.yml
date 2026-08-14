@@ -7,7 +7,7 @@
     - MonoGreenshift
   name: mono-standard-title
   description: mono-standard-description
-  showInVote: false # For admin usage really. Not that boring, but I'd rather just let players choose their main threat instead of choosing no threat.
+  showInVote: true
   rules:
   - NFAdventure
   - BasicStationEventScheduler
@@ -148,7 +148,8 @@
   id: MonoRogueTSFHyperwar
   name: mono-roguetsf-hyperwar-title
   description: mono-roguetsf-hyperwar-description
-  showInVote: false # AO
+  showInVote: true # we ball
+  weight: 0.15 # Giant majority needed
   rules:
   - NFAdventure
   - Hyperwar

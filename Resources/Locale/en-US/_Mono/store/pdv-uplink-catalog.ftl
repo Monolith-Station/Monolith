@@ -1,13 +1,13 @@
 # MARK: Medical
 
-uplink-pirate-medical-bundle-name = Interdyne Medical Bundle
+uplink-pirate-medical-bundle-name = Medical Bundle
 uplink-pirate-medical-bundle-desc = An assortment of autoinjectors and premium medical equipment to cover for every possible situation. Contains an elite compact defibrillator that can be used as a weapon.
 
-uplink-pirate-interdyne-defibrillator-name = Interdyne Defibrillator
-uplink-pirate-interdyne-defibrillator-desc = An elite compact defibrillator that can be used as a weapon, now sold separately. Surprisingly deadly.
+uplink-pirate-interdyne-defibrillator-name = Advanced Defibrillator
+uplink-pirate-interdyne-defibrillator-desc = An elite compact defibrillator that can be used as a weapon. Surprisingly deadly.
 
 uplink-pirate-chemical-synthesis-kit-name = Chemical Synthesis Kit
-uplink-pirate-chemical-synthesis-kit-desc = A starter kit for the aspiring chemist, includes toxin and vestine for all your criminal needs!
+uplink-pirate-chemical-synthesis-kit-desc = A starter kit for the aspiring chemist, includes toxin and vestine for all your bioweapon needs!
 
 uplink-pirate-anti-poison-pen-name = Poison auto-injector
 uplink-pirate-anti-poison-pen-desc = A rapid dose of anti-poison. Contains ultravasculine and epinephrine.
@@ -102,7 +102,7 @@ uplink-pirate-energy-cutlass-name = Energy Cutlass
 uplink-pirate-energy-cutlass-desc = An exotic energy weapon.
 
 uplink-pirate-energy-sword-name = Energy Sword
-uplink-pirate-energy-sword-desc = Courtesy of the Gorlex Marauders. Make your mark, leave no witnesses.
+uplink-pirate-energy-sword-desc = Make your mark, leave no witnesses. One of few successfully jailbroken TSF energy weapons.
 
 uplink-pirate-python-name = Python
 uplink-pirate-python-desc = A brutally simple, effective, and loud revolver. Comes loaded with .357 magnum rounds.
@@ -123,10 +123,10 @@ uplink-pirate-c20-name = C-20r Bundle
 uplink-pirate-c20-desc = A 9x19mm light SMG, packaged with a few mags.
 
 uplink-pirate-atreides-name = Atreides bundle
-uplink-pirate-atreides-desc = A .35 one-handed light SMG, packaged with some magazines.
+uplink-pirate-atreides-desc = A 5.8 one-handed light SMG, packaged with some magazines.
 
 uplink-pirate-bulldog-name = Bulldog Bundle
-uplink-pirate-bulldog-desc = A automatic 12 gauge shotgun, packaged with a few drums.
+uplink-pirate-bulldog-desc = An automatic 12 gauge shotgun, packaged with a few drums.
 
 uplink-pirate-vt7-name = VT7 HF Blade
 uplink-pirate-vt7-desc = A high quality HF blade.
@@ -135,7 +135,7 @@ uplink-pirate-desword-name = Double-Bladed Energy Sword
 uplink-pirate-desword-desc = A two-handed variant of the Energy Sword.
 
 uplink-pirate-anaconda-name = Anaconda
-uplink-pirate-anaconda-desc = The pride of Cybersun engineers. A handheld, compact, self-recharging ballistic firearm.
+uplink-pirate-anaconda-desc = A handheld, compact, self-recharging ballistic firearm.
 
 uplink-pirate-wspr-name = WSPR
 uplink-pirate-wspr-desc = A counter to the TSFMC's Annie. Uses the same 7.62x39mm ammo.
@@ -216,7 +216,10 @@ uplink-pirate-viper-group-medic-hardsuit-desc = A light hardsuit adorned with si
 uplink-pirate-webvest-name = Webvest
 uplink-pirate-webvest-desc = A webvest smuggled into the sector that hasn't been downgraded like ones utilized by civilian contractors. Great pierce resist, poor heat resist.
 
-uplink-pirate-syndie-mask-name = Syndicate Gas Mask
+uplink-pirate-elite-webvest-name = Elite Webvest
+uplink-pirate-elite-webvest-desc = A modified web vest specialised to counter the TSFMC's energy-based weaponry. Great heat resist, poor pierce resist.
+
+uplink-pirate-syndie-mask-name = Advanced Gas Mask
 uplink-pirate-syndie-mask-desc = A tactical flash resistant gas mask that can be connected to an air supply.
 
 uplink-pirate-modsuit-name = RX-01 PDV Modsuit
