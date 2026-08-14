@@ -193,8 +193,8 @@
 - type: entity
   id: ShieldGeneratorPOIBio
   parent: ShieldGeneratorPOI
-  name: FS-243 "Biodome" Outpost Shield Generator
-  description: Biodome protects outpost from biological threats while also being resistant to artillery fire.
+  name: S-243 "Biodome" Biological Molecular Accelerator
+  description: A very expensive, bulky and specialized device that detects and 'excites' foreign DNA molecules caught inside its radius. Due to it being very heavy and quite expensive, it has been relegated to usage only on stationary outposts. In addition to its biological defense, this device has also been retrofitted with a regular shield generator.
   suffix: POI ONLY
   components:
   - type: ShipShieldEmitter
