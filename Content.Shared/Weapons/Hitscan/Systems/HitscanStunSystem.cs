@@ -20,7 +20,7 @@ public sealed partial class HitscanStunSystem : EntitySystem
         if (args.Canceled)
             return;
 
-        foreach (var hitEntity in args.HitEntity) // Mono
+        foreach (var hitEntity in args.HitEntities) // Mono
         {
             _stamina.TakeStaminaDamage(hitEntity, hitscan.Comp.StaminaDamage, source: args.Shooter ?? args.Gun);
         }

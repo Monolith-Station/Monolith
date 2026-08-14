@@ -26,7 +26,7 @@ public sealed partial class HitscanSpawnEntitySystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        foreach (var hitEntity in args.HitEntity)
+        foreach (var hitEntity in args.HitEntities)
         {
             Spawn(ent.Comp.SpawnedEntity, Transform(hitEntity).Coordinates);
         }

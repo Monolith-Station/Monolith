@@ -57,7 +57,7 @@ public record struct HitscanRaycastFiredEvent
     /// <summary>
     /// The entities that got hit
     /// </summary>
-    public HashSet<EntityUid> HitEntity; // Mono edit
+    public HashSet<EntityUid> HitEntities; // Mono edit
 
     /// <summary>
     /// Gun that fired the raycast.

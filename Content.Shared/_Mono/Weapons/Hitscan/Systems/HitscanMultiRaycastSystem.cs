@@ -13,14 +13,14 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Mono.Weapons.Hitscan.Systems;
 
-public sealed class HitscanMultiRaycastSystem : EntitySystem
+public sealed partial class HitscanMultiRaycastSystem : EntitySystem
 {
     [Dependency] private SharedPhysicsSystem _physics = default!;
-    [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private ISharedAdminLogManager _log = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 
     [Dependency] private EntityQuery<PhysicsComponent> _physicQuery = default!;
+    private HashSet<EntityUid> _hitEntities = [];
 
     public override void Initialize()
     {
@@ -35,8 +35,6 @@ public sealed class HitscanMultiRaycastSystem : EntitySystem
         var mapCords = _transform.ToMapCoordinates(args.FromCoordinates);
         var ray = new CollisionRay(mapCords.Position, args.ShotDirection, (int) ent.Comp.CollisionMask);
         var rayCastResults = _physics.IntersectRay(mapCords.MapId, ray, ent.Comp.MaxDistance, shooter, false);
-
-        var hitEntities = new HashSet<EntityUid>();
         var hitCount = 0;
         var latestDistance = ent.Comp.MaxDistance;
 
@@ -45,7 +43,7 @@ public sealed class HitscanMultiRaycastSystem : EntitySystem
             if (!_physicQuery.TryComp(result.HitEntity, out var phys))
                 continue;
 
-            hitEntities.Add(result.HitEntity);
+            _hitEntities.Add(result.HitEntity);
             latestDistance = result.Distance;
 
             hitCount++;
@@ -67,10 +65,11 @@ public sealed class HitscanMultiRaycastSystem : EntitySystem
             ShotDirection = args.ShotDirection,
             Gun = args.Gun,
             Shooter = args.Shooter,
-            HitEntity = hitEntities,
+            HitEntities = _hitEntities,
             DistanceTried = latestDistance,
         };
 
         RaiseLocalEvent(ent, ref trace);
+        _hitEntities.Clear();
     }
 }

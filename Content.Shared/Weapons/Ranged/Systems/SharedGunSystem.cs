@@ -577,7 +577,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     }
 
     // Mono - handle hitscan
-    public virtual void ShootHitscan(EntityUid uid, EntityCoordinates? fromCoordinates, Vector2 direction, EntityUid gunUid, EntityUid? user = null, EntityUid? target = null) // Mono - add offset
+    public virtual void ShootHitscan(EntityUid uid, EntityCoordinates? fromCoordinates, Vector2 direction, EntityUid gunUid, EntityUid? user = null, EntityUid? target = null)
     {
         if (fromCoordinates is null)
             return;

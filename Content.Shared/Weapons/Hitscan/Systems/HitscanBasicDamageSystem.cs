@@ -22,7 +22,7 @@ public sealed partial class HitscanBasicDamageSystem : EntitySystem
 
         var dmg = ent.Comp.Damage * _damage.UniversalHitscanDamageModifier;
 
-        foreach (var hitEntity in args.HitEntity) // Mono edit
+        foreach (var hitEntity in args.HitEntities) // Mono edit
         {
             var damageDealt = _damage.TryChangeDamage(hitEntity,
                 dmg,

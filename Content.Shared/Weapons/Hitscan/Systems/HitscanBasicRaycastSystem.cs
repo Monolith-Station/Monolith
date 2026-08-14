@@ -48,13 +48,13 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
             ShotDirection = args.ShotDirection,
             Gun = args.Gun,
             Shooter = args.Shooter,
-            HitEntity = [], // Mono
+            HitEntities = [], // Mono
             DistanceTried = result?.Distance ?? ent.Comp.MaxDistance,
         };
 
         if (result?.HitEntity != null) // Mono
         {
-            trace.HitEntity.Add(result.Value.HitEntity);
+            trace.HitEntities.Add(result.Value.HitEntity);
 
             _log.Add(LogType.HitScanHit,
                 $"{ToPrettyString(shooter):user} hit {ToPrettyString(result.Value.HitEntity):target}"

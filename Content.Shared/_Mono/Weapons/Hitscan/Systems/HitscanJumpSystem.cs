@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using System.Runtime.CompilerServices;
 using Content.Shared._Mono.Weapons.Hitscan.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Hitscan.Events;
@@ -11,12 +10,12 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._Mono.Weapons.Hitscan.Systems;
 
-public sealed class HitscanJumpSystem : EntitySystem
+public sealed partial class HitscanJumpSystem : EntitySystem
 {
-    [Robust.Shared.IoC.Dependency] private EntityLookupSystem _lookup = default!;
-    [Robust.Shared.IoC.Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
-    [Robust.Shared.IoC.Dependency] private EntityQuery<MobThresholdsComponent> _mobQuery = default!;
+    [Dependency] private EntityQuery<MobThresholdsComponent> _mobQuery = default!;
 
     public override void Initialize()
     {
@@ -25,18 +24,25 @@ public sealed class HitscanJumpSystem : EntitySystem
         SubscribeLocalEvent<HitscanJumpComponent, HitscanRaycastFiredEvent>(OnHitscanHit, after: [ typeof(HitscanReflectSystem) ]);
     }
 
-    private void OnHitscanHit(Entity<HitscanJumpComponent> ent, ref HitscanRaycastFiredEvent args) // Important note - incompatible with HitscanMultiRaycastSystem.
+    /// <summary>
+    /// When hitscan hits entity, it will instantly fire from it into closest mob entity and so on.
+    /// Too many jumps will cause stack overflow error.
+    /// Incompatible with HitscanMultiRaycastSystem.
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="args"></param>
+    private void OnHitscanHit(Entity<HitscanJumpComponent> ent, ref HitscanRaycastFiredEvent args)
     {
         if (args.Canceled ||
-            args.HitEntity.Count == 0 ||
+            args.HitEntities.Count == 0 ||
             args.Shooter == null ||
-            _mobQuery.HasComp(args.HitEntity.First()) ||
+            _mobQuery.HasComp(args.HitEntities.First()) ||
             ent.Comp.Count <= 0)
             return;
 
         ent.Comp.IgnoredEntities.Add(args.Shooter.Value);
-        ent.Comp.IgnoredEntities.Add(args.HitEntity.First());
-        var fromCoords = Transform(args.HitEntity.First()).Coordinates;
+        ent.Comp.IgnoredEntities.Add(args.HitEntities.First());
+        var fromCoords = Transform(args.HitEntities.First()).Coordinates;
 
         if (!GetClosestTarget(fromCoords, ent.Comp.Range, ent.Comp.IgnoredEntities, out _, out var delta))
             return;
@@ -48,7 +54,7 @@ public sealed class HitscanJumpSystem : EntitySystem
             FromCoordinates = fromCoords,
             ShotDirection = -Vector2.Normalize(delta.Value),
             Gun = args.Gun,
-            Shooter = args.HitEntity.First(),
+            Shooter = args.HitEntities.First(),
         };
 
         RaiseLocalEvent(ent, ref hitFire);
