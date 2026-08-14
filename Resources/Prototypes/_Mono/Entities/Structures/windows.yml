@@ -216,6 +216,11 @@
     state: state0
   - type: ArmorThickness
     thickness: 30
+  - type: Construction
+    graph: WindowFrame
+    node: plasturaniumWindowDiagonal
+  - type: StaticPrice
+    price: 125
 
 - type: entity
   id: PlasturaniumWindowRadProof
@@ -234,6 +239,11 @@
     state: full
   - type: ArmorThickness
     thickness: 30
+  - type: Construction
+    graph: WindowFrame
+    node: plasturaniumWindow
+  - type: StaticPrice
+    price: 125
 
 #plastitanium but blocks rads 100% (industructible var.)
 
@@ -272,3 +282,50 @@
     state: full
   - type: ArmorThickness
     thickness: 30
+
+# window frame for construction
+
+- type: entity
+  id: WindowFrame
+  parent: Girder
+  name: window frame
+  description: A large plasteel frame that might eventually become a window.
+  components:
+    - type: Construction
+      graph: WindowFrame
+      node: windowFrame
+    - type: Sprite
+      sprite: _Mono/Structures/Windows/shuttle_window_frame.rsi
+      state: bare
+    - type: StaticPrice
+      price: 30
+
+- type: entity
+  id: ShuttleWindowFrame
+  parent: WindowFrame
+  name: shuttle window frame
+  description: A large steel frame reinforced with plasteel. It requires glass in order to become a window.
+  components:
+    - type: Construction
+      graph: WindowFrame
+      node: shuttleWindowFrame
+    - type: Sprite
+      sprite: _Mono/Structures/Windows/shuttle_window_frame.rsi
+      state: full
+    - type: StaticPrice
+      price: 60
+
+- type: entity
+  id: PlastitWindowFrame
+  parent: WindowFrame
+  name: plastitanium window frame
+  description: A large steel frame reinforced with plastitanium. It requires glass in order to become a window.
+  components:
+    - type: Construction
+      graph: WindowFrame
+      node: plastitWindowFrame
+    - type: Sprite
+      sprite: _Mono/Structures/Windows/shuttle_window_frame.rsi
+      state: plastit_full
+    - type: StaticPrice
+      price: 80

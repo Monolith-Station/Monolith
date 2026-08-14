@@ -1,0 +1,20 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by tkirby (github) based on the existing shuttle window sprite, plastitanium window sprite, and reinforced girder sprite.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bare"
+        },
+        {
+            "name": "full"
+        },
+        {
+            "name": "plastit_full"
+        }
+    ]
+}

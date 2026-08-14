@@ -1,0 +1,384 @@
+- type: constructionGraph
+  id: WindowFrame
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: windowFrame
+          completed:
+            - !type:SnapToGrid
+              southRotation: false
+          steps:
+            - material: Plasteel
+              amount: 1
+              doAfter: 1
+
+    - node: windowFrame
+      entity: WindowFrame
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPlasteel1
+              amount: 1
+            - !type:DeleteEntity {}
+          conditions:
+            - !type:EntityAnchored
+              anchored: false
+          steps:
+            - tool: Screwing
+              doAfter: 1
+
+        - to: shuttleWindowFrame
+          completed:
+            - !type:SnapToGrid
+              southRotation: false
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Plasteel
+              amount: 1
+              doAfter: 2
+
+        - to: plastitWindowFrame
+          completed:
+            - !type:SnapToGrid
+              southRotation: false
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Plastitanium
+              amount: 2
+              doAfter: 4
+
+    - node: shuttleWindowFrame
+      entity: ShuttleWindowFrame
+      edges:
+        - to: windowFrame
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPlasteel1
+              amount: 1
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - tool: Cutting
+              doAfter: 6
+        - to: shuttleWindow
+          completed:
+          - !type:SnapToGrid
+            southRotation: true
+          conditions:
+          - !type:EntityAnchored { }
+          steps:
+            - material: ReinforcedGlass
+              amount: 2
+              doAfter: 2
+        - to: shuttleWindowDiagonal
+          completed:
+          - !type:SnapToGrid
+            southRotation: false
+          conditions:
+          - !type:EntityAnchored { }
+          steps:
+            - tool: Prying
+              doAfter: 2
+            - material: ReinforcedGlass
+              amount: 1
+              doAfter: 2
+
+    - node: plastitWindowFrame
+      entity: PlastitWindowFrame
+      edges:
+        - to: windowFrame
+          completed:
+            - !type:SpawnPrototype
+              prototype: ScrapSteel
+              amount: 1
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - tool: Cutting
+              doAfter: 10
+        - to: plastitaniumWindow
+          completed:
+          - !type:SnapToGrid
+            southRotation: true
+          conditions:
+          - !type:EntityAnchored { }
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - material: Plastitanium
+              amount: 2
+              doAfter: 4
+            - tool: Welding
+              doAfter: 4
+            - material: ReinforcedGlass
+              amount: 4
+              doAfter: 2
+        - to: plastitaniumWindowDiagonal
+          completed:
+          - !type:SnapToGrid
+            southRotation: false
+          conditions:
+          - !type:EntityAnchored { }
+          steps:
+            - tool: Prying
+              doAfter: 2
+            - tool: Screwing
+              doAfter: 1
+            - material: Plastitanium
+              amount: 1
+              doAfter: 2
+            - tool: Welding
+              doAfter: 4
+            - material: ReinforcedGlass
+              amount: 2
+              doAfter: 2
+        - to: plasturaniumWindow
+          completed:
+          - !type:SnapToGrid
+            southRotation: true
+          conditions:
+          - !type:EntityAnchored { }
+          steps:
+            - material: UraniumDepleted
+              amount: 1
+              doAfter: 4
+            - tool: Screwing
+              doAfter: 1
+            - material: Plastitanium
+              amount: 2
+              doAfter: 4
+            - tool: Welding
+              doAfter: 4
+            - material: ReinforcedUraniumGlass
+              amount: 4
+              doAfter: 2
+        - to: plasturaniumWindowDiagonal
+          completed:
+          - !type:SnapToGrid
+            southRotation: false
+          conditions:
+          - !type:EntityAnchored { }
+          steps:
+            - tool: Hammering
+              doAfter: 2
+            - material: UraniumDepleted
+              amount: 1
+              doAfter: 4
+            - tool: Screwing
+              doAfter: 1
+            - material: Plastitanium
+              amount: 1
+              doAfter: 2
+            - tool: Welding
+              doAfter: 4
+            - material: ReinforcedUraniumGlass
+              amount: 2
+              doAfter: 2
+
+    - node: shuttleWindow
+      entity: ShuttleWindow
+      edges:
+        - to: shuttleWindowFrame
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetRGlass1
+              amount: 2
+          steps: # mostly the same as base, except a bit shorter, because it will result in a window frame you still need to unanchor/deconstruct at the end of it
+            - tool: Welding
+              doAfter: 6
+            - tool: Screwing
+              doAfter: 2
+            - tool: Prying
+              doAfter: 3
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 1
+            - tool: Prying
+              doAfter: 2
+            - tool: Anchoring
+              doAfter: 1
+
+    - node: shuttleWindowDiagonal
+      entity: ShuttleWindowDiagonal
+      edges:
+        - to: shuttleWindowFrame
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetRGlass1
+              amount: 1
+          steps:
+            - tool: Welding
+              doAfter: 6
+            - tool: Screwing
+              doAfter: 2
+            - tool: Prying
+              doAfter: 3
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 1
+            - tool: Prying
+              doAfter: 2
+            - tool: Anchoring
+              doAfter: 1
+
+    - node: plastitaniumWindow
+      entity: PlastitaniumWindow
+      edges:
+        - to: plastitWindowFrame
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetRGlass1
+              amount: 4
+            - !type:SpawnPrototype
+              prototype: ScrapSteel
+              amount: 1
+          steps: # mostly the same as frontier, except a bit shorter, because it will result in a window frame you still need to unanchor/deconstruct at the end of it
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 2
+            - tool: Prying
+              doAfter: 3
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 2
+            - tool: Anchoring
+              doAfter: 3
+            - tool: Cutting
+              doAfter: 1
+            - tool: Screwing
+              doAfter: 1
+            - tool: Welding
+              doAfter: 5
+            - tool: Prying
+              doAfter: 1
+            - tool: Anchoring
+              doAfter: 1
+            - tool: Welding
+              doAfter: 6
+            - tool: Prying
+              doAfter: 1
+
+    - node: plastitaniumWindowDiagonal
+      entity: PlastitaniumWindowDiagonal
+      edges:
+        - to: plastitWindowFrame
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetRGlass1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: ScrapSteel
+              amount: 1
+          steps:
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 2
+            - tool: Prying
+              doAfter: 3
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 2
+            - tool: Anchoring
+              doAfter: 3
+            - tool: Cutting
+              doAfter: 1
+            - tool: Screwing
+              doAfter: 1
+            - tool: Welding
+              doAfter: 5
+            - tool: Prying
+              doAfter: 1
+            - tool: Anchoring
+              doAfter: 1
+            - tool: Welding
+              doAfter: 6
+            - tool: Prying
+              doAfter: 1
+
+    - node: plasturaniumWindow
+      entity: PlasturaniumWindowRadProof
+      edges:
+        - to: plastitWindowFrame
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetRUGlass1
+              amount: 4
+            - !type:SpawnPrototype
+              prototype: ScrapSteel
+              amount: 1
+          steps: # mostly the same as frontier, except a bit shorter, because it will result in a window frame you still need to unanchor/deconstruct at the end of it
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 2
+            - tool: Prying
+              doAfter: 3
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 2
+            - tool: Anchoring
+              doAfter: 3
+            - tool: Cutting
+              doAfter: 1
+            - tool: Screwing
+              doAfter: 1
+            - tool: Welding
+              doAfter: 5
+            - tool: Prying
+              doAfter: 1
+            - tool: Anchoring
+              doAfter: 1
+            - tool: Welding
+              doAfter: 6
+            - tool: Prying
+              doAfter: 1
+
+    - node: plasturaniumWindowDiagonal
+      entity: PlasturaniumWindowDiagonalRadProof
+      edges:
+        - to: plastitWindowFrame
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetRUGlass1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: ScrapSteel
+              amount: 1
+          steps:
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 2
+            - tool: Prying
+              doAfter: 3
+            - tool: Welding
+              doAfter: 5
+            - tool: Screwing
+              doAfter: 2
+            - tool: Anchoring
+              doAfter: 3
+            - tool: Cutting
+              doAfter: 1
+            - tool: Screwing
+              doAfter: 1
+            - tool: Welding
+              doAfter: 5
+            - tool: Prying
+              doAfter: 1
+            - tool: Anchoring
+              doAfter: 1
+            - tool: Welding
+              doAfter: 6
+            - tool: Prying
+              doAfter: 1
