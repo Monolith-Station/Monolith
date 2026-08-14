@@ -9,10 +9,8 @@ namespace Content.Shared._Mono.Fixtures;
 
 public sealed partial class FixtureDamageDealerSystem : EntitySystem
 {
-    [Dependency] private FixtureSystem _fixture = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private EntityLookupSystem _look = default!;
     [Dependency] private SharedPhysicsSystem _physic = default!;
 
     private float _updateCooldown = 1f;
