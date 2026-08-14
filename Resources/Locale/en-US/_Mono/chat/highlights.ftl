@@ -19,6 +19,7 @@ highlights-pdv-denasvar = Denasvar, Jupiter, Helios, PDV
 highlights-pdv-spasaka = Spasaka, Jupiter, Helios, PDV
 highlights-pdv-rahkshan = Rahkshan, Jupiter, Helios, PDV
 highlights-pdv-cyborg = "borg", "cyborg", "robot"," Jupiter, Helios, PDV
+highlights-pdv-reservist = Paighan, Jupiter, helios, PDV
 
 highlights-director-of-care = "DoC", "Director", "Rescue", "MD"
 highlights-emergency-responder = "EMT", "Emergency", "Responder", "Medic", "Doc", "Doctor", "Rescue", "MD"
@@ -30,3 +31,4 @@ highlights-tsfmc-corpsman = Corpsman, Medical, Surgery, "Medic", "Doc", Halcyon,
 highlights-tsfmc-marine = Marine, Halcyon, TSF, TSFMC
 highlights-tsfmc-engineer = Engineer, "Engi", Halcyon, TSF, TSFMC
 highlights-tsfmc-cyborg = "borg", "cyborg", "robot", Halcyon, TSF, TSFMC
+highlights-tsfmc-reservist = "dc", "deckcrew", Halcyon, TSF, TSFMC

@@ -111,6 +111,29 @@
     attachedToSuit: true # Mono
 
 - type: entity
+  parent: TsfEngiPDA
+  id: TsfReservistPDA
+  name: TSFMC Deck Crew PDA
+  components:
+  - type: Pda
+    id: TsfEngiIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-lifesupporttech
+  - type: PdaBorderColor
+    borderColor: "#edb015"
+    accentHColor: "#ed2715"
+  - type: Icon
+    state: pda-lifesupporttech
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+
+- type: entity
   parent: SheriffPDA
   id: MarsocPDA
   name: TSFMC MARSOC operative PDA
