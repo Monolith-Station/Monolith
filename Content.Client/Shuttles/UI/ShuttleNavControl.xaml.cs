@@ -596,6 +596,9 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
         var worldToView = worldToShuttle * shuttleToView;
 
+        DrawStarSystem(handle, worldToShuttle, shuttleToView, xform.MapUid); // Far Horizons
+        DrawIFFBeacons(handle, worldToView, mapPos, xform.MapUid); // Far Horizons
+
         // Draw shields
         DrawShields(handle, xform, worldToShuttle);
 
