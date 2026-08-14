@@ -25,6 +25,7 @@ public sealed partial class ParallaxSystem : SharedParallaxSystem
         _overlay.AddOverlay(new ParallaxOverlay());
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnReload);
         SubscribeLocalEvent<ParallaxComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
+        SubscribeLocalEvent<ParallaxComponent, ComponentShutdown>(OnParallaxShutdown); // Forge-Change: unload unused parallax
     }
 
     private void OnReload(PrototypesReloadedEventArgs obj)
@@ -55,6 +56,24 @@ public sealed partial class ParallaxSystem : SharedParallaxSystem
             _parallax.LoadParallaxByName(component.Parallax);
         }
     }
+
+    // Forge-Change-Start: unload named parallax when the last component using it shuts down.
+    private void OnParallaxShutdown(EntityUid uid, ParallaxComponent component, ComponentShutdown args)
+    {
+        var name = component.Parallax;
+        if (string.IsNullOrEmpty(name) || name == Fallback)
+            return;
+
+        var query = EntityQueryEnumerator<ParallaxComponent>();
+        while (query.MoveNext(out var otherUid, out var other))
+        {
+            if (otherUid != uid && other.Parallax == name)
+                return;
+        }
+
+        _parallax.UnloadParallax(name);
+    }
+    // Forge-Change-End
 
     public ParallaxLayerPrepared[] GetParallaxLayers(MapId mapId)
     {

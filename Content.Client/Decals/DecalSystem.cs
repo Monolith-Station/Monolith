@@ -48,8 +48,16 @@ namespace Content.Client.Decals
             }, true);
 
             SubscribeLocalEvent<DecalGridComponent, ComponentHandleState>(OnHandleState);
+            SubscribeLocalEvent<DecalGridComponent, ComponentRemove>(OnDecalGridRemoved); // Forge-Change: drop overlay cache on grid remove
             SubscribeNetworkEvent<DecalChunkUpdateEvent>(OnChunkUpdate);
         }
+
+        // Forge-Change-Start: prepared decal chunks leaked after the grid entity was deleted.
+        private void OnDecalGridRemoved(EntityUid uid, DecalGridComponent component, ComponentRemove args)
+        {
+            _overlay?.RemoveGrid(uid);
+        }
+        // Forge-Change-End
 
         public void ToggleOverlay()
         {

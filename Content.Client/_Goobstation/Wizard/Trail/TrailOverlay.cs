@@ -19,6 +19,7 @@ public sealed class TrailOverlay : Overlay
 
     private readonly SpriteSystem _sprite;
     private readonly TransformSystem _transform;
+    private readonly Dictionary<string, ShaderInstance> _shaderCache = new(); // Forge-Change: InstanceUnique per trail per frame leaked GPU memory
 
     public TrailOverlay(IEntityManager entManager, IPrototypeManager protoMan, IGameTiming timing)
     {
@@ -30,6 +31,27 @@ public sealed class TrailOverlay : Overlay
         _sprite = _entManager.System<SpriteSystem>();
         _transform = _entManager.System<TransformSystem>();
     }
+
+    // Forge-Change-Start: cache unique trail shaders and dispose them on overlay teardown.
+    public void DisposeShaders()
+    {
+        foreach (var shader in _shaderCache.Values)
+            shader.Dispose();
+
+        _shaderCache.Clear();
+    }
+
+    private ShaderInstance GetCachedShader(string id, ShaderPrototype prototype)
+    {
+        if (!_shaderCache.TryGetValue(id, out var shader))
+        {
+            shader = prototype.InstanceUnique();
+            _shaderCache[id] = shader;
+        }
+
+        return shader;
+    }
+    // Forge-Change-End
 
     protected override void Draw(in OverlayDrawArgs args)
     {
@@ -55,7 +77,7 @@ public sealed class TrailOverlay : Overlay
 
             if (trail.Shader != null && _protoMan.TryIndex<ShaderPrototype>(trail.Shader, out var shaderProto))
             {
-                var shader = shaderProto.InstanceUnique();
+                var shader = GetCachedShader(trail.Shader, shaderProto); // Forge-Change: reuse unique instance
                 foreach (var (key, data) in trail.ShaderData)
                 {
                     switch (data)

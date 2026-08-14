@@ -21,13 +21,18 @@ public sealed class TrailSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
+    private TrailOverlay? _trailOverlay; // Forge-Change: keep a handle so shaders can be disposed on shutdown
+
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
     public override void Initialize()
     {
         base.Initialize();
-        _overlay.AddOverlay(new TrailOverlay(EntityManager, _protoMan, _timing));
+        // Forge-Change-Start: keep overlay instance so unique trail shaders can be disposed.
+        _trailOverlay = new TrailOverlay(EntityManager, _protoMan, _timing);
+        _overlay.AddOverlay(_trailOverlay);
+        // Forge-Change-End
 
         SubscribeLocalEvent<TrailComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<TrailComponent, ComponentStartup>(OnStartup);
@@ -94,7 +99,12 @@ public sealed class TrailSystem : EntitySystem
     public override void Shutdown()
     {
         base.Shutdown();
-        _overlay.RemoveOverlay<TrailOverlay>();
+        // Forge-Change-Start: dispose cached trail shaders on system shutdown.
+        _trailOverlay?.DisposeShaders();
+        if (_trailOverlay != null)
+            _overlay.RemoveOverlay(_trailOverlay);
+        _trailOverlay = null;
+        // Forge-Change-End
     }
 
     public override void Update(float frameTime)

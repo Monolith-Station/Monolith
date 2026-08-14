@@ -24,11 +24,11 @@ public sealed partial class CleanupHelperSystem : EntitySystem
     private EntityQuery<GhostComponent> _ghostQuery;
     private EntityQuery<MindComponent> _mindQuery;
 
-    // Forge-Change: cached snapshot of player world positions, refreshed at most once per
+    // Forge-Change: cached snapshot of player world positions + grid, refreshed at most once per
     // PlayerCacheTtl. Cleanup loops can call HasNearbyPlayers thousands of times per scan;
     // a short-lived cache eliminates the per-call spatial lookup without affecting correctness
     // (players move slowly relative to cleanup radii ~ 628 units).
-    private readonly List<(MapId Map, Vector2 Pos)> _playerCache = new();
+    private readonly List<(MapId Map, Vector2 Pos, EntityUid? Grid)> _playerCache = new();
     private TimeSpan _playerCacheUntil = TimeSpan.MinValue;
     private static readonly TimeSpan PlayerCacheTtl = TimeSpan.FromSeconds(1);
 
@@ -59,7 +59,7 @@ public sealed partial class CleanupHelperSystem : EntitySystem
             if (xform.MapID == MapId.Nullspace)
                 continue;
 
-            _playerCache.Add((xform.MapID, _transform.GetWorldPosition(xform)));
+            _playerCache.Add((xform.MapID, _transform.GetWorldPosition(xform), xform.GridUid)); // Forge-Change: also cache GridUid
         }
         _playerCacheUntil = _timing.CurTime + PlayerCacheTtl;
     }
@@ -78,7 +78,7 @@ public sealed partial class CleanupHelperSystem : EntitySystem
             return false;
 
         var radSq = radius * radius;
-        foreach (var (map, pos) in _playerCache)
+        foreach (var (map, pos, _) in _playerCache)
         {
             if (map != mapPos.MapId)
                 continue;
@@ -87,6 +87,21 @@ public sealed partial class CleanupHelperSystem : EntitySystem
         }
         return false;
     }
+
+    /// <summary>
+    ///     Grids that currently have a mind-bound non-ghost player on them.
+    /// </summary>
+    // Forge-Change-Start: occupied-grid set for shuttle idle cleanup.
+    public void CollectOccupiedGrids(HashSet<EntityUid> into)
+    {
+        EnsurePlayerCache();
+        foreach (var (_, _, grid) in _playerCache)
+        {
+            if (grid is { } gridUid)
+                into.Add(gridUid);
+        }
+    }
+    // Forge-Change-End
 
     /// <summary>
     ///     Whether there is a grid in radius. Approximate.

@@ -178,6 +178,29 @@ public partial class NavMapControl : MapGridControl
         ForceNavMapUpdate();
     }
 
+    // Forge-Change-Start: station-map geometry leaked after the control left the UI tree.
+    protected override void ExitedTree()
+    {
+        TileLines.Clear();
+        TileRects.Clear();
+        TilePolygons.Clear();
+        RegionOverlays.Clear();
+        TrackedCoordinates.Clear();
+        TrackedEntities.Clear();
+        _horizLines.Clear();
+        _horizLinesReversed.Clear();
+        _vertLines.Clear();
+        _vertLinesReversed.Clear();
+        _sRGBLookUp.Clear();
+        _navMap = null;
+        _grid = null;
+        _xform = null;
+        _physics = null;
+        _fixtures = null;
+        base.ExitedTree();
+    }
+    // Forge-Change-End
+
     public void ForceNavMapUpdate()
     {
         EntManager.TryGetComponent(MapUid, out _navMap);

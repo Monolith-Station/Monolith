@@ -33,10 +33,14 @@ public partial class BaseShuttleControl : MapGridControl
 
     private GridDrawJob _drawJob;
 
-    // Cache grid drawing data as it can be expensive to build
+    // Cache grid drawing data as it can be expensive to build.
+    // Forge-Change-Start: prune unused radar/shuttle meshes; previously every drawn grid stayed in RAM forever.
     public readonly Dictionary<EntityUid, GridDrawData> GridData = new();
+    private readonly HashSet<EntityUid> _drawnGrids = new();
+    private readonly List<EntityUid> _staleGrids = new();
+    // Forge-Change-End
 
-    // Per-draw caching
+    // Per-draw scratch — cleared after each mesh rebuild so large stations don't linger. // Forge-Change
     private readonly Dictionary<Vector2i, ContentTileDefinition> _gridTileList = new(); // Mono
     // Mono - tile mapped to vector lying along each of 4 directions, if any
     private readonly Dictionary<Vector2i, Box2?[]> _gridDirEdges = new();
@@ -76,6 +80,62 @@ public partial class BaseShuttleControl : MapGridControl
             _neighborDirections[i] = (dir, dirVec);
         }
     }
+
+    // Forge-Change-Start: prune radar mesh cache each frame and when the control leaves the tree.
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+        PruneGridDrawCache();
+    }
+
+    protected override void ExitedTree()
+    {
+        ClearGridDrawCache();
+        base.ExitedTree();
+    }
+
+    private void PruneGridDrawCache()
+    {
+        if (GridData.Count == 0)
+        {
+            _drawnGrids.Clear();
+            return;
+        }
+
+        // Hidden tabs (NAV/MAP/DOCK) keep the control in the tree; drop meshes immediately.
+        if (!VisibleInTree)
+        {
+            ClearGridDrawCache();
+            return;
+        }
+
+        _staleGrids.Clear();
+        foreach (var uid in GridData.Keys)
+        {
+            if (!_drawnGrids.Contains(uid) || !EntManager.EntityExists(uid))
+                _staleGrids.Add(uid);
+        }
+
+        foreach (var uid in _staleGrids)
+            GridData.Remove(uid);
+
+        _drawnGrids.Clear();
+        _staleGrids.Clear();
+    }
+
+    private void ClearGridDrawCache()
+    {
+        GridData.Clear();
+        _drawnGrids.Clear();
+        _staleGrids.Clear();
+        _gridTileList.Clear();
+        _gridDirEdges.Clear();
+        _edges.Clear();
+        _edgeMarkers.Clear();
+        _allVertices = Array.Empty<Vector2>();
+        _drawJob.ScaledVertices = _allVertices;
+    }
+    // Forge-Change-End
 
     protected void DrawData(DrawingHandleScreen handle, string text)
     {
@@ -432,8 +492,7 @@ public partial class BaseShuttleControl : MapGridControl
         var midpoint = new Vector2(MidPoint, MidPoint);
         var tileSize = grid.Comp.TileSize;
 
-        // Check if we even have data
-        // TODO: Need to prune old grid-data if we don't draw it.
+        _drawnGrids.Add(grid.Owner); // Forge-Change: track grids drawn this frame for cache prune
         var gridData = GridData.GetOrNew(grid.Owner);
 
         if (gridData.LastBuild < grid.Comp.LastTileModifiedTick)
@@ -655,6 +714,13 @@ public partial class BaseShuttleControl : MapGridControl
             }
 
             gridData.LastBuild = grid.Comp.LastTileModifiedTick;
+
+            // Forge-Change-Start: scratch collections only needed during rebuild.
+            _gridTileList.Clear();
+            _gridDirEdges.Clear();
+            _edges.Clear();
+            _edgeMarkers.Clear();
+            // Forge-Change-End
         }
 
         var totalData = gridData.Vertices.Count;

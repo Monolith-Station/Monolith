@@ -2,6 +2,7 @@ using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Holopad;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Shared.GameObjects; // Forge-Change: AfterAutoHandleStateEvent
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Linq;
@@ -20,6 +21,8 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
         base.Initialize();
 
         SubscribeLocalEvent<HolopadHologramComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<HolopadHologramComponent, ComponentShutdown>(OnComponentShutdown); // Forge-Change: dispose hologram shader
+        SubscribeLocalEvent<HolopadHologramComponent, AfterAutoHandleStateEvent>(OnHandleState); // Forge-Change: rebuild sprite on LinkedEntity
         SubscribeLocalEvent<HolopadHologramComponent, BeforePostShaderRenderEvent>(OnShaderRender);
         SubscribeAllEvent<TypingChangedEvent>(OnTypingChanged);
     }
@@ -29,12 +32,30 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
         UpdateHologramSprite(entity, entity.Comp.LinkedEntity);
     }
 
+    // Forge-Change-Start: dispose unique hologram shader; rebuild sprite on networked LinkedEntity instead of every frame.
+    private void OnComponentShutdown(Entity<HolopadHologramComponent> entity, ref ComponentShutdown ev)
+    {
+        if (!TryComp<SpriteComponent>(entity, out var sprite))
+            return;
+
+        sprite.PostShader?.Dispose();
+        sprite.PostShader = null;
+        sprite.RaiseShaderEvent = false;
+    }
+
+    private void OnHandleState(Entity<HolopadHologramComponent> entity, ref AfterAutoHandleStateEvent ev)
+    {
+        UpdateHologramSprite(entity, entity.Comp.LinkedEntity);
+    }
+    // Forge-Change-End
+
     private void OnShaderRender(Entity<HolopadHologramComponent> entity, ref BeforePostShaderRenderEvent ev)
     {
+        // Forge-Change: only refresh the time uniform. Rebuilding the sprite/shader every frame leaked GPU memory.
         if (ev.Sprite.PostShader == null)
             return;
 
-        UpdateHologramSprite(entity, entity.Comp.LinkedEntity);
+        ev.Sprite.PostShader.SetParameter("t", (float)_timing.CurTime.TotalSeconds * entity.Comp.ScrollRate);
     }
 
     private void OnTypingChanged(TypingChangedEvent ev, EntitySessionEventArgs args)
@@ -117,6 +138,8 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
     {
         // Find the texture height of the largest layer
         float texHeight = sprite.AllLayers.Max(x => x.PixelSize.Y);
+
+        sprite.PostShader?.Dispose(); // Forge-Change: replace unique shader instead of leaking the previous instance
 
         var instance = _prototypeManager.Index<ShaderPrototype>(holopadHologram.ShaderName).InstanceUnique();
         instance.SetParameter("color1", new Vector3(holopadHologram.Color1.R, holopadHologram.Color1.G, holopadHologram.Color1.B));

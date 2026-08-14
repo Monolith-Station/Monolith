@@ -63,6 +63,7 @@ public sealed partial class AtmosMonitoringConsoleSystem : SharedAtmosMonitoring
 
         // Grid events
         SubscribeLocalEvent<GridSplitEvent>(OnGridSplit);
+        SubscribeLocalEvent<GridRemovalEvent>(OnGridRemoved); // Forge-Change: drop pipe-chunk cache on grid delete
     }
 
     #region Event handling
@@ -132,6 +133,13 @@ public sealed partial class AtmosMonitoringConsoleSystem : SharedAtmosMonitoring
             InitializeAtmosMonitoringConsole(ent, entConsole);
         }
     }
+
+    // Forge-Change-Start: _gridAtmosPipeChunks was never pruned when grids were deleted.
+    private void OnGridRemoved(GridRemovalEvent args)
+    {
+        _gridAtmosPipeChunks.Remove(args.EntityUid);
+    }
+    // Forge-Change-End
 
     #endregion
 

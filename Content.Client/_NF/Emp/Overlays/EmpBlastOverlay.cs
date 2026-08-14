@@ -78,7 +78,11 @@ namespace Content.Client._NF.Emp.Overlays
 
             if (currentEye == null)
             {
+                // Forge-Change-Start: Clear() without Dispose leaked unique EMP shaders.
+                foreach (var (shd, _) in _blasts.Values)
+                    shd.Dispose();
                 _blasts.Clear();
+                // Forge-Change-End
                 return;
             }
 
@@ -105,8 +109,8 @@ namespace Content.Client._NF.Emp.Overlays
                 }
             }
 
-            var activeShaderIds = _blasts.Keys;
-            foreach (var blastEntity in activeShaderIds) //Remove all blasts that are added and no longer qualify
+            var toRemove = new List<EntityUid>(); // Forge-Change: don't mutate _blasts while iterating Keys
+            foreach (var blastEntity in _blasts.Keys)
             {
                 if (_entityManager.EntityExists(blastEntity) &&
                     _entityManager.TryGetComponent(blastEntity, out EmpBlastComponent? blast) &&
@@ -118,10 +122,16 @@ namespace Content.Client._NF.Emp.Overlays
                 }
                 else
                 {
-                    _blasts[blastEntity].shd.Dispose();
-                    _blasts.Remove(blastEntity);
+                    toRemove.Add(blastEntity);
                 }
             }
+
+            foreach (var blastEntity in toRemove)
+            {
+                _blasts[blastEntity].shd.Dispose();
+                _blasts.Remove(blastEntity);
+            }
+            // Forge-Change: deferred remove so expired EMP shaders are actually disposed
 
         }
 

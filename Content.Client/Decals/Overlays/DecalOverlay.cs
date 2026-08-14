@@ -80,6 +80,13 @@ public sealed class DecalOverlay : GridOverlay
         _cachedTextures.Clear();
     }
 
+    // Forge-Change-Start: drop prepared chunks when the client loses the grid.
+    public void RemoveGrid(EntityUid gridId)
+    {
+        _preparedChunks.Remove(gridId);
+    }
+    // Forge-Change-End
+
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (args.MapId == MapId.Nullspace)

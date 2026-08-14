@@ -56,6 +56,7 @@ namespace Content.Client.Interactable.Components
                 _inRange = inInteractionRange;
                 _lastRenderScale = renderScale;
 
+                _shader?.Dispose(); // Forge-Change: previous unique outline shader was leaked on range/scale change
                 _shader = MakeNewShader(_inRange, _lastRenderScale);
                 sprite.PostShader = _shader;
             }

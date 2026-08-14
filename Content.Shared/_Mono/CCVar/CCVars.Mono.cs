@@ -52,13 +52,21 @@ public sealed partial class MonoCVars
     ///     How far away from any players can a grid be until it gets cleaned up.
     /// </summary>
     public static readonly CVarDef<float> GridCleanupDistance =
-        CVarDef.Create("mono.cleanup.grid.distance", 450.0f, CVar.SERVERONLY);
+        CVarDef.Create("mono.cleanup.grid.distance", 256.0f, CVar.SERVERONLY); // Forge-Change: 450 -> 256
 
     /// <summary>
     ///     How much can a grid at most be worth for it to be cleaned up.
     /// </summary>
     public static readonly CVarDef<float> GridCleanupMaxValue =
         CVarDef.Create("mono.cleanup.grid.max_value", 30000.0f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     If true, a visible IFF label prevents grid cleanup. Abandoned player ships
+    ///     almost always have IFF on, so this defaults to false.
+    /// </summary>
+    // Forge-Change: visible IFF used to permanently protect abandoned player ships.
+    public static readonly CVarDef<bool> GridCleanupIffProtects =
+        CVarDef.Create("mono.cleanup.grid.iff_protects", false, CVar.SERVERONLY);
 
     /// <summary>
     ///     At most how many tiles for a grid to have for it to be cleaned up more aggressively.
@@ -70,19 +78,19 @@ public sealed partial class MonoCVars
     ///     Duration, in seconds, for how long a grid has to fulfill cleanup conditions to get cleaned up.
     /// </summary>
     public static readonly CVarDef<float> GridCleanupDuration =
-        CVarDef.Create("mono.grid_cleanup_duration", 600f, CVar.SERVERONLY);
+        CVarDef.Create("mono.grid_cleanup_duration", 180f, CVar.SERVERONLY); // Forge-Change: 600 -> 180
 
     /// <summary>
     ///     Max map tiles for the micro-fragment fast cleanup path (ignores IFF).
     /// </summary>
     public static readonly CVarDef<int> GridCleanupFragmentMaxTiles =
-        CVarDef.Create("mono.cleanup.grid.fragment_max_tiles", 3, CVar.SERVERONLY);
+        CVarDef.Create("mono.cleanup.grid.fragment_max_tiles", 10, CVar.SERVERONLY); // Forge-Change: 3 -> 10
 
     /// <summary>
     ///     How long, in seconds, a micro-fragment must stay eligible before fast-path deletion.
     /// </summary>
     public static readonly CVarDef<float> GridCleanupFragmentDuration =
-        CVarDef.Create("mono.cleanup.grid.fragment_duration", 90f, CVar.SERVERONLY);
+        CVarDef.Create("mono.cleanup.grid.fragment_duration", 45f, CVar.SERVERONLY); // Forge-Change: 90 -> 45
 
     /// <summary>
     ///     Max appraised value for a micro-fragment to use the fast cleanup path.
@@ -125,6 +133,33 @@ public sealed partial class MonoCVars
     /// </summary>
     public static readonly CVarDef<float> ImpactSweepRadius =
         CVarDef.Create("mono.cleanup.impact.radius", 60.0f, CVar.SERVERONLY);
+
+    // Forge-Change-Start: idle shuttle despawn after no player has boarded for an hour.
+    /// <summary>
+    ///     If true, shuttles with no player aboard (and not docked to an occupied grid)
+    ///     are deleted after <see cref="ShuttleIdleCleanupSeconds"/>.
+    /// </summary>
+    public static readonly CVarDef<bool> ShuttleIdleCleanupEnabled =
+        CVarDef.Create("mono.cleanup.shuttle_idle.enabled", true, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     How long a shuttle may stay unoccupied before it is deleted, in seconds.
+    /// </summary>
+    public static readonly CVarDef<float> ShuttleIdleCleanupSeconds =
+        CVarDef.Create("mono.cleanup.shuttle_idle.seconds", 3600f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     How often to scan shuttles for idle cleanup, in seconds.
+    /// </summary>
+    public static readonly CVarDef<float> ShuttleIdleCleanupScanSeconds =
+        CVarDef.Create("mono.cleanup.shuttle_idle.scan_seconds", 15f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Players this close to a shuttle count as occupying it (boarding / approaching).
+    /// </summary>
+    public static readonly CVarDef<float> ShuttleIdleCleanupApproachDistance =
+        CVarDef.Create("mono.cleanup.shuttle_idle.approach_distance", 48f, CVar.SERVERONLY);
+    // Forge-Change-End
 
     #endregion
 

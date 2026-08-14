@@ -18,6 +18,7 @@
   - type: IFF
     color: "#ffa600"
     readOnly: true
+  - type: CleanupImmune # Forge-Change: idle shuttle cleanup must not despawn POIs
 
 - type: pointOfInterest
   parent: BaseMobilePOI

@@ -16,6 +16,7 @@ using Robust.Shared.Containers;
 // Forge-Change-End
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
+using Robust.Shared.Map; // Forge-Change: GridRemovalEvent
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 using System.Linq;
@@ -55,6 +56,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 
         // Grid events
         SubscribeLocalEvent<GridSplitEvent>(OnGridSplit);
+        SubscribeLocalEvent<GridRemovalEvent>(OnGridRemoved); // Forge-Change: drop cable-chunk cache on grid delete
         SubscribeLocalEvent<CableComponent, CableAnchorStateChangedEvent>(OnCableAnchorStateChanged);
         SubscribeLocalEvent<PowerMonitoringDeviceComponent, AnchorStateChangedEvent>(OnDeviceAnchoringChanged);
         SubscribeLocalEvent<PowerMonitoringDeviceComponent, NodeGroupsRebuilt>(OnNodeGroupRebuilt);
@@ -159,6 +161,13 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
             RefreshPowerMonitoringCableNetworks(ent, entCableNetworks);
         }
     }
+
+    // Forge-Change-Start: _gridPowerCableChunks was never pruned when grids were deleted.
+    private void OnGridRemoved(GridRemovalEvent args)
+    {
+        _gridPowerCableChunks.Remove(args.EntityUid);
+    }
+    // Forge-Change-End
 
     public void OnCableAnchorStateChanged(EntityUid uid, CableComponent component, CableAnchorStateChangedEvent args)
     {

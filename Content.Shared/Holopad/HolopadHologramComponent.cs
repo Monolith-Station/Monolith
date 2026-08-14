@@ -7,7 +7,7 @@ namespace Content.Shared.Holopad;
 /// <summary>
 /// Holds data pertaining to holopad holograms
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)] // Forge-Change: raise AfterAutoHandleState for LinkedEntity
 public sealed partial class HolopadHologramComponent : Component
 {
     /// <summary>

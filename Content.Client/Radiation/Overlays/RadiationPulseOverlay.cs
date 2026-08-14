@@ -79,7 +79,11 @@ namespace Content.Client.Radiation.Overlays
 
             if (currentEye == null)
             {
+                // Forge-Change-Start: Clear() without Dispose leaked unique pulse shaders.
+                foreach (var (shd, _) in _pulses.Values)
+                    shd.Dispose();
                 _pulses.Clear();
+                // Forge-Change-End
                 return;
             }
 
@@ -106,8 +110,8 @@ namespace Content.Client.Radiation.Overlays
                 }
             }
 
-            var activeShaderIds = _pulses.Keys;
-            foreach (var pulseEntity in activeShaderIds) //Remove all pulses that are added and no longer qualify
+            var toRemove = new List<EntityUid>(); // Forge-Change: don't mutate _pulses while iterating Keys
+            foreach (var pulseEntity in _pulses.Keys)
             {
                 if (_entityManager.EntityExists(pulseEntity) &&
                     PulseQualifies(pulseEntity, currentEyeLoc) &&
@@ -119,10 +123,16 @@ namespace Content.Client.Radiation.Overlays
                 }
                 else
                 {
-                    _pulses[pulseEntity].shd.Dispose();
-                    _pulses.Remove(pulseEntity);
+                    toRemove.Add(pulseEntity);
                 }
             }
+
+            foreach (var pulseEntity in toRemove)
+            {
+                _pulses[pulseEntity].shd.Dispose();
+                _pulses.Remove(pulseEntity);
+            }
+            // Forge-Change: deferred remove so expired pulse shaders are actually disposed
 
         }
 

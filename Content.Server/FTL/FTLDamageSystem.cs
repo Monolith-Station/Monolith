@@ -18,6 +18,10 @@ public sealed partial class FTLDamageSystem : EntitySystem
 
     // Dictionary to track entities that are in FTL space without a grid and their timers
     private readonly Dictionary<EntityUid, TimeSpan> _pendingCrushes = new();
+    // Forge-Change-Start: reuse lists instead of copying the pending dictionary every tick.
+    private readonly List<EntityUid> _pendingCrushRemove = new();
+    private readonly List<EntityUid> _pendingCrushApply = new();
+    // Forge-Change-End
     
     // Time delay before applying crush damage (2.5 seconds)
     private const float CrushDelay = 2.5f;
@@ -36,50 +40,54 @@ public sealed partial class FTLDamageSystem : EntitySystem
         
         // Current time
         var curTime = _timing.CurTime;
-        var toRemove = new List<EntityUid>();
-        
-        // Create a copy of the entries to safely iterate over
-        var pendingCopy = new Dictionary<EntityUid, TimeSpan>(_pendingCrushes);
-        
+        // Forge-Change-Start: iterate the live dictionary with reused lists instead of cloning it every tick.
+        _pendingCrushRemove.Clear();
+        _pendingCrushApply.Clear();
+
         // Check all pending entities
-        foreach (var (entity, crushTime) in pendingCopy)
+        foreach (var (entity, crushTime) in _pendingCrushes)
         {
             // Skip if the entity is deleted or queued for deletion
             if (EntityManager.Deleted(entity) || EntityManager.IsQueuedForDeletion(entity))
             {
-                toRemove.Add(entity);
+                _pendingCrushRemove.Add(entity);
                 continue;
             }
-            
+
             // Check if transform component still exists
             if (!TryComp<TransformComponent>(entity, out var transform))
             {
-                toRemove.Add(entity);
+                _pendingCrushRemove.Add(entity);
                 continue;
             }
-            
+
             // If the entity is now on a grid or no longer in FTL space, remove it from pending
-            if (!transform.MapUid.HasValue || 
-                !HasComp<FTLMapComponent>(transform.MapUid.Value) || 
+            if (!transform.MapUid.HasValue ||
+                !HasComp<FTLMapComponent>(transform.MapUid.Value) ||
                 transform.GridUid.HasValue)
             {
-                toRemove.Add(entity);
+                _pendingCrushRemove.Add(entity);
                 continue;
             }
-            
+
             // Check if it's time to apply crush damage
             if (curTime >= crushTime)
             {
-                ApplyCrushDamage(entity);
-                toRemove.Add(entity);
+                _pendingCrushRemove.Add(entity);
+                _pendingCrushApply.Add(entity);
             }
         }
-        
-        // Remove processed entities
-        foreach (var entity in toRemove)
+
+        foreach (var entity in _pendingCrushRemove)
         {
             _pendingCrushes.Remove(entity);
         }
+
+        foreach (var entity in _pendingCrushApply)
+        {
+            ApplyCrushDamage(entity);
+        }
+        // Forge-Change-End
     }
 
     private void OnEntParentChanged(EntityUid uid, TransformComponent transform, ref EntParentChangedMessage args)

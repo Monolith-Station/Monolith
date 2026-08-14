@@ -33,7 +33,15 @@ public sealed class DrakeHitscanGatheringSystem : EntitySystem
 
         SubscribeLocalEvent<DrakeHitscanGatheringComponent, HitscanRaycastFiredEvent>(OnRaycastFired);
         SubscribeLocalEvent<DrakeHitscanGatheringComponent, HitscanDamageDealtEvent>(OnHitscanHit);
+        SubscribeLocalEvent<DrakeHitscanGatheringComponent, ComponentShutdown>(OnHitscanShutdown); // Forge-Change
     }
+
+    // Forge-Change-Start: miss shots never fired HitscanDamageDealt, leaving _shotContext entries.
+    private void OnHitscanShutdown(Entity<DrakeHitscanGatheringComponent> ent, ref ComponentShutdown args)
+    {
+        _shotContext.Remove(ent);
+    }
+    // Forge-Change-End
 
     private void OnRaycastFired(Entity<DrakeHitscanGatheringComponent> ent, ref HitscanRaycastFiredEvent args)
     {

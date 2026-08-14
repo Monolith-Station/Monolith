@@ -6,7 +6,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Input;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Client.UserInterface.Controls;
@@ -20,8 +19,6 @@ public partial class MapGridControl : LayoutContainer
 {
     [Dependency] protected IEntityManager EntManager = default!;
     [Dependency] protected IGameTiming Timing = default!;
-    [Dependency] protected IPrototypeManager PrototypeManager = default!; // Mono
-    [Dependency] protected IClyde DisplayManager = default!; // Mono
 
     protected static readonly Color BackingColor = new Color(0.08f, 0.08f, 0.08f);
 
@@ -88,8 +85,6 @@ public partial class MapGridControl : LayoutContainer
 
     public event Action<float>? WorldRangeChanged;
 
-    private readonly ShaderInstance _circleMaskShader; // Mono
-
     public MapGridControl() : this(32f, 32f, 32f) { }
 
     public MapGridControl(float minRange, float maxRange, float range)
@@ -107,8 +102,7 @@ public partial class MapGridControl : LayoutContainer
 
         var cache = IoCManager.Resolve<IResourceCache>();
         _largerFont = new VectorFont(cache.GetResource<FontResource>("/EngineFonts/NotoSans/NotoSans-Regular.ttf"), 16);
-
-        _circleMaskShader = PrototypeManager.Index<ShaderPrototype>("CircleAlphaMask").InstanceUnique(); // Mono
+        // Forge-Change: removed unused CircleAlphaMask InstanceUnique() that leaked a shader per map control.
     }
 
     public void ForceRecenter()

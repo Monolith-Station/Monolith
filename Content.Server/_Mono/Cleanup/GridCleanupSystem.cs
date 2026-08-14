@@ -33,6 +33,7 @@ public sealed partial class GridCleanupSystem : BaseCleanupSystem<MapGridCompone
     private TimeSpan _fragmentDuration;
     private float _fragmentMaxValue;
     private float _fragmentDistance;
+    private bool _iffProtects; // Forge-Change: IFF no longer blocks cleanup by default
 
     private HashSet<Entity<ApcComponent>> _apcList = new();
 
@@ -60,6 +61,7 @@ public sealed partial class GridCleanupSystem : BaseCleanupSystem<MapGridCompone
         Subs.CVar(_cfg, MonoCVars.GridCleanupFragmentDuration, val => _fragmentDuration = TimeSpan.FromSeconds(val), true);
         Subs.CVar(_cfg, MonoCVars.GridCleanupFragmentMaxValue, val => _fragmentMaxValue = val, true);
         Subs.CVar(_cfg, MonoCVars.GridCleanupFragmentDistance, val => _fragmentDistance = val, true);
+        Subs.CVar(_cfg, MonoCVars.GridCleanupIffProtects, val => _iffProtects = val, true); // Forge-Change
     }
 
     /// <summary>
@@ -105,7 +107,7 @@ public sealed partial class GridCleanupSystem : BaseCleanupSystem<MapGridCompone
         var tiles = body.FixturesMass / ShuttleSystem.TileDensityMultiplier;
         var scale = MathF.Min(tiles / _aggressiveTiles, 1f);
 
-        if (!state.IgnoreIFF && TryComp<IFFComponent>(uid, out var iff) && (iff.Flags & IFFFlags.HideLabel) == 0 // delete only if IFF off
+        if ((_iffProtects && !state.IgnoreIFF && TryComp<IFFComponent>(uid, out var iff) && (iff.Flags & IFFFlags.HideLabel) == 0) // Forge-Change: IFF optional
             || CleanupHelper.HasNearbyPlayers(xform.Coordinates, state.DistanceOverride ?? _maxDistance * scale * scale) // square it
             || !state.IgnorePowered && HasPoweredAPC((uid, xform)) // don't delete if it has powered APCs
             || !state.IgnorePrice && _pricing.AppraiseGrid(uid) > _maxValue) // expensive to run, put last

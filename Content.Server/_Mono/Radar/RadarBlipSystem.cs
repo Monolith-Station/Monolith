@@ -6,6 +6,7 @@ using Content.Shared._Mono.Radar;
 using Content.Shared.Projectiles;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Configuration; // Forge-Change
+using Robust.Shared.Enums; // Forge-Change: prune radar request throttle on disconnect
 using Robust.Shared.Map;
 using Robust.Shared.Player; // Forge-Change
 using Robust.Shared.Physics.Components;
@@ -48,7 +49,24 @@ public sealed partial class RadarBlipSystem : EntitySystem
         base.Initialize();
         SubscribeNetworkEvent<RequestBlipsEvent>(OnBlipsRequested);
         SubscribeLocalEvent<RadarBlipComponent, ComponentShutdown>(OnBlipShutdown);
+        _playerManager.PlayerStatusChanged += OnPlayerStatusChanged; // Forge-Change
     }
+
+    // Forge-Change-Start: _lastRequestByUser grew forever across reconnects.
+    public override void Shutdown()
+    {
+        _playerManager.PlayerStatusChanged -= OnPlayerStatusChanged;
+        base.Shutdown();
+    }
+
+    private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
+    {
+        if (e.NewStatus != SessionStatus.Disconnected)
+            return;
+
+        _lastRequestByUser.Remove(e.Session.UserId);
+    }
+    // Forge-Change-End
 
     private void OnBlipsRequested(RequestBlipsEvent ev, EntitySessionEventArgs args)
     {
