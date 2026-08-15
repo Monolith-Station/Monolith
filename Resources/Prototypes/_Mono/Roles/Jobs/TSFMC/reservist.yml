@@ -36,6 +36,17 @@
 
 - type: startingGear
   id: TsfReservistGear
+  equipment:
+    head: ClothingHeadHatHardhatBlue
+    jumpsuit: ClothingUniformTsfmcMopp
+    eyes: ClothingEyesHudNfsd
+    outerClothing: ClothingOuterHardsuitM86Mk4
+    id: TsfReservistPDA
+    pocket1: CrowbarPocket
+    pocket2: WeaponPistolMk58
+    belt: ClothingBeltUtilityEngineering
+    neck: ClothingNeckIFFCyan
+    suitStorage: MaintenanceJack
   storage:
     back:
     - RadioHandheldNF

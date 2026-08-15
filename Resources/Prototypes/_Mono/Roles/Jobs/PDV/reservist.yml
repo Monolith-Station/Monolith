@@ -36,9 +36,15 @@
 
 - type: startingGear
   id: PDVReservistGear
+  equipment:
+    head: ClothingHeadHatHardhatOrange
+    eyes: ClothingEyesHudNfsd
+    outerClothing: ClothingOuterHardsuitM86Mk4
+    id: TsfReservistPDA
+    belt: ClothingBeltUtilityEngineering
+    neck: ClothingNeckIFFCyan
+    suitStorage: MaintenanceJack
   storage:
     back:
     - RadioHandheldNF
     - NFPouchPirate
-    suitStorage: MaintenanceJack
-    belt: ClothingBeltUtilityEngineering

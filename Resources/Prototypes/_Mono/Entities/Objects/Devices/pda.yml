@@ -202,6 +202,14 @@
     borderColor: "#9c8245"
 
 - type: entity
+  parent: PDVRakhshanPDA
+  id: PDVReservistPDA
+  name: PDV Basij PDA
+  components:
+  - type: Pda
+    id: PDVRakhshanIDCard
+
+- type: entity
   parent: BasePDVPDA
   id: PDVGrandVizierPDA
   name: PDV grand vizier PDA
