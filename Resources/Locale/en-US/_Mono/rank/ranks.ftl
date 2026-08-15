@@ -51,6 +51,7 @@ pdv-denasvar = Dns.
 pdv-asvaran = Asv.
 pdv-vizier = Grand Vizier
 pdv-tarkhan = PDRV Tarkhan
+pdv-reservist = Militia
 
 ### USSP loadout ranks
 
