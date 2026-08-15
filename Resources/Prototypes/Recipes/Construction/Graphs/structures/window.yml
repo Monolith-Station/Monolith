@@ -53,48 +53,12 @@
             - material: ReinforcedGlass
               amount: 2
               doAfter: 4
-        # Forge-Change-Start
-        - to: shuttleWindowDiagonal
-          steps:
-            - material: Plasteel
-              amount: 2
-            - material: ReinforcedGlass
-              amount: 2
-              doAfter: 4
-        - to: shuttleWindowUran
-          steps:
-            - material: Plasteel
-              amount: 2
-            - material: ReinforcedUraniumGlass
-              amount: 2
-              doAfter: 4
-        - to: shuttleWindowUranDiagonal
-          steps:
-            - material: Plasteel
-              amount: 2
-            - material: ReinforcedUraniumGlass
-              amount: 2
-              doAfter: 4
-        - to: shuttleWindowPlasma
-          steps:
-            - material: Plasteel
-              amount: 2
-            - material: ReinforcedPlasmaGlass
-              amount: 2
-              doAfter: 4
-        - to: shuttleWindowPlasmaDiagonal
-          steps:
-            - material: Plasteel
-              amount: 2
-            - material: ReinforcedPlasmaGlass
-              amount: 2
-              doAfter: 4
-        # Forge-Change-End
-        - to: clockworkWindow
-          steps:
-            - material: ClockworkGlass
-              amount: 2
-              doAfter: 3
+
+#        - to: clockworkWindow
+#          steps:
+#            - material: ClockworkGlass
+#              amount: 2
+#              doAfter: 3
 
     - node: window
       entity: Window
@@ -237,28 +201,28 @@
             - tool: Anchoring
               doAfter: 3
 
-    - node: clockworkWindow
-      entity: ClockworkWindow
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetClockworkGlass1
-              amount: 2
-            - !type:DeleteEntity {}
-          steps:
-            - tool: Welding
-              doAfter: 5
-            - tool: Screwing
-              doAfter: 2
-            - tool: Prying
-              doAfter: 3
-            - tool: Welding
-              doAfter: 5
-            - tool: Screwing
-              doAfter: 2
-            - tool: Anchoring
-              doAfter: 3
+#    - node: clockworkWindow
+#      entity: ClockworkWindow
+#      edges:
+#        - to: start
+#          completed:
+#            - !type:SpawnPrototype
+#              prototype: SheetClockworkGlass1
+#              amount: 2
+#            - !type:DeleteEntity {}
+#          steps:
+#            - tool: Welding
+#              doAfter: 5
+#            - tool: Screwing
+#              doAfter: 2
+#            - tool: Prying
+#              doAfter: 3
+#            - tool: Welding
+#              doAfter: 5
+#            - tool: Screwing
+#              doAfter: 2
+#            - tool: Anchoring
+#              doAfter: 3
 
     - node: shuttleWindow
       entity: ShuttleWindow
@@ -289,71 +253,3 @@
               doAfter: 4
             - tool: Anchoring
               doAfter: 1
-
-    # Forge-Change-Start
-    - node: shuttleWindowDiagonal
-      entity: ShuttleWindowDiagonal
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetRGlass1
-              amount: 2
-            - !type:SpawnPrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
-          steps: *deconstructionWindow
-    - node: shuttleWindowUran
-      entity: ShuttleWindowUran
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetRUGlass1
-              amount: 2
-            - !type:SpawnPrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
-          steps: *deconstructionWindow
-    - node: shuttleWindowUranDiagonal
-      entity: ShuttleWindowUranDiagonal
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetRUGlass1
-              amount: 2
-            - !type:SpawnPrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
-          steps: *deconstructionWindow
-    - node: shuttleWindowPlasma
-      entity: ShuttleWindowPlasma
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetRPGlass1
-              amount: 2
-            - !type:SpawnPrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
-          steps: *deconstructionWindow
-    - node: shuttleWindowPlasmaDiagonal
-      entity: ShuttleWindowPlasmaDiagonal
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetRPGlass1
-              amount: 2
-            - !type:SpawnPrototype
-              prototype: SheetPlasteel1
-              amount: 2
-            - !type:DeleteEntity {}
-          steps: *deconstructionWindow
-    # Forge-Change-End

@@ -60,3 +60,32 @@ HyperlinkBookNfsdSop: null
 
 # base planet water replaced by CE water (z-level safe landing + distortion)
 FloorWaterEntity: CEWater
+
+# Entities removed for wizden wall-ening, such as ones that didn't have sprites available and weren't worth the effort for me to go out of my way to do so.
+ClockworkGrille: Grille
+ClockworkGrilleBroken: GrilleBroken
+ClockworkGrilleDiagonal: GrilleDiagonal
+
+ClockworkWindow: Window
+WindowClockworkDirectional: WindowDirectional
+ClockworkWindowDiagonal: WindowDiagonal
+
+PinionAirlockGlass: null
+PinionAirlock: null
+
+WallShuttleInterior: WallShuttle
+# Annoying, but it was the closest stat-wise.
+MiningWindow: Window
+MiningWindowDiagonal: WindowDiagonal
+MiningWindowDungeon: ReinforcedWindowDungeon
+WallDiamond: WallPlastitanium # Idk
+# This is really just super placeholders. I hate that I have to do this, but I hate having to do even more sprite conversions, especially with animations this smooth.
+# Besides, these always get metagamed anyways.
+ReinforcedSecretDoorAssembly: BaseSecretDoorAssembly
+SolidReinforcedSecretDoor: SolidSecretDoor
+WoodSecretDoorAssembly: BaseSecretDoorAssembly
+WoodSecretDoor: SolidSecretDoor
+UraniumSecretDoorAssembly: BaseSecretDoorAssembly
+UraniumSecretDoor: SolidSecretDoor
+ShuttleSecretDoorAssembly: BaseSecretDoorAssembly
+ShuttleSecretDoor: SolidSecretDoor

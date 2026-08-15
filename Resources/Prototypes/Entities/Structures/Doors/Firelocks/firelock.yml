@@ -39,43 +39,26 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
     - type: Sprite
-      sprite: _Forge/Structures/Doors/Airlocks/Standard/firelock.rsi # Forge-Change
-      snapCardinals: true
+      sprite: Structures/Doors/Airlocks/Standard/firelock-base.rsi
       layers:
-        - state: closed
-          map: ["enum.DoorVisualLayers.Base"]
-        - state: closed_unlit
-          shader: unshaded
-          map: ["enum.DoorVisualLayers.BaseUnlit"]
-          visible: false
-        - state: welded
-          map: ["enum.WeldableLayers.BaseWelded"]
-        - state: bolted_unlit
-          shader: unshaded
-          map: ["enum.DoorVisualLayers.BaseBolted"]
-          visible: false
-        - state: panel_open
-          map: ["enum.WiresVisualLayers.MaintenancePanel"]
-        # Forge-Change-Start
-        - state: pressure_unlit
-          visible: false
-          shader: unshaded
-          map: ["enum.FirelockVisualLayersPressure.Base"]
-        - state: temperature_unlit
-          visible: false
-          shader: unshaded
-          map: ["enum.FirelockVisualLayersTemperature.Base"]
-    - type: GenericVisualizer
-      visuals:
-        enum.FirelockVisuals.PressureWarning:
-          enum.FirelockVisualLayersPressure.Base:
-            True: { visible: true }
-            False: { visible: false }
-        enum.FirelockVisuals.TemperatureWarning:
-          enum.FirelockVisualLayersTemperature.Base:
-            True: { visible: true }
-            False: { visible: false }
-    # Forge-Change-End
+      - state: closed
+        map: ["enum.DoorVisualLayers.Base"]
+      - state: closed_unlit
+        shader: unshaded
+        sprite: Structures/Doors/Airlocks/Effects/airlock-effects-firelock.rsi
+        map: ["enum.DoorVisualLayers.BaseUnlit"]
+        visible: false
+      - state: welded
+        sprite: Structures/Doors/Airlocks/Effects/airlock-effects-firelock.rsi
+        map: ["enum.WeldableLayers.BaseWelded"]
+      - state: bolted_unlit
+        shader: unshaded
+        sprite: Structures/Doors/Airlocks/Effects/airlock-effects-firelock.rsi
+        map: ["enum.DoorVisualLayers.BaseBolted"]
+        visible: false
+      - state: panel_open
+        sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
     - type: AnimationPlayer
     - type: Fixtures
       fixtures:
@@ -179,7 +162,7 @@
   components:
     - type: StationAiWhitelist
     - type: Sprite
-      sprite: _Forge/Structures/Doors/Airlocks/Glass/firelock.rsi # Forge-Change
+      sprite: Structures/Doors/Airlocks/Glass/firelock-base.rsi
     - type: Occluder
       enabled: false
     - type: Fixtures
