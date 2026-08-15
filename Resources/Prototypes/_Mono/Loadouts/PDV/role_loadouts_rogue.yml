@@ -139,3 +139,25 @@
   - RoguePistolMag
   - FactionArmorPlates
   canCustomizeName: true
+
+- type: roleLoadout
+  id: JobPDVReservist #  Reservist Role [Basij]
+  groups:
+  - PDVNeck
+  - PDVJumpsuit
+  - PDVGloves
+  - PDVOuterClothing
+  - PDVHud
+  - PDVBackpack
+  - PDVShoes
+  - PirateFace
+  - ContractorBoxSurvival
+  - PDVReservistPDA
+  - ContractorWallet
+  - NFSpeciesSpecific
+  - PirateTrinkets
+  - ContractorEncryptionKey
+  - RogueSidearm
+  - RoguePistolMag
+  - FactionArmorPlates
+  canCustomizeName: true
