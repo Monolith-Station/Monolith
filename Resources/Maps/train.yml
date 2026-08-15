@@ -78116,7 +78116,7 @@ entities:
     - type: Transform
       pos: -8.550903,-118.54294
       parent: 2
-- proto: MiningWindow
+- proto: Window
   entities:
   - uid: 11511
     components:
@@ -78356,7 +78356,7 @@ entities:
     - type: Transform
       pos: 14.5,-76.5
       parent: 2
-- proto: MiningWindowDiagonal
+- proto: WindowDiagonal
   entities:
   - uid: 11553
     components:

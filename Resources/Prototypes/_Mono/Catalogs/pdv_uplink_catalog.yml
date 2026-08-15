@@ -1058,6 +1058,21 @@
       - PirateUplink
 
 - type: listing
+  id: UplinkPirateWebVestElite
+  name: uplink-pirate-elite-webvest-name
+  description: uplink-pirate-elite-webvest-desc
+  productEntity: ClothingOuterVestWebElite
+  cost:
+    Doubloon: 15
+  categories:
+  - UplinkPirateEquipment
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
   id: UplinkPirateSyndieMask
   name: uplink-pirate-syndie-mask-name
   description: uplink-pirate-syndie-mask-desc
