@@ -57,7 +57,7 @@
   - type: Item
     heldPrefix: medic
 
-# MARK: TSF Engi
+# MARK: TSF Misc
 
 - type: entity
   parent: IDCardStandard
@@ -75,6 +75,14 @@
     sprite: _NF/Objects/Misc/id_cards.rsi
   - type: Item
     heldPrefix: nfsd
+
+- type: entity
+  parent: TsfEngiIDCard
+  id: TsfReservistIDCard
+  name: TSFN Deck Crew ID card
+  components:
+  - type: PresetIdCard
+    job: TsfReservist
 
 # MARK: MARSOC
 
@@ -108,6 +116,14 @@
     layers:
     - state: base
     - state: id_rakhshan
+
+- type: entity
+  parent: PDVRakhshanIDCard
+  id: PDVReservistIDCard
+  name: PDV Basij id card
+  components:
+  - type: PresetIdCard
+    job: PDVReservist
 
 - type: entity
   parent: PirateIDCard
