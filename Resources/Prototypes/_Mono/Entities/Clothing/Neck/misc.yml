@@ -152,7 +152,7 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckWearableCamera
-  name: wearable surveying port
+  name: wireless camera #bodycam but currently it has more then that of use that why i am keeping camera
   description: a commander's eyes on the battlefield.
   components:
     - type: Sprite
@@ -186,34 +186,34 @@
 - type: entity
   parent: ClothingNeckWearableCamera
   id: ClothingNeckWearableCameraVanguardPDV
-  name: Dynasties wearable surveying port
-  description: the Vizier's eyes in a field.
+  name: Dynasties wireless camera
+  description: Vizier's eyes on the battlefield.
   components:
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
       layers:
-        - state: shibox
+        - state: pdvbox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraVanguardPDV
 
 - type: entity
   parent: ClothingNeckWearableCamera
   id: ClothingNeckWearableCameraSolarianTSF
-  name: Solarian wearable surveying port
+  name: Solarian wireless camera
   description: Colonel's eyes on the battlefield.
   components:
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
       layers:
-        - state: ntbox
+        - state: tsfbox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraSolarianTSF
 
 - type: entity
   parent: ClothingNeckWearableCamera
   id: ClothingNeckWearableCameraMieyoMMC
-  name: interdyne wearable surveying port
-  description: the liaison's eyes on extraction operations.
+  name: MMC wearable camera # changing this only as request because mmc doesnt have none of this mapped or properly implemented niether other minor factions.
+  description: Liaison's eyes on the extraction operations.
   components:
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi

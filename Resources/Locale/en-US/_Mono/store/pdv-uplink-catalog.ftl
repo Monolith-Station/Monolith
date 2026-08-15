@@ -44,7 +44,7 @@ uplink-pirate-medical-assembler-desc = An assembler that can be used to make use
 
 # MARK: Utility
 
-uplink-pirate-wearable-camerapdv-name = Dynasties wearable surveying port
+uplink-pirate-wearable-camerapdv-name = wireless camera
 uplink-pirate-wearable-camerapdv-desc = Camera used for overwatching the operation area. Can be worn.
 
 uplink-pirate-romerol-name = Romerol Syringe
