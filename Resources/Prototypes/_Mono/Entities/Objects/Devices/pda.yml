@@ -125,13 +125,6 @@
   - type: PdaBorderColor
     borderColor: "#edb015"
     accentHColor: "#ed2715"
-  - type: Icon
-    state: pda-lifesupporttech
-  - type: Geiger # Mono
-    showExamine: true
-    showControl: true
-    isEnabled: true
-    attachedToSuit: true # Mono
 
 - type: entity
   parent: SheriffPDA
