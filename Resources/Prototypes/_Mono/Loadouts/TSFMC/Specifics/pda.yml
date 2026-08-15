@@ -11,3 +11,16 @@
   - TsfEngiPDA
   fallbacks:
   - TsfEngiPDA
+
+- type: loadout
+  id: TsfReservistPDA
+  equipment:
+    id: TsfReservistPDA
+
+- type: loadoutGroup
+  id: TsfReservistPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - TsfReservistPDA
+  fallbacks:

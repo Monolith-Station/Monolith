@@ -230,28 +230,23 @@
 - type: roleLoadout
   id: JobTsfReservist #  Reservist Role [Deck Crew]
   groups:
-  - TsfmcHeadEngi
   - TsfmcNeckEngi
   - TsfmcJumpsuitEngi
   - TsfmcGloves
   - TsfmcEngiModsuit
-  - TsfmcOuterClothing
   - TsfmcShoes
   - TsfmcFace
   - TsfmcBalaclava
-  - TsfmcEngiGlasses
   - TsfmcUtilBelt
   - TsfmcEars
   - NfsdBoxSurvival
-  - TsfEngiPDA
+  - TsfReservistPDA
   - ContractorWallet
   - ContractorCartridge
   - ContractorEncryptionKey
   - ContractorFun
   - ContractorTrinkets
   - NfsdSpeciesSpecific
-  - TsfmcSidearm
-  - TsfmcSidearmAmmo
   - FactionArmorPlates
   - TsfnRanksReserve
   canCustomizeName: true

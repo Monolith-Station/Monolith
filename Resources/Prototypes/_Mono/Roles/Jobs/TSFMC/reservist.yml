@@ -13,7 +13,7 @@
   startingGear: TsfReservistGear
   icon: JobIconTSFReservist
   supervisors: job-supervisors-sergeant
-  weight: 130
+  weight: 50
   displayWeight: 20
   assignedCompany: TSF
   canBeAntag: false
@@ -46,8 +46,6 @@
     eyes: ClothingEyesHudNfsd
     outerClothing: ClothingOuterHardsuitM86Mk4
     id: TsfReservistPDA
-    pocket1: CrowbarPocket
-    pocket2: WeaponPistolMk58
     belt: ClothingBeltUtilityEngineering
     neck: ClothingNeckIFFCyan
     suitStorage: MaintenanceJack
