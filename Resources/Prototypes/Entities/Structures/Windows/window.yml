@@ -84,7 +84,7 @@
     scalingType: Linear
     scalingPower: 0.0005
   - type: IconSmooth
-    key: basewindows # Mono
+    key: walls # Mono
     base: window
   - type: InteractionPopup
     interactSuccessString: comp-window-knock
