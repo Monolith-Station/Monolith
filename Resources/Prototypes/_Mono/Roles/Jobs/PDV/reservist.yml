@@ -14,7 +14,7 @@
   icon: JobIconPDVReservist
   supervisors: job-supervisors-hire
   weight: 130
-  displayWeight: 20
+  displayWeight: 24
   assignedCompany: PDV
   canBeAntag: false
   access:
@@ -42,11 +42,8 @@
   id: PDVReservistGear
   equipment:
     head: ClothingHeadHatHardhatOrange
-    eyes: ClothingEyesHudNfsd
-    outerClothing: ClothingOuterHardsuitM86Mk4
-    id: TsfReservistPDA
+    outerClothing: ClothingOuterVestHazard
     belt: ClothingBeltUtilityEngineering
-    neck: ClothingNeckIFFCyan
     suitStorage: MaintenanceJack
   storage:
     back:
