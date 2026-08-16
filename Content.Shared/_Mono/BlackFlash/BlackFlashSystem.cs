@@ -29,6 +29,8 @@ public sealed partial class BlackFlashSystem : EntitySystem
     [Dependency] private ThrowingSystem _throwing = default!;
     [Dependency] private StaminaSystem _stamina = default!;
 
+    [Dependency] private EntityQuery<BlackFlashComponent> _blackFlashQuery = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<BlackFlashComponent, MapInitEvent>(OnMapInit);
@@ -58,7 +60,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
         if (args.Handled || !args.IsHit)
             return;
 
-        if (HasComp<BlackFlashComponent>(args.User))
+        if (_blackFlashQuery.HasComp(args.User))
             return; // people that can do it at will dont get a random proc because im mean
 
         var blackFlashChance = BaseProcChance;
@@ -144,7 +146,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
         if (!args.IsHit || args.User != weapon.Comp.User)
             return;
 
-        if (!TryComp<BlackFlashComponent>(args.User, out var flash))
+        if (!_blackFlashQuery.TryComp(args.User, out var flash))
             return;
 
         if (args.HitEntities.Count == 0)
@@ -197,7 +199,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
         var user = armed.User;
         RemComp<BlackFlashArmedComponent>(weapon);
 
-        if (!TryComp<BlackFlashComponent>(user, out var flash))
+        if (!_blackFlashQuery.TryComp(user, out var flash))
             return;
 
         _actions.SetToggled(flash.ActionEntity, false);
@@ -237,7 +239,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
         var armed = EntityQueryEnumerator<BlackFlashArmedComponent>();
         while (armed.MoveNext(out var uid, out var comp))
         {
-            if (!HasComp<BlackFlashComponent>(comp.User))
+            if (!_blackFlashQuery.HasComp(comp.User))
             {
                 RemCompDeferred<BlackFlashArmedComponent>(uid);
                 continue;
