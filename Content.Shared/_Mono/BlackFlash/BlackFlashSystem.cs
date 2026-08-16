@@ -39,7 +39,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
     }
 
     public float NormalDamageMultiplier = 2.5f;
-    public float BaseProcChance = 0.025f;
+    public float BaseProcChance = 0.005f;
     private readonly BlackFlashComponent _procSettings = new();
 
     private static float SwingRoll(uint tick, int user, int weapon)
