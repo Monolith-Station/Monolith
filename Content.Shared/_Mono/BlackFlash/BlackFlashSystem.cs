@@ -39,7 +39,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
     }
 
     public float NormalDamageMultiplier = 2.5f;
-    public float BaseProcChance = 0.005f;
+    public float BaseProcChance = 0.00005f;
     private readonly BlackFlashComponent _procSettings = new();
 
     private static float SwingRoll(uint tick, int user, int weapon)
@@ -78,7 +78,10 @@ public sealed partial class BlackFlashSystem : EntitySystem
             blackFlashChance *= 5;
 
         if (SwingRoll(_timing.CurTick.Value, GetNetEntity(args.User).Id, GetNetEntity(args.Weapon).Id) >= blackFlashChance)
+        {
+            RemComp<BlackFlashLastHitComponent>(args.User); // Failed.
             return;
+        }
 
         if (args.HitEntities.Count == 0)
         {
