@@ -1,10 +1,10 @@
 - type: entity
   id: ActionBlackFlash
   name: Black Flash
-  description: Brace your cursed energy against the next blow you land. Miss the beat and you lose the flow.
+  description: Throw a hit with all of your strength. This will drain a lot of stamina.
   components:
   - type: InstantAction
     # TODO: placeholder icon
-    icon: Interface/Actions/harm.png
-    iconOn: Interface/Actions/harmOff.png
+    icon: Interface/Actions/harmOff.png
+    iconOn: Interface/Actions/harm.png
     event: !type:BlackFlashActionEvent

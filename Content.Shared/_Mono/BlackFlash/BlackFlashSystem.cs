@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Camera;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
@@ -23,6 +24,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
     [Dependency] private SharedStunSystem _stun = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private readonly StaminaSystem _stamina = default!;
 
     public override void Initialize()
     {
@@ -115,6 +117,8 @@ public sealed partial class BlackFlashSystem : EntitySystem
         Dirty(user.Owner, frames);
 
         SpawnBurst(user.Comp.HitEffect, user, direction);
+
+        _stamina.TakeStaminaDamage(user, user.Comp.StaminaCost);
     }
 
     private void Lapse(EntityUid weapon, BlackFlashArmedComponent armed, Vector2? direction)

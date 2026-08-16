@@ -27,6 +27,9 @@ public sealed partial class BlackFlashComponent : Component
     public float DamageMultiplier = 2.5f;
 
     [DataField]
+    public float StaminaCost = 30f;
+
+    [DataField]
     public TimeSpan Hitstop = TimeSpan.FromSeconds(0.2);
 
     [DataField]
