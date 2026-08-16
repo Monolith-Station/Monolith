@@ -21,6 +21,7 @@
     severity: FactionGear2
     turnInValues:
       FederationMilitaryCredit: 50
+    allowedDepartments: [ Antag ]
   - type: StaticPrice
     price: 100000 #Slightly higher value than FMC turn-in
   - type: HeldSpeedModifier #This intentionally ignores just throwing the item. Payday gameplay.
@@ -48,5 +49,6 @@
     severity: FactionGear2
     turnInValues:
       Doubloon: 50
+    allowedDepartments: [ Security ]
   - type: StaticPrice
     price: 125000 #Slightly higher value value than DC turn-in
