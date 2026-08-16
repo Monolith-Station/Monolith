@@ -1,7 +1,10 @@
 using System.Numerics;
+using Content.Shared._Obelisk.Species.Components;
 using Content.Shared.Actions;
 using Content.Shared.Camera;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Drugs;
+using Content.Shared.Drunk;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
@@ -24,7 +27,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
     [Dependency] private SharedStunSystem _stun = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private StaminaSystem _stamina = default!;
 
     public override void Initialize()
     {
@@ -32,6 +35,71 @@ public sealed partial class BlackFlashSystem : EntitySystem
         SubscribeLocalEvent<BlackFlashComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<BlackFlashComponent, BlackFlashActionEvent>(OnAction);
         SubscribeLocalEvent<BlackFlashArmedComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<MeleeHitEvent>(OnMeleeHitNormal);
+    }
+
+    public float NormalDamageMultiplier = 2.5f;
+    public float BaseProcChance = 0.025f;
+    private readonly BlackFlashComponent _procSettings = new();
+
+    private static float SwingRoll(uint tick, int user, int weapon)
+    {
+        var h = (uint)user * 2654435761u ^ (uint)weapon * 2246822519u ^ tick * 3266489917u;
+        h ^= h >> 15;
+        h *= 2246822519u;
+        h ^= h >> 13;
+        h *= 3266489917u;
+        h ^= h >> 16;
+        return h / (float)uint.MaxValue;
+    }
+
+    private void OnMeleeHitNormal(MeleeHitEvent args)
+    {
+        if (args.Handled || !args.IsHit)
+            return;
+
+        if (HasComp<BlackFlashComponent>(args.User))
+            return; // people that can do it at will dont get a random proc because im mean
+
+        var blackFlashChance = BaseProcChance;
+
+        if (HasComp<DrunkComponent>(args.User))
+            blackFlashChance *= 2;
+
+        if (HasComp<SeeingRainbowsComponent>(args.User))
+            blackFlashChance *= 2;
+
+        if (TryComp<BlackFlashLastHitComponent>(args.User, out var lastHitComponent))
+        {
+            blackFlashChance *= 10;
+        }
+
+        if (HasComp<HydrakinComponent>(args.User))
+            blackFlashChance *= 5;
+
+        if (SwingRoll(_timing.CurTick.Value, GetNetEntity(args.User).Id, GetNetEntity(args.Weapon).Id) >= blackFlashChance)
+            return;
+
+        if (args.HitEntities.Count == 0)
+        {
+            Fumble(args.User, _procSettings, args.Direction);
+            RemComp<BlackFlashLastHitComponent>(args.User); // Failed.
+            return;
+        }
+        if (lastHitComponent != null)
+            args.BonusDamage += args.BaseDamage * (lastHitComponent.CurrentDamageMultiplier - 1f);
+        else
+            args.BonusDamage += args.BaseDamage * (NormalDamageMultiplier - 1f);
+
+        var origin = _transform.GetWorldPosition(args.User);
+        foreach (var target in args.HitEntities)
+        {
+            Detonate(args.User, _procSettings, target, Facing(args.User, _transform.GetWorldPosition(target) - origin));
+        }
+
+        _audio.PlayPredicted(_procSettings.HitSound, args.User, args.User);
+        var newLastHit = EnsureComp<BlackFlashLastHitComponent>(args.User);
+        newLastHit.CurrentDamageMultiplier *= 1.5f;
     }
 
     private void OnMapInit(Entity<BlackFlashComponent> ent, ref MapInitEvent args)
@@ -89,7 +157,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
         var origin = _transform.GetWorldPosition(args.User);
         foreach (var target in args.HitEntities)
         {
-            Detonate((args.User, flash), target, Facing(args.User, _transform.GetWorldPosition(target) - origin));
+            Detonate(args.User, flash, target, Facing(args.User, _transform.GetWorldPosition(target) - origin));
         }
 
         _actions.SetToggled(flash.ActionEntity, false);
@@ -97,15 +165,15 @@ public sealed partial class BlackFlashSystem : EntitySystem
         _audio.PlayPredicted(flash.HitSound, args.User, args.User);
     }
 
-    private void Detonate(Entity<BlackFlashComponent> user, EntityUid target, Vector2 direction)
+    private void Detonate(EntityUid user, BlackFlashComponent settings, EntityUid target, Vector2 direction)
     {
-        _stun.TryParalyze(target, user.Comp.StunTime, false);
+        _stun.TryParalyze(target, settings.StunTime, false);
 
         var hitstop = EnsureComp<BlackFlashHitstopComponent>(target);
-        hitstop.LaunchAt = _timing.CurTime + user.Comp.Hitstop;
+        hitstop.LaunchAt = _timing.CurTime + settings.Hitstop;
         hitstop.Direction = direction;
-        hitstop.Distance = user.Comp.ThrowDistance;
-        hitstop.Speed = user.Comp.ThrowSpeed;
+        hitstop.Distance = settings.ThrowDistance;
+        hitstop.Speed = settings.ThrowSpeed;
         hitstop.User = user;
         Dirty(target, hitstop);
 
@@ -114,11 +182,11 @@ public sealed partial class BlackFlashSystem : EntitySystem
 
         var frames = EnsureComp<BlackFlashImpactFramesComponent>(user);
         frames.Start = _timing.CurTime;
-        Dirty(user.Owner, frames);
+        Dirty(user, frames);
 
-        SpawnBurst(user.Comp.HitEffect, user, direction);
+        SpawnBurst(settings.HitEffect, user, direction);
 
-        _stamina.TakeStaminaDamage(user, user.Comp.StaminaCost);
+        _stamina.TakeStaminaDamage(user, settings.StaminaCost);
     }
 
     private void Lapse(EntityUid weapon, BlackFlashArmedComponent armed, Vector2? direction)
@@ -131,9 +199,14 @@ public sealed partial class BlackFlashSystem : EntitySystem
 
         _actions.SetToggled(flash.ActionEntity, false);
         _actions.SetCooldown(flash.ActionEntity, flash.MissCooldown);
-        _audio.PlayPredicted(flash.MissSound, user, user);
 
-        SpawnBurst(flash.MissEffect, user, Facing(user, direction ?? Vector2.Zero));
+        Fumble(user, flash, direction);
+    }
+
+    private void Fumble(EntityUid user, BlackFlashComponent settings, Vector2? direction)
+    {
+        _audio.PlayPredicted(settings.MissSound, user, user);
+        SpawnBurst(settings.MissEffect, user, Facing(user, direction ?? Vector2.Zero));
     }
 
     private void SpawnBurst(string proto, EntityUid at, Vector2 direction)
