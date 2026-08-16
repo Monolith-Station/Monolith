@@ -3,14 +3,14 @@
   id: PDVStampedGold
   name: dynasty stamped gold
   description: A heavy stack of lab synthesized superconductive gold stamped with the Dynasty's logo and an identifying code. As an unapproved form of legal tender, the Federation would love to confiscate this.
-  suffix: 50 FMC
+  suffix: 75 FMC
   components:
   - type: Material
   - type: PhysicalComposition
     materialComposition:
       Gold: 5000 #50
   - type: Sprite
-    sprite: _Mono/Objects/TradeGoods/factiongoods.rsi
+    sprite: _Mono/Objects/TradeGoods/factiongoods.rsi #Anyone is 100% free to make better sprites for these.
     layers:
     - state: dynastygold
       map: ["base"]
@@ -20,10 +20,10 @@
   - type: Contraband
     severity: FactionGear2
     turnInValues:
-      FederationMilitaryCredit: 50
+      FederationMilitaryCredit: 75
     allowedDepartments: [ Antag ]
   - type: StaticPrice
-    price: 100000 #Slightly higher value than FMC turn-in
+    price: 125000 #Slightly higher value than FMC turn-in
   - type: HeldSpeedModifier #This intentionally ignores just throwing the item. Payday gameplay.
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -34,11 +34,11 @@
   id: TSFNaniteCanister
   name: federation nanite canister
   description: A reinforced silvered-glass cylinder specially made to contain inert recombinative programmable nanites used for micro-scale advanced manufacturing outside the sector. The Dynasty's factories would love to get their hands on this.
-  suffix: 50 DC
+  suffix: 75 DC
   components:
   - type: Material
   - type: Sprite
-    sprite: _Mono/Objects/TradeGoods/factiongoods.rsi
+    sprite: _Mono/Objects/TradeGoods/factiongoods.rsi #Feel free to make better sprites.
     layers:
     - state: nanitecanister
       map: ["base"]
@@ -48,7 +48,7 @@
   - type: Contraband
     severity: FactionGear2
     turnInValues:
-      Doubloon: 50
+      Doubloon: 75
     allowedDepartments: [ Security ]
   - type: StaticPrice
-    price: 125000 #Slightly higher value value than DC turn-in
+    price: 150000 #Slightly higher value value than DC turn-in
