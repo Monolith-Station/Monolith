@@ -329,11 +329,6 @@ public sealed class StarLightOverlay : Overlay
         };
     }
 
-    /// <summary>
-    /// A tile stops casting only once every neighbour the shadow could have come from is
-    /// solid. Testing all of them keeps this continuous as the grid rotates, which picking a
-    /// single rounded neighbour did not.
-    /// </summary>
     private bool IsHidden(Entity<MapGridComponent> grid, Vector2i idx, int sx, int sy)
     {
         if (sx != 0 && !IsOccluding(grid, idx + new Vector2i(sx, 0)))
@@ -349,16 +344,13 @@ public sealed class StarLightOverlay : Overlay
     }
 
     /// <summary>
-    /// Same test the engine's own lighting uses. Walls and tinted windows carry an enabled
-    /// occluder; plain windows carry none at all, so starlight passes straight through them.
+    /// Stolen from lighting code.
     /// </summary>
     private bool IsOccluding(Entity<MapGridComponent> grid, Vector2i idx)
     {
         var centre = (idx + new Vector2(0.5f, 0.5f)) * grid.Comp.TileSize;
 
-        // Outside PVS the absence of a wall entity means nothing: the chunk is still
-        // replicated, so an unsent wall looks exactly like an empty room. Only believe what
-        // we see close in, and fall back on what we saw last time further out.
+        // Outside of PVS? Trust the cache and pray that the wall didn't get eaten recently.
         if ((centre - _eyeLocal).LengthSquared() > _trustRange * _trustRange)
             return _known.Contains(idx);
 
@@ -377,9 +369,6 @@ public sealed class StarLightOverlay : Overlay
         return false;
     }
 
-    /// <summary>
-    /// Forgets every remembered occluder, for when the map itself changes underneath us.
-    /// </summary>
     public void ResetMemory()
     {
         _remembered.Clear();
