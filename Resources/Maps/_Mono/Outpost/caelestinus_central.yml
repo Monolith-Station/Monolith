@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/16/2026 09:28:38
+  time: 08/16/2026 10:33:55
   entityCount: 9948
 maps:
 - 1
@@ -337,9 +337,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Puddle: []
-        Kudzu: []
         MetalFoam: []
         Smoke: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -55036,7 +55036,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 9.5,46.5
       parent: 2
-- proto: SolidReinforcedSecretDoor
+- proto: SolidSecretDoor
   entities:
   - uid: 7600
     components:
@@ -68085,6 +68085,20 @@ entities:
       parent: 2
     - type: DeltaPressure
       gridUid: 2
+  - uid: 6407
+    components:
+    - type: Transform
+      pos: -16.5,11.5
+      parent: 2
+    - type: DeltaPressure
+      gridUid: 2
+  - uid: 6408
+    components:
+    - type: Transform
+      pos: -15.5,11.5
+      parent: 2
+    - type: DeltaPressure
+      gridUid: 2
 - proto: WindoorSecureFrontierCommandLocked
   entities:
   - uid: 2550
@@ -68092,20 +68106,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -17.5,-0.5
-      parent: 2
-    - type: DeltaPressure
-      gridUid: 2
-  - uid: 9755
-    components:
-    - type: Transform
-      pos: -16.5,11.5
-      parent: 2
-    - type: DeltaPressure
-      gridUid: 2
-  - uid: 9762
-    components:
-    - type: Transform
-      pos: -15.5,11.5
       parent: 2
     - type: DeltaPressure
       gridUid: 2
