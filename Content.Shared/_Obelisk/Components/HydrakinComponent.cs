@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Obelisk.Species.Components;
+namespace Content.Shared._Obelisk.Species.Components;
 
 [RegisterComponent]
 public sealed partial class HydrakinComponent : Component
