@@ -102,8 +102,7 @@
       prob: 0.8 # Forge-Change
     # free shard
     - id: WeaponTurretShardFlatpack
-      amount: 0 # Forge-Change
-      maxAmount: 1 # Forge-Change
+      prob: 0.5 # Forge-Change
     # no flatpacks or boards, just gamble scrap
     # Research disk, expected value ~80k/drone
     - id: RogueSiliconResearchDisk5000
@@ -146,29 +145,26 @@
     # rare t4 parts
     - id: QuadraticCapacitorStockPart
       amount: 1 # Forge-Change
-      maxAmount: 4 # Forge-Change
+      maxAmount: 5 # Forge-Change ## +1 to the value, since the upper bound is not included in the range.
     - id: FemtoManipulatorStockPart
       amount: 1 # Forge-Change
-      maxAmount: 2 # Forge-Change
+      maxAmount: 3 # Forge-Change ## +1 to the value, since the upper bound is not included in the range.
     - id: BluespaceMatterBinStockPart
       amount: 1 # Forge-Change
-      maxAmount: 2 # Forge-Change
+      maxAmount: 3 # Forge-Change ## +1 to the value, since the upper bound is not included in the range.
     - id: SpawnDungeonLootPowerCell
-      amount: 0 # Forge-Change
-      maxAmount: 1 # Forge-Change
+      prob: 0.6 # Forge-Change
     - id: PowerCellMicroreactor
     # free guns
     - id: WeaponTurretShardFlatpack
-      amount: 0 # Forge-Change
-      maxAmount: 1 # Forge-Change
+      prob: 0.75 # Forge-Change
     - id: WeaponTurretPinholeFlatpack
-      amount: 0 # Forge-Change
-      maxAmount: 1 # Forge-Change
+      prob: 0.5 # Forge-Change
     # no flatpacks or boards, just gamble scrap
     # Research disk, expected value 200k/drone
     - id: RogueSiliconResearchDisk50000
       amount: 2 # Forge-change
-      maxAmount: 4 # Forge-change
+      maxAmount: 4 # Forge-change ## +1 to the value, since the upper bound is not included in the range.
     # Tech disk
     - id: SpawnLootTechDisksT3Mech
       prob: 0.6
