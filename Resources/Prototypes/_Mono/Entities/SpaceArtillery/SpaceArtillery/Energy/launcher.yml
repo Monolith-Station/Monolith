@@ -648,6 +648,10 @@
   - type: ShipRepairable
     repairTime: 25
     repairCost: 100
+  - type: SpaceArtillery
+    powerChargeRate: 500
+    powerUsePassive: 600
+    powerUseActive: 0
 
 # PRE- FRACTURE
 

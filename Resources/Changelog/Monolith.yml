@@ -23772,3 +23772,42 @@ Entries:
   id: 2615
   time: '2026-08-15T00:21:48.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4485
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: CV-82 has been rebalanced and moved to T3
+    - type: Tweak
+      message: L6 SAW has received minor RPS buff
+    - type: Tweak
+      message: Industrial ore processor consumes less ore now, but no longer roundstart
+    - type: Tweak
+      message: Beaker capacity has been buffed to 60/120
+    - type: Tweak
+      message: All shield suits were moved to new system
+    - type: Tweak
+      message: Weakened PDV Helios&Jupiter armories
+    - type: Remove
+      message: Spasaka has been disabled until TSF gets equivalent
+  id: 2616
+  time: '2026-08-15T08:22:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4482
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Apollo now works properly
+    - type: Tweak
+      message: Laser cannon now uses jumping hitscan.
+  id: 2617
+  time: '2026-08-15T10:24:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4489
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Ported the wizden wallmount sprites too while we're at it. Still a
+        testmerge though.
+    - type: Fix
+      message: Fixed some issues with wall resprite slop.
+  id: 2618
+  time: '2026-08-15T10:33:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4488
