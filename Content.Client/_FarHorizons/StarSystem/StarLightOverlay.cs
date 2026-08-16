@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Runtime.InteropServices;
 using Content.Client.Light;
 using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared._FarHorizons.StarSystem.Helpers;
@@ -49,7 +50,12 @@ public sealed class StarLightOverlay : Overlay
     private float _trustRange;
     private List<Entity<MapGridComponent>> _grids = new();
     private readonly Vector2[] _extruded = new Vector2[6];
-    private readonly List<(Entity<MapGridComponent> Grid, Matrix3x2 Matrix, Vector2 StarLocal, Vector2 EyeLocal, Color Shadow, Color Glow)> _passes = new();
+
+    private readonly List<Vector2> _shadowVerts = new();
+
+    private const int MaxShadowVerts = 12 * 4096;
+
+    private readonly List<(Entity<MapGridComponent> Grid, Matrix3x2 Matrix, Vector2 StarLocal, Vector2 EyeLocal, Color Glow)> _passes = new();
     private ShaderInstance? _shader;
 
     public override OverlaySpace Space => OverlaySpace.BeforeLighting;
@@ -171,10 +177,7 @@ public sealed class StarLightOverlay : Overlay
 
             var starLocal = (-gridRot).RotateVec(toStar);
 
-            var shadowAlpha = Math.Clamp(comp.ShadowStrength, 0f, 1f);
             var lit = Attenuate(dist, range, comp.Falloff, comp.CurveFactor) * power;
-
-            var shadowColor = comp.AmbientFloor.WithAlpha(shadowAlpha);
 
             var overStar = dist <= starRadius + grid.Comp.LocalAABB.Size.Length();
 
@@ -183,18 +186,25 @@ public sealed class StarLightOverlay : Overlay
                 : Color.Transparent;
 
             var eyeLocal = (-gridRot).RotateVec(eyeWorld - gridPos);
-            _passes.Add((grid, matrix, starLocal, eyeLocal, shadowColor, glowColor));
+            _passes.Add((grid, matrix, starLocal, eyeLocal, glowColor));
         }
 
-        foreach (var pass in _passes)
-        {
-            if (pass.Shadow.A <= 0f)
-                continue;
+        var shadowColor = comp.AmbientFloor.WithAlpha(Math.Clamp(comp.ShadowStrength, 0f, 1f));
 
-            handle.SetTransform(pass.Matrix);
-            _known = GetRemembered(_entMan.GetNetEntity(pass.Grid.Owner));
-            _eyeLocal = pass.EyeLocal;
-            DrawShadows(handle, pass.Grid, casterBounds, pass.StarLocal, shadowLength, pass.Shadow);
+        if (shadowColor.A > 0f)
+        {
+            // vertices are already in target space, so nothing further to transform
+            handle.SetTransform(Matrix3x2.Identity);
+            _shadowVerts.Clear();
+
+            foreach (var pass in _passes)
+            {
+                _known = GetRemembered(_entMan.GetNetEntity(pass.Grid.Owner));
+                _eyeLocal = pass.EyeLocal;
+                DrawShadows(handle, pass.Grid, casterBounds, pass.StarLocal, shadowLength, pass.Matrix, shadowColor);
+            }
+
+            FlushShadows(handle, shadowColor);
         }
 
         foreach (var pass in _passes)
@@ -213,6 +223,7 @@ public sealed class StarLightOverlay : Overlay
         Box2Rotated bounds,
         Vector2 starLocal,
         float shadowLength,
+        Matrix3x2 matrix,
         Color shadowColor)
     {
         var tiles = _mapSystem.GetTilesEnumerator(grid.Owner, grid, bounds);
@@ -233,8 +244,37 @@ public sealed class StarLightOverlay : Overlay
 
             var castOffset = -dir * shadowLength;
             Sweep(local.Enlarged(ShadowBleed), castOffset, _extruded);
-            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, _extruded.AsSpan(0, 6), shadowColor);
+            AppendFan(matrix);
+
+            if (_shadowVerts.Count >= MaxShadowVerts)
+                FlushShadows(handle, shadowColor);
         }
+    }
+
+    private void AppendFan(Matrix3x2 matrix)
+    {
+        var origin = Vector2.Transform(_extruded[0], matrix);
+        var prev = Vector2.Transform(_extruded[1], matrix);
+
+        for (var i = 2; i < 6; i++)
+        {
+            var current = Vector2.Transform(_extruded[i], matrix);
+
+            _shadowVerts.Add(origin);
+            _shadowVerts.Add(prev);
+            _shadowVerts.Add(current);
+
+            prev = current;
+        }
+    }
+
+    private void FlushShadows(DrawingHandleWorld handle, Color shadowColor)
+    {
+        if (_shadowVerts.Count == 0)
+            return;
+
+        handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, CollectionsMarshal.AsSpan(_shadowVerts), shadowColor);
+        _shadowVerts.Clear();
     }
 
     private void DrawGlow(
