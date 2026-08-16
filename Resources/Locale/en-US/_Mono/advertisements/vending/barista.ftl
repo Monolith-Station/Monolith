@@ -18,3 +18,17 @@ advertisement-uplink-ads-3 = ERROR: NO USER PRESENT.
 advertisement-uplink-ads-4 = CARGO CONNECTION ESTABLISHED.
 advertisement-uplink-ads-5 = MAINTAINING INTEGRITY OF SUPPLY.
 advertisement-uplink-ads-6 = EQUIPMENT PRESENT, AWAITING DISPENSING ORDER.
+
+advertisement-mieyo-ads-1 = Have a Mieyo-tastic day!
+advertisement-mieyo-ads-2 = Have a pheno-Mieyo day!
+
+wayward-comments-ads-1 = I...
+wayward-comments-ads-2 = Who..?
+wayward-comments-ads-3 = Its..!
+wayward-comments-ads-4 = time...for...
+wayward-comments-ads-5 = where...you?
+wayward-comments-ads-6 = help...help...
+wayward-comments-ads-7 = come...play...?
+wayward-comments-ads-8 = find...it...!
+wayward-comments-ads-9 = please...
+wayward-comments-ads-10 = need...

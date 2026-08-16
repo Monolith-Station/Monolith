@@ -10,40 +10,34 @@
     baseSprintSpeed : 4.85
     weightlessAcceleration: 1.5 # Slightly more manueverable in space.
   - type: Sprite
+    sprite: _Mono/Mobs/Chimera/rook.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: horror
-      color: "#eaff00"
-    - map: [ "jumpsuit" ]
-    - map: [ "gloves" ]
-    - map: [ "shoes" ]
-    - map: [ "ears" ]
-    - map: [ "outerClothing" ]
-    - map: [ "eyes" ]
-    - map: [ "belt" ]
-    - map: [ "id" ]
-    - map: [ "back" ]
-    - map: [ "neck" ]
-    - map: [ "mask" ]
-    - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
+      state: icon
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: horror
+        Base: icon
       Dead:
         Base: dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Dead
-    allowRevives: true
+      500: Critical
+      600: Dead
+    allowRevives: false
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      350: 0.85
-      425: 0.75
+      250: 0.85
+      325: 0.75
+      400: 0.3
   - type: MeleeWeapon
+    altDisarm: false
     autoAttack: true
     attackRate: 1.2
     soundHit:
@@ -60,6 +54,11 @@
       types:
         Heat: 35
     clumsyVaulting: false
+  - type: ActionGrant
+    actions:
+    - ActionSpawnBiomassTile
+    - ActionSpawnBiomassWall
+    - ActionSpawnLetoferolBeast
   #- type: ActionGun
   #  action: ActionLetoferolSpike
   #  gunProto: LetoferolSpikeGun
@@ -101,6 +100,36 @@
         golem: ""
         clamp: ""
         lover: ""
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 70
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: gib
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          FoodMeat:
+            min: 1
+            max: 1
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      70: Dead
+    allowRevives: false
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      30: 0.75
+      40: 0.5
+      50: 0.25
   - type: MeleeWeapon
     attackRate: 1.5
     soundHit:
@@ -109,6 +138,5 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Blunt: 5
         Slash: 5
         Structural: 50

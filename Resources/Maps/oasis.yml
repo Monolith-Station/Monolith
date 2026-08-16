@@ -144821,13 +144821,6 @@ entities:
     - type: Transform
       pos: -47.520466,-22.794298
       parent: 2
-- proto: Magazine45_magnumPistolFMJ
-  entities:
-  - uid: 4205
-    components:
-    - type: Transform
-      pos: 32.59941,-20.510296
-      parent: 2
 - proto: Magazine46x30mmSubMachineGunTopMountedFMJ
   entities:
   - uid: 14233
@@ -144835,6 +144828,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 42.740047,-41.364567
+      parent: 2
+- proto: Magazine45_magnumPistolFMJ
+  entities:
+  - uid: 4205
+    components:
+    - type: Transform
+      pos: 32.59941,-20.510296
       parent: 2
 - proto: MagicDiceBag
   entities:
@@ -145415,7 +145415,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -28.405407,4.838667
       parent: 2
-- proto: MiningWindow
+- proto: Window
   entities:
   - uid: 548
     components:

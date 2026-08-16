@@ -152,6 +152,25 @@ public abstract partial class CESharedZLevelsSystem
 
     private Entity<CEZMapComponent>? MapOffset(Entity<CEZMapComponent?> entity, int offset)
     {
+        // Transit map fuckery! Woo!
+        if (offset != 0 && entity.Comp is null && !_zMapQuery.HasComp(entity) &&
+            TryComp<CEZTransitMapComponent>(entity, out var transit))
+        {
+            var anchor = offset < 0 ? transit.LowerMap : transit.UpperMap;
+            if (anchor is not { } anchorUid || TerminatingOrDeleted(anchorUid))
+                return null;
+
+            var remaining = offset < 0 ? offset + 1 : offset - 1;
+            if (remaining == 0)
+            {
+                return _zMapQuery.TryComp(anchorUid, out var anchorComp)
+                    ? (anchorUid, anchorComp)
+                    : null;
+            }
+
+            return MapOffset(new Entity<CEZMapComponent?>(anchorUid, null), remaining);
+        }
+
         if (!Resolve(entity, ref entity.Comp, false))
             return null;
 

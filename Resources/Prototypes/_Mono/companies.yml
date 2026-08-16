@@ -83,6 +83,12 @@
   description: ussp-description
   image: /Textures/_Mono/Companies/USSP.png
 
+- type: company
+  id: MMC
+  name: Mieyo Manufacturing Concern
+  color: "#EEEEEE"
+  disabled: true
+
 # Major companies
 
 - type: company
@@ -194,4 +200,12 @@
   description: redsail-corsairs-description
   color: "#930000"
   image: /Textures/_Mono/Companies/redsailcorsairs.png
+  whitelisted: true
+
+- type: company
+  id: PLXCOR
+  name: PLXCOR
+  description: plxcor-description
+  color: "#B500B5"
+  image: /Textures/_Mono/Companies/PLXCOR.png
   whitelisted: true

@@ -7,6 +7,7 @@
   - type: Sprite
     state: engineering
   - type: MachineBoard
+    flatpackable: false
     prototype: CentrifugeLatheMini
     requirements:
       MatterBin: 2
@@ -16,29 +17,183 @@
       Glass: 5
       CableHV: 5
     tagRequirements:
-      GlassBeaker:
-        amount: 4
-        defaultPrototype: Beaker
+      ArmorPlateEconomy1: # Reinforcement. Things that spin very heavy things very fast are very dangerous.
+        amount: 2
+        defaultPrototype: ArmorPlateEconomy1
+      ComponentBrickEconomy1:
+        amount: 1
+        defaultPrototype: ComponentBrickEconomy1
 
 - type: entity
-  id: IndustrialLatheEconomyMachineCircuitboard
+  id: IndustrialFurnaceEconomyCompactCircuitboard
   parent: BaseMachineCircuitboard
-  name: industrial lathe machine board
-  description: A machine printed circuit board for an industrial economy lathe.
+  name: compact arc furnace machine board
+  description: A machine printed circuit board for a compact arc furnace.
   components:
   - type: Sprite
     state: engineering
   - type: MachineBoard
-    prototype: IndustrialLatheEconomy
+    flatpackable: false
+    prototype: IndustrialFurnaceEconomyCompact
     requirements:
-      MatterBin: 2
-      Manipulator: 4
-      Capacitor: 2
+      Manipulator: 3
     stackRequirements:
-      Glass: 5
-      Plasteel: 10
       CableHV: 5
     tagRequirements:
-      GlassBeaker:
+      ArmorPlateEconomy3:
         amount: 1
-        defaultPrototype: Beaker
+        defaultPrototype: ArmorPlateEconomy3
+      ElectromagnetEconomy1:
+        amount: 2
+        defaultPrototype: ElectromagnetEconomy1
+
+- type: entity
+  id: PrecisionAssemblerEconomyCompactCircuitboard
+  parent: BaseMachineCircuitboard
+  name: compact precision assembler machine board
+  description: A machine printed circuit board for a compact precision assembler.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    flatpackable: false
+    prototype: PrecisionAssemblerEconomyCompact
+    requirements:
+      Manipulator: 3
+    stackRequirements:
+      CableHV: 5
+    tagRequirements:
+      MicroprocessorEconomy1:
+        amount: 2
+        defaultPrototype: MicroprocessorEconomy1
+      MotorEconomy1:
+        amount: 4
+        defaultPrototype: MotorEconomy1
+
+- type: entity
+  id: IndustrialPressEconomyPlatesMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: industrial press (plates) machine board
+  description: A machine printed circuit board for an industrial press, calibrated for plating. Screwdrive it to switch between variants.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    flatpackable: false
+    prototype: IndustrialPressEconomyPlates
+    requirements:
+      MatterBin: 2
+      Manipulator: 3
+    stackRequirements:
+      Lithium: 5
+      CableHV: 10
+    # Doesnt require industry comps because it's entry-level. Let's you get to the other ones. It's called progression sir.
+  - type: Construction
+    deconstructionTarget: null
+    graph: IndustrialPress
+    node: plates
+
+- type: entity
+  id: IndustrialPressEconomyPlatesMMCMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: MMC industrial press (plates) machine board
+  description: A machine printed circuit board for an industrial press, calibrated for plating. Screwdrive it to switch between variants.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    flatpackable: false
+    prototype: IndustrialPressEconomyPlatesMMC
+    requirements:
+      MatterBin: 2
+      Manipulator: 3
+    stackRequirements: # faster mmc variant
+      Lithium: 10
+      CableHV: 20
+    tagRequirements:
+      ArmorPlateEconomy1:
+        amount: 1
+        defaultPrototype: ArmorPlateEconomy1
+  - type: Construction
+    deconstructionTarget: null
+    graph: IndustrialPressMMC
+    node: plates
+
+- type: entity
+  id: IndustrialPressEconomyElectronicsMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: industrial press (electronics) machine board
+  description: A machine printed circuit board for an industrial press, calibrated for electronic components. Screwdrive it to switch between variants.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    flatpackable: false
+    prototype: IndustrialPressEconomyElectronics
+    requirements:
+      MatterBin: 2
+      Manipulator: 3
+    stackRequirements:
+      Lithium: 5
+      CableHV: 10
+    # Doesnt require industry comps because it's entry-level. Let's you get to the other ones. It's called progression sir.
+  - type: Construction
+    deconstructionTarget: null
+    graph: IndustrialPress
+    node: electronics
+
+- type: entity
+  id: IndustrialPressEconomyElectronicsMMCMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: MMC industrial press (electronics) machine board
+  description: A machine printed circuit board for an industrial press, calibrated for electronic components. Screwdrive it to switch between variants.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    flatpackable: false
+    prototype: IndustrialPressEconomyElectronicsMMC
+    requirements:
+      MatterBin: 2
+      Manipulator: 3
+    stackRequirements: # faster mmc variant
+      Lithium: 10
+      CableHV: 20
+    tagRequirements:
+      ArmorPlateEconomy1:
+        amount: 1
+        defaultPrototype: ArmorPlateEconomy1
+  - type: Construction
+    deconstructionTarget: null
+    graph: IndustrialPressMMC
+    node: electronics
+
+- type: entity
+  id: InteractorCCTCCircuitboard
+  parent: BaseMachineCircuitboard
+  name: proprietary interactor machine board
+  description: A machine printed circuit board for a proprietary interactor. Very important for automated manufacturing.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: InteractorCCTC
+    requirements:
+      Capacitor: 1
+    stackRequirements:
+      Glass: 5
+
+- type: entity
+  id: RoboticArmCCTCCircuitboard
+  parent: BaseMachineCircuitboard
+  name: proprietary robotic arm machine board
+  description: A machine printed circuit board for a proprietary robotic arm. Very important for automated manufacturing.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: RoboticArmCCTC
+    requirements:
+      Capacitor: 1
+    stackRequirements:
+      Steel: 5

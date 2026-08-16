@@ -42,6 +42,9 @@
     whitelist:
       tags:
       - SecurityUplink
+  - !type:BuyerJobCondition
+      whitelist:
+        - Sheriff
 
 - type: listing
   id: UplinkSecurityMR8C
@@ -386,6 +389,21 @@
   productEntity: ShipVoucherAltair
   cost:
     FederationMilitaryCredit: 345
+  categories:
+  - UplinkSecurityVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkTsf
+
+- type: listing
+  id: UplinkSecurityT3VoucherFujian
+  name:  uplink-security-t3-fujian-voucher-name
+  description: uplink-security-t3-fujian-voucher-desc
+  productEntity: ShipVoucherFujian
+  cost:
+    FederationMilitaryCredit: 320
   categories:
   - UplinkSecurityVouchers
   conditions:

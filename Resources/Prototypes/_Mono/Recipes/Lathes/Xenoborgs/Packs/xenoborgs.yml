@@ -1,0 +1,22 @@
+## Static
+- type: latheRecipePack
+  id: EmptyXenoborgs
+  recipes:
+  - BorgChassisSelectableXenoborg
+
+- type: latheRecipePack
+  id: XenoborgUpgradeModules
+  recipes:
+  - XenoborgModuleBasic
+  - XenoborgModuleTool
+  - XenoborgModuleDefense
+  - XenoborgModuleJammer
+  - XenoborgModuleHeavyLaser
+  - XenoborgModuleAccessBreaker
+  - XenoborgModuleDoorControl
+  - XenoborgAdvancedModuleTool
+  - XenoborgModuleHypo
+  - XenoborgModuleChameleonProjector
+  - XenoborgModuleSuperCloakDevice
+  - AiRemoteBrain
+  - MMI

@@ -309,6 +309,14 @@
     shape:
       - 0, 0, 4, 4
       - 0, 3, 6, 5
+  - type: CanMoveInAir # Monolith: Allow air movement for Z levels (:3)
+  - type: EmitSoundOnInternalsActive # Crescent
+    sound:
+      collection: InternalsBreathing
+      params:
+        maxDistance: 3
+        rolloffFactor: 2
+        volume: -10
 
 - type: entity
   save: false

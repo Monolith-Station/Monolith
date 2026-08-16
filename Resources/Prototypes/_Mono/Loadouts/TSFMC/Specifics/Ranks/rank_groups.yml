@@ -14,7 +14,7 @@
   - TsfnCNRankE3
   - TsfnCNRankE4
   fallbacks:
-  - TsfmcRankE3
+  - TsfmcRankE1
 
 - type: loadoutGroup
   id: TsfmcRanksFTL
@@ -32,7 +32,7 @@
   - TsfnCNRankE4
   - TsfnCNRankE5
   fallbacks:
-  - TsfmcRankE5FTL
+  - TsfmcRankE4FTL
 
 - type: loadoutGroup
   id: TsfmcRanksCaptain
@@ -77,7 +77,7 @@
   subgroups:
   - TsfmcRanksEnlisted
   fallbacks:
-  - TsfnCorpsmanRankE3
+  - TsfnCorpsmanRankE2
 
 - type: loadoutGroup
   id: TsfnRanksEngineers
@@ -90,4 +90,4 @@
   subgroups:
   - TsfmcRanksEnlisted
   fallbacks:
-  - TsfmcRankE4
+  - TsfmcRankE1

@@ -2,8 +2,8 @@
   id: CrateNanotrasenLootFilledT1
   parent: CrateNanotrasen
   suffix: Filled, Lootbox, T1
-  name: NT equipment crate
-  description: A white and blue crate with the Nanotrasen Symbol, a relic from the corporation wars, could contain some interesting things.
+  name: wayward equipment crate
+  description: A white and blue crate embossed with the letters "NT". Ominous.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -14,8 +14,8 @@
   id: CrateNanotrasenLootFilledT2
   parent: CrateNanotrasen
   suffix: Filled, Lootbox, T2
-  name: NT equipment crate
-  description: A white and blue crate with the Nanotrasen Symbol, a relic from the corporation wars, could contain some interesting things.
+  name: wayward equipment crate
+  description: A white and blue crate embossed with the letters "NT". Ominous.
   components:
    - type: EntityTableContainerFill
      containers:
@@ -26,8 +26,8 @@
   id: CrateNanotrasenLootFilledT3
   parent: CrateNanotrasenDS
   suffix: Filled, Lootbox, T3
-  name: menacing NT equipment crate
-  description: A white and blue crate with the Nanotrasen Symbol, a relic from the corporation wars, could contain some interesting things.
+  name: wayward equipment crate
+  description: A white and blue crate embossed with the letters "NT". Ominous.
   components:
    - type: EntityTableContainerFill
      containers:

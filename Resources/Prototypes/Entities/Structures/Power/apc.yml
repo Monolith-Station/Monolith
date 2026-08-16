@@ -26,6 +26,7 @@
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: Structures/Power/apc.rsi
+    offset: 0, -0.25
     layers:
     - state: base
     - state: panel
@@ -164,6 +165,7 @@
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: Structures/Power/apc.rsi
+    offset: 0, -0.25
     state: frame
   - type: Construction
     graph: APC
@@ -260,6 +262,22 @@
     startingCharge: 200000
   - type: BatteryDrinkerSource # EE IPCs
     maxAmount: 26000
+  # Mono
+  - type: ShipRepairable
+    repairTime: 9
+    repairCost: 20
+
+# Xenoborg APC
+- type: entity
+  parent: BaseAPC
+  id: APCXenoborg
+  suffix: Basic, 50kJ, Xenoborg
+  components:
+  - type: Battery
+    maxCharge: 50000
+    startingCharge: 50000
+  - type: AccessReader
+    access: [["Xenoborg"], ["Mothership"]]
   # Mono
   - type: ShipRepairable
     repairTime: 9

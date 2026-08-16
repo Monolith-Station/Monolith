@@ -44,6 +44,11 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: AmbientSound
+    volume: 5
+    range: 20
+    sound:
+      path: /Audio/_Mono/Weapons/Guns/Missiles/engine_rocket_01.ogg
 
 - type: damageModifierSet
   id: Missile
@@ -97,7 +102,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 50
+    acceleration: 140
     detectionRange: 1200
     scanArc: 15
     launchSpeed: 150
@@ -156,7 +161,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 50
+    acceleration: 150
     detectionRange: 1600
     scanArc: 20
     launchSpeed: 90
@@ -170,11 +175,16 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TargetSeeking
-    acceleration: 50
+    acceleration: 150
     detectionRange: 0
     scanArc: 0
     launchSpeed: 90
     maxSpeed: 300
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 30
+    intensitySlope: 5
+    maxIntensity: 15
 
 # TOVEK
 
@@ -209,19 +219,65 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 300
+    totalIntensity: 130
     intensitySlope: 6
     maxIntensity: 25
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 80
+    acceleration: 140
     detectionRange: 2400
     scanArc: 15
     launchSpeed: 120
     maxSpeed: 450
     trackDelay: 0.15
+
+- type: entity
+  id: ShipMissileASM250HV
+  name: 250mm HV missile
+  parent: ShipMissileBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 200
+        Blunt: 250
+        Heat: 75
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectSmall
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 2.5
+    shape: hexagon
+  - type: TimedDespawn
+    lifetime: 16
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 70
+    intensitySlope: 6
+    maxIntensity: 25
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetSeeking
+    acceleration: 360 # PD skillcheck
+    detectionRange: 700
+    scanArc: 20
+    launchSpeed: 300
+    maxSpeed: 650
+    trackDelay: 0
+    trackingAlgorithm: AdvancedPredictive
 
 - type: entity
   id: ShipMissileASM250
@@ -265,7 +321,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 60
+    acceleration: 120
     detectionRange: 2400
     scanArc: 15
     launchSpeed: 60
@@ -312,7 +368,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 10 # low
+    acceleration: 50 # low
     detectionRange: 2000
     scanArc: 10
     launchSpeed: 25
@@ -372,7 +428,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 170
+    acceleration: 370
     detectionRange: 1200
     scanArc: 60
     launchSpeed: 100

@@ -59,9 +59,9 @@
     muzzleFlash: MuzzleFlashEffectR300
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 5
-    shape: triangle
-    radarColor: "#f55e1d"
+    scale: 2
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 20
   - type: PointLight

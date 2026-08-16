@@ -10,7 +10,7 @@
 
   [color=#a4885c]Recommended Crew:[/color] 1-3
 
-  [color=#a4885c]Power Gen Type:[/color] Antimatter Engine (AME)
+  [color=#a4885c]Power Gen Type:[/color] Isotopes Reaction Engine  (IRE)
 
   [color=#a4885c]Expeditions:[/color] All
 
@@ -29,14 +29,14 @@
     <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
 
-  - Check that the Antimatter Engine (AME) generator is functional (View below.)
+  - Check that the Isotopes Reaction Engine (IRE) generator is functional (View below.)
   - Check that the SMES unit is anchored to the floor.
   - Check that the substation unit is charging.
   - Check that the Engineering/Research APC unit's Main Breaker is toggled on.
   - Check that the Server Room/Atmos APC unit's Main Breaker is toggled on.
   - Check that the Bridge APC unit's Main Breaker is toggled on.
 
-  ## 1.2. Antimatter Engine (AME) reactor unit.
+  ## 1.2. Isotopes Reaction Engine  (IRE) reactor unit.
   <Box>
     <GuideEntityEmbed Entity="AmeController"/>
     <GuideEntityEmbed Entity="AmeJar"/>

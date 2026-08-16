@@ -39,23 +39,26 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
     - type: Sprite
-      sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
-      snapCardinals: true
+      sprite: Structures/Doors/Airlocks/Standard/firelock-base.rsi
       layers:
-        - state: closed
-          map: ["enum.DoorVisualLayers.Base"]
-        - state: closed_unlit
-          shader: unshaded
-          map: ["enum.DoorVisualLayers.BaseUnlit"]
-          visible: false
-        - state: welded
-          map: ["enum.WeldableLayers.BaseWelded"]
-        - state: bolted_unlit
-          shader: unshaded
-          map: ["enum.DoorVisualLayers.BaseBolted"]
-          visible: false
-        - state: panel_open
-          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      - state: closed
+        map: ["enum.DoorVisualLayers.Base"]
+      - state: closed_unlit
+        shader: unshaded
+        sprite: Structures/Doors/Airlocks/Effects/airlock-effects-firelock.rsi
+        map: ["enum.DoorVisualLayers.BaseUnlit"]
+        visible: false
+      - state: welded
+        sprite: Structures/Doors/Airlocks/Effects/airlock-effects-firelock.rsi
+        map: ["enum.WeldableLayers.BaseWelded"]
+      - state: bolted_unlit
+        shader: unshaded
+        sprite: Structures/Doors/Airlocks/Effects/airlock-effects-firelock.rsi
+        map: ["enum.DoorVisualLayers.BaseBolted"]
+        visible: false
+      - state: panel_open
+        sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
     - type: AnimationPlayer
     - type: Fixtures
       fixtures:
@@ -128,6 +131,8 @@
       - FireAndGasControl
       - Fires
       - Spacing
+    - type: WeldingSparksAnimation # Goobstation
+      startingOffset: -0.5, 0
 
 - type: entity
   id: Firelock
@@ -157,7 +162,7 @@
   components:
     - type: StationAiWhitelist
     - type: Sprite
-      sprite: Structures/Doors/Airlocks/Glass/firelock.rsi
+      sprite: Structures/Doors/Airlocks/Glass/firelock-base.rsi
     - type: Occluder
       enabled: false
     - type: Fixtures
@@ -215,3 +220,6 @@
     - type: Construction
       graph: Firelock
       node: FirelockEdge
+    - type: WeldingSparksAnimation # Goobstation
+      startingOffset: 0, -0.2
+      endingOffset: 0, -0.5

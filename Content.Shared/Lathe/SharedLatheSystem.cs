@@ -1,12 +1,19 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
+using Content.Shared.FixedPoint;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Localizations;
 using Content.Shared.Materials;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Stacks;
+using Content.Shared.Storage.Components;
+using Content.Shared.Storage.EntitySystems;
 using JetBrains.Annotations;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -19,7 +26,11 @@ public abstract partial class SharedLatheSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedMaterialStorageSystem _materialStorage = default!;
+    [Dependency] private SharedEntityStorageSystem _storage = default!;
     [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] protected EntityQuery<StackComponent> _stackQuery = default!;
 
     public readonly Dictionary<string, List<LatheRecipePrototype>> InverseRecipes = new();
 
@@ -108,7 +119,7 @@ public abstract partial class SharedLatheSystem : EntitySystem
         return true;
     }
 
-    public bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount = 1, LatheComponent? component = null)
+    public virtual bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount = 1, LatheComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return false;
@@ -122,6 +133,22 @@ public abstract partial class SharedLatheSystem : EntitySystem
             if (_materialStorage.GetMaterialAmount(uid, material) < adjustedAmount * amount)
                 return false;
         }
+        // mono start
+        foreach (var (reagent, needed) in recipe.Reagents)
+        {
+            if (component.ReagentOutputSlotId is not { } slotId)
+                return false;
+
+            if (!_container.TryGetContainer(uid, slotId, out var container) ||
+                container.ContainedEntities.Count == 0)
+                return false;
+
+            if (!_solution.TryGetDrainableSolution(container.ContainedEntities[0], out _, out var solution )
+                || solution.GetReagent(new ReagentId(reagent.Id, [])).Quantity < needed * amount)
+                return false;
+        }
+        // mono end
+
         return true;
     }
 

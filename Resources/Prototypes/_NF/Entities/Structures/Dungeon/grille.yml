@@ -2,15 +2,18 @@
 - type: entity
   id: GrilleDungeon
   parent: Grille
-  suffix: Dungeon only, DO NOT MAP
+  suffix: Dungeon only
   # categories: [ DoNotMap ] # FIXME - shouldn't be mapped on shuttles/POIs, bluespace events might be fine
   description: A grille covered in soot and grime.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
   components:
     - type: Sprite
       drawdepth: Walls
-      sprite: Structures/Walls/grille.rsi
+      sprite: Structures/Walls/grille-new.rsi
       layers:
-      - state: grille
       - state: electrified
         sprite: Effects/electricity.rsi
         map: ["enum.ElectrifiedLayers.Sparks"]
@@ -24,8 +27,8 @@
         sprite: Decals/dirty.rsi
     - type: Icon
       layers:
-      - sprite: Structures/Walls/grille.rsi
-        state: grille
+      - sprite: Structures/Walls/grille-new.rsi
+        state: full
       - sprite: Decals/dirty.rsi
         state: rust
 #    - type: Fixtures # Mono - No longer blocks lasers

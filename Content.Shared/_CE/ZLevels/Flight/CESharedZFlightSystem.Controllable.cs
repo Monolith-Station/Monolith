@@ -5,6 +5,7 @@
 
 using Content.Shared._CE.ZLevels.Flight.Components;
 using Content.Shared.DoAfter;
+using Content.Shared.Popups;
 using Content.Shared.Toggleable;
 
 namespace Content.Shared._CE.ZLevels.Flight;
@@ -24,9 +25,6 @@ public abstract partial class CESharedZFlightSystem
 
     private void OnControllableFlightStopped(Entity<CEControllableFlightComponent> ent, ref CEFlightStoppedEvent args)
     {
-        _actions.SetEnabled(ent.Comp.ZLevelDownActionEntity, false);
-        _actions.SetEnabled(ent.Comp.ZLevelUpActionEntity, false);
-
         // Update toggle action icon state
         if (ent.Comp.ZLevelToggleActionEntity != null)
             _actions.SetToggled(ent.Comp.ZLevelToggleActionEntity, false);
@@ -34,9 +32,6 @@ public abstract partial class CESharedZFlightSystem
 
     private void OnControllableFlightStarted(Entity<CEControllableFlightComponent> ent, ref CEFlightStartedEvent args)
     {
-        _actions.SetEnabled(ent.Comp.ZLevelDownActionEntity, true);
-        _actions.SetEnabled(ent.Comp.ZLevelUpActionEntity, true);
-
         // Update toggle action icon state
         if (ent.Comp.ZLevelToggleActionEntity != null)
             _actions.SetToggled(ent.Comp.ZLevelToggleActionEntity, true);
@@ -54,11 +49,19 @@ public abstract partial class CESharedZFlightSystem
         if (!TryComp<CEZFlyerComponent>(ent, out var flyerComp))
             return;
 
+        if (!flyerComp.Active)
+        {
+            _popup.PopupClient(Loc.GetString("ce-zflyer-notflying"), ent, ent);
+            args.Handled = true;
+            return;
+        }
+
         if (!_zLevel.TryMapUp(map.Value, out var mapAbove))
             return;
 
         flyerComp.TargetMapHeight = mapAbove.Comp.Depth;
         DirtyField(ent, flyerComp, nameof(CEZFlyerComponent.TargetMapHeight));
+        _zLevel.WakeBody(ent.Owner);
 
         args.Handled = true;
     }
@@ -75,11 +78,19 @@ public abstract partial class CESharedZFlightSystem
         if (!TryComp<CEZFlyerComponent>(ent, out var flyerComp))
             return;
 
+        if (!flyerComp.Active)
+        {
+            _popup.PopupClient(Loc.GetString("ce-zflyer-notflying"), ent, ent);
+            args.Handled = true;
+            return;
+        }
+
         if (!_zLevel.TryMapDown(map.Value, out var mapBelow))
             return;
 
         flyerComp.TargetMapHeight = mapBelow.Comp.Depth;
         DirtyField(ent, flyerComp, nameof(CEZFlyerComponent.TargetMapHeight));
+        _zLevel.WakeBody(ent.Owner);
 
         args.Handled = true;
     }

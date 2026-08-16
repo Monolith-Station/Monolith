@@ -13,15 +13,16 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: GunWieldBonus
-    minAngle: -20
+    minAngle: -21
     maxAngle: -50
   - type: Gun
     minAngle: 21
-    maxAngle: 52
+    maxAngle: 65
     angleIncrease: 1.4
     angleDecay: 24
     fireRate: 4 #240 RPM, its semi-auto anyway
     selectedMode: SemiAuto
+    damageModifier: 1.5
     availableModes:
     - SemiAuto
   - type: ItemSlots
@@ -70,15 +71,15 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: GunWieldBonus
-    minAngle: -27
-    maxAngle: -40
+    minAngle: -30
+    maxAngle: -32
   - type: Gun
     minAngle: 30
     maxAngle: 46
     angleIncrease: 76
     angleDecay: 7
     cameraRecoilScalar: 0
-    fireRate: 3
+    fireRate: 6
     selectedMode: Burst
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
@@ -142,7 +143,7 @@
     angleIncrease: 12
     angleDecay: 20
     cameraRecoilScalar: 0
-    fireRate: 8
+    fireRate: 12
     availableModes:
     - FullAuto
     soundGunshot:

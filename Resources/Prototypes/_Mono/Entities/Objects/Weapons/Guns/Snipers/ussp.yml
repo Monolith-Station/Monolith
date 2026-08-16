@@ -23,12 +23,12 @@
     - suitStorage
   - type: GunWieldBonus
     minAngle: -27
-    maxAngle: -36
+    maxAngle: -47
   - type: Gun
     minAngle: 27
-    maxAngle: 39
+    maxAngle: 54
     fireRate: 2.25
-    damageModifier: 1.5
+    damageModifier: 2
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

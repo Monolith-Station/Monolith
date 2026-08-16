@@ -50,18 +50,40 @@ pdv-rahkshan = Rhk.
 pdv-denasvar = Dns.
 pdv-asvaran = Asv.
 pdv-vizier = Grand Vizier
-
 pdv-tarkhan = PDRV Tarkhan
 
-### USSP ranks
-ussp-rifleman = Rfl.
-ussp-sergeant = Srz.
-ussp-commissar = Commissar
+### USSP loadout ranks
+
+### Rifleman Ranks
+ussp-or1 = Ryad.
+ussp-or2 = Efr.
+
+### Shared Rifle/Serzhant (Corporal Equivalent)
+ussp-or3 = MlSrz.
+
+### Serzhant Ranks
+ussp-or4 = Srz.
+ussp-or5 = StSrz.
+ussp-or6 = Sts.
+
+### Comissar Ranks
+ussp-cm1 = Pol.
+ussp-cm2 = StPol.
+ussp-cm3 = BKom.
+
+
 
 ### VG ranks
 vg-infanteer = Inf.
 vg-lieutenant = Lt.
 vg-commander = Commander
+
+### MMC ranks
+mmc-employee = Employee
+mmc-security = Corporate Security
+mmc-asset-security = Asset Security
+mmc-asset-security-senior = Senior Asset Security
+mmc-liason = Corporate Liason
 
 ### CC/MD ranks
 cc-judge = Jdg.
