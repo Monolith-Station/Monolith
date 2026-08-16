@@ -186,12 +186,12 @@
 - type: entity
   parent: ClothingNeckWearableCamera
   id: ClothingNeckWearableCameraVanguardPDV
-  name: Dynasties wireless camera
-  description: Vizier's eyes on the battlefield.
+  name: Dynasty's wireless camera
+  description: Wireless camera made to observe the battlefield from the safety of your base.
   components:
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
-      layers:
+      layers: 
         - state: pdvbox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraVanguardPDV
@@ -200,7 +200,7 @@
   parent: ClothingNeckWearableCamera
   id: ClothingNeckWearableCameraSolarianTSF
   name: Solarian wireless camera
-  description: Colonel's eyes on the battlefield.
+  description: Wireless camera made to observe the battlefield from the safety of your base.
   components:
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
