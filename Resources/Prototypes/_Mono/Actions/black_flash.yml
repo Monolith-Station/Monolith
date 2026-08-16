@@ -1,0 +1,10 @@
+- type: entity
+  id: ActionBlackFlash
+  name: Black Flash
+  description: Brace your cursed energy against the next blow you land. Miss the beat and you lose the flow.
+  components:
+  - type: InstantAction
+    # TODO: placeholder icon
+    icon: Interface/Actions/harm.png
+    iconOn: Interface/Actions/harmOff.png
+    event: !type:BlackFlashActionEvent
