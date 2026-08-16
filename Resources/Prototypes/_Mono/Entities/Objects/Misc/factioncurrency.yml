@@ -5,10 +5,6 @@
   description: A heavy crate stacked full of lab synthesized superconductive gold stamped with the Dynasty's logo and an identifying code. As an unapproved form of legal tender, the Federation would love to confiscate this.
   suffix: 75 FMC
   components:
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      Gold: 5000 #50
   - type: Sprite
     sprite: _Mono/Objects/TradeGoods/factiongoods.rsi #Anyone is 100% free to make better sprites for these.
     layers:
