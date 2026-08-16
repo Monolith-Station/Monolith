@@ -42,9 +42,9 @@ public sealed partial class BlackFlashSystem : EntitySystem
         SubscribeLocalEvent<ActorComponent, MeleeHitEvent>(OnMeleeHitNormal);
     }
 
-    public float NormalDamageMultiplier = 2.5f;
-    public float BaseProcChance = 0.00005f;
-    private readonly BlackFlashComponent _procSettings = new();
+    [DataField] public float NormalDamageMultiplier = 2.5f;
+    [DataField] public float BaseProcChance = 0.00005f;
+    [DataField] private readonly BlackFlashComponent _procSettings = new();
 
     private static float SwingRoll(uint tick, int user, int weapon)
     {
@@ -57,7 +57,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
         return h / (float)uint.MaxValue;
     }
 
-    private void OnMeleeHitNormal(Entity<ActorComponent> ent, MeleeHitEvent args)
+    private void OnMeleeHitNormal(Entity<ActorComponent> ent, ref MeleeHitEvent args)
     {
         if (args.Handled || !args.IsHit)
             return;
