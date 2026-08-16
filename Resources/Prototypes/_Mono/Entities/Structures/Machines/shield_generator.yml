@@ -310,12 +310,12 @@
         layer:
         - MachineLayer
   - type: ShipShieldEmitter
-    damageLimit: 145000 # Forge-Change
+    damageLimit: 225000 # Forge-Change
     damageOverloadTimePunishment: 120 # Forge-Change
-    healPerSecond: 1850 # Forge-Change
-    damageExp: 1.05 # Forge-Change
-    baseDraw: 100000 # Forge-Change
-    maxDraw: 200000 # Forge-Change
+    healPerSecond: 2250 # Forge-Change
+    damageExp: 5.5 # Forge-Change
+    baseDraw: 60000 # Forge-Change
+    maxDraw: 180000 # Forge-Change
     unpoweredBonus: 5 # Forge-Change
     shieldColor: "#FF3333"
     collisionResistanceMultiplier: 0.5
