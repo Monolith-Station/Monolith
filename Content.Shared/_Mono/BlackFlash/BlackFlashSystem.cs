@@ -12,6 +12,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Mono.BlackFlash;
@@ -28,6 +29,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
     [Dependency] private StaminaSystem _stamina = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
 
     [Dependency] private EntityQuery<BlackFlashComponent> _blackFlashQuery = default!;
 
@@ -57,7 +59,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
 
     private void OnMeleeHitNormal(MeleeHitEvent args)
     {
-        if (args.Handled || !args.IsHit)
+        if (args.Handled || !args.IsHit || !_playerManager.TryGetSessionByEntity(args.User, out _))
             return;
 
         if (_blackFlashQuery.HasComp(args.User))
