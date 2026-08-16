@@ -11,6 +11,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Client._FarHorizons.StarSystem;
 
@@ -35,18 +36,19 @@ public sealed class StarLightOverlay : Overlay
 
     private readonly SharedMapSystem _mapSystem;
     private readonly SharedTransformSystem _xformSystem;
-    private readonly EntityLookupSystem _lookup;
 
-    private readonly EntityQuery<OccluderComponent> _occluderQuery;
+    private readonly OccluderSystem _occluders;
+    private readonly EntityQuery<MapGridComponent> _gridQuery;
+    private readonly List<Entity<OccluderComponent, TransformComponent>> _occluderResults = new();
 
     /// <summary>
     /// Walls we've seen before. This is so once the walls get unloaded by PVS, they still occlude so light doesnt bleed through.
     /// It would likely be better to just inform the client of the occluding area somehow, but this is simpler for the time being.
     /// </summary>
     private readonly Dictionary<NetEntity, HashSet<Vector2i>> _remembered = new();
+    private readonly Dictionary<NetEntity, (GameTick Tick, List<Vector2i> Tiles)> _transparent = new();
 
     private HashSet<Vector2i> _known = new();
-    private Vector2 _eyeLocal;
     private float _trustRange;
     private List<Entity<MapGridComponent>> _grids = new();
     private readonly Vector2[] _extruded = new Vector2[6];
@@ -78,8 +80,8 @@ public sealed class StarLightOverlay : Overlay
 
         _mapSystem = entMan.System<SharedMapSystem>();
         _xformSystem = entMan.System<SharedTransformSystem>();
-        _lookup = entMan.System<EntityLookupSystem>();
-        _occluderQuery = entMan.GetEntityQuery<OccluderComponent>();
+        _occluders = entMan.System<OccluderSystem>();
+        _gridQuery = entMan.GetEntityQuery<MapGridComponent>();
 
         ZIndex = ContentZIndex;
     }
@@ -197,10 +199,11 @@ public sealed class StarLightOverlay : Overlay
             handle.SetTransform(Matrix3x2.Identity);
             _shadowVerts.Clear();
 
+            RefreshOccluders(mapId, casterBounds);
+
             foreach (var pass in _passes)
             {
                 _known = GetRemembered(_entMan.GetNetEntity(pass.Grid.Owner));
-                _eyeLocal = pass.EyeLocal;
                 DrawShadows(handle, pass.Grid, casterBounds, pass.StarLocal, shadowLength, pass.Matrix, shadowColor);
             }
 
@@ -226,20 +229,21 @@ public sealed class StarLightOverlay : Overlay
         Matrix3x2 matrix,
         Color shadowColor)
     {
-        var tiles = _mapSystem.GetTilesEnumerator(grid.Owner, grid, bounds);
+        var tileSize = grid.Comp.TileSize;
+        var localBounds = _xformSystem.GetInvWorldMatrix(grid.Owner).TransformBox(bounds);
 
-        while (tiles.MoveNext(out var tileRef))
+        foreach (var idx in _known)
         {
-            if (!IsOccluding(grid, tileRef.GridIndices))
-                continue;
+            var local = Box2.FromDimensions(idx * tileSize, new Vector2(tileSize, tileSize));
 
-            var local = _lookup.GetLocalBounds(tileRef, grid.Comp.TileSize);
+            if (!localBounds.Intersects(local))
+                continue;
 
             var toStar = starLocal - local.Center;
             var dist = toStar.Length();
             var dir = dist < 0.001f ? Vector2.UnitX : toStar / dist;
 
-            if (IsHidden(grid, tileRef.GridIndices, -Math.Sign(dir.X), -Math.Sign(dir.Y)))
+            if (IsHidden(idx, -Math.Sign(dir.X), -Math.Sign(dir.Y)))
                 continue;
 
             var castOffset = -dir * shadowLength;
@@ -285,14 +289,15 @@ public sealed class StarLightOverlay : Overlay
         float starRadius,
         Color glowColor)
     {
-        var openings = _mapSystem.GetTilesEnumerator(grid.Owner, grid, bounds);
+        var tileSize = grid.Comp.TileSize;
+        var localBounds = _xformSystem.GetInvWorldMatrix(grid.Owner).TransformBox(bounds);
 
-        while (openings.MoveNext(out var tileRef))
+        foreach (var idx in GetTransparent(grid))
         {
-            if (!IsTransparent(tileRef.Tile))
-                continue;
+            var local = Box2.FromDimensions(idx * tileSize, new Vector2(tileSize, tileSize));
 
-            var local = _lookup.GetLocalBounds(tileRef, grid.Comp.TileSize);
+            if (!localBounds.Intersects(local))
+                continue;
 
             var over = DiscCoverage(local, starLocal, starRadius);
 
@@ -322,6 +327,28 @@ public sealed class StarLightOverlay : Overlay
             return 1f;
 
         return (radius - min) / MathF.Max(max - min, 0.0001f);
+    }
+
+    private List<Vector2i> GetTransparent(Entity<MapGridComponent> grid)
+    {
+        var net = _entMan.GetNetEntity(grid.Owner);
+
+        if (_transparent.TryGetValue(net, out var cached) && cached.Tick == grid.Comp.LastTileModifiedTick)
+            return cached.Tiles;
+
+        var tiles = cached.Tiles ?? new List<Vector2i>();
+        tiles.Clear();
+
+        var rator = _mapSystem.GetAllTilesEnumerator(grid.Owner, grid.Comp);
+
+        while (rator.MoveNext(out var tileRef))
+        {
+            if (IsTransparent(tileRef.Value.Tile))
+                tiles.Add(tileRef.Value.GridIndices);
+        }
+
+        _transparent[net] = (grid.Comp.LastTileModifiedTick, tiles);
+        return tiles;
     }
 
     private bool IsTransparent(Tile tile)
@@ -369,49 +396,56 @@ public sealed class StarLightOverlay : Overlay
         };
     }
 
-    private bool IsHidden(Entity<MapGridComponent> grid, Vector2i idx, int sx, int sy)
+    private bool IsHidden(Vector2i idx, int sx, int sy)
     {
-        if (sx != 0 && !IsOccluding(grid, idx + new Vector2i(sx, 0)))
+        if (sx != 0 && !_known.Contains(idx + new Vector2i(sx, 0)))
             return false;
 
-        if (sy != 0 && !IsOccluding(grid, idx + new Vector2i(0, sy)))
+        if (sy != 0 && !_known.Contains(idx + new Vector2i(0, sy)))
             return false;
 
-        if (sx != 0 && sy != 0 && !IsOccluding(grid, idx + new Vector2i(sx, sy)))
+        if (sx != 0 && sy != 0 && !_known.Contains(idx + new Vector2i(sx, sy)))
             return false;
 
         return true;
     }
 
     /// <summary>
-    /// Stolen from lighting code.
+    /// Borrow the engine's perfectly good occluders cache.
     /// </summary>
-    private bool IsOccluding(Entity<MapGridComponent> grid, Vector2i idx)
+    private void RefreshOccluders(MapId mapId, Box2Rotated bounds)
     {
-        var centre = (idx + new Vector2(0.5f, 0.5f)) * grid.Comp.TileSize;
+        _occluderResults.Clear();
+        _occluders.QueryAabb(_occluderResults, mapId, bounds);
 
-        // Outside of PVS? Trust the cache and pray that the wall didn't get eaten recently.
-        if ((centre - _eyeLocal).LengthSquared() > _trustRange * _trustRange)
-            return _known.Contains(idx);
-
-        var anchored = _mapSystem.GetAnchoredEntitiesEnumerator(grid.Owner, grid.Comp, idx);
-
-        while (anchored.MoveNext(out var ent))
+        foreach (var pass in _passes)
         {
-            if (_occluderQuery.TryGetComponent(ent, out var occluder) && occluder.Enabled)
-            {
-                _known.Add(idx);
-                return true;
-            }
+            var known = GetRemembered(_entMan.GetNetEntity(pass.Grid.Owner));
+            var trustSqr = _trustRange * _trustRange;
+            var tileSize = pass.Grid.Comp.TileSize;
+            var eye = pass.EyeLocal;
+
+            known.RemoveWhere(idx =>
+                (((idx + new Vector2(0.5f, 0.5f)) * tileSize) - eye).LengthSquared() <= trustSqr);
         }
 
-        _known.Remove(idx);
-        return false;
+        foreach (var occluder in _occluderResults)
+        {
+            if (!occluder.Comp1.Enabled || occluder.Comp2.GridUid is not { } gridUid)
+                continue;
+
+            if (!_gridQuery.TryGetComponent(gridUid, out var gridComp))
+                continue;
+
+            var known = GetRemembered(_entMan.GetNetEntity(gridUid));
+            known.Add(_mapSystem.TileIndicesFor(gridUid, gridComp, occluder.Comp2.Coordinates));
+        }
     }
 
     public void ResetMemory()
     {
         _remembered.Clear();
+        _transparent.Clear();
     }
 
     private HashSet<Vector2i> GetRemembered(NetEntity grid)
