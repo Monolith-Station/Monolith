@@ -10,6 +10,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -30,6 +31,8 @@ public sealed partial class BlackFlashSystem : EntitySystem
     [Dependency] private ThrowingSystem _throwing = default!;
     [Dependency] private StaminaSystem _stamina = default!;
     [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+
 
     [Dependency] private EntityQuery<BlackFlashComponent> _blackFlashQuery = default!;
 
@@ -40,6 +43,9 @@ public sealed partial class BlackFlashSystem : EntitySystem
         SubscribeLocalEvent<BlackFlashComponent, BlackFlashActionEvent>(OnAction);
         SubscribeLocalEvent<BlackFlashArmedComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<ActorComponent, MeleeHitEvent>(OnMeleeHitNormal);
+
+        Subs.CVar(_cfg, BlackFlashCVars.BlackFlashChance, val => BaseProcChance = val, true);
+        Subs.CVar(_cfg, BlackFlashCVars.DamageMultiplier, val => NormalDamageMultiplier = val, true);
     }
 
     [DataField] public float NormalDamageMultiplier = 2.5f;
@@ -62,6 +68,8 @@ public sealed partial class BlackFlashSystem : EntitySystem
         if (args.Handled || !args.IsHit)
             return;
 
+        var damageMult = 1;
+
         if (_blackFlashQuery.HasComp(args.User))
             return; // people that can do it at will dont get a random proc because im mean
 
@@ -79,7 +87,10 @@ public sealed partial class BlackFlashSystem : EntitySystem
         }
 
         if (HasComp<HydrakinComponent>(args.User))
-            blackFlashChance *= 5;
+        {
+            blackFlashChance *= _cfg.GetCVar<float>("mono.fun.blackflash_hydrakin_chance_multiplier");
+            damageMult *= 2; // the birds have cursed energy
+        }
 
         if (SwingRoll(_timing.CurTick.Value, GetNetEntity(args.User).Id, GetNetEntity(args.Weapon).Id) >= blackFlashChance)
         {
@@ -94,9 +105,9 @@ public sealed partial class BlackFlashSystem : EntitySystem
             return;
         }
         if (lastHitComponent != null)
-            args.BonusDamage += args.BaseDamage * (lastHitComponent.CurrentDamageMultiplier - 1f);
+            args.BonusDamage += args.BaseDamage * ((lastHitComponent.CurrentDamageMultiplier - 1f) * damageMult);
         else
-            args.BonusDamage += args.BaseDamage * (NormalDamageMultiplier - 1f);
+            args.BonusDamage += args.BaseDamage * ((NormalDamageMultiplier - 1f) * damageMult);
 
         var origin = _transform.GetWorldPosition(args.User);
         foreach (var target in args.HitEntities)
