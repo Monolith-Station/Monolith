@@ -672,12 +672,14 @@ public partial class BaseShuttleControl : MapGridControl
 
         const float BatchSize = 3f * 4096;
 
+        var fillColor = Color.ToSrgb(Color.InterpolateBetween(BackingColor, color, alpha)).WithAlpha(1f);
+
         for (var i = 0; i < Math.Ceiling(triCount / BatchSize); i++)
         {
             var start = (int) (i * BatchSize);
             var end = (int) Math.Min(triCount, start + BatchSize);
             var count = end - start;
-            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, new Span<Vector2>(_allVertices, start, count), color.WithAlpha(alpha));
+            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, new Span<Vector2>(_allVertices, start, count), fillColor);
         }
 
         handle.DrawPrimitives(DrawPrimitiveTopology.LineList, new Span<Vector2>(_allVertices, gridData.EdgeIndex, edgeCount), color);
