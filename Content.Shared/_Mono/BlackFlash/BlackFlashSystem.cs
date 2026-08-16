@@ -39,7 +39,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
         SubscribeLocalEvent<BlackFlashComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<BlackFlashComponent, BlackFlashActionEvent>(OnAction);
         SubscribeLocalEvent<BlackFlashArmedComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<MeleeHitEvent>(OnMeleeHitNormal);
+        SubscribeLocalEvent<ActorComponent, MeleeHitEvent>(OnMeleeHitNormal);
     }
 
     public float NormalDamageMultiplier = 2.5f;
@@ -57,9 +57,9 @@ public sealed partial class BlackFlashSystem : EntitySystem
         return h / (float)uint.MaxValue;
     }
 
-    private void OnMeleeHitNormal(MeleeHitEvent args)
+    private void OnMeleeHitNormal(Entity<ActorComponent> ent, MeleeHitEvent args)
     {
-        if (args.Handled || !args.IsHit || !_playerManager.TryGetSessionByEntity(args.User, out _))
+        if (args.Handled || !args.IsHit)
             return;
 
         if (_blackFlashQuery.HasComp(args.User))
