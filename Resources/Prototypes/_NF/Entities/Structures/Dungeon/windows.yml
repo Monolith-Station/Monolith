@@ -69,37 +69,37 @@
     sprite: _NF/Structures/Windows/reinforced_window.rsi # Frontier
     color: "#ffd38c"
 
-# Mining window
-- type: entity
-  id: MiningWindowDungeon
-  parent:
-  - WindowMurkyDungeon
-  - MiningWindow
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Windows/mining.rsi
-    color: "#ffd38c"
-  - type: Icon
-    sprite: Structures/Windows/mining.rsi
-    color: "#ffd38c"
-  - type: Destructible # Made it as durable as common window
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WindowShatter
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ShardGlass:
-            min: 1
-            max: 2
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+## Mining window
+#- type: entity
+#  id: MiningWindowDungeon
+#  parent:
+#  - WindowMurkyDungeon
+#  - MiningWindow
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: Sprite
+#    drawdepth: WallTops
+#    sprite: Structures/Windows/mining.rsi
+#    color: "#ffd38c"
+#  - type: Icon
+#    sprite: Structures/Windows/mining.rsi
+#    color: "#ffd38c"
+#  - type: Destructible # Made it as durable as common window
+#    thresholds:
+#    - trigger:
+#        !type:DamageTrigger
+#        damage: 50
+#      behaviors:
+#      - !type:PlaySoundBehavior
+#        sound:
+#          collection: WindowShatter
+#      - !type:SpawnEntitiesBehavior
+#        spawn:
+#          ShardGlass:
+#            min: 1
+#            max: 2
+#      - !type:DoActsBehavior
+#        acts: [ "Destruction" ]
 
 # Plasma window
 - type: entity
