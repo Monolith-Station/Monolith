@@ -147,6 +147,7 @@
   abstract: true
   components:
   - type: Sprite
+    state: icon-mmc
 
 - type: entity
   parent: BaseAutosurgeonMieyo
