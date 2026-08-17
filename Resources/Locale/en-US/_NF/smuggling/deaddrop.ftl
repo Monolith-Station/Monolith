@@ -1,4 +1,4 @@
-deaddrop-shuttle-name = Monolithic Drop
+deaddrop-shuttle-name = Monolithic Dead Drop
 deaddrop-search-text = Search closer
 deaddrop-hint-pretext = A Monolithic drop pod has been detected at:
 deaddrop-hint-posttext = We will pay you to retrieve Monolithic crates for us.
@@ -12,7 +12,7 @@ smuggling-report-nfsd-specific = Monolithic dead drop activity detected at {$loc
 smuggling-report-nfsd-pod = Monolithic drop pod detected. Estimated location: ({$x}, {$y})
 smuggling-report-pirate = Monolithic drop pod detected. Estimated Location: ({$x}, {$y})
 
-deaddrop-faxed-hint-name = professional fax
+deaddrop-faxed-hint-name = suspicious fax
 deaddrop-faxed-hint-content =
-    Please go to the location and move the crates to cargo bays. We will buy the crates and you will be rewarded.. heh.. handsomely.
+    Please go to the coordinates and move the crates to their designated cargo bays. We will buy the crates and you will be rewarded.. heh.. handsomely.
 deaddrop-faxed-hint-signature = Research Director. Billy

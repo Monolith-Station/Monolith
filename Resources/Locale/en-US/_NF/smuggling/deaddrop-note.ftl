@@ -1,4 +1,4 @@
-dead-drop-hint-note = Help Needed.
+dead-drop-hint-note =
     Hi. I'm a private researcher working for.. doesn't matter. My employers are interested in the Monolith.
     We have Monolithic research drop pods inbound soon. We need your help to retrieve it.
 
