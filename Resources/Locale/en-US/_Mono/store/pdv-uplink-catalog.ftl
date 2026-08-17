@@ -227,11 +227,11 @@ uplink-pirate-modsuit-desc = An experimental modsuit prototype developed by Ullm
 
 # MARK: Explosives
 
-uplink-pirate-flashbanggrenade-box-name = Flashbang Grenade Box
-uplink-pirate-flashbanggrenade-box-desc = A box containing 4 flashbang grenades.
+uplink-pirate-flashbanggrenade-name = Flashbang Grenade
+uplink-pirate-flashbanggrenade-desc = A grenade that creates a blinding flash.
 
-uplink-pirate-smokegrenade-box-name = Smoke Grenade Box
-uplink-pirate-smokegrenade-box-desc = A box containing 4 smoke grenades.
+uplink-pirate-smokegrenade-name = Smoke Grenade
+uplink-pirate-smokegrenade-desc = A grenade that creates a large cloud of smoke, obscuring anything inside it and hiding it from thermal visors.
 
 uplink-pirate-c4-name = C-4
 uplink-pirate-c4-desc = Use it to breach walls, dispose of bodies, break equipment or attach it to that pet you dislike. Comes with modifiable timer with minimum of 10 second setting.
@@ -239,17 +239,17 @@ uplink-pirate-c4-desc = Use it to breach walls, dispose of bodies, break equipme
 uplink-pirate-c4-bundle-name = C-4 Bundle
 uplink-pirate-c4-bundle-desc = Enough C-4 to blow your way into a vault and out through the back.
 
-uplink-pirate-empgrenade-box-name = EMP Grenade Box
-uplink-pirate-empgrenade-box-desc = A box containing 4 EMP grenades.
+uplink-pirate-empgrenade-name = EMP Grenade
+uplink-pirate-empgrenade-desc = A handheld grenade that emits a high energy pulse that disrupts electronics and power systems in a moderately large radius.
 
-uplink-pirate-incendiarygrenade-box-name = Incendiary Grenade Box
-uplink-pirate-incendiarygrenade-box-desc = A box containing 4 incendiary grenades.
+uplink-pirate-incendiarygrenade-name = Incendiary Grenade
+uplink-pirate-incendiarygrenade-desc = A grenade that releases a swarm of incendiary pellets.
 
-uplink-pirate-shrapnelgrenade-box-name = Shrapnel Grenade Box
-uplink-pirate-shrapnelgrenade-box-desc = A box containing 4 shrapnel grenades.
+uplink-pirate-shrapnelgrenade-name = Shrapnel Grenade
+uplink-pirate-shrapnelgrenade-desc = A grenade that releases a large burst of lethal shrapnel.
 
-uplink-pirate-explosivegrenade-box-name = Explosive Grenade Box
-uplink-pirate-explosivegrenade-box-desc = A box containing 4 explosive grenades.
+uplink-pirate-explosivegrenade-name = Explosive Grenade
+uplink-pirate-explosivegrenade-desc = A grenade that causes a large explosion, damaging infrastructure and personnel nearby.
 
 # MARK: $Gambling$
 
