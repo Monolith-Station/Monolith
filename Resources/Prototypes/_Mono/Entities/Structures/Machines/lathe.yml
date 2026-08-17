@@ -339,10 +339,8 @@
   abstract: true
   components:
   - type: EntityStorage
-    capacity: 30
+    capacity: 50
     isCollidableWhenOpen: true
-    enteringOffset: 0.5,0
-    enteringRange: 0.35
 
 - type: entity
   id: IndustrialPressEconomyElectronics
@@ -408,7 +406,7 @@
   - type: Machine
     board: IndustrialPressEconomyElectronicsMMCMachineCircuitboard
   - type: Lathe
-    partRatingMaterialUseMultiplier: 0.98 # less of a buff from matter bins
+    partRatingMaterialUseMultiplier: 0.9
     producingSound: /Audio/_Mono/Structures/Economy/hammerpress.ogg
     idleState: mmc
     runningState: building_mmc
@@ -492,7 +490,7 @@
   - type: Machine
     board: IndustrialPressEconomyPlatesMMCMachineCircuitboard
   - type: Lathe
-    partRatingMaterialUseMultiplier: 0.98 # less of a buff from matter bins
+    partRatingMaterialUseMultiplier: 0.9
     producingSound: /Audio/_Mono/Structures/Economy/hammerpress.ogg
     idleState: mmc
     runningState: building_mmc
