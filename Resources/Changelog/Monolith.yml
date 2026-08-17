@@ -23791,3 +23791,41 @@ Entries:
   id: 2616
   time: '2026-08-15T08:22:58.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4482
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Apollo now works properly
+    - type: Tweak
+      message: Laser cannon now uses jumping hitscan.
+  id: 2617
+  time: '2026-08-15T10:24:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4489
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Ported the wizden wallmount sprites too while we're at it. Still a
+        testmerge though.
+    - type: Fix
+      message: Fixed some issues with wall resprite slop.
+  id: 2618
+  time: '2026-08-15T10:33:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4488
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Denoised the common wall types (steel, plastitanium, and shuttle).
+    - type: Fix
+      message: Fixed xeno resin windows being able to crash your game.
+  id: 2619
+  time: '2026-08-17T09:55:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4499
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Faction AI now require faction borg playtime instead of captain/asanvar,
+        requires 8 hours of it instead of 15.
+  id: 2620
+  time: '2026-08-17T10:26:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3813
