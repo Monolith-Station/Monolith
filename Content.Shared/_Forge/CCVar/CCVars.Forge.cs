@@ -52,4 +52,31 @@ public sealed partial class ForgeCVars
     /// </summary>
     public static readonly CVarDef<float> PoiCaptureSalesTaxRate =
         CVarDef.Create("forge.poi_capture.sales_tax_rate", 0.1f, CVar.SERVERONLY);
+
+    // Forge-Change-Start
+    /// <summary>
+    ///     Chat log font size in pixels. Independent from the global UI scale.
+    /// </summary>
+    public static readonly CVarDef<int> ChatFontSize =
+        CVarDef.Create("forge.ui.chat_font_size", 12, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Examine tooltip font size in pixels. Independent from the global UI scale.
+    /// </summary>
+    public static readonly CVarDef<int> ExamineFontSize =
+        CVarDef.Create("forge.ui.examine_font_size", 12, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Scale for HUD chrome: hotbar slots, hand slots, and action buttons.
+    ///     1 is the default 64px slot size.
+    /// </summary>
+    public static readonly CVarDef<float> HudScale =
+        CVarDef.Create("forge.ui.hud_scale", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Scale for bag/belt storage grid tiles. Independent from HUD scale.
+    /// </summary>
+    public static readonly CVarDef<float> StorageScale =
+        CVarDef.Create("forge.ui.storage_scale", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+    // Forge-Change-End
 }

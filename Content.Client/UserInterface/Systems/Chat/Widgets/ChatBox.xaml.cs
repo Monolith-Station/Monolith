@@ -1,4 +1,5 @@
 using Content.Client.UserInterface.Systems.Chat.Controls;
+using Content.Client._Forge.UserInterface; // Forge-Change
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Input;
@@ -59,10 +60,28 @@ public partial class ChatBox : UIWidget
         _cfg = IoCManager.Resolve<IConfigurationManager>();
         _coalescence = _cfg.GetCVar(CCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
         _cfg.OnValueChanged(CCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
+        // Forge-Change-Start
+        ForgeUiSizing.EnsureInitialized();
+        ForgeUiSizing.ChatFontSizeChanged += OnChatFontSizeChanged;
+        ApplyChatInputSize();
+        // Forge-Change-End
         // WD EDIT END
     }
 
     private void UpdateCoalescence(bool value) { _coalescence = value; Repopulate(); } // WD EDIT
+
+    // Forge-Change-Start
+    private void OnChatFontSizeChanged()
+    {
+        ApplyChatInputSize();
+        Repopulate();
+    }
+
+    private void ApplyChatInputSize()
+    {
+        ChatInput.Input.MinHeight = Math.Max(22, ForgeUiSizing.ChatFontSize + 10);
+    }
+    // Forge-Change-End
 
     private void OnTextEntered(LineEditEventArgs args)
     {
@@ -155,18 +174,19 @@ public partial class ChatBox : UIWidget
     {
         var formatted = new FormattedMessage(4); // WD EDIT // specifying size beforehand smells like a useless microoptimisation, but i'll give them the benefit of doubt
         formatted.PushColor(color);
-        formatted.AddMarkupOrThrow(message);
+        formatted.AddMarkupOrThrow(ForgeUiSizing.ApplyChatFontSize(message)); // Forge-Change
         formatted.Pop();
         if(repeat != 0) // WD EDIT START
         {
             int displayRepeat = repeat + 1;
             int sizeIncrease = Math.Min(displayRepeat / 6, 5);
+            var counterSize = Math.Max(1, (int) MathF.Round((8 + sizeIncrease) * (ForgeUiSizing.ChatFontSize / (float) ForgeUiSizing.DefaultFontSize))); // Forge-Change
             formatted.AddMarkup(_loc.GetString("chat-system-repeated-message-counter",
                 ("count", displayRepeat),
-                ("size", 8+sizeIncrease)
+                ("size", counterSize)
             ));
         } // WD EDIT END
-        Contents.AddMessage(formatted, tagsAllowed: null);
+        Contents.AddMessage(formatted, tagsAllowed: null); // Forge-Change
     }
 
     public void Focus(ChatSelectChannel? channel = null)
@@ -262,5 +282,6 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
         _cfg.UnsubValueChanged(CCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
+        ForgeUiSizing.ChatFontSizeChanged -= OnChatFontSizeChanged; // Forge-Change
     }
 }

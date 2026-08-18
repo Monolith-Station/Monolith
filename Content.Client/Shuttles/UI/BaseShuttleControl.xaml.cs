@@ -293,7 +293,7 @@ public partial class BaseShuttleControl : MapGridControl
         const float cardinalLabelScale = 0.72f;
 
         var origin = MidPointVector;
-        var radius = MathF.Max(8f, SizeFull * 0.5f - ringInset);
+        var radius = MathF.Max(8f, ScaledMinimapRadius - ringInset); // Forge-Change
 
         var subtleGray = Color.FromHex("#676767");
         var northAccent = Color.FromHex("#7F7442");
@@ -489,7 +489,7 @@ public partial class BaseShuttleControl : MapGridControl
     {
         var rator = Maps.GetAllTilesEnumerator(grid.Owner, grid.Comp);
         var minimapScale = MinimapScale;
-        var midpoint = new Vector2(MidPoint, MidPoint);
+        var midpoint = MidPointVector; // Forge-Change
         var tileSize = grid.Comp.TileSize;
 
         _drawnGrids.Add(grid.Owner); // Forge-Change: track grids drawn this frame for cache prune

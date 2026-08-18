@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client._Forge.UserInterface; // Forge-Change
 using Content.Client.Actions;
 using Content.Client.Actions.UI;
 using Content.Client.Cooldown;
@@ -48,6 +49,8 @@ public sealed class ActionButton : Control, IEntityControl
     public readonly CooldownGraphic Cooldown;
     private readonly SpriteView _smallItemSpriteView;
     private readonly SpriteView _bigItemSpriteView;
+    private readonly BoxContainer _paddingBoxItemIcon; // Forge-Change
+    private readonly Control _smallIconPad; // Forge-Change
 
     private Texture? _buttonBackgroundTexture;
 
@@ -76,7 +79,6 @@ public sealed class ActionButton : Control, IEntityControl
         HighlightRect = new PanelContainer
         {
             StyleClasses = {StyleNano.StyleClassHandSlotHighlight},
-            MinSize = new Vector2(32, 32),
             Visible = false
         };
         _bigActionIcon = new TextureRect
@@ -105,8 +107,6 @@ public sealed class ActionButton : Control, IEntityControl
             Name = "Big Sprite",
             HorizontalExpand = true,
             VerticalExpand = true,
-            Scale = new Vector2(2, 2),
-            SetSize = new Vector2(64, 64),
             Visible = false,
             OverrideDirection = Direction.South,
         };
@@ -119,18 +119,16 @@ public sealed class ActionButton : Control, IEntityControl
             OverrideDirection = Direction.South,
         };
         // padding to the left of the small icon
-        var paddingBoxItemIcon = new BoxContainer
+        // Forge-Change-Start
+        _paddingBoxItemIcon = new BoxContainer
         {
             Orientation = LayoutOrientation.Horizontal,
             HorizontalExpand = true,
             VerticalExpand = true,
-            MinSize = new Vector2(64, 64)
         };
-        paddingBoxItemIcon.AddChild(new Control()
-        {
-            MinSize = new Vector2(32, 32),
-        });
-        paddingBoxItemIcon.AddChild(new Control
+        _smallIconPad = new Control();
+        _paddingBoxItemIcon.AddChild(_smallIconPad);
+        _paddingBoxItemIcon.AddChild(new Control
         {
             Children =
             {
@@ -138,6 +136,7 @@ public sealed class ActionButton : Control, IEntityControl
                 _smallItemSpriteView
             }
         });
+        // Forge-Change-End
         Cooldown = new CooldownGraphic {Visible = false};
 
         AddChild(Button);
@@ -146,11 +145,16 @@ public sealed class ActionButton : Control, IEntityControl
         AddChild(HighlightRect);
         AddChild(Label);
         AddChild(Cooldown);
-        AddChild(paddingBoxItemIcon);
+        AddChild(_paddingBoxItemIcon); // Forge-Change
 
         Button.Modulate = new Color(255, 255, 255, 150);
 
         OnThemeUpdated();
+
+        // Forge-Change-Start
+        ForgeUiSizing.EnsureInitialized();
+        ApplyHudScale();
+        // Forge-Change-End
 
         OnKeyBindDown += OnPressed;
         OnKeyBindUp += OnUnpressed;
@@ -158,12 +162,44 @@ public sealed class ActionButton : Control, IEntityControl
         TooltipSupplier = SupplyTooltip;
     }
 
+    // Forge-Change-Start
+    protected override void EnteredTree()
+    {
+        base.EnteredTree();
+        ForgeUiSizing.HudScaleChanged += ApplyHudScale;
+    }
+
+    protected override void ExitedTree()
+    {
+        ForgeUiSizing.HudScaleChanged -= ApplyHudScale;
+        base.ExitedTree();
+    }
+    // Forge-Change-End
+
     protected override void OnThemeUpdated()
     {
         base.OnThemeUpdated();
         _buttonBackgroundTexture = Theme.ResolveTexture("SlotBackground");
         Label.FontColorOverride = Theme.ResolveColorOrSpecified("whiteText");
     }
+
+    // Forge-Change-Start
+    private void ApplyHudScale()
+    {
+        var size = ForgeUiSizing.ButtonSize;
+        var half = size / 2f;
+        var textureScale = new Vector2(2f * ForgeUiSizing.HudScale);
+
+        MinSize = new Vector2(size, size);
+        MaxSize = new Vector2(size, size);
+        Button.TextureScale = textureScale;
+        HighlightRect.MinSize = new Vector2(half, half);
+        _bigItemSpriteView.Scale = textureScale;
+        _bigItemSpriteView.SetSize = new Vector2(size, size);
+        _paddingBoxItemIcon.MinSize = new Vector2(size, size);
+        _smallIconPad.MinSize = new Vector2(half, half);
+    }
+    // Forge-Change-End
 
     private void OnPressed(GUIBoundKeyEventArgs args)
     {

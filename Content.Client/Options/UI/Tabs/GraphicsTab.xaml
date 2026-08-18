@@ -19,6 +19,12 @@
                 <!-- Interface -->
                 <Label Text="{Loc 'ui-options-interface-label'}" StyleClasses="LabelKeyText"/>
                 <ui:OptionDropDown Name="DropDownUIScale" Title="{Loc 'ui-options-scale-label'}" />
+                <!-- Forge-Change-Start -->
+                <ui:OptionSlider Name="ChatFontSizeSlider" Title="{Loc 'ui-options-chat-font-size'}" />
+                <ui:OptionSlider Name="ExamineFontSizeSlider" Title="{Loc 'ui-options-examine-font-size'}" />
+                <ui:OptionSlider Name="HudScaleSlider" Title="{Loc 'ui-options-hud-scale'}" />
+                <ui:OptionSlider Name="StorageScaleSlider" Title="{Loc 'ui-options-storage-scale'}" />
+                <!-- Forge-Change-End -->
                 <CheckBox Name="ViewportStretchCheckBox" Text="{Loc 'ui-options-vp-stretch'}" />
                 <ui:OptionSlider Name="ViewportScaleSlider" Title="{Loc ui-options-vp-scale}" />
                 <ui:OptionSlider Name="ViewportWidthSlider" Title="{Loc ui-options-vp-width}" />

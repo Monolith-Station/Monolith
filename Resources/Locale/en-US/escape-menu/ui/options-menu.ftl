@@ -73,6 +73,14 @@ ui-options-lighting-low = Low
 ui-options-lighting-medium = Medium
 ui-options-lighting-high = High
 ui-options-scale-label = UI Scale:
+# Forge-Change-Start
+ui-options-chat-font-size = Chat text size:
+ui-options-chat-font-size-value = { $size } px
+ui-options-examine-font-size = Examine text size:
+ui-options-examine-font-size-value = { $size } px
+ui-options-hud-scale = HUD scale (hotbar, slots, actions):
+ui-options-storage-scale = Storage slot scale (bags, belts):
+# Forge-Change-End
 ui-options-scale-auto = Automatic ({ TOSTRING($scale, "P0") })
 ui-options-scale-75 = 75%
 ui-options-scale-100 = 100%

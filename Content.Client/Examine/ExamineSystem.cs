@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using System.Threading;
+using Content.Client._Forge.UserInterface; // Forge-Change
 using Content.Client.Verbs;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -186,6 +187,10 @@ namespace Content.Client.Examine
             _examinedEntity = target;
 
             const float minWidth = 300;
+            // Forge-Change-Start
+            var examineFontSize = ForgeUiSizing.ExamineFontSize;
+            var examineScale = examineFontSize / (float) ForgeUiSizing.DefaultFontSize;
+            // Forge-Change-End
 
             if (openAtOldTooltip && oldTooltipPos != null)
             {
@@ -202,7 +207,7 @@ namespace Content.Client.Examine
             }
 
             // Actually open the tooltip.
-            _examineTooltipOpen = new Popup { MaxWidth = 400 };
+            _examineTooltipOpen = new Popup { MaxWidth = Math.Max(400, 400 * examineScale) }; // Forge-Change
             _userInterfaceManager.ModalRoot.AddChild(_examineTooltipOpen);
             var panel = new PanelContainer() { Name = "ExaminePopupPanel" };
             panel.AddStyleClass(StyleClassEntityTooltip);
@@ -231,7 +236,7 @@ namespace Content.Client.Examine
                 var spriteView = new SpriteView
                 {
                     OverrideDirection = Direction.South,
-                    SetSize = new Vector2(32, 32)
+                    SetSize = new Vector2(32 * examineScale, 32 * examineScale) // Forge-Change
                 };
                 spriteView.SetEntity(target);
                 hBox.AddChild(spriteView);
@@ -240,15 +245,15 @@ namespace Content.Client.Examine
             if (knowTarget)
             {
                 var itemName = FormattedMessage.EscapeText(Identity.Name(target, EntityManager, player));
-                var labelMessage = FormattedMessage.FromMarkupPermissive($"[bold]{itemName}[/bold]");
+                var labelMessage = FormattedMessage.FromMarkupPermissive(ForgeUiSizing.ApplyExamineFontSize($"[bold]{itemName}[/bold]")); // Forge-Change
                 var label = new RichTextLabel();
-                label.SetMessage(labelMessage);
+                label.SetMessage(labelMessage, tagsAllowed: null); // Forge-Change
                 hBox.AddChild(label);
             }
             else
             {
                 var label = new RichTextLabel();
-                label.SetMessage(FormattedMessage.FromMarkupOrThrow("[bold]???[/bold]"));
+                label.SetMessage(FormattedMessage.FromMarkupOrThrow(ForgeUiSizing.ApplyExamineFontSize("[bold]???[/bold]")), tagsAllowed: null); // Forge-Change
                 hBox.AddChild(label);
             }
 
@@ -280,7 +285,7 @@ namespace Content.Client.Examine
                     continue;
 
                 var richLabel = new RichTextLabel() { Margin = new Thickness(4, 4, 0, 4)};
-                richLabel.SetMessage(message);
+                richLabel.SetMessage(FormattedMessage.FromMarkupPermissive(ForgeUiSizing.ApplyExamineFontSize(message.ToMarkup())), tagsAllowed: null); // Forge-Change
                 vBox.AddChild(richLabel);
                 break;
             }

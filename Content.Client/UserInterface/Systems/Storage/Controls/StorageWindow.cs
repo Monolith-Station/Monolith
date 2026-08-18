@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Client._Forge.UserInterface; // Forge-Change
 using Content.Client.Hands.Systems;
 using Content.Client.Items.Systems;
 using Content.Client.Storage;
@@ -153,7 +154,49 @@ public sealed partial class StorageWindow : BaseWindow
         };
 
         AddChild(container);
+        ForgeUiSizing.EnsureInitialized(); // Forge-Change
     }
+
+    // Forge-Change-Start
+    private Vector2 StorageTexScale => new(ForgeUiSizing.StorageTextureScale);
+
+    private Vector2 GetTileSize()
+    {
+        return _emptyTexture!.Size * ForgeUiSizing.StorageTextureScale;
+    }
+
+    protected override void EnteredTree()
+    {
+        base.EnteredTree();
+        ForgeUiSizing.StorageScaleChanged += OnStorageScaleChanged;
+    }
+
+    protected override void ExitedTree()
+    {
+        ForgeUiSizing.StorageScaleChanged -= OnStorageScaleChanged;
+        base.ExitedTree();
+    }
+
+    private void OnStorageScaleChanged()
+    {
+        if (StorageEntity == null)
+            return;
+
+        foreach (var (_, data) in _pieces)
+        {
+            data.Control.OnPiecePressed -= OnPiecePressed;
+            data.Control.OnPieceUnpressed -= OnPieceUnpressed;
+        }
+
+        _pieces.Clear();
+        _controlGrid.Clear();
+        _pieceGrid.DisposeAllChildren();
+        _pieceGrid.Rows = 1;
+        _pieceGrid.Columns = 1;
+        BuildGridRepresentation();
+        BuildItemPieces();
+    }
+    // Forge-Change-End
 
     protected override void OnThemeUpdated()
     {
@@ -229,7 +272,7 @@ public sealed partial class StorageWindow : BaseWindow
         {
             Name = "ExitButton",
             TextureNormal = _exitTexture,
-            Scale = new Vector2(2, 2),
+            Scale = StorageTexScale, // Forge-Change
         };
         exitButton.OnPressed += _ =>
         {
@@ -258,7 +301,7 @@ public sealed partial class StorageWindow : BaseWindow
                     Texture = boundingGrid.Height != 0
                         ? _sidebarTopTexture
                         : _sidebarFatTexture,
-                    TextureScale = new Vector2(2, 2),
+                    TextureScale = StorageTexScale, // Forge-Change
                     Children =
                     {
                         exitButton
@@ -275,7 +318,7 @@ public sealed partial class StorageWindow : BaseWindow
             _backButton = new TextureButton
             {
                 TextureNormal = _backTexture,
-                Scale = new Vector2(2, 2),
+                Scale = StorageTexScale, // Forge-Change
             };
             _backButton.OnPressed += _ =>
             {
@@ -305,7 +348,7 @@ public sealed partial class StorageWindow : BaseWindow
                     new TextureRect
                     {
                         Texture = rows > 2 ? _sidebarMiddleTexture : _sidebarBottomTexture,
-                        TextureScale = new Vector2(2, 2),
+                        TextureScale = StorageTexScale, // Forge-Change
                         Children =
                         {
                             _backButton,
@@ -324,7 +367,7 @@ public sealed partial class StorageWindow : BaseWindow
             _sidebar.AddChild(new TextureRect
             {
                 Texture = i != (fillerRows - 1) ? _sidebarMiddleTexture : _sidebarBottomTexture,
-                TextureScale = new Vector2(2, 2),
+                TextureScale = StorageTexScale, // Forge-Change
             });
         }
 
@@ -361,7 +404,7 @@ public sealed partial class StorageWindow : BaseWindow
                 _backgroundGrid.AddChild(new TextureRect
                 {
                     Texture = texture,
-                    TextureScale = new Vector2(2, 2)
+                    TextureScale = StorageTexScale // Forge-Change
                 });
             }
         }
@@ -404,7 +447,7 @@ public sealed partial class StorageWindow : BaseWindow
             return;
 
         var boundingGrid = storageComp.Grid.GetBoundingBox();
-        var size = _emptyTexture!.Size * 2;
+        var size = GetTileSize(); // Forge-Change
         _contained.Clear();
         _contained.AddRange(storageComp.Container.ContainedEntities.Reverse());
 
@@ -656,7 +699,7 @@ public sealed partial class StorageWindow : BaseWindow
         if (StorageEntity != null)
             origin = _entity.GetComponent<StorageComponent>(StorageEntity.Value).Grid.GetBoundingBox().BottomLeft;
 
-        var textureSize = (Vector2) _emptyTexture!.Size * 2;
+        var textureSize = GetTileSize(); // Forge-Change
         var position = ((UserInterfaceManager.MousePositionScaled.Position
                          - _backgroundGrid.GlobalPosition
                          - ItemGridPiece.GetCenterOffset(entity, location, _entity) * 2

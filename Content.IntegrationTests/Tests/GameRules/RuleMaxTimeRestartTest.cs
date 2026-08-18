@@ -1,4 +1,5 @@
 using Content.Server.GameTicking;
+using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
@@ -37,6 +38,8 @@ namespace Content.IntegrationTests.Tests.GameRules
             await server.WaitAssertion(() =>
             {
                 Assert.That(sGameTicker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
+                // Autovote / default lobby preset would otherwise start MonoMixed (17 rules).
+                sGameTicker.SetGamePreset((GamePresetPrototype) null);
                 maxTime.RoundMaxTime = TimeSpan.FromSeconds(3);
                 // Legacy path uses PostRoundDuration when this is zero; keep a short delay for the test wait below.
                 maxTime.RoundEndDelay = TimeSpan.FromSeconds(3);

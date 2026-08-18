@@ -52,10 +52,11 @@ public partial class MapGridControl : LayoutContainer
     protected float RecenterMinimum = 0.05f;
 
     /// <summary>
-    /// UI pixel radius.
+    /// Fallback UI pixel radius used as a minimum display size. Actual drawing uses the control's pixel size.
     /// </summary>
     public const int UIDisplayRadius = 320;
     protected const int MinimapMargin = 4;
+    protected const int MinDisplaySize = 256; // Forge-Change
 
     protected float WorldMinRange;
     protected float WorldMaxRange;
@@ -76,11 +77,13 @@ public partial class MapGridControl : LayoutContainer
 
     public Vector2 MaxRadarRangeVector => new Vector2(MaxRadarRange, MaxRadarRange);
 
-    protected Vector2 MidPointVector => new Vector2(MidPoint, MidPoint);
+    // Forge-Change-Start: radar fills the resized window instead of a fixed 320px square.
+    protected Vector2 MidPointVector => PixelSize / 2f;
 
     protected int MidPoint => SizeFull / 2;
-    protected int SizeFull => (int)((UIDisplayRadius + MinimapMargin) * 2 * UIScale);
-    protected int ScaledMinimapRadius => (int)(UIDisplayRadius * UIScale);
+    protected int SizeFull => Math.Max(1, (int) MathF.Min(PixelWidth, PixelHeight));
+    protected int ScaledMinimapRadius => Math.Max(0, SizeFull / 2 - (int) (MinimapMargin * UIScale));
+    // Forge-Change-End
     protected float MinimapScale => WorldRange != 0 ? ScaledMinimapRadius / WorldRange : 0f;
 
     public event Action<float>? WorldRangeChanged;
@@ -91,7 +94,11 @@ public partial class MapGridControl : LayoutContainer
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-        SetSize = new Vector2(SizeFull, SizeFull);
+        // Forge-Change-Start
+        MinSize = new Vector2(MinDisplaySize, MinDisplaySize);
+        HorizontalExpand = true;
+        VerticalExpand = true;
+        // Forge-Change-End
         RectClipContent = true;
         MouseFilter = MouseFilterMode.Stop;
         ActualRadarRange = WorldRange;
@@ -144,8 +151,14 @@ public partial class MapGridControl : LayoutContainer
         if (!_draggin)
             return;
 
+        // Forge-Change-Start
+        var radius = ScaledMinimapRadius;
+        if (radius <= 0)
+            return;
+
         Recentering = false;
-        Offset -= new Vector2(args.Relative.X, -args.Relative.Y) / MidPoint * WorldRange;
+        Offset -= new Vector2(args.Relative.X, -args.Relative.Y) * UIScale / radius * WorldRange;
+        // Forge-Change-End
     }
 
     protected override void MouseWheel(GUIMouseWheelEventArgs args)

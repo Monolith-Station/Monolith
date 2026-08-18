@@ -4,8 +4,8 @@
                       xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       Title="{Loc 'shuttle-console-window-title'}"
                       SetSize="1000 1000"
-                      MinSize="1000 1000">
-    <BoxContainer Orientation="Vertical">
+                      MinSize="640 640"> <!-- Forge-Change -->
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"> <!-- Forge-Change -->
         <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="0 8 0 2">
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat BorderThickness="7" BorderColor="#252525" BackgroundColor="#3d474d"/>
@@ -14,9 +14,9 @@
                 <PanelContainer.PanelOverride>
                     <graphics:StyleBoxFlat BorderThickness="2" BorderColor="#333333" BackgroundColor="#181818"/>
                 </PanelContainer.PanelOverride>
-        <BoxContainer Orientation="Vertical" HorizontalAlignment="Center">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"> <!-- Forge-Change -->
         <!-- Top row mode buttons -->
-        <PanelContainer VerticalExpand="False" HorizontalExpand="True" SetWidth="970">
+        <PanelContainer VerticalExpand="False" HorizontalExpand="True"> <!-- Forge-Change -->
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat BorderThickness="2" BorderColor="#333333" BackgroundColor="#121212"/>
             </PanelContainer.PanelOverride>
@@ -47,13 +47,16 @@
         </BoxContainer>
         </PanelContainer>
         <!-- Contents box -->
+        <!-- Forge-Change-Start -->
         <BoxContainer Name="Contents"
                       HorizontalAlignment="Stretch"
+                      HorizontalExpand="True"
                       VerticalExpand="True"
                       Margin="5">
-            <ui:NavScreen Name="NavContainer" Visible="False"/>
-            <ui:MapScreen Name="MapContainer" Visible="False"/>
-            <ui:DockingScreen Name="DockContainer" Visible="False"/>
+            <ui:NavScreen Name="NavContainer" Visible="False" HorizontalExpand="True" VerticalExpand="True"/>
+            <ui:MapScreen Name="MapContainer" Visible="False" HorizontalExpand="True" VerticalExpand="True"/>
+            <ui:DockingScreen Name="DockContainer" Visible="False" HorizontalExpand="True" VerticalExpand="True"/>
+        <!-- Forge-Change-End -->
         </BoxContainer>
         </BoxContainer>
             </PanelContainer>

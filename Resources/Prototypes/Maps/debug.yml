@@ -12,6 +12,7 @@
         - type: StationJobs
           availableJobs:
             Passenger: [ -1, -1 ]
+            Contractor: [ -1, -1 ] # Frontier overflow job used by default test profiles
 
 - type: gameMap
   id: Dev

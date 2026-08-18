@@ -55,6 +55,7 @@ public sealed partial class FireControlWindow : FancyWindow
     private const float WindowChromeWidth = 42f;
     private const float DefaultWindowHeight = 800f;
     private const float MinimumWindowHeight = 700f;
+    private const float MinimumRadarWidth = 256f; // Forge-Change: radar fills resized window
 
     private enum PanelSide
     {
@@ -128,15 +129,9 @@ public sealed partial class FireControlWindow : FancyWindow
         ApplyWindowLayout(resizedSide: PanelSide.Right);
     }
 
-    private float GetRadarDisplayWidth()
+    private float ComputeMinContentWidth()
     {
-        var scaledSize = (MapGridControl.UIDisplayRadius + 4) * 2 * UIScale;
-        return MathF.Max(NavRadar.Width, scaledSize);
-    }
-
-    private float ComputeContentWidth()
-    {
-        var width = GetRadarDisplayWidth();
+        var width = MinimumRadarWidth;
 
         if (_controlsPanelExpanded)
             width += SidePanelBlockWidth;
@@ -149,21 +144,19 @@ public sealed partial class FireControlWindow : FancyWindow
 
     private void ApplyWindowLayout(bool initial = false, PanelSide? resizedSide = null)
     {
-        var targetWidth = ComputeContentWidth() + WindowChromeWidth;
-        MinSize = new Vector2(targetWidth, MinimumWindowHeight);
+        var minWidth = ComputeMinContentWidth() + WindowChromeWidth;
+        MinSize = new Vector2(minWidth, MinimumWindowHeight);
 
         if (initial)
         {
-            SetSize = new Vector2(targetWidth, DefaultWindowHeight);
+            SetSize = new Vector2(MathF.Max(minWidth, 1300f), DefaultWindowHeight);
             return;
         }
 
-        var widthDelta = targetWidth - Width;
-
-        if (resizedSide == PanelSide.Left && Math.Abs(widthDelta) > 0.1f)
-            LayoutContainer.SetPosition(this, Position + new Vector2(-widthDelta, 0));
-
-        SetSize = new Vector2(targetWidth, Height);
+        // Keep the current window size when collapsing panels so the radar can grow into the space.
+        // Expanding a panel raises MinSize, which will grow a too-narrow window automatically.
+        if (resizedSide == PanelSide.Left && Width < minWidth)
+            LayoutContainer.SetPosition(this, Position + new Vector2(Width - minWidth, 0));
     }
     // Forge-Change-End
 

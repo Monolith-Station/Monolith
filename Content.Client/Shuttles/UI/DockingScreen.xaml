@@ -1,5 +1,7 @@
+<!-- Forge-Change: VerticalExpand so the dock radar fills a resized shuttle window. -->
 <controls:BoxContainer Visible="False"
                HorizontalExpand="True"
+               VerticalExpand="True"
                xmlns:controls="https://spacestation14.io"
                xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
                xmlns:ui="clr-namespace:Content.Client.Shuttles.UI"
@@ -10,7 +12,8 @@
                        VerticalExpand="True"
                        HorizontalExpand="True"
                        Margin="5 4 10 5"/>
-    <controls:PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="4 4 4 4">
+    <!-- Forge-Change-Start: sidebar stays 256px; extra width goes to the radar. -->
+    <controls:PanelContainer VerticalExpand="True" HorizontalExpand="False" Margin="4 4 4 4">
         <controls:PanelContainer.PanelOverride>
             <graphics:StyleBoxFlat BorderThickness="2" BorderColor="#525252" BackgroundColor="#3d474d"/>
         </controls:PanelContainer.PanelOverride>
@@ -19,13 +22,14 @@
                 <graphics:StyleBoxFlat BorderThickness="2" BorderColor="#333333" BackgroundColor="#181818"/>
             </controls:PanelContainer.PanelOverride>
     <controls:BoxContainer Name="RightDisplayDock"
-                           VerticalAlignment="Top"
-                           HorizontalAlignment="Center"
+                           VerticalAlignment="Stretch"
+                           HorizontalAlignment="Stretch"
                            MinWidth="256"
                            MaxWidth="256"
                            Align="Center"
                            Margin="5 5 5 5"
                            Orientation="Vertical">
+    <!-- Forge-Change-End -->
         <!-- FTL Lock Section -->
         <controls1:StripeBack MinSize="48 48">
             <controls:Label Text="{controls:Loc 'shuttle-console-ftl-lock'}" HorizontalAlignment="Center"/>

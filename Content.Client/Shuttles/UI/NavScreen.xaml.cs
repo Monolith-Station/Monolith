@@ -29,6 +29,7 @@ public sealed partial class NavScreen : BoxContainer
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         _xformSystem = _entManager.System<SharedTransformSystem>();
+        LayoutContainer.SetAnchorPreset(NavRadar, LayoutContainer.LayoutPreset.Wide); // Forge-Change
 
         IFFToggle.OnToggled += OnIFFTogglePressed;
         IFFToggle.Pressed = NavRadar.ShowIFF;
