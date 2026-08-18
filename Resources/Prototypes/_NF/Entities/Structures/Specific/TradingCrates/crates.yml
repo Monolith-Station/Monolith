@@ -90,6 +90,7 @@
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure1
+  name: monolithic experimental gear crate
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -151,6 +152,7 @@
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure3
+  name: monolithic research crate
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -183,7 +185,7 @@
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure4
-  name: Donk Co. contraband crate
+  name: experimental monolithic food crate
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -207,7 +209,7 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 50000 # 105.000 is psychopathic + 45,000 making it 150,000 which is fucking stupid, 
+    valueAtDestination: 50000 # 105.000 is psychopathic + 45,000 making it 150,000 which is fucking stupid,
     valueElsewhere: 3000
     expressDeliveryDuration: 36000 # one hour, go go (timeout mostly for pirates & NFSD)
     expressOnTimeBonus: 25000
@@ -216,7 +218,7 @@
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT3 ] # the only t3
   id: CrateTradeContrabandSecure5
-  name: Cybersun Industries contraband crate
+  name: monolith experimental weapons crate
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
