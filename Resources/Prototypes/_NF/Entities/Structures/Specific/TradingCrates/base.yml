@@ -101,8 +101,8 @@
   parent:
   - CrateTradeBaseSecure
   id: CrateTradeBaseSecureContraband
-  name: Syndicate contraband crate
-  description: Contains goods made in the Spinward sector, ready to be smuggled to a cargo depot for profit. MAKE SURE THE CRATE IS INTACT.
+  name: monolith experimental crate
+  description: Contains experimental monolithic items. Monolith researchers are very interested in these crates. Tamper Lock destroys all items on destruction. Sell this at a cargo bay!
   abstract: true
   components:
   - type: Fixtures

@@ -23811,3 +23811,53 @@ Entries:
   id: 2618
   time: '2026-08-15T10:33:21.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4488
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Denoised the common wall types (steel, plastitanium, and shuttle).
+    - type: Fix
+      message: Fixed xeno resin windows being able to crash your game.
+  id: 2619
+  time: '2026-08-17T09:55:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4499
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Faction AI now require faction borg playtime instead of captain/asanvar,
+        requires 8 hours of it instead of 15.
+  id: 2620
+  time: '2026-08-17T10:26:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3813
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: All crates capacity 30 -> 100.
+    - type: Tweak
+      message: MMC industrial press is now actually better than normal one.
+  id: 2621
+  time: '2026-08-17T21:43:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4502
+- author: marklyfied
+  changes:
+    - type: Tweak
+      message: Spationaut Suit now costs 4k in the astrovend
+  id: 2622
+  time: '2026-08-17T21:44:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4507
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The TSF and PDV's uplinks now unbox the grenades automatically for
+        convenience. Explosives are now bought individually.
+  id: 2623
+  time: '2026-08-18T01:09:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4508
+- author: marklyfied
+  changes:
+    - type: Tweak
+      message: Rebranded smuggling from Syndicate to monolith
+  id: 2624
+  time: '2026-08-18T05:14:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4506
