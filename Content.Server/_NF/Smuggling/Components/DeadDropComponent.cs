@@ -81,5 +81,5 @@ public sealed partial class DeadDropComponent : Component
     ///     The color of your grid. the name should be set by the mapper when mapping.
     /// </summary>
     [DataField]
-    public Color Color = new(225, 15, 155);
+    public Color Color = new(159, 43, 104);
 }

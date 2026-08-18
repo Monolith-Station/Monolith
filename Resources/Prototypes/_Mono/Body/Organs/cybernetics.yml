@@ -115,3 +115,17 @@
       rateModifier: 0.2
   - type: Item
     size: Small
+
+- type: entity
+  parent: OrganHumanHeart
+  id: OrganHeartMMCSakimoto
+  name: MMC EVT-001 "Sakimoto" replacement heart
+  description: A strange piece of cybernetic hardware designed to replace the heart. The exact manner of how is unknown, but it allows the user to channel a form of latent energy into a single hit.
+  components:
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/cybernetics.rsi
+    state: iatric_monitor
+  - type: Organ
+    onAdd:
+    - type: BlackFlash
