@@ -38,7 +38,7 @@
   description: A station map.
   icon:
     sprite: Structures/Machines/station_map.rsi
-    state: station_map0
+    state: base
   placementMode: SnapgridCenter
   objectType: Structure
   canRotate: true
@@ -1422,7 +1422,7 @@
   description: "A wallmounted timer for sending timed signals to things."
   icon:
     sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    state: base
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
