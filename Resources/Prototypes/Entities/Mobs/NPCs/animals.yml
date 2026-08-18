@@ -337,7 +337,7 @@
 
 - type: entity # TODO: figure out how to make these guys gib when stepped on
   name: cockroach
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, ProximityShootOverBase] #Mono: Shootover
   id: MobCockroach
   description: This station is just crawling with bugs.
   components:
@@ -505,6 +505,8 @@
     allowedEmotes: ['Chitter', 'Squeak']
   - type: FaxableObject
     insertingState: inserting_mothroach
+  - type: DashAction # Goobstation - dark souls moths
+    actionProto: ActionDashMoth
   - type: MothAccent
   - type: Sprite
     sprite: Mobs/Animals/mothroach/mothroach.rsi
@@ -573,6 +575,7 @@
     - Moffic
     understands:
     - Moffic
+    - TauCetiBasic
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
@@ -583,11 +586,16 @@
     wilhelmProbability: 0.001
   - type: MobPrice
     price: 150
+  - type: Temperature
+    heatDamageThreshold: 423
+    coldDamageThreshold: 0
   - type: Tag
     tags:
     - Trash
     - CannotSuicide
     - VimPilot
+  - type: MovementAlwaysTouching
+  - type: PressureImmunity
   - type: CanEscapeInventory
   - type: NpcFactionMember
     factions:
@@ -602,7 +610,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 60
+        damage: 250
       behaviors:
       - !type:GibBehavior { }
   - type: FireVisuals
@@ -617,8 +625,8 @@
         type: SurgeryBui
   - type: InventorySlots
   - type: Inventory
-    speciesId: hamster
-    templateId: hamster
+    speciesId: mothroach
+    templateId: mothroach
     displacements:
       head:
         sizeMaps:
@@ -645,7 +653,11 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
-
+  - type: EatToGrow # Goobstation Eat To Grow System
+    growth: 0.05
+    maxGrowth: 2
+  - type: Puller
+    needsHands: false
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
@@ -1763,7 +1775,7 @@
 
 - type: entity
   name: mouse
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, ProximityShootOverBase] #Mono: Shootover
   id: MobMouse
   description: Squeak!
   components:
@@ -3505,7 +3517,7 @@
 
 - type: entity
   name: hamster
-  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase]
+  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase, ProximityShootOverBase] #Mono: Shootover
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
@@ -3726,7 +3738,7 @@
 
 - type: entity
   name: diona nymph
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, ProximityShootOverBase] #Mono: Shootover
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:

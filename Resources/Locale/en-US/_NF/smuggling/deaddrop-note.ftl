@@ -1,12 +1,16 @@
 dead-drop-hint-note =
-    Hi. I'm a private researcher working for.. doesn't matter. My employers are interested in the Monolith.
-    We have Monolithic research drop pods inbound soon. We need your help to retrieve it.
-
-    I hid some hints here:
+    I...SOMETHING
+    NEED...
+    COLLECT FOR #&^@...
+    INTERCEPT SOON...
+    THERE...FEW CHANCE...
+    GO... QUICK...
+    IT...VALUABLE
 
     {$drops}
 
-    You will be rewarded.. heh.. handsomely.
+    GOOD... FOR YOU
+    COME PLAY..?
 
 dead-drop-time-known = next drop around {$time}
 dead-drop-time-unknown = next drop placed when we can

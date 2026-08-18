@@ -1,18 +1,18 @@
-deaddrop-shuttle-name = Monolithic Dead Drop
-deaddrop-search-text = Search closer
-deaddrop-hint-pretext = A Monolithic drop pod has been detected at:
-deaddrop-hint-posttext = We will pay you to retrieve Monolithic crates for us.
-deaddrop-hint-next-drop = Expect the next drop here around {$time}.
-deaddrop-hint-name = neatly folded paper
-deaddrop-hint-desc = A piece of paper, cleanly folded to fit into a small hiding space
+deaddrop-shuttle-name = Wayward Cache
+deaddrop-search-text = Investigate for... something?
+deaddrop-hint-pretext = LOOT... HERE:
+deaddrop-hint-posttext = CACHE... VALUABLE... ...HELP... PLEASE
+deaddrop-hint-next-drop = EXPECT... {$time}.
+deaddrop-hint-name = wayward paper sheet
+deaddrop-hint-desc = A piece of paper, cleanly folded to fit into a small hiding space. Where did this come from?
 
-smuggling-report-nfsd-general = Monolithic dead drop activity detected.
-smuggling-report-nfsd-alternative = Monolithic dead drop activity detected, possible locations: {$location1} or {$location2}.
-smuggling-report-nfsd-specific = Monolithic dead drop activity detected at {$location}.
-smuggling-report-nfsd-pod = Monolithic drop pod detected. Estimated location: ({$x}, {$y})
-smuggling-report-pirate = Monolithic drop pod detected. Estimated Location: ({$x}, {$y})
+smuggling-report-nfsd-general = Anomalous activity detected.
+smuggling-report-nfsd-alternative = Anomalous activity detected, possible locations: {$location1} or {$location2}.
+smuggling-report-nfsd-specific = Anomalous activity detected at {$location}.
+smuggling-report-nfsd-pod = Suspected wayward cache detected. Estimated location: ({$x}, {$y})
+smuggling-report-pirate = Suspected wayward cache detected. Estimated Location: ({$x}, {$y})
 
-deaddrop-faxed-hint-name = suspicious fax
+deaddrop-faxed-hint-name = wayward fax
 deaddrop-faxed-hint-content =
-    Please go to the coordinates and move the crates to their designated cargo bays. We will buy the crates and you will be rewarded.. heh.. handsomely.
-deaddrop-faxed-hint-signature = Research Director. Billy
+    GO... LOCATION... ...VALUABLE...
+deaddrop-faxed-hint-signature = !@*#$&$!^

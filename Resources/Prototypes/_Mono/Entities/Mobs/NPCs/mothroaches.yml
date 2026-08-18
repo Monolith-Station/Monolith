@@ -1,0 +1,539 @@
+- type: entity
+  name: moproach
+  parent: MobMothroach
+  id: MobMoproach
+  description: This little mothroach has mopshoes on its feet! How adorable!
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-moproach-name
+    description: ghost-role-information-moproach-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Squeak
+    allowedEmotes: ['Chitter', 'Squeak']
+  - type: FaxableObject
+    insertingState: inserting_mothroach
+  - type: MothAccent
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/moproach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mothroach-moving
+    noMovementLayers:
+      movement:
+        state: mothroach
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/moproach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Critical:
+        Base: mothroach_dead
+      Dead:
+        Base: mothroach_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      45: Critical
+      65: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 5 # extra speed for that moppin'!
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    baseWeightlessModifier: 1
+  - type: HTN
+    rootTask:
+      task: MoproachCompound
+  - type: Absorbent
+    pickupAmount: 7.5 # small feet
+  - type: UseDelay
+    delay: 0.5 # quick feet
+  - type: SolutionRegeneration
+    solution: absorbed
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 5
+  - type: SolutionPurge
+    solution: absorbed
+    preserve:
+    - Water
+    quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      absorbed:
+        maxVol: 100
+  - type: ProtectedFromStepTriggers
+  - type: Insulated
+
+
+- type: entity
+  name: Boomroach
+  parent: MobMothroach
+  id: MobBoomroach
+  description: This little mothroach has a chinalake strapped to its back! Why and how?
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-boomroach-name
+    description: ghost-role-information-boomroach-description
+    rules: ghost-role-information-boomroach-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: AutoImplant
+    implants:
+    - MindShieldImplant
+    - TrackingImplant
+    - RadioImplantTsf
+    - MicroBombImplant
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Traffic
+    - Nfsd
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Traffic
+    - Nfsd
+  - type: NpcFactionMember
+    factions:
+    - TSFMC
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Squeak
+    allowedEmotes: ['Chitter', 'Squeak']
+  - type: FaxableObject
+    insertingState: inserting_mothroach
+  - type: MothAccent
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/boomroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mothroach-moving
+    noMovementLayers:
+      movement:
+        state: mothroach
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/boomroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Critical:
+        Base: mothroach_dead
+      Dead:
+        Base: mothroach_dead
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Moffic
+    - TauCetiBasic
+    - SolCommon
+    understands:
+    - Moffic
+    - TauCetiBasic
+    - SolCommon
+  - type: Gun
+    fireRate: 2
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: Bullet40mmGrenadeEMP
+    fireCost: 500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical
+      100: Dead
+  - type: Company
+    companyName: TSF
+
+- type: entity
+  name: ImperiRoach
+  parent: MobMothroach
+  id: MobImperiRoach
+  description: Repurposed and highly trained elite member of the PDV, bewarned explosive personallity
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-Imperiroach-name
+    description: ghost-role-information-Imperiroach-description
+    rules: ghost-role-information-Imperiroach-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+  - type: AutoImplant
+    implants:
+    - FreelanceTrackingImplant
+    - RadioImplantFreelance
+    - MicroBombImplant
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Traffic
+    - Freelance
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Traffic
+    - Freelance
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Squeak
+    allowedEmotes: ['Chitter', 'Squeak']
+  - type: FaxableObject
+    insertingState: inserting_mothroach
+  - type: MothAccent
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/imperiroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mothroach-moving
+    noMovementLayers:
+      movement:
+        state: mothroach
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/imperiroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Critical:
+        Base: mothroach_dead
+      Dead:
+        Base: mothroach_dead
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Moffic
+    - TauCetiBasic
+    - Freespeak
+    understands:
+    - Moffic
+    - TauCetiBasic
+    - Freespeak
+
+- type: entity
+  name: OwOroach
+  parent: MobMothroach
+  id: MobOwORoach
+  description: Genetic Experimentionation between mothroaches and cats, too far or not far enough?
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-oworoach-name
+    description: ghost-role-information-oworoach-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: AutoImplant
+    implants:
+    - RadioImplantCivilian
+    - MicroBombImplant
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Traffic
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Traffic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Squeak
+    allowedEmotes: ['Chitter', 'Squeak']
+  - type: FaxableObject
+    insertingState: inserting_mothroach
+  - type: MothAccent
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/oworoach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+    - map: ["oworoach_tail"]
+      state: tail
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mothroach-moving
+    noMovementLayers:
+      movement:
+        state: mothroach
+  - type: Item
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/oworoach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Critical:
+        Base: mothroach_dead
+      Dead:
+        Base: mothroach_dead
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Moffic
+    - TauCetiBasic
+    understands:
+    - Moffic
+    - TauCetiBasic
+  - type: AddAccentClothing
+    accent: OwOAccent
+  - type: OwOAccent
+
+- type: entity
+  name: leopard mothroach
+  parent: MobMothroach
+  id: MobMothroachLeopard
+  description: A charming result of numerous attempts to crossbreed insects with predators.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-mothroachleopard-name
+    description: ghost-role-information-mothroachleopard-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/leopard_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_leopard
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/leopard_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+
+- type: entity
+  name: cecropia mothroach
+  parent: MobMothroach
+  id: MobMothroachCecropia
+  description: A charming result of numerous attempts to cross a genus of the nettle family with cockroaches.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-mothroachcecropia-name
+    description: ghost-role-information-mothroachcecropia-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/cecropia_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_cecropia
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/cecropia_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+
+- type: entity
+  name: lunar mothroach
+  parent: MobMothroach
+  id: MobMothroachLunar
+  description: Someone left the moth under the moonlight.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-mothroachlunar-name
+    description: ghost-role-information-mothroachlunar-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/lunar_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_lunar
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/lunar_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+
+- type: entity
+  name: mustard mothroach
+  parent: MobMothroach
+  id: MobMothroachMustard
+  description: A delightful result of the sectors's highest chefs crossing meat with sauce.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-mothroachmustard-name
+    description: ghost-role-information-mothroachmustard-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: Sprite
+    sprite: Mobs/Animals/mothroach/mustard_mothroach.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mothroach
+  - type: FaxableObject
+    insertingState: inserting_mothroach_lunar
+  - type: Clothing
+    quickEquip: false
+    sprite: Mobs/Animals/mothroach/mustard_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - mustard
+    - lostfriendship
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 45
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Mustard
+          Quantity: 5

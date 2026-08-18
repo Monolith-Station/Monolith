@@ -101,8 +101,8 @@
   parent:
   - CrateTradeBaseSecure
   id: CrateTradeBaseSecureContraband
-  name: monolith experimental crate
-  description: Contains experimental monolithic items. Monolith researchers are very interested in these crates. Tamper Lock destroys all items on destruction. Sell this at a cargo bay!
+  name: encrusted crate
+  description: Contains something... wayward. Almost impossible to open without destroying its contents. Immensely valuable for anomalous research.
   abstract: true
   components:
   - type: Fixtures

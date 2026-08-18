@@ -239,6 +239,11 @@ uplink-pirate-c4-desc = Use it to breach walls, dispose of bodies, break equipme
 uplink-pirate-c4-bundle-name = C-4 Bundle
 uplink-pirate-c4-bundle-desc = Enough C-4 to blow your way into a vault and out through the back.
 
+uplink-pirate-MobImperiroach-name = ImperiRoach
+uplink-pirate-MobImperiroach-desc = Call in a handy ImperiRoach equipped with a microbomb implant. Explodes when seriously injured. Can use harsh language and upset feelings.
+
+uplink-pirate-empgrenade-box-name = EMP Grenade Box
+uplink-pirate-empgrenade-box-desc = A box containing 4 EMP grenades.
 uplink-pirate-empgrenade-name = EMP Grenade
 uplink-pirate-empgrenade-desc = A handheld grenade that emits a high energy pulse that disrupts electronics and power systems in a moderately large radius.
 

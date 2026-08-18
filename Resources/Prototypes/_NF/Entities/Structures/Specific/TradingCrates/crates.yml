@@ -90,7 +90,7 @@
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure1
-  name: monolithic experimental gear crate
+  name: encrusted locker
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -152,7 +152,7 @@
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure3
-  name: monolithic research crate
+  name: encrusted lockbox
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -185,7 +185,7 @@
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure4
-  name: experimental monolithic food crate
+  name: encrusted cache
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -218,7 +218,7 @@
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT3 ] # the only t3
   id: CrateTradeContrabandSecure5
-  name: monolith experimental weapons crate
+  name: encrusted hoard
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon

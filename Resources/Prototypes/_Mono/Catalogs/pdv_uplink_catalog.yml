@@ -1153,6 +1153,17 @@
       - PirateUplink
 
 - type: listing
+  id: UplinkMobImperiroach
+  name: uplink-pirate-MobImperiroach-name
+  description: uplink-pirate-MobImperiroach-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-imperiroach}
+  productEntity: ReinforcementRadioPDVImperiroach
+  cost:
+    Doubloon: 30
+  categories:
+    - UplinkPirateExplosives
+
+- type: listing
   id: UplinkPirateEmpGrenade
   name: uplink-pirate-empgrenade-name
   description: uplink-pirate-empgrenade-desc

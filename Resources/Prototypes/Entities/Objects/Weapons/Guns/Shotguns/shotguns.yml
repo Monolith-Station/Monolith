@@ -151,7 +151,7 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3.5 #3->3.5 Mono
-    damageModifier: 3 # Mono
+    damageModifier: 1.5 # Mono
   - type: GunSpreadModifier #Mono
     spread: 0.4
   - type: BallisticAmmoProvider
