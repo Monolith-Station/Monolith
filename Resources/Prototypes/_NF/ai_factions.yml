@@ -57,9 +57,11 @@
 - type: npcFaction
   id: PirateNF
   neutral:
-  - CC
-  - NanoTrasen
   - MD
+  - Cat
+  - PetsNT
+  - SimpleNeutral
+  - Mouse
   defaultHostile: true
 
 - type: npcFaction
