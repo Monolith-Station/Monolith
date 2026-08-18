@@ -56,6 +56,10 @@
 # Todo: Add/Change to PDV - Mono
 - type: npcFaction
   id: PirateNF
+  neutral:
+  - CC
+  - NanoTrasen
+  - MD
   defaultHostile: true
 
 - type: npcFaction
