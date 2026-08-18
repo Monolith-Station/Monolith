@@ -60,6 +60,9 @@
   - type: ShipRepairable
     repairTime: 6
     repairCost: 8
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: 0, 0.5
+    endingOffset: 0, -0.5
 
 - type: entity
   id: BlastDoorOpen

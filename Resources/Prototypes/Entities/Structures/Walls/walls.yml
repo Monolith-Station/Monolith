@@ -80,21 +80,21 @@
 - type: entity
   parent: BaseWallTierTwo # Mono
   id: WallClock
-  name: clock wall
+  name: brass wall
   components:
   - type: Tag
     tags:
     - Wall
   - type: Sprite
-    sprite: Structures/Walls/clock.rsi
+    sprite: Structures/Walls/brass.rsi
   - type: Icon
-    sprite: Structures/Walls/clock.rsi
+    sprite: Structures/Walls/brass.rsi
   - type: Construction
     graph: ClockworkGirder
     node: clockworkWall
   - type: IconSmooth
     key: walls
-    base: clock
+    base: brass
   - type: RCDDeconstructable # Frontier
     cost: 6 # Frontier
     delay: 8 # Frontier
@@ -191,25 +191,25 @@
     key: walls
     base: debug
 
-- type: entity
-  parent: BaseWallTierThree # Mono - surely its fine since diamonds are so rare
-  id: WallDiamond
-  name: diamond wall
-  components:
-  - type: Tag
-    tags:
-    - Wall
-  - type: Sprite
-    sprite: Structures/Walls/diamond.rsi
-  - type: Icon
-    sprite: Structures/Walls/diamond.rsi
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 8
-    fx: EffectRCDDeconstruct8
-  - type: IconSmooth
-    key: walls
-    base: diamond
+#- type: entity
+#  parent: BaseWallTierThree # Mono - surely its fine since diamonds are so rare
+#  id: WallDiamond
+#  name: diamond wall
+#  components:
+#  - type: Tag
+#    tags:
+#    - Wall
+#  - type: Sprite
+#    sprite: Structures/Walls/diamond.rsi
+#  - type: Icon
+#    sprite: Structures/Walls/diamond.rsi
+#  - type: RCDDeconstructable
+#    cost: 6
+#    delay: 8
+#    fx: EffectRCDDeconstruct8
+#  - type: IconSmooth
+#    key: walls
+#    base: diamond
 
 - type: entity
   parent: BaseWallTierOne # Mono
@@ -740,28 +740,28 @@
 #  - type: Reflect # Frontier
 #    reflectProb: 1 # Frontier
 
-- type: entity
-  parent: BaseWallTierOne # Mono
-  id: WallShuttleInterior
-  name: shuttle wall
-  suffix: Interior
-  components:
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 8
-    fx: EffectRCDDeconstruct8
-  - type: Sprite
-    sprite: Structures/Walls/shuttleinterior.rsi
-  - type: Icon
-    sprite: Structures/Walls/shuttleinterior.rsi
-  - type: Construction
-    graph: Girder
-    node: shuttleInteriorWall
-  - type: IconSmooth
-    key: walls
-    base: state
-#  - type: Reflect # Frontier
-#    reflectProb: 1 # Frontier
+#- type: entity
+#  parent: BaseWallTierOne # Mono
+#  id: WallShuttleInterior
+#  name: shuttle wall
+#  suffix: Interior
+#  components:
+#  - type: RCDDeconstructable
+#    cost: 6
+#    delay: 8
+#    fx: EffectRCDDeconstruct8
+#  - type: Sprite
+#    sprite: Structures/Walls/shuttleinterior.rsi
+#  - type: Icon
+#    sprite: Structures/Walls/shuttleinterior.rsi
+#  - type: Construction
+#    graph: Girder
+#    node: shuttleInteriorWall
+#  - type: IconSmooth
+#    key: walls
+#    base: state
+##  - type: Reflect # Frontier
+##    reflectProb: 1 # Frontier
 
 - type: entity
   parent: BaseWallTierOne
@@ -1082,10 +1082,6 @@
   - type: IconSmooth
     key: walls
     base: mining
-  - type: RandomIconSmooth
-    randomStates:
-    - mining
-    - miningB
   - type: Appearance
 
 - type: entity

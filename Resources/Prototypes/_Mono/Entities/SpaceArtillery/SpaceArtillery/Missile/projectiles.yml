@@ -44,6 +44,11 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: AmbientSound
+    volume: 5
+    range: 20
+    sound:
+      path: /Audio/_Mono/Weapons/Guns/Missiles/engine_rocket_01.ogg
 
 - type: damageModifierSet
   id: Missile

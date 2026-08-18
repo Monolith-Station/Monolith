@@ -337,7 +337,7 @@
 
 - type: entity # TODO: figure out how to make these guys gib when stepped on
   name: cockroach
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, ProximityShootOverBase] #Mono: Shootover
   id: MobCockroach
   description: This station is just crawling with bugs.
   components:
@@ -1775,7 +1775,7 @@
 
 - type: entity
   name: mouse
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, ProximityShootOverBase] #Mono: Shootover
   id: MobMouse
   description: Squeak!
   components:
@@ -3517,7 +3517,7 @@
 
 - type: entity
   name: hamster
-  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase]
+  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase, ProximityShootOverBase] #Mono: Shootover
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
@@ -3738,7 +3738,7 @@
 
 - type: entity
   name: diona nymph
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, ProximityShootOverBase] #Mono: Shootover
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:

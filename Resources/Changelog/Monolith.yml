@@ -23472,3 +23472,433 @@ Entries:
   id: 2585
   time: '2026-08-03T14:35:26.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4407
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Flatpackers cost bluespace for tax instead of iridite.
+    - type: Fix
+      message: Armor plates should now fit in interactors.
+  id: 2586
+  time: '2026-08-03T20:54:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4439
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Medical assembler, precision assembler and arc furnace now use better
+        UI.
+    - type: Tweak
+      message: Machine frame construction is now faster
+  id: 2587
+  time: '2026-08-04T10:06:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4436
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Replaced gameplay voting for now with random gamemode (like normal
+        station servers). Now has a chance for greenshifts (no ADS/chimera
+        threat).
+  id: 2588
+  time: '2026-08-04T17:33:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4443
+- author: Onezero0
+  changes:
+    - type: Fix
+      message: Silicon wafer craft now has an icon.
+    - type: Tweak
+      message: >-
+        A bunch of recipes have been split - previously chemical-requiring
+        recipes are now "alternative recipes" that are more efficient but have
+        complexity from chemicals.
+    - type: Add
+      message: >-
+        Component crafts, alternate recipes and component materials now have
+        lathe categories.
+    - type: Add
+      message: >-
+        Added the new (and inefficient) only-parts-requiring T2 component crafts
+        to industrial presses just to make basic machine construction less
+        dependent on poi things (if you want to be efficient/faster tho POI
+        lathes are the way to go)
+    - type: Tweak
+      message: Compact precision assembler now has an actual sprite
+    - type: Add
+      message: >-
+        Assembly lathes now have an extended description explaining how to add
+        entities for crafting recipes.
+  id: 2589
+  time: '2026-08-06T00:28:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4444
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Ported better/unified sprites for those alerts on the side of your
+        screen (like health) from Hullrot.
+  id: 2590
+  time: '2026-08-06T02:27:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4450
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Reagent requirements for lathes displaying incorrectly
+    - type: Fix
+      message: Fixed beaker slot of assembler lathes being able to accept any item .
+  id: 2591
+  time: '2026-08-06T12:53:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4452
+- author: NazrinNya
+  changes:
+    - type: Remove
+      message: Firing through shoulder.
+  id: 2592
+  time: '2026-08-06T13:37:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4453
+- author: kasature90
+  changes:
+    - type: Remove
+      message: Replaced the T2/T3 armory on Jupiter/Helios with a T1 one.
+    - type: Tweak
+      message: >-
+        Adjusted the stats of a lot of rarely-used faction guns (not major
+        nerfs!). Maybe check them out a little bit.
+  id: 2593
+  time: '2026-08-06T14:43:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4430
+- author: kasature90
+  changes:
+    - type: Add
+      message: Feroxi species. From DV.
+  id: 2594
+  time: '2026-08-07T00:22:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4441
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Ignoring reagent requirements in lathe by using jug
+  id: 2595
+  time: '2026-08-07T07:51:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4455
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a lot more SFX for shipgun firing (mostly ballistic and missiles)
+        instead of the same 3 gunshot noises being used everywhere.
+    - type: Add
+      message: Ammo loaders for ships now have audio for inserting/removing ammo.
+    - type: Add
+      message: >-
+        Missiles now have an ambient SFX, if you can manage to stay close to one
+        for long enough somehow.
+    - type: Tweak
+      message: >-
+        Changed radar blips for ballistic shipguns projectiles to be smaller
+        circles, and white instead of cyan/red triangles.
+  id: 2596
+  time: '2026-08-07T18:26:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4451
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Heavy/ceramic armor plates now have non-chemical requiring recipes.
+    - type: Fix
+      message: Fixed not being able to craft heavy armor plates.
+  id: 2597
+  time: '2026-08-07T21:34:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4457
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Nuked one-handed capability for full-power cartridge firing rifles
+        (7.62x51mm, 7.62x54mmR, 8x65mm)
+  id: 2598
+  time: '2026-08-08T19:23:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4461
+- author: kasature90
+  changes:
+    - type: Add
+      message: Ported operative hud from Goob/WWDP.
+    - type: Add
+      message: Ported toggleable tinted windows from Goob.
+  id: 2599
+  time: '2026-08-09T13:39:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4467
+- author: kasature90
+  changes:
+    - type: Add
+      message: Welding sparks for doors and walls and whatnot.
+  id: 2600
+  time: '2026-08-10T12:22:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4466
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Nuked economy components from a lot of basic machines like autolathes,
+        interactors, ship drills, etc. Don't get your expectations too high, the
+        powerful stuff like crystallizer and industrial processors still need
+        it.
+    - type: Tweak
+      message: >-
+        Industrial presses don't need any economy components to be made, so you
+        don't need a POI to get started with any of it now if you have an
+        autolathe & circuit imprinter.
+    - type: Tweak
+      message: Economy components have actual monetary value now.
+  id: 2601
+  time: '2026-08-10T12:24:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4468
+- author: Luweth
+  changes:
+    - type: Add
+      message: Added four new Vox quilstyles.
+    - type: Tweak
+      message: Changed making limits for Vox.
+  id: 2602
+  time: '2026-08-10T12:25:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4355
+- author: ondrej008
+  changes:
+    - type: Add
+      message: Holding a nanite applicator now shows you an overlay of damaged things!
+  id: 2603
+  time: '2026-08-10T15:22:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4445
+- author: Sniperzero112
+  changes:
+    - type: Tweak
+      message: Dragon lungs now work in space!
+  id: 2604
+  time: '2026-08-10T16:52:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4471
+- author: Helicaste
+  changes:
+    - type: Remove
+      message: >-
+        Removes easily obtained items from the PDV Bounty Computer. This does
+        not effect technology hand-ins, only the bounty system.
+  id: 2605
+  time: '2026-08-11T20:29:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4475
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added standard and hyperwar to gamemode vote. You need a giant majority
+        though.
+  id: 2606
+  time: '2026-08-12T05:55:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4465
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Updated Helios' sentries to be remote ones (access-based, custom access
+        restrictions). Control panel is in CIC, by the door.
+  id: 2607
+  time: '2026-08-12T05:55:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4463
+- author: Helicaste
+  changes:
+    - type: Add
+      message: Anomalous Lab now has a bolted datafarm.
+  id: 2608
+  time: '2026-08-12T13:42:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4473
+- author: Onezero0
+  changes:
+    - type: Fix
+      message: No more duping DC. Not sorry.
+    - type: Tweak
+      message: PDV uplink now has less station fork references.
+  id: 2609
+  time: '2026-08-13T01:31:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4483
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: DC duping through syndicate duffel bags.
+  id: 2610
+  time: '2026-08-13T12:26:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4484
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: The sun now exists.
+  id: 2611
+  time: '2026-08-13T21:40:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4459
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        .357 magnum FMJ is now hypervelocity, acting as hitscan and piercing 1
+        entity
+    - type: Tweak
+      message: >-
+        14.5mm is now hypervelocity, dealing 200 (190 in case of hristov) damage
+        and piercing 10 entities.
+  id: 2612
+  time: '2026-08-14T09:48:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4335
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The Phaeton Dynasty Vanguard can now obtain elite web vests. They are
+        specialised to protect against energy weapons, however the vest falters
+        under ballistic gunfire.
+  id: 2613
+  time: '2026-08-14T15:43:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4478
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Biodome shield against chimeras on CC.
+    - type: Tweak
+      message: Lesser chimeras now gib on death.
+  id: 2614
+  time: '2026-08-14T23:05:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4486
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Testmerged wizden wall/windows/doors resprites; please report any
+        bugs/issues on discord or github!
+  id: 2615
+  time: '2026-08-15T00:21:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4485
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: CV-82 has been rebalanced and moved to T3
+    - type: Tweak
+      message: L6 SAW has received minor RPS buff
+    - type: Tweak
+      message: Industrial ore processor consumes less ore now, but no longer roundstart
+    - type: Tweak
+      message: Beaker capacity has been buffed to 60/120
+    - type: Tweak
+      message: All shield suits were moved to new system
+    - type: Tweak
+      message: Weakened PDV Helios&Jupiter armories
+    - type: Remove
+      message: Spasaka has been disabled until TSF gets equivalent
+  id: 2616
+  time: '2026-08-15T08:22:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4482
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Apollo now works properly
+    - type: Tweak
+      message: Laser cannon now uses jumping hitscan.
+  id: 2617
+  time: '2026-08-15T10:24:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4489
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Ported the wizden wallmount sprites too while we're at it. Still a
+        testmerge though.
+    - type: Fix
+      message: Fixed some issues with wall resprite slop.
+  id: 2618
+  time: '2026-08-15T10:33:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4488
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Denoised the common wall types (steel, plastitanium, and shuttle).
+    - type: Fix
+      message: Fixed xeno resin windows being able to crash your game.
+  id: 2619
+  time: '2026-08-17T09:55:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4499
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: >-
+        Faction AI now require faction borg playtime instead of captain/asanvar,
+        requires 8 hours of it instead of 15.
+  id: 2620
+  time: '2026-08-17T10:26:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3813
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: All crates capacity 30 -> 100.
+    - type: Tweak
+      message: MMC industrial press is now actually better than normal one.
+  id: 2621
+  time: '2026-08-17T21:43:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4502
+- author: marklyfied
+  changes:
+    - type: Tweak
+      message: Spationaut Suit now costs 4k in the astrovend
+  id: 2622
+  time: '2026-08-17T21:44:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4507
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The TSF and PDV's uplinks now unbox the grenades automatically for
+        convenience. Explosives are now bought individually.
+  id: 2623
+  time: '2026-08-18T01:09:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4508
+- author: marklyfied
+  changes:
+    - type: Tweak
+      message: Rebranded smuggling from Syndicate to monolith
+  id: 2624
+  time: '2026-08-18T05:14:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4506
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed Chimeras getting drunk from letoferol.
+  id: 2625
+  time: '2026-08-18T08:22:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4514
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed IPCs not having a surgery to reinsert their pump (heart).
+    - type: Fix
+      message: >-
+        Fixed dwarf livers/liquor lifeline not healing damage when drinking
+        ethanol.
+  id: 2626
+  time: '2026-08-18T08:23:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4513
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: >-
+        Those who fight with their hands have reported some sort of strange
+        energy amplifying some of their hits.
+  id: 2627
+  time: '2026-08-18T08:33:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4496
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed Feroxi being able to take nanite repair drones trait.
+  id: 2628
+  time: '2026-08-18T13:35:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4515
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Vermin were bestowed shoulder-fire protection.
+  id: 2629
+  time: '2026-08-18T15:41:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4497

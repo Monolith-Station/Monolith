@@ -754,6 +754,7 @@
       tags:
       - Ore
   - type: Lathe
+    partRatingMaterialUseMultiplier: 0.9 # Mono
     idleState: icon
     runningState: building
     defaultProductionAmount: 10
@@ -776,7 +777,8 @@
   - type: Machine
     board: OreProcessorIndustrialMachineCircuitboard
   - type: Lathe
-    materialUseMultiplier: 0.75
+    partRatingMaterialUseMultiplier: 0.92 # Mono
+    materialUseMultiplier: 0.6 # Mono
     timeMultiplier: 0.5
     staticPacks:
     - OreSmelting

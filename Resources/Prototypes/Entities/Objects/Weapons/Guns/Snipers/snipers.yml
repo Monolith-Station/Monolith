@@ -20,6 +20,7 @@
   - type: AmmoCounter
   - type: Gun
     fireRate: 0.75
+    damageModifier: 1.5 # Mono
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

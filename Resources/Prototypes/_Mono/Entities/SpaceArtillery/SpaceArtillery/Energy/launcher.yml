@@ -283,7 +283,7 @@
     projectileSpeed: 170
     shootThermalSignature: 2000000 # ~1414m after firing - relatively low
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+      collection: ShipGunMjolnir
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
@@ -424,7 +424,10 @@
     recoil: 500 # 20x - station weapon
     shootThermalSignature: 12000000 # ~6km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/laserfire.ogg
+      collection: ShipGunMjolnir
+      params:
+        pitch: 0.8
+        volume: 1.2
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -645,6 +648,10 @@
   - type: ShipRepairable
     repairTime: 25
     repairCost: 100
+  - type: SpaceArtillery
+    powerChargeRate: 500
+    powerUsePassive: 600
+    powerUseActive: 0
 
 # PRE- FRACTURE
 
@@ -1139,7 +1146,7 @@
     maxAngle: 4
     shootThermalSignature: 2000000
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/sonic_jackhammer.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: SpaceArtillery

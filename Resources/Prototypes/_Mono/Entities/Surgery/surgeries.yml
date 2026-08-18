@@ -1,0 +1,18 @@
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryInsertPump
+  name: Insert Pump
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepInsertPump
+  - type: SurgeryOrganSlotCondition
+    organSlot: pump
+  - type: SurgeryPartCondition
+    part: Torso
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Heart
+    inverse: true
+    reattaching: true

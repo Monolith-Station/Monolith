@@ -5,11 +5,11 @@
   parent: MonoHardsuitT1Recipe
   result: ClothingOuterHardsuitPirateScaf
 
-# T2 medic
+# T3 medic
 
 - type: latheRecipe
   id: ClothingOuterHardsuitPDVMedic
-  parent: MonoHardsuitT2Recipe
+  parent: MonoHardsuitT3Recipe
   result: ClothingOuterHardsuitPDVMedic
 
 # T2 syndie
@@ -61,6 +61,15 @@
   - FactionEquipment
   parent: NFBaseArmorRecipe
   result: ClothingOuterVestWeb
+
+- type: latheRecipe
+  id: ClothingOuterVestWebEliteRogue
+  categories:
+  - ArmorNF
+  - ClothesNF
+  - FactionEquipment
+  parent: NFBaseArmorRecipe
+  result: ClothingOuterVestWebElite
 
 - type: latheRecipe
   id: ClothingShoesBootsMagSyndieRogue

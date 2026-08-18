@@ -107,7 +107,7 @@
     maxAngle: 2
     shootThermalSignature: 2000000 # ~3.5km signature if firing continuously
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/mortar.ogg
+      collection: ShipGunGenericSmallAlt
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: SpaceArtillery

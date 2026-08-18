@@ -1,0 +1,56 @@
+uniform highp float liquidLevel;
+uniform highp float riverFrequency;
+uniform highp float riverThreshold;
+uniform highp vec3 liquidColor;
+uniform highp vec3 liquidShallowColor;
+uniform highp float liquidSpecularity;
+uniform bool isLiquidEmissive;
+uniform highp float liquidEmission;
+
+highp float getRiverMask(highp vec2 uv) {
+    if (riverFrequency <= 0.0 || riverThreshold <= 0.0) return 0.0;
+
+    highp vec2 warp = vec2(fbm(uv * 1.5), fbm(uv * 1.5 + vec2(4.3, 1.7))) * 0.2;
+    highp vec2 warpedUV = (uv + warp) * riverFrequency;
+
+    highp float n = fbm(warpedUV);
+    highp float lineVal = abs(sin(n * 3.1415926));
+
+    highp float river = smoothstep(riverThreshold, 0.0, lineVal);
+
+    return river;
+}
+
+highp vec3 shadeLiquid(
+    highp float liquidDepth,
+    highp vec3 surfaceNormal,
+    highp vec3 viewDir,
+    highp vec3 lightDir3D,
+    highp vec3 incomingLight,
+    highp float shadowFactor
+) {
+    highp vec3 baseCol = mix(liquidShallowColor, liquidColor, smoothstep(0.0, 0.4, liquidDepth));
+
+    highp vec3 halfVector = normalize(lightDir3D + viewDir);
+    highp float NdotH = clamp(dot(surfaceNormal, halfVector), 0.0, 1.0);
+    highp float specExponent = max(1.0, liquidSpecularity);
+    highp float spec = pow(NdotH, specExponent) * shadowFactor;
+    
+    highp float NdotV = clamp(dot(surfaceNormal, viewDir), 0.0, 1.0);
+    highp float fresnel = pow(1.0 - NdotV, 3.0);
+    highp vec3 specColor = incomingLight * spec * (0.3 + 0.7 * fresnel);
+
+    highp float NdotL = clamp(dot(surfaceNormal, lightDir3D), 0.0, 1.0);
+    highp vec3 litLiquid = baseCol * (NdotL * shadowFactor * incomingLight + vec3(0.02));
+
+    litLiquid += specColor;
+
+    if (isLiquidEmissive) {
+        highp float heatGlow = mix(1.5, 1.0, liquidDepth);
+        highp vec3 emission = baseCol * liquidEmission * heatGlow;
+        
+        litLiquid = max(litLiquid, emission);
+    }
+
+    return litLiquid;
+}

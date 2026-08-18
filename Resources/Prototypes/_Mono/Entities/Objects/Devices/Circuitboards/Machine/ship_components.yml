@@ -48,6 +48,7 @@
     state: security
   - type: MachineBoard
     prototype: MachineFTLDrive
+    flatpackable: false
     requirements:
       Capacitor: 4
       Manipulator: 2
@@ -157,7 +158,7 @@
     tagRequirements:
       MicroprocessorEconomy2:
         amount: 3
-        defaultPrototype: MicroprocessorEconomy1
+        defaultPrototype: MicroprocessorEconomy2
       RadioEconomy2:
         amount: 2
         defaultPrototype: RadioEconomy2
@@ -181,7 +182,7 @@
     tagRequirements:
       MicroprocessorEconomy2:
         amount: 10
-        defaultPrototype: MicroprocessorEconomy1
+        defaultPrototype: MicroprocessorEconomy2
       RadioEconomy2:
         amount: 4
         defaultPrototype: RadioEconomy2
@@ -196,6 +197,7 @@
     state: security
   - type: MachineBoard
     prototype: MachineFTLDrive25S
+    flatpackable: false
     requirements:
       Capacitor: 8
       Manipulator: 4
@@ -227,6 +229,7 @@
     state: security
   - type: MachineBoard
     prototype: MachineFTLDrive50
+    flatpackable: false
     requirements:
       Capacitor: 8
       Manipulator: 4

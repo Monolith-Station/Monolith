@@ -94,7 +94,7 @@
 - type: entity
   id: PaperDeadDropHint
   parent: Paper
-  name: suspicious note
+  name: wayward note
   description: A crinkled sheet with scribbles on it. Seems to have been written in a hurry.
   categories: [ HideSpawnMenu ]
   components:
@@ -103,14 +103,17 @@
     content: deaddrop-faxed-hint-content # Default contents, will be edited.
     stampedBy:
     - stampedName: deaddrop-faxed-hint-signature
-      stampedColor: "#850000"
+      stampedColor: "#44105e"
     stampState: null
 
 - type: entity
   id: PaperDeadDropFax
   parent: PaperDeadDropHint
-  name: suspicious fax
+  name: wayward fax
   description: A sheet with blurry, crooked text on it. Seems to have been copied in a hurry.
   components:
   - type: Paper
-    stampState: paper_stamp-syndicate
+    stampedBy:
+    - stampedName: deaddrop-faxed-hint-signature
+      stampedColor: "#44105e"
+    stampState: null

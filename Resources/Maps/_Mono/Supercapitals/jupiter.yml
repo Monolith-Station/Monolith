@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/30/2026 22:32:21
-  entityCount: 6181
+  time: 07/27/2026 21:10:06
+  entityCount: 6191
 maps: []
 grids:
 - 1
@@ -155,10 +155,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Puddle: []
-        Smoke: []
         Kudzu: []
+        Puddle: []
+        MetalFoam: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1872,6 +1872,7 @@ entities:
       id: Jupiter
     - type: ThermalSignature
     - type: ExplosionAirtightGrid
+    - type: NavMap
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -4083,12 +4084,12 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 8
-- proto: AmmoBox762x51mmBigFMJ
+- proto: AmmoBox23x75mmBuckshot
   entities:
-  - uid: 190
+  - uid: 4453
     components:
     - type: Transform
-      pos: -2.310427,46.57977
+      pos: -2.4258602,46.590298
       parent: 1
 - proto: AmmoTechFab
   entities:
@@ -14302,6 +14303,11 @@ entities:
     - type: Transform
       pos: 18.5,7.5
       parent: 1
+  - uid: 2153
+    components:
+    - type: Transform
+      pos: 28.5,21.5
+      parent: 1
   - uid: 2154
     components:
     - type: Transform
@@ -14811,6 +14817,11 @@ entities:
     components:
     - type: Transform
       pos: -12.5,4.5
+      parent: 1
+  - uid: 2256
+    components:
+    - type: Transform
+      pos: -31.5,21.5
       parent: 1
   - uid: 2257
     components:
@@ -19587,26 +19598,12 @@ entities:
     - type: Transform
       pos: 11.952259,11.867347
       parent: 1
-- proto: EnergyShield
-  entities:
-  - uid: 3063
-    components:
-    - type: Transform
-      pos: 0.7482853,46.638733
-      parent: 1
 - proto: EnergySword
   entities:
   - uid: 3064
     components:
     - type: Transform
       pos: 0.7977004,46.70663
-      parent: 1
-- proto: EnergySwordDouble
-  entities:
-  - uid: 3065
-    components:
-    - type: Transform
-      pos: 0.37149262,46.558483
       parent: 1
 - proto: ExosuitFabricator
   entities:
@@ -28360,17 +28357,22 @@ entities:
     - type: Transform
       pos: 0.5,32.5
       parent: 1
-- proto: Magazine762x51mmFMJ
+- proto: Magazine556x45mmFMJ
   entities:
-  - uid: 4112
+  - uid: 4454
     components:
     - type: Transform
-      pos: -2.557504,46.592117
+      pos: -0.52427363,42.48334
       parent: 1
-  - uid: 4113
+  - uid: 4455
     components:
     - type: Transform
-      pos: -2.6995738,46.585945
+      pos: -0.44201112,42.496674
+      parent: 1
+  - uid: 4511
+    components:
+    - type: Transform
+      pos: -0.6683328,42.447773
       parent: 1
 - proto: Magazine9x19mmPistolFMJ
   entities:
@@ -31522,6 +31524,13 @@ entities:
     - type: Transform
       pos: -10.5,22.5
       parent: 1
+- proto: SuitStorageEVAPirate
+  entities:
+  - uid: 3065
+    components:
+    - type: Transform
+      pos: -11.5,20.5
+      parent: 1
 - proto: SuitStorageEVAPrisoner
   entities:
   - uid: 4509
@@ -31540,13 +31549,6 @@ entities:
     components:
     - type: Transform
       pos: 23.5,19.5
-      parent: 1
-- proto: SuitStoragePirateCap
-  entities:
-  - uid: 4511
-    components:
-    - type: Transform
-      pos: -11.5,20.5
       parent: 1
 - proto: SuitStorageSalv
   entities:
@@ -32273,6 +32275,13 @@ entities:
     - type: Transform
       pos: -11.289969,24.421606
       parent: 1
+- proto: TelescopicShield
+  entities:
+  - uid: 190
+    components:
+    - type: Transform
+      pos: 0.23858428,46.66355
+      parent: 1
 - proto: ThrusterLargeRogue
   entities:
   - uid: 4567
@@ -32663,26 +32672,6 @@ entities:
       parent: 1
 - proto: WallPlastitanium
   entities:
-  - uid: 4452
-    components:
-    - type: Transform
-      pos: -16.5,10.5
-      parent: 1
-  - uid: 4453
-    components:
-    - type: Transform
-      pos: -12.5,10.5
-      parent: 1
-  - uid: 4454
-    components:
-    - type: Transform
-      pos: -15.5,10.5
-      parent: 1
-  - uid: 4455
-    components:
-    - type: Transform
-      pos: -14.5,10.5
-      parent: 1
   - uid: 4616
     components:
     - type: Transform
@@ -33329,11 +33318,6 @@ entities:
     - type: Transform
       pos: -17.5,36.5
       parent: 1
-  - uid: 5227
-    components:
-    - type: Transform
-      pos: -13.5,10.5
-      parent: 1
 - proto: WallPlastitaniumCapital
   entities:
   - uid: 170
@@ -33405,16 +33389,6 @@ entities:
     components:
     - type: Transform
       pos: 3.5,33.5
-      parent: 1
-  - uid: 2153
-    components:
-    - type: Transform
-      pos: 28.5,21.5
-      parent: 1
-  - uid: 2256
-    components:
-    - type: Transform
-      pos: -31.5,21.5
       parent: 1
   - uid: 4745
     components:
@@ -35815,6 +35789,31 @@ entities:
     components:
     - type: Transform
       pos: -9.5,19.5
+      parent: 1
+  - uid: 5227
+    components:
+    - type: Transform
+      pos: -12.5,10.5
+      parent: 1
+  - uid: 5228
+    components:
+    - type: Transform
+      pos: -13.5,10.5
+      parent: 1
+  - uid: 5229
+    components:
+    - type: Transform
+      pos: -14.5,10.5
+      parent: 1
+  - uid: 5230
+    components:
+    - type: Transform
+      pos: -15.5,10.5
+      parent: 1
+  - uid: 5231
+    components:
+    - type: Transform
+      pos: -16.5,10.5
       parent: 1
   - uid: 5232
     components:
@@ -39611,24 +39610,17 @@ entities:
     - type: Transform
       pos: -2.0176418,44.67181
       parent: 1
-- proto: WeaponCaseLongAtreidesExpedition
+- proto: WeaponCaseMla34
   entities:
-  - uid: 5969
+  - uid: 4113
     components:
     - type: Transform
-      pos: -0.65871835,42.556698
+      pos: -5.616246,44.32004
       parent: 1
-- proto: WeaponCaseMla73
-  entities:
-  - uid: 5970
+  - uid: 4452
     components:
     - type: Transform
-      pos: -5.558673,44.329773
-      parent: 1
-  - uid: 5971
-    components:
-    - type: Transform
-      pos: -5.54632,44.60138
+      pos: -5.5884542,44.604763
       parent: 1
 - proto: WeaponCaseMla79
   entities:
@@ -39670,12 +39662,19 @@ entities:
     - type: Transform
       pos: 22.530478,19.603207
       parent: 1
-- proto: WeaponRifleM90
+- proto: WeaponRifleVympel
   entities:
-  - uid: 5978
+  - uid: 4112
     components:
     - type: Transform
-      pos: -3.3605049,46.64767
+      pos: -1.0504763,42.510273
+      parent: 1
+- proto: WeaponShotgunSultanPulsar
+  entities:
+  - uid: 3063
+    components:
+    - type: Transform
+      pos: -3.4323137,46.618828
       parent: 1
 - proto: WeaponSprayNozzle
   entities:
@@ -39726,10 +39725,48 @@ entities:
       parent: 1
 - proto: WeaponTurretRAC30
   entities:
+  - uid: 5986
+    components:
+    - type: Transform
+      pos: 9.5,3.5
+      parent: 1
+  - uid: 5987
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 28.5,21.5
+      parent: 1
+  - uid: 5988
+    components:
+    - type: Transform
+      pos: 2.5,-0.5
+      parent: 1
+  - uid: 5989
+    components:
+    - type: Transform
+      pos: -5.5,-0.5
+      parent: 1
+  - uid: 5990
+    components:
+    - type: Transform
+      pos: -12.5,3.5
+      parent: 1
   - uid: 5991
     components:
     - type: Transform
       pos: -21.5,7.5
+      parent: 1
+  - uid: 5992
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -31.5,21.5
+      parent: 1
+  - uid: 5993
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,48.5
       parent: 1
   - uid: 5994
     components:
@@ -39749,11 +39786,29 @@ entities:
       rot: 3.141592653589793 rad
       pos: -8.5,62.5
       parent: 1
+  - uid: 5997
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,50.5
+      parent: 1
+  - uid: 5998
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,48.5
+      parent: 1
   - uid: 5999
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 5.5,62.5
+      parent: 1
+  - uid: 6000
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,50.5
       parent: 1
   - uid: 6001
     components:
