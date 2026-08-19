@@ -12,6 +12,8 @@ job-description-tsf-borg = Half-human, Half-machine. Follow your laws, serve the
 
 # MARK: PDV
 job-description-pdv-borg = Half-human, Half-machine. Follow your laws, serve the PDV, and beg dynasty troops for upgrades.
+job-description-pdv-ambassador = A high ranking official of the Dynasty.
+job-description-pdv-prince = The son of the Sultan. Holds high authority.
 
 # MARK: Viper Group
 job-description-vg-infanteer = Follow the orders from above. Complete contracts. Get paid.
