@@ -32,7 +32,7 @@ public sealed partial class DockingScreen : BoxContainer
 
     private readonly ButtonGroup _ftlLockButtonGroup = new();
 
-    public event Action<NetEntity, NetEntity>? DockRequest;
+    public event Action<NetEntity, NetEntity, bool>? DockRequest; // Forge-Change
     public event Action<NetEntity>? UndockRequest;
     public event Action<List<NetEntity>>? UndockAllRequest;
     public event Action<List<NetEntity>, bool>? ToggleFTLLockRequest;
@@ -44,9 +44,9 @@ public sealed partial class DockingScreen : BoxContainer
         _shuttles = _entManager.System<SharedShuttleSystem>();
 
         DockingControl.OnViewDock += OnView;
-        DockingControl.DockRequest += (entity, netEntity) =>
+        DockingControl.DockRequest += (entity, netEntity, shipyard) => // Forge-Change
         {
-            DockRequest?.Invoke(entity, netEntity);
+            DockRequest?.Invoke(entity, netEntity, shipyard); // Forge-Change
         };
         DockingControl.UndockRequest += entity =>
         {

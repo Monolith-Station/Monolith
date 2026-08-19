@@ -1,0 +1,17 @@
+- type: entity
+  id: ActionShipyardServiceUpgrade
+  name: Drydock upgrade
+  description: Click a wall, window, or machine on the docked shuttle to upgrade it.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityWorldTargetAction
+    raiseOnUser: true
+    repeat: true
+    checkCanAccess: false
+    range: 64
+    useDelay: 0.15
+    itemIconStyle: BigAction
+    icon:
+      sprite: _NF/Structures/Machines/computers.rsi
+      state: shipyard
+    event: !type:ShipyardServiceUpgradeTargetEvent

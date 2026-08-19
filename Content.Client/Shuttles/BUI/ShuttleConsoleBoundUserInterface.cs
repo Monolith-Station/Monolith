@@ -1,10 +1,15 @@
+using System.Numerics; // Forge-Change
 using Content.Client.Shuttles.UI;
+using Content.Shared._Forge.ShipyardService.Components; // Forge-Change
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Events;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls; // Forge-Change
+using Robust.Client.UserInterface.CustomControls; // Forge-Change
 using Robust.Shared.Log;
 using Robust.Shared.Map;
+using Robust.Shared.Utility; // Forge-Change
 
 // Mono
 using Content.Shared._Mono.Shuttles;
@@ -16,6 +21,7 @@ public sealed partial class ShuttleConsoleBoundUserInterface : BoundUserInterfac
 {
     [ViewVariables]
     private ShuttleConsoleWindow? _window;
+    private DefaultWindow? _dockConfirm; // Forge-Change
 
     public ShuttleConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -57,7 +63,24 @@ public sealed partial class ShuttleConsoleBoundUserInterface : BoundUserInterfac
         });
     }
 
-    private void OnDockRequest(NetEntity entity, NetEntity target)
+    // Forge-Change-start
+    private void OnDockRequest(NetEntity entity, NetEntity target, bool shipyard)
+    {
+        if (shipyard || IsShipyardDock(entity) || IsShipyardDock(target))
+        {
+            ShowShipyardDockConfirm(entity, target);
+            return;
+        }
+
+        SendDockRequest(entity, target);
+    }
+
+    private bool IsShipyardDock(NetEntity netEntity)
+    {
+        return EntMan.TryGetEntity(netEntity, out var uid) && EntMan.HasComponent<ShipyardDockComponent>(uid);
+    }
+
+    private void SendDockRequest(NetEntity entity, NetEntity target)
     {
         SendMessage(new DockRequestMessage()
         {
@@ -66,6 +89,58 @@ public sealed partial class ShuttleConsoleBoundUserInterface : BoundUserInterfac
         });
     }
 
+    private void ShowShipyardDockConfirm(NetEntity entity, NetEntity target)
+    {
+        _dockConfirm?.Dispose();
+        _dockConfirm = new DefaultWindow
+        {
+            Title = Loc.GetString("shipyard-service-dock-confirm-title"),
+            MinSize = new Vector2(420, 160)
+        };
+
+        var box = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            Margin = new Thickness(12),
+            SeparationOverride = 8
+        };
+
+        var label = new RichTextLabel();
+        label.SetMessage(FormattedMessage.FromMarkupOrThrow(Loc.GetString("shipyard-service-dock-confirm-text")));
+
+        var buttons = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            HorizontalExpand = true,
+            SeparationOverride = 8
+        };
+
+        var yes = new Button
+        {
+            Text = Loc.GetString("shipyard-service-dock-confirm-yes"),
+            HorizontalExpand = true
+        };
+        var no = new Button
+        {
+            Text = Loc.GetString("shipyard-service-dock-confirm-no"),
+            HorizontalExpand = true
+        };
+
+        yes.OnPressed += _ =>
+        {
+            SendDockRequest(entity, target);
+            _dockConfirm?.Close();
+        };
+        no.OnPressed += _ => _dockConfirm?.Close();
+
+        buttons.AddChild(yes);
+        buttons.AddChild(no);
+        box.AddChild(label);
+        box.AddChild(buttons);
+        _dockConfirm.Contents.AddChild(box);
+        _dockConfirm.OpenCentered();
+    }
+    // Forge-Change-end
     private void OnFTLBeaconRequest(NetEntity ent, Angle angle)
     {
         SendMessage(new ShuttleConsoleFTLBeaconMessage()
@@ -109,6 +184,7 @@ public sealed partial class ShuttleConsoleBoundUserInterface : BoundUserInterfac
         if (disposing)
         {
             _window?.Dispose();
+            _dockConfirm?.Dispose(); // Forge-Change
         }
     }
 

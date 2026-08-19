@@ -1,3 +1,4 @@
+// Forge-Change-full
 using Content.Server._NF.Shipyard;
 using Content.Server.Shuttles.Components;
 using Content.Shared._Mono.ShipRepair;
@@ -7,6 +8,7 @@ namespace Content.Server._Mono.ShipRepair;
 public sealed partial class ShipRepairSystem : SharedShipRepairSystem
 {
     [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 

@@ -28,7 +28,7 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
     public event Action<MapCoordinates, Angle>? RequestAutopilot;
     public event Action<MapCoordinates>? RequestBioScan; // Forge-Change - BioScan
 
-    public event Action<NetEntity, NetEntity>? DockRequest;
+    public event Action<NetEntity, NetEntity, bool>? DockRequest; // Forge-Change
     public event Action<NetEntity>? UndockRequest;
     public event Action<List<NetEntity>>? UndockAllRequest;
     public event Action<List<NetEntity>, bool>? ToggleFTLLockRequest;
@@ -74,9 +74,9 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
             RequestBioScan?.Invoke(coords);
         };
 
-        DockContainer.DockRequest += (entity, netEntity) =>
+        DockContainer.DockRequest += (entity, netEntity, shipyard) => // Forge-Change
         {
-            DockRequest?.Invoke(entity, netEntity);
+            DockRequest?.Invoke(entity, netEntity, shipyard); // Forge-Change
         };
 
         DockContainer.UndockRequest += entity =>

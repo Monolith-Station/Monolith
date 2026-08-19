@@ -1,0 +1,31 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'shipyard-service-window-title'}"
+                      SetSize="520 600"
+                      MinSize="480 560">
+    <BoxContainer Margin="8 4 8 8" Orientation="Vertical">
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc 'bank-atm-menu-balance-label'}" StyleClasses="LabelKeyText" />
+            <Label Name="BalanceLabel" Text="{Loc 'shipyard-service-no-bank'}" />
+        </BoxContainer>
+        <Label Text="{Loc 'shipyard-service-shuttle-label'}" StyleClasses="LabelKeyText" />
+        <OptionButton Name="ShuttleOption" HorizontalExpand="True" />
+        <RichTextLabel Name="ShuttleInfoLabel" />
+        <RichTextLabel Name="ClickHintLabel" Margin="0 6 0 0" />
+
+        <PanelContainer MinHeight="2" Margin="0 6" />
+
+        <RichTextLabel Name="RepairInfoLabel" />
+        <Button Name="RepairButton" Text="{Loc 'shipyard-service-repair-button'}" />
+
+        <RichTextLabel Name="PartsInfoLabel" Margin="0 6 0 0" />
+        <Button Name="UpgradePartsButton" Text="{Loc 'shipyard-service-parts-button'}" />
+
+        <RichTextLabel Name="ReinforceInfoLabel" Margin="0 6 0 0" />
+        <Button Name="ReinforceButton" Text="{Loc 'shipyard-service-reinforce-button'}" />
+
+        <RichTextLabel Name="PlastitaniumInfoLabel" Margin="0 6 0 0" />
+        <Button Name="PlastitaniumButton" Text="{Loc 'shipyard-service-plastitanium-button'}" />
+    </BoxContainer>
+</controls:FancyWindow>

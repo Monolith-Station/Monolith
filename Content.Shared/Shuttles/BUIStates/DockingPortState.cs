@@ -25,5 +25,6 @@ public sealed class DockingPortState
     public Color HighlightedRadarColor;
     public bool ReceiveOnly;
     public DockType DockType;
+    public bool ShipyardService; // Forge-Change
     // End Frontier
 }

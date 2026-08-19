@@ -53,7 +53,7 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
     private TimeSpan _nextDockChange;
 
     public event Action<NetEntity>? OnViewDock;
-    public event Action<NetEntity, NetEntity>? DockRequest;
+    public event Action<NetEntity, NetEntity, bool>? DockRequest; // Forge-Change
     public event Action<NetEntity>? UndockRequest;
 
     public ShuttleDockControl() : base(2f, 32f, 8f)
@@ -446,7 +446,8 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
                                 return;
 
                             _nextDockChange = _timing.CurTime + DockChangeCooldown;
-                            DockRequest?.Invoke(ViewedDock.Value, dock.Entity);
+                            var shipyard = dock.ShipyardService || (_viewedState?.ShipyardService ?? false); // Forge-Change
+                            DockRequest?.Invoke(ViewedDock.Value, dock.Entity, shipyard); // Forge-Change
                         };
                     }
 

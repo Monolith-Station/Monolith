@@ -1,0 +1,38 @@
+- type: entity
+  parent: AirlockShuttle
+  id: AirlockShuttleShipyard
+  name: shipyard docking airlock
+  suffix: Shipyard, Docking
+  description: A drydock coupling. Occupancy is 10% of the shuttle's listed price, charged when using repair.
+  components:
+  - type: ShipyardDock
+  - type: Docking
+    radarColor: "#d4a017"
+    highlightedRadarColor: "#ffd34f"
+    name: DRYDOCK
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockGlassShuttleShipyard
+  name: shipyard docking airlock
+  suffix: Glass, Shipyard, Docking
+  description: A drydock coupling. Occupancy is 10% of the shuttle's listed price, charged when using repair.
+  components:
+  - type: ShipyardDock
+  - type: Docking
+    radarColor: "#d4a017"
+    highlightedRadarColor: "#ffd34f"
+    name: DRYDOCK
+
+- type: entity
+  parent: AirlockGlassShuttleOutpost
+  id: AirlockGlassShuttleShipyardOutpost
+  name: shipyard docking airlock
+  suffix: OUTPOST ONLY, Glass, Shipyard, Docking
+  description: Outpost drydock coupling. Occupancy is 10% of the shuttle's listed price, charged when using repair.
+  components:
+  - type: ShipyardDock
+  - type: Docking
+    radarColor: "#d4a017"
+    highlightedRadarColor: "#ffd34f"
+    name: DRYDOCK
