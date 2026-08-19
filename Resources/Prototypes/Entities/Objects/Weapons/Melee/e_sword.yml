@@ -20,7 +20,7 @@
       malus: 0.6
     - type: Execution
       doAfterDuration: 4.0
-  - type: ItemToggleHot
+# - type: ItemToggleHot # Mono: make eswords not ignite
   - type: ItemToggleSize
     activatedSize: Huge
   - type: ItemTogglePointLight
@@ -71,8 +71,8 @@
       right:
       - state: inhand-right-blade
         shader: unshaded
-  - type: IgnitionSource
-    temperature: 700
+# - type: IgnitionSource # mono: make eswords not ignite
+#   temperature: 700
   - type: Scalpel # Shitmed
     speed: 0.75
   - type: Cautery # Shitmed: you have to be very, very careful to cauterize with it
