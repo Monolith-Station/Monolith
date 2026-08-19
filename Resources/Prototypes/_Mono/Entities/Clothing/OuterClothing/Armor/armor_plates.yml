@@ -1,11 +1,23 @@
 #Before changing anything, it helps to read the summaries describing what each field does at Content.Shared/_Mono/ArmorPlate/ArmorPlateItemComponent.cs
 
+#Shared repair stat base
+- type: entity
+  id: ArmorPlateRepairableBase
+  name: armor repairable base
+  abstract: true
+  components:
+  - type: Repairable
+    fuelCost: 10
+    doAfterDelay: 7
+    qualities:
+    - Applicating
+
 #Blunt/Slash
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, ArmorPlateRepairableBase]
   id: ArmorPlateBlunt_Slash
   name: trauma armor plate
-  description: A slashproof plasteel plate backed with crumpling plastic foam-cells. Reduces blunt and slash damage, but melts and spalls under heat and piercing.
+  description: A slashproof plasteel plate backed with crumpling plastic foam-cells. Reduces blunt and slash damage, but useless against heat and piercing.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
@@ -14,39 +26,38 @@
     sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
     size: Normal
   - type: ArmorPlateItem
-    maxDurability: 125
-    walkSpeedModifier: 0.92
-    sprintSpeedModifier: 0.92
+    maxDurability: 150
+    walkSpeedModifier: 0.90
+    sprintSpeedModifier: 0.90
     staminaDamageMultipliers:
       Absorbed: 0.5
-      Amplified: 0.5
     damageToPlate:
-      Blunt: 0.5
-      Slash: 0.5
-      Piercing: 0.15
-      Heat: 0.15
+      Blunt: 1
+      Slash: 1
+      Piercing: 1
+      Heat: 1
     absorptionRatios:
-      Blunt: 0.5
-      Slash: 0.5
-      Piercing: -0.15
-      Heat: -0.15
+      Blunt: 1
+      Slash: 1
+      Piercing: 0
+      Heat: 0
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 125
+        damage: 150
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
 #Pierce
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, ArmorPlateRepairableBase]
   id: ArmorPlatePierce
   name: ballistic armor plate
-  description: A robust slab of homogenous high-grain plastitanium. Stops piercing damage dead in its tracks, but is highly conductive to heat.
+  description: A robust slab of homogenous high-grain plastitanium. Stops piercing damage dead in its tracks, but spoils under heat.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
@@ -55,35 +66,34 @@
     sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
     size: Normal
   - type: ArmorPlateItem
-    maxDurability: 100
-    walkSpeedModifier: 0.92
-    sprintSpeedModifier: 0.92
+    maxDurability: 150
+    walkSpeedModifier: 0.90
+    sprintSpeedModifier: 0.90
     staminaDamageMultipliers:
-      Absorbed: 0.8
-      Amplified: 0.8
+      Absorbed: 0.5
     damageToPlate:
       Piercing: 1
-      Heat: 0.5
+      Heat: 1.5
     absorptionRatios:
       Piercing: 1
-      Heat: -0.2
+      Heat: 0
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 150
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
 #Heat
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, ArmorPlateRepairableBase]
   id: ArmorPlateHeat
   name: diffusion armor plate
-  description: A plate comprising a sandwich of iridite shielding and copper heat diffusers. Absorbs heat and radiation, but fails catastrophically under kinetic impact.
+  description: A plate comprising a sandwich of iridite shielding and copper heat diffusers. Absorbs weapons energy-band emissions, but fails under kinetic impact.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
@@ -92,34 +102,34 @@
     sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
     size: Normal
   - type: ArmorPlateItem
-    maxDurability: 100
-    walkSpeedModifier: 0.92
-    sprintSpeedModifier: 0.92
+    maxDurability: 150
+    walkSpeedModifier: 0.90
+    sprintSpeedModifier: 0.90
     staminaDamageMultipliers:
-      Absorbed: 0.8
-      Amplified: 3
+      Absorbed: 0.5
     damageToPlate:
-      Piercing: 0.5
-      Heat: 1
-      Radiation: 1
-    absorptionRatios:
-      Piercing: -0.2
+      Piercing: 1.5
       Heat: 1
       Radiation: 0.5
+      Shock: 0.5
+    absorptionRatios:
+      Heat: 1
+      Radiation: 0.5
+      Shock: 0.5
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 150
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
 #Speed
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, ArmorPlateRepairableBase]
   id: ArmorPlateSpeed
   name: speed armor plate
   description: An experimental brass-bluespace alloy plate exhibiting novel kinesthetic effects. Amplifies speed, but also oncoming kinetic and thermal impacts.
@@ -131,28 +141,28 @@
     sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
     size: Normal
   - type: ArmorPlateItem
-    maxDurability: 200
+    maxDurability: 250
     walkSpeedModifier: 1.1
     sprintSpeedModifier: 1.1
     staminaDamageMultipliers:
-      Raw: 0.6
+      Raw: 0.5
     damageToPlate:
       Heat: 1
       Blunt: 1
       Slash: 1
       Piercing: 1
     absorptionRatios:
-      Heat: -0.15
-      Blunt: -0.15
-      Slash: -0.15
-      Piercing: -0.15
+      Heat: -0.1
+      Blunt: -0.1
+      Slash: -0.1
+      Piercing: -0.1
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200 # Bet you wish it broke faster before it ruined your day
+        damage: 250 # Bet you wish it broke faster before it ruined your day
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

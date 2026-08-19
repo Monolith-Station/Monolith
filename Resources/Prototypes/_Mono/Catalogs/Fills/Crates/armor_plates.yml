@@ -20,13 +20,13 @@
     - id: ArmorPlatePierce
       amount: 2
 
-- type: entity
-  parent: CrateMilitaryEquipment
-  id: CratePlateHeat
-  name: Diffusion armor plate crate
-  description: Contains two (2) armor plates specialized for heat/radiation damage.
-  components:
-  - type: StorageFill
-    contents:
-    - id: ArmorPlateHeat
-      amount: 2
+#- type: entity
+#  parent: CrateMilitaryEquipment
+#  id: CratePlateHeat
+#  name: Diffusion armor plate crate
+#  description: Contains two (2) armor plates specialized for heat, shock, and radiation damage.
+#  components:
+#  - type: StorageFill
+#    contents:
+#    - id: ArmorPlateHeat
+#      amount: 2
