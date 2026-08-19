@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
 using Robust.Shared.Serialization;
+using System.Numerics;
 
 namespace Content.Shared._Forge.ShipyardService;
 
@@ -25,6 +26,7 @@ public sealed class ShipyardServiceBoundUserInterfaceState : BoundUserInterfaceS
     public NetEntity? SelectedShuttle;
     public List<ShipyardServiceShuttleEntry> Shuttles = new();
     public ShipyardServiceQuote Quote = new();
+    public List<ShipyardServiceUpgradeMarker> Markers = new();
 }
 
 [Serializable, NetSerializable]
@@ -62,6 +64,19 @@ public sealed class ShipyardServiceQuote
 }
 
 [Serializable, NetSerializable]
+public sealed class ShipyardServiceUpgradeMarker
+{
+    public int Id;
+    public NetEntity Entity;
+    public Vector2 LocalPosition;
+    public Vector2i Tile;
+    public ShipyardServiceAction Action;
+    public int Cost;
+    public int Count;
+    public bool IsTile;
+}
+
+[Serializable, NetSerializable]
 public sealed class ShipyardServiceSelectMessage : BoundUserInterfaceMessage
 {
     public NetEntity Shuttle;
@@ -81,6 +96,26 @@ public sealed class ShipyardServicePurchaseMessage : BoundUserInterfaceMessage
     {
         Action = action;
     }
+}
+
+[Serializable, NetSerializable]
+public sealed class ShipyardServiceUpgradeMarkedMessage : BoundUserInterfaceMessage
+{
+    public List<ShipyardServiceMarkerKey> Targets = new();
+
+    public ShipyardServiceUpgradeMarkedMessage(List<ShipyardServiceMarkerKey> targets)
+    {
+        Targets = targets;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class ShipyardServiceMarkerKey
+{
+    public NetEntity Entity;
+    public Vector2i Tile;
+    public ShipyardServiceAction Action;
+    public bool IsTile;
 }
 
 /// <summary>

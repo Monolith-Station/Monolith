@@ -19,8 +19,21 @@ shipyard-service-insufficient-funds = Недостаточно средств. �
 shipyard-service-nothing-to-do = Для этой услуги нечего улучшать или чинить.
 shipyard-service-repair-cooldown = Ремонт заблокирован: шаттл недавно получил повреждения.
 shipyard-service-no-bank-popup = Нужен банковский счёт.
-shipyard-service-click-hint = На панели появилось действие [color=#ffd34f]«Улучшение верфи»[/color]: кликните им по стене, окну или машине на шаттле. Платится только выбранный объект.
+shipyard-service-click-hint = На панели есть действие [color=#ffd34f]«Улучшение верфи»[/color], либо откройте [color=#ffd34f]карту шаттла[/color] и пометьте тайлы кликом.
 shipyard-service-click-nothing = Здесь нечего улучшать. Кликните по стене, окну или машине на пристыкованном шаттле.
+shipyard-service-grid-button = Карта шаттла
+shipyard-service-grid-window-title = Карта верфи
+shipyard-service-grid-window-title-named = Карта верфи — { $name }
+shipyard-service-grid-hint = ЛКМ — пометить тайл. ПКМ — двигать карту. Колесо — масштаб. Цвета: [color=#e05050]починка[/color], [color=#d4a017]укрепление[/color], [color=#7ec8e3]пластитан[/color], [color=#e07a3d]детали[/color].
+shipyard-service-grid-filter-repair = Починка
+shipyard-service-grid-filter-reinforce = Укрепление
+shipyard-service-grid-filter-plastitanium = Пластитан
+shipyard-service-grid-filter-parts = Детали
+shipyard-service-grid-select-all = Отметить все
+shipyard-service-grid-clear = Снять отметки
+shipyard-service-grid-apply = Применить отмеченное
+shipyard-service-grid-selection = Отмечено: { $count } · [color=#7ec8e3]{ $amount }[/color]
+shipyard-service-action-marked = Отмеченные работы
 shipyard-service-action-repair = Ремонт
 shipyard-service-action-upgradeparts = Улучшение комплектующих
 shipyard-service-action-reinforce = Укрепление сооружений

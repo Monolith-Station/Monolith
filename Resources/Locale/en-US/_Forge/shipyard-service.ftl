@@ -19,8 +19,21 @@ shipyard-service-insufficient-funds = Insufficient funds. Need { $amount }.
 shipyard-service-nothing-to-do = Nothing to repair or upgrade for this service.
 shipyard-service-repair-cooldown = Repair locked: the shuttle took damage recently.
 shipyard-service-no-bank-popup = You need a bank account.
-shipyard-service-click-hint = The [color=#ffd34f]Drydock upgrade[/color] action is on your hotbar: click a wall, window, or machine on the shuttle. Only that object is charged.
+shipyard-service-click-hint = Use the [color=#ffd34f]Drydock upgrade[/color] action, or open the [color=#ffd34f]shuttle map[/color] and mark tiles with left-click.
 shipyard-service-click-nothing = Nothing to upgrade here. Click a wall, window, or machine on the docked shuttle.
+shipyard-service-grid-button = Shuttle map
+shipyard-service-grid-window-title = Drydock map
+shipyard-service-grid-window-title-named = Drydock map — { $name }
+shipyard-service-grid-hint = LMB marks a tile. RMB pans. Scroll zooms. Colors: [color=#e05050]repair[/color], [color=#d4a017]reinforce[/color], [color=#7ec8e3]plastitanium[/color], [color=#e07a3d]parts[/color].
+shipyard-service-grid-filter-repair = Repair
+shipyard-service-grid-filter-reinforce = Reinforce
+shipyard-service-grid-filter-plastitanium = Plastitanium
+shipyard-service-grid-filter-parts = Parts
+shipyard-service-grid-select-all = Mark all
+shipyard-service-grid-clear = Clear marks
+shipyard-service-grid-apply = Apply marked
+shipyard-service-grid-selection = Marked: { $count } · [color=#7ec8e3]{ $amount }[/color]
+shipyard-service-action-marked = Marked work
 shipyard-service-action-repair = Repair
 shipyard-service-action-upgradeparts = Component upgrade
 shipyard-service-action-reinforce = Structure reinforce

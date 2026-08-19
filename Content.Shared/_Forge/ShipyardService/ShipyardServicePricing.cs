@@ -4,24 +4,45 @@ namespace Content.Shared._Forge.ShipyardService;
 
 public static class ShipyardServicePricing
 {
+    /// <summary>
+    /// Full shuttle repair (work + occupancy) never exceeds this fraction of the listed price.
+    /// </summary>
+    public const float RepairMaxVesselFraction = 0.5f;
+
     public static float GetRepairMultiplier(IReadOnlyList<VesselClass> classes)
     {
-        var combat = false;
-        var civilian = false;
-
         foreach (var vesselClass in classes)
         {
-            if (IsCombat(vesselClass))
-                combat = true;
-            else if (vesselClass is VesselClass.Civilian or VesselClass.Kitchen)
-                civilian = true;
+            if (vesselClass is VesselClass.Civilian or VesselClass.Kitchen)
+                return 0.5f;
         }
 
-        if (combat)
-            return 2f;
-        if (civilian)
-            return 0.5f;
         return 1f;
+    }
+
+    public static int GetRepairCap(int vesselPrice)
+    {
+        if (vesselPrice <= 0)
+            return int.MaxValue;
+
+        return Math.Max(1, (int) Math.Round(vesselPrice * RepairMaxVesselFraction));
+    }
+
+    public static int CapRepairWork(int workCost, int vesselPrice)
+    {
+        if (workCost <= 0)
+            return 0;
+
+        return Math.Min(workCost, GetRepairCap(vesselPrice));
+    }
+
+    public static int CapRepairTotal(int workCost, int occupancyFee, int vesselPrice)
+    {
+        var total = Math.Max(0, workCost) + Math.Max(0, occupancyFee);
+        if (total <= 0)
+            return 0;
+
+        return Math.Min(total, GetRepairCap(vesselPrice));
     }
 
     public static float GetReinforceMultiplier(IReadOnlyList<VesselClass> classes)

@@ -10,10 +10,10 @@ namespace Content.Shared._Forge.ShipyardService.Components;
 public sealed partial class ShipyardServiceConsoleComponent : Component
 {
     [DataField]
-    public int RepairBaseCost = 30000;
+    public int RepairBaseCost = 0;
 
     [DataField]
-    public int RepairPerObjectCost = 1000;
+    public int RepairPerObjectCost = 50;
 
     [DataField]
     public int PartUpgradeCost = 15000;

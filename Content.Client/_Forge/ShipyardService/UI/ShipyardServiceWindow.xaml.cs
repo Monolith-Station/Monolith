@@ -24,6 +24,7 @@ public sealed partial class ShipyardServiceWindow : FancyWindow
     public event Action? ReinforcePressed;
     public event Action? PlastitaniumPressed;
     public event Action<NetEntity>? ShuttleSelected;
+    public event Action? OpenGridPressed;
 
     public ShipyardServiceWindow()
     {
@@ -34,6 +35,7 @@ public sealed partial class ShipyardServiceWindow : FancyWindow
         UpgradePartsButton.OnPressed += _ => UpgradePartsPressed?.Invoke();
         ReinforceButton.OnPressed += _ => ReinforcePressed?.Invoke();
         PlastitaniumButton.OnPressed += _ => PlastitaniumPressed?.Invoke();
+        GridButton.OnPressed += _ => OpenGridPressed?.Invoke();
         ShuttleOption.OnItemSelected += args =>
         {
             ShuttleOption.SelectId(args.Id);
@@ -97,6 +99,7 @@ public sealed partial class ShipyardServiceWindow : FancyWindow
             UpgradePartsButton.Disabled = true;
             ReinforceButton.Disabled = true;
             PlastitaniumButton.Disabled = true;
+            GridButton.Disabled = true;
             return;
         }
 
@@ -121,6 +124,7 @@ public sealed partial class ShipyardServiceWindow : FancyWindow
         UpgradePartsButton.Disabled = quote.PartCount <= 0;
         ReinforceButton.Disabled = quote.ReinforceCount <= 0;
         PlastitaniumButton.Disabled = quote.PlastitaniumCount <= 0;
+        GridButton.Disabled = false;
     }
 
     private FormattedMessage GetRepairMarkup(ShipyardServiceQuote quote)

@@ -13,6 +13,7 @@
         <OptionButton Name="ShuttleOption" HorizontalExpand="True" />
         <RichTextLabel Name="ShuttleInfoLabel" />
         <RichTextLabel Name="ClickHintLabel" Margin="0 6 0 0" />
+        <Button Name="GridButton" Text="{Loc 'shipyard-service-grid-button'}" Margin="0 6 0 0" />
 
         <PanelContainer MinHeight="2" Margin="0 6" />
 
