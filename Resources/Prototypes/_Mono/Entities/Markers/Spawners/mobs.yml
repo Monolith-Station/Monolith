@@ -32,7 +32,7 @@
     pack: tsfmchumanoidchatter
     minimumWait: 30
     maximumWait: 120
-    nextAdvertisementTime: 10
+    nextAdvertisementTime: 0
   - type: AutoWakeUp
   - type: TriggerOnBeingGibbed
   - type: GibOnTrigger
@@ -76,7 +76,7 @@
     pack: pdvhumanoidchatter
     minimumWait: 30
     maximumWait: 120
-    nextAdvertisementTime: 10
+    nextAdvertisementTime: 0
   - type: AutoWakeUp
   - type: TriggerOnBeingGibbed
   - type: GibOnTrigger
@@ -89,6 +89,7 @@
     baseSprintSpeed : 4.5
 
 # TSFMC Mobs
+
 - type: entity
   name: TSFMC marine
   parent: MobTSFMCBase
