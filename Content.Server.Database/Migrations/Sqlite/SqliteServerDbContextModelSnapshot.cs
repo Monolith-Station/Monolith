@@ -820,6 +820,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("company");
 
+                    b.PrimitiveCollection<string>("Components")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("components");
+
                     b.Property<string>("EyeColor")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -834,6 +839,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("facial_hair_name");
+
+                    b.PrimitiveCollection<string>("Flags")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("flags");
 
                     b.Property<string>("FlavorText")
                         .IsRequired()
@@ -858,6 +868,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<float>("Height")
                         .HasColumnType("REAL")
                         .HasColumnName("height");
+
+                    b.PrimitiveCollection<string>("Items")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("items");
 
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
