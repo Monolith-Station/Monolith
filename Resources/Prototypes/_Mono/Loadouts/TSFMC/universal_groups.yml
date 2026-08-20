@@ -152,7 +152,7 @@
 - type: loadoutGroup
   id: TsfmcNeck
   name: loadout-group-contractor-neck
-  hidden: false # No point in showing this, it gets auto-selected.
+  hidden: false
   minLimit: 1
   loadouts:
   - TsfmcClothingNeckIFFCyan
