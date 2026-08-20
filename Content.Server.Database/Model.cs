@@ -436,6 +436,10 @@ namespace Content.Server.Database
 
         public string Company { get; set; } = "None";
 
+        public List<string> Flags { get; set; } = [];
+        public List<string> Components { get; set; } = []; // serialized as base64 YML; will be loaded onto a character when spawned
+        public List<string> Items { get; set; } = []; // serialized as base64 YML; will be added to a player's inventory like loadout items
+
         public int PreferenceId { get; set; }
         public Preference Preference { get; set; } = null!;
     }
