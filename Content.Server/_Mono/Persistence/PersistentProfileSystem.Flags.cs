@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Preferences;
 using Robust.Shared.Player;
@@ -25,8 +26,7 @@ public sealed partial class PersistentProfileSystem : EntitySystem
             return false;
 
         var flags = new List<string>(profile.Flags) { key };
-        _preferences.SetProfile(session.UserId, slot,
-            profile.WithPersistentData(flags, profile.Components, profile.Items)).GetAwaiter().GetResult();
+        SaveProfile(session, slot, profile.WithPersistentData(flags, profile.Components, profile.Items));
         return true;
     }
 
@@ -39,8 +39,7 @@ public sealed partial class PersistentProfileSystem : EntitySystem
         if (!flags.Remove(key))
             return false;
 
-        _preferences.SetProfile(session.UserId, slot,
-            profile.WithPersistentData(flags, profile.Components, profile.Items)).GetAwaiter().GetResult();
+        SaveProfile(session, slot, profile.WithPersistentData(flags, profile.Components, profile.Items));
         return true;
     }
 
@@ -65,5 +64,22 @@ public sealed partial class PersistentProfileSystem : EntitySystem
         slot = preferences.SelectedCharacterIndex;
         profile = humanoid;
         return true;
+    }
+
+    private void SaveProfile(ICommonSession session, int slot, HumanoidCharacterProfile profile)
+    {
+        _ = SaveProfileAsync();
+
+        async Task SaveProfileAsync()
+        {
+            try
+            {
+                await _preferences.SetProfile(session.UserId, slot, profile);
+            }
+            catch (Exception e)
+            {
+                Logger.ErrorS("persistence", $"Failed to save persistent data for {session.UserId}: {e}");
+            }
+        }
     }
 }

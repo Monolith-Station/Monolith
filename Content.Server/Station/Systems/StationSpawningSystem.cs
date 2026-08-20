@@ -28,6 +28,7 @@ using Robust.Shared.Utility;
 using Content.Server.Spawners.Components;
 using Content.Shared._NF.Bank.Components; // DeltaV
 using Content.Server._Mono.MonoCoins; // Mono
+using Content.Server._Mono.Persistence;
 using Content.Server._NF.Bank; // Frontier
 using Content.Server.Preferences.Managers; // Frontier
 using System.Linq;
@@ -60,6 +61,7 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
 
     [Dependency] private BankSystem _bank = default!; // Frontier
     [Dependency] private MonoCoinsManager _coins = default!; // Mono
+    [Dependency] private PersistentProfileSystem _persistence = default!;
     private bool _randomizeCharacters;
 
     /// <inheritdoc/>
@@ -145,6 +147,12 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
             DebugTools.Assert(entity is null);
             var jobEntity = EntityManager.SpawnEntity(prototype.JobEntity, coordinates);
             MakeSentientCommand.MakeSentient(jobEntity, EntityManager);
+
+            if (profile != null)
+            {
+                _persistence.LoadComponents(jobEntity, profile.Components);
+                _persistence.LoadItems(jobEntity, profile.Items);
+            }
 
             // Make sure custom names get handled, what is gameticker control flow whoopy.
             if (loadout != null)
@@ -297,6 +305,12 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
                 _bank.TryBankWithdraw(session!, prefs!, profile!, (int)(initialBankBalance - bankBalance), out var newBalance, true);
             }
             /// End Frontier: overwriting EquipRoleLoadout
+        }
+
+        if (profile != null)
+        {
+            _persistence.LoadComponents(entity.Value, profile.Components);
+            _persistence.LoadItems(entity.Value, profile.Items);
         }
 
         var gearEquippedEv = new StartingGearEquippedEvent(entity.Value);

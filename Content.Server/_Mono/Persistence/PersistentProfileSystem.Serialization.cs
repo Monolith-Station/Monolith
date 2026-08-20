@@ -13,13 +13,9 @@ public sealed partial class PersistentProfileSystem
     [Dependency] private ISerializationManager _serialization = default!;
     [Dependency] private MapLoaderSystem _mapLoader = default!;
 
-    private static string Encode(string data) => Convert.ToBase64String(Encoding.UTF8.GetBytes(data));
-
-    private static string Decode(string data) => Encoding.UTF8.GetString(Convert.FromBase64String(data));
-
     private static DataNode Parse(string data)
     {
-        using var reader = new StringReader(Decode(data));
+        using var reader = new StringReader(data);
         return DataNodeParser.ParseYamlStream(reader).Single().Root;
     }
 }
