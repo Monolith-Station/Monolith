@@ -14,7 +14,7 @@
   suffix: TSF
   components:
     - type: SurveillanceCameraRouter
-      subnetFrequency: SurveillanceCameraSolarianTSF #this is tsf 
+      subnetFrequency: SurveillanceCameraTSF
     - type: WirelessNetworkConnection
       range: 40000
 
