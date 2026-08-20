@@ -134,4 +134,4 @@ uplink-security-pulserifle-name = Pulse Rifle
 uplink-security-pulserifle-desc = A large, automatic pulse weapon. Larger cell, and high powered, perfect for chewing through groups of foes.
 
 uplink-security-wearable-cameratsf-name = Wireless Camera
-uplink-security-wearable-cameratsf-desc = Camera used for overwatching the operation area. Can be worn or hiden.
+uplink-security-wearable-cameratsf-desc = Camera used for overwatching an operation area. Can be worn or placed somewhere.
