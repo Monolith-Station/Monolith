@@ -279,7 +279,10 @@ namespace Content.Server.Database
                 antags.ToHashSet(),
                 traits.ToHashSet(),
                 loadouts,
-                company);
+                company,
+                profile.Flags,
+                profile.Components,
+                profile.Items);
         }
 
         private static Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
@@ -313,6 +316,9 @@ namespace Content.Server.Database
             profile.Slot = slot;
             profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
             profile.Company = humanoid.Company;
+            profile.Flags = [..humanoid.Flags];
+            profile.Components = [..humanoid.Components];
+            profile.Items = [..humanoid.Items];
 
             profile.Jobs.Clear();
             profile.Jobs.AddRange(
