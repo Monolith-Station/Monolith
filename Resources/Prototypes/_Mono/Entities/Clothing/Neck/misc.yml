@@ -193,7 +193,7 @@
       layers: 
         - state: pdvbox
     - type: DeviceNetwork
-      receiveFrequencyId: SurveillanceCameraVanguardPDV
+      receiveFrequencyId: SurveillanceCameraPDV
 
 - type: entity
   parent: ClothingNeckWearableCamera
