@@ -24,6 +24,6 @@
   suffix: MMC
   components:
     - type: SurveillanceCameraRouter
-      subnetFrequency: SurveillanceCameraMieyoMMC #not used possibly mmc etc.
+      subnetFrequency: SurveillanceCameraMMC
     - type: WirelessNetworkConnection
       range: 40000
