@@ -8,10 +8,16 @@
     sprite: _Goobstation/Clothing/Eyes/Hud/chrono.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Eyes/Hud/chrono.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingEyesHudChrono
   id: ClothingEyesHudChronoUnremoveable
   suffix: Unremoveable
   components:
   - type: Unremoveable
+  - type: Tag
+    tags:
+    - PetWearable

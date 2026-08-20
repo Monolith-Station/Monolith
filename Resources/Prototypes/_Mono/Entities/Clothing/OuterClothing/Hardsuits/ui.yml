@@ -88,6 +88,11 @@
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: StaminaDamageResistance
     coefficient: 0.45
+  - type: ExtendDescription
+    descriptionList:
+    - description: Alt-click or otherwise interact to toggle additional shielding.
+      color: "#4f94ad"
+      requireDetailRange: true
 
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]

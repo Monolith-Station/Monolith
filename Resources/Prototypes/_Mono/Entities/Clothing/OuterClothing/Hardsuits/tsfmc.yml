@@ -184,13 +184,13 @@
         Blunt: 0.7
         Slash: 0.7
         Piercing: 0.7
-        Heat: 0.7
-        Radiation: 0.45
+        Heat: 0.5
+        Radiation: 0.5
         Caustic: 0.8
         Poison: 0.8 # Mono
   - type: ClothingSpeedModifier # Mono - Armor Value Changes
     walkModifier: 0.7
-    sprintModifier: 0.65
+    sprintModifier: 0.6
   - type: FactionClothing
     faction: NanoTrasen
   - type: StaminaDamageResistance # Mono - Stamres
@@ -205,16 +205,17 @@
     color: "#E0FFFF"
     scale: 2.3
     shield:
-      maxCharge: 1000 # Juggernaut suit basically.
+      maxCharge: 400
       regenRate: 5
       spinupTime: 2.5
-      breakCooldown: 50 # REALLY slow regen.
+      breakCooldown: 20
       powerDraw: 0.5
       blockModifier:
         coefficients:
+          Piercing: 0.5
           Heat: 1.5
-          Radiation: 3.5
-          Structural: 0.3
+          Radiation: 2.5
+          Shock: 2.5
   - type: Battery
     maxCharge: 100
     startingCharge: 100
@@ -222,10 +223,19 @@
     autoRecharge: true
     autoRechargeRate: 5
     autoRechargePauseTime: 5
-  - type: EmpResistance
-    coefficient: 0.0001
   - type: UseDelay
     delay: 10
+  - type: FootstepModifier # Mono
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: ExtendDescription
+    descriptionList:
+    - description: Alt-click or otherwise interact to toggle additional shielding.
+      color: "#4f94ad"
+      requireDetailRange: true
+    - description: The M92-x shield is designed to inhibit the velocity of incoming conventional firearms. However, it struggles against anything involving high-energy particles, such as lasers.
+      color: "#94768c"
+      requireDetailRange: true
 
 # MARSOC only
 
@@ -291,3 +301,8 @@
     autoRechargePauseTime: 5
   - type: EmpResistance
     coefficient: 0.0001
+  - type: ExtendDescription
+    descriptionList:
+    - description: Alt-click or otherwise interact to toggle additional shielding.
+      color: "#4f94ad"
+      requireDetailRange: true

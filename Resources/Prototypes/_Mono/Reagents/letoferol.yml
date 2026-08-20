@@ -42,6 +42,9 @@
           invert: true
       - !type:PopupMessage
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 4
         type: Local
@@ -50,6 +53,9 @@
         probability: 0.2
       - !type:PopupMessage
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 6
         type: Local
@@ -59,6 +65,9 @@
       - !type:Drunk
         boozePower: 15
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 8
 
@@ -124,6 +133,9 @@
           invert: true
       - !type:PopupMessage
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 4
         type: Local
@@ -132,6 +144,9 @@
         probability: 0.2
       - !type:PopupMessage
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 6
         type: Local
@@ -141,6 +156,9 @@
       - !type:Drunk
         boozePower: 15
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 10
 

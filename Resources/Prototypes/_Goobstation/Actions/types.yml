@@ -15,6 +15,24 @@
     event: !type:ActivateImplantEvent
 
 - type: entity
+  id: ActionDashMoth
+  name: Wing dash
+  description: Sharply flap your wings, dashing to the side!
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: WorldTargetAction
+      useDelay: 6.5
+      checkCanAccess: false
+      range: 0
+      icon: { sprite: _Goobstation/Actions/dash.rsi, state: icon }
+      itemIconStyle: NoItem
+      sound: !type:SoundPathSpecifier
+        path: /Audio/_Goobstation/Effects/moth_wings.ogg
+        params:
+          volume: 6.5
+      event: !type:DashActionEvent
+
+- type: entity      
   id: ActionToggleRightMantisBlade
   name: Toggle Right Mantis Blade
   description: Extend or retract the mantis blade in your right arm.

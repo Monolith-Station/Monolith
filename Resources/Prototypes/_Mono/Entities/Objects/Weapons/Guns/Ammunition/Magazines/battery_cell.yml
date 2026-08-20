@@ -91,8 +91,8 @@
   - type: Item
     size: Normal
   - type: Battery
-    maxCharge: 10000
-    startingCharge: 10000
+    maxCharge: 20000
+    startingCharge: 20000
   - type: EmpResistance
     coefficient: 0.002
   - type: HitscanBatteryAmmoProvider
@@ -121,8 +121,8 @@
     - type: Item
       size: Normal
     - type: Battery
-      maxCharge: 10000
-      startingCharge: 10000
+      maxCharge: 20000
+      startingCharge: 20000
     - type: EmpResistance
       coefficient: 0.001
     - type: HitscanBatteryAmmoProvider

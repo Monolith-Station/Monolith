@@ -14,6 +14,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - PetWearable
   - type: HideLayerClothing
     slots:
     - Hair
@@ -33,6 +34,9 @@
     sprite: Clothing/Head/Hoods/Bio/cmo.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Bio/cmo.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -46,7 +50,10 @@
     sprite: Clothing/Head/Hoods/Bio/janitor.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Bio/janitor.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
   id: ClothingHeadHatHoodBioScientist
@@ -59,7 +66,10 @@
     sprite: Clothing/Head/Hoods/Bio/scientist.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Bio/scientist.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
   id: ClothingHeadHatHoodBioSecurity
@@ -72,7 +82,10 @@
     sprite: Clothing/Head/Hoods/Bio/security.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Bio/security.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
   id: ClothingHeadHatHoodBioVirology
@@ -85,7 +98,10 @@
     sprite: Clothing/Head/Hoods/Bio/virology.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Bio/virology.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodChaplainHood
@@ -101,6 +117,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - PetWearable
   - type: HideLayerClothing
     slots:
     - Hair
@@ -118,6 +135,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - PetWearable
   - type: HideLayerClothing
     slots:
     - Hair
@@ -136,6 +154,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - PetWearable
   - type: HideLayerClothing
     slots:
     - Hair
@@ -163,6 +182,9 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -177,6 +199,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - PetWearable
   - type: HideLayerClothing
     slots:
     - Hair
@@ -195,6 +218,9 @@
   - type: HideLayerClothing
     slots:
     - Hair
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -210,6 +236,9 @@
   - type: HideLayerClothing
     slots:
     - Hair
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadHatHoodCarp
@@ -227,6 +256,9 @@
   # wear carp suit and security helmet, they'll know you are fake
   - type: FactionClothing
     faction: Dragon
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -242,6 +274,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - PetWearable
   - type: HideLayerClothing
     slots:
     - Hair
@@ -260,6 +293,9 @@
     sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -271,7 +307,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodbartender.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodbartender.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterCaptain
@@ -283,7 +322,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodcaptain.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodcaptain.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterCargo
@@ -294,7 +336,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodcargo.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodcargo.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterCE
@@ -305,7 +350,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodce.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodce.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterCentcom
@@ -317,7 +365,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodcentcom.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodcentcom.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterChem
@@ -328,7 +379,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodchemist.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodchemist.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterCMO
@@ -339,7 +393,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodcmo.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodcmo.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterEngineer
@@ -350,7 +407,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodengi.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodengi.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterHOP
@@ -361,7 +421,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodhop.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodhop.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterHOS
@@ -372,7 +435,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodhos.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodhos.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterHydro
@@ -383,7 +449,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodhydro.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodhydro.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterJani
@@ -394,7 +463,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodjani.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodjani.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterMed
@@ -405,7 +477,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodmed.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodmed.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterMime
@@ -416,7 +491,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodmime.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodmime.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterMiner
@@ -427,7 +505,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodminer.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodminer.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterPara
@@ -438,7 +519,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodpara.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodpara.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterQM
@@ -449,7 +533,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodqm.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodqm.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterRD
@@ -460,7 +547,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodrd.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodrd.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterRobo
@@ -471,7 +561,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodrobo.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodrobo.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterSci
@@ -482,7 +575,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodsci.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodsci.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterSec
@@ -493,7 +589,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterSyndie
@@ -504,7 +603,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodsyndicate.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodsyndicate.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterWarden
@@ -515,7 +617,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterWeb
@@ -526,7 +631,10 @@
     sprite: Clothing/Head/Hoods/Coat/hoodweb.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hoodweb.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterColorBlack
@@ -546,7 +654,10 @@
       - state: coatybits-equipped-HELMET
         color: "#3f3f3f"
       - state: winterbits-equipped-HELMET
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterColorPurple
@@ -566,7 +677,10 @@
       - state: coatybits-equipped-HELMET
         color: "#9C0DE1"
       - state: winterbits-equipped-HELMET
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterColorRed
@@ -586,7 +700,10 @@
       - state: coatybits-equipped-HELMET
         color: "#940000"
       - state: winterbits-equipped-HELMET
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterColorBlue
@@ -606,7 +723,10 @@
       - state: coatybits-equipped-HELMET
         color: "#0089EF"
       - state: winterbits-equipped-HELMET
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterColorBrown
@@ -626,7 +746,10 @@
       - state: coatybits-equipped-HELMET
         color: "#723A02"
       - state: winterbits-equipped-HELMET
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterColorGray
@@ -646,7 +769,10 @@
       - state: coatybits-equipped-HELMET
         color: "#999999"
       - state: winterbits-equipped-HELMET
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterColorGreen
@@ -666,7 +792,10 @@
       - state: coatybits-equipped-HELMET
         color: "#5ABF2F"
       - state: winterbits-equipped-HELMET
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterColorLightBrown
@@ -686,7 +815,10 @@
       - state: coatybits-equipped-HELMET
         color: "#C09F72"
       - state: winterbits-equipped-HELMET
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterColorOrange
@@ -706,7 +838,10 @@
       - state: coatybits-equipped-HELMET
         color: "#EF8100"
       - state: winterbits-equipped-HELMET
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterColorWhite
@@ -726,7 +861,10 @@
       - state: coatybits-equipped-HELMET
         color: "#EAE8E8"
       - state: winterbits-equipped-HELMET
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterColorYellow
@@ -746,7 +884,10 @@
       - state: coatybits-equipped-HELMET
         color: "#EBE216"
       - state: winterbits-equipped-HELMET
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodVoidCloak
@@ -760,6 +901,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - PetWearable
   - type: HideLayerClothing
     slots:
     - Hair

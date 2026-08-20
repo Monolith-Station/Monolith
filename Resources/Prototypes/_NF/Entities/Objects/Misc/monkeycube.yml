@@ -39,6 +39,23 @@
     vendPrice: 2000 # Meat only worth 607 at a depot, but can produce more stuff from extra goats + milk
 
 - type: entity
+  parent: VariantCubeBox
+  name: mustard mothroach cube box
+  id: MustardMothroachCubeBox
+  description: "A box of ruminant cubes: a cow, a pig and goats! Just add water!"
+  components:
+  - type: StorageFill
+    contents:
+    - id: MothroachMustardCubeWrapped
+      amount: 6
+  - type: Sprite
+    sprite: _NF/Objects/Misc/monkeycube.rsi
+    state: box_ruminant
+  - type: StaticPrice
+    price: 20
+    vendPrice: 2000
+
+- type: entity
   parent: MonkeyCubeWrapped
   name: chicken cube
   suffix: Wrapped
@@ -107,3 +124,17 @@
   - type: Sprite
     sprite: _NF/Objects/Misc/monkeycube.rsi
     state: wrapper_cow
+
+- type: entity
+  parent: MonkeyCubeWrapped
+  name: mustard mothroach cube
+  suffix: Wrapped
+  id: MothroachMustardCubeWrapped
+  description: Unwrap this to get a cow cube.
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: MothroachMustardCube
+  - type: Sprite
+    sprite: _NF/Objects/Misc/monkeycube.rsi
+    state: wrapper_mothroachmustard

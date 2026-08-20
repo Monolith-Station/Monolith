@@ -11,6 +11,10 @@
   - type: HideLayerClothing
     slots:
     - Hair
+  - type: Tag
+    tags:
+    - PetWearable
+    
 
 - type: entity
   parent: PlushieXeno #Mono: Remove ClothingMaskBase
@@ -29,6 +33,10 @@
   - type: AddAccentClothing
     accent: ReplacementAccent
     replacement: mumble
+  - type: Tag
+    tags:
+    - PetWearable
+    
 
 - type: entity
   parent: ClothingMaskGas
@@ -42,7 +50,10 @@
     sprite: _NF/Clothing/Mask/pilot.rsi
   - type: IdentityBlocker
     coverage: MOUTH
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingMaskGasSecurity
   id: ClothingMaskGasNfsd
@@ -54,7 +65,10 @@
   - type: Clothing
     sprite: _NF/Clothing/Mask/nfsd.rsi
   - type: CatWearable
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingMaskGasSwat
   id: ClothingMaskGasSheriff
@@ -65,7 +79,10 @@
     sprite: _NF/Clothing/Mask/nfsd_sheriff.rsi
   - type: Clothing
     sprite: _NF/Clothing/Mask/nfsd_sheriff.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: [ ClothingMaskGasExplorer ]
   id: ClothingMaskCultJanitor
@@ -79,7 +96,10 @@
   - type: HideLayerClothing
     slots:
     - Hair
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   id: ClothingMaskPunkHalf
   parent: [ ClothingMaskGasExplorer, RecyclableItemClothDevice ]
@@ -116,7 +136,10 @@
         decor-equipped-MASK: CyberpunkNeon
   - type: IdentityBlocker
     coverage: MOUTH
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingMaskClown
   id: ClothingMaskClownBald
@@ -127,3 +150,7 @@
     sprite: _NF/Clothing/Mask/clown_bald.rsi
   - type: Clothing
     sprite: _NF/Clothing/Mask/clown_bald.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    
