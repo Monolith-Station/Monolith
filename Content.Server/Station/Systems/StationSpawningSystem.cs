@@ -148,6 +148,12 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
             var jobEntity = EntityManager.SpawnEntity(prototype.JobEntity, coordinates);
             MakeSentientCommand.MakeSentient(jobEntity, EntityManager);
 
+            if (profile != null)
+            {
+                _persistence.LoadComponents(jobEntity, profile.Components);
+                _persistence.LoadItems(jobEntity, profile.Items);
+            }
+
             // Make sure custom names get handled, what is gameticker control flow whoopy.
             if (loadout != null)
             {
