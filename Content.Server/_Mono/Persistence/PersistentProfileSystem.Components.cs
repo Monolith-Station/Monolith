@@ -5,6 +5,15 @@ namespace Content.Server._Mono.Persistence;
 
 public sealed partial class PersistentProfileSystem
 {
+    public void LoadComponents(EntityUid uid, IEnumerable<string> components)
+    {
+        foreach (var component in components)
+        {
+            if (!TryApplyComponent(uid, component))
+                Logger.ErrorS("persistence", $"Failed to load a persistent component onto {ToPrettyString(uid)}");
+        }
+    }
+
     public bool TryGetComponents(EntityUid uid, out IReadOnlyList<string> components)
     {
         components = [];
@@ -24,8 +33,7 @@ public sealed partial class PersistentProfileSystem
         }
 
         var components = new List<string>(profile.Components) { component };
-        _preferences.SetProfile(session.UserId, slot,
-            profile.WithPersistentData(profile.Flags, components, profile.Items)).GetAwaiter().GetResult();
+        SaveProfile(session, slot, profile.WithPersistentData(profile.Flags, components, profile.Items));
         return true;
     }
 
@@ -41,8 +49,7 @@ public sealed partial class PersistentProfileSystem
         if (!components.Remove(component))
             return false;
 
-        _preferences.SetProfile(session.UserId, slot,
-            profile.WithPersistentData(profile.Flags, components, profile.Items)).GetAwaiter().GetResult();
+        SaveProfile(session, slot, profile.WithPersistentData(profile.Flags, components, profile.Items));
         return true;
     }
 
@@ -57,10 +64,10 @@ public sealed partial class PersistentProfileSystem
             [name] = new(component, new()),
         };
 
-        return Encode(_serialization.WriteValue(
+        return _serialization.WriteValue(
             registry,
             alwaysWrite: true,
-            notNullableOverride: true).ToString());
+            notNullableOverride: true).ToString();
     }
 
     public bool TryDeserializeComponent(string data, out IComponent? component)
@@ -86,7 +93,15 @@ public sealed partial class PersistentProfileSystem
         if (!Exists(uid) || !TryDeserializeComponent(data, out var component))
             return false;
 
-        AddComp(uid, component!, overwrite);
-        return true;
+        try
+        {
+            AddComp(uid, component!, overwrite);
+            return true;
+        }
+        catch (Exception e)
+        {
+            Logger.ErrorS("persistence", $"Failed to apply a persistent component to {ToPrettyString(uid)}: {e}");
+            return false;
+        }
     }
 }

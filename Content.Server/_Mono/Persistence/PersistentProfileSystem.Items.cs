@@ -1,9 +1,29 @@
 using System.IO;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory;
 
 namespace Content.Server._Mono.Persistence;
 
 public sealed partial class PersistentProfileSystem
 {
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+
+    public void LoadItems(EntityUid uid, IEnumerable<string> items)
+    {
+        foreach (var item in items)
+        {
+            if (!TryDeserializeEntity(item, out var itemUid))
+            {
+                Logger.ErrorS("persistence", $"Failed to load a persistent item for {ToPrettyString(uid)}");
+                continue;
+            }
+
+            GiveItem(uid, itemUid);
+        }
+    }
+
     public bool TryGetItems(EntityUid uid, out IReadOnlyList<string> items)
     {
         items = [];
@@ -20,8 +40,7 @@ public sealed partial class PersistentProfileSystem
             return false;
 
         var items = new List<string>(profile.Items) { item };
-        _preferences.SetProfile(session.UserId, slot,
-            profile.WithPersistentData(profile.Flags, profile.Components, items)).GetAwaiter().GetResult();
+        SaveProfile(session, slot, profile.WithPersistentData(profile.Flags, profile.Components, items));
         return true;
     }
 
@@ -39,8 +58,7 @@ public sealed partial class PersistentProfileSystem
         if (!items.Remove(item))
             return false;
 
-        _preferences.SetProfile(session.UserId, slot,
-            profile.WithPersistentData(profile.Flags, profile.Components, items)).GetAwaiter().GetResult();
+        SaveProfile(session, slot, profile.WithPersistentData(profile.Flags, profile.Components, items));
         return true;
     }
 
@@ -51,7 +69,7 @@ public sealed partial class PersistentProfileSystem
         if (!_mapLoader.TrySaveEntity(uid, writer))
             return false;
 
-        data = Encode(writer.ToString());
+        data = writer.ToString();
         return true;
     }
 
@@ -60,7 +78,7 @@ public sealed partial class PersistentProfileSystem
         uid = default;
         try
         {
-            using var reader = new StringReader(Decode(data));
+            using var reader = new StringReader(data);
             if (!_mapLoader.TryLoadEntity(reader, "persistent profile", out var entity))
                 return false;
 
@@ -71,5 +89,22 @@ public sealed partial class PersistentProfileSystem
         {
             return false;
         }
+    }
+
+    private void GiveItem(EntityUid uid, EntityUid item)
+    {
+        if (TryComp<ClothingComponent>(item, out var clothing) && _inventory.TryGetSlots(uid, out var slots))
+        {
+            foreach (var slot in slots)
+            {
+                if ((slot.SlotFlags & clothing.Slots) != 0 &&
+                    _inventory.TryEquip(uid, item, slot.Name, silent: true, force: true))
+                {
+                    return;
+                }
+            }
+        }
+
+        _hands.PickupOrDrop(uid, item, checkActionBlocker: false, dropNear: true);
     }
 }
