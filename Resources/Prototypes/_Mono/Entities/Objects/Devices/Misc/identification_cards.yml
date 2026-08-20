@@ -160,6 +160,7 @@
     layers:
     - state: vizierbase
     - state: id_vizier
+
 - type: entity
   parent: PirateIDCard
   id: PDVPrinceIDCard #admin role id
@@ -172,6 +173,7 @@
     layers:
     - state: vizierbase
     - state: id_vizier
+
 - type: entity
   parent: PirateIDCard
   id: PDVTarkhanIDCard
