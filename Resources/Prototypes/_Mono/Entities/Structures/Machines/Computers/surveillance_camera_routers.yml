@@ -4,7 +4,7 @@
   suffix: PDV
   components:
     - type: SurveillanceCameraRouter
-      subnetFrequency: SurveillanceCameraVanguardPDV #this is PDV
+      subnetFrequency: SurveillanceCameraPDV
     - type: WirelessNetworkConnection
       range: 40000 # Modify this to change the range, make sure to change the range of the respective camera to be the same
 
