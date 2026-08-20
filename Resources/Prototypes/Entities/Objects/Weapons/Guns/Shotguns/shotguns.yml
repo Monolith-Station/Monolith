@@ -75,6 +75,21 @@
     sound:
       collection: ShotgunsDrop
   # Goobstation edit end
+  # Mono - Gun stock attack
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 12
+    angle: 0
+    wideAnimationRotation: 135
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
+  # Mono end
 
 - type: entity
   name: PA M-12 Bulldog (12 gauge)

@@ -12,7 +12,7 @@
   - EnergyDaggerRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 12, 9
+  position: -2, -22
 
 - type: technology
   id: HFSwordTech
@@ -25,7 +25,7 @@
   - HFSwordVT7
   technologyPrerequisites:
   - RogueMeleeWeapons
-  position: 12, 14
+  position: -3, -22
 
 - type: technology
   id: RogueBasicGuns
@@ -42,7 +42,7 @@
   - PrintableDirtyBomb
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, 2
+  position: -2, -12
 
 - type: technology
   id: RogueAdvancedGuns
@@ -57,9 +57,9 @@
   - WeaponShotgunBulldogRogue
   - WeaponLauncherPanzeroRogue
   technologyPrerequisites:
-  - RogueBasicGuns
   - UniversalMaterialResearchT2
-  position: 12, 8
+  - RogueBasicGuns
+  position: -4, -22
 
 - type: technology
   id: RogueHeavyWeapons
@@ -81,9 +81,9 @@
   - Magazine10Phz # for basilisk
   - AmmoBox10Phz # for basilisk
   technologyPrerequisites:
-  - RogueAdvancedGuns
   - UniversalMaterialResearchT3
-  position: 12, 13
+  - RogueAdvancedGuns
+  position: -2, -30
 
 - type: technology
   id: RogueSubsonic
@@ -103,4 +103,4 @@
   - AmmoBox635x40mmCaselessBig
   technologyPrerequisites:
   - RogueAdvancedGuns
-  position: 13, 8
+  position: -5, -22

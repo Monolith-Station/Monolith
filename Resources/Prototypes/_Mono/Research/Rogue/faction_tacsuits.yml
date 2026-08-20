@@ -12,7 +12,7 @@
   - ClothingOuterVestWebEliteRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, 1
+  position: -2, -13
 
 - type: technology
   id: RogueAdvancedEquipment
@@ -29,8 +29,7 @@
   - MechIFFPDV
   technologyPrerequisites:
   - RogueBasicEquipment
-  - UniversalMaterialResearchT2
-  position: 12, 7
+  position: -2, -23
 
 - type: technology
   id: RogueSyndicateTacsuits
@@ -46,4 +45,4 @@
   technologyPrerequisites:
   - RogueAdvancedEquipment
   - UniversalMaterialResearchT3
-  position: 12, 12
+  position: -2, -29

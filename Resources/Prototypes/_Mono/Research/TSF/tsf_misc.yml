@@ -13,7 +13,7 @@
   - CrowbarPocketTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -1
+  position: 2, -11
 
 - type: technology
   id: TsfmcMopp
@@ -27,7 +27,7 @@
   - ClothingHandsGlovesMoppTsf
   technologyPrerequisites:
   - TsfmcAdvancedEquipment
-  position: 13, 7
+  position: 3, -23
 
 - type: technology
   id: TsfEshield
@@ -40,7 +40,7 @@
   - EnergyShieldTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 12, 9
+  position: 2, -21
 
 - type: technology
   id: TsfTierOneVouchers
@@ -54,7 +54,7 @@
   - ShipVoucherTsfT1Recipe
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 11, 1
+  position: 2, -10
 
 - type: technology
   id: TsfTierTwoVouchers
@@ -68,7 +68,7 @@
   technologyPrerequisites:
   - TsfTierOneVouchers
   - UniversalMaterialResearchT2
-  position: 11, 7
+  position: 2, -20
 
 - type: technology
   id: TsfTierThreeVouchers
@@ -85,7 +85,7 @@
   technologyPrerequisites:
   - TsfTierTwoVouchers
   - UniversalMaterialResearchT3
-  position: 11, 12
+  position: 2, -27
 
 - type: technology
   id: TsfMeds
@@ -99,7 +99,7 @@
   - MeshTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -2
+  position: 5, -11
 
 - type: technology
   id: TsfNanofoam
@@ -112,7 +112,7 @@
   - NanolaminateFoamGrenadeTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 12, 10
+  position: 3, -21
 
 - type: technology
   id: TsfPortableRecharger
@@ -125,7 +125,7 @@
     - PortableRecharger
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -3
+  position: 3, -11
 
 - type: technology
   id: TSFBasicBorgModule
@@ -139,7 +139,7 @@
   - BorgIFFTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -4
+  position: 4, -11
 
 - type: technology
   id: TSFAdvancedBorgModule
@@ -151,10 +151,9 @@
   recipeUnlocks:
   - AdvancedBorgCombatModuleTSF
   technologyPrerequisites:
-  - UniversalMaterialResearchT3
   - TSFBasicBorgModule
-  position: 12, 14
-
+  position: 4, -12
+  
 - type: technology
   id: TSFAdvancedBionics
   name: research-technology-tsfmc-sandevistan
@@ -166,7 +165,7 @@
   - AutosurgeonSandevistanTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT3
-  position: 13, 14
+  position: 2, -28
 
 #- type: technology
 #  id: TSFExperimentalBionics
