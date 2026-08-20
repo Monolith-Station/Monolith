@@ -1,7 +1,7 @@
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
   id: SurveillanceCameraRouterWirelessPDV
-  suffix: PDV
+  suffix: PDV (long range)
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraPDV
@@ -11,7 +11,7 @@
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
   id: SurveillanceCameraRouterWirelessTSF
-  suffix: TSF
+  suffix: TSF (long range)
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraTSF
@@ -21,7 +21,7 @@
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
   id: SurveillanceCameraRouterWirelessMMC
-  suffix: MMC
+  suffix: MMC (long range)
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraMMC
