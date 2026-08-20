@@ -73,6 +73,7 @@ public record struct HitscanRaycastFiredEvent
     /// How far the hitscan tried to go to intersect with a target.
     /// </summary>
     public float DistanceTried;
+    public int GlassLayers;
 
     /// <summary>
     /// Set to true the hitscan is cancelled (e.g. due to reflection).

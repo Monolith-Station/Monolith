@@ -8,6 +8,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
+using Content.Shared.Physics; // For the laser diffusion?
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
@@ -32,6 +33,10 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
         var ray = new CollisionRay(mapCords.Position, args.ShotDirection, (int) ent.Comp.CollisionMask);
         var rayCastResults = _physics.IntersectRay(mapCords.MapId, ray, ent.Comp.MaxDistance, shooter, false);
 
+        // This apparently handles diffusion with a new laserglass type.
+        var glassRay = new CollisionRay(mapCords.Position, args.ShotDirection, (int) CollisionGroup.LaserGlass);
+        var glassResults = _physics.IntersectRay(mapCords.MapId, glassRay, ent.Comp.MaxDistance, shooter, false);
+
         var target = args.Target;
         // If you are in a container, use the raycast result
         // Otherwise:
@@ -42,6 +47,11 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
             : rayCastResults.FirstOrNull(hit => hit.HitEntity == target
                                                 || CompOrNull<RequireProjectileTargetComponent>(hit.HitEntity)?.Active != true);
 
+        // And this is again laserglass diffusion stuff.
+        var glassLayers = result != null
+            ? glassResults.Count(glass => glass.Distance < result.Value.Distance)
+            : 0;
+
         var trace = new HitscanRaycastFiredEvent
         {
             FromCoordinates = args.FromCoordinates,
@@ -50,6 +60,7 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
             Shooter = args.Shooter,
             HitEntities = [], // Mono
             DistanceTried = result?.Distance ?? ent.Comp.MaxDistance,
+            GlassLayers = glassLayers, // laser diffusion
         };
 
         if (result?.HitEntity != null) // Mono

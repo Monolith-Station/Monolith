@@ -39,6 +39,7 @@
         - FullTileMask
         layer:
         - GlassLayer
+        - LaserGlass
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Glass

@@ -79,6 +79,7 @@ public enum CollisionGroup
     DiagonalGlassLayer = HighImpassable | MidImpassable | LowImpassable | BulletImpassable, // Mono
     WallLayer = Opaque | Impassable | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable,
     GlassLayer = Impassable | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable,
+    LaserGlass = 1 << 9,
     HalfWallLayer = MidImpassable | LowImpassable,
 
     // Statue, monument, airlock, window

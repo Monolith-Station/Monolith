@@ -70,7 +70,7 @@
         mask:
         - FullTileMask
         layer:
-        - WallLayer
+        - GlassLayer
         density: 2000
   - type: HitscanDiffractTarget # Mono - Causes diffraction
   - type: ShipRepairable
