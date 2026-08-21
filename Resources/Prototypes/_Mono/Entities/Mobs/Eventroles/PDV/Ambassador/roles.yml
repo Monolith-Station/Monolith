@@ -1,0 +1,25 @@
+- type: entity
+  parent: MobHuman
+  id: MobHumanAmbassadorBase
+  name: Dynasty Ambassador
+  suffix: Human, PDV, Event
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: HumanoidAppearance
+  - type: Loadout
+    prototypes: [PDVAmbassadorGearEvent]
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+  - type: Company
+    companyName: PDVHighComm
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Freespeak
+    understands:
+    - TauCetiBasic
+    - Freespeak

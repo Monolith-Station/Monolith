@@ -15,6 +15,8 @@ job-name-tsf-borg = TSFMC Cyborg
 
 # MARK: PDV
 job-name-pdv-borg = PDV Cyborg
+job-name-pdv-ambassador = Dynasty Ambassador
+job-name-pdv-prince = Dynasty Prince
 
 # MARK: Viper Group
 job-name-vg-infanteer = VG Infanteer
