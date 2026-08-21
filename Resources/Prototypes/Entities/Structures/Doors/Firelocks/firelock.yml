@@ -176,6 +176,7 @@
           - HighImpassable
           layer:
           - GlassAirlockLayer
+          - LaserGlass
     - type: Door
       occludes: false
     - type: Construction
