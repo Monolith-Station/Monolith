@@ -6,6 +6,7 @@ using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
 
@@ -17,6 +18,7 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private ISharedAdminLogManager _log = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private EntityQuery<PhysicsComponent> _physicQuery = default!;
 
     public override void Initialize()
     {
@@ -29,18 +31,43 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
     {
         var shooter = args.Shooter ?? args.Gun;
         var mapCords = _transform.ToMapCoordinates(args.FromCoordinates);
-        var ray = new CollisionRay(mapCords.Position, args.ShotDirection, (int) ent.Comp.CollisionMask);
+        var ray = new CollisionRay(mapCords.Position, args.ShotDirection, (int) (ent.Comp.CollisionMask | ent.Comp.DiffuseLayers));
         var rayCastResults = _physics.IntersectRay(mapCords.MapId, ray, ent.Comp.MaxDistance, shooter, false);
 
         var target = args.Target;
-        // If you are in a container, use the raycast result
-        // Otherwise:
-        //  1.) Hit the first entity that you targeted.
-        //  2.) Hit the first entity that doesn't require you to aim at it specifically to be hit.
-        var result = _container.IsEntityOrParentInContainer(shooter)
-            ? rayCastResults.FirstOrNull()
-            : rayCastResults.FirstOrNull(hit => hit.HitEntity == target
-                                                || CompOrNull<RequireProjectileTargetComponent>(hit.HitEntity)?.Active != true);
+        RayCastResults? result = null;
+        var diffuseLayerCount = 0;
+        foreach (var hit in rayCastResults)
+        {
+            if (!_physicQuery.TryComp(hit.HitEntity, out var phys))
+                 continue;
+
+             // Count diffusion lasers before target.
+             if ((phys.CollisionLayer & (int) ent.Comp.DiffuseLayers) != 0)
+            {
+                diffuseLayerCount++;
+                continue;
+            }
+
+             // Only entities on the normal collision mask can be the actual target.
+            if ((phys.CollisionLayer & (int) ent.Comp.CollisionMask) == 0)
+                 continue;
+
+            // If you are in a container, use the first valid target.
+            // Otherwise, preserve the existing target-selection rules.
+            if (_container.IsEntityOrParentInContainer(shooter))
+            {
+                result = hit;
+                break;
+             }
+
+            if (hit.HitEntity == target ||
+                CompOrNull<RequireProjectileTargetComponent>(hit.HitEntity)?.Active != true)
+            {
+                result = hit;
+                break;
+            }
+}
 
         var trace = new HitscanRaycastFiredEvent
         {
@@ -50,6 +77,7 @@ public sealed partial class HitscanBasicRaycastSystem : EntitySystem
             Shooter = args.Shooter,
             HitEntities = [], // Mono
             DistanceTried = result?.Distance ?? ent.Comp.MaxDistance,
+            DiffuseLayers = diffuseLayerCount,
         };
 
         if (result?.HitEntity != null) // Mono

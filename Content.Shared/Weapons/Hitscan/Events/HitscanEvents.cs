@@ -78,6 +78,9 @@ public record struct HitscanRaycastFiredEvent
     /// Set to true the hitscan is cancelled (e.g. due to reflection).
     /// Cancelled hitscans should not apply damage or trigger follow-up effects.
     /// </summary>
+
+    /// Counts glass layers to reduce hitscan damage.
+    public int DiffuseLayers;
     public bool Canceled;
 }
 

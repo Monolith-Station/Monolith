@@ -20,4 +20,8 @@ public sealed partial class HitscanBasicRaycastComponent : Component
     /// </summary>
     [DataField]
     public CollisionGroup CollisionMask = CollisionGroup.Opaque;
+
+    //Handling reducing damage of hitscan lasers going through glass.
+    [DataField]
+    public CollisionGroup DiffuseLayers = CollisionGroup.None;
 }
