@@ -11,7 +11,7 @@ reagent-name-mesophenerol = mesophenerol
 reagent-desc-mesophenerol = A cheaper alternative to mesotaxinide that only reverts a natural chimera infection, and purges a system of Letoferol.
 
 reagent-name-letoferol = letoferol
-reagent-desc-letoferol = A highly illegal bioweapon developed as a refined form of Romerol. Turns the user into more than just a mindless zombie. The usage of this is considered a violation of humanoid rights everywhere.
+reagent-desc-letoferol = A highly illegal, highly contagious bioweapon harvested from the Colossus Radius, identified to be some kind of modified Romerol. Emulsifies the user into a deadly and anomalous flesh-insect abomination. The usage of this is considered a violation of humanoid rights everywhere.
 
 reagent-name-nat-letoferol = natural Letoferol
 reagent-desc-nat-letoferol = A version of letoferol produced by organic means. Its much more refined, and its effects require Mesotaxinide or Mesophenerol to revert. It takes more to convert someone than regular Letoferol.
