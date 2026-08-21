@@ -10,7 +10,14 @@
 
 - type: company
   id: TSF
-  name: TSF
+  name: TSFMC
+  color: "#047ABD"
+  disabled: true
+  companyUplinkCurrency: FederationMilitaryCredit
+
+- type: company
+  id: TSFCivilian
+  name: Trans-Solarian Federation
   color: "#047ABD"
   disabled: true
   companyUplinkCurrency: FederationMilitaryCredit
@@ -18,6 +25,13 @@
 - type: company
   id: PDV
   name: PDV
+  color: "#D2B48C"
+  disabled: true
+  companyUplinkCurrency: Doubloon
+
+- type: company
+  id: PDVCivilian
+  name: Phaeton Dynasty
   color: "#D2B48C"
   disabled: true
   companyUplinkCurrency: Doubloon
