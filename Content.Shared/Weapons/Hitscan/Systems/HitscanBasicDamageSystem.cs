@@ -1,6 +1,7 @@
 using Content.Shared.Damage;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
+using System;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
@@ -24,8 +25,10 @@ public sealed partial class HitscanBasicDamageSystem : EntitySystem
 
         for (var i = 0; i < args.DiffuseLayers; i++)
         {
-            dmg *= 0.8f;
+            dmg *= ent.Comp.DiffusionMultiplier;
         }
+
+
 
         foreach (var hitEntity in args.HitEntities) // Mono edit
         {

@@ -23,5 +23,5 @@ public sealed partial class HitscanBasicRaycastComponent : Component
 
     //Handling reducing damage of hitscan lasers going through glass.
     [DataField]
-    public CollisionGroup DiffuseLayers = CollisionGroup.None;
+    public CollisionGroup DiffuseLayers = CollisionGroup.LaserGlass;
 }

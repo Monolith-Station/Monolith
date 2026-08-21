@@ -27,5 +27,10 @@ public sealed partial class HitscanBasicDamageComponent : Component
     /// </summary>
     [DataField]
     public bool IgnoreResistances = false;
+    /// <summary>
+    /// What the damage of this hitscan will be multiplied by for every window it passes through.
+    /// </summary>
+    [DataField]
+    public float DiffusionMultiplier = 0.8f;
     // Mono end
 }
