@@ -108,13 +108,11 @@
     Silver: 5000
     Gold: 5000
 
-
 - type: latheRecipe
   parent: BaseVoucherRecipe
   id: ZephyrVoucherTSF
   result: ShipVoucherZephyr
   completetime: 130
-  materials:
   materials:
     Steel: 6500
     Plasteel: 4500
