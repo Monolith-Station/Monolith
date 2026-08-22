@@ -1067,7 +1067,7 @@
         Glass: 1
 
 - type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
+  parent: BaseMachineCircuitboard
   id: HotplateMachineCircuitboard
   result: HotplateMachineCircuitboard
   components:
