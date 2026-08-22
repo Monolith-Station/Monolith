@@ -1054,13 +1054,13 @@
           defaultPrototype: Beaker
 
 - type: entity
-  id: HotplateMachineCircuitboard
+  id: ThermobathMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: hotplate machine board
-  description: A machine printed circuit board for a hotplate.
+  name: thermobath machine board
+  description: A machine printed circuit board for a thermobath.
   components:
     - type: MachineBoard
-      prototype: ChemistryHotplate
+      prototype: MachineThermobath
       requirements: # Frontier
         Capacitor: 2 # Frontier stackRequirements<requirements
       stackRequirements:
