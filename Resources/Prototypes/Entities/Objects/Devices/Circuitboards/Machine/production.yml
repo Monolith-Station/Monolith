@@ -1069,10 +1069,11 @@
 - type: latheRecipe
   id: HotplateMachineCircuitboard
   parent: BaseMachineCircuitboard
-  result: HotplateMachineCircuitboard
+  name: hotplate machine board
+  description: A machine printed circuit board for a hotplate.
   components:
     - type: MachineBoard
-      prototype: MachineThermobath
+      prototype: ChemistryHotplate
       requirements: # Frontier
         Capacitor: 2 # Frontier stackRequirements<requirements
       stackRequirements:
