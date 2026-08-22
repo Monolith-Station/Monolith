@@ -76,9 +76,14 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitM86
   id: ClothingHeadHelmetHardsuitM86Mk4
+  description: Modified from M82 series helmets, outfitted with night-vision equipment and refined gel-layers. There is an inscription on the inside of the helmet, it reads. "Just do what comes natural"
   categories: [ HideSpawnMenu ]
   components:
-  - type: NightVision # Gen 4 quadtube-wide
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/m86-B.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/m86-B.rsi
+  - type: NightVision # Gen 4 quadtube-wide who wrote this shit?
     relayOverlay: true
     goggleEffect: true
     viewCircleRadius: 450
