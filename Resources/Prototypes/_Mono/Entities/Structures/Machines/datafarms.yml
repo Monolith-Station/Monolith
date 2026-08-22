@@ -103,6 +103,21 @@
   id: DatafarmResearchFaction
   parent: BaseDataFarmIndestructible
   name: bolted data farm (Research)
+  suffix: 35 PPS
+  description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates research points at a rate of 200 per second. It seems to be bolted to the floor.
+  components:
+  - type: ResearchClient
+  - type: ResearchPointSource
+    pointsPerSecond: 35
+    active: true
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+
+- type: entity
+  id: DatafarmResearchFaction200
+  parent: BaseDataFarmIndestructible
+  name: bolted data farm (Research)
+  suffix: 200 PPS
   description: A power-hungry server dedicated towards scraping data from... somewhere. This one generates research points at a rate of 200 per second. It seems to be bolted to the floor.
   components:
   - type: ResearchClient

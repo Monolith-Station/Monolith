@@ -90,18 +90,21 @@
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure1
-  name: encrusted locker
-  categories: [ HideSpawnMenu ]
+  name: monolithic sample
+  description: A stable megalith of unknown composition, unknown origin. Primal feelings of unease flit through you at the mere sight of it. Immensely valuable for anomalous research.
+  #categories: [ HideSpawnMenu ]
   components:
   - type: Icon
-    sprite: _NF/Structures/Storage/Crates/contraband1_crate.rsi
+    sprite: _Mono/Objects/TradeGoods/contraband.rsi
+    state: megalith
+    shader: unshaded
   - type: Sprite
-    sprite: _NF/Structures/Storage/Crates/contraband1_crate.rsi
+    sprite: _Mono/Objects/TradeGoods/contraband.rsi
     layers:
-    - state: icon
+    - state: megalith
     - sprite: _NF/Interface/Misc/cargo_destination_icons.rsi
       state: cargo_other
-      offset: 0.275,-0.265
+      offset: 0.20,-0.25
       map: ["enum.TradeCrateVisualLayers.Icon"]
       visible: false
     - sprite: _NF/Interface/Misc/cargo_destination_icons.rsi
@@ -113,6 +116,11 @@
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
+  - type: AmbientSound
+    range: 2
+    volume: -8
+    sound:
+      path: /Audio/Ambience/anomaly_scary.ogg
   - type: TradeCrate
     valueAtDestination: 30000
     valueElsewhere: 20000
