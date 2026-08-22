@@ -1066,6 +1066,18 @@
       stackRequirements:
         Glass: 1
 
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
+  id: HotplateMachineCircuitboard
+  result: HotplateMachineCircuitboard
+  components:
+    - type: MachineBoard
+      prototype: MachineThermobath
+      requirements: # Frontier
+        Capacitor: 2 # Frontier stackRequirements<requirements
+      stackRequirements:
+        Glass: 1
+
 - type: entity
   parent: BaseMachineCircuitboard
   id: ElectricGrillMachineCircuitboard
