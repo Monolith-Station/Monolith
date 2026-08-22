@@ -42,7 +42,7 @@ ghost-role-information-oworoach-name = OwOroach
 ghost-role-information-oworoach-description = A very cute but mischievous mothroach. explosive personality.
 
 ghost-role-information-imperiroach-name = ImperiRoach
-ghost-role-information-imperiroach-description = highly trained and faithful pet of a PDV operative equiped with a microbomb. Serve your master to the death!
+ghost-role-information-imperiroach-description = highly trained and faithful pet of a PDV operative equiped with a microbomb and EMP capabilities. Serve your master to the death!
 ghost-role-information-imperiroach-rules = You are a [color=red][bold]Team PDV[/bold][/color] work with the agent who summoned you.
 
 ghost-role-information-boomroach-name = BoomRoach
