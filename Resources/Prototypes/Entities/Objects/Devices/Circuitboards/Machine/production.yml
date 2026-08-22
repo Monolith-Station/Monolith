@@ -1067,8 +1067,8 @@
         Glass: 1
 
 - type: latheRecipe
-  parent: BaseMachineCircuitboard
   id: HotplateMachineCircuitboard
+  parent: BaseMachineCircuitboard
   result: HotplateMachineCircuitboard
   components:
     - type: MachineBoard
@@ -1079,8 +1079,8 @@
         Glass: 1
 
 - type: entity
-  parent: BaseMachineCircuitboard
   id: ElectricGrillMachineCircuitboard
+  parent: BaseMachineCircuitboard
   name: electric grill machine board
   description: A machine printed circuit board for an electric grill.
   components:
