@@ -85,3 +85,18 @@ selectable-set-tsfmarsoc-hailstorm-kit-desc =
     - an EG-4 energy magnum
     - a jaws of life
     - and a combat medkit.
+
+selectable-set-contractor-doctor-kit-name = Doctor Kit
+selectable-set-contractor-doctor-kit-desc = Almost everything a doctor would need to keep their people in good health
+
+selectable-set-contractor-engineer-kit-name = Engineer Kit
+selectable-set-contractor-engineer-kit-desc = Ship repairs, station repairs, upgrading componets, that job falls onto you.
+
+selectable-set-contractor-salvager-kit-name = Salvager Kit
+selectable-set-contractor-salvager-kit-desc = Ship breaking, mining, looting, the most expendable role in the logisitics of a military, but a vital one.
+
+selectable-set-contractor-security-kit-name = Security Kit
+selectable-set-contractor-security-kit-desc = Non military police, keep the peace between your fellow citizens, try not to let bad news reach the ears of the brass.
+
+selectable-set-contractor-researcher-kit-name = Researcher Kit
+selectable-set-contractor-researcher-kit-desc = Field research, wheather its anomalous, or artifact in nature, you help out in gathering research for your assigned outpost.

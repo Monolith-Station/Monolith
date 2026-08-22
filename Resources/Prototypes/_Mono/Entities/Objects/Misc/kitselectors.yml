@@ -63,3 +63,26 @@
     interfaces:
       enum.ThiefBackpackUIKey.Key:
         type: ThiefBackpackBoundUserInterface
+
+- type: entity
+  id: UndeterminedContractKit
+  name: Civilian contracting equipment selector
+  description: A small remote to requestion a starting kit from your factions reserves.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: ThiefUndeterminedBackpack
+    possibleSets:
+    - KitSelectorDoctor
+    - KitSelectorEngineer
+    - KitSelectorSalvager
+    - KitselectorSecurity
+    maxSelectedSets: 1
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface

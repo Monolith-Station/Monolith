@@ -216,3 +216,71 @@
   - WeaponEnergyRevolver
   - JawsOfLife
   - MedkitCombatFilled
+
+#faction civilian kits
+
+- type: thiefBackpackSet # Security
+  id: KitselectorSecurity
+  name: selectable-set-contractor-security-kit-name
+  description: selectable-set-contractor-security-kit-desc
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
+    state: icon
+  content:
+  - WeaponDisablerSMG
+  - GrenadeFlashBang
+  - GrenadeFlashBang
+  - GrenadeFlashBang
+  - ClothingBeltSecurityFilled
+  - ClothingUniformJumpsuitMilitaryContractor
+  - ClothingOuterArmorBasic
+  - ClothingEyesHudSecurity
+  - ClothingHeadHatBeretSecurity
+  - ClothingMaskGasSecurity
+  - ClothingShoesBootsJackFilled
+
+- type: thiefBackpackSet # Engineer
+  id: KitSelectorEngineer
+  name: selectable-set-contractor-engineer-kit-name
+  description: selectable-set-contractor-engineer-kit-desc
+  sprite:
+    sprite: Clothing/Belt/utility.rsi
+    state: icon
+  content:
+  - RCD
+  - RCDAmmo
+  - ShipRepairDevice
+  - ShipRepairDeviceAmmo
+  - ClothingBeltUtilityEngineering
+  - UndeterminedVoidsuitEngineer
+  - ClothingEyesGlassesMesonTray
+
+- type: thiefBackpackSet # Doctor
+  id: KitSelectorDoctor
+  name: selectable-set-contractor-doctor-kit-name
+  description: selectable-set-contractor-doctor-kit-desc
+  sprite:
+    sprite: Objects/Specific/Medical/healthanalyzer.rsi
+    state: icon
+  content:
+  - Bloodpack
+  - DefibrillatorCompact
+  - HandheldHealthAnalyzer
+  - UndeterminedVoidsuitParamedic
+  - ClothingEyesHudMedical
+  - MedicatedSuture
+  - RegenerativeMesh
+
+- type: thiefBackpackSet # Salvager
+  id: KitSelectorSalvager
+  name: selectable-set-contractor-salvager-kit-name
+  description: selectable-set-contractor-salvager-kit-desc
+  sprite:
+    sprite: Objects/Weapons/Melee/sledgehammer.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitSpatio
+  - ClothingBeltSalvageWebbingFilledNF
+  - WeaponProtoKineticAcceleratorSawn
+  - OreBag
+  - Sledgehammer
