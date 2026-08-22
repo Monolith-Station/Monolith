@@ -425,3 +425,17 @@
       groups:
         Brute: -1.5
         Burn: -2
+
+- type: trait
+  id: Helmsmanship
+  name: trait-helmsmanship-name
+  description: trait-helmsmanship-desc
+  category: Physical
+  cost: 6
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: ShuttleBoostingPilot #Found in: content.server\_mono\Shuttles\Components\
+    angularMultiplier: 1.1
+    accelerationMultiplier: 1.1

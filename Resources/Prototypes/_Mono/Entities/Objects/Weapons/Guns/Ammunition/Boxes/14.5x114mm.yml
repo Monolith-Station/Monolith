@@ -32,19 +32,32 @@
 - type: entity
   parent: BaseAmmoBox145x114mm
   id: AmmoBox145x114mm
-  name: ammunition box (14.5x114mm)
+  name: ammunition box (14.5x114mm AP)
   components:
   - type: BallisticAmmoProvider
     proto: Cartridge145x114mm
   - type: Sprite
     layers:
-    - state: base
+    - state: base-b
       map: ["enum.GunVisualLayers.Base"]
 
 - type: entity
   parent: BaseAmmoBox145x114mm
+  id: AmmoBox145x114mmEMP
+  name: ammunition box (14.5x114mm EMPHE)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge145x114mmEMP
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: emp
+
+- type: entity
+  parent: BaseAmmoBox145x114mm
   id: AmmoBox145x114mmBig
-  name: big ammunition box (14.5x114mm)
+  name: big ammunition box (14.5x114mm AP)
   suffix: Big (30)
   components:
   - type: Item
@@ -56,5 +69,5 @@
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/14.5x114mm.rsi
     layers:
-    - state: base-b
+    - state: base
       map: ["enum.GunVisualLayers.Base"]

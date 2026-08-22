@@ -221,6 +221,21 @@
 #MARK: Utility
 
 - type: listing
+  id: UplinkWearableCameraPDV
+  name: uplink-pirate-wearable-camerapdv-name
+  description: uplink-pirate-wearable-camerapdv-desc
+  productEntity: ClothingNeckWearableCameraPDV
+  cost:
+    Doubloon: 1
+  categories:
+  - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
   id: UplinkPirateImplanterEmpty
   name: uplink-pirate-empty-implanter-name
   description: uplink-pirate-empty-implanter-desc

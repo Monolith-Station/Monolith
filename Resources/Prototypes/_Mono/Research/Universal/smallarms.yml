@@ -75,44 +75,44 @@
 #  - Magazine45_ACPSubMachineGunSynthAP
 #  - AmmoBox45_ACPSynthAP
 
-- type: technology
-  id: UniversalRIP
-  name: research-technology-universal-ap-rip
-  entityIcon: AmmoBox9x19mmRIP
-  discipline: FactionUniversal
-  tier: 2
-  cost: 30000
-  technologyPrerequisites:
-  - UniversalPlastitaniumCore
-  position: -1, -19
-  recipeUnlocks:
-  - AmmoBox23x75mmSlugRIP
-  - Magazine12_gaugeSlugRIP
-  - AmmoBox12_gaugeSlugRIP
-  - Magazine762x51mmRIP
-  - AmmoBox762x51mmRIP
-  - Magazine762x54mmRRIP
-  - AmmoBox762x54mmRRIP
-  - Magazine556x45mmRIP
-  - AmmoBox556x45mmRIP
-  - Magazine762x39mmRIP
-  - AmmoBox762x39mmRIP
-  - SpeedLoader357_magnumRIP
-  - AmmoBox357_magnumRIP
-  - Magazine68x52mmRIP
-  - AmmoBox68x52mmRIP
-  - Magazine46x30mmPistolRIP
-  - Magazine46x30mmSubMachineGunRIP
-  - AmmoBox46x30mmRIP
-  - Magazine57x28mmPistolRIP
-  - Magazine57x28mmSubMachineGunRIP
-  - AmmoBox57x28mmRIP
-  - Magazine9x19mmPistolRIP
-  - Magazine9x19mmSubMachineGunRIP
-  - AmmoBox9x19mmRIP
-  - Magazine45_ACPPistolRIP
-  - Magazine45_ACPSubMachineGunRIP
-  - AmmoBox45_ACPRIP
+#- type: technology
+#  id: UniversalRIP
+#  name: research-technology-universal-ap-rip
+#  entityIcon: AmmoBox9x19mmRIP
+#  discipline: FactionUniversal
+#  tier: 2
+#  cost: 30000
+#  technologyPrerequisites:
+#  - UniversalPlastitaniumCore
+#  position: 8, 5
+#  recipeUnlocks:
+#  - AmmoBox23x75mmSlugRIP
+#  - Magazine12_gaugeSlugRIP
+#  - AmmoBox12_gaugeSlugRIP
+#  - Magazine762x51mmRIP
+#  - AmmoBox762x51mmRIP
+#  - Magazine762x54mmRRIP
+#  - AmmoBox762x54mmRRIP
+#  - Magazine556x45mmRIP
+#  - AmmoBox556x45mmRIP
+#  - Magazine762x39mmRIP
+#  - AmmoBox762x39mmRIP
+#  - SpeedLoader357_magnumRIP
+#  - AmmoBox357_magnumRIP
+#  - Magazine68x52mmRIP
+#  - AmmoBox68x52mmRIP
+#  - Magazine46x30mmPistolRIP
+#  - Magazine46x30mmSubMachineGunRIP
+#  - AmmoBox46x30mmRIP
+#  - Magazine57x28mmPistolRIP
+#  - Magazine57x28mmSubMachineGunRIP
+#  - AmmoBox57x28mmRIP
+#  - Magazine9x19mmPistolRIP
+#  - Magazine9x19mmSubMachineGunRIP
+#  - AmmoBox9x19mmRIP
+#  - Magazine45_ACPPistolRIP
+#  - Magazine45_ACPSubMachineGunRIP
+#  - AmmoBox45_ACPRIP
 
 - type: technology
   id: DraconicMunitions

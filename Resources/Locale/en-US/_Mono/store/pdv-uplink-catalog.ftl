@@ -44,6 +44,9 @@ uplink-pirate-medical-assembler-desc = An assembler that can be used to make use
 
 # MARK: Utility
 
+uplink-pirate-wearable-camerapdv-name = Wireless Camera
+uplink-pirate-wearable-camerapdv-desc = Camera used for overwatching an operation area. Can be worn or placed somewhere.
+
 uplink-pirate-romerol-name = Romerol Syringe
 uplink-pirate-romerol-desc = A bioweapon used in previous wars, and heavily outlawed. Its obviously taken some effort to smuggle this one. Reanimates the dead.
 
@@ -190,8 +193,8 @@ uplink-pirate-box-highcal-desc = A box of general-purpose ammunition for the Bur
 uplink-pirate-box-highcal-he-name = HE 12.7x99mm box
 uplink-pirate-box-highcal-he-desc = A box of explosive ammunition for the Burner heavy rifle.
 
-uplink-pirate-sniper-ammo-name = 14.5x114mm box
-uplink-pirate-sniper-ammo-desc = A box of high caliber sniper rounds for the Hristov.
+uplink-pirate-sniper-ammo-name = 14.5x114mm AP box
+uplink-pirate-sniper-ammo-desc = A box of high caliber armor-piercing sniper rounds for the Hristov.
 
 uplink-pirate-emp-rocket-name = RPG-7 EMP Rocket
 uplink-pirate-emp-rocket-desc = A rocket with vengeance against anything electrical. Disables and drains electrical items in it's radius.
