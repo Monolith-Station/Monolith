@@ -69,7 +69,7 @@
       fireRate: 8
       selectedMode: FullAuto
       availableModes:
-      - SemiAuto
+      - FullAuto
       soundGunshot: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg
 
 # Spawners
@@ -91,8 +91,6 @@
     - MobTSFMCBaseB
     - MobTSFMCBaseC
     - MobTSFMCBaseD
-    chance: 1
-    offset: 0.0
 
 # Loadout Mobs
 
