@@ -869,7 +869,10 @@
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: StaminaDamageResistance # Mono - Stamres
-    coefficient: 0.4
+    coefficient: 0.6
+  - type: FootstepModifier # Mono
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
 
 #Wizard Hardsuit
 - type: entity

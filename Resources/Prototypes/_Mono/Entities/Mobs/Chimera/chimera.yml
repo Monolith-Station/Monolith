@@ -100,6 +100,22 @@
         golem: ""
         clamp: ""
         lover: ""
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 70
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: gib
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          FoodMeat:
+            min: 1
+            max: 1
   - type: MobThresholds
     thresholds:
       0: Alive

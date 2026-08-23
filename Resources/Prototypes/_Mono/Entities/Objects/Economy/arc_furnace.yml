@@ -94,6 +94,8 @@
   - type: Sprite
     sprite: _Mono/Objects/Materials/silicon.rsi
     state: "wafer"
+  - type: StaticPrice
+    price: 500
   - type: Destructible
     thresholds:
     - trigger:
@@ -294,6 +296,8 @@
     chemicalComposition:
       Carbon: 15
       Silicon: 15
+  - type: StaticPrice
+    price: 1500
 
 # silicon
 
@@ -338,6 +342,8 @@
   - type: PhysicalComposition
     chemicalComposition:
       Silicon: 100
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   name: silicon boule scrap

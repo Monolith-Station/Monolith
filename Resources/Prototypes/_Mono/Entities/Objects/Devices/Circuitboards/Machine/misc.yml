@@ -11,7 +11,7 @@
       Capacitor: 2
       Manipulator: 2
     tagRequirements:
-      RadioEconomy1:
+      RadioEconomy1: # Lag prevention, I guess?
         amount: 1
         defaultPrototype: RadioEconomy1
 
@@ -29,9 +29,9 @@
     stackRequirements:
       Plasteel: 4
     tagRequirements:
-      ElectromagnetEconomy2:
+      ElectromagnetEconomy1:
         amount: 1
-        defaultPrototype: ElectromagnetEconomy2
+        defaultPrototype: ElectromagnetEconomy1
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -70,7 +70,5 @@
     prototype: MachineShipDrill
     stackRequirements:
       Steel: 7
-    tagRequirements:
-      MotorEconomy1:
-        amount: 1
-        defaultPrototype: MotorEconomy1
+    requirements:
+      Capacitor: 2

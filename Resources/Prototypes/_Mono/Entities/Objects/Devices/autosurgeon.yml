@@ -149,6 +149,30 @@
   - type: Sprite
     state: icon-mmc
 
+- type: entity
+  parent: BaseAutosurgeonMieyo
+  id: AutosurgeonAdvHeartMMC
+  name: MMC autosurgeon (EVT-001 replacement heart)
+  description: Replaces the heart with a more strange one. The exact manner of how is unknown, but it allows the user to channel a form of latent energy into a single hit.
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Torso
+    targetOrgan: Heart
+    newPartProto: OrganHeartMMCSakimoto
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: AutosurgeonAdvHeartMMCFlatpack
+  name: MMC autosurgeon (EVT-001 replacement heart) flatpack
+  description: A flatpack used for constructing a MMC autosurgeon.
+  components:
+  - type: Flatpack
+    entity: AutosurgeonAdvHeartMMC
+  - type: StaticPrice
+    price: 5000
+  - type: Sprite
+    layers:
+    - state: medical_lathe
 
 # Dash
 # This one is kinda broken right now for some reason. I think it's because of gravity refactor.

@@ -152,10 +152,11 @@
 - type: loadoutGroup
   id: TsfmcNeck
   name: loadout-group-contractor-neck
-  hidden: true # No point in showing this, it gets auto-selected.
+  hidden: false
   minLimit: 1
   loadouts:
   - TsfmcClothingNeckIFFCyan
+  - TsfmcClothingNeckWearableCameraTSF
 
 - type: loadoutGroup
   id: TsfmcNeckEngi
@@ -165,6 +166,7 @@
   loadouts:
   - TsfmcClothingNeckIFFOrange
   - TsfmcClothingNeckIFFCyan
+  - TsfmcClothingNeckWearableCameraTSF
 
 - type: loadoutGroup
   id: TsfmcNeckMedic
@@ -174,6 +176,7 @@
   loadouts:
   - TsfmcClothingNeckIFFWhite
   - TsfmcClothingNeckIFFCyan
+  - TsfmcClothingNeckWearableCameraTSF
 
 - type: loadoutGroup
   id: TsfmcBrigmedicGlasses

@@ -46,3 +46,17 @@
     rsi:
       sprite: _RMC14/Interface/MousePointer/pistol_mouse.rsi
       state: all
+  # Mono - Gun stock attack
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 10
+    angle: 20
+    wideAnimationRotation: -80
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
+  # Mono end

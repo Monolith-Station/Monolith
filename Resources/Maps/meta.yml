@@ -65871,7 +65871,7 @@ entities:
     - type: Transform
       pos: -19.5,-22.5
       parent: 5350
-- proto: ChemistryHotplate
+- proto: MachineThermobath
   entities:
   - uid: 6630
     components:
@@ -133727,7 +133727,7 @@ entities:
          1 Vial
          1 Beaker
          1 Microwave
-         1 Hotplate
+         1 Thermobath
          1 Electrolysis Unit
          1 Centrifuge
          1 Reagent Grinder
@@ -133755,7 +133755,7 @@ entities:
         (pour all of the electrolyzed water in at the same time)
          Step 11: Enjoy.
 
-        NOTES: If a hotplate isn’t obtainable or if purity isn’t a concern, 3 bananas processed in the same manner as Step 3 can be used to turn the oxygen into cryptobiolin. This WILL lower the purity from ~86% to ~67%. Certain other recipes can substitute the muffin recipe used in Step 4
+        NOTES: If a thermobath isn’t obtainable or if purity isn’t a concern, 3 bananas processed in the same manner as Step 3 can be used to turn the oxygen into cryptobiolin. This WILL lower the purity from ~86% to ~67%. Certain other recipes can substitute the muffin recipe used in Step 4
   - uid: 6609
     components:
     - type: Transform
@@ -133875,7 +133875,7 @@ entities:
 
         1 Reagent Grinder
 
-        1 Hotplate (or microwave)
+        1 thermobath (or microwave)
 
         1 Electrolysis Unit
 
@@ -133889,7 +133889,7 @@ entities:
 
         Step 2: Put the meat slurry into the electrolysis unit.
 
-        Step 3: Heat the meat slurry with the hotplate or microwave.
+        Step 3: Heat the meat slurry with the thermobath or microwave.
 
         Step 4: Transfer the slurry into the bucket. If you are only using the vial,
 

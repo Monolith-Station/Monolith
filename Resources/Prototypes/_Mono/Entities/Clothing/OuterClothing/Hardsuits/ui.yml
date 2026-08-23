@@ -76,7 +76,7 @@
     autoRechargeRate: 0.1
   - type: ClothingSpeedModifier
     walkModifier: 1
-    sprintModifier: 0.85 # Temporary till shield toggling doesnt break movement speed modifiers
+    sprintModifier: 0.65 # SIX FIVE SIX FIVE!!
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
@@ -88,6 +88,11 @@
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: StaminaDamageResistance
     coefficient: 0.45
+  - type: ExtendDescription
+    descriptionList:
+    - description: Alt-click or otherwise interact to toggle additional shielding.
+      color: "#4f94ad"
+      requireDetailRange: true
 
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT0 ]

@@ -1,0 +1,44 @@
+- type: loadout
+  id: UsspRankOR1
+  name: USSP OR-1 (Ryadovoy)
+  components:
+  - type: ChatRank
+    rank: ussp-or1
+
+- type: loadout
+  id: UsspRankOR2
+  name: USSP OR-2 (Efreitor)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: UsspEfr
+  components:
+  - type: ChatRank
+    rank: ussp-or2
+
+- type: loadoutEffectGroup
+  id: UsspEfr
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobUSSPRifleman
+      time: 108000 # 30hr
+
+- type: loadout
+  id: UsspRankOR3TimeLock100HR
+  name: USSP OR-3 (Mladshiy Serzhant)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: UsspMSzt100hr
+  components:
+  - type: ChatRank
+    rank: ussp-or3
+
+- type: loadoutEffectGroup
+  id: UsspMSzt100hr
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobUSSPRifleman
+      time: 360000 # 100hr
