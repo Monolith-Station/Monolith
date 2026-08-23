@@ -5,6 +5,12 @@
   spritePath: Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisGeneric
 
+- type: borgSubtype
+  parentBorgType: generic
+  id: generic_tall
+  spritePath: _Goobstation/Mobs/Silicon/Generic/meka_peace.rsi
+  dummyPrototype: BorgChassisGenericTall
+
 # Mining subtypes
 - type: borgSubtype
   parentBorgType: mining
@@ -17,6 +23,12 @@
   id: mining_basic
   spritePath: _Goobstation/Mobs/Silicon/Miner/basic.rsi
   dummyPrototype: BorgChassisMiningBasic
+
+- type: borgSubtype
+  parentBorgType: mining
+  id: mining_tall
+  spritePath: _Goobstation/Mobs/Silicon/Miner/mmeka_salv.rsi
+  dummyPrototype: BorgChassisMiningTall
 
 - type: borgSubtype
   parentBorgType: mining
@@ -60,6 +72,12 @@
   id: engineer_default
   spritePath: Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisEngineer
+
+- type: borgSubtype
+  parentBorgType: engineering
+  id: engineer_tall
+  spritePath: _Goobstation/Mobs/Silicon/Engineering/mmeka_engi.rsi
+  dummyPrototype: BorgChassisEngineerTall
 
 - type: borgSubtype
   parentBorgType: engineering
@@ -142,6 +160,12 @@
 
 - type: borgSubtype
   parentBorgType: janitor
+  id: janitor_tall
+  spritePath: _Goobstation/Mobs/Silicon/Janitor/meka_jani.rsi
+  dummyPrototype: BorgChassisJanitorTall
+
+- type: borgSubtype
+  parentBorgType: janitor
   id: janitor_rover
   spritePath: _Goobstation/Mobs/Silicon/Janitor/rover.rsi
   dummyPrototype: BorgChassisJanitorRover
@@ -158,6 +182,12 @@
   id: medical_standart
   spritePath: _Goobstation/Mobs/Silicon/Medical/standart.rsi
   dummyPrototype: BorgChassisMedicalStandart
+
+- type: borgSubtype
+  parentBorgType: medical
+  id: medical_tall
+  spritePath: _Goobstation/Mobs/Silicon/Medical/mmeka_med.rsi
+  dummyPrototype: BorgChassisMedicalTall
 
 - type: borgSubtype
   parentBorgType: medical
@@ -207,6 +237,12 @@
   id: default_service
   spritePath: Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisService
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_tall
+  spritePath: _Goobstation/Mobs/Silicon/Service/meka_alt_service.rsi
+  dummyPrototype: BorgChassisServiceTall
 
 - type: borgSubtype
   parentBorgType: service

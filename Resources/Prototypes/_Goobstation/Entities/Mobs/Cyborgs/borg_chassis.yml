@@ -1,3 +1,13 @@
+# Generic
+- type: entity
+  id: BorgChassisGenericTall
+  parent: BorgChassisGeneric
+  name: generic tall cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: generic_tall
+
 # Mining
 - type: entity
   id: BorgChassisMiningBasic
@@ -7,6 +17,15 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: mining_basic
+
+- type: entity
+  id: BorgChassisMiningTall
+  parent: BorgChassisMining
+  name: tall mining cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_tall
 
 - type: entity
   id: BorgChassisMiningAdvanced
@@ -80,6 +99,15 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: engineer_antique
+
+- type: entity
+  id: BorgChassisEngineerTall
+  parent: BorgChassisEngineer
+  name: tall engineer cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_tall
 
 - type: entity
   id: BorgChassisEngineerStandart
@@ -173,6 +201,15 @@
     borgSubtype: janitor_cricket
 
 - type: entity
+  id: BorgChassisJanitorTall
+  parent: BorgChassisJanitor
+  name: cricket janitor cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_tall
+
+- type: entity
   id: BorgChassisJanitorRover
   parent: BorgChassisJanitor
   name: rover janitor cyborg
@@ -190,6 +227,15 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: medical_standart
+
+- type: entity
+  id: BorgChassisMedicalTall
+  parent: BorgChassisMedical
+  name: tall medical cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_tall
 
 - type: entity
   id: BorgChassisMedicalMedbot
@@ -263,6 +309,15 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: service_standart
+
+- type: entity
+  id: BorgChassisServiceTall
+  parent: BorgChassisService
+  name: tall service cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_tall
 
 - type: entity
   id: BorgChassisServiceBrobot
