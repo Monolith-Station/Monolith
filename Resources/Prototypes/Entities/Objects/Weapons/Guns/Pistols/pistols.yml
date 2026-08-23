@@ -86,6 +86,20 @@
     sound:
       collection: PistolsDrop
   # Goobstation edit end
+  # Mono - Gun stock attack
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 10
+    angle: 20
+    wideAnimationRotation: -80
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
+  # Mono end
 
 - type: entity
   name: LWC PT-45A viper (9x19mm)

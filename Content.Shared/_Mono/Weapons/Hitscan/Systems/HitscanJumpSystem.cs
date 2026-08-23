@@ -36,7 +36,7 @@ public sealed partial class HitscanJumpSystem : EntitySystem
         if (args.Canceled ||
             args.HitEntities.Count == 0 ||
             args.Shooter == null ||
-            _mobQuery.HasComp(args.HitEntities.First()) ||
+            !_mobQuery.HasComp(args.HitEntities.First()) ||
             ent.Comp.Count <= 0)
             return;
 

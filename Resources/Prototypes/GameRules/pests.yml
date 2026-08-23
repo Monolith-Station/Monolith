@@ -87,9 +87,21 @@
       prob: 0.005 # Mono
     - id: MobRosyMothroach # Frontier
       prob: 0.005 # Mono
+    - id: MobMothroachLeopard # Frontier
+      prob: 0.0005 # Mono
+    - id: MobMothroachCecropia # Frontier
+      prob: 0.0005 # Mono
+    - id: MobMothroachLunar # Frontier
+      prob: 0.0005 # Mono
+    - id: MobMothroachMustard # Frontier
+      prob: 0.0005 # Mono
     specialEntries: # Mono
     - id: MobCorticalBorer # Mono
       prob: 0.001 # Mono
+    - id: MobMoproach
+      prob: 0.0005
+    - id: MobOwORoach
+      prob: 0.00005
 
 - type: entity
   id: SnailMigrationLowPop

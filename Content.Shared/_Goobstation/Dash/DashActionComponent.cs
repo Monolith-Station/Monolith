@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Actions;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Prototypes;
@@ -22,6 +24,9 @@ public sealed partial class DashActionEvent : WorldTargetActionEvent
     [DataField]
     public float Speed = 9.65f;
 
+    [DataField]
+    public float? StaminaDrain;
+
     /// <summary>
     /// Whether you need gravity to perform the dash. Keep in mind there's no friction without gravity so if this
     /// is false, the performer gets every chance to be launched straight to Ohio on dashing without gravity.
@@ -34,4 +39,10 @@ public sealed partial class DashActionEvent : WorldTargetActionEvent
     /// </summary>
     [DataField]
     public bool AffectedBySpeed = true;
+
+    /// <summary>
+    /// Animated emote to play on successful dash.
+    /// </summary>
+    [DataField]
+    public ProtoId<EmotePrototype>? Emote = "Flip";
 }

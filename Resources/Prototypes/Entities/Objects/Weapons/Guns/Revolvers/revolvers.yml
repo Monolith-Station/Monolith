@@ -69,6 +69,20 @@
     sound:
       collection: RevolversDrop
   # Goobstation edit end
+  # Mono - Gun stock attack
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 12
+    angle: 20
+    wideAnimationRotation: -80
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
+  # Mono end
 
 - type: entity
   name: Garter (.357 magnum)
@@ -132,7 +146,7 @@
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/python_fire.ogg
       params:
         volume: 2.25
-    damageModifier: 0.8
+    damageModifier: 1.2
   - type: StaticPrice
     price: 1
 

@@ -49,3 +49,16 @@
   - type: LaserPointer
     targetedColor: "#03c2fc"
     defaultColor: "#03c2fc"
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 1.1
+    damage:
+      types:
+        Blunt: 9
+    angle: 0
+    wideAnimationRotation: 135
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light

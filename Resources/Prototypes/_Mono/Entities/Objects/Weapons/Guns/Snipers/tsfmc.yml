@@ -72,7 +72,20 @@
   - type: GunRequiresWield
   - type: LaserPointer
     targetedColor: "#03c2fc"
-    defaultColor: "#03c2fc"
+    defaultColor: "#fc0324"
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 24 # snipers are HEAVY!
+    angle: 0
+    wideAnimationRotation: 45
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
 
 - type: entity
   name: VFD QBU-243 Xian DMR (8x65mm SKR)

@@ -84,10 +84,10 @@
     coefficient: 0.75
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT2 ]
+  parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT3 ]
   id: ClothingOuterHardsuitPDVMedic
   name: PDV CV-82 combat tacsuit
-  description: A field medic combat hardsuit designed by the Phaethon Dynasty. The armor features various reinforced plating in vital areas.
+  description: Fast combat hardsuit designed by the Phaethon Dynasty. The armor features various reinforced plating in vital areas.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/pdv_medic.rsi
@@ -103,17 +103,17 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.67
-        Slash: 0.34
-        Piercing: 0.625
-        Heat: 0.55
-        Radiation: 0.1
+        Blunt: 0.65
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Radiation: 0.6
         Caustic: 0.1
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.67
   - type: ClothingSpeedModifier
-    walkModifier: 1.05
-    sprintModifier: 1.05
+    walkModifier: 1.15
+    sprintModifier: 1.15
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
@@ -153,7 +153,7 @@
     - RogueHardsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitSyndieElite, EnergyShieldClothing ]
+  parent: [ ClothingOuterHardsuitSyndieElite, MonoEnergyShieldClothing ]
   id: ClothingOuterHardsuitAshenElite
   name: PDV CV-53 combat tacsuit
   description: Originally based off of the CV-32 hardsuit, the CV-53 tacsuit sacrifices conventional armor plating for environmental protection, and a rechargeable hard-shield.
@@ -171,7 +171,7 @@
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: ExplosionResistance
-    damageCoefficient: 0.3
+    damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
   - type: Armor # Mono - Armor Value Changes
@@ -179,7 +179,7 @@
       coefficients:
         Blunt: 0.75
         Slash: 0.75
-        Piercing: 0.7
+        Piercing: 0.65
         Heat: 0.2
         Radiation: 0.1
         Caustic: 0.5
@@ -187,40 +187,34 @@
     size: Huge
   - type: ClothingSpeedModifier
     walkModifier: 1.0
-    sprintModifier: 1.0 # 0.9-> 1 Mono
+    sprintModifier: 0.9
   - type: Tag
     tags:
     - RogueHardsuit
   # Shielding
-  - type: Blocking
-    passiveBlockModifier:
-      coefficients:
-        Blunt: 0.1
-        Slash: 0.1
-        Piercing: 0.1
-        Heat: 0.1
-    activeBlockModifier:
-      coefficients:
-        Blunt: 0.1
-        Slash: 0.1
-        Piercing: 0.1
-        Heat: 0.1
-      flatReductions:
-        Heat: 5
-    passiveBlockFraction: 1.0
-    activeBlockFraction: 1.0
-    isClothing: true
-  - type: Damageable
-    damageContainer: Shield
+  - type: PersonalShield
+    color: "#FF5F1F"
+    scale: 2
+    fillLevel: 0.1
+    coreFade: 0.85
+    shield:
+      maxCharge: 200
+      regenRate: 5
+      spinupTime: 0.5
+      breakCooldown: 17
+      powerDraw: 1
+      blockModifier:
+        coefficients:
+          Piercing: 0.5
+          Heat: 1.5
+          Radiation: 2.5
+          Shock: 2.5
   - type: Battery
-    maxCharge: 10
-    startingCharge: 10
+    maxCharge: 100
+    startingCharge: 100
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 1
-  - type: RechargeableBlocking
-    chargedRechargeRate: 0
-    dischargedRechargeRate: 0.3
+    autoRechargeRate: 5
   - type: UseDelay
     delay: 10
   - type: PointLight
@@ -228,6 +222,14 @@
     radius: 1.4
     energy: 2
     color: "#5dd439"
+  - type: ExtendDescription
+    descriptionList:
+    - description: Alt-click or otherwise interact to toggle additional shielding.
+      color: "#4f94ad"
+      requireDetailRange: true
+    - description: The CV-53 hardshield is designed to inhibit the velocity of incoming conventional firearms. However, it struggles against anything involving high-energy particles, such as lasers.
+      color: "#94768c"
+      requireDetailRange: true
 
 - type: entity
   parent: ClothingOuterHardsuitAshen

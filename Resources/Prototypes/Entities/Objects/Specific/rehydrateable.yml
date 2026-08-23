@@ -94,7 +94,31 @@
     - MobMothroach # Frontier: enforced rarity
     - MobMothroach # Frontier
     - MobMothroach # Frontier
+    - MobMothroachLeopard
+    - MobMothroachCecropia
+    - MobMothroachLunar
+    - MobMothroachMustard
     - MobRosyMothroach # Frontier
+    - MobRosyMothroach # Frontier
+    - MobMoproach # wizden
+
+- type: entity
+  parent: MonkeyCube
+  id: MothroachMustardCube
+  name: mustard mothroach cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobMothroachMustard
+
+- type: entity
+  parent: MonkeyCube
+  id: OwOroachCube
+  name: OwOroach cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobOwORoach
 
 - type: entity
   parent: MonkeyCube

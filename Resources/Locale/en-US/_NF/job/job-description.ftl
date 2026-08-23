@@ -1,7 +1,7 @@
 job-description-bailiff = Ensure order at the FOB, watch over your Lieutenant(s), and make sure that all PD imperials are executed for their crimes against the TSF.
 job-description-brigmedic-nf = Fight in the rear of the Colonel's service, for the lives of your comrades! You are the first and last hope of your squad. Hippocrates bless you.
 job-description-cadet-nf = Hunt down PD imperials and protect the FOB. Listen to your supervisors and feel free to ask them for any help.
-job-description-contractor = Fulfill your own goals out in Colossus space.
+job-description-contractor = Fulfill your own goals out in Colossus space by yourself. It's you against the world, baby!
 job-description-deputy = Hunt down PD Imperials and enemies of the TSF, enforce the Colonel's law, and bring order to chaos in the sector.
 job-description-nf-detective = Investigate crime scenes using forensic tools, ensure that the guilty party is found, and have a couple smokes.
 job-description-ertmailcarrier = Nothing stops the mail.

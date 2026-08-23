@@ -2,7 +2,6 @@ using Content.Server.Shuttles.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
-using Robust.Shared.Configuration;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 
@@ -13,9 +12,8 @@ public sealed partial class MapMigrationSystem_SS220 : EntitySystem
     [Dependency] private MapSystem _map = default!;
     [Dependency] private TagSystem _tag = default!;
     [Dependency] private TransformSystem _transform = default!;
-    [Dependency] private IConfigurationManager _cfg = default!;
 
-    private static readonly HashSet<ProtoId<TagPrototype>> TagsForTileOccupied = ["Wall", "Window"];
+    private static readonly HashSet<ProtoId<TagPrototype>> TagsForTileOccupied = ["Wall", "Window", "DoorAutorotate"];
 
     private static readonly EntProtoId BaseSecretDoorId = "BaseSecretDoor";
 

@@ -57,12 +57,27 @@
     sound:
       collection: SnipersDrop
   # Goobstation edit end
+  # Mono - Gun stock attack
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 24 # snipers are HEAVY!
+    angle: 0
+    wideAnimationRotation: 45
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
+  # Mono end
 
 # Mono - moved Hristov & Mosin to _Mono
 
 - type: entity
   name: musket
-  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseGunMelee ] # add BaseGunMelee
+  parent: [ BaseGunMelee, BaseWeaponSniper, BaseGunWieldable ] # add BaseGunMelee
   id: Musket
   description: This should've been in a museum long before you were born. Uses 145x114mm ammo.
   components:

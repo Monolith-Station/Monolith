@@ -53,6 +53,10 @@ pdv-vizier = Grand Vizier
 pdv-tarkhan = PDRV Tarkhan
 pdv-reservist = Militia
 
+#PDV Adminroles
+pdv-ambassador = Ambassador
+pdv-prince = Prince
+
 ### USSP loadout ranks
 
 ### Rifleman Ranks

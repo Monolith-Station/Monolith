@@ -25,7 +25,10 @@
     interfaces:
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: [ClothingEyesHudOmni]
   id: ClothingEyesGlassesCentComm
@@ -45,6 +48,7 @@
      - WhitelistChameleon
      - HudMedical
      - HudSecurity
+     - PetWearable
   - type: IdentityBlocker
     coverage: EYES
   - type: ShowHealthBars

@@ -154,10 +154,10 @@
     id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
-  parent: [ClothingOuterHardsuitJuggernaut, EnergyShieldClothing, BaseFactionGearTSFT3 ] # Jugger Suit
+  parent: [ClothingOuterHardsuitJuggernaut, MonoEnergyShieldClothing, BaseFactionGearTSFT3 ] # Jugger Suit
   id: ClothingOuterHardsuitNfsdExperimental
   name: TSFMC M92-X tacsuit
-  description: An experimental modification of the M92 tacsuit for spec-ops units of the TSFMC. Durable, and comes with an integrated soft-shield along with numerous gadgets at the cost of insulation and solid armor.
+  description: An experimental modification of the M92 tacsuit for spec-ops units of the TSFMC. Durable, and comes with an integrated hard-shield along with numerous gadgets at the cost of insulation and solid armor.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/tsfmc_experimental.rsi # Mono
@@ -181,16 +181,16 @@
   - type: Armor # Mono - Armor Value Changes
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.6
-        Radiation: 0.45
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.5
+        Radiation: 0.5
         Caustic: 0.8
         Poison: 0.8 # Mono
   - type: ClothingSpeedModifier # Mono - Armor Value Changes
     walkModifier: 0.7
-    sprintModifier: 0.65
+    sprintModifier: 0.6
   - type: FactionClothing
     faction: NanoTrasen
   - type: StaminaDamageResistance # Mono - Stamres
@@ -198,41 +198,49 @@
   - type: PirateBountyItem # Mono
     id: ClothingOuterHardsuitTacsuitHighValue
   # Mono - Shielding comps
-  - type: Blocking
-    passiveBlockModifier:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-    activeBlockModifier:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-      flatReductions:
-        Heat: 5
-        Piercing: 5
-    passiveBlockFraction: 0.6
-    activeBlockFraction: 0.6
-    isClothing: true
-  - type: Damageable
-    damageContainer: Shield
+  - type: PersonalShield
+    fillLevel: 0.2
+    hexDensity: 6
+    pixelGrid: 192
+    color: "#E0FFFF"
+    scale: 2.3
+    shield:
+      maxCharge: 400
+      regenRate: 5
+      spinupTime: 2.5
+      breakCooldown: 20
+      powerDraw: 0.5
+      blockModifier:
+        coefficients:
+          Piercing: 0.5
+          Heat: 1.5
+          Radiation: 2.5
+          Shock: 2.5
   - type: Battery
-    maxCharge: 150
-    startingCharge: 150
+    maxCharge: 100
+    startingCharge: 100
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 1.5
-  - type: RechargeableBlocking
+    autoRechargeRate: 5
+    autoRechargePauseTime: 5
   - type: UseDelay
     delay: 10
+  - type: FootstepModifier # Mono
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: ExtendDescription
+    descriptionList:
+    - description: Alt-click or otherwise interact to toggle additional shielding.
+      color: "#4f94ad"
+      requireDetailRange: true
+    - description: The M92-x shield is designed to inhibit the velocity of incoming conventional firearms. However, it struggles against anything involving high-energy particles, such as lasers.
+      color: "#94768c"
+      requireDetailRange: true
 
 # MARSOC only
 
 - type: entity
-  parent: [EnergyShieldClothing, ClothingOuterHardsuitM86, BaseFactionGearTSFT3]
+  parent: [MonoEnergyShieldClothing, ClothingOuterHardsuitM86, BaseFactionGearTSFT3]
   id: ClothingOuterHardsuitM86Mk4
   name: M86 Mk.4(B) hardsuit
   description: A limited-production redesign proposal for the M86 Mk.3(R), outfitted with an inbuilt personal shield generator.
@@ -268,3 +276,33 @@
       head: ClothingHeadHelmetHardsuitM86Mk4
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: PersonalShield
+    fillLevel: 0.15
+    hexDensity: 3
+    pixelGrid: 96
+    color: "#7F00FF"
+    scale: 2.0
+    shield:
+      maxCharge: 250
+      regenRate: 5
+      spinupTime: 0.75
+      breakCooldown: 20
+      powerDraw: 0.5
+      blockModifier:
+        coefficients:
+          Heat: 1.25
+          Radiation: 1.5
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
+    autoRechargePauseTime: 5
+  - type: EmpResistance
+    coefficient: 0.0001
+  - type: ExtendDescription
+    descriptionList:
+    - description: Alt-click or otherwise interact to toggle additional shielding.
+      color: "#4f94ad"
+      requireDetailRange: true
