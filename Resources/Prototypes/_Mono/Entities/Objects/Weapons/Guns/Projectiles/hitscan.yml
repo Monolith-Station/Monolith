@@ -1,4 +1,45 @@
 - type: entity
+  id: BasicBallisticHitscan
+  parent: BasicHitscan
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicRaycast
+    maxDistance: 200
+    collisionMask:
+    - Impassable
+    - Opaque
+    - HighImpassable
+  - type: HitscanReflect
+    reflectiveType: None
+
+- type: entity
+  id: PiercingBallisticHitscan
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanAmmo
+  - type: HitscanMultiRaycast
+    maxPierce: 1
+    maxDistance: 200
+    collisionMask:
+    - Impassable
+    - Opaque
+    - HighImpassable
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: ballistic_muzzle
+    travelFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: ballistic_trail
+    impactFlash:
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
+      state: ballistic_impact
+  - type: HitscanReflect
+    reflectiveType: None
+  - type: HitscanBasicEffects
+
+
+- type: entity
   id: PulsedPlasma
   parent: BasicHitscan
   categories: [ HideSpawnMenu ]
@@ -74,7 +115,7 @@
 
 - type: entity
   id: Coilgun134x92mm
-  parent: BasicHitscan
+  parent: BasicBallisticHitscan
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -83,14 +124,6 @@
         Piercing: 120
         Structural: 500
     armorPenetration: 0.8
-  - type: HitscanBasicRaycast
-    maxDistance: 200
-    collisionMask:
-    - Impassable
-    - Opaque
-    - HighImpassable
-  - type: HitscanReflect
-    reflectiveType: None
   - type: HitscanBasicVisuals
     muzzleFlash:
       sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
@@ -101,3 +134,33 @@
     impactFlash:
       sprite: _Mono/Objects/Weapons/Guns/Projectiles/lasers.rsi
       state: gauss_impact
+
+- type: entity
+  parent: PiercingBallisticHitscan
+  id: Magnum45
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Piercing: 35
+    armorPenetration: 0.065
+
+- type: entity
+  parent: PiercingBallisticHitscan
+  id: Hitscan145x114mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Piercing: 200
+        Structural: 650
+    armorPenetration: 0
+  - type: HitscanMultiRaycast
+    maxPierce: 10 # This is going to be so fucking funny
+    maxDistance: 200
+    collisionMask:
+    - Impassable
+    - Opaque
+    - HighImpassable

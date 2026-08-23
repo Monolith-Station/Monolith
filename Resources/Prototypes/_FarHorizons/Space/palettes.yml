@@ -1,0 +1,260 @@
+# Rings
+- type: planetPalette
+  id: PaletteRingsIce
+  color1: '#8C6E54'
+  color2: '#D9CBB0'
+  color3: '#9BB0C1'
+  color4: '#000000' # Rings only use 3 colors
+
+- type: planetPalette
+  id: PaletteRingsNitrogen
+  color1: '#2A4858'
+  color2: '#00B4D8'
+  color3: '#90E0EF'
+  color4: '#000000' # Rings only use 3 colors
+
+- type: planetPalette
+  id: PaletteRingsMetallic
+  color1: '#582F0E'
+  color2: '#A6521B'
+  color3: '#E5A93C'
+  color4: '#000000' # Rings only use 3 colors
+
+- type: planetPalette
+  id: PaletteRingsVoid
+  color1: '#231942'
+  color2: '#5E548E'
+  color3: '#9F86C0'
+  color4: '#000000' # Rings only use 3 colors
+
+- type: planetPalette
+  id: PaletteRingsRadioactive
+  color1: '#0B4F6C'
+  color2: '#01BAEF'
+  color3: '#20BF55'
+  color4: '#000000' # Rings only use 3 colors
+
+- type: planetPalette
+  id: PaletteRingsObsidian
+  color1: '#212529'
+  color2: '#495057'
+  color3: '#ADB5BD'
+  color4: '#000000' # Rings only use 3 colors
+
+# Gas Giants
+- type: planetPalette
+  id: PaletteGasGiantJupiter
+  color1: '#1F0F08'
+  color2: '#C45A21'
+  color3: '#F3D2A2'
+  color4: '#FF1A40'
+
+- type: planetPalette
+  id: PaletteGasGiantSaturn
+  color1: '#1B1109'
+  color2: '#C9933B'
+  color3: '#EADBB3'
+  color4: '#30D5C8'
+
+- type: planetPalette
+  id: PaletteGasGiantPurple
+  color1: '#12081C'
+  color2: '#68297A'
+  color3: '#E2A2CB'
+  color4: '#00FFC4'
+
+- type: planetPalette
+  id: PaletteGasGiantToxic
+  color1: '#0F140A'
+  color2: '#576D22'
+  color3: '#D0C95C'
+  color4: '#8C32FE'
+
+# Ice Giants
+- type: planetPalette
+  id: PaletteIceGiantNeptune
+  color1: '#163B73'
+  color2: '#2768A8'
+  color3: '#38D4F5'
+  color4: '#E6FBFF'
+
+- type: planetPalette
+  id: PaletteIceGiantUranus
+  color1: '#1F536E'
+  color2: '#3CA0B8'
+  color3: '#5CF2D6'
+  color4: '#EBFAFA'
+
+- type: planetPalette
+  id: PaletteIceGiantAmethyst
+  color1: '#401A70'
+  color2: '#7531B5'
+  color3: '#C652FF'
+  color4: '#F8F0FF'
+
+- type: planetPalette
+  id: PaletteIceGiantFrezon
+  color1: '#0E2733'
+  color2: '#3A758C'
+  color3: '#8FD3E8'
+  color4: '#EAF7FB'
+
+- type: planetPalette
+  id: PaletteIceGiantMint
+  color1: '#1A5944'
+  color2: '#2E9C75'
+  color3: '#45F2A9'
+  color4: '#E8FFF5'
+
+- type: planetPalette
+  id: PaletteIceGiantAmber
+  color1: '#592912'
+  color2: '#A34F1A'
+  color3: '#FF8A29'
+  color4: '#FFF3E6'
+
+# Vulcanic
+- type: planetPalette
+  id: PaletteVolcanicMagma
+  color1: '#FFE135'
+  color2: '#E54011'
+  color3: '#3D1410'
+  color4: '#1A0A0A'
+
+- type: planetPalette
+  id: PaletteVolcanicSulfur
+  color1: '#1F1E19'
+  color2: '#4A5021'
+  color3: '#8B9C2A'
+  color4: '#D4CC46'
+
+# Barren
+- type: planetPalette
+  id: PaletteBarrenLunar
+  color1: '#323947'
+  color2: '#1D222C'
+  color3: '#79879C'
+  color4: '#CBD9ED'
+
+- type: planetPalette
+  id: PaletteBarrenRocky
+  color1: '#753525'
+  color2: '#401A12'
+  color3: '#B8684D'
+  color4: '#F7CCA8'
+
+- type: planetPalette
+  id: PaletteBarrenSulphur
+  color1: '#666B1F'
+  color2: '#383D0E'
+  color3: '#A4AC33'
+  color4: '#EFF788'
+
+# Desert
+- type: planetPalette
+  id: PaletteDesertMars
+  color1: '#3B1C10'
+  color2: '#8A3B22'
+  color3: '#C76D42'
+  color4: '#E3A86B'
+
+- type: planetPalette
+  id: PaletteDesertDune
+  color1: '#573A25'
+  color2: '#946E4A'
+  color3: '#D4AE77'
+  color4: '#F2DDA6'
+
+# Ice
+- type: planetPalette
+  id: PaletteIceDeep
+  color1: '#1F5B7D'
+  color2: '#0D2D42'
+  color3: '#4FA3C7'
+  color4: '#B7F1FF'
+
+- type: planetPalette
+  id: PaletteIceMethane
+  color1: '#632B5A'
+  color2: '#33132E'
+  color3: '#9E4E91'
+  color4: '#F7C6F1'
+
+- type: planetPalette
+  id: PaletteIceCryoVolcanic
+  color1: '#2E4C59'
+  color2: '#162730'
+  color3: '#527E91'
+  color4: '#AFF5E8'
+
+# Habitable
+- type: planetPalette
+  id: PaletteHabitableEarth
+  color1: '#0A3878'
+  color2: '#337A38'
+  color3: '#6B6152'
+  color4: '#EBF2FA'
+
+- type: planetPalette
+  id: PaletteHabitableNauvis
+  color1: '#3E3A32'
+  color2: '#42632D'
+  color3: '#8C7A56'
+  color4: '#F0F4F8'
+
+- type: planetPalette
+  id: PaletteBlightAerumna
+  color1: '#2B1012'
+  color2: '#8E1F1F'
+  color3: '#C0503A'
+  color4: '#E4D2AE'
+
+- type: planetPalette
+  id: PaletteHabitableOcean
+  color1: '#032652'
+  color2: '#009EAD'
+  color3: '#DAA08A'
+  color4: '#296659'
+
+- type: planetPalette
+  id: PaletteHabitableJungle
+  color1: '#052429'
+  color2: '#0D8C47'
+  color3: '#054F24'
+  color4: '#809461'
+
+# Asteroid belts
+- type: planetPalette
+  id: AsteroidBeltStandard
+  color1: '#14121F'
+  color2: '#736152'
+  color3: '#1F1C1A'
+  color4: '#8C8073'
+
+- type: planetPalette
+  id: AsteroidBeltFrozen
+  color1: '#051F38'
+  color2: '#59B3D9'
+  color3: '#142633'
+  color4: '#B3E0F2'
+
+- type: planetPalette
+  id: AsteroidBeltMetallic
+  color1: '#26140D'
+  color2: '#D98C40'
+  color3: '#2E2926'
+  color4: '#CCB88C'
+
+- type: planetPalette
+  id: AsteroidBeltMolten
+  color1: '#400A05'
+  color2: '#FF731A'
+  color3: '#1A0D0D'
+  color4: '#F24D1A'
+
+- type: planetPalette
+  id: AsteroidBeltToxic
+  color1: '#0A2614'
+  color2: '#4DD973'
+  color3: '#141A17'
+  color4: '#66BF99'

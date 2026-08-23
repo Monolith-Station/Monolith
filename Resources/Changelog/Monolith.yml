@@ -23724,3 +23724,51 @@ Entries:
   id: 2610
   time: '2026-08-13T12:26:25.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4484
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: The sun now exists.
+  id: 2611
+  time: '2026-08-13T21:40:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4459
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        .357 magnum FMJ is now hypervelocity, acting as hitscan and piercing 1
+        entity
+    - type: Tweak
+      message: >-
+        14.5mm is now hypervelocity, dealing 200 (190 in case of hristov) damage
+        and piercing 10 entities.
+  id: 2612
+  time: '2026-08-14T09:48:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4335
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The Phaeton Dynasty Vanguard can now obtain elite web vests. They are
+        specialised to protect against energy weapons, however the vest falters
+        under ballistic gunfire.
+  id: 2613
+  time: '2026-08-14T15:43:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4478
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Biodome shield against chimeras on CC.
+    - type: Tweak
+      message: Lesser chimeras now gib on death.
+  id: 2614
+  time: '2026-08-14T23:05:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4486
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Testmerged wizden wall/windows/doors resprites; please report any
+        bugs/issues on discord or github!
+  id: 2615
+  time: '2026-08-15T00:21:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4485

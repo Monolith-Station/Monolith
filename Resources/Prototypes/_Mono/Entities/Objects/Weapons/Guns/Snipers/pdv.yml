@@ -10,6 +10,7 @@
     sprite: Objects/Weapons/Guns/Snipers/hristov.rsi
   - type: GunRequiresWield
   - type: Gun
+    damageModifier: 0.95
     fireRate: 0.75
     selectedMode: SemiAuto
     availableModes:
