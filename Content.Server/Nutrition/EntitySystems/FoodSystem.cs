@@ -26,6 +26,7 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.Storage;
 using Content.Shared.Verbs;
+using Content.Shared._Goobstation.EatToGrow;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
@@ -284,6 +285,8 @@ public sealed partial class FoodSystem : EntitySystem
         _reaction.DoEntityReaction(args.Target.Value, solution, ReactionMethod.Ingestion);
         _stomach.TryTransferSolution(stomachToUse!.Value.Owner, split, stomachToUse);
 
+        var afterEatingEv = new AfterEatingEvent(entity.Owner);
+        RaiseLocalEvent(args.Target.Value, ref afterEatingEv);
         var flavors = args.FlavorMessage;
 
         if (forceFeed)

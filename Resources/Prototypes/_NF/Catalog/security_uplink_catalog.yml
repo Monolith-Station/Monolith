@@ -898,6 +898,22 @@
           - SecurityUplink
 
 - type: listing
+  id: UplinkSecurityImplanterTSF
+  name: uplink-security-implanter-tsf-name
+  description: uplink-security-implanter-tsf-desc
+  icon: { sprite: _NF/Objects/Devices/encryption_keys.rsi, state: nfsd_label }
+  productEntity: RadioImplanterTsf
+  cost:
+    FederationMilitaryCredit: 10
+  categories:
+  - UplinkSecurityUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
   id: UplinkSecurityEnergyShield
   name:  uplink-security-energyshield-name
   description: uplink-security-energyshield-desc
@@ -1134,6 +1150,22 @@
   icon: { sprite: Objects/Weapons/Grenades/grenade.rsi, state: icon}
   cost:
     FederationMilitaryCredit: 5
+  categories:
+    - UplinkSecurityExplosives
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityMobBoomroach
+  name: uplink-security-MobBoomroach-name
+  description: uplink-security-MobBoomroach-desc
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-boomroach }
+  productEntity: ReinforcementRadioTSFBoomRoach
+  cost:
+    FederationMilitaryCredit: 30
   categories:
     - UplinkSecurityExplosives
   conditions:

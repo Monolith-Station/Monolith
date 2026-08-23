@@ -35,3 +35,19 @@
     Copper: 5000
     UraniumFissile: 150
     Iridite: 500 # It felt fitting. Just a high cost via the problem of obtaining it, not the problem of making it in bulk. No point making it cost 5 or 20 or whatever when its made in crystalizer.
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AutosurgeonAdvHeartMMC
+  result: AutosurgeonAdvHeartMMCFlatpack
+  materialDiscountScale: 0
+  materials:
+    Steel: 300
+    Plastic: 5000
+    Glass: 1500
+    Plasteel: 2500
+    Plasma: 5000
+    Lithium: 800
+    Copper: 800
+    Durathread: 1000
+    UraniumFissile: 750

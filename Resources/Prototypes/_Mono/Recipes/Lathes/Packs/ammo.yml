@@ -78,6 +78,7 @@
   - AmmoBox8x65mmSKRIncendiary
   - AmmoBox8x65mmSKRPractice
   - AmmoBox145x114mm
+  - AmmoBox145x114mmEMP
   - AmmoBox145x114mmBig
   - Magazine556x45mmFMJ
   - Magazine556x45mmPlasteelAP
@@ -518,60 +519,60 @@
 
 #HP recipes
 
-  - Magazine762x51mmHP
-  - AmmoBox762x51mmHP
-  - Magazine762x54mmRHP
-  - AmmoBox762x54mmRHP
-  - Magazine556x45mmHP
-  - AmmoBox556x45mmHP
-  - Magazine762x39mmHP
-  - AmmoBox762x39mmHP
-  - SpeedLoader357_magnumHP
-  - AmmoBox357_magnumHP
-  - Magazine68x52mmHP
-  - AmmoBox68x52mmHP
-  - Magazine46x30mmPistolHP
-  - Magazine46x30mmSubMachineGunHP
-  - AmmoBox46x30mmHP
-  - Magazine57x28mmPistolHP
-  - Magazine57x28mmSubMachineGunHP
-  - AmmoBox57x28mmHP
-  - Magazine9x19mmPistolHP
-  - Magazine9x19mmSubMachineGunHP
-  - AmmoBox9x19mmHP
-  - Magazine45_ACPPistolHP
-  - Magazine45_ACPSubMachineGunHP
-  - AmmoBox45_ACPHP
+#  - Magazine762x51mmHP
+#  - AmmoBox762x51mmHP
+#  - Magazine762x54mmRHP
+#  - AmmoBox762x54mmRHP
+#  - Magazine556x45mmHP
+#  - AmmoBox556x45mmHP
+#  - Magazine762x39mmHP
+#  - AmmoBox762x39mmHP
+#  - SpeedLoader357_magnumHP
+#  - AmmoBox357_magnumHP
+#  - Magazine68x52mmHP
+#  - AmmoBox68x52mmHP
+#  - Magazine46x30mmPistolHP
+#  - Magazine46x30mmSubMachineGunHP
+#  - AmmoBox46x30mmHP
+#  - Magazine57x28mmPistolHP
+#  - Magazine57x28mmSubMachineGunHP
+#  - AmmoBox57x28mmHP
+#  - Magazine9x19mmPistolHP
+#  - Magazine9x19mmSubMachineGunHP
+#  - AmmoBox9x19mmHP
+#  - Magazine45_ACPPistolHP
+#  - Magazine45_ACPSubMachineGunHP
+#  - AmmoBox45_ACPHP
 
 #RIP recipes
 
-  - AmmoBox23x75mmSlugRIP
-  - Magazine12_gaugeSlugRIP
-  - AmmoBox12_gaugeSlugRIP
-  - Magazine762x51mmRIP
-  - AmmoBox762x51mmRIP
-  - Magazine762x54mmRRIP
-  - AmmoBox762x54mmRRIP
-  - Magazine556x45mmRIP
-  - AmmoBox556x45mmRIP
-  - Magazine762x39mmRIP
-  - AmmoBox762x39mmRIP
-  - SpeedLoader357_magnumRIP
-  - AmmoBox357_magnumRIP
-  - Magazine68x52mmRIP
-  - AmmoBox68x52mmRIP
-  - Magazine46x30mmPistolRIP
-  - Magazine46x30mmSubMachineGunRIP
-  - AmmoBox46x30mmRIP
-  - Magazine57x28mmPistolRIP
-  - Magazine57x28mmSubMachineGunRIP
-  - AmmoBox57x28mmRIP
-  - Magazine9x19mmPistolRIP
-  - Magazine9x19mmSubMachineGunRIP
-  - AmmoBox9x19mmRIP
-  - Magazine45_ACPPistolRIP
-  - Magazine45_ACPSubMachineGunRIP
-  - AmmoBox45_ACPRIP
+#  - AmmoBox23x75mmSlugRIP
+#  - Magazine12_gaugeSlugRIP
+#  - AmmoBox12_gaugeSlugRIP
+#  - Magazine762x51mmRIP
+#  - AmmoBox762x51mmRIP
+#  - Magazine762x54mmRRIP
+#  - AmmoBox762x54mmRRIP
+#  - Magazine556x45mmRIP
+#  - AmmoBox556x45mmRIP
+#  - Magazine762x39mmRIP
+#  - AmmoBox762x39mmRIP
+#  - SpeedLoader357_magnumRIP
+#  - AmmoBox357_magnumRIP
+#  - Magazine68x52mmRIP
+#  - AmmoBox68x52mmRIP
+#  - Magazine46x30mmPistolRIP
+#  - Magazine46x30mmSubMachineGunRIP
+#  - AmmoBox46x30mmRIP
+#  - Magazine57x28mmPistolRIP
+#  - Magazine57x28mmSubMachineGunRIP
+#  - AmmoBox57x28mmRIP
+#  - Magazine9x19mmPistolRIP
+#  - Magazine9x19mmSubMachineGunRIP
+#  - AmmoBox9x19mmRIP
+#  - Magazine45_ACPPistolRIP
+#  - Magazine45_ACPSubMachineGunRIP
+#  - AmmoBox45_ACPRIP
 
 #civilian = FMJ + practice + empty + rubber + HP + Steel AP
 # MARK: Static
@@ -727,30 +728,30 @@
 
 #HP recipes
 
-  - Magazine762x51mmHP
-  - AmmoBox762x51mmHP
-  - Magazine762x54mmRHP
-  - AmmoBox762x54mmRHP
-  - Magazine556x45mmHP
-  - AmmoBox556x45mmHP
-  - Magazine762x39mmHP
-  - AmmoBox762x39mmHP
-  - SpeedLoader357_magnumHP
-  - AmmoBox357_magnumHP
-  - Magazine46x30mmPistolHP
-  - Magazine46x30mmSubMachineGunHP
-  - AmmoBox46x30mmHP
-  - Magazine57x28mmPistolHP
-  - Magazine57x28mmSubMachineGunHP
-  - AmmoBox57x28mmHP
-  - Magazine9x19mmPistolHP
-  - Magazine9x19mmSubMachineGunHP
-  - AmmoBox9x19mmHP
-  - Magazine45_ACPPistolHP
-  - Magazine45_ACPSubMachineGunHP
-  - AmmoBox45_ACPHP
-  - Magazine68x52mmHP
-  - AmmoBox68x52mmHP
+#  - Magazine762x51mmHP
+#  - AmmoBox762x51mmHP
+#  - Magazine762x54mmRHP
+#  - AmmoBox762x54mmRHP
+#  - Magazine556x45mmHP
+#  - AmmoBox556x45mmHP
+#  - Magazine762x39mmHP
+#  - AmmoBox762x39mmHP
+#  - SpeedLoader357_magnumHP
+#  - AmmoBox357_magnumHP
+#  - Magazine46x30mmPistolHP
+#  - Magazine46x30mmSubMachineGunHP
+#  - AmmoBox46x30mmHP
+#  - Magazine57x28mmPistolHP
+#  - Magazine57x28mmSubMachineGunHP
+#  - AmmoBox57x28mmHP
+#  - Magazine9x19mmPistolHP
+#  - Magazine9x19mmSubMachineGunHP
+#  - AmmoBox9x19mmHP
+#  - Magazine45_ACPPistolHP
+#  - Magazine45_ACPSubMachineGunHP
+#  - AmmoBox45_ACPHP
+#  - Magazine68x52mmHP
+#  - AmmoBox68x52mmHP
 
 # Energy
   - Magazine700Thz
@@ -861,33 +862,33 @@
 
 #RIP recipes
 
-  - AmmoBox23x75mmSlugRIP
-  - Magazine12_gaugeSlugRIP
-  - AmmoBox12_gaugeSlugRIP
-  - Magazine762x51mmRIP
-  - AmmoBox762x51mmRIP
-  - Magazine762x54mmRRIP
-  - AmmoBox762x54mmRRIP
-  - Magazine556x45mmRIP
-  - AmmoBox556x45mmRIP
-  - Magazine762x39mmRIP
-  - AmmoBox762x39mmRIP
-  - SpeedLoader357_magnumRIP
-  - AmmoBox357_magnumRIP
-  - Magazine68x52mmRIP
-  - AmmoBox68x52mmRIP
-  - Magazine46x30mmPistolRIP
-  - Magazine46x30mmSubMachineGunRIP
-  - AmmoBox46x30mmRIP
-  - Magazine57x28mmPistolRIP
-  - Magazine57x28mmSubMachineGunRIP
-  - AmmoBox57x28mmRIP
-  - Magazine9x19mmPistolRIP
-  - Magazine9x19mmSubMachineGunRIP
-  - AmmoBox9x19mmRIP
-  - Magazine45_ACPPistolRIP
-  - Magazine45_ACPSubMachineGunRIP
-  - AmmoBox45_ACPRIP
+#  - AmmoBox23x75mmSlugRIP
+#  - Magazine12_gaugeSlugRIP
+#  - AmmoBox12_gaugeSlugRIP
+#  - Magazine762x51mmRIP
+#  - AmmoBox762x51mmRIP
+#  - Magazine762x54mmRRIP
+#  - AmmoBox762x54mmRRIP
+#  - Magazine556x45mmRIP
+#  - AmmoBox556x45mmRIP
+#  - Magazine762x39mmRIP
+#  - AmmoBox762x39mmRIP
+#  - SpeedLoader357_magnumRIP
+#  - AmmoBox357_magnumRIP
+#  - Magazine68x52mmRIP
+#  - AmmoBox68x52mmRIP
+#  - Magazine46x30mmPistolRIP
+#  - Magazine46x30mmSubMachineGunRIP
+#  - AmmoBox46x30mmRIP
+#  - Magazine57x28mmPistolRIP
+#  - Magazine57x28mmSubMachineGunRIP
+#  - AmmoBox57x28mmRIP
+#  - Magazine9x19mmPistolRIP
+#  - Magazine9x19mmSubMachineGunRIP
+#  - AmmoBox9x19mmRIP
+#  - Magazine45_ACPPistolRIP
+#  - Magazine45_ACPSubMachineGunRIP
+#  - AmmoBox45_ACPRIP
 
 #Misc
   - Magazine762x39mmSubsonic
@@ -903,6 +904,7 @@
   - MagazineSmartMagnum
   - MagazineSmartMagnumExt
   - AmmoBox145x114mm
+  - AmmoBox145x114mmEMP
   - AmmoBox145x114mmBig
   - Magazine35mmGrenade
   - Magazine127x99mm
@@ -919,6 +921,9 @@
   - AmmoBox10Phz
   - LargePowerCell400Thz
   - LargePowerCell700Thz
+  - LargePowerCellPlasma68x52mm
+  - Magazine68x52mmCaselessPlasma
+  - AmmoBox68x52mmCaselessPlasma
 
 #Big Ammo Boxes
   - AmmoBox762x39mmBigFMJ
@@ -947,3 +952,6 @@
   - AmmoBox10Phz
   - LargePowerCell400Thz
   - LargePowerCell700Thz
+  - LargePowerCellPlasma68x52mm
+  - Magazine68x52mmCaselessPlasma
+  - AmmoBox68x52mmCaselessPlasma

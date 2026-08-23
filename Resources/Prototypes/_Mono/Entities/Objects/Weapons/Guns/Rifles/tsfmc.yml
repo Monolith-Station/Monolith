@@ -12,13 +12,13 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: GunWieldBonus
-    minAngle: -18
-    maxAngle: -17
+    minAngle: -10
+    maxAngle: -10
   - type: Gun
-    minAngle: 18
-    maxAngle: 35
-    angleIncrease: 2
-    angleDecay: 40
+    minAngle: 12
+    maxAngle: 50
+    angleIncrease: 6
+    angleDecay: 80
     fireRate: 11 # 660 rpm
     shotsPerBurst: 3
     availableModes:
@@ -417,11 +417,11 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: GunWieldBonus
-    minAngle: 0
-    maxAngle: -43
+    minAngle: -5
+    maxAngle: -40
   - type: Gun
-    minAngle: 0
-    maxAngle: 43
+    minAngle: 6
+    maxAngle: 45
     angleIncrease: 3
     angleDecay: 15
     fireRate: 7.5

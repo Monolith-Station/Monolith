@@ -13,7 +13,7 @@
   - ClothingUniformJumpsuitViperGroupTurtleneck
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 14, 1
+  position: 7, -8
 
 # T2
 
@@ -31,7 +31,7 @@
   technologyPrerequisites:
   - ViperGroupApparel
   - UniversalMaterialResearchT2
-  position: 14, 7
+  position: 7, -16
 
 - type: technology
   id: ViperGroupHardsuitJuggernaut
@@ -44,7 +44,7 @@
   - ClothingOuterHardsuitViperGroupJuggernaut
   technologyPrerequisites:
   - ViperGroupHardsuitBasic
-  position: 15, 7
+  position: 8, -17
 
 - type: technology
   id: ViperGroupShipyardAdvanced
@@ -57,4 +57,4 @@
   - ShipVoucherVGWolf
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 14, 8
+  position: 8, -16

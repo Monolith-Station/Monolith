@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Grid;
 using Content.Shared._NF.Shipyard.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
@@ -14,4 +15,10 @@ public sealed partial class ShipyardListingComponent : Component
     /// </summary>
     [ViewVariables, DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<VesselPrototype>))]
     public List<string> Shuttles = new();
+
+    /// <summary>
+    ///   Grid modifiers to apply to ships bought from here.
+    /// </summary>
+    [ViewVariables, DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<GridModificationPrototype>))]
+    public List<string> Hullmods = new();
 }

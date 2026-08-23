@@ -12,6 +12,9 @@
   - type: EyeProtection
   - type: VisionCorrection
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesBase
@@ -25,6 +28,9 @@
     sprite: _NF/Clothing/Eyes/Glasses/pilot.rsi
   - type: HandheldGPS
   - type: VisionCorrection
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesGlassesSecurity
@@ -36,3 +42,6 @@
     sprite: _NF/Clothing/Eyes/Glasses/nfsd_glasses.rsi
   - type: Clothing
     sprite: _NF/Clothing/Eyes/Glasses/nfsd_glasses.rsi
+  - type: Tag
+    tags:
+    - PetWearable

@@ -13,7 +13,7 @@
   - MeshMMC
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 17, 1
+  position: -5, -8
 
 - type: technology
   id: MieyoManufacturingPress
@@ -27,7 +27,7 @@
   - IndustrialPressEconomyPlatesMMCMachineCircuitboard
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 19, 1
+  position: -6, -8
 
 - type: technology
   id: MieyoShipworking
@@ -42,7 +42,7 @@
   - ShipRepairDeviceAmmo
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 17, 2
+  position: -6, -7
 
 - type: technology
   id: MieyoBreachingGear
@@ -57,7 +57,9 @@
   - WeaponSubMachineGunSakuraMMC
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 18, 1
+  position: -5, -7
+
+# T2
 
 - type: technology
   id: MieyoCorpsecSuits
@@ -70,7 +72,7 @@
   - ClothingOuterHardsuitMieyoCombatMMC
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 17, 7
+  position: -5, -16
 
 - type: technology
   id: MieyoCorpsecRifles
@@ -85,7 +87,7 @@
   technologyPrerequisites:
   - UniversalMaterialResearchT2
   - MieyoCorpsecSuits
-  position: 17, 8
+  position: -6, -16
 
 - type: technology
   id: MieyoBionicsT2
@@ -99,7 +101,7 @@
   - AutosurgeonLeftMantisBladeMMC
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 18, 7
+  position: -5, -15
 
 - type: technology
   id: MieyoBionicsT3
@@ -110,8 +112,9 @@
   cost: 125000
   recipeUnlocks:
   - AutosurgeonSandevistanMMC
+  - AutosurgeonAdvHeartMMC
   technologyPrerequisites:
   - UniversalMaterialResearchT3
   - MieyoBionicsT2
-  position: 18, 9
+  position: -6, -16
 

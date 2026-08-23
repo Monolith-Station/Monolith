@@ -18,6 +18,7 @@
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
   - PortstrikeAnnounceRuleRandom35To45
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoRogueTSF
@@ -34,6 +35,7 @@
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
   - PortstrikeAnnounceRuleRandom35To45
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoRogueUSSP
@@ -50,6 +52,7 @@
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
   - PortstrikeAnnounceRuleRandom35To45
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoTSFUSSP
@@ -66,6 +69,7 @@
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
   - PortstrikeAnnounceRuleRandom35To45
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoADS
@@ -85,6 +89,7 @@
   #- MonoAsakimSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
   - PortstrikeAnnounceRuleRandom35To45
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoChimera
@@ -102,6 +107,7 @@
   - MonoChimeraSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
   - PortstrikeAnnounceRuleRandom35To45
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoMixed
@@ -112,6 +118,7 @@
   - NFAdventure
   - BasicStationEventScheduler
   - BluespaceEventScheduler
+  - StarSystemKyphrus
   - BluespaceDungeonEventScheduler
   - BluespaceSalvageEventScheduler
   - SmugglingEventScheduler
@@ -122,6 +129,7 @@
   #- MonoAsakimSTCShuttleSpawnerSchedulerSlow
   - MonoMonolithicEventsScheduler
   - PortstrikeAnnounceRuleRandom35To45
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoAllAtOnce
@@ -143,6 +151,7 @@
   - MonoMonolithicEventsScheduler
   - RoundEndRuleHour3
   - PortstrikeAnnounceRuleHour1
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoRogueTSFHyperwar
@@ -150,8 +159,10 @@
   description: mono-roguetsf-hyperwar-description
   showInVote: true # we ball
   weight: 0.15 # Giant majority needed
+  supportedMaps: HyperwarMapPool
   rules:
   - NFAdventure
   - Hyperwar
   - RoundEndRuleHour3
   - PortstrikeAnnounceRuleHour2
+  - StarSystemKyphrus

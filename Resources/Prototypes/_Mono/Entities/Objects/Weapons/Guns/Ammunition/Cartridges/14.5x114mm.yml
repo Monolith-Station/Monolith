@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseCartridge
   id: Cartridge145x114mm
-  name: cartridge (14.5x114mm)
+  name: cartridge (14.5x114mm AP)
   description: Even larger anti-material round, capable of punching through any armor and barriers without difficulty.
   components:
   - type: Tag
@@ -15,6 +15,33 @@
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20
+
+# EMP
+
+- type: entity
+  parent: BaseCartridge
+  id: Cartridge145x114mmEMP
+  name: cartridge (14.5x114mm EMPHE)
+  description: Even larger anti-material round, capable of punching through any armor and barriers without difficulty. Electromagnetic Pulse disables all electronics at impact site, while a conventional explosive provides area denial.
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - Cartridge145x114mm
+  - type: CartridgeAmmo
+    proto: Hitscan145x114mmEMP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/big_ammo_casing_steel.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#98a3ff"
   - type: Appearance
   - type: SpentAmmoVisuals
   - type: StaticPrice

@@ -1,11 +1,16 @@
-dead-drop-hint-note = Not much time.
-    Spinward Syndicate needs help.
-    Known drops:
+dead-drop-hint-note =
+    I...SOMETHING
+    NEED...
+    COLLECT FOR #&^@...
+    INTERCEPT SOON...
+    THERE...FEW CHANCE...
+    GO... QUICK...
+    IT...VALUABLE
 
     {$drops}
 
-    Check these to lend a hand.
-    For a better tomorrow.
+    GOOD... FOR YOU
+    COME PLAY..?
 
 dead-drop-time-known = next drop around {$time}
 dead-drop-time-unknown = next drop placed when we can

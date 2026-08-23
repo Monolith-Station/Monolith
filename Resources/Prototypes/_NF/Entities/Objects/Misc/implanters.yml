@@ -89,3 +89,19 @@
   components:
   - type: Implanter
     implant: RadioImplantFreelance
+
+- type: entity
+  id: RadioImplanterTsf
+  suffix: radio Tsf
+  parent:  BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: RadioImplantTsf
+
+- type: entity
+  id: RadioImplanterCivilian
+  suffix: radio Civilian
+  parent:  BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: RadioImplantCivilian

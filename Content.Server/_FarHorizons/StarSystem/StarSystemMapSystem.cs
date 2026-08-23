@@ -37,6 +37,8 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
         ent.Comp.StarSystem = BuildPlanetarySystem(system);
         Dirty(ent);
 
+        EnsureComp<StarLightComponent>(ent);
+
         SpawnEntities(ent);
     }
 

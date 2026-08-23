@@ -44,6 +44,9 @@ uplink-pirate-medical-assembler-desc = An assembler that can be used to make use
 
 # MARK: Utility
 
+uplink-pirate-wearable-camerapdv-name = Wireless Camera
+uplink-pirate-wearable-camerapdv-desc = Camera used for overwatching an operation area. Can be worn or placed somewhere.
+
 uplink-pirate-romerol-name = Romerol Syringe
 uplink-pirate-romerol-desc = A bioweapon used in previous wars, and heavily outlawed. Its obviously taken some effort to smuggle this one. Reanimates the dead.
 
@@ -190,8 +193,8 @@ uplink-pirate-box-highcal-desc = A box of general-purpose ammunition for the Bur
 uplink-pirate-box-highcal-he-name = HE 12.7x99mm box
 uplink-pirate-box-highcal-he-desc = A box of explosive ammunition for the Burner heavy rifle.
 
-uplink-pirate-sniper-ammo-name = 14.5x114mm box
-uplink-pirate-sniper-ammo-desc = A box of high caliber sniper rounds for the Hristov.
+uplink-pirate-sniper-ammo-name = 14.5x114mm AP box
+uplink-pirate-sniper-ammo-desc = A box of high caliber armor-piercing sniper rounds for the Hristov.
 
 uplink-pirate-emp-rocket-name = RPG-7 EMP Rocket
 uplink-pirate-emp-rocket-desc = A rocket with vengeance against anything electrical. Disables and drains electrical items in it's radius.
@@ -239,6 +242,11 @@ uplink-pirate-c4-desc = Use it to breach walls, dispose of bodies, break equipme
 uplink-pirate-c4-bundle-name = C-4 Bundle
 uplink-pirate-c4-bundle-desc = Enough C-4 to blow your way into a vault and out through the back.
 
+uplink-pirate-MobImperiroach-name = ImperiRoach
+uplink-pirate-MobImperiroach-desc = Call in a handy ImperiRoach equipped with a microbomb implant. Explodes when seriously injured. Can use harsh language and upset feelings.
+
+uplink-pirate-empgrenade-box-name = EMP Grenade Box
+uplink-pirate-empgrenade-box-desc = A box containing 4 EMP grenades.
 uplink-pirate-empgrenade-name = EMP Grenade
 uplink-pirate-empgrenade-desc = A handheld grenade that emits a high energy pulse that disrupts electronics and power systems in a moderately large radius.
 

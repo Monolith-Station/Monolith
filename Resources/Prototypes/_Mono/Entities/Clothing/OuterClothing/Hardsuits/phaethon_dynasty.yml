@@ -198,15 +198,17 @@
     fillLevel: 0.1
     coreFade: 0.85
     shield:
-      maxCharge: 280
+      maxCharge: 200
       regenRate: 5
       spinupTime: 0.5
-      breakCooldown: 22.5
+      breakCooldown: 17
       powerDraw: 1
       blockModifier:
         coefficients:
-          Piercing: 0.7
-          Heat: 2.5
+          Piercing: 0.5
+          Heat: 1.5
+          Radiation: 2.5
+          Shock: 2.5
   - type: Battery
     maxCharge: 100
     startingCharge: 100
@@ -220,6 +222,14 @@
     radius: 1.4
     energy: 2
     color: "#5dd439"
+  - type: ExtendDescription
+    descriptionList:
+    - description: Alt-click or otherwise interact to toggle additional shielding.
+      color: "#4f94ad"
+      requireDetailRange: true
+    - description: The CV-53 hardshield is designed to inhibit the velocity of incoming conventional firearms. However, it struggles against anything involving high-energy particles, such as lasers.
+      color: "#94768c"
+      requireDetailRange: true
 
 - type: entity
   parent: ClothingOuterHardsuitAshen
