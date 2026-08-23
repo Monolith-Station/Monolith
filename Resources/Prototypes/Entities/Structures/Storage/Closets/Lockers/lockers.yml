@@ -300,7 +300,7 @@
 # HoS
 - type: entity
   id: LockerHeadOfSecurity
-  parent: [LockerBaseSecure] # Frontier: add BaseStructureIndestructible, BaseStructureLockImmuneToEmag, BaseStructureAccessReaderImmuneToEmag, BaseStructureDisableToolUse
+  parent: [LockerBaseSecure]
   name: head of security's locker
   components:
   - type: Appearance
