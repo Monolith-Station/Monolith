@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/23/2026 14:40:18
-  entityCount: 11002
+  time: 08/23/2026 19:47:42
+  entityCount: 10977
 maps: []
 grids:
 - 1
@@ -3465,10 +3465,10 @@ entities:
             1257: 34,-1
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Puddle: []
         MetalFoam: []
+        Kudzu: []
         Smoke: []
+        Puddle: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -46328,167 +46328,42 @@ entities:
     - type: Transform
       pos: 2.5,12.5
       parent: 1
-  - uid: 6810
-    components:
-    - type: Transform
-      pos: 5.5,17.5
-      parent: 1
   - uid: 6811
     components:
     - type: Transform
       pos: 6.5,10.5
-      parent: 1
-  - uid: 6812
-    components:
-    - type: Transform
-      pos: 8.5,21.5
-      parent: 1
-  - uid: 6813
-    components:
-    - type: Transform
-      pos: 3.5,24.5
-      parent: 1
-  - uid: 6814
-    components:
-    - type: Transform
-      pos: -2.5,22.5
-      parent: 1
-  - uid: 6815
-    components:
-    - type: Transform
-      pos: 4.5,31.5
-      parent: 1
-  - uid: 6816
-    components:
-    - type: Transform
-      pos: 1.5,30.5
-      parent: 1
-  - uid: 6817
-    components:
-    - type: Transform
-      pos: 9.5,25.5
       parent: 1
   - uid: 6818
     components:
     - type: Transform
       pos: -0.5,19.5
       parent: 1
-  - uid: 6819
-    components:
-    - type: Transform
-      pos: -13.5,18.5
-      parent: 1
-  - uid: 6820
-    components:
-    - type: Transform
-      pos: -3.5,-1.5
-      parent: 1
-  - uid: 6821
-    components:
-    - type: Transform
-      pos: -2.5,-10.5
-      parent: 1
-  - uid: 6822
-    components:
-    - type: Transform
-      pos: 5.5,-9.5
-      parent: 1
-  - uid: 6823
-    components:
-    - type: Transform
-      pos: 4.5,-2.5
-      parent: 1
   - uid: 6824
     components:
     - type: Transform
       pos: -6.5,-12.5
       parent: 1
-  - uid: 6825
-    components:
-    - type: Transform
-      pos: 1.5,-13.5
-      parent: 1
-  - uid: 6826
-    components:
-    - type: Transform
-      pos: -0.5,-15.5
-      parent: 1
-  - uid: 6827
-    components:
-    - type: Transform
-      pos: -2.5,-12.5
-      parent: 1
-  - uid: 6828
-    components:
-    - type: Transform
-      pos: 2.5,-7.5
-      parent: 1
-  - uid: 6829
-    components:
-    - type: Transform
-      pos: 32.5,33.5
-      parent: 1
-  - uid: 6830
-    components:
-    - type: Transform
-      pos: 30.5,29.5
-      parent: 1
-  - uid: 6831
-    components:
-    - type: Transform
-      pos: 32.5,26.5
-      parent: 1
-  - uid: 6832
-    components:
-    - type: Transform
-      pos: 38.5,31.5
-      parent: 1
 - proto: LandMineExplosive
   entities:
+  - uid: 6810
+    components:
+    - type: Transform
+      pos: 9.208145,6.095959
+      parent: 1
+  - uid: 6814
+    components:
+    - type: Transform
+      pos: 39.488106,16.532064
+      parent: 1
+  - uid: 6815
+    components:
+    - type: Transform
+      pos: 43.874664,33.088722
+      parent: 1
   - uid: 6833
     components:
     - type: Transform
       pos: -8.621886,14.537982
-      parent: 1
-  - uid: 6834
-    components:
-    - type: Transform
-      pos: -19.860424,19.529037
-      parent: 1
-  - uid: 6835
-    components:
-    - type: Transform
-      pos: 36.33431,23.421875
-      parent: 1
-  - uid: 6836
-    components:
-    - type: Transform
-      pos: 37.084797,23.71541
-      parent: 1
-  - uid: 6837
-    components:
-    - type: Transform
-      pos: 45.275078,27.386837
-      parent: 1
-  - uid: 6838
-    components:
-    - type: Transform
-      pos: 45.2453,15.4469
-      parent: 1
-  - uid: 6839
-    components:
-    - type: Transform
-      pos: 43.310772,31.66543
-      parent: 1
-  - uid: 6840
-    components:
-    - type: Transform
-      pos: -10.191248,18.419487
-      parent: 1
-  - uid: 6841
-    components:
-    - type: Transform
-      pos: -20.20661,17.685652
       parent: 1
 - proto: LargeAPC
   entities:
@@ -48031,11 +47906,15 @@ entities:
     - type: Transform
       pos: -9.5,5.5
       parent: 1
+    - type: DeviceLinkSink
+      invokeCounter: 1
   - uid: 7100
     components:
     - type: Transform
       pos: -14.5,5.5
       parent: 1
+    - type: DeviceLinkSink
+      invokeCounter: 1
 - proto: PoweredlightLED
   entities:
   - uid: 7101
@@ -51154,9 +51033,20 @@ entities:
     - type: Transform
       pos: 7.4735203,-10.324063
       parent: 1
-- proto: ShellShotgun23x75mmSlugRIP
+- proto: ShellShotgun23x75mmFlashbang
   entities:
-  - uid: 7624
+  - uid: 6812
+    components:
+    - type: Transform
+      pos: 26.948704,20.175068
+      parent: 1
+  - uid: 6813
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 26.80287,20.602448
+      parent: 1
+  - uid: 6816
     components:
     - type: Transform
       parent: 7623
@@ -51190,10 +51080,10 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 7624
+          - 6816
     - type: BallisticAmmoProvider
       entities:
-      - 7624
+      - 6816
 - proto: ShuttersNormalOpen
   entities:
   - uid: 7626
@@ -51365,6 +51255,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: -13.5,-1.5
       parent: 1
+    - type: SignalSwitch
+      state: True
     - type: DeviceLinkSource
       linkedPorts:
         6875:
@@ -51378,6 +51270,8 @@ entities:
           - On
         - - Off
           - Off
+      lastSignals:
+        Status: True
     - type: Label
       currentLabel: STATOR AUTOMATIC CONTROL 1
     - type: NameModifier
@@ -51390,6 +51284,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: -8.5,-1.5
       parent: 1
+    - type: SignalSwitch
+      state: True
     - type: DeviceLinkSource
       linkedPorts:
         6874:
@@ -51403,6 +51299,8 @@ entities:
           - On
         - - Off
           - Off
+      lastSignals:
+        Status: True
     - type: Label
       currentLabel: STATOR AUTOMATIC CONTROL 2
     - type: NameModifier
@@ -67135,18 +67033,6 @@ entities:
     components:
     - type: Transform
       pos: 16.5,6.5
-      parent: 1
-- proto: WeakKudzu
-  entities:
-  - uid: 10752
-    components:
-    - type: Transform
-      pos: 16.5,20.5
-      parent: 1
-  - uid: 10753
-    components:
-    - type: Transform
-      pos: 18.5,24.5
       parent: 1
 - proto: WeaponCapacitorRecharger
   entities:
