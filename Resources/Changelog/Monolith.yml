@@ -24247,3 +24247,16 @@ Entries:
   id: 2665
   time: '2026-08-24T09:48:45.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4563
+- author: Onezero0
+  changes:
+    - type: Add
+      message: TSF/PDV civilians now get faction comms.
+    - type: Tweak
+      message: >-
+        TSF command comms have been rebranded as "TSF Military" and should be
+        accessible to all military roles.
+    - type: Add
+      message: There is now a beginner guide guidebook entry.
+  id: 2666
+  time: '2026-08-24T18:01:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4565
