@@ -82,3 +82,33 @@
         - Thruster
       replaceWith: MachineFrameDestroyed
 
+- type: gridModifier
+  id: DecayedHull
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Occluder
+    data:
+    - chance: 0.1
+      toReplace: WallSolid
+      replaceWith: InflatableWall # troll
+    - chance: 0.05
+      toReplace: WallReinforced
+      replaceWith: InflatableWall # troll
+    - chance: 0.8
+      toReplace: WallSolid
+      replaceWith: WallSolidRust
+    - chance: 0.8
+      toReplace: WallReinforced
+      replaceWith: WallReinforcedRust
+  - !type:GridModEntityReplace
+    comp: Thruster
+    data:
+    - chance: 0.05
+      whitelist:
+        components:
+        - Thruster
+      replaceWith: MachineFrameDestroyed
+    - chance: 0.2
+      toReplace: Thruster
+      replaceWith: RustedThruster
+

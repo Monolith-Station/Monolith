@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/21/2026 06:08:51
-  entityCount: 1320
+  time: 08/11/2026 05:36:22
+  entityCount: 1321
 maps: []
 grids:
 - 1
@@ -50,7 +50,6 @@ entities:
     - type: MetaData
       name: Node Zerta
     - type: Transform
-      pos: 0,0
       parent: invalid
     - type: MapGrid
       chunks:
@@ -105,10 +104,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Kudzu: []
         Puddle: []
         MetalFoam: []
+        Smoke: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -845,12 +844,6 @@ entities:
     - type: Transform
       pos: -3.5,-1.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -1466.4752
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 735
     components:
     - type: Transform
@@ -912,12 +905,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -28.5,-17.5
       parent: 1
-    - type: Door
-      secondsUntilStateChange: -3909.5679
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 302
     components:
     - type: Transform
@@ -6202,6 +6189,17 @@ entities:
       parent: 1
     - type: DeltaPressure
       gridUid: 1
+- proto: SellOnlyCarrierComputer
+  entities:
+  - uid: 1321
+    components:
+    - type: Transform
+      pos: -13.5,-6.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
 - proto: SpawnDungeonLootLockersEngi
   entities:
   - uid: 1168

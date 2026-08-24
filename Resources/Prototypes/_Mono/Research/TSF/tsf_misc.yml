@@ -80,6 +80,7 @@
   recipeUnlocks:
   - FlyssaVoucherTSF
   - AltairVoucherTSF
+  - ZephyrVoucherTSF
   - FujianVoucherTSF
   - PolarisVoucherTSF
   technologyPrerequisites:
@@ -153,7 +154,7 @@
   technologyPrerequisites:
   - TSFBasicBorgModule
   position: 4, -12
-  
+
 - type: technology
   id: TSFAdvancedBionics
   name: research-technology-tsfmc-sandevistan

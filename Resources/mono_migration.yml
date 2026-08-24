@@ -89,3 +89,8 @@ UraniumSecretDoorAssembly: BaseSecretDoorAssembly
 UraniumSecretDoor: SolidSecretDoor
 ShuttleSecretDoorAssembly: BaseSecretDoorAssembly
 ShuttleSecretDoor: SolidSecretDoor
+#hotplate -> thermobath
+ChemistryHotplate: MachineThermobath
+HotplateMachineCircuitboard: ThermobathMachineCircuitboard
+ChemistryHotplateFlatpack: MachineThermobathFlatpack
+
