@@ -100,3 +100,6 @@ selectable-set-contractor-security-kit-desc = Non military police, keep the peac
 
 selectable-set-contractor-researcher-kit-name = Researcher Kit
 selectable-set-contractor-researcher-kit-desc = Field research, wheather its anomalous, or artifact in nature, you help out in gathering research for your assigned outpost.
+
+selectable-set-contractor-vagrant-kit-name = Vagrant Kit
+selectable-set-contractor-vagrant-kit-desc = For your journey, my vagabond.

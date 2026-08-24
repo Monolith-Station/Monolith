@@ -15,3 +15,13 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: VagrantCivilianGear
+  #  equipment:
+  #    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+  #    pocket2: Magazine45_ACPPistolFMJ
+  storage:
+    back:
+    - NFPouchUtility
+    - UndeterminedVagrantKit

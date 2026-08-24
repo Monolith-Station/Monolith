@@ -284,3 +284,14 @@
   - WeaponProtoKineticAcceleratorSawn
   - OreBag
   - Sledgehammer
+
+
+- type: thiefBackpackSet # Vagrant
+  id: KitSelectorVagrantWeapon
+  name: selectable-set-contractor-vagrant-kit-name
+  description: selectable-set-contractor-vagrant-kit-desc
+  sprite:
+    sprite: Clothing/Belt/utility.rsi
+    state: icon
+  content:
+  - RandomShitGenerator
