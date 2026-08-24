@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/23/2026 16:06:58
-  entityCount: 9958
+  time: 08/24/2026 01:18:57
+  entityCount: 9963
 maps:
 - 1
 grids:
@@ -336,10 +336,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Kudzu: []
         Puddle: []
+        Smoke: []
         MetalFoam: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -16862,6 +16862,31 @@ entities:
     - type: Transform
       pos: -40.5,5.5
       parent: 2
+  - uid: 6629
+    components:
+    - type: Transform
+      pos: -40.5,4.5
+      parent: 2
+  - uid: 6633
+    components:
+    - type: Transform
+      pos: -40.5,3.5
+      parent: 2
+  - uid: 6634
+    components:
+    - type: Transform
+      pos: -40.5,2.5
+      parent: 2
+  - uid: 6636
+    components:
+    - type: Transform
+      pos: -40.5,1.5
+      parent: 2
+  - uid: 6639
+    components:
+    - type: Transform
+      pos: -40.5,0.5
+      parent: 2
   - uid: 9895
     components:
     - type: Transform
@@ -23513,18 +23538,6 @@ entities:
     - type: Transform
       pos: -8.5,39.5
       parent: 2
-- proto: MachineThermobath
-  entities:
-  - uid: 3138
-    components:
-    - type: Transform
-      pos: -12.5,40.5
-      parent: 2
-  - uid: 7812
-    components:
-    - type: Transform
-      pos: 17.5,17.5
-      parent: 2
 - proto: ChemMasterFilled
   entities:
   - uid: 3140
@@ -24807,9 +24820,7 @@ entities:
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
-      startingCharge: 52.5
-    - type: ApcPowerReceiverBattery
-      enabled: True
+      startingCharge: 0
   - uid: 6626
     components:
     - type: Transform
@@ -24819,9 +24830,7 @@ entities:
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
-      startingCharge: 57.5
-    - type: ApcPowerReceiverBattery
-      enabled: True
+      startingCharge: 0
 - proto: ComputerWallmountRadar
   entities:
   - uid: 376
@@ -44331,6 +44340,18 @@ entities:
     components:
     - type: Transform
       pos: -35.5,2.5
+      parent: 2
+- proto: MachineThermobath
+  entities:
+  - uid: 3138
+    components:
+    - type: Transform
+      pos: -12.5,40.5
+      parent: 2
+  - uid: 7812
+    components:
+    - type: Transform
+      pos: 17.5,17.5
       parent: 2
 - proto: Magazine556x45mmFMJ
   entities:
