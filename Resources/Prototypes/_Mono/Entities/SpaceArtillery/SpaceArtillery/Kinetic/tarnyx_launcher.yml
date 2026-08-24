@@ -132,5 +132,9 @@
     capacity: 3
     infiniteUnspawned: true
     proto: 150mmApShell
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+    soundGunshot:
+      collection: ShipGunGenericBig
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: ShipGunType
+    shipType: Ballistic
