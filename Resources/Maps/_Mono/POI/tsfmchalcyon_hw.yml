@@ -28455,7 +28455,7 @@ entities:
     - type: Transform
       pos: 25.5,-17.5
       parent: 1
-- proto: ChemistryHotplateFlatpack
+- proto: MachineThermobathFlatpack
   entities:
   - uid: 4519
     components:
@@ -30811,7 +30811,7 @@ entities:
     - type: Transform
       pos: 3.5,28.5
       parent: 1
-- proto: DatafarmResearchFaction
+- proto: DatafarmResearchFaction200
   entities:
   - uid: 4851
     components:

@@ -117,7 +117,7 @@
   rules:
   - NFAdventure
   - BasicStationEventScheduler
-  - BluespaceEventScheduler  
+  - BluespaceEventScheduler
   - StarSystemKyphrus
   - BluespaceDungeonEventScheduler
   - BluespaceSalvageEventScheduler
@@ -159,6 +159,7 @@
   description: mono-roguetsf-hyperwar-description
   showInVote: true # we ball
   weight: 0.15 # Giant majority needed
+  supportedMaps: HyperwarMapPool
   rules:
   - NFAdventure
   - Hyperwar

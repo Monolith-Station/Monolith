@@ -8742,7 +8742,7 @@ entities:
     - type: Transform
       pos: -4.5,20.5
       parent: 1
-- proto: ChemistryHotplate
+- proto: MachineThermobath
   entities:
   - uid: 1280
     components:
@@ -9320,7 +9320,7 @@ entities:
     - type: Transform
       pos: 14.5,23.5
       parent: 1
-- proto: DatafarmResearchFaction
+- proto: DatafarmResearchFaction200
   entities:
   - uid: 1360
     components:

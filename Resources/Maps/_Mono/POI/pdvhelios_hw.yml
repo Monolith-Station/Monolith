@@ -23431,7 +23431,7 @@ entities:
     - type: Transform
       pos: 19.5,17.5
       parent: 1
-- proto: ChemistryHotplate
+- proto: MachineThermobath
   entities:
   - uid: 3545
     components:
@@ -25551,7 +25551,7 @@ entities:
     - type: Transform
       pos: -15.5,13.5
       parent: 1
-- proto: DatafarmResearchFaction
+- proto: DatafarmResearchFaction200
   entities:
   - uid: 3892
     components:

@@ -1,5 +1,20 @@
 #TSFMC
 - type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetTsfCivilian
+  name: TSF radio
+  components:
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/security.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/security.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyNfsd
+
+- type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltTsfmc
   name: TSFMC over-ear headset
@@ -43,6 +58,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyNfsd
+      - EncryptionKeyCommand
 
 - type: entity
   parent: ClothingHeadsetAlt
