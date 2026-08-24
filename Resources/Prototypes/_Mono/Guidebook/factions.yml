@@ -19,7 +19,7 @@
   - Defusal
   - TSFMC_SOP
   - TSFMC_org
-  - TSFMC_Culture
+  #- TSFMC_Culture
 
 - type: guideEntry
   id: PDV_Entry
@@ -66,11 +66,11 @@
   text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC_Ranks.xml"
   priority: 0
 
-- type: guideEntry
-  id: TSFMC_Culture
-  name: Culture
-  text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC_Culture.xml"
-  priority: 0
+#- type: guideEntry
+#  id: TSFMC_Culture
+#  name: Culture
+#  text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC_Culture.xml"
+#  priority: 0
 
 #- type: guideEntry
 #  id: USSP_Entry
