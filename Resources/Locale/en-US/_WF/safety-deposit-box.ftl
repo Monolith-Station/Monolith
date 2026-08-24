@@ -2,7 +2,7 @@
 safety-deposit-console-title = Safety Deposit Box Console
 safety-deposit-console-header = Safety Deposit Box Management
 safety-deposit-console-purchase-section = Purchase New Box
-safety-deposit-console-bank-payment-note = Cost will be deducted from your bank account.
+safety-deposit-console-bank-payment-note = Cost will be deducted from your bank and savings accounts.
 safety-deposit-console-purchase-small = Small (2x2) - ${$cost}
 safety-deposit-console-purchase-medium = Medium (2x4) - ${$cost}
 safety-deposit-console-purchase-large = Large (2x6) - ${$cost}

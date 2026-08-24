@@ -24211,3 +24211,12 @@ Entries:
   id: 2661
   time: '2026-08-23T23:41:50.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4557
+- author: kasature90
+  changes:
+    - type: Add
+      message: Safety deposit boxes can be bought with savings money too now.
+    - type: Fix
+      message: Fixed safety deposit boxes being able to store LPCs.
+  id: 2662
+  time: '2026-08-24T00:27:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4560
