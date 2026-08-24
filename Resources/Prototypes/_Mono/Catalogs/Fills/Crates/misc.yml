@@ -22,7 +22,7 @@
 - type: entity
   parent: CrateBaseWeldable
   id: CrateXenoBase
-  name: Xenoborg crate
+  name: xenoborg crate
   description: This crate looks hungry for your brains.
   components:
   - type: Icon
@@ -42,7 +42,7 @@
 - type: entity
   parent: CrateXenoBase
   id: CrateXenoMats
-  name: Xenoborg crate
+  name: xenoborg crate
   description: This crate looks hungry for your brains, Filled with starter materials.
   components:
   - type: StorageFill
