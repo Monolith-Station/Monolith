@@ -47,7 +47,7 @@
   - type: SpaceBiomeSource
     id: BiomeClusterA
     swapDistance: 1200
-    priority: 500
+    priority: 2500
 
 - type: entity
   id: BiomeSourceWilds
@@ -57,7 +57,7 @@
   - type: SpaceBiomeSource
     id: BiomeWilds
     swapDistance: 1200
-    priority: 500
+    priority: 2500
 
 - type: entity
   id: BiomeSourceFarReachesIV
