@@ -21,7 +21,7 @@
 
 - type: entity
   parent: CrateBaseWeldable
-  id: CrateXenoMats
+  id: CrateXenoBase
   name: Xenoborg crate
   description: This crate looks hungry for your brains.
   components:
@@ -31,6 +31,20 @@
     sprite: _Mono/Structures/Storage/Crates/xeno.rsi
   - type: StaticPrice
     price: 80
+  - type: StorageFill
+    contents:
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: IngotSilver
+    - id: IngotGold
+
+
+- type: entity
+  parent: CrateXenoBase
+  id: CrateXenoMats
+  name: Xenoborg crate
+  description: This crate looks hungry for your brains, Filled with starter materials.
+  components:
   - type: StorageFill
     contents:
     - id: SheetSteel
