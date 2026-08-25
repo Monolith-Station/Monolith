@@ -10,6 +10,15 @@ public sealed partial class PersistentProfileSystem : EntitySystem
     [Dependency] private IServerPreferencesManager _preferences = default!;
     [Dependency] private ISharedPlayerManager _players = default!;
 
+    private ISawmill _sawmill = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _sawmill = Logger.GetSawmill("persistence");
+    }
+
     public bool TryGetFlags(EntityUid uid, out IReadOnlyList<string> flags)
     {
         flags = [];
@@ -78,7 +87,7 @@ public sealed partial class PersistentProfileSystem : EntitySystem
             }
             catch (Exception e)
             {
-                Logger.ErrorS("persistence", $"Failed to save persistent data for {session.UserId}: {e}");
+                _sawmill.Error($"Failed to save persistent data for {session.UserId}: {e}");
             }
         }
     }

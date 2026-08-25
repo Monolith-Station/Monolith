@@ -7,8 +7,8 @@ namespace Content.Server._Mono.Persistence;
 
 public sealed partial class PersistentProfileSystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     public void LoadItems(EntityUid uid, IEnumerable<string> items)
     {
@@ -16,7 +16,7 @@ public sealed partial class PersistentProfileSystem
         {
             if (!TryDeserializeEntity(item, out var itemUid))
             {
-                Logger.ErrorS("persistence", $"Failed to load a persistent item for {ToPrettyString(uid)}");
+                _sawmill.Error($"Failed to load a persistent item for {ToPrettyString(uid)}");
                 continue;
             }
 

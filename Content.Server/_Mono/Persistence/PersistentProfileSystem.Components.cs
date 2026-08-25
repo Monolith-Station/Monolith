@@ -10,7 +10,7 @@ public sealed partial class PersistentProfileSystem
         foreach (var component in components)
         {
             if (!TryApplyComponent(uid, component))
-                Logger.ErrorS("persistence", $"Failed to load a persistent component onto {ToPrettyString(uid)}");
+                _sawmill.Error("persistence", $"Failed to load a persistent component onto {ToPrettyString(uid)}");
         }
     }
 
@@ -100,7 +100,7 @@ public sealed partial class PersistentProfileSystem
         }
         catch (Exception e)
         {
-            Logger.ErrorS("persistence", $"Failed to apply a persistent component to {ToPrettyString(uid)}: {e}");
+            _sawmill.Error($"Failed to apply a persistent component to {ToPrettyString(uid)}: {e}");
             return false;
         }
     }
