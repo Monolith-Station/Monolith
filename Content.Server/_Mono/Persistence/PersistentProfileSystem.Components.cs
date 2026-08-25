@@ -1,20 +1,32 @@
 using System.Linq;
+using Content.Shared.Preferences;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Mono.Persistence;
 
 public sealed partial class PersistentProfileSystem
 {
-    public void LoadComponents(EntityUid uid, IEnumerable<string> components)
+    private List<PersistentProfileComponent> LoadComponents(
+        EntityUid uid,
+        IEnumerable<PersistentProfileComponent> components)
     {
+        var kept = new List<PersistentProfileComponent>();
         foreach (var component in components)
         {
-            if (!TryApplyComponent(uid, component))
+            if (!TryApplyComponent(uid, component.Data))
+            {
                 _sawmill.Error("persistence", $"Failed to load a persistent component onto {ToPrettyString(uid)}");
+            }
+            else if (component.Sticky)
+            {
+                kept.Add(component);
+            }
         }
+
+        return kept;
     }
 
-    public bool TryGetComponents(EntityUid uid, out IReadOnlyList<string> components)
+    public bool TryGetComponents(EntityUid uid, out IReadOnlyList<PersistentProfileComponent> components)
     {
         components = [];
         if (!TryGetProfile(uid, out _, out _, out var profile))
@@ -24,30 +36,36 @@ public sealed partial class PersistentProfileSystem
         return true;
     }
 
-    public bool AddComponent(EntityUid uid, string component)
+    public bool AddComponent(EntityUid uid, string component, bool sticky = false)
     {
         if (!TryGetProfile(uid, out var session, out var slot, out var profile) ||
-            profile.Components.Contains(component))
+            profile.Components.Any(entry => entry.Data == component))
         {
             return false;
         }
 
-        var components = new List<string>(profile.Components) { component };
+        var components = new List<PersistentProfileComponent>(profile.Components)
+        {
+            new(component, sticky),
+        };
         SaveProfile(session, slot, profile.WithPersistentData(profile.Flags, components, profile.Items));
         return true;
     }
 
-    public bool AddComponent(EntityUid uid, IComponent component)
-        => AddComponent(uid, SerializeComponent(component));
+    public bool AddComponent(EntityUid uid, IComponent component, bool sticky = false)
+        => AddComponent(uid, SerializeComponent(component), sticky);
 
     public bool RemoveComponent(EntityUid uid, string component)
     {
         if (!TryGetProfile(uid, out var session, out var slot, out var profile))
             return false;
 
-        var components = new List<string>(profile.Components);
-        if (!components.Remove(component))
+        var components = new List<PersistentProfileComponent>(profile.Components);
+        var entry = components.FirstOrDefault(value => value.Data == component);
+        if (entry == null)
             return false;
+
+        components.Remove(entry);
 
         SaveProfile(session, slot, profile.WithPersistentData(profile.Flags, components, profile.Items));
         return true;

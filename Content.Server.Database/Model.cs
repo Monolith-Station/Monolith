@@ -58,6 +58,18 @@ namespace Content.Server.Database
                 .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
                 .IsUnique();
 
+            modelBuilder.Entity<ProfileComponent>()
+                .HasOne(e => e.Profile)
+                .WithMany(e => e.Components)
+                .HasForeignKey(e => e.ProfileId)
+                .IsRequired();
+
+            modelBuilder.Entity<ProfileItem>()
+                .HasOne(e => e.Profile)
+                .WithMany(e => e.Items)
+                .HasForeignKey(e => e.ProfileId)
+                .IsRequired();
+
             modelBuilder.Entity<Antag>()
                 .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.AntagName})
                 .IsUnique();
@@ -437,11 +449,29 @@ namespace Content.Server.Database
         public string Company { get; set; } = "None";
 
         public List<string> Flags { get; set; } = [];
-        public List<string> Components { get; set; } = []; // serialized as base64 YML; will be loaded onto a character when spawned
-        public List<string> Items { get; set; } = []; // serialized as base64 YML; will be added to a player's inventory like loadout items
+        public List<ProfileComponent> Components { get; } = [];
+        public List<ProfileItem> Items { get; } = [];
 
         public int PreferenceId { get; set; }
         public Preference Preference { get; set; } = null!;
+    }
+
+    public class ProfileComponent
+    {
+        public int Id { get; set; }
+        public int ProfileId { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public string Data { get; set; } = null!;
+        public bool Sticky { get; set; }
+    }
+
+    public class ProfileItem
+    {
+        public int Id { get; set; }
+        public int ProfileId { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public string Data { get; set; } = null!;
+        public bool Sticky { get; set; }
     }
 
     public class Job
