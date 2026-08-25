@@ -3,6 +3,7 @@
   name: job-name-ussp-sergeant
   description: job-description-ussp-sergeant
   playTimeTracker: JobUSSPSergeant
+  setPreference: false # Frontier
   requirements:
   # - !type:DepartmentTimeRequirement # Disabled until newgens get hours in
   #   department: UnionOfSovietSocialistPlanets
@@ -46,4 +47,3 @@
   storage:
     back:
     - RadioHandheldNF
-    - BookUSSPLaw

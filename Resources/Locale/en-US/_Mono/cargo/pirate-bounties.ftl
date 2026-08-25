@@ -15,12 +15,12 @@ pirate-bounty-item-techfab = Techfab
 pirate-bounty-item-rtg = RTG
 
 pirate-bounty-description-generic = The Dynasty is in need of this.
-pirate-bounty-description-encryption-key-faction = Only TSF and USSP encryption keys count. Remove the key from the headset with a screwdriver; the headset itself is not needed.
+pirate-bounty-description-encryption-key-faction = Only TSF encryption keys count. Remove the key from the headset with a screwdriver; the headset itself is not needed.
 pirate-bounty-description-merc-suit = SCAF suits, Mercernary Hardsuits, and PMC Hardsuits count equally towards this. Not your own SCAF suits though.
 pirate-bounty-description-faction-tacsuit = Any faction hardsuit except mercenary hardsuits counts towards this.
 pirate-bounty-description-faction-tacsuit-high = Any advanced faction tacsuit counts towards this. This includes the TSFMC Tacsuit, TSFMC Hardsuit, and TSFMC Advanced Hardsuit.
 pirate-bounty-description-energy-weapon = HF-Katanas, All Energy Swords and TSF Energy Shields count towards this. Energy Cutlasses, VT-7s and Syndicate Energy Shields do not.
-pirate-bounty-description-standard-faction-longarm = Includes standard-issue TSF, PMC, and USSP ballistic rifles, as well as TSF laser rifles. Excludes experimental or non-standard models.
+pirate-bounty-description-standard-faction-longarm = Includes standard-issue TSF and PMC ballistic rifles, as well as TSF laser rifles. Excludes experimental or non-standard models.
 pirate-bounty-description-experimental-faction-weapon = Covers advanced or rare weapons: Annies, Antique Laser Guns, Pulse Carbines/Rifles, and other unique or experimental faction weapons. Excludes standard-issue ballistic rifles and laser rifles.
 pirate-bounty-description-shipweapon = Any ship-mounted turret that is operated via a Gunnery Control Server (GCS) qualifies for this bounty.
 pirate-bounty-description-techfab = Lathes do not count. Only techfabs.

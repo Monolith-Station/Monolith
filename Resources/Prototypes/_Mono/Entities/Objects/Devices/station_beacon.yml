@@ -1,7 +1,7 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPShipyard
-  suffix: USSP Shipyard
+  suffix: ancient Shipyard
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-ussp-shipyard
@@ -10,7 +10,7 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPDockAlpha
-  suffix: USSP Docks
+  suffix: ancient Docks
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-ussp-dock-alpha
@@ -19,7 +19,7 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPDockBeta
-  suffix: USSP Docks
+  suffix: ancient Docks
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-ussp-dock-beta
@@ -28,7 +28,7 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUSSPControl
-  suffix: USSP Control Room
+  suffix: ancient Control Room
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-ussp-control
