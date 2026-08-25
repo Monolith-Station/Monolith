@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/25/2026 03:10:00
+  time: 08/25/2026 04:18:01
   entityCount: 382
 maps: []
 grids:
@@ -2772,11 +2772,10 @@ entities:
       parent: 1
 - proto: WindoorSecure
   entities:
-  - uid: 38
+  - uid: 23
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,-2.5
+      pos: -0.5,-1.5
       parent: 1
     - type: DeltaPressure
       gridUid: 1
@@ -2811,11 +2810,10 @@ entities:
       gridUid: 1
 - proto: WindoorSecurePlasma
   entities:
-  - uid: 260
+  - uid: 26
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 5.5,-2.5
+      pos: 5.5,-1.5
       parent: 1
     - type: DeltaPressure
       gridUid: 1
