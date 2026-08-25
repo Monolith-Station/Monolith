@@ -147,10 +147,10 @@ namespace Content.Shared.Preferences
         public List<string> Flags { get; private set; } = [];
 
         [DataField]
-        public List<string> Components { get; private set; } = [];
+        public List<PersistentProfileComponent> Components { get; private set; } = [];
 
         [DataField]
-        public List<string> Items { get; private set; } = [];
+        public List<PersistentProfileItem> Items { get; private set; } = [];
 
         public HumanoidCharacterProfile(
             string name,
@@ -169,8 +169,8 @@ namespace Content.Shared.Preferences
             Dictionary<string, RoleLoadout> loadouts,
             string company = "None",
             IEnumerable<string>? flags = null,
-            IEnumerable<string>? components = null,
-            IEnumerable<string>? items = null)
+            IEnumerable<PersistentProfileComponent>? components = null,
+            IEnumerable<PersistentProfileItem>? items = null)
         {
             Name = name;
             FlavorText = flavortext;
@@ -415,8 +415,8 @@ namespace Content.Shared.Preferences
 
         public HumanoidCharacterProfile WithPersistentData(
             IEnumerable<string> flags,
-            IEnumerable<string> components,
-            IEnumerable<string> items)
+            IEnumerable<PersistentProfileComponent> components,
+            IEnumerable<PersistentProfileItem> items)
         {
             return new(this)
             {
