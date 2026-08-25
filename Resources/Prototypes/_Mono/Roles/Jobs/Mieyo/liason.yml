@@ -38,15 +38,11 @@
       - MMC
     - type: ChatRank
       rank: mmc-liason
-  - !type:AddLanguageSpecial
-    languagesSpoken:
-    - Nekomimetic
-    - Tradeband
-    - NovuNederic
-    languagesUnderstood:
-    - Nekomimetic
-    - Tradeband
-    - NovuNederic
+#  - !type:AddLanguageSpecial
+#    languagesSpoken:
+#    - Tradeband
+#    languagesUnderstood:
+#    - Tradeband
 
 - type: startingGear
   id: MMCLiasonGear

@@ -198,17 +198,15 @@
     fillLevel: 0.1
     coreFade: 0.85
     shield:
-      maxCharge: 200
+      maxCharge: 280
       regenRate: 5
       spinupTime: 0.5
-      breakCooldown: 17
+      breakCooldown: 22.5
       powerDraw: 1
       blockModifier:
         coefficients:
-          Piercing: 0.5
-          Heat: 1.5
-          Radiation: 2.5
-          Shock: 2.5
+          Piercing: 0.7
+          Heat: 2.5
   - type: Battery
     maxCharge: 100
     startingCharge: 100

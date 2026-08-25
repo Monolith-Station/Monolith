@@ -239,7 +239,7 @@
     mod: 5 # Frontier
   - type: GuideHelp
     guides:
-    - Bartender
+    #- Bartender
     - Drinks
 
 - type: entity
@@ -273,7 +273,7 @@
     access: [["SyndicateAgent"]]
   - type: GuideHelp
     guides:
-    - Bartender
+    #- Bartender
     - Drinks
 
 - type: entity
@@ -919,9 +919,9 @@
     radius: 1.5
     energy: 1.6
     color: "#9dc5c9"
-  - type: GuideHelp
-    guides:
-    - MedicalDoctor
+  #- type: GuideHelp
+  #  guides:
+  #  - MedicalDoctor
 
 - type: entity
   parent: VendingMachine
@@ -2236,7 +2236,7 @@
   - type: GuideHelp
     guides:
     - Chemicals
-    - Chemist
+    #- Chemist
 
 - type: entity
   parent: VendingMachineChemicals

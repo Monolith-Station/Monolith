@@ -3,6 +3,7 @@
   name: job-name-ussp-rifleman
   description: job-description-ussp-rifleman
   playTimeTracker: JobUSSPRifleman
+  setPreference: false # Frontier
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 32400 # 9 hrs
@@ -43,4 +44,3 @@
   storage:
     back:
     - RadioHandheldNF
-    - BookUSSPLaw

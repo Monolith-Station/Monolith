@@ -916,7 +916,7 @@
   - type: ExaminableHunger
   - type: Hunger
     baseDecayRate: 10 # always hungry
-    starvingSlowdownModifier: 1  
+    starvingSlowdownModifier: 1
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -949,7 +949,7 @@
       task: RuminantCompound
   - type: GuideHelp
     guides:
-    - Chef
+    #- Chef
     - FoodRecipes
 
 - type: entity
