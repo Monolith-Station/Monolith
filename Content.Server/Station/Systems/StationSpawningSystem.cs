@@ -148,12 +148,6 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
             var jobEntity = EntityManager.SpawnEntity(prototype.JobEntity, coordinates);
             MakeSentientCommand.MakeSentient(jobEntity, EntityManager);
 
-            if (profile != null)
-            {
-                _persistence.LoadComponents(jobEntity, profile.Components);
-                _persistence.LoadItems(jobEntity, profile.Items);
-            }
-
             // Make sure custom names get handled, what is gameticker control flow whoopy.
             if (loadout != null)
             {
@@ -308,10 +302,7 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
         }
 
         if (profile != null)
-        {
-            _persistence.LoadComponents(entity.Value, profile.Components);
-            _persistence.LoadItems(entity.Value, profile.Items);
-        }
+            _persistence.LoadPersistentData(entity.Value, profile, session);
 
         var gearEquippedEv = new StartingGearEquippedEvent(entity.Value);
         RaiseLocalEvent(entity.Value, ref gearEquippedEv);

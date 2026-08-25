@@ -51,6 +51,8 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
+                .Include(p => p.Profiles).ThenInclude(h => h.Components)
+                .Include(p => p.Profiles).ThenInclude(h => h.Items)
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
@@ -103,6 +105,8 @@ namespace Content.Server.Database
                 .Include(p => p.Jobs)
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
+                .Include(p => p.Components)
+                .Include(p => p.Items)
                 .Include(p => p.Loadouts)
                     .ThenInclude(l => l.Groups)
                     .ThenInclude(group => group.Loadouts)
@@ -281,8 +285,12 @@ namespace Content.Server.Database
                 loadouts,
                 company,
                 profile.Flags,
-                profile.Components,
-                profile.Items);
+                profile.Components.Select(component => new PersistentProfileComponent(
+                    component.Data,
+                    component.Sticky)),
+                profile.Items.Select(item => new PersistentProfileItem(
+                    item.Data,
+                    item.Sticky)));
         }
 
         private static Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
@@ -317,8 +325,18 @@ namespace Content.Server.Database
             profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
             profile.Company = humanoid.Company;
             profile.Flags = [..humanoid.Flags];
-            profile.Components = [..humanoid.Components];
-            profile.Items = [..humanoid.Items];
+            profile.Components.Clear();
+            profile.Components.AddRange(humanoid.Components.Select(component => new ProfileComponent
+            {
+                Data = component.Data,
+                Sticky = component.Sticky,
+            }));
+            profile.Items.Clear();
+            profile.Items.AddRange(humanoid.Items.Select(item => new ProfileItem
+            {
+                Data = item.Data,
+                Sticky = item.Sticky,
+            }));
 
             profile.Jobs.Clear();
             profile.Jobs.AddRange(
