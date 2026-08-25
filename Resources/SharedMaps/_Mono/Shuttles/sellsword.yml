@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/27/2026 15:14:28
-  entityCount: 397
+  time: 08/25/2026 03:10:00
+  entityCount: 382
 maps: []
 grids:
 - 1
@@ -71,10 +71,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
         Kudzu: []
         Puddle: []
         MetalFoam: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -324,7 +324,7 @@ entities:
         17:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
-        301:
+        13:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
         91:
@@ -360,16 +360,6 @@ entities:
     - type: Transform
       pos: -4.5,-0.5
       parent: 1
-  - uid: 11
-    components:
-    - type: Transform
-      pos: -4.5,-5.5
-      parent: 1
-  - uid: 13
-    components:
-    - type: Transform
-      pos: -3.5,-6.5
-      parent: 1
   - uid: 15
     components:
     - type: Transform
@@ -400,16 +390,6 @@ entities:
     - type: Transform
       pos: 6.5,-6.5
       parent: 1
-  - uid: 23
-    components:
-    - type: Transform
-      pos: 7.5,-6.5
-      parent: 1
-  - uid: 26
-    components:
-    - type: Transform
-      pos: 8.5,-5.5
-      parent: 1
   - uid: 28
     components:
     - type: Transform
@@ -419,21 +399,6 @@ entities:
     components:
     - type: Transform
       pos: 9.5,-2.5
-      parent: 1
-  - uid: 37
-    components:
-    - type: Transform
-      pos: -5.5,-1.5
-      parent: 1
-  - uid: 39
-    components:
-    - type: Transform
-      pos: 8.5,-1.5
-      parent: 1
-  - uid: 44
-    components:
-    - type: Transform
-      pos: -1.5,2.5
       parent: 1
   - uid: 48
     components:
@@ -455,21 +420,6 @@ entities:
     - type: Transform
       pos: 8.5,-0.5
       parent: 1
-  - uid: 154
-    components:
-    - type: Transform
-      pos: 9.5,-1.5
-      parent: 1
-  - uid: 367
-    components:
-    - type: Transform
-      pos: 8.5,-6.5
-      parent: 1
-  - uid: 370
-    components:
-    - type: Transform
-      pos: 9.5,-5.5
-      parent: 1
   - uid: 372
     components:
     - type: Transform
@@ -480,21 +430,6 @@ entities:
     - type: Transform
       pos: 10.5,-3.5
       parent: 1
-  - uid: 380
-    components:
-    - type: Transform
-      pos: 9.5,-1.5
-      parent: 1
-  - uid: 381
-    components:
-    - type: Transform
-      pos: -4.5,-6.5
-      parent: 1
-  - uid: 384
-    components:
-    - type: Transform
-      pos: -5.5,-5.5
-      parent: 1
   - uid: 389
     components:
     - type: Transform
@@ -504,11 +439,6 @@ entities:
     components:
     - type: Transform
       pos: -6.5,-3.5
-      parent: 1
-  - uid: 395
-    components:
-    - type: Transform
-      pos: -3.5,0.5
       parent: 1
   - uid: 396
     components:
@@ -524,11 +454,6 @@ entities:
     components:
     - type: Transform
       pos: 6.5,0.5
-      parent: 1
-  - uid: 399
-    components:
-    - type: Transform
-      pos: 7.5,0.5
       parent: 1
 - proto: Bed
   entities:
@@ -1449,9 +1374,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 8.5,-6.5
       parent: 1
-- proto: GunneryServerMedium
+- proto: GunneryServerLow
   entities:
-  - uid: 157
+  - uid: 11
     components:
     - type: Transform
       pos: 2.5,-2.5
@@ -1459,7 +1384,7 @@ entities:
     - type: Battery
       startingCharge: 0
     - type: ApcPowerReceiver
-      powerLoad: 10
+      powerLoad: 5
 - proto: Gyroscope
   entities:
   - uid: 158
@@ -2815,9 +2740,9 @@ entities:
       parent: 162
     - type: Physics
       canCollide: False
-- proto: WeaponTurretAk820
+- proto: WeaponTurretBofors
   entities:
-  - uid: 301
+  - uid: 13
     components:
     - type: Transform
       rot: 3.141592653589793 rad
