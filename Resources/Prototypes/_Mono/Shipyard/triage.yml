@@ -4,38 +4,38 @@
 
 # Shuttle Notes:
 #
-#- type: vessel
-#  id: Triage
-#  parent: BaseVessel
-#  name: MI Triage
-#  description: A extremely compact medical ship that packs a punch.
-#  price: 64262 #Approx 60262
-#  category: Small
-#  group: Medical
-#  shuttlePath: /SharedMaps/_Mono/Shuttles/triage.yml
-#  guidebookPage: null
-#  class:
-#  - Medical
-#  engine:
-#  - Uranium
+- type: vessel
+  id: Triage
+  parent: BaseVessel
+  name: MI Triage
+  description: A extremely compact medical ship that packs a punch.
+  price: 64262 #Approx 60262
+  category: Small
+  group: Medical
+  shuttlePath: /SharedMaps/_Mono/Shuttles/triage.yml
+  guidebookPage: null
+  class:
+  - Medical
+  engine:
+  - Uranium
 
-#- type: gameMap
-#  id: Triage
-#  mapName: 'MI Triage'
-#  mapPath: /SharedMaps/_Mono/Shuttles/triage.yml
-#  minPlayers: 0
-#  stations:
-#    Triage:
-#      stationProto: StandardFrontierVessel
-#      components:
-#        - type: StationNameSetup
-#          mapNameTemplate: 'Triage MIL{1}'
-#          nameGenerator:
-#            !type:NanotrasenNameGenerator
-#            prefixCreator: '14'
-#        - type: StationJobs
-#          availableJobs:
-#            Contractor: [ 0, 0 ]
-#            MdMedic: [ 0, 0 ]
-#            # Pilot: [ 0, 0 ]
-#            # Mercenary: [ 0, 0 ]
+- type: gameMap
+  id: Triage
+  mapName: 'MI Triage'
+  mapPath: /SharedMaps/_Mono/Shuttles/triage.yml
+  minPlayers: 0
+  stations:
+    Triage:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Triage MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]
