@@ -7,7 +7,4 @@ public sealed partial class BlackFlashArmedComponent : Component
 {
     [DataField, AutoNetworkedField]
     public EntityUid User;
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan ExpiresAt;
 }
