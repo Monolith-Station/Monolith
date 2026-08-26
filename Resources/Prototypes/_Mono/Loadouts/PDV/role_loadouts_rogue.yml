@@ -143,17 +143,17 @@
 - type: roleLoadout
   id: JobPdvCivilian # Civvie
   groups:
-  - ContractorHead
+  - MercenaryHead
   - ContractorNeck
-  - ContractorJumpsuit
-  - ContractorGloves
-  - ContractorBackpack
+  - MercenaryJumpsuit
+  - MercenaryGloves
+  - MercenaryBackpack
   - ContractorOuterClothing
-  - ContractorShoes
-  - ContractorFace
-  - ContractorGlasses
-  - ContractorBelt
-  # - ContractorEars
+  - MercenaryShoes
+  - MercenaryFace
+  - MercenaryGlasses
+  - MercenaryBelt
+  - MercenaryEars
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - ContractorPDA
@@ -165,6 +165,9 @@
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - MercenaryBalaclava # Mono
+  # - CivGunCaseSpecial # Mono
+  - ContractorArmorPlates # Mono
   - RogueSidearm
   - RoguePistolMag
   canCustomizeName: true
