@@ -52,11 +52,11 @@
       sprite: _Mono/Structures/Machines/bomb_TSF.rsi
 
 - type: entity
-  parent: [SyndicateBomb, BaseFactionGearTSFT2]
+  parent: [SyndicateBomb, BaseFactionGearPDVT2]
   id: PDVBomb
-  name: PDV 'Serpent' bunker buster
+  name: PDV 'Adam' bunker buster
   description: A explosive device designed to decimate enemy fortifications.
   components:
     - type: Sprite
-      scale: 1.1, 1.1
-      sprite: _Mono/Structures/Machines/bomb_TSF.rsi
+      scale: 1.2, 1.2
+      sprite: _Mono/Structures/Machines/bomb_PDV.rsi
