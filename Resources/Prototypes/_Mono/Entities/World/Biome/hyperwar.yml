@@ -1,7 +1,7 @@
 - type: spaceBiome
   id: MonoWorldgenHyperwarAsteroidRing
   parent: NFBiomeBase
-  priority: 1
+  priority: 2
   distanceRange: 12250, 12450
   chunkComponents:
   - type: DebrisFeaturePlacerController

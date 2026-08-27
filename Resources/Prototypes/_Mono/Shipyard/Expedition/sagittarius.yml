@@ -5,7 +5,7 @@
   parent: BaseVessel
   name: HT Sagittarius
   description: The Sagittarius is the sirius' big brother, heavier firepower and more space while maintaing its chemistry bay.
-  price: 165000
+  price: 192763
   category: Large
   group: Expedition
   shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/sagittarius.yml
@@ -34,5 +34,5 @@
         - type: StationJobs
           availableJobs:
             Contractor: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
-            Mercenary: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

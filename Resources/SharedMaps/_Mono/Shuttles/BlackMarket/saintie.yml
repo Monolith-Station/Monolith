@@ -1288,7 +1288,7 @@ entities:
     - type: PointLight
       radius: 2
       enabled: True
-- proto: AmmoBox45_magnumFMJ
+- proto: AmmoBox357_magnumFMJ
   entities:
   - uid: 93
     components:
@@ -5571,7 +5571,7 @@ entities:
     - type: Transform
       pos: 4.5,-3.5
       parent: 1
-- proto: ChemistryHotplate
+- proto: MachineThermobath
   entities:
   - uid: 917
     components:

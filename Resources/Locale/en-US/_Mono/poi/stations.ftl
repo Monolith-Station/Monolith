@@ -4,6 +4,12 @@ frontier-lobby-tsfmc-secondary-description = The TFSMC Secondary Outpost is a al
 frontier-lobby-camelot-subtext = A military station operated by the USSP.
 frontier-lobby-camelot-description = This is NOT a safezone. This is not a recommended spawn point for new players. Both a expedition and standard shipyard is available here however.
 
+frontier-lobby-zvezda-subtext = A crumbling old habitat "operated" by vagrants.
+frontier-lobby-zvezda-description = Zvezda is a decaying half-abandoned station running off of backup power and portable generators and a limited shipyard. Only spawn here if you know what you're doing.
+
+frontier-lobby-hokkaido-subtext = An industrial station owned by MMC.
+frontier-lobby-hokkaido-description = Hokkaido is the center of industrial and commerce activites of MMC in the sector. Don't expect combat action from this faction if you join.
+
 frontier-lobby-jupiter-subtext = A mobile large mech-carrier.
 frontier-lobby-jupiter-description = This does NOT fall under the protection of portstriking rules. A large back-line mech carrier operated by the Phaethon Dynasty Imperial Vanguard. Doesn't have much firepower to brawl with other ships or a full-sized shipyard, but has a large amount of mechs and point defense.
 

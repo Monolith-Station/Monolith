@@ -9,7 +9,7 @@
   parent: BaseVessel
   name: PTR Leaf
   description: A retired warship, the majority of it's hull is carved out to live it's twilight years as a botany/chemistry ship.
-  price: 69500
+  price: 117617
   category: Medium
   group: Medical
   shuttlePath: /SharedMaps/_Mono/Shuttles/leaf.yml
@@ -38,5 +38,5 @@
           availableJobs:
             Contractor: [ 0, 0 ]
             MdMedic: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
-            Mercenary: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

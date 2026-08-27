@@ -16,6 +16,8 @@
   name: 'TSFMC Flagship Halcyon'
   minimumDistance: 4500 # Mono
   maximumDistance: 5500 # Mono
+  #posX: 5000
+  #posY: -9000
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/tsfmchalcyon.yml
@@ -57,6 +59,7 @@
           lobbySortOrder: 2
         - type: StationJobs
           availableJobs:
+            #TsfCivilian: [ -1, -1 ]
             Sheriff: [ 1, 1 ]
             Bailiff: [1, 1 ]
             SeniorOfficer: [ 3, 3 ] # Mono

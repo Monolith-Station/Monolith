@@ -39,7 +39,7 @@
   id: LowOxygen
   category: Breathing
   icons:
-  - sprite: /Textures/Interface/Alerts/breathing.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/breathing.rsi
     state: not_enough_oxy
   name: alerts-low-oxygen-name
   description: alerts-low-oxygen-desc
@@ -48,7 +48,7 @@
   id: LowNitrogen
   category: Breathing
   icons:
-    - sprite: /Textures/Interface/Alerts/breathing.rsi
+    - sprite: /Textures/_Crescent/Interface/Alerts/breathing.rsi
       state: not_enough_nitro
   name: alerts-low-nitrogen-name
   description: alerts-low-nitrogen-desc
@@ -57,7 +57,7 @@
   id: Toxins
   category: Toxins
   icons:
-  - sprite: /Textures/Interface/Alerts/breathing.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/breathing.rsi
     state: too_much_tox
   name: alerts-high-toxin-name
   description: alerts-high-toxin-desc
@@ -66,9 +66,9 @@
   id: LowPressure
   category: Pressure
   icons:
-  - sprite: /Textures/Interface/Alerts/pressure.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/pressure.rsi
     state: lowpressure1
-  - sprite: /Textures/Interface/Alerts/pressure.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/pressure.rsi
     state: lowpressure2
   maxSeverity: 2
   name: alerts-low-pressure-name
@@ -78,9 +78,9 @@
   id: HighPressure
   category: Pressure
   icons:
-  - sprite: /Textures/Interface/Alerts/pressure.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/pressure.rsi
     state: highpressure1
-  - sprite: /Textures/Interface/Alerts/pressure.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/pressure.rsi
     state: highpressure2
   maxSeverity: 2
   name: alerts-high-pressure-name
@@ -88,7 +88,9 @@
 
 - type: alert
   id: Fire
-  icons: [ /Textures/Interface/Alerts/Fire/fire.png ]
+  icons:
+  - sprite: /Textures/_Crescent/Interface/Alerts/fire.rsi
+    state: fire
   clickEvent: !type:ResistFireAlertEvent
   name: alerts-on-fire-name
   description: alerts-on-fire-desc
@@ -98,11 +100,11 @@
   id: Cold
   category: Temperature
   icons:
-  - sprite: /Textures/Interface/Alerts/temperature.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/temperature.rsi
     state: cold1
-  - sprite: /Textures/Interface/Alerts/temperature.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/temperature.rsi
     state: cold2
-  - sprite: /Textures/Interface/Alerts/temperature.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/temperature.rsi
     state: cold3
   maxSeverity: 3
   name: alerts-too-cold-name
@@ -112,11 +114,11 @@
   id: Hot
   category: Temperature
   icons:
-  - sprite: /Textures/Interface/Alerts/temperature.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/temperature.rsi
     state: hot1
-  - sprite: /Textures/Interface/Alerts/temperature.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/temperature.rsi
     state: hot2
-  - sprite: /Textures/Interface/Alerts/temperature.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/temperature.rsi
     state: hot3
   maxSeverity: 3
   name: alerts-too-hot-name
@@ -124,7 +126,9 @@
 
 - type: alert
   id: Weightless
-  icons: [ /Textures/Interface/Alerts/Weightless/weightless.png ]
+  icons:
+  - sprite: /Textures/_Crescent/Interface/Alerts/zero_g.rsi
+    state: zero_g
   name: alerts-weightless-name
   description: alerts-weightless-desc
 
@@ -164,7 +168,9 @@
   id: Buckled
   category: Buckled
   clickEvent: !type:UnbuckleAlertEvent
-  icons: [ /Textures/Interface/Alerts/Buckle/buckled.png ]
+  icons:
+  - sprite: /Textures/_Crescent/Interface/Alerts/buckled.rsi
+    state: buckled
   name: alerts-buckled-name
   description: alerts-buckled-desc
 
@@ -172,7 +178,7 @@
   id: HumanCrit
   category: Health
   icons:
-  - sprite: /Textures/Interface/Alerts/human_critical.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/human_critical.rsi
     state: critical
   name: alerts-crit-name
   description: alerts-crit-desc
@@ -181,7 +187,7 @@
   id: HumanDead
   category: Health
   icons:
-  - sprite: /Textures/Interface/Alerts/human_dead.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/human_dead.rsi
     state: dead
   name: alerts-dead-name
   description: alerts-dead-desc
@@ -190,15 +196,15 @@
   id: HumanHealth
   category: Health
   icons:
-  - sprite: /Textures/Interface/Alerts/human_alive.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/human_alive.rsi
     state: health0
-  - sprite: /Textures/Interface/Alerts/human_alive.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/human_alive.rsi
     state: health1
-  - sprite: /Textures/Interface/Alerts/human_alive.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/human_alive.rsi
     state: health2
-  - sprite: /Textures/Interface/Alerts/human_alive.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/human_alive.rsi
     state: health3
-  - sprite: /Textures/Interface/Alerts/human_alive.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/human_alive.rsi
     state: health4
   name: alerts-health-name
   description: alerts-health-desc
@@ -287,11 +293,11 @@
   category: Internals
   clickEvent: !type:ToggleInternalsAlertEvent
   icons:
-  - sprite: /Textures/Interface/Alerts/internals.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/internals.rsi
     state: internal0
-  - sprite: /Textures/Interface/Alerts/internals.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/internals.rsi
     state: internal1
-  - sprite: /Textures/Interface/Alerts/internals.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/internals.rsi
     state: internal2
   name: alerts-internals-name
   description: alerts-internals-desc
@@ -310,7 +316,7 @@
   id: Peckish
   category: Hunger
   icons:
-  - sprite: /Textures/Interface/Alerts/hunger.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/hunger.rsi
     state: peckish
   name: alerts-hunger-name
   description: alerts-hunger-desc
@@ -319,19 +325,19 @@
   id: Stamina
   category: Stamina
   icons:
-  - sprite: /Textures/Interface/Alerts/stamina.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/stamina.rsi
     state: stamina0
-  - sprite: /Textures/Interface/Alerts/stamina.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/stamina.rsi
     state: stamina1
-  - sprite: /Textures/Interface/Alerts/stamina.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/stamina.rsi
     state: stamina2
-  - sprite: /Textures/Interface/Alerts/stamina.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/stamina.rsi
     state: stamina3
-  - sprite: /Textures/Interface/Alerts/stamina.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/stamina.rsi
     state: stamina4
-  - sprite: /Textures/Interface/Alerts/stamina.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/stamina.rsi
     state: stamina5
-  - sprite: /Textures/Interface/Alerts/stamina.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/stamina.rsi
     state: stamina6
   name: alerts-stamina-name
   description: alerts-stamina-desc
@@ -342,7 +348,7 @@
   id: Starving
   category: Hunger
   icons:
-  - sprite: /Textures/Interface/Alerts/hunger.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/hunger.rsi
     state: starving
   name: alerts-starving-name
   description: alerts-starving-desc
@@ -351,7 +357,7 @@
   id: Thirsty
   category: Thirst
   icons:
-  - sprite: /Textures/Interface/Alerts/thirst.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/thirst.rsi
     state: thirsty
   name: alerts-thirsty-name
   description: alerts-thirsty-desc
@@ -360,7 +366,7 @@
   id: Parched
   category: Thirst
   icons:
-  - sprite: /Textures/Interface/Alerts/thirst.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/thirst.rsi
     state: parched
   name: alerts-parched-name
   description: alerts-parched-desc
@@ -387,14 +393,18 @@
 
 - type: alert
   id: Pulled
-  icons: [ /Textures/Interface/Alerts/Pull/pulled.png ]
+  icons:
+  - sprite: /Textures/_Crescent/Interface/Alerts/pull.rsi
+    state: pulled
   clickEvent: !type:StopBeingPulledAlertEvent
   name: alerts-pulled-name
   description: alerts-pulled-desc
 
 - type: alert
   id: Pulling
-  icons: [ /Textures/Interface/Alerts/Pull/pulling.png ]
+  icons:
+  - sprite: /Textures/_Crescent/Interface/Alerts/pull.rsi
+    state: pulling
   clickEvent: !type:StopPullingAlertEvent
   name: alerts-pulling-name
   description: alerts-pulling-desc
@@ -402,27 +412,27 @@
 - type: alert
   id: Bleed
   icons:
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/bleed.rsi
     state: bleed0
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/bleed.rsi
     state: bleed1
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/bleed.rsi
     state: bleed2
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/bleed.rsi
     state: bleed3
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/bleed.rsi
     state: bleed4
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/bleed.rsi
     state: bleed5
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/bleed.rsi
     state: bleed6
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/bleed.rsi
     state: bleed7
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/bleed.rsi
     state: bleed8
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/bleed.rsi
     state: bleed9
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/_Crescent/Interface/Alerts/bleed.rsi
     state: bleed10
   name: alerts-bleed-name
   description: alerts-bleed-desc

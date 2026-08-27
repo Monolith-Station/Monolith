@@ -1303,8 +1303,8 @@
     deviceNetId: Wireless
     receiveFrequencyId: SurveillanceCamera
     transmitFrequencyId: SurveillanceCamera
-#  - type: WirelessNetworkConnection
-#    range: 200
+  - type: WirelessNetworkConnection
+    range: 300
   - type: DeviceNetworkRequiresPower
   - type: Speech
     speechVerb: Robotic

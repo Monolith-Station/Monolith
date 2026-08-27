@@ -9,7 +9,7 @@
   parent: BaseVessel
   name: IB Phantom
   description: Experimental ship with enormous thruster power. CTLA-25s included.
-  price: 90000
+  price: 155146
   category: Small
   group: Medical
   access: Command # DoC exclusive.
@@ -39,5 +39,5 @@
           availableJobs:
             Contractor: [ 0, 0 ]
             MdMedic: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
-            Mercenary: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

@@ -1,0 +1,40 @@
+- type: job
+  id: PdvCivilian
+  name: job-name-pdv-civilian
+  description: job-description-pdv-civilian
+  playTimeTracker: JobPdvCivilian
+  startingGear: PdvCivilianGear
+  icon: JobIconPDVCiv
+  supervisors: job-supervisors-pdv-civ
+  alwaysUseSpawner: true
+  weight: 0
+  displayWeight: 0
+  assignedCompany: PDVCivilian
+  canBeAntag: true
+  setPreference: true
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - PirateNF
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - Freespeak
+    languagesUnderstood:
+    - Freespeak
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: PdvCivilianGear
+  #  equipment:
+  #    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+  #    pocket2: Magazine45_ACPPistolFMJ
+  storage:
+    back:
+    - NFPouchUtility
+    - ClothingHeadsetAltFreelancer

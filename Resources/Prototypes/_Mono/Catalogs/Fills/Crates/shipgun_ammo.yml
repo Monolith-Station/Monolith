@@ -171,11 +171,23 @@
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBox57mmSmart
   name: AK-570 57mm HMNG drum box
+  suffix: DO NOT MAP
   description: Contains one box of 57mm homing ammunition. Provides an artillery piece with 600 homing rounds.
   components:
   - type: StorageFill
     contents:
     - id: Magazine57mmSmart
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox57mmSACLOS
+  name: AK-570 57mm SACLOS drum box
+  description: Contains one box of 57mm SACLOS ammunition. Provides an artillery piece with 600 FCS-guided rounds.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine57mmSACLOS
       amount: 1
 
 - type: entity
@@ -215,6 +227,7 @@
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBox90mmMinelayer
   name: Dravon 90mm minelayer box
+  suffix: DO NOT MAP
   description: Contains one box of 90mm minelayer ammunition. Provides an artillery piece with 400 minelayer rounds.
   components:
   - type: StorageFill
@@ -225,12 +238,23 @@
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBox140mm
-  name: Longbow 140mm HE box
+  name: Longbow 140mm HEAT box
   description: Contains one box of 140mm HEAT ammunition. Provides an artillery piece with infinite HEAT rounds. Buy in case you lost the ammo it came with.
   components:
   - type: StorageFill
     contents:
     - id: Magazine140mm
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox140mmSACLOS
+  name: Longbow 140mm SACLOS box
+  description: Contains one box of 140mm SACLOS ammunition. Provides an artillery piece with 120 SACLOS rounds.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine140mmSACLOS
       amount: 1
 
 # Missiles
@@ -300,3 +324,25 @@
     contents:
     - id: PaladinMagazineHV
       amount: 2 # 48 missiles
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxTrident
+  name: ASM-220 Trident HE torpedo box
+  description: Contains 4 large missiles, enough to fill a single launcher.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Asm220TorpedoHE
+      amount: 4
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxTridentSACLOS
+  name: ASM-220 Trident HE-SACLOS torpedo box
+  description: Contains 4 large missiles, enough to fill a single launcher.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Asm220TorpedoHESACLOS
+      amount: 4

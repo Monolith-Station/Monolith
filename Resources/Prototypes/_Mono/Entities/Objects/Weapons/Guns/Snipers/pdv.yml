@@ -2,7 +2,7 @@
   name: SKR-WS M96 Hristov (14.5x114mm)
   parent: [BaseWeaponSniper, BaseGunWieldable]
   id: WeaponSniperHristov
-  description: A portable anti-material rifle. Fires high velocity 14.5mm shells. Uses 145x114mm ammo.
+  description: A portable, 3-round anti-material rifle. Fires high velocity 14.5mm shells. Uses 14.5x114mm ammo.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/hristov.rsi
@@ -10,6 +10,7 @@
     sprite: Objects/Weapons/Guns/Snipers/hristov.rsi
   - type: GunRequiresWield
   - type: Gun
+    damageModifier: 0.95
     fireRate: 0.75
     selectedMode: SemiAuto
     availableModes:
@@ -21,7 +22,7 @@
     whitelist:
       tags:
       - Cartridge145x114mm
-    capacity: 5
+    capacity: 3
     proto: Cartridge145x114mm
   - type: SpeedModifiedOnWield
     walkModifier: 0.6
@@ -32,3 +33,6 @@
     pvsIncrease: 0.7
   - type: StaticPrice
     price: 1250
+  - type: LaserPointer
+    targetedColor: "#8cfc03"
+    defaultColor: "#fc0324"

@@ -43,9 +43,9 @@
   - PirateTrinkets
   - PDVBelt
   - ContractorEncryptionKey
-  - RogueFirearm
+  - RogueFirearmCommander
   - RogueSidearm
-  - RogueMag
+  - RogueCommandMag
   - RoguePistolMag
   - FactionArmorPlates
   canCustomizeName: true
@@ -69,9 +69,9 @@
   - PirateCaptainTrinkets
   - PDVBelt
   - ContractorEncryptionKey
-  - RogueFirearm
+  - RogueFirearmCommander
   - RogueSidearm
-  - RogueMag
+  - RogueCommandMag
   - RoguePistolMag
   - FactionArmorPlates
   canCustomizeName: true
@@ -119,9 +119,9 @@
   - PirateTrinkets
   - PDVBelt
   - ContractorEncryptionKey
-  - RogueFirearm
+  - RogueFirearmCommander
   - RogueSidearm
-  - RogueMag
+  - RogueCommandMag
   - RoguePistolMag
   - FactionArmorPlates
   canCustomizeName: true
@@ -138,4 +138,36 @@
   - RogueSidearm
   - RoguePistolMag
   - FactionArmorPlates
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobPdvCivilian # Civvie
+  groups:
+  - MercenaryHead
+  - ContractorNeck
+  - MercenaryJumpsuit
+  - MercenaryGloves
+  - MercenaryBackpack
+  - ContractorOuterClothing
+  - MercenaryShoes
+  - MercenaryFace
+  - MercenaryGlasses
+  - MercenaryBelt
+  - MercenaryEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - ContractorPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
+  - NFSpeciesSpecific
+  - MercenaryBalaclava # Mono
+  # - CivGunCaseSpecial # Mono
+  - ContractorArmorPlates # Mono
+  - RogueSidearm
+  - RoguePistolMag
   canCustomizeName: true

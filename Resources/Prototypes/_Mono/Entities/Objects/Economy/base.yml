@@ -3,6 +3,7 @@
   description: Used to keeo the ol' rust belt rolling.
   parent: BaseItem
   id: BaseEconomyGood
+  abstract: true
   components:
   - type: Tag
     tags:
@@ -29,14 +30,14 @@
 # Cherry picked base item things
   - type: EmitSoundOnPickup
     sound:
-      collection: GenericPickup
+      path: /Audio/_Goobstation/Items/handling/phone_pickup.ogg
       params:
-        volume: -7
+        volume: -2
   - type: EmitSoundOnDrop
     sound:
-      collection: GenericDrop
+      path: /Audio/_Goobstation/Items/handling/phone_drop.ogg
       params:
-        volume: -7
+        volume: -2
   - type: Animateable
   - type: Clickable
   - type: InteractionOutline
@@ -54,6 +55,11 @@
     fixedRotation: false
   - type: Pullable
   - type: DamageExaminable
+  - type: GuideHelp
+    guides:
+    - EconomyRecipes
+  - type: StaticPrice
+    price: 300
 
 - type: entity
   name: base economy item
@@ -62,9 +68,6 @@
   id: BaseEconomyGoodTier1
   abstract: true
   suffix: T1
-  components:
-  - type: StaticPrice
-    price: 1000
 
 - type: entity
   name: base economy item
@@ -73,9 +76,6 @@
   id: BaseEconomyGoodTier2
   abstract: true
   suffix: T2
-  components:
-  - type: StaticPrice
-    price: 3000
 
 - type: entity
   name: base economy item
@@ -84,9 +84,6 @@
   id: BaseEconomyGoodTier3
   abstract: true
   suffix: T3
-  components:
-  - type: StaticPrice
-    price: 6000
 
 - type: entity
   name: base economy item
@@ -95,6 +92,3 @@
   id: BaseEconomyGoodTier4
   abstract: true
   suffix: T4
-  components:
-  - type: StaticPrice
-    price: 9000

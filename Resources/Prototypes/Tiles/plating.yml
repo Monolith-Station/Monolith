@@ -6,8 +6,8 @@
   isSubfloor: true
   deconstructTools: [ Axing ] # DeltaV - The return of fireaxe prying
   deconstructTimeMultiplier: 5 # Goobstation
-  footstepSounds:
-    collection: FootstepPlating
+  #footstepSounds: # Mono - Removed footstepsounds since it overrides clothing footsteps
+  #  collection: FootstepPlating
   friction: 1.5
   heatCapacity: 10000
 

@@ -13,6 +13,9 @@
     damage:
       types:
         Blunt: 7
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesBase
@@ -32,7 +35,10 @@
     damage:
       types:
         Blunt: 10
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesGarGiga
@@ -51,7 +57,10 @@
     damage:
       types:
         Blunt: 10
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesMeson
@@ -67,7 +76,10 @@
     coverage: EYES
   - type: StaticPrice # Frontier
     price: 135 # Frontier
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlasses
@@ -83,6 +95,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesBase
@@ -97,6 +110,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesBase
@@ -113,6 +127,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesBase
@@ -126,6 +141,9 @@
     sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
   - type: VisionCorrection
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesBase
@@ -141,6 +159,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - PetWearable
   - type: IdentityBlocker
     coverage: EYES
 
@@ -158,6 +177,7 @@
     - Sunglasses
     - HamsterWearable
     - WhitelistChameleon
+    - PetWearable
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]
@@ -179,6 +199,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - PetWearable
     # - Antagonists # Frontier: guidebook entry removed
   - type: IdentityBlocker
     coverage: EYES
@@ -200,6 +221,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - PetWearable
   - type: IdentityBlocker
     coverage: EYES
   - type: ShowJobIcons
@@ -219,6 +241,9 @@
     protectionTime: 5
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
+    tags:
+    - PetWearable
 
 #Make a scanner category when these actually function and we get the trayson
 - type: entity
@@ -241,6 +266,9 @@
   - type: ThermalSight
   - type: StaticPrice # Mono
     price: 60
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesBase
@@ -255,7 +283,10 @@
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
-
+    - type: Tag
+      tags:
+      - PetWearable
+    
 - type: entity
   parent: [ClothingEyesBase]
   id: ClothingEyesVisorNinja
@@ -276,3 +307,6 @@
     action: ActionToggleNightVision
     phosphorColor: "#41D7D9"
     lightingColor: "#FFFFFF32"
+  - type: Tag
+    tags:
+    - PetWearable

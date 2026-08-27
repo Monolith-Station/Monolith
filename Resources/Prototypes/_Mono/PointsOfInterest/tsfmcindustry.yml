@@ -1,0 +1,63 @@
+# Author Info
+# GitHub: onezerooo0
+# Discord: onezero00
+
+# Notes: Wow.
+
+
+- type: pointOfInterest
+  id: TSFMCIndustry
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'TSF-CIV "Stellar Blessing"'
+  minimumDistance: 1 # Mono
+  maximumDistance: 200 # Mono
+  posX: 3500
+  posY: -5000
+  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/tsfmc_industry.yml
+  addComponents:
+  - type: IFF
+    color: "#047abd"
+    readOnly: true
+  - type: SolarPoweredGrid
+    doNotCull: true
+  - type: WorldGenDistanceCarver
+    distanceThresholds:
+    # Dead zone
+    - maxDistance: 800
+      prob: 0.0
+    - maxDistance: 1500
+      prob: 0.3
+
+- type: gameMap
+  id: TSFMCIndustry
+  mapName: 'TSF-CIV "Stellar Blessing"'
+  mapPath: /Maps/_Mono/POI/tsfmc_industry.yml
+  minPlayers: 0
+  randomRotation: false
+  stations:
+    TSFMCIndustry:
+      stationProto: StandardFrontierOutpost
+      gridComponents:
+      - type: VesselInfo
+        description: "A colony ship from the Federation system, sent to the Colossus Radius for industrial expansion. Home to TSF civilians."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'TSF-CIV "Stellar Blessing"'
+        - type: ExtraStationInformation
+          icon:
+            sprite: _NF/Structures/Decoration/banner.rsi
+            state: nfsd-banner
+          stationSubtext: 'monolith-lobby-tsf-industry-subtext'
+          stationDescription: 'monolith-lobby-tsf-industry-description'
+          lobbySortOrder: 2
+        - type: StationJobs
+          availableJobs:
+            TsfCivilian: [ -1, -1 ]
+          tags:
+          - HeadOfPersonnel
+          - HeadOfSecurity
+#        - type: StationDeadDropReporting
+#          messageSet: Nfsd
+#        - type: StationDeadDropHintExempt

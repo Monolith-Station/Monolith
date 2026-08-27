@@ -1,0 +1,18 @@
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioTSFBoomRoach
+  name: BoomRoach Reinforcement Radio
+  description: Calls in a faithfully trained boomroach to assist you.
+  components:
+  - type: GhostRole
+    name: ghost-role-information-boomroach-name
+    description: ghost-role-information-boomroach-description
+    rules: ghost-role-information-boomroach-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobBoomroach
+  - type: EmitSoundOnUse
+    sound: /Audio/Voice/Moth/moth_chitter.ogg

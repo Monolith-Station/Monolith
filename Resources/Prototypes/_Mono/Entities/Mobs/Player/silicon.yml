@@ -14,6 +14,36 @@
   - TSFMC Sgt. Reckless
   - TSFMC Judge & Jury
 
+# Xenoborg borg names
+- type: dataset
+  id: MonoXenoBorgNameset
+  values:
+  - EVIL
+  - Borgs-you
+  - Destroyer
+  - Steel thief
+  - Will literally kill you and turn you into a borg
+  - CYBER-MEAN
+  - Shadow the borg
+  - DELAK
+  - Roboevil
+  - Ironfist molecule
+  - P.A.I.N
+  - KILLbot
+  - The Finishnator
+  - Bloodmaker
+  - C2-WKY 6000
+  - Assassin 5
+  - Bonebreaker
+  - Deathmax
+  - K-900
+  - Auto-killer
+  - RAID-78
+  - John Borg
+  - Cold killing machine
+  - Brain remover
+  - PLXCOR Origin
+
 - type: dataset
   id: VesselCoreNameset
   values:
@@ -47,6 +77,17 @@
   - PDVAI.sh
   - Imperial Cat
   - Imperial Instance
+
+# Xenoborg mothercore names
+- type: dataset
+  id: XenoborgCoreNameset
+  values:
+  - Kill-o-tron
+  - ExtermiNATE
+  - LET.HAL-8000
+  - Mega Hurtz
+  - Kill.exe
+  - Null-Zero
 
 - type: dataset
   id: MonoRemnantShipNameset # eventually this will have a use... randommetadata component dont work with grids though...
@@ -524,8 +565,8 @@
     - !type:OverallPlaytimeRequirement
       time: 180000 # 50 hrs
     - !type:RoleTimeRequirement
-      role: JobWarden
-      time: 54000 # 15 hours
+      role: JobTsfBorg
+      time: 28800 # 8 hours
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
     nameSegments: [ TSFMCCoreNameset ]
@@ -610,8 +651,8 @@
     - !type:OverallPlaytimeRequirement
       time: 180000 # 50 hrs
     - !type:RoleTimeRequirement
-      role: JobPirateFirstMate
-      time: 54000 # 15 hours
+      role: JobPdvBorg
+      time: 28800 # 8 hours
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
     nameSegments: [ PDVCoreNameset ]
@@ -735,3 +776,256 @@
     channels:
     - Binary
     defaultChannel: Binary
+
+# Xenoborg MothershipCore
+
+- type: entity
+  id: MothershipCore
+  parent: PlayerStationXenoborgAiEmpty 
+  suffix: Ghost Role, Xenoborg
+  components:
+  - type: ContainerFill
+    containers:
+      station_ai_mind_slot:
+      - StationAiBrainXenoborg
+  - type: NpcFactionMember
+    factions:
+    - Xenoborg
+    - Mothership
+  - type: Access
+    tags:
+    - Xenoborg
+    - Mothership
+  - type: MothershipCore
+  - type: Xenoborg
+  - type: AccessReader
+    access: [["Xenoborg"], ["Mothership"]]
+  - type: Appearance
+  - type: WiresVisuals
+  - type: WiresPanel
+  - type: ActivatableUI
+    key: enum.LatheUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.LatheUiKey.Key:
+        type: LatheBoundUserInterface
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+  - type: ResearchClient
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedMaterialStorage
+      input: AutomationSlotMaterials
+      output: null
+  - type: MaterialStorageMagnetPickup # Frontier
+    range: 1.50 # Mono
+  - type: SpamEmitSound # Goobstation - random lathe sounds
+    minInterval: 300
+    maxInterval: 900
+    sound:
+      collection: RandomLatheSounds
+      params:
+        volume: -12 # Ambient
+        maxDistance: 10
+        variation: 0.05
+  - type: SpamEmitSoundRequirePower # Goobstation
+  - type: Sprite
+    sprite: Mobs/Silicon/mothership_core.rsi
+    layers:
+    - state: base
+    - state: ai
+      shader: unshaded
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: SurveillanceCameraSpeaker
+  - type: SurveillanceCameraMonitor
+  - type: RoboticsConsole
+    allowBorgControl: true
+    radioChannel: Xenoborg
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: Mothership
+    transmitFrequencyId: Mothership
+  - type: WirelessNetworkConnection
+    range: 10000 # mothership can see them from very far
+  - type: Machine
+    board: null
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: Lathe
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - EmptyXenoborgs
+    - XenoborgUpgradeModules
+  - type: ReagentSpeed
+    solution: lube
+    modifiers:
+      SpaceLube: 0.25
+      SpaceGlue: 5
+  - type: SolutionContainerManager
+    solutions:
+      lube:
+        maxVol: 250
+  - type: Spillable
+    solution: lube
+  - type: RefillableSolution
+    solution: lube
+  - type: ExaminableSolution
+    solution: lube
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ExplodeBehavior
+  - type: Explosive
+    totalIntensity: 1
+    explosionType: Default
+    maxIntensity: 1
+    intensitySlope: 1
+  - type: Repairable
+    doAfterDelay: 30 # you can heal the mothership core, but it takes a while
+  - type: Anchorable
+
+- type: entity
+  id: StationAiBrainXenoborg
+  parent: StationAiBrain
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Xenoborg
+    - Mothership
+  - type: Access
+    tags:
+    - Xenoborg
+    - Mothership
+  - type: AccessReader
+    access: [["Xenoborg"], ["Mothership"]]
+  - type: Sprite
+  - type: SiliconLawProvider
+    laws: MothershipCoreLawset
+  - type: GhostRole
+    name: ghost-role-information-Xenoborg-Mothership
+    description: ghost-role-information-Xenoborg-Mothership-description
+    rules: ghost-role-information-Xenoborg-rules
+    raffle:
+      settings: default
+    prototype: XenoborgAICore
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hrs
+  - type: GhostTakeoverAvailable
+  - type: RandomMetadata
+    nameSegments: [XenoborgCoreNameset]
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+
+- type: entity
+  id: AiHeldXenoborg
+  parent: AiHeldMono
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Traffic
+    - Xenoborg
+    - Mothership
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Traffic
+    - Xenoborg
+    - Mothership
+  - type: CollectiveMind
+    channels:
+    - Binary
+    defaultChannel: Binary
+
+# Xenoborg Cyborgs
+
+- type: entity
+  id: PlayerXenoBorg
+  parent: BorgChassisSelectableXenoborg
+  suffix: Ghost Role, Xenoborg, Battery, Module
+  components:
+  - type: GhostRole
+    name: ghost-role-information-xenoborg-name
+    description: ghost-role-information-Xenoborg-description
+    rules: ghost-role-information-Xenoborg-rules
+    raffle:
+      settings: default
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellCombat
+  - type: RandomMetadata
+    nameSegments: [MonoXenoBorgNameset]
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: PlayerXenoBorgGhostRole
+  parent: PlayerXenoBorg
+  suffix: Ghost
+  components:
+  - type: GhostRole
+    name: ghost-role-information-xenoborg-name
+    description: ghost-role-information-Xenoborg-description
+    rules: ghost-role-information-Xenoborg-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: PlayerXenoBorgGhostRolePlaytime
+  parent: PlayerXenoBorg
+  suffix: Ghost, Playtime
+  components:
+  - type: GhostRole
+    name: ghost-role-information-xenoborg-name
+    description: ghost-role-information-Xenoborg-description
+    rules: ghost-role-information-Xenoborg-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hrs
+  - type: GhostTakeoverAvailable

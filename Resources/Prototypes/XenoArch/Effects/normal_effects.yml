@@ -393,6 +393,26 @@
       orGroup: fauna # Frontier
       prob: 0.2 # Frontier
       maxAmount: 2 # Frontier
+    - id: MobMothroachLeopard
+      orGroup: fauna
+      maxAmount: 2
+    - id: MobMothroachCecropia
+      orGroup: fauna
+      maxAmount: 2
+    - id: MobMothroachLunar
+      orGroup: fauna
+      maxAmount: 2
+    - id: MobMoproach
+      orGroup: fauna
+      maxAmount: 2
+    - id: MobMothroachMustard # Frontier
+      orGroup: fauna # Frontier
+      prob: 0.05 # Frontier
+      maxAmount: 2 # Frontier
+    - id: MobOwORoach # Frontier
+      orGroup: fauna # Frontier
+      prob: 0.01 # Frontier
+      maxAmount: 1 # Frontier
     # - id: MobMonkeySyndicateAgent #so lucky # Frontier
       # orGroup: fauna
       # maxAmount: 1

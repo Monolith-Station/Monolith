@@ -5,6 +5,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
+using Content.Shared.Kitchen.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Storage;

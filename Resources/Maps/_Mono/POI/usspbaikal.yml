@@ -9118,13 +9118,6 @@ entities:
     - type: Transform
       pos: 63.5,60.5
       parent: 1
-- proto: DatafarmResearchFaction
-  entities:
-  - uid: 716
-    components:
-    - type: Transform
-      pos: 71.5,75.5
-      parent: 1
 - proto: Bed
   entities:
   - uid: 717
@@ -28623,7 +28616,7 @@ entities:
     - type: Transform
       pos: 68.5,52.5
       parent: 1
-- proto: ChemistryHotplate
+- proto: MachineThermobath
   entities:
   - uid: 4197
     components:

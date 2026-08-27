@@ -71,7 +71,7 @@ public partial class BaseShuttleControl : MapGridControl
 
         for (var i = 0; i < 4; i++)
         {
-            var dir = (DirectionFlag) Math.Pow(2, i);
+            var dir = (DirectionFlag)Math.Pow(2, i);
             var dirVec = dir.AsDir().ToIntVec();
             _neighborDirections[i] = (dir, dirVec);
         }
@@ -420,12 +420,12 @@ public partial class BaseShuttleControl : MapGridControl
     private static Vector2 GetAzimuthDirection(Angle baseAngle, float azimuthDegrees)
     {
         var angle = baseAngle + Angle.FromDegrees(azimuthDegrees);
-        var radians = (float) angle.Theta - MathF.PI / 2f;
+        var radians = (float)angle.Theta - MathF.PI / 2f;
         return new Vector2(MathF.Cos(radians), MathF.Sin(radians));
     }
     // End Mono
 
-    protected void DrawGrid(DrawingHandleScreen handle, Matrix3x2 gridToView, Entity<MapGridComponent> grid, Color color, float alpha = 0.01f)
+    protected void DrawGrid(DrawingHandleScreen handle, Matrix3x2 gridToView, Entity<MapGridComponent> grid, Color color, float alpha = 0.01f, bool drawFill = false)
     {
         var rator = Maps.GetAllTilesEnumerator(grid.Owner, grid.Comp);
         var minimapScale = MinimapScale;
@@ -670,17 +670,23 @@ public partial class BaseShuttleControl : MapGridControl
 
         _parallel.ProcessNow(_drawJob, totalData);
 
-        const float BatchSize = 3f * 4096;
-
-        for (var i = 0; i < Math.Ceiling(triCount / BatchSize); i++)
+        if (drawFill)
         {
-            var start = (int) (i * BatchSize);
-            var end = (int) Math.Min(triCount, start + BatchSize);
-            var count = end - start;
-            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, new Span<Vector2>(_allVertices, start, count), color.WithAlpha(alpha));
-        }
+            const float BatchSize = 3f * 4096;
+            var fillColor = Color.ToSrgb(Color.InterpolateBetween(BackingColor, color, alpha)).WithAlpha(1f);
 
-        handle.DrawPrimitives(DrawPrimitiveTopology.LineList, new Span<Vector2>(_allVertices, gridData.EdgeIndex, edgeCount), color);
+            for (var i = 0; i < Math.Ceiling(triCount / BatchSize); i++)
+            {
+                var start = (int)(i * BatchSize);
+                var end = (int)Math.Min(triCount, start + BatchSize);
+                var count = end - start;
+                handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, new Span<Vector2>(_allVertices, start, count), fillColor);
+            }
+        }
+        else
+        {
+            handle.DrawPrimitives(DrawPrimitiveTopology.LineList, new Span<Vector2>(_allVertices, gridData.EdgeIndex, edgeCount), color);
+        }
     }
 
     private static int GetDirIndex(Vector2i dir)

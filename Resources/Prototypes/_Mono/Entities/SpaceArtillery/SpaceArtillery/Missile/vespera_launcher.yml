@@ -30,7 +30,7 @@
     availableModes: Burst
     shootThermalSignature: 2000000 # ~4.9km if firing continuously
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+      collection: ShipGunGenericMissile
     soundEmpty:
       path: /Audio/Weapons/click.ogg
   - type: SpaceArtillery

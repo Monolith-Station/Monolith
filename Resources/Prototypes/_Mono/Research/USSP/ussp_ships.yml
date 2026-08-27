@@ -9,7 +9,7 @@
   - ShipVoucherUsspRemontnik
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, 4
+  position: 3, -8
 
 - type: technology
   id: UsspMediumShips
@@ -24,7 +24,7 @@
   - ShipVoucherUsspTayfun
   technologyPrerequisites:
   - UsspBasicShips
-  position: 12, 9
+  position: 3, -16
 
 - type: technology
   id: UsspAdvancedShips
@@ -39,7 +39,7 @@
   technologyPrerequisites:
   - UsspMediumShips
   - UniversalMaterialResearchT3
-  position: 12, 14
+  position: 3, -26
 
 - type: technology
   id: UsspLedokol
@@ -53,4 +53,4 @@
   - ShipVoucherUsspLedokolAttachment
   technologyPrerequisites:
   - UsspAdvancedShips
-  position: 12, 15
+  position: 4, -25

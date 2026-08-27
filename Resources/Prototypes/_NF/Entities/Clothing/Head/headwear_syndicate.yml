@@ -12,6 +12,9 @@
   - type: HideLayerClothing
     slots:
     - Hair
+  - type: Tag
+    tags:
+    - PetWearable
 
 # Syndicate armored bio suit hood
 - type: entity
@@ -30,6 +33,9 @@
   - type: HideLayerClothing
     slots:
     - Hair
+  - type: Tag
+    tags:
+    - PetWearable
 
 # Syndicate NPC unremoveable headwear for looks only
 - type: entity
@@ -39,6 +45,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable
+  - type: Tag
+    tags:
+    - PetWearable
+
 
 - type: entity
   parent:
@@ -47,6 +57,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable
+  - type: Tag
+    tags:
+    - PetWearable
+
 
 - type: entity
   parent:
@@ -55,6 +69,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable
+  - type: Tag
+    tags:
+    - PetWearable
+
 
 - type: entity
   parent:
@@ -64,3 +82,7 @@
   name: syndicate coat hood
   components:
   - type: Unremoveable
+  - type: Tag
+    tags:
+    - PetWearable
+

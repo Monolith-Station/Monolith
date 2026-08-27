@@ -9,7 +9,7 @@
   parent: BaseVessel
   name: SKR Littora
   description: A medium-to-large sized expedition ship with salvage equipment.
-  price: 76000
+  price: 120788
   category: Large
   group: Expedition
   shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/littora.yml
@@ -36,5 +36,5 @@
         - type: StationJobs
           availableJobs:
             Contractor: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
-            Mercenary: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

@@ -5,9 +5,8 @@
   loadouts:
   - FactionFrostLoadout
   - FactionDrozdLoadout
-  - FactionLecterLoadout
-  - FactionVulcanLoadout
-  - FactionBanditLoadout
+  - FactionRiversongLoadout
+  - FactionDragonfangLoadout
   fallbacks:
   - FactionFrostLoadout
 
@@ -16,9 +15,8 @@
   name: loadout-group-weapon
   minLimit: 0
   loadouts:
-  - FactionLecterLoadout
+  - FactionRiversongLoadout
   - FactionDrozdLoadout
-  - FactionVulcanLoadout
   - SecurityGuardEnforcerLoadout
 
 - type: loadoutGroup
@@ -28,9 +26,7 @@
   loadouts:
   - FactionLecterLoadout
   - FactionDrozdLoadout
-  - FactionVulcanLoadout
   - SecurityGuardEnforcerLoadout # Shotgun, since mikus asked about it and technically we can pick it anyway
-  # - FactionBanditLoadout
 
 - type: loadoutGroup
   id: TsfmcSidearm
@@ -53,7 +49,6 @@
   - Faction762x51mmAmmoLoadout #Vulcan
   - FactionRechargerLoadout #Energy
   - SecurityGuardBeanbagAmmoLoadout # Buckshot, don't mind the weird naming.
-  # - Faction8x65mmAmmoLoadout #Bandit
 
 
 - type: loadout # Lecter ammo - putting it here because other factions shouldnt be using this
@@ -69,5 +64,5 @@
   minLimit: 0
   loadouts:
   - FactionRechargerLoadout #Energy
-  - FactionMagnum45Loadout # Inspector/Python/Mateba
+  - FactionMagnum357Loadout # Inspector/Python/Mateba
   - FactionAcpPistolAmmoLoadout #MK58

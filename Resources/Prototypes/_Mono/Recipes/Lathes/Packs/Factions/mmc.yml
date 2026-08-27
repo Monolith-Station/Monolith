@@ -1,0 +1,58 @@
+- type: latheRecipePack
+  id: MonoMMCUtilityStatic
+  recipes:
+  - MotionDetectorMMC
+  - RCDMMC
+  - RPDMMC
+  - RCDAmmo
+
+- type: latheRecipePack
+  id: MonoMMCProductionStatic
+  recipes:
+  - MicroManipulatorStockPart
+  - MatterBinStockPart
+  - CapacitorStockPart
+  - Igniter
+  - PowerCellSmall
+  - PowerCellMedium
+  - NanoManipulatorStockPart
+  - AdvancedMatterBinStockPart
+  - AdvancedCapacitorStockPart
+
+- type: latheRecipePack
+  id: MonoMMCGearStatic
+  recipes:
+  - WeaponSubMachineGunMasamuneMMC
+  - WeaponPistolKuosameMMC
+  - ClothingOuterHardsuitMieyoMiningMMC
+
+- type: latheRecipePack
+  id: MonoMMCUtilityResearch
+  recipes:
+  - NaniteApplicatorMMC
+  - ShipRepairDeviceMMC
+  - ShipRepairDeviceAmmo
+  - AccessBreakerMMC
+  - HyposprayMMC
+  - SutureMMC
+  - MeshMMC
+
+- type: latheRecipePack
+  id: MonoMMCProductionResearch
+  recipes:
+  - PicoManipulatorStockPart
+  - SuperMatterBinStockPart
+  - SuperCapacitorStockPart
+
+- type: latheRecipePack
+  id: MonoMMCGearResearch
+  recipes:
+  - ClothingOuterHardsuitMieyoCombatMMC
+  - WeaponSubMachineGunSakuraMMC
+  - SecBreachingHammerMMC
+  - WeaponRifleOsakaMMC
+  - WeaponRifleIzumoMMC
+  - AutosurgeonSandevistanMMC
+  - AutosurgeonAdvHeartMMC
+  - AutosurgeonRightMantisBladeMMC
+  - AutosurgeonLeftMantisBladeMMC

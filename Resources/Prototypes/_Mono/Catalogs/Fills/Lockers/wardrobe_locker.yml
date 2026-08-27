@@ -1,0 +1,40 @@
+- type: entity
+  parent: LockerSteel
+  id: LockerVizier
+  name: grand vizier's locker
+  components:
+  - type: AccessReader
+    access: [["GrandVizier"]]
+  - type: StorageFill
+    contents:
+    - id: WeaponVizierShamshir
+    - id: WeaponRevolverDragoon
+    - id: ClothingBeltSheathVizier
+    - id: PDVGrandVizierIDCard
+    - id: ClothingNeckCloakVizier
+    - id: ClothingNeckMantleVizier
+    - id: ClothingHeadHatNfsdBeretCream
+    - id: ClothingShoesBootsMagPDVAdvanced
+    - id: FlippoEngravedLighter
+    - id: CigPackSyndicate
+    - id: PhoneInstrumentHigh
+    - id: BoxID
+
+- type: entity
+  parent: LockerParamedic
+  id: LockerATU
+  name: ATU wardrobe locker
+  components:
+  - type: AccessReader
+    access: [["Medical"]]
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpsuitATU
+      amount: 2
+    - id: ClothingShoesColorBlack
+    - id: ClothingBeltMedicalEMTFilled
+    - id: ClothingBeltMedicalFilled
+    - id: ClothingHeadHatBeretMedic
+      amount: 2
+    - id: ClothingUniformJumpskirtTAF
+    - id: ClothingShoesColorWhite

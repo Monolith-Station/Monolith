@@ -42,15 +42,32 @@
           invert: true
       - !type:PopupMessage
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
-          min: 2
+          min: 4
         type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-nauseous" ]
-        probability: 0.25
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-nauseous", "generic-reagent-effect-sick", "generic-reagent-effect-parched" ]
+        probability: 0.2
+      - !type:PopupMessage
+        conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 6
+        type: Local
+        visualType: LargeCaution
+        messages: [ "generic-reagent-effect-slicing-insides" ]
+        probability: 0.1
       - !type:Drunk
         boozePower: 15
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 8
 
@@ -116,15 +133,32 @@
           invert: true
       - !type:PopupMessage
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 4
         type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-nauseous" ]
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-nauseous", "generic-reagent-effect-sick", "generic-reagent-effect-parched" ]
         probability: 0.2
+      - !type:PopupMessage
+        conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 6
+        type: Local
+        visualType: LargeCaution
+        messages: [ "generic-reagent-effect-slicing-insides" ]
+        probability: 0.1
       - !type:Drunk
         boozePower: 15
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 10
 

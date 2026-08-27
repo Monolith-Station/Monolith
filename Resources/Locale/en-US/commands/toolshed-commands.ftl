@@ -18,6 +18,8 @@ command-description-jobs-set =
     Sets the number of slots for the given job.
 command-description-jobs-amount =
     Returns the number of slots for the given job.
+command-description-jobs-unlimited =
+    Makes the given job have unlimited slots.
 command-description-laws-list =
     Returns a list of all law bound entities.
 command-description-laws-get =

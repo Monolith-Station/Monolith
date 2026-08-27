@@ -172,3 +172,32 @@
   - type: RadioImplant
     radioChannels:
     - Freelance
+    - Common
+    - Traffic
+    
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RadioImplantTsf
+  name: TSF radio implant
+  description: This implant grants access to the TSF channel without a headset.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: RadioImplant
+    radioChannels:
+    - Common
+    - Traffic
+    - Nfsd
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RadioImplantCivilian
+  name: Civilian radio implant
+  description: This implant grants access to the Civilian channel without a headset.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: RadioImplant
+    radioChannels:
+    - Common
+    - Traffic
