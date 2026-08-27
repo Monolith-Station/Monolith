@@ -140,6 +140,93 @@
     - RogueHardsuit
 
 - type: entity
+  parent: [ ClothingOuterHardsuitBase, MonoEnergyShieldClothing ]
+  id: ClothingOuterHardsuitViperGroupShield
+  name: MEDUSA mk.VI viper hardsuit
+  description: A heavy combat hardsuit adorned with signature markings of the Viper Group. The armor features a personal shield projector integrated into the suit.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/viper_group_shield.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/viper_group_shield.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.67
+        Slash: 0.34
+        Piercing: 0.67
+        Heat: 0.34
+        Radiation: 0.34
+        Caustic: 0.25
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.34
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  # Mono - Shielding comps
+  - type: PersonalShield
+    fillLevel: 0.2
+    hexDensity: 4
+    pixelGrid: 192
+    color: "#eb772a"
+    scale: 1.6
+    shield:
+      maxCharge: 250
+      regenRate: 10
+      spinupTime: 1.5
+      breakCooldown: 20
+      powerDraw: 0.5
+      blockModifier:
+        coefficients:
+          Slash: 2.5
+          Piercing: 0.34
+          Heat: 1.5
+          Radiation: 2
+          Shock: 2
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
+    autoRechargePauseTime: 5
+  - type: UseDelay
+    delay: 10
+  - type: FootstepModifier # Mono
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: ExtendDescription
+    descriptionList:
+    - description: Alt-click or otherwise interact to toggle additional shielding.
+      color: "#4f94ad"
+      requireDetailRange: true
+    - description: The MEDUSA shield projector is designed to inhibit the velocity of incoming conventional firearms. However, it struggles against anything involving high-energy particles and close-range directed force.
+      color: "#94768c"
+      requireDetailRange: true
+  - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitViperGroupShield
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StaticPrice
+    price: 2500
+    vendPrice: 4000
+  - type: Tag  # Mono
+    tags:
+    - RogueHardsuit
+
+- type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitViperGroupInitiate
   name: BROOD mk.I viper hardsuit
