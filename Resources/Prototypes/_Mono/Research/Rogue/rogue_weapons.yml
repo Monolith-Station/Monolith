@@ -105,17 +105,3 @@
   technologyPrerequisites:
   - RogueAdvancedGuns
   position: -5, -22
-
-- type: technology
-  id: RogueHardBombs
-  name: research-technology-PDV-large-explosives
-  entityIcon: PDVBomb
-  discipline: RogueWeaponry
-  tier: 3
-  cost: 30000
-  recipeUnlocks:
-  - PDVBomb
-  technologyPrerequisites:
-  - ExplosiveTechnology
-  - UniversalMaterialResearchT3
-  position: -2, -31

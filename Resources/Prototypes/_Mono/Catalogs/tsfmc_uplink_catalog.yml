@@ -530,3 +530,19 @@
         - Sheriff
         - Bailiff
         - SeniorOfficer
+
+- type: listing
+  id: UplinkHardBombTSF
+  name:  uplink-HardBomb-TSF-name
+  description: uplink-HardBomb-TSF-desc
+  productEntity: TSFBomb
+  icon: { sprite: _Mono/Structures/Machines/bomb_TSF.rsi, state: syndicate-bomb }
+  cost:
+    FederationMilitaryCredit: 75
+  categories:
+    - UplinkSecurityExplosives
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink

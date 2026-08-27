@@ -72,17 +72,3 @@
   - TsfAdvancedWeapons
   - UniversalMaterialResearchT3
   position: 3, -30
-
-- type: technology
-  id: TSFBomb
-  name: research-technology-tsfmc-large-explosives
-  entityIcon: TSFBomb
-  discipline: TsfmcWeaponry
-  tier: 3
-  cost: 30000
-  recipeUnlocks:
-  - TSFBomb
-  technologyPrerequisites:
-  - ExplosiveTechnology
-  - UniversalMaterialResearchT3
-  position: 2, -31
