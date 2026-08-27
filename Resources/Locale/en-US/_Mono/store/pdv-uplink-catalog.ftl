@@ -320,3 +320,6 @@ uplink-pdv-t3-kortik-voucher-desc = A small card that contains the data for the 
 
 uplink-pdv-t4-saturn-voucher-name = PDV Saturn LPC [T4]
 uplink-pdv-t4-saturn-voucher-desc = A small card that authorizes the procurement of the Saturn.
+
+uplink-HardBomb-PDV-name = PDV "Adam" Bunker Buster
+uplink-HardBomb-PDV-desc = The PDV's answer to not enough boom
