@@ -24330,3 +24330,43 @@ Entries:
   id: 2672
   time: '2026-08-27T23:48:39.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4584
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Mapping change: You can now put start-on volumetrics and pressure pumps
+        in secondary and tertiary pipe layers.
+    - type: Tweak
+      message: Caelestinus minor atmos and lighting touchups
+  id: 2673
+  time: '2026-08-28T09:26:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4566
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: IRE canisters now have a smaller, radioactive explosion.
+    - type: Tweak
+      message: >-
+        Most grenades now start their timer upon being damaged rather than
+        instantly exploding.
+  id: 2674
+  time: '2026-08-28T09:28:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4569
+- author: Ghost581X
+  changes:
+    - type: Add
+      message: Viper Group has a new hardsuit capable of projecting a personal shield.
+  id: 2675
+  time: '2026-08-28T09:30:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4587
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Expanded the safety deposit box blacklist for entities. No more 6ku of
+        persistent letoferol guys. It's over.
+    - type: Fix
+      message: Fixed safety deposit box withdrawing being able to duplicate boxes.
+  id: 2676
+  time: '2026-08-28T09:36:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4589
