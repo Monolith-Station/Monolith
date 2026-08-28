@@ -604,105 +604,26 @@
       color: red
   - type: RandomSpawner
     prototypes:
-    - BrokenBottle
-    - Shiv
-    - ReinforcedShiv
-    - PlasmaShiv
-    - UraniumShiv
-    - ScalpelShiv
-    - BaseBallBat
-    - Stunprod
-    - WhiteCane
-    - CombatKnife
-    - SurvivalKnife
-    - WeaponCaseShortMk58Expedition
-    - WeaponCaseShortUniversalExpedition
-    - WeaponCaseShortPollockExpedition
-    - WeaponCaseShortArgentiExpedition
+    - WeaponCaseLongEnergyGunExpedition
+    - WeaponCaseLongAtreidesExpedition
     - WeaponCaseShortLaserGunExpedition
-    #- WeaponCaseShortHandmadeExpedition
-    #- WeaponCaseLongShotgunDoubleBarreledExpedition
-    - WeaponCaseShortSawnExpedition
-    - WeaponCaseLongMosinExpedition
-    - WeaponCaseLongSniperCeremonialExpedition
-    - L58Flatpack
-    - CombatKnife
-    - SurvivalKnife
-    - CaneSheathFilled
-    - Machete
-    - KukriKnife
-    - Stunbaton
-    - ThrowingKnife
-    - WeaponCaseShortMateba
-    - WeaponCaseShortCobra
+    - WeaponCaseLongKammererExpedition
+    - WeaponCaseLongVulcanExpedition
+    - WeaponCaseLongSVSExpedition
+    - WeaponCaseLongTypewriterExpedition
+    - WeaponCaseLongAk
     - WeaponCaseLongWT550Expedition
-    - PlasteelArmingSword
-    - Cutlass
-    - Claymore
-    - Truncheon
-    - WeaponCaseShortEnergyDaggerExpedition
-    - WeaponCaseShortAmmoBoxLethal20
-    - WeaponCaseShortAmmoBoxLethal30
-    - WeaponCaseShortAmmoBoxLethal35
-    - WeaponCaseShortAmmoBoxLethal25
-    - WeaponCaseShortAmmoAmmoBox12_gaugeBuckshotgun
-    - WeaponCaseShortAmmoBoxSlugShotgun
-    - WeaponCaseShortAmmoBoxLethal45
-    - Type35Flatpack
-    - AK570Flatpack
-    - WeaponCaseShortViper
+    - WeaponCaseAk502Registered
     - WeaponCaseShortPython
-    - WeaponCaseLongKammererExpedition
-    - WeaponCaseLongRepeaterExpedition
-    - WeaponCaseLongAK220 # Mono
-    - WeaponCaseLongTypewriterExpedition
-    - L58Flatpack
-    - AK570Flatpack
-    - WeaponCaseShortSeismicCharge
-    - WeaponCaseShortBombCollar
-    - WeaponCaseShortViper
-    - WeaponCaseShortPython
-    - WeaponCaseLongKammererExpedition
-    - WeaponCaseLongRepeaterExpedition
-    - WeaponCaseLongAK220 # Mono
-    - WeaponCaseLongTypewriterExpedition
-    - L58Flatpack
-    - AK570Flatpack
     chance: 1.0
     offset: 0.0
     rarePrototypes:
-    - WeaponCaseLongDrozdExpedition
-    - WeaponCaseLongLecterExpedition
-    - WeaponCaseLongIrohExpedition # Mono
-    - WeaponCaseLongLaserCarbineExpedition
+    - WeaponCaseAnnie
     - WeaponCaseShortAdvancedLaserExpedition
-    - WeaponCaseShortEg4 # Mono
-    - WeaponCaseShortAnaconda # Mono
-    - WeaponCaseLongM90Expedition
-    - WeaponCaseLongC20r
-    - WeaponCaseLongBulldog
-    - WeaponCaseLongVulcanExpedition
-    - WeaponCaseMla73 # Mono
-    - Type35Flatpack
-    - AK570Flatpack
-    - WeaponCaseShortAntiqueLaserExpedition
-    - WeaponCaseLongAk
-    - WeaponCaseLongEnforcerExpedition
-    - WeaponCaseLongLaserCannonExpedition
-    - WeaponCaseDP29
-    - WeaponCaseMla34
-    - WeaponCaseAbielle # Mono
-    - WeaponCaseWspr # Mono
-    - WeaponCaseAnnie # Mono
-    - WeaponCaseLongBulldog
-    - WeaponCaseLongAtreidesExpedition
-    - WeaponCaseLongLauncherRocketExpedition
-    - WeaponCaseLongLauncherChinaLake
-    - WeaponCaseLongLightMachineGunL6
-    - WeaponCaseHeavyAsmgtExpeditions
+    - WeaponCaseShortEnergyShieldExpedition
     - WeaponCaseLongXrayCannonExpedition
-    - WeaponCaseLongJackdaw
-    - WeaponCaseLongHristovExpedition
-    - WeaponCaseMr8c # Mono
-    - WeaponCaseMla79 # Mono
-    rareChance: 0.1
+    - WeaponCaseLongM90Expedition
+    - WeaponCaseDP29
+    - WeaponCaseBigLeady
+    - WeaponCaseDP29
+    rareChance: 0.05
