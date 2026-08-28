@@ -1,10 +1,11 @@
-#kasature90 (github)/_starch_ (discord)
+#original concept by kasature90 (github)/_starch_ (discord)
+#internals refit by harrow/waphun
 - type: vessel
   id: Calypso
   parent: BaseVesselAntag
   name: TSF-SKR Calypso
-  description: Moderately armed and (relatively) heavily armored multipurpose corvette. Armed with 2 AK-820s and 2 AK-570s for consistent damage, 4 Phalanxes for PD, and 2 ASM-220s for the biggest targets.
-  price: 168619
+  description: Moderately armed and heavily armored multipurpose corvette. Armed with 6 Prometheus laser cannons and 2 L-1 Phalanxes for Point Defence. Quick and Agile, perfect for pursuing and finishing off damaged enemy vessels.
+  price: 200000 #174967 baseline. Marked up to an even 200k for being a millitary vessel.
   purchasable: false # voucher only
   category: Medium
   group: Security
@@ -12,10 +13,10 @@
   shuttlePath: /SharedMaps/_Mono/Shuttles/Nfsd/calypso.yml
   guidebookPage: Null
   class:
-  - Patrol
+  - Pursuit
   - Corvette
   engine:
-  - AME
+  - Plasma
 
 - type: gameMap
   id: Calypso

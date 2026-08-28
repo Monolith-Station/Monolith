@@ -103,6 +103,9 @@ uplink-security-t1-mercury-voucher-desc = A small card that contains the data fo
 uplink-security-t1-aldebaran-voucher-name = TSFMC Aldebaran LPC [T1]
 uplink-security-t1-aldebaran-voucher-desc = A small card that contains the data for the procurement of an Aldebaran-class frigate from the flagship's reserves.
 
+uplink-security-t1-calypso-voucher-name = TSFMC Calypso LPC [T1]
+uplink-security-t1-calypso-voucher-desc = A small card that contains the data for the procurement of a Calypso-class corvette from the flagship's reserves.
+
 uplink-security-t2-andromeda-voucher-name = TSFMC Andromeda LPC [T2]
 uplink-security-t2-andromeda-voucher-desc = A small card that contains the data for the procurement of an Andromeda-class cruiser from the flagship's reserves.
 
