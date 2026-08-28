@@ -254,7 +254,7 @@
   suffix: 40kW # Mono 10kW -> 40kW
   components:
   - type: PowerSupplier
-    supplyRate: 40000
+    supplyRate: 40000 # Mono
     heatSignatureRatio: 16 # Mono
   - type: ThermalSignature # Mono
   - type: Sprite
