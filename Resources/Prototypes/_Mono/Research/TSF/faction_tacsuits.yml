@@ -10,7 +10,7 @@
   - ClothingOuterHardsuitM82bTsf
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, 1
+  position: 2, -13
 
 - type: technology
   id: TsfmcAdvancedEquipment
@@ -24,8 +24,7 @@
   - MechIFFTSF
   technologyPrerequisites:
   - TsfmcBasicEquipment
-  - UniversalMaterialResearchT2
-  position: 12, 7
+  position: 2, -23
 
 - type: technology
   id: TsfmcExperimentalEquipment
@@ -38,5 +37,4 @@
   - ClothingOuterHardsuitM92XTsf
   technologyPrerequisites:
   - TsfmcAdvancedEquipment
-  - UniversalMaterialResearchT3
-  position: 12, 12
+  position: 2, -29

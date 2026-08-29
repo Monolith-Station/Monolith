@@ -1,0 +1,33 @@
+- type: job
+  id: PDVPrince
+  name: job-name-pdv-prince
+  description: job-description-pdv-prince
+  playTimeTracker: JobPDVPrince
+  startingGear: PDVPrinceGearEvent
+  icon: JobIconPDVPrince
+  supervisors: job-supervisors-nobody
+  weight: 0
+  displayWeight: 0
+  assignedCompany: PDV
+  canBeAntag: false
+  setPreference: true
+  access:
+  - Pirate
+  - GrandVizier
+  - PDVCommand
+  - Mercenary
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - PirateNF
+  - !type:AddImplantSpecial
+    implants: [ FreelanceTrackingImplant ]
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - Freespeak
+    languagesUnderstood:
+    - Freespeak

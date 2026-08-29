@@ -226,3 +226,35 @@
   - TsfmcSidearmAmmo
   - FactionArmorPlates
   canCustomizeName: true
+
+- type: roleLoadout
+  id: JobTsfCivilian # Civvie
+  groups:
+  - MercenaryHead
+  - ContractorNeck
+  - MercenaryJumpsuit
+  - MercenaryGloves
+  - MercenaryBackpack
+  - ContractorOuterClothing
+  - MercenaryShoes
+  - MercenaryFace
+  - MercenaryGlasses
+  - MercenaryBelt
+  - MercenaryEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - ContractorPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
+  - NFSpeciesSpecific
+  - MercenaryBalaclava # Mono
+  # - CivGunCaseSpecial # Mono
+  - ContractorArmorPlates # Mono
+  - TsfmcSidearm
+  - TsfmcSidearmAmmo
+  canCustomizeName: true

@@ -10,6 +10,11 @@
     perspectiveStrength: 0.013
 
 - type: shader
+  id: StarLight
+  kind: source
+  path: "/Textures/_FarHorizons/Shaders/StarSystem/star_light.swsl"
+
+- type: shader
   id: GasGiant
   kind: source
   path: "/Textures/_FarHorizons/Shaders/StarSystem/gas_giant.swsl"

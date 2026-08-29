@@ -26,6 +26,7 @@ research-technology-tsfmc-tier-two-vouchers = Grade 2 Shipyard Production
 # T3 TSFMC
 research-technology-tsfmc-tier-three-vouchers = Grade 3 Shipyard Production
 research-technology-tsfmc-super-weapons = State-of-the-art Weapons Manufacturing
+research-technology-tsfmc-super-ballistics = Weapon Modernization
 research-technology-tsfmc-synthalloy = Experimental Material Science
 research-technology-tsfmc-advanced-module = TSFMC Advanced Cyborg Module Developpment
 research-technology-tsfmc-sandevistan = TSFMC Sandevistan Reverse Engineering

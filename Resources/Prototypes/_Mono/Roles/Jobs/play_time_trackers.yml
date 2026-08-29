@@ -11,10 +11,16 @@
   id: JobTsfEngineer
 
 - type: playTimeTracker
+  id: JobTsfCivilian
+
+- type: playTimeTracker
   id: JobTsfBorg
 
 - type: playTimeTracker
   id: JobPdvBorg
+
+- type: playTimeTracker
+  id: JobPdvCivilian
 
 - type: playTimeTracker
   id: MdMedic
@@ -42,3 +48,8 @@
 
 - type: playTimeTracker
   id: JobMMCLiason
+#special adminbus roles
+- type: playTimeTracker
+  id: JobPDVAmbassador
+- type: playTimeTracker
+  id: JobPDVPrince

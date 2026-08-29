@@ -1,0 +1,135 @@
+# Safety Deposit Box Entities
+
+# Base parent for all safety deposit boxes
+- type: entity
+  id: SafetyDepositBoxBase
+  abstract: true
+  parent: BaseStorageItem
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: icon-open }
+          False: { state: icon }
+  - type: Storage
+    blacklist:
+      components:
+      - IdCard # Fuckery, abusable
+      - Currency # Balance
+      - Store # Balance
+      - EncryptionKey # Balance
+      - Implant # Prevent recursion
+      - Storage # Prevent recursion
+      - SafetyDepositBox # Prevent recursion
+      - ShipyardVoucher # Mfw 6 T4 vouchers in one box
+      - SecretStash # WL bypass
+      - Implanter # WL bypass
+      - OverwatchConsole # Requested by staff
+      - GhostRoleMobSpawner # Reinforcement radios
+      - DoorRemote # Requested by staff
+      - SolutionContainerManager # Requested by staff + lets you do crazy crazy shit that shouldn't be allowed gameplay wise (such as storing 6ku of letoferol)
+      - NukeDisk # Might be abusable in some way, who knows.
+      tags:
+      - Unstashable
+  - type: SafetyDepositBox
+  - type: Appearance
+  - type: Tag
+    tags:
+    - SafetyDepositBox
+
+- type: entity
+  id: SafetyDepositBoxSmall
+  name: safety deposit box (small)
+  description: A small secure box for storing valuables. Can hold 2x2 items.
+  parent: SafetyDepositBoxBase
+  components:
+  - type: Sprite
+    sprite: _WF/Objects/Economy/depositboxsmall.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: SafetyDepositBox
+    cost: 2000000
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,1
+
+- type: entity
+  id: SafetyDepositBoxMedium
+  name: safety deposit box (medium)
+  description: A medium secure box for storing valuables. Can hold 2x4 items.
+  parent: SafetyDepositBoxBase
+  components:
+  - type: Sprite
+    sprite: _WF/Objects/Economy/depositboxmedium.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: SafetyDepositBox
+    cost: 3500000
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,3
+
+- type: entity
+  id: SafetyDepositBoxLarge
+  name: safety deposit box (large)
+  description: A large secure box for storing valuables. Can hold 2x6 items.
+  parent: SafetyDepositBoxBase
+  components:
+  - type: Sprite
+    sprite: _WF/Objects/Economy/depositboxlarge.rsi
+    state: icon
+  - type: Item
+    size: Large
+  - type: SafetyDepositBox
+    cost: 5000000
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,1,5
+
+- type: entity
+  id: SafetyDepositConsole
+  name: safety deposit box console
+  description: "A console for purchasing and managing safety deposit boxes."
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    netsync: false
+    noRot: true
+    sprite: _WF/Structures/Machines/atm/depositatm.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: icon
+    - map: ["computerLayerScreen"]
+      state: unshaded
+  - type: SafetyDepositConsole
+    smallBoxProto: SafetyDepositBoxSmall
+    mediumBoxProto: SafetyDepositBoxMedium
+    largeBoxProto: SafetyDepositBoxLarge
+    boxSlot:
+      name: safety-deposit-console-boxSlot
+      insertSound: /Audio/Machines/scanning.ogg
+      ejectSound: /Audio/Machines/tray_eject.ogg
+      ejectOnBreak: true
+      swap: false
+      whitelist:
+        tags:
+        - SafetyDepositBox
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      safety-deposit-console-boxSlot: !type:ContainerSlot
+  - type: ActivatableUI
+    key: enum.SafetyDepositConsoleUiKey.Key
+  - type: InteractionOutline
+  - type: UserInterface
+    interfaces:
+      enum.SafetyDepositConsoleUiKey.Key:
+        type: SafetyDepositConsoleBoundUserInterface
+  - type: Anchorable
+  - type: Pullable

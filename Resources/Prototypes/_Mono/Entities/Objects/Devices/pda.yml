@@ -215,6 +215,62 @@
 
 - type: entity
   parent: BasePDVPDA
+  id: PDVAmbassadorPDA
+  name: PDV Ambassador PDA
+  components:
+  - type: Pda
+    id: PDVAmbassadorIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-grand-vizier
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: CartridgeLoader
+    preinstalled:
+    - LedgerCartridge
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+  - type: PdaBorderColor
+    borderColor: "#533980"
+
+- type: entity
+  parent: BasePDVPDA
+  id: PDVPrincePDA
+  name: PDV Prince PDA
+  components:
+  - type: Pda
+    id: PDVPrinceIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-grand-vizier
+  - type: Geiger # Mono
+    showExamine: true
+    showControl: true
+    isEnabled: true
+    attachedToSuit: true # Mono
+  - type: CartridgeLoader
+    preinstalled:
+    - LedgerCartridge
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - BountyContractsCartridge
+    - AstroNavCartridge
+  - type: PdaBorderColor
+    borderColor: "#533980"
+
+- type: entity
+  parent: BasePDVPDA
   id: PDVTarkhanPDA
   name: PDV tarkhan PDA
   components:

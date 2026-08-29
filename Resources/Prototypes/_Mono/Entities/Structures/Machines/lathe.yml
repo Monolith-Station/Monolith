@@ -1,6 +1,6 @@
 - type: entity
   id: FactionLathe
-  parent: BaseLatheLube
+  parent: BaseLatheAssembler
   name: military multi-purpose assembler
   description: Capable of producing a wide variety of things. Compatible with all kinds of fabrication template encryptions.
   components:
@@ -20,6 +20,7 @@
     board: MilitaryTechfabMachineCircuitboard
   - type: Lathe
     producingSound: /Audio/Machines/circuitprinter.ogg
+    reagentOutputSlotId: beaker_slot
     idleState: icon
     runningState: icon
     staticPacks:
@@ -66,6 +67,7 @@
       - RawMaterial
       - Ingot
   - type: RequireProjectileTarget
+  - type: OreSiloClient
 
 - type: entity
   id: FactionLatheImmmovable

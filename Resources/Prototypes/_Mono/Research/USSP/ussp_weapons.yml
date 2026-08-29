@@ -10,7 +10,7 @@
   - WeaponRevolverMatebaUSSP
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, 2
+  position: 5, -8
 
 - type: technology
   id: UsspAk410
@@ -24,8 +24,7 @@
   - AmmoBox762x39mmSubsonic
   technologyPrerequisites:
   - UsspMediumGuns
-  - UniversalMaterialResearchT2
-  position: 12, 8
+  position: 3, -7
 
 - type: technology
   id: UsspAdvancedGuns
@@ -40,5 +39,4 @@
   - WeaponShotgunBigLeadyUSSP
   technologyPrerequisites:
   - UsspMediumGuns
-  - UniversalMaterialResearchT3
-  position: 12, 13
+  position: 4, -7

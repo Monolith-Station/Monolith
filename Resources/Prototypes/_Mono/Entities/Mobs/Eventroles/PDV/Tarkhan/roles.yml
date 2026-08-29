@@ -1,0 +1,39 @@
+- type: entity
+  parent: MobHuman
+  id: MobHumanTarkhanBase
+  name: PDV Tarkhan
+  suffix: Human, PDV, Event, Ghostrole
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Freespeak
+    understands:
+    - TauCetiBasic
+    - Freespeak
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: HumanoidAppearance
+  - type: Loadout
+    prototypes: [PDVTarkhanGearEvent]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-tarkhan-operative-name
+    description: ghost-role-information-tarkhan-description
+    rules: ghost-role-information-tarkhan-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitary
+    - NamesLastMilitary
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+  - type: Company
+    companyName: PDVHighComm
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
+  - type: ChatRank
+    rank: pdv-tarkhan

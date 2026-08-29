@@ -35,6 +35,7 @@ using static Content.Shared._NF.Shipyard.Components.ShuttleDeedComponent;
 using Content.Server.Shuttles.Components;
 using Content.Server._NF.Station.Components;
 using System.Text.RegularExpressions;
+using Content.Server._Mono.Grid;
 using Content.Server._Mono.Shipyard;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.UserInterface;
@@ -44,6 +45,7 @@ using Content.Shared._NF.Bank.BUI;
 using Content.Shared._NF.ShuttleRecords;
 using Content.Server.StationEvents.Components;
 using Content.Shared._Mono.Company;
+using Content.Shared._Mono.Grid;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Player;
@@ -78,6 +80,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private ShuttleConsoleLockSystem _shuttleConsoleLock = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private GridModifierSystem _hullmods = default!;
 
     private static readonly ProtoId<TagPrototype> CrewedShuttleTag = "CrewedShuttle";
     private static readonly Regex DeedRegex = new(@"\s*\([^()]*\)");
@@ -178,6 +181,16 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             ConsolePopup(player, Loc.GetString(ev.CancelReason));
             Del(shuttleUid);
             return;
+        }
+
+        if (TryComp<ShipyardListingComponent>(shipyardConsoleUid, out var listingComp) && listingComp.Hullmods.Count > 0)
+        {
+            List<ProtoId<GridModificationPrototype>> modifiers = [];
+            foreach (var gridmod in listingComp.Hullmods)
+            {
+                modifiers.Add(gridmod);
+            }
+            _hullmods.ModifyGrid(ev.Shuttle, modifiers);
         }
 
         // Keep track of whether or not a voucher was used.

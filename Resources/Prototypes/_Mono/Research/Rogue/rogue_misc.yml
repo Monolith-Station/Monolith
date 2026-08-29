@@ -14,7 +14,7 @@
   - SnakeletVoucherRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 11, 1
+  position: -2, -10
 
 - type: technology
   id: PdvTierTwoVouchers
@@ -28,7 +28,7 @@
   technologyPrerequisites:
   - PdvTierOneVouchers
   - UniversalMaterialResearchT2
-  position: 11, 7
+  position: -2, -20
 
 - type: technology
   id: PdvTierThreeVouchers
@@ -44,7 +44,7 @@
   technologyPrerequisites:
   - PdvTierTwoVouchers
   - UniversalMaterialResearchT3
-  position: 11, 12
+  position: -2, -27
 
 - type: technology
   id: RogueJaws
@@ -58,7 +58,7 @@
   - NaniteApplicatorSyndicate
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -1
+  position: -5, -11
 
 - type: technology
   id: RogueHypospray
@@ -71,7 +71,7 @@
   - HyposprayRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -2
+  position: -2, -11
 
 - type: technology
   id: RogueEmag
@@ -85,7 +85,7 @@
   - AccessBreakerRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 12, 10
+  position: -2, -21
 
 - type: technology
   id: RogueThermals
@@ -98,7 +98,7 @@
   - ClothingEyesThermalVisionGoggles
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -3
+  position: -3, -11
 
 - type: technology
   id: PDVBasicBorgModule
@@ -112,7 +112,7 @@
   - BorgIFFPDV
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -4
+  position: -4, -11
 
 - type: technology
   id: PDVBasicBionics
@@ -127,7 +127,7 @@
   - AutosurgeonDermalArmorPDV
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 13, -4
+  position: -3, -21
 
 - type: technology
   id: PDVAdvancedBorgModule
@@ -139,6 +139,5 @@
   recipeUnlocks:
   - AdvancedBorgCombatModulePDV
   technologyPrerequisites:
-  - UniversalMaterialResearchT3
   - PDVBasicBorgModule
-  position: 12, 15
+  position: -4, -12

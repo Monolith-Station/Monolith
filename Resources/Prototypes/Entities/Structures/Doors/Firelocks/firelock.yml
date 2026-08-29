@@ -22,7 +22,7 @@
     - type: InteractionOutline
     - type: Damageable
       damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
+      damageModifierSet: StrongMetallic # mono: made equivalent to an airlock
     - type: RCDDeconstructable
       cost: 4
       delay: 6

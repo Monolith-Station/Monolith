@@ -9,9 +9,13 @@ job-description-md-medic = Traverse the space to provide life-saving care aboard
 # MARK: TSF
 job-description-tsf-engineer = Maintain the integrity of the flagship, get laughed at for not being a real soldier.
 job-description-tsf-borg = Half-human, Half-machine. Follow your laws, serve the TSF, and beg engineers for upgrades.
+job-description-tsf-civilian = Survive in the Colossus sector, do what your government tells you and watch out for the opposition.
 
 # MARK: PDV
 job-description-pdv-borg = Half-human, Half-machine. Follow your laws, serve the PDV, and beg dynasty troops for upgrades.
+job-description-pdv-civilian = Survive in the Colossus sector, obey the Sultanate and bring success to the Dynasty through your work.
+job-description-pdv-ambassador = A high ranking official of the Dynasty.
+job-description-pdv-prince = The son of the Sultan. Holds high authority.
 
 # MARK: Viper Group
 job-description-vg-infanteer = Follow the orders from above. Complete contracts. Get paid.

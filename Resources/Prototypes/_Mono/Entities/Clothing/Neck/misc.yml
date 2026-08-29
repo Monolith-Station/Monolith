@@ -148,3 +148,73 @@
     maxIntensity: 500
   - type: RadiationSource
     intensity: 0.2
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckWearableCamera
+  name: wireless camera #bodycam but currently it has more use than that
+  description: A wireless camera made to observe the battlefield from the safety of your base. Can be worn in the neck slot.
+  components:
+    - type: Sprite
+      sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+      layers:
+        - state: tsfbox
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: SurveillanceCameraSecurity
+      transmitFrequencyId: SurveillanceCamera
+    - type: SurveillanceCamera
+      networkSet: true
+      nameSet: True
+      id: Bodycam
+    - type: Eye
+    - type: WirelessNetworkConnection
+      range: 40000 # Modify this to change the range, make sure to change the range of the respective router to be the same
+    - type: SurveillanceCameraMicrophone
+      blacklist:
+        components:
+        - SurveillanceCamera
+        - RadioSpeaker
+        - SurveillanceCameraMonitor
+    - type: ActiveListener
+      range: 6
+    - type: ClothingGrantComponent
+      component:
+      - type: StationAiVision
+        range: 4
+
+- type: entity
+  parent: ClothingNeckWearableCamera
+  id: ClothingNeckWearableCameraPDV
+  name: PDV wireless camera
+  components:
+    - type: Sprite
+      sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+      layers: 
+        - state: pdvbox
+    - type: DeviceNetwork
+      receiveFrequencyId: SurveillanceCameraPDV
+
+- type: entity
+  parent: ClothingNeckWearableCamera
+  id: ClothingNeckWearableCameraTSF
+  name: TSF wireless camera
+  components:
+    - type: Sprite
+      sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+      layers:
+        - state: tsfbox
+    - type: DeviceNetwork
+      receiveFrequencyId: SurveillanceCameraTSF
+
+- type: entity
+  parent: ClothingNeckWearableCamera
+  id: ClothingNeckWearableCameraMMC
+  name: MMC wireless camera
+  components:
+    - type: Sprite
+      sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+      layers:
+        - state: civbox
+    - type: DeviceNetwork
+      receiveFrequencyId: SurveillanceCameraMMC

@@ -1,0 +1,40 @@
+- type: job
+  id: TsfCivilian
+  name: job-name-tsf-civilian
+  description: job-description-tsf-civilian
+  playTimeTracker: JobTsfCivilian
+  startingGear: TsfCivilianGear
+  icon: JobIconTSFCiv
+  supervisors: job-supervisors-prisoner
+  weight: 0
+  displayWeight: 0
+  alwaysUseSpawner: true
+  assignedCompany: TSFCivilian
+  canBeAntag: false
+  setPreference: true
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSFMC
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - SolCommon
+    languagesUnderstood:
+    - SolCommon
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+
+- type: startingGear
+  id: TsfCivilianGear
+  #  equipment:
+  #    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+  #    pocket2: Magazine45_ACPPistolFMJ
+  storage:
+    back:
+    - NFPouchUtility
+    - ClothingHeadsetTsfCivilian

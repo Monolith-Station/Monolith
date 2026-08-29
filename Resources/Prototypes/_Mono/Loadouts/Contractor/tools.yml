@@ -7,3 +7,15 @@
   storage:
     back:
     - Binoculars
+
+# ContractorTapeRecorder moved here from Resources/Prototypes/_NF/Loadouts/Jobs/Contractor/backpack_items.yml
+# while cherrypicking tape recorders. That file did not exist.
+- type: loadout
+  id: ContractorTapeRecorder
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 0 # Mono - 0<600. Consistency with other loadout items.
+  storage:
+    back:
+    - TapeRecorderFilled # Mono - Other loadout items aren't useless by default.

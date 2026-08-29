@@ -1,5 +1,6 @@
 # these are what actually decides a biome's spread.
 # as of 8/1/2026, these have all been placed on top of the station anchor on Colossus Central.
+# 24/8/2026, markers attached to caelestinus amongst the spectator warp point cluster
 # TODO: make an exped prototype & autoplace it on expeditions with a higher priority than 2k
 # 0-5000: inner ring
 # 5000-9500: middle ring
@@ -46,7 +47,7 @@
   - type: SpaceBiomeSource
     id: BiomeClusterA
     swapDistance: 1200
-    priority: 500
+    priority: 2500
 
 - type: entity
   id: BiomeSourceWilds
@@ -56,7 +57,7 @@
   - type: SpaceBiomeSource
     id: BiomeWilds
     swapDistance: 1200
-    priority: 500
+    priority: 2500
 
 - type: entity
   id: BiomeSourceFarReachesIV
@@ -105,7 +106,7 @@
   components:
   - type: SpaceBiomeSource
     id: BiomeOuterRing
-    swapDistance: 18000
+    swapDistance: 16000
     priority: 1000
 
 - type: entity
@@ -115,7 +116,7 @@
   components:
   - type: SpaceBiomeSource
     id: BiomeMiddleRing
-    swapDistance: 10000
+    swapDistance: 10500
     priority: 1500
 
 - type: entity
@@ -125,5 +126,5 @@
   components:
   - type: SpaceBiomeSource
     id: BiomeInnerRing
-    swapDistance: 5000
+    swapDistance: 7500
     priority: 2000

@@ -25,7 +25,7 @@
   discipline: FactionUniversal
   tier: 1
   cost: 5000
-  position: 10, 0
+  position: 0, -8
 
 - type: technology
   id: UniversalMaterialResearchT2
@@ -36,7 +36,7 @@
   cost: 50000
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 10, 6
+  position: 0, -16
   recipeUnlocks:
   - AmmoBox762x39mmBigFMJ
   - AmmoBox762x51mmBigFMJ
@@ -56,4 +56,4 @@
   cost: 100000
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 10, 11
+  position: 0, -26

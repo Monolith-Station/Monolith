@@ -6,7 +6,7 @@
   name: TSF-SKR Fujian
   description: A decently-sized escort carrier, capable of holding 4 Zephyrs or Zephyr-ECs. Carries quite a bit of armor to defend itself and its fighters.
   limit: 2
-  hyperwarLimit: 3
+  hyperwarLimit: 0 # For lag and balance reasons, but mostly lag.
   price: 425601
   category: Large
   purchasable: false # voucher only

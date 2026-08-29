@@ -42,6 +42,7 @@
     runningState: icon
     staticPacks:
     - NFServiceTechfabDeprecatedStatic
+    - ReportingStatic # DeltaV
     dynamicPacks:
     - NFServiceTechfabDeprecated
   - type: EmagLatheRecipes
@@ -152,6 +153,7 @@
     - RoundstartShipgunAmmo # Mono
     - StaticGrenades
     - MonoAttachmentsStatic # Mono
+    - ReportingStatic # DeltaV
     dynamicPacks:
     - NFNfsdTechfabDeprecated
     - DynamicAmmoRecipePack

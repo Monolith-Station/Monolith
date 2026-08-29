@@ -9,16 +9,23 @@
 # Notes:
 - type: pointOfInterest
   id: Zvezda
-  parent: BasePOI
+  parent: [BasePOI, BaseRepairablePOI]
   name: 'Zvezda Orbital Habitation'
-  minimumDistance: 10000
-  maximumDistance: 20000
-  spawnGroup: Optional
+  minimumDistance: 4000
+  maximumDistance: 10000
+  spawnGroup: Required
   gridPath: /Maps/_Mono/POI/Dungeons/zvezda.yml
   addComponents:
   - type: IFF
     color: "#17bf65"
     readOnly: true
+  - type: WorldGenDistanceCarver
+    distanceThresholds:
+    # Dead zone
+    - maxDistance: 800
+      prob: 0.0
+    - maxDistance: 1500
+      prob: 0.3
 
 - type: gameMap
   id: Zvezda
@@ -28,7 +35,27 @@
   stations:
     Zvezda:
       stationProto: RecordsFrontierOutpostCargo
+      gridComponents:
+      - type: StationCargoOrderDatabase
+        capacity: 240
+      - type: TradeCrateDestination
+        destinationProto: Trade
+      - type: StationDeadDrop
+        maxDeadDrops: 12
+      - type: VesselInfo
+        description: "A half-abandoned decaying station. Sometimes you can hear the hull bend."
+      - type: VesselMusic
+        ambientMusicPrototype: CamelotMusic
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Zvezda Orbital Habitation'
-        - type: StationDeadDropHintExempt
+        - type: ExtraStationInformation
+          icon:
+            sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+            state: icon
+          stationSubtext: 'frontier-lobby-zvezda-subtext'
+          stationDescription: 'frontier-lobby-zvezda-description'
+          lobbySortOrder: 5
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ -1, -1 ]

@@ -21,9 +21,20 @@
       types:
         Slash: 14
         Piercing: 7
-        Structural: 30
+        Structural: 20
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Phlogiston
+          Quantity: 2.5
+        - ReagentId: Napalm
+          Quantity: 2.5
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 1
   - type: Tag
     tags:
     - MantisBlade

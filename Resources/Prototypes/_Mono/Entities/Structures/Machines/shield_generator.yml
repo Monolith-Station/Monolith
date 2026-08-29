@@ -123,14 +123,14 @@
   suffix: POI ONLY
   components:
   - type: ShipShieldEmitter
-    damageLimit: 250000
-    healPerSecond: 1000
+    damageLimit: 500000
+    healPerSecond: 2000
     damageExp: 1
     baseDraw: 80000
     maxDraw: 150000
     unpoweredBonus: 7
-    powerModifier: 0.25
-    damageOverloadTimePunishment: 45
+    powerModifier: 0.1
+    damageOverloadTimePunishment: 30
     shieldColor: "#FF9933"
     collisionResistanceMultiplier: 0.0
   - type: Sprite
@@ -232,7 +232,7 @@
     whitelist:
       tags:
         - Chimera
-        
+
 # TSF capital shield - inbetween POI and MS-500, meant for flyssa
 - type: entity
   id: ShieldGeneratorTSFCapital

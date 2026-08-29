@@ -362,13 +362,12 @@
 # R-300 430mm
 
 - type: entity
-  id: WeaponTurretR300
+  id: WeaponTurretR300Base
+  parent: BallisticArtilleryTier5HP
   name: R-300 430mm howitzer
-  parent:
-  - BallisticArtilleryUnanchorableCartridge
-  - BallisticArtilleryTier5HP
   suffix: Capital/Station, T4
   description: A giant, stupid howitzer. A stupid low velocity, a stupid long reload, and a stupidly powerful explosion if you can get it to hit. No AP whatsover.
+  abstract: true
   components:
   - type: StaticPrice
     price: 15000
@@ -411,14 +410,6 @@
         volume: 2
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - R300Shell
-    capacity: 1
-    proto: R300ShellHE
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
   - type: SpaceArtillery
   - type: Actions
   - type: RadarBlip
@@ -438,6 +429,40 @@
   - type: ShipRepairable
     repairTime: 45
     repairCost: 200
+
+- type: entity
+  id: WeaponTurretR300
+  parent:
+  - WeaponTurretR300Base
+  - BallisticArtilleryUnanchorableCartridge
+  suffix: Capital, T4
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - R300Shell
+    capacity: 1
+    proto: R300ShellHE
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  id: WeaponTurretR300Infinite
+  parent:
+  - WeaponTurretR300Base
+  - BallisticArtilleryUnanchorable
+  suffix: Station, Recharging Ammo
+  components:
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 350
+  - type: ProjectileBatteryAmmoProvider
+    proto: R300BulletHE
+    fireCost: 1500
 
 # Longbow
 

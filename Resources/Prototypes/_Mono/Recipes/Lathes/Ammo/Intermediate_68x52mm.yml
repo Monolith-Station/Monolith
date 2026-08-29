@@ -35,6 +35,18 @@
   id: Magazine68x52mmRIP
   result: Magazine68x52mmCaselessRIP
 
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: Magazine68x52mmCaselessPlasma
+  categories:
+  - Ammo
+  materials:
+    Steel: 500
+    UraniumDepleted: 150
+  reagents:
+    Plasma: 60
+  result: Magazine68x52mmCaselessPlasma
+
 #Boxes
 
 - type: latheRecipe
@@ -67,9 +79,35 @@
   id: AmmoBox68x52mmRIP
   result: AmmoBox68x52mmCaselessRIP
 
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: AmmoBox68x52mmCaselessPlasma
+  categories:
+  - Ammo
+  materials:
+    Steel: 1000
+    UraniumDepleted: 300
+  reagents:
+    Plasma: 120
+  result: AmmoBox68x52mmCaselessPlasma
+
 #big box
 - type: latheRecipe
   parent: BaseAmmoFMJIntermediateBigAmmoBoxRecipe
   id: AmmoBox68x52mmCaselessBig
   result: AmmoBox68x52mmCaselessBig
+
+# battery
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: LargePowerCellPlasma68x52mm
+  categories:
+  - Ammo
+  materials:
+    Steel: 350
+    Plasma: 1500
+    Plastitanium: 100
+    UraniumFissile: 100
+  result: LargePowerCellPlasma68x52mm
 

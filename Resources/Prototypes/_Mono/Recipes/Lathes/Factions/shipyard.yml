@@ -108,6 +108,21 @@
     Silver: 5000
     Gold: 5000
 
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ZephyrVoucherTSF
+  result: ShipVoucherZephyr
+  completetime: 130
+  materials:
+    Steel: 6500
+    Plasteel: 4500
+    Plastic: 3000
+    Glass: 1000
+    Plasma: 1500
+    Uranium: 1500
+    Silver: 3000
+    Gold: 3000
+
 # PDV
 
 - type: latheRecipe

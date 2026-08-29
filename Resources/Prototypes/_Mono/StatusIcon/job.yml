@@ -8,6 +8,14 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconTSFCiv
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: TSFCiv
+  jobName: job-name-tsf-civilian
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconTSFCaptain
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
@@ -83,6 +91,14 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconPDVCiv
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVCiv
+  jobName: job-name-pdv-civilian
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconMMCEmployee
   icon:
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
@@ -104,3 +120,20 @@
     sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: MMCLiason
   jobName: job-name-mmc-liason
+
+#admin roles
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPDVAmbassador
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVAmbassador
+  jobName: job-name-pdv-ambassador
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPDVPrince
+  icon:
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
+    state: PDVPrince
+  jobName: job-name-pdv-prince

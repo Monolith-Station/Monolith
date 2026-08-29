@@ -137,3 +137,41 @@
     - type: ShipyardConsole
       shipyardChannel: Mieyo
       canTransferDeed: false
+
+- type: entity
+  id: ComputerShipyardZvezda
+  parent: BaseCarrierComputer # Don't tell anyone.
+  name: zvezda shipyard console
+  description: Used to purchase and sell "shuttles"
+  components:
+  - type: ShipyardListing
+    #hullmods: # Dont uncomment until wall rotations from replacement are fixed. I'm piss lazy right now.
+    #- DecayedHull
+    shuttles:
+    - Notch
+    - Borer
+    - Brute
+    - Canister
+    - Tiger
+    - Tick
+    - Horsefly
+    - MClass
+    - Peregrine
+    - Mudskipper
+    - Betelgeuse
+  - type: Sprite
+    sprite: _NF/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer_blackmarket
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: shipyard_scrapyard
+    - map: ["computerLayerKeys"]
+      state: telesci_key
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
+    - PDV
+    inverted: true

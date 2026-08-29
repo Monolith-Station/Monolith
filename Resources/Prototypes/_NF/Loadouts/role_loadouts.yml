@@ -16,20 +16,21 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Contractor
+# mono: give vagrants mercenary loadout options
 - type: roleLoadout
   id: JobContractor
   groups:
-  - ContractorHead
+  - MercenaryHead
   - ContractorNeck
-  - ContractorJumpsuit
-  - ContractorGloves
-  - ContractorBackpack
+  - MercenaryJumpsuit
+  - MercenaryGloves
+  - MercenaryBackpack
   - ContractorOuterClothing
-  - ContractorShoes
-  - ContractorFace
-  - ContractorGlasses
-  - ContractorBelt
-  - ContractorEars
+  - MercenaryShoes
+  - MercenaryFace
+  - MercenaryGlasses
+  - MercenaryBelt
+  - MercenaryEars
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - ContractorPDA
@@ -41,9 +42,10 @@
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - MercenaryBalaclava # Mono
   - ContractorFirearm # Mono
   - ContractorMag # Mono
-  - CivGunCaseSpecial # Mono
+# - CivGunCaseSpecial # Mono
   - ContractorArmorPlates # Mono
 
 # Pilot
@@ -75,7 +77,7 @@
   - ContractorArmorPlates # Mono
   - ContractorFirearm # Mono
   - ContractorMag # Mono
-  - CivGunCaseSpecial # Mono
+# - CivGunCaseSpecial # Mono
 
 # Mercenary
 - type: roleLoadout
@@ -107,7 +109,7 @@
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
-  - CivGunCaseSpecial # Mono
+# - CivGunCaseSpecial # Mono
   - ContractorArmorPlates # Mono
 
 # Frontier

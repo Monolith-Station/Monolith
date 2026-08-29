@@ -1,3 +1,15 @@
+# TSF
+
+- type: entity
+  id: SpawnPointTSFCivilian
+  parent: SpawnPointJobBase
+  name: TSF Civilian Spawn
+  components:
+  - type: SpawnPoint
+    job_id: TsfCivilian
+  - type: Sprite
+    sprite: _NF/Structures/Decoration/banner.rsi
+    state: banner-blue
 
 #PDV
 - type: entity
@@ -47,6 +59,17 @@
       state: robot
     - sprite: Mobs/Silicon/chassis.rsi
       state: robot_e
+
+- type: entity
+  id: SpawnPointPDVCivilian
+  parent: SpawnPointJobBase
+  name: PDV Civilian Spawn
+  components:
+  - type: SpawnPoint
+    job_id: PdvCivilian
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
 
 #USSP
 

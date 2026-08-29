@@ -1,7 +1,7 @@
 # Admin companies
 
 winter-solstice-description = All three branches of the Trans-Solar Marines Federation fall under the direction of the Federation's unified high command, known as Winter Solstice.
-
+pdv-highcomm-description = The high ranking officials of the PDV - simply referred to as highcomm by scared rahkshans...
 
 # Core companies
 

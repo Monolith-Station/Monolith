@@ -97,8 +97,8 @@ uplink-speedloader-magnu-desc = Revolver speedloader with 6 armor-piercing catri
 uplink-mosin-ammo-name = Ammunition box (7.62x39mm FMJ)
 uplink-mosin-ammo-desc = A box of 60 cartridges for the surplus rifle.
 
-uplink-sniper-ammo-name = Ammunition box (.60 14.5x114mm)
-uplink-sniper-ammo-desc = A box of 10 cartridges for the Hristov sniper rifle.
+uplink-sniper-ammo-name = Ammunition box (14.5x114mm AP)
+uplink-sniper-ammo-desc = A box of 10 armor-piercing cartridges for the Hristov sniper rifle.
 
 # Utility
 uplink-holopara-kit-name = Holoparasite Kit
