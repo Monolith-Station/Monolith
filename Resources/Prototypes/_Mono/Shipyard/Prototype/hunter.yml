@@ -2,10 +2,12 @@
   id: Hunter
   parent: BaseVesselAntag
   name: Hunter
-  description: A cheap, armored personnel carrier armed with 4 100mm autocannons.
+  description: A cheap, armored personnel carrier armed with 4 100mm autocannons. Much like the meaning of the insignia it bears, the blueprints have been lost to time.
+  limit: 1
   price: 62802
+  purchasable: false
   category: Small
-  group: Syndicate
+  group: Prototype
   shuttlePath: /SharedMaps/_Mono/Shuttles/Syndicate/hunter.yml
   guidebookPage: Null
   class:

@@ -1,0 +1,258 @@
+- type: entity
+  parent: NFBaseBlueprint
+  id: BaseBlueprintPrototypeVoucher
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _NF/Objects/Tools/blueprints.rsi
+        state: icon-base
+        color: "#e18b8b"
+      - sprite: _NF/Objects/Tools/blueprints.rsi
+        state: icon-text
+      - sprite: Objects/Misc/bureaucracy.rsi
+        state: paper_stamp-generic
+        offset: 0.15,-0.1
+        map: ["enum.PaperVisualLayers.Stamp"]
+        visible: false
+      - sprite: Objects/Misc/bureaucracy.rsi # Need for PaperVisuals otherwise it wont stop complaining
+        state: paper_words
+        map: ["enum.PaperVisualLayers.Writing"]
+        visible: false
+  - type: Item
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#e18b8b"
+      - state: inhand-left-text
+      right:
+      - state: inhand-right-base
+        color: "#e18b8b"
+      - state: inhand-right-text
+
+- type: entity
+  parent: BaseBlueprintPrototypeVoucher
+  id: BlueprintVoucherSyndicate
+  name: blood-red blueprint
+  description: A blueprint depicting four different combat vessels. It is marked with an image of a three-headed hydra in the shape of an "S", a symbol of which the meaning has been lost to time.
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _NF/Objects/Tools/blueprints.rsi
+        state: icon-base
+        color: "#880000"
+      - sprite: _NF/Objects/Tools/blueprints.rsi
+        state: icon-text
+      - sprite: Objects/Misc/bureaucracy.rsi
+        state: paper_stamp-generic
+        offset: 0.15,-0.1
+        map: ["enum.PaperVisualLayers.Stamp"]
+        visible: false
+      - sprite: Objects/Misc/bureaucracy.rsi # Need for PaperVisuals otherwise it wont stop complaining
+        state: paper_words
+        map: ["enum.PaperVisualLayers.Writing"]
+        visible: false
+  - type: Item
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#880000"
+      - state: inhand-left-text
+      right:
+      - state: inhand-right-base
+        color: "#880000"
+      - state: inhand-right-text
+  - type: Blueprint
+    providedRecipes:
+    - ShipVoucherSyndicateRecipe
+
+- type: entity
+  parent: BaseBlueprintPrototypeVoucher
+  id: BlueprintVoucherRedSail
+  name: redsail corsairs blueprint
+  description: A blueprint depicting two scrappy combat vessels, marked with the crimson skull of the long-forgotten pirate group once known as the RedSail Corsairs.
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _NF/Objects/Tools/blueprints.rsi
+        state: icon-base
+        color: "#930000"
+      - sprite: _NF/Objects/Tools/blueprints.rsi
+        state: icon-text
+      - sprite: Objects/Misc/bureaucracy.rsi
+        state: paper_stamp-generic
+        offset: 0.15,-0.1
+        map: ["enum.PaperVisualLayers.Stamp"]
+        visible: false
+      - sprite: Objects/Misc/bureaucracy.rsi # Need for PaperVisuals otherwise it wont stop complaining
+        state: paper_words
+        map: ["enum.PaperVisualLayers.Writing"]
+        visible: false
+  - type: Item
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#930000"
+      - state: inhand-left-text
+      right:
+      - state: inhand-right-base
+        color: "#930000"
+      - state: inhand-right-text
+  - type: Blueprint
+    providedRecipes:
+    - ShipVoucherRedSailRecipe
+
+- type: entity
+  parent: BaseBlueprintPrototypeVoucher
+  id: BlueprintVoucherZealots
+  name: zealots of balaam blueprint
+  description: A charred blueprint of which the majority seems to have burned off. The surviving part of the blueprint depicts a once infamous combat vessel. There is a depiction of an eye in the corner that pierces deep into your soul.
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _NF/Objects/Tools/blueprints.rsi
+        state: icon-base
+        color: "#BC7F58"
+      - sprite: _NF/Objects/Tools/blueprints.rsi
+        state: icon-text
+      - sprite: Objects/Misc/bureaucracy.rsi
+        state: paper_stamp-generic
+        offset: 0.15,-0.1
+        map: ["enum.PaperVisualLayers.Stamp"]
+        visible: false
+      - sprite: Objects/Misc/bureaucracy.rsi # Need for PaperVisuals otherwise it wont stop complaining
+        state: paper_words
+        map: ["enum.PaperVisualLayers.Writing"]
+        visible: false
+  - type: Item
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#BC7F58"
+      - state: inhand-left-text
+      right:
+      - state: inhand-right-base
+        color: "#BC7F58"
+      - state: inhand-right-text
+  - type: Blueprint
+    providedRecipes:
+    - ShipVoucherZealotsRecipe
+
+- type: entity
+  parent: BaseBlueprintPrototypeVoucher
+  id: BlueprintVoucherVox
+  name: incomprehensible blueprint
+  description: A blueprint that, no matter how hard you stare at it, you can't seem to wrap your head around. A lathe might still be able to.
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _NF/Objects/Tools/blueprints.rsi
+        state: icon-base
+        color: "#a1bc58"
+      - sprite: _NF/Objects/Tools/blueprints.rsi
+        state: icon-text
+      - sprite: Objects/Misc/bureaucracy.rsi
+        state: paper_stamp-generic
+        offset: 0.15,-0.1
+        map: ["enum.PaperVisualLayers.Stamp"]
+        visible: false
+      - sprite: Objects/Misc/bureaucracy.rsi # Need for PaperVisuals otherwise it wont stop complaining
+        state: paper_words
+        map: ["enum.PaperVisualLayers.Writing"]
+        visible: false
+  - type: Item
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#a1bc58"
+      - state: inhand-left-text
+      right:
+      - state: inhand-right-base
+        color: "#a1bc58"
+      - state: inhand-right-text
+  - type: Blueprint
+    providedRecipes:
+    - ShipVoucherVoxRecipe
+
+- type: entity
+  parent: BaseBlueprintPrototypeVoucher
+  id: BlueprintVoucherValkyrie
+  name: decommissioned phaethon dynasty blueprint
+  description: A blueprint clearly originating from the Phaethon Dynasty depicting a combat vessel named "Valkyrie". Large red text saying "DECOMMISSIONED" on the bottom is the first thing to catch your eye.
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _NF/Objects/Tools/blueprints.rsi
+        state: icon-base
+        color: "#D2B48C"
+      - sprite: _NF/Objects/Tools/blueprints.rsi
+        state: icon-text
+      - sprite: Objects/Misc/bureaucracy.rsi
+        state: paper_stamp-generic
+        offset: 0.15,-0.1
+        map: ["enum.PaperVisualLayers.Stamp"]
+        visible: false
+      - sprite: Objects/Misc/bureaucracy.rsi # Need for PaperVisuals otherwise it wont stop complaining
+        state: paper_words
+        map: ["enum.PaperVisualLayers.Writing"]
+        visible: false
+  - type: Item
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+        color: "#D2B48C"
+      - state: inhand-left-text
+      right:
+      - state: inhand-right-base
+        color: "#D2B48C"
+      - state: inhand-right-text
+  - type: Blueprint
+    providedRecipes:
+    - ShipVoucherValkyrieRecipe
+
+- type: entity
+  parent: BaseBlueprintPrototypeVoucher
+  id: BlueprintVoucherUNSA
+  name: star-spangled blueprint
+  description: A blueprint of which you cannot identify the author. It depicts a military vessel.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - ShipVoucherUNSARecipe
+
+- type: entity
+  parent: BaseBlueprintPrototypeVoucher
+  id: BlueprintVoucherBalor
+  name: balor blueprint
+  description: A blueprint depicting an extremely unusual vessel in a circular shape, as well as a few small drones. It is labelled "Balor" and is clearly marked as "denied".
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - ShipVoucherBalorMothershipRecipe
+    - BalorDroneVoucherMerc
+
+- type: entity
+  parent: BaseBlueprintPrototypeVoucher
+  id: BlueprintVoucherMilitiaIronworks
+  name: militia ironworks blueprint
+  description: A blueprint depicting three vessels, clearly marked as belonging to Militia Ironworks.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - ShipVoucherMilitiaIronworksRecipe
+
+- type: entity
+  parent: BaseBlueprintPrototypeVoucher
+  id: BlueprintVoucherHammerhead
+  name: wayward "hammerhead" blueprint
+  description: A tattered and distorted blueprint of unknown origin. It seems to be the blueprint for a heavy military vessel, but you don't think even an autolathe could make out what it's trying to depict anymore. The only thing you can clearly identify is the label "HAMMERHEAD".
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - ShipVoucherHammerheadRecipe

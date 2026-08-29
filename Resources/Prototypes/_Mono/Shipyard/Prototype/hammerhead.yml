@@ -8,10 +8,12 @@
   id: Hammerhead
   parent: BaseVessel
   name: UI-SKR Hammerhead
-  description: A multipurpose mercenary ship with an armament of 4 225mm cannons, 4 20mm PD guns, and 6 57mm autocannons. Lacks a bit in protection compared to proper military ships of this size.
+  description: A prototype for a heavy-hitting beast of a military ship originating from an unknown manufacturer. For unknown reasons, the data was lost before it could be put into production. Its armament consists of 4 225mm cannons, 4 20mm PD guns, and 6 57mm autocannons, but it lacks a bit in protection compared to proper military ships of this size.
+  limit: 1
   price: 324616 # Its a ~10k markup, it really is that expensive.
+  purchasable: false # voucher only
   category: Large
-  group: Shipyard
+  group: Prototype
   access: Mercenary
   shuttlePath: /SharedMaps/_Mono/Shuttles/hammerhead.yml
   guidebookPage: Null

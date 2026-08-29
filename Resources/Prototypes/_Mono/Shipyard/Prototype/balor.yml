@@ -2,8 +2,10 @@
   id: Balor
   parent: BaseVessel
   name: Z-22 Balor
-  description: Directly translated to the common tongue, the 'Evil Eye' is a drone hunter, meant to patrol the deep periphery until its prey reveals itself, then parks and unleashes its malicious intent. EVA is required to access the core.
+  description: A prototype mothership with an extremely unusual layout, directly translated as "evil eye" and designed for the purpose of hunting drones as well as more dangerous game. Its unusual layout meant that it never left the prototyping stage due to a lack of willing investors, and the idea was eventually scrapped. The blueprints of both itself and its drones are now considered lost.
+  limit: 1
   price: 188000
+  purchasable: false
   category: Large
   group: Shipyard
   access: Mercenary

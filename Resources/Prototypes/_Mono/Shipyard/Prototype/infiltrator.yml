@@ -2,10 +2,12 @@
   id: Infiltrator
   parent: BaseVesselAntag
   name: Infiltrator
-  description: A light syndicate frigate meant for raiding enemy stations. Armed to the teeth with missiles and Hydras.
+  description: A light frigate bearing insignia and iconography of which the true meaning has been lost to time, but that the Phaethon Dynasty has come to associate with the Sultan. If Phaethon scripture is to be believed, this is the model of ship which crash-landed into the desert planet of Pizk on the day the Sultan arrived to liberate the people from the tyrannical rule of the Council. Any existing digital data regarding this ship's former mass production has surely succumbed to data degradation by now. Armed to the teeth with missiles and Hydras.
+  limit: 1
   price: 275000
+  purchasable: false
   category: Large
-  group: Syndicate
+  group: Prototype
   shuttlePath: /SharedMaps/_Mono/Shuttles/Syndicate/infiltrator.yml
   guidebookPage: Null
   class:

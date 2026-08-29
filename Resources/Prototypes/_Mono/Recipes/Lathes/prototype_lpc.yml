@@ -1,0 +1,106 @@
+- type: latheRecipe
+  abstract: true
+  parent: BaseVoucherRecipe
+  id: BasePrototypeVoucherRecipe # equivalent to TSF T2
+  completetime: 100
+  materials:
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 10000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
+
+- type: latheRecipe
+  parent: BasePrototypeVoucherRecipe
+  id: ShipVoucherSyndicateRecipe
+  result: ShipVoucherSyndicate
+
+- type: latheRecipe
+  parent: BasePrototypeVoucherRecipe
+  id: ShipVoucherRedSailRecipe
+  result: ShipVoucherRedSail
+
+- type: latheRecipe
+  parent: BasePrototypeVoucherRecipe
+  id: ShipVoucherZealotsRecipe
+  result: ShipVoucherZealots
+
+- type: latheRecipe
+  parent: BasePrototypeVoucherRecipe
+  id: ShipVoucherVoxRecipe
+  result: ShipVoucherVox
+  materials:
+    Steel: 40000
+    Plasteel: 20000
+    Plastic: 30000
+    Glass: 10000
+    Plasma: 5000
+    UraniumFissile: 600
+    UraniumDepleted: 4000
+    Silver: 10000
+    Gold: 5000
+
+- type: latheRecipe
+  parent: BasePrototypeVoucherRecipe
+  id: ShipVoucherValkyrieRecipe
+  result: ShipVoucherValkyrie
+
+- type: latheRecipe
+  parent: BasePrototypeVoucherRecipe
+  id: ShipVoucherUNSARecipe
+  result: ShipVoucherUNSA
+
+- type: latheRecipe
+  parent: BasePrototypeVoucherRecipe
+  id: ShipVoucherBalorMothershipRecipe
+  result: ShipVoucherBalorMothership
+  materials:
+    Steel: 40000
+    Plasteel: 20000
+    Plastic: 30000
+    Glass: 10000
+    Plasma: 5000
+    UraniumFissile: 600
+    UraniumDepleted: 4000
+    Silver: 10000
+    Gold: 5000
+
+- type: latheRecipe
+  parent: BasePrototypeVoucherRecipe
+  id: ShipVoucherMilitiaIronworksRecipe
+  result: ShipVoucherMilitiaIronworks
+
+- type: latheRecipe
+  parent: BasePrototypeVoucherRecipe
+  id: ShipVoucherHammerheadRecipe
+  result: ShipVoucherHammerheadIncomplete
+  materials:
+    Steel: 40000
+    Plasteel: 55000
+    Plastic: 50000
+    Glass: 9000
+    Plasma: 500
+    UraniumFissile: 1000
+    UraniumDepleted: 5000
+    Silver: 5000
+    Gold: 5000
+
+- type: latheRecipe
+  parent: BasePrototypeVoucherRecipe
+  id: ShipVoucherHammerheadRestoration
+  result: ShipVoucherHammerhead
+  materials:
+    Plastitanium: 4500
+    Iridite: 375
+  entities:
+    ShipVoucherHammerheadIncomplete: 1
+    FederationMilitaryCredit1: 25
+    Doubloon1: 25
+    MonolithicCrystalSmall: 4
+    TreasureDatadiskEncrypted: 4
+    TreasureCPUSupercharged: 1

@@ -9,10 +9,12 @@
   id: Odenta
   parent: BaseVessel
   name: MI-COR Odenta
-  description: The Odenta is a heavily armored Medical Destroyer built for high-risk rescues and medical work. Armed with dual Prometheus Laser Cannons, a 255mm Bofors,a Draupnir 30mm Chaingun, 20mm, and PD lasers to shield its onboard Chemical Bay and Cryonics suite. Has MIL IFF.
+  description: A heavily armored Medical Destroyer originally built for high-risk rescues and medical work. Armed with dual Prometheus Laser Cannons, a 255mm Bofors,a Draupnir 30mm Chaingun, 20mm, and PD lasers to shield its onboard Chemical Bay and Cryonics suite. Unfortunately, despite its noble intentions, the illegally fitted TSFMC energy weapons were discovered and this ship suffered the same fate as the Tanuki, with its blueprints mostly lost.
+  limit: 1
   price: 184109 # 154109 base + markup
+  purchasable: false
   category: Medium
-  group: Medical
+  group: Prototype
   shuttlePath: /SharedMaps/_Mono/Shuttles/odenta.yml
   guidebookPage: null
   class:

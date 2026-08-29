@@ -8,16 +8,17 @@
   id: Vrikaash
   parent: BaseVessel
   name: VOX-Vrikaash
-  description: A warship produced by a Vox Arkship using debris from a battlefield. this vessel is highly unconventional, and filled with a nitrogen atmosphere. While Vox typically treat their vessels as their Kin, this one lacks any of the organic components, as it was built to be disposable. Unlike most vessels with a sensible weapons layout or doctrine, the Vrikaash places almost all of its weapons and armor on the starboard side, focusing firepower in standoff engagements.
+  description: An unusual vessel designed by the Vox as a warship eons ago, featuring a highly unconventional layout and a vox-friendly atmosphere. Unlike most Vox vessels, this one lacks organic components due to its origins as a disposable destroyer. It places all of its weapons and armour on the starboard. Due to the unusual recordkeeping of the Vox, the blueprints of their vessels are ill-documented and unlikely to be recorded in any digital database.
+  limit: 1
   price: 224000 # 130~k base marked up by 80~%
+  purchasable: false
   category: medium
-  group: Scrap
+  group: Prototype
   access: Mercenary
   shuttlePath: /SharedMaps/_Mono/Shuttles/Scrap/vrikaash.yml
   guidebookPage: Null
   class:
   - Destroyer
-  - Scrapyard
   engine:
   - Plasma
 

@@ -2,10 +2,12 @@
   id: Talon
   parent: BaseVesselAntag
   name: Talon
-  description: A heavy syndicate interceptor, with 4 forward facing Fang autocannons and 2 sidemounted Adder scatter cannons
+  description: A heavy vessel clearly intended to be an interceptor, with 4 forward facing Fang autocannons and 2 sidemounted Adder scatter cannons. Much like the meaning of the insignia it bears, the blueprints have been lost to time.
+  limit: 1
   price: 68579
+  purchasable: false
   category: Small
-  group: Syndicate
+  group: Prototype
   shuttlePath: /SharedMaps/_Mono/Shuttles/Syndicate/talon.yml
   guidebookPage: Null
   class:

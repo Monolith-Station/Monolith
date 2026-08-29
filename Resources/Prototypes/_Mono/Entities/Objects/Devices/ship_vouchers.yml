@@ -1437,3 +1437,231 @@
     vendPrice: 50000
 
 # end T4
+
+# start prototype vessels
+- type: entity
+  parent: BaseShipLPCOneUse
+  id: ShipVoucherSyndicate
+  name: blood-red LPC
+  suffix: Prototype, Infiltrator/Hydra/Hunter/Talon
+  description: A small card in a menacing red colour marked with a large "S". Seems to lack any form of authentication.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#880808"
+    - state: screen5
+      color: "#880808"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Prototype
+    vessels:
+    - Talon
+    - Hunter
+    - Hydra
+    - Infiltrator
+
+- type: entity
+  parent: BaseShipLPCOneUse
+  id: ShipVoucherRedSail
+  name: redsail corsairs LPC
+  suffix: Prototype, Serkesh/Scallywag
+  description: A small card marked with a red skull, marked "RedSail Corsairs". Seems to lack any form of authentication. Perhaps contains data regarding their long-lost vessels?
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#930000"
+    - state: screen5
+      color: "#930000"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Prototype
+    vessels:
+    - Scallywag
+    - Serkesh
+
+- type: entity
+  parent: BaseShipLPCOneUse
+  id: ShipVoucherZealots
+  name: zealots of balaam LPC
+  suffix: Prototype, Claymore
+  description: A small card marked with an intimidating eye, marked "Balaam". Seems to lack any form of authentication. Perhaps contains data regarding the blueprints they tried to destroy?
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#BC7F58"
+    - state: screen5
+      color: "#BC7F58"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Prototype
+    vessels:
+    - Claymore
+
+- type: entity
+  parent: BaseShipLPCOneUse
+  id: ShipVoucherVox
+  name: incomprehensible LPC
+  suffix: Prototype, Skelraak/Vrikaash
+  description: A small card marked with an incomprehensible label. The design of the card seems... almost alive?? Seems to lack any form of authentication.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#a1bc58"
+    - state: screen5
+      color: "#a1bc58"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Prototype
+    vessels:
+    - Skelraak
+    - Vrikaash
+
+- type: entity
+  parent: BaseShipLPCOneUse
+  id: ShipVoucherValkyrie
+  name: PDV Valkyrie LPC
+  suffix: Prototype, Valkyrie
+  description: A small card that, in the past, would have contained the data for the procurement of the now decommissioned Valkyrie-class interceptor. The Phaethon Dynasty authentication has been removed entirely, meaning it may be usable elsewhere now. 
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_fighter
+    - state: screen
+      color: "#1eff00"
+    - state: screen5
+      color: "#1eff00"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Prototype
+    vessels:
+    - Valkyrie
+
+- type: entity
+  parent: BaseShipLPCOneUse
+  id: ShipVoucherUNSA
+  name: star-spangled LPC
+  suffix: Prototype, Fortunate
+  description: A small blue card dotted with many white stars. Seems to lack any form of authentication.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#0A3161"
+    - state: screen5
+      color: "#0A3161"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Prototype
+    vessels:
+    - Fortunate
+
+- type: entity
+  parent: BaseShipLPCOneUse
+  id: ShipVoucherBalorMothership
+  name: balor LPC
+  suffix: Prototype, Balor
+  description: A small card labelled "BALOR". Seems to lack any form of authentication.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#2E6F40"
+    - state: screen8
+      color: "#32CD32"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Prototype
+    vessels:
+    - Balor
+
+- type: entity
+  parent: BaseShipLPCOneUse
+  id: ShipVoucherMilitiaIronworks
+  name: militia ironworks LPC
+  suffix: Prototype, Odenta/Tanuki/Siebel
+  description: A small card labelled "Militia Ironworks". Seems to lack any form of authentication. Perhaps contains data about their several decommissioned vessels?
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#999999"
+    - state: screen8
+      color: "#999999"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Prototype
+    vessels:
+    - Siebel
+    - Odenta
+    - Tanuki
+
+- type: entity
+  parent: BaseItem
+  id: ShipVoucherHammerheadIncomplete
+  name: fragmented hammerhead LPC
+  suffix: Incomplete, Hammerhead
+  description: A small card containing fragments of corrupted data. The only thing that isn't incoherent garbage is the label "HAMMERHEAD". The data stored inside likely needs to be restored, perhaps at a military assembler?
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#BF40BF"
+    - state: screen8
+      color: "#BF40BF"
+      shader: unshaded
+  - type: Item
+    size: Small
+    heldPrefix: default
+    storedRotation: -90
+  - type: CargoSellBlacklist
+
+- type: entity
+  parent: BaseShipLPCOneUse
+  id: ShipVoucherHammerhead
+  name: restored hammerhead LPC
+  suffix: Prototype, Hammerhead
+  description: A small card labelled "HAMMERHEAD". While the data is fully restored, it still seems to lack any form of authentication.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#BF40BF"
+    - state: screen8
+      color: "#BF40BF"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: true
+    consoleType: Prototype
+    vessels:
+    - Hammerhead

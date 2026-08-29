@@ -175,3 +175,31 @@
     - TSF
     - PDV
     inverted: true
+
+- type: entity
+  id: ComputerShipyardPrototype
+  parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyardBase]
+  name: prototype shipyard console
+  description: A special shipyard capable of accepting the data stored on LPCs which lack any sort of authentication measure. It also contains an extensive database of ships whose blueprints are now considered lost, making it a valuable tool for enthusiasts of lost vessels.
+  components:
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Prototype
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardConsoleUiKey.Prototype:
+        type: ShipyardConsoleBoundUserInterface
+  - type: Sprite
+    sprite: _NF/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer_blackmarket
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: shipyard_blackmarket
+    - map: ["computerLayerKeys"]
+      state: blackmarket_key
+  - type: ShipyardConsole
+    shipyardChannel: Common
+    ignoreBaseSaleRate: true # Fixed 70% sale rate.
+    canTransferDeed: false

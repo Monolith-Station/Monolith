@@ -2,10 +2,12 @@
   id: Hydra
   parent: BaseVesselAntag
   name: Hydra
-  description: A syndicate missile corvette meant for stealthy hit and runs and harassment.
+  description: A missile corvette clearly meant for stealthy hit and runs and harassment. Much like the meaning of the insignia it bears, the blueprints have been lost to time.
+  limit: 1
   price: 135000
+  purchasable: false
   category: Medium
-  group: Syndicate
+  group: Prototype
   shuttlePath: /SharedMaps/_Mono/Shuttles/Syndicate/hydra.yml
   guidebookPage: Null
   class:

@@ -1,0 +1,41 @@
+- type: entity
+  parent: MarkerBase
+  id: PrototypeBlueprintSpawner
+  name: prototype shipyard blueprint spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: PrototypeBlueprints
+      prob: 1.0
+
+- type: entityTable
+  id: PrototypeBlueprints
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - !type:GroupSelector
+        weight: 0.6
+        children:
+        - id: BlueprintVoucherMilitiaIronworks
+        - id: BlueprintVoucherUNSA
+        - id: BlueprintVoucherZealots
+        - id: BlueprintVoucherValkyrie
+      - !type:GroupSelector
+        weight: 0.3
+        children:
+        - id: BlueprintVoucherRedSail
+        - id: BlueprintVoucherBalor
+        - id: BlueprintVoucherVox
+      - !type:GroupSelector
+        weight: 0.095
+        children:
+        - id: BlueprintVoucherHammerhead
+      - !type:GroupSelector
+        weight: 0.005 # you're meant to get this via the weapons cache
+        children:
+        - id: BlueprintVoucherSyndicate

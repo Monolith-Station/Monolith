@@ -6,10 +6,12 @@
   id: Siebel
   parent: BaseVessel
   name: MI Siebel
-  description: The Siebel is a militia owned and designed ship, designed with Chimera combat in mind, however; many use it for expeditionary exploration and combat.
+  description: An initially widespread vessel designed for use by independent militia for the purposes of eradicating Chimera. However, increased restrictions on the armament that civilian vessels are permitted to have by the Trans-Solarian Federation forced the decommissioning of the Siebel.
+  limit: 1
   price: 211782
+  purchasable: false
   category: Medium
-  group: Expedition
+  group: Prototype
   access: Mercenary
   shuttlePath: /SharedMaps/_Mono/Shuttles/Expedition/siebel.yml
   guidebookPage: null

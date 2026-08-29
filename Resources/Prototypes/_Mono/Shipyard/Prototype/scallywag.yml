@@ -8,16 +8,17 @@
   id: Scallywag
   parent: BaseVessel
   name: RSC-Scallywag
-  description: Emerging from the depths of Theseus, an unknown maker approximitely a century ago, Scallywag wasnt made with schematics, months of research or brainstorming of old engineers.. She was made with resources at hand, designed to be a spearhad against those who sought to rip off "honest" citizens off of their nests and establish justice and law as they liked to call it...
+  description: An armed ship designed by the forgotten RedSail Corsairs to be easily put together by pirates living off of the scrap of the Colossus sector for the purposes of robbing civilians at artillery-point. Like its bigger sister, the Serkesh, the blueprints were lost with the destruction of the Corsairs' hideout.
+  limit: 1
   price: 139176 # 134176 base
+  purchasable: false
   category: medium
-  group: Scrap
+  group: Prototype
   access: Mercenary
   shuttlePath: /SharedMaps/_Mono/Shuttles/Scrap/scallywag.yml
   guidebookPage: Null
   class:
   - pursuit
-  - Scrapyard
 
   engine:
   - uranium

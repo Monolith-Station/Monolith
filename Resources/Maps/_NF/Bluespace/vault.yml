@@ -5368,7 +5368,7 @@ entities:
     - type: Transform
       pos: 4.3946543,3.5848985
       parent: 1
-- proto: ClothingShoesBling
+- proto: PrototypeBlueprintSpawner # mono: replace clown bling with prototype blueprint
   entities:
   - uid: 1293
     components:
