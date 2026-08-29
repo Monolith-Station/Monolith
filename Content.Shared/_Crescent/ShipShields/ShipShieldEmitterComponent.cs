@@ -92,4 +92,13 @@ public sealed partial class ShipShieldEmitterComponent : Component
     /// </summary>
     [DataField]
     public float CollisionResistanceMultiplier = 1.0f;
+
+    [DataField]
+    public SoundSpecifier CrashShutdownSound = new SoundPathSpecifier("/Audio/_CE/Explosions/shieldfail.ogg");
+
+    [DataField]
+    public float CrashRespoolTime = 30f;
+
+    [ViewVariables]
+    public bool CrashRespooling;
 }

@@ -192,6 +192,14 @@ public sealed partial class CEZLevelsSystem
 
             var down = input < 0f;
 
+            if (!down && !TryMapUp(mapUid.Value, out _))
+            {
+                var ev = new CEZOpenSkyExitAttemptEvent(mapUid.Value, true);
+                RaiseLocalEvent(gridUid, ref ev);
+                if (ev.Handled)
+                    continue;
+            }
+
             // Sat on terrain, not hovering over open sky: needs the engines spooled to break
             // free, and can't descend at all.
             var grounded = HasGroundUnderFootprint((gridUid, grid), mapUid.Value);
@@ -200,8 +208,7 @@ public sealed partial class CEZLevelsSystem
             if (down && (grounded || !TryMapDown(mapUid.Value, out _)))
                 continue;
 
-            // Going up needs SOME adjacent gap to become airborne in.
-            if (!down && !TryMapUp(mapUid.Value, out _) && !TryMapDown(mapUid.Value, out _))
+            if (!down && !TryMapUp(mapUid.Value, out _))
                 continue;
 
             var faller = EnsureComp<CEZGridFallerComponent>(gridUid);

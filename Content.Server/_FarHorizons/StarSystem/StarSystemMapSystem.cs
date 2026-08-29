@@ -1,4 +1,6 @@
 using Content.Server.GameTicking;
+using Content.Server._CE.ZLevels.Core;
+using Content.Server._CE.ZLevels.Mapping;
 using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared._FarHorizons.StarSystem.Helpers;
 using Content.Shared._FarHorizons.StarSystem.Prototypes;
@@ -15,11 +17,14 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
     [Dependency] private MapSystem _map = default!;
     [Dependency] private MetaDataSystem _metadata = default!;
     [Dependency] private PvsOverrideSystem _pvs = default!;
+    [Dependency] private CEZLevelMappingSystem _zMapping = default!;
+    [Dependency] private CEZLevelsSystem _zLevels = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<PostGameMapLoad>(OnPostMapLoad);
+        SubscribeLocalEvent<PlanetBodyComponent, ComponentShutdown>(OnPlanetShutdown);
     }
 
     private void OnPostMapLoad(PostGameMapLoad ev)
@@ -57,13 +62,40 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
 
         if (_protoMan.TryIndex<EntityPrototype>(Planet.PLANET_ENTITY, out var planetEnt))
         {
-            foreach (var planet in ent.Comp.StarSystem.Planets)
+            for (var i = 0; i < ent.Comp.StarSystem.Planets.Count; i++)
             {
+                var planet = ent.Comp.StarSystem.Planets[i];
                 var planetCoords = new EntityCoordinates(ent, planet.Position);
                 var spawnedPlanet = SpawnAtPosition(planetEnt.ID, planetCoords);
                 _metadata.SetEntityName(spawnedPlanet, planet.Name);
+
+                var body = EnsureComp<PlanetBodyComponent>(spawnedPlanet);
+                body.StarSystemMap = ent;
+                body.Type = planet.Type;
+                body.Index = i;
+                body.Radius = planet.Radius;
+
+                var planetProto = _protoMan.Index(planet.Type);
+                if (planetProto.Surface is { } surface &&
+                    _zMapping.TryLoadNetwork(surface, planet.Name, out var network))
+                {
+                    body.SurfaceNetwork = network;
+                    var surfaceComp = EnsureComp<PlanetSurfaceComponent>(network);
+                    surfaceComp.Planet = spawnedPlanet;
+                    surfaceComp.SpaceMap = ent;
+                    Dirty(network, surfaceComp);
+                    _pvs.AddGlobalOverride(network);
+                }
+
+                Dirty(spawnedPlanet, body);
                 _pvs.AddGlobalOverride(spawnedPlanet);
             }
         }
+    }
+
+    private void OnPlanetShutdown(Entity<PlanetBodyComponent> ent, ref ComponentShutdown args)
+    {
+        if (ent.Comp.SurfaceNetwork is { } network && !TerminatingOrDeleted(network))
+            _zLevels.DeleteMapNetwork(network);
     }
 }

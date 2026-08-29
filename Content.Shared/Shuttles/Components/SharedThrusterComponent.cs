@@ -7,6 +7,7 @@ namespace Content.Shared.Shuttles.Components
     {
         State,
         Thrusting,
+        PlanetTransit,
     }
 
     [Serializable, NetSerializable]

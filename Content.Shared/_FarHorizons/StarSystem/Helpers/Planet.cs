@@ -8,6 +8,7 @@ namespace Content.Shared._FarHorizons.StarSystem.Helpers;
 public sealed partial class Planet
 {
     [ViewVariables] public Vector2 Position;
+    [ViewVariables] public ProtoId<PlanetTypePrototype> Type;
     [ViewVariables] public string Name;
     [ViewVariables] public float EarthMass;
     [ViewVariables] public float Radius;
@@ -25,9 +26,12 @@ public sealed partial class Planet
     public const float MAP_PIXEL_SIZE = 10;
     public const string PLANET_ENTITY = "PlanetEntity";
 
-    public Planet(PlanetTypePrototype proto, IPrototypeManager protoMan, Vector2 position)
+    public float ApproachRadius => Radius * MAP_PIXEL_SIZE;
+
+    public Planet(PlanetTypePrototype proto, IPrototypeManager protoMan, StarSystemPlanet entry, Vector2 position)
     {
         Position = position;
+        Type = entry.Planet;
         Name = proto.Name;
         Shader = proto.Shader;
         Palette = proto.Palette;

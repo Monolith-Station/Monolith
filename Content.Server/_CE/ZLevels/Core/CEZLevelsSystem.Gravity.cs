@@ -4,10 +4,12 @@
  */
 
 using Content.Server._CE.ZLevels.Core.Components;
+using Content.Server._Crescent.ShipShields;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Gravity;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared.Gravity;
 using Content.Shared.Maps;
 using Robust.Shared.Map.Components;
@@ -20,6 +22,7 @@ public sealed partial class CEZLevelsSystem
 {
     [Dependency] private ExplosionSystem _explosion = default!;
     [Dependency] private GravitySystem _grav = default!;
+    [Dependency] private ShipShieldsSystem _shipShields = default!;
 
     [Dependency] private EntityQuery<CEZMapComponent> _zMapQuery = default!;
     [Dependency] private EntityQuery<PhysicsComponent> _physQuery = default!;
@@ -64,6 +67,14 @@ public sealed partial class CEZLevelsSystem
             {
                 if (!gravgen.GravityActive || !gravgenXform.ParentUid.IsValid())
                     continue;
+
+                if (TryComp<CEZGravgenStunnedComponent>(gravgenXform.ParentUid, out var stunned))
+                {
+                    if (_timing.CurTime < stunned.End)
+                        continue;
+
+                    RemCompDeferred<CEZGravgenStunnedComponent>(gravgenXform.ParentUid);
+                }
 
                 // Unrated (<= 0) = unlimited; infinity absorbs any finite additions.
                 var rated = gravgen.MaxHandledMass <= 0f ? float.PositiveInfinity : gravgen.MaxHandledMass;
@@ -288,6 +299,16 @@ public sealed partial class CEZLevelsSystem
 
         var transitSet = CollectTransitSet(grid);
 
+        if (TryComp<PlanetTransitComponent>(grid, out var planetTransit) &&
+            planetTransit.Direction == PlanetTransitDirection.Ascent &&
+            planetTransit.Phase == PlanetTransitPhase.Charging)
+        {
+            faller.Velocity = 0f;
+            foreach (var member in transitSet)
+                SetZVelocity(member, 0f);
+            return;
+        }
+
         // The whole rigid set hovers only if its generators' pooled capacity holds the
         // set's pooled mass — not if any single member's generator holds only itself.
         var hasGravgen = HasPooledGravgenSupport(transitSet);
@@ -403,10 +424,20 @@ public sealed partial class CEZLevelsSystem
     private void CrashGrid(Entity<MapGridComponent, CEZGridFallerComponent> ent)
     {
         var tileCount = 0;
+        var counter = _map.GetAllTilesEnumerator(ent, ent.Comp1);
+        while (counter.MoveNext(out _))
+            tileCount++;
+
+        if (tileCount == 0)
+            return;
+
+        var totalIntensity = tileCount * (ent.Comp2.CrashTileIntensity + ent.Comp2.CrashIntensityPerTile);
+        if (_shipShields.TryAbsorbCrash(ent, totalIntensity))
+            return;
+
         var tiles = _map.GetAllTilesEnumerator(ent, ent.Comp1);
         while (tiles.MoveNext(out var tileRef))
         {
-            tileCount++;
             var coords = _map.GridTileToLocal(ent, ent.Comp1, tileRef.Value.GridIndices);
             _explosion.QueueExplosion(coords,
                 ExplosionSystem.DefaultExplosionPrototypeId,
@@ -416,9 +447,6 @@ public sealed partial class CEZLevelsSystem
                 cause: ent,
                 addLog: false);
         }
-
-        if (tileCount == 0)
-            return;
 
         _explosion.QueueExplosion(ent.Owner,
             ExplosionSystem.DefaultExplosionPrototypeId,

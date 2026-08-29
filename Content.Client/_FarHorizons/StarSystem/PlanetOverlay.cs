@@ -1,10 +1,13 @@
 using System.Numerics;
 using Content.Client.Parallax;
+using Content.Client.Viewport;
 using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared._FarHorizons.StarSystem.Helpers;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Client._FarHorizons.StarSystem;
 
@@ -12,7 +15,10 @@ public sealed class PlanetOverlay : Overlay
 {
     private readonly IEntityManager _entMan;
     private readonly IPrototypeManager _protoMan;
-    private readonly List<(Planet Planet, ShaderInstance Shader)> _shaders = new(); // what do you mean, this isn't No Man's Sky?
+    private readonly IPlayerManager _player;
+    private readonly IGameTiming _timing;
+    private readonly PlanetTransitSystem _transits;
+    private readonly List<(int Index, Planet Planet, ShaderInstance Shader)> _shaders = new(); // what do you mean, this isn't No Man's Sky?
     private List<Planet>? _planets;
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowWorld;
 
@@ -21,11 +27,20 @@ public sealed class PlanetOverlay : Overlay
         ZIndex = ParallaxSystem.ParallaxZIndex + 1;
         _entMan = entMan;
         _protoMan = protoMan;
+        _player = IoCManager.Resolve<IPlayerManager>();
+        _timing = IoCManager.Resolve<IGameTiming>();
+        _transits = entMan.System<PlanetTransitSystem>();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (!_entMan.TryGetComponent<StarSystemMapComponent>(args.MapUid, out var starSystem) ||
+        if (args.Viewport.Eye is ScalingViewport.ZEye { DrawParallax: false } ||
+            _entMan.HasComponent<PlanetTransitMapComponent>(args.MapUid))
+            return false;
+
+        var systemMap = args.MapUid;
+
+        if (!_entMan.TryGetComponent<StarSystemMapComponent>(systemMap, out var starSystem) ||
             starSystem.StarSystem is not { } system ||
             system.Planets.Count == 0)
         {
@@ -38,10 +53,11 @@ public sealed class PlanetOverlay : Overlay
             ResetShader();
             _planets = system.Planets;
 
-            foreach (var planet in _planets)
+            for (var i = 0; i < _planets.Count; i++)
             {
+                var planet = _planets[i];
                 if (SetupPlanetShader(planet, system.Star) is { } shader)
-                    _shaders.Add((planet, shader));
+                    _shaders.Add((i, planet, shader));
             }
         }
 
@@ -58,11 +74,42 @@ public sealed class PlanetOverlay : Overlay
         var handle = args.WorldHandle;
         var viewportBounds = args.WorldAABB;
         var parallaxCenter = args.Viewport.Eye?.Position.Position ?? viewportBounds.Center;
-        foreach (var (_, shader) in _shaders)
+        var transitIndex = -1;
+        var transitProgress = 0f;
+        var systemMap = args.MapUid;
+
+        if (_player.LocalEntity is { } player &&
+            _entMan.TryGetComponent<TransformComponent>(player, out var playerXform) &&
+            playerXform.GridUid is { } grid &&
+            _transits.TryGetTransit(grid, out var transit) &&
+            _entMan.TryGetComponent<PlanetBodyComponent>(transit.Planet, out var body) &&
+            body.StarSystemMap == systemMap)
+        {
+            var duration = (transit.PhaseEnd - transit.PhaseStart).TotalSeconds;
+            var progress = duration <= 0
+                ? 1f
+                : Math.Clamp((float)((_timing.CurTime - transit.PhaseStart).TotalSeconds / duration), 0f, 1f);
+
+            if (transit.Direction == PlanetTransitDirection.Descent &&
+                transit.Phase == PlanetTransitPhase.Departing)
+            {
+                transitIndex = body.Index;
+                transitProgress = progress;
+            }
+            else if (transit.Direction == PlanetTransitDirection.Ascent &&
+                     transit.Phase == PlanetTransitPhase.Arriving)
+            {
+                transitIndex = body.Index;
+                transitProgress = 1f - progress;
+            }
+        }
+
+        foreach (var (index, _, shader) in _shaders)
         {
             shader.SetParameter("viewportMin", viewportBounds.BottomLeft);
             shader.SetParameter("viewportSize", viewportBounds.Size);
             shader.SetParameter("parallaxCenter", parallaxCenter);
+            shader.SetParameter("transitProgress", index == transitIndex ? transitProgress : 0f);
 
             handle.UseShader(shader);
             handle.DrawRect(viewportBounds, Color.White);

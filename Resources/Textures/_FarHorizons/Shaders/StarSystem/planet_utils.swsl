@@ -37,12 +37,13 @@ uniform highp float perspectiveStrength;
 uniform highp vec2 viewportMin;
 uniform highp vec2 viewportSize;
 uniform highp vec2 parallaxCenter;
+uniform highp float transitProgress;
 
 highp vec3 samplePlanetPalette(highp float t) {
     t = clamp(t, 0.0, 1.0);
-    
+
     highp float factor = t * 3.0;
-    
+
     if (factor < 1.0) {
         return mix(color1, color2, factor);
     } else if (factor < 2.0) {
@@ -53,33 +54,34 @@ highp vec3 samplePlanetPalette(highp float t) {
 }
 
 highp vec3 applyColorShifts(
-    highp vec3 color, 
-    highp float hShift, 
-    highp float sShift, 
-    highp float hMult, 
+    highp vec3 color,
+    highp float hShift,
+    highp float sShift,
+    highp float hMult,
     highp float sMult
 ) {
     highp vec3 hsv = rgb2hsv(color);
-    
+
     hsv.x = fract(hsv.x + (hShift * hMult));
-    
+
     highp float satDelta = (sShift * sMult) - (sMult * 0.5);
     hsv.y = clamp(hsv.y + satDelta, 0.0, 1.0);
-    
+
     return hsv2rgb(hsv);
 }
 
 void calculatePlanetParallax(
-    in highp vec2 uv, 
-    out highp vec2 offset, 
-    out highp float dist, 
+    in highp vec2 uv,
+    out highp vec2 offset,
+    out highp float dist,
     out highp float coreRadius
 ) {
     highp vec2 pixelWorldPos = viewportMin + (uv * viewportSize);
     highp vec2 parallaxedPos = planetPos + (parallaxCenter - planetPos) * (1.0 - parallaxFactor);
+    parallaxedPos = mix(parallaxedPos, parallaxCenter, transitProgress);
     offset = pixelWorldPos - parallaxedPos;
     dist = length(offset);
-    coreRadius = planetRadius * planetaryRadiusFactor;
+    coreRadius = planetRadius * planetaryRadiusFactor * mix(1.0, 20.0, transitProgress * transitProgress);
 }
 
 void calculateLightingSetup(
@@ -116,7 +118,7 @@ highp vec3 applyPolarCaps(
     highp vec2 surfaceCoord = mat2(c, -s, s, c) * sphereCoord;
 
     highp float latRad = asin(clamp(surfaceCoord.y, -0.9999, 0.9999));
-    
+
     highp float absLat = abs(latRad) / 1.5707963;
 
     highp float lonRad = atan(surfaceCoord.x, max(z, 0.001));

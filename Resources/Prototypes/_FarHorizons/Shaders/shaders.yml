@@ -15,6 +15,11 @@
   path: "/Textures/_FarHorizons/Shaders/StarSystem/star_light.swsl"
 
 - type: shader
+  id: PlanetTransitFailure
+  kind: source
+  path: "/Textures/_FarHorizons/Shaders/planet_transit_failure.swsl"
+
+- type: shader
   id: GasGiant
   kind: source
   path: "/Textures/_FarHorizons/Shaders/StarSystem/gas_giant.swsl"

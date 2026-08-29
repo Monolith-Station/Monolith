@@ -1,3 +1,4 @@
+using Robust.Client.Graphics;
 using Robust.Shared.GameStates;
 
 namespace Content.Client.Shuttles;
@@ -9,4 +10,8 @@ namespace Content.Client.Shuttles;
 [RegisterComponent, NetworkedComponent, Access(typeof(ThrusterSystem))]
 public sealed partial class ThrusterComponent : Component
 {
+    internal readonly Dictionary<int, ThrusterLayerVisual> TransitLayers = new();
+    internal bool LayersCached;
 }
+
+internal readonly record struct ThrusterLayerVisual(Color Color, RSI? Rsi, RSI.StateId State);

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.Viewport;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Maps;
@@ -42,7 +43,8 @@ public sealed partial class RoofOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (args.Viewport.Eye == null || !_entManager.HasComponent<MapLightComponent>(args.MapUid))
+        if (args.Viewport.Eye is null or ScalingViewport.ZEye { PlanetTransitBackdrop: true } ||
+            !_entManager.HasComponent<MapLightComponent>(args.MapUid))
             return;
 
         var viewport = args.Viewport;

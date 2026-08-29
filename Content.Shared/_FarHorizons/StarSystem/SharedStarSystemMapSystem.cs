@@ -24,7 +24,7 @@ public abstract partial class SharedStarSystemMapSystem : EntitySystem
                 continue;
 
             var position = new Vector2(MathF.Cos(entry.Angle), MathF.Sin(entry.Angle)) * entry.Distance;
-            planets.Add(new Planet(planetProto, _protoMan, position));
+            planets.Add(new Planet(planetProto, _protoMan, entry, position));
         }
 
         AsteroidBelt? belt = null;

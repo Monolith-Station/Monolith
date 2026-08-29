@@ -16,6 +16,9 @@ public abstract partial class SharedDockingSystem : EntitySystem
         if (shuttle == null)
             return false;
 
+        if (HasComp<PreventDockingComponent>(shuttle.Value))
+            return false;
+
         if (TryComp<FTLComponent>(shuttle, out var ftl) && (ftl.State & (FTLState.Starting | FTLState.Travelling | FTLState.Arriving)) != 0)
             return false;
 

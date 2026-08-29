@@ -10,6 +10,12 @@ public sealed partial class LightCycleSystem : SharedLightCycleSystem
 {
     [Dependency] private IRobustRandom _random = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+        InitializeZLevels();
+    }
+
     protected override void OnCycleMapInit(Entity<LightCycleComponent> ent, ref MapInitEvent args)
     {
         base.OnCycleMapInit(ent, ref args);

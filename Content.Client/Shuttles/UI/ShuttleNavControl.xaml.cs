@@ -122,6 +122,11 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     protected Vector2 _lastMousePos;
     protected float _lastFireTime;
     protected const float FireRateLimit = 0.1f; // 100ms between shots
+    public const float PlanetPrimingSeconds = 1f;
+    private EntityUid? _primingPlanet;
+    private bool _planetClickConsumed;
+    private TimeSpan _planetPrimingStart;
+    public float? PrimingRemaining { get; private set; }
 
     private enum RadarAzimuthMode : byte
     {
@@ -481,8 +486,28 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             return;
         }
 
+        if (_planetClickConsumed)
+            return;
+
         _isMouseDown = true;
         _lastMousePos = args.RelativePosition;
+
+        if (TryGetPlanetAt(args.RelativePosition, out var planet, out var inRange))
+        {
+            _planetClickConsumed = true;
+            if (inRange)
+            {
+                _primingPlanet = planet;
+                _planetPrimingStart = IoCManager.Resolve<IGameTiming>().CurTime;
+            }
+            else
+            {
+                _isMouseDown = false;
+                OnPlanetClick?.Invoke(planet);
+            }
+            return;
+        }
+
         TryFireAtPosition(args.RelativePosition);
     }
 
@@ -502,6 +527,17 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             return;
         }
 
+        if (_planetClickConsumed)
+        {
+            _planetClickConsumed = false;
+            _primingPlanet = null;
+            PrimingRemaining = null;
+            return;
+        }
+
+        if (TryGetPlanetAt(args.RelativePosition, out _))
+            return;
+
         var coords = GetMouseEntityCoordinates(args.RelativePosition);
         OnRadarClick?.Invoke(coords);
     }
@@ -512,6 +548,38 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
         _updateAccumulator += args.DeltaSeconds;
 
+        if (_isMouseDown && _isMouseInside)
+            _lastMousePos = UserInterfaceManager.MousePositionScaled.Position - GlobalPosition;
+
+        if (_primingPlanet is { } planet)
+        {
+            var held = _isMouseDown && _isMouseInside &&
+                TryGetPlanetAt(_lastMousePos, out var hovered, out var inRange) && hovered == planet && inRange;
+
+            if (!held)
+            {
+                _primingPlanet = null;
+                PrimingRemaining = null;
+                _isMouseDown = false;
+            }
+            else
+            {
+                var elapsed = (IoCManager.Resolve<IGameTiming>().CurTime - _planetPrimingStart).TotalSeconds;
+                var remaining = PlanetPrimingSeconds - elapsed;
+                if (remaining <= 0)
+                {
+                    _primingPlanet = null;
+                    PrimingRemaining = null;
+                    _isMouseDown = false;
+                    OnPlanetClick?.Invoke(planet);
+                }
+                else
+                {
+                    PrimingRemaining = (float) remaining;
+                }
+            }
+        }
+
         if (_updateAccumulator >= RadarUpdateInterval)
         {
             _updateAccumulator = 0; // I'm not subtracting because frame updates can majorly lag in a way normal ones cannot.
@@ -520,18 +588,12 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 _blips.RequestBlips((EntityUid)_consoleEntity);
         }
 
-        if (_isMouseDown && _isMouseInside)
+        if (_isMouseDown && _isMouseInside && !_planetClickConsumed)
         {
             var currentTime = IoCManager.Resolve<IGameTiming>().CurTime.TotalSeconds;
             if (currentTime - _lastFireTime >= FireRateLimit)
             {
-                var mousePos = UserInterfaceManager.MousePositionScaled;
-                var relativePos = mousePos.Position - GlobalPosition;
-                if (relativePos != _lastMousePos)
-                {
-                    _lastMousePos = relativePos;
-                }
-                TryFireAtPosition(relativePos);
+                TryFireAtPosition(_lastMousePos);
                 _lastFireTime = (float)currentTime;
             }
         }
@@ -711,6 +773,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         _visibleGridsSet.Clear();
 
         DrawGrids(_grids, handle, (ourGrid != null && ourGridId.HasValue) ? (ourGridId.Value, ourGrid) : null, false);
+        DrawPlanetLaunchWarnings(handle, worldToView, xform.MapUid);
 
         _planetTerrain.DrawMarkers(handle, xform.MapID, radarViewBox, worldToView, Font, UIScale); // Mono
 

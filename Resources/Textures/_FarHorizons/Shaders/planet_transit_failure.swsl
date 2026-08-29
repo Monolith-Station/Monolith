@@ -1,0 +1,10 @@
+light_mode unshaded;
+
+void fragment() {
+    highp vec4 color = zTexture(UV);
+    highp float value = max(color.r, max(color.g, color.b));
+    highp float minimum = min(color.r, min(color.g, color.b));
+    highp float pale = value == 0.0 ? 0.0 : minimum / value;
+
+    COLOR = vec4(value, value * pale, value * pale, color.a);
+}

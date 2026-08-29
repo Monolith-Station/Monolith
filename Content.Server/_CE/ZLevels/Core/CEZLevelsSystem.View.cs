@@ -7,6 +7,7 @@ using System.Numerics;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Actions;
+using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
@@ -83,7 +84,7 @@ public sealed partial class CEZLevelsSystem
         return Math.Max(zoom.X, zoom.Y);
     }
 
-    private void QueueAllViewerUpdates()
+    public void QueueAllViewerUpdates()
     {
         var query = AllEntityQuery<CEZLevelViewerComponent>();
         while (query.MoveNext(out var uid, out _))
@@ -165,6 +166,46 @@ public sealed partial class CEZLevelsSystem
         var pvsScale = TryComp<EyeComponent>(ent, out var srcEye)
             ? srcEye.PvsScale * GetViewerZoom(ent, srcEye)
             : 1f;
+
+        if (TryComp<PlanetTransitMapComponent>(map.Value, out var planetTransit))
+        {
+            if (TerminatingOrDeleted(planetTransit.OriginMap))
+                return;
+
+            if (planetTransit.Direction == PlanetTransitDirection.Ascent &&
+                !planetTransit.Arrival &&
+                TryGetMapNetwork(planetTransit.OriginMap, out var network) &&
+                TryComp<CEZMapComponent>(planetTransit.OriginMap, out var originZ))
+            {
+                var minimumDepth = network.Comp.SortedMin;
+                foreach (var mapUid in network.Comp.SortedZLevels)
+                {
+                    if (TryComp<CEZMapComponent>(mapUid, out var zMap) &&
+                        zMap.Depth <= originZ.Depth &&
+                        (HasComp<CEZCloudLayerComponent>(mapUid) || HasComp<CEZGroundLayerComponent>(mapUid)))
+                    {
+                        minimumDepth = Math.Max(minimumDepth, zMap.Depth);
+                    }
+                }
+
+                foreach (var mapUid in network.Comp.SortedZLevels)
+                {
+                    if (TryComp<CEZMapComponent>(mapUid, out var zMap) &&
+                        zMap.Depth >= minimumDepth &&
+                        zMap.Depth <= originZ.Depth)
+                    {
+                        SpawnViewerEye(eyes, actor, map.Value, mapUid, globalPos, pvsScale);
+                    }
+                }
+            }
+            else
+            {
+                SpawnViewerEye(eyes, actor, map.Value, planetTransit.OriginMap, globalPos, pvsScale);
+            }
+
+            return;
+        }
+
         var coveredMaps = new HashSet<EntityUid> { map.Value };
 
         for (var i = 1; i <= MaxZLevelsBelowRendering; i++)

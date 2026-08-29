@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.Viewport;
 using Content.Shared.CCVar;
 using Content.Shared.Maps;
 using Robust.Client.Graphics;
@@ -40,6 +41,9 @@ public sealed partial class AmbientOcclusionOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
+        if (args.Viewport.Eye is ScalingViewport.ZEye { PlanetTransitBackdrop: true })
+            return;
+
         /*
          * tl;dr
          * - we draw a black square on each "ambient occlusion" entity.

@@ -428,7 +428,7 @@ public sealed partial class CEZLevelsSystem
         var hasBelow = TryMapDown(layers[0].SourceMap, out _);
         var hasAbove = TryMapUp(layers[^1].SourceMap, out _);
 
-        var goDown = hasBelow && !(preferUpperGap && hasAbove);
+        var goDown = !preferUpperGap && hasBelow;
         if (!goDown && !hasAbove)
             return false;
 
@@ -547,6 +547,12 @@ public sealed partial class CEZLevelsSystem
 
                 if (!TryMapUp(topUpper, out _))
                 {
+                    if (topTransit.PrimaryGrid is { } primary && !TerminatingOrDeleted(primary))
+                    {
+                        var ev = new CEZOpenSkyExitAttemptEvent(topUpper, GetConvoyVerticalInput(convoy) > 0f);
+                        RaiseLocalEvent(primary, ref ev);
+                    }
+
                     progress = 1f;
                     break;
                 }
@@ -818,7 +824,197 @@ public sealed partial class CEZLevelsSystem
         return true;
     }
 
-    private EntityUid CreateTransitMap(EntityUid lowerMap, EntityUid upperMap, EntityUid primaryGrid)
+    public bool TryInsertIntoOpenSky(Entity<MapGridComponent> grid,
+        Entity<CEZMapNetworkComponent> network,
+        Vector2 target)
+    {
+        if (Transform(grid).MapUid is not { } sourceMap ||
+            HasComp<CEZMapComponent>(sourceMap) ||
+            HasComp<CEZTransitMapComponent>(sourceMap) ||
+            network.Comp.SortedZLevels.Count == 0)
+        {
+            return false;
+        }
+
+        EntityUid? topMap = null;
+        for (var i = network.Comp.SortedZLevels.Count - 1; i >= 0; i--)
+        {
+            var candidate = network.Comp.SortedZLevels[i];
+            if (candidate.IsValid() && TryComp<CEZMapComponent>(candidate, out _))
+            {
+                topMap = candidate;
+                break;
+            }
+        }
+
+        if (topMap is not { } top || !TryComp<CEZMapComponent>(top, out var topZ))
+            return false;
+
+        var movedGrids = CollectGridSet(grid);
+        if (movedGrids.Count == 0)
+            return false;
+
+        RecenterGridSet(movedGrids, grid, target);
+        var transitMap = CreateTransitMap(top, null, grid);
+        MoveGridSetToMap(movedGrids, transitMap, 0, topZ.Depth);
+
+        foreach (var gridUid in movedGrids)
+        {
+            var zPhys = EnsureComp<CEZPhysicsComponent>(gridUid);
+            SetZPosition((gridUid, zPhys), SettleZone);
+            SetZVelocity((gridUid, zPhys), 0f);
+
+            _pvsOverride.AddGlobalOverride(gridUid);
+            _shuttle.Enable(gridUid);
+        }
+
+        return true;
+    }
+
+    public bool TryCreateDetachedTransit(Entity<MapGridComponent> grid, out EntityUid detachedMap)
+    {
+        detachedMap = default;
+        if (Transform(grid).MapUid is not { } sourceMap)
+            return false;
+
+        var movedGrids = CollectGridSet(grid);
+        if (TryComp<CEZTransitMapComponent>(sourceMap, out _))
+        {
+            if (GetConvoyMaps(sourceMap).Count != 1 ||
+                !CollectGridsOnMap(sourceMap).SetEquals(movedGrids))
+                return false;
+        }
+
+        if (movedGrids.Count == 0)
+            return false;
+
+        detachedMap = _map.CreateMap(out _);
+        var light = EnsureComp<MapLightComponent>(detachedMap);
+        if (TryComp<MapLightComponent>(sourceMap, out var sourceLight))
+            light.AmbientLightColor = sourceLight.AmbientLightColor;
+        Dirty(detachedMap, light);
+
+        MoveDetachedGridSet(movedGrids, detachedMap);
+        foreach (var gridUid in movedGrids)
+            _pvsOverride.AddGlobalOverride(gridUid);
+
+        if (HasComp<CEZTransitMapComponent>(sourceMap))
+            QueueDel(sourceMap);
+
+        QueueAllViewerUpdates();
+        return true;
+    }
+
+    public bool TryMoveDetachedTransit(Entity<MapGridComponent> grid, EntityUid targetMap, Vector2 target)
+    {
+        if (Transform(grid).MapUid is not { } sourceMap ||
+            TerminatingOrDeleted(targetMap) ||
+            HasComp<CEZTransitMapComponent>(targetMap))
+        {
+            return false;
+        }
+
+        var movedGrids = CollectGridsOnMap(sourceMap);
+        if (movedGrids.Count == 0)
+            return false;
+
+        RecenterGridSet(movedGrids, grid, target);
+        if (TryComp<CEZMapComponent>(targetMap, out var zMap))
+            MoveGridSetToMap(movedGrids, targetMap, 0, zMap.Depth);
+        else
+            MoveDetachedGridSet(movedGrids, targetMap);
+
+        foreach (var gridUid in movedGrids)
+            _pvsOverride.RemoveGlobalOverride(gridUid);
+
+        QueueAllViewerUpdates();
+        return true;
+    }
+
+    public bool TryRecenterDetachedTransit(Entity<MapGridComponent> grid, Vector2 target)
+    {
+        if (Transform(grid).MapUid is not { } sourceMap)
+            return false;
+
+        var movedGrids = CollectGridsOnMap(sourceMap);
+        if (movedGrids.Count == 0)
+            return false;
+
+        RecenterGridSet(movedGrids, grid, target);
+        return true;
+    }
+
+    private void MoveDetachedGridSet(HashSet<EntityUid> grids, EntityUid targetMap)
+    {
+        foreach (var gridUid in grids)
+        {
+            if (TerminatingOrDeleted(gridUid))
+                continue;
+
+            var xform = Transform(gridUid);
+            var worldPos = _transform.GetWorldPosition(xform);
+            var worldRot = _transform.GetWorldRotation(xform);
+            TryComp<PhysicsComponent>(gridUid, out var body);
+            var linear = body?.LinearVelocity ?? Vector2.Zero;
+            var angular = body?.AngularVelocity ?? 0f;
+
+            _transform.SetCoordinates(gridUid, xform, new EntityCoordinates(targetMap, worldPos), rotation: worldRot);
+
+            if (body != null)
+            {
+                _physics.SetLinearVelocity(gridUid, linear, body: body);
+                _physics.SetAngularVelocity(gridUid, angular, body: body);
+            }
+        }
+
+        foreach (var gridUid in grids)
+        {
+            _dockSystem.RedockDocks(gridUid);
+            _console.RefreshShuttleConsoles(gridUid);
+        }
+    }
+
+    public bool TryExitOpenSky(Entity<MapGridComponent> grid, EntityUid targetMap, Vector2 target)
+    {
+        if (Transform(grid).MapUid is not { } transitMap ||
+            !TryComp<CEZTransitMapComponent>(transitMap, out _) ||
+            TerminatingOrDeleted(targetMap) ||
+            HasComp<CEZMapComponent>(targetMap) ||
+            HasComp<CEZTransitMapComponent>(targetMap))
+        {
+            return false;
+        }
+
+        var convoy = GetConvoyMaps(transitMap);
+        if (convoy.Count != 1)
+            return false;
+
+        var movedGrids = CollectGridsOnMap(transitMap);
+        if (movedGrids.Count == 0)
+            return false;
+
+        RecenterGridSet(movedGrids, grid, target);
+        MoveGridSetToMap(movedGrids, targetMap, 0, 0);
+
+        foreach (var gridUid in movedGrids)
+            _pvsOverride.RemoveGlobalOverride(gridUid);
+
+        QueueDel(transitMap);
+        QueueAllViewerUpdates();
+        return true;
+    }
+
+    private void RecenterGridSet(HashSet<EntityUid> grids, EntityUid primary, Vector2 target)
+    {
+        var delta = target - _transform.GetWorldPosition(primary);
+        foreach (var gridUid in grids)
+        {
+            if (!TerminatingOrDeleted(gridUid))
+                _transform.SetWorldPosition(gridUid, _transform.GetWorldPosition(gridUid) + delta);
+        }
+    }
+
+    private EntityUid CreateTransitMap(EntityUid lowerMap, EntityUid? upperMap, EntityUid primaryGrid)
     {
         var mapUid = _map.CreateMap(out _);
 
@@ -834,7 +1030,7 @@ public sealed partial class CEZLevelsSystem
 
         // Copy the lighting from the upper level (or lower if there isn't any above) so you can see.
         var light = EnsureComp<MapLightComponent>(mapUid);
-        if (TryComp<MapLightComponent>(upperMap, out var upperLight))
+        if (upperMap is { } upper && TryComp<MapLightComponent>(upper, out var upperLight))
             light.AmbientLightColor = upperLight.AmbientLightColor;
         else if (TryComp<MapLightComponent>(lowerMap, out var lowerLight))
             light.AmbientLightColor = lowerLight.AmbientLightColor;
@@ -853,3 +1049,9 @@ public record struct CEZNetworkExpandRequestEvent(
     Entity<CEZMapNetworkComponent> Network,
     EntityUid EdgeMap,
     bool Up);
+
+[ByRefEvent]
+public record struct CEZOpenSkyExitAttemptEvent(EntityUid TopMap, bool Pushing)
+{
+    public bool Handled;
+}
