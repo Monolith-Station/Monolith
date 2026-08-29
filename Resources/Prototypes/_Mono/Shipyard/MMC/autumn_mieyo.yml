@@ -1,0 +1,33 @@
+- type: vessel
+  id: MieyoAutumn
+  parent: BaseVessel
+  name: MMC-SKR Mieyo-Autumn
+  description: A licensed production variant of the Autumn. All we did for this one was swap out the floor tiles and the suits.
+  price: 224831
+  category: Large
+  group: Mieyo
+  access: Mieyo
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Mieyo/autumn_mieyo.yml
+  guidebookPage: Null
+  class:
+  - Cargo
+  engine:
+  - AME
+
+- type: gameMap
+  id: MieyoAutumn
+  mapName: 'MMC-SKR Mieyo-Autumn'
+  mapPath: /SharedMaps/_Mono/Shuttles/Mieyo/autumn_mieyo.yml
+  minPlayers: 0
+  stations:
+    MieyoAutumn:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Mieyo-Autumn MMC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MMCEmployee: [ 0, 0 ]

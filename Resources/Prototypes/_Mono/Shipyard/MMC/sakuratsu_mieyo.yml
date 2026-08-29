@@ -1,0 +1,34 @@
+- type: vessel
+  id: MieyoSakuratsu
+  parent: BaseVessel
+  name: MMC-SKR Sakuratsu
+  description: A licensed production variant of the Sakuratsu, with MMC-branded suits and a better ore processor installed.
+  price: 99721
+  category: Medium
+  group: Mieyo
+  access: Mieyo
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Mieyo/sakuratsu_mieyo.yml
+  guidebookPage: Null
+  class:
+  - Science
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: MieyoSakuratsu
+  mapName: 'MMC-SKR Mieyo-Sakuratsu'
+  mapPath: /SharedMaps/_Mono/Shuttles/Mieyo/sakuratsu_mieyo.yml
+  minPlayers: 0
+  stations:
+    MieyoSakuratsu:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Mieyo-Sakuratsu MMC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MMCEmployee: [ 0, 0 ]
