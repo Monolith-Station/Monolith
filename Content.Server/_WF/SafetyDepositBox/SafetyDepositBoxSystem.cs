@@ -528,6 +528,13 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
             return;
         }
 
+        if (box.LastWithdrawn != null) // Check to make sure it isn't already deposited.
+        {
+            ConsolePopup(player, "Box already withdrawn in world.");
+            PlayDenySound(consoleUid, component);
+            return;
+        }
+
         Log.Info($"WithdrawBoxAsync: Retrieved box {boxId} with {box.Items.Count} items from database");
 
         // Verify ownership

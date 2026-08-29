@@ -35,17 +35,20 @@
   - ElectromagnetEconomy3Alt
   - OpticsEconomy2Alt
   - ComponentBrickEconomy2
-  - MaterialIndustryElectronics
-  - MaterialIndustryElectronicsAdvanced
-  - MaterialIndustryElectronicsAdvancedAlt
-  - MaterialIndustryFCS
-  - MaterialIndustryMechanical
-  - MaterialIndustryPlates
-  - MaterialIndustryPlatesAlt
-  - MaterialIndustryRecievers
-  - MaterialIndustrySensors
-  - MaterialIndustryShip
-  - MaterialIndustrySterile
+  - ArmorPlate4
+  - ArmorPlate4Alt
+  # Commented out materials until we give them a use
+  #- MaterialIndustryElectronics
+  #- MaterialIndustryElectronicsAdvanced
+  #- MaterialIndustryElectronicsAdvancedAlt
+  #- MaterialIndustryFCS
+  #- MaterialIndustryMechanical
+  #- MaterialIndustryPlates
+  #- MaterialIndustryPlatesAlt
+  #- MaterialIndustryRecievers
+  #- MaterialIndustrySensors
+  #- MaterialIndustryShip
+  #- MaterialIndustrySterile
 
 - type: latheRecipePack
   id: ArcFurnaceStatic

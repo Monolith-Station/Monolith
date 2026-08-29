@@ -6,7 +6,9 @@
   children:
   - TSFMC_Entry
   - PDV_Entry
-  - Minor_Factions
+  - USSP_Entry
+  - Viper_Group
+  - MMC
 
 - type: guideEntry
   id: TSFMC_Entry
@@ -70,16 +72,6 @@
   name: Culture
   text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC_Culture.xml"
   priority: 0
-
-- type: guideEntry
-  id: Minor_Factions
-  name: Minor Factions
-  text: "/ServerInfo/_Mono/Guidebook/Factions/Minor_Factions.xml"
-  priority: 6
-  children:
-  - USSP_Entry
-  - Viper_Group
-  - MMC
 
 - type: guideEntry
   id: USSP_Entry
