@@ -10,7 +10,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 10000 #excess damage (nuke?). avoid computational cost of spawning entities.
+        damage: 20000 #excess damage (nuke?). avoid computational cost of spawning entities.
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -19,7 +19,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 5000
+        damage: 15000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -78,7 +78,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30000 #excess damage (nuke?). avoid computational cost of spawning entities.
+        damage: 30100 #excess damage (nuke?). avoid computational cost of spawning entities.
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -87,7 +87,7 @@
           collection: WindowShatter
     - trigger:
         !type:DamageTrigger
-        damage: 25000
+        damage: 30000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
