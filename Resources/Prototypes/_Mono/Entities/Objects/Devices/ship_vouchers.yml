@@ -1556,28 +1556,6 @@
 
 - type: entity
   parent: BaseShipLPCOneUse
-  id: ShipVoucherUNSA
-  name: star-spangled LPC
-  suffix: Prototype, Fortunate
-  description: A small blue card dotted with many white stars. Seems to lack any form of authentication.
-  components:
-  - type: Sprite
-    sprite: _Mono/Objects/Misc/lpcnew.rsi
-    layers:
-    - state: icon
-    - state: screen
-      color: "#0A3161"
-    - state: screen5
-      color: "#0A3161"
-      shader: unshaded
-  - type: ShipyardVoucher
-    destroyOnEmpty: true
-    consoleType: Prototype
-    vessels:
-    - Fortunate
-
-- type: entity
-  parent: BaseShipLPCOneUse
   id: ShipVoucherBalorMothership
   name: balor LPC
   suffix: Prototype, Balor

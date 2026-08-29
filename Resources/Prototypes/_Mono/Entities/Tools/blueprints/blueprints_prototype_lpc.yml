@@ -218,16 +218,6 @@
 
 - type: entity
   parent: BaseBlueprintPrototypeVoucher
-  id: BlueprintVoucherUNSA
-  name: star-spangled blueprint
-  description: A blueprint of which you cannot identify the author. It depicts a military vessel.
-  components:
-  - type: Blueprint
-    providedRecipes:
-    - ShipVoucherUNSARecipe
-
-- type: entity
-  parent: BaseBlueprintPrototypeVoucher
   id: BlueprintVoucherBalor
   name: balor blueprint
   description: A blueprint depicting an extremely unusual vessel in a circular shape, as well as a few small drones. It is labelled "Balor" and is clearly marked as "denied".

@@ -52,11 +52,6 @@
 
 - type: latheRecipe
   parent: BasePrototypeVoucherRecipe
-  id: ShipVoucherUNSARecipe
-  result: ShipVoucherUNSA
-
-- type: latheRecipe
-  parent: BasePrototypeVoucherRecipe
   id: ShipVoucherBalorMothershipRecipe
   result: ShipVoucherBalorMothership
   materials:
@@ -65,8 +60,8 @@
     Plastic: 30000
     Glass: 10000
     Plasma: 5000
-    UraniumFissile: 600
-    UraniumDepleted: 4000
+    UraniumFissile: 450
+    UraniumDepleted: 2500
     Silver: 10000
     Gold: 5000
 
@@ -80,13 +75,13 @@
   id: ShipVoucherHammerheadRecipe
   result: ShipVoucherHammerheadIncomplete
   materials:
-    Steel: 40000
-    Plasteel: 55000
-    Plastic: 50000
+    Steel: 32500
+    Plasteel: 44000
+    Plastic: 35000
     Glass: 9000
     Plasma: 500
-    UraniumFissile: 1000
-    UraniumDepleted: 5000
+    UraniumFissile: 250
+    UraniumDepleted: 1250
     Silver: 5000
     Gold: 5000
 
@@ -95,12 +90,15 @@
   id: ShipVoucherHammerheadRestoration
   result: ShipVoucherHammerhead
   materials:
-    Plastitanium: 4500
-    Iridite: 375
+    Plastitanium: 2000
+    MaterialIndustryFCS: 1250
+    MaterialIndustryMechanical: 600
+    MaterialIndustryPlates: 400
+    MaterialIndustryRecievers: 2000
   entities:
     ShipVoucherHammerheadIncomplete: 1
     FederationMilitaryCredit1: 25
     Doubloon1: 25
-    MonolithicCrystalSmall: 4
-    TreasureDatadiskEncrypted: 4
+    MonolithicCrystalSmall: 3
+    TreasureDatadiskEncrypted: 2
     TreasureCPUSupercharged: 1
