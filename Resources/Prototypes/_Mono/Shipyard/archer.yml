@@ -4,38 +4,38 @@
 
 # Shuttle Notes:
 #
-#- type: vessel
-#  id: Archer
-#  parent: BaseVessel
-#  name: TSF-SKR Archer
-#  description: A combat ship outfitted with 4 plasma turrets and 6 light autocannons. This ship has a military IFF designation.
-#  price: 98773 # the plasma and plastitanium tax is real...
-#  category: Medium
-#  group: Shipyard
-#  access: Mercenary
-#  shuttlePath: /SharedMaps/_Mono/Shuttles/archer.yml
-#  guidebookPage: Null
-#  class:
-#  - Pursuit
-#  engine:
-#  - Uranium
+- type: vessel
+  id: Archer
+  parent: BaseVessel
+  name: TSF-SKR Archer
+  description: A combat ship outfitted with 4 plasma turrets and 6 light autocannons. This ship has a military IFF designation.
+  price: 98773 # the plasma and plastitanium tax is real...
+  category: Medium
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /SharedMaps/_Mono/Shuttles/archer.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Uranium
 
-#- type: gameMap
-#  id: Archer
-#  mapName: 'TSF-SKR Archer'
-#  mapPath: /SharedMaps/_Mono/Shuttles/archer.yml
-#  minPlayers: 0
-#  stations:
-#    Archer:
-#      stationProto: StandardFrontierVessel
-#      components:
-#        - type: StationNameSetup
-#          mapNameTemplate: 'Archer MIL{1}'
-#          nameGenerator:
-#            !type:NanotrasenNameGenerator
-#            prefixCreator: '14'
-#        - type: StationJobs
-#          availableJobs:
-#            Contractor: [ 0, 0 ]
-#            # Pilot: [ 0, 0 ]
-#            # Mercenary: [ 0, 0 ]
+- type: gameMap
+  id: Archer
+  mapName: 'TSF-SKR Archer'
+  mapPath: /SharedMaps/_Mono/Shuttles/archer.yml
+  minPlayers: 0
+  stations:
+    Archer:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Archer MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

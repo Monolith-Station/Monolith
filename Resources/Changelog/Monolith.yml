@@ -24220,3 +24220,160 @@ Entries:
   id: 2662
   time: '2026-08-24T00:27:09.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4560
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Caelestinus station received much deserved love and care
+    - type: Tweak
+      message: You can pawn your vessel off at Zeta node now
+    - type: Fix
+      message: >-
+        The world now once again has biome markers. Biome information was
+        touched up to match recent topological reworks.
+  id: 2663
+  time: '2026-08-24T09:17:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4480
+- author: pizzay30tyd
+  changes:
+    - type: Add
+      message: Added Show IFF and Show Detailed IFF Buttons to Mass Scanners/Radars
+  id: 2664
+  time: '2026-08-24T09:17:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4562
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed military assemblers not linking to silo.
+  id: 2665
+  time: '2026-08-24T09:48:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4563
+- author: Onezero0
+  changes:
+    - type: Add
+      message: TSF/PDV civilians now get faction comms.
+    - type: Tweak
+      message: >-
+        TSF command comms have been rebranded as "TSF Military" and should be
+        accessible to all military roles.
+    - type: Add
+      message: There is now a beginner guide guidebook entry.
+  id: 2666
+  time: '2026-08-24T18:01:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4565
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Vagrants have a tweaked icon.
+    - type: Fix
+      message: >-
+        PDV/TSF civilians have merc loadout options again (no special gun still
+        for now though)
+  id: 2667
+  time: '2026-08-25T13:27:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4570
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: >-
+        MMC's replacement heart implant has been weakened for commercial use due
+        to repeated incidents of abuse by factions.
+  id: 2668
+  time: '2026-08-25T22:14:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4579
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: POI walls are now twice as durable.
+    - type: Tweak
+      message: POI shields are now twice as durable and recharge faster.
+  id: 2669
+  time: '2026-08-26T19:43:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4574
+- author: Onezero0
+  changes:
+    - type: Fix
+      message: MK-29 sentries no longer spawn with ammo, preventing ammo dupe.
+    - type: Fix
+      message: Fixed being unable to make medsec huds. They take a microprocessor now.
+    - type: Fix
+      message: MMC has access to their sandevistans now.
+    - type: Fix
+      message: EMAG armor plates can now be completed in precision assemblers.
+    - type: Fix
+      message: >-
+        You can now make superconductant in thermobaths. Thermobath max
+        temperature is now much higher (1200 degrees)
+    - type: Fix
+      message: >-
+        You can now make reagent-requiring recipes (like plasma ammo) in
+        milfabs.
+    - type: Tweak
+      message: >-
+        You can no longer produce industry materials due to them not having any
+        use yet.
+  id: 2670
+  time: '2026-08-26T21:25:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4578
+- author: AthrunZala33092
+  changes:
+    - type: Add
+      message: Two additional neck slots
+  id: 2671
+  time: '2026-08-27T23:34:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4541
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: >-
+        A revision of most machine material storage to save on costs has reduced
+        the lead lining to prevent radiation leaks.
+  id: 2672
+  time: '2026-08-27T23:48:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4584
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Mapping change: You can now put start-on volumetrics and pressure pumps
+        in secondary and tertiary pipe layers.
+    - type: Tweak
+      message: Caelestinus minor atmos and lighting touchups
+  id: 2673
+  time: '2026-08-28T09:26:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4566
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: IRE canisters now have a smaller, radioactive explosion.
+    - type: Tweak
+      message: >-
+        Most grenades now start their timer upon being damaged rather than
+        instantly exploding.
+  id: 2674
+  time: '2026-08-28T09:28:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4569
+- author: Ghost581X
+  changes:
+    - type: Add
+      message: Viper Group has a new hardsuit capable of projecting a personal shield.
+  id: 2675
+  time: '2026-08-28T09:30:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4587
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Expanded the safety deposit box blacklist for entities. No more 6ku of
+        persistent letoferol guys. It's over.
+    - type: Fix
+      message: Fixed safety deposit box withdrawing being able to duplicate boxes.
+  id: 2676
+  time: '2026-08-28T09:36:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4589
+- author: Mapleflavoureds
+  changes:
+    - type: Tweak
+      message: Tripled RTG output! 10kw -> 30kw
+  id: 2677
+  time: '2026-08-28T22:54:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4592

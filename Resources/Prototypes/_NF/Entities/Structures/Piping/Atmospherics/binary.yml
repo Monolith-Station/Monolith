@@ -3,10 +3,15 @@
   id: GasPressurePumpOn
   suffix: On
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers #Mono: SnapGridCenter >> AlignAtmosPipeLayers
   components:
   - type: GasPressurePump
     startOnMapInit: true
+  - type: AtmosPipeLayers #Mono: AtmosPipeLayers compat
+    alternativePrototypes:
+      Primary: GasPressurePumpOn
+      Secondary: GasPressurePumpAlt1On
+      Tertiary: GasPressurePumpAlt2On
 
 - type: entity
   parent: GasPressurePumpOn
@@ -23,11 +28,78 @@
   id: GasVolumePumpOn
   suffix: On
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers #Mono: SnapGridCenter >> AlignAtmosPipeLayers
   components:
   - type: GasVolumePump
     startOnMapInit: true
+  - type: AtmosPipeLayers #Mono: AtmosPipeLayers compat
+    alternativePrototypes:
+      Primary: GasVolumePumpOn
+      Secondary: GasVolumePumpAlt1On
+      Tertiary: GasVolumePumpAlt2On
+    
+#Mono: Pressure ALT
+- type: entity
+  parent: [GasPipeLayerAlt1, GasPressurePumpOn]
+  id: GasPressurePumpAlt1On
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeStraight
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: pumpPressure
+      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+  - type: GasPressurePump
+    startOnMapInit: true
 
+- type: entity
+  parent: [GasPipeLayerAlt2, GasPressurePumpOn]
+  id: GasPressurePumpAlt2On
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeStraight
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: pumpPressure
+      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+  - type: GasPressurePump
+    startOnMapInit: true
+    
+#Mono: Volumetric ALT
+- type: entity
+  parent: [GasPipeLayerAlt1, GasVolumePumpOn]
+  id: GasVolumePumpAlt1On
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+      state: pipeStraight
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: pumpVolume
+      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+
+- type: entity
+  parent: [GasPipeLayerAlt2, GasVolumePumpOn]
+  id: GasVolumePumpAlt2On
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
+    layers:
+    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+      state: pipeStraight
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+    - state: pumpVolume
+      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    
 # All entities for gas transfer between grids should be based off this.
 - type: entity
   parent: BaseStructure

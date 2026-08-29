@@ -116,7 +116,12 @@
 - type: ambientMusic
   id: BiomeFarReachesIV
   sound:
-    collection: BiomeFarReachesIII
+    collection: BiomeFarReachesIV
+    
+- type: soundCollection #I don't know why reusing the far reaches iii soundcollection breaks so here we are
+  id: BiomeFarReachesIV
+  files:
+   - /Audio/_Crescent/Ambient/FarReaches/far_reaches_iii.ogg
 
 # far reaches III
 - type: ambientMusic

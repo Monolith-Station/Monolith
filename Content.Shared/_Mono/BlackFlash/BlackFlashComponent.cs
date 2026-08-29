@@ -11,45 +11,48 @@ namespace Content.Shared._Mono.BlackFlash;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BlackFlashComponent : Component
 {
+    [DataField, AutoNetworkedField]
+    public bool EmptyHandedOnly = false;
+
     [DataField]
     public EntProtoId Action = "ActionBlackFlash";
 
     [DataField, AutoNetworkedField]
     public EntityUid? ActionEntity;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan HitCooldown = TimeSpan.FromMinutes(1);
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan MissCooldown = TimeSpan.FromSeconds(10);
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float DamageMultiplier = 2.5f;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float StaminaCost = 30f;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan Hitstop = TimeSpan.FromSeconds(0.2);
 
-    [DataField]
-    public TimeSpan StunTime = TimeSpan.FromSeconds(4);
+    [DataField, AutoNetworkedField]
+    public TimeSpan StunTime = TimeSpan.FromSeconds(1);
 
-    [DataField]
-    public float ThrowDistance = 14f;
+    [DataField, AutoNetworkedField]
+    public float ThrowDistance = 15f;
 
-    [DataField]
-    public float ThrowSpeed = 28f;
+    [DataField, AutoNetworkedField]
+    public float ThrowSpeed = 25f;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntProtoId HitEffect = "EffectBlackFlash";
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntProtoId MissEffect = "EffectBlackFlashWhiff";
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SoundSpecifier? HitSound = new SoundPathSpecifier("/Audio/_Mono/Items/black_flash.ogg");
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SoundSpecifier? MissSound = new SoundPathSpecifier("/Audio/_Mono/Items/black_flash_fumble.ogg");
 }
