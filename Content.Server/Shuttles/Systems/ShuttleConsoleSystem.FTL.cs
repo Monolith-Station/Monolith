@@ -20,7 +20,7 @@ public sealed partial class ShuttleConsoleSystem
     [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
 
-    private const float ShuttleFTLRange = 2560f;
+    private const float ShuttleFTLRange = 2560f; // Mono 512 -> 2560
     private const float ShuttleFTLMassThreshold = 100f; // Mono: now a soft limit, ships under the limit just stop you from shorter distance
 
     private const float MassConstant = 50f; // Arbitrary, at this value massMultiplier = 0.65
