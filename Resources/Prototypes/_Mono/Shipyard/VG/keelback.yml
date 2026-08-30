@@ -1,0 +1,44 @@
+# Author Info
+# Discord: lassih
+# Github: LassiH
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Keelback
+  parent: BaseVessel
+  name: VG Keelback
+  description: A medium sized corvette designed for privateering. Equipped with 3 paladin missile launcher's and 2 tovek's.
+  price: 300000
+  purchasable: false # Voucher only
+  category: Medium
+  group: Viper
+  access: Viper
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Viper/keelback.yml
+  guidebookPage: Null
+  class:
+  - Corvette
+  - Patrol
+  - Pursuit
+  engine:
+  - AME
+
+- type: gameMap
+  id: Keelback
+  mapName: 'VG Keelback'
+  mapPath: /SharedMaps/_Mono/Shuttles/Viper/keelback.yml
+  minPlayers: 0
+  stations:
+    Keelback:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Keelback MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            VGInfanteer: [ 0, 0 ]
+            VGLieutenant: [ 0, 0 ]
+            VGCommander: [ 0, 0 ]
