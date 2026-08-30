@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Text;
 using Content.Shared._Mono.PlantAnalyzer;
 using Content.Shared.Atmos;
@@ -198,7 +199,8 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         PestTolerance.Text = Loc.GetString("plant-analyzer-tolerance-pest-tolerance", ("pestTolerance", $"{msg.PestTolerance:F1}"));
         WeedTolerance.Text = Loc.GetString("plant-analyzer-tolerance-weed-tolerance", ("weedTolerance", $"{msg.WeedTolerance:F1}"));
         Traits.Text = Loc.GetString("plant-analyzer-plant-mutations-text", ("traits", MutationNames(msg.Mutations)));
-        PlantSpeciation.Text = Loc.GetString("plant-analyzer-plant-speciation-text", ("speciation", Join(msg.Speciation ?? [])));
+        PlantSpeciation.Text = Loc.GetString("plant-analyzer-plant-speciation-text",
+            ("speciation", Join((msg.Speciation ?? []).Select(name => Loc.GetString(name)))));
     }
 
     private string MutationNames(MutationFlags flags)
