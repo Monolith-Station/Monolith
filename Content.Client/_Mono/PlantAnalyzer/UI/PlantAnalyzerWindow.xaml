@@ -1,0 +1,67 @@
+<!--
+SPDX-FileCopyrightText: 2025 Liamofthesky <157073227+Liamofthesky@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+-->
+
+<controls:FancyWindow xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Content.Client.UserInterface.Controls"
+    Title="{Loc 'plant-analyzer-interface-title'}"
+    MinSize="500 500">
+    <!-- Margin="left,top,right,bottom" -->
+    <GridContainer Rows="1" Name="GridCont" Margin="10 5 10 5" VerticalAlignment="Stretch" HorizontalExpand="True" VerticalExpand="True">
+        <TabContainer Name="Tabs" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalExpand="True" VerticalExpand="True">
+            <BoxContainer TabContainer.TabTitle="{Loc 'plant-analyzer-window-tab-scan'}" Orientation="Vertical" VerticalAlignment="Stretch" Margin="10 0 5 0">
+                <Label Name="NoData" Text="{Loc 'plant-analyzer-window-no-seed-information-text'}" Margin="10 5 0 0"/>
+                <BoxContainer Name="ScanData" Orientation="Horizontal" VerticalAlignment="Stretch" Visible="False">
+                    <BoxContainer Orientation="Vertical" VerticalAlignment="Stretch" Margin="10 0 5 0">
+                        <Label Name="PlantName" Margin="0 5 0 5"/>
+                        <Label Name="PlantYield" Margin="0 5 0 5"/>
+                        <Label Name="Potency" Margin="0 5 0 5"/>
+                        <Label Name="Repeat" Margin="0 5 0 5"/>
+                        <Label Name="Chemicals" Margin="0 5 0 5"/>
+                        <Label Name="ConsumeGases" Margin="0 5 0 5" />
+                        <Label Name="ExudeGases" Margin="0 5 0 5" />
+                        <Label Name="Lifespan" Margin="0 5 0 5"/>
+                        <Label Name="Maturation" Margin="0 5 0 5"/>
+                        <Label Name="Production" Margin="0 5 0 5"/>
+                        <Label Name="GrowthStages" Margin="0 5 0 5"/>
+                        <Label Name="Endurance" Margin="0 5 0 5"/>
+                    </BoxContainer>
+                    <BoxContainer Orientation="Vertical" VerticalAlignment="Stretch" Margin="10 0 5 0">
+                        <Label Name="NutrientUsage" Margin="0 5 0 5"/>
+                        <Label Name="WaterUsage" Margin="0 5 0 5"/>
+                        <Label Name="IdealHeat" Margin="0 5 0 5"/>
+                        <Label Name="HeatTolerance" Margin="0 5 0 5"/>
+                        <Label Name="IdealLight" Margin="0 5 0 5"/>
+                        <Label Name="LightTolerance" Margin="0 5 0 5"/>
+                        <Label Name="ToxinsTolerance" Margin="0 5 0 5"/>
+                        <Label Name="LowPressureTolerance" Margin="0 5 0 5"/>
+                        <Label Name="HighPressureTolerance" Margin="0 5 0 5"/>
+                        <Label Name="PestTolerance" Margin="0 5 0 5"/>
+                        <Label Name="WeedTolerance" Margin="0 5 0 5"/>
+                    </BoxContainer>
+                </BoxContainer>
+            </BoxContainer>
+            <BoxContainer TabContainer.TabTitle="{Loc 'plant-analyzer-window-tab-mutations'}" Orientation="Vertical" VerticalAlignment="Stretch" Margin="10 0 5 0">
+                <Label Name="PlantSpeciation" Margin="0 5 0 5"/>
+                <Label Name="Traits" Margin="0 5 0 5"/>
+                <Label Name="ExtraInfo" Margin="0 5 0 5"/>
+            </BoxContainer>
+            <BoxContainer TabContainer.TabTitle="{Loc 'plant-analyzer-window-tab-extractor'}" Orientation="Vertical" VerticalAlignment="Stretch" Margin="10 0 5 0">
+                <ItemList Name="GeneList" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
+            </BoxContainer>
+            <BoxContainer TabContainer.TabTitle="{Loc 'plant-analyzer-window-tab-databank'}" Orientation="Vertical" VerticalAlignment="Stretch" Margin="10 0 5 0">
+                <Button Name="DeleteDatabaseEntryButton" Text="Delete selected" MaxWidth="180" Margin="4"/>
+                <TabContainer VerticalExpand="True" HorizontalExpand="True">
+                    <ItemList Name="GeneDatabaseList" TabContainer.TabTitle="Genes" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
+                    <ItemList Name="ConsumeDatabaseList" TabContainer.TabTitle="Consumed Gases" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
+                    <ItemList Name="ExudeDatabaseList" TabContainer.TabTitle="Emitted Gases" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
+                    <ItemList Name="ChemicalDatabaseList" TabContainer.TabTitle="Chemicals" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
+                </TabContainer>
+            </BoxContainer>
+        </TabContainer>
+    </GridContainer>
+</controls:FancyWindow>

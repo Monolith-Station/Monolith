@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._NF.PlantAnalyzer;
+namespace Content.Shared._Mono.PlantAnalyzer;
 
 /// <summary>
 ///     The information about the last scanned plant/seed is stored here.
