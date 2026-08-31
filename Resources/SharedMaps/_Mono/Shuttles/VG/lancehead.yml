@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/31/2026 14:20:33
-  entityCount: 1244
+  time: 08/31/2026 21:53:13
+  entityCount: 1245
 maps: []
 grids:
 - 1
@@ -108,8 +108,8 @@ entities:
       spreadQueues:
         MetalFoam: []
         Kudzu: []
-        Puddle: []
         Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -6003,6 +6003,48 @@ entities:
     - type: Transform
       pos: 0.5,-3.5
       parent: 1
+  - uid: 927
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,-12.5
+      parent: 1
+  - uid: 928
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-12.5
+      parent: 1
+  - uid: 1135
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,14.5
+      parent: 1
+  - uid: 1137
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,14.5
+      parent: 1
+  - uid: 1208
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,-7.5
+      parent: 1
+  - uid: 1209
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,-7.5
+      parent: 1
+  - uid: 1245
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,-7.5
+      parent: 1
 - proto: PoweredSmallLight
   entities:
   - uid: 92
@@ -6061,18 +6103,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-9.5
       parent: 1
-  - uid: 927
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 3.5,-12.5
-      parent: 1
-  - uid: 928
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.5,-12.5
-      parent: 1
   - uid: 930
     components:
     - type: Transform
@@ -6090,40 +6120,16 @@ entities:
     - type: Transform
       pos: 5.5,17.5
       parent: 1
-  - uid: 1135
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 4.5,12.5
-      parent: 1
   - uid: 1136
     components:
     - type: Transform
       pos: -4.5,17.5
-      parent: 1
-  - uid: 1137
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -3.5,12.5
       parent: 1
   - uid: 1141
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -3.5,6.5
-      parent: 1
-  - uid: 1208
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -3.5,-7.5
-      parent: 1
-  - uid: 1209
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 4.5,-7.5
       parent: 1
   - uid: 1210
     components:
