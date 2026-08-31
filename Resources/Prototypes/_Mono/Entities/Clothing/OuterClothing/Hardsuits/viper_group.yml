@@ -109,6 +109,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.4
+  - type: FireProtection # Mono
+    reduction: 0.67
   - type: Armor
     modifiers:
       coefficients:
@@ -156,6 +158,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  - type: FireProtection # Mono
+    reduction: 0.8
   - type: Armor
     modifiers:
       coefficients:
@@ -180,24 +184,24 @@
     scale: 1.6
     shield:
       maxCharge: 250
-      regenRate: 10
-      spinupTime: 1.5
+      regenRate: 5
+      spinupTime: 1
       breakCooldown: 20
       powerDraw: 0.5
       blockModifier:
         coefficients:
           Slash: 2.5
-          Piercing: 0.34
+          Piercing: 0.5
           Heat: 1.5
-          Radiation: 2
-          Shock: 2
+          Radiation: 2.5
+          Shock: 2.5
   - type: Battery
     maxCharge: 100
     startingCharge: 100
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 5
-    autoRechargePauseTime: 5
+    autoRechargeRate: 10
+    autoRechargePauseTime: 10
   - type: UseDelay
     delay: 10
   - type: FootstepModifier # Mono
