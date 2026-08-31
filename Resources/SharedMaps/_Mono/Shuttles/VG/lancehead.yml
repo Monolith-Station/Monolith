@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/31/2026 14:10:21
+  time: 08/31/2026 14:20:33
   entityCount: 1244
 maps: []
 grids:
@@ -106,10 +106,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Kudzu: []
-        Smoke: []
         MetalFoam: []
+        Kudzu: []
+        Puddle: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -142,6 +142,7 @@ entities:
           decals:
             922: 2,-10
             928: -2,-10
+            984: -4,-10
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkInnerNw
@@ -166,6 +167,7 @@ entities:
             id: BrickTileDarkLineN
           decals:
             918: 3,-10
+            983: -3,-10
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkLineS
