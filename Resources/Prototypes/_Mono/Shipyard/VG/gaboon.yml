@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: LassiH
+# Discord: lassih
+
+#
+#
+- type: vessel
+  id: Gaboon
+  parent: BaseVessel
+  name: VG Gaboon
+  description: A heavy duty artillery corvette  outsourced to GS. Comes equipped with a cruise missile.
+  price: 180000
+  purchasable: false # Voucher only
+  category: Large
+  group: Viper
+  access: Viper
+  shuttlePath: /SharedMaps/_Mono/Shuttles/VG/gaboon.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  - Frigate
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Gaboon
+  mapName: 'VG Gaboon'
+  mapPath: /SharedMaps/_Mono/Shuttles/VG/wolfsnake.yml
+  minPlayers: 0
+  stations:
+    Gaboon:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Gaboon MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            VGInfanteer: [ 0, 0 ]
+            VGLieutenant: [ 0, 0 ]
+            VGCommander: [ 0, 0 ]
