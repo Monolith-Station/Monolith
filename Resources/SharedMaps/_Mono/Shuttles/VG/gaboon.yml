@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/31/2026 14:51:53
-  entityCount: 1020
+  time: 08/31/2026 15:39:12
+  entityCount: 1022
 maps: []
 grids:
 - 1
@@ -115,9 +115,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Kudzu: []
-        MetalFoam: []
-        Smoke: []
         Puddle: []
+        Smoke: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -176,7 +176,6 @@ entities:
             644: 2,9
             645: 2,8
             646: 1,4
-            647: 0,0
             648: 2,-6
             649: -2,-7
             650: -2,-10
@@ -184,6 +183,12 @@ entities:
             656: 9,-10
             813: -2,-14
             814: -2,-13
+        - node:
+            cleanable: True
+            color: '#FFFFFFFF'
+            id: DirtLight
+          decals:
+            832: 0,0
         - node:
             zIndex: 2
             color: '#FFFFFFFF'
@@ -207,8 +212,6 @@ entities:
             630: 2,-5
             631: 0,-3
             632: -1,-3
-            633: 0,0
-            634: 0,1
             635: -3,-1
             636: 3,-1
             637: -1,4
@@ -218,8 +221,6 @@ entities:
             641: 2,4
             642: 0,8
             643: -2,8
-            803: 0,0
-            804: 0,1
             805: 0,3
             806: -2,4
             807: -1,4
@@ -488,8 +489,6 @@ entities:
             color: '#8C191EFF'
             id: TrimlineEast
           decals:
-            170: 0,-15
-            265: 0,-2
             352: -1,4
             355: 2,4
             424: 0,7
@@ -544,11 +543,6 @@ entities:
             348: -1,5
             356: 2,5
         - node:
-            color: '#8C191EFF'
-            id: TrimlineNorthEastCorner
-          decals:
-            193: -1,-24
-        - node:
             zIndex: 2
             color: '#8C191EFF'
             id: TrimlineNorthEastCorner
@@ -600,7 +594,6 @@ entities:
             color: '#8C191EFF'
             id: TrimlineSouthEastCorner
           decals:
-            192: -1,-24
             419: 0,9
         - node:
             zIndex: 2
@@ -614,6 +607,7 @@ entities:
             id: TrimlineSouthEnd
           decals:
             430: 0,3
+            831: 0,6
         - node:
             color: '#8C191EFF'
             id: TrimlineSouthWest
@@ -636,8 +630,6 @@ entities:
             color: '#8C191EFF'
             id: TrimlineWest
           decals:
-            169: 0,-15
-            266: 0,-2
             353: -2,4
             354: 1,4
             421: 0,8
@@ -7149,6 +7141,17 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,-18.5
+      parent: 1
+  - uid: 1021
+    components:
+    - type: Transform
+      pos: -5.5,17.5
+      parent: 1
+  - uid: 1022
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,17.5
       parent: 1
 - proto: WallWeaponCapacitorRecharger
   entities:
