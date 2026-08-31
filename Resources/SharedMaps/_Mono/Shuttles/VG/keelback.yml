@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/31/2026 13:50:49
+  time: 08/31/2026 14:11:58
   entityCount: 1542
 maps: []
 grids:
@@ -998,7 +998,7 @@ entities:
       locked: False
     - type: Roof
       data:
-        0,0: 281474976710656
+        0,0: 0
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -1261,7 +1261,7 @@ entities:
       pos: -0.5,18.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -23459.682
+      secondsUntilStateChange: -23516.076
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
