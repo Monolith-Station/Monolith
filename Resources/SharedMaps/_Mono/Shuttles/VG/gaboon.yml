@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/01/2026 13:17:34
-  entityCount: 1022
+  time: 09/01/2026 16:38:46
+  entityCount: 1016
 maps: []
 grids:
 - 1
@@ -116,10 +116,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Smoke: []
         Puddle: []
+        Smoke: []
         MetalFoam: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -992,11 +992,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -2.5,-9.5
       parent: 1
-  - uid: 785
-    components:
-    - type: Transform
-      pos: 0.5,-1.5
-      parent: 1
   - uid: 786
     components:
     - type: Transform
@@ -1068,6 +1063,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,-9.5
       parent: 1
+- proto: AirlockHeavyViperLocked
+  entities:
+  - uid: 404
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
+      parent: 1
 - proto: AmmoLoader
   entities:
   - uid: 406
@@ -1097,12 +1099,6 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-19.5
-      parent: 1
-  - uid: 404
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,2.5
       parent: 1
   - uid: 405
     components:
@@ -1135,6 +1131,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,-24.5
+      parent: 1
+  - uid: 785
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,2.5
       parent: 1
   - uid: 826
     components:
@@ -1235,11 +1237,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 1.5,-5.5
-      parent: 1
-  - uid: 865
-    components:
-    - type: Transform
-      pos: -0.5,2.5
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -4490,25 +4487,6 @@ entities:
         516:
         - - Pressed
           - Toggle
-  - uid: 866
-    components:
-    - type: Transform
-      pos: -0.5,2.5
-      parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        795:
-        - - Pressed
-          - Toggle
-        794:
-        - - Pressed
-          - Toggle
-        864:
-        - - Pressed
-          - Toggle
-        863:
-        - - Pressed
-          - Toggle
 - proto: LockerEngineerFilled
   entities:
   - uid: 548
@@ -4928,32 +4906,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -0.65242016,-17.583647
-      parent: 1
-- proto: ShuttersRadiationOpen
-  entities:
-  - uid: 794
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,0.5
-      parent: 1
-  - uid: 795
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,1.5
-      parent: 1
-  - uid: 863
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,1.5
-      parent: 1
-  - uid: 864
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,0.5
       parent: 1
 - proto: SinkWide
   entities:
