@@ -110,7 +110,7 @@ public sealed partial class ThermalVisionOverlay : Overlay
 
                 // Mono edit, Thermals don't reveal people in lockers
                 /*
-                 v a*r owner = container.Owner;
+                 var owner = container.Owner;
                  if (_entity.TryGetComponent<SpriteComponent>(owner, out var ownerSprite)
                      && _entity.TryGetComponent<TransformComponent>(owner, out var ownerXform))
                      {
