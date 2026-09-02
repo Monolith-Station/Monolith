@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/01/2026 16:38:46
-  entityCount: 1016
+  time: 09/02/2026 18:06:37
+  entityCount: 1017
 maps: []
 grids:
 - 1
@@ -116,10 +116,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
         Smoke: []
         MetalFoam: []
         Kudzu: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -2769,18 +2769,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerTabletopShuttleAntag
-  entities:
-  - uid: 368
-    components:
-    - type: Transform
-      pos: -1.5,5.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
-- proto: ComputerTabletopStationRecords
+- proto: ComputerTabletopIFF
   entities:
   - uid: 383
     components:
@@ -2792,6 +2781,31 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
+- proto: ComputerTabletopShuttleAntag
+  entities:
+  - uid: 368
+    components:
+    - type: Transform
+      pos: -1.5,5.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+- proto: ComputerWallmountStationRecords
+  entities:
+  - uid: 794
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,5.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 37.5
+    - type: ApcPowerReceiverBattery
+      enabled: True
 - proto: DefibrillatorCabinetFilled
   entities:
   - uid: 709
