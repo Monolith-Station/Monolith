@@ -138,11 +138,11 @@ public sealed partial class ThermalVisionOverlay : Overlay
     }
 
     private void Render(Entity<SpriteComponent, TransformComponent> ent,
-                        MapId? map,
-                        DrawingHandleWorld handle,
-                        Angle eyeRot,
-                        Color color,
-                        float alpha)
+        MapId? map,
+        DrawingHandleWorld handle,
+        Angle eyeRot,
+        Color color,
+        float alpha)
     {
         var (uid, sprite, xform) = ent;
         if (xform.MapID != map || !CanSee(uid, sprite))
