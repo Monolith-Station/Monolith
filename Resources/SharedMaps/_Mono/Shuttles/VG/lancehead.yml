@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/02/2026 10:18:21
-  entityCount: 1235
+  time: 09/02/2026 21:34:23
+  entityCount: 1244
 maps: []
 grids:
 - 1
@@ -108,10 +108,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Smoke: []
-        Puddle: []
         MetalFoam: []
+        Kudzu: []
+        Puddle: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -739,7 +739,8 @@ entities:
             0: 47872
             1: 4
           -1,-4:
-            0: 60936
+            0: 44552
+            2: 16384
           0,-4:
             0: 65299
           0,-3:
@@ -787,6 +788,11 @@ entities:
         - volume: 2500
           immutable: True
           moles: {}
+        - volume: 2500
+          temperature: 293.14996
+          moles:
+            Oxygen: 20.078888
+            Nitrogen: 75.53487
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -1040,12 +1046,22 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 7.5,-7.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        1095:
+        - - DoorStatus
+          - InputB
   - uid: 80
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -6.5,-7.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        1094:
+        - - DoorStatus
+          - InputB
   - uid: 96
     components:
     - type: Transform
@@ -1303,6 +1319,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -9.5,-8.5
+      parent: 1
+  - uid: 1204
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,-4.5
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -3459,6 +3481,29 @@ entities:
       parent: 1
     - type: Physics
       bodyType: Static
+- proto: ClosetWall
+  entities:
+  - uid: 759
+    components:
+    - type: Transform
+      pos: -1.5,-11.5
+      parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14923
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 1094
+          - 1095
 - proto: CMSemioticAirlock
   entities:
   - uid: 247
@@ -5799,6 +5844,20 @@ entities:
     - type: Transform
       pos: 0.5,0.5
       parent: 1
+- proto: LightBulbCrystalRed
+  entities:
+  - uid: 1197
+    components:
+    - type: Transform
+      parent: 1113
+    - type: Physics
+      canCollide: False
+  - uid: 1207
+    components:
+    - type: Transform
+      parent: 1206
+    - type: Physics
+      canCollide: False
 - proto: LockableButtonViper
   entities:
   - uid: 263
@@ -5874,11 +5933,54 @@ entities:
       parent: 1
 - proto: LockerWallMaterialsFuelPlasmaFilled2
   entities:
-  - uid: 1113
+  - uid: 1101
     components:
     - type: Transform
-      pos: -1.5,-11.5
+      rot: 3.141592653589793 rad
+      pos: 0.5,-16.5
       parent: 1
+- proto: LogicGateAnd
+  entities:
+  - uid: 1094
+    components:
+    - type: MetaData
+      name: logic gate (WEST SIDE AUTOMATED SECURITY LIGHTS)
+    - type: Transform
+      parent: 759
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        1113:
+        - - Output
+          - On
+    - type: Physics
+      canCollide: False
+    - type: Label
+      currentLabel: WEST SIDE AUTOMATED SECURITY LIGHTS
+    - type: NameModifier
+      baseName: logic gate
+    - type: InsideEntityStorage
+  - uid: 1095
+    components:
+    - type: MetaData
+      name: logic gate (EAST SIDE AUTOMATED SECURITY LIGHTS)
+    - type: Transform
+      parent: 759
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        1206:
+        - - Output
+          - On
+    - type: Physics
+      canCollide: False
+    - type: Label
+      currentLabel: EAST SIDE AUTOMATED SECURITY LIGHTS
+    - type: NameModifier
+      baseName: logic gate
+    - type: InsideEntityStorage
 - proto: MachineFrameDestroyed
   entities:
   - uid: 606
@@ -5939,11 +6041,6 @@ entities:
       parent: 1
 - proto: Poweredlight
   entities:
-  - uid: 759
-    components:
-    - type: Transform
-      pos: 0.5,-3.5
-      parent: 1
   - uid: 927
     components:
     - type: Transform
@@ -5980,7 +6077,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,-7.5
       parent: 1
-  - uid: 1245
+- proto: PoweredlightGreen
+  entities:
+  - uid: 1100
+    components:
+    - type: Transform
+      pos: 0.5,-3.5
+      parent: 1
+- proto: PoweredlightRed
+  entities:
+  - uid: 1202
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -6078,6 +6184,44 @@ entities:
       rot: 3.141592653589793 rad
       pos: 9.5,-7.5
       parent: 1
+- proto: PoweredStrobeLightSiren
+  entities:
+  - uid: 1113
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-3.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        light_bulb: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 1197
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DamageOnInteract
+      isDamageActive: False
+  - uid: 1206
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-3.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        light_bulb: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 1207
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DamageOnInteract
+      isDamageActive: False
 - proto: PoweredStrobeRedEnabled
   entities:
   - uid: 917
@@ -6344,6 +6488,44 @@ entities:
           - 1157
           - 1158
           - 1159
+- proto: SignalSwitch
+  entities:
+  - uid: 1203
+    components:
+    - type: MetaData
+      name: signal switch (AUTOMATED SECURITY LIGHTS)
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,-4.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        1094:
+        - - Status
+          - InputA
+        1100:
+        - - Off
+          - On
+        - - On
+          - Off
+        1202:
+        - - On
+          - On
+        - - Off
+          - Off
+        1095:
+        - - Status
+          - InputA
+        1206:
+        - - Off
+          - Off
+        1113:
+        - - Off
+          - Off
+    - type: Label
+      currentLabel: AUTOMATED SECURITY LIGHTS
+    - type: NameModifier
+      baseName: signal switch
 - proto: SinkWide
   entities:
   - uid: 749
