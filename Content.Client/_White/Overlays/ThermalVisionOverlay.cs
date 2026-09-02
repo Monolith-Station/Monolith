@@ -11,6 +11,8 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
+using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client._White.Overlays;
 
@@ -19,11 +21,13 @@ public sealed partial class ThermalVisionOverlay : Overlay
     [Dependency] private IEntityManager _entity = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IGameTiming _timing = default!;
+    private static readonly ProtoId<TagPrototype> ScreenedTag = "Screened";
 
     private readonly TransformSystem _transform;
     private readonly StealthSystem _stealth;
     private readonly ContainerSystem _container;
     private readonly SharedPointLightSystem _light;
+    private readonly TagSystem _tag;
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
@@ -44,6 +48,7 @@ public sealed partial class ThermalVisionOverlay : Overlay
         _transform = _entity.System<TransformSystem>();
         _stealth = _entity.System<StealthSystem>();
         _light = _entity.System<SharedPointLightSystem>();
+        _tag = _entity.System<TagSystem>();
 
         ZIndex = -1;
     }
@@ -93,6 +98,9 @@ public sealed partial class ThermalVisionOverlay : Overlay
             // Mono - teargas hides you from smoke
             if (_entity.HasComponent<SmokeAffectedComponent>(uid))
                 continue;
+            // Mono - ignore entity if it has "Screened" tag
+            if (_tag.HasTag(uid, ScreenedTag))
+               continue;
 
             var entity = uid;
 
@@ -102,20 +110,21 @@ public sealed partial class ThermalVisionOverlay : Overlay
 
                 // Mono edit, Thermals don't reveal people in lockers
                 /*
-                var owner = container.Owner;
-                if (_entity.TryGetComponent<SpriteComponent>(owner, out var ownerSprite)
-                    && _entity.TryGetComponent<TransformComponent>(owner, out var ownerXform))
-                {
-                    entity = owner;
-                    sprite = ownerSprite;
-                    xform = ownerXform;
-                }
-                */
+                 v a*r owner = container.Owner;
+                 if (_entity.TryGetComponent<SpriteComponent>(owner, out var ownerSprite)
+                     && _entity.TryGetComponent<TransformComponent>(owner, out var ownerXform))
+                     {
+                     entity = owner;
+                 sprite = ownerSprite;
+                 xform = ownerXform;
+            }
+            */
                 // Mono End
             }
 
             if (_entries.Any(e => e.Ent.Owner == entity))
                 continue;
+
 
             _entries.Add(new ThermalVisionRenderEntry((entity, sprite, xform), mapId, eyeRot));
         }
@@ -129,11 +138,11 @@ public sealed partial class ThermalVisionOverlay : Overlay
     }
 
     private void Render(Entity<SpriteComponent, TransformComponent> ent,
-        MapId? map,
-        DrawingHandleWorld handle,
-        Angle eyeRot,
-        Color color,
-        float alpha)
+                        MapId? map,
+                        DrawingHandleWorld handle,
+                        Angle eyeRot,
+                        Color color,
+                        float alpha)
     {
         var (uid, sprite, xform) = ent;
         if (xform.MapID != map || !CanSee(uid, sprite))
@@ -152,7 +161,7 @@ public sealed partial class ThermalVisionOverlay : Overlay
     private bool CanSee(EntityUid uid, SpriteComponent sprite)
     {
         return sprite.Visible && (!_entity.TryGetComponent(uid, out StealthComponent? stealth) ||
-                                  _stealth.GetVisibility(uid, stealth) > 0.5f);
+        _stealth.GetVisibility(uid, stealth) > 0.5f);
     }
 
     public void ResetLight(bool checkFirstTimePredicted = true)

@@ -41,6 +41,7 @@
   name: cybersun stealth hardsuit helmet
   description: A helmet with plating for stealth operations.
   components:
+  - type: BreathMask
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/cybersunstealth.rsi
   - type: Clothing
