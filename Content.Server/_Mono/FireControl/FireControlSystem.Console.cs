@@ -270,6 +270,8 @@ public sealed partial class FireControlSystem : EntitySystem
                 controlled.NetEntity = EntityManager.GetNetEntity(controllable);
                 controlled.Coordinates = GetNetCoordinates(Transform(controllable).Coordinates);
                 controlled.Name = MetaData(controllable).EntityName;
+                TryComp<FireControllableComponent>(controllable, out var fcComp);
+                controlled.IgnoresLos = fcComp != null ? fcComp.IgnoreLos : false;
 
                 var (ammoCount, hasManualReload) = GetWeaponAmmunitionInfo(controllable);
                 controlled.AmmoCount = ammoCount;

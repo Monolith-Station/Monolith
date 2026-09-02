@@ -486,12 +486,12 @@
 
 - type: entity
   parent: MedicalTechFabFlatpack
-  id: ChemistryHotplateFlatpack
-  name: hotplate flatpack
-  description: A flatpack used for constructing a hotplate.
+  id: MachineThermobathFlatpack
+  name: thermobath flatpack
+  description: A flatpack used for constructing a thermobath.
   components:
   - type: Flatpack
-    entity: ChemistryHotplate
+    entity: MachineThermobath
 
 - type: entity
   parent: MedicalTechFabFlatpack

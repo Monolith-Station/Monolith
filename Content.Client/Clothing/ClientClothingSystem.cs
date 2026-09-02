@@ -39,6 +39,8 @@ public sealed partial class ClientClothingSystem : ClothingSystem
         {"outerClothing", "OUTERCLOTHING"},
         {Jumpsuit, "INNERCLOTHING"},
         {"neck", "NECK"},
+        {"neck2", "NECK"},
+        {"neck3", "NECK"},
         {"back", "BACKPACK"},
         {"belt", "BELT"},
         {"gloves", "HAND"},

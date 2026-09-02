@@ -157,7 +157,7 @@ namespace Content.Server.Construction
             if (!CheckConditions(uid, edge.Conditions))
                 return HandleResult.False;
 
-            var handle = HandleStep(uid, ev, step, validation, out var user, construction);
+            var handle = HandleStep(uid, ev, step, edge, validation, out var user, construction);
             if (handle is not HandleResult.True)
                 return handle;
 
@@ -195,7 +195,7 @@ namespace Content.Server.Construction
         /// <remarks>When <see cref="validation"/> is true, this method will simply return whether the interaction
         ///          would be handled by the entity or not. It essentially becomes a pure method that modifies nothing.</remarks>
         /// <returns>The result of this interaction with the entity.</returns>
-        private HandleResult HandleStep(EntityUid uid, object ev, ConstructionGraphStep step, bool validation, out EntityUid? user, ConstructionComponent? construction = null)
+        private HandleResult HandleStep(EntityUid uid, object ev, ConstructionGraphStep step, ConstructionGraphEdge edge, bool validation, out EntityUid? user, ConstructionComponent? construction = null)
         {
             user = null;
             if (!Resolve(uid, ref construction))
@@ -203,7 +203,7 @@ namespace Content.Server.Construction
 
             // Let HandleInteraction actually handle the event for this step.
             // We can only perform the rest of our logic if it returns true.
-            var handle = HandleInteraction(uid, ev, step, validation, out user, construction);
+            var handle = HandleInteraction(uid, ev, step, edge, validation, out user, construction);
             if (handle is not HandleResult.True)
                 return handle;
 
@@ -225,7 +225,7 @@ namespace Content.Server.Construction
         /// <remarks>When <see cref="validation"/> is true, this method will simply return whether the interaction
         ///          would be handled by the entity or not. It essentially becomes a pure method that modifies nothing.</remarks>
         /// <returns>The result of this interaction with the entity.</returns>
-        private HandleResult HandleInteraction(EntityUid uid, object ev, ConstructionGraphStep step, bool validation, out EntityUid? user, ConstructionComponent? construction = null)
+        private HandleResult HandleInteraction(EntityUid uid, object ev, ConstructionGraphStep step, ConstructionGraphEdge edge, bool validation, out EntityUid? user, ConstructionComponent? construction = null)
         {
             user = null;
             if (!Resolve(uid, ref construction))
@@ -303,7 +303,7 @@ namespace Content.Server.Construction
                         // Verify that the resulting DoAfter event will be handled by the current construction state.
                         // if it can't what is even the point of raising this DoAfter?
                         doAfterEv.DoAfter = new(default, doAfterEventArgs, default);
-                        var result = HandleInteraction(uid, doAfterEv, step, validation: true, out _, construction);
+                        var result = HandleInteraction(uid, doAfterEv, step, edge, validation: true, out _, construction);
                         DebugTools.Assert(result == HandleResult.Validated);
 #endif
                         return HandleResult.DoAfter;
@@ -364,17 +364,35 @@ namespace Content.Server.Construction
                     if (doAfterState == DoAfterState.Completed)
                         return  HandleResult.True;
 
+                    var durationEvent = new GetConstructionToolUseDurationEvent(
+                        interactUsing.User,
+                        interactUsing.Used,
+                        edge,
+                        toolInsertStep,
+                        TimeSpan.FromSeconds(toolInsertStep.DoAfter));
+                    RaiseLocalEvent(uid, ref durationEvent);
+
                     var result  = _toolSystem.UseTool(
                         interactUsing.Used,
                         interactUsing.User,
                         uid,
-                        TimeSpan.FromSeconds(toolInsertStep.DoAfter),
+                        durationEvent.Duration,
                         new [] { toolInsertStep.Tool },
                         new ConstructionInteractDoAfterEvent(EntityManager, interactUsing),
-                        out var doAfter,
+                        out var doAfterId,
                         toolInsertStep.Fuel);
 
-                    return result && doAfter != null ? HandleResult.DoAfter : HandleResult.False;
+                    if (!result || doAfterId == null)
+                        return HandleResult.False;
+
+                    RaiseLocalEvent(uid, new ConstructionToolUseStartedEvent(
+                        interactUsing.User,
+                        interactUsing.Used,
+                        edge,
+                        toolInsertStep,
+                        doAfterId.Value));
+
+                    return HandleResult.DoAfter;
                 }
 
                 case TemperatureConstructionGraphStep temperatureChangeStep:

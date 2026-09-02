@@ -1,5 +1,16 @@
 # Cartridge reload
 
+# Sandbox missiles
+- type: cargoProduct
+  id: ArmoryShipAmmoSandboxHEMissile
+  icon:
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/sandbox.rsi
+    state: 8k30
+  product: SandboxHEMissile
+  cost: 50000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
 # Charon slugs
 - type: cargoProduct
   id: ArmoryShipAmmoCharon

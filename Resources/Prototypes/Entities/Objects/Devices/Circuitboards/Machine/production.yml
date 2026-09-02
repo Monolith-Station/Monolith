@@ -1067,19 +1067,6 @@
         Glass: 1
 
 - type: entity
-  id: HotplateMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: hotplate machine board
-  description: A machine printed circuit board for a hotplate.
-  components:
-    - type: MachineBoard
-      prototype: ChemistryHotplate
-      requirements: # Frontier
-        Capacitor: 2 # Frontier stackRequirements<requirements
-      stackRequirements:
-        Glass: 1
-
-- type: entity
   id: ElectricGrillMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: electric grill machine board

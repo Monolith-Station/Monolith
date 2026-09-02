@@ -1,0 +1,76 @@
+- type: entity
+  id: WeaponTurretSandbox
+  name: SS-N-40 "Sandbox" launcher
+  parent:
+  - BallisticArtilleryUnanchorableCartridge
+  - BallisticArtilleryTier5HP
+  description: A strategic cruise missile launcher, able to fire extremely fast, long-ranged and nuclear-capable SARH munitions. Born from an almost genetic fear from long ago, this weapon system has long brought peace... until now.
+  components:
+  - type: StaticPrice
+    price: 50000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/sandbox.rsi
+    drawdepth: Overdoors
+    layers:
+    - state: AShMtube
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-2
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Appearance
+  - type: AmmoCounter
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.02 # 1.2RPM
+    recoil: 10
+    shootThermalSignature: 32000000 # 8000m after firing
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/launcher.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 500
+    powerUsePassive: 2500
+    powerUseActive: 0
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - SandboxCruiseMissiles
+    capacity: 2
+    soundInsert:
+      path: /Audio/_Mono/Weapons/Guns/autoloader.ogg
+  - type: Actions
+  - type: RadarBlip
+    radarColor: "#00ffdd"
+    scale: 3
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: '#00ffdd'
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.5,-2,0.5,2"
+  - type: ShipGunType
+    shipType: Missile
+  - type: ShipGunClass
+    shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 500
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: FireControllable
+    ignoreLos: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-1.8,0.45,1.3"
+        density: 800
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer

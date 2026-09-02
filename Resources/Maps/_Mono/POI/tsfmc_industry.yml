@@ -3320,7 +3320,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerMarketConsoleNFLow
+- proto: ComputerMarketConsoleNFNormal
   entities:
   - uid: 432
     components:
@@ -3332,7 +3332,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerPalletConsoleNFHighMarket
+- proto: ComputerPalletConsoleNFNormalMarket
   entities:
   - uid: 433
     components:

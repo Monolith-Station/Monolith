@@ -1,4 +1,5 @@
 using System.IO;
+using Content.Server._Mono.MonoCoins;
 using Content.Server.Administration.Logs;
 using Content.Server.Database;
 using Content.Server.GameTicking;
@@ -16,13 +17,13 @@ using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Labels.Components;
 using Content.Shared.Labels.EntitySystems;
+using Content.Shared.Preferences;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.EntitySerialization.Systems;
-using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server._WF.SafetyDepositBox;
 
@@ -44,6 +45,8 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
     [Dependency] private GameTicker _gameTicker = default!;
     [Dependency] private IComponentFactory _componentFactory = default!;
     [Dependency] private MapLoaderSystem _loader = default!;
+    [Dependency] private MonoCoinsManager _coinBase = default!; // I had to.
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
 
     public override void Initialize()
     {
@@ -179,6 +182,15 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
             PlayDenySound(uid, component);
             return;
         }
+        var userId = actor.PlayerSession.UserId;
+
+        // Create the box in the database
+        if (!_prefsManager.TryGetCachedPreferences(userId, out var prefs) || !_playerManager.TryGetSessionByEntity(player, out var session) || prefs.SelectedCharacter is not HumanoidCharacterProfile profile)
+        {
+            ConsolePopup(player, "Error: Could not load character data.");
+            PlayDenySound(uid, component);
+            return;
+        }
 
         // Check bank account
         if (!TryComp<BankAccountComponent>(player, out var bank))
@@ -188,26 +200,22 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
             return;
         }
 
-        if (bank.Balance < cost)
+        long initialBankBalance = bank.Balance;
+        initialBankBalance += _coinBase.GetMonoCoinsBalance(userId) ?? 0L;
+        var bankBalance = initialBankBalance;
+        bankBalance -= cost;
+
+        if (initialBankBalance < cost)
         {
-            ConsolePopup(player, $"Insufficient funds. You need ${cost:N0}, but only have ${bank.Balance:N0}.");
+            ConsolePopup(player, $"Insufficient funds. You need ${cost:N0}, but only have ${bank.Balance:N0} in bank and ${initialBankBalance-bank.Balance:N0} in savings.");
             PlayDenySound(uid, component);
             return;
         }
 
         // Withdraw from bank
-        if (!_bankSystem.TryBankWithdraw(player, cost))
+        if (!_bankSystem.TryBankWithdraw(session!, prefs!, profile, (int)(initialBankBalance - bankBalance), out var newBalance, true))
         {
             ConsolePopup(player, "Transaction failed.");
-            PlayDenySound(uid, component);
-            return;
-        }
-
-        // Create the box in the database
-        var userId = actor.PlayerSession.UserId;
-        if (!_prefsManager.TryGetCachedPreferences(userId, out var prefs))
-        {
-            ConsolePopup(player, "Error: Could not load character data.");
             PlayDenySound(uid, component);
             return;
         }
@@ -516,6 +524,13 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
         if (box == null)
         {
             ConsolePopup(player, "Box not found.");
+            PlayDenySound(consoleUid, component);
+            return;
+        }
+
+        if (box.LastWithdrawn != null) // Check to make sure it isn't already deposited.
+        {
+            ConsolePopup(player, "Box already withdrawn in world.");
             PlayDenySound(consoleUid, component);
             return;
         }

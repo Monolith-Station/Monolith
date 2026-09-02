@@ -77942,7 +77942,7 @@ entities:
     - type: Transform
       pos: -19.325394,-47.313946
       parent: 2
-- proto: ChemistryHotplate
+- proto: MachineThermobath
   entities:
   - uid: 1653
     components:
@@ -142356,7 +142356,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -17.5,-30.5
       parent: 2
-- proto: HotplateMachineCircuitboard
+- proto: ThermobathMachineCircuitboard
   entities:
   - uid: 5809
     components:

@@ -56,6 +56,19 @@
   position: 1, -19
 
 - type: technology
+  id: UniveralSandboxCruiseMissiles
+  name: research-technology-universal-sandbox-missiles
+  entityIcon: SandboxHEMissile
+  discipline: FactionUniversal
+  tier: 3
+  cost: 40000
+  recipeUnlocks:
+  - SandboxHEMissileUniversal
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 2, -19
+
+- type: technology
   id: Universal150mmAmmo
   name: research-technology-universal-150mm-ammo
   entityIcon: 150mmEmpShell

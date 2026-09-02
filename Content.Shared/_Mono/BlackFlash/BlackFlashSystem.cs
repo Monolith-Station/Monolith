@@ -162,6 +162,9 @@ public sealed partial class BlackFlashSystem : EntitySystem
         if (!_blackFlashQuery.TryComp(args.User, out var flash))
             return;
 
+        if (flash.EmptyHandedOnly && args.Weapon != args.User)
+            return;
+
         if (args.HitEntities.Count == 0)
         {
             Lapse(weapon, weapon.Comp, args.Direction);
@@ -252,7 +255,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
         var armed = EntityQueryEnumerator<BlackFlashArmedComponent>();
         while (armed.MoveNext(out var uid, out var comp))
         {
-            if (!_blackFlashQuery.HasComp(comp.User))
+            if (!_blackFlashQuery.TryComp(comp.User, out var flash))
             {
                 RemCompDeferred<BlackFlashArmedComponent>(uid);
                 continue;
@@ -262,9 +265,7 @@ public sealed partial class BlackFlashSystem : EntitySystem
                 continue;
 
             RemCompDeferred<BlackFlashArmedComponent>(uid);
-            var moved = EnsureComp<BlackFlashArmedComponent>(current);
-            moved.User = comp.User;
-            Dirty(current, moved);
+            _actions.SetToggled(flash.ActionEntity, false);
         }
 
         var frames = EntityQueryEnumerator<BlackFlashImpactFramesComponent>();
