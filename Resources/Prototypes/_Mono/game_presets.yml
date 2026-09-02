@@ -75,7 +75,7 @@
   id: MonoADS
   name: mono-ads-title
   description: mono-ads-description
-  showInVote: true
+  showInVote: false # mono: "deprecate remnants (for now)" 8/31/2026
   rules:
   - NFAdventure
   - BasicStationEventScheduler
@@ -93,6 +93,7 @@
 
 - type: gamePreset
   id: MonoChimera
+  weight: 0.75 # mono: needs 25% of votes
   name: mono-chimera-title
   description: mono-chimera-description
   showInVote: true
