@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/02/2026 21:34:23
+  time: 09/02/2026 23:36:43
   entityCount: 1244
 maps: []
 grids:
@@ -123,59 +123,77 @@ entities:
         version: 2
         nodes:
         - node:
+            color: '#FFFFFFFF'
+            id: BotLeft
+          decals:
+            1285: -2,-7
+            1286: -1,-7
+        - node:
             color: '#8C191EFF'
             id: Box
           decals:
             696: -1,-7
-            697: -2,-7
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkCornerSe
           decals:
-            925: 4,-10
+            1209: 4,-10
+            1290: 3,-13
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkCornerSw
           decals:
-            930: -4,-10
+            1208: -4,-10
+            1289: -3,-13
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkInnerNe
           decals:
-            922: 2,-10
-            928: -2,-10
-            984: -4,-10
+            1211: -4,-10
+            1214: -2,-10
+            1215: 2,-10
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkInnerNw
           decals:
-            921: 2,-10
-            926: 4,-10
-            927: -2,-10
+            1210: 4,-10
+            1216: -2,-10
+            1217: 2,-10
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkInnerSe
           decals:
-            923: 3,-10
-            931: -3,-10
+            1218: -3,-10
+            1219: 3,-10
+            1294: 3,-12
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkInnerSw
           decals:
-            924: 3,-10
-            932: -3,-10
+            1220: -3,-10
+            1221: 3,-10
+            1295: -3,-12
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkLineN
           decals:
-            918: 3,-10
-            983: -3,-10
+            1222: -3,-10
+            1223: 3,-10
+            1226: -4,11
+            1227: 4,11
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkLineS
           decals:
-            920: 2,-10
-            929: -2,-10
+            1212: -2,-10
+            1213: 2,-10
+            1224: -4,9
+            1225: 4,9
+            1287: -1,-13
+            1288: -2,-13
+            1291: 0,-13
+            1292: 1,-13
+            1293: 2,-13
         - node:
             color: '#8C191EFF'
             id: Delivery
@@ -208,13 +226,6 @@ entities:
             color: '#FFFFFFFF'
             id: DirtHeavy
           decals:
-            725: -1,-5
-            726: -2,-5
-            727: -2,-6
-            728: 2,-5
-            729: 0,-8
-            730: -1,-8
-            731: 0,-6
             747: 9,-7
             748: 5,-5
             749: 5,-4
@@ -228,18 +239,9 @@ entities:
             762: -4,2
             763: -1,2
             764: 1,2
-            765: 4,9
-            766: -4,11
             778: 1,1
             779: 4,3
-            780: 4,9
             781: 4,10
-            782: -4,9
-            783: -4,11
-            784: -5,17
-            785: -4,10
-            786: 4,17
-            787: 5,17
             788: 4,15
             789: 4,13
             790: 4,5
@@ -249,46 +251,23 @@ entities:
             id: DirtHeavyMonotile
           decals:
             381: 4,-8
-            395: 3,-12
-            461: 1,-13
-            462: -2,-13
-            463: -3,-12
-            464: -3,-13
-            720: 2,-8
-            721: 1,-8
-            722: 0,-6
-            723: 0,-5
-            724: 0,-4
             740: 3,-2
             742: 0,-1
             746: 10,-7
-            979: -4,-10
-            980: -2,-10
-            981: 4,-10
             982: 6,-8
+            1315: 1,-13
+            1316: 3,-12
+            1317: -3,-12
+            1411: -2,-8
+            1412: 1,-8
+            1413: 0,-7
+            1414: -2,-5
+            1415: 2,-5
         - node:
             color: '#FFFFFFFF'
             id: DirtLight
           decals:
-            396: -3,-12
-            458: -2,-13
-            459: -1,-13
-            460: 2,-13
-            716: 2,-8
-            717: 0,-8
-            718: 0,-7
-            719: -2,-8
-            732: 1,-8
-            733: -2,-5
-            767: -5,17
-            768: -4,17
-            771: -4,9
-            772: 4,11
             832: 11,-8
-            834: 0,-7
-            835: -1,-8
-            891: -3.7158153,-1.6350099
-            892: -4.231305,-2.0125508
             893: -3,-1
             969: -5,-8
             970: -6,-9
@@ -297,189 +276,136 @@ entities:
             973: 5,-8
             974: 6,-8
             975: 5,-9
-            976: 3,-10
-            977: 2,-10
-            978: -3,-10
+            1318: -3,-13
+            1319: 1,-13
+            1320: 3,-12
+            1321: 3,-10
+            1322: -3,-10
+            1323: -11,-8
+            1324: 4,9
+            1325: -4,11
+            1416: 0,-5
+            1417: 1,-7
+            1418: 2,-8
+            1419: -1,-8
+            1420: 0,-7
+            1421: 0,-5
         - node:
             color: '#FFFFFFFF'
             id: DirtMedium
           decals:
             745: 0,-1
-            769: 5,17
-            770: 4,17
         - node:
-            color: '#FFFFFFFF'
-            id: GrayConcreteTrimLineN
+            color: '#D4D4D428'
+            id: ShiptestOverlayTrimlineWest
           decals:
-            204: -4,11
-            205: 4,11
-            206: -4,17
-            207: 4,17
-            293: 3,-12
-            294: -3,-12
-        - node:
-            color: '#FFFFFFFF'
-            id: GrayConcreteTrimLineS
-          decals:
-            202: -4,9
-            203: 4,9
+            1039: 1,-2
+            1040: 1,-1
+            1041: 1,0
         - node:
             color: '#FFFFFFFF'
             id: TechCornerE
           decals:
-            896: -2,-13
-            897: 1,-13
             955: 5,-8
         - node:
             color: '#FFFFFFFF'
             id: TechCornerN
           decals:
-            894: -1,-13
             895: -11,-8
-            898: 2,-13
             956: -5,-8
         - node:
             color: '#FFFFFFFF'
             id: TechCornerS
           decals:
-            404: 3,-12
-            703: -2,-8
+            1397: -2,-8
         - node:
             color: '#FFFFFFFF'
             id: TechCornerW
           decals:
-            405: -3,-12
-            704: 2,-8
+            1360: 2,-8
         - node:
             color: '#FFFFFFFF'
             id: TechE
           decals:
-            619: -1,-5
-            623: -1,-5
+            1387: -1,-5
         - node:
             color: '#FFFFFFFF'
             id: TechN
           decals:
-            541: 0,-12
-            677: 0,-4
             689: -1,-7
             879: 3,0
         - node:
             color: '#FFFFFFFF'
             id: TechNE
           decals:
-            542: 1,-12
-            609: 2,-6
-            612: 2,-4
-            613: -1,-4
-            621: -1,-4
             877: 4,0
             948: 6,-8
             965: -4,-7
+            1384: -1,-4
+            1388: 2,-4
+            1395: 2,-6
         - node:
             color: '#FFFFFFFF'
             id: TechNW
           decals:
-            540: -1,-12
-            610: 1,-6
-            611: 1,-4
-            614: -2,-4
-            622: -2,-4
-            688: -2,-7
             878: 2,0
             952: -6,-8
             966: 4,-7
+            1383: -2,-4
+            1389: 1,-4
+            1394: 1,-6
         - node:
             color: '#FFFFFFFF'
             id: TechS
           decals:
-            398: -2,-13
-            399: -1,-13
-            400: 0,-13
-            401: 1,-13
-            402: 2,-13
-            699: 1,-8
-            700: 0,-8
-            701: -1,-8
             953: -5,-9
             954: 5,-9
+            1357: -1,-8
+            1358: 0,-8
+            1359: 1,-8
         - node:
             color: '#FFFFFFFF'
             id: TechSE
           decals:
-            403: 3,-13
-            608: 2,-7
-            616: -1,-6
-            617: 2,-5
-            626: -1,-6
             881: 4,-1
             950: 6,-9
+            1385: -1,-6
+            1391: 2,-5
+            1392: 2,-7
         - node:
             color: '#FFFFFFFF'
             id: TechSW
           decals:
-            397: -3,-13
-            607: 1,-7
-            615: -2,-6
-            618: 1,-5
-            625: -2,-6
             880: 2,-1
             951: -6,-9
+            1382: -2,-6
+            1390: 1,-5
+            1393: 1,-7
         - node:
             color: '#FFFFFFFF'
             id: TechW
           decals:
             366: 4,-8
-            620: -2,-5
-            624: -2,-5
+            1386: -2,-5
         - node:
-            color: '#8C191EFF'
-            id: TrimWarnNorth
-          decals:
-            295: 3,-12
-            296: -3,-12
-            471: -4,11
-            472: 4,11
-        - node:
-            color: '#B42328FF'
-            id: TrimWarnNorth
-          decals:
-            473: 4,11
-            474: -4,11
-            603: 3,-12
-            604: -3,-12
-        - node:
-            color: '#8C191EFF'
+            color: '#FFA500FF'
             id: TrimWarnSouth
           decals:
-            465: 4,17
-            466: -4,17
-            469: 4,9
-            470: -4,9
+            1297: -2,-13
+            1298: -1,-13
+            1299: 0,-13
+            1300: 1,-13
+            1301: 2,-13
         - node:
-            color: '#B42328FF'
-            id: TrimWarnSouth
-          decals:
-            475: -4,9
-            476: 4,9
-            477: 4,17
-            479: 4,17
-            481: -4,17
-            493: -2,-13
-            494: -1,-13
-            495: 0,-13
-            496: 1,-13
-            497: 2,-13
-        - node:
-            color: '#B42328FF'
+            color: '#FFA500FF'
             id: TrimWarnSouthEast
           decals:
-            498: 3,-13
+            1302: 3,-13
         - node:
-            color: '#B42328FF'
+            color: '#FFA500FF'
             id: TrimWarnSouthWest
           decals:
-            499: -3,-13
+            1296: -3,-13
         - node:
             color: '#8C191EFF'
             id: TrimWarnWest
@@ -489,130 +415,94 @@ entities:
             color: '#8C191EFF'
             id: TrimlineEast
           decals:
-            632: -1,-5
-            662: 0,-5
-            663: 0,-6
-            695: 0,-7
-        - node:
-            color: '#8C191EFF'
-            id: TrimlineNorth
-          decals:
-            209: -4,11
-            211: 4,11
-            549: 0,-12
-            601: -3,-12
-            602: 3,-12
-            711: 1,-8
-            712: -1,-8
+            1339: 0,-6
+            1340: 0,-5
         - node:
             color: '#8C191EFF'
             id: TrimlineNorthEast
           decals:
-            548: 1,-12
-            630: -1,-4
-            636: 2,-4
-            637: 2,-6
-            710: 2,-8
             964: 6,-8
             967: -4,-7
         - node:
             color: '#8C191EFF'
             id: TrimlineNorthEastCorner
           decals:
-            545: -2,-13
-            547: 1,-13
-            715: 0,-8
             962: 5,-8
+            1403: -2,-9
         - node:
             color: '#8C191EFF'
             id: TrimlineNorthEnd
           decals:
-            661: 0,-4
-            687: 0,-4
+            1338: 0,-4
         - node:
             color: '#8C191EFF'
             id: TrimlineNorthWest
           decals:
-            543: -1,-12
-            629: -2,-4
-            634: 1,-4
-            638: 1,-6
-            713: -2,-8
             958: -6,-8
             968: 4,-7
         - node:
             color: '#8C191EFF'
             id: TrimlineNorthWestCorner
           decals:
-            544: -1,-13
-            546: 2,-13
-            714: 0,-8
             957: -5,-8
+            1404: 2,-9
         - node:
             color: '#8C191EFF'
             id: TrimlineSouth
           decals:
-            208: -4,9
-            210: 4,9
-            408: -2,-13
-            409: -1,-13
-            410: 0,-13
-            411: 1,-13
-            412: 2,-13
-            478: 4,17
-            480: -4,17
-            705: 1,-8
-            706: 0,-8
-            707: -1,-8
             960: -5,-9
             961: 5,-9
+            1400: -1,-8
+            1401: 0,-8
+            1402: 1,-8
+            1407: 4,17
+            1408: -4,17
         - node:
             color: '#8C191EFF'
             id: TrimlineSouthEast
           decals:
-            407: 3,-13
-            627: -1,-6
-            635: 2,-5
-            640: 2,-7
             963: 6,-9
         - node:
             color: '#8C191EFF'
             id: TrimlineSouthEastCorner
           decals:
-            413: 3,-12
-            467: -5,17
-            709: -2,-8
+            1398: -2,-8
+            1409: -5,17
+        - node:
+            color: '#FFA500FF'
+            id: TrimlineSouthEastCorner
+          decals:
+            1303: 3,-12
         - node:
             color: '#8C191EFF'
             id: TrimlineSouthEnd
           decals:
             903: -2,-9
             904: 2,-9
+            1337: 0,-7
         - node:
             color: '#8C191EFF'
             id: TrimlineSouthWest
           decals:
-            406: -3,-13
-            628: -2,-6
-            633: 1,-5
-            639: 1,-7
             959: -6,-9
         - node:
             color: '#8C191EFF'
             id: TrimlineSouthWestCorner
           decals:
-            414: -3,-12
-            468: 5,17
-            708: 2,-8
+            1399: 2,-8
+            1410: 5,17
+        - node:
+            color: '#FFA500FF'
+            id: TrimlineSouthWestCorner
+          decals:
+            1304: -3,-12
         - node:
             color: '#8C191EFF'
             id: TrimlineWest
           decals:
             571: 4,-8
-            631: -2,-5
-            666: 0,-6
-            667: 0,-5
-            694: 0,-7
+            1341: 0,-6
+            1342: 0,-5
         - node:
             color: '#8C191EFF'
             id: WarnLineGreyscaleE
@@ -621,7 +511,14 @@ entities:
             215: 2,2
             216: 1,2
             217: -3,2
-            595: 5,17
+            1087: -11,-8
+            1406: 5,17
+        - node:
+            color: '#B42328FF'
+            id: WarnLineGreyscaleN
+          decals:
+            1230: -4,11
+            1231: 4,11
         - node:
             color: '#8C191EFF'
             id: WarnLineGreyscaleS
@@ -632,6 +529,12 @@ entities:
             599: 1,8
             600: 2,8
         - node:
+            color: '#B42328FF'
+            id: WarnLineGreyscaleS
+          decals:
+            1228: -4,9
+            1229: 4,9
+        - node:
             color: '#8C191EFF'
             id: WarnLineGreyscaleW
           decals:
@@ -639,7 +542,8 @@ entities:
             214: -2,2
             218: -1,2
             219: 3,2
-            594: -5,17
+            1086: 11,-8
+            1405: -5,17
     - type: GridAtmosphere
       version: 2
       data:
