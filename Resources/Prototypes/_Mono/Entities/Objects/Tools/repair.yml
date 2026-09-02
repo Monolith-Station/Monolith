@@ -104,9 +104,10 @@
       tags:
       - ShipRepairTool
   - type: Sprite
-    sprite: _Mono/Objects/Tools/repair_ammo.rsi
-    state: icon
+    sprite: _NF/Objects/Tools/rcd.rsi
+    state: ammo-shipyard
   - type: Item
+    heldPrefix: ammo-shipyard
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
