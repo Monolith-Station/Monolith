@@ -576,6 +576,13 @@
     staticPacks:
     - ArcFurnaceStatic
     - MonoTradeCratesArcFurnace
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+      - Ore # for scrap crates
 
 - type: entity
   id: IndustrialFurnaceEconomyCompact
@@ -636,6 +643,13 @@
     staticPacks:
     - ArcFurnaceStatic
     - MonoTradeCratesArcFurnace
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+      - Ore # for scrap crates
 
 - type: entity
   id: PrecisionAssemblerEconomy
