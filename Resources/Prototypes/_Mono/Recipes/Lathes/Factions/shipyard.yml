@@ -191,3 +191,56 @@
     Plasteel: 5000
     Glass: 5000
     Plasma: 2500
+
+# Viper Group
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherVGWolf
+  result: ShipVoucherVGWolf
+  completetime: 100
+  materials:
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 10000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherVGKeelback
+  result: ShipVoucherVGKeelback
+  completetime: 100
+  materials:
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 10000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherVGLancehead
+  result: ShipVoucherVGLancehead
+  completetime: 100
+  materials:
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 10000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 7500
+    Silver: 7500
+    UraniumDepleted: 1500
+    UraniumFissile: 300
