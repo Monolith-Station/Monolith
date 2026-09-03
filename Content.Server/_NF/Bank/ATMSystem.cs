@@ -19,6 +19,7 @@ using Content.Server.Administration.Logs;
 using Content.Shared._Mono.CCVar; // Mono
 using Content.Shared.Database;
 using Robust.Shared.Audio.Systems;
+using Content.Shared._NF.Bank.BUI;
 using Robust.Shared.Configuration; // Mono
 
 namespace Content.Server._NF.Bank;
