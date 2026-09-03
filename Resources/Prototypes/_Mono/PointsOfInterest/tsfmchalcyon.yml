@@ -136,3 +136,69 @@
         - type: StationDeadDropReporting
           messageSet: Nfsd
         - type: StationDeadDropHintExempt
+
+## Biothreat
+
+- type: pointOfInterest
+  id: TSFMCHalcyonBiothreat
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'TSFMC Flagship Halcyon'
+  minimumDistance: 4500 # Mono
+  maximumDistance: 5500 # Mono
+  #posX: 5000
+  #posY: -9000
+  spawnGamePreset: [ MonoChimeraTsf ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/tsfmchalcyon_biothreat.yml
+  addComponents:
+  - type: IFF
+    color: "#047abd"
+    readOnly: true
+  - type: SolarPoweredGrid
+    doNotCull: true
+  - type: WorldGenDistanceCarver
+    distanceThresholds:
+    # Dead zone
+    - maxDistance: 800
+      prob: 0.0
+    - maxDistance: 1500
+      prob: 0.3
+
+- type: gameMap
+  id: TSFMCHalcyonBiothreat
+  mapName: 'TSFMC Flagship Halcyon'
+  mapPath: /Maps/_Mono/POI/tsfmchalcyon_biothreat.yml
+  minPlayers: 0
+  randomRotation: false
+  stations:
+    TSFMCHalcyon:
+      stationProto: SecurityFrontierOutpost
+      gridComponents:
+      - type: VesselInfo
+        description: "A mothballed battleship-turned-FOB, and Home of the TSFMC operations."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'TSFMC Flagship Halcyon'
+        - type: ExtraStationInformation
+          icon:
+            sprite: _NF/Structures/Decoration/banner.rsi
+            state: nfsd-banner
+          stationSubtext: 'frontier-lobby-nfsd-subtext'
+          stationDescription: 'frontier-lobby-nfsd-description'
+          lobbySortOrder: 2
+        - type: StationJobs
+          availableJobs:
+            #TsfCivilian: [ -1, -1 ]
+            Sheriff: [ 1, 1 ]
+            Bailiff: [1, 1 ]
+            SeniorOfficer: [ 3, 3 ] # Mono
+            Brigmedic: [ 2, 2 ] # Mono
+            Deputy: [ -1, -1 ] # Mono
+            TsfEngineer: [ 2, 2 ]
+            TsfBorg: [ 2, 2 ]
+          tags:
+          - HeadOfPersonnel
+          - HeadOfSecurity
+        - type: StationDeadDropReporting
+          messageSet: Nfsd
+        - type: StationDeadDropHintExempt

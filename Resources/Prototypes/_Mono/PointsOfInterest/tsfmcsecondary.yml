@@ -14,7 +14,7 @@
   name: 'TSFMC Secondary Outpost'
   minimumDistance: 11000
   maximumDistance: 14000
-  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
+  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce, MonoChimeraTsf ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/tsfmcoutpost.yml
   addComponents:
