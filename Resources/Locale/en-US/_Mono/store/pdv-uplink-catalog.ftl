@@ -320,3 +320,14 @@ uplink-pdv-t3-kortik-voucher-desc = A small card that contains the data for the 
 
 uplink-pdv-t4-saturn-voucher-name = PDV Saturn LPC [T4]
 uplink-pdv-t4-saturn-voucher-desc = A small card that authorizes the procurement of the Saturn.
+
+# MARK: Materials
+
+uplink-pdv-composite5-name = 5 adamantite
+uplink-pdv-composite5-desc = Requisition some advanced alloy.
+
+uplink-pdv-composite15-name = 15 adamantite
+uplink-pdv-composite15-desc = Requisition a good amount of advanced alloy.
+
+uplink-pdv-composite30-name = 30 adamantite
+uplink-pdv-composite30-desc = Requisition a lot of advanced alloy.

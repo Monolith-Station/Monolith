@@ -9,10 +9,8 @@
   id: HeliosFortress
   parent: [BasePOI, BaseRepairablePOI]
   name: 'PDV Helios Fortress'
-  minimumDistance: 8600
-  maximumDistance: 11500
-  #posX: -5000
-  #posY: 9000
+  minimumDistance: 15000
+  maximumDistance: 17500
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoRogueUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/pdvhelios.yml
@@ -20,6 +18,8 @@
   - type: IFF
     color: "#DE9E59"
     readOnly: true # mono
+    flags:
+    - HideLabelAlways # hidden
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # Dead zone
