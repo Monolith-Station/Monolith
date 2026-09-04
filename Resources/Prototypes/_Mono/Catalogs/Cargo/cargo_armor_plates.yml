@@ -7,3 +7,23 @@
   cost: 6000
   category: cargoproduct-category-name-armorplate
   group: market
+
+- type: cargoProduct
+  id: ArmorPlatePierce
+  icon:
+    sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
+    state: pierce
+  product: CratePlatePierce
+  cost: 10000
+  category: cargoproduct-category-name-armorplate
+  group: market
+
+#- type: cargoProduct
+#  id: ArmorPlateHeat
+#  icon:
+#    sprite: _Mono/Clothing/ArmorPlate/armor_plates.rsi
+#    state: pierce
+#  product: CratePlateHeat
+#  cost: 10000
+#  category: cargoproduct-category-name-armorplate
+#  group: market

@@ -8,10 +8,10 @@ The [color=#44cc00]Safety Deposit Box System[/color] allows you to securely stor
     <GuideEntityEmbed Entity="SafetyDepositConsole"/>
   </Box>
   The [color=#44cc00]Safety Deposit Console[/color] is your interface for managing your deposit boxes. Located at Camelot, Zvezda, and Caelestinius Central's shipyards, it allows you to:
-- [bold]Purchase[/bold] new safety deposit boxes
-- [bold]Deposit[/bold] boxes to store items in the database
-- [bold]Withdraw[/bold] stored boxes to retrieve your items
-- [bold]Reclaim[/bold] lost boxes that were never returned
+  - [bold]Purchase[/bold] new safety deposit boxes
+  - [bold]Deposit[/bold] boxes to store items in the database
+  - [bold]Withdraw[/bold] stored boxes to retrieve your items
+  - [bold]Reclaim[/bold] lost boxes that were never returned
 
 ## Box Sizes and Pricing
   <Box>
@@ -20,9 +20,9 @@ The [color=#44cc00]Safety Deposit Box System[/color] allows you to securely stor
     <GuideEntityEmbed Entity="SafetyDepositBoxLarge"/>
   </Box>
   Three box sizes are available, each with different storage capacity:
-- [bold]Small (2x2)[/bold] - $2,000,000
-- [bold]Medium (2x4)[/bold] - $3,500,000
-- [bold]Large (2x6)[/bold] - $5,000,000
+  - [bold]Small (2x2)[/bold] - $2,000,000
+  - [bold]Medium (2x4)[/bold] - $3,500,000
+  - [bold]Large (2x6)[/bold] - $5,000,000
 
 The cost is deducted from your [color=#44cc00]bank account[/color] when you purchase a box.
 
@@ -53,9 +53,9 @@ The physical box will be consumed when deposited, but your items are now protect
 ## Box Status Indicators
 
 Your boxes can have several status indicators:
-- [color=#00ff00][bold]Stored[/bold][/color] - Box has items safely stored in the database
-- [color=#ffff00][bold]In World[/bold][/color] - Box was withdrawn recently (less than 7 days ago)
-- [color=#ff0000][bold]Lost (Empty)[/bold][/color] - Box was withdrawn over 7 days ago and never returned
+  - [color=#00ff00][bold]Stored[/bold][/color] - Box has items safely stored in the database
+  - [color=#ffff00][bold]In World[/bold][/color] - Box was withdrawn recently (less than 7 days ago)
+  - [color=#ff0000][bold]Lost (Empty)[/bold][/color] - Box was withdrawn over 7 days ago and never returned
 
 ## Reclaiming Lost Boxes
 
@@ -69,19 +69,32 @@ If you lost a box after withdrawing it (disconnected, round ended, etc.), and it
 
 ## Tips and Best Practices
 
-- [bold]Label your boxes[/bold] - Use a hand labeler to give your boxes nicknames for easy identification
-- [bold]Deposit before leaving[/bold] - Always re-deposit your boxes before ending your shift
-- [bold]Keep valuables safe[/bold] - Store important documents, rare items, or valuable equipment
-- [bold]Multiple boxes[/bold] - You can own multiple boxes to organize different types of items
-- [bold]ID cards can't be stored[/bold] - The system won't allow ID cards to be deposited for security reasons
+  - [bold]Label your boxes[/bold] - Use a hand labeler to give your boxes nicknames for easy identification
+  - [bold]Deposit before leaving[/bold] - Always re-deposit your boxes before ending your shift
+  - [bold]Keep valuables safe[/bold] - Store important documents, rare items, or valuable equipment
+  - [bold]Multiple boxes[/bold] - You can own multiple boxes to organize different types of items
+  - [bold]ID cards can't be stored[/bold] - The system won't allow ID cards to be deposited for security reasons
 
 ## Item Preservation
 
 The safety deposit system preserves:
-- [bold]Paper content[/bold] - Written documents, stamps, and signatures
-- [bold]Labels[/bold] - Custom names you've applied to items
-- [bold]Stack counts[/bold] - The exact number of items in stacks
-- [bold]Box nicknames[/bold] - Custom labels on the boxes themselves
+  - [bold]Paper content[/bold] - Written documents, stamps, and signatures
+  - [bold]Labels[/bold] - Custom names you've applied to items
+  - [bold]Stack counts[/bold] - The exact number of items in stacks
+  - [bold]Box nicknames[/bold] - Custom labels on the boxes themselves
 
-Most items can be stored, but some sensitive items (like ID cards) are blacklisted for security reasons.
+[italic][color=gold]The following items are explicitly blacklisted (not an extensive list!):[/color][/italic]
+  - [bold]ID Cards[/bold]
+  - [bold]LPCs[/bold]
+  - [bold]Uplinks[/bold]
+  - [bold]Currency[/bold]
+  - [bold]Encryption Keys[/bold]
+  - [bold]Implanters[/bold]
+  - [bold]Anything with storage[/bold]
+  - [bold]Overwatch Consoles[/bold]
+  - [bold]Ghostrole spawners (such as reinforcement radios)[/bold]
+  - [bold]Anything with secret storage (such as plushies)[/bold]
+  - [bold]Reagent storages (such as beakers)[/bold]
+  - [bold]Iridite[/bold] <!--NOTE - I don't mind if someone adds a way to store Iridite, perhaps in a compressed form w/ much lower stack size?-->
+  - [bold]Monolithic Crystals[/bold]
 </Document>

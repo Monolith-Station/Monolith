@@ -154,7 +154,7 @@
     id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
-  parent: [ClothingOuterHardsuitJuggernaut, MonoEnergyShieldClothing, BaseFactionGearTSFT3 ] # Jugger Suit
+  parent: [ClothingOuterHardsuitBaseNoPlateholder, MonoEnergyShieldClothing, BaseFactionGearTSFT3 ] # Jugger Suit
   id: ClothingOuterHardsuitNfsdExperimental
   name: TSFMC M92-X tacsuit
   description: An experimental modification of the M92 tacsuit for spec-ops units of the TSFMC. Durable, and comes with an integrated hard-shield along with numerous gadgets at the cost of insulation and solid armor.
@@ -178,6 +178,9 @@
     reduction: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.4
+  - type: TemperatureProtection
+    heatingCoefficient: 0.01
+    coolingCoefficient: 0.01
   - type: Armor # Mono - Armor Value Changes
     modifiers:
       coefficients:
@@ -191,6 +194,7 @@
   - type: ClothingSpeedModifier # Mono - Armor Value Changes
     walkModifier: 0.7
     sprintModifier: 0.6
+  - type: HeldSpeedModifier
   - type: FactionClothing
     faction: NanoTrasen
   - type: StaminaDamageResistance # Mono - Stamres
@@ -240,7 +244,7 @@
 # MARSOC only
 
 - type: entity
-  parent: [MonoEnergyShieldClothing, ClothingOuterHardsuitM86, BaseFactionGearTSFT3]
+  parent: [MonoEnergyShieldClothing, ClothingOuterHardsuitBaseNoPlateholder, BaseFactionGearTSFT3] #WORK ON THIS ONE NEXT POOP POOP
   id: ClothingOuterHardsuitM86Mk4
   name: M86 Mk.4(B) hardsuit
   description: A limited-production redesign proposal for the M86 Mk.3(R), outfitted with an inbuilt personal shield generator.
@@ -265,9 +269,12 @@
         Poison: 0.825
         Radiation: 0.5
         Caustic: 0.6
+  - type: StaminaDamageResistance
+    coefficient: 0.2
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.875
+  - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false

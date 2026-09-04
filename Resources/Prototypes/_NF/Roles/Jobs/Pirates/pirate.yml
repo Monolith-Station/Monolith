@@ -5,7 +5,7 @@
   playTimeTracker: JobPirate
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs - mono
+      time: 14400 # 4 hours. I don't expect new players to play almost 2 full rounds before they get bored, and it's mostly a raider check.
   startingGear: PirateNFGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true

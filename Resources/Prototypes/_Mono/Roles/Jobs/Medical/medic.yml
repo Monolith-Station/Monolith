@@ -5,7 +5,7 @@
   playTimeTracker: MdMedic
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 54000 # 15 hrs
+      time: 14400 # 4 hours. It's a paramedic role dude.
   startingGear: MdMedicGear
   alwaysUseSpawner: true
   icon: "JobIconMedicalDoctor"

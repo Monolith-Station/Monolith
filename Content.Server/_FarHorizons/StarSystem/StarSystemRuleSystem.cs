@@ -10,7 +10,7 @@ public sealed class StarSystemRuleSystem : GameRuleSystem<StarSystemRuleComponen
 
     protected override void Started(EntityUid uid, StarSystemRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        var query = EntityQueryEnumerator<StarSystemMapComponent>();
+        var query = AllEntityQuery<StarSystemMapComponent>();
         while (query.MoveNext(out var mapUid, out var map))
         {
             if (map.System != null)

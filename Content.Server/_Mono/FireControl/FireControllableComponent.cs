@@ -25,4 +25,10 @@ public sealed partial class FireControllableComponent : Component
     /// </summary>
     [DataField]
     public float FireCooldown = 0.2f;
+
+    /// <summary>
+    /// Skip LOS check for this weapon.
+    /// </summary>
+    [DataField]
+    public bool IgnoreLos = false;
 }

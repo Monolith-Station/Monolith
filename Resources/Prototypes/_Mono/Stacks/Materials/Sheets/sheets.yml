@@ -32,3 +32,10 @@
   icon: { sprite: /Textures/_Mono/Objects/Materials/fissiles.rsi, state: depleted }
   spawn: SheetUraniumDepleted1
   maxCount: 5
+
+- type: stack
+  id: PdvComposite
+  name: adamantite
+  icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: plastitaniumglass }
+  spawn: SheetPdvComposite1
+  maxCount: 100
