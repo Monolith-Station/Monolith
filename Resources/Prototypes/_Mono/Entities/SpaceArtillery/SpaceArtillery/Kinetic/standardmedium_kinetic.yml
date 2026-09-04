@@ -171,7 +171,6 @@
   parent:
   - BallisticArtilleryMagazine
   - BallisticArtilleryTier3HP
-  suffix: Medium, T2
   description: A quad-barrel, 35mm chaingun firing solid shot AP rounds, designed to be mounted upon fighters by Armamenti Corvus. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
@@ -195,7 +194,7 @@
     maxAngle: 2
     shootThermalSignature: 200000 # ~4.5km signature if firing continuously
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/120mm_mortar.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/needler.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
