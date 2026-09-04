@@ -15,6 +15,8 @@ public sealed partial class ShipShieldRampingLoadSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<ShipShieldRampingLoadComponent, MapInitEvent>(OnMapInit);
     }
 
@@ -25,13 +27,15 @@ public sealed partial class ShipShieldRampingLoadSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
+        base.Update(frameTime);
+
         var curTime = _timing.CurTime;
         var query = EntityQueryEnumerator<ShipShieldRampingLoadComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (!TryComp<ShipShieldEmitterComponent>(uid, out var shieldComp))
                 continue;
-            if (comp.NextUpdate < curTime)
+            if (comp.NextUpdate > curTime)
                 continue;
 
             comp.NextUpdate += comp.MultiplicationInterval;
