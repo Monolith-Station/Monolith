@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/30/2026 02:28:39
+  time: 09/05/2026 18:38:27
   entityCount: 170
 maps: []
 grids:
@@ -131,10 +131,10 @@ entities:
             4: -1,8
     - type: SpreaderGrid
       spreadQueues:
+        Kudzu: []
+        Puddle: []
         Smoke: []
         MetalFoam: []
-        Puddle: []
-        Kudzu: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -827,8 +827,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,10.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointMissileMedium
   entities:
   - uid: 19
@@ -837,8 +835,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,10.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: LockerWallMaterialsFuelPlasmaFilled
   entities:
   - uid: 95
@@ -1207,7 +1203,7 @@ entities:
     - type: Transform
       pos: 0.5,7.5
       parent: 1
-- proto: WeaponTurretRAC30
+- proto: WeaponTurretAC-35
   entities:
   - uid: 21
     components:
