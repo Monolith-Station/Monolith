@@ -114,7 +114,7 @@
   id: MonoMixed
   name: mono-mixed-title
   description: mono-mixed-description
-  showInVote: true
+  showInVote: false # deprecated alongside remnants
   rules:
   - NFAdventure
   - BasicStationEventScheduler
