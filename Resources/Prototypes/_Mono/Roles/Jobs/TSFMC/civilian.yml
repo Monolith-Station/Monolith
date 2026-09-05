@@ -20,11 +20,11 @@
     - type: NpcFactionMember
       factions:
       - TSFMC
-  - !type:AddLanguageSpecial
-    languagesSpoken:
-    - SolCommon
-    languagesUnderstood:
-    - SolCommon
+# - !type:AddLanguageSpecial # UNCOMMENT WHEN THIS DOESN'T MAKE IMPERSONATING TSF CIVS IMPOSSIBLE FOR PDV
+#   languagesSpoken:
+#   - SolCommon
+#   languagesUnderstood:
+#   - SolCommon
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
