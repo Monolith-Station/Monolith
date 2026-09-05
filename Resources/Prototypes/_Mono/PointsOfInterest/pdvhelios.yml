@@ -123,8 +123,8 @@
   id: HeliosFortressBiothreat
   parent: [BasePOI, BaseRepairablePOI]
   name: 'PDV Helios Fortress'
-  minimumDistance: 8600
-  maximumDistance: 11500
+  minimumDistance: 15000
+  maximumDistance: 17500
   #posX: -5000
   #posY: 9000
   spawnGamePreset: [ MonoChimeraPdv ]
@@ -134,6 +134,8 @@
   - type: IFF
     color: "#DE9E59"
     readOnly: true # mono
+    flags:
+    - HideLabelAlways # hidden
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # Dead zone
