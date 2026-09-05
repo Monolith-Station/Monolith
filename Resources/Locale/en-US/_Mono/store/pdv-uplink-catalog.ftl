@@ -90,7 +90,7 @@ uplink-pirate-security-cyborg-module-name = Security Cyborg Module
 uplink-pirate-security-cyborg-module-desc = A machete, an energy gun, and a stun baton, made specifically for borgs. Wait, doesn't TFSMC have the same thing?
 
 uplink-pirate-voicemask-name = Chameleon Voicemask
-uplink-pirate-voicemask-desc = A voicemask to engage in some subterfuge and tomfoolery... or just keep your identity hidden.
+uplink-pirate-voicemask-desc = A voicemask to engage in some subterfuge and tomfoolery... or just keep your identity hidden. Obfuscating your voice when speaking over the Vanguard radio is heavily advised.
 
 uplink-pirate-blank-id-name = Blank ID Card 
 uplink-pirate-blank-id-desc = A blank vagrant ID card with no identifying features. Can be customised to your heart's content at Helios' ID card console.
