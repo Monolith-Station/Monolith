@@ -148,7 +148,7 @@
   mapPath: /Maps/_Mono/POI/pdvhelios_biothreat.yml
   minPlayers: 0
   stations:
-    HeliosFortress:
+    HeliosFortressBiothreat:
       stationProto: RecordsFrontierOutpostCargo
       gridComponents:
       - type: VesselInfo
@@ -162,7 +162,7 @@
           stationDescription: 'frontier-lobby-pirate-description'
         - type: StationJobs
           availableJobs:
-            PdvCivilian: [ -1, -1 ]
+            # PdvCivilian: [ -1, -1 ]
             PirateCaptain: [ 1, 1 ]
             PirateFirstMate: [ 1, 1 ]
             PDVDenasvar: [ 3, 3 ]

@@ -22,10 +22,10 @@ mono-ads-description = Native PD imperials threaten TSF colonial expansion into 
 mono-chimera-title = Biothreat (TSF|PDV)
 mono-chimera-description = Native PDV imperials threaten TSF colonial expansion into the sector. The effects of a far away letoferol outbreak seep in.
 
-mono-chimera-tsf-title = Biothreat (TSF|CHIMERA, 3hr)
+mono-chimera-tsf-title = Biothreat (TSF, 3hr)
 mono-chimera-tsf-description = After successfully laying claim to the Colossus sector, the Federation struggles to keep it stable while a devasting bio-weapon wreaks havoc within it.
 
-mono-chimera-pdv-title = Biothreat (PDV|CHIMERA, 3hr)
+mono-chimera-pdv-title = Biothreat (PDV, 3hr)
 mono-chimera-pdv-description = After successfully destroying the Federation, the Dynasty now must survive the aftermath as a devastating bio-weapon wreaks havoc in the Colossus Sector.
 
 mono-allatonce-title = Apocalypse (ALL, 3hr)

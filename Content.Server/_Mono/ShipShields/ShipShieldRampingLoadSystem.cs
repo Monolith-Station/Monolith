@@ -38,13 +38,13 @@ public sealed partial class ShipShieldRampingLoadSystem : EntitySystem
             if (comp.NextUpdate > curTime)
                 continue;
 
-            comp.NextUpdate += comp.MultiplicationInterval;
-
             shieldComp.BaseDraw *= comp.Multiplier;
             shieldComp.MaxDraw *= comp.Multiplier;
 
             var channel = _prototypeManager.Index(comp.RadioChannel);
             _radio.SendRadioMessage(uid, Loc.GetString(comp.Message), channel, uid);
+
+            comp.NextUpdate += comp.MultiplicationInterval;
         }
     }
 }

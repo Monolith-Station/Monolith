@@ -236,7 +236,7 @@
 - type: entity
   id: ShieldGeneratorPOIBioTsf
   parent: ShieldGeneratorPOIBio
-  name: S-213 "Biodome" Biological Molecular Accelerator
+  name: QZ-293 "Biodome" TSF Biological Molecular Accelerator
   description: A very expensive, bulky and specialized device that detects and 'excites' foreign DNA molecules caught inside its radius. Due to it being very heavy and quite expensive, it has been relegated to usage only on stationary outposts. In addition to its biological defense, this device has also been retrofitted with a regular shield generator. This one is an experimental prototype haphazardly rushed out due to the sudden Letoferol outbreak in the sector. It will require increasing amounts of power the longer it is kept active, meaning you eventually must decide between feeding it even more power or living without it.
   suffix: TSF POI ONLY, RAMPING
   components:
@@ -246,6 +246,7 @@
 - type: entity
   id: ShieldGeneratorPOIBioPdv
   parent: ShieldGeneratorPOIBioTsf
+  name: RD-493 "Biodome" PDV Biological Molecular Accelerator
   suffix: PDV POI ONLY, RAMPING
   components:
   - type: ShipShieldRampingLoad

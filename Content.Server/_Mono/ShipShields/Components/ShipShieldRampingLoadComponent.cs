@@ -1,5 +1,6 @@
 using Content.Shared.Radio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._Mono.ShipShields.Components;
 
@@ -21,7 +22,7 @@ public sealed partial class ShipShieldRampingLoadComponent : Component
     /// <summary>
     /// The point in time in which to multiply this shield's load next.
     /// </summary>
-    [DataField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextUpdate = TimeSpan.Zero;
 
     /// <summary>
