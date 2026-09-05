@@ -189,6 +189,26 @@
   group: market
 
 - type: cargoProduct
+  id: ArmoryShipAmmo35mm
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox35mm
+  cost: 6500
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmo35mmHE
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBox35mmHe
+  cost: 6500
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
   id: ArmoryShipAmmo57mm
   icon:
     sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi

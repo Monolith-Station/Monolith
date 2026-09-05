@@ -162,3 +162,72 @@
           tags:
           - Magazine90mm
         whitelistFailPopup: gun-magazine-whitelist-fail
+
+# AC-35
+
+- type: entity
+  id: WeaponTurretAC-35
+  name: AC-35 Chaingun
+  parent:
+  - BallisticArtilleryMagazine
+  - BallisticArtilleryTier3HP
+  description: A quad-barrel, 35mm chaingun firing solid shot AP rounds, designed to be mounted upon fighters by Armamenti Corvus. Can be remotely activated or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 3000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/ac35.rsi
+    layers:
+    - state: ac35
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: AutoShootGun
+  - type: GunSignalControl
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 14
+    recoil: 5 # 1/5x
+    projectileSpeed: 390
+    minAngle: 0
+    maxAngle: 2
+    shootThermalSignature: 200000 # ~4.5km signature if firing continuously
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/needler.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 125
+  - type: SpaceArtillery
+    powerChargeRate: 125
+    powerUsePassive: 900
+    powerUseActive: 0
+  - type: Actions
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine35mm
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine35mm
+        whitelistFailPopup: gun-magazine-whitelist-fail
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 1.5
+    visibleFromOtherGrids: true
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Medium
+  - type: ShipRepairable
+    repairTime: 22
+    repairCost: 90
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Medium
