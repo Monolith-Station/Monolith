@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/27/2026 03:55:55
+  time: 09/03/2026 16:03:50
   entityCount: 384
 maps: []
 grids:
@@ -71,10 +71,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
+        Kudzu: []
         Puddle: []
         MetalFoam: []
-        Kudzu: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -213,53 +213,53 @@ entities:
         tiles:
           -1,0:
             0: 2178
-            1: 1041
+            2: 1041
           0,-1:
-            2: 26223
+            1: 26223
           0,0:
-            1: 2048
+            2: 2048
           1,0:
             0: 21
-            1: 648
+            2: 648
           0,-2:
-            2: 61745
+            1: 61745
             0: 136
           -1,-2:
-            2: 59528
-            1: 18
+            1: 59528
+            2: 18
             0: 32
           -1,-1:
-            2: 2303
+            1: 2303
           1,-2:
             0: 81
-            2: 12288
-            1: 132
+            1: 12288
+            2: 132
           1,-1:
-            2: 767
+            1: 767
           2,-2:
-            1: 1808
+            2: 1808
             0: 8192
           2,-1:
             0: 4132
-            1: 1536
+            2: 1536
           -2,-2:
-            1: 3712
+            2: 3712
             0: 16384
           -2,-1:
             0: 32834
-            1: 1536
+            2: 1536
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
-          moles: {}
-        - volume: 2500
-          immutable: True
           moles: {}
         - volume: 2500
           temperature: 293.15
           moles:
             Oxygen: 21.824879
             Nitrogen: 82.10312
+        - volume: 2500
+          immutable: True
+          moles: {}
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -324,7 +324,7 @@ entities:
         30:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
-        13:
+        37:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
         17:
@@ -1385,38 +1385,34 @@ entities:
       parent: 1
 - proto: HardpointBallisticHeavy
   entities:
-  - uid: 35
-    components:
-    - type: Transform
-      pos: 4.5,0.5
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: HardpointBallisticMedium
-  entities:
-  - uid: 38
-    components:
-    - type: Transform
-      pos: -4.5,-0.5
-      parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 39
     components:
     - type: Transform
-      pos: 8.5,-0.5
+      rot: 3.141592653589793 rad
+      pos: 4.5,0.5
       parent: 1
-    - type: Physics
-      canCollide: False
-- proto: HardpointMissileMedium
+- proto: HardpointBallisticMedium
   entities:
-  - uid: 37
+  - uid: 13
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,-0.5
+      parent: 1
+  - uid: 38
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -4.5,-0.5
+      parent: 1
+- proto: HardpointMissileMedium
+  entities:
+  - uid: 35
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
       pos: -0.5,1.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 159
@@ -2774,17 +2770,17 @@ entities:
       parent: 1
 - proto: WeaponTurretDravon
   entities:
-  - uid: 13
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,-0.5
-      parent: 1
   - uid: 17
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,-0.5
+      parent: 1
+  - uid: 37
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,-0.5
       parent: 1
 - proto: WeaponTurretVespera
   entities:
