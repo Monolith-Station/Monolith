@@ -43,11 +43,12 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MailDisabled
+    - type: SpecialSectorStationRecord
+      recordGeneration: FalseRecord
     - type: NpcFactionMember
       factions:
       - PirateNF
-    - type: ChatRank
-      rank: pdv-denasvar
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages
