@@ -4,6 +4,8 @@ using Content.Shared.Hands.Components;
 using Content.Shared.ProximityDetection;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
+using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Mono.MotionDetector.Systems;
 
@@ -13,6 +15,8 @@ namespace Content.Shared._Mono.MotionDetector.Systems;
 public sealed partial class MotionDetectorIgnoreHolderSystem : EntitySystem
 {
     [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private TagSystem _tag = default!;
+    private static readonly ProtoId<TagPrototype> ScreenedTag = "Screened";
 
     public override void Initialize()
     {
@@ -43,6 +47,11 @@ public sealed partial class MotionDetectorIgnoreHolderSystem : EntitySystem
         }
 
         if (!IsEntityMoving(targetEntity))
+        {
+            args.Cancel = true;
+        }
+        // Prevents motion detector from detecting screened players
+        if (_tag.HasTag(targetEntity, ScreenedTag))
         {
             args.Cancel = true;
         }

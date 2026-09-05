@@ -286,3 +286,46 @@
     coefficient: 0.3
   - type: ClothingSlowOnDamageModifier # Sorry dude. It's my awesome fucking exosuit.
     modifier: 0.5
+
+# vanguard stealth
+
+- type: entity
+  parent: ClothingOuterHardsuitAshen
+  id: ClothingOuterHardsuitSnake
+  name: "PDV CV-64 'Snake' combat hardsuit"
+  description: A combat hardsuit designed by the Phaethon Dynasty for stealth movement. Utilizes an experimental screening field and heat insulation to avoid detection on motion detectors and night vision pulses. Altho its unconventional plating leads it very exposed to most forms of kinetic damage.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: FireProtection
+    reduction: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.5
+        Radiation: 0.3
+        Caustic: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitSnake
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: Tag
+    tags:
+    - RogueHardsuit
