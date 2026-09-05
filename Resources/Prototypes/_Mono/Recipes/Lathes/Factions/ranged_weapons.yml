@@ -90,10 +90,7 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 800
-    Plasteel: 800
-    Plastic: 800
-    PdvComposite: 400
+    PdvComposite: 1000
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -148,10 +145,7 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 800
-    Plasteel: 800
-    Plastic: 800
-    PdvComposite: 400
+    PdvComposite: 1000
 
 # TSF MR-8
 
@@ -280,11 +274,7 @@
   - Energy
   - Weapons
   materials:
-    Steel: 500
-    Plasteel: 1500
-    Silver: 250
-    Uranium: 250
-    PdvComposite: 600
+    PdvComposite: 1000
 
 # PDV basic
 
@@ -368,11 +358,7 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 1200
-    Plasteel: 400
-    Plastic: 600
-    Silver: 100
-    PdvComposite: 400
+    PdvComposite: 1000
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -383,10 +369,7 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 600
-    Plasteel: 600
-    Plastic: 600
-    PdvComposite: 400
+    PdvComposite: 750
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -397,11 +380,7 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 1200
-    Plasteel: 400
-    Plastic: 400
-    Silver: 200
-    PdvComposite: 400
+    PdvComposite: 1000
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -428,14 +407,8 @@
   - LMGs
   - Ballistic
   - Weapons
-  materials:
-    Steel: 2000
-    Plasteel: 1500
-    Plastitanium: 500
-    Plastic: 1000
-    Silver: 500
-    Gold: 250
-    PdvComposite: 1000
+  materials: # plastit cost removed because 20 adamantite is 100 DC, and this gun also only costs 100 DC in the uplink anyways
+    PdvComposite: 2000
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -448,13 +421,8 @@
   - Weapons
   - Antitank
   materials:
-    Steel: 2000
-    Plasteel: 2000
     Plastitanium: 500
-    Plastic: 400
-    Silver: 400
-    Gold: 400
-    PdvComposite: 1000
+    PdvComposite: 2000
 
 # hristov
 
@@ -469,11 +437,7 @@
   - Weapons
   - Antitank
   materials:
-    Steel: 7500
-    Plasteel: 3000
-    Plastic: 1000
-    Silver: 2000
-    PdvComposite: 1000
+    PdvComposite: 2000
 
 # Ussp guns
 
