@@ -24593,3 +24593,17 @@ Entries:
   id: 2697
   time: '2026-09-06T13:54:14.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4654
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: >-
+        Portstrike is no longer guaranteed to be automatically called between
+        3.5-4.5 hours in the round. You can rest easy now.
+    - type: Add
+      message: >-
+        The Colonel and Grand Vizier now spawn with war declarators. Once both
+        leaders use their war declarators, total war is declared and portstrike
+        begins.
+  id: 2698
+  time: '2026-09-06T23:34:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4639
