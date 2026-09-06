@@ -101,6 +101,9 @@ uplink-pirate-chameleon-pda-desc = A PDA with integrated chameleon technology, a
 uplink-pirate-chameleon-headset-name = Chameleon Headset
 uplink-pirate-chameleon-headset-desc = A headset with integrated chameleon technology, allowing you to hide your true allegiance.
 
+uplink-pirate-chameleon-backpack-name = Chameleon Backpack
+uplink-pirate-chameleon-backpack-desc = A backpack with integrated chameleon technology, allowing you to hide your true allegiance. Does not come with anything inside.
+
 uplink-pirate-dna-scrambler-name = DNA Scrambler Implanter
 uplink-pirate-dna-scrambler-desc = A relatively rare implant that allows you to completely change your identity once.
 
