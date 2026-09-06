@@ -84,7 +84,7 @@ namespace Content.Client.Shuttles.UI
                 var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
                 if (prototypeManager.TryIndex<CompanyPrototype>(companyComp.CompanyName, out var prototype) && prototype != null)
                 {
-                    blipColor = prototype.Color;
+                    blipColor = prototype.Color.WithAlpha(color.A);
                 }
             }
 

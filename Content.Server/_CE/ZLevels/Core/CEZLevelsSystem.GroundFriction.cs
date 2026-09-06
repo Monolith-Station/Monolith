@@ -213,10 +213,7 @@ public sealed partial class CEZLevelsSystem
     /// Grip of the terrain under a world point, bilinearly interpolated between the four terrain
     /// tile centres surrounding it, and flags whether any of them was solid at all.
     ///
-    /// Grip is the tile's own <see cref="ContentTileDefinition.Friction"/> rather than a flat 1, so
-    /// what the ground does to a hull is content data. A water tile at <c>friction: 0</c> lets a
-    /// ship glide across a lake and still be caught the moment it reaches the bank, and ice, decking
-    /// and dirt all fall out of the same number without any of them being special-cased here.
+    /// Grid friction overrides ordinary tile friction when specified.
     /// </summary>
     private float SampleGrip(EntityUid map, MapGridComponent mapGrid, Vector2 worldPos, ref bool contact)
     {
@@ -254,6 +251,7 @@ public sealed partial class CEZLevelsSystem
             return 0f;
 
         contact = true;
-        return ((ContentTileDefinition) TilDefMan[tileRef.Tile.TypeId]).Friction;
+        var tile = (ContentTileDefinition) TilDefMan[tileRef.Tile.TypeId];
+        return tile.GridFriction ?? tile.Friction;
     }
 }

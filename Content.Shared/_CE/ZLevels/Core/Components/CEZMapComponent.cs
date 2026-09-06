@@ -4,6 +4,7 @@
  */
 
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._CE.ZLevels.Core.Components;
 
@@ -13,6 +14,9 @@ namespace Content.Shared._CE.ZLevels.Core.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, UnsavedComponent]
 public sealed partial class CEZMapComponent : Component
 {
+    [DataField(serverOnly: true)]
+    public ComponentRegistry ComponentOverrides = new();
+
     [ViewVariables, AutoNetworkedField]
     public EntityUid NetworkUid;
 

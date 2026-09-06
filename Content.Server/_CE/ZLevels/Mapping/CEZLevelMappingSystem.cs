@@ -30,7 +30,10 @@ public sealed partial class CEZLevelMappingSystem : EntitySystem
     private void OnAddedIntoZNetwork(Entity<CEZMapComponent> ent, ref CEMapAddedIntoZNetworkEvent args)
     {
         if (_map.IsInitialized(ent))
+        {
             EntityManager.AddComponents(ent, args.Network.Comp.Components);
+            EntityManager.AddComponents(ent, ent.Comp.ComponentOverrides);
+        }
         else
         {
             var hasInitializedMaps = false;
@@ -54,6 +57,7 @@ public sealed partial class CEZLevelMappingSystem : EntitySystem
             return;
 
         EntityManager.AddComponents(ent, network.Comp.Components);
+        EntityManager.AddComponents(ent, ent.Comp.ComponentOverrides);
     }
 
     public bool TryLoadNetwork(ProtoId<CEZLevelMapPrototype> id,

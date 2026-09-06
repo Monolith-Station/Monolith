@@ -60,6 +60,12 @@ public sealed partial class WaterOverlay : GridOverlay
 
         var handle = args.WorldHandle;
         var tileSize = grid.Comp.TileSize;
+        var eye = args.Viewport.Eye;
+        if (eye == null)
+            return;
+
+        var tilesPerPixel = eye.Zoom / args.Viewport.RenderScale / (EyeManager.PixelsPerMeter * tileSize);
+        _shader.SetParameter("TILES_PER_PIXEL", MathF.Max(tilesPerPixel.X, tilesPerPixel.Y));
 
         var enumerator = _mapSystem.GetTilesEnumerator(grid.Owner, grid.Comp, args.WorldBounds);
         var drew = false;

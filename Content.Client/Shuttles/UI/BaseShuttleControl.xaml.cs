@@ -673,7 +673,7 @@ public partial class BaseShuttleControl : MapGridControl
         if (drawFill)
         {
             const float BatchSize = 3f * 4096;
-            var fillColor = Color.ToSrgb(Color.InterpolateBetween(BackingColor, color, alpha)).WithAlpha(1f);
+            var fillColor = Color.ToSrgb(Color.InterpolateBetween(BackingColor, color, alpha)).WithAlpha(color.A);
 
             for (var i = 0; i < Math.Ceiling(triCount / BatchSize); i++)
             {

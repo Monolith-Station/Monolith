@@ -252,6 +252,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         MapGridComponent grid,
         int seed)
     {
+        LoadPointsOfInterest(component, gridUid, grid);
         BuildMarkerChunks(component, gridUid, grid, seed);
 
         var active = _activeChunks[component];

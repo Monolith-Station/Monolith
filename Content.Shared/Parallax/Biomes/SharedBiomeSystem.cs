@@ -27,6 +27,13 @@ public abstract partial class SharedBiomeSystem : EntitySystem
     private const int MaxCompiledBiomes = 128;
     private const int MaxTemplateDepth = 16;
 
+    public bool HasRecordedTile(BiomeComponent biome, Vector2i index)
+    {
+        var chunk = SharedMapSystem.GetChunkIndices(index, ChunkSize) * ChunkSize;
+        return biome.LoadedChunks.Contains(chunk) ||
+            biome.ModifiedTiles.TryGetValue(chunk, out var modified) && modified.Contains(index);
+    }
+
     private T Pick<T>(List<T> collection, float value)
     {
         // Listen I don't need this exact and I'm too lazy to finetune just for random ent picking.
@@ -140,7 +147,7 @@ public abstract partial class SharedBiomeSystem : EntitySystem
                     if (depth < MaxTemplateDepth)
                     {
                         var template = ProtoManager.Index<BiomeTemplatePrototype>(metaLayer.Template);
-                        children = CompileLayers(template.Layers, seed, depth + 1, all);
+                        children = CompileLayers(metaLayer.Layers ?? template.Layers, seed, depth + 1, all);
                     }
                     break;
             }

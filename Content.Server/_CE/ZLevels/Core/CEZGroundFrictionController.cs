@@ -22,16 +22,7 @@ public sealed partial class CEZGroundFrictionController : VirtualController
 
     public override void Initialize()
     {
-        // MUST be registered before base.Initialize(), which snapshots UpdatesBefore/UpdatesAfter
-        // into arrays and subscribes with them — anything added afterwards is silently ignored and
-        // the controller ends up unordered.
-        //
-        // The ordering is not a nicety. MoverController applies shuttle thrust in this same
-        // UpdateBeforeSolve phase, and the clamp below reads that thrust out of
-        // PhysicsComponent.Force to work out how much of the coming velocity it may cancel. Run
-        // first and the accumulator is still empty, the predicted velocity is just the current one,
-        // and a stationary hull gets no friction whatsoever — after which the thrust lands
-        // unopposed and the ship creeps exactly as if none of this existed.
+        // MoverController applies thrust, so we handle override from AFTER.
         UpdatesAfter.Add(typeof(MoverController));
 
         base.Initialize();

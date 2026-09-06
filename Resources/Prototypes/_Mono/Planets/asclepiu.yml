@@ -1,0 +1,194 @@
+- type: planetMap
+  id: Asclepiu
+  name: Asclepiu
+  components:
+  - type: MapAtmosphere
+    space: false
+    mixture:
+      volume: 2500
+      immutable: true
+      temperature: 293.15
+      moles: [21.824879, 82.10312]
+  - type: CEZLevelRoof
+  - type: MapLight
+    ambientLightColor: "#c8fdff"
+  layers:
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/clouds.yml
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+  - !type:PlanetBiomeLayer
+    biome: Asclepiu
+    components:
+    - type: CEZGroundLayer
+
+- type: biomeTemplate
+  id: Asclepiu
+  pointOfInterestSpacing: 256
+  pointOfInterestTiles: [FloorPlanetGrass, FloorPlanetDirt]
+  layers:
+  - !type:BiomeMetaLayer
+    template: AsclepiuOcean
+  - !type:BiomeMetaLayer
+    template: AsclepiuBeach
+    threshold: 0.34
+    originBiasRadius: 2400
+    originBiasStrength: 1.5
+    noise:
+      frequency: 0.00035
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      octaves: 3
+      lacunarity: 2
+      gain: 0.3
+  - !type:BiomeMetaLayer
+    template: AsclepiuGrasslands
+    threshold: 0.36
+    originBiasRadius: 2400
+    originBiasStrength: 1.5
+    noise:
+      frequency: 0.00035
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      octaves: 3
+      lacunarity: 2
+      gain: 0.3
+
+  - !type:BiomeMetaLayer
+    template: AsclepiuOcean
+    threshold: 0.95
+    originBiasRadius: 384
+    originBiasStrength: -2
+    noise:
+      seed: 73
+      frequency: 0.0005
+      noiseType: OpenSimplex2
+      fractalType: Ridged
+      octaves: 1
+
+- type: biomeTemplate
+  id: AsclepiuOcean
+  layers:
+  - !type:BiomeTileLayer
+    tile: FloorWater
+    threshold: -1
+
+- type: biomeTemplate
+  id: AsclepiuBeach
+  layers:
+  - !type:BiomeTileLayer
+    tile: FloorAsteroidSandPlanet
+    threshold: -1
+
+- type: biomeTemplate
+  id: AsclepiuGrasslands
+  layers:
+  - !type:BiomeTileLayer
+    tile: FloorPlanetGrass
+    threshold: -1
+  - !type:BiomeTileLayer
+    tile: FloorPlanetDirt
+    threshold: 0.55
+    noise:
+      seed: 7
+      frequency: 0.015
+      noiseType: OpenSimplex2
+  - !type:BiomeEntityLayer
+    allowedTiles: [FloorPlanetGrass]
+    entities: [FloraTree, FloraTreeLarge]
+    radarColor: "#24432A"
+    threshold: 0.72
+    noise:
+      seed: 11
+      frequency: 0.8
+      noiseType: OpenSimplex2
+  - !type:BiomeEntityLayer
+    allowedTiles: [FloorPlanetGrass, FloorPlanetDirt]
+    entities: [FloraRockSolid]
+    radarColor: "#827C70"
+    threshold: 0.94
+    noise:
+      seed: 19
+      frequency: 2
+      noiseType: OpenSimplex2
+  - !type:BiomeMetaLayer
+    template: AsclepiuForest
+    threshold: 0.3
+    noise:
+      seed: 31
+      frequency: 0.009
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      octaves: 2
+  - !type:BiomeMetaLayer
+    template: AsclepiuOre
+    threshold: 0.68
+    noise:
+      seed: 67
+      frequency: 0.025
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      octaves: 2
+      gain: 0.25
+  - !type:BiomeMetaLayer
+    template: AsclepiuBeach
+    threshold: 0.92
+    originBiasRadius: 384
+    originBiasStrength: -2
+    noise:
+      seed: 73
+      frequency: 0.0005
+      noiseType: OpenSimplex2
+      fractalType: Ridged
+      octaves: 1
+- type: biomeTemplate
+  id: AsclepiuOre
+  layers:
+  - !type:BiomeEntityLayer
+    allowedTiles: [FloorPlanetGrass, FloorPlanetDirt]
+    entities: [AsteroidRock]
+    threshold: -1
+  - !type:BiomeEntityLayer
+    allowedTiles: [FloorPlanetGrass, FloorPlanetDirt]
+    entities: [AsteroidRockCoal, AsteroidRockTin, AsteroidRockQuartz]
+    threshold: 0.15
+    noise:
+      seed: 79
+      frequency: 0.15
+      noiseType: OpenSimplex2
+  - !type:BiomeEntityLayer
+    allowedTiles: [FloorPlanetGrass, FloorPlanetDirt]
+    entities: [AsteroidRockSilver, AsteroidRockGold]
+    threshold: 0.7
+    noise:
+      seed: 83
+      frequency: 0.12
+      noiseType: OpenSimplex2
+  - !type:BiomeEntityLayer
+    allowedTiles: [FloorPlanetGrass, FloorPlanetDirt]
+    entities: [AsteroidRockPlasma, AsteroidRockUranium]
+    threshold: 0.85
+    noise:
+      seed: 89
+      frequency: 0.1
+      noiseType: OpenSimplex2
+
+- type: biomeTemplate
+  id: AsclepiuForest
+  layers:
+  - !type:BiomeTileLayer
+    tile: FloorPlanetGrass
+    threshold: -1
+  - !type:BiomeEntityLayer
+    allowedTiles: [FloorPlanetGrass]
+    entities: [FloraTree, FloraTreeLarge]
+    radarColor: "#24432A"
+    threshold: 0.4
+    noise:
+      seed: 43
+      frequency: 1.2
+      noiseType: OpenSimplex2

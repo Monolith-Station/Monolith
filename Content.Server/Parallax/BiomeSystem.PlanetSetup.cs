@@ -108,12 +108,12 @@ public sealed partial class BiomeSystem
 
     private void OnBiomeMapInit(EntityUid uid, BiomeComponent component, MapInitEvent args)
     {
-        if (component.Seed == -1)
+        if (component.Seed == -1 && !component.TemplateInitialized)
         {
             SetSeed(uid, component, _random.Next());
         }
 
-        if (_proto.TryIndex(component.Template, out var biome))
+        if (!component.TemplateInitialized && _proto.TryIndex(component.Template, out var biome))
             SetTemplate(uid, component, biome);
 
         var xform = Transform(uid);

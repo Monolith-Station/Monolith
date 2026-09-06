@@ -38,6 +38,8 @@ namespace Content.Shared.Maps
         public string Name { get; private set; } = "";
         [DataField("sprite")] public ResPath? Sprite { get; private set; }
 
+        [DataField] public Color RadarColor { get; private set; } = Color.FromHex("#465044");
+
         [DataField("edgeSprites")] public Dictionary<Direction, ResPath> EdgeSprites { get; private set; } = new();
 
         [DataField("edgeSpritePriority")] public int EdgeSpritePriority { get; private set; } = 0;
@@ -79,6 +81,8 @@ namespace Content.Shared.Maps
         /// Base friction modifier for this tile.
         /// </summary>
         [DataField("friction")] public float Friction { get; set; } = 1f;
+
+        [DataField] public float? GridFriction { get; private set; }
 
         [DataField("variants")] public byte Variants { get; set; } = 1;
 

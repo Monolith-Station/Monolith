@@ -8,6 +8,12 @@ namespace Content.Shared._Mono.CCVar;
 [CVarDefs]
 public sealed partial class MonoCVars
 {
+    public static readonly CVarDef<int> RadarTerrainBatchSize =
+        CVarDef.Create("mono.radar.terrain_batch_size", 256, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> RadarTerrainWorkers =
+        CVarDef.Create("mono.radar.terrain_workers", 8, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     #region Cleanup
 
     /// <summary>

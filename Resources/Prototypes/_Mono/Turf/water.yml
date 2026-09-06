@@ -1,5 +1,6 @@
 - type: tile
   id: FloorWater
+  radarColor: "#244A68"
   name: tiles-water
   sprite: /Textures/_Mono/Tiles/planet/water.png
   isSubfloor: true
@@ -11,6 +12,7 @@
   barestepSounds:
     collection: FootstepWater
   friction: 0.4
+  gridFriction: 0
   mobFriction: 0.2
   mobFrictionNoInput: 0.3
   mobAcceleration: 8

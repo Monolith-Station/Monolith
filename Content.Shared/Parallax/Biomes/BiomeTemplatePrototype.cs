@@ -1,4 +1,6 @@
 using Content.Shared.Parallax.Biomes.Layers;
+using Content.Shared.Maps;
+using Content.Shared.Procedural;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Parallax.Biomes;
@@ -13,4 +15,13 @@ public sealed partial class BiomeTemplatePrototype : IPrototype
 
     [DataField("layers")]
     public List<IBiomeLayer> Layers = new();
+
+    [DataField]
+    public List<ProtoId<DungeonRoomPrototype>> PointOfInterestRooms = new();
+
+    [DataField]
+    public List<ProtoId<ContentTileDefinition>> PointOfInterestTiles = new();
+
+    [DataField]
+    public int PointOfInterestSpacing = 256;
 }

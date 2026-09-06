@@ -98,6 +98,8 @@ public sealed class CompiledBiomeLayer
 
         var value = Noise.GetNoise(x, y);
         value = Invert ? value * -1 : value;
+        if (Source is BiomeMetaLayer meta)
+            value += BiomeMetaLayer.GetOriginBias(x, y, meta.OriginBiasRadius, meta.OriginBiasStrength);
         return value >= Threshold;
     }
 

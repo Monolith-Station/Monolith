@@ -34,6 +34,7 @@ uniform highp float FOAM_SCALE;
 uniform highp float FOAM_WOBBLE;
 // Fraction of the reach that stays solid before the fade inward starts. Higher = harder inner edge.
 uniform highp float FOAM_FALLOFF;
+uniform highp float TILES_PER_PIXEL;
 
 highp float hash(highp vec2 p)
 {
@@ -54,15 +55,17 @@ highp float vnoise(highp vec2 p)
     return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
 }
 
-highp float fbm(highp vec2 p)
+highp float fbm(highp vec2 p, highp float footprint)
 {
     highp float v = 0.0;
     highp float a = 0.5;
 
     for (int i = 0; i < 3; i++)
     {
-        v += a * vnoise(p);
+        highp float detail = 1.0 - smoothstep(0.25, 1.0, footprint);
+        v += a * mix(0.5, vnoise(p), detail);
         p = p * 2.03 + vec2(19.7, 7.3);
+        footprint *= 2.03;
         a *= 0.5;
     }
 
@@ -72,6 +75,11 @@ highp float fbm(highp vec2 p)
 void fragment()
 {
     highp vec2 tilePos = UV2;
+    highp float pixel = TILES_PER_PIXEL;
+#ifdef HAS_DFDX
+    pixel = max(length(dFdx(tilePos)), length(dFdy(tilePos)));
+#endif
+    pixel = max(pixel, 0.00001);
 
     // Distance from this fragment to the nearest non-water neighbour, in tiles. Left large when the
     // tile is surrounded, so nothing downstream triggers.
@@ -142,10 +150,11 @@ void fragment()
 
     // A dark lip hard against the edge reads as the water sitting below the surrounding floor,
     // which is what makes a flat tile look inset rather than painted on.
-    highp float rim = 1.0 - smoothstep(0.0, EDGE_WIDTH, edge);
+    highp float rimWidth = max(EDGE_WIDTH, pixel);
+    highp float rim = (1.0 - smoothstep(0.0, rimWidth, edge)) * min(1.0, EDGE_WIDTH / pixel);
     water *= mix(1.0, EDGE_DARKEN, rim);
 
-    highp float lump = fbm(tilePos / FOAM_SCALE + vec2(0.0, TIME * FOAM_SPEED * 0.15));
+    highp float lump = fbm(tilePos / FOAM_SCALE + vec2(0.0, TIME * FOAM_SPEED * 0.15), pixel / FOAM_SCALE);
     highp float beat = sin(TIME * FOAM_SPEED + lump * 6.28);
 
     // How far in the foam reaches varies a little along the coast so the band isn't a drawn
@@ -153,7 +162,10 @@ void fragment()
     highp float reach = FOAM_WIDTH * (1.0 + FOAM_WOBBLE * (0.6 * (lump * 2.0 - 1.0) + 0.4 * beat));
 
     // Solid against the boundary, fading only inward.
-    highp float foam = 1.0 - smoothstep(reach * FOAM_FALLOFF, reach, edge);
+    highp float midpoint = reach * (1.0 + FOAM_FALLOFF) * 0.5;
+    highp float halfFade = max(reach * (1.0 - FOAM_FALLOFF) * 0.5, pixel * 0.5);
+    highp float foam = 1.0 - smoothstep(midpoint - halfFade, midpoint + halfFade, edge);
+    foam *= min(1.0, reach / pixel);
 
     water = mix(water, FOAM_COLOR, foam);
 
