@@ -16,3 +16,38 @@
       amount: 4
     - id: BoxFolderNuclearCodes
       amount: 1
+
+# Xenoborg
+
+- type: entity
+  parent: CrateBaseWeldable
+  id: CrateXenoBase
+  name: xenoborg crate
+  description: This crate looks hungry for your brains.
+  components:
+  - type: Icon
+    sprite: _Mono/Structures/Storage/Crates/xeno.rsi
+  - type: Sprite
+    sprite: _Mono/Structures/Storage/Crates/xeno.rsi
+  - type: StaticPrice
+    price: 80
+  - type: StorageFill
+    contents:
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: IngotSilver
+    - id: IngotGold
+
+
+- type: entity
+  parent: CrateXenoBase
+  id: CrateXenoMats
+  name: xenoborg crate
+  description: This crate looks hungry for your brains, Filled with starter materials.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: IngotSilver
+    - id: IngotGold
