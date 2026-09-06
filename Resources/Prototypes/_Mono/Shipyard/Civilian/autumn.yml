@@ -1,0 +1,31 @@
+- type: vessel
+  id: Autumn
+  parent: BaseVessel
+  name: SKR Autumn
+  description: An updated production variant of the Autumn cargo freighter. Comes with a shield generator and a few 90mms.
+  price: 224831
+  category: Large
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/autumn.yml
+  guidebookPage: Null
+  class:
+  - Cargo
+  engine:
+  - AME
+
+- type: gameMap
+  id: Autumn
+  mapName: 'SKR Autumn'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/autumn.yml
+  minPlayers: 0
+  stations:
+    Autumn:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Autumn CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]

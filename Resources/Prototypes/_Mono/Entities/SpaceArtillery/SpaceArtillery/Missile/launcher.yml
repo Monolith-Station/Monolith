@@ -52,6 +52,9 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 120
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Medium
 
 # Pre-Fracture
 
@@ -117,3 +120,6 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 120
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Heavy

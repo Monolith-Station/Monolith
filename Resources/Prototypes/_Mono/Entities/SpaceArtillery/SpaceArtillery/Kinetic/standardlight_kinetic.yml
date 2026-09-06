@@ -89,6 +89,9 @@
   - type: ShipRepairable
     repairTime: 10
     repairCost: 20
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Light
 
 # Draupnir
 
@@ -160,3 +163,6 @@
   - type: ShipRepairable
     repairTime: 15
     repairCost: 40
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Medium

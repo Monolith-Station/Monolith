@@ -1,4 +1,3 @@
-
 - type: technology
   id: PdvTierOneVouchers
   name: research-technology-rogue-tier-one-vouchers
@@ -9,9 +8,6 @@
   recipeUnlocks:
   - ShipVoucherPdvT0Recipe
   - ShipVoucherPdvT1Recipe
-  - InertiaVoucherRogue
-  - MockVoucherRogue
-  - SnakeletVoucherRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: -2, -10
@@ -38,9 +34,9 @@
   tier: 3
   cost: 80000
   recipeUnlocks:
-  - SaintieVoucherRogue
-  - KortikVoucherRogue
-  - SaturnVoucherRogue
+  - ShipVoucherKortikT3Recipe
+  - ShipVoucherEuropaT3Recipe
+  - ShipVoucherSaturnRecipe
   technologyPrerequisites:
   - PdvTierTwoVouchers
   - UniversalMaterialResearchT3

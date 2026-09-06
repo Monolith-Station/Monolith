@@ -36,14 +36,10 @@
 - type: latheRecipePack
   id: MonoTSFVouchersDynamic
   recipes:
-  - FlyssaVoucherTSF
-  - FujianVoucherTSF
-  - ZephyrVoucherTSF
-  - AltairVoucherTSF
-  - PolarisVoucherTSF
   - ShipVoucherTsfT0Recipe
   - ShipVoucherTsfT1Recipe
   - ShipVoucherTsfT2Recipe
+  - ShipVoucherLudaRecipe
 
 - type: latheRecipePack
   id: MonoTSFMiscDynamic

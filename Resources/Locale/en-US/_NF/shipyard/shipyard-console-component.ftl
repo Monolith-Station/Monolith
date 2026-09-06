@@ -80,6 +80,15 @@ shipyard-console-class-Corvette = Corvette
 shipyard-console-class-Frigate = Frigate
 shipyard-console-class-Destroyer = Destroyer
 shipyard-console-class-Cruiser = Cruiser
+shipyard-console-class-Escort = Escort
+shipyard-console-class-Brawler = Brawler
+shipyard-console-class-MissileCarrier = AAM Carrier
+shipyard-console-class-AntiShipMissileCarrier = AShM Carrier
+shipyard-console-class-Carrier = Carrier
+shipyard-console-class-DroneCarrier = Drone Carrier
+shipyard-console-class-MechCarrier = Mech Carrier
+shipyard-console-class-EarlyWarning = Early Warning
+shipyard-console-class-Stealth = Stealth
 # Mono changes end
 
 shipyard-console-engine-All = All

@@ -6,7 +6,7 @@
   tier: 1
   cost: 45000
   recipeUnlocks:
-  - ShipVoucherUsspRemontnik
+  - WeaponRifleAK410USSP # PLACEHOLDER 26AUG15
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: 3, -8
@@ -14,14 +14,12 @@
 - type: technology
   id: UsspMediumShips
   name: research-technology-ussp-ships-medium
-  entityIcon: ShipVoucherDrakon
+  entityIcon: WeaponRifleAK410 # PLACEHOLDER 26AUG15
   discipline: Ussp
   tier: 2
   cost: 65000
   recipeUnlocks:
-  - ShipVoucherUsspAkula
-  - ShipVoucherUsspDrakon
-  - ShipVoucherUsspTayfun
+  - WeaponRifleAK410USSP # PLACEHOLDER 26AUG15
   technologyPrerequisites:
   - UsspBasicShips
   position: 3, -16
@@ -29,28 +27,13 @@
 - type: technology
   id: UsspAdvancedShips
   name: research-technology-ussp-ships-advanced
-  entityIcon: ShipVoucherBuran
+  entityIcon: WeaponRifleAK410 # PLACEHOLDER 26AUG15
   discipline: Ussp
   tier: 3
   cost: 95000
   recipeUnlocks:
-  - ShipVoucherUsspBuran
-  - ShipVoucherUsspSulak
+  - WeaponRifleAK410USSP # PLACEHOLDER 26AUG15
   technologyPrerequisites:
   - UsspMediumShips
   - UniversalMaterialResearchT3
   position: 3, -26
-
-- type: technology
-  id: UsspLedokol
-  name: research-technology-ussp-ships-ledokol
-  entityIcon: ShipVoucherLedokol
-  discipline: Ussp
-  tier: 3
-  cost: 100000
-  recipeUnlocks:
-  - ShipVoucherUsspLedokol
-  - ShipVoucherUsspLedokolAttachment
-  technologyPrerequisites:
-  - UsspAdvancedShips
-  position: 4, -25

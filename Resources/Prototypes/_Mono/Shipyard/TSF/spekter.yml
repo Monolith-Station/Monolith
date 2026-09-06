@@ -1,0 +1,39 @@
+#kasature90 (github)/_starch_ (discord)
+- type: vessel
+  id: Spekter
+  parent: BaseVesselIFFDisabled
+  name: TSF-SKR Spekter
+  description: Nuclear-powered guided-missile frigate for killing anything smaller than a full-on battlecruiser. Equipped with 6 ASM-220 Trident VLS racks and light point-defense.
+  price: 500000
+  purchasable: false # voucher only - t2
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/spekter.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - AntiShipMissileCarrier
+  - Frigate
+  engine:
+  - NFR
+
+- type: gameMap
+  id: Spekter
+  mapName: 'Spekter'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/spekter.yml
+  minPlayers: 0
+  stations:
+    Calypso:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Spekter TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

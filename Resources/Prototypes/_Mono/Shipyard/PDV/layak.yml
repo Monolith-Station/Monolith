@@ -1,0 +1,36 @@
+- type: vessel
+  id: Layak
+  parent: BaseVesselIFFDisabled
+  name: PDV-VI Layak
+  description: A compact escort frigate with 4 flak guns for PD, and light armaments for dealing with smaller craft. It even got a shield!
+  hyperwarTimelock: 1800
+  price: 168000
+  purchasable: false # Voucher only - T1
+  category: Large
+  group: BlackMarket
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/layak.yml
+  guidebookPage: Null
+  class:
+  - Escort
+  - Corvette
+  engine:
+  - AME
+
+- type: gameMap
+  id: Layak
+  mapName: 'Layak'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/layak.yml
+  minPlayers: 0
+  stations:
+    Layak:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Layak PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

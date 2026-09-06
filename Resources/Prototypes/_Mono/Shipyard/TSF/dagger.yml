@@ -1,0 +1,39 @@
+- type: vessel
+  id: Dagger
+  parent: BaseVesselIFFDisabled
+  name: TSF-SKR Dagger
+  description: Straight from the shipyards of Sol, this ship is equipped with a single M381 mass driver as its main armament for long-range fire support. Don't let them get close.
+  limit: 3
+  hyperwarLimit: 6
+  price: 150000
+  purchasable: false # voucher only - T1
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/dagger.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Escort
+  engine:
+  - AME
+
+- type: gameMap
+  id: Dagger
+  mapName: 'Dagger'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/dagger.yml
+  minPlayers: 0
+  stations:
+    Dagger:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Dagger TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

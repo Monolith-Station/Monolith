@@ -59,7 +59,7 @@
 - type: technology
   id: TsfTierTwoVouchers
   name: research-technology-tsfmc-tier-two-vouchers
-  entityIcon: ShipVoucherAndromeda
+  entityIcon: ShipVoucherTsfT2
   discipline: TsfmcShipyard
   tier: 2
   cost: 60000
@@ -73,19 +73,16 @@
 - type: technology
   id: TsfTierThreeVouchers
   name: research-technology-tsfmc-tier-three-vouchers
-  entityIcon: ShipVoucherFlyssa
+  entityIcon: ShipVoucherLuda
   discipline: TsfmcShipyard
   tier: 3
   cost: 80000
   recipeUnlocks:
-  - FlyssaVoucherTSF
-  - AltairVoucherTSF
-  - ZephyrVoucherTSF
-  - FujianVoucherTSF
-  - PolarisVoucherTSF
+  - ShipVoucherLudaRecipe
   technologyPrerequisites:
   - TsfTierTwoVouchers
   - UniversalMaterialResearchT3
+  - UniveralSandboxCruiseMissiles
   position: 2, -27
 
 - type: technology

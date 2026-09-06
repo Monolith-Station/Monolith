@@ -1,0 +1,42 @@
+#kasature90 (github)/_starch_ (discord)
+- type: vessel
+  id: Banshee
+  parent: BaseVesselIFFDisabled
+  name: TSF-SKR Banshee
+  description: A close-up brawler capable of eviscerating anything that dares to get in range with a large central impulse driver and 4 plasma cannons. Heavily lacking in the area of long-range weaponry though.
+  limit: 3
+  hyperwarLimit: 6
+  hyperwarTimelock: 1800
+  price: 150000
+  purchasable: false # voucher only - T2
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/banshee.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  - Brawler
+  - Corvette
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Banshee
+  mapName: 'Banshee'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/banshee.yml
+  minPlayers: 0
+  stations:
+    Banshee:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Banshee TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

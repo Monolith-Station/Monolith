@@ -1,0 +1,33 @@
+#Author: Starch(!)
+
+- type: vessel
+  id: QJ490
+  parent: BaseVessel
+  name: GS QJ-490/B Air Superiority Fighter
+  description: Comes with 4 AK-570s and a Dravon autocannon. Rather fast to accelerate but lacking in missile countermeasures. After it's decomissioning from the TSFMC fleet, GS purchased and retrofitted the design, the old energy weapons and logistically demanding bomb bay having been swapped out for more conventional arms.
+  price: 25200
+  category: Small
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj490.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  - Fighter
+  engine:
+  - APU
+
+- type: gameMap
+  id: QJ490
+  mapName: 'QJ-490/B'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj490.yml
+  minPlayers: 0
+  stations:
+    QJ490:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'QJ-490/B MIL{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs: {}

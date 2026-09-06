@@ -118,6 +118,53 @@
     intensitySlope: 2
     maxIntensity: 1
 
+# 35mm - AC-35
+
+- type: entity
+  id: 35mmBulletAP
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 300
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 2.2
+  - type: PointLight
+    radius: 3.5
+    energy: 0.5
+  - type: RadarBlip
+    scale: 1.15
+    shape: arrow
+    radarColor: "#1df1f5"
+
+- type: entity
+  id: 35mmBulletHE
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 160
+  - type: ShipWeaponProjectile
+  - type: TimedDespawn
+    lifetime: 2.2
+  - type: PointLight
+    radius: 3.5
+    energy: 0.5
+  - type: RadarBlip
+    scale: 0.5
+    shape: circle
+    radarColor: "#FFFFFF"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 2
+    intensitySlope: 2
+    maxIntensity: 1
 # 57mm
 
 - type: entity

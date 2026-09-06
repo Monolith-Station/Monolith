@@ -1,0 +1,39 @@
+#kasature90 (github)/_starch_ (discord)
+- type: vessel
+  id: Calypso
+  parent: BaseVesselIFFDisabled
+  name: TSF-SKR Calypso
+  description: A long-range corvette armed with 6 anti-fighter missile pods and 2 150mm TARNYX guns, plus some light point-defence.
+  price: 173000
+  purchasable: false # voucher only - T1
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/calypso.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - MissileCarrier
+  - Corvette
+  engine:
+  - AME
+
+- type: gameMap
+  id: Calypso
+  mapName: 'Calypso'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/calypso.yml
+  minPlayers: 0
+  stations:
+    Calypso:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Calypso TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+
