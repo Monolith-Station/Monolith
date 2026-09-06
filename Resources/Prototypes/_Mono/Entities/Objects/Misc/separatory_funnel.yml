@@ -1,0 +1,39 @@
+- type: entity
+  name: separatory funnel
+  parent: BaseBeaker
+  description: A crude tool created by welding several beakers together. It is useful for extracting reagents from a mixture.
+  id: SeparatoryFunnel
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/beakerfilter.rsi
+    layers:
+      - state: funnel
+  - type: Construction
+    graph: SeparatoryFunnelGraph
+    node: beakerstart
+  - type: SeparatoryFunnel
+    delay: 2.5
+  - type: SolutionTransfer
+    canSend: false
+    canReceive: true
+  - type: SolutionContainerVisuals
+    maxFillLevels: 0
+
+- type: entity
+  parent: BaseItem
+  id: SeparatoryFunnelUnfinished
+  name: unfinished separatory funnel
+  description: A beaker currently being modified into a separatory funnel. It needs more glass.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Specific/Chemistry/beaker.rsi
+    state: beaker
+    color: "#a0a0a0" # grey
+  - type: Construction
+    graph: SeparatoryFunnelGraph
+    node: beakerstart
+    defaultTarget: separatoryfunnel
+  - type: Tag
+    tags:
+    - Trash
+
