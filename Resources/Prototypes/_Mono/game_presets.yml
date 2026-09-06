@@ -17,7 +17,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -34,7 +34,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -51,7 +51,6 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -68,7 +67,6 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -88,7 +86,7 @@
   - MonoAISTCShuttleSpawnerSchedulerTier2
   #- MonoAsakimSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -107,7 +105,7 @@
   - FrontierRoundstartVariation
   - MonoChimeraSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -129,7 +127,7 @@
   - MonoAISTCShuttleSpawnerSchedulerTier2Slow
   #- MonoAsakimSTCShuttleSpawnerSchedulerSlow
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -151,7 +149,7 @@
   #- MonoAsakimSTCShuttleSpawnerSchedulerApocalypse
   - MonoMonolithicEventsScheduler
   - RoundEndRuleHour3
-  - PortstrikeAnnounceRuleHour1
+  - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
 
 - type: gamePreset
