@@ -362,3 +362,96 @@
   components:
   - type: Stack
     count: 1
+
+# PDV Composite
+
+- type: material
+  id: PdvComposite
+  stackEntity: SheetPdvComposite1
+  name: materials-pdvcomposite
+  unit: materials-unit-sheet
+  icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: plastitaniumglass }
+  color: "#5c5c5c"
+  price: 6 # 600/sheet
+  properties: # FH edit
+    electrical: 2
+    thermal: 5
+    hard: 12
+    density: 6
+    chemical: 7
+    reflective: 2
+    molitz_bubbles: 0
+    plasma_offgas: 1
+
+- type: entity
+  parent: MaterialBase
+  id: SheetPdvComposite
+  name: adamantite
+  description: An advanced composite alloy made exclusively by the Dynasty. While it isn't actually "adamantite", it does contain some anomalous material harvested from the Colossus radius which could be likened to such a mythical substance. Informally known as Sultanium.
+  suffix: 30
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/Sheets/glass.rsi
+    state: plastitaniumglass
+    layers:
+    - state: plastitaniumglass_3
+      map: ["base"]
+  - type: Tag
+    tags:
+    - Sheet
+  - type: Item
+    sprite: Objects/Materials/Sheets/glass.rsi
+    heldPrefix: adamantite
+  - type: Stack
+    stackType: PdvComposite
+    count: 30
+    baseLayer: base
+    layerStates:
+    - plastitaniumglass
+    - plastitaniumglass_2
+    - plastitaniumglass_3
+  - type: Material
+  - type: Appearance
+  - type: PhysicalComposition
+    materialComposition:
+      PdvComposite: 100
+
+- type: entity
+  parent: SheetPdvComposite
+  id: SheetPdvComposite1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: SheetPdvComposite
+  id: SheetPdvComposite5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: SheetPdvComposite
+  id: SheetPdvComposite10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: SheetPdvComposite
+  id: SheetPdvComposite15
+  suffix: 15
+  components:
+  - type: Stack
+    count: 15
+
+- type: entity
+  parent: SheetPdvComposite
+  id: SheetPdvComposite30
+  suffix: 30
+  components:
+  - type: Stack
+    count: 30

@@ -11,6 +11,8 @@
   id: ClothingOuterHardsuitPDVMedic
   parent: MonoHardsuitT3Recipe
   result: ClothingOuterHardsuitPDVMedic
+  materials:
+    PdvComposite: 1500
 
 # T2 syndie
 
@@ -18,11 +20,15 @@
   id: ClothingOuterHardsuitSyndieRogue
   parent: MonoHardsuitT2Recipe
   result: ClothingOuterHardsuitAshen
+  materials:
+    PdvComposite: 1000
 
 - type: latheRecipe
   id: ClothingOuterHardsuitSyndieEliteRogue
   parent: MonoHardsuitT2Recipe
   result: ClothingOuterHardsuitAshenElite
+  materials:
+    PdvComposite: 1000
 
 # T2 stealthsuit
 
@@ -30,6 +36,8 @@
   id: ClothingOuterHardsuitCybersunStealthRogue
   parent: MonoHardsuitT3Recipe
   result: ClothingOuterHardsuitCybersunStealth
+  materials:
+    PdvComposite: 1000
 
 # T3 plastitanium
 
@@ -37,11 +45,15 @@
   id: ClothingOuterHardsuitJuggernautRogue
   parent: MonoHardsuitT3TsfRecipe
   result: ClothingOuterHardsuitJuggernaut
+  materials:
+    PdvComposite: 1500
 
 - type: latheRecipe
   id: ClothingOuterHardsuitSyndieCommanderRogue
   parent: MonoHardsuitT3TsfRecipe
   result: ClothingOuterHardsuitSyndieCommander
+  materials:
+    PdvComposite: 1500
 
 # misc
 
@@ -79,9 +91,4 @@
   result: ClothingShoesBootsMagAshen
   completetime: 5
   materials:
-    Steel: 1000
-    Silver: 750
-    Plasteel: 300
-    Plastic: 300
-    Plasma: 350
-    Uranium: 100
+    PdvComposite: 100

@@ -8,6 +8,7 @@
       time: 7200 # mono - change to 2 hr
   startingGear: NFJanitorGear
   alwaysUseSpawner: true
+  setPreference: false
   icon: "JobIconJanitor"
   supervisors: job-supervisors-sr
   weight: 100

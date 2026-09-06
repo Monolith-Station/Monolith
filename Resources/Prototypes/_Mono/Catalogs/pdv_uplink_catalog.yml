@@ -300,6 +300,52 @@
       - PirateUplink
 
 - type: listing
+  id: UplinkPirateBlankId
+  name: uplink-pirate-blank-id-name
+  description: uplink-pirate-blank-id-desc
+  productEntity: ContractorIDCard
+  cost:
+    Doubloon: 5
+  categories:
+  - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
+  id: UplinkPirateVoicemask
+  name: uplink-pirate-voicemask-name
+  description: uplink-pirate-voicemask-desc
+  productEntity: ClothingMaskGasVoiceChameleon
+  cost:
+    Doubloon: 20
+  categories:
+  - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
+  id: UplinkPirateDnaScrambler
+  name: uplink-pirate-dna-scrambler-name
+  description: uplink-pirate-dna-scrambler-desc
+  icon: { sprite: /Textures/Mobs/Species/Human/parts.rsi, state: full }
+  productEntity: DnaScramblerImplanter
+  cost:
+    Doubloon: 60 # expensive so that it's more of a last resort, and also because you can sell the implanter back for 15 dc lmao
+  categories:
+    - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
   id: UplinkPirateHoverbikeFlatpack
   name: uplink-pirate-hoverbike-name
   description: uplink-pirate-hoverbike-desc
@@ -432,38 +478,6 @@
   description: uplink-pirate-security-cyborg-module-desc
   icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
   productEntity: BorgModuleSecurity
-  cost:
-    Doubloon: 50
-  categories:
-  - UplinkPirateUtility
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
-
-- type: listing
-  id: UplinkPirateCash10000
-  name: uplink-pirate-cash10000-name
-  description: uplink-pirate-cash10000-desc
-  productEntity: SpaceCash10000
-  icon: { sprite: Objects/Economy/cash.rsi, state: cash_1000000 }
-  cost:
-    Doubloon: 5
-  categories:
-  - UplinkPirateUtility
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
-
-- type: listing
-  id: UplinkPirateCash100000
-  name: uplink-pirate-cash100000-name
-  description: uplink-pirate-cash100000-desc
-  productEntity: SpaceCash100000
-  icon: { sprite: _NF/Objects/Economy/cash.rsi, state: cash_100000 }
   cost:
     Doubloon: 50
   categories:
@@ -1212,8 +1226,8 @@
 
 - type: listing
   id: UplinkPirateShrapnelGrenadeBox
-  name: uplink-pirate-shrapnelgrenade-box-name
-  description: uplink-pirate-shrapnelgrenade-box-desc
+  name: uplink-pirate-shrapnelgrenade-name
+  description: uplink-pirate-shrapnelgrenade-desc
   productEntity: GrenadeShrapnelNfsd
   icon: { sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi, state: icon}
   cost:
@@ -1578,3 +1592,86 @@
       - FactionStaticUplinkPdv
 
 # end T4
+
+# MARK: Materials
+
+- type: listing
+  id: UplinkPirateCash10000
+  name: uplink-pirate-cash10000-name
+  description: uplink-pirate-cash10000-desc
+  productEntity: SpaceCash10000
+  icon: { sprite: Objects/Economy/cash.rsi, state: cash_1000000 }
+  cost:
+    Doubloon: 5
+  categories:
+  - UplinkPdvMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
+  id: UplinkPirateCash100000
+  name: uplink-pirate-cash100000-name
+  description: uplink-pirate-cash100000-desc
+  productEntity: SpaceCash100000
+  icon: { sprite: _NF/Objects/Economy/cash.rsi, state: cash_100000 }
+  cost:
+    Doubloon: 50
+  categories:
+  - UplinkPdvMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+
+- type: listing
+  id: UplinkPdvComposite5
+  name: uplink-pdv-composite5-name
+  description: uplink-pdv-composite5-desc
+  productEntity: SheetPdvComposite5
+  icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: plastitaniumglass }
+  cost:
+    Doubloon: 25 # 25 per 5
+  categories:
+  - UplinkPdvMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
+  id: UplinkPdvComposite15
+  name: uplink-pdv-composite15-name
+  description: uplink-pdv-composite15-desc
+  productEntity: SheetPdvComposite15
+  icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: plastitaniumglass_2 }
+  cost:
+    Doubloon: 75
+  categories:
+  - UplinkPdvMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
+  id: UplinkPdvComposite30
+  name: uplink-pdv-composite30-name
+  description: uplink-pdv-composite30-desc
+  productEntity: SheetPdvComposite30
+  icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: plastitaniumglass_3 }
+  cost:
+    Doubloon: 150
+  categories:
+  - UplinkPdvMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink

@@ -9,10 +9,8 @@
   id: HeliosFortress
   parent: [BasePOI, BaseRepairablePOI]
   name: 'PDV Helios Fortress'
-  minimumDistance: 8600
-  maximumDistance: 11500
-  #posX: -5000
-  #posY: 9000
+  minimumDistance: 15000
+  maximumDistance: 17500
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoRogueUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce, MonoChimeraPdv ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/pdvhelios.yml
@@ -20,6 +18,8 @@
   - type: IFF
     color: "#DE9E59"
     readOnly: true # mono
+    flags:
+    - HideLabelAlways # hidden
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # Dead zone
@@ -48,7 +48,7 @@
           stationDescription: 'frontier-lobby-pirate-description'
         - type: StationJobs
           availableJobs:
-            PdvCivilian: [ -1, -1 ]
+            # PdvCivilian: [ -1, -1 ]
             PirateCaptain: [ 1, 1 ]
             PirateFirstMate: [ 1, 1 ]
             PDVDenasvar: [ 3, 3 ]

@@ -1,8 +1,8 @@
 - type: entity
   name: TCA CS/LR-8 Drozd (.45 ACP)
-  parent: BaseWeaponSubMachineGun
+  parent: [BaseWeaponSubMachineGun, BaseFactionGearTSFT1]
   id: WeaponSubMachineGunDrozd
-  description: An SMG that once found use among NT security forces, now has found itself as one of the most reliable boarding and anti-boarding weapons on the market. Uses .45 ACP ammo. The barrel is threaded for suppressors, and an Erebus railmount is on the bottom for grips.
+  description: An SMG of which the inventor has been long forgotten, now has found itself as one of the most reliable boarding and anti-boarding weapons on the market. Uses .45 ACP ammo. The barrel is threaded for suppressors, and an Erebus railmount is on the bottom for grips.
   components:
   - type: Item # Mono
     size: Large

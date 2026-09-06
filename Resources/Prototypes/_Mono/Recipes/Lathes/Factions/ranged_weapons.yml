@@ -90,9 +90,7 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 1500
-    Plasteel: 1200
-    Plastic: 1500
+    PdvComposite: 1000
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -147,9 +145,7 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 1500
-    Plasteel: 800
-    Plastic: 1200
+    PdvComposite: 1000
 
 # TSF MR-8
 
@@ -278,10 +274,7 @@
   - Energy
   - Weapons
   materials:
-    Steel: 500
-    Plasteel: 1500
-    Silver: 250
-    Uranium: 250
+    PdvComposite: 1000
 
 # PDV basic
 
@@ -353,7 +346,7 @@
   materials:
     Steel: 700
     Plasteel: 750
-    Plastic: 1000
+    Plastic: 500
     Wood: 500
 
 - type: latheRecipe
@@ -365,10 +358,7 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 1800
-    Plasteel: 800
-    Plastic: 1200
-    Silver: 100
+    PdvComposite: 1000
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -379,9 +369,7 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 1200
-    Plasteel: 1500
-    Plastic: 1750
+    PdvComposite: 750
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -392,10 +380,7 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 2500
-    Plasteel: 1200
-    Plastic: 800
-    Silver: 200
+    PdvComposite: 1000
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -406,7 +391,7 @@
   - Weapons
   - Antitank
   materials:
-    Steel: 2000
+    Steel: 1700
     Plasteel: 500
     Plastic: 500
     Silver: 200
@@ -422,13 +407,8 @@
   - LMGs
   - Ballistic
   - Weapons
-  materials:
-    Steel: 3500
-    Plasteel: 2500
-    Plastitanium: 1500
-    Plastic: 1000
-    Silver: 500
-    Gold: 250
+  materials: # plastit cost removed because 20 adamantite is 100 DC, and this gun also only costs 100 DC in the uplink anyways
+    PdvComposite: 2000
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -441,12 +421,8 @@
   - Weapons
   - Antitank
   materials:
-    Steel: 3000
-    Plasteel: 2500
-    Plastitanium: 2000
-    Plastic: 800
-    Silver: 700
-    Gold: 650
+    Plastitanium: 500
+    PdvComposite: 2000
 
 # hristov
 
@@ -461,11 +437,7 @@
   - Weapons
   - Antitank
   materials:
-    Steel: 7500
-    Plasteel: 3000
-    Plastic: 1000
-    Silver: 2000
-    Uranium: 400
+    PdvComposite: 2000
 
 # Ussp guns
 
