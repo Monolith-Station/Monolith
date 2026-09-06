@@ -346,16 +346,9 @@
   abstract: true
   components:
   - type: Food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 5
   - type: FlavorProfile
     flavors:
-    - chicken # everything kinda tastes like chicken
+      - chicken
   - type: Tag
     tags:
     - Meat
