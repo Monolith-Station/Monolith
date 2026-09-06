@@ -9,6 +9,7 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Client.UserInterface.Controls;
+using Content.Shared._Mono.Persistence;
 using Content.Shared._Mono.Company;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
@@ -32,6 +33,7 @@ using Robust.Client.Utility;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
@@ -54,6 +56,17 @@ namespace Content.Client.Lobby.UI
         private readonly LobbyUIController _controller;
         private readonly EntityWhitelistSystem _whitelist; // Frontier
         private readonly CompanyManager _companyManager; // Mono
+        private readonly MapLoaderSystem _mapLoader;
+        private readonly BoxContainer _savedItemsTab = new()
+        {
+            Orientation = LayoutOrientation.Vertical,
+            Margin = new Thickness(10),
+        };
+        private readonly BoxContainer _savedItemsList = new()
+        {
+            Orientation = LayoutOrientation.Vertical,
+        };
+        private readonly List<EntityUid> _savedItemEntities = [];
 
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
@@ -134,6 +147,11 @@ namespace Content.Client.Lobby.UI
             _resManager = resManager;
             _requirements = requirements;
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
+            _mapLoader = _entManager.System<MapLoaderSystem>();
+
+            var savedItemsScroll = new ScrollContainer { VerticalExpand = true };
+            savedItemsScroll.AddChild(_savedItemsList);
+            _savedItemsTab.AddChild(savedItemsScroll);
 
             _whitelist = _entManager.System<EntityWhitelistSystem>(); // Frontier
 
@@ -1207,11 +1225,97 @@ namespace Content.Client.Lobby.UI
             RefreshSpecies();
             RefreshTraits();
             RefreshFlavorText();
+            RefreshSavedItems();
             ReloadPreview();
 
             if (Profile != null)
             {
                 PreferenceUnavailableButton.SelectId((int) Profile.PreferenceUnavailable);
+            }
+        }
+
+        private void RefreshSavedItems()
+        {
+            foreach (var entity in _savedItemEntities)
+                _entManager.DeleteEntity(entity);
+
+            _savedItemEntities.Clear();
+            _savedItemsList.DisposeAllChildren();
+
+            var previews = new List<(PersistentProfileItem Item, EntityUid Entity)>();
+            foreach (var item in Profile?.Items ?? [])
+            {
+                using var reader = new StringReader(item.Data);
+                if (!_mapLoader.TryLoadEntity(reader, "persistent profile item", out var entity))
+                    continue;
+
+                previews.Add((item, entity.Value.Owner));
+                _savedItemEntities.Add(entity.Value.Owner);
+            }
+
+            if (previews.Count == 0)
+            {
+                if (_savedItemsTab.Parent == TabContainer)
+                    TabContainer.RemoveChild(_savedItemsTab);
+
+                return;
+            }
+
+            if (_savedItemsTab.Parent == null)
+                TabContainer.AddChild(_savedItemsTab);
+
+            TabContainer.SetTabTitle(
+                _savedItemsTab,
+                Loc.GetString("humanoid-profile-editor-saved-items-tab"));
+
+            _savedItemsList.AddChild(new Label
+            {
+                Text = Loc.GetString("humanoid-profile-editor-saved-items-header"),
+                Margin = new Thickness(0, 0, 0, 10),
+            });
+
+            foreach (var (item, entity) in previews)
+            {
+                var row = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Horizontal,
+                    Margin = new Thickness(0, 0, 0, 5),
+                };
+
+                var sprite = new SpriteView
+                {
+                    MinSize = new Vector2(64, 64),
+                    Scale = new Vector2(3, 3),
+                };
+                sprite.SetEntity(entity);
+                row.AddChild(sprite);
+                row.AddChild(new Label
+                {
+                    Text = _entManager.GetComponent<MetaDataComponent>(entity).EntityName,
+                    VerticalAlignment = VAlignment.Center,
+                    HorizontalExpand = true,
+                    Margin = new Thickness(10, 0),
+                });
+
+                var notes = new List<string>();
+                if (item.Sticky)
+                    notes.Add(Loc.GetString("humanoid-profile-editor-saved-item-sticky"));
+                else if (_entManager.HasComponent<PersistAtRoundEndComponent>(entity))
+                    notes.Add(Loc.GetString("humanoid-profile-editor-saved-item-round-end"));
+
+                if (notes.Count > 0)
+                {
+                    row.AddChild(new Label
+                    {
+                        Text = "(!)",
+                        FontColorOverride = Color.Yellow,
+                        MouseFilter = MouseFilterMode.Stop,
+                        ToolTip = string.Join("\n", notes),
+                        VerticalAlignment = VAlignment.Center,
+                    });
+                }
+
+                _savedItemsList.AddChild(row);
             }
         }
 
@@ -1606,6 +1710,11 @@ namespace Content.Client.Lobby.UI
 
             _loadoutWindow?.Dispose();
             _loadoutWindow = null;
+
+            foreach (var entity in _savedItemEntities)
+                _entManager.DeleteEntity(entity);
+
+            _savedItemEntities.Clear();
         }
 
         protected override void EnteredTree()
@@ -2130,7 +2239,9 @@ namespace Content.Client.Lobby.UI
             {
                 var profile = _entManager.System<HumanoidAppearanceSystem>().FromStream(file, _playerManager.LocalSession!);
                 var oldProfile = Profile;
-                profile = profile.WithBankBalance(oldProfile.BankBalance); // Frontier: no free money (enforce import, don't care about import)
+                profile = profile
+                    .WithBankBalance(oldProfile.BankBalance)
+                    .WithPersistentData(oldProfile.Flags, oldProfile.Components, oldProfile.Items); // Mono: no free money and no becoming God
                 SetProfile(profile, CharacterSlot);
 
                 IsDirty = !profile.MemberwiseEquals(oldProfile);
