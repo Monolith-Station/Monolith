@@ -33,3 +33,4 @@ research-technology-rogue-hf-sword = Weaponised Resonance Technology
 research-technology-rogue-syndicate-tacsuits = Metamaterial Fibers
 research-technology-pdv-advanced-module = PDV Advanced Cyborg Module Development
 research-technology-rogue-heavy-weapons = Heavy Ballistics
+research-technology-PDV-large-explosives= PDV Hardbombs

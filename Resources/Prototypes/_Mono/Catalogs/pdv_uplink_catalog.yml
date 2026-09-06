@@ -1638,6 +1638,22 @@
 
 # end T4
 
+- type: listing
+  id: UplinkHardBombPDV
+  name:  uplink-HardBomb-PDV-name
+  description: uplink-HardBomb-PDV-desc
+  productEntity: PDVBomb
+  icon: { sprite: _Mono/Structures/Machines/bomb_PDV.rsi, state: syndicate-bomb }
+  cost:
+    Doubloon: 75
+  categories:
+  - UplinkPirateExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
 # MARK: Materials
 
 - type: listing
