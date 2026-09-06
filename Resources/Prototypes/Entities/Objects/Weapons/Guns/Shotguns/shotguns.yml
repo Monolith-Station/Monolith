@@ -149,6 +149,9 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+  - type: StealTarget # Mono
+    stealGroup:
+    - PDVWeapons
 
 - type: entity
   name: double-barreled shotgun (12 gauge)

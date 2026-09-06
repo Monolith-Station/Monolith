@@ -148,6 +148,9 @@
         whitelist:
           tags:
           - MonoOptic8x
+  - type: StealTarget
+    stealGroup:
+    - TSFGuns
 
 - type: entity
   name: TCA QJY-68 Grizzly (6.8x52mm caseless)

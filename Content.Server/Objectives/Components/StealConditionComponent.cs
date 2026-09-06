@@ -29,6 +29,12 @@ public sealed partial class StealConditionComponent : Component
     public bool CheckStealAreas = false;
 
     /// <summary>
+    /// Mono - check other company members for this objective
+    /// </summary>
+    [DataField]
+    public bool CheckCompanyMembers = false;
+
+    /// <summary>
     /// If the target may be alive but has died, it will not be counted
     /// </summary>
     [DataField]

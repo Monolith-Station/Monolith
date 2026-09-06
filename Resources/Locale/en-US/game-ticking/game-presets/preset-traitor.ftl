@@ -46,3 +46,8 @@ traitor-role-codewords-short =
     {$codewords}.
 traitor-role-uplink-code-short = Your uplink code is {$code}. Set it as your PDA ringtone to access uplink.
 traitor-role-uplink-implant-short = Your uplink was implanted. Access it from your hotbar.
+
+
+# Mono
+objective-issuer-pdv = [color=tan]Phaeton Dynasty Military Command[/color]
+objective-issuer-tsf = [color=cornflowerblue]Winter Solstice[/color]

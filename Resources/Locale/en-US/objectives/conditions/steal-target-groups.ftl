@@ -65,3 +65,19 @@ steal-target-groups-animal-morty = Morty
 steal-target-groups-animal-renault = Renault
 steal-target-groups-animal-shiva = Shiva
 steal-target-groups-animal-tropico = Tropico
+
+# Mono
+steal-target-groups-weapon-cc = judge weapon
+steal-target-groups-organs-chimera = organ
+steal-target-groups-suits-tsf = T2/T3 tacsuit
+steal-target-groups-guns-tsf = T3 gun
+steal-target-groups-guns-tsf-frost = QBH-5 FROST
+steal-target-groups-mmc-tools = proprietary tool
+steal-target-groups-mmc-flatpacks = autosurgeon flatpack
+steal-target-groups-comps = T3/T4 machine component
+steal-target-groups-pdv-cybernetics = cybernetic
+steal-target-groups-pdv-weapons = T2/T3 weapon
+steal-target-groups-mono-disks = tech disk
+steal-target-groups-monolith-crystals = crystal
+steal-target-groups-blackboxes = blackbox data recorder
+steal-target-groups-lpcs = T2+ LPC

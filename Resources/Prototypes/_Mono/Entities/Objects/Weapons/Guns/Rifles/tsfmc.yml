@@ -67,6 +67,9 @@
     vendPrice: 9000
   - type: PirateBountyItem
     id: ExperimentalFactionWeapon
+  - type: StealTarget
+    stealGroup:
+    - TSFGuns
 
 - type: entity
   name: TCA QBZ-410 Lecter (6.8x52mm Caseless)

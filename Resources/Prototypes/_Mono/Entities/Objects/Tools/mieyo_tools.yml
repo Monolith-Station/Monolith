@@ -20,6 +20,9 @@
   - type: StaticPrice
     price: 20
     vendPrice: 4000
+  - type: StealTarget
+    stealGroup:
+    - MMCTools
 
 - type: entity
   id: ShipRepairDeviceMMC
@@ -42,6 +45,9 @@
   - type: StaticPrice
     price: 1500
     vendPrice: 40000
+  - type: StealTarget
+    stealGroup:
+    - MMCTools
 
 - type: entity
   id: RCDMMC
@@ -61,6 +67,9 @@
   - type: StaticPrice
     price: 55
     vendPrice: 20000
+  - type: StealTarget
+    stealGroup:
+    - MMCTools
 
 - type: entity
   id: RCDMMCEmpty
@@ -89,6 +98,9 @@
   - type: StaticPrice
     price: 55
     vendPrice: 15000
+  - type: StealTarget
+    stealGroup:
+    - MMCTools
 
 - type: entity
   id: RPDMMCEmpty
@@ -120,6 +132,9 @@
   - type: StaticPrice
     price: 300
     vendPrice: 50000
+  - type: StealTarget
+    stealGroup:
+    - MMCTools
 
 - type: entity
   parent: MotionDetector
@@ -138,3 +153,6 @@
   - type: StaticPrice
     price: 300
     vendPrice: 22500
+  - type: StealTarget
+    stealGroup:
+    - MMCTools

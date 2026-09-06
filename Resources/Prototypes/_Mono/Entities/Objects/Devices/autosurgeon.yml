@@ -62,6 +62,9 @@
     targetBodyPart: Torso
     targetOrgan: Lungs
     newPartProto: OrganInternalAirSystem
+  - type: StealTarget
+    stealGroup:
+    - PDVCybernetics
 
 - type: entity
   parent: BaseNFFlatpack
@@ -76,12 +79,15 @@
   - type: Sprite
     layers:
     - state: medical_lathe
+  - type: StealTarget
+    stealGroup:
+    - PDVCybernetics
 
 
 # Dermal armor
 
 - type: entity
-  parent: BaseAutosurgeonMieyo
+  parent: BaseAutosurgeon
   id: AutosurgeonDermalArmorPDV
   name: PDV autosurgeon (E-SAPI dermal armor)
   description: Implants an array of E-SAPI armor plates into the body. Makes you more vulnerable to heat and shock, but makes you more resistant to bullets.
@@ -99,6 +105,9 @@
             Piercing: 0.85
             Blunt: 0.9
             Slash: 0.9
+  - type: StealTarget
+    stealGroup:
+    - PDVCybernetics
 
 - type: entity
   parent: BaseNFFlatpack
@@ -113,6 +122,9 @@
   - type: Sprite
     layers:
     - state: medical_lathe
+  - type: StealTarget
+    stealGroup:
+    - PDVCybernetics
 
 - type: entity
   parent: BaseAutosurgeon
@@ -124,6 +136,9 @@
     targetBodyPart: Torso
     targetOrgan: Heart
     newPartProto: OrganPDVAdvancedHeart
+  - type: StealTarget
+    stealGroup:
+    - PDVCybernetics
 
 - type: entity
   parent: BaseNFFlatpack
@@ -138,6 +153,9 @@
   - type: Sprite
     layers:
     - state: medical_lathe
+  - type: StealTarget
+    stealGroup:
+    - PDVCybernetics
 
 # Mieyo
 
@@ -202,6 +220,10 @@
   - type: Sprite
     layers:
     - state: medical_lathe
+  - type: StealTarget
+    stealGroup:
+    - MMCFlatpacks
+    - MMCTools
 
 # Right mantis blade
 
@@ -231,6 +253,10 @@
   - type: Sprite
     layers:
     - state: medical_lathe
+  - type: StealTarget
+    stealGroup:
+    - MMCFlatpacks
+    - MMCTools
 
 # Left mantis blade
 
@@ -260,6 +286,10 @@
   - type: Sprite
     layers:
     - state: medical_lathe
+  - type: StealTarget
+    stealGroup:
+    - MMCFlatpacks
+    - MMCTools
 
 # Sandevistan
 
@@ -287,3 +317,7 @@
   - type: Sprite
     layers:
     - state: medical_lathe
+  - type: StealTarget
+    stealGroup:
+    - MMCFlatpacks
+    - MMCTools

@@ -294,6 +294,9 @@
     - Andromeda
   - type: StaticPrice
     vendPrice: 600000
+  - type: StealTarget
+    stealGroup:
+    - TSFLPCs
 
 - type: entity
   parent: BaseShipLPCRenewable
@@ -319,6 +322,9 @@
     - Spekter
   - type: StaticPrice
     vendPrice: 300000
+  - type: StealTarget
+    stealGroup:
+    - TSFLPCs
 
 - type: entity
   parent: ShipVoucherTsfT0
@@ -342,6 +348,9 @@
     vessels:
     - Andromeda
     - Spekter
+  - type: StealTarget
+    stealGroup:
+    - TSFLPCs
 
 # end T2
 
@@ -371,6 +380,9 @@
     - Altair
   - type: StaticPrice
     vendPrice: 800000
+  - type: StealTarget
+    stealGroup:
+    - TSFLPCs
 
 - type: entity
   parent: BaseShipLPCRenewable
@@ -396,6 +408,9 @@
     - TSFNPolaris
   - type: StaticPrice
     vendPrice: 800000
+  - type: StealTarget
+    stealGroup:
+    - TSFLPCs
 
 - type: entity
   parent: BaseShipLPCRenewable
@@ -421,6 +436,9 @@
     - Fujian
   - type: StaticPrice
     vendPrice: 800000
+  - type: StealTarget
+    stealGroup:
+    - TSFLPCs
 
 # end T3
 
@@ -450,6 +468,9 @@
     - Flyssa
   - type: StaticPrice
     vendPrice: 1000000
+  - type: StealTarget
+    stealGroup:
+    - TSFLPCs
 
 # end T4
 

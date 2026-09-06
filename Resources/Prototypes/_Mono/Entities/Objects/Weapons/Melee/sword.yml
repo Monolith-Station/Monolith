@@ -68,6 +68,9 @@
   - type: Tag  # Mono
     tags:
     - VT7
+  - type: StealTarget
+    stealGroup:
+    - MonolithCrystals
 
 - type: entity
   name: VT-7 HF blade "Murasama"

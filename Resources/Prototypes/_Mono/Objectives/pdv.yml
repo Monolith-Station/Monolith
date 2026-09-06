@@ -1,0 +1,331 @@
+- type: weightedRandom
+  id: PDVOperations
+  weights:
+    PDVOperationStealCCDisk: 0.2
+    PDVOperationChimeraOrgans: 0.1
+    PDVOperationTSFGear: 0.5
+    PDVOperationMMCGear: 0.4
+    PDVOperationMMCAndCCTheft: 0.2
+    PDVOperationBodyParts: 0.05
+    PDVOperationHell: 0.05
+    PDVOperationHighTechAdventure: 0.3
+    PDVOperationKillEveryone: 0.1
+    PDVOperationKill7BillionPeople: 0.01
+
+# Mixed ops
+
+- type: nukieOperation
+  id: PDVOperationMMCAndCCTheft
+  operationObjectives:
+  - PDVDisarmCCObjective
+  - PDVMMCToolsObjective
+
+- type: nukieOperation
+  id: PDVOperationBodyParts
+  operationObjectives:
+  - PDVChimeraOrgansObjective
+  - PDVMMCAutosurgeonFlatpacksObjective
+
+- type: nukieOperation
+  id: PDVOperationHell
+  operationObjectives:
+  - PDVChimeraOrgansObjective
+  - PDVStealDiskObjective
+  - PDVTSFFrostObjective
+
+- type: nukieOperation
+  id: PDVOperationHighTechAdventure
+  operationObjectives:
+  - PDVTSFFrostObjective
+  - PDVMMCToolsObjective
+  - PDVComponentsObjective
+
+- type: nukieOperation
+  id: PDVOperationKillEveryone
+  operationObjectives:
+  - PDVStealDiskObjective
+  - PDVComponentsObjective
+  - PDVKillRandomPersonObjective # there is an arabic saying
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+
+- type: nukieOperation
+  id: PDVOperationKill7BillionPeople # Even funnier.
+  operationObjectives:
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+  - PDVKillRandomPersonObjective
+
+# PDV CC theft stuff
+
+- type: nukieOperation
+  id: PDVOperationStealCCDisk
+  operationObjectives:
+  - PDVStealDiskObjective
+  - PDVDisarmCCObjective
+
+- type: entity
+  parent: BaseStealObjective
+  id: PDVStealDiskObjective
+  components:
+  - type: Objective
+    difficulty: 4.0
+    issuer: objective-issuer-pdv
+    icon:
+      sprite: Objects/Misc/nukedisk.rsi
+      state: icon
+  - type: StealCondition
+    stealGroup: NukeDisk
+    owner: objective-condition-steal-cc
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+- type: entity
+  parent: BaseStealObjective
+  id: PDVDisarmCCObjective
+  components:
+  - type: Objective
+    difficulty: 1.0
+    issuer: objective-issuer-pdv
+    icon:
+      sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+      state: base
+  - type: StealCondition
+    minCollectionSize: 2
+    maxCollectionSize: 4
+    stealGroup: CCWeapons
+    owner: objective-condition-steal-cc
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+# PDV Chimera stuff
+
+- type: nukieOperation
+  id: PDVOperationChimeraOrgans
+  operationObjectives:
+  - PDVChimeraOrgansObjective
+
+- type: entity
+  parent: BaseStealObjective
+  id: PDVChimeraOrgansObjective
+  components:
+  - type: Objective
+    difficulty: 6.0
+    issuer: objective-issuer-pdv
+    icon:
+      sprite: _Mono/Mobs/Chimera/organs.rsi
+      state: brain
+  - type: StealCondition
+    minCollectionSize: 5
+    maxCollectionSize: 20
+    stealGroup: ChimeraOrgans
+    owner: objective-condition-steal-chimera
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+# PDV TSF stuff
+
+- type: nukieOperation
+  id: PDVOperationTSFGear
+  operationObjectives:
+  - PDVTSFSuitsObjective
+  - PDVTSFGunsObjective
+  - PDVTSFFrostObjective
+
+- type: entity
+  parent: BaseStealObjective
+  id: PDVTSFSuitsObjective
+  components:
+  - type: Objective
+    difficulty: 2.0
+    issuer: objective-issuer-pdv
+    icon:
+      sprite: _Mono/Clothing/OuterClothing/Hardsuits/m86.rsi
+      state: icon
+  - type: StealCondition
+    minCollectionSize: 1 # needs to be on person and suits are really big
+    maxCollectionSize: 2
+    stealGroup: TSFSuits
+    owner: objective-condition-steal-tsf
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+- type: entity
+  parent: BaseStealObjective
+  id: PDVTSFGunsObjective
+  components:
+  - type: Objective
+    difficulty: 2.0
+    issuer: objective-issuer-pdv
+    icon:
+      sprite: _Mono/Objects/Weapons/Guns/Rifles/xlr556.rsi
+      state: icon
+  - type: StealCondition
+    minCollectionSize: 1
+    maxCollectionSize: 4
+    stealGroup: TSFGuns
+    owner: objective-condition-steal-tsf
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+- type: entity
+  parent: BaseStealObjective
+  id: PDVTSFFrostObjective
+  components:
+  - type: Objective
+    difficulty: 2.0
+    issuer: objective-issuer-pdv
+    icon:
+      sprite: _Mono/Objects/Weapons/Guns/Battery/frost.rsi
+      state: base
+  - type: StealCondition
+    minCollectionSize: 1
+    maxCollectionSize: 1
+    stealGroup: TSFFrost
+    owner: objective-condition-steal-tsf
+    verifyMapExistence: true
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+# PDV MMC stuff
+
+- type: nukieOperation
+  id: PDVOperationMMCGear
+  operationObjectives:
+  - PDVMMCToolsObjective
+  - PDVMMCAutosurgeonFlatpacksObjective
+  - PDVComponentsObjective
+
+- type: entity
+  parent: BaseStealObjective
+  id: PDVMMCToolsObjective
+  components:
+  - type: Objective
+    difficulty: 2.0
+    issuer: objective-issuer-pdv
+    icon:
+      sprite: _Mono/Objects/Tools/mieyo_rpd.rsi
+      state: icon
+  - type: StealCondition
+    minCollectionSize: 4
+    maxCollectionSize: 15
+    stealGroup: MMCTools
+    owner: objective-condition-steal-mmc
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+- type: entity
+  parent: BaseStealObjective
+  id: PDVMMCAutosurgeonFlatpacksObjective
+  components:
+  - type: Objective
+    difficulty: 2.0
+    issuer: objective-issuer-pdv
+    icon:
+      sprite: _Goobstation/Objects/Devices/autosurgeon.rsi
+      state: icon-mmc
+  - type: StealCondition
+    minCollectionSize: 2
+    maxCollectionSize: 4 # Remember, these need to be carried on people!
+    stealGroup: MMCFlatpacks
+    owner: objective-condition-steal-mmc
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+- type: entity
+  parent: BaseStealObjective
+  id: PDVComponentsObjective
+  components:
+  - type: Objective
+    difficulty: 2.0
+    issuer: objective-issuer-pdv
+    icon:
+      sprite: _Mono/Objects/Materials/bayponents.rsi
+      state: armor4
+  - type: StealCondition
+    minCollectionSize: 4
+    maxCollectionSize: 12
+    stealGroup: EconomyComponentsT3T4
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+- type: entity
+  parent: BaseKillObjective
+  id: PDVKillRandomPersonObjective
+  description: Do it however you like.
+  components:
+  - type: Objective
+    difficulty: 1.75
+    unique: false
+    issuer: objective-issuer-pdv
+  - type: TargetObjective
+    title: objective-condition-kill-person-title
+  - type: ObjectiveBlacklistRequirement
+    blacklistedCompanies:
+    - PDV
+    blacklist:
+      components:
+      - SocialObjective
+  - type: PickRandomPerson

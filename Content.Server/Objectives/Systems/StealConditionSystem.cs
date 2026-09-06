@@ -1,5 +1,7 @@
+using Content.Server.Mind;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Components.Targets;
+using Content.Shared._Mono.Company;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
@@ -25,6 +27,7 @@ public sealed partial class StealConditionSystem : EntitySystem
     [Dependency] private SharedInteractionSystem _interaction = default!;
     [Dependency] private SharedObjectivesSystem _objectives = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MindSystem _mind = default!; // Mono
 
     private EntityQuery<ContainerManagerComponent> _containerQuery;
 
@@ -50,7 +53,7 @@ public sealed partial class StealConditionSystem : EntitySystem
         var query = AllEntityQuery<StealTargetComponent>();
         while (query.MoveNext(out var target))
         {
-            if (condition.Comp.StealGroup != target.StealGroup)
+            if (!target.StealGroup.Contains(condition.Comp.StealGroup)) // Mono
                 continue;
 
             targetList.Add(target);
@@ -107,6 +110,19 @@ public sealed partial class StealConditionSystem : EntitySystem
 
         _countedItems.Clear();
 
+        // Mono - Check all other company members if we have one and if the objective calls for it.
+        if (condition.CheckCompanyMembers && TryComp<CompanyComponent>(mind.CurrentEntity, out var mindCompany))
+        {
+            var companyQuery = AllEntityQuery<CompanyComponent, TransformComponent>();
+            while (companyQuery.MoveNext(out var uid, out var company, out var xform))
+            {
+                if (company.CompanyName == mindCompany.CompanyName
+                    && uid != mind.CurrentEntity)
+                {
+                    CheckEntity(uid, condition, ref containerStack, ref count);
+                }
+            }
+        }
         //check stealAreas
         if (condition.CheckStealAreas)
         {
@@ -167,12 +183,12 @@ public sealed partial class StealConditionSystem : EntitySystem
         counter += CheckStealTarget(entity, condition);
 
         //we don't check the inventories of sentient entity
-        if (!TryComp<MindContainerComponent>(entity, out var pullMind))
-        {
+        //if (!TryComp<MindContainerComponent>(entity, out var pullMind)) // Mono - remove !check for minds
+        //{
             // if it is a container check its contents
             if (_containerQuery.TryGetComponent(entity, out var containerManager))
                 containerStack.Push(containerManager);
-        }
+        //}
     }
 
     private int CheckStealTarget(EntityUid entity, StealConditionComponent condition)
@@ -184,7 +200,7 @@ public sealed partial class StealConditionSystem : EntitySystem
         if (!TryComp<StealTargetComponent>(entity, out var target))
             return 0;
 
-        if (target.StealGroup != condition.StealGroup)
+        if (!target.StealGroup.Contains(condition.StealGroup)) // Mono
             return 0;
 
         // check if cartridge is installed

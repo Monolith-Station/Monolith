@@ -156,6 +156,9 @@
       Steel: 1000
       Plastic: 1000
       Glass: 500
+  - type: StealTarget
+    stealGroup:
+    - EconomyComponentsT3T4
   - type: StaticPrice
     price: 2000
 
@@ -247,6 +250,9 @@
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: StealTarget
+    stealGroup:
+    - EconomyComponentsT3T4
   - type: StaticPrice
     price: 2500
 
@@ -308,6 +314,9 @@
     - type: MachinePart
       part: Capacitor
       rating: 4
+    - type: StealTarget
+      stealGroup:
+      - EconomyComponentsT3T4
     - type: StaticPrice
       price: 1400
 
@@ -360,6 +369,9 @@
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "componentbrick2"
+  - type: StealTarget
+    stealGroup:
+    - EconomyComponentsT3T4
   - type: StaticPrice
     price: 3000
 
@@ -376,6 +388,9 @@
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "componentbrick3"
+  - type: StealTarget
+    stealGroup:
+    - EconomyComponentsT3T4
   - type: StaticPrice
     price: 5000
 
@@ -454,6 +469,9 @@
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "electromagnet3"
+  - type: StealTarget
+    stealGroup:
+    - EconomyComponentsT3T4
   - type: StaticPrice
     price: 3000
 
@@ -490,6 +508,9 @@
     - type: Sprite
       sprite: _Mono/Objects/Materials/bayponents.rsi
       state: "radio2"
+    - type: StealTarget
+      stealGroup:
+      - EconomyComponentsT3T4
     - type: StaticPrice
       price: 1200
 
@@ -526,6 +547,9 @@
     - type: Sprite
       sprite: _Mono/Objects/Materials/bayponents.rsi
       state: "optics2"
+    - type: StealTarget
+      stealGroup:
+      - EconomyComponentsT3T4
     - type: StaticPrice
       price: 1200
 

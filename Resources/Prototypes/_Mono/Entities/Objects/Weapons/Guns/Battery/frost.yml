@@ -64,3 +64,7 @@
     autoRechargeRate: 125
   - type: PirateBountyItem # Mono
     id: ExperimentalFactionWeapon
+  - type: StealTarget
+    stealGroup:
+    - TSFGuns
+    - TSFFrost

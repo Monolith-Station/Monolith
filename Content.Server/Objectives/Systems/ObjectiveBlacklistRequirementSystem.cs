@@ -1,4 +1,5 @@
 using Content.Server.Objectives.Components;
+using Content.Shared._Mono.Company;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Whitelist;
 
@@ -26,6 +27,13 @@ public sealed partial class ObjectiveBlacklistRequirementSystem : EntitySystem
         foreach (var objective in args.Mind.Objectives)
         {
             if (_whitelistSystem.IsBlacklistPass(comp.Blacklist, objective))
+            {
+                args.Cancelled = true;
+                return;
+            }
+
+            // Mono
+            if (TryComp<CompanyComponent>(objective, out var userCompany) && comp.BlacklistedCompanies.Contains(userCompany.CompanyName))
             {
                 args.Cancelled = true;
                 return;

@@ -121,6 +121,9 @@
         whitelist:
           tags:
           - MonoOptic8x
+  - type: StealTarget
+    stealGroup:
+    - PDVWeapons
 
 - type: entity
   name: MA PDW-58 Atreides (5.7x28mm)
@@ -165,6 +168,9 @@
         whitelist:
           tags:
           - Cartridge57x28mmFMJ
+  - type: StealTarget
+    stealGroup:
+    - PDVWeapons
 
 - type: entity
   name: CS C-20r submachine gun (9x19mm)

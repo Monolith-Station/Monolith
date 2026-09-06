@@ -69,3 +69,6 @@
   - type: EyeCursorOffset
     maxOffset: 12
     pvsIncrease: 1.5
+  - type: StealTarget
+    stealGroup:
+    - PDVWeapons

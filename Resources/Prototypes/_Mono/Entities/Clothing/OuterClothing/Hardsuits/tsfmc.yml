@@ -112,6 +112,9 @@
   - type: StaticPrice
     price: 7500
     vendPrice: 1000
+  - type: StealTarget
+    stealGroup:
+    - TSFSuits
 
 - type: entity
   parent: ClothingOuterHardsuitBaseNFNfsd
@@ -152,6 +155,9 @@
     coefficient: 0.35
   - type: PirateBountyItem # Mono
     id: ClothingOuterHardsuitTacsuitHighValue
+  - type: StealTarget
+    stealGroup:
+    - TSFSuits
 
 - type: entity
   parent: [ClothingOuterHardsuitBaseNoPlateholder, MonoEnergyShieldClothing, BaseFactionGearTSFT3 ] # Jugger Suit
@@ -229,6 +235,9 @@
     autoRechargePauseTime: 5
   - type: UseDelay
     delay: 10
+  - type: StealTarget
+    stealGroup:
+    - TSFSuits
   - type: FootstepModifier # Mono
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
@@ -283,6 +292,9 @@
       head: ClothingHeadHelmetHardsuitM86Mk4
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StealTarget
+    stealGroup:
+    - TSFSuits
   - type: PersonalShield
     fillLevel: 0.15
     hexDensity: 3

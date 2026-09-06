@@ -10,6 +10,9 @@
     scale: 1
     requireNoGrid: true
     shape: square
+  - type: StealTarget
+    stealGroup:
+    - BlackBoxes
   - type: SpawnItemsOnUse
     items:
     # Money - 30k # removed
@@ -67,6 +70,9 @@
   description: Data recorder from a drone. Contains valuable components.
   suffix: Drone Loot
   components:
+  - type: StealTarget
+    stealGroup:
+    - BlackBoxes
   - type: SpawnItemsOnUse
     items:
     # Money - 80k # removed
@@ -116,6 +122,9 @@
   description: Data recorder from a drone. Contains valuable components.
   suffix: Drone Loot
   components:
+  - type: StealTarget
+    stealGroup:
+    - BlackBoxes
   - type: SpawnItemsOnUse
     items:
     # Money - 200k # removed

@@ -39,6 +39,9 @@
   - type: Tag
     tags:
     - Sidearm
+  - type: StealTarget
+    stealGroup:
+    - PDVWeapons
 
 - type: entity
   id: BulletHawk
@@ -98,6 +101,9 @@
     tags:
     - Sidearm
     - Dragoon
+  - type: StealTarget
+    stealGroup:
+    - PDVWeapons
 
 - type: entity
   id: BulletDragoon

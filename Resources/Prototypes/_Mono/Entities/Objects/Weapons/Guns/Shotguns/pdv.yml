@@ -80,3 +80,6 @@
   - type: SpeedModifiedOnWield
     walkModifier: 0.8 # It doesnt make much sense, but it takes forever to load this thing!
     sprintModifier: 0.8
+  - type: StealTarget
+    stealGroup:
+    - PDVWeapons

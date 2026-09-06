@@ -147,3 +147,6 @@
     baseDelay: 0.8
     modifiedDelay: 0.8
     preventFiring: true
+  - type: StealTarget
+    stealGroup:
+    - PDVWeapons

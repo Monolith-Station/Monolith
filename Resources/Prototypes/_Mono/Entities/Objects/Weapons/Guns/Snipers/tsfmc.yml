@@ -73,6 +73,9 @@
   - type: LaserPointer
     targetedColor: "#03c2fc"
     defaultColor: "#fc0324"
+  - type: StealTarget
+    stealGroup:
+    - TSFGuns
   - type: MeleeRequiresWield
   - type: MeleeWeapon
     attackRate: 0.6
@@ -231,6 +234,9 @@
         whitelist:
           tags:
           - MonoOptic8x
+  - type: StealTarget
+    stealGroup:
+    - TSFGuns
 
 - type: entity
   parent: BaseWeaponRifle # Mono

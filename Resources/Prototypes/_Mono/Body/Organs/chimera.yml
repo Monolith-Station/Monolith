@@ -24,6 +24,9 @@
           Quantity: 5
         - ReagentId: Slime
           Quantity: 5
+  - type: StealTarget
+    stealGroup:
+    - ChimeraOrgans
 
 - type: entity
   id: OrganChimeraStomach

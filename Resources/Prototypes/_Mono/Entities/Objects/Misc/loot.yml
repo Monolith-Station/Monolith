@@ -39,6 +39,9 @@
     damage:
       types:
         Blunt: 50
+  - type: StealTarget
+    stealGroup:
+    - MonolithCrystals
   - type: Tag
     tags:
     - Unstashable
@@ -85,6 +88,9 @@
     damage:
       types:
         Blunt: 50
+  - type: StealTarget
+    stealGroup:
+    - MonolithCrystals
   - type: Tag
     tags:
     - Unstashable
@@ -133,6 +139,9 @@
     damage:
       types:
         Blunt: 50
+  - type: StealTarget
+    stealGroup:
+    - MonolithCrystals
   - type: Tag
     tags:
     - Unstashable

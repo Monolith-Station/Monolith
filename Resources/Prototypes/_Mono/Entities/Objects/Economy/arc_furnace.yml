@@ -414,6 +414,9 @@
     - description: Can be cut with a knife to create four fragments.
       color: "#4f94ad"
       requireDetailRange: true
+  - type: StealTarget
+    stealGroup:
+    - EconomyComponentsT3T4
 
 - type: entity
   name: broken composite armor plate
@@ -523,6 +526,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: StealTarget
+    stealGroup:
+    - EconomyComponentsT3T4
 
 - type: entity
   name: broken EMAG armor plate

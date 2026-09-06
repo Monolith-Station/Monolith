@@ -1,0 +1,28 @@
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseFactionalObjectives
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - operationPrefix
+    - operationSuffix
+  - type: GameRule
+    minPlayers: 20
+    cancelPresetOnTooFewPlayers: false
+
+- type: entity
+  parent: BaseFactionalObjectives
+  id: PDVObjectives
+  components:
+  - type: NukieOperation
+    operations: PDVOperations
+    participatingCompany: PDV
+
+- type: entity
+  parent: BaseFactionalObjectives
+  id: TSFObjectives
+  components:
+  - type: NukieOperation
+    operations: TSFOperations
+    participatingCompany: TSF

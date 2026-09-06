@@ -58,6 +58,9 @@
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: StealTarget
+    stealGroup:
+    - PDVWeapons
 
 - type: entity
   name: CS KMP-WSPR (7.62x39mm)
@@ -164,6 +167,9 @@
     zeroVisible: true
   - type: Appearance
   - type: GunRequiresWield
+  - type: StealTarget
+    stealGroup:
+    - PDVWeapons
 
 - type: entity
   name: PD-VI M-32 Vympel (5.56x45mm)
@@ -455,6 +461,9 @@
     zeroVisible: true
   - type: Appearance
   - type: GunRequiresWield
+  - type: StealTarget
+    stealGroup:
+    - PDVWeapons
 
 - type: entity
   name: CS Burner (12.7x99mm)
@@ -512,3 +521,6 @@
     zeroVisible: true
   - type: Appearance
   - type: GunRequiresWield
+  - type: StealTarget
+    stealGroup:
+    - PDVWeapons

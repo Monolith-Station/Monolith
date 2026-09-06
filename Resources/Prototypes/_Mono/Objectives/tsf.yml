@@ -1,0 +1,280 @@
+- type: weightedRandom
+  id: TSFOperations
+  weights:
+    TSFOperationMonolithSurvey: 0.2
+    TSFOperationPDVDisarming: 0.2
+    TSFOperationIndustrial: 0.2
+    TSFOperationTechnology: 0.2
+    TSFOperationWhatever: 0.1
+    TSFOperationMMCGear: 0.05
+    TSFOperationIHateEveryone: 0.02
+
+# Mixed
+
+- type: nukieOperation
+  id: TSFOperationTechnology
+  operationObjectives:
+  - TSFTechDisksObjective
+  - TSFPDVCyberneticsObjective
+  - TSFMMCAutosurgeonFlatpacksObjective
+
+- type: nukieOperation
+  id: TSFOperationIndustrial
+  operationObjectives:
+  - TSFLPCsObjective
+  - TSFComponentsObjectiveBulk
+
+- type: nukieOperation
+  id: TSFOperationWhatever
+  operationObjectives:
+  - TSFPDVWeaponsObjective
+  - TSFComponentsObjectiveBulk
+  - TSFCrystalsObjective
+
+- type: nukieOperation
+  id: TSFOperationIHateEveryone
+  operationObjectives:
+  - TSFPDVWeaponsObjective
+  - TSFPDVCyberneticsObjective
+  - TSFMMCAutosurgeonFlatpacksObjective
+  - TSFMMCToolsObjective
+  - TSFBlackBoxesObjective
+
+# Mono survey (environmental and technology data)
+
+- type: nukieOperation
+  id: TSFOperationMonolithSurvey
+  operationObjectives:
+  - TSFBlackBoxesObjective
+  - TSFCrystalsObjective
+  - TSFTechDisksObjective
+
+- type: entity
+  parent: BaseStealObjective
+  id: TSFBlackBoxesObjective
+  components:
+  - type: Objective
+    difficulty: 1.0
+    issuer: objective-issuer-tsf
+    icon:
+      sprite: _NF/Objects/Tools/bundles.rsi
+      state: engi-base
+  - type: StealCondition
+    minCollectionSize: 2
+    maxCollectionSize: 4
+    stealGroup: BlackBoxes
+    owner: objective-condition-steal-drone
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+- type: entity
+  parent: BaseStealObjective
+  id: TSFCrystalsObjective
+  components:
+  - type: Objective
+    difficulty: 1.0
+    issuer: objective-issuer-tsf
+    icon:
+      sprite: _Mono/Objects/Materials/monolith_crystal.rsi
+      state: crystal_medium
+  - type: StealCondition
+    minCollectionSize: 2
+    maxCollectionSize: 12
+    stealGroup: MonolithCrystals
+    owner: objective-condition-steal-monolith
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+- type: entity
+  parent: BaseStealObjective
+  id: TSFTechDisksObjective
+  components:
+  - type: Objective
+    difficulty: 1.0
+    issuer: objective-issuer-tsf
+    icon:
+      sprite: _Mono/Objects/Specific/Research/researchdisk.rsi
+      state: icon
+  - type: StealCondition
+    minCollectionSize: 1
+    maxCollectionSize: 10
+    stealGroup: MonoTechDisks
+    owner: objective-condition-steal-sevas
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+# Mono survey (environmental and technology data)
+
+- type: nukieOperation
+  id: TSFOperationPDVDisarming
+  operationObjectives:
+  - TSFPDVWeaponsObjective
+  - TSFPDVCyberneticsObjective
+
+- type: entity
+  parent: BaseStealObjective
+  id: TSFPDVWeaponsObjective
+  components:
+  - type: Objective
+    difficulty: 1.0
+    issuer: objective-issuer-tsf
+    icon:
+      sprite: _Mono/Objects/Weapons/Guns/Rifles/basilisk.rsi
+      state: icon
+  - type: StealCondition
+    minCollectionSize: 2
+    maxCollectionSize: 10
+    stealGroup: PDVWeapons
+    owner: objective-condition-steal-pdv
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+- type: entity
+  parent: BaseStealObjective
+  id: TSFPDVCyberneticsObjective
+  components:
+  - type: Objective
+    difficulty: 1.0
+    issuer: objective-issuer-tsf
+    icon:
+      sprite: _Mono/Objects/Misc/cybernetics.rsi
+      state: internal_air_system
+  - type: StealCondition
+    minCollectionSize: 1
+    maxCollectionSize: 4
+    stealGroup: PDVCybernetics
+    owner: objective-condition-steal-pdv
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+# Misc
+
+- type: entity
+  parent: BaseStealObjective
+  id: TSFComponentsObjective # Identical to PDV, just different issuer
+  components:
+  - type: Objective
+    difficulty: 2.0
+    issuer: objective-issuer-tsf
+    icon:
+      sprite: _Mono/Objects/Materials/bayponents.rsi
+      state: armor4
+  - type: StealCondition
+    minCollectionSize: 4
+    maxCollectionSize: 12
+    stealGroup: EconomyComponentsT3T4
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+
+- type: entity
+  parent: TSFComponentsObjective
+  id: TSFComponentsObjectiveBulk
+  components:
+  - type: StealCondition
+    minCollectionSize: 8
+    maxCollectionSize: 24
+
+- type: entity
+  parent: BaseStealObjective
+  id: TSFLPCsObjective # Not theft, just making your own. Since they're expensive.
+  components:
+  - type: Objective
+    difficulty: 2.0
+    issuer: objective-issuer-tsf
+    icon:
+      sprite: _Mono/Objects/Misc/lpcnew.rsi
+      state: icon_capital
+  - type: StealCondition
+    minCollectionSize: 2
+    maxCollectionSize: 4
+    stealGroup: TSFLPCs
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+
+# MMC raiding
+
+- type: nukieOperation
+  id: TSFOperationMMCGear
+  operationObjectives:
+  - TSFMMCToolsObjective
+  - TSFMMCAutosurgeonFlatpacksObjective
+  - TSFComponentsObjective
+
+- type: entity
+  parent: BaseStealObjective
+  id: TSFMMCToolsObjective
+  components:
+  - type: Objective
+    difficulty: 2.0
+    issuer: objective-issuer-tsf
+    icon:
+      sprite: _Mono/Objects/Tools/mieyo_rpd.rsi
+      state: icon
+  - type: StealCondition
+    minCollectionSize: 2
+    maxCollectionSize: 6
+    stealGroup: MMCTools
+    owner: objective-condition-steal-mmc
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
+
+- type: entity
+  parent: BaseStealObjective
+  id: TSFMMCAutosurgeonFlatpacksObjective
+  components:
+  - type: Objective
+    difficulty: 2.0
+    issuer: objective-issuer-tsf
+    icon:
+      sprite: _Goobstation/Objects/Devices/autosurgeon.rsi
+      state: icon-mmc
+  - type: StealCondition
+    minCollectionSize: 3
+    maxCollectionSize: 6 # Remember, these need to be carried on people!
+    stealGroup: MMCFlatpacks
+    owner: objective-condition-steal-mmc
+    verifyMapExistence: false
+    checkStealAreas: true
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction
