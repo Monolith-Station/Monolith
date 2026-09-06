@@ -32,34 +32,33 @@ using Robust.Shared.Audio.Systems;
 using Content.Server.Administration.Logs; // Frontier
 using Content.Shared.Database; // Frontier
 using Content.Shared._NF.Bank.BUI; // Frontier
-using Content.Server._NF.Contraband.Systems; // Frontier
-using Content.Shared.Stacks; // Frontier
 using Content.Server.Stack;
 using Content.Server._Mono.VendingMachine;
 using Content.Shared._Mono.Traits.Physical;
-using Robust.Shared.Containers; // Frontier
+using Content.Shared._Mono.Economy; // Mono - Seperation of cash payment from VendingMachineComp
+using Content.Shared._Mono.Economy.Component;
 
 namespace Content.Server.VendingMachines
 {
     public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
     {
-        [Dependency] private IRobustRandom _random = default!;
-        [Dependency] private AccessReaderSystem _accessReader = default!;
-        [Dependency] private AppearanceSystem _appearanceSystem = default!;
-        [Dependency] private PricingSystem _pricing = default!;
-        [Dependency] private ThrowingSystem _throwingSystem = default!;
-        [Dependency] private IGameTiming _timing = default!;
-        [Dependency] private SpeakOnUIClosedSystem _speakOnUIClosed = default!;
-        [Dependency] private SharedPointLightSystem _light = default!;
-        [Dependency] private EmagSystem _emag = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+        [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
+        [Dependency] private readonly PricingSystem _pricing = default!;
+        [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
+        [Dependency] private readonly SharedPointLightSystem _light = default!;
+        [Dependency] private readonly EmagSystem _emag = default!;
 
-        [Dependency] private IPrototypeManager _prototypeManager = default!; // Frontier
-        [Dependency] private SharedAudioSystem _audioSystem = default!; // Frontier
-        [Dependency] private BankSystem _bankSystem = default!; // Frontier
-        [Dependency] private PopupSystem _popupSystem = default!; // Frontier
-        [Dependency] private IAdminLogManager _adminLogger = default!; // Frontier
-        [Dependency] private StackSystem _stack = default!; // Frontier
-        [Dependency] private VendingMachinePurchaseSystem _vendingPurchase = default!; // Mono
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // Frontier
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!; // Frontier
+        [Dependency] private readonly BankSystem _bankSystem = default!; // Frontier
+        [Dependency] private readonly PopupSystem _popupSystem = default!; // Frontier
+        [Dependency] private readonly IAdminLogManager _adminLogger = default!; // Frontier
+        [Dependency] private readonly VendingMachinePurchaseSystem _vendingPurchase = default!; // Mono
+        [Dependency] private readonly SharedCreditReceiverSystem _cash = default!; // Mono - Pwease chwose two pway wiw cawsh ow cwedit
 
         private const float WallVendEjectDistanceFromWall = 1f;
 
@@ -71,8 +70,9 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
-            SubscribeLocalEvent<VendingMachineComponent, EntInsertedIntoContainerMessage>(OnEntityInserted); // Frontier
-            SubscribeLocalEvent<VendingMachineComponent, EntRemovedFromContainerMessage>(OnEntityRemoved); // Frontier
+            //SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse); // Frontier: Upstream - #28984
+            //SubscribeLocalEvent<VendingMachineComponent, EntInsertedIntoContainerMessage>(OnEntityInserted); // Frontier //Mono: Moved this logic to CreditReceiverSystem
+            //SubscribeLocalEvent<VendingMachineComponent, EntRemovedFromContainerMessage>(OnEntityRemoved); // Frontier //Mono: Moved this logic to CreditReceiverSystem
 
             SubscribeLocalEvent<VendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
 
@@ -360,17 +360,7 @@ namespace Content.Server.VendingMachines
                 if (!HasComp<IronmanComponent>(sender) && TryComp<BankAccountComponent>(sender, out var bank))
                     bankBalance = bank.Balance;
 
-                int cashSlotBalance = 0;
-                Entity<StackComponent>? cashEntity = null;
-                if (component.CashSlotName != null
-                    && component.CurrencyStackType != null
-                    && ItemSlots.TryGetSlot(uid, component.CashSlotName, out var cashSlot)
-                    && TryComp<StackComponent>(cashSlot?.ContainerSlot?.ContainedEntity, out var stackComp)
-                    && stackComp!.StackTypeId == component.CurrencyStackType)
-                {
-                    cashSlotBalance = stackComp!.Count;
-                    cashEntity = (cashSlot!.ContainerSlot!.ContainedEntity.Value, stackComp!);
-                }
+                _cash.TryGetCash(uid, out _, out var cashSlotBalance); //Mono: Moved this logic to CreditReceiverSystem
 
                 if (totalPrice > bankBalance + cashSlotBalance)
                 {
@@ -385,15 +375,10 @@ namespace Content.Server.VendingMachines
 
                 if (TryEjectVendorItem(uid, type, itemId, component.CanShoot, component))
                 {
-                    if (cashEntity != null)
-                    {
-                        var newCashSlotBalance = Math.Max(cashSlotBalance - totalPrice, 0);
-                        _stack.SetCount(cashEntity.Value.Owner, newCashSlotBalance, cashEntity.Value.Comp);
-                        component.CashSlotBalance = newCashSlotBalance;
-                        paidFully = true; // Either we paid fully with cash, or we need to withdraw the remainder
-                    }
+                    paidFully = _cash.TryCashPayment(uid, totalPrice, out var _, true); // Mono - Attempt to pay with cash before credit
+
                     if (totalPrice > cashSlotBalance && !HasComp<Content.Shared._Mono.Traits.Physical.IronmanComponent>(sender))
-                        paidFully = _bankSystem.TryBankWithdraw(sender, totalPrice - cashSlotBalance);
+                        paidFully = _bankSystem.TryBankWithdraw(sender, totalPrice - cashSlotBalance); // Mono - if cash was not enough, pay the difference with credit
 
                     // If we paid completely, pay our station taxes
                     if (paidFully)
@@ -673,29 +658,14 @@ namespace Content.Server.VendingMachines
             args.Price += priceSets.Max();
         }
 
-        // Frontier: cash slot logic
-        private void OnEntityInserted(Entity<VendingMachineComponent> ent, ref EntInsertedIntoContainerMessage args)
-        {
-            if (ent.Comp.CashSlotName != null
-            && ent.Comp.CurrencyStackType != null
-            && ItemSlots.TryGetSlot(ent, ent.Comp.CashSlotName, out var slot)
-            && TryComp<StackComponent>(slot?.ContainerSlot?.ContainedEntity, out var stack)
-            && stack.StackTypeId == ent.Comp.CurrencyStackType)
-            {
-                ent.Comp.CashSlotBalance = stack.Count;
-            }
-            else
-            {
-                ent.Comp.CashSlotBalance = 0;
-            }
-            Dirty(ent, ent.Comp);
-        }
-
-        private void OnEntityRemoved(Entity<VendingMachineComponent> ent, ref EntRemovedFromContainerMessage args)
-        {
-            ent.Comp.CashSlotBalance = 0;
-            Dirty(ent, ent.Comp);
-        }
-        // End Frontier: cash slot logic
+        //private void OnEmpPulse(EntityUid uid, VendingMachineComponent component, ref EmpPulseEvent args) // Frontier: Upstream - #28984
+        //{
+        //    if (!component.Broken && this.IsPowered(uid, EntityManager))
+        //    {
+        //        args.Affected = true;
+        //        args.Disabled = true;
+        //        component.NextEmpEject = _timing.CurTime;
+        //    }
+        //}
     }
 }

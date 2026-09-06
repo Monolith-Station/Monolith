@@ -117,6 +117,8 @@
   description: Sells a variety of coffees, teas, and pastries.
   suffix: "0.35%"
   components:
+  - type: CreditReceiver
+    cashSlot: Null
   - type: VendingMachine
     pack: BaristaVendInventory
     dispenseOnHitChance: 0.25

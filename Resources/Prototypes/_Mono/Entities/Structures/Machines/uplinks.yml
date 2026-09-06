@@ -4,8 +4,9 @@
   name: TSFMC equipment requisition station
   description: A central TSFMC material access lift. Lets you access deep storage at the cost of FMC, which represent merit and accumulated resources.
   components:
-  - type: VendingMachine
+  - type: CreditReceiver
     cashSlot: Null
+  - type: VendingMachine
     offState: tsf
     brokenState: broken
     normalState: normal-unshaded
@@ -59,8 +60,9 @@
   name: PDV equipment requisition station
   description: A central PDV material access lift. Lets you access deep storage at the cost of data chits, which represent merit and accumulated resources.
   components:
-  - type: VendingMachine
+  - type: CreditReceiver
     cashSlot: Null
+  - type: VendingMachine
     offState: pdv
     brokenState: broken
     normalState: pdv-unshaded

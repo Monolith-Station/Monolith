@@ -118,8 +118,9 @@
   name: ContraVend
   description: Wanted across multiple sectors!
   components:
-  - type: VendingMachine
+  - type: CreditReceiver
     cashSlot: Null
+  - type: VendingMachine
     offState: off
     brokenState: broken
     normalState: normal-unshaded

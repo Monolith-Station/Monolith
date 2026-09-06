@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Economy.Component;
 using Content.Shared.VendingMachines;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -26,7 +27,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
     {
         if (_uiSystem.TryGetOpenUi<VendingMachineBoundUserInterface>(uid, VendingMachineUiKey.Key, out var bui))
         {
-            bui.Refresh();
+            bui.Update();
         }
     }
 
@@ -35,7 +36,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
     {
         if (_uiSystem.TryGetOpenUi<VendingMachineBoundUserInterface>(ent.Owner, VendingMachineUiKey.Key, out var bui))
         {
-            bui.Refresh();
+            bui.Update();
         }
     }
 
@@ -43,7 +44,7 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
     {
         if (_uiSystem.TryGetOpenUi<VendingMachineBoundUserInterface>(ent.Owner, VendingMachineUiKey.Key, out var bui))
         {
-            bui.Refresh();
+            bui.Update();
         }
     }
     // End Frontier
