@@ -25,7 +25,7 @@
     - Robotics
 
 - type: entity
-  parent: [ PartSiliconBase, BaseLeftArm ]
+  parent: [ PartSiliconBase, BaseEdibleSiliconLimb, BaseLeftArm ]
   id: LeftArmBorg
   name: cyborg left arm
   components:
@@ -40,7 +40,7 @@
     - BorgLArm
 
 - type: entity
-  parent: [ PartSiliconBase, BaseRightArm ]
+  parent: [ PartSiliconBase, BaseEdibleSiliconLimb, BaseRightArm ]
   id: RightArmBorg
   name: cyborg right arm
   components:
@@ -55,7 +55,7 @@
     - BorgRArm
 
 - type: entity
-  parent: [ PartSiliconBase, BaseLeftLeg ]
+  parent: [ PartSiliconBase, BaseEdibleSiliconLimb, BaseLeftLeg ]
   id: LeftLegBorg
   name: cyborg left leg
   components:
@@ -70,7 +70,7 @@
     - BorgLLeg
 
 - type: entity
-  parent: [ PartSiliconBase, BaseRightLeg ]
+  parent: [ PartSiliconBase, BaseEdibleSiliconLimb, BaseRightLeg ]
   id: RightLegBorg
   name: cyborg right leg
   components:
@@ -111,3 +111,29 @@
     tags:
     - Trash
     - BorgTorso
+
+- type: entity
+  id: BaseEdibleSiliconLimb
+  abstract: true
+  components:
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: siliconlimb
+  - type: SolutionContainerManager
+    solutions:
+      siliconlimb:
+        maxVol: 10
+        reagents:
+        - ReagentId: Iron
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - metallic
+  - type: Tag
+    tags:
+    - Meat
