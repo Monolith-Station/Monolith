@@ -1,4 +1,5 @@
 using Robust.Shared.Noise;
+using System.Numerics;
 using Robust.Shared.Serialization;
 using Robust.Shared.Prototypes;
 
@@ -19,6 +20,31 @@ public sealed partial class BiomeMetaLayer : IBiomeLayer
 
     [DataField]
     public float OriginBiasStrength;
+
+    [DataField]
+    public List<Vector2>? BiasCenters;
+
+    [DataField]
+    public float BiasPeriod;
+
+    public float GetBias(float x, float y)
+    {
+        if (BiasCenters == null)
+            return GetOriginBias(x, y, OriginBiasRadius, OriginBiasStrength);
+
+        var distance = float.PositiveInfinity;
+        foreach (var center in BiasCenters)
+        {
+            var offset = new Vector2(x, y) - center;
+            if (BiasPeriod > 0f)
+            {
+                offset.X -= MathF.Floor(offset.X / BiasPeriod + 0.5f) * BiasPeriod;
+                offset.Y -= MathF.Floor(offset.Y / BiasPeriod + 0.5f) * BiasPeriod;
+            }
+            distance = MathF.Min(distance, offset.LengthSquared());
+        }
+        return GetOriginBias(MathF.Sqrt(distance), 0f, OriginBiasRadius, OriginBiasStrength);
+    }
 
     public static float GetOriginBias(float x, float y, float radius, float strength)
     {

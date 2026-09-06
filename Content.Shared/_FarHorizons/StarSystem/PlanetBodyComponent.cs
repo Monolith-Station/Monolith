@@ -23,7 +23,13 @@ public sealed partial class PlanetBodyComponent : Component
     [DataField, AutoNetworkedField]
     public float Radius;
 
-    public float ApproachRadius => Radius * Planet.MAP_PIXEL_SIZE;
+    [DataField, AutoNetworkedField]
+    public float BodyScale = 1f;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ParentBody;
+
+    public float ApproachRadius => Radius * Planet.MAP_PIXEL_SIZE * BodyScale;
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]

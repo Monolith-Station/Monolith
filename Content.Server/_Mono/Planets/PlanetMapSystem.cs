@@ -79,7 +79,11 @@ public sealed partial class PlanetMapSystem : EntitySystem
                     break;
                 case PlanetBiomeLayer surface:
                     map = _maps.CreateMap(out _, runMapInit: false);
-                    _biomes.EnsurePlanet(map.Value, _prototypes.Index(surface.Biome), unchecked(seed + surface.SeedOffset));
+                    _biomes.EnsurePlanet(
+                        map.Value,
+                        _prototypes.Index(surface.Biome),
+                        unchecked(seed + surface.SeedOffset),
+                        atmosphere: surface.Atmosphere);
                     break;
                 default:
                     throw new ArgumentException($"Unknown planet layer {layer.GetType().Name}.");

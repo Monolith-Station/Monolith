@@ -22,12 +22,17 @@ public sealed partial class ShuttleMapControl
 
         handle.DrawCircle(starPos, starRadius, starSystem.StarSystem.Star.Color);
 
-        foreach (var planet in starSystem.StarSystem.Planets)
+        var bodies = EntManager.AllEntityQueryEnumerator<PlanetBodyComponent>();
+        while (bodies.MoveNext(out var uid, out var body))
         {
-            var planetPos = Vector2.Transform(planet.Position, matty);
+            if (body.StarSystemMap != shuttleTransform.MapUid || body.Index >= starSystem.StarSystem.Planets.Count)
+                continue;
+
+            var planet = starSystem.StarSystem.Planets[body.Index];
+            var planetPos = Vector2.Transform(_xformSystem.GetWorldPosition(uid), matty);
             planetPos = planetPos with { Y = -planetPos.Y };
             planetPos = ScalePosition(planetPos);
-            var planetRadius = Planet.MAP_PIXEL_SIZE * planet.Radius * MinimapScale;
+            var planetRadius = Planet.MAP_PIXEL_SIZE * planet.Radius * planet.BodyScale * MinimapScale;
             handle.DrawCircle(planetPos, planetRadius, Color.Gray);
         }
     }

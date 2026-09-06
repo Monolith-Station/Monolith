@@ -11,17 +11,19 @@ public sealed class RadarTerrainSampler
 {
     private readonly record struct Layer(FastNoiseLite Noise, float Threshold, bool Invert,
         Color Color, RadarTerrainSampler? Children, float OriginBiasRadius, float OriginBiasStrength,
-        int Tile, int[]? AllowedTiles, int CacheOffset = 0);
+        int Tile, int[]? AllowedTiles, BiomeMetaLayer? Bias, int CacheOffset = 0);
 
     private readonly Layer[] _layers;
     private readonly int[] _entityTiles;
     private readonly bool _hasTiles;
     private readonly int _matchCount;
+    private readonly float _wrapSize;
     public readonly Dictionary<string, Color> EntityColors = new();
 
     public RadarTerrainSampler(List<IBiomeLayer> layers, int seed, IPrototypeManager prototypes,
-        ISerializationManager serialization, bool includeEntities = true)
+        ISerializationManager serialization, bool includeEntities = true, float wrapSize = 0f)
     {
+        _wrapSize = wrapSize;
         var result = new List<Layer>();
         var entityTiles = new HashSet<int>();
         foreach (var layer in layers)
@@ -60,7 +62,7 @@ public sealed class RadarTerrainSampler
             else if (layer is BiomeMetaLayer meta)
             {
                 children = new RadarTerrainSampler(meta.Layers ?? prototypes.Index<BiomeTemplatePrototype>(meta.Template).Layers,
-                    seed, prototypes, serialization, includeEntities);
+                    seed, prototypes, serialization, includeEntities, wrapSize);
                 foreach (var (prototype, tint) in children.EntityColors)
                     EntityColors[prototype] = tint;
                 _hasTiles |= children._hasTiles;
@@ -68,7 +70,7 @@ public sealed class RadarTerrainSampler
             }
             var bias = layer as BiomeMetaLayer;
             result.Add(new Layer(noise, layer.Threshold, layer.Invert, color, children,
-                bias?.OriginBiasRadius ?? 0f, bias?.OriginBiasStrength ?? 0f, tileId, allowedTiles));
+                bias?.OriginBiasRadius ?? 0f, bias?.OriginBiasStrength ?? 0f, tileId, allowedTiles, bias));
         }
         _layers = result.ToArray();
         _matchCount = _layers.Length;
@@ -83,19 +85,19 @@ public sealed class RadarTerrainSampler
         entityTiles.CopyTo(_entityTiles);
     }
 
-    private static bool Matches(in Layer layer, int x, int y)
+    private bool Matches(in Layer layer, int x, int y)
     {
         if (layer.Threshold <= -1f && layer.OriginBiasStrength == 0f)
             return true;
 
-        var bias = BiomeMetaLayer.GetOriginBias(x, y, layer.OriginBiasRadius, layer.OriginBiasStrength);
+        var bias = layer.Bias?.GetBias(x, y) ?? 0f;
         var threshold = layer.Threshold - bias;
         if (threshold < -1f)
             return true;
         if (threshold > 1f)
             return false;
 
-        var value = layer.Noise.GetNoise(x, y);
+        var value = SharedBiomeSystem.SampleTerrain(layer.Noise, new Vector2i(x, y), _wrapSize);
         return (layer.Invert ? -value : value) + bias >= layer.Threshold;
     }
 
@@ -110,7 +112,7 @@ public sealed class RadarTerrainSampler
         return Pack(entity.A != 0 ? entity : ground);
     }
 
-    private static bool Matches(in Layer layer, int x, int y, Span<byte> cache, int index)
+    private bool Matches(in Layer layer, int x, int y, Span<byte> cache, int index)
     {
         if (cache.IsEmpty)
             return Matches(layer, x, y);

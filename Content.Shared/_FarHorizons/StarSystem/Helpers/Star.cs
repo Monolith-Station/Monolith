@@ -17,8 +17,8 @@ public sealed partial class Star
     [ViewVariables] public string Name;
     [ViewVariables] public float Rotation;
     [ViewVariables] public PlanetaryRings? Rings;
-    public const float NAV_PIXEL_SIZE = 500;
-    public const float MAP_PIXEL_SIZE = 500;
+    public const float NAV_PIXEL_SIZE = 2500;
+    public const float MAP_PIXEL_SIZE = 2500;
     public const string STAR_ENTITY = "StarEntity";
 
     public Star(StarTypePrototype proto, IPrototypeManager protoMan)

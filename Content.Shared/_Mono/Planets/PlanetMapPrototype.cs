@@ -30,4 +30,5 @@ public sealed partial class PlanetBiomeLayer : PlanetMapLayer
 {
     [DataField(required: true)] public ProtoId<BiomeTemplatePrototype> Biome;
     [DataField] public int SeedOffset;
+    [DataField] public bool Atmosphere = true;
 }

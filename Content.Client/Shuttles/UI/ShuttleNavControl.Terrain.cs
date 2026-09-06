@@ -2,6 +2,7 @@ using System.Numerics;
 using System.Threading.Tasks;
 using Content.Client._Mono.Radar;
 using Content.Shared._Mono.Radar;
+using Content.Shared._Mono.Planets;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Parallax.Biomes;
 using Robust.Client.Graphics;
@@ -90,6 +91,9 @@ public partial class ShuttleNavControl
         if (_consoleEntity is not { } console || !Matrix3x2.Invert(terrainToView, out var viewToTerrain))
             return;
         var tileSize = terrain.Comp.TileSize;
+        var halfWrap = EntManager.TryGetComponent<ToroidalMapComponent>(terrain.Owner, out var torus)
+            ? torus.Size / (2f * tileSize)
+            : float.PositiveInfinity;
         var bounds = viewToTerrain.TransformBox(new Box2(Vector2.Zero, size));
         bounds = new Box2(bounds.BottomLeft / tileSize, bounds.TopRight / tileSize);
         const int step = 1;
@@ -116,6 +120,12 @@ public partial class ShuttleNavControl
                     for (var x = 0; x < size.X; x++)
                     {
                         var position = Vector2.Transform(new Vector2(x + 0.5f, y + 0.5f), viewToTerrain) / tileSize;
+                        if (position.X < -halfWrap || position.X >= halfWrap ||
+                            position.Y < -halfWrap || position.Y >= halfWrap)
+                        {
+                            pixels[y * size.X + x] = default;
+                            continue;
+                        }
                         var index = new Vector2i((int)MathF.Floor(position.X), (int)MathF.Floor(position.Y));
                         if (index != previous)
                         {

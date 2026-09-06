@@ -11,6 +11,7 @@ public sealed partial class PlanetTypePrototype : IPrototype
     [DataField(required: true)] public string Name = default!;
     [DataField(required: true)] public string Shader = default!;
     [DataField(required: true)] public float EarthMass;
+    [DataField] public float BodyScale = 1f;
     [DataField] public float Rotation;
     [DataField(required: true)] public ProtoId<PlanetPalettePrototype> Palette;
     [DataField] public float HueShift;

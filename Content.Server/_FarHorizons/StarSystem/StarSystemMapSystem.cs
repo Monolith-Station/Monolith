@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.GameTicking;
 using Content.Server._CE.ZLevels.Core;
 using Content.Server._Mono.Planets;
@@ -8,6 +9,7 @@ using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server._FarHorizons.StarSystem;
 
@@ -19,6 +21,7 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
     [Dependency] private PvsOverrideSystem _pvs = default!;
     [Dependency] private PlanetMapSystem _planetMaps = default!;
     [Dependency] private CEZLevelsSystem _zLevels = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -62,11 +65,17 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
 
         if (_protoMan.TryIndex<EntityPrototype>(Planet.PLANET_ENTITY, out var planetEnt))
         {
+            var spawnedBodies = new List<EntityUid>();
             for (var i = 0; i < ent.Comp.StarSystem.Planets.Count; i++)
             {
                 var planet = ent.Comp.StarSystem.Planets[i];
-                var planetCoords = new EntityCoordinates(ent, planet.Position);
+                var center = planet.ParentIndex is { } parent
+                    ? Transform(spawnedBodies[parent]).LocalPosition
+                    : Vector2.Zero;
+                var position = center + _random.NextAngle().ToVec() * planet.Position.Length();
+                var planetCoords = new EntityCoordinates(ent, position);
                 var spawnedPlanet = SpawnAtPosition(planetEnt.ID, planetCoords);
+                spawnedBodies.Add(spawnedPlanet);
                 _metadata.SetEntityName(spawnedPlanet, planet.Name);
 
                 var body = EnsureComp<PlanetBodyComponent>(spawnedPlanet);
@@ -74,6 +83,8 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
                 body.Type = planet.Type;
                 body.Index = i;
                 body.Radius = planet.Radius;
+                body.BodyScale = planet.BodyScale;
+                body.ParentBody = planet.ParentIndex is { } parentIndex ? spawnedBodies[parentIndex] : null;
 
                 var planetProto = _protoMan.Index(planet.Type);
                 if (planetProto.Surface is { } surface)

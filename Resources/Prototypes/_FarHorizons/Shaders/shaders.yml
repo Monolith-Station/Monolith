@@ -4,7 +4,7 @@
   path: "/Textures/_FarHorizons/Shaders/StarSystem/main_sequence_star.swsl"
   params:
     parallaxFactor: 0.05
-    solarRadiusFactor: 25.0
+    solarRadiusFactor: 125.0
     axialPitch: 1.7
     ringDensity: 0.85
     perspectiveStrength: 0.013
@@ -25,7 +25,7 @@
   path: "/Textures/_FarHorizons/Shaders/StarSystem/gas_giant.swsl"
   params:
     parallaxFactor: 0.05
-    planetaryRadiusFactor: 1.0
+    planetaryRadiusFactor: 5.0
     hueShiftMultiplier: 0.1
     saturationShiftMultiplier: 0.1
     shadowSoftness: 0.25
@@ -41,7 +41,7 @@
   path: "/Textures/_FarHorizons/Shaders/StarSystem/ice_giant.swsl"
   params:
     parallaxFactor: 0.05
-    planetaryRadiusFactor: 1.0
+    planetaryRadiusFactor: 5.0
     hueShiftMultiplier: 0.1
     saturationShiftMultiplier: 0.1
     shadowSoftness: 0.25
@@ -54,6 +54,29 @@
 
 - type: shader
   id: RockyPlanet
+  kind: source
+  path: "/Textures/_FarHorizons/Shaders/StarSystem/rocky_planet.swsl"
+  params:
+    parallaxFactor: 0.1
+    planetaryRadiusFactor: 25.0
+    hueShiftMultiplier: 0.1
+    saturationShiftMultiplier: 0.1
+    shadowSoftness: 0.25
+    rotationSpeed: 0.005
+    rimGlowStrength: 0.75
+    axialPitch: 1.7
+    ringDensity: 0.85
+    perspectiveStrength: 0.013
+    roughness: 0.5
+    atmosphereSunScattering: 2.5
+    atmosphereHeightFalloff: 3.5
+    cloudSpeed: 0.01
+    cloudHeight: 0.02
+    cloudShadowStrength: 0.8
+    polarCapNoiseScale: 0.5
+
+- type: shader
+  id: IceMoon
   kind: source
   path: "/Textures/_FarHorizons/Shaders/StarSystem/rocky_planet.swsl"
   params:

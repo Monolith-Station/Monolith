@@ -23,8 +23,22 @@ public abstract partial class SharedStarSystemMapSystem : EntitySystem
             if (!_protoMan.TryIndex(entry.Planet, out var planetProto))
                 continue;
 
-            var position = new Vector2(MathF.Cos(entry.Angle), MathF.Sin(entry.Angle)) * entry.Distance;
-            planets.Add(new Planet(planetProto, _protoMan, entry, position));
+            var position = new Vector2(entry.Distance, 0f);
+            var parentIndex = planets.Count;
+            planets.Add(new Planet(planetProto, _protoMan, entry.Planet, position));
+
+            foreach (var moon in entry.Moons)
+            {
+                if (!_protoMan.TryIndex(moon.Moon, out var moonProto))
+                    continue;
+
+                planets.Add(new Planet(
+                    moonProto,
+                    _protoMan,
+                    moon.Moon,
+                    new Vector2(moon.Distance, 0f),
+                    parentIndex));
+            }
         }
 
         AsteroidBelt? belt = null;

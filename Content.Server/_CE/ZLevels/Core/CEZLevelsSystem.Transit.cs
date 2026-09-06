@@ -861,7 +861,7 @@ public sealed partial class CEZLevelsSystem
         foreach (var gridUid in movedGrids)
         {
             var zPhys = EnsureComp<CEZPhysicsComponent>(gridUid);
-            SetZPosition((gridUid, zPhys), SettleZone);
+            SetZPosition((gridUid, zPhys), 1f);
             SetZVelocity((gridUid, zPhys), 0f);
 
             _pvsOverride.AddGlobalOverride(gridUid);

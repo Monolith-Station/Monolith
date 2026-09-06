@@ -2,6 +2,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Maps;
+using Content.Shared._Mono.Planets;
 using Content.Shared.Parallax.Biomes.Layers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -210,7 +211,7 @@ public abstract partial class SharedBiomeSystem : EntitySystem
     {
         var real = new GridRealTiles { Map = _map, Grid = grid };
 
-        if (!CompiledBiome.TryGetTileLayer(layers, indices, ref real, out var layer, out var realTile))
+        if (!CompiledBiome.TryGetTileLayer(layers, indices, ref real, out var layer, out var realTile, GetWrapSize(grid)))
         {
             tile = null;
             return false;
@@ -223,7 +224,7 @@ public abstract partial class SharedBiomeSystem : EntitySystem
         }
 
         var tileLayer = (BiomeTileLayer) layer!.Source;
-        return TryGetTile(indices, layer.Noise!, tileLayer.Invert, tileLayer.Threshold, layer.TileDef!, tileLayer.Variants, out tile);
+        return TryGetTile(indices, layer.Noise!, tileLayer.Invert, tileLayer.Threshold, layer.TileDef!, tileLayer.Variants, grid, out tile);
     }
 
     private bool TryGetCompiledBiomeTile(CompiledBiomeLayer[] layers, Vector2i indices, Entity<MapGridComponent>? grid, [NotNullWhen(true)] out Tile? tile)
@@ -293,9 +294,9 @@ public abstract partial class SharedBiomeSystem : EntitySystem
     /// <summary>
     /// Gets the underlying biome tile, ignoring any existing tile that may be there.
     /// </summary>
-    private bool TryGetTile(Vector2i indices, FastNoiseLite noise, bool invert, float threshold, ContentTileDefinition tileDef, List<byte>? variants, [NotNullWhen(true)] out Tile? tile)
+    private bool TryGetTile(Vector2i indices, FastNoiseLite noise, bool invert, float threshold, ContentTileDefinition tileDef, List<byte>? variants, Entity<MapGridComponent>? grid, [NotNullWhen(true)] out Tile? tile)
     {
-        var found = noise.GetNoise(indices.X, indices.Y);
+        var found = SampleTerrain(noise, indices, GetWrapSize(grid));
         found = invert ? found * -1 : found;
 
         if (found < threshold)
@@ -348,7 +349,7 @@ public abstract partial class SharedBiomeSystem : EntitySystem
     {
         var compiled = GetCompiledBiome(layers, seed);
 
-        if (!CompiledBiome.TryGetEntityLayer(compiled.Layers, indices, tileRef.TypeId, out var layer))
+        if (!CompiledBiome.TryGetEntityLayer(compiled.Layers, indices, tileRef.TypeId, out var layer, GetWrapSize(grid)))
         {
             entity = null;
             return false;
@@ -464,6 +465,27 @@ public abstract partial class SharedBiomeSystem : EntitySystem
         [NotNullWhen(true)] out List<(string ID, Vector2 Position)>? decals)
     {
         return TryGetDecals(indices, layers, seed, grid == null ? null : (grid.Owner, grid), out decals);
+    }
+
+    private float GetWrapSize(Entity<MapGridComponent>? grid) =>
+        grid is { } terrain && TryComp<ToroidalMapComponent>(Transform(terrain.Owner).MapUid, out var torus)
+            ? torus.Size
+            : 0f;
+
+    public static float SampleTerrain(FastNoiseLite noise, Vector2i indices, float size)
+    {
+        if (size <= 0f)
+            return noise.GetNoise(indices.X, indices.Y);
+
+        var x = indices.X - MathF.Floor(indices.X / size) * size;
+        var y = indices.Y - MathF.Floor(indices.Y / size) * size;
+        var u = x / size;
+        var v = y / size;
+        u = u * u * (3f - 2f * u);
+        v = v * v * (3f - 2f * v);
+        var bottom = noise.GetNoise(x, y) * (1f - u) + noise.GetNoise(x - size, y) * u;
+        var top = noise.GetNoise(x, y - size) * (1f - u) + noise.GetNoise(x - size, y - size) * u;
+        return bottom * (1f - v) + top * v;
     }
 
     private FastNoiseLite GetNoise(FastNoiseLite seedNoise, int seed)

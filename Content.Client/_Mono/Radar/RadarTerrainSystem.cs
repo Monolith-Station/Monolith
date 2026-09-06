@@ -3,6 +3,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using System.Threading.Tasks;
 using Content.Shared.Parallax.Biomes;
+using Content.Shared._Mono.Planets;
 using Content.Shared.Parallax.Biomes.Layers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
@@ -168,7 +169,8 @@ public sealed class RadarTerrainSystem : EntitySystem
             return;
         if (chart.Sampler == null || chart.Layers != biome.Layers || chart.Seed != biome.Seed)
         {
-            chart.Sampler = new RadarTerrainSampler(biome.Layers, biome.Seed, _prototypes, _serialization);
+            chart.Sampler = new RadarTerrainSampler(biome.Layers, biome.Seed, _prototypes, _serialization,
+                wrapSize: CompOrNull<ToroidalMapComponent>(map)?.Size ?? 0f);
             chart.Layers = biome.Layers;
             chart.Seed = biome.Seed;
             chart.Preview.Clear();

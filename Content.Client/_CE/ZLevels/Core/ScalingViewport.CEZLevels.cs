@@ -518,7 +518,7 @@ public sealed partial class ScalingViewport
             ? transit.Arrival
                 ? MathHelper.Lerp(0.08f, 1f, progress)
                 : MathHelper.Lerp(1f, 0.08f, progress)
-            : MathHelper.Lerp(1f, 0.35f, progress);
+            : MathHelper.Lerp(1f, 1f / 0.35f, progress);
 
         void RenderBackdrop(EntityUid mapUid, MapComponent map, float scale, bool clear, bool parallax)
         {
@@ -782,7 +782,6 @@ public sealed partial class ScalingViewport
 
         eye.GetViewMatrixInv(out var inverseView, viewport.RenderScale);
         var size = (Vector2) viewport.Size / EyeManager.PixelsPerMeter;
-        // fragment coordinates start at the bottom left of the render target.
         var origin = Vector2.Transform(-size / 2f, inverseView);
         var axisX = Vector2.TransformNormal(new Vector2(size.X, 0f), inverseView);
         var axisY = Vector2.TransformNormal(new Vector2(0f, size.Y), inverseView);

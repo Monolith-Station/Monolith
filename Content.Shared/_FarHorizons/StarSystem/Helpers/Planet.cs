@@ -12,6 +12,7 @@ public sealed partial class Planet
     [ViewVariables] public string Name;
     [ViewVariables] public float EarthMass;
     [ViewVariables] public float Radius;
+    [ViewVariables] public float BodyScale;
     [ViewVariables] public float Rotation;
     [ViewVariables] public PlanetaryAtmosphere? Atmosphere;
     [ViewVariables] public PlanetaryLiquid? Liquid;
@@ -21,17 +22,23 @@ public sealed partial class Planet
     [ViewVariables] public float SaturationShift;
     [ViewVariables] public PlanetCustomValues CustomData;
     [ViewVariables] public PlanetaryRings? Rings;
+    [ViewVariables] public int? ParentIndex;
 
-    public const float NAV_PIXEL_SIZE = 10;
-    public const float MAP_PIXEL_SIZE = 10;
+    public const float NAV_PIXEL_SIZE = 50;
+    public const float MAP_PIXEL_SIZE = 50;
     public const string PLANET_ENTITY = "PlanetEntity";
 
-    public float ApproachRadius => Radius * MAP_PIXEL_SIZE;
+    public float ApproachRadius => Radius * MAP_PIXEL_SIZE * BodyScale;
 
-    public Planet(PlanetTypePrototype proto, IPrototypeManager protoMan, StarSystemPlanet entry, Vector2 position)
+    public Planet(PlanetTypePrototype proto,
+        IPrototypeManager protoMan,
+        ProtoId<PlanetTypePrototype> type,
+        Vector2 position,
+        int? parentIndex = null)
     {
         Position = position;
-        Type = entry.Planet;
+        Type = type;
+        ParentIndex = parentIndex;
         Name = proto.Name;
         Shader = proto.Shader;
         Palette = proto.Palette;
@@ -41,6 +48,7 @@ public sealed partial class Planet
         CustomData = proto.CustomData;
 
         EarthMass = proto.EarthMass;
+        BodyScale = proto.BodyScale;
         Radius = GetRadius(EarthMass);
 
         if (proto.Atmosphere is { } atmosphere)

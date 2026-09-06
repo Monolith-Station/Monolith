@@ -3,6 +3,7 @@ using Content.Shared._Mono.Detection;
 using Content.Shared._Mono.Radar;
 using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes;
+using Content.Shared._Mono.Planets;
 using Content.Shared.Parallax.Biomes.Layers;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
@@ -107,7 +108,8 @@ public sealed class RadarTerrainSystem : EntitySystem
             var biome = Comp<BiomeComponent>(map);
             if (!_charts.TryGetValue(map, out var chart) || chart.Seed != biome.Seed || chart.Layers != biome.Layers)
             {
-                chart = new Chart(biome.Seed, biome.Layers, new RadarTerrainSampler(biome.Layers, biome.Seed, _prototypes, _serialization));
+                chart = new Chart(biome.Seed, biome.Layers, new RadarTerrainSampler(biome.Layers, biome.Seed, _prototypes, _serialization,
+                wrapSize: CompOrNull<ToroidalMapComponent>(map)?.Size ?? 0f));
                 _charts[map] = chart;
             }
             if (!chart.Chunks.TryGetValue(chunk, out var update))

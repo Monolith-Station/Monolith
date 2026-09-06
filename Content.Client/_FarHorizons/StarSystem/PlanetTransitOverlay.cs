@@ -63,7 +63,6 @@ public sealed class PlanetTransitOverlay : Overlay
         _cloudShader.SetParameter("WORLD_ORIGIN", Vector2.Transform(-size / 2f, inverseView));
         _cloudShader.SetParameter("WORLD_X", Vector2.TransformNormal(new Vector2(size.X, 0f), inverseView));
         _cloudShader.SetParameter("WORLD_Y", Vector2.TransformNormal(new Vector2(0f, size.Y), inverseView));
-        _cloudShader.SetParameter("LOCAL_UV", true);
         _cloudShader.SetParameter("CLOUD_COLOR", Vector3.One);
         _cloudShader.SetParameter("COVERAGE", alpha);
         _cloudShader.SetParameter("WISP", 0f);

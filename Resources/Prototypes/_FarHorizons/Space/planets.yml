@@ -192,6 +192,29 @@
       polarCapCoverage: 0.2
 
 - type: planetType
+  id: MoonMarzanna
+  name: Marzanna
+  shader: IceMoon
+  earthMass: 1.05
+  bodyScale: 0.2
+  rotation: 1.7
+  palette: PaletteIceDeep
+  liquid: LiquidPlasma
+  surface: Marzanna
+  landingRadius: 128
+  customData:
+    floats:
+      terrainScale: 1.0
+      macroFrequency: 3.75
+      macroAmplitude: 0.75
+      ridgeFrequency: 1.0
+      ridgeAmplitude: 7.5
+      detailFrequency: 7.5
+      detailAmplitude: 0.25
+      polarCapColor: 0.875
+      polarCapCoverage: 0.35
+
+- type: planetType
   id: PlanetThrascias
   name: Thrascias
   shader: IceGiant

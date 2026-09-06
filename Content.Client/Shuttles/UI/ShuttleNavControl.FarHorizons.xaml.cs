@@ -59,12 +59,12 @@ public partial class ShuttleNavControl
         for (var i = 0; i < starSystem.StarSystem.Planets.Count; i++)
         {
             var planet = starSystem.StarSystem.Planets[i];
-            var planetPos = Vector2.Transform(planet.Position, worldToView);
-            var planetRadius = Planet.NAV_PIXEL_SIZE * planet.Radius * viewScale;
-            handle.DrawCircle(planetPos, planetRadius, Color.Gray.WithAlpha(0.5f));
-
             if (!bodies.TryGetValue(i, out var body))
                 continue;
+
+            var planetPos = Vector2.Transform(_transform.GetWorldPosition(body), worldToView);
+            var planetRadius = Planet.NAV_PIXEL_SIZE * planet.Radius * planet.BodyScale * viewScale;
+            handle.DrawCircle(planetPos, planetRadius, Color.Gray.WithAlpha(0.5f));
 
             var hitRadius = MathF.Max(planetRadius, 6f * UIScale);
             var inRange = false;

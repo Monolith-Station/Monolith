@@ -128,10 +128,12 @@ public sealed partial class CEZLevelsSystem
         var comp = network.Comp;
         var list = comp.SortedZLevels;
 
-        // Zero handling
-        if (comp.SortedMin == depth && comp.SortedMax == depth)
+        if (list.Count == 0)
         {
+            comp.SortedMin = depth;
+            comp.SortedMax = depth;
             list.Add(value);
+            Dirty(network);
             return;
         }
 

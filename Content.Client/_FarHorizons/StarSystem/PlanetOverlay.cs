@@ -61,6 +61,13 @@ public sealed class PlanetOverlay : Overlay
             }
         }
 
+        var bodies = _entMan.AllEntityQueryEnumerator<PlanetBodyComponent, TransformComponent>();
+        while (bodies.MoveNext(out _, out var body, out var xform))
+        {
+            if (body.StarSystemMap == systemMap && body.Index < system.Planets.Count)
+                system.Planets[body.Index].Position = xform.LocalPosition;
+        }
+
         var origin = args.WorldAABB.Center;
 
         _shaders.Sort((a, b) =>
@@ -104,8 +111,9 @@ public sealed class PlanetOverlay : Overlay
             }
         }
 
-        foreach (var (index, _, shader) in _shaders)
+        foreach (var (index, planet, shader) in _shaders)
         {
+            shader.SetParameter("planetPos", planet.Position);
             shader.SetParameter("viewportMin", viewportBounds.BottomLeft);
             shader.SetParameter("viewportSize", viewportBounds.Size);
             shader.SetParameter("parallaxCenter", parallaxCenter);

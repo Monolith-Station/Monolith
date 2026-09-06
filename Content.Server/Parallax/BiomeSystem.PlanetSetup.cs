@@ -22,7 +22,12 @@ public sealed partial class BiomeSystem
     /// <summary>
     /// Creates a simple planet setup for a map.
     /// </summary>
-    public void EnsurePlanet(EntityUid mapUid, BiomeTemplatePrototype biomeTemplate, int? seed = null, MetaDataComponent? metadata = null, Color? mapLight = null)
+    public void EnsurePlanet(EntityUid mapUid,
+        BiomeTemplatePrototype biomeTemplate,
+        int? seed = null,
+        MetaDataComponent? metadata = null,
+        Color? mapLight = null,
+        bool atmosphere = true)
     {
         if (!Resolve(mapUid, ref metadata))
             return;
@@ -61,13 +66,16 @@ public sealed partial class BiomeSystem
         EnsureComp<SunShadowComponent>(mapUid);
         EnsureComp<SunShadowCycleComponent>(mapUid);
 
-        var moles = new float[Atmospherics.AdjustedNumberOfGases];
-        moles[(int)Gas.Oxygen] = 21.824779f;
-        moles[(int)Gas.Nitrogen] = 82.10312f;
+        if (atmosphere)
+        {
+            var moles = new float[Atmospherics.AdjustedNumberOfGases];
+            moles[(int)Gas.Oxygen] = 21.824779f;
+            moles[(int)Gas.Nitrogen] = 82.10312f;
 
-        var mixture = new GasMixture(moles, Atmospherics.T20C);
+            var mixture = new GasMixture(moles, Atmospherics.T20C);
 
-        _atmos.SetMapAtmosphere(mapUid, false, mixture);
+            _atmos.SetMapAtmosphere(mapUid, false, mixture);
+        }
     }
 
     /// <summary>

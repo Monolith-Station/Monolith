@@ -299,7 +299,8 @@ public sealed partial class CEZLevelsSystem
 
         var transitSet = CollectTransitSet(grid);
 
-        if (TryComp<PlanetTransitComponent>(grid, out var planetTransit) &&
+        TryComp<PlanetTransitComponent>(grid, out var planetTransit);
+        if (planetTransit != null &&
             planetTransit.Direction == PlanetTransitDirection.Ascent &&
             planetTransit.Phase == PlanetTransitPhase.Charging)
         {
@@ -331,6 +332,11 @@ public sealed partial class CEZLevelsSystem
             {
                 // Flight.
                 faller.Velocity = ApproachTerminal(faller.Velocity, -input * accel, MaxPilotVerticalSpeed, frameTime);
+            }
+            else if (topUpperMap == null && progress > SettleZone)
+            {
+                var target = Math.Clamp(progress * ApproachGain, TouchdownSpeed, MaxPilotVerticalSpeed);
+                faller.Velocity = MoveTowards(faller.Velocity, target, damp * frameTime);
             }
             else
             {

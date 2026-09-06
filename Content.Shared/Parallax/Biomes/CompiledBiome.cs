@@ -91,15 +91,15 @@ public sealed class CompiledBiomeLayer
     /// <summary>
     /// Whether this layers noise passes its threshold, exactly as the biome system always checked it.
     /// </summary>
-    public bool Passes(int x, int y)
+    public bool Passes(int x, int y, float wrapSize = 0f)
     {
         if (Noise == null)
             return false;
 
-        var value = Noise.GetNoise(x, y);
+        var value = SharedBiomeSystem.SampleTerrain(Noise, new Vector2i(x, y), wrapSize);
         value = Invert ? value * -1 : value;
         if (Source is BiomeMetaLayer meta)
-            value += BiomeMetaLayer.GetOriginBias(x, y, meta.OriginBiasRadius, meta.OriginBiasStrength);
+            value += meta.GetBias(x, y);
         return value >= Threshold;
     }
 
@@ -154,7 +154,7 @@ public sealed class CompiledBiome
         Vector2i indices,
         ref TReal real,
         out CompiledBiomeLayer? layer,
-        out Tile? realTile) where TReal : struct, IBiomeRealTiles
+        out Tile? realTile, float wrapSize = 0f) where TReal : struct, IBiomeRealTiles
     {
         for (var i = layers.Length - 1; i >= 0; i--)
         {
@@ -163,7 +163,7 @@ public sealed class CompiledBiome
             if (candidate.Kind != CompiledBiomeLayerKind.Tile && candidate.Kind != CompiledBiomeLayerKind.Meta)
                 continue;
 
-            if (!candidate.Passes(indices.X, indices.Y))
+            if (!candidate.Passes(indices.X, indices.Y, wrapSize))
                 continue;
 
             if (candidate.Kind == CompiledBiomeLayerKind.Meta)
@@ -175,7 +175,7 @@ public sealed class CompiledBiome
                     return true;
                 }
 
-                if (TryGetTileLayer(candidate.Children, indices, ref real, out layer, out realTile))
+                if (TryGetTileLayer(candidate.Children, indices, ref real, out layer, out realTile, wrapSize))
                     return true;
 
                 continue;
@@ -195,7 +195,7 @@ public sealed class CompiledBiome
         return false;
     }
 
-    public static bool TryGetEntityLayer(CompiledBiomeLayer[] layers, Vector2i indices, int tileType, out CompiledBiomeLayer? layer)
+    public static bool TryGetEntityLayer(CompiledBiomeLayer[] layers, Vector2i indices, int tileType, out CompiledBiomeLayer? layer, float wrapSize = 0f)
     {
         for (var i = layers.Length - 1; i >= 0; i--)
         {
@@ -213,12 +213,12 @@ public sealed class CompiledBiome
                     break;
             }
 
-            if (!candidate.Passes(indices.X, indices.Y))
+            if (!candidate.Passes(indices.X, indices.Y, wrapSize))
                 continue;
 
             if (candidate.Kind == CompiledBiomeLayerKind.Meta)
             {
-                if (TryGetEntityLayer(candidate.Children, indices, tileType, out layer))
+                if (TryGetEntityLayer(candidate.Children, indices, tileType, out layer, wrapSize))
                     return true;
 
                 continue;
