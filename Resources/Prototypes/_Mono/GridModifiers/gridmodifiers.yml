@@ -112,3 +112,22 @@
       toReplace: Thruster
       replaceWith: RustedThruster
 
+- type: gridModifier
+  id: BiodomeShieldTsf
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: ShipShieldEmitter
+    data:
+    - chance: 1
+      toReplace: ShieldGeneratorPOI
+      replaceWith: ShieldGeneratorPOIBioTsf
+
+- type: gridModifier
+  id: BiodomeShieldPdv
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: ShipShieldEmitter
+    data:
+    - chance: 1
+      toReplace: ShieldGeneratorPOI
+      replaceWith: ShieldGeneratorPOIBioPdv

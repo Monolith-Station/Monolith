@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseGameRule
+  id: HalcyonBiodome
+  components:
+  - type: ApplyGridModifierToStation
+    modifiers: 
+      TSFMCHalcyon:
+      - BiodomeShieldTsf
+
+- type: entity
+  parent: BaseGameRule
+  id: HeliosBiodome
+  components:
+  - type: ApplyGridModifierToStation
+    modifiers: 
+      HeliosFortress:
+      - BiodomeShieldPdv
