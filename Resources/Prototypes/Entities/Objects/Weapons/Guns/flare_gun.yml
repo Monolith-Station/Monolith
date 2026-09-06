@@ -4,6 +4,7 @@
   id: WeaponFlareGun
   description: A compact, single-shot pistol that fires shotgun shells. Comes with a safety feature that prevents the user from fitting lethal shells inside.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/flaregun.rsi
     layers:

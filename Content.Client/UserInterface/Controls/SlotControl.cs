@@ -14,6 +14,7 @@ namespace Content.Client.UserInterface.Controls
         public TextureRect ButtonRect { get; }
         public TextureRect BlockedRect { get; }
         public TextureRect HighlightRect { get; }
+        public TextureRect DualWieldRect { get; } // Mono - dual wielding
         public SpriteView HoverSpriteView { get; }
         public TextureButton StorageButton { get; }
         public CooldownGraphic CooldownDisplay { get; }
@@ -49,6 +50,21 @@ namespace Content.Client.UserInterface.Controls
         public bool Highlight { get => HighlightRect.Visible; set => HighlightRect.Visible = value;}
 
         public bool Blocked { get => BlockedRect.Visible; set => BlockedRect.Visible = value;}
+
+        // Mono - dual wielding
+        public bool DualWield { get => DualWieldRect.Visible; set => DualWieldRect.Visible = value;}
+
+        private string? _dualWieldTexturePath;
+        public string? DualWieldTexturePath
+        {
+            get => _dualWieldTexturePath;
+            set
+            {
+                _dualWieldTexturePath = value;
+                DualWieldRect.Texture = Theme.ResolveTextureOrNull(_dualWieldTexturePath)?.Texture;
+            }
+        }
+        // End Mono
 
         private string? _blockedTexturePath;
         public string? BlockedTexturePath
@@ -131,6 +147,16 @@ namespace Content.Client.UserInterface.Controls
                 MouseFilter = MouseFilterMode.Ignore
             });
 
+            // Mono - dual wielding
+            // Added before the sprite view so it reads as a backplate under the held item.
+            AddChild(DualWieldRect = new TextureRect
+            {
+                Visible = false,
+                TextureScale = new Vector2(2, 2),
+                MouseFilter = MouseFilterMode.Ignore
+            });
+            // End Mono
+
             ButtonRect.OnKeyBindDown += OnButtonPressed;
             ButtonRect.OnKeyBindUp += OnButtonUnpressed;
 
@@ -192,6 +218,7 @@ namespace Content.Client.UserInterface.Controls
 
             HighlightTexturePath = "slot_highlight";
             BlockedTexturePath = "blocked";
+            DualWieldTexturePath = "dual_wield"; // Mono - dual wielding
         }
 
         public void ClearHover()
@@ -256,6 +283,7 @@ namespace Content.Client.UserInterface.Controls
 
             StorageButton.TextureNormal = Theme.ResolveTextureOrNull(_storageTexturePath)?.Texture;
             HighlightRect.Texture = Theme.ResolveTextureOrNull(_highlightTexturePath)?.Texture;
+            DualWieldRect.Texture = Theme.ResolveTextureOrNull(_dualWieldTexturePath)?.Texture; // Mono - dual wielding
             UpdateButtonTexture();
         }
 

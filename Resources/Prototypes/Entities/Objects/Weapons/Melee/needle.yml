@@ -4,6 +4,7 @@
   name: official security anti-inflatable armament
   description: A specialty weapon used in the destruction of unique syndicate morale-boosting equipment.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Melee/needle.rsi
     state: icon

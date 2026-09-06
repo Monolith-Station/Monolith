@@ -4,6 +4,7 @@
   id: Stunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Melee/stunbaton.rsi
     layers:
@@ -180,6 +181,7 @@
   id: Truncheon
   description: A rigid, steel-studded baton, meant to harm. On the handle is a label that says 'for authorized use only.'
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Melee/truncheon.rsi
     state: icon

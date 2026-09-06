@@ -3,6 +3,7 @@
   abstract: true
   parent: BaseItem
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/water_pistol.rsi
   - type: Clothing

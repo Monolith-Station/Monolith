@@ -122,6 +122,7 @@
   id: WeaponPistolFlintlock
   description: A pirate's companion. Yarrr! Uses 145x114mm ammo. An illegal weapon often used by pirates.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Gun
     minAngle: 0
     maxAngle: 30 #miss him entirely because the barrel is smoothbore

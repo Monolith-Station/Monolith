@@ -5,6 +5,7 @@
   description: A rooty tooty point and shooty.
   abstract: true
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     layers:
       - state: base
@@ -207,6 +208,7 @@
   id: WeaponPistolEchis
   description: A viper for use by cyborgs. Creates 9x19mm on the fly from an internal ammo fabricator, which slowly self-charges.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Gun
     fireRate: 5
     selectedMode: SemiAuto
@@ -242,6 +244,7 @@
   id: WeaponPistolMercenaryEchis
   description: A viper for use by cyborgs, redesigned for mercenary use. Creates 9x19mm on the fly from an internal ammo fabricator, which slowly self-charges.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Gun
     fireRate: 5
     selectedMode: SemiAuto

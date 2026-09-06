@@ -4,6 +4,7 @@
   id: WeaponEmpEmitter
   description: Releases electromagnetic pulses that disrupt or damage many electronic devices or drain power cells, has a slow self charging nuclear powered battery.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Projectiles/emp.rsi
     layers:
