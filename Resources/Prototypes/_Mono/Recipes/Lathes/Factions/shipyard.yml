@@ -61,6 +61,24 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
+  id: ShipVoucherAltairRecipe
+  result: ShipVoucherAltair
+  completetime: 100
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 15000
+    Copper: 15000
+    Plasteel: 12000
+    Lithium: 15000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    Plastitanium: 2000
+    UraniumFissile: 500
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
   id: ShipVoucherLudaRecipe
   result: ShipVoucherLuda
   completetime: 240
