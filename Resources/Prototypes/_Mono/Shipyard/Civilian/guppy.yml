@@ -1,0 +1,40 @@
+# Original Author Info
+# GitHub: Onezero0
+# Discord: Onezero0
+#
+# Shuttle Notes:
+#
+- type: vessel
+  id: Guppy
+  parent: BaseVessel
+  name: SHM Guppy
+  description: A small mining vessel straight from the outer Perseus arm. Reliable, rugged, but rudimentary, the Guppy is a prime vessel for a novice contractor.
+  price: 14999
+  category: Small
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/guppy.yml
+  guidebookPage: null
+  class:
+  - Salvage
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Guppy
+  mapName: 'SHM Guppy'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/guppy.yml
+  minPlayers: 0
+  stations:
+    Guppy:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Guppy CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]
