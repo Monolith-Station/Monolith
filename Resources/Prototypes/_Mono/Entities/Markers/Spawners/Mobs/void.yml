@@ -1,0 +1,200 @@
+# Mono Mobs
+
+# Void Base Mob - in case we do more loadouts
+
+- type: entity
+  name: a monolithic corrupted being
+  description: Once a humanoid, now they are but a lost remnant of their former self.
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  parent:
+  - MobHumanoidInvetory
+  - MobHumanoidHostileAISimpleRanged
+  - NFMobRestrictions
+  - MobHumanoidHostileBaseShade
+  id: MobVoidBase
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Monolithic
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+    rechargeSound:
+      path: /Audio/_NF/Effects/silence.ogg
+  - type: PointLight
+    enabled: true
+    radius: 3
+    energy: 2
+    color: "#AA00FF"
+  - type: AutoWakeUp
+  - type: TriggerOnBeingGibbed
+  - type: GibOnTrigger
+    deleteItems: true
+    deleteOrgans: false
+    gib: false
+    useArgumentEntity: true
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 4.5
+
+# Base TSFMC Void Mob
+
+- type: entity
+  name: void marine
+  parent: MobVoidBase
+  id: MobVoidBaseTSF
+  description: Once a marine, now they are but an echo, wandering lost in the emissions reaching out from the Monolithic region.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Advertise
+      pack: tsfmchumanoidchatter
+      minimumWait: 30
+      maximumWait: 120
+      nextAdvertisementTime: 0
+    - type: Loadout
+      prototypes:
+        - TSFMCMobGearA
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 0.25
+      rechargeSound:
+        path: /Audio/_NF/Effects/silence.ogg
+    - type: BasicEntityAmmoProvider
+      proto: Bullet68x52mmCaseless
+      capacity: 1
+      count: 1
+    - type: Gun
+      showExamineText: false
+      fireRate: 8
+      selectedMode: FullAuto
+      availableModes:
+      - FullAuto
+      soundGunshot: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg
+
+# Base PDV Void Mob
+
+- type: entity
+  name: void guardsman
+  parent: MobVoidBase
+  id: MobVoidBasePDV
+  description: Once a guardsman, now they are but an echo, wandering lost in the emissions reaching out from the Monolithic region.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Advertise
+      pack: pdvhumanoidchatter
+      minimumWait: 30
+      maximumWait: 120
+      nextAdvertisementTime: 0
+    - type: Loadout
+      prototypes:
+        - PDVMobGearA
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 0.25
+      rechargeSound:
+        path: /Audio/_NF/Effects/silence.ogg
+    - type: BasicEntityAmmoProvider
+      proto: Bullet9x19mmFMJ
+      capacity: 1
+      count: 1
+    - type: Gun
+      showExamineText: false
+      fireRate: 8
+      selectedMode: FullAuto
+      availableModes:
+      - FullAuto
+      soundGunshot: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg
+
+# TSFMC Loadout Mobs
+
+- type: entity
+  parent: MobVoidBaseTSF
+  id: MobVoidBaseTSFB
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - TSFMCMobGearB
+
+- type: entity
+  parent: MobVoidBaseTSF
+  id: MobVoidBaseTSFC
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - TSFMCMobGearC
+
+- type: entity
+  parent: MobVoidBaseTSF
+  id: MobVoidBaseTSFD
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - TSFMCMobGearD
+
+# PDV Loadout Mobs
+
+- type: entity
+  parent: MobVoidBasePDV
+  id: MobVoidBasePDVB
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - PDVMobGearB
+
+- type: entity
+  parent: MobVoidBasePDV
+  id: MobVoidBasePDVC
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - PDVMobGearC
+
+- type: entity
+  parent: MobVoidBasePDV
+  id: MobVoidBasePDVD
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - PDVMobGearD
+
+# Spawners
+
+- type: entity
+  name: void TSFMC Mob spawner
+  id: SpawnMobVoidTSFMC
+  parent: MarkerBase
+  suffix: AI, Hostile, Voidsman
+  components:
+  - type: Sprite
+    layers:
+      - state: ai
+      - sprite: _NF/Mobs/Species/Templates/human.rsi
+        state: human
+  - type: RandomSpawner
+    prototypes:
+    - MobVoidBaseTSF
+    - MobVoidBaseTSFB
+    - MobVoidBaseTSFC
+    - MobVoidBaseTSFD
+
+- type: entity
+  name: void PDV Mob spawner
+  id: SpawnMobVoidPDV
+  parent: MarkerBase
+  suffix: AI, Hostile, Voidsman
+  components:
+  - type: Sprite
+    layers:
+      - state: ai
+      - sprite: _NF/Mobs/Species/Templates/human.rsi
+        state: human
+  - type: RandomSpawner
+    prototypes:
+    - MobVoidBasePDV
+    - MobVoidBasePDVB
+    - MobVoidBasePDVC
+    - MobVoidBasePDVD

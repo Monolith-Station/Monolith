@@ -1,0 +1,181 @@
+# Mono Mobs
+
+# TSFMC Base Mob - to build loadouts from
+
+- type: entity
+  name: TSFMC marine
+  description: A marine belonging to the TSFMC on guard duty.
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  parent:
+  - MobHumanoidInvetory
+  - MobHumanoidHostileAISimpleRanged
+  - NFMobRestrictions
+  - MobHumanoidHostileBase
+  id: MobTSFMCBase
+  components:
+  - type: Body
+    prototype: HumanSyntheticOrgans # New set of synthetic organs grants faster removal of toxins from bloodstream
+    requiredLegs: 2
+  - type: NpcFactionMember
+    factions:
+    - TSFMC
+  #- type: AutoImplant
+  #  implants:
+  #  - TrackingImplant
+  #  - DeathAcidifierImplantNF
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+    rechargeSound:
+      path: /Audio/_NF/Effects/silence.ogg
+  - type: Advertise
+    pack: tsfmchumanoidchatter
+    minimumWait: 30
+    maximumWait: 120
+    nextAdvertisementTime: 0
+  - type: AutoWakeUp
+  - type: TriggerOnBeingGibbed
+  - type: GibOnTrigger
+    deleteItems: true
+    deleteOrgans: false
+    gib: false
+    useArgumentEntity: true
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 4.5
+
+# TSFMC Mobs
+
+- type: entity
+  name: TSFMC marine
+  parent: MobTSFMCBase
+  id: MobTSFMCBaseA
+  description: A typical TSFMC marine grunt on guard duty. He looks to be armed with a lecter.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - TSFMCMobGearA
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 0.25
+      rechargeSound:
+        path: /Audio/_NF/Effects/silence.ogg
+    - type: BasicEntityAmmoProvider
+      proto: Bullet68x52mmCaseless
+      capacity: 1
+      count: 1
+    - type: Gun
+      showExamineText: false
+      fireRate: 8
+      selectedMode: FullAuto
+      availableModes:
+      - FullAuto
+      soundGunshot: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg
+
+# Spawners
+
+- type: entity
+  name: TSFMC Mob spawner
+  id: SpawnMobTSFMC
+  parent: MarkerBase
+  suffix: AI, Hostile, TSFMC
+  components:
+  - type: Sprite
+    layers:
+      - state: ai
+      - sprite: _NF/Mobs/Species/Templates/human.rsi
+        state: human
+  - type: RandomSpawner
+    prototypes:
+    - MobTSFMCBaseA
+    - MobTSFMCBaseB
+    - MobTSFMCBaseC
+    - MobTSFMCBaseD
+
+# Loadout Mobs
+
+- type: entity
+  parent: MobTSFMCBaseA
+  id: MobTSFMCBaseB
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - TSFMCMobGearB
+
+- type: entity
+  parent: MobTSFMCBaseA
+  id: MobTSFMCBaseC
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - TSFMCMobGearC
+
+- type: entity
+  parent: MobTSFMCBaseA
+  id: MobTSFMCBaseD
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - TSFMCMobGearD
+
+# Gear Loadouts
+
+- type: startingGear
+  id: TSFMCMobGearA
+  equipment:
+    head: ClothingHeadHelmetMercenaryBlack
+    jumpsuit: ClothingUniformTSFMC
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesColorBlackLecter
+    neck: ClothingNeckIFFCyan
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterArmorBPVestMedium
+    back: ClothingBackpackTsfmc
+    pocket2: DoubleEmergencyAirTankFilled
+#    id: CadetPDA
+
+- type: startingGear
+  id: TSFMCMobGearB
+  equipment:
+    head: ClothingHeadHelmetHardsuitM82
+    jumpsuit: ClothingUniformTSFMC
+    shoes: ClothingShoesBootsMagSecurity
+    gloves: ClothingHandsGlovesColorBlackLecter
+    neck: ClothingNeckIFFCyan
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterHardsuitM82c
+    back: ClothingBackpackTsfmc
+    pocket2: DoubleEmergencyAirTankFilled
+#    id: CadetPDA
+
+- type: startingGear
+  id: TSFMCMobGearC
+  equipment:
+    head: ClothingHeadHelmetHardsuitM86
+    jumpsuit: ClothingUniformTSFMC
+    shoes: ClothingShoesBootsMagSecurity
+    gloves: ClothingHandsGlovesColorBlackLecter
+    neck: ClothingNeckIFFCyan
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterHardsuitM86
+    back: ClothingBackpackTsfmc
+    pocket2: DoubleEmergencyAirTankFilled
+#    id: CadetPDA
+
+- type: startingGear
+  id: TSFMCMobGearD
+  equipment:
+    head: ClothingHeadHelmetHardsuitNfsdExperimental
+    jumpsuit: ClothingUniformTSFMC
+    shoes: ClothingShoesBootsMagSecurity
+    gloves: ClothingHandsGlovesColorBlackLecter
+    neck: ClothingNeckIFFCyan
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterHardsuitNfsdExperimental
+    back: ClothingBackpackTsfmc
+    pocket2: DoubleEmergencyAirTankFilled
+#    id: CadetPDA
+

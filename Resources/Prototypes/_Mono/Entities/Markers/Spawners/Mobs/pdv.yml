@@ -1,0 +1,176 @@
+# Mono PDV Mobs and Spawners
+
+# PDV Base Mob - to build loadouts from
+
+- type: entity
+  name: PDV guardsman
+  description: A guardsman of the Sultan's illustrious Vanguard.
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  parent:
+  - MobHumanoidInvetory
+  - MobHumanoidHostileAISimpleRanged
+  - NFMobRestrictions
+  - MobHumanoidHostileBase
+  id: MobPDVBase
+  components:
+  - type: Body
+    prototype: HumanSyntheticOrgans # New set of synthetic organs grants faster removal of toxins from bloodstream
+    requiredLegs: 2
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+  #- type: AutoImplant
+  #  implants:
+  #  - FreelanceTrackingImplant
+  #  - DeathAcidifierImplantNF
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+    rechargeSound:
+      path: /Audio/_NF/Effects/silence.ogg
+  - type: Advertise
+    pack: pdvhumanoidchatter
+    minimumWait: 30
+    maximumWait: 120
+    nextAdvertisementTime: 0
+  - type: AutoWakeUp
+  - type: TriggerOnBeingGibbed
+  - type: GibOnTrigger
+    deleteItems: true
+    deleteOrgans: false
+    gib: false
+    useArgumentEntity: true
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 4.5
+
+# PDV Mobs
+- type: entity
+  name: PDV guardsman
+  parent: MobPDVBase
+  id: MobPDVBaseA
+  description: A guardsman of the Sultan's illustrious Vanguard. He looks to be armed with a C-20r.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - PDVMobGearA
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 0.25
+      rechargeSound:
+        path: /Audio/_NF/Effects/silence.ogg
+    - type: BasicEntityAmmoProvider
+      proto: Bullet9x19mmFMJ
+      capacity: 1
+      count: 1
+    - type: Gun
+      showExamineText: false
+      fireRate: 8
+      selectedMode: FullAuto
+      availableModes:
+      - FullAuto
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+
+# Loadout Mobs
+
+- type: entity
+  parent: MobPDVBaseA
+  id: MobPDVBaseB
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - PDVMobGearB
+
+- type: entity
+  parent: MobPDVBaseA
+  id: MobPDVBaseC
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - PDVMobGearC
+
+- type: entity
+  parent: MobPDVBaseA
+  id: MobPDVBaseD
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Loadout
+      prototypes:
+        - PDVMobGearD
+
+# Spawners
+
+- type: entity
+  name: PDV Mob spawner
+  id: SpawnMobPDV
+  parent: MarkerBase
+  suffix: AI, Hostile, PDV
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - state: ai
+      - sprite: _NF/Mobs/Species/Templates/human.rsi
+        state: human
+  - type: RandomSpawner
+    prototypes:
+    - MobPDVBaseA
+    - MobPDVBaseB
+    - MobPDVBaseC
+    - MobPDVBaseD
+
+# Gear Loadouts
+
+- type: startingGear
+  id: PDVMobGearA
+  equipment:
+    head: ClothingHeadHatNfsdBeretBrown
+    jumpsuit: ClothingUniformJumpsuitNfsdTacCream
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesColorBlackC20r
+    neck: ClothingNeckIFFOrange
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterArmorBPVestMedium
+    back: ClothingBackpackPDV
+    pocket2: DoubleEmergencyAirTankFilled
+
+- type: startingGear
+  id: PDVMobGearB
+  equipment:
+    head: ClothingHeadHelmetHardsuitAshen
+    jumpsuit: ClothingUniformJumpsuitNfsdTacCream
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesColorBlackC20r
+    neck: ClothingNeckIFFOrange
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterHardsuitAshen
+    back: ClothingBackpackPDV
+    pocket2: DoubleEmergencyAirTankFilled
+
+- type: startingGear
+  id: PDVMobGearC
+  equipment:
+    head: ClothingHeadHelmetHardsuitAshenElite
+    jumpsuit: ClothingUniformJumpsuitNfsdTacCream
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesColorBlackC20r
+    neck: ClothingNeckIFFOrange
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterHardsuitAshenElite
+    back: ClothingBackpackPDV
+    pocket2: DoubleEmergencyAirTankFilled
+
+- type: startingGear
+  id: PDVMobGearD
+  equipment:
+    head: ClothingHeadHelmetHardsuitPDVMedic
+    jumpsuit: ClothingUniformJumpsuitNfsdTacCream
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesColorBlackC20r
+    neck: ClothingNeckIFFOrange
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterHardsuitPDVMedic
+    back: ClothingBackpackPDV
+    pocket2: DoubleEmergencyAirTankFilled
