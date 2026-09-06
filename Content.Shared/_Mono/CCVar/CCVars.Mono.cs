@@ -205,6 +205,12 @@ public sealed partial class MonoCVars
     public static readonly CVarDef<bool> CompanyWhitelist =
         CVarDef.Create("mono.company_whitelist", true, CVar.ARCHIVE | CVar.REPLICATED);
 
+    /// <summary>
+    ///     Enables saving/loading mapping editor's saved favorite prototypes
+    /// </summary>
+    public static readonly CVarDef<bool> MappingEditorFavoritesSaving =
+        CVarDef.Create("mono.mapping_editor_favorites_saving", false, CVar.ARCHIVE | CVar.REPLICATED);
+
     #endregion
 
     #region Bank

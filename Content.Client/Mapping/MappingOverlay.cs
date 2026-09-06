@@ -1,8 +1,10 @@
-﻿using Robust.Client.GameObjects;
+/// Reserve - File heavily edited by PR: Mapping editor.
+/// See https://github.com/space-wizards/space-station-14/pull/34302
+/// https://github.com/Monolith-Station/Monolith/pull/3810
+/// and https://github.com/Reserve-Station/Reserve-Station/pull/82 for more details.
+
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
-using Robust.Client.Input;
-using Robust.Client.Player;
-using Robust.Client.UserInterface;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using static Content.Client.Mapping.MappingState;
@@ -11,18 +13,16 @@ namespace Content.Client.Mapping;
 
 public sealed partial class MappingOverlay : Overlay
 {
+    private static ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
     [Dependency] private IEntityManager _entities = default!;
-    [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
 
-    // 1 off in case something else uses these colors since we use them to compare
-    private static readonly Color PickColor = new(1, 255, 0);
-    private static readonly Color DeleteColor = new(255, 1, 0);
+    private SpriteSystem _sprite;
 
-    private readonly Dictionary<EntityUid, Color> _oldColors = new();
+    private Dictionary<EntityUid, Color> _oldColors = new();
 
-    private readonly MappingState _state;
-    private readonly ShaderInstance _shader;
+    private MappingState _state;
+    private ShaderInstance _shader;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
@@ -30,53 +30,60 @@ public sealed partial class MappingOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
 
+        _sprite = _entities.System<SpriteSystem>();
+
         _state = state;
-        _shader = _prototypes.Index<ShaderPrototype>("unshaded").Instance();
+        _shader = _prototypes.Index(UnshadedShader).Instance();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
         foreach (var (id, color) in _oldColors)
         {
-            if (!_entities.TryGetComponent(id, out SpriteComponent? sprite))
-                continue;
-
-            if (sprite.Color == DeleteColor || sprite.Color == PickColor)
-                sprite.Color = color;
+            if (_entities.TryGetComponent(id, out SpriteComponent? sprite))
+                _sprite.SetColor((id, sprite), color);
         }
 
         _oldColors.Clear();
 
-        if (_player.LocalEntity == null)
-            return;
-
         var handle = args.WorldHandle;
         handle.UseShader(_shader);
 
-        switch (_state.State)
+        switch (_state.Meta.State)
         {
-            case CursorState.Pick:
-            {
-                if (_state.GetHoveredEntity() is { } entity &&
-                    _entities.TryGetComponent(entity, out SpriteComponent? sprite))
+            case CursorState.Tile:
                 {
-                    _oldColors[entity] = sprite.Color;
-                    sprite.Color = PickColor;
-                }
+                    if (_state.GetHoveredTileBox2() is { } box)
+                        args.WorldHandle.DrawRect(box, _state.Meta.Color);
 
-                break;
-            }
-            case CursorState.Delete:
-            {
-                if (_state.GetHoveredEntity() is { } entity &&
-                    _entities.TryGetComponent(entity, out SpriteComponent? sprite))
+                    break;
+                }
+            case CursorState.Entity:
                 {
-                    _oldColors[entity] = sprite.Color;
-                    sprite.Color = DeleteColor;
-                }
+                    if (_state.GetHoveredEntity() is { } entity &&
+                        _entities.TryGetComponent(entity, out SpriteComponent? sprite))
+                    {
+                        _oldColors[entity] = sprite.Color;
+                        _sprite.SetColor((entity, sprite), _state.Meta.Color);
+                    }
 
-                break;
-            }
+                    break;
+                }
+            case CursorState.EntityOrTile:
+                {
+                    if (_state.GetHoveredEntity() is { } entity &&
+                        _entities.TryGetComponent(entity, out SpriteComponent? sprite))
+                    {
+                        _oldColors[entity] = sprite.Color;
+                        _sprite.SetColor((entity, sprite), _state.Meta.Color);
+                    }
+                    else if (_state.GetHoveredTileBox2() is { } box)
+                    {
+                        args.WorldHandle.DrawRect(box, _state.Meta.SecondColor ?? _state.Meta.Color);
+                    }
+
+                    break;
+                }
         }
 
         handle.UseShader(null);

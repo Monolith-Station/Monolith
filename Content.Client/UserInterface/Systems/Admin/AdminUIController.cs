@@ -1,4 +1,4 @@
-﻿using Content.Client.Administration.Managers;
+using Content.Client.Administration.Managers;
 using Content.Client.Administration.Systems;
 using Content.Client.Administration.UI;
 using Content.Client.Administration.UI.Tabs.ObjectsTab;
@@ -6,6 +6,7 @@ using Content.Client.Administration.UI.Tabs.PanicBunkerTab;
 using Content.Client.Administration.UI.Tabs.PlayerTab;
 using Content.Client.Gameplay;
 using Content.Client.Lobby;
+using Content.Client.Mapping;
 using Content.Client.UserInterface.Controls;
 using Content.Client.Verbs.UI;
 using Content.Shared.Administration.Events;
@@ -26,6 +27,7 @@ namespace Content.Client.UserInterface.Systems.Admin;
 public sealed partial class AdminUIController : UIController,
     IOnStateEntered<GameplayState>,
     IOnStateEntered<LobbyState>,
+    IOnStateEntered<MappingState>, //Reserve - Wizden mapping editor
     IOnSystemChanged<AdminSystem>
 {
     [Dependency] private IClientAdminManager _admin = default!;
@@ -67,6 +69,14 @@ public sealed partial class AdminUIController : UIController,
         EnsureWindow();
         AdminStatusUpdated();
     }
+
+    //Reserve - Wizden mapping editor begin
+    public void OnStateEntered(MappingState state)
+    {
+        EnsureWindow();
+        AdminStatusUpdated();
+    }
+    //Reserve - Wizden mapping editor end
 
     public void OnSystemLoaded(AdminSystem system)
     {
