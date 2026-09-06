@@ -7,7 +7,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: DoubleEmergencyOxygenTankFilled
+    - id: EmergencyOxygenTankFilled
     - id: SpaceMedipen
     - id: EmergencyMedipen
     - id: Flare
@@ -46,7 +46,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: DoubleEmergencyOxygenTankFilled
+      - id: EmergencyOxygenTankFilled
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: Flare
@@ -62,7 +62,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: DoubleEmergencyNitrogenTankFilled
+      - id: EmergencyNitrogenTankFilled
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: Flare
