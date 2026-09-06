@@ -1,14 +1,12 @@
 
 - type: technology
   id: PdvTierOneVouchers
-  name: research-technology-rogue-tier-one-vouchers
+  name: research-technology-rogue-motley-anne-fighters
   entityIcon: ShipVoucherPdvT0
   discipline: RogueShipyard
   tier: 1
   cost: 40000
   recipeUnlocks:
-  - ShipVoucherPdvT0Recipe
-  - ShipVoucherPdvT1Recipe
   - InertiaVoucherRogue
   - MockVoucherRogue
   - SnakeletVoucherRogue
@@ -16,35 +14,35 @@
   - UniversalMaterialResearchT1
   position: -2, -10
 
-- type: technology
-  id: PdvTierTwoVouchers
-  name: research-technology-rogue-tier-two-vouchers
-  entityIcon: ShipVoucherPdvT2
-  discipline: RogueShipyard
-  tier: 1
-  cost: 60000
-  recipeUnlocks:
-  - ShipVoucherPdvT2Recipe
-  technologyPrerequisites:
-  - PdvTierOneVouchers
-  - UniversalMaterialResearchT2
-  position: -2, -20
+#- type: technology
+#  id: PdvTierTwoVouchers
+#  name: research-technology-rogue-tier-two-vouchers
+#  entityIcon: ShipVoucherPdvT2
+#  discipline: RogueShipyard
+#  tier: 1
+#  cost: 60000
+#  recipeUnlocks:
+#  - ShipVoucherPdvT2Recipe
+#  technologyPrerequisites:
+#  - PdvTierOneVouchers
+#  - UniversalMaterialResearchT2
+#  position: -2, -20
 
-- type: technology
-  id: PdvTierThreeVouchers
-  name: research-technology-rogue-tier-three-vouchers
-  entityIcon: ShipVoucherSaturn
-  discipline: RogueShipyard
-  tier: 3
-  cost: 80000
-  recipeUnlocks:
-  - SaintieVoucherRogue
-  - KortikVoucherRogue
-  - SaturnVoucherRogue
-  technologyPrerequisites:
-  - PdvTierTwoVouchers
-  - UniversalMaterialResearchT3
-  position: -2, -27
+#- type: technology
+#  id: PdvTierThreeVouchers
+#  name: research-technology-rogue-tier-three-vouchers
+#  entityIcon: ShipVoucherSaturn
+#  discipline: RogueShipyard
+#  tier: 3
+#  cost: 80000
+#  recipeUnlocks:
+#  - SaintieVoucherRogue
+#  - KortikVoucherRogue
+#  - SaturnVoucherRogue
+#  technologyPrerequisites:
+#  - PdvTierTwoVouchers
+#  - UniversalMaterialResearchT3
+#  position: -2, -27
 
 - type: technology
   id: RogueJaws

@@ -46381,26 +46381,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.520905,51.31806
       parent: 1
-- proto: ShipVoucherPdvT1
-  entities:
-  - uid: 6617
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -7.6628923,26.53316
-      parent: 1
-  - uid: 6618
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -7.6524754,25.511616
-      parent: 1
-  - uid: 6619
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -7.204559,26.095356
-      parent: 1
 - proto: ShotGunCabinetFilled
   entities:
   - uid: 6620
