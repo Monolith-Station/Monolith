@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/05/2026 14:56:37
+  time: 09/06/2026 07:19:32
   entityCount: 1978
 maps: []
 grids:
@@ -677,10 +677,10 @@ entities:
             78: 1,10
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        MetalFoam: []
-        Puddle: []
         Kudzu: []
+        MetalFoam: []
+        Smoke: []
+        Puddle: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -9104,6 +9104,7 @@ entities:
   - uid: 1975
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: -11.5,27.5
       parent: 1
   - uid: 1976
@@ -9119,6 +9120,7 @@ entities:
   - uid: 1978
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: 10.5,27.5
       parent: 1
 - proto: JanitorialTrolley

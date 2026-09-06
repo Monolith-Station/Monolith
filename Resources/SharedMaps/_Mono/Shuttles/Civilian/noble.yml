@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/05/2026 14:52:32
+  time: 09/06/2026 07:21:54
   entityCount: 560
 maps: []
 grids:
@@ -303,10 +303,10 @@ entities:
             50: -3,-5
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        MetalFoam: []
-        Puddle: []
         Kudzu: []
+        MetalFoam: []
+        Smoke: []
+        Puddle: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -806,11 +806,6 @@ entities:
     - type: Transform
       pos: 2.5,14.5
       parent: 1
-  - uid: 66
-    components:
-    - type: Transform
-      pos: 3.5,11.5
-      parent: 1
   - uid: 67
     components:
     - type: Transform
@@ -850,6 +845,12 @@ entities:
     components:
     - type: Transform
       pos: -4.5,10.5
+      parent: 1
+  - uid: 560
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,11.5
       parent: 1
 - proto: Autolathe
   entities:
@@ -2760,24 +2761,28 @@ entities:
       parent: 1
 - proto: HardpointEnergyLight
   entities:
+  - uid: 66
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,14.5
+      parent: 1
   - uid: 557
     components:
     - type: Transform
-      pos: -3.5,14.5
+      rot: 3.141592653589793 rad
+      pos: 3.5,11.5
       parent: 1
   - uid: 558
     components:
     - type: Transform
-      pos: 2.5,14.5
+      rot: 3.141592653589793 rad
+      pos: -3.5,14.5
       parent: 1
   - uid: 559
     components:
     - type: Transform
-      pos: 3.5,11.5
-      parent: 1
-  - uid: 560
-    components:
-    - type: Transform
+      rot: 3.141592653589793 rad
       pos: -4.5,11.5
       parent: 1
 - proto: KitchenMicrowave

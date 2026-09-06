@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/05/2026 15:02:02
+  time: 09/06/2026 07:21:03
   entityCount: 634
 maps: []
 grids:
@@ -409,10 +409,10 @@ entities:
             5: 2,5
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        MetalFoam: []
-        Puddle: []
         Kudzu: []
+        MetalFoam: []
+        Smoke: []
+        Puddle: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -3132,11 +3132,13 @@ entities:
   - uid: 633
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: -4.5,1.5
       parent: 1
   - uid: 634
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: 8.5,2.5
       parent: 1
 - proto: KitchenAssembler
