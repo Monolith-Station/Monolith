@@ -180,6 +180,20 @@
   abstract: true
   components:
   - type: Food
+  - type: Extractable
+    grindableSolutionName: limb
+  - type: SolutionContainerManager
+    solutions:
+      limb:
+        maxVol: 10
+        reagents:
+        - ReagentId: Iron
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
   - type: FlavorProfile
     flavors:
       - metallic
