@@ -346,15 +346,8 @@
   abstract: true
   components:
   - type: Food
-  - type: Extractable
-    grindableSolutionName: limb
   - type: SolutionContainerManager
     solutions:
-      limb:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
       food:
         maxVol: 5
         reagents:
@@ -362,7 +355,7 @@
           Quantity: 5
   - type: FlavorProfile
     flavors:
-      - chicken
+    - chicken # everything kinda tastes like chicken
   - type: Tag
     tags:
     - Meat
