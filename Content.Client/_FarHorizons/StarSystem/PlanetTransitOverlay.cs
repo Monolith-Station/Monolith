@@ -54,10 +54,16 @@ public sealed class PlanetTransitOverlay : Overlay
             _ => 0f,
         };
 
-        if (alpha <= 0.001f)
+        if (alpha <= 0.001f || args.Viewport.Eye is not { } eye)
             return;
 
+        eye.GetViewMatrixInv(out var inverseView, args.Viewport.RenderScale);
+        var size = (Vector2) args.Viewport.Size / EyeManager.PixelsPerMeter;
         _cloudShader ??= _prototypes.Index<ShaderPrototype>("CEZClouds").InstanceUnique();
+        _cloudShader.SetParameter("WORLD_ORIGIN", Vector2.Transform(-size / 2f, inverseView));
+        _cloudShader.SetParameter("WORLD_X", Vector2.TransformNormal(new Vector2(size.X, 0f), inverseView));
+        _cloudShader.SetParameter("WORLD_Y", Vector2.TransformNormal(new Vector2(0f, size.Y), inverseView));
+        _cloudShader.SetParameter("LOCAL_UV", true);
         _cloudShader.SetParameter("CLOUD_COLOR", Vector3.One);
         _cloudShader.SetParameter("COVERAGE", alpha);
         _cloudShader.SetParameter("WISP", 0f);

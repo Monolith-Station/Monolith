@@ -1,6 +1,6 @@
 using Content.Server.GameTicking;
 using Content.Server._CE.ZLevels.Core;
-using Content.Server._CE.ZLevels.Mapping;
+using Content.Server._Mono.Planets;
 using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared._FarHorizons.StarSystem.Helpers;
 using Content.Shared._FarHorizons.StarSystem.Prototypes;
@@ -17,7 +17,7 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
     [Dependency] private MapSystem _map = default!;
     [Dependency] private MetaDataSystem _metadata = default!;
     [Dependency] private PvsOverrideSystem _pvs = default!;
-    [Dependency] private CEZLevelMappingSystem _zMapping = default!;
+    [Dependency] private PlanetMapSystem _planetMaps = default!;
     [Dependency] private CEZLevelsSystem _zLevels = default!;
 
     public override void Initialize()
@@ -76,9 +76,10 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
                 body.Radius = planet.Radius;
 
                 var planetProto = _protoMan.Index(planet.Type);
-                if (planetProto.Surface is { } surface &&
-                    _zMapping.TryLoadNetwork(surface, planet.Name, out var network))
+                if (planetProto.Surface is { } surface)
                 {
+                    var network = _planetMaps.Create(surface);
+                    _metadata.SetEntityName(network, planet.Name);
                     body.SurfaceNetwork = network;
                     var surfaceComp = EnsureComp<PlanetSurfaceComponent>(network);
                     surfaceComp.Planet = spawnedPlanet;

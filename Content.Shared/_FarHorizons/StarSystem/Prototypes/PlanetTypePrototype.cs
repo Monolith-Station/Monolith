@@ -1,5 +1,5 @@
 using Content.Shared._FarHorizons.StarSystem.Helpers;
-using Content.Shared._CE.ZLevels.Mapping.Prototypes;
+using Content.Shared._Mono.Planets;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.StarSystem.Prototypes;
@@ -18,7 +18,7 @@ public sealed partial class PlanetTypePrototype : IPrototype
     [DataField] public ProtoId<PlanetaryAtmosphereTypePrototype>? Atmosphere;
     [DataField] public ProtoId<PlanetaryLiquidTypePrototype>? Liquid;
     [DataField] public ProtoId<PlanetaryRingsTypePrototype>? Rings;
-    [DataField] public ProtoId<CEZLevelMapPrototype>? Surface;
+    [DataField] public ProtoId<PlanetMapPrototype>? Surface;
     [DataField] public float LandingRadius = 256f;
     [DataField] public PlanetCustomValues CustomData = new();
 }
