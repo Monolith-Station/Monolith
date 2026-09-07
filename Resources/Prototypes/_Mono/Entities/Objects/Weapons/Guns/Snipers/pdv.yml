@@ -25,8 +25,8 @@
     capacity: 3
     proto: Cartridge145x114mm
   - type: SpeedModifiedOnWield
-    walkModifier: 0.6
-    sprintModifier: 0.6
+    walkModifier: 0.4
+    sprintModifier: 0.4
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 7
@@ -36,3 +36,20 @@
   - type: LaserPointer
     targetedColor: "#8cfc03"
     defaultColor: "#fc0324"
+  - type: WieldDelay
+    baseDelay: 0.5
+    modifiedDelay: 0.5
+    preventFiring: true
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 24
+    angle: 0
+    wideAnimationRotation: 45
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light

@@ -86,6 +86,10 @@
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
+  - type: WieldDelay
+    baseDelay: 0.5
+    modifiedDelay: 0.5
+    preventFiring: true
 
 - type: entity
   name: VFD QBU-243 Xian DMR (8x65mm SKR)
