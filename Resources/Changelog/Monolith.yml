@@ -24607,3 +24607,16 @@ Entries:
   id: 2698
   time: '2026-09-06T23:34:57.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4639
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: Chimera can no longer create letoferol simplemobs.
+    - type: Tweak
+      message: >-
+        Biothreat has been significantly reworked. It no longer includes both
+        factions, lasts 3 hours, gives Halcyon (or Helios, in PDV-Biothreat) an
+        experimental power-hungry Biodome, does not have a portstrike
+        announcement, and has a significantly larger volume of chimera spawns.
+  id: 2699
+  time: '2026-09-07T18:23:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4647
