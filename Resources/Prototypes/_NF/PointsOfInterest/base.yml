@@ -12,7 +12,7 @@
   abstract: true
   minimumDistance: 4000 # Some sane defaults
   maximumDistance: 8000
-  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoRogueUSSP, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ] # Behold my list of gamerules
+  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoRogueUSSP, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce, MonoChimeraTsf, MonoChimeraPdv ] # Behold my list of gamerules
   spawnGroup: Optional
   addComponents:
   - type: IFF

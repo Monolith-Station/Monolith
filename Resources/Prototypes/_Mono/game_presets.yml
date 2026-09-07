@@ -94,7 +94,7 @@
   weight: 0.75 # mono: needs 25% of votes
   name: mono-chimera-title
   description: mono-chimera-description
-  showInVote: true
+  showInVote: false # replaced by new-Biothreat. this old gamemode was just Standard with chimera spawns anyways.
   rules:
   - NFAdventure
   - BasicStationEventScheduler
@@ -109,10 +109,50 @@
   - StarSystemKyphrus
 
 - type: gamePreset
+  id: MonoChimeraTsf
+  weight: 0.5
+  name: mono-chimera-tsf-title
+  description: mono-chimera-tsf-description
+  showInVote: true
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoChimeraSTCShuttleSpawnerScheduler
+  - MonoMonolithicEventsScheduler
+  - RoundEndRuleHour3
+  - HalcyonBiodome
+  - StarSystemKyphrus
+
+- type: gamePreset
+  id: MonoChimeraPdv
+  weight: 0.5
+  name: mono-chimera-pdv-title
+  description: mono-chimera-pdv-description
+  showInVote: false # doesn't make much sense, exists for admin use
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoChimeraSTCShuttleSpawnerScheduler
+  - MonoMonolithicEventsScheduler
+  - RoundEndRuleHour3
+  - HeliosBiodome
+  - StarSystemKyphrus
+
+- type: gamePreset
   id: MonoMixed
   name: mono-mixed-title
   description: mono-mixed-description
-  showInVote: true
+  showInVote: false # it was just old-Biothreat and the deprecated Remnants in one
   rules:
   - NFAdventure
   - BasicStationEventScheduler
