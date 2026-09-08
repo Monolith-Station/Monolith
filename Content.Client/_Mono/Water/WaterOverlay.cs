@@ -11,7 +11,7 @@ namespace Content.Client._Mono.Water;
 /// <summary>
 /// Draws the animated surface for <c>FloorWater</c> tiles.
 /// </summary>
-public sealed partial class WaterOverlay : GridOverlay
+public abstract partial class WaterOverlay : GridOverlay
 {
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IPrototypeManager _proto = default!;
@@ -34,10 +34,6 @@ public sealed partial class WaterOverlay : GridOverlay
     private ushort? _waterTileId;
 
     private readonly ProtoId<ContentTileDefinition> WaterTile;
-
-    public WaterOverlay() : this("FloorWater", "MonoWater")
-    {
-    }
 
     protected WaterOverlay(ProtoId<ContentTileDefinition> tile, ProtoId<ShaderPrototype> shader)
     {
@@ -191,5 +187,7 @@ public sealed partial class WaterOverlay : GridOverlay
         _indices.Clear();
     }
 }
+
+public sealed class NormalWaterOverlay() : WaterOverlay("FloorWater", "MonoWater");
 
 public sealed class LetoferolWaterOverlay() : WaterOverlay("FloorNaturalLetoferol", "MonoLetoferolWater");
