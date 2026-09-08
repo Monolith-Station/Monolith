@@ -59,6 +59,24 @@
     Silver: 3000
     Gold: 3000
 
+# Same cost as europa for now.
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherPolarisRecipe
+  result: ShipVoucherPolaris
+  completetime: 100
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 15000
+    Copper: 15000
+    Plasteel: 12000
+    Lithium: 15000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    Plastitanium: 2000
+
 - type: latheRecipe
   parent: BaseVoucherRecipe
   id: ShipVoucherLudaRecipe
