@@ -7,7 +7,7 @@ deaddrop-hint-name = neatly folded paper
 deaddrop-hint-desc = A piece of paper, cleanly folded to fit into a small hiding space.
 
 smuggling-report-nfsd-general = Phaethon Dynasty dead drop activity detected.
-smuggling-report-nfsd-alternative = Phaethon Dynasty dead drop   detected, possible locations: {$location1} or {$location2}.
+smuggling-report-nfsd-alternative = Phaethon Dynasty dead drop detected, possible locations: {$location1} or {$location2}.
 smuggling-report-nfsd-specific = Phaethon Dynasty dead drop detected at {$location}.
 smuggling-report-nfsd-pod = Suspected Phaethon Dynasty drop pod detected. Estimated location: ({$x}, {$y})
 smuggling-report-pirate = A Phaethon Dynasty drop pod has been sent into the Colossus sector. Estimated Location: ({$x}, {$y})
