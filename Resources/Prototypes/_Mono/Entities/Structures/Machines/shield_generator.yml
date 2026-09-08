@@ -233,6 +233,34 @@
       tags:
         - Chimera
 
+- type: entity
+  id: ShieldGeneratorPOIBioTsf
+  parent: ShieldGeneratorPOIBio
+  name: QZ-293 "Biodome" TSF Biological Molecular Accelerator
+  suffix: TSF POI ONLY, RAMPING
+  components:
+  - type: ShipShieldRampingLoad # default values are applied to this. we give the Biothreat military FOBs these biodomes to mechanically enforce portstrike and to force factions to work to keep their shields online.
+    radioChannel: Nfsd
+  - type: ExtendDescription
+    descriptionList:
+    - description: This one is an experimental prototype haphazardly rushed out due to the sudden Letoferol outbreak in the sector. It will require increasing amounts of power the longer it is kept active, meaning you eventually must decide between feeding it even more power or living without it.
+      color: "#4f94ad"
+      requireDetailRange: false
+
+- type: entity
+  id: ShieldGeneratorPOIBioPdv
+  parent: ShieldGeneratorPOIBioTsf
+  name: RD-493 "Biodome" PDV Biological Molecular Accelerator
+  suffix: PDV POI ONLY, RAMPING
+  components:
+  - type: ShipShieldRampingLoad
+    radioChannel: Freelance
+  - type: ExtendDescription
+    descriptionList:
+    - description: This one is an experimental prototype haphazardly rushed out due to the sudden Letoferol outbreak in the sector. It will require increasing amounts of power the longer it is kept active, meaning you eventually must decide between feeding it even more power or living without it.
+      color: "#4f94ad"
+      requireDetailRange: false
+
 # TSF capital shield - inbetween POI and MS-500, meant for flyssa
 - type: entity
   id: ShieldGeneratorTSFCapital
