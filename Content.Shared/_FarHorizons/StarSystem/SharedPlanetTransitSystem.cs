@@ -1,4 +1,5 @@
 using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared._CE.Planets.Shields;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Map.Components;
@@ -38,6 +39,7 @@ public abstract partial class SharedPlanetTransitSystem : EntitySystem
             {
                 DescentAvailability.TooFar => "planet-descent-too-far",
                 DescentAvailability.Respooling => "planet-descent-respooling",
+                DescentAvailability.Shielded => "ce-shield-generator-descent-blocked",
                 _ => "planet-descent-unavailable",
             };
             _popup.PopupPredicted(Loc.GetString(message), console, args.Actor);
@@ -64,6 +66,9 @@ public abstract partial class SharedPlanetTransitSystem : EntitySystem
         EntityUid surface,
         bool activeTransit = false)
     {
+        if (TryComp<CEPlanetShieldComponent>(planetUid, out var shield) && shield.Active)
+            return DescentAvailability.Shielded;
+
         if (HasComp<PlanetTransitFailureComponent>(grid))
             return DescentAvailability.Respooling;
 
@@ -94,6 +99,7 @@ public abstract partial class SharedPlanetTransitSystem : EntitySystem
         Available,
         TooFar,
         Respooling,
+        Shielded,
         Unavailable,
     }
 }

@@ -199,6 +199,12 @@ namespace Content.Shared.Maps
         [DataField]
         public ProtoId<ReagentPrototype>? Reagent { get; private set; }
 
+        [DataField]
+        public ProtoId<ReagentPrototype>? ContactReagent { get; private set; }
+
+        [DataField]
+        public float ContactReagentRate { get; private set; } = 1f;
+
         // </Mono>
 
         /// <summary>

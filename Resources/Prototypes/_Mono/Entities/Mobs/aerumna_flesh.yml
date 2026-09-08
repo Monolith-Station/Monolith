@@ -1,0 +1,70 @@
+- type: Tag
+  id: PlanetaryStrain
+
+- type: entity
+  parent: BaseMobFleshSalvage
+  id: BaseMobAerumnaFlesh
+  abstract: true
+  suffix: Planetary Strain
+  description: A new development of the Chimera. There's no humanity to their eyes.
+  components:
+  - type: Tag
+    tags: [DoorBumpOpener, Flesh, PlanetaryStrain]
+  - type: Metabolizer
+    solutionOnBody: false
+    solution: chemicals
+    groups:
+    - id: Poison
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+
+- type: entity
+  parent: BaseMobAerumnaFlesh
+  id: MobAerumnaFleshJared
+  name: planetary fleshbeast
+  components:
+  - type: Sprite
+    layers:
+    - state: jared
+      map: ["enum.DamageStateVisualLayers.Base"]
+  - type: DamageStateVisuals
+    states:
+      Alive: { Base: jared }
+      Dead: { Base: dead }
+
+- type: entity
+  parent: BaseMobAerumnaFlesh
+  id: MobAerumnaFleshGolem
+  name: planetary flesh golem
+  components:
+  - type: Sprite
+    layers:
+    - state: golem
+      map: ["enum.DamageStateVisualLayers.Base"]
+  - type: DamageStateVisuals
+    states:
+      Alive: { Base: golem }
+      Dead: { Base: dead }
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      250: Dead
+
+- type: entity
+  parent: BaseMobAerumnaFlesh
+  id: MobAerumnaFleshClamp
+  name: planetary flesh clamp
+  components:
+  - type: Sprite
+    layers:
+    - state: clamp
+      map: ["enum.DamageStateVisualLayers.Base"]
+  - type: DamageStateVisuals
+    states:
+      Alive: { Base: clamp }
+      Dead: { Base: dead }
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3

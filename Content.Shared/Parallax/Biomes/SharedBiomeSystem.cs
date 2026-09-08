@@ -35,6 +35,20 @@ public abstract partial class SharedBiomeSystem : EntitySystem
             biome.ModifiedTiles.TryGetValue(chunk, out var modified) && modified.Contains(index);
     }
 
+    public bool HasRecordedArea(BiomeComponent biome, Vector2i origin, int size)
+    {
+        var min = SharedMapSystem.GetChunkIndices(origin, ChunkSize) * ChunkSize;
+        var max = SharedMapSystem.GetChunkIndices(origin + new Vector2i(size - 1, size - 1), ChunkSize) * ChunkSize;
+        for (var y = min.Y; y <= max.Y; y += ChunkSize)
+        for (var x = min.X; x <= max.X; x += ChunkSize)
+        {
+            var chunk = new Vector2i(x, y);
+            if (biome.LoadedChunks.Contains(chunk) || biome.ModifiedTiles.ContainsKey(chunk))
+                return true;
+        }
+        return false;
+    }
+
     private T Pick<T>(List<T> collection, float value)
     {
         // Listen I don't need this exact and I'm too lazy to finetune just for random ent picking.

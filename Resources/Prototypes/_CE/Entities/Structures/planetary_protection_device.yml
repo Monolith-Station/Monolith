@@ -1,0 +1,77 @@
+- type: entity
+  parent: CEPlaceholder3x3
+  id: MAWCShieldGenerator
+  name: MAWC PS-04 Planetary Protection Device
+  description: An experimental Planetary Shield Generator sidegrade that runs on much lower power, but in return can only protect Marzanna and other moons. Comes with a built-in stabilizer for the regolith that the outpost lays on to prevent moonquakes within a radius, as well as a much stronger energy buffer.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/mawc_shield_generator.rsi
+    scale: 1, 1
+    layers:
+    - state: core
+    - state: awaiting
+      map: ["enum.CEShieldGeneratorVisualLayers.Indicator"]
+      shader: unshaded
+    - state: energy_start
+      map: ["enum.CEShieldGeneratorVisualLayers.Energy"]
+      shader: unshaded
+      visible: false
+  - type: PowerConsumer
+    voltage: High
+    drawRate: 2000000000
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: CEShieldGenerator
+    moonOnly: true
+    beamOverlay: MAWC
+    drawRate: 150000000
+    maxDrawRate: 2000000000
+    maxCharge: 300000000000
+  - type: ActivatableUI
+    key: enum.CEShieldGeneratorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CEShieldGeneratorUiKey.Key:
+        type: CEShieldGeneratorBoundUserInterface
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CEShieldGeneratorVisuals.Stage:
+        enum.CEShieldGeneratorVisualLayers.Indicator:
+          Charging: { state: awaiting }
+          SpinningUp: { state: startup }
+          Active: { state: online }
+          Cooldown: { state: shutdown }
+        enum.CEShieldGeneratorVisualLayers.Energy:
+          Charging: { visible: false }
+          SpinningUp: { state: energy_start, visible: true }
+          Active: { state: energy_loop, visible: true }
+          Cooldown: { visible: false }
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1200
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+- type: entity
+  parent: MAWCShieldGenerator
+  id: MAWCShieldGeneratorDebug
+  suffix: DEBUG, fully charged, instant activation
+  components:
+  - type: CEShieldGenerator
+    charge: 300000000000
+    stage: SpinningUp
+    spinupEndsAt: 0

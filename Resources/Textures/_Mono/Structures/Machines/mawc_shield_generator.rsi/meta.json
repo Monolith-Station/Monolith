@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "PLACEHOLDER - attribution pending",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "core"
+    },
+    {
+      "name": "awaiting",
+      "delays": [[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]]
+    },
+    {
+      "name": "startup",
+      "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+    },
+    {
+      "name": "online",
+      "delays": [[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]]
+    },
+    {
+      "name": "shutdown",
+      "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+    },
+    {
+      "name": "energy_start",
+      "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+    },
+    {
+      "name": "energy_loop",
+      "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+    }
+  ]
+}

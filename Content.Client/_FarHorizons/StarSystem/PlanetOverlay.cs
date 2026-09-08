@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Client.Parallax;
 using Content.Client.Viewport;
 using Content.Shared._FarHorizons.StarSystem;
+using Content.Shared._CE.Planets.Shields;
 using Content.Shared._FarHorizons.StarSystem.Helpers;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -20,6 +21,8 @@ public sealed class PlanetOverlay : Overlay
     private readonly PlanetTransitSystem _transits;
     private readonly List<(int Index, Planet Planet, ShaderInstance Shader)> _shaders = new(); // what do you mean, this isn't No Man's Sky?
     private List<Planet>? _planets;
+    private readonly Dictionary<int, (float Progress, TimeSpan Last)> _shieldAnimations = new();
+    private readonly Dictionary<int, bool> _shieldStates = new();
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowWorld;
 
     public PlanetOverlay(IEntityManager entMan, IPrototypeManager protoMan)
@@ -61,11 +64,15 @@ public sealed class PlanetOverlay : Overlay
             }
         }
 
+        _shieldStates.Clear();
         var bodies = _entMan.AllEntityQueryEnumerator<PlanetBodyComponent, TransformComponent>();
-        while (bodies.MoveNext(out _, out var body, out var xform))
+        while (bodies.MoveNext(out var uid, out var body, out var xform))
         {
             if (body.StarSystemMap == systemMap && body.Index < system.Planets.Count)
+            {
                 system.Planets[body.Index].Position = xform.LocalPosition;
+                _shieldStates[body.Index] = _entMan.TryGetComponent<CEPlanetShieldComponent>(uid, out var shield) && shield.Active;
+            }
         }
 
         var origin = args.WorldAABB.Center;
@@ -118,6 +125,15 @@ public sealed class PlanetOverlay : Overlay
             shader.SetParameter("viewportSize", viewportBounds.Size);
             shader.SetParameter("parallaxCenter", parallaxCenter);
             shader.SetParameter("transitProgress", index == transitIndex ? transitProgress : 0f);
+            if (planet.Shader is "RockyPlanet" or "IceMoon" or "GasGiant" or "IceGiant")
+            {
+                var now = _timing.RealTime;
+                var anim = _shieldAnimations.GetValueOrDefault(index, (Progress: 0f, Last: now));
+                var step = (float) (now - anim.Last).TotalSeconds / 2.5f;
+                var formed = Math.Clamp(anim.Progress + (_shieldStates.GetValueOrDefault(index) ? step : -step), 0f, 1f);
+                _shieldAnimations[index] = (formed, now);
+                shader.SetParameter("progress", formed);
+            }
 
             handle.UseShader(shader);
             handle.DrawRect(viewportBounds, Color.White);
@@ -132,6 +148,21 @@ public sealed class PlanetOverlay : Overlay
             return null;
 
         var shader = shaderProto.InstanceUnique();
+        if (planet.Shader is "RockyPlanet" or "IceMoon" or "GasGiant" or "IceGiant")
+        {
+            shader.SetParameter("skin_color", Color.FromHex("#2e8fb8").WithAlpha(0.7f));
+            shader.SetParameter("brightness", 1f);
+            shader.SetParameter("pixel_grid", 0f);
+            shader.SetParameter("hex_density", 9f);
+            shader.SetParameter("form_origin", new Vector2(0f, -0.85f));
+            shader.SetParameter("fill_level", 0.08f);
+            shader.SetParameter("line_level", 0.5f);
+            shader.SetParameter("rim_level", 0.75f);
+            shader.SetParameter("core_fade", 0f);
+            shader.SetParameter("shard_scale", 4f);
+            shader.SetParameter("alpha_bands", 6f);
+            shader.SetParameter("breath_depth", 0.08f);
+        }
 
         // Planet physical info
         shader.SetParameter("planetPos", planet.Position);
@@ -244,6 +275,8 @@ public sealed class PlanetOverlay : Overlay
     public void ResetShader()
     {
         _planets = null;
+        _shieldAnimations.Clear();
+        _shieldStates.Clear();
         _shaders.Clear();
     }
 }

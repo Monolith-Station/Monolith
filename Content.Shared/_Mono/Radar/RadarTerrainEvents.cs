@@ -13,20 +13,30 @@ public readonly record struct RadarTerrainChunk(Vector2i Index, int Step)
 }
 
 [Serializable, NetSerializable]
-public sealed class RequestRadarTerrainEvent(NetEntity console, NetEntity map, RadarTerrainChunk[] chunks) : EntityEventArgs
+public sealed class RequestRadarTerrainEvent(NetEntity console, NetEntity map, RadarTerrainChunk[] chunks, bool manifest = false) : EntityEventArgs
 {
     public readonly NetEntity Console = console;
     public readonly NetEntity Map = map;
     public readonly RadarTerrainChunk[] Chunks = chunks;
+    public readonly bool Manifest = manifest;
 }
 
 [Serializable, NetSerializable]
-public sealed class RadarTerrainChunkEvent(NetEntity map, RadarTerrainChunk chunk, ushort[] indices, uint[] pixels) : EntityEventArgs
+public sealed class RadarTerrainManifestEvent(NetEntity map, RadarTerrainChunk[] chunks, uint[] revisions) : EntityEventArgs
+{
+    public readonly NetEntity Map = map;
+    public readonly RadarTerrainChunk[] Chunks = chunks;
+    public readonly uint[] Revisions = revisions;
+}
+
+[Serializable, NetSerializable]
+public sealed class RadarTerrainChunkEvent(NetEntity map, RadarTerrainChunk chunk, ushort[] indices, uint[] pixels, uint revision = 0) : EntityEventArgs
 {
     public readonly NetEntity Map = map;
     public readonly RadarTerrainChunk Chunk = chunk;
     public readonly ushort[] Indices = indices;
     public readonly uint[] Pixels = pixels;
+    public readonly uint Revision = revision;
 }
 
 [Serializable, NetSerializable]

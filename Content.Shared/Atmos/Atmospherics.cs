@@ -184,6 +184,7 @@ namespace Content.Shared.Atmos
 			[Gas.Pluoxium] = Loc.GetString("gas-pluoxium-abbreviation"), // Funky/Goob - Ported gas
             [Gas.Tritium] = Loc.GetString("gas-tritium-abbreviation"),
             [Gas.WaterVapor] = Loc.GetString("gas-water-vapor-abbreviation"),
+            [Gas.LetoferolVapor] = Loc.GetString("gas-letoferol-vapor-abbreviation"), // Mono
         };
 
 
@@ -209,6 +210,7 @@ namespace Content.Shared.Atmos
             [Gas.Pluoxium] = Loc.GetString("gases-pluoxium"), // Funky/Goob - Ported gas
             [Gas.Tritium] = Loc.GetString("gases-tritium"),
             [Gas.WaterVapor] = Loc.GetString("gases-water-vapor"),
+            [Gas.LetoferolVapor] = Loc.GetString("gases-letoferol-vapor"), // Mono
         };
 
         #region Excited Groups
@@ -238,7 +240,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 14; //Funky/Goob/ES: 9 >> 14
+        public const int TotalNumberOfGases = 15;
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -443,5 +445,6 @@ namespace Content.Shared.Atmos
         // ES START
         Smoke = 13,
         // ES END
+        LetoferolVapor = 14, // Mono
     }
 }

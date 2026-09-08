@@ -116,6 +116,8 @@ public partial class ShuttleNavControl
                 for (var y = start; y < end; y++)
                 {
                     var previous = new Vector2i(int.MinValue, int.MinValue);
+                    var previousChunk = previous;
+                    uint[]? data = null;
                     var color = default(Rgba32);
                     for (var x = 0; x < size.X; x++)
                     {
@@ -132,7 +134,12 @@ public partial class ShuttleNavControl
                             color = default;
                             var chunkIndex = SharedMapSystem.GetChunkIndices(index, RadarTerrainChunk.Size);
                             var chunk = new RadarTerrainChunk(chunkIndex, step);
-                            if (chunks.TryGetValue(chunk, out var data))
+                            if (chunkIndex != previousChunk)
+                            {
+                                chunks.TryGetValue(chunk, out data);
+                                previousChunk = chunkIndex;
+                            }
+                            if (data != null)
                             {
                                 var offset = index - chunk.Origin;
                                 color.PackedValue = data[offset.Y * RadarTerrainChunk.Size + offset.X];

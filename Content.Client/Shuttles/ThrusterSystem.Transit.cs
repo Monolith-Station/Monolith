@@ -10,7 +10,7 @@ namespace Content.Client.Shuttles;
 
 public sealed partial class ThrusterSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+[Dependency] private IGameTiming _timing = default!;
 
     private const float MaximumSpeed = 4f;
     private static readonly ResPath OverclockedRsi = new("_FarHorizons/Effects/overclocked_thruster.rsi");

@@ -1,0 +1,46 @@
+light_mode unshaded;
+blend_mode mix;
+
+uniform highp vec2 BEAM_START;
+uniform highp vec2 BEAM_CAP_START;
+uniform highp vec2 BEAM_DIRECTION;
+uniform highp float BEAM_RADIUS;
+uniform highp float BEAM_TIME;
+uniform highp float BEAM_PHASE;
+uniform highp float BEAM_SOURCE;
+uniform highp vec3 BEAM_CLOUD_DECK;
+uniform highp vec3 BEAM_CLOUD_VEIL;
+uniform highp vec3 BEAM_COLOR;
+
+varying highp vec2 beam_position;
+
+void vertex() {
+    beam_position = aPos;
+}
+
+void fragment() {
+    highp vec2 delta = beam_position - BEAM_START;
+    highp float along = dot(delta, BEAM_DIRECTION) / BEAM_RADIUS;
+    highp float across = dot(delta, vec2(-BEAM_DIRECTION.y, BEAM_DIRECTION.x)) / BEAM_RADIUS;
+    highp float flow = along * 0.8 - BEAM_TIME + BEAM_PHASE;
+    highp float ripple = sin(flow + sin(flow * 0.37 + across * 2.0)) * 0.045;
+    highp float radius = abs(across + ripple);
+    highp float capAlong = dot(beam_position - BEAM_CAP_START, BEAM_DIRECTION) / BEAM_RADIUS;
+    highp float behind = min(capAlong, 0.0) * BEAM_SOURCE;
+    radius = sqrt(radius * radius + behind * behind);
+    highp float core = exp(-radius * radius * 10.0);
+    highp float sheath = exp(-radius * radius * 1.6);
+    highp float halo = exp(-radius * radius * 0.32) * 0.24;
+    highp float strand = (across - sin(flow * 0.6) * 0.6) * 9.0;
+    highp float filament = exp(-strand * strand - behind * behind * 10.0);
+    highp float energy = sheath * (0.88 + 0.12 * sin(flow)) + filament * 0.15;
+    highp float alpha = clamp(core + energy * 0.85 + halo, 0.0, 1.0);
+    alpha *= 1.0 - smoothstep(3.2, 4.0, abs(across));
+    alpha *= 1.0 - smoothstep(3.2, 4.0, -behind);
+    highp float deckAlong = dot(beam_position - BEAM_CLOUD_DECK.xy, BEAM_DIRECTION) / BEAM_RADIUS;
+    highp float veilAlong = dot(beam_position - BEAM_CLOUD_VEIL.xy, BEAM_DIRECTION) / BEAM_RADIUS;
+    alpha *= mix(1.0, smoothstep(-2.0, 2.0, deckAlong), BEAM_CLOUD_DECK.z);
+    alpha *= mix(1.0, smoothstep(-2.0, 2.0, veilAlong), BEAM_CLOUD_VEIL.z);
+    highp vec3 color = mix(BEAM_COLOR, vec3(1.0), clamp(core + filament * 0.25, 0.0, 1.0));
+    COLOR = vec4(color, alpha);
+}

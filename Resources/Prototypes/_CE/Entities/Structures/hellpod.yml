@@ -1,0 +1,55 @@
+- type: entity
+  parent: BaseStructure
+  id: CEHellpodHatch
+  name: hellpod boarding hatch
+  description: This looks familiar. But you can't put your finger on why...
+  components:
+  - type: CEHellpodHatch
+  - type: ExaminableDamage
+    messages: null
+  - type: Physics
+    canCollide: false
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/hellpod_hatch.rsi
+    drawdepth: FloorObjects
+    layers:
+    - state: open
+      map: ["hatch"]
+  - type: Appearance
+  - type: CEHellpodHatchVisuals
+  - type: ContainerContainer
+    containers:
+      occupant: !type:ContainerSlot {}
+
+- type: entity
+  parent: BaseStructure
+  id: CEHellpod
+  name: hellpod
+  description: Freedom never sleeps.
+  components:
+  - type: CEHellpod
+  - type: ExaminableDamage
+    messages: null
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: CEZPhysics
+    autoStep: false
+  - type: Sprite
+    sprite: _Mono/Objects/hellpod.rsi
+    state: pod
+    offset: 0, 0.5
+    noRot: true
+  - type: ContainerContainer
+    containers:
+      occupant: !type:ContainerSlot {}
+
+- type: alert
+  id: CEHellpodHatch
+  icons:
+  - sprite: /Textures/_Crescent/Interface/Alerts/buckled.rsi
+    state: buckled
+  name: ce-hellpod-hatch-alert-name
+  description: ce-hellpod-hatch-alert-desc
+  clickEvent: !type:CEHellpodExitAlertEvent

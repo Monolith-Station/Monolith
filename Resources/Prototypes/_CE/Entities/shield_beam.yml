@@ -1,0 +1,7 @@
+- type: entity
+  id: CEShieldBeam
+  name: planetary shield beam
+  save: false
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: CEShieldBeam

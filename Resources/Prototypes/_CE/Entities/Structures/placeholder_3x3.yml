@@ -1,0 +1,22 @@
+- type: entity
+  parent: BaseStructure
+  id: CEPlaceholder3x3
+  abstract: true
+  name: Placeholder (3x3)
+  components:
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    state: green
+    scale: 3, 3
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.45,-1.45,1.45,1.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer

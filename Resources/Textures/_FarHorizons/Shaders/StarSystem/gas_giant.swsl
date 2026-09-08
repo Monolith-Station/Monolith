@@ -1,5 +1,7 @@
 light_mode unshaded;
 
+#include "/Textures/_Mono/Shaders/shield_skin_common.swsl"
+
 #include "/Textures/_FarHorizons/Shaders/shader_utils.swsl"
 #include "/Textures/_FarHorizons/Shaders/StarSystem/planet_rings.swsl"
 #include "/Textures/_FarHorizons/Shaders/StarSystem/planet_utils.swsl" // Majority of uniforms come from here
@@ -130,6 +132,9 @@ void fragment() {
         finalComposite.rgb = mix(finalComposite.rgb, litColor, 1.0);
         finalComposite.a = 1.0;
     }
+
+    if (progress > 0.0 && coreRadius > 0.0)
+        finalComposite = compositeOver(finalComposite, renderShieldSkin(vec2(offset.x, -offset.y) / (2.0 * coreRadius) + vec2(0.5)));
 
     // foreground rings
     if (hasRings) {

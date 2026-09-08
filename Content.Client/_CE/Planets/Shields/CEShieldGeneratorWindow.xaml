@@ -1,0 +1,28 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                MinSize="290 130"
+                SetSize="400 180">
+    <BoxContainer Margin="4 0" Orientation="Horizontal">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+            <GridContainer Margin="2 0 0 0" Columns="2">
+                <!-- Status -->
+                <Label Text="{Loc 'ce-shield-generator-window-status'}" HorizontalExpand="True" StyleClasses="StatusFieldTitle" />
+                <Label Name="StatusLabel" Text="-" />
+                <!-- Power -->
+                <Label Text="{Loc 'ce-shield-generator-window-power'}" StyleClasses="StatusFieldTitle" />
+                <Label Name="PowerLabel" Text="0 W / 0 W" />
+                <!-- ETA -->
+                <Label Text="{Loc 'ce-shield-generator-window-eta'}" StyleClasses="StatusFieldTitle" />
+                <Label Name="EtaLabel" Text="N/A" />
+                <!-- Charge -->
+                <Label Text="{Loc 'ce-shield-generator-window-charge'}" StyleClasses="StatusFieldTitle" />
+                <ProgressBar Name="ChargeBar" MaxValue="1">
+                    <Label Name="ChargeText" Margin="4 0" Text="0 %" />
+                </ProgressBar>
+            </GridContainer>
+        </BoxContainer>
+        <PanelContainer Margin="12 0 0 0" StyleClasses="Inset" VerticalAlignment="Center">
+            <SpriteView Name="EntityView" SetSize="96 96" OverrideDirection="South" />
+        </PanelContainer>
+    </BoxContainer>
+</controls:FancyWindow>

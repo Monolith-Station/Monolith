@@ -6,7 +6,7 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Server._Mono.Planets;
 
-public sealed class ToroidalMapSystem : EntitySystem
+public sealed partial class ToroidalMapSystem : EntitySystem
 {
     [Dependency] private SharedTransformSystem _transform = default!;
 

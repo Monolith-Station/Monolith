@@ -14,6 +14,7 @@ public sealed partial class WaterOverlaySystem : EntitySystem
         base.Initialize();
 
         _overlayMan.AddOverlay(new WaterOverlay());
+        _overlayMan.AddOverlay(new LetoferolWaterOverlay());
     }
 
     public override void Shutdown()
@@ -21,5 +22,6 @@ public sealed partial class WaterOverlaySystem : EntitySystem
         base.Shutdown();
 
         _overlayMan.RemoveOverlay<WaterOverlay>();
+        _overlayMan.RemoveOverlay<LetoferolWaterOverlay>();
     }
 }

@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Linq;
 using Content.Shared._Mono.Detection;
 using Content.Shared._Mono.Radar;
 using Content.Shared.Maps;
@@ -12,10 +13,11 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.Radar;
 
-public sealed class RadarTerrainSystem : EntitySystem
+public sealed partial class RadarTerrainSystem : EntitySystem
 {
     [Dependency] private SharedMapSystem _maps = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
@@ -25,6 +27,8 @@ public sealed class RadarTerrainSystem : EntitySystem
     [Dependency] private ISerializationManager _serialization = default!;
     [Dependency] private ITileDefinitionManager _tiles = default!;
     [Dependency] private SharedBiomeSystem _biomes = default!;
+    [Dependency] private IGameTiming _timing = default!;
+
 
     private sealed class Chart(int seed, List<IBiomeLayer> layers, RadarTerrainSampler sampler)
     {
@@ -34,10 +38,24 @@ public sealed class RadarTerrainSystem : EntitySystem
         public readonly byte[] SampleCache = sampler.CreateCache();
         public readonly Dictionary<RadarTerrainChunk, RadarTerrainChunkEvent> Chunks = new();
         public readonly HashSet<Vector2i> Dirty = new();
+        public readonly Dictionary<RadarTerrainChunk, uint> Revisions = new();
+        public readonly Queue<RadarTerrainChunk> CacheOrder = new();
     }
 
     private readonly Dictionary<EntityUid, Chart> _charts = new();
     private readonly Queue<(RequestRadarTerrainEvent Request, ICommonSession Session, RadarTerrainChunk Chunk)> _requests = new();
+    private readonly Dictionary<ICommonSession, TimeSpan> _nextRequest = new();
+    private TimeSpan _nextCleanup;
+
+    private Chart GetChart(EntityUid map)
+    {
+        var biome = Comp<BiomeComponent>(map);
+        if (_charts.TryGetValue(map, out var chart) && chart.Seed == biome.Seed && chart.Layers == biome.Layers)
+            return chart;
+        return _charts[map] = new Chart(biome.Seed, biome.Layers,
+            new RadarTerrainSampler(biome.Layers, biome.Seed, _prototypes, _serialization,
+                wrapSize: CompOrNull<ToroidalMapComponent>(map)?.Size ?? 0f));
+    }
 
     public override void Initialize()
     {
@@ -45,6 +63,7 @@ public sealed class RadarTerrainSystem : EntitySystem
         SubscribeLocalEvent<TileChangedEvent>(OnTilesChanged);
         SubscribeLocalEvent<EntityTerminatingEvent>(OnEntityTerminating);
         SubscribeLocalEvent<AnchorStateChangedEvent>(OnAnchorChanged);
+        SubscribeLocalEvent<MoveEvent>(OnMoved);
         SubscribeLocalEvent<BiomeTerrainChangedEvent>(OnTerrainChanged);
         SubscribeLocalEvent<BiomeComponent, ComponentShutdown>(OnShutdown);
     }
@@ -65,8 +84,15 @@ public sealed class RadarTerrainSystem : EntitySystem
 
     private void OnRequest(RequestRadarTerrainEvent request, EntitySessionEventArgs args)
     {
-        if (request.Chunks.Length > 16 || _requests.Count + request.Chunks.Length > 128 || !CanRead(request, args.SenderSession, out _, out _))
+        if (request.Chunks.Length > 16 || _requests.Count + request.Chunks.Length > 128
+            || !CanRead(request, args.SenderSession, out var console, out var map)
+            || _nextRequest.TryGetValue(args.SenderSession, out var next) && _timing.RealTime < next)
             return;
+
+        _nextRequest[args.SenderSession] = _timing.RealTime + TimeSpan.FromMilliseconds(20);
+        var chart = GetChart(map);
+        var chunks = new List<RadarTerrainChunk>();
+        var revisions = new List<uint>();
 
         foreach (var chunk in request.Chunks)
         {
@@ -74,21 +100,63 @@ public sealed class RadarTerrainSystem : EntitySystem
                 Math.Abs((long)chunk.Index.X) >= int.MaxValue / (RadarTerrainChunk.Size * chunk.Step) ||
                 Math.Abs((long)chunk.Index.Y) >= int.MaxValue / (RadarTerrainChunk.Size * chunk.Step))
                 continue;
+            if (!TryComp<MapGridComponent>(map, out var grid) || !InRange(console, map, grid, chunk))
+                continue;
+            if (request.Manifest)
+            {
+                chunks.Add(chunk);
+                if (!chart.Revisions.ContainsKey(chunk) && HasOverrides(map, grid, chunk))
+                    chart.Revisions[chunk] = _timing.CurTick.Value + 1;
+                revisions.Add(chart.Revisions.GetValueOrDefault(chunk));
+                continue;
+            }
             _requests.Enqueue((request, args.SenderSession, chunk));
         }
+        if (request.Manifest)
+            RaiseNetworkEvent(new RadarTerrainManifestEvent(request.Map, chunks.ToArray(), revisions.ToArray()), args.SenderSession);
+    }
+
+    private bool InRange(EntityUid console, EntityUid map, MapGridComponent grid, RadarTerrainChunk chunk)
+    {
+        var center = ((Vector2)chunk.Origin + new Vector2(RadarTerrainChunk.Size * 0.5f)) * grid.TileSize;
+        var worldCenter = Vector2.Transform(center, _transform.GetWorldMatrix(map));
+        var range = Comp<RadarConsoleComponent>(console).MaxRange * 2f + RadarTerrainChunk.Size * grid.TileSize;
+        return Vector2.DistanceSquared(worldCenter, _transform.GetWorldPosition(console)) <= range * range;
+    }
+
+    private bool HasOverrides(EntityUid map, MapGridComponent grid, RadarTerrainChunk chunk)
+    {
+        if (_biomes.HasRecordedArea(Comp<BiomeComponent>(map), chunk.Origin, RadarTerrainChunk.Size))
+            return true;
+        var bounds = new Box2((Vector2)chunk.Origin * grid.TileSize,
+            (Vector2)(chunk.Origin + new Vector2i(RadarTerrainChunk.Size, RadarTerrainChunk.Size)) * grid.TileSize);
+        var tiles = _maps.GetLocalTilesEnumerator(map, grid, bounds);
+        if (tiles.MoveNext(out _))
+            return true;
+        return _maps.GetLocalAnchoredEntities(map, grid, bounds).Any();
     }
 
     public override void Update(float frameTime)
     {
+        if (_timing.RealTime >= _nextCleanup)
+        {
+            foreach (var session in _nextRequest.Keys.ToArray())
+            {
+                if (session.Status != Robust.Shared.Enums.SessionStatus.InGame)
+                    _nextRequest.Remove(session);
+            }
+            _nextCleanup = _timing.RealTime + TimeSpan.FromSeconds(5);
+        }
         foreach (var (map, chart) in _charts)
         {
             if (chart.Dirty.Count == 0)
                 continue;
             foreach (var changed in chart.Dirty)
-                chart.Chunks.Remove(new RadarTerrainChunk(changed, 1));
-            var dirty = new Vector2i[chart.Dirty.Count];
-            chart.Dirty.CopyTo(dirty);
-            RaiseNetworkEvent(new RadarTerrainInvalidatedEvent(GetNetEntity(map), dirty));
+            {
+                var chunk = new RadarTerrainChunk(changed, 1);
+                chart.Chunks.Remove(chunk);
+                chart.Revisions[chunk] = _timing.CurTick.Value + 1;
+            }
             chart.Dirty.Clear();
         }
 
@@ -97,47 +165,42 @@ public sealed class RadarTerrainSystem : EntitySystem
             var (request, session, chunk) = pending;
             if (!CanRead(request, session, out var console, out var map) || !TryComp<MapGridComponent>(map, out var grid))
                 continue;
-            var radar = Comp<RadarConsoleComponent>(console);
             var origin = chunk.Origin;
-            var center = ((Vector2)origin + new Vector2(RadarTerrainChunk.Size * chunk.Step * 0.5f)) * grid.TileSize;
-            var worldCenter = Vector2.Transform(center, _transform.GetWorldMatrix(map));
-            var range = radar.MaxRange * 2f + RadarTerrainChunk.Size * chunk.Step * grid.TileSize;
-            if (Vector2.DistanceSquared(worldCenter, _transform.GetWorldPosition(console)) > range * range)
+            if (!InRange(console, map, grid, chunk))
                 continue;
 
             var biome = Comp<BiomeComponent>(map);
-            if (!_charts.TryGetValue(map, out var chart) || chart.Seed != biome.Seed || chart.Layers != biome.Layers)
-            {
-                chart = new Chart(biome.Seed, biome.Layers, new RadarTerrainSampler(biome.Layers, biome.Seed, _prototypes, _serialization,
-                wrapSize: CompOrNull<ToroidalMapComponent>(map)?.Size ?? 0f));
-                _charts[map] = chart;
-            }
+            var chart = GetChart(map);
             if (!chart.Chunks.TryGetValue(chunk, out var update))
             {
-                if (chart.Chunks.Count >= 512)
-                    chart.Chunks.Clear();
+                while (chart.CacheOrder.Count >= 512 && chart.CacheOrder.TryDequeue(out var oldest))
+                    chart.Chunks.Remove(oldest);
                 var indices = new List<ushort>();
                 var pixels = new List<uint>();
                 for (var y = 0; y < RadarTerrainChunk.Size; y++)
                 for (var x = 0; x < RadarTerrainChunk.Size; x++)
                 {
                     var index = origin + new Vector2i(x * chunk.Step, y * chunk.Step);
-                    var color = RadarTerrainSampler.Pack(Sample(map, grid, biome, chart.Sampler, index));
-                    if (color == chart.Sampler.Sample(index.X, index.Y, chart.SampleCache))
+                    var baseline = chart.Sampler.Sample(index.X, index.Y, out var tile, out var ground, chart.SampleCache);
+                    var color = Sample(map, grid, biome, chart.Sampler, index, baseline, tile, ground);
+                    if (color == baseline)
                         continue;
                     indices.Add((ushort)(y * RadarTerrainChunk.Size + x));
                     pixels.Add(color);
                 }
-                update = new RadarTerrainChunkEvent(GetNetEntity(map), chunk, indices.ToArray(), pixels.ToArray());
+                update = new RadarTerrainChunkEvent(GetNetEntity(map), chunk, indices.ToArray(), pixels.ToArray(),
+                    chart.Revisions.GetValueOrDefault(chunk));
                 chart.Chunks[chunk] = update;
+                chart.CacheOrder.Enqueue(chunk);
             }
             RaiseNetworkEvent(update, session);
         }
     }
 
-    private Color Sample(EntityUid map, MapGridComponent grid, BiomeComponent biome, RadarTerrainSampler sampler, Vector2i index)
+    private uint Sample(EntityUid map, MapGridComponent grid, BiomeComponent biome, RadarTerrainSampler sampler,
+        Vector2i index, uint baseline, int tile, Color ground)
     {
-        var ground = sampler.SampleTile(index.X, index.Y, out var tile);
+        var originalTile = tile;
         if (_maps.TryGetTileRef(map, grid, index, out var actual) && !actual.Tile.IsEmpty)
         {
             tile = actual.Tile.TypeId;
@@ -150,13 +213,15 @@ public sealed class RadarTerrainSystem : EntitySystem
                 continue;
             var prototype = MetaData(uid.Value).EntityPrototype;
             if (prototype != null && sampler.EntityColors.TryGetValue(prototype.ID, out var color))
-                return color;
-            return Color.Gray.WithAlpha(0.75f);
+                return RadarTerrainSampler.Pack(color);
+            return RadarTerrainSampler.Pack(Color.Gray.WithAlpha(0.75f));
         }
         if (_biomes.HasRecordedTile(biome, index))
-            return actual.Tile.IsEmpty ? Color.Transparent : ground;
+            return actual.Tile.IsEmpty ? 0 : RadarTerrainSampler.Pack(ground);
+        if (tile == originalTile)
+            return baseline;
         var entity = sampler.SampleEntity(index.X, index.Y, tile);
-        return entity.A != 0 ? entity : ground;
+        return RadarTerrainSampler.Pack(entity.A != 0 ? entity : ground);
     }
 
     private void OnTilesChanged(ref TileChangedEvent args)
@@ -169,7 +234,7 @@ public sealed class RadarTerrainSystem : EntitySystem
 
     private void OnEntityTerminating(ref EntityTerminatingEvent args)
     {
-        if (!TryComp<TransformComponent>(args.Entity.Owner, out var xform) || xform.GridUid is not { } map ||
+        if (!TryComp<TransformComponent>(args.Entity.Owner, out var xform) || !xform.Anchored || xform.GridUid is not { } map ||
             !_charts.TryGetValue(map, out var chart) || !TryComp<MapGridComponent>(map, out var grid))
             return;
         var index = _maps.LocalToTile(map, grid, xform.Coordinates);
@@ -182,6 +247,23 @@ public sealed class RadarTerrainSystem : EntitySystem
             !TryComp<MapGridComponent>(map, out var grid))
             return;
         var index = _maps.LocalToTile(map, grid, args.Transform.Coordinates);
+        chart.Dirty.Add(SharedMapSystem.GetChunkIndices(index, RadarTerrainChunk.Size));
+    }
+
+    private void OnMoved(ref MoveEvent args)
+    {
+        if (!args.Component.Anchored || args.OldPosition == args.NewPosition)
+            return;
+        MarkMoved(args.OldPosition);
+        MarkMoved(args.NewPosition);
+    }
+
+    private void MarkMoved(EntityCoordinates position)
+    {
+        var map = position.EntityId;
+        if (!_charts.TryGetValue(map, out var chart) || !TryComp<MapGridComponent>(map, out var grid))
+            return;
+        var index = _maps.LocalToTile(map, grid, position);
         chart.Dirty.Add(SharedMapSystem.GetChunkIndices(index, RadarTerrainChunk.Size));
     }
 

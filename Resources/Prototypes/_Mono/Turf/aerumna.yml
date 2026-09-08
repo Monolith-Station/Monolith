@@ -1,0 +1,41 @@
+- type: tile
+  id: FloorAerumnaFlesh
+  name: tiles-aerumna-flesh
+  sprite: /Textures/_Mono/Objects/Misc/fleshkudzu.rsi/kudzu_22.png
+  radarColor: "#873F48"
+  isSubfloor: true
+  indestructible: true
+  weather: true
+  heatCapacity: 10000
+  footstepSounds:
+    collection: FootstepBlood
+  friction: 0.4
+  mobAcceleration: 6
+  entityShader: MonoFleshSubmerged
+  contactReagent: NaturalLetoferol
+  contactReagentRate: 1
+  fallDamageMultiplier: 0.2
+  fallStunMultiplier: 0.4
+
+- type: tile
+  id: FloorNaturalLetoferol
+  name: tiles-natural-letoferol
+  sprite: /Textures/_Mono/Tiles/planet/water.png
+  radarColor: "#B08A26"
+  isSubfloor: true
+  indestructible: true
+  weather: true
+  heatCapacity: 10000
+  footstepSounds:
+    collection: FootstepWater
+  friction: 0.4
+  gridFriction: 0
+  mobFriction: 0.2
+  mobFrictionNoInput: 0.3
+  mobAcceleration: 8
+  fallDamageMultiplier: 0
+  fallStunMultiplier: 0.1
+  entityShader: MonoLetoferolSubmerged
+  reagent: NaturalLetoferol
+  contactReagent: NaturalLetoferol
+  contactReagentRate: 1

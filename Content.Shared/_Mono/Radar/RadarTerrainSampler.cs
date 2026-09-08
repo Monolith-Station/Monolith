@@ -104,10 +104,13 @@ public sealed class RadarTerrainSampler
     public byte[] CreateCache() => new byte[_matchCount];
 
     public uint Sample(int x, int y, byte[]? cache = null)
+        => Sample(x, y, out _, out _, cache);
+
+    public uint Sample(int x, int y, out int tile, out Color ground, byte[]? cache = null)
     {
         Span<byte> matches = cache;
         matches.Clear();
-        var ground = SampleTile(x, y, out var tile, matches);
+        ground = SampleTile(x, y, out tile, matches);
         var entity = SampleEntity(x, y, tile, matches);
         return Pack(entity.A != 0 ? entity : ground);
     }

@@ -1,0 +1,37 @@
+- type: entity
+  parent: CEPlaceholder5x5
+  id: CEPlanetShieldGenerator
+  name: planetary shield generator
+  description: A superstructure that draws enough power to kill a leviathan in a single shot continually and uses it to project a full-planet shield. [color=red]You really shouldn't be standing next to this...[/color]
+  components:
+  - type: PowerConsumer
+    voltage: High
+    drawRate: 2000000000 # Yes, that is a 2 gigawatt draw.
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: CEShieldGenerator
+  - type: ActivatableUI
+    key: enum.CEShieldGeneratorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CEShieldGeneratorUiKey.Key:
+        type: CEShieldGeneratorBoundUserInterface
+  - type: Appearance
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1200
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]

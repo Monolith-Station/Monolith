@@ -18,7 +18,7 @@ using Content.Shared._CE.ZLevels.Core.EntitySystems;
 
 namespace Content.Client._Mono.Radar;
 
-public sealed class RadarTerrainSystem : EntitySystem
+public sealed partial class RadarTerrainSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
@@ -35,11 +35,15 @@ public sealed class RadarTerrainSystem : EntitySystem
         public readonly Dictionary<RadarTerrainChunk, uint[]> Chunks = new();
         public readonly Dictionary<RadarTerrainChunk, TimeSpan> Pending = new();
         public readonly HashSet<RadarTerrainChunk> Stale = new();
+        public readonly Dictionary<RadarTerrainChunk, uint> Revisions = new();
+        public readonly Dictionary<RadarTerrainChunk, uint> WantedRevisions = new();
+        public readonly Dictionary<RadarTerrainChunk, TimeSpan> Checked = new();
         public int Revision;
         public Dictionary<RadarTerrainChunk, uint[]>? Snapshot;
         public readonly Dictionary<RadarTerrainChunk, uint[]> Preview = new();
         public readonly Queue<RadarTerrainChunk> PreviewOrder = new();
         public Task<Dictionary<RadarTerrainChunk, uint[]>>[]? PreviewJobs;
+        public CancellationTokenSource PreviewCancellation = new();
         public RadarTerrainSampler? Sampler;
         public List<IBiomeLayer>? Layers;
         public int Seed;
@@ -64,12 +68,15 @@ public sealed class RadarTerrainSystem : EntitySystem
     private readonly List<RadarTerrainChunk> _requests = new();
     private TimeSpan _nextRequest;
     private TimeSpan _lastRadarRequest;
+    private TimeSpan _nextWarmup;
 
     public override void Update(float frameTime)
     {
-        if (_timing.RealTime - _lastRadarRequest < TimeSpan.FromSeconds(0.25) ||
+        if (_timing.RealTime < _nextWarmup || _timing.RealTime - _lastRadarRequest < TimeSpan.FromSeconds(0.25) ||
             _player.LocalEntity is not { } player || !TryComp<TransformComponent>(player, out var xform))
             return;
+
+        _nextWarmup = _timing.RealTime + TimeSpan.FromSeconds(0.25);
 
         Entity<MapGridComponent>? surface = null;
         var altitude = _levels.GetAbsoluteAltitude(player);
@@ -96,6 +103,7 @@ public sealed class RadarTerrainSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeNetworkEvent<RadarTerrainChunkEvent>(OnChunk);
+        SubscribeNetworkEvent<RadarTerrainManifestEvent>(OnManifest);
         SubscribeNetworkEvent<RadarTerrainInvalidatedEvent>(OnInvalidated);
         SubscribeLocalEvent<Content.Shared.Parallax.Biomes.BiomeComponent, ComponentShutdown>(OnShutdown);
     }
@@ -108,6 +116,22 @@ public sealed class RadarTerrainSystem : EntitySystem
         UpdatePreview(map, chart, bounds, step);
         if (_timing.RealTime < _nextRequest)
             return chart.Revision;
+
+        foreach (var chunk in chart.Stale)
+        {
+            if (!chart.Preview.ContainsKey(chunk))
+                continue;
+            var chunkSize = RadarTerrainChunk.Size * step;
+            var chunkBounds = new Box2(chunk.Origin, chunk.Origin + new Vector2i(chunkSize, chunkSize));
+            if (!bounds.Intersects(chunkBounds))
+                continue;
+            if (chart.Pending.TryGetValue(chunk, out var pending) && _timing.RealTime - pending < TimeSpan.FromSeconds(3))
+                return chart.Revision;
+            chart.Pending[chunk] = _timing.RealTime;
+            RaiseNetworkEvent(new RequestRadarTerrainEvent(GetNetEntity(console), GetNetEntity(map), new[] { chunk }));
+            _nextRequest = _timing.RealTime + TimeSpan.FromMilliseconds(25);
+            return chart.Revision;
+        }
 
         _requests.Clear();
         if (chart.Pending.Count > 4096)
@@ -138,15 +162,14 @@ public sealed class RadarTerrainSystem : EntitySystem
                 break;
             if (!chart.Preview.ContainsKey(chunk))
                 continue;
-            if (chart.Chunks.ContainsKey(chunk) && !chart.Stale.Contains(chunk) ||
-                chart.Pending.TryGetValue(chunk, out var sent) && _timing.RealTime - sent < TimeSpan.FromSeconds(3))
+            if (chart.Checked.TryGetValue(chunk, out var sent) && _timing.RealTime - sent < TimeSpan.FromSeconds(2))
                 continue;
             _requests.Add(chunk);
-            chart.Pending[chunk] = _timing.RealTime;
+            chart.Checked[chunk] = _timing.RealTime;
         }
         if (_requests.Count > 0)
         {
-            RaiseNetworkEvent(new RequestRadarTerrainEvent(GetNetEntity(console), GetNetEntity(map), _requests.ToArray()));
+            RaiseNetworkEvent(new RequestRadarTerrainEvent(GetNetEntity(console), GetNetEntity(map), _requests.ToArray(), manifest: true));
         }
         _nextRequest = _timing.RealTime + TimeSpan.FromSeconds(0.15);
         return chart.Revision;
@@ -169,6 +192,9 @@ public sealed class RadarTerrainSystem : EntitySystem
             return;
         if (chart.Sampler == null || chart.Layers != biome.Layers || chart.Seed != biome.Seed)
         {
+            chart.PreviewCancellation.Cancel();
+            chart.PreviewCancellation.Dispose();
+            chart.PreviewCancellation = new CancellationTokenSource();
             chart.Sampler = new RadarTerrainSampler(biome.Layers, biome.Seed, _prototypes, _serialization,
                 wrapSize: CompOrNull<ToroidalMapComponent>(map)?.Size ?? 0f);
             chart.Layers = biome.Layers;
@@ -178,6 +204,9 @@ public sealed class RadarTerrainSystem : EntitySystem
             chart.Chunks.Clear();
             chart.Pending.Clear();
             chart.Stale.Clear();
+            chart.Revisions.Clear();
+            chart.WantedRevisions.Clear();
+            chart.Checked.Clear();
             chart.PreviewJobs = null;
             chart.Snapshot = null;
             chart.Revision++;
@@ -185,7 +214,8 @@ public sealed class RadarTerrainSystem : EntitySystem
             chart.Prefetch.Started = false;
         }
         var prefetchCenter = SharedMapSystem.GetChunkIndices(bounds.Center, 256) * 256;
-        var prefetch = new Box2((Vector2)prefetchCenter - new Vector2(2048), (Vector2)prefetchCenter + new Vector2(2048));
+        var prefetchRadius = Math.Clamp(MathF.Max(bounds.Width, bounds.Height) * 0.75f, 256f, 2048f);
+        var prefetch = new Box2((Vector2)prefetchCenter - new Vector2(prefetchRadius), (Vector2)prefetchCenter + new Vector2(prefetchRadius));
         var active = false;
         var updated = false;
         if (chart.PreviewJobs is { } jobs)
@@ -233,6 +263,7 @@ public sealed class RadarTerrainSystem : EntitySystem
         var workers = Math.Min(missing.Count, Math.Min(Math.Clamp(_configuration.GetCVar(MonoCVars.RadarTerrainWorkers), 1, 16),
             Environment.ProcessorCount));
         var nextChunk = -1;
+        var cancellation = chart.PreviewCancellation.Token;
         chart.PreviewJobs = new Task<Dictionary<RadarTerrainChunk, uint[]>>[workers];
         for (var worker = 0; worker < workers; worker++)
         {
@@ -242,12 +273,14 @@ public sealed class RadarTerrainSystem : EntitySystem
                 var result = new Dictionary<RadarTerrainChunk, uint[]>((missing.Count + workers - 1) / workers);
                 for (var i = Interlocked.Increment(ref nextChunk); i < missing.Count; i = Interlocked.Increment(ref nextChunk))
                 {
+                    if (cancellation.IsCancellationRequested)
+                        break;
                     var chunk = missing[i];
                     var pixels = new uint[RadarTerrainChunk.Size * RadarTerrainChunk.Size];
                     var origin = chunk.Origin;
                     for (var y = 0; y < RadarTerrainChunk.Size; y++)
                     for (var x = 0; x < RadarTerrainChunk.Size; x++)
-                        pixels[y * RadarTerrainChunk.Size + x] = sampler.Sample(origin.X + x, origin.Y + y, cache);
+                        pixels[y * RadarTerrainChunk.Size + x] = sampler.Sample(origin.X + x * chunk.Step, origin.Y + y * chunk.Step, cache);
                     result[chunk] = pixels;
                 }
                 return result;
@@ -305,6 +338,26 @@ public sealed class RadarTerrainSystem : EntitySystem
         }
     }
 
+    private void OnManifest(RadarTerrainManifestEvent args)
+    {
+        if (!TryGetEntity(args.Map, out var map) || map == null || !_charts.TryGetValue(map.Value, out var chart)
+            || args.Chunks.Length != args.Revisions.Length)
+            return;
+        for (var i = 0; i < args.Chunks.Length; i++)
+        {
+            var chunk = args.Chunks[i];
+            chart.WantedRevisions[chunk] = args.Revisions[i];
+            if (args.Revisions[i] == 0 && !chart.Chunks.ContainsKey(chunk))
+            {
+                chart.Revisions[chunk] = 0;
+                chart.Stale.Remove(chunk);
+                continue;
+            }
+            if (!chart.Revisions.TryGetValue(chunk, out var revision) || revision != args.Revisions[i])
+                chart.Stale.Add(chunk);
+        }
+    }
+
     private void OnChunk(RadarTerrainChunkEvent args, EntitySessionEventArgs session)
     {
         if (!TryGetEntity(args.Map, out var map) || map == null || !_charts.TryGetValue(map.Value, out var chart))
@@ -317,11 +370,18 @@ public sealed class RadarTerrainSystem : EntitySystem
             if (args.Indices[i] < pixels.Length)
                 pixels[args.Indices[i]] = args.Pixels[i];
         }
+        var previous = chart.Chunks.GetValueOrDefault(args.Chunk, baseline);
+        var changed = !previous.AsSpan().SequenceEqual(pixels);
         chart.Chunks[args.Chunk] = pixels;
+        chart.Revisions[args.Chunk] = args.Revision;
         chart.Pending.Remove(args.Chunk);
-        chart.Stale.Remove(args.Chunk);
-        chart.Revision++;
-        chart.Snapshot = null;
+        if (!chart.WantedRevisions.TryGetValue(args.Chunk, out var wanted) || args.Revision >= wanted)
+            chart.Stale.Remove(args.Chunk);
+        if (changed)
+        {
+            chart.Revision++;
+            chart.Snapshot = null;
+        }
     }
 
     private static void TrimPreview(Chart chart, Box2 bounds, Box2 prefetch, int step)
@@ -341,6 +401,9 @@ public sealed class RadarTerrainSystem : EntitySystem
             chart.Chunks.Remove(chunk);
             chart.Stale.Remove(chunk);
             chart.Pending.Remove(chunk);
+            chart.Revisions.Remove(chunk);
+            chart.WantedRevisions.Remove(chunk);
+            chart.Checked.Remove(chunk);
         }
     }
 
@@ -367,6 +430,10 @@ public sealed class RadarTerrainSystem : EntitySystem
 
     private void OnShutdown(Entity<Content.Shared.Parallax.Biomes.BiomeComponent> entity, ref ComponentShutdown args)
     {
-        _charts.Remove(entity.Owner);
+        if (_charts.Remove(entity.Owner, out var chart))
+        {
+            chart.PreviewCancellation.Cancel();
+            chart.PreviewCancellation.Dispose();
+        }
     }
 }

@@ -4,6 +4,7 @@
  */
 
 using System.Numerics;
+using Content.Client._CE.Planets.Shields;
 using Content.Client._CE.ZLevels.Core;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
@@ -21,6 +22,7 @@ namespace Content.Client.Viewport;
 
 public sealed partial class ScalingViewport
 {
+    [Dependency] private IOverlayManager _overlayManager = default!;
     [Dependency] private IEyeManager _eyeManager = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private ITileDefinitionManager _tile = default!;
@@ -102,6 +104,13 @@ public sealed partial class ScalingViewport
     private TimeSpan _visualAltitudeTime;
     private float _visualAltitude;
     private float _visualDepthOffset;
+
+    private static (float Scale, float Offset) ZProjection(float depth, float anchorDepth = 0f)
+    {
+        const float shrink = CESharedZLevelsSystem.ZLevelViewShrink;
+        return (MathF.Pow(shrink, -depth),
+            CESharedZLevelsSystem.ZLevelOffset * (1f - MathF.Pow(shrink, depth - anchorDepth)) / (1f - shrink));
+    }
 
     private void RenderZLevels(IRenderHandle renderHandle, IClydeViewport viewport)
     {
@@ -314,8 +323,8 @@ public sealed partial class ScalingViewport
 
             d += _visualDepthOffset;
             Angle rot = _fallbackEye.Rotation * -1;
-            var off = rot.ToWorldVec() * CEClientZLevelsSystem.ZLevelOffset * (d - ownDepth);
-            var scale = MathF.Pow(CESharedZLevelsSystem.ZLevelViewShrink, -d);
+            var (scale, heightOffset) = ZProjection(d, ownDepth);
+            var off = rot.ToWorldVec() * heightOffset;
 
             return new ZEye(lowestDepth, d, highestDepth)
             {
@@ -330,6 +339,39 @@ public sealed partial class ScalingViewport
         }
 
         var first = true;
+        void DrawBeams()
+        {
+            if (!_entityManager.TryGetComponent<CEZMapComponent>(riderTransit?.LowerMap ?? playerMap, out var observerLevel)
+                || !_overlayManager.TryGetOverlay<CEShieldBeamOverlayDispatcher>(out var beams))
+                return;
+            (int, Vector2, Vector2)? ProjectBeamPoint(EntityUid pointMap, Vector2 position)
+            {
+                if (!_entityManager.TryGetComponent<CEZMapComponent>(pointMap, out var level)
+                    || level.NetworkUid != observerLevel.NetworkUid)
+                    return null;
+                var depth = level.Depth - observerLevel.Depth - frac;
+                Vector2 ProjectReference(float referenceDepth)
+                {
+                    var eye = MakeZEye(pointMap, referenceDepth)!;
+                    eye.GetViewMatrix(out var matrix, viewport.RenderScale);
+                    var local = Vector2.Transform(position, matrix) * EyeManager.PixelsPerMeter;
+                    return (Vector2) viewport.Size / 2 + new Vector2(local.X, -local.Y);
+                }
+                var point = ProjectReference(depth);
+                return (level.Depth, point, ProjectReference(depth + 1) - point);
+            }
+
+            float BeamCloudCoverage(EntityUid map)
+            {
+                if (!_entityManager.TryGetComponent<CEZMapComponent>(map, out var level))
+                    return 0f;
+                var depth = level.Depth - observerLevel.Depth - frac + _visualDepthOffset;
+                return depth <= CloudFullCoverDepth ? 1f : CloudCoverage(depth);
+            }
+
+            beams.RenderPass(renderHandle, viewport, ProjectBeamPoint, BeamCloudCoverage,
+                _fallbackEye!.Scale.Y * viewport.RenderScale.Y * EyeManager.PixelsPerMeter);
+        }
 
         foreach (var (mapUid, depth, allowFov, isTransit) in _zPasses)
         {
@@ -346,27 +388,11 @@ public sealed partial class ScalingViewport
             }
             else
             {
-                if (!_mapQuery.Value.TryComp(mapUid, out var mapComp))
+                if (MakeZEye(mapUid, depth) is not { } zEye)
                     continue;
-
-                Angle rotation = _fallbackEye.Rotation * -1;
-
-                var visualDepth = depth + _visualDepthOffset;
-                var offset = rotation.ToWorldVec() * CEClientZLevelsSystem.ZLevelOffset * (visualDepth - ownDepth);
-                var zScale = MathF.Pow(CESharedZLevelsSystem.ZLevelViewShrink, -visualDepth);
-
-                var zEye = new ZEye(lowestDepth, visualDepth, highestDepth)
-                {
-                    Position = new MapCoordinates(_fallbackEye.Position.Position, mapComp.MapId),
-                    // For overlay guards and other random shit that should only ever run on the actual eye and not the rest.
-                    Primary = mapUid == playerMap && !isTransit,
-                    DrawFov = _fallbackEye.DrawFov && allowFov,
-                    DrawLight = _fallbackEye.DrawLight,
-                    DrawParallax = !isTransit && depth == lowestDepth && cloudDeck == null,
-                    Offset = _fallbackEye.Offset + offset,
-                    Rotation = _fallbackEye.Rotation,
-                    Scale = _fallbackEye.Scale * zScale,
-                };
+                zEye.Primary = mapUid == playerMap && !isTransit;
+                zEye.DrawFov = _fallbackEye.DrawFov && allowFov;
+                zEye.DrawParallax = !isTransit && depth == lowestDepth && cloudDeck == null;
 
                 if (isTransit && depth > 0f)
                 {
@@ -488,8 +514,13 @@ public sealed partial class ScalingViewport
         {
             var coverage = CloudCoverage(aboveDepth + _visualDepthOffset);
             if (coverage > 0.001f)
-                DrawClouds(renderHandle, viewport, MakeZEye(aboveMap.Value, aboveDepth), GetLitCloudColor(aboveMap.Value, cloudAbove.CloudColor), coverage);
+            {
+                DrawClouds(renderHandle, viewport, MakeZEye(aboveMap.Value, aboveDepth),
+                    GetLitCloudColor(aboveMap.Value, cloudAbove.CloudColor), coverage);
+            }
         }
+
+        DrawBeams();
 
         // Restore the Eye
         Eye = _fallbackEye;
@@ -520,20 +551,25 @@ public sealed partial class ScalingViewport
                 : MathHelper.Lerp(1f, 0.08f, progress)
             : MathHelper.Lerp(1f, 1f / 0.35f, progress);
 
-        void RenderBackdrop(EntityUid mapUid, MapComponent map, float scale, bool clear, bool parallax)
+        ZEye BackdropEye(MapComponent map, float scale, bool parallax, float depth)
         {
-            viewport.Eye = new ZEye(0f, 0f, 0f)
+            var projection = ZProjection(depth);
+            return new ZEye(0f, 0f, 0f)
             {
                 PlanetTransitBackdrop = true,
                 Position = new MapCoordinates(_fallbackEye.Position.Position, map.MapId),
                 DrawFov = false,
                 DrawLight = _fallbackEye.DrawLight,
                 DrawParallax = parallax,
-                Offset = _fallbackEye.Offset,
+                Offset = _fallbackEye.Offset + (-_fallbackEye.Rotation).ToWorldVec() * projection.Offset,
                 Rotation = _fallbackEye.Rotation,
-                Scale = _fallbackEye.Scale * scale,
+                Scale = _fallbackEye.Scale * scale * projection.Scale,
             };
+        }
 
+        void RenderBackdrop(EntityUid mapUid, MapComponent map, float scale, bool clear, bool parallax, float depth = 0f)
+        {
+            viewport.Eye = BackdropEye(map, scale, parallax, depth);
             viewport.ClearColor = clear ? Color.Black : null;
             viewport.Render();
 
@@ -568,10 +604,7 @@ public sealed partial class ScalingViewport
                     continue;
                 }
 
-                var layerScale = backdropScale * MathF.Pow(
-                    CESharedZLevelsSystem.ZLevelViewShrink,
-                    originZ.Depth - zMap.Depth);
-                RenderBackdrop(mapUid, map, layerScale, clear, clear);
+                RenderBackdrop(mapUid, map, backdropScale, clear, clear, zMap.Depth - originZ.Depth);
                 clear = false;
             }
         }
@@ -592,6 +625,33 @@ public sealed partial class ScalingViewport
         };
 
         BlitTransitCloudGhost(renderHandle, viewport, gridEye, Color.Black, 0f, 1f);
+        if (_entityManager.TryGetComponent<CEZMapComponent>(transit.OriginMap, out var beamOrigin)
+            && _overlayManager.TryGetOverlay<CEShieldBeamOverlayDispatcher>(out var beams))
+        {
+            (int, Vector2, Vector2)? ProjectBeamPoint(EntityUid map, Vector2 position)
+            {
+                if (!_entityManager.TryGetComponent<CEZMapComponent>(map, out var level)
+                    || level.NetworkUid != beamOrigin.NetworkUid)
+                    return null;
+                Vector2 Project(float depth)
+                {
+                    var eye = BackdropEye(originMap, backdropScale, false, depth);
+                    eye.GetViewMatrix(out var matrix, viewport.RenderScale);
+                    var local = Vector2.Transform(position, matrix) * EyeManager.PixelsPerMeter;
+                    return (Vector2) viewport.Size / 2 + new Vector2(local.X, -local.Y);
+                }
+                var depth = level.Depth - beamOrigin.Depth;
+                var point = Project(depth);
+                return (level.Depth, point, Project(depth + 1) - point);
+            }
+
+            float BeamCloudCoverage(EntityUid map) =>
+                _entityManager.TryGetComponent<CEZMapComponent>(map, out var level)
+                && level.Depth <= beamOrigin.Depth ? 1f : 0f;
+
+            beams.RenderPass(renderHandle, viewport, ProjectBeamPoint, BeamCloudCoverage,
+                _fallbackEye.Scale.Y * backdropScale * viewport.RenderScale.Y * EyeManager.PixelsPerMeter);
+        }
         Eye = _fallbackEye;
         viewport.Eye = Eye;
     }

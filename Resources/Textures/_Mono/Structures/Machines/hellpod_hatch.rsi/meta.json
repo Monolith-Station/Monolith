@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "license": "Custom",
+  "copyright": "Sprites supplied by Kyres. Attribution and license pending confirmation.",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "open", "directions": 4 },
+    { "name": "closed", "directions": 4 },
+    { "name": "opening", "directions": 4, "delays": [
+      [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+      [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+      [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+      [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+    ] },
+    { "name": "closing", "directions": 4, "delays": [
+      [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+      [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+      [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+      [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+    ] }
+  ]
+}

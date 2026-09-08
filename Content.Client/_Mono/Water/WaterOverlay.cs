@@ -33,19 +33,22 @@ public sealed partial class WaterOverlay : GridOverlay
     /// </summary>
     private ushort? _waterTileId;
 
-    private static readonly ProtoId<ContentTileDefinition> WaterTile = "FloorWater";
+    private readonly ProtoId<ContentTileDefinition> WaterTile;
 
-    private static readonly ProtoId<ShaderPrototype> WaterShader = "MonoWater";
-
-    public WaterOverlay()
+    public WaterOverlay() : this("FloorWater", "MonoWater")
     {
+    }
+
+    protected WaterOverlay(ProtoId<ContentTileDefinition> tile, ProtoId<ShaderPrototype> shader)
+    {
+        WaterTile = tile;
         IoCManager.InjectDependencies(this);
 
         _mapSystem = _entManager.System<SharedMapSystem>();
         _xformSystem = _entManager.System<SharedTransformSystem>();
         _lookup = _entManager.System<EntityLookupSystem>();
 
-        _shader = _proto.Index(WaterShader).InstanceUnique();
+        _shader = _proto.Index(shader).InstanceUnique();
         _white = Texture.White;
     }
 
@@ -188,3 +191,5 @@ public sealed partial class WaterOverlay : GridOverlay
         _indices.Clear();
     }
 }
+
+public sealed class LetoferolWaterOverlay() : WaterOverlay("FloorNaturalLetoferol", "MonoLetoferolWater");
