@@ -114,6 +114,14 @@
       - state: ai
       - sprite: _NF/Mobs/Species/Templates/human.rsi
         state: human
+      - sprite: _NF/Clothing/Head/Hats/nfsd_beret_brown.rsi
+        state: equipped-HELMET
+      - sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_cream.rsi
+        state: equipped-INNERCLOTHING
+      - sprite: Clothing/Shoes/Boots/combatboots.rsi
+        state: equipped-FEET
+      - sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+        state: wielded-inhand-right
   - type: RandomSpawner
     prototypes:
     - MobPDVBaseA
