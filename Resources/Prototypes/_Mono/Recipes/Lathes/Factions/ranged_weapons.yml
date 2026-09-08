@@ -200,14 +200,14 @@
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: WeaponLauncherTSFAnubis
-  result: WeaponLauncherTSFAnubis
+  result: WeaponLauncherTSFAnubisEmpty
   categories:
   - AntiMaterial
   - Antitank
   - Explosive
   - Weapons
   materials:
-    Steel: 8000
+    Steel: 12000
     Plasteel: 4000
     Silver: 500
 
@@ -216,7 +216,7 @@
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: WeaponAMRShenzhenTSF
-  result: WeaponAMRShenzhen
+  result: WeaponAMRShenzhenEmpty
   categories:
   - AntiMaterial
   - Weapons
@@ -427,7 +427,7 @@
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: WeaponSniperHristovRogue
-  result: WeaponSniperHristov
+  result: WeaponSniperHristovEmpty
   categories:
   - DMRs
   - AntiMaterial

@@ -1,6 +1,6 @@
 - type: entity
   name: "TCA QBU-284 'Shenzhen' coilgun AMR"
-  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  parent: [BaseWeaponRifle, BaseGunWieldable, BaseFactionGearTSFT3]
   id: WeaponAMRShenzhen
   description: Magazine-fed AMR, utilizing electromagnets to fire 13.4x92mm DU-APFSDS rounds with extreme velocity.
   components:
@@ -31,7 +31,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: null
+        startingItem: MagazineShenzhen
         insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
         priority: 2
@@ -41,7 +41,7 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: null
+        startingItem: CartridgeShenzhen
         priority: 1
         whitelist:
           tags:
@@ -92,6 +92,33 @@
     preventFiring: true
   - type: UseDelay
     delay: 1
+
+- type: entity
+  name: "TCA QBU-284 'Shenzhen' coilgun AMR"
+  parent: WeaponAMRShenzhen
+  id: WeaponAMRShenzhenEmpty
+  suffix: Empty
+  description: Magazine-fed AMR, utilizing electromagnets to fire 13.4x92mm DU-APFSDS rounds with extreme velocity.
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: null
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineShenzhen
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: null
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeShenzhen
 
 - type: entity
   name: VFD QBU-243 Xian DMR (8x65mm SKR)
