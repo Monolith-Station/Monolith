@@ -219,7 +219,7 @@
   - type: Gun
     minAngle: 27
     maxAngle: 39
-    projectileSpeed: 70
+    projectileSpeed: 30
     fireRate: 0.2
     selectedMode: SemiAuto
     availableModes:
@@ -236,8 +236,8 @@
   - type: Wieldable
   - type: GunRequiresWield
   - type: WieldDelay
-    baseDelay: 1.1
-    modifiedDelay: 1.1
+    baseDelay: 1
+    modifiedDelay: 1
     preventFiring: true
   - type: ItemSlots
     slots:
@@ -258,6 +258,7 @@
         whitelist:
           tags:
           - Cartridge35mmGrenade
+          - GrenadeLaunchable
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -278,3 +279,5 @@
   - type: LaserPointer
     targetedColor: "#ff0037"
     defaultColor: "#03c2fc"
+  - type: UseDelay
+    delay: 0.5
