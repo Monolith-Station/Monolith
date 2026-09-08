@@ -193,7 +193,7 @@
 
 - type: entity
   name: TCA QLU-907 Anubis TPGL (35x53mm grenade) # CS2 reference
-  parent: [ BaseWeaponLauncher, BaseWeaponRifle ] # Magfed so we use rifle
+  parent: [ BaseWeaponLauncher, BaseWeaponRifle, BaseFactionGearTSFT2 ] # Magfed so we use rifle
   id: WeaponLauncherTSFAnubis
   description: A precision magfed grenade rifle with an inbuilt fire-control system, originally intended for use against fortifications & counterinsurgency. Fires 35mm grenades with high-velocity and precision.
   components:
