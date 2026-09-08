@@ -29,7 +29,10 @@
 - type: latheRecipePack
   id: MonoUSSPVouchersDynamic
   recipes:
-  - WeaponRifleAK410USSP # PLACEHOLDER 26AUG15
+  - ShipVoucherUsspT0Recipe
+  - ShipVoucherUsspDrakon
+  - ShipVoucherUsspTayfun
+  - ShipVoucherUsspBuran
 
 - type: latheRecipePack
   id: MonoUSSPStatic
