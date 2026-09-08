@@ -90,21 +90,17 @@
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure1
-  name: monolithic sample
-  description: A stable megalith of unknown composition, unknown origin. Primal feelings of unease flit through you at the mere sight of it. Immensely valuable for anomalous research.
   #categories: [ HideSpawnMenu ]
   components:
   - type: Icon
-    sprite: _Mono/Objects/TradeGoods/contraband.rsi
-    state: megalith
-    shader: unshaded
+    sprite: _NF/Structures/Storage/Crates/contraband1_crate.rsi
   - type: Sprite
-    sprite: _Mono/Objects/TradeGoods/contraband.rsi
+    sprite: _NF/Structures/Storage/Crates/contraband1_crate.rsi
     layers:
-    - state: megalith
+    - state: icon
     - sprite: _NF/Interface/Misc/cargo_destination_icons.rsi
       state: cargo_other
-      offset: 0.20,-0.25
+      offset: 0.275,-0.265
       map: ["enum.TradeCrateVisualLayers.Icon"]
       visible: false
     - sprite: _NF/Interface/Misc/cargo_destination_icons.rsi
@@ -116,13 +112,8 @@
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
-  - type: AmbientSound
-    range: 2
-    volume: -8
-    sound:
-      path: /Audio/Ambience/anomaly_scary.ogg
   - type: TradeCrate
-    valueAtDestination: 30000
+    valueAtDestination: 60000
     valueElsewhere: 20000
 
 - type: entity
@@ -151,16 +142,15 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 45000
+    valueAtDestination: 90000
     valueElsewhere: 4000
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
-    expressOnTimeBonus: 10000
-    expressLatePenalty: 30000
+    expressOnTimeBonus: 20000
+    expressLatePenalty: 60000
 
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure3
-  name: encrusted lockbox
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -184,16 +174,15 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 45000
+    valueAtDestination: 90000
     valueElsewhere: 2000
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
-    expressOnTimeBonus: 20000
-    expressLatePenalty: 25000
+    expressOnTimeBonus: 40000
+    expressLatePenalty: 50000
 
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure4
-  name: encrusted cache
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -217,16 +206,15 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 50000 # 105.000 is psychopathic + 45,000 making it 150,000 which is fucking stupid,
+    valueAtDestination: 100000 # 105.000 is psychopathic + 45,000 making it 150,000 which is fucking stupid, # is it really "fucking stupid" though?
     valueElsewhere: 3000
     expressDeliveryDuration: 36000 # one hour, go go (timeout mostly for pirates & NFSD)
-    expressOnTimeBonus: 25000
-    expressLatePenalty: 30000
+    expressOnTimeBonus: 50000
+    expressLatePenalty: 60000
 
 - type: entity
   parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT3 ] # the only t3
   id: CrateTradeContrabandSecure5
-  name: encrusted hoard
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -250,9 +238,9 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: TradeCrate
-    valueAtDestination: 45000
+    valueAtDestination: 90000
     valueElsewhere: 4000
     expressDeliveryDuration: 3600 # one hour, go go (timeout mostly for pirates & NFSD)
-    expressOnTimeBonus: 25000
-    expressLatePenalty: 30000
+    expressOnTimeBonus: 50000
+    expressLatePenalty: 60000
 # endregion Contraband Crates

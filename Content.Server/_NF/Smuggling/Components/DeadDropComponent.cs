@@ -81,5 +81,5 @@ public sealed partial class DeadDropComponent : Component
     ///     The color of your grid. the name should be set by the mapper when mapping.
     /// </summary>
     [DataField]
-    public Color Color = new(159, 43, 104);
+    public Color Color = new(156, 130, 69); // Mono: changed to be the same as the PDV job icon
 }
