@@ -156,9 +156,9 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Piercing: 120
+        Piercing: 105
         Structural: 650
-    armorPenetration: 0.5
+    armorPenetration: 0.9
   - type: HitscanStaminaDamage
     staminaDamage: 250
   - type: HitscanMultiRaycast
