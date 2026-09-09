@@ -463,7 +463,7 @@
     staticPacks:
     - FriendlyCubesStatic
     # Goobstation Packs
-    - SpeciesCubesStatic
+    # - SpeciesCubesStatic # Mono: removed due to concerns over producing infinite FMC/DC
   - type: EmagLatheRecipes
     emagStaticPacks:
     - HostileCubesStatic
