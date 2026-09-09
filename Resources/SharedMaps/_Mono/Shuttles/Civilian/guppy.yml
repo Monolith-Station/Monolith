@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/06/2026 17:56:15
-  entityCount: 251
+  time: 09/09/2026 20:18:03
+  entityCount: 254
 maps: []
 grids:
 - 1
@@ -59,9 +59,9 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
         Smoke: []
+        MetalFoam: []
+        Kudzu: []
         Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -587,10 +587,20 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 13.5,12.5
       parent: 1
+  - uid: 24
+    components:
+    - type: Transform
+      pos: 15.5,3.5
+      parent: 1
   - uid: 26
     components:
     - type: Transform
       pos: 15.5,10.5
+      parent: 1
+  - uid: 36
+    components:
+    - type: Transform
+      pos: 13.5,1.5
       parent: 1
   - uid: 45
     components:
@@ -675,6 +685,26 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 10.5,9.5
+      parent: 1
+  - uid: 250
+    components:
+    - type: Transform
+      pos: 10.5,3.5
+      parent: 1
+  - uid: 251
+    components:
+    - type: Transform
+      pos: 12.5,1.5
+      parent: 1
+  - uid: 252
+    components:
+    - type: Transform
+      pos: 16.5,7.5
+      parent: 1
+  - uid: 253
+    components:
+    - type: Transform
+      pos: 9.5,7.5
       parent: 1
 - proto: ChairPilotSeat
   entities:
@@ -913,15 +943,17 @@ entities:
       parent: 1
 - proto: HardpointEnergyLight
   entities:
-  - uid: 250
+  - uid: 18
     components:
     - type: Transform
-      pos: 16.5,7.5
-      parent: 1
-  - uid: 251
-    components:
-    - type: Transform
+      rot: 3.141592653589793 rad
       pos: 9.5,7.5
+      parent: 1
+  - uid: 19
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 16.5,7.5
       parent: 1
 - proto: JukeboxWallmountShip
   entities:
@@ -937,6 +969,13 @@ entities:
     components:
     - type: Transform
       pos: 14.5,7.5
+      parent: 1
+- proto: NFHolopadShip
+  entities:
+  - uid: 254
+    components:
+    - type: Transform
+      pos: 12.5,14.5
       parent: 1
 - proto: NitrogenCanister
   entities:
@@ -1069,12 +1108,6 @@ entities:
     - type: Transform
       pos: 13.5,1.5
       parent: 1
-  - uid: 24
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 10.5,3.5
-      parent: 1
   - uid: 32
     components:
     - type: Transform
@@ -1085,12 +1118,6 @@ entities:
     components:
     - type: Transform
       pos: 12.5,1.5
-      parent: 1
-  - uid: 36
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 15.5,3.5
       parent: 1
   - uid: 155
     components:
@@ -1567,22 +1594,6 @@ entities:
     components:
     - type: Transform
       pos: 15.5,3.5
-      parent: 1
-    - type: DeltaPressure
-      gridUid: 1
-  - uid: 18
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 13.5,1.5
-      parent: 1
-    - type: DeltaPressure
-      gridUid: 1
-  - uid: 19
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 12.5,1.5
       parent: 1
     - type: DeltaPressure
       gridUid: 1
