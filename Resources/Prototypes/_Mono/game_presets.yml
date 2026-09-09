@@ -17,7 +17,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -34,7 +34,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -51,7 +51,6 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -68,7 +67,6 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -88,7 +86,7 @@
   - MonoAISTCShuttleSpawnerSchedulerTier2
   #- MonoAsakimSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -96,6 +94,25 @@
   weight: 0.75 # mono: needs 25% of votes
   name: mono-chimera-title
   description: mono-chimera-description
+  showInVote: false # replaced by new-Biothreat. this old gamemode was just Standard with chimera spawns anyways.
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoChimeraSTCShuttleSpawnerScheduler
+  - MonoMonolithicEventsScheduler
+  - ManualPortstrikeTsfPdv
+  - StarSystemKyphrus
+
+- type: gamePreset
+  id: MonoChimeraTsf
+  weight: 0.5
+  name: mono-chimera-tsf-title
+  description: mono-chimera-tsf-description
   showInVote: true
   rules:
   - NFAdventure
@@ -107,14 +124,34 @@
   - FrontierRoundstartVariation
   - MonoChimeraSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  - RoundEndRuleHour3
+  - HalcyonBiodome
+  - StarSystemKyphrus
+
+- type: gamePreset
+  id: MonoChimeraPdv
+  weight: 0.5
+  name: mono-chimera-pdv-title
+  description: mono-chimera-pdv-description
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoChimeraSTCShuttleSpawnerScheduler
+  - MonoMonolithicEventsScheduler
+  - RoundEndRuleHour3
+  - HeliosBiodome
   - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoMixed
   name: mono-mixed-title
   description: mono-mixed-description
-  showInVote: true
+  showInVote: false # it was just old-Biothreat and the deprecated Remnants in one
   rules:
   - NFAdventure
   - BasicStationEventScheduler
@@ -129,7 +166,7 @@
   - MonoAISTCShuttleSpawnerSchedulerTier2Slow
   #- MonoAsakimSTCShuttleSpawnerSchedulerSlow
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleRandom35To45
+  - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
 
 - type: gamePreset
@@ -151,7 +188,7 @@
   #- MonoAsakimSTCShuttleSpawnerSchedulerApocalypse
   - MonoMonolithicEventsScheduler
   - RoundEndRuleHour3
-  - PortstrikeAnnounceRuleHour1
+  - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
 
 - type: gamePreset

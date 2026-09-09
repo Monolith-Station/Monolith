@@ -6,7 +6,7 @@
   tier: 1
   cost: 45000
   recipeUnlocks:
-  - WeaponRifleAK410USSP # PLACEHOLDER 26AUG15
+  - ShipVoucherUsspT0Recipe
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: 3, -8
@@ -14,12 +14,13 @@
 - type: technology
   id: UsspMediumShips
   name: research-technology-ussp-ships-medium
-  entityIcon: WeaponRifleAK410 # PLACEHOLDER 26AUG15
+  entityIcon: ShipVoucherDrakon
   discipline: Ussp
   tier: 2
   cost: 65000
   recipeUnlocks:
-  - WeaponRifleAK410USSP # PLACEHOLDER 26AUG15
+  - ShipVoucherUsspDrakon
+  - ShipVoucherUsspTayfun
   technologyPrerequisites:
   - UsspBasicShips
   position: 3, -16
@@ -27,12 +28,12 @@
 - type: technology
   id: UsspAdvancedShips
   name: research-technology-ussp-ships-advanced
-  entityIcon: WeaponRifleAK410 # PLACEHOLDER 26AUG15
+  entityIcon: ShipVoucherBuran
   discipline: Ussp
   tier: 3
   cost: 95000
   recipeUnlocks:
-  - WeaponRifleAK410USSP # PLACEHOLDER 26AUG15
+  - ShipVoucherUsspBuran
   technologyPrerequisites:
   - UsspMediumShips
   - UniversalMaterialResearchT3

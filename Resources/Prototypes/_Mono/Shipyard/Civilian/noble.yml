@@ -1,0 +1,31 @@
+- type: vessel
+  id: Noble
+  parent: BaseVessel
+  name: SKR Noble
+  description: A slightly heavier mining craft, equipped with 4 mining pulsers and a magnet, but no self defense and poor armor.
+  price: 94365
+  category: Small
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/noble.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Noble
+  mapName: 'SKR Noble'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/noble.yml
+  minPlayers: 0
+  stations:
+    Noble:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Noble CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]

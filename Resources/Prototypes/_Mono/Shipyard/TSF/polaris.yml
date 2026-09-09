@@ -1,0 +1,43 @@
+#kasature90 (github)/_starch_ (discord)
+- type: vessel
+  id: TSFNPolaris
+  parent: BaseVesselIFFDisabled
+  name: TSFN Polaris-class
+  description: Naval designation Type-56K. A heavy up-close corvette with 4 PD guns, 2 main batteries, and 4 heavy autocannons. Good at surviving missiles, good at killing ships, poor in moving around normally. Comes with a small bit of overwatch capabilities in the form of a powerful radar and equipment for portable wireless cameras.
+  limit: 2
+  hyperwarLimit: 3
+  hyperwarTimelock: 3600
+  price: 500000
+  purchasable: false # voucher only - t2
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/polaris.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Brawler
+  - EarlyWarning
+  - Frigate
+  engine:
+  - AME
+
+- type: gameMap
+  id: TSFNPolaris
+  mapName: 'Polaris'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/polaris.yml
+  minPlayers: 0
+  stations:
+    Calypso:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Polaris TSFN{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

@@ -1,0 +1,32 @@
+- type: vessel
+  id: Sakuratsu
+  parent: BaseVessel
+  name: SKR Sakuratsu
+  description: An updated production variant of the Sakuratsu research vessel. Comes with an artifact research area and an ore processor.
+  price: 99721
+  category: Medium
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/sakuratsu.yml
+  guidebookPage: Null
+  class:
+  - Science
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Sakuratsu
+  mapName: 'SKR Sakuratsu'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/sakuratsu.yml
+  minPlayers: 0
+  stations:
+    Sakuratsu:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Sakuratsu CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]

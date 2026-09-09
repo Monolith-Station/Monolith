@@ -30,6 +30,9 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MailDisabled
+    - type: SpecialSectorStationRecord
+      recordGeneration: FalseRecord
     - type: NpcFactionMember
       factions:
       - PirateNF
@@ -59,4 +62,4 @@
     - PDVHandheldOverwatchConsole
     - RubberStampPDVVizier # mono
     - PhoneInstrumentHigh
-    
+    - WarDeclaratorPdv
