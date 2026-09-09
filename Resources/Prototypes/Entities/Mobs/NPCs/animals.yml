@@ -662,16 +662,16 @@
     triggers:
       Eating:
         dataset: MothroachEating
-        speechChance: 1
+        speechChance: 0.15
       PickedUp:
         dataset: MothroachPickedUp
-        speechChance: 1
+        speechChance: 0.15
       Thrown:
         dataset: MothroachThrown
-        speechChance: 1
+        speechChance: 0.5
       Drinking:
         dataset: MothroachDrinking
-        speechChance: 1
+        speechChance: 0.15
       Critical:
         dataset: MothroachCritical
         speechChance: 1
@@ -683,7 +683,7 @@
         speechChance: 1
       Examined:
         dataset: MothroachExamined
-        speechChance: 1
+        speechChance: 0.15
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
@@ -1994,16 +1994,16 @@
     triggers:
       Eating:
         dataset: MouseEating
-        speechChance: 1
+        speechChance: 0.15
       PickedUp:
         dataset: MousePickedUp
-        speechChance: 1
+        speechChance: 0.15
       Thrown:
         dataset: MouseThrown
-        speechChance: 1
+        speechChance: 0.5
       Drinking:
         dataset: MouseDrinking
-        speechChance: 1
+        speechChance: 0.15
       Critical:
         dataset: MouseCritical
         speechChance: 1
@@ -2015,7 +2015,7 @@
         speechChance: 1
       Examined:
         dataset: MouseExamined
-        speechChance: 1
+        speechChance: 0.15
 
 - type: entity
   parent: MobMouse
