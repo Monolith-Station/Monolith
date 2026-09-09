@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/09/2026 12:48:15
+  time: 09/09/2026 13:55:51
   entityCount: 2205
 maps: []
 grids:
@@ -135,10 +135,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Kudzu: []
         Puddle: []
         MetalFoam: []
+        Smoke: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -369,7 +369,6 @@ entities:
             611: -5,-36
             612: -5,-35
             613: -5,-34
-            614: -5,-33
         - node:
             zIndex: 2
             color: '#9FED5896'
@@ -658,7 +657,6 @@ entities:
             607: -11,-36
             608: -11,-35
             609: -11,-34
-            610: -11,-33
         - node:
             zIndex: 2
             color: '#8D1C9996'
@@ -1127,6 +1125,7 @@ entities:
             50: 11,-34
             538: 2,-16
             568: 0,-9
+            696: -5,-34
         - node:
             zIndex: 2
             color: '#FFFFFFFF'
@@ -1135,6 +1134,7 @@ entities:
             56: 5,-34
             539: -2,-16
             569: 0,-9
+            697: -11,-34
         - node:
             zIndex: 2
             color: '#FFFFFFFF'
@@ -1197,13 +1197,11 @@ entities:
             127: 4,-42
             566: -1,-9
             567: 1,-9
-            570: -5,-33
             571: -6,-33
             572: -8,-33
             573: -7,-33
             574: -9,-33
             575: -10,-33
-            576: -11,-33
         - node:
             zIndex: 2
             color: '#FFFFFFFF'
@@ -1212,6 +1210,7 @@ entities:
             48: 11,-33
             128: 5,-42
             564: 2,-9
+            695: -5,-33
         - node:
             zIndex: 2
             color: '#FFFFFFFF'
@@ -1220,6 +1219,7 @@ entities:
             49: 5,-33
             129: -5,-42
             565: -2,-9
+            694: -11,-33
         - node:
             zIndex: 2
             color: '#FFFFFFFF'
