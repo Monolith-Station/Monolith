@@ -188,7 +188,6 @@
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.8
-        Poison: 0.8 # Mono
   - type: ClothingSpeedModifier # Mono - Armor Value Changes
     walkModifier: 0.7
     sprintModifier: 0.6
@@ -264,7 +263,6 @@
         Piercing: 0.45
         Shock: 0.95
         Heat: 0.7
-        Poison: 0.825
         Radiation: 0.5
         Caustic: 0.6
   - type: StaminaDamageResistance
