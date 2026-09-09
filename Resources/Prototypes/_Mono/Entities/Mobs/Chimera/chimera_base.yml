@@ -66,7 +66,7 @@
       types:
         Blunt: 12
         Slash: 20
-        Structural: 50
+        Structural: 350 # TEARS through structures and mechs. scary.
   - type: ReplacementAccent
     accent: genericAggressive
   - type: SolutionContainerManager
@@ -171,11 +171,25 @@
     guides:
     - Letoferol
   - type: MovementAlwaysTouching
+  - type: RadarConsole
+    followEntity: true
+    noRotate: true
+    maxIffRange: 0
+    hideCoords: false
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionObserverShowRadar
 
 - type: entity
   parent:
   - MonoBaseMobLetoferol
   - StripableInventoryBase
+  - BaseFactionGearOtherFactionT3 # 45 FMC/DC.
   id: MonoBaseMobLetoferolHumanoid
   name: chimera fleshbeast
   description: A once sentient being covered in putrid flesh and bone. You can see a glimpse of humanity left in its eyes, like whoever it was is still awake.
