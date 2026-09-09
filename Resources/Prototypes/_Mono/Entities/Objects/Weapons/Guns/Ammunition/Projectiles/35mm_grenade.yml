@@ -36,6 +36,9 @@
   - type: ProjectileGrenade
     fillPrototype: PelletClusterRubber
     capacity: 30
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
   - type: FlashOnTrigger
     range: 5
   - type: SoundOnTrigger
