@@ -121,3 +121,15 @@
   - type: StaticPrice
     price: 6500
     vendPrice: 10000
+
+- type: entity
+  parent: [MachineOreMagnet, BaseStructureDisableToolUse]
+  id: MachineOreMagnetExtended
+  name: enchanced ore magnet
+  description: Uses a powerful magnet to suck in ore. Has an internal storage. Tamperproofed Capital class model rated up to 64 meters.
+  suffix: IMMOVABLE, 64m radius.
+  components:
+  - type: MagnetPickup
+    magnetEnabled: false
+    magnetCanBeEnabled: false
+    range: 64
