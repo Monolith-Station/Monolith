@@ -228,7 +228,7 @@
     - id: ClothingOuterHardsuitTraumaLeader
     - id: ClothingMaskBreath
     - id: JetpackMiniFilled
-    - id: ClothingShoesBootsMagSecurity
+    - id: ClothingShoesBootsMagVoidTraumaLeader
   - type: AccessReader
     access: [["Command"]]
     
@@ -244,6 +244,6 @@
     - id: ClothingOuterHardsuitTrauma
     - id: ClothingMaskBreath
     - id: JetpackMiniFilled
-    - id: ClothingShoesBootsMagSecurity
+    - id: ClothingShoesBootsMagVoidTrauma
   - type: AccessReader
     access: [["Medical"]]

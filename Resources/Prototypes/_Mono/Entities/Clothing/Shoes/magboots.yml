@@ -72,3 +72,41 @@
       - 0.153853429 # oxygen
       - 0.153853429 # nitrogen
 
+- type: entity
+  parent: [ClothingShoesBootsMagBase]
+  id: ClothingShoesBootsMagVoidTrauma
+  name: ATU boots
+  description: > 
+    Lightweight voidboots reinforced for harsh space conditions,
+    designed to maintain mobility and reduce movement loss from injury.
+  components:
+  - type: Magboots
+    requiresGrid: false
+  - type: Sprite
+    sprite: _Mono/Clothing/Shoes/Boots/voidboots-trauma.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Shoes/Boots/voidboots-trauma.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.75
+   
+- type: entity
+  parent: [ClothingShoesBootsMagBase]
+  id: ClothingShoesBootsMagVoidTraumaLeader
+  name: advanced ATU boots
+  description: > 
+    Upgrade to conventional void boots, reinforced with additional plating for frontline trauma personnel.
+    Their heavy construction is offset by an integrated mobility system that keeps the wearer moving despite severe injury.
+  components:
+  - type: Magboots
+    requiresGrid: false
+  - type: Sprite
+    sprite: _Mono/Clothing/Shoes/Boots/voidboots-trauma-leader.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Shoes/Boots/voidboots-trauma-leader.rsi
+    components:
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavySuit
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.35
+
