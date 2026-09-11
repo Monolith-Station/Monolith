@@ -20,6 +20,8 @@
   setPreference: false # mono
   accessGroups:
   - CadetNfsdAccess
+  guides:
+  - TSFMC_Entry
   special:
   - !type:AddComponentSpecial
     components:
