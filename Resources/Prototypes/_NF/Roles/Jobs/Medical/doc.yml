@@ -26,6 +26,8 @@
   - AllAccessMono #Mono
   access:
   - ChiefMedicalOfficer #Mono
+  guides:
+  - Caelestinus
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ] # Mono - remove TSFMC implant
