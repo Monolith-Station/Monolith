@@ -253,7 +253,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -277,7 +277,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -302,7 +302,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 5400 # 1.5 hours
     consoleType: BlackMarket
     companyName: PDV
     vessels:
