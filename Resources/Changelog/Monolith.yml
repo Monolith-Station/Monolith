@@ -24641,3 +24641,28 @@ Entries:
   id: 2702
   time: '2026-09-10T21:24:00.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4672
+- author: pizzay30tyd
+  changes:
+    - type: Tweak
+      message: >-
+        Colonel and Vizier now require significant faction playtime to unlock
+        when the <20 pop role unlock override is active.
+  id: 2703
+  time: '2026-09-11T20:58:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4675
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: PDV Jupiter has been shot down and no longer spawns.
+  id: 2704
+  time: '2026-09-11T21:01:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4674
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Rewrote some job descriptions and the guidebook objectives for TSF, PDV,
+        CC and MMC.
+  id: 2705
+  time: '2026-09-11T21:03:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4677
