@@ -168,6 +168,7 @@
   - MonoMonolithicEventsScheduler
   - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
+  - MonoXenoBorgShuttleSpawnerSchedulerSlow
 
 - type: gamePreset
   id: MonoAllAtOnce
@@ -190,6 +191,7 @@
   - RoundEndRuleHour3
   - ManualPortstrikeTsfPdv
   - StarSystemKyphrus
+  - MonoXenoBorgShuttleSpawnerSchedulerSlow
 
 - type: gamePreset
   id: MonoRogueTSFHyperwar
@@ -203,4 +205,22 @@
   - Hyperwar
   - RoundEndRuleHour3
   - PortstrikeAnnounceRuleHour2
+  - StarSystemKyphrus
+
+- type: gamePreset
+  id: MonoXeno
+  name: mono-Xeno-title
+  description: mono-Xeno-description
+  showInVote: true
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoXenoborgShuttleSpawnerScheduler
+  - MonoMonolithicEventsScheduler
+  - PortstrikeAnnounceRuleRandom35To45
   - StarSystemKyphrus

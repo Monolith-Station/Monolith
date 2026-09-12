@@ -45,3 +45,15 @@
     minMaxEventTiming:
       min: 5400 # 90 minutes between events
       max: 5400 # 90 minutes between events
+
+- type: entity
+  id: MonoXenoBorgShuttleSpawnerSchedulerSlow
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: XenoborgShipTable
+    minimumTimeUntilFirstEvent: 10800 # 3 hours
+    minMaxEventTiming:
+      min: 5400 # 90 minutes between events
+      max: 5400 # 90 minutes between events
