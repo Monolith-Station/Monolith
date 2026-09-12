@@ -76,7 +76,7 @@ public sealed partial class PersistentProfileSystem
 
     public string SerializeComponent(IComponent component)
     {
-        var name = _componentFactory.GetComponentName(component.GetType());
+        var name = Factory.GetComponentName(component.GetType());
         var registry = new ComponentRegistry
         {
             [name] = new(component, new()),
