@@ -708,7 +708,7 @@
   productEntity: SyringeAmbuzol
   icon: { sprite: Objects/Specific/Chemistry/syringe.rsi, state: syringe_base0 }
   cost:
-    FederationMilitaryCredit: 5
+    FederationMilitaryCredit: 15 # mono: 5 -> 15 (1 FMC per 1 unit)
   categories:
     - UplinkSecurityUtility
   conditions:

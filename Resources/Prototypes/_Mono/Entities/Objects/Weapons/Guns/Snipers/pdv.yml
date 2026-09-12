@@ -11,7 +11,7 @@
   - type: GunRequiresWield
   - type: Gun
     damageModifier: 0.95
-    fireRate: 0.75
+    fireRate: 0.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -53,3 +53,33 @@
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
+
+- type: entity
+  name: SKR-WS M96 Hristov (14.5x114mm)
+  parent: WeaponSniperHristov
+  id: WeaponSniperHristovEmpty
+  suffix: Empty
+  description: A portable, 3-round anti-material rifle. Fires high velocity 14.5mm shells. Uses 14.5x114mm ammo.
+  components:
+  - type: BallisticAmmoProvider
+    autoCycle: false
+    whitelist:
+      tags:
+      - Cartridge145x114mm
+    capacity: 3
+    proto: null
+
+- type: entity
+  name: SKR-WS M96 Hristov (14.5x114mm)
+  parent: WeaponSniperHristov
+  id: WeaponSniperHristovEMPHE
+  suffix: EMPHE
+  description: A portable, 3-round anti-material rifle. Fires high velocity 14.5mm shells. Uses 14.5x114mm ammo.
+  components:
+  - type: BallisticAmmoProvider
+    autoCycle: false
+    whitelist:
+      tags:
+      - Cartridge145x114mm
+    capacity: 3
+    proto: Cartridge145x114mmEMP

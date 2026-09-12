@@ -192,7 +192,7 @@ public sealed partial class PlayTimeTrackingSystem : EntitySystem
     public bool IsAllowed(ICommonSession player, string role)
     {
         if (!_prototypes.TryIndex<JobPrototype>(role, out var job) ||
-            !_cfg.GetCVar(CCVars.GameRoleTimers))
+            (!_cfg.GetCVar(CCVars.GameRoleTimers) && !job.EnforcedPlayTime)) // Mono - added && !job.EnforcedPlayTime
             return true;
 
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))

@@ -23,7 +23,8 @@
   - WeaponRifleAnnieTSF
   - WeaponLMGGrizzlyTSF
   - WeaponRifleMR8CTSF
-  - WeaponLauncherTSFOsiris
+  #- WeaponLauncherTSFOsiris
+  - WeaponLauncherTSFAnubis
   - WeaponRifleRiversongTSF
   - WeaponRifleDragonfangTSF
   - WeaponDEWCalico
@@ -31,6 +32,7 @@
   - AmmoBox700Thz
   - AmmoBox68x52mmCaselessBig
   - AmmoBox57x28mmBigFMJ
+  - Magazine35mmGrenadeStinger
   technologyPrerequisites:
   - TsfBasicGuns
   - UniversalMaterialResearchT2
@@ -45,9 +47,7 @@
   cost: 30000
   recipeUnlocks:
   - WeaponAMRShenzhenTSF
-  - WeaponLauncherTSFAnubis
   - WeaponDEWSmilodon
-  - Magazine35mmGrenade
   - LargePowerCell400Thz # For smilodon
   - LargePowerCell700Thz # For smilodon
   - AmmoBoxShenzhenBig
@@ -65,6 +65,7 @@
   cost: 15000
   recipeUnlocks:
   - WeaponRifleXlr556Tsf
+  - Magazine35mmGrenade #anubis SAPHE
   - LargePowerCellPlasma68x52mm
   - AmmoBox68x52mmCaselessPlasma
   - Magazine68x52mmCaselessPlasma

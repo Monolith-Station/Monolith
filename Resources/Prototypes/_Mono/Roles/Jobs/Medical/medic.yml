@@ -17,6 +17,8 @@
   accessGroups:
   - GeneralAccess
   - Medical
+  guides:
+  - Caelestinus
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
