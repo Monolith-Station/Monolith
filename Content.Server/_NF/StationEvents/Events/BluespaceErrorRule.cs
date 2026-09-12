@@ -21,6 +21,8 @@ using Content.Server._NF.StationEvents.Components;
 using Robust.Shared.EntitySerialization.Systems;
 using Content.Server._Mono.StationEvents;
 using Content.Server._Mono.GridClaimer;
+using Content.Server._Mono.Store.Components;
+using Content.Server._Mono.Store;
 
 namespace Content.Server._NF.StationEvents.Events;
 
@@ -43,6 +45,7 @@ public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErr
     [Dependency] private BankSystem _bank = default!;
     [Dependency] private SharedSalvageSystem _salvage = default!;
     [Dependency] private AutoExtendRuleSystem _autoExtend = default!;
+    [Dependency] private CurrencyInjectionSystem _currencyInjection = default!;
 
     public override void Initialize()
     {
@@ -275,6 +278,14 @@ public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErr
                     var reward = (int)(gridValue * rewardCoeff);
                     _bank.TrySectorDeposit(account, reward, LedgerEntryType.BluespaceReward);
                 }
+
+                // Mono: currency injections
+                if (TryComp<CurrencyInjectionOnBluespaceErrorComponent>(uid, out var comp))
+                {
+                    if (gridValue / component.StartingValue > comp.IntegrityRequirement) // good job!
+                        _currencyInjection.InjectCurrency(comp.Company, comp.Amount);
+                }
+                // Mono end
             }
         }
 

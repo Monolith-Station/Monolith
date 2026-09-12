@@ -79,6 +79,10 @@
         - /Maps/_NF/Bluespace/vault.yml
     rewardAccounts:
       Nfsd: 1.0
+  - type: CurrencyInjectionOnBluespaceError # Mono: reward TSF with FMC for defending solarian vault
+    company: TSF
+    amount:
+      FederationMilitaryCredit: 100
 
 - type: entity
   id: BluespaceVaultSmallError
@@ -120,6 +124,10 @@
         - /Maps/_NF/Bluespace/vaultsmall.yml
     rewardAccounts:
       Nfsd: 1.0
+  - type: CurrencyInjectionOnBluespaceError # Mono: reward TSF with FMC for defending solarian vault
+    company: TSF
+    amount:
+      FederationMilitaryCredit: 65
 
 - type: entity
   id: BluespaceSyndicateFTLInterception
