@@ -24666,3 +24666,41 @@ Entries:
   id: 2705
   time: '2026-09-11T21:03:56.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4677
+- author: Onezero0
+  changes:
+    - type: Remove
+      message: Deprecated the Osiris. It has been functionally replaced by the Anubis.
+    - type: Add
+      message: The Anubis now accepts some hand-held grenades as ammunition.
+    - type: Add
+      message: C-4 can now be thrown to embed into things like a sticky bomb.
+    - type: Add
+      message: Added a flashbang-stinger grenade ammo option for the Anubis.
+    - type: Tweak
+      message: >-
+        The Anubis has been moved earlier in progression. However, its lethal
+        SAPHE rounds are locked to later tech.
+    - type: Tweak
+      message: Hristov no longer one-shots, but does stun hit targets.
+    - type: Tweak
+      message: >-
+        Shenzhen does less damage, enough to no longer oneshot armored targets,
+        but compensates with high armor piercing. I wouldn't stand in front of
+        it.
+    - type: Tweak
+      message: The Anubis, Shenzhen and Hristov no longer start with ammo.
+    - type: Tweak
+      message: >-
+        All snipers (hristov, shenzhen, anubis) now have usedelay and wield
+        delays. No more quickdrawing an AMR.
+    - type: Tweak
+      message: >-
+        The Anubis' projectile velocity is lower to help prevent grenades from
+        clipping through walls.
+    - type: Fix
+      message: Fixed empty 35mm grenade magazines not being able to store any ammo.
+    - type: Fix
+      message: Shenzhen and the Anubis are now worth DC.
+  id: 2706
+  time: '2026-09-12T02:40:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4665
