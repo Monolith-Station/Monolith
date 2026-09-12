@@ -6,10 +6,13 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared._NF.Bank.Components; // Frontier
-using Content.Shared.Containers.ItemSlots; // Frontier
+//using Content.Shared.Containers.ItemSlots; // Frontier // Mono
+using Content.Shared._Mono.Economy.Component; // Mono
 
 namespace Content.Shared.VendingMachines
 {
+    /// Mono Change: Anything related to actually accepting physical cash or other currencies has been
+    /// moved over to <see cref="CreditReceiverComponent"/>. <seealso cref="CreditReceiverComponent.CashSlot"/>
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
     public sealed partial class VendingMachineComponent : Component
     {
@@ -217,29 +220,6 @@ namespace Content.Shared.VendingMachines
         // Accounts to receive some proportion of each sale via taxation.
         [DataField(serverOnly: true), ViewVariables(VVAccess.ReadWrite)]
         public Dictionary<SectorBankAccount, float> TaxAccounts = new();
-
-        // Optional item slot for cash
-        [DataField]
-        public ItemSlot? CashSlot = null;
-
-        /// <summary>
-        /// Name of the cash slot, if there is one.  Null if there isn't.
-        /// </summary>
-        [DataField]
-        public string? CashSlotName;
-
-        /// <summary>
-        /// The type of currency to accept in the item slot.
-        /// </summary>
-        [DataField]
-        public string? CurrencyStackType;
-
-        /// <summary>
-        /// The current balance in the cash slot.
-        /// Kept for
-        /// </summary>
-        [DataField, AutoNetworkedField]
-        public int CashSlotBalance;
 
         /// <summary>
         /// Mono: Tracks the last purchase price for vending machine purchase tracking.

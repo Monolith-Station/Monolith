@@ -1,6 +1,23 @@
+﻿- type: entity
+  id: CreditReceiver # Mono - Made it an abstract parent so any future changes for vending machines are less likely to break.
+  abstract: true
+  description: Allows the machine to accept payment with physical credit. Change the whitelist to allow for different currencies.
+  components:
+  - type: CreditReceiver
+    cashSlot:
+      whitelist:
+        components:
+        - Cash
+    cashSlotName: cash_slot
+    currencyStackType: Credit
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      cash_slot: !type:ContainerSlot
+
 - type: entity
   id: VendingMachine
-  parent: BaseMachinePowered
+  parent: [BaseMachinePowered, CreditReceiver] # Mono
   name: vending machine
   description: Just add capitalism!
   abstract: true
@@ -123,18 +140,8 @@
       Frontier: 0.25
       Nfsd: 0.15
       Medical: 0.1 # Mono
-    cashSlot:
-      whitelist:
-        components:
-        - Cash
-    cashSlotName: cash_slot
-    currencyStackType: Credit
   - type: PirateBountyItem
     id: VendingMachine
-  - type: ItemSlots
-  - type: ContainerContainer
-    containers:
-      cash_slot: !type:ContainerSlot
   # End Frontier
   # Mono
   - type: ShipRepairable
