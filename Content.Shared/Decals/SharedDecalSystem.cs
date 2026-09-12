@@ -6,6 +6,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using static Content.Shared.Decals.DecalGridComponent;
+using ChunkIndicesEnumerator = Robust.Shared.Map.Enumerators.ChunkIndicesEnumerator; //Reserve - Wizden mapping editor
 
 namespace Content.Shared.Decals
 {
@@ -103,6 +104,35 @@ namespace Content.Shared.Decals
             OnDecalRemoved(gridId, decalId, component, indices, chunk);
             return true;
         }
+        //Reserve - Wizden mapping editor begin
+        public HashSet<(uint Index, Decal Decal)> GetDecalsIntersecting(EntityUid gridUid, Box2 bounds, DecalGridComponent? component = null)
+        {
+            var decalIds = new HashSet<(uint, Decal)>();
+            var chunkCollection = ChunkCollection(gridUid, component);
+
+            if (chunkCollection == null)
+                return decalIds;
+
+            var chunks = new ChunkIndicesEnumerator(bounds, ChunkSize);
+
+            while (chunks.MoveNext(out var chunkOrigin))
+            {
+                if (!chunkCollection.TryGetValue(chunkOrigin.Value, out var chunk))
+                    continue;
+
+                foreach (var (id, decal) in chunk.Decals)
+                {
+                    if (!bounds.Contains(decal.Coordinates))
+                        continue;
+
+                    decalIds.Add((id, decal));
+                }
+            }
+
+            return decalIds;
+        }
+        //Reserve - Wizden mapping editor end
+
 
         protected virtual void OnDecalRemoved(EntityUid gridId, uint decalId, DecalGridComponent component, Vector2i indices, DecalChunk chunk)
         {

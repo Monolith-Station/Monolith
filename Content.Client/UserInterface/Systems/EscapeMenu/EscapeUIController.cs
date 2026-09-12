@@ -1,4 +1,5 @@
-﻿using Content.Client.Gameplay;
+using Content.Client.Gameplay;
+using Content.Client.Mapping;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Client.UserInterface.Systems.Info;
@@ -16,7 +17,7 @@ using static Robust.Client.UserInterface.Controls.BaseButton;
 namespace Content.Client.UserInterface.Systems.EscapeMenu;
 
 [UsedImplicitly]
-public sealed partial class EscapeUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
+public sealed partial class EscapeUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnStateEntered<MappingState>, IOnStateExited<MappingState> //Reserve - Wizden mapping editor
 {
     [Dependency] private IClientConsoleHost _console = default!;
     [Dependency] private IUriOpener _uri = default!;
@@ -122,6 +123,75 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
 
         CommandBinds.Unregister<EscapeUIController>();
     }
+
+    //Reserve - Wizden mapping editor begin
+    public void OnStateEntered(MappingState state)
+    {
+        _escapeWindow = UIManager.CreateWindow<Options.UI.EscapeMenu>();
+
+        _escapeWindow.OnClose += DeactivateButton;
+        _escapeWindow.OnOpen += ActivateButton;
+
+        _escapeWindow.ChangelogButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _changelog.ToggleWindow();
+        };
+
+        _escapeWindow.RulesButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _info.OpenWindow();
+        };
+
+        _escapeWindow.DisconnectButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _console.ExecuteCommand("disconnect");
+        };
+
+        _escapeWindow.OptionsButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _options.OpenWindow();
+        };
+
+        _escapeWindow.QuitButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _console.ExecuteCommand("quit");
+        };
+
+        _escapeWindow.WikiButton.OnPressed += _ =>
+        {
+            _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
+        };
+
+        _escapeWindow.GuidebookButton.OnPressed += _ =>
+        {
+            _guidebook.ToggleGuidebook();
+        };
+
+        // Hide wiki button if we don't have a link for it.
+        _escapeWindow.WikiButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWiki) != "";
+
+        CommandBinds.Builder
+            .Bind(EngineKeyFunctions.EscapeMenu,
+                InputCmdHandler.FromDelegate(_ => ToggleWindow()))
+            .Register<EscapeUIController>();
+    }
+
+    public void OnStateExited(MappingState state)
+    {
+        if (_escapeWindow != null)
+        {
+            _escapeWindow.Dispose();
+            _escapeWindow = null;
+        }
+
+        CommandBinds.Unregister<EscapeUIController>();
+    }
+    //Reserve - Wizden mapping editor end
 
     private void EscapeButtonOnOnPressed(ButtonEventArgs obj)
     {
