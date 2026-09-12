@@ -1,0 +1,41 @@
+- type: vessel
+  id: Pelican
+  parent: BaseVessel
+  name: SKR Pelican
+  description: A long-range expeditionary brick of a ship with a wide variety of capabilities such as salvage, mining, cargo, science, chemistry, and medical duties. Has very poor defensive armaments compared to other ships of the size and cost though.
+  price: 282000 # Giant markup for the capabilities.
+  category: Large
+  group: Expedition
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianExp/pelican.yml
+  guidebookPage: null
+  class:
+  - Science
+  - Salvage
+  - Cargo
+  - Chemistry
+  - Medical
+  - Civilian
+  - Kitchen
+  - Expedition
+  engine:
+  - AME
+
+- type: gameMap
+  id: Pelican
+  mapName: 'SKR Pelican'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianExp/pelican.yml
+  minPlayers: 0
+  stations:
+    Pelican:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Pelican EXP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

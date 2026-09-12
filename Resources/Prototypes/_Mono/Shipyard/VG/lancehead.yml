@@ -1,0 +1,44 @@
+# Author Info
+# GitHub: LassiH
+# Discord: lassih
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Lancehead
+  parent: BaseVessel
+  name: VG Lancehead
+  description: A heavy duty artillery platform outsourced to GS. Comes with equipped with a "Charon" class railgun.
+#  limit: 3 --- Not sure. Will await review.
+  price: 220000
+  purchasable: false # Voucher only
+  category: Large
+  group: Viper
+  access: Viper
+  shuttlePath: /SharedMaps/_Mono/Shuttles/VG/lancehead.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Lancehead
+  mapName: 'VG Lancehead'
+  mapPath: /SharedMaps/_Mono/Shuttles/VG/lancehead.yml
+  minPlayers: 0
+  stations:
+    Lancehead:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Lancehead MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            VGInfanteer: [ 0, 0 ]
+            VGLieutenant: [ 0, 0 ]
+            VGCommander: [ 0, 0 ]

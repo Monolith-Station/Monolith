@@ -1,0 +1,35 @@
+- type: vessel
+  id: Sellsword
+  parent: BaseVessel
+  name: UW Sellsword
+  description: An escort picket comprising a claustrophobic, cast-plastitanium coffin enrobing a 255mm BOFORS and VESPERA missile pod. Combat life expectancy of 4 minutes. Has a military IFF designation.
+  price: 71650 #appraised at 65029
+  category: Small
+  access: Mercenary
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/sellsword.yml
+  guidebookPage: Null
+  class:
+  - Escort
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Sellsword
+  mapName: 'UW Sellsword'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/sellsword.yml
+  minPlayers: 0
+  stations:
+    Sellsword:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "A warrior-poet's sarcophagus."
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Sellsword MIL{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Contractor: [ 0, 0 ]

@@ -57,6 +57,9 @@
   - type: ShipRepairable
     repairTime: 15
     repairCost: 60
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Medium
 
 # Cerbrus
 
@@ -116,6 +119,9 @@
   - type: ShipRepairable
     repairTime: 50
     repairCost: 120
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Heavy
 
 # Type 54 autopulser
 
@@ -177,7 +183,9 @@
   - type: ShipRepairable
     repairTime: 25
     repairCost: 100
-
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Medium
 
  # M25
 
@@ -251,6 +259,9 @@
   - type: ShipRepairable
     repairTime: 10
     repairCost: 20
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Light
 
 # RUBICON
 
@@ -308,6 +319,9 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 60
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Light
 
 # Scylla
 
@@ -375,10 +389,13 @@
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
-    shipClass: SuperHeavy
+    shipClass: Superheavy
   - type: ShipRepairable
     repairTime: 70
     repairCost: 150
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Superheavy
 
 # DYMERE
 
@@ -460,6 +477,9 @@
   - type: ShipRepairable
     repairTime: 45
     repairCost: 250
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Superheavy
 
 # Laser Hitscan
 
@@ -517,6 +537,9 @@
   - type: ShipRepairable
     repairTime: 15
     repairCost: 40
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Light
 
 # Prometheus
 
@@ -542,7 +565,7 @@
     startingCharge: 50000
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 500
+    autoRechargeRate: 4002
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
@@ -583,6 +606,9 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Medium
 
 # Apollo
 
@@ -652,6 +678,9 @@
     powerChargeRate: 500
     powerUsePassive: 600
     powerUseActive: 0
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Heavy
 
 # PRE- FRACTURE
 
@@ -744,6 +773,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Superheavy
 
 
 # Tachyon Lance "Reaper"
@@ -825,6 +857,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Superheavy
 
 # Ion Cannnon "Harbringer"
 
@@ -906,6 +941,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Superheavy
 
 # Anti-Matter Particle Cannon "Tartarus"
 
@@ -979,6 +1017,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Heavy
 
 # Proton Cannon "Sunder"
 
@@ -1042,6 +1083,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Heavy
 
 # Neutron Repeater "Scythe"
 
@@ -1110,6 +1154,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Heavy
 
 # Auto-Coil "Flayer"
 
@@ -1169,3 +1216,6 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Ballistic # Because it's not a energy weapon, actually.
+    size: Medium

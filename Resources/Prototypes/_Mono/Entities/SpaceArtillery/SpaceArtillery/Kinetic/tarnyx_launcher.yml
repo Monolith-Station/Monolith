@@ -55,6 +55,9 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Medium
 
 # limited ammo for ships
 
@@ -111,3 +114,34 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Medium
+
+- type: entity
+  id: WeaponTurretTarnyxReloadAP
+  name: GS-001 EQUINOX 150mm AP Cannon
+  parent: WeaponTurretTarnyxReload
+  suffix: Ship, Infinite Standard AP Ammo
+  description: A knockoff heavy cannon made by GS, unlike the ABDX-31, it automatically loads AP shells. Effective in asymmetric combat. Can be remotely activated or linked up to a GCS.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/equinox.rsi
+    layers:
+    - state: space_artillery
+  - type: Gun
+    fireRate: 0.075 # 3.96 rpm > 4.5
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - 150mmShell
+    capacity: 3
+    infiniteUnspawned: true
+    proto: 150mmApShell
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Medium

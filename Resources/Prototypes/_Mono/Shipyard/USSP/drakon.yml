@@ -2,7 +2,7 @@
 
 - type: vessel
   id: Drakon
-  parent: BaseVesselAntag
+  parent: BaseVesselIFFDisabled
   name: NCS Drakon
   description: A fast brawler with heavy armor and ballistic armaments.
   price: 112753
@@ -13,6 +13,7 @@
   guidebookPage: Null
   class:
   - Pursuit
+  - Brawler
   - Corvette
   engine:
   - AME

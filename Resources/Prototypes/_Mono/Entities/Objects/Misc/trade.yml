@@ -89,20 +89,32 @@
   parent: BaseTradeItem
   id: TradeGoodFissionFuel
   name: fission reactor fuel crate
-  description: A sealed crate of packaged nuclear fuel rods. Radioactive. Handle with care.
+  description: A sealed crate of packaged nuclear fuel rods. Radioactive. Handle with care, and be fearful of the critical mass.
   components:
   - type: Sprite
     state: fission
   - type: StaticPrice
     vendPrice: 6000
   - type: RadiationSource
-    intensity: 3
+    intensity: 2
+    slope: 2.5
+  - type: RadiationReceiver
+  - type: ChainRadiation
+    baseIntensity: 2
+    coefficient: 0.1
+    explosionThreshold: 10
+    totalIntensity: 1500
+    intensitySlope: 200
+    maxIntensity: 400
+
+# Yes, yes, I know, this makes zero sense to be explosive or have a critical mass, it's just hydrogen.
+# I answer that with shut up Swadian. You need to watch more things than just pop science youtubers. It's a video game.
 
 - type: entity
   parent: BaseTradeItemVolatile
   id: TradeGoodFusionFuel
   name: fusion reactor fuel crate
-  description: A sealed crate of packaged D-T fuel cells for use in large fusion reactors. Radioactive and volatile if damaged. Handle with care.
+  description: A sealed crate of packaged D-T fuel cells for use in large fusion reactors. Radioactive and volatile if damaged. Handle with care, and be fearful of the critical mass.
   components:
   - type: Sprite
     state: fusion
@@ -137,7 +149,16 @@
   - type: StaticPrice
     vendPrice: 3000
   - type: RadiationSource
-    intensity: 3
+    intensity: 2
+    slope: 2.5
+  - type: RadiationReceiver
+  - type: ChainRadiation
+    baseIntensity: 2
+    coefficient: 0.1
+    explosionThreshold: 10
+    totalIntensity: 1500
+    intensitySlope: 200
+    maxIntensity: 400
 
 - type: entity
   parent: BaseTradeItem

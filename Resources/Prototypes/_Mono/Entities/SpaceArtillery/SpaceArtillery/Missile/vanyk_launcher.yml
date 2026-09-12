@@ -57,3 +57,6 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Light

@@ -9,6 +9,8 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: WallDefense2
+  - type: Sprite
+    drawdepth: OverMobs # Don't question me!
   - type: Clickable
   - type: InteractionOutline
   - type: Physics

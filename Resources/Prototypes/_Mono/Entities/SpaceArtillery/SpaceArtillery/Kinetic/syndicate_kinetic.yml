@@ -68,6 +68,9 @@
   - type: ShipRepairable
     repairTime: 10
     repairCost: 30
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Light
 
 - type: entity
   id: WeaponTurretFang
@@ -148,6 +151,9 @@
   - type: ShipRepairable
     repairTime: 20
     repairCost: 80
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy
 
 - type: entity
   id: WeaponTurretHydra
@@ -244,6 +250,9 @@
   - type: ShipRepairable
     repairTime: 40
     repairCost: 250
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy
 
 - type: entity
   id: WeaponTurretLeviathan
@@ -316,8 +325,11 @@
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
-    shipClass: SuperHeavy
+    shipClass: Superheavy
   - type: ShipRepairable
     repairTime: 40
     repairCost: 250
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Superheavy
 

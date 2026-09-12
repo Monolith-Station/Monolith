@@ -27,9 +27,12 @@
   parent: Paper
   components:
   - type: Paper
-    content: book-text-cargo-outage # Temporary until economy updates are merged.
+    content: book-text-cargo-instructions
   - type: TimedDespawn # So you cant spam it to lag the server.
     lifetime: 120
+  - type: StaticPrice
+    price: 0
+    vendPrice: 10
 
 - type: entity
   id: PaperWrittenDispenserOutageNote # Placeholder vender item until economy updates are merged.
@@ -46,12 +49,46 @@
 
 - type: entity
   parent: BaseCargoChute
+  id: CargoChuteZvezda
+  name: zvezda turn-in chute
+  description: A machine with piping systems that lead into the bowels of the station, accepting export goods for trade deeds.
+  components:
+  - type: Dispenser
+    defaultItem: PaperWrittenDispenserZvezdaRequesting
+    inventory:
+      TradeGoodSupplies: SpaceCash3000
+      TradeGoodMedicalSupplies: SpaceCash5000
+      TradeGoodChemicalSupplies: SpaceCash2000
+      TradeGoodChemicalsVolatile: SpaceCash6000
+      TradeGoodFissionFuel: SpaceCash18000
+      TradeGoodScrap: SpaceCash3000
+      TradeGoodComponents: SpaceCash5000
+      TradeGoodAmmo: SpaceCash10000
+      TradeGoodWeaponParts: SpaceCash6000
+      TradeGoodFertilizer: SpaceCash5000
+      TradeGoodShipComponents: SpaceCash6000
+
+- type: entity
+  id: PaperWrittenDispenserZvezdaRequesting
+  name: "zvezda cargo manifest"
+  parent: Paper
+  components:
+  - type: Paper
+    content: book-text-cargo-zvezda-tradecrates
+  - type: TimedDespawn
+    lifetime: 120
+  - type: StaticPrice
+    price: 0
+    vendPrice: 10
+
+- type: entity
+  parent: BaseCargoChute
   id: CargoChuteDepot
   name: cargo depot turn-in chute
   description: A machine with piping systems that lead into the bowels of the cargo depot, accepting export goods for trade deeds.
   components:
   - type: Dispenser
-    defaultItem: PaperWrittenDispenserOutageNote # PaperWrittenDispenserInstructions # Lol, dont put this as anything thats worth something, you can just get items by clicking with a empty hand.
+    defaultItem: PaperWrittenDispenserCargoDepotRequesting
     inventory:
       TradeGoodSupplies: SpaceCash3000
       TradeGoodMedicalSupplies: SpaceCash5000
@@ -62,13 +99,26 @@
       TradeGoodComponents: SpaceCash8000
 
 - type: entity
+  id: PaperWrittenDispenserCargoDepotRequesting
+  name: "depot cargo manifest"
+  parent: Paper
+  components:
+  - type: Paper
+    content: book-text-cargo-depot-tradecrates
+  - type: TimedDespawn
+    lifetime: 120
+  - type: StaticPrice
+    price: 0
+    vendPrice: 10
+
+- type: entity
   parent: BaseCargoChute
   id: CargoChuteDepotAlt
   name: alternate cargo depot turn-in chute
   description: A machine with piping systems that lead into the bowels of the cargo depot, accepting export goods for trade deeds.
   components:
   - type: Dispenser
-    defaultItem: PaperWrittenDispenserOutageNote # PaperWrittenDispenserInstructions # Lol, dont put this as anything thats worth something, you can just get items by clicking with a empty hand.
+    defaultItem: PaperWrittenDispenserCargoDepotAltRequesting
     inventory:
       TradeGoodAmmo: SpaceCash10000
       TradeGoodFissionFuel: SpaceCash24000
@@ -79,13 +129,26 @@
       TradeGoodShipComponents: SpaceCash8000
 
 - type: entity
+  id: PaperWrittenDispenserCargoDepotAltRequesting
+  name: "alternate depot cargo manifest"
+  parent: Paper
+  components:
+  - type: Paper
+    content: book-text-cargo-depot-tradecrates-alt
+  - type: TimedDespawn
+    lifetime: 120
+  - type: StaticPrice
+    price: 0
+    vendPrice: 10
+
+- type: entity
   parent: BaseCargoChute
   id: CargoChuteTradeMall
-  name: Trade Mall cargo turn-in chute
+  name: CC cargo turn-in chute
   description: A machine with piping systems that lead into the bowels of the station, accepting export goods for trade deeds.
   components:
   - type: Dispenser
-    defaultItem: PaperWrittenDispenserOutageNote # PaperWrittenDispenserInstructions # Lol, dont put this as anything thats worth something, you can just get items by clicking with a empty hand.
+    defaultItem: PaperWrittenDispenserTradeMallRequesting
     inventory:
       TradeGoodAmmo: SpaceCash7000
       TradeGoodSupplies: SpaceCash6000
@@ -101,13 +164,26 @@
       TradeGoodMetals: SpaceCash2500
 
 - type: entity
+  id: PaperWrittenDispenserTradeMallRequesting
+  name: "CC cargo manifest"
+  parent: Paper
+  components:
+  - type: Paper
+    content: book-text-cargo-depot-trademall
+  - type: TimedDespawn
+    lifetime: 120
+  - type: StaticPrice
+    price: 0
+    vendPrice: 10
+
+- type: entity
   parent: BaseCargoChute
   id: CargoChuteBaikal
   name: Camelot cargo turn-in chute
   description: A machine with piping systems that lead into the bowels of the station, accepting export goods for trade deeds.
   components:
   - type: Dispenser
-    defaultItem: PaperWrittenDispenserOutageNote # PaperWrittenDispenserInstructions # Lol, dont put this as anything thats worth something, you can just get items by clicking with a empty hand.
+    defaultItem: PaperWrittenDispenserCamelotRequesting
     inventory:
       TradeGoodAmmo: SpaceCash8000
       TradeGoodSupplies: SpaceCash2500
@@ -122,13 +198,26 @@
       TradeGoodMetals: SpaceCash3500
 
 - type: entity
+  id: PaperWrittenDispenserCamelotRequesting
+  name: "Camelot cargo manifest"
+  parent: Paper
+  components:
+  - type: Paper
+    content: book-text-cargo-depot-camelot
+  - type: TimedDespawn
+    lifetime: 120
+  - type: StaticPrice
+    price: 0
+    vendPrice: 10
+
+- type: entity
   parent: BaseCargoChute
   id: CargoChuteTSFMC
   name: TSFMC cargo turn-in chute
   description: A machine with piping systems that lead into the bowels of the station, accepting export goods for trade deeds.
   components:
   - type: Dispenser
-    defaultItem: PaperWrittenDispenserOutageNote # PaperWrittenDispenserInstructions # Lol, dont put this as anything thats worth something, you can just get items by clicking with a empty hand.
+    defaultItem: PaperWrittenDispenserHalcyonRequesting
     inventory:
       TradeGoodAmmo: SpaceCash12000
       TradeGoodSupplies: SpaceCash2500
@@ -144,13 +233,26 @@
       TradeGoodMetals: SpaceCash5000
 
 - type: entity
+  id: PaperWrittenDispenserHalcyonRequesting
+  name: "Halcyon cargo manifest"
+  parent: Paper
+  components:
+  - type: Paper
+    content: book-text-cargo-depot-halcyon
+  - type: TimedDespawn
+    lifetime: 120
+  - type: StaticPrice
+    price: 0
+    vendPrice: 10
+
+- type: entity
   parent: BaseCargoChute
   id: CargoChuteHideout
-  name: PDV hideout cargo turn-in chute
+  name: PDV helios cargo turn-in chute
   description: A machine with piping systems that lead into the bowels of the station, accepting export goods for trade deeds.
   components:
   - type: Dispenser
-    defaultItem: PaperWrittenDispenserOutageNote # PaperWrittenDispenserInstructions # Lol, dont put this as anything thats worth something, you can just get items by clicking with a empty hand.
+    defaultItem: PaperWrittenDispenserHeliosRequesting
     inventory:
       TradeGoodAmmo: SpaceCash14000
       TradeGoodSupplies: SpaceCash5000
@@ -165,6 +267,21 @@
       TradeGoodShipComponents: SpaceCash6000
       TradeGoodFabric: SpaceCash2500
       TradeGoodMetals: SpaceCash4000
+
+- type: entity
+  id: PaperWrittenDispenserHeliosRequesting
+  name: "Helios cargo manifest"
+  parent: Paper
+  components:
+  - type: Paper
+    content: book-text-cargo-depot-helios
+  - type: TimedDespawn
+    lifetime: 120
+  - type: StaticPrice
+    price: 0
+    vendPrice: 10
+
+# Rest of these are ignored. I don't care, they don't matter anymore because they don't exist.
 
 - type: entity
   parent: BaseCargoChute

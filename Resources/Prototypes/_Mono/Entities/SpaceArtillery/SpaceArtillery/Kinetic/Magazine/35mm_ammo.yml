@@ -1,0 +1,151 @@
+- type: entity
+  id: Magazine35mm
+  name: "35mm solid ammo loader"
+  description: "An ammunition loader containing infinite 35mm solid rounds. Usable by vessel-mounted artillery pieces."
+  parent: [BaseItem, RecyclableItemSteelTiny]
+  components:
+  - type: Tag
+    tags:
+    - Magazine35mm
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    proto: 35mmCartridge
+    capacity: 1 # normally should hold 1000
+    mayTransfer: true
+    whitelist:
+      tags:
+      - 35mmCartridge
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: 35mmCartridge
+  name: cartridge (35x228mm AP)
+  parent: BaseCartridge
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - 35mmCartridge
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: 35mmBulletAP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
+    layers:
+    - state: 35mm
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 3
+    totalIntensity: 0.25
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+
+# 35mm HE
+
+- type: entity
+  id: Magazine35mmHE
+  name: "35mm HE ammo loader"
+  description: "An ammunition loader containing 2000 35mm HE rounds. Usable by vessel-mounted artillery pieces."
+  parent: [BaseItem, RecyclableItemSteelTiny]
+  components:
+  - type: Tag
+    tags:
+    - Magazine35mm
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: false # Take note.
+    proto: 35mmCartridgeHE
+    capacity: 2000
+    mayTransfer: true
+    whitelist:
+      tags:
+      - 35mmCartridge
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: 35mmCartridgeHE
+  name: cartridge (35x228mm HE)
+  parent: BaseCartridge
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - 35mmCartridge
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: 35mmBulletHE
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/generic_cartridges.rsi
+    layers:
+    - state: 35mm
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 3
+    totalIntensity: 0.4
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
