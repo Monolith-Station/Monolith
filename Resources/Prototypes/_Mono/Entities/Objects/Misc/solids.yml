@@ -1,6 +1,6 @@
 - type: entity
   name: fentanyl crystal
-  parent: BaseItem
+  parent: []BaseItem
   id: FentanylSolidified
   description: 5u of Fentanyl solidified with Tricordrazine. Worth a lot.
   components:
@@ -10,7 +10,7 @@
   - type: Item
     size: Tiny
   - type: StaticPrice
-    price: 1250 # People can consistently pump out a million in less than an hour of fent production, fuck that.
+    price: 5000 # People can consistently pump out a million in less than an hour of fent production, fuck that.
   - type: Food
   - type: FlavorProfile
     flavors:
