@@ -4,6 +4,7 @@
   id: Stunprod
   description: A stun prod for questionably legal incapacitation. # Frontier: illegal<questionably legal
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Melee/stunprod.rsi
     layers:

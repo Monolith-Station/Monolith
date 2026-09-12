@@ -33,6 +33,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared._Mono.DualWield; // Mono - dual wielding
 using SharedGunSystem = Content.Shared.Weapons.Ranged.Systems.SharedGunSystem;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
@@ -44,6 +45,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private IInputManager _inputManager = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IStateManager _state = default!;
+    [Dependency] private SharedDualWieldSystem _dualWield = default!; // Mono - dual wielding
     [Dependency] private AnimationPlayerSystem _animPlayer = default!;
     [Dependency] private InputSystem _inputSystem = default!;
     [Dependency] private SharedCameraRecoilSystem _recoil = default!;
@@ -206,6 +208,14 @@ public sealed partial class GunSystem : SharedGunSystem
         if (TryComp<MechPilotComponent>(entity, out var mechPilot)) // Goobstation
             entity = mechPilot.Mech;
 
+        // Mono - dual wielding
+        if (TryComp<DualWieldComponent>(entity, out var dualWield))
+        {
+            UpdateDualWield((entity, dualWield));
+            return;
+        }
+        // End Mono
+
         if (!TryGetGun(entity, out var gunUid, out var gun))
         {
             return;
@@ -255,6 +265,68 @@ public sealed partial class GunSystem : SharedGunSystem
             Shot = projectiles?.Select(e => e.Entity.Id).ToList(),
         });
     }
+
+    // Mono - dual wielding
+    /// <summary>
+    /// While dual-wielding, each hand gets its own mouse button regardless of the gun's own GunComponent.UseKey.
+    /// Melee weapons in either hand are left to MeleeWeaponSystem.
+    /// </summary>
+    private void UpdateDualWield(Entity<DualWieldComponent> entity)
+    {
+        TryDualShoot(entity, true);
+        TryDualShoot(entity, false);
+    }
+
+    private void TryDualShoot(Entity<DualWieldComponent> entity, bool left)
+    {
+        if (!_dualWield.TryGetDualWeapon((entity.Owner, entity.Comp), left, out var gunUid)
+            || !TryComp<GunComponent>(gunUid, out var gun))
+        {
+            return;
+        }
+
+        var useKey = left ? EngineKeyFunctions.Use : EngineKeyFunctions.UseSecondary;
+
+        if (_inputSystem.CmdStates.GetState(useKey) != BoundKeyState.Down && !gun.BurstActivated)
+        {
+            if (gun.ShotCounter != 0)
+                RaisePredictiveEvent(new RequestStopShootEvent { Gun = GetNetEntity(gunUid) });
+            return;
+        }
+
+        if (gun.NextFire > Timing.CurTime)
+            return;
+
+        var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
+
+        if (mousePos.MapId == MapId.Nullspace)
+        {
+            if (gun.ShotCounter != 0)
+                RaisePredictiveEvent(new RequestStopShootEvent { Gun = GetNetEntity(gunUid) });
+
+            return;
+        }
+
+        var coordinates = TransformSystem.ToCoordinates(entity.Owner, mousePos);
+
+        NetEntity? target = null;
+        if (_state.CurrentState is GameplayStateBase screen)
+            target = GetNetEntity(screen.GetDamageableClickedEntity(mousePos));
+
+        if (_player.LocalSession is not { } session)
+            return;
+
+        var projectiles = ShootRequested(GetNetEntity(gunUid), GetNetCoordinates(coordinates), target, null, session);
+
+        RaisePredictiveEvent(new RequestShootEvent()
+        {
+            Target = target,
+            Coordinates = GetNetCoordinates(coordinates),
+            Gun = GetNetEntity(gunUid),
+            Shot = projectiles?.Select(e => e.Entity.Id).ToList(),
+        });
+    }
+    // End Mono
 
     public override void Shoot(EntityUid gunUid, GunComponent gun, List<(EntityUid? Entity, IShootable Shootable)> ammo,
         EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, out bool userImpulse, EntityUid? user = null, bool throwItems = false)

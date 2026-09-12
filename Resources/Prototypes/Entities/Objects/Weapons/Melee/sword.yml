@@ -25,6 +25,7 @@
   id: CaptainSabre
   description: A common sighting among ship captains. Once ceremonial, it now has common use for self-defense.
   components:
+  - type: LightWeapon # Mono - dual wielding
   # Goobstation edit start
   - type: EmitSoundOnLand
     sound:
@@ -66,6 +67,7 @@
   id: Katana
   description: Ancient craftwork made with not so ancient plasteel.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Tag
     tags:
     - Katana
@@ -121,6 +123,7 @@
   id: Machete
   description: A large, vicious looking blade.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Tag
     tags:
     - Machete
@@ -171,6 +174,7 @@
   id: Cutlass
   description: A wickedly curved blade, often seen in the hands of space pirates.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Tag
     tags:
     - Machete

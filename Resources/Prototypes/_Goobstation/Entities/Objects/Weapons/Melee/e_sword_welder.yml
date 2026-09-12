@@ -4,6 +4,7 @@
   id: EnergySwordWelder
   description: Roughly converted from a welding tool, this energy sword hums an unstable flame. It looks like it's about to fall apart.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
     layers:

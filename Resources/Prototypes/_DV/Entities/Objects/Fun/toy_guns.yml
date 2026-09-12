@@ -4,6 +4,7 @@
   id: WeaponRifleBB
   description: The classic Red Ryder BB gun. Don't shoot your eye out.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     netsync: false
     size: 50

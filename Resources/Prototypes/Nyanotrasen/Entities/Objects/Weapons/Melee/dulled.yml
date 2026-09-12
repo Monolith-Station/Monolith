@@ -5,6 +5,7 @@
   id: KatanaDulled
   description: Ancient craftwork made with not so ancient plasteel. This one has been dulled.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Tag
     tags:
     - Katana

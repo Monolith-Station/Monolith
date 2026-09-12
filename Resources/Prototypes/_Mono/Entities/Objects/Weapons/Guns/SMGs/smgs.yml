@@ -391,6 +391,7 @@
   id: WeaponSubMachineGunMalandro
   description: A rugged, run down SMG chambered in 9x19mm designed for short range shootouts, featuring a 10 round burst at the cost of accuracy.
   components:
+  - type: LightWeapon
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/SMGs/rs-2_malandro.rsi
     layers:

@@ -1,4 +1,4 @@
-﻿# Base
+# Base
 - type: entity
   id: BaseCrossbow
   name: crossbow
@@ -311,6 +311,7 @@
   parent: BaseCrossbow
   name: hand crossbow
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: UseDelay
     delay: 0.5
   - type: Sprite
@@ -324,6 +325,7 @@
   parent: BaseCrossbow
   name: impovised hand crossbow
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: UseDelay
     delay: 2
   - type: Sprite
@@ -337,6 +339,7 @@
   parent: BaseCrossbow
   name: blood cult hand crossbow
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Crossbow/culthand.rsi
   - type: StaticPrice

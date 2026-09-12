@@ -100,6 +100,7 @@
   id: WeaponSubMachineGunWt550
   description: An excellent SMG, produced by a Black Market Arms Company known as Ullman Industries. Uses 4.6x30mm ammo. On the receiver is a label that says 'for authorized use only.'
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
     layers:
