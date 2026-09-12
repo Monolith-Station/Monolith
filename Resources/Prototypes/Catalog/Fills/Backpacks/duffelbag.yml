@@ -161,8 +161,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicatePyjamaBundle
-  name: syndicate pyjama duffel bag
-  description: Contains 3 pairs of syndicate pyjamas and 4 plushies for the ultimate sleepover.
+  name: pyjama duffel bag
+  description: Contains 3 pairs of pyjamas and 4 plushies for the ultimate sleepover.
   components:
   - type: Storage
     grid:
@@ -187,7 +187,7 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateC4tBundle
-  name: syndicate C-4 bundle
+  name: C-4 bundle
   description: "Contains a lot of C-4 charges."
   components:
     - type: StorageFill
@@ -217,8 +217,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEVABundle
-  name: syndicate EVA bundle
-  description: "Contains the Syndicate approved EVA suit."
+  name: blood EVA bundle
+  description: "Contains a bloody(?) EVA suit."
   components:
   - type: StorageFill
     contents:
@@ -232,8 +232,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateRaidBundle
-  name: syndicate raid suit bundle
-  description: "Contains the Syndicate's durable raid armor suit."
+  name: raid suit bundle
+  description: "Contains a durable raid armor suit."
   components:
   - type: StorageFill
     contents:
@@ -245,8 +245,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitBundle
-  name: syndicate hardsuit bundle
-  description: "Contains the Syndicate's signature blood red hardsuit."
+  name: blood hardsuit bundle
+  description: "Contains a signature blood red hardsuit."
   components:
   - type: StorageFill
     contents:
@@ -259,8 +259,8 @@
 - type: entity # Mono
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateMedicHardsuitBundle
-  name: syndicate medic hardsuit bundle
-  description: "Contains the Syndicate's blood red medical hardsuit."
+  name: blood medic hardsuit bundle
+  description: "Contains a blood red medical hardsuit."
   components:
   - type: StorageFill
     contents:
@@ -273,8 +273,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  name: syndicate elite hardsuit bundle
-  description: "Contains the Syndicate's elite hardsuit, which comes with some more stuff in it."
+  name: elite hardsuit bundle
+  description: "Contains a dark colored hardsuit, which comes with some more stuff in it."
   components:
   - type: StorageFill
     contents:
@@ -287,7 +287,7 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitExtrasBundle
-  name: syndicate hardsuit extras bundle
+  name: hardsuit extras bundle
   description: "Contains stuff that you will absolutely want to have when purchasing a hardsuit."
   components:
   - type: StorageFill
@@ -300,7 +300,7 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelZombieBundle
-  name: syndicate zombie bundle
+  name: zombie bundle
   description: "An all-in-one kit for unleashing the undead upon a station."
   components:
   - type: StorageFill

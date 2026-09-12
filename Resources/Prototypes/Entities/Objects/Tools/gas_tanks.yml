@@ -90,7 +90,7 @@
   parent: GasTankRoundBase
   id: EmergencyOxygenTank
   name: emergency oxygen tank
-  description: An easily portable tank for emergencies. Contains very little oxygen, rated for survival use only. It can hold 0.66 L of gas.
+  description: An easily portable tank for emergencies. Contains oxygen and can fit in your pocket, but doesn't last forever. It can hold 2.5 L of gas.
   components:
   - type: Sprite
     sprite: Objects/Tanks/emergency.rsi
@@ -99,7 +99,7 @@
     sprite: Objects/Tanks/emergency.rsi
   - type: GasTank
     air:
-      volume: 0.66
+      volume: 2.5
       temperature: 293.15
   - type: Clothing
     sprite: Objects/Tanks/emergency.rsi
@@ -119,7 +119,7 @@
   parent: EmergencyOxygenTank
   id: EmergencyNitrogenTank
   name: emergency nitrogen tank
-  description: An easily portable tank for emergencies. Contains very little nitrogen, rated for survival use only. It can hold 0.66 L of gas.
+  description: An easily portable tank for emergencies. Contains oxygen and can fit in your pocket, but doesn't last forever It can hold 2.5 L of gas.
   components:
   - type: Sprite
     sprite: Objects/Tanks/emergency_red.rsi
@@ -132,7 +132,7 @@
   parent: EmergencyOxygenTank
   id: ExtendedEmergencyOxygenTank
   name: extended-capacity emergency oxygen tank
-  description: An emergency tank with extended capacity. Technically rated for prolonged use. It can hold 1.5 L of gas.
+  description: An emergency tank with extended capacity. Technically rated for prolonged use. It can hold 3 L of gas.
   components:
   - type: Sprite
     sprite: Objects/Tanks/emergency_extended.rsi
@@ -140,7 +140,7 @@
     sprite: Objects/Tanks/emergency_extended.rsi
   - type: GasTank
     air:
-      volume: 1.5
+      volume: 3
       temperature: 293.15
   - type: Clothing
     sprite: Objects/Tanks/emergency_extended.rsi
@@ -149,7 +149,7 @@
   parent: ExtendedEmergencyOxygenTank
   id: ExtendedEmergencyNitrogenTank
   name: extended-capacity emergency nitrogen tank
-  description: An emergency tank with extended capacity. Technically rated for prolonged use. It can hold 1.5 L of gas.
+  description: An emergency tank with extended capacity. Technically rated for prolonged use. It can hold 3 L of gas.
   components:
   - type: Sprite
     sprite: Objects/Tanks/emergency_extended_red.rsi
@@ -162,7 +162,7 @@
   parent: ExtendedEmergencyOxygenTank
   id: DoubleEmergencyOxygenTank
   name: double emergency oxygen tank
-  description: A high-grade dual-tank emergency life support container. It holds a decent amount of oxygen for its small size. It can hold 2.5 L of gas.
+  description: A high-grade dual-tank emergency life support container. It holds a decent amount of oxygen for its small size. It can hold 4 L of gas.
   components:
   - type: Sprite
     sprite: Objects/Tanks/emergency_double.rsi
@@ -170,7 +170,7 @@
     sprite: Objects/Tanks/emergency_double.rsi
   - type: GasTank
     air:
-      volume: 2.5
+      volume: 4
       temperature: 293.15
   - type: Clothing
     sprite: Objects/Tanks/emergency_double.rsi
@@ -184,7 +184,7 @@
   parent: DoubleEmergencyOxygenTank
   id: DoubleEmergencyNitrogenTank
   name: double emergency nitrogen tank
-  description: A high-grade dual-tank emergency life support container. It holds a decent amount of nitrogen for its small size. It can hold 2.5 L of gas.
+  description: A high-grade dual-tank emergency life support container. It holds a decent amount of nitrogen for its small size. It can hold 3 L of gas.
   components:
   - type: Sprite
     sprite: Objects/Tanks/emergency_double_red.rsi
