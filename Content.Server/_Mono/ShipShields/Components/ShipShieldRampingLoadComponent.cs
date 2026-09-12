@@ -11,7 +11,7 @@ public sealed partial class ShipShieldRampingLoadComponent : Component
     /// The amount that the total load of this shield will be multiplied by when the interval passes.
     /// </summary>
     [DataField]
-    public float Multiplier = 1.25f;
+    public float Multiplier = 2.125f;
 
     /// <summary>
     /// The period of time between multiplications.

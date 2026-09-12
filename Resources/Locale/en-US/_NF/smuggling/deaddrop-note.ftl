@@ -1,16 +1,12 @@
 dead-drop-hint-note =
-    I...SOMETHING
-    NEED...
-    COLLECT FOR #&^@...
-    INTERCEPT SOON...
-    THERE...FEW CHANCE...
-    GO... QUICK...
-    IT...VALUABLE
+    The Phaethon Dynasty Vanguard needs help. 
+    Aid them in their fight against the tyrannical and heretical Federation.
 
+    Known Phaethon drops:
     {$drops}
 
-    GOOD... FOR YOU
-    COME PLAY..?
+    Check these to lend a hand, and we will pay you handsomely.
+    Piety to the Sultan.
 
 dead-drop-time-known = next drop around {$time}
 dead-drop-time-unknown = next drop placed when we can

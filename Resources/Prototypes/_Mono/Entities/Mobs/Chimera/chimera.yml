@@ -47,7 +47,7 @@
     damage:
       types:
         Slash: 16
-        Structural: 90
+        Structural: 350 # TEARS through structures and mechs. scary
   - type: Clumsy
     clumsyDefaultCheck: 1
     gunShootFailDamage:

@@ -25,6 +25,7 @@ using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Verbs;
+using Content.Shared._Mono.Speech;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -332,6 +333,9 @@ public sealed partial class DrinkSystem : SharedDrinkSystem
 
         _reaction.DoEntityReaction(args.Target.Value, solution, ReactionMethod.Ingestion);
         _stomach.TryTransferSolution(firstStomach.Value.Owner, drained, firstStomach.Value.Comp1);
+
+        var speechEvent = new SpeechTriggerEvent(SpeechTrigger.Drinking);
+        RaiseLocalEvent(args.Target.Value, ref speechEvent);
 
         _forensics.TransferDna(entity, args.Target.Value);
 
