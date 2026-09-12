@@ -9,7 +9,7 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Client.UserInterface.Controls;
-using Content.Shared._Mono.Persistence;
+using Content.Shared._Mono.Persistence; // Mono
 using Content.Shared._Mono.Company;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
@@ -33,7 +33,7 @@ using Robust.Client.Utility;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
-using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.EntitySerialization.Systems; // Mono
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
@@ -56,6 +56,7 @@ namespace Content.Client.Lobby.UI
         private readonly LobbyUIController _controller;
         private readonly EntityWhitelistSystem _whitelist; // Frontier
         private readonly CompanyManager _companyManager; // Mono
+        // Mono start
         private readonly MapLoaderSystem _mapLoader;
         private readonly BoxContainer _savedItemsTab = new()
         {
@@ -67,6 +68,7 @@ namespace Content.Client.Lobby.UI
             Orientation = LayoutOrientation.Vertical,
         };
         private readonly List<EntityUid> _savedItemEntities = [];
+        // Mono end
 
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
@@ -147,11 +149,13 @@ namespace Content.Client.Lobby.UI
             _resManager = resManager;
             _requirements = requirements;
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
+            // Mono start
             _mapLoader = _entManager.System<MapLoaderSystem>();
 
             var savedItemsScroll = new ScrollContainer { VerticalExpand = true };
             savedItemsScroll.AddChild(_savedItemsList);
             _savedItemsTab.AddChild(savedItemsScroll);
+            // Mono end
 
             _whitelist = _entManager.System<EntityWhitelistSystem>(); // Frontier
 
@@ -1225,7 +1229,7 @@ namespace Content.Client.Lobby.UI
             RefreshSpecies();
             RefreshTraits();
             RefreshFlavorText();
-            RefreshSavedItems();
+            RefreshSavedItems(); // Mono
             ReloadPreview();
 
             if (Profile != null)
@@ -1234,6 +1238,7 @@ namespace Content.Client.Lobby.UI
             }
         }
 
+        // Mono start
         private void RefreshSavedItems()
         {
             foreach (var entity in _savedItemEntities)
@@ -1318,6 +1323,7 @@ namespace Content.Client.Lobby.UI
                 _savedItemsList.AddChild(row);
             }
         }
+        // Mono end
 
 
         /// <summary>
@@ -1711,10 +1717,12 @@ namespace Content.Client.Lobby.UI
             _loadoutWindow?.Dispose();
             _loadoutWindow = null;
 
+            // Mono start
             foreach (var entity in _savedItemEntities)
                 _entManager.DeleteEntity(entity);
 
             _savedItemEntities.Clear();
+            // Mono end
         }
 
         protected override void EnteredTree()
@@ -2240,8 +2248,8 @@ namespace Content.Client.Lobby.UI
                 var profile = _entManager.System<HumanoidAppearanceSystem>().FromStream(file, _playerManager.LocalSession!);
                 var oldProfile = Profile;
                 profile = profile
-                    .WithBankBalance(oldProfile.BankBalance)
-                    .WithPersistentData(oldProfile.Flags, oldProfile.Components, oldProfile.Items); // Mono: no free money and no becoming God
+                    .WithBankBalance(oldProfile.BankBalance) // Frontier: no free money (enforce import, don't care about import)
+                    .WithPersistentData(oldProfile.Flags, oldProfile.Components, oldProfile.Items); // Mono: no becoming God either
                 SetProfile(profile, CharacterSlot);
 
                 IsDirty = !profile.MemberwiseEquals(oldProfile);

@@ -60,6 +60,7 @@ namespace Content.Server.Database
                 .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
                 .IsUnique();
 
+            // Mono start
             modelBuilder.Entity<ProfileComponent>()
                 .HasOne(e => e.Profile)
                 .WithMany(e => e.Components)
@@ -71,6 +72,7 @@ namespace Content.Server.Database
                 .WithMany(e => e.Items)
                 .HasForeignKey(e => e.ProfileId)
                 .IsRequired();
+            // Mono end
 
             modelBuilder.Entity<Antag>()
                 .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.AntagName})
@@ -467,14 +469,17 @@ namespace Content.Server.Database
 
         public string Company { get; set; } = "None";
 
+        // Mono start
         public List<string> Flags { get; set; } = [];
         public List<ProfileComponent> Components { get; } = [];
         public List<ProfileItem> Items { get; } = [];
+        // Mono end
 
         public int PreferenceId { get; set; }
         public Preference Preference { get; set; } = null!;
     }
 
+    // Mono start
     public class ProfileComponent
     {
         public int Id { get; set; }
@@ -492,6 +497,7 @@ namespace Content.Server.Database
         public string Data { get; set; } = null!;
         public bool Sticky { get; set; }
     }
+    // Mono end
 
     public class Job
     {
