@@ -36,6 +36,8 @@
   - type: Sprite
     drawDepth: Overdoors
 
+# 32x96
+
 - type: entity
   parent: BaseGreeble
   id: GreebleAntenna1
@@ -46,14 +48,11 @@
   components:
   - type: Sprite
     offset: 0,2
-    sprite: _Mono/Structures/Decoration/Greeble/antennae.rsi
+    sprite: _Mono/Structures/Decoration/Greeble/32x96.rsi
     layers:
     - state: antenna1
     - state: antenna1_unshaded
       shader: unshaded
-  - type: GridEdgeMarker
-    begin: 0, -0.1
-    end: 0, 1.5
 
 - type: entity
   parent: BaseGreeble
@@ -65,15 +64,57 @@
   components:
   - type: Sprite
     offset: 0,2
-    sprite: _Mono/Structures/Decoration/Greeble/antennae.rsi
+    sprite: _Mono/Structures/Decoration/Greeble/32x96.rsi
     layers:
     - state: antenna2
     - state: antenna2_unshaded
       shader: unshaded
-  - type: GridEdgeMarker
-    begin: 0, -0.1
-    end: 0, 1.2
 
+- type: entity
+  parent: BaseGreeble
+  id: GreebleAntenna3
+  name: antenna
+  description: Like antennas to hell. Usually part of a ship or station's UHF communication systems.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 2,0
+    sprite: _Mono/Structures/Decoration/Greeble/32x96.rsi
+    layers:
+    - state: antenna3
+    - state: antenna3_unshaded
+      shader: unshaded
+
+- type: entity
+  parent: BaseGreeble
+  id: GreebleRadiator1
+  name: radiator
+  description: A large and delicate heat-dispersing array found on the outside of ships. Useful for cooling down reactors, but there are usually failsafe internal heat sinks.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0,2
+    sprite: _Mono/Structures/Decoration/Greeble/32x96.rsi
+    layers:
+    - state: radiator1
+
+- type: entity
+  parent: BaseGreeble
+  id: GreebleRadiator2
+  name: radiator
+  description: A large and delicate heat-dispersing array found on the outside of ships. Useful for cooling down reactors, but there are usually failsafe internal heat sinks.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0,1
+    sprite: _Mono/Structures/Decoration/Greeble/32x96.rsi
+    layers:
+    - state: radiator2
+
+# 32x32
 - type: entity
   parent: BaseGreeble
   id: GreebleElint1
@@ -87,6 +128,60 @@
     sprite: _Mono/Structures/Decoration/Greeble/32x32.rsi
     layers:
     - state: elint1
+
+- type: entity
+  parent: BaseGreeble
+  id: GreebleSideLabel1
+  name: warning label
+  description: A generic hazard label. Something dangerous is probably nearby.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Decoration/Greeble/32x32.rsi
+    layers:
+    - state: warn1
+
+- type: entity
+  parent: BaseGreeble
+  id: GreebleSideLabel2
+  name: warning label
+  description: A generic hazard label. This one seems to be related to thrust plumes.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Decoration/Greeble/32x32.rsi
+    layers:
+    - state: warn2
+
+- type: entity
+  parent: BaseGreeble
+  id: GreebleSideLabel3
+  name: warning label
+  description: A generic hazard label. Something dangerous is probably nearby.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Decoration/Greeble/32x32.rsi
+    layers:
+    - state: warn3
+
+- type: entity
+  parent: BaseGreeble
+  id: GreebleSideLabel4
+  name: warning label
+  description: A generic hazard label. Something dangerous is probably nearby.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Decoration/Greeble/32x32.rsi
+    layers:
+    - state: warn4
+
+# 64x64
 
 - type: entity
   parent: BaseGreeble
