@@ -291,6 +291,15 @@ uplink-pirate-syndisupersurplus-desc = Contains a huge amount of imported good f
 uplink-pdv-t0-voucher-name = PDV Tier 0 Ship Voucher
 uplink-pdv-t0-voucher-desc = A single-use voucher for any small ship.
 
+uplink-pdv-t1-voucher-name = PDV Tier 1 Ship Voucher
+uplink-pdv-t1-voucher-desc = A small card that will allow you to procure any tier-1 PDV ship from the Dynasty's reserves.
+
+uplink-pdv-t2-voucher-name = PDV Tier 2 Ship Voucher
+uplink-pdv-t2-voucher-desc = A small card that will allow you to procure any tier-2 PDV ship from the Dynasty's reserves.
+
+uplink-pdv-t3-voucher-name = PDV Tier 3 Ship Voucher
+uplink-pdv-t3-voucher-desc = A small card that will allow you to procure any tier-3 PDV ship from the Dynasty's reserves.
+
 uplink-pdv-t1-hourglass-voucher-name = PDV Hourglass LPC [T1]
 uplink-pdv-t1-hourglass-voucher-desc = A small card that contains the data for the procurement of an Hourglass-class escort from the flagship's reserves.
 

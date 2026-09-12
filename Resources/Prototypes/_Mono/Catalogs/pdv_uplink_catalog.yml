@@ -1396,6 +1396,66 @@
     whitelist:
       tags:
       - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkPDVT1Voucher
+  name:  uplink-pdv-t1-voucher-name
+  description: uplink-pdv-t1-voucher-desc
+  productEntity: ShipVoucherPdvT1
+  cost:
+    Doubloon: 150
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkPDVT2Voucher
+  name:  uplink-pdv-t2-voucher-name
+  description: uplink-pdv-t2-voucher-desc
+  productEntity: ShipVoucherPdvT2
+  cost:
+    Doubloon: 275
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkPDVT3Voucher
+  name:  uplink-pdv-t3-voucher-name
+  description: uplink-pdv-t3-voucher-desc
+  productEntity: ShipVoucherPdvT3
+  cost:
+    Doubloon: 600
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
+
+- type: listing
+  id: UplinkPirateT4VoucherSaturn
+  name:  uplink-pdv-t4-saturn-voucher-name
+  description: uplink-pdv-t4-saturn-voucher-desc
+  productEntity: ShipVoucherSaturn
+  cost:
+    Doubloon: 1150
+  categories:
+  - UplinkPdvVouchers
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - FactionStaticUplinkPdv
       
 # MARK: Materials
 

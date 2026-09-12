@@ -240,6 +240,7 @@
   parent: ShipVoucherPdvT0
   id: ShipVoucherPdvT1
   name: PDV T1 ship voucher
+  description: Allows for one medium PDV ship purchase. Destroyed on sale.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -252,7 +253,7 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: BlackMarket
     companyName: PDV
     vessels:
@@ -263,6 +264,7 @@
   parent: ShipVoucherPdvT0
   id: ShipVoucherPdvT2
   name: PDV T2 ship voucher
+  description: Allows for one medium to large PDV ship purchase. Destroyed on sale.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -275,13 +277,37 @@
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
-    cooldown: 7200 # one hour
+    cooldown: 3600 # one hour
     consoleType: BlackMarket
     companyName: PDV
     vessels:
     - MotleyAnne
     - Neptune
     - Osa
+
+- type: entity
+  parent: ShipVoucherPdvT0
+  id: ShipVoucherPdvT3
+  name: PDV T3 ship voucher
+  description: Allows for one large PDV ship purchase. Destroyed on sale.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon
+    - state: screen
+      color: "#1eff00"
+    - state: screen7
+      color: "#1eff00"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 5400 # 1.5 hours
+    consoleType: BlackMarket
+    companyName: PDV
+    vessels:
+    - KortikR
+    - Europa
 
 - type: entity
   parent: BaseShipLPCRenewable
