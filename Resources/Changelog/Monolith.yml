@@ -24760,3 +24760,34 @@ Entries:
   id: 2711
   time: '2026-09-12T18:39:24.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4585
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: Chimera now come with in-built mass scanners.
+    - type: Remove
+      message: Chimera can no longer have their organs surgically removed.
+    - type: Tweak
+      message: >-
+        Chimera structural damage has been drastically buffed. (melee: 90 ->
+        350, bonespike: 25 -> 50)
+    - type: Tweak
+      message: Mesotaxinide damage has been drastically nerfed.
+    - type: Tweak
+      message: >-
+        Halcyon's biodome during Biothreat will now ramp up much, much faster.
+        (1.25x per power surge -> 2.125x
+    - type: Tweak
+      message: >-
+        The price of the Ambuzol Syringe in the TSF uplink has been increased
+        from 5FMC to 15.
+    - type: Tweak
+      message: Chimera organs now dissolve on touch.
+    - type: Tweak
+      message: Chimera have received a minor sprite update.
+    - type: Remove
+      message: You can no longer produce humanoid cubes.
+    - type: Remove
+      message: Letoferol is no longer obtainable through botany.
+  id: 2712
+  time: '2026-09-12T18:39:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4667
