@@ -82,7 +82,9 @@
   - type: CurrencyInjectionOnBluespaceError # Mono: reward TSF with FMC for defending solarian vault
     company: TSF
     amount:
-      FederationMilitaryCredit: 100
+      FederationMilitaryCredit: 175
+    requiredEntities:
+    - DataChitStorageServer # no cheesing it
 
 - type: entity
   id: BluespaceVaultSmallError
@@ -127,7 +129,7 @@
   - type: CurrencyInjectionOnBluespaceError # Mono: reward TSF with FMC for defending solarian vault
     company: TSF
     amount:
-      FederationMilitaryCredit: 65
+      FederationMilitaryCredit: 100
 
 - type: entity
   id: BluespaceSyndicateFTLInterception
