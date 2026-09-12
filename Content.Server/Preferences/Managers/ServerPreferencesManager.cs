@@ -112,11 +112,11 @@ namespace Content.Server.Preferences.Managers
                 if (curPrefs.Characters.TryGetValue(slot, out var oldProfile) && oldProfile is HumanoidCharacterProfile oldHumanoid)
                     profile = humanoid
                         .WithBankBalance(oldHumanoid.BankBalance)
-                        .WithPersistentData(oldHumanoid.Flags, oldHumanoid.Components, oldHumanoid.Items);
+                        .WithPersistentData(oldHumanoid.Flags, oldHumanoid.Components, oldHumanoid.Items); // Mono
                 else
                     profile = humanoid
                         .WithBankBalance(HumanoidCharacterProfile.DefaultBalance)
-                        .WithPersistentData([], [], []);
+                        .WithPersistentData([], [], []); // Mono
             }
 
             var profiles = new Dictionary<int, ICharacterProfile>(curPrefs.Characters)
