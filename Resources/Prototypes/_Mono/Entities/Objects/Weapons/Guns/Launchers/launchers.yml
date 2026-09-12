@@ -193,7 +193,7 @@
 
 - type: entity
   name: TCA QLU-907 Anubis TPGL (35x53mm grenade) # CS2 reference
-  parent: [ BaseWeaponLauncher, BaseWeaponRifle ] # Magfed so we use rifle
+  parent: [ BaseWeaponLauncher, BaseWeaponRifle, BaseFactionGearTSFT2 ] # Magfed so we use rifle
   id: WeaponLauncherTSFAnubis
   description: A precision magfed grenade rifle with an inbuilt fire-control system, originally intended for use against fortifications & counterinsurgency. Fires 35mm grenades with high-velocity and precision.
   components:
@@ -219,7 +219,7 @@
   - type: Gun
     minAngle: 27
     maxAngle: 39
-    projectileSpeed: 70
+    projectileSpeed: 30
     fireRate: 0.2
     selectedMode: SemiAuto
     availableModes:
@@ -236,8 +236,8 @@
   - type: Wieldable
   - type: GunRequiresWield
   - type: WieldDelay
-    baseDelay: 1.1
-    modifiedDelay: 1.1
+    baseDelay: 1
+    modifiedDelay: 1
     preventFiring: true
   - type: ItemSlots
     slots:
@@ -258,6 +258,7 @@
         whitelist:
           tags:
           - Cartridge35mmGrenade
+          - GrenadeLaunchable
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -278,6 +279,8 @@
   - type: LaserPointer
     targetedColor: "#ff0037"
     defaultColor: "#03c2fc"
+  - type: UseDelay
+    delay: 0.5
   - type: MeleeRequiresWield
   - type: MeleeWeapon
     attackRate: 0.6
@@ -291,3 +294,57 @@
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
+
+- type: entity
+  name: TCA QLU-907 Anubis TPGL (35x53mm grenade)
+  suffix: Empty
+  parent: WeaponLauncherTSFAnubis
+  id: WeaponLauncherTSFAnubisEmpty
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: null
+        insertSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagIn/amr_magin.ogg
+        ejectSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagOut/cm82_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine35mmGrenade
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: null
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge35mmGrenade
+          - GrenadeLaunchable
+
+- type: entity
+  name: TCA QLU-907 Anubis TPGL (35x53mm grenade)
+  suffix: Stinger
+  parent: WeaponLauncherTSFAnubis
+  id: WeaponLauncherTSFAnubisStinger
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine35mmGrenadeStinger
+        insertSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagIn/amr_magin.ogg
+        ejectSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagOut/cm82_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine35mmGrenade
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge35mmGrenadeStinger
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge35mmGrenade
+          - GrenadeLaunchable
