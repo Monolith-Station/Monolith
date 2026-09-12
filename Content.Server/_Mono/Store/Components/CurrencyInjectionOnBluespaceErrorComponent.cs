@@ -18,4 +18,10 @@ public sealed partial class CurrencyInjectionOnBluespaceErrorComponent : Compone
     /// </summary>
     [DataField]
     public float IntegrityRequirement = 0.96f;
+
+    /// <summary>
+    /// All prototypes that MUST be present on the grid in order for the injection to occur.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> RequiredEntities = [];
 }
