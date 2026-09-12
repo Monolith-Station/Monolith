@@ -24730,3 +24730,19 @@ Entries:
   id: 2708
   time: '2026-09-12T18:32:30.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4681
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Added a Solarian Data Chit Storage Server to the Solarian Vault. It's
+        worth $300,000 to civilians who wish to sell it and a whopping 500 DC to
+        the PDV! It has its own radar blip, pull off a heist on the Solarian
+        Vault at your own risk.
+    - type: Tweak
+      message: >-
+        Buffed FMC payout for defending the vault to 175 FMC. The payout will no
+        longer happen if the server is gone, no matter how much money the vault
+        is worth.
+  id: 2709
+  time: '2026-09-12T18:34:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4682
