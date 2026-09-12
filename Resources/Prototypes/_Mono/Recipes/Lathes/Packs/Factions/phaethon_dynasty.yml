@@ -4,19 +4,19 @@
   - ClothingOuterHardsuitPirateScafRogue
   - ClothingOuterVestWebRogue
   - ClothingOuterVestWebEliteRogue
-  - ClothingOuterHardsuitPDVMedic
+# - ClothingOuterHardsuitPDVMedic
   - ClothingShoesBootsMagSyndieRogue
   - ClothingMaskGasSyndicateRogue
   - ClothingEyesThermalVisionGoggles
 
-- type: latheRecipePack
-  id: MonoRogueGearProDynamic # for syndie hardsuits and shit
-  recipes:
-  - ClothingOuterHardsuitSyndieRogue
-  - ClothingOuterHardsuitSyndieEliteRogue
-  - ClothingOuterHardsuitJuggernautRogue
-  - ClothingOuterHardsuitCybersunStealthRogue
-# - ClothingOuterHardsuitSyndieCommanderRogue
+#- type: latheRecipePack
+#  id: MonoRogueGearProDynamic # for syndie hardsuits and shit
+#  recipes:
+#  - ClothingOuterHardsuitSyndieRogue
+#  - ClothingOuterHardsuitSyndieEliteRogue
+#  - ClothingOuterHardsuitJuggernautRogue
+#  - ClothingOuterHardsuitCybersunStealthRogue
+## - ClothingOuterHardsuitSyndieCommanderRogue
 
 - type: latheRecipePack
   id: MonoRogueWeaponsDynamicMelee
@@ -30,31 +30,25 @@
 - type: latheRecipePack
   id: MonoRogueWeaponsDynamicRanged
   recipes:
-  - WeaponRifleWSPRRogue
+#  - WeaponRifleWSPRRogue
   - WeaponRifleVympelRogue
   - WeaponSubMachineGunC20rRogue
   - WeaponRevolverPythonRogue
-  - WeaponRifleM90Rogue
-  - WeaponSubMachineGunAtreidesRogue
+#  - WeaponRifleM90Rogue
+#  - WeaponSubMachineGunAtreidesRogue
   - WeaponLauncherPanzeroRogue
-  - WeaponShotgunBulldogRogue
-  - WeaponSniperHristovRogue
-  - WeaponSubMachineGunMla73Rogue
-  - WeaponDEWBasilisk
+#  - WeaponShotgunBulldogRogue
+#  - WeaponSniperHristovRogue
+#  - WeaponSubMachineGunMla73Rogue
+#  - WeaponDEWBasilisk
   - WeaponShotgunSultanPulsar
-  - WeaponLightMachineGunL6Rogue
-  - WeaponRifleBurnerRogue
+#  - WeaponLightMachineGunL6Rogue
+#  - WeaponRifleBurnerRogue
 
 
 - type: latheRecipePack
   id: MonoRogueVouchersDynamic
   recipes:
-  - ShipVoucherPdvT0Recipe
-  - ShipVoucherPdvT1Recipe
-  - ShipVoucherPdvT2Recipe
-  - SaintieVoucherRogue
-  - KortikVoucherRogue
-  - SaturnVoucherRogue
   - SnakeletVoucherRogue
   - InertiaVoucherRogue
   - MockVoucherRogue
