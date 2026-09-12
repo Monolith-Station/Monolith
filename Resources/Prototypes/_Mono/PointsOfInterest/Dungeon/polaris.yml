@@ -13,13 +13,14 @@
   name: 'Polaris Bioresearch Center'
   minimumDistance: 10000
   maximumDistance: 20000
-  spawnGroup: Optional
+  spawnGroup: SyndicateFOB
   gridPath: /Maps/_Mono/POI/Dungeons/polaris.yml
   addComponents:
   - type: IFF
     color: "#C83737"
     flags: [HideLabel]
     readOnly: true
+  - type: SyndicateFOB # For pinpointer
 
 - type: gameMap
   id: Polaris
