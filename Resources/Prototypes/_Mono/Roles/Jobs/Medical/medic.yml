@@ -17,9 +17,11 @@
   accessGroups:
   - GeneralAccess
   - Medical
+  guides:
+  - Caelestinus
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, TrackingImplant ]
+    implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: NpcFactionMember

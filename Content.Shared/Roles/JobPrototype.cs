@@ -170,6 +170,12 @@ namespace Content.Shared.Roles
 
         [DataField]
         public bool Whitelisted;
+        /// <summary>
+        /// Whether or not this job will still require playtime if server population is below DynamicRolesPlayerThreshold
+        /// </summary>
+        [DataField]
+        public bool EnforcedPlayTime;
+
 
         /// <summary>
         /// Optional list of guides associated with this role. If the guides are opened, the first entry in this list

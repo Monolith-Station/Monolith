@@ -187,6 +187,8 @@
   parent: ClothingNeckWearableCamera
   id: ClothingNeckWearableCameraPDV
   name: PDV wireless camera
+  suffix: Chameleon
+  description: A wireless camera made to observe the battlefield from the safety of your base. Can be worn in the neck slot. This one has been installed with chameleon technology salvaged from one of the Sultan's caches, allowing you to wear it without giving your true allegiance away.
   components:
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
@@ -194,6 +196,13 @@
         - state: pdvbox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraPDV
+    - type: ChameleonClothing
+      slot: [NECK]
+      default: ClothingNeckWearableCameraPDV
+    - type: UserInterface
+      interfaces:
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface
 
 - type: entity
   parent: ClothingNeckWearableCamera

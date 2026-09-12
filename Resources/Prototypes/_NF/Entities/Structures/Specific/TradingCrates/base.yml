@@ -101,8 +101,8 @@
   parent:
   - CrateTradeBaseSecure
   id: CrateTradeBaseSecureContraband
-  name: encrusted crate
-  description: Contains something... wayward. Almost impossible to open without destroying its contents. Immensely valuable for anomalous research.
+  name: phaethon dynasty supply crate
+  description: Contains a small batch of supplies for the Phaethon Dynasty Vanguard, which will be shipped to them upon sale at a cargo depot. The courier will be paid handsomely. A tamper-lock will acidify the crate's contents upon its destruction.
   abstract: true
   components:
   - type: Fixtures
@@ -118,8 +118,8 @@
         - MachineLayer
   - type: Contraband
     turnInValues:
-      FederationMilitaryCredit: 20 # Mono 12 -> 25 (50 of each currency is about 100k, so these are worth 50k to a faction person, PURELY based of money, so people have more a reason to talk to factions instead of depotslop)
-      Doubloon: 20 # Mono 12 -> 25
+      FederationMilitaryCredit: 30 # Mono 12 -> 30 (on par with small monolithic crystal)
+      Doubloon: 30 # Mono 12 -> 30
   - type: ShipyardSellCondition
     blockSale: true
     reason: shipyard-console-contraband-onboard
@@ -137,3 +137,7 @@
     scale: 1.5
     shape: hexagon
     visibleFromOtherGrids: true
+  - type: CurrencyInjectionOnSell # Mono: smuggling directly funds the PDV
+    company: PDV
+    amount:
+      Doubloon: 10

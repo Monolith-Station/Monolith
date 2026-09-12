@@ -45,7 +45,7 @@ uplink-pirate-medical-assembler-desc = An assembler that can be used to make use
 # MARK: Utility
 
 uplink-pirate-wearable-camerapdv-name = Wireless Camera
-uplink-pirate-wearable-camerapdv-desc = Camera used for overwatching an operation area. Can be worn or placed somewhere.
+uplink-pirate-wearable-camerapdv-desc = Camera used for overwatching an operation area. Can be worn or placed somewhere, and comes with chameleon technology allowing it to be disguised as any neckwear.
 
 uplink-pirate-romerol-name = Romerol Syringe
 uplink-pirate-romerol-desc = A bioweapon used in previous wars, and heavily outlawed. Its obviously taken some effort to smuggle this one. Reanimates the dead.
@@ -88,6 +88,24 @@ uplink-pirate-comms-computer-circuitboard-desc = A computer printed circuit boar
 
 uplink-pirate-security-cyborg-module-name = Security Cyborg Module
 uplink-pirate-security-cyborg-module-desc = A machete, an energy gun, and a stun baton, made specifically for borgs. Wait, doesn't TFSMC have the same thing?
+
+uplink-pirate-voicemask-name = Chameleon Voicemask
+uplink-pirate-voicemask-desc = A voicemask to engage in some subterfuge and tomfoolery... or just keep your identity hidden. Obfuscating your voice when speaking over the Vanguard radio is heavily advised.
+
+uplink-pirate-blank-id-name = Blank ID Card 
+uplink-pirate-blank-id-desc = A blank vagrant ID card with no identifying features. Can be customised to your heart's content at Helios' ID card console.
+
+uplink-pirate-chameleon-pda-name = Chameleon PDA
+uplink-pirate-chameleon-pda-desc = A PDA with integrated chameleon technology, allowing you to hide your true allegiance.
+
+uplink-pirate-chameleon-headset-name = Chameleon Headset
+uplink-pirate-chameleon-headset-desc = A headset with integrated chameleon technology, allowing you to hide your true allegiance.
+
+uplink-pirate-chameleon-backpack-name = Chameleon Backpack
+uplink-pirate-chameleon-backpack-desc = A backpack with integrated chameleon technology, allowing you to hide your true allegiance. Does not come with anything inside.
+
+uplink-pirate-dna-scrambler-name = DNA Scrambler Implanter
+uplink-pirate-dna-scrambler-desc = A relatively rare implant that allows you to completely change your identity once.
 
 uplink-pirate-cash10000-name = 10,000 credits
 uplink-pirate-cash10000-desc = That's my boy, you made my day.
@@ -320,6 +338,9 @@ uplink-pdv-t3-kortik-voucher-desc = A small card that contains the data for the 
 
 uplink-pdv-t4-saturn-voucher-name = PDV Saturn LPC [T4]
 uplink-pdv-t4-saturn-voucher-desc = A small card that authorizes the procurement of the Saturn.
+
+uplink-HardBomb-PDV-name = PDV "Adam" Bunker Buster
+uplink-HardBomb-PDV-desc = The PDV's answer to not enough boom
 
 # MARK: Materials
 

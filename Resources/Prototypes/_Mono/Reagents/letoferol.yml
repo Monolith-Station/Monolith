@@ -120,17 +120,17 @@
         - !type:HasTag
           tag: Chimera
           invert: true
-      - !type:Polymorph
-        prototype: LetoferolMutationBeastNatural
-        conditions:
-        - !type:ReagentThreshold
-          min: 10 # less for non-humanoids
-        - !type:HasTag
-          tag: Humanoid
-          invert: true
-        - !type:HasTag
-          tag: Chimera
-          invert: true
+#      - !type:Polymorph
+#        prototype: LetoferolMutationBeastNatural
+#        conditions:
+#        - !type:ReagentThreshold
+#          min: 10 # less for non-humanoids
+#        - !type:HasTag
+#          tag: Humanoid
+#          invert: true
+#        - !type:HasTag
+#          tag: Chimera
+#          invert: true
       - !type:PopupMessage
         conditions:
         - !type:OrganType
