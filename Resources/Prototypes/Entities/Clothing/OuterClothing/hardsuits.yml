@@ -146,7 +146,6 @@
         Piercing: 0.65
         Radiation: 0.25 #salv is supposed to have radiation hazards in the future
         Caustic: 0.45
-        Poison: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.87
@@ -508,7 +507,6 @@
         Slash: 0.9
         Piercing: 0.9
         Caustic: 0.1
-        Poison: 0.1
   - type: ClothingSpeedModifier
     walkModifier: 1.10 # 0.9-> 1.10 - Mono
     sprintModifier: 1.10 # 0.95-> 1.10 - Mono
