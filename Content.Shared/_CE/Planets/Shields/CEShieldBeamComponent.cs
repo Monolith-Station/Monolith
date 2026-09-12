@@ -24,9 +24,3 @@ public record struct CEShieldBeamVaporizingEvent(EntityUid Beam, NetEntity Gener
 {
     public bool Handled;
 }
-
-[Serializable, NetSerializable]
-public sealed class CEShieldBeamVaporizedEvent(NetEntity victim) : EntityEventArgs
-{
-    public readonly NetEntity Victim = victim;
-}

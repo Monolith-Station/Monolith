@@ -49,7 +49,8 @@ public sealed partial class CEShieldGeneratorComponent : Component
     public SoundSpecifier ChargeSound = new SoundPathSpecifier("/Audio/_CE/Explosions/shieldcharge.ogg");
 
     [DataField]
-    public SoundSpecifier FireSound = new SoundPathSpecifier("/Audio/_CE/Explosions/shieldgenfire.ogg");
+    public SoundSpecifier FireSound = new SoundPathSpecifier("/Audio/_CE/Explosions/shieldgenfire.ogg",
+        AudioParams.Default.WithMaxDistance(60f));
 
     [DataField]
     public SoundSpecifier FailSound = new SoundPathSpecifier("/Audio/_CE/Explosions/shieldfail.ogg");

@@ -26,6 +26,7 @@ public sealed partial class CEZLevelBlurOverlay : Overlay
 
     public CEZLevelBlurOverlay()
     {
+        ZIndex = 0;
         IoCManager.InjectDependencies(this);
         _blurShader = _proto.Index(_zBlurShader).InstanceUnique();
     }

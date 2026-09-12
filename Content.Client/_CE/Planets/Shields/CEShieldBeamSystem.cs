@@ -15,22 +15,17 @@ public sealed partial class CEShieldBeamSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeNetworkEvent<CEShieldBeamVaporizedEvent>(OnVaporized);
         _overlay = new CEShieldBeamOverlayDispatcher(EntityManager);
+        _overlays.AddOverlay(_overlay.LowerOverlay);
         _overlays.AddOverlay(_overlay);
-    }
-
-    private void OnVaporized(CEShieldBeamVaporizedEvent args)
-    {
-        if (_players.LocalEntity is not { } controlled || GetNetEntity(controlled) != args.Victim)
-            return;
-        _game.Shutdown("Vaporized by planetary shield beam.");
     }
 
     public override void Shutdown()
     {
         if (_overlay != null)
         {
+            _overlays.RemoveOverlay(_overlay.LowerOverlay);
+            _overlay.LowerOverlay.Dispose();
             _overlays.RemoveOverlay(_overlay);
             _overlay.Dispose();
             _overlay = null;

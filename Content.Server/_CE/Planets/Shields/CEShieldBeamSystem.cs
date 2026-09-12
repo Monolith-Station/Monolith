@@ -1,8 +1,8 @@
 using System.Numerics;
-using System.Linq;
 using Content.Shared._CE.Planets.Shields;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Server._CE.ZLevels.PVS;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
@@ -22,16 +22,6 @@ public sealed partial class CEShieldBeamSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ActorComponent, CEShieldBeamVaporizingEvent>(OnPlayerVaporizing);
-    }
-
-    private void OnPlayerVaporizing(Entity<ActorComponent> ent, ref CEShieldBeamVaporizingEvent args)
-    {
-        if (ent.Comp.PlayerSession.Status != SessionStatus.InGame || ent.Comp.PlayerSession.AttachedEntity != ent.Owner)
-            return;
-        if (!TryComp<CEShieldBeamComponent>(args.Beam, out var beam) || beam.Generator != args.Generator)
-            return;
-        RaiseNetworkEvent(new CEShieldBeamVaporizedEvent(GetNetEntity(ent.Owner)), ent.Comp.PlayerSession);
     }
 
     public void Start(Entity<CEShieldGeneratorComponent> generator)
@@ -75,6 +65,7 @@ public sealed partial class CEShieldBeamSystem : EntitySystem
         foreach (var target in maps)
         {
             var uid = Spawn("CEShieldBeam", new EntityCoordinates(target, position));
+            EnsureComp<CEPvsOverrideComponent>(uid);
             var beam = Comp<CEShieldBeamComponent>(uid);
             beam.Generator = GetNetEntity(generator);
             beam.Source = target == map;
@@ -135,14 +126,13 @@ public sealed partial class CEShieldBeamSystem : EntitySystem
             if (beam.Source)
                 continue;
 
+            var bounds = Box2.CenteredAround(position, new Vector2(beam.Radius * 2));
             var grids = new List<Entity<MapGridComponent>>();
-            _mapManager.FindGridsIntersecting(xform.MapID,
-                Box2.CenteredAround(position, new Vector2(beam.Radius * 2)), ref grids);
+            _mapManager.FindGridsIntersecting(xform.MapID, bounds, ref grids);
             foreach (var grid in grids)
             {
                 var tiles = new List<(Vector2i, Tile)>();
-                foreach (var tile in _maps.GetTilesIntersecting(grid.Owner, grid.Comp,
-                             new Circle(position, beam.Radius)))
+                foreach (var tile in _maps.GetTilesIntersecting(grid.Owner, grid.Comp, bounds))
                     tiles.Add((tile.GridIndices, Tile.Empty));
                 _maps.SetTiles(grid.Owner, grid.Comp, tiles);
             }

@@ -4,6 +4,7 @@
  */
 
 using System.Numerics;
+using System.Linq;
 using Content.Client._CE.Planets.Shields;
 using Content.Client._CE.ZLevels.Core;
 using Content.Shared._CE.ZLevels.Core.Components;
@@ -339,7 +340,7 @@ public sealed partial class ScalingViewport
         }
 
         var first = true;
-        void DrawBeams()
+        void PrepareBeams(int splitDepth)
         {
             if (!_entityManager.TryGetComponent<CEZMapComponent>(riderTransit?.LowerMap ?? playerMap, out var observerLevel)
                 || !_overlayManager.TryGetOverlay<CEShieldBeamOverlayDispatcher>(out var beams))
@@ -350,15 +351,15 @@ public sealed partial class ScalingViewport
                     || level.NetworkUid != observerLevel.NetworkUid)
                     return null;
                 var depth = level.Depth - observerLevel.Depth - frac;
-                Vector2 ProjectReference(float referenceDepth)
+                Vector2 ProjectReference(float referenceDepth, Vector2 worldPosition)
                 {
                     var eye = MakeZEye(pointMap, referenceDepth)!;
                     eye.GetViewMatrix(out var matrix, viewport.RenderScale);
-                    var local = Vector2.Transform(position, matrix) * EyeManager.PixelsPerMeter;
+                    var local = Vector2.Transform(worldPosition, matrix) * EyeManager.PixelsPerMeter;
                     return (Vector2) viewport.Size / 2 + new Vector2(local.X, -local.Y);
                 }
-                var point = ProjectReference(depth);
-                return (level.Depth, point, ProjectReference(depth + 1) - point);
+                var point = ProjectReference(depth, position);
+                return (level.Depth, point, ProjectReference(depth + 1, position) - point);
             }
 
             float BeamCloudCoverage(EntityUid map)
@@ -369,10 +370,14 @@ public sealed partial class ScalingViewport
                 return depth <= CloudFullCoverDepth ? 1f : CloudCoverage(depth);
             }
 
-            beams.RenderPass(renderHandle, viewport, ProjectBeamPoint, BeamCloudCoverage,
-                _fallbackEye!.Scale.Y * viewport.RenderScale.Y * EyeManager.PixelsPerMeter);
+            beams.PreparePass(viewport, ProjectBeamPoint, BeamCloudCoverage,
+                _fallbackEye!.Scale.Y * viewport.RenderScale.Y * EyeManager.PixelsPerMeter, splitDepth);
         }
 
+        var beamTopDepth = _zPasses
+            .Where(pass => !pass.Transit && _entityManager.HasComponent<CEZMapComponent>(pass.MapUid))
+            .Select(pass => (int?) _entityManager.GetComponent<CEZMapComponent>(pass.MapUid).Depth)
+            .Max();
         foreach (var (mapUid, depth, allowFov, isTransit) in _zPasses)
         {
             // A cloud layer at or below the observer draws an opaque deck beneath
@@ -448,6 +453,9 @@ public sealed partial class ScalingViewport
 
             viewport.ClearColor = first ? Color.Black : null;
             first = false;
+            if (!isTransit && _entityManager.TryGetComponent<CEZMapComponent>(mapUid, out var beamLevel)
+                && beamLevel.Depth == beamTopDepth)
+                PrepareBeams(beamLevel.Depth);
             viewport.Render();
 
             if (wispColor != null)
@@ -519,8 +527,6 @@ public sealed partial class ScalingViewport
                     GetLitCloudColor(aboveMap.Value, cloudAbove.CloudColor), coverage);
             }
         }
-
-        DrawBeams();
 
         // Restore the Eye
         Eye = _fallbackEye;
@@ -633,16 +639,16 @@ public sealed partial class ScalingViewport
                 if (!_entityManager.TryGetComponent<CEZMapComponent>(map, out var level)
                     || level.NetworkUid != beamOrigin.NetworkUid)
                     return null;
-                Vector2 Project(float depth)
+                Vector2 Project(float depth, Vector2 worldPosition)
                 {
                     var eye = BackdropEye(originMap, backdropScale, false, depth);
                     eye.GetViewMatrix(out var matrix, viewport.RenderScale);
-                    var local = Vector2.Transform(position, matrix) * EyeManager.PixelsPerMeter;
+                    var local = Vector2.Transform(worldPosition, matrix) * EyeManager.PixelsPerMeter;
                     return (Vector2) viewport.Size / 2 + new Vector2(local.X, -local.Y);
                 }
                 var depth = level.Depth - beamOrigin.Depth;
-                var point = Project(depth);
-                return (level.Depth, point, Project(depth + 1) - point);
+                var point = Project(depth, position);
+                return (level.Depth, point, Project(depth + 1, position) - point);
             }
 
             float BeamCloudCoverage(EntityUid map) =>
