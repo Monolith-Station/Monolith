@@ -24721,3 +24721,12 @@ Entries:
   id: 2707
   time: '2026-09-12T02:47:48.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4663
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        Solarian Vault no longer always gives FMC no matter how damaged the
+        vault actually is.
+  id: 2708
+  time: '2026-09-12T18:32:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4681
