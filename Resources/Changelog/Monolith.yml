@@ -24704,3 +24704,20 @@ Entries:
   id: 2706
   time: '2026-09-12T02:40:19.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4665
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: Smuggling now revolves around Phaethon Dynasty supply crates.
+    - type: Tweak
+      message: Smuggling for FMC/DC has been made more profitable.
+    - type: Add
+      message: >-
+        The PDV now receive 10 DC when a PDV supply crate (formerly a contraband
+        crate) is sold at a cargo depot.
+    - type: Add
+      message: >-
+        The TSFMC now receive 100 FMC when a Solarian Vault is bluespaced out
+        relatively unharmed.
+  id: 2707
+  time: '2026-09-12T02:47:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4663
