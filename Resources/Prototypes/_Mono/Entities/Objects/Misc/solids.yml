@@ -48,10 +48,6 @@
       Medical: -0.05
       nfsd: -0.1
       BlackMarket: 0.25
-  - type: CurrencyInjectionOnSell # Mono: smuggling directly funds the PDV
-    company: PDV
-    amount:
-      Doubloon: 1
   - type: ExtendDescription
     descriptionList:
     - description: Selling this item will fund the PDV.
