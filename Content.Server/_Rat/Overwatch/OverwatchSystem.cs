@@ -21,6 +21,7 @@ using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Server._Mono.Overwatch.Components;
 
 namespace Content.Server._Rat.Overwatch;
 
@@ -95,6 +96,9 @@ public sealed class OverwatchSystem : EntitySystem
         SubscribeLocalEvent<CompanyComponent, ComponentShutdown>(OnFactionComponentShutdown);
         SubscribeLocalEvent<SquadComponent, ComponentInit>(OnSquadComponentInit);
         SubscribeLocalEvent<SquadComponent, ComponentShutdown>(OnSquadComponentShutdown);
+
+        // Mono: overwatch jamming
+        SubscribeLocalEvent<CompanyComponent, GridUidChangedEvent>(OnGridUidChanged);
 
         Subs.BuiEvents<OverwatchConsoleComponent>(OverwatchUiKey.Key, subs =>
         {
@@ -638,6 +642,15 @@ public sealed class OverwatchSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Mono: This is so that overwatch console jamming components on grids can function as intended.
+    /// </summary> 
+    private void OnGridUidChanged(Entity<CompanyComponent> ent, ref GridUidChangedEvent args)
+    {
+        if (_factionMembersCache.Keys.Contains(ent.Comp.CompanyName))
+            _factionMembersCache.Remove(ent.Comp.CompanyName); // clear cache to allow overwatch jamming to function
+    }
+
     /// <inheritdoc/>
     public override void Update(float frameTime)
     {
@@ -689,6 +702,8 @@ public sealed class OverwatchSystem : EntitySystem
         var query = EntityQueryEnumerator<CompanyComponent>();
         while (query.MoveNext(out var uid, out var factionComp))
         {
+            if (Transform(uid).GridUid != null && TryComp<JamOverwatchComponent>(Transform(uid).GridUid, out var jamComp) && !jamComp.ExcludedFactions.Contains(faction)) // Mono: grids can jam the overwatch console to prevent coordinates leaks.
+                continue;
             if (factionComp.CompanyName == faction && !HasComp<ShuttleComponent>(uid))
                 members.Add(uid);
         }
