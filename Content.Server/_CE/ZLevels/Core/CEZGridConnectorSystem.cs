@@ -6,6 +6,7 @@
 using System.Linq;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared.Examine;
 using Robust.Shared.Map;
 
 namespace Content.Server._CE.ZLevels.Core;
@@ -27,6 +28,7 @@ public sealed partial class CEZGridConnectorSystem : EntitySystem
     [Dependency] private EntityQuery<CEZGridComponent> _zgridQuery = default!;
     [Dependency] private EntityQuery<CEZGridNetworkComponent> _zgridNetworkQuery = default!;
     [Dependency] private EntityQuery<CEZMapComponent> _zMapQuery = default!;
+    [Dependency] private EntityQuery<CEZTransitMapComponent> _transitQuery = default!;
 
     private bool _dirty;
 
@@ -65,6 +67,7 @@ public sealed partial class CEZGridConnectorSystem : EntitySystem
         SubscribeLocalEvent<CEZGridConnectorComponent, MapInitEvent>(OnConnectorMapInit);
         SubscribeLocalEvent<CEZGridConnectorComponent, AnchorStateChangedEvent>(OnConnectorAnchorChanged);
         SubscribeLocalEvent<CEZGridConnectorComponent, EntityTerminatingEvent>(OnConnectorTerminating);
+        SubscribeLocalEvent<CEZGridConnectorComponent, ExaminedEvent>(OnConnectorExamined);
 
         SubscribeLocalEvent<CEZGridComponent, EntityTerminatingEvent>(OnGridTerminating);
         SubscribeLocalEvent<TileChangedEvent>(OnTileChanged);
@@ -76,6 +79,12 @@ public sealed partial class CEZGridConnectorSystem : EntitySystem
     private void OnConnectorMapInit(Entity<CEZGridConnectorComponent> ent, ref MapInitEvent args)
     {
         _dirty = true;
+    }
+
+    private void OnConnectorExamined(Entity<CEZGridConnectorComponent> ent, ref ExaminedEvent args)
+    {
+        if (TryGetConnectorLink(ent.Owner, Transform(ent.Owner), out _, out _))
+            args.PushMarkup(Loc.GetString("ce-zgrid-connector-examine-anchoring"));
     }
 
     private void OnConnectorAnchorChanged(Entity<CEZGridConnectorComponent> ent, ref AnchorStateChangedEvent args)
@@ -184,6 +193,10 @@ public sealed partial class CEZGridConnectorSystem : EntitySystem
         }
 
         _components.Clear();
+
+        // Membership is now current; split any transit convoy whose layers just stopped
+        // sharing a network so the fragments fall independently.
+        _zLevels.RevalidateTransitConvoys();
     }
 
     /// <summary>Existing network sharing the most grids with <paramref name="component"/>, or Invalid.</summary>
@@ -214,43 +227,95 @@ public sealed partial class CEZGridConnectorSystem : EntitySystem
         return best;
     }
 
+    /// <summary>
+    /// Whether an anchored connector currently binds its own grid to a grid on the layer
+    /// directly above — a real tile sits over it there. The single source of truth for both
+    /// network assembly and the examine readout, so the two never disagree.
+    /// </summary>
+    public bool TryGetConnectorLink(EntityUid connectorUid, TransformComponent xform, out EntityUid lowerGrid, out EntityUid upperGrid)
+        => TryGetConnectorLinkDir(connectorUid, xform, up: true, out lowerGrid, out upperGrid);
+
+    /// <summary>
+    /// Resolves the grid a connector binds its parent grid to in one direction: the layer
+    /// above (<paramref name="up"/>) or below. The neighbouring layer is a z-level's
+    /// map-above/below, or — mid-transit — the transit map linked directly that way, so links
+    /// survive the whole descent. Outputs are always ordered (lower, upper) for the edge.
+    /// </summary>
+    private bool TryGetConnectorLinkDir(EntityUid connectorUid, TransformComponent xform, bool up, out EntityUid lowerGrid, out EntityUid upperGrid)
+    {
+        lowerGrid = default;
+        upperGrid = default;
+
+        if (!xform.Anchored || xform.GridUid == null || xform.MapUid == null)
+            return false;
+
+        if (xform.ParentUid == xform.MapUid)
+            return false; // We do not support connecting grid to planet maps right now.
+
+        var parentGrid = xform.GridUid.Value;
+
+        EntityUid neighbourMapUid;
+        if (_zMapQuery.TryComp(xform.MapUid.Value, out var zMap))
+        {
+            if (up
+                ? !_zLevels.TryMapUp((xform.MapUid.Value, zMap), out var neighbourMap)
+                : !_zLevels.TryMapDown((xform.MapUid.Value, zMap), out neighbourMap))
+            {
+                return false;
+            }
+
+            neighbourMapUid = neighbourMap.Owner;
+        }
+        else if (_transitQuery.TryComp(xform.MapUid.Value, out var transit)
+                 && (up ? transit.TransitAbove : transit.TransitBelow) is { } transitNeighbour)
+        {
+            neighbourMapUid = transitNeighbour;
+        }
+        else
+        {
+            return false;
+        }
+
+        var worldPos = _transform.GetWorldPosition(connectorUid);
+        if (!_mapManager.TryFindGridAt(neighbourMapUid, worldPos, out var neighbourGridUid, out var neighbourGridComp))
+            return false;
+        if (neighbourGridUid == parentGrid)
+            return false;
+
+        // TryFindGridAt matches by AABB — verify the tile at this position actually exists.
+        if (!_mapSystem.TryGetTileRef(neighbourGridUid, neighbourGridComp, worldPos, out var tileRef) || tileRef.Tile.IsEmpty)
+            return false;
+
+        (lowerGrid, upperGrid) = up ? (parentGrid, neighbourGridUid) : (neighbourGridUid, parentGrid);
+        return true;
+    }
+
+    private void AddConnectorEdge(EntityUid lower, EntityUid upper)
+    {
+        if (!_adj.TryGetValue(lower, out var lowerNeighbors))
+            _adj[lower] = lowerNeighbors = RentSet();
+
+        if (!_adj.TryGetValue(upper, out var upperNeighbors))
+            _adj[upper] = upperNeighbors = RentSet();
+
+        lowerNeighbors.Add(upper);
+        upperNeighbors.Add(lower);
+    }
+
     private void ComputeDesiredComponents()
     {
         _adj.Clear();
 
         var query = EntityQueryEnumerator<CEZGridConnectorComponent, TransformComponent>();
-        while (query.MoveNext(out var connectorUid, out _, out var xform))
+        while (query.MoveNext(out var connectorUid, out var connector, out var xform))
         {
-            if (!xform.Anchored || xform.GridUid == null || xform.MapUid == null)
-                continue;
+            if (TryGetConnectorLinkDir(connectorUid, xform, up: true, out var lo, out var hi))
+                AddConnectorEdge(lo, hi);
 
-            if (xform.ParentUid == xform.MapUid)
-                continue; //We do not support connecting grid to planet maps right now
-
-            var lowerGridUid = xform.GridUid.Value;
-            if (!_zMapQuery.TryComp(xform.MapUid.Value, out var zMap))
-                continue;
-            if (!_zLevels.TryMapUp((xform.MapUid.Value, zMap), out var aboveMap))
-                continue;
-
-            var worldPos = _transform.GetWorldPosition(connectorUid);
-            if (!_mapManager.TryFindGridAt(aboveMap.Owner, worldPos, out var upperGridUid, out var upperGrid))
-                continue;
-            if (upperGridUid == lowerGridUid)
-                continue;
-
-            // TryFindGridAt matches by AABB — verify the tile at this position actually exists
-            if (!_mapSystem.TryGetTileRef(upperGridUid, upperGrid, worldPos, out var tileRef) || tileRef.Tile.IsEmpty)
-                continue;
-
-            if (!_adj.TryGetValue(lowerGridUid, out var lowerNeighbors))
-                _adj[lowerGridUid] = lowerNeighbors = RentSet();
-
-            if (!_adj.TryGetValue(upperGridUid, out var upperNeighbors))
-                _adj[upperGridUid] = upperNeighbors = RentSet();
-
-            lowerNeighbors.Add(upperGridUid);
-            upperNeighbors.Add(lowerGridUid);
+            // AnchorBelow connectors also bind the grid one level down, so a single entity
+            // can hold three layers together.
+            if (connector.AnchorBelow && TryGetConnectorLinkDir(connectorUid, xform, up: false, out var lo2, out var hi2))
+                AddConnectorEdge(lo2, hi2);
         }
 
         // BFS connected components.

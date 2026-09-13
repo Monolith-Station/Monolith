@@ -253,6 +253,8 @@ ui-options-function-shuttle-strafe-down = Strafe down
 ui-options-function-shuttle-rotate-left = Rotate left
 ui-options-function-shuttle-rotate-right = Rotate right
 ui-options-function-shuttle-brake = Brake
+ui-options-function-shuttle-ascend = Ascend
+ui-options-function-shuttle-descend = Descend
 
 ## Network menu
 

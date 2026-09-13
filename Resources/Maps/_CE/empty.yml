@@ -8,7 +8,8 @@ meta:
   entityCount: 1
 maps:
 - 1
-grids: []
+grids:
+- 1
 orphans: []
 nullspace: []
 tilemap:
@@ -40,4 +41,6 @@ entities:
         moles:
         - 21.824879
         - 82.10312
+    - type: Roof
+    - type: MapGrid
 ...

@@ -7,7 +7,9 @@ using Content.Server._CE.ZLevels.Core.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Gravity;
 using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Gravity;
+using Content.Shared.Maps;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -20,7 +22,6 @@ public sealed partial class CEZLevelsSystem
     [Dependency] private GravitySystem _grav = default!;
 
     [Dependency] private EntityQuery<CEZMapComponent> _zMapQuery = default!;
-    [Dependency] private EntityQuery<CEZGroundLayerComponent> _zGroundQuery = default!;
     [Dependency] private EntityQuery<PhysicsComponent> _physQuery = default!;
 
     private readonly List<Entity<MapGridComponent>> _gravityQueue = new();
@@ -29,6 +30,15 @@ public sealed partial class CEZLevelsSystem
     /// pzn: pooled MaxHandledMass of active gravgens per grid.
     /// </summary>
     private readonly Dictionary<EntityUid, float> _gravgenCapacity = new();
+
+    /// <summary>
+    /// pzn: per-sweep memo of each grid's rigid-set support verdict. Every grid in one rigid
+    /// body shares the same verdict, so the first grid of a body computes the flood + pooled
+    /// support once and caches it for every member — the other members then skip the whole
+    /// recomputation. Keeps the fall gate O(grids) instead of O(grids × body size). Cleared
+    /// each sweep alongside <see cref="_gravgenCapacity"/>.
+    /// </summary>
+    private readonly Dictionary<EntityUid, bool> _rigidSupportCache = new();
     private readonly TimeSpan _gravityCheckTimer = TimeSpan.FromSeconds(0.5);
     private TimeSpan _nextGravityCheckTime;
 
@@ -48,6 +58,7 @@ public sealed partial class CEZLevelsSystem
             _gravityQueue.Clear();
 
             _gravgenCapacity.Clear();
+            _rigidSupportCache.Clear();
             var gravgenQuery = EntityQueryEnumerator<GravityGeneratorComponent, TransformComponent>();
             while (gravgenQuery.MoveNext(out _, out var gravgen, out var gravgenXform))
             {
@@ -58,6 +69,14 @@ public sealed partial class CEZLevelsSystem
                 var rated = gravgen.MaxHandledMass <= 0f ? float.PositiveInfinity : gravgen.MaxHandledMass;
                 _gravgenCapacity[gravgenXform.ParentUid] =
                     _gravgenCapacity.GetValueOrDefault(gravgenXform.ParentUid) + rated;
+            }
+
+            // Mapping anchors are unlimited lift: a grid hosting one holds its whole network
+            // aloft regardless of mass (see CEZMappingAnchorComponent).
+            var anchorQuery = EntityQueryEnumerator<CEZMappingAnchorGridComponent>();
+            while (anchorQuery.MoveNext(out var anchorGrid, out _))
+            {
+                _gravgenCapacity[anchorGrid] = float.PositiveInfinity;
             }
 
             var levelQuery = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent>();
@@ -71,18 +90,13 @@ public sealed partial class CEZLevelsSystem
                 if (xform.MapUid is not { } mapUid || !_zMapQuery.HasComp(mapUid))
                     continue;
 
-                // You can't fall out of the ground floor.
-                if (_zGroundQuery.HasComp(mapUid))
-                    continue;
-
                 if (_physQuery.TryComp(uid, out var body) && body.BodyType == BodyType.Static)
                     continue;
 
-                // "Why not use IsWeightless" Doesn't work on grids. I tried.
-                if (GridHasActiveGravgen(uid))
-                    continue;
-
-                if (HasGroundUnderFootprint((uid, grid), mapUid))
+                // "Why not use IsWeightless on each grid-" Doesn't work on grids. I tried.
+                // This also covers "you can't fall out of the ground floor": a grid sat on the
+                // bottom level's terrain has ground under its footprint like any other.
+                if (RigidSetHasSupport(uid))
                     continue;
 
                 _gravityQueue.Add((uid, grid));
@@ -111,6 +125,11 @@ public sealed partial class CEZLevelsSystem
             {
                 continue;
             }
+
+            // Convoy follower layers don't integrate — they mirror the lead layer's
+            // velocity inside IntegrateFallingGrid.
+            if ((transit.TransitAbove != null || transit.TransitBelow != null) && !transit.ConvoyLead)
+                continue;
 
             _gravityQueue.Add((primary, primaryGrid));
         }
@@ -259,7 +278,19 @@ public sealed partial class CEZLevelsSystem
         }
 
         var progress = zPhys.LocalPosition;
-        var hasGravgen = GridHasActiveGravgen(grid);
+
+        // Convoy-aware bounds: the stack lands on whatever is under its BOTTOM layer
+        // and settles up against whatever is above its TOP layer; any member's
+        // gravgen keeps the whole thing aloft (the connectors carry the load).
+        var convoy = GetConvoyMaps(xform.MapUid!.Value);
+        var groundMapBelow = Comp<CEZTransitMapComponent>(convoy[0]).LowerMap ?? lowerMap;
+        var topUpperMap = Comp<CEZTransitMapComponent>(convoy[^1]).UpperMap;
+
+        var transitSet = CollectTransitSet(grid);
+
+        // The whole rigid set hovers only if its generators' pooled capacity holds the
+        // set's pooled mass — not if any single member's generator holds only itself.
+        var hasGravgen = HasPooledGravgenSupport(transitSet);
 
         if (!hasGravgen)
         {
@@ -271,7 +302,7 @@ public sealed partial class CEZLevelsSystem
         }
         else
         {
-            var input = GetTransitVerticalInput(xform.MapUid!.Value);
+            var input = GetConvoyVerticalInput(convoy);
             var accel = GetVerticalThrustAccel(grid);
             var damp = Math.Max(accel, HoverDampAccel);
 
@@ -295,7 +326,13 @@ public sealed partial class CEZLevelsSystem
 
                     target = MathF.Max(TouchdownSpeed, progress * ApproachGain);
                 }
-                else if (progress >= 1f - SettleZone && transit.UpperMap != null)
+                // Only settle up onto the level above if the convoy can actually get through it.
+                // Pinned under solid terrain the ship just hovers against the underside; without
+                // this it would drift into the touchdown band and pop out on top of the ceiling
+                // that was blocking it.
+                else if (progress >= 1f - SettleZone
+                         && topUpperMap is { } upper
+                         && !ConvoyBlockedByPlane(convoy[^1], upper))
                 {
                     if (progress >= 1f - TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
@@ -310,8 +347,8 @@ public sealed partial class CEZLevelsSystem
                 faller.Velocity = MoveTowards(faller.Velocity, target, damp * frameTime);
             }
 
-            // Slow down when approaching a ground layer so people under you got some time to move.
-            if (faller.Velocity > 0f && HasComp<CEZGroundLayerComponent>(lowerMap))
+            // Slow down when approaching terrain so people under you got some time to move.
+            if (faller.Velocity > 0f && ConvoyBlockedByPlane(convoy[0], groundMapBelow))
             {
                 var cap = MathF.Max(TouchdownSpeed, progress * ApproachGain);
                 if (faller.Velocity > cap)
@@ -319,8 +356,13 @@ public sealed partial class CEZLevelsSystem
             }
         }
 
-        foreach (var member in CollectGridSet(grid))
+        foreach (var member in transitSet)
+        {
             SetZVelocity(member, -faller.Velocity);
+
+            if (member != grid.Owner && TryComp<CEZGridFallerComponent>(member, out var memberFaller))
+                memberFaller.Velocity = faller.Velocity;
+        }
 
         var altitude = lowerZ.Depth + progress - faller.Velocity * frameTime;
         if (!SetTransitAltitude(grid, altitude))
@@ -333,10 +375,22 @@ public sealed partial class CEZLevelsSystem
         var impact = faller.Velocity;
         faller.Velocity = 0f;
 
-        if (impact < faller.GridCrashVelocity || !HasComp<CEZGroundLayerComponent>(Transform(grid).MapUid))
+        // Only a landing that ended ON terrain is a crash; setting down over open sky isn't.
+        if (impact < faller.GridCrashVelocity
+            || Transform(grid).MapUid is not { } landedMap
+            || !HasGroundUnderFootprint(grid, landedMap))
+        {
             return;
+        }
 
-        foreach (var landedUid in CollectGridSet(grid))
+        var crashSet = CollectGridSet(grid);
+        if (TryGetGridNetwork(grid, out var landedNetwork))
+        {
+            foreach (var member in landedNetwork.Comp.Grids)
+                crashSet.UnionWith(CollectGridSet(member));
+        }
+
+        foreach (var landedUid in crashSet)
         {
             if (TryComp<MapGridComponent>(landedUid, out var landedGrid) && TryComp<CEZGridFallerComponent>(landedUid, out var landedFaller))
                 CrashGrid((landedUid, landedGrid, landedFaller));
@@ -373,16 +427,137 @@ public sealed partial class CEZLevelsSystem
             ent.Comp2.CrashCenterMaxIntensity);
     }
 
-    private bool GridHasActiveGravgen(EntityUid grid)
+    /// <summary>
+    /// Will It Lift?
+    /// </summary>
+    private bool HasPooledGravgenSupport(IEnumerable<EntityUid> grids)
     {
-        if (!_gravgenCapacity.TryGetValue(grid, out var capacity))
-            return false;
+        var capacity = 0f;
+        var mass = 0f;
 
-        if (float.IsPositiveInfinity(capacity))
+        foreach (var grid in grids)
+        {
+            if (_gravgenCapacity.TryGetValue(grid, out var gridCapacity))
+            {
+                if (float.IsPositiveInfinity(gridCapacity))
+                    return true;
+
+                capacity += gridCapacity;
+            }
+
+            if (_physQuery.TryComp(grid, out var body))
+                mass += body.FixturesMass;
+        }
+
+        // capacity > 0 means at least one active generator exists; a set with no lift
+        // hardware is never "supported" even when it happens to be massless.
+        return capacity > 0f && mass <= capacity;
+    }
+
+    /// <summary>
+    /// The full rigid body a grid falls (or is held) as one with: the transitive closure over
+    /// both welds — docking ports and z-network connectors — so two stacks docked together fold
+    /// into a single set, no matter how many network-then-dock-then-network hops apart. Support
+    /// is pooled across the whole union. A lone, undocked, networkless grid yields just itself.
+    /// </summary>
+    private HashSet<EntityUid> CollectRigidSet(EntityUid uid)
+    {
+        // Transitive flood over BOTH welds: docking ports and network connectors. One level
+        // isn't enough — a docked partner can itself be a member of another z-network whose own
+        // members are docked to yet more, and so on. Following only the starting grid's network
+        // (and its members' docks) would miss the far side of a stack-to-stack dock, and worse,
+        // give a different set depending on which grid you started from — so the same rigid body
+        // could be judged supported from one end and falling from the other. The flood closes
+        // over the whole connected body, so every grid in it yields the identical set.
+        //
+        // `set` guards enqueueing: each grid enters the queue only the first time it's seen, so
+        // the flood always terminates and docking/network cycles are safe. `dockWalked` and
+        // `netWalked` additionally guard the EXPENSIVE expansions: a docked component (returned
+        // whole by GetAllDockedShuttles) and a network are each walked exactly once, instead of
+        // re-walking the same cluster once per member.
+        var set = new HashSet<EntityUid>();
+        var queue = new Queue<EntityUid>();
+        var dockWalked = new HashSet<EntityUid>();
+        var netWalked = new HashSet<EntityUid>();
+
+        void Add(EntityUid g)
+        {
+            if (set.Add(g))
+                queue.Enqueue(g);
+        }
+
+        Add(uid);
+
+        while (queue.Count > 0)
+        {
+            var g = queue.Dequeue();
+
+            // Docking: GetAllDockedShuttles hands back g's whole docked component at once, and
+            // every grid in it shares that same component — so walk it once, marking the lot.
+            if (dockWalked.Add(g))
+            {
+                foreach (var docked in CollectGridSet(g))
+                {
+                    dockWalked.Add(docked);
+                    Add(docked);
+                }
+            }
+
+            // Connectors weld g to its z-network members; each may open onto a new docked
+            // component, which the loop then walks. Expand each network only once.
+            if (TryGetGridNetwork(g, out var network) && netWalked.Add(network.Owner))
+            {
+                foreach (var member in network.Comp.Grids)
+                    Add(member);
+            }
+        }
+
+        return set;
+    }
+
+    /// <summary>
+    /// Whether a grid's whole rigid set is held aloft: its generators' pooled capacity covers
+    /// the set's pooled mass (so a docked tug or a networked gravgen carries the rest, and every
+    /// member's weight counts against that lift), or any member rests on ground under its
+    /// footprint. Subsumes the old per-grid gravgen check and network-only pooling — for a lone
+    /// grid the set is just itself, giving the identical result.
+    ///
+    /// Memoized per sweep: every grid in one rigid body shares this verdict, so the first grid
+    /// floods + pools once and caches the answer for every member; the rest hit the cache. The
+    /// fall gate calls this once per grid, so without the cache an N-grid body would recompute
+    /// the whole flood N times (O(N²)); with it, once (O(N)).
+    /// </summary>
+    private bool RigidSetHasSupport(EntityUid uid)
+    {
+        if (_rigidSupportCache.TryGetValue(uid, out var cached))
+            return cached;
+
+        var set = CollectRigidSet(uid);
+        var supported = SetHasSupport(set);
+
+        foreach (var member in set)
+            _rigidSupportCache[member] = supported;
+
+        return supported;
+    }
+
+    /// <summary>Pooled gravgen lift over the set covers its pooled mass, or a member is on ground.</summary>
+    private bool SetHasSupport(HashSet<EntityUid> set)
+    {
+        if (HasPooledGravgenSupport(set))
             return true;
 
-        var mass = _physQuery.TryComp(grid, out var body) ? body.FixturesMass : 0f;
-        return mass <= capacity;
+        foreach (var member in set)
+        {
+            if (Transform(member).MapUid is { } memberMap
+                && TryComp<MapGridComponent>(member, out var memberGrid)
+                && HasGroundUnderFootprint((member, memberGrid), memberMap))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -396,21 +571,56 @@ public sealed partial class CEZLevelsSystem
         if (!HasComp<MapGridComponent>(gridUid))
             return false;
 
+        // A z-grid network shares its generators' lift across every member, so the
+        // load is pooled over the whole network; a lone grid answers for itself.
+        var networkGrids = TryGetGridNetwork(gridUid, out var network) ? network.Comp.Grids : null;
+
         var query = EntityQueryEnumerator<GravityGeneratorComponent, TransformComponent>();
         while (query.MoveNext(out _, out var gravgen, out var xform))
         {
-            if (!gravgen.GravityActive || xform.ParentUid != gridUid)
+            if (!gravgen.GravityActive)
+                continue;
+
+            var onSet = networkGrids != null
+                ? networkGrids.Contains(xform.ParentUid)
+                : xform.ParentUid == gridUid;
+            if (!onSet)
                 continue;
 
             capacity += gravgen.MaxHandledMass < 0f ? float.PositiveInfinity : gravgen.MaxHandledMass;
         }
 
-        if (_physQuery.TryComp(gridUid, out var body))
+        if (networkGrids != null)
+        {
+            foreach (var member in networkGrids)
+            {
+                if (_physQuery.TryComp(member, out var memberBody))
+                    gridMass += memberBody.FixturesMass;
+            }
+        }
+        else if (_physQuery.TryComp(gridUid, out var body))
+        {
             gridMass = body.FixturesMass;
+        }
 
         return true;
     }
 
+    /// <summary>
+    /// Whether a z-level has solid terrain under (or over) a grid's footprint. A z-level map
+    /// entity carries its own MapGrid and its tiles are the layer's terrain, so this is what
+    /// makes a level something a ship can rest on or be stopped by.
+    ///
+    /// Solid is a non-empty tile — the same rule the entity fall path
+    /// (<c>ComputeGroundHeightInternal</c>) uses, so a gap punched in a platform drops a ship
+    /// through exactly like it drops a person instead of the two disagreeing about the same tile.
+    ///
+    /// Emptiness rather than <see cref="ContentTileDefinition.Transparent"/>, deliberately:
+    /// transparency is a SIGHT property, driving roof occlusion and the look-up/look-down view, and
+    /// a floor you can see through is still a floor. Lattice, glass floor and damaged plating are
+    /// all transparent and all hold weight, so keying support off it dropped ships through tiles
+    /// people were standing on. Space is tile id 0, so it is empty here anyway.
+    /// </summary>
     private bool HasGroundUnderFootprint(Entity<MapGridComponent> grid, EntityUid mapUid)
     {
         if (!TryComp<MapGridComponent>(mapUid, out var mapGrid))
@@ -418,6 +628,12 @@ public sealed partial class CEZLevelsSystem
 
         var worldAabb = _transform.GetWorldMatrix(grid).TransformBox(grid.Comp.LocalAABB);
         var tiles = _map.GetTilesEnumerator(mapUid, mapGrid, worldAabb);
-        return tiles.MoveNext(out _);
+        while (tiles.MoveNext(out var tileRef))
+        {
+            if (!tileRef.Tile.IsEmpty)
+                return true;
+        }
+
+        return false;
     }
 }

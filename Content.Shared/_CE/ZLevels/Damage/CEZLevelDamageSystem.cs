@@ -4,6 +4,10 @@
  */
 
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using System.Diagnostics.CodeAnalysis;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Map;
+using Content.Shared.Maps;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -24,6 +28,10 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
     [Dependency] private IConfigurationManager _config = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IMapManager _mapManager = default!;
 
     public float BaseFallingDamage { get; private set; }
     public float BaseFallingOtherDamage { get; private set; }
@@ -60,6 +68,14 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
         RaiseLocalEvent(ent, damageToSelfEv);
         damageModifier *= damageToSelfEv.DamageMultiplier;
         stunModifier *= damageToSelfEv.StunMultiplier;
+
+        // What you landed ON can break the fall too, and it is not always an entity: water is a
+        // tile, so without this a lake would hurt exactly as much as bedrock.
+        if (TryGetLandingTile(ent, out var landingTile))
+        {
+            damageModifier *= landingTile.FallDamageMultiplier;
+            stunModifier *= landingTile.FallStunMultiplier;
+        }
 
         var entitiesAround = _lookup.GetEntitiesInRange(ent, 0.25f, LookupFlags.Uncontained);
         entitiesAround.Remove(ent); //Don't count self
@@ -113,6 +129,31 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
 
         if (_net.IsClient && _timing.IsFirstTimePredicted) //Only visuals so client only
             SpawnAtPosition(FallVFX, Transform(ent).Coordinates);
+    }
+
+    /// <summary>
+    /// The tile an entity has just landed on, if it is over one at all.
+    /// </summary>
+    private bool TryGetLandingTile(EntityUid uid, [NotNullWhen(true)] out ContentTileDefinition? tileDef)
+    {
+        tileDef = null;
+
+        var xform = Transform(uid);
+
+        // Prefer the grid it is standing on; fall back to whatever grid is under it, which on a
+        // planet is the z-level map's own grid.
+        if (xform.GridUid is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var grid))
+        {
+            if (!_mapManager.TryFindGridAt(_transform.GetMapCoordinates(uid, xform), out gridUid, out grid))
+                return false;
+        }
+
+        var tile = _maps.GetTileRef(gridUid, grid, xform.Coordinates).Tile;
+        if (tile.IsEmpty)
+            return false;
+
+        tileDef = (ContentTileDefinition)_tileDefManager[tile.TypeId];
+        return true;
     }
 }
 

@@ -342,6 +342,20 @@ public abstract partial class CESharedZLevelsSystem
         DirtyField(ent, ent.Comp, nameof(CEZPhysicsComponent.LaunchCountdown));
     }
 
+    /// <summary>
+    /// Sets whether the grid currently has solid terrain under its footprint, for the shuttle
+    /// console readout.
+    /// </summary>
+    [PublicAPI]
+    public void SetGroundContact(Entity<CEZPhysicsComponent?> ent, bool contact)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp, false) || ent.Comp.GroundContact == contact)
+            return;
+
+        ent.Comp.GroundContact = contact;
+        DirtyField(ent, ent.Comp, nameof(CEZPhysicsComponent.GroundContact));
+    }
+
     [PublicAPI]
     public void UpdateGravityState(Entity<CEZPhysicsComponent?> ent)
     {
@@ -399,6 +413,33 @@ public abstract partial class CESharedZLevelsSystem
 
         if (map is null)
             return false;
+
+        // Convoy transit: a networked ship's decks ride adjacent stacked transit maps,
+        // which aren't z-network members, so MapOffset can't target them. Step straight to
+        // the linked deck (one floor at a time) so crew can climb or fall between a ship's
+        // floors mid-descent instead of dropping onto the empty z-level the ship has left.
+        // Grids are excluded — they move as sets through the transit machinery, not this.
+        if ((offset == 1 || offset == -1)
+            && !_gridQuery.HasComp(ent)
+            && TryComp<CEZTransitMapComponent>(map.Value.Owner, out var currentTransit))
+        {
+            var deckLink = offset < 0 ? currentTransit.TransitBelow : currentTransit.TransitAbove;
+            if (deckLink is { } deckMap
+                && !TerminatingOrDeleted(deckMap)
+                && _mapQuery.TryComp(deckMap, out var deckMapComp))
+            {
+                var keepRot = _transform.GetWorldRotation(ent);
+                _transform.SetMapCoordinates(ent, new MapCoordinates(_transform.GetWorldPosition(ent), deckMapComp.MapId));
+                _transform.SetWorldRotation(ent, keepRot);
+
+                // Cache value only; the gap's lower anchor depth is the sensible stand-in.
+                var deckDepth = _zMapQuery.TryComp(currentTransit.LowerMap, out var lowerZ) ? lowerZ.Depth : 0;
+                var deckEv = new CEZLevelMapMoveEvent(offset, deckDepth);
+                RaiseLocalEvent(ent, ref deckEv);
+
+                return true;
+            }
+        }
 
         if (!TryMapOffset(map.Value, offset, out var targetMap))
             return false;
@@ -461,25 +502,6 @@ public abstract partial class CESharedZLevelsSystem
     public bool TryMoveDown(EntityUid ent)
     {
         return TryMove(ent, -1);
-    }
-
-    [PublicAPI]
-    public bool TryMoveDownOrChasm(EntityUid ent)
-    {
-        if (TryMoveDown(ent))
-            return true;
-
-        //welp, that default Chasm behavior. Not really good, but ok for now.
-        if (HasComp<ChasmFallingComponent>(ent))
-            return false; //Already falling
-
-        var audio = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
-        _audio.PlayPredicted(audio, Transform(ent).Coordinates, ent);
-        var falling = AddComp<ChasmFallingComponent>(ent);
-        falling.NextDeletionTime = _timing.CurTime + falling.DeletionTime;
-        _blocker.UpdateCanMove(ent);
-
-        return false;
     }
 
     private void UpdateDirtyMovement()
@@ -553,10 +575,16 @@ public struct CEZLevelHitEvent(float impactPower)
 /// Is called every frame to calculate the current vertical velocity of the active zphysics entities.
 /// </summary>
 [ByRefEvent]
-public struct CEGetZVelocityEvent(Entity<CEZPhysicsComponent> target)
+public struct CEGetZVelocityEvent(Entity<CEZPhysicsComponent> target, float frameTime)
 {
     public Entity<CEZPhysicsComponent> Target = target;
     public float VelocityDelta = 0;
+
+    /// <summary>
+    /// The substep length the returned <see cref="VelocityDelta"/> is integrated over, so
+    /// handlers can predict where this step lands and clamp against overshooting a plane.
+    /// </summary>
+    public float FrameTime = frameTime;
 }
 
 /// <summary>

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client._CE.ZLevels.Core; // Mono
 using Content.Shared._CE.ZLevels.Core.Components; // Mono
 using Content.Shared._Mono.Company;
 using Content.Shared.Shuttles.BUIStates;
@@ -19,6 +20,7 @@ public sealed partial class NavScreen : BoxContainer
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     private SharedTransformSystem _xformSystem;
+    private CEClientZLevelsSystem _zLevels; // Mono
 
     private EntityUid? _consoleEntity; // Entity of controlling console
     private EntityUid? _shuttleEntity;
@@ -28,6 +30,7 @@ public sealed partial class NavScreen : BoxContainer
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         _xformSystem = _entManager.System<SharedTransformSystem>();
+        _zLevels = _entManager.System<CEClientZLevelsSystem>(); // Mono
 
         IFFToggle.OnToggled += OnIFFTogglePressed;
         IFFToggle.Pressed = NavRadar.ShowIFF;
@@ -206,36 +209,36 @@ public sealed partial class NavScreen : BoxContainer
         float? altitude = null;
         string? state = null;
 
-        if (gridXform.MapUid is { } mapUid)
+        if (gridXform.MapUid is { } mapUid && _shuttleEntity is { } shuttle)
         {
-            if (_entManager.TryGetComponent(mapUid, out CEZMapComponent? zLevel))
-            {
-                altitude = zLevel.Depth;
+            var onTransit = _entManager.HasComponent<CEZTransitMapComponent>(mapUid);
 
-                // Mid-spool a grounded ship shows a launch countdown instead.
-                if (_entManager.TryGetComponent(_shuttleEntity, out CEZPhysicsComponent? spoolPhys) &&
-                    spoolPhys.LaunchCountdown > 0f)
+            if (onTransit || _entManager.HasComponent<CEZMapComponent>(mapUid))
+                altitude = _zLevels.GetAbsoluteAltitude(shuttle);
+
+            if (onTransit)
+            {
+                state = Loc.GetString("shuttle-console-travel-state-flying");
+            }
+            else if (altitude != null)
+            {
+                _entManager.TryGetComponent(shuttle, out CEZPhysicsComponent? zPhys);
+
+                if (zPhys is { LaunchCountdown: > 0f })
                 {
                     state = Loc.GetString("shuttle-console-travel-state-launching",
-                        ("countdown", $"{spoolPhys.LaunchCountdown:0.0}"));
+                        ("countdown", $"{zPhys.LaunchCountdown:0.0}"));
                 }
                 else
                 {
-                    state = Loc.GetString(_entManager.HasComponent<CEZGroundLayerComponent>(mapUid)
+                    // Ground contact, not body type: nothing parks a landed hull any more, it is
+                    // simply held by the scrape, so there is no engines-cold state to report. Read
+                    // per-ship rather than per-z-level, so a ship idling over a hole in a platform
+                    // doesn't claim to be on the ground.
+                    state = Loc.GetString(zPhys is { GroundContact: true }
                         ? "shuttle-console-travel-state-grounded"
                         : "shuttle-console-travel-state-hovering");
                 }
-            }
-            else if (_entManager.TryGetComponent(mapUid, out CEZTransitMapComponent? transit) &&
-                     transit.LowerMap is { } lowerMap &&
-                     _entManager.TryGetComponent(lowerMap, out CEZMapComponent? lowerZ))
-            {
-                var progress = 0f;
-                if (_entManager.TryGetComponent(_shuttleEntity, out CEZPhysicsComponent? zPhys))
-                    progress = Math.Clamp(zPhys.LocalPosition, 0f, 1f);
-
-                altitude = lowerZ.Depth + progress;
-                state = Loc.GetString("shuttle-console-travel-state-flying");
             }
         }
 
@@ -253,8 +256,6 @@ public sealed partial class NavScreen : BoxContainer
         GridAltitude.Text = Loc.GetString("shuttle-console-altitude-value",
             ("altitude", $"{altitude!.Value:0.00}"));
 
-        // CEZPhysics.Velocity is positive = up; the server mirrors the grid's fall
-        // speed onto it. Add a bias like the other velocity rows so -0 never shows.
         var vertical = 0f;
         if (_entManager.TryGetComponent(_shuttleEntity, out CEZPhysicsComponent? velPhys))
             vertical = velPhys.Velocity;
