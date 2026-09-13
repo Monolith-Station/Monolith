@@ -3,7 +3,7 @@
   name: job-name-ussp-rifleman
   description: job-description-ussp-rifleman
   playTimeTracker: JobUSSPRifleman
-  setPreference: false # Frontier
+  setPreference: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 32400 # 9 hrs

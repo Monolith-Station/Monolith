@@ -1,2 +1,2 @@
-﻿station-frontier-outpost = Colonial Outpost
+﻿station-frontier-outpost = Caelestinus Central
 station-nsfd = TSFMC-FOB

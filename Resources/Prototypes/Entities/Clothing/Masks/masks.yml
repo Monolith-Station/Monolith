@@ -89,7 +89,7 @@
   parent: ClothingMaskGasAtmos
   id: ClothingMaskGasCaptain
   name: captain's gas mask
-  description: Nanotrasen cut corners and repainted a spare atmospheric gas mask, but don't tell anyone.
+  description: A blue gas mask, relatively regal.
   components:
   - type: Sprite
     sprite: Clothing/Mask/gascaptain.rsi
@@ -178,7 +178,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingMaskPullableBase
   id: ClothingMaskBreath

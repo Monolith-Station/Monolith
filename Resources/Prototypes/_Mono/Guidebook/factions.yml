@@ -71,14 +71,14 @@
 #  text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC_Culture.xml"
 #  priority: 0
 
-#- type: guideEntry
-#  id: USSP_Entry
-#  name: USSP
-#  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_Remnants.xml"
-#  priority: 7
-#  children:
-#  - USSP_SoP
-#  - USSP_Overview
+- type: guideEntry
+  id: USSP_Entry
+  name: USSP
+  text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_Remnants.xml"
+  priority: 7
+  children:
+  - USSP_SoP
+  - USSP_Overview
 
 #- type: guideEntry
 #  id: USSP_SoP
