@@ -10,6 +10,9 @@ stack-uraniumfissile = fissile uranium
 materials-uraniumdepleted = depleted uranium
 stack-uraniumdepleted = depleted uranium
 
+materials-pdvcomposite = adamantite
+stack-pdvcomposite = adamantite
+
 # Industry
 
 # Ores

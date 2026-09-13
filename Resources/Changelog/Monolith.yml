@@ -24377,3 +24377,431 @@ Entries:
   id: 2677
   time: '2026-08-28T22:54:05.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4592
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: >-
+        A new device revision for the plant analyzer has been broadcasted to all
+        research servers.
+  id: 2678
+  time: '2026-08-31T20:00:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4606
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: The sun now exists.
+  id: 2679
+  time: '2026-08-31T20:48:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4610
+- author: kasature90
+  changes:
+    - type: Remove
+      message: IRS shot dead. Taxes are gone.
+  id: 2680
+  time: '2026-08-31T21:39:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4611
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: 'Plants now have a few more chemicals they can produce. '
+  id: 2681
+  time: '2026-09-02T00:50:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4614
+- author: Pcolik505
+  changes:
+    - type: Fix
+      message: Fixed inhand ship repair matter sprite
+  id: 2682
+  time: '2026-09-03T00:40:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4619
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added Turjan Alyahn's highfleet tracks to the jukebox, and 2 of them to
+        the lobby.
+    - type: Add
+      message: Added the Halo songs from the lobby to jukebox.
+  id: 2683
+  time: '2026-09-03T00:52:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4621
+- author: Helicaste
+  changes:
+    - type: Tweak
+      message: Energy-based shipguns now have an ammo counter in the Gunnery Console.
+  id: 2684
+  time: '2026-09-03T01:06:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3110
+- author: MantasDab360
+  changes:
+    - type: Fix
+      message: Savings are now included into summary.
+  id: 2685
+  time: '2026-09-03T01:12:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4067
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: ER, Judge, Rahk and Marine timelocks lowered to 4 hours.
+    - type: Remove
+      message: Removed timelocks for Vagrants.
+  id: 2686
+  time: '2026-09-03T01:16:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4622
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Plate balance was overhauled to be more impactful. You can now buy
+        piercing plates in cargo. Lathe costs for printing plates have been
+        reduced overall. Iridite plate now costs iridite. You can now repair
+        plates with a nanite applicator.
+    - type: Tweak
+      message: >-
+        Hardsuits with shield generators are now prohibited from equipping
+        plates. You still have the 2x2 inventory to fill with other stuff
+        instead.
+  id: 2687
+  time: '2026-09-03T01:19:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4281
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: PDV Helios spawns much farther away + is hidden from IFF completely.
+    - type: Tweak
+      message: >-
+        Most PDV equipment is cheaper, but requires materials from uplink. Go
+        kill and loot TSF, or find contraband to turn in.
+  id: 2688
+  time: '2026-09-03T22:06:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4527
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        Re-added special guns for civs, with reduced timelocks. However, the
+        more powerful ones (T2, EG-4, etc) are not included.
+    - type: Remove
+      message: >-
+        Removed outdated frontier roles like the janitor and mail carrier, for
+        real this time.
+    - type: Fix
+      message: Fixed old merc role being available on Camelot.
+  id: 2689
+  time: '2026-09-04T20:49:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4635
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Made heat armor plates iridite cost less stupid. Speed and pierce armor
+        plate slightly reduced cost.
+    - type: Remove
+      message: Pierce plates from cargo.
+  id: 2690
+  time: '2026-09-05T00:37:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4638
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: >-
+        PDV Freemen no longer spawn on Helios and can no longer be selected in
+        the loadout.
+    - type: Tweak
+      message: >-
+        TSF Contractors no longer understand Sol Common to make them possible to
+        impersonate.
+    - type: Remove
+      message: Emergency Responders no longer spawn with TSFMC tracking implants.
+    - type: Fix
+      message: You can no longer select loadouts for PDV Ambassadors or the Prince.
+  id: 2691
+  time: '2026-09-05T00:56:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4640
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: >-
+        SmartFridge can now store all topicals AND medipens, med players
+        rejoice!
+  id: 2692
+  time: '2026-09-05T07:03:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4644
+- author: Mrrpip
+  changes:
+    - type: Remove
+      message: Removed OwORoaches from the pest pool.
+  id: 2693
+  time: '2026-09-05T07:03:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4645
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Added infiltration tools such as voice masks, blank vagrant IDs and DNA
+        scramblers back to the PDV uplink.
+    - type: Remove
+      message: >-
+        Removed chat ranks from all PDV roles except the Grand Vizier. You can
+        use voice masks to indicate your rank over the radio, and should
+        probably use them to hide your real name too!
+    - type: Remove
+      message: Removed orange IFF strobes from the PDV loadout.
+    - type: Tweak
+      message: >-
+        Adamantite is now the only material that PDV researched weapons and
+        suits cost.
+    - type: Add
+      message: PDV now have falsified records.
+    - type: Fix
+      message: Shrapnel grenades now have a valid localisation ID.
+    - type: Tweak
+      message: PDV body cameras are now chameleon!
+    - type: Add
+      message: PDV can now spawn with the Sultan's Pulsar 4 gauge shotgun.
+    - type: Add
+      message: >-
+        The PDV can now exchange the Lecter and Drozd TSF tier 1 firearms for
+        DC.
+    - type: Tweak
+      message: The PDV shipyard no longer announces purchases over Vanguard comms.
+  id: 2694
+  time: '2026-09-05T16:59:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4648
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed issues with thermals and smoke grenades.
+  id: 2695
+  time: '2026-09-05T23:33:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4651
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Wield delays for hristov/shenzhen/anubis, all 3 share the same melee
+        alt-attack damage now (24 blunt), hristov slowdown increased.
+  id: 2696
+  time: '2026-09-06T05:48:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4652
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Chameleon PDAs, backpacks and headsets have been added to the PDV
+        uplink.
+  id: 2697
+  time: '2026-09-06T13:54:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4654
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: >-
+        Portstrike is no longer guaranteed to be automatically called between
+        3.5-4.5 hours in the round. You can rest easy now.
+    - type: Add
+      message: >-
+        The Colonel and Grand Vizier now spawn with war declarators. Once both
+        leaders use their war declarators, total war is declared and portstrike
+        begins.
+  id: 2698
+  time: '2026-09-06T23:34:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4639
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: Chimera can no longer create letoferol simplemobs.
+    - type: Tweak
+      message: >-
+        Biothreat has been significantly reworked. It no longer includes both
+        factions, lasts 3 hours, gives Halcyon (or Helios, in PDV-Biothreat) an
+        experimental power-hungry Biodome, does not have a portstrike
+        announcement, and has a significantly larger volume of chimera spawns.
+  id: 2699
+  time: '2026-09-07T18:23:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4647
+- author: Pcolik505
+  changes:
+    - type: Tweak
+      message: TSF and PDV borgs can customize name
+  id: 2700
+  time: '2026-09-09T11:42:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4661
+- author: lordsej
+  changes:
+    - type: Add
+      message: Added voicelines to mouse and mothroach based on events
+  id: 2701
+  time: '2026-09-09T17:59:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4662
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: Standard has been renamed to Insurgency. Glory to the Sultan.
+  id: 2702
+  time: '2026-09-10T21:24:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4672
+- author: pizzay30tyd
+  changes:
+    - type: Tweak
+      message: >-
+        Colonel and Vizier now require significant faction playtime to unlock
+        when the <20 pop role unlock override is active.
+  id: 2703
+  time: '2026-09-11T20:58:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4675
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: PDV Jupiter has been shot down and no longer spawns.
+  id: 2704
+  time: '2026-09-11T21:01:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4674
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Rewrote some job descriptions and the guidebook objectives for TSF, PDV,
+        CC and MMC.
+  id: 2705
+  time: '2026-09-11T21:03:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4677
+- author: Onezero0
+  changes:
+    - type: Remove
+      message: Deprecated the Osiris. It has been functionally replaced by the Anubis.
+    - type: Add
+      message: The Anubis now accepts some hand-held grenades as ammunition.
+    - type: Add
+      message: C-4 can now be thrown to embed into things like a sticky bomb.
+    - type: Add
+      message: Added a flashbang-stinger grenade ammo option for the Anubis.
+    - type: Tweak
+      message: >-
+        The Anubis has been moved earlier in progression. However, its lethal
+        SAPHE rounds are locked to later tech.
+    - type: Tweak
+      message: Hristov no longer one-shots, but does stun hit targets.
+    - type: Tweak
+      message: >-
+        Shenzhen does less damage, enough to no longer oneshot armored targets,
+        but compensates with high armor piercing. I wouldn't stand in front of
+        it.
+    - type: Tweak
+      message: The Anubis, Shenzhen and Hristov no longer start with ammo.
+    - type: Tweak
+      message: >-
+        All snipers (hristov, shenzhen, anubis) now have usedelay and wield
+        delays. No more quickdrawing an AMR.
+    - type: Tweak
+      message: >-
+        The Anubis' projectile velocity is lower to help prevent grenades from
+        clipping through walls.
+    - type: Fix
+      message: Fixed empty 35mm grenade magazines not being able to store any ammo.
+    - type: Fix
+      message: Shenzhen and the Anubis are now worth DC.
+  id: 2706
+  time: '2026-09-12T02:40:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4665
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: Smuggling now revolves around Phaethon Dynasty supply crates.
+    - type: Tweak
+      message: Smuggling for FMC/DC has been made more profitable.
+    - type: Add
+      message: >-
+        The PDV now receive 10 DC when a PDV supply crate (formerly a contraband
+        crate) is sold at a cargo depot.
+    - type: Add
+      message: >-
+        The TSFMC now receive 100 FMC when a Solarian Vault is bluespaced out
+        relatively unharmed.
+  id: 2707
+  time: '2026-09-12T02:47:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4663
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        Solarian Vault no longer always gives FMC no matter how damaged the
+        vault actually is.
+  id: 2708
+  time: '2026-09-12T18:32:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4681
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Added a Solarian Data Chit Storage Server to the Solarian Vault. It's
+        worth $300,000 to civilians who wish to sell it and a whopping 500 DC to
+        the PDV! It has its own radar blip, pull off a heist on the Solarian
+        Vault at your own risk.
+    - type: Tweak
+      message: >-
+        Buffed FMC payout for defending the vault to 175 FMC. The payout will no
+        longer happen if the server is gone, no matter how much money the vault
+        is worth.
+  id: 2709
+  time: '2026-09-12T18:34:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4682
+- author: waphun
+  changes:
+    - type: Remove
+      message: The TSFMC Secondary Outpost has been scuttled from the sector.
+  id: 2710
+  time: '2026-09-12T18:35:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4679
+- author: meh35
+  changes:
+    - type: Add
+      message: Faction hard bombs
+  id: 2711
+  time: '2026-09-12T18:39:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4585
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: Chimera now come with in-built mass scanners.
+    - type: Remove
+      message: Chimera can no longer have their organs surgically removed.
+    - type: Tweak
+      message: >-
+        Chimera structural damage has been drastically buffed. (melee: 90 ->
+        350, bonespike: 25 -> 50)
+    - type: Tweak
+      message: Mesotaxinide damage has been drastically nerfed.
+    - type: Tweak
+      message: >-
+        Halcyon's biodome during Biothreat will now ramp up much, much faster.
+        (1.25x per power surge -> 2.125x
+    - type: Tweak
+      message: >-
+        The price of the Ambuzol Syringe in the TSF uplink has been increased
+        from 5FMC to 15.
+    - type: Tweak
+      message: Chimera organs now dissolve on touch.
+    - type: Tweak
+      message: Chimera have received a minor sprite update.
+    - type: Remove
+      message: You can no longer produce humanoid cubes.
+    - type: Remove
+      message: Letoferol is no longer obtainable through botany.
+  id: 2712
+  time: '2026-09-12T18:39:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4667
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Added some new greeble parts for shipbuilders.
+  id: 2713
+  time: '2026-09-12T19:15:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4685
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Finally fixed identity blocking being completely non-functional.
+  id: 2714
+  time: '2026-09-12T20:32:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4687

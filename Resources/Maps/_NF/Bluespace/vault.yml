@@ -2226,14 +2226,14 @@ entities:
     - type: Transform
       pos: 9.5,-10.5
       parent: 1
-- proto: BannerNanotrasen
+- proto: DataChitStorageServer
   entities:
   - uid: 1158
     components:
     - type: Transform
       pos: 1.5,0.5
       parent: 1
-- proto: BannerSecurity
+- proto: BannerNGC
   entities:
   - uid: 1159
     components:

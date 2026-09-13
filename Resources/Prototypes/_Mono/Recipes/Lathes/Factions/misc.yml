@@ -7,11 +7,10 @@
   - FactionEquipment
   completetime: 6
   materials:
-    Steel: 1500
-    Glass: 1200
+    Steel: 1000
+    Glass: 600
     Plasma: 600
-    Gold: 100
-    Silver: 100
+    PdvComposite: 500
 
 - type: latheRecipe
   parent: BaseToolRecipe

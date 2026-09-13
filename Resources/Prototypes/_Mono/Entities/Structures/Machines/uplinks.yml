@@ -52,6 +52,10 @@
     tags:
     - SecurityUplink
     - FactionStaticUplinkTsf
+  - type: CurrencyInjectionTarget
+    company: TSF
+    radioChannel: Nfsd
+    injectionAlert: tsfmc-currency-injection-alert
 
 - type: entity
   parent: [StorePresetPirateUplink, VendingMachine]
@@ -100,3 +104,7 @@
     tags:
     - PirateUplink
     - FactionStaticUplinkPdv
+  - type: CurrencyInjectionTarget
+    company: PDV
+    radioChannel: Freelance
+    injectionAlert: pdv-currency-injection-alert

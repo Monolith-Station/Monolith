@@ -1,0 +1,36 @@
+- type: entity
+  name: plant analyzer
+  parent: BaseItem
+  id: PlantAnalyzer
+  description: A handheld device that allows you to scan seeds and plants to get detailed information about their genes.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Devices/plant_analyzer.rsi
+    layers:
+    - state: plantanalyzer
+    - state: unshaded
+      shader: unshaded
+  - type: Item
+    storedRotation: -90
+  - type: ActivatableUI
+    key: enum.PlantAnalyzerUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.PlantAnalyzerUiKey.Key:
+        type: PlantAnalyzerBoundUserInterface
+  - type: PlantAnalyzer
+    settings:
+      scanDelay: 0.8
+      modeDelay: 1
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+    deleteMutationEndSound:
+      path: "/Audio/_Shitmed/Medical/Surgery/cautery2.ogg"
+    extractEndSound:
+      path: "/Audio/_Shitmed/ReBELL/Organs/OrganDestroyed2.ogg"
+    injectEndSound:
+      path: "/Audio/_Shitmed/Medical/Surgery/organ2.ogg"
+  - type: ItemToggle
+    onUse: false
+  - type: Appearance

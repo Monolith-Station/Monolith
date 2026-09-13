@@ -33,12 +33,6 @@ public sealed partial class InventoryComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<string, DisplacementData> MaleDisplacements = new();
-
-    /// <summary>
-    /// Mono - blocks slots with those names from receiving InventoryRelayEvent-s.
-    /// </summary>
-    [DataField]
-    public List<string> RelayBlockedSlots = new();
 }
 
 /// <summary>

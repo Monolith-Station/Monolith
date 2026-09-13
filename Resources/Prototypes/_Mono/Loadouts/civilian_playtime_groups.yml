@@ -5,7 +5,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 180000 # 50 hrs
+      time: 18000 # 5 hrs
 
 - type: loadoutEffectGroup
   id: MonoCivUsspVet
@@ -14,7 +14,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: UnionOfSovietSocialistPlanets
-      time: 180000 # 50 hrs
+      time: 18000 # 5 hrs
 
 - type: loadoutEffectGroup
   id: MonoCivRogueDefector
@@ -23,7 +23,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Antag
-      time: 180000 # 50 hrs
+      time: 18000 # 5 hrs
 
 - type: loadoutEffectGroup
   id: MonoCivVet
@@ -32,7 +32,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Civilian
-      time: 180000 # 50 hrs
+      time: 18000 # 5 hrs
 
 - type: loadoutEffectGroup
   id: MonoCivSkilled
@@ -41,7 +41,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Civilian
-      time: 360000 # 100 hrs
+      time: 36000 # 10 hrs
 
 - type: loadoutEffectGroup
   id: MonoCivPro
@@ -50,4 +50,4 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Civilian
-      time: 1800000 # 500 hrs - ultimate flex
+      time: 72000 # 20 hrs - ultimate flex

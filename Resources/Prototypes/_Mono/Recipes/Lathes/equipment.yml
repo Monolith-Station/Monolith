@@ -45,9 +45,9 @@
   result: ArmorPlateBlunt_Slash
   completetime: 15
   materials:
-    Plasteel: 2000
+    Plasteel: 1200
     Durathread: 500
-    Plastic: 1000
+    Plastic: 1200
 
 - type: latheRecipe
   id: ArmorPlatePierce
@@ -58,7 +58,7 @@
   materials:
     Durathread: 500
     Plastic: 500
-    Plastitanium: 1500
+    Plastitanium: 500
 
 - type: latheRecipe
   id: ArmorPlateHeat
@@ -67,10 +67,9 @@
   result: ArmorPlateHeat
   completetime: 15
   materials:
-    Steel: 600
+    Copper: 600
     Durathread: 500
-    PlasmaGlass: 1500
-    UraniumGlass: 1500
+    Iridite: 50
 
 - type: latheRecipe
   id: ArmorPlateSpeed
@@ -80,8 +79,8 @@
   completetime: 15
   materials:
     Durathread: 1000
-    Brass: 3000
-    Plastitanium: 1000
+    Brass: 1500
+    Bluespace: 100
 
 # ASMGT
 

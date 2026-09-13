@@ -219,7 +219,7 @@ public sealed partial class MonoCVars
     ///     How exponential taxes are. When I set this to 5, it broke the integer limit, so probably don't mess with it.
     /// </summary>
     public static readonly CVarDef<float> DepositHighExp =
-        CVarDef.Create("mono.deposit.high_exp", 2f, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("mono.deposit.high_exp", 0f, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     ///     Whether to enable depositing cash. Good for admin events or sandbox.

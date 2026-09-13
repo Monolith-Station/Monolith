@@ -497,8 +497,11 @@ public sealed partial class FireControlSystem : EntitySystem
 
         direction = Vector2.Normalize(direction);
 
+        if (!TryComp<FireControllableComponent>(weapon, out var fireControlComponent))
+            return false;
+
         // Check for obstacles in the firing direction
-        if (!CanFireInDirection(weapon, weaponPos, direction, targetPos, weaponXform.MapID))
+        if (!CanFireInDirection(weapon, weaponPos, direction, targetPos, weaponXform.MapID) && !fireControlComponent.IgnoreLos)
             return false;
 
         // Set the cooldown for next firing

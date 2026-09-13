@@ -51,7 +51,7 @@ public abstract partial class SharedBankSystem : EntitySystem
     public void GetTaxedDepositAmount(int deposit, int balance, out int amount, out int taxedAway)
     {
         double threshold = _cfg.GetCVar(MonoCVars.DepositThreshold); // Default is 1000000
-        double high_exp = _cfg.GetCVar(MonoCVars.DepositHighExp); // Default is 2
+        double high_exp = _cfg.GetCVar(MonoCVars.DepositHighExp); // Default is 0
 
         double deposit_low = Math.Max(Math.Min(deposit, threshold - balance), 0);
         double deposit_high = Math.Max(0, deposit + Math.Min(balance - threshold, 0));

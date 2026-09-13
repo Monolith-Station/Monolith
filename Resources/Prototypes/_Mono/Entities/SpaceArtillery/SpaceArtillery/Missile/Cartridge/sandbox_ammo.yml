@@ -1,0 +1,221 @@
+- type: entity
+  id: ShipMissileSandboxHE
+  name: SS-N-40 8K30 missile
+  parent: ShipMissileBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 2500
+        Blunt: 200
+        Heat: 100
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/sandbox.rsi
+    layers:
+    - state: 8k30
+      map: ["enum.AmmoVisualLayers.Base"]
+    - state: plume
+      shader: unshaded
+      offset: 1, 0
+    rotation: 90
+  - type: Ammo
+    muzzleFlash: null
+  - type: RadarBlip
+    maxDistance: 4096
+    radarColor: "#00ffdd"
+    scale: 5
+    shape: Triangle
+  - type: TimedDespawn
+    lifetime: 60
+  - type: PointLight
+    radius: 5
+    color: orange
+    energy: 2
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    maxIntensity: 1000
+    intensitySlope: 30
+    totalIntensity: 5000
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetGuided
+    turnRate: 70
+    acceleration: 60
+    launchSpeed: 150
+    maxSpeed: 400
+    maxLifetime: 60
+    fallbackTime: 60
+  # destructible components below
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 700
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: WarpPoint
+    follow: true
+
+- type: entity
+  id: SandboxHEMissile
+  name: SS-N-40 8K30 cruise missile (HE-SACLOS)
+  description: A high-velocity long-range cruise missile. Hard to shoot-down, hard to survive, and requires constant guidance from the gunnery console.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - SandboxCruiseMissiles
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipMissileSandboxHE
+    deleteOnSpawn: true
+    muzzleFlash: null
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/sandbox.rsi
+    layers:
+    - state: 8k30
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: MultiHandedItem
+  - type: HeldSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: HardBomb
+    maxIntensity: 150
+    intensitySlope: 20
+    totalIntensity: 300
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+
+# Nuke
+- type: entity
+  id: ShipMissileSandboxNuke
+  name: SS-N-40 'Atlant' missile
+  parent: ShipMissileBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 25000
+        Blunt: 200
+        Heat: 100
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/sandbox.rsi
+    layers:
+    - state: atlant
+      map: ["enum.AmmoVisualLayers.Base"]
+    - state: plume
+      shader: unshaded
+      offset: 1, 0
+    rotation: 90
+  - type: Ammo
+    muzzleFlash: null
+  - type: RadarBlip
+    maxDistance: 4096
+    radarColor: "#00ffdd"
+    scale: 5
+    shape: Triangle
+  - type: TimedDespawn
+    lifetime: 120
+  - type: PointLight
+    radius: 5
+    color: orange
+    energy: 2
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    maxIntensity: 5000
+    intensitySlope: 30
+    totalIntensity: 500000
+    detonationAlert: "delta"
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetGuided
+    turnRate: 70
+    acceleration: 60
+    launchSpeed: 150
+    maxSpeed: 300
+    maxLifetime: 120
+    fallbackTime: 120
+  # destructible components below
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 700
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: WarpPoint
+    follow: true
+
+- type: entity
+  id: SandboxNuclearMissile
+  name: SS-N-40 'Atlant' nuclear cruise missile
+  description: A high-velocity cruise missile equipped with multi-kiloton nuclear warhead, capable of disabling any ship in a single blow. Almost unstoppable, and looks identical to a normal 8K30 on radar. This is a weapon of mass destruction, the destroyer of worlds. Hopefully you don't need to use it.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - SandboxCruiseMissiles
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipMissileSandboxNuke
+    deleteOnSpawn: true
+    muzzleFlash: null
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/sandbox.rsi
+    layers:
+    - state: atlant
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: MultiHandedItem
+  - type: HeldSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: HardBomb
+    maxIntensity: 1500
+    intensitySlope: 20
+    totalIntensity: 3000
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic

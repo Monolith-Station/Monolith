@@ -18,6 +18,8 @@
   canBeAntag: false
   weight: 30
   displayWeight: 30
+  guides:
+  - USSP_Entry
   special:
   - !type:AddImplantSpecial
     implants: [ UsspTrackingImplant ]
