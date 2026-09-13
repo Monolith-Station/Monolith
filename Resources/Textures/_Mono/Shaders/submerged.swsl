@@ -1,0 +1,122 @@
+// Submersion for entities standing on a liquid tile.
+//
+// Everything here works in TILES measured from the entity's own position, with y up.
+//
+// Set per-entity every frame by TileEntityShaderSystem:
+//   PIXELS_PER_TILE - render-target pixels one world tile covers.
+//   GROUND          - the sprite's bottom edge, in tiles from the sprite's centre.
+//   TILE_RECT       - xy = bottom-left, zw = top-right of the run of tiles sharing this shader
+//                     around the entity, in tiles from the sprite's centre.
+
+// Not a stylistic choice. Clyde renders the sprite into the post-shader target with lighting already
+// applied (Clyde.HLR.cs: "necessary for light application"), then blits that target through this
+// shader. A lit blit samples the light map a second time and multiplies, so the entity comes out
+// visibly darker than everything around it. Unshaded here means "already lit", not "ignore light".
+light_mode unshaded;
+
+uniform highp float PIXELS_PER_TILE;
+uniform highp float GROUND;
+uniform highp vec4 TILE_RECT;
+
+// How far up from the bottom of the sprite the liquid comes, in tiles.
+uniform highp float SUBMERGE_HEIGHT;
+// Colour the submerged part is washed toward, and how strongly.
+uniform highp vec4 TINT;
+uniform highp float TINT_STRENGTH;
+// Alpha of the submerged part.
+uniform highp float SUBMERGED_ALPHA;
+// Sideways refraction of the submerged part, in tiles.
+uniform highp float WAVE_AMPLITUDE;
+// Cycles per tile.
+uniform highp float WAVE_FREQUENCY;
+uniform highp float WAVE_SPEED;
+// Depth over which the refraction eases in below the surface, in tiles. Too small and it tears.
+uniform highp float WAVE_FADE;
+// Bright meniscus riding on the surface.
+uniform highp vec4 SURFACE_COLOR;
+// In tiles.
+uniform highp float SURFACE_WIDTH;
+// Fraction of that width held solid before it starts fading. Fading the whole way from the line up
+// is what makes it read as a glow around the sprite rather than as the surface of something.
+uniform highp float SURFACE_FALLOFF;
+uniform highp float SURFACE_WOBBLE;
+uniform highp float SURFACE_FREQUENCY;
+
+void fragment()
+{
+    highp vec2 uv = UV;
+
+    // Position in tiles from the centre of the sprite.
+    //
+    // Measured off UV, not off the viewport-space Pos varying. Pos would be immune to the render
+    // target moving about under us, but it is a position on the SCREEN, so pinning it to the entity
+    // needs the entity's own screen position as a reference — and getting that reference wrong makes
+    // every entity read the waterline off somebody else's position. UV is already relative to the
+    // sprite being drawn, so it cannot confuse one entity for another, whatever else it does.
+    //
+    // TEXTURE_PIXEL_SIZE is one over the target's size, which turns UV into pixels and then tiles,
+    // so at least the units survive the target being resized between sprites.
+    highp vec2 pos = (uv - 0.5) / (TEXTURE_PIXEL_SIZE * PIXELS_PER_TILE);
+
+    // Vertical ripple, used to displace the submerged part sideways.
+    highp float ripple =
+        sin(pos.y * WAVE_FREQUENCY + TIME * WAVE_SPEED) * 0.6 +
+        sin(pos.y * WAVE_FREQUENCY * 2.3 - TIME * WAVE_SPEED * 1.7) * 0.4;
+
+    // Swell along the surface, used to undulate the waterline. Varies with x, unlike the ripple:
+    // a water surface moves up and down along its length, it does not shear vertically.
+    highp float swell =
+        sin(pos.x * SURFACE_FREQUENCY + TIME * WAVE_SPEED * 0.8) * 0.6 +
+        sin(pos.x * SURFACE_FREQUENCY * 1.7 - TIME * WAVE_SPEED * 1.3) * 0.4;
+
+    // One line, used for what counts as submerged, where the sprite gets cut, and where the
+    // highlight sits. Deriving them separately is what let the highlight drift off the boundary it
+    // is supposed to be covering.
+    highp float line = GROUND + SUBMERGE_HEIGHT + swell * SURFACE_WOBBLE;
+
+    // Only treat this fragment as wet if it is actually over liquid. This is the clamp: without it
+    // the submerged band runs the full width of the sprite and spills over dry neighbouring tiles
+    // when standing at the water's edge.
+    highp float inside =
+        step(TILE_RECT.x, pos.x) * step(pos.x, TILE_RECT.z) *
+        step(TILE_RECT.y, pos.y) * step(pos.y, TILE_RECT.w);
+
+    highp float below = step(pos.y, line);
+    highp float submerged = below * inside;
+
+    // Below the waterline but past the edge of the liquid: cut it entirely rather than letting it
+    // fall through to normal rendering. What is under water is only visible through the water, so
+    // where the water stops there is nothing to see through and the sprite simply ends.
+    highp float cut = below * (1.0 - inside);
+
+    // Ease the refraction in with depth. At full strength right at the boundary the top row of the
+    // distorted part is offset while the row above it is not, which reads as a tear along the line.
+    highp float depth = clamp((line - pos.y) / max(WAVE_FADE, 0.0001), 0.0, 1.0);
+
+    // Back out of tiles into UV to actually move the sample.
+    highp vec2 sampleUv = uv;
+    sampleUv.x += ripple * WAVE_AMPLITUDE * submerged * depth * PIXELS_PER_TILE * TEXTURE_PIXEL_SIZE.x;
+
+    // Refraction can push the sample off the render target. Zeroing rather than clamping keeps the
+    // edge pixels from smearing outward into a streak.
+    highp float inBounds =
+        step(0.0, sampleUv.x) * step(sampleUv.x, 1.0) *
+        step(0.0, sampleUv.y) * step(sampleUv.y, 1.0);
+
+    highp vec4 tex = zTexture(sampleUv) * inBounds;
+
+    tex.rgb = mix(tex.rgb, TINT.rgb, TINT_STRENGTH * submerged);
+    tex.a *= mix(1.0, SUBMERGED_ALPHA, submerged) * (1.0 - cut);
+
+    // The meniscus sits on top of the line and never below it, so it covers the seam instead of
+    // bleeding down into the distorted part. Only colour is touched, never alpha: tinting a
+    // transparent fragment is invisible, which keeps the highlight on the body rather than drawing
+    // a line across open air beside it.
+    highp float surface =
+        inside * step(line, pos.y)
+        * (1.0 - smoothstep(SURFACE_WIDTH * SURFACE_FALLOFF, SURFACE_WIDTH, pos.y - line));
+
+    tex.rgb = mix(tex.rgb, SURFACE_COLOR.rgb, surface * SURFACE_COLOR.a);
+
+    COLOR = tex;
+}

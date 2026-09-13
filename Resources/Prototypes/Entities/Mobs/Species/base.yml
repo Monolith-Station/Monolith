@@ -103,6 +103,7 @@
         layer:
         - MobLayer
   - type: FloorOcclusion
+  - type: TileShaderTarget # Mono
   - type: RangedDamageSound
     soundGroups:
       Brute:

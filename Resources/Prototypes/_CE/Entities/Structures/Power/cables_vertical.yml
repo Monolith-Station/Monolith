@@ -1,0 +1,29 @@
+- type: entity
+  parent: CableHV
+  id: CableHVRiserUp
+  suffix: Riser, Up
+  components:
+  - type: NodeContainer
+    nodes:
+      power:
+        !type:CableNode
+        nodeGroupID: HVPower
+      power_vertical:
+        !type:CECableVerticalNode
+        up: true
+        nodeGroupID: HVPower
+
+- type: entity
+  parent: CableHV
+  id: CableHVRiserDown
+  suffix: Riser, Down
+  components:
+  - type: NodeContainer
+    nodes:
+      power:
+        !type:CableNode
+        nodeGroupID: HVPower
+      power_vertical:
+        !type:CECableVerticalNode
+        down: true
+        nodeGroupID: HVPower

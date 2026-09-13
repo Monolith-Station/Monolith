@@ -29,6 +29,7 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
     {
         base.Initialize();
         _overlay.AddOverlay(new CEZLevelBlurOverlay());
+        _overlay.AddOverlay(new CEZLevelShadowOverlay(EntityManager));
 
         SubscribeLocalEvent<CEZPhysicsComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<CEZPhysicsComponent, GetEyeOffsetEvent>(OnEyeOffset);
@@ -47,9 +48,6 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
-        if (sprite.SnapCardinals)
-            return;
-
         ent.Comp.DrawDepthDefault = sprite.DrawDepth;
         ent.Comp.SpriteOffsetDefault = sprite.Offset;
     }
@@ -58,6 +56,7 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
     {
         base.Shutdown();
         _overlay.RemoveOverlay<CEZLevelBlurOverlay>();
+        _overlay.RemoveOverlay<CEZLevelShadowOverlay>();
     }
 }
 

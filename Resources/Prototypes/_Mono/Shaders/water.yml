@@ -1,0 +1,14 @@
+- type: shader
+  id: MonoWater
+  kind: source
+  path: "/Textures/_Mono/Shaders/water.swsl"
+  params:
+    DEEP_COLOR: "#1A3E55"
+    FOAM_COLOR: "#E8F7FA"
+    FOAM_WIDTH: 0.05
+    EDGE_WIDTH: 0.1
+    EDGE_DARKEN: 0.62
+    FOAM_SPEED: 0.5
+    FOAM_SCALE: 1.5
+    FOAM_WOBBLE: 0.8
+    FOAM_FALLOFF: 0.55

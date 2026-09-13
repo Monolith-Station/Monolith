@@ -22,4 +22,13 @@ public sealed partial class JetpackUserComponent : Component
 
     [DataField, AutoNetworkedField]
     public float WeightlessModifier;
+
+    [ViewVariables, AutoNetworkedField]
+    public bool AscendHeld;
+
+    [ViewVariables, AutoNetworkedField]
+    public bool DescendHeld;
+
+    [ViewVariables]
+    public bool PriorVelocityRaiseEvent;
 }
