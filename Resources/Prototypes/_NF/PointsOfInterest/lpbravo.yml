@@ -12,8 +12,8 @@
   id: LPBravo
   parent: BasePOI
   name: 'Listening Point Bravo'
-  minimumDistance: 22500 # Mono: far, far, far away from anything else. we can't risk LPB spawning anywhere near any other PoI.
-  maximumDistance: 25000
+  minimumDistance: 15000
+  maximumDistance: 17500
   spawnGroup: SyndicateFOB
   gridPath: /Maps/_NF/POI/lpbravo.yml
   hideWarp: true
