@@ -266,6 +266,9 @@
           - Dragoon
     sprite: _Mono/Clothing/Belt/vizier_sheath.rsi
   - type: Appearance
+  - type: Tag
+    tags:
+    - SafetyDepositBlacklist
 
 - type: entity
   parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
