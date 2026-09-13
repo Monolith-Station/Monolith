@@ -17,7 +17,7 @@ mono-standard-title = Insurgency (TSF|PDV)
 mono-standard-description = The Trans-Solarian Federation's efforts to colonise the Colossus sector are put into danger by a theocratic insurgency, with civilians caught in the crossfire.
 
 mono-ads-title = Remnants (TSF|PDV)
-mono-ads-description = Native PD imperials threaten TSF colonial expansion into the sector. A tense cold war between the TSF Marine Corps detachment. Pre-fracture warriors and defense systems threaten their plans.
+mono-ads-description = Native PD imperials threaten TSF colonial expansion into the sector. A tense cold war between the TSF Marine Corps detachment.
 
 mono-chimera-title = Biothreat (TSF|PDV)
 mono-chimera-description = Native PDV imperials threaten TSF colonial expansion into the sector. The effects of a far away letoferol outbreak seep in.
