@@ -5,38 +5,38 @@
 # Shuttle Notes:
 #hi
 
-#- type: vessel
-#  id: Sellsword
-#  parent: BaseVessel
-#  name: UW Sellsword
-#  description: An escort picket comprising a claustrophobic, cast-plastitanium coffin enrobing an AK820 and VESPERA missile pod. Combat life expectancy of 4 minutes. Has a military IFF designation.
-#  price: 81698 # markup from 77698.
-#  category: Small
-#  group: Shipyard
-#  access: Mercenary
-#  shuttlePath: /SharedMaps/_Mono/Shuttles/sellsword.yml
-#  guidebookPage: Null
-#  class:
-#  - Pursuit
-#  engine:
-#  - Uranium
+- type: vessel
+  id: Sellsword
+  parent: BaseVessel
+  name: UW Sellsword
+  description: An escort picket comprising a claustrophobic, cast-plastitanium coffin enrobing an AK820 and VESPERA missile pod. Combat life expectancy of 4 minutes. Has a military IFF designation.
+  price: 81698 # markup from 77698.
+  category: Small
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /SharedMaps/_Mono/Shuttles/sellsword.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Uranium
 
-#- type: gameMap
-#  id: Sellsword
-#  mapName: 'UW Sellsword'
-#  mapPath: /SharedMaps/_Mono/Shuttles/sellsword.yml
-#  minPlayers: 0
-#  stations:
-#    Sellsword:
-#      stationProto: StandardFrontierVessel
-#      components:
-#        - type: StationNameSetup
-#          mapNameTemplate: 'Sellsword MIL{1}'
-#          nameGenerator:
-#            !type:NanotrasenNameGenerator
-#            prefixCreator: '14'
-#        - type: StationJobs
-#          availableJobs:
-#            Contractor: [ 0, 0 ]
-#            # Pilot: [ 0, 0 ]
-#            # Mercenary: [ 0, 0 ]
+- type: gameMap
+  id: Sellsword
+  mapName: 'UW Sellsword'
+  mapPath: /SharedMaps/_Mono/Shuttles/sellsword.yml
+  minPlayers: 0
+  stations:
+    Sellsword:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Sellsword MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

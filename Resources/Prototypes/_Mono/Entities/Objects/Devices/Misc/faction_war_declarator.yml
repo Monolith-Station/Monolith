@@ -1,0 +1,33 @@
+- type: entity
+  parent: BaseItem
+  abstract: true
+  id: BaseFactionWarDeclarator
+  name: war declarator
+  description: A device used to declare hostilities within the sector. If both sides activate it, total war will be declared.
+  components:
+    - type: Sprite
+      sprite: Objects/Devices/declaration_of_war.rsi
+      layers:
+        - state: declarator
+    - type: Item
+    - type: UseDelay
+      delay: 0.5
+    - type: FactionWarDeclarator
+
+- type: entity
+  parent: BaseFactionWarDeclarator
+  id: WarDeclaratorTsf
+  name: TSFMC war declarator
+  components:
+  - type: FactionWarDeclarator
+    faction: TSF
+    warDeclarationMessage: war-declaration-tsfmc
+
+- type: entity
+  parent: BaseFactionWarDeclarator
+  id: WarDeclaratorPdv
+  name: PDV war declarator
+  components:
+  - type: FactionWarDeclarator
+    faction: PDV
+    warDeclarationMessage: war-declaration-pdv

@@ -22,6 +22,8 @@
   canBeAntag: false
   accessGroups:
   - GeneralNfsdBrigmedicAccess
+  guides:
+  - TSFMC_Entry
   special:
   - !type:AddComponentSpecial
     components:

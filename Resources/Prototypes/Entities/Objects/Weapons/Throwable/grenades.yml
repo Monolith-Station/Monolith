@@ -29,6 +29,11 @@
         !type:DamageTrigger
         damage: 10
       behaviors:
+      - !type:TimerStartBehavior
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
       - !type:TriggerBehavior
       - !type:DoActsBehavior
         acts: ["Destruction"]

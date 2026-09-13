@@ -100,8 +100,8 @@
       prob: 0.001 # Mono
     - id: MobMoproach
       prob: 0.0005
-    - id: MobOwORoach
-      prob: 0.00005
+    #- id: MobOwORoach
+    #  prob: 0.00005
 
 - type: entity
   id: SnailMigrationLowPop

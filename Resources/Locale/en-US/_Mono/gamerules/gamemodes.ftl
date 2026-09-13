@@ -13,14 +13,20 @@ mono-mixed-description = Native PDV imperials threaten TSF colonial expansion in
 mono-tsfussp-title = Cold War (TSF)
 mono-tsfussp-description = TSF colonization efforts are threatened by USSP expansion. A cold war is in place between the local TSFMC detachment and USSP colonization forces.
 
-mono-standard-title = Standard (TSF|PDV)
-mono-standard-description = Native PDV imperials threaten TSF colonial expansion into the sector.
+mono-standard-title = Insurgency (TSF|PDV)
+mono-standard-description = The Trans-Solarian Federation's efforts to colonise the Colossus sector are put into danger by a theocratic insurgency, with civilians caught in the crossfire.
 
 mono-ads-title = Remnants (TSF|PDV)
 mono-ads-description = Native PD imperials threaten TSF colonial expansion into the sector. A tense cold war between the TSF Marine Corps detachment. Pre-fracture warriors and defense systems threaten their plans.
 
 mono-chimera-title = Biothreat (TSF|PDV)
 mono-chimera-description = Native PDV imperials threaten TSF colonial expansion into the sector. The effects of a far away letoferol outbreak seep in.
+
+mono-chimera-tsf-title = Biothreat (TSF, 3hr)
+mono-chimera-tsf-description = After successfully laying claim to the Colossus sector, the Federation struggles to keep it stable while a devasting bio-weapon wreaks havoc within it.
+
+mono-chimera-pdv-title = Biothreat (PDV, 3hr)
+mono-chimera-pdv-description = After successfully driving off the Federation, the Dynasty now must survive the aftermath as a devastating bio-weapon wreaks havoc in the Colossus Sector.
 
 mono-allatonce-title = Apocalypse (ALL, 3hr)
 mono-allatonce-description = A battleground between PDV, and TSF forces alike, with ancient ADS systems and Chimera bioweapons seeping in.

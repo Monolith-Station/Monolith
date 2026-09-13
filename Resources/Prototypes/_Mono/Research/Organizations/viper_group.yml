@@ -34,14 +34,15 @@
   position: 7, -16
 
 - type: technology
-  id: ViperGroupHardsuitJuggernaut
-  name: research-technology-viper-group-juggernaut
+  id: ViperGroupHardsuitHeavy
+  name: research-technology-viper-group-heavy
   entityIcon: ClothingOuterHardsuitViperGroupJuggernaut
   discipline: ViperGroup
   tier: 3
-  cost: 20000
+  cost: 25000
   recipeUnlocks:
   - ClothingOuterHardsuitViperGroupJuggernaut
+  - ClothingOuterHardsuitViperGroupShield
   technologyPrerequisites:
   - ViperGroupHardsuitBasic
   position: 8, -17

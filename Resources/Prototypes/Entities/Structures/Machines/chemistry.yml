@@ -36,6 +36,7 @@
   - type: Thermoregulator
     heatingPower: 1200
     coolingPower: 400
+    maxTemperature: 1200
   - type: ContainerContainer
     containers:
       beakerSlot: !type:ContainerSlot

@@ -16,7 +16,6 @@
   priority: 2
   children:
   - Smuggling
-  - Defusal
   - TSFMC_SOP
   - TSFMC_org
   #- TSFMC_Culture
@@ -104,3 +103,9 @@
   name: Mieyo Manufacturing Concern
   text: "/ServerInfo/_Mono/Guidebook/Factions/mmc.xml"
   priority: 12
+
+- type: guideEntry
+  id: Caelestinus
+  name: Caelestinus
+  text: "/ServerInfo/_Mono/Guidebook/Factions/caelestinus.xml"
+  priority: 4

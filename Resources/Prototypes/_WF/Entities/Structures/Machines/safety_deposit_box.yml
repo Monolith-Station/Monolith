@@ -15,14 +15,21 @@
   - type: Storage
     blacklist:
       components:
-      - IdCard
-      - Currency
-      - Store
-      - EncryptionKey
-      - Implant
-      - Storage
-      - SafetyDepositBox
-      - ShipyardVoucher
+      - IdCard # Fuckery, abusable
+      - Currency # Balance
+      - Store # Balance
+      - EncryptionKey # Balance
+      - Implant # Prevent recursion
+      - Storage # Prevent recursion
+      - SafetyDepositBox # Prevent recursion
+      - ShipyardVoucher # Mfw 6 T4 vouchers in one box
+      - SecretStash # WL bypass
+      - Implanter # WL bypass
+      - OverwatchConsole # Requested by staff
+      - GhostRoleMobSpawner # Reinforcement radios
+      - DoorRemote # Requested by staff
+      - SolutionContainerManager # Requested by staff + lets you do crazy crazy shit that shouldn't be allowed gameplay wise (such as storing 6ku of letoferol)
+      - NukeDisk # Might be abusable in some way, who knows.
       tags:
       - Unstashable
   - type: SafetyDepositBox

@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Verbs;
 using Content.Shared.Examine;
 using Content.Shared.Verbs;
+using Content.Shared._Mono.Speech;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -64,6 +65,10 @@ namespace Content.Server.Examine
                     request.NetEntity, request.Id, _entityOutOfRangeMessage, knowTarget: false), channel);
                 return;
             }
+
+            // The examine was successful, so trigger contextual speech.
+            var speechEvent = new SpeechTriggerEvent(SpeechTrigger.Examined);
+            RaiseLocalEvent(entity, ref speechEvent);
 
             SortedSet<Verb>? verbs = null;
             if (request.GetVerbs)

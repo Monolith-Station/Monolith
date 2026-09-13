@@ -709,6 +709,22 @@
     back:
     - WeaponSubMachineGunAK220
 
+# Shotguns
+
+- type: loadout #Pulsar
+  id: FactionPulsarLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponShotgunSultanPulsar
+
+- type: loadout #Pulsar
+  id: Faction23x75mmAmmoLoadout
+  price: 0
+  storage:
+    back:
+    - AmmoBox23x75mmBuckshot
+
 # LMGs
 
 - type: loadout #DP29

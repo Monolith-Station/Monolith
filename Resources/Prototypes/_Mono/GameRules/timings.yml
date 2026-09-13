@@ -59,3 +59,12 @@
     delay:
       min: 5
       max: 5
+
+- type: entity
+  id: ManualPortstrikeTsfPdv
+  parent: BaseGameRule
+  components:
+  - type: ManualPortstrikeRule
+    sectorStatus: 
+      TSF: false
+      PDV: false

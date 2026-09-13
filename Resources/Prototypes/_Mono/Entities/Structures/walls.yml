@@ -256,7 +256,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15100 # Mono - wall buff
+        damage: 30100 # Mono - wall buff
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -265,7 +265,7 @@
           collection: MetalSlam
     - trigger:
         !type:DamageTrigger
-        damage: 15000 # Mono - wall buff
+        damage: 30000 # Mono - wall buff
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -398,13 +398,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15100
+        damage: 30100
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 15000
+        damage: 30000
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -431,13 +431,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 10100
+        damage: 15100
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 10000
+        damage: 15000
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:

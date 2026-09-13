@@ -31,3 +31,4 @@ research-technology-tsfmc-synthalloy = Experimental Material Science
 research-technology-tsfmc-advanced-module = TSFMC Advanced Cyborg Module Developpment
 research-technology-tsfmc-sandevistan = TSFMC Sandevistan Reverse Engineering
 research-technology-tsfmc-shunt = TSFMC Blacksite Cybernetics
+research-technology-tsfmc-large-explosives = TSFMC Hardbombs

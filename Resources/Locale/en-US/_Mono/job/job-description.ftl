@@ -4,7 +4,7 @@ job-description-ussp-sergeant = Lead the ranks in battle, enforce standards, and
 job-description-ussp-rifleman = Serve the Union far from home. Follow your superiors, stand by your comrades, and endure where others would break.
 
 # MARK: MD
-job-description-md-medic = Traverse the space to provide life-saving care aboard a medical vessel. Stabilize crew with medicine, synthesize medicine, and revive the fallen. ensure the unrecoverable deceased are respectfully secured in the morgue and cloned.
+job-description-md-medic = Carry out the Director's whims and provide life-saving care to the inhabitants of the Colossus, no matter what tries to get in your way.
 
 # MARK: TSF
 job-description-tsf-engineer = Maintain the integrity of the flagship, get laughed at for not being a real soldier.

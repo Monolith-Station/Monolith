@@ -94,8 +94,8 @@
 - type: entity
   id: PaperDeadDropHint
   parent: Paper
-  name: wayward note
-  description: A crinkled sheet with scribbles on it. Seems to have been written in a hurry.
+  name: phaethon dynasty note
+  description: A crinkled sheet with scribbles on it. Despite the elegant handwriting, you can still tell it was written in a hurry.
   categories: [ HideSpawnMenu ]
   components:
   - type: DeadDropHint
@@ -109,7 +109,7 @@
 - type: entity
   id: PaperDeadDropFax
   parent: PaperDeadDropHint
-  name: wayward fax
+  name: phaethon dynasty fax
   description: A sheet with blurry, crooked text on it. Seems to have been copied in a hurry.
   components:
   - type: Paper

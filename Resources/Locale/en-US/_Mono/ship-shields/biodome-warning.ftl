@@ -1,0 +1,1 @@
+biodome-shield-power-load-increasing = The Biodome biological molecular accelerator and shield is currently undergoing a power surge! Please ensure that the shield is being fed sufficient power or it may go offline.

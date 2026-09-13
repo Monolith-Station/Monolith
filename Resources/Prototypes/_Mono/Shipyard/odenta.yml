@@ -5,40 +5,40 @@
 # Shuttle Notes:
 # my hand hurts
 
-#- type: vessel
-#  id: Odenta
-#  parent: BaseVessel
-#  name: MI-COR Odenta
-#  description: The Odenta is a heavily armored Medical Destroyer built for high-risk rescues and medical work. Armed with dual Prometheus Laser Cannons, a 255mm Bofors,a Draupnir 30mm Chaingun, 20mm, and PD lasers to shield its onboard Chemical Bay and Cryonics suite. Has MIL IFF.
-#  price: 184109 # 154109 base + markup
-#  category: Medium
-#  group: Medical
-#  shuttlePath: /SharedMaps/_Mono/Shuttles/odenta.yml
-#  guidebookPage: null
-#  class:
-#  - Medical
-#  - Chemistry
-#  - Pursuit
-#  engine:
-#  - Uranium
+- type: vessel
+  id: Odenta
+  parent: BaseVessel
+  name: MI-COR Odenta
+  description: The Odenta is a heavily armored Medical Destroyer built for high-risk rescues and medical work. Armed with dual Prometheus Laser Cannons, a 255mm Bofors,a Draupnir 30mm Chaingun, 20mm, and PD lasers to shield its onboard Chemical Bay and Cryonics suite. Has MIL IFF.
+  price: 184109 # 154109 base + markup
+  category: Medium
+  group: Medical
+  shuttlePath: /SharedMaps/_Mono/Shuttles/odenta.yml
+  guidebookPage: null
+  class:
+  - Medical
+  - Chemistry
+  - Pursuit
+  engine:
+  - Uranium
 
-#- type: gameMap
-#  id: Odenta
-#  mapName: 'MI-COR Odenta'
-#  mapPath: /SharedMaps/_Mono/Shuttles/odenta.yml
-#  minPlayers: 0
-#  stations:
-#    Odenta:
-#      stationProto: StandardFrontierVessel
-#      components:
-#        - type: StationNameSetup
-#          mapNameTemplate: 'Odenta MIL{1}'
-#          nameGenerator:
-#            !type:NanotrasenNameGenerator
-#            prefixCreator: '14'
-#        - type: StationJobs
-#          availableJobs:
-#            Contractor: [ 0, 0 ]
-#            MdMedic: [ 0, 0 ]
-#            # Pilot: [ 0, 0 ]
-#            # Mercenary: [ 0, 0 ]
+- type: gameMap
+  id: Odenta
+  mapName: 'MI-COR Odenta'
+  mapPath: /SharedMaps/_Mono/Shuttles/odenta.yml
+  minPlayers: 0
+  stations:
+    Odenta:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Odenta MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

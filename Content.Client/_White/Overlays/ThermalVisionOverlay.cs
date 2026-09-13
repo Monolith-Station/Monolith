@@ -92,7 +92,7 @@ public sealed partial class ThermalVisionOverlay : Overlay
 
             // Mono - teargas hides you from smoke
             if (_entity.HasComponent<SmokeAffectedComponent>(uid))
-                continue;
+                return;
 
             var entity = uid;
 

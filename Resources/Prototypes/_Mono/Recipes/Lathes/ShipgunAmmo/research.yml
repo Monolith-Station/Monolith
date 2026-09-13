@@ -53,6 +53,20 @@
     Lithium: 300 # electronics
 
 - type: latheRecipe
+  id: SandboxHEMissileUniversal
+  parent: BaseTorpedoRecipe
+  result: SandboxHEMissile
+  materials: # You will fucking feel it when you launch this and it misses.
+    Steel: 2000
+    Plasteel: 3000
+    Gold: 500
+    Silver: 500
+    Copper: 800
+    Lithium: 800
+  reagents:
+    ChlorineTrifluoride: 20
+
+- type: latheRecipe
   id: 150mmApShellUniversal
   parent: Base150mmShellAmmoRecipe
   result: 150mmApShell

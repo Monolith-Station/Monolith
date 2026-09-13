@@ -38,11 +38,11 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, ElectrocutionAttemptEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SlipAttemptEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshMovementSpeedModifiersEvent>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, BeforeStripEvent>(RelayInventoryEventAlways); // Mono
-        SubscribeLocalEvent<InventoryComponent, SeeIdentityAttemptEvent>(RelayInventoryEventAlways); // Mono
+        SubscribeLocalEvent<InventoryComponent, BeforeStripEvent>(RelayInventoryEvent); // Mono
+        SubscribeLocalEvent<InventoryComponent, SeeIdentityAttemptEvent>(RelayInventoryEvent); // Mono
         SubscribeLocalEvent<InventoryComponent, ModifyChangedTemperatureEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetDefaultRadioChannelEvent>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshNameModifiersEvent>(RelayInventoryEventAlways); // Mono
+        SubscribeLocalEvent<InventoryComponent, RefreshNameModifiersEvent>(RelayInventoryEvent); // Mono
         SubscribeLocalEvent<InventoryComponent, GetFlashbangedEvent>(RelayInventoryEvent); // goob edit
         SubscribeLocalEvent<InventoryComponent, FlashDurationMultiplierEvent>(RelayInventoryEvent); // goob edit
         SubscribeLocalEvent<InventoryComponent, TransformSpeakerNameEvent>(RelayInventoryEvent);
@@ -98,18 +98,7 @@ public partial class InventorySystem
     }
 
     // Mono
-    protected void RefRelayInventoryEventAlways<T>(EntityUid uid, InventoryComponent component, ref T args) where T : IInventoryRelayEvent
-    {
-        RelayEvent((uid, component), ref args, true);
-    }
-
-    // Mono
-    protected void RelayInventoryEventAlways<T>(EntityUid uid, InventoryComponent component, T args) where T : IInventoryRelayEvent
-    {
-        RelayEvent((uid, component), args, true);
-    }
-
-    public void RelayEvent<T>(Entity<InventoryComponent> inventory, ref T args, bool ignoreBlocked = false) where T : IInventoryRelayEvent
+    public void RelayEvent<T>(Entity<InventoryComponent> inventory, ref T args) where T : IInventoryRelayEvent
     {
         if (args.TargetSlots == SlotFlags.NONE)
             return;
@@ -117,27 +106,25 @@ public partial class InventorySystem
         // this copies the by-ref event if it is a struct
         var ev = new InventoryRelayedEvent<T>(args);
         var enumerator = new InventorySlotEnumerator(inventory, args.TargetSlots);
-        while (enumerator.NextItem(out var item, out var slot))
+        while (enumerator.NextItem(out var item))
         {
-            if (!ignoreBlocked && !inventory.Comp.RelayBlockedSlots.Contains(slot.Name)) // Mono
-                RaiseLocalEvent(item, ev);
+            RaiseLocalEvent(item, ev);
         }
 
         // and now we copy it back
         args = ev.Args;
     }
 
-    public void RelayEvent<T>(Entity<InventoryComponent> inventory, T args, bool ignoreBlocked = false) where T : IInventoryRelayEvent
+    public void RelayEvent<T>(Entity<InventoryComponent> inventory, T args) where T : IInventoryRelayEvent
     {
         if (args.TargetSlots == SlotFlags.NONE)
             return;
 
         var ev = new InventoryRelayedEvent<T>(args);
         var enumerator = new InventorySlotEnumerator(inventory, args.TargetSlots);
-        while (enumerator.NextItem(out var item, out var slot))
+        while (enumerator.NextItem(out var item))
         {
-            if (!ignoreBlocked && !inventory.Comp.RelayBlockedSlots.Contains(slot.Name)) // Mono
-                RaiseLocalEvent(item, ev);
+            RaiseLocalEvent(item, ev);
         }
     }
 

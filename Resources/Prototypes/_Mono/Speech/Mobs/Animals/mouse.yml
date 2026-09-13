@@ -1,0 +1,47 @@
+- type: localizedDataset
+  id: MouseEating
+  values:
+    prefix: mouse-eating-
+    count: 5
+
+- type: localizedDataset
+  id: MousePickedUp
+  values:
+    prefix: mouse-picked-up-
+    count: 5
+
+- type: localizedDataset
+  id: MouseThrown
+  values:
+    prefix: mouse-thrown-
+    count: 3
+    
+- type: localizedDataset
+  id: MouseDrinking
+  values:
+    prefix: mouse-drinking-
+    count: 4
+
+- type: localizedDataset
+  id: MouseCritical
+  values:
+    prefix: mouse-critical-
+    count: 5
+
+- type: localizedDataset
+  id: MouseDeath
+  values:
+    prefix: mouse-dead-
+    count: 4
+
+- type: localizedDataset
+  id: MouseRevived
+  values:
+    prefix: mouse-revived-
+    count: 5
+
+- type: localizedDataset
+  id: MouseExamined
+  values:
+    prefix: mouse-examined-
+    count: 5

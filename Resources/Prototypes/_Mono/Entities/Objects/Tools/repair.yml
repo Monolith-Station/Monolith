@@ -108,6 +108,7 @@
     sprite: _NF/Objects/Tools/rcd.rsi
     state: ammo-shipyard
   - type: Item
+    heldPrefix: ammo-shipyard
   - type: PhysicalComposition
     materialComposition:
       Steel: 100

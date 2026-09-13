@@ -27,6 +27,7 @@ using Content.Shared.Stacks;
 using Content.Shared.Storage;
 using Content.Shared.Verbs;
 using Content.Shared._Goobstation.EatToGrow;
+using Content.Shared._Mono.Speech;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
@@ -287,6 +288,8 @@ public sealed partial class FoodSystem : EntitySystem
 
         var afterEatingEv = new AfterEatingEvent(entity.Owner);
         RaiseLocalEvent(args.Target.Value, ref afterEatingEv);
+        var speechEvent = new SpeechTriggerEvent(SpeechTrigger.Eating);
+        RaiseLocalEvent(args.Target.Value, ref speechEvent);
         var flavors = args.FlavorMessage;
 
         if (forceFeed)

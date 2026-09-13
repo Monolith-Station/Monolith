@@ -165,7 +165,7 @@
     - map: ["computerLayerKeys"]
       state: telesci_key # Mono
   - type: ShipyardConsole
-    shipyardChannel: Freelance
+    shipyardChannel: Traffic # compromised comms shouldn't doxx PDV members. knowing Helios's locations and doing recon work near it is more fair.
     secretShipyardChannel: Nfsd
     taxAccounts:
       BlackMarket: 0.30 # Made BM - Mono

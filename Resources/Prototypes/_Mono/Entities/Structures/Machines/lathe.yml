@@ -20,6 +20,7 @@
     board: MilitaryTechfabMachineCircuitboard
   - type: Lathe
     producingSound: /Audio/Machines/circuitprinter.ogg
+    reagentOutputSlotId: beaker_slot
     idleState: icon
     runningState: icon
     staticPacks:
