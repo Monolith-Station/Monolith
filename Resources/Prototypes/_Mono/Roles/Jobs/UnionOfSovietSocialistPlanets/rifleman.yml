@@ -3,7 +3,7 @@
   name: job-name-ussp-rifleman
   description: job-description-ussp-rifleman
   playTimeTracker: JobUSSPRifleman
-  setPreference: false # Frontier
+  setPreference: false
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 32400 # 9 hrs
@@ -16,8 +16,8 @@
   canBeAntag: false
   weight: 10
   displayWeight: 10
-  guides:
-  - USSP_Entry
+  #guides:
+  #- USSP_Entry
   special:
   - !type:AddImplantSpecial
     implants: [ UsspTrackingImplant ]

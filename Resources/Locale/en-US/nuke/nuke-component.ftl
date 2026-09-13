@@ -29,7 +29,7 @@ nuke-user-interface-second-status-current-code = CODE: {$code}
 nuke-user-interface-second-status-cooldown-time = WAIT: {$time}
 
 ## Nuke labels
-nuke-label-nanotrasen = NT-{$serial}
+nuke-label-nanotrasen = NFE-{$serial}
 nuke-label-neutral = NFE-{$serial}
 
 # do you even need this one? It's more funnier to say that

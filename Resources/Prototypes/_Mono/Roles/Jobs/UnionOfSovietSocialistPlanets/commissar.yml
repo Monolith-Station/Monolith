@@ -3,7 +3,7 @@
   name: job-name-ussp-commissar
   description: job-description-ussp-commissar
   playTimeTracker: JobUSSPCommissar
-  setPreference: false # Frontier
+  setPreference: false
   requirements:
   # - !type:DepartmentTimeRequirement # Disabled until newgens get hours in
   #   department: UnionOfSovietSocialistPlanets
@@ -22,8 +22,8 @@
   canBeAntag: false
   weight: 40
   displayWeight: 40
-  guides:
-  - USSP_Entry
+  #guides:
+  #- USSP_Entry
   special:
   - !type:AddImplantSpecial
     implants: [ UsspTrackingImplant ]
