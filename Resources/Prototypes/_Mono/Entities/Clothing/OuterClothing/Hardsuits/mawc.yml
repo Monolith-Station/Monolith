@@ -1,0 +1,71 @@
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitMAWCWidowmaker
+  name: M-WC E-767 Widowmaker hardsuit
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/widowmaker.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/widowmaker.rsi
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHelmetHardsuitMAWCWidowmaker
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitMAWCReaver
+  name: M-WC CS-8W Reaver hardsuit
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/reaver.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/reaver.rsi
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHelmetHardsuitMAWCReaver
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitMAWCCarpenter
+  name: M-WC LH-8 Carpenter hardsuit
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/carpenter.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/carpenter.rsi
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHelmetHardsuitMAWCCarpenter
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitMAWCTermite
+  name: M-WC SS-11 Termite hardsuit
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/termite.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/termite.rsi
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHelmetHardsuitMAWCTermite
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock

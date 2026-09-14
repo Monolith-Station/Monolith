@@ -1,0 +1,79 @@
+- type: entity
+  parent: BaseItem
+  id: WeaponMAWCSirius
+  name: M-WC Type-55 "Sirius" reclaiming laser
+  description: A privatized version of the popular civilian industrial mining laser, this special tool is specially attuned for turning walls into usable refined scrap that can be used in specialized machines. Quite heavy and unwieldy, but it makes for a decent emergency weapon in a pinch.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/sirius.rsi
+    state: base
+  - type: Item
+    size: Ginormous
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/sirius_inhands.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/sirius_inhands.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Wieldable
+
+- type: entity
+  parent: BaseItem
+  id: WeaponRifleMAWCStonehenge
+  name: M-HW Stonehenge anti-material rifle
+  description: A high caliber rifle classified under AT weapon specifications, yet deceptively light and ergonomic for its class. Rumored to have been designed to challenge or parallel appropriate heavy weapons from other factions.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/stonehenge.rsi
+    state: base
+  - type: Item
+    size: Ginormous
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/stonehenge_inhands.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/stonehenge_inhands.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Wieldable
+
+- type: entity
+  parent: BaseItem
+  id: WeaponRifleMAWCFulcrum
+  name: M-WC Type-29A "Fulcrum" battle rifle
+  description: A rugged rifle with a slightly unusual design but dependable stopping power.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/fulcrum.rsi
+    state: base
+  - type: Item
+    size: Huge
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/fulcrum_inhands.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/fulcrum_inhands.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Wieldable
+
+- type: entity
+  parent: BaseItem
+  id: WeaponSubMachineGunMAWCFlanker
+  name: M-WC Type-30M2 Flanker SMG
+  description: A close-range SMG with a specially designed autoreloading mechanism that generates small caliber charges with similar capability to existing SMG platforms in sector. It is more reliable than its short figure and unusual ergonomics might imply.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/flanker.rsi
+    state: base
+  - type: Item
+    size: Large
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/flanker_inhands.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/flanker_inhands.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Wieldable

@@ -1,0 +1,39 @@
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHelmetHardsuitMAWCWidowmaker
+  name: M-WC E-767 Widowmaker helmet
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/widowmaker.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/widowmaker.rsi
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHelmetHardsuitMAWCReaver
+  name: M-WC CS-8W Reaver helmet
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/reaver.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/reaver.rsi
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHelmetHardsuitMAWCCarpenter
+  name: M-WC LH-8 Carpenter helmet
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/carpenter.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/carpenter.rsi
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHelmetHardsuitMAWCTermite
+  name: M-WC SS-11 Termite helmet
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/termite.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/termite.rsi
