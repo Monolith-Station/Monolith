@@ -10,13 +10,13 @@
 
 - type: entity
   parent: ClothingHeadHardsuitBase
-  id: ClothingHelmetHardsuitMAWCReaver
-  name: M-WC CS-8W Reaver helmet
+  id: ClothingHelmetHardsuitMAWCWeaver
+  name: M-WC CS-8W Weaver helmet
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/reaver.rsi
+    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/weaver.rsi
   - type: Clothing
-    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/reaver.rsi
+    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/weaver.rsi
 
 - type: entity
   parent: ClothingHeadHardsuitBase
