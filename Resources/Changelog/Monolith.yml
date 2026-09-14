@@ -24791,3 +24791,101 @@ Entries:
   id: 2712
   time: '2026-09-12T18:39:43.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4667
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Added some new greeble parts for shipbuilders.
+  id: 2713
+  time: '2026-09-12T19:15:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4685
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Finally fixed identity blocking being completely non-functional.
+  id: 2714
+  time: '2026-09-12T20:32:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4687
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The blacklist for deposit boxes has once again been expanded
+        significantly in order to reduce the potential angles for abuse.
+  id: 2715
+  time: '2026-09-13T23:18:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4696
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        Added material crates to the TSF uplink, for converting FMC into
+        materials.
+    - type: Remove
+      message: >-
+        Removed (non)lethal armory fill crates from the TSF uplink since they
+        contain outdated gear.
+  id: 2716
+  time: '2026-09-13T23:18:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4694
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: Helios now spawns much further out.
+    - type: Tweak
+      message: >-
+        Helios has been equipped with drone repellant, effective up to 5
+        kilometres.
+  id: 2717
+  time: '2026-09-14T00:15:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4697
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Jupiter now actually no longer spawns.
+  id: 2718
+  time: '2026-09-14T19:36:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4680
+- author: Mapleflavoureds
+  changes:
+    - type: Tweak
+      message: FTL lock distance 512 -> 1536
+  id: 2719
+  time: '2026-09-14T20:11:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4604
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Buffed the reward for defending a Solarian Vault even further to 250
+        FMC.
+  id: 2720
+  time: '2026-09-14T20:52:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4701
+- author: Onezero0
+  changes:
+    - type: Fix
+      message: Removed outdated industry guidebook pages.
+  id: 2721
+  time: '2026-09-14T20:52:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4695
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The PDV have developed specialised overwatch jammers in the interest of
+        keeping Helios hidden. They are now purchaseable from the PDV uplink for
+        1 DC.
+  id: 2722
+  time: '2026-09-14T20:54:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4700
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: >-
+        12 and 4 gauge flares can now be purchased or made through draconic
+        munitions research
+    - type: Tweak
+      message: shotgun flares toned down from a radius of 15 tiles.
+  id: 2723
+  time: '2026-09-14T20:55:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4699

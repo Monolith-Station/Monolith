@@ -21,6 +21,9 @@ using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared.Sticky.Components;
+using Content.Server._Mono.Overwatch.Components;
+using Content.Shared.Sticky;
 
 namespace Content.Server._Rat.Overwatch;
 
@@ -95,6 +98,7 @@ public sealed class OverwatchSystem : EntitySystem
         SubscribeLocalEvent<CompanyComponent, ComponentShutdown>(OnFactionComponentShutdown);
         SubscribeLocalEvent<SquadComponent, ComponentInit>(OnSquadComponentInit);
         SubscribeLocalEvent<SquadComponent, ComponentShutdown>(OnSquadComponentShutdown);
+        SubscribeLocalEvent<JamOverwatchOnStuckComponent, EntityStuckEvent>(OnEntityStuck);
 
         Subs.BuiEvents<OverwatchConsoleComponent>(OverwatchUiKey.Key, subs =>
         {
@@ -177,6 +181,18 @@ public sealed class OverwatchSystem : EntitySystem
 
         StopWatching(ent.Owner, ent.Comp);
         RemComp<RatOverwatchWatchingComponent>(ent.Owner);
+    }
+
+    /// <summary>
+    /// Mono: Clears the cache of a faction if an overwatch jammer has been applied.
+    /// </summary>
+    /// <param name="args"></param>
+    private void OnEntityStuck(Entity<JamOverwatchOnStuckComponent> ent, ref EntityStuckEvent args)
+    {
+        if (!TryComp<CompanyComponent>(args.Target, out var comp))
+            return;
+
+        _factionMembersCache.Remove(comp.CompanyName);
     }
 
     /// <summary>
@@ -685,11 +701,21 @@ public sealed class OverwatchSystem : EntitySystem
         if (_factionMembersCache.TryGetValue(faction, out var cached))
             return cached;
 
+        // Mono: overwatch jamming
+        var jammedPlayers = new List<EntityUid>();
+        var jamQuery = EntityQueryEnumerator<StickyComponent, JamOverwatchOnStuckComponent>();
+        while (jamQuery.MoveNext(out _, out var sticky, out _))
+        {
+            if (sticky.StuckTo != null)
+                jammedPlayers.Add(sticky.StuckTo.Value);
+        }
+        // Mono end
+
         var members = new List<EntityUid>();
         var query = EntityQueryEnumerator<CompanyComponent>();
         while (query.MoveNext(out var uid, out var factionComp))
         {
-            if (factionComp.CompanyName == faction && !HasComp<ShuttleComponent>(uid))
+            if (factionComp.CompanyName == faction && !HasComp<ShuttleComponent>(uid) && !jammedPlayers.Contains(uid))
                 members.Add(uid);
         }
 

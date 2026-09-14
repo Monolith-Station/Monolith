@@ -5,6 +5,7 @@ store-category-secammo = Ammunition
 store-category-secexplosives = Explosives
 store-category-secbundles = Bundles
 store-category-secvouchers = Vouchers
+store-category-secmaterials = Materials
 
 uplink-security-hardsuit-name = Private M73 Tacsuit
 uplink-security-hardsuit-desc = The standard-issue TSFMC space proof suit for patrol duty. This bronze variant has private rank markings.

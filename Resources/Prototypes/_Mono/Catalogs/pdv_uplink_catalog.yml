@@ -454,6 +454,21 @@
       - PirateUplink
 
 - type: listing
+  id: UplinkPirateOverwatchJammer
+  name: uplink-pirate-overwatch-jammer-name
+  description: uplink-pirate-overwatch-jammer-desc
+  productEntity: OverwatchJammer
+  cost:
+    Doubloon: 1
+  categories:
+  - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
   id: UplinkPirateHypopen
   name: uplink-pirate-hypopen-name
   description: uplink-pirate-hypopen-desc

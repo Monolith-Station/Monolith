@@ -546,3 +546,65 @@
       whitelist:
         tags:
           - SecurityUplink
+
+# materials
+
+- type: listing
+  id: UplinkTSFMaterialsBasic
+  name: uplink-faction-materials-basic-name
+  description: uplink-faction-materials-basic-desc
+  productEntity: CrateMaterialsBasicFilledTsf
+  cost:
+    FederationMilitaryCredit: 50
+  categories:
+  - UplinkSecurityMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkTSFMaterialsIndustrial
+  name: uplink-faction-materials-industrial-name
+  description: uplink-faction-materials-industrial-desc
+  productEntity: CrateMaterialsIndustrialFilledTsf
+  cost:
+    FederationMilitaryCredit: 75
+  categories:
+  - UplinkSecurityMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkTSFMaterialsAdvanced
+  name: uplink-faction-materials-advanced-name
+  description: uplink-faction-materials-advanced-desc
+  productEntity: CrateMaterialsAdvancedFilledTsf
+  cost:
+    FederationMilitaryCredit: 100
+  categories:
+  - UplinkSecurityMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkTSFMaterialsExotic
+  name: uplink-faction-materials-exotic-name
+  description: uplink-faction-materials-exotic-desc
+  productEntity: CrateMaterialsExoticFilledTsf
+  cost:
+    FederationMilitaryCredit: 125
+  categories:
+  - UplinkSecurityMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
