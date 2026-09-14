@@ -165,8 +165,8 @@
   - type: PointLight
     enabled: true
     color: "#FF8080"
-    radius: 15.0
-    energy: 9.0
+    radius: 11.0
+    energy: 6.0
   - type: Projectile
     deleteOnCollide: false
     damage:
