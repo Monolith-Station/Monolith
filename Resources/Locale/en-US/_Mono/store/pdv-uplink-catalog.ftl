@@ -65,6 +65,9 @@ uplink-pirate-energy-shield-desc = Exotic energy shield that reflects almost all
 uplink-pirate-radio-jammer-name = Radio Jammer
 uplink-pirate-radio-jammer-desc = This device will disrupt any nearby outgoing radio communication as well as suit sensors when activated.
 
+uplink-pirate-overwatch-jammer-name = Overwatch Jammer
+uplink-pirate-overwatch-jammer-desc = This device will prevent overwatch consoles from detecting the corpse it's attached to. Make sure to attach one before transporting a corpse to Helios!
+
 uplink-pirate-hypopen-name = Hypopen
 uplink-pirate-hypopen-desc = A chemical hypospray disguised as a pen, capable of instantly injecting up to 10u of reagents. Starts empty.
 
@@ -338,6 +341,9 @@ uplink-pdv-t3-kortik-voucher-desc = A small card that contains the data for the 
 
 uplink-pdv-t4-saturn-voucher-name = PDV Saturn LPC [T4]
 uplink-pdv-t4-saturn-voucher-desc = A small card that authorizes the procurement of the Saturn.
+
+uplink-HardBomb-PDV-name = PDV "Adam" Bunker Buster
+uplink-HardBomb-PDV-desc = The PDV's answer to not enough boom
 
 # MARK: Materials
 

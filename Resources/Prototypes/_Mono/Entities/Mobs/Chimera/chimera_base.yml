@@ -66,7 +66,7 @@
       types:
         Blunt: 12
         Slash: 20
-        Structural: 50
+        Structural: 350 # TEARS through structures and mechs. scary.
   - type: ReplacementAccent
     accent: genericAggressive
   - type: SolutionContainerManager
@@ -141,17 +141,17 @@
             Burn: -2
             Brute: -1.5
     - reagents: [Mesotaxinide]
-      methods: [Touch]
+      methods: [Touch] # SIGNIFICANTLY nerfed as to not be an instant kill button.
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         damage:
           groups:
-            Burn: 6
-            Brute: 7
+            Burn: 1.5
+            Brute: 1.5
           types:
-            Caustic: 20
-            Cellular: 5
+            Caustic: 4
+            Cellular: 1.5
   - type: SurgeryTarget
   - type: Body
     prototype: ChimeraBeast
@@ -171,6 +171,19 @@
     guides:
     - Letoferol
   - type: MovementAlwaysTouching
+  - type: RadarConsole
+    followEntity: true
+    noRotate: true
+    maxIffRange: 0
+    hideCoords: false
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionObserverShowRadar
 
 - type: entity
   parent:
@@ -199,7 +212,7 @@
   - type: DoAfter
   - type: Stripping
   - type: Stamina
-    critThreshold: 150
+    critThreshold: 250 # half of their actual HP
   - type: Inventory
     templateId: chimera
   - type: Appearance

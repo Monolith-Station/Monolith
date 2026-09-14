@@ -24721,3 +24721,143 @@ Entries:
   id: 2707
   time: '2026-09-12T02:47:48.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4663
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        Solarian Vault no longer always gives FMC no matter how damaged the
+        vault actually is.
+  id: 2708
+  time: '2026-09-12T18:32:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4681
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Added a Solarian Data Chit Storage Server to the Solarian Vault. It's
+        worth $300,000 to civilians who wish to sell it and a whopping 500 DC to
+        the PDV! It has its own radar blip, pull off a heist on the Solarian
+        Vault at your own risk.
+    - type: Tweak
+      message: >-
+        Buffed FMC payout for defending the vault to 175 FMC. The payout will no
+        longer happen if the server is gone, no matter how much money the vault
+        is worth.
+  id: 2709
+  time: '2026-09-12T18:34:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4682
+- author: waphun
+  changes:
+    - type: Remove
+      message: The TSFMC Secondary Outpost has been scuttled from the sector.
+  id: 2710
+  time: '2026-09-12T18:35:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4679
+- author: meh35
+  changes:
+    - type: Add
+      message: Faction hard bombs
+  id: 2711
+  time: '2026-09-12T18:39:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4585
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: Chimera now come with in-built mass scanners.
+    - type: Remove
+      message: Chimera can no longer have their organs surgically removed.
+    - type: Tweak
+      message: >-
+        Chimera structural damage has been drastically buffed. (melee: 90 ->
+        350, bonespike: 25 -> 50)
+    - type: Tweak
+      message: Mesotaxinide damage has been drastically nerfed.
+    - type: Tweak
+      message: >-
+        Halcyon's biodome during Biothreat will now ramp up much, much faster.
+        (1.25x per power surge -> 2.125x
+    - type: Tweak
+      message: >-
+        The price of the Ambuzol Syringe in the TSF uplink has been increased
+        from 5FMC to 15.
+    - type: Tweak
+      message: Chimera organs now dissolve on touch.
+    - type: Tweak
+      message: Chimera have received a minor sprite update.
+    - type: Remove
+      message: You can no longer produce humanoid cubes.
+    - type: Remove
+      message: Letoferol is no longer obtainable through botany.
+  id: 2712
+  time: '2026-09-12T18:39:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4667
+- author: Onezero0
+  changes:
+    - type: Add
+      message: Added some new greeble parts for shipbuilders.
+  id: 2713
+  time: '2026-09-12T19:15:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4685
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Finally fixed identity blocking being completely non-functional.
+  id: 2714
+  time: '2026-09-12T20:32:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4687
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The blacklist for deposit boxes has once again been expanded
+        significantly in order to reduce the potential angles for abuse.
+  id: 2715
+  time: '2026-09-13T23:18:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4696
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        Added material crates to the TSF uplink, for converting FMC into
+        materials.
+    - type: Remove
+      message: >-
+        Removed (non)lethal armory fill crates from the TSF uplink since they
+        contain outdated gear.
+  id: 2716
+  time: '2026-09-13T23:18:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4694
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: Helios now spawns much further out.
+    - type: Tweak
+      message: >-
+        Helios has been equipped with drone repellant, effective up to 5
+        kilometres.
+  id: 2717
+  time: '2026-09-14T00:15:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4697
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Jupiter now actually no longer spawns.
+  id: 2718
+  time: '2026-09-14T19:36:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4680
+- author: Mapleflavoureds
+  changes:
+    - type: Tweak
+      message: FTL lock distance 512 -> 1536
+  id: 2719
+  time: '2026-09-14T20:11:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4604
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Buffed the reward for defending a Solarian Vault even further to 250
+        FMC.
+  id: 2720
+  time: '2026-09-14T20:52:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4701

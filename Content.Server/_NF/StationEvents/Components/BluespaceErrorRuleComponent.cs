@@ -56,6 +56,7 @@ public sealed partial class BluespaceErrorRuleComponent : Component
     [DataField]
     public bool ExtendIfPopulated = true;
 
+    [DataField]
     /// <summary>
     /// How much the grid is appraised at upon entering into existence, set after starting the event
     /// </summary>

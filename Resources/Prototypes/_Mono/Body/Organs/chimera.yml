@@ -24,6 +24,9 @@
           Quantity: 5
         - ReagentId: Slime
           Quantity: 5
+  - type: Organ
+    removable: false # these are all giant middle fingers to chimera if a non-chimera gets them
+  - type: DestroyItemOnPickup # double make sure nobody can use these organs in a surgery
 
 - type: entity
   id: OrganChimeraStomach

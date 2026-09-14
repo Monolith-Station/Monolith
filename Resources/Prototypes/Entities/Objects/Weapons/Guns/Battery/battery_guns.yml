@@ -356,7 +356,7 @@
 
 - type: entity
   name: VCD QSH-13 Pulse Pistol
-  parent: BaseWeaponBatterySmall
+  parent: [BaseWeaponBatterySmall, BaseFactionGearTSFT3] # Mono
   id: WeaponPulsePistol
   description: The pulse pistol is a compact version of the TSF pulse rifle. Though it uses the same self-recharging technology, it has a smaller battery that makes it impractical for sustained battlefield use. Nevertheless, it has found a niche in the hands of TSFN and TSFMC officers as a defensive sidearm. # Mono
   components:
@@ -399,7 +399,7 @@
 
 - type: entity
   name: VCD QBH-12 Pulse Carbine
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseFactionGearTSFT3] # Mono
   id: WeaponPulseCarbine
   description: The pulse carbine is a slightly more compact version of the TSF pulse rifle that combines self-recharging technology with an even faster rate of fire meant to terrify enemies on the battlefield. Though known to overheat occasionally in prolonged battle, this does not stop the Marine special forces who favor them. # Mono
   components:
@@ -448,7 +448,7 @@
 
 - type: entity
   name: VCD QBH-11 Pulse Rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseFactionGearTSFT3] # Mono
   id: WeaponPulseRifle
   description: The first pulse model reproduced since the technology fell into TSF hands after the end of the Corporate War, this rifle defines cutting edge technology in the hands of elite TSF military troops and the officers that command them.  # Mono
   components:

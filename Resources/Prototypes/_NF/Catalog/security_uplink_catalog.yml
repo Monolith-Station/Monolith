@@ -708,7 +708,7 @@
   productEntity: SyringeAmbuzol
   icon: { sprite: Objects/Specific/Chemistry/syringe.rsi, state: syringe_base0 }
   cost:
-    FederationMilitaryCredit: 5
+    FederationMilitaryCredit: 15 # mono: 5 -> 15 (1 FMC per 1 unit)
   categories:
     - UplinkSecurityUtility
   conditions:
@@ -1238,21 +1238,21 @@
         tags:
           - SecurityUplink
 
-- type: listing
-  id: UplinkSecurityLethalArmory
-  name:  uplink-security-lethalarmory-name
-  description: uplink-security-lethalarmory-desc
-  productEntity: CrateArmoryLethalNfsd
-  icon: { sprite: _NF/Structures/Storage/Crates/nfsd_secure2.rsi, state: icon }
-  cost:
-    FederationMilitaryCredit: 75
-  categories:
-    - UplinkSecurityBundles
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SecurityUplink
+#- type: listing
+#  id: UplinkSecurityLethalArmory
+#  name:  uplink-security-lethalarmory-name
+#  description: uplink-security-lethalarmory-desc
+#  productEntity: CrateArmoryLethalNfsd
+#  icon: { sprite: _NF/Structures/Storage/Crates/nfsd_secure2.rsi, state: icon }
+#  cost:
+#    FederationMilitaryCredit: 75
+#  categories:
+#    - UplinkSecurityBundles
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - SecurityUplink
 
 - type: listing
   id: UplinkSecurityTrackingBundle
@@ -1286,21 +1286,22 @@
         tags:
           - SecurityUplink
 
-- type: listing
-  id: UplinkSecurityNonLethalArmory
-  name:  uplink-security-nonlethalarmory-name
-  description: uplink-security-nonlethalarmory-desc
-  productEntity: CrateArmoryNonLethalNfsd
-  icon: { sprite: _NF/Structures/Storage/Crates/nfsd_secure1.rsi, state: icon }
-  cost:
-    FederationMilitaryCredit: 50
-  categories:
-    - UplinkSecurityBundles
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SecurityUplink
+# Mono: Commented out
+#- type: listing
+#  id: UplinkSecurityNonLethalArmory
+#  name:  uplink-security-nonlethalarmory-name
+#  description: uplink-security-nonlethalarmory-desc
+#  productEntity: CrateArmoryNonLethalNfsd
+#  icon: { sprite: _NF/Structures/Storage/Crates/nfsd_secure1.rsi, state: icon }
+#  cost:
+#    FederationMilitaryCredit: 50
+#  categories:
+#    - UplinkSecurityBundles
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - SecurityUplink
 
 - type: listing
   id: UplinkSecurityEmpGrenadeAmmo
