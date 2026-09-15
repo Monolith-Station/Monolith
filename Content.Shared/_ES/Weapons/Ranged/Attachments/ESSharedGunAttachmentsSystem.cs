@@ -7,6 +7,7 @@ using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Localizations;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
@@ -129,6 +130,13 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
 
         args.MinAngle = (args.MinAngle * ent.Comp.MinSpreadModifier);
         args.MaxAngle = (args.MaxAngle * ent.Comp.MaxSpreadModifier);
+        if (TryComp<GunWieldBonusComponent>(args.Gun, out var wield))
+        {
+            wield.MinAngleModified = wield.MinAngle * ent.Comp.WieldMinSpreadModifier;
+            wield.MaxAngleModified = wield.MaxAngle * ent.Comp.WieldMaxSpreadModifier;
+            wield.AngleDecayModified = wield.AngleDecay * ent.Comp.WieldRecoilRecoveryModifier;
+            wield.AngleIncreaseModified = wield.AngleIncrease * ent.Comp.WieldRecoilIncreaseModifier;
+        }
     }
     // Mono end
 
@@ -230,6 +238,13 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
     {
         var target = args.Container.Owner;
         EntityManager.RemoveComponents(target, component.Components);
+        if (TryComp<GunWieldBonusComponent>(target, out var wield))
+        {
+            wield.MinAngleModified = wield.MinAngle;
+            wield.MaxAngleModified = wield.MaxAngle;
+            wield.AngleDecayModified = wield.AngleDecay;
+            wield.AngleIncreaseModified = wield.AngleIncrease;
+        }
     }
 
     private void OnAttachmentExamined(EntityUid uid, ESGunRecoilAttachmentComponent component, ExaminedEvent args)
@@ -252,11 +267,29 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
             var maxSpread = recoilComponent.MaxSpreadModifier;
             var maxSpreadColor = GetColor(maxSpread);
 
+            // wielded is inverse because its subtracted from the base. 50 - (20 * 0.0005) is worse, actually.
+            var wieldRecoilRecovery = recoilComponent.WieldRecoilRecoveryModifier;
+            var wieldRecoilRecoveryColor = GetColor((wieldRecoilRecovery));
+
+            var wieldRecoilIncrease = recoilComponent.WieldRecoilIncreaseModifier;
+            var wieldRecoilIncreaseColor = GetColor(1f / wieldRecoilIncrease);
+
+            var wieldMinSpread = recoilComponent.WieldMinSpreadModifier;
+            var wieldMinSpreadColor = GetColor(1f / wieldMinSpread);
+
+            var wieldMaxSpread = recoilComponent.WieldMaxSpreadModifier;
+            var wieldMaxSpreadColor = GetColor(1f / wieldMaxSpread);
+
         // welcome to The Monolith.... I am lazy....
             args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-recovery",("color", recoilRecoveryColor),("modifier", recoilRecovery)));
             args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-recoil",("color", recoilIncreaseColor),("modifier", recoilIncrease)));
             args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-minspread",("color", minSpreadColor),("modifier", minSpread)));
             args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-maxspread",("color", maxSpreadColor),("modifier", maxSpread)));
+
+            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-recovery-wield",("color", wieldRecoilRecoveryColor),("modifier", wieldRecoilRecovery)));
+            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-recoil-wield",("color", wieldRecoilIncreaseColor),("modifier", wieldRecoilIncrease)));
+            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-minspread-wield",("color", wieldMinSpreadColor),("modifier", wieldMinSpread)));
+            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-maxspread-wield",("color", wieldMaxSpreadColor),("modifier", wieldMaxSpread)));
         }
     }
     // Mono end

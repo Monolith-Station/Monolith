@@ -8,3 +8,74 @@
     contents:
       - id: SheetPlastitanium
         amount: 6
+
+# Basic Materials
+- type: entity # Full stacks
+  abstract: true
+  id: StorageFillMaterialsBasicTsf
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: SheetPlastic
+    - id: MaterialCloth
+
+# Industrial Materials
+- type: entity # Full stacks
+  abstract: true
+  id: StorageFillMaterialsIndustrial
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetPlasteel
+    - id: SheetUranium
+    - id: SheetPlasma
+    - id: MaterialDurathread
+
+# Advanced Materials
+- type: entity # Full stacks
+  abstract: true
+  id: StorageFillMaterialsAdvanced
+  components:
+  - type: StorageFill
+    contents:
+    - id: IngotSilver
+    - id: SheetUranium
+    - id: SheetPlasma
+    - id: IngotGold
+
+# Exotic Materials
+- type: entity # Full stacks
+  abstract: true
+  id: StorageFillMaterialsExotic
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetPlastitanium10
+    - id: SheetUraniumDepleted
+    - id: SheetUraniumFissile3
+
+- type: entity
+  parent: [ CrateNfsdSecure1, StorageFillMaterialsBasicTsf ]
+  id: CrateMaterialsBasicFilledTsf
+  suffix: Filled, Basic Materials (full)
+  name: basic materials crate
+
+- type: entity
+  parent: [ CrateNfsdSecure2, StorageFillMaterialsIndustrial ]
+  id: CrateMaterialsIndustrialFilledTsf
+  suffix: Filled, Industrial Materials (full)
+  name: industrial materials crate
+
+- type: entity
+  parent: [ CrateNfsdSecure2, StorageFillMaterialsAdvanced ]
+  id: CrateMaterialsAdvancedFilledTsf
+  suffix: Filled, Advanced Materials (full)
+  name: advanced materials crate
+
+- type: entity
+  parent: [ CrateNfsdSecure2, StorageFillMaterialsExotic ]
+  id: CrateMaterialsExoticFilledTsf
+  suffix: Filled, Exotic Materials (full)
+  name: exotic materials crate

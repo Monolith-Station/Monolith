@@ -5,6 +5,7 @@ store-category-secammo = Ammunition
 store-category-secexplosives = Explosives
 store-category-secbundles = Bundles
 store-category-secvouchers = Vouchers
+store-category-secmaterials = Materials
 
 uplink-security-hardsuit-name = Private M73 Tacsuit
 uplink-security-hardsuit-desc = The standard-issue TSFMC space proof suit for patrol duty. This bronze variant has private rank markings.
@@ -89,7 +90,7 @@ uplink-security-wt550magazine-desc = A box containing 4 filled 4.6x30mm top-moun
 uplink-security-hypo-name = Hypospray
 uplink-security-hypo-desc = A sterile medical injector for instant delivery of medications.
 uplink-security-ambuzol-name = Ambuzol Syringe
-uplink-security-ambuzol-desc = 15u of anti-viral medication to halt the progress of the highly contagious zombie virus.
+uplink-security-ambuzol-desc = 15u of antiquated anti-viral medication, now used as an expensive alternative for protoletoferol in the production of mesotaxinide.
 uplink-security-medkit-name = Combat Medkit
 uplink-security-medkit-desc = A kit containing advanced medical supplies suitable for use in the field.
 uplink-security-inspector-name = Inspector

@@ -200,7 +200,7 @@
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: WeaponLauncherTSFAnubis
-  result: WeaponLauncherTSFAnubis
+  result: WeaponLauncherTSFAnubisEmpty
   categories:
   - AntiMaterial
   - Antitank
@@ -209,7 +209,6 @@
   materials:
     Steel: 12000
     Plasteel: 4000
-    Plastitanium: 2000
     Silver: 500
 
 # TSF Shenzhen
@@ -217,7 +216,7 @@
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: WeaponAMRShenzhenTSF
-  result: WeaponAMRShenzhen
+  result: WeaponAMRShenzhenEmpty
   categories:
   - AntiMaterial
   - Weapons
@@ -230,7 +229,6 @@
     Lithium: 2000
     Gold: 500
     Silver: 500
-    UraniumDepleted: 120 # For the mag it comes with + the bullet in the chamber. 20 DU per round, if you're adding any recipes yourself.
 
 # TSF energy
 
@@ -429,7 +427,7 @@
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: WeaponSniperHristovRogue
-  result: WeaponSniperHristov
+  result: WeaponSniperHristovEmpty
   categories:
   - DMRs
   - AntiMaterial

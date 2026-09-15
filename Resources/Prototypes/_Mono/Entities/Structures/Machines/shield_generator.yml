@@ -239,7 +239,7 @@
   name: QZ-293 "Biodome" TSF Biological Molecular Accelerator
   suffix: TSF POI ONLY, RAMPING
   components:
-  - type: ShipShieldRampingLoad # default values are applied to this. we give the Biothreat military FOBs these biodomes to mechanically enforce portstrike and to force factions to work to keep their shields online.
+  - type: ShipShieldRampingLoad # we give the Biothreat military FOBs these biodomes to mechanically enforce portstrike and to force factions to work to keep their shields online.
     radioChannel: Nfsd
   - type: ExtendDescription
     descriptionList:
