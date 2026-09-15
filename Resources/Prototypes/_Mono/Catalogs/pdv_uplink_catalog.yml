@@ -46,6 +46,23 @@
       - PirateUplink
 
 - type: listing
+  id: UplinkPDVVestineChemistryVial
+  name: uplink-pirate-vestine-vial-name
+  description: uplink-pirate-vestine-vial-desc
+  icon: { sprite: /Textures/Objects/Specific/Chemistry/vial.rsi, state: vial-1 }
+  productEntity: VestineChemistryVial
+  cost:
+    Doubloon: 5
+  categories:
+  - UplinkPirateMedical
+  - UplinkPdvMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
   id: UplinkPirateCombatMedkit
   name: uplink-pirate-combat-medkit-name
   description: uplink-pirate-combat-medkit-desc
