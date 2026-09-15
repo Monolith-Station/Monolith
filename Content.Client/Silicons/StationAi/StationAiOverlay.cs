@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Numerics;
 using Content.Client.Graphics;
 using Content.Shared.Silicons.StationAi;
@@ -25,7 +26,8 @@ public sealed partial class StationAiOverlay : Overlay
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
-    private readonly HashSet<Vector2i> _visibleTiles = new();
+    // Mono - change HashSet to ConcurrentStack
+    private readonly ConcurrentStack<Vector2i> _visibleTiles = new();
 
     private readonly OverlayResourceCache<CachedResources> _resources = new();
 
