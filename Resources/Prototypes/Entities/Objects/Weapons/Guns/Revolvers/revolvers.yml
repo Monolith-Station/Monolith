@@ -90,6 +90,7 @@
   id: WeaponRevolverInspector
   description: A robust and simple revolver, still effective even in space. Uses .357 magnum ammo.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
   - type: Clothing
@@ -105,6 +106,7 @@
   id: WeaponRevolverMateba
   description: A legendary revolver from an era long past. Originally used by corporate kill-teams, its design has become widespread. Uses .357 magnum ammo. Slow firing, but due to enhanced components it punches like a superfreighter. Excellent for putting down problems.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
   - type: Clothing
@@ -129,6 +131,7 @@
   id: WeaponRevolverPython
   description: A rugged, advanced .357 magnum revolver design that has stood the test of time. It has recieved an upgrade allowing for a double-tap burst firing pattern.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/python.rsi
   - type: Clothing

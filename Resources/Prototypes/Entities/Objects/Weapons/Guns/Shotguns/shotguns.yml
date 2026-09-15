@@ -258,6 +258,7 @@
   id: WeaponShotgunSawn
   description: Groovy! Uses 12 gauge shotgun shells.
   components: # needs to be super inaccurate because you don't need to wield it
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Shotguns/sawn.rsi # Delta-V: add _DV prefix
   - type: Clothing
@@ -297,6 +298,7 @@
   id: WeaponShotgunHandmade
   description: Looks unreliable, but legal. Uses 12 gauge shotgun shells.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Item
     size: Small
     storedRotation: 90
