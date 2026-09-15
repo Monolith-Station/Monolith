@@ -1,8 +1,8 @@
 # MARK: USSP
-job-name-ussp-commissar = USSP Commissar
-job-name-ussp-sergeant = USSP Serzhant
-job-name-ussp-rifleman = USSP Rifleman
-job-supervisors-ussp-highcomm = the Nova Cygni command.
+job-name-ussp-commissar = Werkbund Commissar
+job-name-ussp-sergeant = Werkbund Serzhant
+job-name-ussp-rifleman = Werkbund Rifleman
+job-supervisors-ussp-highcomm = the Werkbund high command
 job-supervisors-ussp-commissars = the Commissar
 job-supervisors-ussp-sergeant = the Serzhants
 

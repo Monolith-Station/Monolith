@@ -40,8 +40,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitRepairmanSyndie
-  name: syndicate repairman jumpsuit
-  description: Functional, fashionable, and badass. Nanotrasen's engineers wish they could look as good as this.
+  name: repairman jumpsuit
+  description: Functional, fashionable, and badass.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/repairman_syndie.rsi
@@ -53,7 +53,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitParamedicNT
   name: paramedic jumpsuit
-  description: A basic white & blue jumpsuit made for Nanotrasen paramedics stationed in combat sectors.
+  description: A basic white & blue jumpsuit made for paramedics stationed in combat sectors.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/paramedic_nt.rsi

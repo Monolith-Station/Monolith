@@ -2,7 +2,7 @@
   name: nuclear authentication disk
   parent: BaseItem
   id: NukeDisk
-  description: A nuclear auth disk, capable of arming a nuke if used along with a code. Note from nanotrasen reads "THIS IS YOUR MOST IMPORTANT POSESSION"
+  description: A nuclear auth disk, capable of arming a nuke if used along with a code.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -51,7 +51,7 @@
   parent: BaseItem
   id: NukeDiskFake
   suffix: Fake
-  description: A nuclear auth disk, capable of arming a nuke if used along with a code. Note from nanotrasen reads "THIS IS YOUR MOST IMPORTANT POSESSION"
+  description: A nuclear auth disk, capable of arming a nuke if used along with a code.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup

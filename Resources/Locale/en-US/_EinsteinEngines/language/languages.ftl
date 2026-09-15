@@ -2,7 +2,7 @@ language-Universal-name = Universal
 language-Universal-description = What are you?
 
 language-Psychomantic-name = Psychomantic
-language-Psychomantic-description = Pure meaning, free from the tyranny of primative words and gestures.
+language-Psychomantic-description = Pure meaning, free from the tyranny of primitive words and gestures.
 
 language-Bubblish-name = Bubblish
 language-Bubblish-description = The language of Slimes. Being a mixture of bubbling noises and pops it's very difficult to speak for humans without the use of mechanical aids.
@@ -26,10 +26,10 @@ language-Azaziba-name = Azaziba
 language-Azaziba-description =
     A native language of Asakims consisting of a combination of spoken word and gesticulation.
 
-language-SolCommon-name = Sol common
+language-SolCommon-name = Persean Esperanto
 language-SolCommon-description =
-    With its roots in Mandarin Chinese - Common evolved as the official language of the Trans-Solar Federation - with officials working to tie it together with a common tongue.
-    It's spoken by state officials, the armed forces, by those who either feel a sense of national pride in the Federation or otherwise fell sway to the culture.
+    After the Great Confederate Expansion took humanity to the Persean arm and subsequently collapsed, many mingled cultures birthed this monstrosity of Orion standard and old-earth Mandarin.
+    Today it is widely used across Federation territories, though as time has passed, it has become distinguished from other Orion standard-based languages and has established a significant language barrier between the two arms.
 
 language-NovuNederic-name = Novu-Nederic
 language-NovuNederic-description =
@@ -37,19 +37,19 @@ language-NovuNederic-description =
     Spoken in the New-Netherlands, this direct and pragmatic trade language carries the sharp consonants and clipped vowels of its old-world roots.
     Built on centuries of seafaring, land reclamation, and commerce, it thrives among those who shape entire worlds — just as their ancestors shaped the land from the sea.
 
-language-NovaCygniBasic-name = Nova-Cygni Basic
+language-NovaCygniBasic-name = Sputnik Basic
 language-NovaCygniBasic-description =
-    A long split dialect of Sol Common, over the years it has turned into the language of the USSP.
-    To an outsider it sounds similar, but compared to Sol Common it sounds like gibberish.
+    A long split dialect of Orion Standard that has been mixed with ancient Russian influences, eventually distinguishing itself from its ancestors.
+    To an outsider it sounds similar to Orion Standard yet with mixed and indecipherable meaning.
 
-language-TauCetiBasic-name = Andromeda Standard
+language-TauCetiBasic-name = Orion Standard
 language-TauCetiBasic-description =
-    Established shortly after humans had colonized their local cluster, the andromeda standard has evolved rapidly with each discovery of an alien species. Changing to allow more diverse,
-    and a wider range of words and sounds that can be spoken by every known species. Unfortunately, this makes it almost impossible to learn if you didn't grow up surrounded by it, and learning it from a young age.
+    Very similar to ancient-earth English, with various twists from the many cultures it has expanded to. Once the dominant language of the Confederacy and mandated by law,
+    its widespread use and consistency across cultures has kept it relevant past the Orion arm.
 
 language-Tradeband-name = Tradeband
 language-Tradeband-description =
-    Descended from latin and romance languages of old Earth - Tradeband remains the main tongue of the upper class of humanity.
+    Descended from latin and romance languages of old Earth, Tradeband remains the main tongue of the upper class of humanity.
     The language sounds elegant and well structured to most ears. It remains in popular use with traders - diplomats - and those seeking to hold onto a piece of a romantic past.
 
 language-Freespeak-name = Asher

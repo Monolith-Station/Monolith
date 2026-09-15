@@ -481,8 +481,8 @@
 # Banners
 - type: construction
   id: BannerNanotrasen
-  name: nanotrasen banner
-  description: A banner displaying the Nanotrasen logo.
+  name: ancient banner
+  description: A banner displaying some kind of logo.
   graph: BannersGraph
   startNode: start
   targetNode: BannerNanotrasenNode
@@ -668,8 +668,8 @@
 
 - type: construction
   id: BannerSyndicate
-  name: syndicate banner
-  description: A banner from which, according to the syndicate, you should feel hatred for NT.
+  name: ancient banner
+  description: A banner displaying an ancient symbol.
   graph: BannersGraph
   startNode: start
   targetNode: BannerSyndicateNode
@@ -856,7 +856,7 @@
 
 - type: construction
   id: AltarNanotrasen
-  name: nanotrasen altar
+  name: anicent altar
   description: Altar of the Gods.
   graph: AltarsGraph
   startNode: start

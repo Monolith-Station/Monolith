@@ -47,9 +47,9 @@
     tags:
       - Mop
       - MopBasic
-  - type: GuideHelp
-    guides:
-    - Janitorial
+  #- type: GuideHelp
+  #  guides:
+  #  - Janitorial
   - type: DnaSubstanceTrace
 
 - type: entity
@@ -206,9 +206,9 @@
   - type: Item
     sprite: Objects/Specific/Janitorial/plunger.rsi
     heldPrefix: plunger
-  - type: GuideHelp
-    guides:
-    - Janitorial
+  #- type: GuideHelp
+  #  guides:
+  #  - Janitorial
   - type: Clothing
     sprite: Objects/Specific/Janitorial/plunger.rsi
     slots:

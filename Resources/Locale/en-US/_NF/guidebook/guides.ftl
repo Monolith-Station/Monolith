@@ -1,7 +1,7 @@
 # Base entries
 guide-entry-nf14 = Monolith Basics
 guide-entry-basics = Starting Guide
-guide-entry-bank = Colossus Central Bank
+guide-entry-bank = Banking
 guide-entry-safety-deposit-box = Safety Deposit Box System
 guide-entry-piloting = Piloting
 guide-entry-startinggear = Starting Equipment
