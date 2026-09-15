@@ -63,3 +63,6 @@
   - type: ShipRepairable
     repairTime: 25
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Superlight

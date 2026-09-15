@@ -2,7 +2,7 @@
 
 - type: vessel
   id: Tayfun
-  parent: BaseVesselAntag
+  parent: BaseVesselIFFDisabled
   name: NCS Tayfun
   description: An armored gunship with 4 90mms, 2 30mms, and 2 VESPERA missile pods.
   price: 98532
@@ -14,6 +14,7 @@
   class:
   - Pursuit
   - Patrol
+  - Escort
   - Corvette
   engine:
   - AME

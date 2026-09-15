@@ -575,6 +575,14 @@
     unlitRunningState: building
     staticPacks:
     - ArcFurnaceStatic
+    - MonoTradeCratesArcFurnace
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+      - Ore # for scrap crates
 
 - type: entity
   id: IndustrialFurnaceEconomyCompact
@@ -634,6 +642,14 @@
     unlitRunningState: building
     staticPacks:
     - ArcFurnaceStatic
+    - MonoTradeCratesArcFurnace
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+      - Ore # for scrap crates
 
 - type: entity
   id: PrecisionAssemblerEconomy
@@ -699,6 +715,9 @@
     unlitRunningState: unlit-building
     staticPacks:
     - PrecisionAssemblerStatic
+    - MonoTradeCratesPrecisionAssembler
+    dynamicPacks:
+    - MonoTradeCratesPrecisionAssemblerMMC
 
 - type: entity
   id: PrecisionAssemblerEconomyCompact
@@ -759,6 +778,9 @@
     unlitRunningState: unlit-building
     staticPacks:
     - PrecisionAssemblerStatic
+    - MonoTradeCratesPrecisionAssembler
+    dynamicPacks:
+    - MonoTradeCratesPrecisionAssemblerMMC
 
 - type: entity
   id: CentrifugeLathe

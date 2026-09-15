@@ -158,6 +158,28 @@
 
 - type: entity
   parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox35mm
+  name: AC-35 35mm solid drum box
+  description: Contains one box of 35mm solid ammunition. Provides an artillery piece with infinite solid rounds. Buy in case you lost the ammo it came with.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine35mm
+      amount: 1
+- type: entity
+
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox35mmHe
+  name: AC-35 35mm HE drum box
+  description: Contains one box of 35mm HE ammunition. Provides an artillery piece with infinite solid rounds. Buy in case you lost the ammo it came with.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine35mmHE
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
   id: CrateAmmoBox57mm
   name: AK-570 57mm HE drum box
   description: Contains one box of 57mm high-explosive ammunition. Provides an artillery piece with infinite high-explosive rounds. Buy in case you lost the ammo it came with.

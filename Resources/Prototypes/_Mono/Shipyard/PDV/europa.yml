@@ -1,0 +1,39 @@
+- type: vessel
+  id: Europa
+  parent: BaseVesselIFFDisabled
+  name: PD-VI Europa
+  description: A bulky frigate for long-range patrols equipped with decently-thick armor belts and 4 Longbow 140mm autocannons, but lacking in point defense outside of flare launchers.
+  limit: 2
+  hyperwarLimit: 3
+  hyperwarTimelock: 3600
+  price: 500000
+  purchasable: false # Voucher only - T3
+  category: Large
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/europa.yml
+  guidebookPage: ShipyardNFROperation
+  class:
+  - Brawler
+  - Frigate
+  engine:
+  - AME
+
+- type: gameMap
+  id: Europa
+  mapName: 'PDV Europa'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/europa.yml
+  minPlayers: 0
+  stations:
+    Europa:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Europa PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

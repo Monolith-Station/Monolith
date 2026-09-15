@@ -32,80 +32,17 @@
 #    - Ship3
 
 - type: entity
-  id: MiningCarrierComputer
-  parent: BaseCarrierComputer
-  name: mining carrier console
-  components:
-  - type: ShipyardListing
-    shuttles:
-    - Ample
-    - Antlion
-
-- type: entity
-  id: HiveCarrierComputer
-  parent: BaseCarrierComputer
-  name: zephyr carrier console
-  components:
-  - type: ShipyardListing
-    shuttles:
-    - Zephyr
-
-- type: entity
-  id: TSFCarrierComputer
-  parent: BaseCarrierComputer
-  name: TSF tumour carrier console
-  components:
-  - type: ShipyardListing
-    shuttles:
-    - QJ490
-    - QJ270
-    - Zephyr
-    - QJ340
-
-- type: entity
-  id: TSFCarrierComputerFujian
-  parent: BaseCarrierComputer
-  name: TSF fujian carrier console # Yes it can -hypothetically- carry the same ships as tumour, but it can't carry 4 of them (QJ-340 is really too long!)
-  components:
-  - type: ShipyardListing
-    shuttles:
-    - Zephyr
-    - ZephyrEC
-    
-- type: entity
   id: TSFNChengduComputer
   parent: BaseCarrierComputer
-  name: TSFN Chengdu internal hangar console
+  name: TSFN chengdu internal hangar console
   description: Lighter shipyard using the Chengdu's internal hangars, doesn't have access to the full roster of TSFMC ships.
   components:
   - type: ShipyardListing
     shuttles:
-    - Jaguar
     - Ocelot
   - type: CompanyAccessReader
     requiredCompanies:
     - TSF
-
-- type: entity
-  id: LedokolAttachmentComputer
-  parent: BaseCarrierComputer
-  name: ledokol attachment console
-  components:
-  - type: ShipyardListing
-    shuttles:
-    - Molotok
-    - Kopye
-    - Kupol
-
-- type: entity
-  id: WindreignCarrierComputer
-  parent: BaseCarrierComputer
-  name: windreign shipyard console
-  components:
-  - type: ShipyardListing
-    shuttles:
-    - Antlion
-    - StratoRat
 
 - type: entity
   id: JupiterCarrierComputer
@@ -115,13 +52,9 @@
   components:
   - type: ShipyardListing
     shuttles:
-    - Hazel
     - Tethys
-    - Eris
     - Layak
-    - Metis
-    - Kalisto
-    - Prowler
+    - Scorpion
   - type: Sprite
     sprite: _NF/Structures/Machines/computers.rsi
     layers:
@@ -134,6 +67,14 @@
     - map: ["computerLayerKeys"]
       state: telesci_key
 
+- type: entity
+  id: TSFCarrierComputerFujian
+  parent: BaseCarrierComputer
+  name: TSF fujian carrier console
+  components:
+  - type: ShipyardListing
+    shuttles:
+    - ZephyrEC
 
 - type: entity
   id: PDVMotleyAnneCarrierComputer
@@ -156,24 +97,3 @@
       state: shipyard_blackmarket
     - map: ["computerLayerKeys"]
       state: blackmarket_key
-
-- type: entity
-  id: RavagerCarrierComputer
-  parent: BaseCarrierComputer
-  name: ravager shipyard console
-  components:
-  - type: ShipyardListing
-    shuttles:
-    - Rook
-    - Taser
-    - Hound
-
-- type: entity
-  id: BalorCarrierComputer
-  parent: BaseCarrierComputer
-  name: balor shipyard console
-  components:
-  - type: ShipyardListing
-    shuttles:
-    - Rac-Man
-    - Bow-Man
