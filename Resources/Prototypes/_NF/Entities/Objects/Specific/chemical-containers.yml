@@ -206,7 +206,7 @@
   parent: BaseItem
   id: FuelPlasma
   name: fuel-grade plasma
-  description: A rod made of desaturated plasma, suitable for fuel.
+  description: A fuel rod made of desaturated plasma, suitable for a generator.
   suffix: 25 # mono
   components:
   - type: Material
@@ -214,10 +214,12 @@
     materialComposition:
       FuelGradePlasma: 100
   - type: Sprite
-    sprite: _NF/Objects/Specific/Fuel/fuelgrade_material.rsi
+    sprite: _Mono/Objects/Materials/fuelgrade_material.rsi
     layers:
+    - state: base
+      map: [ "base" ]
     - state: plasma
-      map: ["base"]
+      shader: unshaded
   - type: Appearance
   - type: StaticPrice
     price: 0
@@ -240,7 +242,7 @@
   parent: BaseItem
   id: FuelUranium
   name: fuel-grade uranium
-  description: A rod made of semi-processed uranium, suitable for fuel.
+  description: A fuel rod made of processed uranium, suitable for a generator.
   suffix: 25 # mono
   components:
   - type: Material
@@ -248,10 +250,12 @@
     materialComposition:
       FuelGradeUranium: 100
   - type: Sprite
-    sprite: _NF/Objects/Specific/Fuel/fuelgrade_material.rsi
+    sprite: _Mono/Objects/Materials/fuelgrade_material.rsi
     layers:
+    - state: base
+      map: [ "base" ]
     - state: uranium
-      map: ["base"]
+      shader: unshaded
   - type: Appearance
   - type: StaticPrice
     price: 0
@@ -272,31 +276,33 @@
 
 - type: entity
   parent: BaseItem
-  id: FuelBananium
-  name: fuel-grade bananium
-  description: A rod made from pressed bananium peels, suitable for fuel.
+  id: FuelPlutonium
+  name: fuel-grade plutonium
+  description: A fuel rod made from plutonium, suitable for a generator.
   suffix: 25 # mono
   components:
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      FuelGradeBananium: 100
+      FuelGradePlutonium: 100
   - type: Sprite
-    sprite: _NF/Objects/Specific/Fuel/fuelgrade_material.rsi
+    sprite: _Mono/Objects/Materials/fuelgrade_material.rsi
     layers:
-    - state: bananium
-      map: ["base"]
+    - state: base
+      map: [ "base" ]
+    - state: tritium
+      shader: unshaded
   - type: Appearance
   - type: StaticPrice
     price: 0
     vendPrice: 6250 # mono
   - type: Stack
-    stackType: FuelBananium
+    stackType: FuelPlutonium
     count: 25 # mono
 
 - type: entity
-  parent: FuelBananium
-  id: FuelBananium1
+  parent: FuelPlutonium
+  id: FuelPlutonium1
   suffix: Single
   components:
   - type: Stack

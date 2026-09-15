@@ -13,8 +13,8 @@
   price: 0.1 # half of regular uranium
 
 - type: material
-  id: FuelGradeBananium
-  stackEntity: FuelBananium1
+  id: FuelGradePlutonium
+  stackEntity: FuelPlutonium1
   name: fuel-grade bananium
   icon: { sprite: _NF/Objects/Specific/Fuel/fuelgrade_material.rsi, state: bananium }
   price: 0.1 # half of regular bananium

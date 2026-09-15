@@ -70,3 +70,20 @@
     sprite: _Mono/Effects/processing.rsi
     state: processing_2
   materialDiscountScale: 0.5
+
+#- type: latheRecipe
+#  id: UraniumCentrifugeProcessingPlutonium
+#  name: recipe-uranium-processing-plutonium-name
+#  description: recipe-uranium-processing-plutonium-description
+#  categories:
+#  - Explosive
+#  materialResult:
+#    Plutonium: 10 # 1/10 ingot
+#  completetime: 2
+#  materials:
+#    Plasma: 100 # 1 ingot
+#    UraniumFissile: 100 # 1 ingot
+#  icon:
+#    sprite: _Mono/Effects/processing.rsi
+#    state: processing_4
+#  materialDiscountScale: 0.5
