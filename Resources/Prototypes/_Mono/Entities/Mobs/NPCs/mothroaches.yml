@@ -97,7 +97,6 @@
   - type: ProtectedFromStepTriggers
   - type: Insulated
 
-
 - type: entity
   name: Boomroach
   parent: MobMothroach
@@ -216,8 +215,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical
-      100: Dead
+      120: Critical
+      150: Dead
   - type: Company
     companyName: TSF
 
@@ -241,8 +240,6 @@
     - FreelanceTrackingImplant
     - RadioImplantFreelance
     - MicroBombImplant
-  - type: ExplosionResistance
-    damageCoefficient: 0.2
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
@@ -313,6 +310,38 @@
     - Moffic
     - TauCetiBasic
     - Freespeak
+  - type: Gun
+    fireRate: 2
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: Bullet40mmGrenadeFlash
+    fireCost: 500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+  - type: FlashImmunity
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Critical
+      150: Dead
+  - type: Company
+    companyName: PDV
 
 - type: entity
   name: OwOroach

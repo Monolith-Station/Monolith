@@ -21,6 +21,9 @@
     lightingColor: "#FFFFFF32"
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
+    tags:
+    - PetWearable
 
 # Mono start
 # I used these for testing. You can use them for adding them to your suits.
@@ -36,6 +39,9 @@
     viewCircleCount: 1
     viewCircleSpacing: 280
     phosphorColor: "#00FF00"
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesNightVisionGoggles
@@ -49,6 +55,9 @@
     viewCircleCount: 2
     viewCircleSpacing: 280
     phosphorColor: "#00FF00"
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesNightVisionGoggles
@@ -62,6 +71,9 @@
     viewCircleCount: 2
     viewCircleSpacing: 280
     phosphorColor: "#00FF00"
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesNightVisionGoggles
@@ -75,6 +87,9 @@
     viewCircleCount: 4
     viewCircleSpacing: 260
     phosphorColor: "#41D7D9"
+  - type: Tag
+    tags:
+    - PetWearable
 # Mono end
 
 - type: entity
@@ -100,6 +115,9 @@
   - type: ShowSyndicateIcons
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
+  - type: Tag
+    tags:
+    - PetWearable
 
 # Thermal Vision Goggles
 
@@ -120,6 +138,9 @@
     toggleAction: PulseThermalVision
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesThermalVisionGoggles
@@ -144,3 +165,6 @@
   - type: ShowSyndicateIcons
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
+  - type: Tag
+    tags:
+    - PetWearable
