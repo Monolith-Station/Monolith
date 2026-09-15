@@ -36,9 +36,28 @@
   parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsRogue
   name: RX-01 modsuit gauntlets
-  description: Non-conductive mesh, pressure-sealed seams. Surprisingly legal. Proudly produced in Sector by Ullman Industries.
+  description: Non-conductive mesh, pressure-sealed seams. Surprisingly legal. Proudly produced in Sector by Ullman Industries. One wrist has a small hook protruding from the bottom. 
   categories: [HideSpawnMenu]
   components:
+  - type: Thieving
+    stripTimeReduction: 2.5
+    stealthy: true
+  - type: InstantAction
+    itemIconStyle: BigItem
+    event: !type:ToggleActionEvent
+  - type: AmmoCounter
+  - type: GrapplingGun
+    ropeBreakPoint: 100000 # Mono
+    reelRate: 8 # Mono
+    reelForce: 12000 # Mono
+  - type: Gun
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
+    fireRate: 2 # Mono - 0.5 -> 2
+    projectileSpeed: 60 # Mono
+    clumsyProof: true
+  - type: BasicEntityAmmoProvider
+    proto: GrapplingHook
+    capacity: 1
   - type: Sprite
     sprite: _Mono/Clothing/Hands/Modsuits/rogue.rsi
   - type: SealableClothingVisuals

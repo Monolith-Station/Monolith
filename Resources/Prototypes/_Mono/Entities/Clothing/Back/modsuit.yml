@@ -57,13 +57,43 @@
             - PowerCell
 
 - type: entity
-  parent: ClothingModsuitBase
+  parent: ClothingModsuitBasev2
   id: ClothingModsuitRogue
   name: RX-01 hardsuit control unit
-  description: Core control unit for the RX-01. Survives power spikes, hull breaches, and black market ingenuity. Somehow. Also has built in experimental voidboots.
+  description: Core control unit for the RX-01. The ultimate void suit for someone looking to excel at every boarding opportunity. Namely utilizes a built in mass scanner, void boots, and air jets. The right hand comes equipped with a grappling blade that can mount onto just about anything- Just don't miss!
   components:
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 13 minutes of thrust
+      volume: 5
+      temperature: 293.15
+      moles:
+        Oxygen: 1.025689525 # oxygen
+        Nitrogen: 1.025689525 # nitrogen
+  - type: UserInterface
+    interfaces:
+     enum.SharedGasTankUiKey.Key:
+       type: GasTankBoundUserInterface
+  - type: UseDelay
+    delays:
+      gasTank:
+        length: 1.0
+  - type: Jetpack
+    acceleration: 1.15 # Mono
+    weightlessModifier: 2.4 # Mono
+    moleUsage: 0.00085
   - type: Sprite
     sprite: _Mono/Clothing/Back/Modsuits/rogue.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Mono/Clothing/Back/Modsuits/rogue.rsi
+    quickEquip: false
+    slots:
+     - Back
+  - type: Item
+    sprite: null
+    size: Huge
   - type: Storage # Extra space - Mono
     grid:
     - 0,0,7,3
@@ -80,20 +110,16 @@
   - type: Construction
     graph: Modsuit
     node: rogue
-
-- type: entity
-  parent: ClothingModsuitRogue
-  id: ClothingModsuitRoguePowerCell
-  suffix: High-Capacity Battery
-  components:
+  - type: Tag
+    tags:
+    - GasTank
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
-        whitelist:
-          components:
-            - PowerCell
+        startingItem: PowerCellModsuitRogue
+        disableEject: true
+        swap: false
 
 # Volta
 - type: entity

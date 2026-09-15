@@ -60,7 +60,7 @@
     species: Hydrakin
   - type: ThermalRegulator #Todo, implement hydrakin thermal movement generation
     metabolismHeat: 1600
-    radiatedHeat: 100
+    radiatedHeat: 300
     implicitHeatRegulation: 250
     sweatHeatRegulation: 400
     shiveringHeatRegulation: 3000
