@@ -1,0 +1,235 @@
+- type: loadoutGroup
+  id: ContractorProgression
+  minLimit: 0
+  maxLimit: 4
+  name: loadout-group-progression
+  loadouts:
+  - ProgressionAmmoBox9x19mmFMJ
+  - ProgressionDockFlatpack
+  - ProgressionNFPouchContractor
+  - ProgressionExtendedEmergencyOxygenTankFilled
+  - ProgressionWeaponPistolMk58
+  - ProgressionWeaponPistolViper
+  - ProgressionAmmoBox9x19mmBigFMJ
+  - ProgressionClothingHeadHatBeretCommander
+  - ProgressionGeneratorRTGFlatpack
+  - ProgressionResearchAndDevelopmentServerFlatpack
+  - ProgressionComputerResearchAndDevelopmentFlatpack
+  - ProgressionProtolatheFlatpack
+  - ProgressionClothingOuterHardsuitPilot
+  - ProgressionTelecrystal5
+  - ProgressionRCD
+  - ProgressionShipRepairDevice
+  - ProgressionRPD
+  - ProgressionResearchDisk5000
+  - ProgressionSheetSteel
+  - ProgressionRCDAmmo
+
+- type: loadout
+  id: ProgressionAmmoBox9x19mmFMJ
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv1Hours
+  price: 1000
+  storage:
+    back:
+    - AmmoBox9x19mmFMJ
+
+- type: loadout
+  id: ProgressionDockFlatpack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv2Hours
+  price: 2000
+  storage:
+    back:
+    - AirlockShuttleFlatpack
+
+- type: loadout
+  id: ProgressionNFPouchContractor
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv4Hours
+  price: 5000
+  storage:
+    back:
+    - NFPouchContractor
+
+- type: loadout
+  id: ProgressionExtendedEmergencyOxygenTankFilled
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv4Hours
+  price: 2000
+  storage:
+    back:
+    - ExtendedEmergencyOxygenTankFilled
+
+- type: loadout
+  id: ProgressionWeaponPistolMk58
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv6Hours
+  price: 3000
+  storage:
+    back:
+    - WeaponPistolMk58
+
+- type: loadout
+  id: ProgressionWeaponPistolViper
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv10Hours
+  price: 6000
+  storage:
+    back:
+    - WeaponPistolViper
+
+- type: loadout
+  id: ProgressionAmmoBox9x19mmBigFMJ
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv10Hours
+  price: 2000
+  storage:
+    back:
+    - AmmoBox9x19mmBigFMJ
+
+- type: loadout
+  id: ProgressionClothingHeadHatBeretCommander
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv15Hours
+  price: 0
+  storage:
+    head:
+    - ClothingHeadHatBeretCommander
+
+- type: loadout
+  id: ProgressionGeneratorRTGFlatpack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv15Hours
+  price: 5000
+  storage:
+    back:
+    - GeneratorRTGFlatpack
+
+- type: loadout
+  id: ProgressionResearchAndDevelopmentServerFlatpack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv20Hours
+  price: 5000
+  storage:
+    back:
+    - ResearchAndDevelopmentServerFlatpack
+
+- type: loadout
+  id: ProgressionComputerResearchAndDevelopmentFlatpack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv20Hours
+  price: 5000
+  storage:
+    back:
+    - ComputerResearchAndDevelopmentFlatpack
+
+- type: loadout
+  id: ProgressionProtolatheFlatpack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv20Hours
+  price: 5000
+  storage:
+    back:
+    - ProtolatheFlatpack
+
+- type: loadout
+  id: ProgressionClothingOuterHardsuitPilot
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv25Hours
+  price: 5000
+  storage:
+    back:
+    - ClothingOuterHardsuitPilot
+
+- type: loadout
+  id: ProgressionTelecrystal5
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv30Hours
+  price: 5000
+  storage:
+    back:
+    - Telecrystal5
+
+- type: loadout
+  id: ProgressionRCD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv40Hours
+  price: 5000
+  storage:
+    back:
+    - RCD
+
+- type: loadout
+  id: ProgressionShipRepairDevice
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv40Hours
+  price: 5000
+  storage:
+    back:
+    - ShipRepairDevice
+
+- type: loadout
+  id: ProgressionRPD
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv40Hours
+  price: 5000
+  storage:
+    back:
+    - RPD
+
+- type: loadout
+  id: ProgressionResearchDisk5000
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv50Hours
+  price: 5000
+  storage:
+    back:
+    - ResearchDisk5000
+
+- type: loadout
+  id: ProgressionSheetSteel
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv50Hours
+  price: 5000
+  storage:
+    back:
+    - SheetSteel
+
+- type: loadout
+  id: ProgressionRCDAmmo
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCiv50Hours
+  price: 5000
+  storage:
+    back:
+    - RCDAmmo
+
+#- type: loadout
+#  id: Progression
+#  effects:
+#  - !type:GroupLoadoutEffect
+#    proto: MonoCiv60Hours
+#  price: 5000
+#  storage:
+#    back:
