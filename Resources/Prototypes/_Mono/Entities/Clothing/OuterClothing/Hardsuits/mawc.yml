@@ -8,21 +8,22 @@
   - type: Clothing
     sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/widowmaker.rsi
   - type: PersonalShield
-    color: "#ffc759"
-    brightness: 1.15
-    pixelGrid: 128
-    hexDensity: 3
-    scale: 2.5
-    coreFade: 0.65
-    fillLevel: 0.22
-    lineLevel: 0.75
-    rimLevel: 1
-    alphaBands: 4
-    breathDepth: 0.04
-    shardScale: 3
     shield:
       maxCharge: 400
       spinupTime: 2
+    visuals:
+      color: "#ffc759"
+      brightness: 1.15
+      pixelGrid: 128
+      hexDensity: 3
+      scale: 2.5
+      coreFade: 0.65
+      fillLevel: 0.22
+      lineLevel: 0.75
+      rimLevel: 1
+      alphaBands: 4
+      breathDepth: 0.04
+      shardScale: 3
   - type: ShieldLinkSource
     linkId: MAWC
     shieldBonusPerLink: 100
@@ -51,11 +52,12 @@
     onUse: false
     predictable: false
   - type: PersonalShield
-    color: "#ffc759"
-    scale: 2
     shield:
       maxCharge: 200
       spinupTime: 0.75
+    visuals:
+      color: "#ffc759"
+      scale: 2
   - type: ShieldLinkReceiver
     linkId: MAWC
   - type: ToggleableClothing
