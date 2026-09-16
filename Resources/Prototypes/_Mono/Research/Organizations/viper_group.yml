@@ -61,3 +61,18 @@
   technologyPrerequisites:
   - UniversalMaterialResearchT2
   position: 8, -16
+
+- type: technology
+  id: ViperGroupShipyardElite # needs better id
+  name: research-technology-viper-group-shipyard-adv
+  entityIcon: ShipVoucherVGWolf
+  discipline: ViperGroup
+  tier: 3
+  cost: 100000
+  recipeUnlocks:
+  - ShipVoucherVGWolf
+  - ShipVoucherVGKeelback
+  - ShipVoucherVGLancehead
+  technologyPrerequisites:
+  - ViperGroupShipyardAdvanced
+  position: 8, -15

@@ -273,3 +273,22 @@
     Silver: 7500
     UraniumDepleted: 1500
     UraniumFissile: 300
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherVGLeviathan
+  result: ShipVoucherVGLeviathan
+  completetime: 100
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 10000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    Plastitanium: 10000
+    UraniumDepleted: 1500
+    UraniumFissile: 500
