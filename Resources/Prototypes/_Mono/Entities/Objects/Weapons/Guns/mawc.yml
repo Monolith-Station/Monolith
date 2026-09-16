@@ -1,12 +1,17 @@
 - type: entity
-  parent: BaseItem
+  parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponMAWCSirius
   name: M-WC Type-55 "Sirius" reclaiming laser
   description: A privatized version of the popular civilian industrial mining laser, this special tool is specially attuned for turning walls into usable refined scrap that can be used in specialized machines. Quite heavy and unwieldy, but it makes for a decent emergency weapon in a pinch.
   components:
   - type: Sprite
     sprite: _Mono/MAWC/Objects/Weapons/Guns/sirius.rsi
-    state: base
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: charge-5
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Item
     size: Ginormous
     sprite: _Mono/MAWC/Objects/Weapons/Guns/sirius_inhands.rsi
@@ -16,10 +21,40 @@
     slots:
     - Back
     - suitStorage
-  - type: Wieldable
+  - type: Gun
+    fireRate: 3
+    minAngle: 12
+    maxAngle: 22
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/e-fire.ogg
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -18
+  - type: HitscanBatteryAmmoProvider
+    proto: MAWCSiriusBeam
+    fireCost: 100
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100
+    autoRechargePause: true
+    autoRechargePauseTime: 10
+  - type: MagazineVisuals
+    magState: charge
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: HeldSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.7
 
 - type: entity
-  parent: BaseItem
+  parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponRifleMAWCStonehenge
   name: M-HW Stonehenge anti-material rifle
   description: A high caliber rifle classified under AT weapon specifications, yet deceptively light and ergonomic for its class. Rumored to have been designed to challenge or parallel appropriate heavy weapons from other factions.
@@ -36,10 +71,40 @@
     slots:
     - Back
     - suitStorage
-  - type: Wieldable
+  - type: Gun
+    fireRate: 0.5
+    projectileSpeed: 90
+    minAngle: 25
+    maxAngle: 40
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/heavy_rifle_1.ogg
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -38
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletMAWCStonehenge
+    fireCost: 750
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+    autoRechargePause: true
+    autoRechargePauseTime: 15
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 10
+    pvsIncrease: 2
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.65
+    sprintModifier: 0.55
 
 - type: entity
-  parent: BaseItem
+  parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponRifleMAWCFulcrum
   name: M-WC Type-29A "Fulcrum" battle rifle
   description: A rugged rifle with a slightly unusual design but dependable stopping power.
@@ -56,10 +121,38 @@
     slots:
     - Back
     - suitStorage
-  - type: Wieldable
+  - type: Gun
+    fireRate: 4.5
+    projectileSpeed: 65
+    minAngle: 12
+    maxAngle: 24
+    burstFireRate: 9
+    shotsPerBurst: 3
+    burstCooldown: 0.65
+    selectedMode: Burst
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_2.ogg
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -19
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletMAWCFulcrum
+    fireCost: 100
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+    autoRechargePause: true
+    autoRechargePauseTime: 10
 
 - type: entity
-  parent: BaseItem
+  parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponSubMachineGunMAWCFlanker
   name: M-WC Type-30M2 Flanker SMG
   description: A close-range SMG with a specially designed autoreloading mechanism that generates small caliber charges with similar capability to existing SMG platforms in sector. It is more reliable than its short figure and unusual ergonomics might imply.
@@ -76,4 +169,112 @@
     slots:
     - Back
     - suitStorage
-  - type: Wieldable
+  - type: Gun
+    fireRate: 9
+    projectileSpeed: 55
+    minAngle: 8
+    maxAngle: 18
+    burstFireRate: 14
+    shotsPerBurst: 3
+    burstCooldown: 0.45
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/smg.ogg
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -8
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletMAWCFlanker
+    fireCost: 50
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+    autoRechargePause: true
+    autoRechargePauseTime: 7.5
+
+- type: entity
+  id: MAWCSiriusBeam
+  parent: BasicHitscan
+  categories: [HideSpawnMenu]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 8
+        Structural: 45
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_omni
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam_omni
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_omni
+  - type: HitscanBasicRaycast
+    maxDistance: 7
+  - type: HitscanGathering
+
+- type: entity
+  id: BulletMAWCStonehenge
+  name: anti-material charge
+  parent: PiercingBallisticHitscan
+  categories: [HideSpawnMenu]
+  components:
+  - type: Tracer
+    color: "#ffc759"
+    length: 3
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Piercing: 60
+        Heat: 20
+        Structural: 500
+    armorPenetration: 0.9
+  - type: HitscanStaminaDamage
+    staminaDamage: 250
+  - type: HitscanMultiRaycast
+    maxPierce: 10 # This is going to be so fucking funny
+    maxDistance: 200
+    collisionMask:
+    - Impassable
+    - Opaque
+    - HighImpassable
+
+- type: entity
+  id: BulletMAWCFulcrum
+  name: battle rifle charge
+  parent: BaseBullet
+  categories: [HideSpawnMenu]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 24
+        Heat: 12
+    armorPenetration: 0.1
+  - type: Tracer
+    color: "#ffc759"
+
+- type: entity
+  id: BulletMAWCFlanker
+  name: small-caliber charge
+  parent: BaseBullet
+  categories: [HideSpawnMenu]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 14
+        Heat: 8
+    armorPenetration: 0.05
+  - type: Tracer
+    color: "#ffc759"

@@ -2,6 +2,7 @@
   parent: ClothingHeadHardsuitBase
   id: ClothingHelmetHardsuitMAWCWidowmaker
   name: M-WC E-767 Widowmaker helmet
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/MAWC/Clothing/Head/Hardsuits/widowmaker.rsi
@@ -12,6 +13,7 @@
   parent: ClothingHeadHardsuitBase
   id: ClothingHelmetHardsuitMAWCWeaver
   name: M-WC CS-8W Weaver helmet
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/MAWC/Clothing/Head/Hardsuits/weaver.rsi
@@ -22,6 +24,7 @@
   parent: ClothingHeadHardsuitBase
   id: ClothingHelmetHardsuitMAWCCarpenter
   name: M-WC LH-8 Carpenter helmet
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/MAWC/Clothing/Head/Hardsuits/carpenter.rsi
@@ -32,6 +35,7 @@
   parent: ClothingHeadHardsuitBase
   id: ClothingHelmetHardsuitMAWCTermite
   name: M-WC SS-11 Termite helmet
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/MAWC/Clothing/Head/Hardsuits/termite.rsi

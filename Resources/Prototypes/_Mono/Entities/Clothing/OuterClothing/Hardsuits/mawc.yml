@@ -26,6 +26,8 @@
   - type: ShieldLinkSource
     linkId: MAWC
     shieldBonusPerLink: 100
+  - type: ItemToggle
+    predictable: false
   - type: ToggleableClothing
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false
