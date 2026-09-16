@@ -661,7 +661,7 @@
         Structural: 200
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5 # Mono
-    baseSprintSpeed: 6.5 # Mono
+    baseSprintSpeed: 6 # Mono
     baseWeightlessModifier: 10.5 # Mono
   - type: Damageable
     damageModifierSet: MechArmorLight
