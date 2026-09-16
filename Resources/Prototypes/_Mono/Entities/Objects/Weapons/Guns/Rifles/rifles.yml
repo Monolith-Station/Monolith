@@ -537,7 +537,7 @@
     maxAngle: 155 #Effectively 115 if you spray and pray.
     angleIncrease: 8.0
     angleDecay: 30 # Higher decay due to way higher kick. 3 round burst is feasible close up. More is RNGesus.
-    damageModifier: 1.75 # 5HKO vs Medium Ballistic Vest
+    damageModifier: 1.5 # 189 DPS
   - type: ItemSlots
     slots:
       gun_magazine:
