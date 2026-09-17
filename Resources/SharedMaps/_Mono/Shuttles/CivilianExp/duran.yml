@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/17/2026 17:46:21
+  time: 09/17/2026 18:15:35
   entityCount: 428
 maps: []
 grids:
@@ -72,9 +72,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
+        Kudzu: []
         Puddle: []
         MetalFoam: []
-        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -109,7 +109,6 @@ entities:
             id: Dirt
           decals:
             210: -2,-3
-            323: -3,3
             355: 1,2
             356: 1,3
             357: 1,4
@@ -121,8 +120,13 @@ entities:
             212: 2,-3
             229: 4,2
             230: 6,-2
-            322: -1,1
             361: 0,4
+        - node:
+            zIndex: 2
+            color: '#FFFFFFFF'
+            id: DirtHeavy
+          decals:
+            393: -2,2
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -131,22 +135,33 @@ entities:
             214: -2,-1
             358: 2,1
         - node:
+            zIndex: 2
+            color: '#FFFFFFFF'
+            id: DirtHeavyMonotile
+          decals:
+            395: -2,4
+            396: -1,1
+        - node:
             zIndex: 1
             color: '#FFFFFFFF'
             id: DirtLight
           decals:
             211: 1,-1
             215: -1,-6
-            321: -2,2
             359: 0,2
             362: 0,1
+        - node:
+            zIndex: 2
+            color: '#FFFFFFFF'
+            id: DirtLight
+          decals:
+            394: -1,3
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
             id: DirtMedium
           decals:
             231: 6,0
-            320: -1,3
             360: 2,3
         - node:
             zIndex: 1
@@ -235,32 +250,27 @@ entities:
             351: 2,4
         - node:
             zIndex: 1
-            color: '#9FED5896'
+            color: '#474F52FF'
             id: ShiptestAltHalfTileOverlayGreyscale
           decals:
-            289: -2,1
-            290: -1,1
+            389: -2,1
+            390: -1,1
         - node:
             zIndex: 1
-            color: '#9FED5896'
+            color: '#474F52FF'
             id: ShiptestAltHalfTileOverlayGreyscale180
           decals:
-            291: -1,4
-            292: -2,4
+            391: -1,4
+            392: -2,4
         - node:
             zIndex: 1
-            color: '#9FED5896'
-            id: ShiptestHalfTileOverlayGreyscale
+            color: '#474F52FF'
+            id: ShiptestCheckerNWSE
           decals:
-            285: -2,3
-            286: -1,3
-        - node:
-            zIndex: 1
-            color: '#9FED5896'
-            id: ShiptestHalfTileOverlayGreyscale180
-          decals:
-            287: -1,2
-            288: -2,2
+            385: -2,3
+            386: -2,2
+            387: -1,3
+            388: -1,2
         - node:
             zIndex: 1
             color: '#808080FF'
@@ -270,12 +280,50 @@ entities:
             311: -1,0
             312: 0,0
         - node:
-            zIndex: 2
-            color: '#639137FF'
-            id: ShiptestSplineEast
+            zIndex: 3
+            color: '#C6FF91FF'
+            id: ShiptestOverlayTrimlineEast
           decals:
-            299: -1,2
-            300: -1,3
+            379: -1,3
+            380: -1,2
+        - node:
+            zIndex: 3
+            color: '#C6FF91FF'
+            id: ShiptestOverlayTrimlineNorthEast
+          decals:
+            369: -1,4
+        - node:
+            zIndex: 3
+            color: '#C6FF91FF'
+            id: ShiptestOverlayTrimlineNorthWest
+          decals:
+            368: -2,4
+            383: -3,3
+        - node:
+            zIndex: 3
+            color: '#C6FF91FF'
+            id: ShiptestOverlayTrimlineNorthWestCorner
+          decals:
+            382: -2,3
+        - node:
+            zIndex: 3
+            color: '#C6FF91FF'
+            id: ShiptestOverlayTrimlineSouthEast
+          decals:
+            372: -1,1
+        - node:
+            zIndex: 3
+            color: '#C6FF91FF'
+            id: ShiptestOverlayTrimlineSouthWest
+          decals:
+            363: -2,1
+            384: -3,2
+        - node:
+            zIndex: 3
+            color: '#C6FF91FF'
+            id: ShiptestOverlayTrimlineSouthWestCorner
+          decals:
+            381: -2,2
         - node:
             zIndex: 3
             color: '#755900FF'
@@ -313,12 +361,6 @@ entities:
             202: -1,-4
             319: -1,0
         - node:
-            zIndex: 2
-            color: '#639137FF'
-            id: ShiptestSplineNorthEast
-          decals:
-            296: -1,4
-        - node:
             zIndex: 3
             color: '#755900FF'
             id: ShiptestSplineNorthEast
@@ -330,12 +372,6 @@ entities:
             id: ShiptestSplineNorthEastCorner
           decals:
             197: -2,-4
-        - node:
-            zIndex: 2
-            color: '#639137FF'
-            id: ShiptestSplineNorthWest
-          decals:
-            295: -2,4
         - node:
             zIndex: 3
             color: '#755900FF'
@@ -364,12 +400,6 @@ entities:
             205: -1,-1
             318: -1,0
         - node:
-            zIndex: 2
-            color: '#639137FF'
-            id: ShiptestSplineSouthEast
-          decals:
-            293: -1,1
-        - node:
             zIndex: 3
             color: '#755900FF'
             id: ShiptestSplineSouthEast
@@ -381,12 +411,6 @@ entities:
             id: ShiptestSplineSouthEastCorner
           decals:
             196: -2,-1
-        - node:
-            zIndex: 2
-            color: '#639137FF'
-            id: ShiptestSplineSouthWest
-          decals:
-            294: -2,1
         - node:
             zIndex: 3
             color: '#755900FF'
@@ -406,13 +430,6 @@ entities:
           decals:
             117: 3,-2
             118: 3,-1
-        - node:
-            zIndex: 2
-            color: '#639137FF'
-            id: ShiptestSplineWest
-          decals:
-            297: -2,3
-            298: -2,2
         - node:
             zIndex: 3
             color: '#755900FF'
