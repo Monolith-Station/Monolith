@@ -386,31 +386,31 @@
 
 #Mercenary vulcan
 - type: entity
-  name: GS-006-A1 Ichord (7.62x39mm)
+  name: GS-006-B Zappy (7.62x39mm)
   parent: BaseWeaponRifle
   id: WeaponRifleIchordT1
-  description: The GS "Ichord" Light combat rifle in 7.62x39mm, made with aftermarket parts. Has a lower rate of fire, but packs more of a punch.
+  description: The GS "Zappy" Medium combat rifle in 7.62x39mm, this iteration comes with a nanite applicator, it's awkward to hold, however.
   components:
   - type: Item
     size: Large
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/ichord_inhands_32x.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/zappy_inhands_32x.rsi
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/ichord.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/zappy.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: GunWieldBonus
-    minAngle: -35 # Base version, most pinpoint.
-    maxAngle: -50
+    minAngle: -35
+    maxAngle: -60
   - type: Gun
     minAngle: 35
-    maxAngle: 65
-    angleIncrease: 1.6
-    angleDecay: 24
+    maxAngle: 75 # 15 degrees max if two handed
+    angleIncrease: 3
+    angleDecay: 20 #Middleish in terms of accuracy, helpful gimmick but nothing special
     fireRate: 3.5 #210 RPM
-    selectedMode: Fullauto
+    selectedMode: FullAuto
     availableModes:
     - SemiAuto
     - Fullauto
@@ -446,35 +446,6 @@
     slots:
     - Back
     - suitStorage
-  - type: StaticPrice
-    price: 1200
-    vendPrice: 30000
-
-- type: entity
-  name: GS-006-B Zappy (7.62x39mm)
-  parent: WeaponRifleIchordT1
-  id: WeaponRifleIchordT2
-  description: The GS "Zappy" Medium combat rifle in 7.62x39mm, this iteration comes with a nanite applicator, it's awkward to hold, however.
-  components:
-  - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/zappy.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: GunWieldBonus
-    minAngle: -35
-    maxAngle: -60
-  - type: Gun
-    minAngle: 35
-    maxAngle: 75 # 15 degrees max if two handed
-    angleIncrease: 3
-    angleDecay: 20 #Middleish in terms of accuracy, helpful gimmick but nothing special
-    selectedMode: FullAuto
-    availableModes:
-    - SemiAuto
-    - Fullauto
   - type: Tool
     qualities:
     - Applicating
@@ -514,8 +485,8 @@
 
 - type: entity
   name: GS-006-A2 Cyclops (7.62x51mm)
-  parent: WeaponRifleIchordT1
-  id: WeaponRifleIchordT3
+  parent: BaseWeaponRifle
+  id: WeaponRifleIchordT2
   description: The GS "Cyclops" Heavy combat rifle in 7.62x51mm, this third iteration comes with a reinforced barrel and a threading point for grenades but is also the clumsiest. Time your shots.
   components:
   - type: Item
@@ -537,7 +508,10 @@
     maxAngle: 155 #Effectively 115 if you spray and pray.
     angleIncrease: 8.0
     angleDecay: 30 # Higher decay due to way higher kick. 3 round burst is feasible close up. More is RNGesus.
+    fireRate: 3.5 #210 RPM
     damageModifier: 1.5 # 189 DPS
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_3.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -558,6 +532,11 @@
           tags:
           - Cartridge762x51mmFMJ
           - GrenadeLaunchable # PLUNK
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
   - type: GunRequiresWield
   - type: ESItemMapper
     mappings:

@@ -248,27 +248,14 @@
   - Ballistic
   - Weapons
   materials:
-    Steel: 1200
-    Plasteel: 1000
-    Plastic: 900
-
-- type: latheRecipe
-  parent: BaseWeaponRecipeLong
-  id: WeaponRifleIchordT2
-  result: WeaponRifleIchordT2
-  categories:
-  - Rifles
-  - Ballistic
-  - Weapons
-  materials:
     Steel: 3500
     Plasteel: 2000
     Plastic: 1200
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
-  id: WeaponRifleIchordT3
-  result: WeaponRifleIchordT3
+  id: WeaponRifleIchordT2
+  result: WeaponRifleIchordT2
   categories:
   - Rifles
   - Ballistic
