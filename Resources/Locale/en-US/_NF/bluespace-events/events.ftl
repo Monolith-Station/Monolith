@@ -10,9 +10,9 @@ station-event-bluespace-scrap-end-announcement = Critical bluespace instability 
 station-event-bluespace-vault-start-announcement = A Solarian armored supply-vault is inbound to the sector. The TSFMC may declare the vault a restricted No Fly Zone. Station accounts will be rewarded for its safe return.
 station-event-bluespace-vault-warning-announcement = Remote FTL procedures initialized, five minutes until vault extraction.
 station-event-bluespace-vault-end-announcement = We have retrieved the vault from this area of Colossus space. TSFMC accounts have been subsidized.
-station-event-bluespace-cache-start-announcement = A Syndicate weapons cache is inbound to the sector. The TSFMC may declare the cache a No Fly Zone. Station accounts will be rewarded for guarding the cache.
+station-event-bluespace-cache-start-announcement = An ancient weapons cache is inbound to the sector. The TSFMC may declare the cache a No Fly Zone. Station accounts will be rewarded for guarding the cache.
 station-event-bluespace-cache-warning-announcement = Remote FTL procedures initialized, five minutes until weapons cache extraction.
-station-event-bluespace-cache-end-announcement = We have retrieved the Syndicate weapons cache from your sector. Station accounts have been paid.
+station-event-bluespace-cache-end-announcement = We have retrieved the weapons cache from your sector. Station accounts have been paid.
 
 station-event-bluespace-asteroid-start-announcement = Long range scans indicate an unusually large asteroid entering the sector. Prospectors should divert operations for maximum profit potential.
 station-event-bluespace-asteroid-warning-announcement = Bluespace instability detected on asteroid, five minutes until estimated departure.
@@ -22,9 +22,9 @@ station-event-bluespace-ship-start-announcement = We have detected an unusual FT
 station-event-bluespace-ship-warning-announcement = Remote FTL procedures initialized, five minutes until ship dissipation.
 station-event-bluespace-ship-end-announcement = In compliance with FTL traffic patterns, the unknown ship has been dissipated to ensure non-collision.
 
-station-event-bluespace-syndicate-ftl-interception-start-announcement = Attention all available TSF personnel! TSF-NC has disrupted the FTL-jump of a syndicate-aligned vessel, according to our deepspace scanners the vessel either already entered the real space in your sector or is about to enter. Code AAEDD: Analyze, Annihilate, Eliminate, Decimate, Destroy. Expect armed opposition, use of lethal force against enemy agents is authorized. Do note: any loss of TSF personnel will not be compensated. Reminder: Personnel who are granted security clearance for the engagement are required to surrender any hazardous materials to the local security department to ensure safe transportation of Syndicate technology to the Central Government for study. Should there be any prisoners, security personnel is required to prepare them for transportation to the Central Government for interrogation through the TSF Contraband Exchange System (TSFCES).
-station-event-bluespace-syndicate-ftl-interception-warning-announcement = Remote FTL procedures initialized, five minutes until Syndicate vessel dissipation.
-station-event-bluespace-syndicate-ftl-interception-end-announcement = To ensure safer passage in FTL traffic patterns, the Syndicate vessel has been dissipated to ensure non-collision.
+station-event-bluespace-syndicate-ftl-interception-start-announcement = Attention all available TSF personnel! TSF-NC has disrupted the FTL-jump of an undocumented vessel, according to our deepspace scanners the vessel either already entered the real space in your sector or is about to enter. Code AAEDD: Analyze, Annihilate, Eliminate, Decimate, Destroy. Expect armed opposition, use of lethal force against enemy agents is authorized. Do note: any loss of TSF personnel will not be compensated. Reminder: Personnel who are granted security clearance for the engagement are required to surrender any hazardous materials to the local security department to ensure safe transportation of wayward technology to the Central Government for study. Should there be any prisoners, security personnel is required to prepare them for transportation to the Central Government for interrogation through the TSF Contraband Exchange System (TSFCES).
+station-event-bluespace-syndicate-ftl-interception-warning-announcement = Remote FTL procedures initialized, five minutes until undocumented vessel dissipation.
+station-event-bluespace-syndicate-ftl-interception-end-announcement = To ensure safer passage in FTL traffic patterns, the undocumented vessel has been dissipated to ensure non-collision.
 
 station-event-bluespace-wizardfederation-scout-start-announcement = Attention all available TSF personnel! TSF-NC detected a Bluespace Anomaly in your sector with the signature indicative of the imminent arrival of a small Wizard Federation vessel. Code: Intercept, Detain, Incarcerate. Arrest the intruders and prepare them for transportation to the Central Government for interrogation through the TSF Contraband Exchange System (TSFCES).
 station-event-bluespace-wizardfederation-scout-warning-announcement = Remote FTL procedures initialized, five minutes until Wizard Federation vessel dissipation.
@@ -42,4 +42,4 @@ station-event-bluespace-name-BrokenMcDelivery = McDelivery
 station-event-bluespace-name-Cave = Cave
 station-event-bluespace-name-UnidentifiedVessel = Unidentified Vessel
 station-event-bluespace-name-SecureNTVault = Secure Solarian Vault
-station-event-bluespace-name-SyndicateWeaponsCache = Syndicate Weapons Cache
+station-event-bluespace-name-SyndicateWeaponsCache = Ancient Weapons Cache

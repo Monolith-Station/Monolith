@@ -675,7 +675,7 @@
   parent: [BaseStructureIndestructible, BaseComputerAiAccess] # Frontier: added BaseStructureIndestructible
   id: ComputerId
   name: ID card computer
-  description: Terminal for programming Nanotrasen employee ID cards to access parts of the station.
+  description: Terminal for programming common ID cards with accesses, based off of a different input keycard. Critical for compartmentalization of organizations.
   components:
   - type: IdCardConsole
     privilegedIdSlot:
