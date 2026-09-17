@@ -780,6 +780,9 @@
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_west
   - type: RequiresGrid
+  - type: Tag
+    tags:
+    - HZFlattenableTerrain
 
 # Mono
 - type: entity

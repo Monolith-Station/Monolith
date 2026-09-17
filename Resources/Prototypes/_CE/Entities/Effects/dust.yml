@@ -16,3 +16,19 @@
       - HideContextMenu
   - type: TimedDespawn
     lifetime: 0.5
+
+- type: entity
+  id: CEDustTileEffect
+  name: dust effect
+  suffix: VFX
+  categories: [ ForkFiltered ]
+  components:
+  - type: Transform
+  - type: Sprite
+    sprite: _CE/Effects/dust.rsi
+    snapCardinals: true
+    layers:
+    - state: dust
+    drawdepth: Effects
+  - type: TimedDespawn
+    lifetime: 0.5
