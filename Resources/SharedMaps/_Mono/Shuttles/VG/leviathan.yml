@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/16/2026 16:27:47
-  entityCount: 3100
+  time: 09/17/2026 02:51:54
+  entityCount: 3104
 maps: []
 grids:
 - 1
@@ -438,10 +438,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        Smoke: []
         Puddle: []
         MetalFoam: []
         Kudzu: []
-        Smoke: []
       updateAccumulator: 0.39827442
     - type: Shuttle
       dampingModifier: 0.25
@@ -9986,6 +9986,26 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#9955CCFF'
+  - uid: 3101
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -6.5,5.5
+      parent: 1
+    - type: AtmosPipeLayers
+      pipeLayer: Secondary
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 3102
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,5.5
+      parent: 1
+    - type: AtmosPipeLayers
+      pipeLayer: Secondary
+    - type: AtmosPipeColor
+      color: '#990000FF'
 - proto: GasPipeBend
   entities:
   - uid: 526
@@ -10387,22 +10407,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,5.5
-      parent: 1
-    - type: AtmosPipeColor
-      color: '#990000FF'
-  - uid: 2111
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -4.5,5.5
-      parent: 1
-    - type: AtmosPipeColor
-      color: '#990000FF'
-  - uid: 2112
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 5.5,5.5
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
@@ -12677,6 +12681,22 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
+  - uid: 3103
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,5.5
+      parent: 1
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 3104
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -5.5,5.5
+      parent: 1
+    - type: AtmosPipeColor
+      color: '#990000FF'
 - proto: GasPipeTJunction
   entities:
   - uid: 901
@@ -12999,6 +13019,22 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -3.5,4.5
+      parent: 1
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 2111
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -4.5,5.5
+      parent: 1
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 2112
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,5.5
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
