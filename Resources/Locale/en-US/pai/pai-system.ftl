@@ -6,8 +6,8 @@ pai-system-searching = Now searching for a pAI...
 pai-system-role-name = Personal AI
 pai-system-role-description = Be someone's electronic pal!
                               (Memories *not* included.)
-pai-system-role-name-syndicate = Syndicate Personal AI
-pai-system-role-description-syndicate = Be someone's Syndicate pal!
+pai-system-role-name-syndicate = Ancient Personal AI
+pai-system-role-description-syndicate = Be someone's pal!
                                         (Memories *not* included.)
 pai-system-role-name-potato = Potato Artificial Intelligence
 pai-system-role-description-potato = It's a toy for children. And now you live in it.

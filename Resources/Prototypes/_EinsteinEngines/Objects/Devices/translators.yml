@@ -81,7 +81,7 @@
   id: BubblishTranslator
   parent: [ TranslatorPoweredBase ]
   name: Bubblish translator
-  description: Translates speech between Bubblish and Galactic Common, helping communicate with slimes and slime people.
+  description: Translates speech between Bubblish and Orion Standard, helping communicate with slimes and slime people.
   components:
   - type: HandheldTranslator
     spoken:
@@ -98,7 +98,7 @@
   id: NekomimeticTranslator
   parent: [ TranslatorPoweredBase ]
   name: Nekomimetic translator
-  description: Translates speech between Nekomimetic and Galactic Common, enabling you to communicate with your pet cats.
+  description: Translates speech between Nekomimetic and Orion Standard, enabling you to communicate with your pet cats.
   components:
   - type: HandheldTranslator
     spoken:
@@ -115,7 +115,7 @@
   id: DraconicTranslator
   parent: [ TranslatorPoweredBase ]
   name: Sinta'Unathi translator
-  description: Translates speech between Sinta'Unathi and Tau-Ceti Basic, making it easier to understand your local Unathi.
+  description: Translates speech between Sinta'Unathi and Orion Standard, making it easier to understand your local Unathi.
   components:
   - type: HandheldTranslator
     spoken:
@@ -131,8 +131,8 @@
 - type: entity
   id: SolCommonTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Sol Common translator
-  description: Translates speech between Sol Common and Galactic Common. Like a true Earthman!
+  name: Persean Esperanto translator
+  description: Translates speech between Persean and Orion Standard.
   components:
   - type: HandheldTranslator
     spoken:
@@ -149,7 +149,7 @@
   id: NovuNedericTranslator
   parent: [ TranslatorPoweredBase ]
   name: Novu-Nederic translator
-  description: Translates speech between Novu-Nederic and Galactic Common. Like a true Earthman!
+  description: Translates speech between Novu-Nederic and Orion Standard.
   components:
   - type: HandheldTranslator
     spoken:
@@ -166,7 +166,7 @@
   id: RootSpeakTranslator
   parent: [ TranslatorPoweredBase ]
   name: RootSpeak translator
-  description: Translates speech between RootSpeak and Galactic Common. You may now speak for the trees.
+  description: Translates speech between RootSpeak and Orion Standard. You may now speak for the trees.
   components:
   - type: HandheldTranslator
     spoken:
@@ -183,7 +183,7 @@
   id: MofficTranslator
   parent: [ TranslatorPoweredBase ]
   name: Moffic translator
-  description: Translates speech between Moffic and Galactic Common, helping you understand the buzzes of your pet mothroach!
+  description: Translates speech between Moffic and Orion Standard, helping you understand the buzzes of your pet mothroach!
   components:
   - type: HandheldTranslator
     spoken:
@@ -200,7 +200,7 @@
   id: XenoTranslator
   parent: [ TranslatorPoweredBase ]
   name: Xeno translator
-  description: Translates speech between Xeno and Galactic Common. This will probably not help you survive an encounter, though.
+  description: Translates speech between Xeno and Orion Standard. This will probably not help you survive an encounter, though.
   components:
   - type: HandheldTranslator
     spoken:
@@ -243,7 +243,7 @@
   id: ValyrianStandardTranslator
   parent: [ TranslatorPoweredBase ]
   name: Valyrian Standard translator
-  description: Translates speech between Valyrian Standard and Tau-Ceti Basic. For talking to Harpies!
+  description: Translates speech between Valyrian Standard and Orion Standard. For talking to Harpies!
   components:
   - type: HandheldTranslator
     spoken:
@@ -277,7 +277,7 @@
   id: ChittinTranslator
   parent: [ TranslatorPoweredBase ]
   name: Chittin translator
-  description: Translates speech between Chittin and Tau-Ceti Basic. For talking to Chitinids!
+  description: Translates speech between Chittin and Orion Standard. For talking to Chitinids!
   components:
   - type: HandheldTranslator
     spoken:
@@ -294,7 +294,7 @@
   id: SiikMaasTranslator
   parent: [ TranslatorPoweredBase ]
   name: Siik'maas translator
-  description: Translates speech between Siik'maas and Tau-Ceti Basic. For talking to Tajara!
+  description: Translates speech between Siik'maas and Orion Standard. For talking to Tajara!
   components:
   - type: HandheldTranslator
     spoken:
@@ -311,7 +311,7 @@
   id: MarishTranslator
   parent: [ TranslatorPoweredBase ]
   name: Marish translator
-  description: Translates speech between Marish and Tau-Ceti Basic. For talking to Shadowkin!
+  description: Translates speech between Marish and Orion Standard. For talking to Shadowkin!
   components:
   - type: HandheldTranslator
     spoken:

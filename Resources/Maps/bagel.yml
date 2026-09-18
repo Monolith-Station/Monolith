@@ -109522,7 +109522,7 @@ entities:
   - uid: 6206
     components:
     - type: MetaData
-      desc: A standard-issue Nanotrasen storage unit, containing 4 laser carbines.
+      desc: A standard-issue storage unit, containing 4 laser carbines.
     - type: Transform
       anchored: True
       pos: -26.5,1.5
@@ -109563,7 +109563,7 @@ entities:
   - uid: 1561
     components:
     - type: MetaData
-      desc: A standard-issue Nanotrasen storage unit, containing 4 Mk58 pistols.
+      desc: A standard-issue storage unit, containing 4 Mk58 pistols.
     - type: Transform
       anchored: True
       pos: -28.5,-1.5
@@ -109575,7 +109575,7 @@ entities:
   - uid: 10682
     components:
     - type: MetaData
-      desc: A standard-issue Nanotrasen storage unit, containing 2 Lecter combat rifles.
+      desc: A standard-issue storage unit, containing 2 Lecter combat rifles.
     - type: Transform
       anchored: True
       pos: -28.5,0.5
@@ -109587,7 +109587,7 @@ entities:
   - uid: 6367
     components:
     - type: MetaData
-      desc: A standard-issue Nanotrasen storage unit, containing 2 Kammerer shotguns.
+      desc: A standard-issue storage unit, containing 2 Kammerer shotguns.
     - type: Transform
       anchored: True
       pos: -25.5,1.5
@@ -109599,7 +109599,7 @@ entities:
   - uid: 1968
     components:
     - type: MetaData
-      desc: A standard-issue Nanotrasen storage unit, containing 2 Drozd submachine guns.
+      desc: A standard-issue storage unit, containing 2 Drozd submachine guns.
     - type: Transform
       anchored: True
       pos: -28.5,-0.5
@@ -114970,7 +114970,7 @@ entities:
     components:
     - type: MetaData
       desc: This poster looks like it was hastily put up to cover something.
-      name: Suspiciously Placed Nanotrasen Poster
+      name: Suspiciously Placed Poster
     - type: Transform
       pos: -1.5,-9.5
       parent: 60

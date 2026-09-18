@@ -1,0 +1,12 @@
+- type: entity
+  id: GalaxyMap
+  parent: BaseItem
+  suffix: For Guidebook Use
+  #categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Interface/Guidebook/galaxymap.rsi
+    state: galaxymap
+  - type: Icon
+    sprite: _Mono/Interface/Guidebook/galaxymap.rsi
+    state: galaxymap

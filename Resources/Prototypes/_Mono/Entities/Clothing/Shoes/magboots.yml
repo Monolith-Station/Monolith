@@ -25,7 +25,7 @@
 - type: entity
   parent: [ ClothingShoesBootsMagAdv, BaseFactionGearOtherFactionT2 ]
   id: ClothingShoesBootsMagAsakim
-  name: pre-fracture magboots
+  name: hyper magboots
   description: State-of-the-art magnetic boots made for combat with advanced harnesses.
   components:
   - type: FootstepModifier
@@ -50,7 +50,7 @@
   parent: [ ClothingShoesBootsMagAdv, BaseFactionGearPDVT2, BaseJetpack ]
   id: ClothingShoesBootsMagPDVAdvanced
   name: advanced tactical magboots
-  description: Experimental high tech magboots, reverse engineered from the remnants of Pre-fracture technology. These sets are only found in hands of the Dynasty's most valued soldiers.
+  description: Experimental high tech magboots, reverse engineered from technology harvested from the Colossus Radius. These sets are only found in hands of the Dynasty's most valued soldiers.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Shoes/Boots/magboots-ashen.rsi
