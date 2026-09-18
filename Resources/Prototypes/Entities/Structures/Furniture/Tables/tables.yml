@@ -203,6 +203,50 @@
     node: Table
 
 - type: entity
+  id: TableBlack
+  parent: TableBase
+  name: table
+  description: A square piece of metal standing on four metal legs.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/genericblack.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/genericblack.rsi
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 125
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: metaltable
+    base: state_
+  - type: Construction
+    graph: Table
+    node: TableBlack
+
+- type: entity
   id: TableReinforced
   parent: TableBase
   name: reinforced table
@@ -248,6 +292,24 @@
       types:
         Blunt: 8
     bonkTime: 3
+
+- type: entity
+  id: TableReinforcedBlack
+  parent: TableReinforced
+  name: reinforced table
+  description: A square piece of metal standing on four metal legs. Extra robust.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/reinforcedblack.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/reinforcedblack.rsi
+  - type: IconSmooth
+    key: metalreinforcedtable
+  - type: Construction
+    graph: Table
+    node: TableReinforcedBlack
+  - type: Climbable
+
 
 - type: entity
   id: TableGlass
@@ -356,6 +418,25 @@
   - type: Construction
     graph: Table
     node: TableReinforcedGlass
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepTile
+
+- type: entity
+  id: TableReinforcedGlassBlack
+  parent: TableReinforcedGlass
+  name: reinforced glass table
+  description: A square piece of glass, standing on four metal legs. Extra robust.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/r_glassblack.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/r_glassblack.rsi
+  - type: IconSmooth
+    key: reinforcedglasstable
+  - type: Construction
+    graph: Table
+    node: TableReinforcedGlassBlack
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
