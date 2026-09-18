@@ -17,6 +17,11 @@
     recoilIncreaseModifier: 1.0
     minSpreadModifier: 1.0
     maxSpreadModifier: 1.0
+    # REMEMBER TO DO INVERSE FOR THESE! 50 - (20 * 0.05) IS MAKING YOUR GUN WORSE, NOT BETTER!
+    wieldRecoilRecoveryModifier: 1.0
+    wieldRecoilIncreaseModifier: 1.0
+    wieldMinSpreadModifier: 1.0
+    wieldMaxSpreadModifier: 1.0
   - type: Tag
     tags:
     - MonoGrip

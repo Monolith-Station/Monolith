@@ -808,8 +808,8 @@
 - type: entity
   parent: ComputerComms
   id: SyndicateComputerComms
-  name: syndicate communications computer
-  description: A computer capable of remotely hacking into the station's communications systems. Using this to make an announcement will alert the station to your presence.
+  name: ancient communications computer # mono
+  description: An old telecomms interface, capable of sending a message across most radio frequencies using connected broadcasting equipment. People will definitely hear you use this. # mono
   components:
   - type: Sprite
     layers:
@@ -818,7 +818,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: comm_syndie
+      state: comm
     - map: ["computerLayerKeys"]
       state: syndie_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
@@ -827,16 +827,16 @@
     access: [[ "NuclearOperative" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-nukie
-    color: "#ff0000"
+    color: "#ba6363" # mono
     canShuttle: false
-    global: true #announce to everyone they're about to fuck shit up
-    sound: /Audio/Announcements/war.ogg
+    global: true
+    sound: /Audio/_Mono/Effects/Alerts/spo15_launch.ogg # mono
   - type: Computer
     board: SyndicateCommsComputerCircuitboard
   - type: PointLight
     radius: 1.5
     energy: 1.6
-    color: "#f71713"
+    color: "#ba6363"
 
 - type: entity
   parent: ComputerComms

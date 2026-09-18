@@ -192,7 +192,7 @@
   name: floodlight
   id: Floodlight
   parent: BaseLamp
-  description: A pole with powerful mounted lights on it.
+  description: A pole with powerful mounted lights on it. Doesn't consume power, but does require a battery to be present.
   components:
   - type: Item
     size: Normal
@@ -219,7 +219,7 @@
     radius: 8
     energy: 5
   - type: HandheldLight
-    wattage: 0.3 # Mono
+    wattage: 0 # Mono
   - type: ItemSlots
     slots:
       cell_slot:

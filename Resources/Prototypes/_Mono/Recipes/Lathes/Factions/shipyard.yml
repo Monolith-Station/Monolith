@@ -131,11 +131,6 @@
   result: ShipVoucherPdvT0
   completetime: 30
   materials:
-    Steel: 2000
-    Copper: 1500
-    Plasteel: 2500
-    Glass: 1500
-    Plasma: 2500
     PdvComposite: 500
 
 - type: latheRecipe
@@ -144,16 +139,7 @@
   result: ShipVoucherPdvT1
   completetime: 50
   materials:
-    Steel: 2500
-    Copper: 2500
-    Plasteel: 2500
-    Lithium: 2500
-    Glass: 2500
-    Plasma: 2500
-    Gold: 2500
-    Silver: 2500
-    UraniumDepleted: 500
-    PdvComposite: 1000
+    PdvComposite: 3000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -161,48 +147,21 @@
   result: ShipVoucherPdvT2
   completetime: 100
   materials:
-    Steel: 5000
-    Copper: 5000
-    Plasteel: 5000
-    Lithium: 5000
-    Glass: 5000
-    Plasma: 5000
-    Gold: 5000
-    Silver: 5000
-    UraniumDepleted: 1000
-    UraniumFissile: 250
-    PdvComposite: 2000
+    PdvComposite: 5500
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
   id: SaintieVoucherRogue
   result: ShipVoucherSaintie
   materials:
-    Steel: 30000
-    Plasteel: 20000
-    Plastic: 30000
-    Glass: 5000
-    Plasma: 5000
-    UraniumFissile: 600
-    UraniumDepleted: 4000
-    Silver: 5000
-    Gold: 5000
-    PdvComposite: 2000
+    PdvComposite: 12000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
   id: KortikVoucherRogue
   result: ShipVoucherKortik
   materials:
-    Steel: 30000
-    Plasteel: 50000
-    Plastic: 20000
-    Glass: 5000
-    Plasma: 5000
-    UraniumFissile: 400
-    UraniumDepleted: 2000
-    Silver: 3000
-    Gold: 3000
+    PdvComposite: 12000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -210,16 +169,7 @@
   result: ShipVoucherSaturn
   completetime: 10
   materials:
-    Steel: 50000
-    Plasteel: 50000
-    Plastic: 6000
-    Glass: 6000
-    Plasma: 5000
-    UraniumFissile: 1000
-    UraniumDepleted: 5000
-    Silver: 7000
-    Gold: 7000
-    PdvComposite: 6000
+    PdvComposite: 23000
 
 # Viper Group
 

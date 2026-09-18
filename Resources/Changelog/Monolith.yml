@@ -24805,3 +24805,142 @@ Entries:
   id: 2714
   time: '2026-09-12T20:32:47.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4687
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The blacklist for deposit boxes has once again been expanded
+        significantly in order to reduce the potential angles for abuse.
+  id: 2715
+  time: '2026-09-13T23:18:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4696
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        Added material crates to the TSF uplink, for converting FMC into
+        materials.
+    - type: Remove
+      message: >-
+        Removed (non)lethal armory fill crates from the TSF uplink since they
+        contain outdated gear.
+  id: 2716
+  time: '2026-09-13T23:18:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4694
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: Helios now spawns much further out.
+    - type: Tweak
+      message: >-
+        Helios has been equipped with drone repellant, effective up to 5
+        kilometres.
+  id: 2717
+  time: '2026-09-14T00:15:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4697
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Jupiter now actually no longer spawns.
+  id: 2718
+  time: '2026-09-14T19:36:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4680
+- author: Mapleflavoureds
+  changes:
+    - type: Tweak
+      message: FTL lock distance 512 -> 1536
+  id: 2719
+  time: '2026-09-14T20:11:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4604
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Buffed the reward for defending a Solarian Vault even further to 250
+        FMC.
+  id: 2720
+  time: '2026-09-14T20:52:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4701
+- author: Onezero0
+  changes:
+    - type: Fix
+      message: Removed outdated industry guidebook pages.
+  id: 2721
+  time: '2026-09-14T20:52:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4695
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The PDV have developed specialised overwatch jammers in the interest of
+        keeping Helios hidden. They are now purchaseable from the PDV uplink for
+        1 DC.
+  id: 2722
+  time: '2026-09-14T20:54:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4700
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: >-
+        12 and 4 gauge flares can now be purchased or made through draconic
+        munitions research
+    - type: Tweak
+      message: shotgun flares toned down from a radius of 15 tiles.
+  id: 2723
+  time: '2026-09-14T20:55:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4699
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Attachments now affect wielded and base accuracy stats independently.
+        Most attachments don't apply most of their buffs when unwielded now
+        (such as VFG or scopes). Wielded stats are close to old values for them
+        though. Death to the one handed Lecter w/ PRL.
+    - type: Fix
+      message: >-
+        Fixed any and all cases where wielding a weapon could bring it's
+        minimum/maximum angles into the negatives.
+  id: 2724
+  time: '2026-09-14T21:00:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4703
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: PDV ship LPCs, and T2+ guns and suits can no longer be researched.
+    - type: Remove
+      message: PDV Helios no longer starts with LPCs.
+    - type: Add
+      message: >-
+        PDV tier 2 and above gear has been added to the uplink, as well as some
+        missing ammo.
+    - type: Add
+      message: Telescopic shields have been added to the PDV uplink.
+    - type: Tweak
+      message: The DC costs of PDV ship LPCs have been drastically increased.
+  id: 2725
+  time: '2026-09-14T23:42:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4659
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        Floodlights no longer consume power. They still need a power cell to
+        work though.
+  id: 2726
+  time: '2026-09-15T21:59:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4705
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Fultons! Now with 200m distance limit.
+  id: 2727
+  time: '2026-09-16T23:36:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4713
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: '"Syndicate" announcement console has been MOGGED.'
+  id: 2728
+  time: '2026-09-17T00:54:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4714
