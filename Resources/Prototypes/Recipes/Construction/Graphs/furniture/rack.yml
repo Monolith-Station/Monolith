@@ -26,14 +26,3 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: RackBlack
-      entity: RackBlack
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetSteel1
-              amount: 2
-          steps:
-            - tool: Screwing
-              doAfter: 1

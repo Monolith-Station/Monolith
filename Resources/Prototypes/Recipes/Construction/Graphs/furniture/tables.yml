@@ -31,7 +31,6 @@
               amount: 1
               doAfter: 1
 
-
     - node: TableFrame
       entity: TableFrame
       edges:
@@ -52,7 +51,7 @@
 
         - to: TableBlack
           steps:
-            - material: Steel
+            - material: FloorCarpetBlack
               amount: 1
               doAfter: 1
 
@@ -66,10 +65,7 @@
 
         - to: TableReinforcedBlack
           steps:
-            - material: Plasteel
-              amount: 1
-              doAfter: 1
-            - tool: Welding
+            - tool: Screwing
               doAfter: 3
 
         - to: TableGlass
@@ -86,9 +82,8 @@
 
         - to: TableReinforcedGlassBlack
           steps:
-            - material: ReinforcedGlass
-              amount: 1
-              doAfter: 1
+            - tool: Cutting
+              doAfter: 3
 
         - to: TablePlasmaGlass
           steps:
