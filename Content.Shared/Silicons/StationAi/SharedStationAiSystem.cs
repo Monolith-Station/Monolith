@@ -348,7 +348,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         // TODO: Tryqueuedel
         if (_net.IsClient)
             return;
-
+        
+        SwitchRemoteEntityMode(ent, false); // Switch back to core before leaving, or next ghost will be in darkness.
         QueueDel(ent.Comp.RemoteEntity);
         ent.Comp.RemoteEntity = null;
     }
