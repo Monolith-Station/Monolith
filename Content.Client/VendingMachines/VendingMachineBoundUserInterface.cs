@@ -4,6 +4,7 @@ using Content.Shared.VendingMachines;
 using Robust.Client.UserInterface;
 using Robust.Shared.Input;
 using System.Linq;
+using Content.Shared._Mono.Economy.Component; // Mono
 using Robust.Client.GameObjects;
 using Content.Shared._NF.Bank.Components; // Frontier
 using Content.Shared.Containers.ItemSlots; // Frontier
@@ -57,10 +58,10 @@ namespace Content.Client.VendingMachines
                 _menu.Title = Loc.GetString("vending-machine-nf-fallback-title");
             // End Frontier: no exceptions
             _menu.OnItemSelected += OnItemSelected;
-            Refresh();
+            Update();
         }
 
-        public void Refresh()
+        public override void Update()
         {
             var system = EntMan.System<VendingMachineSystem>();
             _cachedInventory = system.GetAllInventory(Owner);
@@ -73,11 +74,12 @@ namespace Content.Client.VendingMachines
                     _balance = bank.Balance;
             }
             int? cashSlotValue = null;
-            if (EntMan.TryGetComponent<VendingMachineComponent>(Owner, out var vendingMachine))
+            if (EntMan.TryGetComponent<VendingMachineComponent>(Owner, out var vendingMachine) // Mono start - Seperation of Cash from VendingMachineComp
+                && EntMan.TryGetComponent<CreditReceiverComponent>(Owner, out var creditReceiver))
             {
-                _cashSlotBalance = vendingMachine.CashSlotBalance;
+                _cashSlotBalance = creditReceiver.CashSlotBalance;
                 _requiresCash = vendingMachine.RequiresCash; // mono
-                if (vendingMachine.CashSlotName != null)
+                if (creditReceiver.CashSlotName != null) // Mono end
                     cashSlotValue = _cashSlotBalance;
             }
             else
