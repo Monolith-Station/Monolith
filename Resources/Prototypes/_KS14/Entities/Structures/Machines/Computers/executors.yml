@@ -1,0 +1,36 @@
+- type: entity
+  parent: BaseComputer
+  id: ComputerExecutor
+  name: executor
+  description: Computer for executing packet commands. Made for heavy-duty automation.
+  components:
+  - type: ActivatableUI
+    key: enum.ExecutorUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.ExecutorUiKey.Key:
+          type: ExecutorBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+  - type: PacketExecutor
+    modules:
+    - BasePacketModule
+    - LathePacketModule
+    - NetworkPacketModule
+    - FaxPacketModule
+  - type: PacketNetwork
+    frequency: ExecutorFrequency
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerExecutorFlatpack
+  name: executor flatpack
+  description: A flatpack used for constructing an executor.
+  components:
+  - type: Flatpack
+    entity: ComputerExecutor
+  - type: Sprite
+    layers:
+    - state: fax-machine
+  - type: StaticPrice
+    price: 6450
