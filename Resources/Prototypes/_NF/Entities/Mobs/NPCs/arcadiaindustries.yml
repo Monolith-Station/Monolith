@@ -81,10 +81,10 @@
 - type: entity
   name: Hijacked Hologuardian
   id: MobArcIndHoloparasiteGuardian
-  parent: 
+  parent:
   - SimpleSpaceMobBase
   #- MobArcIndTimedDespawn
-  description: A syndicate hologuardian that seems to have been modified by unknown means.
+  description: A hologuardian that seems to have been modified by unknown means.
   components:
     - type: Sprite
       drawdepth: Mobs
@@ -137,7 +137,7 @@
 
 - type: entity
   name: Mobile Blaster Unit
-  parent: 
+  parent:
   - SimpleSpaceMobBase
   #- MobArcIndTimedDespawn
   id: MobArcIndBlaster

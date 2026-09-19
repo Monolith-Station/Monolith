@@ -52,8 +52,8 @@
 - type: entity
   id: BannerNanotrasen
   parent: BannerBase
-  name: nanotrasen banner
-  description: A banner displaying the Nanotrasen logo. It looks rather cheap.
+  name: old banner
+  description: A banner displaying some old logo. It looks rather cheap.
   components:
   - type: Sprite
     sprite: _NF/Structures/Decoration/banner.rsi # Frontier - unique sprites

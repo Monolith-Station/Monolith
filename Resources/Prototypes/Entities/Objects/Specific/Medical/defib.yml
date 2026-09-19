@@ -37,9 +37,9 @@
     - type: UseDelay
     - type: StaticPrice
       price: 30
-    - type: GuideHelp
-      guides:
-      - MedicalDoctor
+    #- type: GuideHelp
+    #  guides:
+    #  - MedicalDoctor
     - type: LanguageSpeaker # Einstein Engines - Language
     - type: LanguageKnowledge # Einstein Engines - Language
       speaks:

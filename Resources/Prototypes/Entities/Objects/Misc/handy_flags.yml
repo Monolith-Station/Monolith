@@ -13,8 +13,8 @@
 - type: entity
   parent: [BaseItem, RecyclableItemClothSmall, BaseFactionGearOtherFactionT1] # Frontier: added RecyclableItemClothSmall
   id: NTHandyFlag
-  name: Nanotrasen handheld flag
-  description: "Glory to TSF-NT!"
+  name: handheld flag
+  description: "Glory to... someone!"
   components:
   - type: Sprite
     sprite: Objects/Misc/Handy_Flags/NT_handy_flag.rsi

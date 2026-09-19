@@ -36,9 +36,9 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
-  - type: GuideHelp
-    guides:
-    - MedicalDoctor
+  #- type: GuideHelp
+  #  guides:
+  #  - MedicalDoctor
   - type: StaticPrice # Frontier
     price: 30 # Frontier
 
