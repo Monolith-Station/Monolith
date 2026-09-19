@@ -980,6 +980,38 @@
     launchSpeed: 0
     maxSpeed: 3
 
+
+- type: entity
+  id: 255mmBulletMinelayerInfinite # shorter lasting mines.
+  name: 255mm mine-laying projectile
+  parent: 255mmBulletMinelayer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileGrenade
+    fillPrototype: NavalMine255mmInfinite
+    capacity: 6
+    minVelocity: 6
+    maxVelocity: 6
+    randomAngle: true
+
+- type: entity
+  id: NavalMine255mmInfinite
+  name: naval mine
+  parent: NavalMine255mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 750
+    intensitySlope: 5
+    maxIntensity: 200
+  - type: RadarBlip
+    scale: 1
+    shape: circle
+    radarColor: "#1df5cd"
+  - type: TimedDespawn # Shorter lasting to prevent spam.
+    lifetime: 180
 # CHARON
 
 - type: entity

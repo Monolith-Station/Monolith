@@ -1,0 +1,35 @@
+- type: vessel
+  id: Hornet
+  parent: BaseVessel
+  name: GS ML-2002 Hornet
+  description: GS' attempt at a minelaying corvette. Comes with a shield generator, a BOFORs kitted with 3 minute fuzed mines and a Trident Torpedo rack. Due to engineering errors, SACLOS is recommended as it's got a massive deadzone.
+  price: 171000
+  category: Large
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/hornet.yml
+  guidebookPage: Null
+  class:
+  - Corvette
+  - Patrol
+  - Mercenary
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Hornet
+  mapName: 'GS Hornet'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/hornet.yml
+  minPlayers: 0
+  stations:
+    Hornet:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Hornet MIL{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Contractor: [ 0, 0 ]

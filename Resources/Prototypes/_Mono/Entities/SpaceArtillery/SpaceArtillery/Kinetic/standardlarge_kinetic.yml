@@ -283,6 +283,23 @@
     class: Ballistic
     size: Heavy # doesnt match who cares
 
+- type: entity
+  id: WeaponTurretBoforsMinelayer
+  name: Bofors 255mm cannon
+  parent: WeaponTurretBofors
+  suffix: Infinite Naval Mines
+  description: A single-barrel, heavy artillery cannon designed for cruisers, delivering massive impact with each long-range shot. Can be remotely activated or linked up to a GCS. This variant comes with neutered naval mines.
+  components:
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    whitelist:
+      tags:
+      - 255mmCartridge
+    capacity: 8
+    proto: 255mmBulletMinelayerInfinite
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
 # HADES 255mm
 
 - type: entity

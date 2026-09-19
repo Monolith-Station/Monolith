@@ -123,6 +123,16 @@
     damageContainer: Inorganic
     damageModifierSet: Metallic
 
+- type: entity
+  id: 255mmCartridgeMinelayerInfinite
+  name: 255mm minelayer shell
+  description: A chemically-propelled shell for 255mm cannons with a timed fuse. When the fuse expires after 1 seconds, it ejects a payload of 4 large anti-ship mines that persist for 3 minutes.
+  parent: 255mmCartridgeMinelayer
+  components:
+  - type: CartridgeAmmo
+    proto: 255mmBulletMinelayerInfinite
+    deleteOnSpawn: true
+    muzzleFlash: null
 # Boxes because I hate manually loading 8 shells
 
 - type: entity
