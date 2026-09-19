@@ -1,13 +1,13 @@
 - type: vessel
-  id: Hornet
+  id: Bumblebee
   parent: BaseVessel
-  name: GS ML-2002 Hornet
+  name: GS ML-2002 Bumblebee
   description: GS' attempt at a minelaying corvette. Comes with a shield generator, a BOFORs kitted with 3 minute fuzed mines and a Trident Torpedo rack. Due to engineering errors, SACLOS is recommended as it's got a massive deadzone.
   price: 171000
   category: Large
   group: Shipyard
   access: Mercenary
-  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/hornet.yml
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/bumblebee.yml
   guidebookPage: Null
   class:
   - Corvette
@@ -17,16 +17,16 @@
   - Plasma
 
 - type: gameMap
-  id: Hornet
-  mapName: 'GS Hornet'
-  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/hornet.yml
+  id: Bumblebee
+  mapName: 'GS Bumblebee'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/bumblebee.yml
   minPlayers: 0
   stations:
-    Hornet:
+    Bumblebee:
       stationProto: StandardFrontierVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Hornet MIL{1}'
+        mapNameTemplate: 'Bumblebee MIL{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
