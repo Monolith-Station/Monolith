@@ -133,7 +133,7 @@
 
 - type: entity
   abstract: true
-  parent: MajorLimb # Mono
+  parent: [MajorLimb, BaseEdibleLimb] # Mono
   id: BaseLeftArm
   name: "left arm"
   components:
@@ -152,7 +152,7 @@
 
 - type: entity
   abstract: true
-  parent: MajorLimb # Mono
+  parent: [MajorLimb, BaseEdibleLimb] # Mono
   id: BaseRightArm
   name: "right arm"
   components:
@@ -172,7 +172,7 @@
 
 - type: entity
   abstract: true
-  parent: MinorLimb # Mono
+  parent: [MinorLimb, BaseEdibleLimb] # Mono
   id: BaseLeftHand
   name: "left hand"
   components:
@@ -187,7 +187,7 @@
 
 - type: entity
   abstract: true
-  parent: MinorLimb # Mono
+  parent: [MinorLimb, BaseEdibleLimb] # Mono
   id: BaseRightHand
   name: "right hand"
   components:
@@ -202,7 +202,7 @@
 
 - type: entity
   abstract: true
-  parent: MajorLimb # Mono
+  parent: [MajorLimb, BaseEdibleLimb] # Mono
   id: BaseLeftLeg
   name: "left leg"
   components:
@@ -222,7 +222,7 @@
 
 - type: entity
   abstract: true
-  parent: MajorLimb # Mono
+  parent: [MajorLimb, BaseEdibleLimb] # Mono
   id: BaseRightLeg
   name: "right leg"
   components:
@@ -242,7 +242,7 @@
 
 - type: entity
   abstract: true
-  parent: MinorLimb # Mono
+  parent: [MinorLimb, BaseEdibleLimb] # Mono
   id: BaseLeftFoot
   name: "left foot"
   components:
@@ -257,7 +257,7 @@
 
 - type: entity
   abstract: true
-  parent: MinorLimb # Mono
+  parent: [MinorLimb, BaseEdibleLimb] # Mono
   id: BaseRightFoot
   name: "right foot"
   components:
@@ -340,3 +340,29 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MeatLaserImpact
+
+- type: entity
+  id: BaseEdibleLimb
+  abstract: true
+  components:
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: limb
+  - type: SolutionContainerManager
+    solutions:
+      limb:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - chicken
+  - type: Tag
+    tags:
+    - Meat
