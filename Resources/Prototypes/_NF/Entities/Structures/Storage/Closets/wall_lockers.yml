@@ -133,18 +133,18 @@
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
-  id: LockerWallColorBananium
+  id: LockerWallColorPlutonium
   parent: LockerWallColorBase
-  name: bananium fuel wall locker
+  name: plutonium fuel wall locker
   components:
   - type: Sprite
     layers:
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
-      color: "#c67421"
+      color: "#3e6275"
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
-      color: "#c67421"
+      color: "#3e6275"
     - state: door-decal-line-01
       map: [ decal1 ]
       color: "#ac221c"
