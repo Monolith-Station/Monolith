@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/18/2026 10:41:36
+  time: 09/19/2026 18:05:34
   entityCount: 3127
 maps: []
 grids:
@@ -439,10 +439,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        Smoke: []
         Puddle: []
         Kudzu: []
         MetalFoam: []
-        Smoke: []
       updateAccumulator: 0.39827442
     - type: Shuttle
       dampingModifier: 0.25
@@ -2191,6 +2191,12 @@ entities:
     - type: Transform
       pos: -1.5,12.5
       parent: 1
+  - uid: 12
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,2.5
+      parent: 1
   - uid: 1058
     components:
     - type: Transform
@@ -2201,6 +2207,12 @@ entities:
     components:
     - type: Transform
       pos: 2.5,33.5
+      parent: 1
+  - uid: 1258
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,2.5
       parent: 1
   - uid: 1304
     components:
@@ -2307,20 +2319,6 @@ entities:
     components:
     - type: Transform
       pos: -0.5,26.5
-      parent: 1
-- proto: APCHyperCapacity
-  entities:
-  - uid: 12
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 3.5,2.5
-      parent: 1
-  - uid: 1258
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.5,2.5
       parent: 1
 - proto: AtmosDeviceFanDirectional
   entities:
