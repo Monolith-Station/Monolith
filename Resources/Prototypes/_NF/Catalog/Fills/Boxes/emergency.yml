@@ -41,7 +41,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: DoubleEmergencyOxygenTankFilled
+      - id: EmergencyOxygenTankFilled
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: MonoMRE # Mono - replace PSB and water bottle w/ MRE
@@ -58,7 +58,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: DoubleEmergencyNitrogenTankFilled
+      - id: EmergencyNitrogenTankFilled
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: MonoMRE # Mono - replace PSB and water bottle w/ MRE
