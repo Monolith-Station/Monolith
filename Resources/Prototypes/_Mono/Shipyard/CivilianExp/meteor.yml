@@ -1,0 +1,37 @@
+- type: vessel
+  id: Meteor
+  parent: BaseVessel
+  name: SKR Meteor
+  description: Lightly-armored hybrid science-salvage ship with a large unpressurized cargo bay. Poorly armed and armored.
+  price: 121000
+  category: Medium
+  group: Expedition
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianExp/meteor.yml
+  guidebookPage: null
+  class:
+  - Science
+  - Salvage
+  - Cargo
+  - Expedition
+  engine:
+  - AME
+
+- type: gameMap
+  id: Meteor
+  mapName: 'SKR Meteor'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianExp/meteor.yml
+  minPlayers: 0
+  stations:
+    Meteor:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Meteor EXP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

@@ -1,0 +1,239 @@
+# FISSILE FUEL INTENTIONALLY EXCLUDED
+
+# Goes for 3000 at lowest, 6000 at highest.
+- type: latheRecipe
+  id: TradeGoodScrap
+  result: TradeGoodScrap
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    RawScrap: 1000
+
+# Goes for 2000 at lowest, 11000 at highest.
+- type: latheRecipe
+  id: TradeGoodChemicalSupplies
+  result: TradeGoodChemicalSupplies
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 200
+  reagents:
+    Dylovene: 10
+    Carbon: 10
+    Hydrogen: 10
+
+# Goes for 6000 at lowest, 13000 at highest. Volatile.
+- type: latheRecipe
+  id: TradeGoodChemicalsVolatile
+  result: TradeGoodChemicalsVolatile
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 200
+  reagents:
+    Thermite: 30
+    Carbon: 30
+    Hydrogen: 30
+    Oxygen: 30
+
+# Goes for 4000 at lowest, 8500 at highest.
+- type: latheRecipe
+  id: TradeGoodComponents
+  result: TradeGoodComponents
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 200
+  entities: # Most of this can be bought at cargo, which is why I threw in the matterbin 2 & armor plate 2.
+    MicroprocessorEconomy1: 1
+    ArmorPlateEconomy2: 1
+    MatterBinEconomy2: 1
+    ComponentBrickEconomy1: 1
+
+# Goes for 3000 at lowest, 7000 at highest.
+- type: latheRecipe
+  id: TradeGoodEquipment
+  result: TradeGoodEquipment
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 200
+  entities:
+    ShipRepairDevice: 1
+    GasAnalyzer: 1
+    Crowbar: 1
+
+# Goes for 2500 at lowest, 5000 at highest.
+- type: latheRecipe
+  id: TradeGoodFabric
+  result: TradeGoodFabric
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 200
+    Cloth: 500
+    Durathread: 100
+
+# Goes for 4000 at lowest, 7000 at highest. Volatile.
+- type: latheRecipe
+  id: TradeGoodFertilizer
+  result: TradeGoodFertilizer
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 200
+  reagents:
+    Nitrogen: 50
+    EZNutrient: 10
+
+# Goes for 14000 at lowest, 18000 at highest.
+- type: latheRecipe
+  id: TradeGoodLuxuries
+  result: TradeGoodLuxuries
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 200
+    Silver: 500
+    Gold: 500
+    Diamond: 10
+  entities:
+    FloorTileItemGold: 1
+    FloorTileItemSilver: 1
+
+# MMC
+- type: latheRecipe
+  id: TradeGoodLuxuriesAlt
+  result: TradeGoodLuxuries
+  categories:
+  - TradeCrates
+  - AltRecipes
+  completetime: 3
+  materialDiscountScale: 0.3
+  materials:
+    Steel: 200
+    Silver: 1000
+    Gold: 1000
+    Diamond: 20
+
+# Goes for 18000 at lowest, 24000 at highest.
+- type: latheRecipe
+  id: TradeGoodFissionFuel
+  result: TradeGoodFissionFuel
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 200
+    UraniumFissile: 20
+    Plasteel: 100
+
+# Goes for 2500 at lowest, 9000 at highest
+- type: latheRecipe
+  id: TradeGoodMedicalSupplies
+  result: TradeGoodMedicalSupplies
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 200
+  reagents:
+    Dylovene: 20
+    Bicaridine: 30
+    DexalinPlus: 30
+
+# Goes for 2000 at lowest, 10000 at highest
+- type: latheRecipe
+  id: TradeGoodShipComponents
+  result: TradeGoodShipComponents
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 1200
+    Plasteel: 1000
+    Copper: 200
+  entities:
+    ComponentBrickEconomy2: 1
+
+# Goes for 2000 at lowest, 8000 at highest
+- type: latheRecipe
+  id: TradeGoodSupplies
+  result: TradeGoodSupplies
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 600
+    Plasteel: 200
+    Copper: 200
+    Lithium: 50
+  entities:
+    Crowbar: 1
+    Screwdriver: 1
+    Wrench: 1
+    Multitool: 1
+
+# Goes for 2000 at lowest, 8000 at highest
+- type: latheRecipe
+  id: TradeGoodWeaponParts
+  result: TradeGoodWeaponParts
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 1000
+    Plasteel: 800
+  entities:
+    MaterialScrew: 4
+
+# Goes for 7000 at lowest, 18000 at highest. Volatile.
+- type: latheRecipe
+  id: TradeGoodAmmo
+  result: TradeGoodAmmo
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 600
+    Plasteel: 200
+    Plasma: 50
+  reagents:
+    Carbon: 20
+
+# Goes for 2500 at lowest, 5000 at highest
+- type: latheRecipe
+  id: TradeGoodMetals
+  result: TradeGoodMetals
+  categories:
+  - TradeCrates
+  completetime: 3
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 600
+    Plasteel: 200
+    Plasma: 50
+  reagents:
+    Carbon: 20

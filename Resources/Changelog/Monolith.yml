@@ -24377,6 +24377,40 @@ Entries:
   id: 2677
   time: '2026-08-28T22:54:05.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4592
+- author: waphun
+  changes:
+    - type: Add
+      message: Added the Cinquedea, a T2 laser-based pursuit ship to the TSF shipyards.
+    - type: Fix
+      message: >-
+        Tweaked the Prometheus' (shipgun) recharge-rate so it can sustain its
+        buffed fire rate.
+  id: 2678
+  time: '2026-09-01T09:47:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4605
+- author: LassiH
+  changes:
+    - type: Add
+      message: vg lancehead a lpc only shuttle
+  id: 2688
+  time: '2026-09-01T23:39:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4603
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: >-
+        3 Tumour fighters have been moved from the Tumour to the standard
+        shipyard.
+  id: 2689
+  time: '2026-09-03T00:41:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4613
+- author: LassiH
+  changes:
+    - type: Add
+      message: vg lancehead a lpc only shuttle
+  id: 2690
+  time: '2026-09-03T00:42:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4608
 - author: eris-webserv
   changes:
     - type: Add
@@ -24921,33 +24955,51 @@ Entries:
   id: 2725
   time: '2026-09-14T23:42:13.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4659
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: Added PDV vouchers to the uplink for rather steep prices.
+    - type: Tweak
+      message: The PDV can use civilian shipyards again.
+  id: 2726
+  time: '2026-09-16T22:05:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4676
 - author: Onezero0
   changes:
     - type: Add
       message: >-
         Floodlights no longer consume power. They still need a power cell to
         work though.
-  id: 2726
+  id: 2727
   time: '2026-09-15T21:59:40.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4705
 - author: NazrinNya
   changes:
     - type: Add
       message: Fultons! Now with 200m distance limit.
-  id: 2727
+  id: 2728
   time: '2026-09-16T23:36:04.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4713
 - author: Onezero0
   changes:
     - type: Tweak
       message: '"Syndicate" announcement console has been MOGGED.'
-  id: 2728
+  id: 2729
   time: '2026-09-17T00:54:43.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4714
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The chimera ship roster has been completely overhauled into a new set of
+        ships, mapped by Skye.
+  id: 2730
+  time: '2026-09-19T18:51:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4732
 - author: Mrrpip
   changes:
     - type: Add
       message: Adds more loadout options to Vagrant.
-  id: 2729
+  id: 2731
   time: '2026-09-19T01:05:01.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4716

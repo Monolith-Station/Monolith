@@ -84,6 +84,9 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 150
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy # doesnt match who cares
 
 - type: entity
   id: WeaponTurretCyrexaHomingCluster
@@ -195,6 +198,9 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 150
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy # doesnt match who cares
 
 # Bofors 255mm
 
@@ -273,6 +279,9 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 150
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy # doesnt match who cares
 
 # HADES 255mm
 
@@ -358,6 +367,9 @@
   - type: ShipRepairable
     repairTime: 45
     repairCost: 300
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Superheavy
 
 # R-300 430mm
 
@@ -395,7 +407,7 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 40 # Perhaps the slowest shipweapon. Im investing all my yummy pyrotechnics into explosive power and none into propellant.
+    projectileSpeed: 150
     minAngle: 0
     maxAngle: 0
     fireRate: 0.05
@@ -429,6 +441,9 @@
   - type: ShipRepairable
     repairTime: 45
     repairCost: 200
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy # doesnt match who cares
 
 - type: entity
   id: WeaponTurretR300
@@ -550,3 +565,6 @@
   - type: ShipRepairable
     repairTime: 45
     repairCost: 300
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Superheavy

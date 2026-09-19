@@ -53,7 +53,6 @@
   - type: CompanyAccessReader
     requiredCompanies:
     - TSF
-    - PDV
     inverted: true
 
 - type: entity
@@ -198,7 +197,6 @@
   - type: CompanyAccessReader
     requiredCompanies:
     - TSF
-    - PDV
     inverted: true
 
 - type: entity
@@ -227,7 +225,6 @@
   - type: CompanyAccessReader
     requiredCompanies:
     - TSF
-    - PDV
     inverted: true
 
 - type: entity
@@ -256,7 +253,6 @@
   - type: CompanyAccessReader
     requiredCompanies:
     - TSF
-    - PDV
     inverted: true
 
 - type: entity
