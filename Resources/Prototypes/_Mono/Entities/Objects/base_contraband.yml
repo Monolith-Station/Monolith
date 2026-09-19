@@ -223,3 +223,25 @@
       Doubloon: 100
 
 #endregion
+
+#region black market (Syndicate is renamed to Underground/Black Market)
+- type: entity
+  parent: BaseC3SyndicateContrabandUnredeemable
+  id: BaseC3SyndicateContrabandT2
+  abstract: true
+  components:
+  - type: Contraband
+    turnInValues:
+      FederationMilitaryCredit: 45
+      Doubloon: 45
+
+- type: entity
+  parent: BaseC3SyndicateContrabandUnredeemable
+  id: BaseC3SyndicateContrabandT3
+  abstract: true
+  components:
+  - type: Contraband
+    turnInValues:
+      FederationMilitaryCredit: 45
+      Doubloon: 45
+#endregion

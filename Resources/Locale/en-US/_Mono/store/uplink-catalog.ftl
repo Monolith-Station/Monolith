@@ -1,11 +1,11 @@
-uplink-hardsuit-syndie-medic-name = Syndicate Medic Hardsuit
-uplink-hardsuit-syndie-medic-desc = They syndicate's medical blood red hardsuit. More agile than the classic blood red and comes with a built-in medical HUD.
+uplink-hardsuit-syndie-medic-name = Bloody Medic Hardsuit
+uplink-hardsuit-syndie-medic-desc = A medical hardsuit painted an ominous shade of blood-red. More agile than the classic blood red and comes with a built-in medical HUD.
 
 uplink-Cash10000-name = 10,000 Credits
-uplink-Cash10000-desc = Generous payment from the syndicate.
+uplink-Cash10000-desc = Liquidate some crystals.
 
 uplink-Cash100000-name = 100,000 Credits
-uplink-Cash100000-desc = Generous payment from the syndicate, in bulk.
+uplink-Cash100000-desc = Liquidate a lot of crystals.
 
 uplink-faction-server-name = Faction R&D Server
 uplink-faction-server-desc = A R&D server outfitted for your faction's discipline, incase you lost yours or want to do independent research.

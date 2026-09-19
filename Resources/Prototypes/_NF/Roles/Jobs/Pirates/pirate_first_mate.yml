@@ -38,7 +38,7 @@
       factions:
       - PirateNF
   - !type:AddImplantSpecial
-    implants: [ FreelanceTrackingImplant ]
+    implants: [ FreelanceTrackingImplant, RadioImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages
     languagesSpoken:
     - Freespeak

@@ -1003,8 +1003,8 @@
 - type: entity
   parent: VendingMachineBoozeFlatpack
   id: VendingMachineSyndieContrabandFlatpack
-  name: contravend flatpack
-  description: A flatpack used for constructing a contravend vendomat.
+  name: undergroundvend flatpack
+  description: A flatpack used for constructing a restricted vendomat.
   components:
   - type: Flatpack
     entity: VendingMachineSyndieContraband

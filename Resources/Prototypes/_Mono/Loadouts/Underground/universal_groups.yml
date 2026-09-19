@@ -1,0 +1,31 @@
+- type: loadoutGroup
+  id: FugitiveEars
+  name: loadout-group-contractor-ears
+  hidden: true # No point in showing this, it gets auto-selected.
+  minLimit: 1
+  loadouts:
+  - FugitiveHeadset
+  fallbacks:
+  - FugitiveHeadset
+
+# todo: add slightly higher quality but illegal firearms, rn this is just Merc but with Iroh removed
+- type: loadoutGroup
+  id: FugitiveFirearm
+  name: loadout-group-weapon
+  minLimit: 0
+  loadouts:
+  - MercenaryGestioLoadout
+  - MercenaryNovaliteLoadout
+  - MercenaryAk220Loadout
+  - MercenaryKnallstockLoadout
+  - MercenaryKeyboardLoadout
+  - MercenaryPrometheusLoadout
+  - MercenaryLeeEnfieldLoadout
+  - MercenaryVulcanCLoadout
+  - MercenaryMosinLoadout
+  - MercenarySvsLoadout
+  - MercenaryKammererLoadout
+  - MercenaryDisablerSMGLoadout
+  - MercenaryLaserCarbineLoadout
+  - MercenaryEnergyGunLoadout
+  - MercenaryLeverActionloadout
