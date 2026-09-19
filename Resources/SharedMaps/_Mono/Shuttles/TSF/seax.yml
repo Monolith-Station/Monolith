@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/18/2026 22:29:13
+  time: 09/19/2026 18:33:08
   entityCount: 510
 maps: []
 grids:
@@ -84,9 +84,9 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Puddle: []
         Smoke: []
+        Puddle: []
+        Kudzu: []
         MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -1794,46 +1794,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,-12.5
       parent: 1
-- proto: DebugThrusterNfsd
-  entities:
-  - uid: 156
-    components:
-    - type: Transform
-      pos: -0.5,-10.5
-      parent: 1
-  - uid: 166
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,-19.5
-      parent: 1
-  - uid: 325
-    components:
-    - type: Transform
-      pos: 5.5,-10.5
-      parent: 1
-  - uid: 401
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 6.5,-17.5
-      parent: 1
-  - uid: 450
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,-17.5
-      parent: 1
-  - uid: 466
-    components:
-    - type: Transform
-      pos: 6.5,-11.5
-      parent: 1
-  - uid: 470
-    components:
-    - type: Transform
-      pos: -1.5,-11.5
-      parent: 1
 - proto: DefibrillatorCabinetFilled
   entities:
   - uid: 464
@@ -3517,11 +3477,29 @@ entities:
       parent: 1
 - proto: ThrusterNfsd
   entities:
+  - uid: 156
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,-10.5
+      parent: 1
+  - uid: 166
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,-17.5
+      parent: 1
   - uid: 273
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,-3.5
+      parent: 1
+  - uid: 325
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,-11.5
       parent: 1
   - uid: 345
     components:
@@ -3552,6 +3530,30 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,-5.5
+      parent: 1
+  - uid: 401
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,-19.5
+      parent: 1
+  - uid: 450
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-17.5
+      parent: 1
+  - uid: 466
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,-10.5
+      parent: 1
+  - uid: 470
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-11.5
       parent: 1
 - proto: WallPlastitanium
   entities:
