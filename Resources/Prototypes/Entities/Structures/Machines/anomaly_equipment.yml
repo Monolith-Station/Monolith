@@ -222,7 +222,7 @@
   id: MachineAnomalyGenerator
   parent: [BaseStructureDisableToolUse, BaseMachinePowered] # Frontier - BaseStructureDisableToolUse
   name: anomaly generator
-  description: The peak of pseudoscientific technology.
+  description: The peak of pseudoscientific technology. Uses bluespace to create... anomalies.
   placement:
     mode: AlignTileAny
   components:
@@ -271,7 +271,7 @@
         - RawMaterial # Frontier
     materialWhiteList:
 #    - Plasma # Frontier
-    - Bananium # Frontier
+    - Bluespace # Mono
   - type: Fixtures
     fixtures:
       fix1:

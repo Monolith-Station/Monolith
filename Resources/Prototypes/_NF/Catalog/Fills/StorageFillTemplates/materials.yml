@@ -35,11 +35,11 @@
 
 - type: entity # Full stack
   abstract: true
-  id: StorageFillMaterialsFuelBananium
+  id: StorageFillMaterialsFuelPlutonium
   components:
   - type: StorageFill
     contents:
-    - id: FuelBananium
+    - id: FuelPlutonium
 
 - type: entity
   abstract: true

@@ -14,3 +14,4 @@
   id: MonoCentrifugeProcessingFullSizeStatic
   recipes:
   - UraniumCentrifugeProcessing # No reprocessing - it would lead to duplication.
+  #- UraniumCentrifugeProcessingPlutonium # Uranium -> Plutonium conversion without an NFR (but it sucks)

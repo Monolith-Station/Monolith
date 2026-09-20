@@ -207,6 +207,6 @@ public enum VesselEngine : byte
     Welding,
     Plasma,
     Uranium,
-    Bananium,
+    Plutonium,
     NFR, // Mono
 }

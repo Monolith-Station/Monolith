@@ -51,7 +51,7 @@
   name: D-K-type portable generator
   description: |-
     A prototype Dunn-Kikko fission reactor. Use with caution.
-    Runs off bananium and is rated for up to 120 kW.
+    Runs off plutonium and is rated for up to 120 kW.
     Highly radioactive without protection.
   parent:
   - PortableGeneratorSuperPacman
@@ -90,9 +90,9 @@
       fuelEfficiencyConstant: 0.5
       radiationColor: "#00bfff"
     - type: SolidFuelGeneratorAdapter
-      fuelMaterial: FuelGradeBananium
+      fuelMaterial: FuelGradePlutonium
     - type: MaterialStorage
-      materialWhiteList: [Bananium, FuelGradeBananium]
+      materialWhiteList: [Plutonium, FuelGradePlutonium]
     - type: PowerMonitoringDevice
       sprite: _NF/Structures/Power/Generation/portable_generator.rsi
       state: portgen1
@@ -107,26 +107,26 @@
       supplyRampRate: 10000
       supplyRampTolerance: 3000
     - type: FuelGradeAdapter
-      inputMaterial: Bananium
-      outputMaterial: FuelGradeBananium
+      inputMaterial: Plutonium
+      outputMaterial: FuelGradePlutonium
 
 - type: entity
   parent:
   - BaseGeneratorShuttle
   - PortableGeneratorDK
   id: PortableGeneratorDKShuttle
-  suffix: Bananium, Rad+, 60 kW, Ship
+  suffix: Plutonium, Rad+, 60 kW, Ship
   categories: [ HideSpawnMenu ] # Mm, start-on rad source
   components:
     - type: MaterialStorage
       storage:
-        FuelGradeBananium: 2500 # mono
+        FuelGradePlutonium: 2500 # mono
 
 - type: entity
   name: D-K Jr.-type portable generator
   description: |-
     A miniaturized Dunn-Kikko fission reactor. Use with caution.
-    Runs off bananium and is rated for up to 100 kW.
+    Runs off plutonium and is rated for up to 100 kW.
     Quite radioactive without protection.
   parent:
   # Mono - Not contraband
@@ -171,8 +171,8 @@
   - BaseGeneratorShuttle
   - PortableGeneratorDKJr
   id: PortableGeneratorDKJrShuttle
-  suffix: Bananium, Rad-, 60 kW, Ship
+  suffix: Plutonium, Rad-, 60 kW, Ship
   components:
     - type: MaterialStorage
       storage:
-        FuelGradeBananium: 1250 # mono
+        FuelGradePlutonium: 1250 # mono

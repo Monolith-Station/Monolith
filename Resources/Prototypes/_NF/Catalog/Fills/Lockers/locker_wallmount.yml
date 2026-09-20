@@ -20,9 +20,9 @@
   suffix: Filled, Uranium (x2 Generators)
 
 - type: entity
-  parent: [ LockerWallColorBananium, StorageFillMaterialsFuelBananium ]
-  id: LockerWallMaterialsFuelBananiumFilled
-  suffix: Filled, Bananium
+  parent: [ LockerWallColorPlutonium, StorageFillMaterialsFuelPlutonium ]
+  id: LockerWallMaterialsFuelPlutoniumFilled
+  suffix: Filled, Plutonium
 
 - type: entity
   parent: [ LockerWallColorAme, StorageFillMaterialsFuelAmeJar ]
@@ -297,6 +297,6 @@
   suffix: Empty, Frontier
   parent:
   - LockerWallColorHydroponics
-  - BaseStructureWallmount  
+  - BaseStructureWallmount
   name: botanist wall locker
 # endregion
