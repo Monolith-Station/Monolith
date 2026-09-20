@@ -302,7 +302,7 @@
     multiplier: 0.01
   - type: MaterialStorage
     materialWhiteList: [Plasma, FuelGradePlasma]
-    storageLimit: 25000
+    storageLimit: 50000
   - type: PowerMonitoringDevice
     sprite: _Mono/Structures/Power/Generators/sterling_reactor.rsi
     state: portgen0
@@ -342,6 +342,10 @@
   - GeneratorSterling
   id: GeneratorSterlingShuttle
   suffix: Plasma, 40 kW, Ship
+  components:
+  - type: MaterialStorage
+    storage:
+      FuelGradePlasma: 25000
 
 # identical but different name for larp lol
 - type: entity
@@ -356,3 +360,7 @@
   - GeneratorSterlingPDV
   id: GeneratorSterlingPDVShuttle
   suffix: Plasma, 40 kW, Ship
+  components:
+  - type: MaterialStorage
+    storage:
+      FuelGradePlasma: 25000
