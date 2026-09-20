@@ -89,7 +89,7 @@
   abstract: true
   components:
   - type: Anchorable
-    delay: 10
+    delay: 30
   - type: Pullable
   - type: PirateBountyItem # not putting this on the other, because like. how do you get a cyrexa for your bounty. thats stupid.
     id: ShipWeapon

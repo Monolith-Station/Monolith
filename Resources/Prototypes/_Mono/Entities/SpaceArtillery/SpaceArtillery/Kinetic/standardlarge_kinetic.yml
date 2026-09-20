@@ -5,7 +5,7 @@
   id: WeaponTurretCyrexa
   name: CYREXA 220mm cannon
   parent:
-  - BallisticArtilleryUnanchorableCartridge
+  - BallisticArtilleryCartridge
   - BallisticArtilleryTier4HP
   suffix: Large, T4
   description: A main battery with dual barrels, delivering rapid, punishing salvos at extreme range. Fires 220mm auto shells with slightly reduced brute strength. Can be remotely activated or linked up to a GCS.
@@ -126,7 +126,7 @@
   id: WeaponTurretAk820
   name: AK820 120mm autocannon
   parent:
-  - BallisticArtilleryUnanchorableCartridge
+  - BallisticArtilleryCartridge
   - BallisticArtilleryTier4HP
   suffix: Large, T4
   description: Large hard hitting naval gun for steady damage. Fires APHEDS rounds, allowing for enhanced penetration, but not as much explosive power as full-sized APHE rounds. Feeds from an 96 round internal magazine.
@@ -208,7 +208,7 @@
   id: WeaponTurretBofors
   name: Bofors 255mm cannon
   parent:
-  - BallisticArtilleryUnanchorableCartridge
+  - BallisticArtilleryCartridge
   - BallisticArtilleryTier4HP
   suffix: Large, T4
   description: A single-barrel, heavy artillery cannon designed for cruisers, delivering massive impact with each long-range shot. Can be remotely activated or linked up to a GCS.
@@ -449,7 +449,7 @@
   id: WeaponTurretR300
   parent:
   - WeaponTurretR300Base
-  - BallisticArtilleryUnanchorableCartridge
+  - BallisticArtilleryCartridge
   suffix: Capital, T4
   components:
   - type: BallisticAmmoProvider
@@ -485,7 +485,7 @@
   id: WeaponTurretLongbow
   name: L/65 "Longbow" 140mm autocannon
   parent:
-  - BallisticArtilleryUnanchorableMagazine
+  - BallisticArtilleryMagazine
   - BallisticArtilleryTier5HP
   suffix: Capital/Station, T4
   description: Fires 140mm shells in a 15 round burst from an internal autoloader.

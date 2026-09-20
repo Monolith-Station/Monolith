@@ -129,7 +129,7 @@
   id: WeaponTurretType54
   name: Type-54C plasma autopulser
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier2HP
   suffix: Medium, T2
   description: A rapidly firing energy weapon, well known for its devastating burst followed by a constant stream of plasma.
@@ -329,7 +329,7 @@
   id: WeaponTurretScylla
   name: TPC Scylla plasma impulse driver
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier4HP
   suffix: Large, T4
   description: A more specialized energy weapon, the Scylla fires a massive burst of plasma projectiles down range, in a huge spew to erase large and small targets alike.
@@ -403,7 +403,7 @@
   id: WeaponTurretDymere
   name: ADEX-9 DYMERE Turbolaser
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier5HP
   suffix: Station, T5
   description: Aetherion Dynamics' most iconic supercapital battery. Fires enormous ionized gas projectiles that melt through the toughest ship armor. Can be remotely activated or linked to a GCS.
@@ -615,7 +615,7 @@
 - type: entity
   id: WeaponLaserTurretApollo
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier4HP # This shit is massive lol
   suffix: Large, T3
   name: L-20 Apollo Mining Laser Cannon
@@ -691,7 +691,7 @@
   id: WeaponTurretType241
   name: Curio-8640 plasma lance "Malice"
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier5HP
   suffix: ADS ONLY
   description: A devastating weapon, known for glassing whole fleets when used en masse
@@ -951,7 +951,7 @@
   id: WeaponTurretTartarus
   name: Curio-1810 antimatter particle cannon "Tartarus"
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier4HP
   suffix: ADS ONLY
   description: A rarer, powerful cannon mounted on larger ADS units. Firing a singular particle of antimatter wrapped in energy. Annihalating sections of shuttles at a time.

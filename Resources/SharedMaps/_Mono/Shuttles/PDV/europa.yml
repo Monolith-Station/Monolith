@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/24/2026 22:30:10
-  entityCount: 1403
+  time: 09/20/2026 07:35:09
+  entityCount: 1404
 maps: []
 grids:
 - 1
@@ -430,10 +430,10 @@ entities:
             872: -4,-9
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
+        Puddle: []
         Kudzu: []
         MetalFoam: []
-        Puddle: []
+        Smoke: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -1005,16 +1005,16 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        1392:
-        - - AmmoLoaderLoad
-          - SpaceArtilleryLoad
-        1391:
-        - - AmmoLoaderLoad
-          - SpaceArtilleryLoad
         1393:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
+        1392:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
         1394:
+        - - AmmoLoaderLoad
+          - SpaceArtilleryLoad
+        1395:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
 - proto: APCBasic
@@ -6578,32 +6578,24 @@ entities:
       rot: 3.141592653589793 rad
       pos: 8.5,-22.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 952
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -9.5,-22.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 953
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -8.5,-8.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 954
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 7.5,-8.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointBallisticSuperlight
   entities:
   - uid: 955
@@ -6611,15 +6603,11 @@ entities:
     - type: Transform
       pos: -5.5,-28.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 956
     components:
     - type: Transform
       pos: 4.5,-28.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: KitchenAssembler
   entities:
   - uid: 957
@@ -7360,6 +7348,13 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-6.5
+      parent: 1
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 1404
+    components:
+    - type: Transform
+      pos: -0.5,-5.5
       parent: 1
 - proto: StairStage
   entities:
@@ -9062,21 +9057,21 @@ entities:
       parent: 1
 - proto: WarpPoint
   entities:
-  - uid: 1403
+  - uid: 1385
     components:
     - type: Transform
       pos: -0.5,-12.5
       parent: 1
 - proto: WaterCooler
   entities:
-  - uid: 1385
+  - uid: 1386
     components:
     - type: Transform
       pos: 4.5,-8.5
       parent: 1
 - proto: WaterVaporCanister
   entities:
-  - uid: 1386
+  - uid: 1387
     components:
     - type: Transform
       anchored: True
@@ -9086,49 +9081,49 @@ entities:
       bodyType: Static
 - proto: WeaponRifleVympel
   entities:
-  - uid: 1387
+  - uid: 1388
     components:
     - type: Transform
       pos: 4.6956854,-18.617363
       parent: 1
-  - uid: 1388
+  - uid: 1389
     components:
     - type: Transform
       pos: 4.7512655,-18.339584
       parent: 1
 - proto: WeaponTurretFlare
   entities:
-  - uid: 1389
+  - uid: 1390
     components:
     - type: Transform
       pos: 4.5,-28.5
       parent: 1
-  - uid: 1390
+  - uid: 1391
     components:
     - type: Transform
       pos: -5.5,-28.5
       parent: 1
 - proto: WeaponTurretLongbow
   entities:
-  - uid: 1391
+  - uid: 1392
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -8.5,-8.5
       parent: 1
-  - uid: 1392
+  - uid: 1393
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 7.5,-8.5
       parent: 1
-  - uid: 1393
+  - uid: 1394
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 8.5,-22.5
       parent: 1
-  - uid: 1394
+  - uid: 1395
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -9136,42 +9131,42 @@ entities:
       parent: 1
 - proto: WhiteCatwalkMono
   entities:
-  - uid: 1395
+  - uid: 1396
     components:
     - type: Transform
       pos: 0.5,-12.5
       parent: 1
-  - uid: 1396
+  - uid: 1397
     components:
     - type: Transform
       pos: -2.5,-13.5
       parent: 1
-  - uid: 1397
+  - uid: 1398
     components:
     - type: Transform
       pos: -2.5,-12.5
       parent: 1
-  - uid: 1398
+  - uid: 1399
     components:
     - type: Transform
       pos: -1.5,-12.5
       parent: 1
-  - uid: 1399
+  - uid: 1400
     components:
     - type: Transform
       pos: -1.5,-13.5
       parent: 1
-  - uid: 1400
+  - uid: 1401
     components:
     - type: Transform
       pos: 0.5,-13.5
       parent: 1
-  - uid: 1401
+  - uid: 1402
     components:
     - type: Transform
       pos: 1.5,-13.5
       parent: 1
-  - uid: 1402
+  - uid: 1403
     components:
     - type: Transform
       pos: 1.5,-12.5
