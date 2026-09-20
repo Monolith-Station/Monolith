@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/24/2026 11:17:32
-  entityCount: 583
+  time: 09/19/2026 23:22:01
+  entityCount: 584
 maps: []
 grids:
 - 1
@@ -389,8 +389,8 @@ entities:
       spreadQueues:
         Kudzu: []
         Puddle: []
-        MetalFoam: []
         Smoke: []
+        MetalFoam: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -946,6 +946,11 @@ entities:
     components:
     - type: Transform
       pos: 3.5,9.5
+      parent: 1
+  - uid: 386
+    components:
+    - type: Transform
+      pos: 6.5,-1.5
       parent: 1
   - uid: 575
     components:
@@ -3026,32 +3031,24 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,9.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 53
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 2.5,13.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 565
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -3.5,13.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 566
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.5,9.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointMissileMedium
   entities:
   - uid: 356
@@ -3060,16 +3057,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,1.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 413
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -6.5,1.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: KitchenMicrowave
   entities:
   - uid: 208
@@ -3139,10 +3132,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,3.5
       parent: 1
-  - uid: 386
+  - uid: 584
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 0.5,-3.5
       parent: 1
 - proto: PoweredLEDSmallLight
