@@ -65,6 +65,9 @@
       capacity: 1
       count: 1
     - type: Gun
+      minAngle: 5
+      maxAngle: 20
+      damageModifier: 0.8
       showExamineText: false
       fireRate: 8
       selectedMode: FullAuto
@@ -75,7 +78,7 @@
 # Spawners
 
 - type: entity
-  name: TSFMC Mob spawner
+  name: TSFMC T1 Mob spawner
   id: SpawnMobTSFMC
   parent: MarkerBase
   suffix: AI, Hostile, TSFMC
@@ -130,7 +133,7 @@
       prototypes:
         - TSFMCMobGearD
 
-# Gear Loadouts
+# TSF regular Gear Loadouts
 
 - type: startingGear
   id: TSFMCMobGearA
@@ -141,7 +144,7 @@
     gloves: ClothingHandsGlovesColorBlackLecter
     neck: ClothingNeckIFFCyan
     mask: ClothingMaskNeckGaiter
-    outerClothing: ClothingOuterArmorBPVestMedium
+    outerClothing: ClothingOuterHardsuitM82b
     back: ClothingBackpackTsfmc
     pocket2: DoubleEmergencyAirTankFilled
 #    id: CadetPDA
@@ -188,3 +191,60 @@
     pocket2: DoubleEmergencyAirTankFilled
 #    id: CadetPDA
 
+# TSF wayward Gear Loadouts
+
+- type: startingGear
+  id: TSFMCMobGearAWayward
+  equipment:
+    head: ClothingHeadHelmetMercenaryBlack
+    jumpsuit: ClothingUniformTSFMC
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesColorBlackLecter
+    neck: ClothingNeckIFFPurple
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterArmorBPVestMedium
+    back: ClothingBackpackTsfmc
+    pocket2: DoubleEmergencyAirTankFilled
+#    id: CadetPDA
+
+- type: startingGear
+  id: TSFMCMobGearBWayward
+  equipment:
+    head: ClothingHeadHelmetHardsuitM82
+    jumpsuit: ClothingUniformTSFMC
+    shoes: ClothingShoesBootsMagSecurity
+    gloves: ClothingHandsGlovesColorBlackLecter
+    neck: ClothingNeckIFFPurple
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterHardsuitM82c
+    back: ClothingBackpackTsfmc
+    pocket2: DoubleEmergencyAirTankFilled
+#    id: CadetPDA
+
+- type: startingGear
+  id: TSFMCMobGearCWayward
+  equipment:
+    head: ClothingHeadHelmetHardsuitM86
+    jumpsuit: ClothingUniformTSFMC
+    shoes: ClothingShoesBootsMagSecurity
+    gloves: ClothingHandsGlovesColorBlackLecter
+    neck: ClothingNeckIFFPurple
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterHardsuitM86
+    back: ClothingBackpackTsfmc
+    pocket2: DoubleEmergencyAirTankFilled
+#    id: CadetPDA
+
+- type: startingGear
+  id: TSFMCMobGearDWayward
+  equipment:
+    head: ClothingHeadHelmetHardsuitNfsdExperimental
+    jumpsuit: ClothingUniformTSFMC
+    shoes: ClothingShoesBootsMagSecurity
+    gloves: ClothingHandsGlovesColorBlackLecter
+    neck: ClothingNeckIFFPurple
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterHardsuitNfsdExperimental
+    back: ClothingBackpackTsfmc
+    pocket2: DoubleEmergencyAirTankFilled
+#    id: CadetPDA
