@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/18/2026 05:57:34
-  entityCount: 1325
+  time: 09/19/2026 20:42:03
+  entityCount: 1327
 maps: []
 grids:
 - 1
@@ -505,9 +505,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Kudzu: []
-        MetalFoam: []
         Puddle: []
         Smoke: []
+        MetalFoam: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -560,12 +560,12 @@ entities:
             2: 30707
           0,-1:
             2: 13073
-          -3,3:
-            0: 28
-            1: 192
           -3,2:
             1: 1664
-            2: 2048
+            0: 2048
+          -3,3:
+            0: 12
+            1: 192
           -2,2:
             1: 18
             0: 4
@@ -620,12 +620,10 @@ entities:
             1: 8
           2,2:
             1: 3120
-            2: 512
+            0: 512
           2,3:
             0: 22
             1: 352
-          3,3:
-            0: 16
           0,-5:
             1: 32832
             0: 768
@@ -709,7 +707,7 @@ entities:
       - 590
       - 588
       - 591
-      - 592
+      - 569
       - 746
       - 753
   - uid: 4
@@ -745,7 +743,7 @@ entities:
     - type: DeviceList
       devices:
       - 594
-      - 595
+      - 592
       - 758
       - 751
   - uid: 7
@@ -756,7 +754,7 @@ entities:
       parent: 1
     - type: DeviceList
       devices:
-      - 596
+      - 595
       - 593
       - 757
       - 750
@@ -781,10 +779,10 @@ entities:
       devices:
       - 760
       - 745
-      - 600
       - 599
       - 596
       - 595
+      - 592
       - 598
 - proto: AirlockExternalGlassNfsdLocked
   entities:
@@ -805,6 +803,7 @@ entities:
   - uid: 12
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: -5.5,-4.5
       parent: 1
 - proto: AirlockHeavyTSFMCLocked
@@ -1583,6 +1582,18 @@ entities:
     components:
     - type: Transform
       pos: -7.5,13.5
+      parent: 1
+  - uid: 578
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,10.5
+      parent: 1
+  - uid: 842
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -8.5,10.5
       parent: 1
   - uid: 1238
     components:
@@ -3594,7 +3605,7 @@ entities:
     - type: Transform
       pos: 3.5,-4.5
       parent: 1
-- proto: ComputerEliteRadar
+- proto: ComputerAdvancedRadar
   entities:
   - uid: 554
     components:
@@ -3683,12 +3694,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,4.5
       parent: 1
-  - uid: 564
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,4.5
-      parent: 1
   - uid: 565
     components:
     - type: Transform
@@ -3701,28 +3706,10 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,1.5
       parent: 1
-  - uid: 567
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,-1.5
-      parent: 1
   - uid: 568
     components:
     - type: Transform
       pos: 1.5,1.5
-      parent: 1
-  - uid: 569
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,-5.5
-      parent: 1
-  - uid: 570
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,-5.5
       parent: 1
   - uid: 571
     components:
@@ -3759,23 +3746,31 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -6.5,-4.5
       parent: 1
+  - uid: 832
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-6.5
+      parent: 1
 - proto: ExtinguisherCabinetFilled
   entities:
-  - uid: 577
+  - uid: 564
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 4.5,0.5
-      parent: 1
-  - uid: 578
-    components:
-    - type: Transform
-      pos: -3.5,-2.5
       parent: 1
   - uid: 579
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -3.5,8.5
+      parent: 1
+  - uid: 834
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,-2.5
       parent: 1
 - proto: FaxMachineShip
   entities:
@@ -3797,7 +3792,7 @@ entities:
       - 590
       - 588
       - 591
-      - 592
+      - 569
   - uid: 582
     components:
     - type: Transform
@@ -3837,7 +3832,7 @@ entities:
       parent: 1
     - type: DeviceList
       devices:
-      - 596
+      - 595
       - 593
   - uid: 586
     components:
@@ -3848,7 +3843,7 @@ entities:
     - type: DeviceList
       devices:
       - 594
-      - 595
+      - 592
   - uid: 587
     components:
     - type: Transform
@@ -3861,6 +3856,16 @@ entities:
       - 597
 - proto: Firelock
   entities:
+  - uid: 569
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-10.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 581
+      - 3
   - uid: 588
     components:
     - type: Transform
@@ -3906,12 +3911,14 @@ entities:
   - uid: 592
     components:
     - type: Transform
-      pos: -2.5,-10.5
+      rot: -1.5707963267948966 rad
+      pos: 4.5,4.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:
-      - 581
-      - 3
+      - 9
+      - 586
+      - 6
   - uid: 593
     components:
     - type: Transform
@@ -3937,16 +3944,7 @@ entities:
   - uid: 595
     components:
     - type: Transform
-      pos: 4.5,4.5
-      parent: 1
-    - type: DeviceNetwork
-      deviceLists:
-      - 586
-      - 6
-      - 9
-  - uid: 596
-    components:
-    - type: Transform
+      rot: 1.5707963267948966 rad
       pos: -3.5,4.5
       parent: 1
     - type: DeviceNetwork
@@ -3977,22 +3975,26 @@ entities:
       - 9
 - proto: FirelockGlass
   entities:
-  - uid: 599
+  - uid: 596
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.5,11.5
-      parent: 1
-    - type: DeviceNetwork
-      deviceLists:
-      - 9
-  - uid: 600
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: 3.141592653589793 rad
       pos: 3.5,11.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
+      deviceLists:
+      - 9
+  - uid: 599
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,11.5
+      parent: 1
+    - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 9
 - proto: FloorDrain
@@ -5563,16 +5565,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 12.5,13.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 1318
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -11.5,13.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointBallisticMedium
   entities:
   - uid: 458
@@ -5581,16 +5579,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 12.5,-3.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 1237
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -11.5,-3.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointMissileHeavy
   entities:
   - uid: 457
@@ -5599,32 +5593,24 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,14.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 524
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -6.5,13.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 849
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 3.5,14.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 854
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 7.5,13.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: KitchenMicrowave
   entities:
   - uid: 808
@@ -5790,42 +5776,28 @@ entities:
       parent: 1
 - proto: PoweredDimSmallLight
   entities:
+  - uid: 567
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,-7.5
+      parent: 1
+  - uid: 570
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 600
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,1.5
+      parent: 1
   - uid: 831
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 5.5,-10.5
-      parent: 1
-    - type: DeviceLinkSink
-      invokeCounter: 1
-  - uid: 832
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,-6.5
-      parent: 1
-    - type: DeviceLinkSink
-      invokeCounter: 1
-  - uid: 833
-    components:
-    - type: Transform
-      pos: -0.5,-4.5
-      parent: 1
-    - type: DeviceLinkSink
-      invokeCounter: 1
-  - uid: 834
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,-1.5
-      parent: 1
-    - type: DeviceLinkSink
-      invokeCounter: 1
-  - uid: 835
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,1.5
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -5875,16 +5847,19 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 1
-- proto: PoweredLEDSmallLight
-  entities:
-  - uid: 842
+  - uid: 980
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 5.5,-3.5
+      rot: -1.5707963267948966 rad
+      pos: -3.5,-5.5
       parent: 1
-    - type: DeviceLinkSink
-      invokeCounter: 1
+  - uid: 1326
+    components:
+    - type: Transform
+      pos: -1.5,-4.5
+      parent: 1
+- proto: PoweredLEDSmallLight
+  entities:
   - uid: 843
     components:
     - type: Transform
@@ -5922,6 +5897,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 0.5,12.5
+      parent: 1
+  - uid: 1327
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,-3.5
       parent: 1
 - proto: PoweredlightGreen
   entities:
@@ -5969,13 +5950,12 @@ entities:
       parent: 1
 - proto: PoweredWarmSmallLight
   entities:
-  - uid: 855
+  - uid: 577
     components:
     - type: Transform
-      pos: -3.5,-4.5
+      rot: 1.5707963267948966 rad
+      pos: -4.5,-7.5
       parent: 1
-    - type: DeviceLinkSink
-      invokeCounter: 1
 - proto: Rack
   entities:
   - uid: 856
@@ -6688,9 +6668,10 @@ entities:
       parent: 1
 - proto: ShelfWallFreezerWhite
   entities:
-  - uid: 980
+  - uid: 855
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: -3.5,-3.5
       parent: 1
 - proto: ShieldGeneratorSmall
@@ -6726,6 +6707,19 @@ entities:
           - Toggle
 - proto: SignalSwitchDirectional
   entities:
+  - uid: 835
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,-2.5
+      parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        1327:
+        - - On
+          - On
+        - - Off
+          - Off
   - uid: 984
     components:
     - type: MetaData
@@ -6764,25 +6758,16 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        834:
-        - - Status
-          - Toggle
-        835:
-        - - Status
-          - Toggle
-  - uid: 986
-    components:
-    - type: MetaData
-      name: light switch
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 4.5,-3.5
-      parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        842:
-        - - Status
-          - Toggle
+        600:
+        - - On
+          - On
+        - - Off
+          - Off
+        570:
+        - - On
+          - On
+        - - Off
+          - Off
   - uid: 987
     components:
     - type: MetaData
@@ -6793,9 +6778,16 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        855:
-        - - Status
-          - Toggle
+        577:
+        - - On
+          - On
+        - - Off
+          - Off
+        980:
+        - - On
+          - On
+        - - Off
+          - Off
   - uid: 988
     components:
     - type: MetaData
@@ -6819,12 +6811,16 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        832:
-        - - Status
-          - Toggle
-        833:
-        - - Status
-          - Toggle
+        567:
+        - - On
+          - On
+        - - Off
+          - Off
+        1326:
+        - - On
+          - On
+        - - Off
+          - Off
   - uid: 990
     components:
     - type: MetaData
@@ -8538,6 +8534,18 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -11.5,-3.5
+      parent: 1
+  - uid: 833
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -11.5,13.5
+      parent: 1
+  - uid: 986
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,13.5
       parent: 1
   - uid: 1313
     components:
