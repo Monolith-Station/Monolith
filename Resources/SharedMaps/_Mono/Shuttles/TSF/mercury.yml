@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/19/2026 20:42:03
-  entityCount: 1327
+  time: 09/20/2026 18:30:58
+  entityCount: 1325
 maps: []
 grids:
 - 1
@@ -504,10 +504,10 @@ entities:
             176: -5,-8
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Puddle: []
-        Smoke: []
         MetalFoam: []
+        Smoke: []
+        Kudzu: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -560,12 +560,12 @@ entities:
             2: 30707
           0,-1:
             2: 13073
+          -3,3:
+            0: 28
+            1: 192
           -3,2:
             1: 1664
             0: 2048
-          -3,3:
-            0: 12
-            1: 192
           -2,2:
             1: 18
             0: 4
@@ -624,6 +624,8 @@ entities:
           2,3:
             0: 22
             1: 352
+          3,3:
+            0: 16
           0,-5:
             1: 32832
             0: 768
@@ -8530,18 +8532,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -11.5,-3.5
-      parent: 1
-  - uid: 833
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -11.5,13.5
-      parent: 1
-  - uid: 986
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 12.5,13.5
       parent: 1
   - uid: 1313
     components:

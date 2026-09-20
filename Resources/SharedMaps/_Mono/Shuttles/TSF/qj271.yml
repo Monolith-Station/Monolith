@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/19/2026 20:28:06
-  entityCount: 289
+  time: 09/20/2026 18:32:30
+  entityCount: 290
 maps: []
 grids:
 - 1
@@ -89,10 +89,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Puddle: []
-        Smoke: []
         MetalFoam: []
+        Smoke: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -1086,12 +1086,23 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerTabletopStationRecords
+- proto: ComputerTabletopIFF
   entities:
   - uid: 232
     components:
     - type: Transform
       pos: 2.5,-5.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+- proto: ComputerWallmountStationRecords
+  entities:
+  - uid: 290
+    components:
+    - type: Transform
+      pos: 2.5,-4.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
