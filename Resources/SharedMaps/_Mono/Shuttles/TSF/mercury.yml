@@ -3982,8 +3982,6 @@ entities:
       pos: 3.5,11.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 9
   - uid: 599
@@ -3993,8 +3991,6 @@ entities:
       pos: -2.5,11.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 9
 - proto: FloorDrain
