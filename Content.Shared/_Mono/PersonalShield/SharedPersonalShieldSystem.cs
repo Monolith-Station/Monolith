@@ -1,11 +1,15 @@
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Projectiles;
 using Robust.Shared.Network;
+using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Mono.PersonalShield;
 
@@ -13,6 +17,8 @@ public sealed partial class SharedPersonalShieldSystem : EntitySystem
 {
     [Dependency] private SharedBatterySystem _battery = default!;
     [Dependency] private INetManager _net = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private InventorySystem _inventory = default!;
     [Dependency] private ItemToggleSystem _toggle = default!;
 
     [Dependency] private EntityQuery<ItemToggleComponent> _itemToggleQuery = default!;
@@ -23,9 +29,11 @@ public sealed partial class SharedPersonalShieldSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PersonalShieldComponent, PersonalShieldActionEvent>(OnAction);
-        SubscribeLocalEvent<PersonalShieldComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnDamageModify);
+        SubscribeLocalEvent<PersonalShieldComponent, InventoryRelayedEvent<BeforeDamageChangedEvent>>(OnBeforeDamageChanged);
         SubscribeLocalEvent<PersonalShieldComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
+        SubscribeLocalEvent<PersonalShieldComponent, GotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<PersonalShieldComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<ProjectileComponent, ProjectileHitEvent>(OnProjectileHit);
     }
 
     private void OnAction(Entity<PersonalShieldComponent> ent, ref PersonalShieldActionEvent ev)
@@ -33,29 +41,72 @@ public sealed partial class SharedPersonalShieldSystem : EntitySystem
         _toggle.Toggle((ent, _itemToggleQuery.Comp(ent)), ev.Performer);
     }
 
-    private void OnDamageModify(Entity<PersonalShieldComponent> ent, ref InventoryRelayedEvent<DamageModifyEvent> args)
+    private void OnBeforeDamageChanged(Entity<PersonalShieldComponent> ent, ref InventoryRelayedEvent<BeforeDamageChangedEvent> ev)
     {
+        ref var args = ref ev.Args;
         var shield = ent.Comp;
-        if (!shield.IsUp || shield.Runtime.Charge <= 0f)
+        if (args.Cancelled || !args.Damage.AnyPositive() || !shield.IsUp ||
+            shield.Runtime.Charge <= 0f || !_inventory.InSlotWithFlags(ent.Owner, shield.Shield.RequiredSlot))
             return;
 
-        var modified = DamageSpecifier.ApplyModifierSet(args.Args.Damage, shield.Shield.BlockDamageModifier);
-
-        var incoming = modified.GetTotal().Float();
-        if (incoming <= 0f)
+        var forceShatter = args.Tool is { } tool && HasComp<PersonalShieldBreakerComponent>(tool);
+        var incoming = DamageSpecifier.ApplyModifierSet(args.Damage, shield.Shield.BlockDamageModifier)
+            .GetTotal().Float();
+        if (incoming <= 0f && !forceShatter)
             return;
 
-        var soaked = MathF.Min(incoming, shield.Runtime.Charge);
-        shield.Runtime.Charge -= soaked;
-
-        args.Args.Damage *= (incoming - soaked) / incoming;
+        shield.Runtime.Charge = forceShatter ? 0f : MathF.Max(shield.Runtime.Charge - incoming, 0f);
+        args.Cancelled = true;
 
         if (shield.Runtime.Charge <= 0f)
-            Fracture(ent); // Uh oh.
+            Fracture(ent);
+        else if (args.Origin is { } origin && IsPlayerDamage(origin))
+            TriggerDamageFlare(ent);
+
+        Dirty(ent);
+    }
+
+    private void OnProjectileHit(Entity<ProjectileComponent> ent, ref ProjectileHitEvent args)
+    {
+        if (!_net.IsClient || !_timing.IsFirstTimePredicted ||
+            args.Shooter is not { } shooter || !HasComp<ActorComponent>(shooter) ||
+            !args.Damage.AnyPositive())
+        {
+            return;
+        }
+
+        var slots = _inventory.GetSlotEnumerator(args.Target);
+        while (slots.NextItem(out var item))
+        {
+            if (TryComp<PersonalShieldComponent>(item, out var shield) && shield.IsUp)
+                TriggerDamageFlare((item, shield));
+        }
+    }
+
+    private bool IsPlayerDamage(EntityUid origin)
+    {
+        return HasComp<ActorComponent>(origin) ||
+               _inventory.TryGetContainingEntity(origin, out var holder) && HasComp<ActorComponent>(holder.Value);
+    }
+
+    private void TriggerDamageFlare(Entity<PersonalShieldComponent> ent)
+    {
+        if (ent.Comp.Visuals.DamageFlareTime <= 0f)
+            return;
+
+        ent.Comp.Runtime.DamageFlareUntil = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.Visuals.DamageFlareTime);
+        Dirty(ent);
     }
 
     private void OnActivateAttempt(Entity<PersonalShieldComponent> ent, ref ItemToggleActivateAttemptEvent args)
     {
+        if (!_inventory.InSlotWithFlags(ent.Owner, ent.Comp.Shield.RequiredSlot))
+        {
+            args.Cancelled = true;
+            args.Popup = Loc.GetString("personal-shield-toggle-not-equipped");
+            return;
+        }
+
         var runtime = ent.Comp.Runtime;
         if (runtime.Offline <= 0f && runtime.Shatter <= 0f)
             return;
@@ -63,6 +114,14 @@ public sealed partial class SharedPersonalShieldSystem : EntitySystem
         args.Cancelled = true;
         args.Popup = Loc.GetString("personal-shield-toggle-fractured",
             ("seconds", (int) MathF.Ceiling(runtime.Offline)));
+    }
+
+    private void OnUnequipped(Entity<PersonalShieldComponent> ent, ref GotUnequippedEvent args)
+    {
+        if ((args.SlotFlags & ent.Comp.Shield.RequiredSlot) != ent.Comp.Shield.RequiredSlot)
+            return;
+
+        _toggle.TryDeactivate(ent.Owner, args.Equipee);
     }
 
     private void OnExamined(Entity<PersonalShieldComponent> ent, ref ExaminedEvent args)
@@ -99,11 +158,11 @@ public sealed partial class SharedPersonalShieldSystem : EntitySystem
         {
             var ent = (uid, shield);
             var before = shield.Runtime;
-            var cfg = shield.Shield;
+            var stats = GetStats(ent);
 
             if (shield.Runtime.Shatter > 0f)
             {
-                shield.Runtime.Shatter += frameTime / MathF.Max(shield.ShatterTime, 0.01f);
+                shield.Runtime.Shatter += frameTime / MathF.Max(shield.Visuals.ShatterTime, 0.01f);
                 if (shield.Runtime.Shatter >= 1f)
                 {
                     shield.Runtime.Shatter = 0f;
@@ -121,48 +180,52 @@ public sealed partial class SharedPersonalShieldSystem : EntitySystem
                 continue;
             }
 
-            var running = (!_itemToggleQuery.TryComp(uid, out var toggle) || toggle.Activated)
-                          && TryDrawPower(ent, frameTime);
+            var running = _inventory.InSlotWithFlags(uid, shield.Shield.RequiredSlot)
+                          && (!_itemToggleQuery.TryComp(uid, out var toggle) || toggle.Activated)
+                          && TryDrawPower(ent, stats.PowerDraw, frameTime);
 
-            var step = frameTime / MathF.Max(cfg.SpinupTime, 0.01f);
+            var step = frameTime / MathF.Max(stats.SpinupTime, 0.01f);
 
             if (running)
             {
                 shield.Runtime.Form = MathF.Min(shield.Runtime.Form + step, 1f);
 
-                shield.Runtime.Charge = shield.Runtime.Form < 1f
-                    ? cfg.MaxCharge * shield.Runtime.Form
-                    : MathF.Min(shield.Runtime.Charge + cfg.RegenRate * frameTime, cfg.MaxCharge);
-            }
-            else if (shield.Runtime.Form >= 1f)
-            {
-                shield.Runtime.Shatter = float.Epsilon;
-                shield.Runtime.Charge = 0f;
+                shield.Runtime.Charge = before.Form < 1f
+                    ? shield.Shield.MaxCharge * shield.Runtime.Form
+                    : MathF.Min(shield.Runtime.Charge + stats.RegenRate * frameTime, stats.MaxCharge);
             }
             else if (shield.Runtime.Form > 0f)
             {
                 shield.Runtime.Form = MathF.Max(shield.Runtime.Form - step, 0f);
-                shield.Runtime.Charge = cfg.MaxCharge * shield.Runtime.Form;
+                shield.Runtime.Charge = stats.MaxCharge * shield.Runtime.Form;
             }
 
             DirtyIfChanged(ent, before);
         }
     }
 
-    private bool TryDrawPower(Entity<PersonalShieldComponent> ent, float frameTime)
+    private bool TryDrawPower(Entity<PersonalShieldComponent> ent, float powerDraw, float frameTime)
     {
-        if (ent.Comp.Shield.PowerDraw <= 0f || !_batteryQuery.HasComp(ent))
+        if (powerDraw <= 0f || !_batteryQuery.HasComp(ent))
             return true;
 
-        return _battery.TryUseCharge(ent, ent.Comp.Shield.PowerDraw * frameTime);
+        return _battery.TryUseCharge(ent, powerDraw * frameTime);
+    }
+
+    public GetPersonalShieldStatsEvent GetStats(Entity<PersonalShieldComponent> ent)
+    {
+        var ev = new GetPersonalShieldStatsEvent(ent.Comp.Shield);
+        RaiseLocalEvent(ent, ref ev);
+        return ev;
     }
 
     // Oops!
     public void Fracture(Entity<PersonalShieldComponent> ent)
     {
+        TriggerDamageFlare(ent);
         ent.Comp.Runtime.Shatter = float.Epsilon;
         ent.Comp.Runtime.Charge = 0f;
-        ent.Comp.Runtime.Offline = ent.Comp.Shield.BreakCooldown;
+        ent.Comp.Runtime.Offline = GetStats(ent).BreakCooldown;
         Dirty(ent, ent.Comp);
         _toggle.TryDeactivate(ent.Owner);
     }

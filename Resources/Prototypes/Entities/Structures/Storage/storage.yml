@@ -64,3 +64,27 @@
   - type: ShipRepairable
     repairTime: 1
     repairCost: 1
+
+- type: entity
+  parent: Rack
+  id: RackBlack
+  name: rack
+  description: A rack for storing things on.
+  components:
+  - type: Construction
+    graph: Rack
+    node: Rack
+  - type: Anchorable
+  - type: InteractionOutline
+  - type: PlaceableSurface
+  - type: Sprite
+    sprite: Structures/Furniture/furniture.rsi
+    state: rackblack
+    snapCardinals: true
+  - type: Climbable
+  - type: StaticPrice
+    price: 22 # Frontier: 30<22 - TODO: material value rework
+  # Mono
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 1

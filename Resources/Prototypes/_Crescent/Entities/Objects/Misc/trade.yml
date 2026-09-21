@@ -43,3 +43,6 @@
   - type: MultiHandedItem # Mono
   - type: StaticPrice # Mono
     price: 100
+  - type: ThermalSignature # Mono
+  - type: PassiveThermalSignature # Mono
+    signature: 15000

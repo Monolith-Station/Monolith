@@ -12,3 +12,16 @@
     gas: WaterVapor
   products:
     LithiumHydroxide: 2
+
+- type: reaction
+  id: GestalzitineBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    Gestalzitine:
+      amount: 5
+  products:
+    Vestine: 2
+    Nocturine: 1
+    Silicon: 2

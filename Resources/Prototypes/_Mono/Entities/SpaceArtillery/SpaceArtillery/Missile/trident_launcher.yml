@@ -2,7 +2,7 @@
   id: WeaponTurretASM220
   name: ASM-220 "Trident" Torpedo Rack
   parent:
-  - BallisticArtilleryUnanchorableCartridge
+  - BallisticArtilleryCartridge
   - BallisticArtilleryTier4HP
   description: A heavy built-in torpedo rack for cruisers which relies on manual loading, usually done at harbor. Despite this, it has the largest missiles in the sector.
   components:
@@ -47,6 +47,9 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Heavy
 
 - type: entity
   id: WeaponTurretASM220Station
@@ -66,3 +69,6 @@
     proto: Asm220TorpedoHE
   - type: ShipGunClass
     shipClass: Heavy
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Superheavy

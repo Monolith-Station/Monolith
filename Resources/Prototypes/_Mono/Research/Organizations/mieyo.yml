@@ -25,6 +25,8 @@
   recipeUnlocks:
   - IndustrialPressEconomyElectronicsMMCMachineCircuitboard
   - IndustrialPressEconomyPlatesMMCMachineCircuitboard
+  - TradeGoodLuxuriesAlt
+  - TradeGoodFissionFuel
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: -6, -8
@@ -32,11 +34,12 @@
 - type: technology
   id: MieyoShipworking
   name: research-technology-mieyo-srd
-  entityIcon: NaniteApplicatorMMC
+  entityIcon: ShipVoucherMieyoYukikaze
   discipline: Mieyo
   tier: 1
-  cost: 10000
+  cost: 30000
   recipeUnlocks:
+  - ShipVoucherMieyoYukikaze
   - NaniteApplicatorMMC
   - ShipRepairDeviceMMC
   - ShipRepairDeviceAmmo

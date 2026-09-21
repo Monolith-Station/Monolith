@@ -201,6 +201,7 @@
     multiplier: 0.01
   - type: MaterialStorage
     materialWhiteList: [Plasma, FuelGradePlasma]
+    storageLimit: 10000
   - type: PowerMonitoringDevice
     sprite: _Mono/Structures/Power/Generators/pinchreactor.rsi
     state: portgen0
@@ -301,6 +302,7 @@
     multiplier: 0.01
   - type: MaterialStorage
     materialWhiteList: [Plasma, FuelGradePlasma]
+    storageLimit: 50000
   - type: PowerMonitoringDevice
     sprite: _Mono/Structures/Power/Generators/sterling_reactor.rsi
     state: portgen0

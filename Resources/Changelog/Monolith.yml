@@ -24377,6 +24377,40 @@ Entries:
   id: 2677
   time: '2026-08-28T22:54:05.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4592
+- author: waphun
+  changes:
+    - type: Add
+      message: Added the Cinquedea, a T2 laser-based pursuit ship to the TSF shipyards.
+    - type: Fix
+      message: >-
+        Tweaked the Prometheus' (shipgun) recharge-rate so it can sustain its
+        buffed fire rate.
+  id: 2678
+  time: '2026-09-01T09:47:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4605
+- author: LassiH
+  changes:
+    - type: Add
+      message: vg lancehead a lpc only shuttle
+  id: 2688
+  time: '2026-09-01T23:39:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4603
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: >-
+        3 Tumour fighters have been moved from the Tumour to the standard
+        shipyard.
+  id: 2689
+  time: '2026-09-03T00:41:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4613
+- author: LassiH
+  changes:
+    - type: Add
+      message: vg lancehead a lpc only shuttle
+  id: 2690
+  time: '2026-09-03T00:42:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4608
 - author: eris-webserv
   changes:
     - type: Add
@@ -24921,3 +24955,220 @@ Entries:
   id: 2725
   time: '2026-09-14T23:42:13.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4659
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: Added PDV vouchers to the uplink for rather steep prices.
+    - type: Tweak
+      message: The PDV can use civilian shipyards again.
+  id: 2726
+  time: '2026-09-16T22:05:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4676
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        Floodlights no longer consume power. They still need a power cell to
+        work though.
+  id: 2727
+  time: '2026-09-15T21:59:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4705
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Fultons! Now with 200m distance limit.
+  id: 2728
+  time: '2026-09-16T23:36:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4713
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: '"Syndicate" announcement console has been MOGGED.'
+  id: 2729
+  time: '2026-09-17T00:54:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4714
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The chimera ship roster has been completely overhauled into a new set of
+        ships, mapped by Skye.
+  id: 2730
+  time: '2026-09-19T18:51:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4732
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Adds more loadout options to Vagrant.
+  id: 2731
+  time: '2026-09-19T01:05:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4716
+- author: lordsej
+  changes:
+    - type: Tweak
+      message: New Cat Sprite for CarpSuit
+  id: 2732
+  time: '2026-09-19T19:11:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4727
+- author: Onezero0
+  changes:
+    - type: Add
+      message: You can now centrifuge gestalzitine for some special chemicals.
+  id: 2733
+  time: '2026-09-19T19:12:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4693
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Temperature alert sprites with increased clarity have been added,
+        courtesy of Zethine!
+  id: 2734
+  time: '2026-09-20T06:58:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4702
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        All shipyard ships ingame have gone over a pass to remove unmaintained
+        or low-quality ships. New ones have been added to compensate for missing
+        niches or roles. Decisions are not final, so please give feedback on
+        what roles are missing or any problems, this is just the basics and more
+        ships will still be added.
+    - type: Add
+      message: New AC-35 35mm chaingun for a heavier alternative to the Draupnir.
+    - type: Add
+      message: >-
+        TSF shipyard additions  - Calypso full remap, Banshee (T1), Cinquedea
+        (T1), Luda (T4), QJ271 (T0), Xiphos (T0), Seax (T0), Paladin (T0),
+        Polaris full remap.
+    - type: Add
+      message: >-
+        PDV shipyard additions - Bazalt (T0), Gadfly (T0), Ontos (T0), Tethys
+        full remap, Saturn full remap, Europa full remap, Scorpion armaments
+        change, Osa-II (T2)
+    - type: Add
+      message: >-
+        Civilian shipyard additions (Base) - Xinhua, Guppy, Updated
+        Noble/Sakuratsu/Autumn (to match the former MMC variants).
+    - type: Add
+      message: Civilian shipyard additions (MIL) - QJ-270/340/490, Xinhua, Talon
+    - type: Add
+      message: Civilian shipyard additions (MED) - Skalpel, Shirokami
+    - type: Add
+      message: Civilian shipyard additions (EXP) - Pelican, Meteor
+    - type: Add
+      message: CSEC shipyard additions - Hornet, Lightning, Petra
+    - type: Add
+      message: VG shipyard additions - Keelback, Lancehead, and Leviathan.
+    - type: Add
+      message: >-
+        Cargo hauling is back, so the cargo ships, turn-in chutes, and crate
+        vendors have use again. Plus, you can make the crates in precision
+        assembler now.
+    - type: Add
+      message: >-
+        Hardpoints. You require one under an anchored shipgun for it to work,
+        they come in the 3 classes and 5 sizes, and they support any size under
+        theirs..
+    - type: Tweak
+      message: >-
+        Some faction ships have had their tiers changed. Neptune is now T2,
+        Kortik-R is now T3, Hammerhead is now T2, Fujian is now T2, Fracture is
+        now T1, Europa is now T3. The MMC Yukikaze is now T1 additionally.
+    - type: Tweak
+      message: Almost all shipguns are unanchorable now. You just need the hardpoint.
+  id: 2735
+  time: '2026-09-20T22:30:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4624
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        Added signal flares. You spawn with some, you can print more from
+        lathes, and you can buy even more from salvage vendors.
+    - type: Add
+      message: >-
+        You can now print flare boxes from autolathes, and anything that can
+        print tools.
+    - type: Tweak
+      message: Flare gun now is for launching flares, not 12 gauge. Sorry.
+  id: 2736
+  time: '2026-09-21T01:51:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4730
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Colonel and Grand Vizier now spawn with their equipment instead of it
+        being in their lockers.
+  id: 2737
+  time: '2026-09-21T01:52:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4723
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: >-
+        Horizon Energy has released a new revision to their popular Personal
+        Shield technology to address some known issues.
+  id: 2738
+  time: '2026-09-21T01:54:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4710
+- author: Pcolik505
+  changes:
+    - type: Tweak
+      message: Resprite TSFTech and recolor tsf headsets
+  id: 2739
+  time: '2026-09-21T01:55:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4671
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: >-
+        Fent crystals now sell for 10k each, cost 5x the amount of fent to make
+        and cost vestine instead of cognizine.
+    - type: Add
+      message: PDV can directly buy vestine vials from their uplink.
+    - type: Tweak
+      message: Fent is marginally less explosive.
+  id: 2740
+  time: '2026-09-21T01:56:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4688
+- author: AsagaoYe
+  changes:
+    - type: Add
+      message: Added fun!
+    - type: Remove
+      message: Removed fun!
+    - type: Tweak
+      message: Changed fun!
+    - type: Fix
+      message: Fixed fun!
+  id: 2741
+  time: '2026-09-21T01:58:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4670
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: Hey, have you heard of Buckshot Roulette?
+  id: 2742
+  time: '2026-09-21T01:59:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4704
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: >-
+        Some items might stick with you if you can make it to the end of a
+        shift.
+  id: 2743
+  time: '2026-09-21T02:48:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4577
+- author: LassiH
+  changes:
+    - type: Fix
+      message: limits the z pinch to 100 max fuel like every other generator
+    - type: Fix
+      message: fixes the material storage on sterling generators
+  id: 2744
+  time: '2026-09-21T10:37:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4738
