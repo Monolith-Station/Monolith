@@ -61,6 +61,10 @@ namespace Content.Server.Database
                 .IsUnique();
 
             // Mono start
+            modelBuilder.Entity<Profile>()
+                .Property(p => p.Flags)
+                .HasDefaultValue(new List<string>());
+
             modelBuilder.Entity<ProfileComponent>()
                 .HasOne(e => e.Profile)
                 .WithMany(e => e.Components)

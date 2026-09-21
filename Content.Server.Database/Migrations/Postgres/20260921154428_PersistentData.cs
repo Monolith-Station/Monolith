@@ -16,7 +16,8 @@ namespace Content.Server.Database.Migrations.Postgres
                 name: "flags",
                 table: "profile",
                 type: "text[]",
-                nullable: false);
+                nullable: false,
+                defaultValue: new List<string>());
 
             migrationBuilder.CreateTable(
                 name: "profile_component",

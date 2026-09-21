@@ -886,7 +886,9 @@ namespace Content.Server.Database.Migrations.Postgres
 
                     b.PrimitiveCollection<List<string>>("Flags")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("text[]")
+                        .HasDefaultValue(new List<string>())
                         .HasColumnName("flags");
 
                     b.Property<string>("FlavorText")
