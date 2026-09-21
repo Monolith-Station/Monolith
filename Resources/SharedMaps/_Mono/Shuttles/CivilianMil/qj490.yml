@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/01/2026 02:12:56
+  time: 09/21/2026 17:29:26
   entityCount: 169
 maps: []
 grids:
@@ -113,8 +113,8 @@ entities:
       spreadQueues:
         Puddle: []
         Smoke: []
-        Kudzu: []
         MetalFoam: []
+        Kudzu: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -672,32 +672,24 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,1.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 87
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,3.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 130
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -3.5,1.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 131
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,3.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointBallisticMedium
   entities:
   - uid: 166
@@ -706,8 +698,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,4.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: NFHolopadShip
   entities:
   - uid: 82
@@ -1203,7 +1193,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,4.5
       parent: 1
-- proto: WindoorSecureSecurityLocked
+- proto: WindoorSecure
   entities:
   - uid: 133
     components:
