@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/10/2026 12:40:31
+  time: 09/21/2026 15:35:37
   entityCount: 970
 maps: []
 grids:
@@ -72,7 +72,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Calypso
+      name: Transponderless Vessel
     - type: Transform
       pos: 0.5,0.5
       parent: invalid
@@ -112,7 +112,7 @@ entities:
     - type: Fixtures
       fixtures: {}
     - type: BecomesStation
-      id: Cinquedea
+      id: Cinqueda-Chimera
     - type: OccluderTree
     - type: Shuttle
       dampingModifier: 0.25
@@ -762,8 +762,8 @@ entities:
             125: -11,-14
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
         Kudzu: []
         Smoke: []
     - type: GridAtmosphere
@@ -897,6 +897,10 @@ entities:
         0,-3: 4548388366924318720
     - type: ThermalSignature
     - type: ExplosionAirtightGrid
+    - type: IFF
+      address: ' 7FA2-ECD6'
+      color: '#FFFFFFFF'
+      flags: HideLabel, IsPlayerShuttle
 - proto: AirAlarm
   entities:
   - uid: 2

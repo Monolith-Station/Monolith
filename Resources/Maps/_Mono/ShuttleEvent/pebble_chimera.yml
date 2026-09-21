@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/10/2026 12:50:04
+  time: 09/21/2026 15:50:01
   entityCount: 402
 maps: []
 grids:
@@ -50,7 +50,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Pebble
+      name: Transponderless Vessel
     - type: Transform
       parent: invalid
     - type: MapGrid
@@ -81,7 +81,7 @@ entities:
     - type: Fixtures
       fixtures: {}
     - type: BecomesStation
-      id: Pebble
+      id: Pebble-Chimera
     - type: OccluderTree
     - type: Shuttle
       dampingModifier: 0.25
@@ -279,8 +279,8 @@ entities:
             34: 2,-4
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
         Kudzu: []
         Smoke: []
     - type: GridAtmosphere
@@ -354,6 +354,10 @@ entities:
     - type: ExplosionAirtightGrid
     - type: ShipGridLock
       locked: False
+    - type: IFF
+      address: ' 0E15-0658'
+      color: '#FFFFFFFF'
+      flags: HideLabel, IsPlayerShuttle
 - proto: AirAlarm
   entities:
   - uid: 344
