@@ -110,13 +110,9 @@ namespace Content.Server.Preferences.Managers
             if (!authoritative && profile is HumanoidCharacterProfile humanoid)
             {
                 if (curPrefs.Characters.TryGetValue(slot, out var oldProfile) && oldProfile is HumanoidCharacterProfile oldHumanoid)
-                    profile = humanoid
-                        .WithBankBalance(oldHumanoid.BankBalance)
-                        .WithPersistentData(oldHumanoid.Flags, oldHumanoid.Components, oldHumanoid.Items); // Mono
+                    profile = humanoid.WithBankBalance(oldHumanoid.BankBalance);
                 else
-                    profile = humanoid
-                        .WithBankBalance(HumanoidCharacterProfile.DefaultBalance)
-                        .WithPersistentData([], [], []); // Mono
+                    profile = humanoid.WithBankBalance(HumanoidCharacterProfile.DefaultBalance);
             }
 
             var profiles = new Dictionary<int, ICharacterProfile>(curPrefs.Characters)
