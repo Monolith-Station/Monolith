@@ -26,7 +26,7 @@
       stationProto: StandardFrontierVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'QJ-340 TSF{1}'
+        mapNameTemplate: 'QJ-340 MIL{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
