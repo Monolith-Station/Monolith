@@ -259,7 +259,7 @@
   id: ComputerShipyardSr
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, ComputerShipyardBase]
   name: C-Sec shipyard console
-  description: Used to buy vessels exclusive to Cealestinus Security personnel.
+  description: Used to buy vessels exclusive to Caelestinus Security personnel.
   components:
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Sr
