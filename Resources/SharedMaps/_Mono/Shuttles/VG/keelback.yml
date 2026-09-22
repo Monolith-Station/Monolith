@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/21/2026 15:05:37
+  time: 09/22/2026 15:19:02
   entityCount: 1550
 maps: []
 grids:
@@ -105,9 +105,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         MetalFoam: []
-        Kudzu: []
         Smoke: []
         Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -1178,15 +1178,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,-1.5
       parent: 1
-- proto: AirlockHeavyViperCommandLocked
+- proto: AirlockHeavyViperLocked
   entities:
   - uid: 23
     components:
     - type: Transform
       pos: -2.5,9.5
       parent: 1
-- proto: AirlockHeavyViperLocked
-  entities:
   - uid: 26
     components:
     - type: Transform
@@ -1231,7 +1229,7 @@ entities:
       pos: -0.5,18.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -25081.615
+      secondsUntilStateChange: -25139.41
       state: Opening
     - type: DeviceLinkSource
       lastSignals:

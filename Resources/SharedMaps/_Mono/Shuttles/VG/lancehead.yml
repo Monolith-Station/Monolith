@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/21/2026 15:07:46
+  time: 09/22/2026 15:19:07
   entityCount: 1244
 maps: []
 grids:
@@ -109,9 +109,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         MetalFoam: []
-        Kudzu: []
         Smoke: []
         Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -428,7 +428,6 @@ entities:
             id: TrimlineNorthEastCorner
           decals:
             962: 5,-8
-            1403: -2,-9
         - node:
             color: '#8C191EFF'
             id: TrimlineNorthEnd
@@ -445,7 +444,6 @@ entities:
             id: TrimlineNorthWestCorner
           decals:
             957: -5,-8
-            1404: 2,-9
         - node:
             color: '#8C191EFF'
             id: TrimlineSouth
@@ -477,8 +475,6 @@ entities:
             color: '#8C191EFF'
             id: TrimlineSouthEnd
           decals:
-            903: -2,-9
-            904: 2,-9
             1337: 0,-7
         - node:
             color: '#8C191EFF'
