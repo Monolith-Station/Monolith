@@ -271,6 +271,18 @@
     - SafetyDepositBlacklist
 
 - type: entity
+  parent: ClothingBeltSheathVizier
+  id: ClothingBeltSheathVizierFilled
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      sheath:
+      - WeaponVizierShamshir
+      holster:
+      - WeaponRevolverDragoon
+
+- type: entity
   parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltWebbingsPDVTarkhan
   name: tarkhan chest rig

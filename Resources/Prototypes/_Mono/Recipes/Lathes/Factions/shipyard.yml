@@ -59,7 +59,6 @@
     Silver: 3000
     Gold: 3000
 
-# Same cost as europa for now.
 - type: latheRecipe
   parent: BaseVoucherRecipe
   id: ShipVoucherPolarisRecipe
@@ -76,6 +75,8 @@
     Gold: 5000
     Silver: 5000
     Plastitanium: 2000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -93,6 +94,7 @@
     Gold: 5000
     Silver: 5000
     Plastitanium: 3000
+    UraniumDepleted: 3000
     UraniumFissile: 1000
 
 # PDV
@@ -260,17 +262,18 @@
   parent: BaseVoucherRecipe
   id: ShipVoucherVGKeelback
   result: ShipVoucherVGKeelback
-  completetime: 100
+  completetime: 180
   materialDiscountScale: 0.2
   materials:
-    Steel: 10000
+    Steel: 15000
     Copper: 10000
-    Plasteel: 5000
+    Plasteel: 24000
     Lithium: 10000
     Glass: 5000
     Plasma: 5000
     Gold: 5000
     Silver: 5000
+    Plastitanium: 2000
     UraniumDepleted: 1000
     UraniumFissile: 250
 
@@ -278,35 +281,36 @@
   parent: BaseVoucherRecipe
   id: ShipVoucherVGLancehead
   result: ShipVoucherVGLancehead
-  completetime: 100
+  completetime: 180
   materialDiscountScale: 0.2
   materials:
-    Steel: 10000
-    Copper: 10000
-    Plasteel: 5000
-    Lithium: 10000
+    Steel: 15000
+    Copper: 20000
+    Plasteel: 12000
+    Lithium: 20000
     Glass: 5000
     Plasma: 5000
-    Gold: 7500
-    Silver: 7500
-    UraniumDepleted: 1500
-    UraniumFissile: 300
+    Gold: 5000
+    Silver: 5000
+    Plastitanium: 2000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
   id: ShipVoucherVGLeviathan
   result: ShipVoucherVGLeviathan
-  completetime: 100
+  completetime: 240
   materialDiscountScale: 0.2
   materials:
-    Steel: 10000
+    Steel: 30000
     Copper: 10000
-    Plasteel: 5000
+    Plasteel: 30000
     Lithium: 10000
     Glass: 5000
     Plasma: 5000
     Gold: 5000
     Silver: 5000
-    Plastitanium: 10000
-    UraniumDepleted: 1500
-    UraniumFissile: 500
+    Plastitanium: 5000
+    UraniumDepleted: 3000
+    UraniumFissile: 1000

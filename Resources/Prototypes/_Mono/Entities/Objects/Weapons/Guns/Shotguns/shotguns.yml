@@ -258,3 +258,31 @@
   - type: StaticPrice
     price: 600
     vendPrice: 3000
+
+- type: entity
+  name: roulette shotgun
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
+  id: WeaponShotgunBuckshot
+  description: Smells like despair, greed, and fear. Careful, now...
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,4,1
+    sprite: Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 1.5
+  - type: BallisticAmmoProvider
+    capacity: 10
+    proto: null
+    autoCycle: true
+    fireInLoadOrder: true
+    whitelist:
+      tags:
+      - ShellShotgun12_gaugeBuckshot
+  - type: RouletteShotgun

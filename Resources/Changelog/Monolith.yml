@@ -25081,3 +25081,154 @@ Entries:
   id: 2735
   time: '2026-09-20T22:30:44.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4624
+- author: Onezero0
+  changes:
+    - type: Add
+      message: >-
+        Added signal flares. You spawn with some, you can print more from
+        lathes, and you can buy even more from salvage vendors.
+    - type: Add
+      message: >-
+        You can now print flare boxes from autolathes, and anything that can
+        print tools.
+    - type: Tweak
+      message: Flare gun now is for launching flares, not 12 gauge. Sorry.
+  id: 2736
+  time: '2026-09-21T01:51:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4730
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Colonel and Grand Vizier now spawn with their equipment instead of it
+        being in their lockers.
+  id: 2737
+  time: '2026-09-21T01:52:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4723
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: >-
+        Horizon Energy has released a new revision to their popular Personal
+        Shield technology to address some known issues.
+  id: 2738
+  time: '2026-09-21T01:54:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4710
+- author: Pcolik505
+  changes:
+    - type: Tweak
+      message: Resprite TSFTech and recolor tsf headsets
+  id: 2739
+  time: '2026-09-21T01:55:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4671
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: >-
+        Fent crystals now sell for 10k each, cost 5x the amount of fent to make
+        and cost vestine instead of cognizine.
+    - type: Add
+      message: PDV can directly buy vestine vials from their uplink.
+    - type: Tweak
+      message: Fent is marginally less explosive.
+  id: 2740
+  time: '2026-09-21T01:56:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4688
+- author: AsagaoYe
+  changes:
+    - type: Add
+      message: Added fun!
+    - type: Remove
+      message: Removed fun!
+    - type: Tweak
+      message: Changed fun!
+    - type: Fix
+      message: Fixed fun!
+  id: 2741
+  time: '2026-09-21T01:58:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4670
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: Hey, have you heard of Buckshot Roulette?
+  id: 2742
+  time: '2026-09-21T01:59:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4704
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: >-
+        Some items might stick with you if you can make it to the end of a
+        shift.
+  id: 2743
+  time: '2026-09-21T02:48:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4577
+- author: LassiH
+  changes:
+    - type: Fix
+      message: limits the z pinch to 100 max fuel like every other generator
+    - type: Fix
+      message: fixes the material storage on sterling generators
+  id: 2744
+  time: '2026-09-21T10:37:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4738
+- author: Happyowl93
+  changes:
+    - type: Fix
+      message: Sirius, Meteor and Pelican can run expeditions.
+  id: 2745
+  time: '2026-09-21T14:58:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4741
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Stamps can be put into deposit boxes again. They dry up and become
+        nothing more than a collector's item, however.
+  id: 2746
+  time: '2026-09-21T19:40:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4709
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: >-
+        Locked windoors on the QJ270 and 490 have been replaced with unlocked
+        variants. Sorry about that.
+  id: 2747
+  time: '2026-09-21T22:12:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4746
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixed Chimera ships being 'grid'
+  id: 2748
+  time: '2026-09-21T22:34:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4745
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added Shuilian as a large botany ship. Available in Zvezda & CC
+        shipyards.
+    - type: Tweak
+      message: Added limits to VG Keelback, Lancehead, Wolfsnake, & Leviathan.
+    - type: Tweak
+      message: Adjusted research costs for T2/T3/T4 LPC research to be more in line.
+    - type: Tweak
+      message: Removed shield shunt/shield blocker from Neptune.
+    - type: Tweak
+      message: Decreased DC cost for PDV T1 & T2 LPCs.
+    - type: Fix
+      message: >-
+        Fixed VG LPCs being unusually cheap. They should be more consistent with
+        other T3/T4 costs. Fixed Polaris LPC missing T3 ingredients such as
+        fissile, fixed Luda LPC missing DU cost.
+    - type: Fix
+      message: >-
+        Fixed minor mapping issues with Kunai, Shirokami, & Skalpel (missing
+        APCs, inaccessible nanomeds, etc)
+    - type: Fix
+      message: Fixed GS QJ series names being too long and blocking the preview button.
+  id: 2749
+  time: '2026-09-21T22:48:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4750

@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/09/2026 17:14:58
+  time: 09/21/2026 15:41:19
   entityCount: 334
 maps: []
 grids:
@@ -50,7 +50,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Gadfly
+      name: Transponderless Vessel
     - type: Transform
       parent: invalid
     - type: MapGrid
@@ -81,7 +81,7 @@ entities:
     - type: Fixtures
       fixtures: {}
     - type: BecomesStation
-      id: Gadfly
+      id: Gadfly-Chimera
     - type: OccluderTree
     - type: Shuttle
       dampingModifier: 0.25
@@ -232,9 +232,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Puddle: []
+        MetalFoam: []
         Kudzu: []
         Smoke: []
-        MetalFoam: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -311,6 +311,10 @@ entities:
     - type: RadiationGridResistance
     - type: ShipGridLock
       locked: False
+    - type: IFF
+      address: ' 0DE6-64F6'
+      color: '#FFFFFFFF'
+      flags: HideLabel, IsPlayerShuttle
 - proto: AirAlarm
   entities:
   - uid: 280
