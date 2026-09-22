@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/22/2026 15:19:02
+  time: 09/22/2026 15:33:03
   entityCount: 1550
 maps: []
 grids:
@@ -104,10 +104,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
+        Kudzu: []
         Smoke: []
         Puddle: []
-        Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -980,6 +980,8 @@ entities:
       - 531
       - 541
       - 532
+      - 726
+      - 731
   - uid: 3
     components:
     - type: Transform
@@ -1002,9 +1004,9 @@ entities:
       devices:
       - 732
       - 744
-      - 531
+      - 540
       - 526
-      - 539
+      - 532
       - 533
   - uid: 5
     components:
@@ -1016,9 +1018,9 @@ entities:
       devices:
       - 733
       - 743
-      - 540
+      - 531
       - 530
-      - 532
+      - 539
       - 529
   - uid: 6
     components:
@@ -1041,8 +1043,8 @@ entities:
       - 725
       - 746
       - 534
-      - 535
       - 527
+      - 535
   - uid: 8
     components:
     - type: Transform
@@ -1050,11 +1052,11 @@ entities:
       parent: 1
     - type: DeviceList
       devices:
-      - 538
+      - 535
       - 537
       - 727
       - 745
-      - 535
+      - 538
       - 536
   - uid: 9
     components:
@@ -1077,7 +1079,7 @@ entities:
       devices:
       - 737
       - 728
-      - 537
+      - 536
   - uid: 11
     components:
     - type: Transform
@@ -1107,10 +1109,10 @@ entities:
       parent: 1
     - type: DeviceList
       devices:
-      - 539
-      - 527
       - 534
+      - 539
       - 540
+      - 527
       - 739
       - 729
       - 528
@@ -1229,7 +1231,7 @@ entities:
       pos: -0.5,18.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -25139.41
+      secondsUntilStateChange: -25386.87
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4279,23 +4281,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -3.5,12.5
       parent: 1
-    - type: DeviceList
-      devices:
-      - 534
-      - 535
-      - 527
   - uid: 1300
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 2.5,14.5
       parent: 1
-    - type: DeviceList
-      devices:
-      - 536
-      - 538
-      - 537
-      - 535
   - uid: 1301
     components:
     - type: Transform
@@ -4305,9 +4296,7 @@ entities:
     - type: DeviceList
       devices:
       - 529
-      - 532
       - 530
-      - 540
   - uid: 1302
     components:
     - type: Transform
@@ -4318,18 +4307,11 @@ entities:
       devices:
       - 533
       - 526
-      - 531
-      - 539
   - uid: 1303
     components:
     - type: Transform
       pos: 1.5,-7.5
       parent: 1
-    - type: DeviceList
-      devices:
-      - 531
-      - 541
-      - 532
   - uid: 1304
     components:
     - type: Transform
@@ -4366,14 +4348,12 @@ entities:
   - uid: 527
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -2.5,9.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:
-      - 7
       - 1295
-      - 1297
+      - 7
   - uid: 528
     components:
     - type: Transform
@@ -4410,27 +4390,21 @@ entities:
   - uid: 531
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -4.5,-3.5
-      parent: 1
-    - type: DeviceNetwork
-      deviceLists:
-      - 4
-      - 2
-      - 1302
-      - 1303
-  - uid: 532
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 5.5,-3.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:
-      - 5
       - 2
-      - 1301
-      - 1303
+      - 5
+  - uid: 532
+    components:
+    - type: Transform
+      pos: -4.5,-3.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 2
+      - 4
   - uid: 533
     components:
     - type: Transform
@@ -4445,90 +4419,73 @@ entities:
   - uid: 534
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 1.5,9.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:
-      - 7
       - 1295
-      - 1297
+      - 7
   - uid: 535
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 0.5,14.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:
-      - 8
       - 7
-      - 1297
-      - 1300
+      - 8
   - uid: 536
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,18.5
-      parent: 1
-    - type: DeviceNetwork
-      deviceLists:
-      - 8
-      - 1300
-  - uid: 537
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 3.5,21.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:
       - 8
-      - 1300
       - 10
+  - uid: 537
+    components:
+    - type: Transform
+      pos: -0.5,18.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 8
   - uid: 538
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -2.5,21.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:
       - 8
-      - 1300
       - 9
   - uid: 539
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -4.5,4.5
-      parent: 1
-    - type: DeviceNetwork
-      deviceLists:
-      - 4
-      - 1295
-      - 1302
-  - uid: 540
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 5.5,4.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:
       - 5
       - 1295
-      - 1301
+  - uid: 540
+    components:
+    - type: Transform
+      pos: -4.5,4.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 4
+      - 1295
   - uid: 541
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 0.5,-9.5
       parent: 1
     - type: DeviceNetwork
       deviceLists:
       - 2
-      - 1303
 - proto: GasMixerOn
   entities:
   - uid: 542
@@ -5987,6 +5944,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.5,-4.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 727
@@ -6037,6 +5997,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,-4.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 732
