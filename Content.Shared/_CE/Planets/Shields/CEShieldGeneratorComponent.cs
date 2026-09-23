@@ -1,3 +1,4 @@
+using System.Numerics;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -49,8 +50,7 @@ public sealed partial class CEShieldGeneratorComponent : Component
     public SoundSpecifier ChargeSound = new SoundPathSpecifier("/Audio/_CE/Explosions/shieldcharge.ogg");
 
     [DataField]
-    public SoundSpecifier FireSound = new SoundPathSpecifier("/Audio/_CE/Explosions/shieldgenfire.ogg",
-        AudioParams.Default.WithMaxDistance(60f));
+    public SoundSpecifier FireSound = new SoundPathSpecifier("/Audio/_CE/Explosions/shieldgenfire.ogg");
 
     [DataField]
     public SoundSpecifier FailSound = new SoundPathSpecifier("/Audio/_CE/Explosions/shieldfail.ogg");
@@ -75,6 +75,12 @@ public sealed partial class CEShieldGeneratorComponent : Component
 
     [DataField]
     public string BeamOverlay = "Planetary";
+
+    [DataField]
+    public Vector2 BeamOffset;
+
+    [DataField]
+    public float BeamRadius = 0.45f;
 
     public readonly List<EntityUid> BeamControls = new();
 }

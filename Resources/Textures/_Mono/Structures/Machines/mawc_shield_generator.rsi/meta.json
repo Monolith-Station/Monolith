@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "PLACEHOLDER - attribution pending",
+  "copyright": "Created by Zethine for Monolith.",
   "size": {
     "x": 96,
     "y": 96
@@ -16,7 +16,7 @@
     },
     {
       "name": "startup",
-      "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+      "delays": [[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]]
     },
     {
       "name": "online",
@@ -24,7 +24,7 @@
     },
     {
       "name": "shutdown",
-      "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+      "delays": [[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]]
     },
     {
       "name": "energy_start",

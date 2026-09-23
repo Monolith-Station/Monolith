@@ -15,13 +15,21 @@ public abstract class CEShieldBeamOverlay : IDisposable
     protected abstract Color EnergyColor { get; }
     protected abstract float CoreRadius { get; }
     protected abstract float FlowSpeed { get; }
-    private const float TipLength = 4f;
-    private const float TipFadeLength = 1.25f;
+    protected virtual float MinimumRadius => 0.5f;
+    protected virtual float TipLength => 4f;
+    protected virtual float TipFadeLength => 1.25f;
     public float Phase;
     public readonly List<(int Depth, Vector2 Position, float Coverage)> Clouds = new();
     private readonly Vector2[] _vertices = new Vector2[4];
-    private readonly ShaderInstance _shader = IoCManager.Resolve<IPrototypeManager>()
-        .Index<ShaderPrototype>("CEShieldBeam").InstanceUnique();
+    private readonly List<ShaderInstance> _shaders = new();
+    private int _nextShader;
+
+    public void BeginPass()
+    {
+        Points.Clear();
+        Clouds.Clear();
+        _nextShader = 0;
+    }
     public readonly List<(int Depth, Vector2 Position, Vector2 Up)> Points = new();
 
     public void Render(DrawingHandleBase handle, float pixelsPerMeter, float time,
@@ -61,7 +69,8 @@ public abstract class CEShieldBeamOverlay : IDisposable
             if (point.Depth <= from || point.Depth >= to)
                 continue;
             DrawColumn(handle, start, point.Position, beamStart, beamEnd,
-                JoinAt(startDepth), JoinAt(point.Depth), deck, veil, pixelsPerMeter, time, flowOffset, false);
+                JoinAt(startDepth), JoinAt(point.Depth), deck, veil, pixelsPerMeter, time, flowOffset,
+                startDepth == sourceDepth, false);
             flowOffset += Vector2.Distance(start, point.Position);
             start = point.Position;
             startDepth = point.Depth;
@@ -71,13 +80,16 @@ public abstract class CEShieldBeamOverlay : IDisposable
         {
             var end = PositionAt(to);
             DrawColumn(handle, start, end, beamStart, beamEnd,
-                JoinAt(startDepth), JoinAt(to), deck, veil, pixelsPerMeter, time, flowOffset, false);
+                JoinAt(startDepth), JoinAt(to), deck, veil, pixelsPerMeter, time, flowOffset,
+                startDepth == sourceDepth, false);
             flowOffset += Vector2.Distance(start, end);
             start = end;
+            startDepth = to;
         }
         if (tip)
             DrawColumn(handle, start, beamEnd, beamStart, beamEnd,
-                JoinAt(to), Vector2.Zero, deck, veil, pixelsPerMeter, time, flowOffset, true);
+                JoinAt(to), Vector2.Zero, deck, veil, pixelsPerMeter, time, flowOffset,
+                startDepth == sourceDepth, true);
     }
 
     private Vector2 PositionAt(float depth)
@@ -102,9 +114,27 @@ public abstract class CEShieldBeamOverlay : IDisposable
 
     private Vector2 JoinAt(float depth)
     {
-        const float sample = 0.01f;
-        var before = Vector2.Normalize(PositionAt(depth) - PositionAt(depth - sample));
-        var after = Vector2.Normalize(PositionAt(depth + sample) - PositionAt(depth));
+        var position = PositionAt(depth);
+        var before = Points[0].Up;
+        var after = Points[^1].Up;
+        foreach (var point in Points)
+        {
+            if (point.Depth < depth)
+                before = position - point.Position;
+            else if (point.Depth > depth)
+            {
+                after = point.Position - position;
+                break;
+            }
+        }
+        if (before.LengthSquared() < 0.000001f)
+            before = after;
+        if (after.LengthSquared() < 0.000001f)
+            after = before;
+        if (before.LengthSquared() < 0.000001f)
+            return Vector2.Zero;
+        before = Vector2.Normalize(before);
+        after = Vector2.Normalize(after);
         var firstNormal = new Vector2(-before.Y, before.X);
         var secondNormal = new Vector2(-after.Y, after.X);
         var miter = firstNormal + secondNormal;
@@ -132,34 +162,40 @@ public abstract class CEShieldBeamOverlay : IDisposable
 
     private void DrawColumn(DrawingHandleBase handle, Vector2 start, Vector2 end, Vector2 beamStart,
         Vector2 beamEnd, Vector2 startJoin, Vector2 endJoin, Vector3 deck, Vector3 veil,
-        float scale, float time, float flowOffset, bool tip)
+        float scale, float time, float flowOffset, bool source, bool tip)
     {
         var length = Vector2.Distance(start, end);
         if (length < 0.001f)
             return;
         var direction = (end - start) / length;
         var normal = new Vector2(-direction.Y, direction.X);
-        var radius = CoreRadius * scale;
+        var radius = MathF.Max(CoreRadius * scale, MinimumRadius);
         var tipFade = TipFadeLength * scale;
-        _shader.SetParameter("BEAM_START", start);
-        _shader.SetParameter("BEAM_CAP_START", beamStart);
-        _shader.SetParameter("BEAM_CAP_END", beamEnd);
-        _shader.SetParameter("BEAM_DIRECTION", direction);
-        _shader.SetParameter("BEAM_RADIUS", MathF.Max(radius, 0.5f));
-        _shader.SetParameter("BEAM_TIP_FADE", MathF.Max(tipFade, 0.5f));
-        _shader.SetParameter("BEAM_TIME", time * FlowSpeed);
-        _shader.SetParameter("BEAM_PHASE", Phase);
-        _shader.SetParameter("BEAM_FLOW_OFFSET", flowOffset / MathF.Max(radius, 0.5f));
-        _shader.SetParameter("BEAM_CLOUD_DECK", deck);
-        _shader.SetParameter("BEAM_CLOUD_VEIL", veil);
-        _shader.SetParameter("BEAM_COLOR", new Vector3(EnergyColor.R, EnergyColor.G, EnergyColor.B));
-        handle.UseShader(_shader);
+        if (_nextShader == _shaders.Count)
+            _shaders.Add(IoCManager.Resolve<IPrototypeManager>().Index<ShaderPrototype>("CEShieldBeam").InstanceUnique());
+        var shader = _shaders[_nextShader++];
+        shader.SetParameter("BEAM_START", start);
+        shader.SetParameter("BEAM_CAP_START", beamStart);
+        shader.SetParameter("BEAM_CAP_END", beamEnd);
+        shader.SetParameter("BEAM_DIRECTION", direction);
+        shader.SetParameter("BEAM_RADIUS", radius);
+        shader.SetParameter("BEAM_TIP_FADE", MathF.Max(tipFade, 0.5f));
+        shader.SetParameter("BEAM_TIME", time * FlowSpeed);
+        shader.SetParameter("BEAM_PHASE", Phase);
+        shader.SetParameter("BEAM_FLOW_OFFSET", flowOffset / radius);
+        shader.SetParameter("BEAM_CLOUD_DECK", deck);
+        shader.SetParameter("BEAM_CLOUD_VEIL", veil);
+        shader.SetParameter("BEAM_COLOR", new Vector3(EnergyColor.R, EnergyColor.G, EnergyColor.B));
+        handle.UseShader(shader);
         try
         {
-            var extent = MathF.Max(radius, 0.5f) * 4f;
-            var source = Vector2.DistanceSquared(start, beamStart) < 0.01f;
+            var extent = radius * 4f;
             var startWidth = startJoin.LengthSquared() > 0f ? startJoin * extent : normal * extent;
             var endWidth = endJoin.LengthSquared() > 0f ? endJoin * extent : normal * extent;
+            if (Vector2.Dot(startWidth, normal) < 0f)
+                startWidth = -startWidth;
+            if (Vector2.Dot(endWidth, normal) < 0f)
+                endWidth = -endWidth;
             Strip(handle, start - direction * (source ? extent : 0f),
                 end + direction * (tip ? tipFade * 0.25f : 0f), startWidth, endWidth, Color.White);
         }
@@ -181,7 +217,9 @@ public abstract class CEShieldBeamOverlay : IDisposable
 
     public void Dispose()
     {
-        _shader.Dispose();
+        foreach (var shader in _shaders)
+            shader.Dispose();
+        _shaders.Clear();
     }
 }
 
@@ -195,8 +233,10 @@ public sealed class CEMAWCShieldBeamOverlay : CEShieldBeamOverlay
 public sealed class CEPlanetaryShieldBeamOverlay : CEShieldBeamOverlay
 {
     protected override Color EnergyColor => new(0.35f, 0.7f, 1f);
-    protected override float CoreRadius => 0.42f;
+    protected override float CoreRadius => 1.8f;
     protected override float FlowSpeed => 22f;
+    protected override float TipLength => 16f;
+    protected override float TipFadeLength => 5f;
 }
 
 public sealed class CEShieldBeamOverlayDispatcher : Overlay
@@ -247,10 +287,7 @@ public sealed class CEShieldBeamOverlayDispatcher : Overlay
         Func<EntityUid, float> cloudCoverage)
     {
         foreach (var instance in _instances.Values)
-        {
-            instance.Points.Clear();
-            instance.Clouds.Clear();
-        }
+            instance.BeginPass();
         var transform = _entities.System<SharedTransformSystem>();
         var query = _entities.EntityQueryEnumerator<CEShieldBeamComponent, TransformComponent>();
         while (query.MoveNext(out _, out var beam, out var xform))

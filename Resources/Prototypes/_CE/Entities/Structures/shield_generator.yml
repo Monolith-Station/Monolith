@@ -1,9 +1,21 @@
 - type: entity
-  parent: CEPlaceholder5x5
+  parent: CEPlaceholder6x6
   id: CEPlanetShieldGenerator
   name: planetary shield generator
   description: A superstructure that draws enough power to kill a leviathan in a single shot continually and uses it to project a full-planet shield. [color=red]You really shouldn't be standing next to this...[/color]
   components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/shield_generator.rsi
+    scale: 1, 1
+    layers:
+    - state: core
+    - state: awaiting
+      map: ["enum.CEShieldGeneratorVisualLayers.Indicator"]
+      shader: unshaded
+    - state: energy_start
+      map: ["enum.CEShieldGeneratorVisualLayers.Energy"]
+      shader: unshaded
+      visible: false
   - type: PowerConsumer
     voltage: High
     drawRate: 2000000000 # Yes, that is a 2 gigawatt draw.
@@ -14,6 +26,8 @@
         !type:CableDeviceNode
         nodeGroupID: HVPower
   - type: CEShieldGenerator
+    beamOffset: 0.5, -0.5
+    beamRadius: 1.8
   - type: ActivatableUI
     key: enum.CEShieldGeneratorUiKey.Key
   - type: UserInterface
@@ -21,6 +35,19 @@
       enum.CEShieldGeneratorUiKey.Key:
         type: CEShieldGeneratorBoundUserInterface
   - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CEShieldGeneratorVisuals.Stage:
+        enum.CEShieldGeneratorVisualLayers.Indicator:
+          Charging: { state: idle }
+          SpinningUp: { state: spoolup }
+          Active: { state: online }
+          Cooldown: { state: shutdown }
+        enum.CEShieldGeneratorVisualLayers.Energy:
+          Charging: { visible: false }
+          SpinningUp: { state: energyspool, visible: true }
+          Active: { state: energyloop, visible: true }
+          Cooldown: { visible: false }
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
@@ -35,3 +62,13 @@
               collection: MetalBreak
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+
+- type: entity
+  parent: CEPlanetShieldGenerator
+  id: CEPlanetShieldGeneratorDebug
+  suffix: DEBUG, fully charged, instant activation
+  components:
+  - type: CEShieldGenerator
+    charge: 300000000000
+    stage: SpinningUp
+    spinupEndsAt: 0

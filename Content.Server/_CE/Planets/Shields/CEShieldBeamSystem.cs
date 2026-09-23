@@ -60,8 +60,7 @@ public sealed partial class CEShieldBeamSystem : EntitySystem
             generator.Comp.BeamControls.RemoveAt(i);
         }
 
-        var xform = Transform(generator);
-        var position = _transform.GetWorldPosition(xform);
+        var position = Vector2.Transform(generator.Comp.BeamOffset, _transform.GetWorldMatrix(generator));
         foreach (var target in maps)
         {
             var uid = Spawn("CEShieldBeam", new EntityCoordinates(target, position));
@@ -70,6 +69,7 @@ public sealed partial class CEShieldBeamSystem : EntitySystem
             beam.Generator = GetNetEntity(generator);
             beam.Source = target == map;
             beam.Overlay = generator.Comp.BeamOverlay;
+            beam.Radius = generator.Comp.BeamRadius;
             Dirty(uid, beam);
             generator.Comp.BeamControls.Add(uid);
         }
@@ -111,7 +111,7 @@ public sealed partial class CEShieldBeamSystem : EntitySystem
                 continue;
             }
 
-            var position = _transform.GetWorldPosition(generator);
+            var position = Vector2.Transform(gen.BeamOffset, _transform.GetWorldMatrix(generator));
             _transform.SetWorldPosition(uid, position);
             foreach (var victim in _lookup.GetEntitiesInRange(uid, beam.Radius, LookupFlags.Uncontained))
             {
