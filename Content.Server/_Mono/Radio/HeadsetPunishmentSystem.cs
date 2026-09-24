@@ -4,6 +4,8 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared._Mono.Radio;
 using Robust.Shared.Prototypes;
+using Content.Server.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server._Mono.Radio;
 
@@ -13,6 +15,7 @@ public sealed partial class HeadsetPunishmentSystem : EntitySystem
     [Dependency] private ExplosionSystem _explosions = default!;
     [Dependency] private DamageableSystem _damage = default!;
     [Dependency] private StunSystem _stun = default!;
+    [Dependency] private IAdminLogManager _logger = default!;
 
     private readonly HashSet<string> _activePrototypes = new(StringComparer.OrdinalIgnoreCase) { "Default" };
 
@@ -86,6 +89,9 @@ public sealed partial class HeadsetPunishmentSystem : EntitySystem
             return;
 
         _stun.TryParalyze(wearer, TimeSpan.FromSeconds(stunSeconds), true);
+
+        _logger.Add(LogType.HeadsetExploded, LogImpact.High, $"Entity {ToPrettyString(wearer)} atempted to say the following message over the radio: {message}");
+
         QueueDel(headset);
     }
 
