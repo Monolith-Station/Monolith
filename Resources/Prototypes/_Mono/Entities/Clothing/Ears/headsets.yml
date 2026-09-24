@@ -1,5 +1,20 @@
 #TSFMC
 - type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetTsfCivilian
+  name: TSF radio
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyNfsd
+
+- type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltTsfmc
   name: TSFMC over-ear headset
@@ -11,9 +26,9 @@
       - EncryptionKeyNfsd
       - EncryptionKeyCommand
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
 
 - type: entity
   parent: ClothingHeadsetAlt
@@ -25,9 +40,9 @@
       key_slots:
       - EncryptionKeyStationMaster
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
 
 - type: entity
   parent: ClothingHeadset
@@ -35,14 +50,15 @@
   name: TSFMC headset
   components:
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: ContainerFill
     containers:
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyNfsd
+      - EncryptionKeyCommand
 
 - type: entity
   parent: ClothingHeadsetAlt
@@ -60,9 +76,9 @@
       - EncryptionKeySecurity
       - EncryptionKeyCentCom
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
 
 - type: entity
   parent: ClothingHeadsetAlt
@@ -75,9 +91,9 @@
       - EncryptionKeyStationMaster
       - EncryptionKeyCentCom
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
 
 #USSP
 - type: entity
@@ -95,12 +111,13 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyUssp
+      - EncryptionKeyFreeport
 
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetUSSP
   name: USSP headset
-  description: The standard-issue headset of the USSP Defensive Navy for decades. This headset will accept standard encryption keys and comes prefitted with a key for USSP Tactical Communications.
+  description: The standard-issue headset of the USSP Armed Forces for decades. This headset will accept standard encryption keys and comes prefitted with a key for USSP Tactical Communications.
   components:
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
@@ -111,6 +128,7 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyUssp
+      - EncryptionKeyFreeport
 
 #PDV
 - type: entity
@@ -143,3 +161,66 @@
       - EncryptionKeyCentCom
       - EncryptionKeyStationMasterSR
       - EncryptionKeyDiplomacy
+
+#Viper Group
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetViper
+  name: Viper Group headset
+  description: The standard-issue headset of Viper Group mercenaries, This headset will accept standard encryption keys and comes prefitted with a key for Tactical Communications.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Ears/Headsets/viper.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Ears/Headsets/viper.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyViper
+      - EncryptionKeyFreeport
+
+- type: entity
+  parent: ClothingHeadsetViper
+  id: ClothingHeadsetViperAlt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Ears/Headsets/viperalt.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Ears/Headsets/viperalt.rsi
+
+# MMC
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetMieyo
+  name: MMC headset
+  description: A standard headset for MMC employees. This headset will accept standard encryption keys and comes prefitted with a key for corporate communications.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Ears/Headsets/mieyo.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Ears/Headsets/mieyo.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyMieyo
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetMieyoCorpsec
+  name: MMC corpsec headset
+  description: A standard headset for MMC employees. This headset will accept standard encryption keys and comes prefitted with a key for corporate communications.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Ears/Headsets/mieyo.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Ears/Headsets/mieyo.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyMieyo
+      - EncryptionKeyMieyoCommand

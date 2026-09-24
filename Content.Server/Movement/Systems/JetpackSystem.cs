@@ -24,9 +24,9 @@ public sealed partial class JetpackSystem : SharedJetpackSystem
         SubscribeLocalEvent<ActiveJetpackComponent, ComponentShutdown>(OnJetpackDeactivated);
     }
 
-    protected override bool CanEnable(EntityUid uid, JetpackComponent component)
+    protected override bool CanEnable(EntityUid uid, EntityUid user, JetpackComponent component)
     {
-        return base.CanEnable(uid, component) &&
+        return base.CanEnable(uid, user, component) &&
                TryComp<GasTankComponent>(uid, out var gasTank) &&
                !(gasTank.Air.TotalMoles < component.MoleUsage);
     }

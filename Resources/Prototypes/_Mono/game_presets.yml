@@ -7,7 +7,7 @@
     - MonoGreenshift
   name: mono-standard-title
   description: mono-standard-description
-  showInVote: false # For admin usage really. Not that boring, but I'd rather just let players choose their main threat instead of choosing no threat.
+  showInVote: true
   rules:
   - NFAdventure
   - BasicStationEventScheduler
@@ -17,7 +17,8 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - ManualPortstrikeTsfPdv
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoRogueTSF
@@ -33,7 +34,8 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - ManualPortstrikeTsfPdv
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoRogueUSSP
@@ -49,7 +51,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoTSFUSSP
@@ -65,13 +67,13 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoADS
   name: mono-ads-title
   description: mono-ads-description
-  showInVote: true
+  showInVote: false # mono: "deprecate remnants (for now)" 8/31/2026
   rules:
   - NFAdventure
   - BasicStationEventScheduler
@@ -82,14 +84,35 @@
   - FrontierRoundstartVariation
   - MonoAISTCShuttleSpawnerScheduler
   - MonoAISTCShuttleSpawnerSchedulerTier2
-  - MonoAsakimSTCShuttleSpawnerScheduler
+  #- MonoAsakimSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - ManualPortstrikeTsfPdv
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoChimera
+  weight: 0.75 # mono: needs 25% of votes
   name: mono-chimera-title
   description: mono-chimera-description
+  showInVote: false # replaced by new-Biothreat. this old gamemode was just Standard with chimera spawns anyways.
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
+  - MonoChimeraSTCShuttleSpawnerScheduler
+  - MonoMonolithicEventsScheduler
+  - ManualPortstrikeTsfPdv
+  - StarSystemKyphrus
+
+- type: gamePreset
+  id: MonoChimeraTsf
+  weight: 0.5
+  name: mono-chimera-tsf-title
+  description: mono-chimera-tsf-description
   showInVote: true
   rules:
   - NFAdventure
@@ -101,12 +124,15 @@
   - FrontierRoundstartVariation
   - MonoChimeraSTCShuttleSpawnerScheduler
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - RoundEndRuleHour3
+  - HalcyonBiodome
+  - StarSystemKyphrus
 
 - type: gamePreset
-  id: MonoMixed
-  name: mono-mixed-title
-  description: mono-mixed-description
+  id: MonoChimeraPdv
+  weight: 0.5
+  name: mono-chimera-pdv-title
+  description: mono-chimera-pdv-description
   showInVote: true
   rules:
   - NFAdventure
@@ -116,12 +142,33 @@
   - BluespaceSalvageEventScheduler
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
+  - MonoChimeraSTCShuttleSpawnerScheduler
+  - MonoMonolithicEventsScheduler
+  - RoundEndRuleHour3
+  - HeliosBiodome
+  - StarSystemKyphrus
+
+- type: gamePreset
+  id: MonoMixed
+  name: mono-mixed-title
+  description: mono-mixed-description
+  showInVote: false # it was just old-Biothreat and the deprecated Remnants in one
+  rules:
+  - NFAdventure
+  - BasicStationEventScheduler
+  - BluespaceEventScheduler
+  - StarSystemKyphrus
+  - BluespaceDungeonEventScheduler
+  - BluespaceSalvageEventScheduler
+  - SmugglingEventScheduler
+  - FrontierRoundstartVariation
   - MonoChimeraSTCShuttleSpawnerSchedulerSlow
   - MonoAISTCShuttleSpawnerSchedulerSlow
   - MonoAISTCShuttleSpawnerSchedulerTier2Slow
-  - MonoAsakimSTCShuttleSpawnerSchedulerSlow
+  #- MonoAsakimSTCShuttleSpawnerSchedulerSlow
   - MonoMonolithicEventsScheduler
-  - PortstrikeAnnounceRuleHour4
+  - ManualPortstrikeTsfPdv
+  - StarSystemKyphrus
 
 - type: gamePreset
   id: MonoAllAtOnce
@@ -139,7 +186,22 @@
   - FrontierRoundstartVariation
   - MonoChimeraSTCShuttleSpawnerSchedulerApocalypse
   - MonoAISTCShuttleSpawnerSchedulerApocalypse
-  - MonoAsakimSTCShuttleSpawnerSchedulerApocalypse
+  #- MonoAsakimSTCShuttleSpawnerSchedulerApocalypse
   - MonoMonolithicEventsScheduler
   - RoundEndRuleHour3
-  - PortstrikeAnnounceRuleHour1
+  - ManualPortstrikeTsfPdv
+  - StarSystemKyphrus
+
+- type: gamePreset
+  id: MonoRogueTSFHyperwar
+  name: mono-roguetsf-hyperwar-title
+  description: mono-roguetsf-hyperwar-description
+  showInVote: true # we ball
+  weight: 0.15 # Giant majority needed
+  supportedMaps: HyperwarMapPool
+  rules:
+  - NFAdventure
+  - Hyperwar
+  - RoundEndRuleHour3
+  - PortstrikeAnnounceRuleHour2
+  - StarSystemKyphrus

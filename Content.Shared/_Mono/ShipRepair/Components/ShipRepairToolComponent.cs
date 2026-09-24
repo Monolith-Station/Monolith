@@ -18,6 +18,9 @@ public sealed partial class ShipRepairToolComponent : Component
     [DataField, AutoNetworkedField]
     public bool EnableEntityRepair = true;
 
+    [DataField, AutoNetworkedField]
+    public bool CheckPreExistingEntities = true;
+
     /// <summary>
     /// Multiplier of time the repair doafter should take.
     /// </summary>

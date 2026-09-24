@@ -1,0 +1,52 @@
+# Generic class placeholders, plus the named stars actually used by systems.
+
+- type: starType
+  id: TypeMStar
+  name: Red Dwarf
+  shader: MainSequenceStar
+  solarMass: 0.26
+  color: '#E62A10'
+
+- type: starType
+  id: TypeKStar
+  name: Orange Dwarf
+  shader: MainSequenceStar
+  solarMass: 0.62
+  color: '#FF8A1C'
+
+- type: starType
+  id: TypeGStar
+  name: Yellow Dwarf
+  shader: MainSequenceStar
+  solarMass: 0.92
+  color: '#FFD13B'
+
+- type: starType
+  id: TypeFStar
+  name: Yellow-White Dwarf
+  shader: MainSequenceStar
+  solarMass: 1.22
+  color: '#F2FAFF'
+
+- type: starType
+  id: TypeAStar
+  name: White Star
+  shader: MainSequenceStar
+  solarMass: 1.75
+  color: '#70BDFF'
+
+- type: starType
+  id: TypeBStar
+  name: Blue Star
+  shader: MainSequenceStar
+  solarMass: 5.0
+  color: '#2B62FF'
+
+- type: starType
+  id: StarKyphrus
+  name: Kyphrus
+  shader: MainSequenceStar
+  solarMass: 0.62
+  color: '#FFD2A1'
+  rotation: 0.6
+  rings: StandardRings

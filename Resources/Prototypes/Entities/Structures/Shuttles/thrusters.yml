@@ -130,6 +130,22 @@
     repairTime: 5
     repairCost: 5
 
+# Xenoborg Thruster
+- type: entity
+  parent: Thruster
+  id: ThrusterXenoborg
+  components:
+  # temporary solution until thruster rework
+  - type: Thruster
+    canToggle: false # no turning it off by just clicking it
+  - type: Anchorable
+    flags:
+    - Anchorable # no unwrenching it
+  - type: Rotatable
+    rotateWhileAnchored: false # no rotating it backwards so it doesn't face space
+  - type: Sprite
+    sprite: Structures/Shuttles/xenoborg_thruster.rsi
+
 - type: entity
   id: ThrusterUnanchored
   parent: Thruster
@@ -196,6 +212,16 @@
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
+  - type: DeviceNetwork # Mono
+    deviceNetId: Wireless # Mono
+    receiveFrequencyId: BasicDevice # Mono
+  - type: WirelessNetworkConnection # Mono
+    range: 200 # Mono
+  - type: DeviceLinkSink # Mono
+    ports: # Mono
+    - On # Mono
+    - Off # Mono
+    - Toggle # Mono
   - type: PointLight
     radius: 1.3
     energy: 0.8

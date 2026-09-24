@@ -1,0 +1,63 @@
+- type: loadout
+  id: UsspRankOR3
+  name: USSP OR-3 (Mladshiy Serzhant)
+  components:
+  - type: ChatRank
+    rank: ussp-or3
+
+- type: loadout
+  id: UsspRankOR4
+  name: USSP OR-4 (Serzhant)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: UsspSzt
+  components:
+  - type: ChatRank
+    rank: ussp-or4
+
+- type: loadoutEffectGroup
+  id: UsspSzt
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobUSSPSergeant
+      time: 36000 # 10hr
+
+- type: loadout
+  id: UsspRankOR5
+  name: USSP OR-5 (Starshiy Serzhant)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: UsspStSzt
+  components:
+  - type: ChatRank
+    rank: ussp-or5
+
+- type: loadoutEffectGroup
+  id: UsspStSzt
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobUSSPSergeant
+      time: 180000 # 50hr
+
+- type: loadout
+  id: UsspRankOR6
+  name: USSP OR-6 (Starshina)
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: UsspSts
+  components:
+  - type: ChatRank
+    rank: ussp-or6
+
+- type: loadoutEffectGroup
+  id: UsspSts
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobUSSPSergeant
+      time: 360000 # 100hr

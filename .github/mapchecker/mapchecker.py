@@ -27,6 +27,8 @@ if __name__ == "__main__":
             "Resources/Prototypes/_NF/Entities",  # NF
             "Resources/Prototypes/Nyanotrasen/Entities",  # Nyanotrasen
             "Resources/Prototypes/_DV/Entities",  # DeltaV
+            "Resources/Prototypes/_Mono/Entities",  # Monolith
+            "Resources/Prototypes/_Goob/Entities",  # Goob
         ]
     )
     parser.add_argument(
@@ -40,6 +42,9 @@ if __name__ == "__main__":
             "Resources/Prototypes/_NF/Maps/Outpost",  # Colonial Outpost
             "Resources/Prototypes/_NF/PointsOfInterest",  # Points of interest
             "Resources/Prototypes/_NF/Shipyard",  # Shipyard ships.
+            "Resources/Prototypes/_Mono/Outpost",  # Colonial Outpost
+            "Resources/Prototypes/_Mono/PointsOfInterest",  # Points of interest
+            "Resources/Prototypes/_Mono/Shipyard",  # Shipyard ships.
         ]
     )
     parser.add_argument(

@@ -15,7 +15,7 @@
         - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
     access: [["Mercenary"]]
-    
+
 - type: entity
   id: SuitStorageUsspL10
   parent: SuitStorageBase
@@ -61,7 +61,7 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingOuterHardsuitM82c
-    - id: JetpackSecurityFilled
+    - id: JetpackNfsdFilled
     - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
     access: [["Security"]]
@@ -76,7 +76,7 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingOuterHardsuitM82b
-    - id: JetpackSecurityFilled
+    - id: JetpackNfsdFilled
     - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
     access: [["Security"]]
@@ -91,7 +91,7 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingOuterHardsuitM86
-    - id: JetpackSecurityFilled
+    - id: JetpackNfsdFilled
     - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
     access: [["Security"]]
@@ -106,7 +106,7 @@
     contents:
         - id: OxygenTankFilled
         - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitNfsdSheriff # Frontier
+        - id: ClothingOuterHardsuitM82c # Frontier
         - id: ClothingMaskGasSheriff
         - id: JetpackNfsdFilled
         - id: ClothingShoesBootsMagSecurity # Frontier
@@ -144,3 +144,106 @@
         - id: ClothingShoesBootsMagSyndie
         - id: ClothingMaskGasSyndicate
         - id: JetpackBlackFilled # Frontier
+
+# Viper Group
+
+- type: entity
+  id: SuitStorageViperWL
+  parent: SuitStorageBase
+  suffix: Viper Group - BROOD
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitViperGroupInitiate
+    - id: ClothingMaskGasSecurity
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMagSecurity
+    - id: ClothingNeckViperGroupMantle
+  - type: AccessReader
+    access: [ [ "Viper" ] ]
+
+- type: entity
+  id: SuitStorageViperJackal
+  parent: SuitStorageBase
+  suffix: Viper Group - Jackal
+  components:
+  - type: StorageFill
+    contents:
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ClothingOuterHardsuitViperGroupStandard
+      - id: ClothingMaskGasSecurity
+      - id: JetpackMiniFilled
+      - id: ClothingShoesBootsMagSecurity
+      - id: ClothingNeckViperGroupMantle
+  - type: AccessReader
+    access: [ [ "Viper" ] ]
+
+# MMC
+
+- type: entity
+  id: SuitStorageMieyoMining
+  parent: SuitStorageBase
+  suffix: MMC Mining
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitMieyoMining
+    - id: ClothingMaskBreath
+    - id: JetpackBlackFilled
+    - id: ClothingShoesBootsMagSecurity
+  - type: AccessReader
+    access: [["Mieyo"]]
+
+- type: entity
+  id: SuitStorageMieyoCombat
+  parent: SuitStorageBase
+  suffix: MMC Combat
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitMieyoCombat
+    - id: ClothingMaskBreath
+    - id: JetpackBlackFilled
+    - id: ClothingShoesBootsMagSecurity
+  - type: AccessReader
+    access: [["MieyoSecurity"]]
+
+# Medical Dispatch / ATU
+- type: entity
+  id: SuitStorageTraumaLeader
+  parent: SuitStorageBase
+  suffix: ATU T-53
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitTraumaLeader
+    - id: ClothingMaskBreath
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMagVoidTraumaLeader
+  - type: AccessReader
+    access: [["Command"]]
+    
+- type: entity
+  id: SuitStorageTrauma
+  parent: SuitStorageBase
+  suffix: ATU T-23
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitTrauma
+    - id: ClothingMaskBreath
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMagVoidTrauma
+  - type: AccessReader
+    access: [["Medical"]]

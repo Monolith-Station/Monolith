@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Client.Stealth;
 using Content.Shared._White.Overlays;
 using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -88,6 +89,10 @@ public sealed partial class ThermalVisionOverlay : Overlay
         {
             if (!CanSee(uid, sprite) || !body.ThermalVisibility)
                 continue;
+
+            // Mono - teargas hides you from smoke
+            if (_entity.HasComponent<SmokeAffectedComponent>(uid))
+                return;
 
             var entity = uid;
 

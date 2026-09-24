@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Light.Components;
 
@@ -25,11 +26,34 @@ public sealed partial class SunShadowCycleComponent : Component
     /// Time to have each direction applied. Will lerp from the current value to the next one.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public List<(float Ratio, Vector2 Direction, float Alpha)> Directions = new()
+    public List<SunShadowDirection> Directions = new()
     {
-        (0f, new Vector2(0f, 3f), 0f),
-        (0.25f, new Vector2(-3f, -0.1f), 0.5f),
-        (0.5f, new Vector2(0f, -3f), 0.8f),
-        (0.75f, new Vector2(3f, -0.1f), 0.5f),
+        new(0f, new Vector2(0f, 3f), 0f),
+        new(0.25f, new Vector2(-3f, -0.1f), 0.5f),
+        new(0.5f, new Vector2(0f, -3f), 0.8f),
+        new(0.75f, new Vector2(3f, -0.1f), 0.5f),
     };
+}
+
+/// <summary>
+/// Stupid hack so the serializer doesn't explode upon seeing a four element list. The solution is a serializable struct.
+/// </summary>
+[DataDefinition, Serializable, NetSerializable]
+public partial struct SunShadowDirection
+{
+    [DataField]
+    public float Ratio;
+
+    [DataField]
+    public Vector2 Direction;
+
+    [DataField]
+    public float Alpha;
+
+    public SunShadowDirection(float ratio, Vector2 direction, float alpha)
+    {
+        Ratio = ratio;
+        Direction = direction;
+        Alpha = alpha;
+    }
 }

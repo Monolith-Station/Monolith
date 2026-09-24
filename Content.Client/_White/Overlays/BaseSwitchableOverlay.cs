@@ -22,7 +22,7 @@ public sealed partial class BaseSwitchableOverlay<TComp> : Overlay where TComp :
     public BaseSwitchableOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _shader = _prototype.Index<ShaderPrototype>("NightVision").InstanceUnique();
+        _shader = _prototype.Index<ShaderPrototype>("WWDPNightVision").InstanceUnique();
     }
 
     protected override void Draw(in OverlayDrawArgs args)

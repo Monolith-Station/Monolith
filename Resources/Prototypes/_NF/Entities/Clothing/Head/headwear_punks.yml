@@ -17,6 +17,9 @@
   - type: HideLayerClothing
     slots:
     - Hair
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadHatHoodAcidRaincoat
@@ -27,6 +30,9 @@
     sprite: _NF/Clothing/Head/Hoods/Coat/acid_raincoat_blue.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hoods/Coat/acid_raincoat_blue.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadHatHoodAcidRaincoat
@@ -37,6 +43,9 @@
     sprite: _NF/Clothing/Head/Hoods/Coat/acid_raincoat_green.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hoods/Coat/acid_raincoat_green.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadHatHoodAcidRaincoat
@@ -47,6 +56,9 @@
     sprite: _NF/Clothing/Head/Hoods/Coat/acid_raincoat_magenta.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hoods/Coat/acid_raincoat_magenta.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadHatHoodAcidRaincoat
@@ -57,3 +69,6 @@
     sprite: _NF/Clothing/Head/Hoods/Coat/acid_raincoat_yellow.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hoods/Coat/acid_raincoat_yellow.rsi
+  - type: Tag
+    tags:
+    - PetWearable

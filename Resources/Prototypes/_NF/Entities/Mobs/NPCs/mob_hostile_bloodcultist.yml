@@ -2,7 +2,7 @@
   name: blood cultist
   abstract: true
   parent:
-  - MobHumanoidHostileBase
+  - MobHumanoidHostileBaseShade # Mono: MobHumanoidHostileBase -> MobHumanoidHostileBaseShade
   - MobHumanoidInvetory
   - NFMobRestrictions
   id: MobBloodCultistBase
@@ -23,7 +23,7 @@
   - type: TriggerOnBeingGibbed
   - type: GibOnTrigger
     deleteItems: true
-    deleteOrgans: true
+    deleteOrgans: false
     gib: false
     useArgumentEntity: true
   - type: MovementSpeedModifier

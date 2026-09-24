@@ -11,7 +11,7 @@ namespace Content.Server._Mono.Spawning;
 public sealed partial class GridSpawnerComponent : Component
 {
     [DataField(required: true)]
-    public ResPath Path = new("Maps/_Mono/Shuttles/World/wedge.yml");
+    public ResPath Path = new("SharedMaps/_Mono/Shuttles/World/wedge.yml");
 
     [DataField]
     public ProtoId<LocalizedDatasetPrototype>? NameDataset = null;

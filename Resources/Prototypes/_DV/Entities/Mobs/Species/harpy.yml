@@ -5,6 +5,12 @@
   id: MobHarpyBase
   abstract: true
   components:
+  - type: CEZFlyer # Mono: z-level flight
+    flightSpeed: 0.5
+    flightMoveSpeedModifier: 0.5
+    hoverStaminaDrain: 5
+  - type: CEControllableFlight
+    startFlightDoAfter: 1.5
   - type: HarpySinger
   - type: Instrument
     allowPercussion: false
@@ -66,6 +72,8 @@
     - map: [ "belt" ]
     - map: [ "back" ]
     - map: [ "neck" ]
+    - map: [ "neck2" ]
+    - map: [ "neck3" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
@@ -202,6 +210,8 @@
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "neck" ]
+    - map: [ "neck2" ]
+    - map: [ "neck3" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]

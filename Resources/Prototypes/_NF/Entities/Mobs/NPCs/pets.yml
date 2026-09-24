@@ -128,6 +128,7 @@
     - MindShieldImplant
     - TrackingImplant
     - LightImplant
+    - RadioImplantTsf
   - type: FlashImmunity
   - type: IntrinsicRadioTransmitter
     channels:
@@ -162,6 +163,11 @@
   - type: SouthernAccent
   - type: Company
     companyName: TSF
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface
+    interfaces:
+      enum.SurgeryUIKey.Key: # Shitmed
+        type: SurgeryBui
 
 - type: entity
   name: El Capo

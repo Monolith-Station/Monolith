@@ -11,6 +11,7 @@
     tags:
       - Cigarette
       - Trash
+      - PetWearable
   - type: SpaceGarbage
     cleanupExempt: true # Mono
   - type: Clothing
@@ -39,6 +40,7 @@
     tags:
       - Cigarette
       - Trash
+      - PetWearable
   - type: SpaceGarbage
   - type: Clothing
     sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
@@ -77,6 +79,7 @@
       - Cigarette
       - Trash
       - Burnt
+      - PetWearable
 
 - type: entity
   id: CigaretteSyndicate

@@ -1,8 +1,10 @@
+using Content.Server.Chemistry.TileReactions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Projectiles;
+using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
 
@@ -19,16 +21,19 @@ public sealed partial class GunSystem
 
     private void OnCartridgeDamageExamine(EntityUid uid, CartridgeAmmoComponent component, ref DamageExamineEvent args)
     {
-        var damageSpec = GetProjectileDamage(component.Prototype);
+        var damageSpec = GetProjectileDamage(component.Prototype, out var isHitscan); // mono
 
         if (damageSpec == null)
             return;
 
-        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-projectile"));
+        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString(
+            isHitscan ? "damage-hitscan" : "damage-projectile")); // mono
     }
 
-    private DamageSpecifier? GetProjectileDamage(string proto)
+    private DamageSpecifier? GetProjectileDamage(string proto, out bool isHitscan) // mono - isHitscan
     {
+        isHitscan = false; // mono
+
         if (!ProtoManager.TryIndex<EntityPrototype>(proto, out var entityProto))
             return null;
 
@@ -41,6 +46,17 @@ public sealed partial class GunSystem
             {
                 return p.Damage * Damageable.UniversalProjectileDamageModifier;
             }
+        }
+        // mono
+        else if (entityProto.Components.TryGetValue(Factory.GetComponentName<HitscanBasicDamageComponent>(), out var hitscan))
+        {
+            var h = (HitscanBasicDamageComponent) hitscan.Component;
+
+            if (h.Damage.Empty)
+                return null;
+
+            isHitscan = true;
+            return h.Damage;
         }
 
         return null;

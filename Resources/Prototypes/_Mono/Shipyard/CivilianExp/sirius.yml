@@ -1,0 +1,35 @@
+- type: vessel
+  id: Sirius
+  parent: BaseVessel
+  name: SKR Sirius
+  description: A basic expeditionary ship with moderately-decent armor and armaments for it's size, and a full chemistry suite on top of it all.
+  price: 95000
+  category: Medium
+  group: Expedition
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianExp/sirius.yml
+  guidebookPage: null
+  class:
+  - Chemistry
+  - Expedition
+  engine:
+  - AME
+
+- type: gameMap
+  id: Sirius
+  mapName: 'SKR Sirius'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianExp/sirius.yml
+  minPlayers: 0
+  stations:
+    Sirius:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Sirius EXP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

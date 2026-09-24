@@ -1,0 +1,41 @@
+- type: entity
+  id: SpawnerSupplyCratePlastic
+  parent: MarkerBasePlaceFree
+  suffix: 900 Plastic, 15 minute interval
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - CrateMaterialPlastic
+    intervalSeconds: 900
+    minimumEntitiesSpawned: 6
+    maximumEntitiesSpawned: 6
+  - type: TimedDespawn
+    lifetime: 3601
+
+- type: entity
+  id: SpawnerSupplyCrateTextiles
+  parent: MarkerBasePlaceFree
+  suffix: 600 Cloth, 300 Durathread, 15 minute interval
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - CrateMaterialTextiles
+    intervalSeconds: 900
+    minimumEntitiesSpawned: 6
+    maximumEntitiesSpawned: 6
+  - type: TimedDespawn
+    lifetime: 3601
+
+- type: entity
+  id: SpawnerSupplyCratePlastitanium
+  parent: MarkerBasePlaceFree
+  suffix: 270 Plastitanium, 15 minute interval
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - CrateMaterialPlastitanium
+    intervalSeconds: 900
+    minimumEntitiesSpawned: 3
+    maximumEntitiesSpawned: 3
+  - type: TimedDespawn
+    lifetime: 3601

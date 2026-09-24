@@ -22,6 +22,8 @@
   canBeAntag: false
   accessGroups:
   - GeneralNfsdBrigmedicAccess
+  guides:
+  - TSFMC_Entry
   special:
   - !type:AddComponentSpecial
     components:
@@ -51,3 +53,4 @@
 #    - Magazine45_ACPPistolFMJ # Mono
     - BaseSecurityUplinkRadioOfficer #Mono: Changed to officer uplink
     - RadioHandheldNF # Mono
+    - BookTSFSOP

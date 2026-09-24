@@ -8,45 +8,63 @@
 
 # Notes:
 # Medical ship garage, medical manager base and medical bounty staging area.
-- type: pointOfInterest
-  id: Medical
-  parent: [BasePOI, BaseRepairablePOI]
-  name: 'Medical Dispatch'
-  minimumDistance: 1650
-  maximumDistance: 2700
-  spawnGroup: Required
-  gridPath: /Maps/_NF/POI/medical.yml
-  addComponents:
-  - type: IFF
-    color: "#00b7eb"
-  - type: StationTransit
-
-- type: gameMap
-  id: Medical
-  mapName: 'Medical Dispatch'
-  mapPath: /Maps/_NF/POI/medical.yml
-  minPlayers: 0
-  stations:
-    Medical:
-      stationProto: RecordsFrontierOutpost
-      components:
-        - type: StationNameSetup
-          mapNameTemplate: 'Medical Dispatch'
-        - type: ExtraStationInformation
-          icon:
-            sprite: _NF/Markers/jobs.rsi
-            state: medic
-          stationSubtext: 'frontier-lobby-medical-subtext'
-          stationDescription: 'frontier-lobby-medical-description'
-          lobbySortOrder: 4
-        - type: StationJobs
-          availableJobs:
-            DirectorOfCare: [ 1, 1 ]
-            MdMedic: [ -1, -1 ] # mono
-            Pilot: [ -1, -1 ]
-            Mercenary: [ -1, -1 ]
-          tags:
-          - HeadOfPersonnel
-          - HeadOfSecurity
-        - type: StationDeadDrop
-          maxDeadDrops: 1 # Fewer here, players start here.
+#- type: pointOfInterest
+#  id: Medical
+#  parent: [BasePOI, BaseRepairablePOI]
+#  name: 'Medical Dispatch'
+#  minimumDistance: 1650
+#  maximumDistance: 2700
+#  spawnGroup: Required
+#  gridPath: /Maps/_NF/POI/medical.yml
+#  addComponents:
+#  - type: IFF
+#    color: "#00b7eb"
+#  - type: StationTransit
+#- type: pointOfInterest
+#  id: Medical
+#  parent: [BasePOI, BaseRepairablePOI]
+#  name: 'Medical Dispatch'
+#  minimumDistance: 1650
+#  maximumDistance: 2700
+#  spawnGroup: Required
+#  gridPath: /Maps/_NF/POI/medical.yml
+#  addComponents:
+#  - type: IFF
+#    color: "#00b7eb"
+#  - type: StationTransit
+#  - type: WorldGenDistanceCarver
+#    distanceThresholds:
+#    # Dead zone
+#    - maxDistance: 800
+#      prob: 0.0
+#    - maxDistance: 1500
+#      prob: 0.3
+#- type: gameMap
+#  id: Medical
+#  mapName: 'Medical Dispatch'
+#  mapPath: /Maps/_NF/POI/medical.yml
+#  minPlayers: 0
+#  stations:
+#    Medical:
+#      stationProto: RecordsFrontierOutpost
+#      components:
+#        - type: StationNameSetup
+#          mapNameTemplate: 'Medical Dispatch'
+#        - type: ExtraStationInformation
+#          icon:
+#            sprite: _NF/Markers/jobs.rsi
+#            state: medic
+#          stationSubtext: 'frontier-lobby-medical-subtext'
+#          stationDescription: 'frontier-lobby-medical-description'
+#          lobbySortOrder: 4
+#        - type: StationJobs
+#          availableJobs:
+#            DirectorOfCare: [ 1, 1 ]
+#            MdMedic: [ -1, -1 ] # mono
+#            Pilot: [ -1, -1 ]
+#            Mercenary: [ -1, -1 ]
+#          tags:
+#          - HeadOfPersonnel
+#          - HeadOfSecurity
+#        - type: StationDeadDrop
+#          maxDeadDrops: 1 # Fewer here, players start here.

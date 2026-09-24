@@ -1,0 +1,70 @@
+- type: entity
+  parent: BaseMachine
+  id: DataChitStorageServer
+  name: solarian data chit storage server
+  description: Contains approximately 500 data chits worth of confiscated data, often found within heavily armoured Solarian vaults. The Phaethon Dynasty would love to reclaim this.
+  suffix: 500 DC
+  components:
+  - type: Sprite # pending a custom sprite
+    sprite: _Mono/Structures/Machines/server.rsi
+    snapCardinals: true
+    layers:
+    - state: server
+    - state: variant-tsf
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Anchorable
+    delay: 10 # takes a little bit to unsecure
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500 # durable
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Transform
+    anchored: true
+  - type: Pullable
+  - type: CurrencyInjectionOnSell
+    company: PDV
+    amount:
+      Doubloon: 150 # less than 1/3rd of if it's brought to Helios
+  - type: StaticPrice
+    price: 300000 # too significant a part of the vault for the TSF to try bring to Halcyon. also gives civilians more of a reason to raid the vault
+  - type: Contraband
+    severity: FactionGear3
+    turnInValues:
+      Doubloon: 500 # TSF better not let it get brought to Helios
+    allowedDepartments: [ Security ]
+  - type: RadarBlip
+    radarColor: "#D2B48C"
+    scale: 3
+    shape: hexagon
+    visibleFromOtherGrids: true

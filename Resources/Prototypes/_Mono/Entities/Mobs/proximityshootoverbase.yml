@@ -1,0 +1,16 @@
+# DO NOT PARENT THIS ONTO ANYTHING THAT A PLAYER WOULDN'T BE ABLE TO TRIVIALLY DEFEAT WITH MELEE
+- type: entity
+  save: false
+  id: ProximityShootOverBase
+  abstract: true
+  components:
+  - type: BarricadeBlock # From BF14
+    bidirectional: false
+    omnidirectional: true
+    passthroughdistance: 1
+    blocking: 100
+  - type: ExtendDescription
+    descriptionList:
+    - description: This creature is unaffected by projectiles fired within half a tile
+      color: "#4f94ad"
+      requireDetailRange: true

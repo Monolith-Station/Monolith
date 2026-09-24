@@ -21,12 +21,6 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 4
-    zeroVisible: false
   - type: Appearance
   - type: EmitSoundOnPickup
     sound:

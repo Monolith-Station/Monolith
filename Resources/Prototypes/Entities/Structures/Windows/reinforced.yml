@@ -44,7 +44,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
-    key: reinforcedwindows
+    key: walls # Mono
     base: rwindow
   - type: Construction
     graph: Window
@@ -148,7 +148,7 @@
     - Diagonal
   - type: IconSmooth
     mode: Diagonal
-    key: reinforcedwindows # Mono
+    key: walls # Mono
     base: state
   - type: Icon
     sprite: Structures/Windows/reinforced_window_diagonal.rsi

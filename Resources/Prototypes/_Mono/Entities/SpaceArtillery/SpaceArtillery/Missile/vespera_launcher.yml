@@ -30,7 +30,7 @@
     availableModes: Burst
     shootThermalSignature: 2000000 # ~4.9km if firing continuously
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+      collection: ShipGunGenericMissile
     soundEmpty:
       path: /Audio/Weapons/click.ogg
   - type: SpaceArtillery
@@ -62,3 +62,6 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Medium

@@ -39,6 +39,9 @@
     damage:
       types:
         Blunt: 50
+  - type: Tag
+    tags:
+    - Unstashable
 
 - type: entity
   name: medium monolithic crystal
@@ -82,6 +85,9 @@
     damage:
       types:
         Blunt: 50
+  - type: Tag
+    tags:
+    - Unstashable
 
 - type: entity
   name: large monolithic crystal
@@ -127,5 +133,8 @@
     damage:
       types:
         Blunt: 50
+  - type: Tag
+    tags:
+    - Unstashable
 
 

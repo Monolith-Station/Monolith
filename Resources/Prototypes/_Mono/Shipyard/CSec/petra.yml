@@ -1,0 +1,34 @@
+- type: vessel
+  id: Petra
+  parent: BaseVessel
+  name: CASC Petra
+  description: Petra-class corvettes are bulky area-defense corvettes and carry heavy main battery armaments, but have poor manuvering and 0 missile defense except for a shield. Long-range usage without an escort is not recommended; they are built purely for standing up to larger ships until support can arrive.
+  price: 212000
+  category: Medium
+  group: Sr
+  access: Brig
+  mapchecker_group_override: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/petra.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Corvette
+  - Brawler
+  - Detainment
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Petra
+  mapName: 'Petra'
+  mapPath: /SharedMaps/_Mono/Shuttles/CSec/petra.yml
+  minPlayers: 0
+  stations:
+    Petra:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Petra CSEC{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'

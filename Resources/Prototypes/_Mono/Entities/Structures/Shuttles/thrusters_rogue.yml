@@ -9,6 +9,22 @@
     board: ThrusterRogueMachineCircuitboard
 
 - type: entity
+  id: ThrusterRogueStealth
+  name: stealth thruster
+  parent: [BaseStructureDisableToolUse, ThrusterRogue]
+  suffix: Rogue, Stealth
+  description: A thruster with a reduced drive-plume and thermal output, but significantly less thrust.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Shuttles/thrusterrogue_stealth.rsi
+  - type: Anchorable
+    flags: Anchorable
+  - type: Thruster
+    baseThrust: 50
+    thrust: 50 # 0.25x - plus cant be upgraded with parts!
+    heatSignatureRatio: 7.5
+
+- type: entity
   id: DebugThrusterRogue
   parent: DebugThrusterSecurity
   suffix: DEBUG, Rogue

@@ -85,6 +85,7 @@ namespace Content.Shared.Kitchen.Components
         AssemblerKey, // Frontier
         MedicalAssemblerKey, // Frontier
         ArcFurnaceKey, // Mono
+        PrecisionAssemblerKey, // Mono
     }
 
 }

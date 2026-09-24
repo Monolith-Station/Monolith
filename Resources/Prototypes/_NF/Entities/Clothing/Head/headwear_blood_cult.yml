@@ -11,6 +11,9 @@
   - type: HideLayerClothing
     slots:
     - Hair
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent:
@@ -26,6 +29,9 @@
   - type: HideLayerClothing
     slots:
     - Hair
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity # for looks only
   parent: [ ClothingHeadHatHoodBloodCulthood, ClothingHeadHelmetBasic ]
@@ -34,3 +40,6 @@
   name: cult hood
   components:
   - type: Unremoveable
+  - type: Tag
+    tags:
+    - PetWearable

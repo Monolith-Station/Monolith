@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "stone and wood by TheShuEd (discord), stone_corner and wood_corner by Vojner",
+  "size": {
+    "x": 32,
+    "y": 78
+  },
+  "states": [
+    {
+      "name": "straight",
+      "directions": 4
+    },
+    {
+      "name": "corner",
+      "directions": 4
+    },
+    {
+      "name": "internal_corner",
+      "directions": 4
+    }
+  ]
+}

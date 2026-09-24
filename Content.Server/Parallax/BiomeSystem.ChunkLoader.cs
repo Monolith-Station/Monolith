@@ -265,13 +265,13 @@ public sealed partial class BiomeSystem
             _chunkLoaderEntitiesToDelete.Add(ent);
         }
 
+        component.LoadedEntities.Remove(chunk);
+
         // Batch delete entities
         foreach (var ent in _chunkLoaderEntitiesToDelete)
         {
             Del(ent);
         }
-
-        component.LoadedEntities.Remove(chunk);
     }
 
     private void UnloadTiles(BiomeComponent component, EntityUid gridUid, MapGridComponent grid, Vector2i chunk, int seed, HashSet<Vector2i> modified, List<(Vector2i, Tile)> tiles)

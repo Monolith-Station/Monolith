@@ -10,3 +10,14 @@
   files:
   - /Audio/Effects/Emotes/parp1.ogg
   - /Audio/_NF/Effects/splat.ogg
+
+#Xenoborg Footsteps
+- type: soundCollection
+  id: FootstepXenoborg
+  files:
+  - /Audio/_Mono/Effects/Footsteps/borgwalk3.ogg
+
+- type: soundCollection
+  id: FootstepHoverXenoborg
+  files:
+  - /Audio/_Mono/Effects/Footsteps/borgwalk4.ogg

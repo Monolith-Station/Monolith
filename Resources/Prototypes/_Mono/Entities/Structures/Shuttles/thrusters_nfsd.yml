@@ -5,3 +5,19 @@
   components:
   - type: Sprite
     sprite: _Mono/Structures/Shuttles/thrusternfsd_large.rsi
+
+- type: entity
+  id: ThrusterNfsdStealh
+  name: stealth thruster
+  parent: [BaseStructureDisableToolUse, ThrusterNfsd]
+  suffix: TSFMC, Stealth
+  description: A thruster with a reduced drive-plume and thermal output, but significantly less thrust.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Shuttles/thruster_stealth.rsi
+  - type: Anchorable
+    flags: Anchorable
+  - type: Thruster
+    baseThrust: 50
+    thrust: 50 # 0.25x - plus cant be upgraded with parts!
+    heatSignatureRatio: 7.5

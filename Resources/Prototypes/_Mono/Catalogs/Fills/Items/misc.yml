@@ -33,3 +33,13 @@
     contents:
     - id: 150mmApShell
       amount: 4
+
+- type: entity
+  parent: WeaponCaseHeavyAmmo
+  id: WeaponCaseHeavyAmmo150APHE
+  suffix: Heavy, Ship, 150mm APHE
+  components:
+  - type: StorageFill
+    contents:
+    - id: 150mmApheShell
+      amount: 4

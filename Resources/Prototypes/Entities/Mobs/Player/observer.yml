@@ -27,6 +27,11 @@
         density: 15
         layer:
         - GhostImpassable
+  #CrystallEdge
+  - type: CEZPhysics
+    autoStep: false
+    velocityGravity: false
+  - type: CEZLevelGhostMover
 
 # shared parent between aghosts, replay spectators and normal observers
 - type: entity

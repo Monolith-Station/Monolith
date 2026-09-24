@@ -40,7 +40,7 @@ public sealed partial class TargetSeekingComponent : Component
     /// Tracking algorithm used for intercepting the target.
     /// </summary>
     [DataField]
-    public TrackingMethod TrackingAlgorithm = TrackingMethod.AdvancedPredictive;
+    public TrackingMethod TrackingAlgorithm = TrackingMethod.Predictive;
 
     /// <summary>
     /// How fast the projectile accelerates in m/s².
@@ -82,6 +82,12 @@ public sealed partial class TargetSeekingComponent : Component
     /// Whether seeking has been disabled (e.g., after entering an enemy grid).
     /// </summary>
     public bool SeekingDisabled;
+
+    /// <summary>
+    /// Do we want to draw arc/velocity lines on radar?
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool ArcLines = true;
 }
 
 /// <summary>

@@ -13,6 +13,7 @@
     - HamsterWearable
     - WhitelistChameleon
     - ClothMade
+    - PetWearable
 
 - type: entity
   parent: ClothingNeckBase
@@ -24,7 +25,10 @@
     sprite: Clothing/Neck/Ties/dettie.rsi
   - type: Clothing
     sprite: Clothing/Neck/Ties/dettie.rsi
-    
+  - type: Tag
+    tags:
+    - PetWearable
+
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckTieSci
@@ -40,3 +44,4 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
+    - PetWearable

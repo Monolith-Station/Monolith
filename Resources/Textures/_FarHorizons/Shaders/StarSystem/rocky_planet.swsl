@@ -1,0 +1,206 @@
+light_mode unshaded;
+
+#include "/Textures/_FarHorizons/Shaders/shader_utils.swsl"
+#include "/Textures/_FarHorizons/Shaders/StarSystem/planet_rings.swsl"
+#include "/Textures/_FarHorizons/Shaders/StarSystem/planet_utils.swsl" // Majority of uniforms come from here
+#include "/Textures/_FarHorizons/Shaders/StarSystem/planet_atmosphere.swsl"
+#include "/Textures/_FarHorizons/Shaders/StarSystem/planet_liquids.swsl" 
+
+// Custom data
+uniform highp float terrainScale;
+uniform highp float roughness;
+uniform highp float macroFrequency;
+uniform highp float macroAmplitude;
+uniform highp float ridgeFrequency;
+uniform highp float ridgeAmplitude;
+uniform highp float detailFrequency;
+uniform highp float detailAmplitude;
+
+highp vec2 getTerrainUV(highp vec2 sphereCoord) {
+    highp float r2 = dot(sphereCoord, sphereCoord);
+    highp float z = sqrt(max(0.0, 1.0 - r2));
+
+    highp float c = cos(rotationAngle);
+    highp float s = sin(rotationAngle);
+    highp vec2 surfaceCoord = mat2(c, -s, s, c) * sphereCoord;
+
+    highp float longitude = atan(surfaceCoord.x, max(z, 0.001)); 
+    highp float latitude = asin(clamp(surfaceCoord.y, -0.999, 0.999));
+
+    highp float pitchScale = 1.0 + sin(axialPitch) * 0.8;
+    highp float latitudeCurve = mix(latitude, latitude * pitchScale, 1.0 - z);
+
+    return vec2(longitude * 0.8 + TIME * rotationSpeed, latitudeCurve * 1.5);
+}
+
+highp float getElevation(highp vec2 uv) {
+    highp vec2 scaledUV = (uv + planetPos / 1000.0) * terrainScale;
+
+    highp float macro = (fbm(scaledUV * macroFrequency) + 0.5) * macroAmplitude;
+
+    highp float rNoise = fbm(scaledUV * ridgeFrequency);
+    highp float ridges = 1.0 - abs(rNoise * 2.0 - 1.0);
+    ridges = pow(ridges, 3.0);
+    highp float mountainLayer = ridges * ridgeAmplitude;
+
+    highp float detail = (fbm(scaledUV * detailFrequency) - 0.5) * detailAmplitude;
+
+    highp float finalHeight = macro + (mountainLayer * smoothstep(0.1, 0.6, macro)) + detail;
+
+    return clamp(finalHeight, 0.0, 1.0);
+}
+
+void fragment() {
+    highp vec2 offset;
+    highp float dist;
+    highp float coreRadius;
+    calculatePlanetParallax(UV, offset, dist, coreRadius);
+
+    // setup lighting
+    highp vec2 lightDir2D;
+    highp vec3 lightDir3D;
+    highp vec3 incomingLight;
+    calculateLightingSetup(lightDir2D, lightDir3D, incomingLight);
+
+    highp vec4 finalComposite = vec4(0.0);
+    highp vec4 bgRing = vec4(0.0);
+
+    // background rings
+    if (hasRings) {
+        bgRing = renderRingPass(
+            offset, coreRadius, lightDir3D, incomingLight,
+            ringsRadiusInner, ringsRadiusOuter, axialPitch, rotationAngle,
+            ringsColor1, ringsColor2, ringsColor3,
+            ringDensity, ringsBandFrequency, shadowSoftness, perspectiveStrength, false, false
+        );
+    }
+
+    // atmosphere
+    if (hasAtmosphere && dist > coreRadius) {
+        highp vec2 sphereCoord = offset / coreRadius;
+        highp vec4 halo = renderAtmosphereHalo(
+            sphereCoord, dist / coreRadius, lightDir3D, incomingLight,
+            atmosphereColor, atmosphereThickness, atmosphereDensity, 
+            atmosphereHeightFalloff, atmosphereSunScattering
+        );
+
+        finalComposite = compositeOver(bgRing, halo);
+    } else if (hasRings) {
+        finalComposite = bgRing;
+    }
+
+    // planet surface
+    if (dist <= coreRadius) {
+        highp vec2 sphereCoord = offset / coreRadius;
+        highp float r2 = dot(sphereCoord, sphereCoord);
+        highp float z = sqrt(max(0.0, 1.0 - r2));
+        
+        highp vec3 baseNormal = vec3(sphereCoord, z);
+        highp vec3 viewDir = vec3(0.0, 0.0, 1.0);
+
+        highp vec2 uv = getTerrainUV(sphereCoord);
+
+        highp float rawH = getElevation(uv);
+        highp float riverVal = getRiverMask(uv);
+        highp float carvedH = mix(rawH, min(rawH, liquidLevel - 0.02), riverVal);
+
+        highp float eps = 0.005;
+        
+        highp vec2 rightCoord = sphereCoord + vec2(eps, 0.0);
+        if(length(rightCoord) >= 1.0) rightCoord = normalize(rightCoord) * 0.99;
+        highp vec2 uvRight = getTerrainUV(rightCoord);
+        highp float hRight = mix(getElevation(uvRight), min(getElevation(uvRight), liquidLevel - 0.02), getRiverMask(uvRight));
+
+        highp vec2 upCoord = sphereCoord + vec2(0.0, eps);
+        if(length(upCoord) >= 1.0) upCoord = normalize(upCoord) * 0.99;
+        highp vec2 uvUp = getTerrainUV(upCoord);
+        highp float hUp = mix(getElevation(uvUp), min(getElevation(uvUp), liquidLevel - 0.02), getRiverMask(uvUp));
+
+        highp float dx = clamp((hRight - carvedH) * roughness, -0.75, 0.75);
+        highp float dy = clamp((hUp - carvedH) * roughness, -0.75, 0.75);
+        
+        highp vec3 terrainNormal = baseNormal;
+        terrainNormal.x -= dx;
+        terrainNormal.y -= dy;
+        terrainNormal = normalize(terrainNormal);
+
+        highp float liquidMask = smoothstep(liquidLevel + 0.005, liquidLevel - 0.005, carvedH);
+        highp vec3 finalNormal = mix(terrainNormal, baseNormal, liquidMask);
+
+        highp float NdotL = dot(terrainNormal, lightDir3D); 
+        
+        highp float slopeShadow = smoothstep(-shadowSoftness - 0.2, shadowSoftness + 0.3, NdotL);
+        highp float baseNdotL = dot(baseNormal, lightDir3D);
+        highp float terminatorMask = smoothstep(-shadowSoftness - 0.05, shadowSoftness + 0.05, baseNdotL);
+        highp float shadowFactor = slopeShadow * terminatorMask;
+
+        highp float slope = 1.0 - clamp(dot(terrainNormal, baseNormal), 0.0, 1.0);
+        slope = smoothstep(0.01, 0.2, slope);
+
+        highp float mineralNoise = (fbm(uv * 2.5) - 0.5) * 0.35;
+        highp float paletteIndex = carvedH + mineralNoise;
+        paletteIndex = mix(paletteIndex, 0.0, slope * 0.9);
+        paletteIndex = clamp(paletteIndex, 0.0, 1.0) * 0.75;
+
+        highp vec3 landColor = samplePlanetPalette(paletteIndex);
+        highp vec3 capColor = samplePlanetPalette(polarCapColor);
+        landColor = applyPolarCaps(landColor, capColor, sphereCoord, z, carvedH);
+        landColor *= mix(0.7, 1.0, 1.0 - slope);
+
+        landColor = applyColorShifts(
+            landColor, hueShift, saturationShift, 
+            hueShiftMultiplier, saturationShiftMultiplier
+        );
+
+        highp float limbDarkening = pow(z, 0.5);
+        highp vec3 ambientLight = vec3(0.03, 0.03, 0.05);
+        highp vec3 litLand = (landColor * limbDarkening) * mix(ambientLight, incomingLight, shadowFactor);
+
+        highp float rim = 1.0 - z;
+        highp float rimLightMask = smoothstep(-0.2, 0.5, baseNdotL); 
+        highp float rimGlow = pow(rim, 4.0) * rimLightMask * rimGlowStrength;
+        litLand += color3 * rimGlow * incomingLight;
+
+        highp float liquidDepth = clamp((liquidLevel - carvedH) / max(0.01, liquidLevel), 0.0, 1.0);
+        highp vec3 litLiquid = shadeLiquid(
+            liquidDepth, finalNormal, viewDir, 
+            lightDir3D, incomingLight, shadowFactor
+        );
+
+        highp vec3 litColor = mix(litLand, litLiquid, liquidMask);
+
+        if (hasAtmosphere) {
+            highp float cloudShadow = calculateCloudShadow(sphereCoord, z, lightDir3D);
+            litColor *= cloudShadow;
+
+            highp vec4 clouds = renderCloudLayer(sphereCoord, z, lightDir3D, incomingLight, baseNormal);
+            litColor = mix(litColor, clouds.rgb, clouds.a);
+
+            litColor = applySurfaceAtmosphere(
+                litColor, z, carvedH, lightDir3D, incomingLight,
+                baseNormal, atmosphereColor, atmosphereDensity, atmosphereSunScattering
+            );
+        }
+
+        finalComposite.rgb = mix(finalComposite.rgb, litColor, 1.0 - finalComposite.a * 0.0);
+        finalComposite.a = 1.0;
+    }
+
+    // foreground rings
+    if (hasRings) {
+        highp vec4 fgRing = renderRingPass(
+            offset, coreRadius, lightDir3D, incomingLight,
+            ringsRadiusInner, ringsRadiusOuter, axialPitch, rotationAngle,
+            ringsColor1, ringsColor2, ringsColor3,
+            ringDensity, ringsBandFrequency, shadowSoftness, perspectiveStrength, true, false
+        );
+
+        finalComposite = compositeOver(finalComposite, fgRing);
+    }
+
+    if (finalComposite.a <= 0.001) {
+        discard;
+    }
+
+    COLOR = finalComposite;
+}

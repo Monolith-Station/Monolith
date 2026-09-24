@@ -93,8 +93,6 @@ entities:
       parent: 1
     - type: ForceAnchor
     - type: StationTransit
-    - type: IFF
-      readOnly: True
     - type: ProtectedGrid
       hostileMobKillSound: !type:SoundPathSpecifier
         path: /Audio/Effects/holy.ogg

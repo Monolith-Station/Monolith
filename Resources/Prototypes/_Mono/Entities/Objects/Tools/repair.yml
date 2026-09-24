@@ -24,7 +24,7 @@
       Plasma: 200
       Gold: 200
   - type: StaticPrice
-    price: 10000
+    price: 1000
     vendPrice: 15000
   - type: Tag
     tags:
@@ -66,6 +66,7 @@
   components:
   - type: ShipRepairTool
     repairTimeMultiplier: 0
+    checkPreExistingEntities: false
   - type: Tag
     tags:
     - ShipRepairTool
@@ -107,6 +108,7 @@
     sprite: _NF/Objects/Tools/rcd.rsi
     state: ammo-shipyard
   - type: Item
+    heldPrefix: ammo-shipyard
   - type: PhysicalComposition
     materialComposition:
       Steel: 100

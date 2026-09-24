@@ -1,0 +1,186 @@
+light_mode unshaded;
+
+#include "/Textures/_FarHorizons/Shaders/shader_utils.swsl"
+
+// render data
+uniform highp vec2 viewportMin;
+uniform highp vec2 viewportSize;
+
+// star data
+uniform highp vec2 starWorldPos;
+uniform highp vec3 starColor;
+uniform highp float starLuminosity;
+
+// physical belt
+uniform highp vec2 asteroidBeltPos;
+uniform highp vec2 asteroidBeltRadialSize;
+
+uniform highp vec3 color1;
+uniform highp vec3 color2;
+uniform highp vec3 color3;
+uniform highp vec3 color4;
+
+uniform highp float beltRotationSpeed;
+
+// Mist
+uniform highp float mistScale;
+uniform highp float mistDensity;
+uniform highp float mistCoverage;
+
+// Specks
+uniform highp float specksScale;
+uniform highp float specksThreshold;
+uniform highp float specksSpeedMultiplier;
+
+// Boulders
+uniform highp float boulderGridScale;
+uniform highp float boulderDensity;
+uniform highp float boulderMaxRadius;
+uniform highp float boulderSpeedMultiplier;
+
+// Bands
+uniform highp float bandFrequency;
+uniform highp float bandNoiseScale;
+uniform highp float edgeFeatherPower;
+
+highp vec2 hash2(highp vec2 p) {
+    p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
+    return fract(sin(p) * 43758.5453113) - 0.5; // [-0.5, 0.5]
+}
+
+highp float asteroidSDF(highp vec2 p, highp float seed, highp float targetRadius) {
+    highp float angle = atan(p.y, p.x);
+    highp float radius = length(p);
+
+    highp vec2 noiseUV = vec2(cos(angle), sin(angle)) * 2.5 + vec2(seed * 13.0);
+    highp float distortion = fbm(noiseUV) * 0.45;
+
+    return radius - (targetRadius + distortion);
+}
+
+highp vec3 samplePalette(highp float t) {
+    if (t < 0.33) {
+        return mix(color1, color2, t / 0.33);
+    } else if (t < 0.66) {
+        return mix(color2, color3, (t - 0.33) / 0.33);
+    } else {
+        return mix(color3, color4, (t - 0.66) / 0.34);
+    }
+}
+
+void fragment() {
+    highp vec2 pixelWorldPos = viewportMin + (UV * viewportSize);
+
+    highp vec2 rawOffset = pixelWorldPos - asteroidBeltPos;
+    highp float dist = length(rawOffset);
+
+    if (dist < asteroidBeltRadialSize.x || dist > asteroidBeltRadialSize.y) {
+        discard;
+    }
+
+    highp float beltWidth = max(asteroidBeltRadialSize.y - asteroidBeltRadialSize.x, 0.001);
+    highp float t = (dist - asteroidBeltRadialSize.x) / beltWidth;
+
+    highp float featherPower = (edgeFeatherPower <= 0.0) ? 0.6 : edgeFeatherPower;
+    highp float wideEdgeFeather = pow(sin(t * 3.14159265), featherPower);
+
+    highp float safeBandFreq = (bandFrequency <= 0.0) ? 12.0 : bandFrequency;
+    highp float safeBandNoise = (bandNoiseScale <= 0.0) ? 2.5 : bandNoiseScale;
+
+    highp float angle = atan(rawOffset.y, rawOffset.x);
+    highp float bandDistortion = fbm(vec2(t * safeBandNoise, angle * 3.0)) * 0.25;
+
+    highp float bandSine = sin((t + bandDistortion) * safeBandFreq * 3.14159265);
+    highp float bandMask = smoothstep(-0.3, 0.5, bandSine); 
+
+    // mist
+    highp float rotAngle = angle + (TIME * beltRotationSpeed);
+    highp vec2 rotatedOffset = vec2(cos(rotAngle), sin(rotAngle)) * dist;
+
+    highp float safeMistScale = (mistScale <= 0.0) ? 0.01 : mistScale;
+    highp float mistNoise = fbm(rotatedOffset * safeMistScale);
+
+    highp float lowThreshold = mix(0.4, -0.2, mistCoverage); 
+    highp float highThreshold = mix(0.8, 0.3, mistCoverage);
+
+    highp float expandedMist = smoothstep(lowThreshold, highThreshold, mistNoise);
+
+    highp float mistDensityVal = expandedMist * bandMask * wideEdgeFeather;
+    highp float safeMistDensity = (mistDensity <= 0.0) ? 1.0 : mistDensity;
+    highp float mistAlpha = clamp(mistDensityVal * safeMistDensity, 0.0, 1.0);
+
+    // specks
+    highp float safeSpecksMult = (specksSpeedMultiplier <= 0.0) ? 1.25 : specksSpeedMultiplier;
+    highp float specksRotAngle = angle + (TIME * beltRotationSpeed * safeSpecksMult);
+    highp vec2 specksRotatedOffset = vec2(cos(specksRotAngle), sin(specksRotAngle)) * dist;
+
+    highp float safeSpecksScale = (specksScale <= 0.0) ? 0.08 : specksScale;
+    highp float rawSpeckNoise = fbm(specksRotatedOffset * safeSpecksScale);
+
+    highp float safeSpecksThresh = (specksThreshold <= 0.0) ? 0.70 : specksThreshold;
+    highp float specksMask = smoothstep(safeSpecksThresh, safeSpecksThresh + 0.1, rawSpeckNoise);
+    
+    highp float specksAlpha = specksMask * bandMask * wideEdgeFeather;
+
+    // boulders
+    highp float safeBoulderMult = (boulderSpeedMultiplier <= 0.0) ? 1.4 : boulderSpeedMultiplier;
+    highp float boulderRotAngle = angle + (TIME * beltRotationSpeed * safeBoulderMult);
+    highp vec2 boulderRotatedOffset = vec2(cos(boulderRotAngle), sin(boulderRotAngle)) * dist;
+
+    highp float safeGridScale = (boulderGridScale <= 0.0) ? 0.05 : boulderGridScale;
+    highp vec2 gridPos = boulderRotatedOffset * safeGridScale;
+    highp vec2 cellId = floor(gridPos);
+    highp vec2 cellUV = fract(gridPos) - 0.5;
+
+    highp vec2 cellHash = hash2(cellId);
+    highp float cellSeed = cellHash.x + 0.5;
+
+    highp float safeBoulderDensity = (boulderDensity <= 0.0) ? 0.35 : boulderDensity;
+    highp float boulderAlpha = 0.0;
+    highp vec3 boulderColor = vec3(0.0);
+
+    if (cellSeed < safeBoulderDensity && bandMask > 0.1 && wideEdgeFeather > 0.1) {
+        highp float maxR = (boulderMaxRadius <= 0.0) ? 2.0 : boulderMaxRadius;
+        highp float sizeFactor = mix(0.4, 1.0, abs(cellHash.y) * 2.0);
+        highp float targetRadius = maxR * sizeFactor;
+
+        highp vec2 asteroidCenter = cellHash * 0.35;
+        highp vec2 localPos = (cellUV - asteroidCenter) * 10.0;
+
+        highp float sdfDist = asteroidSDF(localPos, cellSeed, targetRadius);
+
+        if (sdfDist < 0.0) {
+            boulderAlpha = smoothstep(0.0, -0.4, sdfDist) * wideEdgeFeather;
+
+            highp vec2 starDir = normalize(starWorldPos - pixelWorldPos);
+
+            highp float z = sqrt(max(0.0, targetRadius * targetRadius - dot(localPos, localPos)));
+            highp vec3 normal = normalize(vec3(-localPos, z * 1.5));
+
+            highp float NdotL = max(0.15, dot(normal.xy, starDir));
+
+            highp float normalizedSize = (sizeFactor - 0.4) / 0.6; 
+            
+            highp vec3 baseDarkRock = mix(color3, color4, normalizedSize * 0.5); 
+            highp vec3 litRock = mix(baseDarkRock, color4, NdotL * (1.0 - normalizedSize * 0.35));
+
+            highp vec3 activeStarColor = (length(starColor) <= 0.0) ? vec3(1.0) : starColor;
+            boulderColor = mix(baseDarkRock, litRock * activeStarColor, NdotL);
+        }
+    }
+
+    // composite
+    highp float finalAlpha = clamp(max(mistAlpha, max(specksAlpha, boulderAlpha)), 0.0, 1.0);
+
+    if (finalAlpha < 0.01) {
+        discard;
+    }
+
+    highp vec3 mistColor = samplePalette(mistDensityVal);
+
+    highp vec3 mistWithSpecks = mix(mistColor, color2, specksAlpha);
+
+    highp vec3 finalColor = mix(mistWithSpecks, boulderColor, boulderAlpha);
+
+    COLOR = vec4(finalColor, finalAlpha);
+}

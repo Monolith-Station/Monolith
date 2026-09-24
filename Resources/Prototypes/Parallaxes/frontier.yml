@@ -39,13 +39,13 @@
     - texture:
         !type:ImageParallaxTextureSource
         path: "/Textures/_NF/Parallaxes/Asteroids.png"
-      slowness: 0.97
+      slowness: 0.977 #Mono: 0.97 >> 0.977 Slower parallax, to account for our higher max speeds
       scale: 1.5,1.5
       scrolling: "0.018, 0.01"
     - texture:
         !type:ImageParallaxTextureSource
         path: "/Textures/_NF/Parallaxes/Asteroids.png"
-      slowness: 0.80
+      slowness: 0.967 #Mono: 0.80 >> 0.967 Max speed adjustment
       scale: 0.95,0.95
       scrolling: "-0.0075, -0.009"
   layersLQ:

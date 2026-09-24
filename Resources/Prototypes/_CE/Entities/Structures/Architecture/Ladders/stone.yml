@@ -1,0 +1,27 @@
+- type: entity
+  id: CEZLevelsLadderStoneBase
+  name: stone ladder
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _CE/Structures/Architecture/Ladders/stone.rsi
+
+- type: entity
+  id: CEZLevelLadderStone
+  parent:
+  - CEZLevelLadderBase
+  - CEZLevelsLadderStoneBase
+
+- type: entity
+  id: CEZLevelLadderStoneCorner
+  suffix: Corner
+  parent:
+  - CEZLevelLadderCornerBase
+  - CEZLevelsLadderStoneBase
+
+- type: entity
+  id: CEZLevelLadderStoneCornerInner
+  suffix: Inner Corner
+  parent:
+  - CEZLevelLadderCornerInnerBase
+  - CEZLevelsLadderStoneBase

@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Mono.Company;
 
@@ -11,12 +12,15 @@ public sealed partial class CompanyAccessReaderComponent : Component
     /// <summary>
     /// The company ID that is required to access this entity.
     /// </summary>
-    [DataField("requiredCompany")]
-    public string RequiredCompany = string.Empty;
+    [DataField("requiredCompanies")]
+    public List<ProtoId<CompanyPrototype>> RequiredCompanies = [];
+
+    [DataField]
+    public bool Inverted = false;
 
     /// <summary>
     /// Message to show when access is denied due to incorrect company.
     /// </summary>
     [DataField("popupMessage")]
-    public string? PopupMessage = "company-tsf-access-denied";
+    public string? PopupMessage = "company-neutral-access-denied";
 }

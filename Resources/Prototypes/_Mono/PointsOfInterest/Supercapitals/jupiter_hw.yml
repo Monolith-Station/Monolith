@@ -1,0 +1,47 @@
+# Author Info
+# GitHub: Corrupt142
+# Discord: theticalsteak49
+
+# Notes: Goida.
+
+- type: pointOfInterest
+  id: Jupiter_HW
+  parent: [BaseMobilePOI, BaseRepairablePOI]
+  name: 'PDV Jupiter'
+  minimumDistance: 12000
+  maximumDistance: 15000
+  spawnGamePreset: [ MonoRogueTSFHyperwar ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/Supercapitals/jupiter_hw.yml
+  addComponents:
+  - type: IFF
+    color: "#d1bf58"
+    flags: [HideLabel]
+    readOnly: false
+
+- type: gameMap
+  id: Jupiter_HW
+  mapName: 'PDV Jupiter'
+  mapPath: /Maps/_Mono/Supercapitals/jupiter_hw.yml
+  minPlayers: 0
+  stations:
+    Jupiter_HW:
+      stationProto: RecordsFrontierOutpostCargo
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'PDV Jupiter Class Carrier'
+        - type: ExtraStationInformation
+          icon: /Textures/_NF/Interface/Pirate/piratelogo.png
+          stationSubtext: 'frontier-lobby-jupiter-subtext'
+          stationDescription: 'frontier-lobby-jupiter-description'
+          lobbySortOrder: 2
+        - type: StationJobs
+          availableJobs:
+            PirateFirstMate: [ 1, 1 ] # Mono
+            PDVDenasvar: [ 2, 2 ]
+            Pirate: [ 8, 8 ] # Mono
+          tags:
+          - PDVCommand
+        - type: StationDeadDropReporting
+          messageSet: Pirate
+        - type: StationDeadDropHintExempt

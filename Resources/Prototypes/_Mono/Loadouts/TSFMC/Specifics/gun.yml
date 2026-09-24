@@ -5,50 +5,51 @@
   loadouts:
   - FactionFrostLoadout
   - FactionDrozdLoadout
-  - FactionLecterLoadout
-  - FactionVulcanLoadout
-  - FactionBanditLoadout
+  - FactionRiversongLoadout
+  - FactionDragonfangLoadout
   fallbacks:
   - FactionFrostLoadout
 
 - type: loadoutGroup
+  id: TsfmcFirearmCommand
+  name: loadout-group-weapon
+  minLimit: 0
+  loadouts:
+  - FactionRiversongLoadout
+  - FactionDrozdLoadout
+  - SecurityGuardEnforcerLoadout
+
+- type: loadoutGroup
   id: TsfmcFirearm
   name: loadout-group-weapon
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - FactionLecterLoadout
   - FactionDrozdLoadout
-  - FactionVulcanLoadout
-  - FactionEnergyGunLoadout
-  # - FactionBanditLoadout
-  fallbacks:
-  - FactionVulcanLoadout
+  - SecurityGuardEnforcerLoadout # Shotgun, since mikus asked about it and technically we can pick it anyway
 
 - type: loadoutGroup
   id: TsfmcSidearm
   name: loadout-group-pistol
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - SecurityGuardMk58Loadout
   - FactionInspectorLoadout
   - FactionLaserPistolLoadout
   - ContractorDisablerLoadout
-  fallbacks:
-  - SecurityGuardMk58Loadout
 
 - type: loadoutGroup
   id: TsfmcMag
   name: loadout-group-magazine
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - TSFCaselessAmmoBoxLoadout # Lecter
   - FactionAcpSmgAmmoLoadout #Drozd
   - FactionAcpSmgEmpAmmoLoadout #Drozd EMP
   - Faction762x51mmAmmoLoadout #Vulcan
   - FactionRechargerLoadout #Energy
-  # - Faction8x65mmAmmoLoadout #Bandit
-  fallbacks:
-  - TSFCaselessAmmoBoxLoadout #Lecter
+  - SecurityGuardBeanbagAmmoLoadout # Buckshot, don't mind the weird naming.
+
 
 - type: loadout # Lecter ammo - putting it here because other factions shouldnt be using this
   id: TSFCaselessAmmoBoxLoadout
@@ -60,10 +61,8 @@
 - type: loadoutGroup
   id: TsfmcSidearmAmmo
   name: loadout-group-pistol-magazine
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - FactionRechargerLoadout #Energy
-  - FactionMagnum45Loadout # Inspector/Python/Mateba
-  - FactionAcpPistolAmmoLoadout #MK58
-  fallbacks:
+  - FactionMagnum357Loadout # Inspector/Python/Mateba
   - FactionAcpPistolAmmoLoadout #MK58

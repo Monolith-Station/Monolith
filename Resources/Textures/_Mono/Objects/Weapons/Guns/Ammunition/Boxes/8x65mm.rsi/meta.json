@@ -1,26 +1,20 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Original Sprite by Aleksh, Modified by Ramiris and _starch_ (discord)",
+  "copyright": "Taken from SS13 Shiptest, modified by _starch_ (discord).",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
+      "name": "incendiary"
+    },
+    {
       "name": "base"
     },
     {
-      "name": "mag-1"
-    },
-    {
-      "name": "mag-2"
-    },
-    {
-      "name": "mag-3"
-    },
-    {
-      "name": "mag-4"
+      "name": "practice"
     }
   ]
 }

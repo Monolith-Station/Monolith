@@ -1,0 +1,59 @@
+// shitty vibecoded cloud shader (should be replaced with something more proper some day but this will do for now)
+blend_mode mix;
+
+uniform highp vec3 CLOUD_COLOR;
+uniform highp float COVERAGE;
+uniform highp float WISP;
+
+highp float hash(highp vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float vnoise(highp vec2 p) {
+    highp vec2 i = floor(p);
+    highp vec2 f = fract(p);
+    highp vec2 u = f * f * (3.0 - 2.0 * f);
+    highp float a = hash(i);
+    highp float b = hash(i + vec2(1.0, 0.0));
+    highp float c = hash(i + vec2(0.0, 1.0));
+    highp float d = hash(i + vec2(1.0, 1.0));
+    return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+}
+
+highp float fbm(highp vec2 p) {
+    highp float v = 0.0;
+    highp float a = 0.5;
+    for (int i = 0; i < 4; i++) {
+        v += a * vnoise(p);
+        p = p * 2.03 + vec2(19.7, 7.3);
+        a *= 0.5;
+    }
+    return v;
+}
+
+void fragment() {
+    highp vec2 uv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE.y;
+    highp vec2 wind = TIME * vec2(0.11, 0.035);
+
+    if (WISP > 0.0) {
+        highp vec2 wp = uv * 3.2 + wind * 3.0;
+        highp float wn = fbm(wp + 1.4 * fbm(wp * 0.6 - wind * 4.5));
+        highp float w = smoothstep(0.45, 0.8, wn);
+        highp float shade = mix(0.55, 1.3, smoothstep(0.45, 0.95, wn));
+        COLOR = vec4(CLOUD_COLOR * shade, w * WISP);
+    } else {
+        highp vec2 p = uv * 5.0 + wind * 2.0;
+        highp float n = fbm(p + 1.4 * fbm(p * 0.6 - wind * 3.5));
+        n = smoothstep(0.25, 0.85, n);
+
+        highp vec3 col = CLOUD_COLOR * mix(0.45, 1.15, n);
+
+        highp float cover = clamp(COVERAGE, 0.0, 1.0);
+        highp float alpha = clamp(cover * (0.45 + 1.1 * cover) + (n - 0.5) * 0.8 * cover, 0.0, 1.0);
+        if (cover >= 0.999) {
+            alpha = 1.0;
+        }
+
+        COLOR = vec4(col, alpha);
+    }
+}

@@ -1,4 +1,5 @@
 using Content.Server.Kitchen.Components;
+using Content.Shared.Kitchen.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Server._Goobstation.Kitchen;

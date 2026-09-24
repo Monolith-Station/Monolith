@@ -70,6 +70,24 @@
     - PirateNF
 
 - type: entity
+  parent: BaseWeaponBallisticTurret
+  id: WeaponTurretViper
+  suffix: Viper
+  components:
+  - type: NpcFactionMember
+    factions:
+    - VGTurret
+
+- type: entity
+  parent: BaseWeaponBallisticTurret
+  id: WeaponTurretXenoborg
+  suffix: Xenoborg
+  components:
+  - type: NpcFactionMember
+    factions:
+    - XenoborgTurret
+
+- type: entity
   parent: BaseWeaponTurretNF
   id: BaseMk290Sentry
   name: MK-290 Sentry
@@ -102,7 +120,7 @@
     context: "human"
   - type: Gun
     fireRate: 9
-    projectileSpeed: 55
+    projectileSpeed: 50
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -121,7 +139,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: Magazine762x39mmBox
+        startingItem: null
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
         priority: 1
@@ -145,6 +163,7 @@
   - type: NpcFactionMember
     factions:
     - TSFMCTurret
+    - TSFMC
 
 - type: entity
   parent: BaseMk290Sentry

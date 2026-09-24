@@ -1,3 +1,4 @@
+using Content.Client._Mono.Shipyard;
 using Content.Client._NF.Shipyard.UI;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared._NF.Shipyard.BUI;
@@ -10,6 +11,7 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
 {
     private ShipyardConsoleMenu? _menu;
     private ShipyardRulesPopup? _rulesWindow;
+    [Dependency] private ShipyardPreviewSystem _preview = default!;
     public int Balance { get; private set; }
 
     public int? ShipSellValue { get; private set; }
@@ -40,6 +42,7 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
         _menu.OnUnassignDeed += UnassignDeed;
         _menu.OnRenameShip += RenameShip;
         _menu.TargetIdButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent("ShipyardConsole-targetId"));
+        _menu.OnPreviewShip += PreviewShip;
     }
 
     private void Populate(List<string> availablePrototypes, List<string> unavailablePrototypes, bool freeListings, bool validId)
@@ -101,5 +104,17 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
     private void RenameShip(string newName)
     {
         SendMessage(new ShipyardConsoleRenameMessage(newName));
+    }
+
+    private void PreviewShip(ButtonEventArgs args)
+    {
+        if (args.Button.Parent?.Parent?.Parent is not VesselRow row || row.Vessel == null) // Mono - another .parent? - this is really fucking stupid
+        {
+            return;
+        }
+
+        var vessel = row.Vessel;
+        SendMessage(new ShipyardConsolePreviewMessage());
+        _preview.TryPreviewGrid(vessel);
     }
 }

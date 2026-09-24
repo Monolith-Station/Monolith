@@ -24,6 +24,9 @@
       right:
       - state: inhand-right
         color: "#1F1F1F"
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingBalaclavaBase
@@ -48,6 +51,9 @@
       right:
       - state: inhand-right
         color: "#6A6A6A"
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingBalaclavaBase
@@ -68,6 +74,9 @@
       - state: inhand-left
       right:
       - state: inhand-right
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingBalaclavaBase
@@ -92,6 +101,9 @@
       right:
       - state: inhand-right
         color: "#ff2c2c"
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingBalaclavaBase
@@ -116,6 +128,9 @@
       right:
       - state: inhand-right
         color: "#4CBB17"
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingBalaclavaBase
@@ -140,6 +155,9 @@
       right:
       - state: inhand-right
         color: "#2832C2"
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingBalaclavaBase
@@ -164,6 +182,9 @@
       right:
       - state: inhand-right
         color: "#B200ED"
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingBalaclavaBase
@@ -188,6 +209,9 @@
       right:
       - state: inhand-right
         color: "#FFF200"
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingBalaclavaBase
@@ -212,6 +236,9 @@
       right:
       - state: inhand-right
         color: "#d2B48C"
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingBalaclavaBase
@@ -236,6 +263,9 @@
       right:
       - state: inhand-right
         color: "#4A5A49"
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingBalaclavaBase
@@ -260,7 +290,10 @@
       right:
       - state: inhand-right
         color: "#81613C"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 #ski mask + hole
 
 - type: entity
@@ -286,7 +319,10 @@
       right:
       - state: inhand-right
         color: "#1F1F1F"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaSkiMaskMouthGray
@@ -310,7 +346,10 @@
       right:
       - state: inhand-right
         color: "#6A6A6A"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaSkiMaskMouthWhite
@@ -330,7 +369,10 @@
       - state: inhand-left
       right:
       - state: inhand-right
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaSkiMaskMouthRed
@@ -354,7 +396,10 @@
       right:
       - state: inhand-right
         color: "#ff2c2c"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaSkiMaskMouthGreen
@@ -378,7 +423,10 @@
       right:
       - state: inhand-right
         color: "#4CBB17"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaSkiMaskMouthBlue
@@ -402,7 +450,10 @@
       right:
       - state: inhand-right
         color: "#2832C2"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaSkiMaskMouthPurple
@@ -426,7 +477,10 @@
       right:
       - state: inhand-right
         color: "#B200ED"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaSkiMaskMouthYellow
@@ -450,7 +504,10 @@
       right:
       - state: inhand-right
         color: "#FFF200"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaSkiMaskMouthTan
@@ -474,7 +531,10 @@
       right:
       - state: inhand-right
         color: "#d2B48C"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaSkiMaskMouthRangerGreen
@@ -498,7 +558,10 @@
       right:
       - state: inhand-right
         color: "#4A5A49"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaSkiMaskMouthCoyoteBrown
@@ -522,7 +585,10 @@
       right:
       - state: inhand-right
         color: "#81613C"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 #classic mask no hole
 
 - type: entity
@@ -548,7 +614,10 @@
       right:
       - state: inhand-right
         color: "#1F1F1F"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicGray
@@ -572,7 +641,10 @@
       right:
       - state: inhand-right
         color: "#6A6A6A"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicWhite
@@ -592,7 +664,10 @@
       - state: inhand-left
       right:
       - state: inhand-right
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicRed
@@ -616,7 +691,10 @@
       right:
       - state: inhand-right
         color: "#ff2c2c"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicGreen
@@ -640,7 +718,10 @@
       right:
       - state: inhand-right
         color: "#4CBB17"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicBlue
@@ -664,7 +745,10 @@
       right:
       - state: inhand-right
         color: "#2832C2"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicPurple
@@ -688,7 +772,10 @@
       right:
       - state: inhand-right
         color: "#B200ED"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicYellow
@@ -712,7 +799,10 @@
       right:
       - state: inhand-right
         color: "#FFF200"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicTan
@@ -736,7 +826,10 @@
       right:
       - state: inhand-right
         color: "#d2B48C"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicRangerGreen
@@ -760,7 +853,10 @@
       right:
       - state: inhand-right
         color: "#4A5A49"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicCoyoteBrown
@@ -784,7 +880,10 @@
       right:
       - state: inhand-right
         color: "#81613C"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 #classic mask + hole
 
 - type: entity
@@ -810,7 +909,10 @@
       right:
       - state: inhand-right
         color: "#1F1F1F"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicMouthGray
@@ -834,7 +936,10 @@
       right:
       - state: inhand-right
         color: "#6A6A6A"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicMouthWhite
@@ -854,7 +959,10 @@
       - state: inhand-left
       right:
       - state: inhand-right
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicMouthRed
@@ -878,7 +986,10 @@
       right:
       - state: inhand-right
         color: "#ff2c2c"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicMouthGreen
@@ -902,7 +1013,10 @@
       right:
       - state: inhand-right
         color: "#4CBB17"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicMouthBlue
@@ -926,7 +1040,10 @@
       right:
       - state: inhand-right
         color: "#2832C2"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicMouthPurple
@@ -950,7 +1067,10 @@
       right:
       - state: inhand-right
         color: "#B200ED"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicMouthYellow
@@ -974,7 +1094,10 @@
       right:
       - state: inhand-right
         color: "#FFF200"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicMouthTan
@@ -998,7 +1121,10 @@
       right:
       - state: inhand-right
         color: "#d2B48C"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicMouthRangerGreen
@@ -1022,7 +1148,10 @@
       right:
       - state: inhand-right
         color: "#4A5A49"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingBalaclavaBase
   id: ClothingBalaclavaClassicMouthCoyoteBrown
@@ -1046,3 +1175,7 @@
       right:
       - state: inhand-right
         color: "#81613C"
+  - type: Tag
+    tags:
+    - PetWearable
+    

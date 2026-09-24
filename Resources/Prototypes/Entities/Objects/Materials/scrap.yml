@@ -77,9 +77,9 @@
       - state: metal-1
         map: [ "base" ]
   - type: Item
-    size: Large
-    shape:
-    - 0,0,4,4 # 5x5
+  #  size: Large # Mono - salvage buffs
+  #  shape:
+  #  - 0,0,4,4 # 5x5
     heldPrefix: metal
   - type: MultiHandedItem
   - type: RandomSprite
@@ -104,9 +104,9 @@
       map: [ "base" ]
   - type: Item
     heldPrefix: "glass"
-    size: Large
-    shape:
-    - 0,0,2,2 # 3x3
+  #  size: Large # Mono - salvage buffs
+  #  shape:
+  #  - 0,0,2,2 # 3x3
   - type: RandomSprite
     available:
     - base:
@@ -137,9 +137,9 @@
         junk-airlock-1: ""
         junk-airlock-2: ""
   - type: Item
-    size: Large
-    shape:
-    - 0,0,4,4 # 5x5
+  #  size: Large # Mono - salvage buffs
+  #  shape:
+  #  - 0,0,4,4 # 5x5
     heldPrefix: "airlock"
   - type: MultiHandedItem
   - type: PhysicalComposition
@@ -231,9 +231,9 @@
   - type: MultiHandedItem
   - type: Item
     heldPrefix: closet
-    size: Huge
-    shape:
-    - 0,0,5,2
+  #  size: Large # Mono - salvage buffs
+  #  shape:
+  #  - 0,0,5,2
   - type: PhysicalComposition
     materialComposition:
       Steel: 1500 # 15 sheets
@@ -248,7 +248,7 @@
     layers:
     - state: junk-fax
   - type: Item
-    size: Huge
+    size: Normal # Mono
   - type: PhysicalComposition
     materialComposition:
       Plastic: 800 # 8 sheets
@@ -277,9 +277,9 @@
     layers:
     - state: junk-firelock-1
   - type: Item
-    size: Large
-    shape:
-    - 0,0,4,4 # 5x5
+  #  size: Large # Mono - salvage buffs
+  #  shape:
+  #  - 0,0,4,4 # 5x5
     heldPrefix: firelock-1
   - type: MultiHandedItem
   - type: PhysicalComposition
@@ -296,9 +296,9 @@
     layers:
     - state: junk-firelock-2
   - type: Item
-    size: Large
-    shape:
-    - 0,0,4,4 # 5x5
+  #  size: Large # Mono - salvage buffs
+  #  shape:
+  #  - 0,0,4,4 # 5x5
     heldPrefix: firelock-2
   - type: MultiHandedItem
   - type: PhysicalComposition
@@ -313,8 +313,8 @@
   - type: Sprite
     layers:
     - state: junk-firelock-3
-  - type: Item
-    size: Large
+  #- type: Item  # Mono - salvage buffs
+  #  size: Large
   - type: PhysicalComposition
     materialComposition:
       Steel: 700 # 7 sheets
@@ -351,7 +351,7 @@
     layers:
     - state: junk-jetpack
   - type: Item
-    size: Huge
+  #  size: Large # Mono - salvage buffs
     heldPrefix: jetpack
   - type: PhysicalComposition
     materialComposition:
@@ -373,8 +373,8 @@
     - base:
         junk-medkit-1: ""
         junk-medkit-2: ""
-  - type: Item
-    size: Large
+  #- type: Item # Mono - salvage buffs
+  #  size: Large
   - type: PhysicalComposition
     materialComposition:
       Plastic: 500 # 5 sheets
@@ -389,7 +389,7 @@
     layers:
     - state: junk-mop-bucket
   - type: Item
-    size: Huge
+    size: Normal # Mono
   - type: PhysicalComposition
     materialComposition:
       Plastic: 1500 # 15 sheets

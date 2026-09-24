@@ -620,11 +620,6 @@
         children:
         - id: WeaponShotgunKammerer
         - id: AmmoBox12_gaugeBuckshot
-      #Faith
-      - !type:AllSelector
-        children:
-        - id: WeaponRevolverFaith
-        - id: SpeedLoader45_magnumFMJ
       #Argenti
       - !type:AllSelector
         children:
@@ -642,7 +637,7 @@
         - id: Magazine762x54mmRFMJ
       - id: WeaponLaserPistolNF
       - id: WeaponLaserCarbine
-      
+
 #LootSpawner
 - type: entity
   name: Mono Maint Loot Spawner

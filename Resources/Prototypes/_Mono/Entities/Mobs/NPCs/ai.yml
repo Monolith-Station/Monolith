@@ -51,14 +51,14 @@
     rootTask:
       task: RammerShuttleCompound
   - type: StaticPrice
-    price: 40000 # Mono buff, sells for 50k at depots, buffed due to removal of blackbox money
+    price: 40000
   - type: ApcPowerReceiver
     powerLoad: 1000 # suspiciously low power-using AI
   - type: ExtensionCableReceiver
   - type: TargetSeekingTarget
-  - type: PassiveThermalSignature # Mono
+  - type: PassiveThermalSignature
     signature: 500000 # vibe number
-  - type: ThermalSignature # Mono
+  - type: ThermalSignature
 
 - type: entity
   id: NpcStationAiApproacher
@@ -252,6 +252,29 @@
     sleepPlayerCheckRangeOverride: 8000
     rootTask:
       task: DroneCompoundQuake
+      
+- type: entity
+  id: NpcDroneAiDander
+  name: orbiter core
+  parent: NpcStationAiRammer
+  description: Orbits harmlessly and evades. Less valuable due to unremarkable subroutine.
+  suffix: AI, Dodging, Orbiting
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t1
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: DroneCompoundDander
+  - type: Contraband #Retains some value despite no threat because it's still a risk to salvage where it spawns
+    severity: OtherFactionGear1
+    turnInValues:
+      FederationMilitaryCredit: 5
+      Doubloon: 5
+  - type: StaticPrice
+    price: 20000
 
 #region Spawners
 
@@ -423,3 +446,13 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcDroneAiQuake
+    
+- type: entity
+  name: orbiter core spawner
+  id: SpawnMobDroneAiDander
+  parent: SpawnMobAttackerCore
+  suffix: Drone-Dander
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiDander

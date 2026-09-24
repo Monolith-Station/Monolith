@@ -102,3 +102,17 @@
       map: [ "enum.AmmoVisualLayers.Tip" ]
       color: "#888888"
 
+- type: entity
+  id: Cartridge68x52mmCaselessPlasma
+  name: cartridge (6.8x52mm STANAG Plasma)
+  parent: BaseCartridge68x52mmCaseless
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet68x52mmCaselessPlasma
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: tip
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#b30077"

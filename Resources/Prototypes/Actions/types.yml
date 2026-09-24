@@ -368,3 +368,15 @@
       sprite: Interface/Actions/jump.rsi
       state: icon
     event: !type:GravityJumpEvent {}
+
+- type: entity
+  id: ActionToggleNightVision
+  name: Toggle night vision
+  description: Toggles the night vision on and off.
+  components:
+  - type: InstantAction
+    useDelay: 0.25
+    icon:
+      sprite: Interface/Actions/night_vision.rsi
+      state: icon
+    event: !type:ToggleNightVisionEvent {}

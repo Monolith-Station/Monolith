@@ -78,6 +78,14 @@
   - type: HolidayRsiSwap
     sprite:
       festive: Objects/Weapons/Bombs/c4gift.rsi
+  - type: EmbeddableProjectile
+    offset: 0.3,0.0
+    removalTime: 3.0
+  - type: ExtendDescription
+    descriptionList:
+    - description: Can be thrown to stick to targets.
+      color: "#4f94ad"
+      requireDetailRange: true
 
 - type: entity
   name: seismic charge

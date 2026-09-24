@@ -1,3 +1,4 @@
+using Content.Client.Viewport;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
@@ -24,6 +25,11 @@ public sealed partial class VignetteOverlay : Overlay
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (ScreenTexture is null)
+            return;
+
+        // Mono: Prevent a stupid bug with Z eyes causing multiple vignettes showing causing rendering issues.
+        // This took me too long to find for how simple it was.
+        if (args.Viewport.Eye is ScalingViewport.ZEye)
             return;
 
         _shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);

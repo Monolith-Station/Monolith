@@ -31,6 +31,18 @@ public sealed partial class VesselPrototype : IPrototype, IInheritingPrototype
     [DataField("limit")] public int LimitActive;
 
     /// <summary>
+    ///     The amount of this ship that can active at any given time while HyperwarGamerule is active.
+    ///     0 for unlimited.
+    /// </summary>
+    [DataField("hyperwarLimit")] public int HyperwarLimitActive;
+
+    /// <summary>
+    ///     Makes ship unable to be deployed until specific time from round start passes while HyperwarGamerule is active.
+    ///     0 for unlimited.
+    /// </summary>
+    [DataField] public TimeSpan HyperwarTimelock = TimeSpan.FromMinutes(10);
+
+    /// <summary>
     ///     Short description of the vessel.
     /// </summary>
     [DataField] public string Description = string.Empty;
@@ -179,6 +191,15 @@ public enum VesselClass : byte
     Destroyer,
     Cruiser,
     // i doubt we'll ever get to cruisers
+    Escort, // PD heavy, decent manueverability
+    Brawler, // good firing arcs and anti-ship weapons, poor PD
+    MissileCarrier, // ships armed with primarly LIGHT missiles like vesperas/vanyks for SMALL SHIPS
+    AntiShipMissileCarrier, // hello slava-class guided missile cruiser - use this for ships that carry a heavy armament of AShMs like paladins/tridents
+    Carrier, // carriers w/ crewed fighters
+    DroneCarrier, // carriers w/ drone fighters
+    MechCarrier, // carriers w/ mech bays
+    EarlyWarning, // elite+ radar
+    Stealth, // stealth thrusters and generators
 }
 
 public enum VesselEngine : byte

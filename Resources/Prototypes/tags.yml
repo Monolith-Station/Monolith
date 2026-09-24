@@ -133,6 +133,21 @@
   id: BorgModuleSyndicateAssault
 
 - type: Tag
+  id: BorgModuleXenoborgBase
+
+- type: Tag
+  id: BorgModuleXenoborgEngineer
+
+- type: Tag
+  id: BorgModuleXenoborgHeavy
+
+- type: Tag
+  id: BorgModuleXenoborgScout
+
+- type: Tag
+  id: BorgModuleXenoborgStealth
+
+- type: Tag
   id: Bot
 
 - type: Tag
@@ -853,6 +868,12 @@
   id: MopBasic
 
 - type: Tag
+  id: MothershipModule # Cyborg module category for evil xenoborg core
+
+- type: Tag
+  id: MothershipPinpointerPiece # ConstructionGraph: RepairMothershipPinpointer
+
+- type: Tag
   id: Mouse
 
 - type: Tag
@@ -1263,6 +1284,12 @@
 
 - type: Tag
   id: Truncheon
+
+- type: Tag
+  id: TurretCompatibleWeapon # Used in the construction of sentry turrets
+
+- type: Tag
+  id: TurretControlElectronics # Used in the construction of sentry turret control panels
 
 - type: Tag
   id: Unimplantable

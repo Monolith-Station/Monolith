@@ -100,18 +100,6 @@
       - BiomassBounty
 
 - type: cargoBounty
-  id: USSPRogueHardsuit
-  reward: 32000
-  description: ussp-bounty-desc-rogue-hardsuit
-  idPrefix: NC # nova cygni fyi
-  entries:
-  - name: ussp-bounty-name-rogue-hardsuit
-    amount: 1
-    whitelist:
-      tags:
-      - RogueHardsuit
-
-- type: cargoBounty
   id: USSPBountyMilitaryMech
   reward: 100000
   description: ussp-bounty-desc-military-mech

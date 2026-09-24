@@ -90,6 +90,11 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
+  id: ShipDrillMachineCircuitboard
+  result: ShipDrillMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
   id: LargeThrusterMachineCircuitboard
   result: LargeThrusterMachineCircuitboard
 
@@ -106,3 +111,61 @@
   parent: BaseGoldCircuitboardRecipe
   id: CentrifugeLatheMiniCircuitboard
   result: CentrifugeLatheMiniCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: OreMagnetMachineCircuitboard
+  result: OreMagnetMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: IndustrialFurnaceEconomyCompactCircuitboard
+  result: IndustrialFurnaceEconomyCompactCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: PrecisionAssemblerEconomyCompactCircuitboard
+  result: PrecisionAssemblerEconomyCompactCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: IndustrialPressEconomyElectronicsMachineCircuitboard
+  result: IndustrialPressEconomyElectronicsMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: IndustrialPressEconomyPlatesMachineCircuitboard
+  result: IndustrialPressEconomyPlatesMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: IndustrialPressEconomyElectronicsMMCMachineCircuitboard
+  result: IndustrialPressEconomyElectronicsMMCMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: IndustrialPressEconomyPlatesMMCMachineCircuitboard
+  result: IndustrialPressEconomyPlatesMMCMachineCircuitboard
+
+# faction-specific RWR shuttle consoles - can be made by anyone because it doesnt do shit gameplay wise
+
+- type: latheRecipe
+  parent: ShuttleConsoleCircuitboard
+  id: ShuttleConsoleCircuitboardTSFN
+  result: ShuttleConsoleCircuitboardTSFN
+
+- type: latheRecipe
+  parent: ShuttleConsoleCircuitboard
+  id: ShuttleConsoleCircuitboardKPV63RWR
+  result: ShuttleConsoleCircuitboardKPV63RWR
+
+- type: latheRecipe
+  parent: ShuttleConsoleCircuitboard
+  id: ShuttleConsoleCircuitboardANALR67RWR
+  result: ShuttleConsoleCircuitboardANALR67RWR
+
+# silo
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: MaterialSiloMachineCircuitboard
+  result: MaterialSiloMachineCircuitboard

@@ -19,6 +19,18 @@ public sealed partial class DashAbilityComponent : Component
     [DataField]
     public EntProtoId<WorldTargetActionComponent> DashAction = "ActionEnergyKatanaDash";
 
+    /// <summary>
+    /// Mono - Do we want to check for holding the energy katana lol
+    /// </summary>
+    [DataField]
+    public bool RequireItem = true;
+
+    /// <summary>
+    /// Mono - Is it a separate item from the user or is it itself the user?
+    /// </summary>
+    [DataField]
+    public bool IsUser = false;
+
     [DataField, AutoNetworkedField]
     public EntityUid? DashActionEntity;
 }

@@ -139,9 +139,15 @@
     pulseTime: 2
     isEquipment: true
     toggleAction: PulseThermalVision
-  - type: NightVision
-    flashDurationMultiplier: 3.5
-    isEquipment: true
+  - type: NightVision # Gen 4 dualtube
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 2
+    viewCircleSpacing: 260
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
   - type: ComponentToggler
     components:
     - type: FlashImmunity

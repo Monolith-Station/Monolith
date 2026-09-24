@@ -1,0 +1,35 @@
+- type: vessel
+  id: Bazalt
+  parent: BaseVesselIFFDisabled
+  name: PDV Bazalt
+  description: Light attack craft equipped with a 35mm chaingun and a TOVEK missile launcher. Not very durable at all, and doesn't have any basic ammenities like a FTL drive.
+  price: 29500
+  category: Small
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/bazalt.yml
+  guidebookPage: Null
+  class:
+  - Escort
+  - Pursuit
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Bazalt
+  mapName: 'PDV Bazalt'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/bazalt.yml
+  minPlayers: 0
+  stations:
+    Bazalt:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Bazalt PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

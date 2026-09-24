@@ -1,23 +1,34 @@
-# capsules
+# matter bins
 
 - type: entity
-  id: CapsuleEconomy
-  name: storage capsule
-  description: Used for storing chemicals and other substances needed for industrial processes. Can be opened by alt-clicking.
+  id: MatterBinEconomy1
+  name: component bin
+  description: Used for storing chemicals and other substances needed for industrial processes. Can be opened and closed. Don't use as a component while it has reagents inside!
   parent: BaseEconomyGood
   components:
+  - type: Tag
+    tags:
+    - EconomyGood
+    - MatterBinEconomy1
   - type: GenericVisualizer
     visuals:
       enum.OpenableVisuals.Opened:
         enum.OpenableVisuals.Layer:
           True: {state: "canister_open"}
           False: {state: "canister"}
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: canisterfill
+    inHandsFillBaseName: -fill-
   - type: Appearance
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     layers:
     - state: canister
       map: ["enum.OpenableVisuals.Layer"]
+    - state: canisterfill1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
   - type: Openable
     sound:
       collection: flaskOpenSounds
@@ -26,17 +37,43 @@
       collection: flaskCloseSounds
   - type: SolutionContainerManager
     solutions:
-      drink:
+      capsule:
         maxVol: 100
   - type: PhysicalComposition
     materialComposition:
       Steel: 500
+  - type: MixableSolution
+    solution: capsule
+  - type: RefillableSolution
+    solution: capsule
+  - type: DrainableSolution
+    solution: capsule
+  - type: ExaminableSolution
+    solution: capsule
+  - type: DrawableSolution
+    solution: capsule
+  - type: InjectableSolution
+    solution: capsule
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: capsule
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: Drink
+    solution: capsule
+  - type: Spillable
+    solution: capsule
+  - type: StaticPrice
+    price: 200
 
 - type: entity
-  id: CapsuleLargeEconomy
-  name: large storage capsule
-  description: Used for storing chemicals and other substances needed for industrial processes. Much larger than its predecessor. Can be opened by alt-clicking.
-  parent: BaseEconomyGood
+  id: MatterBinEconomy2
+  name: large component bin
+  description: Used for storing chemicals and other substances needed for industrial processes. Much larger than its predecessor. Can be opened and closed. Don't use as a component while it has reagents inside!
+  parent: [ MatterBinEconomy1, BaseEconomyGoodTier2 ]
   components:
   - type: GenericVisualizer
     visuals:
@@ -44,26 +81,503 @@
         enum.OpenableVisuals.Layer:
           True: {state: "canister2_open"}
           False: {state: "canister2"}
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: canister2fill
+    inHandsFillBaseName: -fill-
   - type: Appearance
   - type: Sprite
     sprite: _Mono/Objects/Materials/bayponents.rsi
     layers:
     - state: canister2
       map: ["enum.OpenableVisuals.Layer"]
-  - type: Openable
-    sound:
-      collection: flaskOpenSounds
-    closeable: true
-    closeSound:
-      collection: flaskCloseSounds
+    - state: canister2fill1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
   - type: SolutionContainerManager
     solutions:
-      drink:
-        maxVol: 200
+      capsule:
+        maxVol: 250
   - type: PhysicalComposition
     materialComposition:
       Steel: 1000
       Plastic: 1000
       Glass: 500
+  - type: StaticPrice
+    price: 600
 
-# end capsules
+- type: entity
+  name: basic components
+  description: A casing of mechanical-electrical interfacing systems, like gears, stepper motors, cabling and more.
+  parent: BaseEconomyGoodTier2
+  categories: [ HideSpawnMenu ]
+  id: MatterBinEconomy2Spawner
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "canister2"
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: SpawnOnDespawn
+    count: 0
+    prototype: MatterBinEconomy2
+
+- type: entity
+  id: MatterBinEconomy3
+  name: supercomponent bin
+  description: Used for storing chemicals and other substances needed for industrial processes. Much larger than its predecessor. Can be opened and closed. Don't use as a component while it has reagents inside!
+  parent: [ MatterBinEconomy1, BaseEconomyGoodTier3 ]
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "canister2_open"}
+          False: {state: "canister3"}
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: canister2fill
+    inHandsFillBaseName: -fill-
+  - type: Appearance
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    layers:
+    - state: canister3
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: canister2fill1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+  - type: SolutionContainerManager
+    solutions:
+      capsule:
+        maxVol: 250
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 1000
+      Plastic: 1000
+      Glass: 500
+  - type: StaticPrice
+    price: 2000
+
+# end matter bins
+
+# microprocessors
+
+- type: entity
+  name: microprocessor
+  description: A fairly common field programmable microcontroller. Useful in everything that needs even a smidge of brain.
+  parent: BaseEconomyGoodTier1
+  id: MicroprocessorEconomy1
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+    - MicroprocessorEconomy1
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "microprocessor1"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 300
+
+- type: entity
+  name: nanoprocessor
+  description: A more advanced, miniaturized computation system, capable of handling a basic operating system!
+  parent: BaseEconomyGoodTier2
+  id: MicroprocessorEconomy2
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+    - MicroprocessorEconomy2
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "microprocessor2"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 600
+
+- type: entity
+  name: quantum processor
+  description: A state-of-the-art quantum computing system with in-built cooling, memory, and back-up power supply, capable of handling everything from persona level A.I to FTL piloting.
+  parent: BaseEconomyGoodTier3
+  id: MicroprocessorEconomy3
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+    - MicroprocessorEconomy3
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "microprocessor3"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 2500
+
+# end microprocessors
+
+# capacitors
+
+- type: entity
+  name: industrial basic capacitor
+  description: A simple capacitor useful in small-scale power storage and simple circuits.
+  parent: BaseEconomyGoodTier1
+  id: CapacitorEconomy1
+  components:
+    - type: Tag
+      tags:
+        - EconomyGood
+        - CapacitorStockPart
+        - CapacitorEconomy1
+    - type: Sprite
+      sprite: _Mono/Objects/Materials/bayponents.rsi
+      state: "capacitor1"
+    - type: MachinePart
+      part: Capacitor
+      rating: 1
+    - type: StaticPrice
+      price: 200
+
+- type: entity
+  name: industrial advanced capacitor
+  description: An upgraded capacitor capable of handling more voltage and storing more energy through the power of refined semiconductors.
+  parent: BaseEconomyGoodTier2
+  id: CapacitorEconomy2
+  components:
+    - type: Tag
+      tags:
+        - EconomyGood
+        - CapacitorEconomy2
+    - type: Sprite
+      sprite: _Mono/Objects/Materials/bayponents.rsi
+      state: "capacitor2"
+    - type: MachinePart
+      part: Capacitor
+      rating: 3
+    - type: StaticPrice
+      price: 600
+
+- type: entity
+  name: industrial supercapacitor
+  description: A state-of-the-art capacitor capable of storing incredible amounts of energy for its size through the use of miniaturized SMES technology.
+  parent: BaseEconomyGoodTier3
+  id: CapacitorEconomy3
+  components:
+    - type: Tag
+      tags:
+        - EconomyGood
+    - type: Sprite
+      sprite: _Mono/Objects/Materials/bayponents.rsi
+      state: "capacitor3"
+    - type: MachinePart
+      part: Capacitor
+      rating: 4
+    - type: StaticPrice
+      price: 1400
+
+# end capacitors
+
+# component bricks
+
+- type: entity
+  name: basic components
+  description: A casing of mechanical-electrical interfacing systems, like gears, stepper motors, cabling and more.
+  parent: BaseEconomyGoodTier2
+  id: ComponentBrickEconomy1
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+    - ComponentBrickEconomy1
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "componentbrick1"
+  - type: StaticPrice
+    price: 800
+
+- type: entity
+  name: basic components
+  description: A casing of mechanical-electrical interfacing systems, like gears, stepper motors, cabling and more.
+  parent: BaseEconomyGoodTier2
+  categories: [ HideSpawnMenu ]
+  id: ComponentBrickEconomy1SpawnerT2
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "componentbrick1"
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: SpawnOnDespawn
+    count: 2
+    prototype: ComponentBrickEconomy1
+
+- type: entity
+  name: advanced components
+  description: A casing of more advanced, precise and durable mechanical-electrical interfacing systems.
+  parent: BaseEconomyGoodTier3
+  id: ComponentBrickEconomy2
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+    - ComponentBrickEconomy2
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "componentbrick2"
+  - type: StaticPrice
+    price: 3000
+
+- type: entity
+  name: super components
+  description: A casing of state-of-the-art interfacing systems and miscellaneous parts. Robust, efficient, and expensive.
+  parent: BaseEconomyGoodTier4
+  id: ComponentBrickEconomy3
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+    - ComponentBrickEconomy3
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "componentbrick3"
+  - type: StaticPrice
+    price: 5000
+
+# end component bricks
+
+# magnets
+
+- type: entity
+  name: basic electromagnet
+  description: A circular ring composed of magnetic metal and conductive cabling. Useful for containment structures and mechanical/electrical interfacing. Add basic components to start assembling a compound electromagnet.
+  parent: BaseEconomyGoodTier1
+  id: ElectromagnetEconomy1
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+    - ElectromagnetEconomy1
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "electromagnet1"
+  - type: StaticPrice
+    price: 800
+
+- type: entity
+  name: compound electromagnet (unfinished)
+  description: A work-in-progress compound electromagnet. Needs 10 LV cables to begin construction.
+  parent: BaseEconomyGoodTier1
+  id: ElectromagnetEconomy2Start
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "electromagnet2_unfinished"
+
+- type: entity
+  name: compound electromagnet
+  description: A stacked electromagnet in the shape of a tube, lined with strong conductive material. Capable of powerfully interchanging electrical and kinetic energy.
+  parent: BaseEconomyGoodTier2
+  id: ElectromagnetEconomy2
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+    - ElectromagnetEconomy2
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "electromagnet2"
+  - type: StaticPrice
+    price: 1600
+
+- type: entity
+  name: superconductive electromagnet (unfinished)
+  description: A work-in-progress superconductive electromagnet. Needs further assembling in an precision assembler.
+  parent: BaseEconomyGoodTier2
+  id: ElectromagnetEconomy3Start
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "electromagnet3_unfinished"
+
+- type: entity
+  name: superconductive electromagnet
+  description: A hefty superconducting electromagnet. Extremely useful for high-energy containment and propulsion.
+  parent: BaseEconomyGoodTier3
+  id: ElectromagnetEconomy3
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+    - ElectromagnetEconomy3
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "electromagnet3"
+  - type: StaticPrice
+    price: 3000
+
+# end magnets
+
+# start radios
+
+- type: entity
+  name: T/R broadband radio component
+  description: A transmitter/reciever radio component capable of tuning and transmitting to most common radio frequencies, even at a distance.
+  parent: BaseEconomyGoodTier2
+  id: RadioEconomy1
+  components:
+    - type: Tag
+      tags:
+        - EconomyGood
+        - RadioEconomy1
+    - type: Sprite
+      sprite: _Mono/Objects/Materials/bayponents.rsi
+      state: "radio1"
+    - type: StaticPrice
+      price: 800
+
+- type: entity
+  name: HF signal tranciever component
+  description: A high-frequency signal transmitter/reciever, capable of intercepting and communicating in various frequencies. The range of detection also gives it utility in high-end sensor systems, like radar, ELINT, and thermal panels.
+  parent: BaseEconomyGoodTier4
+  id: RadioEconomy2
+  components:
+    - type: Tag
+      tags:
+        - EconomyGood
+        - RadioEconomy2
+    - type: Sprite
+      sprite: _Mono/Objects/Materials/bayponents.rsi
+      state: "radio2"
+    - type: StaticPrice
+      price: 1200
+
+# end radios
+
+# start optics
+
+- type: entity
+  name: optical sensor
+  description: An eye-like camera capable of capturing photons. Basically a fancy eyeball, though it has other uses.
+  parent: BaseEconomyGoodTier1
+  id: OpticsEconomy1
+  components:
+    - type: Tag
+      tags:
+        - EconomyGood
+        - OpticsEconomy1
+    - type: Sprite
+      sprite: _Mono/Objects/Materials/bayponents.rsi
+      state: "optics1"
+    - type: StaticPrice
+      price: 800
+
+- type: entity
+  name: precision optical sensor
+  description: An advanced, high-resolution photon sensor capable of maintaining visual clarity of distant objects. Extremely useful for monitoring, detection and tracking equipment.
+  parent: BaseEconomyGoodTier3
+  id: OpticsEconomy2
+  components:
+    - type: Tag
+      tags:
+        - EconomyGood
+        - OpticsEconomy2
+    - type: Sprite
+      sprite: _Mono/Objects/Materials/bayponents.rsi
+      state: "optics2"
+    - type: StaticPrice
+      price: 1200
+
+# end optics
+
+# start camera
+
+- type: entity
+  name: photonic flash camera
+  description: An optical sensor adapted to both emit and recieve high-energy photons. Useful.
+  parent: BaseEconomyGoodTier2
+  id: CameraEconomy1
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+    - CameraEconomy1
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "camera"
+  # flash stuff
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Weapons/flash.ogg
+  - type: FlashOnTrigger
+    range: 3
+  - type: TriggerOnProximity
+    enabled: true
+    cooldown: 5
+    shape:
+      !type:PhysShapeCircle
+      radius: 2
+    repeating: true
+  - type: StaticPrice
+    price: 1200
+
+# end camera
+
+# start motor
+
+- type: entity
+  name: industrial motor
+  description: A powerful and dedicated electromotor, useful in high-torque-requiring electric-mechanical energy conversion.
+  parent: BaseEconomyGoodTier2
+  id: MotorEconomy1
+  components:
+  - type: Tag
+    tags:
+    - EconomyGood
+    - MotorEconomy1
+  - type: Sprite
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: "motor"
+  - type: StaticPrice
+    price: 800

@@ -1,8 +1,8 @@
 - type: entity
   id: WeaponHeavyPulseCannon
-  parent: [ BaseWeaponBattery, BaseGunWieldable ]
-  name: NT-WS heavy pulse cannon
-  description: A rare, corporate war era weapon of Nanotrasen origin. A massive shoulder mounted pulse cannon, packing enough power in its punches to blow holes through organics, or when tuned to high power, blow holes clean into shuttle hulls.
+  parent: [ BaseWeaponBattery, BaseGunWieldable, BaseFactionGearOtherFactionT3 ]
+  name: wayward NT-WS heavy pulse cannon
+  description: An anomalous and massive shoulder mounted pulse cannon, packing enough power in its punches to blow holes through organics, or when tuned to high power, blow holes clean into shuttle hulls.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Launchers/hpc-icon.rsi

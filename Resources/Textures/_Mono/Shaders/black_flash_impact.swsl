@@ -1,0 +1,30 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform lowp vec3 fillColor;
+uniform lowp vec3 lineColor;
+uniform highp float lineWidth;
+
+highp float lum(highp vec2 uv) {
+    lowp vec3 c = zTextureSpec(SCREEN_TEXTURE, uv).rgb;
+    return dot(c, vec3(0.299, 0.587, 0.114));
+}
+
+void fragment() {
+    highp vec2 uv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE;
+    highp vec2 d = SCREEN_PIXEL_SIZE * lineWidth;
+
+    highp float tl = lum(uv + vec2(-d.x, -d.y));
+    highp float tc = lum(uv + vec2( 0.0, -d.y));
+    highp float tr = lum(uv + vec2( d.x, -d.y));
+    highp float ml = lum(uv + vec2(-d.x,  0.0));
+    highp float mr = lum(uv + vec2( d.x,  0.0));
+    highp float bl = lum(uv + vec2(-d.x,  d.y));
+    highp float bc = lum(uv + vec2( 0.0,  d.y));
+    highp float br = lum(uv + vec2( d.x,  d.y));
+
+    highp float gx = (tr + 2.0 * mr + br) - (tl + 2.0 * ml + bl);
+    highp float gy = (bl + 2.0 * bc + br) - (tl + 2.0 * tc + tr);
+
+    highp float edge = smoothstep(0.14, 0.5, clamp(sqrt(gx * gx + gy * gy), 0.0, 1.0));
+
+    COLOR = vec4(mix(fillColor, lineColor, edge), 1.0);
+}

@@ -24,7 +24,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 25
+    lifetime: 50
   - type: PointLight
     radius: 5
     color: orange
@@ -32,24 +32,24 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 150
+    maxIntensity: 250
     intensitySlope: 30
-    totalIntensity: 1000
+    totalIntensity: 2500
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 30
-    detectionRange: 750
-    scanArc: 75
+    acceleration: 100
+    detectionRange: 3000
+    scanArc: 15
     launchSpeed: 60
-    maxSpeed: 150
+    maxSpeed: 250
     trackDelay: 3
   # destructible components below
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 700
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -72,6 +72,7 @@
   - type: CartridgeAmmo
     proto: ShipMissileASM220HE
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/asm220.rsi
     layers:
@@ -102,6 +103,108 @@
 # HE end
 
 - type: entity
+  id: ShipMissileASM220HESACLOS
+  name: ASM-220 torpedo (HE-SACLOS)
+  parent: ShipMissileBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 250
+        Blunt: 200
+        Heat: 100
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
+    layers:
+    - state: mini-rocket
+    scale: 1, 2
+  - type: Ammo
+    muzzleFlash: null
+  - type: RadarBlip
+    radarColor: "#ffff00"
+    scale: 4
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 50
+  - type: PointLight
+    radius: 5
+    color: orange
+    energy: 2
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 250
+    intensitySlope: 30
+    totalIntensity: 2500
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+  - type: TargetGuided
+    turnRate: 30
+    acceleration: 100
+    launchSpeed: 70
+    maxSpeed: 300
+    maxLifetime: 50
+    fallbackTime: 50
+  # destructible components below
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 700
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  id: Asm220TorpedoHESACLOS
+  name: ASM-220 high-explosive SACLOS torpedo
+  description: Contains a large explosive payload. High-Explosive is an understatement. This one is equipped with a SACLOS guidance system and requires manual guidance to target, but can move faster.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - Asm220Torpedo
+  - type: Item
+    size: Huge
+  - type: CartridgeAmmo
+    proto: ShipMissileASM220HESACLOS
+    deleteOnSpawn: true
+    muzzleFlash: null
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/asm220.rsi
+    layers:
+    - state: standard
+      map: ["enum.AmmoVisualLayers.Base"]
+    scale: 0.55, 0.725
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 50
+    intensitySlope: 30
+    totalIntensity: 50
+  - type: ExplodeOnTrigger
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+
+# SACLOS end
+
+- type: entity
   id: ShipMissileASM220LOSAT
   name: ASM-220 LOSAT hyper-penetrator
   parent: ShipMissileBase
@@ -125,7 +228,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 15
+    lifetime: 30
   - type: PointLight
     radius: 5
     color: orange
@@ -133,12 +236,12 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 70
-    detectionRange: 750
-    scanArc: 15
+    acceleration: 120
+    detectionRange: 2000
+    scanArc: 10
     launchSpeed: 60
     maxSpeed: 275
-    trackDelay: 1
+    trackDelay: 1.4
   - type: Explosive
     explosionType: Default
     maxIntensity: 30
@@ -171,6 +274,7 @@
   - type: CartridgeAmmo
     proto: ShipMissileASM220LOSAT
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/asm220.rsi
     layers:
@@ -224,7 +328,7 @@
     scale: 4
     shape: triangle
   - type: TimedDespawn
-    lifetime: 15
+    lifetime: 30
   - type: PointLight
     radius: 5
     color: orange
@@ -238,12 +342,12 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 25
-    detectionRange: 750
-    scanArc: 45
+    acceleration: 100
+    detectionRange: 3500
+    scanArc: 25
     launchSpeed: 50
-    maxSpeed: 140
-    trackDelay: 3
+    maxSpeed: 170
+    trackDelay: 1
   - type: EmpOnTrigger
     range: 7
     energyConsumption: 2900000
@@ -252,7 +356,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 700
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -275,6 +379,7 @@
   - type: CartridgeAmmo
     proto: ShipMissileASM220ECM
     deleteOnSpawn: true
+    muzzleFlash: null
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/asm220.rsi
     layers:

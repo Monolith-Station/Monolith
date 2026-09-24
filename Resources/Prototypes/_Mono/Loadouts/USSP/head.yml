@@ -1,12 +1,18 @@
 - type: loadout
   id: USSPHelmet
   equipment:
-    head: ClothingHeadHelmetMercenaryBlack
+    head: ClothingHeadHelmetCombatUSSP
+
+- type: loadout
+  id: USSPHeavyHelmet
+  price: 2000
+  equipment:
+    head: ClothingHeadHelmetHeavyUSSP
 
 - type: loadout
   id: USSPBeret
   equipment:
-    head: ClothingHeadHatBeretSecurity
+    head: ClothingHeadHatBeret
 
 - type: loadout
   id: USSPOfficerCap

@@ -85,9 +85,15 @@
     clothingVisuals:
       helmetattachment:
       - state: equipped-HELMETATTACHMENT
-  - type: NightVision
-    flashDurationMultiplier: 3
-    isEquipment: true
+  - type: NightVision # Gen 1 monotube
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 1
+    viewCircleSpacing: 280
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
   - type: IdentityBlocker
     coverage: EYES
 

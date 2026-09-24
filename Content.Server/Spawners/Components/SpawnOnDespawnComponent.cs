@@ -15,4 +15,10 @@ public sealed partial class SpawnOnDespawnComponent : Component
     /// </summary>
     [DataField(required: true)]
     public EntProtoId Prototype = string.Empty;
+
+    /// <summary>
+    /// Mono: How many Entity prototypes to spawn.
+    /// </summary>
+    [DataField]
+    public int Count = 1;
 }

@@ -12,6 +12,7 @@
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/mla_fire.ogg
       params:
         maxDistance: 4
+        volume: -5
   - type: Tag
     tags:
     - MonoSuppressor
@@ -31,6 +32,7 @@
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/suppressed.ogg
       params:
         maxDistance: 6
+        volume: -4
   - type: Tag
     tags:
     - MonoSuppressor

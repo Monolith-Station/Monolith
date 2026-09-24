@@ -14,38 +14,6 @@
   fallbacks:
   - USSPRiflemanPDA
 
-# corporal
-
-- type: loadout
-  id: USSPCorporalPDA
-  equipment:
-    id: USSPCorporalPDA
-
-- type: loadoutGroup
-  id: USSPCorporalPDA
-  name: loadout-group-contractor-id
-  hidden: true # No point in showing this, it gets auto-selected.
-  loadouts:
-  - USSPCorporalPDA
-  fallbacks:
-  - USSPCorporalPDA
-
-# combat medic
-
-- type: loadout
-  id: USSPMedicPDA
-  equipment:
-    id: USSPMedicPDA
-
-- type: loadoutGroup
-  id: USSPMedicPDA
-  name: loadout-group-contractor-id
-  hidden: true # No point in showing this, it gets auto-selected.
-  loadouts:
-  - USSPMedicPDA
-  fallbacks:
-  - USSPMedicPDA
-
 # sergeant
 
 - type: loadout

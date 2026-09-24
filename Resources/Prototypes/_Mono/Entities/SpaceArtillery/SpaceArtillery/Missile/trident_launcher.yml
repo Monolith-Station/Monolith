@@ -21,7 +21,7 @@
     recoil: 10
     shootThermalSignature: 16000000 # 4000m after firing
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/towfire.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: SpaceArtillery
@@ -47,3 +47,28 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Heavy
+
+- type: entity
+  id: WeaponTurretASM220Station
+  suffix: Supercap/Station, Infinite HE, I'll kill you if you put this on a normal capital.
+  parent:
+  - WeaponTurretASM220
+  description: A heavy built-in torpedo rack for cruisers which relies on manual loading, usually done at harbor. Despite this, it has the largest missiles in the sector. This one is connected to a system for autoloading the VLS from a capital or stations reserves.
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - Asm220Torpedo
+    capacity: 4
+    soundInsert:
+      path: /Audio/Items/rped.ogg
+    infiniteUnspawned: True
+    proto: Asm220TorpedoHE
+  - type: ShipGunClass
+    shipClass: Heavy
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Superheavy

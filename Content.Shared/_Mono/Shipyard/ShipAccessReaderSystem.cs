@@ -126,7 +126,7 @@ public sealed partial class ShipAccessReaderSystem : EntitySystem
         if (TryComp<CompanyComponent>(gridUid, out var shipCompany))
         {
             // Check if ship has one of the special company designations
-            if (shipCompany.CompanyName == "Rogue" || shipCompany.CompanyName == "TSF")
+            if (shipCompany.CompanyName == "USSP" || shipCompany.CompanyName == "Rogue" || shipCompany.CompanyName == "TSF")
             {
                 // Check each accessible ID card for matching company
                 foreach (var cardUid in accessibleCards)

@@ -53,6 +53,18 @@ public sealed partial class PointOfInterestPrototype : IPrototype, IInheritingPr
     public int MaximumDistance { get; private set; } = 10000;
 
     /// <summary>
+    ///     Offset X axis of the spawning range in meters.
+    /// </summary>
+    [DataField("posX")]
+    public int PositionX { get; private set; } = 0;
+
+    /// <summary>
+    ///     Offset Y axis of the spawning range in meters.
+    /// </summary>
+    [DataField("posY")]
+    public int PositionY { get; private set; } = 0;
+
+    /// <summary>
     ///     Components to be added to any spawned grids.
     /// </summary>
     [DataField]

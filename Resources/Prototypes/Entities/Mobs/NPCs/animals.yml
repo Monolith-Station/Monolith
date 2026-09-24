@@ -68,9 +68,15 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: NightVision # Goobstation - Nigthvision
-    activateSound: null
-    deactivateSound: null
+  - type: NightVision # Gen 3 wide-quadtube
+    relayOverlay: false
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
 
 - type: entity
   name: bee
@@ -331,7 +337,7 @@
 
 - type: entity # TODO: figure out how to make these guys gib when stepped on
   name: cockroach
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, ProximityShootOverBase] #Mono: Shootover
   id: MobCockroach
   description: This station is just crawling with bugs.
   components:
@@ -499,6 +505,8 @@
     allowedEmotes: ['Chitter', 'Squeak']
   - type: FaxableObject
     insertingState: inserting_mothroach
+  - type: DashAction # Goobstation - dark souls moths
+    actionProto: ActionDashMoth
   - type: MothAccent
   - type: Sprite
     sprite: Mobs/Animals/mothroach/mothroach.rsi
@@ -567,6 +575,7 @@
     - Moffic
     understands:
     - Moffic
+    - TauCetiBasic
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
@@ -577,11 +586,16 @@
     wilhelmProbability: 0.001
   - type: MobPrice
     price: 150
+  - type: Temperature
+    heatDamageThreshold: 423
+    coldDamageThreshold: 0
   - type: Tag
     tags:
     - Trash
     - CannotSuicide
     - VimPilot
+  - type: MovementAlwaysTouching
+  - type: PressureImmunity
   - type: CanEscapeInventory
   - type: NpcFactionMember
     factions:
@@ -596,7 +610,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 60
+        damage: 250
       behaviors:
       - !type:GibBehavior { }
   - type: FireVisuals
@@ -611,8 +625,8 @@
         type: SurgeryBui
   - type: InventorySlots
   - type: Inventory
-    speciesId: hamster
-    templateId: hamster
+    speciesId: mothroach
+    templateId: mothroach
     displacements:
       head:
         sizeMaps:
@@ -639,7 +653,37 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
-
+  - type: EatToGrow # Goobstation Eat To Grow System
+    growth: 0.05
+    maxGrowth: 2
+  - type: Puller
+    needsHands: false
+  - type: contextualSpeech
+    triggers:
+      Eating:
+        dataset: MothroachEating
+        speechChance: 0.15
+      PickedUp:
+        dataset: MothroachPickedUp
+        speechChance: 0.15
+      Thrown:
+        dataset: MothroachThrown
+        speechChance: 0.5
+      Drinking:
+        dataset: MothroachDrinking
+        speechChance: 0.15
+      Critical:
+        dataset: MothroachCritical
+        speechChance: 1
+      Dead:
+        dataset: MothroachDeath
+        speechChance: 1
+      Revived:
+        dataset: MothroachRevived
+        speechChance: 1
+      Examined:
+        dataset: MothroachExamined
+        speechChance: 0.15
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
@@ -896,6 +940,9 @@
     quantityPerUpdate: 25
     growthDelay: 30
   - type: ExaminableHunger
+  - type: Hunger
+    baseDecayRate: 10 # always hungry
+    starvingSlowdownModifier: 1  
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -1754,7 +1801,7 @@
 
 - type: entity
   name: mouse
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, ProximityShootOverBase] #Mono: Shootover
   id: MobMouse
   description: Squeak!
   components:
@@ -1934,9 +1981,41 @@
       Taco: RatTaco
       Burger: RatBurger
       Skewer: RatSkewer
-  - type: NightVision # Goobstation - Nigthvision
-    activateSound: null
-    deactivateSound: null
+  - type: NightVision # Gen 3 wide-quadtube
+    relayOverlay: false
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
+  - type: contextualSpeech
+    triggers:
+      Eating:
+        dataset: MouseEating
+        speechChance: 0.15
+      PickedUp:
+        dataset: MousePickedUp
+        speechChance: 0.15
+      Thrown:
+        dataset: MouseThrown
+        speechChance: 0.5
+      Drinking:
+        dataset: MouseDrinking
+        speechChance: 0.15
+      Critical:
+        dataset: MouseCritical
+        speechChance: 1
+      Dead:
+        dataset: MouseDeath
+        speechChance: 1
+      Revived:
+        dataset: MouseRevived
+        speechChance: 1
+      Examined:
+        dataset: MouseExamined
+        speechChance: 0.15
 
 - type: entity
   parent: MobMouse
@@ -2607,9 +2686,15 @@
       groups:
         Brute: -0.07
         Burn: -0.07
-  - type: NightVision # Goobstation - Nigthvision
-    activateSound: null
-    deactivateSound: null
+  - type: NightVision # Gen 3 wide-quadtube
+    relayOverlay: false
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
 
 - type: entity
   parent: MobSpiderBase
@@ -3484,7 +3569,7 @@
 
 - type: entity
   name: hamster
-  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase]
+  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase, ProximityShootOverBase] #Mono: Shootover
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
@@ -3705,7 +3790,7 @@
 
 - type: entity
   name: diona nymph
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, ProximityShootOverBase] #Mono: Shootover
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:

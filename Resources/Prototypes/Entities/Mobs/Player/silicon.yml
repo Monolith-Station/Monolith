@@ -347,6 +347,25 @@
   - type: SiliconLawProvider
     laws: EntertainerLawset
 
+# Xenoborg Circuitboards
+- type: entity
+  id: XenoborgCircuitBoard
+  parent: BaseElectronics
+  name: law board (Xenoborg)
+  description: An electronics board containing the Xenoborg lawset.
+  components:
+  - type: SiliconLawProvider
+    laws: XenoborgLawset
+
+- type: entity
+  id: MothershipCircuitBoard
+  parent: BaseElectronics
+  name: law board (Mothership Core)
+  description: An electronics board containing the Mothership Core lawset.
+  components:
+  - type: SiliconLawProvider
+    laws: MothershipCoreLawset
+
 # Items
 - type: entity
   id: Intellicard
@@ -461,6 +480,113 @@
         enum.HolopadUiKey.AiRequestWindow:
           type: HolopadBoundUserInterface
         enum.HolopadUiKey.AiActionWindow:
+          type: HolopadBoundUserInterface   
+
+# Xenoborg
+- type: entity
+  id: PlayerStationXenoborgAiEmpty
+  name: AI Core
+  description: The latest in Artificial Intelligences.
+  parent:
+  - BaseStructure
+  suffix: Empty
+  components:
+  - type: ItemSlots
+  - type: StationAiHolder
+    slot:
+      name: station-ai-mind-slot
+      locked: false
+      disableEject: true
+      whitelist:
+        tags:
+        - StationAi
+        - CanPilot # Mono
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
+  #- type: WarpPoint # Mono - comment out
+  #  blacklist:
+  #    tags:
+  #    - GhostOnlyWarp
+  - type: ContainerContainer
+    containers:
+      station_ai_mind_slot: !type:ContainerSlot
+        showEnts: true
+        occludes: true
+      machine_board: !type:Container
+        showEnts: false
+        occludes: true
+      machine_parts: !type:Container
+        showEnts: false
+        occludes: true
+  - type: ContainerComp
+    proto: AiHeldXenoborg
+    container: station_ai_mind_slot
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:SpawnGasBehavior
+        gasMixture:
+          volume: 1000
+          moles:
+          - 0 # oxygen
+          - 0 # nitrogen
+          - 0 # carbon dioxide
+          - 4 # plasma
+          - 4 # tritium
+          temperature: 1690.15
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 2
+    totalIntensity: 200
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+    needsPower: false # Mono
+  - type: StationAiCore
+  - type: StationAiVision
+  - type: InteractionOutline
+  - type: Sprite
+    snapCardinals: true
+    sprite: Mobs/Silicon/mothership_core.rsi
+    layers:
+    - state: base
+    - state: ai_empty
+      map: ["unshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StationAiVisualState.Key:
+        unshaded:
+          Empty: { state: ai_empty }
+          Occupied: { state: ai }
+  - type: Telephone
+    compatibleRanges:
+    - Grid
+    - Map
+    - Unlimited
+    listeningRange: 0
+    speakerVolume: Speak
+    unlistedNumber: true
+    requiresPower: false
+  - type: Holopad
+  - type: StationAiWhitelist
+  - type: UserInterface
+    interfaces:
+        enum.HolopadUiKey.AiRequestWindow:
+          type: HolopadBoundUserInterface
+        enum.HolopadUiKey.AiActionWindow:
           type: HolopadBoundUserInterface
 
 # The job-ready version of an AI spawn.
@@ -506,6 +632,7 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
   - type: Eye
     drawFov: false
   - type: ContentEye

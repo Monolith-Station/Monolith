@@ -40,9 +40,14 @@
   - Mercenary
   accessGroups:
   - GeneralAccess
+  guides:
+  - PDV_Entry
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MailDisabled
+    - type: SpecialSectorStationRecord
+      recordGeneration: FalseRecord
     - type: NpcFactionMember
       factions:
       - PirateNF

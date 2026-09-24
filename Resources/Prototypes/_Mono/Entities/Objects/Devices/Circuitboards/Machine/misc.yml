@@ -10,8 +10,10 @@
     requirements:
       Capacitor: 2
       Manipulator: 2
-    stackRequirements:
-      Plasma: 2
+    tagRequirements:
+      RadioEconomy1: # Lag prevention, I guess?
+        amount: 1
+        defaultPrototype: RadioEconomy1
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -26,6 +28,10 @@
       Capacitor: 4
     stackRequirements:
       Plasteel: 4
+    tagRequirements:
+      ElectromagnetEconomy1:
+        amount: 1
+        defaultPrototype: ElectromagnetEconomy1
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -54,3 +60,15 @@
     stackRequirements:
       Glass: 5
       Cable: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ShipDrillMachineCircuitboard
+  name: ship drill machine board
+  components:
+  - type: MachineBoard
+    prototype: MachineShipDrill
+    stackRequirements:
+      Steel: 7
+    requirements:
+      Capacitor: 2

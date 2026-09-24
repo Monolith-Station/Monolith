@@ -310,3 +310,12 @@
   components:
   - type: AccessReader
     access: [["Security"], ["Command"]]
+
+# Xenoborg Doors
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsXenoborg
+  suffix: Xenoborg, Locked
+  components:
+  - type: AccessReader
+    access: [["Xenoborg"], ["Mothership"]]

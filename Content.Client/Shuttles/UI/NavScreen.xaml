@@ -79,6 +79,37 @@
                                HorizontalExpand="True"
                                Align="Right"
                                FontColorOverride="#00ff2a"/>
+                        <!-- Mono: z-level altimeter -->
+                        <controls:Label Name="GridAltitudeCaption"
+                               Text="{controls:Loc 'shuttle-console-altitude'}"
+                               FontColorOverride="#00ff2a"
+                               Visible="False"/>
+                        <controls:Label Name="GridAltitude"
+                               Text="-"
+                               HorizontalExpand="True"
+                               Align="Right"
+                               FontColorOverride="#00ff2a"
+                               Visible="False"/>
+                        <controls:Label Name="GridVerticalVelocityCaption"
+                               Text="{controls:Loc 'shuttle-console-vertical-velocity'}"
+                               FontColorOverride="#00ff2a"
+                               Visible="False"/>
+                        <controls:Label Name="GridVerticalVelocity"
+                               Text="-"
+                               HorizontalExpand="True"
+                               Align="Right"
+                               FontColorOverride="#00ff2a"
+                               Visible="False"/>
+                        <controls:Label Name="GridTravelStateCaption"
+                               Text="{controls:Loc 'shuttle-console-travel-state'}"
+                               FontColorOverride="#00ff2a"
+                               Visible="False"/>
+                        <controls:Label Name="GridTravelState"
+                               Text="-"
+                               HorizontalExpand="True"
+                               Align="Right"
+                               FontColorOverride="#00ff2a"
+                               Visible="False"/>
                     </controls:GridContainer>
                     </controls:PanelContainer>
                     </controls:PanelContainer>
@@ -99,8 +130,8 @@
                             TextAlign="Center"
                             StyleClasses="ButtonSquare"
                             ToggleMode="True"/>
-                    <controls:Button Name="IFFShuttleToggle"
-                             Text="{controls:Loc 'shuttle-console-iffshuttles-toggle'}"
+                    <controls:Button Name="IFFDetailedToggle"
+                             Text="{controls:Loc 'shuttle-console-iff-detailed'}"
                              TextAlign="Center"
                              StyleClasses="ButtonSquare"
                              ToggleMode="True"/>

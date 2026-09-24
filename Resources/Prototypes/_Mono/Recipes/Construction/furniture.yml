@@ -116,3 +116,20 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: Handrail
+  name: handrail
+  graph: MonoSeat
+  startNode: start
+  targetNode: handrail
+  category: construction-category-furniture
+  description: For holding onto.
+  icon:
+    sprite: _Mono/Structures/Furniture/chairs.rsi
+    state: handrail
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: NFClothingHeadHardsuitWithLightBaseNfsd
   id: ClothingHeadHelmetHardsuitM82
   name: M82 helmet
   description: The interchangeable helmet system for the majority of M82 hardsuits. Outfitted with a basic NVG system.
@@ -12,9 +12,15 @@
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
-  - type: NightVision
-    flashDurationMultiplier: 3.5
-    isEquipment: true
+  - type: NightVision # Gen 1 dualtube
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 2
+    viewCircleSpacing: 280
+    phosphorColor: "#00AACC"
+    lightingColor: "#FFFFFF32"
   - type: Armor
     modifiers:
       coefficients:
@@ -30,7 +36,7 @@
     - HeadSide
 
 - type: entity
-  parent: [ClothingHeadHardsuitBase, ShowMedicalIcons]
+  parent: [NFClothingHeadHardsuitWithLightBaseNfsd, ShowMedicalIcons, ShowSecurityIcons]
   id: ClothingHeadHelmetHardsuitM86
   name: M86 helmet
   description: Modified from M82 series helmets, outfitted with night-vision equipment and refined gel-layers.
@@ -43,9 +49,15 @@
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
-  - type: NightVision
-    flashDurationMultiplier: 2.25
-    isEquipment: true
+  - type: NightVision # Gen 4 quadtube-wide
+    relayOverlay: true
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
   - type: Armor
     modifiers:
       coefficients:
@@ -59,6 +71,22 @@
     - Snout
     - HeadTop
     - HeadSide
+
+# MARSOC helmet
+- type: entity
+  parent: ClothingHeadHelmetHardsuitM86
+  id: ClothingHeadHelmetHardsuitM86Mk4
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: NightVision # Gen 4 quadtube-wide
+    relayOverlay: true
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
 
 - type: entity
   parent: [NFClothingHeadHardsuitWithLightBaseNfsd, ShowMedicalIcons, ShowSecurityIcons]
@@ -74,6 +102,15 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: NightVision # Gen 4 dual tube - It needs to be durable, after all.
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 450
+    viewCircleCount: 2
+    viewCircleSpacing: 280
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
   - type: EyeProtection
     protectionTime: 15
 
@@ -93,9 +130,15 @@
     lowPressureMultiplier: 1000
   - type: EyeProtection
     protectionTime: 15
-  - type: NightVision
-    flashDurationMultiplier: 2.75
-    isEquipment: true
+  - type: NightVision # Gen 4 dual tube - It needs to be durable, after all.
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 450
+    viewCircleCount: 2
+    viewCircleSpacing: 280
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
   - type: Armor
     modifiers:
       coefficients:

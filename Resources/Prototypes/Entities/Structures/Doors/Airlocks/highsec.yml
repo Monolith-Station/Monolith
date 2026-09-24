@@ -13,24 +13,28 @@
   - type: StationAiWhitelist
   - type: InteractionOutline
   - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Doors/Airlocks/highsec/highsec.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-vault.rsi
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
     - state: closed_unlit
       shader: unshaded
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
       map: ["enum.DoorVisualLayers.BaseUnlit"]
-      visible: false
+      visible: true
     - state: welded
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: bolted_unlit
       shader: unshaded
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
       map: ["enum.DoorVisualLayers.BaseBolted"]
     - state: emergency_unlit
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
       map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
       shader: unshaded
     - state: panel_open
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
     - state: electrified_ai
       sprite: Interface/Misc/ai_hud.rsi
@@ -75,6 +79,7 @@
     fuel: 10
     time: 10
   - type: Airlock
+    openUnlitVisible: true
   - type: NavMapDoor
   - type: DoorBolt
   - type: AccessReader
@@ -120,17 +125,19 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: IconSmooth
-    key: airlocks
-    mode: NoSprite
   - type: Construction
     graph: Airlock
     node: highSecDoor
   - type: Tag
     tags:
-      - HighSecDoor
-      # This tag is used to nagivate the Airlock construction graph. It's needed because this construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
+    - HighSecDoor
+    # This tag is used to nagivate the Airlock construction graph. It's needed because this construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
   # Mono
   - type: ShipRepairable
     repairTime: 6
     repairCost: 12
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: 0, 0.5

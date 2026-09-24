@@ -1,0 +1,15 @@
+﻿- type: entity
+  id: OreMagnetMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: ore magnet machine board
+  description: A machine printed circuit board for an ore magnet.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: MachineOreMagnet
+    requirements:
+      Capacitor: 4
+    stackRequirements:
+      Steel: 5
+      CableHV: 5

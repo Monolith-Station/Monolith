@@ -308,7 +308,7 @@
           Blunt: 3.5
           Slash: 3.5
           Piercing: 3.5
-          
+
 - type: trait
   id: HardenedLymphocytes
   name: trait-hardened-lymphocytes-name
@@ -414,6 +414,7 @@
   - SlimePerson
   - Felinid
   - Tajaran
+  - Feroxi
   blacklist:
     components:
     - BorgChassis
@@ -424,3 +425,17 @@
       groups:
         Brute: -1.5
         Burn: -2
+
+- type: trait
+  id: Helmsmanship
+  name: trait-helmsmanship-name
+  description: trait-helmsmanship-desc
+  category: Physical
+  cost: 6
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: ShuttleBoostingPilot #Found in: content.server\_mono\Shuttles\Components\
+    angularMultiplier: 1.1
+    accelerationMultiplier: 1.1

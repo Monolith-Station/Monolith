@@ -1,0 +1,53 @@
+- type: entity
+  id: BaseMagazine4_gauge
+  name: ammo canister (4 gauge shells)
+  description: A clunky canister containing 4 gauge, likely meant for the GS-004-B.
+  parent: [ BaseItem, RecyclableItemSteelMedium ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Magazine4Gauge
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - ShellShotgun23x75mmBuckshot
+    capacity: 48
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
+  - type: Item
+    size: Large # Probably needs tweaking. NO SHIT, ME.
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/4_gauge/4_gauge_canister.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+    zeroNoAmmo: true
+  - type: Appearance
+
+- type: entity
+  id: Magazine4_gaugeEmpty
+  name: ammo canister (4 gauge shells any)
+  suffix: empty
+  parent: BaseMagazine4_gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+
+- type: entity
+  id: Magazine4_gaugeBuckshot
+  name: ammo canister (4 gauge buckshot)
+  parent: BaseMagazine4_gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgun23x75mmBuckshot

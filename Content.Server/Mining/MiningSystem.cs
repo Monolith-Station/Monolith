@@ -1,4 +1,5 @@
 using Content.Server._Mono.Spawning;
+using Content.Server.Gatherable;
 using Content.Shared.Destructible;
 using Content.Shared.Mining;
 using Content.Shared.Mining.Components;
@@ -24,30 +25,54 @@ public sealed partial class MiningSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<OreVeinComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<OreVeinComponent, DestructionEventArgs>(OnDestruction);
+        SubscribeLocalEvent<OreVeinComponent, GatheredEvent>(OnGather); // Mono edit
     }
 
     private void OnDestruction(EntityUid uid, OreVeinComponent component, DestructionEventArgs args)
     {
+        Mine(uid, component); // mono
+    }
+
+    /// <summary>
+    /// Monolith - Mining now also uses gathered event.
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    /// <param name="args"></param>
+    private void OnGather(EntityUid uid, OreVeinComponent component, GatheredEvent args)
+    {
+        Mine(uid, component, args.Gatherer, args.TeleportLootToGatherer);
+    }
+
+    /// <summary>
+    /// Monolith - Moved out method
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    /// <param name="gatherer"></param>
+    /// <param name="spawnOnGatherer"></param>
+    public void Mine(EntityUid uid, OreVeinComponent component, EntityUid? gatherer = null, bool spawnOnGatherer = false)
+    {
         if (component.CurrentOre == null)
             return;
 
-        // Frontier
         if (component.PreventSpawning)
             return;
-        // End Frontier
 
-        var proto = _proto.Index<OrePrototype>(component.CurrentOre);
+        var proto = _proto.Index(component.CurrentOre);
 
         if (proto.OreEntity == null)
             return;
 
-        var coords = Transform(uid).Coordinates;
+        var coords = gatherer != null && spawnOnGatherer
+            ? Transform(gatherer.Value).Coordinates
+            : Transform(uid).Coordinates;
 
-        // Mono edit start - ore consolidation
         var yield = _random.Next(proto.MinOreYield, proto.MaxOreYield+1);
         _spawnCount.SpawnCount(proto.OreEntity.Value, coords.Offset(_random.NextVector2(0.2f)), yield);
-        // Mono edit end
+        component.PreventSpawning = true;
     }
+
     private void OnMapInit(EntityUid uid, OreVeinComponent component, MapInitEvent args)
     {
         if (component.CurrentOre != null || component.OreRarityPrototypeId == null || !_random.Prob(component.OreChance))

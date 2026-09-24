@@ -1,0 +1,45 @@
+// Composites a transit-grid viewport texture onto the main viewport: height-scaled
+// haze (STRENGTH) plus dissolve (FADE) for ships between z-levels seen from below.
+// Samples zTexture (the texture being drawn), unlike zblur.swsl which post-processes
+// the whole screen. blend_mode mix is load-bearing: without it the draw overwrites
+// the whole target, ignoring alpha, and washes the entire screen with the texture's
+// empty pixels.
+blend_mode mix;
+
+uniform highp vec3 BLUR_COLOR;
+uniform highp float STRENGTH;
+uniform highp float FADE;
+// Cloud layer above the transit gap: veils the ship's own pixels with the deck
+// color as it climbs into the clouds (CEZCloudLayer, see ScalingViewport).
+uniform highp vec3 CLOUD_COLOR;
+uniform highp float CLOUD;
+
+const highp float darken_strength = 0.3; // Darkness level 0.0 to 1.0
+const highp float blur_radius = 2.0; // Blur radius from 0.0 to 10.0
+
+void fragment() {
+    highp vec4 color = zTexture(UV);
+
+    // Alpha-weighted blur: empty texels around the hull must not bleed their RGB
+    // (the clear color) into the ship's edges as a bright halo.
+    highp vec3 blurred_rgb = vec3(0.0);
+    highp float blurred_a = 0.0;
+    for (int x = -1; x <= 1; x++) {
+        for (int y = -1; y <= 1; y++) {
+            highp vec4 s = zTexture(UV + vec2(x, y) * TEXTURE_PIXEL_SIZE * blur_radius);
+            blurred_rgb += s.rgb * s.a;
+            blurred_a += s.a;
+        }
+    }
+    blurred_rgb /= max(blurred_a, 0.0001);
+    blurred_a /= 9.0;
+
+    highp vec3 shadow = mix(vec3(1.0), BLUR_COLOR, darken_strength);
+    highp vec4 blurred_color = vec4(blurred_rgb * shadow, blurred_a);
+
+    highp vec4 mixed = mix(color, blurred_color, clamp(STRENGTH, 0.0, 1.0));
+    // Only tint where the ship actually is (alpha-weighted by construction):
+    // from below, a hull entering the cloud base soaks up the deck color.
+    mixed.rgb = mix(mixed.rgb, CLOUD_COLOR, clamp(CLOUD, 0.0, 1.0));
+    COLOR = vec4(mixed.rgb, mixed.a * clamp(FADE, 0.0, 1.0));
+}

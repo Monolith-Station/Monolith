@@ -370,8 +370,6 @@
     attackMemoryLength: 10
   - type: MobMover
   - type: StandingState
-  - type: RandomHumanoidAppearance
-    randomizeName: true
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -393,11 +391,11 @@
     factions:
     - SimpleHostile
   - type: Carriable # Carrying system from nyanotrasen.
-  - type: Advertise
-    pack: syndicatehumanoidchatter
-    minimumWait: 120 # 1 * 2
-    maximumWait: 240 # 2 * 60
-    nextAdvertisementTime: 0
+#  - type: Advertise
+#    pack: syndicatehumanoidchatter
+#    minimumWait: 120 # 1 * 2
+#    maximumWait: 240 # 2 * 60
+#    nextAdvertisementTime: 0
   - type: FTLKnockdownImmune
   - type: Respirator
     updateInterval: 99999 # Shouldn't run often, if ever.
@@ -477,7 +475,7 @@
     - DoorBumpOpener
     - CannotSuicide
   - type: FTLKnockdownImmune
-  
+
 # Mono edit - Faction overwriting fix
 # A simpler base for extending existing mobs (e.g. carp, kangaroos, snakes, xenos)
 - type: entity

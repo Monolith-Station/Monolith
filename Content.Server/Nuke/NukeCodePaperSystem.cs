@@ -116,7 +116,7 @@ namespace Content.Server.Nuke
 
             foreach (var (nukeUid, nuke) in nukes)
             {
-                if (!onlyCurrentStation &&
+                if (!onlyCurrentStation || // Mono - swap to ||
                     (owningStation == null &&
                     nuke.OriginMapGrid != (transform.MapID, transform.GridUid) ||
                     nuke.OriginStation != owningStation))

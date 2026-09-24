@@ -1,0 +1,18 @@
+- type: entity
+  id: CEDustEffect
+  name: dust effect
+  suffix: VFX
+  save: false
+  components:
+  - type: Sprite
+    sprite: _CE/Effects/dust.rsi
+    drawdepth: Items
+    layers:
+    - state: dust
+  - type: Physics
+    canCollide: false
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 0.5

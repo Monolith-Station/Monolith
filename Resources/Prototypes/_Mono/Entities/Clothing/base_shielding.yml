@@ -1,8 +1,19 @@
 - type: entity
   abstract: true
-  id: EnergyShieldClothing
+  id: MonoEnergyShieldClothing
   components:
+  - type: PersonalShield
+    shield:
+      requiredSlot: OUTERCLOTHING
+      maxCharge: 300
+      regenRate: 3
+      spinupTime: 1
+      breakCooldown: 15
+      powerDraw: 0.5
   - type: ItemToggle
+    onUse: false
+    onAltUse: true
+    onActivate: false
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
     soundDeactivate:
@@ -11,62 +22,95 @@
       path: /Audio/Machines/button.ogg
       params:
         variation: 0.250
-    onUse: false
-    onAltUse: true
-    onActivate: false
-  - type: PointLight
-    enabled: false
-    radius: 1.4
-    energy: 2
-    color: "#3ACCFF"
-  - type: LightBehaviour
-    behaviours:
-    - !type:FadeBehaviour
-      id: radiating
-      interpolate: Linear
-      maxDuration: 2.0
-      startValue: 3.0
-      endValue: 2.0
-      isLooped: true
-      reverseWhenFinished: true
-    - !type:PulseBehaviour
-      id: blinking
-      interpolate: Nearest
-      maxDuration: 1.0
-      minValue: 0.1
-      maxValue: 2.0
-      isLooped: true
-  - type: ItemTogglePointLight
-  - type: ItemToggleActiveSound
-    activeSound:
-      path: /Audio/Weapons/ebladehum.ogg
-  - type: UseDelay
-    delay: 0.5
-  - type: Blocking
-    passiveBlockModifier:
-      coefficients:
-        Blunt: 0.4
-        Slash: 0.25
-        Piercing: 0.3
-        Heat: 0.5
-    activeBlockModifier:
-      coefficients:
-        Blunt: 1.2
-        Slash: 0.3
-        Piercing: 0.2
-        Heat: 0.1
-      flatReductions:
-        Heat: 5
-        Piercing: 15
-    passiveBlockFraction: 0.8
-    activeBlockFraction: 1.0
-    isClothing: true
-  - type: Damageable
-    damageContainer: Shield
   - type: Battery
     maxCharge: 40
     startingCharge: 40
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 5
-  - type: RechargeableBlocking
+    autoRechargeRate: 4
+  - type: ActionGrant
+    actions:
+    - ActionActivatePersonalShield
+  - type: ItemActionGrant
+    actions:
+    - ActionActivatePersonalShield
+    
+# If a shield is powerful enough, you can remove plates as a balance option by replacing ClothingOuterHardsuitBase
+- type: entity
+  abstract: true
+  parent: [RecyclableItemClothHardsuit, ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing] # Frontier: added RecyclableItemClothHardsuit # Mono - armor plates.
+  id: ClothingOuterHardsuitBaseNoPlateholder
+  name: base hardsuit no plateholder
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.01
+    coolingCoefficient: 0.01
+  - type: ClothingSpeedModifier
+    walkModifier: 0.4
+    sprintModifier: 0.6
+  - type: HeldSpeedModifier
+  - type: Item
+    size: Ginormous
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.90
+        Radiation: 0.25
+  - type: ToggleableClothing
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container {}
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+  - type: GroupExamine
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # the average lightbulb only does around four damage!
+    slots: OUTERCLOTHING
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/backpack_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/backpack_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/backpack_drop.ogg
+      params:
+        volume: -4
+  # Goobstation edit end
+  - type: HarpyHideWings # Frontier, needed for Harpies
+  - type: StaticPrice # Frontier
+    price: 20 # Frontier
+    vendPrice: 4000 # Frontier
+  - type: Storage #No armor plates for shield hardsuits
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,1
+    blacklist:
+      components:
+      - ArmorPlateItem

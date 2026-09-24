@@ -58,21 +58,47 @@ public sealed partial class BiomePrototype : IPrototype, IInheritingPrototype
     /// <summary>
     ///     The valid ranges of noise values under which this biome can be picked.
     /// </summary>
-    [DataField("noiseRanges", required: true)]
+    [DataField(required: true)] // EE/Mono
     public Dictionary<string, List<Vector2>> NoiseRanges = default!;
 
     /// <summary>
     ///     Higher priority biomes get picked before lower priority ones.
     /// </summary>
-    [DataField("priority", required: true)]
+    [DataField(required: true)] // EE/Mono
     public int Priority { get; private set; }
 
     /// <summary>
     ///     The components that get added to the target map.
     /// </summary>
-    [DataField("chunkComponents")]
+    [DataField] // EE/Mono
     [AlwaysPushInheritance]
     public ComponentRegistry ChunkComponents = new();
+
+    // Mono / EE start - Specific chunk generation
+    /// <summary>
+    ///     Minimum X coordinate value to spawn this biome.
+    /// </summary>
+    [DataField]
+    public int? MinX;
+
+    /// <summary>
+    ///     Minimum Y coordinate value to spawn this biome.
+    /// </summary>
+    [DataField]
+    public int? MinY;
+
+    /// <summary>
+    ///     Maximum X coordinate value to spawn this biome.
+    /// </summary>
+    [DataField]
+    public int? MaxX;
+
+    /// <summary>
+    ///     Maximum Y coordinate value to spawn this biome.
+    /// </summary>
+    [DataField]
+    public int? MaxY;
+    // Mono / EE end
 
     //TODO: Get someone to make this a method on componentregistry that does it Correctly.
     /// <summary>

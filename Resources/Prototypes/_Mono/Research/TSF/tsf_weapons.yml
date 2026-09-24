@@ -7,12 +7,10 @@
   cost: 25000
   recipeUnlocks:
   - WeaponRifleLecterTSF
-  - WeaponRifleVulcanTSF
   - WeaponSubMachineGunDrozdTSF
-  - WeaponRifleMR3CTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, 2
+  position: 2, -12
 
 - type: technology
   id: TsfAdvancedWeapons
@@ -24,33 +22,54 @@
   recipeUnlocks:
   - WeaponRifleAnnieTSF
   - WeaponLMGGrizzlyTSF
+  - WeaponRifleMR8CTSF
+  #- WeaponLauncherTSFOsiris
+  - WeaponLauncherTSFAnubis
+  - WeaponRifleRiversongTSF
+  - WeaponRifleDragonfangTSF
   - WeaponDEWCalico
   - Magazine700Thz
   - AmmoBox700Thz
   - AmmoBox68x52mmCaselessBig
   - AmmoBox57x28mmBigFMJ
+  - Magazine35mmGrenadeStinger
   technologyPrerequisites:
   - TsfBasicGuns
   - UniversalMaterialResearchT2
-  position: 12, 8
+  position: 2, -22
 
 - type: technology
   id: TsfSuperWeapons
   name: research-technology-tsfmc-super-weapons
-  entityIcon: WeaponRifleXlr556
+  entityIcon: WeaponDEWSmilodon
   discipline: TsfmcWeaponry
   tier: 3
   cost: 30000
   recipeUnlocks:
-  - WeaponRifleXlr556Tsf
-  - WeaponRifleMR8CTSF
-  - WeaponLauncherTSFAnubis
+  - WeaponAMRShenzhenTSF
   - WeaponDEWSmilodon
-  - WeaponLauncherTSFOsiris
-  - Magazine35mmGrenade
   - LargePowerCell400Thz # For smilodon
   - LargePowerCell700Thz # For smilodon
+  - AmmoBoxShenzhenBig
   technologyPrerequisites:
   - TsfAdvancedWeapons
   - UniversalMaterialResearchT3
-  position: 12, 13
+  position: 2, -30
+
+- type: technology
+  id: TsfSuperBallistics
+  name: research-technology-tsfmc-super-ballistics
+  entityIcon: WeaponRifleXlr556
+  discipline: TsfmcWeaponry
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - WeaponRifleXlr556Tsf
+  - Magazine35mmGrenade #anubis SAPHE
+  - LargePowerCellPlasma68x52mm
+  - AmmoBox68x52mmCaselessPlasma
+  - Magazine68x52mmCaselessPlasma
+  technologyPrerequisites:
+  - TsfAdvancedWeapons
+  - UniversalMaterialResearchT3
+  position: 3, -30

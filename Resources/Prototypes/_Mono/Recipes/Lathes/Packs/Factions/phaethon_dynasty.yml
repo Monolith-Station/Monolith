@@ -3,52 +3,58 @@
   recipes:
   - ClothingOuterHardsuitPirateScafRogue
   - ClothingOuterVestWebRogue
-  - ClothingOuterHardsuitPDVMedic
+  - ClothingOuterVestWebEliteRogue
+# - ClothingOuterHardsuitPDVMedic
   - ClothingShoesBootsMagSyndieRogue
   - ClothingMaskGasSyndicateRogue
   - ClothingEyesThermalVisionGoggles
 
-- type: latheRecipePack
-  id: MonoRogueGearProDynamic # for syndie hardsuits and shit
-  recipes:
-  - ClothingOuterHardsuitSyndieRogue
-  - ClothingOuterHardsuitSyndieEliteRogue
-  - ClothingOuterHardsuitJuggernautRogue
-  - ClothingOuterHardsuitCybersunStealthRogue
-# - ClothingOuterHardsuitSyndieCommanderRogue
+#- type: latheRecipePack
+#  id: MonoRogueGearProDynamic # for syndie hardsuits and shit
+#  recipes:
+#  - ClothingOuterHardsuitSyndieRogue
+#  - ClothingOuterHardsuitSyndieEliteRogue
+#  - ClothingOuterHardsuitJuggernautRogue
+#  - ClothingOuterHardsuitCybersunStealthRogue
+## - ClothingOuterHardsuitSyndieCommanderRogue
 
 - type: latheRecipePack
   id: MonoRogueWeaponsDynamicMelee
   recipes:
   - EnergySwordRogue
   - EnergyDaggerRogue
-  - EnergyShieldRogue
+  - HeavyBallisticShield
+  - TelescopicShield
   - HFSwordVT7
 
 - type: latheRecipePack
   id: MonoRogueWeaponsDynamicRanged
   recipes:
-  - WeaponRifleWSPRRogue
+#  - WeaponRifleWSPRRogue
+  - WeaponRifleVympelRogue
   - WeaponSubMachineGunC20rRogue
   - WeaponRevolverPythonRogue
-  - WeaponRifleM90Rogue
-  - WeaponSubMachineGunWt550Rogue
-  - WeaponSubMachineGunAtreidesRogue
+#  - WeaponRifleM90Rogue
+#  - WeaponSubMachineGunAtreidesRogue
   - WeaponLauncherPanzeroRogue
-  - WeaponShotgunBulldogRogue
-  - WeaponSniperHristovRogue
-  - WeaponSubMachineGunMla73Rogue
-  - WeaponDEWBasilisk
+#  - WeaponShotgunBulldogRogue
+#  - WeaponSniperHristovRogue
+#  - WeaponSubMachineGunMla73Rogue
+#  - WeaponDEWBasilisk
   - WeaponShotgunSultanPulsar
+#  - WeaponLightMachineGunL6Rogue
+#  - WeaponRifleBurnerRogue
+
 
 - type: latheRecipePack
   id: MonoRogueVouchersDynamic
   recipes:
   - ShipVoucherPdvT0Recipe
-  - ShipVoucherPdvT1RandomRecipe
-  - ShipVoucherPdvT2RandomRecipe
-  - SaintieVoucherRogue
-  - SaturnVoucherRogue
+  - ShipVoucherPdvT1Recipe
+  - ShipVoucherPdvT2Recipe
+  - ShipVoucherKortikT3Recipe
+  - ShipVoucherEuropaT3Recipe
+  - ShipVoucherSaturnRecipe
   - SnakeletVoucherRogue
   - InertiaVoucherRogue
   - MockVoucherRogue
@@ -64,3 +70,6 @@
   - BasicBorgCombatModulePDV
   - AdvancedBorgCombatModulePDV
   - PrintableDirtyBomb
+  - AutosurgeonIASPDV
+  - AutosurgeonAdvHeartPDV
+  - AutosurgeonDermalArmorPDV

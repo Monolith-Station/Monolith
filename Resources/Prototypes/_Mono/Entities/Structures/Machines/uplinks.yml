@@ -41,16 +41,23 @@
     - UplinkSecurityExplosives
     - UplinkSecurityBundles
     - UplinkSecurityVouchers # Mono
+    - UplinkSecurityMaterials
     balance:
       FederationMilitaryCredit: 25
   - type: AccessReader
     access: [["Security"]]
   - type: CompanyAccessReader
-    requiredCompany: TSF
+    requiredCompanies:
+    - TSF
+    - TSFCivilian
   - type: Tag
     tags:
     - SecurityUplink
     - FactionStaticUplinkTsf
+  - type: CurrencyInjectionTarget
+    company: TSF
+    radioChannel: Nfsd
+    injectionAlert: tsfmc-currency-injection-alert
 
 - type: entity
   parent: [StorePresetPirateUplink, VendingMachine]
@@ -92,9 +99,15 @@
   - type: AccessReader
     access: [["Pirate"]]
   - type: CompanyAccessReader
-    requiredCompany: PDV
+    requiredCompanies:
+    - PDV
+    - PDVCivilian
     popupMessage: company-pdv-access-denied
   - type: Tag
     tags:
     - PirateUplink
     - FactionStaticUplinkPdv
+  - type: CurrencyInjectionTarget
+    company: PDV
+    radioChannel: Freelance
+    injectionAlert: pdv-currency-injection-alert

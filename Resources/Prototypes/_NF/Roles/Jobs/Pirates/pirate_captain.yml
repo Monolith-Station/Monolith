@@ -4,11 +4,12 @@
   description: job-description-pirate-captain
   playTimeTracker: JobPirateCaptain
   requirements:
-    - !type:OverallPlaytimeRequirement # mono start
-      time: 144000 # 40 hours
+    - !type:OverallPlaytimeRequirement
+      time: 180000 # 50 hours # mono
     - !type:RoleTimeRequirement
-      role: JobPirateFirstMate
-      time: 18000 # 5 hours - mono
+      role: JobPDVDenasvar
+      time: 28800 # 8 hours # mono
+  enforcedPlayTime: true #Monolith
   whitelisted: true
   startingGear: PirateCaptainNFGear
   alwaysUseSpawner: true
@@ -27,12 +28,19 @@
   - Mercenary
   accessGroups:
   - GeneralAccess
+  guides:
+  - PDV_Entry
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MailDisabled
+    - type: SpecialSectorStationRecord
+      recordGeneration: FalseRecord
     - type: NpcFactionMember
       factions:
       - PirateNF
+    - type: ChatRank
+      rank: pdv-vizier
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages
@@ -54,5 +62,8 @@
   storage:
     back:
     - RadioHandheldNF # mono
-    - PhoneInstrumentHigh
+    - PDVHandheldOverwatchConsole
     - RubberStampPDVVizier # mono
+    - PhoneInstrumentHigh
+    - WarDeclaratorPdv
+    - ClothingBeltSheathVizierFilled

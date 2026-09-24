@@ -1,0 +1,39 @@
+- type: vessel
+  id: Mercury
+  parent: BaseVesselIFFDisabled
+  name: TSF-SKR Mercury
+  description: Naval designation Type-32D Guided Missile Corvette. Equipped with 4 heavy frontal facing Paladin AShM pods, and 2 light PD guns.
+  price: 500000
+  purchasable: false # voucher only - T2
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/mercury.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - AntiShipMissileCarrier
+  - Brawler
+  - Corvette
+  engine:
+  - AME
+
+- type: gameMap
+  id: Mercury
+  mapName: 'Mercury'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/mercury.yml
+  minPlayers: 0
+  stations:
+    Mercury:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Mercury TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

@@ -2,7 +2,7 @@
   id: WeaponTurretFlare
   name: GS-002 Sunny flare system
   parent:
-  - BallisticArtilleryUnanchorableMagazine
+  - BallisticArtilleryMagazine
   - BallisticArtilleryTier2HP
   description: A relatively small flare flinging hardpoint used to fool heat seeking missiles. Also good for search and rescue.
   suffix: T1
@@ -63,3 +63,6 @@
   - type: ShipRepairable
     repairTime: 25
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Superlight

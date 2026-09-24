@@ -21,3 +21,11 @@
   components:
   - type: Label
     currentLabel: holopad-pdv-jupiter
+
+- type: entity
+  parent: NFHolopadPoiBase
+  id: HolopadVG
+  suffix: VG, Camelot
+  components:
+  - type: Label
+    currentLabel: holopad-vg

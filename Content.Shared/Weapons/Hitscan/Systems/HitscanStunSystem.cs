@@ -17,9 +17,12 @@ public sealed partial class HitscanStunSystem : EntitySystem
 
     private void OnHitscanHit(Entity<HitscanStaminaDamageComponent> hitscan, ref HitscanRaycastFiredEvent args)
     {
-        if (args.Canceled || args.HitEntity == null)
+        if (args.Canceled)
             return;
 
-        _stamina.TakeStaminaDamage(args.HitEntity.Value, hitscan.Comp.StaminaDamage, source: args.Shooter ?? args.Gun);
+        foreach (var hitEntity in args.HitEntities) // Mono
+        {
+            _stamina.TakeStaminaDamage(hitEntity, hitscan.Comp.StaminaDamage, source: args.Shooter ?? args.Gun);
+        }
     }
 }

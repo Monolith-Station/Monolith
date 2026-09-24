@@ -2,12 +2,6 @@
   id: JobUSSPCommissar
 
 - type: playTimeTracker
-  id: JobUSSPCorporal
-
-- type: playTimeTracker
-  id: JobUSSPMedic
-
-- type: playTimeTracker
   id: JobUSSPRifleman
 
 - type: playTimeTracker
@@ -17,10 +11,45 @@
   id: JobTsfEngineer
 
 - type: playTimeTracker
+  id: JobTsfCivilian
+
+- type: playTimeTracker
   id: JobTsfBorg
 
 - type: playTimeTracker
   id: JobPdvBorg
 
 - type: playTimeTracker
+  id: JobPdvCivilian
+
+- type: playTimeTracker
   id: MdMedic
+
+- type: playTimeTracker
+  id: JobVGInfanteer
+
+- type: playTimeTracker
+  id: JobVGLieutenant
+
+- type: playTimeTracker
+  id: JobVGCommander
+
+- type: playTimeTracker
+  id: JobPDVTarkhan
+
+- type: playTimeTracker
+  id: JobTsfMarsoc
+
+- type: playTimeTracker
+  id: JobMMCEmployee
+
+- type: playTimeTracker
+  id: JobMMCSecurity
+
+- type: playTimeTracker
+  id: JobMMCLiason
+#special adminbus roles
+- type: playTimeTracker
+  id: JobPDVAmbassador
+- type: playTimeTracker
+  id: JobPDVPrince

@@ -23,7 +23,7 @@
     - Back
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
   - type: Gun
-    fireRate: 1.5
+    fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
@@ -40,7 +40,7 @@
       fireCost: 100
       name: disable
       state: disabler
-    - proto: BulletEnergyGun45_magnum
+    - proto: BulletEnergyGun357_magnum
       fireCost: 150 # Mono - 150 < 225
       name: lethal
       state: lethal
@@ -129,6 +129,7 @@
   - type: Tag
     tags:
     - Sidearm
+    - SafetyDepositBlacklist # Mono: can't be lockboxed -- encourages role abandonment to get lawbringer as tsf/pdv/vagrant
   - type: StaticPrice
     price: 750
   - type: BatterySelfRecharger

@@ -1,0 +1,18 @@
+- type: accessLevel
+  id: Mieyo
+  name: id-card-access-level-mieyo
+
+- type: accessLevel
+  id: MieyoSecurity
+  name: id-card-access-level-mieyo-security
+
+- type: accessLevel
+  id: MieyoLiason
+  name: id-card-access-level-mieyo-liason
+
+- type: accessGroup
+  id: Mieyo
+  tags:
+  - Mieyo
+  - MieyoSecurity
+  - MieyoLiason

@@ -534,6 +534,9 @@
           - !type:OrganType
             type: Vox
             shouldHave: false
+          - !type:OrganType # Mono - Hydrakin
+            type: Hydrakin
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -550,8 +553,14 @@
           - !type:OrganType
             type: Vox
             shouldHave: false
+          - !type:OrganType # Mono - Hydrakin
+            type: Hydrakin
+            shouldHave: false
       - !type:HealthChange
         conditions:
+        - !type:OrganType # Mono - Hydrakin
+          type: Hydrakin
+          shouldHave: false
         - !type:OrganType
           type: Animal
           shouldHave: false
@@ -564,6 +573,12 @@
         damage:
           types:
             Poison: 1
+      - !type:AdjustReagent # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        reagent: Protein
+        amount: 0.5
       - !type:AdjustReagent
         conditions:
         - !type:OrganType
@@ -576,6 +591,7 @@
           type: Goblin # Frontier: Goblin
         reagent: Protein # Frontier: Goblin
         amount: 0.5 # Frontier: Goblin
+
 
 
 - type: reagent

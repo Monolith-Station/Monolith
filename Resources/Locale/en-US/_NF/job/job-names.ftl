@@ -2,7 +2,7 @@
 job-name-bailiff = TSFMC Captain
 job-name-brigmedic = TSFMC Corpsman
 job-name-cadet-nf = TSFMC Private
-job-name-contractor = Spacer
+job-name-contractor = Vagrant
 job-name-deputy = TSFMC Marine
 job-name-nf-detective = Detective
 job-name-ertmailcarrier = ERT Mail Carrier
@@ -13,6 +13,8 @@ job-name-pirate = PDV Rahkshan
 job-name-pirate-captain = PDV Grand Vizier
 job-name-pirate-first-mate = PDV Asvaran
 job-name-pdv-denasvar = PDV Denasvar
+job-name-pdv-tarkhan = PDV Tarkhan
+job-name-tsf-marsoc = TSFMC MARSOC Operative
 job-name-security-guard = Judge
 job-name-sheriff = TSFMC Colonel
 job-name-stc = Station Traffic Controller

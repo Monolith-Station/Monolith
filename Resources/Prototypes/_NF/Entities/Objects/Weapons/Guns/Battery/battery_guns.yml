@@ -192,7 +192,7 @@
     startingCharge: 720
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 10
+    autoRechargeRate: 15 # Mono
   - type: ProjectileBatteryAmmoProvider
     proto: HoloFlareCyan
     fireCost: 240

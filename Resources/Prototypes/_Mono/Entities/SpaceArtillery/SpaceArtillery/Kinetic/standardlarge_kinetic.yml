@@ -5,7 +5,7 @@
   id: WeaponTurretCyrexa
   name: CYREXA 220mm cannon
   parent:
-  - BallisticArtilleryUnanchorableCartridge
+  - BallisticArtilleryCartridge
   - BallisticArtilleryTier4HP
   suffix: Large, T4
   description: A main battery with dual barrels, delivering rapid, punishing salvos at extreme range. Fires 220mm auto shells with slightly reduced brute strength. Can be remotely activated or linked up to a GCS.
@@ -35,7 +35,8 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 275
+    damageModifier: 2
+    projectileSpeed: 380
     minAngle: 0
     maxAngle: 1
     fireRate: 0.2
@@ -47,7 +48,9 @@
     availableModes: Burst
     shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/heph.ogg
+      params:
+        volume: 1.1
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: SpaceArtillery
@@ -81,6 +84,123 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 150
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy # doesnt match who cares
+
+- type: entity
+  id: WeaponTurretCyrexaHomingCluster
+  name: CYREXA 220mm cannon
+  parent: WeaponTurretCyrexa
+  suffix: Large, T4, Infinite HMNG-CLST
+  components:
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    whitelist:
+      tags:
+      - 220mmCartridge
+    capacity: 24
+    proto: 220mmCartridgeSmartCluster
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  id: WeaponTurretCyrexaHECluster
+  name: CYREXA 220mm cannon
+  parent: WeaponTurretCyrexa
+  suffix: Large, T4, Infinite HE-CLST
+  components:
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    whitelist:
+      tags:
+      - 220mmCartridge
+    capacity: 24
+    proto: 220mmCartridgeHECluster
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+# AK820 120mm
+
+- type: entity
+  id: WeaponTurretAk820
+  name: AK820 120mm autocannon
+  parent:
+  - BallisticArtilleryCartridge
+  - BallisticArtilleryTier4HP
+  suffix: Large, T4
+  description: Large hard hitting naval gun for steady damage. Fires APHEDS rounds, allowing for enhanced penetration, but not as much explosive power as full-sized APHE rounds. Feeds from an 96 round internal magazine.
+  components:
+  - type: StaticPrice
+    price: 16000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/ak820.rsi
+    layers:
+    - state: space_artillery
+    - state: fcs-unshaded
+      shader: unshaded
+    scale: 1, 1
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: GunSignalControl
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6,-0.6,0.6,0.6"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Gun
+    projectileSpeed: 360
+    minAngle: 0
+    maxAngle: 0.5
+    fireRate: 3.5
+    recoil: 10
+    selectedMode: FullAuto
+    availableModes: FullAuto
+    shootThermalSignature: 12000000
+    soundGunshot:
+      collection: 120mmAutocannonAK820
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: SpaceArtillery
+  - type: Actions
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 2
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-1.5,-1.5,1.5,1.5"
+  - type: BallisticAmmoProvider
+    infiniteUnspawned: true
+    whitelist:
+      tags:
+      - 120mmCartridge
+    capacity: 96
+    proto: 120mmCartridgeAPHEDS
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 150
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy # doesnt match who cares
 
 # Bofors 255mm
 
@@ -88,7 +208,7 @@
   id: WeaponTurretBofors
   name: Bofors 255mm cannon
   parent:
-  - BallisticArtilleryUnanchorableCartridge
+  - BallisticArtilleryCartridge
   - BallisticArtilleryTier4HP
   suffix: Large, T4
   description: A single-barrel, heavy artillery cannon designed for cruisers, delivering massive impact with each long-range shot. Can be remotely activated or linked up to a GCS.
@@ -118,7 +238,7 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 350
+    projectileSpeed: 550
     minAngle: 0
     maxAngle: 1
     fireRate: 0.1
@@ -159,6 +279,9 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 150
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy # doesnt match who cares
 
 # HADES 255mm
 
@@ -199,7 +322,7 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 350
+    projectileSpeed: 550
     minAngle: 0
     maxAngle: 0
     fireRate: 0.2
@@ -212,6 +335,8 @@
     shootThermalSignature: 160000000 # now all of china knows you're here (12.6km)
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+      params:
+        volume: 1.2
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -242,20 +367,131 @@
   - type: ShipRepairable
     repairTime: 45
     repairCost: 300
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Superheavy
+
+# R-300 430mm
+
+- type: entity
+  id: WeaponTurretR300Base
+  parent: BallisticArtilleryTier5HP
+  name: R-300 430mm howitzer
+  suffix: Capital/Station, T4
+  description: A giant, stupid howitzer. A stupid low velocity, a stupid long reload, and a stupidly powerful explosion if you can get it to hit. No AP whatsover.
+  abstract: true
+  components:
+  - type: StaticPrice
+    price: 15000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/r300.rsi
+    layers:
+    - state: space_artillery
+    - state: fcs-unshaded
+      shader: unshaded
+    scale: 1,1
+  - type: Appearance
+  - type: FireControlRotate
+  - type: AmmoCounter
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6,-0.6,0.6,0.6"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Gun
+    projectileSpeed: 150
+    minAngle: 0
+    maxAngle: 0
+    fireRate: 0.05
+    recoil: 300
+    selectedMode: SemiAuto
+    availableModes: SemiAuto
+    shootThermalSignature: 160000000
+    soundGunshot:
+      collection: ShipGunMjolnir
+      params:
+        pitch: 0.6
+        volume: 2
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: SpaceArtillery
+  - type: Actions
+  - type: RadarBlip
+    radarColor: "#FF0000"
+    scale: 2.5
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#FF0000"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-2,-2,2,2"
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: ShipGunClass
+    shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 45
+    repairCost: 200
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy # doesnt match who cares
+
+- type: entity
+  id: WeaponTurretR300
+  parent:
+  - WeaponTurretR300Base
+  - BallisticArtilleryCartridge
+  suffix: Capital, T4
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - R300Shell
+    capacity: 1
+    proto: R300ShellHE
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  id: WeaponTurretR300Infinite
+  parent:
+  - WeaponTurretR300Base
+  - BallisticArtilleryUnanchorable
+  suffix: Station, Recharging Ammo
+  components:
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 350
+  - type: ProjectileBatteryAmmoProvider
+    proto: R300BulletHE
+    fireCost: 1500
 
 # Longbow
 
 - type: entity
   id: WeaponTurretLongbow
-  name: L65-"Longbow" 90mm autocannon
+  name: L/65 "Longbow" 140mm autocannon
   parent:
   - BallisticArtilleryMagazine
-  - BallisticArtilleryTier4HP
-  suffix: Large, T4
-  description: Fires 90mm shells in a 20 round burst from an internal autoloader.
+  - BallisticArtilleryTier5HP
+  suffix: Capital/Station, T4
+  description: Fires 140mm shells in a 15 round burst from an internal autoloader.
   components:
   - type: StaticPrice
-    price: 15000
+    price: 30000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/longbow.rsi
     layers:
@@ -281,16 +517,18 @@
     projectileSpeed: 290
     minAngle: 0
     maxAngle: 7
-    fireRate: 11
-    recoil: 10 # 2/5x
-    burstCooldown: 8
-    burstFireRate: 11
+    fireRate: 6
+    recoil: 15
+    burstCooldown: 4
+    burstFireRate: 6
     shotsPerBurst: 15
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/120mm_mortar.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/needler.ogg
+      params:
+        volume: 1.1
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: SpaceArtillery
@@ -312,18 +550,21 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: 90mmMagazineHE
+        startingItem: Magazine140mm
         insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-          - Magazine90mm
+          - Magazine140mm
         whitelistFailPopup: gun-magazine-whitelist-fail
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
-    shipClass: Heavy
+    shipClass: Superheavy
   - type: ShipRepairable
-    repairTime: 30
-    repairCost: 150
+    repairTime: 45
+    repairCost: 300
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Superheavy

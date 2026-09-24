@@ -11,6 +11,7 @@
 #    ExtendedEmergencyNitrogenTankFilled: 5 # Frontier
     NitrogenTankFilled: 10
     DoubleEmergencyNitrogenTankFilled: 10
+    WaterVaporTankFilled: 10 # Goob, Feroxi
 
 - type: vendingMachineInventory
   id: TankDispenserEngineeringInventory
@@ -18,6 +19,7 @@
     PlasmaTankFilled: 10
     NitrogenTankFilled: 10
     OxygenTankFilled: 10
+    WaterVaporTankFilled: 10 # Goob, Feroxi
   emaggedInventory:
     DoubleEmergencyAirTankFilled: 1
     DoubleEmergencyOxygenTankFilled: 1

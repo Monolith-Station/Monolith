@@ -154,5 +154,18 @@ namespace Content.Shared.Maps
         {
             TileId = id;
         }
+
+        /// <summary>
+        /// CrystallEdge: used for lightning calculation through zlevels
+        /// </summary>
+        [DataField]
+        public bool Transparent = false;
+
+        /// <summary>
+        /// CrystallEdge: RSI path for icon-smooth border sprites.
+        /// Contains states tile_0..tile_6 and full.
+        /// </summary>
+        [DataField]
+        public ResPath? IconSmoothSprite { get; private set; }
     }
 }

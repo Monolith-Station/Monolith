@@ -1,0 +1,76 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                       Title="{Loc 'overwatch-window-title'}"
+                       SetSize="1000 750"
+                       MinSize="1000 400">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="5">
+        <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True" SeparationOverride="10">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" MinSize="400 0">
+                <BoxContainer Orientation="Vertical" Margin="0 0 0 10">
+                    <Label Text="{Loc 'overwatch-filters-title'}" Margin="0 0 0 5"/>
+
+                    <LineEdit Name="SearchInput"
+                              PlaceHolder="{Loc 'overwatch-search-placeholder'}"
+                              HorizontalExpand="True"
+                              Margin="0 0 0 5"/>
+
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="5" Margin="0 0 0 5">
+                        <Label Text="{Loc 'overwatch-status-label'}" VerticalAlignment="Center"/>
+                        <OptionButton Name="StatusFilter" HorizontalExpand="True"/>
+                    </BoxContainer>
+
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="5">
+                        <Label Text="{Loc 'overwatch-squad-label'}" VerticalAlignment="Center"/>
+                        <OptionButton Name="SquadFilter" HorizontalExpand="True"/>
+                    </BoxContainer>
+                </BoxContainer>
+
+                <Label Text="{Loc 'overwatch-members-title'}" HorizontalAlignment="Center" Margin="0 10 0 5"/>
+
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                    <GridContainer Name="MembersGrid" Columns="1" HorizontalExpand="True"/>
+                </ScrollContainer>
+            </BoxContainer>
+
+            <BoxContainer Name="AdminPanel" Orientation="Vertical" MinSize="350 0" Visible="False">
+                <BoxContainer Orientation="Vertical" Margin="0 0 0 10">
+                    <Label Text="{Loc 'overwatch-admin-announcement-title'}" Margin="0 0 0 5"/>
+
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="5" Margin="0 0 0 5">
+                        <Label Text="{Loc 'overwatch-admin-announcement-to-label'}" VerticalAlignment="Center"/>
+                        <OptionButton Name="AnnouncementTarget" HorizontalExpand="True"/>
+                    </BoxContainer>
+
+                    <LineEdit Name="AnnouncementInput"
+                              PlaceHolder="{Loc 'overwatch-admin-announcement-placeholder'}"
+                              HorizontalExpand="True"
+                              Margin="0 0 0 5"/>
+
+                    <Button Name="SendAnnouncementButton"
+                            Text="{Loc 'overwatch-admin-announcement-send'}"
+                            HorizontalAlignment="Center"/>
+                </BoxContainer>
+
+                <BoxContainer Orientation="Vertical" Margin="0 0 0 10">
+                    <Label Text="{Loc 'overwatch-admin-create-squad-title'}" Margin="0 0 0 5"/>
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="5">
+                        <LineEdit Name="NewSquadNameInput" PlaceHolder="{Loc 'overwatch-admin-create-squad-placeholder'}" HorizontalExpand="True"/>
+                        <Button Name="CreateSquadButton" Text="{Loc 'overwatch-admin-create-squad-button'}"/>
+                    </BoxContainer>
+                </BoxContainer>
+
+                <Label Text="{Loc 'overwatch-admin-squads-title'}" Margin="0 10 0 5"/>
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                    <BoxContainer Name="SquadsList" Orientation="Vertical" HorizontalExpand="True"/>
+                </ScrollContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <Button Name="StopWatchingButton"
+                Text="{Loc 'overwatch-stop-watching-button'}"
+                Visible="False"
+                HorizontalAlignment="Center"
+                Margin="0 10 0 0"/>
+    </BoxContainer>
+</controls:FancyWindow>

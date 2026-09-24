@@ -17,6 +17,8 @@
   - TsfmcEngineering
   accessGroups:
   - TsfGeneralNoBrig
+  guides:
+  - TSFMC_Entry
   special:
   - !type:AddComponentSpecial
     components:
@@ -36,9 +38,9 @@
 
 - type: startingGear
   id: TsfEngiGear
-  equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
-    pocket2: Magazine45_ACPPistolFMJ
+#  equipment:
+#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+#    pocket2: Magazine45_ACPPistolFMJ
   storage:
     back:
     - RadioHandheldNF
@@ -46,3 +48,5 @@
     - NanolaminateFoamGrenade
     - RCDRecharging
     - NFPouchUtility
+    - BaseSecurityUplinkRadioDeputy
+    - BookTSFSOP

@@ -44,7 +44,7 @@
     startingCharge: 5000
   - type: Gun
     fireRate: 4.5
-    projectileSpeed: 65
+    projectileSpeed: 50
     maxAngle: 12
     minAngle: 0
     selectedMode: FullAuto
@@ -142,6 +142,15 @@
   - type: NpcFactionMember
     factions:
     - SiliconsExpeditionNF
+
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyViper
+  suffix: Viper #I'm not sure where we'd actually need a gun this big, but hey.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - VGTurret
 
 # Anti-Chimera Variant
 - type: entity
@@ -272,3 +281,12 @@
   - type: NpcFactionMember
     factions:
     - SiliconsExpeditionNF
+
+- type: entity
+  parent: WeaponTurretHeavyRIPBase
+  id: WeaponTurretHeavyRIPViper # ... Also not sure why we wouldn't just use the basic CC one for spawncamp purposes but hey.
+  suffix: Viper
+  components:
+  - type: NpcFactionMember
+    factions:
+    - VGTurret

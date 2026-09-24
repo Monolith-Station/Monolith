@@ -8,7 +8,10 @@
     sprite: Clothing/Head/Animals/cat.rsi
   - type: Clothing
     sprite: Clothing/Head/Animals/cat.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatAnimalCatBrown
@@ -19,7 +22,10 @@
     sprite: Clothing/Head/Animals/cat2.rsi
   - type: Clothing
     sprite: Clothing/Head/Animals/cat2.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatAnimalCatBlack
@@ -30,7 +36,10 @@
     sprite: Clothing/Head/Animals/cat3.rsi
   - type: Clothing
     sprite: Clothing/Head/Animals/cat3.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatAnimalHeadslime
@@ -41,7 +50,10 @@
     sprite: Clothing/Head/Animals/headslime.rsi
   - type: Clothing
     sprite: Clothing/Head/Animals/headslime.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatAnimalMonkey
@@ -52,3 +64,7 @@
     sprite: Clothing/Head/Animals/monkey.rsi
   - type: Clothing
     sprite: Clothing/Head/Animals/monkey.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    

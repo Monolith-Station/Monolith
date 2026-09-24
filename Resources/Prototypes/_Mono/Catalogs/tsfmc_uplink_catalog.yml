@@ -1,4 +1,19 @@
 - type: listing
+  id: UplinkWearableCameraSolarianTSF
+  name:  uplink-security-wearable-cameratsf-name
+  description: uplink-security-wearable-cameratsf-desc
+  productEntity: ClothingNeckWearableCameraTSF
+  cost:
+    FederationMilitaryCredit: 2 # premium quality trust
+  categories:
+    - UplinkSecurityUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+- type: listing
   id: UplinkSecurityAnnie
   name:  uplink-security-annie-name
   description: uplink-security-annie-desc
@@ -42,6 +57,9 @@
     whitelist:
       tags:
       - SecurityUplink
+  - !type:BuyerJobCondition
+      whitelist:
+        - Sheriff
 
 - type: listing
   id: UplinkSecurityMR8C
@@ -249,157 +267,6 @@
       tags:
       - FactionStaticUplinkTsf
 
-# start T1
-
-- type: listing
-  id: UplinkSecurityT1VoucherSpica
-  name:  uplink-security-t1-spica-voucher-name
-  description: uplink-security-t1-spica-voucher-desc
-  productEntity: ShipVoucherSpica
-  cost:
-    FederationMilitaryCredit: 90
-  categories:
-  - UplinkSecurityVouchers
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - FactionStaticUplinkTsf
-
-- type: listing
-  id: UplinkSecurityT1VoucherDagger
-  name:  uplink-security-t1-dagger-voucher-name
-  description: uplink-security-t1-dagger-voucher-desc
-  productEntity: ShipVoucherDagger
-  cost:
-    FederationMilitaryCredit: 100
-  categories:
-  - UplinkSecurityVouchers
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - FactionStaticUplinkTsf
-
-- type: listing
-  id: UplinkSecurityT1VoucherTarantula
-  name:  uplink-security-t1-tarantula-voucher-name
-  description: uplink-security-t1-tarantula-voucher-desc
-  productEntity: ShipVoucherTarantula
-  cost:
-    FederationMilitaryCredit: 110
-  categories:
-  - UplinkSecurityVouchers
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - FactionStaticUplinkTsf
-
-- type: listing
-  id: UplinkSecurityT1VoucherSentinel
-  name:  uplink-security-t1-sentinel-voucher-name
-  description: uplink-security-t1-sentinel-voucher-desc
-  productEntity: ShipVoucherSentinel
-  cost:
-    FederationMilitaryCredit: 110
-  categories:
-  - UplinkSecurityVouchers
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - FactionStaticUplinkTsf
-
-- type: listing
-  id: UplinkSecurityT1VoucherMercury
-  name:  uplink-security-t1-mercury-voucher-name
-  description: uplink-security-t1-mercury-voucher-desc
-  productEntity: ShipVoucherMercury
-  cost:
-    FederationMilitaryCredit: 100 # Needs 2 man crew for GCS so its discounted
-  categories:
-  - UplinkSecurityVouchers
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - FactionStaticUplinkTsf
-
-- type: listing
-  id: UplinkSecurityT1VoucherAldebaran
-  name:  uplink-security-t1-aldebaran-voucher-name
-  description: uplink-security-t1-aldebaran-voucher-desc
-  productEntity: ShipVoucherAldebaran
-  cost:
-    FederationMilitaryCredit: 90
-  categories:
-  - UplinkSecurityVouchers
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - FactionStaticUplinkTsf
-
-# end T1
-
-# start T2
-
-- type: listing
-  id: UplinkSecurityT2VoucherAndromeda
-  name:  uplink-security-t2-andromeda-voucher-name
-  description: uplink-security-t2-andromeda-voucher-desc
-  productEntity: ShipVoucherAndromeda
-  cost:
-    FederationMilitaryCredit: 180
-  categories:
-  - UplinkSecurityVouchers
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - FactionStaticUplinkTsf
-
-# end T2
-
-# start T3
-
-- type: listing
-  id: UplinkSecurityT3VoucherAltair
-  name:  uplink-security-t3-altair-voucher-name
-  description: uplink-security-t3-altair-voucher-desc
-  productEntity: ShipVoucherAltair
-  cost:
-    FederationMilitaryCredit: 400
-  categories:
-  - UplinkSecurityVouchers
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - FactionStaticUplinkTsf
-
-# end T3
-
-# start T4
-
-- type: listing
-  id: UplinkSecurityFlyssaVoucher
-  name:  uplink-security-flyssa-voucher-name
-  description: uplink-security-flyssa-voucher-desc
-  productEntity: ShipVoucherFlyssa
-  cost:
-    FederationMilitaryCredit: 750
-  categories:
-  - UplinkSecurityVouchers
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - FactionStaticUplinkTsf
-
-# end T4
-
 # Misc
 
 - type: listing
@@ -467,3 +334,81 @@
         - Sheriff
         - Bailiff
         - SeniorOfficer
+
+- type: listing
+  id: UplinkHardBombTSF
+  name:  uplink-HardBomb-TSF-name
+  description: uplink-HardBomb-TSF-desc
+  productEntity: TSFBomb
+  icon: { sprite: _Mono/Structures/Machines/bomb_TSF.rsi, state: syndicate-bomb }
+  cost:
+    FederationMilitaryCredit: 75
+  categories:
+    - UplinkSecurityExplosives
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+# materials
+
+- type: listing
+  id: UplinkTSFMaterialsBasic
+  name: uplink-faction-materials-basic-name
+  description: uplink-faction-materials-basic-desc
+  productEntity: CrateMaterialsBasicFilledTsf
+  cost:
+    FederationMilitaryCredit: 50
+  categories:
+  - UplinkSecurityMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkTSFMaterialsIndustrial
+  name: uplink-faction-materials-industrial-name
+  description: uplink-faction-materials-industrial-desc
+  productEntity: CrateMaterialsIndustrialFilledTsf
+  cost:
+    FederationMilitaryCredit: 75
+  categories:
+  - UplinkSecurityMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkTSFMaterialsAdvanced
+  name: uplink-faction-materials-advanced-name
+  description: uplink-faction-materials-advanced-desc
+  productEntity: CrateMaterialsAdvancedFilledTsf
+  cost:
+    FederationMilitaryCredit: 100
+  categories:
+  - UplinkSecurityMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkTSFMaterialsExotic
+  name: uplink-faction-materials-exotic-name
+  description: uplink-faction-materials-exotic-desc
+  productEntity: CrateMaterialsExoticFilledTsf
+  cost:
+    FederationMilitaryCredit: 125
+  categories:
+  - UplinkSecurityMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink

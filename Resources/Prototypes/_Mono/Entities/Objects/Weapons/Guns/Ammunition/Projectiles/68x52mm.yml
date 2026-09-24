@@ -72,6 +72,45 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 11
+        Piercing: 7
         Structural: 35
-    armorPenetration: 0.65
+    armorPenetration: 0.8
+
+# plasma
+
+- type: entity
+  id: Bullet68x52mmCaselessPlasma
+  name: bullet (6.8x52mm Caseless Plasma)
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffect
+    soundHit:
+      path: /Audio/_Mono/Effects/Impacts/energyhit.ogg
+    damage:
+      types:
+        Heat: 15
+        Structural: 35
+    armorPenetration: -0.1
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 0.1
+    intensitySlope: 100
+    totalIntensity: 0.5
+    maxTileBreak: 1
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Projectiles/plasma.rsi
+    layers:
+    - state: plasmashot
+      shader: unshaded
+  - type: PointLight
+    color: "#b30077"
+    radius: 0.5
+    energy: 5

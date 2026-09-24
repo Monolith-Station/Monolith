@@ -1,0 +1,35 @@
+- type: vessel
+  id: Kresta
+  parent: BaseVesselIFFDisabled
+  name: PDV Kresta
+  description: Krestas are thin-hulled but heavily equipped for their size, with 2 FANG 90mm autocannons supported by 2 AK570 57mm autocannons.
+  price: 72000
+  category: Small
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/kresta.yml
+  guidebookPage: Null
+  class:
+  - Brawler
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Kresta
+  mapName: 'PDV Kresta'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/kresta.yml
+  minPlayers: 0
+  stations:
+    Kresta:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Kresta PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

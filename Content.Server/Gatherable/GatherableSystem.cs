@@ -51,7 +51,7 @@ public sealed partial class GatherableSystem : EntitySystem
         args.Handled = true;
     }
 
-    public void Gather(EntityUid gatheredUid, EntityUid? gatherer = null, GatherableComponent? component = null)
+    public void Gather(EntityUid gatheredUid, EntityUid? gatherer = null, GatherableComponent? component = null, bool spawnOnGatherer = false) //mono
     {
         if (!Resolve(gatheredUid, ref component))
             return;
@@ -61,20 +61,20 @@ public sealed partial class GatherableSystem : EntitySystem
             _audio.PlayPvs(soundComp.Sound, Transform(gatheredUid).Coordinates);
         }
 
-        // Complete the gathering process
-        // Instead of directly destroying, raise the destruction event first
-        // This ensures that components like OreVein have their event handlers called
-        var eventArgs = new DestructionEventArgs();
-        RaiseLocalEvent(gatheredUid, eventArgs);
+        // // Complete the gathering process
+        // // Instead of directly destroying, raise the destruction event first
+        // // This ensures that components like OreVein have their event handlers called.
+        // var eventArgs = new DestructionEventArgs();
+        // RaiseLocalEvent(gatheredUid, eventArgs); // Mono - just dont
 
+        RaiseLocalEvent(gatheredUid, new GatheredEvent(gatherer, spawnOnGatherer)); // mono
+        component.Gathered = true; // mono
         // Now queue the entity for deletion
         QueueDel(gatheredUid);
 
         // Spawn the loot!
         if (component.Loot == null)
             return;
-
-        component.Gathered = true; // mono
 
         var pos = _transform.GetMapCoordinates(gatheredUid);
 
@@ -94,4 +94,17 @@ public sealed partial class GatherableSystem : EntitySystem
             }
         }
     }
+}
+
+/// <summary>
+/// Raised when entity has been gathered - Mono
+/// </summary>
+public record struct GatheredEvent(EntityUid? Gatherer, bool TeleportLootToGatherer)
+{
+    /// <summary>
+    /// Entity that gathered Gatherable entity.
+    /// </summary>
+    public EntityUid? Gatherer { get; } = Gatherer;
+
+    public bool TeleportLootToGatherer { get; } = TeleportLootToGatherer;
 }

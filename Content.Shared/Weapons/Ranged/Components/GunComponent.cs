@@ -46,7 +46,7 @@ public sealed partial class GunComponent : Component
     /// The base scalar value applied to the vector governing camera recoil.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float CameraRecoilScalar = 1f;
+    public float CameraRecoilScalar = 0.5f; // Mono
 
     /// <summary>
     /// A scalar value applied to the vector governing camera recoil.
@@ -54,7 +54,7 @@ public sealed partial class GunComponent : Component
     /// <seealso cref="GunRefreshModifiersEvent"/>
     /// </summary>
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float CameraRecoilScalarModified = 1f;
+    public float CameraRecoilScalarModified = 0.5f; // Mono
 
     /// <summary>
     /// Last time the gun fired.

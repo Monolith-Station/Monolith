@@ -1,0 +1,27 @@
+- type: loadoutGroup
+  id: MieyoSidearm
+  name: loadout-group-pistol
+  minLimit: 0
+  loadouts:
+  - MMCKuosameLoadout
+
+- type: loadoutGroup
+  id: MieyoSidearmAmmo
+  name: loadout-group-pistol-magazine
+  minLimit: 0
+  loadouts:
+  - MMCPistolAmmoLoadout
+
+- type: loadout
+  id: MMCKuosameLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponPistolKuosame
+
+- type: loadout
+  id: MMCPistolAmmoLoadout
+  price: 0
+  storage:
+    back:
+    - Magazine57x28mmPistolFMJ

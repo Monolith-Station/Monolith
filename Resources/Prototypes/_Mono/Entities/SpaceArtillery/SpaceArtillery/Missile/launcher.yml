@@ -28,7 +28,7 @@
     recoil: 10
     shootThermalSignature: 32000000 # ~5.6km
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/launcher_alt.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: SpaceArtillery
@@ -52,6 +52,9 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 120
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Medium
 
 # Pre-Fracture
 
@@ -117,3 +120,6 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 120
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Heavy

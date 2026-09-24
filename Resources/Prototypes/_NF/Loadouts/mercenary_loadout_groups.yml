@@ -15,7 +15,7 @@
   - MercenaryClothingUniformJumpsitDrakeIndustriesWatchdog
   subgroups:
   - MonoMercenaryJumpsuit # Mono
-  - MonoUSSPJumpsuit # Mono
+  # - MonoUSSPJumpsuit # Mono
   - PilotJumpsuit
   - ContractorJumpsuit
   fallbacks:
@@ -35,7 +35,7 @@
   - SecurityDuffel
   subgroups:
   - MonoMercenaryBackpack # Mono
-  - MonoUSSPBackpack # Mono
+  # - MonoUSSPBackpack # Mono
   - PilotBackpack
   - ContractorBackpack
   fallbacks:
@@ -48,14 +48,14 @@
   loadouts:
   - MercenaryClothingOuterVestWebMercenary
   - MercenaryClothingOuterVestWebMercenaryBlack
-  - MercenaryClothingOuterArmorPunkGreen # Punkish (Static visuals)
-  - MercenaryClothingOuterArmorPunkOrange # Punkish (Static visuals)
-  - MercenaryClothingOuterArmorPunkRed # Punkish (Static visuals)
-  - MercenaryClothingOuterArmorPunkRandomized # Punkish (Randomized visuals)
+  #- MercenaryClothingOuterArmorPunkGreen # Punkish (Static visuals)
+  #- MercenaryClothingOuterArmorPunkOrange # Punkish (Static visuals)
+  #- MercenaryClothingOuterArmorPunkRed # Punkish (Static visuals)
+  #- MercenaryClothingOuterArmorPunkRandomized # Punkish (Randomized visuals) > Commented out by Monolith
   - MercenaryClothingOuterArmorCaptainCarapace
   subgroups:
   - MonoMercenaryOuterClothing # Mono
-  - MonoUSSPOuterClothing # Mono
+  # - MonoUSSPOuterClothing # Mono
   - PilotOuterClothing
   - ContractorOuterClothing
 
@@ -87,7 +87,7 @@
   - SecurityHelmet
   - SecurityBeret
   subgroups:
-  - MonoUSSPHead # Mono
+  # - MonoUSSPHead # Mono
   - PilotHead
   - ContractorHead
   - MonoMercenaryHead
@@ -148,7 +148,10 @@
   loadouts:
   - MercenaryClothingMaskGasMercenary
   - MercenaryClothingMaskGasSecurity
-  - MercenaryClothingMaskDrakeIndustriesWatchdog
+  - MercenaryClothingMaskDrakeIndustriesWatchdog #Mono
+  - MercenaryClothingMaskSOM40 #Mono
+  - MercenaryClothingMaskSOM41 #Mono
+  - MercenaryClothingMaskSOM42 #Mono
   subgroups:
   - PilotFace
   - ContractorFace

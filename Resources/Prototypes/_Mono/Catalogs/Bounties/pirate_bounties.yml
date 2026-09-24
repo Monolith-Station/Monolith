@@ -19,7 +19,7 @@
 - type: pirateBounty # Mono
   id: PirateBountyTacsuitHighValue
   reward: 60
-  description: pirate-bounty-description-faction-tacsuit-high 
+  description: pirate-bounty-description-faction-tacsuit-high
   entries:
   - name: pirate-bounty-item-faction-tacsuit-high
     amount: 1
@@ -52,15 +52,15 @@
     amount: 1
     id: ExperimentalFactionWeapon
 
-- type: pirateBounty
-  id: PirateBountyShipWeapon
-  reward: 20
-  description: pirate-bounty-description-shipweapon
-  spawnChest: false
-  entries:
-  - name: pirate-bounty-item-shipweapon
-    amount: 1
-    id: ShipWeapon
+#- type: pirateBounty
+#  id: PirateBountyShipWeapon
+#  reward: 20
+#  description: pirate-bounty-description-shipweapon
+#  spawnChest: false
+#  entries:
+#  - name: pirate-bounty-item-shipweapon
+#    amount: 1
+#    id: ShipWeapon
 
 - type: pirateBounty
   id: PirateBountyFentanylLarge
@@ -80,35 +80,35 @@
 #    amount: 3
 #    id: FentanylCrystal
 
-- type: pirateBounty
-  id: PirateBountyFTLDrive
-  reward: 25
-  description: pirate-bounty-description-generic
-  spawnChest: false
-  entries:
-  - name: pirate-bounty-item-ftldrive
-    amount: 1
-    id: FTLDrive
+#- type: pirateBounty
+#  id: PirateBountyFTLDrive
+#  reward: 25
+#  description: pirate-bounty-description-generic
+#  spawnChest: false
+#  entries:
+#  - name: pirate-bounty-item-ftldrive
+#    amount: 1
+#    id: FTLDrive
 
-- type: pirateBounty
-  id: PirateBountyShipShield
-  reward: 25
-  description: pirate-bounty-description-generic
-  spawnChest: false
-  entries:
-  - name: pirate-bounty-item-shield
-    amount: 1
-    id: ShipShield
+#- type: pirateBounty
+#  id: PirateBountyShipShield
+#  reward: 25
+#  description: pirate-bounty-description-generic
+#  spawnChest: false
+#  entries:
+#  - name: pirate-bounty-item-shield
+#    amount: 1
+#    id: ShipShield
 
-- type: pirateBounty
-  id: PirateBountyGCS
-  reward: 20
-  description: pirate-bounty-description-generic
-  spawnChest: false
-  entries:
-  - name: pirate-bounty-item-gcs
-    amount: 1
-    id: GunneryServer
+#- type: pirateBounty
+#  id: PirateBountyGCS
+#  reward: 20
+#  description: pirate-bounty-description-generic
+#  spawnChest: false
+#  entries:
+#  - name: pirate-bounty-item-gcs
+#    amount: 1
+#    id: GunneryServer
 
 #- type: pirateBounty - Mono
 #  id: PirateBountyMercGun
@@ -138,24 +138,24 @@
     amount: 1
     id: EncryptionKeyFaction # Mono
 
-- type: pirateBounty
-  id: PirateBountyTechfab
-  reward: 10
-  description: pirate-bounty-description-techfab
-  spawnChest: false
-  entries:
-  - name: pirate-bounty-item-techfab
-    amount: 1
-    id: Techfab
+#- type: pirateBounty
+#  id: PirateBountyTechfab
+#  reward: 10
+#  description: pirate-bounty-description-techfab
+#  spawnChest: false
+#  entries:
+#  - name: pirate-bounty-item-techfab
+#    amount: 1
+#    id: Techfab
 
-- type: pirateBounty
-  id: PirateBountyCybernetics
-  reward: 20
-  description: pirate-bounty-description-cybernetics
-  entries:
-  - name: pirate-bounty-item-cybernetics
-    amount: 4
-    id: Cybernetics
+#- type: pirateBounty
+#  id: PirateBountyCybernetics
+#  reward: 20
+#  description: pirate-bounty-description-cybernetics
+#  entries:
+#  - name: pirate-bounty-item-cybernetics
+#    amount: 4
+#    id: Cybernetics
 
 - type: pirateBounty
   id: PirateBountyRTG

@@ -1,14 +1,20 @@
 mono-roguetsf-title = Arms Race (TSF|PDV)
 mono-roguetsf-description = Native PDV imperials threaten the local TSFMC detachment in the sector.
 
+mono-roguetsf-hyperwar-title = Hyperwar (TSF|PDV)
+mono-roguetsf-hyperwar-description = PDV and TSF declared total war, all civilians have been evacuated from the sector.
+
+mono-roguetsf-hyperwar-nuclear-title = Nuclear Hyperwar (TSF|PDV)
+mono-roguetsf-hyperwar-nuclear-description = PDV and TSF declared total war, all civilians have been evacuated from the sector. Round winner is decided by who detonates the bomb.
+
 mono-mixed-title = Mixed (TSF|PDV)
 mono-mixed-description = Native PDV imperials threaten TSF colonial expansion into the sector. The sector seems ripe with a variety of danger.
 
 mono-tsfussp-title = Cold War (TSF)
 mono-tsfussp-description = TSF colonization efforts are threatened by USSP expansion. A cold war is in place between the local TSFMC detachment and USSP colonization forces.
 
-mono-standard-title = Standard (TSF|PDV)
-mono-standard-description = Native PDV imperials threaten TSF colonial expansion into the sector.
+mono-standard-title = Insurgency (TSF|PDV)
+mono-standard-description = The Trans-Solarian Federation's efforts to colonise the Colossus sector are put into danger by a theocratic insurgency, with civilians caught in the crossfire.
 
 mono-ads-title = Remnants (TSF|PDV)
 mono-ads-description = Native PD imperials threaten TSF colonial expansion into the sector. A tense cold war between the TSF Marine Corps detachment. Pre-fracture warriors and defense systems threaten their plans.
@@ -16,5 +22,14 @@ mono-ads-description = Native PD imperials threaten TSF colonial expansion into 
 mono-chimera-title = Biothreat (TSF|PDV)
 mono-chimera-description = Native PDV imperials threaten TSF colonial expansion into the sector. The effects of a far away letoferol outbreak seep in.
 
+mono-chimera-tsf-title = Biothreat (TSF, 3hr)
+mono-chimera-tsf-description = After successfully laying claim to the Colossus sector, the Federation struggles to keep it stable while a devasting bio-weapon wreaks havoc within it.
+
+mono-chimera-pdv-title = Biothreat (PDV, 3hr)
+mono-chimera-pdv-description = After successfully driving off the Federation, the Dynasty now must survive the aftermath as a devastating bio-weapon wreaks havoc in the Colossus Sector.
+
 mono-allatonce-title = Apocalypse (ALL, 3hr)
 mono-allatonce-description = A battleground between PDV, and TSF forces alike, with ancient ADS systems and Chimera bioweapons seeping in.
+
+mono-secret-title = Secret (?)
+mono-secret-description = The main threat of the round is unknown. You'll have to figure that out later.

@@ -1237,9 +1237,9 @@
       tags:
         - CartridgeCap
         - SpeedLoaderCap
-        - Cartridge45_magnumFMJ
-        - SpeedLoader45_magnumFMJ
-    proto: Cartridge45_magnumAP
+        - Cartridge357_magnumFMJ
+        - SpeedLoader357_magnumFMJ
+    proto: Cartridge357_magnumAP
 
 - type: entity
   parent: BaseItem
@@ -1338,10 +1338,10 @@
     - Balloon
 
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, BaseFactionGearOtherFactionT1]
   id: BalloonNT
-  name: nanotrasen balloon
-  description: Specially designed to inflict maximum psychological damage to Syndicate operatives.
+  name: wayward balloon # Mono
+  description: Specially designed to inflict maximum psychological damage.
   components:
   - type: Sprite
     sprite: Objects/Fun/toys.rsi

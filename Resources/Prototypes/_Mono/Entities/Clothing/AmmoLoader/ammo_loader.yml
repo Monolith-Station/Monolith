@@ -54,6 +54,14 @@
     containerId: ammo_loader
   - type: AmmoLoader
     maxConnections: 8
+    maxCapacity: 2000
+  - type: ActivatableUI
+    key: enum.AmmoLoaderUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.AmmoLoaderUiKey.Key:
+        type: AmmoLoaderBoundUserInterface
   - type: ApcPowerReceiver
     powerLoad: 200
   - type: DeviceLinkSource
@@ -101,4 +109,4 @@
             max: 1
   - type: AmmoLoader
     maxConnections: 2
-    maxCapacity: 8
+    maxCapacity: 1000

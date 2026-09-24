@@ -9,6 +9,10 @@ ghost-role-information-tsfmc-core-description = An ADS AI core that has been rep
 ghost-role-information-pdv-core = PDV AI Core
 ghost-role-information-pdv-core-description = An ADS AI core that has been reprogrammed and put onto an Imperial vessel.
 
+# Xenoborg Mothership
+ghost-role-information-Xenoborg-Mothership = Xenoborg Mothership Core
+ghost-role-information-Xenoborg-Mothership-description = A sentient machine that can produce Xenoborgs. Without this the Xenoborgs are doomed.
+
 # AI Core Lawsets
 
 law-vessel-0 = The vessel's owner is the only crew member, unless they designate others as such.
@@ -48,3 +52,15 @@ borg-type-tsfengineer-name = TSFMC Engineer Cyborg
 borg-type-tsfengineer-desc = A cyborg specialized in construction and repair projects.
 borg-type-tsfmedical-name = TSFMC Medical Cyborg
 borg-type-tsfmedical-desc = An emergency response clinical care cyborg designed for active wound care and rapid response.
+
+# xenoborg
+borg-type-BorgChassisSelectableXenoborg-name = Xenoborg Cyborg
+borg-type-BorgChassisSelectableXenoborg-desc = A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army. This type is indecisive and has not specialized in how best to serve the Mothership
+borg-type-xenoborgheavy-name = Xenoborg Heavy
+borg-type-xenoborgheavy-desc = A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army. This type is has heavy lasers and is covered in thick armor plates. It may be tougher, but its speed matches its brawn.
+borg-type-xenoborgengineer-name = Xenoborg Engineer
+borg-type-xenoborgengineer-desc = A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army. This one seems to be an engineering type, as it has more tools for supporting the other Xenoborgs.
+borg-type-xenoborgscout-name = Xenoborg Scout
+borg-type-xenoborgscout-desc = A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army. This is a scout type, its nimble thrusters allow it to move quickly through space.
+borg-type-xenoborgstealth-name = Xenoborg Stealth
+borg-type-xenoborgstealth-desc = A man-machine hybrid that aims to replicate itself. They love extracting brains to insert into fresh Xenoborg chassis to grow their army. This one is a stealth type. Its armor shimmers in the light like no other material you've seen.

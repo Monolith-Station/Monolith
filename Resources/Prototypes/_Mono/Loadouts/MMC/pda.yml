@@ -1,0 +1,41 @@
+- type: loadout
+  id: MieyoEmployeePDA
+  equipment:
+    id: MieyoEmployeePDA
+
+- type: loadoutGroup
+  id: MieyoEmployeePDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - MieyoEmployeePDA
+  fallbacks:
+  - MieyoEmployeePDA
+
+- type: loadout
+  id: MieyoSecurityPDA
+  equipment:
+    id: MieyoSecurityPDA
+
+- type: loadoutGroup
+  id: MieyoSecurityPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - MieyoSecurityPDA
+  fallbacks:
+  - MieyoSecurityPDA
+
+- type: loadout
+  id: MieyoLiasonPDA
+  equipment:
+    id: MieyoLiasonPDA
+
+- type: loadoutGroup
+  id: MieyoLiasonPDA
+  name: loadout-group-contractor-id
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - MieyoLiasonPDA
+  fallbacks:
+  - MieyoLiasonPDA

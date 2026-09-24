@@ -58,7 +58,9 @@ public sealed partial class ProjectileGrenadeSystem : EntitySystem
         var grenadeCoord = _transformSystem.GetMapCoordinates(uid);
         var shootCount = 0;
         var totalCount = component.Container.ContainedEntities.Count + component.UnspawnedCount;
-        var segmentAngle = 360 / totalCount;
+        var segmentAngle = 5; // Mono
+        if (totalCount != 0) // Mono - Stupid fucking sanity check, because it doesn't stop whining about dividing by 0 when I put this shit on a bullet.
+            segmentAngle = 360 / totalCount;
 
         while (TrySpawnContents(grenadeCoord, component, out var contentUid))
         {

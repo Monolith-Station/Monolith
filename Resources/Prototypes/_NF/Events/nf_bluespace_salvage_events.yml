@@ -19,7 +19,7 @@
       grid: !type:GridSpawnGroup
         nameDataset: NamesScrap
         nameDatasetType: Nanotrasen # they're shuttles
-        minCount: 2
+        minCount: 3 #Mono: 2 >> 3
         maxCount: 3
         minimumDistance: 1000
         maximumDistance: 2000
@@ -39,7 +39,7 @@
         - /Maps/_NF/Shuttles/Scrap/nugget.yml
         - /Maps/_NF/Shuttles/Scrap/orange.yml
         - /Maps/_NF/Shuttles/Scrap/point.yml
-        - /Maps/_NF/Shuttles/Scrap/tide.yml
+        #- /Maps/_NF/Shuttles/Scrap/tide.yml # Mono out
         - /Maps/_NF/Shuttles/Scrap/scrap-investigator.yml # Please replace all this maps ones we finish some automated system
         - /Maps/_NF/Shuttles/Scrap/scrap-hauler.yml
         - /Maps/_NF/Shuttles/Scrap/scrap-crescent.yml
@@ -47,6 +47,8 @@
         - /Maps/_NF/Shuttles/Scrap/scrap-courserx.yml
         - /Maps/_NF/Shuttles/Scrap/scrap-comet.yml
         - /Maps/_NF/Shuttles/Scrap/scrap-sprinter.yml
+        #Mono: One day we'll have enough to decommission all the Frontier ones!!
+        - /Maps/_Mono/ShuttleEvent/Scrap/scrap-medicus.yml
   - type: ActiveRadio
     channels:
     - Engineering

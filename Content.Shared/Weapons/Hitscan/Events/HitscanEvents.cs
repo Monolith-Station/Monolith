@@ -55,9 +55,9 @@ public record struct HitscanRaycastFiredEvent
     public Vector2 ShotDirection;
 
     /// <summary>
-    /// The entity that got hit, if null the raycast didn't hit anyone.
+    /// The entities that got hit
     /// </summary>
-    public EntityUid? HitEntity;
+    public HashSet<EntityUid> HitEntities; // Mono edit
 
     /// <summary>
     /// Gun that fired the raycast.

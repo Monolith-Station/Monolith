@@ -1,0 +1,20 @@
+# Industrial ore processor
+- type: latheRecipe
+  id: IriditeSlag
+  result: MaterialIriditeSlag
+  completetime: 5
+  materialDiscountScale: 0.2
+  materials:
+    RawPlasma: 1200
+    LithiumOre: 200
+    CopperOre: 200
+    RawIron: 1600
+    Coal: 400
+
+- type: latheRecipe
+  id: IriditeSlagIntoPowder
+  result: IriditePowder
+  completetime: 30
+  materialDiscountScale: 0
+  materials:
+    IriditeSlag: 1

@@ -1,0 +1,41 @@
+- type: loadout
+  id: MMCRCDLoadout
+  price: 2000
+  storage:
+    back:
+    - RCDMMC
+
+- type: loadout
+  id: MMCRPDLoadout
+  price: 2000
+  storage:
+    back:
+    - RPDMMC
+
+- type: loadout
+  id: MMCMotionDetectorLoadout
+  price: 2000
+  storage:
+    back:
+    - MotionDetectorMMC
+
+- type: loadout
+  id: MMCSRDLoadout
+  price: 30000
+  storage:
+    back:
+    - ShipRepairDeviceMMC
+
+- type: loadout
+  id: MMCVendorLoadout
+  price: 50000
+  storage:
+    back:
+    - VendingMachineMieyoAutomatedFlatpack
+
+- type: loadout
+  id: MMCSandevistanLoadout # Biggest money sink ever
+  price: 2500000
+  storage:
+    back:
+    - AutosurgeonSandevistanMieyoFlatpack

@@ -1,0 +1,34 @@
+#Author: Mrrpip on Github, Skye on Discord
+
+- type: vessel
+  id: QJ340
+  parent: BaseVessel
+  name: GS QJ-340
+  description: A frontloaded fighter with 2 L1 Phalanxes, a Prometheus laser cannon and a Rubicon EMP launcher. Comes with armored thrusters. GS began selling this as a repainted standalone ship after the Tumour's decommissioning.
+  price: 50000
+  category: Small
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj340.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  - Fighter
+  - Mercenary
+  engine:
+  - APU
+
+- type: gameMap
+  id: QJ340
+  mapName: 'QJ-340'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj340.yml
+  minPlayers: 0
+  stations:
+    QJ340:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'QJ-340 MIL{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs: {}

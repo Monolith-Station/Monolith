@@ -16,6 +16,7 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+  iconSmoothSprite: /Textures/_CE/Tiles/Edges/dirt.rsi
 
 # Desert
 - type: tile
@@ -256,11 +257,9 @@
 - type: tile
   id: FloorPlanetGrass
   name: tiles-grass-planet-floor
-  sprite: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_1.png
-  variants: 8
+  sprite: /Textures/_CE/Tiles/Grass/grass.png
+  variants: 6
   placementVariants:
-  - 1.0
-  - 1.0
   - 1.0
   - 1.0
   - 1.0
@@ -269,14 +268,14 @@
   - 1.0
   edgeSpritePriority: 1
   edgeSprites:
-    SouthEast: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_single_edge_se.png
-    NorthEast: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_single_edge_ne.png
-    NorthWest: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_single_edge_nw.png
-    SouthWest: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_single_edge_sw.png
-    South: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_double_edge_s.png
-    East: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_double_edge_e.png
-    North: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_double_edge_n.png
-    West: /Textures/_RMC14/Tiles/planet/auto_strata_grass/grass_double_edge_w.png
+    SouthEast: /Textures/_CE/Tiles/Grass/single_edge_SE.png
+    NorthEast: /Textures/_CE/Tiles/Grass/single_edge_NE.png
+    NorthWest: /Textures/_CE/Tiles/Grass/single_edge_NW.png
+    SouthWest: /Textures/_CE/Tiles/Grass/single_edge_SW.png
+    South: /Textures/_CE/Tiles/Grass/double_edge_S.png
+    East: /Textures/_CE/Tiles/Grass/double_edge_E.png
+    North: /Textures/_CE/Tiles/Grass/double_edge_N.png
+    West: /Textures/_CE/Tiles/Grass/double_edge_W.png
   baseTurf: FloorPlanetDirt
   isSubfloor: true
   footstepSounds:
@@ -287,6 +286,7 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+  iconSmoothSprite: /Textures/_CE/Tiles/Edges/grass.rsi
 
 # Lava
 - type: tile

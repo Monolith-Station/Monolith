@@ -17,9 +17,9 @@ namespace Content.Client.Shuttles.Systems
         {
             base.Initialize();
             SubscribeLocalEvent<PilotComponent, ComponentHandleState>(OnHandleState);
-            
+
             // We don't need to handle BUI events on client-side since the BoundUserInterface class does that
-            
+
             var shuttle = _input.Contexts.New("shuttle", "common");
             shuttle.AddFunction(ContentKeyFunctions.ShuttleStrafeUp);
             shuttle.AddFunction(ContentKeyFunctions.ShuttleStrafeDown);
@@ -28,6 +28,8 @@ namespace Content.Client.Shuttles.Systems
             shuttle.AddFunction(ContentKeyFunctions.ShuttleRotateLeft);
             shuttle.AddFunction(ContentKeyFunctions.ShuttleRotateRight);
             shuttle.AddFunction(ContentKeyFunctions.ShuttleBrake);
+            shuttle.AddFunction(ContentKeyFunctions.ShuttleAscend); // Mono
+            shuttle.AddFunction(ContentKeyFunctions.ShuttleDescend); // Mono
         }
 
         public override void Shutdown()

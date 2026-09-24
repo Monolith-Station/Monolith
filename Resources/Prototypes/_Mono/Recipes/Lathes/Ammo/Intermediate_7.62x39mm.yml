@@ -71,6 +71,11 @@
 
 - type: latheRecipe
   parent: BaseAmmoFMJIntermediateAmmoBoxRecipe
+  id: Magazine762x39mmBox
+  result: Magazine762x39mmBox
+
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateAmmoBoxRecipe
   id: MagazineAsmgtUniversal762x39mm
   result: MagazineAsmgtUniversal762x39mm
 

@@ -1,5 +1,6 @@
-﻿- type: entity
+- type: entity
   id: PlantBox
+  categories: [ HideSpawnMenu ] # Mono: depricated, Use NF variant
   name: plant box
   description: A large storage container for holding plants and seeds.
   parent: BaseStructureDynamic
@@ -34,21 +35,7 @@
   - type: Climbable
 
   # plantbox-specific
-  - type: Sprite
-    noRot: true
-    sprite: _NF/Structures/Storage/plantbox.rsi
-    layers:
-    - state: plantbox
-    - state: plantbox-top
-      map: [ top ]
-      visible: true
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.StorageVisuals.Open:
-        top:
-          True: { visible: false }
-          False: { visible: true }
   - type: Storage
     grid:
     - 0,0,19,9

@@ -1,0 +1,34 @@
+# Scrubbers
+- type: entity
+  parent: [GasVentScrubber]
+  id: GasVentScrubberAlt1
+  suffix: Secondary Configuration
+  components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
+
+- type: entity
+  parent: [GasVentScrubber]
+  id: GasVentScrubberAlt2
+  suffix: Tertiary Configuration
+  components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
+
+# Vent Pumps
+
+- type: entity
+  parent: [GasVentPump]
+  id: GasVentPumpAlt1
+  suffix: Secondary Configuration
+  components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
+
+- type: entity
+  parent: [GasVentPump]
+  id: GasVentPumpAlt2
+  suffix: Tertiary Configuration
+  components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2

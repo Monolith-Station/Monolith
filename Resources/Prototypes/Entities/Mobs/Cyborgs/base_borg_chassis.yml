@@ -6,6 +6,8 @@
   save: false
   abstract: true
   components:
+  - type: SurgerySpeedModifier # Mono
+  - type: Stripping # Mono
   - type: SurgeryTarget # Mono
   - type: Sanitized # Mono
   - type: Reactive
@@ -137,8 +139,15 @@
     activated: false # gets activated when a mind is added
     onUse: false # no item-borg toggling sorry
   #- type: ItemTogglePointLight # Mono - Light removal PR: Borg Adjustments
-  - type: NightVision # Mono
-    color: "#808080"
+  - type: NightVision # Gen 3 wide-quadtube
+    relayOverlay: false
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#00FF00"
+    lightingColor: "#FFFFFF32"
   - type: AccessToggle
   # TODO: refactor movement to just be based on toggle like speedboots but for the boots themselves
   # TODO: or just have sentient speedboots be fast idk
@@ -319,6 +328,28 @@
     maxIntensity: 20
     canCreateVacuum: false # its for killing the borg not the station
 
+# Xenoborg Transponder
+- type: entity
+  abstract: true
+  parent: BaseBorgTransponder
+  id: BaseXenoborgTransponder
+  components:
+  - type: DeviceNetwork
+    receiveFrequencyId: Xenoborgs
+    transmitFrequencyId: Mothership
+  - type: SurveillanceCamera # they act like cameras for the mothership
+    networkSet: true
+    nameSet: True
+    id: Xenoborg
+    useEntityNameAsCameraId: true
+  - type: Explosive
+    explosionType: Minibomb
+    deleteAfterExplosion: false # let damage threshold gib the borg
+    totalIntensity: 200 # bigger kaboom
+    intensitySlope: 20
+    maxIntensity: 100
+    canCreateVacuum: false
+
 - type: entity
   id: BaseBorgChassisNT
   parent: [BaseBorgChassis, BaseBorgTransponder]
@@ -335,6 +366,7 @@
     tags:
      - External # Mono
      - Mercenary # Mono
+     - Borg
     enabled: false
 #   groups:
 #    - AllAccess # Mono

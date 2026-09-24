@@ -1,0 +1,9 @@
+- type: entity
+  id: ActionActivatePersonalShield
+  name: Activate personal shield
+  description: "Activates suit's personal energy shield that slowly consumes battery charge."
+  components:
+  - type: InstantAction
+    event: !type:PersonalShieldActionEvent
+    useDelay: 1
+    priority: 3

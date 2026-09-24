@@ -1,0 +1,41 @@
+- type: startingGear
+  id: MarsocOperativeGear
+  equipment:
+    jumpsuit: ClothingUniformTsfmcMopp
+    back: ClothingBackpackERTLeader
+    eyes: ClothingEyesHudNfsd
+    ears: ClothingHeadsetAltTsfmcMarsoc
+    gloves: ClothingHandsGlovesTacticalCombatBlack
+    outerClothing: ClothingOuterHardsuitM86Mk4
+    shoes: ClothingShoesBootsMagAdv
+    id: MarsocPDA
+    pocket1: CrowbarPocket
+    pocket2: WeaponPistolMk58
+    belt: ClothingBeltWebbingsNormalTSFMC
+    neck: ClothingNeckIFFCyan
+    suitStorage: OxygenTankFilled
+  inhand:
+  - WeaponLMGMR8B
+  - GunAttachmentGripErebusLAM
+  storage:
+    back:
+    - RadioHandheldNF
+    - BaseSecurityUplinkRadioDeputy
+    - DoubleEmergencyOxygenTank
+    - MedkitCombatFilled
+    - MedkitCombatFilled
+    - SyringeCaseAltFilled
+    - JetpackMiniFilled
+    - EnergyShieldNfsd
+    - EnergySwordNfsd
+    - BluespaceLifelineImplanter
+    - PinpointerUniversal
+    belt:
+    - Magazine8x65mmSKR
+    - Magazine8x65mmSKR
+    - Magazine8x65mmSKR
+    - Magazine8x65mmSKR
+    - AmmoBox8x65mmSKR
+    - AmmoBox8x65mmSKRIncendiary
+    - MotionDetectorBorg
+    - HandHeldMassScannerBorg

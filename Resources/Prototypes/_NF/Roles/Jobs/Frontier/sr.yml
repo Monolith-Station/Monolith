@@ -30,7 +30,13 @@
   - AllAccessMono #Mono
   access:
   - HeadOfPersonnel #Mono
+  guides:
+  - Caelestinus
   special:
+  - !type:AddComponentSpecial
+    components:
+    - type: ChatRank
+      rank: cc-overseer
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ] # Mono - remove TSFMC implant
   - !type:AddComponentSpecial
@@ -57,3 +63,4 @@
     - EncryptionKeyDiplomacy
     - ShipVoucherFrontierGuard
     - PhoneInstrumentHigh
+    - CCHandheldOverwatchConsole

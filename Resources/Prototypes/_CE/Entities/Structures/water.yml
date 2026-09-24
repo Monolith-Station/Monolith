@@ -1,0 +1,82 @@
+# Ported from CrystalEdge
+- type: entity
+  id: CEWater
+  name: water
+  description: You're definitely going to get your feet wet.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: PlacementReplacement
+    key: floorTile
+  - type: Transform
+    anchored: true
+  - type: FloorOccluder
+  - type: Clickable
+  - type: SyncSprite
+  - type: Sprite
+    sprite: _CE/Structures/Nature/water.rsi
+    state: static
+    drawdepth: Puddles
+  - type: CEIconSmooth
+    key: floorTile
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: SolutionContainerManager
+    solutions:
+      pool:
+        maxVol: 9999999
+        reagents:
+        - ReagentId: Water
+          Quantity: 9999999
+  - type: SolutionRegeneration
+    solution: pool
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 100
+  - type: DrainableSolution
+    solution: pool
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    blacklist:
+      tags:
+      - Catwalk
+  - type: TileEntityEffect
+    effects:
+    - !type:ExtinguishReaction
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepWater
+      params:
+        volume: 8
+  - type: CESafeFalling
+  - type: AmbientSound
+    volume: 5
+    range: 4
+    sound:
+      path: /Audio/_CE/Ambience/water.ogg
+
+- type: entity
+  parent: CEWater
+  id: CEWaterMoving
+  suffix: Moving
+  components:
+  - type: Sprite
+    state: moving
+    snapCardinals: false

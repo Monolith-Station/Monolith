@@ -15,9 +15,26 @@
   - type: Physics
     canCollide: false
   - type: Sprite
-    drawdepth: WallMountedItems # Frontier: SmallObjects<WallMountedItems
+    offset: 0, -0.25
+    drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    layers:
+    - state: base
+    - map: [ "shaded" ]
+      state: off
+    - map: [ "unshaded" ]
+      state: off-unshaded
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.SwitchVisuals.Visuals:
+        shaded:
+          True: { state: on }
+          False: { state: off }
+        unshaded:
+          True: { state: on-unshaded }
+          False: { state: off-unshaded }
   - type: SignalSwitch
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
@@ -40,6 +57,9 @@
   - type: Tag
     tags:
     - Structure
+  - type: ShipRepairable # Mono
+    repairTime: 1
+    repairCost: 5
 
 - type: entity
   id: SignalButton
@@ -58,9 +78,14 @@
   - type: Physics
     canCollide: false
   - type: Sprite
-    drawdepth: WallMountedItems # Frontier: SmallObjects<WallMountedItems
+    offset: 0, -0.25
+    drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/switch.rsi
-    state: dead
+    layers:
+    - state: base
+    - state: button
+    - state: button-unshaded
+      shader: unshaded
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
   - type: SignalSwitch
@@ -104,6 +129,9 @@
   - type: Tag
     tags:
     - Structure
+  - type: ShipRepairable # Mono
+    repairTime: 1
+    repairCost: 5
 
 - type: entity
   id: ApcNetSwitch
@@ -123,9 +151,26 @@
     - type: Transform
       anchored: true
     - type: Sprite
-      drawdepth: WallMountedItems # Frontier: SmallObjects<WallMountedItems
+      offset: 0, -0.25
+      drawdepth: WallMountedItems
       sprite: Structures/Wallmounts/switch.rsi
-      state: on
+      layers:
+      - state: base
+      - map: [ "shaded" ]
+        state: off
+      - map: [ "unshaded" ]
+        state: off-unshaded
+        shader: unshaded
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.SwitchVisuals.Visuals:
+          shaded:
+            True: { state: on }
+            False: { state: off }
+          unshaded:
+            True: { state: on-unshaded }
+            False: { state: off-unshaded }
     - type: Rotatable
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -194,6 +239,9 @@
     - type: Tag
       tags:
       - Structure
+    - type: ShipRepairable # Mono
+      repairTime: 1
+      repairCost: 5
 
 #directional
 
@@ -243,16 +291,30 @@
   components:
   - type: Appearance
   - type: Lock
-  - type: LockVisuals
   - type: AccessReader
   - type: Sprite
+    offset: 0, -0.25
     drawdepth: WallMountedItems
-    sprite: Structures/Wallmounts/locked_switch.rsi
+    sprite: Structures/Wallmounts/switch-lockable.rsi
     layers:
     - state: base
-    - state: locked
-      map: ["enum.LockVisualLayers.Lock"]
+    - state: button
+    - state: button-unshaded
       shader: unshaded
+    - map: [ "lock-shaded" ]
+      state: lock-locked
+    - map: [ "lock-unshaded" ]
+      state: lock-locked-unshaded
+      shader: unshaded
+  - type: GenericVisualizer
+    visuals:
+      enum.LockVisuals.Locked:
+        lock-shaded:
+          True: { state: lock-locked }
+          False: { state: lock-unlocked }
+        lock-unshaded:
+          True: { state: lock-locked-unshaded }
+          False: { state: lock-unlocked-unshaded }
 
 - type: entity
   id: LockableButtonCaptain
@@ -520,8 +582,9 @@
   - type: Physics
     canCollide: false
   - type: Sprite
+    offset: 0, -0.25
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: Structures/Wallmounts/switch-frame.rsi
     state: grey
   - type: Rotatable
   - type: Fixtures
@@ -533,7 +596,7 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: Structures/Wallmounts/switch-frame.rsi
     state: grey
   # Frontier: constructible button frames
   - type: Construction
@@ -548,7 +611,7 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: Structures/Wallmounts/switch-frame.rsi
     state: caution
   # Frontier: constructible button frames
   - type: Construction
@@ -563,8 +626,8 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
-    state: caution_security
+    sprite: Structures/Wallmounts/switch-frame.rsi
+    state: caution-security
   # Frontier: constructible button frames
   - type: Construction
     graph: ButtonFrameGraph
@@ -578,8 +641,8 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
-    state: exit
+    sprite: Structures/Wallmounts/switch-frame.rsi
+    state: white
   # Frontier: constructible button frames
   - type: Construction
     graph: ButtonFrameGraph
@@ -593,7 +656,7 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch_frame.rsi
+    sprite: Structures/Wallmounts/switch-frame.rsi
     state: janitor
   # Frontier: constructible button frames
   - type: Construction

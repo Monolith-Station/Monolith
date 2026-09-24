@@ -1,0 +1,39 @@
+- type: entity
+  parent: BaseGateway
+  id: GatewayNode
+  name: node zeta transit gateway
+  description: Transports you from point A to point B. No safety guarantee provided once travel is commenced.
+  components:
+  - type: ActivatableUI
+    key: enum.GatewayUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GatewayUiKey.Key:
+        type: GatewayBoundUserInterface
+  - type: Gateway
+    enabled: true
+#    tagRestriction: Node  #TODO: implement this
+  - type: Tag
+    tags:
+    - Structure
+    - Central
+
+- type: entity
+  parent: BaseGateway
+  id: GatewayCentral
+  name: central transit gateway
+  description: Transports you from point A to point B. No safety guarantee provided once travel begins.
+  components:
+  - type: ActivatableUI
+    key: enum.GatewayUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GatewayUiKey.Key:
+        type: GatewayBoundUserInterface
+  - type: Gateway
+    enabled: true
+ #   tagRestriction: Central  #TODO: implement this
+  - type: Tag
+    tags:
+    - Structure
+    - Node

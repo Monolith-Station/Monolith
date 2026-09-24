@@ -46,6 +46,24 @@
     Biomass: 20
 
 - type: latheRecipe
+  id: OwOroachCube
+  result: OwOroachCube
+  categories: # Mono
+  - DangerousAnimals
+  completetime: 45
+  materials:
+    Biomass: 20
+
+- type: latheRecipe
+  id: MothroachMustardCube
+  result: MothroachMustardCube
+  categories: # Mono
+  - Animals
+  completetime: 45
+  materials:
+    Biomass: 20
+
+- type: latheRecipe
   id: MouseCube
   result: MouseCube
   categories: # Mono

@@ -13,7 +13,7 @@
   parent: BaseFlatpack
   id: AK570Flatpack
   name: AK570 flatpack
-  description: A flatpack used for constructing an AK570 90mm autocannon.
+  description: A flatpack used for constructing an AK570 57mm autocannon.
   components:
   - type: Flatpack
     entity: WeaponTurretAK570
@@ -188,6 +188,34 @@
 
 - type: entity
   parent: BaseNFFlatpack
+  id: USSPLatheFlatpack
+  name: ussp field assembler flatpack
+  description: A flatpack used for constructing a techfab for manufacturing USSP-specific recipes.
+  components:
+  - type: Flatpack
+    entity: USSPLathe
+  - type: StaticPrice
+    vendPrice: 26250 #1.75x the price of a Mercenary fab.
+  - type: Sprite
+    layers:
+    - state: science_server
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: ViperLatheFlatpack
+  name: Viper precision flatpack
+  description: A flatpack used for constructing a techfab for manufacturing faction-specific recipes.
+  components:
+  - type: Flatpack
+    entity: FactionLathe
+  - type: StaticPrice
+    vendPrice: 26250 #1.75x the price of a Mercenary fab.
+  - type: Sprite
+    layers:
+    - state: science_server
+
+- type: entity
+  parent: BaseNFFlatpack
   id: MedicalAssemblerFlatpack
   name: medical assembler flatpack
   description: A flatpack used for constructing a medical assembler.
@@ -215,7 +243,7 @@
   description: A flatpack used for constructing an ore box.
   components:
   - type: Flatpack
-    entity: OreBox
+    entity: NFMagnetBoxOre
   - type: StaticPrice
     price: 500
   - type: PhysicalComposition
@@ -230,7 +258,7 @@
   description: A flatpack used for constructing a construction box.
   components:
   - type: Flatpack
-    entity: ConstructionBox
+    entity: NFMagnetBoxConstruction
   - type: StaticPrice
     price: 500
   - type: PhysicalComposition
@@ -238,6 +266,20 @@
       Steel: 100
       Glass: 30
 
+- type: entity
+  parent: BaseNFFlatpack
+  id: ScrapBoxFlatpack
+  name: scrap box flatpack
+  description: A flatpack used for constructing a scrap box.
+  components:
+  - type: Flatpack
+    entity: NFMagnetBoxRubbish
+  - type: StaticPrice
+    price: 500
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Glass: 30
 
 - type: entity
   parent: BaseNFFlatpack
@@ -306,7 +348,7 @@
   - type: StaticPrice
     price: 4000
     vendPrice: 10000
-    
+
 - type: entity
   parent: MedicalTechFabFlatpack
   id: ChemMasterFilledFlatpack
@@ -318,3 +360,27 @@
   - type: StaticPrice
     price: 1000
     vendPrice: 8000
+
+- type: entity
+  parent: UniformPrinterFlatpack
+  id: InteractorCCTCFlatpack
+  name: proprietary interactor flatpack
+  description: A flatpack used for constructing a proprietary interactor.
+  components:
+  - type: Flatpack
+    entity: InteractorCCTC
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 5000
+
+- type: entity
+  parent: UniformPrinterFlatpack
+  id: RoboticArmCCTCFlatpack
+  name: proprietary robotic arm flatpack
+  description: A flatpack used for constructing a proprietary robotic arm.
+  components:
+  - type: Flatpack
+    entity: RoboticArmCCTC
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 4000

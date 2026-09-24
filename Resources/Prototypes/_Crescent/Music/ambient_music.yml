@@ -116,7 +116,12 @@
 - type: ambientMusic
   id: BiomeFarReachesIV
   sound:
-    collection: BiomeFarReachesIII
+    collection: BiomeFarReachesIV
+    
+- type: soundCollection #I don't know why reusing the far reaches iii soundcollection breaks so here we are
+  id: BiomeFarReachesIV
+  files:
+   - /Audio/_Crescent/Ambient/FarReaches/far_reaches_iii.ogg
 
 # far reaches III
 - type: ambientMusic
@@ -199,6 +204,45 @@
    - /Audio/_Crescent/Ambient/InnerRing/inner_ring_4.ogg
    - /Audio/_Crescent/Ambient/InnerRing/inner_ring_5.ogg
    - /Audio/_Crescent/Ambient/InnerRing/inner_ring_6.ogg
+
+# clusters
+- type: ambientMusic
+  id: BiomeClusterA
+  sound:
+    collection: BiomeClusterA
+
+- type: soundCollection
+  id: BiomeClusterA
+  files:
+  - /Audio/_Crescent/Ambient/Wilds/wilds_1.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_2.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_3.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_4.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_5.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_6.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_7.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_8.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_9.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_10.ogg
+
+- type: ambientMusic
+  id: BiomeWilds
+  sound:
+    collection: BiomeWilds
+
+- type: soundCollection
+  id: BiomeWilds
+  files:
+  - /Audio/_Crescent/Ambient/Wilds/wilds_1.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_2.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_3.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_4.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_5.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_6.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_7.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_8.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_9.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_10.ogg
 
 
 

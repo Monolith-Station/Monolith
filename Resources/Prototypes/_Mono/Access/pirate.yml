@@ -5,3 +5,10 @@
 - type: accessLevel
   id: PDVCommand
   name: id-card-access-level-pdv-command
+
+- type: accessGroup
+  id: PDV
+  tags:
+  - GrandVizier
+  - PDVCommand
+  - Pirate

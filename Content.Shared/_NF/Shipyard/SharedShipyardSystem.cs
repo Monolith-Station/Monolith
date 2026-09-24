@@ -22,7 +22,9 @@ public enum ShipyardConsoleUiKey : byte
     // Mono start
     Ussp,
     SHM,
+    Mieyo,
     DrakeIndustries,
+    Viper,
     // Add ships to this key if they are only available from mothership consoles. Shipyards using it are inherently empty and are populated using the ShipyardListingComponent.
     Custom
 }

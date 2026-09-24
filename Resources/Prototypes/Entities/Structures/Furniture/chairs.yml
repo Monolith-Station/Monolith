@@ -127,6 +127,15 @@
     state: chair-greyscale
 
 - type: entity
+  name: chair
+  id: ChairBlack
+  parent: Chair
+  suffix: Black
+  components:
+  - type: Sprite
+    state: chair-black
+
+- type: entity
   name: stool
   id: Stool
   parent: UnanchoredChairBase

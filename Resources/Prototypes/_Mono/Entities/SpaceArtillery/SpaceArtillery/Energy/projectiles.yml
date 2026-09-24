@@ -10,7 +10,7 @@
     damage:
       types:
         Radiation: 25
-        Structural: 1500
+        Structural: 3000
         Heat: 50
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
@@ -30,8 +30,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 60
-    intensitySlope: 8
+    totalIntensity: 90
+    intensitySlope: 9
     maxIntensity: 12
     maxTileBreak: 3
 
@@ -129,9 +129,9 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 5
-        Structural: 10
-        Heat: 10
+        Radiation: 15
+        Structural: 35
+        Heat: 65
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
     layers:
@@ -149,9 +149,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 3
-    intensitySlope: 3
-    maxIntensity: 3
+    totalIntensity: 32
+    intensitySlope: 4
+    maxIntensity: 4
 
 # Type 241
 
@@ -202,7 +202,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 15
+        Structural: 300
         Heat: 35
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
@@ -282,7 +282,7 @@
     scale: 3.5
     shape: triangle
   - type: TimedDespawn
-    lifetime: 10
+    lifetime: 7.2
   - type: PointLight
     color: "#6BC1FF"
   - type: ExplodeOnTrigger
@@ -476,7 +476,7 @@
   - type: HitscanBasicDamage
     damage:
      types:
-       Heat: 120
+       Heat: 150
        Structural: 500
   - type: HitscanRadarSignature
     radarColor: "#5d46e2"

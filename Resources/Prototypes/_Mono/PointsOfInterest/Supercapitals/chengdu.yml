@@ -1,0 +1,56 @@
+# Author Info
+# GitHub: kasature90
+# Discord: _starch_
+
+# Notes: Wow.
+
+- type: pointOfInterest
+  id: Chengdu
+  parent: [BaseMobilePOI, BaseRepairablePOI]
+  name: 'TSFN Chengdu'
+  minimumDistance: 4500
+  maximumDistance: 5500
+  spawnGamePreset: [ MonoRogueTSFHyperwar ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/Supercapitals/chengdu.yml
+  addComponents:
+  - type: IFF
+    color: "#047abd"
+    flags: [HideLabel]
+    readOnly: false
+
+- type: gameMap
+  id: Chengdu
+  mapName: 'TSFN Chengdu'
+  mapPath: /Maps/_Mono/Supercapitals/chengdu.yml
+  minPlayers: 0
+  stations:
+    Chengdu:
+      stationProto: RecordsFrontierOutpostCargo
+      gridComponents:
+      - type: VesselInfo
+        description: "Enough heavy weapons to crack a planet."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'TSFN Chengdu'
+        - type: ExtraStationInformation
+          icon:
+            sprite: _NF/Structures/Decoration/banner.rsi
+            state: nfsd-banner
+          stationSubtext: 'frontier-lobby-chengdu-subtext'
+          stationDescription: 'frontier-lobby-chengdu-description'
+          lobbySortOrder: 2
+        - type: StationJobs
+          availableJobs:
+            Sheriff: [ 0, 1 ]
+            Bailiff: [ 0, 1 ]
+            SeniorOfficer: [ 0, 2 ]
+            Brigmedic: [ 0, 2 ]
+            Deputy: [ 0, -1 ]
+            TsfEngineer: [ 0, 2 ]
+            TsfBorg: [ 0, 2 ]
+          tags:
+          - CentralCommand
+        - type: StationDeadDropReporting
+          messageSet: Nfsd
+        - type: StationDeadDropHintExempt

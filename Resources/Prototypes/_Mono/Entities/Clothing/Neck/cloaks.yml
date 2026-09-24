@@ -75,6 +75,15 @@
 
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingNeckTSFCloak
+  name: tsf officer's cloak
+  description: A more subtle TSFMC cloak for an officer to blend in while still appearing commanding.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Cloaks/tsfcloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ClothingNeckCloakCOG
   name: Old robe
   description: An ancient crimson draping from a now-defunct cult.
@@ -96,3 +105,13 @@
     clothingPrototypes:
       head: ClothingHeadHatCOG
 
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakCCTC
+  name: executive's cloak
+  description: A pompous and elite green cloak with a nice gold trim, tailored specifically for executives of the Creon-Centennial Trade Charter. It's so heavy, the gold trim might be real.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/centcomcloakformal.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak # leaving this here because I suppose it might be interesting?

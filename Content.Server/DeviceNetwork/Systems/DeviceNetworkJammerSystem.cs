@@ -38,5 +38,4 @@ public sealed partial class DeviceNetworkJammerSystem : SharedDeviceNetworkJamme
             }
         }
     }
-
 }

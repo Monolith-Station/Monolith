@@ -1,0 +1,35 @@
+- type: vessel
+  id: Gadfly
+  parent: BaseVesselIFFDisabled
+  name: PDV Gadfly
+  description: A short-range light support craft armed with 2 57mm AK570 autocannons and 2 150mm TARNYXs.
+  price: 68000
+  category: Small
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/gadfly.yml
+  guidebookPage: Null
+  class:
+  - Brawler
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Gadfly
+  mapName: 'PDV Gadfly'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/gadfly.yml
+  minPlayers: 0
+  stations:
+    Gadfly:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Gadfly PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

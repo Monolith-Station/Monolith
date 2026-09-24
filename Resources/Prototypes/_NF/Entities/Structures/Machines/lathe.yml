@@ -42,6 +42,7 @@
     runningState: icon
     staticPacks:
     - NFServiceTechfabDeprecatedStatic
+    - ReportingStatic # DeltaV
     dynamicPacks:
     - NFServiceTechfabDeprecated
   - type: EmagLatheRecipes
@@ -150,7 +151,9 @@
     - NFNfsdTechfabDeprecatedStatic
     - StaticAmmoRecipePack
     - RoundstartShipgunAmmo # Mono
+    - StaticGrenades
     - MonoAttachmentsStatic # Mono
+    - ReportingStatic # DeltaV
     dynamicPacks:
     - NFNfsdTechfabDeprecated
     - DynamicAmmoRecipePack
@@ -199,6 +202,7 @@
     - StaticAmmoRecipePack
     - MonoRestraintsStatic # Mono
     - RoundstartShipgunAmmo # Mono
+    - StaticGrenades
     - MonoAttachmentsStatic # Mono
     dynamicPacks:
     - NFMercenaryTechfabDeprecated
@@ -210,10 +214,6 @@
     - MonoRogueWeaponsDynamicMelee
     - MonoRogueWeaponsDynamicRanged
     - MonoRogueMiscDynamic
-    - MonoUSSPArmorDynamic
-    - MonoUSSPMiscDynamic
-    - MonoUSSPWeaponsDynamicRanged
-    - MonoViperGroupDynamic
     # Universal shit (stuff like shipgun ammo)
     - UniversalRailgunAmmo
     - UniversalMissileAmmo
@@ -270,6 +270,7 @@
     - StaticAmmoRecipePack
     - MonoRestraintsStatic
     - RoundstartShipgunAmmo # Mono
+    - StaticGrenades
     - MonoAttachmentsStatic # Mono
     dynamicPacks:
     - NFHackedMercenaryTechfabDeprecated
@@ -282,10 +283,6 @@
     - MonoRogueWeaponsDynamicMelee
     - MonoRogueWeaponsDynamicRanged
     - MonoRogueMiscDynamic
-    - MonoUSSPArmorDynamic
-    - MonoUSSPMiscDynamic
-    - MonoViperGroupDynamic
-    - MonoUSSPWeaponsDynamicRanged
     # Universal shit (stuff like shipgun ammo)
     - UniversalRailgunAmmo
     - UniversalMissileAmmo
@@ -405,6 +402,35 @@
     productValueModifier: null
     staticPacks:
     - NFScrapStatic
+    - MonoTradeCratesScrapProcessor
+
+- type: entity
+  id: MedicalAssembler
+  parent: BaseLatheAssembler
+  name: medical assembler
+  description: Great for medicine, apparently. You don't know how it works.
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Machines/medical_assembler.rsi
+    snapCardinals: true
+    layers:
+    - state: mediwave-base
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: mediwave-off-unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: ApcPowerReceiver
+    powerLoad: 500
+  - type: Machine
+    board: MedicalAssemblerMachineCircuitboard
+  - type: Lathe
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: mediwave-base
+    unlitIdleState: mediwave-off-unlit
+    unlitRunningState: mediwave-on-unlit
+    staticPacks:
+    - MedicalAssemblerStatic
 
 - type: entity
   id: BiogeneratorFill

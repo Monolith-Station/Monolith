@@ -1,20 +1,21 @@
 using System.Linq;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._Lua.AmmoLoader;
 using Content.Shared._Mono.AmmoLoader;
 using Content.Server._Mono.SpaceArtillery.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
-using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Mono.AmmoLoader;
 
@@ -26,13 +27,14 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
     [Dependency] private GunSystem _gun = default!;
     [Dependency] private ItemSlotsSystem _slots = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<AmmoLoaderComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<AmmoLoaderComponent, InteractHandEvent>(OnInteractHand);
-        SubscribeLocalEvent<AmmoLoaderComponent, GetVerbsEvent<AlternativeVerb>>(AddFlushVerb);
         SubscribeLocalEvent<AmmoLoaderComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<AmmoLoaderComponent, LinkAttemptEvent>(OnLinkAttempt);
     }
@@ -56,94 +58,13 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
         _deviceLink.EnsureSourcePorts(ent, ent.Comp.LoadPort);
     }
 
-    private void OnInteractHand(Entity<AmmoLoaderComponent> ent, ref InteractHandEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (ent.Comp.Container.ContainedEntities.Count > 0)
-        {
-            TryEjectContents(ent, ent.Comp);
-            args.Handled = true;
-        }
-    }
-
-    private void AddFlushVerb(Entity<AmmoLoaderComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
-    {
-        if (!args.CanAccess || !args.CanInteract)
-            return;
-
-        if (ent.Comp.Container.ContainedEntities.Count == 0)
-            return;
-
-        var user = args.User;
-
-        var ejectableCount = 0;
-
-        foreach (var contained in ent.Comp.Container.ContainedEntities)
-        {
-            if (_containers.CanRemove(contained, ent.Comp.Container))
-                ejectableCount++;
-        }
-
-        if (ejectableCount > 0)
-        {
-            AlternativeVerb ejectVerb = new()
-            {
-                Act = () => TryEjectContents(ent, ent.Comp),
-                Category = VerbCategory.Eject,
-                Text = Loc.GetString("ammo-loader-eject-verb"),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/eject.svg.192dpi.png")),
-                Priority = 0,
-            };
-            args.Verbs.Add(ejectVerb);
-        }
-
-        var linkedArtillery = GetLinkedArtillery(ent);
-
-        foreach (var artillery in linkedArtillery)
-        {
-            var artilleryName = MetaData(artillery).EntityName;
-            var artilleryId = artillery.ToString();
-
-            var (ammoCount, ammoCapacity) = (0, 0);
-            if (_gun.TryGetGun(artillery, out var gunUid, out _))
-            {
-                if (TryComp<MagazineAmmoProviderComponent>(gunUid, out _))
-                {
-                    var ev = new GetAmmoCountEvent();
-                    RaiseLocalEvent(gunUid, ref ev, false);
-                    ammoCount = ev.Count;
-                    ammoCapacity = ev.Capacity;
-                }
-                else if (TryComp<BallisticAmmoProviderComponent>(gunUid, out var ammoProvider))
-                {
-                    ammoCount = ammoProvider.Count;
-                    ammoCapacity = ammoProvider.Capacity;
-                }
-            }
-
-            AlternativeVerb flushVerb = new()
-            {
-                Act = () => TryFlushToArtillery(ent, ent.Comp, artillery, user),
-                Text = Loc.GetString("ammo-loader-flush-to-artillery-with-ammo-and-id",
-                    ("artillery", artilleryName),
-                    ("ammo", ammoCount),
-                    ("capacity", ammoCapacity),
-                    ("id", artilleryId)),
-                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/eject.svg.192dpi.png")),
-                Priority = 1,
-            };
-            args.Verbs.Add(flushVerb);
-        }
-    }
-
     private void OnAfterInteractUsing(Entity<AmmoLoaderComponent> ent, ref AfterInteractUsingEvent args)
     {
         if (args.Handled || !args.CanReach)
             return;
 
-        if (ent.Comp.Container.ContainedEntities.Count >= ent.Comp.MaxCapacity)
+        if (AmmoLoaderCapacity.GetStoredAmmoUnitCount(EntityManager, ent.Comp) +
+            AmmoLoaderCapacity.GetStoredAmmoUnitCount(EntityManager, args.Used) > ent.Comp.MaxCapacity)
         {
             _popup.PopupEntity(Loc.GetString("ammo-loader-insert-fail"), ent, args.User);
             args.Handled = true;
@@ -168,20 +89,19 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
         if (!_containers.CanInsert(entity, component.Container))
             return false;
 
+        if (AmmoLoaderCapacity.GetStoredAmmoUnitCount(EntityManager, component) +
+            AmmoLoaderCapacity.GetStoredAmmoUnitCount(EntityManager, entity) > component.MaxCapacity)
+            return false;
+
+        if (AmmoLoaderCapacity.IsEmptyAmmoContainer(EntityManager, entity))
+            return false;
+
         if (!HasComp<BallisticAmmoProviderComponent>(entity) &&
             !HasComp<AmmoComponent>(entity) &&
             !HasComp<CartridgeAmmoComponent>(entity))
             return false;
 
         return true;
-    }
-
-    private void TryEjectContents(Entity<AmmoLoaderComponent> ent, AmmoLoaderComponent component)
-    {
-        foreach (var entity in component.Container.ContainedEntities.ToArray())
-        {
-            _containers.Remove(entity, component.Container);
-        }
     }
 
     private bool ValidateFlush(Entity<AmmoLoaderComponent> ent, AmmoLoaderComponent component, EntityUid user)
@@ -222,7 +142,7 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
         }
     }
 
-    private List<EntityUid> GetLinkedArtillery(Entity<AmmoLoaderComponent> loader)
+    public IReadOnlyList<EntityUid> GetLinkedArtillery(Entity<AmmoLoaderComponent> loader)
     {
         var linkedArtillery = new List<EntityUid>();
 
@@ -231,24 +151,316 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
 
         foreach (var (linkedEntity, portLinks) in sourceComponent.LinkedPorts)
         {
-            foreach (var (sourcePort, sinkPort) in portLinks)
-            {
-                if (sourcePort == loader.Comp.LoadPort)
-                {
-                    if (HasComp<SpaceArtilleryComponent>(linkedEntity))
-                    {
-                        if (!linkedArtillery.Contains(linkedEntity))
-                        {
-                            linkedArtillery.Add(linkedEntity);
-                        }
+            if (!Exists(linkedEntity) || portLinks.Count == 0) continue;
+            var isArtillery = HasComp<SpaceArtilleryComponent>(linkedEntity) || (HasComp<GunComponent>(linkedEntity) && HasComp<DeviceLinkSinkComponent>(linkedEntity));
+            if (!isArtillery) continue;
+            if (!linkedArtillery.Contains(linkedEntity)) linkedArtillery.Add(linkedEntity);
+        }
+        return linkedArtillery;
+    }
 
-                        break;
-                    }
-                }
+    public bool IsTurretLinked(Entity<AmmoLoaderComponent> loader, EntityUid artillery)
+    { return GetLinkedArtillery(loader).Contains(artillery); }
+
+    public bool TryGetTurretAmmoState(
+        EntityUid artillery,
+        out EntProtoId? loadedAmmoPrototype,
+        out int ammoCount,
+        out int ammoCapacity,
+        out bool canModifyAmmo)
+    {
+        loadedAmmoPrototype = null;
+        ammoCount = 0;
+        ammoCapacity = 0;
+        canModifyAmmo = true;
+
+        if (!_gun.TryGetGun(artillery, out var gunUid, out _))
+            return false;
+
+        if (TryComp<MagazineAmmoProviderComponent>(gunUid, out _))
+        {
+            if (TryComp<ItemSlotsComponent>(gunUid, out var itemSlots))
+            {
+                var magazineSlot = itemSlots.Slots.GetValueOrDefault("gun_magazine");
+                if (magazineSlot?.Item is { } magazine)
+                    loadedAmmoPrototype = MetaData(magazine).EntityPrototype?.ID;
             }
+            var ev = new GetAmmoCountEvent();
+            RaiseLocalEvent(gunUid, ref ev, false);
+            ammoCount = ev.Count;
+            ammoCapacity = ev.Capacity;
+            return true;
         }
 
-        return linkedArtillery;
+        if (!TryComp<BallisticAmmoProviderComponent>(gunUid, out var artilleryAmmo))
+            return false;
+
+        ammoCount = artilleryAmmo.Count;
+        ammoCapacity = artilleryAmmo.Capacity;
+        if (artilleryAmmo.Container.ContainedEntities.Count > 0)
+        { loadedAmmoPrototype = MetaData(artilleryAmmo.Container.ContainedEntities[0]).EntityPrototype?.ID; }
+        else if (artilleryAmmo.Proto != null && ammoCount > 0)
+        {
+            loadedAmmoPrototype = artilleryAmmo.Proto;
+        }
+
+        return true;
+    }
+
+    public bool TryLoadAmmoToTurret(
+        Entity<AmmoLoaderComponent> loader,
+        EntityUid artillery,
+        EntProtoId ammoPrototypeId,
+        EntityUid? user = null)
+    {
+        if (!Transform(loader).Anchored)
+        {
+            if (user != null)
+                _popup.PopupEntity(Loc.GetString("ammo-loader-not-anchored"), loader, user.Value);
+
+            return false;
+        }
+
+        if (!IsTurretLinked(loader, artillery))
+            return false;
+
+        if (!TryGetTurretAmmoState(artillery, out _, out _, out _, out var canModifyAmmo) || !canModifyAmmo)
+        {
+            if (user != null)
+                _popup.PopupEntity(Loc.GetString("ammo-loader-turret-locked"), loader, user.Value);
+
+            return false;
+        }
+
+        EjectEmptyContainers(loader, user);
+
+        EntityUid? ammoEntity = null;
+        foreach (var contained in loader.Comp.Container.ContainedEntities)
+        {
+            if (MetaData(contained).EntityPrototype?.ID != ammoPrototypeId.Id)
+                continue;
+            if (AmmoLoaderCapacity.IsEmptyAmmoContainer(EntityManager, contained))
+                continue;
+            ammoEntity = contained;
+            break;
+        }
+
+        if (ammoEntity == null)
+            return false;
+
+        if (!IsAmmoCompatible(loader, artillery, ammoEntity.Value))
+        {
+            if (user != null) _popup.PopupEntity(Loc.GetString("ammo-loader-incompatible-ammo"), loader, user.Value);
+            return false;
+        }
+        if (!TryPrepareTurretForLoad(loader, artillery, ammoEntity.Value, user)) return false;
+        if (TryTransferSingleAmmo(loader, artillery, ammoEntity.Value)) return true;
+        if (user != null) _popup.PopupEntity(Loc.GetString("ammo-loader-load-failed"), loader, user.Value);
+
+        return false;
+    }
+
+    public bool TryUnloadTurretToLoader(
+        Entity<AmmoLoaderComponent> loader,
+        EntityUid artillery,
+        EntityUid? user = null)
+    {
+        if (!Transform(loader).Anchored)
+        {
+            if (user != null) _popup.PopupEntity(Loc.GetString("ammo-loader-not-anchored"), loader, user.Value);
+            return false;
+        }
+
+        if (!IsTurretLinked(loader, artillery))
+            return false;
+
+        if (!TryGetTurretAmmoState(artillery, out _, out var ammoCount, out _, out var canModifyAmmo) ||
+            !canModifyAmmo ||
+            ammoCount == 0)
+        {
+            if (user != null && !canModifyAmmo)
+                _popup.PopupEntity(Loc.GetString("ammo-loader-turret-locked"), loader, user.Value);
+
+            return false;
+        }
+
+        if (!TryUnloadTurretAmmoToLoader(loader, artillery, user))
+        {
+            if (user != null)
+                _popup.PopupEntity(Loc.GetString("ammo-loader-unload-failed"), loader, user.Value);
+
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool TryPrepareTurretForLoad(
+        Entity<AmmoLoaderComponent> loader,
+        EntityUid artillery,
+        EntityUid incomingAmmo,
+        EntityUid? user)
+    {
+        if (!_gun.TryGetGun(artillery, out var gunUid, out _))
+            return false;
+
+        if (TryComp<MagazineAmmoProviderComponent>(gunUid, out _) &&
+            HasComp<BallisticAmmoProviderComponent>(incomingAmmo))
+        {
+            return true;
+        }
+
+        if (!TryComp<BallisticAmmoProviderComponent>(gunUid, out var artilleryAmmo))
+            return true;
+
+        if (artilleryAmmo.Count == 0)
+            return true;
+        if (TryComp<BallisticAmmoProviderComponent>(incomingAmmo, out _))
+        {
+            if (artilleryAmmo.Count >= artilleryAmmo.Capacity)
+                return TryUnloadTurretAmmoToLoader(loader, artillery, user);
+
+            return true;
+        }
+
+        var incomingProto = MetaData(incomingAmmo).EntityPrototype?.ID;
+        if (incomingProto != null &&
+            artilleryAmmo.Container.ContainedEntities.Count > 0 &&
+            MetaData(artilleryAmmo.Container.ContainedEntities[0]).EntityPrototype?.ID == incomingProto &&
+            artilleryAmmo.Count < artilleryAmmo.Capacity)
+        {
+            return true;
+        }
+
+        return TryUnloadTurretAmmoToLoader(loader, artillery, user);
+    }
+
+    private bool TryUnloadTurretAmmoToLoader(
+        Entity<AmmoLoaderComponent> loader,
+        EntityUid artillery,
+        EntityUid? user)
+    {
+        if (!_gun.TryGetGun(artillery, out var gunUid, out _))
+            return false;
+
+        if (TryComp<MagazineAmmoProviderComponent>(gunUid, out _))
+        {
+            if (!TryComp<ItemSlotsComponent>(gunUid, out var itemSlots))
+                return false;
+
+            var magazineSlot = itemSlots.Slots.GetValueOrDefault("gun_magazine");
+            if (magazineSlot?.Item == null)
+                return false;
+
+            if (!_slots.TryEject(gunUid, "gun_magazine", null, out var magazine, excludeUserAudio: true) ||
+                magazine == null)
+                return false;
+
+            if (!TryInsertIntoLoader(loader, magazine.Value, user))
+            {
+                if (!_slots.TryInsert(gunUid, magazineSlot, magazine.Value, null, excludeUserAudio: true))
+                    Del(magazine.Value);
+
+                return false;
+            }
+
+            return true;
+        }
+
+        if (!TryComp<BallisticAmmoProviderComponent>(gunUid, out var artilleryAmmo))
+            return false;
+        var shots = artilleryAmmo.InfiniteUnspawned ? artilleryAmmo.Container.ContainedEntities.Count : artilleryAmmo.Count;
+        if (shots <= 0) return false;
+        var taken = new List<(EntityUid? Entity, IShootable Shootable)>(shots);
+        var takeEv = new TakeAmmoEvent(shots, taken, Transform(gunUid).Coordinates, user);
+        RaiseLocalEvent(gunUid, takeEv);
+
+        var unloaded = false;
+        foreach (var (ent, _) in taken)
+        {
+            if (ent == null)
+                continue;
+
+            if (!TryInsertIntoLoader(loader, ent.Value, user))
+            {
+                _containers.Insert(ent.Value, artilleryAmmo.Container);
+                _gun.AddBallisticAmmo((gunUid, artilleryAmmo), ent.Value);
+                return unloaded;
+            }
+
+            unloaded = true;
+        }
+
+        return unloaded;
+    }
+
+    private bool TryInsertIntoLoader(Entity<AmmoLoaderComponent> loader, EntityUid item, EntityUid? user)
+    {
+        if (AmmoLoaderCapacity.IsEmptyAmmoContainer(EntityManager, item))
+        {
+            PlaceOutsideLoader(loader, item, user);
+            return true;
+        }
+
+        var incomingUnits = AmmoLoaderCapacity.GetStoredAmmoUnitCount(EntityManager, item);
+        var currentUnits = AmmoLoaderCapacity.GetStoredAmmoUnitCount(EntityManager, loader.Comp);
+
+        if (currentUnits + incomingUnits > loader.Comp.MaxCapacity)
+        {
+            if (user != null)
+                _popup.PopupEntity(Loc.GetString("ammo-loader-insert-fail"), loader, user.Value);
+
+            return false;
+        }
+
+        return _containers.Insert(item, loader.Comp.Container);
+    }
+    public void EjectEmptyContainers(Entity<AmmoLoaderComponent> loader, EntityUid? user = null)
+    {
+        foreach (var contained in loader.Comp.Container.ContainedEntities.ToArray())
+        {
+            if (!AmmoLoaderCapacity.IsEmptyAmmoContainer(EntityManager, contained)) continue;
+            PlaceOutsideLoader(loader, contained, user);
+        }
+    }
+
+    private void PlaceOutsideLoader(EntityUid loader, EntityUid item, EntityUid? user)
+    {
+        if (TryComp<AmmoLoaderComponent>(loader, out var comp) &&
+            comp.Container.ContainedEntities.Contains(item))
+        {
+            _containers.Remove(item, comp.Container);
+        }
+
+        if (user != null)
+        {
+            _hands.PickupOrDrop(user.Value, item);
+            return;
+        }
+
+        _transform.DropNextTo(item, loader);
+    }
+
+    private bool TryEjectMagazineToLoader(
+        Entity<AmmoLoaderComponent> loader,
+        EntityUid gunUid,
+        ItemSlot magazineSlot,
+        EntityUid? user)
+    {
+        if (!magazineSlot.HasItem)
+            return true;
+
+        if (!_slots.TryEject(gunUid, "gun_magazine", null, out var ejectedMag, excludeUserAudio: true) ||
+            ejectedMag == null)
+            return false;
+
+        if (TryInsertIntoLoader(loader, ejectedMag.Value, user))
+            return true;
+
+        if (!_slots.TryInsert(gunUid, magazineSlot, ejectedMag.Value, null, excludeUserAudio: true))
+            Del(ejectedMag.Value);
+
+        return false;
     }
 
     private bool IsAmmoCompatible(Entity<AmmoLoaderComponent> loader, EntityUid artillery, EntityUid ammoEntity)
@@ -275,12 +487,42 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
 
         if (TryComp<BallisticAmmoProviderComponent>(gunUid, out var artilleryAmmo))
         {
-            if (TryComp<BallisticAmmoProviderComponent>(ammoEntity, out _))
-                return false;
+            if (TryComp<BallisticAmmoProviderComponent>(ammoEntity, out var boxAmmo))
+                return IsBallisticBoxCompatible(artilleryAmmo, boxAmmo, ammoEntity);
 
             if (HasComp<AmmoComponent>(ammoEntity) || HasComp<CartridgeAmmoComponent>(ammoEntity))
-            {
                 return !_whitelistSystem.IsWhitelistFailOrNull(artilleryAmmo.Whitelist, ammoEntity);
+        }
+
+        return false;
+    }
+
+    private bool IsBallisticBoxCompatible(
+        BallisticAmmoProviderComponent gunAmmo,
+        BallisticAmmoProviderComponent boxAmmo,
+        EntityUid boxUid)
+    {
+        foreach (var bullet in boxAmmo.Container.ContainedEntities)
+        {
+            if (!_whitelistSystem.IsWhitelistFailOrNull(gunAmmo.Whitelist, bullet))
+                return true;
+        }
+
+        var gunTags = gunAmmo.Whitelist?.Tags;
+        var boxTags = boxAmmo.Whitelist?.Tags;
+
+        if (gunTags == null || gunTags.Count == 0)
+            return boxAmmo.Count > 0 || boxAmmo.Proto != null;
+
+        if (boxTags == null)
+            return false;
+
+        foreach (var boxTag in boxTags)
+        {
+            foreach (var gunTag in gunTags)
+            {
+                if (boxTag == gunTag)
+                    return true;
             }
         }
 
@@ -294,8 +536,13 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
 
         var successCount = 0;
 
+        EjectEmptyContainers(loader);
+
         foreach (var ammoEntity in loader.Comp.Container.ContainedEntities.ToArray())
         {
+            if (AmmoLoaderCapacity.IsEmptyAmmoContainer(EntityManager, ammoEntity))
+                continue;
+
             if (!IsAmmoCompatible(loader, artillery, ammoEntity))
                 continue;
 
@@ -324,15 +571,14 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
                     var magazineSlot = itemSlots.Slots.GetValueOrDefault("gun_magazine");
                     if (magazineSlot != null)
                     {
-                        if (magazineSlot.HasItem)
+                        if (!TryEjectMagazineToLoader(loader, gunUid, magazineSlot, null))
                         {
-                            _slots.TryEject(gunUid, "gun_magazine", null, out var ejectedMag, excludeUserAudio: true);
+                            _containers.Insert(ammoEntity, loader.Comp.Container);
+                            return false;
                         }
 
                         if (_slots.TryInsert(gunUid, magazineSlot, ammoEntity, null, excludeUserAudio: true))
-                        {
                             return true;
-                        }
                     }
                 }
 
@@ -348,43 +594,36 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
         {
             _containers.Remove(ammoEntity, loader.Comp.Container);
 
-            foreach (var existingAmmo in artilleryAmmo.Container.ContainedEntities.ToArray())
+            var transferred = 0;
+            while (artilleryAmmo.Count < artilleryAmmo.Capacity && magazineAmmoProvider.Count > 0)
             {
-                _containers.Remove(existingAmmo, artilleryAmmo.Container);
-                Del(existingAmmo);
-            }
+                var taken = new List<(EntityUid? Entity, IShootable Shootable)>(1);
+                var takeEv = new TakeAmmoEvent(1, taken, Transform(ammoEntity).Coordinates, null);
+                RaiseLocalEvent(ammoEntity, takeEv);
 
-            foreach (var bullet in magazineAmmoProvider.Container.ContainedEntities.ToArray())
-            {
-                if (artilleryAmmo.Count >= artilleryAmmo.Capacity)
+                if (taken.Count == 0 || taken[0].Entity is not { } bullet)
                     break;
 
-                _containers.Remove(bullet, magazineAmmoProvider.Container);
+                if (_whitelistSystem.IsWhitelistFailOrNull(artilleryAmmo.Whitelist, bullet))
+                {
+                    _containers.Insert(bullet, magazineAmmoProvider.Container);
+                    _gun.AddBallisticAmmo((ammoEntity, magazineAmmoProvider), bullet);
+                    break;
+                }
+
                 _containers.Insert(bullet, artilleryAmmo.Container);
+                _gun.AddBallisticAmmo((gunUid, artilleryAmmo), bullet);
+                transferred++;
             }
+            TryInsertIntoLoader(loader, ammoEntity, null);
 
-            Del(ammoEntity);
-
-            Dirty(gunUid, artilleryAmmo);
-            return true;
+            return transferred > 0;
         }
 
         if (artilleryAmmo.Count >= artilleryAmmo.Capacity)
-        {
-            _containers.Remove(ammoEntity, loader.Comp.Container);
-            Dirty(loader, loader.Comp);
             return false;
-        }
 
-        if (HasComp<AmmoComponent>(ammoEntity))
-        {
-            _containers.Remove(ammoEntity, loader.Comp.Container);
-            _containers.Insert(ammoEntity, artilleryAmmo.Container);
-            Dirty(gunUid, artilleryAmmo);
-            return true;
-        }
-
-        if (HasComp<CartridgeAmmoComponent>(ammoEntity))
+        if (HasComp<AmmoComponent>(ammoEntity) || HasComp<CartridgeAmmoComponent>(ammoEntity))
         {
             _containers.Remove(ammoEntity, loader.Comp.Container);
             _containers.Insert(ammoEntity, artilleryAmmo.Container);
@@ -395,4 +634,4 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
         return false;
     }
 }
-
+//hard mode lua
