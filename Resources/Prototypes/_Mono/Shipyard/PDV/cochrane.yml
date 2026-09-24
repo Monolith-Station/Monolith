@@ -1,0 +1,34 @@
+- type: vessel
+  id: Cochrane
+  parent: BaseVesselIFFDisabled
+  name: PDV Cochrane
+  description: A boarding pod fitted with modified mining pulsars and a very powerful forward thrust. Designed to get within less than a hundred metres of an enemy ship, bore a hole through its hull and lodge itself into it in order to transport boarders. With a pitifully short range, this vessel is not expected to survive an actual brawl.
+  price: 72400
+  category: Small
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/cochrane.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Cochrane
+  mapName: 'PDV Cochrane'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/cochrane.yml
+  minPlayers: 0
+  stations:
+    Cochrane:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Cochrane PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

@@ -224,7 +224,38 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
 
-# RUBICON
+- type: entity
+  id: ShipM25BProjectile
+  name: M25B projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 320
+        Heat: 15 # reduced heat damage as it's not intended to be an anti-infantry weapon.
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
+    layers:
+    - state: plasmashot
+    scale: 0.4, 0.4
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectHeavyLaser
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 1.2 # might be worth worrying about, actually?
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 0.5 # very short range
+  - type: PointLight
+    color: "#C92BCC"
+  - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
+
+# RUBICONs
 
 - type: entity
   id: ShipRubiconProjectile
