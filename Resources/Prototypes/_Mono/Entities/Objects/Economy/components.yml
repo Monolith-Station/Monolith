@@ -81,6 +81,10 @@
         enum.OpenableVisuals.Layer:
           True: {state: "canister2_open"}
           False: {state: "canister2"}
+  - type: Tag
+    tags:
+    - EconomyGood
+    - MatterBinEconomy2
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: canister2fill
@@ -134,6 +138,10 @@
         enum.OpenableVisuals.Layer:
           True: {state: "canister2_open"}
           False: {state: "canister3"}
+  - type: Tag
+    tags:
+    - EconomyGood
+    - MatterBinEconomy3
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: canister2fill

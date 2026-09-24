@@ -45,6 +45,50 @@
 
 - type: entity
   parent: BaseNFFlatpack
+  id: GasThermoMachineHeaterFlatpack
+  name: heater flatpack
+  description: A flatpack used for constructing a heater.
+  components:
+  - type: Flatpack
+    entity: GasThermoMachineHeater
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: GasThermoMachineHellfireFreezerFlatpack
+  name: hellfire freezer flatpack
+  description: A flatpack used for constructing a hellfire freezer.
+  components:
+  - type: Flatpack
+    entity: GasThermoMachineHellfireFreezer
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: GasThermoMachineHellfireHeaterFlatpack
+  name: hellfire heater flatpack
+  description: A flatpack used for constructing a hellfire heater.
+  components:
+  - type: Flatpack
+    entity: GasThermoMachineHellfireHeater
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: CrystallizerFlatpack
+  name: crystallizer flatpack
+  description: A flatpack used for constructing a crystallizer.
+  components:
+  - type: Flatpack
+    entity: Crystallizer
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  parent: BaseNFFlatpack
   id: MachineFlatpackerFlatpack
   name: flatpacker 1001 flatpack
   description: A flatpack used for constructing a flatpacker 1001.
@@ -709,6 +753,18 @@
   components:
   - type: Flatpack
     entity: AirlockGlassShuttle
+
+- type: entity
+  parent: AirlockFlatpack
+  id: GaslockFlatpack
+  name: gaslock flatpack
+  description: A flatpack used for constructing a full-size gaslock.
+  components:
+  - type: Flatpack
+    entity: Gaslock
+  - type: Sprite
+    layers:
+    - state: command_airlock_directional
 
 # Musical instruments
 - type: entity

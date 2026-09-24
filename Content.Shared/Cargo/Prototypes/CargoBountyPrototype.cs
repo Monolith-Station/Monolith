@@ -1,6 +1,8 @@
-﻿using Content.Shared.Whitelist;
+﻿using Content.Shared.Stacks;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Cargo.Prototypes;
 
@@ -21,6 +23,18 @@ public sealed partial class CargoBountyPrototype : IPrototype
     /// </summary>
     [DataField(required: true)]
     public int Reward;
+
+    /// <summary>
+    /// Mono - What stack to reward with?
+    /// </summary>
+    [DataField]
+    public EntProtoId RewardProto = "SpaceCash";
+
+    /// <summary>
+    /// Mono - Suffix for reward amount (eg. "1000 (VSC$)")
+    /// </summary>
+    [DataField]
+    public string RewardSuffix = "VSC$";
 
     /// <summary>
     /// A description for flava purposes.

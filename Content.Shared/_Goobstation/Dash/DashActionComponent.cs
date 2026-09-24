@@ -44,5 +44,5 @@ public sealed partial class DashActionEvent : WorldTargetActionEvent
     /// Animated emote to play on successful dash.
     /// </summary>
     [DataField]
-    public ProtoId<EmotePrototype>? Emote = "Flip";
+    public ProtoId<EmotePrototype>? Emote;
 }
