@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/24/2026 20:29:44
-  entityCount: 874
+  time: 09/24/2026 21:02:11
+  entityCount: 875
 maps: []
 grids:
 - 1
@@ -93,8 +93,8 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Smoke: []
+        Kudzu: []
         Puddle: []
         MetalFoam: []
     - type: Shuttle
@@ -5237,6 +5237,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 4.5,-16.5
+      parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 875
+    components:
+    - type: Transform
+      pos: -3.5,-18.5
       parent: 1
 - proto: WeaponTurretL85Autocannon
   entities:
