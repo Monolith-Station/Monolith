@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseStructureDisableAnchoring, VendingMachine]
+  parent: [BaseStructureDisableAnchoring, VendingMachineCredit]
   id: VendingMachineCuddlyCritterVend
   name: CuddlyCritterVend
   description: Step into the world of wonder and warmth with Cuddly Critters Vending Machine, a haven for plushie and toy enthusiasts alike.
@@ -31,7 +31,7 @@
   #   mod: 10
 
 - type: entity
-  parent: [BaseStructureDisableAnchoring, VendingMachine]
+  parent: [BaseStructureDisableAnchoring, VendingMachineCredit]
   id: VendingMachineAstroVend
   name: AstroVend
   description: Essential gear for the spaceman on the go.
@@ -69,7 +69,7 @@
     pack: AstroVendPOIInventory
 
 - type: entity
-  parent: [BaseStructureDisableAnchoring, VendingMachine]
+  parent: [BaseStructureDisableAnchoring, VendingMachineCredit]
   id: VendingMachineFlatpackVend
   name: FlatpackVend
   description: Essential tech for the spaceman on the go.
@@ -118,8 +118,6 @@
   name: ContraVend
   description: Wanted across multiple sectors!
   components:
-  - type: CreditReceiver
-    cashSlot: Null
   - type: VendingMachine
     offState: off
     brokenState: broken
@@ -159,7 +157,7 @@
     access: [["NuclearOperative"], ["SyndicateAgent"]]
 
 - type: entity
-  parent: VendingMachine
+  parent: VendingMachineCredit
   id: VendingMachineBountyVend
   name: BountyVend
   description: Essential gear for the bounty hunter on the go.
@@ -199,7 +197,7 @@
 - type: entity
   id: VendingMachineArcadia
   name: ArcadiaDrobe
-  parent: VendingMachine
+  parent: VendingMachineCredit
   description: Selling clothes from another reality for cheap prices!
   components:
     - type: VendingMachine
@@ -231,7 +229,7 @@
       color: "#ff033e"
 
 - type: entity
-  parent: VendingMachine
+  parent: VendingMachineCredit
   id: LessLethalVendingMachine
   name: LessLethalVend
   description: Making violence safe since '08.
@@ -273,7 +271,7 @@
       requiresCash: true
 
 - type: entity
-  parent: VendingMachine
+  parent: VendingMachineCredit
   id: NonLethalVendingMachine
   name: NonLethalVend
   description: Try not to aim for the eyes!
@@ -307,7 +305,7 @@
       color: "#ff033e"
 
 - type: entity
-  parent: [BaseStructureDisableAnchoring, VendingMachine]
+  parent: [BaseStructureDisableAnchoring, VendingMachineCredit]
   id: VendingMachineAutoTuneVend
   name: AutoTune
   description: Feeling BASSed? Time to TUNE into AutoVend! Take NOTES and let your audience TREBLE.
@@ -357,7 +355,7 @@
   # - type: GhostTakeoverAvailable
 
 - type: entity
-  parent: [BaseStructureDisableAnchoring, VendingMachine]
+  parent: [BaseStructureDisableAnchoring, VendingMachineCredit]
   id: VendingMachinePottedPlantVend
   name: Plant-O-Matic
   description: Sometimes potted plants are the best crewmates money can get.
@@ -390,7 +388,7 @@
     color: "#EEEEFF"
 
 - type: entity
-  parent: VendingMachine # Mono - removed BaseStructureDisableAnchoring
+  parent: VendingMachineCredit # Mono - removed BaseStructureDisableAnchoring
   id: VendingMachineNfsdDrobe
   name: TSFMCDrobe
   description: A vending machine for TSFMC clothing!
@@ -417,7 +415,7 @@
     access: [["Security"]]
 
 - type: entity
-  parent: [BaseStructureDisableAnchoring, VendingMachine]
+  parent: [BaseStructureDisableAnchoring, VendingMachineCredit]
   id: VendingMachineYarrrDrobe
   name: YarrrDrobe
   description: A vending machine for skallywags and booty lovers!
@@ -441,7 +439,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
 
 - type: entity
-  parent: VendingMachine # Mono - removed BaseStructureDisableAnchoring
+  parent: VendingMachineCredit # Mono - removed BaseStructureDisableAnchoring
   id: VendingMachineNfsdTech
   name: TSFMCTech
   description: A vending machine for TSFMC tech!
@@ -504,7 +502,7 @@
 # Punk stuff
 - type: entity
   parent:
-  - VendingMachine
+  - VendingMachineCredit
   - PunkHoloGraffitiOverlay # Prototype can be located at \Resources\Prototypes\_NF\Entities\Structures\Holographic\graffiti.yml
   id: VendingMachineClothingPunk
   name: ThreadsChoom
@@ -539,7 +537,7 @@
 
 - type: entity
   parent:
-  - VendingMachine
+  - VendingMachineCredit
   - PunkHoloGraffitiOverlay # Prototype can be located at \Resources\Prototypes\_NF\Entities\Structures\Holographic\graffiti.yml
   id: VendingMachineBountyVendPunk
   name: BonanzaMatic
@@ -573,7 +571,7 @@
     color: "#4b93ad"
 
 - type: entity
-  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, VendingMachine]
+  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, VendingMachineCredit]
   id: VendingMachineFuelVend
   name: FuelVend
   description: A vendor selling fuel for ship engines. Smells like ozone.
@@ -585,7 +583,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 2.1
+    ejectDelay: 1.1
     requiresCash: true
   - type: Advertise
     pack: FuelVendAds
@@ -635,7 +633,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
 
 - type: entity
-  parent: [BaseCiviMedVend, BaseStructureDisableAnchoring, BaseStructureIndestructible, VendingMachine]
+  parent: [BaseCiviMedVend, BaseStructureDisableAnchoring, BaseStructureIndestructible, VendingMachineCredit]
   id: VendingMachineCiviMedPlus
   name: CiviMed Plus
   description: CiviMed Plus, distributing lifesaving meds harder than the rocks you break! Miners, DON'T DIE!
@@ -650,7 +648,7 @@
     sprite: _NF/Structures/Machines/VendingMachines/wallcivimed.rsi
 
 - type: entity
-  parent: VendingMachine
+  parent: VendingMachineCredit
   id: VendingMachineValetDrobe
   name: ValetDrobe
   description: Assist others in style! Dress in top-top shape for tip-top tips!
@@ -684,7 +682,7 @@
     access: [["Service"]] # Mail Carrier and Janitor teaming up to loot the machine dry.
 
 - type: entity
-  parent: VendingMachine
+  parent: VendingMachineCredit
   id: VendingMachineMailVend
   name: MailVend
   description: Make your thoughts known, send a letter today!

@@ -70,7 +70,7 @@
   description: Wanted across multiple sectors!
 
 - type: entity
-  parent: VendingMachine
+  parent: VendingMachineCredit
   id: VendingMachineBarista
   name: Barista Vendor
   description: Sells a variety of coffees, teas, and pastries.
@@ -117,8 +117,6 @@
   description: Sells a variety of coffees, teas, and pastries.
   suffix: "0.35%"
   components:
-  - type: CreditReceiver
-    cashSlot: Null
   - type: VendingMachine
     pack: BaristaVendInventory
     dispenseOnHitChance: 0.25
@@ -268,3 +266,21 @@
   components:
   - type: Flatpack
     entity: VendingMachineMieyoAutomated
+
+- type: entity
+  id: VendingMachineCredit # Vending Machines that accept cash money should inherit from this instead.
+  abstract: true
+  parent: VendingMachine
+  description: Allows the machine to accept payment with physical credit. Change the whitelist to allow for different currencies.
+  components:
+  - type: CreditReceiver
+    cashSlot:
+      whitelist:
+        components:
+        - Cash
+    cashSlotName: cash_slot
+    currencyStackType: Credit
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      cash_slot: !type:ContainerSlot
