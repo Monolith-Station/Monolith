@@ -34,8 +34,7 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
 
     protected void Update(Entity<CreditReceiverComponent> ent)
     {
-        if (ent.Comp.CurrencyStackType != null
-            && ItemSlots.TryGetSlot(ent, ent.Comp.CashSlotName, out var slot)
+        if (ItemSlots.TryGetSlot(ent, ent.Comp.CashSlotName, out var slot)
             && TryComp<StackComponent>(slot.ContainerSlot?.ContainedEntity, out var stack)
             && stack.StackTypeId == ent.Comp.CurrencyStackType)
         {
@@ -71,12 +70,6 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
     public int GetCashBalance(EntityUid uid)
     {
         return TryGetCashBalance(uid, out var balance) ? (int)balance : 0;
-    }
-
-
-    public bool CanPayWithCredit(Entity<CreditReceiverComponent> ent)
-    {
-        return TryComp<CreditReceiverComponent>(ent.Owner, out var creditComponent) && creditComponent.CurrencyStackType != null;
     }
 
     /// <summary>
