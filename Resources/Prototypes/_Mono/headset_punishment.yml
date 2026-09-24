@@ -12,8 +12,11 @@
 
 - type: headsetPunishment
   id: Default
-  words:
-    - "temp"
+  wordsBase64:
+    - "bmlnZ2Vy"
+    - "bmlnZ2Vycw=="
+    - "bmlnZ2E="
+    - "bmlnZ2Fz"
 
   explosion: HeadsetPunishment
   baseIntensity: 8
