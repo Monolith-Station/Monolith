@@ -2,6 +2,7 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Shared._Mono.Radio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Mono.Radio;

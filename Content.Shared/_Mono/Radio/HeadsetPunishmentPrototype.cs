@@ -1,7 +1,7 @@
 using Content.Shared.Explosion;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Mono.Radio;
+namespace Content.Shared._Mono.Radio;
 
 [Prototype]
 public sealed partial class HeadsetPunishmentPrototype : IPrototype
