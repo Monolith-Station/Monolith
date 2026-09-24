@@ -123,8 +123,18 @@
       Frontier: 0.25
       Nfsd: 0.15
       Medical: 0.1 # Mono
+  #  cashSlot:
+  #    whitelist:
+  #      components:
+  #      - Cash
+  #  cashSlotName: cash_slot
+  #  currencyStackType: Credit
   - type: PirateBountyItem
     id: VendingMachine
+  #- type: ItemSlots
+  #- type: ContainerContainer
+  #  containers:
+  #    cash_slot: !type:ContainerSlot
   # End Frontier
   # Mono
   - type: ShipRepairable

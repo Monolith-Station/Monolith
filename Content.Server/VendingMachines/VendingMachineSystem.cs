@@ -32,11 +32,9 @@ using Robust.Shared.Audio.Systems;
 using Content.Server.Administration.Logs; // Frontier
 using Content.Shared.Database; // Frontier
 using Content.Shared._NF.Bank.BUI; // Frontier
-using Content.Server.Stack;
 using Content.Server._Mono.VendingMachine;
 using Content.Shared._Mono.Traits.Physical;
 using Content.Shared._Mono.Economy; // Mono - Seperation of cash payment from VendingMachineComp
-using Content.Shared._Mono.Economy.Component;
 
 namespace Content.Server.VendingMachines
 {
@@ -377,7 +375,7 @@ namespace Content.Server.VendingMachines
                 {
                     paidFully = _cash.TryCashPayment(uid, totalPrice, out var _, true); // Mono - Attempt to pay with cash before credit
 
-                    if (totalPrice > cashSlotBalance && !HasComp<Content.Shared._Mono.Traits.Physical.IronmanComponent>(sender))
+                    if (totalPrice > cashSlotBalance && !HasComp<IronmanComponent>(sender))
                         paidFully = _bankSystem.TryBankWithdraw(sender, totalPrice - cashSlotBalance); // Mono - if cash was not enough, pay the difference with credit
 
                     // If we paid completely, pay our station taxes
