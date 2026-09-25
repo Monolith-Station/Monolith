@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -12,12 +11,12 @@ namespace Content.Server.Database.Migrations.Postgres
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<List<string>>(
+            migrationBuilder.AddColumn<string[]>(
                 name: "flags",
                 table: "profile",
                 type: "text[]",
                 nullable: false,
-                defaultValue: new List<string>());
+                defaultValue: new string[0]);
 
             migrationBuilder.CreateTable(
                 name: "profile_component",

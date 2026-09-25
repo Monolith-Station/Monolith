@@ -837,9 +837,7 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                     b.PrimitiveCollection<string>("Flags")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT")
-                        .HasDefaultValue("[]")
                         .HasColumnName("flags");
 
                     b.Property<string>("FlavorText")

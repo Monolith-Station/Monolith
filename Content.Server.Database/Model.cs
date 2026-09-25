@@ -61,10 +61,6 @@ namespace Content.Server.Database
                 .IsUnique();
 
             // Mono start
-            modelBuilder.Entity<Profile>()
-                .Property(p => p.Flags)
-                .HasDefaultValue(new List<string>());
-
             modelBuilder.Entity<ProfileComponent>()
                 .HasOne(e => e.Profile)
                 .WithMany(e => e.Components)
@@ -474,7 +470,7 @@ namespace Content.Server.Database
         public string Company { get; set; } = "None";
 
         // Mono start
-        public List<string> Flags { get; set; } = [];
+        public string[] Flags { get; set; } = [];
         public List<ProfileComponent> Components { get; } = [];
         public List<ProfileItem> Items { get; } = [];
         // Mono end

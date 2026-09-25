@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    [Migration("20260921154423_PersistentData")]
+    [Migration("20260925192237_PersistentData")]
     partial class PersistentData
     {
         /// <inheritdoc />
@@ -840,9 +840,7 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                     b.PrimitiveCollection<string>("Flags")
                         .IsRequired()
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT")
-                        .HasDefaultValue("[]")
                         .HasColumnName("flags");
 
                     b.Property<string>("FlavorText")
