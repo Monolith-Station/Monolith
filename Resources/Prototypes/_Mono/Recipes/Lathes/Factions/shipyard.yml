@@ -335,3 +335,29 @@
     Plastitanium: 5000
     UraniumDepleted: 3000
     UraniumFissile: 1000
+
+# Caelestinus
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherCaelestinusT1Recipe
+  result: ShipVoucherCaelestinusT1
+  completetime: 50
+  materialDiscountScale: 0.2
+  materials: # Make cheaper once it requires research!
+    Steel: 7500
+    Copper: 7500
+    Plasteel: 4000
+    Lithium: 4000
+    Glass: 4000
+    Plasma: 4000
+    Gold: 4000
+    Silver: 4000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherCaelestinusT1RecipeAlternative
+  result: ShipVoucherCaelestinusT1
+  completeTime: 30 # faster for your trouble
+  entities:
+    MonolithicCrystalSmall: 4
