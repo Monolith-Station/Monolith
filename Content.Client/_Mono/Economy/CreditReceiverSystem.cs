@@ -6,7 +6,7 @@ namespace Content.Client._Mono.Economy;
 
 public sealed partial class CreditReceiverSystem : SharedCreditReceiverSystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
 
     public override void Initialize()
     {

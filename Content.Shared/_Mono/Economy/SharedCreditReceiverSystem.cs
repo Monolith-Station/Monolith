@@ -14,8 +14,8 @@ namespace Content.Shared._Mono.Economy;
 public abstract partial class SharedCreditReceiverSystem : EntitySystem
 {
     private readonly ISawmill _log = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!; // Frontier
-    [Dependency] protected readonly ItemSlotsSystem ItemSlots = default!; // Frontier
+    [Dependency] private SharedStackSystem _stack = default!; // Frontier
+    [Dependency] protected ItemSlotsSystem ItemSlots = default!; // Frontier
 
     public override void Initialize()
     {
@@ -34,8 +34,7 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
 
     protected void Update(Entity<CreditReceiverComponent> ent)
     {
-        if (ent.Comp.CurrencyStackType != null
-            && ItemSlots.TryGetSlot(ent, ent.Comp.CashSlotName, out var slot)
+        if (ItemSlots.TryGetSlot(ent, ent.Comp.CashSlotName, out var slot)
             && TryComp<StackComponent>(slot.ContainerSlot?.ContainedEntity, out var stack)
             && stack.StackTypeId == ent.Comp.CurrencyStackType)
         {
@@ -73,14 +72,8 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         return TryGetCashBalance(uid, out var balance) ? (int)balance : 0;
     }
 
-
-    public bool CanPayWithCredit(Entity<CreditReceiverComponent> ent)
-    {
-        return TryComp<CreditReceiverComponent>(ent.Owner, out var creditComponent) && creditComponent.CurrencyStackType != null;
-    }
-
     /// <summary>
-    ///
+    /// Try version of <see cref="GetCashBalance"/>.
     /// </summary>
     /// <param name="uid">EntityUID to be checked</param>
     /// <param name="amount">If true, stores here the amount of currency found.</param>
@@ -98,6 +91,12 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         amount = receiver.CashSlotBalance;
         return true;
     }
+
+    public bool CanPayWithCredit(Entity<CreditReceiverComponent?> ent)
+    {
+        return TryComp<CreditReceiverComponent>(ent.Owner, out var creditComponent);
+    }
+
 
     // Try to implement ItemSlots.TryGetSlot(uid, creditComponent.CashSlotName, out var cashSlot) && TryComp<StackComponent>(cashSlot?.ContainerSlot?.ContainedEntity, out var stackComp) && stackComp!.StackTypeId == creditComponent.CurrencyStackType
     /// <summary>
