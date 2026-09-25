@@ -835,13 +835,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("facial_hair_name");
 
-                    b.PrimitiveCollection<string>("Flags")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasDefaultValue("[]")
-                        .HasColumnName("flags");
-
                     b.Property<string>("FlavorText")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -915,62 +908,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsUnique();
 
                     b.ToTable("profile", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.ProfileComponent", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("profile_component_id");
-
-                    b.Property<string>("Data")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("data");
-
-                    b.Property<int>("ProfileId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("profile_id");
-
-                    b.Property<bool>("Sticky")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("sticky");
-
-                    b.HasKey("Id")
-                        .HasName("PK_profile_component");
-
-                    b.HasIndex("ProfileId");
-
-                    b.ToTable("profile_component", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.ProfileItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("profile_item_id");
-
-                    b.Property<string>("Data")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("data");
-
-                    b.Property<int>("ProfileId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("profile_id");
-
-                    b.Property<bool>("Sticky")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("sticky");
-
-                    b.HasKey("Id")
-                        .HasName("PK_profile_item");
-
-                    b.HasIndex("ProfileId");
-
-                    b.ToTable("profile_item", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.ProfileLoadout", b =>
@@ -1880,30 +1817,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Preference");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.ProfileComponent", b =>
-                {
-                    b.HasOne("Content.Server.Database.Profile", "Profile")
-                        .WithMany("Components")
-                        .HasForeignKey("ProfileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_profile_component_profile_profile_id");
-
-                    b.Navigation("Profile");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.ProfileItem", b =>
-                {
-                    b.HasOne("Content.Server.Database.Profile", "Profile")
-                        .WithMany("Items")
-                        .HasForeignKey("ProfileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_profile_item_profile_profile_id");
-
-                    b.Navigation("Profile");
-                });
-
             modelBuilder.Entity("Content.Server.Database.ProfileLoadout", b =>
                 {
                     b.HasOne("Content.Server.Database.ProfileLoadoutGroup", "ProfileLoadoutGroup")
@@ -2234,10 +2147,6 @@ namespace Content.Server.Database.Migrations.Sqlite
             modelBuilder.Entity("Content.Server.Database.Profile", b =>
                 {
                     b.Navigation("Antags");
-
-                    b.Navigation("Components");
-
-                    b.Navigation("Items");
 
                     b.Navigation("Jobs");
 
