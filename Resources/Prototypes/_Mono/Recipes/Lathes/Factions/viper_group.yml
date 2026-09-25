@@ -73,3 +73,17 @@
   parent: BaseGoldCircuitboardRecipe
   id: VGTechfabMachineCircuitboard
   result: VGTechfabMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleWeaselRecipe
+  result: WeaponRifleWeasel
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 5000
+    Plasteel: 3000
+    Plastic: 1500
+

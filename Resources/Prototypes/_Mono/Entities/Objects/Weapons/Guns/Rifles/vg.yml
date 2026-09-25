@@ -1,0 +1,67 @@
+- type: entity
+  name: Sugar Weasel
+  parent: [BaseWeaponRifle, BaseGunWieldable]
+  id: WeaponRifleWeasel
+  description: A cheaply manufactured PDW, made to dominate CQC combat. Having seen use long ago, with some tweaks it has been remade to dominate the scene like it used to.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/sugar.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -12
+    maxAngle: -22
+  - type: Gun
+    minAngle: 30
+    maxAngle: 35
+    angleIncrease: 4
+    angleDecay: 25
+    fireRate: 9 
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    # Mono
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine762x39mmFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine762x39mmFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge762x39mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge762x39mmFMJ
+  - type: SpeedModifiedOnWield # Mono
+    walkModifier: 1
+    sprintModifier: 1
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/sugar.rsi
+ 
