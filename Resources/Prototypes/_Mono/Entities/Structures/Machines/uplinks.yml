@@ -115,7 +115,6 @@
   description: A central MMC material access lift. Lets you access Hokkaido's deep storage at the cost of MIC, which represent your value to the board.
   components:
   - type: VendingMachine
-    cashSlot: Null
     offState: mmc
     brokenState: broken
     normalState: mmc-unshaded
