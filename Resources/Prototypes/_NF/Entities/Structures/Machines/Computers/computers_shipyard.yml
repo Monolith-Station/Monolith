@@ -258,8 +258,8 @@
 - type: entity
   id: ComputerShipyardSr
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, ComputerShipyardBase]
-  name: colonial staff shipyard console
-  description: Used to buy vessels exclusive to Colonial Outpost personnel.
+  name: C-Sec shipyard console
+  description: Used to buy vessels exclusive to Caelestinus Security personnel.
   components:
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Sr

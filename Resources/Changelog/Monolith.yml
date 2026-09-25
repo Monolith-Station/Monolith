@@ -25275,3 +25275,73 @@ Entries:
   id: 2751
   time: '2026-09-24T14:58:09.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4759
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        MMC now has their own unique shotgun instead of the Enforcer. T2
+        research or loadout.
+    - type: Add
+      message: Disposable AT launcher for MMC. Kiosk exclusive.
+    - type: Add
+      message: >-
+        MMC now has a bounty system and automated kiosk. Find the bounty
+        computer in the salvage dock next to fabroom (and one in the
+        construction room), find the kiosk in the shipyard area. Most of the
+        stuff in there isn't new for now, but you do get *some* minor things
+        that were previously unattainable midround (gasdock flatpacks, automated
+        vendor flatpacks & restocks, crystallizer flatpacks, etc)
+    - type: Add
+      message: Akasono for MMC shipyard. Little gas harvesting thing.
+    - type: Add
+      message: >-
+        Updated Hokkaido slightly. Fixed some minor issues (such as the gas
+        selling dock not working), added a small botany area, added a small
+        janitorial closet, added more gunnery consoles, added a single turret to
+        engineering entry, added passive vents to the docks, added a gasdock to
+        the dock above the large empty construction room (which is connected to
+        said room w/ a pipe), filled out the construction room with more
+        clutter.
+    - type: Tweak
+      message: MMC Izumo moved to kiosk exclusive, no longer in research.
+  id: 2752
+  time: '2026-09-24T23:18:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4758
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: >-
+        The chimera Gadfly and Pebbles are no longer banished to the shadow
+        realm.
+  id: 2753
+  time: '2026-09-24T23:19:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4755
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The remains of PDV Jupiter have finally washed up in the sector. Perhaps
+        it's worth prospecting?
+    - type: Remove
+      message: Listening Point Bravo is no more.
+  id: 2754
+  time: '2026-09-24T23:20:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4754
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: The name of the Colonial Staff shipyard terminal has been adjusted.
+  id: 2755
+  time: '2026-09-24T23:21:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4752
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Helios has been installed with a faraday cage that blocks any
+        deathrattles that occur on board and prevent overwatch consoles from
+        detecting anybody on board. PDV deathrattles and the PDV overwatch
+        console are exempt.
+  id: 2756
+  time: '2026-09-24T23:40:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4686
