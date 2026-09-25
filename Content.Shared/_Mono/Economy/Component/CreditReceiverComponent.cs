@@ -1,7 +1,5 @@
 ﻿using Robust.Shared.GameStates;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Stacks;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Mono.Economy.Component;
 
@@ -19,17 +17,16 @@ public sealed partial class CreditReceiverComponent : Robust.Shared.GameObjects.
     public ItemSlot CashSlot;
 
     /// <summary>
-    /// Name of the cash slot
+    /// Name of the cash slot, if there is one.  Null if there isn't.
     /// </summary>
     [DataField]
-    public string CashSlotName = "cash_slot";
+    public string CashSlotName;
 
     /// <summary>
-    /// The type of entity to be accepted in the item slot.
+    /// The type of currency to accept in the item slot.
     /// </summary>
-    /// <remarks> By default, it's standard spesos.</remarks>
     [DataField]
-    public EntProtoId<StackComponent> CurrencyStackType = "Credit";
+    public string? CurrencyStackType;
 
     /// <summary>
     /// The current balance in the cash slot.

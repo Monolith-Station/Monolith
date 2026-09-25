@@ -79,7 +79,8 @@ namespace Content.Client.VendingMachines
             {
                 _cashSlotBalance = creditReceiver.CashSlotBalance;
                 _requiresCash = vendingMachine.RequiresCash; // mono
-                cashSlotValue = _cashSlotBalance; // mono
+                if (creditReceiver.CashSlotName != null) // Mono end
+                    cashSlotValue = _cashSlotBalance;
             }
             else
             {

@@ -278,6 +278,8 @@
       whitelist:
         components:
         - Cash
+    cashSlotName: cash_slot
+    currencyStackType: Credit
   - type: ItemSlots
   - type: ContainerContainer
     containers:
