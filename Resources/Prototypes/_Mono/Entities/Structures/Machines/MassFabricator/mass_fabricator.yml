@@ -1,0 +1,24 @@
+- type: entity
+  id: HZMassFabricator
+  name: H-Z Mass Fabricator
+  parent: BaseItem
+  components:
+  - type: MassFabricator
+  - type: Item
+    storedRotation: -90
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/force_gun.rsi
+    state: base
+
+- type: entity
+  id: HZMassFabricatorEye
+  parent: [Incorporeal, BaseMob]
+  name: fabricator view
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+    visible: false
+  - type: MassFabricatorEye
+  - type: Eye
+    drawFov: false
+  - type: ContentEye

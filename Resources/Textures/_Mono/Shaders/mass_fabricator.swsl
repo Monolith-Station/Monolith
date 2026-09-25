@@ -1,0 +1,45 @@
+blend_mode mix;
+
+uniform highp vec2 EYE_POSITION;
+uniform highp vec2 BODY_POSITION;
+uniform highp vec2 PIXELS_PER_TILE;
+uniform lowp vec4 HOLOGRAM_COLOR;
+
+highp float segmentDistance(highp vec2 p, highp vec2 a, highp vec2 b)
+{
+    highp vec2 ab = b - a;
+    highp float t = clamp(dot(p - a, ab) / max(dot(ab, ab), 0.00001), 0.0, 1.0);
+    return length(p - a - t * ab);
+}
+
+void fragment()
+{
+    highp vec2 p = (FRAGCOORD.xy - EYE_POSITION) / PIXELS_PER_TILE;
+    highp vec2 body = (BODY_POSITION - EYE_POSITION) / PIXELS_PER_TILE;
+
+    highp vec2 top = vec2(0.0, 0.55);
+    highp vec2 right = vec2(0.55, 0.0);
+    highp vec2 bottom = -top;
+    highp vec2 left = -right;
+    highp float rim = min(min(segmentDistance(p, top, right), segmentDistance(p, right, bottom)),
+                          min(segmentDistance(p, bottom, left), segmentDistance(p, left, top)));
+    highp float tether = segmentDistance(p, vec2(0.0), body);
+    highp float line = min(rim, tether);
+
+    highp vec2 joint = p - body;
+    highp float star = min(abs(joint.x) + abs(joint.y) * 5.0,
+                           abs(joint.y) + abs(joint.x) * 5.0);
+    star = min(star, length(joint) * 1.6);
+    highp float eyeSpark = length(p) * 2.0;
+
+    highp float lineCore = 1.0 - smoothstep(0.005, 0.045, line);
+    highp float starCore = 1.0 - smoothstep(0.015, 0.10, star);
+    highp float eyeCore = 1.0 - smoothstep(0.015, 0.09, eyeSpark);
+    highp float halo = max(max(exp(-line * line * 200.0) * 0.10,
+                              exp(-star * star * 130.0) * 0.17),
+                           exp(-eyeSpark * eyeSpark * 130.0) * 0.12);
+    highp float alpha = max(max(lineCore * 0.42, starCore * 0.62),
+                            max(eyeCore * 0.52, halo)) * HOLOGRAM_COLOR.a;
+    lowp vec3 color = mix(HOLOGRAM_COLOR.rgb, vec3(0.72, 0.89, 1.0), starCore * 0.2);
+    COLOR = vec4(color, alpha);
+}

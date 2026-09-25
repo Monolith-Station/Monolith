@@ -1,0 +1,11 @@
+<fabricator:MassFabricatorScreen
+    xmlns="https://spacestation14.io"
+    xmlns:fabricator="clr-namespace:Content.Client._Mono.MassFabricator"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    VerticalExpand="False"
+    VerticalAlignment="Bottom"
+    HorizontalAlignment="Center">
+    <LayoutContainer Name="ViewportContainer" HorizontalExpand="True" VerticalExpand="True">
+        <controls:MainViewport Name="MainViewport" />
+    </LayoutContainer>
+</fabricator:MassFabricatorScreen>
