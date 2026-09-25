@@ -30,8 +30,8 @@
     components:
     - type: ChatRank
       rank: cc-judge
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ] # Mono - remove TSFMC implant
+# - !type:AddImplantSpecial
+#   implants: [ MindShieldImplant ] # Mono - remove TSFMC implants
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
@@ -44,4 +44,4 @@
     back:
     - EncryptionKeyService
     - EncryptionKeySecurity
-    - ShipVoucherFrontierGuard
+  # - ShipVoucherFrontierGuard # Mono

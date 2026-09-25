@@ -337,6 +337,26 @@
     UraniumFissile: 1000
 
 # Caelestinus
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherCaelestinusT0Recipe
+  result: ShipVoucherCaelestinusT0
+  completetime: 30
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 5000
+    Copper: 5000
+    Plasteel: 5000
+    Glass: 5000
+    Plasma: 2500
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherCaelestinusT0RecipeAlternative
+  result: ShipVoucherCaelestinusT0
+  completeTime: 15 # faster for your trouble
+  entities:
+    MonolithicCrystalSmall: 1
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
