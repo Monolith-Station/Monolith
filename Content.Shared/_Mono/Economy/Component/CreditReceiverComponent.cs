@@ -20,13 +20,13 @@ public sealed partial class CreditReceiverComponent : Robust.Shared.GameObjects.
     /// Name of the cash slot, if there is one.  Null if there isn't.
     /// </summary>
     [DataField]
-    public string CashSlotName;
+    public string CashSlotName = "cash_slot";
 
     /// <summary>
     /// The type of currency to accept in the item slot.
     /// </summary>
     [DataField]
-    public string? CurrencyStackType;
+    public string CurrencyStackType = "Credit";
 
     /// <summary>
     /// The current balance in the cash slot.
