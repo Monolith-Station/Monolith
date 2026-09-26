@@ -25461,3 +25461,16 @@ Entries:
   id: 2767
   time: '2026-09-26T19:25:20.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4781
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced damage required to detonate shipgun ammo (1/5th of old now). 3x
+        tile damage for all shipgun explosives. 3x explosion size for R300.
+        Buffed missile guidance a bit. Vanyk missile guidance uses advanced
+        predictive algorithm now. Gyroscopes are explosive now. Portable
+        generators are explosive now. Portable DK generators are super explosive
+        now.
+  id: 2768
+  time: '2026-09-26T22:59:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4783
