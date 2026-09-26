@@ -1,15 +1,20 @@
 - type: entityTable
-  id: ChimeraShipsTable
+  id: ChimeraShipsTableT1
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
-      - id: UnknownShuttleChimeraYukikaze
       - id: UnknownShuttleChimeraPebble
-      - id: UnknownShuttleChimeraNeptune
-      - id: UnknownShuttleChimeraKite
-      - id: UnknownShuttleChimeraCinqueda
-      - id: UnknownShuttleChimeraMudskipper
       - id: UnknownShuttleChimeraGadfly
-      - id: UnknownShuttleChimeraFracture
+
+- type: entityTable
+  id: ChimeraShipsTableT2
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: UnknownShuttleChimeraYukikaze
+    - id: UnknownShuttleChimeraNeptune
+    - id: UnknownShuttleChimeraKite
+    - id: UnknownShuttleChimeraCinqueda
+    - id: UnknownShuttleChimeraMudskipper
+    - id: UnknownShuttleChimeraFracture
 
 - type: entity
   parent: BaseRandomShuttleRule

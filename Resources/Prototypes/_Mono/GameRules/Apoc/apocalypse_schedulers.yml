@@ -4,7 +4,7 @@
   components:
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
-      tableId: ChimeraShipsTable
+      tableId: ChimeraShipsTableT2
     minimumTimeUntilFirstEvent: 1800 # 30 minutes
     minMaxEventTiming:
       min: 1800 # 30 minutes between events
