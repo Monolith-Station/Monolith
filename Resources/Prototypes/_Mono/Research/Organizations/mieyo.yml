@@ -25,27 +25,52 @@
   recipeUnlocks:
   - IndustrialPressEconomyElectronicsMMCMachineCircuitboard
   - IndustrialPressEconomyPlatesMMCMachineCircuitboard
-  - TradeGoodLuxuriesAlt
-  - TradeGoodFissionFuel
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: -6, -8
 
 - type: technology
-  id: MieyoShipworking
-  name: research-technology-mieyo-srd
-  entityIcon: ShipVoucherMieyoYukikaze
+  id: MieyoManufacturingGoods
+  name: research-technology-mieyo-goods
+  entityIcon: TradeGoodFissionFuel
   discipline: Mieyo
   tier: 1
-  cost: 30000
+  cost: 5000
   recipeUnlocks:
-  - ShipVoucherMieyoYukikaze
+  - TradeGoodLuxuriesAlt
+  - TradeGoodFissionFuel
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: -7, -8
+
+- type: technology
+  id: MieyoShipworking
+  name: research-technology-mieyo-srd
+  entityIcon: NaniteApplicatorMMC
+  discipline: Mieyo
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
   - NaniteApplicatorMMC
   - ShipRepairDeviceMMC
   - ShipRepairDeviceAmmo
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: -6, -7
+
+- type: technology
+  id: MieyoLPCT1
+  name: research-technology-mieyo-lpc-1
+  entityIcon: ShipVoucherMieyoYukikaze
+  discipline: Mieyo
+  tier: 1
+  cost: 20000
+  recipeUnlocks:
+  - ShipVoucherMieyoYukikaze
+  - ShipVoucherMieyoSenkusha
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: -7, -7
 
 - type: technology
   id: MieyoBreachingGear
@@ -57,10 +82,22 @@
   recipeUnlocks:
   - AccessBreakerMMC
   - SecBreachingHammerMMC
-  - WeaponSubMachineGunSakuraMMC
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: -5, -7
+
+- type: technology
+  id: MieyoSmartGuns
+  name: research-technology-mieyo-smart-guns
+  entityIcon: WeaponSubMachineGunSakura
+  discipline: Mieyo
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - WeaponSubMachineGunSakuraMMC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: -5, -8
 
 # T2
 
@@ -108,17 +145,30 @@
   position: -5, -15
 
 - type: technology
-  id: MieyoBionicsT3
-  name: research-technology-mieyo-bionics-advanced
+  id: MieyoBionicsSandevistan
+  name: research-technology-mieyo-bionics-lotus
   entityIcon: OrganHeartSandevistan
   discipline: Mieyo
   tier: 3
-  cost: 125000
+  cost: 75000
   recipeUnlocks:
   - AutosurgeonSandevistanMMC
-  - AutosurgeonAdvHeartMMC
   technologyPrerequisites:
   - UniversalMaterialResearchT3
   - MieyoBionicsT2
   position: -6, -15
+
+- type: technology
+  id: MieyoBionicsBlackFlash
+  name: research-technology-mieyo-bionics-sakimoto
+  entityIcon: OrganHeartMMCSakimoto
+  discipline: Mieyo
+  tier: 3
+  cost: 75000
+  recipeUnlocks:
+  - AutosurgeonAdvHeartMMC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT3
+  - MieyoBionicsT2
+  position: -7, -15
 

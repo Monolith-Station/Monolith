@@ -31,6 +31,9 @@ mmc-uplink-osaka-desc = Standard roller-delayed blowback rifle for MMC corporate
 mmc-uplink-izumo-name = V/79P Izumo DMR
 mmc-uplink-izumo-desc = A premium, finely tuned Osaka variant. Using the highest performing barrels and components from production lines, the rifle has been converted to a semi-automatic DMR platform.
 
+mmc-uplink-blade-name = HF Katana
+mmc-uplink-blade-desc = A traditionally-structured blade, if you ignore centuries of materials science and precision engineering.
+
 mmc-uplink-myoko-name = F/87 Myoko LAW
 mmc-uplink-myoko-desc = Light anti-tank disposable launcher. Fires a fast moving HEAT warhead to take out any structure you point it at. Poor area damage.
 
