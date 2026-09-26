@@ -13,11 +13,11 @@
   - type: NightVision # Mono - Wizden NV
     relayOverlay: true
     goggleEffect: true
-    action: ActionToggleNightVision
-    viewCircleRadius: 350
+    action: ActionToggleNightVision # Mono: buffed to equivalent to M82c
+    viewCircleRadius: 400
     viewCircleCount: 2
     viewCircleSpacing: 280
-    phosphorColor: "#00FF00"
+    phosphorColor: "#00AACC"
     lightingColor: "#FFFFFF32"
   - type: IdentityBlocker
     coverage: EYES
