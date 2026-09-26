@@ -6,6 +6,10 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactGlass
   - type: Anchorable
     flags:
     - Anchorable

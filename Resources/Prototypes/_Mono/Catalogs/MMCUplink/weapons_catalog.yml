@@ -61,6 +61,21 @@
       - MMCUplink
 
 - type: listing
+  id: MMCHFBlade
+  name: mmc-uplink-blade-name
+  description: mmc-uplink-blade-desc
+  productEntity: WeaponMieyoHFBlade
+  cost:
+    MMCIndustrialCredit: 250
+  categories:
+  - UplinkMmcProtection
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
   id: MMCIzumo
   name: mmc-uplink-izumo-name
   description: mmc-uplink-izumo-desc

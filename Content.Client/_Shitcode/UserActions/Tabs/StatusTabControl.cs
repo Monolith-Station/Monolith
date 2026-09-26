@@ -41,6 +41,8 @@ public sealed partial class StatusTabControl : BaseTabControl
         {
             var roundTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
             StationTime.Text = Loc.GetString("lobby-state-player-status-round-time", ("hours", roundTime.Hours), ("minutes", roundTime.Minutes));
+            if (_gameTicker.ServerInfoBlob != null)
+                ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
             return;
         }
 
@@ -49,17 +51,18 @@ public sealed partial class StatusTabControl : BaseTabControl
 
     public override bool UpdateState()
     {
-        // Goob's PR added ClientGameTicker.InGameInfoBlob and InGameInfoBlobUpdated.
-        // Cataclysm14 does not have those members yet, so keep the status tab compiling
-        // and still update round time using the existing RoundStartTimeSpan field.
-        _gameTicker ??= _entManager.System<ClientGameTicker>();
+        if (_gameTicker == null)
+        {
+            _gameTicker = _entManager.System<ClientGameTicker>();
+        }
+        UpdateInfoBlob();
         return true;
     }
 
     private void UpdateInfoBlob()
     {
-        // Intentionally left blank for Cataclysm14 compatibility.
-        // Port TickerInGameInfoEvent/InGameInfoBlob later to populate ServerInfo.
+        if (_gameTicker != null && _gameTicker.ServerInfoBlob != null)
+            ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
     }
 
     protected override void Resized()

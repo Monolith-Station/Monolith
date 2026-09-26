@@ -17,7 +17,7 @@
                           HorizontalExpand="True"
                           Margin="5">
                 <info:ServerInfo Name="ServerInfo" Access="Public" MinSize="0 30" VerticalExpand="false"
-                            Margin="0" MaxWidth="400" HorizontalAlignment="Left" Visible="False" />
+                            Margin="0" MaxWidth="400" HorizontalAlignment="Left" Visible="True" />
                 <Label Name="StationTime" Access="Public" FontColorOverride="{x:Static maths:Color.LightGray}"
                             Margin="0" HorizontalAlignment="Left" />
             </BoxContainer>

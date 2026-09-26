@@ -598,6 +598,31 @@
   - type: StaticPrice
     vendPrice: 325000
 
+- type: entity
+  parent: BaseShipLPCRenewable
+  id: ShipVoucherMieyoSenkusha
+  name: MMC Senku-sha LPC [T1]
+  description: A small card that contains the data for the procurement of a Senku-sha-class corvette from the station's reserves.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#8c5619FF"
+    - state: screen1
+      color: "#fa860aFF"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 1800 # 30 minutes
+    consoleType: Mieyo
+    companyName: MMC
+    vessels:
+    - Senkusha
+  - type: StaticPrice
+    vendPrice: 325000
+
 #Viper Group
 
 # Start T2

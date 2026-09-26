@@ -1,5 +1,6 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Emp;
+using Content.Server._Mono.Radio;
 using Content.Server.Radio.Components;
 using Content.Shared._Mono.Radio;
 using Content.Shared.Inventory.Events;
@@ -19,7 +20,7 @@ public sealed partial class HeadsetSystem : SharedHeadsetSystem
     [Dependency] private INetManager _netMan = default!;
     [Dependency] private RadioSystem _radio = default!;
     [Dependency] private LanguageSystem _language = default!;
-
+    [Dependency] private HeadsetPunishmentSystem _punishment = default!;
 
     public override void Initialize()
     {
@@ -56,6 +57,7 @@ public sealed partial class HeadsetSystem : SharedHeadsetSystem
             && TryComp(component.Headset, out EncryptionKeyHolderComponent? keys)
             && keys.Channels.Contains(args.Channel.ID))
         {
+            _punishment.Punish(uid, component.Headset, args.Message);
             _radio.SendRadioMessage(uid, args.Message, args.Channel, component.Headset);
             args.Channel = null; // prevent duplicate messages from other listeners.
         }

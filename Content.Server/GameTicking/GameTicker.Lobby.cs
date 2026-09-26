@@ -81,7 +81,7 @@ namespace Content.Server.GameTicking
                 ("roundId", RoundId),
                 ("playerCount", playerCount),
                 ("readyCount", readyCount),
-                ("mapName", stationNames.ToString()),
+                //("mapName", stationNames.ToString()), // Mono
                 ("gmTitle", gmTitle),
                 ("desc", desc));
         }

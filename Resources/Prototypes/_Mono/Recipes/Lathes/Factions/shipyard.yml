@@ -259,6 +259,22 @@
     Gold: 5000
     Silver: 5000
 
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherMieyoSenkusha
+  result: ShipVoucherMieyoSenkusha
+  completetime: 30
+  materialDiscountScale: 0.2
+  materials: # more steel less copper/lithium
+    Steel: 20000
+    Copper: 5000
+    Plasteel: 5000
+    Lithium: 5000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+
 # Viper Group
 
 - type: latheRecipe

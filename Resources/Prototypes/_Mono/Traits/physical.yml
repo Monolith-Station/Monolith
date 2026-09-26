@@ -439,3 +439,23 @@
   - type: ShuttleBoostingPilot #Found in: content.server\_mono\Shuttles\Components\
     angularMultiplier: 1.1
     accelerationMultiplier: 1.1
+
+- type: trait
+  id: Heretic
+  name: trait-heretic-name
+  description: trait-heretic-desc
+  category: Physical
+  cost: 0 # no points because it's free points for members of the PDV and arguably TSF too.
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: AddComponentsAfterTime
+    excludedCompanies:
+    - PDV
+    addComponentsOnSelection:
+    - type: Contraband
+      hideValues: true
+      turnInValues:
+        Doubloon: 250
+    - type: Heretic
