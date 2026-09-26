@@ -25405,3 +25405,21 @@ Entries:
   id: 2762
   time: '2026-09-26T01:15:21.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4774
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Added the Heretic trait, giving you a 50% chance of being marked for
+        death by the Sultanate. If you take it and get RRed by the PDV it's on
+        you.
+    - type: Tweak
+      message: >-
+        Completely reworked the bounty system to now reward PDV for bringing
+        Heretic (marked for death) corpses to Helios.
+    - type: Remove
+      message: >-
+        PDV bounty redemption consoles were migrated out. They were useless
+        anyways.
+  id: 2763
+  time: '2026-09-26T02:40:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4772
