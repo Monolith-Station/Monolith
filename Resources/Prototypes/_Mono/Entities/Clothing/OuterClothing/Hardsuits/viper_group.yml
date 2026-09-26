@@ -177,11 +177,12 @@
   - type: HeldSpeedModifier
   # Mono - Shielding comps
   - type: PersonalShield
-    fillLevel: 0.2
-    hexDensity: 4
-    pixelGrid: 192
-    color: "#eb772a"
-    scale: 1.6
+    visuals:
+      fillLevel: 0.2
+      hexDensity: 4
+      pixelGrid: 192
+      color: "#eb772a"
+      scale: 1.6
     shield:
       maxCharge: 250
       regenRate: 5

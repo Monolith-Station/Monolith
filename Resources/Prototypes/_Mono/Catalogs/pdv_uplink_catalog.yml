@@ -46,6 +46,23 @@
       - PirateUplink
 
 - type: listing
+  id: UplinkPDVVestineChemistryVial
+  name: uplink-pirate-vestine-vial-name
+  description: uplink-pirate-vestine-vial-desc
+  icon: { sprite: /Textures/Objects/Specific/Chemistry/vial.rsi, state: vial-1 }
+  productEntity: VestineChemistryVial
+  cost:
+    Doubloon: 5
+  categories:
+  - UplinkPirateMedical
+  - UplinkPdvMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
   id: UplinkPirateCombatMedkit
   name: uplink-pirate-combat-medkit-name
   description: uplink-pirate-combat-medkit-desc
@@ -1658,7 +1675,7 @@
   description: uplink-pdv-t1-voucher-desc
   productEntity: ShipVoucherPdvT1
   cost:
-    Doubloon: 90
+    Doubloon: 75
   categories:
   - UplinkPdvVouchers
   conditions:
@@ -1673,7 +1690,7 @@
   description: uplink-pdv-t2-voucher-desc
   productEntity: ShipVoucherPdvT2
   cost:
-    Doubloon: 175
+    Doubloon: 150
   categories:
   - UplinkPdvVouchers
   conditions:
@@ -1711,7 +1728,7 @@
     whitelist:
       tags:
       - FactionStaticUplinkPdv
-      
+
 - type: listing
   id: UplinkHardBombPDV
   name:  uplink-HardBomb-PDV-name

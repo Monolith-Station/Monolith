@@ -4,6 +4,7 @@
   components:
   - type: PersonalShield
     shield:
+      requiredSlot: OUTERCLOTHING
       maxCharge: 300
       regenRate: 3
       spinupTime: 1

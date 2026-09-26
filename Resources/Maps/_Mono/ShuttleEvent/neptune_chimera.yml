@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/10/2026 12:34:02
+  time: 09/21/2026 15:47:50
   entityCount: 1239
 maps: []
 grids:
@@ -59,7 +59,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: grid
+      name: Transponderless Vessel
     - type: Transform
       pos: -0.49095663,-0.5135625
       parent: invalid
@@ -107,8 +107,8 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
         Kudzu: []
         Smoke: []
     - type: Shuttle
@@ -682,6 +682,10 @@ entities:
     - type: ThermalSignature
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
+    - type: IFF
+      address: ' 42B2-84C2'
+      color: '#FFFFFFFF'
+      flags: HideLabel, IsPlayerShuttle
 - proto: AirAlarm
   entities:
   - uid: 2

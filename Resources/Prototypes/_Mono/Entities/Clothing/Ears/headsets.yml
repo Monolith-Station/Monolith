@@ -5,9 +5,9 @@
   name: TSF radio
   components:
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: ContainerFill
     containers:
       key_slots:
@@ -26,9 +26,9 @@
       - EncryptionKeyNfsd
       - EncryptionKeyCommand
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
 
 - type: entity
   parent: ClothingHeadsetAlt
@@ -40,9 +40,9 @@
       key_slots:
       - EncryptionKeyStationMaster
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
 
 - type: entity
   parent: ClothingHeadset
@@ -50,9 +50,9 @@
   name: TSFMC headset
   components:
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: ContainerFill
     containers:
       key_slots:
@@ -76,9 +76,9 @@
       - EncryptionKeySecurity
       - EncryptionKeyCentCom
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
 
 - type: entity
   parent: ClothingHeadsetAlt
@@ -91,9 +91,9 @@
       - EncryptionKeyStationMaster
       - EncryptionKeyCentCom
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
 
 #USSP
 - type: entity

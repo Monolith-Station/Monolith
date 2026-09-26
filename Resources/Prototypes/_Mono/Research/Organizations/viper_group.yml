@@ -53,11 +53,9 @@
   entityIcon: ShipVoucherVGWolf
   discipline: ViperGroup
   tier: 2
-  cost: 100000
+  cost: 50000
   recipeUnlocks:
   - ShipVoucherVGWolf
-  - ShipVoucherVGKeelback
-  - ShipVoucherVGLancehead
   technologyPrerequisites:
   - UniversalMaterialResearchT2
   position: 8, -16
@@ -68,9 +66,11 @@
   entityIcon: ShipVoucherVGWolf
   discipline: ViperGroup
   tier: 3
-  cost: 100000
+  cost: 150000
   recipeUnlocks:
   - ShipVoucherVGLeviathan
+  - ShipVoucherVGKeelback
+  - ShipVoucherVGLancehead
   technologyPrerequisites:
   - ViperGroupShipyardAdvanced
   - UniversalMaterialResearchT3
