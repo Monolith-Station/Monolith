@@ -30,6 +30,7 @@
     totalIntensity: 2000
     intensitySlope: 30
     maxIntensity: 1500
+    tileBreakScale: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: Destructible
@@ -121,6 +122,7 @@
     totalIntensity: 100
     intensitySlope: 10
     maxIntensity: 150
+    tileBreakScale: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
@@ -220,6 +222,7 @@
     maxIntensity: 25
     intensitySlope: 1000
     totalIntensity: 25
+    tileBreakScale: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking

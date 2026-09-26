@@ -98,6 +98,7 @@
     totalIntensity: 8
     intensitySlope: 3
     maxIntensity: 5
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -157,6 +158,7 @@
     totalIntensity: 50
     intensitySlope: 4
     maxIntensity: 15
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -186,6 +188,7 @@
     totalIntensity: 30
     intensitySlope: 5
     maxIntensity: 15
+    tileBreakScale: 3
 
 # TOVEK
 
@@ -223,6 +226,7 @@
     totalIntensity: 130
     intensitySlope: 6
     maxIntensity: 25
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -268,6 +272,7 @@
     totalIntensity: 70
     intensitySlope: 6
     maxIntensity: 25
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -317,7 +322,7 @@
     totalIntensity: 40
     intensitySlope: 10
     maxIntensity: 25
-    maxTileBreak: 3
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -365,6 +370,7 @@
     maxIntensity: 600
     intensitySlope: 3
     totalIntensity: 150
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -426,6 +432,7 @@
     maxIntensity: 450
     intensitySlope: 5
     totalIntensity: 550
+    tileBreakScale: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking

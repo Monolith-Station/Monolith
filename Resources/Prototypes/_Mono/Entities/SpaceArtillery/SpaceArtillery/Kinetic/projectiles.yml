@@ -117,6 +117,7 @@
     totalIntensity: 2
     intensitySlope: 2
     maxIntensity: 1
+    tileBreakScale: 3
 
 # 35mm - AC-35
 
@@ -165,6 +166,8 @@
     totalIntensity: 2
     intensitySlope: 2
     maxIntensity: 1
+    tileBreakScale: 3
+
 # 57mm
 
 - type: entity
@@ -200,6 +203,7 @@
     intensitySlope: 2
     maxIntensity: 2
     maxTileBreak: 1
+    tileBreakScale: 3
 
 - type: entity
   id: 57mmBulletSmart
@@ -234,6 +238,7 @@
     intensitySlope: 5
     maxIntensity: 6
     maxTileBreak: 1
+    tileBreakScale: 3
   - type: TargetSeeking
     acceleration: 350
     detectionRange: 1000
@@ -276,6 +281,7 @@
     intensitySlope: 5
     maxIntensity: 6
     maxTileBreak: 1
+    tileBreakScale: 3
   - type: TargetGuided
     turnRate: 15
     acceleration: 30
@@ -325,6 +331,7 @@
     intensitySlope: 4
     maxIntensity: 3
     maxTileBreak: 1
+    tileBreakScale: 3
   - type: PointLight
     color: orange
 
@@ -515,6 +522,7 @@
     totalIntensity: 50
     intensitySlope: 5
     maxIntensity: 400
+    tileBreakScale: 3
   - type: RadarBlip
     scale: 0.7
     shape: circle
@@ -564,6 +572,7 @@
     intensitySlope: 5
     maxIntensity: 25
     maxTileBreak: 2
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -603,6 +612,7 @@
     intensitySlope: 5
     maxIntensity: 25
     maxTileBreak: 2
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -651,6 +661,7 @@
     intensitySlope: 5
     maxIntensity: 60
     maxTileBreak: 2
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -689,6 +700,7 @@
     intensitySlope: 12
     maxIntensity: 16
     maxTileBreak: 3
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -726,6 +738,7 @@
     intensitySlope: 12
     maxIntensity: 50
     maxTileBreak: 3
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -773,6 +786,7 @@
     intensitySlope: 12
     maxIntensity: 50
     maxTileBreak: 3
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -831,7 +845,7 @@
     totalIntensity: 500
     intensitySlope: 10
     maxIntensity: 10
-    maxTileBreak: 4
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -868,7 +882,7 @@
     totalIntensity: 30
     intensitySlope: 5
     maxIntensity: 5
-    maxTileBreak: 4
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -968,6 +982,7 @@
     totalIntensity: 1500
     intensitySlope: 5
     maxIntensity: 400
+    tileBreakScale: 3
   - type: RadarBlip
     scale: 1
     shape: circle
@@ -1016,6 +1031,7 @@
     totalIntensity: 10
     intensitySlope: 10
     maxIntensity: 10
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -1092,6 +1108,7 @@
     totalIntensity: 1000
     intensitySlope: 25
     maxIntensity: 450
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -1129,6 +1146,7 @@
     totalIntensity: 13000
     intensitySlope: 5
     maxIntensity: 500
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -1199,7 +1217,7 @@
     totalIntensity: 1900
     intensitySlope: 8
     maxIntensity: 90
-    maxTileBreak: 6
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -1237,7 +1255,7 @@
     totalIntensity: 12
     intensitySlope: 2
     maxIntensity: 2
-    maxTileBreak: 1
+    tileBreakScale: 3
 
 - type: entity
   id: ShipFragmentProjectile
@@ -1255,7 +1273,7 @@
     totalIntensity: 6
     intensitySlope: 2
     maxIntensity: 2
-    maxTileBreak: 1
+    tileBreakScale: 3
   - type: ProjectileKnockback
     knockback: 25
 
@@ -1290,7 +1308,7 @@
     totalIntensity: 45
     intensitySlope: 5
     maxIntensity: 5
-    maxTileBreak: 1
+    tileBreakScale: 3
   - type: ProjectileKnockback
     knockback: 75 # giga evil
 
