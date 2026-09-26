@@ -42,10 +42,10 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 4 minutes
-      volume: 0.66
+      # 15+ minutes
+      volume: 2.5
       moles:
-        Oxygen: 0.270782035 # oxygen
+        Oxygen: 1.025689525 # oxygen
       temperature: 293.15
 
 - type: entity
@@ -56,12 +56,11 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 4 minutes
-      volume: 0.66
+      # 18+ minutes
+      volume: 2.5
       moles:
-        Nitrogen: 0.270782035 # nitrogen
+        Nitrogen: 1.025689525 # nitrogen
       temperature: 293.15
-
 
 - type: entity
   id: ExtendedEmergencyOxygenTankFilled
@@ -71,10 +70,10 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 9 minutes
-      volume: 1.5
+      # 18+ minutes
+      volume: 3
       moles:
-        Oxygen: 0.615413715 # oxygen
+        Oxygen: 1.025689525 # oxygen
       temperature: 293.15
 
 - type: entity
@@ -85,12 +84,11 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 9 minutes
-      volume: 1.5
+      # 12+ minutes
+      volume: 3
       moles:
-        Nitrogen: 0.615413715 # nitrogen
+        Nitrogen: 1.025689525 # nitrogen
       temperature: 293.15
-
 
 - type: entity
   id: DoubleEmergencyOxygenTankFilled
@@ -100,8 +98,8 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 15 minutes
-      volume: 2.5
+      # 18+ minutes
+      volume: 4
       moles:
         Oxygen: 1.025689525 # oxygen
       temperature: 293.15
@@ -114,8 +112,8 @@
   - type: GasTank
     outputPressure: 21.3
     air:
-      # 15 minutes
-      volume: 2.5
+      # 18+ minutes
+      volume: 4
       moles:
         Nitrogen: 1.025689525 # nitrogen
       temperature: 293.15

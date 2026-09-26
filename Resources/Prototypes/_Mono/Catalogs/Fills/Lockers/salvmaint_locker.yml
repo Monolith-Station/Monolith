@@ -328,9 +328,9 @@
       - !type:GroupSelector
         children:
         - id: OxygenTankFilled
-        - id: DoubleEmergencyOxygenTankFilled
+        - id: EmergencyOxygenTankFilled
         - id: NitrogenTankFilled
-        - id: DoubleEmergencyNitrogenTankFilled
+        - id: EmergencyNitrogenTankFilled
         - id: EmergencyFunnyOxygenTankFilled
           weight: 0.5
       #Mats
