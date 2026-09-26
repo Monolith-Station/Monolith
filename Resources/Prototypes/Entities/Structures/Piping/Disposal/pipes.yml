@@ -66,6 +66,9 @@
   - type: ShipRepairable
     repairTime: 1
     repairCost: 1
+  - type: Tag # Reserve edit - mapping editor
+    tags:
+    - Disposal
 
 - type: entity
   id: DisposalHolder
