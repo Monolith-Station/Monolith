@@ -90,4 +90,11 @@ public sealed partial class BlockingComponent : Component
     /// </summary>
     [DataField]
     public bool IsClothing = false;
+
+    /// <summary>
+    /// Mono - Projectiles will be blocked only
+    /// if it's in the arc of blocking user.
+    /// </summary>
+    [DataField]
+    public float BlockingArc = 105f;
 }
