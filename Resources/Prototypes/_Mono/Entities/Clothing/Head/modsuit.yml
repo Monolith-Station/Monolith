@@ -121,9 +121,22 @@
   parent: [BaseClothingModsuitHelmet, ShowMedicalIcons, ShowSecurityIcons]
   id: ClothingModsuitHelmetRogue
   name: RX-01 modsuit helmet
-  description: Does not currently feature an AI companion- note to self, sell helmet AI as separate purchase.
+  description: A concealed button on the left-hand of the helmet. Features night vision, thermals, medical interface, and flash protection. Does not currently feature an AI companion- note to self, sell helmet AI as separate purchase. 
   categories: [HideSpawnMenu]
   components:
+  - type: RadarConsole
+    followEntity: true
+    noRotate: true
+  - type: DetectionRangeMultiplier
+    infraredMultiplier: 0.5
+    visualMultiplier: 0.75
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
   - type: Sprite
     sprite: _Mono/Clothing/Head/Modsuits/rogue.rsi
   - type: Armor
