@@ -25452,3 +25452,12 @@ Entries:
   id: 2766
   time: '2026-09-26T19:10:59.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4779
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed Motley-Anne drone LPCs not working.
+    - type: Fix
+      message: Fixed Senku-sha missing a warp point and late-join point.
+  id: 2767
+  time: '2026-09-26T19:25:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4781
