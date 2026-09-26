@@ -263,6 +263,82 @@
     class: Energy
     size: Light
 
+# M25B
+
+- type: entity
+  id: WeaponTurretM25B
+  name: M25B-PD breaching pulsar
+  parent:
+  - BallisticArtillery
+  - BallisticArtilleryTier3HP # higher HP as it's intended to survive rams and the like
+  - ConstructibleMachine #Could possibly create a ConstructibleTurret proto if more are added; comps currently do nothing upgrade wise
+  description: A mining pulsar modified by the Phaethon Dynasty to fire its projectiles faster and at a higher velocity. Intended for use by boarding pods.
+  components:
+  - type: StaticPrice
+    price: 1500
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/m25.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 5500 # 15 seconds of constant fire, just like its predecessor
+    startingCharge: 5500
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: FireControlRotate
+  - type: Gun
+    damageModifier: 5
+    fireRate: 10
+    recoil: 2 # 2/25x
+    projectileSpeed: 240
+    minAngle: 0
+    maxAngle: 5
+    shootThermalSignature: 10000 # 400m - intentionally relatively low
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 350
+  - type: SpaceArtillery
+    powerChargeRate: 350
+    powerUsePassive: 500
+    powerUseActive: 0
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ShipM25BProjectile
+    fireCost: 100
+  - type: Machine
+    board: WeaponTurretM25Circuitboard
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 1
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#C92BCC"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-0.7,-0.7,0.7,0.7"
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Light
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 20
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Light
+
 # RUBICON
 
 - type: entity
