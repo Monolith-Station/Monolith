@@ -105,5 +105,5 @@ RavagerCarrierComputer: null
 BalorCarrierComputer: null
 
 # 25/09/2026 - Bounty rework
-ComputerPirateBountyRedemption: null # no longer has a purpose
-ComputerPirateBountyRedemptionTabletop: null # ditto
+ComputerPirateBountyRedemption: BaseComputer # no longer has a purpose
+ComputerPirateBountyRedemptionTabletop: ComputerTabletopFrame # ditto
