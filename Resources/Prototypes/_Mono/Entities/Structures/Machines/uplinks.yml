@@ -5,7 +5,6 @@
   description: A central TSFMC material access lift. Lets you access deep storage at the cost of FMC, which represent merit and accumulated resources.
   components:
   - type: VendingMachine
-    cashSlot: Null
     offState: tsf
     brokenState: broken
     normalState: normal-unshaded
@@ -65,7 +64,6 @@
   description: A central PDV material access lift. Lets you access deep storage at the cost of data chits, which represent merit and accumulated resources.
   components:
   - type: VendingMachine
-    cashSlot: Null
     offState: pdv
     brokenState: broken
     normalState: pdv-unshaded
@@ -117,7 +115,6 @@
   description: A central MMC material access lift. Lets you access Hokkaido's deep storage at the cost of MIC, which represent your value to the board.
   components:
   - type: VendingMachine
-    cashSlot: Null
     offState: mmc
     brokenState: broken
     normalState: mmc-unshaded

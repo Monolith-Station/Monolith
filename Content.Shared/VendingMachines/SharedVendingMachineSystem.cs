@@ -38,12 +38,8 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
     protected virtual void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args)
     {
-        RestockInventoryFromPrototype(uid, component, component.InitialStockQuality);
-
-        // Frontier: create the cash slot if this entity has one
-        if (component.CashSlot != null && component.CashSlotName != null)
-            ItemSlots.AddItemSlot(uid, component.CashSlotName, component.CashSlot);
-        // End Frontier
+        if (TryComp<VendingMachineComponent>(uid, out var vendingMachine)) // Mono
+            RestockInventoryFromPrototype(uid, vendingMachine, vendingMachine.InitialStockQuality); // Mono
     }
 
     public void RestockInventoryFromPrototype(EntityUid uid,
