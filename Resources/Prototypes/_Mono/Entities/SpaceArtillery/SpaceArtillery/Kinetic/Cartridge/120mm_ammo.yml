@@ -24,7 +24,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -73,7 +73,7 @@
     totalIntensity: 10
     intensitySlope: 5
     maxIntensity: 5
-    maxTileBreak: 2
+    tileBreakScale: 3
 
 - type: entity
   id: MuzzleFlashEffect120mm

@@ -25,7 +25,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -69,10 +69,10 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 3600 # This is 1/5th of a subnuclear shell
+    totalIntensity: 10800 # This is 3/5th of a subnuclear shell
     intensitySlope: 12
-    maxIntensity: 75
-    maxTileBreak: 3
+    maxIntensity: 750
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard

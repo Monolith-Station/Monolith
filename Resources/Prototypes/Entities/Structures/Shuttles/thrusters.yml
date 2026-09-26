@@ -251,6 +251,7 @@
             collection: MetalBreak
         - !type:ChangeConstructionNodeBehavior
           node: machineFrame
+        - !type:ExplodeBehavior # Mono
   - type: UpgradePowerDraw
     powerDrawMultiplier: 0.75
     scaling: Exponential
@@ -265,6 +266,11 @@
   - type: ShipRepairable
     repairTime: 6
     repairCost: 6
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 2
+    totalIntensity: 200
 
 - type: entity
   id: GyroscopeUnanchored

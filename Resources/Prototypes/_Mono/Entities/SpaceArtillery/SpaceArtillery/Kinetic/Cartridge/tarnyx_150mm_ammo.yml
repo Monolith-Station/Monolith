@@ -57,7 +57,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -123,7 +123,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -164,6 +164,7 @@
     totalIntensity: 350
     intensitySlope: 25
     maxIntensity: 300
+    tileBreakScale: 3
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 1.75
@@ -196,7 +197,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
