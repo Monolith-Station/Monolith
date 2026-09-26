@@ -3,6 +3,7 @@
   id: BaseKnife
   abstract: true
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Tag
     tags:
     - Knife
@@ -202,6 +203,7 @@
   description: Fashionable for both the working class and old man Jenkins. It has glass shards hidden in the brim.
   suffix: Bladed
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Construction
     graph: BladedFlatcapGrey
     node: icon

@@ -1,9 +1,10 @@
-﻿- type: entity
+- type: entity
   name: gohei
   parent: BaseItem
   id: Gohei
   description: A wooden stick with white streamers at the end. Originally used by shrine maidens to purify things. Now used by the station's weeaboos.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Melee/gohei.rsi
     state: gohei
