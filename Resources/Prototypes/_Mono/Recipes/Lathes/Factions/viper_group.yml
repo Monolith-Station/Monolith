@@ -87,3 +87,18 @@
     Plasteel: 3000
     Plastic: 1500
 
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleBoaRecipe
+  result: WeaponRifleBoa
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 6000
+    Plasteel: 3500
+    Plastic: 2000
+
+
+

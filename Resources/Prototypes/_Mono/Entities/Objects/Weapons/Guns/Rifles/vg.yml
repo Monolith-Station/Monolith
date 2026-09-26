@@ -64,4 +64,75 @@
   - type: Appearance
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/Rifles/sugar.rsi
+
+- type: entity
+  name: GSI Boa (5.56x45mm)
+  parent: [BaseWeaponRifle, BaseGunWieldable]
+  id: WeaponRifleBoa
+  description: A mass produced carbine rifle, modernized by GSI for use across the Colossus Sector. Comes with 3 firing modes, and high accuracy and velocity. Finished with Red and Yellow garnish, an Icon of the Viper Group.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/boa.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -10
+  - type: Gun
+    minAngle: 22
+    maxAngle: 36
+    angleIncrease: 1
+    angleDecay: 80
+    fireRate: 6 
+    projectileSpeed: 35 
+    shotsPerBurst: 2
+    availableModes:
+    - Burst
+    - FullAuto
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/boa_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/boa_inhands_32x.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine556x45mmFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine556x45mmFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge556x45mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge556x45mmFMJ
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/boa_inhands_32x.rsi
+
+
+
+
  

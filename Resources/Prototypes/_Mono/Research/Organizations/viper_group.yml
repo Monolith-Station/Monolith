@@ -79,12 +79,13 @@
 - type: technology
   id: ViperGroupWeaponsRanged
   name: research-technology-viper-group-weapons
-  entityIcon: WeaponRifleWeasel
+  entityIcon: WeaponRifleBoa
   discipline: ViperGroup
   tier: 2
-  cost: 25000
+  cost: 50000
   recipeUnlocks:
   - WeaponRifleWeaselRecipe
+  - WeaponRifleBoaRecipe
   technologyPrerequisites:
   - UniversalMaterialResearchT2
   position: 9, -17
