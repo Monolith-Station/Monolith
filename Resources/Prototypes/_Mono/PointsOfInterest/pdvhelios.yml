@@ -23,10 +23,8 @@
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # drones no droning
-    - maxDistance: 5000
+    - maxDistance: 10000 # LINEAR-21 can spawn up to approximately just below 12km from CC. If Helios spawns 22km from CC, its minimum distance, the 10km exclusion zone will dtill barely miss LINEAR.
       prob: 0.0
-    - maxDistance: 6500
-      prob: 0.3
 
 - type: gameMap
   id: HeliosFortress
