@@ -79,15 +79,16 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: GunWieldBonus
-    minAngle: -10
-    maxAngle: -10
+    minAngle: -18
+    maxAngle: -17
   - type: Gun
-    minAngle: 22
-    maxAngle: 36
+    minAngle: 18
+    maxAngle: 35
     angleIncrease: 1
     angleDecay: 80
-    fireRate: 6 
-    projectileSpeed: 35 
+    fireRate: 5.5 
+    projectileSpeed: 50
+    damageModifier: 2  
     shotsPerBurst: 2
     availableModes:
     - Burst
@@ -98,6 +99,7 @@
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: Appearance    
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/Rifles/boa_inhands_32x.rsi
   - type: Item
@@ -129,8 +131,7 @@
     magState: mag
     steps: 1
     zeroVisible: true
-  - type: Appearance
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/boa_inhands_32x.rsi
+
 
 
 
