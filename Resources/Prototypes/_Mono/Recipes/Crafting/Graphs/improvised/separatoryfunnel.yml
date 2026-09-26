@@ -1,0 +1,42 @@
+- type: constructionGraph
+  id: SeparatoryFunnelGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: beakerstart
+      steps:
+      - tag: GlassBeaker
+        name: a beaker
+        icon:
+          sprite: _DV/Objects/Specific/Chemistry/beaker.rsi
+          state: beaker
+        doAfter: 1
+
+  - node: beakerstart
+    entity: SeparatoryFunnelUnfinished
+    edges:
+      - to: separatoryfunnel
+        steps:
+        - tag: GlassBeaker
+          name: a beaker
+          icon:
+            sprite: _DV/Objects/Specific/Chemistry/beaker.rsi
+            state: beaker
+          doAfter: 1
+        - tag: GlassBeaker
+          name: a beaker
+          icon:
+            sprite: _DV/Objects/Specific/Chemistry/beaker.rsi
+            state: beaker
+          doAfter: 1
+        - material: Cable
+          amount: 1
+          doAfter: 3
+        - tool: Welding
+          doAfter: 4
+        - tool: Prying
+          doAfter: 5
+
+  - node: separatoryfunnel
+    entity: SeparatoryFunnel
