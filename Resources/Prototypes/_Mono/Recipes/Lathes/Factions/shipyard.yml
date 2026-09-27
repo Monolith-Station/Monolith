@@ -354,7 +354,7 @@
   parent: BaseVoucherRecipe
   id: ShipVoucherCaelestinusT0RecipeAlternative
   result: ShipVoucherCaelestinusT0
-  completeTime: 15 # faster for your trouble
+  completetime: 15 # faster for your trouble
   entities:
     MonolithicCrystalSmall: 1
 
@@ -378,6 +378,6 @@
   parent: BaseVoucherRecipe
   id: ShipVoucherCaelestinusT1RecipeAlternative
   result: ShipVoucherCaelestinusT1
-  completeTime: 30 # faster for your trouble
+  completetime: 30 # faster for your trouble
   entities:
     MonolithicCrystalSmall: 4
