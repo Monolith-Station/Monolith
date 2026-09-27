@@ -682,6 +682,77 @@
     class: Energy
     size: Heavy
 
+# Petrusite
+
+- type: entity
+  id: WeaponLaserTurretPetrusite
+  name: ??? Petrusite Tesla Cannon
+  parent:
+  - BallisticArtillery
+  - BallisticArtilleryTier4HP
+  suffix: Heavy, T4
+  description: A heavier laser cannon mount, after the relative failure of the Apollo and its subsequent conversion into a mining laser, the Prometheus comes to the field as the new heavy laser cannon, perfect for melting through hostile hulls.
+  components:
+  - type: StaticPrice
+    price: 50000
+  - type: Sprite
+    sprite:  _Mono/Objects/ShuttleWeapons/petrusite.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 80000
+    startingCharge: 80000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1250 # 3 shots/60 seconds
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.15 # 9 shots per minute
+    recoil: 75 #BOFORs-ish. I'm not sure how recoil works with lightning.
+    minAngle: 0
+    maxAngle: 0
+    shootThermalSignature: 2000000
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_friendship.ogg #Kinda has that THUMMM to it.
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 20000
+    powerUsePassive: 300
+    powerUseActive: 25000
+  - type: FireControlRotate
+  - type: Actions
+  - type: HitscanBatteryAmmoProvider
+    proto: PetrusiteLaser
+    fireCost: 25000
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Heavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 150
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Heavy
+  - type: HitscanRadarSignature
+    radarColor: "#5d46e2"
+
 # PRE- FRACTURE
 
 
