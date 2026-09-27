@@ -10,6 +10,10 @@
   - !type:DepartmentTimeRequirement # Requires time in both factions
     department: Security
     time: 108000 # 30 hours # mono
+  - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+    inverted: true
+    traits:
+    - Heretic
   startingGear: MarsocOperativeGearHyperwarRole
   icon: JobIconTSFMarsoc
   supervisors: job-supervisors-ws

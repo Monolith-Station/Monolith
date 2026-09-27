@@ -9,6 +9,10 @@
     - !type:RoleTimeRequirement
       role: JobPDVDenasvar
       time: 28800 # 8 hours # mono
+    - !type:TraitsRequirement # The trait doesn't do anything if you're PDV anyways, but this is 1 step closer to letting it actually give you points
+      inverted: true
+      traits:
+      - Heretic
   enforcedPlayTime: true #Monolith
   whitelisted: true
   startingGear: PirateCaptainNFGear
