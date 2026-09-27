@@ -502,19 +502,21 @@
       state: muzzle_xray
     travelFlash:
       sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-      state: beam_xray
+      state: xray
     impactFlash:
       sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-      state: impact_beam_heavyxray
+      state: impact_xray
   - type: HitscanBasicDamage
     damage:
       types:
         Heat: 80
         Structural: 35
-  - type: HitscanSpawnEntity
-    spawnedEntity: PetrusiteExplosion
   - type: HitscanBasicRaycast
     maxDistance: 1800
+  - type: HitscanSpawnEntity
+    spawnedEntity: PetrusiteExplosion
+  - type: HitscanRadarSignature
+    radarColor: "#5d46e2"
 
 
 # Reaper
@@ -650,7 +652,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TriggerOnSpawn
-  - type: ExplodeOnTrigger
   - type: EmpOnTrigger
     range: 6
     energyConsumption: 200000 #200 KJ, adds up to a Tarnyx shell with the lightning arcs
