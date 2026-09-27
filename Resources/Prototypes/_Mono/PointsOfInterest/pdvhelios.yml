@@ -46,6 +46,7 @@
         excludedFactions:
         - PDV
       - type: DeleteNearbyDrones
+        distance: 5000
       components:
         - type: StationNameSetup
           mapNameTemplate: 'PDV Helio Fortress'

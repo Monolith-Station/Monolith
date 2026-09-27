@@ -7,5 +7,5 @@ public sealed partial class DeleteNearbyDronesComponent : Component
     /// The distance at which nearby drones will be deleted;
     /// </summary>
     [DataField]
-    public float Distance = 5000f;
+    public float Distance = 1500f;
 }
