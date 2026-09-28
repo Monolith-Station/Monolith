@@ -21,7 +21,13 @@ public sealed partial class MapMigrationSystem : EntitySystem
     [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private IResourceManager _resMan = default!;
 
-    private static readonly string[] MigrationFiles = { "/migration.yml", "/nf_migration.yml", "/mono_migration.yml" }; // Monolith: custom migration file
+    private static readonly string[] MigrationFiles =
+    {
+        "/migration.yml",
+        "/nf_migration.yml", // Frontier: custom migration file
+        "/mono_migration.yml", // Monolith: custom migration file
+        "/forge_migration.yml" // Forge-change: we too have custom migration!! yey
+    };
 
     public override void Initialize()
     {

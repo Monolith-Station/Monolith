@@ -80,11 +80,14 @@
   - type: Appearance
   - type: WiresVisuals
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: Structures/Wallmounts/air-alarm.rsi
+    offset: 0, -0.25
     layers:
+    - state: base
     - state: alarm0
-      map: ["airAlarmBase"] # TODO: fire alarm enum
-    - state: alarmx
+      shader: unshaded
+      map: ["airAlarmState"] # TODO: fire alarm enum
+    - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     anchored: true
@@ -135,17 +138,17 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: Structures/Wallmounts/air-alarm.rsi
     layers:
-    - state: alarm_b1
+    - state: panel
       map: [ "enum.ConstructionVisuals.Layer" ]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ConstructionVisuals.Key:
         enum.ConstructionVisuals.Layer:
-          assembly: { state: alarm_b1 }
-          electronics: { state: alarm_b1 }
+          assembly: { state: panel }
+          electronics: { state: panel }
   - type: Construction
     graph: AirAlarm
     node: assembly

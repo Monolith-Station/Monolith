@@ -50,7 +50,7 @@ public sealed partial class ShipyardServiceConsoleComponent : Component
     {
         ["WallSolid"] = "WallReinforced",
         ["WallSolidDiagonal"] = "WallReinforcedDiagonal",
-        ["WallShuttleInterior"] = "WallShuttle",
+        // ["WallShuttleInterior"] = "WallShuttle", // WallShuttleInterior deleted.
         ["WallShuttleDiagonal"] = "WallReinforcedDiagonal",
         ["Window"] = "ReinforcedWindow",
         ["WindowDiagonal"] = "ReinforcedWindowDiagonal",

@@ -27,6 +27,7 @@
   - type: Sprite
     sprite: Structures/Walls/solid.rsi
     state: wall_girder
+    snapCardinals: true # Forge-change
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic

@@ -893,6 +893,15 @@
     sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
 
 - type: entity
+  parent: AirlockMaint
+  id: AirlockMaintCommonLocked
+  suffix: Common, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMaintenance ]
+
+- type: entity
   parent: AirlockEngineeringLocked
   id: AirlockMaintEngiLocked
   components:

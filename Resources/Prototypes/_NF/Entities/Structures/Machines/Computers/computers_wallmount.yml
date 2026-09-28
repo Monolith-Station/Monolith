@@ -4,8 +4,9 @@
   id: ComputerWallmountRadar
   components:
   - type: Sprite
+    offset: 0, -0.25 # Forge-change
     drawdepth: WallMountedItems
-    sprite: _NF/Structures/Machines/computer_wallmount.rsi
+    sprite: _Forge/Structures/Machines/computer_wallmount.rsi # Forge-change
     layers:
     - map: ["computerLayerBody"]
       state: computer_wallmount
@@ -17,8 +18,9 @@
   id: ComputerWallmountAdvancedRadar
   components:
   - type: Sprite
+    offset: 0, -0.25 # Forge-change
     drawdepth: WallMountedItems
-    sprite: _NF/Structures/Machines/computer_wallmount.rsi
+    sprite: _Forge/Structures/Machines/computer_wallmount.rsi # Forge-change
     layers:
     - map: ["computerLayerBody"]
       state: computer_wallmount
@@ -30,8 +32,9 @@
   id: ComputerWallmountStationRecords
   components:
   - type: Sprite
+    offset: 0, -0.25 # Forge-change
     drawdepth: WallMountedItems
-    sprite: _NF/Structures/Machines/computer_wallmount.rsi
+    sprite: _Forge/Structures/Machines/computer_wallmount.rsi # Forge-change
     layers:
     - map: ["computerLayerBody"]
       state: computer_wallmount
@@ -43,8 +46,9 @@
   id: ComputerWallmountCrewMonitoring
   components:
   - type: Sprite
+    offset: 0, -0.25 # Forge-change
     drawdepth: WallMountedItems
-    sprite: _NF/Structures/Machines/computer_wallmount.rsi
+    sprite: _Forge/Structures/Machines/computer_wallmount.rsi # Forge-change
     layers:
     - map: ["computerLayerBody"]
       state: computer_wallmount

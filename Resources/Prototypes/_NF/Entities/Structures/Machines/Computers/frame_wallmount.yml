@@ -10,14 +10,14 @@
       graph: ComputerWallmount
       node: wallmount computer
     - type: Sprite
-      sprite: _NF/Structures/Machines/computer_wallmount.rsi
+      sprite: _Forge/Structures/Machines/computer_wallmount.rsi # Forge-change
       drawdepth: WallMountedItems
       layers:
         - map: [ "computerLayerBody" ]
-          sprite: _NF/Structures/Machines/computer_wallmount.rsi
+          sprite: _Forge/Structures/Machines/computer_wallmount.rsi # Forge-change
           state: computer_wallmount
         - map: [ "computerLayerScreen" ]
-          sprite: _NF/Structures/Machines/computer_wallmount.rsi
+          sprite: _Forge/Structures/Machines/computer_wallmount.rsi # Forge-change
           state: screen_generic
     - type: Damageable
       damageContainer: Inorganic
@@ -50,7 +50,8 @@
       - board
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _NF/Structures/Machines/computer_wallmount.rsi
+    offset: 0, -0.25 # Forge-change
+    sprite: _Forge/Structures/Machines/computer_wallmount.rsi # Forge-change
     layers:
     - state: computer_wallmount_frame
       map: [ "enum.ConstructionVisuals.Layer" ]
@@ -72,5 +73,6 @@
   components:
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _NF/Structures/Machines/computer_wallmount.rsi
+    offset: 0, -0.25 # Forge-change
+    sprite: _Forge/Structures/Machines/computer_wallmount.rsi # Forge-change
     state: broken_wallmount

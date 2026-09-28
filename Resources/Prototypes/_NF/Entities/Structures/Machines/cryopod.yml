@@ -4,6 +4,8 @@
   name: cryo sleep chamber
   description: Cold pillow, guaranteed.
   components:
+  - type: Transform
+    noRot: false
   - type: Sprite
     netsync: false
     sprite: _Forge/Structures/Machines/cryopod.rsi # Forge-change

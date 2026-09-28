@@ -2,6 +2,7 @@
   id: MiningWindowUran
   name: mining window
   parent: WindowRCDResistant
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -59,6 +60,7 @@
 - type: entity
   parent: ShuttleWindowUran
   id: MiningWindowUranDiagonal
+  categories: [ HideSpawnMenu ]
   suffix: diagonal
   placement:
     mode: SnapgridCenter
@@ -110,6 +112,7 @@
   id: MiningWindowPlasma
   name: mining window
   parent: WindowRCDResistant
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -167,6 +170,7 @@
 - type: entity
   parent: ShuttleWindowPlasma
   id: MiningWindowPlasmaDiagonal
+  categories: [ HideSpawnMenu ]
   suffix: diagonal
   placement:
     mode: SnapgridCenter

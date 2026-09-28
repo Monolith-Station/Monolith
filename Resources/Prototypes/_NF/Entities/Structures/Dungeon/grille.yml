@@ -25,12 +25,9 @@
         sprite: Decals/dirty.rsi
       - state: dirtheavy
         sprite: Decals/dirty.rsi
-    - type: Icon
-      layers:
-      - sprite: Structures/Walls/grille-new.rsi
-        state: full
-      - sprite: Decals/dirty.rsi
-        state: rust
+    - type: Icon # Forge-change
+      sprite: Structures/Walls/grille.rsi
+      state: grille
 #    - type: Fixtures # Mono - No longer blocks lasers
 #      fixtures:
 #        fix1:

@@ -43,8 +43,12 @@
             min: 1
             max: 2
   - type: Sprite
-    drawdepth: WallTops
-    sprite: _NF/Structures/Wallmounts/notice_board.rsi
+    # Forge-change-start
+    # drawdepth: WallTops
+    offset: 0, -0.15
+    drawdepth: WallMountedItems
+    # Forge-change-end
+    sprite: _Forge/Structures/Wallmounts/notice_board.rsi # Forge-change
     snapCardinals: false
     state: base
     layers:
@@ -52,7 +56,7 @@
     - map: [ "enum.StorageContainerVisualLayers.Fill" ]
       visible: false
   - type: Icon
-    sprite: _NF/Structures/Wallmounts/notice_board.rsi
+    sprite: _Forge/Structures/Wallmounts/notice_board.rsi # Forge-change
     state: icon
   - type: Appearance
   - type: StorageContainerVisuals

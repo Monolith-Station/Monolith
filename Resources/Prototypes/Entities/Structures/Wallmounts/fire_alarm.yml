@@ -69,13 +69,14 @@
     boardName: wires-board-name-firealarm
     layoutId: FireAlarm
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: Structures/Wallmounts/fire-alarm.rsi
+    offset: 0, -0.25
     layers:
-    - state: fire0
+    - state: base
       map: ["fireAlarmBase"]
-    - state: fire_off
+    - state: fire_0
       map: ["fireAlarmState"]
-    - state: fire_b2
+    - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     anchored: true

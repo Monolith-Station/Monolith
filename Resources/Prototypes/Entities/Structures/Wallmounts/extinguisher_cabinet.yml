@@ -7,6 +7,8 @@
   description: A small wall mounted cabinet designed to hold a fire extinguisher.
   placement:
     mode: SnapgridCenter
+    snap:
+    - Wallmount
   components:
     - type: WallMount
       arc: 360
@@ -17,7 +19,6 @@
     - type: Sprite
       sprite: Structures/Wallmounts/extinguisher_cabinet.rsi
       offset: 0, -0.25
-      snapCardinals: true
       layers:
       - state: frame
       - state: extinguisher
