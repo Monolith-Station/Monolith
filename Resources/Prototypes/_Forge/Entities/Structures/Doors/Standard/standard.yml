@@ -5,7 +5,7 @@
   suffix: Empire, Public
   components:
   - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Standard/empire.rsi
+    sprite: _Forge/Structures/Doors/Airlocks/Standard/empire-base.rsi
 
 - type: entity
   parent: Airlock
@@ -13,7 +13,7 @@
   suffix: Empire
   components:
   - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Standard/empire.rsi
+    sprite: _Forge/Structures/Doors/Airlocks/Standard/empire-base.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsEmpire ]
@@ -24,7 +24,7 @@
   suffix: Empire, Officer
   components:
   - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Standard/empire.rsi
+    sprite: _Forge/Structures/Doors/Airlocks/Standard/empire-base.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsEmpireOfficer ]
@@ -35,7 +35,7 @@
   suffix: Empire, Inquisitor
   components:
   - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Standard/empire_inq.rsi
+    sprite: _Forge/Structures/Doors/Airlocks/Standard/empire-inq.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsEmpireInqusitor ]
@@ -46,7 +46,7 @@
   suffix: Empire, Commander
   components:
   - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Standard/empire_lord.rsi
+    sprite: _Forge/Structures/Doors/Airlocks/Standard/empire-com.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsEmpireCommander ]
@@ -57,7 +57,7 @@
   suffix: Empire, Diplomacy
   components:
   - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Standard/empire_diplomacy.rsi
+    sprite: _Forge/Structures/Doors/Airlocks/Standard/empire-dip.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsEmpireDiplomacy ]
@@ -69,7 +69,7 @@
   suffix: Ренегаты, Locked
   components:
   - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Standard/ren_door.rsi
+    sprite: _Forge/Structures/Doors/Airlocks/Standard/renegate-base.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsRenegate ]
@@ -80,7 +80,7 @@
   suffix: Ренегаты, Командование, Locked
   components:
   - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Standard/ren_command.rsi
+    sprite: _Forge/Structures/Doors/Airlocks/Standard/renegate-base.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsRenegateOfficer ]

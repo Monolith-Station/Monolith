@@ -1,112 +1,112 @@
 # Forge-Change-Start
-- type: constructionGraph
-  id: mining_window
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: miningWindow
-          steps:
-            - material: ReinforcedGlass
-              amount: 2
-              doAfter: 2
-        - to: miningWindowDiagonal
-          steps:
-            - material: ReinforcedGlass
-              amount: 2
-              doAfter: 2
-        - to: miningWindowUran
-          steps:
-            - material: ReinforcedUraniumGlass
-              amount: 2
-              doAfter: 2
-        - to: miningWindowUranDiagonal
-          steps:
-            - material: ReinforcedUraniumGlass
-              amount: 2
-              doAfter: 2
-        - to: miningWindowPlasma
-          steps:
-            - material: ReinforcedPlasmaGlass
-              amount: 2
-              doAfter: 2
-        - to: miningWindowPlasmaDiagonal
-          steps:
-            - material: ReinforcedPlasmaGlass
-              amount: 2
-              doAfter: 2
+# - type: constructionGraph
+#   id: mining_window
+#   start: start
+#   graph:
+#     - node: start
+#       edges:
+#         - to: miningWindow
+#           steps:
+#             - material: ReinforcedGlass
+#               amount: 2
+#               doAfter: 2
+#         - to: miningWindowDiagonal
+#           steps:
+#             - material: ReinforcedGlass
+#               amount: 2
+#               doAfter: 2
+#         - to: miningWindowUran
+#           steps:
+#             - material: ReinforcedUraniumGlass
+#               amount: 2
+#               doAfter: 2
+#         - to: miningWindowUranDiagonal
+#           steps:
+#             - material: ReinforcedUraniumGlass
+#               amount: 2
+#               doAfter: 2
+#         - to: miningWindowPlasma
+#           steps:
+#             - material: ReinforcedPlasmaGlass
+#               amount: 2
+#               doAfter: 2
+#         - to: miningWindowPlasmaDiagonal
+#           steps:
+#             - material: ReinforcedPlasmaGlass
+#               amount: 2
+#               doAfter: 2
 
-    - node: miningWindow
-      entity: MiningWindow
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetRGlass1
-              amount: 2
-            - !type:DeleteEntity {}
-          steps: &deconstructionSteps
-            - tool: Welding
-              doAfter: 5
-            - tool: Screwing
-              doAfter: 1
-            - tool: Prying
-              doAfter: 2
-            - tool: Welding
-              doAfter: 5
-            - tool: Screwing
-              doAfter: 1
-            - tool: Anchoring
-              doAfter: 2
+#     - node: miningWindow
+#       entity: MiningWindow
+#       edges:
+#         - to: start
+#           completed:
+#             - !type:SpawnPrototype
+#               prototype: SheetRGlass1
+#               amount: 2
+#             - !type:DeleteEntity {}
+#           steps: &deconstructionSteps
+#             - tool: Welding
+#               doAfter: 5
+#             - tool: Screwing
+#               doAfter: 1
+#             - tool: Prying
+#               doAfter: 2
+#             - tool: Welding
+#               doAfter: 5
+#             - tool: Screwing
+#               doAfter: 1
+#             - tool: Anchoring
+#               doAfter: 2
 
-    - node: miningWindowDiagonal
-      entity: MiningWindowDiagonal
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetRGlass1
-              amount: 2
-            - !type:DeleteEntity {}
-          steps: *deconstructionSteps
-    - node: miningWindowUran
-      entity: MiningWindowUran
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetRUGlass1
-              amount: 2
-            - !type:DeleteEntity {}
-          steps: *deconstructionSteps
-    - node: miningWindowUranDiagonal
-      entity: MiningWindowUranDiagonal
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetRUGlass1
-              amount: 2
-            - !type:DeleteEntity {}
-          steps: *deconstructionSteps
-    - node: miningWindowPlasma
-      entity: MiningWindowPlasma
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetRPGlass1
-              amount: 2
-            - !type:DeleteEntity {}
-          steps: *deconstructionSteps
-    - node: miningWindowPlasmaDiagonal
-      entity: MiningWindowPlasmaDiagonal
-      edges:
-        - to: start
-          completed:
-            - !type:SpawnPrototype
-              prototype: SheetRPGlass1
-              amount: 2
-            - !type:DeleteEntity {}
-          steps: *deconstructionSteps
+#     - node: miningWindowDiagonal
+#       entity: MiningWindowDiagonal
+#       edges:
+#         - to: start
+#           completed:
+#             - !type:SpawnPrototype
+#               prototype: SheetRGlass1
+#               amount: 2
+#             - !type:DeleteEntity {}
+#           steps: *deconstructionSteps
+#     - node: miningWindowUran
+#       entity: MiningWindowUran
+#       edges:
+#         - to: start
+#           completed:
+#             - !type:SpawnPrototype
+#               prototype: SheetRUGlass1
+#               amount: 2
+#             - !type:DeleteEntity {}
+#           steps: *deconstructionSteps
+#     - node: miningWindowUranDiagonal
+#       entity: MiningWindowUranDiagonal
+#       edges:
+#         - to: start
+#           completed:
+#             - !type:SpawnPrototype
+#               prototype: SheetRUGlass1
+#               amount: 2
+#             - !type:DeleteEntity {}
+#           steps: *deconstructionSteps
+#     - node: miningWindowPlasma
+#       entity: MiningWindowPlasma
+#       edges:
+#         - to: start
+#           completed:
+#             - !type:SpawnPrototype
+#               prototype: SheetRPGlass1
+#               amount: 2
+#             - !type:DeleteEntity {}
+#           steps: *deconstructionSteps
+#     - node: miningWindowPlasmaDiagonal
+#       entity: MiningWindowPlasmaDiagonal
+#       edges:
+#         - to: start
+#           completed:
+#             - !type:SpawnPrototype
+#               prototype: SheetRPGlass1
+#               amount: 2
+#             - !type:DeleteEntity {}
+#           steps: *deconstructionSteps
     # Forge-Change-End

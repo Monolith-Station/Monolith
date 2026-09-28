@@ -3,8 +3,6 @@
   id: AirlockCompanyMercenaryBlackhawk
   suffix: Locked, Blackhawk
   components:
-  - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Company/merc_blackhawk.rsi
   - type: AccessReader
     requiredCompany: blackhawkpmc
     breakOnAccessBreaker: false
@@ -14,8 +12,6 @@
   id: AirlockCompanyMercenaryViperGroup
   suffix: Locked, Viper Group
   components:
-  - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Company/merc_vg.rsi
   - type: AccessReader
     requiredCompany: TheViperGroup
     breakOnAccessBreaker: false

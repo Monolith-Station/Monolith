@@ -41,8 +41,8 @@
   id: AirlockHatchRenegades
   suffix: Ренегаты, Locked
   components:
-  - type: Sprite
-    sprite: _Forge/Structures/Doors/Hatch/ren_hatch.rsi
+  # - type: Sprite
+  #   sprite: _Forge/Structures/Doors/Hatch/ren_hatch.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsRenegate ]

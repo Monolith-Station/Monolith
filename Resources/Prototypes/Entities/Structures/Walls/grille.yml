@@ -194,7 +194,7 @@
     sprite: Structures/Walls/grille-diagonal.rsi
     state: state0
   - type: IconSmooth
-    index: 0
+    # index: 0 # Forge-change: idk what that
     mode: Diagonal
     key: walls
     base: state

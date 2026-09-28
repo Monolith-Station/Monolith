@@ -6,7 +6,7 @@
   description: An incomplete structure necessary for connecting two space craft together.
   components:
   - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Standard/shuttle_nfsd.rsi # Forge-Change
+    sprite: _NF/Structures/Doors/Airlocks/Standard/docknfsd.rsi
     state: closed
   - type: Construction
     graph: AirlockShuttleNfsd
@@ -20,7 +20,7 @@
   description: Necessary for connecting two space craft together.
   components:
   - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Glass/shuttle_nfsd.rsi # Forge-Change
+    sprite: _NF/Structures/Doors/Airlocks/Glass/docknfsd.rsi
   - type: Construction
     graph: AirlockShuttleNfsd
     node: airlockGlass
@@ -33,7 +33,7 @@
   description: Necessary for connecting two space craft together.
   components:
   - type: Sprite
-    sprite: _Forge/Structures/Doors/Airlocks/Standard/shuttle_nfsd.rsi # Forge-Change
+    sprite: _NF/Structures/Doors/Airlocks/Standard/docknfsd.rsi
   - type: Construction
     graph: AirlockShuttleNfsd
     node: airlock

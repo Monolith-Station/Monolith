@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Shiptest at commit https://github.com/shiptest-ss13/Shiptest/pull/1065/changes/06cef65ebd240803fbebe6b5dfb64355d452f401, author listed in the PR is `Yours Truly`, so I’ll list that too",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "open",
+      "directions": 4
+    },
+    {
+      "name": "closed",
+      "directions": 4
+    }
+  ]
+}

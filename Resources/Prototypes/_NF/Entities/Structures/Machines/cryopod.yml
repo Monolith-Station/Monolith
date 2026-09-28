@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: _NF/Structures/Machines/cryopod.rsi
+    sprite: _Forge/Structures/Machines/cryopod.rsi # Forge-change
     layers:
     - state: closed
   - type: Physics

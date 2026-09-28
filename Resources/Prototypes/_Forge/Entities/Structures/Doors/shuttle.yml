@@ -23,6 +23,9 @@
   id: AirlockShuttleRenegate
   suffix: Renegate, Docking
   components:
+  - type: Sprite
+    sprite: _Forge/Structures/Doors/Airlocks/Standard/shuttle-renegate.rsi
+    state: closed
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsRenegate ]
@@ -32,6 +35,9 @@
   id: AirlockGlassShuttleRenegate
   suffix: Renegate, Glass, Docking
   components:
+  - type: Sprite
+    sprite: _Forge/Structures/Doors/Airlocks/Glass/shuttle-renegate.rsi
+    state: closed
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsRenegate ]
