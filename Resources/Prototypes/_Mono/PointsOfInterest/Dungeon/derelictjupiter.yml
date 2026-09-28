@@ -1,0 +1,50 @@
+# Author Info
+# GitHub: kasature90 (modified by SuperGDPWYL)
+# Discord: _starch_ (modified by supergdpwyl)
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Notes:
+# intended as a replacement for ListeningPointBravo
+- type: pointOfInterest
+  id: Jupiter
+  parent: BaseMobilePOI
+  name: 'PDV Jupiter Class Carrier'
+  minimumDistance: 15000
+  maximumDistance: 17500
+  spawnGroup: Optional
+  gridPath: /Maps/_Mono/POI/Dungeons/derelictjupiter.yml
+  hideWarp: true
+  addComponents:
+  - type: IFF
+    color: "#d1bf58"
+    flags: [HideLabel]
+    readOnly: false
+  - type: SyndicateFOB # For pinpointer, since it needs to point to SOMETHING.
+  - type: WorldGenDistanceCarver
+    distanceThresholds:
+    # Dead zone
+    - maxDistance: 800
+      prob: 0.0
+    - maxDistance: 1500
+      prob: 0.3
+
+- type: gameMap
+  id: Jupiter
+  mapName: 'PDV Jupiter Class Carrier'
+  mapPath: /Maps/_Mono/POI/Dungeons/derelictjupiter.yml
+  minPlayers: 0
+  stations:
+    Jupiter:
+      stationProto: StandardFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'PDV Jupiter Class Carrier'
+        - type: StationJobs
+          availableJobs: {}
+        - type: StationDeadDropHintExempt
+      gridComponents:
+      - type: VesselInfo
+        description: "The remains of the Vanguard's prestigious mech carrier, washed up months after it met its fate in the Outer Cloud. Is this really a good idea?"

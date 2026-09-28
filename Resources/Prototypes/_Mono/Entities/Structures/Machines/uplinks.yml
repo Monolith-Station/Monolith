@@ -109,3 +109,65 @@
     company: PDV
     radioChannel: Freelance
     injectionAlert: pdv-currency-injection-alert
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineMMCUplink
+  name: MMC requisition kiosk
+  description: A central MMC material access lift. Lets you access Hokkaido's deep storage at the cost of MIC, which represent your value to the board.
+  components:
+  - type: VendingMachine
+    cashSlot: Null
+    offState: mmc
+    brokenState: broken
+    normalState: mmc-unshaded
+  - type: Advertise
+    pack: MieyoAds
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/VendingMachines/usspvend.rsi
+    layers:
+    - state: mmc
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: mmc-unshaded
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.3
+    color: "#2b82ad"
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    name: store-preset-name-mmc-uplink
+    categories:
+    - UplinkMmcPayout
+    - UplinkMmcProtection
+    - UplinkMmcMunitions
+    - UplinkMmcGear
+    - UplinkMmcTools
+    - UplinkMmcFlatpacks
+    - UplinkMmcEngineeringFlatpacks
+    - UplinkMmcAtmosphericsFlatpacks
+    - UplinkMmcCorporateSuppliesFlatpacks
+    balance:
+      MMCIndustrialCredit: 0
+    currencyWhitelist:
+    - MMCIndustrialCredit
+  - type: AccessReader
+    access: [["Mieyo"]]
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - MMC
+  - type: Tag
+    tags:
+    - MMCUplink
+  - type: CurrencyInjectionTarget
+    company: MMC
+    radioChannel: Mieyo
+    injectionAlert: mmc-currency-injection-alert

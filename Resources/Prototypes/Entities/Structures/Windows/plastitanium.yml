@@ -9,6 +9,10 @@
     snap:
     - Window
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactGlass
   - type: RCDDeconstructable
     deconstructable: false
   - type: MeleeSound

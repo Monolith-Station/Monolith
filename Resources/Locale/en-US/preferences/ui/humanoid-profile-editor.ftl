@@ -68,6 +68,12 @@ humanoid-profile-editor-traits-tab = Traits
 humanoid-profile-editor-no-traits = No traits available
 humanoid-profile-editor-traits-default-category = Uncategorized
 
+# Mono
+humanoid-profile-editor-saved-items-tab = Persistence
+humanoid-profile-editor-saved-items-header = Your character has the following items saved:
+humanoid-profile-editor-saved-item-sticky = This item is sticky and will remain saved after spawning.
+humanoid-profile-editor-saved-item-round-end = This item will be saved again if you still have it at round end.
+
 humanoid-profile-editor-trait-count-hint = Points Available: [{$current}/{$max}]
 
 # Mono

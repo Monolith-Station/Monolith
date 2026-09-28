@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/25/2026 22:46:11
-  entityCount: 10483
+  time: 09/25/2026 17:29:38
+  entityCount: 10506
 maps: []
 grids:
 - 1
@@ -243,10 +243,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
+        Kudzu: []
         MetalFoam: []
         Puddle: []
-        Kudzu: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -5811,7 +5811,7 @@ entities:
       pos: 8.5,-4.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -86415.05
+      secondsUntilStateChange: -86860.61
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5835,7 +5835,7 @@ entities:
       pos: 8.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -86414.28
+      secondsUntilStateChange: -86859.84
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15279,7 +15279,7 @@ entities:
   - uid: 1935
     components:
     - type: Transform
-      pos: -37.5,-11.5
+      pos: -38.5,-11.5
       parent: 1
   - uid: 1936
     components:
@@ -15294,7 +15294,7 @@ entities:
   - uid: 1938
     components:
     - type: Transform
-      pos: -35.5,-13.5
+      pos: -35.5,-15.5
       parent: 1
   - uid: 1939
     components:
@@ -19070,6 +19070,126 @@ entities:
     components:
     - type: Transform
       pos: -20.5,-1.5
+      parent: 1
+  - uid: 5020
+    components:
+    - type: Transform
+      pos: -36.5,-17.5
+      parent: 1
+  - uid: 5021
+    components:
+    - type: Transform
+      pos: -34.5,-17.5
+      parent: 1
+  - uid: 10484
+    components:
+    - type: Transform
+      pos: -35.5,-13.5
+      parent: 1
+  - uid: 10485
+    components:
+    - type: Transform
+      pos: -35.5,-14.5
+      parent: 1
+  - uid: 10486
+    components:
+    - type: Transform
+      pos: -35.5,-16.5
+      parent: 1
+  - uid: 10487
+    components:
+    - type: Transform
+      pos: -35.5,-17.5
+      parent: 1
+  - uid: 10488
+    components:
+    - type: Transform
+      pos: -41.5,-12.5
+      parent: 1
+  - uid: 10489
+    components:
+    - type: Transform
+      pos: -37.5,-11.5
+      parent: 1
+  - uid: 10490
+    components:
+    - type: Transform
+      pos: -39.5,-11.5
+      parent: 1
+  - uid: 10491
+    components:
+    - type: Transform
+      pos: -40.5,-11.5
+      parent: 1
+  - uid: 10492
+    components:
+    - type: Transform
+      pos: -41.5,-11.5
+      parent: 1
+  - uid: 10493
+    components:
+    - type: Transform
+      pos: -41.5,-10.5
+      parent: 1
+  - uid: 10494
+    components:
+    - type: Transform
+      pos: -38.5,4.5
+      parent: 1
+  - uid: 10495
+    components:
+    - type: Transform
+      pos: -39.5,4.5
+      parent: 1
+  - uid: 10496
+    components:
+    - type: Transform
+      pos: -40.5,4.5
+      parent: 1
+  - uid: 10497
+    components:
+    - type: Transform
+      pos: -41.5,4.5
+      parent: 1
+  - uid: 10498
+    components:
+    - type: Transform
+      pos: -41.5,5.5
+      parent: 1
+  - uid: 10499
+    components:
+    - type: Transform
+      pos: -35.5,7.5
+      parent: 1
+  - uid: 10500
+    components:
+    - type: Transform
+      pos: -35.5,8.5
+      parent: 1
+  - uid: 10501
+    components:
+    - type: Transform
+      pos: -41.5,3.5
+      parent: 1
+  - uid: 10504
+    components:
+    - type: Transform
+      pos: -34.5,2.5
+      parent: 1
+  - uid: 10505
+    components:
+    - type: Transform
+      pos: -36.5,2.5
+      parent: 1
+  - uid: 10506
+    components:
+    - type: Transform
+      pos: -34.5,8.5
+      parent: 1
+  - uid: 10507
+    components:
+    - type: Transform
+      pos: -36.5,8.5
       parent: 1
 - proto: CableApcStack10
   entities:
@@ -32111,30 +32231,20 @@ entities:
       parent: 1
 - proto: DefaultStationBeaconFrontierDock
   entities:
-  - uid: 5020
-    components:
-    - type: Transform
-      pos: -38.5,4.5
-      parent: 1
-  - uid: 5021
-    components:
-    - type: Transform
-      pos: -35.5,7.5
-      parent: 1
   - uid: 5022
     components:
     - type: Transform
-      pos: -35.5,1.5
+      pos: -42.5,4.5
       parent: 1
   - uid: 5023
     components:
     - type: Transform
-      pos: -38.5,-11.5
+      pos: -42.5,-11.5
       parent: 1
   - uid: 5024
     components:
     - type: Transform
-      pos: -35.5,-14.5
+      pos: -35.5,-18.5
       parent: 1
   - uid: 5025
     components:
@@ -32157,6 +32267,11 @@ entities:
     components:
     - type: Transform
       pos: 48.5,-19.5
+      parent: 1
+  - uid: 10502
+    components:
+    - type: Transform
+      pos: -35.5,9.5
       parent: 1
 - proto: DefaultStationBeaconFrontierDockOne
   entities:
@@ -47532,32 +47647,24 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 34.5,28.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10474
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -4.5,44.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10476
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 12.5,44.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10483
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -13.5,24.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointBallisticLight
   entities:
   - uid: 10441
@@ -47565,97 +47672,71 @@ entities:
     - type: Transform
       pos: -12.5,-49.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10445
     components:
     - type: Transform
       pos: -3.5,-50.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10447
     components:
     - type: Transform
       pos: 6.5,-48.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10449
     components:
     - type: Transform
       pos: 15.5,-49.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10453
     components:
     - type: Transform
       pos: 26.5,-26.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10454
     components:
     - type: Transform
       pos: 21.5,-30.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10457
     components:
     - type: Transform
       pos: 35.5,-32.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10459
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 35.5,-11.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10462
     components:
     - type: Transform
       pos: 48.5,-3.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10463
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 48.5,2.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10468
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 33.5,25.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10471
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 39.5,37.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10473
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 17.5,37.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointBallisticMedium
   entities:
   - uid: 10437
@@ -47664,40 +47745,30 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -16.5,13.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10439
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -16.5,-21.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10452
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 18.5,-39.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10461
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 44.5,-4.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10464
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 44.5,3.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointBallisticSuperheavy
   entities:
   - uid: 10466
@@ -47706,8 +47777,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 34.5,17.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointEnergyLight
   entities:
   - uid: 10442
@@ -47716,70 +47785,52 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -17.5,-33.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10455
     components:
     - type: Transform
       pos: 24.5,-28.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10456
     components:
     - type: Transform
       pos: 36.5,-32.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10465
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 24.5,37.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10467
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 33.5,20.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10472
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 21.5,37.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10479
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,51.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10480
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 5.5,51.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10482
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -12.5,27.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointEnergyMedium
   entities:
   - uid: 10443
@@ -47788,16 +47839,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -14.5,-46.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10450
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 17.5,-46.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointEnergySuperheavy
   entities:
   - uid: 10438
@@ -47806,54 +47853,40 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -15.5,19.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10440
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -16.5,-28.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10448
     components:
     - type: Transform
       pos: 1.5,-49.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10458
     components:
     - type: Transform
       pos: 43.5,-23.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10470
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 36.5,37.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10477
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 9.5,49.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10478
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,49.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointMissileLight
   entities:
   - uid: 10444
@@ -47861,23 +47894,17 @@ entities:
     - type: Transform
       pos: -6.5,-55.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10446
     components:
     - type: Transform
       pos: 9.5,-55.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10475
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 14.5,40.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointMissileMedium
   entities:
   - uid: 10451
@@ -47886,23 +47913,17 @@ entities:
       rot: 3.141592653589793 rad
       pos: 40.5,5.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10460
     components:
     - type: Transform
       pos: 40.5,-6.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 10481
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -10.5,37.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HarmonicaInstrument
   entities:
   - uid: 7131
