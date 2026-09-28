@@ -45,6 +45,9 @@
       - type: JamOverwatch
         excludedFactions:
         - PDV
+      - type: ApplyIFFFlagsToDockedShips
+        flags:
+        - HideLabelAlways # hide all docked ships
       components:
         - type: StationNameSetup
           mapNameTemplate: 'PDV Helio Fortress'
