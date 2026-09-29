@@ -25528,3 +25528,29 @@ Entries:
   id: 2774
   time: '2026-09-29T15:29:15.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4792
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Whitelists are now enforced <20 pop.
+  id: 2775
+  time: '2026-09-29T15:29:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4790
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Added Caelestinus LPCs! The Petra now requires a T1 LPC. The Hornet and
+        Lightning are now considered T0.
+    - type: Remove
+      message: >-
+        Removed mindshields from Caelestinus and Viper Group roles as to keep
+        them TSFMC-only.
+    - type: Tweak
+      message: The Caelestinus Central security techfab can now accept items.
+    - type: Tweak
+      message: >-
+        The Caelestinus ASMGT now requires one small monolithic crystal and is
+        slightly more expensive diamond-wise.
+  id: 2776
+  time: '2026-09-29T15:31:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4767
