@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/26/2026 02:41:07
+  time: 09/29/2026 02:02:58
   entityCount: 10521
 maps: []
 grids:
@@ -243,10 +243,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Puddle: []
         Smoke: []
         Kudzu: []
+        Puddle: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -6184,7 +6184,7 @@ entities:
       pos: 8.5,-4.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -106760.61
+      secondsUntilStateChange: -115891.3
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6208,7 +6208,7 @@ entities:
       pos: 8.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -106759.84
+      secondsUntilStateChange: -115890.53
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -29735,8 +29735,11 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 5.5,20.5
+      pos: 5.0548687,20.635172
       parent: 1
+    - type: Physics
+      angularDamping: 8
+      linearDamping: 8
   - uid: 4628
     components:
     - type: Transform
@@ -29771,8 +29774,11 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 5.351925,21.750414
+      pos: 5.3607116,21.842264
       parent: 1
+    - type: Physics
+      angularDamping: 8
+      linearDamping: 8
   - uid: 4634
     components:
     - type: Transform
@@ -29957,7 +29963,7 @@ entities:
   - uid: 4665
     components:
     - type: Transform
-      pos: 9.5,-9.5
+      pos: 9.2647295,-9.4938755
       parent: 1
   - uid: 4666
     components:
@@ -32113,20 +32119,18 @@ entities:
         immutable: False
         temperature: 293.14923
         moles:
-          Oxygen: 1.8856695
-          Nitrogen: 7.0937095
+          Oxygen: 1.8968438
+          Nitrogen: 7.1357465
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 1227
-          - 4597
-          - 2696
-          - 2695
-          - 2697
           - 2698
+          - 2697
+          - 2695
+          - 2696
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -35869,8 +35873,13 @@ entities:
   - uid: 4812
     components:
     - type: Transform
-      pos: 18.5,-15.5
+      anchored: True
+      pos: 4.5,19.5
       parent: 1
+    - type: Physics
+      bodyType: Static
+    - type: Pullable
+      prevFixedRotation: True
     - type: Storage
       storedItems:
         7303:
@@ -35885,9 +35894,6 @@ entities:
         10498:
           position: 3,0
           _rotation: South
-        10499:
-          position: 4,0
-          _rotation: South
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
@@ -35898,7 +35904,28 @@ entities:
           - 10496
           - 10497
           - 10498
-          - 10499
+  - uid: 8106
+    components:
+    - type: Transform
+      pos: 18.5,-15.5
+      parent: 1
+  - uid: 10280
+    components:
+    - type: Transform
+      pos: -3.5,1.5
+      parent: 1
+    - type: Storage
+      storedItems:
+        10507:
+          position: 0,0
+          _rotation: South
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 10507
 - proto: FireAxeCabinetFilled
   entities:
   - uid: 5576
@@ -48538,19 +48565,15 @@ entities:
   - uid: 1227
     components:
     - type: Transform
-      parent: 2694
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
+      pos: 5.9139113,-9.26638
+      parent: 1
 - proto: IngotSilver
   entities:
   - uid: 4597
     components:
     - type: Transform
-      parent: 2694
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
+      pos: 5.309324,-9.349713
+      parent: 1
 - proto: JanitorialTrolley
   entities:
   - uid: 7158
@@ -49767,6 +49790,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -4.5,33.5
       parent: 1
+- proto: PaperBin20
+  entities:
+  - uid: 337
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,-2.5
+      parent: 1
 - proto: PaperCaptainsThoughts
   entities:
   - uid: 7301
@@ -49851,6 +49882,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -6.460742,-3.4459636
+      parent: 1
+  - uid: 8194
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5074854,-1.5450587
       parent: 1
   - uid: 8286
     components:
@@ -50057,85 +50094,10 @@ entities:
         [bullet/] PoWs (and civilian lawbreakers) may be put to work for the TSF for a timeframe determined by the Colonel or someone of sufficient rank. This may include service work aboard the Halcyon or any other suitable job skill the prisoner may have that does not threaten the TSF.
     - type: Physics
       canCollide: False
-  - uid: 10499
-    components:
-    - type: Transform
-      parent: 4812
-    - type: Paper
-      content: >
-        [color=#1b487e]                      ╔══════════════════╗
-                              ║░█████░░███░░████░║
-                              ║░░░█░░░█░░░░░█░░░░║
-                              ║░░░█░░░░██░░░████░║
-                              ║░░░█░░░░░░█░░█░░░░║
-                              ║░░░█░░░███░░░█░░░░║
-                              ╚══════════════════╝[/color]
-                            [head=3][color=#1b487e]Trans-Solarian Federation[/color][/head]
-
-        [bold]21st Mechanized Cavalry Brigade, Colossus Detachment, TSFMC Halcyon[/bold]
-
-
-        [head=2]Mining and Material Supply Contract Form[/head]
-
-
-        [bold]Issuing Authority:[/bold]
-
-        [bold]Contractor:[/bold]
-
-        [bold]Delivery Location:[/bold]
-
-        [bold]Total Contract Value:[/bold]
-
-
-        [head=3]I. Scope of Commission[/head]
-
-        X, hereafter referred to as the Contractor, is hereby commissioned to procure and deliver the following materials to the TSFMC Halcyon:
-
-        [bullet/]
-
-        [bullet/]
-
-
-        [head=3]II. Delivery and Verification
-
-        [/head]
-
-        All materials shall be submitted to an authorized TSF representative for inspection and quantity verification. Completion of this contract requires delivery and acceptance of the full quantities specified above.
-
-
-        [head=3]III. Payment[/head]
-
-        Upon verification and acceptance of the complete delivery, the Contractor shall receive a payment of X credits.
-
-
-        [head=3]IV. Amendments[/head]
-
-        Any amendment to the required quantities, delivery location, or payment terms shall require the agreement of both parties before taking effect.
-
-
-        [head=3]V. Acceptance and Authorization[/head]
-
-        By signing below, both parties acknowledge and accept the terms of this contract.
-
-
-        [bold]TSF Officiator[/bold]
-
-        Rank First/Last Name
-
-        Signature: ______
-
-
-        [bold]Contractor[/bold]
-
-        First/Last Name
-
-        Signature: ______
-    - type: Physics
-      canCollide: False
   - uid: 10504
     components:
     - type: Transform
-      pos: 16.495247,5.730851
+      pos: 16.300022,6.1201797
       parent: 1
     - type: Paper
       content: >-
@@ -50248,8 +50210,9 @@ entities:
   - uid: 10507
     components:
     - type: Transform
-      pos: -6.4662476,-1.4973996
-      parent: 1
+      parent: 10280
+    - type: Physics
+      canCollide: False
     - type: Paper
       content: >
         [color=#1b487e]                      ╔══════════════════╗
@@ -50319,6 +50282,35 @@ entities:
         First/Last Name
 
         Signature: ______
+  - uid: 10523
+    components:
+    - type: Transform
+      pos: 16.675283,5.6201797
+      parent: 1
+    - type: Paper
+      content: >
+        To the young boots serving in this brigade, from a career Sergeant:
+
+
+        So you're a new marine and you want to exert your dominance over the sector with your issued firearm? There's a right way and a wrong way to go about it. First: listen to your superiors. No means no. When you get more experienced you can offer polite advice, but insult your superiors and I will have you scrubbing toilets and maintenance pipes for a month. Second: follow the SOP. It's not the end all be all of situations, but it allows flexibility in dealing with unruly civilians under a general guideline. Third: If they aren't a criminal and aren't insulting you, don't insult civilians for daring to say hi. We're marines and we're tough, we're not asses to those command wants us to protect from those brutal terrorists and pirates.
+
+
+        Your first situation: Command sends us out to patrol and we see an unidentified ship. Does it look like PDV? Yeah SOP gives us permission to fire immediately. If we aren't sure it's not a civilian? HAIL ON SHORTBAND. Report it in on TSF comms.
+
+
+        Your second situation: Command sends us to guard one of our vaults and we see a civilian saddling up to it. What are they doing? If it isn't an ER responding to a death rattle, they're probably looting it. Do we fire? NO. We hail on shortband and demand the owners of the specified ship identify. If we don't name the ship, they're not going to know we mean them. If they then get unruly or refuse to leave (and we should be giving them a minute to get back into their ship), then yeah we take more aggressive options. Don't threaten to kill if we haven't even told them to leave.
+
+
+        Your third situation: You're monitoring the radar on Halcyon and a civilian ship passes by. Instead of "who the feth are you, CIV-233," say "CIV-233, identify and state your business." Super formal if they haven't done anything wrong. And by gosh don't say "feth you" if a random civilian hails on shortband and says hi, or wants to trade. You're trained to be tough, even if you're having a bad day.
+
+
+        Your fourth situation: You've been sent to a POI and an NFZ has been declared. A ship speeds by. Do you fire? No they were probably on autopilot. Another ship comes to looking like they are about to dock. Example phrase to hail is "CIV-233, you are in violation of the 1km NFZ around Drillsite, vacate the vicinity." If they don't or start responding with insults, respond with "Civ-233, if you do not vacate the area, you will be fired upon." Begin a countdown if they refuse again.
+
+
+        Anyway that's not even all the situations you might find yourself in, but unless you see someone breaking the law, be nice to the people. Try to be official, state rank and stuff, ask them their business, ask them to identify. Even if you see them breaking the law, warn them they are, tell them they're under arrest, or warn them they're in violation of an NFZ (they probably never even knew the NFZ existed), warn them to leave, BEFORE you start shooting. Otherwise command has to deal with a nasty PR situation cause we shot some civilian without warning and now they think we're a pirate. Don't need some terrorists taking advantage and inciting the commonfolk against us.
+
+
+        When in doubt? Just ask your superiors. They understand the protocol better than you do and probably have a plan. Oh and if your superior is in active negotations? Don't interrupt, especially not to insult. You just undermine their efforts doing that.
 - proto: Pen
   entities:
   - uid: 4789
@@ -51085,7 +51077,7 @@ entities:
   - uid: 1306
     components:
     - type: Transform
-      pos: 4.6045666,19.80957
+      pos: 12.486152,-18.24782
       parent: 1
   - uid: 7442
     components:
@@ -52514,11 +52506,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 31.5,25.5
-      parent: 1
-  - uid: 7688
-    components:
-    - type: Transform
-      pos: 4.5,19.5
       parent: 1
   - uid: 7689
     components:
@@ -54759,10 +54746,15 @@ entities:
       parent: 1
 - proto: SpawnDungeonLootKitsFirstAid
   entities:
-  - uid: 337
+  - uid: 7688
     components:
     - type: Transform
-      pos: 4.437784,19.413736
+      pos: 5.5139914,22.618004
+      parent: 1
+  - uid: 8288
+    components:
+    - type: Transform
+      pos: 12.506999,-18.355247
       parent: 1
 - proto: SpawnMobCatCappy
   entities:
@@ -55437,121 +55429,176 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,-32.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Engineering - Atmospherics 1 (FOB)
   - uid: 8088
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -10.5,-41.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior SW Armor Wing - South
   - uid: 8089
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -8.5,-29.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Engineering - AI Control 1 (FOB)
   - uid: 8090
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-32.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Engineering (FOB)
   - uid: 8091
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -11.5,-32.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Engineering - Atmospherics Airlock (FOB)
   - uid: 8092
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,-24.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Engineering - Power Monitoring (FOB)
   - uid: 8093
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 3.5,-26.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Engineering - Reactor 1 (FOB)
   - uid: 8094
     components:
     - type: Transform
       pos: 0.5,-21.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Kitchen Freezer (FOB)
   - uid: 8095
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -11.5,-36.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Engineering - Atmospherics Pumps (FOB)
   - uid: 8096
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 7.5,21.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: CIC (FOB)
   - uid: 8097
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -6.5,-26.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Engineering - AI Control 2 (FOB)
   - uid: 8098
     components:
     - type: Transform
       pos: -3.5,-41.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Engineering - Atmospherics 2 (FOB)
   - uid: 8099
     components:
     - type: Transform
       pos: -10.5,-22.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Janitor Closet (FOB)
   - uid: 8100
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -8.5,-15.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Bar 2 (FOB)
   - uid: 8101
     components:
     - type: Transform
       pos: 28.5,31.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Mil. Dock C
   - uid: 8102
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -0.5,-0.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Central Briefing - Closet (FOB)
   - uid: 8103
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 14.5,38.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Mil. Dock C - West 3
   - uid: 8104
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 10.5,27.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Brig 1 (FOB)
   - uid: 8105
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,-46.5
       parent: 1
-  - uid: 8106
-    components:
-    - type: Transform
-      pos: -5.5,-51.5
-      parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior South Tip 4
   - uid: 8107
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 7.5,-48.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior South Tip 2
   - uid: 8108
     components:
     - type: Transform
@@ -55577,7 +55624,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Southwest Armor Cont. (FOB)
+      id: Exterior SE Armor Wing - West
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55592,7 +55639,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Southwest Armor Plate (FOB)
+      id: Exterior AI/Engineering - West
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55607,7 +55654,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Dock E South (FOB)
+      id: Exterior Mil. Dock E - South 2
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55621,7 +55668,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Dock E North (FOB)
+      id: Exterior Mil. Dock E - North 2
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55636,7 +55683,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Rollcall (FOB)
+      id: Bridge Hall - Upper (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55651,7 +55698,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: East Corridor Connector (FOB)
+      id: Mil Dock East Corridor (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55661,6 +55708,9 @@ entities:
     - type: Transform
       pos: -38.5,7.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Civ Dock A - NW
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55675,7 +55725,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Engine (FOB)
+      id: Engineering - Atmospherics 3 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55690,7 +55740,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Gravity Generation (FOB)
+      id: Engineering - Gravity Generation (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55705,7 +55755,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Analysis (FOB)
+      id: R&D (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55735,7 +55785,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Bar (FOB)
+      id: Bar 1 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55750,7 +55800,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Kitchen (TSF)
+      id: Kitchen (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55765,7 +55815,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Shooting Range (FOB)
+      id: Fabrication (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55825,7 +55875,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Central Briefing (FOB)
+      id: Central Briefing 1 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55840,7 +55890,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Reception (FOB)
+      id: Reception 1 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55851,6 +55901,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 9.5,-51.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior South Tip 1
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55865,7 +55918,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Armory (FOB)
+      id: Armory 1 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55880,7 +55933,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Barracks (FOB)
+      id: Barracks 1 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55895,7 +55948,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Dockarm CD Shipyard (FOB)
+      id: Mil Dock CD Shipyard (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55910,7 +55963,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Dockarm FG Shipyard (FOB)
+      id: Mil Dock FG Shipyard (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55925,7 +55978,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: G Docks (FOB)
+      id: Mil. Dock G (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55939,7 +55992,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: E Docks (FOB)
+      id: Mil. Dock E Corridor (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -55954,7 +56007,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: D Docks (FOB)
+      id: Mil. Dock D (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56023,6 +56076,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 27.5,-25.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Disposals - South 1
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56037,7 +56093,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: F Docks
+      id: Mil. Dock F 3 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56052,7 +56108,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: SE Solars (FOB)
+      id: Exterior Mil. Dock G - South
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56082,7 +56138,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Dorms Internal (FOB)
+      id: Barracks 2 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56096,7 +56152,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Dorms External (FOB)
+      id: Exterior - Barracks 1
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56111,7 +56167,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: NW Solars Airlock (FOB)
+      id: Bridge Solars Airlock (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56126,7 +56182,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Southernmost Tip (FOB)
+      id: Exterior South Tip 3
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56156,7 +56212,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: SE Armor Wing, Outer (FOB)
+      id: Exterior SE Armor Wing
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56171,7 +56227,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Disposals Armor (FOB)
+      id: Exterior Disposals - South 2
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56186,7 +56242,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: NW Solars (FOB)
+      id: Bridge Solars 3 (Exterior)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56201,7 +56257,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Civ. Docking Middle (FOB)
+      id: Exterior Civ Dock A - South
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56215,7 +56271,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Northernmost Tip (FOB)
+      id: Exterior Bridge Armor - North 2
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56230,7 +56286,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Bridge Armor East (FOB)
+      id: Exterior Bridge Armor - East 2
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56245,7 +56301,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Bridge Armor West
+      id: Exterior Bridge Armor - West 1 (Solars)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56260,7 +56316,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: NW Armor Plate (FOB)
+      id: Exterior Interrogation - West
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56275,7 +56331,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Civ Docking South (FOB)
+      id: Exterior Civ Dock B - South
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56290,7 +56346,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Dock CD Northeast (FOB)
+      id: Exterior Mil. Dock D - North
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56304,7 +56360,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Civ. Docking North (FOB)
+      id: Exterior Civ Dock A - North
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56334,7 +56390,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Server Room (FOB)
+      id: Server Room 1 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56390,6 +56446,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 1.5,-8.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Range (FOB)
   - uid: 8166
     components:
     - type: Transform
@@ -56429,7 +56488,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Mil. Dock F South
+      id: Exterior F - South
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56444,7 +56503,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: North Gyros 1 (FOB)
+      id: Bridge - North Gyros 1 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56459,7 +56518,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: North Gyros 2 (FOB)
+      id: Bridge - North Gyros 2 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56484,6 +56543,9 @@ entities:
     - type: Transform
       pos: 1.5,-4.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Fabrication - The Head
   - uid: 8173
     components:
     - type: Transform
@@ -56494,7 +56556,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Stowage (FOB)
+      id: Engineering - Gravity Entrance (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56509,7 +56571,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: Engi Corridor (FOB)
+      id: Engineering Corridor - Upper (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56524,7 +56586,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraTSF
       nameSet: True
-      id: South Gyroscopes (FOB)
+      id: Engineering - South Gyroscopes (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56535,6 +56597,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -9.5,22.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Bridge Solars - South Cubby (Exterior)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56545,6 +56610,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,-10.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Kitchen Hallway 2 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56555,6 +56623,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 7.5,-11.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Kitchen Hallway 1 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56565,6 +56636,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 16.5,-20.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Records - South (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56575,6 +56649,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 22.5,-26.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Disposals - Lower (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56585,6 +56662,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 29.5,-20.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Disposals Airlock (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56595,6 +56675,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 35.5,-11.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Mil. Dock F - North
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56605,6 +56688,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 30.5,-16.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Mil. Dock FG Corridor (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56615,6 +56701,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 40.5,-3.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Mil. Dock E - South 1
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56624,6 +56713,9 @@ entities:
     - type: Transform
       pos: 40.5,2.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Mil. Dock E - North 1
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56634,6 +56726,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 33.5,9.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Mil. Dock D - South
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56643,6 +56738,9 @@ entities:
     - type: Transform
       pos: 24.5,16.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior - Barracks 2
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56653,6 +56751,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 15.5,33.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Mil. Dock C - West 1
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56662,6 +56763,9 @@ entities:
     - type: Transform
       pos: 10.5,48.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Bridge Armor - North 3
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56671,6 +56775,9 @@ entities:
     - type: Transform
       pos: -3.5,48.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Bridge Armor - North 1
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56681,6 +56788,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,45.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Bridge Armor - West 2
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56691,6 +56801,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 12.5,45.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Bridge Armor - West 1
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56701,16 +56814,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -12.5,10.5
       parent: 1
-    - type: Physics
-      canCollide: False
-    - type: Fixtures
-      fixtures: {}
-  - uid: 8194
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -31.5,5.5
-      parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Civ Dock A - North Office (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56718,18 +56824,19 @@ entities:
   - uid: 8195
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -31.5,-10.5
+      pos: -37.5,3.5
       parent: 1
-    - type: Physics
-      canCollide: False
-    - type: Fixtures
-      fixtures: {}
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Civ Dock A (FOB)
   - uid: 8196
     components:
     - type: Transform
       pos: -26.5,-12.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Civ Dock B - Hall (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56739,6 +56846,9 @@ entities:
     - type: Transform
       pos: -26.5,3.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Civ Dock A - Hall 1 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56749,6 +56859,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -38.5,-14.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Civ Dock B - SW
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56759,6 +56872,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.5,-46.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior South Tip 5
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56769,6 +56885,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.5,-51.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior South Tip 5
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56779,6 +56898,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,20.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Bridge Hall - Lower (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56789,6 +56911,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -15.5,-1.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Civ Dock - Junction (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56799,6 +56924,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 13.5,-27.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: R&D Chamber - North
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56808,6 +56936,9 @@ entities:
     - type: Transform
       pos: 14.5,-37.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: R&D Chamber - South
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56817,6 +56948,9 @@ entities:
     - type: Transform
       pos: 7.5,11.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Armory - Airlock 1 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56827,6 +56961,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 7.5,8.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Armory - Airlock 2 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56837,16 +56974,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 5.5,10.5
       parent: 1
-    - type: Physics
-      canCollide: False
-    - type: Fixtures
-      fixtures: {}
-  - uid: 8208
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,11.5
-      parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Armory 2 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56856,6 +56986,9 @@ entities:
     - type: Transform
       pos: -1.5,8.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Server Room 2 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56865,6 +56998,9 @@ entities:
     - type: Transform
       pos: -4.5,25.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Bridge Solars 1 (Exterior)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56874,6 +57010,9 @@ entities:
     - type: Transform
       pos: 8.5,-1.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Central Briefing 2 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56884,6 +57023,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 15.5,-11.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Records (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56894,6 +57036,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 38.5,-15.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Mil. Dock F 1 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56904,6 +57049,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 34.5,-23.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Mil. Dock F 2 (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56914,6 +57062,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 26.5,-12.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Medbay Quarters (FOB)
     - type: Physics
       canCollide: False
     - type: Fixtures
@@ -56924,58 +57075,88 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -7.5,29.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Bridge Solars 2 (Exterior)
   - uid: 8217
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 22.5,34.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Exterior Mil. Dock C - West 2
   - uid: 8218
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 0.5,-26.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Engineering - Reactor 2 (FOB)
   - uid: 8219
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 14.5,25.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Brig 2 (FOB)
   - uid: 8220
     components:
     - type: Transform
       pos: 0.5,-46.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Hydroponics (FOB)
   - uid: 8221
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 8.5,-30.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Engineering Corridor - Lower
   - uid: 8222
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -3.5,-31.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Engineering - Station Anchor (FOB)
   - uid: 8223
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -17.5,5.5
       parent: 1
-  - uid: 8224
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,1.5
-      parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Civ Dock A - Hall 2 (FOB)
   - uid: 8225
     components:
     - type: Transform
       pos: -8.5,-8.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Reception 2 (FOB)
+  - uid: 10499
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -36.5,-10.5
+      parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Civ Dock B (FOB)
 - proto: SurvivalKnife
   entities:
   - uid: 8226
@@ -57772,13 +57953,6 @@ entities:
     components:
     - type: Transform
       pos: 6.4782324,22.766762
-      parent: 1
-- proto: ToyFigurineThief
-  entities:
-  - uid: 8288
-    components:
-    - type: Transform
-      pos: 12.555056,-18.136333
       parent: 1
 - proto: TrashBag
   entities:
@@ -68918,11 +69092,6 @@ entities:
       parent: 1
 - proto: WaterCooler
   entities:
-  - uid: 10280
-    components:
-    - type: Transform
-      pos: -3.5,1.5
-      parent: 1
   - uid: 10281
     components:
     - type: Transform
@@ -68931,12 +69100,17 @@ entities:
   - uid: 10282
     components:
     - type: Transform
-      pos: 7.5,19.5
+      pos: 7.5280585,19.83607
       parent: 1
   - uid: 10283
     components:
     - type: Transform
       pos: 0.5,-10.5
+      parent: 1
+  - uid: 10522
+    components:
+    - type: Transform
+      pos: -2.5,-3.5
       parent: 1
 - proto: WaterTankHighCapacity
   entities:
