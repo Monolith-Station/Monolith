@@ -39,3 +39,17 @@
     maximumEntitiesSpawned: 3
   - type: TimedDespawn
     lifetime: 3601
+
+- type: entity
+  id: SpawnerSupplyCrateAdamantite
+  parent: MarkerBasePlaceFree
+  suffix: 2500 DC, 250 adamantite, 15 minute interval
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - CrateMaterialAdamantite
+    intervalSeconds: 900
+    minimumEntitiesSpawned: 5
+    maximumEntitiesSpawned: 5
+  - type: TimedDespawn
+    lifetime: 3601
