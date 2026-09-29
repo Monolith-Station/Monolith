@@ -1,4 +1,4 @@
-# 20mm - L85
+# 14x97mm - L85
 
 - type: entity
   id: 20mmBulletBase
@@ -36,7 +36,7 @@
 
 - type: entity
   id: 20mmBullet
-  name: 20mm bullet
+  name: 14x97mm bullet
   parent: 20mmBulletBase
   categories: [ HideSpawnMenu ]
   components:
@@ -53,7 +53,7 @@
 
 - type: entity
   id: 20mmBulletAS # Antishield
-  name: 20mm bullet (AS)
+  name: 14x97mm bullet (AS)
   parent: 20mmBulletBase
   categories: [ HideSpawnMenu ]
   components:
@@ -70,7 +70,7 @@
     color: orange
 
 
-# 30mm - Draupnir
+# 20x141mm - Draupnir
 
 - type: entity
   id: 30mmBullet
@@ -117,8 +117,9 @@
     totalIntensity: 2
     intensitySlope: 2
     maxIntensity: 1
+    tileBreakScale: 3
 
-# 35mm - AC-35
+# 25x170mm - AC-35
 
 - type: entity
   id: 35mmBulletAP
@@ -165,7 +166,9 @@
     totalIntensity: 2
     intensitySlope: 2
     maxIntensity: 1
-# 57mm
+    tileBreakScale: 3
+
+# 40x360mm
 
 - type: entity
   id: 57mmBulletHE
@@ -200,6 +203,7 @@
     intensitySlope: 2
     maxIntensity: 2
     maxTileBreak: 1
+    tileBreakScale: 3
 
 - type: entity
   id: 57mmBulletSmart
@@ -234,6 +238,7 @@
     intensitySlope: 5
     maxIntensity: 6
     maxTileBreak: 1
+    tileBreakScale: 3
   - type: TargetSeeking
     acceleration: 350
     detectionRange: 1000
@@ -276,6 +281,7 @@
     intensitySlope: 5
     maxIntensity: 6
     maxTileBreak: 1
+    tileBreakScale: 3
   - type: TargetGuided
     turnRate: 15
     acceleration: 30
@@ -284,7 +290,7 @@
     maxLifetime: 7
     fallbackTime: 5
 
-# 90mm
+# 57x460mm
 
 - type: entity
   id: 90mmBulletBase
@@ -325,6 +331,7 @@
     intensitySlope: 4
     maxIntensity: 3
     maxTileBreak: 1
+    tileBreakScale: 3
   - type: PointLight
     color: orange
 
@@ -425,7 +432,7 @@
 
 - type: entity
   id: 90mmBulletMinelayer
-  name: 90mm mine-laying projectile
+  name: 57x460mm mine-laying projectile
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -515,6 +522,7 @@
     totalIntensity: 50
     intensitySlope: 5
     maxIntensity: 400
+    tileBreakScale: 3
   - type: RadarBlip
     scale: 0.7
     shape: circle
@@ -527,11 +535,11 @@
     launchSpeed: 0
     maxSpeed: 3
 
-# 140mm
+# 85x680mm
 
 - type: entity
   id: 140mmBulletAPHE
-  name: 140mm APHE projectile
+  name: 85x680mm APHE projectile
   parent: BaseBulletTriggerSpent
   categories: [ HideSpawnMenu ]
   components:
@@ -564,13 +572,14 @@
     intensitySlope: 5
     maxIntensity: 25
     maxTileBreak: 2
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
 
 - type: entity
   id: 140mmBulletSACLOS
-  name: 140mm SACLOS projectile
+  name: 85x680mm SACLOS projectile
   parent: BaseBulletTriggerSpent
   categories: [ HideSpawnMenu ]
   components:
@@ -603,6 +612,7 @@
     intensitySlope: 5
     maxIntensity: 25
     maxTileBreak: 2
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -614,11 +624,11 @@
     maxLifetime: 8
     fallbackTime: 5
 
-# 220mm
+# 130x820mm
 
 - type: entity
   id: 220mmBulletAPHE
-  name: 220mm APHE projectile
+  name: 130x820mm APHE projectile
   parent: BaseBulletTriggerSpent
   categories: [ HideSpawnMenu ]
   components:
@@ -651,13 +661,14 @@
     intensitySlope: 5
     maxIntensity: 60
     maxTileBreak: 2
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
 
 - type: entity
   id: 220mmBulletHE
-  name: 220mm HE projectile
+  name: 130x820mm HE projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -689,13 +700,14 @@
     intensitySlope: 12
     maxIntensity: 16
     maxTileBreak: 3
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
 
 - type: entity
   id: 220mmPelletHE
-  name: 220mm HE cluster-projectile
+  name: 130x820mm HE cluster-projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -726,6 +738,7 @@
     intensitySlope: 12
     maxIntensity: 50
     maxTileBreak: 3
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -742,7 +755,7 @@
 
 - type: entity
   id: 220mmPelletSmart
-  name: 220mm HMNG cluster-projectile
+  name: 130x820mm HMNG cluster-projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -773,6 +786,7 @@
     intensitySlope: 12
     maxIntensity: 50
     maxTileBreak: 3
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -795,11 +809,11 @@
     count: 6
     spread: 6
 
-# 255mm
+# 203x940mm
 
 - type: entity
   id: 255mmBulletAPHE
-  name: 255mm APHE projectile
+  name: 203x940mm APHE projectile
   parent: BaseBulletTriggerSpent
   categories: [ HideSpawnMenu ]
   components:
@@ -831,14 +845,14 @@
     totalIntensity: 500
     intensitySlope: 10
     maxIntensity: 10
-    maxTileBreak: 4
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
 
 - type: entity
   id: 255mmBulletEMP
-  name: 255mm EMP projectile
+  name: 203x940mm EMP projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -868,7 +882,7 @@
     totalIntensity: 30
     intensitySlope: 5
     maxIntensity: 5
-    maxTileBreak: 4
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -879,7 +893,7 @@
 
 - type: entity
   id: 255mmBulletMinelayer
-  name: 255mm mine-laying projectile
+  name: 203x940mm mine-laying projectile
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -968,6 +982,7 @@
     totalIntensity: 1500
     intensitySlope: 5
     maxIntensity: 400
+    tileBreakScale: 3
   - type: RadarBlip
     scale: 1
     shape: circle
@@ -1016,6 +1031,7 @@
     totalIntensity: 10
     intensitySlope: 10
     maxIntensity: 10
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -1092,6 +1108,7 @@
     totalIntensity: 1000
     intensitySlope: 25
     maxIntensity: 450
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -1129,6 +1146,7 @@
     totalIntensity: 13000
     intensitySlope: 5
     maxIntensity: 500
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -1164,11 +1182,11 @@
     count: 6
     spread: 5
 
-# 520mm LEVIATHAN Shells
+# 380x1120mm LEVIATHAN Shells
 
 - type: entity
   id: ShipLeviathanProjectile
-  name: LEVIATHAN 520mm projectile
+  name: LEVIATHAN 380x1120mm projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -1190,7 +1208,7 @@
     shape: circle
     radarColor: "#FFFFFF"
   - type: TimedDespawn
-    lifetime: 7.2 #3.2km - Its 520mm after all.
+    lifetime: 7.2 #3.2km - Its 380x1120mm after all.
   - type: PointLight
     color: "#fc5a03"
   - type: ExplodeOnTrigger
@@ -1199,7 +1217,7 @@
     totalIntensity: 1900
     intensitySlope: 8
     maxIntensity: 90
-    maxTileBreak: 6
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -1237,7 +1255,7 @@
     totalIntensity: 12
     intensitySlope: 2
     maxIntensity: 2
-    maxTileBreak: 1
+    tileBreakScale: 3
 
 - type: entity
   id: ShipFragmentProjectile
@@ -1255,7 +1273,7 @@
     totalIntensity: 6
     intensitySlope: 2
     maxIntensity: 2
-    maxTileBreak: 1
+    tileBreakScale: 3
   - type: ProjectileKnockback
     knockback: 25
 
@@ -1290,7 +1308,7 @@
     totalIntensity: 45
     intensitySlope: 5
     maxIntensity: 5
-    maxTileBreak: 1
+    tileBreakScale: 3
   - type: ProjectileKnockback
     knockback: 75 # giga evil
 

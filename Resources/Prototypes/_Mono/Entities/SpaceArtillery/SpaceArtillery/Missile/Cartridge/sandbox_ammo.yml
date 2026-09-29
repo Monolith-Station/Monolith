@@ -38,6 +38,7 @@
     maxIntensity: 1000
     intensitySlope: 30
     totalIntensity: 5000
+    tileBreakScale: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetGuided
@@ -150,6 +151,7 @@
     intensitySlope: 30
     totalIntensity: 500000
     detonationAlert: "delta"
+    tileBreakScale: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetGuided

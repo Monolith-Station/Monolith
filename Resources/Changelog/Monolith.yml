@@ -25445,3 +25445,65 @@ Entries:
   id: 2765
   time: '2026-09-26T09:27:28.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4777
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Medicus APCs flipped to make them not all localized in the bridge
+  id: 2766
+  time: '2026-09-26T19:10:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4779
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed Motley-Anne drone LPCs not working.
+    - type: Fix
+      message: Fixed Senku-sha missing a warp point and late-join point.
+  id: 2767
+  time: '2026-09-26T19:25:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4781
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced damage required to detonate shipgun ammo (1/5th of old now). 3x
+        tile damage for all shipgun explosives. 3x explosion size for R300.
+        Buffed missile guidance a bit. Vanyk missile guidance uses advanced
+        predictive algorithm now. Gyroscopes are explosive now. Portable
+        generators are explosive now. Portable DK generators are super explosive
+        now.
+  id: 2768
+  time: '2026-09-26T22:59:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4783
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        You can no longer put machine boards, flatpacks or the Honor heavy maul
+        into deposit boxes.
+  id: 2769
+  time: '2026-09-26T23:02:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4782
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Adjusted the names of shipgun calibers so an AK820 isn't firing 120mm
+        shells at 3.5 RPS. That's really absurd, if you didn't know. Purely
+        visual change, no stat changes done.
+    - type: Tweak
+      message: >-
+        Edited the current AK820 sprite to be dual-barreled. Added a
+        single-barreled variant with half the firerate & GCS cost, but it isn't
+        mapped anywhere.
+  id: 2770
+  time: '2026-09-27T04:22:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4786
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Chimeras now show up a bit later in biothreat.
+    - type: Tweak
+      message: Chimeras will spawn in lighter ships until the 1:15 mark.
+  id: 2771
+  time: '2026-09-27T04:28:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4787

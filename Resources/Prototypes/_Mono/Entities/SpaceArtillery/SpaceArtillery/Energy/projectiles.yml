@@ -33,7 +33,7 @@
     totalIntensity: 90
     intensitySlope: 9
     maxIntensity: 12
-    maxTileBreak: 3
+    tileBreakScale: 3
 
 # Cerberus
 
@@ -70,6 +70,7 @@
     totalIntensity: 30
     intensitySlope: 6
     maxIntensity: 6
+    tileBreakScale: 3
 
 - type: entity
   name: cerberus spread
@@ -117,6 +118,7 @@
     totalIntensity: 5
     intensitySlope: 1
     maxIntensity: 1
+    tileBreakScale: 3
 
 # Scylla
 
@@ -152,6 +154,7 @@
     totalIntensity: 32
     intensitySlope: 4
     maxIntensity: 4
+    tileBreakScale: 3
 
 # Type 241
 
@@ -189,7 +192,7 @@
     totalIntensity: 25
     intensitySlope: 5
     maxIntensity: 5
-    maxTileBreak: 3
+    tileBreakScale: 3
 
 # M25
 
@@ -291,7 +294,7 @@
     totalIntensity: 500
     intensitySlope: 100
     maxIntensity: 20
-    maxTileBreak: 5
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -332,6 +335,7 @@
     totalIntensity: 25
     intensitySlope: 7
     maxIntensity: 7
+    tileBreakScale: 3
 
 # Harbinger
 
@@ -406,7 +410,7 @@
     totalIntensity: 120
     intensitySlope: 45
     maxIntensity: 45
-    maxTileBreak: 4
+    tileBreakScale: 3
 
 
 # region Laser Hitscans
@@ -585,6 +589,7 @@
     totalIntensity: 1200
     intensitySlope: 150
     maxIntensity: 30
+    tileBreakScale: 3
 
 - type: entity
   id: SunderExplosion
@@ -597,6 +602,7 @@
     totalIntensity: 45
     intensitySlope: 5
     maxIntensity: 5
+    tileBreakScale: 3
 
 - type: entity
   id: PrometheusExplosion
@@ -609,3 +615,4 @@
     totalIntensity: 80
     intensitySlope: 8
     maxIntensity: 8
+    tileBreakScale: 3
