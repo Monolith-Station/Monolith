@@ -26,9 +26,9 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         SubscribeLocalEvent<CreditReceiverComponent, EntRemovedFromContainerMessage>(OnEntityRemoved);
     }
 
-    protected void OnMapInit(EntityUid uid, CreditReceiverComponent component, MapInitEvent args)
+    protected void OnMapInit(Entity<CreditReceiverComponent> ent, ref MapInitEvent args)
     {
-        ItemSlots.AddItemSlot(uid, component.CashSlotName, component.CashSlot);
+        ItemSlots.AddItemSlot(ent.Owner, ent.Comp.CashSlotName, ent.Comp.CashSlot);
     }
 
 

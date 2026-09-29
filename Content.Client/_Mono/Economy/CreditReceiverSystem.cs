@@ -15,9 +15,9 @@ public sealed partial class CreditReceiverSystem : SharedCreditReceiverSystem
         SubscribeLocalEvent<CreditReceiverComponent, AfterAutoHandleStateEvent>(OnVendingCashMoneyAfterState);
     }
 
-    private void OnVendingCashMoneyAfterState(EntityUid uid, CreditReceiverComponent component, ref AfterAutoHandleStateEvent args)
+    private void OnVendingCashMoneyAfterState(Entity<CreditReceiverComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        if (_uiSystem.TryGetOpenUi(uid, VendingMachineUiKey.Key, out var bui))
+        if (_uiSystem.TryGetOpenUi(ent.Owner, VendingMachineUiKey.Key, out var bui))
         {
             bui.Update();
         }
