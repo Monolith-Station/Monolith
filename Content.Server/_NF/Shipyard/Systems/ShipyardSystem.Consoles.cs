@@ -54,11 +54,13 @@ using Content.Shared._Mono.Ships.Components;
 using Content.Shared._Mono.Shipyard;
 using Content.Shared.Tag;
 using Robust.Shared.Timing;
+using Content.Server._Mono.Detection;
 
 namespace Content.Server._NF.Shipyard.Systems;
 
 public sealed partial class ShipyardSystem : SharedShipyardSystem
 {
+    [Dependency] private ApplyIFFFlagsToDockedShipsSystem _applyIff = default!;
     [Dependency] private AccessSystem _accessSystem = default!;
     [Dependency] private AccessReaderSystem _access = default!;
     [Dependency] private PopupSystem _popup = default!;
@@ -391,6 +393,11 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         // Ensure cleanup on ship sale
         EnsureComp<LinkedLifecycleGridParentComponent>(shuttleUid);
+
+        // Mono: if parent grid has ApplyIFFFlagsToDockedShips make sure to apply it to purchased ships too.
+        if (TryComp<ApplyIFFFlagsToDockedShipsComponent>(Transform(shipyardConsoleUid).ParentUid, out var applyIffComp))
+            _applyIff.ApplyFlags(shuttleUid, applyIffComp, true);
+        // Mono end
 
         var sellValue = 0;
         if (!voucherUsed)

@@ -42,7 +42,7 @@
     - UplinkSecurityVouchers # Mono
     - UplinkSecurityMaterials
     balance:
-      FederationMilitaryCredit: 25
+      FederationMilitaryCredit: 0
   - type: AccessReader
     access: [["Security"]]
   - type: CompanyAccessReader
@@ -93,7 +93,7 @@
     key: enum.StoreUiKey.Key
   - type: Store
     balance:
-      Doubloon: 25
+      Doubloon: 0
   - type: AccessReader
     access: [["Pirate"]]
   - type: CompanyAccessReader

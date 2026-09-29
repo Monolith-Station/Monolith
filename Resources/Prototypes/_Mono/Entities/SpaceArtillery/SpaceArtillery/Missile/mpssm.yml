@@ -37,6 +37,7 @@
     totalIntensity: 8
     intensitySlope: 8
     maxIntensity: 3
+    tileBreakScale: 3
   - type: TargetSeeking
     acceleration: 40
     detectionRange: 2000
@@ -95,3 +96,4 @@
     totalIntensity: 150
     intensitySlope: 80
     maxIntensity: 100
+    tileBreakScale: 3

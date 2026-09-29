@@ -85,6 +85,7 @@
               node: machineFrame
             - !type:DoActsBehavior
               acts: ["Destruction"]
+            - !type:ExplodeBehavior # Mono
     - type: GuideHelp
       guides:
       - PortableGenerator
@@ -113,6 +114,11 @@
     - type: WirelessNetworkConnection
       range: 200
     - type: MaterialStorageMagnetPickup # Mono
+    - type: Explosive # Mono
+      explosionType: Default
+      maxIntensity: 100
+      intensitySlope: 1
+      totalIntensity: 400
 
 - type: entity
   abstract: true
