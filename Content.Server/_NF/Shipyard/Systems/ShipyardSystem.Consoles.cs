@@ -258,8 +258,10 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
                 return;
             }
 
-            _cash.TryCashPayment(shipyardConsoleUid, vessel.Price, out var remainingDebt, true); // Mono
-            _bank.TryBankWithdraw(player, remainingDebt); // Mono
+            if (_cash.TryCashPayment(shipyardConsoleUid, vessel.Price, out var remainingDebt, true)) // Mono
+                cashBalance = Math.Max(cashBalance - vessel.Price,0);
+            if (remainingDebt > 0) // Mono
+                _bank.TryBankWithdraw(player, remainingDebt); // Mono
         }
 
         // Add company information to the shuttle from the ID card or voucher
