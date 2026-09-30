@@ -342,5 +342,6 @@
     slots: [belt , suitstorage]
   - type: AllowSuitStorage
   - type: Storage
+    maxItemSize: Small
     grid:
     - 0,0,5,3
