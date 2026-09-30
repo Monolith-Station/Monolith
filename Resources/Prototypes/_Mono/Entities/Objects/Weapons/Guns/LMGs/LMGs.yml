@@ -150,6 +150,7 @@
     angleIncrease: 2 # Scales mostly with heat.
     angleDecay: 2.5
     fireRate: 2
+    projectileSpeed: 60 # Mono
     selectedMode: FullAuto
     availableModes:
     - FullAuto
