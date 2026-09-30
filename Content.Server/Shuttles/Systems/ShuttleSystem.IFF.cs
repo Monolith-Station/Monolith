@@ -117,6 +117,7 @@ public sealed partial class ShuttleSystem
                 Flags = IFFFlags.None,
             });
 
+            // Mono: lose the IFF console, lose the IFF
             var gridUid = Transform(uid).GridUid;
             if (TryComp<RequireIFFConsoleComponent>(Transform(uid).GridUid, out var requireConsoleComp) && gridUid != null)
                 RemoveIFFFlag(gridUid.Value, requireConsoleComp.RemoveFlags);
