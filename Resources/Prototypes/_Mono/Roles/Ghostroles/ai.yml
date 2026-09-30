@@ -18,3 +18,11 @@
   description: ghost-role-information-pdv-description
   rules: ghost-role-information-silicon-rules
   entityPrototype: StationAiBrainPDV
+
+# Xenoborg Mothercore
+- type: ghostRole
+  id: XenoborgAICore
+  name: ghost-role-information-Xenoborg-core
+  description: ghost-role-information-Xenoborg-core-description
+  rules: ghost-role-information-silicon-rules
+  entityPrototype: StationAiBrainXenoborg

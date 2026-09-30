@@ -9,10 +9,10 @@ using Robust.Shared.Console;
 namespace Content.Server._Mono.FireControl.Commands;
 
 [AdminCommand(AdminFlags.Debug)]
-public sealed class VisualizeFireDirectionsCommand : IConsoleCommand
+public sealed partial class VisualizeFireDirectionsCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IEntitySystemManager _systemManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IEntitySystemManager _systemManager = default!;
 
     public string Command => "visualizefire";
     public string Description => "Toggles visualization of firing directions for a FireControllable entity";

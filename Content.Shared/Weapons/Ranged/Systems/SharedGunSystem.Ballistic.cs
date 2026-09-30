@@ -14,8 +14,8 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
 
 
     protected virtual void InitializeBallistic()
@@ -290,14 +290,15 @@ public abstract partial class SharedGunSystem
 
             if (component.Entities.Count > 0)
             {
-                entity = component.Entities[^1];
+                var index = component.FireInLoadOrder ? 0 : component.Entities.Count - 1;
+                entity = component.Entities[index];
 
                 args.Ammo.Add((entity, EnsureShootable(entity)));
 
                 if (!component.AutoCycle) //  Goobstation - do not remove spent ammo from the gun it doesn't autocycle
                     break;
 
-                component.Entities.RemoveAt(component.Entities.Count - 1);
+                component.Entities.RemoveAt(index);
                 DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.Entities));
                 Containers.Remove(entity, component.Container);
             }
@@ -331,7 +332,8 @@ public abstract partial class SharedGunSystem
     {
         if (ent.Comp.Entities.Count > 0)
         {
-            var ammo = ent.Comp.Entities[^1];
+            var index = ent.Comp.FireInLoadOrder ? 0 : ent.Comp.Entities.Count - 1;
+            var ammo = ent.Comp.Entities[index];
             args.ShootPrototype = MetaData(ammo).EntityPrototype;
         }
         else if (ent.Comp.UnspawnedCount > 0 || ent.Comp.InfiniteUnspawned)

@@ -5,9 +5,9 @@ using Robust.Shared.Serialization.Manager;
 
 namespace Content.Client.DisplacementMap;
 
-public sealed class DisplacementMapSystem : EntitySystem
+public sealed partial class DisplacementMapSystem : EntitySystem
 {
-    [Dependency] private readonly ISerializationManager _serialization = default!;
+    [Dependency] private ISerializationManager _serialization = default!;
 
     public bool TryAddDisplacement(DisplacementData data, SpriteComponent sprite, int index, string key, HashSet<string> revealedLayers)
     {

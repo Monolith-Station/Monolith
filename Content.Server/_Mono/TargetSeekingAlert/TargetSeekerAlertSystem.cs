@@ -12,10 +12,10 @@ namespace Content.Server._Mono.TargetSeekingAlert;
 /// </summary>
 
 // I really wonder what might unexpectedly happen when you put a target-seeker-alerter on a planetmap, since those count as grids.
-public sealed class TargetSeekerAlertSystem : EntitySystem
+public sealed partial class TargetSeekerAlertSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;
 
     private EntityQuery<TargetSeekerAlertComponent> _alertQuery = new();
 

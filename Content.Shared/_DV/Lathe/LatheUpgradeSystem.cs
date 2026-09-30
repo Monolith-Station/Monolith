@@ -5,9 +5,9 @@ namespace Content.Shared._DV.Lathe;
 /// <summary>
 /// Applies <see cref="LatheUpgradeComponent"/> modifiers when added to a lathe and removes it.
 /// </summary>
-public sealed class LatheUpgradeSystem : EntitySystem
+public sealed partial class LatheUpgradeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedLatheSystem _lathe = default!;
+    [Dependency] private SharedLatheSystem _lathe = default!;
 
     public override void Initialize()
     {

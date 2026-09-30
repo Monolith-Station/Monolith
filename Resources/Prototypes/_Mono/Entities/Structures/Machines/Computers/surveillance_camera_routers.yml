@@ -1,0 +1,29 @@
+- type: entity
+  parent: SurveillanceCameraWirelessRouterBase
+  id: SurveillanceCameraRouterWirelessPDV
+  suffix: PDV (long range)
+  components:
+    - type: SurveillanceCameraRouter
+      subnetFrequency: SurveillanceCameraPDV
+    - type: WirelessNetworkConnection
+      range: 40000 # Modify this to change the range, make sure to change the range of the respective camera to be the same
+
+- type: entity
+  parent: SurveillanceCameraWirelessRouterBase
+  id: SurveillanceCameraRouterWirelessTSF
+  suffix: TSF (long range)
+  components:
+    - type: SurveillanceCameraRouter
+      subnetFrequency: SurveillanceCameraTSF
+    - type: WirelessNetworkConnection
+      range: 40000
+
+- type: entity
+  parent: SurveillanceCameraWirelessRouterBase
+  id: SurveillanceCameraRouterWirelessMMC
+  suffix: MMC (long range)
+  components:
+    - type: SurveillanceCameraRouter
+      subnetFrequency: SurveillanceCameraMMC
+    - type: WirelessNetworkConnection
+      range: 40000

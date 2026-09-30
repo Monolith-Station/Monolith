@@ -8,9 +8,9 @@ namespace Content.Client._Mono.Company;
 
 public sealed partial class CompanyManager
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private HashSet<ProtoId<CompanyPrototype>> _whitelist = new();
 

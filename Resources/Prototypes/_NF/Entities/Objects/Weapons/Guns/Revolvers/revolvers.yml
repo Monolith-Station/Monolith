@@ -35,19 +35,3 @@
     chambers: [ True, True, True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null, null, null ]
 
-- type: entity
-  parent: WeaponRevolverDeckard
-  id: WeaponRevolverDeckardNonlethal
-  suffix: Non-lethal
-  components:
-  - type: RevolverAmmoProvider
-    capacity: 5
-    proto: Cartridge45_magnumRubber
-    chambers: [ True, True, True, True, True ]
-    ammoSlots: [ null, null, null, null, null ]
-
-- type: entity
-  parent: WeaponRevolverDeckardExpedition
-  id: WeaponRevolverDeckardExpeditionGrifty
-  categories: [ HideSpawnMenu ]
-  name: Customer Service Resolver

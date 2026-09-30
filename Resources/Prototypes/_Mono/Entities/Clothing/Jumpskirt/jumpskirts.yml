@@ -12,3 +12,14 @@
   - type: SuitSensor
     randomMode: false
     mode: SensorVitals
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCCTCFormalDress
+  name: executive's formal dress
+  description: A dress for special occasions.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/centcomformaldress.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/centcomformaldress.rsi

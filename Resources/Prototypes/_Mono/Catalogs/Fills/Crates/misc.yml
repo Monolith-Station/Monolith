@@ -1,0 +1,18 @@
+- type: entity
+  id: CrateMaterialNukeSupplies
+  parent: CrateBaseSecure
+  name: nuclear fission explosive supplies crate
+  description: The authentication disk, 4 disk trackers, and the codes. Something has gone very wrong here.
+  components:
+  - type: Icon
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+  - type: Sprite
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+  - type: StorageFill
+    contents:
+    - id: NukeDisk
+      amount: 1
+    - id: PinpointerNuclear
+      amount: 4
+    - id: BoxFolderNuclearCodes
+      amount: 1

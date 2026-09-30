@@ -14,7 +14,7 @@ namespace Content.Client._Funkystation.Atmos
     [GenerateTypedNameReferences]
     public sealed partial class CrystallizerWindow : FancyWindow
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
         public bool Active = true;
         private Button? _selectedButton;
         private string? _selectedButtonId;

@@ -18,6 +18,8 @@ command-description-jobs-set =
     Sets the number of slots for the given job.
 command-description-jobs-amount =
     Returns the number of slots for the given job.
+command-description-jobs-unlimited =
+    Makes the given job have unlimited slots.
 command-description-laws-list =
     Returns a list of all law bound entities.
 command-description-laws-get =
@@ -43,11 +45,11 @@ command-description-stations-largestgrid =
 command-description-stations-rerollBounties =
     Clears all the current bounties for the station and gets a new selection.
 command-description-stationevent-lsprob =
-    Lists the probability of different station events occuring out of the entire pool.
-command-description-stationevent-lsprobtime =
-    Lists the probability of different station events occuring based on the specified length of a round.
+    Given a BasicStationEventScheduler prototype, lists the probability of different station events occuring out of the entire pool with current conditions.
+command-description-stationevent-lsprobtheoretical =
+    Given a BasicStationEventScheduler prototype, player count, and round time, lists the probability of different station events occuring based on the specified number of players and round time.
 command-description-stationevent-prob =
-    Returns the probability of a single station event occuring out of the entire pool.
+    Given a BasicStationEventScheduler prototype and an event prototype, returns the probability of a single station event occuring out of the entire pool with current conditions.
 command-description-admins-active =
     Returns a list of active admins.
 command-description-admins-all =
@@ -83,7 +85,7 @@ command-description-mind-control =
 command-description-addaccesslog =
     Adds an access log to this entity. Do note that this bypasses the log's default limit and pause check.
 command-description-stationevent-simulate =
-    Simulates N number of rounds in which events will occur and prints the occurrences of every event after.
+    Given a BasicStationEventScheduler prototype, N Rounds, N Players, mean round end, and stddev of round end, Simulates N number of rounds in which events will occur and prints the occurrences of every event after.
 command-description-xenoartifact-list =
     List all EntityUids of spawned artifacts.
 command-description-xenoartifact-printMatrix =

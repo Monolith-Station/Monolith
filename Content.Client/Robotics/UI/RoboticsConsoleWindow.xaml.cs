@@ -15,8 +15,8 @@ namespace Content.Client.Robotics.UI;
 [GenerateTypedNameReferences]
 public sealed partial class RoboticsConsoleWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IGameTiming _timing = default!;
     private readonly LockSystem _lock;
     private readonly SpriteSystem _sprite;
 
@@ -27,6 +27,8 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
     private Dictionary<string, CyborgControlData> _cyborgs = new();
 
     public EntityUid Entity;
+	
+    private bool _allowBorgControl = true;
 
     public RoboticsConsoleWindow()
     {
@@ -72,6 +74,7 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
     public void UpdateState(RoboticsConsoleState state)
     {
         _cyborgs = state.Cyborgs;
+        _allowBorgControl = state.AllowBorgControl;
 
         // clear invalid selection
         if (_selected is {} selected && !_cyborgs.ContainsKey(selected))
@@ -95,8 +98,8 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         PopulateData();
 
         var locked = _lock.IsLocked(Entity);
-        DangerZone.Visible = !locked;
-        LockedMessage.Visible = locked;
+        DangerZone.Visible = !locked && _allowBorgControl;
+        LockedMessage.Visible = locked && _allowBorgControl; // Only show if locked AND control is allowed
     }
 
     private void PopulateCyborgs()
@@ -147,7 +150,8 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         BorgInfo.SetMessage(text);
 
         // how the turntables
-        DisableButton.Disabled = !(data.HasBrain && data.CanDisable);
+        DisableButton.Disabled = !_allowBorgControl || !(data.HasBrain && data.CanDisable);
+        DestroyButton.Disabled = !_allowBorgControl;
     }
 
     protected override void FrameUpdate(FrameEventArgs args)

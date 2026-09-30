@@ -5,10 +5,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.NPC.Systems;
 
-public sealed class NPCUseActionOnTargetSystem : EntitySystem
+public sealed partial class NPCUseActionOnTargetSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

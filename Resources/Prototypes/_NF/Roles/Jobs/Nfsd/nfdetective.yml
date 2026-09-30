@@ -9,10 +9,18 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 7200 # 2 hours # mono
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   alternateRequirementSets:
     longerPlaytimeLessSec:
     - !type:OverallPlaytimeRequirement
       time: 18000 # 5 hours # mono
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   startingGear: NFDetectiveGear
   icon: JobIconNFDetective
   supervisors: job-supervisors-bailiff
@@ -50,8 +58,8 @@
   storage:
     back:
     - Flash
-    - SpeedLoader45_magnumFMJ
-    - SpeedLoader45_magnumRubber
+    - SpeedLoader357_magnumFMJ
+    - SpeedLoader357_magnumRubber
     - ForensicPad
     - ForensicScanner
     - FederationMilitaryCredit50

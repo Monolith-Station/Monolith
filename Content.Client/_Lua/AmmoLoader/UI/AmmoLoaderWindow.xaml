@@ -1,0 +1,146 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                     xmlns:ammo="clr-namespace:Content.Client._Lua.AmmoLoader.UI"
+                     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                     Title="{Loc ammo-loader-window-title}"
+                     MinSize="888 720"
+                     SetSize="888 720">
+    <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="8">
+        <BoxContainer Orientation="Horizontal" VerticalExpand="True" SeparationOverride="8">
+            <PanelContainer Name="StoragePanel" VerticalExpand="True" HorizontalExpand="True" SizeFlagsStretchRatio="3">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#111820" BorderColor="#334252" BorderThickness="2"/>
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" Margin="8" VerticalExpand="True">
+                    <Label Text="{Loc ammo-loader-window-storage}" StyleClasses="LabelHeading" FontColorOverride="#c6e7ff" Margin="0 0 0 6"/>
+                    <ScrollContainer VerticalExpand="True" HorizontalExpand="True" VScrollEnabled="True" HScrollEnabled="False">
+                        <GridContainer Name="AmmoGrid"
+                                       Columns="5"
+                                       HSeparationOverride="6"
+                                       VSeparationOverride="6"
+                                       HorizontalAlignment="Left"/>
+                    </ScrollContainer>
+                    <Label Name="TotalLabel" Margin="0 8 0 0" FontColorOverride="#7ec8e3"/>
+                </BoxContainer>
+            </PanelContainer>
+
+            <PanelContainer Name="InfoPanel" MinWidth="270" MaxWidth="270" VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#111820" BorderColor="#334252" BorderThickness="2"/>
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" Margin="10" VerticalExpand="True">
+                    <Label Name="InfoHeadingLabel"
+                           Text="{Loc ammo-loader-window-item-info}"
+                           StyleClasses="LabelHeading"
+                           FontColorOverride="#c6e7ff"
+                           Margin="0 0 0 8"
+                           HorizontalAlignment="Center"
+                           HorizontalExpand="True"/>
+                    <PanelContainer MinSize="220 180" SetSize="220 180" HorizontalExpand="True" Margin="0 0 0 8">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#0b1015" BorderColor="#2c3846" BorderThickness="2"/>
+                        </PanelContainer.PanelOverride>
+                        <LayoutContainer Name="SelectedIconArea"
+                                         MinSize="216 176"
+                                         SetSize="216 176"
+                                         HorizontalExpand="True"
+                                         RectClipContent="True">
+                            <ammo:MarqueeLabel Name="SelectedNameMarquee"
+                                               MinHeight="26"
+                                               MaxHeight="26"
+                                               HorizontalExpand="True"
+                                               Margin="12 10 12 0"/>
+                            <EntityPrototypeView Name="SelectedIcon"
+                                                 MouseFilter="Ignore"/>
+                            <Label Name="SelectedCountLabel"
+                                   Align="Center"
+                                   MinHeight="24"
+                                   MaxHeight="24"
+                                   FontColorOverride="#e8eef6"
+                                   Margin="0 0 0 10"/>
+                        </LayoutContainer>
+                    </PanelContainer>
+
+                    <BoxContainer Name="TurretLoadedSection" Orientation="Vertical" Margin="0 0 0 8" Visible="False" HorizontalExpand="True">
+                        <Label Text="{Loc ammo-loader-window-turret-loaded}"
+                               StyleClasses="LabelKeyText"
+                               FontColorOverride="#8a93a3"
+                               Margin="0 0 0 4"
+                               HorizontalAlignment="Center"
+                               HorizontalExpand="True"/>
+                        <LayoutContainer Name="TurretLoadedSlot"
+                                         MinSize="48 48"
+                                         MaxSize="48 48"
+                                         SetSize="48 48"
+                                         HorizontalAlignment="Center"
+                                         MouseFilter="Stop"/>
+                    </BoxContainer>
+
+                    <RichTextLabel Name="SelectedDescLabel"
+                                   HorizontalAlignment="Left"
+                                   HorizontalExpand="True"
+                                   Margin="4 0 0 8"/>
+
+                    <Control VerticalExpand="True"/>
+                    <Button Name="UnloadOneButton"
+                            Text="{Loc ammo-loader-window-unload-one}"
+                            Disabled="True"
+                            HorizontalExpand="True"
+                            MinHeight="36"/>
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+
+        <PanelContainer Name="QuickUnloadPanel" HorizontalExpand="True" MouseFilter="Stop">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#111820" BorderColor="#334252" BorderThickness="2"/>
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Horizontal" Margin="8" SeparationOverride="12">
+                <BoxContainer Orientation="Vertical">
+                    <Label Text="{Loc ammo-loader-window-quick-unload}" StyleClasses="LabelKeyText" FontColorOverride="#c6e7ff" Margin="0 0 0 4"/>
+                    <BoxContainer Name="QuickUnloadSlots" Orientation="Horizontal" SeparationOverride="4"/>
+                </BoxContainer>
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                    <Control MinHeight="22" MaxHeight="22"/>
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="12" MinHeight="48" MaxHeight="48">
+                        <Label Name="QuickUnloadHint"
+                               Text="{Loc ammo-loader-window-quick-unload-hint}"
+                               FontColorOverride="#8a93a3"
+                               StyleClasses="LabelSubText"
+                               VerticalAlignment="Center"
+                               HorizontalExpand="True"/>
+                        <Button Name="EjectAllButton"
+                                Text="{Loc ammo-loader-window-eject-all}"
+                                StyleClasses="ButtonCaution"
+                                MinWidth="120"
+                                MinHeight="40"
+                                VerticalAlignment="Center"/>
+                    </BoxContainer>
+                </BoxContainer>
+            </BoxContainer>
+        </PanelContainer>
+
+        <PanelContainer Name="LinkedTurretsPanel" HorizontalExpand="True" MinHeight="80">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#111820" BorderColor="#334252" BorderThickness="2"/>
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Vertical" Margin="8">
+                <Label Text="{Loc ammo-loader-window-linked-turrets}" StyleClasses="LabelKeyText" FontColorOverride="#c6e7ff" Margin="0 0 0 4"/>
+                <ScrollContainer VerticalExpand="False"
+                                 HorizontalExpand="True"
+                                 VScrollEnabled="True"
+                                 HScrollEnabled="False"
+                                 MinHeight="56"
+                                 MaxHeight="112">
+                    <GridContainer Name="TurretGrid"
+                                   Columns="16"
+                                   HSeparationOverride="4"
+                                   VSeparationOverride="4"
+                                   HorizontalAlignment="Center"
+                                   MinHeight="56"/>
+                </ScrollContainer>
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+</controls:FancyWindow>

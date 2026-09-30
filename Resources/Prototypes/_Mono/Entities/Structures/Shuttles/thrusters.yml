@@ -15,3 +15,12 @@
   - type: Thruster
     baseThrust: 200000
     thrust: 200000 # 100x
+
+- type: entity
+  parent: Thruster
+  id: ThrusterPartsT2
+  suffix: T2 Parts
+  components:
+  - type: Machine
+    partOverrides:
+      Capacitor: AdvancedCapacitorStockPart

@@ -1,0 +1,11 @@
+- type: entity
+  parent: TelecomServer
+  id: TelecomServerFilledMMC
+  suffix: Mieyo
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyMieyo
+      - EncryptionKeyMieyoCommand

@@ -531,6 +531,12 @@
           - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
+          - !type:OrganType # Mono - Hydrakin
+            type: Hydrakin
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -544,22 +550,39 @@
           - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
+          - !type:OrganType # Mono - Hydrakin
+            type: Hydrakin
+            shouldHave: false
       - !type:HealthChange
         conditions:
+        - !type:OrganType # Mono - Hydrakin
+          type: Hydrakin
+          shouldHave: false
         - !type:OrganType
           type: Animal
           shouldHave: false
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
         damage:
           types:
             Poison: 1
+      - !type:AdjustReagent # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        reagent: Protein
+        amount: 0.5
       - !type:AdjustReagent
         conditions:
         - !type:OrganType
           type: Animal
-          shouldHave: true
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent # Frontier: Goblin
@@ -568,6 +591,8 @@
           type: Goblin # Frontier: Goblin
         reagent: Protein # Frontier: Goblin
         amount: 0.5 # Frontier: Goblin
+
+
 
 - type: reagent
   id: Allicin
@@ -791,3 +816,19 @@
           shouldHave: false
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
+
+- type: reagent
+  id: ToxinTrash
+  name: reagent-name-toxintrash
+  group: Toxins
+  desc: reagent-desc-toxintrash
+  flavor: trashy
+  physicalDesc: reagent-physical-desc-nondescript
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+        conditions:
+        - !type:OrganType
+          type: Vox

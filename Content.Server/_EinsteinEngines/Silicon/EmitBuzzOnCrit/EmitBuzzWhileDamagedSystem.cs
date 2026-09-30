@@ -14,14 +14,14 @@ namespace Content.Server._EinsteinEngines.Silicon.EmitBuzzOnCrit;
 /// <summary>
 /// This handles the buzzing popup and sound of a silicon based race when it is pretty damaged.
 /// </summary>
-public sealed class EmitBuzzWhileDamagedSystem : EntitySystem
+public sealed partial class EmitBuzzWhileDamagedSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
 
     public override void Update(float frameTime)
     {

@@ -1,0 +1,11 @@
+<Document>
+  # Flight
+
+  <Box>
+    <GuideEntityEmbed Entity="CEActionZFlightToggle" Caption="The flight action"/>
+  </Box>
+
+  Certain winged specieses are capable of flying on planets. This allows them to somewhat freely move up and down the planet's air, at the cost of significant stamina draw.
+
+  The stamina draw of flight can be described with the following function: [bold]baseDrain * (mass / 70)[/bold] (where baseDrain is your species's base stamina drain and mass is your own weight).
+</Document>

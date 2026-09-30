@@ -4,9 +4,9 @@ using Robust.Shared.Player;
 
 namespace Content.Shared.Roles.RoleCodeword;
 
-public abstract class SharedRoleCodewordSystem : EntitySystem
+public abstract partial class SharedRoleCodewordSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
 
     public override void Initialize()
     {

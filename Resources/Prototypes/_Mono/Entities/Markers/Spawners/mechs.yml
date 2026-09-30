@@ -53,3 +53,27 @@
   - type: ConditionalSpawner
     prototypes:
     - AFInterceptorMFilled
+
+- type: entity
+  name: TSF flail spawner
+  id: SpawnTSFFlail
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+  - type: ConditionalSpawner
+    prototypes:
+    - AFFlailTSF
+
+- type: entity
+  name: TSF spyglass spawner
+  id: SpawnTSFSpyglass
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+  - type: ConditionalSpawner
+    prototypes:
+    - AFFlailETSF

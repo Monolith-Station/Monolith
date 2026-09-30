@@ -43,6 +43,13 @@ public sealed partial class RCDComponent : Component
     public RCDPrototype CachedPrototype { get; set; } = default!;
 
     /// <summary>
+    /// Indicates whether this is an RCD or an RPD 
+    /// </summary>
+    /// Goob
+    [DataField, AutoNetworkedField]
+    public bool IsRpd { get; set; } = false;
+
+    /// <summary>
     /// The direction constructed entities will face upon spawning
     /// </summary>
     [DataField, AutoNetworkedField]

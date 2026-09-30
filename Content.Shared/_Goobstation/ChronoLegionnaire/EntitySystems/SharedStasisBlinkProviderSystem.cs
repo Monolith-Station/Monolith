@@ -3,9 +3,9 @@ using Content.Shared._Goobstation.ChronoLegionnaire.Components;
 
 namespace Content.Shared._Goobstation.ChronoLegionnaire;
 
-public abstract class SharedStasisBlinkProviderSystem : EntitySystem
+public abstract partial class SharedStasisBlinkProviderSystem : EntitySystem
 {
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
     public override void Initialize()
     {
         base.Initialize();

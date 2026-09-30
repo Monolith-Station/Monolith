@@ -8,6 +8,14 @@
     snap:
     - Window
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactGlass
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -74,8 +82,13 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Airtight
+  - type: DeltaPressure
+    minPressure: 1000
+    minPressureDelta: 750
+    scalingType: Linear
+    scalingPower: 0.0005
   - type: IconSmooth
-    key: walls
+    key: walls # Mono
     base: window
   - type: InteractionPopup
     interactSuccessString: comp-window-knock
@@ -103,6 +116,7 @@
   parent: Window
   id: TintedWindow
   name: tinted window
+  description: Smart tinted window with state switching option. # Goob
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -117,6 +131,20 @@
   - type: Occluder
   - type: StaticPrice
     price: 35 # Frontier: 70<35 - TODO: material rebalance
+  - type: ToggleableOccluder # Goob
+  - type: DeviceLinkSink # Goob
+    ports:
+    - On
+    - Off
+    - Toggle
+
+- type: entity # Goob
+  parent: TintedWindow
+  id: TintedWindowTransparent
+  suffix: Transparent
+  components:
+  - type: Occluder
+    enabled: false
 
 - type: entity
   id: WindowRCDResistant
@@ -136,6 +164,10 @@
     snap:
     - Window
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactGlass
   - type: WallMount
     arc: 360 # interact despite grilles
   - type: Tag
@@ -211,6 +243,10 @@
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:
     - South
+  - type: DeltaPressure
+    minPressure: 250
+    minPressureDelta: 187.5
+    scalingType: Threshold
   - type: Construction
     graph: WindowDirectional
     node: windowDirectional

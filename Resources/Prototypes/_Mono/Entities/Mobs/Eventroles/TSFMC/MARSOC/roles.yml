@@ -1,0 +1,56 @@
+# Operative
+- type: entity
+  parent: MobHumanMarsocBase
+  id: MobHumanMarsocOperative
+  name: MARSOC operative
+  components:
+  - type: Loadout
+    prototypes: [MarsocOperativeGear]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-marsoc-operative-name
+    description: ghost-role-information-marsoc-description
+    rules: ghost-role-information-marsoc-rules
+    raffle:
+      settings: short
+
+# yeah
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanMarsocBase
+  name: operative base
+  suffix: Human, Base
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: True
+  - type: HumanoidAppearance
+  - type: Loadout
+    prototypes: [MarsocOperativeGear]
+    roleLoadout: [RoleSurvivalTankOnly]
+  - type: GhostRole
+    name: ghost-role-information-marsoc-operative-name
+    description: ghost-role-information-marsoc-description
+    rules: ghost-role-information-marsoc-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitary
+    - NamesLastMilitary
+  - type: NpcFactionMember
+    factions:
+    - TSFMC
+  - type: Company
+    companyName: TSFHighComm
+  - type: MindShield
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
+  - type: ChatRank
+    rank: tsf-marsoc
+
+- type: roleLoadout
+  id: RoleSurvivalTankOnly
+  groups:
+  - GroupEVATank

@@ -12,7 +12,8 @@
   - type: GridEdgeMarker
     begin: 0.5, 0.5
     end: 0.5, -0.5
-  - type: GlobalPvs
+  # - type: GlobalPvs # Mono - TODO: find a better way of sending these, apparently engine doesn't handle this well
+  # NOTE: THIS DISABLES RADAR MARKINGS
 
 - type: entity
   parent: RadarEdgeMarkerBase

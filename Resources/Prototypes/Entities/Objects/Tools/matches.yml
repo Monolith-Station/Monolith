@@ -21,6 +21,17 @@
     tags:
     - Matchstick
     - Trash
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
+  - type: Food
+    requiresSpecialDigestion: true
   - type: SpaceGarbage
     cleanupExempt: true # Mono
   - type: Sprite
@@ -35,6 +46,12 @@
     duration: 10
     igniteSound:
       path: /Audio/Items/match_strike.ogg
+      params:
+        volume: -0.125
+        variation: 0.125
+  - type: IgnitionSource
+    ignited: false
+    temperature: 400.0
   - type: PointLight
     enabled: false
     radius: 1.1
@@ -131,5 +148,16 @@
   - type: Tag
     tags:
     - Trash
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ToxinTrash
+          Quantity: 5
+  - type: Food
+    requiresSpecialDigestion: true
   - type: SpaceGarbage
     cleanupExempt: true # Mono

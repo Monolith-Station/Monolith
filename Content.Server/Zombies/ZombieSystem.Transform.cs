@@ -24,6 +24,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
@@ -35,7 +36,10 @@ using Content.Shared.Prying.Components;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Ghost.Roles.Components;
+using Content.Shared.Roles;
 using Content.Shared.Tag;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Zombies;
 
@@ -47,19 +51,22 @@ namespace Content.Server.Zombies;
 /// </remarks>
 public sealed partial class ZombieSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IChatManager _chatMan = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
-    [Dependency] private readonly ServerInventorySystem _inventory = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IChatManager _chatMan = default!;
+    [Dependency] private SharedCombatModeSystem _combat = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private HumanoidAppearanceSystem _humanoidAppearance = default!;
+    [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private ServerInventorySystem _inventory = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedRoleSystem _roles = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+
+    private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
 
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
@@ -231,8 +238,8 @@ public sealed partial class ZombieSystem
         _npc.SleepNPC(target, htn);
 
         //He's gotta have a mind
-        var hasMind = _mind.TryGetMind(target, out var mindId, out _);
-        if (hasMind && _mind.TryGetSession(mindId, out var session))
+        var hasMind = _mind.TryGetMind(target, out var mindId, out var mind);
+        if (hasMind && mind != null && _player.TryGetSessionById(mind.UserId, out var session))
         {
             //Zombie role for player manifest
             _roles.MindAddRole(mindId, "MindRoleZombie", mind: null, silent: true);
@@ -280,6 +287,6 @@ public sealed partial class ZombieSystem
 
         //Need to prevent them from getting an item, they have no hands.
         // Also prevents them from becoming a Survivor. They're undead.
-        _tag.AddTag(target, "InvalidForGlobalSpawnSpell");
+        _tag.AddTag(target, InvalidForGlobalSpawnSpellTag);
     }
 }

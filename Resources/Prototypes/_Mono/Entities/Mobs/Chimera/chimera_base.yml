@@ -66,7 +66,7 @@
       types:
         Blunt: 12
         Slash: 20
-        Structural: 50
+        Structural: 350 # TEARS through structures and mechs. scary.
   - type: ReplacementAccent
     accent: genericAggressive
   - type: SolutionContainerManager
@@ -83,7 +83,7 @@
         Quantity: 90
   - type: MeleeChemicalInjector
     solution: melee
-    transferAmount: 1.5
+    transferAmount: 5
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
     baseSprintSpeed : 4.25
@@ -123,7 +123,7 @@
     canResistFire: true
     damage: #per second, scales with number of fire 'stacks'
       types:
-        Heat: 8
+        Heat: 20
   - type: Clickable
   - type: ZombieImmune
   - type: Reactive
@@ -141,31 +141,49 @@
             Burn: -2
             Brute: -1.5
     - reagents: [Mesotaxinide]
-      methods: [Touch]
+      methods: [Touch] # SIGNIFICANTLY nerfed as to not be an instant kill button.
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         damage:
           groups:
-            Burn: 6
-            Brute: 7
+            Burn: 1.5
+            Brute: 1.5
           types:
-            Caustic: 20
-            Cellular: 5
+            Caustic: 4
+            Cellular: 1.5
   - type: SurgeryTarget
   - type: Body
     prototype: ChimeraBeast
     requiredLegs: 0
   - type: PlayerToolModifier
     pryTimeMultiplier: 0.4
-  - type: ThermalVision
-    lightRadius: 15
-    activateSound: null
-    deactivateSound: null
+  - type: NightVision
+    relayOverlay: false
+    goggleEffect: true
+    viewCircleRadius: 550
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#BF430A"
+    lightingColor: "#FFFFFF32"
   - type: GuideHelp
     guides:
     - Letoferol
   - type: MovementAlwaysTouching
+  - type: RadarConsole
+    followEntity: true
+    noRotate: true
+    maxIffRange: 0
+    hideCoords: false
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionObserverShowRadar
 
 - type: entity
   parent:
@@ -194,17 +212,9 @@
   - type: DoAfter
   - type: Stripping
   - type: Stamina
-    critThreshold: 150
+    critThreshold: 250 # half of their actual HP
   - type: Inventory
     templateId: chimera
-    relayBlockedSlots:
-    - outerClothing
-    - neck
-    - mask
-    - head
-    - jumpsuit
-    - shoes
-    - gloves
   - type: Appearance
   - type: SurgeryTarget
   - type: ContainerContainer
@@ -250,8 +260,8 @@
   - type: BonusMeleeDamage
     damageModifierSet:
       coefficients:
-        Blunt: 1.4
-        Slash: 1.2
+        Blunt: 0.5
+        Slash: 1
         Piercing: 0.65 # spear is clunky
         Heat: 0.5 # fire is scary (esword is op)
   #- type: CollectiveMind  # Part of the organ instead.

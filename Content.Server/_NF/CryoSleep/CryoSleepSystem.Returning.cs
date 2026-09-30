@@ -13,7 +13,7 @@ namespace Content.Server._NF.CryoSleep;
 
 public sealed partial class CryoSleepSystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
 
     private void InitReturning()
     {

@@ -24,3 +24,21 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsUSSP ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecViperLocked
+  suffix: Viper Group, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViper ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecViperCommandLocked
+  suffix: Viper Group Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViperCommand ]

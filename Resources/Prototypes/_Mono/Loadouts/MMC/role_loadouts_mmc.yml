@@ -1,0 +1,82 @@
+- type: roleLoadout
+  id: JobMMCEmployee
+  groups:
+  - MMCEmployeeJumpsuit
+  - MMCEmployeeBackpack
+  - MMCOuterClothing
+  - MMCEmployeeShoes
+  - MMCEmployeeBelt
+  - MMCEmployeeEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - MieyoEmployeePDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
+  - NFSpeciesSpecific
+  - ContractorArmorPlates # Mono
+  - MieyoSidearm
+  - MieyoSidearmAmmo
+  - MMCProducts
+
+- type: roleLoadout
+  id: JobMMCSecurity
+  groups:
+  - MMCCorpSecJumpsuit
+  - MMCCorpSecGloves
+  - MMCCorpSecBackpack
+  - MMCCorpSecOuterClothing
+  - MMCCorpSecShoes
+  - MMCCorpSecBelt
+  - MMCCorpSecEars
+  - MMCCorpSecBalaclava
+  - MMCHud
+  - MMCRanksCorpSec
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - MieyoSecurityPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
+  - NFSpeciesSpecific
+  - ContractorArmorPlates # Mono
+  - MieyoCorpSecPrimary
+  - MieyoCorpSecPrimaryAmmo
+  - MieyoSidearm
+  - MieyoSidearmAmmo
+  - MMCProductsCorpSec
+
+- type: roleLoadout
+  id: JobMMCLiason
+  groups:
+  - MMCEmployeeJumpsuit
+  - MMCCorpSecGloves
+  - MMCEmployeeBackpack
+  - MMCOuterClothing
+  - MMCEmployeeShoes
+  - MMCEmployeeBelt
+  - MMCCorpSecEars
+  - MMCHud
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - MieyoLiasonPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
+  - NFSpeciesSpecific
+  - ContractorArmorPlates # Mono
+  - MieyoSidearm
+  - MieyoSidearmAmmo
+  - MMCProductsCorpSec

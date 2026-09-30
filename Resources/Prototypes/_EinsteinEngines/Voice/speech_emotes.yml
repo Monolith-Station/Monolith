@@ -11,7 +11,7 @@
   - sdeathgasp
 
 - type: emote
-  id: Whirr # uncategorized as it is generic - Mono, youre an idiot.
+  id: Whirr
   name: chat-emote-name-whirr
   category: Vocal
   chatMessages: [ whirrs ]
@@ -21,13 +21,14 @@
     - BorgChassis
   chatTriggers:
     - whirrs
+    - rattles
 
 - type: emote
   id: Boop
   name: chat-emote-name-boop
   category: Vocal
-  chatMessages: [ boops. ]
-  whitelist:
+  chatMessages: [ boops ]
+  whitelist: # Mono - IPC's, borgs, protogens
     components:
     - Silicon
     - BorgChassis

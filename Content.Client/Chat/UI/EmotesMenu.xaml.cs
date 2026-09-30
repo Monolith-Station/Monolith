@@ -17,9 +17,9 @@ namespace Content.Client.Chat.UI;
 [GenerateTypedNameReferences]
 public sealed partial class EmotesMenu : RadialMenu
 {
-    [Dependency] private readonly EntityManager _entManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private EntityManager _entManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
 
     public event Action<ProtoId<EmotePrototype>>? OnPlayEmote;
 

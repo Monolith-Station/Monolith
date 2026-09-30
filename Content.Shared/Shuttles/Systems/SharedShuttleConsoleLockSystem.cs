@@ -11,11 +11,11 @@ namespace Content.Shared.Shuttles.Systems;
 /// <summary>
 /// System that handles locking and unlocking shuttle consoles based on shuttle deeds.
 /// </summary>
-public abstract class SharedShuttleConsoleLockSystem : EntitySystem
+public abstract partial class SharedShuttleConsoleLockSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] protected IGameTiming Timing = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

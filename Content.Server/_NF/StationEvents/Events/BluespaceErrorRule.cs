@@ -21,28 +21,32 @@ using Content.Server._NF.StationEvents.Components;
 using Robust.Shared.EntitySerialization.Systems;
 using Content.Server._Mono.StationEvents;
 using Content.Server._Mono.GridClaimer;
+using Content.Server._Mono.Store.Components;
+using Content.Server._Mono.Store;
+using Newtonsoft.Json;
 
 namespace Content.Server._NF.StationEvents.Events;
 
-public sealed class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleComponent>
+public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleComponent>
 {
     NanotrasenNameGenerator _nameGenerator = new();
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly DungeonSystem _dungeon = default!;
-    [Dependency] private readonly MapLoaderSystem _loader = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly PricingSystem _pricing = default!;
-    [Dependency] private readonly LinkedLifecycleGridSystem _linkedLifecycleGrid = default!;
-    [Dependency] private readonly StationRenameWarpsSystems _renameWarps = default!;
-    [Dependency] private readonly BankSystem _bank = default!;
-    [Dependency] private readonly SharedSalvageSystem _salvage = default!;
-    [Dependency] private readonly AutoExtendRuleSystem _autoExtend = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private MapSystem _map = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private DungeonSystem _dungeon = default!;
+    [Dependency] private MapLoaderSystem _loader = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ShuttleSystem _shuttle = default!;
+    [Dependency] private PricingSystem _pricing = default!;
+    [Dependency] private LinkedLifecycleGridSystem _linkedLifecycleGrid = default!;
+    [Dependency] private StationRenameWarpsSystems _renameWarps = default!;
+    [Dependency] private BankSystem _bank = default!;
+    [Dependency] private SharedSalvageSystem _salvage = default!;
+    [Dependency] private AutoExtendRuleSystem _autoExtend = default!;
+    [Dependency] private CurrencyInjectionSystem _currencyInjection = default!;
 
     public override void Initialize()
     {
@@ -124,6 +128,7 @@ public sealed class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleCo
                 EntityManager.AddComponents(spawned, group.AddComponents);
 
                 component.GridsUid.Add(spawned);
+                component.StartingValue += _pricing.AppraiseGrid(spawned);
 
                 if (component.ExtendIfPopulated)
                     _autoExtend.AutoExtend(uid, spawned);
@@ -261,6 +266,30 @@ public sealed class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleCo
                 }
 
                 var gridValue = _pricing.AppraiseGrid(gridUid, null);
+                // Mono: currency injections
+                if (TryComp<CurrencyInjectionOnBluespaceErrorComponent>(uid, out var comp))
+                {
+                    var childQuery = Transform(gridUid).ChildEnumerator;
+                    var requiredEntitiesFound = true;
+                    foreach (var entProtoId in comp.RequiredEntities)
+                    {
+                        requiredEntitiesFound = false;
+                        while (childQuery.MoveNext(out var entity))
+                        {
+                            var metaData = MetaData(entity);
+                            if (metaData.EntityPrototype != null && entProtoId.Equals(metaData.EntityPrototype.ID))
+                            {
+                                requiredEntitiesFound = true;
+                                break;
+                            }
+                        }
+                        if (!requiredEntitiesFound)
+                            break;
+                    }
+                    if (gridValue / component.StartingValue > comp.IntegrityRequirement && requiredEntitiesFound) // good job!
+                        _currencyInjection.InjectCurrency(comp.Company, comp.Amount);
+                }
+                // Mono end
 
                 // Deletion has to happen before grid traversal re-parents players.
                 Del(gridUid);

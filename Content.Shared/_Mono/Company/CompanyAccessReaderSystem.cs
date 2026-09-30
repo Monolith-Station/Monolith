@@ -7,9 +7,9 @@ namespace Content.Shared._Mono.Company;
 /// This system handles checking if a user belongs to the required company
 /// before granting access to an entity.
 /// </summary>
-public sealed class CompanyAccessReaderSystem : EntitySystem
+public sealed partial class CompanyAccessReaderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -26,14 +26,16 @@ public sealed class CompanyAccessReaderSystem : EntitySystem
         // Get user's company
         if (!TryComp<CompanyComponent>(args.User, out var userCompany))
         {
+            if (entity.Comp.Inverted)
+                return;
+
             args.Cancel();
             if (entity.Comp.PopupMessage != null)
                 _popup.PopupClient(Loc.GetString(entity.Comp.PopupMessage), entity, args.User);
             return;
         }
 
-        // Check if user's company matches the required company
-        if (userCompany.CompanyName != entity.Comp.RequiredCompany)
+        if (!entity.Comp.RequiredCompanies.Contains(userCompany.CompanyName) == !entity.Comp.Inverted)
         {
             args.Cancel();
             if (entity.Comp.PopupMessage != null)

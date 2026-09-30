@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._EinsteinEngines.Language.Systems;
 
-public abstract class SharedLanguageSystem : EntitySystem
+public abstract partial class SharedLanguageSystem : EntitySystem
 {
     /// <summary>
     ///     The language used as a fallback in cases where an entity suddenly becomes a Language Speaker (e.g. the usage of make-sentient).
@@ -34,8 +34,8 @@ public abstract class SharedLanguageSystem : EntitySystem
     /// </summary>
     public static LanguagePrototype Universal { get; private set; } = default!;
 
-    [Dependency] protected readonly IPrototypeManager _prototype = default!;
-    [Dependency] protected readonly SharedGameTicker _ticker = default!;
+    [Dependency] protected IPrototypeManager _prototype = default!;
+    [Dependency] protected SharedGameTicker _ticker = default!;
 
     public override void Initialize()
     {

@@ -1,0 +1,32 @@
+- type: loadout
+  id: MMCRankCS
+  name: Corporate Security
+  components:
+  - type: ChatRank
+    rank: mmc-security
+
+- type: loadout
+  id: MMCRankAS
+  name: Asset Security
+  components:
+  - type: ChatRank
+    rank: mmc-asset-security
+
+- type: loadout
+  id: MMCRankSAS
+  name: Senior Asset Security
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MMCSeniorSecurity
+  components:
+  - type: ChatRank
+    rank: mmc-asset-security-senior
+
+- type: loadoutEffectGroup
+  id: MMCSeniorSecurity
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMMCSecurity
+      time: 72000 # 20hr

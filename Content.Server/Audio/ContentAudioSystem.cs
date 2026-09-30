@@ -11,14 +11,14 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Audio;
 
-public sealed class ContentAudioSystem : SharedContentAudioSystem
+public sealed partial class ContentAudioSystem : SharedContentAudioSystem
 {
     [ValidatePrototypeId<SoundCollectionPrototype>]
     private const string LobbyMusicCollection = "MonoLobbyMusic"; // Mono
 
-    [Dependency] private readonly AudioSystem _serverAudio = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private AudioSystem _serverAudio = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     private SoundCollectionPrototype _lobbyMusicCollection = default!;
     private string[]? _lobbyPlaylist;

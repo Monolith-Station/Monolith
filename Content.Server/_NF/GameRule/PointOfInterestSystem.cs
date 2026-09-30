@@ -2,10 +2,10 @@ using System.Linq;
 using System.Numerics;
 using Content.Server._NF.Trade;
 using Content.Server.GameTicking;
-using Content.Server.Maps;
 using Content.Server.Station.Systems;
 using Content.Shared._NF.CCVar;
 using Content.Shared.GameTicking;
+using Content.Shared.Maps;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -19,16 +19,16 @@ namespace Content.Server._NF.GameRule;
 /// This handles the dungeon and trading post spawning, as well as round end capitalism summary
 /// </summary>
 //[Access(typeof(NfAdventureRuleSystem))]
-public sealed class PointOfInterestSystem : EntitySystem
+public sealed partial class PointOfInterestSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly MapLoaderSystem _map = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly StationRenameWarpsSystems _renameWarps = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private MapLoaderSystem _map = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private StationRenameWarpsSystems _renameWarps = default!;
+    [Dependency] private StationSystem _station = default!;
 
     private List<Vector2> _stationCoords = new();
 
@@ -125,12 +125,15 @@ public sealed class PointOfInterestSystem : EntitySystem
                 break;
 
             var offset = GetRandomPOICoord(proto.MinimumDistance, proto.MaximumDistance);
+            Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
+            var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
+            Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
 
-            if (TrySpawnPoiGrid(mapUid, proto, offset, out var marketUid) && marketUid is { Valid: true } market)
+            if (TrySpawnPoiGrid(mapUid, proto, coords, out var marketUid) && marketUid is { Valid: true } market)
             {
                 marketStations.Add(market);
                 marketsAdded++;
-                AddStationCoordsToSet(offset);
+                AddStationCoordsToSet(coords);
             }
         }
     }
@@ -160,11 +163,14 @@ public sealed class PointOfInterestSystem : EntitySystem
                 break;
 
             var offset = GetRandomPOICoord(proto.MinimumDistance, proto.MaximumDistance);
+            Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
+            var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
+            Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
 
-            if (TrySpawnPoiGrid(mapUid, proto, offset, out var optionalUid) && optionalUid is { Valid: true } uid)
+            if (TrySpawnPoiGrid(mapUid, proto, coords, out var optionalUid) && optionalUid is { Valid: true } uid)
             {
                 optionalStations.Add(uid);
-                AddStationCoordsToSet(offset);
+                AddStationCoordsToSet(coords);
             }
         }
     }
@@ -189,11 +195,14 @@ public sealed class PointOfInterestSystem : EntitySystem
                 continue;
 
             var offset = GetRandomPOICoord(proto.MinimumDistance, proto.MaximumDistance);
+            Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
+            var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
+            Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
 
-            if (TrySpawnPoiGrid(mapUid, proto, offset, out var requiredUid) && requiredUid is { Valid: true } uid)
+            if (TrySpawnPoiGrid(mapUid, proto, coords, out var requiredUid) && requiredUid is { Valid: true } uid)
             {
                 requiredStations.Add(uid);
-                AddStationCoordsToSet(offset);
+                AddStationCoordsToSet(coords);
             }
         }
     }
@@ -227,11 +236,14 @@ public sealed class PointOfInterestSystem : EntitySystem
                 if (chance <= proto.SpawnChance)
                 {
                     var offset = GetRandomPOICoord(proto.MinimumDistance, proto.MaximumDistance);
+                    Log.Info($"pre-offset coords for {proto.Name}: {offset.X}, {offset.Y}");
+                    var coords = new Vector2(offset.X + proto.PositionX, offset.Y + proto.PositionY);
+                    Log.Info($"post-offset coords for {proto.Name}: {coords.X}, {coords.Y}");
 
-                    if (TrySpawnPoiGrid(mapUid, proto, offset, out var optionalUid) && optionalUid is { Valid: true } uid)
+                    if (TrySpawnPoiGrid(mapUid, proto, coords, out var optionalUid) && optionalUid is { Valid: true } uid)
                     {
                         uniqueStations.Add(uid);
-                        AddStationCoordsToSet(offset);
+                        AddStationCoordsToSet(coords);
                         break;
                     }
                 }

@@ -8,11 +8,11 @@ namespace Content.Server._Mono.Traits.Physical;
 /// <summary>
 /// Applies slow, uncapped regeneration over all existing damage types for entities with PlateletFactoriesComponent.
 /// </summary>
-public sealed class PlateletFactoriesSystem : EntitySystem
+public sealed partial class PlateletFactoriesSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

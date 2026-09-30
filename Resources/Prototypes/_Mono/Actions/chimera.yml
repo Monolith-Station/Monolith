@@ -1,0 +1,53 @@
+- type: entity
+  id: ActionSpawnBiomassTile
+  name: Plant Biomass
+  description: Spawns a growth of biomass that can expand outwards.
+  components:
+  - type: WorldTargetAction
+    checkCanAccess: true
+    useDelay: 5
+    icon: { sprite: _Mono/Objects/Misc/fleshkudzu.rsi, state: kudzu_33 }
+    event: !type:PlaceTileEntityEvent
+      entity: ChimeraFleshKudzu
+      length: 3
+      blockedCollisionMask:
+      - MidImpassable
+      blockedCollisionLayer:
+      - MidImpassable
+      audio: /Audio/Effects/Fluids/splat.ogg
+
+- type: entity
+  id: ActionSpawnBiomassWall
+  name: Plant Flesh Wall
+  description: Spawns a thick wall of biomass.
+  components:
+  - type: WorldTargetAction
+    checkCanAccess: true
+    useDelay: 1
+    icon: { sprite: Structures/Walls/meat.rsi, state: full }
+    event: !type:PlaceTileEntityEvent
+      entity: WallMeat
+      length: 3
+      blockedCollisionMask:
+      - FullTileMask
+      blockedCollisionLayer:
+      - WallLayer
+      audio: /Audio/Effects/Fluids/splat.ogg
+
+- type: entity
+  id: ActionSpawnLetoferolBeast
+  name: Letoferol Beast
+  description: Create another lower letoferol beast.
+  components:
+  - type: WorldTargetAction
+    checkCanAccess: true
+    useDelay: 120
+    icon: { sprite: Mobs/Aliens/flesh.rsi, state: jared }
+    event: !type:PlaceTileEntityEvent
+      entity: MobLetoferolBeast
+      length: 15
+      blockedCollisionMask:
+      - MobMask
+      blockedCollisionLayer:
+      - MobLayer
+      audio: /Audio/Effects/Fluids/splat.ogg

@@ -6,9 +6,9 @@ using Robust.Shared.Enums;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class FollowCommand : IConsoleCommand
+public sealed partial class FollowCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public string Command => "follow";
     public string Description => Loc.GetString("follow-command-description");

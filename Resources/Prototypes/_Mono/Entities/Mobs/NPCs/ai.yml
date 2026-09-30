@@ -46,15 +46,19 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Anchorable
   - type: HTN
-    sleepPlayerCheckRangeOverride: 2000
+    sleepPlayerCheckRangeOverride: 4000
+    sleepMaxGridSpeed: 10 # don't sleep so we can still dodge grids or such if drifting far from players
     rootTask:
       task: RammerShuttleCompound
   - type: StaticPrice
-    price: 20000
+    price: 40000
   - type: ApcPowerReceiver
     powerLoad: 1000 # suspiciously low power-using AI
   - type: ExtensionCableReceiver
   - type: TargetSeekingTarget
+  - type: PassiveThermalSignature
+    signature: 500000 # vibe number
+  - type: ThermalSignature
 
 - type: entity
   id: NpcStationAiApproacher
@@ -212,7 +216,6 @@
   suffix: AI, Drone-Assembly
   components:
   - type: HTN
-    sleepPlayerCheckRangeOverride: 4000
     rootTask:
       task: DroneCompoundAssembly
 
@@ -237,6 +240,41 @@
   - type: HTN
     rootTask:
       task: DroneCompoundLance
+
+- type: entity
+  id: NpcDroneAiQuake
+  name: attacker core
+  parent: [NpcStationAiAttackerSmart, BaseFactionGearOtherFactionT3]
+  description: Shoots at you.
+  suffix: AI, Drone-Quake
+  components:
+  - type: HTN
+    sleepPlayerCheckRangeOverride: 8000
+    rootTask:
+      task: DroneCompoundQuake
+      
+- type: entity
+  id: NpcDroneAiDander
+  name: orbiter core
+  parent: NpcStationAiRammer
+  description: Orbits harmlessly and evades. Less valuable due to unremarkable subroutine.
+  suffix: AI, Dodging, Orbiting
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_t1
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: DroneCompoundDander
+  - type: Contraband #Retains some value despite no threat because it's still a risk to salvage where it spawns
+    severity: OtherFactionGear1
+    turnInValues:
+      FederationMilitaryCredit: 5
+      Doubloon: 5
+  - type: StaticPrice
+    price: 20000
 
 #region Spawners
 
@@ -398,3 +436,23 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcDroneAiLance
+
+- type: entity
+  name: attacker core spawner
+  id: SpawnMobDroneAiQuake
+  parent: SpawnMobAttackerCore
+  suffix: Drone-Quake
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiQuake
+    
+- type: entity
+  name: orbiter core spawner
+  id: SpawnMobDroneAiDander
+  parent: SpawnMobAttackerCore
+  suffix: Drone-Dander
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiDander

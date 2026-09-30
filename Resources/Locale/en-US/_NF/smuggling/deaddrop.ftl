@@ -1,19 +1,19 @@
-deaddrop-shuttle-name = Syndicate Supply Drop
+deaddrop-shuttle-name = Phaethon Dynasty Supply Drop
 deaddrop-search-text = Search closer
-deaddrop-hint-pretext = A Syndicate drop pod will be dispatched to the following coordinates:
-deaddrop-hint-posttext = Our agents on the inside will pay anyone willing to smuggle these goods into NT territory.
+deaddrop-hint-pretext = We've dispatched a Phaethon Dynasty drop pod to the following coordinates:
+deaddrop-hint-posttext = The Sultanate will pay you handsomely if you distribute its contents to their respective destinations.
 deaddrop-hint-next-drop = Expect the next drop here around {$time}.
 deaddrop-hint-name = neatly folded paper
-deaddrop-hint-desc = A piece of paper, cleanly folded to fit into a small hiding space
+deaddrop-hint-desc = A piece of paper, cleanly folded to fit into a small hiding space.
 
-smuggling-report-nfsd-general = Syndicate dead drop activity detected.
-smuggling-report-nfsd-alternative = Syndicate dead drop activity detected, possible locations: {$location1} or {$location2}.
-smuggling-report-nfsd-specific = Syndicate dead drop activity detected at {$location}.
-smuggling-report-nfsd-pod = Syndicate drop pod detected. Estimated location: ({$x}, {$y})
-smuggling-report-pirate = Syndicate drop pod detected. Estimated Location: ({$x}, {$y})
+smuggling-report-nfsd-general = Phaethon Dynasty dead drop activity detected.
+smuggling-report-nfsd-alternative = Phaethon Dynasty dead drop detected, possible locations: {$location1} or {$location2}.
+smuggling-report-nfsd-specific = Phaethon Dynasty dead drop detected at {$location}.
+smuggling-report-nfsd-pod = Suspected Phaethon Dynasty drop pod detected. Estimated location: ({$x}, {$y})
+smuggling-report-pirate = A Phaethon Dynasty drop pod has been sent into the Colossus sector. Estimated Location: ({$x}, {$y})
 
-deaddrop-faxed-hint-name = suspicious fax
+deaddrop-faxed-hint-name = phaethon dynasty fax
 deaddrop-faxed-hint-content =
-    Not much time.
-    Spinward Syndicate needs help.
-deaddrop-faxed-hint-signature = Syndicate Logistics
+    The Phaethon Dynasty Vanguard needs help. 
+    Aid them in their fight against the tyrannical and heretical Federation.
+deaddrop-faxed-hint-signature = The Sultanate

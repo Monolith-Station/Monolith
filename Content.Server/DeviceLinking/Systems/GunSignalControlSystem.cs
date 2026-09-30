@@ -1,3 +1,4 @@
+using Content.Server._Mono.SpaceArtillery.Components;
 using Content.Server.DeviceLinking.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Weapons.Ranged.Components;
@@ -18,11 +19,17 @@ public sealed partial class GunSignalControlSystem : EntitySystem
 
     private void OnInit(Entity<GunSignalControlComponent> gunControl, ref MapInitEvent args)
     {
+        if (HasComp<SpaceArtilleryComponent>(gunControl))
+            return;
+
         _signalSystem.EnsureSinkPorts(gunControl, gunControl.Comp.TriggerPort, gunControl.Comp.TogglePort, gunControl.Comp.OnPort, gunControl.Comp.OffPort);
     }
 
     private void OnSignalReceived(Entity<GunSignalControlComponent> gunControl, ref SignalReceivedEvent args)
     {
+        if (HasComp<SpaceArtilleryComponent>(gunControl))
+            return;
+
         if (!TryComp<GunComponent>(gunControl, out var gun))
             return;
 
@@ -32,8 +39,7 @@ public sealed partial class GunSignalControlSystem : EntitySystem
         if (!TryComp<AutoShootGunComponent>(gunControl, out var autoShoot))
             return;
 
-        if (args.Port == gunControl.Comp.TogglePort)
-           _gun.SetEnabled(gunControl, autoShoot, !autoShoot.Enabled);
+        if (args.Port == gunControl.Comp.TogglePort) _gun.SetEnabled(gunControl, autoShoot, !autoShoot.Enabled);
 
         if (args.Port == gunControl.Comp.OnPort)
             _gun.SetEnabled(gunControl, autoShoot, true);

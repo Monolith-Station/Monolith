@@ -1,8 +1,9 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Roles;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Toolshed.Syntax;
 using Robust.Shared.Toolshed.TypeParsers;
@@ -30,15 +31,15 @@ public sealed class JobsCommand : ToolshedCommand
         => stations.SelectMany(Jobs);
 
     [CommandImplementation("job")]
-    public JobSlotRef Job([PipedArgument] EntityUid station, Prototype<JobPrototype> job)
+    public JobSlotRef Job([PipedArgument] EntityUid station, ProtoId<JobPrototype> job)
     {
         _jobs ??= GetSys<StationJobsSystem>();
 
-        return new JobSlotRef(job.Value.ID, station, _jobs, EntityManager);
+        return new JobSlotRef(job.Id, station, _jobs, EntityManager);
     }
 
     [CommandImplementation("job")]
-    public IEnumerable<JobSlotRef> Job([PipedArgument] IEnumerable<EntityUid> stations, Prototype<JobPrototype> job)
+    public IEnumerable<JobSlotRef> Job([PipedArgument] IEnumerable<EntityUid> stations, ProtoId<JobPrototype> job)
         => stations.Select(x => Job(x, job));
 
     [CommandImplementation("isinfinite")]
@@ -85,6 +86,18 @@ public sealed class JobsCommand : ToolshedCommand
     [CommandImplementation("amount")]
     public IEnumerable<int> Amount([PipedArgument] IEnumerable<JobSlotRef> @ref)
         => @ref.Select(Amount);
+
+    [CommandImplementation("unlimited")]
+    public JobSlotRef Unlimited([PipedArgument] JobSlotRef @ref)
+    {
+        _jobs ??= GetSys<StationJobsSystem>();
+        _jobs.MakeJobUnlimited(@ref.Station, @ref.Job);
+        return @ref;
+    }
+
+    [CommandImplementation("unlimited")]
+    public IEnumerable<JobSlotRef> Unlimited([PipedArgument] IEnumerable<JobSlotRef> @ref)
+        => @ref.Select(Unlimited);
 }
 
 // Used for Toolshed queries.

@@ -209,12 +209,22 @@
   tileReactions:
   - !type:FlammableTileReaction {}
   metabolisms:
+    Food:
+      effects:
+      - !type:SatiateThirst
+        factor: 1
+        conditions:
+        - !type:OrganType
+          type: Vox
     Poison:
       effects:
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
+          shouldHave: false
+        - !type:OrganType
+          type: Vox
           shouldHave: false
         damage:
           types:

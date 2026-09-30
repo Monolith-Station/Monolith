@@ -30,22 +30,23 @@ namespace Content.Server.Medical;
 /// <summary>
 /// This handles interactions and logic relating to <see cref="DefibrillatorComponent"/>
 /// </summary>
-public sealed class DefibrillatorSystem : EntitySystem
+public sealed partial class DefibrillatorSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chatManager = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
-    [Dependency] private readonly EuiManager _euiManager = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly RottingSystem _rotting = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private ChatSystem _chatManager = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private ElectrocutionSystem _electrocution = default!;
+    [Dependency] private EuiManager _euiManager = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private RottingSystem _rotting = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -214,13 +215,13 @@ public sealed class DefibrillatorSystem : EntitySystem
             }
 
             if (_mind.TryGetMind(target, out _, out var mind) &&
-                mind.Session is { } playerSession)
+                _player.TryGetSessionById(mind.UserId, out var playerSession))
             {
                 session = playerSession;
                 // notify them they're being revived.
                 if (mind.CurrentEntity != target)
                 {
-                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind), session);
+                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _player), session);
                 }
             }
             else

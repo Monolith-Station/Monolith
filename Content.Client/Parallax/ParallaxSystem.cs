@@ -8,11 +8,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Parallax;
 
-public sealed class ParallaxSystem : SharedParallaxSystem
+public sealed partial class ParallaxSystem : SharedParallaxSystem
 {
-    [Dependency] private readonly IMapManager _map = default!;
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IParallaxManager _parallax = default!;
+    [Dependency] private IMapManager _map = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IParallaxManager _parallax = default!;
 
     [ValidatePrototypeId<ParallaxPrototype>]
     private const string Fallback = "Default";

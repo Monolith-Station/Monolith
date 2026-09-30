@@ -9,10 +9,10 @@ using Robust.Shared.Console;
 namespace Content.Client.Commands;
 
 [UsedImplicitly]
-internal sealed class MappingClientSideSetupCommand : LocalizedCommands
+internal sealed partial class MappingClientSideSetupCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly ILightManager _lightManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private ILightManager _lightManager = default!;
 
     public override string Command => "mappingclientsidesetup";
 

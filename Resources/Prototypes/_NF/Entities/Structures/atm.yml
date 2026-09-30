@@ -270,7 +270,8 @@
   - type: StationBankATM
     account: Frontier
   - type: CompanyAccessReader
-    requiredCompany: Colonial
+    requiredCompanies:
+    - Colonial
   - type: AccessReader
     access: [["HeadOfPersonnel"]]
 
@@ -283,9 +284,10 @@
   - type: StationBankATM
     account: Nfsd
   - type: CompanyAccessReader
-    requiredCompany: TSF
+    requiredCompanies:
+    - TSF
   - type: AccessReader
-    access: [["HeadOfSecurity"]]
+    access: [["Bailiff"]]
 
 - type: entity
   parent: BaseStationAdminBankATM
@@ -296,7 +298,8 @@
   - type: StationBankATM
     account: Medical
   - type: CompanyAccessReader
-    requiredCompany: MD
+    requiredCompanies:
+    - MD
   - type: AccessReader
     access: [["ChiefMedicalOfficer"]]
 
@@ -325,6 +328,7 @@
   - type: StationBankATM
     account: BlackMarket
   - type: AccessReader
-    access: [["Pirate"]]
+    access: [["PDVCommand"]]
   - type: CompanyAccessReader
-    requiredCompany: PDV
+    requiredCompanies:
+    - PDV

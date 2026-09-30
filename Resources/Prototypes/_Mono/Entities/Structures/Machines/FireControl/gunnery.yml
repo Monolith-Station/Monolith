@@ -112,7 +112,7 @@
 
 - type: entity
   id: GunneryServerUltra
-  parent: [GunneryServerBase] # removed BaseStructureDisableToolUse
+  parent: [BaseStructureDisableToolUse, GunneryServerBase]
   name: ultra-high-power gunnery control server
   components:
   - type: Machine
@@ -128,8 +128,8 @@
     idleLoad: 50
     batteryRechargeRate: 2400
     batteryRechargeEfficiency: 0.95
-#  - type: Anchorable # Sorry Tunguska, but I am NOT risking this being used for a missile bus. - "what could go wrong" says redrover
-#    flags: Anchorable
+  - type: Anchorable # Sorry Tunguska, but I am NOT risking this being used for a missile bus. - "what could go wrong" says redrover -- It turns out, a lot could and did.
+    flags: Anchorable
   - type: ShipRepairable
     repairTime: 25
     repairCost: 100
@@ -142,7 +142,7 @@
   - type: Machine
     board: MachineGCSUltraCircuitboard
   - type: FireControlServer
-    processingPower: 500
+    processingPower: 300
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
@@ -260,32 +260,6 @@
     radius: 1.5
     energy: 1.6
     color: "#ff8400"
-  - type: TargetSeekerAlert
-    targetGainSound:
-      path: /Audio/_Mono/Effects/Alerts/rwr_beep.ogg
-    distanceAlertSettings:
-    - maximumDistance: 220 # curse of...
-      sound:
-        path: /Audio/_Mono/Effects/Alerts/launchwarning.ogg
-        params:
-          loop: true
-          volume: 0.9
-          pitch: 1.05
-    - maximumDistance: 400
-      sound:
-        path: /Audio/_Mono/Effects/Alerts/master_caution.ogg
-        params:
-          loop: true
-          volume: 1.3
-          pitch: 1.15
-    - maximumDistance: 650
-      sound:
-        path: /Audio/_Mono/Effects/Alerts/master_caution.ogg
-        params:
-          loop: true
-          volume: 1.2
-          pitch: 1.05
-          variation: 0.05
   - type: ShipRepairable
     repairTime: 7
     repairCost: 25

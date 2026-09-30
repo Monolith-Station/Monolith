@@ -8,11 +8,11 @@ using System.Numerics;
 
 namespace Content.Shared._Shitmed.BodyEffects.Subsystems;
 
-public sealed class GenerateChildPartSystem : EntitySystem
+public sealed partial class GenerateChildPartSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedBodySystem _bodySystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -32,22 +32,22 @@ using ItemToggleMeleeWeaponComponent = Content.Shared.Item.ItemToggle.Components
 
 namespace Content.Shared.Weapons.Melee;
 
-public abstract class SharedMeleeWeaponSystem : EntitySystem
+public abstract partial class SharedMeleeWeaponSystem : EntitySystem
 {
-    [Dependency] protected readonly ISharedAdminLogManager   AdminLogger     = default!;
-    [Dependency] protected readonly ActionBlockerSystem      Blocker         = default!;
-    [Dependency] protected readonly SharedCombatModeSystem   CombatMode      = default!;
-    [Dependency] protected readonly DamageableSystem         Damageable      = default!;
-    [Dependency] protected readonly SharedInteractionSystem  Interaction     = default!;
-    [Dependency] protected readonly IMapManager              MapManager      = default!;
-    [Dependency] protected readonly SharedPopupSystem        PopupSystem     = default!;
-    [Dependency] protected readonly IGameTiming              Timing          = default!;
-    [Dependency] protected readonly SharedTransformSystem    TransformSystem = default!;
-    [Dependency] private   readonly InventorySystem         _inventory       = default!;
-    [Dependency] private   readonly MeleeSoundSystem        _meleeSound      = default!;
-    [Dependency] private   readonly SharedPhysicsSystem     _physics         = default!;
-    [Dependency] private   readonly IPrototypeManager       _protoManager    = default!;
-    [Dependency] private   readonly StaminaSystem           _stamina         = default!;
+    [Dependency] protected ISharedAdminLogManager   AdminLogger     = default!;
+    [Dependency] protected ActionBlockerSystem      Blocker         = default!;
+    [Dependency] protected SharedCombatModeSystem   CombatMode      = default!;
+    [Dependency] protected DamageableSystem         Damageable      = default!;
+    [Dependency] protected SharedInteractionSystem  Interaction     = default!;
+    [Dependency] protected IMapManager              MapManager      = default!;
+    [Dependency] protected SharedPopupSystem        PopupSystem     = default!;
+    [Dependency] protected IGameTiming              Timing          = default!;
+    [Dependency] protected SharedTransformSystem    TransformSystem = default!;
+    [Dependency] private   InventorySystem         _inventory       = default!;
+    [Dependency] private   MeleeSoundSystem        _meleeSound      = default!;
+    [Dependency] private   SharedPhysicsSystem     _physics         = default!;
+    [Dependency] private   IPrototypeManager       _protoManager    = default!;
+    [Dependency] private   StaminaSystem           _stamina         = default!;
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -373,6 +373,16 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         return AttemptAttack(user, weaponUid, weapon, new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(targetXform.Coordinates)), null, attackerOverride);
     }
 
+    // Goobstation
+    public bool AttemptHeavyAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, List<EntityUid> targets, EntityCoordinates coordinates)
+    {
+        return AttemptAttack(user,
+            weaponUid,
+            weapon,
+            new HeavyAttackEvent(GetNetEntity(weaponUid), GetNetEntityList(targets), GetNetCoordinates(coordinates)),
+            null);
+    }
+
     public bool AttemptDisarmAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, EntityUid target,
         EntityUid? attackerOverride = null) // Mono
     {
@@ -429,6 +439,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             default:
                 if (!Blocker.CanAttack(attacker, weapon: (weaponUid, weapon)))
                     return false;
+
+                if (weaponUid == target) // Goobstatiom
+                    return false;
                 break;
         }
 
@@ -474,8 +487,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     animation = weapon.Animation;
                     break;
                 case DisarmAttackEvent disarm:
-                    if (!DoDisarm(attacker, disarm, weaponUid, weapon, session))
-                        return false;
+                    DoDisarm(user, disarm, weaponUid, weapon, session); // Goob edit
 
                     animation = weapon.Animation;
                     break;
@@ -779,7 +791,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         return true;
     }
 
-    protected HashSet<EntityUid> ArcRayCast(Vector2 position, Angle angle, Angle arcWidth, float range, MapId mapId, EntityUid ignore)
+    public HashSet<EntityUid> ArcRayCast(Vector2 position, Angle angle, Angle arcWidth, float range, MapId mapId, EntityUid ignore) // Goob edit
     {
         // TODO: This is pretty sucky.
         var widthRad = arcWidth;

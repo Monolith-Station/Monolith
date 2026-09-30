@@ -15,17 +15,17 @@ using Robust.Shared.Random;
 
 namespace Content.Server._EinsteinEngines.Silicon.DeadStartupButton;
 
-public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
+public sealed partial class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly SiliconChargeSystem _siliconChargeSystem = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private LightningSystem _lightning = default!;
+    [Dependency] private SiliconChargeSystem _siliconChargeSystem = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

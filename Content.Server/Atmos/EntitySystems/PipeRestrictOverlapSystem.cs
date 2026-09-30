@@ -6,6 +6,7 @@ using Content.Server.Popups;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Construction.Components;
+using Content.Shared.NodeContainer;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
@@ -15,11 +16,11 @@ namespace Content.Server.Atmos.EntitySystems;
 /// <summary>
 /// This handles restricting pipe-based entities from overlapping outlets/inlets with other entities.
 /// </summary>
-public sealed class PipeRestrictOverlapSystem : EntitySystem
+public sealed partial class PipeRestrictOverlapSystem : EntitySystem
 {
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
+    [Dependency] private MapSystem _map = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private TransformSystem _xform = default!;
 
     private readonly List<EntityUid> _anchoredEntities = new();
     private EntityQuery<NodeContainerComponent> _nodeContainerQuery;

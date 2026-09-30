@@ -9,10 +9,10 @@ namespace Content.Shared._Mono.CloakHeat.Systems;
 /// <summary>
 /// System that manages heat buildup for cloaking.
 /// </summary>
-public sealed class CloakHeatSystem : EntitySystem
+public sealed partial class CloakHeatSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedShuttleSystem _shuttle = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedShuttleSystem _shuttle = default!;
 
     private bool isMoving;
 

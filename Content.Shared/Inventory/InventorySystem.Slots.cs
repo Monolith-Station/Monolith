@@ -13,9 +13,9 @@ namespace Content.Shared.Inventory;
 
 public partial class InventorySystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IViewVariablesManager _vvm = default!;
-    [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IViewVariablesManager _vvm = default!;
+    [Dependency] private RandomHelperSystem _randomHelper = default!; // Shitmed Change
 
     private void InitializeSlots()
     {

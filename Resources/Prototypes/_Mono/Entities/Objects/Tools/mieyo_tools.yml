@@ -1,0 +1,140 @@
+- type: entity
+  name: mieyo nanite applicator
+  parent: NaniteApplicator
+  id: NaniteApplicatorMMC
+  description: "Advanced tool that uses nanotechnology to repair structures. Faster variant manufactured by MMC."
+  components:
+  - type: Tool
+    speedModifier: 2
+    qualities:
+    - Applicating
+    useSound:
+      collection: Welder
+  - type: Welder
+    fuelReagent: NaniteFuel
+    onlyDisplayFuel: true
+  - type: Sprite
+    sprite: _Mono/Objects/Tools/mieyo_nanite_applicator.rsi
+    layers:
+    - state: icon
+  - type: StaticPrice
+    price: 20
+    vendPrice: 4000
+
+- type: entity
+  id: ShipRepairDeviceMMC
+  name: mieyo SRD
+  description: A Ship Repair Device that can reconstruct destroyed sections of ships. Holds 300 charges. Faster variant manufactured by MMC.
+  parent: ShipRepairDeviceBase
+  components:
+  - type: LimitedCharges
+    maxCharges: 300
+    charges: 100
+  - type: ShipRepairTool
+    repairTimeMultiplier: 2
+  - type: Sprite
+    scale: 0.8, 0.8
+    sprite: _Mono/Objects/Tools/mieyo_srd.rsi
+    state: icon
+  - type: Item
+    sprite: _Mono/Objects/Tools/mieyo_srd_inhands.rsi
+    size: Normal
+  - type: StaticPrice
+    price: 1500
+    vendPrice: 40000
+
+- type: entity
+  id: RCDMMC
+  parent: RCD
+  name: mieyo RCD
+  description: The rapid construction device can be used to quickly place and remove various structures and fixtures. Requires compressed matter to function. Does not require swiping an ID to work. Higher-capacity variant manufactured by MMC.
+  components:
+  - type: LimitedCharges
+    maxCharges: 250
+    charges: 250
+  - type: RCD
+    delayMultiplier: 0.3
+  - type: Clothing
+    sprite: _Mono/Objects/Tools/mieyo_rcd.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Tools/mieyo_rcd.rsi
+  - type: StaticPrice
+    price: 55
+    vendPrice: 20000
+
+- type: entity
+  id: RCDMMCEmpty
+  parent: RCDMMC
+  suffix: empty
+  components:
+  - type: LimitedCharges
+    maxCharges: 250
+    charges: 0
+
+- type: entity
+  id: RPDMMC
+  parent: RPD
+  name: mieyo RPD
+  description: The rapid piping device allows for the quick placement and removal of atmospheric-related buildings requires compressive matter to use. Higher-capacity variant manufactured by MMC.
+  components:
+  - type: LimitedCharges
+    maxCharges: 180
+    charges: 180
+  - type: RCD
+    delayMultiplier: 0.3
+  - type: Clothing
+    sprite: _Mono/Objects/Tools/mieyo_rpd.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Tools/mieyo_rpd.rsi
+  - type: StaticPrice
+    price: 55
+    vendPrice: 15000
+
+- type: entity
+  id: RPDMMCEmpty
+  parent: RPDMMC
+  suffix: empty
+  components:
+  - type: LimitedCharges
+    maxCharges: 180
+    charges: 0
+
+- type: entity
+  parent: BaseItem
+  id: AccessBreakerMMC
+  name: mieyo disposable authentication disruptor
+  description: A single-use hacking device, specialized to unlock and erase access from digital locks.
+  components:
+  - type: Emag
+    emagType: Access
+  - type: Sprite
+    sprite: _Mono/Objects/Tools/mieyo_access_breaker.rsi
+    state: icon
+  - type: Item
+    sprite: _Mono/Objects/Tools/mieyo_access_breaker.rsi
+  - type: LimitedCharges
+    maxCharges: 15 # more than normal but it doesnt recharge
+    charges: 15
+  - type: UseDelay
+    delay: 1.0
+  - type: StaticPrice
+    price: 300
+    vendPrice: 50000
+
+- type: entity
+  parent: MotionDetector
+  id: MotionDetectorMMC
+  name: mieyo motion detector
+  description: A handheld motion detector. Detects people not in the same company of the user.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Tools/mieyo_motion_detector.rsi
+    layers:
+    - state: detector
+    - state: detector-o
+      shader: unshaded
+      visible: false
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: StaticPrice
+    price: 300
+    vendPrice: 22500

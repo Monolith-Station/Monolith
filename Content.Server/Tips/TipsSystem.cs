@@ -18,16 +18,16 @@ namespace Content.Server.Tips;
 /// <summary>
 ///     Handles periodically displaying gameplay tips to all players ingame.
 /// </summary>
-public sealed class TipsSystem : EntitySystem
+public sealed partial class TipsSystem : EntitySystem
 {
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly IConsoleHost _conHost = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private IConsoleHost _conHost = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     private bool _tipsEnabled;
     private float _tipTimeOutOfRound;
@@ -58,9 +58,13 @@ public sealed class TipsSystem : EntitySystem
     {
         return args.Length switch
         {
-            1 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), Loc.GetString("cmd-tippy-auto-1")),
+            1 => CompletionResult.FromHintOptions(
+                CompletionHelper.SessionNames(players: _playerManager),
+                Loc.GetString("cmd-tippy-auto-1")),
             2 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-2")),
-            3 => CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<EntityPrototype>(), Loc.GetString("cmd-tippy-auto-3")),
+            3 => CompletionResult.FromHintOptions(
+                CompletionHelper.PrototypeIdsLimited<EntityPrototype>(args[2], _prototype),
+                Loc.GetString("cmd-tippy-auto-3")),
             4 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-4")),
             5 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-5")),
             6 => CompletionResult.FromHint(Loc.GetString("cmd-tippy-auto-6")),

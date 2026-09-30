@@ -15,10 +15,10 @@ using Content.Shared.Emp; // Frontier: Upstream - #28984
 
 namespace Content.Server.Power.EntitySystems
 {
-    public sealed class PowerReceiverSystem : SharedPowerReceiverSystem
+    public sealed partial class PowerReceiverSystem : SharedPowerReceiverSystem
     {
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly AudioSystem _audio = default!;
+        [Dependency] private IAdminManager _adminManager = default!;
+        [Dependency] private AudioSystem _audio = default!;
 
         private EntityQuery<ApcPowerReceiverComponent> _recQuery;
         private EntityQuery<ApcPowerProviderComponent> _provQuery;
@@ -41,7 +41,7 @@ namespace Content.Server.Power.EntitySystems
             SubscribeLocalEvent<ApcPowerReceiverComponent, ComponentGetState>(OnGetState);
 
             SubscribeLocalEvent<ApcPowerReceiverComponent, EmpPulseEvent>(OnEmpPulse); // Frontier: Upstream - #28984
-            SubscribeLocalEvent<ApcPowerReceiverComponent, EmpDisabledRemoved>(OnEmpEnd); // Frontier: Upstream - #28984
+            SubscribeLocalEvent<ApcPowerReceiverComponent, EmpDisabledRemovedEvent>(OnEmpEnd); // Frontier: Upstream - #28984
 
             _recQuery = GetEntityQuery<ApcPowerReceiverComponent>();
             _provQuery = GetEntityQuery<ApcPowerProviderComponent>();
@@ -173,7 +173,7 @@ namespace Content.Server.Power.EntitySystems
         {
             ((ApcPowerReceiverComponent) comp).Load = load; // Goobstation
         }
-        
+
         public override bool ResolveApc(EntityUid entity, [NotNullWhen(true)] ref SharedApcPowerReceiverComponent? component)
         {
             if (component != null)
@@ -197,7 +197,7 @@ namespace Content.Server.Power.EntitySystems
             }
         }
 
-        private void OnEmpEnd(EntityUid uid, ApcPowerReceiverComponent component, ref EmpDisabledRemoved args)
+        private void OnEmpEnd(EntityUid uid, ApcPowerReceiverComponent component, ref EmpDisabledRemovedEvent args)
         {
             if (component.PowerDisabled)
             {

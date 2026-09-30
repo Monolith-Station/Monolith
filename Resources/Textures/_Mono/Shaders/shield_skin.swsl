@@ -1,0 +1,145 @@
+light_mode unshaded;
+
+
+uniform highp float progress;
+uniform highp vec4 skin_color;
+
+uniform highp float brightness;
+
+uniform highp float pixel_grid;
+
+uniform highp float hex_density;
+
+uniform highp vec2 form_origin;
+
+uniform highp float fill_level;
+uniform highp float line_level;
+uniform highp float rim_level;
+
+uniform highp float core_fade;
+
+uniform highp float shard_scale;
+
+uniform highp float alpha_bands;
+uniform highp float breath_depth;
+
+uniform highp float damage_flare;
+
+highp float hash21(highp vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float vnoise(highp vec2 p) {
+    highp vec2 i = floor(p);
+    highp vec2 f = fract(p);
+    highp float a = hash21(i);
+    highp float b = hash21(i + vec2(1.0, 0.0));
+    highp float c = hash21(i + vec2(0.0, 1.0));
+    highp float d = hash21(i + vec2(1.0, 1.0));
+    highp vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+}
+
+highp float hexDist(highp vec2 p) {
+    p = abs(p);
+    return max(dot(p, vec2(0.5, 0.866025)), p.x);
+}
+
+highp float crackDistance(highp vec2 p) {
+    highp vec2 cell = floor(p);
+    highp vec2 local = fract(p);
+    highp float nearest = 8.0;
+    highp float second = 8.0;
+    for (int y = -1; y <= 1; y++) {
+        for (int x = -1; x <= 1; x++) {
+            highp vec2 offset = vec2(float(x), float(y));
+            highp vec2 seed = cell + offset;
+            highp vec2 point = vec2(hash21(seed), hash21(seed + vec2(19.7, 43.1)));
+            highp float d = length(offset + 0.2 + point * 0.6 - local);
+            second = min(second, max(nearest, d));
+            nearest = min(nearest, d);
+        }
+    }
+    return second - nearest;
+}
+
+highp vec2 hexCell(highp vec2 uv) {
+    highp vec2 r = vec2(1.0, 1.732051);
+    highp vec2 h = r * 0.5;
+    highp vec2 a = mod(uv, r) - h;
+    highp vec2 b = mod(uv - h, r) - h;
+    highp float useB = step(dot(b, b), dot(a, a));
+    highp vec2 gv = mix(a, b, useB);
+    // snap IDs before hashing; rounding errors otherwise cause speckling.
+    highp vec2 id = floor((uv - gv) / h + vec2(0.5));
+    return vec2(hexDist(gv), hash21(id));
+}
+
+void fragment() {
+    highp vec2 uvq = UV;
+    if (pixel_grid > 1.0)
+        uvq = (floor(UV * pixel_grid) + vec2(0.5)) / pixel_grid;
+    highp float t = floor(TIME * 8.0) / 8.0;
+
+    highp vec2 p = (uvq - vec2(0.5)) * 2.0;
+    highp float r = length(p);
+
+    highp float mask = 1.0 - smoothstep(0.97, 1.0, r);
+
+    highp float rc = min(r, 1.0);
+    highp float z = sqrt(max(1.0 - rc * rc, 0.0));
+    highp float warp = asin(rc) / max(rc, 0.0001);
+    highp vec2 q = p * warp;
+
+    highp vec2 cell = hexCell(q * hex_density);
+    highp float edge = cell.x;
+    highp float id = cell.y;
+
+    highp float form = clamp(progress, 0.0, 1.0);
+    highp float shatter = clamp((progress - 1.0) / 0.8, 0.0, 1.0);
+
+    highp float front = distance(p, form_origin) / (1.0 + length(form_origin));
+    highp float jitter = (id - 0.5) * 0.06;
+    highp float arrival = clamp(front + jitter, 0.0, 1.0) * 0.75;
+    highp float age = form - arrival;
+    highp float appear = smoothstep(0.0, 0.12, age);
+    highp float fresh = appear * (1.0 - smoothstep(0.08, 0.25, age));
+
+    highp float shimmer = 0.75 + 0.25 * sin(t * 1.7 + id * 6.2832);
+
+    highp float limb = 1.0 - z;
+    highp float edgeWeight = mix(1.0, limb * limb, clamp(core_fade, 0.0, 1.0));
+
+    highp float border = smoothstep(0.42, 0.5, edge);
+    highp float fill = fill_level * shimmer * edgeWeight;
+    highp float lines = line_level * border * edgeWeight;
+    highp float rim = pow(limb, 3.0) * rim_level;
+
+    highp float flare = smoothstep(0.0, 1.0, damage_flare);
+    highp float flareShell = flare * (0.18 * edgeWeight + 0.35 * border + 0.5 * limb * limb);
+    highp float a = (fill + lines + fresh * 0.6 + rim + flareShell) * appear * mask;
+
+    if (shatter > 0.0) {
+        highp vec2 fractureUv = q * shard_scale;
+        highp vec2 distortion = vec2(vnoise(fractureUv * 1.7),
+            vnoise(fractureUv * 1.7 + vec2(8.3, 2.8))) - vec2(0.5);
+        highp float cracks = crackDistance(fractureUv + distortion * 0.45);
+        highp float spread = clamp(front, 0.0, 1.0) * 0.3
+            + vnoise(fractureUv * 0.65) * 0.14;
+        highp float threshold = 0.02 + spread + min(cracks, 1.0) * 0.32;
+        highp float elapsed = shatter - threshold;
+        highp float remaining = 1.0 - smoothstep(0.0, 0.16, elapsed);
+
+        highp float tip = smoothstep(-0.035, 0.0, elapsed)
+            * (1.0 - smoothstep(0.0, 0.045, elapsed));
+        highp float glow = tip * (1.0 - smoothstep(0.04, 0.2, cracks));
+        a = a * remaining + glow * 0.55 * appear * mask;
+    }
+
+    a *= (1.0 - breath_depth) + breath_depth * sin(t * 0.9);
+
+    highp float bands = max(alpha_bands, 1.0);
+    a = floor(clamp(a, 0.0, 1.0) * bands + 0.5) / bands;
+
+    COLOR = vec4(skin_color.rgb * brightness * (1.0 + flare * 1.5), skin_color.a * a);
+}

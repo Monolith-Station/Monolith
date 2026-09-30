@@ -5,9 +5,9 @@ using Content.Shared.Stacks;
 
 namespace Content.Server.Stack
 {
-    public sealed class StackHolderSystem : EntitySystem
+    public sealed partial class StackHolderSystem : EntitySystem
     {
-        [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+        [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
 
         public override void Initialize()
         {

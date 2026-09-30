@@ -3,11 +3,34 @@
   name: "mothroach"
   root: torso
   slots:
+    head:
+      part: HeadAnimal
+      connections:
+      - torso
+      organs:
+        brain: OrganAnimalBrain
+        eyes: OrganAnimalEyes
     torso:
       part: TorsoAnimal
+      connections:
+      - right leg
+      - left leg
+      - head # Shitmed
       organs:
         lungs: OrganAnimalLungs
         stomach: OrganMothStomach
         liver: OrganAnimalLiver
         heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
+    right leg:
+      part: RightLegsAnimal
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegsAnimal
+      connections:
+      - left foot
+    right foot:
+      part: RightAnimalFeet
+    left foot:
+      part: LeftAnimalFeet

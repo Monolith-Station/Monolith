@@ -13,21 +13,7 @@
   - CrowbarPocketTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -1
-
-- type: technology
-  id: TsfmcMopp
-  name: research-technology-tsfmc-mopp-equipment
-  entityIcon: ClothingUniformTsfmcMopp
-  discipline: TsfmcEquipment
-  tier: 2
-  cost: 15000
-  recipeUnlocks:
-  - ClothingUniformTsfmcMoppTsf
-  - ClothingHandsGlovesMoppTsf
-  technologyPrerequisites:
-  - TsfmcAdvancedEquipment
-  position: 13, 6
+  position: 2, -11
 
 - type: technology
   id: TsfEshield
@@ -40,33 +26,51 @@
   - EnergyShieldTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 13, 7
+  position: 2, -21
 
 - type: technology
-  id: TsfAltair
-  name: research-technology-tsfmc-altair-voucher
-  entityIcon: ShipVoucherAltair
+  id: TsfTierOneVouchers
+  name: research-technology-tsfmc-tier-one-vouchers
+  entityIcon: ShipVoucherTsfT0
+  discipline: TsfmcShipyard
+  tier: 1
+  cost: 40000
+  recipeUnlocks:
+  - ShipVoucherTsfT0Recipe
+  - ShipVoucherTsfT1Recipe
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 2, -10
+
+- type: technology
+  id: TsfTierTwoVouchers
+  name: research-technology-tsfmc-tier-two-vouchers
+  entityIcon: ShipVoucherTsfT2
   discipline: TsfmcShipyard
   tier: 2
   cost: 60000
   recipeUnlocks:
-  - AltairVoucherTSF
+  - ShipVoucherTsfT2Recipe
   technologyPrerequisites:
+  - TsfTierOneVouchers
   - UniversalMaterialResearchT2
-  position: 11, 9
+  position: 2, -20
 
 - type: technology
-  id: TsfFlyssa
-  name: research-technology-tsfmc-flyssa-voucher
-  entityIcon: ShipVoucherFlyssa
+  id: TsfTierThreeVouchers
+  name: research-technology-tsfmc-tier-three-vouchers
+  entityIcon: ShipVoucherLuda
   discipline: TsfmcShipyard
   tier: 3
-  cost: 100000
+  cost: 150000
   recipeUnlocks:
-  - FlyssaVoucherTSF
+  - ShipVoucherLudaRecipe
+  - ShipVoucherPolarisRecipe
   technologyPrerequisites:
-  - TsfAltair
-  position: 13, 14
+  - TsfTierTwoVouchers
+  - UniversalMaterialResearchT3
+  - UniveralSandboxCruiseMissiles
+  position: 2, -27
 
 - type: technology
   id: TsfMeds
@@ -80,7 +84,7 @@
   - MeshTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -2
+  position: 5, -11
 
 - type: technology
   id: TsfNanofoam
@@ -93,7 +97,7 @@
   - NanolaminateFoamGrenadeTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 12, 4
+  position: 3, -21
 
 - type: technology
   id: TsfPortableRecharger
@@ -106,7 +110,7 @@
     - PortableRecharger
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -3
+  position: 3, -11
 
 - type: technology
   id: TSFBasicBorgModule
@@ -117,9 +121,10 @@
   cost: 10000
   recipeUnlocks:
   - BasicBorgCombatModuleTSF
+  - BorgIFFTSF
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, -4
+  position: 4, -11
 
 - type: technology
   id: TSFAdvancedBorgModule
@@ -131,6 +136,32 @@
   recipeUnlocks:
   - AdvancedBorgCombatModuleTSF
   technologyPrerequisites:
-  - UniversalMaterialResearchT3
   - TSFBasicBorgModule
-  position: 14, 11
+  position: 4, -12
+
+- type: technology
+  id: TSFAdvancedBionics
+  name: research-technology-tsfmc-sandevistan
+  entityIcon: OrganHeartTSFSandevistan
+  discipline: TsfmcGear
+  tier: 3
+  cost: 75000
+  recipeUnlocks:
+  - AutosurgeonSandevistanTSF
+  technologyPrerequisites:
+  - UniversalMaterialResearchT3
+  position: 2, -28
+
+#- type: technology
+#  id: TSFExperimentalBionics
+#  name: research-technology-tsfmc-shunt
+#  entityIcon: OrganHeartTSFShunt
+#  discipline: TsfmcGear
+#  tier: 3
+#  cost: 75000
+#  recipeUnlocks:
+#  - AutosurgeonShuntTSF
+#  technologyPrerequisites:
+#  - UniversalMaterialResearchT3
+#  - TSFAdvancedBionics
+#  position: 13, 15

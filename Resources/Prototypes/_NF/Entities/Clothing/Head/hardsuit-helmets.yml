@@ -28,6 +28,9 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitMercenary
@@ -41,7 +44,10 @@
     sprite: _NF/Clothing/Head/Hardsuits/private_security.rsi
   - type: PointLight
     color: "#ffff00"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 #Pilot Hardsuit
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
@@ -60,7 +66,10 @@
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 #ERT Mail Carrier Hardsuit
 - type: entity
   parent: ClothingHeadHelmetHardsuitSyndie
@@ -75,7 +84,10 @@
     sprite: _NF/Clothing/Head/Hardsuits/ERThelmets/ertmailcarrier.rsi
   - type: PointLight
     color: "#cbadff"
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 # MAXIM helmet, but with light
 - type: entity
   parent: [ ClothingHeadHelmetHardsuitMaxim, NFClothingHeadHardsuitWithLightBase ]
@@ -92,7 +104,10 @@
   - type: PointLight # Luxury Hardsuit Light
     radius: 8 # 7->8 Mono
     energy: 4 # 3->4 Mono
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 #Tactical hardsuit Helmet
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
@@ -115,7 +130,10 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.8
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitPirateElite
@@ -139,3 +157,7 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: Tag
+    tags:
+    - PetWearable
+    

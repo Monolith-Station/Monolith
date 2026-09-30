@@ -11,13 +11,112 @@
     - id: CharonSlugAmmo
       amount: 3
 
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxCharonAPHE
+  name: 280mm CHARON 26.5kg APHE slug cartridge box
+  description: Contains 3 slugs.
+  components:
+  - type: StorageFill
+    contents:
+    - id: CharonApheSlugAmmo
+      amount: 3
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxCharonEMP
+  name: 280mm CHARON 26.5kg EMP slug cartridge box
+  description: Contains 3 slugs.
+  components:
+  - type: StorageFill
+    contents:
+    - id: CharonEmpSlugAmmo
+      amount: 3
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxR300
+  name: 320x752mm R-300 HE shell box
+  description: Contains 3 HE shells.
+  components:
+  - type: StorageFill
+    contents:
+    - id: R300ShellHE
+      amount: 3
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox220mmAPHE
+  name: 130x820mm CYREXA APHE shell box
+  description: Contains 48 APHE shells, packaged in 2 big boxes.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Box220mmAPHE
+      amount: 2
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox220mmHECluster
+  name: 130x820mm CYREXA HE-CLST shell box
+  description: Contains 48 HE-CLST shells, packaged in 2 big boxes.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Box220mmHECluster
+      amount: 2
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox220mmSmartCluster
+  name: 130x820mm CYREXA HMNG-CLST shell box
+  description: Contains 48 HMNG-CLST shells, packaged in 2 big boxes.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Box220mmSmartCluster
+      amount: 2
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox255mmAPHE
+  name: 203x940mm Bofors APHE shell box
+  description: Contains 32 APHE shells, packaged in 2 big boxes.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Box255mmAPHE
+      amount: 2
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox255mmEMP
+  name: 203x940mm Bofors EMP shell box
+  description: Contains 32 EMP shells, packaged in 2 big boxes.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Box255mmEMP
+      amount: 2
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox255mmMine
+  name: 203x940mm Bofors minelayer shell box
+  description: Contains 32 minelayer shells, packaged in 2 big boxes.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Box255mmMine
+      amount: 2
+
 # Magazines
 
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBox20mm
-  name: L85 20mm solid drum box
-  description: Contains one box of 20mm solid ammunition. Provides an artillery piece with infinite solid rounds. Buy in case you lost the ammo it came with.
+  name: L85 14x97mm solid drum box
+  description: Contains one box of 14x97mm solid ammunition. Provides an artillery piece with infinite solid rounds. Buy in case you lost the ammo it came with.
   components:
   - type: StorageFill
     contents:
@@ -26,9 +125,20 @@
 
 - type: entity
   parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox20mmAS
+  name: L85 14x97mm AS drum box
+  description: Contains one box of 14x97mm anti-shield ammunition. Provides an artillery piece with 1250 AS rounds. Can take down a MS-250 in about 150 shots.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine20mmAS
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
   id: CrateAmmoBox30mm
-  name: Draupnir 30mm solid drum box
-  description: Contains one box of 30mm solid ammunition. Provides an artillery piece with infinite solid rounds. Buy in case you lost the ammo it came with.
+  name: Draupnir 20x141mm solid drum box
+  description: Contains one box of 20x141mm solid ammunition. Provides an artillery piece with infinite solid rounds. Buy in case you lost the ammo it came with.
   components:
   - type: StorageFill
     contents:
@@ -37,24 +147,136 @@
 
 - type: entity
   parent: CrateAmmoSecureMercenary
-  id: CrateAmmoBox57mm
-  name: AK-570 57mm HE drum box
-  description: Contains one box of 57mm high-explosive ammunition. Provides an artillery piece with infinite high-explosive rounds. Buy in case you lost the ammo it came with.
+  id: CrateAmmoBox30mmHE
+  name: Draupnir 20x141mm HE drum box
+  description: Contains one box of 20x141mm HE ammunition, with 2000 rounds.
   components:
   - type: StorageFill
     contents:
-    - id: Magazine57mm
+    - id: Magazine30mmHE
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox35mm
+  name: AC-35 25x170mm solid drum box
+  description: Contains one box of 25x170mm solid ammunition. Provides an artillery piece with infinite solid rounds. Buy in case you lost the ammo it came with.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine35mm
+      amount: 1
+- type: entity
+
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox35mmHe
+  name: AC-35 25x170mm HE drum box
+  description: Contains one box of 25x170mm HE ammunition. Provides an artillery piece with infinite solid rounds. Buy in case you lost the ammo it came with.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine35mmHE
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox57mm
+  name: AK-570 40x360mm HE drum box
+  description: Contains one box of 40x360mm high-explosive ammunition. Provides an artillery piece with infinite high-explosive rounds. Buy in case you lost the ammo it came with.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine57mmHE
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox57mmSmart
+  name: AK-570 40x360mm HMNG drum box
+  suffix: DO NOT MAP
+  description: Contains one box of 40x360mm homing ammunition. Provides an artillery piece with 600 homing rounds.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine57mmSmart
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox57mmSACLOS
+  name: AK-570 40x360mm SACLOS drum box
+  description: Contains one box of 40x360mm SACLOS ammunition. Provides an artillery piece with 600 FCS-guided rounds.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine57mmSACLOS
       amount: 1
 
 - type: entity
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBox90mm
-  name: Dravon 90mm HE box
-  description: Contains one box of 90mm high-explosive ammunition. Provides an artillery piece with infinite high-explosive rounds. Buy in case you lost the ammo it came with.
+  name: Dravon 57x460mm HE box
+  description: Contains one box of 57x460mm high-explosive ammunition. Provides an artillery piece with infinite high-explosive rounds. Buy in case you lost the ammo it came with.
   components:
   - type: StorageFill
     contents:
-    - id: Magazine90mm
+    - id: 90mmMagazineHE
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox90mmAP
+  name: Dravon 57x460mm AP box
+  description: Contains one box of 57x460mm armor-piercing ammunition. Provides an artillery piece with infinite armor-piercing rounds. Buy in case you lost the ammo it came with.
+  components:
+  - type: StorageFill
+    contents:
+    - id: 90mmMagazineAP
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox90mmFlak
+  name: Dravon 57x460mm Flak box
+  description: Contains one box of 57x460mm flak ammunition. Provides an artillery piece with infinite flak rounds. Buy in case you lost the ammo it came with.
+  components:
+  - type: StorageFill
+    contents:
+    - id: 90mmMagazineFlak
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox90mmMinelayer
+  name: Dravon 57x460mm minelayer box
+  suffix: DO NOT MAP
+  description: Contains one box of 57x460mm minelayer ammunition. Provides an artillery piece with 400 minelayer rounds.
+  components:
+  - type: StorageFill
+    contents:
+    - id: 90mmMagazineMinelayer
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox140mm
+  name: Longbow 85x680mm HEAT box
+  description: Contains one box of 85x680mm HEAT ammunition. Provides an artillery piece with infinite HEAT rounds. Buy in case you lost the ammo it came with.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine140mm
+      amount: 1
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBox140mmSACLOS
+  name: Longbow 85x680mm SACLOS box
+  description: Contains one box of 85x680mm SACLOS ammunition. Provides an artillery piece with 120 SACLOS rounds.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Magazine140mmSACLOS
       amount: 1
 
 # Missiles
@@ -74,11 +296,11 @@
   parent: CrateAmmoSecureMercenary
   id: CrateAmmoBoxVespera
   name: ADMP-50 Vespera HE missile box
-  description: Contains 12 bursts of 13 missiles. 2 full loads.
+  description: Contains 12 bursts of 13 high-explosive missiles. 2 full loads.
   components:
   - type: StorageFill
     contents:
-    - id: VesperaMagazine
+    - id: MissileMagazine50mmHE
       amount: 2 # 2 reload
 
 - type: entity
@@ -91,3 +313,58 @@
     contents:
     - id: TovekCartridge
       amount: 4 # 2 reloads
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxPaladinHE
+  name: MLRS-382 Paladin HE missile box
+  description: Contains 2 autoloaders of 24 missiles each.
+  components:
+  - type: StorageFill
+    contents:
+    - id: PaladinMagazine
+      amount: 2 # 48 missiles
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxPaladinEMPHE
+  name: MLRS-382 Paladin EMP-HE missile box
+  description: Contains 2 autoloaders of 24 missiles each.
+  components:
+  - type: StorageFill
+    contents:
+    - id: PaladinMagazineEMPHE
+      amount: 2 # 48 missiles
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxPaladinHV
+  name: MLRS-382 Paladin HV missile box
+  description: Contains 2 autoloaders of 24 missiles each.
+  components:
+  - type: StorageFill
+    contents:
+    - id: PaladinMagazineHV
+      amount: 2 # 48 missiles
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxTrident
+  name: ASM-220 Trident HE torpedo box
+  description: Contains 4 large missiles, enough to fill a single launcher.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Asm220TorpedoHE
+      amount: 4
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxTridentSACLOS
+  name: ASM-220 Trident HE-SACLOS torpedo box
+  description: Contains 4 large missiles, enough to fill a single launcher.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Asm220TorpedoHESACLOS
+      amount: 4

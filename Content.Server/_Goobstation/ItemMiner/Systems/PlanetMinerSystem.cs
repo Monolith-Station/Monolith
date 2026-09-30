@@ -6,10 +6,11 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Server._Goobstation.ItemMiner;
 
-public sealed class PlanetMinerSystem : EntitySystem
+public sealed partial class PlanetMinerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private ITileDefinitionManager _tileDef = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     private EntityQuery<MapComponent> _mapQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
@@ -44,7 +45,7 @@ public sealed class PlanetMinerSystem : EntitySystem
 
         if (mapUid != gridUid // if we're not on the planet surface
             && (ent.Comp.RequireGround // but have to be on the surface
-                || !_map.GetTileRef((gridUid.Value, _gridQuery.GetComponent(gridUid.Value)), xform.Coordinates).IsSpace(_tileDef))) // or aren't on lattice
+                || !_turf.IsSpace(_map.GetTileRef((gridUid.Value, _gridQuery.GetComponent(gridUid.Value)), xform.Coordinates)))) // or aren't on lattice
         {
             args.Cancelled = true; // then abort
             return;

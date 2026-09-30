@@ -22,22 +22,23 @@ using Robust.Shared.Timing;
 // Mono
 using Robust.Shared.Player;
 using Robust.Shared.GameStates;
+using System.Numerics;
 
 namespace Content.Shared.Weapons.Misc;
 
-public abstract class SharedGrapplingGunSystem : VirtualController
+public abstract partial class SharedGrapplingGunSystem : VirtualController
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedJointSystem _joints = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedPvsOverrideSystem _pvsOverride = default!; // Mono
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedJointSystem _joints = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedPvsOverrideSystem _pvsOverride = default!; // Mono
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     public const string GrapplingJoint = "grappling";
 
@@ -229,11 +230,17 @@ public abstract class SharedGrapplingGunSystem : VirtualController
             var bodyAWorldPos = _transform.GetWorldPosition(physicalHook);
             var bodyBWorldPos = _transform.GetWorldPosition(physicalGrapple);
 
+            // Mono
+            var bodyAVel = _physics.GetMapLinearVelocity(physicalHook);
+            var bodyBVel = _physics.GetMapLinearVelocity(physicalGrapple);
+            var velDiff = bodyAVel - bodyBVel;
+            var margin = grappling.RopeMargin + velDiff.Length() * frameTime; // Mono
+
             // The solver does not handle setting the rope's length, but we still need to work with a copy of it to prevent jank.
             var ropeLength = (bodyAWorldPos - bodyBWorldPos).Length();
 
             // Rope should just break, instantly, if the user is teleported past its max length
-            if (ropeLength >= distance.MaxLength + grappling.RopeMargin)
+            if (ropeLength >= distance.MaxLength + margin)
             {
                 Ungrapple((uid, grappling), true);
                 continue;
@@ -250,10 +257,10 @@ public abstract class SharedGrapplingGunSystem : VirtualController
 
 
             // TODO: Contracting DistanceJoints should be in engine
-            if (distance.MaxLength >= ropeLength + grappling.RopeMargin)
+            if (distance.MaxLength >= ropeLength + margin)
             {
-                distance.MaxLength = MathF.Max(distance.MinLength + grappling.RopeMargin, distance.MaxLength - grappling.ReelRate * frameTime);
-                distance.MaxLength = MathF.Max(ropeLength + grappling.RopeMargin, distance.MaxLength);
+                distance.MaxLength = MathF.Max(distance.MinLength + margin, distance.MaxLength - grappling.ReelRate * frameTime);
+                distance.MaxLength = MathF.Max(ropeLength + margin, distance.MaxLength);
                 ropeLength = MathF.Min(distance.MaxLength, ropeLength);
 
                 distance.Length = ropeLength;
@@ -263,7 +270,7 @@ public abstract class SharedGrapplingGunSystem : VirtualController
             {
                 SetReeling(uid, grappling, false, null);
             }
-            else if (ropeLength >= distance.MaxLength - grappling.RopeMargin)
+            else if (ropeLength >= distance.MaxLength - margin)
             {
                 var targetDirection = (bodyAWorldPos - bodyBWorldPos).Normalized();
 

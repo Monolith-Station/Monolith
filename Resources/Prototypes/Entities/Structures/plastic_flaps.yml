@@ -5,6 +5,10 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: Sprite
     sprite: Structures/plastic_flaps.rsi
     state: plasticflaps
@@ -40,6 +44,12 @@
     mode: NoSprite
   - type: StaticPrice
     price: 100
+  - type: ShipRepairable # Mono
+    repairTime: 15
+    repairCost: 50
+  - type: Tag # Mono
+    tags:
+    - DoorAutorotate
 
 - type: entity
   id: PlasticFlapsClear

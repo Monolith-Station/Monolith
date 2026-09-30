@@ -1,5 +1,6 @@
 - type: entity
   id: ConstructionBox
+  categories: [ HideSpawnMenu ] # Mono: depricated, Use NF variant
   name: construction box
   description: A large storage container for holding materials.
   parent: PlantBox
@@ -27,13 +28,6 @@
             max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Sprite
-    sprite: _NF/Structures/Storage/constructionbox.rsi
-    layers:
-    - state: constructionbox
-    - state: constructionbox-top
-      map: [ top ]
-      visible: true
   - type: Storage
     whitelist:
       tags:

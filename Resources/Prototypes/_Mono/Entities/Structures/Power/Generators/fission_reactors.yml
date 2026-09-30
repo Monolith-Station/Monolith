@@ -13,39 +13,39 @@
 - type: entity
   id: NuclearReactorTSF
   parent: NuclearReactorCrew
-  suffix: TSF FTL Locked
+  suffix: TSF Locked
   components:
   - type: NuclearReactor
     prefab: ReactorPrefab7x7Normal
   - type: NameIdentifier
     group: NuclearReactorTSF
   - type: AccessReader
-    access: [["Armory"]]
+    access: [["Security"]]
 
 - type: entity
   id: NuclearReactorPDV
   parent: NuclearReactorCrew
-  suffix: PDV Denasvar Locked
+  suffix: PDV Locked
   components:
   - type: NuclearReactor
     prefab: ReactorPrefab7x7Normal
   - type: NameIdentifier
     group: NuclearReactorPDV
   - type: AccessReader
-    access: [["PDVCommand"]]
+    access: [["Pirate"]]
 
 # No use really, but just in case.
 - type: entity
   id: NuclearReactorUSSP
   parent: NuclearReactorCrew
-  suffix: USSP Serzhant Locked
+  suffix: USSP Locked
   components:
   - type: NuclearReactor
     prefab: ReactorPrefab7x7Normal
   - type: NameIdentifier
     group: NuclearReactorUSSP
   - type: AccessReader
-    access: [["USSPHigh"]]
+    access: [["USSP"]]
 
 # No use really, but just in case.
 - type: entity
@@ -79,39 +79,39 @@
 - type: entity
   id: NuclearReactorTSFSmall
   parent: NuclearReactorSmall
-  suffix: TSF FTL Locked
+  suffix: TSF Locked
   components:
   - type: NuclearReactor
     prefab: ReactorPrefab5x5Normal
   - type: NameIdentifier
     group: NuclearReactorTSFSmall
   - type: AccessReader
-    access: [["Armory"]]
+    access: [["Security"]]
 
 - type: entity
   id: NuclearReactorPDVSmall
   parent: NuclearReactorSmall
-  suffix: PDV Denasvar Locked
+  suffix: PDV Locked
   components:
   - type: NuclearReactor
     prefab: ReactorPrefab5x5Normal
   - type: NameIdentifier
     group: NuclearReactorPDVSmall
   - type: AccessReader
-    access: [["PDVCommand"]]
+    access: [["Pirate"]]
 
 # No use really, but just in case.
 - type: entity
   id: NuclearReactorUSSPSmall
   parent: NuclearReactorSmall
-  suffix: USSP Serzhant Locked
+  suffix: USSP Locked
   components:
   - type: NuclearReactor
     prefab: ReactorPrefab5x5Normal
   - type: NameIdentifier
     group: NuclearReactorUSSPSmall
   - type: AccessReader
-    access: [["USSPHigh"]]
+    access: [["USSP"]]
 
 # No use really, but just in case.
 - type: entity

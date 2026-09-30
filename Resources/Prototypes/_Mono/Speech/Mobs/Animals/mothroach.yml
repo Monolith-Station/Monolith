@@ -1,0 +1,47 @@
+- type: localizedDataset
+  id: MothroachEating
+  values:
+    prefix: mothroach-eating-
+    count: 5
+
+- type: localizedDataset
+  id: MothroachPickedUp
+  values:
+    prefix: mothroach-picked-up-
+    count: 5
+
+- type: localizedDataset
+  id: MothroachThrown
+  values:
+    prefix: mothroach-thrown-
+    count: 3
+
+- type: localizedDataset
+  id: MothroachDrinking
+  values:
+    prefix: mothroach-drinking-
+    count: 4
+    
+- type: localizedDataset
+  id: MothroachCritical
+  values:
+    prefix: mothroach-critical-
+    count: 5
+
+- type: localizedDataset
+  id: MothroachDeath
+  values:
+    prefix: mothroach-dead-
+    count: 6
+
+- type: localizedDataset
+  id: MothroachRevived
+  values:
+    prefix: mothroach-revived-
+    count: 5
+
+- type: localizedDataset
+  id: MothroachExamined
+  values:
+    prefix: mothroach-examined-
+    count: 5

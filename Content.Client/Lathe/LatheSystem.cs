@@ -2,13 +2,15 @@ using Robust.Client.GameObjects;
 using Content.Shared.Lathe;
 using Content.Shared.Power;
 using Content.Client.Power;
+using Content.Client.Storage.Components;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Stacks;
 
 namespace Content.Client.Lathe;
 
-public sealed class LatheSystem : SharedLatheSystem
+public sealed partial class LatheSystem : SharedLatheSystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -46,6 +48,36 @@ public sealed class LatheSystem : SharedLatheSystem
                 args.Sprite.LayerSetState(powerLayer, state);
             }
         }
+    }
+
+    // Mono
+    public override bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount = 1, LatheComponent? component = null)
+    {
+        if (!TryComp<EntityStorageComponent>(uid, out var storage) &&
+            recipe.Entities.Count != 0)
+            return false;
+
+        if (storage == null)
+            return base.CanProduce(uid, recipe, amount, component);
+
+        foreach (var (entity, needed) in recipe.Entities)
+        {
+            var processedEntities = 0;
+            foreach (var conEnt in storage.Contents.ContainedEntities)
+            {
+                if (MetaData(conEnt).EntityPrototype?.ID != entity.Id)
+                    continue;
+
+                _stackQuery.TryComp(conEnt, out var stack);
+
+                processedEntities += stack?.Count ?? 1;
+            }
+
+            if (processedEntities < needed * amount)
+                return false;
+        }
+
+        return base.CanProduce(uid, recipe, amount, component);
     }
 
     ///<remarks>

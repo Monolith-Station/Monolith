@@ -6,6 +6,10 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 21600 # 6 hours # mono
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   startingGear: TsfEngiGear
   icon: JobIconTSFEngi
   supervisors: job-supervisors-sergeant
@@ -17,6 +21,8 @@
   - TsfmcEngineering
   accessGroups:
   - TsfGeneralNoBrig
+  guides:
+  - TSFMC_Entry
   special:
   - !type:AddComponentSpecial
     components:
@@ -36,9 +42,9 @@
 
 - type: startingGear
   id: TsfEngiGear
-  equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
-    pocket2: Magazine45_ACPPistolFMJ
+#  equipment:
+#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+#    pocket2: Magazine45_ACPPistolFMJ
   storage:
     back:
     - RadioHandheldNF
@@ -46,3 +52,5 @@
     - NanolaminateFoamGrenade
     - RCDRecharging
     - NFPouchUtility
+    - BaseSecurityUplinkRadioDeputy
+    - BookTSFSOP

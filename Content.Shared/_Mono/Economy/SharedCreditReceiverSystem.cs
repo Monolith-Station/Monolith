@@ -14,8 +14,8 @@ namespace Content.Shared._Mono.Economy;
 public abstract partial class SharedCreditReceiverSystem : EntitySystem
 {
     private readonly ISawmill _log = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!; // Frontier
-    [Dependency] protected readonly ItemSlotsSystem ItemSlots = default!; // Frontier
+    [Dependency] private SharedStackSystem _stack = default!; // Frontier
+    [Dependency] protected ItemSlotsSystem ItemSlots = default!; // Frontier
 
     public override void Initialize()
     {
@@ -26,19 +26,16 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         SubscribeLocalEvent<CreditReceiverComponent, EntRemovedFromContainerMessage>(OnEntityRemoved);
     }
 
-    protected void OnMapInit(EntityUid uid, CreditReceiverComponent component, MapInitEvent args)
+    protected void OnMapInit(Entity<CreditReceiverComponent> ent, ref MapInitEvent args)
     {
-        if (component.CashSlot != null && component.CashSlotName != null)
-            ItemSlots.AddItemSlot(uid, component.CashSlotName, component.CashSlot);
+        ItemSlots.AddItemSlot(ent.Owner, ent.Comp.CashSlotName, ent.Comp.CashSlot);
     }
 
 
     protected void Update(Entity<CreditReceiverComponent> ent)
     {
-        if (ent.Comp.CashSlotName != null
-            && ent.Comp.CurrencyStackType != null
-            && ItemSlots.TryGetSlot(ent, ent.Comp.CashSlotName, out var slot)
-            && TryComp<StackComponent>(slot?.ContainerSlot?.ContainedEntity, out var stack)
+        if (ItemSlots.TryGetSlot(ent, ent.Comp.CashSlotName, out var slot)
+            && TryComp<StackComponent>(slot.ContainerSlot?.ContainedEntity, out var stack)
             && stack.StackTypeId == ent.Comp.CurrencyStackType)
         {
             ent.Comp.CashSlotBalance = stack.Count;
@@ -75,14 +72,8 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         return TryGetCashBalance(uid, out var balance) ? (int)balance : 0;
     }
 
-
-    public bool CanPayWithCredit(Entity<CreditReceiverComponent> ent)
-    {
-        return TryComp<CreditReceiverComponent>(ent.Owner, out var creditComponent) && creditComponent.CashSlotName != null && creditComponent.CurrencyStackType != null;
-    }
-
     /// <summary>
-    ///
+    /// Try version of <see cref="GetCashBalance"/>.
     /// </summary>
     /// <param name="uid">EntityUID to be checked</param>
     /// <param name="amount">If true, stores here the amount of currency found.</param>
@@ -101,6 +92,12 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         return true;
     }
 
+    public bool CanPayWithCredit(Entity<CreditReceiverComponent?> ent)
+    {
+        return TryComp<CreditReceiverComponent>(ent.Owner, out var creditComponent);
+    }
+
+
     // Try to implement ItemSlots.TryGetSlot(uid, creditComponent.CashSlotName, out var cashSlot) && TryComp<StackComponent>(cashSlot?.ContainerSlot?.ContainedEntity, out var stackComp) && stackComp!.StackTypeId == creditComponent.CurrencyStackType
     /// <summary>
     /// Method to grab the currency in a CreditReceiver, as specified in the components slot
@@ -116,10 +113,6 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
 
         // We dont accept cash here, buddy.
         if (!TryComp<CreditReceiverComponent>(uid, out var receiver))
-            return false;
-
-        // In if in yaml a parent has CreditReceiver but doesn't actually want cash behavior, set these to null.
-        if (receiver.CashSlotName == null)
             return false;
 
         // If there's no money in the bag, we fail to return anything.
@@ -149,9 +142,6 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         slot = null;
 
         if (!TryComp<CreditReceiverComponent>(uid, out var receiver))
-            return false;
-
-        if (receiver.CashSlot == null || receiver.CashSlotName == null)
             return false;
 
         if (!ItemSlots.TryGetSlot(uid, receiver.CashSlotName, out var cashSlot))

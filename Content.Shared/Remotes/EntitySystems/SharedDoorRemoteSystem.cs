@@ -31,9 +31,14 @@ public abstract class SharedDoorRemoteSystem : EntitySystem
 
             // Skip ToggleEmergencyAccess mode and move on from there (to door toggle)
             case OperatingMode.ToggleEmergencyAccess:
-                entity.Comp.Mode = OperatingMode.OpenClose;
-                switchMessageId = "door-remote-switch-state-open-close";
+                entity.Comp.Mode = OperatingMode.ToggleOvercharge;
+                switchMessageId = "door-remote-toggle-eletrify-text";
                 break;
+            // Skip ToggleEmergencyAccess mode and move on from there (to door toggle)
+            case OperatingMode.ToggleOvercharge:
+                entity.Comp.Mode = OperatingMode.OpenClose;
+                switchMessageId = "door-remote-switch-state-open-close";   
+                break;        
             default:
                 throw new InvalidOperationException(
                     $"{nameof(DoorRemoteComponent)} had invalid mode {entity.Comp.Mode}");

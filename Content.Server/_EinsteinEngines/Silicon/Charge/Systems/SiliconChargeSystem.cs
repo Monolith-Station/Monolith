@@ -1,9 +1,8 @@
 using Robust.Shared.Random;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Content.Server.Power.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Temperature.Components;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
@@ -19,23 +18,24 @@ using Robust.Shared.Utility;
 using Content.Shared.CCVar;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Mind;
+using Content.Shared.Power.Components;
 using Content.Shared.Alert;
 using Content.Server._EinsteinEngines.Silicon.Death;
 using Content.Server._EinsteinEngines.Power.Components;
 
 namespace Content.Server._EinsteinEngines.Silicon.Charge;
 
-public sealed class SiliconChargeSystem : EntitySystem
+public sealed partial class SiliconChargeSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private MovementSpeedModifierSystem _moveMod = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
     public override void Initialize()
     {
         base.Initialize();

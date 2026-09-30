@@ -39,6 +39,8 @@
     soundHit:
       collection: MetalThud
   - type: CollisionWake
+  - type: GravityAffected
+  - type: CEZPhysics # CrystallEdge
   - type: Physics
     bodyType: Dynamic
     fixedRotation: false

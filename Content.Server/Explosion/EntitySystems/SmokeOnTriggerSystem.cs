@@ -13,12 +13,14 @@ namespace Content.Server.Explosion.EntitySystems;
 /// <summary>
 /// Handles creating smoke when <see cref="SmokeOnTriggerComponent"/> is triggered.
 /// </summary>
-public sealed class SmokeOnTriggerSystem : SharedSmokeOnTriggerSystem
+public sealed partial class SmokeOnTriggerSystem : SharedSmokeOnTriggerSystem
 {
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly SmokeSystem _smoke = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly SpreaderSystem _spreader = default!;
+    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private SmokeSystem _smoke = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private SpreaderSystem _spreader = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     public override void Initialize()
     {
@@ -31,17 +33,13 @@ public sealed class SmokeOnTriggerSystem : SharedSmokeOnTriggerSystem
     {
         var xform = Transform(uid);
         var mapCoords = _transform.GetMapCoordinates(uid, xform);
-        if (!_mapMan.TryFindGridAt(mapCoords, out _, out var grid) ||
-            !grid.TryGetTileRef(xform.Coordinates, out var tileRef) ||
-            tileRef.Tile.IsEmpty)
-        {
-            return;
-        }
-
-        if (_spreader.RequiresFloorToSpread(comp.SmokePrototype.ToString()) && tileRef.Tile.IsSpace())
+        if (!_turf.TryGetTileRef(xform.Coordinates, out var tileRef) || tileRef.Value.Tile.IsEmpty)
             return;
 
-        var coords = grid.MapToGrid(mapCoords);
+        if (_spreader.RequiresFloorToSpread(comp.SmokePrototype.ToString()) && _turf.IsSpace(tileRef.Value))
+            return;
+
+        var coords = _map.MapToGrid(xform.GridUid!.Value, mapCoords);
         var ent = Spawn(comp.SmokePrototype, coords.SnapToGrid());
         if (!TryComp<SmokeComponent>(ent, out var smoke))
         {

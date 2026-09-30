@@ -10,13 +10,13 @@ using Content.Shared.CCVar;
 
 namespace Content.Server._White.Examine
 {
-    public sealed class ExaminableCharacterSystem : EntitySystem
+    public sealed partial class ExaminableCharacterSystem : EntitySystem
     {
-        [Dependency] private readonly InventorySystem _inventorySystem = default!;
-        [Dependency] private readonly IdentitySystem _identitySystem = default!;
-        [Dependency] private readonly EntityManager _entityManager = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
+        [Dependency] private InventorySystem _inventorySystem = default!;
+        [Dependency] private IdentitySystem _identitySystem = default!;
+        [Dependency] private EntityManager _entityManager = default!;
+        [Dependency] private IChatManager _chatManager = default!;
+        [Dependency] private INetConfigurationManager _netConfigManager = default!;
 
         public override void Initialize()
         {

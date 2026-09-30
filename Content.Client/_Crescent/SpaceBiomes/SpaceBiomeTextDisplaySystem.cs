@@ -7,11 +7,11 @@ using Content.Shared._Crescent.Vessel;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
-public sealed class SpaceTextDisplaySystem : EntitySystem
+public sealed partial class SpaceTextDisplaySystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _protMan = default!;
-    [Dependency] private readonly IOverlayManager _overMan = default!;
-    [Dependency] private readonly ContentAudioSystem _audioSys = default!;
+    [Dependency] private IPrototypeManager _protMan = default!;
+    [Dependency] private IOverlayManager _overMan = default!;
+    [Dependency] private ContentAudioSystem _audioSys = default!;
 
     private SpaceBiomeTextOverlay _overlay = default!;
 
@@ -53,7 +53,10 @@ public sealed class SpaceTextDisplaySystem : EntitySystem
         _overlay.Reset();             //these should be reset as well to match OnSwap
         _overlay.ResetDescription();
 
-        if (_overlay.Text != null) //i dont know why this is here but im not touching it
+        if (_overlay.Text != null)
+            return;
+
+        if (name.Length == 0)
             return;
 
         _overlay.Text = name;

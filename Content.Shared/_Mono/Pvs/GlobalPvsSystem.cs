@@ -4,7 +4,7 @@ namespace Content.Shared._Mono.Pvs;
 
 public sealed partial class GlobalPvsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!;
+    [Dependency] private SharedPvsOverrideSystem _pvs = default!;
 
     public override void Initialize()
     {

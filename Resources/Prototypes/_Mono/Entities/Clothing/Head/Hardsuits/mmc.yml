@@ -1,0 +1,55 @@
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHelmetHardsuitMieyoMining
+  name: MMC mining suit helmet
+  description: A basic EVA helmet designed for complex industrial operations in space.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/mmc_mining.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/mmc_mining.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.72
+    lowPressureMultiplier: 1000
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHelmetHardsuitMieyoCombat
+  name: MMC kurogane tacsuit helmet
+  description: A sensor suite disguised as a helmet. Great NVGs, average protection.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/mmc_combat.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/mmc_combat.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+  - type: NightVision # Gen 4 wide
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 4
+    viewCircleSpacing: 260
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"

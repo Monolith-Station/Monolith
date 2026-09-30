@@ -1,0 +1,172 @@
+- type: entity
+  abstract: true
+  parent: [BaseItem, RecyclableItemCardboard] # Frontier: added RecyclableItemCardboard
+  id: BaseAmmoBox357_magnum
+  name: ammunition box (.357 magnum FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - Cartridge357_magnumFMJ
+    proto: Cartridge357_magnumFMJ
+    capacity: 32
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/357_magnum.rsi
+  - type: Appearance
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+
+#small ammo boxes
+- type: entity
+  parent: BaseAmmoBox357_magnum
+  id: AmmoBox357_magnumFMJ
+  name: ammunition box (.357 magnum FMJ)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumFMJ
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  parent: BaseAmmoBox357_magnum
+  id: AmmoBox357_magnumPractice
+  name: ammunition box (.357 magnum practice)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumPractice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: practice
+
+- type: entity
+  parent: BaseAmmoBox357_magnum
+  id: AmmoBox357_magnumIncendiary
+  name: ammunition box (.357 magnum incendiary)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: incendiary
+
+- type: entity
+  id: AmmoBox357_magnumUranium
+  parent: BaseAmmoBox357_magnum
+  name: ammunition box (.357 magnum uranium)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumUranium
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: uranium
+
+# Upstream
+- type: entity
+  parent: BaseAmmoBox357_magnum
+  id: AmmoBox357_magnumRubber
+  name: ammunition box (.357 magnum rubber)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumRubber
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: rubber
+
+#deprecated AP
+- type: entity
+  id: AmmoBox357_magnumAP
+  parent: BaseAmmoBox357_magnum
+  name: ammunition box (.357 magnum extreme armor-piercing)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: piercing
+
+# Mono AP syst
+#anti-flesh:
+- type: entity
+  parent: BaseAmmoBox357_magnum
+  id: AmmoBox357_magnumHP
+  name: ammunition box (.357 magnum hollow-point)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumHP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: HP
+
+- type: entity
+  parent: BaseAmmoBox357_magnum
+  id: AmmoBox357_magnumRIP
+  name: ammunition box (.357 magnum RIP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumRIP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: RIP
+
+#armor-piercing:
+
+- type: entity
+  parent: BaseAmmoBox357_magnum
+  id: AmmoBox357_magnumPlasteelAP
+  name: ammunition box (.357 magnum AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumPlasteelAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: plasteelAP
+
+#big ammo boxes
+- type: entity
+  parent: BaseAmmoBox357_magnum
+  id: AmmoBox357_magnumBigFMJ
+  name: big ammunition box (.357 magnum FMJ)
+  suffix: Big
+  components:
+  - type: Item
+    shape:
+    - 0,0,1,1
+  - type: BallisticAmmoProvider
+    capacity: 100
+    proto: Cartridge357_magnumFMJ
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Appearance

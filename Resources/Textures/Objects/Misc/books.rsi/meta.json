@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Base sprite taken at: https://github.com/tgstation/tgstation/commit/37fb6bc6dd20005775dde8d886f48f7722606b77 , splitted on layers by TheShuEd (github)",
+  "copyright": "Base sprite taken at: https://github.com/tgstation/tgstation/commit/37fb6bc6dd20005775dde8d886f48f7722606b77 , splitted on layers by TheShuEd (github), segmented middle sprites added by Mrrpip",
   "size": {
     "x": 32,
     "y": 32
@@ -42,6 +42,12 @@
     },
     {
       "name": "decor_vertical_middle"
+    },
+    {
+      "name": "decor_mono_middle_segmented_top"
+    },
+    {
+      "name": "decor_mono_middle_segmented_bottom"
     },
     {
       "name": "detail_bookmark"

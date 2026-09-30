@@ -18,7 +18,9 @@
   - PDVBelt
   - ContractorEncryptionKey
   - RogueFirearm
+  - RogueSidearm
   - RogueMag
+  - RoguePistolMag
   - FactionArmorPlates
   canCustomizeName: true
 
@@ -41,8 +43,10 @@
   - PirateTrinkets
   - PDVBelt
   - ContractorEncryptionKey
-  - RogueFirearm
-  - RogueMag
+  - RogueFirearmCommander
+  - RogueSidearm
+  - RogueCommandMag
+  - RoguePistolMag
   - FactionArmorPlates
   canCustomizeName: true
 
@@ -52,10 +56,10 @@
   - PDVCommanderHead
   - PDVJumpsuit
   - PDVGloves
-  - PDVOuterClothing
+  - PDVOuterClothingVizier
   - PDVHud
   - PDVBackpack
-  - PDVShoes
+  - PDVShoesVizier
   - PDVFace
   - PDVCommanderNeck
   - ContractorBoxSurvival
@@ -65,8 +69,9 @@
   - PirateCaptainTrinkets
   - PDVBelt
   - ContractorEncryptionKey
-  - RogueFirearm
-  - RogueMag
+  - RogueFirearmCommander
+  - RogueSidearm
+  - RogueCommandMag
   - FactionArmorPlates
   canCustomizeName: true
 
@@ -113,7 +118,55 @@
   - PirateTrinkets
   - PDVBelt
   - ContractorEncryptionKey
-  - RogueFirearm
-  - RogueMag
+  - RogueFirearmCommander
+  - RogueSidearm
+  - RogueCommandMag
+  - RoguePistolMag
   - FactionArmorPlates
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobPDVTarkhan
+  groups:
+  - ContractorBoxSurvival
+  - NFSpeciesSpecific
+  - ContractorWallet
+  - PirateTrinkets
+  - ContractorCartridge
+  - ContractorEncryptionKey
+  - RogueSidearm
+  - RoguePistolMag
+  - FactionArmorPlates
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobPdvCivilian # Civvie
+  groups:
+  - MercenaryHead
+  - ContractorNeck
+  - MercenaryJumpsuit
+  - MercenaryGloves
+  - MercenaryBackpack
+  - ContractorOuterClothing
+  - MercenaryShoes
+  - MercenaryFace
+  - MercenaryGlasses
+  - MercenaryBelt
+  - MercenaryEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - ContractorPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
+  - NFSpeciesSpecific
+  - MercenaryBalaclava # Mono
+  - CivGunCaseSpecial # Mono
+  - ContractorArmorPlates # Mono
+  - RogueSidearm
+  - RoguePistolMag
   canCustomizeName: true

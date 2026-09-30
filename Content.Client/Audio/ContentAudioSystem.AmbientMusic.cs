@@ -28,14 +28,14 @@ namespace Content.Client.Audio;
 /// </summary>
 public sealed partial class ContentAudioSystem
 {
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IStateManager _state = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly CombatModeSystem _combatModeSystem = default!; //CLIENT ONE. WHY ARE THERE 3???
+    [Dependency] private IConfigurationManager _configManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IStateManager _state = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private CombatModeSystem _combatModeSystem = default!; //CLIENT ONE. WHY ARE THERE 3???
 
     //options menu ---
     private static float _volumeSliderAmbient;

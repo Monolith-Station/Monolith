@@ -1,3 +1,4 @@
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Mono.ShipGuns;
@@ -5,7 +6,7 @@ namespace Content.Shared._Mono.ShipGuns;
 /// <summary>
 /// Component for categorizing ship guns by class
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ShipGunClassComponent : Component
 {
     /// <summary>

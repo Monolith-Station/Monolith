@@ -13,14 +13,14 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Mono.Company;
 
-public sealed class CompanyManager
+public sealed partial class CompanyManager
 {
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ILogManager _log = default!;
 
     private ISawmill _sawmill = default!;
 

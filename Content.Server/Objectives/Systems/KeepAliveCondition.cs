@@ -11,12 +11,12 @@ namespace Content.Server.Objectives.Systems;
 /// <summary>
 /// Handles keep alive condition logic and picking random traitors to keep alive.
 /// </summary>
-public sealed class KeepAliveConditionSystem : EntitySystem
+public sealed partial class KeepAliveConditionSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly TargetObjectiveSystem _target = default!;
-    [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private TargetObjectiveSystem _target = default!;
+    [Dependency] private TraitorRuleSystem _traitorRule = default!;
 
     public override void Initialize()
     {

@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.Alert;
 using JetBrains.Annotations;
 using Robust.Client.Player;
+using Robust.Client.UserInterface;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -9,12 +10,13 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.Alerts;
 
 [UsedImplicitly]
-public sealed class ClientAlertsSystem : AlertsSystem
+public sealed partial class ClientAlertsSystem : AlertsSystem
 {
     public AlertOrderPrototype? AlertOrder { get; set; }
 
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
 
     public event EventHandler? ClearAlerts;
     public event EventHandler<IReadOnlyDictionary<AlertKey, AlertState>>? SyncAlerts;
@@ -27,6 +29,12 @@ public sealed class ClientAlertsSystem : AlertsSystem
         SubscribeLocalEvent<AlertsComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<AlertsComponent, ComponentHandleState>(OnHandleState);
     }
+
+    protected override void HandledAlert()
+    {
+        _ui.ClickSound();
+    }
+
     protected override void LoadPrototypes()
     {
         base.LoadPrototypes();

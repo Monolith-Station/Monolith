@@ -11,7 +11,7 @@ namespace Content.Shared._NF.Shipyard.Components;
 public sealed partial class ShuttleDeedComponent : Component
 {
     public const int MaxNameLength = 30;
-    public const int MaxSuffixLength = 3 + 1 + 4; // 3 digits, dash, up to 4 letters - should be enough
+    public const int MaxSuffixLength = 4 + 1 + 4; // 4 digits, dash, up to 4 letters - should be enough
 
     [DataField]
     public EntityUid? ShuttleUid = null;

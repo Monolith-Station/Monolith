@@ -1,0 +1,44 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'shipyard-preview-ui-title'}"
+    MinSize="850 600"
+    SetSize="850 600"
+    Resizable="False">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="10 10 10 10">
+        <PanelContainer SetSize="400 75" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BorderThickness="7" BorderColor="#252525" BackgroundColor="#000000"/>
+            </PanelContainer.PanelOverride>
+            <Label Name="ShipName" FontColorOverride="#00FF00" Text="shipyard-preview-unknown-ship" HorizontalAlignment="Center"/>
+        </PanelContainer>
+        <PanelContainer SetSize="400 475"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BorderThickness="7"
+                                  BorderColor="#252525"
+                                  BackgroundColor="#000000"/>
+            </PanelContainer.PanelOverride>
+            <Label Name="ShipDataLabel"
+                   FontColorOverride="#00FF00"
+                   Text="{Loc 'shipyard-preview-data-label'}"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="10 10 10 10"/>
+            <RichTextLabel Name="ShipData"
+                           Text="shipyard-preview-data-label"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="10 45 10 10"/>
+        </PanelContainer>
+        <PanelContainer SetSize="400 150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10 -10 10 10">
+            <controls:ConfirmButton
+                Name="ExitButton"
+                Text="{Loc 'shipyard-preview-exit'}"
+                SetSize="375 50"
+                VerticalAlignment="Bottom"/>
+        </PanelContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -7,9 +7,9 @@ namespace Content.Server._Mono.Traits.Physical;
 /// <summary>
 /// Handles the Lethargy trait effects on stamina.
 /// </summary>
-public sealed class LethargySystem : EntitySystem
+public sealed partial class LethargySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

@@ -6,7 +6,8 @@
   children:
   - CorticalBorerGuide
   - Letoferol
-  - Asakim
+  #- Asakim
+  - Xenoborgs
 
 - type: guideEntry
   id: CorticalBorerGuide
@@ -20,8 +21,13 @@
   text: "/ServerInfo/_Mono/Guidebook/Creatures/Chimera.xml"
   priority: 1
 
+#- type: guideEntry
+#  id: Asakim
+#  name: guide-entry-asakim
+#  text: "/ServerInfo/_Mono/Guidebook/Creatures/Asakim.xml"
+#  priority: 1
+
 - type: guideEntry
-  id: Asakim
-  name: guide-entry-asakim
-  text: "/ServerInfo/_Mono/Guidebook/Creatures/Asakim.xml"
-  priority: 1
+  id: Xenoborgs
+  name: guide-entry-xenoborgs
+  text: "/ServerInfo/_Mono/Guidebook/Creatures/Xenoborgs.xml"

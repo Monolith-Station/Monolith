@@ -11,10 +11,13 @@
       requirements: # Frontier
         MatterBin: 2 # Frontier stackRequirements<requirements
         Manipulator: 2 # Frontier stackRequirements<requirements
-      tagRequirements:
-        GlassBeaker:
-          amount: 2
-          defaultPrototype: Beaker
+      tagRequirements: # Mono
+        MicroprocessorEconomy1:
+          amount: 1
+          defaultPrototype: MicroprocessorEconomy1
+        MotorEconomy1:
+          amount: 1
+          defaultPrototype: MotorEconomy1
 
 - type: entity
   id: ServiceTechFabCircuitboard
@@ -29,10 +32,13 @@
       requirements: # Frontier
         MatterBin: 2 # Frontier stackRequirements<requirements
         Manipulator: 2 # Frontier stackRequirements<requirements
-      tagRequirements:
-        GlassBeaker:
-          amount: 2
-          defaultPrototype: Beaker
+      tagRequirements: # Mono
+        MicroprocessorEconomy1:
+          amount: 1
+          defaultPrototype: MicroprocessorEconomy1
+        MotorEconomy1:
+          amount: 1
+          defaultPrototype: MotorEconomy1
 
 - type: entity
   id: DeepFryerMachineCircuitboard

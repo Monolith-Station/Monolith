@@ -8,6 +8,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Storage;
 using Content.Shared.Tag;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Tools.Innate;
@@ -16,11 +17,13 @@ namespace Content.Server.Tools.Innate;
 ///     Spawns a list unremovable tools in hands if possible. Used for drones,
 ///     borgs, or maybe even stuff like changeling armblades!
 /// </summary>
-public sealed class InnateToolSystem : EntitySystem
+public sealed partial class InnateToolSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private SharedHandsSystem _sharedHandsSystem = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+
+    private static readonly ProtoId<TagPrototype> InnateDontDeleteTag = "InnateDontDelete";
 
     public override void Initialize()
     {
@@ -76,7 +79,7 @@ public sealed class InnateToolSystem : EntitySystem
     {
         foreach (var tool in component.ToolUids)
         {
-            if (_tagSystem.HasTag(tool, "InnateDontDelete"))
+            if (_tagSystem.HasTag(tool, InnateDontDeleteTag))
             {
                 RemComp<UnremoveableComponent>(tool);
             }

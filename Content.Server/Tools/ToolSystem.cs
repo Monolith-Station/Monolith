@@ -8,10 +8,10 @@ using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 
 namespace Content.Server.Tools;
 
-public sealed class ToolSystem : SharedToolSystem
+public sealed partial class ToolSystem : SharedToolSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
 
     public override void TurnOn(Entity<WelderComponent> entity, EntityUid? user)
     {

@@ -9,6 +9,10 @@
     - !type:RoleTimeRequirement
       role: JobPDVDenasvar
       time: 28800 # 8 hours
+    - !type:TraitsRequirement # The trait doesn't do anything if you're PDV anyways, but this is 1 step closer to letting it actually give you points
+      inverted: true
+      traits:
+      - Heretic
   #whitelisted: true # mono - comment out
   startingGear: PirateFirstMateNFGear
   alwaysUseSpawner: true
@@ -26,9 +30,14 @@
   - Mercenary
   accessGroups:
   - GeneralAccess
+  guides:
+  - PDV_Entry
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MailDisabled
+    - type: SpecialSectorStationRecord
+      recordGeneration: FalseRecord
     - type: NpcFactionMember
       factions:
       - PirateNF

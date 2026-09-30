@@ -12,10 +12,10 @@ namespace Content.Server.Silicons.Borgs;
 /// <summary>
 /// Server-side logic for borg type switching. Handles more heavyweight and server-specific switching logic.
 /// </summary>
-public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
+public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
 {
-    [Dependency] private readonly BorgSystem _borgSystem = default!;
-    [Dependency] private readonly ServerInventorySystem _inventorySystem = default!;
+    [Dependency] private BorgSystem _borgSystem = default!;
+    [Dependency] private ServerInventorySystem _inventorySystem = default!;
 
     protected override void SelectBorgModule(Entity<BorgSwitchableTypeComponent> ent, ProtoId<BorgTypePrototype> borgType, ProtoId<BorgSubtypePrototype> borgSubtype)
     {
@@ -53,9 +53,7 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
                 (ent.Owner, transponder),
                 new SpriteSpecifier.Rsi(new ResPath("Mobs/Silicon/chassis.rsi"), prototype.SpriteBodyState));
 
-            _borgSystem.SetTransponderName(
-                (ent.Owner, transponder),
-                Loc.GetString($"borg-type-{borgType}-transponder"));
+            _borgSystem.SetTransponderName((ent.Owner, transponder),Loc.GetString($"borg-type-{borgType}-name"));
         }
 
         // Configure modules

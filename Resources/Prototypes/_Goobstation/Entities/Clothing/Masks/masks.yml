@@ -14,6 +14,7 @@
     - WhitelistChameleon
     - HidesHair
     - HidesNose
+    - PetWearable
 
 - type: entity
   parent: ClothingMaskGasChrono
@@ -21,3 +22,6 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+  - type: Tag
+    tags:
+    - PetWearable

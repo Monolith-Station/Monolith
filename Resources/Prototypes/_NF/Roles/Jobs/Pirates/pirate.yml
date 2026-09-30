@@ -5,7 +5,11 @@
   playTimeTracker: JobPirate
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs - mono
+      time: 14400 # 4 hours. I don't expect new players to play almost 2 full rounds before they get bored, and it's mostly a raider check.
+    - !type:TraitsRequirement # The trait doesn't do anything if you're PDV anyways, but this is 1 step closer to letting it actually give you points
+      inverted: true
+      traits:
+      - Heretic
   startingGear: PirateNFGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
@@ -21,9 +25,14 @@
   - Mercenary
   accessGroups:
   - GeneralAccess
+  guides:
+  - PDV_Entry
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MailDisabled
+    - type: SpecialSectorStationRecord
+      recordGeneration: FalseRecord
     - type: NpcFactionMember
       factions:
       - PirateNF

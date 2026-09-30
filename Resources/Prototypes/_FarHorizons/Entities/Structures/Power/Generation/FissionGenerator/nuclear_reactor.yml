@@ -115,7 +115,7 @@
       - RetractControlRods
   - type: ActivatableUI
     key: enum.NuclearReactorUiKey.Key
-  - type: ActivatableUIRequiresAnchor
+  #- type: ActivatableUIRequiresAnchor # Mono - We arent letting you fucking anchor that
   - type: UserInterface
     interfaces:
       enum.NuclearReactorUiKey.Key:

@@ -7,21 +7,26 @@ namespace Content.Shared._Mono.Economy.Component;
 [Access(typeof(SharedCreditReceiverSystem))]
 public sealed partial class CreditReceiverComponent : Robust.Shared.GameObjects.Component
 {
-    // Item slot for cash
+    /// <summary>
+    /// Item slot for cash.</summary>
+    /// <remarks>
+    /// Set this to Null if you want to disable this component
+    /// in case you can't get rid of it, i.e. YAML inherited.
+    /// </remarks>
     [DataField]
-    public ItemSlot? CashSlot = null;
+    public ItemSlot CashSlot = new();
 
     /// <summary>
     /// Name of the cash slot, if there is one.  Null if there isn't.
     /// </summary>
     [DataField]
-    public string? CashSlotName;
+    public string CashSlotName = "cash_slot";
 
     /// <summary>
     /// The type of currency to accept in the item slot.
     /// </summary>
     [DataField]
-    public string? CurrencyStackType;
+    public string CurrencyStackType = "Credit";
 
     /// <summary>
     /// The current balance in the cash slot.

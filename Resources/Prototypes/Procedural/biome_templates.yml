@@ -74,55 +74,6 @@
 - type: biomeTemplate
   id: Grasslands
   layers:
-    # Sparse vegetation
-    - !type:BiomeDecalLayer
-      allowedTiles:
-        - FloorPlanetGrass
-      divisions: 2
-      threshold: -0.50
-      noise:
-        seed: 0
-        noiseType: Cellular
-        frequency: 1
-      decals:
-        - BushDOne
-        - BushDTwo
-        - BushDThree
-    - !type:BiomeDecalLayer
-      allowedTiles:
-        - FloorPlanetGrass
-      noise:
-        seed: 0
-        noiseType: OpenSimplex2
-        frequency: 1
-      divisions: 1
-      threshold: 0.8
-      decals:
-        - FlowersBROne
-        - FlowersBRTwo
-        - FlowersBRThree
-    # Dense vegetation
-    - !type:BiomeDecalLayer
-      allowedTiles:
-      - FloorPlanetGrass
-      divisions: 1
-      threshold: -0.35
-      noise:
-        seed: 0
-        noiseType: Cellular
-        frequency: 0.2
-        fractalType: FBm
-        octaves: 5
-        lacunarity: 2
-        cellularDistanceFunction: Euclidean
-        cellularReturnType: Distance2
-      decals:
-        - BushAOne
-        - BushATwo
-        - BushAThree
-        - BushCOne
-        - BushCTwo
-        - BushCThree
     - !type:BiomeEntityLayer
       threshold: 0.5
       noise:
@@ -168,7 +119,7 @@
         fractalType: Ridged
         octaves: 1
       entities:
-        - FloorWaterEntity
+        - CEWater
     # Fill remainder with dirt.
     - !type:BiomeTileLayer
       threshold: -1.0

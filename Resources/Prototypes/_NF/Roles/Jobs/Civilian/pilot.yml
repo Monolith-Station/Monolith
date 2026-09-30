@@ -10,6 +10,7 @@
   supervisors: job-supervisors-hire
   weight: 2 # Prioritize station & department jobs
   displayWeight: 30 # Second from the top
+  setPreference: false # Mono - unselectable
   accessGroups: # Frontier
   - GeneralAccess
   special:

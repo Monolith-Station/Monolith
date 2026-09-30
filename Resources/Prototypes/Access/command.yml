@@ -21,6 +21,7 @@
 
 - type: accessLevel
   id: EmergencyShuttleRepealAll
+  canAddToIdCard: false
   name: id-card-access-level-emergency-shuttle-repeal
 
 - type: accessLevel

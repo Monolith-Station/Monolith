@@ -1,4 +1,4 @@
-# 20mm
+# 14x97mm
 
 - type: Tag
   id: Magazine20mm
@@ -6,7 +6,7 @@
 - type: Tag
   id: 20mmCartridge
 
-# 30mm
+# 20x141mm
 
 - type: Tag
   id: Magazine30mm
@@ -14,7 +14,15 @@
 - type: Tag
   id: 30mmCartridge
 
-# 57mm
+# 25x170mm
+
+- type: Tag
+  id: Magazine35mm
+
+- type: Tag
+  id: 35mmCartridge
+
+# 40x360mm
 
 - type: Tag
   id: Magazine57mm
@@ -22,7 +30,7 @@
 - type: Tag
   id: 57mmCartridge
 
-# 90mm
+# 57x460mm
 
 - type: Tag
   id: Magazine90mm
@@ -30,20 +38,38 @@
 - type: Tag
   id: 90mmCartridge
 
-# 220mm
+# 100x650mm
+
+- type: Tag
+  id: 120mmCartridge
+
+# 85x680mm
+
+- type: Tag
+  id: Magazine140mm
+
+- type: Tag
+  id: 140mmCartridge
+
+# 130x820mm
 
 - type: Tag
   id: 220mmCartridge
 
-# 255mm
+# 203x940mm
 
 - type: Tag
   id: 255mmCartridge
 
-# 150mm
+# 90x630mm
 
 - type: Tag
   id: 150mmShell
+
+# 320x752mm
+
+- type: Tag
+  id: R300Shell
 
 # Railguns
 
@@ -56,13 +82,16 @@
   id: VanykCartridge
 
 - type: Tag
+  id: VanykCartridgeUnguided
+
+- type: Tag
   id: VanykMagazine
 
 - type: Tag
-  id: VesperaCartridge
+  id: MissileCartridge50mm
 
 - type: Tag
-  id: VesperaMagazine
+  id: MissileMagazine50mm
 
 - type: Tag
   id: TovekCartridge
@@ -71,7 +100,19 @@
   id: Asm220Torpedo
 
 - type: Tag
+  id: SandboxCruiseMissiles
+
+- type: Tag
   id: LightFighterOrdinance
+
+- type: Tag
+  id: VanquisherMagazine
+
+- type: Tag
+  id: MissileCartridge250mm
+
+- type: Tag
+  id: PaladinMagazine
 
 # Other
 

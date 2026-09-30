@@ -2,6 +2,7 @@
 door-remote-open-close-text = Opens and Closes Doors
 door-remote-toggle-bolt-text = Toggles Bolts
 door-remote-emergency-access-text = Toggles Emergency Access
+door-remote-toggle-eletrify-text = Toggle Overcharge
 door-remote-invalid-text = Invalid
 door-remote-mode-label = Mode: [color=white]{$modeString}[/color]
 

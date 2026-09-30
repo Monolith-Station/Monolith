@@ -25,6 +25,30 @@
   - type: PointLight
     color: "#80C0FF"
 
+# Charon EMP
+
+- type: entity
+  id: InstantEffectEMPCharon
+  name: instant EMP effect
+  components:
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
+  - type: EmpOnTrigger
+    range: 3
+    energyConsumption: 200000 # 200 kJ
+    disableDuration: 7
+
+- type: entity
+  name: ionised lightning
+  id: LightningEMPCharon
+  parent: BaseLightning
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Lightning
+    canArc: true
+    spawnOnHit: InstantEffectEMPCharon
+  - type: PointLight
+    color: "#80C0FF"
 
 #example usage: add this to projectile parenting from BaseBulletTrigger
 # - type: LightningOnTrigger

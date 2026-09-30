@@ -14,6 +14,10 @@
         conditions:
         - !type:OrganType
           type: Hydrakin
+      - !type:Oxygenate # Mono - IAS
+        conditions:
+        - !type:OrganType
+          type: IAS
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
@@ -24,6 +28,9 @@
           shouldHave: false
         - !type:OrganType
           type: Hydrakin
+          shouldHave: false
+        - !type:OrganType
+          type: IAS
           shouldHave: false
         emote: Cough
         showInChat: true
@@ -38,6 +45,9 @@
           shouldHave: false
         - !type:OrganType
           type: Hydrakin
+          shouldHave: false
+        - !type:OrganType
+          type: IAS
           shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
@@ -141,6 +151,10 @@
         conditions:
         - !type:OrganType
           type: Hydrakin
+      - !type:Oxygenate # Mono - IAS
+        conditions:
+        - !type:OrganType
+          type: IAS
       - !type:EvenHealthChange # Mono: EvenHealthChange
         conditions:
         - !type:ReagentThreshold
@@ -242,6 +256,10 @@
         conditions:
         - !type:OrganType
           type: Hydrakin
+      - !type:Oxygenate # Mono - IAS
+        conditions:
+        - !type:OrganType
+          type: IAS
       - !type:NitriumMovespeedModifier
         conditions:
         - !type:ReagentThreshold
@@ -256,6 +274,9 @@
           min: 6
         - !type:OrganType
           type: Hydrakin
+          shouldHave: false
+        - !type:OrganType
+          type: IAS
           shouldHave: false
         reagent: NitrosylPlasmide
         amount: 2.5
@@ -275,11 +296,14 @@
         - !type:OrganType
           type: Hydrakin
           shouldHave: false
+        - !type:OrganType
+          type: IAS
+          shouldHave: false
         ignoreResistances: true
         damage:
           types:
             Asphyxiation: 15
-            
+
 - type: reagent
   id: Pluoxium
   name: reagent-name-pluoxium
@@ -300,6 +324,11 @@
         conditions:
         - !type:OrganType
           type: Hydrakin
+      - !type:Oxygenate # Mono - IAS
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: IAS
       - !type:Oxygenate
         factor: 8
         conditions:
@@ -319,5 +348,4 @@
       - !type:ModifyLungGas
         ratios:
           CarbonDioxide: 1.0
-          Pluoxium: -1.0 
- 
+          Pluoxium: -1.0

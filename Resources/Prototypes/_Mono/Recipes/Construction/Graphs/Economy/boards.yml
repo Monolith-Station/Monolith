@@ -1,0 +1,37 @@
+- type: constructionGraph
+  id: IndustrialPress
+  start: plates
+  graph:
+  - node: plates
+    entity: IndustrialPressEconomyPlatesMachineCircuitboard
+    edges:
+    - to: electronics
+      steps:
+      - tool: Screwing
+        doAfter: 2
+  - node: electronics
+    entity: IndustrialPressEconomyElectronicsMachineCircuitboard
+    edges:
+    - to: plates
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+- type: constructionGraph
+  id: IndustrialPressMMC
+  start: plates
+  graph:
+  - node: plates
+    entity: IndustrialPressEconomyPlatesMMCMachineCircuitboard
+    edges:
+    - to: electronics
+      steps:
+      - tool: Screwing
+        doAfter: 2
+  - node: electronics
+    entity: IndustrialPressEconomyElectronicsMMCMachineCircuitboard
+    edges:
+    - to: plates
+      steps:
+      - tool: Screwing
+        doAfter: 2

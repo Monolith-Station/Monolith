@@ -7,12 +7,12 @@ using Content.Shared.Radiation.Components;
 
 namespace Content.Server._Mono.Radiation;
 
-public sealed class ChainRadiationSystem : EntitySystem
+public sealed partial class ChainRadiationSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly RadiationSystem _radiation = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private RadiationSystem _radiation = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

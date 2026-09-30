@@ -35,32 +35,35 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cargo.Components; // Frontier
-using Content.Server._NF.Contraband.Systems; // Frontier
-using Robust.Shared.Containers; // Frontier
+using Content.Server._NF.Contraband.Systems;
+using Content.Server.Storage.Components;
+using Content.Shared.Stacks; // Frontier
+using Robust.Shared.Containers;
+using Robust.Shared.Utility; // Frontier
 
 namespace Content.Server.Lathe
 {
     [UsedImplicitly]
-    public sealed class LatheSystem : SharedLatheSystem
+    public sealed partial class LatheSystem : SharedLatheSystem
     {
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IPrototypeManager _proto = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly ContainerSystem _container = default!;
-        [Dependency] private readonly EmagSystem _emag = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSys = default!;
-        [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
-        [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly PuddleSystem _puddle = default!;
-        [Dependency] private readonly ReagentSpeedSystem _reagentSpeed = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-        [Dependency] private readonly StackSystem _stack = default!;
-        [Dependency] private readonly ContrabandTurnInSystem _contraband = default!; // Mono
-        [Dependency] private readonly TransformSystem _transform = default!;
-        [Dependency] private readonly DeviceLinkSystem _deviceLink = default!; // Mono
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private IPrototypeManager _proto = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private AtmosphereSystem _atmosphere = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private ContainerSystem _container = default!;
+        [Dependency] private EmagSystem _emag = default!;
+        [Dependency] private UserInterfaceSystem _uiSys = default!;
+        [Dependency] private MaterialStorageSystem _materialStorage = default!;
+        [Dependency] private PopupSystem _popup = default!;
+        [Dependency] private PuddleSystem _puddle = default!;
+        [Dependency] private ReagentSpeedSystem _reagentSpeed = default!;
+        [Dependency] private SharedSolutionContainerSystem _solution = default!;
+        [Dependency] private StackSystem _stack = default!;
+        [Dependency] private ContrabandTurnInSystem _contraband = default!; // Mono
+        [Dependency] private TransformSystem _transform = default!;
+        [Dependency] private DeviceLinkSystem _deviceLink = default!; // Mono
 
         /// <summary>
         /// Per-tick cache
@@ -287,6 +290,44 @@ namespace Content.Server.Lathe
 
                 _materialStorage.TryChangeMaterialAmount(uid, mat, adjustedAmount);
             }
+
+            foreach (var (reag, amount) in recipe.Reagents)
+            {
+                if (component.ReagentOutputSlotId is not { } slotId)
+                    break;
+
+                if (!_container.TryGetContainer(uid, slotId, out var container) ||
+                    !_solution.TryGetDrainableSolution(container.ContainedEntities.First(), out var solEnt, out _))
+                    break;
+
+                _solution.SplitSolutionPerReagentWithOnly(solEnt.Value, amount, reag);
+            }
+
+            if (TryComp<EntityStorageComponent>(uid, out var storage))
+            {
+                foreach (var (entity, amount) in recipe.Entities)
+                {
+                    var counter = 0;
+                    foreach (var conEnt in storage.Contents.ContainedEntities)
+                    {
+                        if (MetaData(conEnt).EntityPrototype?.ID != entity.Id)
+                            continue;
+
+                        _stackQuery.TryComp(conEnt, out var stack);
+                        var count = stack?.Count ?? 1;
+
+                        if (count > amount)
+                            _stack.SetCount(conEnt, count - amount);
+                        if (count <= amount)
+                            QueueDel(conEnt);
+
+                        counter += count;
+                        if (counter >= amount)
+                            break;
+                    }
+                }
+            }
+
             // </Mono>
 
             batch.ItemsPrinted++;
@@ -325,19 +366,22 @@ namespace Content.Server.Lathe
             {
                 if (comp.CurrentRecipe.Result is { } resultProto)
                 {
-                    var result = Spawn(resultProto, Transform(uid).Coordinates);
-
-                    // Frontier: adjust price before merge (stack prices changed once)
-                    if (result.Valid)
+                    for (var i = 0; i < comp.CurrentRecipe.ResultCount; i++) // mono
                     {
-                        ModifyPrintedEntityPrice(uid, comp, result);
-                        // End Frontier
+                        var result = Spawn(resultProto, Transform(uid).Coordinates);
 
-                        // Mono: Handle printable contraband
-                        _contraband.HandleContrabandValueByCompany(result, prodComp.Actor);
+                        // Frontier: adjust price before merge (stack prices changed once)
+                        if (result.Valid)
+                        {
+                            ModifyPrintedEntityPrice(uid, comp, result);
+                            // End Frontier
+
+                            // Mono: Handle printable contraband
+                            _contraband.HandleContrabandValueByCompany(result, prodComp.Actor);
+                        }
+
+                        _stack.TryMergeToContacts(result);
                     }
-
-                    _stack.TryMergeToContacts(result);
                 }
 
                 // Mono
@@ -632,6 +676,36 @@ namespace Content.Server.Lathe
             ent.Comp.Paused = false;
             if (wasPaused)
                 TryStartProducing(ent, ent.Comp);
+        }
+
+        // Mono
+        public override bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount = 1, LatheComponent? component = null)
+        {
+            if (!TryComp<EntityStorageComponent>(uid, out var storage) &&
+                recipe.Entities.Count != 0)
+                return false;
+
+            if (storage == null)
+                return base.CanProduce(uid, recipe, amount, component);
+
+            foreach (var (entity, needed) in recipe.Entities)
+            {
+                var processedEntities = 0;
+                foreach (var conEnt in storage.Contents.ContainedEntities)
+                {
+                    if (MetaData(conEnt).EntityPrototype?.ID != entity.Id)
+                        continue;
+
+                    _stackQuery.TryComp(conEnt, out var stack);
+
+                    processedEntities += stack?.Count ?? 1;
+                }
+
+                if (processedEntities < needed * amount)
+                    return false;
+            }
+
+            return base.CanProduce(uid, recipe, amount, component);
         }
     }
 }

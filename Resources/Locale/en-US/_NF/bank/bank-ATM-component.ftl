@@ -1,15 +1,18 @@
 ## UI
-bank-atm-menu-title = TSF Central Bank
+bank-atm-menu-title = Colossus Central Bank
 bank-atm-menu-balance-label = Balance:{" "}
+bank-atm-menu-savings-label = Savings:{" "}
 bank-atm-menu-no-bank = No Bank Account!
 bank-atm-menu-withdraw-button = Withdraw
-bank-atm-menu-deposit-label = Deposit:{" "}
+bank-atm-menu-deposit-label = Deposit (Sector):{" "}
+bank-atm-menu-deposit-label-ut = Deposit (Savings):{" "}
 bank-atm-menu-amount-label = Withdraw:{" "}
 bank-atm-menu-no-deposit = Empty
 bank-atm-menu-deposit-button = Deposit
 bank-atm-reason-label = For:{" "}
 bank-atm-description-label = Description:{" "}
 bank-atm-menu-withdraw-amount = Withdraw Amount
+bank-atm-menu-untaxed = Untaxed!
 
 vending-machine-menu-cash-slot-label = Cash Slot:{" "}
 

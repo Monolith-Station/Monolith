@@ -47,6 +47,8 @@ namespace Content.Server.Database
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<CompanyMember> CompanyMembers { get; set; } = null!;
+        public DbSet<WayfarerSafetyDepositBox> WayfarerSafetyDepositBox { get; set; } = null!;
+        public DbSet<WayfarerSafetyDepositBoxItem> WayfarerSafetyDepositBoxItem { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -57,6 +59,20 @@ namespace Content.Server.Database
             modelBuilder.Entity<Profile>()
                 .HasIndex(p => new {p.Slot, PrefsId = p.PreferenceId})
                 .IsUnique();
+
+            // Mono start
+            modelBuilder.Entity<ProfileComponent>()
+                .HasOne(e => e.Profile)
+                .WithMany(e => e.Components)
+                .HasForeignKey(e => e.ProfileId)
+                .IsRequired();
+
+            modelBuilder.Entity<ProfileItem>()
+                .HasOne(e => e.Profile)
+                .WithMany(e => e.Items)
+                .HasForeignKey(e => e.ProfileId)
+                .IsRequired();
+            // Mono end
 
             modelBuilder.Entity<Antag>()
                 .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.AntagName})
@@ -380,6 +396,23 @@ namespace Content.Server.Database
                 .HasForeignKey(w => w.PlayerUserId)
                 .HasPrincipalKey(p => p.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // Wayfarer Safety Deposit Box configuration
+            modelBuilder.Entity<WayfarerSafetyDepositBox>()
+                .HasIndex(b => b.BoxId)
+                .IsUnique();
+
+            modelBuilder.Entity<WayfarerSafetyDepositBox>()
+                .HasIndex(b => b.OwnerUserId);
+
+            modelBuilder.Entity<WayfarerSafetyDepositBoxItem>()
+                .HasOne(i => i.Box)
+                .WithMany(b => b.Items)
+                .HasForeignKey(i => i.BoxId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<WayfarerSafetyDepositBoxItem>()
+                .HasIndex(i => i.BoxId);
         }
 
         public virtual IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)
@@ -401,7 +434,7 @@ namespace Content.Server.Database
         public Guid UserId { get; set; }
         public int SelectedCharacterSlot { get; set; }
         public string AdminOOCColor { get; set; } = null!;
-        public int MonoCoins { get; set; } = 0;
+        public long MonoCoins { get; set; } = 0;
         public List<Profile> Profiles { get; } = new();
     }
 
@@ -436,9 +469,35 @@ namespace Content.Server.Database
 
         public string Company { get; set; } = "None";
 
+        // Mono start
+        public string[] Flags { get; set; } = [];
+        public List<ProfileComponent> Components { get; } = [];
+        public List<ProfileItem> Items { get; } = [];
+        // Mono end
+
         public int PreferenceId { get; set; }
         public Preference Preference { get; set; } = null!;
     }
+
+    // Mono start
+    public class ProfileComponent
+    {
+        public int Id { get; set; }
+        public int ProfileId { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public string Data { get; set; } = null!;
+        public bool Sticky { get; set; }
+    }
+
+    public class ProfileItem
+    {
+        public int Id { get; set; }
+        public int ProfileId { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public string Data { get; set; } = null!;
+        public bool Sticky { get; set; }
+    }
+    // Mono end
 
     public class Job
     {
@@ -1361,4 +1420,89 @@ namespace Content.Server.Database
         public string CompanyId { get; set; } = default!;
     }
     // Mono-End
+
+    // Wayfarer Safety Deposit Box Tables
+    public class WayfarerSafetyDepositBox
+    {
+        [Key]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Unique identifier for this deposit box
+        /// </summary>
+        public Guid BoxId { get; set; }
+
+        /// <summary>
+        /// The user ID of the owner
+        /// </summary>
+        public Guid OwnerUserId { get; set; }
+
+        /// <summary>
+        /// The character profile index (slot number) of the owner
+        /// </summary>
+        public int CharacterIndex { get; set; }
+
+        /// <summary>
+        /// Display name of the owner when the box was created
+        /// </summary>
+        [Required]
+        public string OwnerName { get; set; } = null!;
+
+        /// <summary>
+        /// Optional nickname for the box (from label)
+        /// </summary>
+        public string? Nickname { get; set; }
+
+        /// <summary>
+        /// Entity prototype for the box.
+        /// </summary>
+        [Required]
+        public string ProtoId { get; set; } = null!;
+
+        /// <summary>
+        /// When the box was purchased
+        /// </summary>
+        public DateTime PurchaseDate { get; set; }
+
+        /// <summary>
+        /// When the box was last withdrawn from the console. Null if currently stored in database.
+        /// Used to track boxes that are "in the world" vs "safely stored".
+        /// </summary>
+        public DateTime? LastWithdrawn { get; set; }
+
+        /// <summary>
+        /// The round ID when the box was last withdrawn. Null if currently stored in database.
+        /// Used to detect if a box was lost (withdrawn in a previous round but never deposited back).
+        /// </summary>
+        public int? LastWithdrawnRoundId { get; set; }
+
+        /// <summary>
+        /// Items stored in this box
+        /// </summary>
+        public List<WayfarerSafetyDepositBoxItem> Items { get; set; } = new();
+    }
+
+    public class WayfarerSafetyDepositBoxItem
+    {
+        [Key]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Foreign key to the deposit box
+        /// </summary>
+        public int BoxId { get; set; }
+
+        public WayfarerSafetyDepositBox Box { get; set; } = null!;
+
+        /// <summary>
+        /// Serialized entity data (YAML format)
+        /// </summary>
+        [Required]
+        public string EntityData { get; set; } = null!;
+
+        /// <summary>
+        /// When this item was deposited
+        /// </summary>
+        public DateTime DepositDate { get; set; }
+    }
 }

@@ -10,6 +10,10 @@
       department: Security
       time: 72000 # 20 hours # mono
       inverted: true # Leave slots open for newer, less confident players.
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   startingGear: CadetGear
   icon: JobIconCadetNF
   supervisors: job-supervisors-cadet
@@ -20,6 +24,8 @@
   setPreference: false # mono
   accessGroups:
   - CadetNfsdAccess
+  guides:
+  - TSFMC_Entry
   special:
   - !type:AddComponentSpecial
     components:
@@ -48,3 +54,4 @@
     - FederationMilitaryCredit50
     - BaseSecurityUplinkRadio
     - RadioHandheldNF # Mono
+    - BookTSFSOP

@@ -13,13 +13,13 @@ using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 
 namespace Content.Server._EinsteinEngines.Silicon.WeldingHealable;
 
-public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
+public sealed partial class WeldingHealableSystem : SharedWeldingHealableSystem
 {
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+    [Dependency] private SharedToolSystem _toolSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SharedBodySystem _bodySystem = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<WeldingHealableComponent, InteractUsingEvent>(Repair);

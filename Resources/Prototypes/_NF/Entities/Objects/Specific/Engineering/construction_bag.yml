@@ -49,6 +49,7 @@
   - type: ConstructionBag
   - type: StaticPrice
     price: 55.5
+    vendPrice: 300 # Mono
   - type: ItemToggle
     soundActivate: &soundActivate
       collection: sparks

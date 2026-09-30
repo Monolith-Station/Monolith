@@ -1,3 +1,4 @@
+using Content.Server._Crescent.ShipShields.Components;
 using Content.Shared._Crescent.ShipShields;
 using Content.Server.Power.Components;
 using Content.Shared.Projectiles;
@@ -16,10 +17,10 @@ namespace Content.Server._Crescent.ShipShields;
 public partial class ShipShieldsSystem
 {
     private const float MAX_EMP_DAMAGE = 10000f;
-    [Dependency] private readonly TriggerSystem _trigger = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private TriggerSystem _trigger = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     public void InitializeEmitters()
     {
         SubscribeLocalEvent<ShipShieldEmitterComponent, ShieldDeflectedEvent>(OnShieldDeflected);
@@ -61,6 +62,8 @@ public partial class ShipShieldsSystem
             return;
 
         args.PushMarkup(Loc.GetString("shield-emitter-examine", ("basedraw", component.BaseDraw), ("additional", CalculateLoadDamage(component))));
+        if (HasComp<ShipShieldDisabledGridComponent>(Transform(uid).GridUid))
+            args.PushMarkup(Loc.GetString("shield-emitter-examine-invalid-grid"));
     }
 
     private static float CalculateLoadDamage(ShipShieldEmitterComponent emitter)

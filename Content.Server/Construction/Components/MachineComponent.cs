@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Construction.Components;
+using Content.Shared.Construction.Prototypes; // Mono
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
@@ -14,6 +15,12 @@ public sealed partial class MachineComponent : Component
     public Container BoardContainer = default!;
     [ViewVariables]
     public Container PartContainer = default!;
+
+    /// <summary>
+    /// Mono - override of parts to initally spawn. Can be used to stock a machine with non-default parts.
+    /// </summary
+    [DataField]
+    public Dictionary<ProtoId<MachinePartPrototype>, EntProtoId> PartOverrides = new();
 }
 
 // Frontier: maintain upgradeable machine parts

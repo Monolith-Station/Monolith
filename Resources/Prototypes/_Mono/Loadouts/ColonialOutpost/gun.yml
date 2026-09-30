@@ -4,23 +4,23 @@
   minLimit: 1
   loadouts:
   - StationRepWeaponEnergyShotgun
-  - StationRepWeaponRifleLecter
-  - StationRepWeaponRifleAk
+  - SecurityGuardIrohLoadout
+  fallbacks:
+  - StationRepWeaponEnergyShotgun
 
 - type: loadoutGroup
   id: SecurityGuardFirearm
   name: loadout-group-weapon
   minLimit: 0
   loadouts:
-  - SecurityGuardDrozdLoadout
-  - SecurityGuardAkLoadout
-  - SecurityGuardLecterLoadout
-  - SecurityGuardVulcanLoadout
+  - SecurityGuardIrohLoadout
   - SecurityGuardVectorLoadout
   - SecurityGuardKammererLoadout
   - SecurityGuardEnforcerLoadout
   - SecurityGuardDisablerSMGLoadout
   - SecurityGuardEnergyGunLoadout
+  fallbacks:
+  - SecurityGuardIrohLoadout
 
 - type: loadoutGroup
   id: SecurityGuardPistol
@@ -28,6 +28,8 @@
   minLimit: 1
   loadouts:
   - SecurityGuardMk58Loadout #MK58
+  fallbacks:
+  - SecurityGuardMk58Loadout
 
 - type: loadoutGroup
   id: SecurityGuardAmmo
@@ -35,8 +37,8 @@
   minLimit: 1
   loadouts:
   - SecurityGuardAcpPistolRubberAmmoLoadout #MK58
-  - SecurityGuardAcpSmgAmmoRubberLoadout #Drozd / vector
+  - SecurityGuardAcpSmgAmmoRubberLoadout #Vector
   - SecurityGuardBeanbagAmmoLoadout #Beanbag
-  - SecurityGuard556x45mmAmmoLoadout # lecter
-  - SecurityGuard762x39AmmoLoadout # ak
-  - SecurityGuard762x51AmmoLoadout # vulkan
+  - SecurityGuard556x45mmAmmoLoadout # iroh
+  fallbacks:
+  - SecurityGuard556x45mmAmmoLoadout

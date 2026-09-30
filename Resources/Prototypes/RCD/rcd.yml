@@ -31,19 +31,6 @@
   fx: EffectRCDDeconstruct4
 
 # Flooring
-- type: rcd
-  id: Plating
-  name: rcd-component-plating
-  category: WallsAndFlooring
-  sprite: /Textures/Interface/Radial/RCD/plating.png
-  mode: ConstructTile
-  prototype: Plating
-  cost: 1
-  delay: 1
-  collisionMask: InteractImpassable
-  rules:
-    - CanBuildOnEmptyTile
-  fx: EffectRCDConstruct1
 
 - type: rcd
   id: FloorSteel
@@ -72,6 +59,764 @@
     - MustBuildOnSubfloor
     - IsCatwalk
   rotation: Fixed
+  fx: EffectRCDConstruct1
+
+  # Lattice - Mono
+- type: rcd
+  id: Lattice
+  name: rcd-component-lattice
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice.png
+  mode: ConstructTile
+  prototype: Lattice
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeCornerNE
+  name: rcd-component-LatticeCornerNE
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/ne.png
+  mode: ConstructTile
+  prototype: LatticeCornerNE
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeCornerNW
+  name: rcd-component-LatticeCornerNW
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/nw.png
+  mode: ConstructTile
+  prototype: LatticeCornerNW
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeCornerSE
+  name: rcd-component-LatticeCornerSE
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/se.png
+  mode: ConstructTile
+  prototype: LatticeCornerSE
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeCornerSW
+  name: rcd-component-LatticeCornerSW
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/sw.png
+  mode: ConstructTile
+  prototype: LatticeCornerSW
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfV
+  name: rcd-component-LatticeHalfV
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/half_v.png
+  mode: ConstructTile
+  prototype: LatticeHalfV
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfH
+  name: rcd-component-LatticeHalfH
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/half_h.png
+  mode: ConstructTile
+  prototype: LatticeHalfH
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeWedgeN
+  name: rcd-component-LatticeWedgeN
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/wedge_n.png
+  mode: ConstructTile
+  prototype: LatticeWedgeN
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeWedgeE
+  name: rcd-component-LatticeWedgeE
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/wedge_e.png
+  mode: ConstructTile
+  prototype: LatticeWedgeE
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeWedgeS
+  name: rcd-component-LatticeWedgeS
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/wedge_s.png
+  mode: ConstructTile
+  prototype: LatticeWedgeS
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeWedgeW
+  name: rcd-component-LatticeWedgeW
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/wedge_w.png
+  mode: ConstructTile
+  prototype: LatticeWedgeW
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltNESLower
+  name: rcd-component-LatticeHalfTiltNESLower
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_ne_s_l.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltNESLower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltSEWLower
+  name: rcd-component-LatticeHalfTiltSEWLower
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_se_w_l.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltSEWLower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltSWNLower
+  name: rcd-component-LatticeHalfTiltSWNLower
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_sw_n_l.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltSWNLower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltNWELower
+  name: rcd-component-LatticeHalfTiltNWELower
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_nw_e_l.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltNWELower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltNESUpper
+  name: rcd-component-LatticeHalfTiltNESUpper
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_ne_s_u.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltNESUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltSEWUpper
+  name: rcd-component-LatticeHalfTiltSEWUpper
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_se_w_u.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltSEWUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltSWNUpper
+  name: rcd-component-LatticeHalfTiltSWNUpper
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_sw_n_u.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltSWNUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltNWEUpper
+  name: rcd-component-LatticeHalfTiltNWEUpper
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_nw_e_u.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltNWEUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltNEWLower
+  name: rcd-component-LatticeHalfTiltNEWLower
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_ne_w_l.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltNEWLower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltSENLower
+  name: rcd-component-LatticeHalfTiltSENLower
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_se_n_l.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltSENLower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltSWELower
+  name: rcd-component-LatticeHalfTiltSWELower
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_sw_e_l.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltSWELower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltNWSLower
+  name: rcd-component-LatticeHalfTiltNWSLower
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_nw_s_l.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltNWSLower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltNEWUpper
+  name: rcd-component-LatticeHalfTiltNEWUpper
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_ne_w_u.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltNEWUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltSENUpper
+  name: rcd-component-LatticeHalfTiltSENUpper
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_se_n_u.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltSENUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltSWEUpper
+  name: rcd-component-LatticeHalfTiltSWEUpper
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_sw_e_u.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltSWEUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: LatticeHalfTiltNWSUpper
+  name: rcd-component-LatticeHalfTiltNWSUpper
+  category: LatticeTiles
+  sprite: /Textures/Interface/Radial/RCD/lattice/halftilt_nw_s_u.png
+  mode: ConstructTile
+  prototype: LatticeHalfTiltNWSUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+# Plating - Mono
+- type: rcd
+  id: Plating
+  name: rcd-component-plating
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating.png
+  mode: ConstructTile
+  prototype: Plating
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingCornerNE
+  name: rcd-component-PlatingCornerNE
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/ne.png
+  mode: ConstructTile
+  prototype: PlatingCornerNE
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingCornerNW
+  name: rcd-component-PlatingCornerNW
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/nw.png
+  mode: ConstructTile
+  prototype: PlatingCornerNW
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingCornerSE
+  name: rcd-component-PlatingCornerSE
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/se.png
+  mode: ConstructTile
+  prototype: PlatingCornerSE
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingCornerSW
+  name: rcd-component-PlatingCornerSW
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/sw.png
+  mode: ConstructTile
+  prototype: PlatingCornerSW
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfV
+  name: rcd-component-PlatingHalfV
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/half_v.png
+  mode: ConstructTile
+  prototype: PlatingHalfV
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfH
+  name: rcd-component-PlatingHalfH
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/half_h.png
+  mode: ConstructTile
+  prototype: PlatingHalfH
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingWedgeN
+  name: rcd-component-PlatingWedgeN
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/wedge_n.png
+  mode: ConstructTile
+  prototype: PlatingWedgeN
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingWedgeE
+  name: rcd-component-PlatingWedgeE
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/wedge_e.png
+  mode: ConstructTile
+  prototype: PlatingWedgeE
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingWedgeS
+  name: rcd-component-PlatingWedgeS
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/wedge_s.png
+  mode: ConstructTile
+  prototype: PlatingWedgeS
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingWedgeW
+  name: rcd-component-PlatingWedgeW
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/wedge_w.png
+  mode: ConstructTile
+  prototype: PlatingWedgeW
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltNESLower
+  name: rcd-component-PlatingHalfTiltNESLower
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_ne_s_l.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltNESLower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltSEWLower
+  name: rcd-component-PlatingHalfTiltSEWLower
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_se_w_l.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltSEWLower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltSWNLower
+  name: rcd-component-PlatingHalfTiltSWNLower
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_sw_n_l.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltSWNLower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltNWELower
+  name: rcd-component-PlatingHalfTiltNWELower
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_nw_e_l.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltNWELower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltNESUpper
+  name: rcd-component-PlatingHalfTiltNESUpper
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_ne_s_u.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltNESUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltSEWUpper
+  name: rcd-component-PlatingHalfTiltSEWUpper
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_se_w_u.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltSEWUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltSWNUpper
+  name: rcd-component-PlatingHalfTiltSWNUpper
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_sw_n_u.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltSWNUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltNWEUpper
+  name: rcd-component-PlatingHalfTiltNWEUpper
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_nw_e_u.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltNWEUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltNEWLower
+  name: rcd-component-PlatingHalfTiltNEWLower
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_ne_w_l.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltNEWLower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltSENLower
+  name: rcd-component-PlatingHalfTiltSENLower
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_se_n_l.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltSENLower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltSWELower
+  name: rcd-component-PlatingHalfTiltSWELower
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_sw_e_l.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltSWELower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltNWSLower
+  name: rcd-component-PlatingHalfTiltNWSLower
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_nw_s_l.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltNWSLower
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltNEWUpper
+  name: rcd-component-PlatingHalfTiltNEWUpper
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_ne_w_u.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltNEWUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltSENUpper
+  name: rcd-component-PlatingHalfTiltSENUpper
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_se_n_u.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltSENUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltSWEUpper
+  name: rcd-component-PlatingHalfTiltSWEUpper
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_sw_e_u.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltSWEUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: PlatingHalfTiltNWSUpper
+  name: rcd-component-PlatingHalfTiltNWSUpper
+  category: PlatingTiles
+  sprite: /Textures/Interface/Radial/RCD/plating/halftilt_nw_s_u.png
+  mode: ConstructTile
+  prototype: PlatingHalfTiltNWSUpper
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+    - CanBuildOnEmptyTile
   fx: EffectRCDConstruct1
 
 # Walls

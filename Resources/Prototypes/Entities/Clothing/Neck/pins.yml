@@ -11,6 +11,9 @@
     sprite: Clothing/Neck/Misc/pins.rsi
   - type: Clothing
     sprite: Clothing/Neck/Misc/pins.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -22,6 +25,9 @@
     state: lgbt
   - type: Clothing
     equippedPrefix: lgbt
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -33,7 +39,10 @@
     state: ally
   - type: Clothing
     equippedPrefix: ally
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckAromanticPin
@@ -44,7 +53,10 @@
     state: aro
   - type: Clothing
     equippedPrefix: aro
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckAsexualPin
@@ -55,7 +67,10 @@
     state: asex
   - type: Clothing
     equippedPrefix: asex
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckBisexualPin
@@ -66,7 +81,10 @@
     state: bi
   - type: Clothing
     equippedPrefix: bi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckGayPin
@@ -77,7 +95,10 @@
     state: gay
   - type: Clothing
     equippedPrefix: gay
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckIntersexPin
@@ -88,7 +109,10 @@
     state: inter
   - type: Clothing
     equippedPrefix: inter
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckLesbianPin
@@ -99,7 +123,10 @@
     state: les
   - type: Clothing
     equippedPrefix: les
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckNonBinaryPin
@@ -110,7 +137,10 @@
     state: non
   - type: Clothing
     equippedPrefix: non
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckPansexualPin
@@ -121,7 +151,10 @@
     state: pan
   - type: Clothing
     equippedPrefix: pan
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckOmnisexualPin
@@ -132,7 +165,10 @@
     state: omni
   - type: Clothing
     equippedPrefix: omni
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckGenderqueerPin
@@ -143,7 +179,10 @@
     state: gender
   - type: Clothing
     equippedPrefix: gender
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckTransPin
@@ -154,7 +193,10 @@
     state: trans
   - type: Clothing
     equippedPrefix: trans
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckAutismPin
@@ -165,7 +207,10 @@
     state: autism
   - type: Clothing
     equippedPrefix: autism
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckGoldAutismPin
@@ -176,3 +221,6 @@
     state: goldautism
   - type: Clothing
     equippedPrefix: goldautism
+  - type: Tag
+    tags:
+    - PetWearable

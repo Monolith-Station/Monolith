@@ -17,6 +17,12 @@ public sealed partial class LoadoutComponent : Component
     public List<ProtoId<StartingGearPrototype>>? StartingGear;
 
     /// <summary>
+    /// Mono - components to add to the entity if the loadout is selected
+    /// </summary>
+    [DataField]
+    public ComponentRegistry Components { get; private set; } = new();
+
+    /// <summary>
     /// A list of role loadouts, of which one will be given.
     /// All elements are weighted the same in the list.
     /// </summary>

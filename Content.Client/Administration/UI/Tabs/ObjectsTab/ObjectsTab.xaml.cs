@@ -13,9 +13,9 @@ namespace Content.Client.Administration.UI.Tabs.ObjectsTab;
 [GenerateTypedNameReferences]
 public sealed partial class ObjectsTab : Control
 {
-    [Dependency] private readonly IClientAdminManager _admin = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IClientConsoleHost _console = default!;
+    [Dependency] private IClientAdminManager _admin = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IClientConsoleHost _console = default!;
 
     private readonly Color _altColor = Color.FromHex("#363636");
     private readonly Color _defaultColor = Color.FromHex("#2F2F3B");
@@ -76,7 +76,7 @@ public sealed partial class ObjectsTab : Control
         switch (selection)
         {
             case ObjectsTabSelection.Stations:
-                entities.AddRange(_entityManager.EntitySysManager.GetEntitySystem<StationSystem>().Stations);
+                entities.AddRange(_entityManager.EntitySysManager.GetEntitySystem<StationSystem>().GetStationNames());
                 break;
             case ObjectsTabSelection.Grids:
             {

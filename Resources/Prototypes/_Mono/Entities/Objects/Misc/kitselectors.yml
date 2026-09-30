@@ -18,3 +18,48 @@
     interfaces:
       enum.ThiefBackpackUIKey.Key:
         type: ThiefBackpackBoundUserInterface
+
+- type: entity
+  id: UndeterminedPDVTarkhanKit
+  name: PDV Tarkhan equipment selector
+  description: A small remote utilizing bluespace technology to drop in an imperial Tarkhan kit of your choosing.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: ThiefUndeterminedBackpack
+    possibleSets:
+    - KitSelectorPDVTarkhanBreacher
+    - KitSelectorPDVTarkhanMolot
+    - KitSelectorPDVTarkhanWSPR
+    maxSelectedSets: 1
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface
+
+- type: entity
+  id: UndeterminedTSFMarsocKit
+  name: TSF Marsoc equipment selector
+  description: A small remote utilizing bluespace technology to drop in a TSF MARSOC kit of your choosing.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: ThiefUndeterminedBackpack
+    possibleSets:
+    - KitSelectorTSFMarsocFenghuang
+    - KitSelectorTSFMarsocShenzhen
+    - KitSelectorTSFMarsocPulseCarbine
+    - KitSelectorTSFMarsocHailstorm
+    maxSelectedSets: 1
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface

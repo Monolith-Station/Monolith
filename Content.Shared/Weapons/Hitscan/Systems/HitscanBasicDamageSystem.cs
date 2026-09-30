@@ -4,9 +4,9 @@ using Content.Shared.Weapons.Hitscan.Events;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
-public sealed class HitscanBasicDamageSystem : EntitySystem
+public sealed partial class HitscanBasicDamageSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private DamageableSystem _damage = default!;
 
     public override void Initialize()
     {
@@ -17,22 +17,30 @@ public sealed class HitscanBasicDamageSystem : EntitySystem
 
     private void OnHitscanHit(Entity<HitscanBasicDamageComponent> ent, ref HitscanRaycastFiredEvent args)
     {
-        if (args.Canceled || args.HitEntity == null)
+        if (args.Canceled) // Mono
             return;
 
         var dmg = ent.Comp.Damage * _damage.UniversalHitscanDamageModifier;
 
-        var damageDealt = _damage.TryChangeDamage(args.HitEntity, dmg, origin: args.Gun);
-
-        if (damageDealt == null)
-            return;
-
-        var damageEvent = new HitscanDamageDealtEvent
+        foreach (var hitEntity in args.HitEntities) // Mono edit
         {
-            Target = args.HitEntity.Value,
-            DamageDealt = damageDealt,
-        };
+            var damageDealt = _damage.TryChangeDamage(hitEntity,
+                dmg,
+                origin: args.Gun,
+                tool: ent.Owner, // Mono - we need this
+                armorPenetration: ent.Comp.ArmorPenetration,
+                ignoreResistances: ent.Comp.IgnoreResistances); // Mono - AP
 
-        RaiseLocalEvent(ent, ref damageEvent);
+            if (damageDealt == null)
+                continue;
+
+            var damageEvent = new HitscanDamageDealtEvent
+            {
+                Target = hitEntity, // Mono
+                DamageDealt = damageDealt,
+            };
+
+            RaiseLocalEvent(ent, ref damageEvent);
+        }
     }
 }

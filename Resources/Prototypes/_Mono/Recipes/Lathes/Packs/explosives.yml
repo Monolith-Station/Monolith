@@ -1,4 +1,11 @@
-
+- type: latheRecipePack
+  id: StaticGrenades
+  recipes:
+  - GrenadeFlashBang
+  - SmokeGrenade
+  - AirGrenade
+  - TearGasGrenade
+  - ExGrenade
 
 - type: latheRecipePack
   id: ResearchedExplosives

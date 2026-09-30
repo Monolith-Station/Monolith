@@ -26225,7 +26225,7 @@ entities:
     - type: Transform
       pos: 16.5,1.5
       parent: 31
-- proto: ChemistryHotplate
+- proto: MachineThermobath
   entities:
   - uid: 4207
     components:
@@ -51418,7 +51418,6 @@ entities:
       parent: 31
     - type: ApcPowerReceiver
       powerLoad: 0
-    - type: Timer
   - uid: 1324
     components:
     - type: Transform

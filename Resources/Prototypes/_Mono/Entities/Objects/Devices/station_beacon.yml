@@ -106,7 +106,7 @@
   - type: NavMapBeacon
     defaultText: station-beacon-exped-lounge
     color: "#b8b873"
-    
+
 - type: entity
   parent: DefaultStationBeaconCargoBay
   id: DefaultStationBeaconMailRoom
@@ -114,3 +114,104 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-mail-room
+
+#Viper Group Beacons
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconViperShipyard
+  suffix: Viper Group Shipyard
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-viper-shipyard
+    color: "#ff4242"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconViperDockAlpha
+  suffix: Viper Group Docks, Alpha
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-viper-dock-alpha
+    color: "#ff4242"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconViperDockBeta
+  suffix: Viper Group Docks, Beta
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-viper-dock-beta
+    color: "#ff4242"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconViperControl
+  suffix: Viper Group Control Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-viper-control
+    color: "#ff4242"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconViperReception
+  suffix: Viper Group Reception
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-viper-reception
+    color: "#ff4242"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconViperDorms
+  suffix: Viper Group Dorms
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-viper-dorms
+    color: "#ff4242"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconViperCommander
+  suffix: Viper Group Commander
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-viper-commander
+    color: "#ff4242"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconViperArmory
+  suffix: Viper Group Armory
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-viper-armory
+    color: "#ff4242"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconViperCargo
+  suffix: Viper Group Cargo
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-viper-cargo
+    color: "#ff4242"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconViperBrig
+  suffix: Viper Group Brig
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-viper-brig
+    color: "#ff4242"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconViperServers
+  suffix: Viper Group Servers
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-viper-servers
+    color: "#ff4242"

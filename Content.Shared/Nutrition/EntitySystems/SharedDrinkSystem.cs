@@ -8,8 +8,8 @@ namespace Content.Shared.Nutrition.EntitySystems;
 
 public abstract partial class SharedDrinkSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly OpenableSystem _openable = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private OpenableSystem _openable = default!;
 
     public override void Initialize()
     {

@@ -1,9 +1,11 @@
 using System.Numerics;
+using Content.Shared._Mono.Detection;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Weapons.Ranged.Components;
@@ -46,7 +48,7 @@ public sealed partial class GunComponent : Component
     /// The base scalar value applied to the vector governing camera recoil.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float CameraRecoilScalar = 1f;
+    public float CameraRecoilScalar = 0.5f; // Mono
 
     /// <summary>
     /// A scalar value applied to the vector governing camera recoil.
@@ -54,7 +56,7 @@ public sealed partial class GunComponent : Component
     /// <seealso cref="GunRefreshModifiersEvent"/>
     /// </summary>
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float CameraRecoilScalarModified = 1f;
+    public float CameraRecoilScalarModified = 0.5f; // Mono
 
     /// <summary>
     /// Last time the gun fired.
@@ -340,6 +342,13 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public float ExecutionModifier = 9.0f;
+
+    /// <summary>
+    /// Mono
+    /// Muzzle flash for gun. Takes priority over ammo flash.
+    /// </summary>
+    [DataField]
+    public EntProtoId? MuzzleFlash;
 }
 
 [Flags]

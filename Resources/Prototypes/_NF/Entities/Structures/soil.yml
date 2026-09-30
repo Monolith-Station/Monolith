@@ -7,9 +7,9 @@
   - type: PlantHolder
     waterLevel: 0
     nutritionLevel: 0
-  - type: Construction
-    graph: soil
-    node: HydroponicsSoilEmpty
+#  - type: Construction #Mono out: This has conflicts with the plantholder component
+#    graph: soil
+#    node: HydroponicsSoilEmpty
 
 - type: entity
   parent: hydroponicsSoil
@@ -19,6 +19,6 @@
   - type: PlantHolder
     waterLevel: 0
     nutritionLevel: 100
-  - type: Construction
-    graph: soil
-    node: HydroponicsSoilNutrition
+#  - type: Construction
+#    graph: soil
+#    node: HydroponicsSoilNutrition

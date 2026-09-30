@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Throwing;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -30,7 +31,7 @@ public sealed partial class MeleeThrowOnHitComponent : Component
     /// Whether or not anchorable entities should be unanchored when hit.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool UnanchorOnHit;
+    public ThrowingUnanchorStrength UnanchorOnHit = ThrowingUnanchorStrength.None;
 
     /// <summary>
     /// Frontier - If any entities on the whitelist then UnanchorOnHit won't work on anything else.

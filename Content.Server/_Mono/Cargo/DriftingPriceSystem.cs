@@ -4,10 +4,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.Cargo;
 
-public sealed class DriftingPriceSystem : EntitySystem
+public sealed partial class DriftingPriceSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private float _updateSpacing = 1f;
     private float _updateAccum = 0f;

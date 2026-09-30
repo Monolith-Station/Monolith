@@ -26,8 +26,10 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared._NF.CCVar;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
+using Content.Shared.Station.Components;
 using Content.Shared.Verbs;
 using Robust.Server.Containers;
+using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
@@ -44,27 +46,28 @@ namespace Content.Server._NF.CryoSleep;
 
 public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly ClimbSystem _climb = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly EuiManager _euiManager = null!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly InteractionSystem _interaction = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MobStateSystem _mobSystem = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly ShipyardSystem _shipyard = default!; // For the FoundOrganics method
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly RadioSystem _radioSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly JobSystem _jobs = default!;
-    [Dependency] private readonly StationJobsSystem _stationJobs = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private ClimbSystem _climb = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private EuiManager _euiManager = null!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private InteractionSystem _interaction = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private MobStateSystem _mobSystem = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private ShipyardSystem _shipyard = default!; // For the FoundOrganics method
+    [Dependency] private GhostSystem _ghost = default!;
+    [Dependency] private RadioSystem _radioSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private JobSystem _jobs = default!;
+    [Dependency] private StationJobsSystem _stationJobs = default!;
+    [Dependency] private StationSystem _station = default!;
 
     private readonly Dictionary<NetUserId, StoredBody?> _storedBodies = new();
     private EntityUid? _storageMap;
@@ -234,21 +237,18 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
         }
 
         // If the inserted player has disconnected, it will be stored immediately.
-        if (_mind.TryGetMind(toInsert.Value, out var mind, out var mindComp))
+        if (_player.TryGetSessionByEntity(toInsert.Value, out var session)
+            && session.Status == SessionStatus.Disconnected)
         {
-            var session = mindComp.Session;
-            if (session is not null && session.Status == SessionStatus.Disconnected)
-            {
-                CryoStoreBody(toInsert.Value, cryopod);
-                return true;
-            }
+            CryoStoreBody(toInsert.Value, cryopod);
+            return true;
         }
 
         var success = _container.Insert(toInsert.Value, component.BodyContainer);
 
-        if (success && mindComp?.Session != null)
+        if (success && session != null)
         {
-            _euiManager.OpenEui(new CryoSleepEui(toInsert.Value,  cryopod, this), mindComp.Session);
+            _euiManager.OpenEui(new CryoSleepEui(toInsert.Value,  cryopod, this), session);
         }
 
         if (success)
@@ -528,7 +528,7 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
 
         // Get the entity owned by this mind
         var mindEntity = args.MindId;
-        if (!_mind.TryGetSession(mindEntity, out var session) ||
+        if (!_player.TryGetSessionById(args.Mind.UserId, out var session) ||
             session.AttachedEntity is not { Valid: true } playerEntity)
             return;
 

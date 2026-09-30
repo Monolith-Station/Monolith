@@ -1,0 +1,49 @@
+highp vec2 hash(highp vec2 p) {
+    p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
+    return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);
+}
+
+highp float noise(highp vec2 p) {
+    const highp float K1 = 0.366025403; // (sqrt(3)-1)/2;
+    const highp float K2 = 0.211324865; // (3-sqrt(3))/6;
+
+    highp vec2 i = floor(p + (p.x + p.y) * K1);
+    highp vec2 a = p - i + (i.x + i.y) * K2;
+    highp float m = step(a.y, a.x);
+    highp vec2 o = vec2(m, 1.0 - m);
+    highp vec2 b = a - o + K2;
+    highp vec2 c = a - 1.0 + 2.0 * K2;
+
+    highp vec3 h = max(0.5 - vec3(dot(a, a), dot(b, b), dot(c, c)), 0.0);
+    highp vec3 n = h * h * h * h * vec3(dot(a, hash(i + 0.0)), dot(b, hash(i + o)), dot(c, hash(i + 1.0)));
+
+    return dot(n, vec3(70.0));
+}
+
+highp float fbm(highp vec2 p) {
+    highp float value = 0.0;
+    highp float amplitude = 0.5;
+    highp float frequency = 1.0;
+    for (highp int i = 0; i < 3; i++) {
+        value += amplitude * noise(p * frequency);
+        frequency *= 2.0;
+        amplitude *= 0.5;
+    }
+    return value;
+}
+
+highp vec3 rgb2hsv(highp vec3 c) {
+    highp vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    highp vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    highp vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+
+    highp float d = q.x - min(q.w, q.y);
+    highp float eps = 0.00001;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + eps)), d / (q.x + eps), q.x);
+}
+
+highp vec3 hsv2rgb(highp vec3 c) {
+    highp vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    highp vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}

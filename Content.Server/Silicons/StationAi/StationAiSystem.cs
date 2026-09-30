@@ -3,6 +3,29 @@ using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Mind;
+using Content.Server.Construction;
+using Content.Server.Destructible;
+using Content.Server.Ghost;
+using Content.Server.Mind;
+using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
+using Content.Server.Roles;
+using Content.Server.Spawners.Components;
+using Content.Server.Spawners.EntitySystems;
+using Content.Server.Station.Systems;
+using Content.Shared.Alert;
+using Content.Shared.Chat.Prototypes;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Damage;
+using Content.Shared.Destructible;
+using Content.Shared.DeviceNetwork.Components;
+using Content.Shared.DoAfter;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
+using Content.Shared.Power;
+using Content.Shared.Power.Components;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StationAi;
@@ -13,13 +36,13 @@ using static Content.Server.Chat.Systems.ChatSystem;
 
 namespace Content.Server.Silicons.StationAi;
 
-public sealed class StationAiSystem : SharedStationAiSystem
+public sealed partial class StationAiSystem : SharedStationAiSystem
 {
-    [Dependency] private readonly IChatManager _chats = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedTransformSystem _xforms = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private IChatManager _chats = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedTransformSystem _xforms = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedRoleSystem _roles = default!;
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _ais = new();
 

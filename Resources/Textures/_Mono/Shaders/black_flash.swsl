@@ -1,0 +1,70 @@
+uniform highp vec2 positionInput;
+uniform highp vec2 renderScale;
+uniform highp float angle;
+uniform highp float life;
+uniform highp float scale;
+uniform highp float intensity;
+uniform highp float seed;
+
+const highp float Cone = 1.25; // half-angle of the spray, radians
+
+highp float hash(highp float n) {
+    return fract(sin(n * 12.9898 + 4.1414) * 43758.5453);
+}
+
+highp float diamond(highp vec2 p, highp vec2 halfSize) {
+    highp vec2 q = abs(p) / max(halfSize, vec2(0.0001));
+    return q.x + q.y;
+}
+
+void fragment() {
+    highp vec2 raw = (FRAGCOORD.xy - positionInput) / (renderScale * 32.0 * max(scale, 0.001));
+
+    highp float ca = cos(-angle);
+    highp float sa = sin(-angle);
+    highp vec2 p = vec2(raw.x * ca - raw.y * sa, raw.x * sa + raw.y * ca);
+
+    highp float t = clamp(life, 0.0, 1.0);
+    highp float fade = 1.0 - smoothstep(0.8, 1.0, t);
+
+    highp float count = floor(mix(3.0, 14.0, intensity));
+    highp float reach = mix(0.75, 2.0, intensity);
+
+    highp float body = 0.0;
+    highp float glow = 0.0;
+    for (int i = 0; i < 14; i++) {
+        highp float fi = float(i);
+        if (fi >= count)
+            break;
+
+        highp float s = fi + seed * 53.0;
+        highp float r1 = hash(s + 1.7);
+        highp float r2 = hash(s + 9.3);
+        highp float r3 = hash(s + 21.1);
+        highp float r4 = hash(s + 34.5);
+
+        highp float spray = (r1 - 0.5) * 2.0 * Cone;
+        highp vec2 dir = vec2(cos(spray), sin(spray));
+        highp float travel = 0.04 + t * reach * (0.55 + 0.85 * r2);
+
+        highp float tilt = spray + (r3 - 0.5) * 1.5;
+        highp vec2 ax = vec2(cos(tilt), sin(tilt));
+
+        highp vec2 birth = vec2(r4 - 0.5, r3 - 0.5) * 0.14;
+        highp vec2 rel = p - birth - dir * travel;
+        highp vec2 loc = vec2(dot(rel, ax), dot(rel, vec2(-ax.y, ax.x)));
+
+        highp float len = (0.26 + 0.34 * r2) * (1.0 - 0.5 * t);
+        highp float wid = (0.08 + 0.07 * r1) * (1.0 - 0.6 * t);
+
+        highp float d = diamond(loc, vec2(len, wid));
+        body = max(body, 1.0 - smoothstep(0.6, 1.0, d));
+        glow = max(glow, 1.0 - smoothstep(1.0, 2.0, d));
+    }
+
+    highp float flash = 1.0 - smoothstep(0.0, 0.16, t);
+    lowp vec3 red = mix(vec3(0.82, 0.04, 0.05), vec3(1.0, 0.55, 0.45), flash * 0.8);
+    lowp vec3 col = mix(red, vec3(0.02, 0.0, 0.01), body);
+
+    COLOR = vec4(col, max(body, glow * 0.8) * fade);
+}

@@ -4,6 +4,7 @@ using Content.Server.Instruments;
 using Content.Server.Kitchen.Components;
 using Content.Shared.Instruments;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Kitchen.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.PAI;
 using Content.Shared.Popups;
@@ -13,13 +14,13 @@ using Robust.Shared.Player;
 
 namespace Content.Server.PAI;
 
-public sealed class PAISystem : SharedPAISystem
+public sealed partial class PAISystem : SharedPAISystem
 {
-    [Dependency] private readonly InstrumentSystem _instrumentSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ToggleableGhostRoleSystem _toggleableGhostRole = default!;
+    [Dependency] private InstrumentSystem _instrumentSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ToggleableGhostRoleSystem _toggleableGhostRole = default!;
 
     /// <summary>
     /// Possible symbols that can be part of a scrambled pai's name.

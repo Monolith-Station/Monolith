@@ -5,3 +5,19 @@
   components:
   - type: AccessReader
     access: [["Mercenary"]]
+
+- type: entity
+  id: LockableButtonViper
+  suffix: Viper
+  parent: LockableButton
+  components:
+  - type: AccessReader
+    access: [["Viper"]]
+
+- type: entity
+  id: LockableButtonMieyo
+  suffix: Mieyo
+  parent: LockableButton
+  components:
+  - type: AccessReader
+    access: [["Mieyo"]]

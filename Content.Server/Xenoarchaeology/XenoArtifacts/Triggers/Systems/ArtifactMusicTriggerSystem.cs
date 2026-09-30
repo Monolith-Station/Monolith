@@ -8,9 +8,9 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
 /// <summary>
 /// This handles activating an artifact when music is playing nearby
 /// </summary>
-public sealed class ArtifactMusicTriggerSystem : EntitySystem
+public sealed partial class ArtifactMusicTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly ArtifactSystem _artifact = default!;
+    [Dependency] private ArtifactSystem _artifact = default!;
 
     private readonly List<Entity<ArtifactMusicTriggerComponent, TransformComponent>> _artifacts = new();
 

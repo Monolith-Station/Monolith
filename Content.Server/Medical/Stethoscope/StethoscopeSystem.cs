@@ -16,11 +16,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Medical.Stethoscope
 {
-    public sealed class StethoscopeSystem : EntitySystem
+    public sealed partial class StethoscopeSystem : EntitySystem
     {
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+        [Dependency] private MobStateSystem _mobStateSystem = default!;
 
         public override void Initialize()
         {

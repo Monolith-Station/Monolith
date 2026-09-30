@@ -22,7 +22,7 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Server.Maps;
+using Content.Shared.Maps;
 using Content.Shared.StationRecords;
 using Content.Server.Chat.Systems;
 using Content.Server.Mind;
@@ -35,7 +35,7 @@ using static Content.Shared._NF.Shipyard.Components.ShuttleDeedComponent;
 using Content.Server.Shuttles.Components;
 using Content.Server._NF.Station.Components;
 using System.Text.RegularExpressions;
-using Content.Server._Mono.Economy;
+using Content.Server._Mono.Grid;
 using Content.Server._Mono.Shipyard;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Stack;
@@ -46,10 +46,11 @@ using Content.Shared._NF.Bank.BUI;
 using Content.Shared._NF.ShuttleRecords;
 using Content.Server.StationEvents.Components;
 using Content.Shared._Mono.Company;
-using Content.Shared._Mono.Economy.Component;
+using Content.Shared._Mono.Grid;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Player;
+using Robust.Server.Player;
 using Content.Shared._Mono.Ships.Components;
 using Content.Shared._Mono.Shipyard;
 using Content.Shared._Mono.Traits.Physical; // Mono
@@ -57,33 +58,36 @@ using Content.Shared.Coordinates; // Mono
 using Content.Shared.Stacks; // Mono
 using Content.Shared.Tag;
 using Robust.Shared.Timing;
+using Content.Server._Mono.Detection;
 
 namespace Content.Server._NF.Shipyard.Systems;
 
 public sealed partial class ShipyardSystem : SharedShipyardSystem
 {
-    [Dependency] private readonly AccessSystem _accessSystem = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly IServerPreferencesManager _prefManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly BankSystem _bank = default!;
-    [Dependency] private readonly IdCardSystem _idSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly StationRecordsSystem _records = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly ShuttleRecordsSystem _shuttleRecordsSystem = default!;
-    [Dependency] private readonly ShuttleConsoleLockSystem _shuttleConsoleLock = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly CreditReceiverSystem _cash = default!;
-    [Dependency] private readonly StackSystem _stackSystem = default!; // Mono
+    [Dependency] private ApplyIFFFlagsToDockedShipsSystem _applyIff = default!;
+    [Dependency] private AccessSystem _accessSystem = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private IServerPreferencesManager _prefManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private BankSystem _bank = default!;
+    [Dependency] private IdCardSystem _idSystem = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private StationRecordsSystem _records = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private ShuttleRecordsSystem _shuttleRecordsSystem = default!;
+    [Dependency] private ShuttleConsoleLockSystem _shuttleConsoleLock = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private GridModifierSystem _hullmods = default!;
+    [Dependency] private StackSystem _stackSystem = default!; // Mono
 
     private static readonly ProtoId<TagPrototype> CrewedShuttleTag = "CrewedShuttle";
     private static readonly Regex DeedRegex = new(@"\s*\([^()]*\)");
@@ -186,6 +190,15 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             Del(shuttleUid);
             return;
         }
+        if (TryComp<ShipyardListingComponent>(shipyardConsoleUid, out var listingComp) && listingComp.Hullmods.Count > 0)
+        {
+            List<ProtoId<GridModificationPrototype>> modifiers = [];
+            foreach (var gridmod in listingComp.Hullmods)
+            {
+                modifiers.Add(gridmod);
+            }
+            _hullmods.ModifyGrid(ev.Shuttle, modifiers);
+        }
 
         // Mono - whether we use a voucher or not, we need the current balance here.
         _cash.TryGetCash(shipyardConsoleUid, out var cash, out var cashBalance);
@@ -204,8 +217,9 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 			}
 			else
 			{
-				ConsolePopup(player, Loc.GetString("ship-voucher-cooldown-active", ("remainingTime", Math.Round(remainingTime.TotalSeconds))));
+				ConsolePopup(player, Loc.GetString("ship-voucher-cooldown-active", ("remainingTime", Math.Round(remainingTime.TotalMinutes))));
             	PlayDenySound(player, shipyardConsoleUid, component);
+                Del(shuttleUid);
 				return;
 			}
 			// End mono
@@ -364,7 +378,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
             if (!recSuccess &&
                 _mind.TryGetMind(player, out var mindUid, out var mindComp)
-                && _prefManager.GetPreferences(_mind.GetSession(mindComp)!.UserId).SelectedCharacter is HumanoidCharacterProfile profile)
+                && _prefManager.GetPreferencesOrNull(mindComp.UserId)?.SelectedCharacter is HumanoidCharacterProfile profile)
             {
                 TryComp<FingerprintComponent>(player, out var fingerprintComponent);
                 TryComp<DnaComponent>(player, out var dnaComponent);
@@ -382,6 +396,11 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         // Ensure cleanup on ship sale
         EnsureComp<LinkedLifecycleGridParentComponent>(shuttleUid);
+
+        // Mono: if parent grid has ApplyIFFFlagsToDockedShips make sure to apply it to purchased ships too.
+        if (TryComp<ApplyIFFFlagsToDockedShipsComponent>(Transform(shipyardConsoleUid).ParentUid, out var applyIffComp))
+            _applyIff.ApplyFlags(shuttleUid, applyIffComp, true);
+        // Mono end
 
         var sellValue = 0;
         if (!voucherUsed)
@@ -793,9 +812,9 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
                 continue;
 
             // Check if we have a player entity that's either still around or alive and may come back
-            if (_mind.TryGetMind(child, out var mind, out var mindComp)
-                && (mindComp.Session != null
-                || !_mind.IsCharacterDeadPhysically(mindComp)))
+            if (_player.TryGetSessionByEntity(child, out var session)
+                || _mind.TryGetMind(child, out var mind, out var mindComp)
+                    && !_mind.IsCharacterDeadPhysically(mindComp))
             {
                 return Name(child);
             }
@@ -1019,9 +1038,8 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         int resaleValue = baseAppraisal;
         if (!console.Comp.IgnoreBaseSaleRate)
             resaleValue = (int)(_baseSaleRate * resaleValue);
-
-        resaleValue -= CalculateTotalSalesTax(console.Comp, resaleValue);
-        return resaleValue;
+        var unBalanceTaxedResaleValue = resaleValue - CalculateTotalSalesTax(console.Comp, resaleValue);
+        return unBalanceTaxedResaleValue;
     }
 
     // Calculates total sales tax over all accounts.
@@ -1130,6 +1148,13 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             PlayDenySound(player, uid, component);
             return;
         }
+
+        if (TryComp<ShipyardVoucherComponent>(targetId, out var voucher) && voucher.CanBeUnassigned != true) // Mono: If voucher is not allowed to unassign deeds, fail.
+        {
+            ConsolePopup(player, Loc.GetString("shipyard-console-no-unassign"));
+            PlayDenySound(player, uid, component);
+            return;
+        } // end mono
 
         // Check if the player is on cooldown
         var cooldown = EnsureComp<ShipyardUnassignCooldownComponent>(player);

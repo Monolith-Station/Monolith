@@ -1,0 +1,19 @@
+- type: starSystem
+  id: SystemKyphrus
+  star: StarKyphrus
+  planets:
+    - planet: PlanetFervidus
+      distance: 6200
+      angle: 0.35
+    - planet: PlanetMerak
+      distance: 9400
+      angle: 1.15
+    - planet: PlanetAsclepiu
+      distance: 12800
+      angle: 2.4
+    - planet: PlanetAerumna
+      distance: 17500
+      angle: 3.55
+    - planet: PlanetThrascias
+      distance: 27500
+      angle: 4.6

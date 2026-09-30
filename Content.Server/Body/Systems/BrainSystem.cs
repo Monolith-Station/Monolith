@@ -13,10 +13,10 @@ using Content.Shared.Body.Systems;
 
 namespace Content.Server.Body.Systems
 {
-    public sealed class BrainSystem : EntitySystem
+    public sealed partial class BrainSystem : EntitySystem
     {
-        [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-        [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
+        [Dependency] private SharedMindSystem _mindSystem = default!;
+        [Dependency] private SharedBodySystem _bodySystem = default!; // Shitmed Change
         public override void Initialize()
         {
             base.Initialize();

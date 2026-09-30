@@ -3,41 +3,71 @@
   name: "animal"
   root: torso
   slots:
+    head:
+      part: HeadAnimal
+      connections:
+      - torso
+      organs:
+        brain: OrganAnimalBrain
+        eyes: OrganAnimalEyes
     torso:
       part: TorsoAnimal
       connections:
-      - legs
+      - right leg
+      - left leg
+      - head # Shitmed
       organs:
         lungs: OrganAnimalLungs
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
         heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
-    legs:
-      part: LegsAnimal
+    right leg:
+      part: RightLegsAnimal
       connections:
-      - feet
-    feet:
-      part: FeetAnimal
+      - right foot
+    left leg:
+      part: LeftLegsAnimal
+      connections:
+      - left foot
+    right foot:
+      part: RightAnimalFeet
+    left foot:
+      part: LeftAnimalFeet
 
 - type: body
   id: Mouse
   name: "mouse"
   root: torso
   slots:
+    head:
+      part: HeadAnimal
+      connections:
+      - torso
+      organs:
+        brain: OrganAnimalBrain
+        eyes: OrganAnimalEyes
     torso:
       part: TorsoAnimal
       connections:
-      - legs
+      - right leg
+      - left leg
+      - head # Shitmed
       organs:
         lungs: OrganAnimalLungs
         stomach: OrganMouseStomach
         liver: OrganAnimalLiver
         heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
-    legs:
-      part: LegsAnimal
+    right leg:
+      part: RightLegsAnimal
       connections:
-      - feet
-    feet:
-      part: FeetAnimal
+      - right foot
+    left leg:
+      part: LeftLegsAnimal
+      connections:
+      - left foot
+    right foot:
+      part: RightAnimalFeet
+    left foot:
+      part: LeftAnimalFeet

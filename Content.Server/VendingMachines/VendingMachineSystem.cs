@@ -4,7 +4,6 @@ using System.Numerics;
 using Content.Server.Advertise;
 using Content.Server.Advertise.Components;
 using Content.Server.Cargo.Systems;
-//using Content.Server.Emp; // Frontier: Upstream - #28984
 using Content.Server.Cargo.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -12,6 +11,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared._NF.Bank.Components; // Frontier
+using Content.Shared.Cargo;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
@@ -32,33 +32,31 @@ using Robust.Shared.Audio.Systems;
 using Content.Server.Administration.Logs; // Frontier
 using Content.Shared.Database; // Frontier
 using Content.Shared._NF.Bank.BUI; // Frontier
-using Content.Server.Stack;
 using Content.Server._Mono.VendingMachine;
 using Content.Shared._Mono.Traits.Physical;
 using Content.Shared._Mono.Economy; // Mono - Seperation of cash payment from VendingMachineComp
-using Content.Shared._Mono.Economy.Component;
 
 namespace Content.Server.VendingMachines
 {
-    public sealed class VendingMachineSystem : SharedVendingMachineSystem
+    public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-        [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-        [Dependency] private readonly PricingSystem _pricing = default!;
-        [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
-        [Dependency] private readonly SharedPointLightSystem _light = default!;
-        [Dependency] private readonly EmagSystem _emag = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private AccessReaderSystem _accessReader = default!;
+        [Dependency] private AppearanceSystem _appearanceSystem = default!;
+        [Dependency] private PricingSystem _pricing = default!;
+        [Dependency] private ThrowingSystem _throwingSystem = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private SpeakOnUIClosedSystem _speakOnUIClosed = default!;
+        [Dependency] private SharedPointLightSystem _light = default!;
+        [Dependency] private EmagSystem _emag = default!;
 
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // Frontier
-        [Dependency] private readonly SharedAudioSystem _audioSystem = default!; // Frontier
-        [Dependency] private readonly BankSystem _bankSystem = default!; // Frontier
-        [Dependency] private readonly PopupSystem _popupSystem = default!; // Frontier
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!; // Frontier
-        [Dependency] private readonly VendingMachinePurchaseSystem _vendingPurchase = default!; // Mono
-        [Dependency] private readonly SharedCreditReceiverSystem _cash = default!; // Mono - Pwease chwose two pway wiw cawsh ow cwedit
+        [Dependency] private IPrototypeManager _prototypeManager = default!; // Frontier
+        [Dependency] private SharedAudioSystem _audioSystem = default!; // Frontier
+        [Dependency] private BankSystem _bankSystem = default!; // Frontier
+        [Dependency] private PopupSystem _popupSystem = default!; // Frontier
+        [Dependency] private IAdminLogManager _adminLogger = default!; // Frontier
+        [Dependency] private VendingMachinePurchaseSystem _vendingPurchase = default!; // Mono
+        [Dependency] private SharedCreditReceiverSystem _cash = default!; // Mono - Pwease chwose two pway wiw cawsh ow cwedit
 
         private const float WallVendEjectDistanceFromWall = 1f;
 
@@ -71,6 +69,9 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
             //SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse); // Frontier: Upstream - #28984
+            //SubscribeLocalEvent<VendingMachineComponent, EntInsertedIntoContainerMessage>(OnEntityInserted); // Frontier //Mono: Moved this logic to CreditReceiverSystem
+            //SubscribeLocalEvent<VendingMachineComponent, EntRemovedFromContainerMessage>(OnEntityRemoved); // Frontier //Mono: Moved this logic to CreditReceiverSystem
+
             SubscribeLocalEvent<VendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
 
             Subs.BuiEvents<VendingMachineComponent>(VendingMachineUiKey.Key, subs =>
@@ -142,6 +143,7 @@ namespace Content.Server.VendingMachines
         private void OnBreak(EntityUid uid, VendingMachineComponent vendComponent, BreakageEventArgs eventArgs)
         {
             vendComponent.Broken = true;
+            Dirty(uid, vendComponent);
             TryUpdateVisualState(uid, vendComponent);
         }
 
@@ -150,6 +152,7 @@ namespace Content.Server.VendingMachines
             if (!args.DamageIncreased && component.Broken)
             {
                 component.Broken = false;
+                Dirty(uid, component);
                 TryUpdateVisualState(uid, component);
                 return;
             }
@@ -356,7 +359,7 @@ namespace Content.Server.VendingMachines
                 if (!HasComp<IronmanComponent>(sender) && TryComp<BankAccountComponent>(sender, out var bank))
                     bankBalance = bank.Balance;
 
-                _cash.TryGetCash(uid, out _, out var cashSlotBalance);
+                _cash.TryGetCash(uid, out _, out var cashSlotBalance); //Mono: Moved this logic to CreditReceiverSystem
 
                 if (totalPrice > bankBalance + cashSlotBalance)
                 {
@@ -373,7 +376,7 @@ namespace Content.Server.VendingMachines
                 {
                     paidFully = _cash.TryCashPayment(uid, totalPrice, out var _, true); // Mono - Attempt to pay with cash before credit
 
-                    if (totalPrice > cashSlotBalance && !HasComp<Content.Shared._Mono.Traits.Physical.IronmanComponent>(sender))
+                    if (totalPrice > cashSlotBalance && !HasComp<IronmanComponent>(sender))
                         paidFully = _bankSystem.TryBankWithdraw(sender, totalPrice - cashSlotBalance); // Mono - if cash was not enough, pay the difference with credit
 
                     // If we paid completely, pay our station taxes

@@ -5,6 +5,12 @@
   id: BaseMobMoth
   abstract: true
   components:
+  - type: CEZFlyer # Mono: z-level flight
+    flightSpeed: 0.35
+    flightMoveSpeedModifier: 0.35
+    hoverStaminaDrain: 4
+  - type: CEControllableFlight
+    startFlightDoAfter: 2
   - type: HumanoidAppearance
     species: Moth
     hideLayersOnEquip:
@@ -119,6 +125,8 @@
       - map: [ "mask" ]
       - map: [ "head" ]
       - map: [ "neck" ]
+      - map: [ "neck2" ]
+      - map: [ "neck3" ]
       - map: [ "helmetcover" ]
       - map: [ "helmetattachment" ]
       - map: [ "pocket1" ]

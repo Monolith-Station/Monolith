@@ -19,6 +19,7 @@ public sealed partial class PlayerPanel : FancyWindow
     public event Action<NetUserId?>? OnOpenBans;
     public event Action<NetUserId?>? OnAhelp;
     public event Action<string?>? OnKick;
+    public event Action<string?>? OnCamera;
     public event Action<NetUserId?>? OnOpenBanPanel;
     public event Action<NetUserId?, bool>? OnWhitelistToggle;
     public event Action? OnFreezeAndMuteToggle;
@@ -40,6 +41,7 @@ public sealed partial class PlayerPanel : FancyWindow
             UsernameCopyButton.OnPressed += _ => OnUsernameCopy?.Invoke(PlayerName.Text ?? "");
             BanButton.OnPressed += _ => OnOpenBanPanel?.Invoke(TargetPlayer);
             KickButton.OnPressed += _ => OnKick?.Invoke(TargetUsername);
+            CameraButton.OnPressed += _ => OnCamera?.Invoke(TargetUsername);
             NotesButton.OnPressed += _ => OnOpenNotes?.Invoke(TargetPlayer);
             ShowBansButton.OnPressed += _ => OnOpenBans?.Invoke(TargetPlayer);
             AhelpButton.OnPressed += _ => OnAhelp?.Invoke(TargetPlayer);
@@ -132,5 +134,6 @@ public sealed partial class PlayerPanel : FancyWindow
         RejuvenateButton.Disabled = !_adminManager.HasFlag(AdminFlags.Debug);
         DeleteButton.Disabled = !_adminManager.HasFlag(AdminFlags.Debug);
         JobWhitelistsButton.Disabled = !_adminManager.HasFlag(AdminFlags.Whitelist); // DeltaV
+        CameraButton.Disabled = !_adminManager.CanCommand("camera");
     }
 }

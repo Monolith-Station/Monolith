@@ -6,10 +6,10 @@ using Robust.Shared.Serialization.Manager;
 using YamlDotNet.Core.Tokens;
 
 namespace Content.Shared._Goobstation.Clothing.Systems;
-public sealed class ClothingGrantingSystem : EntitySystem
+public sealed partial class ClothingGrantingSystem : EntitySystem
 {
-    [Dependency] private readonly ISerializationManager _serializationManager = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private ISerializationManager _serializationManager = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
 
     public override void Initialize()
     {

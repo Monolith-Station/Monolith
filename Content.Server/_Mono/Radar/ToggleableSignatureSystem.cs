@@ -5,10 +5,10 @@ using Content.Shared.Verbs;
 
 namespace Content.Server._Mono.Radar;
 
-public sealed class ToggleableSignatureSystem : EntitySystem
+public sealed partial class ToggleableSignatureSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
 
     public override void Initialize()
     {

@@ -20,10 +20,10 @@
     timerOffset: 0,-4
     rows: 2
   - type: Sprite
+    offset: 0, -0.5
     drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/screen.rsi
     state: screen
-    noRot: true
   - type: Construction
     graph: Timer
     node: screen

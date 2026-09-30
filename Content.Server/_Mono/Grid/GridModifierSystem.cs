@@ -8,11 +8,11 @@ namespace Content.Server._Mono.Grid;
 /// <summary>
 /// This handles grid modification on initialization.
 /// </summary>
-public sealed class GridModifierSystem : SharedGridModifierSystem
+public sealed partial class GridModifierSystem : SharedGridModifierSystem
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly SharedShipRepairSystem _repair = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private SharedShipRepairSystem _repair = default!;
 
     private List<EntityUid> _snapQueue = [];
 

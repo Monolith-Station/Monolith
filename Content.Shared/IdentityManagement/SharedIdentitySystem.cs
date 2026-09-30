@@ -5,9 +5,9 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared.IdentityManagement;
 
-public abstract class SharedIdentitySystem : EntitySystem
+public abstract partial class SharedIdentitySystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
     private static string SlotName = "identity";
 
     public override void Initialize()
@@ -37,7 +37,7 @@ public abstract class SharedIdentitySystem : EntitySystem
 
     private void OnMaskToggled(Entity<IdentityBlockerComponent> ent, ref ItemMaskToggledEvent args)
     {
-        ent.Comp.Enabled = !args.IsToggled;
+        ent.Comp.Enabled = !args.Mask.Comp.IsToggled;
     }
 }
 /// <summary>

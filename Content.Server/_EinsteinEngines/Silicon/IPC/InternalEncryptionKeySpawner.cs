@@ -10,8 +10,8 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._EinsteinEngines.Silicon.IPC;
 public sealed partial class InternalEncryptionKeySpawner : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     public override void Initialize()
     {

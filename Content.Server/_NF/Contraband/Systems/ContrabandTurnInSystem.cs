@@ -22,11 +22,11 @@ namespace Content.Server._NF.Contraband.Systems;
 /// </summary>
 public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSystem
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
 
     private EntityQuery<MobStateComponent> _mobQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -140,7 +140,7 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
                 // Dont sell:
                 // - anything already being sold
                 // - anything anchored (e.g. light fixtures)
-                // - anything blacklisted (e.g. players).
+                // - anything blacklisted (e.g. players). // Mono: actually putting contraband values on players is something that needs to be allowed
                 if (toSell.Contains(ent) ||
                     _xformQuery.TryGetComponent(ent, out var xform) &&
                     (xform.Anchored || !CanSell(ent, xform)))
@@ -148,8 +148,8 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
                     continue;
                 }
 
-                if (_blacklistQuery.HasComponent(ent))
-                    continue;
+                //if (_blacklistQuery.HasComponent(ent)) // Mono: allow blacklisted items to be exchanged again
+                //    continue;
 
                 if (TryComp<ContrabandComponent>(ent, out var comp))
                 {

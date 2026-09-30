@@ -33,3 +33,62 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsTsfEngineer ]
+
+- type: entity
+  parent: AirlockSyndicateGlass
+  id: AirlockViperGlass
+  suffix: Viper Group, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViper ]
+
+- type: entity
+  parent: AirlockSyndicateGlass
+  id: AirlockViperCommandGlass
+  suffix: Viper Group Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsViperCommand ]
+
+# Mieyo
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockMieyoGlass
+  suffix: Mieyo
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/Airlocks/Glass/mieyo.rsi
+  - type: PaintableAirlock
+    department: MieyoManufacturingConcern
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockMieyoGlass
+  id: AirlockMieyoGlassLocked
+  suffix: Mieyo, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyo ]
+
+- type: entity
+  parent: AirlockMieyoGlass
+  id: AirlockMieyoGlassLockedSecurity
+  suffix: Mieyo Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyoSecurity ]
+
+- type: entity
+  parent: AirlockMieyoGlass
+  id: AirlockMieyoGlassLockedLiason
+  suffix: Mieyo Liason, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyoLiason ]

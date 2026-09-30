@@ -9,6 +9,10 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 # 10 hours # mono
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   startingGear: SeniorOfficerGear
   icon: JobIconSergeant
   supervisors: job-supervisors-sheriff
@@ -25,6 +29,8 @@
   - TsfmcEngineering
   accessGroups:
   - GeneralNfsdAccess
+  guides:
+  - TSFMC_Entry
   special:
   - !type:AddComponentSpecial
     components:
@@ -44,11 +50,12 @@
 
 - type: startingGear
   id: SeniorOfficerGear
-  equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+#  equipment:
+#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:
     back:
-    - Magazine45_ACPPistolFMJ
+#    - Magazine45_ACPPistolFMJ Mono
     - BaseSecurityUplinkRadioOfficer
 #    - ShipVoucherNfsdSergeant # Mono
     - RadioHandheldNF # Mono
+    - BookTSFSOP

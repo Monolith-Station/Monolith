@@ -78,12 +78,12 @@
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledRevolver
   name: Python bundle
-  description: "Go loud and proud with a fully loaded 45_magnum Python, bundled with two speed loaders."
+  description: "Go loud and proud with a fully loaded 357_magnum Python, bundled with two speed loaders."
   components:
   - type: StorageFill
     contents:
       - id: WeaponRevolverPythonAP
-      - id: SpeedLoader45_magnumAP
+      - id: SpeedLoader357_magnumAP
         amount: 2
 
 - type: entity
@@ -307,7 +307,7 @@
     contents:
       - id: SyringeRomerol
       - id: WeaponRevolverPython
-      - id: AmmoBox45_magnumIncendiary
+      - id: AmmoBox357_magnumIncendiary
       - id: PillAmbuzolPlus
       - id: PillAmbuzol
         amount: 3

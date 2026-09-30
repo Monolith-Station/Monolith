@@ -16,11 +16,11 @@ namespace Content.Server.Labels
     /// A system that lets players see the contents of a label on an object.
     /// </summary>
     [UsedImplicitly]
-    public sealed class LabelSystem : SharedLabelSystem
+    public sealed partial class LabelSystem : SharedLabelSystem
     {
-        [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly TagSystem _tagSystem = default!; // Frontier
+        [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private TagSystem _tagSystem = default!; // Frontier
 
         public const string ContainerName = "paper_label";
         [ValidatePrototypeId<TagPrototype>] // Frontier: label prevention

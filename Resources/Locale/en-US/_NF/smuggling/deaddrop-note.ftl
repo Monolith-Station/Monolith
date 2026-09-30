@@ -1,11 +1,12 @@
-dead-drop-hint-note = Not much time.
-    Spinward Syndicate needs help.
-    Known drops:
+dead-drop-hint-note =
+    The Phaethon Dynasty Vanguard needs help. 
+    Aid them in their fight against the tyrannical and heretical Federation.
 
+    Known Phaethon drops:
     {$drops}
 
-    Check these to lend a hand.
-    For a better tomorrow.
+    Check these to lend a hand, and we will pay you handsomely.
+    Piety to the Sultan.
 
 dead-drop-time-known = next drop around {$time}
 dead-drop-time-unknown = next drop placed when we can

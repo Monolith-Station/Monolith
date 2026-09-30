@@ -175,7 +175,8 @@
   result: TelescopicShield
   completetime: 4
   materials:
-    Steel: 300
+    Steel: 600
+    Plasteel: 1000
     Glass: 800
 
 - type: latheRecipe
@@ -239,14 +240,14 @@
     Glass: 100
     Plastic: 200
 
-- type: latheRecipe
-  parent: BaseWeaponRecipe
-  id: WeaponFlareGunSecurity
-  result: WeaponFlareGunSecurity
-  completetime: 6
-  materials:
-    Plastic: 100
-    Steel: 400
+#- type: latheRecipe
+#  parent: BaseWeaponRecipe
+#  id: WeaponFlareGunSecurity
+#  result: WeaponFlareGunSecurity
+#  completetime: 6
+#  materials:
+#    Plastic: 100
+#    Steel: 400
 
 - type: latheRecipe
   parent: BaseWeaponRecipe

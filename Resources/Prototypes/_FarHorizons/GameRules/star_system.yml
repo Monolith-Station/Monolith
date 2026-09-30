@@ -1,0 +1,7 @@
+- type: entity
+  parent: BaseGameRule
+  id: StarSystemKyphrus
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StarSystemRule
+    system: SystemKyphrus

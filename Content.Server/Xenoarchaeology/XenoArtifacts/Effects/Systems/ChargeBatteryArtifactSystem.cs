@@ -1,7 +1,7 @@
-﻿using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
+﻿using Content.Server.Power.EntitySystems;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
+using Content.Shared.Power.Components;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
@@ -9,11 +9,11 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 /// <summary>
 /// This handles <see cref="ChargeBatteryArtifactComponent"/>
 /// </summary>
-public sealed class ChargeBatteryArtifactSystem : EntitySystem
+public sealed partial class ChargeBatteryArtifactSystem : EntitySystem
 {
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

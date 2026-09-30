@@ -1,0 +1,25 @@
+- type: constructionGraph
+  id: MonoSeat
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: handrail
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+
+    - node: handrail
+      entity: Handrail
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1

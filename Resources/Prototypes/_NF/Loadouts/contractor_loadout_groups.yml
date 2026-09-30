@@ -601,7 +601,7 @@
   - ContractorClothingHeadsetAltEngineeringCommon
   - ContractorClothingHeadsetAltMedicalCommon
   - ContractorClothingHeadsetAltScienceCommon
-  - USSPHeadset # Mono
+  # - USSPHeadset # Mono
   fallbacks:
   - ContractorClothingHeadsetGreyCommon
 
@@ -775,6 +775,7 @@
   - ContractorBucket
   - ContractorGeigerCounter
   - ContractorBinoculars
+  - ContractorTapeRecorder # Mono - Moved from ContractorTrinkets.
   - ContractorWeaponProtoKineticAccelerator
   - ContractorPinpointerUniversal
   - ContractorShipyardRCD
@@ -856,6 +857,7 @@
   - ContractorCigPackGreen
   - ContractorCigarCase
   - ContractorNFAshtray
+  #- ContractorTapeRecorder # Mono - Moved to ContractorUtility.
   - ContractorSmokingPipeFilledTobacco
   - ContractorTobaccoPouchBrownFilled
   - ContractorTobaccoPouchBlueFilled
@@ -899,6 +901,7 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - BikeHorn #Mono
 
 - type: loadoutGroup # Mono - removed standard supply boxes.
   id: ContractorBoxSurvival
@@ -908,9 +911,11 @@
   loadouts:
   - ContractorBoxSurvivalNFOxygenExtended
   - ContractorBoxSurvivalNFNitrogenExtended
+  - ContractorBoxSurvivalNFVaporExtended
   fallbacks:
   - ContractorBoxSurvivalNFOxygenExtended
   - ContractorBoxSurvivalNFNitrogenExtended
+  - ContractorBoxSurvivalNFVaporExtended
 
 - type: loadoutGroup
   id: ContractorEncryptionKey

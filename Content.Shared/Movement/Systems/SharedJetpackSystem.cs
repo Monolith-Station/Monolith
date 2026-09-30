@@ -10,20 +10,21 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
-using Content.Shared.Clothing; // Mono
+using Content.Shared.Clothing;
+using JetBrains.Annotations; // Mono
 
 namespace Content.Shared.Movement.Systems;
 
-public abstract class SharedJetpackSystem : EntitySystem
+public abstract partial class SharedJetpackSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly SharedContainerSystem Container = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!; // EE
-    [Dependency] private readonly SharedGravitySystem _gravity = default!; // Mono
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected SharedContainerSystem Container = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private IConfigurationManager _config = default!; // EE
+    [Dependency] private SharedGravitySystem _gravity = default!; // Mono
 
     public override void Initialize()
     {
@@ -200,16 +201,18 @@ public abstract class SharedJetpackSystem : EntitySystem
 
     public void SetEnabled(EntityUid uid, JetpackComponent component, bool enabled, EntityUid? user = null)
     {
-        if (IsEnabled(uid) == enabled ||
-            enabled && !CanEnable(uid, component))
-            return;
-
         if (user == null)
         {
             if (!Container.TryGetContainingContainer((uid, null, null), out var container))
                 return;
             user = container.Owner;
         }
+
+        bool canEnable = CanEnable(uid, user.Value, component);
+
+        if (IsEnabled(uid) == enabled ||
+            enabled && !canEnable) // Mono: i'm pretty sure that user is true here
+            return;
 
         // EE: check if user has a parent (e.g. vehicle, duffelbag, bed)
         if (enabled && !UserNotParented(user, component))
@@ -237,9 +240,9 @@ public abstract class SharedJetpackSystem : EntitySystem
         return HasComp<JetpackUserComponent>(uid);
     }
 
-    protected virtual bool CanEnable(EntityUid uid, JetpackComponent component)
+    protected virtual bool CanEnable(EntityUid uid, EntityUid user, JetpackComponent component)
     {
-        return _gravity.IsWeightless(uid); // Mono
+        return _gravity.IsWeightless(user); // Mono
     }
 
     // EE: check parent

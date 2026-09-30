@@ -6,7 +6,7 @@
                       VerticalExpand="True">
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
                   VerticalExpand="True">
-        <PanelContainer VerticalExpand="True" SetWidth="380">
+        <PanelContainer VerticalExpand="True" SetWidth="400">
             <PanelContainer.PanelOverride>
                 <!-- Using PanelBackgroundLight adds padding left and right, so we manually set background color -->
                 <graphics:StyleBoxFlat BackgroundColor="#303030"/>
@@ -14,14 +14,24 @@
             <BoxContainer Orientation="Vertical"
                           VerticalExpand="True"
                           HorizontalExpand="True">
+                <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="3 3">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BorderThickness="3" BorderColor="#35434d" BackgroundColor="#141414"/>
+                    </PanelContainer.PanelOverride>
+                    <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="0 0 0 0">
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BorderThickness="3" BorderColor="#262626" BackgroundColor="#111111"/>
+                        </PanelContainer.PanelOverride>
                 <ScrollContainer HorizontalExpand="True"
                                  VerticalExpand="True"
                                  VScrollEnabled="True">
                     <BoxContainer Name="StationItemList"
                                   Orientation="Vertical"
                                   HorizontalExpand="True"
-                                  MinSize="50 50"/>
+                                  MinSize="70 50"/>
                 </ScrollContainer>
+                    </PanelContainer>
+                </PanelContainer>
             </BoxContainer>
         </PanelContainer>
 
@@ -32,6 +42,18 @@
             <BoxContainer Orientation="Vertical"
                           VerticalExpand="True"
                           HorizontalExpand="True">
+                <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="3 3" MinHeight="280">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BorderThickness="3" BorderColor="#35434d" BackgroundColor="#191919"/>
+                    </PanelContainer.PanelOverride>
+                    <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="0 0 0 0">
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BorderThickness="3" BorderColor="#262626" BackgroundColor="#111111"/>
+                        </PanelContainer.PanelOverride>
+                        <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="3 3">
+                            <PanelContainer.PanelOverride>
+                                <graphics:StyleBoxFlat BorderThickness="3" BorderColor="#303030" BackgroundColor="#1f1f1f"/>
+                            </PanelContainer.PanelOverride>
                 <BoxContainer Orientation="Vertical"
                               VerticalExpand="True"
                               HorizontalExpand="True"
@@ -41,11 +63,18 @@
                            StyleClasses="FancyWindowTitle"/>
                     <RichTextLabel Name="StationDescription"/>
                 </BoxContainer>
+                        </PanelContainer>
+                    </PanelContainer>
+                </PanelContainer>
 
                 <Label Text="{Loc 'frontier-lobby-available-jobs'}"
                        Margin="20 4 0 4"
                        StyleClasses="FancyWindowTitle"/>
 
+                <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="0 0 0 0">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BorderThickness="3" BorderColor="#262626" BackgroundColor="#111111"/>
+                    </PanelContainer.PanelOverride>
                 <ScrollContainer HorizontalExpand="True"
                                  VerticalExpand="True"
                                  VScrollEnabled="True">
@@ -57,6 +86,7 @@
                                   Margin="4">
                     </BoxContainer>
                 </ScrollContainer>
+                </PanelContainer>
             </BoxContainer>
         </PanelContainer>
     </BoxContainer>

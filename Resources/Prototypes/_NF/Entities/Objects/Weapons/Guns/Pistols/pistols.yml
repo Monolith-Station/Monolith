@@ -22,28 +22,19 @@
         whitelist:
           tags:
             - Cartridge45_ACPFMJ
-
-- type: entity
-  name: N1984 (.45 magnum)
-  parent: WeaponPistolN1984
-  id: WeaponPistolN1984Nonlethal
-  suffix: Non-lethal
-  components:
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: Magazine45_magnumPistolRubber
-        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
-        priority: 2
+      # Mono
+      attachment_grip:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
         whitelist:
           tags:
-            - Magazine45_magnumPistolFMJ
-      gun_chamber:
-        name: Chamber
-        startingItem: Cartridge45_magnumRubber
-        priority: 1
+          - MonoGripPistolMount
+      # Mono
+      attachment_barrel:
+        insertSound: /Audio/Items/screwdriver.ogg
+        ejectSound: /Audio/Items/screwdriver.ogg
+        priority: 0
         whitelist:
           tags:
-            - Cartridge45_magnumFMJ
+          - MonoSuppressorMulticalRifle

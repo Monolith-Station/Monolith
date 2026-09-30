@@ -1,0 +1,29 @@
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: TSFBomb
+  result: TSFBomb
+  categories:
+  - FactionEquipment
+  - Explosive
+  completetime: 10
+  materials:
+    Plasteel: 2500
+    Plastic: 5000
+    Steel: 5000
+    Plasma: 2500
+    UraniumFissile: 200
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: PDVBomb
+  result: PDVBomb
+  categories:
+  - FactionEquipment
+  - Explosive
+  completetime: 10
+  materials:
+    Plasteel: 2500
+    Plastic: 5000
+    Steel: 5000
+    Plasma: 2500
+    UraniumFissile: 200

@@ -26,17 +26,17 @@ namespace Content.Goobstation.Client.Audio;
 ///     Handles making sounds 'echo' in large, open spaces. Uses simplified raytracing.
 /// </summary>
 // could use RaycastSystem but the api it has isn't very amazing
-public sealed class AreaEchoSystem : EntitySystem
+public sealed partial class AreaEchoSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly AudioEffectSystem _audioEffectSystem = default!;
-    [Dependency] private readonly RoofSystem _roofSystem = default!;
-    [Dependency] private readonly TurfSystem _turfSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private SharedPhysicsSystem _physicsSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private AudioEffectSystem _audioEffectSystem = default!;
+    [Dependency] private RoofSystem _roofSystem = default!;
+    [Dependency] private TurfSystem _turfSystem = default!;
 
     /// <summary>
     ///     The directions that are raycasted to determine size for echo.
@@ -410,7 +410,7 @@ public sealed class AreaEchoSystem : EntitySystem
                     break;
             } // if we're not checking roofs, end this ray if this tile is empty/space
             else if (!_mapSystem.TryGetTileRef(gridRoofEntity, gridRoofEntity, nextCheckedTilePosition, out var tile) ||
-                tile.IsSpace())
+                _turfSystem.IsSpace(tile))
                 break;
 
             nextCheckedPosition += directionFidelityStep;

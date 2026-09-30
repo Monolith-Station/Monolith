@@ -15,3 +15,17 @@ uplink-faction-lathe-desc = A lathe capable of assembling recipes researched fro
 
 uplink-letoferol-name = Letoferol Syringe
 uplink-letoferol-desc = One letoferol syringe can destroy an entire sector.
+
+# materials
+
+uplink-faction-materials-basic-name = Basic Materials Crate
+uplink-faction-materials-basic-desc = A crate containing 50 sheets of steel, plastic, glass and cloth.
+
+uplink-faction-materials-industrial-name = Industrial Materials Crate
+uplink-faction-materials-industrial-desc = A crate containing 50 sheets of copper, lithium, plasteel and durathread.
+
+uplink-faction-materials-advanced-name = Advanced Materials Crate
+uplink-faction-materials-advanced-desc = A crate containing 50 sheets of plasma, uranium, gold and silver.
+
+uplink-faction-materials-exotic-name = Exotic Materials Crate
+uplink-faction-materials-exotic-desc = A crate containing 10 sheets of plastitanium, 5 bars of depleted uranium, and 3 plates of fissile uranium.

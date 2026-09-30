@@ -7,11 +7,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.IgnoreHumanoids
 {
-    public sealed class IgnoreHumanoidsOverlaySystem : EntitySystem
+    public sealed partial class IgnoreHumanoidsOverlaySystem : EntitySystem
     {
-        [Dependency] private readonly IPlayerManager _player = default!;
-        [Dependency] private readonly IPrototypeManager _protoMan = default!;
-        [Dependency] private readonly IOverlayManager _overlayMan = default!;
+        [Dependency] private IPlayerManager _player = default!;
+        [Dependency] private IPrototypeManager _protoMan = default!;
+        [Dependency] private IOverlayManager _overlayMan = default!;
 
         private IgnoreHumanoidsOverlay _overlay = default!;
         public override void Initialize()

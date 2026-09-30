@@ -31,20 +31,20 @@ namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 /// This system is used for managing the artifact analyzer as well as the analysis console.
 /// It also hanadles scanning and ui updates for both systems.
 /// </summary>
-public sealed class ArtifactAnalyzerSystem : EntitySystem
+public sealed partial class ArtifactAnalyzerSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ArtifactSystem _artifact = default!;
-    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly ResearchSystem _research = default!;
-    [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
-    [Dependency] private readonly TraversalDistorterSystem _traversalDistorter = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private ArtifactSystem _artifact = default!;
+    [Dependency] private MetaDataSystem _metaSystem = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private ResearchSystem _research = default!;
+    [Dependency] private SharedAmbientSoundSystem _ambientSound = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPowerReceiverSystem _receiver = default!;
+    [Dependency] private TraversalDistorterSystem _traversalDistorter = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

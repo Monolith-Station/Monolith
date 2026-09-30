@@ -25,18 +25,18 @@ public sealed partial class EnsnareableDoAfterEvent : SimpleDoAfterEvent
 {
 }
 
-public abstract class SharedEnsnareableSystem : EntitySystem
+public abstract partial class SharedEnsnareableSystem : EntitySystem
 {
-    [Dependency] private   readonly AlertsSystem _alerts = default!;
-    [Dependency] private   readonly MovementSpeedModifierSystem _speedModifier = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] private   readonly SharedAudioSystem _audio = default!;
-    [Dependency] private   readonly SharedBodySystem _body = default!;
-    [Dependency] protected readonly SharedContainerSystem Container = default!;
-    [Dependency] private   readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private   readonly SharedHandsSystem _hands = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private   readonly StaminaSystem _stamina = default!;
+    [Dependency] private   AlertsSystem _alerts = default!;
+    [Dependency] private   MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] private   SharedAudioSystem _audio = default!;
+    [Dependency] private   SharedBodySystem _body = default!;
+    [Dependency] protected SharedContainerSystem Container = default!;
+    [Dependency] private   SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private   SharedHandsSystem _hands = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] private   StaminaSystem _stamina = default!;
 
     public override void Initialize()
     {

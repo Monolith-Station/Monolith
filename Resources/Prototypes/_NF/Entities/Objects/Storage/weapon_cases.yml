@@ -40,6 +40,7 @@
       - MeleeWeapon
       - Blocking
       - WeaponCaseInsertable
+      - ESGunAttachment # Mono
       tags:
       - Cartridge
   - type: Dumpable #Mono start
@@ -91,6 +92,7 @@
       - Explosive
       - UnremovableClothingRemover # Mono
       - Signaller # Mono
+      - ESGunAttachment # Mono
       tags:
       - Cartridge
 
@@ -171,6 +173,7 @@
       - Blocking
       - WeaponCaseInsertable
       - Armor
+      - ESGunAttachment # Mono
       tags:
       - Cartridge
 

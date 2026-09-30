@@ -33,27 +33,33 @@ using System.Collections.Concurrent;
 using Robust.Shared.Timing;
 using Content.Shared._Mono;
 using Content.Shared.Tag;
+using Robust.Shared.Configuration;
+using Content.Shared._Mono.CCVar;
+using Robust.Shared;
+using Content.Shared.BarricadeBlock; // BF14
+using Robust.Shared.Random; // BF14
 
 namespace Content.Shared.Projectiles;
 
 public abstract partial class SharedProjectileSystem : EntitySystem
 {
     public const string ProjectileFixture = "projectile";
-
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedGunSystem _guns = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly IParallelManager _parallel = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedGunSystem _guns = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedCameraRecoilSystem _sharedCameraRecoil = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private IParallelManager _parallel = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IConfigurationManager _cfg = default!; // Mono
+    [Dependency] private IRobustRandom _random = default!; // BF14
 
     // Cache of projectiles waiting for collision checks
     private readonly ConcurrentQueue<(EntityUid Uid, ProjectileComponent Component, EntityUid Target)> _pendingCollisionChecks = new();
@@ -62,6 +68,11 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     private const int ProjectileBatchSize = 16;
     private TimeSpan _lastBatchProcess;
     private readonly TimeSpan _processingInterval = TimeSpan.FromMilliseconds(16); // ~60Hz
+
+    private float _minRaycastVelocity; // Mono
+    private bool _adaptiveRaycasting; // Mono
+    private const int BasePhysicsTickrate = 60; // Mono
+    private int _physicsTickrate; // Mono
 
     public override void Initialize()
     {
@@ -76,34 +87,29 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
 
         SubscribeLocalEvent<EmbeddedContainerComponent, EntityTerminatingEvent>(OnEmbeddableTermination);
-        // Subscribe to initialize the origin grid on ProjectileGridPhaseComponent
-        SubscribeLocalEvent<ProjectileGridPhaseComponent, ComponentStartup>(OnProjectileGridPhaseStartup);
-        // Subscribe to ensure MetaDataComponent on projectile entities for networking
-        SubscribeLocalEvent<ProjectileComponent, ComponentStartup>(OnProjectileMetaStartup);
 
         // Mono
         SubscribeLocalEvent<ProjectileComponent, TileFrictionEvent>(OnTileFriction);
+
+        Subs.CVar(_cfg, MonoCVars.ProjectileRaycastSpeedThreshold, value => _minRaycastVelocity = value, true);
+        Subs.CVar(_cfg, MonoCVars.ProjectileAdaptiveRaycastThreshold, value => _adaptiveRaycasting = value, true);
+        Subs.CVar(_cfg, CVars.TargetMinimumTickrate, value => _physicsTickrate = value, true);
+        // Mono End
     }
 
     /// <summary>
-    /// Initialize the origin grid for phasing projectiles.
+    /// Mono: Handles whether a projectile is raycasted based off projectile speed.
     /// </summary>
-    private void OnProjectileGridPhaseStartup(EntityUid uid, ProjectileGridPhaseComponent component, ComponentStartup args)
+    /// <param name="speed"></param>
+    /// <returns></returns>
+    public bool ShouldRaycastProjectile(float speed)
     {
-        var xform = Transform(uid);
-        component.SourceGrid = xform.GridUid;
-    }
+        if (_adaptiveRaycasting && speed > _minRaycastVelocity * (_physicsTickrate / BasePhysicsTickrate))
+            return true;
+        else if (speed > _minRaycastVelocity)
+            return true;
 
-    /// <summary>
-    /// Ensures that a MetaDataComponent exists on projectiles for network serialization.
-    /// </summary>
-    private void OnProjectileMetaStartup(EntityUid uid, ProjectileComponent component, ComponentStartup args)
-    {
-        // Check if the entity still exists before trying to add a component
-        if (!EntityManager.EntityExists(uid))
-            return;
-
-        EnsureComp<MetaDataComponent>(uid);
+        return false;
     }
 
     private void OnStartCollide(EntityUid uid, ProjectileComponent component, ref StartCollideEvent args)
@@ -373,6 +379,85 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         _hands.TryPickupAnyHand(args.User, embeddable);
     }
 
+    //ported from civ14
+    private void PreventCollision(EntityUid uid, ProjectileComponent component, ref PreventCollideEvent args)
+    {
+        if (component.IgnoreShooter && (args.OtherEntity == component.Shooter || args.OtherEntity == component.Weapon))
+        {
+            args.Cancelled = true;
+        }
+        //check for BarricadeBlock component (percentage of chance to hit/pass over)
+        if (TryComp(args.OtherEntity, out BarricadeBlockComponent? BarricadeBlock))
+        {
+            var alwaysPassThrough = false;
+            //_sawmill.Info("Checking BarricadeBlock...");
+            if (component.Shooter is { } shooterUid && Exists(shooterUid))
+            {
+                // Condition 1: Directions are the same (using cardinal directions).
+                // Or, if bidirectional, directions can be opposite.
+                var shooterWorldRotation = _transform.GetWorldRotation(shooterUid);
+                var BarricadeBlockWorldRotation = _transform.GetWorldRotation(args.OtherEntity);
+
+                var shooterDir = shooterWorldRotation.GetCardinalDir();
+                var BarricadeBlockDir = BarricadeBlockWorldRotation.GetCardinalDir();
+
+                bool directionallyAllowed = false;
+                if (shooterDir == BarricadeBlockDir)
+                {
+                    directionallyAllowed = true;
+                    //_sawmill.Debug("Shooter and BarricadeBlock facing same cardinal direction.");
+                }
+                else if (BarricadeBlock.Bidirectional)
+                {
+                    var oppositeBarricadeBlockDir = (Direction)(((int)BarricadeBlockDir + 4) % 8);
+                    if (shooterDir == oppositeBarricadeBlockDir)
+                    {
+                        directionallyAllowed = true;
+                        //_sawmill.Debug("Shooter and BarricadeBlock facing opposite cardinal directions (bidirectional pass).");
+                    }
+                }
+                else if (BarricadeBlock.Omnidirectional)
+                {
+                    directionallyAllowed = true;
+                    //_sawmill.Debug("Has the omnidirectional field");
+                }
+
+                if (directionallyAllowed)
+                {
+                    // Condition 2: Firer is within 1 tile of the BarricadeBlock.
+                    var shooterCoords = Transform(shooterUid).Coordinates;
+                    var BarricadeBlockCoords = Transform(args.OtherEntity).Coordinates;
+                    var BypassDistance = BarricadeBlock.PassThroughDistance;
+
+                    if (shooterCoords.TryDistance(EntityManager, BarricadeBlockCoords, out var distance) &&
+                        distance <= BypassDistance)
+                    {
+                        alwaysPassThrough = true;
+                    }
+                }
+            }
+
+            if (alwaysPassThrough)
+            {
+                args.Cancelled = true;
+            }
+            else
+            {
+                //_sawmill.Debug("BarricadeBlock direction/distance check failed or shooter not valid.");
+                // Standard BarricadeBlock blocking logic if the special conditions are not met.
+                var rando = _random.NextFloat(0.0f, 100.0f);
+                if (rando >= BarricadeBlock.Blocking)
+                {
+                    args.Cancelled = true;
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+    }
+
     private void OnEmbedThrowDoHit(Entity<EmbeddableProjectileComponent> embeddable, ref ThrowDoHitEvent args)
     {
         if (!embeddable.Comp.EmbedOnThrow)
@@ -481,70 +566,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
             EmbedDetach(embedded, embeddedComp);
         }
-    }
-
-    private void PreventCollision(EntityUid uid, ProjectileComponent component, ref PreventCollideEvent args)
-    {
-        // Goobstation - Crawling fix
-        if (TryComp<RequireProjectileTargetComponent>(args.OtherEntity, out var requireTarget) && requireTarget.IgnoreThrow && requireTarget.Active)
-            return;
-
-        if (component.IgnoreShooter && (args.OtherEntity == component.Shooter || args.OtherEntity == component.Weapon))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        // Get transforms once for subsequent checks to avoid repeated calls
-        var projectileXform = Transform(uid);
-        var targetXform = Transform(args.OtherEntity);
-
-        // Check for ProjectileGridPhaseComponent and origin-grid phasing
-        if (TryComp<ProjectileGridPhaseComponent>(uid, out var phaseComp))
-        {
-            if (phaseComp.SourceGrid.HasValue &&
-                targetXform.GridUid.HasValue &&
-                phaseComp.SourceGrid == targetXform.GridUid)
-            {
-                args.Cancelled = true;
-                return; // Projectile phases through entities on its origin grid.
-            }
-        }
-
-        // Add collision check to queue for batch processing if we have enough
-        if (_pendingCollisionChecks.Count >= MinProjectilesForParallel / 2)
-        {
-            _pendingCollisionChecks.Enqueue((uid, component, args.OtherEntity));
-
-            // Assume collision for now - if shield check passes, we'll handle it in the batch process
-            return;
-        }
-
-        // For low volume, process immediately
-        // Check if any shield system wants to prevent collision
-        var ev = new ProjectileCollisionAttemptEvent(uid, args.OtherEntity);
-        RaiseLocalEvent(ref ev);
-
-        if (ev.Cancelled)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        // Check if target and projectile are on different maps/z-levels
-        if (projectileXform.MapID != targetXform.MapID)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        // Define the tag constant
-        const string GunCanAimShooterTag = "GunCanAimShooter";
-
-        if ((component.Shooter == args.OtherEntity || component.Weapon == args.OtherEntity) &&
-            component.Weapon != null && _tag.HasTag(component.Weapon.Value, GunCanAimShooterTag) &&
-            TryComp(uid, out TargetedProjectileComponent? targeted) && targeted.Target == args.OtherEntity)
-            return;
     }
 
     // Goobstation - Crawling fix

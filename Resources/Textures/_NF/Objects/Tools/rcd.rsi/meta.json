@@ -4,6 +4,7 @@
   "copyright": "Taken from cev-eris at commit https://github.com/discordia-space/CEV-Eris/commit/ce025775f73b66934ca96f3a8edc30993ea70b4d and modified by Swept",
   "copyright": "RCD icon sprite taken from https://github.com/Citadel-Station-13/Citadel-Station-13/pull/8953",
   "copyright": "Shipyard sprites color swapped by greasemonk on Frontier Discord",
+  "copyright": "Shipyard inhand by asiashvee (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -39,6 +40,14 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "ammo-shipyard-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "ammo-shipyard-inhand-right",
       "directions": 4
     }
   ]

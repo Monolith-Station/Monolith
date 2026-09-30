@@ -47,6 +47,12 @@ public sealed partial class LoadoutPrototype : IPrototype, IEquipmentLoadout
     public Dictionary<string, List<EntProtoId>> Storage { get; set; } = new();
 
     /// <summary>
+    /// Mono - components to add to the entity if the loadout is selected
+    /// </summary>
+    [DataField]
+    public ComponentRegistry Components { get; private set; } = new();
+
+    /// <summary>
     /// Frontier - the cost of the item simple as
     /// </summary>
     [DataField]

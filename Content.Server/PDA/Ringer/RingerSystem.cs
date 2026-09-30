@@ -18,15 +18,15 @@ using Robust.Server.Audio;
 
 namespace Content.Server.PDA.Ringer
 {
-    public sealed class RingerSystem : SharedRingerSystem
+    public sealed partial class RingerSystem : SharedRingerSystem
     {
-        [Dependency] private readonly PdaSystem _pda = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly UserInterfaceSystem _ui = default!;
-        [Dependency] private readonly AudioSystem _audio = default!;
-        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly TransformSystem _transform = default!;
+        [Dependency] private PdaSystem _pda = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private UserInterfaceSystem _ui = default!;
+        [Dependency] private AudioSystem _audio = default!;
+        [Dependency] private SharedPopupSystem _popupSystem = default!;
+        [Dependency] private TransformSystem _transform = default!;
 
         private readonly Dictionary<NetUserId, TimeSpan> _lastSetRingtoneAt = new();
 

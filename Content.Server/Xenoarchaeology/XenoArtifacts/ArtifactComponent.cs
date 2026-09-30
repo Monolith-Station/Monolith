@@ -77,7 +77,7 @@ public sealed partial class ArtifactComponent : Component
     /// Used for calculating the research point value of an artifact node.
     /// </summary>
     [DataField("pointDangerMultiplier"), ViewVariables(VVAccess.ReadWrite)]
-    public float PointDangerMultiplier = 1.35f;
+    public float PointDangerMultiplier = 1.8f; // Mono: 1.35 < 1.8 //Note: Why tf does frontier use < instead of -> ???
 
     /// <summary>
     /// The sound that plays when an artifact is activated

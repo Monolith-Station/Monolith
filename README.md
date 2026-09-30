@@ -45,7 +45,11 @@ We provide some scripts shown below to make the job easier.
 
 ### MacOS
 
-> I don't know anybody using MacOS to test this, but it's probably roughly the same steps as Linux
+> 1. Clone this repository
+> 2. Run `Scripts/sh/updateEngine.sh` in a terminal to download the engine
+> 3. Run `Scripts/sh/buildAllDebug.sh` after making any changes to the source
+> 4. Run `Scripts/sh/runQuickAll.sh` to launch the client and the server
+> 5. Connect to localhost in the client and play
 
 ## License
 

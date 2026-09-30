@@ -85,8 +85,8 @@
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.40
   - type: ClothingSpeedModifier
-    sprintModifier: 0.55
-    walkModifier: 0.65
+    sprintModifier: 0.8 # Used to be .55, not worth it lmao
+    walkModifier: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.60
   - type: StaticPrice

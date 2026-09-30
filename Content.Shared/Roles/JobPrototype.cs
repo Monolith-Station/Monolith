@@ -48,10 +48,10 @@ namespace Content.Shared.Roles
         /// <summary>
         ///     Requirements for the job.
         /// </summary>
-        [DataField, Access(typeof(SharedRoleSystem), Other = AccessPermissions.None)]
+        [DataField, Access(typeof(SharedRoleSystem))]
         public HashSet<JobRequirement>? Requirements;
 
-        [DataField, Access(typeof(SharedRoleSystem), Other = AccessPermissions.None)] // Frontier
+        [DataField, Access(typeof(SharedRoleSystem))] // Frontier
         public Dictionary<string, HashSet<JobRequirement>>? AlternateRequirementSets; // Frontier: sets of requirements - one must be matched in order to
 
         /// <summary>
@@ -170,6 +170,12 @@ namespace Content.Shared.Roles
 
         [DataField]
         public bool Whitelisted;
+        /// <summary>
+        /// Whether or not this job will still require playtime if server population is below DynamicRolesPlayerThreshold
+        /// </summary>
+        [DataField]
+        public bool EnforcedPlayTime;
+
 
         /// <summary>
         /// Optional list of guides associated with this role. If the guides are opened, the first entry in this list

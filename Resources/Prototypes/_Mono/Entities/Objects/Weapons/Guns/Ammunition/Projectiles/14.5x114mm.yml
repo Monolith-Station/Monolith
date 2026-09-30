@@ -7,9 +7,9 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 70
+        Piercing: 80
         Structural: 500
-    ignoreResistances: true # Goobstation
+    ignoreResistances: true
     penetrationThreshold: 500
     penetrationDamageTypeRequirement:
     - Structural

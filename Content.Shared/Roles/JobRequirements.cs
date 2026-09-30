@@ -36,7 +36,7 @@ public static class JobRequirements
         if (success)
             return true;
 
-        var altRequirementsSets = sys.GetAlternateJobRequirements(job) ?? new();
+        var altRequirementsSets = job.AlternateRequirementSets ?? new();
         foreach (var requirementSet in altRequirementsSets.Values)
         {
             success = true;

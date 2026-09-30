@@ -2,7 +2,7 @@
   name: fentanyl crystal
   parent: BaseItem
   id: FentanylSolidified
-  description: 5u of Fentanyl solidified with Tricordrazine. Worth a lot.
+  description: 25u of Fentanyl solidified with Tricordrazine. Worth a lot.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/fentanyl.rsi
@@ -10,7 +10,7 @@
   - type: Item
     size: Tiny
   - type: StaticPrice
-    price: 1250 # People can consistently pump out a million in less than an hour of fent production, fuck that.
+    price: 10000 # worth a lot but expensive to make
   - type: Food
   - type: FlavorProfile
     flavors:
@@ -20,10 +20,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
+        maxVol: 25
         reagents:
         - ReagentId: Fentanyl
-          Quantity: 5
+          Quantity: 25
   - type: DamageOnLand
     damage:
       types:
@@ -48,3 +48,8 @@
       Medical: -0.05
       nfsd: -0.1
       BlackMarket: 0.25
+  - type: ExtendDescription
+    descriptionList:
+    - description: Selling this item will fund the PDV.
+      color: "#4f94ad"
+      requireDetailRange: true

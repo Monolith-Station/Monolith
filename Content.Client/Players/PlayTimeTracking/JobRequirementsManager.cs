@@ -18,12 +18,12 @@ namespace Content.Client.Players.PlayTimeTracking;
 
 public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
 {
-    [Dependency] private readonly IBaseClient _client = default!;
-    [Dependency] private readonly IClientNetManager _net = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private IBaseClient _client = default!;
+    [Dependency] private IClientNetManager _net = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<string> _roleBans = new();
@@ -118,16 +118,16 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
         //return CheckRoleRequirements(reqs, profile, out reason); // Frontier: old implementation
 
         // Frontier: alternate role time checks
-        if (CheckRoleRequirements(reqs, profile, out reason))
+        if (CheckRoleRequirements(reqs, profile, out reason, job.EnforcedPlayTime)) // Mono
             return true;
 
-        var altReqs = _entManager.System<SharedRoleSystem>().GetAlternateJobRequirements(job);
+        var altReqs = job.AlternateRequirementSets;
         if (altReqs != null)
         {
             foreach (var alternateSet in altReqs.Values)
             {
                 // Suppress reasons on alternate requirement sets
-                if (CheckRoleRequirements(alternateSet, profile, out var altReason))
+                if (CheckRoleRequirements(alternateSet, profile, out var altReason, job.EnforcedPlayTime)) // Mono
                 {
                     return true;
                 }
@@ -141,11 +141,11 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
         // End Frontier: alternate role time checks
     }
 
-    public bool CheckRoleRequirements(HashSet<JobRequirement>? requirements, HumanoidCharacterProfile? profile, [NotNullWhen(false)] out FormattedMessage? reason)
+    public bool CheckRoleRequirements(HashSet<JobRequirement>? requirements, HumanoidCharacterProfile? profile, [NotNullWhen(false)] out FormattedMessage? reason, bool enforcedPlayTime = false) // Mono
     {
         reason = null;
 
-        if (requirements == null || !_cfg.GetCVar(CCVars.GameRoleTimers))
+        if (requirements == null || (!_cfg.GetCVar(CCVars.GameRoleTimers) && !enforcedPlayTime)) // Mono - checking strict job playtime enforcement
             return true;
 
         var reasons = new List<string>();

@@ -22,8 +22,8 @@ namespace Content.Client.Guidebook.Controls;
 [UsedImplicitly, GenerateTypedNameReferences]
 public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, ISearchableControl
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private ILogManager _logManager = default!;
     private readonly SpriteSystem _sprite = default!; // Frontier
 
     private ISawmill _sawmill = default!;
@@ -84,7 +84,7 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
         var entity = _prototype.Index<EntityPrototype>(recipe.Result);
 
         IconContainer.AddChild(new GuideEntityEmbed(recipe.Result, false, false));
-        ResultName.SetMarkup(entity.Name);
+        ResultName.SetMarkup(Loc.GetString("guidebook-microwave-recipe-name-display", ("amount", recipe.ResultCount), ("name", entity.Name))); // Mono
         ResultDescription.SetMarkup(entity.Description);
     }
 

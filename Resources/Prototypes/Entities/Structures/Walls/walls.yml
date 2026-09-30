@@ -9,6 +9,10 @@
     snap:
     - Wall
   components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
   - type: RangedDamageSound
     soundGroups:
       Brute:
@@ -22,6 +26,7 @@
     tags:
     - Wall
   - type: IsRoof
+  - type: RequiresGrid # Mono
   - type: Sprite
     drawdepth: Walls
   - type: Icon
@@ -60,6 +65,10 @@
   id: WallBrick
   name: brick wall
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactConcrete
   - type: Sprite
     sprite: Structures/Walls/brick.rsi
   - type: Icon
@@ -75,21 +84,21 @@
 - type: entity
   parent: BaseWallTierTwo # Mono
   id: WallClock
-  name: clock wall
+  name: brass wall
   components:
   - type: Tag
     tags:
     - Wall
   - type: Sprite
-    sprite: Structures/Walls/clock.rsi
+    sprite: Structures/Walls/brass.rsi
   - type: Icon
-    sprite: Structures/Walls/clock.rsi
+    sprite: Structures/Walls/brass.rsi
   - type: Construction
     graph: ClockworkGirder
     node: clockworkWall
   - type: IconSmooth
     key: walls
-    base: clock
+    base: brass
   - type: RCDDeconstructable # Frontier
     cost: 6 # Frontier
     delay: 8 # Frontier
@@ -186,25 +195,25 @@
     key: walls
     base: debug
 
-- type: entity
-  parent: BaseWallTierThree # Mono - surely its fine since diamonds are so rare
-  id: WallDiamond
-  name: diamond wall
-  components:
-  - type: Tag
-    tags:
-    - Wall
-  - type: Sprite
-    sprite: Structures/Walls/diamond.rsi
-  - type: Icon
-    sprite: Structures/Walls/diamond.rsi
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 8
-    fx: EffectRCDDeconstruct8
-  - type: IconSmooth
-    key: walls
-    base: diamond
+#- type: entity
+#  parent: BaseWallTierThree # Mono - surely its fine since diamonds are so rare
+#  id: WallDiamond
+#  name: diamond wall
+#  components:
+#  - type: Tag
+#    tags:
+#    - Wall
+#  - type: Sprite
+#    sprite: Structures/Walls/diamond.rsi
+#  - type: Icon
+#    sprite: Structures/Walls/diamond.rsi
+#  - type: RCDDeconstructable
+#    cost: 6
+#    delay: 8
+#    fx: EffectRCDDeconstruct8
+#  - type: IconSmooth
+#    key: walls
+#    base: diamond
 
 - type: entity
   parent: BaseWallTierOne # Mono
@@ -245,6 +254,10 @@
   id: WallIce
   name: ice wall
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactIce
   - type: Tag
     tags:
     - Wall
@@ -261,6 +274,10 @@
   id: WallPlasma
   name: plasma wall
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactGlass
   - type: Tag
     tags:
     - Wall
@@ -580,6 +597,10 @@
   id: WallSandstone
   name: sandstone wall
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactConcrete
   - type: Tag
     tags:
     - Wall
@@ -735,28 +756,28 @@
 #  - type: Reflect # Frontier
 #    reflectProb: 1 # Frontier
 
-- type: entity
-  parent: BaseWallTierOne # Mono
-  id: WallShuttleInterior
-  name: shuttle wall
-  suffix: Interior
-  components:
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 8
-    fx: EffectRCDDeconstruct8
-  - type: Sprite
-    sprite: Structures/Walls/shuttleinterior.rsi
-  - type: Icon
-    sprite: Structures/Walls/shuttleinterior.rsi
-  - type: Construction
-    graph: Girder
-    node: shuttleInteriorWall
-  - type: IconSmooth
-    key: walls
-    base: state
-#  - type: Reflect # Frontier
-#    reflectProb: 1 # Frontier
+#- type: entity
+#  parent: BaseWallTierOne # Mono
+#  id: WallShuttleInterior
+#  name: shuttle wall
+#  suffix: Interior
+#  components:
+#  - type: RCDDeconstructable
+#    cost: 6
+#    delay: 8
+#    fx: EffectRCDDeconstruct8
+#  - type: Sprite
+#    sprite: Structures/Walls/shuttleinterior.rsi
+#  - type: Icon
+#    sprite: Structures/Walls/shuttleinterior.rsi
+#  - type: Construction
+#    graph: Girder
+#    node: shuttleInteriorWall
+#  - type: IconSmooth
+#    key: walls
+#    base: state
+##  - type: Reflect # Frontier
+##    reflectProb: 1 # Frontier
 
 - type: entity
   parent: BaseWallTierOne
@@ -907,6 +928,34 @@
     graph: Girder
     node: reinforcedWallChitin
 
+# Xenoborg walls
+- type: entity
+  parent: WallPlastitanium
+  id: WallXenoborg
+  name: xenoborg wall
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/xenoborg.rsi
+  - type: Icon
+    sprite: Structures/Walls/xenoborg.rsi
+  - type: IconSmooth
+    key: walls
+    base: xenoborg
+
+- type: entity
+  parent: WallPlastitaniumDiagonal
+  id: WallXenoborgDiagonal
+  name: xenoborg wall
+  suffix: diagonal
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: Structures/Walls/xenoborg_diagonal.rsi
+    state: state0
+  - type: Icon
+    sprite: Structures/Walls/xenoborg_diagonal.rsi
+    state: state0
+
 - type: entity
   parent: BaseWallTierOne # Mono
   id: WallUranium
@@ -946,6 +995,10 @@
   name: wood wall
   description: The traditional greytide defense.
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactWood
   - type: Sprite
     sprite: Structures/Walls/wood.rsi
   - type: Icon
@@ -1049,10 +1102,6 @@
   - type: IconSmooth
     key: walls
     base: mining
-  - type: RandomIconSmooth
-    randomStates:
-    - mining
-    - miningB
   - type: Appearance
 
 - type: entity
@@ -1100,6 +1149,10 @@
   id: WallVaultRock
   name: rock vault wall
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactConcrete
   - type: Sprite
     sprite: Structures/Walls/vault.rsi
     state: rockvault
@@ -1112,6 +1165,10 @@
   id: WallVaultSandstone
   name: sandstone vault wall
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactConcrete
   - type: Sprite
     sprite: Structures/Walls/vault.rsi
     state: sandstonevault
@@ -1215,6 +1272,10 @@
   name: snow brick wall
   description: A cold, not-so-impenetrable wall.
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactIce
   - type: Sprite
     sprite: Structures/Walls/cobblebrick_snow.rsi
   - type: Icon

@@ -45,6 +45,7 @@
   - type: Tag
     tags:
     - HideContextMenu
+    - UnavoidableTrap # Mono - TrapAvoider shouldn't make you immune to this.
 
 - type: entity
   parent: FloorChasmEntity

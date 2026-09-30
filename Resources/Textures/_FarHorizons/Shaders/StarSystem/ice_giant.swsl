@@ -1,0 +1,119 @@
+light_mode unshaded;
+
+#include "/Textures/_FarHorizons/Shaders/shader_utils.swsl"
+#include "/Textures/_FarHorizons/Shaders/StarSystem/planet_rings.swsl"
+#include "/Textures/_FarHorizons/Shaders/StarSystem/planet_utils.swsl" // Majority of uniforms come from here
+
+// Custom data
+uniform highp float atmosphereDepth;
+uniform highp float cloudScale;
+uniform highp float cloudIntensity;
+uniform highp float stormFrequency;
+
+void fragment() {
+    highp vec2 offset;
+    highp float dist;
+    highp float coreRadius;
+    calculatePlanetParallax(UV, offset, dist, coreRadius);
+
+    // setup lighting
+    highp vec2 lightDir2D;
+    highp vec3 lightDir3D;
+    highp vec3 incomingLight;
+    calculateLightingSetup(lightDir2D, lightDir3D, incomingLight);
+
+    highp vec4 finalComposite = vec4(0.0);
+
+    // background rings
+    if (hasRings) {
+        finalComposite = renderRingPass(
+            offset, coreRadius, lightDir3D, incomingLight,
+            ringsRadiusInner, ringsRadiusOuter, axialPitch, rotationAngle,
+            ringsColor1, ringsColor2, ringsColor3,
+            ringDensity, ringsBandFrequency, shadowSoftness, perspectiveStrength, false, false
+        );
+    }
+
+    // planet surface
+    if (dist <= coreRadius) {
+        highp vec2 sphereCoord = offset / coreRadius;
+        highp float r2 = dot(sphereCoord, sphereCoord);
+        highp float z = sqrt(max(0.0, 1.0 - r2));
+
+        highp float c = cos(rotationAngle);
+        highp float s = sin(rotationAngle);
+        highp vec2 surfaceCoord = mat2(c, -s, s, c) * sphereCoord;
+
+        highp float longitude = atan(surfaceCoord.x, max(z, 0.001)); 
+        
+        highp float latitude = asin(clamp(surfaceCoord.y, -0.999, 0.999));
+
+        highp float pitchScale = 1.0 + sin(axialPitch) * 0.8;
+        highp float latitudeCurve = mix(latitude, latitude * pitchScale, 1.0 - z);
+
+        highp float subtleBand = sin(latitudeCurve * 12.0) * 0.05; 
+        highp float baseGradient = clamp(abs(latitudeCurve / 1.5707) + subtleBand, 0.0, 1.0);
+        
+        highp vec3 baseColor = samplePlanetPalette(baseGradient * 0.6 + 0.1); 
+
+        highp vec2 cloudUV = vec2(longitude * 0.6 + TIME * rotationSpeed * 2.5, latitudeCurve * 2.5);
+        highp float rawCloud = fbm(cloudUV * cloudScale + vec2(fbm(cloudUV * 1.5), 0.0) * 1.5);
+        
+        highp float cloudSpread = max(0.01, cloudIntensity * 0.4);
+        highp float cloudMask = smoothstep(1.0 - cloudSpread, 1.0, rawCloud);
+
+        highp vec2 stormUV = vec2(longitude * 1.2 + TIME * rotationSpeed * 0.9, latitudeCurve * 1.5);
+        highp float stormNoise = fbm(stormUV * 4.0);
+        
+        highp float stormSpread = max(0.01, stormFrequency * 0.25);
+        highp float stormMask = smoothstep(1.0 - stormSpread, 1.0, stormNoise) * fbm(stormUV * 8.0);
+
+        baseColor = mix(baseColor, color1 * 0.4, stormMask);     
+        baseColor = mix(baseColor, color4, cloudMask * 0.8);     
+
+        baseColor = applyColorShifts(
+            baseColor, hueShift, saturationShift, 
+            hueShiftMultiplier, saturationShiftMultiplier
+        );
+
+        highp vec3 normal = vec3(sphereCoord, z); 
+        highp float NdotL = dot(normal, lightDir3D); 
+        
+        highp float safeAtmo = clamp(atmosphereDepth, 0.0, 1.0);
+        highp float shadowFactor = smoothstep(-shadowSoftness - (safeAtmo * 0.8), shadowSoftness + (safeAtmo * 0.8), NdotL);
+
+        highp float limbDarkening = mix(1.0, z, safeAtmo * 0.6);
+        highp vec3 shadedSurface = baseColor * limbDarkening;
+
+        highp vec3 ambientLight = vec3(0.01, 0.02, 0.05);
+        highp vec3 litColor = shadedSurface * mix(ambientLight, incomingLight, shadowFactor);
+
+        highp float rim = 1.0 - z;
+        highp float rimExp = mix(6.0, 2.5, safeAtmo); 
+        highp float rimLightMask = smoothstep(-0.2, 0.5, NdotL); 
+        highp float rimGlow = pow(rim, rimExp) * rimLightMask * rimGlowStrength;
+        
+        litColor += color3 * rimGlow * incomingLight;
+
+        finalComposite.rgb = mix(finalComposite.rgb, litColor, 1.0);
+        finalComposite.a = 1.0;
+    }
+
+    // foreground rings
+    if (hasRings) {
+        highp vec4 fgRing = renderRingPass(
+            offset, coreRadius, lightDir3D, incomingLight,
+            ringsRadiusInner, ringsRadiusOuter, axialPitch, rotationAngle,
+            ringsColor1, ringsColor2, ringsColor3,
+            ringDensity, ringsBandFrequency, shadowSoftness, perspectiveStrength, true, false
+        );
+
+        finalComposite = compositeOver(finalComposite, fgRing);
+    }
+
+    if (finalComposite.a <= 0.001) {
+        discard;
+    }
+
+    COLOR = finalComposite;
+}

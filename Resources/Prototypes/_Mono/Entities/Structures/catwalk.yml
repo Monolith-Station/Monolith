@@ -54,6 +54,9 @@
     delay: 2
     fx: EffectRCDDeconstruct2
   - type: RequiresGrid
+  - type: ShipRepairable # Mono
+    repairTime: 1
+    repairCost: 5
 
 - type: entity
   id: DarkCatwalkMono

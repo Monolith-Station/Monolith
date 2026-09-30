@@ -3,3 +3,21 @@
   values:
     prefix: advertisement-barista-
     count: 8
+
+- type: localizedDataset
+  id: FactionUplinkAds
+  values:
+    prefix: advertisement-uplink-ads-
+    count: 6
+
+- type: localizedDataset
+  id: MieyoAds
+  values:
+    prefix: advertisement-mieyo-ads-
+    count: 2
+
+- type: localizedDataset
+  id: WaywardComments
+  values:
+    prefix: wayward-comments-ads-
+    count: 10

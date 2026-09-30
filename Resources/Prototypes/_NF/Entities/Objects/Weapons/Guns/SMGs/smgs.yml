@@ -23,3 +23,11 @@
           whitelist:
             tags:
               - Cartridge45_ACPFMJ
+        # Mono
+        attachment_barrel:
+          insertSound: /Audio/Items/screwdriver.ogg
+          ejectSound: /Audio/Items/screwdriver.ogg
+          priority: 0
+          whitelist:
+            tags:
+            - MonoSuppressorMulticalPistol

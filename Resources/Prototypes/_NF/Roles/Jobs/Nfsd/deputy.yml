@@ -5,7 +5,11 @@
   playTimeTracker: JobSecurityOfficer
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hours
+      time: 14400 # 4 hours. I don't expect new players to play almost 2 full rounds before they get bored, and it's mostly a raider check.
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   startingGear: DeputyGear
   icon: JobIconDeputy
   supervisors: job-supervisors-sergeant
@@ -15,6 +19,8 @@
   canBeAntag: false
   accessGroups:
   - GeneralNfsdAccess
+  guides:
+  - TSFMC_Entry
   special:
   - !type:AddComponentSpecial
     components:
@@ -34,10 +40,11 @@
 
 - type: startingGear
   id: DeputyGear
-  equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+#  equipment:
+#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:
     back:
-    - Magazine45_ACPPistolFMJ
+#    - Magazine45_ACPPistolFMJ  Mono
     - BaseSecurityUplinkRadioDeputy #Mono: Added Deputy uplink
     - RadioHandheldNF # Mono
+    - BookTSFSOP

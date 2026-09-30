@@ -5,13 +5,14 @@ using JetBrains.Annotations;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Nodes;
 using Content.Shared.DeviceNetwork.Events;
+using Content.Shared.NodeContainer;
 
 namespace Content.Server.DeviceNetwork.Systems
 {
     [UsedImplicitly]
-    public sealed class ApcNetworkSystem : EntitySystem
+    public sealed partial class ApcNetworkSystem : EntitySystem
     {
-        [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+        [Dependency] private NodeContainerSystem _nodeContainer = default!;
 
         public override void Initialize()
         {

@@ -9,7 +9,7 @@ namespace Content.Server._Mono.NPC.HTN.Preconditions;
 /// </summary>
 public sealed partial class KeyEqualsPrecondition : HTNPrecondition
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     [DataField(required: true)]
     public string Key = string.Empty;

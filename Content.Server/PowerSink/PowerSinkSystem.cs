@@ -1,17 +1,17 @@
-﻿using Content.Server.Explosion.EntitySystems;
+﻿using Content.Server.Chat.Systems;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.Components;
-using Content.Shared.Examine;
-using Robust.Shared.Utility;
-using Content.Server.Chat.Systems;
-using Content.Server.Station.Systems;
-using Robust.Shared.Timing;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Station.Systems;
+using Content.Shared.Examine;
+using Content.Shared.Power.Components;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.PowerSink
 {
-    public sealed class PowerSinkSystem : EntitySystem
+    public sealed partial class PowerSinkSystem : EntitySystem
     {
         /// <summary>
         /// Percentage of battery full to trigger the announcement warning at.
@@ -27,12 +27,12 @@ namespace Content.Server.PowerSink
         /// <returns></returns>
         private readonly TimeSpan _explosionDelayTime = TimeSpan.FromSeconds(1.465);
 
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly ChatSystem _chat = default!;
-        [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly StationSystem _station = default!;
-        [Dependency] private readonly BatterySystem _battery = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private ChatSystem _chat = default!;
+        [Dependency] private ExplosionSystem _explosionSystem = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private StationSystem _station = default!;
+        [Dependency] private BatterySystem _battery = default!;
 
         public override void Initialize()
         {
@@ -66,7 +66,7 @@ namespace Content.Server.PowerSink
                 if (!transform.Anchored)
                     continue;
 
-                _battery.SetCharge(entity, battery.CurrentCharge + networkLoad.NetworkLoad.ReceivingPower / 1000, battery);
+                _battery.ChangeCharge(entity, networkLoad.NetworkLoad.ReceivingPower * frameTime, battery);
 
                 var currentBatteryThreshold = battery.CurrentCharge / battery.MaxCharge;
 

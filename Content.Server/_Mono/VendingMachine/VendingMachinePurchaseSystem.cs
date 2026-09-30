@@ -9,9 +9,9 @@ namespace Content.Server._Mono.VendingMachine;
 /// <summary>
 /// System that handles vending machine purchase tracking and pricing modifications.
 /// </summary>
-public sealed class VendingMachinePurchaseSystem : EntitySystem
+public sealed partial class VendingMachinePurchaseSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private IMapManager _mapManager = default!;
 
     public override void Initialize()
     {

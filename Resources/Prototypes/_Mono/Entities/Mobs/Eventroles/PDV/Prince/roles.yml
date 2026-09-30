@@ -1,0 +1,31 @@
+- type: entity
+  parent: MobHuman
+  id: MobHumanPrinceBase
+  name: Dynasty Prince
+  suffix: Human, PDV, Event
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Freespeak
+    understands:
+    - TauCetiBasic
+    - Freespeak
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: HumanoidAppearance
+  - type: Loadout
+    prototypes: [PDVPrinceGearEvent]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitary
+    - NamesLastMilitary
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+  - type: Company
+    companyName: PDVHighComm
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
+  - type: ChatRank
+    rank: pdv-prince

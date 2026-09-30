@@ -774,7 +774,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("admin_ooc_color");
 
-                    b.Property<int>("MonoCoins")
+                    b.Property<long>("MonoCoins")
                         .HasColumnType("INTEGER")
                         .HasColumnName("mono_coins");
 
@@ -834,6 +834,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("facial_hair_name");
+
+                    b.PrimitiveCollection<string>("Flags")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("flags");
 
                     b.Property<string>("FlavorText")
                         .IsRequired()
@@ -908,6 +913,62 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsUnique();
 
                     b.ToTable("profile", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ProfileComponent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_component_id");
+
+                    b.Property<string>("Data")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("data");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_id");
+
+                    b.Property<bool>("Sticky")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("sticky");
+
+                    b.HasKey("Id")
+                        .HasName("PK_profile_component");
+
+                    b.HasIndex("ProfileId");
+
+                    b.ToTable("profile_component", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ProfileItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_item_id");
+
+                    b.Property<string>("Data")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("data");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_id");
+
+                    b.Property<bool>("Sticky")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("sticky");
+
+                    b.HasKey("Id")
+                        .HasName("PK_profile_item");
+
+                    b.HasIndex("ProfileId");
+
+                    b.ToTable("profile_item", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.ProfileLoadout", b =>
@@ -1373,6 +1434,91 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("uploaded_resource_log", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.WayfarerSafetyDepositBox", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("wayfarer_safety_deposit_box_id");
+
+                    b.Property<Guid>("BoxId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("box_id");
+
+                    b.Property<int>("CharacterIndex")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("character_index");
+
+                    b.Property<DateTime?>("LastWithdrawn")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("last_withdrawn");
+
+                    b.Property<int?>("LastWithdrawnRoundId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("last_withdrawn_round_id");
+
+                    b.Property<string>("Nickname")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("nickname");
+
+                    b.Property<string>("OwnerName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("owner_name");
+
+                    b.Property<Guid>("OwnerUserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("owner_user_id");
+
+                    b.Property<string>("ProtoId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("proto_id");
+
+                    b.Property<DateTime>("PurchaseDate")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("purchase_date");
+
+                    b.HasKey("Id")
+                        .HasName("PK_wayfarer_safety_deposit_box");
+
+                    b.HasIndex("BoxId")
+                        .IsUnique();
+
+                    b.HasIndex("OwnerUserId");
+
+                    b.ToTable("wayfarer_safety_deposit_box", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.WayfarerSafetyDepositBoxItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("wayfarer_safety_deposit_box_item_id");
+
+                    b.Property<int>("BoxId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("box_id");
+
+                    b.Property<DateTime>("DepositDate")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("deposit_date");
+
+                    b.Property<string>("EntityData")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("entity_data");
+
+                    b.HasKey("Id")
+                        .HasName("PK_wayfarer_safety_deposit_box_item");
+
+                    b.HasIndex("BoxId")
+                        .HasDatabaseName("IX_wayfarer_safety_deposit_box_item_box_id");
+
+                    b.ToTable("wayfarer_safety_deposit_box_item", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Whitelist", b =>
                 {
                     b.Property<Guid>("UserId")
@@ -1665,7 +1811,7 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                             b1.HasKey("ConnectionLogId");
 
-                            b1.ToTable("connection_log", (string)null);
+                            b1.ToTable("connection_log");
 
                             b1.WithOwner()
                                 .HasForeignKey("ConnectionLogId")
@@ -1710,7 +1856,7 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                             b1.HasKey("PlayerId");
 
-                            b1.ToTable("player", (string)null);
+                            b1.ToTable("player");
 
                             b1.WithOwner()
                                 .HasForeignKey("PlayerId")
@@ -1730,6 +1876,30 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasConstraintName("FK_profile_preference_preference_id");
 
                     b.Navigation("Preference");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ProfileComponent", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("Components")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_profile_component_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ProfileItem", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("Items")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_profile_item_profile_profile_id");
+
+                    b.Navigation("Profile");
                 });
 
             modelBuilder.Entity("Content.Server.Database.ProfileLoadout", b =>
@@ -1833,7 +2003,7 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                             b1.HasKey("ServerBanId");
 
-                            b1.ToTable("server_ban", (string)null);
+                            b1.ToTable("server_ban");
 
                             b1.WithOwner()
                                 .HasForeignKey("ServerBanId")
@@ -1910,7 +2080,7 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                             b1.HasKey("ServerRoleBanId");
 
-                            b1.ToTable("server_role_ban", (string)null);
+                            b1.ToTable("server_role_ban");
 
                             b1.WithOwner()
                                 .HasForeignKey("ServerRoleBanId")
@@ -1960,6 +2130,18 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasConstraintName("FK_trait_profile_profile_id");
 
                     b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.WayfarerSafetyDepositBoxItem", b =>
+                {
+                    b.HasOne("Content.Server.Database.WayfarerSafetyDepositBox", "Box")
+                        .WithMany("Items")
+                        .HasForeignKey("BoxId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_wayfarer_safety_deposit_box_item_wayfarer_safety_deposit_box_box_id");
+
+                    b.Navigation("Box");
                 });
 
             modelBuilder.Entity("PlayerRound", b =>
@@ -2051,6 +2233,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                 {
                     b.Navigation("Antags");
 
+                    b.Navigation("Components");
+
+                    b.Navigation("Items");
+
                     b.Navigation("Jobs");
 
                     b.Navigation("Loadouts");
@@ -2090,6 +2276,11 @@ namespace Content.Server.Database.Migrations.Sqlite
             modelBuilder.Entity("Content.Server.Database.ServerRoleBan", b =>
                 {
                     b.Navigation("Unban");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.WayfarerSafetyDepositBox", b =>
+                {
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

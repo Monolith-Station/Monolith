@@ -21,15 +21,15 @@ using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Shared.Standing;
 
-public sealed class StandingStateSystem : EntitySystem
+public sealed partial class StandingStateSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!; // WD EDIT
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!; // WD EDIT
-    [Dependency] private readonly SharedTransformSystem _transform = default!; // Mono
-    [Dependency] private readonly IRobustRandom _random = default!; // Mono
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!; // WD EDIT
+    [Dependency] private SharedBuckleSystem _buckle = default!; // WD EDIT
+    [Dependency] private SharedTransformSystem _transform = default!; // Mono
+    [Dependency] private IRobustRandom _random = default!; // Mono
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
     private const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;

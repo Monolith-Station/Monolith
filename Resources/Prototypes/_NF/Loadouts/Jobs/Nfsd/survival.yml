@@ -18,3 +18,13 @@
   storage:
     back:
     - BoxSurvivalMonoNitrogenExtended
+
+- type: loadout
+  id: NfsdBoxSurvivalNfsdVapor
+  name: extended-water-vapor survival box
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: WaterBreather
+  storage:
+    back:
+    - BoxSurvivalMonoVaporExtended

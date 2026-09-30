@@ -9,10 +9,18 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 7200 # 2 hours - mono
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   alternateRequirementSets:
     longerPlaytimeLessSec:
     - !type:OverallPlaytimeRequirement
       time: 108000 # 30 hours - mono
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   startingGear: BrigmedicGear
   icon: JobIconBrigmedicNF
   supervisors: job-supervisors-bailiff
@@ -22,6 +30,8 @@
   canBeAntag: false
   accessGroups:
   - GeneralNfsdBrigmedicAccess
+  guides:
+  - TSFMC_Entry
   special:
   - !type:AddComponentSpecial
     components:
@@ -43,11 +53,12 @@
 
 - type: startingGear
   id: BrigmedicGear
-  equipment:
-    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+#  equipment:
+#    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:
     back:
     - EncryptionKeyMedical
-    - Magazine45_ACPPistolFMJ
+#    - Magazine45_ACPPistolFMJ # Mono
     - BaseSecurityUplinkRadioOfficer #Mono: Changed to officer uplink
     - RadioHandheldNF # Mono
+    - BookTSFSOP

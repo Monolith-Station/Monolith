@@ -88,3 +88,9 @@ trait-nanite-repair-drones-desc = Your Chassis has Nanite Repair Drones coursing
 
 trait-hardened-lymphocytes-name = Hardened Lymphocytes
 trait-hardened-lymphocytes-desc = Your marrow has been treated with melanocyte-hardened stem cells that abate harm from radiation exposure. Effective up to 1 rad; suitable for light salvage and mining operations.
+
+trait-helmsmanship-name = Helmsmanship
+trait-helmsmanship-desc = Engines and stabilizers rumble in harmony under your yoke. Ships under your control turn and accelerate 10% faster.
+
+trait-heretic-name = Heretic
+trait-heretic-desc = You've wronged the Phaethon Dynasty, or at the very least the Sultanate thinks you have. You are liable (50% chance) to be marked for death by the Sultanate and hunted down by the PDV as a result.

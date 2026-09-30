@@ -55,7 +55,6 @@
     - WeaponCaseShortMk58Expedition
     - WeaponCaseShortUniversalExpedition
     - WeaponCaseShortPollockExpedition
-    - WeaponCaseShortFaithExpedition
     - WeaponCaseShortArgentiExpedition
     - WeaponCaseShortLaserGunExpedition
     #- WeaponCaseShortHandmadeExpedition
@@ -147,10 +146,7 @@
   - type: RandomSpawner
     prototypes:
     - WeaponCaseShortViper
-    - WeaponCaseShortDeckardExpedition
     - WeaponCaseShortPython
-    - WeaponCaseShortFitzExpedition
-    - WeaponCaseShortLuckyExpedition
     - WeaponCaseLongKammererExpedition
     - WeaponCaseLongRepeaterExpedition
     - WeaponCaseLongAK220 # Mono
@@ -241,6 +237,7 @@
     - WeaponCaseLongWT550Expedition
     - WeaponCaseLongDrozdExpedition
     - WeaponCaseLongLecterExpedition
+    - WeaponCaseLongIrohExpedition # Mono
     - WeaponCaseLongLaserCarbineExpedition
     - WeaponCaseShortAdvancedLaserExpedition
     - WeaponCaseShortEg4 # Mono
@@ -333,7 +330,6 @@
       color: red
   - type: RandomSpawner
     prototypes:
-    - WeaponCaseShortN1984Expedition
     - WeaponCaseShortAntiqueLaserExpedition
     - WeaponCaseLongAk
     - WeaponCaseLongEnforcerExpedition

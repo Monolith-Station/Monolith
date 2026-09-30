@@ -11,9 +11,9 @@ namespace Content.Client._Mono.FireControl;
 /// <summary>
 /// Client-side system that visualizes firing directions for debug purposes
 /// </summary>
-public sealed class FireControlVisualizerSystem : EntitySystem
+public sealed partial class FireControlVisualizerSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
 
     private readonly Dictionary<EntityUid, VisualizationData> _activeVisualizations = new();
 

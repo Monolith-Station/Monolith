@@ -13,6 +13,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using System.Numerics;
+using Content.Server._Crescent.ShipShields.Components;
 
 
 namespace Content.Server._Crescent.ShipShields;
@@ -24,10 +25,10 @@ public sealed partial class ShipShieldsSystem : EntitySystem
     //private const float DeflectionSpread = 25f;
     private const float EmitterUpdateRate = 1.5f;
 
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly FixtureSystem _fixtureSystem = default!;
-    [Dependency] private readonly PhysicsSystem _physicsSystem = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvsSys = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private FixtureSystem _fixtureSystem = default!;
+    [Dependency] private PhysicsSystem _physicsSystem = default!;
+    [Dependency] private PvsOverrideSystem _pvsSys = default!;
 
     private EntityQuery<ProjectileComponent> _projectileQuery;
     private EntityQuery<ShipWeaponProjectileComponent> _shipWeaponProjectileQuery;
@@ -90,14 +91,14 @@ public sealed partial class ShipShieldsSystem : EntitySystem
                 }
                 _audio.PlayGlobal(emitter.PowerUpSound, filter, true, emitter.PowerUpSound.Params);
             }
-            else if ((emitter.Recharging || emitter.OverloadAccumulator > 0) && emitter.Shield is not null)
+            else if ((emitter.Recharging || emitter.OverloadAccumulator > 0) && emitter.Shield is not null || HasComp<ShipShieldDisabledGridComponent>(Transform(uid).GridUid))
             {
                 UnshieldEntity(parent.Value);
                 emitter.Shield = null;
                 emitter.Shielded = null;
-                _audio.PlayGlobal(emitter.PowerDownSound, filter, true, emitter.PowerUpSound.Params);
+                if (!HasComp<ShipShieldDisabledGridComponent>(Transform(uid).GridUid))
+                    _audio.PlayGlobal(emitter.PowerDownSound, filter, true, emitter.PowerUpSound.Params);
             }
-
         }
     }
     public override void Initialize()
@@ -171,7 +172,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         if (TryComp<ShipShieldedComponent>(entity, out var existingShielded))
             return existingShielded.Shield;
 
-        if (!Resolve(entity, ref mapGrid, false))
+        if (!Resolve(entity, ref mapGrid, false) || HasComp<ShipShieldDisabledGridComponent>(Transform(entity).GridUid))
             return EntityUid.Invalid;
 
         var prototype = ShipShieldPrototype;

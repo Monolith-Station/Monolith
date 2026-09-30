@@ -8,6 +8,7 @@ using Content.Shared.Examine;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
 using Color = Robust.Shared.Maths.Color;
@@ -15,14 +16,14 @@ using Content.Server._NF.SectorServices; // Frontier: sector services
 
 namespace Content.Server.Light.EntitySystems;
 
-public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
+public sealed partial class EmergencyLightSystem : SharedEmergencyLightSystem
 {
-    [Dependency] private readonly AmbientSoundSystem _ambient = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly PointLightSystem _pointLight = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly SectorServiceSystem _sectorService = default!; // Frontier: sector-wide alerts
+    [Dependency] private AmbientSoundSystem _ambient = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private PointLightSystem _pointLight = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private SectorServiceSystem _sectorService = default!; // Frontier: sector-wide alerts
 
     public override void Initialize()
     {

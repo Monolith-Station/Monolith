@@ -520,6 +520,13 @@
           - state: inhand-left-shield
         right:
           - state: inhand-right-shield
+    - type: Blocking # Mono - Far more resistant than eshield but permabreaks.
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.45
+          Slash: 0.45
+          Piercing: 0.45
+          Heat: 0.65
     - type: Appearance
     - type: Destructible
       thresholds:

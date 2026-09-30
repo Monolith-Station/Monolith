@@ -8,10 +8,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Movement.Systems
 {
-    public sealed class MovementSpeedModifierSystem : EntitySystem
+    public sealed partial class MovementSpeedModifierSystem : EntitySystem
     {
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private   readonly IConfigurationManager _configManager = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private   IConfigurationManager _configManager = default!;
 
         private float _frictionModifier;
         private float _airDamping;
@@ -77,7 +77,8 @@ namespace Content.Shared.Movement.Systems
             Dirty(uid, move);
         }
 
-        public void RefreshMovementSpeedModifiers(EntityUid uid, MovementSpeedModifierComponent? move = null)
+        public void RefreshMovementSpeedModifiers(EntityUid uid, MovementSpeedModifierComponent? move = null,
+            bool alsoFriction = false) // Mono
         {
             if (!Resolve(uid, ref move, false))
                 return;
@@ -87,6 +88,13 @@ namespace Content.Shared.Movement.Systems
 
             var ev = new RefreshMovementSpeedModifiersEvent();
             RaiseLocalEvent(uid, ev);
+
+            // Mono
+            if (alsoFriction)
+            {
+                RefreshFrictionModifiers(uid, move);
+                RefreshWeightlessModifiers(uid, move);
+            }
 
             if (MathHelper.CloseTo(ev.WalkSpeedModifier, move.WalkSpeedModifier) &&
                 MathHelper.CloseTo(ev.SprintSpeedModifier, move.SprintSpeedModifier))
@@ -173,7 +181,7 @@ namespace Content.Shared.Movement.Systems
     }
 
     [ByRefEvent]
-    public record struct RefreshWeightlessModifiersEvent
+    public record struct RefreshWeightlessModifiersEvent : IInventoryRelayEvent // Mono
     {
         public float WeightlessAcceleration;
         public float WeightlessAccelerationMod;
@@ -207,6 +215,7 @@ namespace Content.Shared.Movement.Systems
         {
             ModifyAcceleration(modifier, modifier);
         }
+        SlotFlags IInventoryRelayEvent.TargetSlots => ~SlotFlags.POCKET;
     }
     [ByRefEvent]
     public record struct RefreshFrictionModifiersEvent : IInventoryRelayEvent

@@ -33,3 +33,28 @@
   id: tsfmedical_default
   spritePath: _Mono/Mobs/Silicon/TSFMC/tsfchassis.rsi
   dummyPrototype: TSFBorgChassisMedical
+
+#Xenoborg Cyborgs
+- type: borgSubtype
+  parentBorgType: xenoborgengineer
+  id: xenoborgengineer_default
+  spritePath: _Mono/Mobs/Silicon/XENOBORG/xenoborgchassis.rsi
+  dummyPrototype: XenoborgChassisEngineer
+
+- type: borgSubtype
+  parentBorgType: xenoborgheavy
+  id: xenoborgheavy_default
+  spritePath: _Mono/Mobs/Silicon/XENOBORG/xenoborgchassis.rsi
+  dummyPrototype: XenoborgChassisHeavy
+
+- type: borgSubtype
+  parentBorgType: xenoborgscout
+  id: xenoborgscout_default
+  spritePath: _Mono/Mobs/Silicon/XENOBORG/xenoborgchassis.rsi
+  dummyPrototype: XenoborgChassisScout
+
+- type: borgSubtype
+  parentBorgType: xenoborgstealth
+  id: xenoborgstealth_default
+  spritePath: _Mono/Mobs/Silicon/XENOBORG/xenoborgchassis.rsi
+  dummyPrototype: XenoborgChassisStealth

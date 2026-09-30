@@ -16,6 +16,7 @@ strippable-component-alert-owner-interact = {$user} is fumbling around with your
 
 # StripVerb
 strip-verb-get-data-text = Strip
+strip-all-verb-get-data-text = Strip All
 
 ## UI
 

@@ -1,0 +1,73 @@
+- type: entity
+  id: OrganResomiHeart
+  parent: OrganHumanHeart
+  name: resomi heart
+  suffix: Resomi
+  components:
+  - type: Sprite
+    sprite: _Moffstation/Mobs/Species/Resomi/organs.rsi
+    state: heart-on
+
+- type: entity
+  id: OrganResomiBrain
+  parent: OrganHumanBrain
+  name: brain
+  suffix: Resomi
+  components:
+  - type: Sprite
+    sprite: _Moffstation/Mobs/Species/Resomi/organs.rsi
+    state: brain
+
+- type: entity
+  id: OrganResomiLungs
+  parent: OrganHumanLungs
+  name: resomi lungs
+  suffix: Resomi
+  components:
+  - type: Sprite
+    sprite: _Moffstation/Mobs/Species/Resomi/organs.rsi
+    layers:
+      - state: lung-l
+      - state: lung-r
+
+- type: entity
+  id: OrganResomiKidneys
+  parent: OrganHumanKidneys
+  name: resomi kidney
+  suffix: Resomi
+  components:
+  - type: Sprite
+    sprite: _Moffstation/Mobs/Species/Resomi/organs.rsi
+    layers:
+      - state: kidney-l
+      - state: kidney-r
+
+- type: entity
+  id: OrganResomiLiver
+  parent: OrganHumanLiver
+  name: resomi liver
+  suffix: Resomi
+  components:
+  - type: Sprite
+    sprite: _Moffstation/Mobs/Species/Resomi/organs.rsi
+    state: liver
+
+- type: entity
+  id: OrganResomiStomach
+  parent: OrganAnimalStomach
+  name: resomi stomach
+  suffix: Resomi
+  components:
+  - type: Stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Sprite
+    sprite: _Moffstation/Mobs/Species/Resomi/organs.rsi
+    state: stomach

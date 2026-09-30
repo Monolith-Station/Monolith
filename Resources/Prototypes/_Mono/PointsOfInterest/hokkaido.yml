@@ -1,0 +1,68 @@
+# Author Info
+# GitHub: kasature90
+# Discord: _starch_
+- type: pointOfInterest
+  id: Hokkaido
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'MMC Hokkaido'
+  minimumDistance: 2000
+  maximumDistance: 8000
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/hokkaido.yml
+  addComponents:
+  - type: IFF
+    color: "#EEEEEE"
+    readOnly: true # mono
+  - type: WorldGenDistanceCarver
+    distanceThresholds:
+    # Dead zone
+    - maxDistance: 800
+      prob: 0.0
+    - maxDistance: 1500
+      prob: 0.3
+
+- type: gameMap
+  id: Hokkaido
+  mapName: 'MMC Hokkaido'
+  mapPath: /Maps/_Mono/POI/hokkaido.yml
+  minPlayers: 0
+  stations:
+    Hokkaido:
+      stationProto: RecordsFrontierOutpostCargo
+      gridComponents:
+        - type: DeleteNearbyDrones
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'MMC Hokkaido'
+        - type: ExtraStationInformation
+          icon: /Textures/_Mono/Interface/Misc/LateJoin/lathe.png
+          stationSubtext: 'frontier-lobby-hokkaido-subtext'
+          stationDescription: 'frontier-lobby-hokkaido-description'
+        - type: StationJobs
+          availableJobs:
+            MMCLiason: [ 1, 1 ]
+            MMCSecurity: [ 5, 5 ]
+            MMCEmployee: [ -1, -1 ]
+          tags:
+          - MieyoLiason
+        - type: StationDeadDropHintExempt
+        - type: StationCargoBountyDatabase
+          availableBounties:
+          - MMCBountyT2IndustrialParts
+          - MMCBountyT4ArmorPlates
+          - MMCBountyT3Processors
+          - MMCBountyT2Processors
+          - MMCBountyT2ProcessorsBulk
+          - MMCBountyT1MotorsBulk
+          - MMCBountyT1SensorsBulk
+          - MMCBountyT1CamerasBulk
+          - MMCBountyT3ArmorPlatesBulk
+          - MMCBountyT2ArmorPlatesBulk
+          - MMCBountyT2MiscCompsBulk
+          - MMCBountyT3IndustrialParts
+          - MMCBountySpaceCashT1
+          - MMCBountySpaceCashT2
+          - MMCBountySpaceCashT3
+          - MMCBountyIridite
+          - MMCBountyPlastitanium
+          - MMCBountyIriditeBulk

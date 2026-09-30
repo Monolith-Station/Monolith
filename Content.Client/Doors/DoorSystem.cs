@@ -7,10 +7,11 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
 namespace Content.Client.Doors;
 
-public sealed class DoorSystem : SharedDoorSystem
+public sealed partial class DoorSystem : SharedDoorSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animationSystem = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private AnimationPlayerSystem _animationSystem = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -21,8 +22,8 @@ public sealed class DoorSystem : SharedDoorSystem
     protected override void OnComponentInit(Entity<DoorComponent> ent, ref ComponentInit args)
     {
         var comp = ent.Comp;
-        comp.OpenSpriteStates = new List<(DoorVisualLayers, string)>(2);
-        comp.ClosedSpriteStates = new List<(DoorVisualLayers, string)>(2);
+        comp.OpenSpriteStates = new List<(Enum, string)>(2);
+        comp.ClosedSpriteStates = new List<(Enum, string)>(2);
 
         comp.OpenSpriteStates.Add((DoorVisualLayers.Base, comp.OpenSpriteState));
         comp.ClosedSpriteStates.Add((DoorVisualLayers.Base, comp.ClosedSpriteState));
@@ -85,7 +86,7 @@ public sealed class DoorSystem : SharedDoorSystem
             state = DoorState.Closed;
 
         if (AppearanceSystem.TryGetData<string>(entity, DoorVisuals.BaseRSI, out var baseRsi, args.Component))
-            UpdateSpriteLayers(args.Sprite, baseRsi);
+            UpdateSpriteLayers((entity.Owner, args.Sprite), baseRsi);
 
         if (_animationSystem.HasRunningAnimation(entity, DoorComponent.AnimationKey))
             _animationSystem.Stop(entity.Owner, DoorComponent.AnimationKey);
@@ -95,21 +96,25 @@ public sealed class DoorSystem : SharedDoorSystem
 
     private void UpdateAppearanceForDoorState(Entity<DoorComponent> entity, SpriteComponent sprite, DoorState state)
     {
-        sprite.DrawDepth = state is DoorState.Open ? entity.Comp.OpenDrawDepth : entity.Comp.ClosedDrawDepth;
+        _sprite.SetDrawDepth((entity.Owner, sprite), state is DoorState.Open ? entity.Comp.OpenDrawDepth : entity.Comp.ClosedDrawDepth);
 
         switch (state)
         {
             case DoorState.Open:
                 foreach (var (layer, layerState) in entity.Comp.OpenSpriteStates)
                 {
-                    sprite.LayerSetState(layer, layerState);
+                    // Allow animations to play while it's open (e.g., pinion);
+                    // the animation unsets this so we gotta set it again.
+                    _sprite.LayerSetAutoAnimated((entity.Owner, sprite), layer, true);
+                    _sprite.LayerSetRsiState((entity.Owner, sprite), layer, layerState);
                 }
 
                 return;
             case DoorState.Closed:
                 foreach (var (layer, layerState) in entity.Comp.ClosedSpriteStates)
                 {
-                    sprite.LayerSetState(layer, layerState);
+                    _sprite.LayerSetAutoAnimated((entity.Owner, sprite), layer, true);
+                    _sprite.LayerSetRsiState((entity.Owner, sprite), layer, layerState);
                 }
 
                 return;
@@ -138,7 +143,7 @@ public sealed class DoorSystem : SharedDoorSystem
         }
     }
 
-    private void UpdateSpriteLayers(SpriteComponent sprite, string baseRsi)
+    private void UpdateSpriteLayers(Entity<SpriteComponent> sprite, string baseRsi)
     {
         if (!_resourceCache.TryGetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / baseRsi, out var res))
         {
@@ -146,6 +151,6 @@ public sealed class DoorSystem : SharedDoorSystem
             return;
         }
 
-        sprite.BaseRSI = res.RSI;
+        _sprite.SetBaseRsi(sprite.AsNullable(), res.RSI);
     }
 }

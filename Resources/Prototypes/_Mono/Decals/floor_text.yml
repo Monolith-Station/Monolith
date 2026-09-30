@@ -1,0 +1,334 @@
+# Lucida console font, size 18
+# 123
+# 456
+
+# Airlock
+
+- type: decal
+  id: FloorTextAirlock1
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/airlock.rsi
+    state: text1
+
+- type: decal
+  id: FloorTextAirlock2
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/airlock.rsi
+    state: text2
+
+- type: decal
+  id: FloorTextAirlock3
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/airlock.rsi
+    state: text3
+
+- type: decal
+  id: FloorTextAirlock4
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/airlock.rsi
+    state: text4
+
+- type: decal
+  id: FloorTextAirlock5
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/airlock.rsi
+    state: text5
+
+# Armory
+
+- type: decal
+  id: FloorTextArmory1
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/armory.rsi
+    state: text1
+
+- type: decal
+  id: FloorTextArmory2
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/armory.rsi
+    state: text2
+
+- type: decal
+  id: FloorTextArmory3
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/armory.rsi
+    state: text3
+
+- type: decal
+  id: FloorTextArmory4
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/armory.rsi
+    state: text4
+
+- type: decal
+  id: FloorTextArmory5
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/armory.rsi
+    state: text5
+
+- type: decal
+  id: FloorTextArmory6
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/armory.rsi
+    state: text6
+
+# Cargo
+
+- type: decal
+  id: FloorTextCargo1
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/cargo.rsi
+    state: text1
+
+- type: decal
+  id: FloorTextCargo2
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/cargo.rsi
+    state: text2
+
+- type: decal
+  id: FloorTextCargo3
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/cargo.rsi
+    state: text3
+
+- type: decal
+  id: FloorTextCargo4
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/cargo.rsi
+    state: text4
+
+- type: decal
+  id: FloorTextCargo5
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/cargo.rsi
+    state: text5
+
+# Caution
+
+- type: decal
+  id: FloorTextCaution1
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/caution.rsi
+    state: text1
+
+- type: decal
+  id: FloorTextCaution2
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/caution.rsi
+    state: text2
+
+- type: decal
+  id: FloorTextCaution3
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/caution.rsi
+    state: text3
+
+- type: decal
+  id: FloorTextCaution4
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/caution.rsi
+    state: text4
+
+- type: decal
+  id: FloorTextCaution5
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/caution.rsi
+    state: text5
+
+# Dock
+
+- type: decal
+  id: FloorTextDock1
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/dock.rsi
+    state: text1
+
+- type: decal
+  id: FloorTextDock2
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/dock.rsi
+    state: text2
+
+- type: decal
+  id: FloorTextDock3
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/dock.rsi
+    state: text3
+
+- type: decal
+  id: FloorTextDock4
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/dock.rsi
+    state: text4
+
+- type: decal
+  id: FloorTextDock5
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/dock.rsi
+    state: text5
+
+- type: decal
+  id: FloorTextDock6
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/dock.rsi
+    state: text6
+
+# Loading
+
+- type: decal
+  id: FloorTextLoading1
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/loading.rsi
+    state: text1
+
+- type: decal
+  id: FloorTextLoading2
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/loading.rsi
+    state: text2
+
+- type: decal
+  id: FloorTextLoading3
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/loading.rsi
+    state: text3
+
+- type: decal
+  id: FloorTextLoading4
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/loading.rsi
+    state: text4
+
+- type: decal
+  id: FloorTextLoading5
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/loading.rsi
+    state: text5
+
+- type: decal
+  id: FloorTextLoading6
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/loading.rsi
+    state: text6
+
+# Manufacturing
+
+- type: decal
+  id: FloorTextManufacturing1
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/manufacturing.rsi
+    state: text1
+
+- type: decal
+  id: FloorTextManufacturing2
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/manufacturing.rsi
+    state: text2
+
+- type: decal
+  id: FloorTextManufacturing3
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/manufacturing.rsi
+    state: text3
+
+- type: decal
+  id: FloorTextManufacturing4
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/manufacturing.rsi
+    state: text4
+
+- type: decal
+  id: FloorTextManufacturing5
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/manufacturing.rsi
+    state: text5
+
+- type: decal
+  id: FloorTextManufacturing6
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/manufacturing.rsi
+    state: text6
+
+# Reactor
+
+- type: decal
+  id: FloorTextReactor1
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/reactor.rsi
+    state: text1
+
+- type: decal
+  id: FloorTextReactor2
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/reactor.rsi
+    state: text2
+
+- type: decal
+  id: FloorTextReactor3
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/reactor.rsi
+    state: text3
+
+- type: decal
+  id: FloorTextReactor4
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/reactor.rsi
+    state: text4
+
+- type: decal
+  id: FloorTextReactor5
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/reactor.rsi
+    state: text5
+
+- type: decal
+  id: FloorTextReactor6
+  tags: ["station", "markings", "floortext"]
+  sprite:
+    sprite: _Mono/Decals/TextDecals/reactor.rsi
+    state: text6

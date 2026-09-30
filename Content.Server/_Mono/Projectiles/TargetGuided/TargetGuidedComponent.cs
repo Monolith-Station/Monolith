@@ -110,4 +110,10 @@ public sealed partial class TargetGuidedComponent : Component
     /// </summary>
     [DataField]
     public bool ControlPermanentlyLost = false;
+
+    /// <summary>
+    /// Draw the vector on radar consoles for direction.
+    /// </summary>
+    [DataField]
+    public bool RadarLines = true;
 }

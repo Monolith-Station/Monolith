@@ -13,15 +13,15 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Administration;
 
-public sealed class TimeTransferPanelEui : BaseEui
+public sealed partial class TimeTransferPanelEui : BaseEui
 {
-    [Dependency] private readonly IAdminManager _adminMan = default!;
-    [Dependency] private readonly ILogManager _log = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _playerMan = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IServerDbManager _databaseMan = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _playTimeMan = default!;
+    [Dependency] private IAdminManager _adminMan = default!;
+    [Dependency] private ILogManager _log = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerMan = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private IServerDbManager _databaseMan = default!;
+    [Dependency] private PlayTimeTrackingManager _playTimeMan = default!;
 
     private readonly ISawmill _sawmill;
 

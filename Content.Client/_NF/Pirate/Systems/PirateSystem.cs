@@ -5,7 +5,7 @@ namespace Content.Client._NF.Pirate.Systems;
 
 public sealed partial class PirateSystem : SharedPirateSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _player = default!;
+    [Dependency] private AnimationPlayerSystem _player = default!;
 
     public override void Initialize()
     {

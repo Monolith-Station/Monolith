@@ -22,12 +22,12 @@ namespace Content.Server.Shuttles.Systems;
 /// <summary>
 /// Server-side implementation of the shuttle console lock system.
 /// </summary>
-public sealed class ShuttleConsoleLockSystem : SharedShuttleConsoleLockSystem
+public sealed partial class ShuttleConsoleLockSystem : SharedShuttleConsoleLockSystem
 {
-    [Dependency] private readonly ShuttleConsoleSystem _consoleSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly HandsSystem _handsSystem = default!;
-    [Dependency] private readonly ShuttleSystem _shuttleSystem = default!;
+    [Dependency] private ShuttleConsoleSystem _consoleSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private HandsSystem _handsSystem = default!;
+    [Dependency] private ShuttleSystem _shuttleSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

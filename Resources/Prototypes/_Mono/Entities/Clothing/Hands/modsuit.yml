@@ -67,9 +67,6 @@
       - state: equipped-HAND-sealed
       gloves-vox:
       - state: equipped-HAND-sealed-vox
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
-
 # Gallóglach
 - type: entity
   parent: ClothingModsuitGauntletsBase
@@ -87,8 +84,6 @@
       - state: equipped-HAND-sealed
       gloves-vox:
       - state: equipped-HAND-sealed-vox
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
   - type: Gun
     fireRate: 2
     selectedMode: SemiAuto
@@ -100,9 +95,9 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-      - Cartridge45_magnumFMJ
+      - Cartridge357_magnumFMJ
     capacity: 6
-    proto: Cartridge45_magnumFMJ
+    proto: Cartridge357_magnumFMJ
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container

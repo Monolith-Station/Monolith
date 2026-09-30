@@ -34,7 +34,7 @@ lanternextrabright: LanternFlash
 
 # 2023-08-04
 BoxMagazine762x39mmHighVelocity: BoxMagazine762x39mmFMJ
-BoxMagazine45_magnumSubMachineGunHighVelocity: BoxMagazine45_magnumSubMachineGunFMJ
+BoxMagazine357_magnumSubMachineGunHighVelocity: BoxMagazine357_magnumFMJ
 BoxMagazine635x40mmCaselessPistolHighVelocity: BoxMagazine635x40mmCaselessPistol
 BoxMagazine9x19mmPistolHighCapacityHighVelocity: BoxMagazine9x19mmPistolHighCapacityFMJ
 BoxMagazine9x19mmHighVelocity: BoxMagazine9x19mmFMJ
@@ -42,29 +42,29 @@ BoxMagazine9x19mmSubMachineGunHighVelocity: BoxMagazine9x19mmSubMachineGunFMJ
 BoxMagazine556x45mmHighVelocity: BoxMagazine556x45mmFMJ
 Bullet635x40mmCaselessHighVelocity: Bullet635x40mmCaseless
 Bullet762x39mmHighVelocity: Bullet762x39mmFMJ
-Bullet45_magnumHighVelocity: Bullet45_magnumFMJ
+Bullet357_magnumHighVelocity: Bullet357_magnumFMJ
 Bullet9x19mmHighVelocity: Bullet9x19mmFMJ
 Bullet556x45mmHighVelocity: Bullet556x45mmFMJ
 Cartridge635x40mmCaselessHighVelocity: Cartridge635x40mmCaseless
 Cartridge762x39mmHighVelocity: Cartridge762x39mmFMJ
-Cartridge45_magnumHighVelocity: Cartridge45_magnumFMJ
+Cartridge357_magnumHighVelocity: Cartridge357_magnumFMJ
 Cartridge9x19mmHighVelocity: Cartridge9x19mmFMJ
 Cartridge556x45mmHighVelocity: Cartridge556x45mmFMJ
 AmmoBox635x40mmCaselessHighVelocity: AmmoBox635x40mmCaseless
 AmmoBox762x39mmHighVelocity: AmmoBox762x39mmFMJ
-AmmoBox45_magnumHighVelocity: AmmoBox45_magnumFMJ
+AmmoBox357_magnumHighVelocity: AmmoBox357_magnumFMJ
 AmmoBox9x19mmHighVelocity: AmmoBox9x19mmFMJ
 AmmoBox556x45mmHighVelocity: AmmoBox556x45mmFMJ
 Magazine635x40mmCaselessHighVelocity: Magazine635x40mmCaseless
 Magazine635x40mmCaselessShortHighVelocity: Magazine635x40mmCaselessShort
 Magazine762x39mmHighVelocity: Magazine762x39mmFMJ
-Magazine45_magnumSubMachineGunHighVelocity: Magazine45_magnumSubMachineGunFMJ
+Magazine357_magnumSubMachineGunHighVelocity: SpeedLoader357_magnumFMJ
 Magazine635x40mmCaselessPistolHighVelocity: Magazine635x40mmCaselessPistol
 Magazine9x19mmPistolHighCapacityHighVelocity: Magazine9x19mmPistolHighCapacityFMJ
 Magazine9x19mmHighVelocity: Magazine9x19mmPistolFMJ
 Magazine9x19mmSubMachineGunHighVelocity: Magazine9x19mmSubMachineGunFMJ
 Magazine556x45mmHighVelocity: Magazine556x45mmFMJ
-SpeedLoader45_magnumHighVelocity: SpeedLoader45_magnumFMJ
+SpeedLoader357_magnumHighVelocity: SpeedLoader357_magnumFMJ
 SpeedLoader9x19mmHighVelocity: SpeedLoader9x19mmFMJ
 
 # 2023-08-07
@@ -290,29 +290,28 @@ BodyBag_Folded: BodyBagFolded
 # 2024-04-26
 # BaseBulletRubber: null # Frontier
 # Bullet9x19mmRubber: Bullet9x19mmFMJ # Frontier
-# Bullet45_magnumRubber: Bullet45_magnumFMJ # Frontier
+# Bullet357_magnumRubber: Bullet357_magnumFMJ # Frontier
 # Bullet762x39mmRubber: Bullet762x39mmFMJ # Frontier
 # Bullet556x45mmRubber: Bullet556x45mmFMJ # Frontier
 # Bullet635x40mmCaselessRubber: Bullet635x40mmCaseless # Frontier
 # Cartridge9x19mmRubber: Cartridge9x19mmFMJ # Frontier
-# Cartridge45_magnumRubber: Cartridge45_magnumFMJ # Frontier
+# Cartridge357_magnumRubber: Cartridge357_magnumFMJ # Frontier
 # Cartridge762x39mmRubber: Cartridge762x39mmFMJ # Frontier
 # Cartridge556x45mmRubber: Cartridge556x45mmFMJ # Frontier
 # Cartridge635x40mmCaselessRubber: Cartridge635x40mmCaseless # Frontier
 # Magazine9x19mmPistolRubber: Magazine9x19mmPistolFMJ # Frontier
 # Magazine9x19mmSubMachineGunRubber: Magazine9x19mmSubMachineGun # Frontier
 # Magazine635x40mmCaselessPistolRubber: Magazine635x40mmCaselessPistol # Frontier
-# Magazine45_magnumPistolRubber: Magazine45_magnumPistolFMJ # Frontier
-# Magazine45_magnumSubMachineGunRubber: Magazine45_magnumSubMachineGunFMJ # Frontier
+# Magazine357_magnumSubMachineGunRubber: Magazine357_magnumSubMachineGunFMJ # Frontier
 # Magazine762x39mmRubber: Magazine762x39mmFMJ # Frontier
 # Magazine556x45mmRubber: Magazine556x45mmFMJ # Frontier
 # Magazine635x40mmCaselessRubber: Magazine635x40mmCaseless # Frontier
 # Magazine635x40mmCaselessShortRubber: Magazine635x40mmCaselessShort # Frontier
 # SpeedLoader9x19mmRubber: SpeedLoader9x19mmFMJ # Frontier
-# SpeedLoader45_magnumRubber: SpeedLoader45_magnumFMJ # Frontier
+# SpeedLoader357_magnumRubber: SpeedLoader357_magnumFMJ # Frontier
 # AmmoBox9x19mmRubber: AmmoBox9x19mmFMJ # Frontier
-# RIP box of .45 magnum rubbers 202X to 2024
-# AmmoBox45_magnumRubber: AmmoBox45_magnumFMJ # Frontier
+# RIP box of .357 magnum rubbers 202X to 2024
+# AmmoBox357_magnumRubber: AmmoBox357_magnumFMJ # Frontier
 # AmmoBox762x39mmRubber: AmmoBox762x39mmFMJ # Frontier
 # AmmoBox556x45mmRubber: AmmoBox556x45mmFMJ # Frontier
 # AmmoBox556x45mmBigRubber: AmmoBox556x45mmBigFMJ # Frontier
@@ -324,9 +323,8 @@ BodyBag_Folded: BodyBagFolded
 # BoxMagazine762x39mmRubber: BoxMagazine762x39mm # Frontier
 # BoxMagazine556x45mmRubber: BoxMagazine556x45mm # Frontier
 # BoxMagazine635x40mmCaselessRubber: BoxMagazine635x40mmCaselessPistol # Frontier
-# BoxMagazine45_magnumSubMachineGunRubber: BoxMagazine45_magnumSubMachineGun # Frontier
+# BoxMagazine357_magnumSubMachineGunRubber: BoxMagazine357_magnumSubMachineGun # Frontier
 # WeaponPistolMk58Nonlethal: WeaponPistolMk58 # Frontier
-# WeaponPistolN1984Nonlethal: WeaponPistolN1984 # Frontier
 # WeaponSubMachineGunVectorRubber: WeaponSubMachineGunVector # Frontier
 # WeaponSubMachineGunDrozdRubber: WeaponSubMachineGunDrozd # Frontier
 # WeaponRifleLecterRubber: WeaponRifleLecter # Frontier

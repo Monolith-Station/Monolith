@@ -7,9 +7,11 @@
   cost: 7500
   recipeUnlocks:
   - CharonSlugUniversal
+  - CharonApheSlugUniversal
+  - CharonEmpSlugUniversal
   technologyPrerequisites:
   - UniversalPlastitaniumCore
-  position: 7, 7
+  position: 0, -19
 
 - type: technology
   id: UniversalSubnuclearRailgunAmmo
@@ -23,7 +25,7 @@
   technologyPrerequisites:
   - UniversalRailgunAmmo
   - UniversalMaterialResearchT3
-  position: 10, 14
+  position: 0, -27
 
 - type: technology
   id: UniversalTorpedoAmmo
@@ -34,10 +36,11 @@
   cost: 20000
   recipeUnlocks:
   - ASM220TorpedoHEUniversal
+  - ASM220TorpedoHESACLOSUniversal
   - ASM220TorpedoECMUniversal
   technologyPrerequisites:
   - UniversalPlastitaniumCore
-  position: 8, 7
+  position: 1, -18
 
 - type: technology
   id: UniversalTorpedoAmmoAdvanced
@@ -50,21 +53,35 @@
   - ASM220TorpedoLOSATUniversal
   technologyPrerequisites:
   - UniversalTorpedoAmmo
-  position: 8, 12
+  position: 1, -19
+
+- type: technology
+  id: UniveralSandboxCruiseMissiles
+  name: research-technology-universal-sandbox-missiles
+  entityIcon: SandboxHEMissile
+  discipline: FactionUniversal
+  tier: 3
+  cost: 40000
+  recipeUnlocks:
+  - SandboxHEMissileUniversal
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 2, -19
 
 - type: technology
   id: Universal150mmAmmo
-  name: research-technology-universal-150mm-ammo
+  name: research-technology-universal-90mm-ammo
   entityIcon: 150mmEmpShell
   discipline: FactionUniversal
   tier: 1
   cost: 5000
   recipeUnlocks:
   - 150mmApShellUniversal
+  - 150mmApheShellUniversal
   - 150mmEmpShellUniversal
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 7, 2
+  position: 1, -10
 
 - type: technology
   id: UniversalLightFighterOrdinance
@@ -78,7 +95,7 @@
   - ZenithRocketUniversal
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 6, 2
+  position: -1, -10
 
 - type: technology
   id: UniversalAdvancedLightFighterOrdinance
@@ -92,4 +109,4 @@
   technologyPrerequisites:
   - UniversalLightFighterOrdinance
   - UniversalPlastitaniumCore
-  position: 6, 4
+  position: 0, -20

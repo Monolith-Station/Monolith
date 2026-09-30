@@ -1,0 +1,33 @@
+- type: entity
+  parent: BaseBattlemap
+  id: EconomyPlanner
+  name: industrial planner
+  description: A tablet containing a visual flowchart on how to produce proprietary goods. (Place on the ground and interact with it to open the flowchart!)
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/Economy/economyplanner.rsi
+    layers:
+      - state: tablet
+      - state: tablet_unshaded
+        shader: unshaded
+  - type: TabletopGame
+    size: 768, 640
+    setup:
+      !type:TabletopEmptySetup
+      boardPrototype: EconomyPlannerTabletop
+  - type: PointLight
+    color: "#13ffd1"
+    radius: 2
+    energy: 1
+# Background entity (actually shown in the board)
+- type: entity
+  parent: BaseBoardTabletop
+  id: EconomyPlannerTabletop
+  name: industrial planner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/Economy/economyplannerbg.rsi
+    state: tabletop
+    noRot: false
+    drawdepth: FloorTiles

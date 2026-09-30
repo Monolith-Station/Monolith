@@ -39,6 +39,10 @@
       weight: 0.05 # Mono 0.01 >> 0.05
     - id: CrayonMagic # Frontier
       weight: 0.001 # Mono 0.0001 >> 0.001
+    - id: SalvagePartsT2Spawner # Mono
+      weight: 0.2
+    - id: SalvagePartsT3Spawner # Mono
+      weight: 0.05
 
 - type: entityTable
   id: SalvageScrapHighValue
@@ -66,6 +70,12 @@
     - id: ArtifactFragment1
       weight: 0.05
     - id: SheetPlasteel10
+      weight: 0.05
+    - id: SalvagePartsT2Spawner # Mono
+      weight: 0.5
+    - id: SalvagePartsT3Spawner # Mono
+      weight: 0.25
+    - id: SalvagePartsT4Spawner # Mono
       weight: 0.05
 
 - type: entityTable
@@ -138,6 +148,10 @@
     #   weight: 0.5 # Frontier
     - id: ResearchDisk65000
       weight: 0.5
+    - id: SalvagePartsT2Spawner # Mono
+      weight: 0.5
+    - id: SalvagePartsT3Spawner # Mono
+      weight: 0.15
     - id: ArabianLamp
     - !type:NestedSelector
       tableId: TreasureCoinPileRare
@@ -174,6 +188,9 @@
     - id: GoldenBikeHorn
     - id: ClothingHeadHatCatEars
       weight: 0.001 # Frontier - 1 in 1000
+    - id: SalvagePartsT3Spawner # Mono
+    - id: SalvagePartsT4Spawner # Mono
+      weight: 0.001 # - 1 in 1000
     - id: TreasureCoinDiamond
       amount: !type:RangeNumberSelector
         range: 2, 5
@@ -256,6 +273,7 @@
       weight: 0.5
     - id: WeaponCrusher
       weight: 0.5
+    - id: SalvagePartsT2Spawner # Mono
     - !type:GroupSelector
       children:
       - id: JetpackBlue
@@ -274,6 +292,7 @@
     - id: WeaponCrusherGlaive
     - id: ClothingOuterHardsuitSalvage
     - id: OmnizineChemistryBottle
+    - id: SalvagePartsT3Spawner # Mono
     - !type:GroupSelector
       children:
       - id: JetpackBlueFilled

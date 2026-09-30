@@ -5,11 +5,11 @@ using Content.Shared.Tag;
 
 namespace Content.Shared.Whitelist;
 
-public sealed class EntityWhitelistSystem : EntitySystem
+public sealed partial class EntityWhitelistSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private SharedRoleSystem _roles = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     private EntityQuery<ItemComponent> _itemQuery;
 

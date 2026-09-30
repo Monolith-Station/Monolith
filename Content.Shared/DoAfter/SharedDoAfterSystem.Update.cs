@@ -9,10 +9,10 @@ namespace Content.Shared.DoAfter;
 
 public abstract partial class SharedDoAfterSystem : EntitySystem
 {
-    [Dependency] private readonly IDynamicTypeFactory _factory = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private IDynamicTypeFactory _factory = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     private DoAfter[] _doAfters = Array.Empty<DoAfter>();
 
@@ -164,12 +164,11 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         if (args.Target is { } target && !xformQuery.TryGetComponent(target, out targetXform))
             return true;
 
-        TransformComponent? usedXform = null;
-        if (args.Used is { } @using && !xformQuery.TryGetComponent(@using, out usedXform))
+        if (args.Used is { } @using && !xformQuery.HasComp(@using))
             return true;
 
         // TODO: Re-use existing xform query for these calculations.
-        if (args.BreakOnMove && !(!args.BreakOnWeightlessMove && _gravity.IsWeightless(args.User, xform: userXform)))
+        if (args.BreakOnMove && !(!args.BreakOnWeightlessMove && _gravity.IsWeightless(args.User)))
         {
             // Whether the user has moved too much from their original position.
             if (!_transform.InRange(userXform.Coordinates, doAfter.UserPosition, args.MovementThreshold))

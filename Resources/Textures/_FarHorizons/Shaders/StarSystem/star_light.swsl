@@ -1,0 +1,30 @@
+light_mode unshaded;
+
+// Attenuation is lifted from /Shaders/Internal/light_shared.swsl.
+
+uniform highp vec2 starPos;
+uniform highp vec3 starColor;
+uniform highp float starRange;
+uniform highp float starPower;
+uniform highp float starFalloff;
+uniform highp float starCurveFactor;
+
+uniform highp vec3 ambientFloor;
+uniform highp vec2 boundsMin;
+uniform highp vec2 boundsSize;
+
+const highp float LIGHTING_HEIGHT = 1.0;
+
+void fragment() {
+    highp vec2 worldPos = boundsMin + (UV * boundsSize);
+    highp vec2 diff = worldPos - starPos;
+
+    highp float sqrDist = dot(diff, diff) + LIGHTING_HEIGHT;
+    highp float sd = clamp(sqrt(sqrDist) / starRange, 0.0, 1.0);
+    highp float sd2 = sd * sd;
+    highp float curve = mix(sd, sd2, clamp(starCurveFactor, 0.0, 1.0));
+    highp float val = clamp(((1.0 - sd2) * (1.0 - sd2)) / (1.0 + starFalloff * curve), 0.0, 1.0);
+    val *= starPower;
+
+    COLOR = vec4(max(starColor * val, ambientFloor), 1.0);
+}

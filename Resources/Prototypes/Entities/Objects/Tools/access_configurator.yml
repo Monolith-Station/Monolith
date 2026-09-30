@@ -95,6 +95,8 @@
     - Atmospherics
     - Bar
     - Brig
+    - BasicSilicon
+    - Borg
     - Detective
     - Captain
     - Cargo
@@ -125,6 +127,7 @@
     - Salvage
     - Security
     - Service
+    - StationAi
     - StationTrafficController # Frontier
     - Theatre
     - CentralCommand
@@ -139,6 +142,35 @@
       ejectSound: /Audio/Machines/id_swipe.ogg
       insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
       ejectOnBreak: true
+      swap: false
+      whitelist:
+        components:
+        - IdCard
+    denialSound:
+      path: /Audio/Machines/custom_deny.ogg
+    doAfter: 0.5
+
+# Xenoborg AccessConfigurator
+- type: entity
+  parent: AccessConfigurator
+  id: AccessConfiguratorXenoborg
+  name: xenoborg access configurator
+  description: A modified access configurator used by the xenoborgs.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/access_configurator.rsi
+  - type: Clothing
+    sprite: Objects/Tools/access_configurator.rsi
+  - type: AccessOverrider
+    accessLevels:
+    - Xenoborg
+    privilegedIdSlot:
+      name: id-card-console-privileged-id
+      startingItem: XenoborgIDCard
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+      ejectOnBreak: true
+      disableEject: true
       swap: false
       whitelist:
         components:

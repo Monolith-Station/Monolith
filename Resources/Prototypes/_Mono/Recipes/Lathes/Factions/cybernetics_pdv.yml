@@ -1,0 +1,42 @@
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AutosurgeonIASPDV
+  result: AutosurgeonIASPDVFlatpack
+  materialDiscountScale: 0
+  materials:
+    Steel: 1000
+    Plastic: 1000
+    Glass: 400
+    Plasteel: 1000
+    Lithium: 500
+    Copper: 500
+    PdvComposite: 2000
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AutosurgeonAdvHeartPDV
+  result: AutosurgeonAdvHeartPDVFlatpack
+  materialDiscountScale: 0
+  materials:
+    Steel: 1000
+    Plastic: 1000
+    Glass: 400
+    Plasteel: 2500
+    Plasma: 500
+    Lithium: 800
+    Copper: 800
+    Durathread: 1000
+    PdvComposite: 2000
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: AutosurgeonDermalArmorPDV
+  result: AutosurgeonDermalArmorPDVFlatpack
+  materialDiscountScale: 0
+  materials:
+    Steel: 1000
+    Plastic: 1000
+    Glass: 400
+    Plasteel: 10000
+    Durathread: 1000
+    PdvComposite: 2000

@@ -21,7 +21,7 @@ using static Robust.Client.GameObjects.SpriteComponent;
 
 namespace Content.Client.Clothing;
 
-public sealed class ClientClothingSystem : ClothingSystem
+public sealed partial class ClientClothingSystem : ClothingSystem
 {
     public const string Jumpsuit = "jumpsuit";
 
@@ -39,6 +39,8 @@ public sealed class ClientClothingSystem : ClothingSystem
         {"outerClothing", "OUTERCLOTHING"},
         {Jumpsuit, "INNERCLOTHING"},
         {"neck", "NECK"},
+        {"neck2", "NECK"},
+        {"neck3", "NECK"},
         {"back", "BACKPACK"},
         {"belt", "BELT"},
         {"gloves", "HAND"},
@@ -49,9 +51,9 @@ public sealed class ClientClothingSystem : ClothingSystem
         {"suitstorage", "SUITSTORAGE"},
     };
 
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly DisplacementMapSystem _displacement = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private DisplacementMapSystem _displacement = default!;
 
     public override void Initialize()
     {
@@ -162,7 +164,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         var state = $"equipped-{correctedSlot}";
 
-        if (clothing.EquippedPrefix != null)
+        if (!string.IsNullOrEmpty(clothing.EquippedPrefix))
             state = $"{clothing.EquippedPrefix}-equipped-{correctedSlot}";
 
         if (clothing.EquippedState != null)

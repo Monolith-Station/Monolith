@@ -10,6 +10,7 @@ using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Holopad;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Labels.Components;
+using Content.Shared.Power;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech;
 using Content.Shared.Telephone;
@@ -25,21 +26,21 @@ using Content.Server._NF.Station.Systems; // Frontier
 
 namespace Content.Server.Holopad;
 
-public sealed class HolopadSystem : SharedHolopadSystem
+public sealed partial class HolopadSystem : SharedHolopadSystem
 {
-    [Dependency] private readonly TelephoneSystem _telephoneSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-    [Dependency] private readonly TransformSystem _xformSystem = default!;
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SharedPointLightSystem _pointLightSystem = default!;
-    [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
-    [Dependency] private readonly SharedStationAiSystem _stationAiSystem = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvs = default!;
-    [Dependency] private readonly StationRenameHolopadsSystem _renameHolopads = default!; // Frontier
+    [Dependency] private TelephoneSystem _telephoneSystem = default!;
+    [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private TransformSystem _xformSystem = default!;
+    [Dependency] private AppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedPointLightSystem _pointLightSystem = default!;
+    [Dependency] private SharedAmbientSoundSystem _ambientSoundSystem = default!;
+    [Dependency] private SharedStationAiSystem _stationAiSystem = default!;
+    [Dependency] private AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private PvsOverrideSystem _pvs = default!;
+    [Dependency] private StationRenameHolopadsSystem _renameHolopads = default!; // Frontier
 
     private float _updateTimer = 1.0f;
     private const float UpdateTime = 1.0f;
@@ -79,6 +80,8 @@ public sealed class HolopadSystem : SharedHolopadSystem
         SubscribeLocalEvent<HolopadComponent, EntRemovedFromContainerMessage>(OnAiRemove);
 
         SubscribeLocalEvent<HolopadComponent, MapInitEvent>(OnHolopadMapInit); // Frontier
+        SubscribeLocalEvent<HolopadComponent, EntParentChangedMessage>(OnParentChanged);
+        SubscribeLocalEvent<HolopadComponent, PowerChangedEvent>(OnPowerChanged);
     }
 
     #region: Holopad UI bound user interface messages
@@ -437,6 +440,17 @@ public sealed class HolopadSystem : SharedHolopadSystem
         _telephoneSystem.EndTelephoneCalls((entity, entityTelephone));
     }
 
+    private void OnParentChanged(Entity<HolopadComponent> entity, ref EntParentChangedMessage args)
+    {
+        UpdateHolopadControlLockoutStartTime(entity);
+    }
+
+    private void OnPowerChanged(Entity<HolopadComponent> entity, ref PowerChangedEvent args)
+    {
+        if (args.Powered)
+            UpdateHolopadControlLockoutStartTime(entity);
+    }
+
     #endregion
 
     public override void Update(float frameTime)
@@ -683,11 +697,10 @@ public sealed class HolopadSystem : SharedHolopadSystem
         _telephoneSystem.TerminateTelephoneCalls(sourceTelephoneEntity);
 
         // Find all holopads in range of the source
-        var sourceXform = Transform(source);
         var receivers = new HashSet<Entity<TelephoneComponent>>();
 
-        var query = AllEntityQuery<HolopadComponent, TelephoneComponent, TransformComponent>();
-        while (query.MoveNext(out var receiver, out var receiverHolopad, out var receiverTelephone, out var receiverXform))
+        var query = AllEntityQuery<HolopadComponent, TelephoneComponent>();
+        while (query.MoveNext(out var receiver, out var receiverHolopad, out var receiverTelephone))
         {
             var receiverTelephoneEntity = new Entity<TelephoneComponent>(receiver, receiverTelephone);
 
@@ -748,6 +761,33 @@ public sealed class HolopadSystem : SharedHolopadSystem
         }
 
         return linkedHolopads;
+    }
+
+    private void UpdateHolopadControlLockoutStartTime(Entity<HolopadComponent> source)
+    {
+        if (!TryComp<TelephoneComponent>(source, out var sourceTelephone))
+            return;
+
+        var sourceTelephoneEntity = new Entity<TelephoneComponent>(source, sourceTelephone);
+        var isDirty = false;
+
+        var query = AllEntityQuery<HolopadComponent, TelephoneComponent>();
+        while (query.MoveNext(out var receiver, out var receiverHolopad, out var receiverTelephone))
+        {
+            var receiverTelephoneEntity = new Entity<TelephoneComponent>(receiver, receiverTelephone);
+
+            if (!_telephoneSystem.IsSourceInRangeOfReceiver(sourceTelephoneEntity, receiverTelephoneEntity))
+                continue;
+
+            if (receiverHolopad.ControlLockoutStartTime > source.Comp.ControlLockoutStartTime)
+            {
+                source.Comp.ControlLockoutStartTime = receiverHolopad.ControlLockoutStartTime;
+                isDirty = true;
+            }
+        }
+
+        if (isDirty)
+            Dirty(source);
     }
 
     private void SetHolopadAmbientState(Entity<HolopadComponent> entity, bool isEnabled)

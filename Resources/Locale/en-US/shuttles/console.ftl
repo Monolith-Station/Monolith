@@ -20,17 +20,32 @@ shuttle-console-linear-velocity = Linear Velocity:
 shuttle-console-linear-velocity-value = {$X}, {$Y}
 shuttle-console-angular-velocity = Angular Velocity:
 shuttle-console-angular-velocity-value = {$angularVelocity}
+shuttle-console-altitude = Altitude:
+shuttle-console-altitude-value = {$altitude}
+shuttle-console-vertical-velocity = Vertical Velocity:
+shuttle-console-vertical-velocity-value = {$velocity}
+shuttle-console-travel-state = Status:
+shuttle-console-travel-state-grounded = Grounded
+shuttle-console-travel-state-flying = Flying
+shuttle-console-travel-state-hovering = Hovering
+shuttle-console-travel-state-launching = Launching ({$countdown})
 
 shuttle-console-unknown = Unknown
 shuttle-console-iff-label = {$name} ({$distance}m)
+shuttle-console-track-unknown-label = TRACK.ID UNKNOWN
+shuttle-console-track-label = TRACK.ID
 shuttle-console-exclusion = Exclusion Area
 
 # Buttons
 shuttle-console-strafing = Strafing Mode
 shuttle-console-nav-settings = Settings
 shuttle-console-iff-toggle = Show IFF
+shuttle-console-iff-detailed = Detailed IFF
 shuttle-console-dock-toggle = Show Docks
 shuttle-console-iffshuttles-toggle = Show Shuttles
+shuttle-console-iff-toggle-short = IFF
+shuttle-console-iff-detailed-short = D.IFF
+shuttle-console-dock-toggle-short = DOCKS
 
 # MAP
 

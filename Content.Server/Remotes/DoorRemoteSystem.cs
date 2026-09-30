@@ -1,5 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Doors.Systems;
+using Content.Shared.Electrocution;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.Database;
@@ -8,6 +9,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Remotes.Components;
 using Content.Shared.Remotes.EntitySystems;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Remotes
 {
@@ -17,6 +19,8 @@ namespace Content.Shared.Remotes
         [Dependency] private readonly AirlockSystem _airlock = default!;
         [Dependency] private readonly DoorSystem _doorSystem = default!;
         [Dependency] private readonly ExamineSystemShared _examine = default!;
+        [Dependency] private readonly SharedElectrocutionSystem _electrify = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
 
         public override void Initialize()
         {
@@ -90,6 +94,22 @@ namespace Content.Shared.Remotes
                             $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} to set emergency access {(airlockComp.EmergencyAccess ? "on" : "off")}");
                     }
 
+                    break;
+                case OperatingMode.ToggleOvercharge:
+                    {
+                    if (!TryComp<ElectrifiedComponent>(args.Target, out var electrifiedComp))
+                    break;
+                        var newState = !electrifiedComp.Enabled;
+                        _electrify.SetElectrified((args.Target.Value, electrifiedComp), newState);
+                        var soundToPlay = newState
+                        ? electrifiedComp.AirlockElectrifyDisabled
+                        : electrifiedComp.AirlockElectrifyEnabled;
+                        _audio.PlayPvs(soundToPlay, args.Target.Value);
+                        _adminLogger.Add(LogType.Action,
+                            LogImpact.Medium,
+                            $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} to {(electrifiedComp.Enabled ? "" : "un")}electrify it");
+                }
+                    
                     break;
                 default:
                     throw new InvalidOperationException(

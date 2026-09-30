@@ -7,9 +7,9 @@ using Content.Shared.Humanoid;
 
 namespace Content.Server.Devour;
 
-public sealed class DevourSystem : SharedDevourSystem
+public sealed partial class DevourSystem : SharedDevourSystem
 {
-    [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private BloodstreamSystem _bloodstreamSystem = default!;
 
     public override void Initialize()
     {

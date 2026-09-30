@@ -4,9 +4,9 @@ using Content.Shared.Weapons.Hitscan.Events;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
-public sealed class HitscanStunSystem : EntitySystem
+public sealed partial class HitscanStunSystem : EntitySystem
 {
-    [Dependency] private readonly StaminaSystem _stamina = default!; // Mono - SharedStaminaSystem not ported yet
+    [Dependency] private StaminaSystem _stamina = default!; // Mono - SharedStaminaSystem not ported yet
 
     public override void Initialize()
     {
@@ -17,9 +17,12 @@ public sealed class HitscanStunSystem : EntitySystem
 
     private void OnHitscanHit(Entity<HitscanStaminaDamageComponent> hitscan, ref HitscanRaycastFiredEvent args)
     {
-        if (args.Canceled || args.HitEntity == null)
+        if (args.Canceled)
             return;
 
-        _stamina.TakeStaminaDamage(args.HitEntity.Value, hitscan.Comp.StaminaDamage, source: args.Shooter ?? args.Gun);
+        foreach (var hitEntity in args.HitEntities) // Mono
+        {
+            _stamina.TakeStaminaDamage(hitEntity, hitscan.Comp.StaminaDamage, source: args.Shooter ?? args.Gun);
+        }
     }
 }

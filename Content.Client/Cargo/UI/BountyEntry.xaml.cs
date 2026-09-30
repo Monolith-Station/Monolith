@@ -14,7 +14,7 @@ namespace Content.Client.Cargo.UI;
 [GenerateTypedNameReferences]
 public sealed partial class BountyEntry : BoxContainer
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public Action? OnLabelButtonPressed;
     public Action? OnSkipButtonPressed;
@@ -40,7 +40,7 @@ public sealed partial class BountyEntry : BoxContainer
                 ("item", Loc.GetString(entry.Name))));
         }
         ManifestLabel.SetMarkup(Loc.GetString("bounty-console-manifest-label", ("item", string.Join(", ", items))));
-        RewardLabel.SetMarkup(Loc.GetString("bounty-console-reward-label", ("reward", BankSystemExtensions.ToSpesoString(bountyPrototype.Reward)))); // Frontier: bountyPrototype.Reward<BankSystemExtensions.ToSpesoString(bountyPrototype.Reward)
+        RewardLabel.SetMarkup(Loc.GetString("bounty-console-reward-label", ("reward", bountyPrototype.Reward + " (" + bountyPrototype.RewardSuffix + ")"))); // Mono - add suffix
         DescriptionLabel.SetMarkup(Loc.GetString("bounty-console-description-label", ("description", Loc.GetString(bountyPrototype.Description))));
         IdLabel.SetMarkup(Loc.GetString("bounty-console-id-label", ("id", bounty.Id)));
 

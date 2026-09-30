@@ -195,6 +195,17 @@
     contents:
     - id: RCD
 
+# Goob
+- type: entity
+  id: CrateRPD
+  parent: CrateEngineeringSecure
+  name: RPD crate
+  description: A crate containing a single rapid piping device.
+  components:
+  - type: StorageFill
+    contents:
+    - id: RPD
+
 - type: entity
   id: CrateParticleDecelerators
   parent: CrateEngineeringSecure

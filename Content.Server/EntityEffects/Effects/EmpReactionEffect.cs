@@ -53,6 +53,6 @@ public sealed partial class EmpReactionEffect : EntityEffect
             .EmpPulse(tSys.GetMapCoordinates(args.TargetEntity, xform: transform),
             range,
             EnergyConsumption,
-            DisableDuration);
+            TimeSpan.FromSeconds(DisableDuration));
     }
 }

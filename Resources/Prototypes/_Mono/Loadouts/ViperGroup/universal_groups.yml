@@ -1,0 +1,132 @@
+- type: loadoutGroup
+  id: VGBackpack
+  name: loadout-group-contractor-backpack
+  minLimit: 1
+  loadouts:
+  - MonoSecurityGuardBackpack
+  - MonoSecurityGuardSatchel
+  - MonoSecurityGuardDuffel
+  fallbacks:
+  - MonoSecurityGuardBackpack
+
+- type: loadoutGroup
+  id: VGGloves
+  name: loadout-group-contractor-gloves
+  minLimit: 0
+  loadouts:
+  - MercenaryClothingHandsGlovesCombat
+  - MercenaryClothingHandsGlovesTacticalCombatBlack
+  - ContractorClothingHandsGlovesFingerless
+
+- type: loadoutGroup
+  id: VGBelt
+  name: loadout-group-contractor-belt
+  minLimit: 0
+  loadouts:
+  - MercenaryClothingBeltMilitaryWebbing
+  - MercenaryClothingBeltWebbingsBigBase
+  - MercenaryClothingBeltWebbingsNormalBlack
+  - MercenaryClothingBeltWebbingsBigBlack
+  - MercenaryClothingBeltMilitaryWebbingMed
+  - MercenaryClothingBeltSecurity
+  - MercenaryClothingBeltSecurityEmpty
+  - MercenaryClothingBeltBandolier
+  - ContractorClothingBeltSheathFilled
+  - ContractorClothingBeltUtility
+  - ContractorClothingBeltUtilityFilled
+
+- type: loadoutGroup
+  id: VGOuterClothing
+  name: loadout-group-contractor-outerclothing
+  loadouts:
+  - ViperClothingOuterHardsuitViperWarlord
+  - MercenaryVestSlim
+  - MercenaryVestNormal
+  - MercenaryClothingOuterArmorBPVestLight
+  - MercenaryClothingOuterArmorBPVestMedium
+  - MercenaryClothingOuterArmorBPVestHeavy
+  - MercenaryClothingOuterArmorBPVestPolyvalent
+  - MercenaryClothingOuterArmorBPVestStabproof
+
+- type: loadoutGroup
+  id: VGJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  loadouts:
+  - VGClothingJumpsuitA
+  - VGClothingJumpsuitB
+  - VGClothingJumpskirtA
+  - VGClothingJumpskirtB
+
+- type: loadoutGroup
+  id: VGNeck
+  name: loadout-group-contractor-neck
+  loadouts:
+  - VGClothingNeckViperGroupMantle
+  - VGClothingNeckTieRed
+
+- type: loadoutGroup
+  id: VGEyes
+  name: loadout-group-contractor-glasses
+  loadouts:
+  - VGEyesHudSecurity
+  - MercenaryClothingEyesBallisticGlassesRed
+  - MercenaryClothingEyesBallisticGogglesRed
+  - VGEyesSunglasses
+
+- type: loadoutGroup
+  id: VGEyesLieutenant
+  name: loadout-group-contractor-glasses
+  loadouts:
+  - VGEyesMedSec
+  subgroups:
+  - VGEyes
+
+- type: loadoutGroup
+  id: VGEars
+  name: loadout-group-contractor-ears
+  minLimit: 1
+  loadouts:
+  - VGHeadset
+  - VGHeadsetAlt
+  fallbacks:
+  - VGHeadset
+
+- type: loadoutGroup
+  id: VGBalaclava
+  name: loadout-group-contractor-balaclava
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - MercenaryClothingBalaclavaSkiMaskBlack
+
+- type: loadoutGroup
+  id: VGFace
+  name: loadout-group-contractor-face
+  hidden: true # No point in showing this, it gets auto-selected.
+  minLimit: 1
+  loadouts:
+  - MercenaryClothingMaskGasSecurity
+  fallbacks:
+  - MercenaryClothingMaskGasSecurity
+
+- type: loadoutGroup
+  id: VGShoes
+  name: loadout-group-contractor-shoes
+  minLimit: 1
+  loadouts:
+  - MercenaryClothingShoesBootsJack
+  - MercenaryClothingShoesBootsCombat
+  - MercenaryClothingShoesMagSecurity
+  fallbacks:
+  - MercenaryClothingShoesBootsCombat
+
+- type: loadoutGroup
+  id: VGHead
+  name: loadout-group-contractor-head
+  minLimit: 0
+  loadouts:
+  - MercenaryClothingHeadBPHelmetLight #I'm going off the assumption freeport has a Boris vendor.
+  - MercenaryClothingHeadHelmetMercenaryBlack
+  - MercenaryClothingHeadHatBeretCommander
+  - SecurityHelmet
+  - SecurityBeret

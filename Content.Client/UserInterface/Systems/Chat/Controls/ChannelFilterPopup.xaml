@@ -11,7 +11,7 @@
                     <Label Text="{Loc 'hud-chatbox-autofill-highlights'}"/>
                     <PanelContainer>
                         <PanelContainer.PanelOverride>
-                            <graphics:StyleBoxFlat BackgroundColor="#262736"/>
+                            <graphics:StyleBoxFlat BackgroundColor="#141414"/>
                         </PanelContainer.PanelOverride>
                         <RichTextLabel Name="AutoFillLabel" Margin="5 5"/>
                     </PanelContainer>
@@ -19,7 +19,7 @@
                 <Label Text="{Loc 'hud-chatbox-highlights'}"/>
                 <PanelContainer>
                     <PanelContainer.PanelOverride>
-                        <graphics:StyleBoxFlat BackgroundColor="#323446"/>
+                        <graphics:StyleBoxFlat BackgroundColor="#282829"/>
                     </PanelContainer.PanelOverride>
                     <TextEdit Name="HighlightEdit" MinHeight="150" Margin="5 5"/>
                 </PanelContainer>

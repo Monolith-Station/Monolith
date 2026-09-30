@@ -2,7 +2,7 @@
   id: NuclearFabricatorMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: nuclear fabricator machine board
-  description: A machine printed circuit board for a nuclear fabricator. Uses a 2x1 machine frame. #
+  description: A machine printed circuit board for a nuclear fabricator. Uses a 2x1 machine frame. # Mono
   components:
   - type: Sprite
     state: engineering
@@ -13,6 +13,13 @@
       Manipulator: 5
     stackRequirements:
       Glass: 3
+    tagRequirements:
+      MotorEconomy1: # Mono - scary giant spinny lathe
+        amount: 1
+        defaultPrototype: MotorEconomy1
+      ComponentBrickEconomy1: # Mono
+        amount: 1
+        defaultPrototype: ComponentBrickEconomy1
 
 - type: entity
   id: NuclearCentrifugeMachineCircuitboard
@@ -28,3 +35,10 @@
       Manipulator: 5
     stackRequirements:
       Plasteel: 5
+    tagRequirements: # Mono
+      ArmorPlateEconomy1: # Reinforcement. Things that spin very heavy things very fast are very dangerous.
+        amount: 2 # 0.5x as much as the economy centrifuge.
+        defaultPrototype: ArmorPlateEconomy1
+      ComponentBrickEconomy1:
+        amount: 1
+        defaultPrototype: ComponentBrickEconomy1

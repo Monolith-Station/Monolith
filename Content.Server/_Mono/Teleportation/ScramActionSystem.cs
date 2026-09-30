@@ -7,11 +7,11 @@ using Content.Shared.Teleportation;
 
 namespace Content.Server._Mono.Teleportation;
 
-public sealed class ScramActionSystem : EntitySystem
+public sealed partial class ScramActionSystem : EntitySystem
 {
-    [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly TeleportSystem _teleportSys = default!;
+    [Dependency] private ActionsSystem _action = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private TeleportSystem _teleportSys = default!;
 
     public override void Initialize()
     {

@@ -104,7 +104,7 @@ public sealed class FireControlNavControl : ShuttleNavControl
 
                     var results = _physics.IntersectRay(xform.MapID, ray, direction.Length(), ignoredEnt: _coordinates?.EntityId);
 
-                    if (!results.Any() && _blipColors.TryGetValue(controllable.NetEntity, out var color))
+                    if ((!results.Any() || controllable.IgnoresLos) && _blipColors.TryGetValue(controllable.NetEntity, out var color))
                         handle.DrawLine(Vector2.Transform(worldPos, worldToView), cursorViewPos, color.WithAlpha(0.3f));
                 }
             }

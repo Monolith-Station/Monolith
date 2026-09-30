@@ -19,6 +19,12 @@
       ResearchDisk10000:
         amount: 2
         defaultPrototype: ResearchDisk10000
+      MicroprocessorEconomy1:
+        amount: 6
+        defaultPrototype: MicroprocessorEconomy1
+      RadioEconomy1:
+        amount: 1
+        defaultPrototype: RadioEconomy1
   - type: Construction
     deconstructionTarget: null
     graph: Datafarm
@@ -45,6 +51,12 @@
       ResearchDisk10000:
         amount: 2
         defaultPrototype: ResearchDisk10000
+      MicroprocessorEconomy1:
+        amount: 6
+        defaultPrototype: MicroprocessorEconomy1
+      RadioEconomy1:
+        amount: 1
+        defaultPrototype: RadioEconomy1
   - type: Construction
     deconstructionTarget: null
     graph: Datafarm

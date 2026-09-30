@@ -1,4 +1,5 @@
 using System.Threading;
+using Content.Server._Mono.MonoCoins;
 using Content.Server.Database;
 using Content.Server.Preferences.Managers;
 using Content.Server.GameTicking;
@@ -8,6 +9,7 @@ using Content.Shared.Preferences;
 using Robust.Shared.Player;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
+using Content.Shared._Mono.CCVar; // Mono
 using Content.Shared._Mono.Traits.Physical;
 using Content.Shared._NF.Bank.Events;
 using Content.Shared.GameTicking;
@@ -17,9 +19,10 @@ namespace Content.Server._NF.Bank;
 
 public sealed partial class BankSystem : SharedBankSystem
 {
-    [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private IServerPreferencesManager _prefsManager = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private MonoCoinsManager _coins = default!;
 
     private ISawmill _log = default!;
 
@@ -114,8 +117,15 @@ public sealed partial class BankSystem : SharedBankSystem
     /// <param name="mobUid">The UID that the bank account is connected to, typically the player controlled mob</param>
     /// <param name="amount">The amount of spesos to remove from the bank account</param>
     /// <returns>true if the transaction was successful, false if it was not</returns>
-    public bool TryBankDeposit(EntityUid mobUid, int amount)
+    public bool TryBankDeposit(EntityUid mobUid, int amount, bool tax = true)
     {
+        // Mono start
+        if (!_cfg.GetCVar(MonoCVars.DepositEnabled))
+        {
+            _log.Info($"TryBankDeposit: DepositEnabled cvar is disabled.");
+            return false;
+        }
+        // Mono end
         if (amount <= 0)
         {
             _log.Info($"TryBankDeposit: {amount} is invalid from Uid {mobUid}");
@@ -146,11 +156,21 @@ public sealed partial class BankSystem : SharedBankSystem
             return false;
         }
 
-        if (TryBankDeposit(session, prefs, profile, amount, out var newBalance))
+        int toSector = amount;
+        int toLongTerm = 0;
+        if (tax)
+        {
+            GetTaxedDepositAmount(amount, bank.Balance, out var afterTax, out var taxedAway);
+            toSector = afterTax;
+            toLongTerm = taxedAway;
+            _ = _coins.AddMonoCoinsAsync(session.UserId, taxedAway);
+        }
+
+        if (TryBankDeposit(session, prefs, profile, toSector, out var newBalance))
         {
             bank.Balance = newBalance.Value;
             Dirty(mobUid, bank);
-            _log.Info($"{mobUid} deposited {amount}");
+            _log.Info($"{mobUid} deposited {amount} (sector: {toSector}, savings: {toLongTerm})");
             return true;
         }
 
@@ -166,8 +186,9 @@ public sealed partial class BankSystem : SharedBankSystem
     /// <param name="profile">The profile of the character whose account is being withdrawn.</param>
     /// <param name="amount">The number of spesos to be withdrawn.</param>
     /// <param name="newBalance">The new value of the bank account.</param>
+    /// <param name="spendLongTerm">Whether to also, and preferentially, spend long-term currency.</param>
     /// <returns>true if the transaction was successful, false if it was not.  When successful, newBalance contains the character's new balance.</returns>
-    public bool TryBankWithdraw(ICommonSession session, PlayerPreferences prefs, HumanoidCharacterProfile profile, int amount, [NotNullWhen(true)] out int? newBalance)
+    public bool TryBankWithdraw(ICommonSession session, PlayerPreferences prefs, HumanoidCharacterProfile profile, int amount, [NotNullWhen(true)] out int? newBalance, bool spendLongTerm = false)
     {
         newBalance = null; // Default return
         if (amount <= 0)
@@ -177,14 +198,29 @@ public sealed partial class BankSystem : SharedBankSystem
         }
 
         int balance = profile.BankBalance;
+        long totalBalance = balance;
 
-        if (balance < amount)
+        if (spendLongTerm)
+        {
+            var longTermBank = _coins.GetMonoCoinsBalance(session.UserId);
+            totalBalance += longTermBank ?? 0l;
+        }
+
+        if (totalBalance < amount)
         {
             _log.Info($"TryBankWithdraw: {session.UserId} tried to withdraw {amount}, but has insufficient funds ({balance})");
             return false;
         }
 
-        balance -= amount;
+        int leftoverAmount = amount;
+        if (spendLongTerm)
+        {
+            var longTermBalance = totalBalance - balance;
+            var toSpend = (int)Math.Min(longTermBalance, (long)leftoverAmount);
+            leftoverAmount -= toSpend;
+            _ = _coins.AddMonoCoinsAsync(session.UserId, -toSpend);
+        }
+        balance -= leftoverAmount;
 
         var newProfile = profile.WithBankBalance(balance);
         var index = prefs.IndexOfCharacter(profile);
@@ -373,6 +409,7 @@ public sealed partial class BankSystem : SharedBankSystem
             balance = 0;
             return true;
         }
+
         if (!_prefsManager.TryGetCachedPreferences(session.UserId, out var prefs))
         {
             _log.Info($"{session.UserId} has no cached prefs");

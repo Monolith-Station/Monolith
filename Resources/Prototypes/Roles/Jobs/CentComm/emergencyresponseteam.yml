@@ -27,7 +27,7 @@
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolN1984
+    pocket1: WeaponRevolverMateba
     pocket2: FlashlightSeclite
   storage:
     back:
@@ -36,7 +36,6 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - Magazine45_magnumPistolFMJ
 
 - type: startingGear
   id: ERTLeaderGearEVA
@@ -51,7 +50,7 @@
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolN1984
+    pocket1: WeaponRevolverMateba
     pocket2: FlashlightSeclite
   storage:
     back:
@@ -60,7 +59,6 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - Magazine45_magnumPistolFMJ
 
 - type: startingGear
   id: ERTLeaderGearEVALecter
@@ -86,7 +84,6 @@
     - RegenerativeMesh
     - BoxZiptie
     - CrowbarRed
-    - Magazine45_magnumPistolFMJ
 
 # Chaplain
 - type: job

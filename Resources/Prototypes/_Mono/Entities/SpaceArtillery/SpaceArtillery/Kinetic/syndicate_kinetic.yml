@@ -6,7 +6,7 @@
 - type: entity
   id: WeaponTurretAdderScattercannon
   name: Adder scattercannon
-  suffix: PDV ONLY, SYN ONLY
+  suffix: Small, T1
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier1HP
@@ -34,12 +34,12 @@
   - type: Gun
     fireRate: 5
     recoil: 10 # 2/5x
-    projectileSpeed: 200
+    projectileSpeed: 230
     minAngle: 0
     maxAngle: 5
     shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
+      collection: ShipGunGenericSmall
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -68,15 +68,18 @@
   - type: ShipRepairable
     repairTime: 10
     repairCost: 30
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Light
 
 - type: entity
   id: WeaponTurretFang
-  name: Fang heavy 90mm autocannon
-  suffix: PDV ONLY, SYN ONLY
+  name: Fang heavy 57mm autocannon
+  suffix: Medium, T3
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier3HP
-  description: A heavy 90mm autocannon of syndicate design, created during the corporate war. Made for shattering opponent destroyers. Uses a self loading mechanism similar to the anaconda handgun.
+  description: A heavy 57mm autocannon of syndicate design, created during the corporate war. Made for shattering opponent destroyers. Uses a self loading mechanism similar to the anaconda handgun.
   components:
   - type: StaticPrice
     price: 2000
@@ -106,7 +109,7 @@
     availableModes: Burst
     shootThermalSignature: 2000000 # ~4.5km signature if firing continuously
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/120mm_mortar.ogg
+      collection: ShipGunGenericSmallAlt
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -118,7 +121,7 @@
     powerUseActive: 0
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
-    proto: 90mmBullet
+    proto: 90mmBulletHE
     fireCost: 50
   - type: RadarBlip
     radarColor: "#FF0000"
@@ -148,13 +151,16 @@
   - type: ShipRepairable
     repairTime: 20
     repairCost: 80
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy
 
 - type: entity
   id: WeaponTurretHydra
-  name: Hydra 220mm battery
-  suffix: PDV ONLY, SYN ONLY
-  parent: BallisticArtilleryUnanchorable
-  description: A main cannonade of syndicate origin, the hydra is a monstrous tri-barreled battery of 220-millimeter pain, designed to shatter corpations' toughest vessels. Loads with a similar mechanism as the anaconda handgun.
+  name: Hydra 130mm battery
+  suffix: Large, T4
+  parent: BallisticArtillery
+  description: A main cannonade of syndicate origin, the hydra is a monstrous tri-barreled battery of 130-millimeter pain, designed to shatter corpations' toughest vessels. Loads with a similar mechanism as the anaconda handgun.
   components:
   - type: StaticPrice
     price: 20000
@@ -183,11 +189,12 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 325
+    damageModifier: 1.3
+    projectileSpeed: 410
     recoil: 50 # 2x
     minAngle: 0
     maxAngle: 3
-    fireRate: 0.2
+    fireRate: 0.3
     burstCooldown: 10
     burstFireRate: 2
     shotsPerBurst: 3
@@ -195,7 +202,7 @@
     availableModes: Burst
     shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon2.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -207,7 +214,7 @@
     powerUseActive: 0
   - type: Actions
   - type: ProjectileBatteryAmmoProvider
-    proto: ShipCyrexaProjectile
+    proto: 220mmBulletHE
     fireCost: 4000
   - type: RadarBlip
     radarColor: "#FF0000"
@@ -243,14 +250,17 @@
   - type: ShipRepairable
     repairTime: 40
     repairCost: 250
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy
 
 - type: entity
   id: WeaponTurretLeviathan
-  name: LEVIATHAN 520mm howitzer
-  suffix: PDV ONLY, SYN ONLY
+  name: LEVIATHAN 380mm howitzer
+  suffix: Capital, T5
   parent:
   - BallisticArtilleryUnanchorable
-  - BallisticArtilleryTier4HP
+  - BallisticArtilleryTier5HP
   description: A heavy artillery gun of syndicate origin, the leviathan is tyrannic testiment of Syndicate ingenuity, designed to send a message. Able to crack NanoTrasen battleships, and small fighters in a single shell. Loads with a similar mechanism as the anaconda handgun.
   components:
   - type: StaticPrice
@@ -281,14 +291,14 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 720
+    projectileSpeed: 450
     recoil: 100 # 4x
     minAngle: 0
     maxAngle: 1
     fireRate: 0.05
     shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+      collection: ShipGunGenericBig
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -315,8 +325,11 @@
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
-    shipClass: SuperHeavy
+    shipClass: Superheavy
   - type: ShipRepairable
     repairTime: 40
     repairCost: 250
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Superheavy
 

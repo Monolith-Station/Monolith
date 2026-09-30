@@ -110,6 +110,11 @@
   kind: source
   path: "/Textures/Shaders/hologram.swsl"
 
+- type: shader
+  id: NightVision
+  kind: source
+  path: "/Textures/Shaders/nightvision.swsl"
+
 # Monolith addition
 # Cuts out everything outside of a circle
 # Anti-aliased so the edges are smooth

@@ -12,12 +12,12 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.Access.Systems
 {
-    public sealed class AgentIDCardSystem : SharedAgentIdCardSystem
+    public sealed partial class AgentIDCardSystem : SharedAgentIdCardSystem
     {
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly IdCardSystem _cardSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private IdCardSystem _cardSystem = default!;
+        [Dependency] private UserInterfaceSystem _uiSystem = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
 
         public override void Initialize()
         {

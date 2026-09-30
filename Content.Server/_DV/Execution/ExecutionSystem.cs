@@ -1,6 +1,7 @@
 using Content.Server.Interaction;
 using Content.Server.Kitchen.Components;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._Mono.Weapons.Ranged.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Clumsy;
@@ -11,6 +12,7 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Execution;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Kitchen.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -35,19 +37,19 @@ namespace Content.Server._DV.Execution; // Mono - fix namespace
 /// <remarks>
 /// Upstream won't have this for years so it goes in the DeltaV folder.
 /// </remarks>
-public sealed class ExecutionSystem : EntitySystem
+public sealed partial class ExecutionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly GunSystem _gunSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private GunSystem _gunSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -137,8 +139,11 @@ public sealed class ExecutionSystem : EntitySystem
 
         if (attacker == victim)
         {
-            ShowExecutionPopup("suicide-popup-gun-initial-internal", Filter.Entities(attacker), PopupType.Medium, attacker, victim, weapon);
-            ShowExecutionPopup("suicide-popup-gun-initial-external", Filter.PvsExcept(attacker), PopupType.MediumCaution, attacker, victim, weapon);
+            if (!HasComp<RouletteShotgunComponent>(weapon))
+            {
+                ShowExecutionPopup("suicide-popup-gun-initial-internal", Filter.Entities(attacker), PopupType.Medium, attacker, victim, weapon);
+                ShowExecutionPopup("suicide-popup-gun-initial-external", Filter.PvsExcept(attacker), PopupType.MediumCaution, attacker, victim, weapon);
+            }
             executionTime = weapon.Comp.SuicideTime; // Mono
         }
         else
@@ -228,12 +233,15 @@ public sealed class ExecutionSystem : EntitySystem
 
         // Information about the ammo like damage
         DamageSpecifier damage = new DamageSpecifier();
+        var shotSound = component.SoundGunshot;
 
         // Get some information from IShootable
         var ammoUid = ev.Ammo[0].Entity;
         switch (ev.Ammo[0].Shootable)
         {
             case CartridgeAmmoComponent cartridge:
+                shotSound = cartridge.SoundGunshot ?? shotSound;
+
                 // Get the damage value
                 var prototype = _prototypeManager.Index<EntityPrototype>(cartridge.Prototype);
                 prototype.TryGetComponent<ProjectileComponent>(out var projectileA, _componentFactory); // sloth forgive me
@@ -265,6 +273,9 @@ public sealed class ExecutionSystem : EntitySystem
                 throw new InvalidOperationException($"Unknown shootable type [{ev.Ammo[0].Shootable}]");
         }
 
+        var damageModifier = new GunDamageModifierEvent(component.DamageModifier);
+        RaiseLocalEvent(weapon, ref damageModifier);
+
         // Clumsy people have a chance to shoot themselves (not in the head)
         if (!component.ClumsyProof &&
             TryComp<ClumsyComponent>(attacker, out var clumsy) && _random.Prob(1f / 3f))
@@ -273,14 +284,16 @@ public sealed class ExecutionSystem : EntitySystem
             ShowExecutionPopup("execution-popup-gun-clumsy-external", Filter.PvsExcept(attacker), PopupType.MediumCaution, attacker, victim, weapon);
 
             // You shoot yourself with the gun (no damage multiplier)
-            _damageableSystem.TryChangeDamage(attacker, damage, origin: attacker);
-            _audioSystem.PlayEntity(component.SoundGunshot, Filter.Pvs(weapon), weapon, true, AudioParams.Default);
+            _damageableSystem.TryChangeDamage(attacker, damage * damageModifier.Modifier, origin: attacker);
+            _audioSystem.PlayEntity(shotSound, Filter.Pvs(weapon), weapon, true, AudioParams.Default);
+            RaiseLocalEvent(weapon, new AmmoShotEvent { FiredProjectiles = [] });
             return;
         }
 
         // Gun successfully fired, deal damage
-        _damageableSystem.TryChangeDamage(victim, damage * component.ExecutionModifier, true, targetPart: TargetBodyPart.Head); // Mono - ExecutionModifier
-        _audioSystem.PlayEntity(component.SoundGunshot, Filter.Pvs(weapon), weapon, false, AudioParams.Default);
+        _damageableSystem.TryChangeDamage(victim, damage * component.ExecutionModifier * damageModifier.Modifier, true, targetPart: TargetBodyPart.Head); // Mono - ExecutionModifier
+        _audioSystem.PlayEntity(shotSound, Filter.Pvs(weapon), weapon, false, AudioParams.Default);
+        RaiseLocalEvent(weapon, new AmmoShotEvent { FiredProjectiles = [] });
 
         // Popups
         if (attacker != victim)
@@ -288,7 +301,7 @@ public sealed class ExecutionSystem : EntitySystem
             ShowExecutionPopup("execution-popup-gun-complete-internal", Filter.Entities(attacker), PopupType.Medium, attacker, victim, weapon);
             ShowExecutionPopup("execution-popup-gun-complete-external", Filter.PvsExcept(attacker), PopupType.LargeCaution, attacker, victim, weapon);
         }
-        else
+        else if (!HasComp<RouletteShotgunComponent>(weapon))
         {
             ShowExecutionPopup("suicide-popup-gun-complete-internal", Filter.Entities(attacker), PopupType.LargeCaution, attacker, victim, weapon);
             ShowExecutionPopup("suicide-popup-gun-complete-external", Filter.PvsExcept(attacker), PopupType.LargeCaution, attacker, victim, weapon);

@@ -10,9 +10,9 @@ namespace Content.Server.AlertLevel.Commands
 {
     [UsedImplicitly]
     [AdminCommand(AdminFlags.Fun)]
-    public sealed class SetAlertLevelCommand : LocalizedCommands
+    public sealed partial class SetAlertLevelCommand : LocalizedCommands
     {
-        [Dependency] private readonly IEntitySystemManager _entitySystems = default!;
+        [Dependency] private IEntitySystemManager _entitySystems = default!;
 
         public override string Command => "setalertlevel";
 

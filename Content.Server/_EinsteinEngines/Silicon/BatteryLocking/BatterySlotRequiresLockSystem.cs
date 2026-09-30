@@ -6,11 +6,11 @@ using Content.Shared.IdentityManagement;
 
 namespace Content.Server._EinsteinEngines.Silicons.BatteryLocking;
 
-public sealed class BatterySlotRequiresLockSystem : EntitySystem
+public sealed partial class BatterySlotRequiresLockSystem : EntitySystem
 
 {
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

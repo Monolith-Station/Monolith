@@ -14,7 +14,6 @@ using Content.Server.Salvage.Expeditions;
 using Content.Server.Salvage.Expeditions.Structure;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Construction.EntitySystems;
@@ -28,6 +27,7 @@ using Content.Shared.Salvage;
 using Content.Shared.Salvage.Expeditions;
 using Content.Shared.Salvage.Expeditions.Modifiers;
 using Content.Shared.Shuttles.Components;
+using Content.Shared.Station.Components;
 using Content.Shared.Storage;
 using Content.Server.Weather;
 using Content.Shared.Weather;
@@ -283,7 +283,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         var stationData = _entManager.GetComponent<StationDataComponent>(Station);
 
         // Frontier: get ship bounding box relative to largest grid coords
-        var shuttleUid = _stationSystem.GetLargestGrid(stationData);
+        var shuttleUid = _stationSystem.GetLargestGrid((Station, stationData));
         Box2 shuttleBox = new Box2();
 
         if (shuttleUid is { Valid: true } vesselUid &&

@@ -33,7 +33,10 @@
           base_glasses_01: CyberpunkDark
         glasses_decor:
           decor_base_glasses_01: CyberpunkDark
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 # HUDs
 - type: entity
   id: ClothingEyesPunkInfoShades
@@ -78,3 +81,7 @@
     - Inorganic
     - Silicon
     - Biological
+  - type: Tag
+    tags:
+    - PetWearable
+    

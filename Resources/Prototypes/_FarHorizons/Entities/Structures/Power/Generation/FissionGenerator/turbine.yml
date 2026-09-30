@@ -90,7 +90,7 @@
       - DecreaseStatorLoad
   - type: ActivatableUI
     key: enum.TurbineUiKey.Key
-  - type: ActivatableUIRequiresAnchor
+  #- type: ActivatableUIRequiresAnchor # Mono - We arent letting you fucking anchor that
   - type: UserInterface
     interfaces:
       enum.TurbineUiKey.Key:

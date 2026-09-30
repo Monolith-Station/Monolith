@@ -8,13 +8,13 @@ using Content.Client.Salvage;
 
 namespace Content.Client._Crescent.SpaceBiomes;
 
-public sealed class SpaceBiomeSystem : EntitySystem
+public sealed partial class SpaceBiomeSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _playerMan = default!;
-    [Dependency] private readonly IPrototypeManager _protMan = default!;
-    [Dependency] private readonly TransformSystem _formSys = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IPlayerManager _playerMan = default!;
+    [Dependency] private IPrototypeManager _protMan = default!;
+    [Dependency] private TransformSystem _formSys = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     private float _updTimer;
     private const float UpdateInterval = 0.5f; // in seconds - how often the checks for this system run

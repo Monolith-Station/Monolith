@@ -170,9 +170,7 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - NamesFirst
-    - NamesLast
-    nameFormat: name-format-standard
+    - NamesResomiUnisex
 
 - type: entity # mono
   parent: MobHydrakin
@@ -209,6 +207,19 @@
     nameSegments:
     - NamesFirst
     - NamesLast
+    nameFormat: name-format-standard
+
+- type: entity
+  parent: MobFeroxi
+  id: MobFeroxiRandom
+  name: Urist McFin
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFeroxiFirstMale
+    - NamesFeroxiLast
     nameFormat: name-format-standard
 
 - type: entity

@@ -89,7 +89,7 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: clock wall
+  name: brass wall
   id: WallClock
   graph: ClockworkGirder
   startNode: start
@@ -97,7 +97,7 @@
   category: construction-category-structures
   description: Keeps the air in and the greytide out.
   icon:
-    sprite: Structures/Walls/clock.rsi
+    sprite: Structures/Walls/brass.rsi
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -232,23 +232,23 @@
   conditions:
     - !type:TileNotBlocked
 
-- type: construction
-  name: interior shuttle wall
-  id: InteriorShuttleWall
-  graph: Girder
-  startNode: start
-  targetNode: shuttleInteriorWall
-  category: construction-category-structures
-  description: Keeps the air in and the greytide out.
-  icon:
-    sprite: Structures/Walls/shuttleinterior.rsi
-    state: full
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: false
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
+#- type: construction
+#  name: interior shuttle wall
+#  id: InteriorShuttleWall
+#  graph: Girder
+#  startNode: start
+#  targetNode: shuttleInteriorWall
+#  category: construction-category-structures
+#  description: Keeps the air in and the greytide out.
+#  icon:
+#    sprite: Structures/Walls/shuttleinterior.rsi
+#    state: full
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+#  canRotate: false
+#  canBuildInImpassable: false
+#  conditions:
+#    - !type:TileNotBlocked
 
 - type: construction
   name: diagonal shuttle wall
@@ -316,29 +316,29 @@
     - !type:TileNotBlocked
       failIfSpace: false
   icon:
-    sprite: Structures/Walls/grille.rsi
-    state: grille
+    sprite: Structures/Walls/grille-new.rsi
+    state: full
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false
 
-- type: construction
-  name: clockwork grille
-  id: ClockGrille
-  graph: ClockGrille
-  startNode: start
-  targetNode: clockGrille
-  category: construction-category-structures
-  description: A flimsy framework of iron rods assembled in traditional ratvarian fashion.
-  conditions:
-    - !type:TileNotBlocked
-      failIfSpace: false
-  icon:
-    sprite: Structures/Walls/clockwork_grille.rsi
-    state: ratvargrille
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: false
+#- type: construction
+#  name: clockwork grille
+#  id: ClockGrille
+#  graph: ClockGrille
+#  startNode: start
+#  targetNode: clockGrille
+#  category: construction-category-structures
+#  description: A flimsy framework of iron rods assembled in traditional ratvarian fashion.
+#  conditions:
+#    - !type:TileNotBlocked
+#      failIfSpace: false
+#  icon:
+#    sprite: Structures/Walls/clockwork_grille.rsi
+#    state: ratvargrille
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+#  canRotate: false
 
 - type: construction
   name: diagonal grille
@@ -352,27 +352,27 @@
     - !type:TileNotBlocked
       failIfSpace: false
   icon:
-    sprite: Structures/Walls/grille.rsi
-    state: grille_diagonal
+    sprite: Structures/Walls/grille-diagonal.rsi
+    state: state0
   objectType: Structure
   placementMode: SnapgridCenter
 
-- type: construction
-  name: diagonal clockwork grille
-  id: ClockworkGrilleDiagonal
-  graph: GrilleDiagonal
-  startNode: start
-  targetNode: clockworkGrilleDiagonal
-  category: construction-category-structures
-  description: A flimsy framework of iron rods assembled in traditional ratvarian fashion.
-  conditions:
-    - !type:TileNotBlocked
-      failIfSpace: false
-  icon:
-    sprite: Structures/Walls/clockwork_grille.rsi
-    state: ratvargrille_diagonal
-  objectType: Structure
-  placementMode: SnapgridCenter
+#- type: construction
+#  name: diagonal clockwork grille
+#  id: ClockworkGrilleDiagonal
+#  graph: GrilleDiagonal
+#  startNode: start
+#  targetNode: clockworkGrilleDiagonal
+#  category: construction-category-structures
+#  description: A flimsy framework of iron rods assembled in traditional ratvarian fashion.
+#  conditions:
+#    - !type:TileNotBlocked
+#      failIfSpace: false
+#  icon:
+#    sprite: Structures/Walls/clockwork_grille.rsi
+#    state: ratvargrille_diagonal
+#  objectType: Structure
+#  placementMode: SnapgridCenter
 
 - type: construction
   name: window
@@ -467,42 +467,42 @@
   placementMode: SnapgridCenter
   canRotate: false
 
-- type: construction
-  name: clockwork window
-  id: ClockworkWindow
-  graph: Window
-  startNode: start
-  targetNode: clockworkWindow
-  category: construction-category-structures
-  description: Clear and tough, with a golden tint.
-  canBuildInImpassable: true
-  conditions:
-    - !type:EmptyOrWindowValidInTile
-    - !type:NoWindowsInTile
-  icon:
-    sprite: Structures/Windows/clockwork_window.rsi
-    state: full
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: false
+#- type: construction
+#  name: clockwork window
+#  id: ClockworkWindow
+#  graph: Window
+#  startNode: start
+#  targetNode: clockworkWindow
+#  category: construction-category-structures
+#  description: Clear and tough, with a golden tint.
+#  canBuildInImpassable: true
+#  conditions:
+#    - !type:EmptyOrWindowValidInTile
+#    - !type:NoWindowsInTile
+#  icon:
+#    sprite: Structures/Windows/clockwork_window.rsi
+#    state: full
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+#  canRotate: false
 
-- type: construction
-  name: diagonal clockwork window
-  id: ClockworkWindowDiagonal
-  graph: WindowDiagonal
-  startNode: start
-  targetNode: clockworkWindowDiagonal
-  category: construction-category-structures
-  description: Clear and tough, with a golden tint.
-  canBuildInImpassable: true
-  conditions:
-    - !type:EmptyOrWindowValidInTile
-    - !type:NoWindowsInTile
-  icon:
-    sprite: Structures/Windows/clockwork_diagonal.rsi
-    state: state0
-  objectType: Structure
-  placementMode: SnapgridCenter
+#- type: construction
+#  name: diagonal clockwork window
+#  id: ClockworkWindowDiagonal
+#  graph: WindowDiagonal
+#  startNode: start
+#  targetNode: clockworkWindowDiagonal
+#  category: construction-category-structures
+#  description: Clear and tough, with a golden tint.
+#  canBuildInImpassable: true
+#  conditions:
+#    - !type:EmptyOrWindowValidInTile
+#    - !type:NoWindowsInTile
+#  icon:
+#    sprite: Structures/Windows/clockwork_diagonal.rsi
+#    state: state0
+#  objectType: Structure
+#  placementMode: SnapgridCenter
 
 - type: construction
   name: plasma window
@@ -633,23 +633,23 @@
   objectType: Structure
   placementMode: SnapgridCenter
 
-- type: construction
-  name: directional clockwork window
-  id: WindowClockworkDirectional
-  graph: WindowDirectional
-  startNode: start
-  targetNode: windowClockworkDirectional
-  category: construction-category-structures
-  description: Clear and tough, with a golden tint.
-  canBuildInImpassable: true
-  conditions:
-    - !type:EmptyOrWindowValidInTile
-    - !type:NoWindowsInTile
-  icon:
-    sprite: Structures/Windows/directional.rsi
-    state: clock_window
-  objectType: Structure
-  placementMode: SnapgridCenter
+#- type: construction
+#  name: directional clockwork window
+#  id: WindowClockworkDirectional
+#  graph: WindowDirectional
+#  startNode: start
+#  targetNode: windowClockworkDirectional
+#  category: construction-category-structures
+#  description: Clear and tough, with a golden tint.
+#  canBuildInImpassable: true
+#  conditions:
+#    - !type:EmptyOrWindowValidInTile
+#    - !type:NoWindowsInTile
+#  icon:
+#    sprite: Structures/Windows/directional.rsi
+#    state: clock_window
+#  objectType: Structure
+#  placementMode: SnapgridCenter
 
 - type: construction
   name: directional plasma window
@@ -770,7 +770,7 @@
   category: construction-category-structures
   description: This is a firelock - it locks an area when a fire alarm in the area is triggered. Don't get squished!
   icon:
-    sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
+    sprite: Structures/Doors/Airlocks/Standard/firelock-base.rsi
     state: closed
   objectType: Structure
   placementMode: SnapgridCenter
@@ -788,7 +788,7 @@
   category: construction-category-structures
   description: This is a firelock - it locks an area when a fire alarm in the area is triggered. Don't get squished!
   icon:
-    sprite: Structures/Doors/Airlocks/Glass/firelock.rsi
+    sprite: Structures/Doors/Airlocks/Glass/firelock-base.rsi
     state: closed
   objectType: Structure
   placementMode: SnapgridCenter
@@ -1270,7 +1270,7 @@
   category: construction-category-structures
   description: It opens, it closes, and maybe crushes you.
   icon:
-    sprite: Structures/Doors/Airlocks/Standard/basic.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-base.rsi
     state: assembly
   objectType: Structure
   placementMode: SnapgridCenter
@@ -1287,7 +1287,7 @@
   category: construction-category-structures
   description: It opens, it closes, and maybe crushes you.
   icon:
-    sprite: Structures/Doors/Airlocks/Glass/glass.rsi
+    sprite: Structures/Doors/Airlocks/Glass/airlock-base.rsi
     state: assembly
   objectType: Structure
   placementMode: SnapgridCenter
@@ -1295,39 +1295,39 @@
   conditions:
     - !type:TileNotBlocked
 
-- type: construction
-  name: pinion airlock
-  id: PinionAirlock
-  graph: PinionAirlock
-  startNode: start
-  targetNode: airlock
-  category: construction-category-structures
-  description: It opens, it closes, and maybe crushes you.
-  icon:
-    sprite: Structures/Doors/Airlocks/Standard/clockwork_pinion.rsi
-    state: assembly
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
-  name: glass pinion airlock
-  id: PinionAirlockGlass
-  graph: PinionAirlock
-  startNode: start
-  targetNode: glassAirlock
-  category: construction-category-structures
-  description: It opens, it closes, and maybe crushes you.
-  icon:
-    sprite: Structures/Doors/Airlocks/Glass/clockwork_pinion.rsi
-    state: assembly
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
+#- type: construction
+#  name: pinion airlock
+#  id: PinionAirlock
+#  graph: PinionAirlock
+#  startNode: start
+#  targetNode: airlock
+#  category: construction-category-structures
+#  description: It opens, it closes, and maybe crushes you.
+#  icon:
+#    sprite: Structures/Doors/Airlocks/Standard/clockwork_pinion.rsi
+#    state: assembly
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+#  canBuildInImpassable: false
+#  conditions:
+#    - !type:TileNotBlocked
+#
+#- type: construction
+#  name: glass pinion airlock
+#  id: PinionAirlockGlass
+#  graph: PinionAirlock
+#  startNode: start
+#  targetNode: glassAirlock
+#  category: construction-category-structures
+#  description: It opens, it closes, and maybe crushes you.
+#  icon:
+#    sprite: Structures/Doors/Airlocks/Glass/clockwork_pinion.rsi
+#    state: assembly
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+#  canBuildInImpassable: false
+#  conditions:
+#    - !type:TileNotBlocked
 
 - type: construction
   name: shuttle airlock
@@ -1338,7 +1338,7 @@
   category: construction-category-structures
   description: It opens, it closes, and maybe crushes you. Necessary for connecting two space craft together.
   icon:
-    sprite: Structures/Doors/Airlocks/Standard/shuttle.rsi # Frontier: Airlocks/Glass<Airlocks/Standard
+    sprite: Structures/Doors/Airlocks/Standard/shuttle-base.rsi
     state: closed
   #  state: assembly
   objectType: Structure
@@ -1356,7 +1356,7 @@
   category: construction-category-structures
   description: It opens, it closes, and maybe crushes you. Necessary for connecting two space craft together. This one has a window.
   icon:
-    sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
+    sprite: Structures/Doors/Airlocks/Glass/shuttle-base.rsi
     state: closed
   #  state: assembly
   objectType: Structure

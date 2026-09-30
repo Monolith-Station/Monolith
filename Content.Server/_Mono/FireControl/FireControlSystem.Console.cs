@@ -5,15 +5,16 @@ using Content.Server._Mono.Ships.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._Mono.FireControl;
+using Content.Shared._Mono.Ships.Components;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
-using Content.Shared._Mono.Ships.Components;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -26,14 +27,14 @@ namespace Content.Server._Mono.FireControl;
 
 public sealed partial class FireControlSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly ShuttleConsoleSystem _shuttleConsoleSystem = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly CrewedShuttleSystem _crewedShuttle = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private ShuttleConsoleSystem _shuttleConsoleSystem = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private CrewedShuttleSystem _crewedShuttle = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IMapManager _mapMan = default!;
 
     private bool _completedCheck = false;
 
@@ -270,6 +271,8 @@ public sealed partial class FireControlSystem : EntitySystem
                 controlled.NetEntity = EntityManager.GetNetEntity(controllable);
                 controlled.Coordinates = GetNetCoordinates(Transform(controllable).Coordinates);
                 controlled.Name = MetaData(controllable).EntityName;
+                TryComp<FireControllableComponent>(controllable, out var fcComp);
+                controlled.IgnoresLos = fcComp != null ? fcComp.IgnoreLos : false;
 
                 var (ammoCount, hasManualReload) = GetWeaponAmmunitionInfo(controllable);
                 controlled.AmmoCount = ammoCount;
@@ -321,6 +324,15 @@ public sealed partial class FireControlSystem : EntitySystem
                     return (magazineBasicAmmo.Count, !hasRecharge);
                 }
             }
+        }
+
+        if (TryComp<ProjectileBatteryAmmoProviderComponent>(weaponEntity, out _)
+            || TryComp<HitscanBatteryAmmoProviderComponent>(weaponEntity, out _)
+            )
+        {
+            var amm = new GetAmmoCountEvent();
+            RaiseLocalEvent(weaponEntity, ref amm, false);
+            return (amm.Count, true);
         }
 
         return (null, false);

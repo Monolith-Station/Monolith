@@ -22,7 +22,7 @@
   id: UnknownShuttleZenith
   components:
   - type: StationEvent
-    startAnnouncement: station-event-ai-shuttle-detected
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-ai-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
@@ -37,7 +37,7 @@
   id: UnknownShuttleZenithE
   components:
   - type: StationEvent
-    startAnnouncement: station-event-ai-shuttle-detected
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-ai-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 3
@@ -52,7 +52,7 @@
   id: UnknownShuttleNebula
   components:
   - type: StationEvent
-    startAnnouncement: station-event-ai-shuttle-detected
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-ai-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2
@@ -67,7 +67,7 @@
   id: UnknownShuttleWyrm
   components:
   - type: StationEvent
-    startAnnouncement: station-event-ai-shuttle-detected
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-ai-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 3
@@ -82,7 +82,7 @@
   id: UnknownShuttleRazorN
   components:
   - type: StationEvent
-    startAnnouncement: station-event-ai-shuttle-detected
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-ai-shuttle-detected
     startAudio:
       path: /Audio/Misc/notice1.ogg
     weight: 2 # rare but not too rare since it's in the T2 spawner

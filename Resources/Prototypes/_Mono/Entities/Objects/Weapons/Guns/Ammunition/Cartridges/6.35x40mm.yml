@@ -1,6 +1,6 @@
 - type: entity
   id: BaseCartridge635x40mmCaseless
-  name: cartridge (.25 rifle)
+  name: cartridge (6.35x40mm caseless)
   parent: BaseCartridge
   description: Developed during corporate wars for subsonic weapons to keep a low-profile during operations.
   abstract: true
@@ -24,7 +24,7 @@
 
 - type: entity
   id: Cartridge635x40mmCaseless
-  name: cartridge (635x40mm Caseless)
+  name: cartridge (6.35x40mm Caseless)
   parent: BaseCartridge635x40mmCaseless
   components:
   - type: CartridgeAmmo
@@ -32,7 +32,7 @@
 
 - type: entity
   id: Cartridge635x40mmCaselessRubber
-  name: cartridge (635x40mm Caseless rubber)
+  name: cartridge (6.35x40mm Caseless rubber)
   parent: BaseCartridge635x40mmCaseless
   components:
   - type: CartridgeAmmo
@@ -40,7 +40,7 @@
 
 - type: entity
   id: Cartridge635x40mmCaselessPractice
-  name: cartridge (635x40mm Caseless practice)
+  name: cartridge (6.35x40mm Caseless practice)
   parent: BaseCartridge635x40mmCaseless
   components:
   - type: CartridgeAmmo

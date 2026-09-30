@@ -26,6 +26,7 @@
   - TsfmcFirearm
   - TsfmcMag
   - FactionArmorPlates
+  - TsfmcRanksEnlisted
   canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
@@ -52,8 +53,11 @@
   - ContractorTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearm
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
   - FactionArmorPlates
+  - TsfmcRanksEnlisted
   canCustomizeName: true
 
 - type: roleLoadout
@@ -80,8 +84,11 @@
   - ContractorTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearm
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
   - FactionArmorPlates
+  - TsfnRanksCorpsmen
   canCustomizeName: true
 
 - type: roleLoadout
@@ -107,16 +114,19 @@
   - ContractorFun
   - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
-  - TsfmcFirearm
+  - TsfmcFirearmCommand
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
   - FactionArmorPlates
+  - TsfmcRanksCaptain
   canCustomizeName: true
 
 - type: roleLoadout
   id: JobSeniorOfficer # Fireteam Leader
   groups:
   - TsfmcHead
-  - TsfmcNeck
+  - TsfmcNeckFTL
   - TsfmcJumpsuit
   - TsfmcGloves
   - TsfmcBackpack
@@ -135,9 +145,12 @@
   - ContractorFun
   - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
-  - TsfmcFirearm
+  - TsfmcFirearmCommand
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
   - FactionArmorPlates
+  - TsfmcRanksFTL
   canCustomizeName: true
 
 - type: roleLoadout
@@ -148,11 +161,11 @@
   - TsfmcJumpsuit
   - TsfmcGloves
   - TsfmcBackpack
-  - TsfmcOuterClothing
+  - TsfmcOuterClothingColonel
   - TsfmcShoes
   - TsfmcFace
   - TsfmcBalaclava
-  - TsfmcGlasses
+  - TsfmcGlassesColonel
   - TsfmcBelt
   - TsfmcEarsCommander
   - NfsdBoxSurvival
@@ -163,8 +176,11 @@
   - SeniorOfficerTrinkets
   - NfsdSpeciesSpecific
   - TsfmcFirearmColonel
+  - TsfmcSidearm
   - TsfmcMag
+  - TsfmcSidearmAmmo
   - FactionArmorPlates
+  - TsfmcRanksColonel
   canCustomizeName: true
 
 - type: roleLoadout
@@ -190,5 +206,55 @@
   - ContractorFun
   - ContractorTrinkets
   - NfsdSpeciesSpecific
+  - TsfmcSidearm
+  - TsfmcSidearmAmmo
   - FactionArmorPlates
+  - TsfnRanksEngineers
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobTsfMarsoc
+  groups:
+  - TsfmcBalaclava
+  - NfsdBoxSurvival
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorTrinkets
+  - ContractorEncryptionKey
+  - NfsdSpeciesSpecific
+  - TsfmcSidearm
+  - TsfmcSidearmAmmo
+  - FactionArmorPlates
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobTsfCivilian # Civvie
+  groups:
+  - MercenaryHead
+  - ContractorNeck
+  - MercenaryJumpsuit
+  - MercenaryGloves
+  - MercenaryBackpack
+  - ContractorOuterClothing
+  - MercenaryShoes
+  - MercenaryFace
+  - MercenaryGlasses
+  - MercenaryBelt
+  - MercenaryEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - ContractorPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
+  - NFSpeciesSpecific
+  - MercenaryBalaclava # Mono
+  - CivGunCaseSpecial # Mono
+  - ContractorArmorPlates # Mono
+  - TsfmcSidearm
+  - TsfmcSidearmAmmo
   canCustomizeName: true

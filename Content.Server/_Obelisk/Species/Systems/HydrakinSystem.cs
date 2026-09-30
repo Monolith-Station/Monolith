@@ -3,6 +3,7 @@ using Content.Server.Popups;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared._Mono.Species.Systems;
+using Content.Shared._Obelisk.Species.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.DoAfter;
@@ -11,13 +12,13 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Obelisk.Species.Systems;
 
-public sealed class HydrakinSystem : EntitySystem
+public sealed partial class HydrakinSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly TemperatureSystem _temp = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private TemperatureSystem _temp = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
 
     public override void Initialize()
     {
@@ -37,7 +38,11 @@ public sealed class HydrakinSystem : EntitySystem
 
     private void OnCoolOff(EntityUid uid, HydrakinComponent component, HydrakinCoolOffActionEvent args)
     {
-        var doafter = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(3), new CoolOffDoAfterEvent(), uid);
+        var doafter = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(3), new CoolOffDoAfterEvent(), uid){
+            NeedHand = false,
+            RequireCanInteract = false,
+            BreakOnHandChange = false
+        };
 
         if (!_doAfter.TryStartDoAfter(doafter))
             return;

@@ -7,16 +7,16 @@ using Robust.Shared.Physics;
 
 namespace Content.Client.Sprite;
 
-public sealed class SpriteFadeSystem : EntitySystem
+public sealed partial class SpriteFadeSystem : EntitySystem
 {
     /*
      * If the player entity is obstructed under the specified components then it will drop the alpha for that entity
      * so the player is still visible.
      */
 
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IStateManager _stateManager = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IStateManager _stateManager = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private readonly HashSet<FadingSpriteComponent> _comps = new();
 

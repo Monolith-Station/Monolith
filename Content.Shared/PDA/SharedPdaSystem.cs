@@ -4,10 +4,10 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared.PDA
 {
-    public abstract class SharedPdaSystem : EntitySystem
+    public abstract partial class SharedPdaSystem : EntitySystem
     {
-        [Dependency] protected readonly ItemSlotsSystem ItemSlotsSystem = default!;
-        [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
+        [Dependency] protected ItemSlotsSystem ItemSlotsSystem = default!;
+        [Dependency] protected SharedAppearanceSystem Appearance = default!;
 
         public override void Initialize()
         {
@@ -29,7 +29,6 @@ namespace Content.Shared.PDA
             ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaIdSlotId, pda.IdSlot);
             ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaPenSlotId, pda.PenSlot);
             ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaPaiSlotId, pda.PaiSlot);
-            ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaBookSlotId, pda.BookSlot);
 
             UpdatePdaAppearance(uid, pda);
         }
@@ -39,7 +38,6 @@ namespace Content.Shared.PDA
             ItemSlotsSystem.RemoveItemSlot(uid, pda.IdSlot);
             ItemSlotsSystem.RemoveItemSlot(uid, pda.PenSlot);
             ItemSlotsSystem.RemoveItemSlot(uid, pda.PaiSlot);
-            ItemSlotsSystem.RemoveItemSlot(uid, pda.BookSlot);
         }
 
         protected virtual void OnItemInserted(EntityUid uid, PdaComponent pda, EntInsertedIntoContainerMessage args)

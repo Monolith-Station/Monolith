@@ -12,15 +12,15 @@
             - material: MetalRod
               amount: 2
               doAfter: 1
-              
-        - to: clockworkGrilleDiagonal
-          completed:
-            - !type:SnapToGrid {} # Frontier: use default ctor
-              # southRotation: true # Frontier
-          steps:
-            - material: MetalRod
-              amount: 2
-              doAfter: 1
+
+#        - to: clockworkGrilleDiagonal
+#          completed:
+#            - !type:SnapToGrid {} # Frontier: use default ctor
+#              # southRotation: true # Frontier
+#          steps:
+#            - material: MetalRod
+#              amount: 2
+#              doAfter: 1
 
     - node: grilleDiagonal
       entity: GrilleDiagonal
@@ -36,18 +36,18 @@
           steps:
             - tool: Cutting
               doAfter: 0.25
-              
-    - node: clockworkGrilleDiagonal
-      entity: ClockworkGrilleDiagonal
-      edges:
-        - to: start
-          completed:
-            - !type:AdminLog
-              message: "A grille was cut"
-            - !type:SpawnPrototype
-              prototype: PartRodMetal1
-              amount: 2
-            - !type:DeleteEntity
-          steps:
-            - tool: Cutting
-              doAfter: 0.25
+
+#    - node: clockworkGrilleDiagonal
+#      entity: ClockworkGrilleDiagonal
+#      edges:
+#        - to: start
+#          completed:
+#            - !type:AdminLog
+#              message: "A grille was cut"
+#            - !type:SpawnPrototype
+#              prototype: PartRodMetal1
+#              amount: 2
+#            - !type:DeleteEntity
+#          steps:
+#            - tool: Cutting
+#              doAfter: 0.25

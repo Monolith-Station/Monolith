@@ -8,10 +8,10 @@ namespace Content.Server._Mono.DynamicRoles;
 /// <summary>
 /// Dynamically enables or disables role timers and whitelists based on player count.
 /// </summary>
-public sealed class DynamicRoleSettingsSystem : EntitySystem
+public sealed partial class DynamicRoleSettingsSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private bool _dynamicRolesEnabled;
     private int _playerThreshold;

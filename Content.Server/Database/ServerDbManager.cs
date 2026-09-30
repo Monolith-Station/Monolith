@@ -51,10 +51,9 @@ namespace Content.Server.Database
         #endregion
 
         #region MonoCoins
-        Task<int> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default);
-        Task SetMonoCoinsAsync(NetUserId userId, int balance, CancellationToken cancel = default);
-        Task<int> AddMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default);
-        Task<bool> TrySubtractMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default);
+        Task<long> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default);
+        Task SetMonoCoinsAsync(NetUserId userId, long balance, CancellationToken cancel = default);
+        Task<long> AddMonoCoinsAsync(NetUserId userId, long amount, CancellationToken cancel = default);
         #endregion
 
         #region User Ids
@@ -386,6 +385,19 @@ namespace Content.Server.Database
         Task SendNotification(DatabaseNotification notification);
 
         #endregion
+
+        #region Wayfarer Safety Deposit Box
+
+        Task<WayfarerSafetyDepositBox> PurchaseSafetyDepositBox(Guid ownerUserId, int characterIndex, string ownerName, string boxSize, CancellationToken cancel = default);
+        Task<List<WayfarerSafetyDepositBox>> GetPlayerSafetyDepositBoxes(Guid ownerUserId, int characterIndex, CancellationToken cancel = default);
+        Task<WayfarerSafetyDepositBox?> GetSafetyDepositBox(Guid boxId, CancellationToken cancel = default);
+        Task DepositSafetyDepositBoxItems(Guid boxId, List<string> entityDataList, CancellationToken cancel = default);
+        Task UpdateSafetyDepositBoxNickname(Guid boxId, string? nickname, CancellationToken cancel = default);
+        Task ClearSafetyDepositBoxItems(Guid boxId, int roundId, CancellationToken cancel = default);
+        Task<int> DeleteStaleSafetyDepositBoxes(int daysStale, CancellationToken cancel = default);
+        Task DeleteSafetyDepositBox(Guid boxId, CancellationToken cancel = default);
+
+        #endregion
     }
 
     /// <summary>
@@ -413,7 +425,7 @@ namespace Content.Server.Database
         public string? Payload { get; set; }
     }
 
-    public sealed class ServerDbManager : IServerDbManager
+    public sealed partial class ServerDbManager : IServerDbManager
     {
         public static readonly Counter DbReadOpsMetric = Metrics.CreateCounter(
             "db_read_ops",
@@ -427,9 +439,9 @@ namespace Content.Server.Database
             "db_executing_ops",
             "Amount of active database operations. Note that some operations may be waiting for a database connection.");
 
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IResourceManager _res = default!;
-        [Dependency] private readonly ILogManager _logMgr = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IResourceManager _res = default!;
+        [Dependency] private ILogManager _logMgr = default!;
 
         private ServerDbBase _db = default!;
         private LoggingProvider _msLogProvider = default!;
@@ -519,28 +531,22 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetPlayerPreferencesAsync(userId, cancel));
         }
 
-        public Task<int> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default)
+        public Task<long> GetMonoCoinsAsync(NetUserId userId, CancellationToken cancel = default)
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetMonoCoinsAsync(userId, cancel));
         }
 
-        public Task SetMonoCoinsAsync(NetUserId userId, int balance, CancellationToken cancel = default)
+        public Task SetMonoCoinsAsync(NetUserId userId, long balance, CancellationToken cancel = default)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SetMonoCoinsAsync(userId, balance, cancel));
         }
 
-        public Task<int> AddMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default)
+        public Task<long> AddMonoCoinsAsync(NetUserId userId, long amount, CancellationToken cancel = default)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.AddMonoCoinsAsync(userId, amount, cancel));
-        }
-
-        public Task<bool> TrySubtractMonoCoinsAsync(NetUserId userId, int amount, CancellationToken cancel = default)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.TrySubtractMonoCoinsAsync(userId, amount, cancel));
         }
 
         public Task AssignUserIdAsync(string name, NetUserId userId)
@@ -1172,6 +1178,58 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SendNotification(notification));
         }
+
+        #region Wayfarer Safety Deposit Box
+
+        public Task<WayfarerSafetyDepositBox> PurchaseSafetyDepositBox(Guid ownerUserId, int characterIndex, string ownerName, string boxSize, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.PurchaseSafetyDepositBox(ownerUserId, characterIndex, ownerName, boxSize, cancel));
+        }
+
+        public Task<List<WayfarerSafetyDepositBox>> GetPlayerSafetyDepositBoxes(Guid ownerUserId, int characterIndex, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerSafetyDepositBoxes(ownerUserId, characterIndex, cancel));
+        }
+
+        public Task<WayfarerSafetyDepositBox?> GetSafetyDepositBox(Guid boxId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetSafetyDepositBox(boxId, cancel));
+        }
+
+        public Task DepositSafetyDepositBoxItems(Guid boxId, List<string> entityDataList, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.DepositSafetyDepositBoxItems(boxId, entityDataList, cancel));
+        }
+
+        public Task UpdateSafetyDepositBoxNickname(Guid boxId, string? nickname, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpdateSafetyDepositBoxNickname(boxId, nickname, cancel));
+        }
+
+        public Task ClearSafetyDepositBoxItems(Guid boxId, int roundId, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.ClearSafetyDepositBoxItems(boxId, roundId, cancel));
+        }
+
+        public Task<int> DeleteStaleSafetyDepositBoxes(int daysStale, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.DeleteStaleSafetyDepositBoxes(daysStale, cancel));
+        }
+
+        public Task DeleteSafetyDepositBox(Guid boxId, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.DeleteSafetyDepositBox(boxId, cancel));
+        }
+
+        #endregion
 
         private async void HandleDatabaseNotification(DatabaseNotification notification)
         {

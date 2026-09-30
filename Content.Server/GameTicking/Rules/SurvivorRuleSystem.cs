@@ -9,18 +9,21 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Survivor.Components;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class SurvivorRuleSystem : GameRuleSystem<SurvivorRuleComponent>
+public sealed partial class SurvivorRuleSystem : GameRuleSystem<SurvivorRuleComponent>
 {
-    [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _eShuttle = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private RoleSystem _role = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private TransformSystem _xform = default!;
+    [Dependency] private EmergencyShuttleSystem _eShuttle = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+
+    private static readonly ProtoId<TagPrototype> InvalidForSurvivorAntagTag = "InvalidForSurvivorAntag";
 
     public override void Initialize()
     {
@@ -44,7 +47,7 @@ public sealed class SurvivorRuleSystem : GameRuleSystem<SurvivorRuleComponent>
             var mind = humanMind.Owner;
             var ent = humanMind.Comp.OwnedEntity.Value;
 
-            if (HasComp<SurvivorComponent>(mind) || _tag.HasTag(mind, "InvalidForSurvivorAntag"))
+            if (HasComp<SurvivorComponent>(mind) || _tag.HasTag(mind, InvalidForSurvivorAntagTag))
                 continue;
 
             EnsureComp<SurvivorComponent>(mind);

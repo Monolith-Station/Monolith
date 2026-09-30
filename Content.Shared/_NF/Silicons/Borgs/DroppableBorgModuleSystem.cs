@@ -10,13 +10,13 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._NF.Silicons.Borgs;
 
-public sealed class DroppableBorgModuleSystem : EntitySystem
+public sealed partial class DroppableBorgModuleSystem : EntitySystem
 {
-    [Dependency] private readonly HandPlaceholderSystem _placeholder = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private HandPlaceholderSystem _placeholder = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

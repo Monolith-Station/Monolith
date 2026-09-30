@@ -28,6 +28,22 @@ public sealed partial class ExplosiveComponent : Component
     [DataField]
     public float MaxIntensity = 4;
 
+    // Mono Start
+
+    /// <summary>
+    ///     What round time is needed to be able to detonate.
+    /// </summary>
+    [DataField]
+    public float? TimeUntilExplodable = null;
+
+    /// <summary>
+    ///     What alert level this bomb sets when detonated.
+    /// </summary>
+	[DataField]
+    public string? DetonationAlert = null;
+
+    // Mono End
+
     /// <summary>
     ///     How quickly the intensity drops off as you move away from the epicenter.
     /// </summary>

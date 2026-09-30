@@ -15,7 +15,7 @@ namespace Content.Server._Mono.NPC.HTN.Operators;
 /// </summary>
 public sealed partial class ShipFireGunsOperator : HTNOperator, IHtnConditionalShutdown
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private PowerReceiverSystem _power = default!;
     private ShipTargetingSystem _targeting = default!;
 
@@ -56,6 +56,8 @@ public sealed partial class ShipFireGunsOperator : HTNOperator, IHtnConditionalS
     /// </summary>
     [DataField]
     public bool RequirePowered = true;
+
+    private EntityCoordinates? wasTarget = null;
 
     private const string TargetingCancelToken = "ShipTargetingCancelToken";
 
@@ -111,8 +113,18 @@ public sealed partial class ShipFireGunsOperator : HTNOperator, IHtnConditionalS
         )
             return HTNOperatorStatus.Failed;
 
+        // hack to update ShipMoveTo or such when we swap targets
+        if (wasTarget != null && wasTarget != target)
+        {
+            wasTarget = null;
+            return HTNOperatorStatus.Finished;
+        }
+
         // ensure we're still targeting if we e.g. move grids
         var comp = _targeting.Target(owner, target);
+
+        wasTarget = target;
+
         if (comp == null)
             return HTNOperatorStatus.Finished;
 
@@ -120,9 +132,7 @@ public sealed partial class ShipFireGunsOperator : HTNOperator, IHtnConditionalS
             return HTNOperatorStatus.Finished;
 
         if (ShutdownState == HTNPlanState.PlanFinished)
-        {
             return HTNOperatorStatus.Finished;
-        }
 
         return HTNOperatorStatus.Continuing;
     }

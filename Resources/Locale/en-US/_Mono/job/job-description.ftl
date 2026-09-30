@@ -1,16 +1,28 @@
 # MARK: USSP
-job-description-ussp-commissar = Enforce the USSPs will against the TSF and PD forces of the sector, keep your subordinates orderly.
-job-description-ussp-sergeant = Organize USSP Efreitors and riflemen on a tactical level.
-job-description-ussp-corporal = Pilot vessels or board ships for the USSP and your commanding officers.
-job-description-ussp-medic = Keep your fellow soldiers healthy and intact for the Union.
-job-description-ussp-rifleman = Serve the Union in space. Follow orders from your superiors and spread socialist ideals throughout the cosmos.
+job-description-ussp-commissar = Preserve discipline, hold the battalion to a common purpose, and ensure the Union’s will does not die in the Colossus Sector.
+job-description-ussp-sergeant = Lead the ranks in battle, enforce standards, and hold the battalion together under pressure.
+job-description-ussp-rifleman = Serve the Union far from home. Follow your superiors, stand by your comrades, and endure where others would break.
 
 # MARK: MD
-job-description-md-medic = Traverse the space to provide life-saving care aboard a medical vessel. Stabilize crew with medicine, synthesize medicine, and revive the fallen. ensure the unrecoverable deceased are respectfully secured in the morgue and cloned.
+job-description-md-medic = Carry out the Director's whims and provide life-saving care to the inhabitants of the Colossus, no matter what tries to get in your way.
 
 # MARK: TSF
 job-description-tsf-engineer = Maintain the integrity of the flagship, get laughed at for not being a real soldier.
 job-description-tsf-borg = Half-human, Half-machine. Follow your laws, serve the TSF, and beg engineers for upgrades.
+job-description-tsf-civilian = Survive in the Colossus sector, do what your government tells you and watch out for the opposition.
 
 # MARK: PDV
 job-description-pdv-borg = Half-human, Half-machine. Follow your laws, serve the PDV, and beg dynasty troops for upgrades.
+job-description-pdv-civilian = Survive in the Colossus sector, obey the Sultanate and bring success to the Dynasty through your work.
+job-description-pdv-ambassador = A high ranking official of the Dynasty.
+job-description-pdv-prince = The son of the Sultan. Holds high authority.
+
+# MARK: Viper Group
+job-description-vg-infanteer = Follow the orders from above. Complete contracts. Get paid.
+job-description-vg-lieutenant = Direct the infanteer detachments. Ensure standards are maintained. Attain prosperity and wealth.
+job-description-vg-commander = Lead the Vipers to glory and wealth. Forge new business relations. Show the sector that your fangs have not dulled.
+
+# MARK: MMC
+job-description-mmc-liason = Ensure profits for your corporate managers, keep your employees in line, and ensure the protection MMC assets in the sector.
+job-description-mmc-security = Protect MMC assets and employees in the area from any threats.
+job-description-mmc-employee = Work under your liason for the sake of the MMC company board. Make money, give it to the company, and repeat.

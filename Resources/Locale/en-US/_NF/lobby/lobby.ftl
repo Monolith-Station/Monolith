@@ -37,6 +37,9 @@ frontier-lobby-nfsd-description = The TFSMC-FOB is the center of operations for 
    - Report crimes
    - Turn in contraband
 
+monolith-lobby-tsf-industry-subtext = The center of TSF civilian operations.
+monolith-lobby-tsf-industry-description = The "Stellar Blessing" is a small colony vessel filled with prospecting civilians looking to make a living. Spawn here as a civilian and make said living, while obeying your government's authority.
+
 frontier-lobby-pirate-subtext = The center of operations for the PDV.
 frontier-lobby-pirate-description = This is the ultimate hideout where Phaethon Imperial Forces gather. Here you can:
    - Start an Imperial crew

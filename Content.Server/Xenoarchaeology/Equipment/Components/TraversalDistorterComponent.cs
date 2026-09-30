@@ -23,7 +23,7 @@ public sealed partial class TraversalDistorterComponent : Component
     public float PartRatingBiasChance = 1.1f;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public BiasDirection BiasDirection = BiasDirection.Up;
+    public BiasDirection BiasDirection = BiasDirection.Down; // Mono - Since we start at Depth 0, analyzers will want to scan down instead of up.
 
     public TimeSpan NextActivation = default!;
     public TimeSpan ActivationDelay = TimeSpan.FromSeconds(1);
