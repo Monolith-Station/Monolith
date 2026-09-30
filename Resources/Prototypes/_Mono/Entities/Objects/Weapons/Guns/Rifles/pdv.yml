@@ -79,8 +79,10 @@
     sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr_inhands_32x.rsi
   - type: GunWieldBonus
     minAngle: -14
-    maxAngle: -41
+    maxAngle: -27
   - type: Gun
+    minAngle: 14
+    maxAngle: 41
     availableModes:
     - Burst
     - FullAuto
@@ -163,7 +165,6 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: GunRequiresWield
 
 - type: entity
   name: PD-VI M-32 Vympel (5.56x45mm)

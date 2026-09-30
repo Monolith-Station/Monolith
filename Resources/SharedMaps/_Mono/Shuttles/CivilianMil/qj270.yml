@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/05/2026 20:27:55
+  time: 09/21/2026 17:28:11
   entityCount: 194
 maps: []
 grids:
@@ -110,10 +110,10 @@ entities:
             10: 0,-4
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Puddle: []
-        MetalFoam: []
         Smoke: []
+        MetalFoam: []
+        Kudzu: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -1335,6 +1335,16 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,0.5
       parent: 1
+- proto: WindoorSecure
+  entities:
+  - uid: 144
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-4.5
+      parent: 1
+    - type: DeltaPressure
+      gridUid: 1
 - proto: WindoorSecurePlasma
   entities:
   - uid: 107
@@ -1349,16 +1359,6 @@ entities:
     components:
     - type: Transform
       pos: -0.5,1.5
-      parent: 1
-    - type: DeltaPressure
-      gridUid: 1
-- proto: WindoorSecureSecurityLocked
-  entities:
-  - uid: 144
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.5,-4.5
       parent: 1
     - type: DeltaPressure
       gridUid: 1

@@ -91,3 +91,6 @@ trait-hardened-lymphocytes-desc = Your marrow has been treated with melanocyte-h
 
 trait-helmsmanship-name = Helmsmanship
 trait-helmsmanship-desc = Engines and stabilizers rumble in harmony under your yoke. Ships under your control turn and accelerate 10% faster.
+
+trait-heretic-name = Heretic
+trait-heretic-desc = You've wronged the Phaethon Dynasty, or at the very least the Sultanate thinks you have. You are liable (50% chance) to be marked for death by the Sultanate and hunted down by the PDV as a result.

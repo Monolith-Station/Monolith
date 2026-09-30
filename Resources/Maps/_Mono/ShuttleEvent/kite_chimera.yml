@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/10/2026 12:55:29
+  time: 09/21/2026 15:43:35
   entityCount: 532
 maps: []
 grids:
@@ -52,7 +52,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Kite
+      name: Transponderless Vessel
     - type: Transform
       parent: invalid
     - type: MapGrid
@@ -91,7 +91,7 @@ entities:
     - type: Fixtures
       fixtures: {}
     - type: BecomesStation
-      id: Kite
+      id: Kite-Chimera
     - type: OccluderTree
     - type: Shuttle
       dampingModifier: 0.25
@@ -240,8 +240,8 @@ entities:
             17: 0,11
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Puddle: []
+        MetalFoam: []
         Kudzu: []
         Smoke: []
     - type: GridAtmosphere
@@ -342,6 +342,9 @@ entities:
     - type: ExplosionAirtightGrid
     - type: ShipGridLock
       locked: False
+    - type: IFF
+      address: ' 65EC-5956'
+      flags: HideLabel, IsPlayerShuttle
 - proto: AirAlarm
   entities:
   - uid: 2

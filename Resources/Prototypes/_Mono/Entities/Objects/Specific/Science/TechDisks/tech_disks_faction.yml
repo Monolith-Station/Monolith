@@ -133,7 +133,7 @@
   parent: TechDiskBase
   id: TechDiskUniversalShipAmmo
   name: universal ship ammo faction tech disk
-  description: A disk capable of adding 150mm shells, M381 slugs, and ASM-220 torpedoes to a server's recipes, for faction techfabs.
+  description: A disk capable of adding 90x630mm shells, M381 slugs, and ASM-220 torpedoes to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:
@@ -161,7 +161,7 @@
   parent: TechDiskBase
   id: TechDiskUniversalShipAmmoAdvanced
   name: advanced universal ship ammo faction tech disk
-  description: A disk capable of adding 150mm shells, M381 slugs, and ASM-220 torpedoes to a server's recipes, for faction techfabs. This one has advanced stuff too!
+  description: A disk capable of adding 90x630mm shells, M381 slugs, and ASM-220 torpedoes to a server's recipes, for faction techfabs. This one has advanced stuff too!
   components:
   - type: Sprite
     layers:

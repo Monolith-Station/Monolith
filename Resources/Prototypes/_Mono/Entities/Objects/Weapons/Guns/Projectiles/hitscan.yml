@@ -153,6 +153,7 @@
   id: Hitscan145x114mm
   categories: [ HideSpawnMenu ]
   components:
+  - type: PersonalShieldBreaker
   - type: HitscanBasicDamage
     damage:
       types:
@@ -174,6 +175,7 @@
   id: Hitscan145x114mmEMP
   categories: [ HideSpawnMenu ]
   components:
+  - type: PersonalShieldBreaker
   - type: HitscanBasicDamage
     damage:
       types:

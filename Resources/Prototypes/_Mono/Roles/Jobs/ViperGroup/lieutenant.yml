@@ -17,7 +17,7 @@
   - Viper_Group
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, ViperTrackingImplant]
+    implants: [ ViperTrackingImplant]
   - !type:AddComponentSpecial
     components:
     - type: MailDisabled

@@ -18,14 +18,14 @@
   completetime: 50
   materialDiscountScale: 0.2
   materials:
-    Steel: 10000
-    Copper: 10000
-    Plasteel: 5000
-    Lithium: 5000
-    Glass: 5000
-    Plasma: 5000
-    Gold: 5000
-    Silver: 5000
+    Steel: 5000
+    Copper: 5000
+    Plasteel: 2500
+    Lithium: 2500
+    Glass: 2500
+    Plasma: 2500
+    Gold: 2500
+    Silver: 2500
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -59,7 +59,6 @@
     Silver: 3000
     Gold: 3000
 
-# Same cost as europa for now.
 - type: latheRecipe
   parent: BaseVoucherRecipe
   id: ShipVoucherPolarisRecipe
@@ -76,6 +75,8 @@
     Gold: 5000
     Silver: 5000
     Plastitanium: 2000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -93,6 +94,7 @@
     Gold: 5000
     Silver: 5000
     Plastitanium: 3000
+    UraniumDepleted: 3000
     UraniumFissile: 1000
 
 # PDV
@@ -113,7 +115,7 @@
   completetime: 50
   materialDiscountScale: 0.2
   materials:
-    PdvComposite: 2000
+    PdvComposite: 1000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -122,7 +124,7 @@
   completetime: 100
   materialDiscountScale: 0.2
   materials:
-    PdvComposite: 4000
+    PdvComposite: 3000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -131,7 +133,7 @@
   completetime: 100
   materialDiscountScale: 0.2
   materials:
-    PdvComposite: 8000
+    PdvComposite: 12000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -140,7 +142,7 @@
   completetime: 100
   materialDiscountScale: 0.2
   materials:
-    PdvComposite: 10000
+    PdvComposite: 12000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
@@ -150,6 +152,27 @@
   materialDiscountScale: 0.2
   materials:
     PdvComposite: 23000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: MockVoucherRogue
+  result: ShipVoucherMock
+  materials:
+    PdvComposite: 250
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: InertiaVoucherRogue
+  result: ShipVoucherInertia
+  materials:
+    PdvComposite: 250
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: SnakeletVoucherRogue
+  result: ShipVoucherSnakelet
+  materials:
+    PdvComposite: 250
 
 #USSP
 
@@ -236,6 +259,22 @@
     Gold: 5000
     Silver: 5000
 
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherMieyoSenkusha
+  result: ShipVoucherMieyoSenkusha
+  completetime: 30
+  materialDiscountScale: 0.2
+  materials: # more steel less copper/lithium
+    Steel: 20000
+    Copper: 5000
+    Plasteel: 5000
+    Lithium: 5000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+
 # Viper Group
 
 - type: latheRecipe
@@ -260,17 +299,18 @@
   parent: BaseVoucherRecipe
   id: ShipVoucherVGKeelback
   result: ShipVoucherVGKeelback
-  completetime: 100
+  completetime: 180
   materialDiscountScale: 0.2
   materials:
-    Steel: 10000
+    Steel: 15000
     Copper: 10000
-    Plasteel: 5000
+    Plasteel: 24000
     Lithium: 10000
     Glass: 5000
     Plasma: 5000
     Gold: 5000
     Silver: 5000
+    Plastitanium: 2000
     UraniumDepleted: 1000
     UraniumFissile: 250
 
@@ -278,35 +318,82 @@
   parent: BaseVoucherRecipe
   id: ShipVoucherVGLancehead
   result: ShipVoucherVGLancehead
-  completetime: 100
+  completetime: 180
   materialDiscountScale: 0.2
   materials:
-    Steel: 10000
-    Copper: 10000
-    Plasteel: 5000
-    Lithium: 10000
+    Steel: 15000
+    Copper: 20000
+    Plasteel: 12000
+    Lithium: 20000
     Glass: 5000
     Plasma: 5000
-    Gold: 7500
-    Silver: 7500
-    UraniumDepleted: 1500
-    UraniumFissile: 300
+    Gold: 5000
+    Silver: 5000
+    Plastitanium: 2000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
   id: ShipVoucherVGLeviathan
   result: ShipVoucherVGLeviathan
-  completetime: 100
+  completetime: 240
   materialDiscountScale: 0.2
   materials:
-    Steel: 10000
+    Steel: 30000
     Copper: 10000
-    Plasteel: 5000
+    Plasteel: 30000
     Lithium: 10000
     Glass: 5000
     Plasma: 5000
     Gold: 5000
     Silver: 5000
-    Plastitanium: 10000
-    UraniumDepleted: 1500
-    UraniumFissile: 500
+    Plastitanium: 5000
+    UraniumDepleted: 3000
+    UraniumFissile: 1000
+
+# Caelestinus
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherCaelestinusT0Recipe
+  result: ShipVoucherCaelestinusT0
+  completetime: 30
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 5000
+    Copper: 5000
+    Plasteel: 5000
+    Glass: 5000
+    Plasma: 2500
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherCaelestinusT0RecipeAlternative
+  result: ShipVoucherCaelestinusT0
+  completetime: 15 # faster for your trouble
+  entities:
+    MonolithicCrystalSmall: 1
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherCaelestinusT1Recipe
+  result: ShipVoucherCaelestinusT1
+  completetime: 50
+  materialDiscountScale: 0.2
+  materials: # Make cheaper once it requires research!
+    Steel: 7500
+    Copper: 7500
+    Plasteel: 4000
+    Lithium: 4000
+    Glass: 4000
+    Plasma: 4000
+    Gold: 4000
+    Silver: 4000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherCaelestinusT1RecipeAlternative
+  result: ShipVoucherCaelestinusT1
+  completetime: 30 # faster for your trouble
+  entities:
+    MonolithicCrystalSmall: 4

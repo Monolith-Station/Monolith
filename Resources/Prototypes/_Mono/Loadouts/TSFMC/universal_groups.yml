@@ -148,6 +148,14 @@
   fallbacks:
   - TsfmcHud
 
+- type: loadoutGroup
+  id: TsfmcGlassesColonel
+  name: loadout-group-contractor-glasses
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - TsfmcCommanderGlasses
+  fallbacks:
+  - TsfmcCommanderGlasses
 
 - type: loadoutGroup
   id: TsfmcNeck
@@ -250,6 +258,15 @@
   - TsfmcClothingOuterArmorBPVestMedium
   fallbacks:
   - TsfmcClothingOuterArmorBPVestLight
+
+- type: loadoutGroup
+  id: TsfmcOuterClothingColonel
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadouts:
+  - TsfmcClothingOuterHardsuitColonel
+  fallbacks:
+  - TsfmcClothingOuterHardsuitColonel
 
 # armor plates
 - type: loadoutGroup

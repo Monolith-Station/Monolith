@@ -1,7 +1,7 @@
 - type: entity
   id: 255mmCartridgeAPHE
-  name: 255mm APHE shell
-  description: A chemically-propelled armor-piercing high-explosive shell for 255mm cannons.
+  name: 203x940mm APHE shell
+  description: A chemically-propelled armor-piercing high-explosive shell for 203x940mm cannons.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -24,7 +24,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -41,8 +41,8 @@
 
 - type: entity
   id: 255mmCartridgeEMP
-  name: 255mm EMP shell
-  description: A chemically-propelled electromagnetic pulse shell for 255mm cannons.
+  name: 203x940mm EMP shell
+  description: A chemically-propelled electromagnetic pulse shell for 203x940mm cannons.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -65,7 +65,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -82,8 +82,8 @@
 
 - type: entity
   id: 255mmCartridgeMinelayer
-  name: 255mm minelayer shell
-  description: A chemically-propelled shell for 255mm cannons with a timed fuse. When the fuse expires after 1 seconds, it ejects a payload of 4 large anti-ship mines that persist for 1 hour.
+  name: 203x940mm minelayer shell
+  description: A chemically-propelled shell for 203x940mm cannons with a timed fuse. When the fuse expires after 1 seconds, it ejects a payload of 4 large anti-ship mines that persist for 1 hour.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -106,7 +106,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -127,8 +127,8 @@
 
 - type: entity
   id: Box255mmAPHE
-  name: "255mm APHE ammo box"
-  description: "A big box containing 16 255mm APHE rounds. Usable by vessel-mounted artillery pieces."
+  name: "203x940mm APHE ammo box"
+  description: "A big box containing 16 203x940mm APHE rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Item
@@ -159,8 +159,8 @@
 
 - type: entity
   id: Box255mmEMP
-  name: "255mm EMP ammo box"
-  description: "A big box containing 16 255mm EMP rounds. Usable by vessel-mounted artillery pieces."
+  name: "203x940mm EMP ammo box"
+  description: "A big box containing 16 203x940mm EMP rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Item
@@ -191,8 +191,8 @@
 
 - type: entity
   id: Box255mmMine
-  name: "255mm minelayer ammo box"
-  description: "A big box containing 16 255mm minelayer rounds. Usable by vessel-mounted artillery pieces."
+  name: "203x940mm minelayer ammo box"
+  description: "A big box containing 16 203x940mm minelayer rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Item

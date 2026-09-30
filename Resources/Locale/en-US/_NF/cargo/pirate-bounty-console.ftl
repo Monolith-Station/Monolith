@@ -1,4 +1,4 @@
-pirate-bounty-console-menu-title = PDV bounty console
+pirate-bounty-console-menu-title = PDV heretic console
 pirate-bounty-console-accept-button-chest = Summon Chest
 pirate-bounty-console-accept-button-label = Accept
 pirate-bounty-console-skip-button-text = Skip
