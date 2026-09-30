@@ -25507,3 +25507,123 @@ Entries:
   id: 2771
   time: '2026-09-27T04:28:59.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4787
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: Bumped most species arm/leg marking count max to 8 for parity
+  id: 2772
+  time: '2026-09-29T15:26:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4797
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Fixed an infinite DC exploit.
+  id: 2773
+  time: '2026-09-29T15:28:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4793
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Added hydrakin variants of the MMC suits.
+  id: 2774
+  time: '2026-09-29T15:29:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4792
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Whitelists are now enforced <20 pop.
+  id: 2775
+  time: '2026-09-29T15:29:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4790
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Added Caelestinus LPCs! The Petra now requires a T1 LPC. The Hornet and
+        Lightning are now considered T0.
+    - type: Remove
+      message: >-
+        Removed mindshields from Caelestinus and Viper Group roles as to keep
+        them TSFMC-only.
+    - type: Tweak
+      message: The Caelestinus Central security techfab can now accept items.
+    - type: Tweak
+      message: >-
+        The Caelestinus ASMGT now requires one small monolithic crystal and is
+        slightly more expensive diamond-wise.
+  id: 2776
+  time: '2026-09-29T15:31:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4767
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Volta sprite is no longer an error for vulps
+  id: 2777
+  time: '2026-09-29T15:59:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4788
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: The TSFMC captain no longer spawns with a Bailiff stamp.
+    - type: Fix
+      message: Motley Anne LPCs are functional again.
+    - type: Remove
+      message: The Overseer and Colonel can no longer spy on each other roundstart.
+    - type: Tweak
+      message: >-
+        Helios, Halcyon, CC, Freeport, Zvezda and Hokkaido have had their drone
+        repellant upgraded, now causing any drone that comes too close to cease
+        to exist
+    - type: Tweak
+      message: The TSFMC PTech now contains infinite TSFMil encryption keys.
+    - type: Remove
+      message: Hyperwar can no longer be voted for as a gamemode.
+    - type: Fix
+      message: Derelict Jupiter is now immovable.
+  id: 2778
+  time: '2026-09-29T16:01:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4778
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: Reduced the slowdown of the Heavy Bulletproof Vest
+  id: 2779
+  time: '2026-09-30T02:25:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4798
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        You can't take the Heretic trait as a member of the TSFMC or PDV
+        anymore.
+  id: 2780
+  time: '2026-09-30T02:50:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4789
+- author: Mrrpip
+  changes:
+    - type: Remove
+      message: >-
+        Removed PDV tech disks that exclusively used Adamantite from the
+        Sevastopol loot pools.
+  id: 2781
+  time: '2026-09-30T02:51:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4785
+- author: Cosmopillow
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the DOC and overseer Icons to be green, also made adjusted the
+        icons of overseer and judges to be a shield instead. no more confusing
+        them for TSF!
+  id: 2782
+  time: '2026-09-30T02:53:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4763
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The PDV VT-7 blade is now able to be swung with both hands for a
+        stronger blow.
+  id: 2783
+  time: '2026-09-30T02:55:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4749
