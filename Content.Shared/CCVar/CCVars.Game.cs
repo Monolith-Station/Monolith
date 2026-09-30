@@ -414,7 +414,7 @@ public sealed partial class CCVars
     ///     Enable dynamic adjustment of role timers and whitelists based on player count.
     /// </summary>
     public static readonly CVarDef<bool> DynamicRolesEnabled =
-         CVarDef.Create("game.dynamic_roles.enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+         CVarDef.Create("game.dynamic_roles.enabled", false, CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
     ///     The player count at or below which role timers and whitelists are disabled if dynamic roles are enabled.

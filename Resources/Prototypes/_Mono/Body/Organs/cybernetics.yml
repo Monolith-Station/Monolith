@@ -130,3 +130,19 @@
     onAdd:
     - type: BlackFlash
       emptyHandedOnly: true # you did this to yourself
+
+- type: entity
+  parent: OrganHeartSandevistan
+  id: OrganHeartMMCSandevistan
+  name: MMC EVT-002 "Lotus" replacement heart
+  description: It's a sterile bag full of a series of autoinjectors, electroneural/cardiovascular links, and thermomachines designed to allow the user to push themselves to the limit.
+  components:
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/cybernetics.rsi
+    state: adaptive_binoculars
+  - type: Organ
+    onAdd:
+    - type: SandevistanUser
+      activeDuration: 8
+      rechargeDuration: 40

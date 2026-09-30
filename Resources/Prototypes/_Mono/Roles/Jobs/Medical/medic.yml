@@ -17,11 +17,11 @@
   accessGroups:
   - GeneralAccess
   - Medical
+  access:
+  - Medical
   guides:
   - Caelestinus
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: NpcFactionMember
@@ -44,3 +44,4 @@
     back:
     - RubberStampDoctor
     - BoxFolderMedicalDoctor
+    - EncryptionKeyService

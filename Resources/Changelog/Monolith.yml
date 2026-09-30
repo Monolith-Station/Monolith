@@ -25266,3 +25266,345 @@ Entries:
   id: 2750
   time: '2026-09-23T00:47:14.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4756
+- author: Happyowl93
+  changes:
+    - type: Fix
+      message: >-
+        Fixed screwdrivers and wirecutters creating reinforced tables from bare
+        frames without materials.
+  id: 2751
+  time: '2026-09-24T14:58:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4759
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        MMC now has their own unique shotgun instead of the Enforcer. T2
+        research or loadout.
+    - type: Add
+      message: Disposable AT launcher for MMC. Kiosk exclusive.
+    - type: Add
+      message: >-
+        MMC now has a bounty system and automated kiosk. Find the bounty
+        computer in the salvage dock next to fabroom (and one in the
+        construction room), find the kiosk in the shipyard area. Most of the
+        stuff in there isn't new for now, but you do get *some* minor things
+        that were previously unattainable midround (gasdock flatpacks, automated
+        vendor flatpacks & restocks, crystallizer flatpacks, etc)
+    - type: Add
+      message: Akasono for MMC shipyard. Little gas harvesting thing.
+    - type: Add
+      message: >-
+        Updated Hokkaido slightly. Fixed some minor issues (such as the gas
+        selling dock not working), added a small botany area, added a small
+        janitorial closet, added more gunnery consoles, added a single turret to
+        engineering entry, added passive vents to the docks, added a gasdock to
+        the dock above the large empty construction room (which is connected to
+        said room w/ a pipe), filled out the construction room with more
+        clutter.
+    - type: Tweak
+      message: MMC Izumo moved to kiosk exclusive, no longer in research.
+  id: 2752
+  time: '2026-09-24T23:18:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4758
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: >-
+        The chimera Gadfly and Pebbles are no longer banished to the shadow
+        realm.
+  id: 2753
+  time: '2026-09-24T23:19:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4755
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The remains of PDV Jupiter have finally washed up in the sector. Perhaps
+        it's worth prospecting?
+    - type: Remove
+      message: Listening Point Bravo is no more.
+  id: 2754
+  time: '2026-09-24T23:20:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4754
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: The name of the Colonial Staff shipyard terminal has been adjusted.
+  id: 2755
+  time: '2026-09-24T23:21:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4752
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Helios has been installed with a faraday cage that blocks any
+        deathrattles that occur on board and prevent overwatch consoles from
+        detecting anybody on board. PDV deathrattles and the PDV overwatch
+        console are exempt.
+  id: 2756
+  time: '2026-09-24T23:40:14.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4686
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        The status panel actually like, shows gamemode and stuff now. So does
+        lobby screen.
+    - type: Fix
+      message: Fixed birthday holiday still using Frontier's birthday.
+    - type: Fix
+      message: Fixed lathes on CC coming with busted stats roundstart.
+    - type: Fix
+      message: Fixed ERs not being able to access their door. I think.
+    - type: Fix
+      message: Fixed the Kresta and Kynda not having lights.
+  id: 2757
+  time: '2026-09-25T01:05:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4764
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixed cosmetic details on the Triage.
+  id: 2758
+  time: '2026-09-25T01:35:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4753
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced the number of crates on Derelict Jupiter and added some more
+        threats in the form of more turrets, NPCs and landmines.
+    - type: Fix
+      message: The turrets on Derelict Jupiter no longer kill the hostile NPCs.
+  id: 2759
+  time: '2026-09-25T13:34:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4766
+- author: Corrupt142
+  changes:
+    - type: Add
+      message: >-
+        Remapped windreign is now aviable for purchase at the nearest CIV
+        shipyard! (Drones not included)
+  id: 2760
+  time: '2026-09-25T13:48:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4761
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Added a large security thruster for mapping purposes.
+  id: 2761
+  time: '2026-09-25T13:49:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4765
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Ported impact sound variety for projectiles, I think the SFX is from
+        SS13 Skyrat originally?
+  id: 2762
+  time: '2026-09-26T01:15:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4774
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Added the Heretic trait, giving you a 50% chance of being marked for
+        death by the Sultanate. If you take it and get RRed by the PDV it's on
+        you.
+    - type: Tweak
+      message: >-
+        Completely reworked the bounty system to now reward PDV for bringing
+        Heretic (marked for death) corpses to Helios.
+    - type: Remove
+      message: >-
+        PDV bounty redemption consoles were migrated out. They were useless
+        anyways.
+  id: 2763
+  time: '2026-09-26T02:40:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4772
+- author: eris-webserv
+  changes:
+    - type: Add
+      message: You can't yell slurs over the radio anymore.
+  id: 2764
+  time: '2026-09-26T02:41:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4760
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added Senku-sha to MMC T1.
+    - type: Add
+      message: >-
+        Added another HF Katana variant to MMC uplink. It was too easy to pass
+        up.
+    - type: Tweak
+      message: >-
+        Separated the MMC researches into more nodes, since someone told me it
+        was too cluttered.
+  id: 2765
+  time: '2026-09-26T09:27:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4777
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Medicus APCs flipped to make them not all localized in the bridge
+  id: 2766
+  time: '2026-09-26T19:10:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4779
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed Motley-Anne drone LPCs not working.
+    - type: Fix
+      message: Fixed Senku-sha missing a warp point and late-join point.
+  id: 2767
+  time: '2026-09-26T19:25:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4781
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced damage required to detonate shipgun ammo (1/5th of old now). 3x
+        tile damage for all shipgun explosives. 3x explosion size for R300.
+        Buffed missile guidance a bit. Vanyk missile guidance uses advanced
+        predictive algorithm now. Gyroscopes are explosive now. Portable
+        generators are explosive now. Portable DK generators are super explosive
+        now.
+  id: 2768
+  time: '2026-09-26T22:59:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4783
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        You can no longer put machine boards, flatpacks or the Honor heavy maul
+        into deposit boxes.
+  id: 2769
+  time: '2026-09-26T23:02:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4782
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Adjusted the names of shipgun calibers so an AK820 isn't firing 120mm
+        shells at 3.5 RPS. That's really absurd, if you didn't know. Purely
+        visual change, no stat changes done.
+    - type: Tweak
+      message: >-
+        Edited the current AK820 sprite to be dual-barreled. Added a
+        single-barreled variant with half the firerate & GCS cost, but it isn't
+        mapped anywhere.
+  id: 2770
+  time: '2026-09-27T04:22:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4786
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Chimeras now show up a bit later in biothreat.
+    - type: Tweak
+      message: Chimeras will spawn in lighter ships until the 1:15 mark.
+  id: 2771
+  time: '2026-09-27T04:28:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4787
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: Bumped most species arm/leg marking count max to 8 for parity
+  id: 2772
+  time: '2026-09-29T15:26:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4797
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Fixed an infinite DC exploit.
+  id: 2773
+  time: '2026-09-29T15:28:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4793
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Added hydrakin variants of the MMC suits.
+  id: 2774
+  time: '2026-09-29T15:29:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4792
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Whitelists are now enforced <20 pop.
+  id: 2775
+  time: '2026-09-29T15:29:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4790
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Added Caelestinus LPCs! The Petra now requires a T1 LPC. The Hornet and
+        Lightning are now considered T0.
+    - type: Remove
+      message: >-
+        Removed mindshields from Caelestinus and Viper Group roles as to keep
+        them TSFMC-only.
+    - type: Tweak
+      message: The Caelestinus Central security techfab can now accept items.
+    - type: Tweak
+      message: >-
+        The Caelestinus ASMGT now requires one small monolithic crystal and is
+        slightly more expensive diamond-wise.
+  id: 2776
+  time: '2026-09-29T15:31:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4767
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Volta sprite is no longer an error for vulps
+  id: 2777
+  time: '2026-09-29T15:59:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4788
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: The TSFMC captain no longer spawns with a Bailiff stamp.
+    - type: Fix
+      message: Motley Anne LPCs are functional again.
+    - type: Remove
+      message: The Overseer and Colonel can no longer spy on each other roundstart.
+    - type: Tweak
+      message: >-
+        Helios, Halcyon, CC, Freeport, Zvezda and Hokkaido have had their drone
+        repellant upgraded, now causing any drone that comes too close to cease
+        to exist
+    - type: Tweak
+      message: The TSFMC PTech now contains infinite TSFMil encryption keys.
+    - type: Remove
+      message: Hyperwar can no longer be voted for as a gamemode.
+    - type: Fix
+      message: Derelict Jupiter is now immovable.
+  id: 2778
+  time: '2026-09-29T16:01:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4778
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: Reduced the slowdown of the Heavy Bulletproof Vest
+  id: 2779
+  time: '2026-09-30T02:25:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4798
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        You can't take the Heretic trait as a member of the TSFMC or PDV
+        anymore.
+  id: 2780
+  time: '2026-09-30T02:50:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4789
+- author: Mrrpip
+  changes:
+    - type: Remove
+      message: >-
+        Removed PDV tech disks that exclusively used Adamantite from the
+        Sevastopol loot pools.
+  id: 2781
+  time: '2026-09-30T02:51:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4785

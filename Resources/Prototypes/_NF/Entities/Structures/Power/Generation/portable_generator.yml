@@ -109,6 +109,11 @@
     - type: FuelGradeAdapter
       inputMaterial: Bananium
       outputMaterial: FuelGradeBananium
+    - type: Explosive # Mono
+      explosionType: Default
+      maxIntensity: 100
+      intensitySlope: 1
+      totalIntensity: 1600
 
 - type: entity
   parent:
@@ -165,6 +170,11 @@
     - type: AmbientSound
       sound:
         path: /Audio/Ambience/Objects/engine_hum.ogg
+    - type: Explosive # Mono
+      explosionType: Default
+      maxIntensity: 100
+      intensitySlope: 1
+      totalIntensity: 800
 
 - type: entity
   parent:

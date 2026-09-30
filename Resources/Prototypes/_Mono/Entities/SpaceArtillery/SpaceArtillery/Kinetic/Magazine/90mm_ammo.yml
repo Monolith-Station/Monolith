@@ -1,7 +1,7 @@
 - type: entity
   id: 90mmMagazineHE
-  name: "90mm HE ammo loader"
-  description: "An ammunition loader containing infinite 90mm high-explosive rounds. Usable by 90mm vessel-mounted artillery pieces."
+  name: "57x460mm HE ammo loader"
+  description: "An ammunition loader containing infinite 57x460mm high-explosive rounds. Usable by 57x460mm vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -29,7 +29,7 @@
 
 - type: entity
   id: 90mmCartridgeHE
-  name: cartridge (90mm HE)
+  name: cartridge (57x460mm HE)
   parent: BaseCartridge
   components:
   - type: Tag
@@ -60,8 +60,8 @@
 
 - type: entity
   id: 90mmMagazineAP
-  name: "90mm AP ammo loader"
-  description: "An ammunition loader containing infinite 90mm armor-piercing rounds. Usable by 90mm vessel-mounted artillery pieces."
+  name: "57x460mm AP ammo loader"
+  description: "An ammunition loader containing infinite 57x460mm armor-piercing rounds. Usable by 57x460mm vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -89,7 +89,7 @@
 
 - type: entity
   id: 90mmCartridgeAP
-  name: cartridge (90mm AP)
+  name: cartridge (57x460mm AP)
   parent: BaseCartridge
   components:
   - type: Tag
@@ -120,8 +120,8 @@
 
 - type: entity
   id: 90mmMagazineFlak
-  name: "90mm flak ammo loader"
-  description: "An ammunition loader containing infinite 90mm flak rounds. Usable by 90mm vessel-mounted artillery pieces."
+  name: "57x460mm flak ammo loader"
+  description: "An ammunition loader containing infinite 57x460mm flak rounds. Usable by 57x460mm vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -149,7 +149,7 @@
 
 - type: entity
   id: 90mmCartridgeFlak
-  name: cartridge (90mm flak)
+  name: cartridge (57x460mm flak)
   parent: BaseCartridge
   components:
   - type: Tag
@@ -180,8 +180,8 @@
 
 - type: entity
   id: 90mmMagazineMinelayerInfinite
-  name: "90mm minelayer ammo loader"
-  description: "An ammunition loader containing infinite 90mm minelayer rounds. Usable by 90mm vessel-mounted artillery pieces."
+  name: "57x460mm minelayer ammo loader"
+  description: "An ammunition loader containing infinite 57x460mm minelayer rounds. Usable by 57x460mm vessel-mounted artillery pieces."
   suffix: INFINITE
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
@@ -210,8 +210,8 @@
 
 - type: entity
   id: 90mmMagazineMinelayer
-  name: "90mm minelayer ammo loader"
-  description: "An ammunition loader containing 400 90mm minelayer rounds. Usable by 90mm vessel-mounted artillery pieces."
+  name: "57x460mm minelayer ammo loader"
+  description: "An ammunition loader containing 400 57x460mm minelayer rounds. Usable by 57x460mm vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -245,7 +245,7 @@
 
 - type: entity
   id: 90mmCartridgeMinelayer
-  name: cartridge (90mm minelayer)
+  name: cartridge (57x460mm minelayer)
   parent: BaseCartridge
   components:
   - type: Tag
