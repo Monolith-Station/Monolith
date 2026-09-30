@@ -38,7 +38,6 @@ using System.Text.RegularExpressions;
 using Content.Server._Mono.Grid;
 using Content.Server._Mono.Shipyard;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Stack;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Access;
@@ -56,9 +55,12 @@ using Content.Shared._Mono.Shipyard;
 using Content.Shared._Mono.Traits.Physical; // Mono
 using Content.Shared.Coordinates; // Mono
 using Content.Shared.Stacks; // Mono
+using Content.Server.Stack; // Mono
 using Content.Shared.Tag;
 using Robust.Shared.Timing;
 using Content.Server._Mono.Detection;
+using Content.Shared._Mono.Economy; // Mono
+using Content.Shared._Mono.Economy.Component; // Mono
 
 namespace Content.Server._NF.Shipyard.Systems;
 
@@ -88,6 +90,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private TagSystem _tagSystem = default!;
     [Dependency] private GridModifierSystem _hullmods = default!;
     [Dependency] private StackSystem _stackSystem = default!; // Mono
+    [Dependency] private SharedCreditReceiverSystem _cash = default!; // Mono
 
     private static readonly ProtoId<TagPrototype> CrewedShuttleTag = "CrewedShuttle";
     private static readonly Regex DeedRegex = new(@"\s*\([^()]*\)");
