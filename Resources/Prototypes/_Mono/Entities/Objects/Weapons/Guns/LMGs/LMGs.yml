@@ -118,3 +118,71 @@
         whitelist:
           tags:
           - MonoOptic8x
+
+- type: entity
+  name: GS-007-A Jill (7.62x51mm)
+  parent: [BaseItem, BaseGunWieldable]
+  id: WeaponLMGJill
+  description: An incredibly heavy automated fire 23x75mm shotgun that loads from a belt and a specialized backpack.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/jill/jill-icon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/jill/jill-inhands_32x.rsi
+    shape:
+    - 0,0,4,3
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -40
+    maxAngle: -20
+  - type: GunRequiresWield
+  - type: WieldDelay
+    baseDelay: 1.5
+    modifiedDelay: 1.5
+    preventFiring: true
+  - type: Gun
+    minAngle: 20
+    maxAngle: 12
+    angleIncrease: 2 # Scales mostly with heat.
+    angleDecay: 2.5
+    fireRate: 2
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
+  - type: GunOverheat
+    fireRatePenalty: 0.15
+    spreadPenalty: 4
+    heatPerShot: 5
+    heatDissipation: 10
+    penaltyExponent: 0.25
+    heatCapacity: 300
+  - type: AmmoCounter
+  - type: StaticPrice
+    price: 5000
+    vendPrice: 42300
+  - type: ItemTax
+    taxAccounts:
+      nfsd: 0.2
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/jill/jill-inhands_32x.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: ClothingSlotAmmoProvider
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+      - JillMinigunBackpack
+  - type: Tag
+    tags:
+    - WeaponLMGJill
+  - type: EmitSoundOnLand
+    sound:
+      collection: PipeDrop

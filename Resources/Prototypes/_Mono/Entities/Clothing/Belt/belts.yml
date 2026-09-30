@@ -297,3 +297,50 @@
     sprite: _Mono/Clothing/Belt/tarkhan.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.5
+
+# GS Ammo storage bin
+
+- type: entity
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
+  id: ClothingBeltRook
+  name: GS-008 Rook pouch
+  description: A heavy pouch designed to store even heavier munitions.
+  components:
+  - type: StaticPrice
+    price: 500
+    vendPrice: 2500
+  - type: Sprite
+    sprite: _Mono/Clothing/Belt/rook_belt.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Belt/rook_belt.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,9,4
+    whitelist:
+      tags:
+      - JillBackpackAmmo
+      - Magazine4Gauge
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.9
+
+- type: entity
+  parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
+  id: ClothingBeltMule
+  name: GS-008-B Mule pouch
+  description: A pouch that can attach to where your gun would usually clip onto.
+  components:
+  - type: StaticPrice
+    price: 500
+    vendPrice: 2500
+  - type: Sprite
+    sprite: _Mono/Clothing/Belt/mule_belt.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Belt/mule_belt.rsi
+    slots: [belt , suitstorage]
+  - type: AllowSuitStorage
+  - type: Storage
+    grid:
+    - 0,0,5,3
