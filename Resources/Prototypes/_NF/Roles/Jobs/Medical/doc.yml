@@ -29,8 +29,8 @@
   guides:
   - Caelestinus
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ] # Mono - remove TSFMC implant
+# - !type:AddImplantSpecial
+#   implants: [ MindShieldImplant ] # Mono - remove TSFMC implants
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

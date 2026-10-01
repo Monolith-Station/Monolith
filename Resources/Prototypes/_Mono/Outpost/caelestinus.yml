@@ -23,6 +23,8 @@
         ambientMusicPrototype: ColossusCentralMusic
       - type: VesselInfo
         description: "The closest thing to civilization in this sector. You almost feel safe."
+      - type: DeleteNearbyDrones
+        distance: 4000
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Caelestinus Central'

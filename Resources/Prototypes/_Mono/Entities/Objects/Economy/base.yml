@@ -38,23 +38,11 @@
       path: /Audio/_Goobstation/Items/handling/phone_drop.ogg
       params:
         volume: -2
-  - type: Animateable
-  - type: Clickable
-  - type: InteractionOutline
-  - type: MovedByPressure
-  - type: EmitSoundOnCollide
-    sound:
-      collection: WeakHit
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Effects/drop.ogg
       params:
         volume: 2
-  - type: Physics
-    bodyType: Dynamic
-    fixedRotation: false
-  - type: Pullable
-  - type: DamageExaminable
   - type: GuideHelp
     guides:
     - Economy

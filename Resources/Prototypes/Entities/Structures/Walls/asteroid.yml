@@ -781,6 +781,22 @@
       state: rock_west
   - type: RequiresGrid
 
+# Mono
+- type: entity
+  id: WallRockCrocus
+  parent: WallRock
+  name: rock
+  suffix: planetmap, Crocus
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
 # Ore veins
 - type: entity
   id: WallRockCoal

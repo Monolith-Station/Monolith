@@ -10,7 +10,7 @@
 # intended as a replacement for ListeningPointBravo
 - type: pointOfInterest
   id: Jupiter
-  parent: BaseMobilePOI
+  parent: BasePOI # no fun allowed
   name: 'PDV Jupiter Class Carrier'
   minimumDistance: 15000
   maximumDistance: 17500

@@ -51,6 +51,14 @@
         Heat: 12
         Shock: 6
         Structural: 40
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 10
+        Heat: 8
+        Shock: 4
+        Structural: 85
   - type: Item
     sprite: _Mono/Objects/Weapons/Melee/murasama.rsi
   - type: Clothing

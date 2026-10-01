@@ -26,3 +26,6 @@ job-description-vg-commander = Lead the Vipers to glory and wealth. Forge new bu
 job-description-mmc-liason = Ensure profits for your corporate managers, keep your employees in line, and ensure the protection MMC assets in the sector.
 job-description-mmc-security = Protect MMC assets and employees in the area from any threats.
 job-description-mmc-employee = Work under your liason for the sake of the MMC company board. Make money, give it to the company, and repeat.
+
+# MARK: CROCUS
+job-description-crocus-dockworker = Try to survive being in the crossfire between 2 sides. You've only got your basic work gear.

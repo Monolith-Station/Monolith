@@ -47,7 +47,8 @@
   - type: Clothing
     sprite: Clothing/Neck/Medals/gold.rsi
   - type: StealTarget
-    stealGroup: ClothingNeckGoldmedal
+    stealGroup:
+    - ClothingNeckGoldmedal
   - type: Tag
     tags:
       - Medal
@@ -182,7 +183,7 @@
     tags:
       - Medal
       - PetWearable
-      
+
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckClownmedal
@@ -205,7 +206,8 @@
   - type: Clothing
     sprite: Clothing/Neck/Medals/clownmedal.rsi
   - type: StealTarget
-    stealGroup: ClothingNeckClownmedal
+    stealGroup:
+    - ClothingNeckClownmedal
   - type: Tag
     tags:
       - Medal

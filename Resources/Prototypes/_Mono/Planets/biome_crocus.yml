@@ -1,0 +1,247 @@
+- type: planet
+  id: Crocus
+  biome: MonoCrocus
+  mapName: shuttle-destination-crocus
+  mapLight: "#FEFEFE"
+  addedComponents:
+  - type: FTLDestination
+  atmosphere:
+    volume: 2500
+    temperature: 274.6
+    moles:
+    - 32.458
+    - 68.213
+
+- type: biomeTemplate
+  id: MonoCrocus
+  layers:
+  # Boulder Placement
+  - !type:BiomeEntityLayer
+    threshold: 0.95
+    noise:
+      seed: 0
+      frequency: 2
+      noiseType: OpenSimplex2
+    allowedTiles:
+    - FloorPlanetGrassCrocus
+    - FloorPlanetRedGrassCrocus
+    entities:
+    - FloraBoulderCrocus
+  # Tree Placement
+  - !type:BiomeEntityLayer
+    threshold: 0.2
+    noise:
+      seed: 0
+      frequency: 2
+      noiseType: OpenSimplex2
+    allowedTiles:
+    - FloorPlanetGrassCrocus
+    entities:
+    - FloraTreeCrocusPine
+  - !type:BiomeEntityLayer
+    threshold: 0.4
+    noise:
+      seed: 0
+      frequency: 2
+      noiseType: OpenSimplex2
+    allowedTiles:
+    - FloorPlanetRedGrassCrocus
+    entities:
+    - FloraTreeCrocusPineRed
+  - !type:BiomeEntityLayer
+    threshold: 0.95
+    noise:
+      seed: 0
+      frequency: 2
+      noiseType: OpenSimplex2
+    allowedTiles:
+    - FloorPlanetRedGrassCrocus
+    entities:
+    - FloraTreeCrocusDead
+    - CrocusStump
+  # Rock decals
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorPlanetGrassCrocus
+    - FloorPlanetRedGrassCrocus
+    - FloorPlanetDirtCrocus
+    threshold: 0.9
+    divisions: 1
+    noise:
+      seed: 1
+      frequency: 2
+    decals:
+    - Basalt1
+    - Basalt2
+    - Basalt3
+    - Basalt4
+    - Basalt5
+    - Basalt6
+    - Basalt7
+    - Basalt8
+    - Basalt9
+  # Bush decals 1
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorPlanetGrassCrocus
+    threshold: 0.9
+    divisions: 1
+    noise:
+      seed: 1
+      frequency: 0.9
+    decals:
+    - GrassCrocusGreen1
+    - GrassCrocusGreen2
+    - GrassCrocusGreen3
+    - GrassCrocusGreen4
+    - GrassCrocusGreen5
+    - GrassCrocusGreen6
+    - GrassCrocusGreen7
+    - GrassCrocusGreen8
+    - GrassCrocusGreen9
+    - GrassCrocusGreen10
+    - GrassCrocusGreen11
+    - GrassCrocusGreen12
+    - GrassCrocusGreen13
+    - GrassCrocusGreen14
+  # Bush decals 2
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorPlanetGrassCrocus
+    threshold: 0.9
+    divisions: 1
+    noise:
+      seed: 1
+      frequency: 0.9
+    decals:
+    - BushCrocusGreen1
+    - BushCrocusGreen2
+    - BushCrocusGreen3
+    - BushCrocusGreen4
+    - BushCrocusGreen5
+    - BushCrocusGreen6
+    - BushCrocusGreen7
+    - BushCrocusGreen8
+    - BushCrocusGreen9
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorPlanetRedGrassCrocus
+    threshold: 0.9
+    divisions: 1
+    noise:
+      seed: 1
+      frequency: 0.9
+    decals:
+    - BushCrocusRed1
+    - BushCrocusRed2
+    - BushCrocusRed3
+    - BushCrocusRed4
+    - BushCrocusRed5
+    - BushCrocusRed6
+  # Large rock areas
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorPlanetDirtCrocus
+    threshold: -0.1
+    noise:
+      seed: 0
+      noiseType: Cellular
+      frequency: 0.05
+      lacunarity: 2
+      fractalType: FBm
+      octaves: 5
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+    entities:
+    - WallRockCrocus
+  - !type:BiomeDummyLayer
+    id: Loot
+  # Fill layer
+  # Base tiles
+  - !type:BiomeTileLayer
+    threshold: -1
+    tile: FloorPlanetRedGrassCrocus
+  # Apply crocus grass tile as noise so it doesnt look flat and boring
+  - !type:BiomeTileLayer
+    threshold: -0.40
+    tile: FloorPlanetRedGrassCrocus
+    noise:
+      seed: 0
+      noiseType: Cellular
+      frequency: 0.2
+      lacunarity: 2
+      fractalType: FBm
+      octaves: 2
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+  - !type:BiomeTileLayer
+    threshold: -0.25
+    tile: FloorPlanetGrassCrocus
+    noise:
+      seed: 0
+      noiseType: Cellular
+      frequency: 0.2
+      lacunarity: 2
+      fractalType: FBm
+      octaves: 2
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+  # tile for rock walls to be placed on
+  - !type:BiomeTileLayer
+    tile: FloorPlanetDirtCrocus
+    threshold: -0.15
+    noise:
+      seed: 0
+      noiseType: Cellular
+      frequency: 0.05
+      lacunarity: 2
+      fractalType: FBm
+      octaves: 5
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+
+- type: biomeTemplate
+  id: MonoCrocusUnderground
+  layers:
+  # Rock decals
+  - !type:BiomeDecalLayer
+    allowedTiles:
+    - FloorPlanetCrocusBedrock
+    threshold: 0.9
+    divisions: 1
+    noise:
+      seed: 1
+      frequency: 2
+    decals:
+    - Basalt1
+    - Basalt2
+    - Basalt3
+    - Basalt4
+    - Basalt5
+    - Basalt6
+    - Basalt7
+    - Basalt8
+    - Basalt9
+  # Large rock areas
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorPlanetCrocusBedrock
+    threshold: -0.4
+    noise:
+      seed: 0
+      noiseType: Cellular
+      frequency: 0.2
+      lacunarity: 2
+      fractalType: FBm
+      octaves: 2
+      cellularDistanceFunction: Euclidean
+      cellularReturnType: Distance2
+    entities:
+    - WallRockCrocus
+  - !type:BiomeDummyLayer
+    id: Loot
+  # Fill layer
+  # Base tiles
+  - !type:BiomeTileLayer
+    threshold: -1
+    tile: FloorPlanetCrocusBedrock
