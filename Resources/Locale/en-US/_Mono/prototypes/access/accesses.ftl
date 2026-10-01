@@ -16,3 +16,6 @@ id-card-access-level-vg-command = Viper Group Command
 id-card-access-level-mieyo = Mieyo
 id-card-access-level-mieyo-security = Mieyo Security
 id-card-access-level-mieyo-liason = Mieyo Liason
+
+id-card-access-level-basic-xenoborg = Xenoborg
+id-card-access-level-basic-mothership = Mothership

@@ -5,6 +5,8 @@
   completetime: 2
   materials:
      Steel: 3000
+     Plastic: 3000
+     Glass: 3000
      
 # xenoborg Modules 
 
@@ -23,6 +25,13 @@
      Steel: 3000
 
 - type: latheRecipe
+  id: XenoborgModuleToolBasic
+  result: XenoborgModuleToolBasic
+  completetime: 2
+  materials:
+     Steel: 3000
+
+- type: latheRecipe
   id: XenoborgModuleDefense
   result: XenoborgModuleDefense
   completetime: 2
@@ -35,6 +44,7 @@
   completetime: 2
   materials:
      Steel: 3000
+     Plastic: 3000
 
 - type: latheRecipe
   id: XenoborgModuleHeavyLaser
@@ -42,6 +52,8 @@
   completetime: 2
   materials:
      Steel: 3000
+     Plastic: 3000
+     Bluespace: 100
 
 - type: latheRecipe
   id: XenoborgModuleAccessBreaker
@@ -49,6 +61,7 @@
   completetime: 2
   materials:
      Steel: 3000
+     Plastic: 3000
 
 - type: latheRecipe
   id: XenoborgModuleDoorControl
@@ -56,6 +69,7 @@
   completetime: 2
   materials:
      Steel: 3000
+     Plastic: 3000
 
 - type: latheRecipe
   id: XenoborgAdvancedModuleTool
@@ -63,6 +77,7 @@
   completetime: 2
   materials:
      Steel: 3000
+     Plastic: 3000
 
 - type: latheRecipe
   id: XenoborgModuleHypo
@@ -70,6 +85,8 @@
   completetime: 2
   materials:
      Steel: 3000
+     Plastic: 3000
+     Bluespace: 100
      
 - type: latheRecipe
   id: XenoborgModuleChameleonProjector
@@ -77,6 +94,7 @@
   completetime: 2
   materials:
      Steel: 3000
+     Plastic: 3000
 
 - type: latheRecipe
   id: XenoborgModuleSuperCloakDevice
@@ -84,3 +102,5 @@
   completetime: 2
   materials:
      Steel: 3000
+     Plastic: 3000
+     Bluespace: 100

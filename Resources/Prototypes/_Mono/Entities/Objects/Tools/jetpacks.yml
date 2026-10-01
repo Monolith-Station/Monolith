@@ -31,3 +31,24 @@
       moles:
         - 1.025689525 # oxygen
         - 1.025689525 # nitrogen
+
+#Filled ADM
+- type: entity
+  id: JetpackXenoborgRechargable
+  parent: JetpackADM
+  name: Xenoborg jetpack
+  suffix: Filled
+  components:
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      volume: 5
+      moles:
+        Plasma: 2.05137905
+      temperature: 293.15
+  - type: SelfRechargingGasTank
+    rechargeRate: 0.01
+    maxPressure: 1000
+    gasTemperature: 293.15
+    gases:
+      Plasma: 1
