@@ -20,7 +20,7 @@
   requireAdminNotify: true
   supervisors: job-supervisors-sr # Mono
   weight: 170
-  displayWeight: 50 # Second from the top
+  displayWeight: 50 # Second from the top - mono: second from bottom
   canBeAntag: false
   accessGroups:
   - AllAccessMono #Mono
