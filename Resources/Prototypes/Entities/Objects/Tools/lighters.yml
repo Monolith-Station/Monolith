@@ -249,4 +249,5 @@
       visible: false
       shader: unshaded
   - type: StealTarget
-    stealGroup: FlippoEngravedLighter
+    stealGroup:
+    - FlippoEngravedLighter

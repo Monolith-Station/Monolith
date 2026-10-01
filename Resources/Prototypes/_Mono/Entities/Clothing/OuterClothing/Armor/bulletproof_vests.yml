@@ -152,3 +152,25 @@
   - type: StaticPrice
     price: 4000
     vendPrice: 6000
+
+# PDV - inbetween medium and light
+- type: entity
+  parent: ClothingOuterArmorBPVestMedium
+  id: ClothingOuterArmorBPVestMediumPDV
+  name: PD-VI STZ-M bulletproof vest
+  description: Part of the STZ armor system for PD infantry. Moderately reinforced against bullets.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Armor/pdv.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Armor/pdv.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.7
+        Piercing: 0.4
+        Heat: 0.75
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.975

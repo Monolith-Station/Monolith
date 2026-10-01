@@ -1,4 +1,20 @@
 - type: entity
+  id: VendingMachineCredit # Vending Machines that accept cash money should inherit from this instead.
+  abstract: true
+  parent: VendingMachine
+  description: Allows the machine to accept payment with physical credit. Change the whitelist to allow for different currencies.
+  components:
+  - type: CreditReceiver
+    cashSlot:
+      whitelist:
+        components:
+        - Cash
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      cash_slot: !type:ContainerSlot
+
+- type: entity
   parent: [VendingMachineAmmo, BaseStructureDisableAnchoring]
   id: VendingMachineAmmoPOIMercenary
   name: PMC liberation station
@@ -267,18 +283,37 @@
   - type: Flatpack
     entity: VendingMachineMieyoAutomated
 
+# Ground hw traders
 - type: entity
-  id: VendingMachineCredit # Vending Machines that accept cash money should inherit from this instead.
-  abstract: true
-  parent: VendingMachine
-  description: Allows the machine to accept payment with physical credit. Change the whitelist to allow for different currencies.
+  parent: VendingMachineAstroVend
+  id: VendingMachineTSFGear
+  name: TSF infantry armaments vendor
+  description: Dispenses basic armaments for a TSF platoon.
+  suffix: Crocus, DO NOT MAP
   components:
-  - type: CreditReceiver
-    cashSlot:
-      whitelist:
-        components:
-        - Cash
-  - type: ItemSlots
-  - type: ContainerContainer
-    containers:
-      cash_slot: !type:ContainerSlot
+  - type: VendingMachine
+    pack: CrocusTSFArmory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: MarketModifier
+    mod: 0
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/VendingMachines/drivevend.rsi
+    layers:
+    - state: "off"
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: "off"
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+
+- type: entity
+  parent: VendingMachineTSFGear
+  id: VendingMachinePDVGear
+  name: PDV infantry gear vendor
+  description: Dispenses basic armaments for a PDV platoon.
+  components:
+  - type: VendingMachine
+    pack: CrocusPDVArmory

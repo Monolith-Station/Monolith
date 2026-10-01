@@ -25627,3 +25627,44 @@ Entries:
   id: 2783
   time: '2026-09-30T02:55:01.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4749
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Vulpkanins now have the Tajaran-style fox tail marking.
+  id: 2784
+  time: '2026-10-01T00:48:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4801
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added a forest camo variant of the TSF jumpsuit. Finally.
+    - type: Add
+      message: Added a ground combat mode as playtest-ready. Admin only for now.
+    - type: Add
+      message: >-
+        Ported a lot of N14 assets. Only in changelog because a small amount of
+        them are in construction menu.
+    - type: Tweak
+      message: Wood uses the wizden texture now.
+    - type: Fix
+      message: Fixed muzzle flashes not working.
+  id: 2785
+  time: '2026-10-01T09:43:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4804
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed MMC cash loan bounties giving 1x more than intended (cash doesn't
+        sell)
+    - type: Fix
+      message: Fixed ERs who spawn roundstart not being able to leave room.
+    - type: Fix
+      message: >-
+        Fixed an issue where removing a recoil-modifying attachment from a gun
+        wouldn't undo the bonuses to the wield bonus.
+    - type: Fix
+      message: Fixed balaclavas layering above hats for IPCs.
+  id: 2786
+  time: '2026-10-01T11:15:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4805

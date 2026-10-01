@@ -48,3 +48,26 @@
     allowedDepartments: [ Security ]
   - type: StaticPrice
     price: 150000 #Slightly higher value value than DC turn-in
+
+- type: entity
+  parent: TSFNaniteCanister
+  id: TSFNaniteCanisterLarge
+  name: federation bulk nanite canister
+  description: A large reinforced silvered-glass cylinder specially made to contain inert recombinative programmable nanites used for micro-scale advanced manufacturing outside the sector. The Dynasty's factories would love to get their hands on this.
+  suffix: CROCUS OBJECTIVE, 75 DC
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/TradeGoods/factiongoods.rsi #Feel free to make better sprites.
+    layers:
+    - state: nanitecanistercrocus
+      map: ["base"]
+  - type: Item
+    size: Huge
+  - type: StealTarget
+    stealGroup:
+    - FederalNanites
+  - type: ExtendDescription
+    descriptionList:
+    - description: This is a potential objective for PDV infantry in the area!
+      color: "#4f94ad"
+      requireDetailRange: false

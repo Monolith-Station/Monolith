@@ -6,6 +6,13 @@
     endAt: 10800 # 3 hour
 
 - type: entity
+  id: RoundEndRuleHour2
+  parent: BaseGameRule
+  components:
+  - type: RoundEndTimeRule
+    endAt: 7200 # 2 hour
+
+- type: entity
   id: PortstrikeAnnounceRuleHour4
   parent: BaseGameRule
   components:
@@ -65,6 +72,6 @@
   parent: BaseGameRule
   components:
   - type: ManualPortstrikeRule
-    sectorStatus: 
+    sectorStatus:
       TSF: false
       PDV: false

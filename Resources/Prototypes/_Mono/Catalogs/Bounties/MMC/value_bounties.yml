@@ -1,6 +1,6 @@
 - type: cargoBounty
   id: MMCBountySpaceCashT1
-  reward: 300 # 1.5x input
+  reward: 100 # 1.5x input
   rewardSuffix: MIC
   rewardProto: MMCIndustrialCredit
   description: mmc-bounty-desc-money
@@ -14,7 +14,7 @@
 
 - type: cargoBounty
   id: MMCBountySpaceCashT2
-  reward: 800 # 2x input
+  reward: 400 # 2x input
   rewardSuffix: MIC
   rewardProto: MMCIndustrialCredit
   description: mmc-bounty-desc-money
@@ -28,7 +28,7 @@
 
 - type: cargoBounty
   id: MMCBountySpaceCashT3
-  reward: 1600 # 2x input
+  reward: 800 # 2x input
   rewardSuffix: MIC
   rewardProto: MMCIndustrialCredit
   description: mmc-bounty-desc-money

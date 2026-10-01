@@ -724,7 +724,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         // Mono - muzzle flash checks gun
         var sprite = component.MuzzleFlash;
-        if (TryComp<GunComponent>(gun, out var gunComp))
+        if (TryComp<GunComponent>(gun, out var gunComp) && gunComp.MuzzleFlash != null)
             sprite = gunComp.MuzzleFlash;
 
         if (sprite == null)
