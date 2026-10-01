@@ -1,4 +1,4 @@
-# Translator that doesn't need power to work.
+0# Translator that doesn't need power to work.
 - type: entity
   categories: [ HideSpawnMenu ]
   id: TranslatorUnpowered
@@ -38,7 +38,7 @@
   components:
   - type: ItemToggle
   - type: PowerCellDraw
-    drawRate: 1
+    drawRate: 0.33
   - type: ItemSlots
     slots:
       cell_slot:
