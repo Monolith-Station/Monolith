@@ -51,3 +51,159 @@
       !type:DepartmentTimeRequirement
       department: Civilian
       time: 72000 # 20 hrs - ultimate flex
+
+# progression
+
+- type: loadoutEffectGroup
+  id: MonoCiv1Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 3600 # 1 hour
+
+- type: loadoutEffectGroup
+  id: MonoCiv2Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 7200 # 2 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv4Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 14400 # 4 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv6Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 21600 # 6 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv10Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 36000 # 10 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv15Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 54000 # 15 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv20Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 72000 # 20 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv25Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 90000 # 25 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv30Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 108000 # 30 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv40Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 144000 # 40 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv50Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 180000 # 50 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv60Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 216000 # 60 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv70Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 252000 # 70 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv80Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 288000 # 80 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv90Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 324000 # 90 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv100Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 360000 # 100 hours
+
+- type: loadoutEffectGroup
+  id: MonoCiv200Hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 720000 # 200 hours... holy fuck
+
