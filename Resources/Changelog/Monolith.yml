@@ -25675,3 +25675,34 @@ Entries:
   id: 2787
   time: '2026-10-01T22:57:19.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4806
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        CROCUS - Removed China Lake & Anubis (replaced with 2 more LMGs), added
+        more medical equipment to the vendors (surgical equipment, sterile
+        masks, health analyzers, ointment),  fixed an issue with the sprite of
+        trees not lining up with collision box, 1/5th'd tree health, fixed round
+        end objective progress displaying as a float instead of a %, NVGs are
+        now infinite in vendor, Jianghui Dockworker now has customizable loadout
+        in character creator, respawn timers are now half of normal mono, added
+        seclites to vendors, added Drozd & C-20r to vendors, added solution
+        drains to flora, expanded base ground level area on the eastern side of
+        the map, added telecommunications servers for headsets, added various
+        loot spawners, did other misc changes, fixed barbed wire applying damage
+        when not moving (thus gibbing everyone who died in it), fixed being able
+        to take Ironman & bionic traits in (no EMP to counter, Ironman spawns
+        LPCs), added slight ambience to night, fixed day/night cycles across
+        z-levels not being synced, added sechuds & IFF strobe lights to infantry
+        roles, reduced the max amount for the random number used for nanite
+        canisters objective, added chance for PDV to get both PDA & canister
+        objective, added minimum movement speed for barbed wire to apply damage
+        (1.5m/s).
+    - type: Tweak
+      message: >-
+        Removed grenade chaining. It was hilarious, but it just makes them
+        unusable for anything serious. You have like 30 other explosives you can
+        chain with anyways.
+  id: 2788
+  time: '2026-10-02T00:24:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4808

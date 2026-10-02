@@ -137,12 +137,13 @@
         Slash: 2
   - type: StepTrigger
     intersectRatio: 0.2
-    requiredTriggeredSpeed: 0
+    requiredTriggeredSpeed: 1.5
   - type: TriggerOnStepTrigger
   - type: DamageUserOnTrigger
     damage:
       types:
         Piercing: 5
+        Slash: 8
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5

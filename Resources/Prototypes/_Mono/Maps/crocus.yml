@@ -40,6 +40,8 @@
         - type: MapLight #BEFORE Light Cycle
           ambientLightColor: "#adcfd8"
         - type: LightCycle #BEFORE Sun shadow cycle!
+          minLightLevel: 0.15
+          initialOffset: false
         - type: SunShadowCycle
         - type: CEZLevelRoof
         - type: SunShadow

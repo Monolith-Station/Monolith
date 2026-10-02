@@ -1,8 +1,9 @@
 - type: weightedRandom
   id: PDVOperationsCrocus
   weights:
-    PDVCrocusNanitesOperation: 1
-    PDVCrocusKillsOperation: 1
+    PDVCrocusNanitesOperation: 2
+    PDVCrocusKillsOperation: 0.5
+    PDVCrocusBothOperation: 1
 
 - type: entity
   abstract: true
@@ -12,6 +13,12 @@
   - type: GameRule
     minPlayers: 0
     cancelPresetOnTooFewPlayers: false
+
+- type: nukieOperation
+  id: PDVCrocusBothOperation
+  operationObjectives:
+  - PDVCrocusObjectivePDAs
+  - PDVCrocusObjectiveNanites
 
 - type: entity
   parent: BaseFactionalObjectives
@@ -63,8 +70,8 @@
       sprite: _Mono/Objects/TradeGoods/factiongoods.rsi
       state: nanitecanister
   - type: StealCondition
-    minCollectionSize: 40
-    maxCollectionSize: 100 # The map has 115 across all levels.
+    minCollectionSize: 30
+    maxCollectionSize: 80 # The map has 115 across all levels.
     stealGroup: FederalNanites
 
 - type: stealTargetGroup

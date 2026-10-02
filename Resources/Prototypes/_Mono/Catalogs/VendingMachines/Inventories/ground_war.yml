@@ -4,12 +4,18 @@
     WeaponRifleLecter: 4294967295
     Magazine68x52mmCaseless: 4294967295
     AmmoBox68x52mmCaseless: 4294967295
+    WeaponSubMachineGunDrozd: 4294967295
+    Magazine45_ACPSubMachineGunFMJ: 4294967295
+    AmmoBox45_ACPFMJ: 4294967295
     # TERTIARY ARMAMENTS
     SmokeGrenade: 4294967295
     GrenadeFlashBang: 4294967295
-    GrenadeShrapnel: 4294967295
     ExGrenade: 4294967295
     # GEAR
+    #MapJianghui: 4294967295
+    ClothingHelmetAttachmentNVGsBasic: 4294967295
+    ClothingHelmetCoverHelmetMount: 4294967295
+    FlashlightSeclite: 4294967295
     WeaponFlareGun: 4294967295
     Flare: 4294967295
     Floodlight: 4294967295
@@ -24,7 +30,11 @@
     # MEDS
     Brutepack: 4294967295
     Tourniquet: 4294967295
+    Ointment: 4294967295
     Bloodpack: 4294967295
+    ClothingMaskSterile: 4294967295
+    ClothingHandsGlovesNitrile: 4294967295
+    HandheldHealthAnalyzer: 4294967295
 
 - type: vendingMachineInventory
   id: CrocusPDVArmory
@@ -32,12 +42,18 @@
     WeaponRifleVympel: 4294967295
     Magazine556x45mmFMJ: 4294967295
     AmmoBox556x45mmFMJ: 4294967295
+    WeaponSubMachineGunC20r: 4294967295
+    Magazine9x19mmSubMachineGunFMJ: 4294967295
+    AmmoBox9x19mmFMJ: 4294967295
     # TERTIARY ARMAMENTS
     SmokeGrenade: 4294967295
     GrenadeFlashBang: 4294967295
-    GrenadeShrapnel: 4294967295
     ExGrenade: 4294967295
     # GEAR
+    #MapJianghui: 4294967295
+    ClothingHelmetAttachmentNVGsBasic: 4294967295
+    ClothingHelmetCoverHelmetMount: 4294967295
+    FlashlightSeclite: 4294967295
     WeaponFlareGun: 4294967295
     Flare: 4294967295
     Floodlight: 4294967295
@@ -52,4 +68,8 @@
     # MEDS
     Brutepack: 4294967295
     Tourniquet: 4294967295
+    Ointment: 4294967295
     Bloodpack: 4294967295
+    ClothingMaskSterile: 4294967295
+    ClothingHandsGlovesNitrile: 4294967295
+    HandheldHealthAnalyzer: 4294967295
