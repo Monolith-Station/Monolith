@@ -62,7 +62,7 @@
   name: department-Command
   description: department-NFCommand-description # Frontier
   color: "#334E6D"
-  roles:
+# roles: # Mono
   # - Captain # Frontier
   # - ChiefEngineer # Frontier
   # - ChiefMedicalOfficer # Frontier
@@ -102,7 +102,7 @@
   description: department-Medical-description
   color: "#52B4E9"
   weight: 0
-  roles: # Mono
+# roles: # Mono
 # - DirectorOfCare # Mono
 # - MdMedic # Mono
   editorHidden: true # Mono
