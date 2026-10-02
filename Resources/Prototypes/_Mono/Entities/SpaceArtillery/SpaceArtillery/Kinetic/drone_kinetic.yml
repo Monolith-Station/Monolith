@@ -54,6 +54,9 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Light
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Light
 
 - type: entity
   id: WeaponTurretFragment
@@ -100,6 +103,9 @@
       bounds: "-1,-1.5,1,1.5"
   - type: ShipGunClass
     shipClass: Medium
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Light
 
 - type: entity
   id: WeaponTurretPinhole
@@ -163,3 +169,6 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy

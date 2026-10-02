@@ -74,7 +74,7 @@ public abstract partial class SharedObjectivesSystem : EntitySystem
             return null;
         }
 
-        var ev = new ObjectiveAssignedEvent(mindId, mind);
+        var ev = new ObjectiveAssignedEvent(mindId); // mono - no mindcomp
         RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled)
         {
@@ -84,7 +84,7 @@ public abstract partial class SharedObjectivesSystem : EntitySystem
         }
 
         // let the title description and icon be set by systems
-        var afterEv = new ObjectiveAfterAssignEvent(mindId, mind, comp, MetaData(uid));
+        var afterEv = new ObjectiveAfterAssignEvent(mindId, comp, MetaData(uid));
         RaiseLocalEvent(uid, ref afterEv);
 
         Log.Debug($"Created objective {ToPrettyString(uid):objective}");
@@ -105,16 +105,14 @@ public abstract partial class SharedObjectivesSystem : EntitySystem
     /// <summary>
     /// Get the title, description, icon and progress of an objective using <see cref="ObjectiveGetInfoEvent"/>.
     /// If any of them are null it is logged and null is returned.
+    /// MONO NOTE - THIS SYSTEM IS EDITED TO WORK MORE GENERICALLY FOR NUKIE OPERATIONS, AND NOT REQUIRE A MINDCOMPONENT
     /// </summary>
     /// <param name="uid"/>ID of the condition entity</param>
     /// <param name="mindId"/>ID of the player's mind entity</param>
     /// <param name="mind"/>Mind component of the player's mind</param>
     public ObjectiveInfo? GetInfo(EntityUid uid, EntityUid mindId, MindComponent? mind = null)
     {
-        if (!Resolve(mindId, ref mind))
-            return null;
-
-        if (GetProgress(uid, (mindId, mind)) is not {} progress)
+        if (GetProgress(uid) is not {} progress)
             return null;
 
         var comp = Comp<ObjectiveComponent>(uid);
@@ -123,7 +121,7 @@ public abstract partial class SharedObjectivesSystem : EntitySystem
         var description = meta.EntityDescription;
         if (comp.Icon == null)
         {
-            Log.Error($"An objective {ToPrettyString(uid):objective} of {_mind.MindOwnerLoggingString(mind)} is missing an icon!");
+            Log.Error($"An objective {ToPrettyString(uid):objective} is missing an icon!");
             return null;
         }
 
@@ -133,24 +131,26 @@ public abstract partial class SharedObjectivesSystem : EntitySystem
     /// <summary>
     /// Gets the progress of an objective using <see cref="ObjectiveGetProgressEvent"/>.
     /// Returning null is a programmer error.
+    /// MONO NOTE - THIS SYSTEM IS EDITED TO WORK MORE GENERICALLY FOR NUKIE OPERATIONS, AND NOT REQUIRE A MINDCOMPONENT
     /// </summary>
-    public float? GetProgress(EntityUid uid, Entity<MindComponent> mind)
+    public float? GetProgress(EntityUid uid)
     {
-        var ev = new ObjectiveGetProgressEvent(mind, mind.Comp);
+        var ev = new ObjectiveGetProgressEvent(uid);
         RaiseLocalEvent(uid, ref ev);
         if (ev.Progress != null)
             return ev.Progress;
 
-        Log.Error($"Objective {ToPrettyString(uid):objective} of {_mind.MindOwnerLoggingString(mind.Comp)} didn't set a progress value!");
+        Log.Error($"Objective {ToPrettyString(uid):objective} didn't set a progress value!");
         return null;
     }
 
     /// <summary>
     /// Returns true if an objective is completed.
+    /// MONO NOTE - THIS SYSTEM IS EDITED TO WORK MORE GENERICALLY FOR NUKIE OPERATIONS, AND NOT REQUIRE A MINDCOMPONENT
     /// </summary>
-    public bool IsCompleted(EntityUid uid, Entity<MindComponent> mind)
+    public bool IsCompleted(EntityUid uid)
     {
-        return (GetProgress(uid, mind) ?? 0f) >= 0.999f;
+        return (GetProgress(uid) ?? 0f) >= 0.999f;
     }
 
     /// <summary>

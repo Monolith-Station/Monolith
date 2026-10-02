@@ -1,0 +1,36 @@
+- type: vessel
+  id: Shuilian
+  parent: BaseVessel
+  name: MSH Shuilian
+  description: A large botany-focused ship. Comes with 4 separate climate-controlled "biodomes", each with their own separate atmosphere, plus equipment to filter multiple specific gases out into a gaslock for exporting.
+  price: 195000
+  category: Large
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/shuilian.yml
+  guidebookPage: null
+  class:
+  - Civilian
+  - Botany
+  - Chemistry
+  engine:
+  - AME
+
+- type: gameMap
+  id: Shuilian
+  mapName: 'MSH Shuilian'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/shuilian.yml
+  minPlayers: 0
+  stations:
+    Shuilian:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Shuilian CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

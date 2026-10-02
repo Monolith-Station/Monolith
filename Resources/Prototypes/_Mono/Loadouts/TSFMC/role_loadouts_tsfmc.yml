@@ -161,11 +161,11 @@
   - TsfmcJumpsuit
   - TsfmcGloves
   - TsfmcBackpack
-  - TsfmcOuterClothing
+  - TsfmcOuterClothingColonel
   - TsfmcShoes
   - TsfmcFace
   - TsfmcBalaclava
-  - TsfmcGlasses
+  - TsfmcGlassesColonel
   - TsfmcBelt
   - TsfmcEarsCommander
   - NfsdBoxSurvival
@@ -257,4 +257,21 @@
   - ContractorArmorPlates # Mono
   - TsfmcSidearm
   - TsfmcSidearmAmmo
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobTsfInfantry
+  groups:
+  - TsfmcInfantryHead
+  - TsfmcInfantryJumpsuit
+  - TsfmcGloves
+  - TsfmcBackpack
+  - TsfmcOuterClothing
+  - TsfmcShoes
+  - TsfmcBalaclava
+  - TsfmcInfantryBelt
+  - TsfmcEars
+  - DeputyPDA
+  - NfsdSpeciesSpecific
+  - TsfmcRanksEnlisted
   canCustomizeName: true

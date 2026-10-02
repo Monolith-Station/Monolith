@@ -250,10 +250,10 @@ uplink-zombie-bundle-name = Zombie Bundle
 uplink-zombie-bundle-desc = An all-in-one kit for unleashing the undead upon a station. Outclassed in every way by letoferol.
 
 uplink-surplus-bundle-name = Surplus Crate
-uplink-surplus-bundle-desc = Contains 250 telecrystals worth of completely random black market items. It can be useless junk or really good.
+uplink-surplus-bundle-desc = Contains 250 telecrystals worth of completely random items from this market. It can be useless junk or really good.
 
 uplink-super-surplus-bundle-name = Super Surplus Crate
-uplink-super-surplus-bundle-desc = Contains 600 telecrystals worth of completely random black market items.
+uplink-super-surplus-bundle-desc = Contains 600 telecrystals worth of completely random items from this market.
 
 # Tools
 uplink-toolbox-name = Toolbox

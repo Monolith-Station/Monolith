@@ -25,7 +25,7 @@ job-name-vg-infanteer = VG Infanteer
 job-name-vg-lieutenant = VG Lieutenant
 job-name-vg-commander = VG Commander
 
-# MARK: USSP
+# MARK: MMC
 job-name-mmc-liason = MMC Corporate Liason
 job-name-mmc-security = MMC Corporate Security
 job-name-mmc-employee = MMC Employee
@@ -35,3 +35,6 @@ job-supervisors-mmc-liason = the Corporate Liason
 # MARK: UNDERGROUND BLACK MARKET
 job-name-fugitive = Fugitive
 job-name-godfather = Godfather
+
+# MARK: CROCUS
+job-name-crocus-dockworker = Jianghui Dockworker

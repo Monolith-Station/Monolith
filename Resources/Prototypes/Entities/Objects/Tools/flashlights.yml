@@ -68,7 +68,8 @@
   - type: StaticPrice
     price: 15.5 # Frontier: 40<15.5
   - type: StealTarget
-    stealGroup: LAMP
+    stealGroup:
+    - LAMP
   - type: Clothing
     sprite: Objects/Tools/flashlight.rsi
     quickEquip: false

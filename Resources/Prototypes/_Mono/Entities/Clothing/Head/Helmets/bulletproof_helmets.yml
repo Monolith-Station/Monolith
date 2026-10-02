@@ -25,3 +25,14 @@
   - type: StaticPrice
     price: 2000
     vendPrice: 5000
+
+- type: entity
+  parent: ClothingHeadHelmetBase
+  id: ClothingHeadHelmetCombatPDV
+  name: PD-VI STZ-H helmet
+  description: Part of the STZ armor system for PD infantry. Keeps your crunchy head safe.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Helmets/pdv.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Helmets/pdv.rsi

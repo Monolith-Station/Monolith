@@ -4,7 +4,7 @@
   id: WeaponTurretSerpentMissile
   name: Serpent torpedo launcher
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier3HP
   description: A light torpedo launcher developed by the Syndicate during the corporate war, uses similar systems to the anaconda for self loading munitons.
   components:
@@ -52,6 +52,9 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 120
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Medium
 
 # Pre-Fracture
 
@@ -60,7 +63,7 @@
   name: Curio-1602 electron torpedo launcher "Entropy"
   suffix: ADS ONLY
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier3HP
   description: An odd weapon of the pre-fracture era, it projects a mass of electrons that seek out the positive charge of nearby targets, overloading systems and shattering sections of hull.
   components:
@@ -117,3 +120,6 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 120
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Heavy

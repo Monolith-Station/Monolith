@@ -1,0 +1,36 @@
+- type: vessel
+  id: Senkusha
+  parent: BaseVessel
+  name: MMC-CSC Senku-sha
+  description: Heavier than a Yukikaze, but still barely a corvette. Senku-sha corvettes are specialized in volume of fire, with 4x L85 autocannons and 4x T54c autopulsers, but only carry slow-moving plasma cannons for primary anti-ship purposes.
+  price: 153000
+  purchasable: false # Voucher only
+  category: Medium
+  group: Mieyo
+  access: MieyoSecurity
+  shuttlePath: /SharedMaps/_Mono/Shuttles/MMC/senkusha.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Escort
+  - Corvette
+  engine:
+  - AME
+
+- type: gameMap
+  id: Senkusha
+  mapName: 'MMC-CSC Senku-sha'
+  mapPath: /SharedMaps/_Mono/Shuttles/MMC/senkusha.yml
+  minPlayers: 0
+  stations:
+    Senkusha:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Senku-sha MCSC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MMCEmployee: [ 0, 0 ]

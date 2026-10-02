@@ -11,7 +11,9 @@
     - id: SpaceMedipen
     - id: EmergencyMedipen
     - id: Flare
-      amount: 2
+    - id: SignalFlareGreen
+    - id: SignalFlareWhite
+    - id: WeaponFlareGun
     - id: MonoMRE # Mono - replace PSB and water bottle w/ MRE
     - id: CrowbarPocket
     - id: HandHeldMassScanner
@@ -22,7 +24,7 @@
   - type: Storage
     maxItemSize: Small
     grid:
-    - 0,0,3,2
+    - 0,0,4,2
     whitelist:
       components:
       - GasTank
@@ -34,6 +36,8 @@
       tags:
       - MREFood
       - SurvivalBox
+      - SignalFlareLaunchable
+      - SignalFlareLauncher
   - type: Sprite
     layers:
       - state: internals
@@ -50,7 +54,9 @@
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: Flare
-        amount: 2
+      - id: SignalFlareGreen
+      - id: SignalFlareWhite
+      - id: WeaponFlareGun
       - id: MonoMRE # Mono - replace PSB and water bottle w/ MRE
       - id: CrowbarPocket
       - id: HandHeldMassScanner
@@ -66,7 +72,9 @@
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: Flare
-        amount: 2
+      - id: SignalFlareGreen
+      - id: SignalFlareWhite
+      - id: WeaponFlareGun
       - id: MonoMRE # Mono - replace PSB and water bottle w/ MRE
       - id: CrowbarPocket
       - id: HandHeldMassScanner
@@ -82,7 +90,9 @@
     - id: SpaceMedipen
     - id: EmergencyMedipen
     - id: Flare
-      amount: 2
+    - id: SignalFlareGreen
+    - id: SignalFlareWhite
+    - id: WeaponFlareGun
     - id: MonoMRE # Mono - replace PSB and water bottle w/ MRE
     - id: CrowbarPocket
     - id: HandHeldMassScanner

@@ -1,0 +1,119 @@
+- type: weightedRandom
+  id: PDVOperationsCrocus
+  weights:
+    PDVCrocusNanitesOperation: 2
+    PDVCrocusKillsOperation: 0.5
+    PDVCrocusBothOperation: 1
+
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseFactionalObjectives
+  components:
+  - type: GameRule
+    minPlayers: 0
+    cancelPresetOnTooFewPlayers: false
+
+- type: nukieOperation
+  id: PDVCrocusBothOperation
+  operationObjectives:
+  - PDVCrocusObjectivePDAs
+  - PDVCrocusObjectiveNanites
+
+- type: entity
+  parent: BaseFactionalObjectives
+  id: PDVObjectivesCrocus
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - operationPrefixPDVCrocus
+    - operationSuffixPDVCrocus
+  - type: NukieOperation
+    operations: PDVOperationsCrocus
+    participatingCompany: PDV
+  - type: Company
+    companyName: PDV
+
+- type: nukieOperation
+  id: PDVCrocusNanitesOperation
+  operationObjectives:
+  - PDVCrocusObjectiveNanites
+
+- type: entity
+  parent: BaseStealObjective
+  id: PDVCrocusObjectiveBase
+  abstract: true
+  components:
+  - type: Objective
+    difficulty: 1.0
+    unique: false
+    issuer: objective-issuer-pdv
+  - type: StealCondition
+    owner: objective-condition-steal-tsf
+    verifyMapExistence: false
+    checkStealAreas: true
+    stealAreaTagProto: PDVStealArea
+    checkCompanyMembers: true
+    objectiveText: objective-condition-steal-title-faction
+    objectiveNoOwnerText: objective-condition-steal-title-faction-no-owner
+    descriptionText: objective-condition-steal-description-faction-beacon-crocus
+    descriptionMultiplyText: objective-condition-steal-multiply-description-faction-crocus
+  - type: Company
+    companyName: PDV
+
+- type: entity
+  parent: PDVCrocusObjectiveBase
+  id: PDVCrocusObjectiveNanites
+  components:
+  - type: Objective
+    icon:
+      sprite: _Mono/Objects/TradeGoods/factiongoods.rsi
+      state: nanitecanister
+  - type: StealCondition
+    minCollectionSize: 30
+    maxCollectionSize: 80 # The map has 115 across all levels.
+    stealGroup: FederalNanites
+
+- type: stealTargetGroup
+  id: FederalNanites
+  name: steal-target-groups-federal-nanites
+  sprite:
+    sprite: _Mono/Objects/TradeGoods/factiongoods.rsi
+    state: nanitecanister
+
+# Basically the Kill People objective
+
+- type: nukieOperation
+  id: PDVCrocusKillsOperation
+  operationObjectives:
+  - PDVCrocusObjectivePDAs
+
+- type: entity
+  parent: PDVCrocusObjectiveBase
+  id: PDVCrocusObjectivePDAs
+  components:
+  - type: Objective
+    icon:
+      sprite: _NF/Objects/Devices/pda.rsi
+      state: pda-security
+  - type: StealCondition
+    minCollectionSize: 15
+    maxCollectionSize: 50
+    stealGroup: TSFPDAs
+
+- type: stealTargetGroup
+  id: TSFPDAs
+  name: steal-target-groups-federal-pdas
+  sprite:
+    sprite: _NF/Objects/Devices/pda.rsi
+    state: pda-security
+
+- type: dataset
+  id: operationPrefixPDVCrocus
+  values:
+  - Blue
+
+- type: dataset
+  id: operationSuffixPDVCrocus
+  values:
+  - Winter

@@ -570,7 +570,8 @@
   - type: StaticPrice
     price: 750
   - type: StealTarget
-    stealGroup: ClothingOuterHardsuitRd
+    stealGroup:
+    - ClothingOuterHardsuitRd
   - type: PirateBountyItem # Frontier
     id: ClothingOuterHardsuitRd # Frontier
   - type: StaminaDamageResistance # Mono - Stamres

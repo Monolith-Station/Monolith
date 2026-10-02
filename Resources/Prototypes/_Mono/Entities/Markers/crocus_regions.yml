@@ -1,0 +1,58 @@
+- type: entity
+  id: BiomeSourceFallbackCrocus
+  parent: BaseBiomeSource
+  name: crocus fallback biome source
+  components:
+  - type: SpaceBiomeSource
+    id: CrocusBiome
+    swapDistance: null #infinite
+    priority: 1
+
+- type: ambientSpaceBiome
+  id: CrocusBiome
+  name: Crocus
+
+- type: entity
+  id: BiomeSourceFallbackJianghuiIndustrial
+  parent: BaseBiomeSource
+  name: crocus jianghui industrial biome source
+  components:
+  - type: SpaceBiomeSource
+    id: CrocusBiomeJianghuiIndustrial
+    swapDistance: null #infinite
+    priority: 2
+
+- type: ambientSpaceBiome
+  id: CrocusBiomeJianghuiIndustrial
+  name: Jianghui Industrial Zone
+  description: "An industrial zone in the upper latitudes of Crocus."
+
+- type: entity
+  id: BiomeSourceFallbackJianghuiCity
+  parent: BaseBiomeSource
+  name: crocus jianghui city biome source
+  components:
+  - type: SpaceBiomeSource
+    id: CrocusBiomeJianghuiCity
+    swapDistance: 40
+    priority: 5
+
+- type: ambientSpaceBiome
+  id: CrocusBiomeJianghuiCity
+  name: Jianghui Outskirts
+  description: "Freshly-built infrastructure already evacuated and ruined."
+
+- type: entity
+  id: BiomeSourceFallbackJianghuiPort
+  parent: BaseBiomeSource
+  name: crocus jianghui port biome source
+  components:
+  - type: SpaceBiomeSource
+    id: CrocusBiomeJianghuiPort
+    swapDistance: 30
+    priority: 3
+
+- type: ambientSpaceBiome
+  id: CrocusBiomeJianghuiPort
+  name: Jianghui Industrial Port
+  description: "One of the most important stops in regional supply chains."

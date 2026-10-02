@@ -2,9 +2,9 @@
 
 - type: vessel
   id: Strayk
-  parent: BaseVesselAntag
+  parent: BaseVesselIFFDisabled
   name: NCS Strayk
-  description: A poorly equipped and cramped strike craft. Outfitted with 2 torpedo launchers and 1 30mm chaingun, and capable of detecting invisible targets.
+  description: A poorly equipped and cramped strike craft. Outfitted with 2 torpedo launchers and 1 20x141mm chaingun, and capable of detecting invisible targets.
   price: 66109
   category: Small
   group: Ussp
@@ -13,6 +13,7 @@
   guidebookPage: Null
   class:
   - Pursuit
+  - AntiShipMissileCarrier
   engine:
   - Uranium
   cloakHunter: true

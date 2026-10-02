@@ -200,11 +200,12 @@
     id: ClothingOuterHardsuitTacsuitHighValue
   # Mono - Shielding comps
   - type: PersonalShield
-    fillLevel: 0.2
-    hexDensity: 6
-    pixelGrid: 192
-    color: "#E0FFFF"
-    scale: 2.3
+    visuals:
+      fillLevel: 0.2
+      hexDensity: 6
+      pixelGrid: 192
+      color: "#E0FFFF"
+      scale: 2.3
     shield:
       maxCharge: 400
       regenRate: 5
@@ -280,11 +281,12 @@
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: PersonalShield
-    fillLevel: 0.15
-    hexDensity: 3
-    pixelGrid: 96
-    color: "#7F00FF"
-    scale: 2.0
+    visuals:
+      fillLevel: 0.15
+      hexDensity: 3
+      pixelGrid: 96
+      color: "#7F00FF"
+      scale: 2.0
     shield:
       maxCharge: 250
       regenRate: 5

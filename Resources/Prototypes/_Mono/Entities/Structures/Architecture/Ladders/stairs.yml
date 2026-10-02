@@ -1,0 +1,100 @@
+- type: entity
+  id: MonoCEZLevelsLadderRMCBase
+  name: stairs
+  abstract: true
+  suffix: ZLEVELS
+  components:
+  - type: Sprite
+    sprite: _RMC14/Structures/stairs.rsi
+
+- type: entity
+  id: MonoCEZLevelLadderRMCKutjevoFull
+  parent:
+  - CEZLevelLadderBase
+  - MonoCEZLevelsLadderRMCBase
+  components:
+  - type: Sprite
+    state: p_stair_kutjevo_full
+
+- type: entity
+  id: MonoCEZLevelLadderRMCKutjevoFullSoloCap
+  parent:
+  - CEZLevelLadderBase
+  - MonoCEZLevelsLadderRMCBase
+  components:
+  - type: Sprite
+    state: p_stair_kutjevo_solo_cap
+
+- type: entity
+  id: MonoCEZLevelLadderRMCKutjevoLeftCap
+  parent:
+  - CEZLevelLadderBase
+  - MonoCEZLevelsLadderRMCBase
+  components:
+  - type: Sprite
+    state: p_stair_kutjevo_left_cap
+
+- type: entity
+  id: MonoCEZLevelLadderRMCKutjevoRightCap
+  parent:
+  - CEZLevelLadderBase
+  - MonoCEZLevelsLadderRMCBase
+  components:
+  - type: Sprite
+    state: p_stair_kutjevo_right_cap
+
+- type: entity
+  id: MonoCEZLevelLadderRMCKutjevoCorner
+  suffix: Corner
+  parent:
+  - CEZLevelLadderCornerBase
+  - MonoCEZLevelsLadderRMCBase
+  components:
+  - type: Sprite
+    state: p_stair_kutjevo_full_corner
+
+- type: entity
+  id: MonoCEZLevelLadderRMCFull
+  parent:
+  - CEZLevelLadderBase
+  - MonoCEZLevelsLadderRMCBase
+  components:
+  - type: Sprite
+    state: p_stair_full
+
+- type: entity
+  id: MonoCEZLevelLadderRMCFullSoloCap
+  parent:
+  - CEZLevelLadderBase
+  - MonoCEZLevelsLadderRMCBase
+  components:
+  - type: Sprite
+    state: p_stair_solo_cap
+
+- type: entity
+  id: MonoCEZLevelLadderRMCLeftCap
+  parent:
+  - CEZLevelLadderBase
+  - MonoCEZLevelsLadderRMCBase
+  components:
+  - type: Sprite
+    state: p_stair_left_cap
+
+- type: entity
+  id: MonoCEZLevelLadderRMCRightCap
+  parent:
+  - CEZLevelLadderBase
+  - MonoCEZLevelsLadderRMCBase
+  components:
+  - type: Sprite
+    state: p_stair_right_cap
+
+- type: entity
+  id: MonoCEZLevelLadderRMCCorner
+  suffix: Corner
+  parent:
+  - CEZLevelLadderCornerBase
+  - MonoCEZLevelsLadderRMCBase
+  components:
+  - type: Sprite
+    state: p_stair_full_corner

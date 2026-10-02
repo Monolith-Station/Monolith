@@ -12,6 +12,7 @@
     recoilIncreaseModifier: 1.0
     minSpreadModifier: 1.05
     maxSpreadModifier: 1.05
+  - type: ESGunWieldRecoilAttachment
     wieldRecoilRecoveryModifier: 1.55
     wieldRecoilIncreaseModifier: 2.8
     wieldMinSpreadModifier: 1.25
@@ -42,6 +43,7 @@
     recoilIncreaseModifier: 1.1
     minSpreadModifier: 0.7
     maxSpreadModifier: 1.0
+  - type: ESGunWieldRecoilAttachment
     wieldRecoilRecoveryModifier: 0.83 # rounded from the inverse
     wieldRecoilIncreaseModifier: 0.9 # rounded from the inverse
     wieldMinSpreadModifier: 20
@@ -77,6 +79,7 @@
     recoilIncreaseModifier: 1.1
     minSpreadModifier: 0.05
     maxSpreadModifier: 1
+  - type: ESGunWieldRecoilAttachment
     wieldRecoilRecoveryModifier: 0.83 # rounded from the inverse
     wieldRecoilIncreaseModifier: 0.9 # rounded from the inverse
     wieldMinSpreadModifier: 20
@@ -110,6 +113,7 @@
     recoilIncreaseModifier: 1.0
     minSpreadModifier: 1.0
     maxSpreadModifier: 1.0
+  - type: ESGunWieldRecoilAttachment
     wieldRecoilRecoveryModifier: 1.0
     wieldRecoilIncreaseModifier: 1.0
     wieldMinSpreadModifier: 1.0

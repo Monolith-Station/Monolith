@@ -2,7 +2,7 @@
 
 - type: vessel
   id: Buran
-  parent: BaseVesselAntag
+  parent: BaseVesselIFFDisabled
   name: VEF Buran
   description: USSP capital-sized frigate with tremendous broadside firepower and thick armor. Glory to commissariat.
   limit: 2
@@ -15,6 +15,7 @@
   guidebookPage: ShipyardNFROperation
   class:
   - Frigate
+  - Brawler
   engine:
   - NFR
 

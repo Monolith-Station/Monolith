@@ -202,10 +202,11 @@
     - RogueHardsuit
   # Shielding
   - type: PersonalShield
-    color: "#FF5F1F"
-    scale: 2
-    fillLevel: 0.1
-    coreFade: 0.85
+    visuals:
+      color: "#FF5F1F"
+      scale: 2
+      fillLevel: 0.1
+      coreFade: 0.85
     shield:
       maxCharge: 200
       regenRate: 5

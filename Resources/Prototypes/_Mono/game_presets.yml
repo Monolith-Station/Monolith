@@ -123,6 +123,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoChimeraSTCShuttleSpawnerScheduler
+  - MonoChimeraSTCShuttleSpawnerSchedulerTier2
   - MonoMonolithicEventsScheduler
   - RoundEndRuleHour3
   - HalcyonBiodome
@@ -143,6 +144,7 @@
   - SmugglingEventScheduler
   - FrontierRoundstartVariation
   - MonoChimeraSTCShuttleSpawnerScheduler
+  - MonoChimeraSTCShuttleSpawnerSchedulerTier2
   - MonoMonolithicEventsScheduler
   - RoundEndRuleHour3
   - HeliosBiodome
@@ -205,3 +207,20 @@
   - RoundEndRuleHour3
   - PortstrikeAnnounceRuleHour2
   - StarSystemKyphrus
+
+- type: gamePreset
+  id: MonoCrocus
+  alias:
+  - crocus
+  - monocrocus
+  name: mono-crocus-title
+  description: mono-crocus-description
+  showInVote: false
+  weight: 0.2 # Giant majority needed
+  respawnMultiplier: 0.5
+  supportedMaps: CrocusMapPool
+  rules:
+  - PDVObjectivesCrocus
+  - RoundEndRuleHour2
+  - CrocusAnnouncementMinuteRoundStart
+  - CrocusAnnouncementMinute10m
