@@ -29,3 +29,4 @@ job-description-mmc-employee = Work under your liason for the sake of the MMC co
 
 # MARK: UNDERGROUND/BLACK MARKET
 job-description-fugitive = You are a known enemy of the TSF. Evade the TSFMC and the bounty hunters they send after you. Reap the rewards of your dangerous lifestyle.
+job-description-godfather = Maintain your hold on the Underground through coercion and fear. Don't get assassinated.

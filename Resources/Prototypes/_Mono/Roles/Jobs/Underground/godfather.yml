@@ -1,0 +1,40 @@
+- type: job
+  id: Godfather
+  name: job-name-godfather
+  description: job-description-godfather
+  playTimeTracker: JobGodfather
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 54000 # 15 hours # mono
+  - !type:RoleTimeRequirement
+    role: JobFugitive
+    time: 18000 # 5 hours
+  icon: JobIconGodfather
+  supervisors: job-supervisors-nobody
+  displayWeight: 150
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+  - !type:AddComponentSpecial
+    components:
+    - type: Contraband
+      hideValues: true
+      turnInValues:
+        FederationMilitaryCredit: 400 # bounty on your head
+  - !type:AddImplantSpecial
+    implants: [ DeathRattleImplant, RadioImplant ]
+
+- type: startingGear
+  id: GodfatherGear
+  equipment:
+    pocket1: WeaponPistolDamocles
+    pocket2: EnergySword
+  storage:
+    back:
+    - Telecrystal
+    - Telecrystal # 200 TC
+    - Magazine9x19mmPistolHighCapacityFMJ
+    - Magazine9x19mmPistolHighCapacityFMJ

@@ -34,3 +34,4 @@ job-supervisors-mmc-liason = the Corporate Liason
 
 # MARK: UNDERGROUND BLACK MARKET
 job-name-fugitive = Fugitive
+job-name-godfather = Godfather

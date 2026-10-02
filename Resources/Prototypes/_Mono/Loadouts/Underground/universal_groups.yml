@@ -29,3 +29,10 @@
   - MercenaryLaserCarbineLoadout
   - MercenaryEnergyGunLoadout
   - MercenaryLeverActionloadout
+
+- type: loadoutGroup
+  id: GodfatherOuterClothing
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadout:
+  - GodfatherHardsuit
