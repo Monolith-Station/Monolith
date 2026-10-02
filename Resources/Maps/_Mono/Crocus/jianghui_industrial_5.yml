@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/01/2026 22:54:39
+  time: 10/02/2026 01:45:30
   entityCount: 4
 maps:
 - 1
@@ -63,10 +63,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        Smoke: []
+        MetalFoam: []
         Puddle: []
         Kudzu: []
-        MetalFoam: []
-        Smoke: []
     - type: GridPathfinding
     - type: DecalGrid
       chunkCollection:
@@ -106,7 +106,7 @@ entities:
       parent: 1
 - proto: BiomeSourceFallbackJianghuiIndustrial
   entities:
-  - uid: 4
+  - uid: 3
     components:
     - type: Transform
       anchored: False
@@ -114,7 +114,7 @@ entities:
       parent: 1
 - proto: BiomeSourceFallbackJianghuiPort
   entities:
-  - uid: 3
+  - uid: 4
     components:
     - type: Transform
       anchored: False
