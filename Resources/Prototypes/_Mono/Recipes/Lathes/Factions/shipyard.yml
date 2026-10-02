@@ -146,6 +146,15 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
+  id: ShipVoucherGanymedeT3Recipe
+  result: ShipVoucherGanymedeT3
+  completetime: 100
+  materialDiscountScale: 0.2
+  materials:
+    PdvComposite: 12000
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
   id: ShipVoucherSaturnRecipe
   result: ShipVoucherSaturn
   completetime: 240

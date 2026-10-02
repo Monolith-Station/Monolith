@@ -369,6 +369,20 @@
     vendPrice: 20000
 
 - type: entity
+  parent: ShipVoucherEuropaT3 #The T3s are the same besides the shipyardvoucher comp anyhow.
+  id: ShipVoucherGanymedeT3
+  name: PDV Ganymede LPC [T3]
+  description: A small card that contains the data for the procurement of an unfinished Ganymede-class frigate from the shipyard's reserves.
+  components:
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 5400 # 1 & 1/2 hours
+    consoleType: BlackMarket
+    companyName: PDV
+    vessels:
+    - Ganymede
+
+- type: entity
   parent: BaseShipLPCRenewable
   id: ShipVoucherSaturn
   name: PDV Saturn LPC [T4]
