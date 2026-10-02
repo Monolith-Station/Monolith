@@ -1,9 +1,13 @@
 using Content.Shared._Mono.MassFabricator;
 using Content.Shared.Eye;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Interaction;
+using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 
 namespace Content.Server._Mono.MassFabricator;
 
@@ -18,6 +22,7 @@ public sealed partial class MassFabricatorSystem : Content.Shared._Mono.MassFabr
         base.Initialize();
         SubscribeLocalEvent<MassFabricatorViewComponent, ComponentShutdown>(OnViewShutdown);
         SubscribeLocalEvent<MassFabricatorComponent, ComponentShutdown>(OnFabricatorShutdown);
+        SubscribeNetworkEvent<MassFabricatorSelectEvent>(OnSelect);
     }
 
     protected override void OnUse(Entity<MassFabricatorComponent> ent, ref UseInHandEvent args)
@@ -37,6 +42,23 @@ public sealed partial class MassFabricatorSystem : Content.Shared._Mono.MassFabr
         RaiseNetworkEvent(new MassFabricatorViewEvent(true), actor.PlayerSession);
     }
 
+    private void OnSelect(MassFabricatorSelectEvent message, EntitySessionEventArgs args)
+    {
+        if (args.SenderSession.AttachedEntity is not { } user ||
+            !TryComp<HandsComponent>(user, out var hands) ||
+            !TryGetEntity(message.Fabricator, out var uid) || uid is not { } fabricator ||
+            hands.ActiveHandEntity != fabricator ||
+            !TryComp<MassFabricatorComponent>(fabricator, out var comp))
+            return;
+
+        TrySelectBlueprint((fabricator, comp), message.Blueprint, message.Target);
+    }
+
+    protected override bool CanModifyPlans(EntityUid user, EntityUid gun) =>
+        TryComp<MassFabricatorViewComponent>(user, out var view) && !view.Returning &&
+        view.Fabricator == gun && TryComp<HandsComponent>(user, out var hands) &&
+        hands.ActiveHandEntity == gun;
+
     protected override bool CanBeginReturn(EntityUid user, EntityUid eye)
     {
         return TryComp<MassFabricatorViewComponent>(user, out var view) &&
@@ -53,6 +75,12 @@ public sealed partial class MassFabricatorSystem : Content.Shared._Mono.MassFabr
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+        var fading = EntityQueryEnumerator<MassFabricatorHologramComponent>();
+        while (fading.MoveNext(out var uid, out var plan))
+            if (plan.PrintState == MassFabricatorPrintState.Fading &&
+                (_timing.CurTime - plan.PrintStarted).TotalSeconds >= MassFabricatorHologramComponent.FadeSeconds)
+                QueueDel(uid);
+
         var finished = new List<EntityUid>();
         var query = EntityQueryEnumerator<MassFabricatorViewComponent>();
         while (query.MoveNext(out var user, out var view))
@@ -79,6 +107,8 @@ public sealed partial class MassFabricatorSystem : Content.Shared._Mono.MassFabr
 
     private void OnFabricatorShutdown(Entity<MassFabricatorComponent> ent, ref ComponentShutdown args)
     {
+        DeleteOwnedPlans(ent);
+
         var query = EntityQueryEnumerator<MassFabricatorViewComponent>();
         while (query.MoveNext(out var user, out var view))
         {

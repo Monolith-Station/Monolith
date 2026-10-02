@@ -8,4 +8,10 @@
     <LayoutContainer Name="ViewportContainer" HorizontalExpand="True" VerticalExpand="True">
         <controls:MainViewport Name="MainViewport" />
     </LayoutContainer>
+    <BoxContainer Name="StatusBars" Orientation="Vertical" SetWidth="240" Margin="0 0 0 6">
+        <Label Text="Blueprint load" />
+        <ProgressBar Name="BlueprintBar" MinValue="0" MaxValue="1" SetHeight="18" />
+        <Label Text="Remaining charge" Margin="0 6 0 0" />
+        <ProgressBar Name="ChargeBar" MinValue="0" MaxValue="1" SetHeight="18" />
+    </BoxContainer>
 </fabricator:MassFabricatorScreen>

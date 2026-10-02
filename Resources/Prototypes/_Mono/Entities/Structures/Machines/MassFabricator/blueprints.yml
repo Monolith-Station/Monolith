@@ -1,0 +1,70 @@
+- type: massFabricatorBlueprint
+  id: HZBlueprintPlating
+  load: 1
+  chargeCost: 1
+  name: plating
+  category: Tiling
+  subcategory: Floors
+  kind: Tile
+  target: Plating
+  sprite: /Textures/Interface/Radial/RCD/plating.png
+
+- type: massFabricatorBlueprint
+  id: HZBlueprintLattice
+  load: 1
+  chargeCost: 1
+  name: lattice
+  category: Tiling
+  subcategory: Lattices
+  kind: Tile
+  target: Lattice
+  sprite: /Textures/Interface/Radial/RCD/lattice.png
+
+- type: massFabricatorBlueprint
+  id: HZBlueprintWall
+  load: 5
+  chargeCost: 5
+  name: solid wall
+  category: Bulkheads
+  subcategory: Walls
+  kind: Entity
+  target: WallSolid
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+
+- type: massFabricatorBlueprint
+  id: HZBlueprintStairs
+  load: 4
+  chargeCost: 4
+  name: stairs
+  category: Bulkheads
+  subcategory: Stairs
+  kind: Entity
+  variants:
+  - name: stone straight
+    target: CEZLevelLadderStone
+  - name: stone corner
+    target: CEZLevelLadderStoneCorner
+  - name: stone inner corner
+    target: CEZLevelLadderStoneCornerInner
+  - name: wooden straight
+    target: CEZLevelLadderWooden
+  - name: wooden corner
+    target: CEZLevelLadderWoodenCorner
+  - name: dirt straight
+    target: CEZLevelLadderDirtCliff
+  - name: dirt corner
+    target: CEZLevelLadderDirtCliffCorner
+  - name: dirt inner corner
+    target: CEZLevelLadderDirtCliffCornerInner
+  - name: red roof straight
+    target: CEZLevelsLadderRoofRed
+  - name: red roof corner
+    target: CEZLevelsLadderRoofRedCorner
+  - name: red roof inner corner
+    target: CEZLevelsLadderRoofRedCornerInner
+  - name: green roof straight
+    target: CEZLevelsLadderRoofGreen
+  - name: green roof corner
+    target: CEZLevelsLadderRoofGreenCorner
+  - name: green roof inner corner
+    target: CEZLevelsLadderRoofGreenCornerInner

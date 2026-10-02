@@ -4,11 +4,24 @@
   parent: BaseItem
   components:
   - type: MassFabricator
+    availableBlueprints:
+    - HZBlueprintPlating
+    - HZBlueprintLattice
+    - HZBlueprintWall
+    - HZBlueprintStairs
   - type: Item
     storedRotation: -90
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/force_gun.rsi
     state: base
+
+- type: entity
+  id: HZMassFabricatorHologram
+  name: fabrication plan
+  components:
+  - type: Transform
+  - type: MassFabricatorHologram
+  - type: Clickable
 
 - type: entity
   id: HZMassFabricatorEye

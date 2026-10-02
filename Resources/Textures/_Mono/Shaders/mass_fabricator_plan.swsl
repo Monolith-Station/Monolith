@@ -1,0 +1,12 @@
+light_mode unshaded;
+blend_mode mix;
+
+uniform lowp float opacity;
+
+void fragment()
+{
+    lowp vec4 sprite = zTexture(UV);
+    lowp float brightness = dot(sprite.rgb, vec3(0.299, 0.587, 0.114));
+    COLOR = vec4(0.65 + 0.35 * brightness, 0.02 + 0.06 * brightness,
+        0.03 + 0.07 * brightness, sprite.a * opacity);
+}
