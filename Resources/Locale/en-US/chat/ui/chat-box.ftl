@@ -37,3 +37,6 @@ hud-chatbox-autofill-highlights = Auto-fill
 hud-chatbox-highlights = Custom keywords
 hud-chatbox-highlights-placeholder = Insert your keywords here. One per line.
 hud-chatbox-highlights-button = Save keywords
+hud-chatbox-highlights-tooltip = The words need to be separated by a newline,
+                                 if wrapped around " they will be highlighted
+                                 only if separated by spaces or punctuation.
