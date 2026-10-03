@@ -24,16 +24,23 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
   - type: HideLayerClothing
     slots:
     - Hair
     - Snout
     - HeadTop
     - HeadSide
+
+- type: entity
+  parent: [ ClothingHeadHelmetHardsuitM82, ShowMedicalIcons ]
+  id: ClothingHeadHelmetHardsuitM82b
+  name: M82b helmet
+  description: A special version of the M82b hardsuit helmet. Outfitted with a medical HUD.
+  categories: [ HideSpawnMenu ]
 
 - type: entity
   parent: [NFClothingHeadHardsuitWithLightBaseNfsd, ShowMedicalIcons, ShowSecurityIcons]
