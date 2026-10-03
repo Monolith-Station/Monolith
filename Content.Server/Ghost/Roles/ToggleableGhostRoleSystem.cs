@@ -74,14 +74,12 @@ public sealed partial class ToggleableGhostRoleSystem : EntitySystem
     private void OnMindAdded(EntityUid uid, ToggleableGhostRoleComponent pai, MindAddedMessage args)
     {
         // Mind was added, shutdown the ghost role stuff so it won't get in the way
-        RemCompDeferred<GhostTakeoverAvailableComponent>(uid);
         UpdateAppearance(uid, ToggleableGhostRoleStatus.On);
     }
 
     private void OnMindRemoved(EntityUid uid, ToggleableGhostRoleComponent component, MindRemovedMessage args)
     {
         // Mind was removed, prepare for re-toggle of the role
-        RemCompDeferred<GhostRoleComponent>(uid);
         UpdateAppearance(uid, ToggleableGhostRoleStatus.Off);
     }
 
