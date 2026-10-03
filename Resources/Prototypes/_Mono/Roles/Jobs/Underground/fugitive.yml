@@ -6,11 +6,14 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 10800 # 3 hours # mono
+  startingGear: FugitiveGear
   icon: JobIconFugitive
   supervisors: job-supervisors-nobody
   displayWeight: 100
   accessGroups:
   - GeneralAccess
+  access:
+  - Underground
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
@@ -29,3 +32,4 @@
   storage:
     back:
     - Telecrystal25
+    - ContractorIDCard

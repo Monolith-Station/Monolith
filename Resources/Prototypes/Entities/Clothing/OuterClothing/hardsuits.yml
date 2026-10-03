@@ -141,9 +141,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
+        Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.65
+        Piercing: 0.85 # Mono: this is not meant to be good against bullets.
         Radiation: 0.25 #salv is supposed to have radiation hazards in the future
         Caustic: 0.45
   - type: ClothingSpeedModifier
@@ -541,7 +541,7 @@
       coefficients:
         Blunt: 0.45
         Slash: 0.65 # Mono 0.65 < 0.8
-        Piercing: 0.65 # Mono 0.65 < 0.9
+        Piercing: 0.8 # Mono 0.8 < 0.9
         Heat: 0.3
         Radiation: 0.1
         Caustic: 0.2
@@ -662,7 +662,7 @@
   parent: [ClothingOuterHardsuitBase, BaseC3SyndicateContrabandT3]
   id: ClothingOuterHardsuitSyndie
   name: blood-red hardsuit
-  description: A heavily armored hardsuit designed for work in special operations.
+  description: A heavily armored hardsuit and a common sight amongst organised criminals in the greater Perseus Arm. A rare find in the Colossus sector.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi

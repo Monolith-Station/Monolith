@@ -9,11 +9,15 @@
   - !type:RoleTimeRequirement
     role: JobFugitive
     time: 18000 # 5 hours
+  startingGear: GodfatherGear
   icon: JobIconGodfather
   supervisors: job-supervisors-nobody
   displayWeight: 150
   accessGroups:
   - GeneralAccess
+  access: 
+  - Underground
+  - Godfather
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
@@ -34,7 +38,7 @@
     pocket2: EnergySword
   storage:
     back:
-    - Telecrystal
-    - Telecrystal # 200 TC
+    - Telecrystal # 100 TC
     - Magazine9x19mmPistolHighCapacityFMJ
     - Magazine9x19mmPistolHighCapacityFMJ
+    - ContractorIDCard

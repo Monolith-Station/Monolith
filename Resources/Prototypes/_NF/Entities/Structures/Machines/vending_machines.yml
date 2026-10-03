@@ -115,8 +115,8 @@
 - type: entity
   parent: [StorePresetUplink, VendingMachine] # Mono - Removed BaseStructureDisableAnchoring
   id: VendingMachineSyndieContraband
-  name: UndergroundVend
-  description: This vending machine has been banned by the TSF due to allowing users to directly access the black market which funds their enemies. That, of course, hasn't stopped anyone.
+  name: UndergroundVend # Mono
+  description: This vending machine has been banned by the TSF due to allowing users to directly access a distant Persean black market. That, of course, hasn't stopped anyone. # Mono
   components:
   - type: VendingMachine
     offState: off
@@ -125,7 +125,7 @@
     ejectState: eject-unshaded
     denyState: deny-unshaded
     screenState: screen
-  - type: Advertise
+  - type: Advertise # Mono: to-do: make more fitting
     pack: SyndieDrobeAds
   - type: Sprite
     sprite: _NF/Structures/Machines/VendingMachines/contravend.rsi

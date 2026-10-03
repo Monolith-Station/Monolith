@@ -102,11 +102,11 @@ uplink-sniper-ammo-desc = A box of 10 armor-piercing cartridges for the Hristov 
 
 # Utility
 uplink-holopara-kit-name = Holoparasite Kit
-uplink-holopara-kit-desc = The pride and joy of Cybersun. Contains an injector that hosts a sentient metaphysical guardian made of hard light which resides in the user's body when not active.
+uplink-holopara-kit-desc = Contains an injector that hosts a sentient metaphysical guardian made of hard light which resides in the user's body when not active.
     The guardian can punch rapidly and is immune to hazardous environments while being resistant to direct trauma, but shares any damage it takes with the user.
 
 uplink-holoclown-kit-name = Holoclown Kit
-uplink-holoclown-kit-desc = A joint venture between Cybersun and Honk.co. Contains an injector that hosts a sentient metaphysical clown made of hard light which resides in the user's body when not active.
+uplink-holoclown-kit-desc = Contains an injector that hosts a sentient metaphysical clown made of hard light which resides in the user's body when not active.
     The holoclown has pockets to store things, a hardlight hand it can manipulate the environment with and is immune to hazardous environments while being resistant to direct trauma, but shares any damage it takes with the user.
 
 uplink-holster-name = Shoulder Holster
@@ -257,7 +257,7 @@ uplink-super-surplus-bundle-desc = Contains 600 telecrystals worth of completely
 
 # Tools
 uplink-toolbox-name = Toolbox
-uplink-toolbox-desc = A full compliment of tools for the mechanically inclined traitor. Includes a pair of insulated combat gloves and a syndicate gas mask as well.
+uplink-toolbox-desc = A full compliment of tools for the mechanically inclined. Includes a pair of insulated combat gloves and an advanced gas mask as well.
 
 uplink-syndicate-jaws-of-life-name = Jaws Of Life
 uplink-syndicate-jaws-of-life-desc = A combined prying and cutting tool. Useful for entering the station or its departments.
@@ -391,7 +391,7 @@ uplink-syndicate-sponge-box-desc = A box containing 6 sponges disguised as monke
 uplink-slipocalypse-clustersoap-name = Slipocalypse Clustersoap
 uplink-slipocalypse-clustersoap-desc = Scatters arounds small pieces of bloody soap after being thrown, these pieces of soap evaporate after 60 seconds.
 
-uplink-mobcat-microbomb-name = SyndiCat Teleporter
+uplink-mobcat-microbomb-name = KamiCat Teleporter
 uplink-mobcat-microbomb-desc = Call in a handy cat equipped with a microbomb implant. Explodes when seriously injured. Can bite painfully.
 
 uplink-chameleon-projector-name = Chameleon Projector

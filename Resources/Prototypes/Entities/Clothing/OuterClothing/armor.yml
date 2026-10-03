@@ -127,8 +127,8 @@
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing ]
   id: ClothingOuterArmorRaid
-  name: syndicate raid suit
-  description: A somewhat flexible and well-armored suit with a powerful shoulder mounted flashlight manufactured in the Gorlex Marauder's iconic blood-red color scheme, it does not protect its wearer from space.
+  name: raid suit  # Mono: remove syndicate references
+  description: A somewhat flexible and well-armored suit with a powerful shoulder mounted flashlight. It does not protect its wearer from space. # Mono: remove syndicate references
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/syndie-raid.rsi

@@ -117,7 +117,7 @@
   name: UGR Damocles (9x19mm)
   parent: BaseWeaponPistol
   id: WeaponPistolDamocles
-  description: The Damcoles holds a fearsome level of firepower, giving its holder an unwritten position as the ringleader of the underworld of the Persean Arm. However, its reliance on the officially discontinued machine pistol magazine makes it unsustainable in prolonged firefights. A common handgun modified by an absolute lunatic, it's considered an anomaly that this menace to engineering came out even remotely functional and all attempts to replicate it have failed. Looking at it now, you can't tell if the blood is real or simply painted on in order to look more intimidating. 
+  description: The Damocles holds a fearsome level of firepower, giving its holder an unwritten position as the ringleader of the underworld of the Perseus Arm. However, its reliance on the officially discontinued machine pistol magazine makes it unsustainable in prolonged firefights. Looking at it now, you can't tell if the blood is real or simply painted on in order to look more intimidating. 
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Pistols/damocles.rsi
@@ -130,7 +130,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: BaseMagazine9x19mmPistolHighCapacityFMJ
+        startingItem: Magazine9x19mmPistolHighCapacityFMJ
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2

@@ -14,25 +14,53 @@
   name: loadout-group-weapon
   minLimit: 0
   loadouts:
-  - MercenaryGestioLoadout
-  - MercenaryNovaliteLoadout
   - MercenaryAk220Loadout
-  - MercenaryKnallstockLoadout
-  - MercenaryKeyboardLoadout
-  - MercenaryPrometheusLoadout
+  - FugitiveTypewriterLoadout
   - MercenaryLeeEnfieldLoadout
   - MercenaryVulcanCLoadout
   - MercenaryMosinLoadout
-  - MercenarySvsLoadout
-  - MercenaryKammererLoadout
-  - MercenaryDisablerSMGLoadout
-  - MercenaryLaserCarbineLoadout
-  - MercenaryEnergyGunLoadout
-  - MercenaryLeverActionloadout
 
 - type: loadoutGroup
   id: GodfatherOuterClothing
   name: loadout-group-contractor-outerclothing
   minLimit: 1
-  loadout:
+  loadouts:
   - GodfatherHardsuit
+
+- type: loadoutGroup
+  id: GodfatherPDA
+  name: loadout-group-contractor-id
+  minLimit: 1
+  loadouts:
+  - GodfatherPDA
+
+- type: loadoutGroup
+  id: FugitivePDA
+  name: loadout-group-contractor-id
+  minLimit: 1
+  loadouts:
+  - FugitivePDA
+
+- type: loadoutGroup
+  id: GodfatherJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  loadouts:
+  - GodfatherClothingJumpsuitLawyerBlack
+  - GodfatherClothingJumpsuitLawyerBlue
+  - GodfatherClothingJumpsuitLawyerGood
+  - GodfatherClothingJumpsuitLawyerPurple
+  - GodfatherClothingJumpsuitLawyerRed
+
+- type: loadoutGroup
+  id: FugitiveOuterClothing
+  name: loadout-group-contractor-outerclothing
+  minLimit: 0
+  loadouts:
+  - ContractorClothingOuterHardsuitUIEngineer
+  - ContractorClothingOuterHardsuitUIPilot
+  - MercenaryClothingOuterHardsuitMercenaryWarlord
+  subgroups:
+  - MercenaryOuterClothing
+  - MonoMercenaryOuterClothing
+  - ContractorOuterClothing
