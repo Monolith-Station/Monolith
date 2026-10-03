@@ -39,6 +39,8 @@
       - PirateNF
     - type: ChatRank
       rank: pdv-tarkhan
+    - type: RadioOnCryosleep
+      radioChannel: Freelance # freelance = Vanguard
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial

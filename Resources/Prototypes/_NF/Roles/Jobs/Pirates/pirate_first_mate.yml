@@ -41,6 +41,8 @@
     - type: NpcFactionMember
       factions:
       - PirateNF
+    - type: RadioOnCryosleep
+      radioChannel: Freelance # freelance = Vanguard
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant, RadioImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages

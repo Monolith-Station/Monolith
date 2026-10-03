@@ -45,6 +45,8 @@
       - PirateNF
     - type: ChatRank
       rank: pdv-vizier
+    - type: RadioOnCryosleep
+      radioChannel: Freelance # freelance = Vanguard
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant, RadioImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages

@@ -28,6 +28,8 @@
       hideValues: true
       turnInValues:
         FederationMilitaryCredit: 400 # bounty on your head
+    - type: RadioOnCryosleep
+      radioChannel: Syndicate # Syndicate = Underground
   - !type:AddImplantSpecial
     implants: [ DeathRattleImplant, RadioImplant ]
 

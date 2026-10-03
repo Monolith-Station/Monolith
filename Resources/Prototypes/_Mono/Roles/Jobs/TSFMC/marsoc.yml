@@ -36,6 +36,8 @@
       - TSFMC
     - type: ChatRank
       rank: tsf-marsoc
+    - type: RadioOnCryosleep
+      radioChannel: Nfsd # NFSD = TSF Comms
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial
