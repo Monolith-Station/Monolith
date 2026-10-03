@@ -4,6 +4,8 @@ using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Content.Shared.Blocking.Components;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.Blocking;
 
@@ -11,6 +13,8 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
 {
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
+
+    [Dependency] private EntityQuery<PhysicsComponent> _physQuery = default!;
 
     private void InitializeUser()
     {
@@ -43,38 +47,43 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
 
     private void OnUserDamageModified(EntityUid uid, BlockingUserComponent component, DamageModifyEvent args)
     {
-        if (TryComp<BlockingComponent>(component.BlockingItem, out var blocking)) // Mono
+        if (!TryComp<BlockingComponent>(component.BlockingItem, out var blocking)) // Mono
+            return;
+
+        if (args.Origin is { } origin // mono
+            && Math.Abs(Angle.ShortestDistance(_transformSystem.GetWorldRotation(uid), _transformSystem.GetWorldRotation(origin).Opposite()).Degrees) >= blocking.BlockingArc/2)
+            return;
+
+        if (args.Damage.GetTotal() <= 0)
+            return;
+
+        // A shield should only block damage it can itself absorb. To determine that we need the Damageable component on it.
+        if (!TryComp<DamageableComponent>(component.BlockingItem, out var dmgComp))
+            return;
+
+        if (TryComp<ItemToggleComponent>(component.BlockingItem, out var toggleComponent) && !toggleComponent.Activated) // Mono
+            return;
+
+        var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
+        blockFraction = Math.Clamp(blockFraction, 0, 1);
+        _damageable.TryChangeDamage(component.BlockingItem,
+            blockFraction * args.OriginalDamage,
+            armorPenetration: args.ArmorPenetration); // Goob edit
+
+        var modify = new DamageModifierSet();
+        foreach (var key in dmgComp.Damage.DamageDict.Keys)
         {
-            if (args.Damage.GetTotal() <= 0)
-                return;
-
-            // A shield should only block damage it can itself absorb. To determine that we need the Damageable component on it.
-            if (!TryComp<DamageableComponent>(component.BlockingItem, out var dmgComp))
-                return;
-
-            if (TryComp<ItemToggleComponent>(component.BlockingItem, out var toggleComponent) && !toggleComponent.Activated) // Mono
-                return;
-
-            var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
-            blockFraction = Math.Clamp(blockFraction, 0, 1);
-            _damageable.TryChangeDamage(component.BlockingItem,
-                blockFraction * args.OriginalDamage,
-                armorPenetration: args.ArmorPenetration); // Goob edit
-
-            var modify = new DamageModifierSet();
-            foreach (var key in dmgComp.Damage.DamageDict.Keys)
-            {
-                modify.Coefficients.TryAdd(key, 1 - blockFraction);
-            }
-
-            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage,
-                DamageSpecifier.PenetrateArmor(modify ,args.ArmorPenetration)); // Goob edit
-
-            if (blocking.IsBlocking && !args.Damage.Equals(args.OriginalDamage))
-            {
-                _audio.PlayPvs(blocking.BlockSound, uid);
-            }
+            modify.Coefficients.TryAdd(key, 1 - blockFraction);
         }
+
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage,
+            DamageSpecifier.PenetrateArmor(modify ,args.ArmorPenetration)); // Goob edit
+
+        if (blocking.IsBlocking && !args.Damage.Equals(args.OriginalDamage))
+        {
+            _audio.PlayPvs(blocking.BlockSound, uid);
+        }
+
     }
 
     private void OnDamageModified(EntityUid uid, BlockingComponent component, DamageModifyEvent args)
