@@ -128,6 +128,7 @@
   parent: BaseWeaponBattery
   abstract: true
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Item
     size: Small
     shape:
@@ -165,6 +166,7 @@
   parent: BaseWeaponPowerCell
   abstract: true
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Item
     size: Small
   - type: Tag
@@ -281,6 +283,7 @@
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands. An experimental and illegal weapon.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/tesla_gun.rsi
     layers:
@@ -708,6 +711,7 @@
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse. On the handle is a label that says 'for authorized use only.'
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Item
     size: Large
   - type: Tag
