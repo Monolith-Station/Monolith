@@ -16,7 +16,7 @@
   guides:
   - TSFMC_Entry
   special:
-  - !:type:AddComponentSpecial
+  - !type:AddComponentSpecial
     components:
     - type: RadioOnCryosleep
       radioChannel: Nfsd # NFSD = TSF Comms
