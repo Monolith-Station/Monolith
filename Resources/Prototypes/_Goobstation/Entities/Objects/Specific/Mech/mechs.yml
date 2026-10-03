@@ -219,7 +219,7 @@
   id: MechGygax
   parent: [ BaseMech, CombatMech ]
   name: Gygax
-  description: While lightly armored, the Gygax has incredible mobility thanks to its ability to punch through walls at high speeds.
+  description: Built for speed, the Gygax is a light exosuit capable of rushing into a situation and cutting down foes with formidable weaponry. However, it lacks armour around the cockpit in favour of having too many hazardous components for its own good, meaning the Gygax will usually outlive its pilot.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -251,7 +251,7 @@
     baseState: gygax
     openState: gygax-open
     brokenState: gygax-broken
-    mechToPilotDamageMultiplier: 0.1 # Mono
+    mechToPilotDamageMultiplier: 0.8 # Mono: very bad protection
     criticalPowerStateSpeedPenalty: 0.5 # Mono
     maxIntegrity: 500 # Mono
     airtight: true
@@ -272,7 +272,7 @@
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier # Mono
     baseWalkSpeed: 3
-    baseSprintSpeed: 4.5
+    baseSprintSpeed: 6 # Mono: speed buff on ground
     baseWeightlessModifier: 7.5
   - type: StaticPrice
     price: 3000
@@ -359,7 +359,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.5
     baseSprintSpeed: 2
-    baseWeightlessModifier: 4.5 # Mono
+    baseWeightlessModifier: 2 # Mono: 
   - type: Damageable
     damageModifierSet: MechArmorHeavy
   - type: CanMoveInAir
@@ -644,7 +644,7 @@
     baseState: darkgygax
     openState: darkgygax-open
     brokenState: darkgygax-broken
-    mechToPilotDamageMultiplier: 0.15
+    mechToPilotDamageMultiplier: 0.5 # Mono: mediocre protection
     airtight: true
     maxIntegrity: 900
     maxEquipmentAmount: 4
@@ -661,7 +661,7 @@
         Structural: 200
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5 # Mono
-    baseSprintSpeed: 5.5 # Mono
+    baseSprintSpeed: 6 # Mono
     baseWeightlessModifier: 10.5 # Mono
   - type: Damageable
     damageModifierSet: MechArmorLight
@@ -747,7 +747,7 @@
     baseState: mauler
     openState: mauler-open
     brokenState: mauler-broken
-    mechToPilotDamageMultiplier: 0.1
+    mechToPilotDamageMultiplier: 0.2 # equivalent to juggsuit
     airtight: true
     maxIntegrity: 1300
     maxEquipmentAmount: 5
