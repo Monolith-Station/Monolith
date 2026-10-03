@@ -39,8 +39,6 @@
         exclusions:
         - DeathRattleImplant
       - type: JamOverwatch
-      - type: DeleteNearbyDrones
-        distance: 5000
       - type: ApplyIFFFlagsToDockedShips
         flags:
         - HideLabelAlways # hide all docked ships
