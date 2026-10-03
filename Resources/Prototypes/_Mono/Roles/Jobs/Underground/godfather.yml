@@ -9,6 +9,7 @@
   - !type:RoleTimeRequirement
     role: JobFugitive
     time: 18000 # 5 hours
+  whitelisted: true # I am NOT trusting regular players to not just use this role to frag out.
   startingGear: GodfatherGear
   icon: JobIconGodfather
   supervisors: job-supervisors-nobody
