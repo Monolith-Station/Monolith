@@ -85,3 +85,19 @@
   components:
   - type: AccessReader
     access: [["MieyoLiason"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsUnderground
+  suffix: Underground, Locked
+  components:
+  - type: AccessReader
+    access: [["Underground"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsGodfather
+  suffix: Godfather, Locked
+  components:
+  - type: AccessReader
+    access: [["Godfather"]]

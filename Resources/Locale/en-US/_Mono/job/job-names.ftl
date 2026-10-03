@@ -32,5 +32,9 @@ job-name-mmc-employee = MMC Employee
 job-supervisors-mmc-highcomm = the Mieyo Corporate Board
 job-supervisors-mmc-liason = the Corporate Liason
 
+# MARK: UNDERGROUND BLACK MARKET
+job-name-fugitive = Fugitive
+job-name-godfather = Godfather
+
 # MARK: CROCUS
 job-name-crocus-dockworker = Jianghui Dockworker

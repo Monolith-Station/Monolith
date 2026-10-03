@@ -39,6 +39,8 @@
     - type: NpcFactionMember
       factions:
       - TSFMC
+    - type: RadioOnCryosleep
+      radioChannel: Nfsd # NFSD = TSF Comms
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages

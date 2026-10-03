@@ -27,5 +27,9 @@ job-description-mmc-liason = Ensure profits for your corporate managers, keep yo
 job-description-mmc-security = Protect MMC assets and employees in the area from any threats.
 job-description-mmc-employee = Work under your liason for the sake of the MMC company board. Make money, give it to the company, and repeat.
 
+# MARK: UNDERGROUND/BLACK MARKET
+job-description-fugitive = You are a known enemy of the TSF. Evade the TSFMC and the bounty hunters they send after you. Reap the rewards of your dangerous lifestyle.
+job-description-godfather = Maintain your hold on the Underground through coercion and fear. Don't get assassinated.
+
 # MARK: CROCUS
 job-description-crocus-dockworker = Try to survive being in the crossfire between 2 sides. You've only got your basic work gear.

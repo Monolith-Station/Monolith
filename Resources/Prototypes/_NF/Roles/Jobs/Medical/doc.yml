@@ -41,6 +41,8 @@
         SpeedModifier: 2
       - type: ChatRank
         rank: md-doc
+      - type: RadioOnCryosleep
+        radioChannel: Service # service = caelestinus
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift

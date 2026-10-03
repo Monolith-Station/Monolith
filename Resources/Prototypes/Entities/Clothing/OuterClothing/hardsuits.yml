@@ -141,9 +141,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
+        Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.65
+        Piercing: 0.85 # Mono: this is not meant to be good against bullets.
         Radiation: 0.25 #salv is supposed to have radiation hazards in the future
         Caustic: 0.45
   - type: ClothingSpeedModifier
@@ -293,7 +293,7 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitSecurity
-  name: security hardsuit
+  name: judge's hardsuit
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
@@ -541,7 +541,7 @@
       coefficients:
         Blunt: 0.45
         Slash: 0.65 # Mono 0.65 < 0.8
-        Piercing: 0.65 # Mono 0.65 < 0.9
+        Piercing: 0.8 # Mono 0.8 < 0.9
         Heat: 0.3
         Radiation: 0.1
         Caustic: 0.2
@@ -581,7 +581,7 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitSecurityRed
-  name: head of security's hardsuit
+  name: overseer's hardsuit
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
@@ -659,10 +659,10 @@
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT3]
+  parent: [ClothingOuterHardsuitBase, BaseC3SyndicateContrabandT3]
   id: ClothingOuterHardsuitSyndie
   name: blood-red hardsuit
-  description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
+  description: A heavily armored hardsuit and a common sight amongst organised criminals in the greater Perseus Arm. A rare find in the Colossus sector.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
@@ -706,7 +706,7 @@
 
 # Syndicate Medic Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitSyndie, BaseFactionGearOtherFactionT1]
+  parent: [ClothingOuterHardsuitSyndie, BaseC3SyndicateContrabandT3]
   id: ClothingOuterHardsuitSyndieMedic
   name: blood-red medic hardsuit
   description: A heavily armored and agile advanced hardsuit specifically designed for field medic operations.
@@ -742,10 +742,10 @@
 
 #Syndicate Elite Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseFactionGearOtherFactionT3]
+  parent: [ClothingOuterHardsuitBase, BaseC3SyndicateContrabandT3]
   id: ClothingOuterHardsuitSyndieElite
-  name: syndicate elite hardsuit
-  description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
+  name: elite hardsuit
+  description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
@@ -791,8 +791,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase]
   id: ClothingOuterHardsuitSyndieCommander
-  name: syndicate commander hardsuit
-  description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
+  name: commander hardsuit
+  description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a boarding squad. Has significantly improved armor for those deadly front-lines firefights.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
@@ -831,8 +831,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase]
   id: ClothingOuterHardsuitJuggernaut
-  name: cybersun juggernaut suit
-  description: A suit originally made by the cutting edge R&D department at cybersun to be hyper resilient, now recycled and used by the Phaethon Dynasty. Hefty and durable, but not fully insulated.
+  name: juggernaut suit
+  description: A suit of which the blueprint was bestowed upon the Dynasty by the Sultan Himself. Hefty and durable, but not fully insulated.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi

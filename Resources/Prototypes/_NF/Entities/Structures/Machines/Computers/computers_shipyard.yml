@@ -112,7 +112,7 @@
 - type: entity
   id: ComputerShipyardSyndicate
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyardBase]
-  name: syndicate shipyard console
+  name: underground shipyard console # Mono
   description: Used to buy ships not available through other means.
   components:
   - type: ActivatableUI
