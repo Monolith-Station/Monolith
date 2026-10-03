@@ -2,7 +2,7 @@
   parent: [ ClothingHeadHelmetHardsuitSyndie, ShowSecurityIcons, ShowMedicalIcons ]
   id: ClothingHeadHelmetHardsuitGodfather
   name: BR-238 hardsuit helmet
-  description: A symbol of power, this helmet has as many gadgets as its designer could haphazrdly cram inside.
+  description: A symbol of power, this helmet has as many gadgets as its designer could haphazardly cram inside.
   components:
   - type: ThermalVision
     flashDurationMultiplier: 2
@@ -28,7 +28,7 @@
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase]
   id: ClothingHelmetHardsuitWarlord
   name: WL-01 helmet
-  description: A heavy headgear piece accompanying the Warlord suit, it offers flash inmunity aswell mass scanner support.
+  description: A heavy headgear piece accompanying the Warlord suit, it offers flash inmunity as well as an integrated mass scanner.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
