@@ -1,0 +1,60 @@
+# Author Info
+# GitHub: SuperGDPWYL
+# Discord: supergdpwyl
+- type: pointOfInterest
+  id: Underground
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'Underground Black Market'
+  minimumDistance: 17500
+  maximumDistance: 22500
+  spawnGroup: SyndicateFOB
+  gridPath: /Maps/_Mono/POI/underground.yml
+  addComponents:
+  - type: IFF
+    color: "#991111"
+    readOnly: true # mono
+    flags:
+    - HideLabelAlways # hidden
+  - type: WorldGenDistanceCarver
+    distanceThresholds:
+    # Dead zone
+    - maxDistance: 800
+      prob: 0.0
+    - maxDistance: 1500
+      prob: 0.3
+  - type: SyndicateFOB
+
+- type: gameMap
+  id: Underground
+  mapName: 'Underground Black Market'
+  mapPath: /Maps/_Mono/POI/underground.yml
+  minPlayers: 0
+  stations:
+    Underground:
+      stationProto: RecordsFrontierOutpost
+      gridComponents:
+      - type: DeleteNearbyDrones
+        distance: 5000
+      - type: JamDeathrattles
+        exclusions:
+        - DeathRattleImplant
+      - type: JamOverwatch
+      - type: DeleteNearbyDrones
+        distance: 5000
+      - type: ApplyIFFFlagsToDockedShips
+        flags:
+        - HideLabelAlways # hide all docked ships
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Underground Black Market'
+        - type: ExtraStationInformation
+          icon: /Textures/_Mono/Interface/Misc/LateJoin/underground.png
+          stationSubtext: 'frontier-lobby-underground-subtext'
+          stationDescription: 'frontier-lobby-underground-description'
+        - type: StationJobs
+          availableJobs:
+            Godfather: [ 1, 1 ]
+            Fugitive: [ 5, 5 ]
+          tags:
+          - CentralCommand # no changing these slots
+        - type: StationDeadDropHintExempt

@@ -20,3 +20,8 @@ frontier-lobby-crocus-subtext = Ground warfare.
 frontier-lobby-crocus-description = This is a map for the Crocus mode. [color=red][bold]It is currently work in progress, and nothing is final.[/bold][/color]; if you see this, it's from an admin event.
 
    - [color=red][bold]Special species' may have difficulty playing here![/bold][/color] - The air may be too cold for reptillians, there is little infrastructure for IPCs, and Voxes may struggle with the atmospherics problems.
+
+frontier-lobby-underground-subtext = A hideout harboring enemies of the Trans-Solarian Federation.
+frontier-lobby-underground-description = A hideout with its IFF disabled in the Outer Cloud, containing a medbay, manufactory and four UndergroundVends that serve as a direct link to a distant Persean black market.
+
+   - [color=red][bold]All roles on this station are actively wanted by the TSFMC and should expect to be killed on sight if discovered.[/bold][/color] That said, you get some pretty neat benefits from it.
