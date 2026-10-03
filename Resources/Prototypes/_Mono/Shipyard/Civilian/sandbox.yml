@@ -1,0 +1,41 @@
+# Author Info
+# GitHub: tonotom1
+# Discord: rws
+#
+# Shuttle Notes:
+# hi
+
+- type: vessel
+  id: Sandbox
+  parent: BaseVessel
+  name: UW Sandbox
+  description: A modular platform equipped with basic equipment capable of supporting construction operations. Barebones and easy to reconfigure.
+  price: 25000 # ~appraisegrid of 19k. The markup is a bit fat to make jacking materials from it less appealing
+  category: Small
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/sandbox.yml
+  guidebookPage: null
+  class:
+  - Engineering
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Sandbox
+  mapName: 'UW Sandbox'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/sandbox.yml
+  minPlayers: 0
+  stations:
+    Sandbox:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Sandbox CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]
