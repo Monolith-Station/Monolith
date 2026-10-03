@@ -148,3 +148,49 @@
     walkModifier: 0.55
     sprintModifier: 0.55
   - type: HeldSpeedModifier
+
+- type: entity
+  parent: ClothingBackpackJack
+  id: ClothingBackpackJill
+  name: GS-007-B Jill ammo storage
+  description: A heavy backpack made for carrying the GS-007-A's loading system. After field testing the GS-004, an adapter was added for standard ammo boxes.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Back/Backpacks/jill_backpack.rsi
+    layers:
+    - state: icon
+      visible: false
+    - state: base
+    - state: mag-7
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    slots: BACK
+    sprite: _Mono/Clothing/Back/Backpacks/jill_backpack.rsi
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine556x45JillFMJ
+        whitelist:
+          tags:
+          - JillBackpackAmmo
+          - Magazine556x45mmBox
+  - type: MagazineVisuals
+    magState: mag
+    steps: 7
+    zeroVisible: true
+    zeroNoAmmo: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: Tag
+    tags:
+    - JillMinigunBackpack
+    - WhitelistChameleon

@@ -37,3 +37,14 @@
   parent: BaseNeckClothingRecipe
   id: ClothingNeckPonchoSmallRed
   result: ClothingNeckPonchoSmallRed
+
+- type: latheRecipe
+  id: ClothingBeltMule
+  parent: NFBaseBeltRecipe
+  result: ClothingBeltMule
+
+- type: latheRecipe
+  id: ClothingBeltRook
+  parent: NFBaseBeltRecipe
+  result: ClothingBeltRook
+
