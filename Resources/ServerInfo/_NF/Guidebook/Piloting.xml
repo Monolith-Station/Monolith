@@ -7,7 +7,7 @@
 
 Newly purchased shuttles start docked with Colonial Outpost. To undock, follow these steps:
 
-- Tell people you are undocking using the shortband channel ([color=#CC6633]:d[/color]). Include your ship's callsign, which can be found on the NAV screen (e.g. "[color=#CC6633]:d Sabine CIV-123 undocking.[/color]")
+- (Optional) Tell people you are undocking using the shortband channel ([color=#CC6633]:d[/color]). Include your ship's callsign, which can be found on the NAV screen (e.g. "[color=#CC6633]:d Sabine CIV-123 undocking.[/color]")
 - Click on the DOCK tab, disconnect any airlocks that are docked to the station.
 - Return to the NAV tab.
 
@@ -23,10 +23,10 @@ Newly purchased shuttles start docked with Colonial Outpost. To undock, follow t
   <Box>
     <GuideEntityEmbed Entity="AirlockGlassShuttle"/>
   </Box>
-  [bold]Before docking your ship with:[/bold]
-- [bold][color=#979797]Another ship[/color][/bold], it is best practice to announce your intention to dock over the traffic channel ([color=#CC6633]:d[/color]).
-- [bold][color=#ffd700]Colonial Outpost[/color][/bold], stop 200m out, request permission to dock from the Station Traffic Controller (STC) over the traffic radio channel ([color=#CC6633]:d[/color]).
-- [bold][color=#ffa500]Another station[/color][/bold], docks are first come, first serve. Be courteous and leave space where possible.
+  [bold](Optional) Before docking your ship with:[/bold]
+- [bold][color=#979797]Another ship[/color][/bold], it is best practice to announce your intention to dock over the Shortband channel ([color=#CC6633]:d[/color]). Failure to do so may result in your ship being fired on.
+- [bold][color=#ffd700]A base of operations, such as TSFMC Flagship Halcyon or MMC Hokkaido[/color][/bold], if you wish to avoid being killed for trespassing, stop somewhere around 1.5km out and request permission to dock from an inhabitant of the station (especially the Colonel or Grand Vizier) over the Shortband channel. ([color=#CC6633]:d[/color]).
+- [bold][color=#ffa500]Another station, such as Caelestinus Central[/color][/bold], docks are usually first come, first serve. Be courteous and leave space where possible.
 
 To dock the ship:
 - Pilot towards the target so a set of its airlocks are nearby a set of airlocks of the target.

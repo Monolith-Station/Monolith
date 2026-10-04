@@ -1,6 +1,6 @@
 dungeon-boss-grid-warning = Return to the dungeon.
 
-salvage-faction-syndicate = Syndicate
+salvage-faction-syndicate = Shades
 salvage-faction-cultists = Cultists
 salvage-faction-flesh = Flesh
 salvage-faction-argocytes = Argocytes
