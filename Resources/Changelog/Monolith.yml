@@ -25792,3 +25792,52 @@ Entries:
   id: 2795
   time: '2026-10-03T21:46:58.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4817
+- author: kasature90
+  changes:
+    - type: Add
+      message: CROCUS - Added autobalance for TSF/PDV infantry.
+    - type: Add
+      message: >-
+        CROCUS - Added mindshields to TSF/PDV infantry. PDV gets their own evil
+        red one, so you shouldn't have any trouble knowing who to shoot.
+    - type: Add
+      message: >-
+        CROCUS - Added a side objective of beacons. TSF needs to keep 2-4 of
+        them repaired, PDV needs to keep 2-6 of them destroyed. Both sides need
+        to keep an extraction beacon next to the destroyed/repaired beacons, so
+        both sides get more beacons now. They're located in the more out of the
+        way locations like the docks. You can get pinpointers for them from the
+        gear vendors.
+    - type: Add
+      message: CROCUS - TSF can roll the objective of capturing PDAs too now.
+    - type: Add
+      message: >-
+        CROCUS - Added an underground area to the city w/ 4 entrances. The
+        tunnels near PDV spawn have had more side routes added and other minor
+        edits to help with the spawncamp. The TSF base is now fully redone w/
+        multiple exits & is located on the westernmost side of the map. Added
+        warp points to various locations too.
+    - type: Tweak
+      message: >-
+        CROCUS - PDV rifleman kit M-90 is Vympel again. Added compact
+        defibrillators & medical HUDs to both side's medic kits.
+    - type: Tweak
+      message: CROCUS - Removed optics from vendors.
+    - type: Tweak
+      message: >-
+        CROCUS - Round ends at 1h10m now instead of 2h10m. Respawn timer is now
+        0.25x (2.5 minutes) instead of 0.5x (5 minutes). Gamemode now available
+        in vote, but requires a 80% majority.
+    - type: Remove
+      message: >-
+        CROCUS - Removed wildcard (pointsman/marksman) & autorifleman kits. I've
+        realized they don't add shit and they're just bad for the balance.
+    - type: Tweak
+      message: >-
+        First aid kits contain a iron/copper pill bottle now instead of
+        tricordrazine.
+    - type: Tweak
+      message: Vympel buffed to 7.2 RPS. Bandit damage mod reduced to 1.5x.
+  id: 2796
+  time: '2026-10-04T22:31:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4822

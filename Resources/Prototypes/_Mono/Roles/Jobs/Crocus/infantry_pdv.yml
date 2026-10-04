@@ -33,6 +33,10 @@
     - type: NpcFactionMember
       factions:
       - PirateNF
+    # It doesn't need to be a implant, because it's not meant to be removed.
+    - type: FakeMindShield # mindshield overlay is too dogshit to just use the comp
+      isEnabled: true
+      mindShieldStatusIcon: MindShieldIconPDV
   - !type:AddLanguageSpecial # Monolith - Languages
     languagesSpoken:
     - Freespeak

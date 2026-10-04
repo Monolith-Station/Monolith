@@ -1,0 +1,9 @@
+- type: entity
+  description: Points to the nearest radio uplink beacon for TSF/PDV objectives. Only works on the current level of the user, so you might be missing some under/above you.
+  id: PinpointerSyndicateCrocusBeacon
+  parent: PinpointerSyndicateNuclear
+  suffix: Crocus Beacons
+  components:
+  - type: Pinpointer
+    component: SyndicateFOB # I'm not making another nothingburger component for this. LPB & uplink beacons are mutually exclusive anyways.
+    targetName: radio uplink beacon
