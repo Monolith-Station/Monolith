@@ -1,0 +1,126 @@
+# TSF
+
+- type: thiefBackpackSet
+  id: KitSelectorCrocusRiflemanTSF
+  name: selectable-set-crocus-infantry-kit-name
+  description: selectable-set-crocus-infantry-tsf-kit-desc
+  sprite:
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/lecter.rsi
+    state: icon
+  content:
+  - WeaponRifleLecter
+  - Magazine68x52mmCaseless
+  - Magazine68x52mmCaseless
+  - Magazine68x52mmCaseless
+  - Magazine68x52mmCaseless
+  - AmmoBox68x52mmCaseless
+  - MedkitFilled
+  - Tourniquet
+  - Tourniquet
+  - GrenadeFlashBang
+  - ExGrenade
+  - ClothingHelmetAttachmentNVGsBasic
+  - ClothingHelmetCoverHelmetMount
+
+- type: thiefBackpackSet
+  id: KitSelectorCrocusMedicTSF
+  name: selectable-set-crocus-medic-kit-name
+  description: selectable-set-crocus-medic-tsf-kit-desc
+  sprite:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: blackkit
+  content:
+  - WeaponSubMachineGunDrozd
+  - Magazine45_ACPSubMachineGunFMJ
+  - Magazine45_ACPSubMachineGunFMJ
+  - Magazine45_ACPSubMachineGunFMJ
+  - AmmoBox45_ACPFMJ
+  - MedkitCombatFilled
+  - MedkitCombatFilled
+  - ClothingMaskSterile
+  - HandheldHealthAnalyzer
+  - Hemostat
+  - SawElectric
+  - Drill
+  - Cautery
+  - Retractor
+  - Scalpel
+  - BoneGel
+
+- type: thiefBackpackSet
+  id: KitSelectorCrocusSapperTSF
+  name: selectable-set-crocus-sapper-kit-name
+  description: selectable-set-crocus-sapper-tsf-kit-desc
+  sprite:
+    sprite: Nyanotrasen/Objects/Weapons/Melee/breaching_hammer.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunDrozd
+  - Magazine45_ACPSubMachineGunFMJ
+  - Magazine45_ACPSubMachineGunFMJ
+  - Magazine45_ACPSubMachineGunFMJ
+  - AmmoBox45_ACPFMJ
+  - MedkitFilled
+  - ClothingHelmetAttachmentNVGsBasic
+  - ClothingHelmetCoverHelmetMount
+  - BreachingCharge
+  - BreachingCharge
+  - BreachingCharge
+  - BreachingCharge
+  - SecBreachingHammer
+  - RemoteSignallerAdvanced
+
+- type: thiefBackpackSet
+  id: KitSelectorCrocusAutoriflemanTSF
+  name: selectable-set-crocus-autorifleman-kit-name
+  description: selectable-set-crocus-autorifleman-tsf-kit-desc
+  sprite:
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/grizzly/Grizzly-icon.rsi
+    state: icon
+  content:
+  - WeaponLMGGrizzly
+  - AmmoBox68x52mmCaselessBig
+  - AmmoBox68x52mmCaselessBig
+  - Brutepack
+  - Tourniquet
+  - Tourniquet
+
+- type: thiefBackpackSet
+  id: KitSelectorCrocusGrenadierTSF
+  name: selectable-set-crocus-grenadier-kit-name
+  description: selectable-set-crocus-grenadier-tsf-kit-desc
+  sprite:
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunDrozd
+  - Magazine45_ACPSubMachineGunFMJ
+  - Magazine45_ACPSubMachineGunFMJ
+  - Magazine45_ACPSubMachineGunFMJ
+  - AmmoBox45_ACPFMJ
+  - MedkitFilled
+  - ExGrenade
+  - ExGrenade
+  - ExGrenade
+  - ExGrenade
+  - GrenadeFlashBang
+  - GrenadeFlashBang
+  - SmokeGrenade
+  - SmokeGrenade
+
+- type: thiefBackpackSet
+  id: KitSelectorCrocusMarksmanTSF
+  name: selectable-set-crocus-marksman-tsf-kit-name
+  description: selectable-set-crocus-marksman-tsf-kit-desc
+  sprite:
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/bandit.rsi
+    state: icon
+  content:
+  - WeaponRifleMR3C
+  - Magazine8x65mmSKR
+  - Magazine8x65mmSKR
+  - Magazine8x65mmSKR
+  - AmmoBox8x65mmSKR
+  - MedkitFilled
+  - ClothingHelmetAttachmentNVGsBasic
+  - ClothingHelmetCoverHelmetMount

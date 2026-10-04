@@ -55,13 +55,15 @@
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltNfsdBrownCentcom
-  name: sheriff's over-ear headset
+  name: colonel's over-ear headset
   categories: [ HideSpawnMenu ]
   components:
   - type: ContainerFill
     containers:
-      key_slots:
-      - EncryptionKeyStationMaster
+      key_slots: # Mono: no master keys
+      - EncryptionKeyCommon
+      - EncryptionKeyNfsd
+      - EncryptionKeyCommand
   - type: Sprite
     sprite: _NF/Clothing/Ears/Headsets/nfsd_h_brown.rsi
   - type: Clothing

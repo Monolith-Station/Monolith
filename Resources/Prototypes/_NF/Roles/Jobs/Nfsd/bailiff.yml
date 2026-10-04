@@ -12,6 +12,10 @@
     - !type:RoleTimeRequirement
       role: JobSeniorOfficer
       time: 10800 # 3 hours
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   startingGear: BailiffGear
   icon: JobIconTSFCaptain
   supervisors: job-supervisors-sheriff
@@ -56,7 +60,7 @@
 #    - Magazine45_ACPPistolFMJ # Mono
     - BaseSecurityUplinkRadioCaptain
 #    - ShipVoucherNfsdBailiff # Mono
-    - RubberStampBailiff
+#   - RubberStampBailiff # Mono: sorry furo
     - RadioHandheldNF # Mono
     - RubberStampTSFCaptain # Mono
     - BookTSFSOP

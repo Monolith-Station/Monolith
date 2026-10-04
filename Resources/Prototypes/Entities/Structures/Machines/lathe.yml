@@ -622,7 +622,8 @@
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
-    stealGroup: MedicalTechFabCircuitboard
+    stealGroup:
+    - MedicalTechFabCircuitboard
   - type: PirateBountyItem # Mono
     id: Techfab
 

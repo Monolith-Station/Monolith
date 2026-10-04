@@ -515,3 +515,20 @@
     - LedgerCartridge
   - type: Pda
     id: MieyoLiasonIDCard
+
+# ER
+
+- type: entity
+  parent: MedicalPDA
+  id: ERMedicalPDA
+  components:
+  - type: Pda
+    id: MedMedicIDCard
+
+- type: entity
+  parent: SeniorPhysicianPDA
+  id: ERSeniorPhysicianPDA
+  components:
+  - type: Pda
+    id: MedMedicIDCard
+

@@ -25,16 +25,16 @@
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10
-      behaviors:
-      - !type:TimerStartBehavior
+    #- trigger:
+    #    !type:DamageTrigger
+    #    damage: 10
+    #  behaviors:
+    #  - !type:TimerStartBehavior # Mono - chaining is really annoying for strats... the funny factor isnt worth it if you cant use these things at all
     - trigger:
         !type:DamageTrigger
         damage: 800
       behaviors:
-      - !type:TriggerBehavior
+      #- !type:TriggerBehavior # Mono - chaining is really annoying for strats... the funny factor isnt worth it if you cant use these things at all
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Appearance

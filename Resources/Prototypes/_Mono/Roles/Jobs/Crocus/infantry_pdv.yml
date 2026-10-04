@@ -1,0 +1,53 @@
+- type: job
+  id: PdvInfantry
+  name: job-name-pdv-infantry
+  description: job-description-pdv-infantry
+  playTimeTracker: JobPDVInfantry
+  requirements:
+  - !type:TraitsRequirement
+    inverted: true
+    traits:
+    # Ironman gives you the LPC. The others are just free upgrades; Crocus has no bionics.
+    - PrybarProsthetics
+    - BionicLegs
+    - Ironman
+  startingGear: PDVInfantryGear
+  alwaysUseSpawner: true # cuz like, planets are 1 mapgrid, u cant use latejoins bro!!
+  icon: JobIconPirate
+  supervisors: job-supervisors-pirate
+  weight: 150
+  displayWeight: 5
+  assignedCompany: PDV
+  canBeAntag: false
+  setPreference: true # just to config loadout
+  accessGroups:
+  - GeneralAccess
+  access:
+  - Pirate
+  - Mercenary
+  guides:
+  - PDV_Entry
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - PirateNF
+  - !type:AddLanguageSpecial # Monolith - Languages
+    languagesSpoken:
+    - Freespeak
+    languagesUnderstood:
+    - Freespeak
+
+# Starts unarmed to gear up at vendor
+- type: startingGear
+  id: PDVInfantryGear
+  equipment:
+    ears: ClothingHeadsetAltFreelancer
+    neck: ClothingNeckIFFOrange
+    eyes: ClothingEyesHudSecurity
+  storage:
+    belt:
+    - RadioHandheldNF
+  inhand:
+  - UndeterminedPDVCrocusKit

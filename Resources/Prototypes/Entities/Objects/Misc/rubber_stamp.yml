@@ -20,7 +20,8 @@
   - type: Item
     size: Tiny
   - type: StealTarget
-    stealGroup: Stamp
+    stealGroup:
+    - Stamp
   - type: UseDelay # Frontier
     delays: # Frontier
       stamp:
