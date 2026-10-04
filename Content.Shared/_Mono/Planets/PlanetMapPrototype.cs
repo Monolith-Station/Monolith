@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Mining;
 using Content.Shared.Parallax.Biomes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -31,4 +32,5 @@ public sealed partial class PlanetBiomeLayer : PlanetMapLayer
     [DataField(required: true)] public ProtoId<BiomeTemplatePrototype> Biome;
     [DataField] public int SeedOffset;
     [DataField] public bool Atmosphere = true;
+    [DataField] public PlanetOreDeposits? Deposits;
 }

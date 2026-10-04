@@ -23,6 +23,93 @@
     map: /Maps/_CE/empty.yml
   - !type:PlanetBiomeLayer
     biome: Asclepiu
+    deposits:
+      spacing: 128
+      minimumGap: 24
+      chance: 0.7
+      excludedTiles: [FloorWater]
+      minerals:
+      - deposit: Iron
+        weight: 6
+        minRadius: 18
+        maxRadius: 36
+        minReserves: 10000
+        maxReserves: 50000
+        minSaturation: 0.55
+        maxSaturation: 1
+        rate: 6
+      - deposit: Coal
+        weight: 4
+        minRadius: 14
+        maxRadius: 30
+        minReserves: 8000
+        maxReserves: 30000
+        minSaturation: 0.6
+        maxSaturation: 1
+        rate: 5
+      - deposit: Quartz
+        weight: 3
+        minRadius: 12
+        maxRadius: 28
+        minReserves: 6000
+        maxReserves: 24000
+        minSaturation: 0.45
+        maxSaturation: 1
+        rate: 4
+      - deposit: Copper
+        weight: 3
+        minRadius: 14
+        maxRadius: 28
+        minReserves: 6000
+        maxReserves: 24000
+        minSaturation: 0.5
+        maxSaturation: 1
+        rate: 4
+      - deposit: Lithium
+        weight: 2
+        minRadius: 10
+        maxRadius: 22
+        minReserves: 4000
+        maxReserves: 18000
+        minSaturation: 0.4
+        maxSaturation: 0.9
+        rate: 3
+      - deposit: Silver
+        weight: 1.5
+        minRadius: 8
+        maxRadius: 18
+        minReserves: 3000
+        maxReserves: 12000
+        minSaturation: 0.35
+        maxSaturation: 0.85
+        rate: 3
+      - deposit: Gold
+        weight: 1
+        minRadius: 7
+        maxRadius: 16
+        minReserves: 2000
+        maxReserves: 8000
+        minSaturation: 0.3
+        maxSaturation: 0.8
+        rate: 2
+      - deposit: Uranium
+        weight: 0.8
+        minRadius: 7
+        maxRadius: 16
+        minReserves: 2000
+        maxReserves: 8000
+        minSaturation: 0.3
+        maxSaturation: 0.75
+        rate: 2
+      - deposit: Diamond
+        weight: 0.2
+        minRadius: 4
+        maxRadius: 10
+        minReserves: 500
+        maxReserves: 3000
+        minSaturation: 0.25
+        maxSaturation: 0.65
+        rate: 1
     components:
     - type: CEZGroundLayer
 

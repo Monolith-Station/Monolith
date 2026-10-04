@@ -50,7 +50,7 @@ public partial class ShuttleNavControl
             : null;
     }
 
-    private void DrawTerrain(DrawingHandleScreen handle, Matrix3x2 worldToView, Vector2 center, EntityUid? map)
+    protected void DrawTerrain(DrawingHandleScreen handle, Matrix3x2 worldToView, Vector2 center, EntityUid? map)
     {
         if (!ShowTerrain)
             return;

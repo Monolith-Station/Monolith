@@ -1,4 +1,5 @@
 using Content.Server._CE.ZLevels.Core;
+using Content.Server._Mono.Mining;
 using Content.Server.Parallax;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._Mono.Planets;
@@ -84,6 +85,13 @@ public sealed partial class PlanetMapSystem : EntitySystem
                         _prototypes.Index(surface.Biome),
                         unchecked(seed + surface.SeedOffset),
                         atmosphere: surface.Atmosphere);
+                    if (surface.Deposits is { } deposits)
+                    {
+                        AddComp(map.Value, new BuriedOreComponent
+                        {
+                            Configuration = _serialization.CreateCopy(deposits, notNullableOverride: true),
+                        });
+                    }
                     break;
                 default:
                     throw new ArgumentException($"Unknown planet layer {layer.GetType().Name}.");
