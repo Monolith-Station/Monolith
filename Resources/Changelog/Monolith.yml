@@ -25737,3 +25737,58 @@ Entries:
   id: 2791
   time: '2026-10-02T01:51:04.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4776
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        CROCUS - Replaced most of the vendor stock with kit selectors. Vendors
+        still exist for ammo/meds. PDV now gets M-90 for rifle role, since while
+        on paper it's better than Lecter it performs about the same DPS-wise
+        with the differing armor values. Also because they needed a gun that can
+        take attachments. Added more stairs around to get to the rooftops of
+        smaller 1 z-level buildings, removed the random gun spawns that were
+        really funny for now and replaced w/ maintenance weapon spawners..
+    - type: Add
+      message: CROCUS - Expanded the urban area more eastwards.
+    - type: Add
+      message: Resprited Bandit DMR, finally.
+    - type: Tweak
+      message: >-
+        Moths and harpies can't fly across z-levels anymore. I'll undo this when
+        you can actually shoot across z-levels.
+    - type: Tweak
+      message: >-
+        CROCUS - Raised the amount of nanite capsules required for the
+        objective.
+    - type: Fix
+      message: CROCUS - Fixed nanite capsules being able to be stored in closets.
+  id: 2792
+  time: '2026-10-03T10:28:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4812
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed respawn timers sometimes being instant.
+  id: 2793
+  time: '2026-10-03T17:35:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4813
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: 1.5x damage mod for Bandit DMR.
+    - type: Tweak
+      message: >-
+        TSF roles can now use the forest jumpsuit from Crocus I guess. Nothing
+        gameplay-affecting.
+  id: 2794
+  time: '2026-10-03T17:51:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4814
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the CV-53, M-92X, Enforcer MkII and MEDUSA having 2x their
+        intended shield HP.
+  id: 2795
+  time: '2026-10-03T21:46:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4817

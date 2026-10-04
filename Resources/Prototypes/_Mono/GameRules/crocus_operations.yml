@@ -70,8 +70,8 @@
       sprite: _Mono/Objects/TradeGoods/factiongoods.rsi
       state: nanitecanister
   - type: StealCondition
-    minCollectionSize: 30
-    maxCollectionSize: 80 # The map has 115 across all levels.
+    minCollectionSize: 50
+    maxCollectionSize: 110
     stealGroup: FederalNanites
 
 - type: stealTargetGroup

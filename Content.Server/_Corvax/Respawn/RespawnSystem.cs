@@ -65,12 +65,22 @@ public sealed partial class RespawnSystem : EntitySystem
     // Frontier: CVar setters
     private void OnRespawnCryoFirstTimeChanged(float value)
     {
-        _respawnTimeOnFirstCryo = value;
+        _baseRespawnTimeOnFirstCryo = value;
+        if (_ticker.CurrentPreset != null)
+        {
+            _respawnTimeOnFirstCryo = _baseRespawnTimeOnFirstCryo * _ticker.CurrentPreset.RespawnMultiplier;
+            _respawnTime = _baseRespawnTime * _ticker.CurrentPreset.RespawnMultiplier;
+        }
     }
 
     private void OnRespawnCryoTimeChanged(float value)
     {
-        _respawnTime = value;
+        _baseRespawnTime = value;
+        if (_ticker.CurrentPreset != null)
+        {
+            _respawnTimeOnFirstCryo = _baseRespawnTimeOnFirstCryo * _ticker.CurrentPreset.RespawnMultiplier;
+            _respawnTime = _baseRespawnTime * _ticker.CurrentPreset.RespawnMultiplier;
+        }
     }
     // End Frontier
 
