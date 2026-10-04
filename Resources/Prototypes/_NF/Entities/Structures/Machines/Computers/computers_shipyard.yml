@@ -42,6 +42,11 @@
       ShipyardConsole-targetId: !type:ContainerSlot
   - type: Computer
     board: Null
+  - type: CreditReceiver # Mono - Ironman players and whoever else can use cash money for their ships.
+    cashSlot:
+      whitelist:
+        components:
+        - Cash
 
 # Concrete consoles
 - type: entity

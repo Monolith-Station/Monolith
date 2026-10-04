@@ -115,14 +115,17 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
         if (!TryComp<CreditReceiverComponent>(uid, out var receiver))
             return false;
 
-        // If there's no money in the bag, we fail to return anything.
+        // If there's no bag for the money, we fail to return anything.
         if (!TryGetCashSlot(uid, out var cashSlot)
             || cashSlot.ContainerSlot == null)
             return false;
 
+        // If there's money for the bag, we fail to return anything.
+        if (cashSlot.ContainerSlot.ContainedEntity == null)
+            return false;
+
         // This whole system assumes the currency item is a stack of items.
-        if ( cashSlot.ContainerSlot.ContainedEntity == null
-            || !TryComp<StackComponent>(cashSlot.ContainerSlot.ContainedEntity, out var stackComp))
+        if (!TryComp<StackComponent>(cashSlot.ContainerSlot.ContainedEntity, out var stackComp))
             return false;
 
         // Sanity check that the stack item is of the same type as specified in the CreditReceiverComponent.CurrencyStackType
@@ -162,8 +165,8 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
     /// <remarks>By default, will only return true if the full amount can be payed. If you want to use this in tandem with <paramref name="partialPaymentAllowed"/> so true/false depends on if there was no debt remains to be paid.</remarks>
     public bool TryCashPayment(EntityUid uid, int amount, out int remainingDebt, bool partialPaymentAllowed = false)
     {
-        remainingDebt = 0;
-        if (amount <= 0)
+        remainingDebt = amount;
+        if (amount < 0)
         {
             _log.Info($"TryCashPayment: {amount} is invalid from Uid {uid}");
             return false;
@@ -184,9 +187,11 @@ public abstract partial class SharedCreditReceiverSystem : EntitySystem
             return false;
 
         if (partialPaymentAllowed)
-            remainingDebt = Math.Abs(amount - balance);
+            // Okay so assume you are paying with 51k in cash for a 100k ship. Remaining Debt should be 49k
+            remainingDebt = Math.Max(amount - balance,0);
 
         var newCashSlotBalance = Math.Max(balance - amount, 0);
+        // and newCashSlotBalance should be 0.
 
         // Finally, we adjust the currency and the component to complete the transaction.
         _stack.SetCount(cash.Value.Owner, newCashSlotBalance, cash.Value.Comp);
