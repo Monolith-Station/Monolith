@@ -42,7 +42,7 @@ language-NovaCygniBasic-description =
     A long split dialect of Orion Standard that has been mixed with ancient Russian influences, eventually distinguishing itself from its ancestors.
     To an outsider it sounds similar to Orion Standard yet with mixed and indecipherable meaning.
 
-language-TauCetiBasic-name = Orion Standard
+language-TauCetiBasic-name = Orion English
 language-TauCetiBasic-description =
     Very similar to ancient-earth English, with various twists from the many cultures it has expanded to. Once the dominant language of the Confederacy and mandated by law,
     its widespread use and consistency across cultures has kept it relevant past the Orion arm.
