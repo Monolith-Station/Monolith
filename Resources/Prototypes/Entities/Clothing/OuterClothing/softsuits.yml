@@ -126,7 +126,8 @@
         Caustic: 0.5
   - type: GroupExamine
   - type: StealTarget
-    stealGroup: ClothingOuterHardsuitVoidParamed
+    stealGroup:
+    - ClothingOuterHardsuitVoidParamed
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetVoidParamed

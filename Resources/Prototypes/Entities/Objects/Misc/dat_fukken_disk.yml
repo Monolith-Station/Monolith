@@ -38,7 +38,8 @@
     tags:
     - HighRiskItem
   - type: StealTarget
-    stealGroup: NukeDisk
+    stealGroup:
+    - NukeDisk
   - type: ShipyardSellCondition # Frontier
     blockSale: true # Frontier
     reason: shipyard-console-station-resources # Frontier

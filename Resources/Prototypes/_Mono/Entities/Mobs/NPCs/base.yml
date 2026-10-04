@@ -2,6 +2,8 @@
 
 - type: entity
   suffix: AI, Hostile, Shade
+  name: wayward shade
+  description: Something great has been lost.
   #abstract: true
   parent:
   - BaseMobSpeciesShade
@@ -25,14 +27,14 @@
     pack: WaywardComments
     minimumWait: 30
     maximumWait: 120
+  - type: SoundWhileAlive
   - type: SpamEmitSound
     minInterval: 12
     maxInterval: 36
     sound:
       collection: MonoShadeAmbience
       params:
-        volume: -12
-        maxDistance: 4
+        maxDistance: 8
         variation: 0.05
   - type: Sprite
     sprite: _Mono/Mobs/monolithic.rsi

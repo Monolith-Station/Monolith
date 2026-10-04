@@ -9,6 +9,18 @@
   - type: Clothing
     sprite: _Mono/Clothing/Belt/diwebbing.rsi
 
+- type: entity
+  id: ClothingBeltPDVInfantry
+  name: PD infantry webbing
+  parent: NFClothingBeltStorageBase
+  description: Standard webbing for PD infantry.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Belt/pdv_webbing.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Belt/pdv_webbing.rsi
+
+
 #small chest rigs
 
 - type: entity
@@ -269,6 +281,18 @@
   - type: Tag
     tags:
     - SafetyDepositBlacklist
+
+- type: entity
+  parent: ClothingBeltSheathVizier
+  id: ClothingBeltSheathVizierFilled
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      sheath:
+      - WeaponVizierShamshir
+      holster:
+      - WeaponRevolverDragoon
 
 - type: entity
   parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]

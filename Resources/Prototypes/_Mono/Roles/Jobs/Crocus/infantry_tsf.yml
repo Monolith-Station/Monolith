@@ -1,0 +1,51 @@
+- type: job
+  id: TsfInfantry
+  name: job-name-tsf-infantry
+  description: job-description-tsf-infantry
+  playTimeTracker: JobTSFInfantry
+  requirements:
+  - !type:TraitsRequirement
+    inverted: true
+    traits:
+    # Ironman gives you the LPC. The others are just free upgrades; Crocus has no bionics.
+    - PrybarProsthetics
+    - BionicLegs
+    - Ironman
+  startingGear: TSFInfantryGear
+  alwaysUseSpawner: true # cuz like, planets are 1 mapgrid, u cant use latejoins bro!!
+  icon: JobIconDeputy
+  supervisors: job-supervisors-sergeant
+  weight: 150
+  displayWeight: 5
+  assignedCompany: TSF
+  canBeAntag: false
+  setPreference: true # just to config loadout
+  accessGroups:
+  - AllAccess
+  access:
+  - TsfmcEngineering
+  guides:
+  - TSFMC_Entry
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - TSFMC
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - SolCommon
+    languagesUnderstood:
+    - SolCommon
+
+# Starts unarmed to gear up at vendor
+- type: startingGear
+  id: TSFInfantryGear
+  equipment:
+    neck: ClothingNeckIFFCyan
+    eyes: ClothingEyesHudNfsd
+  storage:
+    belt:
+    - RadioHandheldNF
+  inhand:
+  - UndeterminedTSFCrocusKit

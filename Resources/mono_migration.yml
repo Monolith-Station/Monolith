@@ -89,8 +89,21 @@ UraniumSecretDoorAssembly: BaseSecretDoorAssembly
 UraniumSecretDoor: SolidSecretDoor
 ShuttleSecretDoorAssembly: BaseSecretDoorAssembly
 ShuttleSecretDoor: SolidSecretDoor
+
 #hotplate -> thermobath
 ChemistryHotplate: MachineThermobath
 HotplateMachineCircuitboard: ThermobathMachineCircuitboard
 ChemistryHotplateFlatpack: MachineThermobathFlatpack
 
+# Shipyard culling
+MiningCarrierComputer: null
+HiveCarrierComputer: null
+TSFCarrierComputer: null
+LedokolAttachmentComputer: null
+WindreignCarrierComputer: null
+RavagerCarrierComputer: null
+BalorCarrierComputer: null
+
+# 25/09/2026 - Bounty rework
+ComputerPirateBountyRedemption: BaseComputer # no longer has a purpose
+ComputerPirateBountyRedemptionTabletop: ComputerTabletopFrame # ditto

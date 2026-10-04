@@ -71,17 +71,11 @@ book-text-combat-bakery-kit = Thank you for choosing our combat bakery kit!
       Glass Shard x 1
       Cook Time: 5 seconds
 
-book-text-cargo-instructions = You have tried to activate the machine without any product.
+book-text-cargo-instructions =
 
-      To use the machine properly, insert one of the requested materials for a port's specific dispenser with your hands, and the reward will be deposited on top of the machine.
+      To use the cargo chute machines, insert one of the requested materials for a port's specific dispenser with your hands, and the reward will be deposited on top of the machine.
 
-      These cargo crates can be bought and/or sold at the following locations:
-      - TSFMC Flagship Halcyon - Sell Only
-      - Camelot Station - Buy and Sell
-      - Trade Mall - Buy and Sell
-      - Cargo Depots - Buy and Sell
-      - PDV Base - Sell Only
-      - PDV Jupiter - Sell Only
+      Manifests can be bought at the vendors for trade materials (located on CC, cargo depots, and Camelot).
 
       This paper will automatically disintegrate after 2 minutes.
 
@@ -97,5 +91,119 @@ book-text-cargo-outage = Dear User,
       Further details are being refined. We appreciate your patience.
 
       $10 have been retracted from your account for a convenience fee.
+
+      This paper will automatically disintegrate after 2 minutes.
+
+
+book-text-cargo-zvezda-tradecrates = MANIFEST
+      AT THIS CHUTE (PER CRATE):
+      - SUPPLIES : $3000
+      - MED. SUPPLIES : $5000
+      - CHEM. SUPPLIES : $2000
+      - VOL. CHEM. SUPPLIES : $6000
+      - FIS. FUEL : $18000
+      - SCRAP : $3000
+      - COMPONENTS : $5000
+      - AMMO : $10000
+      - WEAPON COMPS : $6000
+      - FERTILIZER : $5000
+      - SHIP COMPS : $6000
+
+      This paper will automatically disintegrate after 2 minutes.
+
+
+book-text-cargo-depot-tradecrates = MANIFEST
+      AT THIS CHUTE (PER CRATE):
+      - SUPPLIES : $3000
+      - MED. SUPPLIES : $5000
+      - CHEM. SUPPLIES : $2000
+      - VOL. CHEM. SUPPLIES : $6000
+      - FIS. FUEL : $24000
+      - SCRAP : $3000
+      - COMPONENTS : $8000
+
+      This paper will automatically disintegrate after 2 minutes.
+
+
+book-text-cargo-depot-tradecrates-alt = MANIFEST
+      AT THIS CHUTE (PER CRATE):
+      - AMMO : $10000
+      - WEAPON PARTS : $8000
+      - LUXURIES : $18000
+      - FERTILIZER : $5000
+      - FIS. FUEL : $24000
+      - SCRAP : $3000
+      - SHIP COMPONENTS : $8000
+
+      This paper will automatically disintegrate after 2 minutes.
+
+
+book-text-cargo-depot-trademall = MANIFEST
+      AT THIS CHUTE (PER CRATE):
+      - AMMO : $7000
+      - SUPPLIES : $6000
+      - MED. SUPPLIES : $2500
+      - CHEM. SUPPLIES : $5000
+      - VOL. CHEM. SUPPLIES : $6000
+      - FUS. FUEL : $12000
+      - SCRAP : $4000
+      - COMPONENTS : $4000
+      - FERTILIZER : $4500
+      - FABRIC : $5000
+      - METALS : $5000
+
+      This paper will automatically disintegrate after 2 minutes.
+
+
+book-text-cargo-depot-camelot = MANIFEST
+      AT THIS CHUTE (PER CRATE):
+      - AMMO : $8000
+      - SUPPLIES : $2500
+      - MED. SUPPLIES : $4500
+      - WEAPON PARTS : $10000
+      - LUXURIES : $14000
+      - EQUIPMENT : $3500
+      - FUS. FUEL : $12000
+      - SHIP COMPONENTS : $6000
+      - FERTILIZER : $7000
+      - FABRIC : $4000
+      - METALS : $3500
+
+      This paper will automatically disintegrate after 2 minutes.
+
+
+book-text-cargo-depot-halcyon = MANIFEST
+      AT THIS CHUTE (PER CRATE):
+      - AMMO : $12000
+      - SUPPLIES : $2500
+      - MED. SUPPLIES : $3500
+      - CHEM. SUPPLIES : $4500
+      - VOL. CHEM. SUPPLIES : $8000
+      - WEAPON PARTS : $9000
+      - EQUIPMENT : $3000
+      - FUS. FUEL : $12000
+      - SHIP COMPONENTS : $6000
+      - FERTILIZER : $7000
+      - FABRIC : $2500
+      - METALS : $5000
+
+      This paper will automatically disintegrate after 2 minutes.
+
+
+book-text-cargo-depot-helios = MANIFEST
+      AT THIS CHUTE (PER CRATE):
+      - AMMO : $14000
+      - SUPPLIES : $5000
+      - MED. SUPPLIES : $2500
+      - CHEM. SUPPLIES : $6000
+      - VOL. CHEM. SUPPLIES : $6000
+      - WEAPON PARTS : $12000
+      - SCRAP : $6000
+      - EQUIPMENT : $4500
+      - FUS. FUEL : $14000
+      - COMPONENTS : $5000
+      - SHIP COMPONENTS : $6000
+      - FABRIC : $2500
+      - METALS : $4000
 
       This paper will automatically disintegrate after 2 minutes.

@@ -1,0 +1,131 @@
+# PDV
+
+- type: thiefBackpackSet
+  id: KitSelectorCrocusRiflemanPDV
+  name: selectable-set-crocus-infantry-kit-name
+  description: selectable-set-crocus-infantry-pdv-kit-desc
+  sprite:
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/m90.rsi
+    state: icon
+  content:
+  - WeaponRifleM90
+  - Magazine762x51mmFMJ
+  - Magazine762x51mmFMJ
+  - Magazine762x51mmFMJ
+  - Magazine762x51mmFMJ
+  - AmmoBox762x51mmFMJ
+  - MedkitFilled
+  - Tourniquet
+  - Tourniquet
+  - GrenadeFlashBang
+  - ExGrenade
+  - ClothingHelmetAttachmentNVGsBasic
+  - ClothingHelmetCoverHelmetMount
+
+- type: thiefBackpackSet
+  id: KitSelectorCrocusMedicPDV
+  name: selectable-set-crocus-medic-kit-name
+  description: selectable-set-crocus-medic-pdv-kit-desc
+  sprite:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: blackkit
+  content:
+  - WeaponRifleVympel
+  - Magazine556x45mmFMJ
+  - Magazine556x45mmFMJ
+  - Magazine556x45mmFMJ
+  - AmmoBox556x45mmFMJ
+  - MedkitCombatFilled
+  - MedkitCombatFilled
+  - ClothingMaskSterile
+  - HandheldHealthAnalyzer
+  - Hemostat
+  - SawElectric
+  - Drill
+  - Cautery
+  - Retractor
+  - Scalpel
+  - BoneGel
+
+- type: thiefBackpackSet
+  id: KitSelectorCrocusSapperPDV
+  name: selectable-set-crocus-sapper-kit-name
+  description: selectable-set-crocus-sapper-pdv-kit-desc
+  sprite:
+    sprite: Nyanotrasen/Objects/Weapons/Melee/breaching_hammer.rsi
+    state: icon
+  content:
+  - WeaponRifleVympel
+  - Magazine556x45mmFMJ
+  - Magazine556x45mmFMJ
+  - Magazine556x45mmFMJ
+  - AmmoBox556x45mmFMJ
+  - MedkitFilled
+  - ClothingHelmetAttachmentNVGsBasic
+  - ClothingHelmetCoverHelmetMount
+  - BreachingCharge
+  - BreachingCharge
+  - BreachingCharge
+  - BreachingCharge
+  - SecBreachingHammer
+  - RemoteSignallerAdvanced
+
+- type: thiefBackpackSet
+  id: KitSelectorCrocusAutoriflemanPDV
+  # I can't match the 240rnd box mags of 6.8, so they get NODs instead.
+  name: selectable-set-crocus-autorifleman-kit-name
+  description: selectable-set-crocus-autorifleman-pdv-kit-desc
+  sprite:
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/pkms/pkms-icon.rsi
+    state: icon
+  content:
+  - WeaponLMGPKMS
+  - AmmoBox556x45mmFMJ
+  - AmmoBox556x45mmFMJ
+  - AmmoBox556x45mmFMJ
+  - ClothingHelmetAttachmentNVGsBasic
+  - ClothingHelmetCoverHelmetMount
+  - Brutepack
+  - Tourniquet
+  - Tourniquet
+
+- type: thiefBackpackSet
+  id: KitSelectorCrocusGrenadierPDV
+  name: selectable-set-crocus-grenadier-kit-name
+  description: selectable-set-crocus-grenadier-pdv-kit-desc
+  sprite:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: blackkit
+  content:
+  - WeaponSubMachineGunC20r
+  - Magazine9x19mmSubMachineGunFMJ
+  - Magazine9x19mmSubMachineGunFMJ
+  - Magazine9x19mmSubMachineGunFMJ
+  - AmmoBox9x19mmFMJ
+  - MedkitFilled
+  - ExGrenade
+  - ExGrenade
+  - ExGrenade
+  - ExGrenade
+  - GrenadeFlashBang
+  - GrenadeFlashBang
+  - SmokeGrenade
+  - SmokeGrenade
+
+- type: thiefBackpackSet
+  id: KitSelectorCrocusPointmanPDV
+  name: selectable-set-crocus-pointman-pdv-kit-name
+  description: selectable-set-crocus-pointman-pdv-kit-desc
+  sprite:
+    sprite: _Mono/Objects/Weapons/Melee/shields.rsi
+    state: heavy-icon
+  content:
+  - WeaponSubMachineGunMla73
+  - HeavyBallisticShield
+  - Magazine635x40mmCaseless
+  - Magazine635x40mmCaseless
+  - Magazine635x40mmCaseless
+  - AmmoBox635x40mmCaseless
+  - MedkitFilled
+  - GrenadeFlashBang
+  - GrenadeFlashBang

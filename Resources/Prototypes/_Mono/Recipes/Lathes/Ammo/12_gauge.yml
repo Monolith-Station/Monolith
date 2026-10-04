@@ -59,6 +59,11 @@
 #Boxes
 
 - type: latheRecipe
+  parent: BaseAmmoPracticeIntermediateAmmoBoxRecipe
+  id: AmmoBox12_gaugeBlank
+  result: AmmoBox12_gaugeBlank
+
+- type: latheRecipe
   parent: BaseAmmoFMJIntermediateAmmoBoxRecipe
   id: AmmoBox12_gaugeBuckshot
   result: AmmoBox12_gaugeBuckshot

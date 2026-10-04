@@ -46,6 +46,14 @@
 - type: Tag
   id: UnavoidableTrap # For "traps" (step triggers) that TrapAvoider shouldn't dodge, like lava or chasms.
 
+# Steal areas
+
+- type: Tag
+  id: StealArea
+
+- type: Tag
+  id: PDVStealArea
+
 # Weapon attachments
 
 - type: Tag
@@ -172,6 +180,9 @@
 
 - type: Tag
   id: Magazine556x45mmBox
+
+- type: Tag
+  id: Magazine556x45mmAmmoBox
 
 #762x39mm tags
 
@@ -707,6 +718,12 @@
   id: MatterBinEconomy1
 
 - type: Tag
+  id: MatterBinEconomy2
+
+- type: Tag
+  id: MatterBinEconomy3
+
+- type: Tag
   id: OpticsEconomy1
 
 - type: Tag
@@ -723,6 +740,9 @@
 
 - type: Tag
   id: ArmorPlateEconomy3
+
+- type: Tag
+  id: ArmorPlateEconomy4
 
 - type: Tag
   id: ElectromagnetEconomy1
@@ -750,6 +770,9 @@
 - type: Tag
   id: FactionStaticUplinkPdv
 
+- type: Tag
+  id: MMCUplink
+
 # Viper Group stuff
 
 - type: Tag
@@ -770,17 +793,26 @@
 
 - type: Tag
   id: Central
-  
+
 # Stashes
 
 - type: Tag
   id: Unstashable
-  
+
 # Map migration tags for door autorotation thing.
 
 - type: Tag
   id: DoorAutorotate
 
+# Signal flare cartridge tag
+
+- type: Tag
+  id: SignalFlareLaunchable
+
+- type: Tag
+  id: SignalFlareLauncher
+
 # Deposit box blacklist
 - type: Tag
   id: SafetyDepositBlacklist
+

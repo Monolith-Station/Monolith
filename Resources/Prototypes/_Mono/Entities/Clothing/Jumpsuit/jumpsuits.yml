@@ -19,12 +19,64 @@
   description: A combat uniform in TSF Type-47D desert camouflage. Its outfitted with a blue TSF flag armband.
   components:
   - type: Sprite
-    sprite: _Mono/Clothing/Uniforms/Jumpsuit/tsfmc_digital.rsi
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/tsfmc_digital_desert.rsi
   - type: Clothing
-    sprite: _Mono/Clothing/Uniforms/Jumpsuit/tsfmc_digital.rsi
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/tsfmc_digital_desert.rsi
   - type: SuitSensor
     randomMode: false
     mode: SensorVitals
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformTSFMCForest
+  name: TSFMC type-47F combat uniform
+  description: A combat uniform in TSF Type-47F forest camouflage. Its outfitted with a blue TSF flag armband.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/tsfmc_digital_forest.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/tsfmc_digital_forest.rsi
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorVitals
+
+# Clothing w/ insulation because reptillians will freeze and pass out instantly on crocus lol
+
+- type: entity
+  parent: ClothingUniformTSFMC
+  id: ClothingUniformTSFMCCrocus
+  suffix: Crocus
+  components:
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.05
+
+- type: entity
+  parent: ClothingUniformTSFMCDesert
+  id: ClothingUniformTSFMCDesertCrocus
+  suffix: Crocus
+  components:
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.05
+
+- type: entity
+  parent: ClothingUniformTSFMCForest
+  id: ClothingUniformTSFMCForestCrocus
+  suffix: Crocus
+  components:
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.05
+
+- type: entity
+  parent: ClothingUniformPDVInfantry
+  id: ClothingUniformPDVInfantryCrocus
+  suffix: Crocus
+  components:
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.05
 
 - type: entity
   parent: ClothingUniformBase
@@ -203,6 +255,20 @@
     sprite: _Mono/Clothing/Uniforms/Jumpsuit/rogue/warm.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Uniforms/Jumpsuit/rogue/warm.rsi
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorOff
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformPDVInfantry
+  name: PD infantry field suit
+  description: Form-fitting fatigues for PD infantry.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/pdv.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Uniforms/Jumpsuit/pdv.rsi
   - type: SuitSensor
     randomMode: false
     mode: SensorOff

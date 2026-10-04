@@ -1,0 +1,36 @@
+- type: vessel
+  id: Xinhua
+  parent: BaseVessel
+  name: MSH Xinhua
+  description: A light corvette that failed to attract the attention of any defense suppliers. Well-armed, with the hardpoints and gunnery power to supplement it even more, but lacking heavily in free internal space.
+  price: 196000
+  category: Large
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/xinhua.yml
+  guidebookPage: Null
+  class:
+  - Corvette
+  - Brawler
+  - Patrol
+  - Mercenary
+  engine:
+  - AME
+
+- type: gameMap
+  id: Xinhua
+  mapName: 'MSH Xinhua'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/xinhua.yml
+  minPlayers: 0
+  stations:
+    Xinhua:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Xinhua MIL{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Contractor: [ 0, 0 ]

@@ -7,12 +7,12 @@ station-event-bluespace-scrap-start-announcement = Storms detected in bluespace 
 station-event-bluespace-scrap-warning-announcement = Bluespace instability detected on wreckage, five minutes until expected departure.
 station-event-bluespace-scrap-end-announcement = Critical bluespace instability detected, storm wreckage has exited the sector.
 
-station-event-bluespace-vault-start-announcement = A Solarian armored supply-vault is inbound to the sector. The TSFMC may declare the vault a restricted No Fly Zone. Station accounts will be rewarded for its safe return.
+station-event-bluespace-vault-start-announcement = A Solarian armored supply-vault is inbound to the sector. The TSFMC may declare the vault a restricted No Fly Zone. The TSFMC will be rewarded for its safe return, and must under no circumstances allow the server on-board to be stolen.
 station-event-bluespace-vault-warning-announcement = Remote FTL procedures initialized, five minutes until vault extraction.
 station-event-bluespace-vault-end-announcement = We have retrieved the vault from this area of Colossus space. TSFMC accounts have been subsidized.
-station-event-bluespace-cache-start-announcement = An ancient weapons cache is inbound to the sector. The TSFMC may declare the cache a No Fly Zone. Station accounts will be rewarded for guarding the cache.
+station-event-bluespace-cache-start-announcement = A weapons cache originating from the Phaethon Dynasty is inbound to the sector. The TSFMC may declare the cache a No Fly Zone.
 station-event-bluespace-cache-warning-announcement = Remote FTL procedures initialized, five minutes until weapons cache extraction.
-station-event-bluespace-cache-end-announcement = We have retrieved the weapons cache from your sector. Station accounts have been paid.
+station-event-bluespace-cache-end-announcement = We have retrieved the Phaethon weapons cache from your sector.
 
 station-event-bluespace-asteroid-start-announcement = Long range scans indicate an unusually large asteroid entering the sector. Prospectors should divert operations for maximum profit potential.
 station-event-bluespace-asteroid-warning-announcement = Bluespace instability detected on asteroid, five minutes until estimated departure.
@@ -42,4 +42,4 @@ station-event-bluespace-name-BrokenMcDelivery = McDelivery
 station-event-bluespace-name-Cave = Cave
 station-event-bluespace-name-UnidentifiedVessel = Unidentified Vessel
 station-event-bluespace-name-SecureNTVault = Secure Solarian Vault
-station-event-bluespace-name-SyndicateWeaponsCache = Ancient Weapons Cache
+station-event-bluespace-name-SyndicateWeaponsCache = Phaethon Dynasty Weapons Cache

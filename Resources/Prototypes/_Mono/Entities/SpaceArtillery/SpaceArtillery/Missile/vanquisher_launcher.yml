@@ -2,7 +2,7 @@
   id: WeaponTurretVanquisher
   name: SRM-573 "Vanquisher" Missile Pod
   parent:
-  - BallisticArtilleryUnanchorableMagazine
+  - BallisticArtilleryMagazine
   - BallisticArtilleryTier4HP
   description: A short-ranged missile pod firing 150mm unguided rockets with devastating fire rate.
   suffix: Large, T4
@@ -75,6 +75,9 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Heavy
 
 - type: entity
   id: WeaponTurretVanquisherInfinite

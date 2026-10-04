@@ -326,7 +326,8 @@
   - type: Computer
     board: CargoShuttleConsoleCircuitboard
   - type: StealTarget
-    stealGroup: CargoShuttleConsoleCircuitboard
+    stealGroup:
+    - CargoShuttleConsoleCircuitboard
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -1230,7 +1231,8 @@
     - type: AccessReader
 #      access: [["Salvage"]]
     - type: StealTarget
-      stealGroup: SalvageExpeditionsComputerCircuitboard
+      stealGroup:
+      - SalvageExpeditionsComputerCircuitboard
     # Mono
     - type: ShipRepairable
       repairTime: 4
