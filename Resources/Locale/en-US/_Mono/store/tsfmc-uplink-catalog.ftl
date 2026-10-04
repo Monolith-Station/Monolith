@@ -127,6 +127,9 @@ uplink-security-flyssa-voucher-desc = A small card that contains the data for th
 uplink-security-sentry-mk290-name = MK-290 Deployable Sentry System
 uplink-security-sentry-mk290-desc = A multipurpose portable sentry, capable of feeding from 5.56x45mm, 6.8x52mm, and 7.62x39mm magazines. Requires a screwdriver to disassemble once placed. DOES NOT come with ammo, and empty before packing.
 
+uplink-security-sentry-laserturret-name = TSFMC Laser Turret
+uplink-security-sentry-laserturret-desc = A portable laser turret. Requires a screwdriver to disassemble once placed.
+
 uplink-security-hardsuit-m82b-name = M82b Hardsuit
 uplink-security-hardsuit-m82b-desc = A variant of the M-82c for NBC protection, usually utilized by corpsmen.
 
