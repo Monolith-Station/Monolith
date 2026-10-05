@@ -1,8 +1,10 @@
 - type: massFabricatorBlueprint
   id: HZBlueprintPlating
   load: 1
-  chargeCost: 1
+  materials:
+    Steel: 100
   name: plating
+  description: Basic structural floor plating.
   category: Tiling
   subcategory: Floors
   kind: Tile
@@ -12,8 +14,10 @@
 - type: massFabricatorBlueprint
   id: HZBlueprintLattice
   load: 1
-  chargeCost: 1
+  materials:
+    Steel: 100
   name: lattice
+  description: An open framework for extending a structure into space.
   category: Tiling
   subcategory: Lattices
   kind: Tile
@@ -23,8 +27,10 @@
 - type: massFabricatorBlueprint
   id: HZBlueprintWall
   load: 5
-  chargeCost: 5
+  materials:
+    Steel: 200
   name: solid wall
+  description: A solid steel bulkhead.
   category: Bulkheads
   subcategory: Walls
   kind: Entity
@@ -34,8 +40,10 @@
 - type: massFabricatorBlueprint
   id: HZBlueprintStairs
   load: 4
-  chargeCost: 4
+  materials:
+    Steel: 400
   name: stairs
+  description: A stairway connecting adjacent levels.
   category: Bulkheads
   subcategory: Stairs
   kind: Entity
@@ -48,8 +56,12 @@
     target: CEZLevelLadderStoneCornerInner
   - name: wooden straight
     target: CEZLevelLadderWooden
+    materials:
+      Wood: 400
   - name: wooden corner
     target: CEZLevelLadderWoodenCorner
+    materials:
+      Wood: 400
   - name: dirt straight
     target: CEZLevelLadderDirtCliff
   - name: dirt corner

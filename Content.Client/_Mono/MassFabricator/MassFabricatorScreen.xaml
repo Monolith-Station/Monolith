@@ -11,7 +11,20 @@
     <BoxContainer Name="StatusBars" Orientation="Vertical" SetWidth="240" Margin="0 0 0 6">
         <Label Text="Blueprint load" />
         <ProgressBar Name="BlueprintBar" MinValue="0" MaxValue="1" SetHeight="18" />
-        <Label Text="Remaining charge" Margin="0 6 0 0" />
-        <ProgressBar Name="ChargeBar" MinValue="0" MaxValue="1" SetHeight="18" />
+        <Label Text="Material buffer" Margin="0 6 0 0" />
+        <PanelContainer Name="MaterialBar" SetHeight="18" MouseFilter="Stop">
+            <fabricator:MassFabricatorMaterialBar Name="MaterialSegments" HorizontalExpand="True" VerticalExpand="True" MouseFilter="Ignore" />
+        </PanelContainer>
+        <PanelContainer Name="MaterialDetails" Visible="False" StyleClasses="tooltipBox" Margin="0 6 0 0" MouseFilter="Stop">
+            <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+                <BoxContainer>
+                    <Label Text="{Loc 'mass-fabricator-materials-title'}" StyleClasses="LabelHeading" HorizontalExpand="True" />
+                    <TextureButton Name="CloseMaterials" StyleClasses="windowCloseButton" VerticalAlignment="Center" />
+                </BoxContainer>
+                <Label Name="BufferTotal" />
+                <PanelContainer StyleClasses="LowDivider" />
+                <BoxContainer Name="MaterialRows" Orientation="Vertical" SeparationOverride="6" />
+            </BoxContainer>
+        </PanelContainer>
     </BoxContainer>
 </fabricator:MassFabricatorScreen>

@@ -15,11 +15,8 @@ public sealed partial class MassFabricatorComponent : Component
     [AutoNetworkedField]
     public List<EntityUid> Plans = new();
 
-    [DataField, AutoNetworkedField]
-    public int MaxCharge = 100;
-
-    [DataField, AutoNetworkedField]
-    public int RemainingCharge = 100;
+    [AutoNetworkedField]
+    public Dictionary<string, int> ReservedMaterials = new();
 
     [DataField]
     public Color EyeColor = Color.FromHex("#379DFF");

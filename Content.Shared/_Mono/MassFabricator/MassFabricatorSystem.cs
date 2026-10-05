@@ -1,4 +1,6 @@
 using System.Numerics;
+using System.Linq;
+using Content.Shared.Materials;
 using Content.Shared.Input;
 using Content.Shared.Examine;
 using Robust.Shared.Configuration;
@@ -19,6 +21,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Content.Shared.Maps;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Mono.MassFabricator;
 
@@ -36,6 +39,7 @@ public abstract partial class MassFabricatorSystem : EntitySystem
     private const float ReturnMaxSpeed = 20f;
     private const float ReturnRadius = 0.7f;
 
+    [Dependency] private SharedMaterialStorageSystem _materials = default!;
     [Dependency] private SharedEyeSystem _eyes = default!;
     [Dependency] private SharedMoverController _mover = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
@@ -73,15 +77,35 @@ public abstract partial class MassFabricatorSystem : EntitySystem
     private void OnExamined(Entity<MassFabricatorComponent> ent, ref ExaminedEvent args)
     {
         var currentLoad = ent.Comp.BlueprintLoad;
-        var remainingCharge = ent.Comp.RemainingCharge;
         var load = ent.Comp.MaxBlueprintLoad > 0
-            ? Math.Clamp(currentLoad / ent.Comp.MaxBlueprintLoad, 0f, 1f) : 0f;
+            ? Math.Clamp((float) currentLoad / ent.Comp.MaxBlueprintLoad, 0f, 1f) : 0f;
         var loadColor = Color.InterpolateBetween(Color.FromHex("#379DFF"), Color.FromHex("#FF3B3B"),
             Math.Clamp((load - 0.75f) * 4f, 0f, 1f));
-        var charge = ent.Comp.MaxCharge > 0
-            ? Math.Clamp((float) remainingCharge / ent.Comp.MaxCharge, 0f, 1f) : 0f;
-        args.PushMarkup($"Blueprint load: {currentLoad:0}/{ent.Comp.MaxBlueprintLoad} ([color={loadColor.ToHex()}]{load * 100f:0}%[/color])");
-        args.PushMarkup($"Charge remaining: {remainingCharge}/{ent.Comp.MaxCharge} ([color=#F3CA4B]{charge * 100f:0}%[/color])");
+        using var group = args.PushGroup(nameof(MassFabricatorComponent));
+        args.PushMarkup(Loc.GetString("mass-fabricator-examine-load",
+            ("current", currentLoad), ("maximum", ent.Comp.MaxBlueprintLoad),
+            ("color", loadColor.ToHex()), ("percent", $"{load * 100f:0}")));
+        if (!TryComp<MaterialStorageComponent>(ent.Owner, out var storage))
+            return;
+
+        var materials = _materials.GetStoredMaterials((ent.Owner, storage));
+        args.PushMarkup(Loc.GetString("mass-fabricator-examine-buffer",
+            ("stored", $"{materials.Values.Sum():N0}"),
+            ("capacity", storage.StorageLimit is { } limit ? $"{limit:N0}" : Loc.GetString("mass-fabricator-buffer-unlimited"))));
+        if (materials.Count == 0)
+            args.PushMarkup(Loc.GetString("mass-fabricator-examine-empty"));
+        foreach (var (id, amount) in materials.OrderBy(pair => Loc.GetString(_prototypes.Index(pair.Key).Name)))
+        {
+            var material = _prototypes.Index(id);
+            var name = Loc.GetString("mass-fabricator-display-name", ("name", Loc.GetString(material.Name)));
+            var color = Color.InterpolateBetween(material.Color, Color.White, 0.4f);
+            var line = Loc.GetString("mass-fabricator-examine-material",
+                ("name", FormattedMessage.EscapeText(name)), ("color", color.ToHex()), ("amount", $"{amount:N0}"));
+            var reserved = ent.Comp.ReservedMaterials.GetValueOrDefault(id.Id);
+            if (reserved > 0)
+                line += Loc.GetString("mass-fabricator-examine-reserved", ("amount", $"{reserved:N0}"));
+            args.PushMarkup(line);
+        }
     }
 
     public bool TrySelectBlueprint(Entity<MassFabricatorComponent> ent,
@@ -146,7 +170,7 @@ public abstract partial class MassFabricatorSystem : EntitySystem
     }
 
     protected virtual void OnPrintStarted(Entity<MassFabricatorHologramComponent> plan,
-        MassFabricatorBlueprintPrototype blueprint, int remaining) { }
+        MassFabricatorBlueprintPrototype blueprint) { }
 
     protected virtual void OnAutomaticPrintStarted(Entity<MassFabricatorHologramComponent> parent,
         Entity<MassFabricatorHologramComponent> neighbor, MassFabricatorBlueprintPrototype blueprint) { }
@@ -202,23 +226,25 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         MassFabricatorBlueprintPrototype blueprint, EntityUid? user = null)
     {
         if (ent.Comp.PrintState != MassFabricatorPrintState.Idle ||
-            !TryComp<MassFabricatorComponent>(ent.Comp.Fabricator, out var fabricator) ||
-            blueprint.ChargeCost <= 0 || fabricator.MaxCharge <= 0)
+            !TryComp<MassFabricatorComponent>(ent.Comp.Fabricator, out var fabricator))
             return false;
 
-        var remaining = fabricator.RemainingCharge;
-        if (blueprint.ChargeCost > remaining)
+        var costs = blueprint.GetMaterials(ent.Comp.Target);
+        var available = AvailableMaterials(ent.Comp.Fabricator);
+        if (costs.Count == 0 || costs.Any(pair => pair.Value <= 0 ||
+            available.GetValueOrDefault(pair.Key) < pair.Value))
             return false;
 
         var duration = blueprint.PrintDuration(fabricator.MaxBlueprintLoad);
         if (user is { } actor && !TryStartPrintDoAfter(actor, ent.Owner, ent.Comp.Fabricator, duration))
             return false;
 
-        if (user != null)
-            OnPrintStarted(ent, blueprint, remaining);
-        fabricator.RemainingCharge = Math.Max(0, fabricator.RemainingCharge - blueprint.ChargeCost);
+        ent.Comp.ReservedMaterials = new(costs);
+        foreach (var (material, amount) in costs)
+            fabricator.ReservedMaterials[material] = fabricator.ReservedMaterials.GetValueOrDefault(material) + amount;
         Dirty(ent.Comp.Fabricator, fabricator);
-        ent.Comp.ReservedCharge = blueprint.ChargeCost;
+        if (user != null)
+            OnPrintStarted(ent, blueprint);
         ent.Comp.AutomaticPrint = user == null;
         ent.Comp.PrintState = MassFabricatorPrintState.Printing;
         ent.Comp.PrintStarted = _timing.CurTime;
@@ -236,21 +262,15 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         args.Handled = true;
         OnManualPrintResult(ent, args.Cancelled);
         if (args.Cancelled)
-            RefundPrint(ent);
+            ResetPrint(ent);
         else
             FinishPrint(ent);
     }
 
-    protected void RefundPrint(Entity<MassFabricatorHologramComponent> ent)
+    protected void ResetPrint(Entity<MassFabricatorHologramComponent> ent)
     {
-        if (TryComp<MassFabricatorComponent>(ent.Comp.Fabricator, out var fabricator))
-        {
-            fabricator.RemainingCharge = Math.Min(fabricator.MaxCharge,
-                fabricator.RemainingCharge + ent.Comp.ReservedCharge);
-            Dirty(ent.Comp.Fabricator, fabricator);
-        }
-
-        ent.Comp.ReservedCharge = 0;
+        ReleaseMaterials(ent);
+        ent.Comp.ReservedMaterials = new();
         ent.Comp.PrintState = MassFabricatorPrintState.Idle;
         Dirty(ent.Owner, ent.Comp);
     }
@@ -262,7 +282,7 @@ public abstract partial class MassFabricatorSystem : EntitySystem
 
         if (!_prototypes.TryIndex(ent.Comp.Blueprint, out var blueprint) || !blueprint.HasTarget(ent.Comp.Target))
         {
-            RefundPrint(ent);
+            ResetPrint(ent);
             return;
         }
 
@@ -272,6 +292,9 @@ public abstract partial class MassFabricatorSystem : EntitySystem
             _transforms.GetGrid(coords) is { } grid &&
             TryComp<MapGridComponent>(grid, out var mapGrid))
         {
+            if (!ConsumePlanMaterials(ent))
+                return;
+
             var index = _maps.CoordinatesToTile(grid, mapGrid, coords);
             _maps.SetTile(grid, mapGrid, index, new Tile(tile.TileId));
             ent.Comp.PrintState = MassFabricatorPrintState.Fading;
@@ -282,13 +305,45 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         else if (ent.Comp.Kind == MassFabricatorBlueprintKind.Entity &&
                  _prototypes.HasIndex<EntityPrototype>(ent.Comp.Target))
         {
+            if (!ConsumePlanMaterials(ent))
+                return;
+
             PredictedSpawnAttachedTo(ent.Comp.Target, coords, rotation: Transform(ent.Owner).LocalRotation);
             ent.Comp.PrintState = MassFabricatorPrintState.Fading;
             ent.Comp.PrintStarted = _timing.CurTime;
             Dirty(ent.Owner, ent.Comp);
         }
         else
-            RefundPrint(ent);
+            ResetPrint(ent);
+    }
+
+    private bool ConsumePlanMaterials(Entity<MassFabricatorHologramComponent> plan)
+    {
+        if (plan.Comp.ReservedMaterials.Count == 0 ||
+            !_materials.TryChangeMaterialAmount((plan.Comp.Fabricator, null),
+                plan.Comp.ReservedMaterials.ToDictionary(pair => pair.Key, pair => -pair.Value)))
+        {
+            ResetPrint(plan);
+            return false;
+        }
+
+        ReleaseMaterials(plan);
+        ReleaseBlueprintLoad(plan);
+        plan.Comp.ReservedMaterials = new();
+        return true;
+    }
+
+    public Dictionary<string, int> AvailableMaterials(EntityUid fabricator)
+    {
+        var available = _materials.GetStoredMaterials((fabricator, null))
+            .ToDictionary(pair => pair.Key.Id, pair => pair.Value);
+        if (!TryComp<MassFabricatorComponent>(fabricator, out var gun))
+            return available;
+
+        foreach (var (material, amount) in gun.ReservedMaterials)
+            available[material] = available.GetValueOrDefault(material) - amount;
+
+        return available;
     }
 
     private void HandleReturn(ICommonSession? session)
@@ -397,6 +452,8 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         if (plan.Comp.Fabricator != gun)
             return false;
 
+        if (plan.Comp.PrintState == MassFabricatorPrintState.Printing)
+            ResetPrint(plan);
         ReleasePlan(plan);
         PredictedQueueDel(plan.Owner);
         return true;
@@ -418,17 +475,41 @@ public abstract partial class MassFabricatorSystem : EntitySystem
             return;
 
         var removed = gun.Plans.Remove(ent.Owner);
-        if (removed && _prototypes.TryIndex(ent.Comp.Blueprint, out var blueprint))
-            gun.BlueprintLoad = Math.Max(0, gun.BlueprintLoad - blueprint.Load);
-
-        var refund = ent.Comp.PrintState == MassFabricatorPrintState.Printing && ent.Comp.ReservedCharge > 0;
-        if (refund)
+        if (removed)
         {
-            gun.RemainingCharge = Math.Min(gun.MaxCharge, gun.RemainingCharge + ent.Comp.ReservedCharge);
-            ent.Comp.ReservedCharge = 0;
-        }
-        if (removed || refund)
+            ReleaseBlueprintLoad(ent);
+            ReleaseMaterials(ent);
             Dirty(ent.Comp.Fabricator, gun);
+        }
+    }
+
+    private void ReleaseBlueprintLoad(Entity<MassFabricatorHologramComponent> plan)
+    {
+        if (plan.Comp.LoadReleased ||
+            !TryComp<MassFabricatorComponent>(plan.Comp.Fabricator, out var gun) ||
+            !_prototypes.TryIndex(plan.Comp.Blueprint, out var blueprint))
+            return;
+
+        gun.BlueprintLoad = Math.Max(0, gun.BlueprintLoad - blueprint.Load);
+        plan.Comp.LoadReleased = true;
+        Dirty(plan.Comp.Fabricator, gun);
+        Dirty(plan.Owner, plan.Comp);
+    }
+
+    private void ReleaseMaterials(Entity<MassFabricatorHologramComponent> plan)
+    {
+        if (!TryComp<MassFabricatorComponent>(plan.Comp.Fabricator, out var gun))
+            return;
+
+        foreach (var (material, amount) in plan.Comp.ReservedMaterials)
+        {
+            var remaining = gun.ReservedMaterials.GetValueOrDefault(material) - amount;
+            if (remaining > 0)
+                gun.ReservedMaterials[material] = remaining;
+            else
+                gun.ReservedMaterials.Remove(material);
+        }
+        Dirty(plan.Comp.Fabricator, gun);
     }
 
     public bool CanPlaceTile(EntityCoordinates coordinates)

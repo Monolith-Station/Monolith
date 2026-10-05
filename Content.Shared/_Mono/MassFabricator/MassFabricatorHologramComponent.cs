@@ -30,8 +30,11 @@ public sealed partial class MassFabricatorHologramComponent : Component
     public float PrintDuration;
 
     [AutoNetworkedField]
-    public int ReservedCharge;
+    public Dictionary<string, int> ReservedMaterials = new();
 
     [AutoNetworkedField]
     public bool AutomaticPrint;
+
+    [AutoNetworkedField]
+    public bool LoadReleased;
 }

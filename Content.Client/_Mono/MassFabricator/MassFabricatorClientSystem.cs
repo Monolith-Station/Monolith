@@ -127,8 +127,8 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
     }
 
     protected override void OnPrintStarted(Entity<MassFabricatorHologramComponent> plan,
-        MassFabricatorBlueprintPrototype blueprint, int remaining) =>
-        EntityManager.System<MassFabricatorHologramSystem>().TrackManualPrint(plan, blueprint, remaining);
+        MassFabricatorBlueprintPrototype blueprint) =>
+        EntityManager.System<MassFabricatorHologramSystem>().TrackManualPrint(plan);
 
     protected override void OnManualPrintResult(Entity<MassFabricatorHologramComponent> plan, bool cancelled) =>
         EntityManager.System<MassFabricatorHologramSystem>().OnManualPrintResult(plan, cancelled);
@@ -166,7 +166,7 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
 
     protected override void OnAutomaticPrintStarted(Entity<MassFabricatorHologramComponent> parent,
         Entity<MassFabricatorHologramComponent> neighbor, MassFabricatorBlueprintPrototype blueprint) =>
-        EntityManager.System<MassFabricatorHologramSystem>().TrackAutomaticPrint(parent, neighbor, blueprint);
+        EntityManager.System<MassFabricatorHologramSystem>().TrackAutomaticPrint(parent, neighbor);
 
     public EntityUid? ActiveFabricatorUid => _fabricator;
 
@@ -219,9 +219,9 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
             return;
         }
 
-        RaisePredictiveEvent(new MassFabricatorPlaceEvent(GetNetEntity(uid), netCoords, rotation, id, target));
         _pendingPlans.Add(new PendingPlan(EntityUid.Invalid, id, target,
             EntityManager.System<SharedTransformSystem>().ToMapCoordinates(coordinates), _timing.CurTime));
+        RaisePredictiveEvent(new MassFabricatorPlaceEvent(GetNetEntity(uid), netCoords, rotation, id, target));
     }
 
     public void Erase(EntityUid[] plans)

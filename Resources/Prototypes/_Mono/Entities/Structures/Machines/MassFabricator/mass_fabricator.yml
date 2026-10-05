@@ -9,6 +9,12 @@
     - HZBlueprintLattice
     - HZBlueprintWall
     - HZBlueprintStairs
+  - type: MaterialStorage
+    storageLimit: 10000
+    canEjectStoredMaterials: false
+    whitelist:
+      components:
+      - Material
   - type: Item
     storedRotation: -90
   - type: Sprite

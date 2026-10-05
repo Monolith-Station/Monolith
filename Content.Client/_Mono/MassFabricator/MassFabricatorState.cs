@@ -4,6 +4,7 @@ using Content.Client.UserInterface.Systems.Viewport;
 using Content.Client.Viewport;
 using Content.Shared.Input;
 using Content.Shared._Mono.MassFabricator;
+using Content.Shared.Materials;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.GameObjects;
@@ -62,10 +63,14 @@ public sealed partial class MassFabricatorState : GameplayStateBase, IMainViewpo
         base.FrameUpdate(args);
         var client = _entities.System<MassFabricatorClientSystem>();
         var gun = client.ActiveFabricator;
+        if (client.ActiveFabricatorUid is not { } uid ||
+            !_entities.TryGetComponent<MaterialStorageComponent>(uid, out var storage))
+            return;
+
         ((MassFabricatorScreen) UserInterfaceManager.ActiveScreen!).UpdateBars(
             gun is { MaxBlueprintLoad: > 0 } ? client.PredictedBlueprintLoad / gun.MaxBlueprintLoad : 0f,
-            gun is { MaxCharge: > 0 } && client.ActiveFabricatorUid is { } uid
-                ? (float) _entities.System<MassFabricatorHologramSystem>().PredictedRemainingCharge(uid, gun) / gun.MaxCharge : 0f);
+            _entities.System<SharedMaterialStorageSystem>().GetStoredMaterials((uid, storage)),
+            client.AvailableMaterials(uid), storage.StorageLimit ?? 0);
     }
 
     protected override void OnKeyBindStateChanged(ViewportBoundKeyEventArgs args)

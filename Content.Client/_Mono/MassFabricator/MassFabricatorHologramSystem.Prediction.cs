@@ -9,16 +9,8 @@ namespace Content.Client._Mono.MassFabricator;
 
 public sealed partial class MassFabricatorHologramSystem
 {
-    private sealed class PrintWave(EntityUid fabricator, int initialRemaining, int reserved)
+    private sealed class PrintNode
     {
-        public readonly EntityUid Fabricator = fabricator;
-        public readonly int InitialRemaining = initialRemaining;
-        public int Reserved = reserved;
-    }
-
-    private sealed class PrintNode(PrintWave wave)
-    {
-        public readonly PrintWave Wave = wave;
         public bool Confirmed;
         public bool Expanded;
         public bool AwaitDoAfter;
@@ -31,17 +23,6 @@ public sealed partial class MassFabricatorHologramSystem
 
     private readonly Dictionary<EntityUid, PrintNode> _printWaves = new();
 
-    public int PredictedRemainingCharge(EntityUid gun, MassFabricatorComponent component)
-    {
-        var remaining = component.RemainingCharge;
-        var visited = new HashSet<PrintWave>();
-        foreach (var node in _printWaves.Values)
-            if (node.Wave.Fabricator == gun && visited.Add(node.Wave))
-                remaining = Math.Min(remaining, node.Wave.InitialRemaining - node.Wave.Reserved);
-
-        return Math.Clamp(remaining, 0, component.MaxCharge);
-    }
-
     private float VisualPrintDuration(MassFabricatorHologramComponent plan)
     {
         if (plan.PrintDuration > 0f)
@@ -53,35 +34,24 @@ public sealed partial class MassFabricatorHologramSystem
             ? blueprint.PrintDuration(maxLoad) : 0.6f;
     }
 
-    public void TrackManualPrint(Entity<MassFabricatorHologramComponent> ent,
-        MassFabricatorBlueprintPrototype blueprint, int remaining)
+    public void TrackManualPrint(Entity<MassFabricatorHologramComponent> ent)
     {
         if (_printWaves.ContainsKey(ent.Owner))
             return;
 
-        var wave = new PrintWave(ent.Comp.Fabricator, remaining, blueprint.ChargeCost);
         _printVisualStarts[ent.Owner] = _timing.CurTime;
-        _printWaves.Add(ent.Owner, new PrintNode(wave) { AwaitDoAfter = true });
+        _printWaves.Add(ent.Owner, new PrintNode { AwaitDoAfter = true });
     }
 
     public void TrackAutomaticPrint(Entity<MassFabricatorHologramComponent> parent,
-        Entity<MassFabricatorHologramComponent> neighbor, MassFabricatorBlueprintPrototype blueprint)
+        Entity<MassFabricatorHologramComponent> neighbor)
     {
         if (_printWaves.ContainsKey(neighbor.Owner))
             return;
 
-        var wave = _printWaves.TryGetValue(parent.Owner, out var parentNode)
-            ? parentNode.Wave
-            : new PrintWave(neighbor.Comp.Fabricator,
-                TryComp<MassFabricatorComponent>(neighbor.Comp.Fabricator, out var gun) ? gun.RemainingCharge : 0, 0);
-        if (parentNode != null)
-        {
-            wave.Reserved += blueprint.ChargeCost;
-        }
-
         _printVisualStarts[neighbor.Owner] = _printVisualStarts.TryGetValue(parent.Owner, out var start)
             ? start + TimeSpan.FromSeconds(VisualPrintDuration(parent.Comp)) : _timing.CurTime;
-        _printWaves.Add(neighbor.Owner, new PrintNode(wave));
+        _printWaves.Add(neighbor.Owner, new PrintNode());
     }
 
     public void OnManualPrintResult(Entity<MassFabricatorHologramComponent> ent, bool cancelled)
@@ -108,10 +78,7 @@ public sealed partial class MassFabricatorHologramSystem
 
         if (!_printWaves.TryGetValue(ent.Owner, out var node))
         {
-            if (!TryComp<MassFabricatorComponent>(ent.Comp.Fabricator, out var gun))
-                return;
-
-            node = new PrintNode(new PrintWave(ent.Comp.Fabricator, gun.RemainingCharge, 0));
+            node = new PrintNode();
             _printWaves.Add(ent.Owner, node);
         }
 

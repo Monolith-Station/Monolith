@@ -26,6 +26,9 @@ public sealed partial class MassFabricatorBlueprintVariant
 
     [DataField]
     public SpriteSpecifier? Sprite { get; private set; }
+
+    [DataField]
+    public Dictionary<string, int>? Materials { get; private set; }
 }
 
 [Prototype("massFabricatorBlueprint")]
@@ -36,6 +39,9 @@ public sealed partial class MassFabricatorBlueprintPrototype : IPrototype
 
     [DataField(required: true)]
     public string Name { get; private set; } = default!;
+
+    [DataField]
+    public string Description { get; private set; } = string.Empty;
 
     [DataField]
     public MassFabricatorBlueprintCategory Category { get; private set; }
@@ -62,7 +68,10 @@ public sealed partial class MassFabricatorBlueprintPrototype : IPrototype
     public int Load { get; private set; }
 
     [DataField(required: true)]
-    public int ChargeCost { get; private set; }
+    public Dictionary<string, int> Materials { get; private set; } = new();
+
+    public Dictionary<string, int> GetMaterials(string target) =>
+        Variants.Find(variant => variant.Target == target)?.Materials ?? Materials;
 
     public float PrintDuration(int maxLoad)
     {
