@@ -98,7 +98,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 540000 # 150hr
+      time: 252,000 # 70hr
 # Judge ranks
 - type: loadout
   id: JudgeRank1
