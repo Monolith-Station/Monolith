@@ -14,7 +14,7 @@
   - JudgeRank8
 
 - type: loadoutGroup
-  id: StationRepRank
+  id: OverseerRank
   name: loadout-group-chatrank
   minLimit: 1
   maxLimit: 1
@@ -46,7 +46,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 36000 # 10hr
+      time: 21,600 # 6hr
 
 - type: loadout
   id: OverseerRank3
@@ -59,7 +59,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 72000 # 20hr
+      time: 43,200 # 12hr
 
 - type: loadout
   id: OverseerRank4
@@ -72,7 +72,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 144000 # 40hr
+      time: 64,800 # 18hr
 
 - type: loadout
   id: OverseerRank5
@@ -85,7 +85,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 216000 # 60hr
+      time: 86,400 # 24hr
 
 - type: loadout
   id: OverseerRankElite
