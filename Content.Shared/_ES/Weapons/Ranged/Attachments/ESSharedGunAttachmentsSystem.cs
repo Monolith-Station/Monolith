@@ -62,7 +62,8 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
         if (!ent.Comp.Slots.Any(s => s.ContainerId.Equals(containerId)))
             return;
         _gun.RefreshModifiers(ent.Owner);
-        _wield.RefreshModifiers(ent.Owner);
+        if (HasComp<GunWieldBonusComponent>(ent))
+            _wield.RefreshModifiers(ent.Owner);
     }
 
     protected virtual void OnEntRemovedFromContainer(Entity<ESAttachableGunComponent> ent, ref EntRemovedFromContainerMessage args)
@@ -71,7 +72,8 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
         if (!ent.Comp.Slots.Any(s => s.ContainerId.Equals(containerId)))
             return;
         _gun.RefreshModifiers(ent.Owner);
-        _wield.RefreshModifiers(ent.Owner);
+        if (HasComp<GunWieldBonusComponent>(ent))
+            _wield.RefreshModifiers(ent.Owner);
     }
 
     private void OnGunRefreshModifiers(Entity<ESAttachableGunComponent> ent, ref GunRefreshModifiersEvent args)
