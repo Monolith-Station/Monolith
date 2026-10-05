@@ -5,8 +5,8 @@
   id: Underground
   parent: [BasePOI, BaseRepairablePOI]
   name: 'Underground Black Market'
-  minimumDistance: 17500
-  maximumDistance: 22500
+  minimumDistance: 22000
+  maximumDistance: 27000
   spawnGroup: SyndicateFOB
   gridPath: /Maps/_Mono/POI/underground.yml
   addComponents:
@@ -31,7 +31,7 @@
   minPlayers: 0
   stations:
     Underground:
-      stationProto: RecordsFrontierOutpost
+      stationProto: RecordsFrontierOutpostCargo
       gridComponents:
       - type: DeleteNearbyDrones
         distance: 5000
