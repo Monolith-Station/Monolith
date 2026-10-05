@@ -1,0 +1,199 @@
+﻿- type: loadoutGroup
+  id: CsecRank
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - JudgeRank1
+  - JudgeRank2
+  - JudgeRank3
+  - JudgeRank4
+  - JudgeRank5
+  - JudgeRank6
+  - JudgeRank7
+  - JudgeRank8
+
+- type: loadoutGroup
+  id: StationRepRank
+  name: loadout-group-chatrank
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - OverseerRank1
+  - OverseerRank2
+  - OverseerRank3
+  - OverseerRank4
+  - OverseerRank5
+  - OverseerRankElite
+
+# Overseer ranks
+
+- type: loadout
+  id: OverseerRank1
+  name: Superintendent
+  components:
+  - type: ChatRank
+    rank: cc-superintendent
+
+- type: loadout
+  id: OverseerRank2
+  name: Arbiter
+  components:
+  - type: ChatRank
+    rank: cc-arbiter
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 36000 # 10hr
+
+- type: loadout
+  id: OverseerRank3
+  name: High Officer
+  components:
+  - type: ChatRank
+    rank: cc-high-officer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 72000 # 20hr
+
+- type: loadout
+  id: OverseerRank4
+  name: Comissioner
+  components:
+  - type: ChatRank
+    rank: cc-commissioner
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 144000 # 40hr
+
+- type: loadout
+  id: OverseerRank5
+  name: Overseer
+  components:
+  - type: ChatRank
+    rank: cc-overseer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 216000 # 60hr
+
+- type: loadout
+  id: OverseerRankElite
+  name: High Overseer
+  components:
+  - type: ChatRank
+    rank: cc-high-overseer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 540000 # 150hr
+# Judge ranks
+- type: loadout
+  id: JudgeRank1
+  name: Cadet
+  components:
+  - type: ChatRank
+    rank: cc-cadet
+
+- type: loadout
+  id: JudgeRank2
+  name: Inspector
+  components:
+  - type: ChatRank
+    rank: cc-inspector
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSecurityGuard
+      time: 10800 # 3hr
+
+- type: loadout
+  id: JudgeRank3
+  name: Judge
+  components:
+  - type: ChatRank
+    rank: cc-judge
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSecurityGuard
+      time: 36000 # 10hr
+
+- type: loadout
+  id: JudgeRank4
+  name: Senior Judge
+  components:
+  - type: ChatRank
+    rank: cc-senior-judge
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSecurityGuard
+      time: 72000 # 20hr
+
+- type: loadout
+  id: JudgeRank5
+  name: Officer
+  components:
+  - type: ChatRank
+    rank: cc-officer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSecurityGuard
+      time: 108000 # 30hr
+
+- type: loadout
+  id: JudgeRank6
+  name: Senior Officer
+  components:
+  - type: ChatRank
+    rank: cc-senior-officer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSecurityGuard
+      time: 144000 # 40hr
+
+- type: loadout
+  id: JudgeRank7
+  name: Guardsman
+  components:
+  - type: ChatRank
+    rank: cc-guardsman
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSecurityGuard
+      time: 216000 # 60hr
+
+- type: loadout
+  id: JudgeRank8
+  name: Honor Guard
+  components:
+  - type: ChatRank
+    rank: cc-honor-guard
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSecurityGuard
+      time: 360000 # 100hr

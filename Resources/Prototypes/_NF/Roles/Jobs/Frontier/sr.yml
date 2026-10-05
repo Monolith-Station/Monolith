@@ -33,12 +33,12 @@
   guides:
   - Caelestinus
   special:
-  - !type:AddComponentSpecial
-    components:
-    - type: ChatRank
-      rank: cc-overseer
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ] # Mono - remove TSFMC implant
+#  - !type:AddComponentSpecial # Mono - Chat ranks
+#    components:
+#    - type: ChatRank
+#      rank: cc-overseer
+#   - !type:AddImplantSpecial
+#     implants: [ MindShieldImplant ] # Mono - remove TSFMC implants
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -58,9 +58,7 @@
     - Flash
     - RubberStampSr
     - DoorRemoteCommand
-    - EncryptionKeyCentCom
     - EncryptionKeyStationMasterSR #Mono start
-    - EncryptionKeyDiplomacy
-    - ShipVoucherFrontierGuard
+  # - ShipVoucherFrontierGuard # Mono
     - PhoneInstrumentHigh
     - CCHandheldOverwatchConsole

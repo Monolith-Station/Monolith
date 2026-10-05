@@ -1,6 +1,7 @@
 ### TSFMC/TSFN fixed ranks
 
 tsf-marsoc = WS.MARSOC
+tsf-infantry = Rfl.
 
 ## TSFMC loadout ranks
 
@@ -90,8 +91,20 @@ mmc-asset-security-senior = Senior Asset Security
 mmc-liason = Corporate Liason
 
 ### CC/MD ranks
+cc-cadet = Cadet
 cc-judge = Jdg.
+cc-honor-guard = Honor Guard
+cc-inspector = Inspector
+cc-senior-judge = Senior Judge
+cc-officer = Officer
+cc-senior-officer = Senior Officer
+cc-guardsman = Guardsman
 cc-stc = STC
+cc-superintendent = Superintendent
+cc-arbiter = Arbiter
+cc-high-officer = High Officer
+cc-commissioner = Commissioner
 cc-overseer = Overseer
+cc-high-overseer = High Overseer
 md-doc = Director Of Care
 md-medic = ER.
