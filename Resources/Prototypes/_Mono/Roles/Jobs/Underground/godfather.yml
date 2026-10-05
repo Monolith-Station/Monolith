@@ -12,6 +12,7 @@
   whitelisted: true # I am NOT trusting regular players to not just use this role to frag out.
   startingGear: GodfatherGear
   icon: JobIconGodfather
+  alwaysUseSpawner: true
   supervisors: job-supervisors-nobody
   displayWeight: 150
   accessGroups:
