@@ -83,7 +83,7 @@
   id: ClothingBackpackJill # Wasn't sure where to put this. It's a magazine and a backpack.
   result: ClothingBackpackJill
   materials:
-    Steel: 14200 #You get 3 and a bit big boxes of 5.56.
+    Steel: 17200 #You get 4 big boxes of 5.56.
     Plasteel: 2000
 
 - type: latheRecipe
@@ -91,7 +91,7 @@
   id: Magazine556x45JillFMJ
   result: Magazine556x45JillFMJ
   materials:
-    Steel: 2590 #You get 1.5 boxes of 4 gauge.
+    Steel: 17200 #You get 4 big boxes of 5.56.
 
 - type: latheRecipe
   parent: BaseAmmoFMJIntermediateAmmoBoxRecipe

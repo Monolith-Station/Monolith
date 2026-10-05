@@ -146,21 +146,22 @@
     preventFiring: true
   - type: Gun
     minAngle: 20
-    maxAngle: 12
+    maxAngle: 15
     angleIncrease: 2 # Scales mostly with heat.
     angleDecay: 2.5
-    fireRate: 2
-    projectileSpeed: 60 # Mono
+    fireRate: 1.5
+    damageModifier: 0.8 # On par with certain SMGs
+    projectileSpeed: 45 # Mono
     selectedMode: FullAuto
     availableModes:
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
   - type: GunOverheat
-    fireRatePenalty: 0.15
-    spreadPenalty: 4
+    fireRatePenalty: 0.075 # Effectively 20RPM fully spooled
+    spreadPenalty: 3
     heatPerShot: 5
-    heatDissipation: 10
+    heatDissipation: 7.5
     penaltyExponent: 0.25
     heatCapacity: 300
   - type: AmmoCounter

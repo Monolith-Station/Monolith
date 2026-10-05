@@ -315,7 +315,7 @@
 - type: entity
   parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltRook
-  name: GS-008 Rook pouch
+  name: GS-201 Rook pouch
   description: A heavy pouch designed to store even heavier munitions.
   components:
   - type: StaticPrice
@@ -341,7 +341,7 @@
 - type: entity
   parent: [NFClothingBeltStorageBase, ContentsExplosionResistanceBase]
   id: ClothingBeltMule
-  name: GS-008-B Mule pouch
+  name: GS-201-B Mule pouch
   description: A pouch that can attach to where your gun would usually clip onto.
   components:
   - type: StaticPrice
