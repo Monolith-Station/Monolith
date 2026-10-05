@@ -5,8 +5,8 @@
   id: Underground
   parent: [BasePOI, BaseRepairablePOI]
   name: 'Underground Black Market'
-  minimumDistance: 22000
-  maximumDistance: 27000
+  minimumDistance: 18000
+  maximumDistance: 25000
   spawnGroup: SyndicateFOB
   gridPath: /Maps/_Mono/POI/underground.yml
   addComponents:
