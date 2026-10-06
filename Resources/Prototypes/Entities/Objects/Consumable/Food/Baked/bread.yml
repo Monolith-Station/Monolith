@@ -145,6 +145,7 @@
     tags:
     - ClothMade
     - Bread
+    - BountyCottonBread # Mono
   - type: SolutionContainerManager
     solutions:
       food:
@@ -193,6 +194,10 @@
   id: FoodBreadCorn
   description: Some good down-home country-style, rootin'-tootin', revolver-shootin', dad-gum yeehaw cornbread.
   components:
+  - type: Tag # Mono
+    tags:
+    - Bread
+    - BountyCornbread
   - type: FlavorProfile
     flavors:
       - bread
@@ -244,6 +249,10 @@
   id: FoodBreadCreamcheese
   description: Yum yum yum!
   components:
+  - type: Tag # Mono
+    tags:
+    - Bread
+    - BountyCreamCheeseBread
   - type: FlavorProfile
     flavors:
       - cheesy
@@ -326,6 +335,7 @@
     tags:
     - Meat
     - Bread
+    - BountyMeatBread # Mono
 # Tastes like bread, meat.
 
 - type: entity
@@ -365,6 +375,10 @@
   id: FoodBreadMimana
   description: Best eaten in silence.
   components:
+  - type: Tag # Mono
+    tags:
+    - Bread
+    - BountyMimanaBread
   - type: FlavorProfile
     flavors:
       - nothing
@@ -428,6 +442,10 @@
   id: FoodBreadPlain
   description: Some plain old earthen bread.
   components:
+  - type: Tag # Mono
+    tags:
+    - Bread
+    - BountyBread
   - type: Food
   - type: Sprite
     layers:
@@ -479,6 +497,7 @@
     tags:
     - Meat
     - Bread
+    - BountySausageBread # Mono
 
 - type: entity
   name: sausage bread slice
@@ -546,6 +565,7 @@
     tags:
     - Meat
     - Bread
+    - BountySpiderMeatBread # Mono
 # Tastes like bread, cobwebs.
 
 - type: entity
@@ -587,6 +607,10 @@
   id: FoodBreadTofu
   description: Like meatbread but for vegetarians. Brag to your crewmates about how much better it is.
   components:
+  - type: Tag # Mono
+    tags:
+    - Bread
+    - BountyTofuBread
   - type: FlavorProfile
     flavors:
       - tofu
@@ -667,6 +691,7 @@
     tags:
     - Meat
     - Bread
+    - BountyXenoMeatBread # Mono
 # Tastes like bread, acid.
 
 - type: entity
@@ -708,6 +733,10 @@
   id: FoodBreadBaguette
   description: Bon appétit!
   components:
+  - type: Tag # Mono
+    tags:
+    - Bread
+    - BountyBaguette
   - type: Sprite
     state: baguette
   - type: SliceableFood
@@ -761,6 +790,7 @@
     tags:
     - Bread
     - ClothMade
+    - BountyCottonBaguette # Mono
   - type: Clothing
     equippedPrefix: baguette-cotton
   - type: Item
@@ -846,6 +876,11 @@
   id: FoodBreadButteredToast
   description: Crunchy.
   components:
+  - type: Tag # Mono
+    tags:
+    - Bread
+    - Slice
+    - BountyButteredToast
   - type: FlavorProfile
     flavors:
       - butter
@@ -871,6 +906,11 @@
   id: FoodBreadFrenchToast
   description: A slice of bread soaked in a beaten egg mixture.
   components:
+  - type: Tag # Mono
+    tags:
+    - Bread
+    - Slice
+    - BountyFrenchToast
   - type: FlavorProfile
     flavors:
       - syrupy
@@ -896,6 +936,11 @@
   id: FoodBreadGarlicSlice
   description: Alas, it is limited.
   components:
+  - type: Tag # Mono
+    tags:
+    - Bread
+    - Slice
+    - BountyGarlicBread
   - type: FlavorProfile
     flavors:
       - bread
@@ -922,6 +967,11 @@
   id: FoodBreadJellySlice
   description: As if science are gonna give up their slimes for toast!
   components:
+  - type: Tag # Mono
+    tags:
+    - Bread
+    - Slice
+    - BountyJellyToast
   - type: FlavorProfile
     flavors:
       - bread
@@ -971,6 +1021,11 @@
   id: FoodBreadTwoSlice
   description: Classy.
   components:
+  - type: Tag # Mono
+    tags:
+    - Bread
+    - Slice
+    - BountyTwoSlice
   - type: Sprite
     layers:
     - state: two-slice
@@ -1055,6 +1110,7 @@
     - DoorBumpOpener
     - Bread
     - Meat
+    - BountyBreadDog # Mono
   - type: CanEscapeInventory
     baseResistTime: 2
   - type: Puller

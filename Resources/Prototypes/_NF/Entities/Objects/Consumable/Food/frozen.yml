@@ -6,6 +6,9 @@
   id: FoodFrozenMochi
   description: A delicious blorb of chewey sticky rice encapsulating a core of ice cream. Tasty!
   components:
+  - type: Tag
+    tags:
+    - BountyMochi
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/frozen.rsi
     state: mochi
@@ -31,6 +34,9 @@
   id: FoodFrozenMochiBungo
   description: A delicious blorb of chewey sticky rice encapsulating a core of ice cream. It's bungo flavored!
   components:
+  - type: Tag
+    tags:
+    - BountyBungoMochi
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/frozen.rsi
     state: bungomochi
@@ -56,6 +62,9 @@
   id: FoodFrozenMochiCherry
   description: A delicious blorb of chewey sticky rice encapsulating a core of ice cream. It's cherry flavored!
   components:
+  - type: Tag
+    tags:
+    - BountyCherryMochi
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/frozen.rsi
     state: cherrymochi
@@ -81,6 +90,9 @@
   id: FoodFrozenMochiChocolate
   description: A delicious blorb of chewey sticky rice encapsulating a core of ice cream. It's chocolate flavored!
   components:
+  - type: Tag
+    tags:
+    - BountyChocolateMochi
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/frozen.rsi
     state: chocomochi
@@ -106,6 +118,9 @@
   id: FoodFrozenMochiFiber
   description: A delicious blorb of chewey sticky rice encapsulating a core of ice cream. It's woven with fiber!
   components:
+  - type: Tag
+    tags:
+    - BountyFiberMochi
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/frozen.rsi
     state: fibermochi
@@ -133,6 +148,9 @@
   id: FoodFrozenMochiMoth
   description: A delicious blorb of chewey sticky rice encapsulating a core of ice cream. It's almost too cute to eat! Almost.
   components:
+  - type: Tag
+    tags:
+    - BountyRosyMochi
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/frozen.rsi
     state: mothmochi
@@ -158,6 +176,9 @@
   id: FoodFrozenMochiTea
   description: A delicious blorb of chewey sticky rice encapsulating a core of ice cream. It's infused with tea!
   components:
+  - type: Tag
+    tags:
+    - BountyTeaMochi
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/frozen.rsi
     state: teamochi
@@ -183,6 +204,9 @@
   id: FoodFrozenMochiUbe
   description: A delicious blorb of chewey sticky rice encapsulating a core of ice cream. You're not sure if it's really ube.
   components:
+  - type: Tag
+    tags:
+    - BountyUbeMochi
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/frozen.rsi
     state: ubemochi

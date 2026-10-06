@@ -33,6 +33,8 @@ entities:
     - type: GridTree
     - type: Broadphase
     - type: OccluderTree
+    - type: Parallax
+      parallax: SnowballStation
   - uid: 2
     components:
     - type: MetaData
