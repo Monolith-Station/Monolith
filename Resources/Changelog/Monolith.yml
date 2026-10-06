@@ -25855,3 +25855,37 @@ Entries:
   id: 2798
   time: '2026-10-05T00:50:04.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4811
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: Alternate gamemodes now need a minimum pop of 30 to be votable.
+  id: 2799
+  time: '2026-10-05T17:03:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4824
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a custom parallax instead of using the same one as Frontier.
+        Finally, planets no longer drawing in front of asteroids.
+    - type: Add
+      message: FTL-space got a custom parallax too. With ambient light even.
+  id: 2800
+  time: '2026-10-05T20:20:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4828
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added bounties for meals to CC. They got some good payouts, you can
+        actually have a reason to cook stuff now. The terminals for the bounties
+        are in both cargo bays by the sell pads.
+    - type: Fix
+      message: >-
+        Fixed an infinite cash exploit on CC w/ turn-in chutes/trade good
+        vendors.
+    - type: Fix
+      message: Fixed MMC Camera bounty only working with Optics.
+  id: 2801
+  time: '2026-10-06T02:21:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4829

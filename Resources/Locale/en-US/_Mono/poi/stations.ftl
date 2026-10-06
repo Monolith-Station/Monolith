@@ -19,4 +19,4 @@ frontier-lobby-chengdu-description = A Type-98F cruiser deployed by the TSFN for
 frontier-lobby-crocus-subtext = Ground warfare.
 frontier-lobby-crocus-description = This is a map for the Crocus mode. You may have objectives upon spawning in. View them in the character menu, they are shared with your full faction.
 
-   - Civilians in this mode (for now) are considered [color=bold]free agents[/bold], and do not have a specific objective. Treat it as a neutral "do-whatever" role.
+   - Civilians in this mode (for now) are considered [bold]free agents[/bold], and do not have a specific objective. Treat it as a neutral "do-whatever" role.

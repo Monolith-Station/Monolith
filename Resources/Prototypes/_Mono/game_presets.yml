@@ -114,6 +114,7 @@
   name: mono-chimera-tsf-title
   description: mono-chimera-tsf-description
   showInVote: true
+  minPlayers: 30
   rules:
   - NFAdventure
   - BasicStationEventScheduler
@@ -135,6 +136,7 @@
   name: mono-chimera-pdv-title
   description: mono-chimera-pdv-description
   showInVote: true
+  minPlayers: 30
   rules:
   - NFAdventure
   - BasicStationEventScheduler
@@ -178,6 +180,7 @@
   description: mono-allatonce-description
   showInVote: true # we ball
   weight: 0.25 # requires 80% votes
+  minPlayers: 30
   rules:
   - NFAdventure
   - BasicStationEventScheduler
@@ -200,7 +203,9 @@
   description: mono-roguetsf-hyperwar-description
   showInVote: true # we ball
   weight: 0.15 # Giant majority needed
+  autobalancerEnabled: true
   supportedMaps: HyperwarMapPool
+  minPlayers: 30
   rules:
   - NFAdventure
   - Hyperwar
@@ -220,6 +225,7 @@
   respawnMultiplier: 0.25
   autobalancerEnabled: true
   supportedMaps: CrocusMapPool
+  minPlayers: 30
   rules:
   - PDVObjectivesCrocus
   - TSFObjectivesCrocus
