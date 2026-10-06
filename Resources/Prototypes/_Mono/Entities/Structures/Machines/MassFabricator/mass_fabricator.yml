@@ -1,6 +1,7 @@
 - type: entity
   id: HZMassFabricator
   name: H-Z Mass Fabricator
+  description: A highly improved variant of the RCD made for remote building planetside.
   parent: BaseItem
   components:
   - type: MassFabricator
