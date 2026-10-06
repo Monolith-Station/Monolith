@@ -44,15 +44,14 @@ public sealed partial class MassFabricatorScreen : UIScreen
         };
     }
 
-    public void UpdateBars(float blueprintLoad, Dictionary<ProtoId<MaterialPrototype>, int> materials,
-        Dictionary<string, int> available, int capacity)
+    public void UpdateBars(float blueprintLoad, Dictionary<ProtoId<MaterialPrototype>, int> materials, int capacity)
     {
         BlueprintBar.Value = Math.Clamp(blueprintLoad, 0f, 1f);
         _blueprintFill.BackgroundColor = Color.InterpolateBetween(BlueprintBlue, BlueprintRed,
             Math.Clamp((blueprintLoad - 0.75f) * 4f, 0f, 1f));
 
         var state = $"{capacity}:" + string.Join(';', materials.OrderBy(pair => pair.Key.Id)
-            .Select(pair => $"{pair.Key}:{pair.Value}:{available.GetValueOrDefault(pair.Key.Id)}"));
+            .Select(pair => $"{pair.Key}:{pair.Value}"));
         if (state == _bufferState)
             return;
         _bufferState = state;
@@ -66,7 +65,6 @@ public sealed partial class MassFabricatorScreen : UIScreen
         {
             var material = _prototypes.Index(id);
             var name = Loc.GetString("mass-fabricator-display-name", ("name", Loc.GetString(material.Name)));
-            var entry = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical };
             var row = new BoxContainer { SeparationOverride = 6 };
             row.AddChild(new TextureRect
             {
@@ -77,16 +75,7 @@ public sealed partial class MassFabricatorScreen : UIScreen
             });
             row.AddChild(new Label { Text = name, HorizontalExpand = true });
             row.AddChild(new Label { Text = $"{amount:N0}" });
-            entry.AddChild(row);
-            var reserved = amount - available.GetValueOrDefault(id.Id);
-            if (reserved > 0)
-                entry.AddChild(new Label
-                {
-                    Text = Loc.GetString("mass-fabricator-buffer-reserved", ("amount", reserved)),
-                    FontColorOverride = Color.Gray,
-                    Margin = new Thickness(30, 0, 0, 0),
-                });
-            MaterialRows.AddChild(entry);
+            MaterialRows.AddChild(row);
             if (amount > 0)
                 MaterialSegments.Segments.Add((material.Color, amount));
         }

@@ -21,6 +21,9 @@ public sealed class MassFabricatorPlacementHijack(
 {
     public override bool CanRotate => blueprint.Kind == MassFabricatorBlueprintKind.Entity;
 
+    public bool Matches(ProtoId<MassFabricatorBlueprintPrototype> id, string selectedTarget) =>
+        blueprint.ID == id && target == selectedTarget;
+
     public override bool HijackPlacementRequest(EntityCoordinates coordinates)
     {
         system.Place(coordinates, CanRotate ? Manager.Direction.ToAngle() : Angle.Zero);

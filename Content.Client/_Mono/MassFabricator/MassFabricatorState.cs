@@ -69,8 +69,7 @@ public sealed partial class MassFabricatorState : GameplayStateBase, IMainViewpo
 
         ((MassFabricatorScreen) UserInterfaceManager.ActiveScreen!).UpdateBars(
             gun is { MaxBlueprintLoad: > 0 } ? client.PredictedBlueprintLoad / gun.MaxBlueprintLoad : 0f,
-            _entities.System<SharedMaterialStorageSystem>().GetStoredMaterials((uid, storage)),
-            client.AvailableMaterials(uid), storage.StorageLimit ?? 0);
+            _entities.System<SharedMaterialStorageSystem>().GetStoredMaterials((uid, storage)), storage.StorageLimit ?? 0);
     }
 
     protected override void OnKeyBindStateChanged(ViewportBoundKeyEventArgs args)

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Content.Shared._Mono.MassFabricator;
@@ -24,7 +23,6 @@ public sealed partial class MassFabricatorHologramSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
 
     private SpriteSystem _sprites = default!;
-    private readonly Dictionary<EntityUid, TimeSpan> _printVisualStarts = new();
 
     public override void Initialize()
     {
@@ -37,28 +35,9 @@ public sealed partial class MassFabricatorHologramSystem : EntitySystem
     private void OnState(Entity<MassFabricatorHologramComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         ShowPlan(ent.Owner);
-        if (ent.Comp.PrintState == MassFabricatorPrintState.Printing)
-        {
-            _printVisualStarts.TryAdd(ent.Owner, _timing.CurTime);
-            ConfirmPrint(ent);
-        }
-        else if (ent.Comp.PrintState == MassFabricatorPrintState.Idle &&
-                 _printWaves.TryGetValue(ent.Owner, out var cancelled) && cancelled.Confirmed)
-        {
-            RollbackPrediction(cancelled, false);
-            _printWaves.Remove(ent.Owner);
-            _printVisualStarts.Remove(ent.Owner);
-        }
 
         if (TryComp<SpriteComponent>(ent.Owner, out var sprite))
             _sprites.SetDrawDepth((ent.Owner, sprite), PlanDrawDepth(ent.Comp));
-    }
-
-    public void OnPlanShutdown(Entity<MassFabricatorHologramComponent> ent)
-    {
-        _printVisualStarts.Remove(ent.Owner);
-        if (_printWaves.Remove(ent.Owner, out var node))
-            RollbackPrediction(node, ent.Comp.PrintState == MassFabricatorPrintState.Fading);
     }
 
     public void ShowPlan(EntityUid uid)
@@ -141,27 +120,17 @@ public sealed partial class MassFabricatorHologramSystem : EntitySystem
         var second = erase ? new Vector3(1f, 0.16f, 0.16f) : brightBlue;
         var alpha = 0.5f;
         var intensity = 1f;
-        var hasVisualStart = _printVisualStarts.TryGetValue(ent.Owner, out var visualStart);
-        var duration = VisualPrintDuration(ent.Comp);
-        var visualEnd = visualStart + TimeSpan.FromSeconds(duration);
-        _printWaves.TryGetValue(ent.Owner, out var node);
-        var predictedPrint = hasVisualStart && node is { Confirmed: true } or { Ready: true };
-        var predictedComplete = predictedPrint && node!.Expanded && _timing.CurTime >= visualEnd;
-        if (!predictedComplete && (predictedPrint && _timing.CurTime < visualEnd ||
-            ent.Comp.PrintState == MassFabricatorPrintState.Printing ||
-            ent.Comp.PrintState == MassFabricatorPrintState.Idle && _printWaves.ContainsKey(ent.Owner)))
+        var elapsed = (float) (_timing.CurTime - ent.Comp.PrintStarted).TotalSeconds;
+        if (ent.Comp.PrintState == MassFabricatorPrintState.Printing)
         {
-            var start = hasVisualStart ? visualStart : ent.Comp.PrintStarted;
-            var progress = Math.Clamp((float) (_timing.CurTime - start).TotalSeconds / duration, 0f, 1f);
+            var progress = Math.Clamp(elapsed / Math.Max(ent.Comp.PrintDuration, float.Epsilon), 0f, 1f);
             first = blue;
             second = brightBlue;
             alpha = 0.5f + 0.5f * progress;
         }
-        else if (ent.Comp.PrintState == MassFabricatorPrintState.Fading || predictedComplete)
+        else if (ent.Comp.PrintState == MassFabricatorPrintState.Fading)
         {
-            var fadeStart = predictedPrint ? visualEnd : ent.Comp.PrintStarted;
-            var fade = Math.Clamp((float) (_timing.CurTime - fadeStart).TotalSeconds /
-                MassFabricatorHologramComponent.FadeSeconds, 0f, 1f);
+            var fade = Math.Clamp(elapsed / MassFabricatorHologramComponent.FadeSeconds, 0f, 1f);
             first = second = Vector3.One;
             alpha = 1f - fade;
             intensity += 3f * (1f - fade);

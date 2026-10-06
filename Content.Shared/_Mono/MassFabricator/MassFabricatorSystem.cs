@@ -21,6 +21,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Content.Shared.Maps;
 using Robust.Shared.Timing;
+using Robust.Shared.Network;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Mono.MassFabricator;
@@ -48,6 +49,7 @@ public abstract partial class MassFabricatorSystem : EntitySystem
     [Dependency] private MassFabricatorVisibilitySystem _visibility = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
     [Dependency] private SharedDoAfterSystem _printDoAfter = default!;
     [Dependency] private IConfigurationManager _eraseConfig = default!;
     [Dependency] private ExamineSystemShared _eraseExamine = default!;
@@ -56,11 +58,14 @@ public abstract partial class MassFabricatorSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MassFabricatorComponent, UseInHandEvent>(OnUse);
+        SubscribeLocalEvent<MassFabricatorViewComponent, ComponentShutdown>(OnViewShutdown);
+        SubscribeLocalEvent<MassFabricatorComponent, ComponentShutdown>(OnFabricatorShutdown);
         SubscribeLocalEvent<MassFabricatorComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<MassFabricatorHologramComponent, InteractUsingEvent>(OnPrint);
         SubscribeLocalEvent<MassFabricatorHologramComponent, RangedInteractEvent>(OnRangedPrint);
         SubscribeLocalEvent<MassFabricatorHologramComponent, MassFabricatorPrintDoAfterEvent>(OnPrintFinished);
         SubscribeLocalEvent<MassFabricatorHologramComponent, ComponentShutdown>(OnPlanShutdown);
+        SubscribeAllEvent<MassFabricatorSelectEvent>(OnSelectRequest);
         SubscribeAllEvent<MassFabricatorPlaceEvent>(OnPlaceRequest);
         SubscribeAllEvent<MassFabricatorEraseEvent>(OnEraseRequest);
         CommandBinds.Builder
@@ -101,9 +106,6 @@ public abstract partial class MassFabricatorSystem : EntitySystem
             var color = Color.InterpolateBetween(material.Color, Color.White, 0.4f);
             var line = Loc.GetString("mass-fabricator-examine-material",
                 ("name", FormattedMessage.EscapeText(name)), ("color", color.ToHex()), ("amount", $"{amount:N0}"));
-            var reserved = ent.Comp.ReservedMaterials.GetValueOrDefault(id.Id);
-            if (reserved > 0)
-                line += Loc.GetString("mass-fabricator-examine-reserved", ("amount", $"{reserved:N0}"));
             args.PushMarkup(line);
         }
     }
@@ -169,14 +171,6 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         return StartPrint(ent, blueprint, user);
     }
 
-    protected virtual void OnPrintStarted(Entity<MassFabricatorHologramComponent> plan,
-        MassFabricatorBlueprintPrototype blueprint) { }
-
-    protected virtual void OnAutomaticPrintStarted(Entity<MassFabricatorHologramComponent> parent,
-        Entity<MassFabricatorHologramComponent> neighbor, MassFabricatorBlueprintPrototype blueprint) { }
-
-    protected virtual bool UpdateAutomaticPrints => true;
-
     protected void StartNeighbors(Entity<MassFabricatorHologramComponent> completed, EntityUid grid,
         MapGridComponent mapGrid, Vector2i index)
     {
@@ -194,8 +188,7 @@ public abstract partial class MassFabricatorSystem : EntitySystem
                 !_prototypes.TryIndex(plan.Blueprint, out var blueprint))
                 continue;
 
-            if (StartPrint((uid, plan), blueprint))
-                OnAutomaticPrintStarted(completed, (uid, plan), blueprint);
+            StartPrint((uid, plan), blueprint);
         }
     }
 
@@ -216,16 +209,46 @@ public abstract partial class MassFabricatorSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        if (UpdateAutomaticPrints)
-            UpdateAutomaticPrintsNow();
-    }
+        if (_net.IsClient && !_timing.InPrediction)
+            return;
 
-    protected virtual void OnManualPrintResult(Entity<MassFabricatorHologramComponent> plan, bool cancelled) { }
+        UpdateAutomaticPrintsNow();
+        var fading = EntityQueryEnumerator<MassFabricatorHologramComponent>();
+        while (fading.MoveNext(out var uid, out var plan))
+        {
+            if (plan.PrintState == MassFabricatorPrintState.Fading &&
+                (_timing.CurTime - plan.PrintStarted).TotalSeconds >= MassFabricatorHologramComponent.FadeSeconds)
+                PredictedQueueDel(uid);
+        }
+
+        var finished = new List<EntityUid>();
+        var views = EntityQueryEnumerator<MassFabricatorViewComponent>();
+        while (views.MoveNext(out var user, out var view))
+        {
+            if (TryComp<MassFabricatorEyeComponent>(view.Eye, out var visual))
+            {
+                var position = _transforms.GetWorldPosition(user);
+                var map = Transform(user).MapUid;
+                if (visual.BodyPosition != position || visual.BodyMap != map)
+                {
+                    visual.BodyPosition = position;
+                    visual.BodyMap = map;
+                    Dirty(view.Eye, visual);
+                }
+            }
+
+            if (view.Returning && UpdateReturn(user, view.Eye, frameTime, view.ReturnStartTick))
+                finished.Add(user);
+        }
+
+        foreach (var user in finished)
+            RemComp<MassFabricatorViewComponent>(user);
+    }
 
     protected bool StartPrint(Entity<MassFabricatorHologramComponent> ent,
         MassFabricatorBlueprintPrototype blueprint, EntityUid? user = null)
     {
-        if (ent.Comp.PrintState != MassFabricatorPrintState.Idle ||
+        if (ent.Comp.PrintState != MassFabricatorPrintState.Idle || EntityManager.IsQueuedForDeletion(ent.Owner) ||
             !TryComp<MassFabricatorComponent>(ent.Comp.Fabricator, out var fabricator))
             return false;
 
@@ -243,8 +266,6 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         foreach (var (material, amount) in costs)
             fabricator.ReservedMaterials[material] = fabricator.ReservedMaterials.GetValueOrDefault(material) + amount;
         Dirty(ent.Comp.Fabricator, fabricator);
-        if (user != null)
-            OnPrintStarted(ent, blueprint);
         ent.Comp.AutomaticPrint = user == null;
         ent.Comp.PrintState = MassFabricatorPrintState.Printing;
         ent.Comp.PrintStarted = _timing.CurTime;
@@ -260,7 +281,6 @@ public abstract partial class MassFabricatorSystem : EntitySystem
             return;
 
         args.Handled = true;
-        OnManualPrintResult(ent, args.Cancelled);
         if (args.Cancelled)
             ResetPrint(ent);
         else
@@ -353,8 +373,11 @@ public abstract partial class MassFabricatorSystem : EntitySystem
             Prototype(eye)?.ID != "HZMassFabricatorEye" || !CanBeginReturn(user, eye))
             return;
 
+        var view = Comp<MassFabricatorViewComponent>(user);
+        view.Returning = true;
+        view.ReturnStartTick = _timing.CurTick.Value;
+        Dirty(user, view);
         BeginReturn(user, eye);
-        OnReturnStarted(user, eye);
     }
 
     public EntityUid? GetPlacementGrid(EntityUid user, MassFabricatorBlueprintKind kind,
@@ -390,8 +413,23 @@ public abstract partial class MassFabricatorSystem : EntitySystem
             : MassFabricatorPlacementResult.Allowed;
     }
 
-    protected virtual bool CanModifyPlans(EntityUid user, EntityUid gun) => false;
+    protected bool CanModifyPlans(EntityUid user, EntityUid gun) =>
+        TryComp<MassFabricatorViewComponent>(user, out var view) && !view.Returning &&
+        view.Fabricator == gun && TryComp<HandsComponent>(user, out var hands) &&
+        hands.ActiveHandEntity == gun;
     protected virtual void OnPlanCreated(Entity<MassFabricatorHologramComponent> plan) { }
+    protected virtual void OnPlacementRejected(EntityCoordinates coordinates, Angle rotation) { }
+
+    private void OnSelectRequest(MassFabricatorSelectEvent message, EntitySessionEventArgs args)
+    {
+        if (args.SenderSession.AttachedEntity is not { } user ||
+            !TryGetEntity(message.Fabricator, out var uid) || uid is not { } fabricator ||
+            !CanModifyPlans(user, fabricator) ||
+            !TryComp<MassFabricatorComponent>(fabricator, out var component))
+            return;
+
+        TrySelectBlueprint((fabricator, component), message.Blueprint, message.Target);
+    }
 
     private void OnPlaceRequest(MassFabricatorPlaceEvent message, EntitySessionEventArgs args)
     {
@@ -409,7 +447,7 @@ public abstract partial class MassFabricatorSystem : EntitySystem
 
     private void OnEraseRequest(MassFabricatorEraseEvent message, EntitySessionEventArgs args)
     {
-        if (message.Plans.Length > 256 || args.SenderSession.AttachedEntity is not { } user ||
+        if (message.Plans is not { Length: <= 256 } || args.SenderSession.AttachedEntity is not { } user ||
             !TryGetEntity(message.Fabricator, out var uid) || uid is not { } gun ||
             !CanModifyPlans(user, gun) || !HasComp<MassFabricatorComponent>(gun))
             return;
@@ -426,10 +464,16 @@ public abstract partial class MassFabricatorSystem : EntitySystem
     public EntityUid? CreatePlan(EntityUid user, Entity<MassFabricatorComponent> gun,
         MassFabricatorBlueprintPrototype blueprint, string target, EntityCoordinates requested, Angle rotation)
     {
-        if (!TryGetPlacementCoordinates(user, blueprint.Kind, requested, out var coordinates) ||
-            CanPlacePlan(user, blueprint, target, coordinates, gun.Comp.BlueprintLoad,
-                gun.Comp.MaxBlueprintLoad) != MassFabricatorPlacementResult.Allowed)
+        if (!TryGetPlacementCoordinates(user, blueprint.Kind, requested, out var coordinates))
             return null;
+
+        var result = CanPlacePlan(user, blueprint, target, coordinates, gun.Comp.BlueprintLoad, gun.Comp.MaxBlueprintLoad);
+        if (result != MassFabricatorPlacementResult.Allowed)
+        {
+            if (result == MassFabricatorPlacementResult.OutOfLoad)
+                OnPlacementRejected(coordinates, rotation);
+            return null;
+        }
 
         var uid = PredictedSpawnAttachedTo("HZMassFabricatorHologram", coordinates,
             rotation: blueprint.Kind == MassFabricatorBlueprintKind.Tile ? Angle.Zero : rotation);
@@ -459,11 +503,8 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         return true;
     }
 
-    protected virtual void OnPlanVisualShutdown(Entity<MassFabricatorHologramComponent> plan) { }
-
     private void OnPlanShutdown(Entity<MassFabricatorHologramComponent> ent, ref ComponentShutdown args)
     {
-        OnPlanVisualShutdown(ent);
         if (!_timing.ApplyingState)
             ReleasePlan(ent);
     }
@@ -521,9 +562,10 @@ public abstract partial class MassFabricatorSystem : EntitySystem
 
         var cell = _maps.CoordinatesToTile(grid, mapGrid, coordinates);
         var plans = EntityQueryEnumerator<MassFabricatorHologramComponent, TransformComponent>();
-        while (plans.MoveNext(out _, out var plan, out var xform))
+        while (plans.MoveNext(out var uid, out var plan, out var xform))
         {
-            if (plan.Kind == MassFabricatorBlueprintKind.Tile && xform.GridUid == grid &&
+            if (!EntityManager.IsQueuedForDeletion(uid) &&
+                plan.Kind == MassFabricatorBlueprintKind.Tile && xform.GridUid == grid &&
                 _maps.CoordinatesToTile(grid, mapGrid, xform.Coordinates) == cell)
                 return false;
         }
@@ -552,17 +594,21 @@ public abstract partial class MassFabricatorSystem : EntitySystem
                Vector2.DistanceSquared(_transforms.GetWorldPosition(user), target.Position) <= range * range;
     }
 
-    protected virtual bool CanBeginReturn(EntityUid user, EntityUid eye) => true;
-    protected virtual void OnReturnStarted(EntityUid user, EntityUid eye) { }
+    private bool CanBeginReturn(EntityUid user, EntityUid eye) =>
+        TryComp<MassFabricatorViewComponent>(user, out var view) && view.Eye == eye && !view.Returning;
 
-    protected virtual void OnUse(Entity<MassFabricatorComponent> ent, ref UseInHandEvent args)
+    private void OnUse(Entity<MassFabricatorComponent> ent, ref UseInHandEvent args)
     {
+        if (!_net.IsClient && !HasComp<ActorComponent>(args.User))
+            return;
+
         StartView(ent, ref args);
     }
 
     protected EntityUid? StartView(Entity<MassFabricatorComponent> ent, ref UseInHandEvent args)
     {
-        if (args.Handled || HasComp<RelayInputMoverComponent>(args.User))
+        if (args.Handled || HasComp<MassFabricatorViewComponent>(args.User) ||
+            HasComp<RelayInputMoverComponent>(args.User))
             return null;
 
         var eye = PredictedSpawnAtPosition("HZMassFabricatorEye", Transform(args.User).Coordinates);
@@ -581,6 +627,10 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         _eyes.SetDrawFov(args.User, false);
         _eyes.SetTarget(args.User, eye);
         _mover.SetRelay(args.User, eye);
+        var view = EnsureComp<MassFabricatorViewComponent>(args.User);
+        view.Eye = eye;
+        view.Fabricator = ent.Owner;
+        Dirty(args.User, view);
         args.Handled = true;
         return eye;
     }
@@ -613,16 +663,34 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         return false;
     }
 
-    protected void StopPredictedView(EntityUid user)
+    private void OnViewShutdown(Entity<MassFabricatorViewComponent> ent, ref ComponentShutdown args)
     {
-        var target = TryComp<RelayInputMoverComponent>(user, out var relay) ? relay.RelayEntity : EntityUid.Invalid;
-        if (TryComp<EyeComponent>(user, out var eye) && eye.Target is { } eyeTarget)
-            target = eyeTarget;
+        if (_timing.ApplyingState)
+            return;
 
-        _eyes.SetTarget(user, null);
-        RemComp<RelayInputMoverComponent>(user);
-        _eyes.SetDrawFov(user, true);
-        if (target.IsValid() && !Deleted(target) && EntityManager.IsClientSide(target))
-            QueueDel(target);
+        _eyes.SetTarget(ent.Owner, null);
+        RemComp<RelayInputMoverComponent>(ent.Owner);
+        _eyes.SetDrawFov(ent.Owner, true);
+        if (!Deleted(ent.Comp.Eye))
+            PredictedQueueDel(ent.Comp.Eye);
+    }
+
+    private void OnFabricatorShutdown(Entity<MassFabricatorComponent> ent, ref ComponentShutdown args)
+    {
+        if (_timing.ApplyingState)
+            return;
+
+        foreach (var plan in ent.Comp.Plans)
+        {
+            if (Exists(plan))
+                PredictedQueueDel(plan);
+        }
+
+        var views = EntityQueryEnumerator<MassFabricatorViewComponent>();
+        while (views.MoveNext(out var user, out var view))
+        {
+            if (view.Fabricator == ent.Owner)
+                RemComp<MassFabricatorViewComponent>(user);
+        }
     }
 }
