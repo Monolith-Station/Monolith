@@ -68,6 +68,10 @@
     tankType: Fuel
   - type: Transform
     noRot: true
+  - type: PacifismDangerousAttack
+  - type: Explosive
+    explosionType: ESWelderBomb
+    totalIntensity: 6000
 
 - type: entity
   id: FuelTankHugeOilFilled

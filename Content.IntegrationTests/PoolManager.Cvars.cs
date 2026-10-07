@@ -11,6 +11,9 @@ public static partial class PoolManager
     public static readonly (string cvar, string value)[] TestCvars =
     {
         // @formatter:off
+        // ES START
+        (CCVars.ExcitedGroups.Name,     "true"),
+        // ES END
         (CCVars.DatabaseSynchronous.Name,     "true"),
         (CCVars.DatabaseSqliteDelay.Name,     "0"),
         (CCVars.HolidaysEnabled.Name,         "false"),
@@ -36,6 +39,6 @@ public static partial class PoolManager
         (CCVars.MovementMobPushing.Name, "false"),
         (CCVars.GameLobbyDefaultPreset.Name, "secret"), // Frontier: Adventure takes ages, default to secret
         (CCVars.StaticStorageUI.Name, "true"),// Frontier: causes storage test failures
-        (CCVars.StorageLimit.Name, "1")// Frontier: test failures with multiple storage 
+        (CCVars.StorageLimit.Name, "1")// Frontier: test failures with multiple storage
     };
 }

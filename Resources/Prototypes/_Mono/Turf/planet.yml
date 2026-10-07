@@ -7,6 +7,9 @@
     collection: FootstepAsteroid
   weather: true
   indestructible: true
+  # ES START
+  flammability: 2
+  # ES END
 
 - type: tile
   id: FloorPlanetGrassCrocus
@@ -196,6 +199,9 @@
   heatCapacity: 10000
   isSubfloor: false
   indestructible: true
+  # ES START
+  flammability: 0.1
+  # ES END
 
 - type: tile
   id: FloorConcreteMonoCrocus
@@ -210,6 +216,9 @@
   heatCapacity: 10000
   isSubfloor: false
   indestructible: true
+  # ES START
+  flammability: 0.1
+  # ES END
 
 - type: tile
   id: FloorConcreteSmoothCrocus
@@ -224,4 +233,7 @@
   heatCapacity: 10000
   isSubfloor: false
   indestructible: true
+  # ES START
+  flammability: 0.1
+  # ES END
 

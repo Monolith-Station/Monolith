@@ -179,3 +179,7 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
+  - type: ESSparkOnHit
+    prob: 0.25
+    tileFireChance: 0.5
+    count: 3

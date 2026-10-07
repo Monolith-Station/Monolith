@@ -116,6 +116,12 @@
     guides:
     - VoltageNetworks
     - Power
+  # ES/Mono Start
+  - type: ESSparkOnHit
+    prob: 0.25
+    tileFireChance: 0.2
+    count: 2
+  # ES/Mono End
 
   # Interface
   - type: BatteryInterface
@@ -239,6 +245,12 @@
     guides:
     - VoltageNetworks
     - Power
+  # ES/Mono Start
+  - type: ESSparkOnHit
+    prob: 0.25
+    tileFireChance: 0.2
+    count: 2
+  # ES/Mono End
 
   # Interface
   - type: BatteryInterface

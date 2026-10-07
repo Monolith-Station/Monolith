@@ -80,12 +80,11 @@ public abstract partial class SharedGasTileOverlaySystem : EntitySystem
         [ViewVariables]
         public readonly ThermalByte ByteGasTemperature;
 
-        public GasOverlayData(byte fireState, byte[] opacity, ThermalByte byteTemp, byte type)
+        public GasOverlayData(byte fireState, byte[] opacity, ThermalByte byteTemp)
         {
             FireState = fireState;
             Opacity = opacity;
             ByteGasTemperature = byteTemp;
-            FireType = type;
         }
 
         public bool Equals(GasOverlayData other)
