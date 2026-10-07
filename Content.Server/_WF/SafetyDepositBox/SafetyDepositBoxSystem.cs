@@ -24,6 +24,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server._WF.SafetyDepositBox;
 
@@ -47,6 +48,8 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
     [Dependency] private MapLoaderSystem _loader = default!;
     [Dependency] private MonoCoinsManager _coinBase = default!; // I had to.
     [Dependency] private ISharedPlayerManager _playerManager = default!;
+
+    private readonly HashSet<Guid> _pendingBoxes = new();
 
     public override void Initialize()
     {
@@ -519,97 +522,107 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
         Guid boxId)
     {
         // Get box from database
-        var box = await _dbManager.GetSafetyDepositBox(boxId);
-
-        if (box == null)
+        if (!_pendingBoxes.Add(boxId))
+            return; // already being processed
+        try
         {
-            ConsolePopup(player, "Box not found.");
-            PlayDenySound(consoleUid, component);
-            return;
-        }
+            var box = await _dbManager.GetSafetyDepositBox(boxId);
+            await Timer.Delay(1000); // DO NOT MERGE THIS
 
-        if (box.LastWithdrawn != null) // Check to make sure it isn't already deposited.
-        {
-            ConsolePopup(player, "Box already withdrawn in world.");
-            PlayDenySound(consoleUid, component);
-            return;
-        }
-
-        Log.Info($"WithdrawBoxAsync: Retrieved box {boxId} with {box.Items.Count} items from database");
-
-        // Verify ownership
-        if (box.OwnerUserId != userId || box.CharacterIndex != characterIndex)
-        {
-            ConsolePopup(player, "This box does not belong to you.");
-            PlayDenySound(consoleUid, component);
-            return;
-        }
-
-        // Spawn the physical box (use stored box size to determine prototype);
-
-        var boxEntity = Spawn(box.ProtoId, Transform(player).Coordinates);
-        var boxComp = EnsureComp<SafetyDepositBoxComponent>(boxEntity);
-        boxComp.BoxId = box.BoxId;
-        boxComp.OwnerId = userId;
-        boxComp.CharacterIndex = characterIndex;
-        // Use current character name instead of stored name in case they changed it
-        boxComp.OwnerName = MetaData(player).EntityName;
-        Dirty(boxEntity, boxComp);
-
-        // Restore nickname if one was saved
-        if (!string.IsNullOrEmpty(box.Nickname))
-        {
-            _label.Label(boxEntity, box.Nickname);
-            Log.Info($"Restored box nickname: {box.Nickname}");
-        }
-
-        // Deserialize and spawn items into the box
-        if (TryComp<StorageComponent>(boxEntity, out var storageComp))
-        {
-            foreach (var itemData in box.Items)
+            if (box == null)
             {
-                try
+                ConsolePopup(player, "Box not found.");
+                PlayDenySound(consoleUid, component);
+                return;
+            }
+
+            if (box.LastWithdrawn != null) // Check to make sure it isn't already deposited.
+            {
+                ConsolePopup(player, "Box already withdrawn in world.");
+                PlayDenySound(consoleUid, component);
+                return;
+            }
+
+            Log.Info($"WithdrawBoxAsync: Retrieved box {boxId} with {box.Items.Count} items from database");
+
+            // Verify ownership
+            if (box.OwnerUserId != userId || box.CharacterIndex != characterIndex)
+            {
+                ConsolePopup(player, "This box does not belong to you.");
+                PlayDenySound(consoleUid, component);
+                return;
+            }
+
+            // Spawn the physical box (use stored box size to determine prototype);
+
+            var boxEntity = Spawn(box.ProtoId, Transform(player).Coordinates);
+            var boxComp = EnsureComp<SafetyDepositBoxComponent>(boxEntity);
+            boxComp.BoxId = box.BoxId;
+            boxComp.OwnerId = userId;
+            boxComp.CharacterIndex = characterIndex;
+            // Use current character name instead of stored name in case they changed it
+            boxComp.OwnerName = MetaData(player).EntityName;
+            Dirty(boxEntity, boxComp);
+
+            // Restore nickname if one was saved
+            if (!string.IsNullOrEmpty(box.Nickname))
+            {
+                _label.Label(boxEntity, box.Nickname);
+                Log.Info($"Restored box nickname: {box.Nickname}");
+            }
+
+            // Deserialize and spawn items into the box
+            if (TryComp<StorageComponent>(boxEntity, out var storageComp))
+            {
+                foreach (var itemData in box.Items)
                 {
-                    using var reader = new StringReader(itemData.EntityData);
-                    if (!_loader.TryLoadEntity(reader, "safety deposit box", out var entity))
-                        return;
+                    try
+                    {
+                        using var reader = new StringReader(itemData.EntityData);
+                        if (!_loader.TryLoadEntity(reader, "safety deposit box", out var entity))
+                            return;
 
-                    var itemEntity = entity.Value.Owner;
-                    // Mark item as having been stored in a deposit box
-                    EnsureComp<SafetyDepositStoredComponent>(itemEntity);
+                        var itemEntity = entity.Value.Owner;
+                        // Mark item as having been stored in a deposit box
+                        EnsureComp<SafetyDepositStoredComponent>(itemEntity);
 
-                    // Insert into storage
-                    if (!_storage.Insert(boxEntity, itemEntity, out _, storageComp: storageComp, playSound: false))
-                        QueueDel(itemEntity);
+                        // Insert into storage
+                        if (!_storage.Insert(boxEntity, itemEntity, out _, storageComp: storageComp, playSound: false))
+                            QueueDel(itemEntity);
 
-                }
-                catch (Exception ex)
-                {
-                    Log.Error($"Failed to deserialize item from safety deposit box {boxId}: {ex}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Failed to deserialize item from safety deposit box {boxId}: {ex}");
+                    }
                 }
             }
+            else
+            {
+                Log.Error($"Box entity {boxEntity} has no StorageComponent!");
+            }
+
+            // Clear items from database
+            await _dbManager.ClearSafetyDepositBoxItems(boxId, _gameTicker.RoundId);
+
+            // Try to put it in player's hands or place it near them
+            if (!_hands.TryPickupAnyHand(player, boxEntity))
+            {
+                _transform.SetLocalRotation(boxEntity, Angle.Zero);
+            }
+
+            ConsolePopup(player, "Safety deposit box retrieved.");
+            PlayConfirmSound(consoleUid, component);
+
+            _adminLogger.Add(LogType.Action, LogImpact.Medium,
+                $"{ToPrettyString(player):actor} withdrew safety deposit box {boxId} with {box.Items.Count} items");
+
+            UpdateUI(consoleUid, component, player);
         }
-        else
+        finally
         {
-            Log.Error($"Box entity {boxEntity} has no StorageComponent!");
+            _pendingBoxes.Remove(boxId); // Cleanup processing box
         }
-
-        // Clear items from database
-        await _dbManager.ClearSafetyDepositBoxItems(boxId, _gameTicker.RoundId);
-
-        // Try to put it in player's hands or place it near them
-        if (!_hands.TryPickupAnyHand(player, boxEntity))
-        {
-            _transform.SetLocalRotation(boxEntity, Angle.Zero);
-        }
-
-        ConsolePopup(player, "Safety deposit box retrieved.");
-        PlayConfirmSound(consoleUid, component);
-
-        _adminLogger.Add(LogType.Action, LogImpact.Medium,
-            $"{ToPrettyString(player):actor} withdrew safety deposit box {boxId} with {box.Items.Count} items");
-
-        UpdateUI(consoleUid, component, player);
     }
 
     private void OnSlotChanged(EntityUid uid, SafetyDepositConsoleComponent component, ContainerModifiedMessage args)
