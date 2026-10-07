@@ -46,7 +46,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 21,600 # 6hr
+      time: 21600 # 6hr
 
 - type: loadout
   id: OverseerRank3
@@ -59,7 +59,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 43,200 # 12hr
+      time: 43200 # 12hr
 
 - type: loadout
   id: OverseerRank4
@@ -72,7 +72,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 64,800 # 18hr
+      time: 64800 # 18hr
 
 - type: loadout
   id: OverseerRank5
@@ -85,7 +85,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 86,400 # 24hr
+      time: 86400 # 24hr
 
 - type: loadout
   id: OverseerRankElite
@@ -98,7 +98,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 108,000 # 30hr
+      time: 108000 # 30hr
 # Judge ranks
 - type: loadout
   id: JudgeRank1
@@ -131,7 +131,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobSecurityGuard
-      time: 21,600 # 6hr
+      time: 21600 # 6hr
 
 - type: loadout
   id: JudgeRank4
@@ -183,7 +183,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobSecurityGuard
-      time: 180,000 # 50hr
+      time: 180000 # 50hr
 
 - type: loadout
   id: JudgeRank8
@@ -196,4 +196,4 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobSecurityGuard
-      time: 216,000 # 60hr
+      time: 216000 # 60hr
