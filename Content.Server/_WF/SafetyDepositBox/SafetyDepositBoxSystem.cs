@@ -24,7 +24,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.EntitySerialization.Systems;
-using Robust.Shared.Timing;
 
 namespace Content.Server._WF.SafetyDepositBox;
 
@@ -527,7 +526,6 @@ public sealed partial class SafetyDepositBoxSystem : EntitySystem
         try
         {
             var box = await _dbManager.GetSafetyDepositBox(boxId);
-            await Timer.Delay(1000); // DO NOT MERGE THIS
 
             if (box == null)
             {
