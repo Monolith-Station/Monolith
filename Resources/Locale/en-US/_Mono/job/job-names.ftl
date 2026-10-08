@@ -6,8 +6,9 @@ job-supervisors-ussp-highcomm = the Nova Cygni command.
 job-supervisors-ussp-commissars = the Commissar
 job-supervisors-ussp-sergeant = the Serzhants
 
-# MARK: MD
+# MARK: CAELESTINUS
 job-name-md-medic = Emergency Responder
+job-name-caelestinus-worker = Caelestinus Worker
 
 # MARK: TSF
 job-name-tsf-engineer = TSFMC Engineer

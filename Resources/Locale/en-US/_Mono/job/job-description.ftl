@@ -3,8 +3,9 @@ job-description-ussp-commissar = Preserve discipline, hold the battalion to a co
 job-description-ussp-sergeant = Lead the ranks in battle, enforce standards, and hold the battalion together under pressure.
 job-description-ussp-rifleman = Serve the Union far from home. Follow your superiors, stand by your comrades, and endure where others would break.
 
-# MARK: MD
+# MARK: CAELESTINUS
 job-description-md-medic = Carry out the Director's whims and provide life-saving care to the inhabitants of the Colossus, no matter what tries to get in your way.
+job-description-caelestinus-worker = Maintain Caelestinus Central, help out civilians and your allies alike, and do whatever it is that the Overseer or Director of Care needs doing.
 
 # MARK: TSF
 job-description-tsf-engineer = Maintain the integrity of the flagship, get laughed at for not being a real soldier.
