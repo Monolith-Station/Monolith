@@ -133,6 +133,15 @@ uplink-security-hardsuit-m82b-desc = A variant of the M-82c for NBC protection, 
 uplink-security-hardsuit-m82c-name = M82c Hardsuit
 uplink-security-hardsuit-m82c-desc = A basic protective system for dangerous environments (such as space). Takes the role of an armor vest in the average TSF marine's gear.
 
+uplink-security-hardsuit-m86-mk3r-name = M86 Mk.3(R) Hardsuit
+uplink-security-hardsuit-m86-mk3r-desc = An improvement on the M82c, the M86-Mk.3 has very impressive armour... and the weight to show for it.
+
+uplink-security-hardsuit-m86-mk2d-name =  M86 Mk.2(D) Hardsuit
+uplink-security-hardsuit-m86-mk2d-desc = An improvement on the M82c, the M86-Mk.2 attempts to strike a balance between protection and manoeuvrability.
+
+uplink-security-hardsuit-m92x-name = M92-X Tacsuit
+uplink-security-hardsuit-m92x-desc = A tacsuit equipped with a very powerful in-built shield generator. The shield slows its user down considerably, however.
+
 uplink-security-pulserifle-name = Pulse Rifle
 uplink-security-pulserifle-desc = A large, automatic pulse weapon. Larger cell, and high powered, perfect for chewing through groups of foes.
 

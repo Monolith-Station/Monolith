@@ -315,6 +315,51 @@
 #       - SecurityUplink
 
 - type: listing
+  id: UplinkSecurityM86Mk3R
+  name: uplink-security-hardsuit-m86-mk3r-name
+  description: uplink-security-hardsuit-m86-mk3r-desc
+  productEntity: ClothingOuterHardsuitM86
+  cost:
+    FederationMilitaryCredit: 45
+  categories:
+  - UplinkSecurityHardsuits
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityM86Mk2D
+  name: uplink-security-hardsuit-m86-mk2d-name
+  description: uplink-security-hardsuit-m86-mk2d-desc
+  productEntity: ClothingOuterHardsuitM86Mk2D
+  cost:
+    FederationMilitaryCredit: 45
+  categories:
+  - UplinkSecurityHardsuits
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
+  id: UplinkSecurityM92X
+  name: uplink-security-hardsuit-m92x-name
+  description: uplink-security-hardsuit-m92x-desc
+  productEntity: ClothingOuterHardsuitNfsdExperimental
+  cost:
+    FederationMilitaryCredit: 90
+  categories:
+  - UplinkSecurityHardsuits
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
   id: UplinkSecurityPulseRifle
   name:  uplink-security-pulserifle-name
   description: uplink-security-pulserifle-desc

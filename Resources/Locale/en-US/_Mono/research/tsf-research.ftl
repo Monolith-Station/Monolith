@@ -3,7 +3,7 @@ research-discipline-tsfmc-gear = TSFMC Gear
 research-discipline-tsfmc-equipment = TSFMC Equipment
 research-discipline-tsfmc-shipyard = TSFMC Heavy Industry
 
-research-technology-tsfmc-basic-equipment = Basic TSFMC Equipment
+research-technology-tsfmc-basic-equipment = TSFMC Armored Hardsuits
 research-technology-tsfmc-advanced-equipment = Advanced TSFMC Equipment
 research-technology-tsfmc-experimental-equipment = Experimental TSFMC Equipment
 research-technology-tsfmc-mopp-equipment = Chemical Protection Gear
