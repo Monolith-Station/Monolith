@@ -3,7 +3,7 @@
 - type: entity
   id: SuitStorageUssp
   parent: SuitStorageBase
-  suffix: USSP L-27
+  suffix: ancient L-27
   components:
   - type: StorageFill
     contents:
@@ -19,7 +19,7 @@
 - type: entity
   id: SuitStorageUsspL10
   parent: SuitStorageBase
-  suffix: USSP L-10
+  suffix: ancient L-10
   components:
   - type: StorageFill
     contents:

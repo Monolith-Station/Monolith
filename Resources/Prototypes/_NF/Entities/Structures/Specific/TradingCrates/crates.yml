@@ -2,7 +2,7 @@
   parent: CrateTradeBaseSecure
   id: CrateTradeSecureNormal
   name: cargo trading crate
-  description: Contains goods made in the Frontier sector, ready to be sold at a cargo depot for higher value. MAKE SURE THE CRATE IS INTACT.
+  description: Contains goods made in-sector, ready to be sold at a cargo depot for higher value. MAKE SURE THE CRATE IS INTACT.
   components:
   - type: TradeCrate
     valueAtDestination: 4250
@@ -46,7 +46,7 @@
   parent: CrateTradeBaseSecure
   id: CrateTradeSecureHigh
   name: express cargo trading crate
-  description: An urgent crate of goods made in the Frontier sector, ready to be quickly sold at a cargo depot for higher value. MAKE SURE THE CRATE IS INTACT.
+  description: An urgent crate of goods made in-sector, ready to be quickly sold at a cargo depot for higher value. MAKE SURE THE CRATE IS INTACT.
   components:
   - type: TradeCrate
     valueAtDestination: 7500

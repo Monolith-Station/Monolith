@@ -3,7 +3,7 @@
 traitor-round-end-codewords = The codewords were: [color=White]{$codewords}[/color]
 traitor-round-end-agent-name = traitor
 
-objective-issuer-syndicate = [color=crimson]The Syndicate[/color]
+objective-issuer-syndicate = [color=crimson]The [indescribable][/color]
 objective-issuer-unknown = Unknown
 
 # Shown at the end of a round of Traitor
@@ -24,14 +24,14 @@ traitor-death-match-end-round-description-entry = {$originalName}'s PDA, with {$
 
 # TraitorRole
 traitor-role-greeting =
-    You are an agent sent by {$corporation} on behalf of [color = darkred]The Syndicate.[/color]
+    You are an agent sent by {$corporation}.
     Your objectives and codewords are listed in the character menu.
     Use your uplink to buy the tools you'll need for this mission.
     Death to the TSF!
 traitor-role-codewords =
     The codewords are: [color = lightgray]
     {$codewords}.[/color]
-    Codewords can be used in regular conversation to identify yourself discretely to other syndicate agents.
+    Codewords can be used in regular conversation to identify yourself discretely to other wayward agents.
     Listen for them, and keep them secret.
 traitor-role-uplink-code =
     Set your ringtone to the notes [color = lightgray]{$code}[/color] to lock or unlock your uplink.

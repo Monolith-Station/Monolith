@@ -7,14 +7,14 @@
       department: Security
       time: 18000 # 5 hrs
 
-- type: loadoutEffectGroup
-  id: MonoCivUsspVet
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: UnionOfSovietSocialistPlanets
-      time: 18000 # 5 hrs
+#- type: loadoutEffectGroup
+#  id: MonoCivUsspVet
+#  effects:
+#  - !type:JobRequirementLoadoutEffect
+#    requirement:
+#      !type:DepartmentTimeRequirement
+#      department: UnionOfSovietSocialistPlanets
+#      time: 18000 # 5 hrs
 
 - type: loadoutEffectGroup
   id: MonoCivRogueDefector

@@ -2,7 +2,7 @@
   id: TechDiskPrinter
   name: tech disk printer
   parent: [BaseStructureDisableToolUse, BaseMachine]
-  description: A machine that automatically prints tech disks every 7.5 minutes from automatically scavenged pre-Fracture data. Needs 120kW of HV power to function.
+  description: A machine that automatically prints wayward tech disks every 7.5 minutes. Needs 120kW of HV power to function.
   components:
   - type: PowerConsumer
     voltage: High

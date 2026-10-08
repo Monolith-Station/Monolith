@@ -2,8 +2,8 @@
 - type: entity
   id: JetpackADM
   parent: BaseJetpack
-  name: pre-fracture jetpack
-  description: An exotic, pre-fracture stealth jetpack, rated to be invisible to radar beyond 16 meters.
+  name: wayward jetpack
+  description: An exotic stealth jetpack, rated to be invisible to radar beyond 16 meters.
   suffix: Empty
   components:
   - type: Item
@@ -19,7 +19,7 @@
 - type: entity
   id: JetpackADMFilled
   parent: JetpackADM
-  name: pre-fracture jetpack
+  name: wayward jetpack
   suffix: Filled
   components:
   - type: GasTank

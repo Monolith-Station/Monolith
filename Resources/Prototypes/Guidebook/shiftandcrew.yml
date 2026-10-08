@@ -3,9 +3,11 @@
   name: guide-entry-jobs
   text: "/ServerInfo/Guidebook/Jobs.xml"
   children:
-  - Service
-  # - Cargo # Frontier: irrelevant
+  #- Service
+  #- Cargo # Frontier: irrelevant
   - Medical
   - Science
   - Engineering
-  - Command
+  - Botany
+#  - Command
+# Mono - Commented out since it clutters the guidebook
