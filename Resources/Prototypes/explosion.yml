@@ -138,3 +138,28 @@
   fireStates: 6
   fireStacks: 2
   temperature: 1500
+# ES START
+  fireChance: 0.8
+  minFireLevel: 1
+  maxFireLevel: 3
+# ES END
+
+# ES START
+- type: explosion
+  id: ESWelderBomb # Default but with firebomb firespread
+  damagePerIntensity:
+    types:
+      Heat: 5
+      Blunt: 5
+      Piercing: 5
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+  temperature: 800
+  fireChance: 0.8
+  minFireLevel: 1
+  maxFireLevel: 3
+# ES END

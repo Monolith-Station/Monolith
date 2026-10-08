@@ -144,6 +144,47 @@ public abstract partial class SharedWieldableSystem : EntitySystem
         }
     }
 
+    // Mono - Needed for attachments.
+    public void RefreshModifiers(Entity<GunWieldBonusComponent?> gun)
+    {
+        if (!Resolve(gun, ref gun.Comp))
+            return;
+
+        var comp = gun.Comp;
+        var ev = new WieldRefreshModifiersEvent(
+            (gun, comp),
+            comp.AngleIncrease,
+            comp.AngleDecay,
+            comp.MaxAngle,
+            comp.MinAngle
+        );
+        RaiseLocalEvent(gun, ref ev);
+
+        if (!comp.AngleIncreaseModified.EqualsApprox(ev.AngleIncrease))
+        {
+            comp.AngleIncreaseModified = ev.AngleIncrease;
+            DirtyField(gun, nameof(GunWieldBonusComponent.AngleIncreaseModified));
+        }
+
+        if (!comp.AngleDecayModified.EqualsApprox(ev.AngleDecay))
+        {
+            comp.AngleDecayModified = ev.AngleDecay;
+            DirtyField(gun, nameof(GunWieldBonusComponent.AngleDecayModified));
+        }
+
+        if (!comp.MaxAngleModified.EqualsApprox(ev.MaxAngle))
+        {
+            comp.MaxAngleModified = ev.MaxAngle;
+            DirtyField(gun, nameof(GunWieldBonusComponent.MaxAngleModified));
+        }
+
+        if (!comp.MinAngleModified.EqualsApprox(ev.MinAngle))
+        {
+            comp.MinAngleModified = ev.MinAngle;
+            DirtyField(gun, nameof(GunWieldBonusComponent.MinAngleModified));
+        }
+    }
+
     private void OnSpeedModifierWielded(EntityUid uid, SpeedModifiedOnWieldComponent component, ItemWieldedEvent args)
     {
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);

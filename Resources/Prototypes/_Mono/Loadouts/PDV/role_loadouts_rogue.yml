@@ -56,10 +56,10 @@
   - PDVCommanderHead
   - PDVJumpsuit
   - PDVGloves
-  - PDVOuterClothing
+  - PDVOuterClothingVizier
   - PDVHud
   - PDVBackpack
-  - PDVShoes
+  - PDVShoesVizier
   - PDVFace
   - PDVCommanderNeck
   - ContractorBoxSurvival
@@ -72,7 +72,6 @@
   - RogueFirearmCommander
   - RogueSidearm
   - RogueCommandMag
-  - RoguePistolMag
   - FactionArmorPlates
   canCustomizeName: true
 
@@ -170,4 +169,19 @@
   - ContractorArmorPlates # Mono
   - RogueSidearm
   - RoguePistolMag
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobPdvInfantry
+  groups:
+  - PDVInfantryHead
+  - PDVInfantryJumpsuit
+  - PDVGloves
+  - PDVInfantryOuterClothing
+  - PDVInfantryBackpack
+  - PDVShoes
+  - TsfmcBalaclava
+  - RakhshanPDA
+  - NFSpeciesSpecific
+  - PDVInfantryBelt
   canCustomizeName: true

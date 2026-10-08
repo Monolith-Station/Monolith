@@ -3,8 +3,8 @@
 # Void Base Mob - in case we do more loadouts
 
 - type: entity
-  name: a monolithic corrupted being
-  description: Once a humanoid, now they are but a lost remnant of their former self.
+  name: wayward shade
+  description: Something great has been lost.
   abstract: true
   categories: [ HideSpawnMenu ]
   parent:
@@ -23,8 +23,8 @@
       path: /Audio/_NF/Effects/silence.ogg
   - type: PointLight
     enabled: true
-    radius: 3
-    energy: 2
+    radius: 0.5
+    energy: 1
     color: "#AA00FF"
   - type: AutoWakeUp
   - type: TriggerOnBeingGibbed
@@ -34,26 +34,26 @@
     gib: false
     useArgumentEntity: true
   - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 4.5
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 2.5
 
 # Base TSFMC Void Mob
 
 - type: entity
-  name: void marine
+  name: wayward marine
   parent: MobVoidBase
   id: MobVoidBaseTSF
-  description: Once a marine, now they are but an echo, wandering lost in the emissions reaching out from the Monolithic region.
+  description: Long gone from home, hollowed out from emissions. Expect a fight.
   categories: [ HideSpawnMenu ]
   components:
     - type: Advertise
-      pack: tsfmchumanoidchatter
+      pack: WaywardComments
       minimumWait: 30
       maximumWait: 120
       nextAdvertisementTime: 0
     - type: Loadout
       prototypes:
-        - TSFMCMobGearA
+        - TSFMCMobGearAWayward
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 0.25
       rechargeSound:
@@ -63,6 +63,9 @@
       capacity: 1
       count: 1
     - type: Gun
+      damageModifier: 0.8
+      minAngle: 5
+      maxAngle: 20
       showExamineText: false
       fireRate: 8
       selectedMode: FullAuto
@@ -73,20 +76,20 @@
 # Base PDV Void Mob
 
 - type: entity
-  name: void guardsman
+  name: wayward guardsman
   parent: MobVoidBase
   id: MobVoidBasePDV
-  description: Once a guardsman, now they are but an echo, wandering lost in the emissions reaching out from the Monolithic region.
+  description: Long gone from home, hollowed out from emissions. Expect a fight.
   categories: [ HideSpawnMenu ]
   components:
     - type: Advertise
-      pack: pdvhumanoidchatter
+      pack: WaywardComments
       minimumWait: 30
       maximumWait: 120
       nextAdvertisementTime: 0
     - type: Loadout
       prototypes:
-        - PDVMobGearA
+        - PDVMobGearAWayward
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 0.25
       rechargeSound:
@@ -96,6 +99,9 @@
       capacity: 1
       count: 1
     - type: Gun
+      damageModifier: 0.8
+      minAngle: 5
+      maxAngle: 20
       showExamineText: false
       fireRate: 8
       selectedMode: FullAuto
@@ -112,7 +118,7 @@
   components:
     - type: Loadout
       prototypes:
-        - TSFMCMobGearB
+        - TSFMCMobGearBWayward
 
 - type: entity
   parent: MobVoidBaseTSF
@@ -121,7 +127,7 @@
   components:
     - type: Loadout
       prototypes:
-        - TSFMCMobGearC
+        - TSFMCMobGearCWayward
 
 - type: entity
   parent: MobVoidBaseTSF
@@ -130,7 +136,7 @@
   components:
     - type: Loadout
       prototypes:
-        - TSFMCMobGearD
+        - TSFMCMobGearDWayward
 
 # PDV Loadout Mobs
 
@@ -141,7 +147,7 @@
   components:
     - type: Loadout
       prototypes:
-        - PDVMobGearB
+        - PDVMobGearBWayward
 
 - type: entity
   parent: MobVoidBasePDV
@@ -150,7 +156,7 @@
   components:
     - type: Loadout
       prototypes:
-        - PDVMobGearC
+        - PDVMobGearCWayward
 
 - type: entity
   parent: MobVoidBasePDV
@@ -159,15 +165,15 @@
   components:
     - type: Loadout
       prototypes:
-        - PDVMobGearD
+        - PDVMobGearDWayward
 
 # Spawners
 
 - type: entity
-  name: void TSFMC Mob spawner
+  name: wayward TSFMC Mob spawner
   id: SpawnMobVoidTSFMC
   parent: MarkerBase
-  suffix: AI, Hostile, Voidsman
+  suffix: AI, Hostile
   components:
   - type: Sprite
     layers:
@@ -191,10 +197,10 @@
     - MobVoidBaseTSFD
 
 - type: entity
-  name: void PDV Mob spawner
+  name: wayward PDV Mob spawner
   id: SpawnMobVoidPDV
   parent: MarkerBase
-  suffix: AI, Hostile, Voidsman
+  suffix: AI, Hostile
   components:
   - type: Sprite
     layers:

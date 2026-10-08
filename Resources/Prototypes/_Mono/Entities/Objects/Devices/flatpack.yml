@@ -2,7 +2,7 @@
   parent: BaseFlatpack
   id: L58Flatpack
   name: L85 flatpack
-  description: A flatpack used for constructing an L85 20mm autocannon.
+  description: A flatpack used for constructing an L85 14x97mm autocannon.
   components:
   - type: Flatpack
     entity: WeaponTurretL85Autocannon
@@ -13,7 +13,7 @@
   parent: BaseFlatpack
   id: AK570Flatpack
   name: AK570 flatpack
-  description: A flatpack used for constructing an AK570 57mm autocannon.
+  description: A flatpack used for constructing an AK570 40x360mm autocannon.
   components:
   - type: Flatpack
     entity: WeaponTurretAK570

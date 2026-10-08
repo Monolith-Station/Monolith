@@ -10,6 +10,9 @@
   #  collection: FootstepPlating
   friction: 1.5
   heatCapacity: 10000
+  # ES START
+  flammability: 0.5
+  # ES END
 
   # dont use this in game, for partial plating beacause SOMEONE didnt make them non-space proof - mono
 - type: tile
@@ -45,6 +48,9 @@
     collection: FootstepPlating
   friction: 1.5
   heatCapacity: 10000
+  # ES START
+  flammability: 0.5
+  # ES END
 
 - type: tile
   id: PlatingAsteroid
@@ -58,6 +64,9 @@
     collection: FootstepPlating
   friction: 1.5
   heatCapacity: 10000
+  # ES START
+  flammability: 0.5
+  # ES END
 
 - type: tile
   id: PlatingBrass
@@ -71,6 +80,9 @@
     collection: FootstepPlating
   friction: 1.5
   heatCapacity: 10000
+  # ES START
+  flammability: 0.5
+  # ES END
 
 - type: tile
   id: PlatingSnow
@@ -84,6 +96,9 @@
     collection: FootstepPlating
   friction: 0.75 #a little less then actual snow
   heatCapacity: 10000
+  # ES START
+  flammability: 0.5
+  # ES END
 
 - type: tile
   id: Lattice
@@ -102,6 +117,10 @@
   heatCapacity: 10000
   transparent: true
   mass: 200
+  # ES START
+  # already shouldnt be spreading here bc airtight, but yknow
+  flammability: -99999
+  # ES END
 
 - type: tile
   id: TrainLattice
@@ -120,3 +139,7 @@
   heatCapacity: 10000
   transparent: true
   mass: 200
+  # ES START
+  # already shouldnt be spreading here bc airtight, but yknow
+  flammability: -99999
+  # ES END

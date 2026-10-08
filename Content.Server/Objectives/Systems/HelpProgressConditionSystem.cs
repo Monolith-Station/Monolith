@@ -39,13 +39,13 @@ public sealed partial class HelpProgressConditionSystem : EntitySystem
     private void OnTraitorAssigned(EntityUid uid, RandomTraitorProgressComponent comp, ref ObjectiveAssignedEvent args)
     {
         // invalid prototype
-        if (!TryComp<TargetObjectiveComponent>(uid, out var target))
+        if (!TryComp<TargetObjectiveComponent>(uid, out var target) || !TryComp<MindComponent>(args.MindId, out var ownerMind)) // Mono - return if no mind
         {
             args.Cancelled = true;
             return;
         }
 
-        var traitors = _traitorRule.GetOtherTraitorMindsAliveAndConnected(args.Mind).ToHashSet();
+        var traitors = _traitorRule.GetOtherTraitorMindsAliveAndConnected(ownerMind).ToHashSet();
 
         // cant help anyone who is tasked with helping:
         // 1. thats boring
@@ -64,7 +64,7 @@ public sealed partial class HelpProgressConditionSystem : EntitySystem
         }
 
         // Can't have multiple objectives to help/save the same person
-        foreach (var objective in args.Mind.Objectives)
+        foreach (var objective in ownerMind.Objectives)
         {
             if (HasComp<RandomTraitorAliveComponent>(objective) || HasComp<RandomTraitorProgressComponent>(objective))
             {

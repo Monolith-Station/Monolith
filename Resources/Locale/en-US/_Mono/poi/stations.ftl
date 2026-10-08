@@ -15,3 +15,8 @@ frontier-lobby-jupiter-description = This does NOT fall under the protection of 
 
 frontier-lobby-chengdu-subtext = A cruiser powerful enough to level anything.
 frontier-lobby-chengdu-description = A Type-98F cruiser deployed by the TSFN for large-scale conflicts. Equipped with cruise missiles, railguns & autocannons, guided missile pods, and enough PD lasers to make any torpedo obsolete. [color=red]Only carries an extremely limited shipyard, and only has 2 docks. This is not a mobile base like the Jupiter, this is a warship.[/color]
+
+frontier-lobby-crocus-subtext = Ground warfare.
+frontier-lobby-crocus-description = This is a map for the Crocus mode. You may have objectives upon spawning in. View them in the character menu, they are shared with your full faction.
+
+   - Civilians in this mode (for now) are considered [bold]free agents[/bold], and do not have a specific objective. Treat it as a neutral "do-whatever" role.

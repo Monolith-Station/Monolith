@@ -3,7 +3,7 @@
   id: JetpackADM
   parent: BaseJetpack
   name: pre-fracture jetpack
-  description: An exotic, pre-fracture stealth jetpack, rated to be invisible to radar beyond 16 meters.
+  description: An exotic, pre-fracture stealth jetpack.
   suffix: Empty
   components:
   - type: Item
@@ -13,7 +13,7 @@
   - type: Clothing
     sprite: _Mono/Objects/Tanks/Jetpacks/purple.rsi
   - type: Jetpack
-    detectionRange: 16
+    detectionRange: 0
 
 #Filled ADM
 - type: entity

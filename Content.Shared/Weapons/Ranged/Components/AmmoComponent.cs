@@ -39,6 +39,12 @@ public sealed partial class CartridgeAmmoComponent : AmmoComponent
     [DataField("soundEject")]
     public SoundSpecifier? EjectSound = new SoundCollectionSpecifier("CasingEject");
 
+    /// <summary>
+    /// Monolith - overrides the firing sound of the gun for this cartridge.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? SoundGunshot;
+
     // Mono start
     /// <summary>
     /// Whether to addcomp timeddespawn, and dictates the lifetime of spent boolets. Set to 0 to ignore.

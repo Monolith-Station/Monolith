@@ -1,0 +1,36 @@
+- type: vessel
+  id: Skalpel
+  parent: BaseVessel
+  name: SKR Skalpel
+  description: A rather bulky lightly-equipped entry-level medical ship. Comes with chemistry and a medical bay for S&R, and a very basic cryonics setup.
+  price: 87200
+  category: Medium
+  group: Medical
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMed/skalpel.yml
+  guidebookPage: null
+  class:
+  - Medical
+  - Chemistry
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Skalpel
+  mapName: 'SKR Skalpel'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMed/skalpel.yml
+  minPlayers: 0
+  stations:
+    Skalpel:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Skalpel MED{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

@@ -48,7 +48,7 @@
         sound:
           collection: MetalBreak
   - type: StaticPrice
-    price: 15 # Frontier: 50<15
+    price: 30 # Mono: 50<30
 
 #Starts unanchored, cannot be rotated while anchored
 - type: entity
@@ -125,6 +125,15 @@
   components:
   - type: Sprite
     state: chair-greyscale
+
+- type: entity
+  name: chair
+  id: ChairBlack
+  parent: Chair
+  suffix: Black
+  components:
+  - type: Sprite
+    state: chair-black
 
 - type: entity
   name: stool
@@ -211,6 +220,10 @@
   id: ChairWood
   parent: UnanchoredChairBase
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactWood
   - type: Sprite
     state: wooden
   - type: Construction
@@ -390,6 +403,10 @@
   parent: ChairBase
   description: Did you get a splinter? Well, at least it’s eco friendly.
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactWood
   - type: Sprite
     state: wooden-bench
   - type: Construction

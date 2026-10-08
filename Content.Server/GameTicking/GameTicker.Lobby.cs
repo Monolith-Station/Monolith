@@ -4,6 +4,7 @@ using Content.Server.Station.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using System.Text;
+using Content.Server._Battlefield14.FactionTracking;
 
 namespace Content.Server.GameTicking
 {
@@ -81,7 +82,7 @@ namespace Content.Server.GameTicking
                 ("roundId", RoundId),
                 ("playerCount", playerCount),
                 ("readyCount", readyCount),
-                ("mapName", stationNames.ToString()),
+                //("mapName", stationNames.ToString()), // Mono
                 ("gmTitle", gmTitle),
                 ("desc", desc));
         }
@@ -172,7 +173,24 @@ namespace Content.Server.GameTicking
             {
                 return;
             }
-
+            // Mono/BF14 start
+            if (ready)
+            {
+                var factionTracking = EntityManager.System<FactionTrackingSystem>();
+                var autobalanceEnabled = false;
+                if (CurrentPreset != null)
+                    autobalanceEnabled = CurrentPreset.AutobalancerEnabled;
+                if (autobalanceEnabled)
+                {
+                    var faction = factionTracking.GetPlayerFaction(player);
+                    if (faction != null && factionTracking.IsFactionOverpopulated(faction, this))
+                    {
+                        _chatManager.DispatchServerMessage(player, Loc.GetString("autobalance-team-full"));
+                        return;
+                    }
+                }
+            }
+            // Mono/BF14 end
             var status = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);

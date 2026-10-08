@@ -479,22 +479,6 @@
     - !type:TileNotBlocked
 
 # Banners
-- type: construction
-  id: BannerNanotrasen
-  name: nanotrasen banner
-  description: A banner displaying the Nanotrasen logo.
-  graph: BannersGraph
-  startNode: start
-  targetNode: BannerNanotrasenNode
-  category: construction-category-furniture
-  icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
-    state: banner
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
 
 - type: construction
   id: BannerCargo
@@ -668,8 +652,8 @@
 
 - type: construction
   id: BannerSyndicate
-  name: syndicate banner
-  description: A banner from which, according to the syndicate, you should feel hatred for NT.
+  name: sultan's banner
+  description: Piety to the Sultan.
   graph: BannersGraph
   startNode: start
   targetNode: BannerSyndicateNode

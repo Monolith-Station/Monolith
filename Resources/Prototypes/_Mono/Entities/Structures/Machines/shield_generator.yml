@@ -113,6 +113,10 @@
       machine_parts: !type:Container
   - type: PirateBountyItem
     id: ShipShield
+  - type: ESSparkOnHit
+    prob: 0.25
+    tileFireChance: 0.5
+    count: 3
 
 # POI
 - type: entity

@@ -25,14 +25,16 @@ public sealed partial class SpaceHeaterComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     [GuidebookData]
-    public float MaxTemperature = Atmospherics.T20C + 20;
+    // ES START
+    public float MaxTemperature = Atmospherics.T20C + 50;
 
     /// <summary>
     ///     Minimal target temperature the device can be set to
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     [GuidebookData]
-    public float MinTemperature = Atmospherics.T0C - 10;
+    public float MinTemperature = Atmospherics.T0C - 30;
+    // ES END
 
     /// <summary>
     ///     Coefficient of performance. Output power / input power.
@@ -40,11 +42,13 @@ public sealed partial class SpaceHeaterComponent : Component
     /// </summary>
     [DataField("heatingCoefficientOfPerformance")]
     [ViewVariables(VVAccess.ReadWrite)]
-    public float HeatingCp = 1f;
+    // ES START
+    public float HeatingCp = 10f;
 
     [DataField("coolingCoefficientOfPerformance")]
     [ViewVariables(VVAccess.ReadWrite)]
-    public float CoolingCp = -0.9f;
+    public float CoolingCp = -14.9f;
+    // ES END
 
     /// <summary>
     ///     The delta from the target temperature after which the space heater switch mode while in Auto. Value should account for the thermomachine temperature tolerance.
@@ -57,5 +61,7 @@ public sealed partial class SpaceHeaterComponent : Component
     ///     Current electrical power consumption, in watts, of the space heater at medium power level. Passed to the thermomachine component.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float PowerConsumption = 3500f;
+    // ES START
+    public float PowerConsumption = 1000f;
+    // ES END
 }

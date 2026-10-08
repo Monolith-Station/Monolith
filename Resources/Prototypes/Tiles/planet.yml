@@ -17,6 +17,9 @@
   weather: true
   indestructible: true
   iconSmoothSprite: /Textures/_CE/Tiles/Edges/dirt.rsi
+  # ES START
+  flammability: 0.5
+  # ES END
 
 # Desert
 - type: tile
@@ -55,6 +58,9 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+  # ES START
+  flammability: 0.2
+  # ES END
 
 - type: tile
   id: FloorDesertRocky
@@ -92,6 +98,9 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+  # ES START
+  flammability: 0.2
+  # ES END
 
 - type: tile
   id: FloorDesertPlanet
@@ -137,6 +146,9 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+  # ES START
+  flammability: 0.2
+  # ES END
 
 - type: tile
   id: FloorLowDesert
@@ -162,6 +174,9 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+  # ES START
+  flammability: 0.2
+  # ES END
 
 - type: tile
   id: FloorRiverbed
@@ -183,6 +198,9 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+  # ES START
+  flammability: 0.2
+  # ES END
 
 - type: tile
   id: FloorAsteroidSandUnvariantizedPlanet
@@ -210,6 +228,9 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+  # ES START
+  flammability: 0.2
+  # ES END
 
 - type: tile
   id: FloorAsteroidSandPlanet
@@ -252,6 +273,9 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+  # ES START
+  flammability: 0.2
+  # ES END
 
 # Grass
 - type: tile
@@ -287,6 +311,9 @@
   weather: true
   indestructible: true
   iconSmoothSprite: /Textures/_CE/Tiles/Edges/grass.rsi
+  # ES START
+  flammability: 5
+  # ES END
 
 # Lava
 - type: tile
@@ -301,6 +328,9 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+  # ES START
+  flammability: 0.1
+  # ES END
 
 # Snow
 - type: tile
@@ -340,6 +370,9 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+  # ES START
+  flammability: 0.2
+  # ES END
 
 # Ice
 - type: tile
@@ -352,6 +385,9 @@
   weather: true
   mobAcceleration: 0.1
   indestructible: true
+  # ES START
+  flammability: 0.2
+  # ES END
 
 # Dug snow
 - type: tile
@@ -372,5 +408,8 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
+  # ES START
+  flammability: 0.2
+  # ES END
 
 # Wasteland

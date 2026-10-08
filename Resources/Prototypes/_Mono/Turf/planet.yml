@@ -1,0 +1,239 @@
+- type: tile
+  id: BaseFloorPlanet
+  abstract: true
+  heatCapacity: 10000
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  weather: true
+  indestructible: true
+  # ES START
+  flammability: 2
+  # ES END
+
+- type: tile
+  id: FloorPlanetGrassCrocus
+  parent: BaseFloorPlanet
+  name: tiles-grass-crocus
+  sprite: /Textures/_Mono/Tiles/planet/WizDenRespritening/Grass/grass.png
+  variants: 6
+  placementVariants:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  edgeSpritePriority: 5
+  edgeSprites:
+    SouthEast: /Textures/_Mono/Tiles/planet/WizDenRespritening/Grass/single_edge_SE.png
+    NorthEast: /Textures/_Mono/Tiles/planet/WizDenRespritening/Grass/single_edge_NE.png
+    NorthWest: /Textures/_Mono/Tiles/planet/WizDenRespritening/Grass/single_edge_NW.png
+    SouthWest: /Textures/_Mono/Tiles/planet/WizDenRespritening/Grass/single_edge_SW.png
+    South: /Textures/_Mono/Tiles/planet/WizDenRespritening/Grass/double_edge_S.png
+    East: /Textures/_Mono/Tiles/planet/WizDenRespritening/Grass/double_edge_E.png
+    North: /Textures/_Mono/Tiles/planet/WizDenRespritening/Grass/double_edge_N.png
+    West: /Textures/_Mono/Tiles/planet/WizDenRespritening/Grass/double_edge_W.png
+  deconstructTools: [ Digging ]
+  deconstructTimeMultiplier: 1
+  baseTurf: FloorPlanetDirtCrocus
+  isSubfloor: true
+  weather: true
+  footstepSounds:
+    collection: FootstepGrass
+  barestepSounds:
+    collection: FootstepGrass
+
+- type: tile
+  id: FloorPlanetGrassCrocusNoEdge
+  parent: BaseFloorPlanet
+  name: tiles-grass-crocus
+  sprite: /Textures/_Mono/Tiles/planet/WizDenRespritening/Grass/grass.png
+  variants: 6
+  placementVariants:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  deconstructTools: [ Digging ]
+  deconstructTimeMultiplier: 1
+  baseTurf: FloorPlanetDirtCrocus
+  isSubfloor: true
+  weather: true
+  footstepSounds:
+    collection: FootstepGrass
+  barestepSounds:
+    collection: FootstepGrass
+
+- type: tile
+  id: FloorPlanetRedGrassCrocus
+  parent: BaseFloorPlanet
+  name: tiles-redgrass-crocus
+  sprite: /Textures/_Mono/Tiles/planet/WizDenRespritening/RedGrass/grass.png
+  variants: 6
+  placementVariants:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  edgeSpritePriority: 4
+  edgeSprites:
+    SouthEast: /Textures/_Mono/Tiles/planet/WizDenRespritening/RedGrass/single_edge_SE.png
+    NorthEast: /Textures/_Mono/Tiles/planet/WizDenRespritening/RedGrass/single_edge_NE.png
+    NorthWest: /Textures/_Mono/Tiles/planet/WizDenRespritening/RedGrass/single_edge_NW.png
+    SouthWest: /Textures/_Mono/Tiles/planet/WizDenRespritening/RedGrass/single_edge_SW.png
+    South: /Textures/_Mono/Tiles/planet/WizDenRespritening/RedGrass/double_edge_S.png
+    East: /Textures/_Mono/Tiles/planet/WizDenRespritening/RedGrass/double_edge_E.png
+    North: /Textures/_Mono/Tiles/planet/WizDenRespritening/RedGrass/double_edge_N.png
+    West: /Textures/_Mono/Tiles/planet/WizDenRespritening/RedGrass/double_edge_W.png
+  deconstructTools: [ Digging ]
+  deconstructTimeMultiplier: 1
+  baseTurf: FloorPlanetDirtCrocus
+  isSubfloor: true
+  weather: true
+  footstepSounds:
+    collection: FootstepGrass
+  barestepSounds:
+    collection: FootstepGrass
+
+- type: tile
+  id: FloorPlanetRedGrassCrocusNoEdge
+  parent: BaseFloorPlanet
+  name: tiles-redgrass-crocus
+  sprite: /Textures/_Mono/Tiles/planet/WizDenRespritening/RedGrass/grass.png
+  variants: 6
+  placementVariants:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  deconstructTools: [ Digging ]
+  deconstructTimeMultiplier: 1
+  baseTurf: FloorPlanetDirtCrocus
+  isSubfloor: true
+  weather: true
+  footstepSounds:
+    collection: FootstepGrass
+  barestepSounds:
+    collection: FootstepGrass
+
+- type: tile
+  id: FloorPlanetDirtCrocus
+  parent: BaseFloorPlanet
+  name: tiles-dirt-crocus
+  sprite: /Textures/_Mono/Tiles/planet/WizDenRespritening/Dirt/dirt.png
+  variants: 5
+  placementVariants:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_Mono/Tiles/planet/WizDenRespritening/Dirt/single_edge_SE.png
+    NorthEast: /Textures/_Mono/Tiles/planet/WizDenRespritening/Dirt/single_edge_NE.png
+    NorthWest: /Textures/_Mono/Tiles/planet/WizDenRespritening/Dirt/single_edge_NW.png
+    SouthWest: /Textures/_Mono/Tiles/planet/WizDenRespritening/Dirt/single_edge_SW.png
+    South: /Textures/_Mono/Tiles/planet/WizDenRespritening/Dirt/double_edge_S.png
+    East: /Textures/_Mono/Tiles/planet/WizDenRespritening/Dirt/double_edge_E.png
+    North: /Textures/_Mono/Tiles/planet/WizDenRespritening/Dirt/double_edge_N.png
+    West: /Textures/_Mono/Tiles/planet/WizDenRespritening/Dirt/double_edge_W.png
+  deconstructTools: [ Digging ]
+  deconstructTimeMultiplier: 1
+  baseTurf: FloorPlanetDirtCrocusNoEdge
+  isSubfloor: true
+  weather: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  barestepSounds:
+    collection: FootstepAsteroid
+  indestructible: true
+
+- type: tile
+  id: FloorPlanetDirtCrocusNoEdge
+  parent: BaseFloorPlanet
+  name: tiles-dirt-crocus
+  sprite: /Textures/_Mono/Tiles/planet/WizDenRespritening/Dirt/dirt.png
+  variants: 5
+  placementVariants:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  deconstructTools: [ Digging ]
+  deconstructTimeMultiplier: 1
+  isSubfloor: true
+  weather: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  barestepSounds:
+    collection: FootstepAsteroid
+  indestructible: true
+
+- type: tile
+  id: FloorPlanetCrocusBedrock
+  parent: BaseFloorPlanet
+  name: tiles-bedrock-crocus
+  sprite: /Textures/_Mono/Tiles/planet/bedrock.png
+  variants: 1
+  isSubfloor: false
+  weather: false
+  footstepSounds:
+    collection: FootstepTile
+  indestructible: true
+
+- type: tile
+  id: FloorConcreteCrocus
+  name: tiles-concrete-crocus
+  sprite: /Textures/_Mono/Tiles/planet/WizDenRespritening/Concrete/concrete.png
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  isSubfloor: false
+  indestructible: true
+  # ES START
+  flammability: 0.1
+  # ES END
+
+- type: tile
+  id: FloorConcreteMonoCrocus
+  name: tiles-concrete-mono-crocus
+  sprite: /Textures/_Mono/Tiles/planet/WizDenRespritening/Concrete/concrete-mono.png
+  variants: 2
+  placementVariants:
+  - 1
+  - 1
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  isSubfloor: false
+  indestructible: true
+  # ES START
+  flammability: 0.1
+  # ES END
+
+- type: tile
+  id: FloorConcreteSmoothCrocus
+  name: tiles-concrete-smooth-crocus
+  sprite: /Textures/_Mono/Tiles/planet/WizDenRespritening/Concrete/concrete-smooth.png
+  variants: 2
+  placementVariants:
+  - 1
+  - 1
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  isSubfloor: false
+  indestructible: true
+  # ES START
+  flammability: 0.1
+  # ES END
+

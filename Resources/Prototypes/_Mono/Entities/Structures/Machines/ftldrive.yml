@@ -98,6 +98,10 @@
     - type: ShipRepairable
       repairTime: 20
       repairCost: 150
+    - type: ESSparkOnHit
+      prob: 0.25
+      tileFireChance: 0.5
+      count: 3
 
 - type: entity
   parent: MachineFTLDrive

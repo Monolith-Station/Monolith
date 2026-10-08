@@ -53,16 +53,3 @@
   - AdvancedRiotControl
   - SuperParts
   position: 4, 2
-
-- type: technology
-  id: DroneResearch
-  name: research-technology-drones-1
-  entityIcon: ShipVoucherTsfT0
-  discipline: Arsenal
-  tier: 3
-  cost: 15000
-  recipeUnlocks:
-  - BalorDroneVoucherMerc
-  technologyPrerequisites:
-  - UniversalMaterialResearchT1
-  position: 0, -10

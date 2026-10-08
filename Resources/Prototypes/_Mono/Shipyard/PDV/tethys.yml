@@ -1,0 +1,35 @@
+- type: vessel
+  id: Tethys
+  parent: BaseVesselIFFDisabled
+  name: PDV Tethys
+  description: A stealthy survelliance and early-warning ship for monitoring. Stealth thrusters aren't very good for fighting though, so be careful.
+  price: 103700
+  category: Medium
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/tethys.yml
+  guidebookPage: Null
+  class:
+  - Stealth
+  - EarlyWarning
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Tethys
+  mapName: 'PDV Tethys'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/tethys.yml
+  minPlayers: 0
+  stations:
+    Tethys:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Tethys PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]
