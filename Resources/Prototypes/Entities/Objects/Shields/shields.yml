@@ -430,6 +430,7 @@
       reflects:
         - Energy
     - type: Blocking
+      blockingArc: 75 # Smaller than other shields. Mono edit.
       passiveBlockModifier:
         coefficients:
           Blunt: 1.0
@@ -459,9 +460,6 @@
       autoRechargeRate: 5
     - type: RechargeableBlocking
       # WD EDIT END
-    - type: ClothingSpeedModifier # Mono
-      sprintModifier: 0.9
-    - type: HeldSpeedModifier
 
 - type: entity
   name: broken energy shield
