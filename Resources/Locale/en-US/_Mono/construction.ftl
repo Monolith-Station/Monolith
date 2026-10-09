@@ -101,3 +101,5 @@ construction-Sand-name = sand pile
 construction-Sand-desc = Somehow works as a growing spot.
 construction-Forge-name = forge
 construction-Forge-desc = Primitive method for refining ore.
+
+construction-fissile-deconstruction-warning = You feel your skin begin to burn. This isn't a good idea in the slightest.

@@ -10,15 +10,15 @@ namespace Content.Shared._ES.Weapons.Ranged.Attachments.Components;
 [Access(typeof(ESSharedGunAttachmentsSystem))]
 public sealed partial class ESGunRecoilAttachmentComponent : Component
 {
-    [DataField(required: true)]
+    [DataField]
     public float RecoilRecoveryModifier = 1.0f;
 
-    [DataField(required: true)]
+    [DataField]
     public float RecoilIncreaseModifier = 1.0f;
 
-    [DataField(required: true)]
+    [DataField]
     public float MinSpreadModifier = 1.0f;
 
-    [DataField(required: true)]
+    [DataField]
     public float MaxSpreadModifier = 1.0f;
 }

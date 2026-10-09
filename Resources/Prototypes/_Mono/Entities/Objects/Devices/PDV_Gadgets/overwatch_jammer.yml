@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseItem
+  id: OverwatchJammer
+  name: overwatch jammer
+  description: A modified brick of C-4, the explosive inside has been replaced with a radio transmitter that constantly emits garbage noise. Overwatch consoles will not be able to detect whichever poor soul has this device attached to them.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/overwatch_jammer.rsi
+    state: icon
+  - type: Sticky
+    stickDelay: 5
+    unstickDelay: 5
+    stickPopupStart: comp-sticky-start-stick-jammer
+    stickPopupSuccess: comp-sticky-success-stick-jammer
+    unstickPopupStart: comp-sticky-start-unstick-jammer
+    unstickPopupSuccess: comp-sticky-success-unstick-jammer
+    whitelist: 
+      components:
+      - HumanoidAppearance
+  - type: JamOverwatchOnStuck
+  - type: ExtendDescription
+    descriptionList: 
+    - description: This item allows for the transport of corpses to Helios without revealing its coordinates to overwatch consoles.
+      color: "#4f94ad"
+      requireDetailRange: true

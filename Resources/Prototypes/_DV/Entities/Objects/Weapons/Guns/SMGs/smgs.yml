@@ -1,6 +1,6 @@
 - type: entity
-  name: PA Typewriter (.45 ACP)
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
+  name: UGR Typewriter (.45 ACP) # Mono
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseC3SyndicateContraband] # Mono
   id: WeaponSubMachineGunTypewriter
   description: A modern take on the classic design used by mobsters throughout space and time. Uses .45 ACP ammo.
   components:
@@ -21,7 +21,7 @@
     maxAngle: 45
     angleIncrease: 5
     angleDecay: 20
-    fireRate: 8
+    fireRate: 9.5 # Mono
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/typewriter.ogg
   - type: ChamberMagazineAmmoProvider

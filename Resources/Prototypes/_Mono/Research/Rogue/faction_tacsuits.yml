@@ -9,53 +9,10 @@
   recipeUnlocks:
   - ClothingOuterHardsuitPirateScafRogue
   - ClothingOuterVestWebRogue
-  technologyPrerequisites:
-  - UniversalMaterialResearchT1
-  position: 12, 1
-
-- type: technology
-  id: RogueAdvancedEquipment
-  name: research-technology-rogue-advanced-equipment
-  entityIcon: ClothingOuterHardsuitPDVMedic
-  discipline: RogueEquipment
-  tier: 2
-  cost: 35000
-  recipeUnlocks:
-  - ClothingOuterHardsuitPDVMedic
+  - ClothingOuterVestWebEliteRogue
+  - MechIFFPDV
   - ClothingShoesBootsMagSyndieRogue
   - ClothingMaskGasSyndicateRogue
-  - MechIFFPDV
   technologyPrerequisites:
-  - RogueBasicEquipment
-  - UniversalMaterialResearchT2
-  position: 12, 7
-
-- type: technology
-  id: RogueSyndicateTacsuits
-  name: research-technology-rogue-syndicate-tacsuits
-  entityIcon: ClothingOuterHardsuitAshen
-  discipline: RogueEquipment
-  tier: 2
-  cost: 50000
-  recipeUnlocks:
-  - ClothingOuterHardsuitSyndieRogue
-  - ClothingOuterHardsuitSyndieEliteRogue
-  technologyPrerequisites:
-  - RogueAdvancedEquipment
-  - UniversalMaterialResearchT3
-  position: 12, 12
-
-- type: technology
-  id: RogueSuperArmor
-  name: research-technology-rogue-super-armor
-  entityIcon: ClothingOuterHardsuitCybersunStealth
-  discipline: RogueEquipment
-  tier: 2
-  cost: 20000
-  recipeUnlocks:
-  - ClothingOuterHardsuitCybersunStealthRogue
-  - ClothingOuterHardsuitJuggernautRogue
-  technologyPrerequisites:
-  - RogueSyndicateTacsuits
-  position: 13, 12
-
+  - UniversalMaterialResearchT1
+  position: -2, -13

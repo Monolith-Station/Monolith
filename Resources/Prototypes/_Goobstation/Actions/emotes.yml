@@ -25,3 +25,18 @@
   - bounces.
   - bounces!
   event: !type:AnimationJumpEmoteEvent
+
+- type: emote
+  id: Flip
+  name: chat-emote-name-flip
+  icon: _Goobstation/Interface/Emotes/flip.png
+  chatMessages: ["chat-emote-msg-flip"]
+  chatTriggers:
+  - flip
+  - flips
+  - flips.
+  - flips!
+  - does a flip
+  - does a flip.
+  - does a flip!
+  event: !type:AnimationFlipEmoteEvent

@@ -218,7 +218,6 @@
   loadouts:
   ## Mono start
   - ContractorClothingModsuitAtmostechPowerCell
-  - ContractorClothingModsuitCaptainPowerCell
   - ContractorClothingModsuitEngineerPowerCell
   ## Mono end
   - ContractorClothingBackpack
@@ -303,11 +302,8 @@
   - ContractorClothingOuterHardsuitEVA
   - ContractorClothingOuterHardsuitBasic
   - ContractorClothingOuterHardsuitVoidParamed
-  - ContractorClothingOuterHardsuitUIEngineer
-  - ContractorClothingOuterHardsuitUIPilot
   ## Mono start
   - ContractorClothingOuterHardsuitAtmos
-  - ContractorClothingOuterHardsuitCap
   - ContractorClothingOuterHardsuitEngineering
   - ContractorClothingOuterHardsuitSalvage
   - ContractorClothingOuterHardsuitSpatio
@@ -337,7 +333,7 @@
   - ContractorClothingOuterWinterHydro
   - ContractorClothingOuterWinterBar
   - ContractorClothingOuterWinterChef
-  - ContractorClothingOuterWinterCap
+# - ContractorClothingOuterWinterCap # Mono: remove captain gear from contractor
   - ContractorClothingOuterWinterMusician
   - ContractorClothingOuterWinterCargo
   - ContractorClothingOuterWinterMiner
@@ -536,8 +532,8 @@
   - ContractorClothingHeadHatSurgcapPurple
   - ContractorClothingHeadHatFedoraGrey
   - ContractorClothingHeadHatFedoraBrown
-  - ContractorClothingHeadHatCapcap
-  - ContractorClothingHeadHatCaptain
+# - ContractorClothingHeadHatCapcap # Mono: remove captain gear from contractor
+# - ContractorClothingHeadHatCaptain
   - ContractorClothingHeadTinfoil
   - ContractorClothingHeadHatBeretRND
   - ContractorClothingHeadHatBeretEngineering
@@ -629,7 +625,7 @@
   - ContractorClothingHandsGlovesBoxingBlue
   - ContractorClothingHandsGlovesBoxingRed
   - ContractorClothingHandsGlovesBoxingYellow
-  - ContractorClothingHandsGlovesCaptain
+# - ContractorClothingHandsGlovesCaptain
   - ContractorClothingHandsGlovesColorWhite
 
 - type: loadoutGroup
@@ -726,7 +722,7 @@
   - ContractorZookeeperPDA
   - ContractorEngineerPDA
   - ContractorAtmosPDA
-  - ContractorCaptainPDA
+# - ContractorCaptainPDA
   - ContractorQuartermasterPDA
   - ContractorSeniorResearcherPDA
   - ContractorRnDPDA
@@ -775,6 +771,7 @@
   - ContractorBucket
   - ContractorGeigerCounter
   - ContractorBinoculars
+  - ContractorTapeRecorder # Mono - Moved from ContractorTrinkets.
   - ContractorWeaponProtoKineticAccelerator
   - ContractorPinpointerUniversal
   - ContractorShipyardRCD
@@ -823,7 +820,7 @@
   - ContractorClothingMaskGas
   - ContractorClothingMaskPunkHalf # Punkish (Randomized visuals)
   - ContractorClothingMaskGasExplorer
-  - ContractorClothingMaskGasCaptain
+# - ContractorClothingMaskGasCaptain
   - ContractorClothingMaskGasAtmos
   - ContractorClothingMaskDrakeIndustries
   - ContractorClothingMaskPlague
@@ -856,6 +853,7 @@
   - ContractorCigPackGreen
   - ContractorCigarCase
   - ContractorNFAshtray
+  #- ContractorTapeRecorder # Mono - Moved to ContractorUtility.
   - ContractorSmokingPipeFilledTobacco
   - ContractorTobaccoPouchBrownFilled
   - ContractorTobaccoPouchBlueFilled
@@ -899,6 +897,7 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - BikeHorn #Mono
 
 - type: loadoutGroup # Mono - removed standard supply boxes.
   id: ContractorBoxSurvival

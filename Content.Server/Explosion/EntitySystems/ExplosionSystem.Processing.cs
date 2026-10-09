@@ -260,6 +260,17 @@ public sealed partial class ExplosionSystem
                 tileBlocked |= IsBlockingTurf(entity);
             }
         }
+// ES START
+        if (!tileBlocked)
+        {
+            var explosionType = _prototypeManager.Index<ExplosionPrototype>(id);
+            if (_robustRandom.Prob(explosionType.FireChance))
+            {
+                _tileFire.TryDoTileFire(_map.ToCoordinates(grid, tile, grid),
+                    stage: _robustRandom.Next(explosionType.MinFireLevel, explosionType.MaxFireLevel + 1));
+            }
+        }
+// ES END
 
         // Next, we get the intersecting entities AGAIN, but purely for throwing. This way, glass shards spawned from
         // windows will be flung outwards, and not stay where they spawned. This is however somewhat unnecessary, and a

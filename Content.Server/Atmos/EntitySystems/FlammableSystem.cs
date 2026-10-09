@@ -91,10 +91,15 @@ namespace Content.Server.Atmos.EntitySystems
 
         private void OnExtinguishEvent(Entity<FlammableComponent> ent, ref ExtinguishEvent args)
         {
+            // ES START
+            // ?????? ok come on man
+            // removes the extinguish call that existed for no reason, this is supposed to adjust fire stacks,
+            // not extinguish the entire thing immediately!!!
+
             // You know I'm really not sure if having AdjustFireStacks *after* Extinguish,
             // but I'm just moving this code, not questioning it.
-            Extinguish(ent, ent.Comp);
             AdjustFireStacks(ent, args.FireStacksAdjustment, ent.Comp);
+            // ES END
         }
 
         private void OnMeleeHit(EntityUid uid, IgniteOnMeleeHitComponent component, MeleeHitEvent args)
@@ -223,14 +228,39 @@ namespace Content.Server.Atmos.EntitySystems
             if (args.OtherFixtureId != flammable.FlammableFixtureID && args.OurFixtureId != flammable.FlammableFixtureID)
                 return;
 
-            if (!flammable.FireSpread)
+            // ES START
+            // vaguely move around logic until this shit works
+            // basic fire spread should be able to occur even if the mob entity doesnt have firespread on,
+            // because its not the sharing-fire-stacks kind (idk why this kind even exists its not really even
+            // good gameplay to literally share firestacks by mass like this come on just like make more fire
+            // thats how fire works it makes more fire dude when you walk into a fire you dont STEAL THE FIRE
+            // from the FIRE it LIGHTS YOU ON FIRE man)
+            if (!TryComp(otherUid, out FlammableComponent? otherFlammable) || (!otherFlammable.FireSpread && !flammable.BasicFireSpread))
                 return;
 
-            if (!TryComp(otherUid, out FlammableComponent? otherFlammable) || !otherFlammable.FireSpread)
+            if (!flammable.FireSpread && !otherFlammable.BasicFireSpread)
                 return;
+            // ES END
 
             if (!flammable.OnFire && !otherFlammable.OnFire)
                 return; // Neither are on fire
+
+            // ES START
+            // basic fire spread
+            if (flammable.BasicFireSpread)
+            {
+                // just pass some of our firestacks
+                AdjustFireStacks(otherUid, flammable.FireStacks * flammable.BasicFireSpreadStackPercentage, otherFlammable, true);
+                return;
+            }
+            // case where the other entity is handling this event because apparently flammable checks fucking entuid to guarantee one event??
+            if (otherFlammable.BasicFireSpread)
+            {
+                // just pass some of their firestacks to us
+                AdjustFireStacks(uid, otherFlammable.FireStacks * otherFlammable.BasicFireSpreadStackPercentage, flammable, true);
+                return;
+            }
+            // ES END
 
             // Both are on fire -> equalize fire stacks.
             // Weight each thing's firestacks by its mass
@@ -287,7 +317,11 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
 
             _appearance.SetData(uid, FireVisuals.OnFire, flammable.OnFire, appearance);
-            _appearance.SetData(uid, FireVisuals.FireStacks, flammable.FireStacks, appearance);
+            // ES START
+            // floor + int firestacks for appearance purposes
+            // and divisor
+            _appearance.SetData(uid, FireVisuals.FireStacks, (int) MathF.Floor(flammable.FireStacks / flammable.FirestackVisualDivisor), appearance);
+            // ES END
 
             // Also enable toggleable-light visuals
             // This is intended so that matches & candles can re-use code for un-shaded layers on in-hand sprites.
@@ -338,6 +372,11 @@ namespace Content.Server.Atmos.EntitySystems
 
             var extinguished = new ExtinguishedEvent();
             RaiseLocalEvent(uid, ref extinguished);
+
+            // ES START
+            if (flammable.DeleteOnExtinguish)
+                QueueDel(uid);
+            // ES END
 
             UpdateAppearance(uid, flammable);
         }
@@ -465,10 +504,12 @@ namespace Content.Server.Atmos.EntitySystems
 
                 if (flammable.FireStacks > 0)
                 {
-                    var air = _atmosphereSystem.GetContainingMixture(uid);
+                    var air = _atmosphereSystem.GetContainingMixture(uid, excite: true);
 
                     // If we're in an oxygenless environment, put the fire out.
-                    if (air == null || air.GetMoles(Gas.Oxygen) < 1f)
+                    // ES START
+                    if (air == null || air.GetMoles(Gas.Oxygen) < 2f)
+                    // ES END
                     {
                         Extinguish(uid, flammable);
                         continue;
@@ -477,8 +518,14 @@ namespace Content.Server.Atmos.EntitySystems
                     var source = EnsureComp<IgnitionSourceComponent>(uid);
                     _ignitionSourceSystem.SetIgnited((uid, source));
 
-                    if (TryComp(uid, out TemperatureComponent? temp))
-                        _temperatureSystem.ChangeHeat(uid, 12500 * flammable.FireStacks, false, temp);
+                    // ES START
+                    // modify atmos temp instead of temp directly
+                    // atmos temp will modify temp after that
+                    //if (TryComp(uid, out TemperatureComponent? temp))
+                    //    _temperatureSystem.ChangeHeat(uid, 12500 * flammable.FireStacks, false, temp);
+                    if (air.Temperature < flammable.MaxFireTemperature)
+                        _atmosphereSystem.AddHeat(air, flammable.FireEnergyMultiplier * flammable.FireStacks);
+                    // ES END
 
                     var ev = new GetFireProtectionEvent();
                     // let the thing on fire handle it
@@ -487,7 +534,17 @@ namespace Content.Server.Atmos.EntitySystems
                     if (_inventoryQuery.TryComp(uid, out var inv))
                         _inventory.RelayEvent((uid, inv), ref ev);
 
-                    _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false);
+                    // ES START
+                    // allow empty damage
+                    if (!flammable.Damage.Empty)
+                        _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false);
+
+                    // release smoke
+                    // this should probably be extracted in the future,
+                    // since idk only certain flammable things should release smoke really. although it can just be zeroed out anyway
+                    if (air.GetMoles(Gas.Smoke) <= air.GetMoles(Gas.Oxygen) / 4)
+                        air.AdjustMoles(Gas.Smoke, flammable.SmokeMolsReleasedPerStack * flammable.FireStacks);
+                    // ES END
 
                     AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 15f : 1f), flammable, flammable.OnFire);
                 }

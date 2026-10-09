@@ -48,6 +48,9 @@
   name: raisin bag
   description: A big bag of raisins. Good for baking!
   components:
+  - type: Tag
+    tags:
+    - BountyRaisinBag
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/ingredients.rsi
     state: raisin-big

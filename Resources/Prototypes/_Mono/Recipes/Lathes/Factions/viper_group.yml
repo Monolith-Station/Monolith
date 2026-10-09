@@ -58,6 +58,18 @@
     Silver: 2000
 
 - type: latheRecipe
+  parent: MonoHardsuitT2Recipe
+  id: ClothingOuterHardsuitViperGroupShield
+  result: ClothingOuterHardsuitViperGroupShield
+  materials:
+    Steel: 2500
+    Plasteel: 4000
+    Durathread: 500
+    Silver: 1500
+    Gold: 1000
+    Plasma: 2500
+
+- type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
   id: VGTechfabMachineCircuitboard
   result: VGTechfabMachineCircuitboard

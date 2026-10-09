@@ -1,0 +1,34 @@
+- type: vessel
+  id: Noble
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-MieyoNoble-name
+  description: vessel-MieyoNoble-desc
+  # Andromeda end
+  price: 94365
+  category: Small
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/noble.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Noble
+  mapName: 'SKR Noble'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/noble.yml
+  minPlayers: 0
+  stations:
+    Noble:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Noble CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]

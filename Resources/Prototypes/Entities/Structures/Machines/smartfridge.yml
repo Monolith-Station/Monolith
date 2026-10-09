@@ -48,11 +48,14 @@
       - Pill
       - Produce
       - Seed
+      - Hypospray
       tags:
       - PillCanister
       - Bottle
       - Syringe
       - ChemDispensable
+      - Ointment
+      - Brutepack
   - type: ActivatableUI
     key: enum.SmartFridgeUiKey.Key
   - type: ActivatableUIRequiresPower

@@ -1,0 +1,96 @@
+- type: entity
+  parent: BaseStructure
+  id: CrocusBeaconBroken
+  name: damaged radio uplink beacon
+  description: It'll need big repairs to bring back up. Begin repairs with 2 sheets of steel.
+  suffix: Crocus
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/beacon.rsi
+    noRot: true
+    drawdepth: Mobs
+    layers:
+    - state: beacon
+    - state: beacon_lights
+      shader: unshaded
+    - state: beacon_lights_distress
+      shader: unshaded
+  - type: Construction
+    graph: CrocusRepairableBeacon
+    node: break
+  - type: SyndicateFOB
+  - type: StealTarget
+    stealGroup:
+    - BeaconDestroys
+  - type: ExtendDescription
+    descriptionList:
+    - description: This is a potential objective for TSF & PDV infantry in the area!
+      color: "#4f94ad"
+      requireDetailRange: false
+    - description: It's currently in maintenance mode and requires repairs to count towards the TSF objective.
+      color: "#eb4034"
+      requireDetailRange: false
+
+- type: entity
+  parent: BaseStructure
+  id: CrocusBeacon
+  name: radio uplink beacon
+  description: Helps broadcasts & relays critical data for TSF units around the area.
+  suffix: Crocus
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/beacon.rsi
+    noRot: true
+    drawdepth: Mobs
+    layers:
+    - state: beacon
+    - state: beacon_lights
+      shader: unshaded
+    - state: beacon_lights_active
+      shader: unshaded
+  - type: Construction
+    graph: CrocusRepairableBeacon
+    node: repairBeacon
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: break
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalCrunch
+  - type: Repairable
+    fuelCost: 20
+    doAfterDelay: 2
+    qualities:
+    - Welding
+    - Applicating
+  - type: SyndicateFOB
+  - type: StealTarget
+    stealGroup:
+    - BeaconRepairs
+  - type: ExtendDescription
+    descriptionList:
+    - description: This is a potential objective for TSF & PDV infantry in the area!
+      color: "#4f94ad"
+      requireDetailRange: false
+    - description: It must be destroyed for the PDV objective.
+      color: "#cc34eb"
+      requireDetailRange: false
+
+- type: entity
+  id: TSFThiefBeacon
+  parent: PDVThiefBeacon
+  name: TSF extraction beacon
+  description: A device that will extract materials placed around it at the end of the operation.
+  components:
+  - type: Tag
+    tags:
+    - TSFStealArea

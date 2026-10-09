@@ -19,38 +19,38 @@
 
 - type: ambientSpaceBiome
   id: BiomeFarReachesIV
-  name: Far Reaches IV
+  name: Outer Cloud IV
   description: "Is it really worth it?"
 
 - type: ambientSpaceBiome
   id: BiomeFarReachesIII
-  name: Far Reaches III
+  name: Outer Cloud III
   description: "Things have learnt to walk that ought to crawl."
 
 - type: ambientSpaceBiome
   id: BiomeFarReachesII
-  name: Far Reaches II
+  name: Outer Cloud II
   description: "There's nothing this far out anymore. Or that's what you would find yourself wishing."
 
 - type: ambientSpaceBiome
   id: BiomeFarReachesI
-  name: Far Reaches I
+  name: Outer Cloud I
   description: "You feel like the asteroids are moving even while you aren't. Or watching you. Or both."
 
 #actual biomes
 - type: ambientSpaceBiome
   id: BiomeOuterRing
-  name: Outer Ring
-  description: "Far from radio range. Far from help. The stars here are dimmer."
+  name: Cloud Interstitial
+  description: "Beyond the inner rubicon. The radio chatter wanes and the stars grow dimmer."
 
 - type: ambientSpaceBiome
   id: BiomeMiddleRing
-  name: Middle Ring
-  description: "Stellar outskirts, often crawling with riches and danger."
+  name: Inner Rubicon
+  description: "A wreath of wealth, opportunity, and possibly danger."
 
 - type: ambientSpaceBiome
   id: BiomeInnerRing
-  name: Inner Ring
+  name: Colossus Inner Region
   description: "Civilised space. The constellations seen from here are burned into your memory."
 
 # clusters
@@ -61,6 +61,6 @@
 
 - type: ambientSpaceBiome
   id: BiomeWilds
-  name: Wilds
-  description: "Watch your back."
+  name: LINEAR-21 Asteroid Cluster
+  description: "Ocean-span of regolith riches. Shapes occasionally quiver on sensors."
 

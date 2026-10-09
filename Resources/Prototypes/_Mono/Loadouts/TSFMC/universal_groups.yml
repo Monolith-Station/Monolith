@@ -35,9 +35,21 @@
   loadouts:
   - TsfmcClothingJumpsuit
   - TsfmcClothingJumpsuitType47D
+  - TsfmcClothingJumpsuitType47F
   - TsfmcClothingDressUniform
   fallbacks:
   - TsfmcClothingJumpsuit
+
+- type: loadoutGroup
+  id: TsfmcInfantryJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  hidden: false
+  loadouts:
+  - TsfmcClothingJumpsuitType47FCrocus
+  - TsfmcClothingJumpsuitType47DCrocus
+  fallbacks:
+  - TsfmcClothingJumpsuitType47FCrocus
 
 - type: loadoutGroup
   id: TsfmcJumpsuitEngi
@@ -47,6 +59,7 @@
   - TsfmcEngineeringClothingJumpsuit
   - TsfmcClothingJumpsuit
   - TsfmcClothingJumpsuitType47D
+  - TsfmcClothingJumpsuitType47F
   - TsfmcClothingDressUniform
   fallbacks:
   - TsfmcEngineeringClothingJumpsuit
@@ -93,6 +106,17 @@
   - TsfmcCombatWebbing
   - TsfmcCombatWebbingLarge
   - ContractorClothingBeltSheathFilled
+  fallbacks:
+  - TsfmcCombatWebbing
+
+- type: loadoutGroup
+  id: TsfmcInfantryBelt
+  name: loadout-group-contractor-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TsfmcCombatWebbing
+  - TsfmcCombatWebbingLarge
   fallbacks:
   - TsfmcCombatWebbing
 
@@ -148,14 +172,23 @@
   fallbacks:
   - TsfmcHud
 
+- type: loadoutGroup
+  id: TsfmcGlassesColonel
+  name: loadout-group-contractor-glasses
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - TsfmcCommanderGlasses
+  fallbacks:
+  - TsfmcCommanderGlasses
 
 - type: loadoutGroup
   id: TsfmcNeck
   name: loadout-group-contractor-neck
-  hidden: true # No point in showing this, it gets auto-selected.
+  hidden: false
   minLimit: 1
   loadouts:
   - TsfmcClothingNeckIFFCyan
+  - TsfmcClothingNeckWearableCameraTSF
 
 - type: loadoutGroup
   id: TsfmcNeckEngi
@@ -165,6 +198,7 @@
   loadouts:
   - TsfmcClothingNeckIFFOrange
   - TsfmcClothingNeckIFFCyan
+  - TsfmcClothingNeckWearableCameraTSF
 
 - type: loadoutGroup
   id: TsfmcNeckMedic
@@ -174,6 +208,7 @@
   loadouts:
   - TsfmcClothingNeckIFFWhite
   - TsfmcClothingNeckIFFCyan
+  - TsfmcClothingNeckWearableCameraTSF
 
 - type: loadoutGroup
   id: TsfmcBrigmedicGlasses
@@ -194,6 +229,14 @@
   - TsfmcBeret
   - TsfmcUtilityCap
   - TsfmcBeretCommon
+
+- type: loadoutGroup
+  id: TsfmcInfantryHead
+  name: loadout-group-contractor-head
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - TsfmcHelmet
 
 - type: loadoutGroup
   id: TsfmcHeadMedic
@@ -247,6 +290,15 @@
   - TsfmcClothingOuterArmorBPVestMedium
   fallbacks:
   - TsfmcClothingOuterArmorBPVestLight
+
+- type: loadoutGroup
+  id: TsfmcOuterClothingColonel
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadouts:
+  - TsfmcClothingOuterHardsuitColonel
+  fallbacks:
+  - TsfmcClothingOuterHardsuitColonel
 
 # armor plates
 - type: loadoutGroup

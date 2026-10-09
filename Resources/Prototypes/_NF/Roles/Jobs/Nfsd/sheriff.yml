@@ -5,13 +5,18 @@
   playTimeTracker: JobHeadOfSecurity
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 144000 # 40 hours - mono
+      time: 72000 # 20 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 90000 # 25 hours - mono
+      time: 36000 # 10 hours
     - !type:RoleTimeRequirement
-      role: JobWarden
-      time: 18000 # 5 hours - mono
+      role: JobSeniorOfficer
+      time: 10800 # 3 hours
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
+  enforcedPlayTime: true #Monolith
   whitelisted: true
   startingGear: SheriffGear
   alwaysUseSpawner: true
@@ -29,13 +34,18 @@
   - HeadOfSecurity
   - Bailiff
   - Sergeant
+  - Armory
   - Frontier #Mono End
+  guides:
+  - TSFMC_Entry
   special:
   - !type:AddComponentSpecial
     components:
     - type: NpcFactionMember
       factions:
       - TSFMC
+    - type: RadioOnCryosleep
+      radioChannel: Nfsd # NFSD = TSF Comms
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddComponentSpecial
@@ -64,3 +74,4 @@
     - RubberStampTSFColonel #Mono. Look, it had comments on the Bailiff/Captain file.
     - TSFHandheldOverwatchConsole
     - BookTSFSOP
+    - WarDeclaratorTsf

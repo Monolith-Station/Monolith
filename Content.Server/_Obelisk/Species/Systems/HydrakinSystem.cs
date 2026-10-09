@@ -3,6 +3,7 @@ using Content.Server.Popups;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared._Mono.Species.Systems;
+using Content.Shared._Obelisk.Species.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.DoAfter;

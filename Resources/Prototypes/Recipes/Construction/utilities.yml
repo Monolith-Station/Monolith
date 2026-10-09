@@ -38,7 +38,7 @@
   description: construction-StationMap-desc
   icon:
     sprite: Structures/Machines/station_map.rsi
-    state: station_map0
+    state: base
   placementMode: SnapgridCenter
   objectType: Structure
   canRotate: true
@@ -1470,7 +1470,7 @@
   description: construction-SignalTimer-desc
   icon:
     sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    state: base
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true

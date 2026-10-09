@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: The-Aisen
+# Discord: ich_bin_aisenberg
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Rosetta
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Rosetta-name
+  description: vessel-Rosetta-desc
+  # Andromeda end
+  price: 128131
+  category: Medium
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/rosetta.yml
+  guidebookPage: Null
+  class:
+  - Science
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Rosetta
+  mapName: 'NOV-Rosetta'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/rosetta.yml
+  minPlayers: 0
+  stations:
+    Rosetta:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Rosetta CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

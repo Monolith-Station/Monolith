@@ -1,0 +1,71 @@
+- type: entity
+  parent: BaseStructure
+  id: N14CashRegister
+  name: cash register
+  description: An instrument for storing means for material transactions.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/cashregister.rsi
+    state: closed
+  - type: Rotatable
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _Nuclear14/Structures/Storage/Crates/cashregister.rsi
+    state: closed
+  - type: Transform
+    noRot: false
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.3,0.4,0.3"
+        density: 190
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
+  - type: Anchorable
+  - type: Pullable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: RequireProjectileTarget
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+
+- type: entity
+  parent: N14CashRegister
+  id: N14CashRegisterBloody
+  name: bloody cash register
+  description: A bloody cash register. The blood looks dried.
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/cashregisterbloody.rsi
+    state: closed
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/cashregisterbloody.rsi
+    state: closed
+

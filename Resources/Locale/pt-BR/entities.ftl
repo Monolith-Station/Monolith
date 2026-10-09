@@ -7609,8 +7609,8 @@ ent-BannerScience = banner de ciência
 ent-BannerSecurity = banner de segurança
     .desc = Um banner exibindo as cores do departamento de segurança.
 
-ent-BannerSyndicate = banner do Sindicato
-    .desc = Um banner do qual, segundo o Sindicato, você deve sentir ódio pela NT.
+ent-BannerSyndicate = banner do sultão
+    .desc = Um S imponente bordado em um fundo vermelho escuro. Você sente que está perdendo algum contexto importante. "Piedade ao Sultão".
 
 ent-BannerYellow = banner amarelo
     .desc = Um banner exibindo a cor amarela. Lembra patos e bancas de limão.
@@ -14874,7 +14874,7 @@ ent-WallBrick = parede de tijolos
 ent-WallChromiteCobblebrick = parede de tijolos de cromita
     .desc = {ent-WallCobblebrick.desc}
 
-ent-WallClock = parede de relógio
+ent-WallClock = parede de latão
     .desc = {ent-BaseWall.desc}
 
 ent-WallClown = parede de banânio

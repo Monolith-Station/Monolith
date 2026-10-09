@@ -72,6 +72,10 @@
   id: FoodTacoBeef
   description: A very basic and run of the mill beef taco, now with cheese!
   components:
+  - type: Tag # Mono
+    tags:
+    - Meat
+    - BountyBeefTaco
   - type: Food
   - type: Sprite
     state: beeftaco
@@ -82,6 +86,10 @@
   id: FoodTacoChicken
   description: A very basic and run of the mill chicken taco, now with cheese!
   components:
+  - type: Tag # Mono
+    tags:
+    - Meat
+    - BountyChickenTaco
   - type: Food
   - type: Sprite
     state: chickentaco
@@ -92,6 +100,10 @@
   id: FoodTacoFish
   description: Sounds kinda gross, but it's actually not that bad.
   components:
+  - type: Tag # Mono
+    tags:
+    - Meat
+    - BountyFishTaco
   - type: FlavorProfile
     flavors:
       - onion
@@ -115,6 +127,10 @@
   id: FoodTacoRat
   description: Yeah, that looks about right...
   components:
+  - type: Tag # Mono
+    tags:
+    - Meat
+    - BountyRatTaco
   - type: Food
   - type: Sprite
     state: rattaco
@@ -134,6 +150,10 @@
   id: FoodTacoBeefSupreme
   description: It's like a regular beef taco, but surpeme!
   components:
+  - type: Tag # Mono
+    tags:
+    - Meat
+    - BountyBeefTacoSupreme
   - type: Food
   - type: Sprite
     state: beeftacosupreme
@@ -153,6 +173,10 @@
   id: FoodTacoChickenSupreme
   description: It's like a regular chicken taco, but surpeme!
   components:
+  - type: Tag # Mono
+    tags:
+    - Meat
+    - BountyChickenTacoSupreme
   - type: Food
   - type: Sprite
     state: chickentacosupreme

@@ -1,0 +1,98 @@
+- type: entity
+  id: ESTileFire
+  name: fire
+  description: A fire!!!!!!!!!!!!
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 150
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - MidImpassable
+  - type: Clickable
+  - type: SpriteFade
+  - type: Sprite
+    sprite: _ES/Effects/tile_fire.rsi
+    noRot: true
+    drawdepth: OverMobs
+    layers:
+    - map: [ "base" ]
+      state: red_1
+      shader: unshaded
+  - type: ESTileFire
+  - type: RequiresGrid # Mono - kys
+  - type: ActiveEdgeSpreader
+  - type: EdgeSpreader
+    id: ESTileFire
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.8
+    sprintSpeedModifier: 0.8
+  - type: Flammable
+    firestacksOnIgnite: 0.0
+    firestackFade: 0.32
+    onFire: true
+    fireStacks: 3
+    minimumFireStacks: 0
+    maximumFireStacks: 15
+    fireSpread: true
+    # max 15 firestacks -> stage 3
+    firestackVisualDivisor: 5
+    deleteOnExtinguish: true
+    basicFireSpread: true
+  - type: Temperature
+    currentTemperature: 423.15
+  - type: AtmosExposed
+  - type: Reactive
+    groups:
+      Extinguish: [ Touch ]
+  # TODO ES probably use a better sound collection for this.
+  # and scale sound with stages
+  - type: AmbientSound
+    range: 3
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: Appearance
+  - type: TileEmission
+    color: "#fc9003"
+  - type: GenericVisualizer
+    visuals:
+      enum.FireVisuals.FireStacks:
+        base:
+          0: { state: red_1 }
+          1: { state: red_2 }
+          2: { state: red_3 }
+          3: { state: red_4 }
+
+- type: entity
+  id: ESTileFireStage2
+  parent: ESTileFire
+  suffix: Stage 2
+  components:
+  - type: Flammable
+    fireStacks: 7
+
+- type: entity
+  id: ESTileFireStage3
+  parent: ESTileFire
+  suffix: Stage 3
+  components:
+  - type: Flammable
+    fireStacks: 11
+
+- type: entity
+  id: ESTileFireStage4
+  parent: ESTileFire
+  suffix: Stage 4
+  components:
+  - type: Flammable
+    fireStacks: 15

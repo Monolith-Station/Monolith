@@ -1,0 +1,39 @@
+#Author: Mrrpip
+
+- type: vessel
+  id: QJ271
+  parent: BaseVesselIFFDisabled
+  name: TSF-GS QJ-271 Heavy Fighter
+  description: The successor to the mothballed QJ-270. Up armored and sized to serve as an interceptor of sorts, rather than a carrier parasite. Comes with two chainguns, a Prometheus laser cannon and an ammo loader.
+  price: 94000 # Appraised at 75000~
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/qj271.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Uranium
+  company:
+  - TSF
+
+- type: gameMap
+  id: QJ271
+  mapName: 'QJ271'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/qj271.yml
+  minPlayers: 0
+  stations:
+    QJ271:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'QJ-271 TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

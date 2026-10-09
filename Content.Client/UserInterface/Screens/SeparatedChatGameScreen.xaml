@@ -11,6 +11,7 @@
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:inventory="clr-namespace:Content.Client.UserInterface.Systems.Inventory.Widgets"
     xmlns:targeting="clr-namespace:Content.Client._Shitmed.UserInterface.Systems.Targeting.Widgets"
+    xmlns:userActions="clr-namespace:Content.Client._Shitcode.UserActions"
     Name="SeparatedChatHud"
     VerticalExpand="False"
     VerticalAlignment="Bottom"
@@ -47,7 +48,10 @@
                             <PanelContainer.PanelOverride>
                                 <graphics:StyleBoxFlat BorderThickness="3" BorderColor="#303030" BackgroundColor="#1f1f1f"/>
                             </PanelContainer.PanelOverride>
-                <chat:ChatBox VerticalExpand="True" HorizontalExpand="True" Name="Chat" Access="Protected" MinSize="0 0"/>
+                            <SplitContainer State="Auto" VerticalExpand="True" Orientation="Vertical">
+                            <userActions:UserActionsPanel Name="UserActionsPanel" Access="Public"/>
+                            <chat:ChatBox VerticalExpand="True" HorizontalExpand="True" Name="Chat" Access="Protected" MinSize="0 0"/>
+                            </SplitContainer>
                         </PanelContainer>
                     </PanelContainer>
                 </PanelContainer>

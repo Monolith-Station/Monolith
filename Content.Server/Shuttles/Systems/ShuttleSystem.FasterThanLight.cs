@@ -158,6 +158,7 @@ public sealed partial class ShuttleSystem
         DebugTools.Assert(!_mapSystem.IsPaused(mapId));
         var parallax = EnsureComp<ParallaxComponent>(mapUid);
         parallax.Parallax = ftlMap.Parallax;
+        _mapSystem.SetAmbientLight(mapId, ftlMap.AmbientLightColor); // Mono
 
         return mapUid;
     }

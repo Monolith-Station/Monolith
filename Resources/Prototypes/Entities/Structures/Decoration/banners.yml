@@ -52,8 +52,8 @@
 - type: entity
   id: BannerNanotrasen
   parent: BannerBase
-  name: nanotrasen banner
-  description: A banner displaying the Nanotrasen logo. It looks rather cheap.
+  name: mysterious banner # Mono
+  description: A white N on a blue background. It looks rather cheap and it has not aged well. Must be some long forgotten symbol of the past. # Mono
   components:
   - type: Sprite
     sprite: _NF/Structures/Decoration/banner.rsi # Frontier - unique sprites
@@ -117,8 +117,8 @@
 - type: entity
   id: BannerSyndicate
   parent: BannerBase
-  name: syndicate banner
-  description: A banner from which, according to the syndicate, you should feel hatred for NT.
+  name: sultan's banner # Mono
+  description: An imposing S is embroidered onto a dark red background. You get the feeling you're missing some important context. "Piety to the Sultan." # Mono
   components:
   - type: Sprite
     sprite: _NF/Structures/Decoration/banner.rsi # Frontier - unique sprites

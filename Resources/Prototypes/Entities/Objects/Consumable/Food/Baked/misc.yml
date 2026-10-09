@@ -27,6 +27,9 @@
   id: FoodBakedMuffin
   description: A delicious and spongy little cake.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyMuffin
   - type: Food
     trash:
     - FoodPlateMuffinTin
@@ -70,6 +73,7 @@
   - type: Tag
     tags:
     - Fruit
+    - BountyBerryMuffin # Mono
 
 - type: entity
   name: cherry muffin
@@ -93,6 +97,7 @@
   - type: Tag
     tags:
     - Fruit
+    - BountyCherryMuffin # Mono
 
 - type: entity
   name: bluecherry muffin
@@ -112,6 +117,9 @@
   id: FoodBakedMuffinChocolate
   description: A delicious and spongy chocolate muffin.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyChocolateMuffin
   - type: Sprite
     state: muffin-chocolate
   - type: SolutionContainerManager
@@ -148,6 +156,7 @@
   - type: Tag
     tags:
     - Fruit
+    - BountyBananaMuffin # Mono
 
 # Buns
 
@@ -157,6 +166,9 @@
   id: FoodBakedBunHoney
   description: A sticky pastry bun glazed with honey.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyHoneyBun
   - type: Sprite
     state: bun-honey
   - type: FlavorProfile # Frontier
@@ -199,6 +211,9 @@
   id: FoodBakedCookie
   description: COOKIE!!!
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyCookie
   - type: Sprite
     state: COOKIE!!!
 
@@ -208,6 +223,9 @@
   id: FoodBakedCookieOatmeal
   description: The best of both cookie and oat.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyOatmealCookie
   - type: Sprite
     state: cookie-oatmeal
   - type: SolutionContainerManager
@@ -240,6 +258,7 @@
   - type: Tag
     tags:
     - Fruit
+    - BountyRaisinCookie # Mono
 
 - type: entity
   name: sugar cookie
@@ -247,6 +266,9 @@
   id: FoodBakedCookieSugar
   description: Just like your mom used to make.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountySugarCookie
   - type: Sprite
     state: cookie-sugar
 
@@ -351,6 +373,7 @@
   - type: Tag
     tags:
     - Pancake
+    - BountyPancake # Mono
 
 - type: entity
   name: blueberry pancake
@@ -404,6 +427,7 @@
     tags:
     - Pancake
     - Fruit
+    - BountyBlueberryPancake # Mono
   - type: SolutionContainerManager # Frontier: flavorol
     solutions:
       food:
@@ -418,6 +442,10 @@
   id: FoodBakedPancakeCc
   description: A fluffy and delicious chocolate chip pancake.
   components:
+  - type: Tag # Mono
+    tags:
+    - Pancake
+    - BountyChocolateChipPancake
   - type: Stack
     stackType: PancakeCc
     layerStates:
@@ -476,6 +504,9 @@
   id: FoodBakedWaffle
   description: Mmm, waffles.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyWaffles
   - type: Sprite
     layers:
       - state: tray
@@ -496,6 +527,9 @@
   id: FoodBakedWaffleSoy
   description: You feel healthier and - more feminine?
   components:
+  - type: Tag # Mono
+    tags:
+    - BountySoyWaffles
   - type: Sprite
     layers:
       - state: tray
@@ -603,6 +637,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyDumplings # Mono
 
 - type: entity
   name: chèvre chaud
@@ -610,6 +645,9 @@
   id: FoodBakedChevreChaud
   description: A disk of slightly melted chèvre flopped on top of a crostini, and toasted all-round.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyChevreChaud
   - type: FlavorProfile
     flavors:
       - bread
@@ -648,6 +686,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - BountyCottonChevreChaud # Mono
   - type: SolutionContainerManager
     solutions:
       food:
@@ -667,6 +706,9 @@
   id: FoodBakedBrownieBatch
   description: A pan of brownies.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyBrownies
   - type: FlavorProfile
     flavors:
       - sweet
@@ -720,6 +762,9 @@
   id: FoodBakedCannabisBrownieBatch
   description: A pan of "special" brownies.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountySpecialBrownies
   - type: FlavorProfile
     flavors:
       - sweet
@@ -778,6 +823,9 @@
   id: FoodOnionRings
   description: You can eat it or propose to your loved ones.
   components:
+    - type: Tag # Mono
+      tags:
+      - BountyOnionRings
     - type: FlavorProfile
       flavors:
         - onion
@@ -802,6 +850,9 @@
   id: FoodBakedCroissant
   description: Buttery, flaky goodness.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyCroissant
   - type: FlavorProfile
     flavors:
       - bread
@@ -842,6 +893,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - BountyCottonCroissant # Mono
   - type: SolutionContainerManager
     solutions:
       food:
@@ -857,12 +909,15 @@
           Quantity: 1
   - type: MothFood # Frontier
 
-- type: entity         
+- type: entity
   name: grilled cheese sandwich
   parent: FoodBakedBase
   id: FoodBakedGrilledCheeseSandwich
   description: Bread and cheese toasted with butter, perfect for a chilly day in space.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyGrilledCheeseSandwich
   - type: FlavorProfile
     flavors:
       - cheesy

@@ -1,0 +1,41 @@
+- type: vessel
+  id: Dagger
+  parent: BaseVesselIFFDisabled
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Dagger-name
+  description: vessel-Dagger-desc
+  # Andromeda end
+  limit: 3
+  hyperwarLimit: 6
+  price: 150000
+  purchasable: false # voucher only - T1
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/dagger.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Escort
+  engine:
+  - AME
+
+- type: gameMap
+  id: Dagger
+  mapName: 'Dagger'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/dagger.yml
+  minPlayers: 0
+  stations:
+    Dagger:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Dagger TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

@@ -94,8 +94,8 @@
 - type: entity
   parent: [BaseHardBomb, BaseFactionGearOtherFactionT3]
   id: SyndicateBomb
-  name: syndicate bomb
-  description: A bomb for Syndicate operatives and agents alike. The real deal, no more training, get to it!
+  name: hardbomb # Mono: remove syndicate references
+  description: An ominous heavy explosive device. # Mono: remove syndicate references
   components:
     - type: Sprite
       sprite: Structures/Machines/bomb.rsi

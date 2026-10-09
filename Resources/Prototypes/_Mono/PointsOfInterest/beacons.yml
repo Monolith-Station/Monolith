@@ -53,3 +53,22 @@
       components:
       - type: StationNameSetup
         mapNameTemplate: 'LINEAR-21 Asteroid Cluster'
+
+- type: gameMap
+  id: EmptyFrontierBeacon
+  mapName: Beacon
+  mapPath: /Maps/_Mono/POI/beaconstation_empty.yml
+  minPlayers: 0
+  randomRotation: true
+  maxRandomOffset: 3000
+  stations:
+    Empty:
+      stationProto: StandardFrontierStation
+      gridComponents:
+      - type: IFF
+        color: "#ccaa55"
+      - type: SolarPoweredGrid
+        doNotCull: true
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: "Empty"

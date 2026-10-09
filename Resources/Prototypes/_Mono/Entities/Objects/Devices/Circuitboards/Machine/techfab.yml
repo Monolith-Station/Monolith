@@ -17,6 +17,13 @@
         defaultPrototype: Beaker
 
 - type: entity
+  id: SecurityTechFabCaelestinusMachineCircuitboard
+  parent: SecurityTechFabCircuitboard
+  components:
+  - type: MachineBoard
+    prototype: SecurityTechFabCaelestinus
+
+- type: entity
   id: USSPTechfabMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: USSP field assembler machine board

@@ -28,6 +28,9 @@
   id: FoodNoodlesBoiled
   description: A plain dish of noodles, this needs more ingredients.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyBoiledPasta
   - type: FlavorProfile
     flavors:
       - pasta
@@ -50,6 +53,7 @@
   - type: Tag
     tags:
     - Fruit
+    - BountySpaghetti # Mono
 # Tastes like pasta, tomato.
 
 - type: entity
@@ -58,6 +62,9 @@
   id: FoodNoodlesCopy
   description: You probably shouldn't try this, you always hear people talking about how bad it is...
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyCopypasta
   - type: FlavorProfile
     flavors:
       - copypasta
@@ -102,6 +109,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountySpaghettiAndMeatballs # Mono
 # Tastes like pasta, meat.
 
 - type: entity
@@ -135,6 +143,9 @@
   id: FoodNoodlesChowmein
   description: A nice mix of noodles and fried vegetables.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyChowMein
   - type: FlavorProfile
     flavors:
       - pasta
@@ -162,6 +173,9 @@
   id: FoodNoodlesButter
   description: Noodles covered in savory butter. Simple and slippery, but delicious.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyButterNoodles
   - type: FlavorProfile
     flavors:
       - pasta

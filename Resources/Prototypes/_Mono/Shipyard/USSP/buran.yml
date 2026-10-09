@@ -2,7 +2,7 @@
 
 - type: vessel
   id: Buran
-  parent: BaseVesselAntag
+  parent: BaseVesselIFFDisabled
   # Andromeda start: Localize ship name and desc
   name: vessel-Buran-name
   description: vessel-Buran-desc
@@ -17,6 +17,7 @@
   guidebookPage: ShipyardNFROperation
   class:
   - Frigate
+  - Brawler
   engine:
   - NFR
 

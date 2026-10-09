@@ -4,6 +4,8 @@ using Content.Shared.VendingMachines;
 using Robust.Client.UserInterface;
 using Robust.Shared.Input;
 using System.Linq;
+using Content.Client._Mono.Economy;
+using Content.Shared._Mono.Economy.Component; // Mono
 using Robust.Client.GameObjects;
 using Content.Shared._NF.Bank.Components; // Frontier
 using Content.Shared.Containers.ItemSlots; // Frontier
@@ -13,6 +15,8 @@ namespace Content.Client.VendingMachines
 {
     public sealed class VendingMachineBoundUserInterface : BoundUserInterface
     {
+        [Dependency] private CreditReceiverSystem _credit = default!; // Mono
+
         [ViewVariables]
         private VendingMachineMenu? _menu;
 
@@ -57,10 +61,10 @@ namespace Content.Client.VendingMachines
                 _menu.Title = Loc.GetString("vending-machine-nf-fallback-title");
             // End Frontier: no exceptions
             _menu.OnItemSelected += OnItemSelected;
-            Refresh();
+            Update();
         }
 
-        public void Refresh()
+        public override void Update()
         {
             var system = EntMan.System<VendingMachineSystem>();
             _cachedInventory = system.GetAllInventory(Owner);
@@ -72,13 +76,12 @@ namespace Content.Client.VendingMachines
                 if (EntMan.TryGetComponent<BankAccountComponent>(uiUser, out var bank))
                     _balance = bank.Balance;
             }
-            int? cashSlotValue = null;
-            if (EntMan.TryGetComponent<VendingMachineComponent>(Owner, out var vendingMachine))
+            if (EntMan.TryGetComponent<VendingMachineComponent>(Owner, out var vendingMachine) // Mono start - Separation of Cash from VendingMachineComp
+                && EntMan.TryGetComponent<CreditReceiverComponent>(Owner, out var creditReceiver))
             {
-                _cashSlotBalance = vendingMachine.CashSlotBalance;
-                _requiresCash = vendingMachine.RequiresCash; // mono
-                if (vendingMachine.CashSlotName != null)
-                    cashSlotValue = _cashSlotBalance;
+                _credit.TryGetCash(Owner, out _, out var cash);
+                _cashSlotBalance = cash;
+                _requiresCash = vendingMachine.RequiresCash; // Mono end - Separation of Cash from VendingMachineComp
             }
             else
             {
@@ -86,7 +89,7 @@ namespace Content.Client.VendingMachines
             }
             // End Frontier
 
-            _menu?.Populate(_cachedInventory, _mod, _balance, cashSlotValue, _requiresCash); // Frontier: add _balance, mono: add _requiresCash
+            _menu?.Populate(_cachedInventory, _mod, _balance, _cashSlotBalance, _requiresCash); // Frontier: add _balance, mono: add _cashSlotBalance and _requiresCash (for ironman characters)
         }
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)

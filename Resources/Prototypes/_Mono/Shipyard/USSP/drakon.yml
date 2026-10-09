@@ -2,12 +2,13 @@
 
 - type: vessel
   id: Drakon
-  parent: BaseVesselAntag
+  parent: BaseVesselIFFDisabled
   # Andromeda start: Localize ship name and desc
   name: vessel-Drakon-name
   description: vessel-Drakon-desc
   # Andromeda end
   price: 112753
+  purchasable: false # voucher only
   category: Medium
   group: Ussp
   access: USSP
@@ -15,6 +16,7 @@
   guidebookPage: Null
   class:
   - Pursuit
+  - Brawler
   - Corvette
   engine:
   - AME

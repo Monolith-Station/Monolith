@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: gelliii
+# Discord: .gelliii.
+
+# Shuttle Notes: PR made by Corrupt142
+#
+- type: vessel
+  id: Tick
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Tick-name
+  description: vessel-Tick-desc
+  # Andromeda end
+  price: 22793 # it's a heap of scrap
+  category: Small
+  group: Scrap
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Scrapyard/tick.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - APU
+
+- type: gameMap
+  id: Tick
+  mapName: 'GSI Tick'
+  mapPath: /SharedMaps/_Mono/Shuttles/Scrapyard/tick.yml
+  minPlayers: 0
+  stations:
+    Tick:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Tick SRP-MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

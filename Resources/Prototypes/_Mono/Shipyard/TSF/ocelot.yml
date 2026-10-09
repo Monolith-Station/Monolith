@@ -1,0 +1,40 @@
+- type: vessel
+  id: Ocelot
+  parent: BaseVesselIFFDisabled
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Ocelot-name
+  description: vessel-Ocelot-desc
+  # Andromeda end
+  price: 90000
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/ocelot.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+  cloakHunter: true
+  company:
+  - TSF
+
+- type: gameMap
+  id: Ocelot
+  mapName: 'Ocelot'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/ocelot.yml
+  minPlayers: 0
+  stations:
+    Ocelot:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Ocelot TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

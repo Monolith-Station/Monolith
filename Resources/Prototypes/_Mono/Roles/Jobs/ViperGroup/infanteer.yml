@@ -13,9 +13,11 @@
   weight: 10 #Going off the info I was given, low weight as it's a company-whitelist role.
   displayWeight: 50
   assignedCompany: TheViperGroup
+  guides:
+  - Viper_Group
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, ViperTrackingImplant ]
+    implants: [ ViperTrackingImplant ]
   - !type:AddComponentSpecial
     components:
     - type: MailDisabled
@@ -26,6 +28,8 @@
       - VG
     - type: ChatRank
       rank: vg-infanteer
+    - type: RadioOnCryosleep
+      radioChannel: Viper
   accessGroups:
   - GeneralAccess
   - ViperLow

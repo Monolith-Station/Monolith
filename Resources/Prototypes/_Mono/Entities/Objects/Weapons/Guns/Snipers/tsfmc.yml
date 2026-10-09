@@ -1,6 +1,6 @@
 - type: entity
   name: "TCA QBU-284 'Shenzhen' coilgun AMR"
-  parent: [BaseWeaponRifle, BaseGunWieldable, BaseC2ContrabandUnredeemable]
+  parent: [BaseWeaponRifle, BaseGunWieldable, BaseFactionGearTSFT3]
   id: WeaponAMRShenzhen
   description: Magazine-fed AMR, utilizing electromagnets to fire 13.4x92mm DU-APFSDS rounds with extreme velocity.
   components:
@@ -72,7 +72,53 @@
   - type: GunRequiresWield
   - type: LaserPointer
     targetedColor: "#03c2fc"
-    defaultColor: "#03c2fc"
+    defaultColor: "#fc0324"
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 24 # snipers are HEAVY!
+    angle: 0
+    wideAnimationRotation: 45
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
+  - type: WieldDelay
+    baseDelay: 1.2
+    modifiedDelay: 1.2
+    preventFiring: true
+  - type: UseDelay
+    delay: 1
+
+- type: entity
+  name: "TCA QBU-284 'Shenzhen' coilgun AMR"
+  parent: WeaponAMRShenzhen
+  id: WeaponAMRShenzhenEmpty
+  suffix: Empty
+  description: Magazine-fed AMR, utilizing electromagnets to fire 13.4x92mm DU-APFSDS rounds with extreme velocity.
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: null
+        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineShenzhen
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: null
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeShenzhen
 
 - type: entity
   name: VFD QBU-243 Xian DMR (8x65mm SKR)
@@ -222,7 +268,7 @@
   description: A precise and reliable bullpup DMR, developed as a cheaper production model from early QBU-243 prototypes. Feeds from 8x65mm STANAG magazines. It has a Erebus railmount for optics. # Mono
   components:
   - type: Sprite
-    sprite: _Harmony/Objects/Weapons/Guns/Rifles/bandit.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/bandit.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -230,7 +276,9 @@
       map: ["enum.GunVisualLayers.Mag"]
     - map: ["opticAttachment"] # Mono
   - type: Clothing
-    sprite: _Harmony/Objects/Weapons/Guns/Rifles/bandit.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/bandit_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/bandit_inhands_32x.rsi
   - type: GunWieldBonus # Mono
     minAngle: -32
     maxAngle: -51
@@ -239,10 +287,11 @@
     maxAngle: 54 # Mono
     angleIncrease: 14
     angleDecay: 5
+    damageModifier: 1.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    fireRate: 2
+    fireRate: 1.5
     soundGunshot:
       collection: DMRFire
   - type: ChamberMagazineAmmoProvider

@@ -1,0 +1,36 @@
+- type: vessel
+  id: Pillbox
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Pillbox-name
+  description: vessel-Pillbox-desc
+  # Andromeda end
+  price: 116484
+  category: Medium
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/pillbox.yml #As it can be ordered in the normal shipyard.
+  guidebookPage: null
+  class:
+  - Civilian
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Pillbox
+  mapName: 'TPC Pillbox'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/pillbox.yml
+  minPlayers: 0
+  stations:
+    Pillbox:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Pillbox CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

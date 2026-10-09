@@ -1,0 +1,40 @@
+# Author Info
+# GitHub: FloatingFeeling
+# Discord: FloatingFeeling
+
+- type: vessel
+  id: Duran
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Duran-name
+  description: vessel-Duran-desc
+  # Andromeda end
+  price: 60456
+  category: Medium
+  group: Expedition
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianExp/duran.yml
+  guidebookPage: null
+  class:
+  - Expedition
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Duran
+  mapName: 'Duran'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianExp/duran.yml
+  minPlayers: 0
+  stations:
+    Duran:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Duran EXP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            ## Pilot: [ 0, 0 ]
+            ## Mercenary: [ 0, 0 ]

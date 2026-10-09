@@ -17,6 +17,8 @@
   - GeneralAccess
   access:
   - Mieyo
+  guides:
+  - MMC
   special:
   - !type:AddImplantSpecial
     implants: [ MieyoTrackingImplant ]
@@ -27,6 +29,8 @@
       - MMC
     - type: ChatRank
       rank: mmc-employee
+    - type: RadioOnCryosleep
+      radioChannel: Mieyo
   - !type:AddLanguageSpecial
     languagesSpoken:
     - Nekomimetic

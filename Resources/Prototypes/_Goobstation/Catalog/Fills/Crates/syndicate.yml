@@ -3,8 +3,8 @@
   id: CrateCybersunDarkGygaxBundle
   suffix: Filled
   parent: CrateSyndicate
-  name: Cybersun gygax bundle
-  description: Contains a set of Cybersan light armored mechs.
+  name: dark gygax bundle # Mono: remove syndicate and cybersun references
+  description: Contains a set of lightly armored mechs. # Mono: remove syndicate and cybersun references
   components:
   - type: StorageFill
     contents:
@@ -18,8 +18,8 @@
   id: CrateCybersunMaulerBundle
   suffix: Filled
   parent: CrateSyndicate
-  name: Cybersun mauler bundle
-  description: Contains a set of Cybersan heavy armored mechs.
+  name: mauler bundle # Mono: remove syndicate and cybersun references
+  description: Contains a set of heavily armored mechs. # Mono: remove syndicate and cybersun references
   components:
   - type: StorageFill
     contents:

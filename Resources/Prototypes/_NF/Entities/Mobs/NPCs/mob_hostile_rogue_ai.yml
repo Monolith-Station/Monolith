@@ -43,7 +43,7 @@
   name: hivemind unit
   abstract: true
   parent:
-  - BaseC3MobConstruct
+# - BaseC3MobConstruct  # Mono: I don't think we need to have a big magenta sign TELLING ME that i'll probably get into deep shit if I keep a chimera alive. also what the fuck even is "class 3 contraband"
   - MobNonHumanHostileBase
   - MobHumanoidInvetorySimplified
   - MobRogueSiliconAISimpleRanged

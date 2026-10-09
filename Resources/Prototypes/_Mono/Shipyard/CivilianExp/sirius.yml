@@ -1,0 +1,37 @@
+- type: vessel
+  id: Sirius
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Sirius-name
+  description: vessel-Sirius-desc
+  # Andromeda end
+  price: 95000
+  category: Medium
+  group: Expedition
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianExp/sirius.yml
+  guidebookPage: null
+  class:
+  - Chemistry
+  - Expedition
+  engine:
+  - AME
+
+- type: gameMap
+  id: Sirius
+  mapName: 'SKR Sirius'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianExp/sirius.yml
+  minPlayers: 0
+  stations:
+    Sirius:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Sirius EXP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]
