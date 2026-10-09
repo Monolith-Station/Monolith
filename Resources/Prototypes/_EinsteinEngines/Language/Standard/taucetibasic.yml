@@ -2,6 +2,7 @@
 # Previously known as GalacticCommon, assume any reference is to this.
 - type: language
   id: TauCetiBasic
+  chatPrefix: and # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
