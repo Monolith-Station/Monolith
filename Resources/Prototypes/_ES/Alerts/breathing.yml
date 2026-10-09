@@ -1,0 +1,8 @@
+- type: alert
+  id: ESSmokeInhalation
+  category: ESSmokeInhalation
+  icons:
+  - sprite: /Textures/_Crescent/Interface/Alerts/breathing.rsi
+    state: smoke_inhalation
+  name: es-alerts-smoke-inhalation-name
+  description: es-alerts-smoke-inhalation-desc

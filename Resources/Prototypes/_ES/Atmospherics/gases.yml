@@ -1,0 +1,13 @@
+- type: gas
+  id: 13
+  name: gases-smoke
+  specificHeat: 25
+  heatCapacityRatio: 1.4
+  molarMass: 40
+  gasOverlaySprite: /Textures/_ES/Effects/atmospherics.rsi
+  gasOverlayState: smoke
+  color: 2e2e2e
+  reagent: Smoke
+  pricePerMole: 1
+  gasMolesVisible: 0.25
+  gasMolesVisibleMax: 3

@@ -42,7 +42,7 @@ public sealed class WeldingSparksAnimationSystem : EntitySystem
 
         var animation = new Animation()
         {
-            Length = ev.Duration,
+            Length = TimeSpan.FromSeconds(Math.Max(ev.Duration.TotalSeconds, 0.2)), // Mono - check for instant welds/near-instant welds
             AnimationTracks =
             {
                 new AnimationTrackComponentProperty()

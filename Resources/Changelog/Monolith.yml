@@ -25889,3 +25889,197 @@ Entries:
   id: 2801
   time: '2026-10-06T02:21:34.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4829
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Tilefires are different now, sorry reagent fires, I want ones that don't
+        suck.
+    - type: Add
+      message: Ported sparks on damage for some machines from ES. They start tilefires.
+  id: 2802
+  time: '2026-10-07T04:47:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4831
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Ported Goob radio host. News/radio host room replaces one of the CC
+        maint rooms right next to the firing range. Radio flatpack vend replaces
+        a random drink/food vendor by shipyard consoles. Added some station
+        radios around to CC only. It's available in R&D too.
+  id: 2803
+  time: '2026-10-08T04:16:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4833
+- author: lordsej
+  changes:
+    - type: Tweak
+      message: Loose Limbs are now edible!
+  id: 2804
+  time: '2026-10-08T04:18:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4656
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: Jetpacks can no longer be detected on radar.
+    - type: Tweak
+      message: The 20mm autocannon no longer instantly kills anyone it hits.
+    - type: Tweak
+      message: >-
+        Thruster strength and ship acceleration has been significantly nerfed.
+        Ships should be quite a bit slower now.
+    - type: Remove
+      message: MK-290s no longer spawn in Halcyon's armory.
+  id: 2805
+  time: '2026-10-08T20:12:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4748
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: >-
+        You can no longer fire a gun while holding a shield, with the exception
+        of ballistic sidearms.
+  id: 2806
+  time: '2026-10-08T20:17:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4722
+- author: kasature90
+  changes:
+    - type: Remove
+      message: >-
+        Kills CD disk crate from cargo. Was going to filter it out, but after
+        removing all the Goob metaclique/syndie/NT stuff it was just almost
+        empty.
+  id: 2807
+  time: '2026-10-08T20:27:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4834
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: ~15 new vinyls by Nulb/Deltarisk!
+  id: 2808
+  time: '2026-10-08T20:37:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4835
+- author: Tuerk
+  changes:
+    - type: Add
+      message: >-
+        Ironman characters are now able to purchase ships. Simply insert credits
+        like you would a Vendomat and your ID.
+    - type: Add
+      message: >-
+        Ironman characters selling their ship will now be returned the sell
+        value in cash.
+  id: 2809
+  time: '2026-10-08T20:40:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3913
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Added the Underground Black Market, a hideout harboring up to five
+        Fugitives from the TSFMC and ran by the Godfather. Both are very much
+        wanted by the TSF and the TSFMC will receive FMC if they can be caught.
+    - type: Add
+      message: >-
+        Added the RX-01 modsuit (formerly a Spasaka-exclusive item) to the
+        UndergroundVend (formerly ContraVend), four of which can be found on the
+        Underground Black Market.
+    - type: Add
+      message: >-
+        Added the Damocles as the Godfather's exclusive sidearm, packing an
+        incredible punch. It only accepts 9x19mm machine pistol magazines, which
+        can now be bought from the UndergroundVend for 15 TC each.
+    - type: Tweak
+      message: >-
+        The Typewriter, WL-01 and all Ullman Industries items are now Black
+        Market items. The Typewriter's rate of fire has been buffed, and they're
+        all exchangeable for FMC now. The Fugitive can now spawn with the WL-01,
+        and both the Fugitive and Godfather can spawn with the Typewriter.
+    - type: Tweak
+      message: >-
+        The pierce resistance of the UI pilot and engineer suits has been buffed
+        to 35%.
+    - type: Tweak
+      message: KamiCats (formerly SyndiCats) no longer spawn in surplus crates.
+    - type: Tweak
+      message: >-
+        Nerfed the pierce resistance of the RD experimental hardsuit and
+        spationaut hardsuit.
+    - type: Tweak
+      message: >-
+        Underground pinpointers (formerly Syndicate pinpointers) now point to
+        the Underground Black Market instead of PDV Jupiter.
+    - type: Remove
+      message: >-
+        Vagrants can no longer spawn with U.I. suits (Fugitives still can).
+        Vagrants can no longer spawn with the Magnate Modsuit or Captain
+        Hardsuit (Fugitives cannot either).
+    - type: Remove
+      message: Removed or replaced a LOT of Syndicate and Nanotrasen references.
+    - type: Remove
+      message: The C-20r and Bulldog can no longer be bought from the UndergroundVend.
+    - type: Fix
+      message: >-
+        PDV Denasvar and Spasaka now output to the right channel when they enter
+        cryosleep. MMC, USSP, VG and Caelestinus roles now output to their own
+        channels when they enter cryosleep.
+  id: 2810
+  time: '2026-10-08T21:04:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4816
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: The Overseer now actually no longer has TSF, PDV or HiComm comms.
+    - type: Remove
+      message: The "Central Command" department has been removed.
+    - type: Add
+      message: >-
+        The Caelestinus Worker has been added as a general-purpose member of
+        Caelestinus. Its playtime requirement has been removed.
+    - type: Tweak
+      message: >-
+        C-Medical or Medical Dispatch is now officially a part of Caelestinus.
+        The Overseer and Director of Care can now keep track of each other's
+        branches via their handheld overwatch consoles.
+  id: 2811
+  time: '2026-10-08T21:07:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4807
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed sparks from welds w/ 0 doafter being permanent.
+  id: 2812
+  time: '2026-10-09T00:48:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4839
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Electrical machines are flammable now if they get hit by flammable
+        things. Not by fires yet, static entities don't collide with eachother.
+        Fuel tanks & ship ammo flammable too now, you actually have to worry
+        about those.
+    - type: Tweak
+      message: >-
+        Electrical machine explosions replaced with ones that cause fire more
+        than tile damage. Gyros and generators too, so now you'll just burn to
+        death instead of getting fucked over instantly.
+    - type: Tweak
+      message: Tiles are slightly more flammable now.
+    - type: Tweak
+      message: Fire needs less oxygen to spread now.
+    - type: Fix
+      message: Fixed scrubbers not scrubbing smoke by default.
+  id: 2813
+  time: '2026-10-09T01:27:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4838
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The "Mudskipper" model of ship is no longer sold by the scrapyard
+        console. It is now found in the underground shipyard console found on
+        the Underground Black Market.
+  id: 2814
+  time: '2026-10-09T01:30:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4837

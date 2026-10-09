@@ -1,17 +1,19 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server._Mono.Radio;
-using Content.Server.Radio.Components;
 using Content.Shared._Mono.Radio;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Server.Speech;
 using Content.Server._EinsteinEngines.Language;
+using Content.Server._Mono.Radio;
 using Content.Shared.Chat;
 using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -48,7 +50,12 @@ public sealed partial class HeadsetSystem : SharedHeadsetSystem
         if (keyHolder.Channels.Count == 0)
             RemComp<ActiveRadioComponent>(uid);
         else
-            EnsureComp<ActiveRadioComponent>(uid).Channels = new(keyHolder.Channels);
+        {
+            var channels = new HashSet<ProtoId<RadioChannelPrototype>>();
+            foreach (var channel in keyHolder.Channels)
+                channels.Add(channel);
+            EnsureComp<ActiveRadioComponent>(uid).Channels = channels;
+        }
     }
 
     private void OnSpeak(EntityUid uid, WearingHeadsetComponent component, EntitySpokeEvent args)

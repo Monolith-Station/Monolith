@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Economy.Component;
 using Content.Shared.VendingMachines;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;

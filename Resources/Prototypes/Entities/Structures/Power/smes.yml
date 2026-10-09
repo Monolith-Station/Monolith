@@ -105,6 +105,67 @@
       scaling: Linear
       supplyRampingMultiplier: 1
     # End Frontier: upgradable SMES
+    # ES/Mono Start
+    - type: Explosive
+      explosionType: ESWelderBomb
+      maxIntensity: 10
+      intensitySlope: 2
+      totalIntensity: 50
+    - type: ESSparkOnHit
+      prob: 0.25
+      tileFireChance: 0.5
+      count: 2
+    - type: Flammable
+      fireSpread: true
+      firestackFade: -0.01
+      alwaysCombustible: true
+      damage:
+        types:
+          Heat: 1
+          Structural: 2
+    - type: FireVisuals
+      sprite: Mobs/Effects/onfire.rsi
+      normalState: Generic_mob_burning
+    - type: PacifismDangerousAttack
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalGlassBreak
+        - !type:ExplodeBehavior
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            MachineFrameDestroyed:
+              min: 1
+              max: 1
+        - !type:TriggerBehavior
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            ESTileFire:
+              min: 1
+              max: 1
+        - !type:SpawnGasBehavior
+          gasMixture:
+            volume: 1000
+            moles:
+              CarbonDioxide: 340.5701689 # carbon dioxide
+            temperature: 373.15
+    - type: ProjectileGrenade # funny
+      randomAngle: true
+      fillPrototype: PelletClusterIncendiary
+      capacity: 8
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+        machine_parts: !type:Container
+        cluster-payload: !type:Container
+    # ES/Mono End
 
     # Interface
     - type: BatteryInterface

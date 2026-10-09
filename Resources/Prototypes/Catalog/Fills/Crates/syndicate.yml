@@ -10,9 +10,9 @@
 - type: entity
   id: CrateCybersunJuggernautBundle
   suffix: Filled
-  parent: CrateSyndicate
-  name: Cybersun juggernaut bundle
-  description: Contains everything except a big gun to go postal.
+  parent: CratePDVEquippment # Mono
+  name: juggernaut bundle # Mono: remove syndicate references
+  description: Contains everything except a big gun to go postal. You are one lucky fugitive. # Mono: remove syndicate references
   components:
   - type: StorageFill
     contents:

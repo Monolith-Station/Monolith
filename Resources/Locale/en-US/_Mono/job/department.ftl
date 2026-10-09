@@ -12,3 +12,6 @@ department-CrocusJobs-description = Roles found in the Crocus mode. These won't 
 
 department-Medical = Medical Dispatch
 department-Viper = Viper Group
+
+department-Underground = Underground Black Market
+department-Underground-description = Evade the TSFMC and the bounty hunters they send after you. Reap the rewards of your dangerous lifestyle.

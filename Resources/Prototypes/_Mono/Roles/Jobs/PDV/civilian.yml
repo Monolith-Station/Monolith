@@ -20,6 +20,8 @@
     - type: NpcFactionMember
       factions:
       - PirateNF
+    - type: RadioOnCryosleep
+      radioChannel: Freelance # freelance = Vanguard
   - !type:AddLanguageSpecial
     languagesSpoken:
     - Freespeak

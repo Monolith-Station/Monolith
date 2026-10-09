@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 09/27/2026 06:58:23
-  entityCount: 1721
+  entityCount: 1723
 maps:
 - 1
 grids:
@@ -7878,6 +7878,20 @@ entities:
 - proto: SpawnPointVGLieutenant
   entities:
   - uid: 1183
+    components:
+    - type: Transform
+      pos: -4.5,1.5
+      parent: 2
+- proto: SpawnPointFugitive
+  entities:
+  - uid: 1722
+    components:
+    - type: Transform
+      pos: -4.5,1.5
+      parent: 2
+- proto: SpawnPointGodfather
+  entities:
+  - uid: 1723
     components:
     - type: Transform
       pos: -4.5,1.5

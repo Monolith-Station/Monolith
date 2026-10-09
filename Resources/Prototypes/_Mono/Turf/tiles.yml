@@ -9,6 +9,9 @@
     collection: FootstepHull
   itemDrop: FloorTileItemCatwalkHorizontal
   heatCapacity: 10000
+  # ES START
+  flammability: 2
+  # ES END
 
 - type: tile
   id: FloorTileCatwalkVertical
@@ -21,3 +24,6 @@
     collection: FootstepHull
   itemDrop: FloorTileItemCatwalkVertical
   heatCapacity: 10000
+  # ES START
+  flammability: 2
+  # ES END

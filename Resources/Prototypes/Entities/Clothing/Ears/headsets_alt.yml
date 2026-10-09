@@ -124,10 +124,10 @@
     sprite: Clothing/Ears/Headsets/science.rsi
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseFactionGearOtherFactionT1]
+  parent: [ClothingHeadsetAlt, BaseC3SyndicateContraband]
   id: ClothingHeadsetAltSyndicate
-  name: blood-red over-ear headset
-  description: An updated, modular syndicate intercom that fits over the head and takes encryption keys (there are 5 key slots.).
+  name: underground over-ear headset
+# description: An updated, modular syndicate intercom that fits over the head and takes encryption keys (there are 5 key slots.). # Mono: remove completely outdated description
   components:
 #  - type: Headset # Frontier: Use 10 from base
 #  - type: EncryptionKeyHolder # Frontier: Use 10 from base
@@ -136,6 +136,7 @@
     containers:
       key_slots:
       - EncryptionKeySyndie
+      - EncryptionKeyCommon # Mono
   - type: Sprite
     sprite: Clothing/Ears/Headsets/syndicate.rsi
   - type: Clothing
