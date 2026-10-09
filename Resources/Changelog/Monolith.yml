@@ -26083,3 +26083,13 @@ Entries:
   id: 2814
   time: '2026-10-09T01:30:49.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4837
+- author: kasature90
+  changes:
+    - type: Fix
+      message: >-
+        Fixed fires not burning oxygen, so they don't last forever. Stops when
+        theres around ~2 mol of oxygen remaining on the tile (but it'll be
+        extinguished under 2 mols anyways).
+  id: 2815
+  time: '2026-10-09T20:53:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4844
