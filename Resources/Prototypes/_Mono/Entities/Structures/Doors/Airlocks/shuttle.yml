@@ -286,3 +286,12 @@
         sound:
           collection: MetalSlam
 
+- type: entity
+  parent: AirlockShuttleSyndicate
+  id: AirlockShuttleUnderground
+  suffix: External, Docking, Underground, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsUnderground ]
+
