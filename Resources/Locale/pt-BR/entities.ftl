@@ -6582,7 +6582,7 @@ ent-SpeedLoaderCap = carregador de detonador
 
 # From: Entities/Objects/Weapons/Guns/Basic/pka.yml
 
-ent-WeaponProtoKineticAccelerator = acelerador cinético proto
+ent-WeaponProtoKineticAccelerator = acelerador protocinético
     .desc = Dispara projéteis cinéticos de baixo dano em curto alcance.
 
 # From: Entities/Objects/Weapons/Guns/Basic/spraynozzle.yml
@@ -7313,23 +7313,23 @@ ent-UraniumShiv = shiv de urânio
 # From: Entities/Objects/Weapons/Melee/mining.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseWeaponCrusher = britador
-    .desc = Um design inicial do acelerador cinético proto.
+ent-BaseWeaponCrusher = crusher
+    .desc = Um design inicial do acelerador protocinético.
 
-ent-MiningDrill = perfuradora de mineração
+ent-MiningDrill = broca de mineração
     .desc = Ferramenta poderosa usada para perfurar rapidamente através de rochas.
 
-ent-MiningDrillDiamond = perfuradora de mineração com ponta de diamante
+ent-MiningDrillDiamond = broca de mineração de diamante
     .desc = Uma perfuradora de mineração significativamente mais eficiente com ponta de diamante.
 
 ent-Pickaxe = picareta
     .desc = Entalhada à perfeição, para cravar em rochas.
 
-ent-WeaponCrusherDagger = adaga britadora
-    .desc = Uma versão reduzida de um britador cinético proto. Usa energia cinética para vibrar a lâmina em alta velocidade.
+ent-WeaponCrusherDagger = adaga crusher
+    .desc = Uma versão reduzida de um britador protocinético. Usa energia cinética para vibrar a lâmina em alta velocidade.
 
-ent-WeaponCrusherGlaive = glaive britador
-    .desc = Um design inicial do acelerador cinético proto, em forma de glaive.
+ent-WeaponCrusherGlaive = glaive crusher
+    .desc = Um design inicial do acelerador protocinético, em forma de glaive.
 
 # From: Entities/Objects/Weapons/Melee/needle.yml
 

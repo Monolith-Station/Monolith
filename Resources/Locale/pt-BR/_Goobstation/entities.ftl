@@ -1056,7 +1056,7 @@ ent-WeaponMechDebugLaser = Debug Pow
 
 # From: _Goobstation/Entities/Objects/Specific/Mech/Weapons/Gun/industrial.yml
 
-ent-WeaponMechIndustrialKineticAccelerator = Acelerador Cinético Proto-Exoesqueleto
+ent-WeaponMechIndustrialKineticAccelerator = Canhão Protocinético
     .suffix = Arma de Mech, Arma de Fogo, Industrial, Acelerador Cinético
     .desc = Dispara projéteis cinéticos de dano normal em curto alcance.
 
