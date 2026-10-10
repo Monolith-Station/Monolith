@@ -242,6 +242,9 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         message = SanitizeInGameICMessage(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
 
+        var prefix = _language.GetLanguageFromPrefix(source, ref message, out var parsed, true); // Starlight: Language prefixes
+        language = parsed && _language.CanSpeak(source, prefix) ? prefix : language;
+
         // Was there an emote in the message? If so, send it.
         if (player != null && emoteStr != message && emoteStr != null)
         {
