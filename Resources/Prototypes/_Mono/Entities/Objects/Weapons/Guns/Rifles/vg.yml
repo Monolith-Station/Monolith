@@ -5,7 +5,7 @@
   description: A cheaply manufactured PDW, made to dominate CQC combat. Having seen use long ago, with some tweaks it has been remade to dominate the scene like it used to. Incompatable with Low-Cap magazines due to an oversight.
   components:
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/sugar.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/weasel.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -63,7 +63,10 @@
     zeroVisible: true
   - type: Appearance
   - type: Clothing
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/sugar.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/weasel_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/weasel_inhands_32x.rsi
+
 
 - type: entity
   name: GSI Boa (5.56x45mm)
