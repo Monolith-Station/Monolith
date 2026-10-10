@@ -36,3 +36,20 @@
     sprite: _Mono/Clothing/Head/Helmets/pdv.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Head/Helmets/pdv.rsi
+
+- type: entity
+  parent: ClothingHeadBPHelmetLight
+  id: ClothingHeadBPHelmetMammoth
+  name: light ballistic helmet
+  description: A light ballistic helmet to protect against small arms.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Helmets/mammoth.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Helmets/mammoth.rsi
+  - type: ClothingAutoInject
+    reagents:
+      PolypyryliumOligomers: 15
+      Puncturase: 10
+    autoInjectOnAbility: true
+    autoInjectInterval: 180

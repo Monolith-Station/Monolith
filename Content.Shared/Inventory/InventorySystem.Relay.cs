@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.Clothing;
 using Content.Shared._Goobstation.Flashbang;
 using Content.Shared._Mono.ArmorPlate;
 using Content.Shared._White.Overlays;
@@ -85,6 +86,7 @@ public partial class InventorySystem
 
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<WWDPNightVisionComponent>>(RefRelayInventoryEvent); // Goobstation
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ThermalVisionComponent>>(RefRelayInventoryEvent); // Goobstation
+        SubscribeLocalEvent<InventoryComponent, ClothingAutoInjectRelayedEvent>(RelayInventoryEvent); //Goobstation
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ThermalSightComponent>>(RefRelayInventoryEvent);
 
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<EquipmentVerb>>(OnGetEquipmentVerbs);

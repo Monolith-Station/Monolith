@@ -174,3 +174,44 @@
         Caustic: 0.9
   - type: ClothingSpeedModifier
     sprintModifier: 0.975
+
+#Mammoth stats -> old heavy with a bit more heat and added gimmicks.
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ClothingOuterArmorBPVestMammoth
+  name: Mammoth bulletproof vest
+  description: A simple kevlar vest of unknown origin. This juggernaut vest makes you practically a walking tank, at the cost of heat protection and extreme bulk.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Armor/bulletproof_mammoth.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Armor/bulletproof_mammoth.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.25
+        Heat: 0.65
+        Caustic: 0.3 # Frontier
+  - type: Tag  # Mono
+    tags:
+    - Kevlar
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.40
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.55
+    walkModifier: 0.65
+  - type: ExplosionResistance
+    damageCoefficient: 0.60
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head: ClothingHeadBPHelmetMammoth
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StaticPrice
+    price: 10000
+    vendPrice: 15000
