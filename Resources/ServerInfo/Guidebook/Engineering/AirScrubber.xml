@@ -12,18 +12,18 @@
   O lavador pode ser soldado com qualquer ferramenta de solda para impedir seu funcionamento.
 
   ## Opções de Configuração
-  Quando [textlink="conectado" link="Networking"] a um [textlink="alarme de ar" link="AirAlarms"], os lavadores de ar ganham mais funcionalidades.
+  Quando [textlink="conectado" link="Networking"] a um [textlink="alarme de ar" link="AirAlarms"], os purificadores de ar ganham mais funcionalidades.
 
   Os gases alvo para lavagem podem ser definidos no menu suspenso "Filtros de gás". Lembre-se que isso redefine se você mudar os modos do [textlink="alarme de ar" link="AirAlarms"].
 
-  Os lavadores de ar possuem duas opções de "direção": Lavagem e Sifão.
+  Os purificadores de ar possuem duas opções de "direção": Lavagem e Sifão.
   - Lavagem lava gases conforme definido nos filtros de gás.
   - Sifão ignora todos os filtros de gás, e sugar todos os gases da atmosfera.
 
   Ambos modos são limitados pela configuração de Taxa, que define a taxa (em litros) na qual o lavador suga gases de sua atmosfera exposta.
 
-  Os lavadores de ar também possuem uma configuração "RedeAmpla", que expande o raio de alcance operacional do lavador. Normalmente, o lavador lava a atmosfera no único tile ao qual está exposto.
-  No modo RedeAmpla, o lavador lava gás dos 4 tiles ao redor do lavador, conforme mostrado:
+  Os purificadores de ar também possuem uma configuração "Rede Ampla", que expande o raio de alcance operacional do lavador. Normalmente, o lavador lava a atmosfera no único tile ao qual está exposto.
+  No modo Rede Ampla, o purificador puxa gás dos 4 tiles ao redor do purificador, conforme mostrado:
 
   <Box>
     <GuideEntityEmbed Entity="FloorTileItemSteel" Caption=""/>
@@ -37,10 +37,10 @@
     <GuideEntityEmbed Entity="FloorTileItemSteel" Caption=""/>
   </Box>
 
-  Isso efetivamente multiplica sua velocidade total, pois os lavadores de ar agora realizarão seu trabalho de lavagem em 5 tiles de uma vez.
+  Isso efetivamente multiplica sua velocidade total, pois os purificadores de ar agora realizarão seu trabalho de lavagem em 5 tiles de uma vez.
 
-  Lavadores [textlink="conectados" link="Networking"] a um [textlink="alarme de ar" link="AirAlarms"] no modo automático habilitarão automaticamente o modo RedeAmpla sob o modo "Filtragem (Ampla)" do [textlink="alarme de ar" link="AirAlarms"] quando uma alta concentração de gases indesejados é detectada na atmosfera.
+  Lavadores [textlink="conectados" link="Networking"] a um [textlink="alarme de ar" link="AirAlarms"] no modo automático habilitarão automaticamente o modo Rede Ampla sob o modo "Filtragem (Ampla)" do [textlink="alarme de ar" link="AirAlarms"] quando uma alta concentração de gases indesejados é detectada na atmosfera.
 
-  RedeAmpla é extremamente útil para lavar rapidamente grandes quantidades de trítio de câmaras de queima de plasma.
+  Rede Ampla é extremamente útil para lavar rapidamente grandes quantidades de trítio de câmaras de queima de plasma.
 
 </Document>

@@ -69,18 +69,23 @@ ent-HardpointBallisticSuperheavy = encaixe balístico superpesado
 ent-HardpointBallisticSuperlight = encaixe balístico superleve
 
 ent-HardpointDebugHeavy = encaixe universal pesado debug
+    .desc = {ent-BaseHardpoint.desc}
     .suffix = DO NOT MAP
 
 ent-HardpointDebugLight = encaixe universal leve debug
+    .desc = {ent-BaseHardpoint.desc}
     .suffix = DO NOT MAP
 
 ent-HardpointDebugMedium = encaixe universal médio debug
+    .desc = {ent-BaseHardpoint.desc}
     .suffix = DO NOT MAP
 
 ent-HardpointDebugSuperheavy = encaixe universal superpesado debug
+    .desc = {ent-BaseHardpoint.desc}
     .suffix = DO NOT MAP
 
 ent-HardpointDebugSuperlight = encaixe universal superleve debug
+    .desc = {ent-BaseHardpoint.desc}
     .suffix = DO NOT MAP
 
 ent-HardpointEnergyHeavy = encaixe de energia pesado

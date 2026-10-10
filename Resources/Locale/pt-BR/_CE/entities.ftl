@@ -26,6 +26,7 @@ ent-CEActionZLevelUp = Subir
 # From: _CE/Entities/Effects/dust.yml
 
 ent-CEDustEffect = dust effect
+    .desc = Um efeito visual de poeira.
     .suffix = VFX
 
 # From: _CE/Entities/Structures/Architecture/Ladders/base.yml

@@ -2130,7 +2130,7 @@ ent-EncryptionKeyViper = chave de criptografia do ViperGroup
 # From: _Mono/Entities/Objects/Devices/flatpack.yml
 
 ent-AK570Flatpack = flatpack AK570
-    .desc = Um flatpack usado para construir um canhão automático AK570 de 90mm.
+    .desc = Um flatpack usado para construir um autocanhão AK570 de 90mm.
 
 ent-AtmosDeviceFanDirectionalFlatpack = flatpack de ventilador direcional
     .desc = Um flatpack usado para construir um ventilador direcional.
@@ -2157,7 +2157,7 @@ ent-GasMiningDrillFlatpack = flatpack de mineradora de gás
     .desc = Um flatpack usado para construir uma mineradora de gás.
 
 ent-L58Flatpack = flatpack L85
-    .desc = Um flatpack usado para construir um canhão automático L85 de 20mm.
+    .desc = Um flatpack usado para construir um autocanhão L85 de 20mm.
 
 ent-LaserDrillFlatpack = flatpack de perfuratriz a laser
     .desc = Um flatpack usado para construir uma perfuratriz a laser automatizada.
@@ -3156,7 +3156,7 @@ ent-EWACMechaJammer = interferidor E-58 "Blanket"
     .suffix = Arma de Mecha, Arma, Combate, GUERRA ELETRÔNICA
     .desc = Uma ferramenta de interferência extremamente especializada, dispara uma sálva de sinalizadores com sinais de interferência extremamente grandes para cobrir um avanço. Encaixa em Pontos de Fixação de GUERRA ELETRÔNICA.
 
-ent-HeavyMechCannon = canhão automático pesado de rajadas "Metronome" 220mm
+ent-HeavyMechCannon = autocanhão pesado de rajadas "Metronome" 220mm
     .suffix = Arma de Mecha, Arma, Combate, Canhão
     .desc = Um canhão de 220mm de rajada, relativamente impreciso, mas com muito maior alcance que o "Bazooka". Monta em Pontos de Fixação Pesados.
 
@@ -3168,7 +3168,7 @@ ent-HeavyMechRPG = sistema de foguetes R3 "Bazooka"
     .suffix = Arma de Mecha, Arma, Combate, Míssil
     .desc = Lançador de mísseis de cruzeiro baseado em terra reaproveitado para uso em meques. Os sistemas de orientação foram quase todos removidos para reduzir o tamanho, tornando as munições foguetes glorificados. Monta em Pontos de Fixação Pesados.
 
-ent-LightMechaAutocannon = canhão automático LAC-29 35mm
+ent-LightMechaAutocannon = autocanhão LAC-29 35mm
     .suffix = Arma de Mecha, Arma, Combate, Rifle
     .desc = O rifle de mecha do homem comum. Calibrado em projéteis perfurante de 35mm, com estatísticas equilibradas para enfrentar tanto Frames Blindados quanto causar dano leve contra naves. Encaixa em Pontos de Fixação Leves.
 
@@ -3184,9 +3184,9 @@ ent-MediumMechCoilgun = canhão de bobinas CL-03 EMP
     .suffix = Arma de Mecha, Arma, Combate, Canhão
     .desc = Um canhão de bobinas de porte médio calibrado em sabot de 3cm. Inflige dano menor, mas espalha o temido efeito EMP em uma área. Precisa de um Ponto de Fixação Médio.
 
-ent-MediumMechDMR = canhão automático DMR-90mm
+ent-MediumMechDMR = autocanhão DMR-90mm
     .suffix = Arma de Mecha, Arma, Combate, Canhão
-    .desc = Um canhão automático pesado calibrado em 90mm. Arma de Ponto de Fixação Médio de uso geral.
+    .desc = Um autocanhão pesado calibrado em 90mm. Arma de Ponto de Fixação Médio de uso geral.
 
 ent-MediumMechTOW = lança de mísseis anti-tanque ASM-55 TOW
     .suffix = Arma de Mecha, Arma, Combate, Canhão
@@ -5771,10 +5771,10 @@ ent-WeaponShotgunBigBuddy = Grande Amigo (calibre 4)
     .desc = Uma shotgun massiva de calibre 4 (23x75mm) feita para matar o que qualquer calibre abaixo de um autocanhão não consegue.
 
 ent-WeaponShotgunBigJohnny = Grande João (calibre 4)
-    .desc = Uma escopeta grande calibre 4 (23x75mm) feita para matar o que qualquer calibre abaixo de um canhão automático não consegue. Essa está equipada com várias adições táticas e é feita para CQC ao custo de baixa capacidade de munição. Tem uma rail Erebus anexada ao receptor para ópticas.
+    .desc = Uma escopeta grande calibre 4 (23x75mm) feita para matar o que qualquer calibre abaixo de um autocanhão não consegue. Essa está equipada com várias adições táticas e é feita para CQC ao custo de baixa capacidade de munição. Tem uma rail Erebus anexada ao receptor para ópticas.
 
 ent-WeaponShotgunBigLeady = Grande Chumbeta (calibre 4)
-    .desc = Uma escopeta grande calibre 4 (23x75mm) feita para matar o que qualquer calibre abaixo de um canhão automático não consegue.
+    .desc = Uma escopeta grande calibre 4 (23x75mm) feita para matar o que qualquer calibre abaixo de um autocanhão não consegue.
 
 ent-WeaponShotgunHelepolis = UW12-B Helepolis (calibre 12)
     .desc = O modelo de arrombamento calibre 12 Helepolis, da Union Wrightworks; Uma escopeta compacta que sacrifica toda a ergonomia de combate para servir melhor como uma ferramenta de arrombamento. Quebra portas com slugs. Uso em combate não recomendado.
@@ -6053,6 +6053,7 @@ ent-WeaponTurretCharon = acelerador de massa M381 CHARON
 # Abstract entity (referenceable by children)
 
 ent-WeaponTurretCharonBase = acelerador de massa M381 CHARON
+    .desc = Um acelerador de massa montado em uma torre.
     .suffix = Capital, T4
 
 ent-WeaponTurretCharonReload = acelerador de massa M381 CHARON
@@ -6163,7 +6164,7 @@ ent-ShipSunnyFlare = Sinalizador ECM
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Kinetic/standardlarge_kinetic.yml
 
-ent-WeaponTurretAk820 = canhão automático 120mm AK820
+ent-WeaponTurretAk820 = autocanhão 120mm AK820
     .suffix = Large, T4
     .desc = Arma naval grande e dura para dano constante. Dispara cartuchos APHEDS, permitindo penetração aprimorada, mas não tanto poder explosivo quanto cartuchos APHE de tamanho completo. Alimentado por um carregador interno de 96 cartuchos.
 
@@ -6179,7 +6180,7 @@ ent-WeaponTurretHades = canhão 255mm HADES
     .suffix = Capital/Station, T4
     .desc = Uma das maiores armas cinéticas baseadas em química do setor. Seu poder só é rivalado por mass drivers como o M381. Recarrega automaticamente cartuchos de 255mm de potência completa.
 
-ent-WeaponTurretLongbow = canhão automático 140mm L/65 "Longbow"
+ent-WeaponTurretLongbow = autocanhão 140mm L/65 "Longbow"
     .suffix = Capital/Station, T4
     .desc = Dispara projéteis de 140mm em uma rajada de 15 cartuchos de um autoloader interno.
 
@@ -6189,23 +6190,23 @@ ent-WeaponTurretR300 = obus 430mm R-300
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Kinetic/standardlight_kinetic.yml
 
-ent-WeaponTurretL85Autocannon = canhão automático 20mm L85
+ent-WeaponTurretL85Autocannon = autocanhão 20mm L85
     .suffix = Small, T1
-    .desc = Um canhão automático balístico leve de 20mm projetado para defesa de ponto de disparo rápido e supressão de alvos menores em curto alcance. Barato, leve, e pode ser ativado remotamente ou conectado a um GCS.
+    .desc = Um autocanhão balístico leve de 20mm projetado para defesa de ponto de disparo rápido e supressão de alvos menores em curto alcance. Barato, leve, e pode ser ativado remotamente ou conectado a um GCS.
 
-ent-WeaponTurretRAC30 = canhão automático RAC-30 Draupnir
+ent-WeaponTurretRAC30 = autocanhão RAC-30 Draupnir
     .suffix = Medium, T2
-    .desc = Um canhão automático de disparo rápido de 30mm de serviço pesado, originalmente montado como uma arma de dogfight em aeronaves atmosféricas.
+    .desc = Um autocanhão de disparo rápido de 30mm de serviço pesado, originalmente montado como uma arma de dogfight em aeronaves atmosféricas.
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Kinetic/standardmedium_kinetic.yml
 
-ent-WeaponTurretAK570 = canhão automático 57mm AK570
+ent-WeaponTurretAK570 = autocanhão 57mm AK570
     .suffix = Medium, T2
-    .desc = Um canhão automático pesado de 57mm de canos duplos, disparando projéteis APHE de propósito geral, eficaz para fogo sustentado contra alvos médios. Pode ser ativado remotamente ou conectado a um GCS.
+    .desc = Um autocanhão pesado de 57mm de canos duplos, disparando projéteis APHE de propósito geral, eficaz para fogo sustentado contra alvos médios. Pode ser ativado remotamente ou conectado a um GCS.
 
-ent-WeaponTurretDravon = canhão automático 90mm ADBP-7 DRAVON
+ent-WeaponTurretDravon = autocanhão 90mm ADBP-7 DRAVON
     .suffix = Medium, T2
-    .desc = Um canhão automático de cano único feito pela Aetherion Dynamics. Peça de artilharia média com alto impacto mas taxa de fogo relativamente baixa, disparando projéteis HEAT para danificar blindagem e sistemas de navios. Pode ser ativado remotamente ou conectado a um GCS.
+    .desc = Um autocanhão de cano único feito pela Aetherion Dynamics. Peça de artilharia média com alto impacto mas taxa de fogo relativamente baixa, disparando projéteis HEAT para danificar blindagem e sistemas de navios. Pode ser ativado remotamente ou conectado a um GCS.
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Kinetic/syndicate_kinetic.yml
 
@@ -6213,9 +6214,9 @@ ent-WeaponTurretAdderScattercannon = canhão de dispersão Adder
     .suffix = Small, T1
     .desc = Um canhão de dispersão grande de canos duplos, disparando rajadas de tiro de cartucho para triturar quaisquer mísseis recebidos ou potenciais invasores. Usa um mecanismo de autoloading similar ao da pistola anaconda.
 
-ent-WeaponTurretFang = canhão automático pesado 90mm Fang
+ent-WeaponTurretFang = autocanhão pesado 90mm Fang
     .suffix = Medium, T3
-    .desc = Um canhão automático pesado de 90mm de design do Sindicato, criado durante a guerra corporativa. Feito para esmagar contrabotadores oponentes. Usa um mecanismo de autoloading similar ao da pistola anaconda.
+    .desc = Um autocanhão pesado de 90mm de design do Sindicato, criado durante a guerra corporativa. Feito para esmagar contrabotadores oponentes. Usa um mecanismo de autoloading similar ao da pistola anaconda.
 
 ent-WeaponTurretHydra = bateria de canhões 220mm Hydra
     .suffix = Large, T3
@@ -9666,15 +9667,19 @@ ent-CrateMaterialPlastitanium = caixote de plastitânio
     .desc = 90 folhas de plastitânio.
 
 ent-CrateMaterialsAdvancedFilledTsf = caixote de materiais avançados
+    .desc = Uma caixa cheia de suprimentos.
     .suffix = Preenchido, Materiais Avançados (cheio)
 
 ent-CrateMaterialsBasicFilledTsf = caixote de materiais básicos
+    .desc = Uma caixa cheia de suprimentos.
     .suffix = Preenchido, Materiais Básicos (cheio)
 
 ent-CrateMaterialsExoticFilledTsf = caixote de materiais exóticos
+    .desc = Uma caixa cheia de suprimentos.
     .suffix = Preenchido, Materiais Exóticos (cheio)
 
 ent-CrateMaterialsIndustrialFilledTsf = caixote de materiais industriais
+    .desc = Uma caixa cheia de suprimentos.
     .suffix = Preenchido, Materiais Industriais (cheio)
 
 ent-CrateMaterialNukeSupplies = caixote de suprimentos de explosivo de fissão nuclear
@@ -9866,6 +9871,7 @@ ent-BiomeSourceFallbackJianghuiIndustrial = fonte de bioma industrial jianghui c
 ent-BiomeSourceFallbackJianghuiPort = fonte de bioma porto jianghui crocus
 
 ent-SpawnPointCrocusDockworker = Estivador de Jianghui
+    .desc = Ponto de spawn para o cargo de Estivador de Jianghui.
     .suffix = Crocus
 
 ent-SpawnPointFugitive = Fugitivo
@@ -9895,6 +9901,7 @@ ent-MobPDVBaseA = guarda PDV
     .desc = Um guarda da ilustre Vanguarda do Sultão. Ele parece estar armado com um C-20r.
 
 ent-SpawnMobPDV = spawner de Mob T1 PDV
+    .desc = Gera um mob.
     .suffix = IA, Hostil, PDV
 
 ent-MobTSFMCBase = fuzileiro TSFMC
@@ -9904,6 +9911,7 @@ ent-MobTSFMCBaseA = fuzileiro TSFMC
     .desc = Um fuzileiro raso típico da TSFMC em serviço de guarda. Ele parece estar armado com uma lecter.
 
 ent-SpawnMobTSFMC = spawner de Mob T1 TSFMC
+    .desc = Gera um mob.
     .suffix = IA, Hostil, TSFMC
 
 ent-MobVoidBase = sombra desgarrada
@@ -9916,9 +9924,11 @@ ent-MobVoidBaseTSF = fuzileiro desgarrado
     .desc = Longe de casa, esvaziado pelas emissões. Espere uma luta.
 
 ent-SpawnMobVoidPDV = spawner de Mob PDV desgarrado
+    .desc = Gera um mob.
     .suffix = IA, Hostil
 
 ent-SpawnMobVoidTSFMC = spawner de Mob TSFMC desgarrado
+    .desc = Gera um mob.
     .suffix = IA, Hostil
 
 ent-SheetPdvComposite = adamantita
@@ -9926,12 +9936,15 @@ ent-SheetPdvComposite = adamantita
     .desc = Uma liga composta avançada feita exclusivamente pela Dinastia. Embora não seja realmente \"adamantita\", contém algum material anômalo colhido do raio do Colosso que poderia ser comparado a tal substância mítica. Informalmente conhecida como Sultanium.
 
 ent-MobHumanAmbassadorBase = Embaixador da Dinastia
+    .desc = Um humano.
     .suffix = Humano, PDV, Evento
 
 ent-MobHumanPrinceBase = Príncipe da Dinastia
+    .desc = Um humano.
     .suffix = Humano, PDV, Evento
 
 ent-MobHumanTarkhanBase = PDV Tarkhan
+    .desc = Um humano.
     .suffix = Humano, PDV, Evento, Ghostrole
 
 ent-NpcDroneAiDander = núcleo orbitador
@@ -9939,6 +9952,7 @@ ent-NpcDroneAiDander = núcleo orbitador
     .desc = Orbita inofensivamente e esquiva. Menos valioso devido à sub-rotina banal.
 
 ent-SpawnMobDroneAiDander = spawner de núcleo orbitador
+    .desc = Gera um mob.
     .suffix = Drone-Dander
 
 ent-MobHumanoidHostileBaseShade = sombra desgarrada
@@ -10339,6 +10353,7 @@ ent-AmmoBox145x114mmEMP = caixa de munição (14.5x114mm EMPHE)
 ent-AmmoBox357_magnumAP = caixa de munição (.357 magnum extreme perfurante)
 
 ent-AmmoBox357_magnumBigFMJ = caixa de munição grande (.357 magnum FMJ)
+    .desc = Uma caixa de munição.
     .suffix = Grande
 
 ent-AmmoBox357_magnumFMJ = caixa de munição (.357 magnum FMJ)
@@ -10456,9 +10471,11 @@ ent-WeaponLauncherMyoko = LAW MMC F/87 \"Myoko\"
     .desc = Um lançador leve antitanque descartável produzido pela MMC. Devido às (óbvias) preocupações de segurança de ter estes disponíveis para funcionários, a aquisição é limitada aos quiosques da empresa para casos de uso especiais, e as plantas não são distribuídas.
 
 ent-WeaponLauncherTSFAnubisEmpty = TPGL TCA QLU-907 Anubis (granada 35x53mm)
+    .desc = {ent-WeaponLauncherTSFAnubis.desc}
     .suffix = Vazio
 
 ent-WeaponLauncherTSFAnubisStinger = TPGL TCA QLU-907 Anubis (granada 35x53mm)
+    .desc = {ent-WeaponLauncherTSFAnubis.desc}
     .suffix = Stinger
 
 ent-WeaponLMGPKMS = PD-VI PKMS (5.56x45mm)
@@ -10665,9 +10682,9 @@ ent-ShipRailgunProjectileEMP = slug M381 CHARON 280mm 26.5 kg EMP
 
 ent-Shrapnel90mmFlak = fragmentos
 
-ent-WeaponTurretAk800 = canhão automático AK800 100mm
+ent-WeaponTurretAk800 = autocanhão AK800 100mm
     .suffix = Grande, T4
-    .desc = Uma variante de cano único do canhão automático AK820, com menos tensão no GCS, mas cadência menor. Um canhão naval grande e contundente para dano constante. Dispara projéteis APHEDS, permitindo penetração aprimorada, mas não tanto poder explosivo quanto projéteis APHE de tamanho completo. Alimenta-se de um carregador interno de 96 projéteis.
+    .desc = Uma variante de cano único do autocanhão AK820, com menos tensão no GCS, mas cadência menor. Um canhão naval grande e contundente para dano constante. Dispara projéteis APHEDS, permitindo penetração aprimorada, mas não tanto poder explosivo quanto projéteis APHE de tamanho completo. Alimenta-se de um carregador interno de 96 projéteis.
 
 ent-WeaponTurretR300Base = obus R-300 320mm
     .suffix = Capital/Estação, T4
@@ -10706,6 +10723,7 @@ ent-WeaponTurretSandbox = lançador SS-N-40 \"Sandbox\"
     .desc = Um lançador de mísseis de cruzeiro estratégico, capaz de disparar munições SARH extremamente rápidas, de longo alcance e com capacidade nuclear. Nascido de um medo quase genético de tempos atrás, este sistema de armas trouxe paz por muito tempo... até agora.
 
 ent-MonoCEZLevelsLadderRMCBase = escadas
+    .desc = Uma escada para atravessar diferentes níveis.
     .suffix = ZLEVELS
 
 ent-GreebleAntenna3 = antena
@@ -10810,9 +10828,11 @@ ent-ShieldGeneratorPOIBio = Acelerador Molecular Biológico S-243 \"Biodome\"
     .desc = Um dispositivo muito caro, volumoso e especializado que detecta e 'excita' moléculas de DNA estranhas capturadas dentro de seu raio. Por ser muito pesado e bastante caro, foi relegado ao uso apenas em postos avançados estacionários. Além de sua defesa biológica, este dispositivo também foi adaptado com um gerador de escudo comum.
 
 ent-ShieldGeneratorPOIBioPdv = Acelerador Molecular Biológico PDV RD-493 \"Biodome\"
+    .desc = Um dispositivo caríssimo, volumoso e especializado que detecta e 'excita' moléculas de DNA estranhas capturadas dentro de seu raio. Por ser muito pesado e bastante caro, seu uso foi relegado a apenas postos avançados estacionários. Além de sua defesa biológica, este dispositivo também foi adaptado com um gerador de escudo comum.
     .suffix = APENAS POI PDV, CRESCENTE
 
 ent-ShieldGeneratorPOIBioTsf = Acelerador Molecular Biológico TSF QZ-293 \"Biodome\"
+    .desc = Um dispositivo caríssimo, volumoso e especializado que detecta e 'excita' moléculas de DNA estranhas capturadas dentro de seu raio. Por ser muito pesado e bastante caro, seu uso foi relegado a apenas postos avançados estacionários. Além de sua defesa biológica, este dispositivo também foi adaptado com um gerador de escudo comum.
     .suffix = APENAS POI TSF, CRESCENTE
 
 ent-VendingMachineMMCUplink = quiosque de requisições MMC
@@ -10854,18 +10874,23 @@ ent-FuelTankHugeOil = tanque de armazenamento de combustível
 ent-BallisticTurretHeavyAIBase = torre sentinela remota pesada
 
 ent-BallisticTurretHeavyAIFP = torre sentinela remota pesada de freeport
+    .desc = Uma torre sentinela pesada automatizada, controlada remotamente.
     .suffix = FREEPORT
 
 ent-BallisticTurretHeavyAIPDV = torre sentinela remota pesada PDV
+    .desc = Uma torre sentinela pesada automatizada, controlada remotamente.
     .suffix = PDV
 
 ent-BallisticTurretHeavyAITSF = torre sentinela remota pesada TSF
+    .desc = Uma torre sentinela pesada automatizada, controlada remotamente.
     .suffix = TSF
 
 ent-BallisticTurretHeavyAIUSSP = torre sentinela remota pesada USSP
+    .desc = Uma torre sentinela pesada automatizada, controlada remotamente.
     .suffix = USSP
 
 ent-BallisticTurretHeavyAIVG = torre sentinela remota pesada VG
+    .desc = Uma torre sentinela pesada automatizada, controlada remotamente.
     .suffix = VG
 
 ent-WeaponEnergyTurretFreeportControlPanel = painel de controle de torre sentinela de freeport

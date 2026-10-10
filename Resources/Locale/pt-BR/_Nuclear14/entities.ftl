@@ -587,21 +587,26 @@ ent-N14ChairArmchair = poltrona
     .desc = Uma poltrona estofada.
 
 ent-N14ChairBarRetro = cadeira retrô
+    .desc = {ent-SeatBase.desc}
     .suffix = retrô
 
 ent-N14ChairDinerBench = cadeira de lanchonete
     .desc = Um banco de lanchonete americana.
 
 ent-N14ChairMetalFolding = cadeira dobrável
+    .desc = {ent-SeatBase.desc}
     .suffix = dobrável
 
 ent-N14ChairOfficeBlue = cadeira de escritório
+    .desc = {ent-SeatBase.desc}
     .suffix = azul
 
 ent-N14ChairOfficeGreen = cadeira de escritório
+    .desc = {ent-SeatBase.desc}
     .suffix = verde
 
 ent-N14ChairOfficeRed = cadeira de escritório
+    .desc = {ent-SeatBase.desc}
     .suffix = vermelha
 
 ent-N14ChairPlastic = cadeira de plástico
@@ -762,6 +767,7 @@ ent-N14TableCasinoPool = mesa de sinuca
     .desc = Uma mesa elegante para jogar sinuca.
 
 ent-N14TableCounter = balcão de madeira
+    .desc = Um balcão de madeira.
     .suffix = cheio
 
 ent-N14TableCounterBar = balcão de bar
@@ -994,9 +1000,11 @@ ent-N14BaseFenceIndestructible = cerca
     .desc = Ajuda a manter invasores do lado de fora.
 
 ent-N14WallFenceChainMapBoundary = alambrado
+    .desc = Alambrado usado como limite de mapa. Indestrutível.
     .suffix = Indestrutível
 
 ent-N14WallRockIndestructible = pedra
+    .desc = Pedra usada como limite de mapa. Indestrutível.
     .suffix = Indestrutível
 
 # From: _Nuclear14/Entities/Structures/Walls/slantedwalls.yml
@@ -1007,21 +1015,25 @@ ent-BaseWallIndestructible = parede
     .desc = Você vai se esforçar para quebrar isto.
 
 ent-N14WallBrickAltSlanted = parede de tijolos
+    .desc = Uma parede de tijolos inclinada.
     .suffix = inclinada
 
 ent-N14WallBrickAltSlantedIndestructible = parede de tijolos
 
 ent-N14WallBrickGraySlanted = parede de tijolos
+    .desc = Uma parede de tijolos cinza inclinada.
     .suffix = inclinada
 
 ent-N14WallBrickGraySlantedIndestructible = parede de tijolos
 
 ent-N14WallBrickSlanted = parede de tijolos
+    .desc = Uma parede de tijolos inclinada.
     .suffix = inclinada
 
 ent-N14WallBrickSlantedIndestructible = parede de tijolos
 
 ent-N14WallConcreteAltSlanted = parede de concreto
+    .desc = Uma parede de concreto inclinada.
     .suffix = inclinada
 
 ent-N14WallConcreteAltSlantedIndestructible = parede de concreto
@@ -1029,6 +1041,7 @@ ent-N14WallConcreteAltSlantedIndestructible = parede de concreto
 ent-N14WallConcreteSlantedIndestructible = parede de concreto
 
 ent-N14WallIndustrialRustSlanted = parede industrial enferrujada
+    .desc = Uma parede industrial enferrujada e inclinada.
     .suffix = inclinada
 
 ent-N14WallIndustrialRustSlantedIndestructible = parede industrial enferrujada
@@ -1036,9 +1049,11 @@ ent-N14WallIndustrialRustSlantedIndestructible = parede industrial enferrujada
 ent-N14WallMetalRustSlantedIndestructible = parede de metal enferrujada
 
 ent-N14WallMetalRustSlantedSlanted = parede de metal enferrujada
+    .desc = Uma parede de metal enferrujada e inclinada.
     .suffix = inclinada
 
 ent-N14WallMetalSlanted = parede de metal
+    .desc = Uma parede de metal inclinada.
     .suffix = inclinada
 
 ent-N14WallMetalSlantedIndestructible = parede de metal
@@ -1047,56 +1062,67 @@ ent-N14WallRebar = vergalhão
     .desc = Alguns vergalhões prontos para construção.
 
 ent-N14WallReinfMetalSlanted = parede de metal reforçada
+    .desc = Uma parede de metal reforçada e inclinada.
     .suffix = inclinada
 
 ent-N14WallReinfMetalSlantedIndestructible = parede de metal reforçada
 
 ent-N14WallRoughScrapSlanted = parede de sucata bruta
+    .desc = Uma parede de sucata bruta inclinada.
     .suffix = inclinada
 
 ent-N14WallRoughScrapSlantedIndestructible = parede de sucata bruta
 
 ent-N14WallScrapBlueSlanted = parede de sucata azul
+    .desc = Uma parede de sucata azul inclinada.
     .suffix = inclinada
 
 ent-N14WallScrapBlueSlantedIndestructible = parede de sucata azul
 
 ent-N14WallScrapRedSlanted = parede de sucata vermelha
+    .desc = Uma parede de sucata vermelha inclinada.
     .suffix = inclinada
 
 ent-N14WallScrapRedSlantedIndestructible = parede de sucata vermelha
 
 ent-N14WallScrapWhiteSlanted = parede de sucata branca
+    .desc = Uma parede de sucata branca inclinada.
     .suffix = inclinada
 
 ent-N14WallScrapWhiteSlantedIndestructible = parede de sucata branca
 
 ent-N14WallSidingBlueSlanted = parede de revestimento azul
+    .desc = Uma parede de revestimento azul inclinada.
     .suffix = inclinada
 
 ent-N14WallSidingBlueSlantedIndestructible = parede de revestimento azul
 
 ent-N14WallSidingGreenSlanted = parede de revestimento verde
+    .desc = Uma parede de revestimento verde inclinada.
     .suffix = inclinada
 
 ent-N14WallSidingGreenSlantedIndestructible = parede de revestimento verde
 
 ent-N14WallSidingRedSlanted = parede de revestimento vermelha
+    .desc = Uma parede de revestimento vermelha inclinada.
     .suffix = inclinada
 
 ent-N14WallSidingRedSlantedIndestructible = parede de revestimento vermelha
 
 ent-N14WallSidingSlanted = parede de revestimento
+    .desc = Uma parede de revestimento inclinada.
     .suffix = inclinada
 
 ent-N14WallSidingSlantedIndestructible = parede de revestimento
 
 ent-N14WallWoodAltSlanted = parede de madeira
+    .desc = Uma parede de madeira inclinada.
     .suffix = inclinada
 
 ent-N14WallWoodAltSlantedIndestructible = parede de madeira
 
 ent-N14WallWoodSlanted = parede de madeira
+    .desc = Uma parede de madeira inclinada.
     .suffix = inclinada
 
 ent-N14WallWoodSlantedIndestructible = parede de madeira
@@ -1104,6 +1130,7 @@ ent-N14WallWoodSlantedIndestructible = parede de madeira
 # From: _Nuclear14/Entities/Structures/Walls/tall_obstacles.yml
 
 ent-N14BarricadeWoodTall = barricada de madeira
+    .desc = Uma barricada de madeira alta.
     .suffix = alta
 
 ent-N14CellBars = grades de cela
@@ -1123,6 +1150,7 @@ ent-N14TentLeatherWall = tenda
 ent-N14WallBrick = parede de tijolos
 
 ent-N14WallConcreteLight = parede de concreto
+    .desc = Uma parede de concreto clara.
     .suffix = leve
 
 ent-N14WallStore = parede de loja
@@ -1161,19 +1189,25 @@ ent-N14WindowBase = janela
     .desc = Uma janela para espiar lugares.
 
 ent-N14WindowStoreBottom = janela de loja
+    .desc = Uma janela de loja.
     .suffix = inferior
 
 ent-N14WindowStoreLeft = janela de loja
+    .desc = Uma janela de loja.
     .suffix = esquerda
 
 ent-N14WindowStoreMiddleHorizontal = janela de loja
+    .desc = Uma janela de loja.
     .suffix = central horizontal
 
 ent-N14WindowStoreMiddleVertical = janela de loja
+    .desc = Uma janela de loja.
     .suffix = central vertical
 
 ent-N14WindowStoreRight = janela de loja
+    .desc = Uma janela de loja.
     .suffix = direita
 
 ent-N14WindowStoreTop = janela de loja
+    .desc = Uma janela de loja.
     .suffix = superior

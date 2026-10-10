@@ -51,13 +51,17 @@ ent-WWDPToggleNightVision = Alternar Visão Noturna
     .desc = Alterna visão noturna.
 
 ent-ClothingEyesNightVisionGogglesGen1 = óculos de visão noturna (GEN1)
+    .desc = Um par de óculos de visão noturna de geração 1.
     .suffix = DEBUG
 
 ent-ClothingEyesNightVisionGogglesGen2 = óculos de visão noturna (GEN2)
+    .desc = Um par de óculos de visão noturna de geração 2.
     .suffix = DEBUG
 
 ent-ClothingEyesNightVisionGogglesGen3 = óculos de visão noturna (GEN3)
+    .desc = Um par de óculos de visão noturna de geração 3.
     .suffix = DEBUG
 
 ent-ClothingEyesNightVisionGogglesGen4 = óculos de visão noturna (GEN4)
+    .desc = Um par de óculos de visão noturna de geração 4.
     .suffix = DEBUG

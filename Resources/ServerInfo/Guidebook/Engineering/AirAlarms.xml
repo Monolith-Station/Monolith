@@ -15,7 +15,7 @@
   ## Interface do Usuário
   Interagir com um Alarme de Ar abrirá um menu com 3 seções:
   - Topo: O status atual do alarme de ar. Isso inclui a pressão e temperatura atuais da área que o alarme de ar está monitorando.
-  - Meio: Listas de [textlink="Ventilações de Ar" link="AirVent"] e [textlink="Lavadores de Ar" link="AirScrubber"] conectados, bem como todos os sensores reportando de volta ao alarme de ar.
+  - Meio: Listas de [textlink="Ventilações de Ar" link="AirVent"] e [textlink="Purificador de ar" link="AirScrubber"] conectados, bem como todos os sensores reportando de volta ao alarme de ar.
   - Base: Botões para controlar os modos de operação do alarme de ar, bem como a capacidade de alternar a mudança automática de modos.
 
   ## Status do Alarme
@@ -30,7 +30,7 @@
   Os alarmes de ar têm saídas de [textlink="sinal" link="Networking"] para cada um dos três status, que podem ser usadas para acionar outros dispositivos de [textlink="sinal" link="Networking"] quando o status muda.
 
   ## Sensores
-  Todas as [textlink="Ventilações de Ar" link="AirVent"] e [textlink="Lavadores de Ar" link="AirScrubber"] possuem um sensor embutido, que reporta de volta ao alarme de ar.
+  Todas as [textlink="Ventilações de Ar" link="AirVent"] e [textlink="Purificador de ar" link="AirScrubber"] possuem um sensor embutido, que reporta de volta ao alarme de ar.
   Estes sensores podem ser ajustados na aba [bold]Sensores[/bold] do menu do alarme de ar.
 
   O status de um alarme de ar é determinado diretamente pelos limites em cada sensor.
@@ -50,10 +50,10 @@
   ## Modos de Operação
   Para controlar dispositivos conectados rapidamente, os alarmes de ar possuem modos de operação, que mudam rapidamente o comportamento de todos os dispositivos conectados para alcançar um efeito desejado.
   - Nenhum: Desativa todos os dispositivos conectados ao alarme de ar.
-  - Filtragem: [textlink="Ventilações de Ar" link="AirVent"] serão ativadas com seu limite externo definido para a pressão atmosférica padrão. [textlink="Lavadores de Ar" link="AirScrubber"] serão ativados e lavarão todos os gases residuais normalmente.
-  - Filtragem (Ampla): O mesmo que Filtragem, mas todos os [textlink="Lavadores de Ar" link="AirScrubber"] conectarão ativarão seu modo WideNet.
-  - Preencher: [textlink="Ventilações de Ar" link="AirVent"] serão ativadas com seu limite externo definido para pressão máxima, [color=orange][protodata="GasVentPump" comp="GasVentPump" member="MaxPressure"/] kPa[/color]. [textlink="Lavadores de Ar" link="AirScrubber"] serão desativados.
-  - Pânico: [textlink="Ventilações de Ar" link="AirVent"] serão desativadas, e [textlink="Lavadores de Ar" link="AirScrubber"] serão definidos para modo sifão.
+  - Filtragem: [textlink="Ventilações de Ar" link="AirVent"] serão ativadas com seu limite externo definido para a pressão atmosférica padrão. [textlink="Purificador de ar" link="AirScrubber"] serão ativados e lavarão todos os gases residuais normalmente.
+  - Filtragem (Ampla): O mesmo que Filtragem, mas todos os [textlink="Purificador de ar" link="AirScrubber"] conectarão ativarão seu modo WideNet.
+  - Preencher: [textlink="Ventilações de Ar" link="AirVent"] serão ativadas com seu limite externo definido para pressão máxima, [color=orange][protodata="GasVentPump" comp="GasVentPump" member="MaxPressure"/] kPa[/color]. [textlink="Purificador de ar" link="AirScrubber"] serão desativados.
+  - Pânico: [textlink="Ventilações de Ar" link="AirVent"] serão desativadas, e [textlink="Purificador de ar" link="AirScrubber"] serão definidos para modo sifão.
 
   Os alarmes de ar mudarão automaticamente entre os modos Filtragem e Filtragem (Ampla) baseado no status atual da área que estão monitorando.
   - Se a área atingir o status [color=red]Perigo[/color] ou acima, o alarme de ar mudará para o modo Filtragem (Ampla).

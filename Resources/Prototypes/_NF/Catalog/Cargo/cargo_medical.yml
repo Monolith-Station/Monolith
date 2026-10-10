@@ -10,7 +10,7 @@
 
 - type: cargoProduct
   id: CargoBarrel
-  name: barrel (empty)
+  name: barríl (vazio)
   icon:
     sprite: _NF/Objects/Storage/Barrels/white.rsi
     state: icon
@@ -21,7 +21,7 @@
 
 - type: cargoProduct
   id: CargoBarrelCarbon
-  name: barrel of carbon
+  name: barríl de carbono
 #  abstract: true #Mono in
   icon:
     sprite: _NF/Objects/Storage/Barrels/black.rsi
@@ -33,7 +33,7 @@
 
 - type: cargoProduct
   id: CargoBarrelIodine
-  name: barrel of iodine
+  name: barríl de iodo
 #  abstract: true #Mono in
   icon:
     sprite: _NF/Objects/Storage/Barrels/red.rsi
@@ -45,7 +45,7 @@
 
 - type: cargoProduct
   id: CargoBarrelFluorine
-  name: barrel of fluorine
+  name: barríl de flúor
 #  abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/blue.rsi
@@ -57,7 +57,7 @@
 
 - type: cargoProduct
   id: CargoBarrelChlorine
-  name: barrel of chlorine
+  name: barríl de cloro
 #  abstract: true #Mono in
   icon:
     sprite: _NF/Objects/Storage/Barrels/green.rsi
@@ -69,7 +69,7 @@
 
 - type: cargoProduct
   id: CargoBarrelAluminium
-  name: barrel of aluminium
+  name: barríl de alumínio
 #  abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/white.rsi
@@ -81,7 +81,7 @@
 
 - type: cargoProduct
   id: CargoBarrelPhosphorus
-  name: barrel of phosphorus
+  name: barríl de fósforo
 #  abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/red.rsi
@@ -93,7 +93,7 @@
 
 - type: cargoProduct
   id: CargoBarrelSulfur
-  name: barrel of sulfur
+  name: barríl de enxofre
 #  abstract: true #Mono in
   icon:
     sprite: _NF/Objects/Storage/Barrels/yellow.rsi
@@ -105,7 +105,7 @@
 
 - type: cargoProduct
   id: CargoBarrelSilicon
-  name: barrel of silicon
+  name: barríl de silício
 #  abstract: true #Mono in
   icon:
     sprite: _NF/Objects/Storage/Barrels/black.rsi
@@ -117,7 +117,7 @@
 
 - type: cargoProduct
   id: CargoBarrelHydrogen
-  name: barrel of hydrogen
+  name: barríl de hidrogênio
 #  abstract: true #Mono in
   icon:
     sprite: _NF/Objects/Storage/Barrels/white.rsi
@@ -129,7 +129,7 @@
 
 - type: cargoProduct
   id: CargoBarrelLithium
-  name: barrel of lithium
+  name: barríl de lítio
 #  abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/grey.rsi
@@ -141,7 +141,7 @@
 
 - type: cargoProduct
   id: CargoBarrelSodium
-  name: barrel of sodium
+  name: barríl de sódio
 #  abstract: true #Mono in
   icon:
     sprite: _NF/Objects/Storage/Barrels/grey.rsi
@@ -153,7 +153,7 @@
 
 - type: cargoProduct
   id: CargoBarrelPotassium
-  name: barrel of potassium
+  name: barríl de potássio
 #  abstract: true #Mono in
   icon:
     sprite: _NF/Objects/Storage/Barrels/yellow.rsi
@@ -165,7 +165,7 @@
 
 - type: cargoProduct
   id: CargoBarrelRadium
-  name: barrel of radium
+  name: barríl de rádio
 #  abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/green.rsi
@@ -177,7 +177,7 @@
 
 - type: cargoProduct
   id: CargoBarrelIron
-  name: barrel of iron
+  name: barríl de ferro
 #  abstract: true #Mono in
   icon:
     sprite: _NF/Objects/Storage/Barrels/grey.rsi
@@ -189,7 +189,7 @@
 
 - type: cargoProduct
   id: CargoBarrelCopper
-  name: barrel of copper
+  name: barríl de cobre
 #  abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/red.rsi
@@ -201,7 +201,7 @@
 
 - type: cargoProduct
   id: CargoBarrelGold
-  name: barrel of gold
+  name: barríl de ouro
   abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/yellow.rsi
@@ -213,7 +213,7 @@
 
 - type: cargoProduct
   id: CargoBarrelMercury
-  name: barrel of mercury
+  name: barríl de mercúrio
 #  abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/grey.rsi
@@ -225,7 +225,7 @@
 
 - type: cargoProduct
   id: CargoBarrelSilver
-  name: barrel of silver
+  name: barríl de prata
   abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/white.rsi
@@ -237,7 +237,7 @@
 
 - type: cargoProduct
   id: CargoBarrelEthanol
-  name: barrel of ethanol
+  name: barríl de etanol
 #  abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/blue.rsi
@@ -249,7 +249,7 @@
 
 - type: cargoProduct
   id: CargoBarrelSugar
-  name: barrel of sugar
+  name: barríl de açúcar
 #  abstract: true #Mono in
   icon:
     sprite: _NF/Objects/Storage/Barrels/white.rsi
@@ -261,7 +261,7 @@
 
 - type: cargoProduct
   id: CargoBarrelNitrogen
-  name: barrel of nitrogen
+  name: barríl de nitrogênio
 #  abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/red.rsi
@@ -273,7 +273,7 @@
 
 - type: cargoProduct
   id: CargoBarrelOxygen
-  name: barrel of oxygen
+  name: barríl de oxigênio
 #  abstract: true #Mono in
   icon:
     sprite: _NF/Objects/Storage/Barrels/blue.rsi
@@ -285,7 +285,7 @@
 
 - type: cargoProduct
   id: CargoBarrelOil
-  name: barrel of oil
+  name: barríl de óleo
   abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/black.rsi
@@ -297,7 +297,7 @@
 
 - type: cargoProduct
   id: CargoBarrelDiethylamine
-  name: barrel of diethylamine
+  name: barríl de dietilamina
   abstract: true
   icon:
     sprite: _NF/Objects/Storage/Barrels/green.rsi

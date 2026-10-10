@@ -5958,6 +5958,7 @@ ent-CableMVStackLingering10 = {ent-CableMVStack}
 # Abstract entity (referenceable by children)
 
 ent-CableStack = bobina de cabos
+    .desc = Uma bobina de cabos de energia.
     .suffix = Cheia
 
 # From: Entities/Objects/Tools/cowtools.yml
@@ -27174,6 +27175,7 @@ ent-WizardCommsComputerCircuitboard = placa de computador de comunicações do m
 # Abstract entity (referenceable by children)
 
 ent-BaseMachineCircuitboard = placa de máquina
+    .desc = Uma placa de circuito usada na construção de máquinas.
     .suffix = Placa de Máquina
 
 # From: Entities/Objects/Devices/Circuitboards/Machine/cannons.yml
@@ -27506,6 +27508,7 @@ ent-FireAlarmElectronics = eletrônicos de alarme de incêndio
 # Abstract entity (referenceable by children)
 
 ent-BaseElectronics = eletrônicos base
+    .desc = Componentes eletrônicos básicos.
     .suffix = Eletrônicos
 
 # From: Entities/Objects/Devices/Electronics/disposal.yml
@@ -29425,6 +29428,7 @@ ent-BlastDoorXenoborg = porta blindada xenoborg
     .desc = Não perca a cabeça!
 
 ent-ChairBlack = cadeira
+    .desc = {ent-SeatBase.desc}
     .suffix = Preta
 
 ent-TableBlack = mesa
@@ -29451,6 +29455,7 @@ ent-RackBlack = prateleira
     .desc = Uma prateleira para guardar coisas.
 
 ent-Xenoborgs = câmera
+    .desc = Uma câmera de vigilância.
     .suffix = Xenoborgs
 
 ent-WeaponEnergyTurretAIControlPanel = painel de controle de sentinelas IA
@@ -29464,6 +29469,7 @@ ent-WeaponEnergyTurretStationControlPanel = painel de controle de sentinelas
     .desc = Uma interface montada na parede para remotamente configurar os parametros operacionais de sentinelas conectadas.
 
 ent-WallRockCrocus = pedra
+    .desc = {ent-BaseWall.desc}
     .suffix = planetmap, Crocus
 
 ent-WallConcrete = parede de concreto
@@ -29475,6 +29481,7 @@ ent-WallConcreteIndestructible = parede de concreto
 ent-WallXenoborg = parede xenoborg
 
 ent-WallXenoborgDiagonal = parede xenoborg
+    .desc = Uma parede diagonal de xenoborg.
     .suffix = diagonal
 
 ent-XenoborgWindow = janela xenoborg

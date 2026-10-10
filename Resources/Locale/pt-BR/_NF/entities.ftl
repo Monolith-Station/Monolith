@@ -217,6 +217,7 @@ ent-CultistMessengerGiftBox = pacote de cultista sanguinário
 # Entidade abstrata (referenciável por filhos)
 
 ent-ExplorerDuffelGiftBox = pacote de explorador
+    .desc = Um pacote com equipamentos de explorador.
     .suffix = Loot de NPC
 
 # De: _NF/Catalog/Fills/Backpacks/npc_loot_mercenaries.yml
@@ -267,6 +268,7 @@ ent-ClothingBackpackRogueSiliconT4 = {ent-RogueSiliconGiftBox}
 # Entidade abstrata (referenciável por filhos)
 
 ent-RogueSiliconGiftBox = pacote de unidade renegada
+    .desc = Um pacote com equipamentos de unidades renegadas.
     .suffix = Loot de NPC
 
 # De: _NF/Catalog/Fills/Backpacks/npc_loot_syndicate.yml
@@ -5701,6 +5703,7 @@ ent-BaseWeaponTurretMagazineFed = torre balística (alimentada por carregador)
 # Abstract entity (referenceable by children)
 
 ent-BaseWeaponTurretNF = torre
+    .desc = Uma torre de armas base.
     .suffix = Frontier
 
 # From: _NF/Entities/Objects/Weapons/Guns/Basic/sawn_pka.yml
@@ -9528,6 +9531,7 @@ ent-WallRockUraniumGolem = {ent-WallRock}
 # Abstract entity (referenceable by children)
 
 ent-BaseWallDiagonal = parede-base
+    .desc = Uma parede-base diagonal.
     .suffix = diagonal
 
 ent-WallUraniumDiagonal = parede de urânio

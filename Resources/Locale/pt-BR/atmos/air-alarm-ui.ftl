@@ -56,7 +56,7 @@ air-alarm-ui-vent-internal-bound-label = Limite interno
 
 air-alarm-ui-scrubber-pump-direction-label = Direção
 air-alarm-ui-scrubber-volume-rate-label = Taxa (L)
-air-alarm-ui-scrubber-wide-net-label = RedeAmpla
+air-alarm-ui-scrubber-wide-net-label = Rede Ampla
 
 ### Thresholds
 

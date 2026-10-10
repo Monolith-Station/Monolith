@@ -206,7 +206,7 @@ vessel-Kuldi-name = DWI Kuldi
 vessel-Kuldi-desc = Equipada com um laboratório de química completo e criogenia, esta nave é a solução da Dornan-Weryl Industrial para a maioria dos cuidados médicos.
 
 vessel-Veska-name = RG Veska
-vessel-Veska-desc = Uma Ample modificada que remove o equipamento de mineração e instala um canhão automático leve.
+vessel-Veska-desc = Uma Ample modificada que remove o equipamento de mineração e instala um autocanhão leve.
 
 vessel-StratoRat-name = HES Strato-Rat
 vessel-StratoRat-desc = Uma nave de mineração de gás extremamente básica, de corte de custos. Apresenta uma câmara de gás de 120 KMol, e um único mineradores de pulso automáticos M25.
@@ -236,7 +236,7 @@ vessel-Ample-name = SKR Ample
 vessel-Ample-desc = Uma nave de mineração muito leve equipada com um PTK-1500e
 
 vessel-Bow-Man-name = Z-22 Bow-Man
-vessel-Bow-Man-desc = Um drone de assalto com um canhão automático de 90mm montado para fogo de longo alcance.
+vessel-Bow-Man-desc = Um drone de assalto com um autocanhão de 90mm montado para fogo de longo alcance.
 
 vessel-ZephyrEC-name = TSF-SKR Zephyr-EC
 vessel-ZephyrEC-desc = Um caça velho com um pacote de reforma TSFN-EC, a convertendo em um drone leve não tripulado.
@@ -590,7 +590,7 @@ vessel-Sellsword-name = UW Sellsword
 vessel-Sellsword-desc = Um piquete de escolta composto por um caixão claustrofóbico de plastitânio fundido envolvendo um BOFORS de 203x940mm e um pod de mísseis VESPERA. Expectativa de vida em combate de 4 minutos. Possui designação IFF militar.
 
 vessel-QJ490-name = GS QJ-490/B
-vessel-QJ490-desc = Vem com 4 AK-570s e um canhão automático Dravon. Bastante rápida para acelerar, mas carece de contramedidas contra mísseis. Após sua desativação da frota da TSFMC, a GS comprou e modernizou o projeto, com as antigas armas de energia e o baú de bombas logisticamente exigente tendo sido trocados por armamentos mais convencionais.
+vessel-QJ490-desc = Vem com 4 AK-570s e um autocanhão Dravon. Bastante rápida para acelerar, mas carece de contramedidas contra mísseis. Após sua desativação da frota da TSFMC, a GS comprou e modernizou o projeto, com as antigas armas de energia e o baú de bombas logisticamente exigente tendo sido trocados por armamentos mais convencionais.
 
 vessel-Xinhua-name = MSH Xinhua
 vessel-Xinhua-desc = Uma corveta leve que não conseguiu atrair a atenção de nenhum fornecedor de defesa. Bem armada, com hardpoints e poder de fogo para complementá-la ainda mais, mas carece bastante de espaço interno livre.
