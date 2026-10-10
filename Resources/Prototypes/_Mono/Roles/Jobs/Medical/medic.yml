@@ -11,17 +11,17 @@
   icon: "JobIconMedicalDoctor"
   supervisors: job-supervisors-doc
   weight: 170
-  displayWeight: 55 # Second from the top
-  assignedCompany: MD
+  displayWeight: 45 # bottom
+  assignedCompany: Colonial
   canBeAntag: false
   accessGroups:
   - GeneralAccess
   - Medical
+  access:
+  - Medical
   guides:
   - Caelestinus
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: NpcFactionMember
@@ -31,6 +31,8 @@
         SpeedModifier: 1.75
       - type: ChatRank
         rank: md-medic
+      - type: RadioOnCryosleep
+        radioChannel: Service # service = caelestinus
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
@@ -44,3 +46,4 @@
     back:
     - RubberStampDoctor
     - BoxFolderMedicalDoctor
+    - EncryptionKeyService

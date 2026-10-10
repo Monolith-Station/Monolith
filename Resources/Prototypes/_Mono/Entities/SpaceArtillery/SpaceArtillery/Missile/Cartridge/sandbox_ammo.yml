@@ -38,6 +38,7 @@
     maxIntensity: 1000
     intensitySlope: 30
     totalIntensity: 5000
+    tileBreakScale: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetGuided
@@ -85,6 +86,17 @@
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
+  - type: Flammable
+    fireSpread: true
+    firestackFade: -0.01
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+        Structural: 2
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
   - type: MultiHandedItem
   - type: HeldSpeedModifier
     walkModifier: 0.7
@@ -150,6 +162,7 @@
     intensitySlope: 30
     totalIntensity: 500000
     detonationAlert: "delta"
+    tileBreakScale: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetGuided
@@ -197,6 +210,17 @@
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
+  - type: Flammable
+    fireSpread: true
+    firestackFade: -0.01
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+        Structural: 2
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
   - type: MultiHandedItem
   - type: HeldSpeedModifier
     walkModifier: 0.7

@@ -1,0 +1,15 @@
+- type: technology
+  id: RadioMusicCommunications
+  name: research-technology-radio-music-communication
+  entityIcon: VinylPlayer
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - VinylPlayerCircuitboard
+  - StationRadioServerCircuitboard
+  - StationRadioRigCircuitboard
+  - StationRadioCircuitboard
+  position: -2, 14
+  technologyPrerequisites:
+  - AudioVisualCommunication

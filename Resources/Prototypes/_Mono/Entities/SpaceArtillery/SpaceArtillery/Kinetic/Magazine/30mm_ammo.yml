@@ -1,7 +1,7 @@
 - type: entity
   id: Magazine30mm
-  name: "30mm solid ammo loader"
-  description: "An ammunition loader containing infinite 30mm solid rounds. Usable by vessel-mounted artillery pieces."
+  name: "20x141mm solid ammo loader"
+  description: "An ammunition loader containing infinite 20x141mm solid rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -58,7 +58,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -75,8 +75,8 @@
 
 - type: entity
   id: Magazine30mmHE
-  name: "30mm HE ammo loader"
-  description: "An ammunition loader containing 2000 30mm HE rounds. Usable by vessel-mounted artillery pieces."
+  name: "20x141mm HE ammo loader"
+  description: "An ammunition loader containing 2000 20x141mm HE rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -133,7 +133,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

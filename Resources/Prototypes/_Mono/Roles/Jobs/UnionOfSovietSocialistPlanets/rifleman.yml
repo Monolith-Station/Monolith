@@ -28,6 +28,8 @@
     - type: NpcFactionMember
       factions:
       - USSP
+    - type: RadioOnCryosleep
+      radioChannel: Ussp
   - !type:AddLanguageSpecial
     languagesSpoken:
     - NovaCygniBasic

@@ -152,7 +152,7 @@
 - type: entity
   parent: BaseAutosurgeonMieyo
   id: AutosurgeonAdvHeartMMC
-  name: MMC autosurgeon (EVT-001 replacement heart)
+  name: MMC autosurgeon (EVT-001 Sakimoto)
   description: Replaces the heart with a more strange one. The exact manner of how is unknown, but it allows the user to channel a form of latent energy into a single hit.
   components:
   - type: AutoSurgeon
@@ -163,7 +163,7 @@
 - type: entity
   parent: BaseNFFlatpack
   id: AutosurgeonAdvHeartMMCFlatpack
-  name: MMC autosurgeon (EVT-001 replacement heart) flatpack
+  name: MMC autosurgeon (EVT-001 Sakimoto) flatpack
   description: A flatpack used for constructing a MMC autosurgeon.
   components:
   - type: Flatpack
@@ -266,18 +266,18 @@
 - type: entity
   parent: BaseAutosurgeonMieyo
   id: AutosurgeonSandevistanMieyo
-  name: MMC autosurgeon (sandevistan)
-  description: Replaces the heart with a MMC Sandevistan.
+  name: MMC autosurgeon (EVT-002 Lotus)
+  description: Replaces the heart with a more strange one. It's a sterile bag full of a series of autoinjectors, electroneural/cardiovascular links, and thermomachines designed to allow the user to push themselves to the limit.
   components:
   - type: AutoSurgeon
     targetBodyPart: Torso
     targetOrgan: Heart
-    newPartProto: OrganHeartSandevistan
+    newPartProto: OrganHeartMMCSandevistan
 
 - type: entity
   parent: BaseNFFlatpack
   id: AutosurgeonSandevistanMieyoFlatpack
-  name: MMC autosurgeon (sandevistan) flatpack
+  name: MMC autosurgeon (EVT-002 Lotus) flatpack
   description: A flatpack used for constructing a MMC autosurgeon.
   components:
   - type: Flatpack

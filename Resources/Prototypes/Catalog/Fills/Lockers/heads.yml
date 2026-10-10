@@ -70,7 +70,7 @@
   id: FillCaptainHardsuit
   table: !type:AllSelector
     children:
-    - id: UndeterminedVoidsuitCap
+#   - id: UndeterminedVoidsuitCap # Mono: remove captain modsuit
 #        - id: ClothingOuterHardsuitCap
     - id: ClothingMaskGasCaptain
     #    - id: JetpackCaptainFilled # Frontier

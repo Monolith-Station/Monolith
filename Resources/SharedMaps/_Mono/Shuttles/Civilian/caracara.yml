@@ -3321,7 +3321,6 @@ entities:
           ents:
           - 273
           - 274
-          - 275
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -3998,15 +3997,6 @@ entities:
           - Forward
         - - Middle
           - Off
-- proto: UndeterminedVoidsuitCap
-  entities:
-  - uid: 275
-    components:
-    - type: Transform
-      parent: 272
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: VendingMachineTankDispenserEVA
   entities:
   - uid: 370

@@ -9,10 +9,18 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 7200 # 2 hours # mono
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   alternateRequirementSets:
     longerPlaytimeLessSec:
     - !type:OverallPlaytimeRequirement
       time: 18000 # 5 hours # mono
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   startingGear: NFDetectiveGear
   icon: JobIconNFDetective
   supervisors: job-supervisors-bailiff
@@ -31,6 +39,8 @@
     - type: NpcFactionMember
       factions:
       - TSFMC
+    - type: RadioOnCryosleep
+      radioChannel: Nfsd # NFSD = TSF Comms
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages

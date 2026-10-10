@@ -258,3 +258,20 @@
   - TsfmcSidearm
   - TsfmcSidearmAmmo
   canCustomizeName: true
+
+- type: roleLoadout
+  id: JobTsfInfantry
+  groups:
+  - TsfmcInfantryHead
+  - TsfmcInfantryJumpsuit
+  - TsfmcGloves
+  - TsfmcBackpack
+  - TsfmcOuterClothing
+  - TsfmcShoes
+  - TsfmcBalaclava
+  - TsfmcInfantryBelt
+  - TsfmcEars
+  - DeputyPDA
+  - NfsdSpeciesSpecific
+  - TsfmcRanksEnlisted
+  canCustomizeName: true

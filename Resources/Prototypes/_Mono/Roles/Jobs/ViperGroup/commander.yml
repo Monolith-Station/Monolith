@@ -17,7 +17,7 @@
   - Viper_Group
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, ViperTrackingImplant ]
+    implants: [ ViperTrackingImplant ]
   - !type:AddComponentSpecial
     components:
     - type: MailDisabled
@@ -28,6 +28,8 @@
       - VG
     - type: ChatRank
       rank: vg-commander
+    - type: RadioOnCryosleep
+      radioChannel: Viper
   - !type:AddLanguageSpecial
     languagesSpoken:
     - NovaCygniBasic

@@ -189,6 +189,24 @@
     containers:
       board: [ DoorElectronicsCaptain ]
 
+# Underground
+- type: entity
+  parent: AirlockHeavy
+  id: AirlockHeavyUndergroundLocked
+  suffix: Underground, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsUnderground ]
+
+- type: entity
+  parent: AirlockHeavy
+  id: AirlockHeavyGodfatherLocked
+  suffix: Godfather, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsGodfather ]
 
 # Companies.
 

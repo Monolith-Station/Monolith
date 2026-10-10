@@ -81,6 +81,10 @@
         enum.OpenableVisuals.Layer:
           True: {state: "canister2_open"}
           False: {state: "canister2"}
+  - type: Tag
+    tags:
+    - EconomyGood
+    - MatterBinEconomy2
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: canister2fill
@@ -134,6 +138,10 @@
         enum.OpenableVisuals.Layer:
           True: {state: "canister2_open"}
           False: {state: "canister3"}
+  - type: Tag
+    tags:
+    - EconomyGood
+    - MatterBinEconomy3
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: canister2fill
@@ -547,20 +555,20 @@
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "camera"
   # flash stuff
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Weapons/flash.ogg
-  - type: FlashOnTrigger
-    range: 3
-  - type: TriggerOnProximity
-    enabled: true
-    cooldown: 5
-    shape:
-      !type:PhysShapeCircle
-      radius: 2
-    repeating: true
-  - type: StaticPrice
-    price: 1200
+#  - type: EmitSoundOnTrigger
+#    sound:
+#      path: /Audio/Weapons/flash.ogg
+#  - type: FlashOnTrigger
+#    range: 3
+#  - type: TriggerOnProximity
+#    enabled: true
+#    cooldown: 5
+#    shape:
+#      !type:PhysShapeCircle
+#      radius: 2
+#    repeating: true
+#  - type: StaticPrice
+#    price: 1200
 
 # end camera
 

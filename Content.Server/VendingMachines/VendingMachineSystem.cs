@@ -32,12 +32,9 @@ using Robust.Shared.Audio.Systems;
 using Content.Server.Administration.Logs; // Frontier
 using Content.Shared.Database; // Frontier
 using Content.Shared._NF.Bank.BUI; // Frontier
-using Content.Server._NF.Contraband.Systems; // Frontier
-using Content.Shared.Stacks; // Frontier
-using Content.Server.Stack;
 using Content.Server._Mono.VendingMachine;
 using Content.Shared._Mono.Traits.Physical;
-using Robust.Shared.Containers; // Frontier
+using Content.Shared._Mono.Economy; // Mono - Seperation of cash payment from VendingMachineComp
 
 namespace Content.Server.VendingMachines
 {
@@ -58,8 +55,8 @@ namespace Content.Server.VendingMachines
         [Dependency] private BankSystem _bankSystem = default!; // Frontier
         [Dependency] private PopupSystem _popupSystem = default!; // Frontier
         [Dependency] private IAdminLogManager _adminLogger = default!; // Frontier
-        [Dependency] private StackSystem _stack = default!; // Frontier
         [Dependency] private VendingMachinePurchaseSystem _vendingPurchase = default!; // Mono
+        [Dependency] private SharedCreditReceiverSystem _cash = default!; // Mono - Pwease chwose two pway wiw cawsh ow cwedit
 
         private const float WallVendEjectDistanceFromWall = 1f;
 
@@ -71,8 +68,9 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
-            SubscribeLocalEvent<VendingMachineComponent, EntInsertedIntoContainerMessage>(OnEntityInserted); // Frontier
-            SubscribeLocalEvent<VendingMachineComponent, EntRemovedFromContainerMessage>(OnEntityRemoved); // Frontier
+            //SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse); // Frontier: Upstream - #28984
+            //SubscribeLocalEvent<VendingMachineComponent, EntInsertedIntoContainerMessage>(OnEntityInserted); // Frontier //Mono: Moved this logic to CreditReceiverSystem
+            //SubscribeLocalEvent<VendingMachineComponent, EntRemovedFromContainerMessage>(OnEntityRemoved); // Frontier //Mono: Moved this logic to CreditReceiverSystem
 
             SubscribeLocalEvent<VendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
 
@@ -106,13 +104,14 @@ namespace Content.Server.VendingMachines
             //args.Price += price; Frontier - This is used to price the worth of a vending machine with the inventory it has.
         }
 
-        protected override void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args)
+        protected override void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args) // Mono
         {
             base.OnMapInit(uid, component, args);
 
             if (HasComp<ApcPowerReceiverComponent>(uid))
             {
-                TryUpdateVisualState(uid, component);
+                if (TryComp<VendingMachineComponent>(uid, out var vendingMachine)) // Mono
+                    TryUpdateVisualState(uid, vendingMachine); // Mono
             }
         }
 
@@ -360,17 +359,7 @@ namespace Content.Server.VendingMachines
                 if (!HasComp<IronmanComponent>(sender) && TryComp<BankAccountComponent>(sender, out var bank))
                     bankBalance = bank.Balance;
 
-                int cashSlotBalance = 0;
-                Entity<StackComponent>? cashEntity = null;
-                if (component.CashSlotName != null
-                    && component.CurrencyStackType != null
-                    && ItemSlots.TryGetSlot(uid, component.CashSlotName, out var cashSlot)
-                    && TryComp<StackComponent>(cashSlot?.ContainerSlot?.ContainedEntity, out var stackComp)
-                    && stackComp!.StackTypeId == component.CurrencyStackType)
-                {
-                    cashSlotBalance = stackComp!.Count;
-                    cashEntity = (cashSlot!.ContainerSlot!.ContainedEntity.Value, stackComp!);
-                }
+                _cash.TryGetCash(uid, out _, out var cashSlotBalance); //Mono: Moved this logic to CreditReceiverSystem
 
                 if (totalPrice > bankBalance + cashSlotBalance)
                 {
@@ -385,15 +374,10 @@ namespace Content.Server.VendingMachines
 
                 if (TryEjectVendorItem(uid, type, itemId, component.CanShoot, component))
                 {
-                    if (cashEntity != null)
-                    {
-                        var newCashSlotBalance = Math.Max(cashSlotBalance - totalPrice, 0);
-                        _stack.SetCount(cashEntity.Value.Owner, newCashSlotBalance, cashEntity.Value.Comp);
-                        component.CashSlotBalance = newCashSlotBalance;
-                        paidFully = true; // Either we paid fully with cash, or we need to withdraw the remainder
-                    }
-                    if (totalPrice > cashSlotBalance && !HasComp<Content.Shared._Mono.Traits.Physical.IronmanComponent>(sender))
-                        paidFully = _bankSystem.TryBankWithdraw(sender, totalPrice - cashSlotBalance);
+                    paidFully = _cash.TryCashPayment(uid, totalPrice, out var _, true); // Mono - Attempt to pay with cash before credit
+
+                    if (totalPrice > cashSlotBalance && !HasComp<IronmanComponent>(sender))
+                        paidFully = _bankSystem.TryBankWithdraw(sender, totalPrice - cashSlotBalance); // Mono - if cash was not enough, pay the difference with credit
 
                     // If we paid completely, pay our station taxes
                     if (paidFully)
@@ -673,29 +657,14 @@ namespace Content.Server.VendingMachines
             args.Price += priceSets.Max();
         }
 
-        // Frontier: cash slot logic
-        private void OnEntityInserted(Entity<VendingMachineComponent> ent, ref EntInsertedIntoContainerMessage args)
-        {
-            if (ent.Comp.CashSlotName != null
-            && ent.Comp.CurrencyStackType != null
-            && ItemSlots.TryGetSlot(ent, ent.Comp.CashSlotName, out var slot)
-            && TryComp<StackComponent>(slot?.ContainerSlot?.ContainedEntity, out var stack)
-            && stack.StackTypeId == ent.Comp.CurrencyStackType)
-            {
-                ent.Comp.CashSlotBalance = stack.Count;
-            }
-            else
-            {
-                ent.Comp.CashSlotBalance = 0;
-            }
-            Dirty(ent, ent.Comp);
-        }
-
-        private void OnEntityRemoved(Entity<VendingMachineComponent> ent, ref EntRemovedFromContainerMessage args)
-        {
-            ent.Comp.CashSlotBalance = 0;
-            Dirty(ent, ent.Comp);
-        }
-        // End Frontier: cash slot logic
+        //private void OnEmpPulse(EntityUid uid, VendingMachineComponent component, ref EmpPulseEvent args) // Frontier: Upstream - #28984
+        //{
+        //    if (!component.Broken && this.IsPowered(uid, EntityManager))
+        //    {
+        //        args.Affected = true;
+        //        args.Disabled = true;
+        //        component.NextEmpEject = _timing.CurTime;
+        //    }
+        //}
     }
 }

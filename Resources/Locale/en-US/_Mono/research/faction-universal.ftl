@@ -5,7 +5,7 @@ research-technology-universal-railgun-ammo-subnuclear = Nuclear Fission Explosiv
 research-technology-universal-asm220-ammo = ASM-220 Torpedo Production
 research-technology-universal-asm220-advanced = ASM-220 Advanced Munitions
 research-technology-universal-sandbox-missiles = SS-N-40 "Sandbox" Cruise Missiles
-research-technology-universal-150mm-ammo = 150mm Shell Production
+research-technology-universal-90mm-ammo = 90x630mm Shell Production
 
 research-technology-universal-light-fighter-ordinance = Light Fighter Ordinance Production
 research-technology-universal-advanced-light-fighter-ordinance = Advanced Fighter Ordinance Production

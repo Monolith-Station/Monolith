@@ -3,11 +3,14 @@ using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels;
 using Content.Server.NameIdentifier;
-using Content.Shared._NF.Bank; // Frontier
+using Content.Server.Stack;
+using Content.Shared._NF.Bank;
+using Content.Shared._NF.Medical; // Frontier
 using Content.Shared.Access.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
+using Content.Shared.Coordinates;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
 using Content.Shared.NameIdentifier;
@@ -40,7 +43,7 @@ public sealed partial class CargoSystem
         SubscribeLocalEvent<CargoBountyConsoleComponent, BoundUIOpenedEvent>(OnBountyConsoleOpened);
         SubscribeLocalEvent<CargoBountyConsoleComponent, BountyPrintLabelMessage>(OnPrintLabelMessage);
         SubscribeLocalEvent<CargoBountyConsoleComponent, BountySkipMessage>(OnSkipBountyMessage);
-        SubscribeLocalEvent<CargoBountyLabelComponent, PriceCalculationEvent>(OnGetBountyPrice);
+        // SubscribeLocalEvent<CargoBountyLabelComponent, PriceCalculationEvent>(OnGetBountyPrice); // Mono - Changed how bounty payout works. Not added to payout anymore.
         SubscribeLocalEvent<EntitySoldEvent>(OnSold);
         SubscribeLocalEvent<StationCargoBountyDatabaseComponent, MapInitEvent>(OnMapInit);
 
@@ -126,7 +129,7 @@ public sealed partial class CargoSystem
                 ("item", Loc.GetString(entry.Name)))}");
             msg.PushNewline();
         }
-        msg.AddMarkupOrThrow(Loc.GetString("bounty-console-manifest-reward", ("reward", BankSystemExtensions.ToSpesoString(prototype.Reward)))); // Frontier: add ToSpesoString
+        msg.AddMarkupOrThrow(Loc.GetString("bounty-console-manifest-reward", ("reward", prototype.Reward + " (" + prototype.RewardSuffix + ")"))); // Mono - add suffix
         _paperSystem.SetContent((uid, paper), msg.ToMarkup());
     }
 
@@ -175,10 +178,14 @@ public sealed partial class CargoSystem
                 continue;
             }
 
-            if (!IsBountyComplete(sold, bounty.Value))
+            if (!IsBountyComplete(sold, bounty.Value) || !_protoMan.TryIndex(bounty.Value.Bounty, out var bountyPrototype)) // Mono
             {
                 continue;
             }
+
+            // Mono
+            if(bountyPrototype.Reward > 0)
+                _stack.SpawnMultiple(bountyPrototype.RewardProto, bountyPrototype.Reward, sold.ToCoordinates()); // It spawns it on the coordinates of the bounty instead of the console because idgaf. Maybe if someone bothered putting console coordinates in I would do it properly.
 
             TryRemoveBounty(station, bounty.Value, false);
             FillBountyDatabase(station);
@@ -383,12 +390,19 @@ public sealed partial class CargoSystem
     [PublicAPI]
     public bool TryAddBounty(EntityUid uid, StationCargoBountyDatabaseComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!Resolve(uid, ref component) || component.AvailableBounties.Count == 0) // Mono - add check for no bounties available
             return false;
 
         // todo: consider making the cargo bounties weighted.
-        var allBounties = _protoMan.EnumeratePrototypes<CargoBountyPrototype>().ToList();
+        // Mono - Switch it to taking from all protos to a list.
+        var allBounties = new List<CargoBountyPrototype>();
         var filteredBounties = new List<CargoBountyPrototype>();
+        foreach (var bountyId in component.AvailableBounties)
+        {
+            if (!_protoMan.TryIndex<CargoBountyPrototype>(bountyId, out var proto))
+                break;
+            allBounties.Add(proto);
+        }
         foreach (var proto in allBounties)
         {
             if (component.Bounties.Any(b => b.Bounty == proto.ID))

@@ -40,6 +40,8 @@
       - MMC
     - type: ChatRank
       rank: mmc-liason
+    - type: RadioOnCryosleep
+      radioChannel: Mieyo
   - !type:AddLanguageSpecial
     languagesSpoken:
     - Nekomimetic

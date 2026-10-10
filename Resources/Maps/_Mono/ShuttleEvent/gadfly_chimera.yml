@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/21/2026 15:41:19
-  entityCount: 334
+  time: 09/22/2026 20:40:50
+  entityCount: 336
 maps: []
 grids:
 - 1
@@ -232,9 +232,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Puddle: []
-        MetalFoam: []
         Kudzu: []
         Smoke: []
+        MetalFoam: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -312,7 +312,7 @@ entities:
     - type: ShipGridLock
       locked: False
     - type: IFF
-      address: ' 0DE6-64F6'
+      address: ' 437E-D7F2'
       color: '#FFFFFFFF'
       flags: HideLabel, IsPlayerShuttle
 - proto: AirAlarm
@@ -1680,6 +1680,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-3.5
       parent: 1
+- proto: MachineFTLDrive
+  entities:
+  - uid: 185
+    components:
+    - type: Transform
+      pos: 1.5,6.5
+      parent: 1
 - proto: MedkitFilled
   entities:
   - uid: 188
@@ -1714,7 +1721,7 @@ entities:
       pos: 0.5,-2.5
       parent: 1
     - type: FuelGenerator
-      targetPower: 40000
+      targetPower: 45000
 - proto: PowerCellRecharger
   entities:
   - uid: 189
@@ -1772,13 +1779,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,7.5
-      parent: 1
-- proto: SmartArmoryStorage
-  entities:
-  - uid: 185
-    components:
-    - type: Transform
-      pos: 1.5,6.5
       parent: 1
 - proto: SMESBasic
   entities:
@@ -2339,4 +2339,24 @@ entities:
       rot: 3.141592653589793 rad
       pos: 4.5,0.5
       parent: 1
+- proto: WindoorSecure
+  entities:
+  - uid: 335
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,6.5
+      parent: 1
+    - type: DeltaPressure
+      gridUid: 1
+- proto: WindowReinforcedDirectional
+  entities:
+  - uid: 336
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,6.5
+      parent: 1
+    - type: DeltaPressure
+      gridUid: 1
 ...

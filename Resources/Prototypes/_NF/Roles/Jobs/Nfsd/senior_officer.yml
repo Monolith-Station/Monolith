@@ -9,6 +9,10 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 # 10 hours # mono
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   startingGear: SeniorOfficerGear
   icon: JobIconSergeant
   supervisors: job-supervisors-sheriff
@@ -33,6 +37,8 @@
     - type: NpcFactionMember
       factions:
       - TSFMC
+    - type: RadioOnCryosleep
+      radioChannel: Nfsd # NFSD = TSF Comms
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages

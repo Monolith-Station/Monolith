@@ -9,10 +9,18 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 7200 # 2 hours - mono
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   alternateRequirementSets:
     longerPlaytimeLessSec:
     - !type:OverallPlaytimeRequirement
       time: 108000 # 30 hours - mono
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   startingGear: BrigmedicGear
   icon: JobIconBrigmedicNF
   supervisors: job-supervisors-bailiff
@@ -32,6 +40,8 @@
       - TSFMC
     - type: SurgerySpeedModifier
       SpeedModifier: 1.65
+    - type: RadioOnCryosleep
+      radioChannel: Nfsd # NFSD = TSF Comms
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages

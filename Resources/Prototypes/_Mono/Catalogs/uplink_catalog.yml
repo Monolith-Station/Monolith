@@ -87,3 +87,163 @@
     Telecrystal: 35
   categories:
   - UplinkDisruption
+
+- type: listing
+  id: UplinkMagazine9x19mmPistolHighCapacityFMJ
+  name: uplink-magazine-9x19mm-pistol-high-capacity-fmj-name
+  description: uplink-magazine-9x19mm-pistol-high-capacity-fmj-desc
+  productEntity: Magazine9x19mmPistolHighCapacityFMJ
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkTypewriter
+  name: uplink-typewriter-name
+  description: uplink-typewriter-desc
+  productEntity: WeaponSubMachineGunTypewriter
+  cost:
+    Telecrystal: 30
+  categories: 
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkWarlord
+  name: uplink-warlord-name
+  description: uplink-warlord-desc
+  productEntity: ClothingOuterHardsuitWarlord
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkDataChit50
+  name: uplink-data-chit-50-name
+  description: uplink-data-chit-50-desc
+  productEntity: Doubloon50
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkDisruption
+
+- type: listing
+  id: UplinkIffConsoleFlatpack
+  name: uplink-iff-console-flatpack-name
+  description: uplink-iff-console-flatpack-desc
+  productEntity: ComputerIFFFlatpack
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkDeception
+
+- type: listing
+  id: UplinkUllmanPilot
+  name: uplink-ullman-pilot-name
+  description: uplink-ullman-pilot-desc
+  productEntity: ClothingOuterHardsuitUIPilot
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkUllmanEngineer
+  name: uplink-ullman-engineer-name
+  description: uplink-ullman-engineer-desc
+  productEntity: ClothingOuterHardsuitUllmanEngineer
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkUllmanEnforcer
+  name: uplink-ullman-enforcer-name
+  description: uplink-ullman-enforcer-desc
+  productEntity: ClothingOuterHardsuitUIEnforcer
+  cost:
+    Telecrystal: 65
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkUllmanEnforcerMk2
+  name: uplink-ullman-enforcer-mk2-name
+  description: uplink-ullman-enforcer-mk2-desc
+  productEntity: ClothingOuterHardsuitUIEnforcerMKII
+  cost:
+    Telecrystal: 90
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkUllmanRx01
+  name: uplink-ullman-rx01-name
+  description: uplink-ullman-rx01-desc
+  productEntity: ClothingModsuitRoguePowerCell # spasaka is dead, so.
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkUllmanPulsePistol
+  name: uplink-ullman-pulse-pistol-name
+  description: uplink-ullman-pulse-pistol-desc
+  productEntity: UllmanWeaponPulsePistol
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkUllmanPulseRifle
+  name: uplink-ullman-pulse-rifle-name
+  description: uplink-ullman-pulse-rifle-desc
+  productEntity: UllmanWeaponPulseRifle
+  cost:
+    Telecrystal: 95
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkUllmanPulseSniper
+  name: uplink-ullman-pulse-sniper-name
+  description: uplink-ullman-pulse-sniper-desc
+  productEntity: UllmanWeaponPulseSniper
+  cost:
+    Telecrystal: 125
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkUllmanSmartPistol
+  name: uplink-ullman-smart-pistol-name
+  description: uplink-ullman-smart-pistol-desc
+  productEntity: WeaponPistolUllmanSmartMagnumMK5
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkUllmanPlasmaBlade
+  name: uplink-ullman-plasma-blade-name
+  description: uplink-ullman-plasma-blade-desc
+  productEntity: UllmanPlasmaBlade
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkUllmanMagazineSmartMagnum
+  name: uplink-ullman-magazine-smart-magnum-name
+  description: uplink-ullman-magazine-smart-magnum-desc
+  productEntity: Magazine55_SAMPistol
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAmmo

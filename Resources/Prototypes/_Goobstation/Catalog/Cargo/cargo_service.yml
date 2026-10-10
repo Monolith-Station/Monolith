@@ -1,0 +1,20 @@
+# was gonna filter out all the NT/goob metaclique/syndie stuff but it was almost empty when i was done
+#- type: cargoProduct
+#  id: RadioAdsCrateCargo
+#  icon:
+#    sprite: Objects/Misc/cd.rsi
+#    state: icon
+#  product: CrateRadioStationAds
+#  cost: 5000 #Forge-Change
+#  category: cargoproduct-category-name-service
+#  group: market
+
+- type: cargoProduct
+  id: RadioVinylCrateCargo
+  icon:
+    sprite: _Goobstation/Objects/Misc/RadioStation/vinyls.rsi
+    state: red-vinyl-disk
+  product: CrateRadioStationVinyls
+  cost: 10000 #Forge-Change
+  category: cargoproduct-category-name-service
+  group: market

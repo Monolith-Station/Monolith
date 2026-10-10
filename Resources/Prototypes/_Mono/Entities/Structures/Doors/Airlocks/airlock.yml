@@ -65,3 +65,23 @@
     department: MieyoManufacturingConcern
   - type: Wires
     layoutId: AirlockSecurity
+
+# Underground 
+
+- type: entity
+  parent: AirlockSyndicate
+  id: AirlockUnderground
+  suffix: Underground, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsUnderground ]
+
+- type: entity
+  parent: AirlockSyndicate
+  id: AirlockGodfather
+  suffix: Godfather, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsGodfather ]

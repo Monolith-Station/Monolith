@@ -7,6 +7,9 @@
   id: FoodMacaroni
   description: Cheesy!
   components:
+  - type: Tag
+    tags:
+    - BountyMacaroniCheese
   - type: FlavorProfile
     flavors:
       - pasta

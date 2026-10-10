@@ -35,9 +35,21 @@
   loadouts:
   - TsfmcClothingJumpsuit
   - TsfmcClothingJumpsuitType47D
+  - TsfmcClothingJumpsuitType47F
   - TsfmcClothingDressUniform
   fallbacks:
   - TsfmcClothingJumpsuit
+
+- type: loadoutGroup
+  id: TsfmcInfantryJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  hidden: false
+  loadouts:
+  - TsfmcClothingJumpsuitType47FCrocus
+  - TsfmcClothingJumpsuitType47DCrocus
+  fallbacks:
+  - TsfmcClothingJumpsuitType47FCrocus
 
 - type: loadoutGroup
   id: TsfmcJumpsuitEngi
@@ -47,6 +59,7 @@
   - TsfmcEngineeringClothingJumpsuit
   - TsfmcClothingJumpsuit
   - TsfmcClothingJumpsuitType47D
+  - TsfmcClothingJumpsuitType47F
   - TsfmcClothingDressUniform
   fallbacks:
   - TsfmcEngineeringClothingJumpsuit
@@ -93,6 +106,17 @@
   - TsfmcCombatWebbing
   - TsfmcCombatWebbingLarge
   - ContractorClothingBeltSheathFilled
+  fallbacks:
+  - TsfmcCombatWebbing
+
+- type: loadoutGroup
+  id: TsfmcInfantryBelt
+  name: loadout-group-contractor-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TsfmcCombatWebbing
+  - TsfmcCombatWebbingLarge
   fallbacks:
   - TsfmcCombatWebbing
 
@@ -205,6 +229,14 @@
   - TsfmcBeret
   - TsfmcUtilityCap
   - TsfmcBeretCommon
+
+- type: loadoutGroup
+  id: TsfmcInfantryHead
+  name: loadout-group-contractor-head
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - TsfmcHelmet
 
 - type: loadoutGroup
   id: TsfmcHeadMedic

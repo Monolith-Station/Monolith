@@ -79,7 +79,7 @@ public sealed partial class CCVars
     ///     Controls the game map prototype to load. SS14 stores these prototypes in Prototypes/Maps.
     /// </summary>
     public static readonly CVarDef<string>
-        GameMap = CVarDef.Create("game.map", "Frontier", CVar.SERVERONLY); // Frontier: string.Empty<Frontier
+        GameMap = CVarDef.Create("game.map", string.Empty, CVar.SERVERONLY); // Mono - Changed back to string.Empty. We use a mappool so Crocus/Hyperwar can switch the map.
 
     /// <summary>
     ///     Controls whether to use world persistence or not.
@@ -414,7 +414,7 @@ public sealed partial class CCVars
     ///     Enable dynamic adjustment of role timers and whitelists based on player count.
     /// </summary>
     public static readonly CVarDef<bool> DynamicRolesEnabled =
-         CVarDef.Create("game.dynamic_roles.enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+         CVarDef.Create("game.dynamic_roles.enabled", false, CVar.SERVERONLY | CVar.ARCHIVE);
 
     /// <summary>
     ///     The player count at or below which role timers and whitelists are disabled if dynamic roles are enabled.
