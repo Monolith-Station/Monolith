@@ -7,8 +7,8 @@
 - type: vessel
   id: Keelback
   parent: BaseVessel
-  name: VG Keelback
-  description: A medium sized corvette designed for privateering. Equipped with 3 "Paladin" missile launchers and 2 TOVEK's.
+  name: vessel-Keelback-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Keelback-desc # Andromeda: Localizar nome e descrição de nave
   limit: 1
   price: 270000
   purchasable: false # Voucher only

@@ -24838,7 +24838,7 @@ ent-FoodBreadVolcanic = pão vulcânico
 ent-FoodBreadVolcanicSlice = fatia vulcânica
     .desc = Uma fatia de pão escuro. Assemelha-se a pedra-pome.
 
-ent-MobBreadDog = pão-cachorro
+ent-MobBreadDog = pãochorro
     .desc = É um pão. É um cachorro. É um... pão-cachorro?
 
 # From: Entities/Objects/Consumable/Food/Baked/cake.yml
@@ -24900,10 +24900,10 @@ ent-FoodCakeLemon = bolo de limão
 
 ent-FoodCakeLemonSlice = fatia de bolo de limão
 
-ent-FoodCakeLemoon = bolo lemoon
+ent-FoodCakeLemoon = bolo de lua-limão
     .desc = Um bolo que representa a lua da terra.
 
-ent-FoodCakeLemoonSlice = fragmento de bolo lemoon
+ent-FoodCakeLemoonSlice = fatia de bolo de lua-limão
     .desc = Um fragmento de lua, tem cheiro de leite.
 
 ent-FoodCakeLime = bolo de lima
@@ -25165,8 +25165,8 @@ ent-FoodBakedMuffin = muffin
 ent-FoodBakedMuffinBanana = muffin de banana
     .desc = Um muffin de banana delicioso e esponjoso.
 
-ent-FoodBakedMuffinBerry = muffin de berries
-    .desc = Um bolinho delicioso e esponjoso, com berries.
+ent-FoodBakedMuffinBerry = muffin de bagas
+    .desc = Um bolinho delicioso e esponjoso com bagas.
 
 ent-FoodBakedMuffinBluecherry = muffin de bluecherry
     .desc = Cerejas azuis dentro de um muffin delicioso.
@@ -25266,19 +25266,19 @@ ent-FoodPieXeno = torta de xeno
 
 ent-FoodPieXenoSlice = fatia de torta de xeno
 
-ent-FoodTartCoco = tart de chocolate lava
-    .desc = Uma sobremesa tasty feita de chocolate, com um núcleo líquido.
+ent-FoodTartCoco = tarte de chocolate lava
+    .desc = Uma sobremesa deliciosa feita de chocolate, com um núcleo líquido.
 
-ent-FoodTartGapple = tart de streusel de maçã dourada
-    .desc = Uma sobremesa tasty que não vai passar por um detector de metal.
+ent-FoodTartGapple = tarte de streusel de maçã dourada
+    .desc = Uma sobremesa deliciosa que não vai passar por um detector de metal.
 
-ent-FoodTartGrape = tart de uva
-    .desc = Uma sobremesa tasty que lembra você do vinho que você não fez.
+ent-FoodTartGrape = tarte de uva
+    .desc = Uma sobremesa deliciosa que lembra você do vinho que você não fez.
 
-ent-FoodTartMime = tart de mímico
+ent-FoodTartMime = tarte de mímico
     .desc = "      "
 
-ent-FoodTartMimeSlice = fatia de tart de mímico
+ent-FoodTartMimeSlice = fatia de tarte de mímico
 
 # From: Entities/Objects/Consumable/Food/Baked/pizza.yml
 
@@ -25294,10 +25294,10 @@ ent-FoodPizzaCotton = pizza de algodão
 ent-FoodPizzaCottonSlice = fatia de pizza de algodão
     .desc = Uma fatia de pizza de algodão. Algodão incluído.
 
-ent-FoodPizzaDank = pizza dank
+ent-FoodPizzaDank = pizza da boa
     .desc = A pizza de escolha do hippie.
 
-ent-FoodPizzaDankSlice = fatia de pizza dank
+ent-FoodPizzaDankSlice = fatia de pizza da boa
     .desc = Tão bom, cara...
 
 ent-FoodPizzaDonkpocket = pizza de donk-pocket
@@ -25371,10 +25371,10 @@ ent-FoodBurgerBacon = hambúrguer de bacon
 ent-FoodBurgerBaseball = hambúrguer de beisebol
     .desc = Ainda está quente. O vapor saindo dele cheira meio sweaty.
 
-ent-FoodBurgerBear = bearger
-    .desc = Melhor servido rawr.
+ent-FoodBurgerBear = hambúrguer de urso
+    .desc = Carne um pouco dura, mas ainda suculenta.
 
-ent-FoodBurgerBig = big bite burger
+ent-FoodBurgerBig = hambúrguer mordida grande
     .desc = Esqueça o Big Mac. ISSO é o futuro!
 
 ent-FoodBurgerBrain = hambúrguer de cérebro
@@ -25443,13 +25443,13 @@ ent-FoodBurgerRat = hambúrguer de rato
 ent-FoodBurgerRobot = roburguer
     .desc = O alface é o único componente orgânico. Beep.
 
-ent-FoodBurgerSoy = hambúrguer de soylent
-    .desc = Depois de comer isso você tem o impulso avassalador de comprar figurinhos overpriced de super-heróis.
+ent-FoodBurgerSoy = hambúrguer de soja
+    .desc = Depois de comer isso você tem o impulso avassalador de comprar figurinhas caras de super-heróis.
 
 ent-FoodBurgerSpell = hambúrguer de feitiço
     .desc = Isso é absolutamente Ei Nath.
 
-ent-FoodBurgerSuper = super bite burger
+ent-FoodBurgerSuper = hambúrguer super mordida
     .desc = Isso é uma montanha de hambúrguer. COMIDA!
 
 ent-FoodBurgerTofu = hambúrguer de tofu
@@ -25873,8 +25873,8 @@ ent-ReagentContainerSugarSmall = pacote de açúcar
 
 # From: Entities/Objects/Consumable/Food/meals.yml
 
-ent-DisgustingSweptSoup = miso cola salgado doce
-    .desc = Cristo santo.
+ent-DisgustingSweptSoup = sopa agridoce de miso com cola
+    .desc = Santo Cristo.
 
 # Abstract entity (referenceable by children)
 
@@ -25905,14 +25905,14 @@ ent-FoodMealEnchiladas = enchiladas
 ent-FoodMealFriedegg = ovo frito
     .desc = Um ovo frito, com um toque de sal e pimenta.
 
-ent-FoodMealFries = batatas espaciais
+ent-FoodMealFries = fritas espaciais
     .desc = Aka, Batatas Fritas, Batatas da Liberdade, etc.
 
-ent-FoodMealFriesCarrot = batatas de cenoura
-    .desc = Batatas tasty de cenouras frescas.
+ent-FoodMealFriesCarrot = cenoura frita
+    .desc = Gostosas cenouras frescas fritas.
 
-ent-FoodMealFriesCheesy = batatas com queijo
-    .desc = Batatas. Cobertas de queijo. Duh.
+ent-FoodMealFriesCheesy = fritas com queijo
+    .desc = Batatas fritas. Cobertas de queijo. Duh.
 
 ent-FoodMealMemoryleek = memory leek
     .desc = Isso deve refrescar sua memória.
@@ -26538,8 +26538,8 @@ ent-FoodJellyDuff = liberdade espacial duff
 ent-FoodOatmeal = mingau de aveia
     .desc = Uma tigela boa de mingau de aveia.
 
-ent-FoodPlainGrits = grits com manteiga
-    .desc = Uma tigela saborosa de grits, coberta com uma pat de manteiga.
+ent-FoodPlainGrits = grits amanteigados
+    .desc = Uma tigela saborosa de grits - uma espécie de papa de milho - coberta com um pequeno pedaço de manteiga.
 
 ent-FoodRiceBoiled = arroz cozido
     .desc = Uma tigela quente de arroz.

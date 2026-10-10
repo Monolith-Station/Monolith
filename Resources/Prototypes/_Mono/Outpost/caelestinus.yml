@@ -20,7 +20,7 @@
       - type: VesselMusic
         ambientMusicPrototype: ColossusCentralMusic
       - type: VesselInfo
-        description: "The closest thing to civilization in this sector. You almost feel safe."
+        description: poi-CaelestinusCentral-desc # Andromeda: Localizar descrições de POIs
       - type: DeleteNearbyDrones
         distance: 4000
       components:

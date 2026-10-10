@@ -2766,16 +2766,16 @@ ent-FoodSausageRaw = linguiça crua
 ent-ReagentContainerChocolate = cocoa powder bag
     .desc = Um saco grande de cacau em pó. Bom para cozinhar!
 
-ent-ReagentContainerHoney = honey bottle
-    .desc = Um squeeze bottle grande de mel. Ótimo para adoçar seu dia!
+ent-ReagentContainerHoney = garrafa de mel
+    .desc = Uma grande garrafa de apertar de mel. Ótimo para adoçar seu dia!
 
-ent-ReagentContainerPepper = pepper container
+ent-ReagentContainerPepper = recipiente de pimenta
     .desc = Um recipiente grande de pimenta. Bom para cozinhar!
 
-ent-ReagentContainerRaisin = raisin bag
+ent-ReagentContainerRaisin = saco de passas
     .desc = Um saco grande de passas. Bom para assar!
 
-ent-ReagentContainerSalt = salt container
+ent-ReagentContainerSalt = recipiente de sal
     .desc = Um recipiente grande de sal. Bom para cozinhar!
 
 # From: _NF/Entities/Objects/Consumable/Food/meals.yml
@@ -2786,20 +2786,20 @@ ent-FoodBreadAvocadoToast = torrada de abacate
 ent-FoodMealBasicNoodles = macarrão básico
     .desc = Uma tigela de ramen simples com macarrão e caldo. Hum!
 
-ent-FoodMealBreakfastBagel = breakfast bagel
+ent-FoodMealBreakfastBagel = bagel de café da manhã
     .desc = Para quando seu sanduíche de ovo matinal precisa de um toque de verde e o quádruplo do preço pedido.
 
-ent-FoodMealBreakfastBagelPoppy = poppyseed breakfast bagel
+ent-FoodMealBreakfastBagelPoppy = bagel de café da manhã de semente de papoula
     .desc = O café da manhã dos mineradores. Dê uma mordida a cada vez que você levar um soco na cara.
 
 ent-FoodMealCucumberSandwich = sanduíche de pepino
     .desc = Eles esqueceram de cortar as cascas NOVAMENTE.
 
-ent-FoodMealDragonOmelette = dragon omelette
+ent-FoodMealDragonOmelette = omelete de dragão
     .desc = A mãe de todas as omeletes.
 
-ent-FoodMealHotdog = hotdog
-    .desc = Hot diggity dog!
+ent-FoodMealHotdog = cachorro quente
+    .desc = Cachorrão quente - mas sem batata palha, purê de batata, ervilha, azeitona, ovo de codorna, milho, queijo, e outros adicionais.
 
 ent-FoodMealMisoNoodles = macarrão miso
     .desc = Caldo de miso, ou pasta de feijão fermentado, com cebolinha e ovo. Robusto!

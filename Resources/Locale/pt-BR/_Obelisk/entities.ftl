@@ -11,29 +11,29 @@ ent-ActionHydrakinCoolOff = Esfriar
 
 # From: _Obelisk/Body/Parts/hydrakin.yml
 
-ent-HeadHydrakin = cabeça de hidraquin
+ent-HeadHydrakin = cabeça de hydrakin
 
-ent-LeftArmHydrakin = braço esquerdo de hidraquin
+ent-LeftArmHydrakin = braço esquerdo de hydrakin
 
-ent-LeftFootHydrakin = pé esquerdo de hidraquin
+ent-LeftFootHydrakin = pé esquerdo de hydrakin
 
-ent-LeftHandHydrakin = mão esquerda de hidraquin
+ent-LeftHandHydrakin = mão esquerda de hydrakin
 
-ent-LeftLegHydrakin = perna esquerda de hidraquin
+ent-LeftLegHydrakin = perna esquerda de hydrakin
 
 # Abstract entity (referenceable by children)
 
-ent-PartHydrakin = parte do corpo de hidraquin
+ent-PartHydrakin = parte do corpo de hydrakin
 
-ent-RightArmHydrakin = braço direito de hidraquin
+ent-RightArmHydrakin = braço direito de hydrakin
 
-ent-RightFootHydrakin = pé direito de hidraquin
+ent-RightFootHydrakin = pé direito de hydrakin
 
-ent-RightHandHydrakin = mão direita de hidraquin
+ent-RightHandHydrakin = mão direita de hydrakin
 
-ent-RightLegHydrakin = perna direita de hidraquin
+ent-RightLegHydrakin = perna direita de hydrakin
 
-ent-TorsoHydrakin = torso de hidraquin
+ent-TorsoHydrakin = torso de hydrakin
 
 # From: _Obelisk/Entities/Mobs/Player/hydrakin.yml
 

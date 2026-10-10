@@ -88,3 +88,9 @@ trait-nanite-repair-drones-desc = Seu chassi tem Drones de Reparo de Nanites per
 
 trait-hardened-lymphocytes-name = Linfócitos Endurecidos
 trait-hardened-lymphocytes-desc = Sua medula foi tratada com células-tronco endurecidas por melanócitos que reduzem dano da exposição à radiação. Efetivo até 1 rad; adequado para operações leves de salvagem e mineração.
+
+trait-helmsmanship-name = Pilotagem
+trait-helmsmanship-desc = Motores e estabilizadores zumbem em harmonia com você no voltante. Naves sobre seu controle viram e aceleram 10% mais rápido.
+
+trait-heretic-name = Herége
+trait-heretic-desc = Você ofendeu a Dinastia Phaethon, ou pelo menos o Sultanato acha que é esse o caso. Você tem (50% de) chance de ser marcado para morte pelo Sultanato, e caçado pela PDV caso isso aconteça.

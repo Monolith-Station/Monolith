@@ -1,8 +1,8 @@
 - type: vessel
   id: Lightning
   parent: BaseVessel
-  name: CASC Lightning
-  description: A fast-moving fast-strafing support craft. Armred with 4 TOVEKs and 2 chainguns. Really more of a heavy fighter than a proper ship.
+  name: vessel-Lightning-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Lightning-desc # Andromeda: Localizar nome e descrição de nave
   price: 71000
   category: Small
   group: Sr

@@ -1,8 +1,8 @@
 - type: vessel
   id: Hornet
   parent: BaseVessel
-  name: CASC Hornet
-  description: Short-ranged patrol corvette with limited capabilities. Outfitted with both non-lethal TARNYXs, and lethal missile racks plus plasma cannons.
+  name: vessel-Hornet-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Hornet-desc # Andromeda: Localizar nome e descrição de nave
   price: 120000
   category: Medium
   group: Sr

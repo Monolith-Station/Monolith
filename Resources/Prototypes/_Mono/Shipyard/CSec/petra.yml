@@ -1,8 +1,8 @@
 - type: vessel
   id: Petra
   parent: BaseVessel
-  name: CASC Petra
-  description: Petra-class corvettes are bulky area-defense corvettes and carry heavy main battery armaments, but have poor manuvering and 0 missile defense except for a shield. Long-range usage without an escort is not recommended; they are built purely for standing up to larger ships until support can arrive.
+  name: vessel-Petra-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Petra-desc # Andromeda: Localizar nome e descrição de nave
   price: 212000
   purchasable: false # T1 - voucher only
   category: Medium

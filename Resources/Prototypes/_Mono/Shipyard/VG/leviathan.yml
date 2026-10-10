@@ -6,8 +6,8 @@
 - type: vessel
   id: Leviathan
   parent: BaseVessel
-  name: VG Leviathan
-  description: The Viper group's capital-sized brawler with thick armor. Made by the GS from an old cargo freighter.
+  name: vessel-Leviathan-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Leviathan-desc # Andromeda: Localizar nome e descrição de nave
   limit: 1
   price: 540000
   purchasable: false # Voucher only

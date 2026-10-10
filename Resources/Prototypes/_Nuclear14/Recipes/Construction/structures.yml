@@ -1,11 +1,11 @@
 - type: construction
-  name: log wall
+  name: construction-N14WoodWallLog-name # Andromeda - Localiza nome e descrição de construções
   id: N14WoodWallLog
   graph: N14WoodWall
   startNode: start
   targetNode: logWall
   category: construction-category-structures
-  description: Home from home.
+  description: construction-N14WoodWallLog-desc # Andromeda - Localiza nome e descrição de construções
   icon:
     sprite: _Nuclear14/Structures/Walls/nc14/woodlog.rsi
     state: full
@@ -19,13 +19,13 @@
 
 # # Doors
 - type: construction
-  name: wooden door
+  name: construction-N14DoorWood-name # Andromeda - Localiza nome e descrição de construções
   id: N14DoorWood
   graph: N14DoorGraph
   startNode: start
   targetNode: woodDoorMakeshift
   category: construction-category-structures
-  description: A primitive door with manual operation like the cavemen used.
+  description: construction-N14DoorWood-desc # Andromeda - Localiza nome e descrição de construções
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false

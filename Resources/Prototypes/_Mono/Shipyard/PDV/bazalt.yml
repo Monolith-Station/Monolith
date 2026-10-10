@@ -1,8 +1,8 @@
 - type: vessel
   id: Bazalt
   parent: BaseVesselIFFDisabled
-  name: PDV Bazalt
-  description: Light attack craft equipped with a 25x170mm chaingun and a TOVEK missile launcher. Not very durable at all, and doesn't have any basic ammenities like a FTL drive.
+  name: vessel-Bazalt-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Bazalt-desc # Andromeda: Localizar nome e descrição de nave
   price: 29500
   category: Small
   group: BlackMarket

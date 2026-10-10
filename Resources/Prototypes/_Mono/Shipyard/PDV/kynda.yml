@@ -1,8 +1,8 @@
 - type: vessel
   id: Kynda
   parent: BaseVesselIFFDisabled
-  name: PDV Kynda
-  description: Kyndas are equipped with 2 heavy torpedo racks and 4 AK570 racks, but lack any way to reload torpedos from the inside, requiring a EVA to do so and limiting the possible time-on-target.
+  name: vessel-Kynda-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Kynda-desc # Andromeda: Localizar nome e descrição de nave
   price: 95000
   category: Small
   group: BlackMarket

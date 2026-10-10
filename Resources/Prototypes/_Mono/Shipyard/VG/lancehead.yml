@@ -7,8 +7,8 @@
 - type: vessel
   id: Lancehead
   parent: BaseVessel
-  name: VG Lancehead
-  description: A heavy duty artillery platform outsourced to GS. Comes with equipped with a "Charon" class railgun.
+  name: vessel-Lancehead-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Lancehead-desc # Andromeda: Localizar nome e descrição de nave
   limit: 1
   price: 220000
   purchasable: false # Voucher only

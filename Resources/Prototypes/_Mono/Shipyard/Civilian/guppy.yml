@@ -7,8 +7,8 @@
 - type: vessel
   id: Guppy
   parent: BaseVessel
-  name: SHM Guppy
-  description: A small mining vessel straight from the outer Perseus arm. Reliable, rugged, but rudimentary, the Guppy is a prime vessel for a novice contractor.
+  name: vessel-Guppy-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Guppy-desc # Andromeda: Localizar nome e descrição de nave
   price: 22000
   category: Small
   group: Shipyard

@@ -1,8 +1,8 @@
 - type: vessel
   id: Pelican
   parent: BaseVessel
-  name: SKR Pelican
-  description: A long-range expeditionary brick of a ship with a wide variety of capabilities such as salvage, mining, cargo, science, chemistry, and medical duties. Has very poor defensive armaments compared to other ships of the size and cost though.
+  name: vessel-Pelican-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Pelican-desc # Andromeda: Localizar nome e descrição de nave
   price: 282000 # Giant markup for the capabilities.
   category: Large
   group: Expedition

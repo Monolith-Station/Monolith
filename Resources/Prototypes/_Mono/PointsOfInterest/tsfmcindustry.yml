@@ -8,7 +8,7 @@
 - type: pointOfInterest
   id: TSFMCIndustry
   parent: [BasePOI, BaseRepairablePOI]
-  name: 'TSF-CIV "Stellar Blessing"'
+  name: poi-TSFMCIndustry-name
   minimumDistance: 1 # Mono
   maximumDistance: 200 # Mono
   posX: 3500

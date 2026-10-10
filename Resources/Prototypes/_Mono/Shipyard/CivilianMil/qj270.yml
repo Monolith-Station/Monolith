@@ -3,8 +3,8 @@
 - type: vessel
   id: QJ270
   parent: BaseVessel
-  name: GS QJ-270/B
-  description: A fast shuttle protected by a shield generator along with an advanced radar system. Comes with a Prometheus laser cannon and an AC-35 chaingun. After being mothballed by the TSF, GS purchased the designs and tweaked it into more of a scouting role. Stealth was clearly an afterthought to speed and armor.
+  name: vessel-QJ270-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-QJ270-desc # Andromeda: Localizar nome e descrição de nave
   price: 78000
   category: Small
   shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj270.yml

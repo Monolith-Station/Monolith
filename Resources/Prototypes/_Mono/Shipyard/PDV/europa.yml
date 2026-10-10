@@ -1,8 +1,8 @@
 - type: vessel
   id: Europa
   parent: BaseVesselIFFDisabled
-  name: PD-VI Europa
-  description: A bulky frigate for long-range patrols equipped with 2-meter-thick reinforced plastitanium armor belts and 4 Longbow 85x680mm autocannons, but lacking in point defense outside of flare launchers and 4 empty hardpoints.
+  name: vessel-Europa-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Europa-desc # Andromeda: Localizar nome e descrição de nave
   limit: 2
   hyperwarLimit: 3
   hyperwarTimelock: 3600
