@@ -128,6 +128,9 @@ public sealed partial class RadioSystem : EntitySystem
             return;
         // Einstein Engines - Language end
 
+        var prefix = _language.GetLanguageFromPrefix(messageSource, ref message, out var parsed, true); // Starlight: Language prefixes
+        language = parsed && _language.CanSpeak(messageSource, prefix) ? prefix : language;
+
         // TODO if radios ever garble / modify messages, feedback-prevention needs to be handled better than this.
         if (!_messages.Add(message))
             return;
