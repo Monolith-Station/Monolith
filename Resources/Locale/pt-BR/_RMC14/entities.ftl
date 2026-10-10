@@ -273,3 +273,8 @@ ent-CMSemioticZero = placa semitica zero
 ent-CMSemioticZero_g = placa semitica de gravidade artificial ausente
     .desc = Padro Semitico indicando a ausncia prxima de gravidade artificial.
 
+
+# ===== Generated missing entity keys (untranslated) - 2026-10-09 =====
+
+ent-RMCContainerBase = contêiner de carga
+    .desc = Um contêiner industrial enorme de carga.

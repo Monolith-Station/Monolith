@@ -261,3 +261,9 @@ ent-TurbineSmall = turbina a gás pequena
 
 ent-TurbineBladeShrapnel = pá de turbina
 
+
+# ===== Generated missing entity keys (untranslated) - 2026-10-09 =====
+
+ent-PlanetEntity = Planeta
+
+ent-StarEntity = Estrela

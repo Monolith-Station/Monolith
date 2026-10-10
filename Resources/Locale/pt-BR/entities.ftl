@@ -6039,9 +6039,6 @@ ent-EmagUnlimited = sequenciador criptográfico
 
 # From: Entities/Objects/Tools/flare.yml
 
-ent-Flare = sinalizador de emergência
-    .desc = Um sinalizador que produz uma luz muito brilhante por um curto período de tempo. Aponte a chama para longe de você.
-
 # From: Entities/Objects/Tools/flashlights.yml
 
 ent-EmptyFlashlightLantern = {ent-FlashlightLantern}
@@ -7052,9 +7049,6 @@ ent-WeaponRifleAk = LWC AKM (7.62x39mm)
 ent-WeaponRifleFoam = Espuma Força Astro Ás
     .desc = Um rifle de espuma premium da mais alta qualidade. Seu plástico parece robusto, e seus mecanismos robustos.
 
-ent-WeaponRifleLecter = TCA QBZ-410 Lecter (6.8x52mm Sem Estojo)
-    .desc = O resultado de um projeto para fazer um novo rifle padrão para os ramos do militar da TSF. Preciso, fácil de usar, e disparando o projétil 6.8x52mm STANAG. Também aceita carregadores 5.56x45mm para auxiliar na padronização. O cano é rosqueado para silenciadores, e um trilho Erebus está na parte inferior para empunhaduras.
-
 # From: Entities/Objects/Weapons/Guns/Shotguns/shotguns.yml
 # Abstract entity (referenceable by children)
 
@@ -7108,15 +7102,6 @@ ent-WeaponShotgunSawnEmpty = escopeta serrada (calibre 12)
 ent-BaseWeaponSubMachineGun = BaseSMG
     .desc = Uma arma de apontar e atirar.
 
-ent-WeaponSubMachineGunAtreides = MA PDW-58 Atreides (5.7x28mm)
-    .desc = SMG simplificada da Midnight Arms Co. comumente usada entre revoltas e criminosos. Usa munição 5.7x28mm.
-
-ent-WeaponSubMachineGunC20r = CS C-20r submetralhadora (9x19mm)
-    .desc = Uma SMG da Era Corporativa, outrora usada por Operativos Nucleares, agora encontra uso entre a Dinastia Phaethon. Usa munição 9x19mm.
-
-ent-WeaponSubMachineGunDrozd = TCA CS/LR-8 Drozd (.45 ACP)
-    .desc = Uma SMG que outrora encontrou uso entre forças de segurança da NT, agora se encontrou como uma das armas mais confiáveis de abordagem e anti-abordagem no mercado. Usa munição .45 ACP. O cano é rosqueado para silenciadores, e um trilho Erebus está na parte inferior para empunhaduras.
-
 ent-WeaponSubMachineGunWt550 = UI WT550 (4.6x30mm)
     .desc = Uma SMG excelente, produzida por uma Empresa de Armas do Mercado Negro conhecida como Ullman Industries. Usa munição 4.6x30mm. No receptor há uma etiqueta que diz 'para uso autorizado apenas'.
 
@@ -7131,12 +7116,6 @@ ent-Musket = mosquete
 
 ent-WeaponPistolFlintlock = pistola de pederneira
     .desc = Um companheiro de piratas. Arrr! Usa munição 145x114mm. Uma arma ilegal muitas vezes usada por piratas.
-
-ent-WeaponSniperHristov = SKR-WS M96 Hristov (14.5x114mm)
-    .desc = Um rifle antimaterial portátil. Dispara projéteis de 14.5mm de alta velocidade. Usa munição 145x114mm.
-
-ent-WeaponSniperMosin = NCI Kardashev-Mosin (7.62x54mmR)
-    .desc = Uma arma para caça, ou guerra de trincheiras sem fim. Usa munição 762x54mmR. Equipada com baioneta.
 
 # From: Entities/Objects/Weapons/Guns/Turrets/turrets_ballistic.yml
 
@@ -8859,20 +8838,20 @@ ent-BlastDoorWindowsOpen = {ent-BlastDoor}
 
 # From: Entities/Structures/Doors/Shutter/blast_door.yml
 
-ent-BlastDoor = porta à prova de explosões
+ent-BlastDoor = porta blindada
     .desc = Ela diz 'BLAST DONGER'.
 
-ent-BlastDoorFrame = moldura de porta à prova de explosões
+ent-BlastDoorFrame = moldura de porta blindada
     .desc = Ela diz 'BLAST DONGER'.
 
 ent-BlastDoorOpen = {ent-BlastDoor}
     .desc = {ent-BlastDoor.desc}
     .suffix = Aberto
 
-ent-BlastDoorXeno = porta à prova de explosões xeno
+ent-BlastDoorXeno = porta blindada xeno
     .desc = Não perca um braço!
 
-ent-BlastDoorXenoFrame = moldura de porta à prova de explosões xeno
+ent-BlastDoorXenoFrame = moldura de porta blindada xeno
     .desc = Ela diz 'BLAST DONGER'.
 
 ent-BlastDoorXenoOpen = {ent-BlastDoorXeno}
@@ -29352,3 +29331,150 @@ ent-BeachBall = bola de praia
 
 ent-ClownRecorder = gravador de palhaço
     .desc = Quando você simplesmente não consegue fazer aquelas risadas do jeito natural!
+
+# ===== Generated missing entity keys (untranslated) - 2026-10-09 =====
+
+ent-ActionToggleNightVision = Alternar visão noturna
+    .desc = Liga e desliga a visão noturna.
+
+ent-LeftAnimalFeet = pés esquerdos de animal
+
+ent-LeftLegsAnimal = pernas esquerdas de animal
+
+ent-RightAnimalFeet = pés direitos de animal
+
+ent-RightLegsAnimal = pernas direitas de animal
+
+ent-BoxMagazine357_magnumFMJ = caixa de carregadores .357 magnum
+    .desc = Uma caixa cheia de carregadores .357 magnum.
+
+ent-BoxMagazine57x28mmSubMachineGunFMJ = caixa de pentes SMG 5.7x28mm
+    .desc = Uma caixa cheia de pentes SMG 5.7x28mm.
+
+ent-BoxMagazine762x39mmSubsonic = box of 7.62x39mm (subsonic) magazines
+    .desc = A box full of 7.62x39mm (subsonic) magazines.
+
+ent-SpawnMobMoproach = Moproach Spawner
+
+ent-MothershipCircuitBoard = placa de lei (Núcleo da Nave Mãe)
+    .desc = Uma placa eletrônica contendo o set de leis de Núcleo de Nave Mãe.
+
+ent-PlayerStationXenoborgAiEmpty = Núcleo de IA
+    .suffix = Vazio
+    .desc = Inteligência Artificial de ponta.
+
+ent-XenoborgCircuitBoard = placa de lei (Xenoborg)
+    .desc = Uma placa eletrônica contendo o set de leis Xenoborg.
+
+ent-MieyoCommsComputerCircuitboard = placa de computador de comunicação mieyo
+    .desc = Uma placa de circuito de computador impressa para um console MMC.
+
+ent-XenoborgCameraMonitorCircuitboard = placa de monitorador de câmeras xenoborg
+    .desc = Uma placa de circuito de computador impressa para um monitorador de câmeras xenoborg.
+
+ent-SurveillanceCameraWirelessRouterXenoborgCircuitboard = roteador wireless de câmeras xenoborg
+    .desc = Uma placa de circuito de computador impressa para um roteador wireless de câmeras xenoborg.
+
+ent-ThermobathMachineCircuitboard = placa de máquina thermobath
+    .desc = Uma placa de circuito de máquina impressa para um thermobath.
+
+ent-DoorRemoteXenoborg = controle de portas xenoborg
+
+ent-PinpointerMothership = pinpointer do núcleo da nave mãe
+    .desc = Um dispositivo portátil de rastreamento que aponta para a direção do núcleo da Nave Mãe.
+
+ent-PinpointerMothershipPiece = pedaço de pinpointer do núcleo da nave mãe
+    .desc = Um pedaço de pinpointer do núcleo da nave mãe. Você precisa de quatro pedaços para consertar ele.
+
+ent-PinpointerMothershipRepaired = pinpointer do núcleo da nave mãe consertado
+    .desc = Um dispositivo portátil de rastreamento que aponta para a direção do núcleo da Nave Mãe. Esse já viu dias melhores.
+
+ent-MothershipIDCard = cartão de ID da Nave Mãe
+
+ent-XenoborgIDCard = cartão de ID Xenoborg
+
+ent-FloorTileItemXenoborg = chão xenoborg
+
+ent-MothroachMustardCube = cubo de mustard mothroach
+
+ent-OwOroachCube = cubo de OwOroach
+
+ent-CloakingDevice = dispositivo de camuflagem
+    .desc = Um dispositivo que permite Xenoborgs a ficarem invisíveis.
+
+ent-SuperCloakingDevice = dispositivo de super camuflagem
+    .desc = Um dispositivo que permite Xenoborgs a ficarem verdadeiramente invisíveis.
+
+ent-NocturineHypo = hypo de nocturina
+    .desc = Um injetor auto recarregável para adminstração rápida de nocturina em vítimas.
+
+ent-AccessConfiguratorXenoborg = configurador de acesso xenoborg
+    .desc = Um configurador de acesso modificado usado pelos xenoborgs.
+
+ent-XenoborgRadioJammer = bloqueador de rádio xenoborg
+
+ent-WeaponLaserCannonXenoborg = canhão laser xenoborg
+
+ent-WeaponLaserGunXenoborg = arma laser xenoborg
+
+ent-AirlockXenoborg = airlock mechadermis
+
+ent-AirlockShuttleXenoborg = airlock externa mechadermis
+
+ent-BlastDoorXenoborg = porta blindada xenoborg
+    .desc = Não perca a cabeça!
+
+ent-ChairBlack = cadeira
+    .suffix = Preta
+
+ent-TableBlack = mesa
+    .desc = Um pedaço quadrado de metal em cima de quatro pernas de metal.
+
+ent-TableReinforcedBlack = mesa reforçada
+    .desc = Um pedaço quadrado de metal em cima de quatro pernas de metal. Extra Robusto.
+
+ent-TableReinforcedGlassBlack = mesa de vidro reforçado
+    .desc = Um pedaço quadrado de vidro em cima de quatro pernas de metal. Extra Robusto.
+
+ent-MachineArtifactCrusherXenoborg = esmagador de corpos
+    .desc = Cuidado pra não prender a cabeça!
+
+ent-MachineThermobath = thermobath
+    .desc = Uma banheira de óleo com controle preciso capaz de esquentar e esfriar béqueres.
+
+ent-SurveillanceCameraWirelessRouterXenoborg = roteador de câmeras wireless xenoborg
+
+ent-BorgChargerXenoborg = estação de recarga xenoborg
+    .desc = Um carregador estacionário para xenoborgs. Levemente claustrofóbico.
+
+ent-RackBlack = prateleira
+    .desc = Uma prateleira para guardar coisas.
+
+ent-Xenoborgs = câmera
+    .suffix = Xenoborgs
+
+ent-WeaponEnergyTurretAIControlPanel = painel de controle de sentinelas IA
+    .desc = Uma interface montada na parede que permite a inteligência artificial local a ajustar os parâmetros operacionais de sentinelas conectadas.
+
+ent-WeaponEnergyTurretControlPanelFrame = conjunto de painel de controle de sentinelas
+    .desc = Um conjunto montado na parede incompleto para um painel de controle de sentinelas.
+
+ent-WeaponEnergyTurretStationControlPanel = painel de controle de sentinelas
+    .suffix = DEPRECATED ACCESS, DO NOT MAP
+    .desc = Uma interface montada na parede para remotamente configurar os parametros operacionais de sentinelas conectadas.
+
+ent-WallRockCrocus = pedra
+    .suffix = planetmap, Crocus
+
+ent-WallConcrete = parede de concreto
+
+ent-WallConcreteIndestructible = parede de concreto
+    .suffix = indestructible
+    .desc = Skub sabe que essa parede é muito dura para destruir.
+
+ent-WallXenoborg = parede xenoborg
+
+ent-WallXenoborgDiagonal = parede xenoborg
+    .suffix = diagonal
+
+ent-XenoborgWindow = janela xenoborg

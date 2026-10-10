@@ -44,3 +44,20 @@ ent-ClothingEyesThermalVisionGogglesSyndie = {ent-ClothingEyesThermalVisionGoggl
     .desc = {ent-ClothingEyesThermalVisionGoggles.desc}
     .suffix = Camaleão
 
+
+# ===== Generated missing entity keys (untranslated) - 2026-10-09 =====
+
+ent-WWDPToggleNightVision = Alternar Visão Noturna
+    .desc = Alterna visão noturna.
+
+ent-ClothingEyesNightVisionGogglesGen1 = óculos de visão noturna (GEN1)
+    .suffix = DEBUG
+
+ent-ClothingEyesNightVisionGogglesGen2 = óculos de visão noturna (GEN2)
+    .suffix = DEBUG
+
+ent-ClothingEyesNightVisionGogglesGen3 = óculos de visão noturna (GEN3)
+    .suffix = DEBUG
+
+ent-ClothingEyesNightVisionGogglesGen4 = óculos de visão noturna (GEN4)
+    .suffix = DEBUG

@@ -3490,9 +3490,6 @@ ent-PinpointerUniversalDebug = {ent-PinpointerUniversal}
 
 # From: _NF/Entities/Objects/Devices/plant_analyzer.yml
 
-ent-PlantAnalyzer = analisador de plantas
-    .desc = Um dispositivo portátil que permite escanear sementes e plantas para obter informações detalhadas sobre seus genes.
-
 # From: _NF/Entities/Objects/Devices/production.yml
 
 ent-BlueprintLithographMachineCircuitboard = placa de máquina de litografia de diagramas
@@ -5532,9 +5529,6 @@ ent-DemagUnlimited = resequenciador criptográfico
     .desc = A solução tudo-em-um para desfazer hacking. O último bastião da ordem. O icônico DEMAG.
 
 # From: _NF/Entities/Objects/Tools/flare.yml
-
-ent-BoxDispenserFlare = dispensador de sinalizadores de emergência
-    .desc = Dispensa sinalizadores de emergência.
 
 # From: _NF/Entities/Objects/Tools/flashlights.yml
 
@@ -13356,3 +13350,50 @@ ent-SpawnMobFleshLoverExpeditions = gerador de amante de carne aberrante
 ent-SpawnMobHorrorExpeditions = gerador de horror de carne aberrante
     .desc = Gera um horror.
     .suffix = IA, Hostil
+
+# ===== Generated missing entity keys (untranslated) - 2026-10-09 =====
+
+ent-ClothingHandsGlovesColorBlackC20r = luvas de combate
+    .suffix = smg
+    .desc = Luvas de combate padrão que não te impedem de fritar.
+
+ent-ClothingHandsGlovesColorBlackLecter = luvas de combate
+    .suffix = rifle
+    .desc = Luvas de combate padrão que não te impedem de fritar.
+
+ent-CrystallizerFlatpack = flatpack de cristalizador
+    .desc = Um flatpack usado para construir um cristalizador.
+
+ent-GaslockFlatpack = flatpack de doca de gás
+    .desc = Um flatpack usado para construir uma doca de gás.
+
+ent-GasThermoMachineHeaterFlatpack = flatpack de aquecedor
+    .desc = Um flatpack usado para construir um aquecedor.
+
+ent-GasThermoMachineHellfireFreezerFlatpack = flatpack de freezer hellfire
+    .desc = Um flatpack usado para construir um freezer hellfire.
+
+ent-GasThermoMachineHellfireHeaterFlatpack = flatpack de aquecedor hellfire
+    .desc = Um flatpack usado para construir um aquecedor hellfire.
+
+ent-MachineThermobathFlatpack = flatpack de thermobath
+    .desc = Um flatpack usado para construir um thermobath.
+
+ent-MothroachMustardCubeWrapped = cubo de baraposa de mostarda.
+    .suffix = Wrapped
+    .desc = Desembrulhe isso para conseguir uma baraposa de mostarda.
+
+ent-MustardMothroachCubeBox = caixa de cubos de baraposa de mostarda.
+    .desc = Uma caixa de cubos de baraposa de mostarda.
+
+ent-RadioImplantCivilian = implante de rádio civíl
+    .desc = Esse implante concede acesso ao canal Civíl sem um headset.
+
+ent-RadioImplantTsf = implante de rádio TSF
+    .desc = Esse implante concede acesso ao canal TSF sem um headset.
+
+ent-NFBlueprintAmmoBox357_magnumIncendiary = diagrama de munição .357 magnum incendiária
+    .desc = Um diagrama com o esquema de munição .357 magnum incendiária. Pode ser inserido em um torno ou em um techfab.
+
+ent-NFBlueprintAmmoBox357_magnumUranium = diagrama de munição .357 de urânio
+    .desc = Um diagrama com o esquema de munição .357 magnum de urânio. Pode ser inserido em um torno ou em um techfab.

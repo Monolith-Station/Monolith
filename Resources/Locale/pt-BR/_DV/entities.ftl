@@ -531,3 +531,41 @@ ent-ExtendedEmergencyWaterVaporTank = extended-capacity emergency water vapor ta
 
 ent-DoubleEmergencyWaterVaporTank = double emergency water vapor tank
     .desc = Um contêiner de suporte de vida de emergência de alta graduação com tanque duplo. Contém uma quantidade decente de vapor de água para seu tamanho pequeno. Pode conter 2,5 L de gás.
+
+# ===== Generated missing entity keys (untranslated) - 2026-10-09 =====
+
+ent-OrganFeroxiLungs = pulmão e guelras feroxianas
+    .desc = Um par de pulmões anfíbios junto de guelras, constantemente filtrando oxigênio do ar.
+
+ent-OrganFeroxiStomach = estômago ferxoiano
+
+ent-HeadFeroxi = cabeça de feroxi
+
+ent-LeftArmFeroxi = braço esquerdo de feroxi
+
+ent-LeftFootFeroxi = pé esquerdo de feroxi
+
+ent-LeftHandFeroxi = mão esquerda de feroxi
+
+ent-LeftLegFeroxi = perna esquerda de feroxi
+
+ent-PartFeroxiBase = parte de corpo de feroxi
+
+ent-RightArmFeroxi = braço direito de feroxi
+
+ent-RightFootFeroxi = pé direito de feroxi
+
+ent-RightHandFeroxi = mão direita de feroxi
+
+ent-RightLegFeroxi = perna direita de feroxi
+
+ent-TorsoFeroxi = tronco de feroxi
+
+ent-BoxTapeRecorder = caixa de gravador de fita
+    .desc = Uma caixa com fitas cassetes coloridas e um gravador de fita.
+
+ent-CassetteTape = fita cassette
+    .desc = Uma fita magnetica que consegue guardar dois minutos de conteúdo em ambos os lados.
+
+ent-TapeRecorder = gravador de fita
+    .desc = Tudo que disser nesse dispositivo pode e será usado contra você na corte de lei espacial.
