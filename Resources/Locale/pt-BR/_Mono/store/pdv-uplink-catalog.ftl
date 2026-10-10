@@ -105,7 +105,7 @@ uplink-pirate-energy-sword-name = Espada de Energia
 uplink-pirate-energy-sword-desc = Cortesia dos Saqueadores Gorlex. Faça sua marca, não deixe testemunhas.
 
 uplink-pirate-python-name = Python
-uplink-pirate-python-desc = Um revólver brutalmente simples, efetivo e barulhento. Vem carregado com balas .45 magnum.
+uplink-pirate-python-desc = Um revólver brutalmente simples, efetivo e barulhento. Vem carregado com balas .357 magnum.
 
 uplink-pirate-viper-name = Viper
 uplink-pirate-viper-desc = Uma arma pequena, facilmente ocultável, mas um pouco subpotente. Retrofittado com um receptor totalmente automático. Usa carregadores de pistola (9x19mm FMJ).
@@ -157,8 +157,8 @@ uplink-pirate-box-magazine-pistol-desc = Uma caixa cheia de 4 carregadores de pi
 uplink-pirate-box-magazine-light-rifle-name = Caixa de carregadores 7.62x39mm
 uplink-pirate-box-magazine-light-rifle-desc = Uma caixa cheia de 4 carregadores 7.62x39mm.
 
-uplink-pirate-magazine-box-45_magnum-name = Caixa de speedloaders .45 magnum
-uplink-pirate-magazine-box-45_magnum-desc = Uma caixa contendo 4 speedloaders .45 magnum.
+uplink-pirate-magazine-box-45_magnum-name = Caixa de speedloaders .357 magnum
+uplink-pirate-magazine-box-45_magnum-desc = Uma caixa contendo 4 speedloaders .357 magnum.
 
 uplink-pirate-light-rifle-magazine-box-big-name = Caixa de munição (7.62x39mm FMJ)
 uplink-pirate-light-rifle-magazine-box-big-desc = Uma caixa contendo 200 cartuchos 7.62x39mm.

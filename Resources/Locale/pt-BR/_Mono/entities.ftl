@@ -1290,7 +1290,7 @@ ent-ClothingOuterHardsuitAshen = traje rígido de combate PDV CV-32
     .desc = Um traje rígido de combate projetado pela Dinastia Phaethon. Um traje rígido mais pesada, mas ainda de propósito geral, eficaz, mas não estelar contra a maioria dos tipos de dano.
 
 ent-ClothingOuterHardsuitAshenElite = tacsuit de combate PDV CV-53
-    .desc = Originalmente baseado na traje rígido CV-32, o tacsuit CV-53 sacrifica placas de armadura convencionais por proteção ambiental e um escudo duro recarregável.
+    .desc = Originalmente baseado na traje rígido CV-32, o tacsuit CV-53 sacrifica placas de armadura convencionais por proteção ambiental e um escudo rígido recarregável.
 
 ent-ClothingOuterHardsuitPDVMedic = tacsuit de combate PDV CV-82
     .desc = Um traje rígido de combate de médico de campo projetado pela Dinastia Phaethon. A armadura apresenta várias placas reforçadas em áreas vitais.
@@ -3767,31 +3767,31 @@ ent-BaseAmmoBox45_ACP = caixa de munição (.45 ACP FMJ)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Boxes/45_magnum.yml
 
-ent-AmmoBox45_magnumAP = caixa de munição (.45 magnum extreme perfurante)
+ent-AmmoBox45_magnumAP = caixa de munição (.357 magnum extreme perfurante)
 
-ent-AmmoBox45_magnumBigFMJ = caixa grande de munição (.45 magnum FMJ)
+ent-AmmoBox45_magnumBigFMJ = caixa grande de munição (.357 magnum FMJ)
     .desc = Uma caixa de munição.
     .suffix = Grande
 
-ent-AmmoBox45_magnumFMJ = caixa de munição (.45 magnum FMJ)
+ent-AmmoBox45_magnumFMJ = caixa de munição (.357 magnum FMJ)
 
-ent-AmmoBox45_magnumHP = caixa de munição (.45 magnum ogiva oca)
+ent-AmmoBox45_magnumHP = caixa de munição (.357 magnum ogiva oca)
 
-ent-AmmoBox45_magnumIncendiary = caixa de munição (.45 magnum incendiário)
+ent-AmmoBox45_magnumIncendiary = caixa de munição (.357 magnum incendiário)
 
-ent-AmmoBox45_magnumPlasteelAP = caixa de munição (.45 magnum perfurante)
+ent-AmmoBox45_magnumPlasteelAP = caixa de munição (.357 magnum perfurante)
 
-ent-AmmoBox45_magnumPractice = caixa de munição (.45 magnum prática)
+ent-AmmoBox45_magnumPractice = caixa de munição (.357 magnum prática)
 
-ent-AmmoBox45_magnumRIP = caixa de munição (.45 magnum RIP)
+ent-AmmoBox45_magnumRIP = caixa de munição (.357 magnum RIP)
 
-ent-AmmoBox45_magnumRubber = caixa de munição (.45 magnum borracha)
+ent-AmmoBox45_magnumRubber = caixa de munição (.357 magnum borracha)
 
-ent-AmmoBox45_magnumUranium = caixa de munição (.45 magnum urânio)
+ent-AmmoBox45_magnumUranium = caixa de munição (.357 magnum urânio)
 
 # Abstract entity (referenceable by children)
 
-ent-BaseAmmoBox45_magnum = caixa de munição (.45 magnum FMJ)
+ent-BaseAmmoBox45_magnum = caixa de munição (.357 magnum FMJ)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Boxes/5.56x45mm.yml
 
@@ -4154,26 +4154,26 @@ ent-Cartridge45_ACPUranium = cartucho (.45 ACP urânio)
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Cartridges/45_magnum.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseCartridge45_magnum = cartucho (.45 magnum)
+ent-BaseCartridge45_magnum = cartucho (.357 magnum)
     .desc = Cartucho magnum pesado, geralmente visto apenas em magnums ou rifles de ação manual.
 
-ent-Cartridge45_magnumAP = cartucho (.45 magnum perfurante)
+ent-Cartridge45_magnumAP = cartucho (.357 magnum perfurante)
 
-ent-Cartridge45_magnumFMJ = cartucho (.45 magnum)
+ent-Cartridge45_magnumFMJ = cartucho (.357 magnum)
 
-ent-Cartridge45_magnumHP = cartucho (.45 magnum ogiva oca)
+ent-Cartridge45_magnumHP = cartucho (.357 magnum ogiva oca)
 
-ent-Cartridge45_magnumIncendiary = cartucho (.45 magnum incendiário)
+ent-Cartridge45_magnumIncendiary = cartucho (.357 magnum incendiário)
 
-ent-Cartridge45_magnumPlasteelAP = cartucho (.45 magnum perfurante)
+ent-Cartridge45_magnumPlasteelAP = cartucho (.357 magnum perfurante)
 
-ent-Cartridge45_magnumPractice = cartucho (.45 magnum prática)
+ent-Cartridge45_magnumPractice = cartucho (.357 magnum prática)
 
-ent-Cartridge45_magnumRIP = cartucho (.45 magnum RIP)
+ent-Cartridge45_magnumRIP = cartucho (.357 magnum RIP)
 
-ent-Cartridge45_magnumRubber = cartucho (.45 magnum borracha)
+ent-Cartridge45_magnumRubber = cartucho (.357 magnum borracha)
 
-ent-Cartridge45_magnumUranium = cartucho (.45 magnum urânio)
+ent-Cartridge45_magnumUranium = cartucho (.357 magnum urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Cartridges/5.56x45mm.yml
 # Abstract entity (referenceable by children)
@@ -4658,67 +4658,67 @@ ent-Magazine45_ACPSubMachineGunUranium = pente de SMG (.45 ACP urânio)
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Magazines/45_magnum.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseMagazine45_magnum = pente de pistola (.45 magnum FMJ)
+ent-BaseMagazine45_magnum = pente de pistola (.357 magnum FMJ)
 
 # Abstract entity (referenceable by children)
 
-ent-BaseMagazine45_magnumPistolHighCapacityFMJ = pente de pistola metralhadora (.45 magnum FMJ)
+ent-BaseMagazine45_magnumPistolHighCapacityFMJ = pente de pistola metralhadora (.357 magnum FMJ)
 
 # Abstract entity (referenceable by children)
 
-ent-BaseMagazine45_magnumSubMachineGunFMJ = pente de SMG (.45 magnum FMJ)
+ent-BaseMagazine45_magnumSubMachineGunFMJ = pente de SMG (.357 magnum FMJ)
 
-ent-Magazine45_magnumPistolAP = pente de pistola (.45 magnum perfuração extrema)
+ent-Magazine45_magnumPistolAP = pente de pistola (.357 magnum perfuração extrema)
 
-ent-Magazine45_magnumPistolEmpty = pente de pistola (.45 magnum qualquer)
+ent-Magazine45_magnumPistolEmpty = pente de pistola (.357 magnum qualquer)
     .desc = Um carregador vazio.
     .suffix = vazio
 
-ent-Magazine45_magnumPistolFMJ = pente de pistola (.45 magnum FMJ)
+ent-Magazine45_magnumPistolFMJ = pente de pistola (.357 magnum FMJ)
 
-ent-Magazine45_magnumPistolHighCapacityEmpty = pente de pistola metralhadora (.45 magnum qualquer)
+ent-Magazine45_magnumPistolHighCapacityEmpty = pente de pistola metralhadora (.357 magnum qualquer)
     .desc = Um carregador vazio.
     .suffix = vazio
 
-ent-Magazine45_magnumPistolHighCapacityFMJ = pente de pistola metralhadora (.45 magnum FMJ)
+ent-Magazine45_magnumPistolHighCapacityFMJ = pente de pistola metralhadora (.357 magnum FMJ)
 
-ent-Magazine45_magnumPistolHighCapacityPractice = pente de pistola metralhadora (.45 magnum prática)
+ent-Magazine45_magnumPistolHighCapacityPractice = pente de pistola metralhadora (.357 magnum prática)
 
-ent-Magazine45_magnumPistolHighCapacityRubber = pente de pistola metralhadora (.45 magnum borracha)
+ent-Magazine45_magnumPistolHighCapacityRubber = pente de pistola metralhadora (.357 magnum borracha)
 
-ent-Magazine45_magnumPistolHP = pente de pistola (.45 magnum ogiva oca)
+ent-Magazine45_magnumPistolHP = pente de pistola (.357 magnum ogiva oca)
 
-ent-Magazine45_magnumPistolIncendiary = pente de pistola (.45 magnum incendiário)
+ent-Magazine45_magnumPistolIncendiary = pente de pistola (.357 magnum incendiário)
 
-ent-Magazine45_magnumPistolPlasteelAP = pente de pistola (.45 magnum PP)
+ent-Magazine45_magnumPistolPlasteelAP = pente de pistola (.357 magnum PP)
 
-ent-Magazine45_magnumPistolPractice = pente de pistola (.45 magnum prática)
+ent-Magazine45_magnumPistolPractice = pente de pistola (.357 magnum prática)
 
-ent-Magazine45_magnumPistolRIP = pente de pistola (.45 magnum RIP)
+ent-Magazine45_magnumPistolRIP = pente de pistola (.357 magnum RIP)
 
-ent-Magazine45_magnumPistolRubber = pente de pistola (.45 magnum borracha)
+ent-Magazine45_magnumPistolRubber = pente de pistola (.357 magnum borracha)
 
-ent-Magazine45_magnumPistolUranium = pente de pistola (.45 magnum urânio)
+ent-Magazine45_magnumPistolUranium = pente de pistola (.357 magnum urânio)
 
-ent-Magazine45_magnumSubMachineGunEmpty = pente de SMG (.45 magnum qualquer)
+ent-Magazine45_magnumSubMachineGunEmpty = pente de SMG (.357 magnum qualquer)
     .desc = Um carregador vazio.
     .suffix = vazio
 
-ent-Magazine45_magnumSubMachineGunFMJ = pente de SMG (.45 magnum FMJ)
+ent-Magazine45_magnumSubMachineGunFMJ = pente de SMG (.357 magnum FMJ)
 
-ent-Magazine45_magnumSubMachineGunHP = pente de SMG (.45 magnum ogiva oca)
+ent-Magazine45_magnumSubMachineGunHP = pente de SMG (.357 magnum ogiva oca)
 
-ent-Magazine45_magnumSubMachineGunIncendiary = pente de SMG (.45 magnum incendiário)
+ent-Magazine45_magnumSubMachineGunIncendiary = pente de SMG (.357 magnum incendiário)
 
-ent-Magazine45_magnumSubMachineGunPlasteelAP = pente de SMG (.45 magnum PP)
+ent-Magazine45_magnumSubMachineGunPlasteelAP = pente de SMG (.357 magnum PP)
 
-ent-Magazine45_magnumSubMachineGunPractice = pente de SMG (.45 magnum prática)
+ent-Magazine45_magnumSubMachineGunPractice = pente de SMG (.357 magnum prática)
 
-ent-Magazine45_magnumSubMachineGunRIP = pente de SMG (.45 magnum RIP)
+ent-Magazine45_magnumSubMachineGunRIP = pente de SMG (.357 magnum RIP)
 
-ent-Magazine45_magnumSubMachineGunRubber = pente de SMG (.45 magnum borracha)
+ent-Magazine45_magnumSubMachineGunRubber = pente de SMG (.357 magnum borracha)
 
-ent-Magazine45_magnumSubMachineGunUranium = pente de SMG (.45 magnum urânio)
+ent-Magazine45_magnumSubMachineGunUranium = pente de SMG (.357 magnum urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Magazines/5.56x45mm.yml
 # Abstract entity (referenceable by children)
@@ -5244,23 +5244,23 @@ ent-Bullet45_ACPUranium = projétil (.45 ACP urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/45_magnum.yml
 
-ent-Bullet45_magnumAP = projétil (.45 magnum perfurante)
+ent-Bullet45_magnumAP = projétil (.357 magnum perfurante)
 
-ent-Bullet45_magnumFMJ = projétil (.45 magnum)
+ent-Bullet45_magnumFMJ = projétil (.357 magnum)
 
-ent-Bullet45_magnumHP = projétil (.45 magnum ponta oca)
+ent-Bullet45_magnumHP = projétil (.357 magnum ponta oca)
 
-ent-Bullet45_magnumIncendiary = projétil (.45 magnum incendiário)
+ent-Bullet45_magnumIncendiary = projétil (.357 magnum incendiário)
 
-ent-Bullet45_magnumPlasteelAP = projétil (.45 magnum PP)
+ent-Bullet45_magnumPlasteelAP = projétil (.357 magnum PP)
 
-ent-Bullet45_magnumPractice = projétil (.45 magnum prática)
+ent-Bullet45_magnumPractice = projétil (.357 magnum prática)
 
-ent-Bullet45_magnumRIP = projétil (.45 magnum RIP)
+ent-Bullet45_magnumRIP = projétil (.357 magnum RIP)
 
-ent-Bullet45_magnumRubber = projétil (.45 magnum borracha)
+ent-Bullet45_magnumRubber = projétil (.357 magnum borracha)
 
-ent-Bullet45_magnumUranium = projétil (.45 magnum urânio)
+ent-Bullet45_magnumUranium = projétil (.357 magnum urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/5.56x45mm.yml
 
@@ -5452,27 +5452,27 @@ ent-HandheldAutopulserProjectile = projétil de plasma
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/SpeedLoaders/45_magnum.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseSpeedLoader45_magnum = carregador rápido (.45 magnum)
+ent-BaseSpeedLoader45_magnum = carregador rápido (.357 magnum)
 
-ent-SpeedLoader45_magnumAP = carregador rápido (.45 magnum perfuração extrema de blindagem)
+ent-SpeedLoader45_magnumAP = carregador rápido (.357 magnum perfuração extrema de blindagem)
 
-ent-SpeedLoader45_magnumEmpty = carregador rápido (.45 magnum qualquer)
+ent-SpeedLoader45_magnumEmpty = carregador rápido (.357 magnum qualquer)
 
-ent-SpeedLoader45_magnumFMJ = carregador rápido (.45 magnum FMJ)
+ent-SpeedLoader45_magnumFMJ = carregador rápido (.357 magnum FMJ)
 
-ent-SpeedLoader45_magnumHP = carregador rápido (.45 magnum ponta oca)
+ent-SpeedLoader45_magnumHP = carregador rápido (.357 magnum ponta oca)
 
-ent-SpeedLoader45_magnumIncendiary = carregador rápido (.45 magnum incendiário)
+ent-SpeedLoader45_magnumIncendiary = carregador rápido (.357 magnum incendiário)
 
-ent-SpeedLoader45_magnumPlasteelAP = carregador rápido (.45 magnum PP)
+ent-SpeedLoader45_magnumPlasteelAP = carregador rápido (.357 magnum PP)
 
-ent-SpeedLoader45_magnumPractice = carregador rápido (.45 magnum prática)
+ent-SpeedLoader45_magnumPractice = carregador rápido (.357 magnum prática)
 
-ent-SpeedLoader45_magnumRIP = carregador rápido (.45 magnum RIP)
+ent-SpeedLoader45_magnumRIP = carregador rápido (.357 magnum RIP)
 
-ent-SpeedLoader45_magnumRubber = carregador rápido (.45 magnum borracha)
+ent-SpeedLoader45_magnumRubber = carregador rápido (.357 magnum borracha)
 
-ent-SpeedLoader45_magnumUranium = carregador rápido (.45 magnum urânio)
+ent-SpeedLoader45_magnumUranium = carregador rápido (.357 magnum urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/SpeedLoaders/5.56x45mm.yml
 # Abstract entity (referenceable by children)
@@ -5811,8 +5811,8 @@ ent-WeaponSubMachineGunVector45_ACP = LWC Vector (.45 ACP)
 ent-WeaponSubMachineGunVector9x19mm = LWC Vector (9x19mm)
     .desc = Um SMG totalmente automático excelente. Usa munição 9x19mm. Um rail Erebus está presente no topo do receptor e na base do guardamão para ópticas e empunhaduras.
 
-ent-WeaponSubMachineGunVectorNtsfHclm = NTSF-HCLM-45 (.45 magnum)
-    .desc = A Metralhadora Leve de Calibre Pesado da NTSF. Um SMG pesado de muito alta qualidade com câmara em .45 magnum para uso pela Força de Segurança da Nano Trasen e operações especiais da NT, da guerra corporativa.
+ent-WeaponSubMachineGunVectorNtsfHclm = NTSF-HCLM-45 (.357 magnum)
+    .desc = A Metralhadora Leve de Calibre Pesado da NTSF. Um SMG pesado de muito alta qualidade com câmara em .357 magnum para uso pela Força de Segurança da Nano Trasen e operações especiais da NT, da guerra corporativa.
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Snipers/coilguns.yml
 
@@ -10785,13 +10785,13 @@ ent-IndustrialPressEconomyElectronics = prensa industrial (eletrônica)
     .desc = Capaz de moldar metal em todos os tipos de formas. Esta está calibrada para eletrônicos.
 
 ent-IndustrialPressEconomyElectronicsMMC = prensa industrial (eletrônica)
-    .desc = Capaz de moldar metal em todos os tipos de formas. Esta está calibrada para eletrônicos. Este é um padrão de qualidade superior patenteado pela Meiyo Manufacturing Concerns.
+    .desc = Capaz de moldar metal em todos os tipos de formas. Esta está calibrada para eletrônicos. Tem um padrão de qualidade superior patenteado pela Meiyo Manufacturing Concerns.
 
 ent-IndustrialPressEconomyPlates = prensa industrial (placas)
     .desc = Capaz de moldar metal em todos os tipos de formas. Esta está calibrada para placas.
 
 ent-IndustrialPressEconomyPlatesMMC = prensa industrial (placas)
-    .desc = Capaz de moldar metal em todos os tipos de formas. Esta está calibrada para placas. Este é um padrão de qualidade superior patenteado pela Meiyo Manufacturing Concerns.
+    .desc = Capaz de moldar metal em todos os tipos de formas. Esta está calibrada para placas. Tem um padrão de qualidade superior patenteado pela Meiyo Manufacturing Concerns.
 
 ent-MMCLathe = montador multipropósito MMC
     .desc = Capaz de fabricar equipamentos a partir de padrões de design da MMC. Enviado para qualquer lugar que precise de uma inicialização industrial em grande escala.

@@ -1,8 +1,8 @@
 gunnery-window-title = Controle de Artilharia
 gunnery-window-disconnected = DESCONECTADO
 gunnery-window-connected = CONECTADO
-gunnery-select-all = Selecionar Todos
-gunnery-unselect-all = Deselecionar Todos
+gunnery-select-all = Todos
+gunnery-unselect-all = Nenhum
 gunnery-guns = Armas
 gunnery-gun-select = {$name}
 gunnery-gun-select-ammo = {$name}: {$ammo}

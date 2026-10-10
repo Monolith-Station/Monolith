@@ -811,11 +811,11 @@ ent-BoxMagazine12_gaugeSlug = caixa de tambores de munição (calibre 12 balote)
 ent-BoxMagazine45_ACPFMJ = caixa de pentes de pistola .45 ACP
     .desc = Uma caixa cheia de carregadores de pistola .45 ACP.
 
-ent-BoxMagazine45_ACPPistolHighCapacityFMJ = caixa de carregadores de metralhadora de mão .45 ACP
-    .desc = Uma caixa cheia de carregadores de metralhadora de mão .45 ACP.
+ent-BoxMagazine45_ACPPistolHighCapacityFMJ = caixa de carregadores de pistola metralhadora .45 ACP
+    .desc = Uma caixa cheia de carregadores de pistola metralhadora .45 ACP.
 
-ent-BoxMagazine45_ACPPistolHighCapacityPractice = caixa de carregadores de metralhadora de mão .45 ACP (prática)
-    .desc = Uma caixa cheia de carregadores de metralhadora de mão .45 ACP (prática).
+ent-BoxMagazine45_ACPPistolHighCapacityPractice = caixa de carregadores de pistola metralhadora .45 ACP (prática)
+    .desc = Uma caixa cheia de carregadores de pistola metralhadora .45 ACP (prática).
 
 ent-BoxMagazine45_ACPPractice = caixa de pentes de pistola .45 ACP (prática)
     .desc = Uma caixa cheia de carregadores.
@@ -835,14 +835,14 @@ ent-BoxMagazine45_ACPSubMachineGunPractice = caixa de carregadores de SMG .45 AC
 ent-BoxMagazine45_ACPSubMachineGunRubber = caixa de carregadores de SMG .45 ACP (borracha)
     .desc = Uma caixa cheia de carregadores de SMG .45 ACP (borracha).
 
-ent-BoxMagazine45_magnumFMJ = caixa de speedloaders .45 magnum
-    .desc = Uma caixa cheia de speedloaders .45 magnum.
+ent-BoxMagazine45_magnumFMJ = caixa de speedloaders .357 magnum
+    .desc = Uma caixa cheia de speedloaders .357 magnum.
 
-ent-BoxMagazine45_magnumSubMachineGunFMJ = caixa de carregadores de SMG .45 magnum
-    .desc = Uma caixa cheia de carregadores de SMG .45 magnum.
+ent-BoxMagazine45_magnumSubMachineGunFMJ = caixa de carregadores de SMG .357 magnum
+    .desc = Uma caixa cheia de carregadores de SMG .357 magnum.
 
-ent-BoxMagazine45_magnumSubMachineGunPractice = caixa de carregadores de SMG .45 magnum (prática)
-    .desc = Uma caixa cheia de carregadores de SMG .45 magnum (prática).
+ent-BoxMagazine45_magnumSubMachineGunPractice = caixa de carregadores de SMG .357 magnum (prática)
+    .desc = Uma caixa cheia de carregadores de SMG .357 magnum (prática).
 
 ent-BoxMagazine46x30mmSubMachineGunTopMountedFMJ = caixa de carregadores WT550 46x30mm
     .desc = Uma caixa cheia de carregadores WT550 46x30mm.
@@ -886,11 +886,11 @@ ent-BoxMagazine8x65mmFMJ = caixa de carregadores 8x65mm
 ent-BoxMagazine9x19mmFMJ = caixa de pentes de pistola 9x19mm
     .desc = Uma caixa cheia de carregadores de pistola 9x19mm.
 
-ent-BoxMagazine9x19mmPistolHighCapacityFMJ = caixa de carregadores de metralhadora de mão 9x19mm
-    .desc = Uma caixa cheia de carregadores de metralhadora de mão 9x19mm.
+ent-BoxMagazine9x19mmPistolHighCapacityFMJ = caixa de carregadores de pistola metralhadora 9x19mm
+    .desc = Uma caixa cheia de carregadores de pistola metralhadora 9x19mm.
 
-ent-BoxMagazine9x19mmPistolHighCapacityPractice = caixa de carregadores de metralhadora de mão 9x19mm (prática)
-    .desc = Uma caixa cheia de carregadores de metralhadora de mão 9x19mm (prática).
+ent-BoxMagazine9x19mmPistolHighCapacityPractice = caixa de carregadores de pistola metralhadora 9x19mm (prática)
+    .desc = Uma caixa cheia de carregadores de pistola metralhadora 9x19mm (prática).
 
 ent-BoxMagazine9x19mmPractice = caixa de pentes de pistola 9x19mm (prática)
     .desc = Uma caixa cheia de carregadores.
@@ -6803,8 +6803,8 @@ ent-WeaponPistolMercenaryEchis = LWC mercenary PT-45C echis (9x19mm)
 ent-WeaponPistolMk58 = MA Mk-58 (.45 ACP)
     .desc = A Pistola Ofensiva Mark 58, a arma secundária mais abundante em toda a galáxia. Comumente chamada de fragmento da Guerra Corporativa, foi usada até o amargo fim. Usa munição .45 ACP. Equipada com cano rosqueado e suporte para dispositivos táticos.
 
-ent-WeaponPistolN1984 = NT N1984 (.45 magnum)
-    .desc = A arma secundária de qualquer oficial que se respeite. Disponível em .45 magnum, o calibre do senhor. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
+ent-WeaponPistolN1984 = NT N1984 (.357 magnum)
+    .desc = A arma secundária de qualquer oficial que se respeite. Disponível em .357 magnum, o calibre do senhor. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
 
 ent-WeaponPistolViper = LWC PT-45A viper (9x19mm)
     .desc = Uma arma pequena, facilmente ocultável, mas um pouco subpotente. Retrofitada com um receptor totalmente automático. Usa munição 9x19mm. Embora os esquemas para construir novas Víboras tenham sido perdidos, elas são tão abundantes da Guerra Corporativa que construir novas não é mais necessário. Equipada com cano rosqueado e suporte para dispositivos táticos.
@@ -7010,32 +7010,32 @@ ent-WatcherBoltMagmawing = projétil vigia de asma de magma
 ent-BaseWeaponRevolver = BaseWeaponRevolver
     .desc = Uma arma de apontar e atirar.
 
-ent-WeaponRevolverDeckard = NT Deckard (.45 magnum)
-    .desc = Um revólver raro, de grau civil, personalizado. Use quando não há tempo para o teste Voight-Kampff. Usa munição .45 magnum.
+ent-WeaponRevolverDeckard = NT Deckard (.357 magnum)
+    .desc = Um revólver raro, de grau civil, personalizado. Use quando não há tempo para o teste Voight-Kampff. Usa munição .357 magnum.
 
-ent-WeaponRevolverInspector = Inspector (.45 magnum)
-    .desc = O melhor amigo de um detetive. Usa munição .45 magnum. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
+ent-WeaponRevolverInspector = Inspector (.357 magnum)
+    .desc = O melhor amigo de um detetive. Usa munição .357 magnum. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
 
-ent-WeaponRevolverMateba = NT Mateba (.45 magnum)
-    .desc = Uma arma secundária lendária da Era Corporativa, outrora usada por equipes de assassinato corporativas, agora pertence a Oficiais da TSF em toda a galáxia. Usa munição .45 magnum. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
+ent-WeaponRevolverMateba = NT Mateba (.357 magnum)
+    .desc = Uma arma secundária lendária da Era Corporativa, outrora usada por equipes de assassinato corporativas, agora pertence a Oficiais da TSF em toda a galáxia. Usa munição .357 magnum. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
 
 ent-WeaponRevolverMatebaAP = {ent-WeaponRevolverMateba}
     .desc = {ent-WeaponRevolverMateba.desc}
     .suffix = armor-piercing
 
-ent-WeaponRevolverPirate = revólver pirata (.45 magnum)
-    .desc = Um revólver estranho, ilegal, com aparência antiga, favorecido por tripulações piratas. Usa munição .45 magnum.
+ent-WeaponRevolverPirate = revólver pirata (.357 magnum)
+    .desc = Um revólver estranho, ilegal, com aparência antiga, favorecido por tripulações piratas. Usa munição .357 magnum.
 
-ent-WeaponRevolverPython = LWC Python (.45 magnum)
-    .desc = Um revólver comumente encontrado no espaço da Dinastia Phaethon, é tipicamente usado por imperiais de alta patente. Usa munição .45 magnum.
+ent-WeaponRevolverPython = LWC Python (.357 magnum)
+    .desc = Um revólver comumente encontrado no espaço da Dinastia Phaethon, é tipicamente usado por imperiais de alta patente. Usa munição .357 magnum.
 
 ent-WeaponRevolverPythonAP = {ent-WeaponRevolverPython}
     .desc = {ent-WeaponRevolverPython.desc}
     .suffix = armor-piercing
 
-ent-WeaponRevolverPythonGatfruit = LWC Python (.45 magnum)
+ent-WeaponRevolverPythonGatfruit = LWC Python (.357 magnum)
     .suffix = Baixo Valor
-    .desc = Um revólver comumente encontrado no espaço da Dinastia Phaethon, é tipicamente usado por imperiais de alta patente. Usa munição .45 magnum. Parece ser feito de matéria vegetal frágil, e não é tão valioso para reciclagem de contrabando.
+    .desc = Um revólver comumente encontrado no espaço da Dinastia Phaethon, é tipicamente usado por imperiais de alta patente. Usa munição .357 magnum. Parece ser feito de matéria vegetal frágil, e não é tão valioso para reciclagem de contrabando.
 
 # From: Entities/Objects/Weapons/Guns/Rifles/rifles.yml
 # Abstract entity (referenceable by children)

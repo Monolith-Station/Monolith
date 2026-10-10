@@ -447,14 +447,14 @@ ent-BulletBB = chumbinho
 
 # From: _DV/Entities/Objects/Weapons/Guns/Revolvers/revolvers.yml
 
-ent-WeaponRevolverFaith = Faith (.45 magnum)
-    .desc = Entrega bênçãos em forma de bala. Usa munição .45 magnum.
+ent-WeaponRevolverFaith = Faith (.357 magnum)
+    .desc = Entrega bênçãos em forma de bala. Usa munição .357 magnum.
 
-ent-WeaponRevolverFitz = Fitz Special (.45 magnum)
-    .desc = Um revólver de cano curto de defesa pessoal compacto e ocultável. Usa munição .45 magnum.
+ent-WeaponRevolverFitz = Fitz Special (.357 magnum)
+    .desc = Um revólver de cano curto de defesa pessoal compacto e ocultável. Usa munição .357 magnum.
 
-ent-WeaponRevolverLucky = Lucky 37 (.45 magnum)
-    .desc = A sorte sempre vence a habilidade, velho. Usa munição .45 magnum.
+ent-WeaponRevolverLucky = Lucky 37 (.357 magnum)
+    .desc = A sorte sempre vence a habilidade, velho. Usa munição .357 magnum.
 
 # From: _DV/Entities/Objects/Weapons/Guns/Rifles/rifles.yml
 
@@ -470,7 +470,7 @@ ent-WeaponSniperCeremonial = rifle cerimonial (7.62x51mm)
 # From: _DV/Entities/Objects/Weapons/Guns/SMGs/smgs.yml
 
 ent-WeaponSubMachineGunTypewriter = PA Typewriter (.45 ACP)
-    .desc = Uma versão moderna do design clássico usado por mafiosos através do espaço e tempo. Usa munição .45 ACP.
+    .desc = Uma versão moderna do design clássico usado por mafiosos há muito tempo em todo o espaço. Usa munição .45 ACP.
 
 # From: _DV/Entities/Structures/Storage/Crates/barrel.yml
 

@@ -23,6 +23,8 @@ shuttle-console-signature-unknown =
        *[other] Desconhecido
     }
 
+shuttle-console-company-unknown = NÃO AFILIADO
+
 # Network Port Buttons
 shuttle-console-network-ports = Portas de Rede
 shuttle-console-network-connect-tooltip = Os botões no console da nave enviam um sinal quando pressionados, use uma multiferramenta no console e conecte-a a um dispositivo!

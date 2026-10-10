@@ -5417,11 +5417,11 @@ ent-NFBlueprintAmmoBox12_gaugeIncendiary = projeto de munição incendiária de 
 ent-NFBlueprintAmmoBox12_gaugeUranium = projeto de munição de urânio de espingarda 12 gauge
     .desc = Um projeto com esquema de munição de urânio de espingarda. Pode ser inserido em um torno ou em um techfab.
 
-ent-NFBlueprintAmmoBox45_magnumIncendiary = projeto de munição incendiária .45 magnum
-    .desc = Um projeto com esquema de munição incendiária .45 magnum. Pode ser inserido em um torno ou em um techfab.
+ent-NFBlueprintAmmoBox45_magnumIncendiary = projeto de munição incendiária .357 magnum
+    .desc = Um projeto com esquema de munição incendiária .357 magnum. Pode ser inserido em um torno ou em um techfab.
 
-ent-NFBlueprintAmmoBox45_magnumUranium = projeto de munição de urânio .45 magnum
-    .desc = Um projeto com esquema de munição de urânio .45 magnum. Pode ser inserido em um torno ou em um techfab.
+ent-NFBlueprintAmmoBox45_magnumUranium = projeto de munição de urânio .357 magnum
+    .desc = Um projeto com esquema de munição de urânio .357 magnum. Pode ser inserido em um torno ou em um techfab.
 
 ent-NFBlueprintAmmoBox556x45mmIncendiary = projeto de munição incendiária 556x45mm
     .desc = Um projeto com esquema de munição incendiária 556x45mm. Pode ser inserido em um torno ou em um techfab.
@@ -5766,7 +5766,7 @@ ent-WeaponPistolMk58Nonlethal = {ent-WeaponPistolMk58}
     .desc = {ent-WeaponPistolMk58.desc}
     .suffix = Não-letal
 
-ent-WeaponPistolN1984Nonlethal = N1984 (.45 magnum)
+ent-WeaponPistolN1984Nonlethal = N1984 (.357 magnum)
     .desc = Uma arma não-letal.
     .suffix = Não-letal
 
@@ -5921,8 +5921,8 @@ ent-WeaponSniperMosinNonlethal = {ent-WeaponSniperMosin}
     .desc = {ent-WeaponSniperMosin.desc}
     .suffix = Não letal
 
-ent-WeaponSniperRepeater = Repetidora Padrão N2524 (.45 magnum)
-    .desc = Uma arma de fogo de ação de alavanca de grau civil, favorecida por vaqueiros espaciais através da Fronteira por sua confiabilidade e poder de parada. Usa munição .45 magnum.
+ent-WeaponSniperRepeater = Repetidora Padrão N2524 (.357 magnum)
+    .desc = Uma arma de fogo de ação de alavanca de grau civil, favorecida por vaqueiros espaciais através da Fronteira por sua confiabilidade e poder de parada. Usa munição .357 magnum.
 
 # From: _NF/Entities/Objects/Weapons/Guns/turrets.yml
 
