@@ -1,7 +1,9 @@
 chat-emote-name-spin = Girar
 chat-emote-name-jump = Pular
+chat-emote-name-flip = Dar um mortal
 chat-emote-msg-spin = gira!
 chat-emote-msg-jump = pula!
+chat-emote-msg-flip = dá um mortal!
 
 # Names
 chat-emote-name-trill = Trilar

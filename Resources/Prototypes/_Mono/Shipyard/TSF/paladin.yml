@@ -1,0 +1,41 @@
+#Author:  Onezero0
+
+- type: vessel
+  id: Paladin
+  parent: BaseVesselIFFDisabled
+  name: vessel-Paladin-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Paladin-desc # Andromeda: Localizar nome e descrição de nave
+  price: 66000
+  category: Small
+  hyperwarTimelock: 0
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/paladin.yml
+  guidebookPage: Null
+  class:
+  - Escort
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Paladin
+  mapName: 'Paladin'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/paladin.yml
+  minPlayers: 0
+  stations:
+    Paladin:
+      stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "A bulwark against those seeking to shatter the Federation."
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Paladin TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

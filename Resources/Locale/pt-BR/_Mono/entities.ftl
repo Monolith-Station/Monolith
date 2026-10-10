@@ -1290,7 +1290,7 @@ ent-ClothingOuterHardsuitAshen = traje rígido de combate PDV CV-32
     .desc = Um traje rígido de combate projetado pela Dinastia Phaethon. Um traje rígido mais pesada, mas ainda de propósito geral, eficaz, mas não estelar contra a maioria dos tipos de dano.
 
 ent-ClothingOuterHardsuitAshenElite = tacsuit de combate PDV CV-53
-    .desc = Originalmente baseado na traje rígido CV-32, o tacsuit CV-53 sacrifica placas de armadura convencionais por proteção ambiental e um escudo duro recarregável.
+    .desc = Originalmente baseado na traje rígido CV-32, o tacsuit CV-53 sacrifica placas de armadura convencionais por proteção ambiental e um escudo rígido recarregável.
 
 ent-ClothingOuterHardsuitPDVMedic = tacsuit de combate PDV CV-82
     .desc = Um traje rígido de combate de médico de campo projetado pela Dinastia Phaethon. A armadura apresenta várias placas reforçadas em áreas vitais.
@@ -2130,7 +2130,7 @@ ent-EncryptionKeyViper = chave de criptografia do ViperGroup
 # From: _Mono/Entities/Objects/Devices/flatpack.yml
 
 ent-AK570Flatpack = flatpack AK570
-    .desc = Um flatpack usado para construir um canhão automático AK570 de 90mm.
+    .desc = Um flatpack usado para construir um autocanhão AK570 de 90mm.
 
 ent-AtmosDeviceFanDirectionalFlatpack = flatpack de ventilador direcional
     .desc = Um flatpack usado para construir um ventilador direcional.
@@ -2157,7 +2157,7 @@ ent-GasMiningDrillFlatpack = flatpack de mineradora de gás
     .desc = Um flatpack usado para construir uma mineradora de gás.
 
 ent-L58Flatpack = flatpack L85
-    .desc = Um flatpack usado para construir um canhão automático L85 de 20mm.
+    .desc = Um flatpack usado para construir um autocanhão L85 de 20mm.
 
 ent-LaserDrillFlatpack = flatpack de perfuratriz a laser
     .desc = Um flatpack usado para construir uma perfuratriz a laser automatizada.
@@ -3156,7 +3156,7 @@ ent-EWACMechaJammer = interferidor E-58 "Blanket"
     .suffix = Arma de Mecha, Arma, Combate, GUERRA ELETRÔNICA
     .desc = Uma ferramenta de interferência extremamente especializada, dispara uma sálva de sinalizadores com sinais de interferência extremamente grandes para cobrir um avanço. Encaixa em Pontos de Fixação de GUERRA ELETRÔNICA.
 
-ent-HeavyMechCannon = canhão automático pesado de rajadas "Metronome" 220mm
+ent-HeavyMechCannon = autocanhão pesado de rajadas "Metronome" 220mm
     .suffix = Arma de Mecha, Arma, Combate, Canhão
     .desc = Um canhão de 220mm de rajada, relativamente impreciso, mas com muito maior alcance que o "Bazooka". Monta em Pontos de Fixação Pesados.
 
@@ -3168,7 +3168,7 @@ ent-HeavyMechRPG = sistema de foguetes R3 "Bazooka"
     .suffix = Arma de Mecha, Arma, Combate, Míssil
     .desc = Lançador de mísseis de cruzeiro baseado em terra reaproveitado para uso em meques. Os sistemas de orientação foram quase todos removidos para reduzir o tamanho, tornando as munições foguetes glorificados. Monta em Pontos de Fixação Pesados.
 
-ent-LightMechaAutocannon = canhão automático LAC-29 35mm
+ent-LightMechaAutocannon = autocanhão LAC-29 35mm
     .suffix = Arma de Mecha, Arma, Combate, Rifle
     .desc = O rifle de mecha do homem comum. Calibrado em projéteis perfurante de 35mm, com estatísticas equilibradas para enfrentar tanto Frames Blindados quanto causar dano leve contra naves. Encaixa em Pontos de Fixação Leves.
 
@@ -3184,9 +3184,9 @@ ent-MediumMechCoilgun = canhão de bobinas CL-03 EMP
     .suffix = Arma de Mecha, Arma, Combate, Canhão
     .desc = Um canhão de bobinas de porte médio calibrado em sabot de 3cm. Inflige dano menor, mas espalha o temido efeito EMP em uma área. Precisa de um Ponto de Fixação Médio.
 
-ent-MediumMechDMR = canhão automático DMR-90mm
+ent-MediumMechDMR = autocanhão DMR-90mm
     .suffix = Arma de Mecha, Arma, Combate, Canhão
-    .desc = Um canhão automático pesado calibrado em 90mm. Arma de Ponto de Fixação Médio de uso geral.
+    .desc = Um autocanhão pesado calibrado em 90mm. Arma de Ponto de Fixação Médio de uso geral.
 
 ent-MediumMechTOW = lança de mísseis anti-tanque ASM-55 TOW
     .suffix = Arma de Mecha, Arma, Combate, Canhão
@@ -3527,11 +3527,11 @@ ent-ResinJelly = geleia de resina
 
 # From: _Mono/Entities/Objects/Tools/blueprints/blueprints_vendors.yml
 
-ent-BlueprintMotleyAnneFighters = planta de caças da Motley Anne
-    .desc = Uma planta contendo esquemas para cada um dos caças pilotados por drones da Motley Anne.
+ent-BlueprintMotleyAnneFighters = diagrama de caças da Motley Anne
+    .desc = Um diagrama contendo esquemas para cada um dos caças pilotados por drones da Motley Anne.
 
-ent-BlueprintWarlordSuit = planta de traje de combate PMC Warlord
-    .desc = Uma planta com um esquema de um traje Warlord. Pode ser inserido em uma autolathe ou em uma techfab.
+ent-BlueprintWarlordSuit = diagrama de traje de combate PMC Warlord
+    .desc = Um diagrama com um esquema de um traje Warlord. Pode ser inserido em um torno ou em um techfab.
 
 # From: _Mono/Entities/Objects/Tools/bomb_collar_sealer.yml
 
@@ -3767,31 +3767,31 @@ ent-BaseAmmoBox45_ACP = caixa de munição (.45 ACP FMJ)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Boxes/45_magnum.yml
 
-ent-AmmoBox45_magnumAP = caixa de munição (.45 magnum extreme perfurante)
+ent-AmmoBox45_magnumAP = caixa de munição (.357 magnum extreme perfurante)
 
-ent-AmmoBox45_magnumBigFMJ = caixa grande de munição (.45 magnum FMJ)
+ent-AmmoBox45_magnumBigFMJ = caixa grande de munição (.357 magnum FMJ)
     .desc = Uma caixa de munição.
     .suffix = Grande
 
-ent-AmmoBox45_magnumFMJ = caixa de munição (.45 magnum FMJ)
+ent-AmmoBox45_magnumFMJ = caixa de munição (.357 magnum FMJ)
 
-ent-AmmoBox45_magnumHP = caixa de munição (.45 magnum ogiva oca)
+ent-AmmoBox45_magnumHP = caixa de munição (.357 magnum ogiva oca)
 
-ent-AmmoBox45_magnumIncendiary = caixa de munição (.45 magnum incendiário)
+ent-AmmoBox45_magnumIncendiary = caixa de munição (.357 magnum incendiário)
 
-ent-AmmoBox45_magnumPlasteelAP = caixa de munição (.45 magnum perfurante)
+ent-AmmoBox45_magnumPlasteelAP = caixa de munição (.357 magnum perfurante)
 
-ent-AmmoBox45_magnumPractice = caixa de munição (.45 magnum prática)
+ent-AmmoBox45_magnumPractice = caixa de munição (.357 magnum prática)
 
-ent-AmmoBox45_magnumRIP = caixa de munição (.45 magnum RIP)
+ent-AmmoBox45_magnumRIP = caixa de munição (.357 magnum RIP)
 
-ent-AmmoBox45_magnumRubber = caixa de munição (.45 magnum borracha)
+ent-AmmoBox45_magnumRubber = caixa de munição (.357 magnum borracha)
 
-ent-AmmoBox45_magnumUranium = caixa de munição (.45 magnum urânio)
+ent-AmmoBox45_magnumUranium = caixa de munição (.357 magnum urânio)
 
 # Abstract entity (referenceable by children)
 
-ent-BaseAmmoBox45_magnum = caixa de munição (.45 magnum FMJ)
+ent-BaseAmmoBox45_magnum = caixa de munição (.357 magnum FMJ)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Boxes/5.56x45mm.yml
 
@@ -4154,26 +4154,26 @@ ent-Cartridge45_ACPUranium = cartucho (.45 ACP urânio)
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Cartridges/45_magnum.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseCartridge45_magnum = cartucho (.45 magnum)
+ent-BaseCartridge45_magnum = cartucho (.357 magnum)
     .desc = Cartucho magnum pesado, geralmente visto apenas em magnums ou rifles de ação manual.
 
-ent-Cartridge45_magnumAP = cartucho (.45 magnum perfurante)
+ent-Cartridge45_magnumAP = cartucho (.357 magnum perfurante)
 
-ent-Cartridge45_magnumFMJ = cartucho (.45 magnum)
+ent-Cartridge45_magnumFMJ = cartucho (.357 magnum)
 
-ent-Cartridge45_magnumHP = cartucho (.45 magnum ogiva oca)
+ent-Cartridge45_magnumHP = cartucho (.357 magnum ogiva oca)
 
-ent-Cartridge45_magnumIncendiary = cartucho (.45 magnum incendiário)
+ent-Cartridge45_magnumIncendiary = cartucho (.357 magnum incendiário)
 
-ent-Cartridge45_magnumPlasteelAP = cartucho (.45 magnum perfurante)
+ent-Cartridge45_magnumPlasteelAP = cartucho (.357 magnum perfurante)
 
-ent-Cartridge45_magnumPractice = cartucho (.45 magnum prática)
+ent-Cartridge45_magnumPractice = cartucho (.357 magnum prática)
 
-ent-Cartridge45_magnumRIP = cartucho (.45 magnum RIP)
+ent-Cartridge45_magnumRIP = cartucho (.357 magnum RIP)
 
-ent-Cartridge45_magnumRubber = cartucho (.45 magnum borracha)
+ent-Cartridge45_magnumRubber = cartucho (.357 magnum borracha)
 
-ent-Cartridge45_magnumUranium = cartucho (.45 magnum urânio)
+ent-Cartridge45_magnumUranium = cartucho (.357 magnum urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Cartridges/5.56x45mm.yml
 # Abstract entity (referenceable by children)
@@ -4658,67 +4658,67 @@ ent-Magazine45_ACPSubMachineGunUranium = pente de SMG (.45 ACP urânio)
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Magazines/45_magnum.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseMagazine45_magnum = pente de pistola (.45 magnum FMJ)
+ent-BaseMagazine45_magnum = pente de pistola (.357 magnum FMJ)
 
 # Abstract entity (referenceable by children)
 
-ent-BaseMagazine45_magnumPistolHighCapacityFMJ = pente de pistola metralhadora (.45 magnum FMJ)
+ent-BaseMagazine45_magnumPistolHighCapacityFMJ = pente de pistola metralhadora (.357 magnum FMJ)
 
 # Abstract entity (referenceable by children)
 
-ent-BaseMagazine45_magnumSubMachineGunFMJ = pente de SMG (.45 magnum FMJ)
+ent-BaseMagazine45_magnumSubMachineGunFMJ = pente de SMG (.357 magnum FMJ)
 
-ent-Magazine45_magnumPistolAP = pente de pistola (.45 magnum perfuração extrema)
+ent-Magazine45_magnumPistolAP = pente de pistola (.357 magnum perfuração extrema)
 
-ent-Magazine45_magnumPistolEmpty = pente de pistola (.45 magnum qualquer)
+ent-Magazine45_magnumPistolEmpty = pente de pistola (.357 magnum qualquer)
     .desc = Um carregador vazio.
     .suffix = vazio
 
-ent-Magazine45_magnumPistolFMJ = pente de pistola (.45 magnum FMJ)
+ent-Magazine45_magnumPistolFMJ = pente de pistola (.357 magnum FMJ)
 
-ent-Magazine45_magnumPistolHighCapacityEmpty = pente de pistola metralhadora (.45 magnum qualquer)
+ent-Magazine45_magnumPistolHighCapacityEmpty = pente de pistola metralhadora (.357 magnum qualquer)
     .desc = Um carregador vazio.
     .suffix = vazio
 
-ent-Magazine45_magnumPistolHighCapacityFMJ = pente de pistola metralhadora (.45 magnum FMJ)
+ent-Magazine45_magnumPistolHighCapacityFMJ = pente de pistola metralhadora (.357 magnum FMJ)
 
-ent-Magazine45_magnumPistolHighCapacityPractice = pente de pistola metralhadora (.45 magnum prática)
+ent-Magazine45_magnumPistolHighCapacityPractice = pente de pistola metralhadora (.357 magnum prática)
 
-ent-Magazine45_magnumPistolHighCapacityRubber = pente de pistola metralhadora (.45 magnum borracha)
+ent-Magazine45_magnumPistolHighCapacityRubber = pente de pistola metralhadora (.357 magnum borracha)
 
-ent-Magazine45_magnumPistolHP = pente de pistola (.45 magnum ogiva oca)
+ent-Magazine45_magnumPistolHP = pente de pistola (.357 magnum ogiva oca)
 
-ent-Magazine45_magnumPistolIncendiary = pente de pistola (.45 magnum incendiário)
+ent-Magazine45_magnumPistolIncendiary = pente de pistola (.357 magnum incendiário)
 
-ent-Magazine45_magnumPistolPlasteelAP = pente de pistola (.45 magnum PP)
+ent-Magazine45_magnumPistolPlasteelAP = pente de pistola (.357 magnum PP)
 
-ent-Magazine45_magnumPistolPractice = pente de pistola (.45 magnum prática)
+ent-Magazine45_magnumPistolPractice = pente de pistola (.357 magnum prática)
 
-ent-Magazine45_magnumPistolRIP = pente de pistola (.45 magnum RIP)
+ent-Magazine45_magnumPistolRIP = pente de pistola (.357 magnum RIP)
 
-ent-Magazine45_magnumPistolRubber = pente de pistola (.45 magnum borracha)
+ent-Magazine45_magnumPistolRubber = pente de pistola (.357 magnum borracha)
 
-ent-Magazine45_magnumPistolUranium = pente de pistola (.45 magnum urânio)
+ent-Magazine45_magnumPistolUranium = pente de pistola (.357 magnum urânio)
 
-ent-Magazine45_magnumSubMachineGunEmpty = pente de SMG (.45 magnum qualquer)
+ent-Magazine45_magnumSubMachineGunEmpty = pente de SMG (.357 magnum qualquer)
     .desc = Um carregador vazio.
     .suffix = vazio
 
-ent-Magazine45_magnumSubMachineGunFMJ = pente de SMG (.45 magnum FMJ)
+ent-Magazine45_magnumSubMachineGunFMJ = pente de SMG (.357 magnum FMJ)
 
-ent-Magazine45_magnumSubMachineGunHP = pente de SMG (.45 magnum ogiva oca)
+ent-Magazine45_magnumSubMachineGunHP = pente de SMG (.357 magnum ogiva oca)
 
-ent-Magazine45_magnumSubMachineGunIncendiary = pente de SMG (.45 magnum incendiário)
+ent-Magazine45_magnumSubMachineGunIncendiary = pente de SMG (.357 magnum incendiário)
 
-ent-Magazine45_magnumSubMachineGunPlasteelAP = pente de SMG (.45 magnum PP)
+ent-Magazine45_magnumSubMachineGunPlasteelAP = pente de SMG (.357 magnum PP)
 
-ent-Magazine45_magnumSubMachineGunPractice = pente de SMG (.45 magnum prática)
+ent-Magazine45_magnumSubMachineGunPractice = pente de SMG (.357 magnum prática)
 
-ent-Magazine45_magnumSubMachineGunRIP = pente de SMG (.45 magnum RIP)
+ent-Magazine45_magnumSubMachineGunRIP = pente de SMG (.357 magnum RIP)
 
-ent-Magazine45_magnumSubMachineGunRubber = pente de SMG (.45 magnum borracha)
+ent-Magazine45_magnumSubMachineGunRubber = pente de SMG (.357 magnum borracha)
 
-ent-Magazine45_magnumSubMachineGunUranium = pente de SMG (.45 magnum urânio)
+ent-Magazine45_magnumSubMachineGunUranium = pente de SMG (.357 magnum urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Magazines/5.56x45mm.yml
 # Abstract entity (referenceable by children)
@@ -5244,23 +5244,23 @@ ent-Bullet45_ACPUranium = projétil (.45 ACP urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/45_magnum.yml
 
-ent-Bullet45_magnumAP = projétil (.45 magnum perfurante)
+ent-Bullet45_magnumAP = projétil (.357 magnum perfurante)
 
-ent-Bullet45_magnumFMJ = projétil (.45 magnum)
+ent-Bullet45_magnumFMJ = projétil (.357 magnum)
 
-ent-Bullet45_magnumHP = projétil (.45 magnum ponta oca)
+ent-Bullet45_magnumHP = projétil (.357 magnum ponta oca)
 
-ent-Bullet45_magnumIncendiary = projétil (.45 magnum incendiário)
+ent-Bullet45_magnumIncendiary = projétil (.357 magnum incendiário)
 
-ent-Bullet45_magnumPlasteelAP = projétil (.45 magnum PP)
+ent-Bullet45_magnumPlasteelAP = projétil (.357 magnum PP)
 
-ent-Bullet45_magnumPractice = projétil (.45 magnum prática)
+ent-Bullet45_magnumPractice = projétil (.357 magnum prática)
 
-ent-Bullet45_magnumRIP = projétil (.45 magnum RIP)
+ent-Bullet45_magnumRIP = projétil (.357 magnum RIP)
 
-ent-Bullet45_magnumRubber = projétil (.45 magnum borracha)
+ent-Bullet45_magnumRubber = projétil (.357 magnum borracha)
 
-ent-Bullet45_magnumUranium = projétil (.45 magnum urânio)
+ent-Bullet45_magnumUranium = projétil (.357 magnum urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/5.56x45mm.yml
 
@@ -5452,27 +5452,27 @@ ent-HandheldAutopulserProjectile = projétil de plasma
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/SpeedLoaders/45_magnum.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseSpeedLoader45_magnum = carregador rápido (.45 magnum)
+ent-BaseSpeedLoader45_magnum = carregador rápido (.357 magnum)
 
-ent-SpeedLoader45_magnumAP = carregador rápido (.45 magnum perfuração extrema de blindagem)
+ent-SpeedLoader45_magnumAP = carregador rápido (.357 magnum perfuração extrema de blindagem)
 
-ent-SpeedLoader45_magnumEmpty = carregador rápido (.45 magnum qualquer)
+ent-SpeedLoader45_magnumEmpty = carregador rápido (.357 magnum qualquer)
 
-ent-SpeedLoader45_magnumFMJ = carregador rápido (.45 magnum FMJ)
+ent-SpeedLoader45_magnumFMJ = carregador rápido (.357 magnum FMJ)
 
-ent-SpeedLoader45_magnumHP = carregador rápido (.45 magnum ponta oca)
+ent-SpeedLoader45_magnumHP = carregador rápido (.357 magnum ponta oca)
 
-ent-SpeedLoader45_magnumIncendiary = carregador rápido (.45 magnum incendiário)
+ent-SpeedLoader45_magnumIncendiary = carregador rápido (.357 magnum incendiário)
 
-ent-SpeedLoader45_magnumPlasteelAP = carregador rápido (.45 magnum PP)
+ent-SpeedLoader45_magnumPlasteelAP = carregador rápido (.357 magnum PP)
 
-ent-SpeedLoader45_magnumPractice = carregador rápido (.45 magnum prática)
+ent-SpeedLoader45_magnumPractice = carregador rápido (.357 magnum prática)
 
-ent-SpeedLoader45_magnumRIP = carregador rápido (.45 magnum RIP)
+ent-SpeedLoader45_magnumRIP = carregador rápido (.357 magnum RIP)
 
-ent-SpeedLoader45_magnumRubber = carregador rápido (.45 magnum borracha)
+ent-SpeedLoader45_magnumRubber = carregador rápido (.357 magnum borracha)
 
-ent-SpeedLoader45_magnumUranium = carregador rápido (.45 magnum urânio)
+ent-SpeedLoader45_magnumUranium = carregador rápido (.357 magnum urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/SpeedLoaders/5.56x45mm.yml
 # Abstract entity (referenceable by children)
@@ -5771,10 +5771,10 @@ ent-WeaponShotgunBigBuddy = Grande Amigo (calibre 4)
     .desc = Uma shotgun massiva de calibre 4 (23x75mm) feita para matar o que qualquer calibre abaixo de um autocanhão não consegue.
 
 ent-WeaponShotgunBigJohnny = Grande João (calibre 4)
-    .desc = Uma escopeta grande calibre 4 (23x75mm) feita para matar o que qualquer calibre abaixo de um canhão automático não consegue. Essa está equipada com várias adições táticas e é feita para CQC ao custo de baixa capacidade de munição. Tem uma rail Erebus anexada ao receptor para ópticas.
+    .desc = Uma escopeta grande calibre 4 (23x75mm) feita para matar o que qualquer calibre abaixo de um autocanhão não consegue. Essa está equipada com várias adições táticas e é feita para CQC ao custo de baixa capacidade de munição. Tem uma rail Erebus anexada ao receptor para ópticas.
 
 ent-WeaponShotgunBigLeady = Grande Chumbeta (calibre 4)
-    .desc = Uma escopeta grande calibre 4 (23x75mm) feita para matar o que qualquer calibre abaixo de um canhão automático não consegue.
+    .desc = Uma escopeta grande calibre 4 (23x75mm) feita para matar o que qualquer calibre abaixo de um autocanhão não consegue.
 
 ent-WeaponShotgunHelepolis = UW12-B Helepolis (calibre 12)
     .desc = O modelo de arrombamento calibre 12 Helepolis, da Union Wrightworks; Uma escopeta compacta que sacrifica toda a ergonomia de combate para servir melhor como uma ferramenta de arrombamento. Quebra portas com slugs. Uso em combate não recomendado.
@@ -5811,8 +5811,8 @@ ent-WeaponSubMachineGunVector45_ACP = LWC Vector (.45 ACP)
 ent-WeaponSubMachineGunVector9x19mm = LWC Vector (9x19mm)
     .desc = Um SMG totalmente automático excelente. Usa munição 9x19mm. Um rail Erebus está presente no topo do receptor e na base do guardamão para ópticas e empunhaduras.
 
-ent-WeaponSubMachineGunVectorNtsfHclm = NTSF-HCLM-45 (.45 magnum)
-    .desc = A Metralhadora Leve de Calibre Pesado da NTSF. Um SMG pesado de muito alta qualidade com câmara em .45 magnum para uso pela Força de Segurança da Nano Trasen e operações especiais da NT, da guerra corporativa.
+ent-WeaponSubMachineGunVectorNtsfHclm = NTSF-HCLM-45 (.357 magnum)
+    .desc = A Metralhadora Leve de Calibre Pesado da NTSF. Um SMG pesado de muito alta qualidade com câmara em .357 magnum para uso pela Força de Segurança da Nano Trasen e operações especiais da NT, da guerra corporativa.
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Snipers/coilguns.yml
 
@@ -6053,6 +6053,7 @@ ent-WeaponTurretCharon = acelerador de massa M381 CHARON
 # Abstract entity (referenceable by children)
 
 ent-WeaponTurretCharonBase = acelerador de massa M381 CHARON
+    .desc = Um acelerador de massa montado em uma torre.
     .suffix = Capital, T4
 
 ent-WeaponTurretCharonReload = acelerador de massa M381 CHARON
@@ -6163,7 +6164,7 @@ ent-ShipSunnyFlare = Sinalizador ECM
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Kinetic/standardlarge_kinetic.yml
 
-ent-WeaponTurretAk820 = canhão automático 120mm AK820
+ent-WeaponTurretAk820 = autocanhão 120mm AK820
     .suffix = Large, T4
     .desc = Arma naval grande e dura para dano constante. Dispara cartuchos APHEDS, permitindo penetração aprimorada, mas não tanto poder explosivo quanto cartuchos APHE de tamanho completo. Alimentado por um carregador interno de 96 cartuchos.
 
@@ -6179,7 +6180,7 @@ ent-WeaponTurretHades = canhão 255mm HADES
     .suffix = Capital/Station, T4
     .desc = Uma das maiores armas cinéticas baseadas em química do setor. Seu poder só é rivalado por mass drivers como o M381. Recarrega automaticamente cartuchos de 255mm de potência completa.
 
-ent-WeaponTurretLongbow = canhão automático 140mm L/65 "Longbow"
+ent-WeaponTurretLongbow = autocanhão 140mm L/65 "Longbow"
     .suffix = Capital/Station, T4
     .desc = Dispara projéteis de 140mm em uma rajada de 15 cartuchos de um autoloader interno.
 
@@ -6189,23 +6190,23 @@ ent-WeaponTurretR300 = obus 430mm R-300
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Kinetic/standardlight_kinetic.yml
 
-ent-WeaponTurretL85Autocannon = canhão automático 20mm L85
+ent-WeaponTurretL85Autocannon = autocanhão 20mm L85
     .suffix = Small, T1
-    .desc = Um canhão automático balístico leve de 20mm projetado para defesa de ponto de disparo rápido e supressão de alvos menores em curto alcance. Barato, leve, e pode ser ativado remotamente ou conectado a um GCS.
+    .desc = Um autocanhão balístico leve de 20mm projetado para defesa de ponto de disparo rápido e supressão de alvos menores em curto alcance. Barato, leve, e pode ser ativado remotamente ou conectado a um GCS.
 
-ent-WeaponTurretRAC30 = canhão automático RAC-30 Draupnir
+ent-WeaponTurretRAC30 = autocanhão RAC-30 Draupnir
     .suffix = Medium, T2
-    .desc = Um canhão automático de disparo rápido de 30mm de serviço pesado, originalmente montado como uma arma de dogfight em aeronaves atmosféricas.
+    .desc = Um autocanhão de disparo rápido de 30mm de serviço pesado, originalmente montado como uma arma de dogfight em aeronaves atmosféricas.
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Kinetic/standardmedium_kinetic.yml
 
-ent-WeaponTurretAK570 = canhão automático 57mm AK570
+ent-WeaponTurretAK570 = autocanhão 57mm AK570
     .suffix = Medium, T2
-    .desc = Um canhão automático pesado de 57mm de canos duplos, disparando projéteis APHE de propósito geral, eficaz para fogo sustentado contra alvos médios. Pode ser ativado remotamente ou conectado a um GCS.
+    .desc = Um autocanhão pesado de 57mm de canos duplos, disparando projéteis APHE de propósito geral, eficaz para fogo sustentado contra alvos médios. Pode ser ativado remotamente ou conectado a um GCS.
 
-ent-WeaponTurretDravon = canhão automático 90mm ADBP-7 DRAVON
+ent-WeaponTurretDravon = autocanhão 90mm ADBP-7 DRAVON
     .suffix = Medium, T2
-    .desc = Um canhão automático de cano único feito pela Aetherion Dynamics. Peça de artilharia média com alto impacto mas taxa de fogo relativamente baixa, disparando projéteis HEAT para danificar blindagem e sistemas de navios. Pode ser ativado remotamente ou conectado a um GCS.
+    .desc = Um autocanhão de cano único feito pela Aetherion Dynamics. Peça de artilharia média com alto impacto mas taxa de fogo relativamente baixa, disparando projéteis HEAT para danificar blindagem e sistemas de navios. Pode ser ativado remotamente ou conectado a um GCS.
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Kinetic/syndicate_kinetic.yml
 
@@ -6213,9 +6214,9 @@ ent-WeaponTurretAdderScattercannon = canhão de dispersão Adder
     .suffix = Small, T1
     .desc = Um canhão de dispersão grande de canos duplos, disparando rajadas de tiro de cartucho para triturar quaisquer mísseis recebidos ou potenciais invasores. Usa um mecanismo de autoloading similar ao da pistola anaconda.
 
-ent-WeaponTurretFang = canhão automático pesado 90mm Fang
+ent-WeaponTurretFang = autocanhão pesado 90mm Fang
     .suffix = Medium, T3
-    .desc = Um canhão automático pesado de 90mm de design do Sindicato, criado durante a guerra corporativa. Feito para esmagar contrabotadores oponentes. Usa um mecanismo de autoloading similar ao da pistola anaconda.
+    .desc = Um autocanhão pesado de 90mm de design do Sindicato, criado durante a guerra corporativa. Feito para esmagar contrabotadores oponentes. Usa um mecanismo de autoloading similar ao da pistola anaconda.
 
 ent-WeaponTurretHydra = bateria de canhões 220mm Hydra
     .suffix = Large, T3
@@ -6465,11 +6466,11 @@ ent-AirlockHeavyAssembly = conjunto de porta corta-fogo pesada
 
 # From: _Mono/Entities/Structures/Doors/blastdoor.yml
 
-ent-BlastDoorIndestructible = porta de explosão
+ent-BlastDoorIndestructible = porta superblindada
     .suffix = indestrutível
     .desc = Uma porta de explosão excepcionalmente resistente, boa sorte explodindo através desta.
 
-ent-BlastDoorMonolithic = rachadura monolith tenebris
+ent-BlastDoorMonolithic = rachadura tenebris monolith
     .desc = Algum tipo de abertura na escuridão tenebris circundante.
 
 # From: _Mono/Entities/Structures/Furniture/bunk.yml
@@ -7113,20 +7114,20 @@ ent-WindowTimedSeal = selo temporizado
 
 # From: _Mono/Entities/Tools/blueprints/blueprints_armory.yml
 
-ent-BlueprintAmmoMPSSMMissile = planta de cartucho de míssil MPSSM
-    .desc = Uma planta para a produção de mísseis para o lançador de mísseis SM-27 MPSSM
+ent-BlueprintAmmoMPSSMMissile = diagrama de cartucho de míssil MPSSM
+    .desc = Um diagrama para a produção de mísseis para o lançador de mísseis SM-27 MPSSM
 
-ent-BlueprintAmmoPPLCCell = planta de cartucho de laser de plasma faseado
-    .desc = Uma planta para a produção de células para o rifle NT-WS PPLC
+ent-BlueprintAmmoPPLCCell = diagrama de cartucho de laser de plasma faseado
+    .desc = Um diagrama para a produção de células para o rifle NT-WS PPLC
 
-ent-BlueprintLauncherRocket = planta de RPG-7
-    .desc = Uma planta com um esquema do RPG-7 e a munição para ele. Pode ser inserida em um torno automático ou em uma techfab.
+ent-BlueprintLauncherRocket = diagrama de RPG-7
+    .desc = Um diagrama com um esquema do RPG-7 e a munição para ele. Pode ser inserido em um torno ou em um techfab.
 
-ent-BlueprintWeaponRifleNtsfLtr = planta de NTSF-LTR-556
-    .desc = Uma planta para a receita do NTSF-LTR-556. Pode ser inserida em um torno automático ou em uma techfab.
+ent-BlueprintWeaponRifleNtsfLtr = diagrama de NTSF-LTR-556
+    .desc = Um diagrama para a receita do NTSF-LTR-556. Pode ser inserido em um torno ou em um techfab.
 
-ent-BlueprintWeaponSubMachineGunVectorNtsfHclm = planta de NTSF-HCLM-45
-    .desc = Uma planta para a receita do NTSF-HCLM-45. Pode ser inserida em um torno automático ou em uma techfab.
+ent-BlueprintWeaponSubMachineGunVectorNtsfHclm = diagrama de NTSF-HCLM-45
+    .desc = Um diagrama para a receita do NTSF-HCLM-45. Pode ser inserido em um torno ou em um techfab.
 
 # From: _Mono/Guidebook/sector_topology.yml
 
@@ -9587,3 +9588,1331 @@ ent-SpawnDroneMote = SpawnDroneMote
 ent-NukeTestingProjectile = lagosta nuclear
     .desc =  Você tem que se moggar AGORA
     .suffix = yeah
+
+# ===== Generated missing entity keys (untranslated) - 2026-10-09 =====
+
+ent-ActionBlackFlash = Black Flash
+    .desc = Ataque com toda a sua força. Usa muita stamina.
+
+ent-ActionSpawnBiomassTile = Plantar Biomassa
+    .desc = Gera um crescimento de biomassa que pode expandir afora.
+
+ent-ActionSpawnBiomassWall = Plantar Parede de Carne
+    .desc = Gera uma parede espessa de biomassa.
+
+ent-ActionSpawnLetoferolBeast = Besta Letoferol
+    .desc = Cria outra besta letoferol inferior.
+
+ent-ActionDashMuscleFibersImplant = impulso de fibras musculares
+    .desc = Use seu implante de fibras musculares para fazer um impulso rápido.
+
+ent-ActionEnergyCyberneticsShuntTSF = desvio de implante KR-22
+    .desc = Teleporte-se para qualquer lugar que você possa ver.
+
+ent-ActionActivatePersonalShield = Ativar escudo pessoal
+    .desc = Ativa o escudo de energia pessoal do traje, que consome lentamente a carga da bateria.
+
+ent-OrganHeartMMCSakimoto = coração substituto MMC EVT-001 \"Sakimoto\"
+    .desc = Um estranho hardware cibernético projetado para substituir o coração. A maneira exata de como é desconhecida, mas permite ao usuário canalizar uma forma de energia latente em um único golpe.
+
+ent-OrganHeartMMCSandevistan = coração substituto MMC EVT-002 \"Lotus\"
+    .desc = É uma bolsa estéril cheia de uma série de autoinjetores, conexões eletroneurais/cardiovasculares e termomáquinas projetadas para permitir que o usuário se esforce até o limite.
+
+ent-OrganHeartTSFSandevistan = conjunto de implantes TSF WJY-21X \"Leuko\"
+    .desc = Uma peça experimental de cyberware desenvolvida sob contrato pela Erebus HI que substitui o coração. Equipado com um design experimental de engenharia reversa de recarga mais lenta de uma sandevistan da MMC.
+
+ent-OrganHeartTSFShunt = conjunto de implantes TSF KR-22 \"Zenit\"
+    .desc = Uma peça altamente experimental de cyberware desenvolvida em algum blacksite infernal da TSF que substitui o coração. Permite ao usuário fazer um teleporte localizado curto para qualquer posição em sua linha de visão.
+
+ent-OrganInternalAirSystem = PD-VI LS-210 IAS
+    .desc = Um órgão cibernético que substitui os pulmões por um conjunto de filtros e outros dispositivos. Não é o suficiente para mantê-lo respirando no espaço, mas filtra gases tóxicos e faz você precisar de um pouco menos para respirar.
+
+ent-OrganPDVAdvancedHeart = coração protético PD-VI VV/KE
+    .desc = Um coração artificial compacto de bombeamento rápido. Pode processar muitos reagentes de uma vez e permite que você sofra mais dano antes de cair, mas reduz sua stamina e processa medicamentos mais lentamente.
+
+ent-ClothingBackpackDuffelPDVBurner = Pacote Burner
+    .desc = Um rifle Burner de alto calibre. Vem com munições antimaterial e de alto explosivo.
+
+ent-ClothingBackpackDuffelPDVC4tBundle = pacote de C-4
+    .desc = Contém muitas cargas de C-4.
+
+ent-ClothingBackpackDuffelPDVFilledAtreides = pacote Atreides
+    .desc = Uma submetralhadora compacta de uma mão favorecida por hullcrashers, acompanhada de três carregadores de 5.7x28mm.
+
+ent-ClothingBackpackDuffelPDVFilledGrenadeLauncher = pacote China-Lake
+    .desc = Um antigo lançador de granadas China-Lake acompanhado de 11 projéteis de várias capacidades de destruição.
+
+ent-ClothingBackpackDuffelPDVFilledLMG = pacote L6 Saw
+    .desc = Mais dakka. Uma metralhadora leve L6 modernizada, calibrada em  7.62x39mm, acompanhada de 2 carregadores tipo caixa.
+
+ent-ClothingBackpackDuffelPDVFilledShotgun = pacote Bulldog
+    .desc = Magro e cruel: Contém uma escopeta Bulldog e quatro tambores de chumbo grosso 12g.
+
+ent-ClothingBackpackDuffelPDVFilledSMG = pacote C-20r
+    .desc = Velha confiável; A clássica submetralhadora C-20r, acompanhada de três carregadores de 9x19mm.
+
+ent-ClothingBackpackDuffelPDVFilledWSPR = pacote WSPR
+    .desc = Um pacote carregando um rifle de assalto WSPR, repleto de 4 carregadores supersônicos reserva de 7.62x39mm e duas caixas de munição.
+
+ent-ClothingBackpackDuffelPDVMedicalBundleFilled = pacote médico
+    .desc = Tudo que você precisa para colocar seus camaradas de volta na luta.
+
+ent-CratePlatePierce = caixote de placas de armadura balística
+    .desc = Contém duas (2) placas de armadura especializadas em dano perfurante.
+
+ent-CrateMaterialAdamantite = caixote de fichas de dados
+    .desc = 500 fichas de dados e 50 folhas de adamantita.
+
+ent-CrateMaterialPlastitanium = caixote de plastitânio
+    .desc = 90 folhas de plastitânio.
+
+ent-CrateMaterialsAdvancedFilledTsf = caixote de materiais avançados
+    .desc = Uma caixa cheia de suprimentos.
+    .suffix = Preenchido, Materiais Avançados (cheio)
+
+ent-CrateMaterialsBasicFilledTsf = caixote de materiais básicos
+    .desc = Uma caixa cheia de suprimentos.
+    .suffix = Preenchido, Materiais Básicos (cheio)
+
+ent-CrateMaterialsExoticFilledTsf = caixote de materiais exóticos
+    .desc = Uma caixa cheia de suprimentos.
+    .suffix = Preenchido, Materiais Exóticos (cheio)
+
+ent-CrateMaterialsIndustrialFilledTsf = caixote de materiais industriais
+    .desc = Uma caixa cheia de suprimentos.
+    .suffix = Preenchido, Materiais Industriais (cheio)
+
+ent-CrateMaterialNukeSupplies = caixote de suprimentos de explosivo de fissão nuclear
+    .desc = O disco de autenticação, 4 rastreadores de disco e os códigos. Algo deu muito errado aqui.
+
+ent-CrateVinylsDeltarisk = caixote de vinis 'deltarisk'
+    .desc = Um caixote desbotado de alguma era passada. É um milagre o conteúdo ainda tocar.
+
+ent-CrateVinylsNulb = caixote de vinis 'nulb'
+    .desc = Um caixote desbotado de alguma era passada. É um milagre o conteúdo ainda tocar.
+
+ent-CrateAmmoBox140mmSACLOS = caixa Longbow 85x680mm SACLOS
+    .desc = Contém uma caixa de munição 85x680mm SACLOS. Fornece a uma peça de artilharia 120 projéteis SACLOS.
+
+ent-CrateAmmoBox20mmAS = caixa de tambor L85 14x97mm AS
+    .desc = Contém uma caixa de munição antiescudo 14x97mm. Fornece a uma peça de artilharia 1250 projéteis AS. Pode derrubar um MS-250 em cerca de 150 tiros.
+
+ent-CrateAmmoBox220mmAPHE = caixa de projéteis 130x820mm CYREXA APHE
+    .desc = Contém 48 projéteis APHE, embalados em 2 caixas grandes.
+
+ent-CrateAmmoBox220mmHECluster = caixa de projéteis 130x820mm CYREXA HE-CLST
+    .desc = Contém 48 projéteis HE-CLST, embalados em 2 caixas grandes.
+
+ent-CrateAmmoBox220mmSmartCluster = caixa de projéteis 130x820mm CYREXA HMNG-CLST
+    .desc = Contém 48 projéteis HMNG-CLST, embalados em 2 caixas grandes.
+
+ent-CrateAmmoBox255mmAPHE = caixa de projéteis 203x940mm Bofors APHE
+    .desc = Contém 32 projéteis APHE, embalados em 2 caixas grandes.
+
+ent-CrateAmmoBox255mmEMP = caixa de projéteis 203x940mm Bofors EMP
+    .desc = Contém 32 projéteis EMP, embalados em 2 caixas grandes.
+
+ent-CrateAmmoBox255mmMine = caixa de projéteis lançaminas 203x940mm Bofors
+    .desc = Contém 32 projéteis lançaminas, embalados em 2 caixas grandes.
+
+ent-CrateAmmoBox30mmHE = caixa de tambores Draupnir 20x141mm HE
+    .desc = Contém uma caixa de munição 20x141mm HE, com 2000 projéteis.
+
+ent-CrateAmmoBox35mm = caixa de tambores AC-35 25x170mm sólidos
+    .desc = Contém uma caixa de munição sólida 25x170mm. Fornece a uma peça de artilharia projéteis sólidos infinitos. Compre caso tenha perdido a munição que veio com ela.
+
+ent-CrateAmmoBox35mmHe = caixa de tambores AC-35 25x170mm HE
+    .desc = Contém uma caixa de munição HE 25x170mm. Fornece a uma peça de artilharia projéteis sólidos infinitos. Compre caso tenha perdido a munição que veio com ela.
+
+ent-CrateAmmoBox57mmSACLOS = caixa de tambores AK-570 40x360mm SACLOS
+    .desc = Contém uma caixa de munição 40x360mm SACLOS. Fornece a uma peça de artilharia 600 projéteis guiados por FCS.
+
+ent-CrateAmmoBox57mmSmart = caixa de tambores AK-570 40x360mm HMNG
+    .suffix = DO NOT MAP
+    .desc = Contém uma caixa de munição teleguiada 40x360mm. Fornece a uma peça de artilharia 600 projéteis teleguiados.
+
+ent-CrateAmmoBox90mmAP = caixa AP Dravon 57x460mm
+    .desc = Contém uma caixa de munição perfurante 57x460mm. Fornece a uma peça de artilharia projéteis perfurantes infinitos. Compre caso tenha perdido a munição que veio com ela.
+
+ent-CrateAmmoBox90mmFlak = caixa Flak Dravon 57x460mm
+    .desc = Contém uma caixa de munição flak 57x460mm. Fornece a uma peça de artilharia projéteis flak infinitos. Compre caso tenha perdido a munição que veio com ela.
+
+ent-CrateAmmoBox90mmMinelayer = caixa lançaminas Dravon 57x460mm
+    .suffix = DO NOT MAP
+    .desc = Contém uma caixa de munição lançaminas 57x460mm. Fornece a uma peça de artilharia 400 projéteis lançaminas.
+
+ent-CrateAmmoBoxCharonAPHE = caixa de cartuchos de slug APHE 280mm CHARON 26.5kg
+    .desc = Contém 3 slugs.
+
+ent-CrateAmmoBoxCharonEMP = caixa de cartuchos de slug EMP 280mm CHARON 26.5kg
+    .desc = Contém 3 slugs.
+
+ent-CrateAmmoBoxPaladinEMPHE = caixa de mísseis MLRS-382 Paladin EMP-HE
+    .desc = Contém 2 carregadores automáticos com 24 mísseis cada.
+
+ent-CrateAmmoBoxPaladinHE = caixa de mísseis MLRS-382 Paladin HE
+    .desc = Contém 2 carregadores automáticos com 24 mísseis cada.
+
+ent-CrateAmmoBoxPaladinHV = caixa de mísseis MLRS-382 Paladin HV
+    .desc = Contém 2 carregadores automáticos com 24 mísseis cada.
+
+ent-CrateAmmoBoxTrident = caixa de torpedos ASM-220 Trident HE
+    .desc = Contém 4 mísseis grandes, o suficiente para encher um único lançador.
+
+ent-CrateAmmoBoxTridentSACLOS = caixa de torpedos ASM-220 Trident HE-SACLOS
+    .desc = Contém 4 mísseis grandes, o suficiente para encher um único lançador.
+
+ent-LockerATU = armário de guarda-roupa da ATU
+
+ent-ClothingBackpackPDVTarkhan = mochila tática avançada de tarkhan
+    .desc = Uma bolsa grande usada por Tarkhans.
+
+ent-ClothingOuterHardsuitBaseNoPlateholder = traje rígido base sem suporte de placa
+
+ent-ClothingBeltPDVInfantry = cinta de infantaria PD
+    .desc = Cinta padrão para infantaria PD.
+
+ent-ClothingBeltWebbingsPDVTarkhan = colete peitoral de tarkhan
+    .desc = Um conjunto de cintas táticas usadas por Tarkhans.
+
+ent-ClothingHeadsetTsfCivilian = rádio TSF
+
+ent-ClothingHelmetHardsuitCCTCMedium = capacete de traje tático MP-EVA CSW-19 \"Century\"
+    .desc = Capacete selado pesado para todos os ambientes. Equipado com equipamento básico de NVD.
+
+ent-ClothingHelmetHardsuitCCTCMediumPremium = capacete de traje tático MP-EVA CSW-21 \"Centurion\"
+    .desc = Capacete selado pesado para todos os ambientes. Equipado com equipamento básico de NVD.
+
+ent-ClothingHeadHelmetHardsuitTarkhan = capacete de traje rígido de combate PDV CV-280 'Basilisk'
+    .desc = Um capacete de traje rígido de combate projetado pela Dinastia Phaethon para Tarkhans. Um conjunto completo de NVD gen-4 está instalado.
+
+ent-ClothingHeadHelmetHardsuitGodfather = capacete de traje rígido BR-238
+    .desc = Um símbolo de poder, este capacete tem tantos aparelhos quanto seu projetista conseguiu enfiar desajeitadamente dentro.
+
+ent-ClothingHelmetHardsuitWarlord = capacete WL-01
+    .desc = Uma peça de proteção craniana pesada que acompanha o traje Warlord, oferece imunidade a flash, bem como um scanner de massa integrado.
+
+ent-ClothingHeadHelmetHardsuitViperGroupShield = capacete de traje rígido víbora MEDUSA mk.VI
+    .desc = Um capacete de traje rígido com as marcas características do Grupo Víbora. Possui um HUD de rastreamento de identidade embutido, complementado por um sistema de visão noturna.
+
+ent-ClothingHeadHelmetCombatPDV = capacete PD-VI STZ-H
+    .desc = Parte do sistema de armadura STZ para infantaria PD. Mantém sua cabeça crocante segura.
+
+ent-ClothingUniformJumpskirtCCTCFormalDress = vestido formal de executiva
+    .desc = Um vestido para ocasiões especiais.
+
+ent-ClothingUniformPDVInfantry = traje de campo de infantaria PD
+    .desc = Fardamentos justos ao corpo para infantaria PD.
+
+ent-ClothingUniformTSFMCForest = uniforme de combate TSFMC tipo-47F
+    .desc = Um uniforme de combate em camuflagem florestal TSF Tipo-47F. É equipado com uma braçadeira com a bandeira azul da TSF.
+
+ent-ClothingNeckTSFCloak = capa de oficial tsf
+    .desc = Uma capa da TSFMC mais discreta para um oficial se misturar enquanto ainda aparenta comando.
+
+ent-ClothingNeckFormalTSF = casaco formal da TSFMC
+    .desc = Traje formal de um oficial da TSFMC para ocasiões especiais.
+
+ent-ClothingNeckFormalTSFColonel = casaco formal de coronel da TSFMC
+    .desc = Traje formal de um oficial de alta patente da TSFMC para ocasiões especiais.
+
+ent-ClothingNeckWearableCamera = câmera sem fio
+    .desc = Uma câmera sem fio feita para observar o campo de batalha a partir da segurança de sua base. Pode ser usada no slot de pescoço.
+
+ent-ClothingNeckWearableCameraMMC = câmera sem fio MMC
+
+ent-ClothingNeckWearableCameraPDV = câmera sem fio PDV
+    .suffix = Camaleão
+    .desc = Uma câmera sem fio feita para observar o campo de batalha a partir da segurança de sua base. Pode ser usada no slot de pescoço. Esta foi instalada com tecnologia camaleão resgatada de um dos esconderijos do Sultão, permitindo que você a use sem revelar sua verdadeira lealdade.
+
+ent-ClothingNeckWearableCameraTSF = câmera sem fio TSF
+
+ent-ArmorPlateRepairableBase = base de armadura reparável
+
+ent-ClothingOuterArmorBPVestMediumPDV = colete à prova de balas PD-VI STZ-M
+    .desc = Parte do sistema de armadura STZ para infantaria PD. Moderadamente reforçado contra balas.
+
+ent-ClothingOuterHardsuitCCTCMedium = traje tático MP-EVA CSW-19 \"Century\"
+    .desc = Um traje rígido de propósito geral, pronto para combate, projetado pela Centennial Armsworks, para a Centennial Armsworks. Projetado para ser utilizável em controle de distúrbios, tiroteios e riscos biológicos, mas devido aos materiais baratos não é particularmente eficaz.
+
+ent-ClothingOuterHardsuitCCTCMediumPremium = traje tático MP-EVA CSW-21 \"Centurion\"
+    .desc = Uma variante reforçada do CSW-19 \"Century\", o \"Centurion\" é projetado com os comandantes da PMC em mente, ostentando qualidade e proteção aprimoradas.
+
+ent-ClothingOuterHardsuitTarkhan = traje rígido de combate PDV CV-280 'Basilisk'
+    .desc = Um traje rígido de combate projetado pela Dinastia Phaethon para Tarkhans. Utiliza uma composição nanolaminada imperfeita como o CV-67 para economizar peso e um sistema hidráulico instalado para mais mobilidade, e é pintado em uma paleta branca real de tarkhan. Uma visão rara.
+
+ent-ClothingOuterHardsuitGodfather = traje rígido de padrinho BR-238
+    .desc = Um traje rígido fortemente reforçado e um verdadeiro símbolo de riqueza e poder, por mais passageiro que seja.
+
+ent-ClothingOuterHardsuitViperGroupShield = traje rígido víbora MEDUSA mk.VI
+    .desc = Um traje rígido de combate pesado adornado com as marcas características do Grupo Víbora. A armadura possui um projetor de escudo pessoal integrado ao traje.
+
+ent-ClothingOuterVestWebElite = colete tático de elite
+    .desc = Um colete de armadura sintético. Este tem cintas adicionais e fibras resistentes ao calor.
+
+ent-ClothingShoesBootsMagVoidTrauma = botas ATU
+    .desc = Botas espaciais leves reforçadas para condições adversas do espaço, projetadas para manter a mobilidade e reduzir a perda de movimento por ferimentos.\n
+
+ent-ClothingShoesBootsMagVoidTraumaLeader = botas ATU avançadas
+    .desc = Atualização das botas espaciais convencionais, reforçadas com placas adicionais para pessoal de trauma de linha de frente. Sua construção pesada é compensada por um sistema de mobilidade integrado que mantém o usuário em movimento apesar de ferimentos graves.\n
+
+ent-InstantEffectEMPCharon = efeito EMP instantâneo
+
+ent-LightningEMPCharon = raio ionizado
+
+ent-BiomeSourceFallbackCrocus = fonte de bioma fallback crocus
+
+ent-BiomeSourceFallbackCrocusUnderground = fonte de bioma fallback subterrânea crocus
+
+ent-BiomeSourceFallbackJianghuiCity = fonte de bioma cidade jianghui crocus
+
+ent-BiomeSourceFallbackJianghuiIndustrial = fonte de bioma industrial jianghui crocus
+
+ent-BiomeSourceFallbackJianghuiPort = fonte de bioma porto jianghui crocus
+
+ent-SpawnPointCrocusDockworker = Estivador de Jianghui
+    .desc = Ponto de spawn para o cargo de Estivador de Jianghui.
+    .suffix = Crocus
+
+ent-SpawnPointFugitive = Fugitivo
+
+ent-SpawnPointGodfather = Padrinho
+
+ent-SpawnPointPDVCivilian = Spawn de Civil PDV
+
+ent-SpawnPointPDVInfantry = Infantaria PDV
+
+ent-SpawnPointPDVTarkhan = PDV Tarkhan
+
+ent-SpawnPointTSFCivilian = Spawn de Civil TSF
+
+ent-SpawnPointTsfInfantry = Infantaria TSF
+
+ent-SpawnPointTsfMarsoc = TSF Marsoc
+
+ent-SpawnTSFFlail = spawner de malho TSF
+
+ent-SpawnTSFSpyglass = spawner de luneta TSF
+
+ent-MobPDVBase = guarda PDV
+    .desc = Um guarda da ilustre Vanguarda do Sultão.
+
+ent-MobPDVBaseA = guarda PDV
+    .desc = Um guarda da ilustre Vanguarda do Sultão. Ele parece estar armado com um C-20r.
+
+ent-SpawnMobPDV = spawner de Mob T1 PDV
+    .desc = Gera um mob.
+    .suffix = IA, Hostil, PDV
+
+ent-MobTSFMCBase = fuzileiro TSFMC
+    .desc = Um fuzileiro da TSFMC em serviço de guarda.
+
+ent-MobTSFMCBaseA = fuzileiro TSFMC
+    .desc = Um fuzileiro raso típico da TSFMC em serviço de guarda. Ele parece estar armado com uma lecter.
+
+ent-SpawnMobTSFMC = spawner de Mob T1 TSFMC
+    .desc = Gera um mob.
+    .suffix = IA, Hostil, TSFMC
+
+ent-MobVoidBase = sombra desgarrada
+    .desc = Algo grandioso foi perdido.
+
+ent-MobVoidBasePDV = guarda desgarrado
+    .desc = Longe de casa, esvaziado pelas emissões. Espere uma luta.
+
+ent-MobVoidBaseTSF = fuzileiro desgarrado
+    .desc = Longe de casa, esvaziado pelas emissões. Espere uma luta.
+
+ent-SpawnMobVoidPDV = spawner de Mob PDV desgarrado
+    .desc = Gera um mob.
+    .suffix = IA, Hostil
+
+ent-SpawnMobVoidTSFMC = spawner de Mob TSFMC desgarrado
+    .desc = Gera um mob.
+    .suffix = IA, Hostil
+
+ent-SheetPdvComposite = adamantita
+    .suffix = 30
+    .desc = Uma liga composta avançada feita exclusivamente pela Dinastia. Embora não seja realmente \"adamantita\", contém algum material anômalo colhido do raio do Colosso que poderia ser comparado a tal substância mítica. Informalmente conhecida como Sultanium.
+
+ent-MobHumanAmbassadorBase = Embaixador da Dinastia
+    .desc = Um humano.
+    .suffix = Humano, PDV, Evento
+
+ent-MobHumanPrinceBase = Príncipe da Dinastia
+    .desc = Um humano.
+    .suffix = Humano, PDV, Evento
+
+ent-MobHumanTarkhanBase = PDV Tarkhan
+    .desc = Um humano.
+    .suffix = Humano, PDV, Evento, Ghostrole
+
+ent-NpcDroneAiDander = núcleo orbitador
+    .suffix = IA, Esquivando, Orbitando
+    .desc = Orbita inofensivamente e esquiva. Menos valioso devido à sub-rotina banal.
+
+ent-SpawnMobDroneAiDander = spawner de núcleo orbitador
+    .desc = Gera um mob.
+    .suffix = Drone-Dander
+
+ent-MobHumanoidHostileBaseShade = sombra desgarrada
+    .suffix = IA, Hostil, Sombra
+    .desc = Algo grandioso foi perdido.
+
+ent-MobBoomroach = Boomroach
+    .desc = Esta pequena mariposa-barata tem um chinalake amarrado nas costas! Por quê e como?
+
+ent-MobImperiRoach = ImperiRoach
+    .desc = Membro de elite reaproveitado e altamente treinado da PDV, cuidado com a personalidade explosiva
+
+ent-MobMoproach = moproach
+    .desc = Esta pequena mariposa-barata tem chinelos de esfregão nos pés! Que adorável!
+
+ent-MobMothroachCecropia = mariposa-barata cecropia
+    .desc = Um resultado encantador de inúmeras tentativas de cruzar um gênero da família das urtigas com baratas.
+
+ent-MobMothroachLeopard = mariposa-barata leopardo
+    .desc = Um resultado encantador de inúmeras tentativas de cruzar insetos com predadores.
+
+ent-MobMothroachLunar = mariposa-barata lunar
+    .desc = Alguém deixou a mariposa sob o luar.
+
+ent-MobMothroachMustard = mariposa-barata de mostarda
+    .desc = Um resultado delicioso dos melhores chefes do setor cruzando carne com molho.
+
+ent-MobOwORoach = OwOroach
+    .desc = Experimentação genética entre mariposas-baratas e gatos, longe demais ou não o suficiente?
+
+ent-FoodBurgerBoomRoach = hambúrguer de boomroach
+    .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
+
+ent-FoodBurgerCecropiaMothRoach = hambúrguer de mariposa-barata cecropia
+    .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
+
+ent-FoodBurgerImperiRoach = hambúrguer de ImperiRoach
+    .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
+
+ent-FoodBurgerLeopardMothRoach = hambúrguer de mariposa-barata leopardo
+    .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
+
+ent-FoodBurgerLunarMothRoach = hambúrguer de mariposa-barata lunar
+    .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
+
+ent-FoodBurgerMopRoach = hambúrguer de moproach
+    .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
+
+ent-FoodBurgerMustardMothRoach = hambúrguer de mariposa-barata de mostarda
+    .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
+
+ent-FoodBurgerOwORoach = hambúrguer de OwOroach
+    .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
+
+ent-AutosurgeonAdvHeartMMC = autocirurgião MMC (EVT-001 Sakimoto)
+    .desc = Substitui o coração por um mais estranho. A maneira exata de como é desconhecida, mas permite ao usuário canalizar uma forma de energia latente em um único golpe.
+
+ent-AutosurgeonAdvHeartMMCFlatpack = flatpack de autocirurgião MMC (EVT-001 Sakimoto)
+    .desc = Um flatpack usado para construir um autocirurgião da MMC.
+
+ent-IndustrialFurnaceEconomyCompactCircuitboard = placa de máquina de forno a arco compacto
+    .desc = Uma placa de circuito impresso de máquina para um forno a arco compacto.
+
+ent-IndustrialPressEconomyElectronicsMachineCircuitboard = placa de máquina de prensa industrial (eletrônica)
+    .desc = Uma placa de circuito impresso de máquina para uma prensa industrial, calibrada para componentes eletrônicos. Use uma chave de fenda para alternar entre variantes.
+
+ent-IndustrialPressEconomyElectronicsMMCMachineCircuitboard = placa de máquina de prensa industrial MMC (eletrônica)
+    .desc = Uma placa de circuito impresso de máquina para uma prensa industrial, calibrada para componentes eletrônicos. Use uma chave de fenda para alternar entre variantes.
+
+ent-IndustrialPressEconomyPlatesMachineCircuitboard = placa de máquina de prensa industrial (placas)
+    .desc = Uma placa de circuito impresso de máquina para uma prensa industrial, calibrada para placas. Use uma chave de fenda para alternar entre variantes.
+
+ent-IndustrialPressEconomyPlatesMMCMachineCircuitboard = placa de máquina de prensa industrial MMC (placas)
+    .desc = Uma placa de circuito impresso de máquina para uma prensa industrial, calibrada para placas. Use uma chave de fenda para alternar entre variantes.
+
+ent-InteractorCCTCCircuitboard = placa de máquina de interator proprietário
+    .desc = Uma placa de circuito impresso de máquina para um interator proprietário. Muito importante para manufatura automatizada.
+
+ent-PrecisionAssemblerEconomyCompactCircuitboard = placa de máquina de montador de precisão compacto
+    .desc = Uma placa de circuito impresso de máquina para um montador de precisão compacto.
+
+ent-RoboticArmCCTCCircuitboard = placa de máquina de braço robótico proprietário
+    .desc = Uma placa de circuito impresso de máquina para um braço robótico proprietário. Muito importante para manufatura automatizada.
+
+ent-MMCTechfabMachineCircuitboard = placa de máquina de montador multipropósito MMC
+    .desc = Uma placa de circuito impresso de máquina para um montador multipropósito da MMC.
+
+ent-InteractorCCTCFlatpack = flatpack de interator proprietário
+    .desc = Um flatpack usado para construir um interator proprietário.
+
+ent-RoboticArmCCTCFlatpack = flatpack de braço robótico proprietário
+    .desc = Um flatpack usado para construir um braço robótico proprietário.
+
+ent-BaseFactionWarDeclarator = declarador de guerra
+    .desc = Um dispositivo usado para declarar hostilidades dentro do setor. Se ambos os lados o ativarem, guerra total será declarada.
+
+ent-WarDeclaratorPdv = declarador de guerra PDV
+
+ent-WarDeclaratorTsf = declarador de guerra TSFMC
+
+ent-FugitiveIDCard = cartão de ID de fugitivo
+
+ent-GodfatherIDCard = cartão de ID de padrinho
+
+ent-PDVAmbassadorIDCard = cartão de ID de embaixador PDV
+
+ent-PDVPrinceIDCard = cartão de ID de príncipe PDV
+
+ent-PDVTarkhanIDCard = cartão de ID de tarkhan PDV
+
+ent-NuclearBombHyperwar = explosivo de fissão nuclear
+    .suffix = Hyperwar
+    .desc = Você provavelmente não deveria ficar por perto para ver se isto está armado. Detone isto na estação principal do seu oponente para vencer!
+
+ent-PDVAmbassadorPDA = PDA de Embaixador PDV
+
+ent-PDVPrincePDA = PDA de Príncipe PDV
+
+ent-PDVTarkhanPDA = PDA de tarkhan PDV
+
+ent-OverwatchJammer = jammer de sobrevisão
+    .desc = Um tijolo de C-4 modificado, o explosivo dentro foi substituído por um transmissor de rádio que emite constantemente ruído imprestável. Os consoles de sobrevisão não conseguirão detectar a pobre alma que tiver este dispositivo anexado.
+
+ent-ReinforcementRadioPDVImperiroach = rádio de reforço ImperiRoach
+    .desc = Chama um ImperiRoach fielmente treinado com uma microbomba para ajudá-lo.
+
+ent-PlantAnalyzer = analisador de plantas
+    .desc = Um dispositivo portátil que permite escanear sementes e plantas para obter informações detalhadas sobre seus genes.
+
+ent-ShipVoucherCaelestinusT0 = vale de nave caelestinus T0
+    .desc = Permite uma compra de nave pequena da Caelestinus. Destruído na venda.
+
+ent-ShipVoucherCaelestinusT1 = vale de nave caelestinus T1
+    .desc = Permite uma compra de nave média da Caelestinus.
+
+ent-ShipVoucherEuropaT3 = PDV Europa LPC [T3]
+    .desc = Um cartão pequeno que contém os dados para a aquisição de uma corveta pesada da classe Europa das reservas do estaleiro.
+
+ent-ShipVoucherKortikT3 = PDV Kortik-R LPC [T3]
+    .desc = Um cartão pequeno que contém os dados para a aquisição de uma corveta pesada da classe Kortik-R das reservas do estaleiro.
+
+ent-ShipVoucherLuda = TSFN Luda LPC [T4]
+    .desc = Um cartão pequeno que autoriza a aquisição de um contratorpedeiro de mísseis estratégico da classe Luda da TSFN.
+
+ent-ShipVoucherMieyoSenkusha = MMC Senku-sha LPC [T1]
+    .desc = Um cartão pequeno que contém os dados para a aquisição de uma corveta da classe Senku-sha das reservas da estação.
+
+ent-ShipVoucherMieyoYukikaze = MMC Yukikaze LPC [T1]
+    .desc = Um cartão pequeno que contém os dados para a aquisição de uma corveta da classe Yukikaze das reservas da estação.
+
+ent-ShipVoucherPdvT3 = vale de nave PDV T3
+    .desc = Permite uma compra de nave grande da PDV. Destruído na venda.
+
+ent-ShipVoucherVGKeelback = VG Keelback LPC [T2]
+    .desc = Um cartão pequeno que contém os dados para a aquisição de uma corveta da classe Keelback das reservas da estação.
+
+ent-ShipVoucherVGLancehead = VG Lancehead LPC [T2]
+    .desc = Um cartão pequeno que contém os dados para a aquisição de uma plataforma de artilharia da classe Lancehead das reservas da estação.
+
+ent-ShipVoucherVGLeviathan = VG Leviathan LPC [T3]
+    .desc = Um cartão pequeno que contém os dados para a aquisição de uma fragata da classe Leviathan
+
+ent-ShipVoucherZephyr = TSF Zephyr LPC
+    .desc = Um cartão pequeno que autoriza a aquisição de um Zephyr a bordo do Fujian.
+
+ent-ReinforcementRadioTSFBoomRoach = Rádio de Reforço BoomRoach
+    .desc = Chama um boomroach fielmente treinado para ajudá-lo.
+
+ent-CameraEconomy1 = câmera de flash fotônico
+    .desc = Um sensor óptico adaptado para emitir e receber fótons de alta energia. Útil.
+
+ent-CapacitorEconomy1 = capacitor básico industrial
+    .desc = Um capacitor simples útil em armazenamento de energia de pequena escala e circuitos simples.
+
+ent-CapacitorEconomy2 = capacitor avançado industrial
+    .desc = Um capacitor aprimorado capaz de lidar com mais voltagem e armazenar mais energia através do poder de semicondutores refinados.
+
+ent-CapacitorEconomy3 = supercapacitor industrial
+    .desc = Um capacitor de última geração capaz de armazenar quantidades incríveis de energia para o seu tamanho através do uso de tecnologia SMES miniaturizada.
+
+ent-ComponentBrickEconomy1 = componentes básicos
+    .desc = Uma carcaça de sistemas de interfaceamento mecânico-elétrico, como engrenagens, motores de passo, cabeamento e mais.
+
+ent-ComponentBrickEconomy1SpawnerT2 = componentes básicos
+    .desc = Uma carcaça de sistemas de interfaceamento mecânico-elétrico, como engrenagens, motores de passo, cabeamento e mais.
+
+ent-ComponentBrickEconomy2 = componentes avançados
+    .desc = Uma carcaça de sistemas de interfaceamento mecânico-elétrico mais avançados, precisos e duráveis.
+
+ent-ComponentBrickEconomy3 = supercomponentes
+    .desc = Uma carcaça de sistemas de interfaceamento de última geração e peças variadas. Robusto, eficiente e caro.
+
+ent-ElectromagnetEconomy1 = eletroímã básico
+    .desc = Um anel circular composto de metal magnético e cabeamento condutivo. Útil para estruturas de contenção e interfaceamento mecânico/elétrico. Adicione componentes básicos para começar a montar um eletroímã composto.
+
+ent-ElectromagnetEconomy2 = eletroímã composto
+    .desc = Um eletroímã empilhado em formato de tubo, forrado com material condutivo forte. Capaz de intercambiar energia elétrica e cinética poderosamente.
+
+ent-ElectromagnetEconomy2Start = eletroímã composto (inacabado)
+    .desc = Um eletroímã composto em andamento. Precisa de 10 cabos de baixa voltagem para começar a construção.
+
+ent-ElectromagnetEconomy3 = eletroímã supercondutivo
+    .desc = Um eletroímã supercondutor robusto. Extremamente útil para contenção de alta energia e propulsão.
+
+ent-ElectromagnetEconomy3Start = eletroímã supercondutivo (inacabado)
+    .desc = Um eletroímã supercondutivo em andamento. Precisa de mais montagem em um montador de precisão.
+
+ent-MatterBinEconomy1 = recipiente de componentes
+    .desc = Usado para armazenar produtos químicos e outras substâncias necessárias para processos industriais. Pode ser aberto e fechado. Não use como componente enquanto tiver reagentes dentro!
+
+ent-MatterBinEconomy2 = recipiente de componentes grande
+    .desc = Usado para armazenar produtos químicos e outras substâncias necessárias para processos industriais. Muito maior que seu predecessor. Pode ser aberto e fechado. Não use como componente enquanto tiver reagentes dentro!
+
+ent-MatterBinEconomy2Spawner = componentes básicos
+    .desc = Uma carcaça de sistemas de interfaceamento mecânico-elétrico, como engrenagens, motores de passo, cabeamento e mais.
+
+ent-MatterBinEconomy3 = recipiente de supercomponentes
+    .desc = Usado para armazenar produtos químicos e outras substâncias necessárias para processos industriais. Muito maior que seu predecessor. Pode ser aberto e fechado. Não use como componente enquanto tiver reagentes dentro!
+
+ent-MicroprocessorEconomy1 = microprocessador
+    .desc = Um microcontrolador programável de campo bem comum. Útil em tudo que precisa de até mesmo um pingo de cérebro.
+
+ent-MicroprocessorEconomy2 = nanoprocessador
+    .desc = Um sistema de computação mais avançado e miniaturizado, capaz de lidar com um sistema operacional básico!
+
+ent-MicroprocessorEconomy3 = processador quântico
+    .desc = Um sistema de computação quântica de última geração com refrigeração, memória e fonte de energia reserva embutidas, capaz de lidar com tudo, de I.A. de nível persona a pilotagem FTL.
+
+ent-MotorEconomy1 = motor industrial
+    .desc = Um eletromotor poderoso e dedicado, útil em conversão de energia elétrico-mecânica que exige alto torque.
+
+ent-OpticsEconomy1 = sensor óptico
+    .desc = Uma câmera semelhante a um olho, capaz de capturar fótons. Basicamente um globo ocular chique, embora tenha outros usos.
+
+ent-OpticsEconomy2 = sensor óptico de precisão
+    .desc = Um sensor de fótons avançado e de alta resolução, capaz de manter a clareza visual de objetos distantes. Extremamente útil para equipamentos de monitoramento, detecção e rastreamento.
+
+ent-RadioEconomy1 = componente de rádio de banda larga T/R
+    .desc = Um componente de rádio transmissor/receptor capaz de sintonizar e transmitir para as frequências de rádio mais comuns, mesmo à distância.
+
+ent-RadioEconomy2 = componente transceptor de sinal HF
+    .desc = Um transmissor/receptor de sinal de alta frequência, capaz de interceptar e comunicar em várias frequências. O alcance de detecção também lhe dá utilidade em sistemas de sensores de ponta, como radar, ELINT e painéis térmicos.
+
+ent-VinylDiskNulbBallsfish = disco de vinil: Ballsfish
+
+ent-VinylDiskNulbChronograph = disco de vinil: Chronograph
+
+ent-VinylDiskNulbCrueltyEngines = disco de vinil: Cruelty Engines
+
+ent-VinylDiskNulbDueTime = disco de vinil: Due Time
+
+ent-VinylDiskNulbEmulator = disco de vinil: EMULATOR
+
+ent-VinylDiskNulbEruption = disco de vinil: Eruption
+
+ent-VinylDiskNulbEverpresence = disco de vinil: Everpresence
+
+ent-VinylDiskNulbHakonechloa = disco de vinil: Hakonechloa
+
+ent-VinylDiskNulbHyperacusis = disco de vinil: Hyperacusis
+
+ent-VinylDiskNulbImDown = disco de vinil: I'm Down
+
+ent-VinylDiskNulbInterloc = disco de vinil: Interloc
+
+ent-VinylDiskNulbRecalled = disco de vinil: Recalled
+
+ent-VinylDiskNulbReRecalled = disco de vinil: RE-Recalled
+
+ent-VinylDiskNulbSeige = disco de vinil: SEIGE!
+
+ent-VinylDiskNulbTakeYourTime = disco de vinil: Take Your TIME
+
+ent-VinylDiskNulbTimeout = disco de vinil: Timeout!
+
+ent-PDVStampedGold = ouro cunhado da dinastia
+    .suffix = 75 FMC
+    .desc = Um caixote pesado repleto de ouro supercondutor sintetizado em laboratório, carimbado com o logotipo da Dinastia e um código identificador. Como uma forma não aprovada de moeda legal, a Federação adoraria confiscar isto.
+
+ent-TSFNaniteCanister = recipiente de nanites da federação
+    .suffix = 75 DC
+    .desc = Um cilindro reforçado de vidro espelhado especialmente feito para conter nanites recombinais programáveis inertes usados para manufatura avançada em microescala fora do setor. As fábricas da Dinastia adorariam pôr as mãos nisto.
+
+ent-TSFNaniteCanisterLarge = recipiente de nanites a granel da federação
+    .suffix = OBJETIVO CROCUS, 75 DC
+    .desc = Um grande cilindro reforçado de vidro espelhado especialmente feito para conter nanites recombinais programáveis inertes usados para manufatura avançada em microescala fora do setor. As fábricas da Dinastia adorariam pôr as mãos nisto.
+
+ent-BaseSignalFlare = sinalizador
+    .desc = Um sinalizador que produz uma luz muito brilhante e um sinal IFF por um curto período, usado para comunicações em situações de alta intensidade.
+
+ent-BaseSignalFlareActivated = sinalizador
+    .desc = Um sinalizador que produz uma luz muito brilhante e um sinal IFF por um curto período, usado para comunicações em situações de alta intensidade.
+
+ent-BoxDispenserFlare = dispensador de sinalizadores de emergência
+    .desc = Dispensa sinalizadores de emergência.
+
+ent-BoxDispenserFlareGold = dispensador de sinalizadores (outros)
+    .desc = Dispensa sinalizadores, usados para indicar um sinal variado.
+
+ent-BoxDispenserFlareGreen = dispensador de sinalizadores (amigos)
+    .desc = Dispensa sinalizadores, usados para indicar intenção amistosa.
+
+ent-BoxDispenserFlareRed = dispensador de sinalizadores (hostis)
+    .desc = Dispensa sinalizadores, usados para indicar intenção hostil.
+
+ent-BoxDispenserFlareWhite = dispensador de sinalizadores (neutro/rendição)
+    .desc = Dispensa sinalizadores, usados para indicar intenção neutra ou, em combate, rendição.
+
+ent-Flare = sinalizador de emergência
+    .desc = Um sinalizador que produz uma luz muito brilhante por um curto período de tempo. Aponte a chama para longe de você.
+
+ent-FlareActivated = sinalizador de emergência
+    .desc = Um sinalizador que produz uma luz muito brilhante por um curto período. Aponte a chama para longe de você.
+
+ent-SignalFlareGold = sinalizador (outro)
+    .desc = Um sinalizador que produz uma luz muito brilhante e um sinal IFF por um curto período. Indica um sinal variado.
+
+ent-SignalFlareGoldActivated = sinalizador (outro)
+    .desc = Um sinalizador que produz uma luz muito brilhante e um sinal IFF por um curto período. Indica um sinal variado.
+
+ent-SignalFlareGreen = sinalizador (amigo)
+    .desc = Um sinalizador que produz uma luz muito brilhante e um sinal IFF por um curto período. Indica intenção amistosa.
+
+ent-SignalFlareGreenActivated = sinalizador (amigo)
+    .desc = Um sinalizador que produz uma luz muito brilhante e um sinal IFF por um curto período. Indica intenção amistosa.
+
+ent-SignalFlareRed = sinalizador (hostil)
+    .desc = Um sinalizador que produz uma luz muito brilhante e um sinal IFF por um curto período. Indica intenção hostil.
+
+ent-SignalFlareRedActivated = sinalizador (hostil)
+    .desc = Um sinalizador que produz uma luz muito brilhante e um sinal IFF por um curto período. Indica intenção hostil.
+
+ent-SignalFlareWhite = sinalizador (neutro/rendição)
+    .desc = Um sinalizador que produz uma luz muito brilhante e um sinal IFF por um curto período. Indica intenção neutra ou, em combate, rendição.
+
+ent-SignalFlareWhiteActivated = sinalizador (neutro/rendição)
+    .desc = Um sinalizador que produz uma luz muito brilhante e um sinal IFF por um curto período. Indica intenção neutra ou, em combate, rendição.
+
+ent-UndeterminedPDVCrocusKit = seletor de equipamento de infantaria PDV
+    .desc = Um pequeno controle remoto para entregar um kit de infantaria PDV de sua escolha.
+
+ent-UndeterminedPDVTarkhanKit = seletor de equipamento Tarkhan PDV
+    .desc = Um pequeno controle remoto que utiliza tecnologia bluespace para entregar um kit imperial Tarkhan de sua escolha.
+
+ent-UndeterminedTSFCrocusKit = seletor de equipamento de infantaria TSF
+    .desc = Um pequeno controle remoto para entregar um kit de infantaria TSF de sua escolha.
+
+ent-UndeterminedTSFMarsocKit = seletor de equipamento Marsoc TSF
+    .desc = Um pequeno controle remoto que utiliza tecnologia bluespace para entregar um kit MARSOC TSF de sua escolha.
+
+ent-HeavyBallisticShield = escudo balístico pesado
+
+ent-JianghuiChart = mapa de jianghui
+
+ent-MapJianghui = mapa da zona industrial de jianghui
+    .desc = Um mapa da zona industrial de Jianghui. Anotado para coordenação militar. Pode estar sem as áreas subterrâneas!
+
+ent-PDVThiefBeacon = baliza de extração PDV
+    .desc = Um dispositivo que extrairá os materiais colocados ao redor dele no final da operação.
+
+ent-CrocusBeacon = baliza de uplink de rádio
+    .suffix = Crocus
+    .desc = Ajuda a transmitir e retransmitir dados críticos para unidades da TSF na área.
+
+ent-CrocusBeaconBroken = baliza de uplink de rádio danificada
+    .suffix = Crocus
+    .desc = Precisará de grandes reparos para voltar a funcionar. Comece os reparos com 2 folhas de aço.
+
+ent-TSFThiefBeacon = baliza de extração TSF
+    .desc = Um dispositivo que extrairá os materiais colocados ao redor dele no final da operação.
+
+ent-MMCIndustrialCredit = crédito industrial MMC
+    .suffix = 100 MIC
+    .desc = Um bilhete para uso no quiosque de requisições da MMC. Tenha um dia pheno-Mieyo-nal!
+
+ent-VendingMachineRestockMMC = caixa de reposição MMC
+    .desc = Uma caixa cheia de suprimentos corporativos da MMC. Coloque-a em uma Máquina de Vendas Automática da MMC para reabastecer. Uma etiqueta diz \"APENAS PARA FUNCIONÁRIOS AUTORIZADOS. MANUSEIE COM CUIDADO.\"
+
+ent-BaseTreeCrocus = árvore crocus
+    .desc = Sim, é uma árvore.
+
+ent-CrocusStrippedTree = árvore crocus
+    .desc = Sim, é uma árvore.
+
+ent-CrocusStump = toco crocus
+    .desc = Sim, não é uma árvore.
+
+ent-FloraBoulderCrocus = rocha crocus
+
+ent-FloraTreeCrocusDead = árvore morta crocus
+
+ent-FloraTreeCrocusPine = pinheiro crocus
+
+ent-AmmoBox12_gaugeBlank = caixa de cartuchos de escopeta (calibre 12 festim)
+
+ent-AmmoBox145x114mmEMP = caixa de munição (14.5x114mm EMPHE)
+
+ent-AmmoBox357_magnumAP = caixa de munição (.357 magnum extreme perfurante)
+
+ent-AmmoBox357_magnumBigFMJ = caixa de munição grande (.357 magnum FMJ)
+    .desc = Uma caixa de munição.
+    .suffix = Grande
+
+ent-AmmoBox357_magnumFMJ = caixa de munição (.357 magnum FMJ)
+
+ent-AmmoBox357_magnumHP = caixa de munição (.357 magnum ogiva oca)
+
+ent-AmmoBox357_magnumIncendiary = caixa de munição (.357 magnum incendiário)
+
+ent-AmmoBox357_magnumPlasteelAP = caixa de munição (.357 magnum AP)
+
+ent-AmmoBox357_magnumPractice = caixa de munição (.357 magnum prática)
+
+ent-AmmoBox357_magnumRIP = caixa de munição (.357 magnum RIP)
+
+ent-AmmoBox357_magnumRubber = caixa de munição (.357 magnum borracha)
+
+ent-AmmoBox357_magnumUranium = caixa de munição (.357 magnum urânio)
+
+ent-BaseAmmoBox357_magnum = caixa de munição (.357 magnum FMJ)
+
+ent-AmmoBox68x52mmCaselessPlasma = caixa de munição (6.8x52mm STANAG plasma sem estojo)
+
+ent-ShellShotgun12_gaugeBlank = cartucho de escopeta (calibre 12 festim)
+    .desc = Alguém esqueceu a pólvora.
+
+ent-Cartridge145x114mmEMP = cartucho (14.5x114mm EMPHE)
+    .desc = Projétil antimaterial ainda maior, capaz de perfurar qualquer armadura e barreiras sem dificuldade. O Pulso Eletromagnético desativa toda a eletrônica no local do impacto, enquanto um explosivo convencional fornece negação de área.
+
+ent-BaseCartridge357_magnum = cartucho (.357 magnum)
+    .desc = Projétil magnum pesado, geralmente visto apenas em magnums ou rifles de ciclo manual.
+
+ent-Cartridge357_magnumAP = cartucho (.357 magnum perfurante)
+
+ent-Cartridge357_magnumFMJ = cartucho (.357 magnum)
+
+ent-Cartridge357_magnumHP = cartucho (.357 magnum ogiva oca)
+
+ent-Cartridge357_magnumIncendiary = cartucho (.357 magnum incendiário)
+
+ent-Cartridge357_magnumPlasteelAP = cartucho (.357 magnum AP)
+
+ent-Cartridge357_magnumPractice = cartucho (.357 magnum prática)
+
+ent-Cartridge357_magnumRIP = cartucho (.357 magnum RIP)
+
+ent-Cartridge357_magnumRubber = cartucho (.357 magnum borracha)
+
+ent-Cartridge357_magnumUranium = cartucho (.357 magnum urânio)
+
+ent-Cartridge35mmGrenadeStinger = granada 35x53mm FL/ST
+    .desc = Um projétil menos-letal poderoso. Essencialmente uma granada de agulhas e flashbang de longo alcance, útil para contra-insurgência, contra-franco-atiradores e controle de distúrbios.
+
+ent-Cartridge68x52mmCaselessPlasma = cartucho (6.8x52mm STANAG Plasma)
+
+ent-Magazine35mmGrenadeStinger = pente (granada 35x53mm FL/ST)
+
+ent-Magazine68x52mmCaselessPlasma = pente (6.8x52mm STANAG plasma sem estojo)
+
+ent-LargePowerCellPlasma68x52mm = condensador de plasma DEW-PLC (grande)
+    .desc = Uma caixa de energia grande e militarizada para armas de energia, ajustada para funcionar com mecanismos de disparo balísticos. Usa energia armazenada para superaquecer partículas em plasma antes de disparar. Fraca contra EMP, mas reutilizável.
+
+ent-Bullet357_magnumAP = projétil (.357 magnum perfurante)
+
+ent-Bullet357_magnumFMJ = projétil (.357 magnum)
+
+ent-Bullet357_magnumHP = projétil (.357 magnum ogiva oca)
+
+ent-Bullet357_magnumIncendiary = projétil (.357 magnum incendiário)
+
+ent-Bullet357_magnumPlasteelAP = projétil (.357 magnum AP)
+
+ent-Bullet357_magnumPractice = projétil (.357 magnum prática)
+
+ent-Bullet357_magnumRIP = projétil (.357 magnum RIP)
+
+ent-Bullet357_magnumRubber = projétil (.357 magnum borracha)
+
+ent-Bullet357_magnumUranium = projétil (.357 magnum urânio)
+
+ent-Bullet35mmGrenadeStinger = granada stinger
+
+ent-Bullet68x52mmCaselessPlasma = projétil (6.8x52mm Plasma sem estojo)
+
+ent-MyokoRocket = foguete myoko
+    .desc = くそ!
+
+ent-Pellet12_gaugeBlank = disparo de festim
+
+ent-BaseSpeedLoader357_magnum = carregador (.357 magnum)
+
+ent-SpeedLoader357_magnumAP = carregador (.357 magnum perfurante)
+
+ent-SpeedLoader357_magnumEmpty = carregador (.357 magnum qualquer)
+
+ent-SpeedLoader357_magnumFMJ = carregador (.357 magnum FMJ)
+
+ent-SpeedLoader357_magnumHP = carregador (.357 magnum ogiva oca)
+
+ent-SpeedLoader357_magnumIncendiary = carregador (.357 magnum incendiário)
+
+ent-SpeedLoader357_magnumPlasteelAP = carregador (.357 magnum AP)
+
+ent-SpeedLoader357_magnumPractice = carregador (.357 magnum prática)
+
+ent-SpeedLoader357_magnumRIP = carregador (.357 magnum RIP)
+
+ent-SpeedLoader357_magnumRubber = carregador (.357 magnum borracha)
+
+ent-SpeedLoader357_magnumUranium = carregador (.357 magnum urânio)
+
+ent-WeaponHeavyMiningLaser = laser de mineração pesado industrial
+    .desc = Um laser manual pesado gigante. Capaz de escavar toneladas métricas de rocha, e autorrecarrega após um longo atraso.
+
+ent-WeaponLauncherMyoko = LAW MMC F/87 \"Myoko\"
+    .desc = Um lançador leve antitanque descartável produzido pela MMC. Devido às (óbvias) preocupações de segurança de ter estes disponíveis para funcionários, a aquisição é limitada aos quiosques da empresa para casos de uso especiais, e as plantas não são distribuídas.
+
+ent-WeaponLauncherTSFAnubisEmpty = TPGL TCA QLU-907 Anubis (granada 35x53mm)
+    .desc = {ent-WeaponLauncherTSFAnubis.desc}
+    .suffix = Vazio
+
+ent-WeaponLauncherTSFAnubisStinger = TPGL TCA QLU-907 Anubis (granada 35x53mm)
+    .desc = {ent-WeaponLauncherTSFAnubis.desc}
+    .suffix = Stinger
+
+ent-WeaponLMGPKMS = PD-VI PKMS (5.56x45mm)
+    .desc = Uma metralhadora leve calibrada em 5.56x45mm, aceita carregadores tipo caixa e padrões. O peso da metralhadora a torna difícil de empunhar com facilidade.
+
+ent-WeaponRifleWSPRTarkhan = PD-VI LA/22 \"Kord\" (7.62x51mm)
+    .desc = Uma WSPR adaptada em uma metralhadora de propósito geral 7.62x51mm para Tarkhans, de alguma forma ainda com supressor integral. Uma montagem Erebus está presente no topo do receptor para óticas.
+
+ent-WeaponPistolCCTCGalactica = CAW-32 \"Galactica\" (9x19mm)
+    .desc = Suspeitamente similar ao Mk.32, este original da Centennial Arms funciona como uma arma compacta porém potente. Roscas para silenciadores e uma montagem inferior de pistola permitem uma customização excepcional em campo, enquanto um receptor aprimorado permite uma poderosa capacidade de tiro em rajada.
+
+ent-WeaponPistolDamocles = UGR Damocles (9x19mm)
+    .desc = O Damocles detém um nível temível de poder de fogo, dando ao seu portador uma posição não escrita como o líder do submundo do Braço de Perseu. No entanto, sua dependência do carregador de pistola metralhadora oficialmente descontinuado o torna insustentável em tiroteios prolongados. Olhando para ele agora, não dá para dizer se o sangue é real ou simplesmente pintado para parecer mais intimidador.
+
+ent-BulletEnergyGun357_magnum = raio 357_magnum
+
+ent-WeaponRifleBurner = CS Burner (12.7x99mm)
+    .desc = Uma arma de calibre alto do Sindicato em 12.7x99mm, capaz de disparar munição perfurante e explosiva.
+
+ent-WeaponRifleM90 = PA M-90 (7.62x51mm)
+    .desc = Um projeto bullpup compacto. Usa munição de rifle 7.62x51mm. O cano é roscado para silenciadores, e um trilho Erebus está presente na alça de transporte e guarda-mão para óticas/empunhaduras.
+
+ent-WeaponRifleMolot = PD-VI LA/53 Molot (7.62x51mm)
+    .desc = Rifle de impacto forte disparando 7.62x51mm para Tarkhans PDV. Boa cadência de tiro, e velocidade de saída excepcional.
+
+ent-WeaponRifleVympel = PD-VI M-32 Vympel (5.56x45mm)
+    .desc = Um design bullpup compacto. Usa munição de rifle 5.56x45mm. O cano é rosqueado para silenciadores, e uma montagem Erebus está presente no guarda-mão para empunhaduras.
+
+ent-WeaponRifleWSPR = CS KMP-WSPR (7.62x39mm)
+    .desc = Um rifle de rajada de ponta da Dinastia, versátil e confiável. Usa munição 7.62x39mm. Um trilho Erebus está presente no topo do receptor para óticas.
+
+ent-WeaponRifleAnnie = TCA QBZ-430 Annie (7.62x39mm)
+    .desc = Uma besta projetada para suportar o peso de missões impossíveis. Usa munição 7.62x39mm. O cano é roscado para silenciadores, e um trilho Erebus está presente no receptor e guarda-mão para óticas/empunhaduras.
+
+ent-WeaponRifleDragonfang = TCA QBB-81-1 Dragonfang (7.62x51mm)
+    .desc = Um rifle de batalha pesado usado pelo FORECON no início da expedição do Colosso, este rifle empacota um poder de fogo extraordinário em um quadro de outra forma compacto. Calibrado em 7.62x51mm, ele dizima qualquer um corajoso o suficiente para ficar no caminho de nossa conquista militar. O cano é rosqueado para silenciadores, e uma montagem Erebus está na alça de transporte e na parte inferior para óticas e empunhaduras.
+
+ent-WeaponRifleLecter = TCA QBZ-410 Lecter (6.8x52mm Sem Estojo)
+    .desc = O resultado de um projeto para fazer um novo rifle padrão para os ramos do militar da TSF. Preciso, fácil de usar, e disparando o projétil 6.8x52mm STANAG. Também aceita carregadores 5.56x45mm para auxiliar na padronização. O cano é rosqueado para silenciadores, e um trilho Erebus está na parte inferior para empunhaduras.
+
+ent-WeaponRifleRiversong = TCA QBZ-91 Riversong (6.8x52mm Sem Estojo)
+    .desc = Um rifle bullpup projetado para uso em tanques, embarcações de desembarque e outros veículos de pouco espaço da Infantaria Terrestre da TSFMC, esta arma também se tornou popular entre equipes de abordagem devido ao tamanho pequeno e à capacidade de ser disparada com uma mão. Preciso, fácil de usar, e dispara o projétil 6.8x52mm STANAG. Também aceita carregadores 5.56x45mm para auxiliar na padronização. O cano é rosqueado para silenciadores, e uma montagem Erebus está presente na alça de transporte e na parte inferior para óticas e empunhaduras.
+
+ent-WeaponShotgunMayonaka = MMC VC/30 \"Mayonaka\" (calibre 12)
+    .desc = Uma escopeta semiautomática compacta para forças de segurança e funcionários da MMC. Pode caber em uma bolsa facilmente, mas sofre com um tubo de capacidade baixa.
+
+ent-WeaponShotgunFlagbearer = PD-VI LK/210 Flagbearer (calibre 12)
+    .desc = Uma escopeta totalmente automática de calibre 12 alimentada por um tambor embutido gigante. Capacidade de 32 cartuchos.
+
+ent-WeaponShotgunBuckshot = escopeta roleta
+    .desc = Cheiro de desespero, ganância e medo. Cuidado, agora...
+
+ent-WeaponSubMachineGunAtreides = MA PDW-58 Atreides (5.7x28mm)
+    .desc = SMG simplificada da Midnight Arms Co. comumente usada entre revoltas e criminosos. Usa munição 5.7x28mm.
+
+ent-WeaponSubMachineGunC20r = CS C-20r submetralhadora (9x19mm)
+    .desc = Uma SMG da Era Corporativa, outrora usada por Operativos Nucleares, agora encontra uso entre a Dinastia Phaethon. Usa munição 9x19mm.
+
+ent-WeaponSubMachineGunDrozd = TCA CS/LR-8 Drozd (.45 ACP)
+    .desc = Uma SMG que outrora encontrou uso entre forças de segurança da NT, agora se encontrou como uma das armas mais confiáveis de abordagem e anti-abordagem no mercado. Usa munição .45 ACP. O cano é rosqueado para silenciadores, e um trilho Erebus está na parte inferior para empunhaduras.
+
+ent-WeaponSniperHristov = SKR-WS M96 Hristov (14.5x114mm)
+    .desc = Um rifle antimaterial portátil. Dispara projéteis de 14.5mm de alta velocidade. Usa munição 145x114mm.
+
+ent-WeaponSniperHristovEMPHE = SKR-WS M96 Hristov (14.5x114mm)
+    .suffix = EMPHE
+    .desc = Um rifle antimaterial portátil de 3 tiros. Dispara projéteis de 14.5mm de alta velocidade. Usa munição 14.5x114mm.
+
+ent-WeaponSniperHristovEmpty = SKR-WS M96 Hristov (14.5x114mm)
+    .suffix = Vazio
+    .desc = Um rifle antimaterial portátil de 3 tiros. Dispara projéteis de 14.5mm de alta velocidade. Usa munição 14.5x114mm.
+
+ent-WeaponAMRShenzhenEmpty = AMR de canhão de bobinas TCA QBU-284 'Shenzhen'
+    .suffix = Vazio
+    .desc = AMR alimentado por pente, utilizando eletroímãs para disparar projéteis 13.4x92mm DU-APFSDS com velocidade extrema.
+
+ent-WeaponRifleMR3C = SKR-WS QBU-430 Bandido (8x65mm SKR)
+    .desc = Um DMR bullpup preciso e confiável, desenvolvido como um modelo de produção mais barato a partir dos protótipos iniciais QBU-243. Alimenta-se de carregadores STANAG 8x65mm. Possui uma montagem Erebus para ópticas.
+
+ent-WeaponSniperMosin = NCI Kardashev-Mosin (7.62x54mmR)
+    .desc = Uma arma para caça, ou guerra de trincheiras sem fim. Usa munição 762x54mmR. Equipada com baioneta.
+
+ent-WeaponTurretHeavyMonolithic = torre balística pesada corrompida
+    .suffix = Monolítica
+    .desc = Uma torre massivamente reforçada, disparando uma saraivada de projéteis antimaterial 7.62x51mm que despedaçam alvos e mechs. Os sensores de bio-assinatura desta parecem estar corrompidos.
+
+ent-WeaponMieyoHFBlade = lâmina de alta frequência mieyo
+    .desc = Uma lâmina de alta frequência. É fabricada com um nível de precisão sobrenatural.
+
+ent-220mmCartridgeHECluster = projétil 130x820mm HE-CLST
+    .desc = Um projétil de cluster altamente explosivo propulsionado quimicamente para canhões de 130x820mm. Dispara uma dispersão de projéteis explosivos.
+
+ent-220mmCartridgeSmartCluster = projétil 130x820mm HMNG-CLST
+    .desc = Um projétil de cluster teleguiado propulsionado quimicamente para canhões de 130x820mm. Dispara uma dispersão de projéteis explosivos que buscam alvos com rastreamento básico.
+
+ent-Box220mmAPHE = caixa de munição 130x820mm APHE
+    .desc = Uma caixa grande contendo 24 projéteis 130x820mm APHE. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-Box220mmHECluster = caixa de munição 130x820mm HE-CLST
+    .desc = Uma caixa grande contendo 24 projéteis de cluster altamente explosivos 130x820mm. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-Box220mmSmartCluster = caixa de munição 130x820mm HMNG-CLST
+    .desc = Uma caixa grande contendo 24 projéteis de cluster teleguiados 130x820mm. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-255mmCartridgeMinelayer = projétil lançaminas 203x940mm
+    .desc = Um projétil propulsionado quimicamente para canhões de 203x940mm com espoleta temporizada. Quando a espoleta expira após 1 segundo, ejeta uma carga de 4 minas antinavio grandes que persistem por 1 hora.
+
+ent-Box255mmAPHE = caixa de munição 203x940mm APHE
+    .desc = Uma caixa grande contendo 16 projéteis 203x940mm APHE. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-Box255mmEMP = caixa de munição 203x940mm EMP
+    .desc = Uma caixa grande contendo 16 projéteis 203x940mm EMP. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-Box255mmMine = caixa de munição lançaminas 203x940mm
+    .desc = Uma caixa grande contendo 16 projéteis lançaminas 203x940mm. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-CharonApheSlugAmmo = cartucho de slug M381 CHARON 280mm 26.5kg APHE
+    .desc = Um pacote tudo-em-um contendo acelerador de gás plasma e um slug de tungstênio de alta densidade carregado com uma pequena carga explosiva. Barato, devastador e de longo alcance.
+
+ent-CharonEmpSlugAmmo = cartucho de slug M381 CHARON 280mm 26.5kg EMP
+    .desc = Um pacote tudo-em-um contendo acelerador de gás plasma e um slug de tungstênio de alta densidade carregado com uma grande carga eletromagnética. Cria arcos EMP massivos no impacto, mas tem poder de penetração limitado. Incrível contra escudos!
+
+ent-150mmApheShell = projétil 90x630mm APHE
+    .desc = Um projétil APHE propulsionado quimicamente para canhões de 90x630mm. Vai funcionar.
+
+ent-ShipTarnyxApheProjectile = projétil TARNYX 90x630mm APHE
+
+ent-140mmCartridgeSACLOS = cartucho (85x680mm SACLOS)
+
+ent-Magazine140mmSACLOS = carregador de munição 85x680mm SACLOS
+    .desc = Um carregador de munição contendo 120 projéteis 85x680mm guiados a laser por comando semiático de linha de visão. É um bocado, mas significa apenas que ele é guiado por você diretamente em pleno voo. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-20mmCartridgeAS = cartucho (14x97mm AS)
+
+ent-Magazine20mmAS = carregador de munição 14x97mm AS
+    .desc = Um carregador de munição contendo 1250 projéteis antiescudo 14x97mm. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-30mmCartridgeHE = cartucho (30x173mm HE)
+
+ent-Magazine30mmHE = carregador de munição 20x141mm HE
+    .desc = Um carregador de munição contendo 2000 projéteis 20x141mm HE. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-35mmCartridge = cartucho (35x228mm AP)
+
+ent-35mmCartridgeHE = cartucho (35x228mm HE)
+
+ent-Magazine35mm = carregador de munição sólida 25x170mm
+    .desc = Um carregador de munição contendo projéteis sólidos infinitos 25x170mm. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-Magazine35mmHE = carregador de munição 25x170mm HE
+    .desc = Um carregador de munição contendo 2000 projéteis 25x170mm HE. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-57mmCartridgeSACLOS = cartucho (40x360mm LG-SACLOS)
+
+ent-57mmCartridgeSmart = cartucho (40x360mm HMNG)
+
+ent-Magazine57mmSACLOS = carregador de munição 40x360mm LG-SACLOS
+    .desc = Um carregador de munição contendo 600 projéteis 40x360mm guiados a laser por comando semiático de linha de visão. É um bocado, mas significa apenas que ele é guiado por você diretamente em pleno voo. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-Magazine57mmSACLOSInfinite = carregador de munição 40x360mm LG-SACLOS
+    .suffix = INFINITO
+    .desc = Um carregador de munição contendo projéteis infinitos 40x360mm guiados a laser por comando semiático de linha de visão. É um bocado, mas significa apenas que ele é guiado por você diretamente em pleno voo. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-Magazine57mmSmart = carregador de munição 40x360mm HMNG
+    .desc = Um carregador de munição contendo 600 projéteis teleguiados 40x360mm. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-Magazine57mmSmartInfinite = carregador de munição 40x360mm HMNG
+    .suffix = INFINITO
+    .desc = Um carregador de munição contendo projéteis teleguiados infinitos 40x360mm. Utilizável por peças de artilharia montadas em embarcações.
+
+ent-90mmCartridgeFlak = cartucho (57x460mm flak)
+
+ent-90mmCartridgeMinelayer = cartucho (57x460mm lançaminas)
+
+ent-90mmMagazineFlak = carregador de munição flak 57x460mm
+    .desc = Um carregador de munição contendo projéteis flak infinitos 57x460mm. Utilizável por peças de artilharia montadas em embarcações 57x460mm.
+
+ent-90mmMagazineMinelayer = carregador de munição lançaminas 57x460mm
+    .desc = Um carregador de munição contendo 400 projéteis lançaminas 57x460mm. Utilizável por peças de artilharia montadas em embarcações 57x460mm.
+
+ent-90mmMagazineMinelayerInfinite = carregador de munição lançaminas 57x460mm
+    .suffix = INFINITO
+    .desc = Um carregador de munição contendo projéteis lançaminas infinitos 57x460mm. Utilizável por peças de artilharia montadas em embarcações 57x460mm.
+
+ent-140mmBulletSACLOS = projétil 85x680mm SACLOS
+
+ent-20mmBulletAS = projétil 14x97mm (AS)
+
+ent-220mmPelletHE = projétil de cluster 130x820mm HE
+
+ent-220mmPelletSmart = projétil de cluster 130x820mm HMNG
+
+ent-255mmBulletMinelayer = projétil lançaminas 203x940mm
+
+ent-90mmBulletMinelayer = projétil lançaminas 57x460mm
+
+ent-NavalMine255mm = mina naval
+
+ent-NavalMine90mm = mina naval
+
+ent-ShipRailgunProjectileAphe = slug M381 CHARON 280mm 26.5kg APHE
+
+ent-ShipRailgunProjectileEMP = slug M381 CHARON 280mm 26.5 kg EMP
+
+ent-Shrapnel90mmFlak = fragmentos
+
+ent-WeaponTurretAk800 = autocanhão AK800 100mm
+    .suffix = Grande, T4
+    .desc = Uma variante de cano único do autocanhão AK820, com menos tensão no GCS, mas cadência menor. Um canhão naval grande e contundente para dano constante. Dispara projéteis APHEDS, permitindo penetração aprimorada, mas não tanto poder explosivo quanto projéteis APHE de tamanho completo. Alimenta-se de um carregador interno de 96 projéteis.
+
+ent-WeaponTurretR300Base = obus R-300 320mm
+    .suffix = Capital/Estação, T4
+    .desc = Um obus gigante e estúpido. Uma velocidade estupidamente baixa, uma recarga estupidamente longa, e uma explosão estupidamente poderosa se você conseguir fazê-lo acertar. Sem AP nenhum.
+
+ent-WeaponTurretAC-35 = metralhadora rotativa AC-35
+    .desc = Uma metralhadora rotativa de quatro canos de 25x170mm disparando projéteis AP sólidos, projetada para ser montada em caças pela Armamenti Corvus. Pode ser ativada remotamente ou conectada a um GCS.
+
+ent-WeaponTurretTarnyxReloadAP = Canhão AP GS-001 EQUINOX 90mm
+    .suffix = Nave, Munição AP Padrão Infinita
+    .desc = Uma imitação de canhão pesado feita pela GS, ao contrário do ABDX-31, ele carrega projéteis AP automaticamente. Eficaz em combate assimétrico. Pode ser ativado remotamente ou conectado a um GCS.
+
+ent-SandboxHEMissile = míssil de cruzeiro SS-N-40 8K30 (HE-SACLOS)
+    .desc = Um míssil de cruzeiro de alta velocidade e longo alcance. Difícil de derrubar, difícil de sobreviver, e requer orientação constante do console de artilharia.
+
+ent-SandboxNuclearMissile = míssil de cruzeiro nuclear SS-N-40 'Atlant'
+    .desc = Um míssil de cruzeiro de alta velocidade equipado com ogiva nuclear de múltiplos kilotons, capaz de desativar qualquer nave em um único golpe. Quase imparável, e parece idêntico a um 8K30 normal no radar. Esta é uma arma de destruição em massa, a destruidora de mundos. Esperançosamente você não precisará usá-la.
+
+ent-ShipMissileSandboxHE = míssil SS-N-40 8K30
+
+ent-ShipMissileSandboxNuke = míssil SS-N-40 'Atlant'
+
+ent-MissileCartridge250mmHV = míssil 250mm HV
+    .desc = Um míssil ASM-250 de alta velocidade individual para um lançador Tovek/Paladin.
+
+ent-PaladinMagazineHV = carregador automático de mísseis Paladin 250mm HV
+
+ent-Asm220TorpedoHESACLOS = torpedo SACLOS de alto explosivo ASM-220
+    .desc = Contém uma grande carga explosiva. Alto Explosivo é um eufemismo. Este está equipado com um sistema de orientação SACLOS e requer orientação manual ao alvo, mas pode se mover mais rápido.
+
+ent-ShipMissileASM220HESACLOS = torpedo ASM-220 (HE-SACLOS)
+
+ent-ShipMissileASM250HV = míssil 250mm HV
+
+ent-WeaponTurretSandbox = lançador SS-N-40 \"Sandbox\"
+    .desc = Um lançador de mísseis de cruzeiro estratégico, capaz de disparar munições SARH extremamente rápidas, de longo alcance e com capacidade nuclear. Nascido de um medo quase genético de tempos atrás, este sistema de armas trouxe paz por muito tempo... até agora.
+
+ent-MonoCEZLevelsLadderRMCBase = escadas
+    .desc = Uma escada para atravessar diferentes níveis.
+    .suffix = ZLEVELS
+
+ent-GreebleAntenna3 = antena
+    .desc = Como antenas para o inferno. Geralmente parte dos sistemas de comunicação UHF de uma nave ou estação.
+
+ent-GreebleRadiator1 = radiador
+    .desc = Um grande e delicado conjunto de dispersão de calor encontrado no exterior de naves. Útil para esfriar reatores, mas geralmente há dissipadores de calor internos à prova de falhas.
+
+ent-GreebleRadiator2 = radiador
+    .desc = Um grande e delicado conjunto de dispersão de calor encontrado no exterior de naves. Útil para esfriar reatores, mas geralmente há dissipadores de calor internos à prova de falhas.
+
+ent-GreebleSideLabel1 = etiqueta de aviso
+    .desc = Uma etiqueta de perigo genérica. Algo perigoso provavelmente está por perto.
+
+ent-GreebleSideLabel2 = etiqueta de aviso
+    .desc = Uma etiqueta de perigo genérica. Esta parece estar relacionada a plumas de empuxo.
+
+ent-GreebleSideLabel3 = etiqueta de aviso
+    .desc = Uma etiqueta de perigo genérica. Algo perigoso provavelmente está por perto.
+
+ent-GreebleSideLabel4 = etiqueta de aviso
+    .desc = Uma etiqueta de perigo genérica. Algo perigoso provavelmente está por perto.
+
+ent-CargoChuteZvezda = calha de entrega zvezda
+    .desc = Uma máquina com sistemas de tubulação que levam às entranhas da estação, aceitando bens de exportação por títulos de comércio.
+
+ent-PaperWrittenDispenserCamelotRequesting = manifesto de carga Camelot
+
+ent-PaperWrittenDispenserCargoDepotAltRequesting = manifesto de carga de depósito alternativo
+
+ent-PaperWrittenDispenserCargoDepotRequesting = manifesto de carga de depósito
+
+ent-PaperWrittenDispenserHalcyonRequesting = manifesto de carga Halcyon
+
+ent-PaperWrittenDispenserHeliosRequesting = manifesto de carga Helios
+
+ent-PaperWrittenDispenserTradeMallRequesting = manifesto de carga CC
+
+ent-PaperWrittenDispenserZvezdaRequesting = manifesto de carga zvezda
+
+ent-PDVBomb = bomba rompe-bunkers PDV 'Adam'
+    .desc = Um dispositivo explosivo projetado para dizimar fortificações inimigas.
+
+ent-TSFBomb = bomba rompe-bunkers TSF 'Hiroshima'
+    .desc = Um dispositivo explosivo projetado para dizimar fortificações inimigas.
+
+ent-TSFCarrierComputerFujian = console de porta-aviões fujian TSF
+
+ent-TSFNChengduComputer = console de hangar interno chengdu TSFN
+    .desc = Estaleiro mais leve usando os hangares internos do Chengdu, não tem acesso a toda a lista de naves da TSFMC.
+
+ent-ComputerShipyardZvezda = console de estaleiro zvezda
+    .desc = Usado para comprar e vender \"shuttles\".
+
+ent-UndergroundComputerComms = computador de comunicações subterrâneo
+    .desc = O computador de comunicações principal para emitir anúncios do mercado negro.
+
+ent-DatafarmResearchFaction200 = fazenda de dados parafusada (Pesquisa)
+    .suffix = 200 PPS
+    .desc = Um servidor faminto por energia dedicado a raspar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 200 por segundo. Ele parece estar parafusado ao chão.
+
+ent-GatewayCentral = portal de trânsito central
+    .desc = Transporta você do ponto A ao ponto B. Nenhuma garantia de segurança fornecida após o início da viagem.
+
+ent-GatewayNode = portal de trânsito nó zeta
+    .desc = Transporta você do ponto A ao ponto B. Nenhuma garantia de segurança fornecida após o início da viagem.
+
+ent-BaseLatheAssembler = torno
+
+ent-CentrifugeLathe = centrífuga de processamento de urânio industrial
+    .desc = Uma centrífuga a gás industrial de grande tamanho para processar isótopos, materiais em massa e, em geral, fazer as coisas girarem. Muito mais eficiente na produção de urânio físsil do que as miniatura. Não equipada para reprocessar combustível nuclear.
+
+ent-IndustrialFurnaceEconomyCompact = forno a arco compacto
+    .desc = Uma versão compacta do forno a arco avançado, capaz de derreter minério e refinar material através de calor. Essencial para criar ligas avançadas. Mais lento e com menos capacidade.
+
+ent-IndustrialPressEconomyElectronics = prensa industrial (eletrônica)
+    .desc = Capaz de moldar metal em todos os tipos de formas. Esta está calibrada para eletrônicos.
+
+ent-IndustrialPressEconomyElectronicsMMC = prensa industrial (eletrônica)
+    .desc = Capaz de moldar metal em todos os tipos de formas. Esta está calibrada para eletrônicos. Tem um padrão de qualidade superior patenteado pela Meiyo Manufacturing Concerns.
+
+ent-IndustrialPressEconomyPlates = prensa industrial (placas)
+    .desc = Capaz de moldar metal em todos os tipos de formas. Esta está calibrada para placas.
+
+ent-IndustrialPressEconomyPlatesMMC = prensa industrial (placas)
+    .desc = Capaz de moldar metal em todos os tipos de formas. Esta está calibrada para placas. Tem um padrão de qualidade superior patenteado pela Meiyo Manufacturing Concerns.
+
+ent-MMCLathe = montador multipropósito MMC
+    .desc = Capaz de fabricar equipamentos a partir de padrões de design da MMC. Enviado para qualquer lugar que precise de uma inicialização industrial em grande escala.
+
+ent-PrecisionAssemblerEconomy = montador de precisão
+    .desc = Um microfabricador de alta precisão capaz de manipular quase todas as formas de matéria nas circunstâncias certas. Surpreendentemente útil para criar componentes avançados de todos os tipos.
+
+ent-PrecisionAssemblerEconomyCompact = montador de precisão compacto
+    .desc = Um microfabricador de alta precisão capaz de manipular quase todas as formas de matéria nas circunstâncias certas. Surpreendentemente útil para criar componentes avançados de todos os tipos. Este é mais lento e tem menos espaço interno.
+
+ent-SecurityTechFabCaelestinus = techfab de segurança caelestinus
+    .desc = Um techfab usado por membros do Destacamento de Segurança Caelestinus.
+
+ent-ShieldGeneratorPOIBio = Acelerador Molecular Biológico S-243 \"Biodome\"
+    .suffix = APENAS POI
+    .desc = Um dispositivo muito caro, volumoso e especializado que detecta e 'excita' moléculas de DNA estranhas capturadas dentro de seu raio. Por ser muito pesado e bastante caro, foi relegado ao uso apenas em postos avançados estacionários. Além de sua defesa biológica, este dispositivo também foi adaptado com um gerador de escudo comum.
+
+ent-ShieldGeneratorPOIBioPdv = Acelerador Molecular Biológico PDV RD-493 \"Biodome\"
+    .desc = Um dispositivo caríssimo, volumoso e especializado que detecta e 'excita' moléculas de DNA estranhas capturadas dentro de seu raio. Por ser muito pesado e bastante caro, seu uso foi relegado a apenas postos avançados estacionários. Além de sua defesa biológica, este dispositivo também foi adaptado com um gerador de escudo comum.
+    .suffix = APENAS POI PDV, CRESCENTE
+
+ent-ShieldGeneratorPOIBioTsf = Acelerador Molecular Biológico TSF QZ-293 \"Biodome\"
+    .desc = Um dispositivo caríssimo, volumoso e especializado que detecta e 'excita' moléculas de DNA estranhas capturadas dentro de seu raio. Por ser muito pesado e bastante caro, seu uso foi relegado a apenas postos avançados estacionários. Além de sua defesa biológica, este dispositivo também foi adaptado com um gerador de escudo comum.
+    .suffix = APENAS POI TSF, CRESCENTE
+
+ent-VendingMachineMMCUplink = quiosque de requisições MMC
+    .desc = Um elevador central de acesso a materiais da MMC. Permite acessar o armazenamento profundo de Hokkaido ao custo de MICs, que representam seu valor para o conselho.
+
+ent-DataChitStorageServer = servidor de armazenamento de fichas de dados solariano
+    .suffix = 500 DC
+    .desc = Contém aproximadamente 500 fichas de dados em dados confiscados, frequentemente encontrados dentro de cofres solarianos fortemente blindados. A Dinastia Phaethon adoraria recuperar isto.
+
+ent-FlatpackVendPremium = FlatpackVend Premium
+    .desc = Contém todos os flatpacks daqui até os setores vizinhos. Principalmente.
+
+ent-VendingMachinePDVGear = máquina de vendas de equipamento de infantaria PDV
+    .desc = Dispensa armamentos básicos para um pelotão PDV.
+
+ent-VendingMachineTSFGear = máquina de vendas de armamentos de infantaria TSF
+    .suffix = Crocus, DO NOT MAP
+    .desc = Dispensa armamentos básicos para um pelotão TSF.
+
+ent-GeneratorSterling = gerador sterling ZQ-340
+    .suffix = Plasma, 40 kW
+    .desc = Um gerador altamente ineficiente e caro, porém furtivo, desenvolvido sob a TSFN-SWP. Drena plasma como se não houvesse amanhã, mas pode apostar que ele esconde você termalmente.
+
+ent-GeneratorSterlingPDV = gerador sterling RD-540
+    .desc = Um gerador altamente ineficiente e caro, porém furtivo, com engenharia reversa feita dos ZQ-340 da TSF. Drena plasma como se não houvesse amanhã, mas pode apostar que ele esconde você termalmente.
+
+ent-ThrusterNfsdStealh = propulsor furtivo
+    .suffix = TSFMC, Furtivo
+    .desc = Um propulsor com pluma de propulsão e saída térmica reduzidas, mas significativamente menos empuxo.
+
+ent-ThrusterRogueStealth = propulsor furtivo
+    .suffix = Rogue, Furtivo
+    .desc = Um propulsor com pluma de propulsão e saída térmica reduzidas, mas significativamente menos empuxo.
+
+ent-FuelTankHugeOil = tanque de armazenamento de combustível
+    .suffix = Vazio
+    .desc = Um tanque de combustível grande e reforçado, classificado para conter 20ku de reagentes.
+
+ent-BallisticTurretHeavyAIBase = torre sentinela remota pesada
+
+ent-BallisticTurretHeavyAIFP = torre sentinela remota pesada de freeport
+    .desc = Uma torre sentinela pesada automatizada, controlada remotamente.
+    .suffix = FREEPORT
+
+ent-BallisticTurretHeavyAIPDV = torre sentinela remota pesada PDV
+    .desc = Uma torre sentinela pesada automatizada, controlada remotamente.
+    .suffix = PDV
+
+ent-BallisticTurretHeavyAITSF = torre sentinela remota pesada TSF
+    .desc = Uma torre sentinela pesada automatizada, controlada remotamente.
+    .suffix = TSF
+
+ent-BallisticTurretHeavyAIUSSP = torre sentinela remota pesada USSP
+    .desc = Uma torre sentinela pesada automatizada, controlada remotamente.
+    .suffix = USSP
+
+ent-BallisticTurretHeavyAIVG = torre sentinela remota pesada VG
+    .desc = Uma torre sentinela pesada automatizada, controlada remotamente.
+    .suffix = VG
+
+ent-WeaponEnergyTurretFreeportControlPanel = painel de controle de torre sentinela de freeport
+    .suffix = Acesso de Comissário USSP
+    .desc = Uma interface montada na parede que permite a uma inteligência artificial local ajustar os parâmetros operacionais das torres sentinelas conectadas.
+
+ent-WeaponEnergyTurretPDVControlPanel = painel de controle de torre sentinela PDV
+    .suffix = Acesso de Comando PDV
+    .desc = Uma interface montada na parede que permite a uma inteligência artificial local ajustar os parâmetros operacionais das torres sentinelas conectadas.
+
+ent-WeaponEnergyTurretTSFControlPanel = painel de controle de torre sentinela TSF
+    .suffix = Acesso de Engenheiro TSF
+    .desc = Uma interface montada na parede que permite a uma inteligência artificial local ajustar os parâmetros operacionais das torres sentinelas conectadas.
+
+ent-WeaponEnergyTurretUSSPControlPanel = painel de controle de torre sentinela USSP
+    .suffix = Acesso Seguro USSP
+    .desc = Uma interface montada na parede que permite a uma inteligência artificial local ajustar os parâmetros operacionais das torres sentinelas conectadas.
+
+ent-WeaponEnergyTurretViperControlPanel = painel de controle de torre sentinela VG
+    .suffix = Acesso de Comando VG
+    .desc = Uma interface montada na parede que permite a uma inteligência artificial local ajustar os parâmetros operacionais das torres sentinelas conectadas.
+
+ent-SurgeryInsertPump = Inserir Bomba
+
+ent-SurgeryStepInsertPump = Add servopump

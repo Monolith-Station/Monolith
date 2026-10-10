@@ -79,6 +79,34 @@
     Steel: 1800
 
 - type: latheRecipe
+  id: BoxDispenserFlareGreen
+  result: BoxDispenserFlareGreen
+  parent: BoxDispenserFlare
+  materials:
+    Steel: 1800
+
+- type: latheRecipe
+  id: BoxDispenserFlareRed
+  result: BoxDispenserFlareRed
+  parent: BoxDispenserFlare
+  materials:
+    Steel: 1800
+
+- type: latheRecipe
+  id: BoxDispenserFlareWhite
+  result: BoxDispenserFlareWhite
+  parent: BoxDispenserFlare
+  materials:
+    Steel: 1800
+
+- type: latheRecipe
+  id: BoxDispenserFlareGold
+  result: BoxDispenserFlareGold
+  parent: BoxDispenserFlare
+  materials:
+    Steel: 1800
+
+- type: latheRecipe
   id: GlowstickBlue
   result: GlowstickBlue
   parent: NFBaseGlowstickRecipe

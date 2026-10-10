@@ -4,7 +4,7 @@
   parent: BaseItem
   id: AmeJar
   name: IRE isotopes canister
-  description: A hermetically sealed jar containing volatile isotopes for use in an isotopes reaction engine.
+  description: A hermetically sealed jar containing volatile isotopes for use in an isotopes reaction engine. Do not trigger its release mechanism.
   components:
   - type: Item
     size: Normal
@@ -27,15 +27,29 @@
         !type:DamageTrigger
         damage: 1000
       behaviors:
+      - !type:TimerStartBehavior
+    - trigger:
+        !type:DamageTrigger
+        damage: 1200
+      behaviors:
       - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:ExplodeBehavior
+        acts: [ "Destruction" ]
   - type: Explosive # Mono
-    explosionType: Default
-    maxIntensity: 50
-    intensitySlope: 2
-    totalIntensity: 375
+    explosionType: Radioactive
+    maxIntensity: 100
+    intensitySlope: 4
+    totalIntensity: 150
   - type: Damageable # Mono
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: ExplodeOnTrigger
+  - type: OnUseTimerTrigger
+    delay: 30
+    useVerbInstead: true
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 4
+    initialBeepDelay: 0
+    beepInterval: 5 # 2 beeps total (at 0 and 2)
 # End of modified code

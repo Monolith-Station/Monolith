@@ -1,11 +1,11 @@
 - type: construction
-  name: construction-Girder-name
+  name: construction-Girder-name # Andromeda: Localizar nomes de construção
   id: Girder
   graph: Girder
   startNode: start
   targetNode: girder
   category: construction-category-structures
-  description: construction-Girder-desc
+  description: construction-Girder-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: /Textures/Structures/Walls/solid.rsi
     state: wall_girder
@@ -17,13 +17,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ReinforcedGirder-name
+  name: construction-ReinforcedGirder-name # Andromeda: Localizar nomes de construção
   id: ReinforcedGirder
   graph: Girder
   startNode: start
   targetNode: reinforcedGirder
   category: construction-category-structures
-  description: construction-ReinforcedGirder-desc
+  description: construction-ReinforcedGirder-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: /Textures/Structures/Walls/solid.rsi
     state: reinforced_wall_girder
@@ -35,13 +35,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ClockworkGirder-name
+  name: construction-ClockworkGirder-name # Andromeda: Localizar nomes de construção
   id: ClockworkGirder
   graph: ClockworkGirder
   startNode: start
   targetNode: clockGirder
   category: construction-category-structures
-  description: construction-ClockworkGirder-desc
+  description: construction-ClockworkGirder-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: /Textures/Structures/Walls/clock.rsi
     state: wall_gear
@@ -53,13 +53,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-Wall-name
+  name: construction-Wall-name # Andromeda: Localizar nomes de construção
   id: Wall
   graph: Girder
   startNode: start
   targetNode: wall
   category: construction-category-structures
-  description: construction-Wall-desc
+  description: construction-Wall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: _NF/Structures/Walls/solid.rsi # Frontier
     state: full
@@ -71,13 +71,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ReinforcedWall-name
+  name: construction-ReinforcedWall-name # Andromeda: Localizar nomes de construção
   id: ReinforcedWall
   graph: Girder
   startNode: start
   targetNode: reinforcedWall
   category: construction-category-structures
-  description: construction-ReinforcedWall-desc
+  description: construction-ReinforcedWall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: _NF/Structures/Walls/solid.rsi # Frontier
     state: rgeneric
@@ -89,15 +89,15 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-WallClock-name
+  name: construction-WallClock-name # Andromeda: Localizar nomes de construção
   id: WallClock
   graph: ClockworkGirder
   startNode: start
   targetNode: clockworkWall
   category: construction-category-structures
-  description: construction-WallClock-desc
+  description: construction-WallClock-desc # Andromeda: Localizar descrições de construção
   icon:
-    sprite: Structures/Walls/clock.rsi
+    sprite: Structures/Walls/brass.rsi
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -107,13 +107,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-WoodWall-name
+  name: construction-WoodWall-name # Andromeda: Localizar nomes de construção
   id: WoodWall
   graph: Barricade
   startNode: start
   targetNode: woodWall
   category: construction-category-structures
-  description: construction-WoodWall-desc
+  description: construction-WoodWall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/wood.rsi
     state: full
@@ -125,13 +125,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-UraniumWall-name
+  name: construction-UraniumWall-name # Andromeda: Localizar nomes de construção
   id: UraniumWall
   graph: Girder
   startNode: start
   targetNode: uraniumWall
   category: construction-category-structures
-  description: construction-UraniumWall-desc
+  description: construction-UraniumWall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/uranium.rsi
     state: full
@@ -143,13 +143,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-SilverWall-name
+  name: construction-SilverWall-name # Andromeda: Localizar nomes de construção
   id: SilverWall
   graph: Girder
   startNode: start
   targetNode: silverWall
   category: construction-category-structures
-  description: construction-SilverWall-desc
+  description: construction-SilverWall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/silver.rsi
     state: full
@@ -161,13 +161,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-PlasticWall-name
+  name: construction-PlasticWall-name # Andromeda: Localizar nomes de construção
   id: PlasticWall
   graph: Girder
   startNode: start
   targetNode: plasticWall
   category: construction-category-structures
-  description: construction-PlasticWall-desc
+  description: construction-PlasticWall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/plastic.rsi
     state: full
@@ -179,13 +179,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-PlasmaWall-name
+  name: construction-PlasmaWall-name # Andromeda: Localizar nomes de construção
   id: PlasmaWall
   graph: Girder
   startNode: start
   targetNode: plasmaWall
   category: construction-category-structures
-  description: construction-PlasmaWall-desc
+  description: construction-PlasmaWall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/plasma.rsi
     state: full
@@ -197,13 +197,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-GoldWall-name
+  name: construction-GoldWall-name # Andromeda: Localizar nomes de construção
   id: GoldWall
   graph: Girder
   startNode: start
   targetNode: goldWall
   category: construction-category-structures
-  description: construction-GoldWall-desc
+  description: construction-GoldWall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/gold.rsi
     state: full
@@ -215,13 +215,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ShuttleWall-name
+  name: construction-ShuttleWall-name # Andromeda: Localizar nomes de construção
   id: ShuttleWall
   graph: Girder
   startNode: start
   targetNode: shuttleWall
   category: construction-category-structures
-  description: construction-ShuttleWall-desc
+  description: construction-ShuttleWall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/shuttle.rsi
     state: full
@@ -232,32 +232,32 @@
   conditions:
     - !type:TileNotBlocked
 
-- type: construction
-  name: construction-InteriorShuttleWall-name
-  id: InteriorShuttleWall
-  graph: Girder
-  startNode: start
-  targetNode: shuttleInteriorWall
-  category: construction-category-structures
-  description: construction-InteriorShuttleWall-desc
-  icon:
-    sprite: Structures/Walls/shuttleinterior.rsi
-    state: full
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: false
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
+#- type: construction
+#  name: interior shuttle wall
+#  id: InteriorShuttleWall
+#  graph: Girder
+#  startNode: start
+#  targetNode: shuttleInteriorWall
+#  category: construction-category-structures
+#  description: Keeps the air in and the greytide out.
+#  icon:
+#    sprite: Structures/Walls/shuttleinterior.rsi
+#    state: full
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+#  canRotate: false
+#  canBuildInImpassable: false
+#  conditions:
+#    - !type:TileNotBlocked
 
 - type: construction
-  name: construction-DiagonalShuttleWall-name
+  name: construction-DiagonalShuttleWall-name # Andromeda: Localizar nomes de construção
   id: DiagonalShuttleWall
   graph: Girder
   startNode: start
   targetNode: diagonalshuttleWall
   category: construction-category-structures
-  description: construction-DiagonalShuttleWall-desc
+  description: construction-DiagonalShuttleWall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
@@ -269,13 +269,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ClownWall-name
+  name: construction-ClownWall-name # Andromeda: Localizar nomes de construção
   id: ClownWall
   graph: Girder
   startNode: start
   targetNode: bananiumWall
   category: construction-category-structures
-  description: construction-ClownWall-desc
+  description: construction-ClownWall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/clown.rsi
     state: full
@@ -287,13 +287,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-MeatWall-name
+  name: construction-MeatWall-name # Andromeda: Localizar nomes de construção
   id: MeatWall
   graph: Girder
   startNode: start
   targetNode: meatWall
   category: construction-category-structures
-  description: construction-MeatWall-desc
+  description: construction-MeatWall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/meat.rsi
     state: full
@@ -305,83 +305,83 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-Grille-name
+  name: construction-Grille-name # Andromeda: Localizar nomes de construção
   id: Grille
   graph: Grille
   startNode: start
   targetNode: grille
   category: construction-category-structures
-  description: construction-Grille-desc
+  description: construction-Grille-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:TileNotBlocked
       failIfSpace: false
   icon:
-    sprite: Structures/Walls/grille.rsi
-    state: grille
+    sprite: Structures/Walls/grille-new.rsi
+    state: full
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false
 
-- type: construction
-  name: construction-ClockGrille-name
-  id: ClockGrille
-  graph: ClockGrille
-  startNode: start
-  targetNode: clockGrille
-  category: construction-category-structures
-  description: construction-ClockGrille-desc
-  conditions:
-    - !type:TileNotBlocked
-      failIfSpace: false
-  icon:
-    sprite: Structures/Walls/clockwork_grille.rsi
-    state: ratvargrille
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: false
+#- type: construction
+#  name: clockwork grille
+#  id: ClockGrille
+#  graph: ClockGrille
+#  startNode: start
+#  targetNode: clockGrille
+#  category: construction-category-structures
+#  description: A flimsy framework of iron rods assembled in traditional ratvarian fashion.
+#  conditions:
+#    - !type:TileNotBlocked
+#      failIfSpace: false
+#  icon:
+#    sprite: Structures/Walls/clockwork_grille.rsi
+#    state: ratvargrille
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+#  canRotate: false
 
 - type: construction
-  name: construction-GrilleDiagonal-name
+  name: construction-GrilleDiagonal-name # Andromeda: Localizar nomes de construção
   id: GrilleDiagonal
   graph: GrilleDiagonal
   startNode: start
   targetNode: grilleDiagonal
   category: construction-category-structures
-  description: construction-GrilleDiagonal-desc
+  description: construction-GrilleDiagonal-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:TileNotBlocked
       failIfSpace: false
   icon:
-    sprite: Structures/Walls/grille.rsi
-    state: grille_diagonal
+    sprite: Structures/Walls/grille-diagonal.rsi
+    state: state0
   objectType: Structure
   placementMode: SnapgridCenter
 
-- type: construction
-  name: construction-ClockworkGrilleDiagonal-name
-  id: ClockworkGrilleDiagonal
-  graph: GrilleDiagonal
-  startNode: start
-  targetNode: clockworkGrilleDiagonal
-  category: construction-category-structures
-  description: construction-ClockworkGrilleDiagonal-desc
-  conditions:
-    - !type:TileNotBlocked
-      failIfSpace: false
-  icon:
-    sprite: Structures/Walls/clockwork_grille.rsi
-    state: ratvargrille_diagonal
-  objectType: Structure
-  placementMode: SnapgridCenter
+#- type: construction
+#  name: diagonal clockwork grille
+#  id: ClockworkGrilleDiagonal
+#  graph: GrilleDiagonal
+#  startNode: start
+#  targetNode: clockworkGrilleDiagonal
+#  category: construction-category-structures
+#  description: A flimsy framework of iron rods assembled in traditional ratvarian fashion.
+#  conditions:
+#    - !type:TileNotBlocked
+#      failIfSpace: false
+#  icon:
+#    sprite: Structures/Walls/clockwork_grille.rsi
+#    state: ratvargrille_diagonal
+#  objectType: Structure
+#  placementMode: SnapgridCenter
 
 - type: construction
-  name: construction-Window-name
+  name: construction-Window-name # Andromeda: Localizar nomes de construção
   id: Window
   graph: Window
   startNode: start
   targetNode: window
   category: construction-category-structures
-  description: construction-Window-desc
+  description: construction-Window-desc # Andromeda: Localizar descrições de construção
   canBuildInImpassable: true
   conditions:
     - !type:EmptyOrWindowValidInTile
@@ -394,13 +394,13 @@
   canRotate: false
 
 - type: construction
-  name: construction-WindowDiagonal-name
+  name: construction-WindowDiagonal-name # Andromeda: Localizar nomes de construção
   id: WindowDiagonal
   graph: WindowDiagonal
   startNode: start
   targetNode: windowDiagonal
   category: construction-category-structures
-  description: construction-WindowDiagonal-desc
+  description: construction-WindowDiagonal-desc # Andromeda: Localizar descrições de construção
   canBuildInImpassable: true
   conditions:
     - !type:EmptyOrWindowValidInTile
@@ -412,13 +412,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: construction-ReinforcedWindow-name
+  name: construction-ReinforcedWindow-name # Andromeda: Localizar nomes de construção
   id: ReinforcedWindow
   graph: Window
   startNode: start
   targetNode: reinforcedWindow
   category: construction-category-structures
-  description: construction-ReinforcedWindow-desc
+  description: construction-ReinforcedWindow-desc # Andromeda: Localizar descrições de construção
   canBuildInImpassable: true
   conditions:
     - !type:EmptyOrWindowValidInTile
@@ -431,13 +431,13 @@
   canRotate: false
 
 - type: construction
-  name: construction-ReinforcedWindowDiagonal-name
+  name: construction-ReinforcedWindowDiagonal-name # Andromeda: Localizar nomes de construção
   id: ReinforcedWindowDiagonal
   graph: WindowDiagonal
   startNode: start
   targetNode: reinforcedWindowDiagonal
   category: construction-category-structures
-  description: construction-ReinforcedWindowDiagonal-desc
+  description: construction-ReinforcedWindowDiagonal-desc # Andromeda: Localizar descrições de construção
   canBuildInImpassable: true
   conditions:
     - !type:EmptyOrWindowValidInTile
@@ -449,13 +449,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: construction-TintedWindow-name
+  name: construction-TintedWindow-name # Andromeda: Localizar nomes de construção
   id: TintedWindow
   graph: Window
   startNode: start
   targetNode: tintedWindow
   category: construction-category-structures
-  description: construction-TintedWindow-desc
+  description: construction-TintedWindow-desc # Andromeda: Localizar descrições de construção
   canBuildInImpassable: true
   conditions:
     - !type:EmptyOrWindowValidInTile
@@ -467,52 +467,52 @@
   placementMode: SnapgridCenter
   canRotate: false
 
-- type: construction
-  name: construction-ClockworkWindow-name
-  id: ClockworkWindow
-  graph: Window
-  startNode: start
-  targetNode: clockworkWindow
-  category: construction-category-structures
-  description: construction-ClockworkWindow-desc
-  canBuildInImpassable: true
-  conditions:
-    - !type:EmptyOrWindowValidInTile
-    - !type:NoWindowsInTile
-  icon:
-    sprite: Structures/Windows/clockwork_window.rsi
-    state: full
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: false
+#- type: construction
+#  name: clockwork window
+#  id: ClockworkWindow
+#  graph: Window
+#  startNode: start
+#  targetNode: clockworkWindow
+#  category: construction-category-structures
+#  description: Clear and tough, with a golden tint.
+#  canBuildInImpassable: true
+#  conditions:
+#    - !type:EmptyOrWindowValidInTile
+#    - !type:NoWindowsInTile
+#  icon:
+#    sprite: Structures/Windows/clockwork_window.rsi
+#    state: full
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+#  canRotate: false
+
+#- type: construction
+#  name: diagonal clockwork window
+#  id: ClockworkWindowDiagonal
+#  graph: WindowDiagonal
+#  startNode: start
+#  targetNode: clockworkWindowDiagonal
+#  category: construction-category-structures
+#  description: Clear and tough, with a golden tint.
+#  canBuildInImpassable: true
+#  conditions:
+#    - !type:EmptyOrWindowValidInTile
+#    - !type:NoWindowsInTile
+#  icon:
+#    sprite: Structures/Windows/clockwork_diagonal.rsi
+#    state: state0
+#  objectType: Structure
+#  placementMode: SnapgridCenter
 
 - type: construction
-  name: construction-ClockworkWindowDiagonal-name
-  id: ClockworkWindowDiagonal
-  graph: WindowDiagonal
-  startNode: start
-  targetNode: clockworkWindowDiagonal
-  category: construction-category-structures
-  description: construction-ClockworkWindowDiagonal-desc
-  canBuildInImpassable: true
-  conditions:
-    - !type:EmptyOrWindowValidInTile
-    - !type:NoWindowsInTile
-  icon:
-    sprite: Structures/Windows/clockwork_diagonal.rsi
-    state: state0
-  objectType: Structure
-  placementMode: SnapgridCenter
-
-- type: construction
-  name: construction-PlasmaWindow-name
+  name: construction-PlasmaWindow-name # Andromeda: Localizar nomes de construção
   id: PlasmaWindow
   graph: Window
   startNode: start
   targetNode: plasmaWindow
   category: construction-category-structures
   canBuildInImpassable: true
-  description: construction-PlasmaWindow-desc
+  description: construction-PlasmaWindow-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -524,14 +524,14 @@
   canRotate: false
 
 - type: construction
-  name: construction-ReinforcedPlasmaWindow-name
+  name: construction-ReinforcedPlasmaWindow-name # Andromeda: Localizar nomes de construção
   id: ReinforcedPlasmaWindow
   graph: Window
   startNode: start
   targetNode: reinforcedPlasmaWindow
   category: construction-category-structures
   canBuildInImpassable: true
-  description: construction-ReinforcedPlasmaWindow-desc
+  description: construction-ReinforcedPlasmaWindow-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -543,14 +543,14 @@
   canRotate: false
 
 - type: construction
-  name: construction-ShuttleWindow-name
+  name: construction-ShuttleWindow-name # Andromeda: Localizar nomes de construção
   id: ShuttleWindow
   graph: Window
   startNode: start
   targetNode: shuttleWindow
   category: construction-category-structures
   canBuildInImpassable: true
-  description: construction-ShuttleWindow-desc
+  description: construction-ShuttleWindow-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -562,14 +562,14 @@
   canRotate: false
 
 - type: construction
-  name: construction-PlasmaWindowDiagonal-name
+  name: construction-PlasmaWindowDiagonal-name # Andromeda: Localizar nomes de construção
   id: PlasmaWindowDiagonal
   graph: WindowDiagonal
   startNode: start
   targetNode: plasmaWindowDiagonal
   category: construction-category-structures
   canBuildInImpassable: true
-  description: construction-PlasmaWindowDiagonal-desc
+  description: construction-PlasmaWindowDiagonal-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -580,14 +580,14 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: construction-ReinforcedPlasmaWindowDiagonal-name
+  name: construction-ReinforcedPlasmaWindowDiagonal-name # Andromeda: Localizar nomes de construção
   id: ReinforcedPlasmaWindowDiagonal
   graph: WindowDiagonal
   startNode: start
   targetNode: reinforcedPlasmaWindowDiagonal
   category: construction-category-structures
   canBuildInImpassable: true
-  description: construction-ReinforcedPlasmaWindowDiagonal-desc
+  description: construction-ReinforcedPlasmaWindowDiagonal-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -598,13 +598,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: construction-WindowDirectional-name
+  name: construction-WindowDirectional-name # Andromeda: Localizar nomes de construção
   id: WindowDirectional
   graph: WindowDirectional
   startNode: start
   targetNode: windowDirectional
   category: construction-category-structures
-  description: construction-WindowDirectional-desc
+  description: construction-WindowDirectional-desc # Andromeda: Localizar descrições de construção
   canBuildInImpassable: true
   conditions:
     - !type:EmptyOrWindowValidInTile
@@ -616,13 +616,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: construction-WindowReinforcedDirectional-name
+  name: construction-WindowReinforcedDirectional-name # Andromeda: Localizar nomes de construção
   id: WindowReinforcedDirectional
   graph: WindowDirectional
   startNode: start
   targetNode: windowReinforcedDirectional
   category: construction-category-structures
-  description: construction-WindowReinforcedDirectional-desc
+  description: construction-WindowReinforcedDirectional-desc # Andromeda: Localizar descrições de construção
   canBuildInImpassable: true
   conditions:
     - !type:EmptyOrWindowValidInTile
@@ -633,33 +633,33 @@
   objectType: Structure
   placementMode: SnapgridCenter
 
-- type: construction
-  name: construction-WindowClockworkDirectional-name
-  id: WindowClockworkDirectional
-  graph: WindowDirectional
-  startNode: start
-  targetNode: windowClockworkDirectional
-  category: construction-category-structures
-  description: construction-WindowClockworkDirectional-desc
-  canBuildInImpassable: true
-  conditions:
-    - !type:EmptyOrWindowValidInTile
-    - !type:NoWindowsInTile
-  icon:
-    sprite: Structures/Windows/directional.rsi
-    state: clock_window
-  objectType: Structure
-  placementMode: SnapgridCenter
+#- type: construction
+#  name: directional clockwork window
+#  id: WindowClockworkDirectional
+#  graph: WindowDirectional
+#  startNode: start
+#  targetNode: windowClockworkDirectional
+#  category: construction-category-structures
+#  description: Clear and tough, with a golden tint.
+#  canBuildInImpassable: true
+#  conditions:
+#    - !type:EmptyOrWindowValidInTile
+#    - !type:NoWindowsInTile
+#  icon:
+#    sprite: Structures/Windows/directional.rsi
+#    state: clock_window
+#  objectType: Structure
+#  placementMode: SnapgridCenter
 
 - type: construction
-  name: construction-PlasmaWindowDirectional-name
+  name: construction-PlasmaWindowDirectional-name # Andromeda: Localizar nomes de construção
   id: PlasmaWindowDirectional
   graph: WindowDirectional
   startNode: start
   targetNode: plasmaWindowDirectional
   category: construction-category-structures
   canBuildInImpassable: true
-  description: construction-PlasmaWindowDirectional-desc
+  description: construction-PlasmaWindowDirectional-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -670,14 +670,14 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: construction-PlasmaReinforcedWindowDirectional-name
+  name: construction-PlasmaReinforcedWindowDirectional-name # Andromeda: Localizar nomes de construção
   id: PlasmaReinforcedWindowDirectional
   graph: WindowDirectional
   startNode: start
   targetNode: plasmaReinforcedWindowDirectional
   category: construction-category-structures
   canBuildInImpassable: true
-  description: construction-PlasmaReinforcedWindowDirectional-desc
+  description: construction-PlasmaReinforcedWindowDirectional-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -688,14 +688,14 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: construction-UraniumWindow-name
+  name: construction-UraniumWindow-name # Andromeda: Localizar nomes de construção
   id: UraniumWindow
   graph: Window
   startNode: start
   targetNode: uraniumWindow
   category: construction-category-structures
   canBuildInImpassable: true
-  description: construction-UraniumWindow-desc
+  description: construction-UraniumWindow-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -707,14 +707,14 @@
   canRotate: false
 
 - type: construction
-  name: construction-ReinforcedUraniumWindow-name
+  name: construction-ReinforcedUraniumWindow-name # Andromeda: Localizar nomes de construção
   id: ReinforcedUraniumWindow
   graph: Window
   startNode: start
   targetNode: reinforcedUraniumWindow
   category: construction-category-structures
   canBuildInImpassable: true
-  description: construction-ReinforcedUraniumWindow-desc
+  description: construction-ReinforcedUraniumWindow-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -726,14 +726,14 @@
   canRotate: false
 
 - type: construction
-  name: construction-UraniumWindowDiagonal-name
+  name: construction-UraniumWindowDiagonal-name # Andromeda: Localizar nomes de construção
   id: UraniumWindowDiagonal
   graph: WindowDiagonal
   startNode: start
   targetNode: uraniumWindowDiagonal
   category: construction-category-structures
   canBuildInImpassable: true
-  description: construction-UraniumWindowDiagonal-desc
+  description: construction-UraniumWindowDiagonal-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -744,14 +744,14 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: construction-ReinforcedUraniumWindowDiagonal-name
+  name: construction-ReinforcedUraniumWindowDiagonal-name # Andromeda: Localizar nomes de construção
   id: ReinforcedUraniumWindowDiagonal
   graph: WindowDiagonal
   startNode: start
   targetNode: reinforcedUraniumWindowDiagonal
   category: construction-category-structures
   canBuildInImpassable: true
-  description: construction-ReinforcedUraniumWindowDiagonal-desc
+  description: construction-ReinforcedUraniumWindowDiagonal-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:EmptyOrWindowValidInTile
     - !type:NoWindowsInTile
@@ -762,15 +762,15 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: construction-Firelock-name
+  name: construction-Firelock-name # Andromeda: Localizar nomes de construção
   id: Firelock
   graph: Firelock
   startNode: start
   targetNode: Firelock
   category: construction-category-structures
-  description: construction-Firelock-desc
+  description: construction-Firelock-desc # Andromeda: Localizar descrições de construção
   icon:
-    sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
+    sprite: Structures/Doors/Airlocks/Standard/firelock-base.rsi
     state: closed
   objectType: Structure
   placementMode: SnapgridCenter
@@ -780,15 +780,15 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FirelockGlass-name
+  name: construction-FirelockGlass-name # Andromeda: Localizar nomes de construção
   id: FirelockGlass
   graph: Firelock
   startNode: start
   targetNode: FirelockGlass
   category: construction-category-structures
-  description: construction-FirelockGlass-desc
+  description: construction-FirelockGlass-desc # Andromeda: Localizar descrições de construção
   icon:
-    sprite: Structures/Doors/Airlocks/Glass/firelock.rsi
+    sprite: Structures/Doors/Airlocks/Glass/firelock-base.rsi
     state: closed
   objectType: Structure
   placementMode: SnapgridCenter
@@ -798,13 +798,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FirelockEdge-name
+  name: construction-FirelockEdge-name # Andromeda: Localizar nomes de construção
   id: FirelockEdge
   graph: Firelock
   startNode: start
   targetNode: FirelockEdge
   category: construction-category-structures
-  description: construction-FirelockEdge-desc
+  description: construction-FirelockEdge-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Doors/edge_door_hazard.rsi
     state: closed
@@ -815,13 +815,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-Shutters-name
+  name: construction-Shutters-name # Andromeda: Localizar nomes de construção
   id: Shutters
   graph: Shutters
   startNode: start
   targetNode: Shutters
   category: construction-category-structures
-  description: construction-Shutters-desc
+  description: construction-Shutters-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Doors/Shutters/shutters.rsi
     state: closed
@@ -830,13 +830,13 @@
   canBuildInImpassable: true
 
 - type: construction
-  name: construction-ShuttersWindow-name
+  name: construction-ShuttersWindow-name # Andromeda: Localizar nomes de construção
   id: ShuttersWindow
   graph: Shutters
   startNode: start
   targetNode: ShuttersWindow
   category: construction-category-structures
-  description: construction-ShuttersWindow-desc
+  description: construction-ShuttersWindow-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Doors/Shutters/shutters_window.rsi
     state: closed
@@ -845,13 +845,13 @@
   canBuildInImpassable: true
 
 - type: construction
-  name: construction-ShuttersRadiation-name
+  name: construction-ShuttersRadiation-name # Andromeda: Localizar nomes de construção
   id: ShuttersRadiation
   graph: Shutters
   startNode: start
   targetNode: ShuttersRadiation
   category: construction-category-structures
-  description: construction-ShuttersRadiation-desc
+  description: construction-ShuttersRadiation-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Doors/Shutters/shutters_radiation.rsi
     state: closed
@@ -860,13 +860,13 @@
   canBuildInImpassable: true
 
 - type: construction
-  name: construction-BlastDoor-name
+  name: construction-BlastDoor-name # Andromeda: Localizar nomes de construção
   id: BlastDoor
   graph: BlastDoor
   startNode: start
   targetNode: blastdoor
   category: construction-category-structures
-  description: construction-BlastDoor-desc
+  description: construction-BlastDoor-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Doors/Shutters/blastdoor.rsi
     state: closed
@@ -875,13 +875,13 @@
   canBuildInImpassable: true
 
 - type: construction
-  name: construction-Catwalk-name
+  name: construction-Catwalk-name # Andromeda: Localizar nomes de construção
   id: Catwalk
   graph: Catwalk
   startNode: start
   targetNode: Catwalk
   category: construction-category-structures
-  description: construction-Catwalk-desc
+  description: construction-Catwalk-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:TileNotBlocked
       failIfSpace: false
@@ -897,13 +897,13 @@
   canBuildInImpassable: false
 
 - type: construction
-  name: construction-FloorBananium-name
+  name: construction-FloorBananium-name # Andromeda: Localizar nomes de construção
   id: FloorBananium
   graph: FloorBananium
   startNode: start
   targetNode: BananiumFloor
   category: construction-category-structures
-  description: construction-FloorBananium-desc
+  description: construction-FloorBananium-desc # Andromeda: Localizar descrições de construção
   conditions:
     - !type:TileNotBlocked
       failIfSpace: false
@@ -918,13 +918,13 @@
   canBuildInImpassable: false
 
 - type: construction
-  name: construction-Barricade-name
+  name: construction-Barricade-name # Andromeda: Localizar nomes de construção
   id: Barricade
   graph: Barricade
   startNode: start
   targetNode: barricadefull
   category: construction-category-structures
-  description: construction-Barricade-desc
+  description: construction-Barricade-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/barricades.rsi
     state: barricade_full
@@ -935,13 +935,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-BarricadeDirectional-name
+  name: construction-BarricadeDirectional-name # Andromeda: Localizar nomes de construção
   id: BarricadeDirectional
   graph: BarricadeDirectional
   startNode: start
   targetNode: barricadefull
   category: construction-category-structures
-  description: construction-BarricadeDirectional-desc
+  description: construction-BarricadeDirectional-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/barricades.rsi
     state: barricade_directional
@@ -952,13 +952,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-Railing-name
+  name: construction-Railing-name # Andromeda: Localizar nomes de construção
   id: Railing
   graph: Railing
   startNode: start
   targetNode: railing
   category: construction-category-structures
-  description: construction-Railing-desc
+  description: construction-Railing-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/railing.rsi
     state: side
@@ -969,13 +969,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-RailingCorner-name
+  name: construction-RailingCorner-name # Andromeda: Localizar nomes de construção
   id: RailingCorner
   graph: Railing
   startNode: start
   targetNode: railingCorner
   category: construction-category-structures
-  description: construction-RailingCorner-desc
+  description: construction-RailingCorner-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/railing.rsi
     state: corner
@@ -986,13 +986,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-RailingCornerSmall-name
+  name: construction-RailingCornerSmall-name # Andromeda: Localizar nomes de construção
   id: RailingCornerSmall
   graph: Railing
   startNode: start
   targetNode: railingCornerSmall
   category: construction-category-structures
-  description: construction-RailingCornerSmall-desc
+  description: construction-RailingCornerSmall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/railing.rsi
     state: corner_small
@@ -1003,13 +1003,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-RailingRound-name
+  name: construction-RailingRound-name # Andromeda: Localizar nomes de construção
   id: RailingRound
   graph: Railing
   startNode: start
   targetNode: railingRound
   category: construction-category-structures
-  description: construction-RailingRound-desc
+  description: construction-RailingRound-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/railing.rsi
     state: round
@@ -1021,13 +1021,13 @@
 
 # Chain link fencing
 - type: construction
-  name: construction-FenceMetal-name
+  name: construction-FenceMetal-name # Andromeda: Localizar nomes de construção
   id: FenceMetal
   graph: FenceMetal
   startNode: start
   targetNode: straight
   category: construction-category-structures
-  description: construction-FenceMetal-desc
+  description: construction-FenceMetal-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/fence.rsi
     state: straight
@@ -1038,13 +1038,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FenceMetalCorner-name
+  name: construction-FenceMetalCorner-name # Andromeda: Localizar nomes de construção
   id: FenceMetalCorner
   graph: FenceMetal
   startNode: start
   targetNode: corner
   category: construction-category-structures
-  description: construction-FenceMetalCorner-desc
+  description: construction-FenceMetalCorner-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/fence.rsi
     state: corner
@@ -1055,13 +1055,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FenceMetalEnd-name
+  name: construction-FenceMetalEnd-name # Andromeda: Localizar nomes de construção
   id: FenceMetalEnd
   graph: FenceMetal
   startNode: start
   targetNode: end
   category: construction-category-structures
-  description: construction-FenceMetalEnd-desc
+  description: construction-FenceMetalEnd-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/fence.rsi
     state: end
@@ -1072,13 +1072,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FenceMetalGate-name
+  name: construction-FenceMetalGate-name # Andromeda: Localizar nomes de construção
   id: FenceMetalGate
   graph: FenceMetal
   startNode: start
   targetNode: gate
   category: construction-category-structures
-  description: construction-FenceMetalGate-desc
+  description: construction-FenceMetalGate-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/fence.rsi
     state: door_closed
@@ -1090,13 +1090,13 @@
 
 #Wooden fence high
 - type: construction
-  name: construction-FenceWood-name
+  name: construction-FenceWood-name # Andromeda: Localizar nomes de construção
   id: FenceWood
   graph: FenceWood
   startNode: start
   targetNode: straight
   category: construction-category-structures
-  description: construction-FenceWood-desc
+  description: construction-FenceWood-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/wooden_fence.rsi
     state: straight
@@ -1107,13 +1107,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FenceWoodEnd-name
+  name: construction-FenceWoodEnd-name # Andromeda: Localizar nomes de construção
   id: FenceWoodEnd
   graph: FenceWood
   startNode: start
   targetNode: end
   category: construction-category-structures
-  description: construction-FenceWoodEnd-desc
+  description: construction-FenceWoodEnd-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/wooden_fence.rsi
     state: end
@@ -1124,13 +1124,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FenceWoodCorner-name
+  name: construction-FenceWoodCorner-name # Andromeda: Localizar nomes de construção
   id: FenceWoodCorner
   graph: FenceWood
   startNode: start
   targetNode: corner
   category: construction-category-structures
-  description: construction-FenceWoodCorner-desc
+  description: construction-FenceWoodCorner-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/wooden_fence.rsi
     state: corner
@@ -1141,13 +1141,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FenceWoodTJunction-name
+  name: construction-FenceWoodTJunction-name # Andromeda: Localizar nomes de construção
   id: FenceWoodTJunction
   graph: FenceWood
   startNode: start
   targetNode: tjunction
   category: construction-category-structures
-  description: construction-FenceWoodTJunction-desc
+  description: construction-FenceWoodTJunction-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/wooden_fence.rsi
     state: tjunction
@@ -1158,13 +1158,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FenceWoodGate-name
+  name: construction-FenceWoodGate-name # Andromeda: Localizar nomes de construção
   id: FenceWoodGate
   graph: FenceWood
   startNode: start
   targetNode: gate
   category: construction-category-structures
-  description: construction-FenceWoodGate-desc
+  description: construction-FenceWoodGate-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/wooden_fence.rsi
     state: door_closed
@@ -1176,13 +1176,13 @@
 
 #Wooden fence small
 - type: construction
-  name: construction-FenceWoodSmall-name
+  name: construction-FenceWoodSmall-name # Andromeda: Localizar nomes de construção
   id: FenceWoodSmall
   graph: FenceWood
   startNode: start
   targetNode: straight_small
   category: construction-category-structures
-  description: construction-FenceWoodSmall-desc
+  description: construction-FenceWoodSmall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/wooden_fence.rsi
     state: straight_small
@@ -1193,13 +1193,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FenceWoodEndSmall-name
+  name: construction-FenceWoodEndSmall-name # Andromeda: Localizar nomes de construção
   id: FenceWoodEndSmall
   graph: FenceWood
   startNode: start
   targetNode: end_small
   category: construction-category-structures
-  description: construction-FenceWoodEndSmall-desc
+  description: construction-FenceWoodEndSmall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/wooden_fence.rsi
     state: end_small
@@ -1210,13 +1210,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FenceWoodCornerSmall-name
+  name: construction-FenceWoodCornerSmall-name # Andromeda: Localizar nomes de construção
   id: FenceWoodCornerSmall
   graph: FenceWood
   startNode: start
   targetNode: corner_small
   category: construction-category-structures
-  description: construction-FenceWoodCornerSmall-desc
+  description: construction-FenceWoodCornerSmall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/wooden_fence.rsi
     state: corner_small
@@ -1227,13 +1227,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FenceWoodTJunctionSmall-name
+  name: construction-FenceWoodTJunctionSmall-name # Andromeda: Localizar nomes de construção
   id: FenceWoodTJunctionSmall
   graph: FenceWood
   startNode: start
   targetNode: tjunction_small
   category: construction-category-structures
-  description: construction-FenceWoodTJunctionSmall-desc
+  description: construction-FenceWoodTJunctionSmall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/wooden_fence.rsi
     state: tjunction_small
@@ -1244,13 +1244,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-FenceWoodGateSmall-name
+  name: construction-FenceWoodGateSmall-name # Andromeda: Localizar nomes de construção
   id: FenceWoodGateSmall
   graph: FenceWood
   startNode: start
   targetNode: gate_small
   category: construction-category-structures
-  description: construction-FenceWoodGateSmall-desc
+  description: construction-FenceWoodGateSmall-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Walls/wooden_fence.rsi
     state: door_closed_small
@@ -1262,15 +1262,15 @@
 
 #Airlocks
 - type: construction
-  name: construction-Airlock-name
+  name: construction-Airlock-name # Andromeda: Localizar nomes de construção
   id: Airlock
   graph: Airlock
   startNode: start
   targetNode: airlock
   category: construction-category-structures
-  description: construction-Airlock-desc
+  description: construction-Airlock-desc # Andromeda: Localizar descrições de construção
   icon:
-    sprite: Structures/Doors/Airlocks/Standard/basic.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-base.rsi
     state: assembly
   objectType: Structure
   placementMode: SnapgridCenter
@@ -1279,15 +1279,15 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-AirlockGlass-name
+  name: construction-AirlockGlass-name # Andromeda: Localizar nomes de construção
   id: AirlockGlass
   graph: Airlock
   startNode: start
   targetNode: glassAirlock
   category: construction-category-structures
-  description: construction-AirlockGlass-desc
+  description: construction-AirlockGlass-desc # Andromeda: Localizar descrições de construção
   icon:
-    sprite: Structures/Doors/Airlocks/Glass/glass.rsi
+    sprite: Structures/Doors/Airlocks/Glass/airlock-base.rsi
     state: assembly
   objectType: Structure
   placementMode: SnapgridCenter
@@ -1295,50 +1295,50 @@
   conditions:
     - !type:TileNotBlocked
 
-- type: construction
-  name: construction-PinionAirlock-name
-  id: PinionAirlock
-  graph: PinionAirlock
-  startNode: start
-  targetNode: airlock
-  category: construction-category-structures
-  description: construction-PinionAirlock-desc
-  icon:
-    sprite: Structures/Doors/Airlocks/Standard/clockwork_pinion.rsi
-    state: assembly
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
+#- type: construction
+#  name: pinion airlock
+#  id: PinionAirlock
+#  graph: PinionAirlock
+#  startNode: start
+#  targetNode: airlock
+#  category: construction-category-structures
+#  description: It opens, it closes, and maybe crushes you.
+#  icon:
+#    sprite: Structures/Doors/Airlocks/Standard/clockwork_pinion.rsi
+#    state: assembly
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+#  canBuildInImpassable: false
+#  conditions:
+#    - !type:TileNotBlocked
+#
+#- type: construction
+#  name: glass pinion airlock
+#  id: PinionAirlockGlass
+#  graph: PinionAirlock
+#  startNode: start
+#  targetNode: glassAirlock
+#  category: construction-category-structures
+#  description: It opens, it closes, and maybe crushes you.
+#  icon:
+#    sprite: Structures/Doors/Airlocks/Glass/clockwork_pinion.rsi
+#    state: assembly
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+#  canBuildInImpassable: false
+#  conditions:
+#    - !type:TileNotBlocked
 
 - type: construction
-  name: construction-PinionAirlockGlass-name
-  id: PinionAirlockGlass
-  graph: PinionAirlock
-  startNode: start
-  targetNode: glassAirlock
-  category: construction-category-structures
-  description: construction-PinionAirlockGlass-desc
-  icon:
-    sprite: Structures/Doors/Airlocks/Glass/clockwork_pinion.rsi
-    state: assembly
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
-  name: construction-AirlockShuttle-name
+  name: construction-AirlockShuttle-name # Andromeda: Localizar nomes de construção
   id: AirlockShuttle
   graph: AirlockShuttle
   startNode: start
   targetNode: airlock
   category: construction-category-structures
-  description: construction-AirlockShuttle-desc
+  description: construction-AirlockShuttle-desc # Andromeda: Localizar descrições de construção
   icon:
-    sprite: Structures/Doors/Airlocks/Standard/shuttle.rsi # Frontier: Airlocks/Glass<Airlocks/Standard
+    sprite: Structures/Doors/Airlocks/Standard/shuttle-base.rsi
     state: closed
   #  state: assembly
   objectType: Structure
@@ -1348,15 +1348,15 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-AirlockGlassShuttle-name
+  name: construction-AirlockGlassShuttle-name # Andromeda: Localizar nomes de construção
   id: AirlockGlassShuttle
   graph: AirlockShuttle
   startNode: start
   targetNode: airlockGlass
   category: construction-category-structures
-  description: construction-AirlockGlassShuttle-desc
+  description: construction-AirlockGlassShuttle-desc # Andromeda: Localizar descrições de construção
   icon:
-    sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
+    sprite: Structures/Doors/Airlocks/Glass/shuttle-base.rsi
     state: closed
   #  state: assembly
   objectType: Structure
@@ -1366,13 +1366,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-Windoor-name
+  name: construction-Windoor-name # Andromeda: Localizar nomes de construção
   id: Windoor
   graph: Windoor
   startNode: start
   targetNode: windoor
   category: construction-category-structures
-  description: construction-Windoor-desc
+  description: construction-Windoor-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Doors/Windoors/windoor.rsi
     state: closed
@@ -1383,13 +1383,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-SecureWindoor-name
+  name: construction-SecureWindoor-name # Andromeda: Localizar nomes de construção
   id: SecureWindoor
   graph: Windoor
   startNode: start
   targetNode: windoorSecure
   category: construction-category-structures
-  description: construction-SecureWindoor-desc
+  description: construction-SecureWindoor-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Doors/Windoors/windoor.rsi
     state: closed
@@ -1400,13 +1400,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ClockworkWindoor-name
+  name: construction-ClockworkWindoor-name # Andromeda: Localizar nomes de construção
   id: ClockworkWindoor
   graph: Windoor
   startNode: start
   targetNode: windoorClockwork
   category: construction-category-structures
-  description: construction-ClockworkWindoor-desc
+  description: construction-ClockworkWindoor-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Doors/Windoors/clockwork_windoor.rsi
     state: closed
@@ -1418,13 +1418,13 @@
 
 #lighting
 - type: construction
-  name: construction-LightTubeFixture-name
+  name: construction-LightTubeFixture-name # Andromeda: Localizar nomes de construção
   id: LightTubeFixture
   graph: LightFixture
   startNode: start
   targetNode: tubeLight
   category: construction-category-structures
-  description: construction-LightTubeFixture-desc
+  description: construction-LightTubeFixture-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Wallmounts/Lighting/light_tube.rsi
     state: base
@@ -1438,13 +1438,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-LightSmallFixture-name
+  name: construction-LightSmallFixture-name # Andromeda: Localizar nomes de construção
   id: LightSmallFixture
   graph: LightFixture
   startNode: start
   targetNode: bulbLight
   category: construction-category-structures
-  description: construction-LightSmallFixture-desc
+  description: construction-LightSmallFixture-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Wallmounts/Lighting/light_small.rsi
     state: base
@@ -1457,13 +1457,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-EmergencyLightFixture-name
+  name: construction-EmergencyLightFixture-name # Andromeda: Localizar nomes de construção
   id: EmergencyLightFixture
   graph: LightFixture
   startNode: start
   targetNode: emergencyLight
   category: construction-category-structures
-  description: construction-EmergencyLightFixture-desc
+  description: construction-EmergencyLightFixture-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Wallmounts/Lighting/emergency_light.rsi
     state: base
@@ -1475,13 +1475,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-LightGroundFixture-name
+  name: construction-LightGroundFixture-name # Andromeda: Localizar nomes de construção
   id: LightGroundFixture
   graph: LightFixture
   startNode: start
   targetNode: groundLight
   category: construction-category-structures
-  description: construction-LightGroundFixture-desc
+  description: construction-LightGroundFixture-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Lighting/LightPosts/small_light_post.rsi
     state: base
@@ -1493,13 +1493,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-LightStrobeFixture-name
+  name: construction-LightStrobeFixture-name # Andromeda: Localizar nomes de construção
   id: LightStrobeFixture
   graph: LightFixture
   startNode: start
   targetNode: strobeLight
   category: construction-category-structures
-  description: construction-LightStrobeFixture-desc
+  description: construction-LightStrobeFixture-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Wallmounts/Lighting/strobe_light.rsi
     state: base
@@ -1512,13 +1512,13 @@
 
 #conveyor
 - type: construction
-  name: construction-ConveyorBelt-name
+  name: construction-ConveyorBelt-name # Andromeda: Localizar nomes de construção
   id: ConveyorBelt
   graph: ConveyorGraph
   startNode: start
   targetNode: entity
   category: construction-category-structures
-  description: construction-ConveyorBelt-desc
+  description: construction-ConveyorBelt-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1529,13 +1529,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-MetalDoor-name
+  name: construction-MetalDoor-name # Andromeda: Localizar nomes de construção
   id: MetalDoor
   graph: DoorGraph
   startNode: start
   targetNode: metalDoor
   category: construction-category-structures
-  description: construction-MetalDoor-desc
+  description: construction-MetalDoor-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1546,13 +1546,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-WoodDoor-name
+  name: construction-WoodDoor-name # Andromeda: Localizar nomes de construção
   id: WoodDoor
   graph: DoorGraph
   startNode: start
   targetNode: woodDoor
   category: construction-category-structures
-  description: construction-WoodDoor-desc
+  description: construction-WoodDoor-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1563,13 +1563,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-PlasmaDoor-name
+  name: construction-PlasmaDoor-name # Andromeda: Localizar nomes de construção
   id: PlasmaDoor
   graph: DoorGraph
   startNode: start
   targetNode: plasmaDoor
   category: construction-category-structures
-  description: construction-PlasmaDoor-desc
+  description: construction-PlasmaDoor-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1580,13 +1580,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-GoldDoor-name
+  name: construction-GoldDoor-name # Andromeda: Localizar nomes de construção
   id: GoldDoor
   graph: DoorGraph
   startNode: start
   targetNode: goldDoor
   category: construction-category-structures
-  description: construction-GoldDoor-desc
+  description: construction-GoldDoor-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1597,13 +1597,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-SilverDoor-name
+  name: construction-SilverDoor-name # Andromeda: Localizar nomes de construção
   id: SilverDoor
   graph: DoorGraph
   startNode: start
   targetNode: silverDoor
   category: construction-category-structures
-  description: construction-SilverDoor-desc
+  description: construction-SilverDoor-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1614,13 +1614,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-PaperDoor-name
+  name: construction-PaperDoor-name # Andromeda: Localizar nomes de construção
   id: PaperDoor
   graph: DoorGraph
   startNode: start
   targetNode: paperDoor
   category: construction-category-structures
-  description: construction-PaperDoor-desc
+  description: construction-PaperDoor-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1629,14 +1629,14 @@
     state: closed
 
 - type: construction
-  name: construction-PlasticFlapsClear-name
+  name: construction-PlasticFlapsClear-name # Andromeda: Localizar nomes de construção
   id: PlasticFlapsClear
   graph: PlasticFlapsGraph
   startNode: start
   targetNode: plasticFlaps
   category: construction-category-structures
   placementMode: SnapgridCenter
-  description: construction-PlasticFlapsClear-desc
+  description: construction-PlasticFlapsClear-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   canBuildInImpassable: false
   icon:
@@ -1646,14 +1646,14 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-PlasticFlapsOpaque-name
+  name: construction-PlasticFlapsOpaque-name # Andromeda: Localizar nomes de construção
   id: PlasticFlapsOpaque
   graph: PlasticFlapsGraph
   startNode: start
   targetNode: opaqueFlaps
   category: construction-category-structures
   placementMode: SnapgridCenter
-  description: construction-PlasticFlapsOpaque-desc
+  description: construction-PlasticFlapsOpaque-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   canBuildInImpassable: false
   icon:
@@ -1663,14 +1663,14 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-CarpStatue-name
+  name: construction-CarpStatue-name # Andromeda: Localizar nomes de construção
   id: CarpStatue
   graph: CarpStatue
   startNode: start
   targetNode: statue
   category: construction-category-structures
   placementMode: SnapgridCenter
-  description: construction-CarpStatue-desc
+  description: construction-CarpStatue-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   canBuildInImpassable: false
   icon:
@@ -1680,14 +1680,14 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-BananiumClownStatue-name
+  name: construction-BananiumClownStatue-name # Andromeda: Localizar nomes de construção
   id: BananiumClownStatue
   graph: BananiumStatueClown
   startNode: start
   targetNode: bananiumStatue
   category: construction-category-structures
   placementMode: SnapgridCenter
-  description: construction-BananiumClownStatue-desc
+  description: construction-BananiumClownStatue-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   canBuildInImpassable: false
   icon:
@@ -1697,13 +1697,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-BananiumDoor-name
+  name: construction-BananiumDoor-name # Andromeda: Localizar nomes de construção
   id: BananiumDoor
   graph: DoorGraph
   startNode: start
   targetNode: bananiumDoor
   category: construction-category-structures
-  description: construction-BananiumDoor-desc
+  description: construction-BananiumDoor-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1714,13 +1714,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-BananiumAltar-name
+  name: construction-BananiumAltar-name # Andromeda: Localizar nomes de construção
   id: BananiumAltar
   graph: BananiumAltarGraph
   startNode: start
   targetNode: bananiumAltar
   category: construction-category-structures
-  description: construction-BananiumAltar-desc
+  description: construction-BananiumAltar-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Altars/Cults/bananium.rsi
     state: full
@@ -1732,13 +1732,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-SolidSecretDoor-name
+  name: construction-SolidSecretDoor-name # Andromeda: Localizar nomes de construção
   id: SolidSecretDoor
   graph: SecretDoor
   startNode: start
   targetNode: solidSecretDoor
   category: construction-category-structures
-  description: construction-SolidSecretDoor-desc
+  description: construction-SolidSecretDoor-desc # Andromeda: Localizar descrições de construção
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false

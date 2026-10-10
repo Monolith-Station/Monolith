@@ -14,7 +14,7 @@ public abstract partial class CESharedZLevelsSystem
     /// Per-level perspective factor: each z-level below the observer is drawn this
     /// much smaller (and each level above this much larger), continuously with depth.
     /// </summary>
-    public const float ZLevelViewShrink = 0.85f;
+    public const float ZLevelViewShrink = 1f; // MONO - TEMP AKA PERMANENT BECAUSE WE DONT HAVE TALL WALLS...
 
     public const float ZGravityForce = 9.8f;
     private const float ZVelocityLimit = 20.0f;

@@ -1,0 +1,36 @@
+- type: vessel
+  id: Senkusha
+  parent: BaseVessel
+  name: vessel-Senkusha-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Senkusha-desc # Andromeda: Localizar nome e descrição de nave
+  price: 153000
+  purchasable: false # Voucher only
+  category: Medium
+  group: Mieyo
+  access: MieyoSecurity
+  shuttlePath: /SharedMaps/_Mono/Shuttles/MMC/senkusha.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Escort
+  - Corvette
+  engine:
+  - AME
+
+- type: gameMap
+  id: Senkusha
+  mapName: 'MMC-CSC Senku-sha'
+  mapPath: /SharedMaps/_Mono/Shuttles/MMC/senkusha.yml
+  minPlayers: 0
+  stations:
+    Senkusha:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Senku-sha MCSC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MMCEmployee: [ 0, 0 ]

@@ -2,7 +2,7 @@
 
 - type: vessel
   id: Strayk
-  parent: BaseVesselAntag
+  parent: BaseVesselIFFDisabled
   # Andromeda start: Localize ship name and desc
   name: vessel-Strayk-name
   description: vessel-Strayk-desc
@@ -15,6 +15,7 @@
   guidebookPage: Null
   class:
   - Pursuit
+  - AntiShipMissileCarrier
   engine:
   - Uranium
   cloakHunter: true

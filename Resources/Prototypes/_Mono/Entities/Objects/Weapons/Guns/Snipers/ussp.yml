@@ -114,7 +114,7 @@
 
 - type: entity
   name: NCI Kardashev-Mosin (7.62x54mmR)
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseGunMelee]
+  parent: [BaseGunMelee, BaseWeaponSniper, BaseGunWieldable]
   id: WeaponSniperMosin
   description: A weapon for hunting, or endless trench warfare. Uses 762x54mmR ammo. Equipped with bayonet.
   components:

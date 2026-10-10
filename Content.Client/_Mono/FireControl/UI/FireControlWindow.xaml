@@ -52,21 +52,24 @@
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BorderThickness="4" BorderColor="#2e2e2e" BackgroundColor="#1c1c1c" />
                     </PanelContainer.PanelOverride>
-            <Button Name="SelectBallisticButton" Access="Public" Text="Ballistics"
+            <!-- Andromeda: Ballistics => Cinéticos -->
+            <Button Name="SelectBallisticButton" Access="Public" Text="Cinéticos"
                     StyleClasses="ButtonSquare" HorizontalExpand="True" Margin="4 4"/>
                 </PanelContainer>
             <PanelContainer VerticalExpand="False" HorizontalExpand="True">
                 <PanelContainer.PanelOverride>
                     <gfx:StyleBoxFlat BorderThickness="4" BorderColor="#2e2e2e" BackgroundColor="#1c1c1c" />
                 </PanelContainer.PanelOverride>
-            <Button Name="SelectEnergyButton" Access="Public" Text="Energy"
+            <!-- Andromeda: Energy => Energia -->
+            <Button Name="SelectEnergyButton" Access="Public" Text="Energia"
                     StyleClasses="ButtonSquare" HorizontalExpand="True" Margin="4 4"/>
             </PanelContainer>
             <PanelContainer VerticalExpand="False" HorizontalExpand="True">
                 <PanelContainer.PanelOverride>
                     <gfx:StyleBoxFlat BorderThickness="4" BorderColor="#2e2e2e" BackgroundColor="#1c1c1c" />
                 </PanelContainer.PanelOverride>
-            <Button Name="SelectMissileButton" Access="Public" Text="Missiles"
+            <!-- Andromeda: Missiles => Mísseis -->
+            <Button Name="SelectMissileButton" Access="Public" Text="Mísseis"
                     StyleClasses="ButtonSquare" HorizontalExpand="True" Margin="4 4"/>
             </PanelContainer>
             </BoxContainer>

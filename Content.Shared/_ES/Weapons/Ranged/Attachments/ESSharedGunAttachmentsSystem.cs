@@ -7,9 +7,11 @@ using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Localizations;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
+using Content.Shared.Wieldable;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization.Manager; // Mono
 using Robust.Shared.Timing; // Mono
@@ -26,6 +28,7 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private ISerializationManager _serializationManager = default!; // Mono
     [Dependency] private IGameTiming _timing = default!; // Mono
+    [Dependency] private SharedWieldableSystem _wield = default!; // Mono
 
     private EntityQuery<ESGunAttachmentComponent> _attachmentQuery;
 
@@ -35,6 +38,7 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
         SubscribeLocalEvent<ESAttachableGunComponent, EntInsertedIntoContainerMessage>(OnEntInsertedIntoContainer);
         SubscribeLocalEvent<ESAttachableGunComponent, EntRemovedFromContainerMessage>(OnEntRemovedFromContainer);
         SubscribeLocalEvent<ESAttachableGunComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
+        SubscribeLocalEvent<ESAttachableGunComponent, WieldRefreshModifiersEvent>(OnGunWieldRefreshModifiers);
         SubscribeLocalEvent<ESAttachableGunComponent, InteractUsingEvent>(OnAfterInteract, before: [typeof(ItemSlotsSystem)]);
         SubscribeLocalEvent<ESAttachableGunComponent, ExaminedEvent>(OnExamined);
 
@@ -42,10 +46,12 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
 
         SubscribeLocalEvent<ESGunSoundAttachmentComponent, GunRefreshModifiersEvent>(OnGunSoundRefreshModifiers);
         SubscribeLocalEvent<ESGunRecoilAttachmentComponent, GunRefreshModifiersEvent>(OnGunRecoilRefreshModifiers); // Mono
+        SubscribeLocalEvent<ESGunWieldRecoilAttachmentComponent, WieldRefreshModifiersEvent>(OnGunWieldRecoilRefreshModifiers); // Mono
 
         SubscribeLocalEvent<ESGunComponentAttachmentComponent, GunRefreshModifiersEvent>(OnCompAttachmentEquip); // Mono
         SubscribeLocalEvent<ESGunComponentAttachmentComponent, EntGotRemovedFromContainerMessage>(OnCompAttachmentUnequip); // Mono
-        SubscribeLocalEvent<ESGunRecoilAttachmentComponent, ExaminedEvent>(OnAttachmentExamined); // Mono
+        SubscribeLocalEvent<ESGunRecoilAttachmentComponent, ExaminedEvent>(OnRecoilAttachmentExamined); // Mono
+        SubscribeLocalEvent<ESGunWieldRecoilAttachmentComponent, ExaminedEvent>(OnWieldRecoilAttachmentExamined); // Mono
 
         _attachmentQuery = GetEntityQuery<ESGunAttachmentComponent>();
     }
@@ -56,6 +62,8 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
         if (!ent.Comp.Slots.Any(s => s.ContainerId.Equals(containerId)))
             return;
         _gun.RefreshModifiers(ent.Owner);
+        if (HasComp<GunWieldBonusComponent>(ent))
+            _wield.RefreshModifiers(ent.Owner);
     }
 
     protected virtual void OnEntRemovedFromContainer(Entity<ESAttachableGunComponent> ent, ref EntRemovedFromContainerMessage args)
@@ -64,9 +72,19 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
         if (!ent.Comp.Slots.Any(s => s.ContainerId.Equals(containerId)))
             return;
         _gun.RefreshModifiers(ent.Owner);
+        if (HasComp<GunWieldBonusComponent>(ent))
+            _wield.RefreshModifiers(ent.Owner);
     }
 
     private void OnGunRefreshModifiers(Entity<ESAttachableGunComponent> ent, ref GunRefreshModifiersEvent args)
+    {
+        foreach (var attachment in EnumerateAttachments(ent))
+        {
+            RaiseLocalEvent(attachment, ref args);
+        }
+    }
+
+    private void OnGunWieldRefreshModifiers(Entity<ESAttachableGunComponent> ent, ref WieldRefreshModifiersEvent args)
     {
         foreach (var attachment in EnumerateAttachments(ent))
         {
@@ -129,6 +147,13 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
 
         args.MinAngle = (args.MinAngle * ent.Comp.MinSpreadModifier);
         args.MaxAngle = (args.MaxAngle * ent.Comp.MaxSpreadModifier);
+    }
+    private void OnGunWieldRecoilRefreshModifiers(Entity<ESGunWieldRecoilAttachmentComponent> ent, ref WieldRefreshModifiersEvent args)
+    {
+        args.MinAngle = args.MinAngle * ent.Comp.WieldMinSpreadModifier;
+        args.MaxAngle = args.MaxAngle * ent.Comp.WieldMaxSpreadModifier;
+        args.AngleDecay = args.AngleDecay * ent.Comp.WieldRecoilRecoveryModifier;
+        args.AngleIncrease = args.AngleIncrease * ent.Comp.WieldRecoilIncreaseModifier;
     }
     // Mono end
 
@@ -232,9 +257,8 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
         EntityManager.RemoveComponents(target, component.Components);
     }
 
-    private void OnAttachmentExamined(EntityUid uid, ESGunRecoilAttachmentComponent component, ExaminedEvent args)
+    private void OnRecoilAttachmentExamined(EntityUid uid, ESGunRecoilAttachmentComponent component, ExaminedEvent args)
     {
-        // only the most beautiful code here. u mad?
         TryComp<ESGunRecoilAttachmentComponent>(uid, out var recoilComponent);
         if (recoilComponent != null)
         {
@@ -252,12 +276,37 @@ public abstract partial class ESSharedGunAttachmentsSystem : EntitySystem
             var maxSpread = recoilComponent.MaxSpreadModifier;
             var maxSpreadColor = GetColor(maxSpread);
 
-        // welcome to The Monolith.... I am lazy....
             args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-recovery",("color", recoilRecoveryColor),("modifier", recoilRecovery)));
             args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-recoil",("color", recoilIncreaseColor),("modifier", recoilIncrease)));
             args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-minspread",("color", minSpreadColor),("modifier", minSpread)));
             args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-maxspread",("color", maxSpreadColor),("modifier", maxSpread)));
         }
     }
-    // Mono end
+
+    private void OnWieldRecoilAttachmentExamined(EntityUid uid, ESGunWieldRecoilAttachmentComponent component, ExaminedEvent args)
+    {
+        TryComp<ESGunWieldRecoilAttachmentComponent>(uid, out var recoilComponent);
+        if (recoilComponent != null)
+        {
+            Color GetColor(float m) => m > 1 ? Color.Crimson : m < 1 ? Color.Lime : Color.Gold;
+
+            // wielded is inverse because its subtracted from the base. 50 - (20 * 0.0005) is worse, actually.
+            var wieldRecoilRecovery = recoilComponent.WieldRecoilRecoveryModifier;
+            var wieldRecoilRecoveryColor = GetColor((wieldRecoilRecovery));
+
+            var wieldRecoilIncrease = recoilComponent.WieldRecoilIncreaseModifier;
+            var wieldRecoilIncreaseColor = GetColor(1f / wieldRecoilIncrease);
+
+            var wieldMinSpread = recoilComponent.WieldMinSpreadModifier;
+            var wieldMinSpreadColor = GetColor(1f / wieldMinSpread);
+
+            var wieldMaxSpread = recoilComponent.WieldMaxSpreadModifier;
+            var wieldMaxSpreadColor = GetColor(1f / wieldMaxSpread);
+
+            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-recovery-wield",("color", wieldRecoilRecoveryColor),("modifier", wieldRecoilRecovery)));
+            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-recoil-wield",("color", wieldRecoilIncreaseColor),("modifier", wieldRecoilIncrease)));
+            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-minspread-wield",("color", wieldMinSpreadColor),("modifier", wieldMinSpread)));
+            args.PushMarkup(Loc.GetString("es-gun-attachments-inspect-modifier-maxspread-wield",("color", wieldMaxSpreadColor),("modifier", wieldMaxSpread)));
+        }
+    }
 }

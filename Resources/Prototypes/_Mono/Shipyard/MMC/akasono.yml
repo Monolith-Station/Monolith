@@ -1,0 +1,33 @@
+- type: vessel
+  id: Akasono
+  parent: BaseVessel
+  name: vessel-Akasono-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Akasono-desc # Andromeda: Localizar nome e descrição de nave
+  price: 46000
+  category: Small
+  group: Mieyo
+  access: Mieyo
+  shuttlePath: /SharedMaps/_Mono/Shuttles/MMC/akasono.yml
+  guidebookPage: Null
+  class:
+  - Atmospherics
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Akasono
+  mapName: 'MMC Akasono'
+  mapPath: /SharedMaps/_Mono/Shuttles/MMC/akasono.yml
+  minPlayers: 0
+  stations:
+    Akasono:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Akasono MMC{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          MMCEmployee: [ 0, 0 ]

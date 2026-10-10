@@ -1,0 +1,35 @@
+- type: vessel
+  id: Petra
+  parent: BaseVessel
+  name: vessel-Petra-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Petra-desc # Andromeda: Localizar nome e descrição de nave
+  price: 212000
+  purchasable: false # T1 - voucher only
+  category: Medium
+  group: Sr
+  access: Brig
+  mapchecker_group_override: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/petra.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Corvette
+  - Brawler
+  - Detainment
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Petra
+  mapName: 'Petra'
+  mapPath: /SharedMaps/_Mono/Shuttles/CSec/petra.yml
+  minPlayers: 0
+  stations:
+    Petra:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Petra CSEC{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'

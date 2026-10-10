@@ -1,0 +1,36 @@
+- type: vessel
+  id: Sellsword
+  parent: BaseVessel
+  name: vessel-Sellsword-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Sellsword-desc # Andromeda: Localizar nome e descrição de nave
+  price: 71650 #appraised at 65029
+  category: Small
+  access: Mercenary
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/sellsword.yml
+  guidebookPage: Null
+  class:
+  - Escort
+  - Mercenary
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Sellsword
+  mapName: 'UW Sellsword'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/sellsword.yml
+  minPlayers: 0
+  stations:
+    Sellsword:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "A warrior-poet's sarcophagus."
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Sellsword MIL{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Contractor: [ 0, 0 ]

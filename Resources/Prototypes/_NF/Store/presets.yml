@@ -35,6 +35,7 @@
     - UplinkSecurityExplosives
     - UplinkSecurityBundles
     - UplinkSecurityVouchers # Mono
+    - UplinkSecurityMaterials
     currencyWhitelist:
     - FederationMilitaryCredit
     balance:
@@ -53,6 +54,7 @@
     - UplinkPirateAmmo
     - UplinkPirateMedical
     - UplinkPirateUtility
+    - UplinkPdvMaterials
     - UplinkPirateExplosives
     - UplinkPdvVouchers
 #    - UplinkPirateGambling

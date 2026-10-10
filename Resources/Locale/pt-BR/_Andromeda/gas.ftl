@@ -1,0 +1,14 @@
+Oxygen = Oxigênio
+Nitrogen = Nitrogênio
+CarbonDioxide = Dióxido de Carbono
+Plasma = Plasma
+Tritium = Trítio
+WaterVapor = Vapor de Água
+Ammonia = Amônia
+NitrousOxide = Óxido Nitroso
+Frezon = Frezon
+BZ = BZ
+Healium = Healium
+Nitrium = Nítrio
+Pluoxium = Pluóxio
+Smoke = Fumaça

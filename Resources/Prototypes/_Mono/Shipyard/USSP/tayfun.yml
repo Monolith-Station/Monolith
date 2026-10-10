@@ -2,12 +2,13 @@
 
 - type: vessel
   id: Tayfun
-  parent: BaseVesselAntag
+  parent: BaseVesselIFFDisabled
   # Andromeda start: Localize ship name and desc
   name: vessel-Tayfun-name
   description: vessel-Tayfun-desc
   # Andromeda end
   price: 98532
+  purchasable: false # voucher only
   category: Medium
   group: Ussp
   access: USSP
@@ -16,6 +17,7 @@
   class:
   - Pursuit
   - Patrol
+  - Escort
   - Corvette
   engine:
   - AME

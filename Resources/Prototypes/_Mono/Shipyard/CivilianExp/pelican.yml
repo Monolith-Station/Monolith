@@ -1,0 +1,41 @@
+- type: vessel
+  id: Pelican
+  parent: BaseVessel
+  name: vessel-Pelican-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Pelican-desc # Andromeda: Localizar nome e descrição de nave
+  price: 282000 # Giant markup for the capabilities.
+  category: Large
+  group: Expedition
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianExp/pelican.yml
+  guidebookPage: null
+  class:
+  - Science
+  - Salvage
+  - Cargo
+  - Chemistry
+  - Medical
+  - Civilian
+  - Kitchen
+  - Expedition
+  engine:
+  - AME
+
+- type: gameMap
+  id: Pelican
+  mapName: 'SKR Pelican'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianExp/pelican.yml
+  minPlayers: 0
+  stations:
+    Pelican:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Pelican EXP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

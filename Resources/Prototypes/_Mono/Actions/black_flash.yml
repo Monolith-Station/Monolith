@@ -1,0 +1,10 @@
+- type: entity
+  id: ActionBlackFlash
+  name: Black Flash
+  description: Throw a hit with all of your strength. This will drain a lot of stamina.
+  components:
+  - type: InstantAction
+    # TODO: placeholder icon
+    icon: Interface/Actions/harmOff.png
+    iconOn: Interface/Actions/harm.png
+    event: !type:BlackFlashActionEvent

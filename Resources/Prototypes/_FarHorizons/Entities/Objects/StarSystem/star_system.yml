@@ -1,0 +1,23 @@
+# Physical representations for stellar objects in world
+
+- type: entity
+  id: StarEntity
+  name: Star # Renamed at spawn
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: WarpPoint
+    - type: FTLSmashImmune
+    - type: FTLBeacon
+    - type: IFF
+      color: '#FFD27F'
+
+- type: entity
+  id: PlanetEntity
+  name: Planet # Renamed at spawn
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: WarpPoint
+    - type: FTLSmashImmune
+    - type: FTLBeacon
+    - type: IFF
+      color: '#7FB2FF'

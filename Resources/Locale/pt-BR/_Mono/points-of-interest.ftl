@@ -7,7 +7,6 @@ poi-BeaconClusterA-name = Aglomerado de Asteroides INSO-357k
 poi-BeaconWilds-name = Aglomerado de Asteroides LINEAR-21
 poi-Chengdu-name = TSFN Chengdu
 poi-HammerOfTheUnion-name = Martelo Da União
-poi-HeliosFortress-name = Fortaleza PDV Helios
 poi-HeliosFortressHyperwar-name = Fortaleza PDV Helios
 poi-Jupiter-name = Porta-Naves PDV Classe Júpter
 poi-Jupiter_HW-name = PDV Jupiter
@@ -22,7 +21,13 @@ poi-USSPCamelot-name = Porto Livre Camelot
 poi-Zenith-name = ADS Zenith CK-395
 poi-Zvezda-name = Habitação Orbital Zvezda
 poi-Hokkaido-name = MMC Hokkaido
+poi-UndergroundBlackMarket-name = Mercado Negro Underground
+poi-TSFMCIndustry-name = TSF-CIV "Benção Estelar"
 
 poi-ZetaNode-name = Nó Zeta
 poi-ZetaNode-desc = Até o ar tem uma leve camada de poeira.
 
+poi-HeliosFortress-name = Fortaleza PDV Helios
+poi-HeliosFortress-desc = Uma aura imperial opressiva vagra por aqui. Glória ao Sultão.
+
+poi-CaelestinusCentral-desc = A coisa mais próxima de civilização nesse setor. Você quase se sente em segurança.

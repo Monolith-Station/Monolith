@@ -44,7 +44,7 @@ nf-tips-dataset-22 = Como fantasma, você pode usar o Menu de Verbos para orbita
 
 nf-tips-dataset-23 = Você pode examinar seu headset para ver quais canais de rádio você tem disponíveis e os atalhos de chat para falar neles.
 
-nf-tips-dataset-24 = Ao fazer salvagem, você pode usar seu acelerador cinético proto para se mover no espaço quando estiver em apuros. Cuidado, pois não é muito eficaz.
+nf-tips-dataset-24 = Ao fazer salvagem, você pode usar seu acelerador protocinético para se mover no espaço quando estiver em apuros. Cuidado, pois não é muito eficaz.
 
 nf-tips-dataset-25 = Muitos químicos têm reações únicas - Certifique-se de verificar os efeitos e fontes de cada um! Conhecer sua medicina pode salvar sua vida.
 

@@ -1,0 +1,36 @@
+- type: vessel
+  id: Kynda
+  parent: BaseVesselIFFDisabled
+  name: vessel-Kynda-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Kynda-desc # Andromeda: Localizar nome e descrição de nave
+  price: 95000
+  category: Small
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/kynda.yml
+  guidebookPage: Null
+  class:
+  - Brawler
+  - AntiShipMissileCarrier
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Kynda
+  mapName: 'PDV Kynda'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/kynda.yml
+  minPlayers: 0
+  stations:
+    Kynda:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Kynda PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

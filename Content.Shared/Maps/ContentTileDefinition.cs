@@ -94,6 +94,15 @@ namespace Content.Shared.Maps
 
         [DataField("thermalConductivity")] public float ThermalConductivity = 0.04f;
 
+        // ES START
+        // tile flammability
+        // higher = more flammable, used as a weighted score, not a multiplier on anything
+        // opted to do this instead of reusing thermalconductivity etc because thats used for mostly unrelated conceptually atmos stuff
+        // afaict. easier to do this
+        [DataField]
+        public float Flammability = 1f;
+        // ES END
+
         // Heat capacity is opt-in, not opt-out.
         [DataField("heatCapacity")] public float HeatCapacity = Atmospherics.MinimumHeatCapacity;
 
@@ -141,9 +150,9 @@ namespace Content.Shared.Maps
         [DataField("sturdy")] public bool Sturdy { get; private set; } = true;
 
         /// <summary>
-        /// Can weather affect this tile.
+        /// Can weather affect this tile. - Mono - set to true because like, implicit roof.
         /// </summary>
-        [DataField("weather")] public bool Weather = false;
+        [DataField("weather")] public bool Weather = true;
 
         /// <summary>
         /// Is this tile immune to RCD deconstruct.

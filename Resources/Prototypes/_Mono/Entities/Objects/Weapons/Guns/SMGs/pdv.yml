@@ -139,6 +139,7 @@
     fireRate: 8.5
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/atreides_fire.ogg
+    damageModifier: 1.1 # can't be used with a shield anymore.
   - type: MagazineVisuals
     magState: mag
     steps: 1

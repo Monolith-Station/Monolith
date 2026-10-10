@@ -28,6 +28,8 @@
   - Mieyo
   - MieyoSecurity
   - MieyoLiason
+  guides:
+  - MMC
   special:
   - !type:AddImplantSpecial
     implants: [ MieyoTrackingImplant ]
@@ -38,6 +40,8 @@
       - MMC
     - type: ChatRank
       rank: mmc-liason
+    - type: RadioOnCryosleep
+      radioChannel: Mieyo
   - !type:AddLanguageSpecial
     languagesSpoken:
     - Nekomimetic

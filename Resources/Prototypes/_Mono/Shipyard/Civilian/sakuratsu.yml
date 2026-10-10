@@ -1,0 +1,35 @@
+- type: vessel
+  id: Sakuratsu
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Sakuratsu-name
+  description: vessel-Sakuratsu-desc
+  # Andromeda end
+  price: 99721
+  category: Medium
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/sakuratsu.yml
+  guidebookPage: Null
+  class:
+  - Science
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Sakuratsu
+  mapName: 'SKR Sakuratsu'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/sakuratsu.yml
+  minPlayers: 0
+  stations:
+    Sakuratsu:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Sakuratsu CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]

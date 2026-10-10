@@ -811,11 +811,11 @@ ent-BoxMagazine12_gaugeSlug = caixa de tambores de munição (calibre 12 balote)
 ent-BoxMagazine45_ACPFMJ = caixa de pentes de pistola .45 ACP
     .desc = Uma caixa cheia de carregadores de pistola .45 ACP.
 
-ent-BoxMagazine45_ACPPistolHighCapacityFMJ = caixa de carregadores de metralhadora de mão .45 ACP
-    .desc = Uma caixa cheia de carregadores de metralhadora de mão .45 ACP.
+ent-BoxMagazine45_ACPPistolHighCapacityFMJ = caixa de carregadores de pistola metralhadora .45 ACP
+    .desc = Uma caixa cheia de carregadores de pistola metralhadora .45 ACP.
 
-ent-BoxMagazine45_ACPPistolHighCapacityPractice = caixa de carregadores de metralhadora de mão .45 ACP (prática)
-    .desc = Uma caixa cheia de carregadores de metralhadora de mão .45 ACP (prática).
+ent-BoxMagazine45_ACPPistolHighCapacityPractice = caixa de carregadores de pistola metralhadora .45 ACP (prática)
+    .desc = Uma caixa cheia de carregadores de pistola metralhadora .45 ACP (prática).
 
 ent-BoxMagazine45_ACPPractice = caixa de pentes de pistola .45 ACP (prática)
     .desc = Uma caixa cheia de carregadores.
@@ -835,14 +835,14 @@ ent-BoxMagazine45_ACPSubMachineGunPractice = caixa de carregadores de SMG .45 AC
 ent-BoxMagazine45_ACPSubMachineGunRubber = caixa de carregadores de SMG .45 ACP (borracha)
     .desc = Uma caixa cheia de carregadores de SMG .45 ACP (borracha).
 
-ent-BoxMagazine45_magnumFMJ = caixa de speedloaders .45 magnum
-    .desc = Uma caixa cheia de speedloaders .45 magnum.
+ent-BoxMagazine45_magnumFMJ = caixa de speedloaders .357 magnum
+    .desc = Uma caixa cheia de speedloaders .357 magnum.
 
-ent-BoxMagazine45_magnumSubMachineGunFMJ = caixa de carregadores de SMG .45 magnum
-    .desc = Uma caixa cheia de carregadores de SMG .45 magnum.
+ent-BoxMagazine45_magnumSubMachineGunFMJ = caixa de carregadores de SMG .357 magnum
+    .desc = Uma caixa cheia de carregadores de SMG .357 magnum.
 
-ent-BoxMagazine45_magnumSubMachineGunPractice = caixa de carregadores de SMG .45 magnum (prática)
-    .desc = Uma caixa cheia de carregadores de SMG .45 magnum (prática).
+ent-BoxMagazine45_magnumSubMachineGunPractice = caixa de carregadores de SMG .357 magnum (prática)
+    .desc = Uma caixa cheia de carregadores de SMG .357 magnum (prática).
 
 ent-BoxMagazine46x30mmSubMachineGunTopMountedFMJ = caixa de carregadores WT550 46x30mm
     .desc = Uma caixa cheia de carregadores WT550 46x30mm.
@@ -886,11 +886,11 @@ ent-BoxMagazine8x65mmFMJ = caixa de carregadores 8x65mm
 ent-BoxMagazine9x19mmFMJ = caixa de pentes de pistola 9x19mm
     .desc = Uma caixa cheia de carregadores de pistola 9x19mm.
 
-ent-BoxMagazine9x19mmPistolHighCapacityFMJ = caixa de carregadores de metralhadora de mão 9x19mm
-    .desc = Uma caixa cheia de carregadores de metralhadora de mão 9x19mm.
+ent-BoxMagazine9x19mmPistolHighCapacityFMJ = caixa de carregadores de pistola metralhadora 9x19mm
+    .desc = Uma caixa cheia de carregadores de pistola metralhadora 9x19mm.
 
-ent-BoxMagazine9x19mmPistolHighCapacityPractice = caixa de carregadores de metralhadora de mão 9x19mm (prática)
-    .desc = Uma caixa cheia de carregadores de metralhadora de mão 9x19mm (prática).
+ent-BoxMagazine9x19mmPistolHighCapacityPractice = caixa de carregadores de pistola metralhadora 9x19mm (prática)
+    .desc = Uma caixa cheia de carregadores de pistola metralhadora 9x19mm (prática).
 
 ent-BoxMagazine9x19mmPractice = caixa de pentes de pistola 9x19mm (prática)
     .desc = Uma caixa cheia de carregadores.
@@ -5958,6 +5958,7 @@ ent-CableMVStackLingering10 = {ent-CableMVStack}
 # Abstract entity (referenceable by children)
 
 ent-CableStack = bobina de cabos
+    .desc = Uma bobina de cabos de energia.
     .suffix = Cheia
 
 # From: Entities/Objects/Tools/cowtools.yml
@@ -6038,9 +6039,6 @@ ent-EmagUnlimited = sequenciador criptográfico
     .desc = A solução de hacking tudo-em-um. Amigo de qualquer agente do Sindicato. O icônico EMAG.
 
 # From: Entities/Objects/Tools/flare.yml
-
-ent-Flare = sinalizador de emergência
-    .desc = Um sinalizador que produz uma luz muito brilhante por um curto período de tempo. Aponte a chama para longe de você.
 
 # From: Entities/Objects/Tools/flashlights.yml
 
@@ -6584,7 +6582,7 @@ ent-SpeedLoaderCap = carregador de detonador
 
 # From: Entities/Objects/Weapons/Guns/Basic/pka.yml
 
-ent-WeaponProtoKineticAccelerator = acelerador cinético proto
+ent-WeaponProtoKineticAccelerator = acelerador protocinético
     .desc = Dispara projéteis cinéticos de baixo dano em curto alcance.
 
 # From: Entities/Objects/Weapons/Guns/Basic/spraynozzle.yml
@@ -6806,8 +6804,8 @@ ent-WeaponPistolMercenaryEchis = LWC mercenary PT-45C echis (9x19mm)
 ent-WeaponPistolMk58 = MA Mk-58 (.45 ACP)
     .desc = A Pistola Ofensiva Mark 58, a arma secundária mais abundante em toda a galáxia. Comumente chamada de fragmento da Guerra Corporativa, foi usada até o amargo fim. Usa munição .45 ACP. Equipada com cano rosqueado e suporte para dispositivos táticos.
 
-ent-WeaponPistolN1984 = NT N1984 (.45 magnum)
-    .desc = A arma secundária de qualquer oficial que se respeite. Disponível em .45 magnum, o calibre do senhor. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
+ent-WeaponPistolN1984 = NT N1984 (.357 magnum)
+    .desc = A arma secundária de qualquer oficial que se respeite. Disponível em .357 magnum, o calibre do senhor. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
 
 ent-WeaponPistolViper = LWC PT-45A viper (9x19mm)
     .desc = Uma arma pequena, facilmente ocultável, mas um pouco subpotente. Retrofitada com um receptor totalmente automático. Usa munição 9x19mm. Embora os esquemas para construir novas Víboras tenham sido perdidos, elas são tão abundantes da Guerra Corporativa que construir novas não é mais necessário. Equipada com cano rosqueado e suporte para dispositivos táticos.
@@ -7013,32 +7011,32 @@ ent-WatcherBoltMagmawing = projétil vigia de asma de magma
 ent-BaseWeaponRevolver = BaseWeaponRevolver
     .desc = Uma arma de apontar e atirar.
 
-ent-WeaponRevolverDeckard = NT Deckard (.45 magnum)
-    .desc = Um revólver raro, de grau civil, personalizado. Use quando não há tempo para o teste Voight-Kampff. Usa munição .45 magnum.
+ent-WeaponRevolverDeckard = NT Deckard (.357 magnum)
+    .desc = Um revólver raro, de grau civil, personalizado. Use quando não há tempo para o teste Voight-Kampff. Usa munição .357 magnum.
 
-ent-WeaponRevolverInspector = Inspector (.45 magnum)
-    .desc = O melhor amigo de um detetive. Usa munição .45 magnum. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
+ent-WeaponRevolverInspector = Inspector (.357 magnum)
+    .desc = O melhor amigo de um detetive. Usa munição .357 magnum. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
 
-ent-WeaponRevolverMateba = NT Mateba (.45 magnum)
-    .desc = Uma arma secundária lendária da Era Corporativa, outrora usada por equipes de assassinato corporativas, agora pertence a Oficiais da TSF em toda a galáxia. Usa munição .45 magnum. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
+ent-WeaponRevolverMateba = NT Mateba (.357 magnum)
+    .desc = Uma arma secundária lendária da Era Corporativa, outrora usada por equipes de assassinato corporativas, agora pertence a Oficiais da TSF em toda a galáxia. Usa munição .357 magnum. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
 
 ent-WeaponRevolverMatebaAP = {ent-WeaponRevolverMateba}
     .desc = {ent-WeaponRevolverMateba.desc}
     .suffix = armor-piercing
 
-ent-WeaponRevolverPirate = revólver pirata (.45 magnum)
-    .desc = Um revólver estranho, ilegal, com aparência antiga, favorecido por tripulações piratas. Usa munição .45 magnum.
+ent-WeaponRevolverPirate = revólver pirata (.357 magnum)
+    .desc = Um revólver estranho, ilegal, com aparência antiga, favorecido por tripulações piratas. Usa munição .357 magnum.
 
-ent-WeaponRevolverPython = LWC Python (.45 magnum)
-    .desc = Um revólver comumente encontrado no espaço da Dinastia Phaethon, é tipicamente usado por imperiais de alta patente. Usa munição .45 magnum.
+ent-WeaponRevolverPython = LWC Python (.357 magnum)
+    .desc = Um revólver comumente encontrado no espaço da Dinastia Phaethon, é tipicamente usado por imperiais de alta patente. Usa munição .357 magnum.
 
 ent-WeaponRevolverPythonAP = {ent-WeaponRevolverPython}
     .desc = {ent-WeaponRevolverPython.desc}
     .suffix = armor-piercing
 
-ent-WeaponRevolverPythonGatfruit = LWC Python (.45 magnum)
+ent-WeaponRevolverPythonGatfruit = LWC Python (.357 magnum)
     .suffix = Baixo Valor
-    .desc = Um revólver comumente encontrado no espaço da Dinastia Phaethon, é tipicamente usado por imperiais de alta patente. Usa munição .45 magnum. Parece ser feito de matéria vegetal frágil, e não é tão valioso para reciclagem de contrabando.
+    .desc = Um revólver comumente encontrado no espaço da Dinastia Phaethon, é tipicamente usado por imperiais de alta patente. Usa munição .357 magnum. Parece ser feito de matéria vegetal frágil, e não é tão valioso para reciclagem de contrabando.
 
 # From: Entities/Objects/Weapons/Guns/Rifles/rifles.yml
 # Abstract entity (referenceable by children)
@@ -7051,9 +7049,6 @@ ent-WeaponRifleAk = LWC AKM (7.62x39mm)
 
 ent-WeaponRifleFoam = Espuma Força Astro Ás
     .desc = Um rifle de espuma premium da mais alta qualidade. Seu plástico parece robusto, e seus mecanismos robustos.
-
-ent-WeaponRifleLecter = TCA QBZ-410 Lecter (6.8x52mm Sem Estojo)
-    .desc = O resultado de um projeto para fazer um novo rifle padrão para os ramos do militar da TSF. Preciso, fácil de usar, e disparando o projétil 6.8x52mm STANAG. Também aceita carregadores 5.56x45mm para auxiliar na padronização. O cano é rosqueado para silenciadores, e um trilho Erebus está na parte inferior para empunhaduras.
 
 # From: Entities/Objects/Weapons/Guns/Shotguns/shotguns.yml
 # Abstract entity (referenceable by children)
@@ -7108,15 +7103,6 @@ ent-WeaponShotgunSawnEmpty = escopeta serrada (calibre 12)
 ent-BaseWeaponSubMachineGun = BaseSMG
     .desc = Uma arma de apontar e atirar.
 
-ent-WeaponSubMachineGunAtreides = MA PDW-58 Atreides (5.7x28mm)
-    .desc = SMG simplificada da Midnight Arms Co. comumente usada entre revoltas e criminosos. Usa munição 5.7x28mm.
-
-ent-WeaponSubMachineGunC20r = CS C-20r submetralhadora (9x19mm)
-    .desc = Uma SMG da Era Corporativa, outrora usada por Operativos Nucleares, agora encontra uso entre a Dinastia Phaethon. Usa munição 9x19mm.
-
-ent-WeaponSubMachineGunDrozd = TCA CS/LR-8 Drozd (.45 ACP)
-    .desc = Uma SMG que outrora encontrou uso entre forças de segurança da NT, agora se encontrou como uma das armas mais confiáveis de abordagem e anti-abordagem no mercado. Usa munição .45 ACP. O cano é rosqueado para silenciadores, e um trilho Erebus está na parte inferior para empunhaduras.
-
 ent-WeaponSubMachineGunWt550 = UI WT550 (4.6x30mm)
     .desc = Uma SMG excelente, produzida por uma Empresa de Armas do Mercado Negro conhecida como Ullman Industries. Usa munição 4.6x30mm. No receptor há uma etiqueta que diz 'para uso autorizado apenas'.
 
@@ -7131,12 +7117,6 @@ ent-Musket = mosquete
 
 ent-WeaponPistolFlintlock = pistola de pederneira
     .desc = Um companheiro de piratas. Arrr! Usa munição 145x114mm. Uma arma ilegal muitas vezes usada por piratas.
-
-ent-WeaponSniperHristov = SKR-WS M96 Hristov (14.5x114mm)
-    .desc = Um rifle antimaterial portátil. Dispara projéteis de 14.5mm de alta velocidade. Usa munição 145x114mm.
-
-ent-WeaponSniperMosin = NCI Kardashev-Mosin (7.62x54mmR)
-    .desc = Uma arma para caça, ou guerra de trincheiras sem fim. Usa munição 762x54mmR. Equipada com baioneta.
 
 # From: Entities/Objects/Weapons/Guns/Turrets/turrets_ballistic.yml
 
@@ -7333,23 +7313,23 @@ ent-UraniumShiv = shiv de urânio
 # From: Entities/Objects/Weapons/Melee/mining.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseWeaponCrusher = britador
-    .desc = Um design inicial do acelerador cinético proto.
+ent-BaseWeaponCrusher = crusher
+    .desc = Um design inicial do acelerador protocinético.
 
-ent-MiningDrill = perfuradora de mineração
+ent-MiningDrill = broca de mineração
     .desc = Ferramenta poderosa usada para perfurar rapidamente através de rochas.
 
-ent-MiningDrillDiamond = perfuradora de mineração com ponta de diamante
+ent-MiningDrillDiamond = broca de mineração de diamante
     .desc = Uma perfuradora de mineração significativamente mais eficiente com ponta de diamante.
 
 ent-Pickaxe = picareta
     .desc = Entalhada à perfeição, para cravar em rochas.
 
-ent-WeaponCrusherDagger = adaga britadora
-    .desc = Uma versão reduzida de um britador cinético proto. Usa energia cinética para vibrar a lâmina em alta velocidade.
+ent-WeaponCrusherDagger = adaga crusher
+    .desc = Uma versão reduzida de um britador protocinético. Usa energia cinética para vibrar a lâmina em alta velocidade.
 
-ent-WeaponCrusherGlaive = glaive britador
-    .desc = Um design inicial do acelerador cinético proto, em forma de glaive.
+ent-WeaponCrusherGlaive = glaive crusher
+    .desc = Um design inicial do acelerador protocinético, em forma de glaive.
 
 # From: Entities/Objects/Weapons/Melee/needle.yml
 
@@ -7609,8 +7589,8 @@ ent-BannerScience = banner de ciência
 ent-BannerSecurity = banner de segurança
     .desc = Um banner exibindo as cores do departamento de segurança.
 
-ent-BannerSyndicate = banner do Sindicato
-    .desc = Um banner do qual, segundo o Sindicato, você deve sentir ódio pela NT.
+ent-BannerSyndicate = banner do sultão
+    .desc = Um S imponente bordado em um fundo vermelho escuro. Você sente que está perdendo algum contexto importante. "Piedade ao Sultão".
 
 ent-BannerYellow = banner amarelo
     .desc = Um banner exibindo a cor amarela. Lembra patos e bancas de limão.
@@ -8859,20 +8839,20 @@ ent-BlastDoorWindowsOpen = {ent-BlastDoor}
 
 # From: Entities/Structures/Doors/Shutter/blast_door.yml
 
-ent-BlastDoor = porta à prova de explosões
+ent-BlastDoor = porta blindada
     .desc = Ela diz 'BLAST DONGER'.
 
-ent-BlastDoorFrame = moldura de porta à prova de explosões
+ent-BlastDoorFrame = moldura de porta blindada
     .desc = Ela diz 'BLAST DONGER'.
 
 ent-BlastDoorOpen = {ent-BlastDoor}
     .desc = {ent-BlastDoor.desc}
     .suffix = Aberto
 
-ent-BlastDoorXeno = porta à prova de explosões xeno
+ent-BlastDoorXeno = porta blindada xeno
     .desc = Não perca um braço!
 
-ent-BlastDoorXenoFrame = moldura de porta à prova de explosões xeno
+ent-BlastDoorXenoFrame = moldura de porta blindada xeno
     .desc = Ela diz 'BLAST DONGER'.
 
 ent-BlastDoorXenoOpen = {ent-BlastDoorXeno}
@@ -14874,7 +14854,7 @@ ent-WallBrick = parede de tijolos
 ent-WallChromiteCobblebrick = parede de tijolos de cromita
     .desc = {ent-WallCobblebrick.desc}
 
-ent-WallClock = parede de relógio
+ent-WallClock = parede de latão
     .desc = {ent-BaseWall.desc}
 
 ent-WallClown = parede de banânio
@@ -24838,7 +24818,7 @@ ent-FoodBreadVolcanic = pão vulcânico
 ent-FoodBreadVolcanicSlice = fatia vulcânica
     .desc = Uma fatia de pão escuro. Assemelha-se a pedra-pome.
 
-ent-MobBreadDog = pão-cachorro
+ent-MobBreadDog = pãochorro
     .desc = É um pão. É um cachorro. É um... pão-cachorro?
 
 # From: Entities/Objects/Consumable/Food/Baked/cake.yml
@@ -24900,10 +24880,10 @@ ent-FoodCakeLemon = bolo de limão
 
 ent-FoodCakeLemonSlice = fatia de bolo de limão
 
-ent-FoodCakeLemoon = bolo lemoon
+ent-FoodCakeLemoon = bolo de lua-limão
     .desc = Um bolo que representa a lua da terra.
 
-ent-FoodCakeLemoonSlice = fragmento de bolo lemoon
+ent-FoodCakeLemoonSlice = fatia de bolo de lua-limão
     .desc = Um fragmento de lua, tem cheiro de leite.
 
 ent-FoodCakeLime = bolo de lima
@@ -25165,8 +25145,8 @@ ent-FoodBakedMuffin = muffin
 ent-FoodBakedMuffinBanana = muffin de banana
     .desc = Um muffin de banana delicioso e esponjoso.
 
-ent-FoodBakedMuffinBerry = muffin de berries
-    .desc = Um bolinho delicioso e esponjoso, com berries.
+ent-FoodBakedMuffinBerry = muffin de bagas
+    .desc = Um bolinho delicioso e esponjoso com bagas.
 
 ent-FoodBakedMuffinBluecherry = muffin de bluecherry
     .desc = Cerejas azuis dentro de um muffin delicioso.
@@ -25266,19 +25246,19 @@ ent-FoodPieXeno = torta de xeno
 
 ent-FoodPieXenoSlice = fatia de torta de xeno
 
-ent-FoodTartCoco = tart de chocolate lava
-    .desc = Uma sobremesa tasty feita de chocolate, com um núcleo líquido.
+ent-FoodTartCoco = tarte de chocolate lava
+    .desc = Uma sobremesa deliciosa feita de chocolate, com um núcleo líquido.
 
-ent-FoodTartGapple = tart de streusel de maçã dourada
-    .desc = Uma sobremesa tasty que não vai passar por um detector de metal.
+ent-FoodTartGapple = tarte de streusel de maçã dourada
+    .desc = Uma sobremesa deliciosa que não vai passar por um detector de metal.
 
-ent-FoodTartGrape = tart de uva
-    .desc = Uma sobremesa tasty que lembra você do vinho que você não fez.
+ent-FoodTartGrape = tarte de uva
+    .desc = Uma sobremesa deliciosa que lembra você do vinho que você não fez.
 
-ent-FoodTartMime = tart de mímico
+ent-FoodTartMime = tarte de mímico
     .desc = "      "
 
-ent-FoodTartMimeSlice = fatia de tart de mímico
+ent-FoodTartMimeSlice = fatia de tarte de mímico
 
 # From: Entities/Objects/Consumable/Food/Baked/pizza.yml
 
@@ -25294,10 +25274,10 @@ ent-FoodPizzaCotton = pizza de algodão
 ent-FoodPizzaCottonSlice = fatia de pizza de algodão
     .desc = Uma fatia de pizza de algodão. Algodão incluído.
 
-ent-FoodPizzaDank = pizza dank
+ent-FoodPizzaDank = pizza da boa
     .desc = A pizza de escolha do hippie.
 
-ent-FoodPizzaDankSlice = fatia de pizza dank
+ent-FoodPizzaDankSlice = fatia de pizza da boa
     .desc = Tão bom, cara...
 
 ent-FoodPizzaDonkpocket = pizza de donk-pocket
@@ -25371,10 +25351,10 @@ ent-FoodBurgerBacon = hambúrguer de bacon
 ent-FoodBurgerBaseball = hambúrguer de beisebol
     .desc = Ainda está quente. O vapor saindo dele cheira meio sweaty.
 
-ent-FoodBurgerBear = bearger
-    .desc = Melhor servido rawr.
+ent-FoodBurgerBear = hambúrguer de urso
+    .desc = Carne um pouco dura, mas ainda suculenta.
 
-ent-FoodBurgerBig = big bite burger
+ent-FoodBurgerBig = hambúrguer mordida grande
     .desc = Esqueça o Big Mac. ISSO é o futuro!
 
 ent-FoodBurgerBrain = hambúrguer de cérebro
@@ -25443,13 +25423,13 @@ ent-FoodBurgerRat = hambúrguer de rato
 ent-FoodBurgerRobot = roburguer
     .desc = O alface é o único componente orgânico. Beep.
 
-ent-FoodBurgerSoy = hambúrguer de soylent
-    .desc = Depois de comer isso você tem o impulso avassalador de comprar figurinhos overpriced de super-heróis.
+ent-FoodBurgerSoy = hambúrguer de soja
+    .desc = Depois de comer isso você tem o impulso avassalador de comprar figurinhas caras de super-heróis.
 
 ent-FoodBurgerSpell = hambúrguer de feitiço
     .desc = Isso é absolutamente Ei Nath.
 
-ent-FoodBurgerSuper = super bite burger
+ent-FoodBurgerSuper = hambúrguer super mordida
     .desc = Isso é uma montanha de hambúrguer. COMIDA!
 
 ent-FoodBurgerTofu = hambúrguer de tofu
@@ -25873,8 +25853,8 @@ ent-ReagentContainerSugarSmall = pacote de açúcar
 
 # From: Entities/Objects/Consumable/Food/meals.yml
 
-ent-DisgustingSweptSoup = miso cola salgado doce
-    .desc = Cristo santo.
+ent-DisgustingSweptSoup = sopa agridoce de miso com cola
+    .desc = Santo Cristo.
 
 # Abstract entity (referenceable by children)
 
@@ -25905,14 +25885,14 @@ ent-FoodMealEnchiladas = enchiladas
 ent-FoodMealFriedegg = ovo frito
     .desc = Um ovo frito, com um toque de sal e pimenta.
 
-ent-FoodMealFries = batatas espaciais
+ent-FoodMealFries = fritas espaciais
     .desc = Aka, Batatas Fritas, Batatas da Liberdade, etc.
 
-ent-FoodMealFriesCarrot = batatas de cenoura
-    .desc = Batatas tasty de cenouras frescas.
+ent-FoodMealFriesCarrot = cenoura frita
+    .desc = Gostosas cenouras frescas fritas.
 
-ent-FoodMealFriesCheesy = batatas com queijo
-    .desc = Batatas. Cobertas de queijo. Duh.
+ent-FoodMealFriesCheesy = fritas com queijo
+    .desc = Batatas fritas. Cobertas de queijo. Duh.
 
 ent-FoodMealMemoryleek = memory leek
     .desc = Isso deve refrescar sua memória.
@@ -26538,8 +26518,8 @@ ent-FoodJellyDuff = liberdade espacial duff
 ent-FoodOatmeal = mingau de aveia
     .desc = Uma tigela boa de mingau de aveia.
 
-ent-FoodPlainGrits = grits com manteiga
-    .desc = Uma tigela saborosa de grits, coberta com uma pat de manteiga.
+ent-FoodPlainGrits = grits amanteigados
+    .desc = Uma tigela saborosa de grits - uma espécie de papa de milho - coberta com um pequeno pedaço de manteiga.
 
 ent-FoodRiceBoiled = arroz cozido
     .desc = Uma tigela quente de arroz.
@@ -27195,6 +27175,7 @@ ent-WizardCommsComputerCircuitboard = placa de computador de comunicações do m
 # Abstract entity (referenceable by children)
 
 ent-BaseMachineCircuitboard = placa de máquina
+    .desc = Uma placa de circuito usada na construção de máquinas.
     .suffix = Placa de Máquina
 
 # From: Entities/Objects/Devices/Circuitboards/Machine/cannons.yml
@@ -27527,6 +27508,7 @@ ent-FireAlarmElectronics = eletrônicos de alarme de incêndio
 # Abstract entity (referenceable by children)
 
 ent-BaseElectronics = eletrônicos base
+    .desc = Componentes eletrônicos básicos.
     .suffix = Eletrônicos
 
 # From: Entities/Objects/Devices/Electronics/disposal.yml
@@ -29352,3 +29334,154 @@ ent-BeachBall = bola de praia
 
 ent-ClownRecorder = gravador de palhaço
     .desc = Quando você simplesmente não consegue fazer aquelas risadas do jeito natural!
+
+# ===== Generated missing entity keys (untranslated) - 2026-10-09 =====
+
+ent-ActionToggleNightVision = Alternar visão noturna
+    .desc = Liga e desliga a visão noturna.
+
+ent-LeftAnimalFeet = pés esquerdos de animal
+
+ent-LeftLegsAnimal = pernas esquerdas de animal
+
+ent-RightAnimalFeet = pés direitos de animal
+
+ent-RightLegsAnimal = pernas direitas de animal
+
+ent-BoxMagazine357_magnumFMJ = caixa de carregadores .357 magnum
+    .desc = Uma caixa cheia de carregadores .357 magnum.
+
+ent-BoxMagazine57x28mmSubMachineGunFMJ = caixa de pentes SMG 5.7x28mm
+    .desc = Uma caixa cheia de pentes SMG 5.7x28mm.
+
+ent-BoxMagazine762x39mmSubsonic = box of 7.62x39mm (subsonic) magazines
+    .desc = A box full of 7.62x39mm (subsonic) magazines.
+
+ent-SpawnMobMoproach = Moproach Spawner
+
+ent-MothershipCircuitBoard = placa de lei (Núcleo da Nave Mãe)
+    .desc = Uma placa eletrônica contendo o set de leis de Núcleo de Nave Mãe.
+
+ent-PlayerStationXenoborgAiEmpty = Núcleo de IA
+    .suffix = Vazio
+    .desc = Inteligência Artificial de ponta.
+
+ent-XenoborgCircuitBoard = placa de lei (Xenoborg)
+    .desc = Uma placa eletrônica contendo o set de leis Xenoborg.
+
+ent-MieyoCommsComputerCircuitboard = placa de computador de comunicação mieyo
+    .desc = Uma placa de circuito de computador impressa para um console MMC.
+
+ent-XenoborgCameraMonitorCircuitboard = placa de monitorador de câmeras xenoborg
+    .desc = Uma placa de circuito de computador impressa para um monitorador de câmeras xenoborg.
+
+ent-SurveillanceCameraWirelessRouterXenoborgCircuitboard = roteador wireless de câmeras xenoborg
+    .desc = Uma placa de circuito de computador impressa para um roteador wireless de câmeras xenoborg.
+
+ent-ThermobathMachineCircuitboard = placa de máquina thermobath
+    .desc = Uma placa de circuito de máquina impressa para um thermobath.
+
+ent-DoorRemoteXenoborg = controle de portas xenoborg
+
+ent-PinpointerMothership = pinpointer do núcleo da nave mãe
+    .desc = Um dispositivo portátil de rastreamento que aponta para a direção do núcleo da Nave Mãe.
+
+ent-PinpointerMothershipPiece = pedaço de pinpointer do núcleo da nave mãe
+    .desc = Um pedaço de pinpointer do núcleo da nave mãe. Você precisa de quatro pedaços para consertar ele.
+
+ent-PinpointerMothershipRepaired = pinpointer do núcleo da nave mãe consertado
+    .desc = Um dispositivo portátil de rastreamento que aponta para a direção do núcleo da Nave Mãe. Esse já viu dias melhores.
+
+ent-MothershipIDCard = cartão de ID da Nave Mãe
+
+ent-XenoborgIDCard = cartão de ID Xenoborg
+
+ent-FloorTileItemXenoborg = chão xenoborg
+
+ent-MothroachMustardCube = cubo de mustard mothroach
+
+ent-OwOroachCube = cubo de OwOroach
+
+ent-CloakingDevice = dispositivo de camuflagem
+    .desc = Um dispositivo que permite Xenoborgs a ficarem invisíveis.
+
+ent-SuperCloakingDevice = dispositivo de super camuflagem
+    .desc = Um dispositivo que permite Xenoborgs a ficarem verdadeiramente invisíveis.
+
+ent-NocturineHypo = hypo de nocturina
+    .desc = Um injetor auto recarregável para adminstração rápida de nocturina em vítimas.
+
+ent-AccessConfiguratorXenoborg = configurador de acesso xenoborg
+    .desc = Um configurador de acesso modificado usado pelos xenoborgs.
+
+ent-XenoborgRadioJammer = bloqueador de rádio xenoborg
+
+ent-WeaponLaserCannonXenoborg = canhão laser xenoborg
+
+ent-WeaponLaserGunXenoborg = arma laser xenoborg
+
+ent-AirlockXenoborg = airlock mechadermis
+
+ent-AirlockShuttleXenoborg = airlock externa mechadermis
+
+ent-BlastDoorXenoborg = porta blindada xenoborg
+    .desc = Não perca a cabeça!
+
+ent-ChairBlack = cadeira
+    .desc = {ent-SeatBase.desc}
+    .suffix = Preta
+
+ent-TableBlack = mesa
+    .desc = Um pedaço quadrado de metal em cima de quatro pernas de metal.
+
+ent-TableReinforcedBlack = mesa reforçada
+    .desc = Um pedaço quadrado de metal em cima de quatro pernas de metal. Extra Robusto.
+
+ent-TableReinforcedGlassBlack = mesa de vidro reforçado
+    .desc = Um pedaço quadrado de vidro em cima de quatro pernas de metal. Extra Robusto.
+
+ent-MachineArtifactCrusherXenoborg = esmagador de corpos
+    .desc = Cuidado pra não prender a cabeça!
+
+ent-MachineThermobath = thermobath
+    .desc = Uma banheira de óleo com controle preciso capaz de esquentar e esfriar béqueres.
+
+ent-SurveillanceCameraWirelessRouterXenoborg = roteador de câmeras wireless xenoborg
+
+ent-BorgChargerXenoborg = estação de recarga xenoborg
+    .desc = Um carregador estacionário para xenoborgs. Levemente claustrofóbico.
+
+ent-RackBlack = prateleira
+    .desc = Uma prateleira para guardar coisas.
+
+ent-Xenoborgs = câmera
+    .desc = Uma câmera de vigilância.
+    .suffix = Xenoborgs
+
+ent-WeaponEnergyTurretAIControlPanel = painel de controle de sentinelas IA
+    .desc = Uma interface montada na parede que permite a inteligência artificial local a ajustar os parâmetros operacionais de sentinelas conectadas.
+
+ent-WeaponEnergyTurretControlPanelFrame = conjunto de painel de controle de sentinelas
+    .desc = Um conjunto montado na parede incompleto para um painel de controle de sentinelas.
+
+ent-WeaponEnergyTurretStationControlPanel = painel de controle de sentinelas
+    .suffix = DEPRECATED ACCESS, DO NOT MAP
+    .desc = Uma interface montada na parede para remotamente configurar os parametros operacionais de sentinelas conectadas.
+
+ent-WallRockCrocus = pedra
+    .desc = {ent-BaseWall.desc}
+    .suffix = planetmap, Crocus
+
+ent-WallConcrete = parede de concreto
+
+ent-WallConcreteIndestructible = parede de concreto
+    .suffix = indestructible
+    .desc = Skub sabe que essa parede é muito dura para destruir.
+
+ent-WallXenoborg = parede xenoborg
+
+ent-WallXenoborgDiagonal = parede xenoborg
+    .desc = Uma parede diagonal de xenoborg.
+    .suffix = diagonal
+
+ent-XenoborgWindow = janela xenoborg

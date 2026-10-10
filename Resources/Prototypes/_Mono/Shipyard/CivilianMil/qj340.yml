@@ -1,0 +1,36 @@
+#Author: Mrrpip on Github, Skye on Discord
+
+- type: vessel
+  id: QJ340
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-QJ340-name
+  description: vessel-QJ340-desc
+  # Andromeda end
+  price: 50000
+  category: Small
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj340.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  - Fighter
+  - Mercenary
+  engine:
+  - APU
+
+- type: gameMap
+  id: QJ340
+  mapName: 'QJ-340'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj340.yml
+  minPlayers: 0
+  stations:
+    QJ340:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'QJ-340 MIL{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs: {}

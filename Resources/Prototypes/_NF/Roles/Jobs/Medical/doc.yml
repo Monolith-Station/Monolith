@@ -15,20 +15,22 @@
       time: 234000 # mono 65 hours
   startingGear: DocGear
   alwaysUseSpawner: true
-  assignedCompany: MD
+  assignedCompany: Colonial # Mono
   icon: "JobIconDoc"
   requireAdminNotify: true
   supervisors: job-supervisors-sr # Mono
   weight: 170
-  displayWeight: 60 # Second from the top # mono - first from top
+  displayWeight: 50 # Second from the top - mono: second from bottom
   canBeAntag: false
   accessGroups:
   - AllAccessMono #Mono
   access:
   - ChiefMedicalOfficer #Mono
+  guides:
+  - Caelestinus
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ] # Mono - remove TSFMC implant
+# - !type:AddImplantSpecial
+#   implants: [ MindShieldImplant ] # Mono - remove TSFMC implants
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -39,6 +41,8 @@
         SpeedModifier: 2
       - type: ChatRank
         rank: md-doc
+      - type: RadioOnCryosleep
+        radioChannel: Service # service = caelestinus
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
@@ -54,4 +58,4 @@
     - BoxFolderMedicalDoctor
     - StationAdministrationConsoleFlatpack
     - PhoneInstrumentHigh
-    - MDHandheldOverwatchConsole
+    - CCHandheldOverwatchConsole

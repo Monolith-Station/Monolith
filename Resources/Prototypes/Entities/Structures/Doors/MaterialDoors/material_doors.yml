@@ -87,6 +87,10 @@
   parent: BaseMaterialDoorNavMap
   description: A door, where will it lead?
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactWood
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/wood_door.rsi
     layers:

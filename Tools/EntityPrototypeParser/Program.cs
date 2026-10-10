@@ -115,7 +115,44 @@ class Program
         Console.WriteLine("Generating fluent files...");
         Console.WriteLine();
 
-        foreach (var (targetPath, prototypes) in prototypesByTarget.OrderBy(x => x.Key))
+        // All prototype types share the "ent-" localization namespace, and the same id
+        // commonly exists as several types (entity + stack + material, etc.). Claim every
+        // id globally so each key is emitted only once; entity prototypes win because the
+        // engine resolves entity names as ent-{id}.
+        var claimedKeys = new HashSet<string>(StringComparer.Ordinal);
+        var claimedByTarget = new Dictionary<string, List<PrototypeData>>();
+
+        var allPrototypes = prototypesByTarget
+            .SelectMany(kv => kv.Value.Select(p => (TargetPath: kv.Key, Prototype: p)))
+            // Nameless prototypes produce no output, so they must not claim the id
+            .Where(e => !string.IsNullOrEmpty(e.Prototype.Name) && !IsLocalizationKeyReference(e.Prototype.Name))
+            .OrderBy(e => e.Prototype.Type.Equals("entity", StringComparison.OrdinalIgnoreCase) ? 0 : 1)
+            .ThenBy(e => e.TargetPath, StringComparer.Ordinal)
+            .ThenBy(e => e.Prototype.SourceFile, StringComparer.Ordinal)
+            .ThenBy(e => e.Prototype.Id, StringComparer.Ordinal);
+
+        foreach (var entry in allPrototypes)
+        {
+            if (!claimedKeys.Add($"ent-{entry.Prototype.Id}"))
+                continue;
+
+            if (!claimedByTarget.TryGetValue(entry.TargetPath, out var list))
+                claimedByTarget[entry.TargetPath] = list = new List<PrototypeData>();
+
+            list.Add(entry.Prototype);
+        }
+
+        // Files whose only entries lost the claim must not linger on disk
+        foreach (var targetPath in prototypesByTarget.Keys)
+        {
+            if (!claimedByTarget.ContainsKey(targetPath) && File.Exists(targetPath))
+            {
+                File.Delete(targetPath);
+                Console.WriteLine($"  Deleted: {Path.GetRelativePath(LocaleOutputPath, targetPath)} (all entries duplicates)");
+            }
+        }
+
+        foreach (var (targetPath, prototypes) in claimedByTarget.OrderBy(x => x.Key, StringComparer.Ordinal))
         {
             GenerateFluentFile(targetPath, prototypes);
         }

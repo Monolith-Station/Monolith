@@ -1,0 +1,33 @@
+- type: vessel
+  id: Hornet
+  parent: BaseVessel
+  name: vessel-Hornet-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Hornet-desc # Andromeda: Localizar nome e descrição de nave
+  price: 120000
+  category: Medium
+  group: Sr
+  access: Brig
+  mapchecker_group_override: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/hornet.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Escort
+  - Detainment
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Hornet
+  mapName: 'Hornet'
+  mapPath: /SharedMaps/_Mono/Shuttles/CSec/hornet.yml
+  minPlayers: 0
+  stations:
+    Hornet:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Hornet CSEC{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'

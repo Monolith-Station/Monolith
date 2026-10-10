@@ -217,6 +217,7 @@ ent-CultistMessengerGiftBox = pacote de cultista sanguinário
 # Entidade abstrata (referenciável por filhos)
 
 ent-ExplorerDuffelGiftBox = pacote de explorador
+    .desc = Um pacote com equipamentos de explorador.
     .suffix = Loot de NPC
 
 # De: _NF/Catalog/Fills/Backpacks/npc_loot_mercenaries.yml
@@ -267,6 +268,7 @@ ent-ClothingBackpackRogueSiliconT4 = {ent-RogueSiliconGiftBox}
 # Entidade abstrata (referenciável por filhos)
 
 ent-RogueSiliconGiftBox = pacote de unidade renegada
+    .desc = Um pacote com equipamentos de unidades renegadas.
     .suffix = Loot de NPC
 
 # De: _NF/Catalog/Fills/Backpacks/npc_loot_syndicate.yml
@@ -2500,7 +2502,7 @@ ent-NFMobVulpkaninBuddy = {ent-MobVulpkanin}
 
 # From: _NF/Entities/Mobs/Player/goblin_player.yml
 
-ent-MobGoblin = Urist McGoblin
+ent-MobGoblin = Enzo Goblin da Silva
 
 # From: _NF/Entities/Mobs/Player/guardian.yml
 
@@ -2529,9 +2531,9 @@ ent-RandomHumanoidSpawnerERTMailCarrierEVA = carteiro da ERT
 # From: _NF/Entities/Mobs/Species/goblin.yml
 # Abstract entity (referenceable by children)
 
-ent-MobGoblinBase = Urist McGoblin
+ent-MobGoblinBase = Enzo Goblin da Silva
 
-ent-MobGoblinDummy = Urist McGoblin
+ent-MobGoblinDummy = Enzo Goblin da Silva
     .desc = Um goblin manequim destinado a ser usado na configuração de personagem.
 
 # From: _NF/Entities/Objects/Consumable/Drinks/condiments_bottles.yml
@@ -2766,16 +2768,16 @@ ent-FoodSausageRaw = linguiça crua
 ent-ReagentContainerChocolate = cocoa powder bag
     .desc = Um saco grande de cacau em pó. Bom para cozinhar!
 
-ent-ReagentContainerHoney = honey bottle
-    .desc = Um squeeze bottle grande de mel. Ótimo para adoçar seu dia!
+ent-ReagentContainerHoney = garrafa de mel
+    .desc = Uma grande garrafa de apertar de mel. Ótimo para adoçar seu dia!
 
-ent-ReagentContainerPepper = pepper container
+ent-ReagentContainerPepper = recipiente de pimenta
     .desc = Um recipiente grande de pimenta. Bom para cozinhar!
 
-ent-ReagentContainerRaisin = raisin bag
+ent-ReagentContainerRaisin = saco de passas
     .desc = Um saco grande de passas. Bom para assar!
 
-ent-ReagentContainerSalt = salt container
+ent-ReagentContainerSalt = recipiente de sal
     .desc = Um recipiente grande de sal. Bom para cozinhar!
 
 # From: _NF/Entities/Objects/Consumable/Food/meals.yml
@@ -2786,20 +2788,20 @@ ent-FoodBreadAvocadoToast = torrada de abacate
 ent-FoodMealBasicNoodles = macarrão básico
     .desc = Uma tigela de ramen simples com macarrão e caldo. Hum!
 
-ent-FoodMealBreakfastBagel = breakfast bagel
+ent-FoodMealBreakfastBagel = bagel de café da manhã
     .desc = Para quando seu sanduíche de ovo matinal precisa de um toque de verde e o quádruplo do preço pedido.
 
-ent-FoodMealBreakfastBagelPoppy = poppyseed breakfast bagel
+ent-FoodMealBreakfastBagelPoppy = bagel de café da manhã de semente de papoula
     .desc = O café da manhã dos mineradores. Dê uma mordida a cada vez que você levar um soco na cara.
 
 ent-FoodMealCucumberSandwich = sanduíche de pepino
     .desc = Eles esqueceram de cortar as cascas NOVAMENTE.
 
-ent-FoodMealDragonOmelette = dragon omelette
+ent-FoodMealDragonOmelette = omelete de dragão
     .desc = A mãe de todas as omeletes.
 
-ent-FoodMealHotdog = hotdog
-    .desc = Hot diggity dog!
+ent-FoodMealHotdog = cachorro quente
+    .desc = Cachorrão quente - mas sem batata palha, purê de batata, ervilha, azeitona, ovo de codorna, milho, queijo, e outros adicionais.
 
 ent-FoodMealMisoNoodles = macarrão miso
     .desc = Caldo de miso, ou pasta de feijão fermentado, com cebolinha e ovo. Robusto!
@@ -3489,9 +3491,6 @@ ent-PinpointerUniversalDebug = {ent-PinpointerUniversal}
     .suffix = DEBUG
 
 # From: _NF/Entities/Objects/Devices/plant_analyzer.yml
-
-ent-PlantAnalyzer = analisador de plantas
-    .desc = Um dispositivo portátil que permite escanear sementes e plantas para obter informações detalhadas sobre seus genes.
 
 # From: _NF/Entities/Objects/Devices/production.yml
 
@@ -5420,11 +5419,11 @@ ent-NFBlueprintAmmoBox12_gaugeIncendiary = projeto de munição incendiária de 
 ent-NFBlueprintAmmoBox12_gaugeUranium = projeto de munição de urânio de espingarda 12 gauge
     .desc = Um projeto com esquema de munição de urânio de espingarda. Pode ser inserido em um torno ou em um techfab.
 
-ent-NFBlueprintAmmoBox45_magnumIncendiary = projeto de munição incendiária .45 magnum
-    .desc = Um projeto com esquema de munição incendiária .45 magnum. Pode ser inserido em um torno ou em um techfab.
+ent-NFBlueprintAmmoBox45_magnumIncendiary = projeto de munição incendiária .357 magnum
+    .desc = Um projeto com esquema de munição incendiária .357 magnum. Pode ser inserido em um torno ou em um techfab.
 
-ent-NFBlueprintAmmoBox45_magnumUranium = projeto de munição de urânio .45 magnum
-    .desc = Um projeto com esquema de munição de urânio .45 magnum. Pode ser inserido em um torno ou em um techfab.
+ent-NFBlueprintAmmoBox45_magnumUranium = projeto de munição de urânio .357 magnum
+    .desc = Um projeto com esquema de munição de urânio .357 magnum. Pode ser inserido em um torno ou em um techfab.
 
 ent-NFBlueprintAmmoBox556x45mmIncendiary = projeto de munição incendiária 556x45mm
     .desc = Um projeto com esquema de munição incendiária 556x45mm. Pode ser inserido em um torno ou em um techfab.
@@ -5532,9 +5531,6 @@ ent-DemagUnlimited = resequenciador criptográfico
     .desc = A solução tudo-em-um para desfazer hacking. O último bastião da ordem. O icônico DEMAG.
 
 # From: _NF/Entities/Objects/Tools/flare.yml
-
-ent-BoxDispenserFlare = dispensador de sinalizadores de emergência
-    .desc = Dispensa sinalizadores de emergência.
 
 # From: _NF/Entities/Objects/Tools/flashlights.yml
 
@@ -5707,6 +5703,7 @@ ent-BaseWeaponTurretMagazineFed = torre balística (alimentada por carregador)
 # Abstract entity (referenceable by children)
 
 ent-BaseWeaponTurretNF = torre
+    .desc = Uma torre de armas base.
     .suffix = Frontier
 
 # From: _NF/Entities/Objects/Weapons/Guns/Basic/sawn_pka.yml
@@ -5772,7 +5769,7 @@ ent-WeaponPistolMk58Nonlethal = {ent-WeaponPistolMk58}
     .desc = {ent-WeaponPistolMk58.desc}
     .suffix = Não-letal
 
-ent-WeaponPistolN1984Nonlethal = N1984 (.45 magnum)
+ent-WeaponPistolN1984Nonlethal = N1984 (.357 magnum)
     .desc = Uma arma não-letal.
     .suffix = Não-letal
 
@@ -5927,8 +5924,8 @@ ent-WeaponSniperMosinNonlethal = {ent-WeaponSniperMosin}
     .desc = {ent-WeaponSniperMosin.desc}
     .suffix = Não letal
 
-ent-WeaponSniperRepeater = Repetidora Padrão N2524 (.45 magnum)
-    .desc = Uma arma de fogo de ação de alavanca de grau civil, favorecida por vaqueiros espaciais através da Fronteira por sua confiabilidade e poder de parada. Usa munição .45 magnum.
+ent-WeaponSniperRepeater = Repetidora Padrão N2524 (.357 magnum)
+    .desc = Uma arma de fogo de ação de alavanca de grau civil, favorecida por vaqueiros espaciais através da Fronteira por sua confiabilidade e poder de parada. Usa munição .357 magnum.
 
 # From: _NF/Entities/Objects/Weapons/Guns/turrets.yml
 
@@ -9534,6 +9531,7 @@ ent-WallRockUraniumGolem = {ent-WallRock}
 # Abstract entity (referenceable by children)
 
 ent-BaseWallDiagonal = parede-base
+    .desc = Uma parede-base diagonal.
     .suffix = diagonal
 
 ent-WallUraniumDiagonal = parede de urânio
@@ -13356,3 +13354,50 @@ ent-SpawnMobFleshLoverExpeditions = gerador de amante de carne aberrante
 ent-SpawnMobHorrorExpeditions = gerador de horror de carne aberrante
     .desc = Gera um horror.
     .suffix = IA, Hostil
+
+# ===== Generated missing entity keys (untranslated) - 2026-10-09 =====
+
+ent-ClothingHandsGlovesColorBlackC20r = luvas de combate
+    .suffix = smg
+    .desc = Luvas de combate padrão que não te impedem de fritar.
+
+ent-ClothingHandsGlovesColorBlackLecter = luvas de combate
+    .suffix = rifle
+    .desc = Luvas de combate padrão que não te impedem de fritar.
+
+ent-CrystallizerFlatpack = flatpack de cristalizador
+    .desc = Um flatpack usado para construir um cristalizador.
+
+ent-GaslockFlatpack = flatpack de doca de gás
+    .desc = Um flatpack usado para construir uma doca de gás.
+
+ent-GasThermoMachineHeaterFlatpack = flatpack de aquecedor
+    .desc = Um flatpack usado para construir um aquecedor.
+
+ent-GasThermoMachineHellfireFreezerFlatpack = flatpack de freezer hellfire
+    .desc = Um flatpack usado para construir um freezer hellfire.
+
+ent-GasThermoMachineHellfireHeaterFlatpack = flatpack de aquecedor hellfire
+    .desc = Um flatpack usado para construir um aquecedor hellfire.
+
+ent-MachineThermobathFlatpack = flatpack de thermobath
+    .desc = Um flatpack usado para construir um thermobath.
+
+ent-MothroachMustardCubeWrapped = cubo de baraposa de mostarda.
+    .suffix = Wrapped
+    .desc = Desembrulhe isso para conseguir uma baraposa de mostarda.
+
+ent-MustardMothroachCubeBox = caixa de cubos de baraposa de mostarda.
+    .desc = Uma caixa de cubos de baraposa de mostarda.
+
+ent-RadioImplantCivilian = implante de rádio civíl
+    .desc = Esse implante concede acesso ao canal Civíl sem um headset.
+
+ent-RadioImplantTsf = implante de rádio TSF
+    .desc = Esse implante concede acesso ao canal TSF sem um headset.
+
+ent-NFBlueprintAmmoBox357_magnumIncendiary = diagrama de munição .357 magnum incendiária
+    .desc = Um diagrama com o esquema de munição .357 magnum incendiária. Pode ser inserido em um torno ou em um techfab.
+
+ent-NFBlueprintAmmoBox357_magnumUranium = diagrama de munição .357 de urânio
+    .desc = Um diagrama com o esquema de munição .357 magnum de urânio. Pode ser inserido em um torno ou em um techfab.

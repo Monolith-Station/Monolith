@@ -11,7 +11,6 @@ shuttle-console-ftl-drive-unpowered = Drive FTL detectado mas sem energia
 # NAV
 
 shuttle-console-display-label = Display
-# shuttle-console-display-label: intentionally left in English (technical term)
 
 shuttle-console-position = Posição:
 shuttle-console-position-value = {$X}, {$Y}
@@ -21,17 +20,32 @@ shuttle-console-linear-velocity = Vel. Linear:
 shuttle-console-linear-velocity-value = {$X}, {$Y}
 shuttle-console-angular-velocity = Vel. Angular:
 shuttle-console-angular-velocity-value = {$angularVelocity}
+shuttle-console-altitude = Altitude:
+shuttle-console-altitude-value = {$altitude}
+shuttle-console-vertical-velocity = Velocidade Vertical:
+shuttle-console-vertical-velocity-value = {$velocity}
+shuttle-console-travel-state = Status:
+shuttle-console-travel-state-grounded = Aterrissado
+shuttle-console-travel-state-flying = Voando
+shuttle-console-travel-state-hovering = Planando
+shuttle-console-travel-state-launching = Levantando Vôo em ({$countdown})
 
 shuttle-console-unknown = Desconhecido
 shuttle-console-iff-label = {$name} ({$distance}m)
+shuttle-console-track-unknown-label = TRACK.ID UNKNOWN
+shuttle-console-track-label = TRACK.ID
 shuttle-console-exclusion = Área de Exclusão
 
 # Buttons
 shuttle-console-strafing = Modo Strafing
 shuttle-console-nav-settings = Configurações
 shuttle-console-iff-toggle = Mostrar IFF
-shuttle-console-dock-toggle = Mostrar Docks
-shuttle-console-iffshuttles-toggle = Mostrar Ônibus
+shuttle-console-iff-detailed = IFF Detalhado
+shuttle-console-dock-toggle = Mostrar Docas
+shuttle-console-iffshuttles-toggle = Mostrar Naves
+shuttle-console-iff-toggle-short = IFF
+shuttle-console-iff-detailed-short = IFF D.
+shuttle-console-dock-toggle-short = DOCAS
 
 # MAP
 
@@ -45,7 +59,6 @@ shuttle-console-ftl-state-Invalid = Inválido
 
 shuttle-console-map-settings = Configurações
 shuttle-console-ftl-button = FTL
-# shuttle-console-ftl-button: intentionally left in English (FTL is a technical term)
 shuttle-console-map-rebuild = Escanear
 shuttle-console-map-beacons = Mostrar Balizas
 

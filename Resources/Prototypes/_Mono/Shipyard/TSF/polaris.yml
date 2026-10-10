@@ -1,0 +1,43 @@
+#kasature90 (github)/_starch_ (discord)
+- type: vessel
+  id: TSFNPolaris
+  parent: BaseVesselIFFDisabled
+  name: vessel-Polaris-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Polaris-desc # Andromeda: Localizar nome e descrição de nave
+  limit: 2
+  hyperwarLimit: 3
+  hyperwarTimelock: 3600
+  price: 500000
+  purchasable: false # voucher only - t2
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/polaris.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Brawler
+  - EarlyWarning
+  - Frigate
+  engine:
+  - AME
+
+- type: gameMap
+  id: TSFNPolaris
+  mapName: 'Polaris'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/polaris.yml
+  minPlayers: 0
+  stations:
+    TSFNPolaris:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Polaris TSFN{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

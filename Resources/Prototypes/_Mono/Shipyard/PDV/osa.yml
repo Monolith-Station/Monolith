@@ -1,0 +1,37 @@
+- type: vessel
+  id: Osa
+  parent: BaseVesselIFFDisabled
+  name: vessel-Osa-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Osa-desc # Andromeda: Localizar nome e descrição de nave
+  hyperwarTimelock: 1800
+  price: 150000
+  purchasable: false # Voucher only - T1
+  category: Large
+  group: BlackMarket
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/osa.yml
+  guidebookPage: Null
+  class:
+  - Brawler
+  - Corvette
+  - AntiShipMissileCarrier # close enough i guess?
+  engine:
+  - AME
+
+- type: gameMap
+  id: Osa
+  mapName: 'Osa-II'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/osa.yml
+  minPlayers: 0
+  stations:
+    Osa:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Osa-II PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

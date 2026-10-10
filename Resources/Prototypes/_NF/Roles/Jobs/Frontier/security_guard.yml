@@ -5,14 +5,14 @@
   playTimeTracker: JobSecurityGuard
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # Frontier - 10 hrs
+      time: 14400 # 4 hours. I don't expect new players to play almost 2 full rounds before they get bored, and it's mostly a raider check.
   startingGear: SecurityGuardGear
   alwaysUseSpawner: true
   icon: "JobIconSecurityGuard"
   supervisors: job-supervisors-sr
   assignedCompany: Colonial
   weight: 80
-  displayWeight: 20 # Second from the bottom
+  displayWeight: 55 # Second from the top
   canBeAntag: false
   access:
   - Security
@@ -23,13 +23,17 @@
   - Mercenary
   - Captain
   - Frontier
+  guides:
+  - Caelestinus
   special:
   - !type:AddComponentSpecial
     components:
     - type: ChatRank
       rank: cc-judge
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ] # Mono - remove TSFMC implant
+    - type: RadioOnCryosleep
+      radioChannel: Service # service = caelestinus
+# - !type:AddImplantSpecial
+#   implants: [ MindShieldImplant ] # Mono - remove TSFMC implants
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
@@ -42,4 +46,4 @@
     back:
     - EncryptionKeyService
     - EncryptionKeySecurity
-    - ShipVoucherFrontierGuard
+  # - ShipVoucherFrontierGuard # Mono

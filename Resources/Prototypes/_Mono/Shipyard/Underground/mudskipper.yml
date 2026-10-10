@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: starch70
+# Discord: _starch_
+
+# Shuttle Notes:
+- type: vessel
+  id: Mudskipper
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Mudskipper-name
+  description: vessel-Mudskipper-desc
+  # Andromeda end
+  price: 108304
+  category: Medium
+  group: Syndicate # Underground
+  access: Underground
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Underground/mudskipper.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Plasma # Pinch fusion gen kind, not the pacman kind.
+
+- type: gameMap
+  id: Mudskipper
+  mapName: 'SKR Mudskipper'
+  mapPath: /SharedMaps/_Mono/Shuttles/Underground/mudskipper.yml
+  minPlayers: 0
+  stations:
+    Mudskipper:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Mudskipper UGR{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

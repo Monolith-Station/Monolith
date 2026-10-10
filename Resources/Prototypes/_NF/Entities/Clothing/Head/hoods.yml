@@ -9,7 +9,10 @@
     sprite: _NF/Clothing/Head/Hoods/Coat/arcadia.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hoods/Coat/arcadia.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodRosyCloak
@@ -23,6 +26,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - PetWearable
   - type: HideLayerClothing
     slots:
     - Hair

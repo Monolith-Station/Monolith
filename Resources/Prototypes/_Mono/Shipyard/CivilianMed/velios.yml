@@ -1,0 +1,44 @@
+# Author Info
+# GitHub: whythelettuce
+# Discord: whythelettuce
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Velios
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Velios-name
+  description: vessel-Velios-desc
+  # Andromeda end
+  price: 123227 # Appraises at 93227 but capabilities are good, + it's replacing the shirokami (112000).
+  category: Medium
+  group: Medical
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMed/velios.yml
+  guidebookPage: null
+  class:
+  - Medical
+  - Chemistry
+  engine:
+  - AME
+
+- type: gameMap
+  id: Velios
+  mapName: 'WLV-Velios'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMed/velios.yml
+  minPlayers: 0
+  stations:
+    Velios:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Velios MED{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

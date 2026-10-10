@@ -1,0 +1,16 @@
+- type: shader
+  id: BlackFlash
+  kind: source
+  path: "/Textures/_Mono/Shaders/black_flash.swsl"
+  params:
+    life: 0
+    scale: 1
+    intensity: 1
+    seed: 0
+
+- type: shader
+  id: BlackFlashImpact
+  kind: source
+  path: "/Textures/_Mono/Shaders/black_flash_impact.swsl"
+  params:
+    lineWidth: 1.5

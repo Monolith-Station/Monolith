@@ -46,3 +46,7 @@ traitor-role-codewords-short =
     {$codewords}.
 traitor-role-uplink-code-short = Seu código de uplink é {$code}. Defina como seu toque de PDA para acessar uplink.
 traitor-role-uplink-implant-short = Seu uplink foi implantado. Acesse-o pela sua barra de atalhos.
+
+# Mono
+objective-issuer-pdv = [color=tan]Comando Militar da Dinastia Phaethon[/color]
+objective-issuer-tsf = [color=cornflowerblue]Solstício do Inverno[/color]

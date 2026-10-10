@@ -12,8 +12,9 @@ bank-atm-menu-deposit-button = Depositar
 bank-atm-reason-label = Para:{" "}
 bank-atm-description-label = Descrição:{" "}
 bank-atm-menu-withdraw-amount = Valor do Saque
+bank-atm-menu-untaxed = Sem taxas!
 
-vending-machine-menu-cash-slot-label = Fenda de Dinheiro:{" "}
+vending-machine-menu-cash-slot-label = Inserido:{" "}
 
 bank-insufficient-funds = Fundos Insuficientes
 bank-atm-menu-transaction-denied = Transação Negada
@@ -39,5 +40,5 @@ station-bank-unauthorized = Não Autorizado!
 bank-atm-menu-cash-error = ERR: INVÁLIDO
 
 ## ATM entity
-bank-ATM-cashSlot = Fenda de Dinheiro
-station-bank-ATM-cashSlot = Fenda de Dinheiro
+bank-ATM-cashSlot = Inserido
+station-bank-ATM-cashSlot = Inserido

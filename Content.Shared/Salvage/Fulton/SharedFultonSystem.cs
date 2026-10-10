@@ -180,6 +180,16 @@ public abstract partial class SharedFultonSystem : EntitySystem
         if (_whitelistSystem.IsWhitelistFailOrNull(component.Whitelist, targetUid))
             return false;
 
+        // mono start
+            if (TryComp<FultonBeaconComponent>(component.Beacon, out var beacon) &&
+                Transform(targetUid).Coordinates.TryDistance(
+                    EntityManager,
+                    Transform(component.Beacon.Value).Coordinates,
+                    out var distance)
+                && distance > beacon.MaxRange)
+                return false;
+        // mono end
+
         return true;
     }
 

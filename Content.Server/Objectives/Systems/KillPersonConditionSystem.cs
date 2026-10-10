@@ -55,17 +55,21 @@ public sealed partial class KillPersonConditionSystem : EntitySystem
 
         var allHumans = _mind.GetAliveHumans(args.MindId, comp.NeedsOrganic);
 
-        // Can't have multiple objectives to kill the same person
-        foreach (var objective in args.Mind.Objectives)
+        if (TryComp<MindComponent>(args.MindId, out var mind)) // Mono - mind check
         {
-            if (HasComp<KillPersonConditionComponent>(objective) && TryComp<TargetObjectiveComponent>(objective, out var kill))
+            // Can't have multiple objectives to kill the same person
+            foreach (var objective in mind.Objectives)
             {
-                allHumans.RemoveWhere(x => x.Owner == kill.Target);
+                if (HasComp<KillPersonConditionComponent>(objective) &&
+                    TryComp<TargetObjectiveComponent>(objective, out var kill))
+                {
+                    allHumans.RemoveWhere(x => x.Owner == kill.Target);
+                }
             }
         }
 
-        // no other humans to kill
-        if (allHumans.Count == 0)
+    // no other humans to kill
+    if (allHumans.Count == 0)
         {
             args.Cancelled = true;
             return;

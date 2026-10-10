@@ -1,0 +1,1 @@
+biodome-shield-power-load-increasing = O acelerador molecular biológico e escudo do Biodome está passando por um surto de energia! Por favor garanta que o escudo está sendo alimentado energia o suficiente; caso contrário, ele poderá desligar.

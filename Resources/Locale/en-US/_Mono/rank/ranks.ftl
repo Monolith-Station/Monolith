@@ -1,6 +1,7 @@
 ### TSFMC/TSFN fixed ranks
 
 tsf-marsoc = WS.MARSOC
+tsf-infantry = Rfl.
 
 ## TSFMC loadout ranks
 
@@ -51,6 +52,10 @@ pdv-denasvar = Dns.
 pdv-asvaran = Asv.
 pdv-vizier = Grand Vizier
 pdv-tarkhan = PDRV Tarkhan
+
+#PDV Adminroles
+pdv-ambassador = Ambassador
+pdv-prince = Prince
 
 ### USSP loadout ranks
 

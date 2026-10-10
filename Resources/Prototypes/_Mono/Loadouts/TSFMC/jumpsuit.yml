@@ -9,6 +9,11 @@
     jumpsuit: ClothingUniformTSFMCDesert
 
 - type: loadout
+  id: TsfmcClothingJumpsuitType47F
+  equipment:
+    jumpsuit: ClothingUniformTSFMCForest
+
+- type: loadout
   id: TsfmcEngineeringClothingJumpsuit
   equipment:
     jumpsuit: ClothingUniformTSFMCEngi
@@ -17,3 +22,20 @@
   id: TsfmcClothingDressUniform
   equipment:
     jumpsuit: ClothingUniformTSFMCDress
+
+# Crocus (insulated)
+
+- type: loadout
+  id: TsfmcClothingJumpsuitCrocus
+  equipment:
+    jumpsuit: ClothingUniformTSFMCCrocus
+
+- type: loadout
+  id: TsfmcClothingJumpsuitType47DCrocus
+  equipment:
+    jumpsuit: ClothingUniformTSFMCDesertCrocus
+
+- type: loadout
+  id: TsfmcClothingJumpsuitType47FCrocus
+  equipment:
+    jumpsuit: ClothingUniformTSFMCForestCrocus

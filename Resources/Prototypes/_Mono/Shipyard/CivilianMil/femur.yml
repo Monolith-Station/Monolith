@@ -1,0 +1,44 @@
+# Author Info
+# GitHub: UnicornOnLSD
+# Discord: unicornonlsd
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Femur
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Femur-name
+  description: vessel-Femur-desc
+  # Andromeda end
+  price: 100816
+  category: Medium
+  group: Shipyard
+  access: Mercenary
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/femur.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  - Mercenary
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Femur
+  mapName: 'DIS Femur'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/femur.yml
+  minPlayers: 0
+  stations:
+    Femur:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Femur MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

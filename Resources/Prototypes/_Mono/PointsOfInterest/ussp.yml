@@ -14,7 +14,7 @@
   name: poi-USSPCamelot-name
   minimumDistance: 10650
   maximumDistance: 12400
-  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueUSSP, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
+  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueUSSP, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce, MonoChimeraTsf, MonoChimeraPdv ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/camelot.yml
   addComponents:
@@ -41,6 +41,7 @@
           ambientMusicPrototype: CamelotMusic
         - type: VesselInfo
           description: "A rickety old station that has been cobbled together over many many cycles..."
+        - type: DeleteNearbyDrones
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Freeport Camelot'
@@ -60,9 +61,23 @@
             VGLieutenant: [2, 2]
             VGInfanteer: [-1, -1]
             Contractor: [-1, -1]
-            Pilot: [0, -1]
-            Mercenary: [0, -1]
+            #Pilot: [0, -1]
+            #Mercenary: [0, -1]
           tags:
           - USSPCommand
+        - type: StationCargoBountyDatabase
+          availableBounties:
+          - USSPBountyArtifact
+          - USSPBountyBread
+          - USSPBountySoup
+          - USSPBountyPizza
+          - USSPBountyVodka
+          - USSPBountyCivilianMech
+          - USSPBountyPotato
+          - USSPBountyBiomass
+          - USSPBountyMilitaryMech
+          - USSPKevlarVest
+          - USSPVT7
+          - USSPBountyLaserGun
         - type: StationDeadDrop
           maxDeadDrops: 2 # Fewer here, players start here.

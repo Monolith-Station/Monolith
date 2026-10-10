@@ -1,0 +1,43 @@
+- type: planetaryLiquidType
+  id: LiquidMagma
+  color: '#CC1A00'
+  shallowColor: '#FF9900'
+  level: 0.3
+  riverFrequency: 2.0
+  riverThreshold: 0.275
+  specularity: 0.0
+  emissive: true
+  emission: 0.325
+
+- type: planetaryLiquidType
+  id: LiquidPlasma
+  color: '#4A00E0'
+  shallowColor: '#E000FF'
+  level: 0.125
+  riverFrequency: 1.0
+  riverThreshold: 0.275
+  specularity: 0.0
+  emissive: true
+  emission: 0.325
+
+- type: planetaryLiquidType
+  id: LiquidWater
+  color: '#0A3878'
+  shallowColor: '#1F75B8'
+  level: 0.475
+  riverFrequency: 3.5
+  riverThreshold: 0.175
+  specularity: 48.0
+  emissive: false
+  emission: 0.0
+
+- type: planetaryLiquidType
+  id: LiquidNaturalLetoferol
+  color: '#7A5E14'
+  shallowColor: '#EBBA34'
+  level: 0.4
+  riverFrequency: 4.5
+  riverThreshold: 0.22
+  specularity: 12.0
+  emissive: true
+  emission: 0.25

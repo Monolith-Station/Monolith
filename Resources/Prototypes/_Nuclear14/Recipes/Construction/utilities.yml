@@ -1,0 +1,12 @@
+﻿- type: construction
+  name: construction-WallTorch-name # Andromeda - Localiza nome e descrição de construções
+  id: WallTorch
+  graph: WallTorch
+  startNode: start
+  targetNode: WallTorch
+  category: construction-category-utilities
+  description: construction-WallTorch-desc # Andromeda - Localiza nome e descrição de construções
+  icon: { sprite: _Nuclear14/Structures/Decoration/torches.rsi, state: wall_torch_unlit }
+  objectType: Structure
+  placementMode: SnapgridCenter
+  hide: false

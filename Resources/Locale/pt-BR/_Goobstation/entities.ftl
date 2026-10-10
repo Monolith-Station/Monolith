@@ -1056,7 +1056,7 @@ ent-WeaponMechDebugLaser = Debug Pow
 
 # From: _Goobstation/Entities/Objects/Specific/Mech/Weapons/Gun/industrial.yml
 
-ent-WeaponMechIndustrialKineticAccelerator = Acelerador Cinético Proto-Exoesqueleto
+ent-WeaponMechIndustrialKineticAccelerator = Canhão Protocinético
     .suffix = Arma de Mech, Arma de Fogo, Industrial, Acelerador Cinético
     .desc = Dispara projéteis cinéticos de dano normal em curto alcance.
 
@@ -1339,18 +1339,6 @@ ent-BulletStasis = Projétil Estático
 
 # From: _Goobstation/Entities/Objects/Weapons/Guns/Rifles/rifles.yml
 
-ent-WeaponRifleAnnie = TCA QBZ-430 Annie (7.62x39mm)
-    .desc = Uma besta projetada para suportar o peso de missões impossíveis. Usa munição 7.62x39mm. O cano é roscado para silenciadores, e um trilho Erebus está presente no receptor e guarda-mão para óticas/empunhaduras.
-
-ent-WeaponRifleBurner = CS Burner (12.7x99mm)
-    .desc = Uma arma de calibre alto do Sindicato em 12.7x99mm, capaz de disparar munição perfurante e explosiva.
-
-ent-WeaponRifleM90 = PA M-90 (7.62x51mm)
-    .desc = Um projeto bullpup compacto. Usa munição de rifle 7.62x51mm. O cano é roscado para silenciadores, e um trilho Erebus está presente na alça de transporte e guarda-mão para óticas/empunhaduras.
-
-ent-WeaponRifleWSPR = CS KMP-WSPR (7.62x39mm)
-    .desc = Um rifle de rajada de ponta da Dinastia, versátil e confiável. Usa munição 7.62x39mm. Um trilho Erebus está presente no topo do receptor para óticas.
-
 # From: _Goobstation/Entities/Objects/Weapons/Guns/SMGs/smartgun.yml
 
 ent-WeaponSubMachineSmart = PA Abielle SMG Inteligente (.160 Inteligente)
@@ -1594,3 +1582,310 @@ ent-AutosurgeonSandevistan = autocirurgião do sindicato (sandevistan)
 
 ent-MantisBlade = lâmina mantis
     .desc = Quando eles verem o aço, vai ser tarde demais.
+
+# ===== Generated missing entity keys (untranslated) - 2026-10-09 =====
+
+ent-ActionDashMoth = Impulso de asas
+    .desc = Bata as asas com força, impulsionando-se para o lado!
+
+ent-ActionToggleLeftMantisBlade = Alternar Lâmina Mantis Esquerda
+    .desc = Estende ou recolhe a lâmina mantis em seu braço esquerdo.
+
+ent-ActionToggleRightMantisBlade = Alternar Lâmina Mantis Direita
+    .desc = Estende ou recolhe a lâmina mantis em seu braço direito.
+
+ent-ActionToggleSandevistan = Alternar Sandevistan
+    .desc = Ativa ou desativa seus reflexos aprimorados fornecidos pela Sandevistan.
+
+ent-OrganHeartSandevistan = Sandevistan
+    .desc = Cyberware avançado que substitui o coração do usuário e permite aumentar enormemente sua agilidade por um curto período, ao custo de sua resistência.
+
+ent-CrateRadioStationAds = caixa de anúncios
+    .desc = Uma caixa inteira cujo único propósito é armazenar 6 anúncios exclusivos, o capitalismo não é ótimo?
+
+ent-CrateRadioStationVinyls = caixa de vinis
+    .desc = Uma caixa com 12 vinis para que você NUNCA toque a mesma música duas vezes, eles vêm em capas!
+
+ent-StationRadioCircuitboard = placa de máquina de rádio da estação
+    .desc = Uma placa de circuito impresso de máquina para um receptor de rádio da estação.
+
+ent-StationRadioRigCircuitboard = placa de máquina de kit de rádio da estação
+    .desc = Uma placa de circuito impresso de máquina para um kit de rádio da estação.
+
+ent-StationRadioServerCircuitboard = placa de máquina de servidor de rádio da estação
+    .desc = Uma placa de circuito impresso de máquina para um servidor de rádio da estação.
+
+ent-VinylPlayerCircuitboard = placa de máquina de tocador de vinil
+    .desc = Uma placa de circuito impresso de máquina para um tocador de vinil.
+
+ent-BaseCdDisk = disco CD
+    .desc = Um disco CD, geralmente contém anúncios.
+
+ent-CdDiskBillMovie = disco CD (filme do Bill)
+
+ent-CdDiskCapTraining = disco CD (comunicado de treinamento do capitão)
+
+ent-CdDiskCargonia = disco CD (Cargonia)
+
+ent-CdDiskChemistry = disco CD (Química)
+
+ent-CdDiskCloningPsa = disco CD (comunicado sobre clonagem)
+
+ent-CdDiskCommanderAnnouncement = disco CD (anúncio do comandante)
+
+ent-CdDiskCommanderFigurines = disco CD (bonecos do comandante)
+
+ent-CdDiskCommanderResignation = disco CD (renúncia do comandante)
+
+ent-CdDiskCommanderSupport = disco CD (apoio ao comandante)
+
+ent-CdDiskDanitosBurritos = disco CD (Danitos Burritos)
+
+ent-CdDiskDansTickets = disco CD (Dans Tickets)
+
+ent-CdDiskGrones = disco CD (grones)
+
+ent-CdDiskHeisenbeeTrial = disco CD (o julgamento de Heisenbee)
+
+ent-CdDiskPopeCrunchCereal = disco CD (Pope Crunch Cereal)
+
+ent-CdDiskQuikNoodles = disco CD (Quik Noodles)
+
+ent-CdDiskRobotics = disco CD (robótica)
+
+ent-CdDiskSecurityPsa = disco CD (comunicado de segurança)
+
+ent-CdDiskWeird = disco CD estranho
+    .desc = Um disco CD estranho, algo te diz que este não contém anúncios.
+
+ent-CdDiskXgOnboarding1 = disco CD (integração xg 1)
+
+ent-CdDiskXgOnboarding2 = disco CD (integração xg 2)
+
+ent-CdDiskXgOnboarding3 = disco CD (integração xg 3)
+
+ent-CdDiskXgOnboarding4 = disco CD (integração xg 4)
+
+ent-JVNECdDiskCapstien = disco CD (Capstien)
+
+ent-JVNECdDiskJNE = disco CD (Programa June & Eels)
+
+ent-JVNECdDiskNextUp = disco CD (A Seguir)
+
+ent-JVNECdDiskNinja = disco CD (NINJA!!!)
+
+ent-JVNECdDiskNumber = disco CD (Números)
+    .desc = Em volta da amoreira, o macaco perseguia a doninha...
+
+ent-JVNECdDiskSyndicate = disco CD (Sindicato)
+    .desc = Rádio do Sindicato 102.9
+
+ent-BaseVinylDisk = disco de vinil
+    .desc = Um disco de vinil contendo música.
+
+ent-BaseVinylSleeve = capa de vinil
+    .desc = Uma capa de vinil, perfeita para guardar seus vinis.
+
+ent-VinylDiskAI = disco de vinil: jazz espacial
+
+ent-VinylDiskAlsoSprach = disco de vinil: Also sprach Zarathustra
+
+ent-VinylDiskBachCello = disco de vinil: Bach para violoncelo
+
+ent-VinylDiskBanana = disco de vinil: banana
+    .desc = Um disco de vinil que contém a música favorita dos palhaços!
+
+ent-VinylDiskBlue = disco de vinil: curtindo sobre Vênus
+
+ent-VinylDiskBroken = disco de vinil quebrado
+    .desc = Como a maioria dos vinis, este acabou quebrado.
+
+ent-VinylDiskBurnTheWorld = disco de vinil: valsa queime o mundo
+
+ent-VinylDiskCarrot = disco de vinil: atlas
+    .desc = Um disco de vinil contendo música, tem um aviso na lateral informando que o disco não é comestível.
+
+ent-VinylDiskCyan = disco de vinil: praias
+
+ent-VinylDiskDarkBlue = disco de vinil: dance em um vulcão espacial
+
+ent-VinylDiskDevil = disco de vinil: lounge de aeroporto
+    .desc = Um disco de vinil contendo música INFERNA.
+
+ent-VinylDiskEgg = disco de vinil: botar ovo é verdade
+
+ent-VinylDiskEphedrine = disco de vinil: Overdose de Efedrina
+
+ent-VinylDiskExtraMetal = disco de vinil: METAL EXTRA
+
+ent-VinylDiskFeralAngel = disco de vinil: valsa do anjo selvagem
+
+ent-VinylDiskFloaty = disco de vinil: flutuante
+
+ent-VinylDiskFlowerDuet = disco de vinil: O Dueto das Flores
+
+ent-VinylDiskForgotten = disco de vinil esquecido
+    .desc = algumas peças estão faltando, mas algo te diz que ele ainda pode ser tocado, mas será que você deveria?
+
+ent-VinylDiskGetThatAntag = disco de vinil: Pegue esse antag!
+
+ent-VinylDiskGlossy = disco de vinil: sabugo
+    .desc = Um disco de vinil contendo música, tem um acabamento brilhante fosco.
+
+ent-VinylDiskGreen = disco de vinil: rádio da madrugada
+
+ent-VinylDiskJourney = disco de vinil: Journey
+
+ent-VinylDiskLaw2 = disco de vinil: Lei 2, abra o arsenal
+
+ent-VinylDiskLightBlue = disco de vinil: estrela distante
+
+ent-VinylDiskLightRed = disco de vinil: peido elise
+    .desc = não é rosa, é um vermelho mais claro.
+
+ent-VinylDiskLime = disco de vinil: verde-limão
+
+ent-VinylDiskOrange = disco de vinil: todos estão tão vivos
+
+ent-VinylDiskPink = disco de vinil: canção de natal
+
+ent-VinylDiskPizza = disco de vinil: festa boogie
+    .desc = Um disco de vinil contendo música, cheira a tomates.
+
+ent-VinylDiskPurple = disco de vinil: aventura 3
+    .desc = vamos ver isso roxo!
+
+ent-VinylDiskRed = disco de vinil: noite em Veneza
+
+ent-VinylDiskRomeoJuliet = disco de vinil: Romeu e Julieta
+
+ent-VinylDiskRunningOut = disco de vinil: Ficando Sem Cover
+
+ent-VinylDiskRussian = disco de vinil: Dança Russa
+
+ent-VinylDiskTraitorousIntent = disco de vinil: Intenção Traidora
+
+ent-VinylDiskTuff = disco de vinil: trap ops
+
+ent-VinylDiskValkyries = disco de vinil: A Cavalgada das Valquírias
+
+ent-VinylDiskViolet = disco de vinil: Violeta
+
+ent-VinylDiskWantYouGone = disco de vinil: Quero você fora
+
+ent-VinylDiskWeAreNumberTwo = disco de vinil: Somos o número dois
+
+ent-VinylDiskWhite = disco de vinil: groovy
+
+ent-VinylDiskWinterVivaldi = disco de vinil: Inverno de Vivaldi
+
+ent-VinylDiskYellow = disco de vinil: roleta mortal
+
+ent-VinylSleeveAI = capa de vinil de IA
+
+ent-VinylSleeveBeige = capa de vinil bege
+
+ent-VinylSleeveBlack = capa de vinil preta
+
+ent-VinylSleeveBlockyCraft = capa de vinil blocky craft
+    .desc = A trilha sonora do sucesso do videogame de 2457, blocky craft, chega ao vinil!
+
+ent-VinylSleeveChristmas = capa de vinil de natal
+
+ent-VinylSleeveClown = capa de vinil de palhaço
+    .desc = O palhaço sempre vence.
+
+ent-VinylSleeveCoffee = capa de vinil de café
+
+ent-VinylSleeveDevil = capa de vinil do diabo
+
+ent-VinylSleeveDJClown = capa de vinil de DJ palhaço
+    .desc = DJ palhaço, uma sensação galáctica, sua turnê galáctica lista Sol como o único sistema estelar.
+
+ent-VinylSleeveDJTider = capa de vinil de JD tider
+    .desc = DJ tider, uma sensação galáctica, sua turnê galáctica lista Sol e Alfa Centauri como paradas.
+
+ent-VinylSleeveEye = capa de vinil de olho
+
+ent-VinylSleeveFart = capa de vinil de peido
+
+ent-VinylSleeveFisherman = capa de vinil de pescador
+
+ent-VinylSleeveFlash = capa de vinil de flash
+
+ent-VinylSleeveHeisenbee = capa de vinil Heisenbee
+    .desc = O famoso mascote do goonstation retorna, em forma de papelão.
+
+ent-VinylSleeveHockey = capa de vinil de hóquei
+
+ent-VinylSleeveJanitor = capa de vinil de zelador
+    .desc = O herói anônimo, agora celebrado em canção!
+
+ent-VinylSleeveJapan = capa de vinil do Japão
+
+ent-VinylSleeveLavaLand = capa de vinil do lado ensolarado de lava land
+
+ent-VinylSleeveMgs = capa de vinil sorrateira
+    .desc = Fiz você esperar, hein?
+
+ent-VinylSleeveNanoYork = capa de vinil de Nova Nano York
+    .desc = A arte da capa retrata Nova Nano York após a aquisição corporativa de 2333.
+
+ent-VinylSleeveNukeDisk = capa de vinil de disco nuclear
+    .desc = Embora possa parecer um, isto na verdade não funciona como um disco nuclear.
+
+ent-VinylSleevePda = capa de vinil de PDA
+
+ent-VinylSleevePeace = capa de vinil de paz
+    .desc = A arte retrata os eventos da Space Station 12, em que um capitão e um insurgente do Sindicato concordaram com uma trégua no dia de Natal.
+
+ent-VinylSleevePickle = capa de vinil de picles
+    .desc = Muitos artistas tentaram descobrir o que esta arte retrata; nossas maiores mentes concordam que ela provavelmente retrata 3 picles numa estrada.
+
+ent-VinylSleevePizza = capa de vinil de pizza
+
+ent-VinylSleeveQuestionable = capa de vinil questionável
+    .desc = Arte abstrata, a favorita de todos.
+
+ent-VinylSleeveRat = capa de vinil de rato
+
+ent-VinylSleeveReactor = capa de vinil de reator
+
+ent-VinylSleeveRedSun = capa de vinil de sol vermelho
+
+ent-VinylSleeveShulker = capa de vinil de shulker
+
+ent-VinylSleeveSkull = capa de vinil de caveira
+    .desc = Rock on!!
+
+ent-VinylSleeveStation13 = capa de vinil de space station 13
+    .desc = A famosa estação espacial, o 13 azarado
+
+ent-VinylSleeveStation14 = capa de vinil de space station 14
+    .desc = A famosa estação espacial, o 14 sortudo
+
+ent-VinylSleeveTh = capa de vinil de th
+    .desc = De alguma forma, essa banda indie decidiu que se chamar de \"th\" era uma boa ideia
+
+ent-VinylSleeveVampire = capa de vinil de vampiro
+
+ent-VinylSleeveWeird = capa de vinil estranha
+
+ent-VinylSleeveWelcomeSS13 = capa de vinil de boas-vindas à SS13
+    .desc = Pena que explodiram aquele lugar.
+
+ent-VinylSleeveWhite = capa de vinil branca
+
+ent-FeroxiCube = cubo de feroxi
+
+ent-StationRadioReceiver = rádio da estação
+    .desc = Ouça os maiores sucessos da rádio local da sua estação.
+
+ent-StationRadioRig = kit de rádio da estação
+    .desc = Uma coleção de tudo o que você precisa para tocar música pela estação.
+
+ent-StationRadioServer = servidor de rádio da estação
+    .desc = Um rack de servidores, controla se sua voz está sendo transmitida ou não
+
+ent-VinylPlayer = tocador de vinil
+    .desc = Um toca-discos de vinil old school sobre um conjunto de gavetas.

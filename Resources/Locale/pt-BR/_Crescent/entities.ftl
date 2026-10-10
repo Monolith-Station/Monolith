@@ -48,3 +48,62 @@ ent-DroneControlCircuitboard = placa de console de controle de drones
 ent-DroneController = servidor de controle de drones
     .desc = Pilota o drone em que está, se controlado por um console de controle de drones.
 
+
+# ===== Generated missing entity keys (untranslated) - 2026-10-09 =====
+
+ent-BiomeSourceClusterA = INSO-357k biome source
+
+ent-BiomeSourceWilds = wilds biome source
+
+ent-BaseHardpoint = Encaixe
+    .desc = Um ponto para armamentos navais ancorarem nos vários sistemas de uma nave, como carregadores pneumáticos de munição ou sistemas de controle.
+
+ent-HardpointBallisticHeavy = encaixe balístico pesado
+
+ent-HardpointBallisticLight = encaixe balístico leve
+
+ent-HardpointBallisticMedium = encaixe balístico médio
+
+ent-HardpointBallisticSuperheavy = encaixe balístico superpesado
+
+ent-HardpointBallisticSuperlight = encaixe balístico superleve
+
+ent-HardpointDebugHeavy = encaixe universal pesado debug
+    .desc = {ent-BaseHardpoint.desc}
+    .suffix = DO NOT MAP
+
+ent-HardpointDebugLight = encaixe universal leve debug
+    .desc = {ent-BaseHardpoint.desc}
+    .suffix = DO NOT MAP
+
+ent-HardpointDebugMedium = encaixe universal médio debug
+    .desc = {ent-BaseHardpoint.desc}
+    .suffix = DO NOT MAP
+
+ent-HardpointDebugSuperheavy = encaixe universal superpesado debug
+    .desc = {ent-BaseHardpoint.desc}
+    .suffix = DO NOT MAP
+
+ent-HardpointDebugSuperlight = encaixe universal superleve debug
+    .desc = {ent-BaseHardpoint.desc}
+    .suffix = DO NOT MAP
+
+ent-HardpointEnergyHeavy = encaixe de energia pesado
+
+ent-HardpointEnergyLight = encaixe de energia leve
+
+ent-HardpointEnergyMedium = encaixe de energia médio
+
+ent-HardpointEnergySuperheavy = encaixe de energia superpesado
+
+ent-HardpointEnergySuperlight = encaixe de energia superleve
+
+ent-HardpointMissileHeavy = encaixe de míssil pesado
+
+ent-HardpointMissileLight = encaixe de míssil leve
+
+ent-HardpointMissileMedium = encaixe de míssil médio
+
+ent-HardpointMissileSuperheavy = encaixe de míssil superpesado
+
+ent-HardpointMissileSuperlight = encaixe de míssil superleve

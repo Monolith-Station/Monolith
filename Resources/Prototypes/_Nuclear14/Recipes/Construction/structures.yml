@@ -1,0 +1,37 @@
+- type: construction
+  name: construction-N14WoodWallLog-name # Andromeda - Localiza nome e descrição de construções
+  id: N14WoodWallLog
+  graph: N14WoodWall
+  startNode: start
+  targetNode: logWall
+  category: construction-category-structures
+  description: construction-N14WoodWallLog-desc # Andromeda - Localiza nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Walls/nc14/woodlog.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  hide: false
+  conditions:
+    - !type:TileNotBlocked
+
+# # Doors
+- type: construction
+  name: construction-N14DoorWood-name # Andromeda - Localiza nome e descrição de construções
+  id: N14DoorWood
+  graph: N14DoorGraph
+  startNode: start
+  targetNode: woodDoorMakeshift
+  category: construction-category-structures
+  description: construction-N14DoorWood-desc # Andromeda - Localiza nome e descrição de construções
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Doors/FalloutDoors/wooddoor.rsi
+    state: closed
+  conditions:
+    - !type:TileNotBlocked

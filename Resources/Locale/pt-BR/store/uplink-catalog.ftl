@@ -3,7 +3,7 @@ uplink-pistol-viper-name = Viper
 uplink-pistol-viper-desc = Uma arma pequena, facilmente ocultável, mas um pouco fraca. Equipada com um receptor completamente automático. Usa carregadores de pistola (9x19mm FMJ).
 
 uplink-revolver-python-name = Python
-uplink-revolver-python-desc = Um revólver do Sindicato brutalmente simples, eficaz e barulhento. Vem carregado com munição perfurante. Usa .45 magnum.
+uplink-revolver-python-desc = Um revólver do Sindicato brutalmente simples, eficaz e barulhento. Vem carregado com munição perfurante. Usa .357 magnum.
 
 uplink-pistol-cobra-name = Cobra
 uplink-pistol-cobra-desc = Uma pistola de operador robusta e resistente com silenciador embutido. Usa carregadores de pistola (6.35x40mm Sem cartucho).
@@ -91,7 +91,7 @@ uplink-pistol-magazine-c20r-desc = Carregador de rifle com 30 cartuchos. Compat�
 uplink-pistol-magazine-caseless-name = Pente de pistola (6.35x40mm Sem cartucho)
 uplink-pistol-magazine-caseless-desc = Pente de pistola com 10 cartuchos. Compatível com a Cobra.
 
-uplink-speedloader-45_magnum-name = Speedloader (.45 magnum AP)
+uplink-speedloader-45_magnum-name = Speedloader (.357 magnum AP)
 uplink-speedloader-magnu-desc = Speedloader de revólver com 6 cartuchos perfurantes de blindagem, capaz de ignorar blindagem completamente. Compatível com a Python.
 
 uplink-mosin-ammo-name = Caixa de Munição (7.62x39mm FMJ)
@@ -285,7 +285,7 @@ uplink-holy-hand-grenade-name = Granada da Mão Sagrada
 uplink-holy-hand-grenade-desc = Ó Senhor, abençoe essa tua granada de mão, que com ela possas explodir teus inimigos em pedaços minúsculos, em tua misericórdia.
 
 uplink-revolver-cap-gun-fake-name = Pistola de Percussor Falsa
-uplink-revolver-cap-gun-fake-desc = Engane seu inimigo! Pode usar tanto percussor quanto balas .45 magnum. Vem carregada com balas .45 magnum.
+uplink-revolver-cap-gun-fake-desc = Engane seu inimigo! Pode usar tanto percussor quanto balas .357 magnum. Vem carregada com balas .357 magnum.
 
 uplink-banana-peel-explosive-name = Casca de Banana Explosiva
 uplink-banana-peel-explosive-desc = Eles vão explodir de risada quando escorregarem nela!

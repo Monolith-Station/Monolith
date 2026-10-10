@@ -1,12 +1,12 @@
 #chairs
 - type: construction
-  name: construction-Chair-name
+  name: construction-Chair-name # Andromeda: Localizar nomes de construção
   id: Chair
   graph: Seat
   startNode: start
   targetNode: chair
-  category: construction-category-furniture
-  description: construction-Chair-desc
+  category: construction-category-furniture # Andromeda: Localizar descrições de construção
+  description: construction-Chair-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: chair
@@ -17,13 +17,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-Stool-name
+  name: construction-Stool-name # Andromeda: Localizar nomes de construção
   id: Stool
   graph: Seat
   startNode: start
   targetNode: stool
   category: construction-category-furniture
-  description: construction-Stool-desc
+  description: construction-Stool-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: stool
@@ -34,13 +34,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-StoolBar-name
+  name: construction-StoolBar-name # Andromeda: Localizar nomes de construção
   id: StoolBar
   graph: Seat
   startNode: start
   targetNode: stoolBar
   category: construction-category-furniture
-  description: construction-StoolBar-desc
+  description: construction-StoolBar-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: bar
@@ -51,13 +51,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ChairBrass-name
+  name: construction-ChairBrass-name # Andromeda: Localizar nomes de construção
   id: ChairBrass
   graph: Seat
   startNode: start
   targetNode: chairBrass
   category: construction-category-furniture
-  description: construction-ChairBrass-desc
+  description: construction-ChairBrass-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: brass_chair
@@ -68,13 +68,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ChairOfficeLight-name
+  name: construction-ChairOfficeLight-name # Andromeda: Localizar nomes de construção
   id: ChairOfficeLight
   graph: Seat
   startNode: start
   targetNode: chairOffice
   category: construction-category-furniture
-  description: construction-ChairOfficeLight-desc
+  description: construction-ChairOfficeLight-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: office-white
@@ -85,13 +85,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ChairOfficeDark-name
+  name: construction-ChairOfficeDark-name # Andromeda: Localizar nomes de construção
   id: ChairOfficeDark
   graph: Seat
   startNode: start
   targetNode: chairOfficeDark
   category: construction-category-furniture
-  description: construction-ChairOfficeDark-desc
+  description: construction-ChairOfficeDark-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: office-dark
@@ -102,13 +102,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ChairComfy-name
+  name: construction-ChairComfy-name # Andromeda: Localizar nomes de construção
   id: ChairComfy
   graph: Seat
   startNode: start
   targetNode: chairComfy
   category: construction-category-furniture
-  description: construction-ChairComfy-desc
+  description: construction-ChairComfy-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: comfy
@@ -119,13 +119,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-chairPilotSeat-name
+  name: construction-chairPilotSeat-name # Andromeda: Localizar nomes de construção
   id: chairPilotSeat
   graph: Seat
   startNode: start
   targetNode: chairPilotSeat
   category: construction-category-furniture
-  description: construction-chairPilotSeat-desc
+  description: construction-chairPilotSeat-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: shuttle
@@ -136,13 +136,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ChairWood-name
+  name: construction-ChairWood-name # Andromeda: Localizar nomes de construção
   id: ChairWood
   graph: Seat
   startNode: start
   targetNode: chairWood
   category: construction-category-furniture
-  description: construction-ChairWood-desc
+  description: construction-ChairWood-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: wooden
@@ -153,13 +153,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ChairMeat-name
+  name: construction-ChairMeat-name # Andromeda: Localizar nomes de construção
   id: ChairMeat
   graph: Seat
   startNode: start
   targetNode: chairMeat
   category: construction-category-furniture
-  description: construction-ChairMeat-desc
+  description: construction-ChairMeat-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: meat
@@ -170,13 +170,13 @@
   - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ChairRitual-name
+  name: construction-ChairRitual-name # Andromeda: Localizar nomes de construção
   id: ChairRitual
   graph: RitualSeat
   startNode: start
   targetNode: chairRitual
   category: construction-category-furniture
-  description: construction-ChairRitual-desc
+  description: construction-ChairRitual-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: ritual
@@ -187,13 +187,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ChairFolding-name
+  name: construction-ChairFolding-name # Andromeda: Localizar nomes de construção
   id: ChairFolding
   graph: Seat
   startNode: start
   targetNode: chairFolding
   category: construction-category-furniture
-  description: construction-ChairFolding-desc
+  description: construction-ChairFolding-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/folding_chair.rsi
     state: folding
@@ -204,13 +204,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ChairSteelBench-name
+  name: construction-ChairSteelBench-name # Andromeda: Localizar nomes de construção
   id: ChairSteelBench
   graph: Seat
   startNode: start
   targetNode: chairSteelBench
   category: construction-category-furniture
-  description: construction-ChairSteelBench-desc
+  description: construction-ChairSteelBench-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: steel-bench
@@ -221,13 +221,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-ChairWoodBench-name
+  name: construction-ChairWoodBench-name # Andromeda: Localizar nomes de construção
   id: ChairWoodBench
   graph: Seat
   startNode: start
   targetNode: chairWoodBench
   category: construction-category-furniture
-  description: construction-ChairWoodBench-desc
+  description: construction-ChairWoodBench-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/chairs.rsi
     state: wooden-bench
@@ -238,13 +238,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-RedComfBench-name
+  name: construction-RedComfBench-name # Andromeda: Localizar nomes de construção
   id: RedComfBench
   graph: Seat
   startNode: start
   targetNode: redComfBench
   category: construction-category-furniture
-  description: construction-RedComfBench-desc
+  description: construction-RedComfBench-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Bench/comf_bench.rsi
     state: full
@@ -255,13 +255,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-BlueComfBench-name
+  name: construction-BlueComfBench-name # Andromeda: Localizar nomes de construção
   id: BlueComfBench
   graph: Seat
   startNode: start
   targetNode: blueComfBench
   category: construction-category-furniture
-  description: construction-BlueComfBench-desc
+  description: construction-BlueComfBench-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Bench/comf_bench.rsi
     state: full
@@ -273,13 +273,13 @@
 
 #tables
 - type: construction
-  name: construction-Table-name
+  name: construction-Table-name # Andromeda: Localizar nomes de construção
   id: Table
   graph: Table
   startNode: start
   targetNode: Table
   category: construction-category-furniture
-  description: construction-Table-desc
+  description: construction-Table-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/generic.rsi
     state: full
@@ -290,13 +290,30 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableReinforced-name
+  name: construction-TableBlack-name # Andromeda: Localizar nomes de construção
+  id: TableBlack
+  graph: Table
+  startNode: start
+  targetNode: TableBlack
+  category: construction-category-furniture
+  description: construction-TableBlack-desc # Andromeda: Localizar descrições de construção
+  icon:
+    sprite: Structures/Furniture/Tables/genericblack.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-TableReinforced-name # Andromeda: Localizar nomes de construção
   id: TableReinforced
   graph: Table
   startNode: start
   targetNode: TableReinforced
   category: construction-category-furniture
-  description: construction-TableReinforced-desc
+  description: construction-TableReinforced-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/reinforced.rsi
     state: full
@@ -307,13 +324,30 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableGlass-name
+  name: construction-TableReinforcedBlack-name # Andromeda: Localizar nomes de construção
+  id: TableReinforcedBlack
+  graph: Table
+  startNode: start
+  targetNode: TableReinforcedBlack
+  category: construction-category-furniture
+  description: construction-TableReinforcedBlack-desc # Andromeda: Localizar descrições de construção
+  icon:
+    sprite: Structures/Furniture/Tables/reinforcedblack.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-TableGlass-name # Andromeda: Localizar nomes de construção
   id: TableGlass
   graph: Table
   startNode: start
   targetNode: TableGlass
   category: construction-category-furniture
-  description: construction-TableGlass-desc
+  description: construction-TableGlass-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/glass.rsi
     state: full
@@ -324,13 +358,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableReinforcedGlass-name
+  name: construction-TableReinforcedGlass-name # Andromeda: Localizar nomes de construção
   id: TableReinforcedGlass
   graph: Table
   startNode: start
   targetNode: TableReinforcedGlass
   category: construction-category-furniture
-  description: construction-TableReinforcedGlass-desc
+  description: construction-TableReinforcedGlass-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/r_glass.rsi
     state: full
@@ -341,13 +375,30 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TablePlasmaGlass-name
+  name: construction-TableReinforcedGlassBlack-name # Andromeda: Localizar nomes de construção
+  id: TableReinforcedGlassBlack
+  graph: Table
+  startNode: start
+  targetNode: TableReinforcedGlassBlack
+  category: construction-category-furniture
+  description: construction-TableReinforcedGlassBlack-desc # Andromeda: Localizar descrições de construção
+  icon:
+    sprite: Structures/Furniture/Tables/r_glassblack.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-TablePlasmaGlass-name # Andromeda: Localizar nomes de construção
   id: TablePlasmaGlass
   graph: Table
   startNode: start
   targetNode: TablePlasmaGlass
   category: construction-category-furniture
-  description: construction-TablePlasmaGlass-desc
+  description: construction-TablePlasmaGlass-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/plasma.rsi
     state: full
@@ -358,13 +409,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableBrass-name
+  name: construction-TableBrass-name # Andromeda: Localizar nomes de construção
   id: TableBrass
   graph: Table
   startNode: start
   targetNode: TableBrass
   category: construction-category-furniture
-  description: construction-TableBrass-desc
+  description: construction-TableBrass-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/brass.rsi
     state: full
@@ -375,13 +426,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableWood-name
+  name: construction-TableWood-name # Andromeda: Localizar nomes de construção
   id: TableWood
   graph: Table
   startNode: start
   targetNode: TableWood
   category: construction-category-furniture
-  description: construction-TableWood-desc
+  description: construction-TableWood-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/wood.rsi
     state: full
@@ -392,13 +443,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableCarpet-name
+  name: construction-TableCarpet-name # Andromeda: Localizar nomes de construção
   id: TableCarpet
   graph: Table
   startNode: start
   targetNode: TableCarpet
   category: construction-category-furniture
-  description: construction-TableCarpet-desc
+  description: construction-TableCarpet-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/carpet.rsi
     state: full
@@ -409,13 +460,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableFancyBlack-name
+  name: construction-TableFancyBlack-name # Andromeda: Localizar nomes de construção
   id: TableFancyBlack
   graph: Table
   startNode: start
   targetNode: TableFancyBlack
   category: construction-category-furniture
-  description: construction-TableFancyBlack-desc
+  description: construction-TableFancyBlack-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/Fancy/black.rsi
     state: full
@@ -426,13 +477,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableFancyBlue-name
+  name: construction-TableFancyBlue-name # Andromeda: Localizar nomes de construção
   id: TableFancyBlue
   graph: Table
   startNode: start
   targetNode: TableFancyBlue
   category: construction-category-furniture
-  description: construction-TableFancyBlue-desc
+  description: construction-TableFancyBlue-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/Fancy/blue.rsi
     state: full
@@ -443,13 +494,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableFancyCyan-name
+  name: construction-TableFancyCyan-name # Andromeda: Localizar nomes de construção
   id: TableFancyCyan
   graph: Table
   startNode: start
   targetNode: TableFancyCyan
   category: construction-category-furniture
-  description: construction-TableFancyCyan-desc
+  description: construction-TableFancyCyan-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/Fancy/cyan.rsi
     state: full
@@ -460,13 +511,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableFancyGreen-name
+  name: construction-TableFancyGreen-name # Andromeda: Localizar nomes de construção
   id: TableFancyGreen
   graph: Table
   startNode: start
   targetNode: TableFancyGreen
   category: construction-category-furniture
-  description: construction-TableFancyGreen-desc
+  description: construction-TableFancyGreen-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/Fancy/green.rsi
     state: full
@@ -477,13 +528,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableFancyOrange-name
+  name: construction-TableFancyOrange-name # Andromeda: Localizar nomes de construção
   id: TableFancyOrange
   graph: Table
   startNode: start
   targetNode: TableFancyOrange
   category: construction-category-furniture
-  description: construction-TableFancyOrange-desc
+  description: construction-TableFancyOrange-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/Fancy/orange.rsi
     state: full
@@ -494,13 +545,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableFancyPurple-name
+  name: construction-TableFancyPurple-name # Andromeda: Localizar nomes de construção
   id: TableFancyPurple
   graph: Table
   startNode: start
   targetNode: TableFancyPurple
   category: construction-category-furniture
-  description: construction-TableFancyPurple-desc
+  description: construction-TableFancyPurple-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/Fancy/purple.rsi
     state: full
@@ -511,13 +562,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableFancyPink-name
+  name: construction-TableFancyPink-name # Andromeda: Localizar nomes de construção
   id: TableFancyPink
   graph: Table
   startNode: start
   targetNode: TableFancyPink
   category: construction-category-furniture
-  description: construction-TableFancyPink-desc
+  description: construction-TableFancyPink-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/Fancy/pink.rsi
     state: full
@@ -528,13 +579,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableFancyRed-name
+  name: construction-TableFancyRed-name # Andromeda: Localizar nomes de construção
   id: TableFancyRed
   graph: Table
   startNode: start
   targetNode: TableFancyRed
   category: construction-category-furniture
-  description: construction-TableFancyRed-desc
+  description: construction-TableFancyRed-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/Fancy/red.rsi
     state: full
@@ -545,13 +596,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableFancyWhite-name
+  name: construction-TableFancyWhite-name # Andromeda: Localizar nomes de construção
   id: TableFancyWhite
   graph: Table
   startNode: start
   targetNode: TableFancyWhite
   category: construction-category-furniture
-  description: construction-TableFancyWhite-desc
+  description: construction-TableFancyWhite-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/Fancy/white.rsi
     state: full
@@ -562,13 +613,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableCounterMetal-name
+  name: construction-TableCounterMetal-name # Andromeda: Localizar nomes de construção
   id: TableCounterMetal
   graph: Table
   startNode: start
   targetNode: CounterMetal
   category: construction-category-furniture
-  description: construction-TableCounterMetal-desc
+  description: construction-TableCounterMetal-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/countermetal.rsi
     state: full
@@ -579,13 +630,13 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-TableCounterWood-name
+  name: construction-TableCounterWood-name # Andromeda: Localizar nomes de construção
   id: TableCounterWood
   graph: Table
   startNode: start
   targetNode: CounterWood
   category: construction-category-furniture
-  description: construction-TableCounterWood-desc
+  description: construction-TableCounterWood-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/Tables/counterwood.rsi
     state: full
@@ -597,13 +648,13 @@
 
 #bathroom
 - type: construction
-  name: construction-ToiletEmpty-name
+  name: construction-ToiletEmpty-name # Andromeda: Localizar nomes de construção
   id: ToiletEmpty
   graph: Toilet
   startNode: start
   targetNode: toilet
   category: construction-category-furniture
-  description: construction-ToiletEmpty-desc
+  description: construction-ToiletEmpty-desc # Andromeda: Localizar descrições de construção
   icon:
     sprite: Structures/Furniture/toilet.rsi
     state: disposal
@@ -616,8 +667,8 @@
 #bedroom
 - type: construction
   id: Bed
-  name: construction-Bed-name
-  description: construction-Bed-desc
+  name: construction-Bed-name # Andromeda: Localizar nomes de construção
+  description: construction-Bed-desc # Andromeda: Localizar descrições de construção
   graph: bed
   startNode: start
   targetNode: bed
@@ -633,8 +684,8 @@
 
 - type: construction
   id: MedicalBed
-  name: construction-MedicalBed-name
-  description: construction-MedicalBed-desc
+  name: construction-MedicalBed-name # Andromeda: Localizar nomes de construção
+  description: construction-MedicalBed-desc # Andromeda: Localizar descrições de construção
   graph: bed
   startNode: start
   targetNode: medicalbed
@@ -650,8 +701,8 @@
 
 - type: construction
   id: DogBed
-  name: construction-DogBed-name
-  description: construction-DogBed-desc
+  name: construction-DogBed-name # Andromeda: Localizar nomes de construção
+  description: construction-DogBed-desc # Andromeda: Localizar descrições de construção
   graph: bed
   startNode: start
   targetNode: dogbed
@@ -667,8 +718,8 @@
 
 - type: construction
   id: Dresser
-  name: construction-Dresser-name
-  description: construction-Dresser-desc
+  name: construction-Dresser-name # Andromeda: Localizar nomes de construção
+  description: construction-Dresser-desc # Andromeda: Localizar descrições de construção
   graph: Dresser
   startNode: start
   targetNode: dresser
@@ -685,8 +736,8 @@
 #racks
 - type: construction
   id: Rack
-  name: construction-Rack-name
-  description: construction-Rack-desc
+  name: construction-Rack-name # Andromeda: Localizar nomes de construção
+  description: construction-Rack-desc # Andromeda: Localizar descrições de construção
   graph: Rack
   startNode: start
   targetNode: Rack
@@ -703,8 +754,8 @@
 #misc
 - type: construction
   id: MeatSpike
-  name: construction-MeatSpike-name
-  description: construction-MeatSpike-desc
+  name: construction-MeatSpike-name # Andromeda: Localizar nomes de construção
+  description: construction-MeatSpike-desc # Andromeda: Localizar descrições de construção
   graph: MeatSpike
   startNode: start
   targetNode: MeatSpike
@@ -720,8 +771,8 @@
 
 - type: construction
   id: Curtains
-  name: construction-Curtains-name
-  description: construction-Curtains-desc
+  name: construction-Curtains-name # Andromeda: Localizar nomes de construção
+  description: construction-Curtains-desc # Andromeda: Localizar descrições de construção
   graph: Curtains
   startNode: start
   targetNode: Curtains
@@ -735,8 +786,8 @@
 
 - type: construction
   id: CurtainsBlack
-  name: construction-CurtainsBlack-name
-  description: construction-CurtainsBlack-desc
+  name: construction-CurtainsBlack-name # Andromeda: Localizar nomes de construção
+  description: construction-CurtainsBlack-desc # Andromeda: Localizar descrições de construção
   graph: Curtains
   startNode: start
   targetNode: CurtainsBlack
@@ -750,8 +801,8 @@
 
 - type: construction
   id: CurtainsBlue
-  name: construction-CurtainsBlue-name
-  description: construction-CurtainsBlue-desc
+  name: construction-CurtainsBlue-name # Andromeda: Localizar nomes de construção
+  description: construction-CurtainsBlue-desc # Andromeda: Localizar descrições de construção
   graph: Curtains
   startNode: start
   targetNode: CurtainsBlue
@@ -765,8 +816,8 @@
 
 - type: construction
   id: CurtainsCyan
-  name: construction-CurtainsCyan-name
-  description: construction-CurtainsCyan-desc
+  name: construction-CurtainsCyan-name # Andromeda: Localizar nomes de construção
+  description: construction-CurtainsCyan-desc # Andromeda: Localizar descrições de construção
   graph: Curtains
   startNode: start
   targetNode: CurtainsCyan
@@ -780,8 +831,8 @@
 
 - type: construction
   id: CurtainsGreen
-  name: construction-CurtainsGreen-name
-  description: construction-CurtainsGreen-desc
+  name: construction-CurtainsGreen-name # Andromeda: Localizar nomes de construção
+  description: construction-CurtainsGreen-desc # Andromeda: Localizar descrições de construção
   graph: Curtains
   startNode: start
   targetNode: CurtainsGreen
@@ -795,8 +846,8 @@
 
 - type: construction
   id: CurtainsOrange
-  name: construction-CurtainsOrange-name
-  description: construction-CurtainsOrange-desc
+  name: construction-CurtainsOrange-name # Andromeda: Localizar nomes de construção
+  description: construction-CurtainsOrange-desc # Andromeda: Localizar descrições de construção
   graph: Curtains
   startNode: start
   targetNode: CurtainsOrange
@@ -810,8 +861,8 @@
 
 - type: construction
   id: CurtainsPink
-  name: construction-CurtainsPink-name
-  description: construction-CurtainsPink-desc
+  name: construction-CurtainsPink-name # Andromeda: Localizar nomes de construção
+  description: construction-CurtainsPink-desc # Andromeda: Localizar descrições de construção
   graph: Curtains
   startNode: start
   targetNode: CurtainsPink
@@ -825,8 +876,8 @@
 
 - type: construction
   id: CurtainsPurple
-  name: construction-CurtainsPurple-name
-  description: construction-CurtainsPurple-desc
+  name: construction-CurtainsPurple-name # Andromeda: Localizar nomes de construção
+  description: construction-CurtainsPurple-desc # Andromeda: Localizar descrições de construção
   graph: Curtains
   startNode: start
   targetNode: CurtainsPurple
@@ -840,8 +891,8 @@
 
 - type: construction
   id: CurtainsRed
-  name: construction-CurtainsRed-name
-  description: construction-CurtainsRed-desc
+  name: construction-CurtainsRed-name # Andromeda: Localizar nomes de construção
+  description: construction-CurtainsRed-desc # Andromeda: Localizar descrições de construção
   graph: Curtains
   startNode: start
   targetNode: CurtainsRed
@@ -855,8 +906,8 @@
 
 - type: construction
   id: CurtainsWhite
-  name: construction-CurtainsWhite-name
-  description: construction-CurtainsWhite-desc
+  name: construction-CurtainsWhite-name # Andromeda: Localizar nomes de construção
+  description: construction-CurtainsWhite-desc # Andromeda: Localizar descrições de construção
   graph: Curtains
   startNode: start
   targetNode: CurtainsWhite
@@ -870,8 +921,8 @@
 
 - type: construction
   id: Bookshelf
-  name: construction-Bookshelf-name
-  description: construction-Bookshelf-desc
+  name: construction-Bookshelf-name # Andromeda: Localizar nomes de construção
+  description: construction-Bookshelf-desc # Andromeda: Localizar descrições de construção
   graph: Bookshelf
   startNode: start
   targetNode: bookshelf
@@ -887,8 +938,8 @@
 
 - type: construction
   id: NoticeBoard
-  name: construction-NoticeBoard-name
-  description: construction-NoticeBoard-desc
+  name: construction-NoticeBoard-name # Andromeda: Localizar nomes de construção
+  description: construction-NoticeBoard-desc # Andromeda: Localizar descrições de construção
   graph: NoticeBoard
   startNode: start
   targetNode: noticeBoard
@@ -905,8 +956,8 @@
 
 - type: construction
   id: Mannequin
-  name: construction-Mannequin-name
-  description: construction-Mannequin-desc
+  name: construction-Mannequin-name # Andromeda: Localizar nomes de construção
+  description: construction-Mannequin-desc # Andromeda: Localizar descrições de construção
   graph: Mannequin
   startNode: start
   targetNode: mannequin

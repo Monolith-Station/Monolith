@@ -1,0 +1,437 @@
+# Beds
+- type: construction
+  id: N14Bed
+  name: construction-N14Bed-name # Andromeda: Localizar nome e descrição de construções
+  description: construction-N14Bed-desc # Andromeda: Localizar nome e descrição de construções
+  graph: N14Bed
+  startNode: start
+  targetNode: bed
+  category: construction-category-furniture
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: bed
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14BedWood
+  name: construction-N14BedWood-name # Andromeda: Localizar nome e descrição de construções
+  description: construction-N14BedWood-desc # Andromeda: Localizar nome e descrição de construções
+  graph: N14Bed
+  startNode: start
+  targetNode: bedwood
+  category: construction-category-furniture
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: bed_wood
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14MedicalBed
+  name: construction-N14MedicalBed-name # Andromeda: Localizar nome e descrição de construções
+  description: construction-N14MedicalBed-desc # Andromeda: Localizar nome e descrição de construções
+  graph: bed
+  startNode: start
+  targetNode: medicalbed
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Furniture/furniture.rsi
+    state: bed-MED
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14Bedroll
+  name: construction-N14Bedroll-name # Andromeda: Localizar nome e descrição de construções
+  description: construction-N14Bedroll-desc # Andromeda: Localizar nome e descrição de construções
+  graph: N14Bed
+  startNode: start
+  targetNode: bedroll
+  category: construction-category-furniture
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: bedroll_unrolled
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairWood-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairWood
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairWood
+  category: construction-category-furniture
+  description: construction-N14ChairWood-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: wooden_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairWood1-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairWood1
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairWood1
+  category: construction-category-furniture
+  description: construction-N14ChairWood1-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: wood_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairWoodPadded-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairWoodPadded
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairWoodPadded
+  category: construction-category-furniture
+  description: construction-N14ChairWoodPadded-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: wood_chair_padded
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairWoodSettler-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairWoodSettler
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairWoodSettler
+  category: construction-category-furniture
+  description: construction-N14ChairWoodSettler-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: wooden_chair_settler
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairStoolBarBlack-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairStoolBarBlack
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairStoolBarBlack
+  category: construction-category-furniture
+  description: construction-N14ChairStoolBarBlack-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: bar_black
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairStoolBarTan-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairStoolBarTan
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairStoolBarTan
+  category: construction-category-furniture
+  description: construction-N14ChairStoolBarTan-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: bar_tan
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairStoolBarRed-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairStoolBarRed
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairStoolBarRed
+  category: construction-category-furniture
+  description: construction-N14ChairStoolBarRed-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: barstool
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairArmchair-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairArmchair
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairArmchair
+  category: construction-category-furniture
+  description: construction-N14ChairArmchair-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: armchair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairMetalGreen-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairMetalGreen
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairMetalGreen
+  category: construction-category-furniture
+  description: construction-N14ChairMetalGreen-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: metal_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairMetalBlue-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairMetalBlue
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairMetalBlue
+  category: construction-category-furniture
+  description: construction-N14ChairMetalBlue-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: metal_chair_blue
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairMetalRed-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairMetalRed
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairMetalRed
+  category: construction-category-furniture
+  description: construction-N14ChairMetalRed-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: metal_chair_red
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairOfficeRed-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairOfficeRed
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairOfficeRed
+  category: construction-category-furniture
+  description: construction-N14ChairOfficeRed-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: office_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairOfficeBlue-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairOfficeBlue
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairOfficeBlue
+  category: construction-category-furniture
+  description: construction-N14ChairOfficeBlue-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: office_chair_blue
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairOfficeGreen-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairOfficeGreen
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairOfficeGreen
+  category: construction-category-furniture
+  description: construction-N14ChairOfficeGreen-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: office_chair_green
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairOfficeErgonomic-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairOfficeErgonomic
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairOfficeErgonomic
+  category: construction-category-furniture
+  description: construction-N14ChairOfficeErgonomic-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: ergo_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairMetalFolding-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairMetalFolding
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairMetalFolding
+  category: construction-category-furniture
+  description: construction-N14ChairMetalFolding-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: metal_chair_folding
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: construction-N14ChairPlastic-name # Andromeda: Localizar nome e descrição de construções
+  id: N14ChairPlastic
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairPlastic
+  category: construction-category-furniture
+  description: construction-N14ChairPlastic-desc # Andromeda: Localizar nome e descrição de construções
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: plastic_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+# Tables
+
+- type: construction
+  name: construction-N14TableCounterBar-name # Andromeda: Localizar nome e descrição de construções
+  id: N14TableCounterBar
+  graph: N14TableCounterBarRecipes
+  startNode: start
+  targetNode: TableCounterBar
+  category: construction-category-furniture
+  description: construction-N14TableCounterBar-desc # Andromeda: Localizar nome e descrição de construções
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  canRotate: true
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/barcounter.rsi
+    state: full
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-N14TableMetalGrate-name # Andromeda: Localizar nome e descrição de construções
+  id: N14TableMetalGrate
+  graph: N14TableMetalGrateRecipes
+  startNode: start
+  targetNode: TableMetalGrate
+  category: construction-category-furniture
+  description: construction-N14TableMetalGrate-desc # Andromeda: Localizar nome e descrição de construções
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  canRotate: true
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/metalgrate.rsi
+    state: full
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-N14TableWoodSettler-name # Andromeda: Localizar nome e descrição de construções
+  id: N14TableWoodSettler
+  graph: N14TableRecipes
+  startNode: start
+  targetNode: TableWoodSettler
+  category: construction-category-furniture
+  description: construction-N14TableWoodSettler-desc # Andromeda: Localizar nome e descrição de construções
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  canRotate: true
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/table_settler.rsi
+    state: full
+  conditions:
+    - !type:TileNotBlocked

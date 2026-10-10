@@ -1,0 +1,43 @@
+# Author Info
+# Discord: marcell6469
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Venom
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Venom-name
+  description: vessel-Venom-desc
+  # Andromeda end
+  price: 149335
+  category: Medium
+  group: Viper
+  access: Viper
+  shuttlePath: /SharedMaps/_Mono/Shuttles/VG/venom.yml
+  guidebookPage: Null
+  class:
+  - Corvette
+  - Detainment
+  engine:
+  - AME
+
+- type: gameMap
+  id: Venom
+  mapName: 'VG Venom'
+  mapPath: /SharedMaps/_Mono/Shuttles/VG/venom.yml
+  minPlayers: 0
+  stations:
+    Venom:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Venom VG{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            VGInfanteer: [ 0, 0 ]
+            VGLieutenant: [ 0, 0 ]
+            VGCommander: [ 0, 0 ]

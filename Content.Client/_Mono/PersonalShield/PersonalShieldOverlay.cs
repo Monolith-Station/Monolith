@@ -10,19 +10,24 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Client._Mono.PersonalShield;
 
 public sealed partial class PersonalShieldOverlay : Overlay
 {
     [Dependency] private IEntityManager _entManager = null!;
+    [Dependency] private IGameTiming _timing = null!;
 
     private static readonly ProtoId<ShaderPrototype> ShaderId = "PersonalShieldSkin";
 
     private readonly SharedTransformSystem _transform;
     private readonly SpriteSystem _sprite;
     private readonly InventorySystem _inventory;
-    private readonly ShaderInstance _shader;
+    private readonly ShaderPrototype _shaderProto;
+
+    private readonly Dictionary<EntityUid, ShaderInstance> _shaders = new();
+    private readonly List<EntityUid> _stale = new();
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
 
@@ -33,7 +38,19 @@ public sealed partial class PersonalShieldOverlay : Overlay
         _sprite = _entManager.System<SpriteSystem>();
         _inventory = _entManager.System<InventorySystem>();
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
-        _shader = protoMan.Index(ShaderId).InstanceUnique();
+        _shaderProto = protoMan.Index(ShaderId);
+    }
+
+    protected override void DisposeBehavior()
+    {
+        base.DisposeBehavior();
+
+        foreach (var shader in _shaders.Values)
+        {
+            shader.Dispose();
+        }
+
+        _shaders.Clear();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -65,23 +82,31 @@ public sealed partial class PersonalShieldOverlay : Overlay
             if (!TryGetHitboxSize(wearer.Value, sprite, out var extents))
                 continue;
 
-            var size = extents * shield.Scale;
+            var size = extents * shield.Visuals.Scale;
 
-            _shader.SetParameter("progress", GetProgress(shield));
-            _shader.SetParameter("skin_color", shield.Color);
-            _shader.SetParameter("brightness", shield.Brightness);
-            _shader.SetParameter("pixel_grid", shield.PixelGrid);
-            _shader.SetParameter("hex_density", shield.HexDensity);
-            _shader.SetParameter("form_origin", shield.FormOrigin);
-            _shader.SetParameter("fill_level", shield.FillLevel);
-            _shader.SetParameter("line_level", shield.LineLevel);
-            _shader.SetParameter("rim_level", shield.RimLevel);
-            _shader.SetParameter("core_fade", shield.CoreFade);
-            _shader.SetParameter("shard_scale", shield.ShardScale);
-            _shader.SetParameter("alpha_bands", shield.AlphaBands);
-            _shader.SetParameter("breath_depth", shield.BreathDepth);
+            var shader = GetShader(uid);
+            var flare = GetDamageFlare(shield);
+            var charge = MathF.Max(shield.Runtime.Charge / MathF.Max(shield.Shield.MaxCharge, 0.001f), 0f);
+            var minimum = Math.Clamp(shield.Visuals.MinimumBrightness, 0f, 1f);
+            var brightness = charge > 1f ? charge : minimum + (1f - minimum) * charge;
+            brightness += MathF.Max(1f - brightness, 0f) * flare;
 
-            handle.UseShader(_shader);
+            shader.SetParameter("progress", GetProgress(shield));
+            shader.SetParameter("skin_color", shield.Visuals.Color);
+            shader.SetParameter("brightness", shield.Visuals.Brightness * brightness);
+            shader.SetParameter("pixel_grid", shield.Visuals.PixelGrid);
+            shader.SetParameter("hex_density", shield.Visuals.HexDensity);
+            shader.SetParameter("form_origin", shield.Visuals.FormOrigin);
+            shader.SetParameter("fill_level", shield.Visuals.FillLevel);
+            shader.SetParameter("line_level", shield.Visuals.LineLevel);
+            shader.SetParameter("rim_level", shield.Visuals.RimLevel);
+            shader.SetParameter("core_fade", shield.Visuals.CoreFade);
+            shader.SetParameter("shard_scale", shield.Visuals.ShardScale);
+            shader.SetParameter("alpha_bands", shield.Visuals.AlphaBands);
+            shader.SetParameter("breath_depth", shield.Visuals.BreathDepth);
+            shader.SetParameter("damage_flare", flare);
+
+            handle.UseShader(shader);
 
             var worldPos = _transform.GetWorldPosition(xform);
             handle.SetTransform(Matrix3x2.Multiply(counterRot, Matrix3Helpers.CreateTranslation(worldPos)));
@@ -90,6 +115,38 @@ public sealed partial class PersonalShieldOverlay : Overlay
 
         handle.SetTransform(Matrix3x2.Identity);
         handle.UseShader(null);
+
+        PruneShaders();
+    }
+
+    private void PruneShaders()
+    {
+        foreach (var (uid, shader) in _shaders)
+        {
+            if (_entManager.HasComponent<PersonalShieldComponent>(uid))
+                continue;
+
+            shader.Dispose();
+            _stale.Add(uid);
+        }
+
+        foreach (var uid in _stale)
+        {
+            _shaders.Remove(uid);
+        }
+
+        _stale.Clear();
+    }
+
+    private ShaderInstance GetShader(EntityUid uid)
+    {
+        if (!_shaders.TryGetValue(uid, out var shader))
+        {
+            shader = _shaderProto.InstanceUnique();
+            _shaders[uid] = shader;
+        }
+
+        return shader;
     }
 
     private bool TryGetHitboxSize(EntityUid uid, SpriteComponent sprite, out Vector2 extents)
@@ -120,6 +177,15 @@ public sealed partial class PersonalShieldOverlay : Overlay
         var bounds = _sprite.GetLocalBounds((uid, sprite));
         extents = bounds.Size;
         return extents is { X: > 0f, Y: > 0f };
+    }
+
+    private float GetDamageFlare(PersonalShieldComponent shield)
+    {
+        if (shield.Visuals.DamageFlareTime <= 0f)
+            return 0f;
+
+        var remaining = (float) (shield.Runtime.DamageFlareUntil - _timing.CurTime).TotalSeconds;
+        return Math.Clamp(remaining / shield.Visuals.DamageFlareTime, 0f, 1f);
     }
 
     private static float GetProgress(PersonalShieldComponent shield)

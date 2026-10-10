@@ -1,0 +1,44 @@
+#Author: Thoughtlessuser on Github, [I'M NOT SURE] on Discord.
+
+- type: vessel
+  id: MotleyAnne
+  parent: BaseVesselIFFDisabled
+  # Andromeda start: Localize ship name and desc
+  name: vessel-MotleyAnne-name
+  description: vessel-MotleyAnne-desc
+  # Andromeda end
+  price: 280000
+  limit: 2
+  hyperwarLimit: 0 # For lag and balance reasons, but mostly lag.
+  purchasable: false # voucher only - t2
+  category: Medium
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/motleyanne.yml
+  guidebookPage: ShipyardMotleyAnne
+  class:
+  - Patrol
+  - DroneCarrier
+  - MechCarrier
+  - Frigate
+  engine:
+  - AME
+
+- type: gameMap
+  id: MotleyAnne
+  mapName: 'PDV Motley Anne'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/motleyanne.yml
+  minPlayers: 0
+  stations:
+    MotleyAnne:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Motley Anne PDV{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Pirate: [ 0, 0 ]
+

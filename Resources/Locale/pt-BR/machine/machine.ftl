@@ -1,4 +1,4 @@
-machine-insert-item = {CAPITALIZE(THE($user))} inseriu o item no {THE($machine)}.
+machine-insert-item = {CAPITALIZE(THE($user))} inseriu o item no {$machine}.
 
 machine-upgrade-examinable-verb-text = Melhorias
 machine-upgrade-examinable-verb-message = Examinar as melhorias da máquina.

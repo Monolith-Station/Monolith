@@ -152,6 +152,18 @@
     factions:
     - VGTurret
 
+- type: entity
+  parent: BallisticTurretHeavyBase
+  id: WeaponTurretHeavyMonolithic
+  name: corrupted heavy ballistic turret
+  description: A massively reinforced turret, firing a barrage of anti-material 7.62x51mm rounds that rip up targets and mechs alike. This one's bio-signature sensors seem to be corrupted.
+  suffix: Monolithic
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Monolithic
+
+
 # Anti-Chimera Variant
 - type: entity
   parent: BallisticTurretHeavyBase

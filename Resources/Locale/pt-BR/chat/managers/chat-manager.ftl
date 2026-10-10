@@ -36,7 +36,7 @@ chat-manager-entity-whisper-unknown-wrap-message = [font size=11][italic][Bubble
 
 # THE() is not used here because the entity and its name can technically be disconnected if a nameOverride is passed...
 chat-manager-entity-me-wrap-message = [italic]{ PROPER($entity) ->
-    *[false] O/A {$entityName} {$message}[/italic]
+    *[false] O {$entityName} {$message}[/italic]
      [true] {CAPITALIZE($entityName)} {$message}[/italic]
     }
 
@@ -60,7 +60,9 @@ chat-manager-send-collective-mind-chat-wrap-message = mente coletiva {$channel}:
 chat-manager-send-collective-mind-chat-wrap-message-admin = {$source} (mente coletiva {$channel}): {$message}
 chat-manager-collective-mind-channel-name = mente coletiva
 
-chat-manager-rate-limited =você são sending messages também rapidamente!
+# eu que fiz a tradução, eu posso SIM botar um easter egg.
+# valor antigo: Você está enviando mensagens muito rápido!
+chat-manager-rate-limited = CHEGA DE SPAM CARALHO
 chat-manager-rate-limit-admin-announcement = Jogador { $player } excedeu os limites de taxa de chat. Monitore se for uma ocorrência regular.
 
 ## Speech verbs for chat

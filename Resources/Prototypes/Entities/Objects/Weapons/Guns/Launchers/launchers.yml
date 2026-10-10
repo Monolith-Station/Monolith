@@ -23,6 +23,21 @@
     rsi:
       sprite: _RMC14/Interface/MousePointer/explosive_mouse.rsi
       state: all
+  # Mono - Gun stock attack
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 12
+    angle: 0
+    wideAnimationRotation: 135
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
+  # Mono end
 
 - type: entity
   name: PA china lake

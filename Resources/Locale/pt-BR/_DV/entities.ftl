@@ -447,14 +447,14 @@ ent-BulletBB = chumbinho
 
 # From: _DV/Entities/Objects/Weapons/Guns/Revolvers/revolvers.yml
 
-ent-WeaponRevolverFaith = Faith (.45 magnum)
-    .desc = Entrega bênçãos em forma de bala. Usa munição .45 magnum.
+ent-WeaponRevolverFaith = Faith (.357 magnum)
+    .desc = Entrega bênçãos em forma de bala. Usa munição .357 magnum.
 
-ent-WeaponRevolverFitz = Fitz Special (.45 magnum)
-    .desc = Um revólver de cano curto de defesa pessoal compacto e ocultável. Usa munição .45 magnum.
+ent-WeaponRevolverFitz = Fitz Special (.357 magnum)
+    .desc = Um revólver de cano curto de defesa pessoal compacto e ocultável. Usa munição .357 magnum.
 
-ent-WeaponRevolverLucky = Lucky 37 (.45 magnum)
-    .desc = A sorte sempre vence a habilidade, velho. Usa munição .45 magnum.
+ent-WeaponRevolverLucky = Lucky 37 (.357 magnum)
+    .desc = A sorte sempre vence a habilidade, velho. Usa munição .357 magnum.
 
 # From: _DV/Entities/Objects/Weapons/Guns/Rifles/rifles.yml
 
@@ -470,7 +470,7 @@ ent-WeaponSniperCeremonial = rifle cerimonial (7.62x51mm)
 # From: _DV/Entities/Objects/Weapons/Guns/SMGs/smgs.yml
 
 ent-WeaponSubMachineGunTypewriter = PA Typewriter (.45 ACP)
-    .desc = Uma versão moderna do design clássico usado por mafiosos através do espaço e tempo. Usa munição .45 ACP.
+    .desc = Uma versão moderna do design clássico usado por mafiosos há muito tempo em todo o espaço. Usa munição .45 ACP.
 
 # From: _DV/Entities/Structures/Storage/Crates/barrel.yml
 
@@ -531,3 +531,41 @@ ent-ExtendedEmergencyWaterVaporTank = extended-capacity emergency water vapor ta
 
 ent-DoubleEmergencyWaterVaporTank = double emergency water vapor tank
     .desc = Um contêiner de suporte de vida de emergência de alta graduação com tanque duplo. Contém uma quantidade decente de vapor de água para seu tamanho pequeno. Pode conter 2,5 L de gás.
+
+# ===== Generated missing entity keys (untranslated) - 2026-10-09 =====
+
+ent-OrganFeroxiLungs = pulmão e guelras feroxianas
+    .desc = Um par de pulmões anfíbios junto de guelras, constantemente filtrando oxigênio do ar.
+
+ent-OrganFeroxiStomach = estômago ferxoiano
+
+ent-HeadFeroxi = cabeça de feroxi
+
+ent-LeftArmFeroxi = braço esquerdo de feroxi
+
+ent-LeftFootFeroxi = pé esquerdo de feroxi
+
+ent-LeftHandFeroxi = mão esquerda de feroxi
+
+ent-LeftLegFeroxi = perna esquerda de feroxi
+
+ent-PartFeroxiBase = parte de corpo de feroxi
+
+ent-RightArmFeroxi = braço direito de feroxi
+
+ent-RightFootFeroxi = pé direito de feroxi
+
+ent-RightHandFeroxi = mão direita de feroxi
+
+ent-RightLegFeroxi = perna direita de feroxi
+
+ent-TorsoFeroxi = tronco de feroxi
+
+ent-BoxTapeRecorder = caixa de gravador de fita
+    .desc = Uma caixa com fitas cassetes coloridas e um gravador de fita.
+
+ent-CassetteTape = fita cassette
+    .desc = Uma fita magnetica que consegue guardar dois minutos de conteúdo em ambos os lados.
+
+ent-TapeRecorder = gravador de fita
+    .desc = Tudo que disser nesse dispositivo pode e será usado contra você na corte de lei espacial.

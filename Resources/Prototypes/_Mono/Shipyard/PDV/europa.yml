@@ -1,0 +1,39 @@
+- type: vessel
+  id: Europa
+  parent: BaseVesselIFFDisabled
+  name: vessel-Europa-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Europa-desc # Andromeda: Localizar nome e descrição de nave
+  limit: 2
+  hyperwarLimit: 3
+  hyperwarTimelock: 3600
+  price: 500000
+  purchasable: false # Voucher only - T3
+  category: Large
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/europa.yml
+  guidebookPage: ShipyardNFROperation
+  class:
+  - Brawler
+  - Frigate
+  engine:
+  - AME
+
+- type: gameMap
+  id: Europa
+  mapName: 'PDV Europa'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/europa.yml
+  minPlayers: 0
+  stations:
+    Europa:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Europa PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

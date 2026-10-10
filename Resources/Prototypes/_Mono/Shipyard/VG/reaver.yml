@@ -1,0 +1,44 @@
+# Author Info
+# GitHub: gelliii
+# Discord: .gelliii.
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Reaver
+  parent: BaseVessel
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Reaver-name
+  description: vessel-Reaver-desc
+  # Andromeda end
+  price: 79534
+  category: Small
+  group: Viper
+  access: Viper
+  shuttlePath: /SharedMaps/_Mono/Shuttles/VG/reaver.yml
+  guidebookPage: Null
+  class:
+  - Scrapyard
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Reaver
+  mapName: 'VG Reaver'
+  mapPath: /SharedMaps/_Mono/Shuttles/VG/reaver.yml
+  minPlayers: 0
+  stations:
+    Reaver:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Reaver VG{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            VGInfanteer: [ 0, 0 ]
+            VGLieutenant: [ 0, 0 ]
+            VGCommander: [ 0, 0 ]

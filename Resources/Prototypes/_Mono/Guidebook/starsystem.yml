@@ -1,0 +1,45 @@
+- type: guideEntry
+  id: MonoStarSystem
+  name: guide-entry-stars
+  text: "/ServerInfo/_Mono/Guidebook/StarSystem/Colossus.xml"
+  priority: 10
+  children:
+  - Kyphrus
+
+
+- type: guideEntry
+  id: Kyphrus
+  name: guide-entry-kyphrus
+  text: "/ServerInfo/_Mono/Guidebook/StarSystem/Kyphrus.xml"
+  priority: 100
+  children:
+    - Asclepiu
+    - Thrascias
+    - Fervidus
+    - Merak
+    - Aerumna
+
+- type: guideEntry
+  id: Asclepiu
+  name: guide-entry-asclepiu
+  text: "/ServerInfo/_Mono/Guidebook/StarSystem/Asclepiu.xml"
+
+- type: guideEntry
+  id: Thrascias
+  name: guide-entry-thrascias
+  text: "/ServerInfo/_Mono/Guidebook/StarSystem/Thrascias.xml"
+
+- type: guideEntry
+  id: Fervidus
+  name: guide-entry-fervidus
+  text: "/ServerInfo/_Mono/Guidebook/StarSystem/Fervidus.xml"
+
+- type: guideEntry
+  id: Merak
+  name: guide-entry-merak
+  text: "/ServerInfo/_Mono/Guidebook/StarSystem/Merak.xml"
+
+- type: guideEntry
+  id: Aerumna
+  name: guide-entry-aerumna
+  text: "/ServerInfo/_Mono/Guidebook/StarSystem/Aerumna.xml"

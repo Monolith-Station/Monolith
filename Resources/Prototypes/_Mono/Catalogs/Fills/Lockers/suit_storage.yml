@@ -106,7 +106,7 @@
     contents:
         - id: OxygenTankFilled
         - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitNfsdSheriff # Frontier
+        - id: ClothingOuterHardsuitM82c # Frontier
         - id: ClothingMaskGasSheriff
         - id: JetpackNfsdFilled
         - id: ClothingShoesBootsMagSecurity # Frontier
@@ -214,3 +214,36 @@
     - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
     access: [["MieyoSecurity"]]
+
+# Medical Dispatch / ATU
+- type: entity
+  id: SuitStorageTraumaLeader
+  parent: SuitStorageBase
+  suffix: ATU T-53
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitTraumaLeader
+    - id: ClothingMaskBreath
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMagVoidTraumaLeader
+  - type: AccessReader
+    access: [["Command"]]
+    
+- type: entity
+  id: SuitStorageTrauma
+  parent: SuitStorageBase
+  suffix: ATU T-23
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitTrauma
+    - id: ClothingMaskBreath
+    - id: JetpackMiniFilled
+    - id: ClothingShoesBootsMagVoidTrauma
+  - type: AccessReader
+    access: [["Medical"]]

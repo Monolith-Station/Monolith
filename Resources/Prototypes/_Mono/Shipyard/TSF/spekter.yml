@@ -1,0 +1,41 @@
+#kasature90 (github)/_starch_ (discord)
+- type: vessel
+  id: Spekter
+  parent: BaseVesselIFFDisabled
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Spekter-name
+  description: vessel-Spekter-desc
+  # Andromeda end
+  price: 500000
+  purchasable: false # voucher only - t2
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/spekter.yml
+  guidebookPage: ShipyardNFROperation
+  class:
+  - Patrol
+  - AntiShipMissileCarrier
+  - Corvette
+  engine:
+  - NFR
+
+- type: gameMap
+  id: Spekter
+  mapName: 'Spekter'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/spekter.yml
+  minPlayers: 0
+  stations:
+    Spekter:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Spekter TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

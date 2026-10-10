@@ -1,0 +1,32 @@
+- type: vessel
+  id: Zhuangzi
+  parent: BaseVessel
+  name: vessel-Zhuangzi-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Zhuangzi-desc # Andromeda: Localizar nome e descrição de nave
+  price: 92450
+  category: Large
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/zhuangzi.yml
+  guidebookPage: ShipyardNFROperation
+  class:
+  - Cargo
+  engine:
+  - NFR
+
+- type: gameMap
+  id: Zhuangzi
+  mapName: 'MSH Zhuangzi'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/zhuangzi.yml
+  minPlayers: 0
+  stations:
+    Zhuangzi:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Zhuangzi CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]

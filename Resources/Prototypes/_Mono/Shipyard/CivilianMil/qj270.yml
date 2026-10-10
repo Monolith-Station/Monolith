@@ -1,0 +1,34 @@
+#Author: Starch(!)
+
+- type: vessel
+  id: QJ270
+  parent: BaseVessel
+  name: vessel-QJ270-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-QJ270-desc # Andromeda: Localizar nome e descrição de nave
+  price: 78000
+  category: Small
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj270.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  - Fighter
+  - Mercenary
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: QJ270
+  mapName: 'QJ-270/B'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj270.yml
+  minPlayers: 0
+  stations:
+    QJ270:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'QJ-270/B MIL{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs: {}

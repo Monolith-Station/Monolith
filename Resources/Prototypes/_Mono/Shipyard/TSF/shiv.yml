@@ -1,0 +1,43 @@
+#Author:  Corrupt142 on Github, Theticalsteak49 on Discord
+
+- type: vessel
+  id: Shiv
+  parent: BaseVesselIFFDisabled
+  # Andromeda start: Localize ship name and desc
+  name: vessel-Shiv-name
+  description: vessel-Shiv-desc
+  # Andromeda end
+  price: 105000
+  category: Small
+  hyperwarTimelock: 0
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/shiv.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Shiv
+  mapName: 'Shiv'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/shiv.yml
+  minPlayers: 0
+  stations:
+    Shiv:
+      stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: vessel-Shiv-desc # Andromeda: Localize ship name and desc
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Shiv TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

@@ -1,0 +1,35 @@
+- type: vessel
+  id: Bazalt
+  parent: BaseVesselIFFDisabled
+  name: vessel-Bazalt-name # Andromeda: Localizar nome e descrição de nave
+  description: vessel-Bazalt-desc # Andromeda: Localizar nome e descrição de nave
+  price: 29500
+  category: Small
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/bazalt.yml
+  guidebookPage: Null
+  class:
+  - Escort
+  - Pursuit
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Bazalt
+  mapName: 'PDV Bazalt'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/bazalt.yml
+  minPlayers: 0
+  stations:
+    Bazalt:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Bazalt PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

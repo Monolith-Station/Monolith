@@ -479,22 +479,6 @@
     - !type:TileNotBlocked
 
 # Banners
-- type: construction
-  id: BannerNanotrasen
-  name: construction-BannerNanotrasen-name
-  description: construction-BannerNanotrasen-desc
-  graph: BannersGraph
-  startNode: start
-  targetNode: BannerNanotrasenNode
-  category: construction-category-furniture
-  icon:
-    sprite: _NF/Structures/Decoration/banner.rsi
-    state: banner
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
 
 - type: construction
   id: BannerCargo
