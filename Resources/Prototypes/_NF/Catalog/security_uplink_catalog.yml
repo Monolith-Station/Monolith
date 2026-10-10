@@ -1,36 +1,36 @@
 # FUC->FMC. FMC cost 5x - Mono
 
-- type: listing
-  id: UplinkClothingOuterHardsuitM82c
-  name: uplink-security-hardsuit-m82c-name
-  description: uplink-security-hardsuit-m82c-desc
-  productEntity: ClothingOuterHardsuitM82c
-  icon: { sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82c.rsi, state: icon }
-  cost:
-    FederationMilitaryCredit: 10
-  categories:
-    - UplinkSecurityHardsuits
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SecurityUplink
-
-- type: listing
-  id: UplinkClothingOuterHardsuitM82b
-  name: uplink-security-hardsuit-m82b-name
-  description: uplink-security-hardsuit-m82b-desc
-  productEntity: ClothingOuterHardsuitM82b
-  icon: { sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82b.rsi, state: icon }
-  cost:
-    FederationMilitaryCredit: 10
-  categories:
-    - UplinkSecurityHardsuits
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SecurityUplink
+#- type: listing
+#  id: UplinkClothingOuterHardsuitM82c
+#  name: uplink-security-hardsuit-m82c-name
+#  description: uplink-security-hardsuit-m82c-desc
+#  productEntity: ClothingOuterHardsuitM82c
+#  icon: { sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82c.rsi, state: icon }
+#  cost:
+#    FederationMilitaryCredit: 10
+#  categories:
+#    - UplinkSecurityHardsuits
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - SecurityUplink
+#
+#- type: listing
+#  id: UplinkClothingOuterHardsuitM82b
+#  name: uplink-security-hardsuit-m82b-name
+#  description: uplink-security-hardsuit-m82b-desc
+#  productEntity: ClothingOuterHardsuitM82b
+#  icon: { sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82b.rsi, state: icon }
+#  cost:
+#    FederationMilitaryCredit: 10
+#  categories:
+#    - UplinkSecurityHardsuits
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - SecurityUplink
 
 - type: listing
   id: UplinkSecurityMK58

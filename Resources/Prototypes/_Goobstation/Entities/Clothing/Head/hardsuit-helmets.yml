@@ -60,8 +60,8 @@
   - type: ClothingGrantComponent
     component:
     - type: Stealth
-      minVisibility: 0.15 # Mono: Changed to be not fully invisible
-      maxVisibility: 0.6 # Mono: Changed to be partially invisible
+      enabledOnDeath: false
+      enabledOnCrit: false
     - type: StealthOnMove
       passiveVisibilityRate: -0.4
       movementVisibilityRate: 0.4

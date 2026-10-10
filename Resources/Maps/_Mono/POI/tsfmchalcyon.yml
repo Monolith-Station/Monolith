@@ -49857,7 +49857,7 @@ entities:
 
         [bullet/] Capture the Derelict drillsite and station a detachment of at least 2 marines if not more.
 
-        [bullet/] Set up a TSFMC access only bunker (needs access changer) and barricades. When research allows, station a mech support force. 
+        [bullet/] Set up a TSFMC access only bunker (needs access changer) and barricades. When research allows, station a mech support force.
 
         [bullet/] Set up fabricator units on the Drillsite to turn the POI into a forward base of operations. Until then, supply ships will ensure that the occupational force is able to set up defenses.
 
@@ -50007,7 +50007,7 @@ entities:
         [bullet/] Objective, Instruction, or Note
 
 
-        [bullet/] 
+        [bullet/]
 
 
         [bold]Primary Objectives:[/bold]
@@ -50025,7 +50025,7 @@ entities:
 
         [bold]Additional Notes:[/bold]
 
-        [bullet/] 
+        [bullet/]
 
 
         [head=2][color=#ff0000]════════════SECRET═══════════[/color][/head]
@@ -50043,13 +50043,13 @@ entities:
         Some of this is loosely covered under the Standard Operating Procedure (SOP), but this document will attempt to go into more specifics.
 
 
-        Refer to the SoP section on hailing IFFless ships when PDV is not confirmed. In situations where an ambush is suspected, shooting PDV on sight is always authorized. 
+        Refer to the SoP section on hailing IFFless ships when PDV is not confirmed. In situations where an ambush is suspected, shooting PDV on sight is always authorized.
 
 
         [bold]Shooting PDV on sight is discouraged in the following situations:[/bold]
 
 
-        [bullet/] The Colonel (or another leader) is actively engaging in discourse and has not yet given the order to fire. This is waived if they have suddenly come under threat (direct fire, injection, etc) and a fast response is necessary to quickly neutralize the threat. 
+        [bullet/] The Colonel (or another leader) is actively engaging in discourse and has not yet given the order to fire. This is waived if they have suddenly come under threat (direct fire, injection, etc) and a fast response is necessary to quickly neutralize the threat.
 
 
         [bullet/]  The enemy is surrendering, and no ambush is expected. Cooperative PDV may fall under this category. (Always take proper precautions to minimize the risk of being caught off guard.)
@@ -50082,7 +50082,7 @@ entities:
         [bullet/] Do not treat PDV soldiers as a loot pinata: gather up their things (including harness rig and duffel bag) and take them to CC/Halcyon. If at Halcyon, make sure that they are stripped of their weapons and any tools they could use to escape and kill TSF forces. Put these in a prisoner locker for them to have access to if they are released.
 
 
-        [bullet/] Weapons may be confiscated and not returned on release, depending on orders and on the safety of the marines releasing them. (Aka a body vs alive). Contraband may be confiscated depending on orders. (This includes anything that may be turned in for FMC.) Unless specifically needed for an operation approved by a Colonel or someone of sufficient rank, PDAs will NEVER be confiscated. 
+        [bullet/] Weapons may be confiscated and not returned on release, depending on orders and on the safety of the marines releasing them. (Aka a body vs alive). Contraband may be confiscated depending on orders. (This includes anything that may be turned in for FMC.) Unless specifically needed for an operation approved by a Colonel or someone of sufficient rank, PDAs will NEVER be confiscated.
 
 
         [bullet/] Avoid gibbing bodies. Those who intentionally try to gib bodies while they are in custody [bold]will be shot.[/bold] This includes decapitation and biomassing the non-catatonic.
@@ -50107,13 +50107,13 @@ entities:
         Some of this is loosely covered under the Standard Operating Procedure (SOP), but this document will attempt to go into more specifics.
 
 
-        Refer to the SoP section on hailing IFFless ships when PDV is not confirmed. In situations where an ambush is suspected, shooting PDV on sight is always authorized. 
+        Refer to the SoP section on hailing IFFless ships when PDV is not confirmed. In situations where an ambush is suspected, shooting PDV on sight is always authorized.
 
 
         [bold]Shooting PDV on sight is discouraged in the following situations:[/bold]
 
 
-        [bullet/] The Colonel (or another leader) is actively engaging in discourse and has not yet given the order to fire. This is waived if they have suddenly come under threat (direct fire, injection, etc) and a fast response is necessary to quickly neutralize the threat. 
+        [bullet/] The Colonel (or another leader) is actively engaging in discourse and has not yet given the order to fire. This is waived if they have suddenly come under threat (direct fire, injection, etc) and a fast response is necessary to quickly neutralize the threat.
 
 
         [bullet/]  The enemy is surrendering, and no ambush is expected. Cooperative PDV may fall under this category. (Always take proper precautions to minimize the risk of being caught off guard.)
@@ -50146,7 +50146,7 @@ entities:
         [bullet/] Do not treat PDV soldiers as a loot pinata: gather up their things (including harness rig and duffel bag) and take them to CC/Halcyon. If at Halcyon, make sure that they are stripped of their weapons and any tools they could use to escape and kill TSF forces. Put these in a prisoner locker for them to have access to if they are released.
 
 
-        [bullet/] Weapons may be confiscated and not returned on release, depending on orders and on the safety of the marines releasing them. (Aka a body vs alive). Contraband may be confiscated depending on orders. (This includes anything that may be turned in for FMC.) Unless specifically needed for an operation approved by a Colonel or someone of sufficient rank, PDAs will NEVER be confiscated. 
+        [bullet/] Weapons may be confiscated and not returned on release, depending on orders and on the safety of the marines releasing them. (Aka a body vs alive). Contraband may be confiscated depending on orders. (This includes anything that may be turned in for FMC.) Unless specifically needed for an operation approved by a Colonel or someone of sufficient rank, PDAs will NEVER be confiscated.
 
 
         [bullet/] Avoid gibbing bodies. Those who intentionally try to gib bodies while they are in custody [bold]will be shot.[/bold] This includes decapitation and biomassing the non-catatonic.
@@ -55328,14 +55328,14 @@ entities:
     - type: Transform
       pos: -6.5,-23.5
       parent: 1
-- proto: SuitStorageM82b
+- proto: SuitStorageM86
   entities:
   - uid: 8075
     components:
     - type: Transform
       pos: 24.5,-14.5
       parent: 1
-- proto: SuitStorageM82c
+- proto: SuitStorageM86
   entities:
   - uid: 5567
     components:
@@ -55400,7 +55400,7 @@ entities:
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
-- proto: SuitStorageWallmountM82b
+- proto: SuitStorageWallmountM86
   entities:
   - uid: 8085
     components:

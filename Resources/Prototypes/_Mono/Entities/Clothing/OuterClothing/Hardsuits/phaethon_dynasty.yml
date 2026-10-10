@@ -49,7 +49,7 @@
   parent: [ ClothingOuterHardsuitSyndie, BaseFactionGearPDVT2 ]
   id: ClothingOuterHardsuitAshen
   name: PDV CV-32 combat hardsuit
-  description: A combat hardsuit designed by the Phaethon Dynasty. A heavier but still general-purpose hardsuit. Sacrifices most of its protection for reinforced ballistic platings.
+  description: A combat hardsuit designed by the Phaethon Dynasty. Opts for lightweight ballistic plating instead of environmental or general-purpose protection.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/syndicate.rsi
@@ -66,17 +66,17 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.75
-        Piercing: 0.35
-        Heat: 0.75
+        Blunt: 0.8
+        Slash: 0.6
+        Piercing: 0.4
+        Heat: 0.8
         Radiation: 0.7
         Caustic: 0.9
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: ExplosionResistance
-    damageCoefficient: 0.7
+    damageCoefficient: 0.5
   - type: Tag
     tags:
     - RogueHardsuit
@@ -153,10 +153,10 @@
     - RogueHardsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBaseNoPlateholder, MonoEnergyShieldClothing ]
+  parent: [ ClothingOuterHardsuitSyndie, BaseFactionGearPDVT2 ]
   id: ClothingOuterHardsuitAshenElite
   name: PDV CV-53 combat tacsuit
-  description: Originally based off of the CV-32 hardsuit, the CV-53 tacsuit sacrifices conventional armor plating for environmental protection, and a rechargeable hard-shield.
+  description: Originally based off of the CV-32 hardsuit, the CV-53 tacsuit sacrifices the lightweight armor plating for a more generalist protection suite.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/syndieelite.rsi
@@ -186,60 +186,60 @@
   - type: Armor # Mono - Armor Value Changes
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.65
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.55
         Heat: 0.2
         Radiation: 0.1
         Caustic: 0.5
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier
-    walkModifier: 1.0
-    sprintModifier: 0.9
+    walkModifier: 0.95
+    sprintModifier: 0.95
   - type: Tag
     tags:
     - RogueHardsuit
-  # Shielding
-  - type: PersonalShield
-    visuals:
-      color: "#FF5F1F"
-      scale: 2
-      fillLevel: 0.1
-      coreFade: 0.85
-    shield:
-      maxCharge: 100
-      regenRate: 5
-      spinupTime: 0.5
-      breakCooldown: 17
-      powerDraw: 1
-      blockModifier:
-        coefficients:
-          Piercing: 0.5
-          Heat: 1.5
-          Radiation: 2.5
-          Shock: 2.5
-  - type: Battery
-    maxCharge: 100
-    startingCharge: 100
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 5
-  - type: UseDelay
-    delay: 10
-  - type: PointLight
-    enabled: false
-    radius: 1.4
-    energy: 2
-    color: "#5dd439"
-  - type: ExtendDescription
-    descriptionList:
-    - description: Alt-click or otherwise interact to toggle additional shielding.
-      color: "#4f94ad"
-      requireDetailRange: true
-    - description: The CV-53 hardshield is designed to inhibit the velocity of incoming conventional firearms. However, it struggles against anything involving high-energy particles, such as lasers.
-      color: "#94768c"
-      requireDetailRange: true
+#  # Shielding
+#  - type: PersonalShield
+#    visuals:
+#      color: "#FF5F1F"
+#      scale: 2
+#      fillLevel: 0.1
+#      coreFade: 0.85
+#    shield:
+#      maxCharge: 100
+#      regenRate: 5
+#      spinupTime: 0.5
+#      breakCooldown: 17
+#      powerDraw: 1
+#      blockModifier:
+#        coefficients:
+#          Piercing: 0.5
+#          Heat: 1.5
+#          Radiation: 2.5
+#          Shock: 2.5
+#  - type: Battery
+#    maxCharge: 100
+#    startingCharge: 100
+#  - type: BatterySelfRecharger
+#    autoRecharge: true
+#    autoRechargeRate: 5
+#  - type: UseDelay
+#    delay: 10
+#  - type: PointLight
+#    enabled: false
+#    radius: 1.4
+#    energy: 2
+#    color: "#5dd439"
+#  - type: ExtendDescription
+#    descriptionList:
+#    - description: Alt-click or otherwise interact to toggle additional shielding.
+#      color: "#4f94ad"
+#      requireDetailRange: true
+#    - description: The CV-53 hardshield is designed to inhibit the velocity of incoming conventional firearms. However, it struggles against anything involving high-energy particles, such as lasers.
+#      color: "#94768c"
+#      requireDetailRange: true
 
 - type: entity
   parent: ClothingOuterHardsuitAshen
