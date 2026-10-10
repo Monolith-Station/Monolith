@@ -2500,7 +2500,7 @@ ent-NFMobVulpkaninBuddy = {ent-MobVulpkanin}
 
 # From: _NF/Entities/Mobs/Player/goblin_player.yml
 
-ent-MobGoblin = Urist McGoblin
+ent-MobGoblin = Enzo Goblin da Silva
 
 # From: _NF/Entities/Mobs/Player/guardian.yml
 
@@ -2529,9 +2529,9 @@ ent-RandomHumanoidSpawnerERTMailCarrierEVA = carteiro da ERT
 # From: _NF/Entities/Mobs/Species/goblin.yml
 # Abstract entity (referenceable by children)
 
-ent-MobGoblinBase = Urist McGoblin
+ent-MobGoblinBase = Enzo Goblin da Silva
 
-ent-MobGoblinDummy = Urist McGoblin
+ent-MobGoblinDummy = Enzo Goblin da Silva
     .desc = Um goblin manequim destinado a ser usado na configuração de personagem.
 
 # From: _NF/Entities/Objects/Consumable/Drinks/condiments_bottles.yml
