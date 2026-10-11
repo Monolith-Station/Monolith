@@ -1,0 +1,58 @@
+- type: language
+  id: UndergroundCodespeak
+  isVisibleLanguage: true
+  speech:
+    color: "#ff004cdd"
+  obfuscation:
+    !type:PhraseObfuscation
+    minPhrases: 1
+    maxPhrases: 1
+    replacement:
+    - The whiskey has gone stale
+    - I repeat
+    - Pop goes the weasel
+    - What a rainy day
+    - That star sets to the east
+    - That star sets to the west
+    - I see what you mean
+    - I don't see what you mean
+    - It's red
+    - It's orange
+    - It's yellow
+    - It's green
+    - It's blue
+    - It's purple
+    - It's white
+    - It's grey
+    - I think I preferred yesterday
+    - I'm sorry
+    - I'm not sorry
+    - Don't cry over spilt milk
+    - I'm crying over spilt milk
+    - Fifty-fifty on that
+    - Tango down
+    - I see the error of my ways
+    - The urn has fallen
+    - The mothroach is chittering
+    - The mothroach won't chitter
+    - This space wind is far too strong
+    - Their ship won't go off of cruise
+    - Did you hear about the freight incident
+    - The Crab Nebula is quite bright around this time of day
+    - The Crab Nebula is quite dark around this time of the day
+    - They've taken a trip into the Colossus sector
+    - I'm thinking about buying a bluespace drive
+    - It's awfully cold in here
+    - Watch out for space carp
+    - I think they've replaced their organs
+    - I'm waiting on the bus
+    - Too many eggs in one basket
+    - That is still ongoing
+    - The rooster is cawing
+    - A murder of crows fly overhead
+    - You can never know
+    - The carp is gnashing at the glass
+    - I've never seen a sharkminnow
+    - The bus is early
+    - The bus is late
+    - The president is certain

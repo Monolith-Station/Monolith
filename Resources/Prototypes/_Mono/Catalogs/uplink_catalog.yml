@@ -247,3 +247,17 @@
     Telecrystal: 5
   categories:
   - UplinkAmmo
+
+- type: listing
+  id: UplinkUndergroundCodespeakTranslatorImplanter
+  name: uplink-underground-codespeak-translator-implanter-name
+  description: uplink-underground-codespeak-translator-implanter-desc
+  productEntity: UndergroundCodespeakTranslatorImplanter
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:BuyerJobCondition
+      whitelist:
+      - Godfather
