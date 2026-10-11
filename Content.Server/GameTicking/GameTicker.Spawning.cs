@@ -189,17 +189,18 @@ namespace Content.Server.GameTicking
                     continue;
 
                 if (!respawnRule.SpawnedCharacters.Keys.Contains(player.UserId))
-                    respawnRule.SpawnedCharacters.Add(player.UserId, new List<string>() { character.Name });
-                else
                 {
-                    if (respawnRule.SpawnedCharacters[player.UserId].Contains(character.Name))
-                    {
-                        _chatManager.DispatchServerMessage(player, Loc.GetString("no-respawning-with-same-name"));
-                        return;
-                    }
-                    else
-                        respawnRule.SpawnedCharacters[player.UserId].Add(character.Name);
+                    respawnRule.SpawnedCharacters.Add(player.UserId, new List<string>() { character.Name });
+                    continue;
                 }
+
+                if (respawnRule.SpawnedCharacters[player.UserId].Contains(character.Name))
+                {
+                    _chatManager.DispatchServerMessage(player, Loc.GetString("no-respawning-with-same-name"));
+                    return;
+                }
+
+                respawnRule.SpawnedCharacters[player.UserId].Add(character.Name);
             }
             // Mono end
 
