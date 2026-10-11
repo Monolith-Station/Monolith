@@ -1,0 +1,139 @@
+- type: department
+  id: MAWC
+  name: department-MAWC
+  description: department-MAWC-description
+  color: "#ffc759"
+  weight: 0
+  roles:
+  - MAWCInitiate
+  - MAWCCarpenter
+  - MAWCAcolyte
+  - MAWCSeraph
+  primary: false
+
+- type: job
+  id: MAWCInitiate
+  name: job-name-mawc-initiate
+  description: job-description-mawc-initiate
+  playTimeTracker: JobMAWCInitiate
+  startingGear: MAWCGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  icon: JobIconMAWCInitiate
+  supervisors: job-supervisors-mawc-workers
+  assignedCompany: MAWC
+  canBeAntag: false
+  weight: 10
+  displayWeight: 10
+  accessGroups: [GeneralAccess]
+  access: [MAWC, MAWCInitiate]
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions: [MAWC]
+
+- type: job
+  id: MAWCCarpenter
+  name: job-name-mawc-carpenter
+  description: job-description-mawc-carpenter
+  playTimeTracker: JobMAWCCarpenter
+  requirements:
+  - !type:SpeciesRequirement
+    species: [Reptilian, Hydrakin]
+  - !type:DepartmentTimeRequirement
+    department: MAWC
+    time: 54000
+  startingGear: MAWCGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  icon: JobIconMAWCCarpenter
+  supervisors: job-supervisors-mawc-workers
+  assignedCompany: MAWC
+  canBeAntag: false
+  weight: 10
+  displayWeight: 20
+  accessGroups: [GeneralAccess]
+  access: [MAWC, MAWCCarpenter]
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions: [MAWC]
+
+- type: job
+  id: MAWCAcolyte
+  name: job-name-mawc-acolyte
+  description: job-description-mawc-acolyte
+  playTimeTracker: JobMAWCAcolyte
+  requirements:
+  - !type:SpeciesRequirement
+    species: [Reptilian, Hydrakin]
+  - !type:DepartmentTimeRequirement
+    department: MAWC
+    time: 90000
+  startingGear: MAWCGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  icon: JobIconMAWCAcolyte
+  supervisors: job-supervisors-mawc-acolyte
+  assignedCompany: MAWC
+  canBeAntag: false
+  weight: 10
+  displayWeight: 30
+  accessGroups: [GeneralAccess]
+  access: [MAWC, MAWCAcolyte]
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions: [MAWC]
+
+- type: job
+  id: MAWCSeraph
+  name: job-name-mawc-seraph
+  description: job-description-mawc-seraph
+  playTimeTracker: JobMAWCSeraph
+  enforcedPlayTime: true
+  requirements:
+  - !type:SpeciesRequirement
+    species: [Reptilian, Hydrakin]
+  - !type:DepartmentTimeRequirement
+    department: MAWC
+    time: 126000
+  - !type:OverallPlaytimeRequirement
+    time: 216000
+  startingGear: MAWCGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  icon: JobIconMAWCSeraph
+  supervisors: job-supervisors-mawc-seraph
+  assignedCompany: MAWC
+  canBeAntag: false
+  weight: 10
+  displayWeight: 40
+  accessGroups: [GeneralAccess]
+  access: [MAWC, MAWCSeraph]
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions: [MAWC]
+
+- type: startingGear
+  id: MAWCGear
+  storage:
+    back:
+    - RadioHandheldNF
+
+- type: playTimeTracker
+  id: JobMAWCInitiate
+
+- type: playTimeTracker
+  id: JobMAWCCarpenter
+
+- type: playTimeTracker
+  id: JobMAWCAcolyte
+
+- type: playTimeTracker
+  id: JobMAWCSeraph

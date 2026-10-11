@@ -1,0 +1,162 @@
+- type: entity
+  parent: BasePDA
+  id: BaseMAWCPDA
+  abstract: true
+  description: A hardlight PDA developed by MAWC for their employees.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Objects/pda.rsi
+  - type: Icon
+    sprite: _Mono/MAWC/Objects/pda.rsi
+    state: initiate-off
+  - type: Item
+    sprite: _NF/Objects/Devices/pda.rsi
+  - type: Clothing
+    sprite: _NF/Objects/Devices/pda.rsi
+    clothingVisuals:
+      idcard:
+      - sprite: _Mono/MAWC/Objects/pda.rsi
+        state: equipped
+        shader: unshaded
+      belt:
+      - sprite: _Mono/MAWC/Objects/pda.rsi
+        state: equipped
+        shader: unshaded
+  - type: PdaBorderColor
+    borderColor: "#ffc759"
+  - type: GenericVisualizer
+    visuals:
+      enum.PdaVisuals.InUse:
+        in-use-overlay:
+          True: { visible: true }
+          False: { visible: false }
+
+- type: entity
+  parent: BaseMAWCPDA
+  id: MAWCInitiatePDA
+  name: MAWC Initiate PDA
+  components:
+  - type: Pda
+    id: MAWCInitiateIDCard
+  - type: PdaVisuals
+    stateWithIdCard: initiate-on
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String initiate-off
+  - type: Sprite
+    layers:
+    - state: initiate-off
+      map: [enum.PdaVisualLayers.Base]
+    - state: light_overlay
+      sprite: _NF/Objects/Devices/pda.rsi
+      map: [enum.PdaVisualLayers.Flashlight]
+      shader: unshaded
+      visible: false
+    - state: id_overlay
+      sprite: _NF/Objects/Devices/pda.rsi
+      map: [enum.PdaVisualLayers.IdLight]
+      shader: unshaded
+      visible: false
+    - state: pda-overlay
+      map: [in-use-overlay]
+      shader: unshaded
+      visible: false
+
+- type: entity
+  parent: BaseMAWCPDA
+  id: MAWCAcolytePDA
+  name: MAWC Acolyte PDA
+  components:
+  - type: Pda
+    id: MAWCAcolyteIDCard
+  - type: PdaVisuals
+    stateWithIdCard: acolyte-on
+  - type: Icon
+    state: acolyte-off
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String acolyte-off
+  - type: Sprite
+    layers:
+    - state: acolyte-off
+      map: [enum.PdaVisualLayers.Base]
+    - state: light_overlay
+      sprite: _NF/Objects/Devices/pda.rsi
+      map: [enum.PdaVisualLayers.Flashlight]
+      shader: unshaded
+      visible: false
+    - state: id_overlay
+      sprite: _NF/Objects/Devices/pda.rsi
+      map: [enum.PdaVisualLayers.IdLight]
+      shader: unshaded
+      visible: false
+    - state: pda-overlay
+      map: [in-use-overlay]
+      shader: unshaded
+      visible: false
+
+- type: entity
+  parent: BaseMAWCPDA
+  id: MAWCSeraphPDA
+  name: MAWC Seraph PDA
+  components:
+  - type: Pda
+    id: MAWCSeraphIDCard
+  - type: PdaVisuals
+    stateWithIdCard: seraph-on
+  - type: Icon
+    state: seraph-off
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String seraph-off
+  - type: Sprite
+    layers:
+    - state: seraph-off
+      map: [enum.PdaVisualLayers.Base]
+    - state: light_overlay
+      sprite: _NF/Objects/Devices/pda.rsi
+      map: [enum.PdaVisualLayers.Flashlight]
+      shader: unshaded
+      visible: false
+    - state: id_overlay
+      sprite: _NF/Objects/Devices/pda.rsi
+      map: [enum.PdaVisualLayers.IdLight]
+      shader: unshaded
+      visible: false
+    - state: pda-overlay
+      map: [in-use-overlay]
+      shader: unshaded
+      visible: false
+
+- type: entity
+  parent: BaseMAWCPDA
+  id: MAWCCarpenterPDA
+  name: MAWC Carpenter PDA
+  components:
+  - type: Pda
+    id: MAWCCarpenterIDCard
+  - type: PdaVisuals
+    stateWithIdCard: carpenter-on
+  - type: Icon
+    state: carpenter-off
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType: !type:String carpenter-off
+  - type: Sprite
+    layers:
+    - state: carpenter-off
+      map: [enum.PdaVisualLayers.Base]
+    - state: light_overlay
+      sprite: _NF/Objects/Devices/pda.rsi
+      map: [enum.PdaVisualLayers.Flashlight]
+      shader: unshaded
+      visible: false
+    - state: id_overlay
+      sprite: _NF/Objects/Devices/pda.rsi
+      map: [enum.PdaVisualLayers.IdLight]
+      shader: unshaded
+      visible: false
+    - state: pda-overlay
+      map: [in-use-overlay]
+      shader: unshaded
+      visible: false

@@ -1,0 +1,77 @@
+- type: loadout
+  id: MAWCGloves
+  equipment:
+    gloves: ClothingHandsGlovesMAWC
+
+- type: loadoutGroup
+  id: MAWCGloves
+  name: loadout-group-contractor-gloves
+  minLimit: 1
+  loadouts: [MAWCGloves]
+  fallbacks: [MAWCGloves]
+
+- type: loadout
+  id: MAWCShoes
+  equipment:
+    shoes: ClothingShoesBootsMAWC
+
+- type: loadoutGroup
+  id: MAWCShoes
+  name: loadout-group-contractor-shoes
+  minLimit: 1
+  loadouts: [MAWCShoes]
+  fallbacks: [MAWCShoes]
+
+- type: loadout
+  id: MAWCEyes
+  equipment:
+    eyes: ClothingEyesVisorMAWC
+
+- type: loadoutGroup
+  id: MAWCEyes
+  name: loadout-group-contractor-glasses
+  minLimit: 1
+  loadouts: [MAWCEyes]
+  fallbacks: [MAWCEyes]
+
+- type: loadout
+  id: MAWCNeck
+  equipment:
+    neck: ClothingNeckMAWCRing
+
+- type: loadoutGroup
+  id: MAWCNeck
+  name: loadout-group-contractor-neck
+  minLimit: 1
+  loadouts: [MAWCNeck]
+  fallbacks: [MAWCNeck]
+
+- type: loadoutGroup
+  id: MAWCOuterClothing
+  name: loadout-group-contractor-outerclothing
+  minLimit: 0
+  loadouts:
+  - MAWCWidowmaker
+  - MAWCWeaver
+  - MAWCCarpenter
+  - MAWCTermite
+
+- type: loadout
+  id: MAWCWidowmaker
+  equipment:
+    outerClothing: ClothingOuterHardsuitMAWCWidowmaker
+
+- type: loadout
+  id: MAWCWeaver
+  equipment:
+    outerClothing: ClothingOuterHardsuitMAWCWeaver
+
+- type: loadout
+  id: MAWCCarpenter
+  equipment:
+    outerClothing: ClothingOuterHardsuitMAWCCarpenter
+
+- type: loadout
+  id: MAWCTermite
+  equipment:
+    outerClothing: ClothingOuterHardsuitMAWCTermite

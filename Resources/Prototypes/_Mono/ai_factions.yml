@@ -109,6 +109,13 @@
   defaultHostile: true
 
 - type: npcFaction
+  id: MAWC
+  hostile:
+  - SimpleHostile
+  - Zombie
+  - Chimera
+
+- type: npcFaction
   id: XenoborgTurret # Doesn't like intruders.
   friendly:
   - Mothership
