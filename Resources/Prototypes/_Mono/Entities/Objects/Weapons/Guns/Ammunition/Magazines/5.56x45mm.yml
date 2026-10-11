@@ -227,3 +227,49 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+# Ammo belt for WeaponLMGJill
+
+- type: entity
+  parent: BaseMagazine556x45mm
+  id: Magazine556x45JillEmpty
+  name: "GS-007 belt (5.56x45mm any)"
+  suffix: empty
+  components:
+  - type: Tag
+    tags:
+    - JillBackpackAmmo
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,4
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - Cartridge556x45mmFMJ
+    capacity: 840
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Magazine/5.56x45mm/jill_ammo_belt.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-7
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 8
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: Magazine556x45JillEmpty
+  id: Magazine556x45JillFMJ
+  name: "GS-007 belt (5.56x45mm FMJ)"
+  suffix: full
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge556x45mmFMJ
