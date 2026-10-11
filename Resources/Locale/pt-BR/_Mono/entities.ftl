@@ -3455,10 +3455,10 @@ ent-TechDiskTSFLecter = disco de tecnologia de facção Lecter TSF
     .desc = Um disco capaz de adicionar o QBZ-410 Lecter e sua munição às receitas de um servidor, para techfabs de facção.
 
 ent-TechDiskUniversalShipAmmo = disco de tecnologia de facção de munição universal de nave
-    .desc = Um disco capaz de adicionar projéteis de 150mm, cartuchos M381 e torpedos ASM-220 às receitas de um servidor, para techfabs de facção.
+    .desc = Um disco capaz de adicionar projéteis de 90x630, cartuchos M381 e torpedos ASM-220 às receitas de um servidor, para techfabs de facção.
 
 ent-TechDiskUniversalShipAmmoAdvanced = disco de tecnologia de facção de munição universal de nave avançada
-    .desc = Um disco capaz de adicionar projéteis de 150mm, cartuchos M381 e torpedos ASM-220 às receitas de um servidor, para techfabs de facção. Este também tem coisas avançadas!
+    .desc = Um disco capaz de adicionar projéteis de 90x630, cartuchos M381 e torpedos ASM-220 às receitas de um servidor, para techfabs de facção. Este também tem coisas avançadas!
 
 # From: _Mono/Entities/Objects/Specific/Science/TechDisks/tech_disks_language.yml
 
@@ -5674,7 +5674,7 @@ ent-WeaponLauncherMPSSM = lança mísseis NT-WS SM-27 MPSSM
 ent-CyborgWeaponMinigun = minigun de ciborgue
     .desc = Antiga rotary mini-gun altamente imprecisa com calibre pequeno.
 
-ent-WeaponDP29 = NCI DP-29 # keep as is
+ent-WeaponDP29 = NCI DP-29
     .desc = Um pilar da doutrina militar da USSP, o DP-29 é uma metralhadora leve produzida em massa projetada para confiabilidade, facilidade de uso e resistência no campo de batalha. Com um carregador rotativo montado no topo distinto e um bipé dobrável, o DP-29 é excelente em fornecer fogo de supressão tanto em cenários de combate urbano quanto aberto. Embora seu design date de décadas atrás, sua confiabilidade e facilidade de manutenção o tornam um favorito entre os esquadrões de infantaria da USSP.
 
 ent-WeaponLMGGrizzly = TCA QJY-68 Grizzly (6.8x52mm sem estojo)
@@ -6034,15 +6034,15 @@ ent-CharonSubnuclearSlugAmmo = cartucho de projétil nuclear M381 CHARON 280mm 1
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Kinetic/Cartridge/tarnyx_150mm_ammo.yml
 
-ent-150mmApShell = cartucho perfurante de 150mm
-    .desc = Um cartucho perfurante propelido quimicamente, para canhões de 150mm. Não é muito bom, pois a maioria dos canhões de 150mm são otimizados para cartuchos EMP. É uma gambiarra, e certamente não passaria em uma inspeção da TSFN.
+ent-150mmApShell = cartucho perfurante de 90x630
+    .desc = Um cartucho perfurante propelido quimicamente, para canhões de 90x630. Não é muito bom, pois a maioria dos canhões de 90x630 são otimizados para cartuchos EMP. É uma gambiarra, e certamente não passaria em uma inspeção da TSFN.
 
-ent-150mmEmpShell = cartucho EMP de 150mm
-    .desc = Um cartucho EMP propelido quimicamente, usado em canhões de 150mm como o TARNYX. Nada de extravagante.
+ent-150mmEmpShell = cartucho EMP de 90x630
+    .desc = Um cartucho EMP propelido quimicamente, usado em canhões de 90x630 como o TARNYX. Nada de extravagante.
 
-ent-ShipTarnyxApProjectile = projétil perfurante TARNYX 150mm
+ent-ShipTarnyxApProjectile = projétil perfurante TARNYX 90x630
 
-ent-ShipTarnyxProjectile = projétil EMP TARNYX 150mm
+ent-ShipTarnyxProjectile = projétil EMP TARNYX 90x630
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Kinetic/charon_launcher.yml
 
@@ -6228,7 +6228,7 @@ ent-WeaponTurretLeviathan = obus 520mm LEVIATHAN
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Kinetic/tarnyx_launcher.yml
 
-ent-WeaponTurretTarnyx = canhão 150mm EMP ADBX-31 TARNYX
+ent-WeaponTurretTarnyx = canhão 90x630 EMP ADBX-31 TARNYX
     .suffix = Station, Recharging Ammo, EMP
     .desc = Um canhão EMP pesado feito pela Aetherion Dynamics, projetado para desabilitar grandes seções de naves inimigas com um único e poderoso disparo. Efetivo em combate assimétrico. Pode ser ativado remotamente ou conectado a um GCS.
 
@@ -6291,14 +6291,14 @@ ent-ShipMissileASM220LOSAT = hiperpenetrador ASM-220 LOSAT
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Missile/Cartridge/vanyk_ammo.yml
 
-ent-VanquisherMagazine = carregador automático de míssil HE de 150mm Vanquisher
+ent-VanquisherMagazine = carregador automático de míssil HE de 90x630 Vanquisher
 
-ent-VanykCartridge = míssil HEAT de 150mm
+ent-VanykCartridge = míssil HEAT de 90x630
     .desc = Um míssil HEAT ASM-150 individual usado no Vanyk.
 
-ent-VanykCartridgeUnguided = míssil HEAT não guiado de 150mm
+ent-VanykCartridgeUnguided = míssil HEAT não guiado de 90x630
 
-ent-VanykMagazine = carregador automático de míssil HE de 150mm Vanyk
+ent-VanykMagazine = carregador automático de míssil HE de 90x630 Vanyk
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Missile/Cartridge/vespera_ammo.yml
 
@@ -6337,9 +6337,9 @@ ent-WeaponTurretPaladin = casulo de mísseis MLRS-382 "Paladin"
 
 ent-MissileProjectile50mmHE = Míssil Mini ASM-50 50mm
 
-ent-ShipMissileASM150 = míssil ASM-150 150mm
+ent-ShipMissileASM150 = míssil ASM-150 90x630
 
-ent-ShipMissileASM150Unguided = míssil ASM-150 150mm
+ent-ShipMissileASM150Unguided = míssil ASM-150 90x630
 
 ent-ShipMissileASM250 = Míssil Híbrido EMP ASM-250
 
@@ -6363,12 +6363,12 @@ ent-WeaponTurretASM220 = rack de torpedo ASM-220 "Trident"
 
 ent-WeaponTurretVanquisher = casulo de mísseis SRM-573 "Vanquisher"
     .suffix = Large, T4
-    .desc = Um pod de míssil de curto alcance disparando foguetes não guiados de 150mm com cadência devastadora.
+    .desc = Um pod de míssil de curto alcance disparando foguetes não guiados de 90x630 com cadência devastadora.
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Missile/vanyk_launcher.yml
 
 ent-WeaponTurretVanyk = casulo de mísseis ASM-150 "Vanyk"
-    .desc = Um pod de míssil de escolta fabricado pela Aetherion Dynamics. Lança mísseis guiados de 150mm para combate básico navio-a-navio e negação de área. Usa um autoloader embutido em vez de um rack, aumentando a capacidade mas reduzindo a taxa de fogo. Pode ser ativado remotamente ou conectado a um GCS.
+    .desc = Um pod de míssil de escolta fabricado pela Aetherion Dynamics. Lança mísseis guiados de 90x630 para combate básico navio-a-navio e negação de área. Usa um autoloader embutido em vez de um rack, aumentando a capacidade mas reduzindo a taxa de fogo. Pode ser ativado remotamente ou conectado a um GCS.
 
 # From: _Mono/Entities/SpaceArtillery/SpaceArtillery/Missile/vespera_launcher.yml
 
@@ -6675,6 +6675,10 @@ ent-ResearchAndDevelopmentServerUssp = servidor de P&D USSP
 
 ent-ComputerGunneryConsole = console de controle de artilharia
     .desc = Interface com o servidor de controle de artilharia para operar armas de navio.
+
+ent-ComputerTabletopGunneryConsole = {ent-ComputerGunneryConsole}
+    .desc = {ent-ComputerGunneryConsole.desc}
+    .suffix = Mesa
 
 ent-GunneryServerBase = server de controle de armamentos
     .desc = Gerencia a operação remota de armas de navio.
@@ -7023,10 +7027,10 @@ ent-WallArmorAddonSolidCornerR = canto de blindagem sólida
 
 # From: _Mono/Entities/Structures/Wallmounts/Signs/emblems.yml
 
-ent-EmblemBrokenDrakeIndustries = Bits de metal prateado
+ent-EmblemBrokenDrakeIndustries = Pedaços de metal prateado
     .desc = Algumas lascas de metal estilhaçado entrelaçadas com marcas de solda, revelando algumas ligas vermelhas pálidas baratas sob uma fina camada prateada.
 
-ent-EmblemBrokenSteelHammer = Bits de metal prateado
+ent-EmblemBrokenSteelHammer = Pedaços de metal prateado
     .desc = Algumas lascas de tinta lascada e metal estilhaçado, os remanescentes de um símbolo de plasteel.
 
 ent-EmblemDrakeIndustries = Emblema Drake Industries
@@ -7086,19 +7090,19 @@ ent-WallSolidChitinMonolithic = tenebris monolítico
 
 # From: _Mono/Entities/Structures/windows.yml
 
-ent-PlasturaniumWindowDiagonalRadProof = janela de plasturanio
+ent-PlasturaniumWindowDiagonalRadProof = janela de plastiurânio
     .suffix = Rad-Proof
     .desc = Não manche os rads aí embaixo.
 
-ent-PlasturaniumWindowDiagonalRadProofIndestructible = janela de plasturanio
+ent-PlasturaniumWindowDiagonalRadProofIndestructible = janela de plastiurânio
     .suffix = Rad-Proof, Indestrutível
     .desc = Não manche os rads aí embaixo.
 
-ent-PlasturaniumWindowRadProof = janela de plasturanio
+ent-PlasturaniumWindowRadProof = janela de plastiurânio
     .suffix = Rad-Proof
     .desc = Não manche os rads aí embaixo.
 
-ent-PlasturaniumWindowRadProofIndestructible = janela de plasturanio
+ent-PlasturaniumWindowRadProofIndestructible = janela de plastiurânio
     .suffix = Rad-Proof, Indestrutível
     .desc = Não manche os rads aí embaixo.
 
@@ -7233,11 +7237,15 @@ ent-SyringeCaseAltFilled = {ent-SyringeCaseAlt}
 
 ent-WeaponCaseHeavyAmmo150AP = {ent-WeaponCaseHeavyAmmo}
     .desc = {ent-WeaponCaseHeavyAmmo.desc}
-    .suffix = Pesado, navio, 150mm perfurante
+    .suffix = Pesado, navio, 90x630 perfurante
 
 ent-WeaponCaseHeavyAmmo150EMP = {ent-WeaponCaseHeavyAmmo}
     .desc = {ent-WeaponCaseHeavyAmmo.desc}
-    .suffix = Pesado, nave, 150mm EMP
+    .suffix = Pesado, nave, 90x630 EMP
+
+ent-WeaponCaseHeavyAmmo150APHE = {ent-WeaponCaseHeavyAmmo}
+    .desc = {ent-WeaponCaseHeavyAmmo.desc}
+    .suffix = Pesado, nave, 90x630 APHE
 
 ent-WeaponCaseAbielle = {ent-WeaponCaseLong}
     .desc = {ent-WeaponCaseLong.desc}
@@ -9960,24 +9968,24 @@ ent-MobHumanoidHostileBaseShade = sombra desgarrada
     .desc = Algo grandioso foi perdido.
 
 ent-MobBoomroach = Boomroach
-    .desc = Esta pequena mariposa-barata tem um chinalake amarrado nas costas! Por quê e como?
+    .desc = Esta pequena baraposa tem um chinalake amarrado nas costas! Por quê e como?
 
 ent-MobImperiRoach = ImperiRoach
     .desc = Membro de elite reaproveitado e altamente treinado da PDV, cuidado com a personalidade explosiva
 
 ent-MobMoproach = moproach
-    .desc = Esta pequena mariposa-barata tem chinelos de esfregão nos pés! Que adorável!
+    .desc = Esta pequena baraposa tem chinelos de esfregão nos pés! Que adorável!
 
-ent-MobMothroachCecropia = mariposa-barata cecropia
+ent-MobMothroachCecropia = baraposa cecropia
     .desc = Um resultado encantador de inúmeras tentativas de cruzar um gênero da família das urtigas com baratas.
 
-ent-MobMothroachLeopard = mariposa-barata leopardo
+ent-MobMothroachLeopard = baraposa leopardo
     .desc = Um resultado encantador de inúmeras tentativas de cruzar insetos com predadores.
 
-ent-MobMothroachLunar = mariposa-barata lunar
+ent-MobMothroachLunar = baraposa lunar
     .desc = Alguém deixou a mariposa sob o luar.
 
-ent-MobMothroachMustard = mariposa-barata de mostarda
+ent-MobMothroachMustard = baraposa de mostarda
     .desc = Um resultado delicioso dos melhores chefes do setor cruzando carne com molho.
 
 ent-MobOwORoach = OwOroach
@@ -9986,22 +9994,22 @@ ent-MobOwORoach = OwOroach
 ent-FoodBurgerBoomRoach = hambúrguer de boomroach
     .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
 
-ent-FoodBurgerCecropiaMothRoach = hambúrguer de mariposa-barata cecropia
+ent-FoodBurgerCecropiaMothRoach = hambúrguer de baraposa cecropia
     .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
 
 ent-FoodBurgerImperiRoach = hambúrguer de ImperiRoach
     .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
 
-ent-FoodBurgerLeopardMothRoach = hambúrguer de mariposa-barata leopardo
+ent-FoodBurgerLeopardMothRoach = hambúrguer de baraposa leopardo
     .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
 
-ent-FoodBurgerLunarMothRoach = hambúrguer de mariposa-barata lunar
+ent-FoodBurgerLunarMothRoach = hambúrguer de baraposa lunar
     .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
 
 ent-FoodBurgerMopRoach = hambúrguer de moproach
     .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
 
-ent-FoodBurgerMustardMothRoach = hambúrguer de mariposa-barata de mostarda
+ent-FoodBurgerMustardMothRoach = hambúrguer de baraposa de mostarda
     .desc = A última lâmpada que ele viu foi a de dentro do micro-ondas.
 
 ent-FoodBurgerOwORoach = hambúrguer de OwOroach

@@ -29,7 +29,7 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Shiv-desc # Andromeda: Localize ship name and desc
+        description: "Uma nave tão desgastada que você ainda consegue ver a marca que a radiação deixou mesmo depois da tinta nova." # Andromeda: Traduzir descrições de nave
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Shiv TSF{1}'

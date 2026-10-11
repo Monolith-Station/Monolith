@@ -35,6 +35,32 @@ ghost-role-information-mouse-description = Um camundongo faminto e travesso.
 ghost-role-information-mothroach-name = Baraposa
 ghost-role-information-mothroach-description = Uma baraposa fofa, mas travessa.
 
+ghost-role-information-moproach-name = Bararodo
+ghost-role-information-moproach-description = Uma baraposa fofa com calçados de rodo ainda mais fofos em seus pés.
+
+ghost-role-information-oworoach-name = OwOroach
+ghost-role-information-oworoach-description = Uma baraposa fofa, mas travessa. Personalidade explosiva.
+
+ghost-role-information-imperiroach-name = ImperiPosa
+ghost-role-information-imperiroach-description = Pet altamente treinado e fiel de um operativo da PDV equipado com uma microbomba. Sirva seu mestre até a morte!
+ghost-role-information-imperiroach-rules = Você é do [color=red][bold]Time PDV[/bold][/color], trabalhe com o agente que te invocou.
+
+ghost-role-information-boomroach-name = BoomRoach
+ghost-role-information-boomroach-description = Tecnologia de ponta do Alto Comando TSF, ou possivelmente um palhaço com uma garrafa de cola.
+ghost-role-information-boomroach-rules = Você é do [color=red][bold]Time TSF[/bold][/color], trabalhe com o agente que te invocou.
+
+ghost-role-information-mothroachmustard-name = baraposa de mostarda
+ghost-role-information-mothroachmustard-description = Um deleite que resultou dos chefs do mundo juntando carne com molho.
+
+ghost-role-information-mothroachleopard-name = baraposa leoparda
+ghost-role-information-mothroachleopard-description = Um resultado charmoso de várias tentativas de cruzar insetos com predadores.
+
+ghost-role-information-mothroachcecropia-name = baraposa cecropia
+ghost-role-information-mothroachcecropia-description = Um resultado charmoso de várias tentativas de cruzar o gene de urtigas com baratas.
+
+ghost-role-information-mothroachlunar-name = baraposa lunar
+ghost-role-information-mothroachlunar-description = Alguém esqueceu a baraposa debaixo da lua.
+
 ghost-role-information-snail-name = Caracol
 ghost-role-information-snail-description = Um pequeno caracol que não se importa com um pouco de espaço. Apenas fique na grade!
 

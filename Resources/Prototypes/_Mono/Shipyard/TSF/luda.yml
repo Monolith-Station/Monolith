@@ -30,8 +30,8 @@
       stationProto: StandardFrontierSecurityVessel
       gridComponents:
       - type: VesselInfo
-        description: "Revelations, 0-1: “Look to the sky!” the unknowing ones chanted, looking at the skies.
-                      A brilliant streak of white light and plasma lit up the night and dark sky like a false star." # This is what we have a lore advisor for.
+        description: 'Revelações, 0-1: "Olhe ao céu!", os despercebidos cantam, olhando para os céus.
+                      Uma rajada brilhante de luz branca e plasma acende a noite e o céu escuro como uma estrela falsa.' # This is what we have a lore advisor for.
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Luda TSFN{1}'

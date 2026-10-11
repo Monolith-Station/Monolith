@@ -4360,6 +4360,112 @@ ent-UraniumOre5 = {ent-UraniumOre}
     .desc = {ent-UraniumOre.desc}
     .suffix = 5
 
+ent-WeaponCaseShortAmmoBoxLethal20 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxBigLethal20 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxRubber20 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxBigRubber20 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxPractice20 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxIncendiary20 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxUranium20 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxLethal30 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxBigLethal30 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxRubber30 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxPractice30 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxIncendiary30 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxUranium30 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxLethal35 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxRubber35 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxPractice35 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxIncendiary35 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxUranium35 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxEmp35 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxLethal25 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxBigLethal25 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxRubber25 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxBigRubber25 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxPractice25 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxRubberShotgun = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxPracticeShotgun = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxIncendiaryShotgun = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxUraniumShotgun = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxSlugShotgun = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxFlareShotgun = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxLethal45 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxRubber45 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxPractice45 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxIncendiary45 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+ent-WeaponCaseShortAmmoBoxUranium45 = {ent-WeaponCaseShortAmmo}
+    .desc = {ent-WeaponCaseShortAmmo.desc}
+
+
 # From: _NF/Entities/Objects/Materials/Sheets/other.yml
 
 ent-SheetPlastic5 = plástico
@@ -5352,6 +5458,8 @@ ent-WeaponCaseShortDocuments = estojo de documentos
 ent-WeaponCaseShortExplosives = estojo de explosivos
     .suffix = Curto
     .desc = Um estojo reforçado para armazenar explosivos.
+
+# From: _NF/Catalog/Fills/Items/weapon_cases_expeditions.yml
 
 # From: _NF/Entities/Objects/Tools/access_configurator.yml
 
@@ -6409,6 +6517,66 @@ ent-AirlockGlassMurkyDungeon = {ent-AirlockGlass}
     .suffix = Apenas Masmorra, NÃO MAPEAR
     .desc = Um airlock com janelas de vidro turvo, é difícil ver o que tem do outro lado.
 
+ent-AirlockGlassDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockMaintGlassLockedDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockEngineeringGlassDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockEngineeringGlassLockedDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockSecurityGlassDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockSecurityGlassLockedDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockBrigGlassLockedDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockMiningGlassDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockMiningGlassLockedDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockVirologyGlassDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockVirologyGlassLockedDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockMercenaryGlassDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockMercenaryGlassLockedDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockScienceGlassLockedDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
+ent-AirlockHydroGlassLockedDungeon = {ent-AirlockGlassMurkyDungeon}
+    .desc = {ent-AirlockGlassMurkyDungeon.desc}
+    .suffix = (ent-AirlockGlassMurkyDungeon.suffix)
+
 # From: _NF/Entities/Structures/Dungeon/grille.yml
 
 ent-GrilleDungeon = {ent-Grille}
@@ -6422,6 +6590,42 @@ ent-WindoorMurkyDungeon = {ent-Windoor}
     .suffix = Apenas Masmorra, NÃO MAPEAR
     .desc = Uma porta-vidro com vidro turvo, é difícil ver o que tem do outro lado.
 
+ent-WindoorDungeon = {ent-WindoorMurkyDungeon}
+    .desc = {ent-WindoorMurkyDungeon.desc}
+    .suffix = {ent-WindoorMurkyDungeon.suffix}
+
+ent-WindoorSecureDungeon = {ent-WindoorMurkyDungeon}
+    .desc = {ent-WindoorMurkyDungeon.desc}
+    .suffix = {ent-WindoorMurkyDungeon.suffix}
+
+ent-WindoorSecureEngineeringLockedDungeon = {ent-WindoorMurkyDungeon}
+    .desc = {ent-WindoorMurkyDungeon.desc}
+    .suffix = {ent-WindoorMurkyDungeon.suffix}
+
+ent-WindoorSecureBrigLockedDungeon = {ent-WindoorMurkyDungeon}
+    .desc = {ent-WindoorMurkyDungeon.desc}
+    .suffix = {ent-WindoorMurkyDungeon.suffix}
+
+ent-WindoorSecureMedicalLockedDungeon = {ent-WindoorMurkyDungeon}
+    .desc = {ent-WindoorMurkyDungeon.desc}
+    .suffix = {ent-WindoorMurkyDungeon.suffix}
+
+ent-WindoorSecureSecurityLockedDungeon = {ent-WindoorMurkyDungeon}
+    .desc = {ent-WindoorMurkyDungeon.desc}
+    .suffix = {ent-WindoorMurkyDungeon.suffix}
+
+ent-WindoorSecureMercenaryLockedDungeon = {ent-WindoorMurkyDungeon}
+    .desc = {ent-WindoorMurkyDungeon.desc}
+    .suffix = {ent-WindoorMurkyDungeon.suffix}
+
+ent-WindoorPlasmaDungeon = {ent-WindoorPlasma}
+    .desc = {ent-WindoorMurkyDungeon.desc}
+    .suffix = {ent-WindoorMurkyDungeon.suffix}
+
+ent-WindoorSecurePlasmaDungeon = {ent-WindoorSecurePlasma}
+    .desc = {ent-WindoorMurkyDungeon.desc}
+    .suffix = {ent-WindoorMurkyDungeon.suffix}
+
 # From: _NF/Entities/Structures/Dungeon/windows.yml
 # Abstract entity (referenceable by children)
 
@@ -6434,6 +6638,54 @@ ent-WindowDirectionalMurkyDungeon = {ent-WindowDirectional}
 ent-WindowMurkyDungeon = {ent-Window}
     .suffix = Apenas Masmorra, NÃO MAPEAR
     .desc = Uma janela de vidro turvo, é difícil ver o que tem do outro lado.
+
+ent-WindowDungeon = {ent-WindowMurkyDungeon}
+    .desc = {ent-WindowMurkyDungeon.desc}
+    .suffix = {ent-WindowMurkyDungeon.suffix}
+
+ent-ReinforcedWindowDungeon = {ent-WindowMurkyDungeon}
+    .desc = {ent-WindowMurkyDungeon.desc}
+    .suffix = {ent-WindowMurkyDungeon.suffix}
+
+ent-PlasmaWindowDungeon = {ent-PlasmaWindow}
+    .desc = {ent-WindowMurkyDungeon.desc}
+    .suffix = {ent-WindowMurkyDungeon.suffix}
+
+ent-ReinforcedPlasmaWindowDungeon = {ent-ReinforcedPlasmaWindow}
+    .desc = {ent-WindowMurkyDungeon.desc}
+    .suffix = {ent-WindowMurkyDungeon.suffix}
+
+ent-ReinforcedUraniumWindowDungeon = {ent-ReinforcedUraniumWindow}
+    .desc = {ent-WindowMurkyDungeon.desc}
+    .suffix = {ent-WindowMurkyDungeon.suffix}
+
+ent-WindowDirectionalDungeon = {ent-WindowDirectionalMurkyDungeon}
+    .desc = {ent-WindowDirectionalMurkyDungeon.desc}
+    .suffix = {ent-WindowDirectionalMurkyDungeon.suffix}
+
+ent-WindowFrostedDirectionalDungeon = {ent-WindowFrostedDirectional}
+    .desc = {ent-WindowDirectionalMurkyDungeon.desc}
+    .suffix = {ent-WindowDirectionalMurkyDungeon.suffix}
+
+ent-WindowReinforcedDirectionalDungeon = {ent-WindowReinforcedDirectional}
+    .desc = {ent-WindowDirectionalMurkyDungeon.desc}
+    .suffix = {ent-WindowDirectionalMurkyDungeon.suffix}
+
+ent-PlasmaWindowDirectionalDungeon = {ent-PlasmaWindowDirectional}
+    .desc = {ent-WindowDirectionalMurkyDungeon.desc}
+    .suffix = {ent-WindowDirectionalMurkyDungeon.suffix}
+
+ent-PlasmaReinforcedWindowDirectionalDungeon = {ent-PlasmaReinforcedWindowDirectional}
+    .desc = {ent-WindowDirectionalMurkyDungeon.desc}
+    .suffix = {ent-WindowDirectionalMurkyDungeon.suffix}
+
+ent-UraniumWindowDirectionalDungeon = {ent-UraniumWindowDirectional}
+    .desc = {ent-WindowDirectionalMurkyDungeon.desc}
+    .suffix = {ent-WindowDirectionalMurkyDungeon.suffix}
+
+ent-UraniumReinforcedWindowDirectionalDungeon = {ent-UraniumReinforcedWindowDirectional}
+    .desc = {ent-WindowDirectionalMurkyDungeon.desc}
+    .suffix = {ent-WindowDirectionalMurkyDungeon.suffix}
 
 # From: _NF/Entities/Structures/Furniture/altar_frame.yml
 
@@ -6821,6 +7073,9 @@ ent-PoweredStrobeSodiumEnabled = {ent-PoweredStrobeLightEmpty}
 ent-ComputerShipyardBase = console de estaleiro
     .desc = Usado para comprar e vender naves
 
+ent-ComputerShipyard = console de estaleiro
+    .desc = Usado para comprar e vender naves
+
 ent-ComputerShipyardBlackMarket = console de estaleiro PDV
     .desc = Usado para comprar naves PDV.
 
@@ -6856,8 +7111,60 @@ ent-ComputerShuttleRecordsBase = console de registros de naves
 
 ent-BaseComputerTabletopStationAdminBankATM = console de administração da estação
 
+ent-ComputerTabletopAdvancedRadar = {ent-ComputerAdvancedRadar}
+    .desc = {ent-ComputerAdvancedRadar.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopAlert = {ent-ComputerAlert}
+    .desc = {ent-ComputerAlert.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopAnalysisConsole = {ent-ComputerAnalysisConsole}
+    .desc = {ent-ComputerAnalysisConsole.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopBodyScanner = {ent-computerBodyScanner}
+    .desc = {ent-computerBodyScanner.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopCargoBounty = {ent-ComputerCargoBounty}
+    .desc = {ent-ComputerCargoBounty.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopCargoOrders = {ent-ComputerCargoOrders}
+    .desc = {ent-ComputerCargoOrders.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopCloningConsole = {ent-ComputerCloningConsole}
+    .desc = {ent-ComputerCloningConsole.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopComms = {ent-ComputerComms}
+    .desc = {ent-ComputerComms.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopContrabandPalletConsole = {ent-ComputerContrabandPalletConsole}
+    .desc = {ent-ComputerContrabandPalletConsole.desc}
+    .suffix = Mesa
+
 ent-ComputerTabletopContrabandPalletConsolePirate = {ent-ComputerContrabandPalletConsolePirate}
     .desc = {ent-ComputerContrabandPalletConsolePirate.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopCrewMonitoring = {ent-ComputerCrewMonitoring}
+    .desc = {ent-ComputerCrewMonitoring.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopCriminalRecords = {ent-ComputerCriminalRecords}
+    .desc = {ent-ComputerCriminalRecords.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopId = {ent-ComputerId}
+    .desc = {ent-ComputerId.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopIFF = {ent-ComputerIFF}
+    .desc = {ent-ComputerIFF.desc}
     .suffix = Mesa
 
 ent-ComputerTabletopIFFPOI = {ent-ComputerIFFPOI}
@@ -6867,6 +7174,14 @@ ent-ComputerTabletopIFFPOI = {ent-ComputerIFFPOI}
 ent-ComputerTabletopIFFSyndicate = {ent-ComputerIFFSyndicate}
     .desc = {ent-ComputerIFFSyndicate.desc}
     .suffix = Sindicato, Mesa
+
+ent-ComputerTabletopMassMedia = {ent-ComputerMassMedia}
+    .desc = {ent-ComputerMassMedia.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopMedicalRecords = {ent-ComputerMedicalRecords}
+    .desc = {ent-ComputerMedicalRecords.desc}
+    .suffix = Mesa
 
 ent-ComputerTabletopMarketConsoleNFHigh = {ent-ComputerMarketConsoleNFHigh}
     .desc = {ent-ComputerMarketConsoleNFHigh.desc}
@@ -6904,6 +7219,30 @@ ent-ComputerTabletopPirateBountyRedemption = {ent-ComputerPirateBountyRedemption
     .desc = {ent-ComputerPirateBountyRedemption.desc}
     .suffix = Mesa
 
+ent-ComputerTabletopPowerMonitoring = {ent-ComputerPowerMonitoring}
+    .desc = {ent-ComputerPowerMonitoring.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopRadar = {ent-ComputerRadar}
+    .desc = {ent-ComputerRadar.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopResearchAndDevelopment = {ent-ComputerResearchAndDevelopment}
+    .desc = {ent-ComputerResearchAndDevelopment.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopSalvageExpedition = {ent-ComputerSalvageExpedition}
+    .desc = {ent-ComputerSalvageExpedition.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopShuttle = {ent-ComputerShuttle}
+    .desc = {ent-ComputerShuttle.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopShuttleAntag = {ent-ComputerShuttle}
+    .desc = {ent-ComputerShuttle.desc}
+    .suffix = Mesa
+
 ent-ComputerTabletopShuttleFrontierOutpostLocal = {ent-ComputerShuttleFrontierOutpostLocal}
     .desc = {ent-ComputerShuttleFrontierOutpostLocal.desc}
     .suffix = Local, Mesa
@@ -6920,6 +7259,10 @@ ent-ComputerTabletopShuttleTradeOutpostRemote = {ent-ComputerShuttleTradeOutpost
     .desc = {ent-ComputerShuttleTradeOutpostRemote.desc}
     .suffix = Remoto, Mesa
 
+ent-ComputerTabletopSolarControl = {ent-ComputerSolarControl}
+    .desc = {ent-ComputerSolarControl.desc}
+    .suffix = Mesa
+
 ent-ComputerTabletopStationAdminBankATMFrontier = {ent-BaseComputerTabletopStationAdminBankATM}
     .suffix = Fronteira, Mesa
     .desc = Usado para transferir fundos da conta bancária do Posto Colonial
@@ -6931,6 +7274,48 @@ ent-ComputerTabletopStationAdminBankATMMedical = {ent-BaseComputerTabletopStatio
 ent-ComputerTabletopStationAdminBankATMNfsd = {ent-BaseComputerTabletopStationAdminBankATM}
     .suffix = TSFMC, Mesa
     .desc = Usado para transferir fundos da conta bancária do TSFMC-FOB
+
+ent-ComputerTabletopStationRecords = {ent-ComputerStationRecords}
+    .desc = {ent-ComputerStationRecords.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopSurveillanceCameraMonitor = {ent-ComputerSurveillanceCameraMonitor}
+    .desc = {ent-ComputerSurveillanceCameraMonitor.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopSurveillanceWirelessCameraMonitor = {ent-ComputerSurveillanceWirelessCameraMonitor}
+    .desc = {ent-ComputerSurveillanceWirelessCameraMonitor.desc}
+    .suffix = Mesa
+
+ent-SyndicateComputerTabletopComms = {ent-SyndicateComputerComms}
+    .desc = {ent-SyndicateComputerComms.desc}
+    .suffix = Mesa
+
+# From: _NF/Entities/Structures/Machines/Computers/computers_tabletop_shipyard.yml
+
+ent-ComputerTabletopShipyard = {ent-ComputerShipyard}
+    .desc = {ent-ComputerShipyard.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopShipyardBlackMarket = {ent-ComputerShipyardBlackMarket}
+    .desc = {ent-ComputerShipyardBlackMarket.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopShipyardExpedition = {ent-ComputerShipyardExpedition}
+    .desc = {ent-ComputerShipyardExpedition.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopShipyardNfsd = {ent-ComputerShipyardNfsd}
+    .desc = {ent-ComputerShipyardNfsd.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopShipyardScrap = {ent-ComputerShipyardScrap}
+    .desc = {ent-ComputerShipyardScrap.desc}
+    .suffix = Mesa
+
+ent-ComputerTabletopShipyardSecurity = {ent-ComputerShipyardSecurity}
+    .desc = {ent-ComputerShipyardSecurity.desc}
+    .suffix = Mesa
 
 # From: _NF/Entities/Structures/Machines/Computers/computers.yml
 
@@ -7798,14 +8183,26 @@ ent-CybersunDataMiner = dataminer da Cybersun
 # From: _NF/Entities/Structures/Specific/TradingCrates/base.yml
 # Abstract entity (referenceable by children)
 
-ent-CrateTradeBaseSecureContraband = caixa de contrabando do Sindicato
-    .desc = Contém bens feitos no setor Spinward, prontos para serem contrabandeados para um depósito de carga por lucro. CERTIFIQUE-SE DE QUE A CAIXA ESTEJA INTACTA.
+ent-CrateTradeBaseSecureContraband = caixa de suprimentos da dinastia phaethon
+    .desc = Contém uma pequena leva de suprimentos para a Vanguarda da Dinastia Phaethon, que será enviado a eles após venda em um depósito de carga. O entregador vai ser bem pago. Uma trava de segurança vai acidificar o conteúdo da caixa caso ela seja destruída.
 
 # From: _NF/Entities/Structures/Specific/TradingCrates/crates.yml
 
-ent-CrateTradeContrabandSecure4 = caixa de contrabando da Donk Co.
+ent-CrateTradeContrabandSecure1 = {ent-CrateTradeBaseSecureContraband}
+    .desc = {ent-CrateTradeBaseSecureContraband.desc}
 
-ent-CrateTradeContrabandSecure5 = caixa de contrabando da Cybersun Industries
+ent-CrateTradeContrabandSecure2 = {ent-CrateTradeBaseSecureContraband}
+    .desc = {ent-CrateTradeBaseSecureContraband.desc}
+
+ent-CrateTradeContrabandSecure3 = {ent-CrateTradeBaseSecureContraband}
+    .desc = {ent-CrateTradeBaseSecureContraband.desc}
+
+ent-CrateTradeContrabandSecure4 = {ent-CrateTradeBaseSecureContraband}
+    .desc = {ent-CrateTradeBaseSecureContraband.desc}
+
+ent-CrateTradeContrabandSecure5 = {ent-CrateTradeBaseSecureContraband}
+    .desc = {ent-CrateTradeBaseSecureContraband.desc}
+
 
 ent-CrateTradeSecureHigh = caixa de comércio de carga expresso
     .desc = Uma caixa urgente de bens feitos no setor Frontier, prontos para serem vendidos rapidamente em um depósito de carga por valor mais alto. CERTIFIQUE-SE DE QUE A CAIXA ESTEJA INTACTA.
@@ -11401,6 +11798,14 @@ ent-LockerNfsdSilverDetectiveFilled = {ent-LockerNfsdSilver}
     .desc = {ent-LockerNfsdSilver.desc}
     .suffix = Detetive, Cheio
 
+NFLockerSecurityFilled = {ent-LockerSecurityFilled}
+    .desc = {ent-LockerSecurityFilled.desc}
+    .suffix = Cheio
+
+NFClosetBombFilled = {ent-ClosetBombFilled}
+    .desc = {ent-ClosetBombFilled.desc}
+    .suffix = Cheio
+
 # From: _NF/Catalog/Fills/Lockers/service.yml
 
 ent-LockerClownFilled = {ent-LockerClown}
@@ -12414,7 +12819,7 @@ ent-ClothingNeckPublicAffairsLiaisonBadge = insígnia de liaison de assuntos pú
 
 # From: _NF/Entities/Clothing/Neck/cloaks.yml
 
-ent-ClothingNeckCloakRosy = capa da mariposa-barata Rosa
+ent-ClothingNeckCloakRosy = capa da baraposa Rosa
     .desc = Uma capa feita de rosa, fofura e barata.
 
 ent-ClothingNeckCloakSheriff = capa de coronel

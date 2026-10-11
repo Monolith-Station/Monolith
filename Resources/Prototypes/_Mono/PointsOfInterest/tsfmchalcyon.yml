@@ -44,7 +44,7 @@
       stationProto: SecurityFrontierOutpost
       gridComponents:
       - type: VesselInfo
-        description: "A mothballed battleship-turned-FOB, and Home of the TSFMC operations."
+        description: "Um encouraçado desativado transformado em base de operações, e lar para as operações da TSFMC." # Andromeda: Traduzir descrições de naves
       - type: DeleteNearbyDrones
       components:
         - type: StationNameSetup
@@ -102,7 +102,7 @@
       stationProto: SecurityFrontierOutpost
       gridComponents:
       - type: VesselInfo
-        description: "A mothballed battleship-turned-FOB, and Home of the TSFMC operations."
+        description: "Um encouraçado desativado transformado em base de operações, e lar para as operações da TSFMC." # Andromeda: Traduzir descrições de naves
       - type: Tag
         tags:
         - TsfStation

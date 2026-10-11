@@ -5,9 +5,9 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class DrillComponent : Component, ISurgeryToolComponent
 {
-    public string ToolName => "a drill";
+    public string ToolName => "furadeira"; // Andromeda: por que, deus?
     public bool? Used { get; set; } = null;
-    
+
     /// <summary>
     ///     Multiply the step's doafter by this value.
     /// </summary>

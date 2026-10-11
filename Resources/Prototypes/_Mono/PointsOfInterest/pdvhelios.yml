@@ -38,7 +38,7 @@
       stationProto: RecordsFrontierOutpostCargo
       gridComponents:
       - type: VesselInfo
-        description: poi-HeliosFortress-desc
+        description: "Uma aura imperial opressiva vagra por aqui. Glória ao Sultão." # Andromeda: Localizar descrições de POIs
       - type: JamDeathrattles
         exclusions:
         - FreelanceTrackingImplant
@@ -98,7 +98,7 @@
       stationProto: RecordsFrontierOutpostCargo
       gridComponents:
       - type: VesselInfo
-        description: poi-HeliosFortress-desc
+        description: "Uma aura imperial opressiva vagra por aqui. Glória ao Sultão." # Andromeda: Localizar descrições de POIs
       - type: Tag
         tags:
         - PdvStation

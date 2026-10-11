@@ -41,7 +41,7 @@
       stationProto: StandardFrontierOutpost
       gridComponents:
       - type: VesselInfo
-        description: "A colony ship from the Federation system, sent to the Colossus Radius for industrial expansion. Home to TSF civilians."
+        description: "Uma nave colonial do sistema da Federação, enviada ao Raio Colossus para expansão industrial. Lar para civís da TSF." # Andromeda: Traduzir descrição de naves
       components:
         - type: StationNameSetup
           mapNameTemplate: 'TSF-CIV "Stellar Blessing"'

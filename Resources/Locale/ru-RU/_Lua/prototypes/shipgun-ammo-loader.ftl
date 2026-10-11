@@ -1,15 +1,15 @@
 # Ammo Loader item info metadata for ship ammunition
 
-ent-150mmApShell = 150mm AP снаряд
-    .desc = Одиночный бронебойный 150mm снаряд для корабельной артиллерии.
+ent-150mmApShell = 90x630 AP снаряд
+    .desc = Одиночный бронебойный 90x630 снаряд для корабельной артиллерии.
     .ammo-loader-type = Боеприпас
-    .ammo-loader-caliber = 150mm AP
+    .ammo-loader-caliber = 90x630 AP
     .ammo-loader-weight = 17 кг
 
-ent-150mmEmpShell = 150mm EMP снаряд
-    .desc = Одиночный электромагнитный 150mm снаряд для корабельной артиллерии.
+ent-150mmEmpShell = 90x630 EMP снаряд
+    .desc = Одиночный электромагнитный 90x630 снаряд для корабельной артиллерии.
     .ammo-loader-type = Боеприпас
-    .ammo-loader-caliber = 150mm EMP
+    .ammo-loader-caliber = 90x630 EMP
     .ammo-loader-weight = 17 кг
 
 ent-220mmCartridgeAPHE = 220mm APHE картридж
@@ -180,16 +180,16 @@ ent-TovekCartridge = 250mm управляемая ракета
     .ammo-loader-caliber = 250mm управляемая
     .ammo-loader-weight = 27 кг
 
-ent-VanykCartridge = 150mm HEAT ракета
-    .desc = Одиночная 150mm HEAT ракета для пусковой установки Vanyk.
+ent-VanykCartridge = 90x630 HEAT ракета
+    .desc = Одиночная 90x630 HEAT ракета для пусковой установки Vanyk.
     .ammo-loader-type = Ракета
-    .ammo-loader-caliber = 150mm HEAT
+    .ammo-loader-caliber = 90x630 HEAT
     .ammo-loader-weight = 14 кг
 
-ent-VanykCartridgeUnguided = 150mm неуправляемая ракета
-    .desc = Одиночная 150mm неуправляемая ракета для пусковой установки Vanquisher.
+ent-VanykCartridgeUnguided = 90x630 неуправляемая ракета
+    .desc = Одиночная 90x630 неуправляемая ракета для пусковой установки Vanquisher.
     .ammo-loader-type = Ракета
-    .ammo-loader-caliber = 150mm неуправляемая
+    .ammo-loader-caliber = 90x630 неуправляемая
     .ammo-loader-weight = 14 кг
 
 ent-MissileCartridge50mmHE = 50mm HE ракета
@@ -330,22 +330,22 @@ ent-PaladinMagazineHVInfinite = Paladin 250mm HV автозарядник
     .ammo-loader-caliber = 250mm HV
     .ammo-loader-weight = 118 кг
 
-ent-VanquisherMagazine = Vanquisher 150mm автозарядник
-    .desc = Контейнерный 150mm ракетный автозарядник для пусковой установки Vanquisher.
+ent-VanquisherMagazine = Vanquisher 90x630 автозарядник
+    .desc = Контейнерный 90x630 ракетный автозарядник для пусковой установки Vanquisher.
     .ammo-loader-type = Контейнер
-    .ammo-loader-caliber = 150mm неуправляемая
+    .ammo-loader-caliber = 90x630 неуправляемая
     .ammo-loader-weight = 65 кг
 
-ent-VanquisherMagazineInfinite = Vanquisher 150mm автозарядник
-    .desc = Контейнерный 150mm ракетный автозарядник для пусковой установки Vanquisher.
+ent-VanquisherMagazineInfinite = Vanquisher 90x630 автозарядник
+    .desc = Контейнерный 90x630 ракетный автозарядник для пусковой установки Vanquisher.
     .ammo-loader-type = Контейнер
-    .ammo-loader-caliber = 150mm неуправляемая
+    .ammo-loader-caliber = 90x630 неуправляемая
     .ammo-loader-weight = 65 кг
 
-ent-VanykMagazine = Vanyk 150mm HE автозарядник
-    .desc = Контейнерный 150mm HE ракетный автозарядник для пусковой установки Vanyk.
+ent-VanykMagazine = Vanyk 90x630 HE автозарядник
+    .desc = Контейнерный 90x630 HE ракетный автозарядник для пусковой установки Vanyk.
     .ammo-loader-type = Контейнер
-    .ammo-loader-caliber = 150mm HEAT
+    .ammo-loader-caliber = 90x630 HEAT
     .ammo-loader-weight = 60 кг
 
 ent-MissileMagazine50mmHE = Vespera 50mm HE автозарядник

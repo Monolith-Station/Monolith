@@ -26,6 +26,7 @@ shipyard-console-no-voucher-redemptions = Todos os resgates de vale foram usados
 shipyard-console-invalid-voucher-type = Este vale não pode ser usado neste console.
 shipyard-console-denied = Você não pode comprar essa nave neste momento.
 shipyard-console-limited = Há muitas naves ativas deste tipo, tente novamente mais tarde!
+shipyard-console-timelock = Você é incapaz de mobilizar essa nave neste momento.
 
 shipyard-console-contraband-onboard = Contrabando contrabandeado detectado a bordo.
 shipyard-console-station-resources = Recursos vitais da estação detectados a bordo.
@@ -79,6 +80,15 @@ shipyard-console-class-Corvette = Corveta
 shipyard-console-class-Frigate = Fragata
 shipyard-console-class-Destroyer = Contratorpedeiro
 shipyard-console-class-Cruiser = Cruzador
+shipyard-console-class-Escort = Escolta
+shipyard-console-class-Brawler = Brawler
+shipyard-console-class-MissileCarrier = Porta-mísseis AAM
+shipyard-console-class-AntiShipMissileCarrier = Porta-mísseis AShM
+shipyard-console-class-Carrier = Porta-aviões
+shipyard-console-class-DroneCarrier = Porta-drones
+shipyard-console-class-MechCarrier = Porta-mechas
+shipyard-console-class-EarlyWarning = Alerta Antecipado
+shipyard-console-class-Stealth = Furtiva
 # Mono changes end
 
 shipyard-console-engine-All = Todos

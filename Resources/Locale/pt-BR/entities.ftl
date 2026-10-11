@@ -5337,7 +5337,7 @@ ent-EnergyCautery = ferramenta de cauterização
 ent-EnergyScalpel = bisturi de energia
     .desc = Um bisturi que usa uma lâmina de energia, também serve como serra em seu estado energizado.
 
-ent-Hemostat = hemostata
+ent-Hemostat = hemostato
     .desc = Uma ferramenta cirúrgica usada para comprimir vasos sanguíneos para prevenir sangramento.
 
 ent-OmnimedTool = multitool médico
@@ -9388,24 +9388,102 @@ ent-SS13Memorial = túmulo do funcionário desconhecido
 
 # From: Entities/Structures/Furniture/potted_plants.yml
 
+ent-PottedPlant0 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant1 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant2 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant3 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant4 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant5 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant6 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant7 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant8 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
 ent-PottedPlant10 = {ent-PottedPlantBase}
     .desc = Uma linda peça da natureza contida em um vaso.
+
+ent-PottedPlant11 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant12 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant13 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant14 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant15 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant16 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant17 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant18 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant19 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant20 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant21 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant22 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant23 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant24 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
 
 ent-PottedPlant26 = {ent-PottedPlantBase}
     .desc = São apenas meus olhos, ou ela está piscando?
 
-ent-PottedPlant27 = planta em vaso de plástico
+ent-PottedPlant27 = vaso de planta de plástico
     .desc = Uma árvore de plástica falsa e barata. Perfeita para pessoas que matam toda planta que tocam.
+
+ent-PottedPlant28 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant29 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
+
+ent-PottedPlant30 = {ent-PottedPlantBase}
+    .desc = {ent-PottedPlantBase.desc}
 
 # Abstract entity (referenceable by children)
 
-ent-PottedPlantBase = planta em vaso
+ent-PottedPlantBase = vaso de planta
     .desc = Um pouco da natureza contida em um vaso.
 
-ent-PottedPlantBioluminscent = planta em vaso bioluminescente
+ent-PottedPlantBioluminscent = vasto de planta bioluminescente
     .desc = Ela produz luz!
 
-ent-PottedPlantRD = planta em vaso do RD
+ent-PottedPlantRD = vaso de planta do RD
     .desc = Um presente da equipe botânica, apresentado após a reatribuição do RD. Há uma etiqueta que diz Voltem sempre, ouviram?\nNão parece muito saudável...
 
 # From: Entities/Structures/Furniture/rollerbeds.yml
@@ -10452,8 +10530,8 @@ ent-HolopadUnlimitedRange = holopad de emaranhamento quântico
 
 # From: Entities/Structures/Machines/hotplate.yml
 
-ent-ChemistryHotplate = chapapa
-    .desc = O descendente dos micro-ondes, nossa mais nova invenção em tecnologia de aquecimento de béqueres: a chapapa!
+ent-ChemistryHotplate = chapa quente
+    .desc = O descendente do micro-ondas, nossa mais nova invenção em tecnologia de aquecimento de béqueres: a chapa quente!
 
 # From: Entities/Structures/Machines/jukebox.yml
 
@@ -12116,6 +12194,40 @@ ent-GasCanister = cilindro de gás
 ent-GasCanisterBrokenBase = cilindro de gás quebrado
     .desc = Um cilindro de gás quebrado. Ainda não é inútil, pois pode ser recuperado por materiais de alta qualidade.
 
+ent-StorageCanisterBroken = {ent-GasCanisterBrokenBase}
+    .desc = {ent-GasCanisterBrokenBase.desc}
+
+ent-AirCanisterBroken = {ent-GasCanisterBrokenBase}
+    .desc = {ent-GasCanisterBrokenBase.desc}
+
+ent-OxygenCanisterBroken = {ent-GasCanisterBrokenBase}
+    .desc = {ent-GasCanisterBrokenBase.desc}
+
+ent-NitrogenCanisterBroken = {ent-GasCanisterBrokenBase}
+    .desc = {ent-GasCanisterBrokenBase.desc}
+
+ent-CarbonDioxideCanisterBroken = {ent-GasCanisterBrokenBase}
+    .desc = {ent-GasCanisterBrokenBase.desc}
+
+ent-PlasmaCanisterBroken = {ent-GasCanisterBrokenBase}
+    .desc = {ent-GasCanisterBrokenBase.desc}
+
+ent-TritiumCanisterBroken = {ent-GasCanisterBrokenBase}
+    .desc = {ent-GasCanisterBrokenBase.desc}
+
+ent-WaterVaporCanisterBroken = {ent-GasCanisterBrokenBase}
+    .desc = {ent-GasCanisterBrokenBase.desc}
+
+ent-AmmoniaCanisterBroken = {ent-GasCanisterBrokenBase}
+    .desc = {ent-GasCanisterBrokenBase.desc}
+
+ent-NitrousOxideCanisterBroken = {ent-GasCanisterBrokenBase}
+    .desc = {ent-GasCanisterBrokenBase.desc}
+
+ent-FrezonCanisterBroken = {ent-GasCanisterBrokenBase}
+    .desc = {ent-GasCanisterBrokenBase.desc}
+
+
 ent-LiquidCarbonDioxideCanister = cilindro de dióxido de carbono líquido
     .desc = Um cilindro que pode conter qualquer tipo de gás. Este deveria conter dióxido de carbono líquido. Pode ser anexado a portas conectoras usando uma chave inglesa.
 
@@ -12138,6 +12250,7 @@ ent-PlasmaCanister = cilindro de plasma
     .desc = Um cilindro que pode conter qualquer tipo de gás. Este deveria conter plasma. Pode ser anexado a portas conectoras usando uma chave inglesa.
 
 ent-StorageCanister = cilindro de armazenamento
+    .desc = Um cilindro que pode conter qualquer tipo de gás. Pode ser anexado a portas conectoras usando uma chave inglesa.
 
 ent-TritiumCanister = cilindro de trítio
     .desc = Um cilindro que pode conter qualquer tipo de gás. Este deveria conter trítio. Pode ser anexado a portas conectoras usando uma chave inglesa.
@@ -19428,6 +19541,9 @@ ent-ClothingNeckTieSci = gravata de cientista
 ent-ClothingOuterArmorBase = colete blindado
     .desc = Um colete blindado Tipo I padrão que oferece proteção decente contra a maioria dos tipos de dano.
 
+ent-ClothingOuterArmorBasic = {ent-ClothingOuterArmorBase}
+    .desc = {ent-ClothingOuterArmorBase.desc}
+
 ent-ClothingOuterArmorBasicSlim = colete blindado
     .suffix = slim
     .desc = Um colete blindado Tipo I slim que oferece proteção decente contra a maioria dos tipos de dano.
@@ -22357,7 +22473,7 @@ ent-MobMonkeySyndicateAgentNukeops = {ent-MobBaseSyndicateMonkey}
     .desc = {ent-MobBaseSyndicateMonkey.desc}
     .suffix = NukeOps
 
-ent-MobMothroach = mariposa-barata
+ent-MobMothroach = baraposa
     .desc = Este é o adorável subproduto de múltiplas tentativas de misturar geneticamente pessoas-mariposa com baratas.
 
 ent-MobMouse = camundongo
@@ -22684,7 +22800,7 @@ ent-MobMimic = mimic
 
 # From: Entities/Mobs/NPCs/miscellaneous.yml
 
-ent-MobLaserRaptor = raptor a laser
+ent-MobLaserRaptor = laser raptor
     .desc = Da era viking.
 
 ent-MobTomatoKiller = tomate assassino

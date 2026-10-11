@@ -59,14 +59,19 @@ ent-BaseHardpoint = Encaixe
     .desc = Um ponto para armamentos navais ancorarem nos vários sistemas de uma nave, como carregadores pneumáticos de munição ou sistemas de controle.
 
 ent-HardpointBallisticHeavy = encaixe balístico pesado
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointBallisticLight = encaixe balístico leve
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointBallisticMedium = encaixe balístico médio
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointBallisticSuperheavy = encaixe balístico superpesado
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointBallisticSuperlight = encaixe balístico superleve
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointDebugHeavy = encaixe universal pesado debug
     .desc = {ent-BaseHardpoint.desc}
@@ -89,21 +94,31 @@ ent-HardpointDebugSuperlight = encaixe universal superleve debug
     .suffix = DO NOT MAP
 
 ent-HardpointEnergyHeavy = encaixe de energia pesado
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointEnergyLight = encaixe de energia leve
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointEnergyMedium = encaixe de energia médio
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointEnergySuperheavy = encaixe de energia superpesado
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointEnergySuperlight = encaixe de energia superleve
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointMissileHeavy = encaixe de míssil pesado
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointMissileLight = encaixe de míssil leve
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointMissileMedium = encaixe de míssil médio
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointMissileSuperheavy = encaixe de míssil superpesado
+    .desc = { ent-BaseHardpoint.desc }
 
 ent-HardpointMissileSuperlight = encaixe de míssil superleve
+    .desc = { ent-BaseHardpoint.desc }

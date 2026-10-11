@@ -25,11 +25,11 @@ ent-OrganDragonLungs = pulmões de dragão
 
 ent-OrganGoliathHeart = coração de golias
 
-ent-OrganLaserEyes = olhos laser de raptr
+ent-OrganLaserEyes = olhos de laser raptor
 
-ent-OrganSpaceAnimalHeart = coração animal espacial
+ent-OrganSpaceAnimalHeart = coração de animal espacial
 
-ent-OrganSpaceAnimalLungs = pulmões animais espaciais
+ent-OrganSpaceAnimalLungs = pulmões de animal espacial
 
 # From: _Shitmed/Body/Organs/cybernetic.yml
 

@@ -31,7 +31,7 @@
       stationProto: StandardFrontierVessel
       gridComponents:
       - type: VesselInfo
-        description: vessel-Buran-desc # Andromeda: Localize ship name and desc
+        description: "Fora de data, mas ainda confiável." # Andromeda: Traduzir descrição de naves
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Buran USSP{1}'

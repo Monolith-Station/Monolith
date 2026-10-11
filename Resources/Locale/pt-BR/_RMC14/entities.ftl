@@ -6,272 +6,272 @@
 
 # From: _RMC14/Entities/Structures/Wallmounts/Signs/semiotics.yml
 
-ent-CMSemioticAirlock = placa semitica de airlock
-    .desc = Padro Semitico indicando a presena prxima de um airlock.
+ent-CMSemioticAirlock = placa semiótica de airlock
+    .desc = Placa semiótica indicando a presença próxima de um airlock.
 
-ent-CMSemioticAirtraffictower = placa semitica de torre de controle de trfego areo
-    .desc = Padro Semitico indicando uma torre de controle de trfego areo nas proximidades.
+ent-CMSemioticAirtraffictower = placa semiótica de torre de controle de tráfego aéreo
+    .desc = Placa semiótica indicando uma torre de controle de tráfego aéreo nas proximidades.
 
-ent-CMSemioticAmmunition = placa semitica de armazenamento de munio
-    .desc = Padro Semitico indicando a presena prxima de um armazenamento de munio.
+ent-CMSemioticAmmunition = placa semiótica de armazenamento de munição
+    .desc = Placa semiótica indicando a presença próxima de um armazenamento de munição.
 
-ent-CMSemioticAnalysis_lab = placa semitica de laboratrio de anlise
-    .desc = Padro Semitico indicando a presena prxima de um laboratrio de anlise.
+ent-CMSemioticAnalysis_lab = placa semiótica de laboratório de anlise
+    .desc = Placa semiótica indicando a presença próxima de um laboratório de anlise.
 
-ent-CMSemioticAutodoc = placa semitica de autodoc
-    .desc = Padro Semitico indicando a presena prxima de um autodoc.
+ent-CMSemioticAutodoc = placa semiótica de autodoc
+    .desc = Placa semiótica indicando a presença próxima de um autodoc.
 
-ent-CMSemioticAutoopenclose = placa semitica de abridor/fechador automtico
-    .desc = Padro Semitico indicando a presena prxima de uma vlvula de fechamento automtico.
+ent-CMSemioticAutoopenclose = placa semiótica de abridor/fechador automático
+    .desc = Placa semiótica indicando a presença próxima de uma válvula de fechamento automático.
 
-ent-CMSemioticBathmens = placa semitica de banheiro masculino
-    .desc = Padro Semitico indicando a presena prxima de um banheiro masculino.
+ent-CMSemioticBathmens = placa semiótica de banheiro masculino
+    .desc = Placa semiótica indicando a presença próxima de um banheiro masculino.
 
-ent-CMSemioticBathunisex = placa semitica de banheiro unissex
-    .desc = Padro Semitico indicando a presena prxima de um banheiro unissex.
+ent-CMSemioticBathunisex = placa semiótica de banheiro unissex
+    .desc = Placa semiótica indicando a presença próxima de um banheiro unissex.
 
-ent-CMSemioticBathwomens = placa semitica de banheiro feminino
-    .desc = Padro Semitico indicando a presena prxima de um banheiro feminino.
+ent-CMSemioticBathwomens = placa semiótica de banheiro feminino
+    .desc = Placa semiótica indicando a presença próxima de um banheiro feminino.
 
-ent-CMSemioticBiohazard = placa semitica de perigo biolgico
-    .desc = Padro Semitico indicando a presena prxima de um perigo biolgico.
+ent-CMSemioticBiohazard = placa semiótica de perigo biológico
+    .desc = Placa semiótica indicando a presença próxima de um perigo biológico.
 
-ent-CMSemioticBiolab = placa semitica de laboratrio biolgico
-    .desc = Padro Semitico indicando a presena prxima de um laboratrio biolgico.
+ent-CMSemioticBiolab = placa semiótica de laboratório biológico
+    .desc = Placa semiótica indicando a presença próxima de um laboratório biológico.
 
-ent-CMSemioticBridge = placa semitica de ponte
-    .desc = Padro Semitico indicando a presena prxima da ponte de uma nave estelar.
+ent-CMSemioticBridge = placa semiótica de ponte
+    .desc = Placa semiótica indicando a presença próxima da ponte de uma nave estelar.
 
-ent-CMSemioticBulkhead_door = placa semitica de porta de antepara
-    .desc = Padro Semitico indicando a presena prxima de uma porta de antepara.
+ent-CMSemioticBulkhead_door = placa semiótica de anteparo
+    .desc = Placa semiótica indicando a presença próxima de um anteparo.
 
-ent-CMSemioticChem_lab = placa semitica de laboratrio qumico
-    .desc = Padro Semitico indicando a presena prxima de um laboratrio qumico.
+ent-CMSemioticChem_lab = placa semiótica de laboratório químico
+    .desc = Placa semiótica indicando a presença próxima de um laboratório químico.
 
-ent-CMSemioticCoffee = placa semitica de caf
-    .desc = Padro Semitico indicando a presena prxima de caf: o combustvel vital de qualquer tripulao de nave estelar.
+ent-CMSemioticCoffee = placa semiótica de café
+    .desc = Placa semiótica indicando a presença próxima de café: o combustvel vital de qualquer tripulao de nave estelar.
 
-ent-CMSemioticCommline_connection = placa semitica de ponto de conexo de linha de comunicao
-    .desc = Padro Semitico indicando a presena prxima de uma conexo de linha de comunicao.
+ent-CMSemioticCommline_connection = placa semiótica de ponto de conexão de linha de comunicação
+    .desc = Placa semiótica indicando a presença próxima de uma conexão de linha de comunicação.
 
-ent-CMSemioticConference_room = placa semitica de sala de conferncia
-    .desc = Padro Semitico indicando a presena prxima de uma sala de conferncia.
+ent-CMSemioticConference_room = placa semiótica de sala de conferência
+    .desc = Placa semiótica indicando a presença próxima de uma sala de conferência.
 
-ent-CMSemioticCryo = placa semitica de cofre criognico
-    .desc = Padro Semitico indicando a presena prxima de um cofre de criognia.
+ent-CMSemioticCryo = placa semiótica de cofre criogênico
+    .desc = Placa semiótica indicando a presença próxima de um cofre de criognia.
 
-ent-CMSemioticDebark_lounge = placa semitica de sala de desembarque
-    .desc = Padro Semitico indicando a presena prxima de uma sala de desembarque.
+ent-CMSemioticDebark_lounge = placa semiótica de sala de desembarque
+    .desc = Placa semiótica indicando a presença próxima de uma sala de desembarque.
 
-ent-CMSemioticDistribution_pipes = placa semitica de tubos de distribuio
-    .desc = Padro Semitico indicando a presena prxima de um gasoduto de distribuio.
+ent-CMSemioticDistribution_pipes = placa semiótica de tubos de distribuição
+    .desc = Placa semiótica indicando a presença próxima de um gasoduto de distribuição.
 
-ent-CMSemioticEast = placa semitica Leste
-    .desc = Padro Semitico indicando a presena prxima de algo para o Leste.
+ent-CMSemioticEast = placa semiótica Leste
+    .desc = Placa semiótica indicando a presença próxima de algo para o Leste.
 
-ent-CMSemioticEight = placa semitica oito
-    .desc = Padro Semitico indicando o nmero oito.
+ent-CMSemioticEight = placa semiótica oito
+    .desc = Placa semiótica indicando o número oito.
 
-ent-CMSemioticElectronics = placa semitica de sistemas astrnicos
-    .desc = Padro Semitico indicando a presena prxima de sistemas astrnicos. Uma forma sofisticada de dizer sistemas eltricos.
+ent-CMSemioticElectronics = placa semiótica de sistemas elétricos
+    .desc = Placa semiótica indicando a presença próxima de sistemas elétricos.
 
-ent-CMSemioticElevator = placa semitica de elevador
-    .desc = Padro Semitico indicando a presena prxima de um elevador.
+ent-CMSemioticElevator = placa semiótica de elevador
+    .desc = Placa semiótica indicando a presença próxima de um elevador.
 
-ent-CMSemioticEscapepod = placa semitica de cpsula de escape
-    .desc = Padro Semitico indicando uma cpsula de escape.
+ent-CMSemioticEscapepod = placa semiótica de cápsula de escape
+    .desc = Placa semiótica indicando uma cápsula de escape.
 
-ent-CMSemioticExhaust = placa semitica de exausto
-    .desc = Padro Semitico indicando a presena prxima de exausto de um motor ou gerador.
+ent-CMSemioticExhaust = placa semiótica de exaustão
+    .desc = Placa semiótica indicando a presença próxima de exaustão de um motor ou gerador.
 
-ent-CMSemioticFibre_optics = placa semitica de sistemas de fotnica (fibra tica)
-    .desc = Padro Semitico indicando a presena prxima de linhas de fibra tica.
+ent-CMSemioticFibre_optics = placa semiótica de sistemas fotônicos (fibra ótica)
+    .desc = Placa semiótica indicando a presença próxima de linhas de fibra ótica.
 
-ent-CMSemioticFire_haz = placa semitica de perigo de incndio
-    .desc = Padro Semitico indicando a presena prxima de um perigo de incndio.
+ent-CMSemioticFire_haz = placa semiótica de perigo de incndio
+    .desc = Placa semiótica indicando a presença próxima de um perigo de incndio.
 
-ent-CMSemioticFiringrange = placa semitica de estande de tiro
-    .desc = Padro Semitico indicando a presena prxima de um estande de tiro com munio real.
+ent-CMSemioticFiringrange = placa semiótica de estande de tiro
+    .desc = Placa semiótica indicando a presença próxima de um estande de tiro com munição real.
 
-ent-CMSemioticFive = placa semitica cinco
-    .desc = Padro Semitico indicando o nmero cinco.
+ent-CMSemioticFive = placa semiótica cinco
+    .desc = Placa semiótica indicando o número cinco.
 
-ent-CMSemioticFlightcontrol = placa semitica de controle de voo
-    .desc = Padro Semitico indicando uma rea usada por ou para sistemas de controle de voo.
+ent-CMSemioticFlightcontrol = placa semiótica de controle de voo
+    .desc = Placa semiótica indicando uma área usada por ou para sistemas de controle de voo.
 
-ent-CMSemioticFood_storage = placa semitica de armazenamento orgnico (alimentos)
-    .desc = Padro Semitico indicando a presena prxima de armazenamento de alimentos no refrigerados.
+ent-CMSemioticFood_storage = placa semiótica de armazenamento orgânico (alimentos)
+    .desc = Placa semiótica indicando a presença próxima de armazenamento de alimentos não refrigerados.
 
-ent-CMSemioticFour = placa semitica quatro
-    .desc = Padro Semitico indicando o nmero quatro.
+ent-CMSemioticFour = placa semiótica quatro
+    .desc = Placa semiótica indicando o número quatro.
 
-ent-CMSemioticFridge = placa semitica de armazenamento refrigerado (alimentos orgnicos)
-    .desc = Padro Semitico indicando a presena prxima de uma geladeira.
+ent-CMSemioticFridge = placa semiótica de armazenamento refrigerado (alimentos orgânicos)
+    .desc = Placa semiótica indicando a presença próxima de uma geladeira.
 
-ent-CMSemioticGalley = placa semitica de copa
-    .desc = Padro Semitico indicando a presena prxima de uma copa.
+ent-CMSemioticGalley = placa semiótica de copa
+    .desc = Placa semiótica indicando a presença próxima de uma copa.
 
-ent-CMSemioticHazard = placa semitica de perigo
-    .desc = Padro Semitico indicando a presena prxima de um perigo. Cuidado!
+ent-CMSemioticHazard = placa semiótica de perigo
+    .desc = Placa semiótica indicando a presença próxima de um perigo. Cuidado!
 
-ent-CMSemioticHigh_rad = placa semitica de alta radioatividade
-    .desc = Padro Semitico indicando a presena prxima de uma rea altamente radioativa.
+ent-CMSemioticHigh_rad = placa semiótica de alta radioatividade
+    .desc = Placa semiótica indicando a presença próxima de uma área altamente radioativa.
 
-ent-CMSemioticHigh_voltage = placa semitica de alta tenso
-    .desc = Padro Semitico indicando a presena prxima de uma corrente eltrica de alta tenso.
+ent-CMSemioticHigh_voltage = placa semiótica de alta tensão
+    .desc = Placa semiótica indicando a presença próxima de uma corrente eltrica de alta tensão.
 
-ent-CMSemioticHvac = placa semitica de HVAC
-    .desc = Padro Semitico indicando a presena prxima de...um sistema HVAC. Essa placa deve ter sido atualizada para o novo padro.
+ent-CMSemioticHvac = placa semiótica de HVAC
+    .desc = Placa semiótica indicando a presença próxima de...um sistema HVAC. Essa placa deve ter sido atualizada para o novo padrão.
 
-ent-CMSemioticHvac_old = placa semitica de HVAC
-    .desc = Padro Semitico indicando a presena prxima de um sistema HVAC. Essa placa ainda usa o padro antigo.
+ent-CMSemioticHvac_old = placa semiótica de HVAC
+    .desc = Placa semiótica indicando a presença próxima de um sistema HVAC. Essa placa ainda usa o padrão antigo.
 
-ent-CMSemioticIntercom = placa semitica de interfone
-    .desc = Padro Semitico indicando a presena prxima de um interfone.
+ent-CMSemioticIntercom = placa semiótica de interfone
+    .desc = Placa semiótica indicando a presença próxima de um interfone.
 
-ent-CMSemioticLadder = placa semitica de escada
-    .desc = Padro Semitico indicando a presena prxima de uma escada.
+ent-CMSemioticLadder = placa semiótica de escada
+    .desc = Placa semiótica indicando a presença próxima de uma escada.
 
-ent-CMSemioticLandingzone = placa semitica de zona de pouso
-    .desc = Padro Semitico indicando a presena de uma zona de pouso nas proximidades.
+ent-CMSemioticLandingzone = placa semiótica de zona de pouso
+    .desc = Placa semiótica indicando a presena de uma zona de pouso nas proximidades.
 
-ent-CMSemioticLaser = placa semitica de laser
-    .desc = Padro Semitico indicando a presena prxima de lasers. Geralmente no to legal quanto parece.
+ent-CMSemioticLaser = placa semiótica de laser
+    .desc = Placa semiótica indicando a presença próxima de lasers. Geralmente não tão legal quanto parece.
 
-ent-CMSemioticLife_support = placa semitica de sistema de suporte de vida
-    .desc = Padro Semitico indicando a presena prxima de um sistema de suporte de vida.
+ent-CMSemioticLife_support = placa semiótica de sistema de suporte de vida
+    .desc = Placa semiótica indicando a presença próxima de um sistema de suporte de vida.
 
-ent-CMSemioticLuggageclaim = placa semitica de bagagem
-    .desc = Padro Semitico indicando a presena de uma rea de bagagem nas proximidades.
+ent-CMSemioticLuggageclaim = placa semiótica de bagagem
+    .desc = Placa semiótica indicando a presena de uma área de bagagem nas proximidades.
 
-ent-CMSemioticMaint = placa semitica de manuteno
-    .desc = Padro Semitico indicando a presena prxima de acesso de manuteno.
+ent-CMSemioticMaint = placa semiótica de manutenção
+    .desc = Placa semiótica indicando a presença próxima de acesso de manutenção.
 
-ent-CMSemioticManualopenclose = placa semitica de abridor/fechador manual
-    .desc = Padro Semitico indicando a presena prxima de uma vlvula de fechamento manual.
+ent-CMSemioticManualopenclose = placa semiótica de abridor/fechador manual
+    .desc = Placa semiótica indicando a presença próxima de uma válvula de fechamento manual.
 
-ent-CMSemioticMed_cryo = placa semitica de cofre de criostase mdica
-    .desc = Padro Semitico indicando a presena prxima de um cofre de criostase mdica.
+ent-CMSemioticMed_cryo = placa semiótica de cofre de criostase médica
+    .desc = Placa semiótica indicando a presença próxima de um cofre de criostase médica.
 
-ent-CMSemioticMed_life_support = placa semitica de suporte de vida mdico
-    .desc = Padro Semitico indicando a presena prxima de um sistema de suporte de vida para uma enfermaria.
+ent-CMSemioticMed_life_support = placa semiótica de suporte de vida mdico
+    .desc = Placa semiótica indicando a presença próxima de um sistema de suporte de vida para uma enfermaria.
 
-ent-CMSemioticMedical = placa semitica mdica
-    .desc = Padro Semitico indicando a presena prxima de uma enfermaria.
+ent-CMSemioticMedical = placa semiótica médica
+    .desc = Placa semiótica indicando a presença próxima de uma enfermaria.
 
-ent-CMSemioticNine = placa semitica nove
-    .desc = Padro Semitico indicando o nmero nove.
+ent-CMSemioticNine = placa semiótica nove
+    .desc = Placa semiótica indicando o número nove.
 
-ent-CMSemioticNonpress = placa semitica de rea no pressurizada frente
-    .desc = Padro Semitico indicando que a rea frente no est pressurizada.
+ent-CMSemioticNonpress = placa semiótica de área não pressurizada frente
+    .desc = Placa semiótica indicando que a área frente não está pressurizada.
 
-ent-CMSemioticNonpress_0g = placa semitica de rea no pressurizada, sem gravidade, roupa obrigatria
-    .desc = Padro Semitico indicando que a rea frente no est pressurizada e no possui gravidade artificial.
+ent-CMSemioticNonpress_0g = placa semiótica de área não pressurizada, sem gravidade, traje obrigatório
+    .desc = Placa semiótica indicando que a área frente não está pressurizada e não possui gravidade artificial.
 
-ent-CMSemioticNonpress_ag = placa semitica de rea com gravidade artificial, no pressurizada, roupa obrigatria
-    .desc = Padro Semitico indicando a presena prxima de uma rea com gravidade artificial sem pressurizao.
+ent-CMSemioticNonpress_ag = placa semiótica de área com gravidade artificial, não pressurizada, traje obrigatório
+    .desc = Placa semiótica indicando a presença próxima de uma área com gravidade artificial sem pressurização.
 
-ent-CMSemioticNorth = placa semitica Norte
-    .desc = Padro Semitico indicando a presena prxima de algo para o Norte.
+ent-CMSemioticNorth = placa semiótica Norte
+    .desc = Placa semiótica indicando a presença próxima de algo para o Norte.
 
-ent-CMSemioticOne = placa semitica um
-    .desc = Padro Semitico indicando o nmero um.
+ent-CMSemioticOne = placa semiótica um
+    .desc = Placa semiótica indicando o número um.
 
-ent-CMSemioticOpens_up = placa semitica abre para cima
-    .desc = Padro Semitico indicando que a porta prxima abre para cima.
+ent-CMSemioticOpens_up = placa semiótica abre para cima
+    .desc = Placa semiótica indicando que a porta próxima abre para cima.
 
-ent-CMSemioticOutpatient = placa semitica de clnica ambulatorial
-    .desc = Padro Semitico indicando a presena prxima de uma clnica ambulatorial.
+ent-CMSemioticOutpatient = placa semiótica de clínica ambulatorial
+    .desc = Placa semiótica indicando a presença próxima de uma clínica ambulatorial.
 
-ent-CMSemioticPress_area = placa semitica de rea pressurizada
-    .desc = Padro Semitico indicando a presena prxima de uma rea pressurizada.
+ent-CMSemioticPress_area = placa semiótica de área pressurizada
+    .desc = Placa semiótica indicando a presença próxima de uma área pressurizada.
 
-ent-CMSemioticPress_area_ag = placa semitica pressurizada com gravidade artificial
-    .desc = Padro Semitico indicando a presena prxima de uma rea pressurizada sem gravidade artificial.
+ent-CMSemioticPress_area_ag = placa semiótica pressurizada com gravidade artificial
+    .desc = Placa semiótica indicando a presença próxima de uma área pressurizada sem gravidade artificial.
 
-ent-CMSemioticRad_haz = placa semitica de perigo de radiao
-    .desc = Padro Semitico indicando a presena prxima de um perigo de radiao.
+ent-CMSemioticRad_haz = placa semiótica de perigo de radiação
+    .desc = Placa semiótica indicando a presença próxima de um perigo de radiação.
 
-ent-CMSemioticRad_shield = placa semitica de rea protegida da radiao
-    .desc = Padro Semitico indicando a presena prxima de uma rea protegida da radiao.
+ent-CMSemioticRad_shield = placa semiótica de área protegida da radiação
+    .desc = Placa semiótica indicando a presença próxima de uma área protegida da radiação.
 
-ent-CMSemioticRadio_rad = placa semitica de radiao de ondas de rdio
-    .desc = Padro Semitico indicando a presena prxima de radiao de uma torre de rdio.
+ent-CMSemioticRadio_rad = placa semiótica de radiação de ondas de rádio
+    .desc = Placa semiótica indicando a presença próxima de radiação de uma torre de rádio.
 
-ent-CMSemioticReception = placa semitica de recepo
-    .desc = Padro Semitico indicando a presena prxima de uma rea de recepo.
+ent-CMSemioticReception = placa semiótica de recepção
+    .desc = Placa semiótica indicando a presença próxima de uma área de recepção.
 
-ent-CMSemioticReduction = placa semitica de reduo de rea
-    .desc = Padro Semitico indicando que a rea diminui frente.
+ent-CMSemioticReduction = placa semiótica de redução de área
+    .desc = Placa semiótica indicando que a área diminui frente.
 
-ent-CMSemioticRef_bio_storage = placa semitica de armazenamento biolgico refrigerado
-    .desc = Padro Semitico indicando a presena prxima de armazenamento biolgico refrigerado.
+ent-CMSemioticRef_bio_storage = placa semiótica de armazenamento biológico refrigerado
+    .desc = Placa semiótica indicando a presença próxima de armazenamento biológico refrigerado.
 
-ent-CMSemioticRef_chem_storage = placa semitica de armazenamento qumico refrigerado
-    .desc = Padro Semitico indicando a presena prxima de armazenamento qumico refrigerado.
+ent-CMSemioticRef_chem_storage = placa semiótica de armazenamento químico refrigerado
+    .desc = Placa semiótica indicando a presença próxima de armazenamento químico refrigerado.
 
-ent-CMSemioticRefridgeration = placa semitica de refrigerao
-    .desc = Padro Semitico indicando a presena prxima de refrigerao no alimentar.
+ent-CMSemioticRefridgeration = placa semiótica de refrigeração
+    .desc = Placa semiótica indicando a presença próxima de refrigeração não alimentar.
 
-ent-CMSemioticRestrictedarea = placa semitica de rea restrita
-    .desc = Padro Semitico indicando a presena prxima de uma rea restrita.
+ent-CMSemioticRestrictedarea = placa semiótica de área restrita
+    .desc = Placa semiótica indicando a presença próxima de uma área restrita.
 
-ent-CMSemioticRewire = placa semitica de sistema de religao
-    .desc = Padro Semitico indicando a presena prxima de um sistema de religao.
+ent-CMSemioticRewire = placa semiótica de sistema de religação
+    .desc = Placa semiótica indicando a presença próxima de um sistema de religação.
 
-ent-CMSemioticSecurity = placa semitica de segurana
-    .desc = Padro Semitico indicando a presena prxima de aplicao da lei ou uma fora de segurana.
+ent-CMSemioticSecurity = placa semiótica de segurança
+    .desc = Placa semiótica indicando a presença próxima de aplicação da lei ou uma força de segurança.
 
-ent-CMSemioticSeven = placa semitica sete
-    .desc = Padro Semitico indicando o nmero sete.
+ent-CMSemioticSeven = placa semiótica sete
+    .desc = Placa semiótica indicando o número sete.
 
-ent-CMSemioticSilicon_storage = placa semitica de armazenamento de silcio
-    .desc = Padro Semitico indicando a presena prxima de uma sala de armazenamento de unidades de silcio.
+ent-CMSemioticSilicon_storage = placa semiótica de armazenamento de silício
+    .desc = Placa semiótica indicando a presença próxima de uma sala de armazenamento de unidades de silício.
 
-ent-CMSemioticSix = placa semitica seis
-    .desc = Padro Semitico indicando o nmero seis.
+ent-CMSemioticSix = placa semiótica seis
+    .desc = Placa semiótica indicando o número seis.
 
-ent-CMSemioticSouth = placa semitica Sul
-    .desc = Padro Semitico indicando a presena prxima de algo para o Sul.
+ent-CMSemioticSouth = placa semiótica Sul
+    .desc = Placa semiótica indicando a presença próxima de algo para o Sul.
 
-ent-CMSemioticStairs = placa semitica de escadas
-    .desc = Padro Semitico indicando a presena prxima de uma escadaria.
+ent-CMSemioticStairs = placa semiótica de escadas
+    .desc = Placa semiótica indicando a presença próxima de uma escadaria.
 
-ent-CMSemioticStorage = placa semitica de armazenamento
-    .desc = Padro Semitico indicando a presena prxima de uma sala de armazenamento sec geral.
+ent-CMSemioticStorage = placa semiótica de armazenamento
+    .desc = Placa semiótica indicando a presença próxima de uma sala de armazenamento sec geral.
 
-ent-CMSemioticSuit_storage = placa semitica de armrio de roupa pressurizada
-    .desc = Padro Semitico indicando a presena prxima de um armrio de armazenamento de roupas pressurizadas.
+ent-CMSemioticSuit_storage = placa semiótica de armário de roupa pressurizada
+    .desc = Placa semiótica indicando a presença próxima de um armário de armazenamento de roupas pressurizadas.
 
-ent-CMSemioticTerminal = placa semitica de terminal de computador
-    .desc = Padro Semitico indicando a presena prxima de um terminal de computador.
+ent-CMSemioticTerminal = placa semiótica de terminal de computador
+    .desc = Placa semiótica indicando a presença próxima de um terminal de computador.
 
-ent-CMSemioticThree = placa semitica trs
-    .desc = Padro Semitico indicando o nmero trs.
+ent-CMSemioticThree = placa semiótica três
+    .desc = Placa semiótica indicando o número três.
 
-ent-CMSemioticTram = placa semitica de linha de bonde
-    .desc = Padro Semitico indicando a presena prxima de uma linha de bonde.
+ent-CMSemioticTram = placa semiótica de linha de bonde
+    .desc = Placa semiótica indicando a presença próxima de uma linha de bonde.
 
-ent-CMSemioticTwilight_zone_terminator = placa semitica de terminador da zona do crepsculo
-    .desc = Padro Semitico indicando a presena prxima de um terminador da zona do crepsculo. Muito menos legal do que parece.
+ent-CMSemioticTwilight_zone_terminator = placa semiótica de terminador da zona do crepsculo
+    .desc = Placa semiótica indicando a presença próxima de um terminador da zona do crepsculo. Muito menos legal do que parece.
 
-ent-CMSemioticTwo = placa semitica dois
-    .desc = Padro Semitico indicando o nmero dois.
+ent-CMSemioticTwo = placa semiótica dois
+    .desc = Placa semiótica indicando o número dois.
 
-ent-CMSemioticWater = placa semitica de gua
-    .desc = Padro Semitico indicando a presena prxima de gua.
+ent-CMSemioticWater = placa semiótica de água
+    .desc = Placa semiótica indicando a presença próxima de água.
 
-ent-CMSemioticWaterhazard = placa semitica de perigo de gua
-    .desc = Padro Semitico indicando um perigo de gua. Mantenha eletrnicos longe.
+ent-CMSemioticWaterhazard = placa semiótica de perigo de água
+    .desc = Placa semiótica indicando um perigo de água. Mantenha eletrnicos longe.
 
-ent-CMSemioticWest = placa semitica Oeste
-    .desc = Padro Semitico indicando a presena prxima de algo para o Oeste.
+ent-CMSemioticWest = placa semiótica Oeste
+    .desc = Placa semiótica indicando a presença próxima de algo para o Oeste.
 
-ent-CMSemioticZero = placa semitica zero
-    .desc = Padro Semitico indicando o nmero zero.
+ent-CMSemioticZero = placa semiótica zero
+    .desc = Placa semiótica indicando o número zero.
 
-ent-CMSemioticZero_g = placa semitica de gravidade artificial ausente
-    .desc = Padro Semitico indicando a ausncia prxima de gravidade artificial.
+ent-CMSemioticZero_g = placa semiótica de gravidade artificial ausente
+    .desc = Placa semiótica indicando a ausência próxima de gravidade artificial.
 
 
 # ===== Generated missing entity keys (untranslated) - 2026-10-09 =====

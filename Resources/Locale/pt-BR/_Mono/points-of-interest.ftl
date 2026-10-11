@@ -23,11 +23,5 @@ poi-Zvezda-name = Habitação Orbital Zvezda
 poi-Hokkaido-name = MMC Hokkaido
 poi-UndergroundBlackMarket-name = Mercado Negro Underground
 poi-TSFMCIndustry-name = TSF-CIV "Benção Estelar"
-
 poi-ZetaNode-name = Nó Zeta
-poi-ZetaNode-desc = Até o ar tem uma leve camada de poeira.
-
 poi-HeliosFortress-name = Fortaleza PDV Helios
-poi-HeliosFortress-desc = Uma aura imperial opressiva vagra por aqui. Glória ao Sultão.
-
-poi-CaelestinusCentral-desc = A coisa mais próxima de civilização nesse setor. Você quase se sente em segurança.
