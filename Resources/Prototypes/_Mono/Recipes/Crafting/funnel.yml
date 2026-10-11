@@ -1,0 +1,12 @@
+- type: construction
+  name: separatory funnel
+  id: separatoryfunnel
+  graph: SeparatoryFunnelGraph
+  startNode: start
+  targetNode: separatoryfunnel
+  category: construction-category-tools
+  objectType: Item
+  description: A crude tool created by welding several beakers together.
+  icon:
+    sprite: _Mono/Objects/Misc/beakerfilter.rsi
+    state: funnel
