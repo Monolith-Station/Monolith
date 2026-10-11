@@ -1136,6 +1136,7 @@
   parent: BaseItem
   id: FoamWeaponBase
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
   - type: Item
     size: Normal

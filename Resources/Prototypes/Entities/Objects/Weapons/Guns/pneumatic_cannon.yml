@@ -110,6 +110,7 @@
   id: LauncherSyringe
   description: Load full of poisoned syringes for optimal fun.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
     layers:
