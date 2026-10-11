@@ -182,7 +182,10 @@
       component:
       - type: StationAiVision
         range: 4
-
+    - type: Tag
+      tags:
+       - PetWearable
+       
 - type: entity
   parent: ClothingNeckWearableCamera
   id: ClothingNeckWearableCameraPDV
