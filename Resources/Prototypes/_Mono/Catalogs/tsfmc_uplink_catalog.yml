@@ -44,6 +44,21 @@
       - SecurityUplink
 
 - type: listing
+  id: UplinkSecurityLaserTurret
+  name:  uplink-security-sentry-laserturret-name
+  description: uplink-security-sentry-laserturret-desc
+  productEntity: WeaponTurretLaserTSFMCPacked
+  cost:
+    FederationMilitaryCredit: 40
+  categories:
+  - UplinkSecurityWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - SecurityUplink
+
+- type: listing
   id: UplinkSecurityMk290
   name:  uplink-security-sentry-mk290-name
   description: uplink-security-sentry-mk290-desc
