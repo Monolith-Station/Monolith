@@ -13,8 +13,9 @@ namespace Content.Server.Shuttles.Components
 
         /// <summary>
         /// Thrust gets multiplied by this value if it's for braking.
+		/// Mono: 1.5f >> 3.0f, thrust was cut in half to curb topspeed, doubling brake force to keep movement feel
         /// </summary>
-        public const float BrakeCoefficient = 1.5f;
+        public const float BrakeCoefficient = 3.0f;
 
         /// <summary>
         /// Mono - velocity that 2x slowdown will be applied at. (4x at 2x this, 8x at 3x this, etc.)

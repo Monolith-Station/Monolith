@@ -28,7 +28,21 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBallisticGogglesRedCrocus
+  name: anti-flash goggles
+  description: A pair of ballistic goggles with red lenses to block intense light. Works for welding eye protection too.
+  suffix: Crocus
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Eyes/Glasses/ballistic_goggles_red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Eyes/Glasses/ballistic_goggles_red.rsi
+  - type: GroupExamine
+  - type: IdentityBlocker
+    coverage: EYES
 
 - type: entity
   parent: ClothingEyesHudMedical
@@ -58,7 +72,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingEyesHudMedical
   id: ClothingEyesBallisticGogglesGreen
@@ -87,7 +101,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingEyesHudMedical
   id: ClothingEyesBallisticGlassesGreen
@@ -116,7 +130,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingEyesHudMedical
   id: ClothingEyesBallisticGogglesOrange
@@ -145,7 +159,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingEyesHudMedical
   id: ClothingEyesBallisticGlassesOrange
@@ -174,7 +188,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]
   id: ClothingEyesTSFOfficerGlasses
@@ -205,4 +219,3 @@
     tags:
     - PetWearable
     - SafetyDepositBlacklist
-    

@@ -26093,3 +26093,112 @@ Entries:
   id: 2815
   time: '2026-10-09T20:53:51.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4844
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Adjusted brake force of ships to feel similar to old maneuvering balance
+  id: 2816
+  time: '2026-10-09T22:33:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4842
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Lobotomized ranged drone evasion so you don't have to fight Goku
+    - type: Tweak
+      message: Weighed down the Gust slightly with more mass
+    - type: Tweak
+      message: >-
+        Down-armored the Wasp drone's sides. This should make partial damage
+        more meaningful against a Wasp
+  id: 2817
+  time: '2026-10-09T22:35:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4840
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Fixed the durability of the MEDUSA suit.
+    - type: Fix
+      message: Fixed a few incorrect airlocks on the Underground Black Market.
+  id: 2818
+  time: '2026-10-10T01:30:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4841
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        CROCUS - Added telecomms servers out of bounds. Bandaid fix until
+        telecomms works across z-levels.
+    - type: Tweak
+      message: CROCUS - Added invulnerable laser turrets to both spawns, I hate you.
+    - type: Tweak
+      message: >-
+        CROCUS - Both sides only get medium bulletproof vests to prevent
+        noobtraps.
+    - type: Tweak
+      message: CROCUS - TSF always gets the beacon objective now.
+  id: 2819
+  time: '2026-10-10T03:25:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4846
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: >-
+        Removed self/repeat-harvest mutation from the botany pool. It's really
+        fucking funny but it's way too laggy. I'm sorry.
+  id: 2820
+  time: '2026-10-10T05:00:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4847
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixed a fridge on the Talon
+    - type: Tweak
+      message: >-
+        Tweaks the QJ-490s armaments, now with two Vanyks and an Equinox in
+        addition to 2 of it's AKs.
+  id: 2821
+  time: '2026-10-10T22:20:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4851
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Suit shields not have a proper icon.
+  id: 2822
+  time: '2026-10-10T22:22:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4848
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        CROCUS - RMC/CM style loadout vendors have replaced kit selectors & the
+        base vendors. Build your own loadout now instead of whining about the
+        kits, stop littering my floors. You get 2 special points for special
+        gear (like surgery gear/breaching hammers) to work with. More fun toys
+        have been added now that I have this restriction, like UBGLs for
+        Lecter/Vympel, LAWs, and bringing back the GPMGs. The vendors also have
+        Kammerers (for both sides) now and sidearms (from normal loadouts), and
+        the option of Enforcer/MlA-73 for 1 loadout point (for their respective
+        side, of course). Some other minor additions too like blood packs to
+        those vendors, breaching shotguns, etc.
+    - type: Tweak
+      message: >-
+        CROCUS - More map changes to Jianghui, mostly minor. Added a station
+        radio setup to the docks (and radios all around), added more food/drink
+        vendors w/ money littered around. I think I did some other stuff but I
+        forgot.
+    - type: Tweak
+      message: >-
+        CROCUS - Switched the armor vests from medium bulletproof vest stats to
+        light bulletproof vest stats.
+    - type: Fix
+      message: CROCUS - Fixed laser turrets at bases not shooting through glass.
+  id: 2823
+  time: '2026-10-11T19:38:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4853
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Fixed a specific gun having an unintended FMC value.
+  id: 2824
+  time: '2026-10-11T19:39:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4856

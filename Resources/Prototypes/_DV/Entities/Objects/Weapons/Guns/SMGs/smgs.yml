@@ -1,7 +1,8 @@
 - type: entity
   name: UGR Typewriter (.45 ACP) # Mono
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseC3SyndicateContraband] # Mono
-  id: WeaponSubMachineGunTypewriter
+  abstract: true # Mono: Make the base Typewriter abstract.
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable] # Mono
+  id: WeaponSubMachineGunTypewriterBase
   description: A modern take on the classic design used by mobsters throughout space and time. Uses .45 ACP ammo.
   components:
   - type: Sprite
@@ -49,3 +50,7 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  parent: [WeaponSubMachineGunTypewriterBase, BaseC3SyndicateContraband]
+  id: WeaponSubMachineGunTypewriter
