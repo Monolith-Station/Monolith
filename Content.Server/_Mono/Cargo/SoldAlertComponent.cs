@@ -29,8 +29,4 @@ public sealed partial class SoldAlertComponent : Component
     /// </summary>
     [DataField]
     public string? GroupId;
-
-    /// <summary>If true, a stack of 5 counts as 5 instead of 1.</summary>
-    [DataField]
-    public bool CountStacks;
 }

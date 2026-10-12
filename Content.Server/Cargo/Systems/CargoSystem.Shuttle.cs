@@ -348,7 +348,7 @@ public sealed partial class CargoSystem
                 continue;
 
             var amount = 1;
-            if (alert.CountStacks && TryComp<StackComponent>(ent, out var stack))
+            if (TryComp<StackComponent>(ent, out var stack))
                 amount = stack.Count;
 
             groups ??= new();
