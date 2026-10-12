@@ -1,0 +1,9 @@
+- type: entity
+  parent: Telecrystal
+  id: Telecrystal10 # Used for TelecrystalExchange.
+  suffix: 10 TC
+  components:
+  - type: Stack
+    count: 10
+  - type: StaticPrice
+    vendPrice: 20000
