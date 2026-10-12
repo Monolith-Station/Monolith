@@ -246,15 +246,10 @@
   components:
   - type: SpawnAfterInteract
     prototype: WeaponTurretLaserTSFMC
-    doAfter: 5
-    removeOnInteract: true
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Turrets/laser.rsi
     state: packed
   - type: Item
-    size: Ginormous
-    shape:
-    - 0,0,3,3
     sprite: _NF/Objects/Weapons/Guns/Turrets/laser.rsi
 
 - type: constructionGraph # deconstruction graph
