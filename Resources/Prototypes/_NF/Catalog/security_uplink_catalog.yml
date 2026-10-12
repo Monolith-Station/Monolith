@@ -392,10 +392,6 @@
       whitelist:
         tags:
           - SecurityUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - Sheriff
-        - Brigmedic
 
 - type: listing
   id: UplinkSecurityMedicalAssembler

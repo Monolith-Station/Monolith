@@ -238,15 +238,12 @@
 # TSFMC Laser Turret
 
 - type: entity # folded turret
+  parent: WeaponTurretMk290Packed
   id: WeaponTurretLaserTSFMCPacked
   name: packed laser turret
   description: A disassembled and packed TSFMC laser turret.
   suffix: TSFMC, Packed
-  parent:
-  - BaseItem
   components:
-  - type: WeaponCaseInsertable
-  - type: MultiHandedItem
   - type: SpawnAfterInteract
     prototype: WeaponTurretLaserTSFMC
     doAfter: 5
