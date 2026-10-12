@@ -1,0 +1,15 @@
+- type: entity
+  abstract: true
+  id: BaseDecapitationTool
+  components:
+  - type: DamageBodyPartOnExecution
+    damage:
+      Slash: 4000
+    ignoreResistances: true
+  - type: Execution
+    doAfterDuration: 30
+  - type: ExtendDescription
+    descriptionList:
+    - description: Executing somebody with this weapon will behead them.
+      color: "#4f94ad"
+      requireDetailRange: true

@@ -121,7 +121,7 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     ///     to make possible severing it.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float SeverIntegrity = 130; // Mono 90->130
+    public float SeverIntegrity = 2500; // Mono 90->2500 (make ship artillery generally not RR you. use surgery to sever things.)
 
     /// <summary>
     ///     Shitmed Change: The ID of the base layer for this body part.
