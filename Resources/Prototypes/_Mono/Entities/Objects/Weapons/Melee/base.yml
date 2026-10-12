@@ -7,8 +7,6 @@
       types:
         Slash: 4000
     ignoreResistances: true
-  - type: Execution
-    doAfterDuration: 30
   - type: ExtendDescription
     descriptionList:
     - description: Executing somebody with this weapon will behead them.

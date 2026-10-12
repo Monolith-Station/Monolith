@@ -23,3 +23,5 @@
     tags:
     - CaptainSabre
   - type: DisarmMalus
+  - type: Execution
+    doAfterDuration: 30 # Mono: it should take a while to behead someone
