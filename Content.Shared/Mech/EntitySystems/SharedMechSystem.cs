@@ -534,13 +534,13 @@ public abstract partial class SharedMechSystem : EntitySystem
             return;
         }
 
-        if (TryComp<TransformComponent>(uid, out var xform) && xform.GridUid != null && component.PreventFireOnGrid)
-        {
-            _popup.PopupEntity(Loc.GetString("gun-no-fire-station"), uid);
-
-            args.Cancel();
-            return;
-        }
+        // if (TryComp<TransformComponent>(uid, out var xform) && xform.GridUid != null && component.PreventFireOnGrid)
+        // {
+        //     _popup.PopupEntity(Loc.GetString("gun-no-fire-station"), uid);
+        //
+        //     args.Cancel();
+        //     return;
+        // }
 
         var ev = new HandleMechEquipmentBatteryEvent();
         RaiseLocalEvent(uid, ev);
