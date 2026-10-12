@@ -370,7 +370,7 @@ public sealed partial class CargoSystem
 
             location ??= GetConsoleLocation(console);
 
-            var message = Loc.GetString(alert.Message, ("item", name), ("count", count),("location", location));
+            var message = Loc.GetString(alert.Message, ("item", name), ("count", count), ("location", location));
             var speaker = Transform(console).GridUid ?? console;
             foreach (var channel in alert.Channels)
             {
@@ -392,8 +392,8 @@ public sealed partial class CargoSystem
 
         // World coordinates
         var coords = _transformSystem.GetMapCoordinates(console, xform);
-        var x = (int) coords.X;
-        var y = (int) coords.Y;
+        var x = (int)coords.X;
+        var y = (int)coords.Y;
 
         return Loc.GetString("cargo-sold-alert-location",
             ("grid", gridName),
