@@ -1,11 +1,11 @@
 - type: guideEntry
   id: BasicLore
-  name: Lore
+  name: guide-entry-basiclore # Andromeda: Adiciona chaves de localização faltantes
   text: "/ServerInfo/_Mono/Guidebook/Lore/Primer.xml"
   children:
   - Timeline
 
 - type: guideEntry
   id: Timeline
-  name: Quick Timeline
+  name: guide-entry-timeline # Andromeda: Adiciona chaves de localização faltantes
   text: "/ServerInfo/_Mono/Guidebook/Lore/Timeline.xml"

@@ -4,6 +4,24 @@
 # Total entities: 89
 # ====================================================================
 
+# From: _RMC14/Entities/Structures/Machines/Vending/base.yml
+
+ent-ColMarTechBase = máquina de venda ColMarTech
+
+# From: _RMC14/Entities/Structures/Machines/Vending/bundles.yml
+
+ent-CMVendorBundleRiflemanApparel = me mate, por favor
+    .desc = bum, me mate, por favor, pacote
+
+ent-CMVendorBundleRiflemanApparelNoFurry = me mate, por favor, boomer
+    .desc = bum, me mate, por favor, pacoteses
+
+# From: _RMC14/Entities/Structures/Machines/Vending/killme.yml
+
+ent-ColMarTechEquipment = rack automatizado de equipamento de fuzileiro ColMarTech
+    .suffix = DEBUG, NÃO MAPEAR
+    .desc = Um rack automatizado conectado a um colossal estoque de equipamento padrão de Fuzileiro.
+
 # From: _RMC14/Entities/Structures/Wallmounts/Signs/semiotics.yml
 
 ent-CMSemioticAirlock = placa semiótica de airlock

@@ -1,6 +1,6 @@
 - type: guideEntry
   id: Factions
-  name: Factions
+  name: guide-entry-factions # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/factions.xml"
   priority: 1
   children:
@@ -13,7 +13,7 @@
 
 - type: guideEntry
   id: TSFMC_Entry
-  name: TSFMC
+  name: guide-entry-tsfmc # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC.xml"
   priority: 2
   children:
@@ -24,31 +24,31 @@
 
 - type: guideEntry
   id: PDV_Entry
-  name: PDV
+  name: guide-entry-pdv # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/PDV.xml"
   priority: 3
 
 - type: guideEntry
   id: Smuggling
-  name: Smuggling
+  name: guide-entry-smuggling # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_NF/Guidebook/NFSD/Smuggling.xml"
   priority: 4
 
 - type: guideEntry
   id: Defusal
-  name: Defusal
+  name: guide-entry-defusal # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/Guidebook/Security/Defusal.xml"
   priority: 5
 
 - type: guideEntry
   id: TSFMC_SOP
-  name: S.O.P.
+  name: guide-entry-tsfmc-sop # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC_SOP.xml"
   priority: 0
 
 - type: guideEntry
   id: TSFMC_org
-  name: Structure
+  name: guide-entry-tsfmc-structure # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC_org.xml"
   priority: 3
   children:
@@ -57,25 +57,25 @@
 
 - type: guideEntry
   id: TSFMC_Brigade
-  name: 21st Brigade
+  name: guide-entry-tsfmc-brigade # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC_Brigade.xml"
   priority: 0
 
 - type: guideEntry
   id: TSFMC_Ranks
-  name: Ranks
+  name: guide-entry-tsfmc-ranks # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC_Ranks.xml"
   priority: 0
 
 - type: guideEntry
   id: TSFMC_Culture
-  name: Culture
+  name: guide-entry-tsfmc-culture # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/TSFMC_Culture.xml"
   priority: 0
 
 - type: guideEntry
   id: USSP_Entry
-  name: USSP
+  name: guide-entry-ussp # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_Remnants.xml"
   priority: 7
   children:
@@ -84,30 +84,30 @@
 
 - type: guideEntry
   id: USSP_SoP
-  name: S.O.P
+  name: guide-entry-ussp-sop # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/USSP_SOP.xml"
   priority: 8
 
 - type: guideEntry
   id: USSP_Overview
-  name: Union of Soviet Socialist Planets
+  name: guide-entry-ussp-overview # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/USSP.xml"
   priority: 9
 
 - type: guideEntry
   id: Viper_Group
-  name: The Viper Group
+  name: guide-entry-vg # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/viper_group.xml"
   priority: 11
 
 - type: guideEntry
   id: MMC
-  name: Mieyo Manufacturing Concern
+  name: guide-entry-mmc # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/mmc.xml"
   priority: 12
 
 - type: guideEntry
   id: Caelestinus
-  name: Caelestinus
+  name: guide-entry-caelestinus # Andromeda: Adiciona chaves faltantes no livro guia
   text: "/ServerInfo/_Mono/Guidebook/Factions/caelestinus.xml"
   priority: 4

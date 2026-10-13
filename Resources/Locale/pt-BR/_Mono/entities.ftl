@@ -692,6 +692,10 @@ ent-ClothingEyesBallisticGogglesOrange = óculos de proteção balísticos laran
 ent-ClothingEyesBallisticGogglesRed = óculos de proteção balísticos vermelhos
     .desc = Um par de óculos de proteção balísticos com lentes vermelhas e microchips de escaneamento de saúde integrados.
 
+ent-ClothingEyesBallisticGogglesRedCrocus = óculos de proteção antiflash
+    .suffix = Crocus
+    .desc = Um par de óculos de proteção balísticos com lentes vermelhas para bloquear luz intensa. Também funciona como proteção ocular para solda.
+
 ent-ClothingEyesTSFOfficerGlasses = óculos de sol de comandante TSF
     .desc = Um display de alta tecnologia construído especificamente para oficiais da Federação. Geralmente emitido para o oficial comandante de uma companhia.
 
@@ -1239,6 +1243,9 @@ ent-ClothingOuterArmorBPVestHeavy = colete à prova de balas pesado
 
 ent-ClothingOuterArmorBPVestLight = colete à prova de balas leve
     .desc = Um colete kevlar simples de origem desconhecida. Este é um colete à prova de balas simples feito para resistir a balas de baixo calibre.
+
+ent-ClothingOuterArmorBPVestLightPDV = colete à prova de balas PD-VI STZ-M
+    .desc = Parte do sistema de armadura STZ para infantaria PD. Moderadamente reforçado contra balas.
 
 ent-ClothingOuterArmorBPVestMedium = colete à prova de balas médio
     .desc = Um colete kevlar simples de origem desconhecida. Este é mais pesadamente reforçado contra balas ao custo de ser incômodo.
@@ -2833,6 +2840,9 @@ ent-TradeGoodWeaponParts = caixa de peças de armas
 
 # From: _Mono/Entities/Objects/Misc/turret_spawner.yml
 
+ent-SpawnMobWeaponTurretLaserPDVCrocus = gerador de torreta de laser invulnerável PDV
+    .suffix = PDV, Crocus
+
 ent-SpawnMobWeaponTurretLaserSilicon = gerador de torreta de laser de silício
     .desc = Gera uma torreta automática.
     .suffix = Silicon, Frontier
@@ -2840,6 +2850,9 @@ ent-SpawnMobWeaponTurretLaserSilicon = gerador de torreta de laser de silício
 ent-SpawnMobWeaponTurretLaserTSFMC = gerador de torreta de laser TSFMC
     .desc = Gera uma torreta automática.
     .suffix = TSFMC, Frontier
+
+ent-SpawnMobWeaponTurretLaserTSFMCCrocus = gerador de torreta de laser invulnerável TSFMC
+    .suffix = TSFMC, Crocus
 
 ent-SpawnMobWeaponTurretPDV = gerador de torreta balística PDV
     .desc = Gera uma torreta automática.
@@ -3007,6 +3020,12 @@ ent-FoodBoxBiscuitSimple = Caixa de Biscoitos Simples
 
 ent-FoodBoxBiscuitSugar = Caixa de Biscoitos de Açúcar
     .desc = Uma caixa contendo biscoitos de açúcar. Perfeita para um lanche!
+
+# From: _Mono/Entities/Objects/Specific/Crocus/tracker.yml
+
+ent-PinpointerSyndicateCrocusBeacon = localizador de baliza de uplink de rádio
+    .suffix = Balizas Crocus
+    .desc = Aponta para a baliza de uplink de rádio mais próxima para os objetivos da TSF/PDV. Funciona apenas no nível atual do usuário, então algumas podem estar abaixo ou acima de você.
 
 # From: _Mono/Entities/Objects/Specific/Mechs/mech_construction.yml
 
@@ -5549,6 +5568,14 @@ ent-GunAttachmentGripErebusVFG = empunhadura frontal vertical (montagem rail Ere
 ent-GunAttachmentGripPistolLAM = módulo de mira laser Soyuz PGL (montagem de arma de porte)
     .desc = Um laser verde de espectro visível para mira. Parece impressionante, e ajuda muito na precisão do primeiro tiro!
 
+ent-GunAttachmentQLG20 = lançador de granadas sob o cano TCA QLG-20 (montagem UBGL TSF)
+    .suffix = Empunhadura, montagem TSF
+    .desc = Uma UBGL projetada para ser montada em armas longas da TSF para fornecer uma opção leve de suporte de fogo e utilidade.
+
+ent-GunAttachmentRKR40 = lançador de granadas sob o cano PD-VI RKR/40 (montagem UBGL Vympel)
+    .suffix = Empunhadura, montagem Vympel
+    .desc = Uma UBGL proprietária projetada para a M-32 Vympel e qualquer outra coisa que compartilhe seu conjunto gatilho único (que não é nada).
+
 # From: _Mono/Entities/Objects/Weapons/Guns/Attachments/optics_erebus_railmount.yml
 
 ent-GunAttachmentOpticErebus2x = ótica Spectre 388 2x (montagem rail Erebus-HI)
@@ -6604,6 +6631,24 @@ ent-ComputerShipyardViper = console de estaleiro Viper Group
 
 ent-TSFComputerComms = computador de comunicações TSFMC
     .desc = Um console de comunicações usado por instalações Trans-Solar para fazer anúncios em todo o setor.
+
+# From: _Mono/Entities/Structures/Machines/CrocusVendors/bundles.yml
+
+ent-CMVendorBundleNightvision = kit de NODs
+    .desc = Óculos de visão noturna acoplados ao capacete e sua montagem.
+
+ent-CMVendorBundleSurgery = kit cirúrgico
+    .desc = Um conjunto completo de ferramentas cirúrgicas e uma máscara estéril.
+
+# From: _Mono/Entities/Structures/Machines/CrocusVendors/crocus_vendors.yml
+
+ent-ColMarTechEquipmentPDV = rack automatizado de equipamento de infantaria PDV
+    .suffix = Crocus
+    .desc = Um rack automatizado conectado a um colossal estoque de equipamento padrão.
+
+ent-ColMarTechEquipmentTSF = rack automatizado de equipamento de infantaria TSF
+    .suffix = Crocus
+    .desc = Um rack automatizado conectado a um colossal estoque de equipamento padrão.
 
 # From: _Mono/Entities/Structures/Machines/datafarms.yml
 # Abstract entity (referenceable by children)
