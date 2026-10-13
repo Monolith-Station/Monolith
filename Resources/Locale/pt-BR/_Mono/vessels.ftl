@@ -590,7 +590,7 @@ vessel-Sellsword-name = UW Sellsword
 vessel-Sellsword-desc = Um piquete de escolta composto por um caixão claustrofóbico de plastitânio fundido envolvendo um BOFORS de 203x940mm e um pod de mísseis VESPERA. Expectativa de vida em combate de 4 minutos. Possui designação IFF militar.
 
 vessel-QJ490-name = GS QJ-490/B
-vessel-QJ490-desc = Vem com 4 AK-570s e um autocanhão Dravon. Bastante rápida para acelerar, mas carece de contramedidas contra mísseis. Após sua desativação da frota da TSFMC, a GS comprou e modernizou o projeto, com as antigas armas de energia e o baú de bombas logisticamente exigente tendo sido trocados por armamentos mais convencionais.
+vessel-QJ490-desc = Vem com 2 AK-570s, 2 Vanyks e um autocanhão Equinox. Bastante rápida para acelerar, mas carece de contramedidas contra mísseis. Após sua desativação da frota da TSFMC, a GS comprou e modernizou o projeto, com as antigas armas de energia e o baú de bombas logisticamente exigente tendo sido trocados por armamentos mais convencionais.
 
 vessel-Xinhua-name = MSH Xinhua
 vessel-Xinhua-desc = Uma corveta leve que não conseguiu atrair a atenção de nenhum fornecedor de defesa. Bem armada, com hardpoints e poder de fogo para complementá-la ainda mais, mas carece bastante de espaço interno livre.

@@ -692,6 +692,10 @@ ent-ClothingEyesBallisticGogglesOrange = óculos de proteção balísticos laran
 ent-ClothingEyesBallisticGogglesRed = óculos de proteção balísticos vermelhos
     .desc = Um par de óculos de proteção balísticos com lentes vermelhas e microchips de escaneamento de saúde integrados.
 
+ent-ClothingEyesBallisticGogglesRedCrocus = óculos de proteção antiflash
+    .suffix = Crocus
+    .desc = Um par de óculos de proteção balísticos com lentes vermelhas para bloquear luz intensa. Também funciona como proteção ocular para solda.
+
 ent-ClothingEyesTSFOfficerGlasses = óculos de sol de comandante TSF
     .desc = Um display de alta tecnologia construído especificamente para oficiais da Federação. Geralmente emitido para o oficial comandante de uma companhia.
 
@@ -1239,6 +1243,9 @@ ent-ClothingOuterArmorBPVestHeavy = colete à prova de balas pesado
 
 ent-ClothingOuterArmorBPVestLight = colete à prova de balas leve
     .desc = Um colete kevlar simples de origem desconhecida. Este é um colete à prova de balas simples feito para resistir a balas de baixo calibre.
+
+ent-ClothingOuterArmorBPVestLightPDV = colete à prova de balas PD-VI STZ-M
+    .desc = Parte do sistema de armadura STZ para infantaria PD. Moderadamente reforçado contra balas.
 
 ent-ClothingOuterArmorBPVestMedium = colete à prova de balas médio
     .desc = Um colete kevlar simples de origem desconhecida. Este é mais pesadamente reforçado contra balas ao custo de ser incômodo.
@@ -2833,6 +2840,10 @@ ent-TradeGoodWeaponParts = caixa de peças de armas
 
 # From: _Mono/Entities/Objects/Misc/turret_spawner.yml
 
+ent-SpawnMobWeaponTurretLaserPDVCrocus = gerador de torreta de laser invulnerável PDV
+    .desc = {ent-SpawnMobWeaponTurretLaserTSFMC.desc}
+    .suffix = PDV, Crocus
+
 ent-SpawnMobWeaponTurretLaserSilicon = gerador de torreta de laser de silício
     .desc = Gera uma torreta automática.
     .suffix = Silicon, Frontier
@@ -2840,6 +2851,10 @@ ent-SpawnMobWeaponTurretLaserSilicon = gerador de torreta de laser de silício
 ent-SpawnMobWeaponTurretLaserTSFMC = gerador de torreta de laser TSFMC
     .desc = Gera uma torreta automática.
     .suffix = TSFMC, Frontier
+
+ent-SpawnMobWeaponTurretLaserTSFMCCrocus = gerador de torreta de laser invulnerável TSFMC
+    .desc = {ent-SpawnMobWeaponTurretLaserTSFMC.desc}
+    .suffix = TSFMC, Crocus
 
 ent-SpawnMobWeaponTurretPDV = gerador de torreta balística PDV
     .desc = Gera uma torreta automática.
@@ -3007,6 +3022,12 @@ ent-FoodBoxBiscuitSimple = Caixa de Biscoitos Simples
 
 ent-FoodBoxBiscuitSugar = Caixa de Biscoitos de Açúcar
     .desc = Uma caixa contendo biscoitos de açúcar. Perfeita para um lanche!
+
+# From: _Mono/Entities/Objects/Specific/Crocus/tracker.yml
+
+ent-PinpointerSyndicateCrocusBeacon = localizador de baliza de uplink de rádio
+    .suffix = Balizas Crocus
+    .desc = Aponta para a baliza de uplink de rádio mais próxima para os objetivos da TSF/PDV. Funciona apenas no nível atual do usuário, então algumas podem estar abaixo ou acima de você.
 
 # From: _Mono/Entities/Objects/Specific/Mechs/mech_construction.yml
 
@@ -5549,6 +5570,14 @@ ent-GunAttachmentGripErebusVFG = empunhadura frontal vertical (montagem rail Ere
 ent-GunAttachmentGripPistolLAM = módulo de mira laser Soyuz PGL (montagem de arma de porte)
     .desc = Um laser verde de espectro visível para mira. Parece impressionante, e ajuda muito na precisão do primeiro tiro!
 
+ent-GunAttachmentQLG20 = lançador de granadas sob o cano TCA QLG-20 (montagem UBGL TSF)
+    .suffix = Empunhadura, montagem TSF
+    .desc = Uma UBGL projetada para ser montada em armas longas da TSF para fornecer uma opção leve de suporte de fogo e utilidade.
+
+ent-GunAttachmentRKR40 = lançador de granadas sob o cano PD-VI RKR/40 (montagem UBGL Vympel)
+    .suffix = Empunhadura, montagem Vympel
+    .desc = Uma UBGL proprietária projetada para a M-32 Vympel e qualquer outra coisa que compartilhe seu conjunto gatilho único (que não é nada).
+
 # From: _Mono/Entities/Objects/Weapons/Guns/Attachments/optics_erebus_railmount.yml
 
 ent-GunAttachmentOpticErebus2x = ótica Spectre 388 2x (montagem rail Erebus-HI)
@@ -6604,6 +6633,24 @@ ent-ComputerShipyardViper = console de estaleiro Viper Group
 
 ent-TSFComputerComms = computador de comunicações TSFMC
     .desc = Um console de comunicações usado por instalações Trans-Solar para fazer anúncios em todo o setor.
+
+# From: _Mono/Entities/Structures/Machines/CrocusVendors/bundles.yml
+
+ent-CMVendorBundleNightvision = kit de NODs
+    .desc = Óculos de visão noturna acoplados ao capacete e sua montagem.
+
+ent-CMVendorBundleSurgery = kit cirúrgico
+    .desc = Um conjunto completo de ferramentas cirúrgicas e uma máscara estéril.
+
+# From: _Mono/Entities/Structures/Machines/CrocusVendors/crocus_vendors.yml
+
+ent-ColMarTechEquipmentPDV = rack automatizado de equipamento de infantaria PDV
+    .suffix = Crocus
+    .desc = Um rack automatizado conectado a um colossal estoque de equipamento padrão.
+
+ent-ColMarTechEquipmentTSF = rack automatizado de equipamento de infantaria TSF
+    .suffix = Crocus
+    .desc = Um rack automatizado conectado a um colossal estoque de equipamento padrão.
 
 # From: _Mono/Entities/Structures/Machines/datafarms.yml
 # Abstract entity (referenceable by children)
@@ -10485,7 +10532,7 @@ ent-WeaponRifleMolot = PD-VI LA/53 Molot (7.62x51mm)
     .desc = Rifle de impacto forte disparando 7.62x51mm para Tarkhans PDV. Boa cadência de tiro, e velocidade de saída excepcional.
 
 ent-WeaponRifleVympel = PD-VI M-32 Vympel (5.56x45mm)
-    .desc = Um design bullpup compacto. Usa munição de rifle 5.56x45mm. O cano é rosqueado para silenciadores, e uma montagem Erebus está presente no guarda-mão para empunhaduras.
+    .desc = Um design bullpup compacto. Usa munição de rifle 5.56x45mm. O cano é rosqueado para silenciadores, e uma montagem Erebus está presente no guarda-mão para empunhaduras. Possúi encaixe para UBGLs RKR/40.
 
 ent-WeaponRifleWSPR = CS KMP-WSPR (7.62x39mm)
     .desc = Um rifle de rajada de ponta da Dinastia, versátil e confiável. Usa munição 7.62x39mm. Um trilho Erebus está presente no topo do receptor para óticas.
@@ -10497,7 +10544,7 @@ ent-WeaponRifleDragonfang = TCA QBB-81-1 Dragonfang (7.62x51mm)
     .desc = Um rifle de batalha pesado usado pelo FORECON no início da expedição do Colosso, este rifle empacota um poder de fogo extraordinário em um quadro de outra forma compacto. Calibrado em 7.62x51mm, ele dizima qualquer um corajoso o suficiente para ficar no caminho de nossa conquista militar. O cano é rosqueado para silenciadores, e uma montagem Erebus está na alça de transporte e na parte inferior para óticas e empunhaduras.
 
 ent-WeaponRifleLecter = TCA QBZ-410 Lecter (6.8x52mm Sem Estojo)
-    .desc = O resultado de um projeto para fazer um novo rifle padrão para os ramos do militar da TSF. Preciso, fácil de usar, e disparando o projétil 6.8x52mm STANAG. Também aceita carregadores 5.56x45mm para auxiliar na padronização. O cano é rosqueado para silenciadores, e um trilho Erebus está na parte inferior para empunhaduras.
+    .desc = O resultado de um projeto para fazer um novo rifle padrão para os ramos do militar da TSF. Preciso, fácil de usar, e disparando o projétil 6.8x52mm STANAG. Também aceita carregadores 5.56x45mm para auxiliar na padronização. O cano é rosqueado para silenciadores, e um trilho Erebus está na parte inferior para empunhaduras. Possúi encaixe para UBGLs RKR/40.
 
 ent-WeaponRifleRiversong = TCA QBZ-91 Riversong (6.8x52mm Sem Estojo)
     .desc = Um rifle bullpup projetado para uso em tanques, embarcações de desembarque e outros veículos de pouco espaço da Infantaria Terrestre da TSFMC, esta arma também se tornou popular entre equipes de abordagem devido ao tamanho pequeno e à capacidade de ser disparada com uma mão. Preciso, fácil de usar, e dispara o projétil 6.8x52mm STANAG. Também aceita carregadores 5.56x45mm para auxiliar na padronização. O cano é rosqueado para silenciadores, e uma montagem Erebus está presente na alça de transporte e na parte inferior para óticas e empunhaduras.

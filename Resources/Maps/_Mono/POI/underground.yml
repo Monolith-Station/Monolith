@@ -2521,13 +2521,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -21.5,9.5
       parent: 1
-- proto: AirlockRogueGlassLocked
-  entities:
-  - uid: 94
-    components:
-    - type: Transform
-      pos: 15.5,30.5
-      parent: 1
 - proto: AirlockScienceGlass
   entities:
   - uid: 95
@@ -2540,7 +2533,7 @@ entities:
     - type: Transform
       pos: 8.5,0.5
       parent: 1
-- proto: AirlockShuttleSyndicateRogueLocked
+- proto: AirlockShuttleUnderground
   entities:
   - uid: 97
     components:
@@ -2983,6 +2976,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 34.5,12.5
+      parent: 1
+  - uid: 94
+    components:
+    - type: Transform
+      pos: 15.5,30.5
       parent: 1
   - uid: 194
     components:

@@ -6,7 +6,7 @@
 
 # From: _Mono/Guidebook/basics.yml
 
-ent-BeginnerGuide = Beginner's Guide
+ent-BeginnerGuide = guide-entry-beginnersguide
 
 # From: _Mono/Guidebook/creatures.yml
 

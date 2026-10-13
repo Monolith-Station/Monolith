@@ -31,11 +31,30 @@ guide-entry-monolith-rules = Regras do Monolith
 guide-entry-creatures = Criaturas do Setor
 guide-entry-cortical-borer = Perfurador Cortical
 guide-entry-xenoborgs = Xenoborgs
+
 # Mechas
 guide-entry-mechs = Mechas
 guide-entry-s1mechs = Mechas da Série 1
 guide-entry-s2mechs = Mechas da Série 2
 guide-entry-s4mechs = Mechas da Série 4
 
-# Z-level
-guidebook-entry-Flight = Vôo
+# Faltando no Upstream
+guide-entry-beginnersguide = Guia do Iniciante
+guide-entry-factions = Facções
+guide-entry-tsfmc = TSFMC
+guide-entry-pdv = PDV
+guide-entry-smuggling = Contrabandeio
+guide-entry-defusal = Desarme de Bombas
+guide-entry-tsfmc-sop = P.O.P
+guide-entry-tsfmc-structure = Estrutura
+guide-entry-tsfmc-brigade = 21ª Brigada
+guide-entry-tsfmc-ranks = Ranques
+guide-entry-tsfmc-culture = Cultura
+guide-entry-ussp = USSP
+guide-entry-ussp-sop = P.O.P
+guide-entry-ussp-overview = União Soviética de Planetas Socialistas
+guide-entry-vg = Grupo Víbora
+guide-entry-mmc = Mieyo Manufacturing Concern
+guide-entry-caelestinus = Caelestinus
+guide-entry-basiclore = Lore
+guide-entry-timeline = História Resumida

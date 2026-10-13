@@ -5,7 +5,7 @@
   parent: BaseVessel
   name: vessel-QJ490-name # Andromeda: Localizar nome e descrição de nave
   description: vessel-QJ490-desc # Andromeda: Localizar nome e descrição de nave
-  price: 25200
+  price: 43000
   category: Small
   shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj490.yml
   guidebookPage: Null
@@ -18,7 +18,7 @@
 
 - type: gameMap
   id: QJ490
-  mapName: 'QJ-490/B'
+  mapName: 'QJ-490/C'
   mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj490.yml
   minPlayers: 0
   stations:
@@ -26,7 +26,7 @@
       stationProto: StandardFrontierVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'QJ-490/B MIL{1}'
+        mapNameTemplate: 'QJ-490/C MIL{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
