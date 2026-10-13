@@ -87,3 +87,18 @@ Entries:
   id: 12
   time: '2026-10-11T02:25:52.0000000+00:00'
   url: https://github.com/Estacao-Andromeda/Monolith/pull/12
+- author: Dragometh
+  changes:
+    - type: Tweak
+      message: >-
+        mais ajustes de tradução: ammoloader, uplinks, paineis de turret,
+        primeiro passe em várias paginas do livro guia e outros
+    - type: Tweak
+      message: >-
+        menus de pesquisa de crafting e tornos agora também pesquisam pelo id do
+        item, permitindo (com certa limitação) pesquisas em inglês. caso a frase
+        tenha mais de uma palavra, tente pesquisar que nem o yoda (botando
+        palavras do fim da frase no começo)
+  id: 13
+  time: '2026-10-13T11:51:51.0000000+00:00'
+  url: https://github.com/Estacao-Andromeda/Monolith/pull/14
