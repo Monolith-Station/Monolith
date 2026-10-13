@@ -24,7 +24,6 @@
     availableModes:
     - SemiAuto
     - FullAuto
-    # Mono
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle.ogg
     soundEmpty:
@@ -67,12 +66,11 @@
   - type: Item
     sprite: _Mono/Objects/Weapons/Guns/Rifles/weasel_inhands_32x.rsi
 
-
 - type: entity
   name: GSI Boa (5.56x45mm)
   parent: [BaseWeaponRifle, BaseGunWieldable]
   id: WeaponRifleBoa
-  description: A mass produced carbine rifle, modernized by GSI for use across the Colossus Sector. Comes with 3 firing modes, and high accuracy and velocity. Finished with Red and Yellow garnish, an Icon of the Viper Group.
+  description: A mass produced carbine rifle, modernized by GSI for use across the Colossus sector. Comes with 3 firing modes, and high accuracy and velocity. Finished with red and yellow garnish, an icon of the Viper group.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Rifles/boa.rsi
@@ -89,7 +87,7 @@
     maxAngle: 35
     angleIncrease: 1
     angleDecay: 80
-    fireRate: 5.5 
+    fireRate: 4.5 
     projectileSpeed: 50
     damageModifier: 2  
     shotsPerBurst: 2
