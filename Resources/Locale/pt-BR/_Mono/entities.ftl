@@ -2841,6 +2841,7 @@ ent-TradeGoodWeaponParts = caixa de peças de armas
 # From: _Mono/Entities/Objects/Misc/turret_spawner.yml
 
 ent-SpawnMobWeaponTurretLaserPDVCrocus = gerador de torreta de laser invulnerável PDV
+    .desc = {ent-SpawnMobWeaponTurretLaserTSFMC.desc}
     .suffix = PDV, Crocus
 
 ent-SpawnMobWeaponTurretLaserSilicon = gerador de torreta de laser de silício
@@ -2852,6 +2853,7 @@ ent-SpawnMobWeaponTurretLaserTSFMC = gerador de torreta de laser TSFMC
     .suffix = TSFMC, Frontier
 
 ent-SpawnMobWeaponTurretLaserTSFMCCrocus = gerador de torreta de laser invulnerável TSFMC
+    .desc = {ent-SpawnMobWeaponTurretLaserTSFMC.desc}
     .suffix = TSFMC, Crocus
 
 ent-SpawnMobWeaponTurretPDV = gerador de torreta balística PDV
