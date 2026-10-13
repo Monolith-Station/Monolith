@@ -37,6 +37,11 @@
     - type: FakeMindShield # mindshield overlay is too dogshit to just use the comp
       isEnabled: true
       mindShieldStatusIcon: MindShieldIconPDV
+    - type: CMVendorUser
+      id: PdvInfantry
+      points: 4
+      extraPoints:
+        CrocusPoints: 2
   - !type:AddLanguageSpecial # Monolith - Languages
     languagesSpoken:
     - Freespeak
@@ -49,9 +54,6 @@
   equipment:
     ears: ClothingHeadsetAltFreelancer
     neck: ClothingNeckIFFOrange
-    eyes: ClothingEyesHudSecurity
   storage:
     belt:
     - RadioHandheldNF
-  inhand:
-  - UndeterminedPDVCrocusKit
