@@ -10485,7 +10485,7 @@ ent-WeaponRifleMolot = PD-VI LA/53 Molot (7.62x51mm)
     .desc = Rifle de impacto forte disparando 7.62x51mm para Tarkhans PDV. Boa cadência de tiro, e velocidade de saída excepcional.
 
 ent-WeaponRifleVympel = PD-VI M-32 Vympel (5.56x45mm)
-    .desc = Um design bullpup compacto. Usa munição de rifle 5.56x45mm. O cano é rosqueado para silenciadores, e uma montagem Erebus está presente no guarda-mão para empunhaduras.
+    .desc = Um design bullpup compacto. Usa munição de rifle 5.56x45mm. O cano é rosqueado para silenciadores, e uma montagem Erebus está presente no guarda-mão para empunhaduras. Possúi encaixe para UBGLs RKR/40.
 
 ent-WeaponRifleWSPR = CS KMP-WSPR (7.62x39mm)
     .desc = Um rifle de rajada de ponta da Dinastia, versátil e confiável. Usa munição 7.62x39mm. Um trilho Erebus está presente no topo do receptor para óticas.
@@ -10497,7 +10497,7 @@ ent-WeaponRifleDragonfang = TCA QBB-81-1 Dragonfang (7.62x51mm)
     .desc = Um rifle de batalha pesado usado pelo FORECON no início da expedição do Colosso, este rifle empacota um poder de fogo extraordinário em um quadro de outra forma compacto. Calibrado em 7.62x51mm, ele dizima qualquer um corajoso o suficiente para ficar no caminho de nossa conquista militar. O cano é rosqueado para silenciadores, e uma montagem Erebus está na alça de transporte e na parte inferior para óticas e empunhaduras.
 
 ent-WeaponRifleLecter = TCA QBZ-410 Lecter (6.8x52mm Sem Estojo)
-    .desc = O resultado de um projeto para fazer um novo rifle padrão para os ramos do militar da TSF. Preciso, fácil de usar, e disparando o projétil 6.8x52mm STANAG. Também aceita carregadores 5.56x45mm para auxiliar na padronização. O cano é rosqueado para silenciadores, e um trilho Erebus está na parte inferior para empunhaduras.
+    .desc = O resultado de um projeto para fazer um novo rifle padrão para os ramos do militar da TSF. Preciso, fácil de usar, e disparando o projétil 6.8x52mm STANAG. Também aceita carregadores 5.56x45mm para auxiliar na padronização. O cano é rosqueado para silenciadores, e um trilho Erebus está na parte inferior para empunhaduras. Possúi encaixe para UBGLs RKR/40.
 
 ent-WeaponRifleRiversong = TCA QBZ-91 Riversong (6.8x52mm Sem Estojo)
     .desc = Um rifle bullpup projetado para uso em tanques, embarcações de desembarque e outros veículos de pouco espaço da Infantaria Terrestre da TSFMC, esta arma também se tornou popular entre equipes de abordagem devido ao tamanho pequeno e à capacidade de ser disparada com uma mão. Preciso, fácil de usar, e dispara o projétil 6.8x52mm STANAG. Também aceita carregadores 5.56x45mm para auxiliar na padronização. O cano é rosqueado para silenciadores, e uma montagem Erebus está presente na alça de transporte e na parte inferior para óticas e empunhaduras.
