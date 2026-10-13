@@ -5,6 +5,7 @@ store-category-secammo = Munição
 store-category-secexplosives = Explosivos
 store-category-secbundles = Pacotes
 store-category-secvouchers = Vouchers
+store-category-secmaterials = Materiais
 
 uplink-security-hardsuit-name = Tática M73 Soldado
 uplink-security-hardsuit-desc = O traje espacial padrão da TSFMC à prova de espaço para serviço de patrulha. Essa variante bronze tem marcas de patente de soldado.
@@ -162,3 +163,7 @@ uplink-security-contraband-forensics-module-name = Módulo Forense de Contraband
 uplink-security-contraband-forensics-module-desc = Um programa para escanear e relatar contrabando em dead drops e pods para recompensas. Encaixa em um scanner forense.
 uplink-security-mechpulserifle-name = Emissor de Pulso CL-94
 uplink-security-mechpulserifle-desc = Um Rifle de Pulso montado em mecha.
+uplink-security-implanter-tsf-name = Implantador de Rádio TSF
+uplink-security-implanter-tsf-desc = Implanta um implante de rádio TSF, permitindo comunicação secreta sem fone de ouvido.
+uplink-security-MobBoomroach-name = Rádio de Reforço BoomRoach
+uplink-security-MobBoomroach-desc = Seu próprio amigo BoomRoach enviado pelo Alto Comando e equipado com um China Lake EMP.

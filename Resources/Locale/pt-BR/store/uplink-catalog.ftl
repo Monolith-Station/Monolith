@@ -91,7 +91,7 @@ uplink-pistol-magazine-c20r-desc = Carregador de rifle com 30 cartuchos. Compat�
 uplink-pistol-magazine-caseless-name = Pente de pistola (6.35x40mm Sem cartucho)
 uplink-pistol-magazine-caseless-desc = Pente de pistola com 10 cartuchos. Compatível com a Cobra.
 
-uplink-speedloader-45_magnum-name = Speedloader (.357 magnum AP)
+uplink-speedloader-357_magnum-name = Speedloader (.357 magnum AP)
 uplink-speedloader-magnu-desc = Speedloader de revólver com 6 cartuchos perfurantes de blindagem, capaz de ignorar blindagem completamente. Compatível com a Python.
 
 uplink-mosin-ammo-name = Caixa de Munição (7.62x39mm FMJ)

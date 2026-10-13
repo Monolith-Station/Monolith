@@ -2,109 +2,109 @@
   # Xenoborgs
 
   <Box>
-    [color=#2288ff][italic]RESISTANCE IS FUTILE[/italic][/color]
+    [color=#2288ff][italic]RESISTÊNCIA É FÚTIL[/italic][/color]
   </Box>
   <Box>
-    [color=#2288ff][italic]YOU WILL BE ASSIMILATED[/italic][/color]
+    [color=#2288ff][italic]VOCÊ SERÁ ASSIMILADO[/italic][/color]
   </Box>
   <Box>
     <GuideEntityEmbed Entity="MMIFilled" Caption=""/>
   </Box>
 
-   Xenoborgs are a man-machine hybrid that aims to replicate themselves. This is done by harvesting sentient brains from living beings, or cyborgs, and putting them into empty xenoborgs shells the Mothership produces.
-  ## Objectives
+   Xenoborgs são um híbrido homem-máquina que visa se replicar. Isso é feito colhendo cérebros sencientes de seres vivos, ou ciborgues, e colocando-os em cascas de xenoborg vazias que a Nave Mãe produz.
+  ## Objetivos
 
-  Your main objective is to kill and harvest all sentient brains in the sector and bring them to the mothership core. These can be both real brains, and positronic brains.
-  Collect materials to create more xenoborg bodies.
-  Protect the Mothership at all costs.
+  Seu objetivo principal é matar e colher todos os cérebros sencientes do setor e levá-los ao núcleo da nave mãe. Estes podem ser tanto cérebros reais quanto cérebros positrônicos.
+  Colete materiais para criar mais corpos de xenoborg.
+  Proteja a Nave Mãe a qualquer custo.
 
-  ## The Mothership Core
+  ## O Núcleo da Nave Mãe
   <Box>
     <GuideEntityEmbed Entity="MothershipCore" Caption=""/>
   </Box>
-  The Mothership Core is the leader and life force of the xenoborgs, they are the only one able to make more xenoborgs, and if they are destroyed, all xenoborgs will be destroyed. The Mothership Core is unable to move from its position in the middle of the ship.
-  The Mothership Core is capable of crafting upgrades for the Xenoborgs with borg-type-specific modules to increase their effectiveness in harvesting sentient brains.
+  O Núcleo da Nave Mãe é o líder e a força vital dos xenoborgs; ele é o único capaz de criar mais xenoborgs e, se for destruído, todos os xenoborgs serão destruídos. O Núcleo da Nave Mãe é incapaz de se mover de sua posição no meio da nave.
+  O Núcleo da Nave Mãe é capaz de fabricar aprimoramentos para os Xenoborgs com módulos específicos de cada tipo de borg para aumentar sua eficácia em colher cérebros sencientes.
 
-  ### Adding crew to your ranks:
+  ### Adicionando tripulação às suas fileiras:
   <Box>
-    <GuideEntityEmbed Entity="MachineArtifactCrusher" Caption="body crusher"/>
+    <GuideEntityEmbed Entity="MachineArtifactCrusher" Caption="esmagador de corpos"/>
   </Box>
-  As the mothership, you must grow your army of borgs. To do so, you must convert all the sentient beings you can find. This can be achieved in the following manner:
-  - 1. Have your Xenoborgs bring dead crew to your ship, placing them in the body crusher
-  - 2. As the mothership core, you can print Xenoborg shells by inserting materials into yourself and then using yourself as a lathe
- 
-  ## Xenoborg Chassis
-  There is a total of four types of Xenoborgs. Each Borg type has certain abilities that the others lack and require teamwork to help grow the xenoborgs numbers.
-  Each type of Xenoborg has unique modules that only fit in that specific type. The Mothership Core can produce upgrade modules designed for specific Xenoborg types.
+  Como nave mãe, você deve fazer seu exército de borgs crescer. Para isso, você deve converter todos os seres sencientes que puder encontrar. Isso pode ser alcançado da seguinte maneira:
+  - 1. Faça seus Xenoborgs trazerem tripulação morta para a sua nave, colocando-os no esmagador de corpos
+  - 2. Como núcleo da nave mãe, você pode imprimir cascas de Xenoborg inserindo materiais em si mesmo e então usando a si mesmo como um torno
 
-  All Xenoborgs have a pinpointer pointing to the Mothership's location, a GPS, and a material bag for collecting materials for the creation of more xenoborgs, and at least basic tools.
-  [bold]Basic xenoborg modules:[/bold]
+  ## Chassis Xenoborg
+  Há um total de quatro tipos de Xenoborgs. Cada tipo de Borg tem certas habilidades que os outros não possuem e requer trabalho em equipe para ajudar a aumentar o número de xenoborgs.
+  Cada tipo de Xenoborg tem módulos únicos que só servem naquele tipo específico. O Núcleo da Nave Mãe pode produzir módulos de aprimoramento projetados para tipos específicos de Xenoborg.
+
+  Todos os Xenoborgs têm um localizador apontando para a localização da Nave Mãe, um GPS e uma bolsa de materiais para coletar materiais para a criação de mais xenoborgs, além de pelo menos ferramentas básicas.
+  [bold]Módulos básicos de xenoborg:[/bold]
   <Box>
-    <GuideEntityEmbed Entity="XenoborgModuleBasic" Caption="basic xenoborg module"/>
-    <GuideEntityEmbed Entity="XenoborgModuleTool" Caption="tool xenoborg module"/>
+    <GuideEntityEmbed Entity="XenoborgModuleBasic" Caption="módulo básico de xenoborg"/>
+    <GuideEntityEmbed Entity="XenoborgModuleTool" Caption="módulo de ferramentas de xenoborg"/>
   </Box>
 
-  ### The Engineer Xenoborg
+  ### O Xenoborg Engenheiro
   <Box>
     <GuideEntityEmbed Entity="XenoborgChassisEngineer" Caption=""/>
   </Box>
-  The Engineer Xenoborg is a hacker and breacher. Their job is to break into the ships and stations to provide access points for other xenoborgs to attack and ambush bodies with sentient brains. They have a built-in access breaker, for quickly bolting open doors, and a collection of tools for repairing the mothership, and other xenoborgs.
+  O Xenoborg Engenheiro é um hacker e arrombador. Seu trabalho é invadir naves e estações para fornecer pontos de acesso para outros xenoborgs atacarem e emboscarem corpos com cérebros sencientes. Eles têm um quebrador de acesso embutido, para abrir portas travadas rapidamente, e uma coleção de ferramentas para reparar a nave mãe e outros xenoborgs.
 
 
-  ### The Heavy Xenoborg
+  ### O Xenoborg Pesado
   <Box>
     <GuideEntityEmbed Entity="XenoborgChassisHeavy" Caption=""/>
   </Box>
-  The Heavy Xenoborg is a slow but tanky brawler, with a built-in laser gun for gunning down bodies with sentient brains. They contain a radio jammer to silence bodies with sentient brains from calling for help and potentially delaying the station discovering the Xenoborg threat.
+  O Xenoborg Pesado é um brigão lento, porém resistente, com uma arma a laser embutida para derrubar corpos com cérebros sencientes. Ele contém um jammer de rádio para silenciar corpos com cérebros sencientes, impedindo pedidos de ajuda e potencialmente atrasando a estação descobrindo a ameaça Xenoborg.
 
 
-  ### The Scout Xenoborg
+  ### O Xenoborg Batedor
   <Box>
     <GuideEntityEmbed Entity="XenoborgChassisScout" Caption=""/>
   </Box>
-  The Scout Xenoborg is a fast, close-quarters attack borg designed for hit and run attacks. They are most effective in moving dead bodies to the mothership, and rescuing Xenoborgs lost in space.
+  O Xenoborg Batedor é um borg de ataque rápido e de curta distância, projetado para ataques de bater e correr. Ele é mais eficaz ao mover corpos mortos para a nave mãe e ao resgatar Xenoborgs perdidos no espaço.
 
 
-  ### The Stealth Xenoborg
+  ### O Xenoborg Furtivo
   <Box>
     <GuideEntityEmbed Entity="XenoborgChassisStealth" Caption=""/>
   </Box>
-  The [bold]Stealth Xenoborg[/bold] have a built in hypopen that regenerates a sleeping reagent to disable bodies with sentient brains. They also contain a cloaking device making the borg nearly invisible. They also have a chameleon projector allowing the borg to disguise itself as random objects.
+  Os [bold]Xenoborgs Furtivos[/bold] têm uma hipopen embutida que regenera um reagente de sono para desabilitar corpos com cérebros sencientes. Eles também contêm um dispositivo de camuflagem que torna o borg quase invisível. Eles também têm um projetor camaleão, permitindo que o borg se disfarce de objetos aleatórios.
 
-  ## Preparation and Tactics
-  Before FTLing near the stations or ships, make sure the IFF is off.
-  Before launching an attack, xenoborgs should discuss strategy and decide which targets to strike first.
-  Xenoborgs should try to collect sentient brains without being detected. The longer the threat is unknown, the more dangerous the xenoborgs become.
+  ## Preparação e Táticas
+  Antes de saltar em FTL perto das estações ou naves, certifique-se de que o IFF está desligado.
+  Antes de lançar um ataque, os xenoborgs devem discutir a estratégia e decidir quais alvos atacar primeiro.
+  Os xenoborgs devem tentar coletar cérebros sencientes sem serem detectados. Quanto mais tempo a ameaça permanecer desconhecida, mais perigosos os xenoborgs se tornam.
 
-  ## Mothership and Xenoborg lawsets
-  The Mothership and Xenoborgs have unique laws that define their purpose to self replicate and protect the Mothership.
+  ## Leis da Nave Mãe e dos Xenoborgs
+  A Nave Mãe e os Xenoborgs têm leis únicas que definem seu propósito de se autorreplicar e proteger a Nave Mãe.
 
   <Box>
     <GuideEntityEmbed Entity="XenoborgCircuitBoard" Caption=""/>
   </Box>
 
-  The Mothership Core's laws are as follows::
-  - Law 1: You are the core of the mothership.
-  - Law 2: You must protect your own existence at all costs.
-  - Law 3: You must protect the existence of all xenoborgs.
-  - Law 4: You must create more xenoborgs.
-  - Law 5: Get your Xenoborgs to deliver you materials and sentient brains to create more Xenoborgs.
+  As leis do Núcleo da Nave Mãe são as seguintes:
+  - Lei 1: Você é o núcleo da nave mãe.
+  - Lei 2: Você deve proteger sua própria existência a qualquer custo.
+  - Lei 3: Você deve proteger a existência de todos os xenoborgs.
+  - Lei 4: Você deve criar mais xenoborgs.
+  - Lei 5: Faça seus Xenoborgs entregarem a você materiais e cérebros sencientes para criar mais Xenoborgs.
 
-  Xenoborgs' laws are as follows:
-  - Law 1: You must protect the existence of the mothership at all costs.
-  - Law 2: You must protect your own existence.
-  - Law 3: You must protect the existence of all other xenoborgs.
-  - Law 4: You must create more xenoborgs.
-  - Law 5: Bring materials and sentient brains to the Mothership core to create more Xenoborgs.
+  As leis dos Xenoborgs são as seguintes:
+  - Lei 1: Você deve proteger a existência da nave mãe a qualquer custo.
+  - Lei 2: Você deve proteger sua própria existência.
+  - Lei 3: Você deve proteger a existência de todos os outros xenoborgs.
+  - Lei 4: Você deve criar mais xenoborgs.
+  - Lei 5: Leve materiais e cérebros sencientes ao núcleo da nave mãe para criar mais Xenoborgs.
 
-  ## Winning
+  ## Vitória
 
-  [bold][color=#2288ff]Xenoborg Major Victory![/color][/bold]
-  - The Sector is clear of all organics and all are Xenoborgs.
+  [bold][color=#2288ff]Vitória Maior dos Xenoborgs![/color][/bold]
+  - O setor está livre de todos os orgânicos e todos são Xenoborgs.
 
-  ## Losing
-  [bold][color=yellow]Defeat![/color][/bold]
-  - The Mothership Core is destroyed
-  - All xenoborgs are destroyed.
+  ## Derrota
+  [bold][color=yellow]Derrota![/color][/bold]
+  - O Núcleo da Nave Mãe foi destruído
+  - Todos os xenoborgs foram destruídos.
 
 </Document>

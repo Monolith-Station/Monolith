@@ -76,7 +76,7 @@ ent-ClothingBackpackDuffelSyndicateBurner = Kit Burner
     .desc = Um rifle Burner de alto calibre, vem com munição perfurante e explosiva.
 
 ent-ClothingBackpackDuffelSyndicateFilledWSPR = Kit WSPR
-    .desc = Um kit carregando o rifle de assalto WSPR do Sindicato, com 4 revistas sobressalentes e duas caixas de munição.
+    .desc = Um kit carregando o rifle de assalto WSPR do Sindicato, com 4 pentes e duas caixas de munição.
 
 ent-ClothingBackpackDuffelSyndicateStealthHardsuitBundle = Kit Traje rígido Furtiva Cybersun
     .desc = Um kit avançado de traje rígido furtiva da Cybersun.
@@ -1280,7 +1280,7 @@ ent-PowerCellXraySniper = Célula de Energia de Sniper de Raios-X
 
 # From: _Goobstation/Entities/Objects/Weapons/Guns/Ammunition/Magazines/smartgun.yml
 
-ent-MagazineSmart = Revista (.160 Inteligente)
+ent-MagazineSmart = Pente (.160 Inteligente)
 
 # From: _Goobstation/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/lawbringer.yml
 
@@ -1296,7 +1296,7 @@ ent-BulletHotshot = Tiro Quente
 
 ent-BulletPulse = Pulso
 
-ent-BulletSleepshot = Tiro Sono
+ent-BulletSleepshot = Sonífero
 
 # From: _Goobstation/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/smartgun.yml
 

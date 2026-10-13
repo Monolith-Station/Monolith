@@ -30,7 +30,7 @@ guide-entry-monolith-rules = Regras do Monolith
 # Criaturas
 guide-entry-creatures = Criaturas do Setor
 guide-entry-cortical-borer = Perfurador Cortical
-
+guide-entry-xenoborgs = Xenoborgs
 # Mechas
 guide-entry-mechs = Mechas
 guide-entry-s1mechs = Mechas da Série 1

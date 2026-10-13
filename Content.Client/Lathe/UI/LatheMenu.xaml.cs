@@ -132,8 +132,14 @@ public sealed partial class LatheMenu : FancyWindow
 
             if (SearchBar.Text.Trim().Length != 0)
             {
-                if (_lathe.GetRecipeName(recipe).ToLowerInvariant().Contains(SearchBar.Text.Trim().ToLowerInvariant()))
+                // Andromeda start: Normalize diacritics & allow searching by ID so en-US searches are possible
+                // TODO: seria muito foda se a gente conseguisse ligar o localization manager aqui e pesquisar pelo locale de en-US
+                if (_lathe.GetRecipeName(recipe).ToLowerInvariant().Contains(SearchBar.Text.Trim(), StringComparison.InvariantCultureIgnoreCase)
+                || recipe.Id.ToLowerInvariant().Contains(SearchBar.Text.Trim().Replace(" ", ""), StringComparison.OrdinalIgnoreCase))
+                {
                     recipesToShow.Add(proto);
+                }
+                // Andromeda end
             }
             else
             {

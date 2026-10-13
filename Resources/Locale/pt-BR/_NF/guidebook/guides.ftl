@@ -1,6 +1,8 @@
 # Base entries
-guide-entry-nf14 = Guia da Fronteira
+guide-entry-nf14 = Guia do Monolith
+guide-entry-basics = Guia de Iniciantes
 guide-entry-bank = Banco Central Colossus
+guide-entry-safety-deposit-box = Sistema de Cofre de Depósito
 guide-entry-piloting = Pilotagem
 guide-entry-startinggear = Equipamento Inicial
 guide-entry-hiring = Contratação de Tripulação
@@ -95,5 +97,5 @@ guide-entry-frontier-rule-7 = 7. Antagonista
 guide-entry-frontier-rule-8 = 8. Zona Segura
 guide-entry-frontier-rule-9 = 9. Segurança
 guide-entry-frontier-rule-10 = 10. Comando
-guide-entry-frontier-rule-11 = 11. Escalação
+guide-entry-frontier-rule-11 = 11. Escalamento
 guide-entry-frontier-rule-12 = 12. PVP

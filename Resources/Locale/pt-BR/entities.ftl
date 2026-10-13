@@ -6177,7 +6177,7 @@ ent-InflatableWallStack5 = {ent-InflatableWallStack}
 
 # From: Entities/Objects/Tools/jammer.yml
 
-ent-RadioJammer = bloqueador de rádio
+ent-RadioJammer = jammer de rádio
     .desc = Este dispositivo interromperá qualquer comunicação de rádio saída próxima, bem como sensores de traje quando ativado.
 
 # From: Entities/Objects/Tools/jaws_of_life.yml
@@ -16102,15 +16102,6 @@ ent-FloorTileItemGrassLight = laje de grama clara
 
 ent-BaseAmphora = ânfora
     .desc = É um jarro de barro adequado para transportar líquidos, um exemplo de tecnologia antiga.
-
-# From: Nyanotrasen/Entities/Objects/Specific/Mail/base_mail.yml
-# Abstract entity (referenceable by children)
-
-ent-BaseMail = mail-item-name-unaddressed
-
-ent-MailAdminFun = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = adminfun
 
 # From: Nyanotrasen/Entities/Objects/Specific/Mail/tools.yml
 
@@ -29530,7 +29521,7 @@ ent-NocturineHypo = hypo de nocturina
 ent-AccessConfiguratorXenoborg = configurador de acesso xenoborg
     .desc = Um configurador de acesso modificado usado pelos xenoborgs.
 
-ent-XenoborgRadioJammer = bloqueador de rádio xenoborg
+ent-XenoborgRadioJammer = jammer de rádio xenoborg
 
 ent-WeaponLaserCannonXenoborg = canhão laser xenoborg
 

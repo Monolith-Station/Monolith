@@ -22,6 +22,9 @@ uplink-security-compact-defibrillator-desc = Um desfibrilador portátil feito pa
 uplink-security-cash7500-name = 7.500 Créditos
 uplink-security-cash7500-desc = Dinheiro frio e duro.
 
+uplink-security-cash10000-name = 10.000 Créditos
+uplink-security-cash10000-desc = Dinheiro frio e duro.
+
 uplink-security-thrusterkit-name = Kit de Upgrade de Propulsor
 uplink-security-thrusterkit-desc = Contém 32 supercapacitores. Perfeito para atualizar oito propulsores.
 
@@ -60,6 +63,9 @@ uplink-security-portable-recharger-desc = Um carregador portátil experimental e
 
 uplink-security-cash75000-name = 75.000 Créditos
 uplink-security-cash75000-desc = Dinheiro frio e duro, em grande quantidade.
+
+uplink-security-cash100000-name = 100.000 Créditos
+uplink-security-cash100000-desc = Dinheiro frio e duro, em grande quantidade.
 
 uplink-security-surgery-duffel-name = Kit de Cirurgia Avançada
 uplink-security-surgery-duffel-desc = uma bolsa cheia de ferramentas de cirurgia avançadas, perfeita para reconectar algumas cabeças.
@@ -106,6 +112,9 @@ uplink-security-t1-aldebaran-voucher-desc = Um pequeno cartão que contém os da
 uplink-security-t2-andromeda-voucher-name = Andromeda LPC TSFMC [T2]
 uplink-security-t2-andromeda-voucher-desc = Um pequeno cartão que contém os dados para a aquisição de um cruzador classe Andromeda das reservas da nau-capitânia.
 
+uplink-security-t2-cinquedea-voucher-name = Cinquedea LPC TSFMC [T2]
+uplink-security-t2-cinquedea-voucher-desc = Um pequeno cartão que contém os dados para a aquisição duma corveta classe Cinquedea das reservas da nau-capitânia.
+
 uplink-security-t2-spekter-voucher-name = Spekter LPC TSFMC [T2]
 uplink-security-t2-spekter-voucher-desc = Um pequeno cartão que contém os dados para a aquisição duma corveta classe Spekter das reservas da nau-capitânia.
 
@@ -114,6 +123,9 @@ uplink-security-t3-altair-voucher-desc = Um pequeno cartão que contém os dados
 
 uplink-security-t3-polaris-voucher-name = Polaris LPC TSFMC [T3]
 uplink-security-t3-polaris-voucher-desc = Um pequeno cartão que contém os dados para a aquisição duma fragata classe Polaris Tipo-56D das reservas da nau-capitânia.
+
+uplink-security-t3-fujian-voucher-name = Fujian LPC TSFMC [T3]
+uplink-security-t3-fujian-voucher-desc = Um pequeno cartão que contém os dados para a aquisição de um porta-aviões de escolta classe Fujian Tipo-53C das reservas da nau-capitânia.
 
 uplink-security-flyssa-voucher-name = Flyssa LPC TSFMC [T4]
 uplink-security-flyssa-voucher-desc = Um pequeno cartão que contém os dados para a aquisição de um destroyer classe Flyssa das reservas da nau-capitânia.
@@ -129,6 +141,12 @@ uplink-security-hardsuit-m82c-desc = Um sistema protetor básico para ambientes 
 
 uplink-security-pulserifle-name = Rifle de Pulso
 uplink-security-pulserifle-desc = Uma arma de pulso automática grande. Célula maior e de alta potência, perfeita para triturar grupos de inimigos.
+
+uplink-security-wearable-cameratsf-name = Câmera Sem Fio
+uplink-security-wearable-cameratsf-desc = Câmera usada para supervisionar uma área de operação. Pode ser vestida ou colocada em algum lugar.
+
+uplink-HardBomb-TSF-name = Perfurador de Bunkers TSF "Hiroshima"
+uplink-HardBomb-TSF-desc = A resposta da TSF ao boom insuficiente
 uplink-security-68x52mm-box-desc = Usado para recarregar carregadores para a Lecter. Contém 200 cartuchos.
 uplink-security-68x52mm-box-name = Caixa 6.8x52mm Sem Estojo
 uplink-security-8x65mm-box-desc = Usado para recarregar carregadores/caixas para a MQBU-243 e QJY-244. Contém 100 cartuchos.

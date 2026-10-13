@@ -17,18 +17,25 @@ armor-plate-gait-walk = velocidade de caminhada
 armor-plate-gait-sprint = velocidade de corrida
 
 armor-plate-speed-display =
-    { $deltasign ->
+    { $stringClause ->
         [-1] Aumenta sua {$gait} em [color=yellow]{$speedPercent}%[/color].
-         [0] Não afeta sua velocidade.
          [1] Diminui sua {$gait} em [color=yellow]{$speedPercent}%[/color].
         *[other] Não deveria ter este valor de velocidade!
     }
 
 armor-plate-ratios-display =
-    { $deltasign ->
-        [-1] [color=cyan]Absorve[/color] [color=yellow]{$ratioPercent}%[/color] de [color=yellow]{$dmgType}[/color] e recebe como [color=yellow]x{$multiplier}[/color] dano de durabilidade.
-         [0] Não é afetado por {$dmgType}
-         [1] [color=fuchsia]Amplifica[/color] [color=yellow]{$dmgType}[/color] em [color=yellow]{$ratioPercent}%[/color] e recebe o dano adicional como [color=yellow]x{$multiplier}[/color] dano de durabilidade.
-        *[other] {$dmgType} não deveria ter este valor de absorção!
+    { $stringClause ->
+        [1] [color=cyan]Absorve[/color] [color=yellow]{$ratioPercent}%[/color] de dano [color=yellow]{$dmgType}[/color]
+        [-1] [color=fuchsia]Amplifica[/color] dano [color=yellow]{$dmgType}[/color] por [color=yellow]{$ratioPercent}%[/color]
+        [0] Não afeta [color=yellow]{$dmgType}[/color]
+       *[other] {$dmgType} não deveria ter esse valor!
     }
-armor-plate-stamina-value = Causa [color=yellow]{$multiplier}%[/color] do dano absorvido como dano de stamina.
+
+armor-plate-multiplier-display = e transforma em dano de durabilidade [color=yellow]{$multiplier}%[/color] do dano pré redução.
+armor-plate-multiplier-none = e não danifica a placa.
+
+armor-plate-stamina-source-absorb = [color=cyan]Absorvido[/color]
+armor-plate-stamina-concat = e
+armor-plate-stamina-source-amplified = [color=fuchsia]Amplificado[/color]
+armor-plate-stamina-source-raw = [color=red]Todos[/color]
+armor-plate-stamina-value = Inflinge [color=yellow]{$multiplier}%[/color] de dano {$sources} como dano de stamina.

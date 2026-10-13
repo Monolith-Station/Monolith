@@ -1,51 +1,51 @@
 <Document>
-  # Economy Basics
-  The colossus sector, being isolated from the rest of the galaxy's industry, requires significant effort from in-sector residents to make most electronics and structures. Luckily, the processes involved have been greatly simplified.
-  This PDA entry will educate the want-to-be-industrialist on the basics of industry and the starting of a new native economy.
+  # Noções Básicas de Economia
+  O setor Colossus, isolado da indústria do resto da galáxia, exige um esforço significativo dos residentes no setor para fabricar a maioria dos eletrônicos e estruturas. Felizmente, os processos envolvidos foram bastante simplificados.
+  Esta entrada do PDA ensinará ao aspirante a industrial as noções básicas da indústria e do início de uma nova economia nativa.
 
-  ## Basics
-
-  <Box>
-    <GuideEntityEmbed Entity="SheetSteel" Caption="steel"/>
-    <GuideEntityEmbed Entity="SheetPlasteel" Caption="plasteel"/>
-    <GuideEntityEmbed Entity="SheetGlass" Caption="glass"/>
-  </Box>
-
-  Everything in this world has a cost, and for basic industry that cost is raw materials. More advanced products will require more resources and time, but those are far off for now.
-  Before you are able to make even a basic armor plate, you need to find or make a few workstations: the [color=gray]Industrial steel lathe[/color], the [color=orange]Arc Furnace[/color] and the [color=cyan]Precision Assembler[/color].
-  All of these work stations can be found at certain Points of Interest, though the [color=gray]industrial steel lathe[/color] can be constructed with a research.
-  Many items will also need experience with chemistry to produce - While only beakers, raw reagents and a reagent grinder are strictly necessary, having access to a chemical bay can make the procurement of certain solutions much easier.
-  [color=yellow]It is highly recommended to specialize in a certain type of product - Each is complicated! Remember that you can often purchase required items from other players![/color]
+  ## Noções Básicas
 
   <Box>
-    <GuideEntityEmbed Entity="IndustrialPressEconomyPlates" Caption="industrial steel lathe"/>
-    <GuideEntityEmbed Entity="IndustrialFurnaceEconomy" Caption="industrial arc furnace"/>
-    <GuideEntityEmbed Entity="PrecisionAssemblerEconomy" Caption="precision assembler"/>
-    <GuideEntityEmbed Entity="KitchenReagentGrinder" Caption="reagent grinder"/>
+    <GuideEntityEmbed Entity="SheetSteel" Caption="aço"/>
+    <GuideEntityEmbed Entity="SheetPlasteel" Caption="plastiaço"/>
+    <GuideEntityEmbed Entity="SheetGlass" Caption="vidro"/>
   </Box>
 
-  Now that you (presumably) have found these workstations and the materials needed to use them, it is time to start up the assembly line. You can find a reference table of [color=orange]Arc Furnace[/color] and [color=cyan]Precision Assembler[/color] recipes [textlink="in the Economy Recipes guidebook page." link="EconomyRecipes"]
-  At first, the table will look confusing, and that is because it is. Generally, economy goods can be split into four numbered "tiers" of value - The higher the tier, the more valuable a component is, but that value comes from effort.
-  All tier 1 components (needed for all others) can usually be created in the [color=gray]industrial steel lathe[/color], and are foundational to most other items. They can be made out of raw sheets of material refined from an ore processor, and are crafted like any other lathe-produced item - simply insert the sheets of material, click the desired item in the menu, and wait.
+  Tudo neste mundo tem um custo, e para a indústria básica esse custo são as matérias-primas. Produtos mais avançados exigirão mais recursos e tempo, mas isso fica para mais tarde.
+  Antes que você seja capaz de fabricar até mesmo uma placa de blindagem básica, você precisa encontrar ou construir algumas estações de trabalho: o [color=gray]Torno de aço industrial[/color], o [color=orange]Forno a Arco[/color] e o [color=cyan]Montador de Precisão[/color].
+  Todas essas estações de trabalho podem ser encontradas em certos Pontos de Interesse, embora o [color=gray]torno de aço industrial[/color] possa ser construído com uma pesquisa.
+  Muitos itens também exigirão experiência com química para serem produzidos - Embora apenas béqueres, reagentes brutos e um moedor de reagentes sejam estritamente necessários, ter acesso a uma baia química pode tornar a obtenção de certas soluções muito mais fácil.
+  [color=yellow]É altamente recomendável se especializar em um certo tipo de produto - Cada um é complicado! Lembre-se de que você frequentemente pode comprar os itens necessários de outros jogadores![/color]
 
-  Tier 2 components are where products get complicated. They all require initial production from an [color=orange]Arc Furnace[/color] or [color=cyan]Precision Assembler[/color], and many also require additional components to be added after fabrication.
-  [bold][color=yellow]Remember: All "unfinished" products say what they need to start construction in their description![/color][/bold]
-  [color=red]IMPORTANT: Most components are fragile! Be cautious when introducing them to possible damage sources![/color]
-
-  To help explain the process of creating a Tier 2 product, this tutorial will include a walk-through about creating a Heavy Armor Plate.
-
-  ## Heavy Armor Plate
   <Box>
-    <GuideEntityEmbed Entity="ArmorPlateEconomy2Start" Caption="heavy armor plate"/>
+    <GuideEntityEmbed Entity="IndustrialPressEconomyPlates" Caption="torno de aço industrial"/>
+    <GuideEntityEmbed Entity="IndustrialFurnaceEconomy" Caption="forno de arco industrial"/>
+    <GuideEntityEmbed Entity="PrecisionAssemblerEconomy" Caption="montador de precisão"/>
+    <GuideEntityEmbed Entity="KitchenReagentGrinder" Caption="moedor de reagentes"/>
   </Box>
 
-  Heavy armor plates are one of the simplest Tier 2 products to manufacture. The only particularly confusing part of their production is getting the silver they require and figuring out how to operate the [color=orange]Arc Furnace[/color].
+  Agora que você (presumivelmente) encontrou essas estações de trabalho e os materiais necessários para usá-las, é hora de iniciar a linha de montagem. Você pode encontrar uma tabela de referência das receitas do [color=orange]Forno a Arco[/color] e do [color=cyan]Montador de Precisão[/color] [textlink="na página do guia Receitas de Economia." link="EconomyRecipes"]
+  À primeira vista, a tabela parecerá confusa, e isso porque ela é. De modo geral, os bens de economia podem ser divididos em quatro "tiers" numerados de valor - Quanto maior o tier, mais valioso é um componente, mas esse valor vem do esforço.
+  Todos os componentes de tier 1 (necessários para todos os outros) geralmente podem ser criados no [color=gray]torno de aço industrial[/color], e são a base da maioria dos outros itens. Eles podem ser feitos a partir de chapas brutas de material refinadas em um processador de minério, e são fabricados como qualquer outro item produzido por torno - simplesmente insira as chapas de material, clique no item desejado no menu e espere.
 
-  Looking at the recipe in the Economy Recipes guidebook page, we can see that heavy armor plates require three distinct things: Two basic armor plates, 100 units of Silver, and an [color=orange]Arc Furnace[/color] to put the components together.
-  The basic armor plates are simple enough to acquire: They can simply be fabricated in an [color=gray]Industrial steel lathe[/color] for 20 steel sheets and 10 plasteel sheets each, then put into the furnace. Many other Tier 1 components can be found in the steel lathe as well.
-  The chemical form of Silver can be produced by grinding silver ingots in a Reagent Grinder, for 10 units a stick. The silver can be accumulated in anything capable of holding enough solution, then put into the furnace. Many other recipes require similar chemical forms of materials, such as gold, plasma, and lithium, which all follow the same route: stick their respective solid material into the blender!
+  Os componentes de tier 2 são onde os produtos ficam complicados. Todos eles exigem produção inicial em um [color=orange]Forno a Arco[/color] ou [color=cyan]Montador de Precisão[/color], e muitos também exigem componentes adicionais a serem adicionados após a fabricação.
+  [bold][color=yellow]Lembre-se: Todos os produtos "não finalizados" dizem em sua descrição o que precisam para iniciar a construção![/color][/bold]
+  [color=red]IMPORTANTE: A maioria dos componentes é frágil! Tenha cuidado ao expô-los a possíveis fontes de dano![/color]
 
-  After the two basic armor plates and the container of silver are inserted into the furnace, a [color=green]green[/color] "assemble" button should be active. (If the recipe is incompatible pressing the button will do nothing.) Pressing the button will initiate the furnace's production sequence, and afterwards a heavy armor plate should be produced.
-  If you need to eject the contents of the furnace (for example, if you put the wrong materials in), a [color=red]red[/color] "eject contents" button should be highlighted. Pressing this will do what it says and eject all contents of the furnace.
+  Para ajudar a explicar o processo de criação de um produto de Tier 2, este tutorial incluirá um passo a passo sobre a criação de uma Placa de Blindagem Pesada.
+
+  ## Placa de Blindagem Pesada
+  <Box>
+    <GuideEntityEmbed Entity="ArmorPlateEconomy2Start" Caption="placa de blindagem pesada"/>
+  </Box>
+
+  Placas de blindagem pesada são um dos produtos de Tier 2 mais simples de fabricar. A única parte particularmente confusa de sua produção é obter a prata de que precisam e descobrir como operar o [color=orange]Forno a Arco[/color].
+
+  Olhando para a receita na página do guia Receitas de Economia, podemos ver que as placas de blindagem pesada exigem três coisas distintas: Duas placas de blindagem básicas, 100 unidades de Prata e um [color=orange]Forno a Arco[/color] para montar os componentes.
+  As placas de blindagem básicas são simples o suficiente de conseguir: Elas podem simplesmente ser fabricadas em um [color=gray]Torno de aço industrial[/color] por 20 chapas de aço e 10 chapas de plastiaço cada, e então colocadas no forno. Muitos outros componentes de Tier 1 também podem ser encontrados no torno de aço.
+  A forma química da Prata pode ser produzida moendo barras de prata em um Moedor de Reagentes, 10 unidades por barra. A prata pode ser acumulada em qualquer coisa capaz de conter solução suficiente, e então colocada no forno. Muitas outras receitas exigem formas químicas semelhantes de materiais, como ouro, plasma e lítio, que todos seguem o mesmo caminho: coloque o respectivo material sólido no liquidificador!
+
+  Depois que as duas placas de blindagem básicas e o recipiente de prata forem inseridos no forno, um botão [color=green]verde[/color] de "montar" deve ficar ativo. (Se a receita for incompatível, pressionar o botão não fará nada.) Pressionar o botão iniciará a sequência de produção do forno, e depois uma placa de blindagem pesada deverá ser produzida.
+  Se você precisar ejetar o conteúdo do forno (por exemplo, se colocou os materiais errados), um botão [color=red]vermelho[/color] de "ejetar conteúdo" deve estar destacado. Pressionar isso fará o que diz e ejetará todo o conteúdo do forno.
 
 </Document>

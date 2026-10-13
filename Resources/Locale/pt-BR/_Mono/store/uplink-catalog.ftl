@@ -16,6 +16,35 @@ uplink-faction-lathe-desc = Um torno capaz de montar receitas pesquisadas do ser
 uplink-letoferol-name = Seringa de Letoferol
 uplink-letoferol-desc = Uma seringa de letoferol pode destruir um setor inteiro.
 
+uplink-magazine-9x19mm-pistol-high-capacity-fmj-name = Pente de Metralhadora de Bolso (9x19mm FMJ)
+uplink-magazine-9x19mm-pistol-high-capacity-fmj-desc = Um pente grande projetado para se encaixar em pistolas, ostentando uma capacidade massiva de 34 cartuchos.
+
+uplink-typewriter-name = Máquina de Escrever UGR (.45 ACP)
+uplink-typewriter-desc = Uma releitura moderna da infame metralhadora usada por mafiosos ao longo do tempo e espaço. Dispara .45 ACP numa cadência impressionante.
+
+uplink-warlord-name = Traje Warlord UGR
+uplink-warlord-desc = Um antigo traje de combate militar de última geração. Vem com um scanner de massa embutido e imunidade a flash.
+
+uplink-data-chit-50-name = 50 Fichas de Dados
+uplink-data-chit-50-desc = Cinquenta fichas de dados. Uma moeda extremamente valiosa entre a Vanguard da Dinastia Phaethon.
+
+uplink-iff-console-flatpack-name = Flatpack de Computador de IFF
+uplink-iff-console-flatpack-desc = Um flatpack para um computador que obfuscará os sinais de IFF da sua nave.
+
+# ullman stuff
+
+uplink-ullman-pilot-name = Traje de Vácuo de Piloto U.I.
+uplink-ullman-pilot-desc = Um traje de vácuo feito para pilotos do mercado negro, feito por uma empresa considerada uma organização criminosa pela Federação.
+
+uplink-ullman-engineer-name = Traje Rígido de Engenharia U.I.
+uplink-ullman-engineer-desc = Um traje rígido de proteção usado por especialistas de engenharia do mercado negro, feito por uma empresa considerada uma organização criminosa pela Federação.
+
+uplink-ullman-enforcer-name = Traje Rígido de Combate ENFORCER U.I.
+uplink-ullman-enforcer-desc = Um traje rígido com uma proteção muito impressionante, feito por uma empresa considerada uma organização criminosa pela Federação.
+
+uplink-ullman-enforcer-mk2-name = Tacsuit de Combate ENFORCER mk.II U.I.
+uplink-ullman-enforcer-mk2-desc = Um tacsuit avançado equipado com muitos gadgets, incluindo um HUD, um scanner de massa embutido, imunidade a flash e um gerador de escudo rígido.
+
 uplink-ullman-pulse-pistol-name = Pistola de Pulso Pesada U.I.
 uplink-ullman-pulse-pistol-desc = Uma réplica desbloqueada da pistola de pulso da TSFMC. Especialmente adequada para derrubar mechas e escudos rígidos.
 

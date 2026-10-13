@@ -71,17 +71,11 @@ book-text-combat-bakery-kit = Obrigado por escolher nosso kit de padaria de comb
       Fragmento de Vidro x 1
       Tempo de Cozimento: 5 segundos
 
-book-text-cargo-instructions = Você tentou ativar a máquina sem nenhum produto.
+book-text-cargo-instructions =
 
-      Para usar a máquina adequadamente, insira um dos materiais solicitados para um dispensador de porta específico com suas mãos, e a recompensa será depositada no topo da máquina.
+      Para usar as máquinas de duto de entrega de carga, insira com as mãos um dos materiais solicitados pelo dispensador específico de uma porta, e a recompensa será depositada no topo da máquina.
 
-      Estas caixas de carga podem ser compradas e/ou vendidas nos seguintes locais:
-      - Nave almirante TSFMC Halcyon - Apenas Venda
-      - Estação Camelot - Compra e Venda
-      - Shopping de Comércio - Compra e Venda
-      - Depósitos de Carga - Compra e Venda
-      - Base PDV - Apenas Venda
-      - PDV Júpiter - Apenas Venda
+      Manifestos podem ser comprados nos vendedores de materiais de comércio (localizados no CC, depósitos de carga e Camelot).
 
       Este papel vai se desintegrar automaticamente após 2 minutos.
 
@@ -97,5 +91,118 @@ book-text-cargo-outage = Caro Usuário,
       Mais detalhes estão sendo refinados. Agradecemos sua paciência.
 
       $10 foram retomados da sua conta por uma taxa de conveniência.
+
+      Este papel vai se desintegrar automaticamente após 2 minutos.
+
+book-text-cargo-zvezda-tradecrates = MANIFESTO
+      NESTE DUTO DE ENTREGA (POR CAIXA):
+      - SUPRIMENTOS : $3000
+      - SUPRIMENTOS MÉDICOS : $5000
+      - SUPRIMENTOS QUÍMICOS : $2000
+      - SUPRIMENTOS QUÍMICOS VOLÁTEIS : $6000
+      - COMBUSTÍVEL DE FISSÃO : $18000
+      - SUCATA : $3000
+      - COMPONENTES : $5000
+      - MUNIÇÃO : $10000
+      - COMP. DE ARMAS : $6000
+      - FERTILIZANTE : $5000
+      - COMP. DE NAVE : $6000
+
+      Este papel vai se desintegrar automaticamente após 2 minutos.
+
+
+book-text-cargo-depot-tradecrates = MANIFESTO
+      NESTE DUTO DE ENTREGA (POR CAIXA):
+      - SUPRIMENTOS : $3000
+      - SUPRIMENTOS MÉDICOS : $5000
+      - SUPRIMENTOS QUÍMICOS : $2000
+      - SUPRIMENTOS QUÍMICOS VOLÁTEIS : $6000
+      - COMBUSTÍVEL DE FISSÃO : $24000
+      - SUCATA : $3000
+      - COMPONENTES : $8000
+
+      Este papel vai se desintegrar automaticamente após 2 minutos.
+
+
+book-text-cargo-depot-tradecrates-alt = MANIFESTO
+      NESTE DUTO DE ENTREGA (POR CAIXA):
+      - MUNIÇÃO : $10000
+      - PEÇAS DE ARMAS : $8000
+      - ARTIGOS DE LUXO : $18000
+      - FERTILIZANTE : $5000
+      - COMBUSTÍVEL DE FISSÃO : $24000
+      - SUCATA : $3000
+      - COMPONENTES DE NAVE : $8000
+
+      Este papel vai se desintegrar automaticamente após 2 minutos.
+
+
+book-text-cargo-depot-trademall = MANIFESTO
+      NESTE DUTO DE ENTREGA (POR CAIXA):
+      - MUNIÇÃO : $7000
+      - SUPRIMENTOS : $6000
+      - SUPRIMENTOS MÉDICOS : $2500
+      - SUPRIMENTOS QUÍMICOS : $5000
+      - SUPRIMENTOS QUÍMICOS VOLÁTEIS : $6000
+      - COMBUSTÍVEL DE FUSÃO : $12000
+      - SUCATA : $4000
+      - COMPONENTES : $4000
+      - FERTILIZANTE : $4500
+      - TECIDOS : $5000
+      - METAIS : $5000
+
+      Este papel vai se desintegrar automaticamente após 2 minutos.
+
+
+book-text-cargo-depot-camelot = MANIFESTO
+      NESTE DUTO DE ENTREGA (POR CAIXA):
+      - MUNIÇÃO : $8000
+      - SUPRIMENTOS : $2500
+      - SUPRIMENTOS MÉDICOS : $4500
+      - PEÇAS DE ARMAS : $10000
+      - ARTIGOS DE LUXO : $14000
+      - EQUIPAMENTOS : $3500
+      - COMBUSTÍVEL DE FUSÃO : $12000
+      - COMPONENTES DE NAVE : $6000
+      - FERTILIZANTE : $7000
+      - TECIDOS : $4000
+      - METAIS : $3500
+
+      Este papel vai se desintegrar automaticamente após 2 minutos.
+
+
+book-text-cargo-depot-halcyon = MANIFESTO
+      NESTE DUTO DE ENTREGA (POR CAIXA):
+      - MUNIÇÃO : $12000
+      - SUPRIMENTOS : $2500
+      - SUPRIMENTOS MÉDICOS : $3500
+      - SUPRIMENTOS QUÍMICOS : $4500
+      - SUPRIMENTOS QUÍMICOS VOLÁTEIS : $8000
+      - PEÇAS DE ARMAS : $9000
+      - EQUIPAMENTOS : $3000
+      - COMBUSTÍVEL DE FUSÃO : $12000
+      - COMPONENTES DE NAVE : $6000
+      - FERTILIZANTE : $7000
+      - TECIDOS : $2500
+      - METAIS : $5000
+
+      Este papel vai se desintegrar automaticamente após 2 minutos.
+
+
+book-text-cargo-depot-helios = MANIFESTO
+      NESTE DUTO DE ENTREGA (POR CAIXA):
+      - MUNIÇÃO : $14000
+      - SUPRIMENTOS : $5000
+      - SUPRIMENTOS MÉDICOS : $2500
+      - SUPRIMENTOS QUÍMICOS : $6000
+      - SUPRIMENTOS QUÍMICOS VOLÁTEIS : $6000
+      - PEÇAS DE ARMAS : $12000
+      - SUCATA : $6000
+      - EQUIPAMENTOS : $4500
+      - COMBUSTÍVEL DE FUSÃO : $14000
+      - COMPONENTES : $5000
+      - COMPONENTES DE NAVE : $6000
+      - TECIDOS : $2500
+      - METAIS : $4000
 
       Este papel vai se desintegrar automaticamente após 2 minutos.

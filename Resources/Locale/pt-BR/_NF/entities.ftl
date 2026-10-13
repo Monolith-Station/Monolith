@@ -5124,15 +5124,6 @@ ent-PearSeeds = pacote de sementes de pêra
 ent-SpesosTreeSeeds = pacote de sementes de spesos
     .desc = Estas sementes parecem um milagre, mas fazendeiros experientes ficam ricos a partir da cozinha.
 
-# From: _NF/Entities/Objects/Specific/Mail/base_mail_large.yml
-# Abstract entity (referenceable by children)
-
-ent-BaseMailLarge = mail-large-item-name-unaddressed
-
-ent-MailLargeAdminFun = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = adminfun
-
 # From: _NF/Entities/Objects/Specific/Medical/healing.yml
 
 ent-Mesh10Lingering = {ent-RegenerativeMesh}
@@ -5762,15 +5753,15 @@ ent-BoxCartridgeRGBB = caixa de RGBBs
 
 # From: _NF/Entities/Objects/Weapons/Guns/Ammunition/Magazines/turret_box_mag.yml
 
-ent-MagazineAsmgtUniversal556x45mm = caixa de munição compatível com ASMGT (5,56x45mm)
+ent-MagazineAsmgtUniversal556x45mm = caixa de munição compatível com ASMGT (5.56x45mm)
     .desc = Munição.
     .suffix = Carregada
 
-ent-MagazineAsmgtUniversal635x40mm = caixa de munição compatível com ASMGT (6,35x40mm)
+ent-MagazineAsmgtUniversal635x40mm = caixa de munição compatível com ASMGT (6.35x40mm)
     .desc = Munição.
     .suffix = Carregada
 
-ent-MagazineAsmgtUniversal762x39mm = caixa de munição compatível com ASMGT (7,62x39mm)
+ent-MagazineAsmgtUniversal762x39mm = caixa de munição compatível com ASMGT (7.62x39mm)
     .desc = Munição.
     .suffix = Carregada
 
@@ -5780,7 +5771,7 @@ ent-MagazineAsmgtUniversal9x19mm = caixa de munição compatível com ASMGT (9x1
 
 ent-MagazineAsmgtUniversalEmpty = caixa de munição compatível com ASMGT
     .suffix = vazio
-    .desc = Caixa de munição universal compatível com ASMGT capaz de aceitar cartuchos 5,56x45mm, 6,35x40mm, 7,62x39mm e 9x19mm.
+    .desc = Caixa de munição universal compatível com ASMGT capaz de aceitar cartuchos 5.56x45mm, 6.35x40mm, 7.62x39mm e 9x19mm.
 
 # From: _NF/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/chem.yml
 
@@ -5967,8 +5958,8 @@ ent-BulletRGBBDamaged = RGBB danificado
 
 # From: _NF/Entities/Objects/Weapons/Guns/Revolvers/revolvers.yml
 
-ent-WeaponRevolverArgenti = Argenti (5,56x45mm)
-    .desc = O revólver Argenti Tipo 20 de grau civil. Fabricado pela Silver Industries. Embora o design com tambor expandido seja bastante antigo, o certo pistoleiro saberá como utilizá-lo bem. Usa munição 5,56x45mm.
+ent-WeaponRevolverArgenti = Argenti (5.56x45mm)
+    .desc = O revólver Argenti Tipo 20 de grau civil. Fabricado pela Silver Industries. Embora o design com tambor expandido seja bastante antigo, o certo pistoleiro saberá como utilizá-lo bem. Usa munição 5.56x45mm.
 
 ent-WeaponRevolverArgentiNonlethal = {ent-WeaponRevolverArgenti}
     .desc = {ent-WeaponRevolverArgenti.desc}
@@ -5982,11 +5973,11 @@ ent-WeaponRevolverDeckardNonlethal = {ent-WeaponRevolverDeckard}
 
 # From: _NF/Entities/Objects/Weapons/Guns/Rifles/rifles.yml
 
-ent-WeaponRifleGestio = Fuzil PA Gestio (7,62x39mm)
-    .desc = Um fuzil antigo de tiro em rajada que nunca saiu dos testes. Aceita carregadores de baixa capacidade 7,62x39mm.
+ent-WeaponRifleGestio = Fuzil PA Gestio (7.62x39mm)
+    .desc = Um fuzil antigo de tiro em rajada que nunca saiu dos testes. Aceita carregadores de baixa capacidade 7.62x39mm.
 
-ent-WeaponRifleGestioPMC = Fuzil PA Gestio (7,62x39mm)
-    .desc = Um fuzil antigo de tiro em rajada que nunca saiu dos testes. Aceita carregadores de baixa capacidade 7,62x39mm. Adquirido legalmente de um fornecedor licenciado.
+ent-WeaponRifleGestioPMC = Fuzil PA Gestio (7.62x39mm)
+    .desc = Um fuzil antigo de tiro em rajada que nunca saiu dos testes. Aceita carregadores de baixa capacidade 7.62x39mm. Adquirido legalmente de um fornecedor licenciado.
 
 ent-WeaponRifleGestioRubber = {ent-WeaponRifleGestio}
     .desc = {ent-WeaponRifleGestio.desc}
@@ -5996,8 +5987,8 @@ ent-WeaponRifleLecterRubber = {ent-WeaponRifleLecter}
     .desc = {ent-WeaponRifleLecter.desc}
     .suffix = Não letal
 
-ent-WeaponRifleNovaliteC1 = Fuzil LWC Novalite C1 (5,56x45mm)
-    .desc = Uma modificação do Lecter pela LWC, um fuzil semiautomático de grau civil com carregador interno. Usa munição 5,56x45mm.
+ent-WeaponRifleNovaliteC1 = Fuzil LWC Novalite C1 (5.56x45mm)
+    .desc = Uma modificação do Lecter pela LWC, um fuzil semiautomático de grau civil com carregador interno. Usa munição 5.56x45mm.
 
 ent-WeaponRifleNovaliteC1Rubber = {ent-WeaponRifleNovaliteC1}
     .desc = {ent-WeaponRifleNovaliteC1.desc}
@@ -6039,7 +6030,7 @@ ent-WeaponSniperRepeater = Repetidora Padrão N2524 (.357 magnum)
 
 ent-WeaponTurretAsmgtHostileUniversallyDeployed = {ent-WeaponTurretAsmgtNtDeployed}
     .suffix = Hostil, Imprint
-    .desc = Uma Torreta Metralhadora Sentinela Autônoma (ASMGT) é uma torreta alimentada por carregador com canos compatíveis com cartuchos 5,56x45mm, 7,62x39mm, 9x19mm e 6,35x40mm. Use chave de fenda para desmontar. Esta é um modelo Civil para defesa de bordo em setores hostis, com blindagem reduzida e cadência de tiro restrita para cumprir a lei interestelar de comércio.
+    .desc = Uma Torreta Metralhadora Sentinela Autônoma (ASMGT) é uma torreta alimentada por carregador com canos compatíveis com cartuchos 5.56x45mm, 7.62x39mm, 9x19mm e 6.35x40mm. Use chave de fenda para desmontar. Esta é um modelo Civil para defesa de bordo em setores hostis, com blindagem reduzida e cadência de tiro restrita para cumprir a lei interestelar de comércio.
 
 ent-WeaponTurretAsmgtHostileUniversallyPacked = ASMGT Civil empacotada
     .suffix = Hostil, Empacotada, Imprint
@@ -6047,7 +6038,7 @@ ent-WeaponTurretAsmgtHostileUniversallyPacked = ASMGT Civil empacotada
 
 ent-WeaponTurretAsmgtNtDeployed = ASMGT
     .suffix = CSec
-    .desc = Uma Torreta Metralhadora Sentinela Autônoma (ASMGT) é uma torreta alimentada por carregador com canos compatíveis com cartuchos 5,56x45mm, 7,62x39mm, 9x19mm e 6,35x40mm. Use chave de fenda para desmontar. Esta é reforçada e tem um leitor IFF de Segurança Colonial.
+    .desc = Uma Torreta Metralhadora Sentinela Autônoma (ASMGT) é uma torreta alimentada por carregador com canos compatíveis com cartuchos 5.56x45mm, 7.62x39mm, 9x19mm e 6.35x40mm. Use chave de fenda para desmontar. Esta é reforçada e tem um leitor IFF de Segurança Colonial.
 
 ent-WeaponTurretAsmgtNtPacked = ASMGT CSec empacotada
     .suffix = CSec, Empacotada
@@ -11244,380 +11235,6 @@ ent-PaperMailNTSoapAd1 = {ent-Paper}
 ent-PaperMailNTSoapAd2 = {ent-Paper}
     .desc = {ent-Paper.desc}
     .suffix = anúncio sabão 2
-
-# From: _NF/Mail/mail.yml
-
-ent-MailBlockGameDIY = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = blockgamediy
-
-ent-MailCigars = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = Cigars
-
-ent-MailCommandNFPipebombIntern = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = cano e bomba
-
-ent-MailCommandNFPlatinumCigars = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = charutos, ultra premium
-
-ent-MailCommandNFPremiumAlcohol = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = álcohol premium
-
-ent-MailCommandNFStationPet = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = animal de estimação da estação
-
-ent-MailCommandNFWristwatchGold = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = relógio de pulso de ouro
-
-ent-MailCosplayArc = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = cosplay-arco
-
-ent-MailCosplayGeisha = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = cosplay-gueixa
-
-ent-MailCosplaySchoolgirl = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = cosplay-colegial
-
-ent-MailFlowers = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = flores
-
-ent-MailNFAlcohol = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = álcool, estendido
-
-ent-MailNFATV = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = ATV
-
-ent-MailNFBakedGoods = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = produtos assados
-
-ent-MailNFBible = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = bíblia, estendido
-
-ent-MailNFBikeHorn = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = buzina de bicicleta, aleatório
-
-ent-MailNFBoxer = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = boxeador
-
-ent-MailNFBuildABuddy = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = Monta-seu-Amigo
-
-ent-MailNFCake = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = bolo, estendido
-
-ent-MailNFCheese = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = queijo, estendido
-
-ent-MailNFCigarettes = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = cigarros, aleatório
-
-ent-MailNFCircuitboardIndustrial = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = placa de circuito industrial
-
-ent-MailNFCircuitboardService = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = placa de circuito de serviço
-
-ent-MailNFCognizine = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = seringa de cognizina
-
-ent-MailNFConscript = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = recruta
-
-ent-MailNFCookies = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = biscoitos, aleatório
-
-ent-MailNFCosplayMaid = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = cosplay-empregada, estendido
-
-ent-MailNFCosplayNurse = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = cosplay-enfermeira, estendido
-
-ent-MailNFCosplayWizard = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = cosplay-mago, estendido
-
-ent-MailNFCritter = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = criatura
-
-ent-MailNFDAW = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = DAW
-
-ent-MailNFDonkPockets = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = bolsas donk, aleatório
-
-ent-MailNFEmotionalRPG = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = RPG
-
-ent-MailNFEMP = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = EMP
-
-ent-MailNFFigurineBulk = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = figurinha, volume
-
-ent-MailNFGladiator = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = gladiador
-
-ent-MailNFGoldCigars = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = charutos, premium
-
-ent-MailNFIFFBoard = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = placa IFF
-
-ent-MailNFInstrumentFlatpack = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = instrumento, plano
-
-ent-MailNFInstrumentLarge = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = instrumento, grande
-
-ent-MailNFInstrumentSmall = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = instrumento, expandido
-
-ent-MailNFJoints = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = baseados
-
-ent-MailNFKendoKit = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = kit de kendo
-
-ent-MailNFKnife = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = faca, estendido
-
-ent-MailNFMedkit = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = kit médico
-
-ent-MailNFMime = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = mímico
-
-ent-MailNFMoney = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = dinheiro, estendido
-
-ent-MailNFMuffins = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = muffins, aleatório
-
-ent-MailNFNecrosol = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = frasco de necrosol
-
-ent-MailNFOmnizine = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = frasco de omnizina
-
-ent-MailNFPAI = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = PAI, estendido
-
-ent-MailNFPen = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = caneta elegante
-
-ent-MailNFPlushie = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = pelúcia, estendido
-
-ent-MailNFPowerCell = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = célula de energia
-
-ent-MailNFPowerTool = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = ferramenta elétrica
-
-ent-MailNFRGBBGun = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = arma RGBB
-
-ent-MailNFSkeletonMotorcycle = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = ATV
-
-ent-MailNFSkub = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = skub, estendido
-
-ent-MailNFSmoke = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = fumaça
-
-ent-MailNFSnacks = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = lanches, aleatório
-
-ent-MailNFSoaps = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = amostra de sabão
-
-ent-MailNFSoapsOmega = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = amostra de sabão, ômega
-
-ent-MailNFSodaPwrGame = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = Pwrgame
-
-ent-MailNFSodaRedBool = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = Red Bool
-
-ent-MailNFSodaSpaceCola = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = Space Cola
-
-ent-MailNFSodaSpaceMountainWind = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = Space Mountain Wind
-
-ent-MailNFSodaSpaceUp = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = Space Up
-
-ent-MailNFSword = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = espada
-
-ent-MailNFT2ComponentBox = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = componentes T2
-
-ent-MailNFT3ComponentBox = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = componentes T3
-
-ent-MailNFT4ComponentBox = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = componentes T4
-
-ent-MailNFTacticalMaid = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = empregada tática
-
-ent-MailNFThrongler = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = throngler
-
-ent-MailNFUnicycle = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = monociclo
-
-ent-MailNFUnusualClothing = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = roupa incomum
-
-ent-MailNFUnusualFood = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = comida incomum
-
-ent-MailNFUnusualProduce = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = produtos incomuns
-
-ent-MailNFVagueThreat = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = ameaça-vaga
-
-ent-MailNFVulpCannon = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = canhão vulp
-
-ent-MailNFWeejurnum = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = weejurnum
-
-ent-MailNoir = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = noir
-
-ent-MailRestraints = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = contenções
-
-ent-MailSake = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = saquê
-
-ent-MailSecurityDonuts = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = donuts
-
-ent-MailSecurityNFHudNfsdMed = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = HUD médico NFSD
-
-ent-MailSecurityNFMusket = {ent-BaseMailLarge}
-    .desc = {ent-BaseMailLarge.desc}
-    .suffix = mosquete
-
-ent-MailSecurityNFSpaceLaw = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = lei espacial, estendido
-
-ent-MailSecurityNonlethalsKit = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = kit não-letal
-
-ent-MailSpaceVillainDIY = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = vilãoespacialfaçavocêmesmo
-
-ent-MailStationRepNFClurger = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = clurger
-
-ent-MailStationRepNFNukeDisk = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = disco nuclear
-
-ent-MailSunglasses = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = óculos de sol
-
-ent-MailWinterCoat = {ent-BaseMail}
-    .desc = {ent-BaseMail.desc}
-    .suffix = casaco de inverno
 
 # From: _NF/Procedural/Themes/supercompacted.yml
 

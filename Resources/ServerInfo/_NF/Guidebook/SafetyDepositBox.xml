@@ -1,100 +1,100 @@
 <Document>
-  # Safety Deposit Box System
+  # Sistema de Cofre de Depósito
 
-The [color=#44cc00]Safety Deposit Box System[/color] allows you to securely store items across shifts in a persistent database. Your stored items will remain available even after the round ends or the server restarts.
+O [color=#44cc00]Sistema de Cofre de Depósito[/color] permite armazenar itens com segurança entre jornadas em um banco de dados persistente. Seus itens armazenados permanecerão disponíveis mesmo após o fim da rodada ou a reinicialização do servidor.
 
-## Safety Deposit Console
+## Console de Cofre de Depósito
   <Box>
     <GuideEntityEmbed Entity="SafetyDepositConsole"/>
   </Box>
-  The [color=#44cc00]Safety Deposit Console[/color] is your interface for managing your deposit boxes. Located at Camelot, Zvezda, and Caelestinius Central's shipyards, it allows you to:
-  - [bold]Purchase[/bold] new safety deposit boxes
-  - [bold]Deposit[/bold] boxes to store items in the database
-  - [bold]Withdraw[/bold] stored boxes to retrieve your items
-  - [bold]Reclaim[/bold] lost boxes that were never returned
+  O [color=#44cc00]Console de Cofre de Depósito[/color] é sua interface para gerenciar seus cofres de depósito. Localizado nos estaleiros de Camelot, Zvezda e Caelestinus Central, ele permite que você:
+  - [bold]Compre[/bold] novos cofres de depósito
+  - [bold]Deposite[/bold] cofres para armazenar itens no banco de dados
+  - [bold]Retire[/bold] cofres armazenados para recuperar seus itens
+  - [bold]Recupere[/bold] cofres perdidos que nunca foram devolvidos
 
-## Box Sizes and Pricing
+## Tamanhos e Preços dos Cofres
   <Box>
     <GuideEntityEmbed Entity="SafetyDepositBoxSmall"/>
     <GuideEntityEmbed Entity="SafetyDepositBoxMedium"/>
     <GuideEntityEmbed Entity="SafetyDepositBoxLarge"/>
   </Box>
-  Three box sizes are available, each with different storage capacity:
-  - [bold]Small (2x2)[/bold] - $2,000,000
-  - [bold]Medium (2x4)[/bold] - $3,500,000
-  - [bold]Large (2x6)[/bold] - $5,000,000
+  Três tamanhos de cofre estão disponíveis, cada um com capacidade de armazenamento diferente:
+  - [bold]Pequeno (2x2)[/bold] - $2.000.000
+  - [bold]Médio (2x4)[/bold] - $3.500.000
+  - [bold]Grande (2x6)[/bold] - $5.000.000
 
-The cost is deducted from your [color=#44cc00]bank account[/color] when you purchase a box.
+O custo é deduzido da sua [color=#44cc00]conta bancária[/color] quando você compra um cofre.
 
-## How to Use
+## Como Usar
 
-### Purchasing a Box
-1. Access a [color=#44cc00]Safety Deposit Console[/color]
-2. Select the size you want (Small, Medium, or Large)
-3. The cost will be deducted from your bank account
-4. A physical box will spawn for you to use
+### Comprando um Cofre
+1. Acesse um [color=#44cc00]Console de Cofre de Depósito[/color]
+2. Selecione o tamanho desejado (Pequeno, Médio ou Grande)
+3. O custo será deduzido da sua conta bancária
+4. Um cofre físico nascerá para você usar
 
-### Storing Items
-1. Place items inside your safety deposit box
-2. Insert the box into the console's [color=#33bbff]box slot[/color]
-3. Click the [bold]Deposit Box[/bold] button
-4. Your items are now safely stored in the database!
+### Armazenando Itens
+1. Coloque os itens dentro do seu cofre de depósito
+2. Insira o cofre no [color=#33bbff]slot de cofres[/color] do console
+3. Clique no botão [bold]Deposite o Cofre[/bold]
+4. Seus itens agora estão armazenados com segurança no banco de dados!
 
-The physical box will be consumed when deposited, but your items are now protected across shifts.
+O cofre físico será consumido ao ser depositado, mas seus itens agora estarão protegidos entre jornadas.
 
-### Retrieving Items
-1. Access a [color=#44cc00]Safety Deposit Console[/color]
-2. Find your box in the list (boxes show as [color=#00ff00]"Stored"[/color] when they have items)
-3. Click the [bold]Withdraw[/bold] button
-4. A physical box containing your items will spawn
+### Recuperando Itens
+1. Acesse um [color=#44cc00]Console de Cofre de Depósito[/color]
+2. Encontre seu cofre na lista (os cofres aparecem como [color=#00ff00]"Guardado"[/color] quando têm itens)
+3. Clique no botão [bold]Retirar[/bold]
+4. Um cofre físico contendo seus itens nascerá
 
-[color=#ff6600]Important:[/color] Once withdrawn, the box and items exist in the world. If you lose the box or it's destroyed before re-depositing, your items are gone!
+[color=#ff6600]Importante:[/color] Uma vez retirado, o cofre e os itens existem no mundo. Se você perder o cofre ou ele for destruído antes de ser depositado novamente, seus itens se foram!
 
-## Box Status Indicators
+## Indicadores de Status dos Cofres
 
-Your boxes can have several status indicators:
-  - [color=#00ff00][bold]Stored[/bold][/color] - Box has items safely stored in the database
-  - [color=#ffff00][bold]In World[/bold][/color] - Box was withdrawn recently (less than 7 days ago)
-  - [color=#ff0000][bold]Lost (Empty)[/bold][/color] - Box was withdrawn over 7 days ago and never returned
+Seus cofres podem ter vários indicadores de status:
+  - [color=#00ff00][bold]Guardado[/bold][/color] - O cofre tem itens armazenados com segurança no banco de dados
+  - [color=#ffff00][bold]No Mundo[/bold][/color] - O cofre foi retirado recentemente (menos de 7 dias atrás)
+  - [color=#ff0000][bold]Perdido (Vazio)[/bold][/color] - O cofre foi retirado há mais de 7 dias e nunca foi devolvido
 
-## Reclaiming Lost Boxes
+## Recuperando Cofres Perdidos
 
-If you lost a box after withdrawing it (disconnected, round ended, etc.), and it shows as [color=#ff0000]"Lost (Empty)"[/color]:
-1. Access a [color=#44cc00]Safety Deposit Console[/color]
-2. Find the lost box in your list
-3. Click the [bold]Reclaim[/bold] button
-4. A new empty box with the same ID will be issued to you
+Se você perdeu um cofre após retirá-lo (desconectou, a rodada terminou, etc.), e ele aparece como [color=#ff0000]"Perdido (Vazio)"[/color]:
+1. Acesse um [color=#44cc00]Console de Cofre de Depósito[/color]
+2. Encontre o cofre perdido na sua lista
+3. Clique no botão [bold]Recuperar[/bold]
+4. Um novo cofre vazio com o mesmo ID será emitido para você
 
-[color=#ff6600]Note:[/color] Reclaiming removes the old database record. Any items that were in the box when it was lost are gone permanently.
+[color=#ff6600]Nota:[/color] Recuperar remove o antigo registro do banco de dados. Quaisquer itens que estavam no cofre quando ele foi perdido se foram permanentemente.
 
-## Tips and Best Practices
+## Dicas e Boas Práticas
 
-  - [bold]Label your boxes[/bold] - Use a hand labeler to give your boxes nicknames for easy identification
-  - [bold]Deposit before leaving[/bold] - Always re-deposit your boxes before ending your shift
-  - [bold]Keep valuables safe[/bold] - Store important documents, rare items, or valuable equipment
-  - [bold]Multiple boxes[/bold] - You can own multiple boxes to organize different types of items
-  - [bold]ID cards can't be stored[/bold] - The system won't allow ID cards to be deposited for security reasons
+  - [bold]Etiquete seus cofres[/bold] - Use uma etiquetadora portátil para dar apelidos aos seus cofres para fácil identificação
+  - [bold]Deposite antes de sair[/bold] - Sempre deposite seus cofres novamente antes de encerrar sua jornada
+  - [bold]Mantenha objetos de valor seguros[/bold] - Armazene documentos importantes, itens raros ou equipamentos valiosos
+  - [bold]Vários cofres[/bold] - Você pode ter vários cofres para organizar diferentes tipos de itens
+  - [bold]Cartões de ID não podem ser armazenados[/bold] - O sistema não permite depositar cartões de ID por motivos de segurança
 
-## Item Preservation
+## Preservação de Itens
 
-The safety deposit system preserves:
-  - [bold]Paper content[/bold] - Written documents, stamps, and signatures
-  - [bold]Labels[/bold] - Custom names you've applied to items
-  - [bold]Stack counts[/bold] - The exact number of items in stacks
-  - [bold]Box nicknames[/bold] - Custom labels on the boxes themselves
+O sistema de cofre de depósito preserva:
+  - [bold]Conteúdo de papel[/bold] - Documentos escritos, carimbos e assinaturas
+  - [bold]Etiquetas[/bold] - Nomes personalizados que você aplicou aos itens
+  - [bold]Contagens de pilhas[/bold] - O número exato de itens nas pilhas
+  - [bold]Apelidos dos cofres[/bold] - Etiquetas personalizadas nos próprios cofres
 
-[italic][color=gold]The following items are explicitly blacklisted (not an extensive list!):[/color][/italic]
-  - [bold]ID Cards[/bold]
+[italic][color=gold]Os seguintes itens são explicitamente proibidos (não é uma lista completa!):[/color][/italic]
+  - [bold]Cartões de ID[/bold]
   - [bold]LPCs[/bold]
   - [bold]Uplinks[/bold]
-  - [bold]Currency[/bold]
-  - [bold]Encryption Keys[/bold]
-  - [bold]Implanters[/bold]
-  - [bold]Anything with storage[/bold]
-  - [bold]Overwatch Consoles[/bold]
-  - [bold]Ghostrole spawners (such as reinforcement radios)[/bold]
-  - [bold]Anything with secret storage (such as plushies)[/bold]
-  - [bold]Reagent storages (such as beakers)[/bold]
-  - [bold]Iridite[/bold] <!--NOTE - I don't mind if someone adds a way to store Iridite, perhaps in a compressed form w/ much lower stack size?-->
-  - [bold]Monolithic Crystals[/bold]
+  - [bold]Moeda[/bold]
+  - [bold]Chaves de Criptografia[/bold]
+  - [bold]Injetores[/bold]
+  - [bold]Qualquer coisa com armazenamento[/bold]
+  - [bold]Consoles de Observação[/bold]
+  - [bold]Spawners de fantasma (como rádios de reforço)[/bold]
+  - [bold]Qualquer coisa com armazenamento secreto (como pelúcias)[/bold]
+  - [bold]Armazenamentos de reagentes (como béqueres)[/bold]
+  - [bold]Iridita[/bold] <!--NOTE - I don't mind if someone adds a way to store Iridite, perhaps in a compressed form w/ much lower stack size?-->
+  - [bold]Cristais Monolíticos[/bold]
 </Document>

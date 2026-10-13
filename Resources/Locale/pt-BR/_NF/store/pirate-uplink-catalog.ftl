@@ -6,6 +6,7 @@ store-category-pirateutility = Utilidades
 store-category-pirateammo = Munição
 store-category-pirateexplosives = Explosivos
 store-category-pdvvouchers = Vouchers
+store-category-pdvmaterials = Materiais
 store-category-pirategambling = Jogos de Azar
 # Mono edit end
 # Andromeda: and another one
