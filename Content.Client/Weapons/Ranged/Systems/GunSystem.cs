@@ -207,21 +207,21 @@ public sealed partial class GunSystem : SharedGunSystem
         if (TryComp<MechPilotComponent>(entity, out var mechPilot)) // Goobstation
             entity = mechPilot.Mech;
 
-        if (!TryGetGun(entity, out var gunUid, out var gun))
+        if (!TryGetGun(entity, out var gunUid))
         {
             return;
         }
 
-        var useKey = gun.UseKey ? EngineKeyFunctions.Use : EngineKeyFunctions.UseSecondary;
+        var useKey = gunUid.Comp.UseKey ? EngineKeyFunctions.Use : EngineKeyFunctions.UseSecondary;
 
-        if (_inputSystem.CmdStates.GetState(useKey) != BoundKeyState.Down && !gun.BurstActivated)
+        if (_inputSystem.CmdStates.GetState(useKey) != BoundKeyState.Down && !gunUid.Comp.BurstActivated)
         {
-            if (gun.ShotCounter != 0)
+            if (gunUid.Comp.ShotCounter != 0)
                 EntityManager.RaisePredictiveEvent(new RequestStopShootEvent { Gun = GetNetEntity(gunUid) });
             return;
         }
 
-        if (gun.NextFire > Timing.CurTime)
+        if (gunUid.Comp.NextFire > Timing.CurTime)
             return;
 
         // Andromeda: chud fix que eu odeio; força um update do EyeSystem pra garantir que estamos mirando no lugar certo
@@ -232,7 +232,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
         if (mousePos.MapId == MapId.Nullspace)
         {
-            if (gun.ShotCounter != 0)
+            if (gunUid.Comp.ShotCounter != 0)
                 EntityManager.RaisePredictiveEvent(new RequestStopShootEvent { Gun = GetNetEntity(gunUid) });
 
             return;

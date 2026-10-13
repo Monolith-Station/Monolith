@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: Mobs/Demons/ratvar.rsi
     drawdepth: Ghosts
-    scale: 1.15,1.15
+    scale: 2.3, 2.3 # Mono: we shrunk him in the wash
     layers:
     - state: ratvar
       shader: unshaded

@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/20/2026 07:30:51
-  entityCount: 359
+  time: 10/10/2026 14:42:51
+  entityCount: 356
 maps: []
 grids:
 - 1
@@ -66,10 +66,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        Kudzu: []
         MetalFoam: []
+        Kudzu: []
+        ESTileFire: []
         Smoke: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -231,7 +232,8 @@ entities:
           -1,-2:
             1: 12288
             2: 64
-            0: 34816
+            0: 2048
+            3: 32768
           0,-2:
             0: 13072
             2: 64
@@ -251,6 +253,11 @@ entities:
         - volume: 2500
           immutable: True
           moles: {}
+        - volume: 2500
+          temperature: 293.15
+          moles:
+            Oxygen: 23.57087
+            Nitrogen: 88.67137
         chunkSize: 4
     - type: GasTileOverlay
     - type: Roof
@@ -1285,9 +1292,7 @@ entities:
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery
-      startingCharge: 35
-    - type: ApcPowerReceiverBattery
-      enabled: True
+      startingCharge: 0
 - proto: CurtainsBlack
   entities:
   - uid: 173
@@ -1331,24 +1336,6 @@ entities:
       parent: 175
     - type: Physics
       canCollide: False
-- proto: FuelUranium
-  entities:
-  - uid: 185
-    components:
-    - type: Transform
-      parent: 184
-    - type: Stack
-      count: 75
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 186
-    components:
-    - type: Transform
-      parent: 184
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: GasPassiveVent
   entities:
   - uid: 187
@@ -1743,34 +1730,14 @@ entities:
     - type: Transform
       pos: 2.5,-0.5
       parent: 1
-- proto: LockerWallMaterialsFuelUraniumFilled2
+- proto: LockerWallMaterialsFuelUraniumFilled
   entities:
-  - uid: 184
+  - uid: 183
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,-4.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 185
-          - 186
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14923
-        moles:
-          Oxygen: 1.7459903
-          Nitrogen: 6.568249
 - proto: MonoMRE
   entities:
   - uid: 180
@@ -1901,9 +1868,6 @@ entities:
         179:
           position: 0,3
           _rotation: South
-        183:
-          position: 0,6
-          _rotation: East
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
@@ -1917,7 +1881,6 @@ entities:
           - 177
           - 178
           - 179
-          - 183
 - proto: SinkWide
   entities:
   - uid: 245
@@ -1963,14 +1926,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,-2.5
       parent: 1
-- proto: SyringeCaseAltFilled
-  entities:
-  - uid: 183
-    components:
-    - type: Transform
-      parent: 175
-    - type: Physics
-      canCollide: False
 - proto: TableReinforced
   entities:
   - uid: 250
