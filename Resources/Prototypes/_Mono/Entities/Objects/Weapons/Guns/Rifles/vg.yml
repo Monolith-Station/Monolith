@@ -81,12 +81,12 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: GunWieldBonus
     minAngle: -18
-    maxAngle: -17
+    maxAngle: -1
   - type: Gun
     minAngle: 18
     maxAngle: 35
-    angleIncrease: 1
-    angleDecay: 80
+    angleIncrease: 10
+    angleDecay: 8
     fireRate: 4.5 
     projectileSpeed: 55
     damageModifier: 1.5
