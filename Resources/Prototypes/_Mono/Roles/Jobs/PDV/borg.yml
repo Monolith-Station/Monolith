@@ -15,3 +15,8 @@
   applyTraits: false
   guides:
   - PDV_Entry
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: RadioOnCryosleep
+      radioChannel: Freelance # freelance = Vanguard

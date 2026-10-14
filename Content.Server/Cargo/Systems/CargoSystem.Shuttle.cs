@@ -24,6 +24,8 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Content.Shared._Mono.Company;
 using Content.Server._Mono.Store; // Mono
+using Content.Server._Mono.Cargo; // Mono
+using Content.Server.Radio.EntitySystems; // Mono
 
 
 namespace Content.Server.Cargo.Systems;
@@ -37,6 +39,7 @@ public sealed partial class CargoSystem
     // Frontier addition:
     // The maximum distance from the console to look for pallets.
 
+    [Dependency] private RadioSystem _radio = default!; // Mono
     [Dependency] private CurrencyInjectionSystem _currencyInjection = default!;
     private const int DefaultPalletDistance = 8;
 
@@ -318,12 +321,84 @@ public sealed partial class CargoSystem
             }
         }
 
+        SendSoldAlert(consoleUid, allEntsToDelete); // Mono: sell snitching
+
         foreach (var ent in allEntsToDelete)
         {
             Del(ent);
         }
 
         return true;
+    }
+    /// <summary>
+    /// Mono: Sold stuff that have <see cref="SoldAlertComponent"/> sends a radio
+    /// message if it meets its Threshold.
+    /// </summary>
+    private void SendSoldAlert(EntityUid console, HashSet<EntityUid> sold)
+    {
+        Dictionary<string, (int Count, SoldAlertComponent Alert, string Name)>? groups = null;
+
+        foreach (var ent in sold)
+        {
+            if (!TryComp<SoldAlertComponent>(ent, out var alert))
+                continue;
+
+            var key = alert.GroupId ?? MetaData(ent).EntityPrototype?.ID;
+            if (key == null)
+                continue;
+
+            var amount = 1;
+            if (TryComp<StackComponent>(ent, out var stack))
+                amount = stack.Count;
+
+            groups ??= new();
+            if (groups.TryGetValue(key, out var existing))
+                groups[key] = (existing.Count + amount, existing.Alert, existing.Name);
+            else
+                groups[key] = (amount, alert, MetaData(ent).EntityName);
+        }
+
+        if (groups == null)
+            return;
+
+        string? location = null;
+
+        foreach (var (count, alert, name) in groups.Values)
+        {
+            if (count < alert.Threshold)
+                continue;
+
+            location ??= GetConsoleLocation(console);
+
+            var message = Loc.GetString(alert.Message, ("item", name), ("count", count), ("location", location));
+            var speaker = Transform(console).GridUid ?? console;
+            foreach (var channel in alert.Channels)
+            {
+                _radio.SendRadioMessage(speaker, message, channel, console);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Mono: Location for the console. Probably shouldn't do this here.
+    /// </summary>
+    private string GetConsoleLocation(EntityUid console)
+    {
+        var xform = Transform(console);
+
+        var gridName = xform.GridUid is { } grid
+            ? MetaData(grid).EntityName
+            : Loc.GetString("cargo-sold-alert-location-space");
+
+        // World coordinates
+        var coords = _transformSystem.GetMapCoordinates(console, xform);
+        var x = (int)coords.X;
+        var y = (int)coords.Y;
+
+        return Loc.GetString("cargo-sold-alert-location",
+            ("grid", gridName),
+            ("x", x),
+            ("y", y));
     }
 
     /// <summary>

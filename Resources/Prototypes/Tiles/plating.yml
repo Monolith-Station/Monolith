@@ -11,7 +11,7 @@
   friction: 1.5
   heatCapacity: 10000
   # ES START
-  flammability: 0.5
+  flammability: 2
   # ES END
 
   # dont use this in game, for partial plating beacause SOMEONE didnt make them non-space proof - mono
@@ -49,7 +49,7 @@
   friction: 1.5
   heatCapacity: 10000
   # ES START
-  flammability: 0.5
+  flammability: 2
   # ES END
 
 - type: tile
@@ -65,7 +65,7 @@
   friction: 1.5
   heatCapacity: 10000
   # ES START
-  flammability: 0.5
+  flammability: 2
   # ES END
 
 - type: tile
@@ -81,7 +81,7 @@
   friction: 1.5
   heatCapacity: 10000
   # ES START
-  flammability: 0.5
+  flammability: 2
   # ES END
 
 - type: tile
@@ -97,7 +97,7 @@
   friction: 0.75 #a little less then actual snow
   heatCapacity: 10000
   # ES START
-  flammability: 0.5
+  flammability: 2
   # ES END
 
 - type: tile

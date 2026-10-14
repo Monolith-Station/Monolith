@@ -181,5 +181,16 @@
       machine_parts: !type:Container
   - type: ESSparkOnHit
     prob: 0.25
-    tileFireChance: 0.5
+    tileFireChance: 0.7
     count: 3
+  - type: Flammable
+    fireSpread: true
+    firestackFade: 0.1
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+        Structural: 2
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning

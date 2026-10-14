@@ -1779,6 +1779,21 @@
       tags:
       - PirateUplink
 
+- type: listing
+  id: UplinkPirateTelecrystal25
+  name: uplink-pirate-telecrystal-25-name
+  description: uplink-pirate-telecrystal-25-desc
+  productEntity: Telecrystal25
+  cost:
+    Doubloon: 50
+  categories:
+  - UplinkPdvMaterials
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
 
 - type: listing
   id: UplinkPdvComposite5

@@ -7,14 +7,14 @@
   id: Mudskipper
   parent: BaseVessel
   name: SKR Mudskipper
-  description: A heavily modified Peregrine for combat usage. The inner bays have had the outermost layers collapsed for an additional layer of armor, the interior has been rearranged for a shield generator, and the weapon mounts now carry 4 Draupnir rotary cannons.
+  description: An illegally and heavily modified Peregrine for combat usage. The inner bays have had the outermost layers collapsed for an additional layer of armor, the interior has been rearranged for a shield generator, and the weapon mounts now carry 4 Draupnir rotary cannons. It does NOT come with an IFF console.
   price: 108304
   category: Medium
-  group: Scrap
-  shuttlePath: /SharedMaps/_Mono/Shuttles/Scrapyard/mudskipper.yml
+  group: Syndicate # Underground
+  access: Underground
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Underground/mudskipper.yml
   guidebookPage: Null
   class:
-  - Scrapyard
   - Pursuit
   engine:
   - Plasma # Pinch fusion gen kind, not the pacman kind.
@@ -22,14 +22,14 @@
 - type: gameMap
   id: Mudskipper
   mapName: 'SKR Mudskipper'
-  mapPath: /SharedMaps/_Mono/Shuttles/Scrapyard/mudskipper.yml
+  mapPath: /SharedMaps/_Mono/Shuttles/Underground/mudskipper.yml
   minPlayers: 0
   stations:
     Mudskipper:
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Mudskipper SRP{1}'
+          mapNameTemplate: 'Mudskipper UGR{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

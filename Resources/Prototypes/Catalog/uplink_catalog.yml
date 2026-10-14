@@ -158,33 +158,35 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkC20RBundle
-  name: uplink-c20r-bundle-name
-  description: uplink-c20r-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledSMG
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 15 # Mono #10->3 Mono Edit
-  cost:
-    Telecrystal: 30 # Mono #17->6 Mono Edit
-  categories:
-  - UplinkWeaponry
+# Mono: remove PDV guns from uplink
+#- type: listing
+#  id: UplinkC20RBundle
+#  name: uplink-c20r-bundle-name
+#  description: uplink-c20r-bundle-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+#  productEntity: ClothingBackpackDuffelSyndicateFilledSMG
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 15 # Mono #10->3 Mono Edit
+#  cost:
+#    Telecrystal: 30 # Mono #17->6 Mono Edit
+#  categories:
+#  - UplinkWeaponry
 
-- type: listing
-  id: UplinkBulldogBundle
-  name: uplink-buldog-bundle-name
-  description: uplink-buldog-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 40 # Mono #12->8 Mono Edit
-  cost:
-    Telecrystal: 75 # Mono #20->15 Mono Edit
-  categories:
-  - UplinkWeaponry
+# Mono: remove PDV guns from uplink
+#- type: listing
+#  id: UplinkBulldogBundle
+#  name: uplink-buldog-bundle-name
+#  description: uplink-buldog-bundle-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+#  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 40 # Mono #12->8 Mono Edit
+#  cost:
+#    Telecrystal: 75 # Mono #20->15 Mono Edit
+#  categories:
+#  - UplinkWeaponry
 
 - type: listing # Mono revert, re-adds China Lake
   id: UplinkGrenadeLauncherBundle
@@ -1254,6 +1256,11 @@
     Telecrystal: 30 # Mono
   categories:
     - UplinkAllies
+  conditions:
+  - !type:BuyerWhitelistCondition # Mono: prevent syndicat ghost roles from leaking the location of surplus crate spawns i.e. PDV Jupiter
+    blacklist:
+      components:
+      - SurplusBundle
 
 - type: listing
   id: UplinkSyndicatePersonalAI

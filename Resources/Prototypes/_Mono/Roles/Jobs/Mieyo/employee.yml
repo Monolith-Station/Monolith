@@ -29,6 +29,8 @@
       - MMC
     - type: ChatRank
       rank: mmc-employee
+    - type: RadioOnCryosleep
+      radioChannel: Mieyo
   - !type:AddLanguageSpecial
     languagesSpoken:
     - Nekomimetic

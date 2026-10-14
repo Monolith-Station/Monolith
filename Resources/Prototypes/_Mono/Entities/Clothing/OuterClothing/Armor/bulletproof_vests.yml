@@ -153,10 +153,10 @@
     price: 4000
     vendPrice: 6000
 
-# PDV - inbetween medium and light
+# PDV
 - type: entity
-  parent: ClothingOuterArmorBPVestMedium
-  id: ClothingOuterArmorBPVestMediumPDV
+  parent: ClothingOuterArmorBPVestLight
+  id: ClothingOuterArmorBPVestLightPDV
   name: PD-VI STZ-M bulletproof vest
   description: Part of the STZ armor system for PD infantry. Moderately reinforced against bullets.
   components:

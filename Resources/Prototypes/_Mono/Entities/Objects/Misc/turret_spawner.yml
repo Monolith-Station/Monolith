@@ -72,3 +72,86 @@
   - type: ConditionalSpawner
     prototypes:
     - WeaponTurretPDV
+
+- type: entity
+  id: SpawnMobWeaponTurretLaserTSFMCCrocus
+  parent: SpawnMobWeaponTurretLaserTSFMC
+  name: TSFMC invulnverable laser turret spawner
+  suffix: TSFMC, Crocus
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretLaserTSFMCCrocus
+
+- type: entity
+  id: WeaponTurretLaserTSFMCCrocus
+  parent: WeaponTurretLaserTSFMC
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Godmode
+
+- type: entity
+  id: SpawnMobWeaponTurretLaserPDVCrocus
+  parent: SpawnMobWeaponTurretLaserTSFMC
+  name: PDV invulnverable laser turret spawner
+  suffix: PDV, Crocus
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretLaserPDVCrocus
+
+- type: entity
+  id: WeaponTurretLaserPDVCrocus
+  parent: WeaponTurretLaserTSFMC
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Godmode
+  - type: NpcFactionMember
+    factions:
+    - PirateNF
+
+- type: htnCompound
+  id: LaserTurretCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyLaserGunTargets
+
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      operator: !type:GunOperator
+        targetKey: Target
+        requireLOS: true
+        opaqueKey: true
+      services:
+      - !type:UtilityService
+        id: RangedService
+        proto: NearbyLaserGunTargets
+        key: Target
+
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleSpinCompound
+
+- type: utilityQuery
+  id: NearbyLaserGunTargets
+  query:
+  - !type:NearbyHostilesQuery
+  considerations:
+  - !type:TargetIsAliveCon
+    curve: !type:BoolCurve
+  - !type:TargetIsCritCon
+    curve: !type:InverseBoolCurve
+  - !type:TurretTargetingCon
+    curve: !type:BoolCurve
+  - !type:TargetDistanceCon
+    curve: !type:PresetCurve
+      preset: TargetDistance
+  - !type:TargetHealthCon
+    curve: !type:PresetCurve
+      preset: TargetHealth
+  - !type:TargetAccessibleCon
+    curve: !type:BoolCurve

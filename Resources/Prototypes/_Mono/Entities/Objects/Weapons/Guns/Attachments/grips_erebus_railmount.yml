@@ -136,3 +136,88 @@
     - MonoGrip
     - MonoGripErebusRailmount
     - MonoGripLight
+
+- type: entity
+  parent: BaseGunAttachmentGrip
+  id: GunAttachmentQLG20
+  name: TCA QLG-20 under-barrel grenade launcher (TSF UBGL mount)
+  description: A UBGL designed to be mounted to TSF longarms to provide a lightweight option for fire-support and utility.
+  suffix: Grip, TSF mount
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Attachments/Grips/erebus_railmount.rsi
+    state: ubgl_qlg
+  - type: ESGunTemporaryItemSlotAttachment
+    slotName: launcher_mag
+    itemSlot:
+      name: UBGL Chamber
+      priority: 3
+      insertSound: /Audio/_FinalHorizon/Weapons/Guns/MagIn/m203_insertgrenade.ogg
+      ejectSound: /Audio/_FinalHorizon/Weapons/Guns/MagOut/m203_openbarrel.ogg
+      whitelist:
+        tags:
+        - Grenade
+        - LessLethalGrenade
+  - type: ESGunComponentAttachment
+    component:
+    - type: AlternateGun
+      slot: attachment_grip
+      switchSound:
+        path: /Audio/_FinalHorizon/Weapons/Guns/Deploy/m203_select.ogg
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 0.4
+    recoilIncreaseModifier: 1.05
+    minSpreadModifier: 1.05
+    maxSpreadModifier: 1.1
+  - type: ESGunWieldRecoilAttachment
+    wieldRecoilRecoveryModifier: 0.95
+    wieldRecoilIncreaseModifier: 1.05
+    wieldMinSpreadModifier: 0.95
+    wieldMaxSpreadModifier: 0.9
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_FinalHorizon/Weapons/Guns/Gunshots/m203.ogg
+  - type: AlternateGunAmmoProvider
+  - type: Tag
+    tags:
+    - MonoGrip
+    - MonoGrip40mmUBGL
+    - MonoGrip40mmUBGLTSF
+
+- type: entity
+  parent: GunAttachmentQLG20
+  id: GunAttachmentRKR40
+  name: PD-VI RKR/40 under-barrel grenade launcher (Vympel UBGL mount)
+  description: A properitary UBGL designed for the M-32 Vympel and anything else that shares it's unique trigger assembly (which is nothing).
+  suffix: Grip, Vympel mount
+  components:
+  - type: Sprite
+    state: ubgl_vympel
+  - type: ESGunTemporaryItemSlotAttachment
+    slotName: launcher_mag
+    itemSlot:
+      name: UBGL Chamber
+      priority: 3
+      insertSound: /Audio/_FinalHorizon/Weapons/Guns/MagIn/gp25_insertgrenade.ogg
+      ejectSound: /Audio/_FinalHorizon/Weapons/Guns/MagOut/gp25_openbarrel.ogg
+      whitelist:
+        tags:
+        - Grenade
+        - LessLethalGrenade
+  - type: ESGunComponentAttachment
+    component:
+    - type: AlternateGun
+      slot: attachment_grip
+      switchSound:
+        path: /Audio/_FinalHorizon/Weapons/Guns/Deploy/gp25_select.ogg
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_FinalHorizon/Weapons/Guns/Gunshots/vog25.ogg
+  - type: Tag
+    tags:
+    - MonoGrip
+    - MonoGrip40mmUBGL
+    - MonoGrip40mmUBGLVympel
