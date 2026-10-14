@@ -179,8 +179,8 @@
 - type: entity
   parent: ClothingOuterArmorBasic
   id: ClothingOuterArmorBPVestMammoth
-  name: Mammoth bulletproof vest
-  description: A simple kevlar vest of unknown origin. This juggernaut vest makes you practically a walking tank, at the cost of heat protection and extreme bulk.
+  name: GS-202 Mammoth bulletproof vest
+  description: A plated vest of GS' design. This juggernaut vest makes you practically a walking tank, emphasis on the walking.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Armor/bulletproof_mammoth.rsi
@@ -193,7 +193,7 @@
         Slash: 0.3
         Piercing: 0.25
         Heat: 0.65
-        Caustic: 0.3 # Frontier
+        Caustic: 0.3 # What on earth even uses Caustic besides xeno turrets? -Skye
   - type: Tag  # Mono
     tags:
     - Kevlar
@@ -208,10 +208,9 @@
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false
     replaceCurrentClothing: true
-    clothingPrototypes:
+    clothingPrototypes: #Psuedo-hardsuit
       head: ClothingHeadBPHelmetMammoth
       helmetcover: ClothingHeadHelmetCoverBlock
-      helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: StaticPrice
     price: 10000
     vendPrice: 15000

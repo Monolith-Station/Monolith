@@ -40,8 +40,8 @@
 - type: entity
   parent: ClothingHeadBPHelmetLight
   id: ClothingHeadBPHelmetMammoth
-  name: light ballistic helmet
-  description: A light ballistic helmet to protect against small arms.
+  name: GS-202-B Mammoth helmet.
+  description: A visored ballistic helmet to protect against small arms. Comes with a aerosol canisters loaded with medicines specialized for ballistic trauma.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Helmets/mammoth.rsi
@@ -50,6 +50,6 @@
   - type: ClothingAutoInject
     reagents:
       PolypyryliumOligomers: 15
-      Puncturase: 10
+      Puncturase: 15
     autoInjectOnAbility: true
     autoInjectInterval: 180
