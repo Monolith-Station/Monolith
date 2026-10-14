@@ -74,26 +74,6 @@
         defaultPrototype: RadioEconomy1
 
 - type: entity
-  id: GeneticDatabaseMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: genetic database machine board
-  description: A machine printed circuit board for a genetic database.
-  components:
-  - type: Sprite
-    state: medical
-  - type: MachineBoard
-    prototype: ComputerCloningConsole
-    stackRequirements:
-      Plasma: 5
-    tagRequirements:
-      MicroprocessorEconomy1:
-        amount: 2
-        defaultPrototype: MicroprocessorEconomy1
-      RadioEconomy1:
-        amount: 1
-        defaultPrototype: RadioEconomy1
-
-- type: entity
   parent: BaseNFFlatpack
   id: GeneticDatabaseServerFlatpack
   name: genetic database flatpack
