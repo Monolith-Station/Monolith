@@ -171,27 +171,8 @@
   result: MaterialSiloMachineCircuitboard
 
 # cloning stuff
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: GeneticDatabaseMachineCircuitboard
-  result: GeneticDatabaseMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: CloningPodMachineCircuitboard
-  result: CloningPodMachineCircuitboard
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
   id: BodyScannerComputerCircuitboard
   result: BodyScannerComputerCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: MedicalScannerMachineCircuitboard
-  result: MedicalScannerMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: CloningConsoleComputerCircuitboard
-  result: CloningConsoleComputerCircuitboard
