@@ -8,33 +8,10 @@
   recipeUnlocks:
   - ClothingOuterHardsuitM82cTsf
   - ClothingOuterHardsuitM82bTsf
+  - ClothingOuterHardsuitM86Tsf
+  - ClothingOuterHardsuitM86Mk2DTsf
+  - MechIFFTSF
+  - ClothingOuterHardsuitM92XTsf
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: 2, -13
-
-- type: technology
-  id: TsfmcAdvancedEquipment
-  name: research-technology-tsfmc-advanced-equipment
-  entityIcon: ClothingOuterHardsuitM86
-  discipline: TsfmcEquipment
-  tier: 2
-  cost: 35000
-  recipeUnlocks:
-  - ClothingOuterHardsuitM86Tsf
-  - MechIFFTSF
-  technologyPrerequisites:
-  - TsfmcBasicEquipment
-  position: 2, -23
-
-- type: technology
-  id: TsfmcExperimentalEquipment
-  name: research-technology-tsfmc-experimental-equipment
-  entityIcon: ClothingOuterHardsuitNfsdExperimental
-  discipline: TsfmcEquipment
-  tier: 3
-  cost: 85000
-  recipeUnlocks:
-  - ClothingOuterHardsuitM92XTsf
-  technologyPrerequisites:
-  - TsfmcAdvancedEquipment
-  position: 2, -29
