@@ -266,7 +266,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             mech.CurrentSelectedEquipment.HasValue &&
             TryComp<GunComponent>(mech.CurrentSelectedEquipment.Value, out var mechGun))
         {
-            gun = _altGun.CheckForAltGun((entity, mechGun)); // FH
+            gun = _altGun.CheckForAltGun((mech.CurrentSelectedEquipment.Value, mechGun)); // FH
             return true;
         }
 
