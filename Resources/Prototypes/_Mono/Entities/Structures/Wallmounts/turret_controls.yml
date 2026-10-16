@@ -57,6 +57,65 @@
     - AllHostile
 
 - type: entity
+  parent: WeaponTurretLaserTSFMC
+  id: WeaponTurretLaserBase
+  name: remote laser sentry turret
+  abstract: true
+  components:
+  - type: AccessReader
+    access: [["Security"]]
+  - type: DeployableTurret
+    retractedDamageModifierSetId: Metallic
+    deployedDamageModifierSetId: Metallic
+    deploymentSound:
+      path: /Audio/_Mono/Effects/Machines/twobeep_high.ogg
+    retractionSound:
+      path: /Audio/_Mono/Effects/Machines/triple_beep.ogg
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - Security
+    - Borg
+    - BasicSilicon
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 10
+  - type: DeviceNetworkRequiresPower
+  - type: WiredNetworkConnection
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    boardName: wires-board-name-weapon-energy-turret
+    layoutId: WeaponEnergyTurret
+  - type: Lock
+    locked: true
+    unlockOnClick: false
+  - type: LockedWiresPanel
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: RedLightLaser
+      fireCost: 10
+    - proto: RedLaser
+      fireCost: 10
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    sendBroadcastAttemptEvent: true
+    prefix: device-address-prefix-turret
+    examinableAddress: true
+    receiveFrequencyId: TurretControlAI
+    transmitFrequencyId: TurretAI
+  - type: HTN
+    enabled: false
+  - type: StationAiWhitelist
+  - type: NpcFactionMember
+    factions:
+    - AllHostile
+
+
+- type: entity
   parent: WeaponEnergyTurretStationControlPanel
   id: WeaponEnergyTurretTSFControlPanel
   name: TSF sentry turret control panel
@@ -81,6 +140,26 @@
   parent: BallisticTurretHeavyAIBase
   id: BallisticTurretHeavyAITSF
   name: TSF heavy remote sentry turret
+  suffix: TSF
+  components:
+  - type: AccessReader
+    access: [["TsfmcEngineering"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - HeadOfSecurity
+    - Armory
+    - Bailiff
+    - Sergeant
+    - Security
+    - TsfmcEngineering
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControlAITSF
+    transmitFrequencyId: TurretAITSF
+
+- type: entity
+  parent: WeaponTurretLaserBase
+  id: WeaponTurretLaserBaseAITSF
+  name: TSF remote laser sentry turret
   suffix: TSF
   components:
   - type: AccessReader
