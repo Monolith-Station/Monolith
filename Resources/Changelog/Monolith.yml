@@ -26249,3 +26249,58 @@ Entries:
   id: 2828
   time: '2026-10-15T23:16:44.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4845
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed Helios/UGBM making ships have IFF off permanently.
+  id: 2829
+  time: '2026-10-16T20:18:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4878
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        You can now play Godfather without playing Fugitive if you have 60 hours
+        overall.
+  id: 2830
+  time: '2026-10-16T20:19:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4843
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: New languages "Felyaic" and "Classical"
+    - type: Add
+      message: Ported chat prefixes from Starlight.
+    - type: Add
+      message: Canilunzt is now a selectable language.
+    - type: Remove
+      message: Gary has been taken out back.
+  id: 2831
+  time: '2026-10-16T20:22:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4849
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Pulsar damage buff rescinded.
+  id: 2832
+  time: '2026-10-16T20:23:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4860
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixes blunt names.
+    - type: Fix
+      message: Fixes Shulilian's right sided main large thruster.
+    - type: Fix
+      message: Links Camelot's nuclear reactor monitor to the reactor.
+    - type: Fix
+      message: >-
+        Fixes a  shipyard descriptions having old calibers. (Send any others to
+        the #bugs channel, I only did the ones I was aware of.)
+    - type: Fix
+      message: Adds directional fans to the CSEC Hornet.
+    - type: Fix
+      message: Charon APHE explodes when it's stopped, rather than on it's first hit.
+  id: 2833
+  time: '2026-10-16T20:26:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4873

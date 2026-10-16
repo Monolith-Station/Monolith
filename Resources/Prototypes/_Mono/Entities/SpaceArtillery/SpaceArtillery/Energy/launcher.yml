@@ -191,7 +191,7 @@
 
 - type: entity
   id: WeaponTurretM25
-  name: M25 mining pulser
+  name: M25 mining pulsar
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier1HP
@@ -214,7 +214,7 @@
     range: 500
   - type: FireControlRotate
   - type: Gun
-    damageModifier: 5
+    damageModifier: 1
     fireRate: 5
     recoil: 2 # 2/25x
     projectileSpeed: 20
