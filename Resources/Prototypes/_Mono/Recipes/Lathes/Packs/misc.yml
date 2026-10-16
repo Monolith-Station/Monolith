@@ -2,3 +2,12 @@
   id: CarpCaller
   recipes:
   - CarpCallerMachineCircuitboard
+
+- type: latheRecipePack
+  id: MonoCloningBoards
+  recipes:
+  - GeneticDatabaseMachineCircuitboard
+  - CloningPodMachineCircuitboard
+  - BodyScannerComputerCircuitboard
+  - MedicalScannerMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
