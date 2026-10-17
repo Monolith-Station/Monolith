@@ -144,19 +144,20 @@
 #      tags:
 #      - NukeOpsUplink
 
-- type: listing
-  id: UplinkSniperBundle
-  name: uplink-sniper-bundle-name
-  description: uplink-sniper-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/hristov.rsi, state: base }
-  productEntity: BriefcaseSyndieSniperBundleFilled
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 50 # Mono #7->10 Mono Edit
-  cost:
-    Telecrystal: 80 # Mono #12->16 Mono Edit
-  categories:
-  - UplinkWeaponry
+# Mono
+#- type: listing
+#  id: UplinkSniperBundle
+#  name: uplink-sniper-bundle-name
+#  description: uplink-sniper-bundle-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/hristov.rsi, state: base }
+#  productEntity: BriefcaseSyndieSniperBundleFilled
+#  discountCategory: usualDiscounts
+#  discountDownTo:
+#    Telecrystal: 50 # Mono #7->10 Mono Edit
+#  cost:
+#    Telecrystal: 80 # Mono #12->16 Mono Edit
+#  categories:
+#  - UplinkWeaponry
 
 # Mono: remove PDV guns from uplink
 #- type: listing

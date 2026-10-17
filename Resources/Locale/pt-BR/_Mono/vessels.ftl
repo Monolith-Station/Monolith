@@ -53,7 +53,7 @@ vessel-MieyoAutumn-name = MMC-SKR Mieyo-Autumn
 vessel-MieyoAutumn-desc = Uma variante de produção licenciada do Autumn. Tudo o que fizemos para esta foi trocar os pisos e os trajes.
 
 vessel-Kami-name = MMC Kami
-vessel-Kami-desc = Nave de mineração leve. Apenas equipada com 2 de 20mms, além de 2 mineradores de pulso automáticoss e um ímã.
+vessel-Kami-desc = Nave de mineração leve. Apenas equipada com 2 14mms, além de 2 mineradores de pulso automáticoss e um ímã.
 
 vessel-Kite-name = MMC-CSC Kite
 vessel-Kite-desc = Uma nave de escolta levemente blindada. Armada com 4 autopulsers e 2 TOVEKs para perseguir naves rápidas.
@@ -92,7 +92,7 @@ vessel-Promise-name = DFNT Promise
 vessel-Promise-desc = Um antigo projeto de Nave Médica datando da era da fratura. Vem equipado com tudo o que uma nave hospitalar desejaria, bem como acomodações espaçosas para a tripulação para turnos de longo prazo.
 
 vessel-Autumn-name = SKR Autumn
-vessel-Autumn-desc = Uma variante atualizada do cargueiro Autumn. Vem com um gerador de escudo e algumas 90mm.
+vessel-Autumn-desc = Uma variante atualizada do cargueiro Autumn. Vem com um gerador de escudo e algumas 57mm.
 
 vessel-Spessbite-name = PTI Spessbite
 vessel-Spessbite-desc = Um caminhão de comida, equipado com todos os tipos de amenidades apertados em um interior quase claustrofóbico, mas muito aconchegante.
@@ -125,7 +125,7 @@ vessel-Triage-name = MI Triage
 vessel-Triage-desc = Uma nave médica extremamente compacta que dá o que falar.
 
 vessel-Kunai-name = MI-COR Kunai
-vessel-Kunai-desc = Uma Corveta Marciana de alta ponta, legitimamente resgatada pela Militia Ironworks. Armada com 4 de 30mms, 2 de 20mms, 1 tubo de torpedo e 1 canhão AK 50mm. Inclui uma pequena enfermaria e quartos da tripulação com uma galley para longas patrulhas. Capaz de FTL.
+vessel-Kunai-desc = Uma Corveta Marciana de alta ponta, legitimamente resgatada pela Militia Ironworks. Armada com 4 20mms, 2 14mms, 1 tubo de torpedo e 1 canhão AK 40mm. Inclui uma pequena enfermaria e quartos da tripulação com uma galley para longas patrulhas. Capaz de FTL.
 
 vessel-Ethereal-name = NS Ethereal
 vessel-Ethereal-desc = Uma nave científica em forma de borboleta. Vem com instalações para acomodar botânica e pesquisa de artefatos, bem como química. Vem com uma piscina & bar.
@@ -386,7 +386,7 @@ vessel-Mercury-name = TSF-SKR Mercury
 vessel-Mercury-desc = Designação naval Corveta de Mísseis Guiados Tipo-32D. Equipada com 4 pesados pods de mísseis Paladin AShM frontais, duas armas leves de PD.
 
 vessel-Altair-name = TSF-PIN Altair
-vessel-Altair-desc = Uma fragata fortemente armada com 4 de 220mm CYREXA frontais e seu armamento principal, um turbolaser espinhal da classe DYMERE, ainda capaz de despachar crafts pequenos graças a uma rede de PD robusta. Feito como um brawler pesado com capabilities de longo alcance e ancora de frota para aquelas pequenas forças na Borda. Altamente sobrevivente e robusto, apenas cuidado com aqueles hardpoints.
+vessel-Altair-desc = Uma fragata fortemente armada com 4 CYREXA frontais de 220mm e seu armamento principal, um turbolaser espinhal da classe DYMERE, ainda capaz de despachar crafts pequenos graças a uma rede de PD robusta. Feito como um brawler pesado com capabilities de longo alcance e ancora de frota para aquelas pequenas forças na Borda. Altamente sobrevivente e robusto, apenas cuidado com aqueles hardpoints.
 
 vessel-Hoplite-name = TSF-PIN Hoplite
 vessel-Hoplite-desc = Uma nave de patrulha meant para interceptar crafts inimigos leves com motores poderosos e EMPs. É equipada com 2 RUBICON, dois pulsadores de plasma e dois canhões de plasma MARAUDER. Rápida, mortal, e com um bom espaço de carga.
@@ -437,7 +437,7 @@ vessel-Kortik-name = PDV-NCI Kortik-EM
 vessel-Kortik-desc = Uma atualização adicional do Kortik-R, trocando os 2 obuseiros R-300 por 2 mass drivers CHARON. TOTALMENTE INCAPAZ DE USAR GERADORES DE ESCUDO.
 
 vessel-Neptune-name = PDW Neptune
-vessel-Neptune-desc = Equipada com blindagem frontal pesada, 6 Fang pesados de 90mm, e 2 torpedos Trident. Bom para lidar com alvos mais pesados em combates frente a frente, mas carece de capabilities para lutar contra alvos pequenos e ágeis.
+vessel-Neptune-desc = Equipada com blindagem frontal pesada, 6 Fang pesados de 57mm, e 2 torpedos Trident. Bom para lidar com alvos mais pesados em combates frente a frente, mas carece de capabilities para lutar contra alvos pequenos e ágeis.
 
 vessel-Tethys-name = PDV Tethys
 vessel-Tethys-desc = Uma nave de espionagem e aviso prévio para monitoramento. Thrusters furtivos não são bons para combate, então tome cuidado.
@@ -464,7 +464,7 @@ vessel-Svinya-name = UW Svinya
 vessel-Svinya-desc = Uma nave de ataque compacta, coberta de armamento de pequeno calibre.
 
 vessel-Tayfun-name = NCS Tayfun
-vessel-Tayfun-desc = Uma canhoneira blindada com 4 90mms, 2 30mms, e 2 pods de mísseis VESPERA.
+vessel-Tayfun-desc = Uma canhoneira blindada com 4 57mms, 2 20mms, e 2 pods de mísseis VESPERA.
 
 vessel-Buran-name = VEF Buran
 vessel-Buran-desc = Fragata de tamanho Capital da USSP com tremendo poder de fogo de bordo e blindagem espessa. Glória ao comissariado.
@@ -521,7 +521,7 @@ vessel-Betelgeuse-name = Betelgeuse
 vessel-Betelgeuse-desc = Nave de salvagem apertada que é rodada em esperanças e sonhos, mas inclui um dos canhões de nave de grau de mineração mais poderosos neste setor.
 
 vessel-Tick-name = GSI Tick
-vessel-Tick-desc = Um bombardeiro hyperlight feito de sucata, equipado com uma baia de caça GPOB-L e 2 de 57mms, não tem vontade de viver.
+vessel-Tick-desc = Um bombardeiro hyperlight feito de sucata, equipado com uma baia de caça GPOB-L e 2 40mms, não tem vontade de viver.
 
 vessel-Serkesh-name = RSC-Serkesh
 vessel-Serkesh-desc = Pesado pesado de mão de ferro dos RedSail Corsairs, não o maior, não o mais malvado e definitivamente não o mais rápido. Montado nos portos dos fundos da galáxia com plantas do andrômina meio queimadas e meio faltando, se andrômina é o filho de amor de um artista e um cirurgião. O RSC-Serkesh é o garoto abandonado de um açougueiro e um assassino, ela não é bonita, não faz truques, mas ela faz o serviço. Armado com armas balísticas pesadas, é um brawler fortemente blindado que pode trocar golpes com qualquer nave de curto a médio alcance.

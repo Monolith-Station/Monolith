@@ -64,8 +64,12 @@ public sealed partial class HeadsetSystem : SharedHeadsetSystem
             && TryComp(component.Headset, out EncryptionKeyHolderComponent? keys)
             && keys.Channels.Contains(args.Channel.ID))
         {
-            _punishment.Punish(uid, component.Headset, args.Message);
-            _radio.SendRadioMessage(uid, args.Message, args.Channel, component.Headset);
+            var message = args.Message;
+            var prefix = _language.GetLanguageFromPrefix(args.Source, ref message, out var parsed, true); // Starlight: Language prefixes
+            var language = parsed && _language.CanSpeak(args.Source, prefix) ? prefix : args.Language;
+
+            _punishment.Punish(uid, component.Headset, message);
+            _radio.SendRadioMessage(uid, message, args.Channel, component.Headset, language: language);
             args.Channel = null; // prevent duplicate messages from other listeners.
         }
     }
