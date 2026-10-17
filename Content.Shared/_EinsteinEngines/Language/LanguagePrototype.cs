@@ -27,6 +27,9 @@ public sealed partial class LanguagePrototype : IPrototype
     [DataField("speech")]
     public SpeechOverrideInfo SpeechOverride = new();
 
+    [DataField]
+    public string? ChatPrefix; // Monolith
+
     #region utility
     /// <summary>
     ///     The in-world name of this language, localized.
