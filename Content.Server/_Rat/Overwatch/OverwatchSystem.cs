@@ -24,6 +24,9 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Sticky.Components;
 using Content.Server._Mono.Overwatch.Components;
 using Content.Shared.Sticky;
+using Content.Shared.Implants.Components;
+using Content.Shared.Implants;
+using Robust.Shared.Containers;
 
 namespace Content.Server._Rat.Overwatch;
 
@@ -99,6 +102,8 @@ public sealed class OverwatchSystem : EntitySystem
         SubscribeLocalEvent<SquadComponent, ComponentInit>(OnSquadComponentInit);
         SubscribeLocalEvent<SquadComponent, ComponentShutdown>(OnSquadComponentShutdown);
         SubscribeLocalEvent<JamOverwatchOnStuckComponent, EntityStuckEvent>(OnEntityStuck);
+        SubscribeLocalEvent<OverwatchImplantComponent, ImplantImplantedEvent>(OnOverwatchImplanted);
+        SubscribeLocalEvent<OverwatchImplantComponent, EntGotRemovedFromContainerMessage>(OnOverwatchImplantRemoved);
 
         // Mono: overwatch jamming
         SubscribeLocalEvent<CompanyComponent, GridUidChangedEvent>(OnGridUidChanged);
@@ -196,6 +201,21 @@ public sealed class OverwatchSystem : EntitySystem
             return;
 
         _factionMembersCache.Remove(comp.CompanyName);
+    }
+
+
+    /// <summary>
+    /// Mono: Clears the cache of a faction if their overwatch implant has been applied.
+    /// </summary>
+    /// <param name="args"></param>
+    private void OnOverwatchImplanted(Entity<OverwatchImplantComponent> ent, ref ImplantImplantedEvent args)
+    {
+        _factionMembersCache.Remove(ent.Comp.Company);
+    }
+
+    private void OnOverwatchImplantRemoved(Entity<OverwatchImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    {
+        _factionMembersCache.Remove(ent.Comp.Company);
     }
 
     /// <summary>
@@ -401,6 +421,9 @@ public sealed class OverwatchSystem : EntitySystem
     private void OnSendAnnouncement(Entity<OverwatchConsoleComponent> ent, ref OverwatchSendMessageAnnouncement args)
     {
         if (string.IsNullOrEmpty(args.Message))
+            return;
+
+        if (!ent.Comp.CanSendAnnouncements) // Mono: allow for certain consoles to be unable to send announcements
             return;
 
         var faction = ent.Comp.Faction;
@@ -732,6 +755,18 @@ public sealed class OverwatchSystem : EntitySystem
             if (factionComp.CompanyName == faction && HasComp<MobStateComponent>(uid) && !jammedPlayers.Contains(uid))
                 members.Add(uid);
         }
+
+        // Mono: overwatch implants
+        var implantQuery = EntityQueryEnumerator<SubdermalImplantComponent, OverwatchImplantComponent>();
+        while (implantQuery.MoveNext(out _, out var implantComp, out var overwatchImplantComp))
+        {
+            var implantedEntity = implantComp.ImplantedEntity;
+            if (overwatchImplantComp.Company != faction || implantedEntity == null || members.Contains(implantedEntity.Value))
+                continue;
+
+            members.Add(implantedEntity.Value);
+        }
+        // Mono end
 
         _factionMembersCache[faction] = members;
         return members;
