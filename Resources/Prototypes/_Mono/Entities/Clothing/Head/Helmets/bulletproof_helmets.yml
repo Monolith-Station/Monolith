@@ -36,20 +36,3 @@
     sprite: _Mono/Clothing/Head/Helmets/pdv.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Head/Helmets/pdv.rsi
-
-- type: entity
-  parent: ClothingHeadBPHelmetLight
-  id: ClothingHeadBPHelmetMammoth
-  name: GS-202-B Mammoth helmet.
-  description: A visored ballistic helmet to protect against small arms. Comes with a aerosol canisters loaded with medicines specialized for ballistic trauma.
-  components:
-  - type: Sprite
-    sprite: _Mono/Clothing/Head/Helmets/mammoth.rsi
-  - type: Clothing
-    sprite: _Mono/Clothing/Head/Helmets/mammoth.rsi
-  - type: ClothingAutoInject
-    reagents:
-      PolypyryliumOligomers: 15
-      Puncturase: 15
-    autoInjectOnAbility: true
-    autoInjectInterval: 180
