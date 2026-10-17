@@ -2,6 +2,7 @@ using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using Content.Server._Battlefield14.FactionTracking;
+using Content.Server._Mono.GameRule.Components;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking.Events;
@@ -179,6 +180,29 @@ namespace Content.Server.GameTicking
                 JoinAsObserver(player);
                 return;
             }
+
+            // Mono start: prevent same-name respawns
+            var rules = GetActiveGameRules();
+            foreach (var rule in rules)
+            {
+                if (!TryComp<NoRespawningWithSameNameRuleComponent>(rule, out var respawnRule))
+                    continue;
+
+                if (!respawnRule.SpawnedCharacters.Keys.Contains(player.UserId))
+                {
+                    respawnRule.SpawnedCharacters.Add(player.UserId, new List<string>() { character.Name });
+                    continue;
+                }
+
+                if (respawnRule.SpawnedCharacters[player.UserId].Contains(character.Name))
+                {
+                    _chatManager.DispatchServerMessage(player, Loc.GetString("no-respawning-with-same-name"));
+                    return;
+                }
+
+                respawnRule.SpawnedCharacters[player.UserId].Add(character.Name);
+            }
+            // Mono end
 
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
             var bev = new PlayerBeforeSpawnEvent(player, character, jobId, lateJoin, station);

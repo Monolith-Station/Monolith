@@ -1,0 +1,5 @@
+- type: entity
+  parent: BaseGameRule
+  id: NoRespawningWithSameName
+  components:
+  - type: NoRespawningWithSameNameRule
