@@ -75,3 +75,17 @@
   - ViperGroupShipyardAdvanced
   - UniversalMaterialResearchT3
   position: 9, -16
+
+- type: technology
+  id: ViperGroupWeaponsRanged
+  name: research-technology-viper-group-weapons
+  entityIcon: WeaponRifleBoa
+  discipline: ViperGroup
+  tier: 2
+  cost: 50000
+  recipeUnlocks:
+  - WeaponRifleWeaselRecipe
+  - WeaponRifleBoaRecipe
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  position: 9, -17
