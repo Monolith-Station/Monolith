@@ -119,8 +119,8 @@
 - type: entity
   parent: [PersonalAI, BaseFactionGearOtherFactionT1]
   id: SyndicatePersonalAI
-  name: syndicate personal ai device
-  description: Your Syndicate pal who's fun to be with!
+  name: underground personal ai device
+  description: Your highly illegal pal who's fun to be with!
   components:
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
@@ -149,6 +149,48 @@
           Off: { state: syndicate-pai-off-overlay }
           Searching: { state: syndicate-pai-searching-overlay }
           On: { state: syndicate-pai-on-overlay }
+  # Einstein Engines - Language begin
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic # Add individual languages so they can speak in said language for privacy.
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Freespeak
+    - Tradeband
+    - NewKinPidgin
+    - UndergroundCodespeak
+    understands:
+    - TauCetiBasic # Add individual languages so they can understand without understanding animals.
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Freespeak
+    - Tradeband
+    - Sign # Should know it but not speak it, for obvious reasons.
+    - NewKinPidgin
+    - UndergroundCodespeak
+  # Einstein Engines - Language end
 
 - type: entity
   parent: PersonalAI

@@ -42,3 +42,18 @@
     - Dead
   - type: Rattle
     radioChannel: "Mieyo"
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: UndergroundCodespeakTranslatorImplant
+  name: codespeak translator implant
+  description: An advanced implant that automatically translates any Underground Codespeak detected into Andromeda Standard and allows the user to automatically translate their own words back into it.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - UndergroundCodespeak
+    spoken:
+    - UndergroundCodespeak
+    requires:
+    - TauCetiBasic
