@@ -105,7 +105,7 @@
   productEntity: WeaponSubMachineGunTypewriter
   cost:
     Telecrystal: 30
-  categories: 
+  categories:
   - UplinkWeaponry
 
 - type: listing
@@ -168,15 +168,15 @@
   categories:
   - UplinkWearables
 
-- type: listing
-  id: UplinkUllmanEnforcerMk2
-  name: uplink-ullman-enforcer-mk2-name
-  description: uplink-ullman-enforcer-mk2-desc
-  productEntity: ClothingOuterHardsuitUIEnforcerMKII
-  cost:
-    Telecrystal: 90
-  categories:
-  - UplinkWearables
+#- type: listing
+#  id: UplinkUllmanEnforcerMk2
+#  name: uplink-ullman-enforcer-mk2-name
+#  description: uplink-ullman-enforcer-mk2-desc
+#  productEntity: ClothingOuterHardsuitUIEnforcerMKII
+#  cost:
+#    Telecrystal: 90
+#  categories:
+#  - UplinkWearables
 
 - type: listing
   id: UplinkUllmanRx01

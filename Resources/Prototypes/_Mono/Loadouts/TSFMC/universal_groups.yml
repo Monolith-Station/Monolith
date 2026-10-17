@@ -297,9 +297,9 @@
   hidden: true # No point in showing this, it gets auto-selected.
   minLimit: 1
   loadouts:
-  - TsfmcClothingOuterArmorBPVestMedium
+  - TsfmcClothingOuterArmorBPVestLight
   fallbacks:
-  - TsfmcClothingOuterArmorBPVestMedium
+  - TsfmcClothingOuterArmorBPVestLight
 
 - type: loadoutGroup
   id: TsfmcOuterClothingColonel
