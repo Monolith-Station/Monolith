@@ -682,6 +682,76 @@
     class: Energy
     size: Heavy
 
+# Petrusite
+
+- type: entity
+  id: WeaponLaserTurretPetrusite
+  name: ??? Petrusite Tesla Cannon
+  parent:
+  - BallisticArtillery
+  - BallisticArtilleryTier4HP
+  suffix: Heavy, T4
+  description: A heavy tesla cannon produced by ???, able to shut down large portions of a ship with ease, but relatively slow to recharge once it's battery is expended.
+  components:
+  - type: StaticPrice
+    price: 50000
+  - type: Sprite
+    sprite:  _Mono/Objects/ShuttleWeapons/petrusite.rsi
+    layers:
+    - state: space_artillery
+    scale: 1.5, 1.5
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 80000
+    startingCharge: 80000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1250 # 3 shots/60 seconds
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 0.15 # 9 shots per minute
+    recoil: 75 #BOFORs-ish. I'm not sure how recoil works with lightning.
+    minAngle: 0
+    maxAngle: 0
+    shootThermalSignature: 2000000
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_friendship.ogg #Kinda has that THUMMM to it.
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 20000
+    powerUsePassive: 20000 # It shoots lightning.
+    powerUseActive: 0
+  - type: FireControlRotate
+  - type: Actions
+  - type: HitscanBatteryAmmoProvider
+    proto: PetrusiteLaser
+    fireCost: 25000
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.75,-0.75,0.75,0.75"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipGunClass
+    shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 150
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Superheavy
+
 # PRE- FRACTURE
 
 
