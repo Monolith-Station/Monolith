@@ -1229,21 +1229,21 @@
       tags:
       - PirateUplink
 
-- type: listing
-  id: UplinkPirateHristovBundle
-  name: uplink-pirate-hristov-name
-  description: uplink-pirate-hristov-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/hristov.rsi, state: base }
-  productEntity: BriefcaseSyndieSniperBundleFilled
-  cost:
-    Doubloon: 90
-  categories:
-  - UplinkPirateWeapons
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
+#- type: listing
+#  id: UplinkPirateHristovBundle
+#  name: uplink-pirate-hristov-name
+#  description: uplink-pirate-hristov-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/hristov.rsi, state: base }
+#  productEntity: BriefcaseSyndieSniperBundleFilled
+#  cost:
+#    Doubloon: 90
+#  categories:
+#  - UplinkPirateWeapons
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - PirateUplink
 
 - type: listing
   id: UplinkPirateBasilisk
@@ -1283,21 +1283,21 @@
 
 #MARK: Equipment
 
-- type: listing
-  id: UplinkPirateCombatHardsuit
-  name: uplink-pirate-combat-hardsuit-name
-  description: uplink-pirate-combat-hardsuit-desc
-  productEntity: ClothingOuterHardsuitPirateScaf
-  icon: { sprite: _Mono/Clothing/OuterClothing/Hardsuits/scaf_pirate.rsi, state: icon }
-  cost:
-    Doubloon: 15
-  categories:
-  - UplinkPirateEquipment
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
+#- type: listing
+#  id: UplinkPirateCombatHardsuit
+#  name: uplink-pirate-combat-hardsuit-name
+#  description: uplink-pirate-combat-hardsuit-desc
+#  productEntity: ClothingOuterHardsuitPirateScaf
+#  icon: { sprite: _Mono/Clothing/OuterClothing/Hardsuits/scaf_pirate.rsi, state: icon }
+#  cost:
+#    Doubloon: 15
+#  categories:
+#  - UplinkPirateEquipment
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - PirateUplink
 
 - type: listing
   id: UplinkPirateWebVest
@@ -1348,8 +1348,6 @@
 
 - type: listing
   id: UplinkPirateCv32
-  name: uplink-pirate-cv32-hardsuit-name
-  description: uplink-pirate-cv32-hardsuit-desc
   productEntity: ClothingOuterHardsuitAshen
   cost:
     Doubloon: 45
@@ -1363,8 +1361,6 @@
 
 - type: listing
   id: UplinkPirateCv53
-  name: uplink-pirate-cv53-tacsuit-name
-  description: uplink-pirate-cv53-tacsuit-desc
   productEntity: ClothingOuterHardsuitAshenElite
   cost:
     Doubloon: 45
@@ -1376,40 +1372,38 @@
       tags:
       - PirateUplink
 
-- type: listing
-  id: UplinkPirateCv82
-  name: uplink-pirate-cv82-tacsuit-name
-  description: uplink-pirate-cv82-tacsuit-desc
-  productEntity: ClothingOuterHardsuitPDVMedic
-  cost:
-    Doubloon: 90
-  categories:
-  - UplinkPirateEquipment
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
+#- type: listing
+#  id: UplinkPirateCv82
+#  name: uplink-pirate-cv82-tacsuit-name
+#  description: uplink-pirate-cv82-tacsuit-desc
+#  productEntity: ClothingOuterHardsuitPDVMedic
+#  cost:
+#    Doubloon: 90
+#  categories:
+#  - UplinkPirateEquipment
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - PirateUplink
 
-- type: listing
-  id: UplinkPirateJuggernaut
-  name: uplink-pirate-juggernaut-hardsuit-name
-  description: uplink-pirate-juggernaut-hardsuit-desc
-  productEntity: ClothingOuterHardsuitJuggernaut
-  cost:
-    Doubloon: 90
-  categories:
-  - UplinkPirateEquipment
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
+#- type: listing
+#  id: UplinkPirateJuggernaut
+#  name: uplink-pirate-juggernaut-hardsuit-name
+#  description: uplink-pirate-juggernaut-hardsuit-desc
+#  productEntity: ClothingOuterHardsuitJuggernaut
+#  cost:
+#    Doubloon: 90
+#  categories:
+#  - UplinkPirateEquipment
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - PirateUplink
 
 - type: listing
   id: UplinkPirateStealthSuit
-  name: uplink-pirate-stealth-hardsuit-name
-  description: uplink-pirate-stealth-hardsuit-desc
   productEntity: ClothingOuterHardsuitCybersunStealth
   cost:
     Doubloon: 90
