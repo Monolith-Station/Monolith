@@ -71,7 +71,7 @@
   parent: [ClothingOuterHardsuitBase, BaseFactionGearTSFT3]
   id: ClothingOuterHardsuitM86
   name: M86 Mk.3(R) hardsuit
-  description: An armored hardsuit, designed to be an upgrade for the M82 series. The extra general armor gives it significant weight to move around.
+  description: An armored hardsuit, designed to be an upgrade for the now-retired M82 series. The extra general armor gives it significant weight to move around.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/m86.rsi
@@ -83,22 +83,22 @@
     highPressureMultiplier: 0.03
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.3
+    damageCoefficient: 0.4
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.4
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
         Shock: 0.8
         Heat: 0.5
-        Radiation: 0.5
+        Radiation: 0.4
         Caustic: 0.6
   - type: StaminaDamageResistance
     coefficient: 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
@@ -152,10 +152,10 @@
     id: ClothingOuterHardsuitTacsuitHighValue
 
 - type: entity
-  parent: [ClothingOuterHardsuitBaseNoPlateholder, MonoEnergyShieldClothing, BaseFactionGearTSFT3 ] # Jugger Suit
+  parent: [ClothingOuterHardsuitBase, BaseFactionGearTSFT3 ] # Jugger Suit
   id: ClothingOuterHardsuitNfsdExperimental
   name: TSFMC M92-X tacsuit
-  description: An experimental modification of the M92 tacsuit for spec-ops units of the TSFMC. Durable, and comes with an integrated hard-shield along with numerous gadgets at the cost of insulation and solid armor.
+  description: An experimental modification of the M92 tacsuit for spec-ops units of the TSFMC. Durable, and comes along with numerous gadgets at the cost of general-purpose protection and weight.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/tsfmc_experimental.rsi # Mono
@@ -182,15 +182,15 @@
   - type: Armor # Mono - Armor Value Changes
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.5
+        Blunt: 0.6
+        Slash: 0.15
+        Piercing: 0.3
+        Heat: 0.2
         Radiation: 0.5
         Caustic: 0.8
   - type: ClothingSpeedModifier # Mono - Armor Value Changes
-    walkModifier: 0.7
-    sprintModifier: 0.6
+    walkModifier: 0.65
+    sprintModifier: 0.65
   - type: HeldSpeedModifier
   - type: FactionClothing
     faction: NanoTrasen
@@ -198,46 +198,46 @@
     coefficient: 0.25
   - type: PirateBountyItem # Mono
     id: ClothingOuterHardsuitTacsuitHighValue
-  # Mono - Shielding comps
-  - type: PersonalShield
-    visuals:
-      fillLevel: 0.2
-      hexDensity: 6
-      pixelGrid: 192
-      color: "#E0FFFF"
-      scale: 2.3
-    shield:
-      maxCharge: 200
-      regenRate: 5
-      spinupTime: 2.5
-      breakCooldown: 20
-      powerDraw: 0.5
-      blockModifier:
-        coefficients:
-          Piercing: 0.5
-          Heat: 1.5
-          Radiation: 2.5
-          Shock: 2.5
-  - type: Battery
-    maxCharge: 100
-    startingCharge: 100
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 5
-    autoRechargePauseTime: 5
-  - type: UseDelay
-    delay: 10
+#  # Mono - Shielding comps
+#  - type: PersonalShield
+#    visuals:
+#      fillLevel: 0.2
+#      hexDensity: 6
+#      pixelGrid: 192
+#      color: "#E0FFFF"
+#      scale: 2.3
+#    shield:
+#      maxCharge: 200
+#      regenRate: 5
+#      spinupTime: 2.5
+#      breakCooldown: 20
+#      powerDraw: 0.5
+#      blockModifier:
+#        coefficients:
+#          Piercing: 0.5
+#          Heat: 1.5
+#          Radiation: 2.5
+#          Shock: 2.5
+#  - type: Battery
+#    maxCharge: 100
+#    startingCharge: 100
+#  - type: BatterySelfRecharger
+#    autoRecharge: true
+#    autoRechargeRate: 5
+#    autoRechargePauseTime: 5
+#  - type: UseDelay
+#    delay: 10
   - type: FootstepModifier # Mono
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
-  - type: ExtendDescription
-    descriptionList:
-    - description: Alt-click or otherwise interact to toggle additional shielding.
-      color: "#4f94ad"
-      requireDetailRange: true
-    - description: The M92-x shield is designed to inhibit the velocity of incoming conventional firearms. However, it struggles against anything involving high-energy particles, such as lasers.
-      color: "#94768c"
-      requireDetailRange: true
+#  - type: ExtendDescription
+#    descriptionList:
+#    - description: Alt-click or otherwise interact to toggle additional shielding.
+#      color: "#4f94ad"
+#      requireDetailRange: true
+#    - description: The M92-x shield is designed to inhibit the velocity of incoming conventional firearms. However, it struggles against anything involving high-energy particles, such as lasers.
+#      color: "#94768c"
+#      requireDetailRange: true
 
 # MARSOC only
 
