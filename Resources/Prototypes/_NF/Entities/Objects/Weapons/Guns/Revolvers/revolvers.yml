@@ -12,7 +12,7 @@
   - type: Gun
     fireRate: 2.5
     resetOnHandSelected: false
-    damageModifier: 1.5 # all 8 need to hit to down light vest + mask + 15% helmet.
+    damageModifier: 1.5 # Mono all 8 need to hit to down light vest + mask + 15% helmet.
   - type: RevolverAmmoProvider
     whitelist:
       tags:
