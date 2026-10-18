@@ -1,0 +1,40 @@
+# Original Author Info
+# GitHub: Ehyeog
+# Discord: Ehyeog
+#
+# Shuttle Notes:
+#
+- type: vessel
+  id: Grendel
+  parent: BaseVessel
+  name: EHG Grendel
+  description: The ship features a massive drilling rig designed to swallow asteroids whole, given the size of it, the vessel is exceptionally heavy and slow, although it comes equipped with a basic FTL drive for faster deployment. Furthermore, the ship has no hardpoints, leaving no room for weaponry, as these were deemed "unnecessary" and too expensive for its intended purpose. It also boasts a kitchen and personal quarters to ensure a comfortable mining experience.
+  price: 85200
+  category: Medium
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/grendel.yml
+  guidebookPage: null
+  class:
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Grendel
+  mapName: 'EHG Grendel'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/grendel.yml
+  minPlayers: 0
+  stations:
+    Grendel:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Grendel CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]
