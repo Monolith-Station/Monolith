@@ -433,7 +433,7 @@ public sealed partial class MoverController : SharedMoverController
         {
             var velLenSq = localVel.LengthSquared();
             var dirCompVel = localVel * dot / velLenSq;
-            var velRatio = localVel.Length() / shuttle.BaseMaxLinearVelocity;
+            var velRatio = localVel.Length() / (shuttle.BaseMaxLinearVelocity * shuttle.MaxLinearVelocityMultiplier);
             // less effect at lower velocities
             var exponent = velRatio * MathF.Pow(velRatio / (1f + velRatio), 3f);
             var scaledComp = dirCompVel / MathF.Pow(2f, exponent);
@@ -512,7 +512,7 @@ public sealed partial class MoverController : SharedMoverController
             {
                 _thruster.DisableLinearThrusters(shuttle);
                 PhysicsSystem.SetSleepingAllowed(uid, body, true);
-                shuttle.AngularMultiplier = shuttle.AccelerationMultiplier = 1f;
+                shuttle.AngularMultiplier = shuttle.AccelerationMultiplier = 1;
                 continue;
             }
             PhysicsSystem.SetSleepingAllowed(uid, body, false);
@@ -533,6 +533,10 @@ public sealed partial class MoverController : SharedMoverController
 
             angularMul /= count;
             accelMul /= count;
+
+            angularMul *= shuttle.BaseThrusterMultiplier; // Mono
+            accelMul *= shuttle.BaseThrusterMultiplier; // Mono
+
             if (setMaxVel != null)
                 setMaxVel /= count;
             shuttle.AngularMultiplier = angularMul;
