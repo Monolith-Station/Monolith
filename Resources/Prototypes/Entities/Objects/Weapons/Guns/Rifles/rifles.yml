@@ -25,6 +25,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+    drawTime: 0.5 # Mono you'd generally need to wield them anyhow.
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
@@ -83,6 +84,7 @@
     animation: WeaponArcThrust
     soundHit:
       collection: MetalThud
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Light
   # Mono end

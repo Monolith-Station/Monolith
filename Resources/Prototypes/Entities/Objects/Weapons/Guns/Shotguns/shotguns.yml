@@ -29,6 +29,7 @@
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
+    drawTime: 0.35 #Mono a bit slower than SMGs
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -87,6 +88,7 @@
     animation: WeaponArcThrust
     soundHit:
       collection: MetalThud
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Light
   # Mono end
