@@ -70,18 +70,18 @@
         Slash: 0.5
         Piercing: 0.5
         Heat: 0.5
-        Radiation: 0.5
+        Radiation: 0.1 # same as CV-53 to allow dirty bomb usage
         Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.25 # higher than M86 to give an edge versus good NVGs and medhud
   - type: Tag
     tags:
     - RogueHardsuit
   - type: StaminaDamageResistance
-    coefficient: 0.75
+    coefficient: 0.25
 
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT3 ]
