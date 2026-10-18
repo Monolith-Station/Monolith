@@ -355,7 +355,7 @@ public sealed partial class GunComponent : Component
     /// Delay when drawing a gun before firing is possible. Guns that aren't defined will probably be same or slower than this default, due to the weapon bash.
     /// </summary>
     [DataField]
-    public float DrawTime = 1.0f;
+    public float DrawTime = 0.05f;
 }
 
 [Flags]
