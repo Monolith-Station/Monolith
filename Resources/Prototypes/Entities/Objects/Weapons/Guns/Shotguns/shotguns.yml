@@ -29,7 +29,7 @@
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
-    drawTime: 0.35 #Mono a bit slower than SMGs
+    drawTime: 0.25 #Mono on par with SMGs, but needs to be wielded most of the time anyhow.
   - type: BallisticAmmoProvider
     whitelist:
       tags:
