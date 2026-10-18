@@ -100,7 +100,6 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
-      - map: ["gripAttachment"] #Mono
   - type: Item # Mono
     sprite: _Mono/Objects/Weapons/Guns/Rifles/akm_inhands_32x.rsi
   - type: Clothing
@@ -132,18 +131,10 @@
         whitelist:
           tags:
             - Cartridge762x39mmFMJ
-      attachment_grip: # Mono
-        insertSound: /Audio/Items/screwdriver2.ogg
-        ejectSound: /Audio/Items/screwdriver2.ogg
-        priority: 0
-        whitelist:
-          tags:
-          - MonoGripBayonet
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-      attachment_grip: !type:ContainerSlot # Mono
   - type: MagazineVisuals
     magState: mag
     steps: 1
