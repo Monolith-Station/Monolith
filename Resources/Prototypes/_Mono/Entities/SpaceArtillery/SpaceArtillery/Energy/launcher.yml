@@ -686,12 +686,12 @@
 
 - type: entity
   id: WeaponLaserTurretPetrusite
-  name: ??? Petrusite Tesla Cannon
+  name: Nosske Eien Petrusite Tesla Cannon
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier4HP
   suffix: Heavy, T4
-  description: A heavy tesla cannon produced by ???, able to shut down large portions of a ship with ease, but relatively slow to recharge once it's battery is expended.
+  description: A heavy tesla cannon developed by Nosske Eien, able to shut down large portions of a ship with ease, but relatively slow to recharge once it's battery is expended.
   components:
   - type: StaticPrice
     price: 50000
