@@ -126,7 +126,25 @@
     back:
     - RadioHandheldNF
 
-#- type: startingGear # Keeping this here incase a tracker tablet or something is made.
+#- type: startingGear
+#  id: MAWCInitiateGear
+#  parent: MAWCGear
+#  equipment:
+#    belt: WeaponPistolMAWCGame
+
+# - type: startingGear
+#  id: MAWCCarpenterGear
+#  parent: MAWCGear
+#  equipment:
+#    belt: WeaponPistolMAWCGame
+
+#- type: startingGear
+#  id: MAWCAcolyteGear
+#  parent: MAWCGear
+#  equipment:
+#    belt: WeaponPistolMAWCGame
+
+#- type: startingGear
 #  id: MAWCSeraphGear
 #  parent: MAWCGear
 #  equipment:

@@ -11050,22 +11050,19 @@ entities:
     - type: Transform
       pos: -2.3528144,-0.3151633
       parent: 2
-  - uid: 1691
+- proto: WeaponRevolverFitz
+  entities:
+  - uid: 1669
     components:
     - type: Transform
       pos: -2.3059394,-0.5495383
       parent: 2
-  - uid: 1692
+- proto: WeaponRevolverLucky
+  entities:
+  - uid: 1670
     components:
     - type: Transform
       pos: -2.5559394,-0.8464133
-      parent: 2
-- proto: WeaponRevolverMateba
-  entities:
-  - uid: 1693
-    components:
-    - type: Transform
-      pos: -2.3059394,-1.3620384
       parent: 2
 - proto: WeaponRifleAk
   entities:

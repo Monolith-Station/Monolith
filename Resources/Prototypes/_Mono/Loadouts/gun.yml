@@ -781,19 +781,22 @@
 - type: loadout #MAWC SMG - Flanker
   id: FactionFlankerLoadout
   price: 0
-  inhand:
+  storage:
+    back:
     - WeaponSubMachineGunMAWCFlanker
 
 - type: loadout # MAWC Shotgun - Intruder
   id: FactionIntruderLoadout
   price: 0
-  inhand:
+  storage:
+    back:
     - WeaponShotgunMAWCIntruder
 
 - type: loadout # MAWC mining tool... Thing - Sirius
   id: FactionSiriusLoadout
   price: 0
-  inhand:
+  storage:
+    back:
     - WeaponMAWCSirius
 
 
@@ -861,4 +864,4 @@
   price: 0
   storage:
     back:
-    - WeaponRevolverMAWC
+    - WeaponRevolverMAWC # Insert the actual ID here when it's in.
