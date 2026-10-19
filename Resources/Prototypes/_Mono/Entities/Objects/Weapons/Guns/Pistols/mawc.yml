@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseWeaponMAWC
+  parent: BaseWeaponBatterySmall
   id: WeaponPistolMAWCGame
   name: M-WC Type-36 "Game" pistol
   description: A ubiquitous and cheap pistol issued to all MAWC forces with respectable stopping power, firerate and self recharge.
@@ -9,19 +9,8 @@
     state: base
   - type: Item
     sprite: _Mono/MAWC/Objects/Weapons/Guns/game_inhands.rsi
-    size: Small
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
-  - type: Tag
-    tags:
-    - Sidearm
   - type: Clothing
     sprite: _Mono/MAWC/Objects/Weapons/Guns/game_inhands.rsi
-    quickEquip: false
-    slots:
-    - Belt
-    - suitStorage
   - type: Gun
     fireRate: 6
     projectileSpeed: 55
@@ -32,25 +21,20 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/smg.ogg
-  - type: BasicEntityAmmoProvider # define the actual bullet in your prototype.
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletMAWCGame
-    capacity: 16
-    count: 16
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.75
-  - type: MeleeWeapon
-    attackRate: 1.1
-    damage:
-      types:
-        Blunt: 8
-    angle: 0
-    wideAnimationRotation: 135
-    animation: WeaponArcThrust
-    soundHit:
-      collection: MetalThud
+    fireCost: 60
+  - type: Battery
+    maxCharge: 960
+    startingCharge: 960
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 80
+    autoRechargePause: true
+    autoRechargePauseTime: 3
 
 - type: entity
-  parent: BaseWeaponMAWC
+  parent: BaseWeaponBatterySmall
   id: WeaponRevolverMAWC
   name: M-WC "Heartpiercer" rail revolver
   description: A heavy railgun revolver issued to the Seraph.
@@ -60,19 +44,8 @@
     state: base
   - type: Item
     sprite: _Mono/MAWC/Objects/Weapons/Guns/heartpiercer_inhands.rsi
-    size: Small
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
-  - type: Tag
-    tags:
-    - Sidearm
   - type: Clothing
     sprite: _Mono/MAWC/Objects/Weapons/Guns/heartpiercer_inhands.rsi
-    quickEquip: false
-    slots:
-    - Belt
-    - suitStorage
   - type: Gun
     fireRate: 2
     minAngle: 2
@@ -82,9 +55,14 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/chemrail.ogg
-  - type: BasicEntityAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletMAWCHeartpiercer
-    capacity: 2
-    count: 2
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 6
+    fireCost: 300
+  - type: Battery
+    maxCharge: 900
+    startingCharge: 900
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 900
+    autoRechargePause: true
+    autoRechargePauseTime: 0.75

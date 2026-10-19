@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseWeaponMAWC, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponRifleMAWCFulcrum
   name: M-WC Type-29A "Fulcrum" battle rifle
   description: A rugged rifle with a slightly unusual design but dependable stopping power.
@@ -34,7 +34,14 @@
   - type: GunWieldBonus
     minAngle: -10
     maxAngle: -19
-  - type: BasicEntityAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletMAWCFulcrum
-    capacity: 20
-    count: 20
+    fireCost: 100
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+    autoRechargePause: true
+    autoRechargePauseTime: 10

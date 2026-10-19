@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseWeaponMAWC, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponShotgunMAWCIntruder
   name: M-WC Type-6E "Intruder" shotgun
   description: A respectable and hefty automatic shotgun. Programmed with special hardlight flechette shells, it rips through armor and walls like tissue paper.
@@ -30,12 +30,17 @@
   - type: GunWieldBonus
     minAngle: -9
     maxAngle: -16
-  - type: BasicEntityAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: PelletMAWCIntruderSpread
-    capacity: 20
-    count: 20
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1.5
+    fireCost: 120
+  - type: Battery
+    maxCharge: 2400
+    startingCharge: 2400
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 80
+    autoRechargePause: true
+    autoRechargePauseTime: 8
   - type: HeldSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.85
