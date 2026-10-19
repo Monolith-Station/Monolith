@@ -778,6 +778,28 @@
     back:
     - WeaponEnergyGunFrost
 
+- type: loadout #MAWC SMG - Flanker
+  id: FactionFlankerLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponSubMachineGunMAWCFlanker
+
+- type: loadout # MAWC Shotgun - Intruder
+  id: FactionIntruderLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponShotgunMAWCIntruder
+
+- type: loadout # MAWC mining tool... Thing - Sirius
+  id: FactionSiriusLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponMAWCSirius
+
+
 # Sidearms
 
 - type: loadout #MK58 Ammo
@@ -828,3 +850,18 @@
   storage:
     back:
     - WeaponPistolViper
+
+
+- type: loadout # MAWC sidearm - Game
+  id: FactionGamePistolLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponPistolMAWCGame
+
+- type: loadout # MAWC Seraph's sidearm - Heartpiercer
+  id: FactionHeartPiercerLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponRevolverMAWC # Insert the actual ID here when it's in.

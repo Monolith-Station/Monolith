@@ -1,0 +1,38 @@
+- type: loadoutGroup
+  id: MawcAcolyteWeapon
+  name: loadout-group-weapon
+  minLimit: 1
+  loadouts:
+    - FactionFlankerLoadout
+    - FactionIntruderLoadout
+  fallbacks:
+    - FactionFlankerLoadout
+
+- type: loadoutGroup
+  id: MawcCarpenterWeapon
+  name: loadout-group-weapon
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+    - FactionSiriusLoadout
+  fallbacks:
+    - FactionSiriusLoadout
+
+- type: loadoutGroup
+  id: MawcSeraphSidearm
+  name: loadout-group-pistol
+  minLimit: 0
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+    - FactionHeartPiercerLoadout
+  fallbacks:
+    - FactionHeartPiercerLoadout
+
+- type: loadoutGroup
+  id: MawcSidearm
+  name: loadout-group-pistol
+  minLimit: 0
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+    - FactionGamePistolLoadout
+  fallbacks:
+    - FactionGamePistolLoadout

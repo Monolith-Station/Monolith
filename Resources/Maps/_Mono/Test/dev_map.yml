@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/27/2026 06:58:23
+  time: 10/19/2026 22:43:29
   entityCount: 1723
 maps:
 - 1
@@ -7657,6 +7657,34 @@ entities:
     components:
     - type: Transform
       pos: -4.5,2.5
+      parent: 2
+- proto: SpawnPointMAWCAcolyte
+  entities:
+  - uid: 1710
+    components:
+    - type: Transform
+      pos: -5.5,1.5
+      parent: 2
+- proto: SpawnPointMAWCCarpenter
+  entities:
+  - uid: 1711
+    components:
+    - type: Transform
+      pos: -5.5,1.5
+      parent: 2
+- proto: SpawnPointMAWCInitiate
+  entities:
+  - uid: 1712
+    components:
+    - type: Transform
+      pos: -5.5,1.5
+      parent: 2
+- proto: SpawnPointMAWCSeraph
+  entities:
+  - uid: 1713
+    components:
+    - type: Transform
+      pos: -5.5,1.5
       parent: 2
 - proto: SpawnPointMdMedic
   entities:

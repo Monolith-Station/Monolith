@@ -59,14 +59,41 @@
   fallbacks: [MAWCNeck]
 
 - type: loadoutGroup
-  id: MAWCOuterClothing
+  id: MAWCOuterClothingInitiate
   name: loadout-group-contractor-outerclothing
-  minLimit: 0
+  minLimit: 1
+  loadouts:
+  - MAWCTermite
+  fallbacks:
+  - MAWCTermite
+
+- type: loadoutGroup
+  id: MAWCOuterClothingCarpenter
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadouts:
+  - MAWCCarpenter
+  fallbacks:
+  - MAWCCarpenter
+
+- type: loadoutGroup
+  id: MAWCOuterClothingAcolyte
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadouts:
+  - MAWCWeaver
+  fallbacks:
+  - MAWCWeaver
+
+- type: loadoutGroup
+  id: MAWCOuterClothingSeraph
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
   loadouts:
   - MAWCWidowmaker
-  - MAWCWeaver
-  - MAWCCarpenter
-  - MAWCTermite
+  fallbacks:
+  - MAWCWidowmaker
+
 
 - type: loadout
   id: MAWCWidowmaker
