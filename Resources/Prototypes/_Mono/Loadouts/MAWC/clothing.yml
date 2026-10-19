@@ -1,4 +1,16 @@
 - type: loadout
+  id: MAWCJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformMAWCMesh
+
+- type: loadoutGroup
+  id: MAWCJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  loadouts: [MAWCJumpsuit]
+  fallbacks: [MAWCJumpsuit]
+
+- type: loadout
   id: MAWCGloves
   equipment:
     gloves: ClothingHandsGlovesMAWC

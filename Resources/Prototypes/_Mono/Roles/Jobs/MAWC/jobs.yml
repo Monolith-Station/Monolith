@@ -16,7 +16,7 @@
   name: job-name-mawc-initiate
   description: job-description-mawc-initiate
   playTimeTracker: JobMAWCInitiate
-  startingGear: MAWCGear
+  startingGear: MAWCInitiateGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   icon: JobIconMAWCInitiate
@@ -44,7 +44,7 @@
   - !type:DepartmentTimeRequirement
     department: MAWC
     time: 54000
-  startingGear: MAWCGear
+  startingGear: MAWCCarpenterGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   icon: JobIconMAWCCarpenter
@@ -72,7 +72,7 @@
   - !type:DepartmentTimeRequirement
     department: MAWC
     time: 90000
-  startingGear: MAWCGear
+  startingGear: MAWCAcolyteGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   icon: JobIconMAWCAcolyte
@@ -103,7 +103,7 @@
     time: 126000
   - !type:OverallPlaytimeRequirement
     time: 216000
-  startingGear: MAWCGear
+  startingGear: MAWCSeraphGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   icon: JobIconMAWCSeraph
@@ -125,6 +125,30 @@
   storage:
     back:
     - RadioHandheldNF
+
+- type: startingGear
+  id: MAWCInitiateGear
+  parent: MAWCGear
+  equipment:
+    belt: WeaponPistolMAWCGame
+
+- type: startingGear
+  id: MAWCCarpenterGear
+  parent: MAWCGear
+  equipment:
+    belt: WeaponPistolMAWCGame
+
+- type: startingGear
+  id: MAWCAcolyteGear
+  parent: MAWCGear
+  equipment:
+    belt: WeaponPistolMAWCGame
+
+- type: startingGear
+  id: MAWCSeraphGear
+  parent: MAWCGear
+  equipment:
+    belt: WeaponRevolverMAWC
 
 - type: playTimeTracker
   id: JobMAWCInitiate

@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesMAWC
+  name: ME-023 Callus
+  description: Standard issue MAWC glovewear. It's fitted with a custom nanomesh for electric insulation.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Clothing/Hands/Gloves/mawc.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Clothing/Hands/Gloves/mawc.rsi
+  - type: Insulated

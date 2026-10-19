@@ -1,0 +1,15 @@
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons]
+  id: ClothingEyesVisorMAWC
+  name: ME-161 Cataract
+  description: Standard issue MAWC eyewear. Comes with a suite of scanning equipment.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Clothing/Eyes/visor.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Clothing/Eyes/visor.rsi
+  - type: ThermalVision
+    flashDurationMultiplier: 2
+    pulseTime: 2
+    isEquipment: true
+    toggleAction: PulseThermalVision

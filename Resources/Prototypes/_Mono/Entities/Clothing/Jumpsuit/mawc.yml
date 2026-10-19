@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformMAWCMesh
+  name: ME-002 "Core" Mesh
+  description: A durable, skintight mesh that goes over the user much like a jumpsuit.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Clothing/Uniforms/Jumpsuit/mesh.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Clothing/Uniforms/Jumpsuit/mesh.rsi
