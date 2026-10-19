@@ -1,0 +1,154 @@
+- type: entity
+  id: BulletMAWCGame
+  name: pistol charge
+  parent: BaseBullet
+  categories: [HideSpawnMenu]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+        Heat: 6
+    armorPenetration: 0.1
+  - type: Tracer
+    color: "#ffc759"
+
+- type: entity
+  id: BulletMAWCHeartpiercer
+  name: rail slug
+  parent: PiercingBallisticHitscan
+  categories: [HideSpawnMenu]
+  components:
+  - type: Tracer
+    color: "#ffc759"
+    length: 2
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Piercing: 50
+        Heat: 20
+    armorPenetration: 0.3
+
+- type: entity
+  id: BulletMAWCFlanker
+  name: small-caliber charge
+  parent: BaseBullet
+  categories: [HideSpawnMenu]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 14
+        Heat: 8
+    armorPenetration: 0.05
+  - type: Tracer
+    color: "#ffc759"
+
+- type: entity
+  id: BulletMAWCFulcrum
+  name: battle rifle charge
+  parent: BaseBullet
+  categories: [HideSpawnMenu]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 24
+        Heat: 12
+    armorPenetration: 0.1
+  - type: Tracer
+    color: "#ffc759"
+
+- type: entity
+  id: BulletMAWCStonehenge
+  name: anti-material charge
+  parent: PiercingBallisticHitscan
+  categories: [HideSpawnMenu]
+  components:
+  - type: Tracer
+    color: "#ffc759"
+    length: 3
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Piercing: 60
+        Heat: 20
+        Structural: 500
+    armorPenetration: 0.9
+  - type: HitscanStaminaDamage
+    staminaDamage: 250
+  - type: HitscanMultiRaycast
+    maxPierce: 10 # This is going to be so fucking funny
+    maxDistance: 200
+    collisionMask:
+    - Impassable
+    - Opaque
+    - HighImpassable
+
+- type: entity
+  id: PelletMAWCIntruder
+  name: hardlight flechette
+  parent: BaseBullet
+  categories: [HideSpawnMenu]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 8
+        Heat: 3
+        Structural: 15
+    armorPenetration: 0.4
+  - type: Tracer
+    color: "#ffc759"
+
+- type: entity
+  id: PelletMAWCIntruderSpread
+  parent: PelletMAWCIntruder
+  categories: [HideSpawnMenu]
+  components:
+  - type: ProjectileSpread
+    proto: PelletMAWCIntruder
+    count: 6
+    spread: 12
+
+- type: entity
+  id: MAWCSiriusBeam
+  parent: BasicHitscan
+  categories: [HideSpawnMenu]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 8
+        Structural: 45
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_omni
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam_omni
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_omni
+  - type: HitscanBasicRaycast
+    maxDistance: 7
+  - type: HitscanGathering
+  - type: ScrapCutting
+    defaultYield: 2
+    blacklist:
+      components:
+      - MobState
+      - Gatherable
+    yields:
+    - whitelist:
+        components:
+        - Machine
+        - Computer
+      min: 10
+      max: 15
+    - whitelist:
+        tags:
+        - Wall
+      min: 1
+      max: 1

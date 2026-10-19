@@ -1,0 +1,121 @@
+- type: latheRecipePack
+  id: MAWCWeaponsStatic
+  recipes:
+  - WeaponPistolMAWCGame
+  - WeaponSubMachineGunMAWCFlanker
+  - WeaponRifleMAWCFulcrum
+  - WeaponShotgunMAWCIntruder
+  - WeaponRifleMAWCStonehenge
+  - WeaponMAWCSirius
+
+- type: latheRecipePack
+  id: MAWCHardsuitsStatic
+  recipes:
+  - ClothingOuterHardsuitMAWCCarpenter
+  - ClothingOuterHardsuitMAWCTermite
+  - ClothingOuterHardsuitMAWCWeaver
+  - ClothingOuterHardsuitMAWCWidowmaker
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: WeaponPistolMAWCGame
+  result: WeaponPistolMAWCGame
+  categories:
+  - Sidearms
+  - Energy
+  - Weapons
+  materials:
+    Steel: 500
+    Plastic: 300
+    Glass: 100
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSubMachineGunMAWCFlanker
+  result: WeaponSubMachineGunMAWCFlanker
+  categories:
+  - SMGs
+  - Energy
+  - Weapons
+  materials:
+    Steel: 1000
+    Plasteel: 500
+    Plastic: 600
+    Glass: 200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleMAWCFulcrum
+  result: WeaponRifleMAWCFulcrum
+  categories:
+  - Rifles
+  - Energy
+  - Weapons
+  materials:
+    Steel: 1200
+    Plasteel: 1000
+    Plastic: 800
+    Glass: 300
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponShotgunMAWCIntruder
+  result: WeaponShotgunMAWCIntruder
+  categories:
+  - Shotguns
+  - Energy
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 1200
+    Plastic: 800
+    Glass: 300
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleMAWCStonehenge
+  result: WeaponRifleMAWCStonehenge
+  categories:
+  - AntiMaterial
+  - Energy
+  - Weapons
+  materials:
+    Steel: 2500
+    Plasteel: 2500
+    Plastic: 1000
+    Glass: 500
+    Gold: 300
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponMAWCSirius
+  result: WeaponMAWCSirius
+  categories:
+  - Energy
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 800
+    Plastic: 500
+    Glass: 500
+    Silver: 200
+
+- type: latheRecipe
+  parent: MonoHardsuitT1Recipe
+  id: ClothingOuterHardsuitMAWCCarpenter
+  result: ClothingOuterHardsuitMAWCCarpenter
+
+- type: latheRecipe
+  parent: MonoHardsuitT1Recipe
+  id: ClothingOuterHardsuitMAWCTermite
+  result: ClothingOuterHardsuitMAWCTermite
+
+- type: latheRecipe
+  parent: MonoHardsuitT2Recipe
+  id: ClothingOuterHardsuitMAWCWeaver
+  result: ClothingOuterHardsuitMAWCWeaver
+
+- type: latheRecipe
+  parent: MonoHardsuitT3Recipe
+  id: ClothingOuterHardsuitMAWCWidowmaker
+  result: ClothingOuterHardsuitMAWCWidowmaker

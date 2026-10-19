@@ -1,0 +1,49 @@
+- type: entity
+  parent: [BaseWeaponBattery, BaseGunWieldable]
+  id: WeaponRifleMAWCStonehenge
+  name: M-HW Stonehenge anti-material rifle
+  description: A high caliber rifle classified under AT weapon specifications, yet deceptively light and ergonomic for its class. Rumored to have been designed to challenge or parallel appropriate heavy weapons from other factions.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/stonehenge.rsi
+    state: base
+  - type: Item
+    size: Ginormous
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/stonehenge_inhands.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/stonehenge_inhands.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 0.5
+    projectileSpeed: 90
+    minAngle: 25
+    maxAngle: 40
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/heavy_rifle_1.ogg
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -38
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletMAWCStonehenge
+    fireCost: 750
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+    autoRechargePause: true
+    autoRechargePauseTime: 15
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 10
+    pvsIncrease: 2
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.65
+    sprintModifier: 0.55

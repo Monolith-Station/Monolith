@@ -1,0 +1,60 @@
+- type: entity
+  parent: MaterialBase
+  id: MaterialMAWCScrap
+  name: high-quality scrap
+  description: Bits and pieces of filtered scrap by certain scrapping weapons.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Objects/Materials/hq_scrap.rsi
+    layers:
+    - state: icon
+    - state: warm
+      shader: unshaded
+      visible: false
+      map: ["enum.HotScrapVisualLayers.Warm"]
+  - type: Stack
+    stackType: MAWCScrap
+  - type: Material
+  - type: Tag
+    tags:
+    - DroneUsable
+    - RawMaterial
+    - MAWCScrap
+  - type: PhysicalComposition
+    materialComposition:
+      MAWCScrap: 100
+
+- type: entity
+  parent: MaterialMAWCScrap
+  id: MaterialMAWCScrap1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialMAWCScrap1
+  id: MaterialMAWCScrapHot1
+  suffix: Single, Hot
+  components:
+  - type: HotScrap
+    burn:
+      types:
+        Heat: 6
+
+- type: stack
+  id: MAWCScrap
+  name: high-quality scrap
+  icon: { sprite: /Textures/_Mono/MAWC/Objects/Materials/hq_scrap.rsi, state: icon }
+  spawn: MaterialMAWCScrap1
+  maxCount: 300
+
+- type: material
+  id: MAWCScrap
+  stackEntity: MaterialMAWCScrap1
+  name: materials-mawc-scrap
+  unit: materials-unit-chunk
+  icon: { sprite: /Textures/_Mono/MAWC/Objects/Materials/hq_scrap.rsi, state: icon }
+  color: "#8a7f7a"
+  price: 0.5

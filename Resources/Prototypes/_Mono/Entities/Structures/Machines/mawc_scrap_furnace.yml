@@ -1,0 +1,41 @@
+- type: entity
+  parent: BaseLathe
+  id: MAWCScrapFurnace
+  name: scrap furnace
+  description: Melts down and processes the high quality scrap made by certain weapons into something more useful.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Structures/Machines/scrap_furnace.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+  - type: Machine
+    board: MAWCScrapFurnaceMachineCircuitboard
+  - type: Lathe
+    idleState: icon
+    runningState: building
+    defaultProductionAmount: 10
+    productValueModifier: null
+    staticPacks:
+    - MAWCScrapFurnaceStatic
+  - type: MaterialStorage
+    ignoreColor: true
+    whitelist:
+      tags:
+      - MAWCScrap
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: MAWCScrapFurnaceMachineCircuitboard
+  name: scrap furnace machine board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: MAWCScrapFurnace
+    requirements:
+      MatterBin: 3
+      Manipulator: 3
+    stackRequirements:
+      Glass: 1

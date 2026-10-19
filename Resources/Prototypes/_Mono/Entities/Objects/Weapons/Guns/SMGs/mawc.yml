@@ -1,0 +1,47 @@
+- type: entity
+  parent: [BaseWeaponBattery, BaseGunWieldable]
+  id: WeaponSubMachineGunMAWCFlanker
+  name: M-WC Type-30M2 Flanker SMG
+  description: A close-range SMG with a specially designed autoreloading mechanism that generates small caliber charges with similar capability to existing SMG platforms in sector. It is more reliable than its short figure and unusual ergonomics might imply.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/flanker.rsi
+    state: base
+  - type: Item
+    size: Large
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/flanker_inhands.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/flanker_inhands.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 9
+    projectileSpeed: 55
+    minAngle: 8
+    maxAngle: 18
+    burstFireRate: 14
+    shotsPerBurst: 3
+    burstCooldown: 0.45
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/smg.ogg
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -8
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletMAWCFlanker
+    fireCost: 50
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+    autoRechargePause: true
+    autoRechargePauseTime: 7.5

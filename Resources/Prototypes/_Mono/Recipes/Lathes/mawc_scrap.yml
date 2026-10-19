@@ -1,0 +1,242 @@
+- type: latheRecipePack
+  id: MAWCScrapFurnaceStatic
+  recipes:
+  - MAWCScrapSmelt
+  - MAWCScrapShipRepairDeviceAmmo
+  - MAWCScrapPartRodMetal1
+  - MAWCScrapSheetSteel1
+  - MAWCScrapSheetGlass1
+  - MAWCScrapSheetBrass1
+  - MAWCScrapSheetRGlass1
+  - MAWCScrapSheetPlasteel1
+  - MAWCScrapSheetPlastic1
+  - MAWCScrapSheetPlasma1
+  - MAWCScrapSheetUranium1
+  - MAWCScrapSheetUraniumFissile1
+  - MAWCScrapIngotSilver1
+  - MAWCScrapIngotGold1
+  - MAWCScrapMaterialBananium1
+  - MAWCScrapMaterialCloth1
+  - MAWCScrapMaterialDurathread1
+  - MAWCScrapSheetUGlass1
+  - MAWCScrapSheetPGlass1
+  - MAWCScrapSheetRUGlass1
+  - MAWCScrapSheetRPGlass1
+  - MAWCScrapSheetClockworkGlass1
+  - MAWCScrapMaterialBluespace1
+  - MAWCScrapMaterialDiamond1
+  - MAWCScrapCableHVStack1
+  - MAWCScrapCableMVStack1
+  - MAWCScrapCableApcStack1
+  - MAWCScrapMaterialLithium1
+  - MAWCScrapMaterialCopper1
+
+- type: latheRecipe
+  id: MAWCScrapSmelt
+  result: SpawnRandomRefinedScrap
+  completetime: 0.1
+  icon:
+    sprite: _Mono/MAWC/Objects/Materials/hq_scrap.rsi
+    state: icon
+  materials:
+    MAWCScrap: 200
+
+- type: latheRecipe
+  id: MAWCScrapShipRepairDeviceAmmo
+  result: ShipRepairDeviceAmmo
+  materials:
+    MAWCScrap: 5000
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseMaterialsYesDiscountRecipe
+  id: BaseMAWCScrapRecipe
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapPartRodMetal1
+  result: PartRodMetal1
+  materials:
+    MAWCScrap: 5
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetSteel1
+  result: SheetSteel1
+  materials:
+    MAWCScrap: 10
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetGlass1
+  result: SheetGlass1
+  materials:
+    MAWCScrap: 15
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetBrass1
+  result: SheetBrass1
+  materials:
+    MAWCScrap: 15
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetRGlass1
+  result: SheetRGlass1
+  materials:
+    MAWCScrap: 20
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetPlasteel1
+  result: SheetPlasteel1
+  materials:
+    MAWCScrap: 60
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetPlastic1
+  result: SheetPlastic1
+  materials:
+    MAWCScrap: 15
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetPlasma1
+  result: SheetPlasma1
+  materials:
+    MAWCScrap: 60
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetUranium1
+  result: SheetUranium1
+  materials:
+    MAWCScrap: 60
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetUraniumFissile1
+  result: SheetUraniumFissile1
+  materials:
+    MAWCScrap: 10000
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapIngotSilver1
+  result: IngotSilver1
+  materials:
+    MAWCScrap: 50
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapIngotGold1
+  result: IngotGold1
+  materials:
+    MAWCScrap: 50
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapMaterialBananium1
+  result: MaterialBananium1
+  materials:
+    MAWCScrap: 150
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapMaterialCloth1
+  result: MaterialCloth1
+  materials:
+    MAWCScrap: 15
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapMaterialDurathread1
+  result: MaterialDurathread1
+  materials:
+    MAWCScrap: 30
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetUGlass1
+  result: SheetUGlass1
+  materials:
+    MAWCScrap: 85
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetPGlass1
+  result: SheetPGlass1
+  materials:
+    MAWCScrap: 85
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetRUGlass1
+  result: SheetRUGlass1
+  materials:
+    MAWCScrap: 90
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetRPGlass1
+  result: SheetRPGlass1
+  materials:
+    MAWCScrap: 90
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapSheetClockworkGlass1
+  result: SheetClockworkGlass1
+  materials:
+    MAWCScrap: 30
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapMaterialBluespace1
+  result: MaterialBluespace1
+  materials:
+    MAWCScrap: 500
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapMaterialDiamond1
+  result: MaterialDiamond1
+  materials:
+    MAWCScrap: 500
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapCableHVStack1
+  result: CableHVStack1
+  materials:
+    MAWCScrap: 2
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapCableMVStack1
+  result: CableMVStack1
+  materials:
+    MAWCScrap: 2
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapCableApcStack1
+  result: CableApcStack1
+  materials:
+    MAWCScrap: 2
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapMaterialLithium1
+  result: SheetLithium1
+  materials:
+    MAWCScrap: 50
+
+- type: latheRecipe
+  parent: BaseMAWCScrapRecipe
+  id: MAWCScrapMaterialCopper1
+  result: SheetCopper1
+  materials:
+    MAWCScrap: 50

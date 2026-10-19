@@ -1,0 +1,68 @@
+- type: entity
+  parent: BaseWeaponBatterySmall
+  id: WeaponPistolMAWCGame
+  name: M-WC Type-36 "Game" pistol
+  description: A ubiquitous and cheap pistol issued to all MAWC forces with respectable stopping power, firerate and self recharge.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/game.rsi
+    state: base
+  - type: Item
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/game_inhands.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/game_inhands.rsi
+  - type: Gun
+    fireRate: 6
+    projectileSpeed: 55
+    minAngle: 3
+    maxAngle: 12
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/smg.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletMAWCGame
+    fireCost: 60
+  - type: Battery
+    maxCharge: 960
+    startingCharge: 960
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 80
+    autoRechargePause: true
+    autoRechargePauseTime: 3
+
+- type: entity
+  parent: BaseWeaponBatterySmall
+  id: WeaponRevolverMAWC
+  name: M-WC "Heartpiercer" rail revolver
+  description: A heavy railgun revolver issued to the Seraph.
+  components:
+  - type: Sprite
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/heartpiercer.rsi
+    state: base
+  - type: Item
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/heartpiercer_inhands.rsi
+  - type: Clothing
+    sprite: _Mono/MAWC/Objects/Weapons/Guns/heartpiercer_inhands.rsi
+  - type: Gun
+    fireRate: 2
+    minAngle: 2
+    maxAngle: 10
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/chemrail.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletMAWCHeartpiercer
+    fireCost: 300
+  - type: Battery
+    maxCharge: 900
+    startingCharge: 900
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 900
+    autoRechargePause: true
+    autoRechargePauseTime: 0.75
