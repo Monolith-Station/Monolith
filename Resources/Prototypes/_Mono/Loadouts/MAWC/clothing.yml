@@ -35,16 +35,16 @@
   fallbacks: [MAWCShoes]
 
 - type: loadout
-  id: MAWCEyes
+  id: MAWCMask
   equipment:
-    eyes: ClothingEyesVisorMAWC
+    mask: ClothingMaskVisorMAWC
 
 - type: loadoutGroup
-  id: MAWCEyes
-  name: loadout-group-contractor-glasses
+  id: MAWCMask
+  name: loadout-group-contractor-face
   minLimit: 1
-  loadouts: [MAWCEyes]
-  fallbacks: [MAWCEyes]
+  loadouts: [MAWCMask]
+  fallbacks: [MAWCMask]
 
 - type: loadout
   id: MAWCNeck
