@@ -26304,3 +26304,16 @@ Entries:
   id: 2833
   time: '2026-10-16T20:26:59.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4873
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Driving and Cruise mode now affect thruster power and max velocity
+        differently.
+    - type: Tweak
+      message: Driving mode has received 3.5x thruster power buff
+    - type: Tweak
+      message: Cruise mode has received 4x max velocity buff.
+  id: 2834
+  time: '2026-10-19T17:43:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4881
