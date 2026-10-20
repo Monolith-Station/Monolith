@@ -126,7 +126,7 @@ ent-ClothingBackpackDuffelEVABundleChaplain = pacote EVA de capelão
     .desc = Uma bolsa contendo um conjunto de roupa espacial.
     .suffix = Preenchido
 
-ent-ClothingBackpackDuffelEVABundleContractor = pacote EVA de espaciano
+ent-ClothingBackpackDuffelEVABundleContractor = pacote EVA de vagrante
     .desc = Uma bolsa contendo um conjunto de roupa espacial.
     .suffix = Preenchido
 
@@ -562,7 +562,7 @@ ent-SpawnPointBailiff = bailio
 
 ent-SpawnPointCadet = cadete
 
-ent-SpawnPointContractor = espaciano
+ent-SpawnPointContractor = vagrante
 
 ent-SpawnPointDeputy = delegado
 
@@ -5381,7 +5381,7 @@ ent-NFPouchChaplain = bolsa do capelão
 
 ent-NFPouchClown = bolsa do palhaço
 
-ent-NFPouchContractor = bolsa do espaciano
+ent-NFPouchContractor = bolsa do vagrante
 
 ent-NFPouchEngineering = bolsa do engenheiro
 
@@ -8472,7 +8472,7 @@ ent-LockerWallEVAColorCargo = armário EVA na parede de técnico de carga
 ent-LockerWallEVAColorChaplain = armário EVA na parede de capelão
     .desc = {ent-SuitStorageWallmount.desc}
 
-ent-LockerWallEVAColorContractor = armário EVA na parede de espaciano
+ent-LockerWallEVAColorContractor = armário EVA na parede de vagrante
     .desc = {ent-SuitStorageWallmount.desc}
 
 ent-LockerWallEVAColorEmergency = armário EVA de emergência na parede
@@ -11477,7 +11477,7 @@ ent-SuitStorageEVAChaplain = {ent-SuitStorageBase}
 
 ent-SuitStorageEVAContractor = {ent-SuitStorageBase}
     .desc = {ent-SuitStorageBase.desc}
-    .suffix = EVA, Espaciano
+    .suffix = EVA, Vagrante
 
 ent-SuitStorageEVAEngineer = {ent-SuitStorageBase}
     .desc = {ent-SuitStorageBase.desc}
@@ -11718,7 +11718,7 @@ ent-StorageFillEVASuitChaplain = ""
 # Abstract entity (referenceable by children)
 
 ent-StorageFillEVASuitContractor = ""
-    .desc = Contém um kit EVA padrão de espaciano.
+    .desc = Contém um kit EVA padrão de vagrante.
 
 # Abstract entity (referenceable by children)
 
@@ -11892,7 +11892,7 @@ ent-ClothingBackpackMessengerColorRed = bolsa mensageira vermelha
 
 ent-ClothingBackpackMessengerColorWhite = bolsa mensageira branca
 
-ent-ClothingBackpackMessengerContractor = bolsa mensageira de espaciano
+ent-ClothingBackpackMessengerContractor = bolsa mensageira de vagrante
     .desc = Uma bolsa mensageira com aparência moderna em cores de bom gosto.
 
 ent-ClothingBackpackMessengerEngineering = bolsa mensageira de engenharia
@@ -12333,7 +12333,7 @@ ent-ClothingHeadEVAHelmetCargo = capacete EVA de carga
 
 ent-ClothingHeadEVAHelmetChaplain = capacete EVA de capelão
 
-ent-ClothingHeadEVAHelmetContractor = capacete EVA de espaciano
+ent-ClothingHeadEVAHelmetContractor = capacete EVA de vagrante
 
 ent-ClothingHeadEVAHelmetEngineer = capacete EVA de engenheiro
 
@@ -12736,8 +12736,8 @@ ent-ClothingOuterEVASuitCargo = traje EVA de técnico de carga
 ent-ClothingOuterEVASuitChaplain = traje EVA de capelão
     .desc = Um traje EVA com capacete integrado geralmente emitido para capelães.
 
-ent-ClothingOuterEVASuitContractor = traje EVA de espaciano
-    .desc = Um traje EVA com capacete integrado geralmente emitido para espacianos.
+ent-ClothingOuterEVASuitContractor = traje EVA de vagrante
+    .desc = Um traje EVA com capacete integrado geralmente emitido para vagrantes.
 
 ent-ClothingOuterEVASuitEngineer = traje EVA de engenheiro
     .desc = Um traje EVA com capacete integrado geralmente emitido para engenheiros.
@@ -12976,7 +12976,7 @@ ent-ClothingUniformJumpsuitPirateSlops = trapos de pirata
     .desc = Um uniforme esfarrapado mas confortável para saquear o setor.
 
 ent-ClothingUniformJumpsuitPrivateSec = macacão de segurança particular
-    .desc = Um uniforme especializado para um guarda de segurança particular. Para o espaciano particular exigente que precisa de uma aparência profissional.
+    .desc = Um uniforme especializado para um guarda de segurança particular. Para o vagrante particular exigente que precisa de uma aparência profissional.
 
 ent-ClothingUniformJumpsuitPublicAffairsLiaison = macacão de liaison de assuntos públicos
     .desc = Um terno engomado e passado para o liaison de assuntos públicos.
@@ -13076,13 +13076,13 @@ ent-ClothingUniformJumpsuitMilitaryColorYellow = macacão amarelo
     .suffix = Militar
     .desc = Um macacão amarelo genérico sem marcações de patente.
 
-ent-ClothingUniformJumpsuitMilitaryContractor = macacão de espaciano
+ent-ClothingUniformJumpsuitMilitaryContractor = macacão de vagrante
     .suffix = Militar
-    .desc = Um macacão robusto, comumente emitido para espacianos da NT.
+    .desc = Um macacão robusto, comumente emitido para vagrantes da NT.
 
-ent-ClothingUniformJumpsuitMilitaryContractorTac = macacão de espaciano
+ent-ClothingUniformJumpsuitMilitaryContractorTac = macacão de vagrante
     .suffix = Militar, Tático
-    .desc = Um macacão robusto, comumente emitido para espacianos da NT.
+    .desc = Um macacão robusto, comumente emitido para vagrantes da NT.
 
 ent-ClothingUniformJumpsuitMilitaryEngineering = {ent-ClothingUniformJumpsuitEngineering}
     .desc = {ent-ClothingUniformJumpsuitEngineering.desc}

@@ -2,7 +2,7 @@
 job-name-ussp-commissar = Comissário USSP
 job-name-ussp-sergeant = Sargento USSP
 job-name-ussp-rifleman = Fuzileiro USSP
-job-supervisors-ussp-highcomm = o comando Nova Cygni.
+job-supervisors-ussp-highcomm = o Comando Nova Cygni.
 job-supervisors-ussp-commissars = o Comissário
 job-supervisors-ussp-sergeant = os Sargentos
 
@@ -13,7 +13,7 @@ job-name-caelestinus-worker = Trabalhador da Caelestinus
 # MARK: TSF
 job-name-tsf-engineer = Engenheiro TSFMC
 job-name-tsf-borg = Cyborg TSFMC
-job-name-tsf-civilian = Contratante TSF
+job-name-tsf-civilian = Trabalhador da TSF
 
 # MARK: PDV
 job-name-pdv-borg = Cyborg PDV
@@ -29,7 +29,7 @@ job-name-vg-commander = Comandante VG
 # MARK: MMC
 job-name-mmc-liason = Representante Corporativo MMC
 job-name-mmc-security = Segurança Corporativa MMC
-job-name-mmc-employee = Funcionário MMC
+job-name-mmc-employee = Funcionário da MMC
 job-supervisors-mmc-highcomm = o Conselho Diretor da Mieyo
 job-supervisors-mmc-liason = o Representante Corporativo
 

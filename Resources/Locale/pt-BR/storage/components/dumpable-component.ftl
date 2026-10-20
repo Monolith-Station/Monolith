@@ -1,7 +1,7 @@
-dump-verb-name = Dump out Ligado ground
+dump-verb-name = Despejar no chão
 
-dump-disposal-verb-name = Dump out into {$unit}
+dump-disposal-verb-name = Despejar no {$unit}
 
-dump-placeable-verb-name = Dump out onto {$surface}
+dump-placeable-verb-name = Despejar em {$surface}
 
-dump-smartfridge-verb-name = Restock into {$unit}
+dump-smartfridge-verb-name = Restocar {$unit}

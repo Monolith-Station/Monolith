@@ -91,7 +91,7 @@ mmc-asset-security-senior = Segurança de Recursos Sênior
 mmc-liason = Representante Corporativo
 
 ### CC/MD ranks
-cc-judge = Juiz
+cc-judge = Segurança Colonial
 cc-stc = STC
 cc-overseer = Supervisor
 md-doc = Diretor de Cuidados
