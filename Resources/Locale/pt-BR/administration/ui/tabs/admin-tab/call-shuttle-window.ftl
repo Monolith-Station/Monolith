@@ -1,1 +1,1 @@
-admin-shuttle-title = (Re)chamar Ônibus
+admin-shuttle-title = (Des)chamar evac

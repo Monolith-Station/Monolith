@@ -2916,7 +2916,7 @@ ent-IceCrust = crosta de gelo
 
 # From: Entities/Objects/Misc/identification_cards.yml
 
-ent-AgentIDCard = cartão de ID de espaciano
+ent-AgentIDCard = cartão de ID de vagrante
     .suffix = Agente
     .desc = {ent-IDCardStandard.desc}
 
@@ -3029,7 +3029,7 @@ ent-MimeIDCard = cartão de ID de mímico
 ent-MusicianIDCard = cartão de ID de músico
     .desc = {ent-IDCardStandard.desc}
 
-ent-NukieAgentIDCard = cartão de ID de espaciano
+ent-NukieAgentIDCard = cartão de ID de vagrante
     .desc = {ent-IDCardStandard.desc}
     .suffix = Nukie
 
@@ -9384,7 +9384,7 @@ ent-Memorial = memorial
     .desc = Comemorando algo.
 
 ent-SS13Memorial = túmulo do funcionário desconhecido
-    .desc = Aqui descansam um funcionário desconhecido\nDesconhecido pelo nome ou patente\nCujos atos não serão esquecidos\n
+    .desc = Aqui descansam um funcionário desconhecido\nDesconhecido pelo nome ou patente\nCujos atos não serão esquecidos
 
 # From: Entities/Structures/Furniture/potted_plants.yml
 
@@ -10685,7 +10685,7 @@ ent-Recycler = reciclador
 # From: Entities/Structures/Machines/research.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseResearchAndDevelopmentPointSource = fazenda de dados fixada (Pesquisa)
+ent-BaseResearchAndDevelopmentPointSource = minerador de dados fixada (Pesquisa)
     .suffix = Não usado
     .desc = Um servidor faminto por energia dedicado a coletar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 200 por segundo. Parece estar parafusado ao chão.
 
@@ -15328,7 +15328,7 @@ ent-VirtualItem = ITEM VIRTUAL VOCÊ NÃO DEVERIA VER ISSO
 # From: Entities/World/chunk.yml
 
 ent-WorldChunk = pedaço do mundo
-    .desc = É mal-educado ficar encarando.\nTambém é um pouco estranho você estar olhando para a representação abstrata da grade da realidade.\n
+    .desc = É mal-educado ficar encarando.\nTambém é um pouco estranho você estar olhando para a representação abstrata da grade da realidade.
 
 # From: Entities/World/Debris/asteroids.yml
 
@@ -15772,7 +15772,7 @@ ent-HyperlinkBookSpaceLaw = lei espacial
 # From: Nyanotrasen/Entities/Objects/Consumable/Drinks/drinks_bottles.yml
 
 ent-DrinkSakeBottleFull = garrafa de saquê
-    .desc = Claro, ou às vezes nublado \nGelado como sorvete alcoólico \nEncha um copo, beba!\n
+    .desc = Claro, ou às vezes nublado \nGelado como sorvete alcoólico \nEncha um copo, beba!
 
 # From: Nyanotrasen/Entities/Objects/Consumable/Drinks/drinks_cups.yml
 
@@ -28090,7 +28090,7 @@ ent-CentcomPDA = PDA do CentComm
 ent-CEPDA = PDA de engenheiro chefe
     .desc = Parece que mal foi usado.
 
-ent-ChameleonPDA = PDA de espaciano
+ent-ChameleonPDA = PDA de vagrante
     .suffix = Camaleão
     .desc = Por que não é cinza?
 

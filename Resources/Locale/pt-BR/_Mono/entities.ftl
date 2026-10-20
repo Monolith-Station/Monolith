@@ -321,7 +321,7 @@ ent-PaperWrittenTeaGuide = Como Fazer Chá para Idiotas
 # Abstract entity (referenceable by children)
 
 ent-StorageFillEVASuitDME = ""
-    .desc = Contém um kit EVA de espaciano DME padrão.
+    .desc = Contém um kit EVA de vagrante DME padrão.
 
 # From: _Mono/CorticalBorer/cortical_borer_species.yml
 
@@ -2647,10 +2647,10 @@ ent-WallRockSnowLithium = {ent-WallRockSnow}
 
 # From: _Mono/Entities/Objects/Electronics/datafarms.yml
 
-ent-DataFarmCryptoCircuitboard = placa de circuito de fazenda de dados (cripto)
+ent-DataFarmCryptoCircuitboard = placa de circuito de minerador de dados (cripto)
     .desc = Parece que você poderia usar uma chave de fenda para mudar o tipo da placa. Não pode ser embalada devido a componentes complexos.
 
-ent-DataFarmResearchCircuitboard = placa de circuito de fazenda de dados (pesquisa)
+ent-DataFarmResearchCircuitboard = placa de circuito de minerador de dados (pesquisa)
     .desc = Parece que você poderia usar uma chave de fenda para mudar o tipo da placa. Não pode ser embalada devido a componentes complexos.
 
 # From: _Mono/Entities/Objects/Electronics/mech.yml
@@ -6661,14 +6661,14 @@ ent-BaseDataFarm = datafarm base
 
 ent-BaseDataFarmIndestructible = datafarm base
 
-ent-DatafarmCrypto = fazenda de dados (Cripto)
-    .desc = Um servidor com alto consumo de energia dedicado a raspar dados de... algum lugar. Este gera criptomoedas valiosas, mas aleatórias, a uma taxa de uma a cada 10 minutos.
+ent-DatafarmCrypto = minerador de dados (Cripto)
+    .desc = Um servidor com alto consumo de energia dedicado a minerar dados de... algum lugar. Este gera criptomoedas valiosas, mas aleatórias, a uma taxa de uma a cada 10 minutos.
 
-ent-DatafarmResearch = fazenda de dados (Pesquisa)
-    .desc = Um servidor com alto consumo de energia dedicado a raspar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 20 por segundo.
+ent-DatafarmResearch = minerador de dados (Pesquisa)
+    .desc = Um servidor com alto consumo de energia dedicado a minerar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 20 por segundo.
 
-ent-DatafarmResearchFaction = fazenda de dados fixada (Pesquisa)
-    .desc = Um servidor com alto consumo de energia dedicado a raspar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 200 por segundo. Parece estar fixada ao chão.
+ent-DatafarmResearchFaction = minerador de dados fixado (Pesquisa)
+    .desc = Um servidor com alto consumo de energia dedicado a minerar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 200 por segundo. Parece estar fixada ao chão.
 
 # From: _Mono/Entities/Structures/Machines/disk_printer.yml
 
@@ -9549,7 +9549,7 @@ ent-IriditeCrystal = iridita cristalina
 
 # From: Resources/Prototypes/_Mono/Entities/Objects/Devices/Misc/identification_cards.yml
 
-ent-MieyoEmployeeIDCard = cartão de identificação de funcionário MMC
+ent-MieyoEmployeeIDCard = cartão de identificação de funcionário da MMC
     .desc = {ent-IDCardStandard.desc}
 
 ent-MieyoSecurityIDCard = cartão de identificação de segurança MMC
@@ -9881,10 +9881,10 @@ ent-ClothingOuterVestWebElite = colete tático de elite
     .desc = Um colete de armadura sintético. Este tem cintas adicionais e fibras resistentes ao calor.
 
 ent-ClothingShoesBootsMagVoidTrauma = botas ATU
-    .desc = Botas espaciais leves reforçadas para condições adversas do espaço, projetadas para manter a mobilidade e reduzir a perda de movimento por ferimentos.\n
+    .desc = Botas espaciais leves reforçadas para condições adversas do espaço, projetadas para manter a mobilidade e reduzir a perda de movimento por ferimentos.
 
 ent-ClothingShoesBootsMagVoidTraumaLeader = botas ATU avançadas
-    .desc = Atualização das botas espaciais convencionais, reforçadas com placas adicionais para pessoal de trauma de linha de frente. Sua construção pesada é compensada por um sistema de mobilidade integrado que mantém o usuário em movimento apesar de ferimentos graves.\n
+    .desc = Atualização das botas espaciais convencionais, reforçadas com placas adicionais para pessoal de trauma de linha de frente. Sua construção pesada é compensada por um sistema de mobilidade integrado que mantém o usuário em movimento apesar de ferimentos graves.
 
 ent-InstantEffectEMPCharon = efeito EMP instantâneo
 
@@ -10811,9 +10811,9 @@ ent-ComputerShipyardZvezda = console de estaleiro zvezda
 ent-UndergroundComputerComms = computador de comunicações subterrâneo
     .desc = O computador de comunicações principal para emitir anúncios do mercado negro.
 
-ent-DatafarmResearchFaction200 = fazenda de dados parafusada (Pesquisa)
+ent-DatafarmResearchFaction200 = minerador de dados fixado (Pesquisa)
     .suffix = 200 PPS
-    .desc = Um servidor faminto por energia dedicado a raspar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 200 por segundo. Ele parece estar parafusado ao chão.
+    .desc = Um servidor faminto por energia dedicado a minerar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 200 por segundo. Ele parece estar parafusado ao chão.
 
 ent-GatewayCentral = portal de trânsito central
     .desc = Transporta você do ponto A ao ponto B. Nenhuma garantia de segurança fornecida após o início da viagem.

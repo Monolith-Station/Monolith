@@ -1,10 +1,10 @@
 admin-player-actions-window-title = Painel de Ações do Jogador
 admin-player-actions-window-ban = Painel de Banimento
-admin-player-actions-window-admin-ghost = Fantasia Admin
+admin-player-actions-window-admin-ghost = Aghost
 admin-player-actions-window-teleport = Teleporte
 admin-player-actions-window-permissions = Painel de Permissões
 admin-player-actions-window-announce = Anunciar
-admin-player-actions-window-shuttle = (Re)chamar Ônibus
+admin-player-actions-window-shuttle = (Des)chamar evac
 admin-player-actions-window-admin-logs = Logs Admin
 admin-player-actions-window-admin-notes = Notas Admin
 admin-player-actions-window-admin-fax = Fax Admin
