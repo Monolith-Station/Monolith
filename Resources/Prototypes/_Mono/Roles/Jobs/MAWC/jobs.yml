@@ -16,7 +16,7 @@
   name: job-name-mawc-initiate
   description: job-description-mawc-initiate
   playTimeTracker: JobMAWCInitiate
-  startingGear: MAWCInitiateGear
+  startingGear: MAWCGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   icon: JobIconMAWCInitiate
@@ -44,7 +44,7 @@
   - !type:DepartmentTimeRequirement
     department: MAWC
     time: 54000
-  startingGear: MAWCCarpenterGear
+  startingGear: MAWCGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   icon: JobIconMAWCCarpenter
@@ -72,7 +72,7 @@
   - !type:DepartmentTimeRequirement
     department: MAWC
     time: 90000
-  startingGear: MAWCAcolyteGear
+  startingGear: MAWCGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   icon: JobIconMAWCAcolyte
@@ -103,7 +103,7 @@
     time: 126000
   - !type:OverallPlaytimeRequirement
     time: 216000
-  startingGear: MAWCSeraphGear
+  startingGear: MAWCGear
   alwaysUseSpawner: true
   hideConsoleVisibility: true
   icon: JobIconMAWCSeraph
@@ -126,25 +126,7 @@
     back:
     - RadioHandheldNF
 
-#- type: startingGear
-#  id: MAWCInitiateGear
-#  parent: MAWCGear
-#  equipment:
-#    belt: WeaponPistolMAWCGame
-
-# - type: startingGear
-#  id: MAWCCarpenterGear
-#  parent: MAWCGear
-#  equipment:
-#    belt: WeaponPistolMAWCGame
-
-#- type: startingGear
-#  id: MAWCAcolyteGear
-#  parent: MAWCGear
-#  equipment:
-#    belt: WeaponPistolMAWCGame
-
-#- type: startingGear
+#- type: startingGear # Keeping this here incase a tracker tablet or something is made.
 #  id: MAWCSeraphGear
 #  parent: MAWCGear
 #  equipment:

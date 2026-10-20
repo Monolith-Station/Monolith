@@ -2,7 +2,7 @@
   id: JobMAWCInitiate
   groups:
   - MAWCJumpsuit
-  - ContractorBackpack
+  - VGBackpack # OK, I know this is cheap reuse, but it works for what Zethine asked.
   - MAWCGloves
   - MAWCShoes
   - MAWCMask
@@ -15,48 +15,53 @@
   - ContractorWallet
   - ContractorCartridge
   - NFSpeciesSpecific
+  - MawcSidearm # Last as it's a hidden option.
 
 - type: roleLoadout
   id: JobMAWCAcolyte
   groups:
   - MAWCJumpsuit
-  - ContractorBackpack
+  - VGBackpack
   - MAWCGloves
   - MAWCShoes
   - MAWCMask
   - MAWCNeck
   - MAWCOuterClothingAcolyte
   - ContractorEars
+  - MawcAcolyteWeapon
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - MAWCAcolytePDA
   - ContractorWallet
   - ContractorCartridge
   - NFSpeciesSpecific
+  - MawcSidearm
 
 - type: roleLoadout
   id: JobMAWCSeraph
   groups:
   - MAWCJumpsuit
-  - ContractorBackpack
+  - VGBackpack
   - MAWCGloves
   - MAWCShoes
   - MAWCMask
   - MAWCNeck
   - MAWCOuterClothingSeraph
   - ContractorEars
+  - MawcAcolyteWeapon
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - MAWCSeraphPDA
   - ContractorWallet
   - ContractorCartridge
   - NFSpeciesSpecific
+  - MawcSeraphSidearm
 
 - type: roleLoadout
   id: JobMAWCCarpenter
   groups:
   - MAWCJumpsuit
-  - ContractorBackpack
+  - VGBackpack
   - MAWCGloves
   - MAWCShoes
   - MAWCMask
@@ -69,3 +74,5 @@
   - ContractorWallet
   - ContractorCartridge
   - NFSpeciesSpecific
+  - MawcSidearm
+  - MawcCarpenterWeapon
