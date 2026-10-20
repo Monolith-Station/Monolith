@@ -49,7 +49,7 @@
   parent: [ ClothingOuterHardsuitSyndie, BaseFactionGearPDVT2 ]
   id: ClothingOuterHardsuitAshen
   name: PDV CV-32 combat hardsuit
-  description: A combat hardsuit designed by the Phaethon Dynasty. Opts for lightweight ballistic plating instead of environmental or general-purpose protection.
+  description: A combat hardsuit designed by the Phaethon Dynasty. The original, bulky design meant to protect against gunfire, less so about environment.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/syndicate.rsi
@@ -69,14 +69,14 @@
         Blunt: 0.8
         Slash: 0.6
         Piercing: 0.4
-        Heat: 0.8
-        Radiation: 0.7
-        Caustic: 0.9
+        Shock: 0.8
+        Heat: 0.6
+        Radiation: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.35
   - type: Tag
     tags:
     - RogueHardsuit
@@ -156,7 +156,7 @@
   parent: [ ClothingOuterHardsuitSyndie, BaseFactionGearPDVT2 ]
   id: ClothingOuterHardsuitAshenElite
   name: PDV CV-53 combat tacsuit
-  description: Originally based off of the CV-32 hardsuit, the CV-53 tacsuit sacrifices the lightweight armor plating for a more generalist protection suite.
+  description: Originally based off of the CV-32 hardsuit, the CV-53 tacsuit sacrifices some of the armor plating for a more generalist protection suite.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/syndieelite.rsi
@@ -187,11 +187,12 @@
     modifiers:
       coefficients:
         Blunt: 0.6
-        Slash: 0.6
+        Slash: 0.5
         Piercing: 0.55
-        Heat: 0.2
+        Shock: 0.7
+        Heat: 0.25
         Radiation: 0.1
-        Caustic: 0.5
+        Caustic: 0.3
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier
