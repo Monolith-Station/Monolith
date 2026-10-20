@@ -39,9 +39,6 @@ namespace Content.Server.Voting
         /// </summary>
         public List<(string text, object data)> Options { get; set; } = new();
 
-        // Mono - this is evil but allows seamless integration with the code
-        public Dictionary<object, float> Weights = new();
-
         /// <summary>
         ///     Which sessions may send a vote. Used when only a subset of players should be able to vote. Defaults to all.
         /// </summary>

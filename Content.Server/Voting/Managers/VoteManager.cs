@@ -207,7 +207,7 @@ namespace Content.Server.Voting.Managers
             var id = _nextVoteId++;
 
             // Mono - added weight
-            var entries = options.Options.Select(o => new VoteEntry(o.data, o.text, options.Weights.TryGetValue(o.data, out var weight) ? weight : 1f)).ToArray();
+            var entries = options.Options.Select(o => new VoteEntry(o.data, o.text)).ToArray();
 
             var start = _timing.RealTime;
             var end = start + options.Duration;
@@ -287,12 +287,12 @@ namespace Content.Server.Voting.Managers
                 msg.DisplayVotes = true;
             }
 
-            msg.Options = new (ushort votes, string name, ushort realVotes)[v.Entries.Length];
+            msg.Options = new (ushort votes, string name)[v.Entries.Length];
             for (var i = 0; i < msg.Options.Length; i++)
             {
                 ref var entry = ref v.Entries[i];
                 var votes = msg.DisplayVotes ? (ushort) entry.Votes : (ushort) 0; // Mono
-                msg.Options[i] = (votes, entry.Text, (ushort) (votes * entry.Weight)); // Mono - account for weight
+                msg.Options[i] = (votes, entry.Text);
             }
 
             player.Channel.SendMessage(msg);
@@ -396,7 +396,7 @@ namespace Content.Server.Voting.Managers
 
             // Find winner or stalemate.
             var winners = v.Entries
-                .GroupBy(e => e.Votes * e.Weight) // Mono - add weight
+                .GroupBy(e => e.Votes) // Mono - add weight
                 .OrderByDescending(g => g.Key)
                 .First()
                 .Select(e => e.Data)
@@ -538,15 +538,12 @@ namespace Content.Server.Voting.Managers
             public object Data;
             public string Text;
             public int Votes;
-            public float Weight; // Mono
 
-            public VoteEntry(object data, string text,
-                float weight = 1f) // Mono
+            public VoteEntry(object data, string text)
             {
                 Data = data;
                 Text = text;
                 Votes = 0;
-                Weight = weight; // Mono
             }
         }
 
