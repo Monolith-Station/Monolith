@@ -9,13 +9,13 @@
   - MAWCNeck
   - MAWCOuterClothingInitiate
   - ContractorEars
+  - MawcSidearm
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - MAWCInitiatePDA
   - ContractorWallet
   - ContractorCartridge
   - NFSpeciesSpecific
-  - MawcSidearm # Last as it's a hidden option.
 
 - type: roleLoadout
   id: JobMAWCAcolyte
@@ -29,13 +29,13 @@
   - MAWCOuterClothingAcolyte
   - ContractorEars
   - MawcAcolyteWeapon
+  - MawcSidearm
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - MAWCAcolytePDA
   - ContractorWallet
   - ContractorCartridge
   - NFSpeciesSpecific
-  - MawcSidearm
 
 - type: roleLoadout
   id: JobMAWCSeraph
@@ -49,13 +49,13 @@
   - MAWCOuterClothingSeraph
   - ContractorEars
   - MawcAcolyteWeapon
+  - MawcSeraphSidearm
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - MAWCSeraphPDA
   - ContractorWallet
   - ContractorCartridge
   - NFSpeciesSpecific
-  - MawcSeraphSidearm
 
 - type: roleLoadout
   id: JobMAWCCarpenter
@@ -68,11 +68,11 @@
   - MAWCNeck
   - MAWCOuterClothingCarpenter
   - ContractorEars
+  - MawcCarpenterWeapon
+  - MawcSidearm
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - MAWCCarpenterPDA
   - ContractorWallet
   - ContractorCartridge
   - NFSpeciesSpecific
-  - MawcSidearm
-  - MawcCarpenterWeapon
