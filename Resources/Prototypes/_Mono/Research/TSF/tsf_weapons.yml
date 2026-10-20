@@ -18,7 +18,7 @@
   entityIcon: WeaponRifleAnnie
   discipline: TsfmcWeaponry
   tier: 2
-  cost: 30000
+  cost: 70000
   recipeUnlocks:
   - WeaponRifleAnnieTSF
   - WeaponLMGGrizzlyTSF
@@ -26,7 +26,6 @@
   #- WeaponLauncherTSFOsiris
   - WeaponLauncherTSFAnubis
   - WeaponRifleRiversongTSF
-  - WeaponRifleDragonfangTSF
   - WeaponDEWCalico
   - Magazine700Thz
   - AmmoBox700Thz
@@ -44,7 +43,7 @@
   entityIcon: WeaponDEWSmilodon
   discipline: TsfmcWeaponry
   tier: 3
-  cost: 30000
+  cost: 60000
   recipeUnlocks:
   #- WeaponAMRShenzhenTSF
   - WeaponDEWSmilodon
@@ -62,9 +61,10 @@
   entityIcon: WeaponRifleXlr556
   discipline: TsfmcWeaponry
   tier: 3
-  cost: 15000
+  cost: 90000
   recipeUnlocks:
   - WeaponRifleXlr556Tsf
+  - WeaponRifleDragonfangTSF
   - Magazine35mmGrenade #anubis SAPHE
   - LargePowerCellPlasma68x52mm
   - AmmoBox68x52mmCaselessPlasma
