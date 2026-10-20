@@ -30,4 +30,15 @@ public sealed partial class RechargeBasicEntityAmmoComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool ShowExamineText = true;
+
+    // Mono change start: MAWC gun ramping reloads
+    [DataField, AutoNetworkedField]
+    public float AdditionalRechargeCooldownPerBullet = 0f;
+
+    [DataField, AutoNetworkedField]
+    public float? MaximumRechargeCooldown;
+
+    [AutoNetworkedField]
+    public float ModifiedRechargeCooldown = 1.5f;
+    // Mono end
 }
