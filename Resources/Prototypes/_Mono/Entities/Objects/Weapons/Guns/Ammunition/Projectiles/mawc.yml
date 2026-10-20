@@ -28,6 +28,8 @@
         Piercing: 50
         Heat: 20
     armorPenetration: 0.3
+  - type: HitscanStaminaDamage
+    staminaDamage: 40
 
 - type: entity
   id: BulletMAWCFlanker
@@ -71,14 +73,14 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Piercing: 60
+        Piercing: 20
         Heat: 20
         Structural: 500
     armorPenetration: 0.9
   - type: HitscanStaminaDamage
-    staminaDamage: 250
+    staminaDamage: 20
   - type: HitscanMultiRaycast
-    maxPierce: 10 # This is going to be so fucking funny
+    maxPierce: 1 # This is going to be so fucking funny. Alas, the dream is dead.
     maxDistance: 200
     collisionMask:
     - Impassable
