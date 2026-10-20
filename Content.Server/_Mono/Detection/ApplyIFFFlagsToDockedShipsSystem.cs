@@ -1,5 +1,4 @@
 using Content.Server.Shuttles.Events;
-using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 
 namespace Content.Server._Mono.Detection;
@@ -18,18 +17,18 @@ public sealed partial class ApplyIFFFlagsToDockedShipsSystem : EntitySystem
 
     private void OnDock(DockEvent args)
     {
-        if (!TryComp<ApplyIFFFlagsToDockedShipsComponent>(args.GridAUid, out var iffComp))
-            return;
-
-        ApplyFlags(args.GridBUid, iffComp, true);
+        if (TryComp<ApplyIFFFlagsToDockedShipsComponent>(args.GridAUid, out var iffCompA))
+            ApplyFlags(args.GridBUid, iffCompA);
+        if (TryComp<ApplyIFFFlagsToDockedShipsComponent>(args.GridBUid, out var iffCompB))
+            ApplyFlags(args.GridAUid, iffCompB);
     }
 
     private void OnUndock(UndockEvent args)
     {
-        if (!TryComp<ApplyIFFFlagsToDockedShipsComponent>(args.GridAUid, out var iffComp))
-            return;
-
-        ApplyFlags(args.GridBUid, iffComp, false);
+        if (TryComp<ApplyIFFFlagsToDockedShipsComponent>(args.GridAUid, out var iffCompA))
+            ApplyFlags(args.GridBUid, iffCompA, false);
+        if (TryComp<ApplyIFFFlagsToDockedShipsComponent>(args.GridBUid, out var iffCompB))
+            ApplyFlags(args.GridAUid, iffCompB, false);
     }
 
     public void ApplyFlags(EntityUid gridUid, ApplyIFFFlagsToDockedShipsComponent iffComp, bool applying = true)

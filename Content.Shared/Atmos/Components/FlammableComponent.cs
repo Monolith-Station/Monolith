@@ -148,6 +148,12 @@ namespace Content.Shared.Atmos.Components
         public float SmokeMolsReleasedPerStack = 0.01f;
 
         /// <summary>
+        ///     Mono - How much oxygen will be burnt through this entity burning.
+        /// </summary>
+        [DataField]
+        public float OxygenMolsBurntPerStack = 0.01f;
+
+        /// <summary>
         ///     Multiplier on fire energy released into the atmosphere.
         /// </summary>
         [DataField]

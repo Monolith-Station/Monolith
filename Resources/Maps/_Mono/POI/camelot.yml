@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/03/2026 20:13:28
+  time: 10/15/2026 16:38:38
   entityCount: 11899
 maps: []
 grids:
@@ -264,10 +264,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Puddle: []
+        Kudzu: []
         Smoke: []
         MetalFoam: []
+        ESTileFire: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -7740,7 +7741,7 @@ entities:
       pos: 1.5,2.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -16123.775
+      secondsUntilStateChange: -16275.907
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7782,7 +7783,7 @@ entities:
       pos: -30.5,38.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -59317.457
+      secondsUntilStateChange: -59469.59
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26143,7 +26144,7 @@ entities:
       pos: 22.5,53.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -54511.227
+      secondsUntilStateChange: -54663.36
       state: Closing
   - uid: 3582
     components:
@@ -26158,7 +26159,7 @@ entities:
       pos: 22.5,55.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -54513.227
+      secondsUntilStateChange: -54665.36
       state: Closing
   - uid: 3584
     components:
@@ -59091,6 +59092,11 @@ entities:
     - type: Transform
       pos: -4.5,6.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        8185:
+        - - NuclearReactorDataSender
+          - NuclearReactorDataReceiver
 - proto: OperatingTable
   entities:
   - uid: 8187

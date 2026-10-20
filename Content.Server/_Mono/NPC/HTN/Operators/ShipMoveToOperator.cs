@@ -81,6 +81,12 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
     public int EvasionSectorDepth = 2;
 
     /// <summary>
+    /// In what radius to search for projectiles in for collision evasion.
+    /// </summary>
+    [DataField]
+    public float ProjectileSearchBounds = 896f;
+
+    /// <summary>
     /// Whether to consider the movement finished if we collide with target.
     /// </summary>
     [DataField]
@@ -206,6 +212,7 @@ public sealed partial class ShipMoveToOperator : HTNOperator, IHtnConditionalShu
         comp.BrakeThreshold = BrakeThreshold;
         comp.EvasionSectorCount = EvasionSectorCount;
         comp.EvasionSectorDepth = EvasionSectorDepth;
+        comp.ProjectileSearchBounds = ProjectileSearchBounds;
         comp.FinishOnCollide = FinishOnCollide;
         comp.InRangeMaxSpeed = InRangeMaxSpeed;
         comp.InRangeRotation = targetAngle;

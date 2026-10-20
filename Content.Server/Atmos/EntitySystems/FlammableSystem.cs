@@ -544,6 +544,9 @@ namespace Content.Server.Atmos.EntitySystems
                     // since idk only certain flammable things should release smoke really. although it can just be zeroed out anyway
                     if (air.GetMoles(Gas.Smoke) <= air.GetMoles(Gas.Oxygen) / 4)
                         air.AdjustMoles(Gas.Smoke, flammable.SmokeMolsReleasedPerStack * flammable.FireStacks);
+                    // Mono
+                    if (air.GetMoles(Gas.Oxygen) >= 2f)
+                        air.AdjustMoles(Gas.Oxygen, flammable.OxygenMolsBurntPerStack * flammable.FireStacks * -1);
                     // ES END
 
                     AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 15f : 1f), flammable, flammable.OnFire);

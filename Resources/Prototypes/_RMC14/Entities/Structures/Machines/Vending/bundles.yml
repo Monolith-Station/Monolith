@@ -1,0 +1,34 @@
+- type: entity
+  id: CMVendorBundleRiflemanApparel
+  name: kill me please
+  description: boom kill me bundle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Crescent/Structures/armoryPF.rsi
+    state: "off"
+  - type: CMVendorBundle
+    bundle:
+    - ClothingHeadHatHardhatBlue
+    - ClothingHeadsetQM
+    - ClothingUniformJumpskirtCaptain
+    - ClothingHandsGlovesBoxingRed
+    - ClothingShoesBootsJack
+
+
+- type: entity
+  id: CMVendorBundleRiflemanApparelNoFurry
+  name: kill me please boomer
+  description: boom kill me bundlesese
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Crescent/Structures/armoryPF.rsi
+    state: "off"
+  - type: CMVendorBundle
+    bundle:
+    - ClothingHeadsetQM
+    - ClothingUniformJumpskirtCaptain
+    - ClothingHandsGlovesBoxingRed
+    - ClothingShoesBootsJack
+
