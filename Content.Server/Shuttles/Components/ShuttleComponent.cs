@@ -26,6 +26,11 @@ namespace Content.Server.Shuttles.Components
 
         public const float MaxAngularVelocity = 4f;
 
+        /// Mono start
+        public float MaxLinearVelocityMultiplier = 1f;
+        public float BaseThrusterMultiplier = 3.5f;
+        /// Mono end
+
         /// <summary>
         /// The cached thrust available for each cardinal direction
         /// </summary>
