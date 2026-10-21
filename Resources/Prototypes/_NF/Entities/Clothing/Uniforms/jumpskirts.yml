@@ -56,8 +56,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSecGuard
-  name: security guard's uniform
-  description: A specialized uniform for Colonial Outpost's station guard. Crisp and official to let dock loiterers know you mean business.
+  name: military guard's uniform # Mono - Rename/redesc
+  description: A specialized uniform for military guardsmen. Crisp and official to let dock loiterers know you mean business. # Mono - Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpskirt/security_guard.rsi
@@ -67,8 +67,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNfsd
-  name: TSFMC jumpskirt
-  description: A long sleeved jumpskirt produced for deputy colonels. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
+  name: military jumpskirt # Mono - Rename/redesc
+  description: A long sleeved jumpskirt produced for military soldiers. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood. # Mono - Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpskirt/nfsd_skirt.rsi
@@ -78,8 +78,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNfsdShort
-  name: TSFMC jumpskirt
-  description: A short sleeved jumpskirt produced for deputy colonels. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
+  name: military short-sleeved jumpskirt # Mono - Rename/redesc
+  description: A short sleeved jumpskirt produced for military soldiers. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood. # Mono - Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpskirt/nfsd_skirt_short.rsi
@@ -89,8 +89,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtPublicAffairsLiaison
-  name: public affairs liaison jumpskirt
-  description: A starched and pressed skirt suit for the public affairs liaison.
+  name: military clerk jumpskirt # Mono - Rename/redesc
+  description: A starched and pressed skirt suit for a military clerk. # Mono - Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpskirt/public_affairs.rsi
