@@ -131,14 +131,6 @@ entities:
       parent: 1
     - type: ForceAnchor
     - type: StationTransit
-    - type: ProtectedGrid
-      hostileMobKillSound: !type:SoundPathSpecifier
-        path: /Audio/Effects/holy.ogg
-      preventFloorRemoval: True
-    - type: GridGodMode
-      protectedEntities: []
-    - type: GridRaider
-      protectedEntities: []
     - type: BecomesStation
       id: Frontier
     - type: InitRepairSnapshot
@@ -54886,6 +54878,13 @@ entities:
     - type: Transform
       pos: -40.5,2.5
       parent: 2
+    - type: ShipShieldEmitter
+      damageOverloadTimePunishment: 1
+      damageLimit: 15000000
+      baseDraw: 0
+      maxDraw: 0
+      healPerSecond: 650000
+    - type: DisableToolUse
 - proto: ShuttersFrame
   entities:
   - uid: 7665

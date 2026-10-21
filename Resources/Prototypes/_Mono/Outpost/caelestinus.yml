@@ -1,9 +1,9 @@
 - type: gameMap
   id: Frontier
-  mapName: 'Caelestinus Central'
+  mapName: 'Caelestinus Central' # NOTE: Caelestinus Central has an impenetrable shield that should ideally have its special components removed when it receives armament of some kind!
   mapPath: /Maps/_Mono/Outpost/caelestinus_central.yml # Mono
   minPlayers: 0
-  maxPlayers: 100
+  maxPlayers: 220
   randomRotation: true
   maxRandomOffset: 0
   stations:
@@ -20,7 +20,7 @@
       - type: VesselMusic
         ambientMusicPrototype: ColossusCentralMusic
       - type: VesselInfo
-        description: "The closest thing to civilization in this sector. You almost feel safe."
+        description: "Among the few symbols of greater independence and peace within the sector, yet it feels almost uneasy..."
       - type: DeleteNearbyDrones
         distance: 4000
       components:
@@ -44,15 +44,14 @@
             Borg: [ -1, -1 ]
             StationRepresentative: [ 1, 1 ]
             #StationTrafficController: [ 2, 2 ]
-            SecurityGuard: [ 3, 3 ]
+            SecurityGuard: [ 6, 6 ]
             CCServiceWorker: [ 4, 4 ]
             #NFJanitor: [ 2, 2 ]
             #MailCarrier: [ 2, 2 ]
             DirectorOfCare: [ 1, 1 ]
-            MdMedic: [ -1, -1 ]
+            MdMedic: [ 4, 4 ]
           tags:
-          - HeadOfPersonnel
-          - HeadOfSecurity
+          - CentralCommand # no changing these slots
         - type: Announcer
         - type: StationCargoBountyDatabase
           maxBounties: 20
