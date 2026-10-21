@@ -224,3 +224,54 @@
       - EncryptionKeyCommon
       - EncryptionKeyMieyo
       - EncryptionKeyMieyoCommand
+
+# MAWC
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetMawcLow
+  name: MAWC lower nexus headset
+  description: A standard headset used by MAWC's lower nexus. This headset will accept standard encryption keys and comes prefitted with a key for corporate communications.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Ears/Headsets/mawc.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Ears/Headsets/mawc.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyMieyo
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetMawcLowAlt
+  name: MAWC lower nexus headset
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Ears/Headsets/mawcalt.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Ears/Headsets/mawcalt.rsi
+
+- type: entity
+  parent: ClothingHeadsetMawcLow
+  id: ClothingHeadsetMawcHigh
+  name: MAWC upper nexus headset
+  description: A standard headset used by members of MAWC's upper nexus. This headset will accept standard encryption keys and comes prefitted with a key for corporate communications.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyMawc
+      - EncryptionKeyMawcCommand
+
+- type: entity
+  parent: ClothingHeadsetMawcHigh
+  id: ClothingHeadsetMawcHighAlt
+  name: MAWC upper nexus headset
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Ears/Headsets/mawcalt.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Ears/Headsets/mawcalt.rsi

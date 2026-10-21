@@ -28,6 +28,8 @@
   accessGroups: [GeneralAccess]
   access: [MAWC, MAWCInitiate]
   special:
+  - !type:AddImplantSpecial
+    implants: [ MawcTrackingImplant ]
   - !type:AddComponentSpecial
     components:
     - type: NpcFactionMember
@@ -56,6 +58,8 @@
   accessGroups: [GeneralAccess]
   access: [MAWC, MAWCCarpenter]
   special:
+  - !type:AddImplantSpecial
+    implants: [ MawcTrackingImplant ]
   - !type:AddComponentSpecial
     components:
     - type: NpcFactionMember
@@ -84,6 +88,8 @@
   accessGroups: [GeneralAccess]
   access: [MAWC, MAWCAcolyte]
   special:
+  - !type:AddImplantSpecial
+    implants: [ MawcTrackingImplant ]
   - !type:AddComponentSpecial
     components:
     - type: NpcFactionMember
@@ -115,6 +121,8 @@
   accessGroups: [GeneralAccess]
   access: [MAWC, MAWCSeraph]
   special:
+  - !type:AddImplantSpecial
+    implants: [ MawcTrackingImplant ]
   - !type:AddComponentSpecial
     components:
     - type: NpcFactionMember

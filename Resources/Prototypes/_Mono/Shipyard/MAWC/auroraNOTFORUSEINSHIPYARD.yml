@@ -1,0 +1,40 @@
+- type: vessel
+  id: Aurora
+  parent: BaseVessel
+  name: MAWC Aurora
+  description: Insert Desc here
+  price: 62000
+#  purchasable: false # T1 - voucher only
+  category: Small
+  group: Mawc
+  access: MAWC
+  shuttlePath: /SharedMaps/_Mono/Shuttles/MAWC/aurora.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Autora
+  mapName: 'MAWC Aurora'
+  mapPath: /SharedMaps/_Mono/Shuttles/MAWC/aurora.yml
+  minPlayers: 0
+  stations:
+    Aurora:
+      stationProto: StandardFrontierVessel
+#      gridComponents:
+#      - type: VesselInfo
+#        description: "A vessel so rugged you can still see the radiation scarring after the new paintjob."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Aurora MAWC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MAWCInitiate: [ 0, 0 ]
+            MAWCCarpenter: [ 0, 0 ]
+            MAWCAcolyte: [ 0, 0 ]
+            MAWCSeraph: [ 0, 0 ]

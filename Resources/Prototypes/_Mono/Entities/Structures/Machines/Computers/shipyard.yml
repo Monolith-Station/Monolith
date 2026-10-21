@@ -177,3 +177,31 @@
     requiredCompanies:
     - TSF
     inverted: true
+
+- type: entity
+  id: ComputerShipyardMAWC
+  parent: ComputerShipyardBase
+  name: MAWC Group shipyard console
+  description: Pulls from a database linked to a nanoforge which rapidly fabricates a desired vessel from Aurora's storage.
+  components:
+  - type: ActivatableUI
+    key: enum.ShipyardConsoleUiKey.Mawc
+  - type: UserInterface
+    interfaces:
+      enum.ShipyardConsoleUiKey.Mawc:
+        type: ShipyardConsoleBoundUserInterface
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/computers.rsi
+    layers: #Reusing as the DI computer sprites aren't in use to my knowledge.
+    - map: ["computerLayerBody"]
+      state: computer_not_rot
+    - map: ["computerLayerKeyboard"]
+      state: gunnery_keyboard
+    - map: ["computerLayerScreen"]
+      state: shipyard_MAWC
+    - map: ["computerLayerKeys"]
+      state: gunnery_keys
+  - type: ShipyardConsole
+    shipyardChannel: Mawc
+    ignoreBaseSaleRate: false
+    canTransferDeed: false

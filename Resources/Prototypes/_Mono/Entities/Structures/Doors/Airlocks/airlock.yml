@@ -66,7 +66,7 @@
   - type: Wires
     layoutId: AirlockSecurity
 
-# Underground 
+# Underground
 
 - type: entity
   parent: AirlockSyndicate
@@ -85,3 +85,41 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsGodfather ]
+
+# MAWC
+
+- type: entity
+  parent: AirlockSecurity # if you get syndie door somehow it counts as sec
+  id: AirlockMawc
+  suffix: MAWC
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/Airlocks/Standard/mawc.rsi
+
+- type: entity
+  parent: AirlockMawc
+  id: AirlockMawcLocked
+  suffix: MAWC lower nexus, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcLow ]
+
+- type: entity
+  parent: AirlockMawc
+  id: AirlockMawcCommand
+  suffix: MAWC upper nexus, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcHigh ]
+
+
+- type: entity
+  parent: AirlockHatchMaintenance
+  id: AirlockHatchMaintenanceMawc
+  suffix: MAWC lower nexus, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcLow ]

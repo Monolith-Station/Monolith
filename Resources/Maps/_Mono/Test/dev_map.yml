@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 10/19/2026 22:43:29
-  entityCount: 1723
+  entityCount: 1724
 maps:
 - 1
 grids:
@@ -7660,28 +7660,28 @@ entities:
       parent: 2
 - proto: SpawnPointMAWCAcolyte
   entities:
-  - uid: 1710
+  - uid: 1730
     components:
     - type: Transform
       pos: -5.5,1.5
       parent: 2
 - proto: SpawnPointMAWCCarpenter
   entities:
-  - uid: 1711
+  - uid: 1731
     components:
     - type: Transform
       pos: -5.5,1.5
       parent: 2
 - proto: SpawnPointMAWCInitiate
   entities:
-  - uid: 1712
+  - uid: 1732
     components:
     - type: Transform
       pos: -5.5,1.5
       parent: 2
 - proto: SpawnPointMAWCSeraph
   entities:
-  - uid: 1713
+  - uid: 1733
     components:
     - type: Transform
       pos: -5.5,1.5
@@ -11049,20 +11049,6 @@ entities:
     components:
     - type: Transform
       pos: -2.3528144,-0.3151633
-      parent: 2
-- proto: WeaponRevolverFitz
-  entities:
-  - uid: 1669
-    components:
-    - type: Transform
-      pos: -2.3059394,-0.5495383
-      parent: 2
-- proto: WeaponRevolverLucky
-  entities:
-  - uid: 1670
-    components:
-    - type: Transform
-      pos: -2.5559394,-0.8464133
       parent: 2
 - proto: WeaponRifleAk
   entities:
