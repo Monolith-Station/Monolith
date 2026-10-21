@@ -317,7 +317,7 @@
     pack: CrocusPDVArmory
 
 - type: entity
-  parent: [VendingMachineCredit, BaseStructureDisableToolUse, BaseStructureIndestructible]
+  parent: [VendingMachineCredit, BaseStructureDisableToolUse, BaseStructureIndestructible, BaseStructureAccessReaderImmuneToEmag]
   id: VendingMachineTelecrystalExchange
   name: TelecrystalExchange
   description: Converts credits into telecrystals. Requires the Godfather's ID to use.
