@@ -67,6 +67,13 @@
     sprite: _NF/Clothing/OuterClothing/Misc/nfsd_bomber.rsi
   - type: Clothing
     sprite: _NF/Clothing/OuterClothing/Misc/nfsd_bomber.rsi
+  - type: Tag # Mono
+    tags:
+    - Kevlar
+  - type: StaminaDamageResistance # Mono - Stamres
+    coefficient: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
   - type: Armor # Mono
     modifiers: # Same as polyvalent
       coefficients:
