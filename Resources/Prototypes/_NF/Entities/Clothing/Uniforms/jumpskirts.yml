@@ -23,14 +23,24 @@
 - type: entity
   parent: ClothingUniformJumpskirtDetective
   id: ClothingUniformJumpskirtBH
-  name: hard-worn suit
+  name: hard-worn suitskirt # Mono - skirt
   description: Someone who wears this means business.
+  components: # Mono - skirt
+    - type: Sprite
+      sprite: Clothing/Uniforms/Jumpskirt/detective.rsi
+    - type: Clothing
+      sprite: Clothing/Uniforms/Jumpskirt/detective.rsi
 
 - type: entity
   parent: ClothingUniformJumpskirtDetectiveGrey
   id: ClothingUniformJumpskirtBHGrey
-  name: noir suit
+  name: noir suitskirt # Mono - skirt
   description: A grey suit, complete with tie clip.
+  components: # Mono - skirt
+    - type: Sprite
+      sprite: Clothing/Uniforms/Jumpskirt/detective_grey.rsi
+    - type: Clothing
+      sprite: Clothing/Uniforms/Jumpskirt/detective_grey.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
