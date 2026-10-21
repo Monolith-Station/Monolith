@@ -1,8 +1,8 @@
 frontier-lobby-tsfmc-secondary-subtext = A backup operating center for the TSFMC.
 frontier-lobby-tsfmc-secondary-description = The TFSMC Secondary Outpost is a alternate backup outpost, incase the main TSFMC Flagship is rendered inoperable. It contains a basic shipyard, and not much else.
 
-frontier-lobby-camelot-subtext = A military station operated by the USSP.
-frontier-lobby-camelot-description = This is NOT a safezone. This is not a recommended spawn point for new players. Both a expedition and standard shipyard is available here however.
+frontier-lobby-camelot-subtext = A military station operated by multiple organisations.
+frontier-lobby-camelot-description = Freeport Camelot is called home by many different groups as well as several independents who prefer the camaraderie in hardship.
 
 frontier-lobby-zvezda-subtext = A crumbling old habitat "operated" by vagrants.
 frontier-lobby-zvezda-description = Zvezda is a decaying half-abandoned station running off of backup power and portable generators and a limited shipyard. Only spawn here if you know what you're doing.

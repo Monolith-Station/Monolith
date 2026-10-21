@@ -18,9 +18,8 @@
     - MonolithRuleRoleplayFourCharacterActions
     - MonolithRuleRoleplayFiveEroticRoleplay
     - MonolithRuleRoleplaySixMetagame
-    - MonolithRuleRoleplaySevenSafeZones
-    - MonolithRuleRoleplayEightFactionRoles
-    - MonolithRuleRoleplayNineCommandingRoles
+    - MonolithRuleRoleplaySevenFactionRoles
+    - MonolithRuleRoleplayEightCommandingRoles
     - MonolithRuleConflictOneRandomDeathmatch
     - MonolithRuleConflictTwoNewLife
     - MonolithRuleConflictThreeFairPlay
@@ -117,21 +116,15 @@
   ruleEntry: true
 
 - type: guideEntry
-  id: MonolithRuleRoleplaySevenSafeZones
-  name: guide-entry-monolith-rule-roleplay-seven-safe-zones
-  text: "/ServerInfo/_Mono/Guidebook/Rules/Roleplay/Seven_SafeZones.xml"
+  id: MonolithRuleRoleplaySevenFactionRoles
+  name: guide-entry-monolith-rule-roleplay-seven-faction-roles
+  text: "/ServerInfo/_Mono/Guidebook/Rules/Roleplay/Seven_FactionRoles.xml"
   ruleEntry: true
 
 - type: guideEntry
-  id: MonolithRuleRoleplayEightFactionRoles
-  name: guide-entry-monolith-rule-roleplay-eight-faction-roles
-  text: "/ServerInfo/_Mono/Guidebook/Rules/Roleplay/Eight_FactionRoles.xml"
-  ruleEntry: true
-
-- type: guideEntry
-  id: MonolithRuleRoleplayNineCommandingRoles
-  name: guide-entry-monolith-rule-conflict-nine-commanding-roles
-  text: "/ServerInfo/_Mono/Guidebook/Rules/Roleplay/Nine_CommandingRoles.xml"
+  id: MonolithRuleRoleplayEightCommandingRoles
+  name: guide-entry-monolith-rule-conflict-eight-commanding-roles
+  text: "/ServerInfo/_Mono/Guidebook/Rules/Roleplay/Eight_CommandingRoles.xml"
   ruleEntry: true
 
 
