@@ -35,6 +35,9 @@ using System.Linq;
 using Content.Shared.NameIdentifier; // Frontier
 using Content.Server._EinsteinEngines.Silicon.IPC;
 using Content.Shared.Radio.Components; // Goobstation
+using Content.Server.CartridgeLoader; // Frontier
+using Content.Shared.CartridgeLoader; // Frontier
+using Robust.Server.GameObjects; // Frontier
 
 namespace Content.Server.Station.Systems;
 
@@ -62,6 +65,8 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private BankSystem _bank = default!; // Frontier
     [Dependency] private MonoCoinsManager _coins = default!; // Mono
     [Dependency] private PersistentProfileSystem _persistence = default!; // Mono
+    [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!; // Frontier
+    [Dependency] private readonly TransformSystem _xformSystem = default!; // Frontier
     private bool _randomizeCharacters;
 
     /// <inheritdoc/>
@@ -298,6 +303,8 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
                 // also spend long-term currency on this
                 _bank.TryBankWithdraw(session!, prefs!, profile!, (int)(initialBankBalance - bankBalance), out var newBalance, true);
             }
+
+            EquipRoleName(entity.Value, loadout, roleProto!);
             /// End Frontier: overwriting EquipRoleLoadout
         }
 
@@ -387,6 +394,30 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
 
 
     #endregion Player spawning helpers
+    // Frontier: equip cartridges
+    protected override void EquipPdaCartridgesIfPossible(EntityUid entity, List<EntProtoId> pdaCartridges)
+    {
+        if (!InventorySystem.TryGetSlotEntity(entity, "id", out var slotEnt))
+        {
+            DebugTools.Assert(false, $"Entity {entity} has a non-empty cartridge loadout, but doesn't have anything in their ID slot!");
+            return;
+        }
+        if (!TryComp<CartridgeLoaderComponent>(slotEnt, out var cartridgeLoader))
+        {
+            DebugTools.Assert(false, $"Entity {entity} has a non-empty cartridge loadout, but the item in their ID slot isn't a cartridge loader!");
+            return;
+        }
+        var coords = _xformSystem.GetMapCoordinates(entity);
+        foreach (var entProto in pdaCartridges)
+        {
+            var spawnedEntity = Spawn(entProto, coords);
+            if (!_cartridgeLoader.InstallCartridge(slotEnt.Value, spawnedEntity, cartridgeLoader))
+                DebugTools.Assert(false, $"Entity {entity} could not install cartridge {entProto} into their PDA {slotEnt.Value}!");
+
+            QueueDel(spawnedEntity);
+        }
+    }
+    // End Frontier: equip cartridges
 }
 
 /// <summary>

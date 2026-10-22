@@ -2,9 +2,8 @@
 - type: loadout
   id: ContractorMedicalTrackingImplanter
   name: medical tracking implanter
-  storage:
-    back:
-    - MedicalTrackingImplanter
+  implants:
+  - MedicalTrackingImplanter
 
 #T1
 - type: loadout
@@ -14,9 +13,8 @@
   - !type:GroupLoadoutEffect
     proto: ContractorT1
   price: 1000
-  storage:
-    back:
-    - LightImplanter
+  implants:
+  - LightImplanter
 
 - type: loadout
   id: ContractorBikeHornImplanter
@@ -25,9 +23,8 @@
   - !type:GroupLoadoutEffect
     proto: ContractorT1
   price: 1000
-  storage:
-    back:
-    - BikeHornImplanter
+  implants:
+  - BikeHornImplanter
 
 - type: loadout
   id: ContractorSadTromboneImplanter
@@ -36,6 +33,5 @@
   - !type:GroupLoadoutEffect
     proto: ContractorT1
   price: 1000
-  storage:
-    back:
-    - SadTromboneImplanter
+  implants:
+  - SadTromboneImplanter
